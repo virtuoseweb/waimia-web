@@ -1,109 +1,125 @@
 {
   "$schema": "../../../schemas/generated/services.page.schema.json",
-  "title_fr": "Site Webflow pour PME · instrumentation et migration IA",
-  "title_en": "Webflow site for SMEs · instrumentation and AI migration",
-  "description_fr": "Vous aimez Webflow pour le design et la mise en ligne, mais voulez l'intelligence : SEO/GEO, CRM, scoring et tracking. Waimia instrumente ou migre.",
-  "description_en": "You like Webflow for design and go-live, but want intelligence: SEO/GEO, CRM, scoring and tracking. Waimia instruments it or migrates.",
+  "title_fr": "Agence Webflow pour PME : création et refonte · Waimia",
+  "title_en": "Webflow agency for SMEs: build and redesign · Waimia",
+  "description_fr": "Agence Webflow pour PME : création ou refonte de site, formulaires reliés à votre CRM, contenus que votre équipe modifie seule. Dès 2 000 € HT.",
+  "description_en": "Webflow agency for SMBs: site build or redesign, forms connected to your CRM, content your team edits alone. From €2,000 excl. VAT.",
   "slug": "webflow",
   "publishedAt": "2026-06-29T00:00:00.000Z",
-  "updatedAt": "2026-07-15T00:00:00.000Z",
+  "updatedAt": "2026-10-12T00:00:00.000Z",
   "category": "acquisition",
   "tags": [
-    "site-web-intelligent",
     "webflow",
-    "seo-geo",
-    "crm-intelligent",
-    "migration"
+    "agence-webflow",
+    "creation-site-webflow",
+    "refonte-site",
+    "migration-site",
+    "site-web-intelligent"
+  ],
+  "sources": [
+    {
+      "name": "Webflow Help Center, « How do I export my Webflow site code? » (lu le 12 octobre 2026)",
+      "url": "https://help.webflow.com/hc/en-us/articles/33961386739347-How-do-I-export-my-Webflow-site-code",
+      "type": "enterprise"
+    }
   ],
   "seo": {
     "noindex": false,
-    "serviceType": "Instrumentation et migration de site Webflow piloté par l'IA",
+    "serviceType": "Agence Webflow : création, refonte, instrumentation et migration de sites pour PME",
     "priceRange": "2000-10000€",
     "priceMin": 2000,
     "priceMax": 10000
   },
   "faq_fr": [
     {
-      "q": "On a déjà un site Webflow, vous le refaites ?",
-      "a": "Pas par défaut. On commence par un audit, puis on instrumente votre Webflow existant : SEO/GEO, capture, scoring et tracking branchés au CRM. On ne casse pas un design qui vous va."
+      "q": "Quand Webflow est-il le bon choix pour une PME ?",
+      "a": "Quand le design compte, que votre équipe publie elle-même du contenu et que le site tient en quelques dizaines de pages : offres, références, articles, contact. Webflow se construit visuellement, héberge le site et donne un éditeur de contenu à votre équipe. Si vous vendez surtout des produits, regardez Shopify ; si votre équipe connaît déjà WordPress et ses extensions, restez-y."
     },
     {
-      "q": "Webflow est-il bridé pour le SEO et le GEO ?",
-      "a": "Webflow couvre les bases (balises, sitemap, redirections), mais plafonne à l'échelle : Schema.org avancé, maillage automatisé et contenu en cadence demandent du contournement. Quand le plafond gêne vos objectifs, on instrumente au maximum ou on recommande une migration."
+      "q": "Webflow ou WordPress : lequel choisir ?",
+      "a": "Webflow si le design et la rapidité de mise en ligne passent avant, avec peu d'extensions à gérer. WordPress si vous avez besoin d'un écosystème d'extensions (réservation, adhésion, boutique) ou si votre équipe le maîtrise déjà. Les deux se relient à un CRM. On tranche avec vous au cadrage, selon la personne qui fera vivre le site."
     },
     {
-      "q": "Quelle est la limite de Webflow à l'échelle ?",
-      "a": "Performance variable sur les pages chargées, coût récurrent qui monte avec le trafic et les sièges, et surtout aucune vraie connexion données, CRM ou scoring native. On vous dit honnêtement où Webflow tient et où il décroche."
+      "q": "Peut-on quitter Webflow plus tard ?",
+      "a": "Oui, mais ce n'est pas un export en un clic. Webflow permet d'exporter le code HTML, CSS et JavaScript depuis ses formules d'espace de travail payantes, et d'exporter les collections en CSV. Le CMS, les comptes utilisateurs et l'e-commerce ne sont pas inclus dans le code exporté (aide Webflow, lue le 12 octobre 2026). Une sortie se prépare donc comme une migration : on la chiffre au cadrage."
     },
     {
-      "q": "Vous branchez un CRM et du scoring sur Webflow ?",
-      "a": "Oui. On connecte vos formulaires Webflow à votre CRM (HubSpot, Salesforce, Pipedrive), on pose le scoring comportemental et le routage des leads via une couche d'instrumentation, sans dépendre des seules intégrations natives de Webflow."
+      "q": "Vous branchez Webflow à un CRM ?",
+      "a": "Oui. Les formulaires envoient la demande, avec sa page d'origine, vers HubSpot, Pipedrive ou Salesforce par webhook ou par un scénario n8n. La fiche est créée sans ressaisie et un commercial reçoit une tâche. Le branchement est documenté et remis avec le site."
     },
     {
-      "q": "Quand recommandez-vous de migrer hors de Webflow ?",
-      "a": "Quand le SEO/GEO plafonne, que le coût récurrent dépasse l'intérêt, ou qu'il faut une vraie connexion données. On bascule alors vers un site sur mesure (Astro SSG) qui lève ces limites, en gardant votre design."
+      "q": "Vous reprenez un site Webflow existant ?",
+      "a": "Oui. On commence par un audit : structure des collections, redirections, balisage, formulaires, mesure. Le plus souvent, on corrige l'existant sans refaire le design. Une refonte n'est proposée que si la structure du site bloque votre équipe."
     },
     {
-      "q": "Combien ça coûte et qu'est-ce qui change vraiment ?",
-      "a": "À partir de 2 000 € pour instrumenter un Webflow existant, jusqu'à 10 000 € pour une migration sur mesure complète. Ce qui change : un site qui mesure, qualifie et alimente le CRM, pas seulement une vitrine bien dessinée."
+      "q": "Webflow est-il bon pour le référencement et les moteurs IA ?",
+      "a": "Il couvre les bases : titres, balises, plan de site, redirections 301, et des données structurées ajoutées par code. Le résultat dépend surtout du contenu et de la structure des pages, pas de l'outil. On pose le balisage schema.org et on structure les pages pour être citables. On ne promet pas de position."
+    },
+    {
+      "q": "Combien de temps et combien ça coûte ?",
+      "a": "En général 4 à 8 semaines pour un site en ligne ; vos contenus font varier le délai. À partir de 2 000 € HT pour une landing ou l'instrumentation d'un site existant, 4 000 € HT pour 3 à 5 pages, à partir de 7 000 € HT pour un site complet, à partir de 10 000 € HT pour une migration ou des intégrations. L'abonnement Webflow est à votre nom et n'est pas inclus."
     }
   ],
   "faq_en": [
     {
-      "q": "We already have a Webflow site, do you rebuild it?",
-      "a": "Not by default. We start with an audit, then instrument your existing Webflow: SEO/GEO, capture, scoring and tracking wired to the CRM. We don't break a design that suits you."
+      "q": "When is Webflow the right choice for an SMB?",
+      "a": "When design matters, your team publishes its own content and the site fits in a few dozen pages: offers, references, articles, contact. Webflow is built visually, hosts the site and gives your team a content editor. If you mostly sell products, look at Shopify; if your team already knows WordPress and its plugins, stay there."
     },
     {
-      "q": "Is Webflow capped for SEO and GEO?",
-      "a": "Webflow covers the basics (tags, sitemap, redirects) but plateaus at scale: advanced Schema.org, automated internal linking and content on cadence require workarounds. When the ceiling blocks your goals, we instrument to the max or recommend a migration."
+      "q": "Webflow or WordPress: which one?",
+      "a": "Webflow if design and speed to launch come first, with few extensions to manage. WordPress if you need a wide ecosystem of extensions (booking, membership, shop) or if your team already masters it. Both connect to a CRM. We decide with you at scoping, based on who will run the site."
     },
     {
-      "q": "What is Webflow's limit at scale?",
-      "a": "Variable performance on heavy pages, a recurring cost that climbs with traffic and seats, and above all no real native data, CRM or scoring connection. We tell you honestly where Webflow holds and where it drops off."
+      "q": "Can we leave Webflow later?",
+      "a": "Yes, but it is not a one-click export. Webflow lets you export HTML, CSS and JavaScript from its paid workspace plans, and export collections as CSV. The CMS, user accounts and e-commerce are not included in the exported code (Webflow help, read 12 October 2026). Leaving is therefore prepared like a migration: we price it at scoping."
     },
     {
-      "q": "Do you wire a CRM and scoring onto Webflow?",
-      "a": "Yes. We connect your Webflow forms to your CRM (HubSpot, Salesforce, Pipedrive), set up behavioural scoring and lead routing through an instrumentation layer, without relying solely on Webflow's native integrations."
+      "q": "Do you connect Webflow to a CRM?",
+      "a": "Yes. Forms send the request, with its source page, to HubSpot, Pipedrive or Salesforce through a webhook or an n8n scenario. The record is created with no retyping and a salesperson gets a task. The connection is documented and handed over with the site."
     },
     {
-      "q": "When do you recommend migrating off Webflow?",
-      "a": "When SEO/GEO plateaus, when the recurring cost outweighs the value, or when you need a real data connection. We then move to a bespoke site (Astro SSG) that lifts those limits, keeping your design."
+      "q": "Do you take over an existing Webflow site?",
+      "a": "Yes. We start with an audit: collection structure, redirects, markup, forms, measurement. Most of the time we fix what exists without redoing the design. A rebuild is only proposed if the site's structure blocks your team."
     },
     {
-      "q": "How much does it cost and what really changes?",
-      "a": "From 2,000 € to instrument an existing Webflow, up to 10,000 € for a full bespoke migration. What changes: a site that measures, qualifies and feeds the CRM, not just a well-designed brochure."
+      "q": "Is Webflow good for SEO and AI engines?",
+      "a": "It covers the basics: titles, tags, sitemap, 301 redirects, and structured data added through code. The outcome depends mostly on content and page structure, not on the tool. We lay schema.org markup and structure pages to be citable. We promise no ranking."
+    },
+    {
+      "q": "How long and how much?",
+      "a": "Usually 4 to 8 weeks for a live site; your content moves the timeline. From €2,000 excl. VAT for a landing page or instrumenting an existing site, €4,000 for 3 to 5 pages, from €7,000 for a full site, from €10,000 for a migration or integrations. The Webflow subscription is in your name and not included."
     }
   ],
   "sections": [
     {
       "type": "hero-masthead-card",
       "background": "paper",
-      "kicker_fr": "§ Site intelligent · Webflow",
-      "kicker_en": "§ Intelligent site · Webflow",
-      "h1_fr": "Votre site <i class=\"acc\">Webflow</i>, rendu intelligent.",
-      "h1_en": "Your <i class=\"acc\">Webflow</i> site, made intelligent.",
-      "lede_fr": "Votre Webflow, mais intelligent. Webflow dessine vite et met en ligne sans friction. Waimia y branche le SEO/GEO, le CRM, le scoring et le tracking, ou recommande une migration sur mesure quand le plafond gêne vos objectifs. Sans casser un design qui vous va.",
-      "lede_en": "Your Webflow, but intelligent. Webflow designs fast and ships without friction. Waimia wires in SEO/GEO, CRM, scoring and tracking, or recommends a bespoke migration when the ceiling blocks your goals. Without breaking a design that suits you.",
+      "kicker_fr": "§ Agence Webflow · un outil du système",
+      "kicker_en": "§ Webflow agency · a tool in the system",
+      "h1_fr": "Agence <i class=\"acc\">Webflow</i> : un site que votre équipe fait vivre.",
+      "h1_en": "Webflow agency: a site your team keeps <i class=\"acc\">alive</i>.",
+      "lede_fr": "Webflow permet à votre équipe de modifier le site sans développeur. Waimia crée, refond ou reprend votre site Webflow et le relie à ce qui suit le formulaire : CRM, relance, mesure. Nous disons aussi quand Webflow n'est pas le bon outil.",
+      "lede_en": "Webflow lets your team edit the site without a developer. Waimia builds, redesigns or takes over your Webflow site and connects it to what follows the form: CRM, follow-up, measurement. We also say when Webflow is the wrong tool.",
       "badges": [
         {
-          "label_fr": "Webflow instrumenté",
-          "label_en": "Instrumented Webflow"
+          "label_fr": "Création et refonte",
+          "label_en": "Build and redesign"
         },
         {
-          "label_fr": "SEO + GEO",
-          "label_en": "SEO + GEO"
+          "label_fr": "Formulaires reliés au CRM",
+          "label_en": "Forms connected to the CRM"
         },
         {
-          "label_fr": "Connecté au CRM",
-          "label_en": "CRM-connected"
+          "label_fr": "Reprise d'un site existant",
+          "label_en": "Takeover of an existing site"
         },
         {
-          "label_fr": "Mesurable",
-          "label_en": "Measurable"
+          "label_fr": "Balisage schema.org",
+          "label_en": "schema.org markup"
         }
       ],
-      "cta_sub_fr": "Diagnostic de 45 min, gratuit et sans engagement : on regarde votre Webflow réel.",
-      "cta_sub_en": "45-min diagnostic, free and no commitment: we look at your real Webflow.",
+      "cta_sub_fr": "Audit gratuit de 45 minutes en visio. Vous repartez avec au moins deux process à automatiser, chiffrés.",
+      "cta_sub_en": "Free 45-minute audit by video call. You leave with at least two processes to automate, costed.",
       "cta_primary": {
         "label_fr": "Réserver un audit IA gratuit →",
         "label_en": "Book a free AI audit →",
@@ -111,431 +127,316 @@
         "variant": "primary"
       },
       "cta_secondary": {
-        "label_fr": "Voir ce qu'on branche",
-        "label_en": "See what we wire in",
-        "href": "#capacites",
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme",
         "variant": "ghost"
       },
       "media_src": "/images/line-art/dispositif-flow.svg",
-      "media_alt_fr": "Schéma du dispositif : un site Webflow existant auquel on branche l'IA, le CRM et le tracking pour qualifier chaque visite.",
-      "media_alt_en": "Device diagram: an existing Webflow site wired to AI, CRM and tracking to qualify every visit.",
-      "kpis": [
-        {
-          "num": "Sans refonte",
-          "cap_fr": "on instrumente l'existant",
-          "cap_en": "we instrument what exists"
-        },
-        {
-          "num": "Audit d'abord",
-          "cap_fr": "instrumenter ou migrer, honnêtement",
-          "cap_en": "instrument or migrate, honestly"
-        }
-      ]
+      "media_alt_fr": "Schéma du dispositif : un visiteur arrive sur le site, branché à vos données, ses KPI sont lus, puis le routage qualifie chaque visite.",
+      "media_alt_en": "Device diagram: a visitor lands on the site, wired to your data, its KPIs are read, then routing qualifies each visit."
     },
     {
       "type": "proof-bar",
       "background": "paper",
       "kicker_fr": "§ En bref",
-      "kicker_en": "§ At a glance",
+      "kicker_en": "§ In short",
       "metrics": [
         {
-          "value": "2–10 k€",
-          "label_fr": "instrumenter Webflow ou migrer sur mesure",
-          "label_en": "instrument Webflow or migrate bespoke",
+          "value": "Dès 2 000 € HT",
+          "label_fr": "landing ou instrumentation d'un Webflow existant ; grille complète plus bas",
+          "label_en": "landing page or instrumenting an existing Webflow; full grid below",
           "emphasis": true
         },
         {
-          "value": "Sans refonte",
-          "label_fr": "on garde le design qui vous va",
-          "label_en": "we keep the design that suits you"
+          "value": "4 à 8 semaines",
+          "label_fr": "délai habituel, selon vos contenus",
+          "label_en": "usual lead time, depending on your content",
+          "emphasis": false
         },
         {
-          "value": "Temps réel",
-          "label_fr": "KPI lus, SEO optimisé, leads scorés",
-          "label_en": "KPIs read, SEO optimised, leads scored"
+          "value": "CRM branché",
+          "label_fr": "chaque demande crée une fiche avec sa page d'origine",
+          "label_en": "each request creates a record with its source page",
+          "emphasis": false
         },
         {
-          "value": "Honnête",
-          "label_fr": "où Webflow tient, où il décroche",
-          "label_en": "where Webflow holds, where it drops off"
+          "value": "À votre nom",
+          "label_fr": "compte Webflow, domaine et accès : rien ne passe par nous",
+          "label_en": "Webflow account, domain and access: nothing goes through us",
+          "emphasis": false
         }
       ]
     },
     {
       "type": "definition-extract",
       "background": "paper",
-      "kicker_fr": "§ Définition · format extractible",
-      "kicker_en": "§ Definition · extractable format",
-      "statement_fr": "Un <i class=\"acc\">Webflow instrumenté</i> est un site Webflow auquel on branche le SEO/GEO avancé, la capture, le scoring et le tracking connectés au CRM : il garde la rapidité de design de Webflow et gagne l'intelligence qui lui manque. Quand le plafond gêne, on migre sur mesure en gardant le design.",
-      "statement_en": "An <i class=\"acc\">instrumented Webflow</i> is a Webflow site wired with advanced SEO/GEO, capture, scoring and tracking connected to the CRM: it keeps Webflow's design speed and gains the intelligence it lacks. When the ceiling blocks you, we migrate bespoke while keeping the design.",
+      "kicker_fr": "§ Définition",
+      "kicker_en": "§ Definition",
+      "statement_fr": "Une <i class=\"acc\">agence Webflow</i> conçoit, construit et fait évoluer des sites dans Webflow, un outil visuel qui produit le code, héberge le site et donne à l'équipe un éditeur de contenu. Chez Waimia, le site est relié au reste : formulaires vers le CRM, balisage pour les moteurs de recherche et les assistants IA, mesure d'audience avec consentement.",
+      "statement_en": "A <i class=\"acc\">Webflow agency</i> designs, builds and evolves sites in Webflow, a visual tool that produces the code, hosts the site and gives the team a content editor. At Waimia the site is connected to the rest: forms into the CRM, markup for search engines and AI assistants, audience measurement with consent.",
       "pills": [
         {
-          "label_fr": "Design gardé",
-          "label_en": "Design kept"
+          "label_fr": "Création et refonte",
+          "label_en": "Build and redesign"
         },
         {
-          "label_fr": "SEO + GEO",
-          "label_en": "SEO + GEO"
+          "label_fr": "Collections CMS",
+          "label_en": "CMS collections"
         },
         {
-          "label_fr": "Connecté au CRM",
-          "label_en": "CRM-connected"
+          "label_fr": "Formulaires reliés",
+          "label_en": "Connected forms"
         },
         {
-          "label_fr": "Scoring",
-          "label_en": "Scoring"
-        },
-        {
-          "label_fr": "Migration possible",
-          "label_en": "Migration possible"
+          "label_fr": "Redirections 301",
+          "label_en": "301 redirects"
         }
       ],
       "specs": [
         {
-          "label_fr": "Schema.org avancé",
-          "label_en": "Advanced Schema.org"
+          "label_fr": "Éditeur de contenu",
+          "label_en": "Content editor"
         },
         {
-          "label_fr": "Tracking server-side",
-          "label_en": "Server-side tracking"
+          "label_fr": "HubSpot, Pipedrive, Salesforce",
+          "label_en": "HubSpot, Pipedrive, Salesforce"
         },
         {
-          "label_fr": "RGPD propre",
-          "label_en": "Clean GDPR"
+          "label_fr": "n8n et webhooks",
+          "label_en": "n8n and webhooks"
         },
         {
-          "label_fr": "CRM natif",
-          "label_en": "Native CRM"
+          "label_fr": "schema.org",
+          "label_en": "schema.org"
         },
         {
-          "label_fr": "Migration Astro SSG",
-          "label_en": "Astro SSG migration"
-        },
-        {
-          "label_fr": "Pipeline",
-          "label_en": "Pipeline"
+          "label_fr": "Consentement RGPD",
+          "label_en": "GDPR consent"
         }
       ]
     },
     {
-      "type": "pain-severity-list",
-      "background": "ink",
-      "kicker_fr": "Webflow seul · par sévérité",
-      "kicker_en": "Webflow alone · by severity",
-      "h2_fr": "Là où Webflow seul <i class=\"acc\">plafonne</i>.",
-      "h2_en": "Where Webflow alone <i class=\"acc\">plateaus</i>.",
-      "items": [
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "figures": [
         {
-          "severity": "critical",
-          "title_fr": "Aucune vraie connexion données",
-          "title_en": "No real data connection",
-          "desc_fr": "Les formulaires partent dans une boîte mail ou une intégration fragile : pas de CRM enrichi, pas de scoring, pas de routage automatique des leads.",
-          "desc_en": "Forms land in a mailbox or a fragile integration : no enriched CRM, no scoring, no automatic lead routing.",
-          "fix_fr": "Couche CRM + scoring + routage.",
-          "fix_en": "CRM + scoring + routing layer."
-        },
-        {
-          "severity": "high",
-          "title_fr": "SEO et GEO plafonnés",
-          "title_en": "SEO and GEO capped",
-          "desc_fr": "Webflow couvre les bases, mais le Schema.org avancé, le maillage automatisé et le contenu en cadence demandent des contournements lourds.",
-          "desc_en": "Webflow covers the basics, but advanced Schema.org, automated linking and content on cadence require heavy workarounds.",
-          "fix_fr": "Balisage et contenu instrumentés.",
-          "fix_en": "Instrumented markup and content."
-        },
-        {
-          "severity": "medium",
-          "title_fr": "Coût récurrent et perf variable",
-          "title_en": "Recurring cost and variable perf",
-          "desc_fr": "L'abonnement monte avec le trafic et les sièges, et les pages chargées peuvent peser sur le PageSpeed à mesure que le site grandit.",
-          "desc_en": "The subscription climbs with traffic and seats, and heavy pages can weigh on PageSpeed as the site grows.",
-          "fix_fr": "Arbitrage instrumenter / migrer.",
-          "fix_en": "Instrument-or-migrate call."
+          "src": "/images/illustrations/ds/webflow-colleur-affiches-paper.webp",
+          "alt_fr": "Illustration : un colleur d'affiches pose de grandes feuilles sur un panneau, bloc après bloc, depuis une échelle",
+          "alt_en": "Illustration: a bill poster pastes large sheets onto a billboard, block by block, from a ladder",
+          "side": "right"
         }
+      ],
+      "html_fr": "<h2>Ce que Webflow fait bien</h2>\n<p>Webflow donne un contrôle fin de la mise en page sans écrire le code à la main. Un designer obtient un rendu précis, les collections (articles, références, équipe) alimentent des pages modèles, et votre équipe corrige un texte ou publie un article depuis l'éditeur. La mise en ligne est rapide parce que l'hébergement est inclus dans l'outil.</p>\n<h2>Ce que nous faisons dessus</h2>\n<p>Nous créons le site ou reprenons l'existant : structure des collections, pages modèles, redirections depuis l'ancien site, balisage. Puis nous branchons les formulaires au <a href=\"/services/crm-scoring-routing\">CRM</a> par webhook ou par un scénario <a href=\"/services/automatisation-n8n\">n8n</a>, pour que chaque demande arrive avec sa page d'origine. Le site est l'entrée du <a href=\"/services/systeme-acquisition\">système d'acquisition</a> ; Webflow n'est qu'une des plateformes de notre <a href=\"/services/site-web-ia\">offre agence site web</a>.</p>\n<h2>Ce qui peut mal tourner</h2>\n<p>Un site construit sans collections : chaque article est une page unique, copiée à la main. Un ancien site dont les adresses ne sont pas redirigées : le référencement repart de zéro. Un compte Webflow ouvert au nom de l'ancien prestataire : on le transfère avant de commencer. Les contenus qui n'arrivent pas : on fixe dès le départ qui écrit quoi.</p>\n<p>Pour regarder votre site réel, commencez par l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>.</p>",
+      "html_en": "<h2>What Webflow does well</h2>\n<p>Webflow gives fine control over layout without hand-writing the code. A designer gets a precise result, collections (articles, references, team) feed template pages, and your team fixes a text or publishes an article from the editor. Going live is quick because hosting is built into the tool.</p>\n<h2>What we do on it</h2>\n<p>We build the site or take over the existing one: collection structure, template pages, redirects from the old site, markup. Then we connect the forms to the <a href=\"/services/crm-scoring-routing\">CRM</a> through a webhook or an <a href=\"/services/automatisation-n8n\">n8n</a> scenario, so each request arrives with its source page. The site is the entry to the <a href=\"/services/systeme-acquisition\">acquisition system</a>; Webflow is only one of the platforms in our <a href=\"/services/site-web-ia\">web agency offer</a>.</p>\n<h2>What can go wrong</h2>\n<p>A site built without collections: every article is a one-off page, copied by hand. An old site whose addresses are not redirected: search visibility restarts from zero. A Webflow account opened in the previous vendor's name: we transfer it before starting. Content that never arrives: we settle who writes what from day one.</p>\n<p>To look at your real site, start with the <a href=\"/audit-ia-pme\">free AI audit</a>.</p>"
+    },
+    {
+      "type": "tech-when-dual",
+      "background": "paper",
+      "kicker_fr": "§ Décision",
+      "kicker_en": "§ Decision",
+      "title_fr": "Webflow, ou une autre plateforme",
+      "title_en": "Webflow, or another platform",
+      "aside_fr": "Quatre plateformes, une même exigence : choisir celle que votre équipe saura faire vivre.",
+      "aside_en": "Four platforms, one requirement: pick the one your team can keep running.",
+      "use_title_fr": "Choisissez Webflow quand",
+      "use_title_en": "Choose Webflow when",
+      "use_items_fr": [
+        "Le design et la précision de la mise en page comptent pour votre image.",
+        "Votre équipe veut modifier textes, images et articles sans passer par un développeur.",
+        "Le site tient en quelques dizaines de pages : offres, références, articles, contact.",
+        "Vous voulez mettre en ligne vite, sans gérer hébergement, mises à jour et extensions.",
+        "Vos besoins de connexion se limitent à des formulaires, un CRM et une prise de rendez-vous."
+      ],
+      "use_items_en": [
+        "Design and layout precision matter for your image.",
+        "Your team wants to edit text, images and articles without going through a developer.",
+        "The site fits in a few dozen pages: offers, references, articles, contact.",
+        "You want to go live fast, without managing hosting, updates and extensions.",
+        "Your connection needs are limited to forms, a CRM and appointment booking."
+      ],
+      "avoid_title_fr": "Évitez Webflow quand",
+      "avoid_title_en": "Avoid Webflow when",
+      "avoid_items_fr": [
+        "Vous vendez un catalogue de produits avec stocks et expéditions : Shopify est fait pour cela.",
+        "Vous voulez un espace client, des comptes ou des contenus qui dépendent de l'utilisateur : une application sur mesure sera plus saine.",
+        "Votre site repose sur beaucoup d'extensions spécialisées (réservation, adhésion) : l'écosystème WordPress est plus large.",
+        "Vous voulez posséder le code et l'hébergement dès le premier jour : l'export de Webflow ne reprend pas le CMS.",
+        "Votre équipe maîtrise déjà WordPress et publie tous les jours : changer d'outil coûte plus qu'il ne rapporte."
+      ],
+      "avoid_items_en": [
+        "You sell a product catalogue with stock and shipping: Shopify is built for that.",
+        "You want a customer area, accounts or user-dependent content: a bespoke application will be healthier.",
+        "Your site relies on many specialised extensions (booking, membership): the WordPress ecosystem is wider.",
+        "You want to own the code and hosting from day one: Webflow export does not include the CMS.",
+        "Your team already masters WordPress and publishes daily: switching tools costs more than it returns."
       ]
     },
     {
       "type": "comparison-duo",
-      "background": "paper-2",
-      "kicker_fr": "§ Webflow seul / instrumenté",
-      "kicker_en": "§ Webflow alone / instrumented",
-      "h2_fr": "De Webflow seul au Webflow qui <i class=\"acc\">qualifie</i>",
-      "h2_en": "From Webflow alone to a Webflow that <i class=\"acc\">qualifies</i>",
-      "without_label_fr": "Webflow seul",
-      "without_label_en": "Webflow alone",
-      "without_title_fr": "Beau, mais muet",
-      "without_title_en": "Pretty, but silent",
+      "background": "paper",
+      "kicker_fr": "§ Exemple type · pas un cas client",
+      "kicker_en": "§ Typical example · not a client case",
+      "h2_fr": "Exemple type : le site d'un cabinet d'architectes",
+      "h2_en": "Typical example: an architecture firm's site",
+      "without_label_fr": "Avant",
+      "without_label_en": "Before",
+      "without_title_fr": "Un site Webflow livré, puis laissé",
+      "without_title_en": "A Webflow site delivered, then left",
       "without_items": [
         {
-          "text_fr": "Les formulaires partent en mail, sans CRM enrichi ni scoring.",
-          "text_en": "Forms go to email, with no enriched CRM or scoring."
+          "text_fr": "Les réalisations sont des pages isolées, copiées une à une : en ajouter une prend une heure.",
+          "text_en": "Projects are standalone pages, copied one by one: adding one takes an hour."
         },
         {
-          "text_fr": "Le SEO plafonne aux réglages natifs, les IA citent rarement la marque.",
-          "text_en": "SEO caps at native settings, AIs rarely cite the brand."
+          "text_fr": "Le formulaire envoie un email à une adresse générique, sans page d'origine.",
+          "text_en": "The form sends an email to a generic address, with no source page."
         },
         {
-          "text_fr": "Aucun visiteur n'est qualifié avant le premier contact.",
-          "text_en": "No visitor is qualified before the first contact."
+          "text_fr": "Les anciennes adresses du site renvoient une erreur 404 depuis la refonte.",
+          "text_en": "The old site addresses return a 404 error since the redesign."
         },
         {
-          "text_fr": "Le coût d'abonnement monte avec le trafic, sans gain de pilotage.",
-          "text_en": "The subscription cost climbs with traffic, with no gain in management."
+          "text_fr": "Personne ne sait quelles pages produisent des demandes.",
+          "text_en": "Nobody knows which pages produce requests."
         }
       ],
-      "with_label_fr": "Instrumenté / migré",
-      "with_label_en": "Instrumented / migrated",
-      "with_title_fr": "Le même design, l'intelligence en plus",
-      "with_title_en": "Same design, intelligence added",
+      "with_label_fr": "Après",
+      "with_label_en": "After",
+      "with_title_fr": "Un site Webflow structuré et relié",
+      "with_title_en": "A structured, connected Webflow site",
       "with_items": [
         {
-          "text_fr": "Les formulaires alimentent le CRM, le scoring qualifie en temps réel.",
-          "text_en": "Forms feed the CRM, scoring qualifies in real time."
+          "text_fr": "Les réalisations sont une collection : une fiche remplie, et la page, la liste et le balisage suivent.",
+          "text_en": "Projects are a collection: fill in one record, and the page, the list and the markup follow."
         },
         {
-          "text_fr": "Le balisage avancé fait remonter la marque dans Google et les IA.",
-          "text_en": "Advanced markup lifts the brand in Google and the AIs."
+          "text_fr": "Le formulaire crée la fiche dans le CRM avec sa page d'origine, et le bon associé reçoit une tâche.",
+          "text_en": "The form creates the CRM record with its source page, and the right partner gets a task."
         },
         {
-          "text_fr": "Le pilotage est temps réel, mesuré sur vos propres données.",
-          "text_en": "Management is real-time, measured on your own data."
+          "text_fr": "Les anciennes adresses sont redirigées en 301 vers les nouvelles.",
+          "text_en": "Old addresses are redirected with 301s to the new ones."
         },
         {
-          "text_fr": "Quand le plafond gêne, une migration sur mesure lève les limites sans perdre le design.",
-          "text_en": "When the ceiling blocks you, a bespoke migration lifts the limits without losing the design."
-        }
-      ]
-    },
-    {
-      "type": "method-stepline",
-      "background": "paper-3",
-      "kicker_fr": "§ Maturité",
-      "kicker_en": "§ Maturity",
-      "h2_fr": "Les 6 niveaux d'un Webflow",
-      "h2_en": "The 6 levels of a Webflow",
-      "lede_fr": "Du site dessiné au front migré sur mesure, six paliers. La plupart des PME stagnent au SEO natif. On vous situe, puis on vous fait monter d'un cran.",
-      "lede_en": "From a designed site to a bespoke-migrated front, six tiers. Most SMEs stall at native SEO. We place you, then move you up a notch.",
-      "steps": [
-        {
-          "title_fr": "Webflow dessiné",
-          "title_en": "Designed Webflow",
-          "sub_fr": "Beau, mais passif",
-          "sub_en": "Pretty, but passive"
-        },
-        {
-          "title_fr": "SEO natif",
-          "title_en": "Native SEO",
-          "sub_fr": "Balises et sitemap, plafonnés",
-          "sub_en": "Tags and sitemap, capped"
-        },
-        {
-          "title_fr": "Webflow suivi",
-          "title_en": "Tracked Webflow",
-          "sub_fr": "Tracking et KPI lus",
-          "sub_en": "Tracking and KPIs read"
-        },
-        {
-          "title_fr": "Webflow branché CRM",
-          "title_en": "CRM-wired Webflow",
-          "sub_fr": "Scoring et capture connectés",
-          "sub_en": "Scoring and capture connected"
-        },
-        {
-          "title_fr": "Webflow éditorial",
-          "title_en": "Editorial Webflow",
-          "sub_fr": "Contenu GEO en cadence",
-          "sub_en": "GEO content on cadence"
-        },
-        {
-          "title_fr": "Migration sur mesure",
-          "title_en": "Bespoke migration",
-          "sub_fr": "Astro SSG, plafonds levés",
-          "sub_en": "Astro SSG, ceilings lifted"
+          "text_fr": "Un tableau indique les pages qui génèrent des demandes.",
+          "text_en": "A dashboard shows which pages generate requests."
         }
       ]
     },
     {
       "type": "deliverables-grid",
-      "background": "paper",
-      "kicker_fr": "§ Livrables",
-      "kicker_en": "§ Deliverables",
-      "title_fr": "Ce que vous récupérez concrètement",
-      "title_en": "What you get concretely",
-      "lead_fr": "On pose l'intelligence sur votre Webflow, sans vous rendre captif. Vous gardez le design.",
-      "lead_en": "We lay the intelligence on your Webflow, without locking you in. You keep the design.",
+      "background": "paper-3",
+      "kicker_fr": "§ Ce que vous gardez",
+      "kicker_en": "§ What you keep",
+      "title_fr": "Ce qui vous reste à la fin",
+      "title_en": "What you keep at the end",
+      "lead_fr": "Le compte Webflow et le domaine sont à votre nom. Nous n'imposons aucun abonnement.",
+      "lead_en": "The Webflow account and the domain are in your name. We impose no subscription.",
       "items": [
         {
-          "title_fr": "Audit et arbitrage",
-          "title_en": "Audit and trade-off call",
-          "body_fr": "Un diagnostic honnête de votre Webflow : où il tient, où il décroche, et la recommandation instrumenter ou migrer, chiffrée.",
-          "body_en": "An honest diagnostic of your Webflow: where it holds, where it drops off, and the instrument-or-migrate recommendation, costed.",
-          "format_fr": "AUDIT",
-          "format_en": "AUDIT",
-          "illustration_src": "/images/line-art/swi-livrable-site.svg",
-          "illustration_alt_fr": "Un audit du Webflow avec recommandation instrumenter ou migrer",
-          "illustration_alt_en": "A Webflow audit with an instrument-or-migrate recommendation"
+          "title_fr": "Le site Webflow",
+          "title_en": "The Webflow site",
+          "body_fr": "Publié sur votre compte, avec collections, pages modèles et styles documentés.",
+          "body_en": "Published on your account, with collections, template pages and documented styles.",
+          "format_fr": "SITE",
+          "format_en": "SITE"
         },
         {
-          "title_fr": "Couche SEO et GEO",
-          "title_en": "SEO and GEO layer",
-          "body_fr": "Schema.org avancé, données structurées par type de page et maillage interne posés au-delà des réglages natifs de Webflow, pour être cité.",
-          "body_en": "Advanced Schema.org, structured data per page type and internal linking laid beyond Webflow's native settings, to be cited.",
-          "format_fr": "GEO",
-          "format_en": "GEO",
-          "illustration_src": "/images/line-art/swi-livrable-connexion-ia.svg",
-          "illustration_alt_fr": "Une couche SEO et GEO posée au-delà du natif Webflow",
-          "illustration_alt_en": "An SEO and GEO layer laid beyond Webflow native"
-        },
-        {
-          "title_fr": "Couche CRM et scoring",
-          "title_en": "CRM and scoring layer",
-          "body_fr": "Vos formulaires Webflow connectés au CRM (HubSpot, Salesforce, Pipedrive), scoring comportemental et routage des leads, tracking server-side.",
-          "body_en": "Your Webflow forms connected to the CRM (HubSpot, Salesforce, Pipedrive), behavioural scoring and lead routing, server-side tracking.",
+          "title_fr": "Les formulaires reliés",
+          "title_en": "The connected forms",
+          "body_fr": "Webhooks ou scénarios n8n vers votre CRM, avec la page d'origine, décrits dans un document.",
+          "body_en": "Webhooks or n8n scenarios into your CRM, with the source page, described in a document.",
           "format_fr": "CRM",
-          "format_en": "CRM",
-          "illustration_src": "/images/line-art/swi-livrable-capture-scoring.svg",
-          "illustration_alt_fr": "Des formulaires Webflow branchés au CRM avec scoring",
-          "illustration_alt_en": "Webflow forms wired to the CRM with scoring"
+          "format_en": "CRM"
         },
         {
-          "title_fr": "Moteur de contenu",
-          "title_en": "Content engine",
-          "body_fr": "Un système éditorial SEO et GEO qui produit des articles balisés, cités par les moteurs génératifs et tissés en maillage interne, en cadence.",
-          "body_en": "An SEO and GEO editorial system that produces tagged articles, cited by generative engines and woven into internal linking, on cadence.",
-          "format_fr": "CONTENU",
-          "format_en": "CONTENT",
-          "illustration_src": "/images/line-art/swi-livrable-landing-pages.svg",
-          "illustration_alt_fr": "Un moteur de contenu SEO et GEO en cadence",
-          "illustration_alt_en": "An SEO and GEO content engine on cadence"
+          "title_fr": "La reprise du référencement",
+          "title_en": "Search visibility carried over",
+          "body_fr": "Table des redirections 301, balises, plan de site et balisage schema.org sur les pages clés.",
+          "body_en": "301 redirect table, tags, sitemap and schema.org markup on key pages.",
+          "format_fr": "SEO",
+          "format_en": "SEO"
         },
         {
-          "title_fr": "Tableau de bord",
-          "title_en": "Dashboard",
-          "body_fr": "KPI Search Console et Analytics lus par l'IA, acquisition, conversion et pipeline en temps réel, alertes sur les anomalies.",
-          "body_en": "Search Console and Analytics KPIs read by the AI, acquisition, conversion and pipeline in real time, alerts on anomalies.",
-          "format_fr": "TABLEAU",
-          "format_en": "DASHBOARD",
-          "illustration_src": "/images/line-art/swi-livrable-tableau-pilotage.svg",
-          "illustration_alt_fr": "Un tableau de pilotage des KPI d'acquisition avec alertes",
-          "illustration_alt_en": "An acquisition KPI dashboard with alerts"
+          "title_fr": "La mesure",
+          "title_en": "Measurement",
+          "body_fr": "Mesure d'audience avec consentement et tableau des pages qui produisent des demandes.",
+          "body_en": "Audience measurement with consent and a dashboard of the pages that produce requests.",
+          "format_fr": "MESURE",
+          "format_en": "MEASURE"
         },
         {
-          "title_fr": "Chemin de migration",
-          "title_en": "Migration path",
-          "body_fr": "Quand le plafond gêne, le plan de migration sur mesure (Astro SSG) qui garde votre design, documenté et chiffré, sans captivité.",
-          "body_en": "When the ceiling blocks you, the bespoke migration plan (Astro SSG) that keeps your design, documented and costed, with no lock-in.",
-          "format_fr": "PLAN",
-          "format_en": "PLAN",
-          "illustration_src": "/images/line-art/swi-livrable-mode-operatoire.svg",
-          "illustration_alt_fr": "Un plan de migration sur mesure qui garde le design Webflow",
-          "illustration_alt_en": "A bespoke migration plan that keeps the Webflow design"
-        }
-      ]
-    },
-    {
-      "type": "feature-grid",
-      "anchor": "capacites",
-      "background": "paper",
-      "kicker_fr": "§ Les briques",
-      "kicker_en": "§ The building blocks",
-      "h2_fr": "Ce qu'on branche sur Webflow",
-      "h2_en": "What we wire onto Webflow",
-      "lede_fr": "Sept briques posées sur le Webflow que vous avez déjà. On active celles qui servent votre maturité, quand elles servent. Pas de gadget qu'on vous facture pour rien.",
-      "lede_en": "Seven building blocks laid on the Webflow you already have. We activate the ones that fit your maturity, when they serve. No gadget billed to you for nothing.",
-      "columns": "4",
-      "fillMedia": "services-layer.svg",
-      "features": [
-        {
-          "icon": "design",
-          "title_fr": "Design gardé",
-          "title_en": "Design kept",
-          "body_fr": "On ne casse pas ce qui vous va. Le design Webflow reste, on pose l'intelligence autour, ou on le remigre à l'identique sur mesure.",
-          "body_en": "We don't break what suits you. The Webflow design stays, we lay the intelligence around it, or migrate it identically to bespoke."
-        },
-        {
-          "icon": "contenu",
-          "title_fr": "SEO et GEO avancé",
-          "title_en": "Advanced SEO and GEO",
-          "body_fr": "Au-delà des réglages natifs : Schema.org avancé, données structurées par type de page, maillage pensé pour les moteurs génératifs.",
-          "body_en": "Beyond native settings: advanced Schema.org, structured data per page type, linking built for generative engines."
-        },
-        {
-          "icon": "qualif",
-          "title_fr": "Capture et scoring",
-          "title_en": "Capture and scoring",
-          "body_fr": "Vos formulaires Webflow branchés à une couche de capture et de scoring comportemental : chaque visite est notée et routée.",
-          "body_en": "Your Webflow forms wired to a capture and behavioural-scoring layer: every visit is scored and routed."
-        },
-        {
-          "icon": "tracking",
-          "title_fr": "Tracking server-side",
-          "title_en": "Server-side tracking",
-          "body_fr": "Tracking first-party, Search Console et Analytics branchés, consentement RGPD propre : vous mesurez sans boîte noire.",
-          "body_en": "First-party tracking, Search Console and Analytics wired in, clean GDPR consent: you measure with no black box."
-        },
-        {
-          "icon": "crm",
-          "title_fr": "CRM",
-          "title_en": "CRM",
-          "body_fr": "Ce que Webflow ne fait pas seul : vos leads dans HubSpot, Salesforce ou Pipedrive, dédoublonnés et routés vers le commercial.",
-          "body_en": "What Webflow doesn't do alone: your leads in HubSpot, Salesforce or Pipedrive, deduplicated and routed to sales."
-        },
-        {
-          "icon": "ia",
-          "title_fr": "IA",
-          "title_en": "AI",
-          "body_fr": "Un LLM branché en skills : il lit vos KPI, optimise le SEO et score chaque visite, sur vos propres données.",
-          "body_en": "An LLM wired in as skills: it reads your KPIs, optimises SEO and scores each visit, on your own data."
-        },
-        {
-          "icon": "pilotage",
-          "title_fr": "Migration maîtrisée",
-          "title_en": "Controlled migration",
-          "body_fr": "Quand le plafond gêne, on migre sur mesure (Astro SSG) en gardant le design : plafonds levés, coût récurrent maîtrisé.",
-          "body_en": "When the ceiling blocks you, we migrate bespoke (Astro SSG) keeping the design: ceilings lifted, recurring cost controlled."
+          "title_fr": "La prise en main",
+          "title_en": "The handover",
+          "body_fr": "Une session pour modifier une page, publier un article et gérer une collection.",
+          "body_en": "One session to edit a page, publish an article and manage a collection.",
+          "format_fr": "FORMATION",
+          "format_en": "TRAINING"
         }
       ]
     },
     {
       "type": "hover-reveal-list",
-      "anchor": "cousins",
+      "anchor": "autres-plateformes",
       "background": "paper-3",
       "reveal_mode": "cursor",
-      "kicker_fr": "§ Trois cœurs possibles",
-      "kicker_en": "§ Three possible cores",
+      "kicker_fr": "§ Autres plateformes",
+      "kicker_en": "§ Other platforms",
       "h2_fr": "Webflow, ou une autre <i>base</i>",
       "h2_en": "Webflow, or another <i>base</i>",
-      "lede_fr": "Webflow n'est pas la seule voie. On l'instrumente, on migre sur mesure, ou on part d'un WordPress existant. Survolez une base pour la voir.",
-      "lede_en": "Webflow isn't the only path. We instrument it, migrate bespoke, or start from an existing WordPress. Hover a base to preview it.",
+      "lede_fr": "Le bon choix dépend de la personne qui fera vivre le site. Survolez une plateforme pour la voir, puis lisez sa page.",
+      "lede_en": "The right choice depends on who will keep the site running. Hover a platform to preview it, then read its page.",
       "items": [
-        {
-          "label_fr": "Site web intelligent",
-          "label_en": "Intelligent website",
-          "meta_fr": "Offre parent · création, refonte et instrumentation",
-          "meta_en": "Parent offer · build, rebuild and instrumentation",
-          "media_src": "/images/illustrations/ds/man-and-woman-hi-paper.webp",
-          "media_alt_fr": "Une jonction validée : l'offre complète de site instrumenté.",
-          "media_alt_en": "A validated handshake: the full instrumented-site offer.",
-          "link_href": "/services/site-web-ia"
-        },
-        {
-          "label_fr": "Sur mesure",
-          "label_en": "Bespoke",
-          "meta_fr": "Cible de migration · Astro SSG, plafonds levés",
-          "meta_en": "Migration target · Astro SSG, ceilings lifted",
-          "media_src": "/images/illustrations/ds/gentleman-craftsman-go-work-paper.webp",
-          "media_alt_fr": "Un artisan au travail : la migration sur mesure façonnée pièce par pièce.",
-          "media_alt_en": "A craftsman at work: the bespoke migration shaped piece by piece.",
-          "link_href": "/services/site-web-ia"
-        },
         {
           "label_fr": "WordPress",
           "label_en": "WordPress",
-          "meta_fr": "Cœur · instrumenté sans tout reconstruire",
-          "meta_en": "Core · instrumented without a full rebuild",
-          "media_src": "/images/illustrations/ds/computer-health-paper.webp",
-          "media_alt_fr": "Un ordinateur ausculté : le WordPress existant instrumenté.",
-          "media_alt_en": "A computer being checked: the existing WordPress instrumented.",
+          "meta_fr": "Écosystème d'extensions, équipes qui le connaissent, maintenance à prévoir",
+          "meta_en": "Extension ecosystem, teams that know it, maintenance to plan for",
+          "media_src": "/images/illustrations/ds/wordpress-coeur-et-extensions-paper.webp",
+          "media_alt_fr": "Illustration : une rotonde centrale reliée à ses annexes, comme un WordPress et ses extensions",
+          "media_alt_en": "Illustration: a central rotunda linked to its annexes, like WordPress and its extensions",
+          "link_href": "/services/wordpress"
+        },
+        {
+          "label_fr": "Shopify",
+          "label_en": "Shopify",
+          "meta_fr": "Boutique en ligne : catalogue, paiement, stocks, commandes",
+          "meta_en": "Online shop: catalogue, payment, stock, orders",
+          "media_src": "/images/illustrations/ds/shopify-boutique-en-coupe-paper.webp",
+          "media_alt_fr": "Illustration : une boutique en coupe, salle de vente et réserve",
+          "media_alt_en": "Illustration: a shop in cross-section, sales floor and stockroom",
+          "link_href": "/services/shopify"
+        },
+        {
+          "label_fr": "Site sur mesure",
+          "label_en": "Bespoke site",
+          "meta_fr": "Code à vous, intégrations métier, pages générées à l'avance",
+          "meta_en": "Code you own, business integrations, pages generated in advance",
+          "media_src": "/images/illustrations/ds/sur-mesure-headless-tailleur-mannequin-paper.webp",
+          "media_alt_fr": "Illustration : un tailleur épingle l'ourlet d'un immense buste de couturière",
+          "media_alt_en": "Illustration: a tailor pins the hem of a giant dress form",
+          "link_href": "/services/sur-mesure-headless"
+        },
+        {
+          "label_fr": "Landing page",
+          "label_en": "Landing page",
+          "meta_fr": "Une page, une offre, un tunnel de qualification",
+          "meta_en": "One page, one offer, a qualification funnel",
+          "media_src": "/images/illustrations/ds/landing-pages-tunnels-v3-entonnoir-paper.webp",
+          "media_alt_fr": "Illustration : des billes tombent dans un entonnoir, une personne les oriente vers deux paniers",
+          "media_alt_en": "Illustration: marbles fall into a funnel, a person directs them to two baskets",
+          "link_href": "/services/landing-pages-tunnels"
+        },
+        {
+          "label_fr": "L'offre agence site web",
+          "label_en": "The web agency offer",
+          "meta_fr": "Toutes les plateformes, la grille de prix et la méthode",
+          "meta_en": "All platforms, the price grid and the method",
+          "media_src": "/images/illustrations/ds/man-and-woman-hi-paper.webp",
+          "media_alt_fr": "Illustration : deux personnes qui se saluent, l'offre agence site web dans son ensemble",
+          "media_alt_en": "Illustration: two people greeting each other, the web agency offer as a whole",
           "link_href": "/services/site-web-ia"
         }
       ]
@@ -543,63 +444,29 @@
     {
       "type": "case-card-grid",
       "background": "ink",
-      "reveal_mode": "cursor",
       "fig_num": "Fig. 05",
-      "fig_title_fr": "Cas clients",
-      "fig_title_en": "Client cases",
-      "spec_fr": "Cas clients · résultats réels",
-      "spec_en": "Client cases · real results",
-      "h2_fr": "Résultats sur le terrain",
-      "h2_en": "Results in the field",
+      "fig_title_fr": "Réalisations",
+      "fig_title_en": "Work",
+      "spec_fr": "Réalisations · données reprises des fiches publiées",
+      "spec_en": "Work · data taken from the published pages",
+      "h2_fr": "Aucune fiche Webflow publiée : un branchement CRM et une migration, sur d'autres plateformes",
+      "h2_en": "No Webflow case published: a CRM connection and a migration, on other platforms",
       "case_label_fr": "CAS",
       "case_label_en": "CASE",
       "sector_label_fr": "Secteur · Durée",
       "sector_label_en": "Sector · Duration",
-      "impact_label_fr": "Impact",
-      "impact_label_en": "Impact",
+      "impact_label_fr": "Ce que dit la fiche",
+      "impact_label_en": "What the page says",
       "cases": [
         {
-          "client": "Balzeo",
-          "sector_fr": "E-commerce écoresponsable",
-          "sector_en": "Eco-friendly e-commerce",
-          "duration": "8 sem.",
-          "stack": "Refonte · E-commerce · Perf",
-          "impact_fr": "Refonte complète : temps de chargement réduit de moitié (5,2 s à 2,4 s), rétention +35 %, coût de maintenance -84 %.",
-          "impact_en": "Full rebuild: load time halved (5.2s to 2.4s), retention +35%, maintenance cost cut by 84%.",
-          "href": "/cas-clients/balzeo",
-          "media_src": "/images/illustrations/ds/fruits-ink.webp",
-          "media_alt_fr": "Des fruits frais : le e-commerce écoresponsable refondu et allégé.",
-          "media_alt_en": "Fresh fruit: the eco-friendly e-commerce store rebuilt and made leaner."
+          "ref": "cases/amploi"
         },
         {
-          "client": "Amploi · groupe Vigiscope",
-          "sector_fr": "Externalisation RH",
-          "sector_en": "HR outsourcing",
-          "duration": "6 sem.",
-          "stack": "Création · CRM HubSpot · GEO",
-          "impact_fr": "Site créé avec formulaires branchés HubSpot (attribution des leads) et balisage schema.org pensé pour les citations IA (Perplexity, ChatGPT, Claude).",
-          "impact_en": "Site built with HubSpot-connected forms (lead attribution) and schema.org markup designed for AI citations (Perplexity, ChatGPT, Claude).",
-          "href": "/cas-clients/amploi",
-          "media_src": "/images/illustrations/ds/super-girl-ink.webp",
-          "media_alt_fr": "Une figure dynamique : l'externalisation RH qui capte et qualifie les leads.",
-          "media_alt_en": "A dynamic figure: HR outsourcing that captures and qualifies leads."
-        },
-        {
-          "client": "Les Carnets de Montpellier",
-          "sector_fr": "Patrimoine / Média local",
-          "sector_en": "Heritage / Local media",
-          "duration": "6 sem.",
-          "stack": "Création · Abonnement · SEO",
-          "impact_fr": "Site créé de zéro : 40 articles publiés, 150 membres, 35 abonnés payants et top 10 Google local en 3 mois.",
-          "impact_en": "Built from scratch: 40 articles, 150 members, 35 paying subscribers and a top-10 local Google ranking in 3 months.",
-          "href": "/cas-clients/les-carnets-de-montpellier",
-          "media_src": "/images/illustrations/ds/band-showing-tv-ink.webp",
-          "media_alt_fr": "Un média local qui diffuse et fédère une communauté d'abonnés.",
-          "media_alt_en": "A local media outlet broadcasting and rallying a community of subscribers."
+          "ref": "cases/balzeo"
         }
       ],
-      "all_label_fr": "Voir tous les cas →",
-      "all_label_en": "See all cases →",
+      "all_label_fr": "Voir toutes les réalisations →",
+      "all_label_en": "See all work →",
       "all_href": "/cas-clients"
     },
     {
@@ -607,53 +474,53 @@
       "background": "paper",
       "kicker_fr": "§ La gamme",
       "kicker_en": "§ The range",
-      "h2_fr": "Quatre façons de rendre votre Webflow intelligent",
-      "h2_en": "Four ways to make your Webflow intelligent",
-      "lede_fr": "De l'instrumentation légère à la migration sur mesure, même grille que nos sites : la formule dépend du périmètre. On garde le design qui vous va, on chiffre au cadrage, jamais avant.",
-      "lede_en": "From light instrumentation to a bespoke migration, the same grid as our sites: the plan depends on scope. We keep the design that suits you, we price at scoping, never before.",
+      "h2_fr": "Combien coûte un site Webflow",
+      "h2_en": "How much a Webflow site costs",
+      "lede_fr": "Quatre paliers, la même grille que nos autres sites : le prix suit le périmètre, pas l'outil. Si le périmètre n'est pas clair, on commence par un sprint de cadrage de 10 heures à 999 € HT. Le site est chiffré avant de démarrer.",
+      "lede_en": "Four tiers, the same grid as our other sites: price follows scope, not the tool. If the scope is unclear, we start with a 10-hour scoping sprint at €999 excl. VAT. The site is priced before work starts.",
       "tiers": [
         {
-          "name_fr": "Instrumentation",
-          "name_en": "Instrumentation",
-          "price": "2 000 €",
+          "name_fr": "Landing ou instrumentation",
+          "name_en": "Landing page or instrumentation",
+          "price": "2 000 €",
           "period_fr": "à partir de · HT",
-          "period_en": "from · ex VAT",
+          "period_en": "from · excl. VAT",
           "features_fr": [
-            "SEO et GEO de base au-delà du natif Webflow",
-            "Balisage Schema.org sur les pages clés",
-            "Tracking first-party et tableau de base",
-            "Formulaire Webflow branché au CRM"
+            "Une landing de 1 à 3 pages, ou un Webflow existant instrumenté",
+            "Formulaire relié au CRM, avec la page d'origine",
+            "Balisage schema.org sur les pages clés",
+            "Mesure d'audience avec consentement"
           ],
           "features_en": [
-            "Base SEO and GEO beyond Webflow native",
-            "Schema.org markup on key pages",
-            "First-party tracking and base dashboard",
-            "Webflow form wired to the CRM"
+            "A 1-to-3-page landing page, or an existing Webflow instrumented",
+            "Form connected to the CRM, with the source page",
+            "schema.org markup on key pages",
+            "Audience measurement with consent"
           ],
           "cta": {
-            "label_fr": "Cadrer une instrumentation →",
-            "label_en": "Scope an instrumentation →",
+            "label_fr": "Cadrer une landing →",
+            "label_en": "Scope a landing page →",
             "href": "/contact?offer=webflow&intent=landing",
             "variant": "ghost"
           }
         },
         {
-          "name_fr": "Webflow intelligent",
-          "name_en": "Intelligent Webflow",
-          "price": "4 000 €",
+          "name_fr": "Site de 3 à 5 pages",
+          "name_en": "3-to-5-page site",
+          "price": "4 000 €",
           "period_fr": "indicatif · HT",
-          "period_en": "indicative · ex VAT",
+          "period_en": "indicative · excl. VAT",
           "features_fr": [
-            "Les trois couches : SEO/GEO, CRM et contenu",
-            "Scoring comportemental et routage des leads",
-            "Tracking server-side, consentement RGPD",
-            "Tableau de pilotage lu par l'IA"
+            "Création ou refonte, collections pour les contenus répétés",
+            "Redirections 301 depuis l'ancien site",
+            "Formulaires reliés au CRM, tâche pour le bon commercial",
+            "Une session de prise en main"
           ],
           "features_en": [
-            "The three layers: SEO/GEO, CRM and content",
-            "Behavioural scoring and lead routing",
-            "Server-side tracking, GDPR consent",
-            "Dashboard read by the AI"
+            "Build or redesign, collections for repeated content",
+            "301 redirects from the old site",
+            "Forms connected to the CRM, task for the right salesperson",
+            "One handover session"
           ],
           "cta": {
             "label_fr": "Réserver un audit IA gratuit →",
@@ -664,58 +531,58 @@
           "featured": true
         },
         {
-          "name_fr": "Webflow premium",
-          "name_en": "Premium Webflow",
-          "price": "7 000 €",
+          "name_fr": "Site complet",
+          "name_en": "Full site",
+          "price": "7 000 €",
           "period_fr": "à partir de · HT",
-          "period_en": "from · ex VAT",
+          "period_en": "from · excl. VAT",
           "features_fr": [
-            "Instrumentation complète et moteur de contenu en cadence",
-            "Connexion IA (Claude, GPT) et premiers skills",
-            "Formulaires connectés à votre CRM, chatbot de qualification",
-            "Attribution multi-touch des leads"
+            "Direction artistique sur mesure et interactions",
+            "Plusieurs collections et pages modèles",
+            "Séquence de suivi branchée sur le CRM",
+            "Tableau de suivi des demandes par page"
           ],
           "features_en": [
-            "Full instrumentation and content engine on cadence",
-            "AI connection (Claude, GPT) and first skills",
-            "Forms connected to your CRM, qualification chatbot",
-            "Multi-touch lead attribution"
+            "Bespoke art direction and interactions",
+            "Several collections and template pages",
+            "Follow-up sequence wired into the CRM",
+            "Dashboard of requests per page"
           ],
           "cta": {
-            "label_fr": "Cadrer un Webflow premium →",
-            "label_en": "Scope a premium Webflow →",
+            "label_fr": "Cadrer un site complet →",
+            "label_en": "Scope a full site →",
             "href": "/contact?offer=webflow&intent=premium",
             "variant": "ghost"
           }
         },
         {
-          "name_fr": "Migration sur mesure",
-          "name_en": "Bespoke migration",
-          "price": "10 000 €",
+          "name_fr": "Migration ou intégrations",
+          "name_en": "Migration or integrations",
+          "price": "10 000 €",
           "period_fr": "à partir de · HT",
-          "period_en": "from · ex VAT",
+          "period_en": "from · excl. VAT",
           "features_fr": [
-            "Quand le plafond gêne : migration sur mesure (Astro SSG)",
-            "Design Webflow gardé, plafonds SEO et coût levés",
-            "Dashboard Google Analytics et Search Console",
-            "CRM branché (HubSpot, Salesforce, Pipedrive) et paiement Stripe"
+            "Site volumineux repris depuis un autre CMS, contenus importés",
+            "Plan de redirections complet et contrôle après bascule",
+            "Intégrations métier par automatisation (n8n)",
+            "Au-delà, sur devis"
           ],
           "features_en": [
-            "When the ceiling blocks you: bespoke migration (Astro SSG)",
-            "Webflow design kept, SEO and cost ceilings lifted",
-            "Dashboard with Google Analytics and Search Console",
-            "CRM wired (HubSpot, Salesforce, Pipedrive) and Stripe payments"
+            "Large site taken over from another CMS, content imported",
+            "Full redirect plan and post-switch check",
+            "Business integrations through automation (n8n)",
+            "Beyond that, on quote"
           ],
           "cta": {
             "label_fr": "Cadrer une migration →",
             "label_en": "Scope a migration →",
-            "href": "/services/site-web-ia",
+            "href": "/contact?offer=webflow&intent=sur-mesure",
             "variant": "ghost"
           }
         }
       ],
-      "footnote_fr": "On instrumente d'abord, on migre seulement quand le plafond gêne vos objectifs (SEO, coût récurrent, connexion données), chiffré au cadrage. Sans engagement de durée, sans abonnement caché : vous gardez le design et la main.",
-      "footnote_en": "We instrument first, we migrate only when the ceiling blocks your goals (SEO, recurring cost, data connection), priced at scoping. No duration commitment, no hidden subscription: you keep the design and control."
+      "footnote_fr": "L'abonnement Webflow et le domaine sont souscrits à votre nom et payés directement : ils ne figurent pas dans ces prix. Aucun abonnement imposé chez nous. L'entretien après livraison est facultatif, ses paliers sont publics sur la page tarifs.",
+      "footnote_en": "The Webflow subscription and the domain are taken out in your name and paid directly: they are not in these prices. No subscription imposed by us. Upkeep after delivery is optional, its tiers are public on the pricing page."
     },
     {
       "type": "eeat-panel",
@@ -726,45 +593,51 @@
       "type": "faq-accordion",
       "background": "paper-2",
       "kicker_fr": "§ Questions fréquentes",
-      "kicker_en": "§ Frequently asked",
-      "h2_fr": "Webflow, ce que vous nous demandez",
-      "h2_en": "Webflow, what you ask us",
+      "kicker_en": "§ Frequently asked questions",
+      "h2_fr": "Webflow : vos questions",
+      "h2_en": "Webflow: your questions",
       "items": [
         {
-          "q_fr": "On a déjà un site Webflow, vous le refaites ?",
-          "q_en": "We already have a Webflow site, do you rebuild it?",
-          "a_fr": "Pas par défaut. On commence par un audit, puis on instrumente votre Webflow existant : SEO/GEO, capture, scoring et tracking branchés au CRM. On ne casse pas un design qui vous va.",
-          "a_en": "Not by default. We start with an audit, then instrument your existing Webflow: SEO/GEO, capture, scoring and tracking wired to the CRM. We don't break a design that suits you."
+          "q_fr": "Quand Webflow est-il le bon choix pour une PME ?",
+          "a_fr": "Quand le design compte, que votre équipe publie elle-même du contenu et que le site tient en quelques dizaines de pages : offres, références, articles, contact. Webflow se construit visuellement, héberge le site et donne un éditeur de contenu à votre équipe. Si vous vendez surtout des produits, regardez Shopify ; si votre équipe connaît déjà WordPress et ses extensions, restez-y.",
+          "q_en": "When is Webflow the right choice for an SMB?",
+          "a_en": "When design matters, your team publishes its own content and the site fits in a few dozen pages: offers, references, articles, contact. Webflow is built visually, hosts the site and gives your team a content editor. If you mostly sell products, look at Shopify; if your team already knows WordPress and its plugins, stay there."
         },
         {
-          "q_fr": "Webflow est-il bridé pour le SEO et le GEO ?",
-          "q_en": "Is Webflow capped for SEO and GEO?",
-          "a_fr": "Webflow couvre les bases (balises, sitemap, redirections), mais plafonne à l'échelle : Schema.org avancé, maillage automatisé et contenu en cadence demandent du contournement. Quand le plafond gêne vos objectifs, on instrumente au maximum ou on recommande une migration.",
-          "a_en": "Webflow covers the basics (tags, sitemap, redirects) but plateaus at scale: advanced Schema.org, automated internal linking and content on cadence require workarounds. When the ceiling blocks your goals, we instrument to the max or recommend a migration."
+          "q_fr": "Webflow ou WordPress : lequel choisir ?",
+          "a_fr": "Webflow si le design et la rapidité de mise en ligne passent avant, avec peu d'extensions à gérer. WordPress si vous avez besoin d'un écosystème d'extensions (réservation, adhésion, boutique) ou si votre équipe le maîtrise déjà. Les deux se relient à un CRM. On tranche avec vous au cadrage, selon la personne qui fera vivre le site.",
+          "q_en": "Webflow or WordPress: which one?",
+          "a_en": "Webflow if design and speed to launch come first, with few extensions to manage. WordPress if you need a wide ecosystem of extensions (booking, membership, shop) or if your team already masters it. Both connect to a CRM. We decide with you at scoping, based on who will run the site."
         },
         {
-          "q_fr": "Quelle est la limite de Webflow à l'échelle ?",
-          "q_en": "What is Webflow's limit at scale?",
-          "a_fr": "Performance variable sur les pages chargées, coût récurrent qui monte avec le trafic et les sièges, et surtout aucune vraie connexion données, CRM ou scoring native. On vous dit honnêtement où Webflow tient et où il décroche.",
-          "a_en": "Variable performance on heavy pages, a recurring cost that climbs with traffic and seats, and above all no real native data, CRM or scoring connection. We tell you honestly where Webflow holds and where it drops off."
+          "q_fr": "Peut-on quitter Webflow plus tard ?",
+          "a_fr": "Oui, mais ce n'est pas un export en un clic. Webflow permet d'exporter le code HTML, CSS et JavaScript depuis ses formules d'espace de travail payantes, et d'exporter les collections en CSV. Le CMS, les comptes utilisateurs et l'e-commerce ne sont pas inclus dans le code exporté (aide Webflow, lue le 12 octobre 2026). Une sortie se prépare donc comme une migration : on la chiffre au cadrage.",
+          "q_en": "Can we leave Webflow later?",
+          "a_en": "Yes, but it is not a one-click export. Webflow lets you export HTML, CSS and JavaScript from its paid workspace plans, and export collections as CSV. The CMS, user accounts and e-commerce are not included in the exported code (Webflow help, read 12 October 2026). Leaving is therefore prepared like a migration: we price it at scoping."
         },
         {
-          "q_fr": "Vous branchez un CRM et du scoring sur Webflow ?",
-          "q_en": "Do you wire a CRM and scoring onto Webflow?",
-          "a_fr": "Oui. On connecte vos formulaires Webflow à votre CRM (HubSpot, Salesforce, Pipedrive), on pose le scoring comportemental et le routage des leads via une couche d'instrumentation, sans dépendre des seules intégrations natives de Webflow.",
-          "a_en": "Yes. We connect your Webflow forms to your CRM (HubSpot, Salesforce, Pipedrive), set up behavioural scoring and lead routing through an instrumentation layer, without relying solely on Webflow's native integrations."
+          "q_fr": "Vous branchez Webflow à un CRM ?",
+          "a_fr": "Oui. Les formulaires envoient la demande, avec sa page d'origine, vers HubSpot, Pipedrive ou Salesforce par webhook ou par un scénario n8n. La fiche est créée sans ressaisie et un commercial reçoit une tâche. Le branchement est documenté et remis avec le site.",
+          "q_en": "Do you connect Webflow to a CRM?",
+          "a_en": "Yes. Forms send the request, with its source page, to HubSpot, Pipedrive or Salesforce through a webhook or an n8n scenario. The record is created with no retyping and a salesperson gets a task. The connection is documented and handed over with the site."
         },
         {
-          "q_fr": "Quand recommandez-vous de migrer hors de Webflow ?",
-          "q_en": "When do you recommend migrating off Webflow?",
-          "a_fr": "Quand le SEO/GEO plafonne, que le coût récurrent dépasse l'intérêt, ou qu'il faut une vraie connexion données. On bascule alors vers un site sur mesure (Astro SSG) qui lève ces limites, en gardant votre design.",
-          "a_en": "When SEO/GEO plateaus, when the recurring cost outweighs the value, or when you need a real data connection. We then move to a bespoke site (Astro SSG) that lifts those limits, keeping your design."
+          "q_fr": "Vous reprenez un site Webflow existant ?",
+          "a_fr": "Oui. On commence par un audit : structure des collections, redirections, balisage, formulaires, mesure. Le plus souvent, on corrige l'existant sans refaire le design. Une refonte n'est proposée que si la structure du site bloque votre équipe.",
+          "q_en": "Do you take over an existing Webflow site?",
+          "a_en": "Yes. We start with an audit: collection structure, redirects, markup, forms, measurement. Most of the time we fix what exists without redoing the design. A rebuild is only proposed if the site's structure blocks your team."
         },
         {
-          "q_fr": "Combien ça coûte et qu'est-ce qui change vraiment ?",
-          "q_en": "How much does it cost and what really changes?",
-          "a_fr": "À partir de 2 000 € pour instrumenter un Webflow existant, jusqu'à 10 000 € pour une migration sur mesure complète. Ce qui change : un site qui mesure, qualifie et alimente le CRM, pas seulement une vitrine bien dessinée.",
-          "a_en": "From 2,000 € to instrument an existing Webflow, up to 10,000 € for a full bespoke migration. What changes: a site that measures, qualifies and feeds the CRM, not just a well-designed brochure."
+          "q_fr": "Webflow est-il bon pour le référencement et les moteurs IA ?",
+          "a_fr": "Il couvre les bases : titres, balises, plan de site, redirections 301, et des données structurées ajoutées par code. Le résultat dépend surtout du contenu et de la structure des pages, pas de l'outil. On pose le balisage schema.org et on structure les pages pour être citables. On ne promet pas de position.",
+          "q_en": "Is Webflow good for SEO and AI engines?",
+          "a_en": "It covers the basics: titles, tags, sitemap, 301 redirects, and structured data added through code. The outcome depends mostly on content and page structure, not on the tool. We lay schema.org markup and structure pages to be citable. We promise no ranking."
+        },
+        {
+          "q_fr": "Combien de temps et combien ça coûte ?",
+          "a_fr": "En général 4 à 8 semaines pour un site en ligne ; vos contenus font varier le délai. À partir de 2 000 € HT pour une landing ou l'instrumentation d'un site existant, 4 000 € HT pour 3 à 5 pages, à partir de 7 000 € HT pour un site complet, à partir de 10 000 € HT pour une migration ou des intégrations. L'abonnement Webflow est à votre nom et n'est pas inclus.",
+          "q_en": "How long and how much?",
+          "a_en": "Usually 4 to 8 weeks for a live site; your content moves the timeline. From €2,000 excl. VAT for a landing page or instrumenting an existing site, €4,000 for 3 to 5 pages, from €7,000 for a full site, from €10,000 for a migration or integrations. The Webflow subscription is in your name and not included."
         }
       ]
     },
@@ -775,12 +648,12 @@
       "contentAlign": "center",
       "actionsAlign": "center",
       "rounded": true,
-      "kicker_fr": "§ Instrumenter ou migrer ?",
-      "kicker_en": "§ Instrument or migrate?",
-      "h2_fr": "Donnez de l'<i>intelligence</i> à votre Webflow.",
-      "h2_en": "Give your Webflow some <i>intelligence</i>.",
-      "subtitle_fr": "Un diagnostic de 45 min, gratuit et sans engagement : on regarde votre Webflow, on vous dit honnêtement quoi instrumenter et quand migrer, et vous repartez avec un plan clair. En face, le fondateur qui conçoit et livre, pas un pool de sous-traitants.",
-      "subtitle_en": "A 45-min diagnostic, free and with no commitment: we look at your Webflow, tell you honestly what to instrument and when to migrate, and you leave with a clear plan. Across the table, the founder who designs and ships, not a pool of subcontractors.",
+      "kicker_fr": "§ Audit IA gratuit",
+      "kicker_en": "§ Free AI audit",
+      "h2_fr": "Votre site actuel est-il le bon outil pour la suite ?",
+      "h2_en": "Is your current site the right tool for what comes next?",
+      "subtitle_fr": "En 45 minutes, on regarde votre site, ses formulaires et ce qui se passe après, et on vous dit s'il faut corriger Webflow, le refaire, ou changer de plateforme.",
+      "subtitle_en": "In 45 minutes, we look at your site, its forms and what happens afterwards, and tell you whether to fix Webflow, rebuild it, or change platform.",
       "buttons": [
         {
           "label_fr": "Réserver un audit IA gratuit →",
@@ -789,9 +662,9 @@
           "variant": "primary"
         },
         {
-          "label_fr": "Voir l'offre site web intelligent",
-          "label_en": "See the intelligent website offer",
-          "href": "/services/site-web-ia",
+          "label_fr": "Cadrer un site Webflow →",
+          "label_en": "Scope a Webflow site →",
+          "href": "/contact?offer=webflow&intent=cadrage",
           "variant": "ghost"
         }
       ]
