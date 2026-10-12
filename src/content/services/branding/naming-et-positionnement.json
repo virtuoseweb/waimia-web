@@ -1,0 +1,587 @@
+{
+  "$schema": "../../../schemas/generated/services.page.schema.json",
+  "title_fr": "Naming et positionnement de marque pour PME · Waimia",
+  "title_en": "Naming and brand positioning for SMBs · Waimia",
+  "description_fr": "Naming et positionnement pour PME : génération et tri de noms avec l'IA, phrase de positionnement, vérifications préalables à faire valider par un juriste.",
+  "description_en": "Naming and positioning for SMBs: AI name generation and sorting, a positioning sentence, preliminary checks to be validated by a lawyer.",
+  "slug": "naming-et-positionnement",
+  "publishedAt": "2026-10-12T00:00:00.000Z",
+  "updatedAt": "2026-10-12T00:00:00.000Z",
+  "category": "acquisition",
+  "tags": [
+    "naming",
+    "positionnement",
+    "nom-de-marque",
+    "branding",
+    "phrase-de-positionnement"
+  ],
+  "sources": [
+    {
+      "name": "INPI, Les conditions de validité d'une marque (lu le 12 octobre 2026)",
+      "url": "https://www.inpi.fr/realiser-demarches/propriete-intellectuelle/conditions-de-validite-dune-marque",
+      "type": "state"
+    },
+    {
+      "name": "INPI, Déposer sa marque (lu le 12 octobre 2026)",
+      "url": "https://www.inpi.fr/realiser-demarches/propriete-intellectuelle/deposer-sa-marque",
+      "type": "state"
+    }
+  ],
+  "seo": {
+    "noindex": false,
+    "serviceType": "Naming et positionnement de marque pour PME : génération et tri de noms, phrase de positionnement, vérifications préalables",
+    "priceRange": "dès 999 €",
+    "priceMin": 999
+  },
+  "faq_fr": [
+    {
+      "q": "Combien coûte un naming pour une PME ?",
+      "a": "L'audit de 45 minutes est gratuit. Le sprint de cadrage coûte 999 € HT pour 10 heures : il suffit souvent pour un nom et une phrase de positionnement quand le brief est clair. Un naming plus complet, avec plusieurs tours et une fiche de vérification détaillée, démarre à 2 000 € HT et se chiffre après le sprint. Les heures hors périmètre sont à {{prix.horaire}} € HT de l'heure."
+    },
+    {
+      "q": "Comment l'IA aide-t-elle à trouver un nom ?",
+      "a": "Elle produit beaucoup de pistes par familles (sens, sonorités, images) plus vite qu'un atelier. Elle ne choisit pas : le tri se fait sur des critères écrits et la décision est la vôtre. Elle peut aussi proposer un nom qui existe déjà, c'est pourquoi les vérifications viennent avant de vous présenter une liste."
+    },
+    {
+      "q": "Le nom sera-t-il disponible comme marque ?",
+      "a": "Nous ne pouvons pas le garantir. Nous vérifions le nom de domaine, les comptes de réseaux sociaux et une recherche à l'identique dans la base Marques de l'INPI. La recherche de similitudes, l'avis sur le risque d'opposition ou de contrefaçon et le dépôt relèvent d'un conseil en propriété intellectuelle, que nous recommandons de consulter avant d'imprimer quoi que ce soit."
+    },
+    {
+      "q": "Faites-vous le dépôt de marque ?",
+      "a": "Non. Le dépôt se fait en ligne auprès de l'INPI, par vous ou par un conseil en propriété intellectuelle. Nous préparons la fiche à lui transmettre : le nom retenu, ses variantes, les produits et services visés tels que vous les décrivez, les vérifications déjà faites."
+    },
+    {
+      "q": "Peut-on garder notre nom et ne refaire que la phrase ?",
+      "a": "Oui. Le positionnement se travaille seul : promesse, cible, preuves, phrase. C'est souvent la bonne décision quand le nom est connu de vos clients. Une phrase de positionnement bien tenue vaut mieux qu'un nouveau nom mal expliqué."
+    },
+    {
+      "q": "Qu'est-ce qu'une phrase de positionnement ?",
+      "a": "Une phrase qui dit pour qui vous travaillez, ce que vous faites et ce qui vous distingue. Par exemple : « Pour les cabinets de moins de vingt personnes, X est le service qui traite les relances sans y passer vos soirées. » Elle sert de test : si un texte ou un visuel la contredit, on le corrige."
+    },
+    {
+      "q": "Le nom de domaine fait-il partie du nom ?",
+      "a": "Il fait partie de la vérification : nous regardons .fr, .com et les variantes proches avant de vous présenter un nom. L'achat du domaine reste à votre nom et à votre charge."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "How much does naming cost for an SMB?",
+      "a": "The 45-minute audit is free. The scoping sprint costs €999 excl. VAT for 10 hours: it is often enough for a name and a positioning sentence when the brief is clear. A fuller naming, with several rounds and a detailed check sheet, starts at €2,000 excl. VAT and is priced after the sprint. Hours outside the scope are €{{prix.horaire}} excl. VAT an hour."
+    },
+    {
+      "q": "How does AI help find a name?",
+      "a": "It produces many routes by families (meaning, sound, imagery) faster than a workshop. It does not choose: sorting is done on written criteria and the decision is yours. It can also suggest a name that already exists, which is why checks come before we present you a list."
+    },
+    {
+      "q": "Will the name be available as a trademark?",
+      "a": "We cannot guarantee it. We check the domain name, social media accounts and an identical-match search in the INPI trademark database. The similarity search, advice on the risk of opposition or infringement, and the filing belong to an intellectual property counsel, whom we recommend consulting before printing anything."
+    },
+    {
+      "q": "Do you file the trademark?",
+      "a": "No. Filing is done online with the INPI, by you or by an intellectual property counsel. We prepare the sheet to give them: the chosen name, its variants, the goods and services as you describe them, the checks already done."
+    },
+    {
+      "q": "Can we keep our name and only redo the sentence?",
+      "a": "Yes. Positioning can be worked on its own: promise, audience, proof, sentence. It is often the right call when the name is known to your clients. A well-held positioning sentence is worth more than a new name badly explained."
+    },
+    {
+      "q": "What is a positioning sentence?",
+      "a": "A sentence that says who you work for, what you do and what sets you apart. For example: \"For firms under twenty people, X is the service that handles follow-ups without costing your evenings.\" It serves as a test: if a text or visual contradicts it, we fix it."
+    },
+    {
+      "q": "Is the domain name part of the name?",
+      "a": "It is part of the check: we look at .fr, .com and close variants before presenting you a name. Buying the domain stays in your name and at your expense."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-masthead-card",
+      "background": "paper",
+      "kicker_fr": "§ Agence de branding · naming",
+      "kicker_en": "§ Branding agency · naming",
+      "h1_fr": "Naming et positionnement : trouver le nom, puis <i class=\"acc\">la phrase</i> qui le justifie.",
+      "h1_en": "Naming and positioning: finding the name, then <i class=\"acc\">the sentence</i> that backs it.",
+      "lede_fr": "Vous cherchez un nom, ou une phrase qui dit ce que vous faites mieux que vos concurrents. Nous générons beaucoup de pistes avec l'IA, puis nous les trions sur des critères écrits : sens, prononciation, disponibilité du domaine, ressemblance avec l'existant. Nous préparons le dossier de vérification ; la validation juridique revient à un conseil en propriété intellectuelle.",
+      "lede_en": "You are looking for a name, or a sentence that says what you do better than your competitors. We generate many routes with AI, then sort them on written criteria: meaning, pronunciation, domain availability, resemblance to what exists. We prepare the check file; legal validation belongs to an intellectual property counsel.",
+      "badges": [
+        {
+          "label_fr": "Génération et tri",
+          "label_en": "Generation and sorting"
+        },
+        {
+          "label_fr": "Phrase de positionnement",
+          "label_en": "Positioning sentence"
+        },
+        {
+          "label_fr": "Domaine vérifié",
+          "label_en": "Domain checked"
+        },
+        {
+          "label_fr": "Dossier pour le juriste",
+          "label_en": "File for the lawyer"
+        }
+      ],
+      "cta_sub_fr": "Audit gratuit de 45 minutes : on regarde votre activité et vos concurrents, on vous dit si un nouveau nom se justifie.",
+      "cta_sub_en": "Free 45-minute audit: we look at your business and competitors, and tell you whether a new name is justified.",
+      "cta_primary": {
+        "label_fr": "Réserver un audit IA gratuit →",
+        "label_en": "Book a free AI audit →",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Cadrer ce projet",
+        "label_en": "Scope this project",
+        "href": "/contact?offer=naming-et-positionnement&intent=cadrage",
+        "variant": "ghost"
+      },
+      "media_src": "/images/illustrations/ds/naming-peche-poisson-bleu-paper.webp",
+      "media_alt_fr": "Depuis un ponton, une silhouette pêche un poisson bleu, seul de sa couleur parmi un banc de poissons identiques.",
+      "media_alt_en": "From a jetty, a figure hooks a blue fish, the only one of its colour in a school of identical fish."
+    },
+    {
+      "type": "proof-bar",
+      "background": "paper",
+      "kicker_fr": "§ En bref",
+      "kicker_en": "§ In short",
+      "metrics": [
+        {
+          "value": "Dès 999 € HT",
+          "label_fr": "sprint de cadrage de 10 h, prix fixe",
+          "label_en": "10-hour scoping sprint, fixed price",
+          "emphasis": true
+        },
+        {
+          "value": "Liste courte",
+          "label_fr": "des noms triés sur des critères écrits, pas une liste de cent idées",
+          "label_en": "names sorted on written criteria, not a list of a hundred ideas",
+          "emphasis": false
+        },
+        {
+          "value": "Domaine",
+          "label_fr": "disponibilité vérifiée avant de vous présenter un nom",
+          "label_en": "availability checked before a name is presented to you",
+          "emphasis": false
+        },
+        {
+          "value": "Pas un avis juridique",
+          "label_fr": "la validation revient à un conseil en propriété intellectuelle",
+          "label_en": "validation belongs to an intellectual property counsel",
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "type": "definition-extract",
+      "background": "paper",
+      "kicker_fr": "§ Définition",
+      "kicker_en": "§ Definition",
+      "statement_fr": "Le <i class=\"acc\">naming</i> est le choix du nom d'une entreprise, d'un produit ou d'une offre. Le positionnement est la phrase qui dit pour qui vous travaillez, ce que vous faites et pourquoi vous plutôt qu'un autre. Les deux se décident ensemble : un bon nom s'appuie sur un positionnement, il ne le remplace pas.",
+      "statement_en": "<i class=\"acc\">Naming</i> is choosing the name of a company, product or offer. Positioning is the sentence that says who you work for, what you do and why you rather than someone else. The two are decided together: a good name rests on a positioning, it does not replace it.",
+      "pills": [
+        {
+          "label_fr": "Nom",
+          "label_en": "Name"
+        },
+        {
+          "label_fr": "Phrase de positionnement",
+          "label_en": "Positioning sentence"
+        },
+        {
+          "label_fr": "Critères de tri",
+          "label_en": "Sorting criteria"
+        },
+        {
+          "label_fr": "Vérifications",
+          "label_en": "Checks"
+        }
+      ],
+      "specs": [
+        {
+          "label_fr": "Domaine .fr et .com",
+          "label_en": ".fr and .com domain"
+        },
+        {
+          "label_fr": "Comptes de réseaux sociaux",
+          "label_en": "Social media accounts"
+        },
+        {
+          "label_fr": "Recherche à l'identique (INPI)",
+          "label_en": "Identical-match search (INPI)"
+        },
+        {
+          "label_fr": "Fiche pour votre conseil",
+          "label_en": "Sheet for your counsel"
+        }
+      ]
+    },
+    {
+      "type": "pain-severity-list",
+      "background": "ink",
+      "kicker_fr": "Les noms qui coûtent cher · par sévérité",
+      "kicker_en": "Names that cost dearly · by severity",
+      "h2_fr": "Les noms qui coûtent cher <i class=\"acc\">plus tard</i>.",
+      "h2_en": "Names that cost dearly <i class=\"acc\">later</i>.",
+      "items": [
+        {
+          "severity": "critical",
+          "title_fr": "Un nom déjà pris par une marque proche",
+          "title_en": "A name already taken by a close trademark",
+          "desc_fr": "Le problème apparaît après l'impression des supports ou le dépôt, et il coûte un changement de nom ou un litige.",
+          "desc_en": "The problem appears after materials are printed or filed, and it costs a rename or a dispute.",
+          "fix_fr": "Vérifications avant présentation, validation par un conseil en propriété intellectuelle.",
+          "fix_en": "Checks before presenting, validation by an intellectual property counsel."
+        },
+        {
+          "severity": "high",
+          "title_fr": "Un nom descriptif ou générique",
+          "title_en": "A descriptive or generic name",
+          "desc_fr": "Il se comprend vite et se protège mal : l'INPI exige qu'une marque ne soit ni générique, ni descriptive, ni usuelle pour les produits ou services concernés.",
+          "desc_en": "It is understood fast and protected poorly: the INPI requires that a trademark be neither generic, descriptive nor customary for the goods or services concerned.",
+          "fix_fr": "Tri sur le caractère distinctif.",
+          "fix_en": "Sorting on distinctiveness."
+        },
+        {
+          "severity": "medium",
+          "title_fr": "Un nom qu'on épelle à chaque appel",
+          "title_en": "A name you spell on every call",
+          "desc_fr": "Orthographe floue, prononciation incertaine, domaine alambiqué : chaque contact paie ce détail.",
+          "desc_en": "Fuzzy spelling, uncertain pronunciation, convoluted domain: every contact pays for that detail.",
+          "fix_fr": "Test à voix haute et à l'écrit, domaine simple.",
+          "fix_en": "Spoken and written test, simple domain."
+        }
+      ]
+    },
+    {
+      "type": "comparison-duo",
+      "background": "paper-2",
+      "kicker_fr": "§ Exemple type · pas un cas client",
+      "kicker_en": "§ Typical example · not a client case",
+      "h2_fr": "Exemple type : nommer une nouvelle offre",
+      "h2_en": "Typical example: naming a new offer",
+      "without_label_fr": "Avant",
+      "without_label_en": "Before",
+      "without_title_fr": "Un nom trouvé en une soirée",
+      "without_title_en": "A name found in one evening",
+      "without_items": [
+        {
+          "text_fr": "Cinq idées, la première qui plaît.",
+          "text_en": "Five ideas, the first one that pleases."
+        },
+        {
+          "text_fr": "Le domaine est vérifié après avoir tout imprimé.",
+          "text_en": "The domain is checked after everything is printed."
+        },
+        {
+          "text_fr": "Personne ne l'a lu à voix haute devant un client.",
+          "text_en": "Nobody read it aloud in front of a client."
+        }
+      ],
+      "with_label_fr": "Après",
+      "with_label_en": "After",
+      "with_title_fr": "Un nom trié sur des critères écrits",
+      "with_title_en": "A name sorted on written criteria",
+      "with_items": [
+        {
+          "text_fr": "Beaucoup de pistes, triées par familles de sens.",
+          "text_en": "Many routes, sorted by families of meaning."
+        },
+        {
+          "text_fr": "Domaine, comptes et recherche à l'identique vérifiés avant la présentation.",
+          "text_en": "Domain, accounts and identical-match search checked before the presentation."
+        },
+        {
+          "text_fr": "Une liste courte, argumentée, avec la phrase de positionnement.",
+          "text_en": "A short, argued list, with the positioning sentence."
+        }
+      ]
+    },
+    {
+      "type": "method-stepline",
+      "background": "paper-3",
+      "kicker_fr": "§ Méthode",
+      "kicker_en": "§ Method",
+      "h2_fr": "Cinq étapes, de la génération au dossier",
+      "h2_en": "Five steps, from generation to file",
+      "lede_fr": "L'IA sert la phase la plus coûteuse en temps : explorer. Le tri, les vérifications et la décision restent cadrés, écrits et relisibles.",
+      "lede_en": "AI serves the most time-consuming phase: exploring. Sorting, checks and decision stay framed, written and reviewable.",
+      "steps": [
+        {
+          "title_fr": "Cadrage",
+          "title_en": "Scoping",
+          "sub_fr": "Activité, cible, concurrents, contraintes",
+          "sub_en": "Business, audience, competitors, constraints"
+        },
+        {
+          "title_fr": "Génération",
+          "title_en": "Generation",
+          "sub_fr": "Un grand nombre de pistes, par familles de sens",
+          "sub_en": "Many routes, by families of meaning"
+        },
+        {
+          "title_fr": "Tri",
+          "title_en": "Sorting",
+          "sub_fr": "Critères écrits : sens, prononciation, longueur, ton",
+          "sub_en": "Written criteria: meaning, pronunciation, length, tone"
+        },
+        {
+          "title_fr": "Vérifications",
+          "title_en": "Checks",
+          "sub_fr": "Domaine, comptes, recherche à l'identique",
+          "sub_en": "Domain, accounts, identical-match search"
+        },
+        {
+          "title_fr": "Décision",
+          "title_en": "Decision",
+          "sub_fr": "Liste courte, phrase, dossier pour le juriste",
+          "sub_en": "Shortlist, sentence, file for the lawyer"
+        }
+      ]
+    },
+    {
+      "type": "deliverables-grid",
+      "background": "paper",
+      "kicker_fr": "§ Ce que vous gardez",
+      "kicker_en": "§ What you keep",
+      "title_fr": "Les livrables",
+      "title_en": "The deliverables",
+      "lead_fr": "Vous gardez le raisonnement autant que le résultat : il sert pour le prochain nom.",
+      "lead_en": "You keep the reasoning as much as the result: it serves for the next name.",
+      "items": [
+        {
+          "title_fr": "Brief de nommage",
+          "title_en": "Naming brief",
+          "body_fr": "Activité, cible, ton, contraintes de langue et de pays, ce que le nom ne doit pas évoquer.",
+          "body_en": "Business, audience, tone, language and country constraints, what the name must not evoke.",
+          "format_fr": "BRIEF",
+          "format_en": "BRIEF"
+        },
+        {
+          "title_fr": "Grille de tri",
+          "title_en": "Sorting grid",
+          "body_fr": "Les critères et leur poids, notés nom par nom.",
+          "body_en": "The criteria and their weight, scored name by name.",
+          "format_fr": "GRILLE",
+          "format_en": "GRID"
+        },
+        {
+          "title_fr": "Liste courte argumentée",
+          "title_en": "Argued shortlist",
+          "body_fr": "Les noms retenus, avec la raison de chacun et ses limites.",
+          "body_en": "The retained names, with the reason for each and its limits.",
+          "format_fr": "NOMS",
+          "format_en": "NAMES"
+        },
+        {
+          "title_fr": "Phrase de positionnement",
+          "title_en": "Positioning sentence",
+          "body_fr": "Une phrase, deux variantes, et la liste de ce qu'elle exclut.",
+          "body_en": "One sentence, two variants, and the list of what it excludes.",
+          "format_fr": "PHRASE",
+          "format_en": "SENTENCE"
+        },
+        {
+          "title_fr": "Fiche de vérification",
+          "title_en": "Check sheet",
+          "body_fr": "Domaine, comptes, recherche à l'identique : ce qui a été regardé, à quelle date, avec quel résultat.",
+          "body_en": "Domain, accounts, identical-match search: what was looked at, when, with what result.",
+          "format_fr": "FICHE",
+          "format_en": "SHEET"
+        },
+        {
+          "title_fr": "Journal des pistes",
+          "title_en": "Log of routes",
+          "body_fr": "Pistes explorées, retenues et écartées, pour le conseil et pour la suite.",
+          "body_en": "Routes explored, kept and dropped, for the counsel and for what follows.",
+          "format_fr": "TRACE",
+          "format_en": "TRACE"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "html_fr": "<h2>Ce que nous vérifions, et ce qui revient à un juriste</h2>\n<p>L'INPI le rappelle : avant de déposer, « il est primordial de vérifier la validité et la disponibilité » de la marque. Une marque doit être distinctive, c'est-à-dire ni générique, ni descriptive, ni usuelle pour les produits ou services concernés, et ne pas être identique ou similaire à une marque antérieure pour des produits ou services identiques ou similaires (<a href=\"https://www.inpi.fr/realiser-demarches/propriete-intellectuelle/conditions-de-validite-dune-marque\">conditions de validité</a>).</p>\n<p><strong>Nous faisons :</strong> la vérification du domaine et des comptes, une recherche à l'identique dans la base Marques de l'INPI, un tri des noms trop descriptifs, la fiche qui consigne tout. <strong>Nous ne faisons pas :</strong> la recherche de similitudes approfondie, l'avis sur le risque d'opposition ou de contrefaçon, le dépôt. Ce sont des actes de conseil en propriété intellectuelle, ou des démarches que vous faites vous-même en ligne sur le <a href=\"https://www.inpi.fr/realiser-demarches/propriete-intellectuelle/deposer-sa-marque\">site de l'INPI</a>.</p>\n<p>Une précision : un nom proposé par une IA peut coïncider avec un nom existant sans que personne ne l'ait voulu. Les vérifications réduisent le risque, elles ne l'annulent pas.</p>\n<h2>Après le nom</h2>\n<p>Un nom s'accompagne d'une identité : voir la <a href=\"/services/identite-de-marque\">création d'identité de marque</a>. Pour changer de nom sur une marque existante, sans casser les adresses ni le référencement, voir la <a href=\"/services/refonte-de-marque\">refonte de marque</a>. L'ensemble est présenté sur la page <a href=\"/services/branding\">agence de branding</a>, et s'inscrit dans le <a href=\"/services/systeme-acquisition\">système d'acquisition</a>.</p>",
+      "html_en": "<h2>What we check, and what belongs to a lawyer</h2>\n<p>The INPI reminds us: before filing, \"it is essential to check the validity and availability\" of the trademark. A trademark must be distinctive, meaning neither generic, descriptive nor customary for the goods or services concerned, and must not be identical or similar to an earlier trademark for identical or similar goods or services (<a href=\"https://www.inpi.fr/realiser-demarches/propriete-intellectuelle/conditions-de-validite-dune-marque\">validity conditions</a>).</p>\n<p><strong>We do:</strong> domain and account checks, an identical-match search in the INPI trademark database, a screening of overly descriptive names, the sheet that records everything. <strong>We do not do:</strong> the in-depth similarity search, advice on the risk of opposition or infringement, the filing. These are acts of intellectual property counsel, or steps you take yourself online on the <a href=\"https://www.inpi.fr/realiser-demarches/propriete-intellectuelle/deposer-sa-marque\">INPI site</a>.</p>\n<p>One caveat: a name suggested by an AI may coincide with an existing name without anyone intending it. Checks reduce the risk, they do not cancel it.</p>\n<h2>After the name</h2>\n<p>A name comes with an identity: see <a href=\"/services/identite-de-marque\">brand identity creation</a>. To change the name of an existing brand without breaking addresses or search visibility, see the <a href=\"/services/refonte-de-marque\">rebrand</a>. Everything is presented on the <a href=\"/services/branding\">branding agency</a> page, and fits within the <a href=\"/services/systeme-acquisition\">acquisition system</a>.</p>"
+    },
+    {
+      "type": "decision-list",
+      "background": "paper",
+      "kicker_fr": "§ Quand ne pas le faire",
+      "kicker_en": "§ When not to do it",
+      "heading_fr": "Ne changez pas de nom si",
+      "heading_en": "Do not change your name if",
+      "items": [
+        {
+          "label_fr": "Votre nom est connu localement et vos clients vous trouvent : un nouveau nom a un coût réel (domaine, référencement, notoriété).",
+          "label_en": "Your name is known locally and clients find you: a new name has a real cost (domain, search visibility, awareness)."
+        },
+        {
+          "label_fr": "Vous voulez un nom « disponible partout » : aucun nom ne l'est, la vérification réduit le risque sans l'annuler.",
+          "label_en": "You want a name \"available everywhere\": none is, checking reduces the risk without cancelling it."
+        },
+        {
+          "label_fr": "Vous attendez une garantie juridique de notre part : elle relève d'un conseil en propriété intellectuelle.",
+          "label_en": "You expect a legal guarantee from us: that belongs to an intellectual property counsel."
+        },
+        {
+          "label_fr": "Vous n'avez pas encore tranché ce que vous vendez : le positionnement passe avant le nom.",
+          "label_en": "You have not yet decided what you sell: positioning comes before the name."
+        }
+      ]
+    },
+    {
+      "type": "pricing-cards",
+      "background": "paper",
+      "layout": "grid-asym",
+      "colRatio": "2-3",
+      "kicker_fr": "§ Deux façons d'engager",
+      "kicker_en": "§ Two ways to engage",
+      "h2_fr": "Prix d'un naming et d'un positionnement",
+      "h2_en": "Price of naming and positioning",
+      "lede_fr": "Le sprint de cadrage est à prix fixe et suffit souvent quand le brief est clair. Un naming plus large, avec plusieurs tours de génération et une fiche de vérification détaillée, se chiffre à partir du sprint.",
+      "lede_en": "The scoping sprint is fixed-price and often enough when the brief is clear. A wider naming, with several generation rounds and a detailed check sheet, is priced from the sprint.",
+      "tiers": [
+        {
+          "name_fr": "Sprint de cadrage",
+          "name_en": "Scoping sprint",
+          "price": "999 €",
+          "period_fr": "10 h · HT",
+          "period_en": "10 h · excl. VAT",
+          "features_fr": [
+            "Brief de nommage et critères de tri",
+            "Un tour de génération et de tri",
+            "Liste courte argumentée",
+            "Phrase de positionnement"
+          ],
+          "features_en": [
+            "Naming brief and sorting criteria",
+            "One round of generation and sorting",
+            "Argued shortlist",
+            "Positioning sentence"
+          ],
+          "cta": {
+            "label_fr": "Réserver un audit IA gratuit →",
+            "label_en": "Book a free AI audit →",
+            "href": "/contact?offer=audit-ia-pme&intent=audit",
+            "variant": "primary"
+          },
+          "featured": true
+        },
+        {
+          "name_fr": "Naming complet",
+          "name_en": "Full naming",
+          "price": "Dès 2 000 €",
+          "period_fr": "chiffré après le sprint · HT",
+          "period_en": "priced after the sprint · excl. VAT",
+          "features_fr": [
+            "Plusieurs tours de génération et de tri",
+            "Positionnement développé : promesse, preuves, refus",
+            "Fiche de vérification complète pour votre conseil",
+            "Journal des pistes"
+          ],
+          "features_en": [
+            "Several rounds of generation and sorting",
+            "Developed positioning: promise, proof, refusals",
+            "Complete check sheet for your counsel",
+            "Log of routes"
+          ],
+          "cta": {
+            "label_fr": "Cadrer le naming →",
+            "label_en": "Scope the naming →",
+            "href": "/contact?offer=naming-et-positionnement&intent=production",
+            "variant": "ghost"
+          }
+        }
+      ],
+      "footnote_fr": "Le sprint de cadrage est à prix fixe, 999 € HT pour 10 heures. Le naming complet démarre à 2 000 € HT et se chiffre après le sprint. Le dépôt de marque, la recherche de similitudes et les frais de l'INPI sont hors prix et hors périmètre. Heures hors périmètre : {{prix.horaire}} € HT de l'heure.",
+      "footnote_en": "The scoping sprint is fixed-price, €999 excl. VAT for 10 hours. Full naming starts at €2,000 excl. VAT and is priced after the sprint. Trademark filing, similarity searches and INPI fees are outside the price and the scope. Hours outside the scope: €{{prix.horaire}} excl. VAT an hour."
+    },
+    {
+      "type": "eeat-panel",
+      "variant": "media",
+      "silo": "acquisition"
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper-2",
+      "kicker_fr": "§ Questions fréquentes",
+      "kicker_en": "§ Frequently asked questions",
+      "h2_fr": "Naming et positionnement : vos questions",
+      "h2_en": "Naming and positioning: your questions",
+      "items": [
+        {
+          "q_fr": "Combien coûte un naming pour une PME ?",
+          "a_fr": "L'audit de 45 minutes est gratuit. Le sprint de cadrage coûte 999 € HT pour 10 heures : il suffit souvent pour un nom et une phrase de positionnement quand le brief est clair. Un naming plus complet, avec plusieurs tours et une fiche de vérification détaillée, démarre à 2 000 € HT et se chiffre après le sprint. Les heures hors périmètre sont à {{prix.horaire}} € HT de l'heure.",
+          "q_en": "How much does naming cost for an SMB?",
+          "a_en": "The 45-minute audit is free. The scoping sprint costs €999 excl. VAT for 10 hours: it is often enough for a name and a positioning sentence when the brief is clear. A fuller naming, with several rounds and a detailed check sheet, starts at €2,000 excl. VAT and is priced after the sprint. Hours outside the scope are €{{prix.horaire}} excl. VAT an hour."
+        },
+        {
+          "q_fr": "Comment l'IA aide-t-elle à trouver un nom ?",
+          "a_fr": "Elle produit beaucoup de pistes par familles (sens, sonorités, images) plus vite qu'un atelier. Elle ne choisit pas : le tri se fait sur des critères écrits et la décision est la vôtre. Elle peut aussi proposer un nom qui existe déjà, c'est pourquoi les vérifications viennent avant de vous présenter une liste.",
+          "q_en": "How does AI help find a name?",
+          "a_en": "It produces many routes by families (meaning, sound, imagery) faster than a workshop. It does not choose: sorting is done on written criteria and the decision is yours. It can also suggest a name that already exists, which is why checks come before we present you a list."
+        },
+        {
+          "q_fr": "Le nom sera-t-il disponible comme marque ?",
+          "a_fr": "Nous ne pouvons pas le garantir. Nous vérifions le nom de domaine, les comptes de réseaux sociaux et une recherche à l'identique dans la base Marques de l'INPI. La recherche de similitudes, l'avis sur le risque d'opposition ou de contrefaçon et le dépôt relèvent d'un conseil en propriété intellectuelle, que nous recommandons de consulter avant d'imprimer quoi que ce soit.",
+          "q_en": "Will the name be available as a trademark?",
+          "a_en": "We cannot guarantee it. We check the domain name, social media accounts and an identical-match search in the INPI trademark database. The similarity search, advice on the risk of opposition or infringement, and the filing belong to an intellectual property counsel, whom we recommend consulting before printing anything."
+        },
+        {
+          "q_fr": "Faites-vous le dépôt de marque ?",
+          "a_fr": "Non. Le dépôt se fait en ligne auprès de l'INPI, par vous ou par un conseil en propriété intellectuelle. Nous préparons la fiche à lui transmettre : le nom retenu, ses variantes, les produits et services visés tels que vous les décrivez, les vérifications déjà faites.",
+          "q_en": "Do you file the trademark?",
+          "a_en": "No. Filing is done online with the INPI, by you or by an intellectual property counsel. We prepare the sheet to give them: the chosen name, its variants, the goods and services as you describe them, the checks already done."
+        },
+        {
+          "q_fr": "Peut-on garder notre nom et ne refaire que la phrase ?",
+          "a_fr": "Oui. Le positionnement se travaille seul : promesse, cible, preuves, phrase. C'est souvent la bonne décision quand le nom est connu de vos clients. Une phrase de positionnement bien tenue vaut mieux qu'un nouveau nom mal expliqué.",
+          "q_en": "Can we keep our name and only redo the sentence?",
+          "a_en": "Yes. Positioning can be worked on its own: promise, audience, proof, sentence. It is often the right call when the name is known to your clients. A well-held positioning sentence is worth more than a new name badly explained."
+        },
+        {
+          "q_fr": "Qu'est-ce qu'une phrase de positionnement ?",
+          "a_fr": "Une phrase qui dit pour qui vous travaillez, ce que vous faites et ce qui vous distingue. Par exemple : « Pour les cabinets de moins de vingt personnes, X est le service qui traite les relances sans y passer vos soirées. » Elle sert de test : si un texte ou un visuel la contredit, on le corrige.",
+          "q_en": "What is a positioning sentence?",
+          "a_en": "A sentence that says who you work for, what you do and what sets you apart. For example: \"For firms under twenty people, X is the service that handles follow-ups without costing your evenings.\" It serves as a test: if a text or visual contradicts it, we fix it."
+        },
+        {
+          "q_fr": "Le nom de domaine fait-il partie du nom ?",
+          "a_fr": "Il fait partie de la vérification : nous regardons .fr, .com et les variantes proches avant de vous présenter un nom. L'achat du domaine reste à votre nom et à votre charge.",
+          "q_en": "Is the domain name part of the name?",
+          "a_en": "It is part of the check: we look at .fr, .com and close variants before presenting you a name. Buying the domain stays in your name and at your expense."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "layout": "stacked",
+      "contentAlign": "center",
+      "actionsAlign": "center",
+      "rounded": true,
+      "kicker_fr": "§ Audit IA gratuit",
+      "kicker_en": "§ Free AI audit",
+      "h2_fr": "Votre nom dit-il ce que vous faites ?",
+      "h2_en": "Does your name say what you do?",
+      "subtitle_fr": "En 45 minutes, on regarde votre nom, vos concurrents et votre promesse, et on vous dit si changer de nom se justifie, ou si une phrase de positionnement suffit.",
+      "subtitle_en": "In 45 minutes, we look at your name, your competitors and your promise, and tell you whether changing the name is justified, or whether a positioning sentence is enough.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un audit IA gratuit →",
+          "label_en": "Book a free AI audit →",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Agence de branding",
+          "label_en": "Branding agency",
+          "href": "/services/branding",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,585 @@
+{
+  "$schema": "../../../schemas/generated/services.page.schema.json",
+  "title_fr": "Refonte de marque pour PME · Waimia",
+  "title_en": "Rebrand for SMBs · Waimia",
+  "description_fr": "Refonte de marque pour PME : ce qu'on garde, ce qu'on change, le déploiement sur le site et les documents, avec un plan de migration des adresses.",
+  "description_en": "Rebrand for SMBs: what we keep, what we change, rollout across site and documents, with an address migration plan.",
+  "slug": "refonte-de-marque",
+  "publishedAt": "2026-10-12T00:00:00.000Z",
+  "updatedAt": "2026-10-12T00:00:00.000Z",
+  "category": "acquisition",
+  "tags": [
+    "refonte-de-marque",
+    "branding",
+    "rebranding",
+    "migration",
+    "redirections"
+  ],
+  "sources": [
+    {
+      "name": "Google Search Central, Migration de site avec changement d'URL (mise à jour le 20 août 2026, lue le 12 octobre 2026)",
+      "url": "https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes",
+      "type": "enterprise",
+      "publishedAt": "2026-08-20"
+    }
+  ],
+  "seo": {
+    "noindex": false,
+    "serviceType": "Refonte de marque pour PME : audit, décisions, migration des adresses et déploiement",
+    "priceRange": "dès 999 €",
+    "priceMin": 999
+  },
+  "faq_fr": [
+    {
+      "q": "Combien coûte une refonte de marque pour une PME ?",
+      "a": "L'audit de 45 minutes est gratuit et le sprint de cadrage est à 999 € HT pour 10 heures : il établit l'audit de l'existant, la liste de ce qu'on garde et le plan de migration. La production démarre à 2 000 € HT et se chiffre ensuite sur ce périmètre. Le coût dépend surtout de deux choses : le nombre de supports à remplacer, et la décision de changer ou non de nom et de domaine. Les heures hors périmètre sont à {{prix.horaire}} € HT de l'heure."
+    },
+    {
+      "q": "Faut-il changer de nom ?",
+      "a": "Pas forcément. Le nom est le changement le plus coûteux : domaine, référencement, notoriété, dépôt de marque. On le change s'il bloque vraiment : activité qui a évolué, nom trop proche d'un autre, nom impossible à épeler. Sinon, on le garde et on refait le reste. Si le nom doit changer, voir l'offre naming et positionnement."
+    },
+    {
+      "q": "Va-t-on perdre notre référencement ?",
+      "a": "Nous ne pouvons pas le garantir. Ce qui se contrôle : des redirections permanentes de chaque ancienne adresse vers sa page correspondante, testées avant le lancement. D'après la documentation de Google (mise à jour le 20 août 2026), les redirections 301 ne font pas perdre de PageRank, mais des fluctuations de classement sont normales pendant une migration. Un changement de nom de domaine ajoute la déclaration dans la Search Console."
+    },
+    {
+      "q": "Combien de temps dure une refonte de marque ?",
+      "a": "Cela dépend du nombre de supports et de la décision sur le nom. Le calendrier est fixé à l'issue du sprint de cadrage, pas avant : une durée annoncée sans connaître votre existant serait inventée."
+    },
+    {
+      "q": "Peut-on garder notre ancien logo ?",
+      "a": "Oui, c'est parfois la bonne décision. La liste « garder, changer, retirer » sert à cela : un logo reconnu par vos clients a de la valeur, même s'il est mal décliné. On peut le redessiner proprement sans le transformer."
+    },
+    {
+      "q": "Que devient notre site pendant la refonte ?",
+      "a": "Il reste en ligne. Google conseille de migrer en une seule fois un site de petite ou moyenne taille et de ne changer qu'un élément à la fois : nous séparons donc, si besoin, le changement de marque et la refonte technique du site. La reconstruction du site se chiffre sur la page création de site internet."
+    },
+    {
+      "q": "Qui met en place les nouveaux documents ?",
+      "a": "Nous livrons les modèles (devis, présentations, signatures d'e-mail). Votre équipe les met en place, ou nous nous en chargeons au taux horaire de {{prix.horaire}} € HT."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "How much does a rebrand cost for an SMB?",
+      "a": "The 45-minute audit is free and the scoping sprint is €999 excl. VAT for 10 hours: it sets the audit of what exists, the list of what we keep and the migration plan. Production starts at €2,000 excl. VAT and is then priced on that scope. The cost mostly depends on two things: the number of materials to replace, and whether the name and domain change. Hours outside the scope are €{{prix.horaire}} excl. VAT an hour."
+    },
+    {
+      "q": "Do we have to change the name?",
+      "a": "Not necessarily. The name is the costliest change: domain, search visibility, awareness, trademark. We change it if it really holds you back: a business that has moved on, a name too close to another, a name nobody can spell. Otherwise we keep it and redo the rest. If the name must change, see the naming and positioning offer."
+    },
+    {
+      "q": "Will we lose our search visibility?",
+      "a": "We cannot guarantee it. What can be controlled: permanent redirects from each old address to its matching page, tested before launch. According to Google documentation (updated 20 August 2026), 301 redirects do not cause a loss of PageRank, but ranking fluctuations are normal during a migration. A domain name change adds the declaration in Search Console."
+    },
+    {
+      "q": "How long does a rebrand take?",
+      "a": "It depends on the number of materials and the decision on the name. The schedule is set at the end of the scoping sprint, not before: a duration announced without knowing what you have would be made up."
+    },
+    {
+      "q": "Can we keep our old logo?",
+      "a": "Yes, it is sometimes the right call. The \"keep, change, drop\" list is there for that: a logo your clients recognise has value, even if it is poorly applied. It can be redrawn cleanly without being transformed."
+    },
+    {
+      "q": "What happens to our site during the rebrand?",
+      "a": "It stays online. Google advises migrating a small or medium site in one go and changing one thing at a time: so we separate, if needed, the brand change and the technical rebuild of the site. Rebuilding the site is quoted on the website creation page."
+    },
+    {
+      "q": "Who rolls out the new documents?",
+      "a": "We deliver the templates (quotes, presentations, email signatures). Your team puts them in place, or we do it at the hourly rate of €{{prix.horaire}} excl. VAT."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-masthead-card",
+      "background": "paper",
+      "kicker_fr": "§ Agence de branding · refonte",
+      "kicker_en": "§ Branding agency · rebrand",
+      "h1_fr": "Refonte de marque pour PME : changer ce qui doit l'être, <i class=\"acc\">garder</i> ce qui fonctionne.",
+      "h1_en": "Rebrand for SMBs: change what has to change, <i class=\"acc\">keep</i> what works.",
+      "lede_fr": "Votre marque a dix ans, ou elle a cessé de vous ressembler. Nous commençons par ce qui fonctionne et mérite d'être gardé, puis nous changeons le reste et nous le déployons : site, documents, e-mails, fiches en ligne. Les redirections et le référencement sont préparés avant le lancement, pas après.",
+      "lede_en": "Your brand is ten years old, or it has stopped looking like you. We start with what works and deserves to be kept, then change the rest and roll it out: site, documents, emails, online listings. Redirects and search visibility are prepared before launch, not after.",
+      "badges": [
+        {
+          "label_fr": "Audit de l'existant",
+          "label_en": "Audit of what exists"
+        },
+        {
+          "label_fr": "Garder, changer, retirer",
+          "label_en": "Keep, change, drop"
+        },
+        {
+          "label_fr": "Déploiement cadré",
+          "label_en": "Scoped rollout"
+        },
+        {
+          "label_fr": "Migration préparée",
+          "label_en": "Prepared migration"
+        }
+      ],
+      "cta_sub_fr": "Audit gratuit de 45 minutes : on regarde vos supports et votre site, on vous dit ce qui justifie une refonte, ou un simple ajustement.",
+      "cta_sub_en": "Free 45-minute audit: we look at your materials and site, and tell you what justifies a rebrand, or a simple adjustment.",
+      "cta_primary": {
+        "label_fr": "Réserver un audit IA gratuit →",
+        "label_en": "Book a free AI audit →",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Cadrer ce projet",
+        "label_en": "Scope this project",
+        "href": "/contact?offer=refonte-de-marque&intent=cadrage",
+        "variant": "ghost"
+      },
+      "media_src": "/images/illustrations/ds/refonte-de-marque-navire-repeint-paper.webp",
+      "media_alt_fr": "Un paquebot dont la moitié de la coque est repeinte, deux peintres sur une plateforme suspendue.",
+      "media_alt_en": "A liner with half its hull repainted, two painters on a hanging platform."
+    },
+    {
+      "type": "proof-bar",
+      "background": "paper",
+      "kicker_fr": "§ En bref",
+      "kicker_en": "§ In short",
+      "metrics": [
+        {
+          "value": "Dès 999 € HT",
+          "label_fr": "sprint de cadrage de 10 h : audit et plan de migration",
+          "label_en": "10-hour scoping sprint: audit and migration plan",
+          "emphasis": true
+        },
+        {
+          "value": "3 listes",
+          "label_fr": "à garder, à changer, à retirer, avec la raison de chaque choix",
+          "label_en": "to keep, to change, to drop, with the reason for each choice",
+          "emphasis": false
+        },
+        {
+          "value": "301",
+          "label_fr": "redirections page par page si les adresses changent",
+          "label_en": "page-by-page redirects if addresses change",
+          "emphasis": false
+        },
+        {
+          "value": "Avant le lancement",
+          "label_fr": "inventaire des adresses et des supports, tests des redirections",
+          "label_en": "inventory of addresses and materials, redirect tests",
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "type": "definition-extract",
+      "background": "paper",
+      "kicker_fr": "§ Définition",
+      "kicker_en": "§ Definition",
+      "statement_fr": "Une <i class=\"acc\">refonte de marque</i> est le changement planifié de ce qui se voit et se dit (nom, logo, couleurs, ton) partout où la marque est utilisée. Elle réussit quand le changement est cadré dans l'existant : on sait ce qui reste, ce qui change, et où chaque changement doit arriver.",
+      "statement_en": "A <i class=\"acc\">rebrand</i> is the planned change of what is seen and said (name, logo, colours, tone) wherever the brand is used. It succeeds when the change is scoped within what exists: we know what stays, what changes, and where each change has to land.",
+      "pills": [
+        {
+          "label_fr": "Audit de l'existant",
+          "label_en": "Audit of what exists"
+        },
+        {
+          "label_fr": "Décisions",
+          "label_en": "Decisions"
+        },
+        {
+          "label_fr": "Migration",
+          "label_en": "Migration"
+        },
+        {
+          "label_fr": "Déploiement",
+          "label_en": "Rollout"
+        }
+      ],
+      "specs": [
+        {
+          "label_fr": "Inventaire des supports",
+          "label_en": "Inventory of materials"
+        },
+        {
+          "label_fr": "Table des adresses",
+          "label_en": "Address map"
+        },
+        {
+          "label_fr": "Redirections 301",
+          "label_en": "301 redirects"
+        },
+        {
+          "label_fr": "Modèles de documents",
+          "label_en": "Document templates"
+        }
+      ]
+    },
+    {
+      "type": "pain-severity-list",
+      "background": "ink",
+      "kicker_fr": "Les refontes qui tournent mal · par sévérité",
+      "kicker_en": "Rebrands that go wrong · by severity",
+      "h2_fr": "Là où une refonte <i class=\"acc\">tourne mal</i>.",
+      "h2_en": "Where a rebrand <i class=\"acc\">goes wrong</i>.",
+      "items": [
+        {
+          "severity": "critical",
+          "title_fr": "Un changement de nom ou de domaine sans plan de redirection",
+          "title_en": "A name or domain change with no redirect plan",
+          "desc_fr": "Les anciennes adresses répondent en erreur ; les liens entrants et les pages déjà indexées se perdent.",
+          "desc_en": "Old addresses return errors; inbound links and already indexed pages are lost.",
+          "fix_fr": "Inventaire des adresses et redirections 301 page par page, testées avant le lancement.",
+          "fix_en": "Inventory of addresses and page-by-page 301 redirects, tested before launch."
+        },
+        {
+          "severity": "high",
+          "title_fr": "On change tout, y compris ce que les clients reconnaissaient",
+          "title_en": "Everything changes, including what clients recognised",
+          "desc_fr": "Un logo, une couleur ou un mot qui avait de la valeur disparaît avec le reste.",
+          "desc_en": "A logo, colour or word that had value disappears with the rest.",
+          "fix_fr": "Un audit de reconnaissance : qu'est-ce qui est associé à vous, et par qui ?",
+          "fix_en": "A recognition audit: what is associated with you, and by whom?"
+        },
+        {
+          "severity": "medium",
+          "title_fr": "Le déploiement s'arrête au site",
+          "title_en": "The rollout stops at the site",
+          "desc_fr": "Devis, e-mails, fiches en ligne et profils sociaux gardent l'ancienne marque pendant des mois.",
+          "desc_en": "Quotes, emails, online listings and social profiles keep the old brand for months.",
+          "fix_fr": "Un inventaire des supports et un ordre de remplacement.",
+          "fix_en": "An inventory of materials and an order of replacement."
+        }
+      ]
+    },
+    {
+      "type": "comparison-duo",
+      "background": "paper-2",
+      "kicker_fr": "§ Exemple type · pas un cas client",
+      "kicker_en": "§ Typical example · not a client case",
+      "h2_fr": "Exemple type : une PME de services de douze ans",
+      "h2_en": "Typical example: a twelve-year-old service SME",
+      "without_label_fr": "Avant",
+      "without_label_en": "Before",
+      "without_title_fr": "Une refonte qui s'arrête au logo",
+      "without_title_en": "A rebrand that stops at the logo",
+      "without_items": [
+        {
+          "text_fr": "Le nouveau logo est posé sur le site.",
+          "text_en": "The new logo is put on the site."
+        },
+        {
+          "text_fr": "Devis, signatures d'e-mail et fiches en ligne gardent l'ancien.",
+          "text_en": "Quotes, email signatures and online listings keep the old one."
+        },
+        {
+          "text_fr": "Les anciennes adresses du site répondent par une erreur.",
+          "text_en": "The old site addresses return an error."
+        }
+      ],
+      "with_label_fr": "Après",
+      "with_label_en": "After",
+      "with_title_fr": "Une refonte déployée",
+      "with_title_en": "A rebrand rolled out",
+      "with_items": [
+        {
+          "text_fr": "Une liste de tous les supports, avec un ordre de remplacement.",
+          "text_en": "A list of every material, with an order of replacement."
+        },
+        {
+          "text_fr": "Chaque ancienne adresse redirigée vers sa page correspondante.",
+          "text_en": "Each old address redirected to its matching page."
+        },
+        {
+          "text_fr": "Fiches et profils en ligne mis à jour le jour du lancement.",
+          "text_en": "Listings and profiles updated on launch day."
+        }
+      ]
+    },
+    {
+      "type": "method-stepline",
+      "background": "paper-3",
+      "kicker_fr": "§ Déroulé",
+      "kicker_en": "§ Steps",
+      "h2_fr": "Six étapes, du constat au contrôle",
+      "h2_en": "Six steps, from findings to checks",
+      "lede_fr": "On commence par regarder ce qui existe. Le plan de migration est écrit avant que le moindre élément ne change, et les redirections sont testées avant le lancement.",
+      "lede_en": "We start by looking at what exists. The migration plan is written before a single element changes, and redirects are tested before launch.",
+      "steps": [
+        {
+          "title_fr": "Audit de l'existant",
+          "title_en": "Audit of what exists",
+          "sub_fr": "Supports, site, reconnaissance",
+          "sub_en": "Materials, site, recognition"
+        },
+        {
+          "title_fr": "Décisions",
+          "title_en": "Decisions",
+          "sub_fr": "Garder, changer, retirer",
+          "sub_en": "Keep, change, drop"
+        },
+        {
+          "title_fr": "Marque révisée",
+          "title_en": "Revised brand",
+          "sub_fr": "Positionnement, voix, identité",
+          "sub_en": "Positioning, voice, identity"
+        },
+        {
+          "title_fr": "Plan de migration",
+          "title_en": "Migration plan",
+          "sub_fr": "Adresses, redirections, ordre de remplacement",
+          "sub_en": "Addresses, redirects, order of replacement"
+        },
+        {
+          "title_fr": "Déploiement",
+          "title_en": "Rollout",
+          "sub_fr": "Site, documents, e-mails, profils",
+          "sub_en": "Site, documents, emails, profiles"
+        },
+        {
+          "title_fr": "Contrôle",
+          "title_en": "Checks",
+          "sub_fr": "Redirections testées, Search Console suivie",
+          "sub_en": "Redirects tested, Search Console monitored"
+        }
+      ]
+    },
+    {
+      "type": "deliverables-grid",
+      "background": "paper",
+      "kicker_fr": "§ Ce que vous gardez",
+      "kicker_en": "§ What you keep",
+      "title_fr": "Les livrables",
+      "title_en": "The deliverables",
+      "lead_fr": "Le plan de migration est le livrable qui évite les mauvaises surprises : il se relit et se vérifie.",
+      "lead_en": "The migration plan is the deliverable that prevents bad surprises: it can be reread and checked.",
+      "items": [
+        {
+          "title_fr": "Audit de l'existant",
+          "title_en": "Audit of what exists",
+          "body_fr": "Inventaire des supports et des adresses, constat de ce qui est reconnu.",
+          "body_en": "Inventory of materials and addresses, finding of what is recognised.",
+          "format_fr": "AUDIT",
+          "format_en": "AUDIT"
+        },
+        {
+          "title_fr": "Liste garder, changer, retirer",
+          "title_en": "Keep, change, drop list",
+          "body_fr": "Chaque élément de la marque classé, avec la raison du choix.",
+          "body_en": "Each brand element sorted, with the reason for the choice.",
+          "format_fr": "DÉCISIONS",
+          "format_en": "DECISIONS"
+        },
+        {
+          "title_fr": "Marque révisée",
+          "title_en": "Revised brand",
+          "body_fr": "Plateforme, ton de voix et identité visuelle mis à jour.",
+          "body_en": "Platform, tone of voice and visual identity updated.",
+          "format_fr": "MARQUE",
+          "format_en": "BRAND"
+        },
+        {
+          "title_fr": "Plan de migration",
+          "title_en": "Migration plan",
+          "body_fr": "Table de correspondance des adresses, calendrier, ordre de remplacement des supports.",
+          "body_en": "Address correspondence table, schedule, order of replacing materials.",
+          "format_fr": "PLAN",
+          "format_en": "PLAN"
+        },
+        {
+          "title_fr": "Modèles de documents",
+          "title_en": "Document templates",
+          "body_fr": "Devis, présentations, signatures d'e-mail, si le périmètre les inclut.",
+          "body_en": "Quotes, presentations, email signatures, if the scope includes them.",
+          "format_fr": "MODÈLES",
+          "format_en": "TEMPLATES"
+        },
+        {
+          "title_fr": "Rapport de contrôle",
+          "title_en": "Check report",
+          "body_fr": "Redirections testées, pages suivies dans la Search Console pendant la période de migration.",
+          "body_en": "Redirects tested, pages monitored in Search Console during the migration period.",
+          "format_fr": "CONTRÔLE",
+          "format_en": "CHECK"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "html_fr": "<h2>Le référencement, avant le logo</h2>\n<p>Une refonte qui change les adresses se joue sur les redirections. La <a href=\"https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes\">documentation de Google</a>, mise à jour le 20 août 2026, recommande des redirections permanentes (301 ou 308) de chaque ancienne adresse vers l'adresse correspondante, et d'éviter de tout renvoyer vers l'accueil. Elle précise que les 301 ne font pas perdre de PageRank, qu'il faut les conserver au moins un an, et que des fluctuations de classement sont attendues pendant la migration. Nous ne promettons donc pas un classement figé : nous préparons ce qui se contrôle.</p>\n<p>Si le nom de domaine change, la déclaration de changement d'adresse dans la Search Console s'ajoute. Si seul le logo change, rien de tout cela n'est nécessaire : c'est la raison pour laquelle le cadrage décide du plan avant la production.</p>\n<h2>Où la refonte se prolonge</h2>\n<p>Le site lui-même se refait sur la page <a href=\"/services/site-web-ia\">création de site internet</a> ; la visibilité sur Google et dans les moteurs IA relève du <a href=\"/services/seo-geo-contenu\">référencement et contenu</a>. La refonte de marque s'inscrit dans le <a href=\"/services/systeme-acquisition\">système d'acquisition</a> : elle change ce qui se voit, pas ce qui se mesure derrière. Les quatre offres de branding sont réunies sur la page <a href=\"/services/branding\">agence de branding</a>.</p>",
+      "html_en": "<h2>Search visibility, before the logo</h2>\n<p>A rebrand that changes addresses is decided by redirects. <a href=\"https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes\">Google's documentation</a>, updated 20 August 2026, recommends permanent redirects (301 or 308) from each old address to its matching address, and advises against sending everything to the home page. It states that 301s do not cause a loss of PageRank, that they should be kept at least a year, and that ranking fluctuations are expected during the migration. So we do not promise a frozen ranking: we prepare what can be controlled.</p>\n<p>If the domain name changes, the change-of-address declaration in Search Console is added. If only the logo changes, none of this is needed: which is why scoping decides the plan before production.</p>\n<h2>Where the rebrand extends</h2>\n<p>The site itself is rebuilt on the <a href=\"/services/site-web-ia\">website creation</a> page; visibility on Google and in AI engines belongs to <a href=\"/services/seo-geo-contenu\">SEO and content</a>. The rebrand fits within the <a href=\"/services/systeme-acquisition\">acquisition system</a>: it changes what is seen, not what is measured behind it. The four branding offers are gathered on the <a href=\"/services/branding\">branding agency</a> page.</p>"
+    },
+    {
+      "type": "decision-list",
+      "background": "paper",
+      "kicker_fr": "§ Quand ne pas le faire",
+      "kicker_en": "§ When not to do it",
+      "heading_fr": "Une refonte n'est pas utile si",
+      "heading_en": "A rebrand is not worth it if",
+      "items": [
+        {
+          "label_fr": "Votre marque fonctionne : un ajustement du site et des documents suffit.",
+          "label_en": "Your brand works: adjusting the site and documents is enough."
+        },
+        {
+          "label_fr": "Vous voulez changer pour changer, sans raison de positionnement : le coût de transition est réel.",
+          "label_en": "You want to change for the sake of it, with no positioning reason: the transition cost is real."
+        },
+        {
+          "label_fr": "Votre site sera refait dans six mois : coordonnez les deux, sinon vous migrerez deux fois.",
+          "label_en": "Your site will be rebuilt in six months: coordinate both, otherwise you will migrate twice."
+        }
+      ]
+    },
+    {
+      "type": "pricing-cards",
+      "background": "paper",
+      "layout": "grid-asym",
+      "colRatio": "2-3",
+      "kicker_fr": "§ Deux façons d'engager",
+      "kicker_en": "§ Two ways to engage",
+      "h2_fr": "Prix d'une refonte de marque",
+      "h2_en": "Price of a rebrand",
+      "lede_fr": "On démarre par un sprint de cadrage à prix fixe : audit de l'existant, liste garder, changer, retirer, plan de migration. La production se chiffre ensuite sur ce plan, pas avant.",
+      "lede_en": "We start with a fixed-price scoping sprint: audit of what exists, keep, change, drop list, migration plan. Production is then priced on that plan, not before.",
+      "tiers": [
+        {
+          "name_fr": "Sprint de cadrage",
+          "name_en": "Scoping sprint",
+          "price": "999 €",
+          "period_fr": "10 h · HT",
+          "period_en": "10 h · excl. VAT",
+          "features_fr": [
+            "Audit de l'existant et de la reconnaissance",
+            "Liste garder, changer, retirer",
+            "Plan de migration : adresses et supports",
+            "Chiffrage de la production"
+          ],
+          "features_en": [
+            "Audit of what exists and of recognition",
+            "Keep, change, drop list",
+            "Migration plan: addresses and materials",
+            "Production quote"
+          ],
+          "cta": {
+            "label_fr": "Réserver un audit IA gratuit →",
+            "label_en": "Book a free AI audit →",
+            "href": "/contact?offer=audit-ia-pme&intent=audit",
+            "variant": "primary"
+          },
+          "featured": true
+        },
+        {
+          "name_fr": "Production",
+          "name_en": "Production",
+          "price": "Dès 2 000 €",
+          "period_fr": "chiffrée après le sprint · HT",
+          "period_en": "priced after the sprint · excl. VAT",
+          "features_fr": [
+            "Marque révisée : voix et identité",
+            "Plan de migration exécuté avec le site",
+            "Modèles de documents",
+            "Contrôle des redirections"
+          ],
+          "features_en": [
+            "Revised brand: voice and identity",
+            "Migration plan executed with the site",
+            "Document templates",
+            "Redirect checks"
+          ],
+          "cta": {
+            "label_fr": "Cadrer la production →",
+            "label_en": "Scope the production →",
+            "href": "/contact?offer=refonte-de-marque&intent=production",
+            "variant": "ghost"
+          }
+        }
+      ],
+      "footnote_fr": "Le sprint de cadrage est à prix fixe, 999 € HT pour 10 heures. La production démarre à 2 000 € HT et se chiffre sur le plan de migration. La reconstruction du site est hors de ce périmètre, sauf mention écrite : elle se chiffre sur la page création de site internet. Heures hors périmètre : {{prix.horaire}} € HT de l'heure.",
+      "footnote_en": "The scoping sprint is fixed-price, €999 excl. VAT for 10 hours. Production starts at €2,000 excl. VAT and is priced on the migration plan. Rebuilding the site is outside this scope unless stated in writing: it is quoted on the website creation page. Hours outside the scope: €{{prix.horaire}} excl. VAT an hour."
+    },
+    {
+      "type": "eeat-panel",
+      "variant": "media",
+      "silo": "acquisition"
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper-2",
+      "kicker_fr": "§ Questions fréquentes",
+      "kicker_en": "§ Frequently asked questions",
+      "h2_fr": "Refonte de marque : vos questions",
+      "h2_en": "Rebrand: your questions",
+      "items": [
+        {
+          "q_fr": "Combien coûte une refonte de marque pour une PME ?",
+          "a_fr": "L'audit de 45 minutes est gratuit et le sprint de cadrage est à 999 € HT pour 10 heures : il établit l'audit de l'existant, la liste de ce qu'on garde et le plan de migration. La production démarre à 2 000 € HT et se chiffre ensuite sur ce périmètre. Le coût dépend surtout de deux choses : le nombre de supports à remplacer, et la décision de changer ou non de nom et de domaine. Les heures hors périmètre sont à {{prix.horaire}} € HT de l'heure.",
+          "q_en": "How much does a rebrand cost for an SMB?",
+          "a_en": "The 45-minute audit is free and the scoping sprint is €999 excl. VAT for 10 hours: it sets the audit of what exists, the list of what we keep and the migration plan. Production starts at €2,000 excl. VAT and is then priced on that scope. The cost mostly depends on two things: the number of materials to replace, and whether the name and domain change. Hours outside the scope are €{{prix.horaire}} excl. VAT an hour."
+        },
+        {
+          "q_fr": "Faut-il changer de nom ?",
+          "a_fr": "Pas forcément. Le nom est le changement le plus coûteux : domaine, référencement, notoriété, dépôt de marque. On le change s'il bloque vraiment : activité qui a évolué, nom trop proche d'un autre, nom impossible à épeler. Sinon, on le garde et on refait le reste. Si le nom doit changer, voir l'offre naming et positionnement.",
+          "q_en": "Do we have to change the name?",
+          "a_en": "Not necessarily. The name is the costliest change: domain, search visibility, awareness, trademark. We change it if it really holds you back: a business that has moved on, a name too close to another, a name nobody can spell. Otherwise we keep it and redo the rest. If the name must change, see the naming and positioning offer."
+        },
+        {
+          "q_fr": "Va-t-on perdre notre référencement ?",
+          "a_fr": "Nous ne pouvons pas le garantir. Ce qui se contrôle : des redirections permanentes de chaque ancienne adresse vers sa page correspondante, testées avant le lancement. D'après la documentation de Google (mise à jour le 20 août 2026), les redirections 301 ne font pas perdre de PageRank, mais des fluctuations de classement sont normales pendant une migration. Un changement de nom de domaine ajoute la déclaration dans la Search Console.",
+          "q_en": "Will we lose our search visibility?",
+          "a_en": "We cannot guarantee it. What can be controlled: permanent redirects from each old address to its matching page, tested before launch. According to Google documentation (updated 20 August 2026), 301 redirects do not cause a loss of PageRank, but ranking fluctuations are normal during a migration. A domain name change adds the declaration in Search Console."
+        },
+        {
+          "q_fr": "Combien de temps dure une refonte de marque ?",
+          "a_fr": "Cela dépend du nombre de supports et de la décision sur le nom. Le calendrier est fixé à l'issue du sprint de cadrage, pas avant : une durée annoncée sans connaître votre existant serait inventée.",
+          "q_en": "How long does a rebrand take?",
+          "a_en": "It depends on the number of materials and the decision on the name. The schedule is set at the end of the scoping sprint, not before: a duration announced without knowing what you have would be made up."
+        },
+        {
+          "q_fr": "Peut-on garder notre ancien logo ?",
+          "a_fr": "Oui, c'est parfois la bonne décision. La liste « garder, changer, retirer » sert à cela : un logo reconnu par vos clients a de la valeur, même s'il est mal décliné. On peut le redessiner proprement sans le transformer.",
+          "q_en": "Can we keep our old logo?",
+          "a_en": "Yes, it is sometimes the right call. The \"keep, change, drop\" list is there for that: a logo your clients recognise has value, even if it is poorly applied. It can be redrawn cleanly without being transformed."
+        },
+        {
+          "q_fr": "Que devient notre site pendant la refonte ?",
+          "a_fr": "Il reste en ligne. Google conseille de migrer en une seule fois un site de petite ou moyenne taille et de ne changer qu'un élément à la fois : nous séparons donc, si besoin, le changement de marque et la refonte technique du site. La reconstruction du site se chiffre sur la page création de site internet.",
+          "q_en": "What happens to our site during the rebrand?",
+          "a_en": "It stays online. Google advises migrating a small or medium site in one go and changing one thing at a time: so we separate, if needed, the brand change and the technical rebuild of the site. Rebuilding the site is quoted on the website creation page."
+        },
+        {
+          "q_fr": "Qui met en place les nouveaux documents ?",
+          "a_fr": "Nous livrons les modèles (devis, présentations, signatures d'e-mail). Votre équipe les met en place, ou nous nous en chargeons au taux horaire de {{prix.horaire}} € HT.",
+          "q_en": "Who rolls out the new documents?",
+          "a_en": "We deliver the templates (quotes, presentations, email signatures). Your team puts them in place, or we do it at the hourly rate of €{{prix.horaire}} excl. VAT."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "layout": "stacked",
+      "contentAlign": "center",
+      "actionsAlign": "center",
+      "rounded": true,
+      "kicker_fr": "§ Audit IA gratuit",
+      "kicker_en": "§ Free AI audit",
+      "h2_fr": "Votre marque mérite-t-elle une refonte, ou un ajustement ?",
+      "h2_en": "Does your brand deserve a rebrand, or an adjustment?",
+      "subtitle_fr": "En 45 minutes, on regarde ce qui circule sous votre marque et on vous dit ce qui justifie de changer, ce qui peut rester, et si le nom doit bouger.",
+      "subtitle_en": "In 45 minutes, we look at what circulates under your brand and tell you what justifies changing, what can stay, and whether the name should move.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un audit IA gratuit →",
+          "label_en": "Book a free AI audit →",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Agence de branding",
+          "label_en": "Branding agency",
+          "href": "/services/branding",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}
