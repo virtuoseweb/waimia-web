@@ -365,7 +365,7 @@ const listTitle = activeKind
     color: var(--paper);
     font-family: var(--font-mono);
     font-size: var(--text-small);
-    line-height: 1.5;
+    line-height: var(--leading-body);
     text-align: center;
   }
   .res-filter-btn__n[hidden] { display: none; }
@@ -493,7 +493,7 @@ const listTitle = activeKind
       min-height: 2.75rem;
       padding: var(--space-2) var(--space-3);
       border-radius: var(--radius-sm);
-      line-height: 1.3;
+      line-height: var(--leading-lede);
       text-align: left;
     }
     .res-chip[data-type-key='all'],
@@ -519,8 +519,15 @@ const listTitle = activeKind
       border-top: 1px solid var(--hairline-strong);
     }
     .res-facets__actions :global(.btn) { justify-content: center; min-height: 2.75rem; }
-    .res-facets__actions :global(.btn:disabled) { opacity: 0.45; cursor: default; transform: none; box-shadow: none; }
-    .res-facets__actions :global(.btn-ghost:disabled) { background: transparent; color: var(--ink); }
+    /* Rien à réinitialiser : bouton éteint (filet et texte atténués, sans survol). */
+    .res-facets__actions :global(.btn-ghost:disabled) {
+      background: transparent;
+      border-color: var(--hairline-strong);
+      color: var(--muted);
+      cursor: default;
+      transform: none;
+      box-shadow: none;
+    }
   }
   @media (prefers-reduced-motion: reduce) {
     .res-chip,
