@@ -148,7 +148,11 @@ const listTitle = activeKind
             placeholder={isFr ? 'Rechercher une ressource' : 'Search resources'}
           />
         </div>
-        <p class="res-search__status" role="status" data-res-status></p>
+        {/* Annonce lecteurs d'écran : zone live TOUJOURS présente et masquée visuellement (une zone
+            display:none ou vide au chargement n'est pas annoncée de façon fiable). Le compte
+            visible juste dessous est aria-hidden : pas de doublon vocal. */}
+        <p class="sr-only" role="status" aria-live="polite" aria-atomic="true" data-res-live></p>
+        <p class="res-search__status" aria-hidden="true" data-res-status></p>
         <div class="res-search__panel" data-res-panel hidden>
           <p class="res-search__empty" data-res-empty hidden></p>
           <div id="res-q-list" class="res-search__list" role="listbox" aria-label={isFr ? 'Résultats de la recherche' : 'Search results'} data-res-list></div>
@@ -812,6 +816,7 @@ const listTitle = activeKind
     var t = T[lang];
     var input = root.querySelector('input[type="search"]');
     var status = root.querySelector('[data-res-status]');
+    var live = root.querySelector('[data-res-live]');
     var panel = root.querySelector('[data-res-panel]');
     var empty = root.querySelector('[data-res-empty]');
     var listbox = root.querySelector('[data-res-list]');
@@ -848,8 +853,9 @@ const listTitle = activeKind
     function say(text, immediate) {
       clearTimeout(statusTimer);
       // Annonce différée : un lecteur d'écran n'énonce pas chaque frappe.
-      if (immediate) status.textContent = text;
-      else statusTimer = setTimeout(function () { status.textContent = text; }, 250);
+      function write() { status.textContent = text; live.textContent = text; }
+      if (immediate) write();
+      else statusTimer = setTimeout(write, 250);
     }
 
     function setActive(i) {
@@ -976,10 +982,16 @@ const listTitle = activeKind
         e.preventDefault();
         (opts[active >= 0 ? active : 0]).click();
       } else if (e.key === 'Escape') {
+        // Motif combobox : un premier appui ferme la liste (la saisie reste), un second vide le champ.
         e.preventDefault();
-        input.value = '';
-        close();
-        say('', true);
+        if (!panel.hidden) {
+          close();
+          say('', true);
+        } else {
+          input.value = '';
+          close();
+          say('', true);
+        }
       }
     });
   }
