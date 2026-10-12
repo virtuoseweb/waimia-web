@@ -1,0 +1,532 @@
+{
+  "$schema": "../../../schemas/generated/services.page.schema.json",
+  "title_fr": "Agent IA de traitement de documents · Waimia",
+  "title_en": "AI document processing agent · Waimia",
+  "description_fr": "Agent IA qui lit vos factures, devis et contrats, extrait les champs, vérifie et crée l'écriture, avec relecture humaine sous le seuil. Dès 999 € HT.",
+  "description_en": "AI agent that reads invoices, quotes and contracts, extracts fields, checks and creates the entry, with human review under the threshold. From €999 excl. VAT.",
+  "slug": "agent-traitement-documents",
+  "publishedAt": "2026-10-12T00:00:00.000Z",
+  "updatedAt": "2026-10-12",
+  "category": "agents",
+  "tags": [
+    "agent-traitement-documents",
+    "extraction-donnees-ia",
+    "traitement-factures-ia",
+    "agent-ia",
+    "relecture-humaine"
+  ],
+  "seo": {
+    "noindex": false,
+    "serviceType": "Agent IA d'extraction et de traitement de documents (factures, devis, contrats) pour PME",
+    "priceRange": "dès 999 €",
+    "priceMin": 999
+  },
+  "faq_fr": [
+    {
+      "q": "Combien coûte un agent de traitement de documents ?",
+      "a": "La conception démarre par un sprint de cadrage à 999 € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure selon le nombre de types de documents et d'outils à connecter. S'ajoute l'usage du modèle, facturé par l'éditeur au volume de pages, estimé sur vos documents avant le lancement."
+    },
+    {
+      "q": "Quelle fiabilité d'extraction attendre ?",
+      "a": "Elle dépend de vos documents : un PDF numérique propre se lit mieux qu'un scan de travers. On ne donne pas de taux avant de l'avoir mesuré : au cadrage, on passe un échantillon de vos documents, on compare à la saisie humaine et on fixe les seuils à partir de cette mesure."
+    },
+    {
+      "q": "Que se passe-t-il quand l'agent n'est pas sûr ?",
+      "a": "Le document part dans une file de relecture, avec les champs douteux surlignés et la raison. Une personne corrige en quelques secondes, valide, et l'écriture se crée. Rien n'est créé en silence sous le seuil, et chaque correction alimente le réglage des seuils."
+    },
+    {
+      "q": "OCR classique ou agent IA : quelle différence ?",
+      "a": "Une reconnaissance de caractères classique transforme une image en texte, et une extraction à règles fonctionne tant que le gabarit ne change pas. Un agent lit des documents de formes variées, comprend où se trouve le montant ou l'échéance et contrôle la cohérence. Si tous vos documents ont le même gabarit, la règle suffit et coûte moins cher."
+    },
+    {
+      "q": "Peut-il créer l'écriture dans mon logiciel de comptabilité ?",
+      "a": "Si votre logiciel a une API ou un import de fichier, oui : l'agent dépose l'écriture ou prépare le fichier d'import. Sinon, il remplit une feuille partagée que votre équipe importe. C'est vérifié au cadrage. Il ne remplace ni votre expert-comptable ni votre outil : il alimente la saisie, il ne la certifie pas."
+    },
+    {
+      "q": "Documents financiers et RGPD : que prévoir ?",
+      "a": "Limiter ce qui est envoyé au modèle, passer par une offre professionnelle, fixer la durée de conservation des originaux et des extractions, journaliser et inscrire le traitement à votre registre. Les factures et contrats contiennent des noms et des coordonnées : on le documente dans la fiche du traitement."
+    },
+    {
+      "q": "Combien de temps pour traiter ses documents avec un agent ?",
+      "a": "Quelques jours pour réunir l'échantillon et écrire les règles de contrôle, puis quelques semaines pour un premier type de document en production. On commence par un seul : celui qui revient le plus souvent et dont la saisie coûte le plus de temps."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "How much does a document processing agent cost?",
+      "a": "Design starts with a scoping sprint at €999 excl. VAT for 10 hours, then €{{prix.horaire}} per hour excl. VAT depending on the number of document types and tools to connect. Add model usage, billed by the vendor by page volume, estimated on your documents before launch."
+    },
+    {
+      "q": "What extraction reliability should I expect?",
+      "a": "It depends on your documents: a clean digital PDF reads better than a crooked scan. We give no rate before measuring it: at scoping, we run a sample of your documents, compare with human entry and set the thresholds from that measurement."
+    },
+    {
+      "q": "What happens when the agent is not sure?",
+      "a": "The document goes to a review queue, with the doubtful fields highlighted and the reason. A person corrects it in seconds, approves, and the entry is created. Nothing is created silently below the threshold, and each correction feeds the threshold tuning."
+    },
+    {
+      "q": "Classic OCR or AI agent: what is the difference?",
+      "a": "Classic character recognition turns an image into text, and rule-based extraction works as long as the template does not change. An agent reads documents of varied layouts, understands where the amount or due date is and checks consistency. If all your documents share one template, the rule is enough and costs less."
+    },
+    {
+      "q": "Can it create the entry in my accounting software?",
+      "a": "If your software has an API or a file import, yes: the agent posts the entry or prepares the import file. Otherwise, it fills a shared sheet your team imports. This is checked at scoping. It replaces neither your accountant nor your tool: it feeds entry, it does not certify it."
+    },
+    {
+      "q": "Financial documents and GDPR: what should be planned?",
+      "a": "Limit what is sent to the model, use a business plan, set the retention period for originals and extractions, log and record the processing in your register. Invoices and contracts contain names and contact details: we document it in the processing sheet."
+    },
+    {
+      "q": "How long does it take to process documents with an agent?",
+      "a": "A few days to gather the sample and write the control rules, then a few weeks for a first document type in production. We start with one: the one that comes up most often and whose entry costs the most time."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-masthead-card",
+      "background": "paper",
+      "kicker_fr": "§ Agent de traitement de documents",
+      "kicker_en": "§ Document processing agent",
+      "h1_fr": "Agent IA de <i class=\"acc\">traitement de documents</i> : factures, devis, contrats",
+      "h1_en": "AI <i class=\"acc\">document processing</i> agent: invoices, quotes, contracts",
+      "lede_fr": "Un agent de traitement de documents lit vos factures, devis et contrats, en extrait les champs utiles, les contrôle contre vos règles et vos données, puis crée l'écriture ou la fiche dans votre outil. Chaque champ porte un niveau de confiance : sous le seuil, le document part en relecture humaine. Waimia le conçoit pour les PME qui ressaisissent chaque semaine les mêmes pièces à la main.",
+      "lede_en": "A document processing agent reads your invoices, quotes and contracts, extracts the useful fields, checks them against your rules and data, then creates the entry or record in your tool. Each field carries a confidence level: below the threshold, the document goes to human review. Waimia designs it for SMBs that re-key the same documents by hand every week.",
+      "badges": [
+        {
+          "label_fr": "Lit PDF, scans et pièces jointes",
+          "label_en": "Reads PDFs, scans and attachments"
+        },
+        {
+          "label_fr": "Contrôles avant création",
+          "label_en": "Checks before creation"
+        },
+        {
+          "label_fr": "Seuil de confiance",
+          "label_en": "Confidence threshold"
+        },
+        {
+          "label_fr": "File de relecture humaine",
+          "label_en": "Human review queue"
+        }
+      ],
+      "cta_sub_fr": "Audit gratuit de 45 minutes en visio : vos documents entrants passés en revue, ce qui relève d'un agent et ce qu'une règle simple suffit à traiter.",
+      "cta_sub_en": "Free 45-minute audit by video call: your incoming documents reviewed, what calls for an agent and what a simple rule can handle.",
+      "cta_primary": {
+        "label_fr": "Réserver un audit IA gratuit →",
+        "label_en": "Book a free AI audit →",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme",
+        "variant": "ghost"
+      },
+      "media_src": "/images/line-art/dispositif-flow.svg",
+      "media_alt_fr": "Schéma : des outils dispersés à gauche, un nœud d'orchestration au centre, un flux ordonné à droite.",
+      "media_alt_en": "Diagram: scattered tools on the left, an orchestration node in the centre, an ordered flow on the right."
+    },
+    {
+      "type": "proof-bar",
+      "background": "paper",
+      "kicker_fr": "§ En bref",
+      "kicker_en": "§ In short",
+      "metrics": [
+        {
+          "value": "999 € HT",
+          "label_fr": "sprint de cadrage de 10 h, puis {{prix.horaire}} € HT de l'heure",
+          "label_en": "10-hour scoping sprint, then €{{prix.horaire}} per hour excl. VAT",
+          "emphasis": true
+        },
+        {
+          "value": "Un seul type",
+          "label_fr": "de document d'abord, celui qui coûte le plus de saisie",
+          "label_en": "of document first, the one that costs the most re-keying",
+          "emphasis": false
+        },
+        {
+          "value": "Sous le seuil",
+          "label_fr": "relecture humaine, jamais de création en silence",
+          "label_en": "human review, never a silent creation",
+          "emphasis": false
+        },
+        {
+          "value": "À vous",
+          "label_fr": "règles de contrôle, seuils et connecteurs remis",
+          "label_en": "control rules, thresholds and connectors handed over",
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "type": "definition-extract",
+      "background": "paper",
+      "kicker_fr": "§ Définition",
+      "kicker_en": "§ Definition",
+      "statement_fr": "Un <i class=\"acc\">agent de traitement de documents</i> lit un fichier (PDF, scan, e-mail avec pièce jointe), en extrait les champs utiles (émetteur, date, montant, lignes, échéance), contrôle leur cohérence, puis crée l'écriture ou la fiche. Il ne décide pas seul quand il doute : le document part en relecture.",
+      "statement_en": "A <i class=\"acc\">document processing agent</i> reads a file (PDF, scan, email with attachment), extracts the useful fields (issuer, date, amount, lines, due date), checks their consistency, then creates the entry or record. It does not decide alone when in doubt: the document goes to review.",
+      "pills": [
+        {
+          "label_fr": "Extraction de champs",
+          "label_en": "Field extraction"
+        },
+        {
+          "label_fr": "Contrôles de cohérence",
+          "label_en": "Consistency checks"
+        },
+        {
+          "label_fr": "Seuil de confiance",
+          "label_en": "Confidence threshold"
+        },
+        {
+          "label_fr": "Relecture humaine",
+          "label_en": "Human review"
+        }
+      ],
+      "specs": [
+        {
+          "label_fr": "Modèle choisi selon la tâche",
+          "label_en": "Model chosen for the task"
+        },
+        {
+          "label_fr": "Reconnaissance de caractères",
+          "label_en": "Character recognition"
+        },
+        {
+          "label_fr": "API ou import de fichier",
+          "label_en": "API or file import"
+        },
+        {
+          "label_fr": "Journal de chaque document",
+          "label_en": "Log of every document"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/agent-traitement-documents-convoyeur-paper.webp",
+          "alt_fr": "Des feuilles avancent sur un tapis roulant sous un portique bleu, certaines bifurquent vers un bureau où une personne relit.",
+          "alt_en": "Sheets ride a conveyor belt under a blue gate; some branch off to a desk where a person reviews them.",
+          "side": "right"
+        }
+      ],
+      "html_fr": "<h2>Ce qu'il fait, et ce qu'il ne fait pas</h2>\n<p>Il lit, extrait, contrôle, crée. Contrôler veut dire : le total égale la somme des lignes, la TVA est cohérente, le fournisseur est connu, le numéro de commande existe, le document n'a pas déjà été traité. Il ne valide pas un paiement, ne signe rien et ne rend pas d'avis juridique : sur un contrat, il repère les clauses et les écarts à votre modèle, une personne les interprète.</p>\n<p>C'est un cas particulier d'<a href=\"/services/agents-ia\">agent IA</a> : une mission, un périmètre écrit, un journal. Il se distingue d'une <a href=\"/services/base-de-connaissance-ia\">base de connaissance IA</a>, qui répond à des questions à partir de vos documents : ici, le document est une entrée à traiter, pas une source à interroger.</p>\n<h2>Les seuils de confiance et la file de relecture</h2>\n<p>Chaque document passe par trois voies. Confiance haute et contrôles réussis : l'écriture est créée, ou préparée en brouillon si vous préférez tout voir. Confiance moyenne : le document va en relecture rapide, champs douteux surlignés. Confiance basse ou contrôle échoué : il va dans une file à traiter, avec la raison. Les seuils se règlent avec vous sur un échantillon, puis se révisent à partir des corrections.</p>\n<p>Un point que les démonstrations taisent : la confiance déclarée par un modèle n'est pas une probabilité calibrée. On la combine donc à des contrôles qui ne dépendent pas du modèle (totaux, doublons, formats, référentiels) et on mesure l'erreur réelle sur vos documents.</p>\n<h2>Avec quels outils</h2>\n<p>Un PDF numérique se lit directement ; un scan passe d'abord par une reconnaissance de caractères, et sa qualité pèse plus que le choix du modèle. Les écritures partent vers votre logiciel de comptabilité, votre ERP, votre CRM ou une feuille partagée, par API ou par un workflow <a href=\"/services/automatisation-n8n\">n8n</a>. Le cas d'usage <a href=\"/cas-usages/finance-comptabilite\">automatiser la finance et la comptabilité</a> dit par quelles pièces commencer.</p>\n<h2>Combien de temps</h2>\n<p>Quelques jours pour réunir l'échantillon et écrire les règles de contrôle, quelques semaines pour un premier type de document en production. On élargit ensuite type par type, en regardant deux chiffres : la part traitée sans relecture et le taux de corrections par champ.</p>\n<h2>Ce qui peut mal tourner</h2>\n<p>Un chiffre mal lu et créé avec aplomb : les contrôles et le seuil servent à cela, et l'erreur est mesurée sur vos documents avant la mise en production. Un doublon : on contrôle le numéro et le montant avant de créer. Un format qui change : un fournisseur modifie sa facture, les corrections montent, le seuil réagit. Les données : les pièces contiennent des noms et des coordonnées, on limite ce qui est envoyé au modèle et on le documente.</p>\n<p>Si votre sujet est de recevoir et qualifier des demandes plutôt que de traiter des pièces, voyez l'<a href=\"/services/agent-qualification-leads\">agent de qualification de leads</a> et le <a href=\"/services/systeme-acquisition\">système d'acquisition</a>. Pour chiffrer le temps en jeu, le guide <a href=\"/ressources/guides/roi-automatisation\">mesurer le ROI d'une automatisation</a> donne la méthode ; pour savoir si vos documents le justifient, passez par l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>.</p>",
+      "html_en": "<h2>What it does, and what it does not</h2>\n<p>It reads, extracts, checks, creates. Checking means: the total equals the sum of the lines, VAT is consistent, the supplier is known, the order number exists, the document has not already been processed. It does not approve a payment, sign anything or give legal advice: on a contract, it spots clauses and deviations from your template, a person interprets them.</p>\n<p>It is a specific kind of <a href=\"/services/agents-ia\">AI agent</a>: one mission, a written scope, a log. It differs from an <a href=\"/services/base-de-connaissance-ia\">AI knowledge base</a>, which answers questions from your documents: here, the document is an input to process, not a source to query.</p>\n<h2>Confidence thresholds and the review queue</h2>\n<p>Each document takes one of three routes. High confidence and checks passed: the entry is created, or prepared as a draft if you prefer to see everything. Medium confidence: the document goes to quick review, doubtful fields highlighted. Low confidence or a failed check: it goes to a to-do queue, with the reason. Thresholds are set with you on a sample, then revised from the corrections.</p>\n<p>One point demos leave out: the confidence a model reports is not a calibrated probability. So we combine it with checks that do not depend on the model (totals, duplicates, formats, reference data) and measure the real error on your documents.</p>\n<h2>With which tools</h2>\n<p>A digital PDF is read directly; a scan first goes through character recognition, and its quality weighs more than the choice of model. Entries go to your accounting software, ERP, CRM or a shared sheet, through an API or an <a href=\"/services/automatisation-n8n\">n8n</a> workflow. The use case <a href=\"/cas-usages/finance-comptabilite\">automating finance and accounting</a> says which documents to start with.</p>\n<h2>How long</h2>\n<p>A few days to gather the sample and write the control rules, a few weeks for a first document type in production. We then widen type by type, watching two figures: the share processed without review and the correction rate per field.</p>\n<h2>What can go wrong</h2>\n<p>A misread figure created with confidence: checks and the threshold are there for that, and the error is measured on your documents before going live. A duplicate: we check number and amount before creating. A changing format: a supplier changes its invoice, corrections rise, the threshold reacts. Data: documents contain names and contact details, we limit what is sent to the model and document it.</p>\n<p>If your subject is receiving and qualifying requests rather than processing documents, see the <a href=\"/services/agent-qualification-leads\">lead qualification agent</a> and the <a href=\"/services/systeme-acquisition\">acquisition system</a>. To cost the time at stake, the guide <a href=\"/ressources/guides/roi-automatisation\">measuring the ROI of an automation</a> gives the method; to find out whether your documents justify it, go through the <a href=\"/audit-ia-pme\">free AI audit</a>.</p>"
+    },
+    {
+      "type": "comparison-duo",
+      "background": "paper",
+      "kicker_fr": "§ Exemple type · pas un cas client",
+      "kicker_en": "§ Typical example · not a client case",
+      "h2_fr": "Exemple type : les factures fournisseurs d'une PME de services",
+      "h2_en": "Typical example: supplier invoices at a services SMB",
+      "without_label_fr": "Avant",
+      "without_label_en": "Before",
+      "without_title_fr": "Une personne ressaisit, une autre vérifie",
+      "without_title_en": "One person re-keys, another checks",
+      "without_items": [
+        {
+          "text_fr": "Les factures arrivent par e-mail, en PDF, sous des formes toutes différentes.",
+          "text_en": "Invoices arrive by email, as PDFs, in all different layouts."
+        },
+        {
+          "text_fr": "Chaque montant, chaque échéance est ressaisi à la main dans le logiciel.",
+          "text_en": "Each amount and due date is re-keyed by hand in the software."
+        },
+        {
+          "text_fr": "Un doublon ou une erreur de TVA se découvre à la clôture.",
+          "text_en": "A duplicate or a VAT error is found at closing."
+        },
+        {
+          "text_fr": "En période chargée, les pièces s'empilent et les échéances glissent.",
+          "text_en": "In busy periods, documents pile up and due dates slip."
+        }
+      ],
+      "with_label_fr": "Après",
+      "with_label_en": "After",
+      "with_title_fr": "L'agent lit, une personne relit ce qui doute",
+      "with_title_en": "The agent reads, a person reviews what is doubtful",
+      "with_items": [
+        {
+          "text_fr": "L'agent récupère la pièce jointe et en extrait émetteur, date, montant et échéance.",
+          "text_en": "The agent picks up the attachment and extracts issuer, date, amount and due date."
+        },
+        {
+          "text_fr": "Il contrôle les totaux, la TVA, le fournisseur connu et l'absence de doublon.",
+          "text_en": "It checks totals, VAT, the known supplier and the absence of duplicates."
+        },
+        {
+          "text_fr": "Facture claire : l'écriture est créée, ou préparée en brouillon.",
+          "text_en": "Clear invoice: the entry is created, or prepared as a draft."
+        },
+        {
+          "text_fr": "Champ douteux ou contrôle échoué : file de relecture, avec la raison.",
+          "text_en": "Doubtful field or failed check: review queue, with the reason."
+        },
+        {
+          "text_fr": "Chaque semaine, les corrections humaines règlent les seuils.",
+          "text_en": "Every week, human corrections tune the thresholds."
+        }
+      ]
+    },
+    {
+      "type": "deliverables-grid",
+      "background": "paper-3",
+      "kicker_fr": "§ Ce que vous gardez",
+      "kicker_en": "§ What you keep",
+      "title_fr": "Ce qui vous reste à la fin",
+      "title_en": "What you keep at the end",
+      "lead_fr": "Les règles de contrôle sont le livrable le plus durable : elles valent aussi pour une saisie manuelle.",
+      "lead_en": "The control rules are the most lasting deliverable: they also apply to manual entry.",
+      "items": [
+        {
+          "title_fr": "Les règles d'extraction et de contrôle",
+          "title_en": "Extraction and control rules",
+          "body_fr": "Quels champs, quels contrôles de cohérence, quels référentiels, écrits et validés avec vous.",
+          "body_en": "Which fields, which consistency checks, which reference data, written and approved with you.",
+          "format_fr": "RÈGLES",
+          "format_en": "RULES"
+        },
+        {
+          "title_fr": "L'agent et ses seuils",
+          "title_en": "The agent and its thresholds",
+          "body_fr": "Consignes, seuils de confiance et connexions, sur vos comptes, réglés sur vos documents.",
+          "body_en": "Instructions, confidence thresholds and connections, on your accounts, tuned on your documents.",
+          "format_fr": "AGENT",
+          "format_en": "AGENT"
+        },
+        {
+          "title_fr": "La file de relecture",
+          "title_en": "The review queue",
+          "body_fr": "Une vue partagée où l'équipe corrige les documents douteux, avec les champs surlignés et la raison.",
+          "body_en": "A shared view where the team corrects doubtful documents, with highlighted fields and the reason.",
+          "format_fr": "FILE",
+          "format_en": "QUEUE"
+        },
+        {
+          "title_fr": "Le journal et les mesures",
+          "title_en": "The log and metrics",
+          "body_fr": "Documents traités, part relue, corrections par champ, doublons évités.",
+          "body_en": "Documents processed, share reviewed, corrections per field, duplicates avoided.",
+          "format_fr": "SUIVI",
+          "format_en": "TRACKING"
+        }
+      ]
+    },
+    {
+      "type": "decision-list",
+      "background": "paper",
+      "kicker_fr": "§ Quand ne pas le faire",
+      "kicker_en": "§ When not to do it",
+      "heading_fr": "Un agent de traitement de documents n'est pas utile si",
+      "heading_en": "A document processing agent is not useful if",
+      "items": [
+        {
+          "label_fr": "Vous traitez quelques dizaines de documents par mois : les saisir coûte moins cher que concevoir l'agent.",
+          "label_en": "You process a few dozen documents a month: keying them costs less than designing the agent."
+        },
+        {
+          "label_fr": "Vos documents ont tous le même gabarit : une extraction à règles ou un connecteur du fournisseur suffit.",
+          "label_en": "Your documents all share one template: rule-based extraction or a supplier connector is enough."
+        },
+        {
+          "label_fr": "Une erreur a des conséquences que personne ne relira (paiement, engagement juridique).",
+          "label_en": "A mistake has consequences nobody will review (payment, legal commitment)."
+        },
+        {
+          "label_fr": "Les originaux sont illisibles ou manuscrits : la relecture humaine deviendrait la règle.",
+          "label_en": "The originals are unreadable or handwritten: human review would become the rule."
+        },
+        {
+          "label_fr": "Vous attendez un avis juridique sur vos contrats : l'agent repère, il n'interprète pas.",
+          "label_en": "You expect legal advice on your contracts: the agent spots, it does not interpret."
+        }
+      ]
+    },
+    {
+      "type": "case-card-grid",
+      "background": "ink",
+      "fig_num": "Fig. 05",
+      "fig_title_fr": "Réalisations",
+      "fig_title_en": "Work",
+      "spec_fr": "Réalisations · données reprises des fiches publiées",
+      "spec_en": "Work · data taken from the published pages",
+      "h2_fr": "Pas de cas de facturation publié : deux projets où l'agent lit, extrait puis passe la main",
+      "h2_en": "No published invoicing case: two projects where the agent reads, extracts then hands over",
+      "case_label_fr": "CAS",
+      "case_label_en": "CASE",
+      "sector_label_fr": "Secteur · État",
+      "sector_label_en": "Sector · Status",
+      "impact_label_fr": "Ce que dit la fiche",
+      "impact_label_en": "What the page says",
+      "cases": [
+        {
+          "ref": "cases/brow-x-professionnel"
+        },
+        {
+          "ref": "cases/prototypes-internes"
+        }
+      ],
+      "all_label_fr": "Voir toutes les réalisations →",
+      "all_label_en": "See all work →",
+      "all_href": "/cas-clients"
+    },
+    {
+      "type": "pricing-cards",
+      "background": "paper",
+      "layout": "grid-asym",
+      "colRatio": "2-3",
+      "kicker_fr": "§ Deux façons d'engager",
+      "kicker_en": "§ Two ways to engage",
+      "h2_fr": "Prix d'un agent de traitement de documents",
+      "h2_en": "Price of a document processing agent",
+      "lede_fr": "On démarre par un sprint de cadrage à prix fixe : règles de contrôle écrites sur un échantillon de vos documents et un premier type de document traité. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints en régie. Vous gardez votre agent, vos accès et la documentation.",
+      "lede_en": "We start with a fixed-price scoping sprint: control rules written on a sample of your documents and a first document type processed. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the time and materials frame. You keep your agent, your access and the documentation.",
+      "tiers": [
+        {
+          "name_fr": "Sprint de cadrage",
+          "name_en": "Scoping sprint",
+          "price": "999 €",
+          "period_fr": "10 h · HT",
+          "period_en": "10 h · ex VAT",
+          "features_fr": [
+            "Échantillon de vos documents lu et mesuré par rapport à la saisie humaine",
+            "Règles de contrôle et seuils de confiance posés",
+            "Un premier type de document, branché à votre outil",
+            "File de relecture humaine en place"
+          ],
+          "features_en": [
+            "A sample of your documents read and measured against human entry",
+            "Control rules and confidence thresholds in place",
+            "A first document type, connected to your tool",
+            "Human review queue in place"
+          ],
+          "cta": {
+            "label_fr": "Réserver un audit IA gratuit →",
+            "label_en": "Book a free AI audit →",
+            "href": "/contact?offer=audit-ia-pme&intent=audit",
+            "variant": "primary"
+          },
+          "featured": true
+        },
+        {
+          "name_fr": "Suite sur devis",
+          "name_en": "Next steps on quote",
+          "price": "Sur devis",
+          "period_fr": "estimé avec vous · HT",
+          "period_en": "estimated with you · ex VAT",
+          "features_fr": [
+            "Temps nécessaire estimé ensemble, puis validé",
+            "Exécuté en sprints, facturés en régie",
+            "Nouveaux types de documents ajoutés sur preuve",
+            "Vous gardez l'agent, les accès et la documentation"
+          ],
+          "features_en": [
+            "Time needed estimated together, then validated",
+            "Run in sprints, time and materials frame",
+            "New document types added on proof",
+            "You keep the agent, access and documentation"
+          ],
+          "cta": {
+            "label_fr": "Cadrer la suite →",
+            "label_en": "Scope what follows →",
+            "href": "/contact?offer=agent-traitement-documents&intent=suite",
+            "variant": "ghost"
+          }
+        }
+      ],
+      "footnote_fr": "Le sprint de cadrage est à prix fixe, 999 € HT pour 10 heures : mesure sur un échantillon de vos documents, règles de contrôle, seuils, un premier type de document branché à votre outil avec sa file de relecture. La suite se cale sur devis : on estime ensemble le temps que demandent les nouveaux types de documents, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € HT de l'heure, non dégressif. L'usage du modèle est facturé par l'éditeur au volume de pages, estimé avant le lancement. Sans abonnement ni captivité : à la fin, votre agent, vos accès et la documentation sont à vous.",
+      "footnote_en": "The scoping sprint is fixed-price, €999 excl. VAT for 10 hours: measurement on a sample of your documents, control rules, thresholds, a first document type connected to your tool with its review queue. What follows is quoted: we estimate together the time new document types require, validate it, then run it in sprints within the time and materials frame, at €{{prix.horaire}} excl. VAT an hour, non-degressive. Model usage is billed by the vendor by page volume, estimated before launch. No subscription, no lock-in: at the end, your agent, your access and the documentation are yours."
+    },
+    {
+      "type": "eeat-panel",
+      "variant": "media",
+      "silo": "ops"
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper-2",
+      "kicker_fr": "§ Questions fréquentes",
+      "kicker_en": "§ Frequently asked questions",
+      "h2_fr": "Agent de traitement de documents : vos questions",
+      "h2_en": "Document processing agent: your questions",
+      "items": [
+        {
+          "q_fr": "Combien coûte un agent de traitement de documents ?",
+          "a_fr": "La conception démarre par un sprint de cadrage à 999 € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure selon le nombre de types de documents et d'outils à connecter. S'ajoute l'usage du modèle, facturé par l'éditeur au volume de pages, estimé sur vos documents avant le lancement.",
+          "q_en": "How much does a document processing agent cost?",
+          "a_en": "Design starts with a scoping sprint at €999 excl. VAT for 10 hours, then €{{prix.horaire}} per hour excl. VAT depending on the number of document types and tools to connect. Add model usage, billed by the vendor by page volume, estimated on your documents before launch."
+        },
+        {
+          "q_fr": "Quelle fiabilité d'extraction attendre ?",
+          "a_fr": "Elle dépend de vos documents : un PDF numérique propre se lit mieux qu'un scan de travers. On ne donne pas de taux avant de l'avoir mesuré : au cadrage, on passe un échantillon de vos documents, on compare à la saisie humaine et on fixe les seuils à partir de cette mesure.",
+          "q_en": "What extraction reliability should I expect?",
+          "a_en": "It depends on your documents: a clean digital PDF reads better than a crooked scan. We give no rate before measuring it: at scoping, we run a sample of your documents, compare with human entry and set the thresholds from that measurement."
+        },
+        {
+          "q_fr": "Que se passe-t-il quand l'agent n'est pas sûr ?",
+          "a_fr": "Le document part dans une file de relecture, avec les champs douteux surlignés et la raison. Une personne corrige en quelques secondes, valide, et l'écriture se crée. Rien n'est créé en silence sous le seuil, et chaque correction alimente le réglage des seuils.",
+          "q_en": "What happens when the agent is not sure?",
+          "a_en": "The document goes to a review queue, with the doubtful fields highlighted and the reason. A person corrects it in seconds, approves, and the entry is created. Nothing is created silently below the threshold, and each correction feeds the threshold tuning."
+        },
+        {
+          "q_fr": "OCR classique ou agent IA : quelle différence ?",
+          "a_fr": "Une reconnaissance de caractères classique transforme une image en texte, et une extraction à règles fonctionne tant que le gabarit ne change pas. Un agent lit des documents de formes variées, comprend où se trouve le montant ou l'échéance et contrôle la cohérence. Si tous vos documents ont le même gabarit, la règle suffit et coûte moins cher.",
+          "q_en": "Classic OCR or AI agent: what is the difference?",
+          "a_en": "Classic character recognition turns an image into text, and rule-based extraction works as long as the template does not change. An agent reads documents of varied layouts, understands where the amount or due date is and checks consistency. If all your documents share one template, the rule is enough and costs less."
+        },
+        {
+          "q_fr": "Peut-il créer l'écriture dans mon logiciel de comptabilité ?",
+          "a_fr": "Si votre logiciel a une API ou un import de fichier, oui : l'agent dépose l'écriture ou prépare le fichier d'import. Sinon, il remplit une feuille partagée que votre équipe importe. C'est vérifié au cadrage. Il ne remplace ni votre expert-comptable ni votre outil : il alimente la saisie, il ne la certifie pas.",
+          "q_en": "Can it create the entry in my accounting software?",
+          "a_en": "If your software has an API or a file import, yes: the agent posts the entry or prepares the import file. Otherwise, it fills a shared sheet your team imports. This is checked at scoping. It replaces neither your accountant nor your tool: it feeds entry, it does not certify it."
+        },
+        {
+          "q_fr": "Documents financiers et RGPD : que prévoir ?",
+          "a_fr": "Limiter ce qui est envoyé au modèle, passer par une offre professionnelle, fixer la durée de conservation des originaux et des extractions, journaliser et inscrire le traitement à votre registre. Les factures et contrats contiennent des noms et des coordonnées : on le documente dans la fiche du traitement.",
+          "q_en": "Financial documents and GDPR: what should be planned?",
+          "a_en": "Limit what is sent to the model, use a business plan, set the retention period for originals and extractions, log and record the processing in your register. Invoices and contracts contain names and contact details: we document it in the processing sheet."
+        },
+        {
+          "q_fr": "Combien de temps pour traiter ses documents avec un agent ?",
+          "a_fr": "Quelques jours pour réunir l'échantillon et écrire les règles de contrôle, puis quelques semaines pour un premier type de document en production. On commence par un seul : celui qui revient le plus souvent et dont la saisie coûte le plus de temps.",
+          "q_en": "How long does it take to process documents with an agent?",
+          "a_en": "A few days to gather the sample and write the control rules, then a few weeks for a first document type in production. We start with one: the one that comes up most often and whose entry costs the most time."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "layout": "stacked",
+      "contentAlign": "center",
+      "actionsAlign": "center",
+      "rounded": true,
+      "kicker_fr": "§ Audit IA gratuit",
+      "kicker_en": "§ Free AI audit",
+      "h2_fr": "Combien de pièces ressaisissez-vous chaque semaine ?",
+      "h2_en": "How many documents do you re-key every week?",
+      "subtitle_fr": "En 45 minutes, on regarde vos documents entrants et vos outils, et on vous dit si un agent est justifié à votre volume, ou si une règle simple suffit.",
+      "subtitle_en": "In 45 minutes, we look at your incoming documents and your tools, and tell you whether an agent is justified at your volume, or whether a simple rule is enough.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un audit IA gratuit →",
+          "label_en": "Book a free AI audit →",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Agents IA pour entreprise",
+          "label_en": "AI agents for business",
+          "href": "/services/agents-ia",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}
