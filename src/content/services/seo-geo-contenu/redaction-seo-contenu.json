@@ -1,0 +1,583 @@
+{
+  "$schema": "../../../schemas/generated/services.page.schema.json",
+  "title_fr": "Rédaction SEO et calendrier éditorial pour PME · Waimia",
+  "title_en": "SEO writing and editorial calendar for SMEs · Waimia",
+  "description_fr": "Rédaction SEO pour PME : intention de recherche, brief, rédaction assistée par IA, relecture humaine signée et mise à jour, avec un calendrier éditorial.",
+  "description_en": "SEO writing for SMEs: search intent, brief, AI-assisted drafting, signed human review and updates, with an editorial calendar.",
+  "slug": "redaction-seo-contenu",
+  "publishedAt": "2026-10-12T00:00:00.000Z",
+  "updatedAt": "2026-10-12",
+  "category": "acquisition",
+  "tags": [
+    "redaction-seo-contenu",
+    "redaction-seo",
+    "calendrier-editorial",
+    "contenu-seo",
+    "acquisition-ia"
+  ],
+  "seo": {
+    "noindex": false,
+    "serviceType": "Rédaction SEO et calendrier éditorial : intention de recherche, brief, rédaction assistée par IA, relecture signée, mise à jour",
+    "priceRange": "dès 999 €",
+    "priceMin": 999
+  },
+  "faq_fr": [
+    {
+      "q": "Un contenu rédigé avec l'IA est-il pénalisé ?",
+      "a": "Ce qui pose problème est un contenu générique, sans fait vérifiable ni expérience propre, quelle que soit la façon dont il a été écrit. Chez nous, l'IA prépare un premier jet ; un humain apporte les faits, vérifie et signe."
+    },
+    {
+      "q": "Qui écrit réellement les articles ?",
+      "a": "Le brief est écrit par nous à partir de vos questions clients. Le premier jet est préparé avec l'IA. La relecture, la vérification des faits et la signature sont humaines : un relecteur nommé, vous ou un expert de votre équipe, ou nous lorsque le sujet relève de notre métier. Aucun texte n'est publié sans cette étape."
+    },
+    {
+      "q": "Combien d'articles faut-il publier, et à quel rythme ?",
+      "a": "Il n'y a pas de nombre magique. Le rythme se cale sur ce que quelqu'un peut relire et tenir à jour. Deux articles par mois relus valent mieux que dix articles non relus."
+    },
+    {
+      "q": "Combien coûte la rédaction SEO ?",
+      "a": "Le sprint de cadrage est à 999 € HT pour 10 heures : requêtes, calendrier éditorial, premiers briefs et un premier article relu. La suite est estimée avec vous, puis facturée {{prix.horaire}} € HT de l'heure, sans abonnement imposé."
+    },
+    {
+      "q": "Comment sait-on qu'un article fonctionne ?",
+      "a": "On suit les impressions, les clics et les requêtes réelles dans la Search Console, et, dans votre CRM, les demandes qui viennent de la page. Un article se juge sur plusieurs mois, pas sur une semaine. On ne promet pas de position."
+    },
+    {
+      "q": "À qui appartiennent les textes et le calendrier ?",
+      "a": "À vous. Les textes sont publiés sur votre site, avec les briefs, les consignes de rédaction et le calendrier. Aucun abonnement ne retient vos contenus."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Is AI-written content penalised?",
+      "a": "What causes problems is generic content, with no verifiable fact or first-hand experience, however it was written. With us, AI prepares a first draft; a human brings the facts, checks and signs."
+    },
+    {
+      "q": "Who actually writes the articles?",
+      "a": "The brief is written by us from your customers' questions. The first draft is prepared with AI. Review, fact-checking and signing are human: a named reviewer, you or an expert on your team, or us when the subject is within our field. No text is published without this step."
+    },
+    {
+      "q": "How many articles should be published, and at what pace?",
+      "a": "There is no magic number. The pace is set by what someone can review and keep up to date. Two reviewed articles a month beat ten unreviewed ones."
+    },
+    {
+      "q": "How much does SEO writing cost?",
+      "a": "The scoping sprint is €999 excl. VAT for 10 hours: queries, editorial calendar, first briefs and a first reviewed article. The rest is estimated with you, then billed at €{{prix.horaire}} per hour excl. VAT, with no imposed subscription."
+    },
+    {
+      "q": "How do you know an article works?",
+      "a": "We track impressions, clicks and real queries in Search Console, and, in your CRM, the requests that come from the page. An article is judged over several months, not a week. We do not promise a ranking."
+    },
+    {
+      "q": "Who owns the texts and the calendar?",
+      "a": "You do. The texts are published on your site, with the briefs, writing guidelines and calendar. No subscription holds your content."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-masthead-card",
+      "background": "paper",
+      "kicker_fr": "§ Contenu · rédaction SEO et calendrier",
+      "kicker_en": "§ Content · SEO writing and calendar",
+      "h1_fr": "Rédaction SEO : des articles qui répondent à une requête, <i class=\"acc\">relus et signés</i>.",
+      "h1_en": "SEO writing: articles that answer a query, <i class=\"acc\">reviewed and signed</i>.",
+      "lede_fr": "Chaque article part d'une requête que vos clients tapent. On cadre l'intention, on rédige le brief, l'IA prépare un premier jet, un humain nommé relit, vérifie et signe. Vous gardez calendrier, briefs et textes.",
+      "lede_en": "Each article starts from a query your customers type. We frame the intent, write the brief, AI prepares a first draft, a named human reviews, checks and signs. You keep the calendar, briefs and texts.",
+      "badges": [
+        {
+          "label_fr": "Intention de recherche",
+          "label_en": "Search intent"
+        },
+        {
+          "label_fr": "Brief écrit",
+          "label_en": "Written brief"
+        },
+        {
+          "label_fr": "Relecture signée",
+          "label_en": "Signed review"
+        },
+        {
+          "label_fr": "Mise à jour suivie",
+          "label_en": "Tracked updates"
+        }
+      ],
+      "cta_sub_fr": "Audit gratuit de 45 minutes en visio : on regarde vos pages et les questions de vos clients, et on vous dit par quel contenu commencer.",
+      "cta_sub_en": "Free 45-minute audit by video call: we look at your pages and your customers' questions, and tell you which content to start with.",
+      "cta_primary": {
+        "label_fr": "Réserver un audit IA gratuit →",
+        "label_en": "Book a free AI audit →",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Toute l'offre SEO",
+        "label_en": "The full SEO offer",
+        "href": "/services/seo-geo-contenu",
+        "variant": "ghost"
+      },
+      "media_src": "/images/line-art/dispositif-flow.svg",
+      "media_alt_fr": "Schéma avant, pendant, après : des éléments dispersés, reliés par un nœud central, puis organisés en un flux.",
+      "media_alt_en": "Before, during, after diagram: scattered elements, linked by a central node, then organised into one flow."
+    },
+    {
+      "type": "proof-bar",
+      "background": "paper",
+      "kicker_fr": "§ En bref",
+      "kicker_en": "§ At a glance",
+      "metrics": [
+        {
+          "value": "999 € HT",
+          "label_fr": "sprint de cadrage de 10 h, puis {{prix.horaire}} € HT de l'heure",
+          "label_en": "10-hour scoping sprint, then €{{prix.horaire}} per hour excl. VAT",
+          "emphasis": true
+        },
+        {
+          "value": "Une requête",
+          "label_fr": "par page, une intention de recherche",
+          "label_en": "per page, one search intent",
+          "emphasis": false
+        },
+        {
+          "value": "Auteur nommé",
+          "label_fr": "chaque texte est relu et signé par un humain",
+          "label_en": "each text is reviewed and signed by a human",
+          "emphasis": false
+        },
+        {
+          "value": "À vous",
+          "label_fr": "textes, briefs et calendrier",
+          "label_en": "texts, briefs and calendar",
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "type": "definition-extract",
+      "background": "paper",
+      "kicker_fr": "§ Définition",
+      "kicker_en": "§ Definition",
+      "statement_fr": "La <i class=\"acc\">rédaction SEO</i> consiste à écrire un contenu pour répondre à une requête précise, dans l'ordre où le lecteur la pose : la réponse d'abord, le détail ensuite, avec des faits vérifiables et des sources. Elle suppose une intention de recherche identifiée, un brief et une relecture. Le calendrier éditorial organise ce qui se publie et ce qui se met à jour.",
+      "statement_en": "<i class=\"acc\">SEO writing</i> means writing content to answer a precise query, in the order the reader asks it: the answer first, the detail after, with verifiable facts and sources. It requires an identified search intent, a brief and a review. The editorial calendar organises what gets published and what gets updated.",
+      "pills": [
+        {
+          "label_fr": "Intention de recherche",
+          "label_en": "Search intent"
+        },
+        {
+          "label_fr": "Brief",
+          "label_en": "Brief"
+        },
+        {
+          "label_fr": "Relecture signée",
+          "label_en": "Signed review"
+        },
+        {
+          "label_fr": "Calendrier éditorial",
+          "label_en": "Editorial calendar"
+        },
+        {
+          "label_fr": "Mise à jour",
+          "label_en": "Update"
+        }
+      ],
+      "specs": [
+        {
+          "label_fr": "Recherche de requêtes",
+          "label_en": "Query research"
+        },
+        {
+          "label_fr": "Brief par article",
+          "label_en": "Brief per article"
+        },
+        {
+          "label_fr": "Premier jet assisté par IA",
+          "label_en": "AI-assisted first draft"
+        },
+        {
+          "label_fr": "Relecture et signature",
+          "label_en": "Review and signature"
+        },
+        {
+          "label_fr": "Calendrier et mises à jour",
+          "label_en": "Calendar and updates"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/redaction-seo-contenu-etendoir-paper.webp",
+          "alt_fr": "Des feuilles pincées à intervalles réguliers sur une corde tendue, une personne en accroche une de plus",
+          "alt_en": "Sheets pegged at regular intervals on a taut line, a person hanging one more",
+          "side": "left"
+        }
+      ],
+      "html_fr": "<h2>Une méthode, pas un volume</h2>\n<p>Publier beaucoup n'a jamais été le but. Un article utile, publié à la bonne date, relu par quelqu'un qui connaît votre métier, vaut mieux que dix textes interchangeables. On part des questions que vos clients posent réellement, au support, au téléphone, dans le CRM, et on en tire les sujets.</p>\n<h2>Où intervient l'IA, où elle s'arrête</h2>\n<p>L'IA prépare : regroupement des questions, plan, premier jet. Elle ne choisit pas le sujet, ne fournit pas les faits et ne signe pas. Un humain nommé apporte l'expérience, vérifie chaque chiffre et valide. La chaîne qui relie ces étapes est une <a href=\"/services/automatisations\">automatisation de processus</a> appliquée à l'éditorial. Pour ce qu'un moteur d'IA reprend d'un texte, voir <a href=\"/blog/seo-geo-etre-cite-par-les-ia-generatives\">être cité par les IA</a> et le <a href=\"/services/referencement-ia\">référencement IA</a>.</p>\n<h2>Ce que ce n'est pas</h2>\n<p>Ce n'est pas une usine à articles à bas prix. Ce n'est pas de la rédaction sans personne pour répondre aux questions de l'auteur. Et rien n'est publié sans relecture. Si le site lui-même ne fait pas remonter ses pages, l'<a href=\"/services/audit-seo-technique\">audit SEO technique</a> passe avant. Pour les pages par ville, voir le <a href=\"/services/seo-local\">SEO local</a>.</p>\n<h2>Où il s'inscrit</h2>\n<p>Les articles de Waimia sont dans le <a href=\"/blog\">blog</a>, pour juger du ton avant de s'engager. Cette prestation est le volet contenu de l'<a href=\"/services/seo-geo-contenu\">offre d'agence SEO et de référencement naturel</a>, au sein du <a href=\"/services/systeme-acquisition\">système d'acquisition</a>.</p>",
+      "html_en": "<h2>A method, not a volume</h2>\n<p>Publishing a lot was never the goal. A useful article, published on the right date, reviewed by someone who knows your trade, beats ten interchangeable texts. We start from the questions your customers actually ask, in support, on the phone, in the CRM, and derive the topics from them.</p>\n<h2>Where AI steps in, where it stops</h2>\n<p>AI prepares: grouping questions, outline, first draft. It does not choose the topic, supply the facts or sign. A named human brings experience, checks every figure and approves. The chain linking these steps is a <a href=\"/services/automatisations\">process automation</a> applied to editorial work. For what an AI engine picks up from a text, see <a href=\"/blog/seo-geo-etre-cite-par-les-ia-generatives\">getting cited by AIs</a> and <a href=\"/services/referencement-ia\">AI SEO</a>.</p>\n<h2>What this is not</h2>\n<p>It is not a cheap article factory. It is not writing with nobody to answer the author's questions. And nothing is published without review. If the site itself does not surface its pages, the <a href=\"/services/audit-seo-technique\">technical SEO audit</a> comes first. For per-town pages, see <a href=\"/services/seo-local\">local SEO</a>.</p>\n<h2>Where it fits</h2>\n<p>Waimia's articles are in the <a href=\"/blog\">blog</a>, so you can judge the tone before committing. This service is the content strand of the <a href=\"/services/seo-geo-contenu\">SEO and organic search agency offer</a>, within the <a href=\"/services/systeme-acquisition\">acquisition system</a>.</p>"
+    },
+    {
+      "type": "method-stepline",
+      "background": "paper-3",
+      "kicker_fr": "§ Méthode",
+      "kicker_en": "§ Method",
+      "h2_fr": "Du sujet à la mise à jour",
+      "h2_en": "From topic to update",
+      "lede_fr": "Six étapes, dans cet ordre. Aucune ne se saute : sans intention, le texte vise à côté ; sans relecture, il n'est pas publié.",
+      "lede_en": "Six steps, in this order. None can be skipped: without intent, the text misses; without review, it is not published.",
+      "steps": [
+        {
+          "title_fr": "Intention",
+          "title_en": "Intent",
+          "sub_fr": "Requête, public, question réelle",
+          "sub_en": "Query, audience, real question"
+        },
+        {
+          "title_fr": "Brief",
+          "title_en": "Brief",
+          "sub_fr": "Plan, sources, faits à apporter",
+          "sub_en": "Outline, sources, facts to bring"
+        },
+        {
+          "title_fr": "Premier jet",
+          "title_en": "First draft",
+          "sub_fr": "Rédigé avec l'IA, cadré par le brief",
+          "sub_en": "Written with AI, framed by the brief"
+        },
+        {
+          "title_fr": "Relecture",
+          "title_en": "Review",
+          "sub_fr": "Humain nommé : faits, ton, signature",
+          "sub_en": "Named human: facts, tone, signature"
+        },
+        {
+          "title_fr": "Publication",
+          "title_en": "Publication",
+          "sub_fr": "Balisage, maillage, calendrier",
+          "sub_en": "Markup, internal links, calendar"
+        },
+        {
+          "title_fr": "Mise à jour",
+          "title_en": "Update",
+          "sub_fr": "Revue datée, correction, retrait",
+          "sub_en": "Dated review, correction, removal"
+        }
+      ]
+    },
+    {
+      "type": "comparison-duo",
+      "background": "paper-2",
+      "kicker_fr": "§ Deux façons d'écrire",
+      "kicker_en": "§ Two ways to write",
+      "h2_fr": "Un texte pour la requête, ou un texte pour <i class=\"acc\">remplir</i>",
+      "h2_en": "A text for the query, or a text to <i class=\"acc\">fill</i>",
+      "without_label_fr": "Texte générique",
+      "without_label_en": "Generic text",
+      "without_title_fr": "Ce qu'il laisse passer",
+      "without_title_en": "What it lets slip",
+      "without_items": [
+        {
+          "text_fr": "Un sujet choisi pour le volume, pas pour la requête.",
+          "text_en": "A topic chosen for volume, not for the query."
+        },
+        {
+          "text_fr": "Un texte qui ressemble à tous les autres sur le sujet.",
+          "text_en": "A text that looks like all the others on the subject."
+        },
+        {
+          "text_fr": "Aucun fait vérifiable, aucun auteur.",
+          "text_en": "No verifiable fact, no author."
+        },
+        {
+          "text_fr": "Publié une fois, jamais revu.",
+          "text_en": "Published once, never reviewed."
+        }
+      ],
+      "with_label_fr": "Texte relu et signé",
+      "with_label_en": "Reviewed and signed text",
+      "with_title_fr": "Ce qu'il met au travail",
+      "with_title_en": "What it puts to work",
+      "with_items": [
+        {
+          "text_fr": "Une requête, une intention, une page.",
+          "text_en": "One query, one intent, one page."
+        },
+        {
+          "text_fr": "Des faits datés et des exemples tirés de votre activité.",
+          "text_en": "Dated facts and examples drawn from your business."
+        },
+        {
+          "text_fr": "Un auteur nommé qui a relu et signé.",
+          "text_en": "A named author who reviewed and signed."
+        },
+        {
+          "text_fr": "Une date de revue inscrite au calendrier.",
+          "text_en": "A review date entered in the calendar."
+        }
+      ]
+    },
+    {
+      "type": "deliverables-grid",
+      "background": "paper-3",
+      "kicker_fr": "§ Livrables",
+      "kicker_en": "§ Deliverables",
+      "title_fr": "Ce que vous gardez",
+      "title_en": "What you keep",
+      "lead_fr": "Les textes sont publiés sur votre site et vous appartiennent, avec leurs briefs.",
+      "lead_en": "The texts are published on your site and belong to you, with their briefs.",
+      "items": [
+        {
+          "title_fr": "Calendrier éditorial",
+          "title_en": "Editorial calendar",
+          "body_fr": "Les sujets classés par requête et par priorité, avec la date de publication et la date de révision.",
+          "body_en": "Topics ranked by query and priority, with publication date and review date.",
+          "format_fr": "CALENDRIER",
+          "format_en": "CALENDAR"
+        },
+        {
+          "title_fr": "Briefs de rédaction",
+          "title_en": "Writing briefs",
+          "body_fr": "Un brief par article : intention, plan, sources, faits à apporter, liens internes.",
+          "body_en": "One brief per article: intent, outline, sources, facts to bring, internal links.",
+          "format_fr": "BRIEF",
+          "format_en": "BRIEF"
+        },
+        {
+          "title_fr": "Articles et pages publiés",
+          "title_en": "Published articles and pages",
+          "body_fr": "Textes relus et signés, publiés sur votre site avec leur balisage.",
+          "body_en": "Reviewed and signed texts, published on your site with their markup.",
+          "format_fr": "CONTENU",
+          "format_en": "CONTENT"
+        },
+        {
+          "title_fr": "Consignes de rédaction",
+          "title_en": "Writing guidelines",
+          "body_fr": "Ton, vocabulaire, interdits : le guide qui permet à quiconque d'écrire dans votre voix.",
+          "body_en": "Tone, vocabulary, no-gos: the guide that lets anyone write in your voice.",
+          "format_fr": "GUIDE",
+          "format_en": "GUIDE"
+        },
+        {
+          "title_fr": "Registre de mise à jour",
+          "title_en": "Update log",
+          "body_fr": "Ce qui est à revoir, quand et pourquoi : l'état de chaque contenu publié.",
+          "body_en": "What is to be reviewed, when and why: the state of each published piece.",
+          "format_fr": "SUIVI",
+          "format_en": "TRACKING"
+        },
+        {
+          "title_fr": "Chaîne de production",
+          "title_en": "Production chain",
+          "body_fr": "Les workflows documentés qui relient CRM, support, brief et publication.",
+          "body_en": "The documented workflows linking CRM, support, brief and publication.",
+          "format_fr": "WORKFLOWS",
+          "format_en": "WORKFLOWS"
+        }
+      ]
+    },
+    {
+      "type": "decision-list",
+      "background": "paper",
+      "kicker_fr": "§ Quand ne pas le faire",
+      "kicker_en": "§ When not to do it",
+      "heading_fr": "Ce n'est pas le bon investissement si",
+      "heading_en": "This is not the right investment if",
+      "items": [
+        {
+          "label_fr": "Vous cherchez des centaines de textes à bas prix : ce n'est pas notre format.",
+          "label_en": "You are looking for hundreds of cheap texts: that is not our format."
+        },
+        {
+          "label_fr": "Personne chez vous ne peut relire ni répondre aux questions de l'auteur.",
+          "label_en": "Nobody on your side can review or answer the author's questions."
+        },
+        {
+          "label_fr": "Votre site ne s'indexe pas correctement : l'audit technique passe d'abord.",
+          "label_en": "Your site is not indexing properly: the technical audit comes first."
+        },
+        {
+          "label_fr": "Vous voulez publier sans relecture ni signature.",
+          "label_en": "You want to publish without review or signature."
+        }
+      ]
+    },
+    {
+      "type": "case-card-grid",
+      "background": "ink",
+      "reveal_mode": "cursor",
+      "fig_num": "Fig. 05",
+      "fig_title_fr": "Cas clients",
+      "fig_title_en": "Client cases",
+      "spec_fr": "Cas clients · fiches publiées",
+      "spec_en": "Client cases · published case pages",
+      "h2_fr": "Deux projets où le contenu a porté le résultat",
+      "h2_en": "Two projects where content carried the result",
+      "case_label_fr": "CAS",
+      "case_label_en": "CASE",
+      "sector_label_fr": "Secteur · Durée",
+      "sector_label_en": "Sector · Duration",
+      "impact_label_fr": "Ce qui a été livré",
+      "impact_label_en": "What was delivered",
+      "cases": [
+        {
+          "ref": "cases/les-carnets-de-montpellier"
+        },
+        {
+          "ref": "cases/isabelle-diaz-naturopathe"
+        }
+      ],
+      "all_label_fr": "Voir tous les cas →",
+      "all_label_en": "See all cases →",
+      "all_href": "/cas-clients"
+    },
+    {
+      "type": "pricing-cards",
+      "background": "paper",
+      "layout": "grid-asym",
+      "colRatio": "2-3",
+      "kicker_fr": "§ Deux façons d'engager",
+      "kicker_en": "§ Two ways to engage",
+      "h2_fr": "Prix d'une rédaction SEO",
+      "h2_en": "Price of SEO writing",
+      "lede_fr": "On démarre par un sprint de cadrage à prix fixe : requêtes visées, calendrier éditorial, premiers briefs et un premier article relu. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints en régie. Vous gardez les textes, les briefs et le calendrier.",
+      "lede_en": "We start with a fixed-price scoping sprint: target queries, editorial calendar, first briefs and a first reviewed article. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints on a time and materials basis. You keep the texts, the briefs and the calendar.",
+      "tiers": [
+        {
+          "name_fr": "Sprint de cadrage",
+          "name_en": "Scoping sprint",
+          "price": "999 €",
+          "period_fr": "10 h · HT",
+          "period_en": "10 h · ex VAT",
+          "features_fr": [
+            "Recherche de requêtes et calendrier éditorial",
+            "Briefs des premiers articles",
+            "Un premier article rédigé, relu et signé",
+            "Consignes de rédaction à votre voix"
+          ],
+          "features_en": [
+            "Query research and editorial calendar",
+            "Briefs for the first articles",
+            "A first article written, reviewed and signed",
+            "Writing guidelines in your voice"
+          ],
+          "cta": {
+            "label_fr": "Réserver un audit IA gratuit →",
+            "label_en": "Book a free AI audit →",
+            "href": "/contact?offer=audit-ia-pme&intent=audit",
+            "variant": "primary"
+          },
+          "featured": true
+        },
+        {
+          "name_fr": "Suite sur devis",
+          "name_en": "Next steps on quote",
+          "price": "Sur devis",
+          "period_fr": "estimé avec vous · HT",
+          "period_en": "estimated with you · ex VAT",
+          "features_fr": [
+            "Temps estimé ensemble, puis validé",
+            "Exécuté en sprints, facturés en régie",
+            "Articles en cadence, mises à jour suivies",
+            "Textes, briefs et calendrier à vous"
+          ],
+          "features_en": [
+            "Time estimated together, then validated",
+            "Run in sprints, billed on a time and materials basis",
+            "Articles on cadence, tracked updates",
+            "Texts, briefs and calendar are yours"
+          ],
+          "cta": {
+            "label_fr": "Cadrer la suite →",
+            "label_en": "Scope what follows →",
+            "href": "/contact?offer=redaction-seo-contenu&intent=suite",
+            "variant": "ghost"
+          }
+        }
+      ],
+      "footnote_fr": "Le sprint de cadrage est à prix fixe, 999 € HT pour 10 heures : requêtes visées, calendrier éditorial, premiers briefs et un premier article relu et signé. La suite se cale sur devis : on estime ensemble le temps que demandent les articles en cadence et les mises à jour, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € de l'heure, non dégressif. Sans abonnement : à la fin, les textes, les briefs et le calendrier sont à vous.",
+      "footnote_en": "The scoping sprint is fixed-price, €999 excl. VAT for 10 hours: target queries, editorial calendar, first briefs and a first reviewed and signed article. What follows is quoted: we estimate together the time the articles on cadence and the updates require, validate it, then run it in sprints on a time and materials basis, at €{{prix.horaire}} an hour, non-degressive. No subscription: at the end, the texts, briefs and calendar are yours."
+    },
+    {
+      "type": "eeat-panel",
+      "variant": "media",
+      "silo": "acquisition"
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper-2",
+      "kicker_fr": "§ Questions fréquentes",
+      "kicker_en": "§ Frequently asked questions",
+      "h2_fr": "Rédaction SEO : vos questions",
+      "h2_en": "SEO writing: your questions",
+      "items": [
+        {
+          "q_fr": "Un contenu rédigé avec l'IA est-il pénalisé ?",
+          "q_en": "Is AI-written content penalised?",
+          "a_fr": "Ce qui pose problème est un contenu générique, sans fait vérifiable ni expérience propre, quelle que soit la façon dont il a été écrit. Chez nous, l'IA prépare un premier jet ; un humain apporte les faits, vérifie et signe.",
+          "a_en": "What causes problems is generic content, with no verifiable fact or first-hand experience, however it was written. With us, AI prepares a first draft; a human brings the facts, checks and signs."
+        },
+        {
+          "q_fr": "Qui écrit réellement les articles ?",
+          "q_en": "Who actually writes the articles?",
+          "a_fr": "Le brief est écrit par nous à partir de vos questions clients. Le premier jet est préparé avec l'IA. La relecture, la vérification des faits et la signature sont humaines : un relecteur nommé, vous ou un expert de votre équipe, ou nous lorsque le sujet relève de notre métier. Aucun texte n'est publié sans cette étape.",
+          "a_en": "The brief is written by us from your customers' questions. The first draft is prepared with AI. Review, fact-checking and signing are human: a named reviewer, you or an expert on your team, or us when the subject is within our field. No text is published without this step."
+        },
+        {
+          "q_fr": "Combien d'articles faut-il publier, et à quel rythme ?",
+          "q_en": "How many articles should be published, and at what pace?",
+          "a_fr": "Il n'y a pas de nombre magique. Le rythme se cale sur ce que quelqu'un peut relire et tenir à jour. Deux articles par mois relus valent mieux que dix articles non relus.",
+          "a_en": "There is no magic number. The pace is set by what someone can review and keep up to date. Two reviewed articles a month beat ten unreviewed ones."
+        },
+        {
+          "q_fr": "Combien coûte la rédaction SEO ?",
+          "q_en": "How much does SEO writing cost?",
+          "a_fr": "Le sprint de cadrage est à 999 € HT pour 10 heures : requêtes, calendrier éditorial, premiers briefs et un premier article relu. La suite est estimée avec vous, puis facturée {{prix.horaire}} € HT de l'heure, sans abonnement imposé.",
+          "a_en": "The scoping sprint is €999 excl. VAT for 10 hours: queries, editorial calendar, first briefs and a first reviewed article. The rest is estimated with you, then billed at €{{prix.horaire}} per hour excl. VAT, with no imposed subscription."
+        },
+        {
+          "q_fr": "Comment sait-on qu'un article fonctionne ?",
+          "q_en": "How do you know an article works?",
+          "a_fr": "On suit les impressions, les clics et les requêtes réelles dans la Search Console, et, dans votre CRM, les demandes qui viennent de la page. Un article se juge sur plusieurs mois, pas sur une semaine. On ne promet pas de position.",
+          "a_en": "We track impressions, clicks and real queries in Search Console, and, in your CRM, the requests that come from the page. An article is judged over several months, not a week. We do not promise a ranking."
+        },
+        {
+          "q_fr": "À qui appartiennent les textes et le calendrier ?",
+          "q_en": "Who owns the texts and the calendar?",
+          "a_fr": "À vous. Les textes sont publiés sur votre site, avec les briefs, les consignes de rédaction et le calendrier. Aucun abonnement ne retient vos contenus.",
+          "a_en": "You do. The texts are published on your site, with the briefs, writing guidelines and calendar. No subscription holds your content."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "layout": "stacked",
+      "contentAlign": "center",
+      "actionsAlign": "center",
+      "rounded": true,
+      "kicker_fr": "§ Audit IA gratuit",
+      "kicker_en": "§ Free AI audit",
+      "h2_fr": "Quels articles vos clients attendent-ils de vous ?",
+      "h2_en": "Which articles do your customers expect from you?",
+      "subtitle_fr": "En 45 minutes, on regarde vos pages, les questions de vos clients et ce que vous pouvez relire, et on vous dit par quel contenu commencer.",
+      "subtitle_en": "In 45 minutes, we look at your pages, your customers' questions and what you can review, and tell you which content to start with.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un audit IA gratuit →",
+          "label_en": "Book a free AI audit →",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Voir l'offre SEO",
+          "label_en": "See the SEO offer",
+          "href": "/services/seo-geo-contenu",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

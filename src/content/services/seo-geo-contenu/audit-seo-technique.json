@@ -1,0 +1,612 @@
+{
+  "$schema": "../../../schemas/generated/services.page.schema.json",
+  "title_fr": "Audit SEO technique et sémantique pour PME · Waimia",
+  "title_en": "Technical and semantic SEO audit for SMEs · Waimia",
+  "description_fr": "Audit SEO technique et sémantique : indexation, structure, vitesse, maillage, puis un plan d'action priorisé. Livré en rapport, backlog et correctifs.",
+  "description_en": "Technical and semantic SEO audit: indexing, structure, speed, internal links, then a prioritised action plan. Delivered as a report, backlog and fixes.",
+  "slug": "audit-seo-technique",
+  "publishedAt": "2026-10-12T00:00:00.000Z",
+  "updatedAt": "2026-10-12",
+  "category": "acquisition",
+  "tags": [
+    "audit-seo-technique",
+    "seo-technique",
+    "indexation",
+    "audit-seo",
+    "acquisition-ia"
+  ],
+  "seo": {
+    "noindex": false,
+    "serviceType": "Audit SEO technique et sémantique : indexation, structure, vitesse, maillage et plan d'action priorisé",
+    "priceRange": "dès 999 €",
+    "priceMin": 999
+  },
+  "faq_fr": [
+    {
+      "q": "Qu'est-ce qu'un audit SEO technique et sémantique ?",
+      "a": "C'est un contrôle de votre site du point de vue d'un moteur de recherche. Le volet technique vérifie que les pages sont explorées, indexées et rapides. Le volet sémantique vérifie qu'une page répond à une requête précise et qu'aucune autre ne se la dispute. Il se termine par une liste d'actions classées, pas par un score."
+    },
+    {
+      "q": "Que contient le rapport, et à quoi ressemble le backlog ?",
+      "a": "Le rapport donne les constats page par page, avec la preuve : capture, mesure ou export. Le backlog est une liste de correctifs, chacun avec la page concernée, l'effet attendu, l'effort estimé et un ordre. Vous pouvez le confier à votre équipe, à votre développeur ou à nous."
+    },
+    {
+      "q": "Combien coûte un audit SEO technique ?",
+      "a": "Le sprint de cadrage est à 999 € HT pour 10 heures : exploration du site, contrôle d'indexation et premier backlog. Sur un petit site, il peut suffire. Sur un site volumineux, la suite est estimée avec vous, puis facturée {{prix.horaire}} € HT de l'heure, sans abonnement imposé."
+    },
+    {
+      "q": "Faut-il auditer le site avant de produire du contenu ?",
+      "a": "Au minimum un contrôle d'indexation. Si le site ne fait pas remonter ses pages, chaque article publié prolonge le problème. Un site sain peut passer directement à la rédaction."
+    },
+    {
+      "q": "Corrigez-vous vous-mêmes les problèmes trouvés ?",
+      "a": "Si vous le souhaitez, oui : balises, redirections, données structurées et maillage, sur votre site et avec vos accès, puis vérification après correction. Sur un site que gère un autre prestataire, on remet le backlog et on valide avec lui. Dans tous les cas, les accès et les exports restent à vous."
+    },
+    {
+      "q": "L'audit couvre-t-il la citation par ChatGPT ou Perplexity ?",
+      "a": "En partie : il vérifie que le site est lisible et accessible aux robots, ce qui sert aussi aux assistants IA. La citation elle-même est un travail séparé, détaillé sur la page référencement IA."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "What is a technical and semantic SEO audit?",
+      "a": "It is a check of your site from a search engine point of view. The technical part checks that pages are crawled, indexed and fast. The semantic part checks that a page answers one precise query and that no other page competes for it. It ends with a ranked list of actions, not a score."
+    },
+    {
+      "q": "What does the report contain, and what does the backlog look like?",
+      "a": "The report gives page-by-page findings, with the evidence: screenshot, measurement or export. The backlog is a list of fixes, each with the page concerned, the expected effect, the estimated effort and an order. You can hand it to your team, your developer or to us."
+    },
+    {
+      "q": "How much does a technical SEO audit cost?",
+      "a": "The scoping sprint is €999 excl. VAT for 10 hours: site crawl, indexing check and first backlog. On a small site it may be enough. On a large site, the rest is estimated with you, then billed at €{{prix.horaire}} per hour excl. VAT, with no imposed subscription."
+    },
+    {
+      "q": "Should the site be audited before producing content?",
+      "a": "At minimum an indexing check. If the site does not surface its pages, each published article extends the problem. A healthy site can go straight to writing."
+    },
+    {
+      "q": "Do you fix the problems you find yourselves?",
+      "a": "If you wish, yes: tags, redirects, structured data and internal links, on your site with your access, then verification after the fix. On a site run by another provider, we hand over the backlog and validate with them. In every case, access and exports stay yours."
+    },
+    {
+      "q": "Does the audit cover citation by ChatGPT or Perplexity?",
+      "a": "In part: it checks that the site is readable and accessible to robots, which also serves AI assistants. Citation itself is separate work, detailed on the AI SEO page."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-masthead-card",
+      "background": "paper",
+      "kicker_fr": "§ SEO · audit technique et sémantique",
+      "kicker_en": "§ SEO · technical and semantic audit",
+      "h1_fr": "Audit SEO technique : <i class=\"acc\">ce qui freine vos pages</i>, classé par priorité.",
+      "h1_en": "Technical SEO audit: <i class=\"acc\">what holds your pages back</i>, ranked by priority.",
+      "lede_fr": "Vos pages sont-elles explorées, indexées, rapides ? L'audit répond page par page et livre un rapport lisible, un backlog classé par effet et par effort, et, si vous le souhaitez, les correctifs. Aucune promesse de position.",
+      "lede_en": "Are your pages crawled, indexed, fast? The audit answers page by page and delivers a readable report, a backlog ranked by effect and effort, and, if you wish, the fixes. No promise of ranking.",
+      "badges": [
+        {
+          "label_fr": "Indexation et exploration",
+          "label_en": "Indexing and crawling"
+        },
+        {
+          "label_fr": "Structure et maillage",
+          "label_en": "Structure and internal links"
+        },
+        {
+          "label_fr": "Vitesse mobile",
+          "label_en": "Mobile speed"
+        },
+        {
+          "label_fr": "Plan priorisé",
+          "label_en": "Prioritised plan"
+        }
+      ],
+      "cta_sub_fr": "Audit gratuit de 45 minutes en visio : on regarde votre site ensemble et on vous dit si un audit complet se justifie.",
+      "cta_sub_en": "Free 45-minute audit by video call: we look at your site together and tell you whether a full audit is justified.",
+      "cta_primary": {
+        "label_fr": "Réserver un audit IA gratuit →",
+        "label_en": "Book a free AI audit →",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Toute l'offre SEO",
+        "label_en": "The full SEO offer",
+        "href": "/services/seo-geo-contenu",
+        "variant": "ghost"
+      },
+      "media_src": "/images/line-art/dispositif-flow.svg",
+      "media_alt_fr": "Schéma avant, pendant, après : des éléments dispersés, reliés par un nœud central, puis organisés en un flux.",
+      "media_alt_en": "Before, during, after diagram: scattered elements, linked by a central node, then organised into one flow."
+    },
+    {
+      "type": "proof-bar",
+      "background": "paper",
+      "kicker_fr": "§ En bref",
+      "kicker_en": "§ At a glance",
+      "metrics": [
+        {
+          "value": "999 € HT",
+          "label_fr": "sprint de cadrage de 10 h, puis {{prix.horaire}} € HT de l'heure",
+          "label_en": "10-hour scoping sprint, then €{{prix.horaire}} per hour excl. VAT",
+          "emphasis": true
+        },
+        {
+          "value": "6 familles",
+          "label_fr": "de contrôles : exploration, indexation, structure, vitesse, maillage, requêtes",
+          "label_en": "6 families of checks: crawling, indexing, structure, speed, internal links, queries",
+          "emphasis": false
+        },
+        {
+          "value": "Rapport et backlog",
+          "label_fr": "livrés ; correctifs posés sur demande",
+          "label_en": "delivered; fixes applied on request",
+          "emphasis": false
+        },
+        {
+          "value": "À vous",
+          "label_fr": "rapport, exports et accès",
+          "label_en": "report, exports and access",
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "type": "definition-extract",
+      "background": "paper",
+      "kicker_fr": "§ Définition",
+      "kicker_en": "§ Definition",
+      "statement_fr": "Un <i class=\"acc\">audit SEO technique</i> vérifie qu'un moteur peut explorer, indexer et comprendre vos pages : fichiers d'exploration, statuts HTTP, balises, structure des titres, vitesse, maillage interne. Sa partie sémantique compare vos pages aux requêtes visées pour repérer les trous et les doublons. Il se termine par une liste d'actions classées, pas par un score.",
+      "statement_en": "A <i class=\"acc\">technical SEO audit</i> checks that a search engine can crawl, index and understand your pages: crawl files, HTTP statuses, tags, heading structure, speed, internal links. Its semantic part compares your pages with the target queries to find gaps and duplicates. It ends with a ranked list of actions, not a score.",
+      "pills": [
+        {
+          "label_fr": "Indexation",
+          "label_en": "Indexing"
+        },
+        {
+          "label_fr": "Exploration",
+          "label_en": "Crawling"
+        },
+        {
+          "label_fr": "Balisage",
+          "label_en": "Markup"
+        },
+        {
+          "label_fr": "Vitesse",
+          "label_en": "Speed"
+        },
+        {
+          "label_fr": "Maillage",
+          "label_en": "Internal links"
+        }
+      ],
+      "specs": [
+        {
+          "label_fr": "robots.txt et sitemap",
+          "label_en": "robots.txt and sitemap"
+        },
+        {
+          "label_fr": "Statuts HTTP et redirections",
+          "label_en": "HTTP statuses and redirects"
+        },
+        {
+          "label_fr": "Title, description, H1",
+          "label_en": "Title, description, H1"
+        },
+        {
+          "label_fr": "Données structurées",
+          "label_en": "Structured data"
+        },
+        {
+          "label_fr": "Core Web Vitals",
+          "label_en": "Core Web Vitals"
+        },
+        {
+          "label_fr": "Maillage interne",
+          "label_en": "Internal links"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/audit-seo-technique-portes-paper.webp",
+          "alt_fr": "Un long mur à créneaux percé de portes, certaines entrouvertes, une échelle et un inspecteur à son pied",
+          "alt_en": "A long crenellated wall with doors, some ajar, a ladder and an inspector at its foot",
+          "side": "right"
+        }
+      ],
+      "html_fr": "<h2>Ce que l'audit regarde</h2>\n<p>On part de ce que Google voit réellement : les pages explorées, celles qui sont indexées, celles qui ne le sont pas, et pourquoi. Les sources sont la Search Console de votre site, une exploration complète par un robot, les mesures de vitesse et une lecture manuelle des pages qui comptent. Chaque constat renvoie à une page et à une preuve.</p>\n<h2>Technique et sémantique</h2>\n<p>La partie technique dit si une page peut être trouvée. La partie sémantique dit si elle mérite de l'être : une requête par page, pas deux pages qui se disputent la même, des titres qui reprennent les mots de vos clients.</p>\n<h2>Ce que l'audit ne fait pas</h2>\n<p>Il ne rédige pas vos contenus : pour cela, voir la <a href=\"/services/redaction-seo-contenu\">rédaction SEO et le calendrier éditorial</a>. Il ne travaille pas la citation par les assistants IA : c'est le <a href=\"/services/referencement-ia\">référencement IA (GEO)</a>. Si votre activité dépend d'une zone, la fiche Google et les pages par ville relèvent du <a href=\"/services/seo-local\">SEO local</a>. Et il ne promet aucune position.</p>\n<h2>Où il s'inscrit</h2>\n<p>L'audit est la première marche de l'<a href=\"/services/seo-geo-contenu\">offre d'agence SEO et de référencement naturel</a>, elle-même un volet du <a href=\"/services/systeme-acquisition\">système d'acquisition</a> : les visites que l'audit débloque doivent aboutir à une demande suivie dans votre CRM, sinon on a mesuré du trafic, pas de l'acquisition.</p>",
+      "html_en": "<h2>What the audit looks at</h2>\n<p>We start from what Google actually sees: the pages crawled, those indexed, those that are not, and why. Sources are your site's Search Console, a full crawl by a robot, speed measurements and a manual reading of the pages that matter. Each finding points to a page and to evidence.</p>\n<h2>Technical and semantic</h2>\n<p>The technical part says whether a page can be found. The semantic part says whether it deserves to be: one query per page, not two pages fighting for the same one, titles that use your customers' words.</p>\n<h2>What the audit does not do</h2>\n<p>It does not write your content: for that, see <a href=\"/services/redaction-seo-contenu\">SEO writing and the editorial calendar</a>. It does not work on citation by AI assistants: that is <a href=\"/services/referencement-ia\">AI SEO (GEO)</a>. If your business depends on an area, the Google profile and per-town pages fall under <a href=\"/services/seo-local\">local SEO</a>. And it promises no ranking.</p>\n<h2>Where it fits</h2>\n<p>The audit is the first step of the <a href=\"/services/seo-geo-contenu\">SEO and organic search agency offer</a>, itself one strand of the <a href=\"/services/systeme-acquisition\">acquisition system</a>: the visits the audit unlocks must end in a request tracked in your CRM, otherwise we measured traffic, not acquisition.</p>"
+    },
+    {
+      "type": "pain-severity-list",
+      "background": "ink",
+      "kicker_fr": "Là où un bon site reste introuvable",
+      "kicker_en": "Where a good site stays unfindable",
+      "h2_fr": "Pourquoi un site soigné ne se trouve pas",
+      "h2_en": "Why a well-made site doesn't get found",
+      "items": [
+        {
+          "severity": "critical",
+          "title_fr": "Des pages importantes hors de l'index",
+          "title_en": "Important pages outside the index",
+          "desc_fr": "Une page non indexée n'existe pas pour Google. Cela arrive après une refonte, une balise noindex oubliée ou un fichier robots.txt trop strict. Personne ne le voit sans le chercher.",
+          "desc_en": "A page that is not indexed does not exist for Google. It happens after a redesign, a forgotten noindex tag or an overly strict robots.txt. Nobody sees it without looking for it.",
+          "fix_fr": "Contrôle d'indexation page par page, correctifs ciblés.",
+          "fix_en": "Page-by-page indexing check, targeted fixes."
+        },
+        {
+          "severity": "high",
+          "title_fr": "Une structure qui brouille le message",
+          "title_en": "A structure that blurs the message",
+          "desc_fr": "Plusieurs H1, des titres identiques d'une page à l'autre, deux pages sur la même requête : le moteur ne sait pas laquelle montrer, et vos visiteurs non plus.",
+          "desc_en": "Several H1s, identical titles from one page to the next, two pages on the same query: the engine does not know which to show, and neither do your visitors.",
+          "fix_fr": "Une requête par page, titres et balises remis à plat.",
+          "fix_en": "One query per page, titles and tags reset."
+        },
+        {
+          "severity": "medium",
+          "title_fr": "Un site lent ou mal relié",
+          "title_en": "A slow or poorly linked site",
+          "desc_fr": "Des pages trop lourdes sur mobile, des pages orphelines que rien ne relie : les visiteurs partent et le robot explore mal.",
+          "desc_en": "Pages too heavy on mobile, orphan pages that nothing links to: visitors leave and the robot crawls poorly.",
+          "fix_fr": "Mesure de vitesse et plan de maillage interne.",
+          "fix_en": "Speed measurement and internal linking plan."
+        }
+      ]
+    },
+    {
+      "type": "method-stepline",
+      "background": "paper-3",
+      "kicker_fr": "§ Méthode",
+      "kicker_en": "§ Method",
+      "h2_fr": "Un audit en six étapes",
+      "h2_en": "An audit in six steps",
+      "lede_fr": "Chaque étape produit un constat vérifiable. Rien n'est affirmé sans la page, la mesure ou la capture qui l'étaie.",
+      "lede_en": "Each step produces a verifiable finding. Nothing is asserted without the page, measurement or screenshot that backs it.",
+      "steps": [
+        {
+          "title_fr": "Cadrage",
+          "title_en": "Scoping",
+          "sub_fr": "Objectifs, requêtes visées, accès",
+          "sub_en": "Goals, target queries, access"
+        },
+        {
+          "title_fr": "Exploration",
+          "title_en": "Crawl",
+          "sub_fr": "Robot et Search Console",
+          "sub_en": "Robot and Search Console"
+        },
+        {
+          "title_fr": "Indexation",
+          "title_en": "Indexing",
+          "sub_fr": "Ce qui l'est, ce qui ne l'est pas",
+          "sub_en": "What is, what is not"
+        },
+        {
+          "title_fr": "Structure",
+          "title_en": "Structure",
+          "sub_fr": "Titres, balisage, maillage",
+          "sub_en": "Headings, markup, internal links"
+        },
+        {
+          "title_fr": "Vitesse",
+          "title_en": "Speed",
+          "sub_fr": "Mesures mobiles et causes",
+          "sub_en": "Mobile measurements and causes"
+        },
+        {
+          "title_fr": "Priorisation",
+          "title_en": "Prioritisation",
+          "sub_fr": "Backlog par effet et effort",
+          "sub_en": "Backlog by effect and effort"
+        }
+      ]
+    },
+    {
+      "type": "deliverables-grid",
+      "background": "paper-3",
+      "kicker_fr": "§ Livrables",
+      "kicker_en": "§ Deliverables",
+      "title_fr": "Ce que vous recevez",
+      "title_en": "What you receive",
+      "lead_fr": "Le rapport, le backlog et les exports vous appartiennent.",
+      "lead_en": "The report, the backlog and the exports belong to you.",
+      "items": [
+        {
+          "title_fr": "Rapport d'audit",
+          "title_en": "Audit report",
+          "body_fr": "Constats page par page, preuves à l'appui, lisibles sans jargon par la direction.",
+          "body_en": "Page-by-page findings, backed by evidence, readable without jargon by management.",
+          "format_fr": "RAPPORT",
+          "format_en": "REPORT"
+        },
+        {
+          "title_fr": "Backlog priorisé",
+          "title_en": "Prioritised backlog",
+          "body_fr": "Chaque correctif classé par effet attendu et par effort, prêt à entrer dans l'outil de tickets de votre équipe.",
+          "body_en": "Each fix ranked by expected effect and effort, ready to enter your team's ticketing tool.",
+          "format_fr": "BACKLOG",
+          "format_en": "BACKLOG"
+        },
+        {
+          "title_fr": "Carte des requêtes",
+          "title_en": "Query map",
+          "body_fr": "Une requête principale par page, les doublons et les trous de couverture repérés.",
+          "body_en": "One main query per page, duplicates and coverage gaps spotted.",
+          "format_fr": "SÉMANTIQUE",
+          "format_en": "SEMANTIC"
+        },
+        {
+          "title_fr": "Correctifs posés",
+          "title_en": "Fixes applied",
+          "body_fr": "Sur demande : balises, redirections, données structurées, maillage, corrigés sur votre site puis vérifiés.",
+          "body_en": "On request: tags, redirects, structured data, internal links, fixed on your site then verified.",
+          "format_fr": "CORRECTIFS",
+          "format_en": "FIXES"
+        },
+        {
+          "title_fr": "Exports et accès",
+          "title_en": "Exports and access",
+          "body_fr": "Les exports d'exploration et de la Search Console, remis tels quels.",
+          "body_en": "The crawl and Search Console exports, handed over as they are.",
+          "format_fr": "EXPORTS",
+          "format_en": "EXPORTS"
+        },
+        {
+          "title_fr": "Restitution commentée",
+          "title_en": "Walkthrough",
+          "body_fr": "Une session en visio pour parcourir le rapport et arbitrer le backlog avec vous.",
+          "body_en": "A video session to go through the report and arbitrate the backlog with you.",
+          "format_fr": "VISIO",
+          "format_en": "CALL"
+        }
+      ]
+    },
+    {
+      "type": "comparison-duo",
+      "background": "paper",
+      "kicker_fr": "§ Audit qui dort, audit qui sert",
+      "kicker_en": "§ A dormant audit, a useful audit",
+      "h2_fr": "Un audit se juge à ce qu'on en <i class=\"acc\">corrige</i>",
+      "h2_en": "An audit is judged by what gets <i class=\"acc\">fixed</i>",
+      "without_label_fr": "Rapport de score",
+      "without_label_en": "Score report",
+      "without_title_fr": "Ce qu'il laisse dormir",
+      "without_title_en": "What it lets sleep",
+      "without_items": [
+        {
+          "text_fr": "Un score sur 100 et des centaines de lignes d'alertes.",
+          "text_en": "A score out of 100 and hundreds of alert lines."
+        },
+        {
+          "text_fr": "Aucune distinction entre ce qui compte et ce qui est cosmétique.",
+          "text_en": "No distinction between what matters and what is cosmetic."
+        },
+        {
+          "text_fr": "Personne ne sait qui corrige quoi, ni dans quel ordre.",
+          "text_en": "Nobody knows who fixes what, or in what order."
+        }
+      ],
+      "with_label_fr": "Audit actionnable",
+      "with_label_en": "Actionable audit",
+      "with_title_fr": "Ce qu'il met au travail",
+      "with_title_en": "What it puts to work",
+      "with_items": [
+        {
+          "text_fr": "Une liste courte d'actions classées par effet et par effort.",
+          "text_en": "A short list of actions ranked by effect and effort."
+        },
+        {
+          "text_fr": "Chaque constat relié à une page, à une requête et à une preuve.",
+          "text_en": "Each finding tied to a page, a query and evidence."
+        },
+        {
+          "text_fr": "Un responsable, un ordre, une vérification après correction.",
+          "text_en": "An owner, an order, a verification after the fix."
+        }
+      ]
+    },
+    {
+      "type": "decision-list",
+      "background": "paper",
+      "kicker_fr": "§ Quand ne pas le faire",
+      "kicker_en": "§ When not to do it",
+      "heading_fr": "Ce n'est pas le bon investissement si",
+      "heading_en": "This is not the right investment if",
+      "items": [
+        {
+          "label_fr": "Votre site n'est pas encore en ligne : on le construit proprement, on ne l'audite pas.",
+          "label_en": "Your site is not live yet: we build it properly, we do not audit it."
+        },
+        {
+          "label_fr": "Personne ne pourra appliquer les correctifs, ni vous ni un prestataire : le rapport resterait dans un tiroir.",
+          "label_en": "Nobody will be able to apply the fixes, neither you nor a provider: the report would stay in a drawer."
+        },
+        {
+          "label_fr": "Vous attendez une position précise à une date donnée : aucun audit ne la garantit.",
+          "label_en": "You expect a precise ranking by a given date: no audit guarantees it."
+        }
+      ]
+    },
+    {
+      "type": "case-card-grid",
+      "background": "ink",
+      "reveal_mode": "cursor",
+      "fig_num": "Fig. 05",
+      "fig_title_fr": "Cas clients",
+      "fig_title_en": "Client cases",
+      "spec_fr": "Cas clients · fiches publiées",
+      "spec_en": "Client cases · published case pages",
+      "h2_fr": "Deux projets où la technique a compté",
+      "h2_en": "Two projects where the technical side mattered",
+      "case_label_fr": "CAS",
+      "case_label_en": "CASE",
+      "sector_label_fr": "Secteur · Durée",
+      "sector_label_en": "Sector · Duration",
+      "impact_label_fr": "Ce qui a été livré",
+      "impact_label_en": "What was delivered",
+      "cases": [
+        {
+          "ref": "cases/balzeo"
+        },
+        {
+          "ref": "cases/desangles-peinture"
+        }
+      ],
+      "all_label_fr": "Voir tous les cas →",
+      "all_label_en": "See all cases →",
+      "all_href": "/cas-clients"
+    },
+    {
+      "type": "pricing-cards",
+      "background": "paper",
+      "layout": "grid-asym",
+      "colRatio": "2-3",
+      "kicker_fr": "§ Deux façons d'engager",
+      "kicker_en": "§ Two ways to engage",
+      "h2_fr": "Prix d'un audit SEO technique",
+      "h2_en": "Price of a technical SEO audit",
+      "lede_fr": "Le sprint de cadrage est à prix fixe : 10 heures pour explorer le site, contrôler l'indexation et classer les premiers correctifs. Sur un petit site, il peut suffire. Sur un site volumineux, on estime la suite ensemble avant de la lancer.",
+      "lede_en": "The scoping sprint is fixed-price: 10 hours to crawl the site, check indexing and rank the first fixes. On a small site, it may be enough. On a large site, we estimate the rest together before starting it.",
+      "tiers": [
+        {
+          "name_fr": "Sprint de cadrage",
+          "name_en": "Scoping sprint",
+          "price": "999 €",
+          "period_fr": "10 h · HT",
+          "period_en": "10 h · ex VAT",
+          "features_fr": [
+            "Exploration complète du site",
+            "Contrôle d'indexation et de structure",
+            "Premier backlog classé par effet et effort",
+            "Restitution commentée en visio"
+          ],
+          "features_en": [
+            "Full site crawl",
+            "Indexing and structure check",
+            "First backlog ranked by effect and effort",
+            "Walkthrough by video call"
+          ],
+          "cta": {
+            "label_fr": "Réserver un audit IA gratuit →",
+            "label_en": "Book a free AI audit →",
+            "href": "/contact?offer=audit-ia-pme&intent=audit",
+            "variant": "primary"
+          },
+          "featured": true
+        },
+        {
+          "name_fr": "Suite sur devis",
+          "name_en": "Next steps on quote",
+          "price": "Sur devis",
+          "period_fr": "estimé avec vous · HT",
+          "period_en": "estimated with you · ex VAT",
+          "features_fr": [
+            "Temps estimé ensemble, puis validé",
+            "Correctifs posés par sprints, en régie",
+            "Contrôle après correction",
+            "Rapport, exports et accès à vous"
+          ],
+          "features_en": [
+            "Time estimated together, then validated",
+            "Fixes applied in sprints, time and materials",
+            "Check after the fix",
+            "Report, exports and access are yours"
+          ],
+          "cta": {
+            "label_fr": "Cadrer la suite →",
+            "label_en": "Scope what follows →",
+            "href": "/contact?offer=audit-seo-technique&intent=suite",
+            "variant": "ghost"
+          }
+        }
+      ],
+      "footnote_fr": "Le sprint de cadrage est à prix fixe, 999 € HT pour 10 heures : exploration du site, contrôle d'indexation et de structure, premier backlog et restitution. La suite se cale sur devis : on estime ensemble le temps que demandent les correctifs, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € de l'heure, non dégressif. Sans abonnement : à la fin, le rapport, les exports et les accès sont à vous.",
+      "footnote_en": "The scoping sprint is fixed-price, €999 excl. VAT for 10 hours: site crawl, indexing and structure check, first backlog and walkthrough. What follows is quoted: we estimate together the time the fixes require, validate it, then run it in sprints on a time and materials basis, at €{{prix.horaire}} an hour, non-degressive. No subscription: at the end, the report, exports and access are yours."
+    },
+    {
+      "type": "eeat-panel",
+      "variant": "media",
+      "silo": "acquisition"
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper-2",
+      "kicker_fr": "§ Questions fréquentes",
+      "kicker_en": "§ Frequently asked questions",
+      "h2_fr": "Audit SEO technique : vos questions",
+      "h2_en": "Technical SEO audit: your questions",
+      "items": [
+        {
+          "q_fr": "Qu'est-ce qu'un audit SEO technique et sémantique ?",
+          "q_en": "What is a technical and semantic SEO audit?",
+          "a_fr": "C'est un contrôle de votre site du point de vue d'un moteur de recherche. Le volet technique vérifie que les pages sont explorées, indexées et rapides. Le volet sémantique vérifie qu'une page répond à une requête précise et qu'aucune autre ne se la dispute. Il se termine par une liste d'actions classées, pas par un score.",
+          "a_en": "It is a check of your site from a search engine point of view. The technical part checks that pages are crawled, indexed and fast. The semantic part checks that a page answers one precise query and that no other page competes for it. It ends with a ranked list of actions, not a score."
+        },
+        {
+          "q_fr": "Que contient le rapport, et à quoi ressemble le backlog ?",
+          "q_en": "What does the report contain, and what does the backlog look like?",
+          "a_fr": "Le rapport donne les constats page par page, avec la preuve : capture, mesure ou export. Le backlog est une liste de correctifs, chacun avec la page concernée, l'effet attendu, l'effort estimé et un ordre. Vous pouvez le confier à votre équipe, à votre développeur ou à nous.",
+          "a_en": "The report gives page-by-page findings, with the evidence: screenshot, measurement or export. The backlog is a list of fixes, each with the page concerned, the expected effect, the estimated effort and an order. You can hand it to your team, your developer or to us."
+        },
+        {
+          "q_fr": "Combien coûte un audit SEO technique ?",
+          "q_en": "How much does a technical SEO audit cost?",
+          "a_fr": "Le sprint de cadrage est à 999 € HT pour 10 heures : exploration du site, contrôle d'indexation et premier backlog. Sur un petit site, il peut suffire. Sur un site volumineux, la suite est estimée avec vous, puis facturée {{prix.horaire}} € HT de l'heure, sans abonnement imposé.",
+          "a_en": "The scoping sprint is €999 excl. VAT for 10 hours: site crawl, indexing check and first backlog. On a small site it may be enough. On a large site, the rest is estimated with you, then billed at €{{prix.horaire}} per hour excl. VAT, with no imposed subscription."
+        },
+        {
+          "q_fr": "Faut-il auditer le site avant de produire du contenu ?",
+          "q_en": "Should the site be audited before producing content?",
+          "a_fr": "Au minimum un contrôle d'indexation. Si le site ne fait pas remonter ses pages, chaque article publié prolonge le problème. Un site sain peut passer directement à la rédaction.",
+          "a_en": "At minimum an indexing check. If the site does not surface its pages, each published article extends the problem. A healthy site can go straight to writing."
+        },
+        {
+          "q_fr": "Corrigez-vous vous-mêmes les problèmes trouvés ?",
+          "q_en": "Do you fix the problems you find yourselves?",
+          "a_fr": "Si vous le souhaitez, oui : balises, redirections, données structurées et maillage, sur votre site et avec vos accès, puis vérification après correction. Sur un site que gère un autre prestataire, on remet le backlog et on valide avec lui. Dans tous les cas, les accès et les exports restent à vous.",
+          "a_en": "If you wish, yes: tags, redirects, structured data and internal links, on your site with your access, then verification after the fix. On a site run by another provider, we hand over the backlog and validate with them. In every case, access and exports stay yours."
+        },
+        {
+          "q_fr": "L'audit couvre-t-il la citation par ChatGPT ou Perplexity ?",
+          "q_en": "Does the audit cover citation by ChatGPT or Perplexity?",
+          "a_fr": "En partie : il vérifie que le site est lisible et accessible aux robots, ce qui sert aussi aux assistants IA. La citation elle-même est un travail séparé, détaillé sur la page référencement IA.",
+          "a_en": "In part: it checks that the site is readable and accessible to robots, which also serves AI assistants. Citation itself is separate work, detailed on the AI SEO page."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "layout": "stacked",
+      "contentAlign": "center",
+      "actionsAlign": "center",
+      "rounded": true,
+      "kicker_fr": "§ Audit IA gratuit",
+      "kicker_en": "§ Free AI audit",
+      "h2_fr": "Combien de vos pages Google a-t-il réellement indexées ?",
+      "h2_en": "How many of your pages has Google actually indexed?",
+      "subtitle_fr": "En 45 minutes, on regarde votre site et sa Search Console ensemble, et on vous dit si un audit complet se justifie.",
+      "subtitle_en": "In 45 minutes, we look at your site and its Search Console together, and tell you whether a full audit is justified.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un audit IA gratuit →",
+          "label_en": "Book a free AI audit →",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Voir l'offre SEO",
+          "label_en": "See the SEO offer",
+          "href": "/services/seo-geo-contenu",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}
