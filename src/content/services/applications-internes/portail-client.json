@@ -1,0 +1,666 @@
+{
+  "$schema": "../../../schemas/generated/services.page.schema.json",
+  "title_fr": "Portail client sur mesure pour PME · Waimia",
+  "title_en": "Bespoke client portal for SMEs · Waimia",
+  "description_fr": "Portail client sur mesure : suivi de dossiers, documents, devis et tickets pour vos clients, branché à votre CRM ou ERP. Dès 2 000 € HT, code remis.",
+  "description_en": "Bespoke client portal: case tracking, documents, quotes and tickets for your customers, connected to your CRM or ERP. From 2,000 € excl. VAT, code handed over.",
+  "slug": "portail-client",
+  "publishedAt": "2026-10-12T00:00:00.000Z",
+  "updatedAt": "2026-10-12T00:00:00.000Z",
+  "category": "applications",
+  "tags": [
+    "portail-client",
+    "extranet-client",
+    "espace-client",
+    "application-metier",
+    "developpement-sur-mesure"
+  ],
+  "seo": {
+    "noindex": false,
+    "serviceType": "Développement de portail client et d'extranet sur mesure pour PME",
+    "priceRange": "2000-10000€",
+    "priceMin": 2000,
+    "priceMax": 10000
+  },
+  "faq_fr": [
+    {
+      "q": "Qu'est-ce qu'un portail client ?",
+      "a": "Une application web réservée à vos clients, reliée aux données que vous gérez déjà. Chaque client s'y connecte avec son compte et n'y voit que ce qui le concerne : l'avancement de ses dossiers, ses documents, ses devis, ses demandes. Le portail expose une partie de votre CRM ou de votre ERP, de façon contrôlée."
+    },
+    {
+      "q": "Combien coûte un portail client sur mesure ?",
+      "a": "Quatre paliers selon le périmètre : à partir de 2 000 € HT pour un premier parcours en production, 4 000 € HT pour un portail branché à votre CRM ou ERP, 7 000 € HT pour plusieurs parcours, à partir de 10 000 € HT pour des intégrations lourdes. Les évolutions se facturent {{prix.horaire}} € HT de l'heure."
+    },
+    {
+      "q": "Portail sur mesure ou portail intégré à mon CRM ?",
+      "a": "Si le portail de votre CRM ou de votre ERP couvre vos parcours, gardez-le : c'est moins cher. Le sur mesure se justifie quand vos parcours ou vos droits n'y rentrent pas, ou quand vos données sont réparties dans plusieurs outils que le portail doit réunir."
+    },
+    {
+      "q": "Le portail se branche-t-il à mon CRM ou à mon ERP ?",
+      "a": "Oui, par API quand l'outil en propose une. Sans API, on regarde l'export ou la base de données, et on le dit au cadrage. Nous ne promettons une connexion qu'après avoir vérifié ce que votre outil permet de lire et d'écrire."
+    },
+    {
+      "q": "Comment sont gérés les accès et les données personnelles ?",
+      "a": "Les droits sont décidés au cadrage et écrits dans une matrice : un client voit ses dossiers, un collaborateur ceux de son périmètre. Chaque accès est journalisé. On liste les données personnelles exposées, on les limite au nécessaire et on vous remet ce schéma pour votre registre RGPD."
+    },
+    {
+      "q": "À qui appartient le code du portail ?",
+      "a": "À vous. Le code est dans un dépôt à votre nom, la base de données et l'hébergement sont sur vos comptes, et la documentation permet à un autre développeur de reprendre le portail."
+    },
+    {
+      "q": "Quelle différence avec un MVP SaaS ?",
+      "a": "Un portail sert vos clients existants et ne se vend pas : il n'a ni tunnel d'inscription ni paiement. Un MVP SaaS est un produit qu'on vend à un marché. Si votre besoin est le second, voir le développement de MVP SaaS."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "What is a client portal?",
+      "a": "A web application reserved for your customers, linked to the data you already manage. Each customer signs in with their own account and only sees what concerns them: the progress of their cases, their documents, their quotes, their requests. The portal exposes part of your CRM or ERP, in a controlled way."
+    },
+    {
+      "q": "How much does a bespoke client portal cost?",
+      "a": "Four tiers by scope: from 2,000 € excl. VAT for a first journey in production, 4,000 € excl. VAT for a portal connected to your CRM or ERP, 7,000 € excl. VAT for several journeys, from 10,000 € excl. VAT for heavy integrations. Changes are billed {{prix.horaire}} € an hour excl. VAT."
+    },
+    {
+      "q": "Bespoke portal or the portal built into my CRM?",
+      "a": "If the portal in your CRM or ERP covers your journeys, keep it: it costs less. Bespoke is justified when your journeys or rights do not fit, or when your data is spread across several tools the portal must bring together."
+    },
+    {
+      "q": "Does the portal connect to my CRM or ERP?",
+      "a": "Yes, through an API when the tool offers one. Without an API, we look at the export or the database, and we say so during scoping. We only promise a connection once we have checked what your tool allows reading and writing."
+    },
+    {
+      "q": "How are access and personal data handled?",
+      "a": "Rights are decided during scoping and written in a matrix: a customer sees their cases, a team member those in their remit. Every access is logged. We list the personal data exposed, limit it to what is necessary and hand you that schema for your GDPR register."
+    },
+    {
+      "q": "Who owns the portal code?",
+      "a": "You do. The code sits in a repository in your name, the database and hosting are on your accounts, and the documentation lets another developer take the portal over."
+    },
+    {
+      "q": "What is the difference with a SaaS MVP?",
+      "a": "A portal serves your existing customers and is not sold: it has no sign-up funnel and no payment. A SaaS MVP is a product sold to a market. If your need is the latter, see SaaS MVP development."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-masthead-card",
+      "background": "paper",
+      "kicker_fr": "§ Portail client sur mesure",
+      "kicker_en": "§ Bespoke client portal",
+      "h1_fr": "Portail client <i class=\"acc\">sur mesure</i> pour PME",
+      "h1_en": "Bespoke <i class=\"acc\">client portal</i> for SMEs",
+      "lede_fr": "Un portail client est un espace sécurisé où vos clients suivent leurs dossiers, retrouvent leurs documents, consultent leurs devis et ouvrent un ticket, sans vous appeler. Waimia le développe sur mesure, le branche à votre CRM ou à votre ERP et vous remet le code.",
+      "lede_en": "A client portal is a secure space where your customers follow their cases, find their documents, view their quotes and open a ticket, without calling you. Waimia builds it bespoke, connects it to your CRM or ERP and hands over the code.",
+      "badges": [
+        {
+          "label_fr": "Accès par rôle",
+          "label_en": "Role-based access"
+        },
+        {
+          "label_fr": "Branché à votre CRM ou ERP",
+          "label_en": "Connected to your CRM or ERP"
+        },
+        {
+          "label_fr": "Suivi, documents, devis, tickets",
+          "label_en": "Tracking, documents, quotes, tickets"
+        },
+        {
+          "label_fr": "Code remis",
+          "label_en": "Code handed over"
+        }
+      ],
+      "cta_sub_fr": "Audit gratuit de 45 minutes : on regarde ce que vos clients vous demandent par e-mail ou par téléphone.",
+      "cta_sub_en": "Free 45-minute audit: we look at what your customers ask you by email or phone.",
+      "cta_primary": {
+        "label_fr": "Réserver un audit IA gratuit →",
+        "label_en": "Book a free AI audit →",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme",
+        "variant": "ghost"
+      },
+      "media_src": "/images/line-art/dispositif-flow.svg",
+      "media_alt_fr": "Schéma : des outils dispersés et non reliés, puis un nœud central qui les connecte, puis une courbe de résultat mesuré.",
+      "media_alt_en": "Diagram: scattered, unlinked tools, then a central node connecting them, then a measured results curve."
+    },
+    {
+      "type": "proof-bar",
+      "background": "paper",
+      "kicker_fr": "§ En bref",
+      "kicker_en": "§ In short",
+      "metrics": [
+        {
+          "value": "2 000 € HT",
+          "label_fr": "dès, quatre paliers : 2 000, 4 000, 7 000 et 10 000 €",
+          "label_en": "from, four tiers: 2,000, 4,000, 7,000 and 10,000 €",
+          "emphasis": true
+        },
+        {
+          "value": "Par rôle",
+          "label_fr": "chaque client ne voit que ses dossiers et ses documents",
+          "label_en": "each customer only sees their own cases and documents",
+          "emphasis": false
+        },
+        {
+          "value": "Branché",
+          "label_fr": "lecture et écriture dans votre CRM ou votre ERP, par API",
+          "label_en": "reading and writing in your CRM or ERP, through an API",
+          "emphasis": false
+        },
+        {
+          "value": "À vous",
+          "label_fr": "code, base de données et hébergement remis",
+          "label_en": "code, database and hosting handed over",
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "type": "definition-extract",
+      "background": "paper",
+      "kicker_fr": "§ Définition",
+      "kicker_en": "§ Definition",
+      "statement_fr": "Un <i class=\"acc\">portail client</i> est une application web réservée à vos clients, reliée aux données que vous gérez déjà. Chaque client s'y connecte avec son compte et n'y voit que ce qui le concerne : l'avancement de ses dossiers, ses documents, ses devis, ses échanges. Il ne vend rien et ne remplace pas votre CRM : il en expose une partie, de façon contrôlée.",
+      "statement_en": "A <i class=\"acc\">client portal</i> is a web application reserved for your customers, linked to the data you already manage. Each customer signs in with their own account and only sees what concerns them: the progress of their cases, their documents, their quotes, their exchanges. It sells nothing and does not replace your CRM: it exposes part of it, in a controlled way.",
+      "pills": [
+        {
+          "label_fr": "Accès par rôle",
+          "label_en": "Role-based access"
+        },
+        {
+          "label_fr": "Suivi de dossiers",
+          "label_en": "Case tracking"
+        },
+        {
+          "label_fr": "Documents",
+          "label_en": "Documents"
+        },
+        {
+          "label_fr": "Devis et tickets",
+          "label_en": "Quotes and tickets"
+        },
+        {
+          "label_fr": "Journal des accès",
+          "label_en": "Access log"
+        }
+      ],
+      "specs": [
+        {
+          "label_fr": "Authentification",
+          "label_en": "Authentication"
+        },
+        {
+          "label_fr": "Un compte par client",
+          "label_en": "One account per customer"
+        },
+        {
+          "label_fr": "Connexion CRM ou ERP par API",
+          "label_en": "CRM or ERP connection through an API"
+        },
+        {
+          "label_fr": "Notifications par e-mail",
+          "label_en": "Email notifications"
+        },
+        {
+          "label_fr": "Historique des échanges",
+          "label_en": "Exchange history"
+        },
+        {
+          "label_fr": "Sauvegardes",
+          "label_en": "Backups"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/portail-client-fenetre-suivi-paper.webp",
+          "alt_fr": "Des clients assis sur un quai regardent un wagon avancer de station en station sur une voie",
+          "alt_en": "Clients sitting on a platform watch a wagon move from station to station along a track",
+          "side": "right"
+        }
+      ],
+      "html_fr": "<h2>Ce qu'un portail change, concrètement</h2>\n<p>Les mêmes questions reviennent : où en est mon dossier, pouvez-vous me renvoyer la facture, avez-vous bien reçu mon document. Chaque réponse prend du temps à quelqu'un, et chaque pièce jointe vit dans une boîte mail. Un portail met ces réponses à la disposition du client, à toute heure, et garde la trace de ce qui a été échangé.</p>\n<h2>Les parcours qu'on construit le plus souvent</h2>\n<p>Le suivi d'un dossier par étapes. Le dépôt et la consultation de documents. La consultation et l'acceptation d'un devis. L'ouverture et le suivi d'un ticket. Chaque parcours est construit pour votre métier : on ne vend pas un catalogue de modules, on retient les deux ou trois parcours qui retirent le plus de demandes.</p>\n<h2>Branché, pas recopié</h2>\n<p>Le portail lit vos données à la source, dans le <a href=\"/services/crm-scoring-routing\">CRM</a> ou dans l'ERP, et y écrit ce que le client saisit : un document, une demande. Rien n'est ressaisi à la main. Quand il s'agit seulement de faire circuler des données entre deux outils, une <a href=\"/services/automatisations\">automatisation</a> suffit, sans portail.</p>\n<h2>Qui voit quoi</h2>\n<p>Les droits se décident au cadrage : un client ne voit que ses dossiers, un collaborateur ceux de son périmètre, un administrateur tout. Chaque accès est journalisé. C'est la partie qu'on discute en premier, avant les écrans.</p>",
+      "html_en": "<h2>What a portal changes, concretely</h2>\n<p>The same questions keep coming back: where is my case, can you resend the invoice, did you receive my document. Every answer takes someone's time, and every attachment lives in a mailbox. A portal puts these answers at the customer's disposal, at any hour, and keeps a record of what was exchanged.</p>\n<h2>The journeys we build most often</h2>\n<p>Tracking a case through its stages. Uploading and viewing documents. Viewing and accepting a quote. Opening and following a ticket. Each journey is built for your trade: we do not sell a catalogue of modules, we keep the two or three journeys that remove the most requests.</p>\n<h2>Connected, not copied</h2>\n<p>The portal reads your data at the source, in the <a href=\"/services/crm-scoring-routing\">CRM</a> or the ERP, and writes back what the customer enters: a document, a request. Nothing is retyped by hand. When data only needs to flow between two tools, an <a href=\"/services/automatisations\">automation</a> is enough, without a portal.</p>\n<h2>Who sees what</h2>\n<p>Rights are decided during scoping: a customer only sees their cases, a team member those in their remit, an administrator everything. Every access is logged. This is the part we discuss first, before the screens.</p>"
+    },
+    {
+      "type": "comparison-duo",
+      "background": "paper",
+      "kicker_fr": "§ Avant et après",
+      "kicker_en": "§ Before and after",
+      "h2_fr": "Ce que change un portail pour vos clients",
+      "h2_en": "What a portal changes for your customers",
+      "without_label_fr": "Sans portail",
+      "without_label_en": "Without a portal",
+      "without_title_fr": "Ce que ça vous coûte",
+      "without_title_en": "What it costs you",
+      "without_items": [
+        {
+          "text_fr": "Le client appelle ou écrit pour connaître l'état de son dossier.",
+          "text_en": "The customer calls or writes to ask where their case stands."
+        },
+        {
+          "text_fr": "Les documents circulent en pièces jointes, dans plusieurs boîtes mail.",
+          "text_en": "Documents travel as attachments, across several mailboxes."
+        },
+        {
+          "text_fr": "Chacun a sa version du devis ou du contrat.",
+          "text_en": "Everyone has their own version of the quote or the contract."
+        },
+        {
+          "text_fr": "Personne ne sait qui a répondu à quoi.",
+          "text_en": "Nobody knows who answered what."
+        }
+      ],
+      "with_label_fr": "Avec un portail",
+      "with_label_en": "With a portal",
+      "with_title_fr": "Ce que ça change",
+      "with_title_en": "What changes",
+      "with_items": [
+        {
+          "text_fr": "L'état du dossier est consultable à tout moment, par le client lui-même.",
+          "text_en": "The case status can be checked at any time, by the customer."
+        },
+        {
+          "text_fr": "Les documents sont déposés et récupérés au même endroit, avec leur historique.",
+          "text_en": "Documents are uploaded and retrieved in one place, with their history."
+        },
+        {
+          "text_fr": "Une seule version du devis, acceptée en ligne.",
+          "text_en": "A single version of the quote, accepted online."
+        },
+        {
+          "text_fr": "Chaque échange est daté et rattaché à un dossier.",
+          "text_en": "Every exchange is dated and attached to a case."
+        }
+      ]
+    },
+    {
+      "type": "method-stepline",
+      "background": "paper-3",
+      "kicker_fr": "§ Méthode",
+      "kicker_en": "§ Method",
+      "h2_fr": "Comment on le construit",
+      "h2_en": "How we build it",
+      "lede_fr": "Six étapes, de la liste des demandes à la remise du code. On ouvre à quelques clients avant d'ouvrir à tous.",
+      "lede_en": "Six steps, from the list of requests to handing over the code. We open to a few customers before opening to all.",
+      "steps": [
+        {
+          "title_fr": "Cartographier",
+          "title_en": "Map",
+          "sub_fr": "Les demandes que vos clients font aujourd'hui, par canal",
+          "sub_en": "The requests your customers make today, by channel"
+        },
+        {
+          "title_fr": "Choisir les parcours",
+          "title_en": "Choose the journeys",
+          "sub_fr": "Deux ou trois, ceux qui retirent le plus de demandes",
+          "sub_en": "Two or three, the ones that remove the most requests"
+        },
+        {
+          "title_fr": "Décider des droits",
+          "title_en": "Decide the rights",
+          "sub_fr": "Qui voit quoi, qui peut modifier",
+          "sub_en": "Who sees what, who can edit"
+        },
+        {
+          "title_fr": "Brancher et construire",
+          "title_en": "Connect and build",
+          "sub_fr": "Connexion au CRM ou à l'ERP, écrans, notifications",
+          "sub_en": "CRM or ERP connection, screens, notifications"
+        },
+        {
+          "title_fr": "Pilote",
+          "title_en": "Pilot",
+          "sub_fr": "Quelques clients d'abord, puis tous",
+          "sub_en": "A few customers first, then all"
+        },
+        {
+          "title_fr": "Passation",
+          "title_en": "Handover",
+          "sub_fr": "Code, accès et documentation remis",
+          "sub_en": "Code, access and documentation handed over"
+        }
+      ]
+    },
+    {
+      "type": "deliverables-grid",
+      "background": "paper",
+      "kicker_fr": "§ Livrables",
+      "kicker_en": "§ Deliverables",
+      "title_fr": "Ce que vous récupérez",
+      "title_en": "What you get",
+      "lead_fr": "Le portail est à vous : un autre développeur peut le reprendre.",
+      "lead_en": "The portal is yours: another developer can take it over.",
+      "items": [
+        {
+          "title_fr": "Le portail en production",
+          "title_en": "The portal in production",
+          "body_fr": "Une application web accessible depuis un navigateur, sur votre domaine, avec un compte par client.",
+          "body_en": "A web application reachable from a browser, on your domain, with one account per customer.",
+          "format_fr": "CODE + LIVE",
+          "format_en": "CODE + LIVE"
+        },
+        {
+          "title_fr": "Les connexions CRM ou ERP",
+          "title_en": "The CRM or ERP connections",
+          "body_fr": "Lecture et écriture dans vos outils, documentées, avec la gestion des erreurs de synchronisation.",
+          "body_en": "Reading and writing in your tools, documented, with sync error handling.",
+          "format_fr": "API",
+          "format_en": "API"
+        },
+        {
+          "title_fr": "La matrice des droits",
+          "title_en": "The rights matrix",
+          "body_fr": "Qui voit quoi, par rôle : écrite avant la construction, testée après.",
+          "body_en": "Who sees what, by role: written before building, tested after.",
+          "format_fr": "DROITS",
+          "format_en": "RIGHTS"
+        },
+        {
+          "title_fr": "Le journal des accès",
+          "title_en": "The access log",
+          "body_fr": "Qui s'est connecté, qui a consulté ou modifié quoi, et quand.",
+          "body_en": "Who signed in, who viewed or changed what, and when.",
+          "format_fr": "JOURNAL",
+          "format_en": "LOG"
+        },
+        {
+          "title_fr": "Code, base et hébergement",
+          "title_en": "Code, database and hosting",
+          "body_fr": "Dépôt à votre nom, base de données et hébergement sur vos comptes.",
+          "body_en": "Repository in your name, database and hosting on your accounts.",
+          "format_fr": "CODE",
+          "format_en": "CODE"
+        },
+        {
+          "title_fr": "La documentation",
+          "title_en": "The documentation",
+          "body_fr": "Guide d'administration, schéma des données et procédure de mise à jour.",
+          "body_en": "Admin guide, data schema and update procedure.",
+          "format_fr": "DOC",
+          "format_en": "DOC"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/portail-client-porte-cle-paper.webp",
+          "alt_fr": "Cinq portes alignées, chaque personne devant la sienne : une seule s'ouvre, avec sa clé",
+          "alt_en": "Five doors in a row, each person facing their own: only one opens, with its key",
+          "side": "left"
+        }
+      ],
+      "html_fr": "<h2>Ce qui peut mal tourner</h2>\n<p>Le portail que les clients n'ouvrent pas : on le prévient en partant des demandes réelles et en le testant avec quelques clients avant l'ouverture. La donnée qui diverge entre le portail et le CRM : une seule source, le CRM ou l'ERP, et le portail n'en garde pas de copie modifiable. L'accès qui fuit : la matrice des droits est testée, y compris le cas où un client tente de voir un dossier qui n'est pas le sien. Les données personnelles : on liste celles qui sont exposées et on les limite au nécessaire.</p>\n<h2>Portail, application interne, MVP : ne pas confondre</h2>\n<p>Un portail sert vos clients existants et ne se vend pas. Un produit vendu à un marché, avec inscription et paiement, est un <a href=\"/services/mvp-saas\">MVP SaaS</a>. Un outil pour votre équipe est un <a href=\"/services/back-office-sur-mesure\">back-office sur mesure</a>. La famille complète est présentée sur la page <a href=\"/services/applications-internes\">applications internes</a>, et la grille de décision dans <a href=\"/blog/applications-internes-build-vs-buy-pme\">développer ou acheter son outil interne</a>.</p>",
+      "html_en": "<h2>What can go wrong</h2>\n<p>The portal customers never open: we prevent it by starting from real requests and testing with a few customers before opening. Data diverging between the portal and the CRM: one single source, the CRM or the ERP, and the portal keeps no editable copy. Access that leaks: the rights matrix is tested, including the case where a customer tries to see a case that is not theirs. Personal data: we list what is exposed and limit it to what is necessary.</p>\n<h2>Portal, internal application, MVP: do not mix them up</h2>\n<p>A portal serves your existing customers and is not sold. A product sold to a market, with sign-up and payment, is a <a href=\"/services/mvp-saas\">SaaS MVP</a>. A tool for your team is a <a href=\"/services/back-office-sur-mesure\">bespoke back office</a>. The full family is presented on the <a href=\"/services/applications-internes\">internal applications</a> page, and the decision grid in <a href=\"/blog/applications-internes-build-vs-buy-pme\">build or buy your internal tool</a>.</p>"
+    },
+    {
+      "type": "decision-list",
+      "background": "paper",
+      "kicker_fr": "§ Quand ne pas le faire",
+      "kicker_en": "§ When not to do it",
+      "heading_fr": "Ne faites pas développer de portail si",
+      "heading_en": "Do not commission a portal if",
+      "items": [
+        {
+          "label_fr": "Vos clients sont peu nombreux et vous les suivez déjà par e-mail sans difficulté.",
+          "label_en": "Your customers are few and you already follow them by email without difficulty."
+        },
+        {
+          "label_fr": "Le portail de votre CRM ou de votre ERP couvre déjà ces parcours, sans contournement.",
+          "label_en": "The portal in your CRM or ERP already covers these journeys, without workarounds."
+        },
+        {
+          "label_fr": "Vos données ne sont pas fiables à la source : un portail les rendrait visibles, pas justes.",
+          "label_en": "Your data is not reliable at the source: a portal would make it visible, not correct."
+        },
+        {
+          "label_fr": "Personne chez vous ne sera responsable des demandes que le portail fera remonter.",
+          "label_en": "Nobody on your side will own the requests the portal brings up."
+        },
+        {
+          "label_fr": "Votre process change tous les mois : fixez-le d'abord, exposez-le ensuite.",
+          "label_en": "Your process changes every month: fix it first, expose it afterwards."
+        }
+      ]
+    },
+    {
+      "type": "case-card-grid",
+      "background": "ink",
+      "reveal_mode": "cursor",
+      "fig_num": "Fig. 05",
+      "fig_title_fr": "Réalisations",
+      "fig_title_en": "Work",
+      "spec_fr": "Réalisations · un seul cas publié, un espace membre avec abonnement, pas un portail de suivi de dossiers",
+      "spec_en": "Work · a single published case, a member area with subscription, not a case-tracking portal",
+      "h2_fr": "Un espace membre déjà livré",
+      "h2_en": "A member area already delivered",
+      "case_label_fr": "CAS",
+      "case_label_en": "CASE",
+      "sector_label_fr": "Secteur · État",
+      "sector_label_en": "Sector · Status",
+      "impact_label_fr": "Ce que dit la fiche",
+      "impact_label_en": "What the page says",
+      "cases": [
+        {
+          "ref": "cases/les-carnets-de-montpellier"
+        }
+      ],
+      "all_label_fr": "Voir toutes les réalisations →",
+      "all_label_en": "See all work →",
+      "all_href": "/cas-clients"
+    },
+    {
+      "type": "pricing-cards",
+      "background": "paper",
+      "kicker_fr": "§ La gamme",
+      "kicker_en": "§ The range",
+      "h2_fr": "Combien coûte un portail client sur mesure",
+      "h2_en": "How much does a bespoke client portal cost",
+      "lede_fr": "Quatre paliers selon le périmètre. On part d'un cadrage et on livre un portail en production, pas une maquette. Les évolutions se facturent à l'heure, en sprints.",
+      "lede_en": "Four tiers by scope. We start from scoping and ship a portal in production, not a mockup. Changes are billed hourly, in sprints.",
+      "tiers": [
+        {
+          "name_fr": "Premier parcours",
+          "name_en": "First journey",
+          "price": "2 000 €",
+          "period_fr": "à partir de · HT",
+          "period_en": "from · excl. VAT",
+          "features_fr": [
+            "Un parcours client en production : suivi de dossier ou documents",
+            "Un compte par client, accès par rôle",
+            "Journal des accès et sauvegardes",
+            "Code livré et hébergé chez vous"
+          ],
+          "features_en": [
+            "One customer journey in production: case tracking or documents",
+            "One account per customer, role-based access",
+            "Access log and backups",
+            "Code delivered and hosted on your side"
+          ],
+          "cta": {
+            "label_fr": "Cadrer un premier parcours →",
+            "label_en": "Scope a first journey →",
+            "href": "/contact?offer=portail-client&intent=premier-parcours",
+            "variant": "ghost"
+          }
+        },
+        {
+          "name_fr": "Portail branché",
+          "name_en": "Connected portal",
+          "price": "4 000 €",
+          "period_fr": "indicatif · HT",
+          "period_en": "indicative · excl. VAT",
+          "features_fr": [
+            "Plusieurs parcours : dossiers, documents, devis",
+            "Branché à votre CRM ou ERP, en lecture et en écriture",
+            "Rôles internes et notifications par e-mail",
+            "Code documenté et transférable"
+          ],
+          "features_en": [
+            "Several journeys: cases, documents, quotes",
+            "Connected to your CRM or ERP, read and write",
+            "Internal roles and email notifications",
+            "Documented, transferable code"
+          ],
+          "cta": {
+            "label_fr": "Réserver un audit IA gratuit →",
+            "label_en": "Book a free AI audit →",
+            "href": "/contact?offer=audit-ia-pme&intent=audit",
+            "variant": "primary"
+          },
+          "featured": true
+        },
+        {
+          "name_fr": "Portail complet",
+          "name_en": "Full portal",
+          "price": "7 000 €",
+          "period_fr": "indicatif · HT",
+          "period_en": "indicative · excl. VAT",
+          "features_fr": [
+            "Tous les parcours : suivi, documents, devis, tickets",
+            "Plusieurs sources de données reliées",
+            "Recherche assistée par IA dans les documents, si utile",
+            "Tableau de suivi de l'usage du portail"
+          ],
+          "features_en": [
+            "All journeys: tracking, documents, quotes, tickets",
+            "Several data sources linked",
+            "AI-assisted search across documents, where useful",
+            "Dashboard of portal usage"
+          ],
+          "cta": {
+            "label_fr": "Cadrer un portail complet →",
+            "label_en": "Scope a full portal →",
+            "href": "/contact?offer=portail-client&intent=complet",
+            "variant": "ghost"
+          }
+        },
+        {
+          "name_fr": "Portail sur mesure",
+          "name_en": "Bespoke portal",
+          "price": "10 000 €",
+          "period_fr": "à partir de · HT",
+          "period_en": "from · excl. VAT",
+          "features_fr": [
+            "Intégrations lourdes, plusieurs systèmes",
+            "Droits fins : clients, partenaires, sous-traitants",
+            "Gouvernance des accès et journal durable",
+            "Code, base et hébergement chez vous : aucune captivité"
+          ],
+          "features_en": [
+            "Heavy integrations, several systems",
+            "Fine-grained rights: customers, partners, subcontractors",
+            "Access governance and durable log",
+            "Code, database and hosting on your side: no lock-in"
+          ],
+          "cta": {
+            "label_fr": "Cadrer un portail sur mesure →",
+            "label_en": "Scope a bespoke portal →",
+            "href": "/contact?offer=portail-client&intent=sur-mesure",
+            "variant": "ghost"
+          }
+        }
+      ],
+      "footnote_fr": "Les paliers sont des repères : le périmètre se fixe au cadrage et vous validez avant la construction. Le sprint de cadrage dure 10 heures et coûte 999 € HT. Les évolutions se facturent {{prix.horaire}} € HT de l'heure, en sprints : on estime le temps ensemble, vous validez, on exécute. Pas d'abonnement caché : vous gardez le code, la base de données et l'hébergement.",
+      "footnote_en": "The tiers are benchmarks: the scope is set during scoping and you approve before anything is built. The scoping sprint lasts 10 hours and costs 999 € excl. VAT. Changes are billed {{prix.horaire}} € an hour excl. VAT, in sprints: we size the time together, you approve, we execute. No hidden subscription: you keep the code, the database and the hosting."
+    },
+    {
+      "type": "eeat-panel",
+      "variant": "media",
+      "silo": "ops"
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper-2",
+      "kicker_fr": "§ Questions fréquentes",
+      "kicker_en": "§ Frequently asked questions",
+      "h2_fr": "Ce que vous nous demandez",
+      "h2_en": "What you ask us",
+      "items": [
+        {
+          "q_fr": "Qu'est-ce qu'un portail client ?",
+          "q_en": "What is a client portal?",
+          "a_fr": "Une application web réservée à vos clients, reliée aux données que vous gérez déjà. Chaque client s'y connecte avec son compte et n'y voit que ce qui le concerne : l'avancement de ses dossiers, ses documents, ses devis, ses demandes. Le portail expose une partie de votre CRM ou de votre ERP, de façon contrôlée.",
+          "a_en": "A web application reserved for your customers, linked to the data you already manage. Each customer signs in with their own account and only sees what concerns them: the progress of their cases, their documents, their quotes, their requests. The portal exposes part of your CRM or ERP, in a controlled way."
+        },
+        {
+          "q_fr": "Combien coûte un portail client sur mesure ?",
+          "q_en": "How much does a bespoke client portal cost?",
+          "a_fr": "Quatre paliers selon le périmètre : à partir de 2 000 € HT pour un premier parcours en production, 4 000 € HT pour un portail branché à votre CRM ou ERP, 7 000 € HT pour plusieurs parcours, à partir de 10 000 € HT pour des intégrations lourdes. Les évolutions se facturent {{prix.horaire}} € HT de l'heure.",
+          "a_en": "Four tiers by scope: from 2,000 € excl. VAT for a first journey in production, 4,000 € excl. VAT for a portal connected to your CRM or ERP, 7,000 € excl. VAT for several journeys, from 10,000 € excl. VAT for heavy integrations. Changes are billed {{prix.horaire}} € an hour excl. VAT."
+        },
+        {
+          "q_fr": "Portail sur mesure ou portail intégré à mon CRM ?",
+          "q_en": "Bespoke portal or the portal built into my CRM?",
+          "a_fr": "Si le portail de votre CRM ou de votre ERP couvre vos parcours, gardez-le : c'est moins cher. Le sur mesure se justifie quand vos parcours ou vos droits n'y rentrent pas, ou quand vos données sont réparties dans plusieurs outils que le portail doit réunir.",
+          "a_en": "If the portal in your CRM or ERP covers your journeys, keep it: it costs less. Bespoke is justified when your journeys or rights do not fit, or when your data is spread across several tools the portal must bring together."
+        },
+        {
+          "q_fr": "Le portail se branche-t-il à mon CRM ou à mon ERP ?",
+          "q_en": "Does the portal connect to my CRM or ERP?",
+          "a_fr": "Oui, par API quand l'outil en propose une. Sans API, on regarde l'export ou la base de données, et on le dit au cadrage. Nous ne promettons une connexion qu'après avoir vérifié ce que votre outil permet de lire et d'écrire.",
+          "a_en": "Yes, through an API when the tool offers one. Without an API, we look at the export or the database, and we say so during scoping. We only promise a connection once we have checked what your tool allows reading and writing."
+        },
+        {
+          "q_fr": "Comment sont gérés les accès et les données personnelles ?",
+          "q_en": "How are access and personal data handled?",
+          "a_fr": "Les droits sont décidés au cadrage et écrits dans une matrice : un client voit ses dossiers, un collaborateur ceux de son périmètre. Chaque accès est journalisé. On liste les données personnelles exposées, on les limite au nécessaire et on vous remet ce schéma pour votre registre RGPD.",
+          "a_en": "Rights are decided during scoping and written in a matrix: a customer sees their cases, a team member those in their remit. Every access is logged. We list the personal data exposed, limit it to what is necessary and hand you that schema for your GDPR register."
+        },
+        {
+          "q_fr": "À qui appartient le code du portail ?",
+          "q_en": "Who owns the portal code?",
+          "a_fr": "À vous. Le code est dans un dépôt à votre nom, la base de données et l'hébergement sont sur vos comptes, et la documentation permet à un autre développeur de reprendre le portail.",
+          "a_en": "You do. The code sits in a repository in your name, the database and hosting are on your accounts, and the documentation lets another developer take the portal over."
+        },
+        {
+          "q_fr": "Quelle différence avec un MVP SaaS ?",
+          "q_en": "What is the difference with a SaaS MVP?",
+          "a_fr": "Un portail sert vos clients existants et ne se vend pas : il n'a ni tunnel d'inscription ni paiement. Un MVP SaaS est un produit qu'on vend à un marché. Si votre besoin est le second, voir le développement de MVP SaaS.",
+          "a_en": "A portal serves your existing customers and is not sold: it has no sign-up funnel and no payment. A SaaS MVP is a product sold to a market. If your need is the latter, see SaaS MVP development."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "layout": "stacked",
+      "contentAlign": "center",
+      "actionsAlign": "center",
+      "rounded": true,
+      "kicker_fr": "§ Audit IA gratuit",
+      "kicker_en": "§ Free AI audit",
+      "h2_fr": "Que vous demandent vos clients par e-mail, chaque semaine ?",
+      "h2_en": "What do your customers ask you by email, every week?",
+      "subtitle_fr": "En 45 minutes, on regarde vos demandes entrantes et vos outils, et on vous dit si un portail, une automatisation ou un outil du marché est la bonne réponse.",
+      "subtitle_en": "In 45 minutes, we look at your incoming requests and your tools, and tell you whether a portal, an automation or an off-the-shelf tool is the right answer.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un audit IA gratuit →",
+          "label_en": "Book a free AI audit →",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Voir les applications internes",
+          "label_en": "See internal applications",
+          "href": "/services/applications-internes",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}
