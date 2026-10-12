@@ -271,7 +271,7 @@ export default defineConfig({
     // destinations re-ciblées directement (évite une chaîne de 301).
     '/services/site-web-intelligent/wordpress': '/services/wordpress',
     '/services/site-web-intelligent/webflow': '/services/webflow',
-    '/services/site-web-intelligent/sur-mesure': '/services/site-web-ia',
+    '/services/site-web-intelligent/sur-mesure': '/services/sur-mesure-headless',
     // Wave #34 2026-06-28 · nettoyage taxonomie dégénérée du catalogue DS.
     // Catégories dé-dupliquées (slug singleton fusionné dans son équivalent) et
     // familles singleton repliées sur leur cible même-archétype. 301 pour préserver
