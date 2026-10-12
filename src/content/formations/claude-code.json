@@ -32,7 +32,7 @@
     },
     {
       "q": "Quels outils sont couverts, et lesquels ont changé récemment ?",
-      "a": "Claude Code, Claude Design, Claude Platform, le Claude Agent SDK et Claude Managed Agents ; Codex et son harnais, l'OpenAI Agents SDK, l'Agents API d'OpenAI, AgentKit et les dots ; chez Mistral AI, l'Agents API et l'outil d'exécution de code. Au 12 octobre 2026, OpenAI annonce l'arrêt d'Agent Builder, l'un des éléments d'AgentKit, pour le 30 novembre 2026 : le programme est relu avant chaque session."
+      "a": "Claude Code, Claude Design, Claude Platform, le Claude Agent SDK et Claude Managed Agents ; Codex et son harnais, l'OpenAI Agents SDK, l'Agents API d'OpenAI, AgentKit et les dots ; chez Mistral AI, l'Agents API et l'outil d'exécution de code. Au 12 octobre 2026, OpenAI annonce l'arrêt d'Agent Builder et d'Evals, deux éléments d'AgentKit, pour le 30 novembre 2026 : le programme est relu avant chaque session."
     },
     {
       "q": "Combien coûte la formation et combien de temps dure-t-elle ?",
@@ -58,7 +58,7 @@
     },
     {
       "q": "Which tools are covered, and which changed recently?",
-      "a": "Claude Code, Claude Design, Claude Platform, the Claude Agent SDK and Claude Managed Agents; Codex and its harness, the OpenAI Agents SDK, OpenAI's Agents API, AgentKit and dots; at Mistral AI, the Agents API and the code execution tool. As of 12 October 2026, OpenAI announces that Agent Builder, one of the AgentKit components, shuts down on 30 November 2026: the programme is re-read before each session."
+      "a": "Claude Code, Claude Design, Claude Platform, the Claude Agent SDK and Claude Managed Agents; Codex and its harness, the OpenAI Agents SDK, OpenAI's Agents API, AgentKit and dots; at Mistral AI, the Agents API and the code execution tool. As of 12 October 2026, OpenAI announces that Agent Builder and Evals, two AgentKit components, shut down on 30 November 2026: the programme is re-read before each session."
     },
     {
       "q": "How much does the training cost and how long does it last?",
@@ -204,8 +204,8 @@
       "anchor": "objectifs",
       "kicker_fr": "§ Objectifs",
       "kicker_en": "§ Goals",
-      "heading_fr": "À l'issue, vous savez développer avec l'IA et la piloter",
-      "heading_en": "By the end, you can develop with AI and steer it",
+      "heading_fr": "Objectifs visés : développer avec l'IA et la piloter",
+      "heading_en": "Goals: develop with AI and steer it",
       "items": [
         {
           "label_fr": "Écrire la spécification d'un projet et la découper en étapes qu'un agent peut exécuter.",
@@ -272,7 +272,7 @@
           "Claude Platform, Claude Agent SDK, Managed Agents",
           "L'API et la console d'Anthropic. Le Claude Agent SDK (Python et TypeScript) fait tourner la boucle d'agent de Claude Code dans votre propre application. Managed Agents est un agent hébergé : Anthropic fait tourner l'agent et son bac à sable.",
           "Choisir entre piloter soi-même la boucle (SDK) et la confier à un service (Managed Agents).",
-          "Managed Agents est en bêta et n'est pas éligible à la rétention zéro des données ni au BAA HIPAA."
+          "Managed Agents est en bêta et ne permet ni la rétention zéro des données ni le BAA HIPAA."
         ],
         [
           "Codex et le harnais Codex",
@@ -294,9 +294,9 @@
         ],
         [
           "Dots (OpenAI)",
-          "Agents ChatGPT toujours actifs, avec leur propre ordinateur dans le cloud, qui peuvent confier des tâches à Codex. Déploiement annoncé le 29 septembre 2026 pour Pro, Business Premium et Enterprise, dans les marchés éligibles.",
+          "Agents ChatGPT toujours actifs, avec leur propre ordinateur dans le cloud, qui peuvent confier des tâches à Codex. Déploiement annoncé le 29 septembre 2026 pour Pro, Business Premium et Enterprise, selon les pays.",
           "Ce qu'on délègue à un agent permanent, ce qu'on ne lui délègue pas, comment poser les limites.",
-          "Disponibilité selon le pays et l'offre : à vérifier avant d'en faire un prérequis."
+          "Disponibilité limitée selon le pays et l'offre (Enterprise : bêta activée par l'administrateur) : à vérifier avant d'en faire un prérequis."
         ],
         [
           "Mistral AI : Agents API et exécution de code",
@@ -322,7 +322,7 @@
           "Claude Platform, Claude Agent SDK, Managed Agents",
           "Anthropic's API and console. The Claude Agent SDK (Python and TypeScript) runs Claude Code's agent loop inside your own application. Managed Agents is a hosted agent: Anthropic runs the agent and its sandbox.",
           "Choosing between driving the loop yourself (SDK) and handing it to a service (Managed Agents).",
-          "Managed Agents is in beta and is not eligible for zero data retention or the HIPAA BAA."
+          "Managed Agents is in beta and does not allow zero data retention or the HIPAA BAA."
         ],
         [
           "Codex and the Codex harness",
@@ -344,9 +344,9 @@
         ],
         [
           "Dots (OpenAI)",
-          "Always-on ChatGPT agents with their own cloud computer, which can hand tasks to Codex. Rollout announced on 29 September 2026 for Pro, Business Premium and Enterprise, in eligible markets.",
+          "Always-on ChatGPT agents with their own cloud computer, which can hand tasks to Codex. Rollout announced on 29 September 2026 for Pro, Business Premium and Enterprise, depending on the country.",
           "What you delegate to a permanent agent, what you do not, how to set the limits.",
-          "Availability depends on country and plan: check before making it a prerequisite."
+          "Availability is limited by country and plan (Enterprise: beta enabled by the admin): check before making it a prerequisite."
         ],
         [
           "Mistral AI: Agents API and code execution",
@@ -576,8 +576,8 @@
         {
           "q_fr": "Quels outils sont couverts, et lesquels ont changé récemment ?",
           "q_en": "Which tools are covered, and which changed recently?",
-          "a_fr": "Claude Code, Claude Design, Claude Platform, le Claude Agent SDK et Claude Managed Agents ; Codex et son harnais, l'OpenAI Agents SDK, l'Agents API d'OpenAI, AgentKit et les dots ; chez Mistral AI, l'Agents API et l'outil d'exécution de code. Au 12 octobre 2026, OpenAI annonce l'arrêt d'Agent Builder, l'un des éléments d'AgentKit, pour le 30 novembre 2026 : le programme est relu avant chaque session.",
-          "a_en": "Claude Code, Claude Design, Claude Platform, the Claude Agent SDK and Claude Managed Agents; Codex and its harness, the OpenAI Agents SDK, OpenAI's Agents API, AgentKit and dots; at Mistral AI, the Agents API and the code execution tool. As of 12 October 2026, OpenAI announces that Agent Builder, one of the AgentKit components, shuts down on 30 November 2026: the programme is re-read before each session."
+          "a_fr": "Claude Code, Claude Design, Claude Platform, le Claude Agent SDK et Claude Managed Agents ; Codex et son harnais, l'OpenAI Agents SDK, l'Agents API d'OpenAI, AgentKit et les dots ; chez Mistral AI, l'Agents API et l'outil d'exécution de code. Au 12 octobre 2026, OpenAI annonce l'arrêt d'Agent Builder et d'Evals, deux éléments d'AgentKit, pour le 30 novembre 2026 : le programme est relu avant chaque session.",
+          "a_en": "Claude Code, Claude Design, Claude Platform, the Claude Agent SDK and Claude Managed Agents; Codex and its harness, the OpenAI Agents SDK, OpenAI's Agents API, AgentKit and dots; at Mistral AI, the Agents API and the code execution tool. As of 12 October 2026, OpenAI announces that Agent Builder and Evals, two AgentKit components, shut down on 30 November 2026: the programme is re-read before each session."
         },
         {
           "q_fr": "Combien coûte la formation et combien de temps dure-t-elle ?",
