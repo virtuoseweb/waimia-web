@@ -232,9 +232,9 @@ function mapLegacyFeatured(featured: LegacyFeaturedCard, image?: string): MegaMe
 // PRÉSENTE l'audit (liens « Audit IA PME ») ; les « Réserver un audit » mènent au contact.
 
 // ─── RESSOURCES · allégé (2026-10-06, demande Simon : « un hub, quelques liens importants,
-// Tout voir »). Hubs comparatifs, outils et blog, plus le guide pilier en bloc mis en avant ;
-// le hub guides est supprimé (2026-10-11, les guides se filtrent dans /ressources) et deux
-// cartes illustrées (diagnostic, calculateur) occupent le bas des colonnes. Le détail (tous les guides, comparatifs,
+// Tout voir »). Vues filtrées guides, comparatifs et outils, blog, plus le guide pilier en bloc
+// mis en avant ; deux cartes illustrées (diagnostic, calculateur) occupent le bas des colonnes.
+// Chaque colonne reste à 4 liens au plus (Décider : guides, comparatifs, outils). Le détail (tous les guides, comparatifs,
 // outils et articles, filtrables par type) vit sur l'index unifié /ressources, lié par
 // « Tout voir ». Les hubs sont indexables dès 3 pages filles (règle calculée, hub-index.ts).
 const RESSOURCES: MegaMenuSection = {
@@ -281,6 +281,14 @@ const RESSOURCES: MegaMenuSection = {
           description: {
             fr: 'Deux outils face à face, l\'arbitrage tranché.',
             en: 'Two tools side by side, the call made plainly.',
+          },
+        },
+        {
+          label: { fr: 'Guides', en: 'Guides' },
+          href: '/ressources/guides',
+          description: {
+            fr: 'Les guides pratiques, du cadrage au déploiement.',
+            en: 'Practical guides, from scoping to rollout.',
           },
         },
         {
@@ -363,6 +371,8 @@ const SOLUTIONS: MegaMenuSection = {
                   links: [
                     { label: { fr: 'Agent support client', en: 'Customer support agent' }, href: '/services/agent-support-client' },
                     { label: { fr: 'Base de connaissance IA', en: 'AI knowledge base' }, href: '/services/base-de-connaissance-ia' },
+                    { label: { fr: 'Agent de qualification de leads', en: 'Lead qualification agent' }, href: '/services/agent-qualification-leads' },
+                    { label: { fr: 'Agent de traitement de documents', en: 'Document processing agent' }, href: '/services/agent-traitement-documents' },
                   ],
                 },
               ],
@@ -372,6 +382,13 @@ const SOLUTIONS: MegaMenuSection = {
               href: '/services/integration-claude',
               description: { fr: 'Claude, ChatGPT ou Mistral branchés à vos outils métier, en production.', en: 'Claude, ChatGPT or Mistral connected to your business tools, in production.' },
               detail: [
+                {
+                  label: { fr: 'Autres modèles', en: 'Other models' },
+                  links: [
+                    { label: { fr: 'Intégration Mistral AI, angle européen', en: 'Mistral AI integration, European angle' }, href: '/services/integration-mistral-ai' },
+                    { label: { fr: 'Intégration ChatGPT et OpenAI', en: 'ChatGPT and OpenAI integration' }, href: '/services/integration-chatgpt-openai' },
+                  ],
+                },
                 {
                   label: { fr: 'Pour décider', en: 'To decide' },
                   links: [
@@ -406,12 +423,32 @@ const SOLUTIONS: MegaMenuSection = {
               label: { fr: 'Applications internes', en: 'Internal applications' },
               href: '/services/applications-internes',
               description: { fr: 'L\'application métier sur mesure, branchée à vos données. Vous gardez le code.', en: 'The custom business application, connected to your data. You keep the code.' },
-                          },
+              detail: [
+                {
+                  label: { fr: 'Déclinaisons', en: 'Editions' },
+                  links: [
+                    { label: { fr: 'MVP SaaS', en: 'SaaS MVP' }, href: '/services/mvp-saas' },
+                    { label: { fr: 'Portail client', en: 'Client portal' }, href: '/services/portail-client' },
+                    { label: { fr: 'Back-office sur mesure', en: 'Custom back office' }, href: '/services/back-office-sur-mesure' },
+                  ],
+                },
+              ],
+            },
             {
               label: { fr: 'Données et reporting', en: 'Data and reporting' },
               href: '/services/donnees-reporting',
               description: { fr: 'Centraliser les données et automatiser le reporting de pilotage.', en: 'Centralise data and automate management reporting.' },
-                          },
+              detail: [
+                {
+                  label: { fr: 'Déclinaisons', en: 'Editions' },
+                  links: [
+                    { label: { fr: 'Tableau de bord de direction', en: 'Management dashboard' }, href: '/services/tableau-de-bord-direction' },
+                    { label: { fr: 'Centralisation des données', en: 'Data centralisation' }, href: '/services/centralisation-donnees' },
+                    { label: { fr: 'Reporting automatisé', en: 'Automated reporting' }, href: '/services/reporting-automatise' },
+                  ],
+                },
+              ],
+            },
           ],
           featured: {
             kicker: { fr: 'APPLICATION MÉTIER', en: 'BUSINESS APPLICATION' },
@@ -485,7 +522,7 @@ const SOLUTIONS: MegaMenuSection = {
           key: 'appui',
           href: '/services/systeme-commercial',
           hubLabel: { fr: 'Voir les outils commerciaux →', en: 'See sales tooling →' },
-          description: { fr: 'En appui : CRM, prospection, site et référencement, branchés au reste du système.', en: 'In support: CRM, prospecting, website and search, connected to the rest of the system.' },
+          description: { fr: 'En appui : CRM et prospection, site, référencement et marque, branchés au reste du système.', en: 'In support: CRM and prospecting, website, search and brand, connected to the rest of the system.' },
           links: [
             {
               label: { fr: 'Prospection et CRM', en: 'Prospecting and CRM' },
@@ -493,9 +530,17 @@ const SOLUTIONS: MegaMenuSection = {
               description: { fr: 'Prospection outillée, CRM branché et relances automatiques.', en: 'Tool-driven prospecting, connected CRM and automatic follow-ups.' },
               detail: [
                 {
-                  label: { fr: 'Déclinaisons', en: 'Editions' },
+                  label: { fr: 'Prospection automatisée', en: 'Automated prospecting' },
                   links: [
-                    { label: { fr: 'Prospection automatisée', en: 'Automated prospecting' }, href: '/services/prospection-automatisee' },
+                    { label: { fr: 'Prospection automatisée, vue d\'ensemble', en: 'Automated prospecting, overview' }, href: '/services/prospection-automatisee' },
+                    { label: { fr: 'Prospection LinkedIn', en: 'LinkedIn prospecting' }, href: '/services/prospection-linkedin' },
+                    { label: { fr: 'Social selling avec l\'IA', en: 'Social selling with AI' }, href: '/services/social-selling-ia' },
+                    { label: { fr: 'Cold email B2B', en: 'B2B cold email' }, href: '/services/cold-email-b2b' },
+                  ],
+                },
+                {
+                  label: { fr: 'CRM et suivi', en: 'CRM and follow-up' },
+                  links: [
                     { label: { fr: 'CRM, scoring et routing', en: 'CRM, scoring and routing' }, href: '/services/crm-scoring-routing' },
                     { label: { fr: 'Séquences de suivi', en: 'Follow-up sequences' }, href: '/services/sequences-de-suivi' },
                   ],
@@ -503,30 +548,64 @@ const SOLUTIONS: MegaMenuSection = {
               ],
             },
             {
-              label: { fr: 'Site et référencement', en: 'Website and search' },
-              href: '/services/systeme-acquisition',
+              label: { fr: 'Agence site web', en: 'Web agency' },
+              href: '/services/site-web-ia',
+              description: { fr: 'Un site qui convertit, sur la plateforme adaptée à votre équipe.', en: 'A website that converts, on the platform that fits your team.' },
+              detail: [
+                {
+                  label: { fr: 'Déclinaisons', en: 'Editions' },
+                  links: [
+                    { label: { fr: 'Agence Webflow', en: 'Webflow agency' }, href: '/services/webflow' },
+                    { label: { fr: 'Agence WordPress', en: 'WordPress agency' }, href: '/services/wordpress' },
+                    { label: { fr: 'Agence Shopify', en: 'Shopify agency' }, href: '/services/shopify' },
+                    { label: { fr: 'Site sur mesure', en: 'Custom website' }, href: '/services/sur-mesure-headless' },
+                    { label: { fr: 'Landing page de site web', en: 'Website landing page' }, href: '/services/landing-pages-tunnels' },
+                  ],
+                },
+              ],
+            },
+            {
+              label: { fr: 'Agence SEO et référencement naturel', en: 'SEO and organic search agency' },
+              href: '/services/seo-geo-contenu',
               description: { fr: 'Être trouvé par Google et cité par les moteurs IA.', en: 'Be found by Google and cited by AI engines.' },
               detail: [
                 {
                   label: { fr: 'Déclinaisons', en: 'Editions' },
                   links: [
-                    { label: { fr: 'Site web IA', en: 'AI website' }, href: '/services/site-web-ia' },
-                    { label: { fr: 'SEO, GEO et contenu', en: 'SEO, GEO and content' }, href: '/services/seo-geo-contenu' },
-                    { label: { fr: 'Landing pages et tunnels', en: 'Landing pages and funnels' }, href: '/services/landing-pages-tunnels' },
+                    { label: { fr: 'Audit SEO technique', en: 'Technical SEO audit' }, href: '/services/audit-seo-technique' },
+                    { label: { fr: 'GEO : être cité par les IA', en: 'GEO: get cited by AI' }, href: '/services/referencement-ia' },
+                    { label: { fr: 'Rédaction SEO et contenu', en: 'SEO writing and content' }, href: '/services/redaction-seo-contenu' },
+                    { label: { fr: 'SEO local', en: 'Local SEO' }, href: '/services/seo-local' },
+                  ],
+                },
+              ],
+            },
+            {
+              label: { fr: 'Agence de branding', en: 'Branding agency' },
+              href: '/services/branding',
+              description: { fr: 'Une marque claire, du positionnement à la charte graphique.', en: 'A clear brand, from positioning to the brand book.' },
+              detail: [
+                {
+                  label: { fr: 'Offres', en: 'Offers' },
+                  links: [
+                    { label: { fr: 'Identité de marque', en: 'Brand identity' }, href: '/services/identite-de-marque' },
+                    { label: { fr: 'Refonte de marque', en: 'Rebranding' }, href: '/services/refonte-de-marque' },
+                    { label: { fr: 'Naming et positionnement', en: 'Naming and positioning' }, href: '/services/naming-et-positionnement' },
+                    { label: { fr: 'Charte graphique et brand book', en: 'Brand guidelines and brand book' }, href: '/services/charte-graphique-brand-book' },
                   ],
                 },
               ],
             },
           ],
           featured: {
-            kicker: { fr: 'EN APPUI', en: 'IN SUPPORT' },
-            label: { fr: 'Des outils, pas le métier', en: 'Tools, not the job' },
+            kicker: { fr: 'VISIBILITÉ', en: 'VISIBILITY' },
+            label: { fr: 'Site, référencement et marque', en: 'Website, search and brand' },
             body: {
-              fr: 'Le CRM, la prospection et le site amènent la demande que les automatisations traitent ensuite.',
-              en: 'The CRM, prospecting and website bring the demand the automations then process.',
+              fr: 'Le site, le référencement et la marque amènent la demande que les automatisations traitent ensuite.',
+              en: 'The website, search and brand bring the demand the automations then process.',
             },
-            cta: { fr: 'Voir les outils commerciaux →', en: 'See sales tooling →' },
-            href: '/services/systeme-commercial',
+            cta: { fr: 'Voir le système d\'acquisition →', en: 'See the acquisition system →' },
+            href: '/services/systeme-acquisition',
             image: '/images/besoins/besoin-acquerir.webp',
           },
         },
