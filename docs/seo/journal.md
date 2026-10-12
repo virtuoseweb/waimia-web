@@ -94,6 +94,16 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 - Idées en attente de ta décision depuis le 5 octobre : `idee-agence-ia-toulouse`, `idee-formation-claude-code`, `idee-logiciel-seo-ia-pme`.
 - Les mentions de Claude Haiku 4.5 restent sur quatre pages planifiées au calendrier (W43 à W49) ; si tu préfères tout corriger d'un coup, une PR dédiée le permet.
 
+### 2026-W42, lot 2 (demande de Simon du 12 octobre 2026, PR #85)
+
+Demande de Simon après la PR #84 : régénérer et actualiser avec Claude Haiku 5.5 les pages et ressources concernées, créer la page Toulouse, la formation « Développer son projet avec Claude Code » et l'article « Logiciel SEO IA pour PME ». Les trois idées en attente depuis le 5 octobre sont donc tranchées par Simon.
+
+1. Révisions Claude Haiku 5.5 (prix relus le 12 octobre 2026 sur platform.claude.com/docs/en/about-claude/pricing : 0,10 $ / 0,50 $ sous 100 000 jetons) : `agent-ia-definition`, `n8n-prix`, `roi-automatisation`, `trier-emails-entrant-claude-n8n`, `agent-ia-vs-automatisation-classique-2026`. Exemples recalculés, réserve de 30 % de jetons ajoutée.
+2. PDF `guide-achat-claude-pme` régénéré (14 pages) : encadré sur les crédits API des plans Max et Team (support.claude.com/en/articles/17154008, lu le 12 octobre 2026).
+3. Créations : `/implantations/toulouse` (modèle Lyon, rien d'inventé), `/formations/claude-code` (outils relus aux sources des éditeurs), `/blog/logiciel-seo-ia-pme` (prix des éditeurs relevés le 12 octobre 2026, sauf Semrush : page d'aide de février 2026).
+4. Relecture sceptique par sous-agent : corrections appliquées (voir PR). Non vérifié : page tarifs Semrush actuelle, certification Qualiopi d'Akigora, disponibilité des dots en France.
+5. Non modifié, à décider : mentions « Haiku 4.5 » dans les démos de sections, les variantes de page `content-marketing-intelligent`, `src/pages/[...slug].astro` et `_expertise-claude.astro` ; liste des villes dans le menu et la page agence.
+
 ### 2026-W41 · session d'audit du 5 octobre 2026 (hors cadence, demandée par Simon)
 
 **Contexte.** Session lancée à la main par Simon après un audit SEO complet du site en ligne (88 URL du sitemap lues, concurrents, Search Console consulté dans son navigateur). Elle s'ajoute à la session W41 du matin (PR #69) : c'est une seconde PR la même semaine, avec trois créations au lieu du plafond de deux, sur demande explicite. Les trois créations sont avancées depuis le calendrier (W42, W43, W44).
