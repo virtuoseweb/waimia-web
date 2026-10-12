@@ -411,6 +411,110 @@ function groupByKind(routes: string[]): RelatedGroupOut[] {
   return groups;
 }
 
+/** Plafond de liens par groupe du schéma `related-links` (packages/ds-kernel, `.max(6)`). */
+const MAX_LINKS_PER_GROUP = 6;
+
+/**
+ * Hubs de service : enfants répartis par domaine, 6 liens au plus par groupe. Les hrefs
+ * sont ceux de la colonne du menu (sitemap.ts, MM_SOLUTIONS_NEW) ; un enfant absent de
+ * cette table retombe dans le regroupement par nature.
+ */
+const HUB_GROUPS: Record<string, Array<{ label_fr: string; label_en: string; hrefs: string[] }>> = {
+  '/services/systeme-acquisition': [
+    {
+      label_fr: 'Site web',
+      label_en: 'Website',
+      hrefs: [
+        '/services/site-web-ia',
+        '/services/webflow',
+        '/services/wordpress',
+        '/services/shopify',
+        '/services/sur-mesure-headless',
+        '/services/landing-pages-tunnels',
+      ],
+    },
+    {
+      label_fr: 'Référencement naturel',
+      label_en: 'Organic search',
+      hrefs: [
+        '/services/seo-geo-contenu',
+        '/services/audit-seo-technique',
+        '/services/referencement-ia',
+        '/services/redaction-seo-contenu',
+        '/services/seo-local',
+      ],
+    },
+    {
+      label_fr: 'Marque',
+      label_en: 'Brand',
+      hrefs: [
+        '/services/branding',
+        '/services/identite-de-marque',
+        '/services/refonte-de-marque',
+        '/services/naming-et-positionnement',
+        '/services/charte-graphique-brand-book',
+      ],
+    },
+  ],
+  '/services/systemes-operationnels-ia': [
+    {
+      label_fr: 'Automatisation des processus',
+      label_en: 'Process automation',
+      hrefs: ['/services/automatisations', '/services/automatisation-n8n', '/services/automatisation-make'],
+    },
+    {
+      label_fr: 'Agents IA',
+      label_en: 'AI agents',
+      hrefs: [
+        '/services/agents-ia',
+        '/services/agent-support-client',
+        '/services/base-de-connaissance-ia',
+        '/services/agent-qualification-leads',
+        '/services/agent-traitement-documents',
+      ],
+    },
+    {
+      label_fr: 'Modèles et intégrations',
+      label_en: 'Models and integrations',
+      hrefs: ['/services/integration-claude', '/services/integration-mistral-ai', '/services/integration-chatgpt-openai'],
+    },
+  ],
+  '/services/systeme-commercial': [
+    {
+      label_fr: 'Prospection automatisée',
+      label_en: 'Automated prospecting',
+      hrefs: [
+        '/services/prospection-automatisee',
+        '/services/prospection-linkedin',
+        '/services/social-selling-ia',
+        '/services/automatisation-reseaux-sociaux',
+        '/services/cold-email-b2b',
+      ],
+    },
+    {
+      label_fr: 'CRM et suivi',
+      label_en: 'CRM and follow-up',
+      hrefs: ['/services/crm-scoring-routing', '/services/sequences-de-suivi'],
+    },
+  ],
+};
+
+/** Découpe tout groupe de plus de 6 liens en groupes successifs « (suite) ». */
+function chunkGroups(groups: RelatedGroupOut[]): RelatedGroupOut[] {
+  const out: RelatedGroupOut[] = [];
+  for (const g of groups) {
+    for (let i = 0; i < g.links.length; i += MAX_LINKS_PER_GROUP) {
+      const part = i / MAX_LINKS_PER_GROUP;
+      out.push({
+        label_fr: part === 0 ? g.label_fr : `${g.label_fr} (suite)`,
+        label_en: part === 0 ? g.label_en : `${g.label_en} (continued)`,
+        links: g.links.slice(i, i + MAX_LINKS_PER_GROUP),
+      });
+    }
+  }
+  return out;
+}
+
 const KICKER = { fr: 'Explorer aussi', en: 'Explore more' };
 const DEFAULT_H2 = { fr: 'Sur le même sujet', en: 'On the same topic' };
 
@@ -432,7 +536,19 @@ export function hasMesh(pathname: string): boolean {
 export function meshForPath(pathname: string, _lang: Lang = 'fr'): RelatedLinksData | null {
   const links = graph().out.get(normalize(pathname));
   if (!links || links.length === 0) return null;
-  return assemble(groupByKind(links));
+  const hub = HUB_GROUPS[normalize(pathname)];
+  if (!hub) return assemble(chunkGroups(groupByKind(links)));
+  // Hub de service : ses enfants sont répartis en groupes titrés par domaine ; les liens
+  // d'anneau (autres natures de page) suivent, groupés par nature comme ailleurs.
+  const placed = new Set<string>();
+  const groups: RelatedGroupOut[] = [];
+  for (const g of hub) {
+    const inGroup = links.filter((l) => g.hrefs.includes(l));
+    inGroup.forEach((l) => placed.add(l));
+    if (inGroup.length > 0) groups.push({ label_fr: g.label_fr, label_en: g.label_en, links: inGroup.map(toLink) });
+  }
+  const rest = links.filter((l) => !placed.has(l));
+  return assemble(chunkGroups([...groups, ...groupByKind(rest)]));
 }
 
 /** Liens du registre filtrés : vivants, sans la page courante, sans doublon. */
