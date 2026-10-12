@@ -20,8 +20,11 @@ interface Props {
   silos: Array<string | undefined>;
   lang: Lang;
   class?: string;
+  /** Libellé de la puce de réinitialisation (défaut « Tous » / « All »). Le hub Ressources
+   *  passe « Tous les thèmes » : il affiche aussi un filtre par type au-dessus. */
+  allLabel?: string;
 }
-const { silos, lang, class: extraClass = '' } = Astro.props;
+const { silos, lang, class: extraClass = '', allLabel } = Astro.props;
 const isFr = lang === 'fr';
 
 const chips = SILO_KEYS.map((key) => ({
@@ -33,7 +36,7 @@ const chips = SILO_KEYS.map((key) => ({
 {chips.length > 1 && (
   <nav class={`silo-filter ${extraClass}`.trim()} data-silo-filter hidden aria-label={isFr ? 'Filtrer par thème' : 'Filter by topic'}>
     <button type="button" class="silo-chip" data-silo-key="" aria-pressed="true">
-      {isFr ? 'Tous' : 'All'} <span class="silo-chip-n">{silos.length}</span>
+      {allLabel ?? (isFr ? 'Tous' : 'All')} <span class="silo-chip-n">{silos.length}</span>
     </button>
     {chips.map((c) => (
       <button type="button" class="silo-chip" data-silo-key={c.key} aria-pressed="false">
