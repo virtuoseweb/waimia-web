@@ -1,109 +1,118 @@
 {
   "$schema": "../../../schemas/generated/services.page.schema.json",
-  "title_fr": "Site sur mesure & CMS headless · architecture composable",
-  "title_en": "Bespoke site & headless CMS · composable architecture",
-  "description_fr": "Site sur mesure headless : front découplé, CMS headless au choix (Tina, Strapi, Sanity), perf SSG 100/100 et zéro captivité. Studio à Bordeaux.",
-  "description_en": "Bespoke headless site: a decoupled front, your choice of headless CMS (Tina, Strapi, Sanity), 100/100 SSG performance and zero lock-in. Studio in Bordeaux.",
+  "title_fr": "Création de site sur mesure : Astro et CMS headless · Waimia",
+  "title_en": "Bespoke site creation: Astro and headless CMS · Waimia",
+  "description_fr": "Création de site sur mesure pour PME : Astro et CMS headless, pages rapides, intégrations métier, code et contenus remis à votre nom. Dès 2 000 € HT.",
+  "description_en": "Bespoke site creation for SMBs: Astro and headless CMS, fast pages, business integrations, code and content handed over in your name. From €2,000 excl. VAT.",
   "slug": "sur-mesure-headless",
   "publishedAt": "2026-06-29T00:00:00.000Z",
-  "updatedAt": "2026-07-15T00:00:00.000Z",
+  "updatedAt": "2026-10-12T00:00:00.000Z",
   "category": "acquisition",
   "tags": [
     "site-sur-mesure",
+    "creation-site-sur-mesure",
     "cms-headless",
-    "jamstack",
+    "astro",
     "architecture-composable",
     "site-web-intelligent"
   ],
   "seo": {
     "noindex": false,
-    "serviceType": "Création de site sur mesure et CMS headless",
+    "serviceType": "Création de site sur mesure : Astro et CMS headless pour PME",
     "priceRange": "2000-10000€",
     "priceMin": 2000,
     "priceMax": 10000
   },
   "faq_fr": [
     {
-      "q": "Quel CMS headless choisir pour mon cas ?",
-      "a": "On tranche au cadrage selon quatre critères : volume de contenu, taille de l'équipe éditoriale, budget et exigence de réversibilité. Pour une PME, on recommande par défaut un CMS git-based (TinaCMS, Keystatic, Decap) : édition versionnée, zéro base de données, réversible. Pour de gros volumes ou une équipe éditoriale, on bascule sur du headless classique (Contentful, Strapi, Sanity, Prismic)."
+      "q": "Quand un site sur mesure est-il justifié ?",
+      "a": "Quand la plateforme vous bride : intégrations métier lourdes, espace client, logique de contenu spécifique, exigence de performance, ou besoin de posséder le code. Sinon, Webflow ou WordPress font le travail plus vite et à moindre coût. Nous ne vendons pas du sur mesure par défaut."
     },
     {
-      "q": "Headless, c'est quoi la différence avec WordPress ?",
-      "a": "Headless sépare le contenu (le CMS) de l'affichage (le front). Le front est un site statique généré (SSG), rapide et sécurisé, qui consomme le contenu via une API ou des fichiers git. WordPress couple les deux : un même serveur PHP rend les pages à chaque visite, ce qui pèse sur la perf et la surface d'attaque."
+      "q": "C'est quoi un CMS headless, et lequel choisir ?",
+      "a": "Un CMS headless sépare l'édition du contenu de son affichage : le CMS stocke le contenu, le site le lit. Pour une PME, nous partons sur un CMS qui versionne le contenu dans git (TinaCMS, utilisé pour Amploi, Keystatic, Decap) : édition visuelle, pas de base de données à héberger, historique des modifications. Pour de gros volumes ou plusieurs rédacteurs avec des droits, un CMS par API (Contentful, Strapi, Sanity). On tranche au cadrage."
     },
     {
-      "q": "Pourquoi un site sur mesure plutôt que Webflow ou WordPress ?",
-      "a": "Le clé-en-main (Webflow, WordPress) couvre 80 % des besoins, vite et bien. Le sur-mesure se justifie quand l'architecture composable, des intégrations métier lourdes, un design system propre ou une scalabilité forte deviennent décisifs. On vous oriente vers le clé-en-main si c'est le bon choix : on ne vend pas du sur-mesure par défaut."
+      "q": "Mon équipe peut-elle modifier le site sans développeur ?",
+      "a": "Oui pour le contenu : textes, images, articles, pages composées à partir de sections prévues. Non pour la structure : ajouter un nouveau type de page ou une fonction passe par un développeur, c'est le prix du sur mesure. Le site d'Amploi est éditable en glisser-déposer dans TinaCMS."
     },
     {
-      "q": "Un site headless, ça reste éditable sans développeur ?",
-      "a": "Oui. Le CMS headless offre une interface d'édition à votre équipe : on rédige, on publie, on réorganise les pages sans toucher au code. Avec un CMS git-based, chaque modification est versionnée et réversible, comme un historique de sauvegardes."
+      "q": "Quelle différence avec WordPress ?",
+      "a": "WordPress rend les pages à la demande à partir d'une base de données et d'extensions ; un site statique sur mesure est généré à l'avance et servi tel quel. Résultat : moins de pièces à mettre à jour et des pages rapides, mais moins d'extensions toutes faites : une réservation ou une adhésion se développe ou se branche. Voir la page WordPress."
     },
     {
-      "q": "Suis-je captif de votre stack à la fin ?",
-      "a": "Non. Le code, le contenu et la documentation sont transférés à la livraison. L'architecture repose sur des standards ouverts (Astro, git, CMS open-source), pas sur une plateforme propriétaire. Vous gardez la stack et pouvez la reprendre en interne ou avec un autre prestataire."
+      "q": "Qui garde le code et les accès ?",
+      "a": "Vous. Le dépôt de code, le CMS, le nom de domaine et l'hébergement sont à votre nom. Le code est documenté et repose sur des standards ouverts (Astro, git) : un autre prestataire peut le reprendre. Nous n'imposons aucun abonnement."
     },
     {
-      "q": "Combien de temps pour un site sur mesure headless ?",
-      "a": "Comptez 6 à 12 semaines selon le périmètre : architecture, design system, intégration du CMS et des outils métier, build et mise en ligne. On cadre un planning réaliste et des jalons mesurables avant de signer."
+      "q": "Quelle performance peut-on attendre ?",
+      "a": "Un site statique bien construit charge vite, parce que ses pages existent déjà. Sur Amploi, PageSpeed Insights a donné 100 sur 100 dans les quatre catégories, sur mobile et sur ordinateur, le 5 octobre 2026. C'est une mesure à une date, pas une promesse : images, scripts tiers et outils de mesure peuvent la dégrader. On mesure à la livraison et on remet le résultat."
+    },
+    {
+      "q": "Combien de temps et combien ça coûte ?",
+      "a": "Un site marketing comme celui d'Amploi : 6 semaines. Avec des intégrations métier ou un espace restreint, comptez plus : le planning et les jalons sont fixés avant signature. À partir de 2 000 € HT pour un front de 1 à 3 pages, 4 000 € HT pour un site de 3 à 5 pages, à partir de 7 000 € HT pour un site complet, à partir de 10 000 € HT avec intégrations métier."
     }
   ],
   "faq_en": [
     {
-      "q": "Which headless CMS should I choose for my case?",
-      "a": "We decide at scoping on four criteria: content volume, editorial team size, budget and reversibility needs. For an SME, we recommend a git-based CMS by default (TinaCMS, Keystatic, Decap): versioned editing, no database, reversible. For high volumes or an editorial team, we switch to classic headless (Contentful, Strapi, Sanity, Prismic)."
+      "q": "When is a bespoke site justified?",
+      "a": "When the platform holds you back: heavy business integrations, a customer area, specific content logic, a performance requirement, or a need to own the code. Otherwise Webflow or WordPress do the job faster and cheaper. We do not sell bespoke by default."
     },
     {
-      "q": "Headless, what's the difference with WordPress?",
-      "a": "Headless separates content (the CMS) from display (the front). The front is a generated static site (SSG), fast and secure, consuming content through an API or git files. WordPress couples both: one PHP server renders pages on each visit, which weighs on performance and attack surface."
+      "q": "What is a headless CMS, and which one to choose?",
+      "a": "A headless CMS separates editing content from displaying it: the CMS stores the content, the site reads it. For an SMB we start with a CMS that versions content in git (TinaCMS, used for Amploi, Keystatic, Decap): visual editing, no database to host, change history. For large volumes or several editors with permissions, an API-based CMS (Contentful, Strapi, Sanity). We decide at scoping."
     },
     {
-      "q": "Why a bespoke site rather than Webflow or WordPress?",
-      "a": "Turnkey (Webflow, WordPress) covers 80 % of needs, fast and well. Bespoke is justified when composable architecture, heavy business integrations, a clean design system or strong scalability become decisive. We point you to turnkey when it's the right call: we don't sell bespoke by default."
+      "q": "Can my team edit the site without a developer?",
+      "a": "Yes for content: text, images, articles, pages composed from planned sections. Not for structure: adding a new page type or a feature goes through a developer, that is the price of bespoke. The Amploi site is editable by drag and drop in TinaCMS."
     },
     {
-      "q": "Is a headless site still editable without a developer?",
-      "a": "Yes. The headless CMS gives your team an editing interface: you write, publish and reorganise pages without touching the code. With a git-based CMS, every change is versioned and reversible, like a history of backups."
+      "q": "What is the difference with WordPress?",
+      "a": "WordPress renders pages on demand from a database and extensions; a bespoke static site is generated in advance and served as is. Result: fewer parts to update and fast pages, but fewer ready-made extensions: booking or membership is developed or plugged in. See the WordPress page."
     },
     {
-      "q": "Am I locked into your stack at the end?",
-      "a": "No. Code, content and documentation are handed over at delivery. The architecture rests on open standards (Astro, git, open-source CMS), not a proprietary platform. You keep the stack and can take it over in-house or with another provider."
+      "q": "Who keeps the code and the access?",
+      "a": "You do. The code repository, the CMS, the domain name and the hosting are in your name. The code is documented and rests on open standards (Astro, git): another provider can take it over. We impose no subscription."
     },
     {
-      "q": "How long for a bespoke headless site?",
-      "a": "Count 6 to 12 weeks depending on scope: architecture, design system, CMS and business-tool integration, build and go-live. We frame a realistic schedule and measurable milestones before signing."
+      "q": "What performance can be expected?",
+      "a": "A well-built static site loads fast, because its pages already exist. On Amploi, PageSpeed Insights gave 100 out of 100 in all four categories, on mobile and desktop, on 5 October 2026. It is a measurement at a date, not a promise: images, third-party scripts and tracking tools can degrade it. We measure at delivery and hand over the result."
+    },
+    {
+      "q": "How long and how much?",
+      "a": "A marketing site like Amploi's: 6 weeks. With business integrations or a restricted area, count more: the schedule and milestones are fixed before signing. From €2,000 excl. VAT for a 1-to-3-page front, €4,000 for a 3-to-5-page site, from €7,000 for a full site, from €10,000 with business integrations."
     }
   ],
   "sections": [
     {
       "type": "hero-masthead-card",
       "background": "paper",
-      "kicker_fr": "§ Sur mesure · CMS headless",
-      "kicker_en": "§ Bespoke · Headless CMS",
-      "h1_fr": "Site <i class=\"acc\">sur mesure</i> & CMS headless.",
-      "h1_en": "A <i class=\"acc\">bespoke</i> site & headless CMS.",
-      "lede_fr": "Quand le clé-en-main ne suffit plus : un front découplé, un CMS headless choisi pour votre cas, et une architecture composable qui monte de version sans tout refondre. Perf SSG 100/100, standards ouverts, zéro captivité.",
-      "lede_en": "When turnkey isn't enough: a decoupled front, a headless CMS chosen for your case, and a composable architecture that moves up versions without redoing everything. 100/100 SSG performance, open standards, zero lock-in.",
+      "kicker_fr": "§ Site sur mesure · Astro et CMS headless",
+      "kicker_en": "§ Bespoke site · Astro and headless CMS",
+      "h1_fr": "Création de site <i class=\"acc\">sur mesure</i> : un code qui vous appartient.",
+      "h1_en": "Bespoke site creation: <i class=\"acc\">code you own</i>.",
+      "lede_fr": "Un site sur mesure est écrit pour vos besoins : pages rapides, contenu éditable dans un CMS, intégrations métier, code remis à votre nom. C'est la plateforme la plus libre et la plus exigeante à entretenir. Nous la recommandons quand les autres ne suffisent pas.",
+      "lede_en": "A bespoke site is written for your needs: fast pages, content editable in a CMS, business integrations, code handed over in your name. It is the freest platform and the most demanding to maintain. We recommend it when the others are not enough.",
       "badges": [
         {
-          "label_fr": "Front découplé",
-          "label_en": "Decoupled front"
+          "label_fr": "Astro, pages statiques",
+          "label_en": "Astro, static pages"
         },
         {
-          "label_fr": "CMS headless",
-          "label_en": "Headless CMS"
+          "label_fr": "CMS headless au choix",
+          "label_en": "Headless CMS of choice"
         },
         {
-          "label_fr": "SSG 100/100",
-          "label_en": "SSG 100/100"
+          "label_fr": "Intégrations métier",
+          "label_en": "Business integrations"
         },
         {
-          "label_fr": "Zéro captivité",
-          "label_en": "Zero lock-in"
+          "label_fr": "Code et accès remis",
+          "label_en": "Code and access handed over"
         }
       ],
-      "cta_sub_fr": "Diagnostic de 45 min, gratuit et sans engagement.",
-      "cta_sub_en": "45-min diagnostic, free and no commitment.",
+      "cta_sub_fr": "Audit gratuit de 45 minutes en visio. Vous repartez avec au moins deux process à automatiser, chiffrés.",
+      "cta_sub_en": "Free 45-minute audit by video call. You leave with at least two processes to automate, costed.",
       "cta_primary": {
         "label_fr": "Réserver un audit IA gratuit →",
         "label_en": "Book a free AI audit →",
@@ -111,63 +120,54 @@
         "variant": "primary"
       },
       "cta_secondary": {
-        "label_fr": "Voir les briques",
-        "label_en": "See the building blocks",
-        "href": "#capacites",
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme",
         "variant": "ghost"
       },
       "media_src": "/images/line-art/dispositif-flow.svg",
-      "media_alt_fr": "Schéma de l'architecture découplée : le contenu vit dans un CMS headless, le front statique le consomme et se déploie, indépendant et rapide.",
-      "media_alt_en": "Decoupled architecture diagram: content lives in a headless CMS, the static front consumes it and deploys, independent and fast.",
-      "kpis": [
-        {
-          "num": "6–12 sem.",
-          "cap_fr": "site sur mesure livré",
-          "cap_en": "bespoke site delivered"
-        },
-        {
-          "num": "100/100",
-          "cap_fr": "PageSpeed en SSG",
-          "cap_en": "PageSpeed in SSG"
-        }
-      ]
+      "media_alt_fr": "Schéma du dispositif : un visiteur arrive sur le site, branché à vos données, ses KPI sont lus, puis le routage qualifie chaque visite.",
+      "media_alt_en": "Device diagram: a visitor lands on the site, wired to your data, its KPIs are read, then routing qualifies each visit."
     },
     {
       "type": "proof-bar",
       "background": "paper",
       "kicker_fr": "§ En bref",
-      "kicker_en": "§ At a glance",
+      "kicker_en": "§ In short",
       "metrics": [
         {
-          "value": "2–10 k€",
-          "label_fr": "budget HT indicatif (sur devis au-delà)",
-          "label_en": "indicative ex-VAT budget (on quote beyond)",
+          "value": "Dès 2 000 € HT",
+          "label_fr": "un front de 1 à 3 pages ; grille complète plus bas",
+          "label_en": "a 1-to-3-page front; full grid below",
           "emphasis": true
         },
         {
-          "value": "6–12 sem.",
-          "label_fr": "site sur mesure livré",
-          "label_en": "bespoke site delivered"
+          "value": "6 semaines",
+          "label_fr": "le site d'Amploi, livré (fiche publiée)",
+          "label_en": "the Amploi site, delivered (published case)",
+          "emphasis": false
         },
         {
-          "value": "Découplé",
-          "label_fr": "front statique + CMS headless",
-          "label_en": "static front + headless CMS"
+          "value": "100 sur 100",
+          "label_fr": "PageSpeed Insights sur Amploi, mesuré le 5 octobre 2026",
+          "label_en": "PageSpeed Insights on Amploi, measured 5 October 2026",
+          "emphasis": false
         },
         {
-          "value": "0 captivité",
-          "label_fr": "code, contenu et docs transférés",
-          "label_en": "code, content and docs handed over"
+          "value": "À vous",
+          "label_fr": "dépôt de code, CMS, domaine et hébergement",
+          "label_en": "code repository, CMS, domain and hosting",
+          "emphasis": false
         }
       ]
     },
     {
       "type": "definition-extract",
       "background": "paper",
-      "kicker_fr": "§ Définition · format extractible",
-      "kicker_en": "§ Definition · extractable format",
-      "statement_fr": "Un <i class=\"acc\">site sur mesure headless</i> sépare le contenu et l'affichage : un CMS headless gère le contenu, un front statique découplé le rend vite et en sécurité. Résultat : performance, scalabilité et zéro captivité, là où une plateforme tout-en-un atteint ses limites.",
-      "statement_en": "A <i class=\"acc\">bespoke headless site</i> separates content and display: a headless CMS handles content, a decoupled static front renders it fast and securely. The result: performance, scalability and zero lock-in, where an all-in-one platform hits its limits.",
+      "kicker_fr": "§ Définition",
+      "kicker_en": "§ Definition",
+      "statement_fr": "Un <i class=\"acc\">site sur mesure</i> est un site dont le code est écrit pour vos besoins, généralement avec un CMS headless : le contenu vit dans un outil d'édition, le site public est généré à partir de lui. Résultat : des pages rapides, des intégrations taillées pour vos outils, et un code qui vous appartient.",
+      "statement_en": "A <i class=\"acc\">bespoke site</i> is a site whose code is written for your needs, usually with a headless CMS: content lives in an editing tool, the public site is generated from it. Result: fast pages, integrations tailored to your tools, and code you own.",
       "pills": [
         {
           "label_fr": "Front découplé",
@@ -178,364 +178,266 @@
           "label_en": "Headless CMS"
         },
         {
-          "label_fr": "Jamstack",
-          "label_en": "Jamstack"
+          "label_fr": "Sections réutilisables",
+          "label_en": "Reusable sections"
         },
         {
-          "label_fr": "Composable",
-          "label_en": "Composable"
-        },
-        {
-          "label_fr": "Réversible",
-          "label_en": "Reversible"
+          "label_fr": "Code remis",
+          "label_en": "Code handed over"
         }
       ],
       "specs": [
         {
-          "label_fr": "Astro SSG",
-          "label_en": "Astro SSG"
+          "label_fr": "Astro",
+          "label_en": "Astro"
         },
         {
-          "label_fr": "100/100 Lighthouse",
-          "label_en": "100/100 Lighthouse"
+          "label_fr": "TinaCMS, Keystatic, Decap",
+          "label_en": "TinaCMS, Keystatic, Decap"
         },
         {
-          "label_fr": "API ou git-based",
-          "label_en": "API or git-based"
+          "label_fr": "Contentful, Strapi, Sanity",
+          "label_en": "Contentful, Strapi, Sanity"
         },
         {
-          "label_fr": "Standards ouverts",
-          "label_en": "Open standards"
+          "label_fr": "git",
+          "label_en": "git"
         },
         {
-          "label_fr": "Design system propre",
-          "label_en": "Own design system"
-        },
-        {
-          "label_fr": "Sécurité réduite",
-          "label_en": "Reduced surface"
+          "label_fr": "schema.org",
+          "label_en": "schema.org"
         }
       ]
     },
     {
-      "type": "pain-severity-list",
-      "background": "ink",
-      "kicker_fr": "Là où le clé-en-main plafonne · par sévérité",
-      "kicker_en": "Where turnkey plateaus · by severity",
-      "h2_fr": "Quand le clé-en-main ne <i class=\"acc\">suffit</i> plus.",
-      "h2_en": "When turnkey no longer <i class=\"acc\">holds</i>.",
-      "items": [
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "figures": [
         {
-          "severity": "critical",
-          "title_fr": "Une captivité de plateforme qui coince",
-          "title_en": "Platform lock-in that traps you",
-          "desc_fr": "Abonnement récurrent, écosystème propriétaire, contenu prisonnier d'une base fermée : reprendre la main ou changer de prestataire devient un projet à part entière.",
-          "desc_en": "Recurring subscription, proprietary ecosystem, content trapped in a closed database: taking back control or changing provider becomes a project in itself.",
-          "fix_fr": "Standards ouverts, code et contenu transférés.",
-          "fix_en": "Open standards, code and content handed over."
-        },
-        {
-          "severity": "high",
-          "title_fr": "Une personnalisation bornée par la plateforme",
-          "title_en": "Customisation bounded by the platform",
-          "desc_fr": "Intégrations métier lourdes, design system propre, parcours spécifiques : la plateforme atteint ses limites et chaque écart passe par un contournement fragile.",
-          "desc_en": "Heavy business integrations, an own design system, specific journeys: the platform hits its limits and every deviation goes through a fragile workaround.",
-          "fix_fr": "Architecture composable, brique par brique.",
-          "fix_en": "Composable architecture, block by block."
-        },
-        {
-          "severity": "medium",
-          "title_fr": "Une perf et une sécurité qui dépendent du moteur",
-          "title_en": "Performance and security tied to the engine",
-          "desc_fr": "Un serveur applicatif rend les pages à chaque visite, une base est exposée, des plugins sont à patcher : la vitesse et la surface d'attaque ne sont pas maîtrisées.",
-          "desc_en": "An application server renders pages on each visit, a database is exposed, plugins need patching: speed and attack surface are not under control.",
-          "fix_fr": "SSG 100/100, 0 base exposée.",
-          "fix_en": "100/100 SSG, no exposed database."
+          "src": "/images/illustrations/ds/sur-mesure-headless-tailleur-mannequin-paper.webp",
+          "alt_fr": "Illustration : un tailleur épingle l'ourlet d'un immense buste de couturière entouré d'un mètre ruban",
+          "alt_en": "Illustration: a tailor pins the hem of a giant dress form wrapped in a measuring tape",
+          "side": "right"
         }
+      ],
+      "html_fr": "<h2>Ce que le sur mesure change</h2>\n<p>Les pages sont générées à l'avance et servies telles quelles : pas de base de données interrogée à chaque visite, moins de pièces à mettre à jour. Le contenu vit dans un CMS ou dans des fichiers versionnés, que votre équipe édite. Les intégrations (CRM, paiement, outils internes) sont écrites pour vos besoins plutôt que contournées avec des extensions. Le site d'<a href=\"/cas-clients/amploi\">Amploi</a> en est un exemple publié : Astro, TinaCMS, HubSpot, livré en 6 semaines.</p>\n<h2>Ce que le sur mesure coûte</h2>\n<p>Chaque évolution de structure passe par un développeur. Sans maintenance, le code vieillit comme n'importe quel logiciel. Un mauvais choix de CMS enferme l'équipe. Et un cas publié va dans l'autre sens : Balzeo a quitté un CMS headless complexe pour WordPress et WooCommerce, parce que chaque mise à jour dépendait de la technique. Le headless n'est pas une fin en soi.</p>\n<h2>Comment on s'y prend</h2>\n<p>On cadre d'abord les besoins qui justifient le sur mesure, et on vérifie qu'<a href=\"/services/webflow\">Webflow</a>, <a href=\"/services/wordpress\">WordPress</a> ou <a href=\"/services/shopify\">Shopify</a> ne les couvrent pas. Si un espace client ou un outil interne est le vrai sujet, la page <a href=\"/services/applications-internes\">applications internes</a> est plus proche. Le site reste l'entrée du <a href=\"/services/systeme-acquisition\">système d'acquisition</a> et fait partie de notre <a href=\"/services/site-web-ia\">offre agence site web</a>.</p>",
+      "html_en": "<h2>What bespoke changes</h2>\n<p>Pages are generated in advance and served as is: no database queried on each visit, fewer parts to update. Content lives in a CMS or in versioned files that your team edits. Integrations (CRM, payment, internal tools) are written for your needs rather than worked around with extensions. The <a href=\"/cas-clients/amploi\">Amploi</a> site is a published example: Astro, TinaCMS, HubSpot, delivered in 6 weeks.</p>\n<h2>What bespoke costs</h2>\n<p>Every structural change goes through a developer. Without maintenance, the code ages like any software. A wrong CMS choice locks the team in. And one published case goes the other way: Balzeo left a complex headless CMS for WordPress and WooCommerce, because every update depended on technical work. Headless is not an end in itself.</p>\n<h2>How we go about it</h2>\n<p>We first scope the needs that justify going bespoke, and check that <a href=\"/services/webflow\">Webflow</a>, <a href=\"/services/wordpress\">WordPress</a> or <a href=\"/services/shopify\">Shopify</a> do not cover them. If a customer area or an internal tool is the real subject, the <a href=\"/services/applications-internes\">internal applications</a> page is closer. The site remains the entry to the <a href=\"/services/systeme-acquisition\">acquisition system</a> and is part of our <a href=\"/services/site-web-ia\">web agency offer</a>.</p>"
+    },
+    {
+      "type": "tech-when-dual",
+      "background": "paper",
+      "kicker_fr": "§ Décision",
+      "kicker_en": "§ Decision",
+      "title_fr": "Sur mesure, ou une autre plateforme",
+      "title_en": "Bespoke, or another platform",
+      "aside_fr": "Le sur mesure se justifie par un besoin précis, pas par l'envie d'avoir du code.",
+      "aside_en": "Bespoke is justified by a precise need, not by the wish to have code.",
+      "use_title_fr": "Choisissez le sur mesure quand",
+      "use_title_en": "Choose bespoke when",
+      "use_items_fr": [
+        "Vos intégrations métier sont lourdes : outils internes, API, règles que les extensions ne couvrent pas.",
+        "Vous voulez posséder le code, le contenu et l'hébergement, et pouvoir changer de prestataire.",
+        "Une exigence de performance ou d'accessibilité mesurée ne tient pas sur votre plateforme actuelle.",
+        "Vous avez besoin d'une logique de contenu particulière : plusieurs langues, plusieurs marques, pages générées à partir de données.",
+        "Le site doit évoluer par sections réutilisables, avec un design système qui reste cohérent."
+      ],
+      "use_items_en": [
+        "Your business integrations are heavy: internal tools, APIs, rules that extensions do not cover.",
+        "You want to own the code, the content and the hosting, and be able to change provider.",
+        "A measured performance or accessibility requirement does not hold on your current platform.",
+        "You need particular content logic: several languages, several brands, pages generated from data.",
+        "The site must evolve through reusable sections, with a design system that stays consistent."
+      ],
+      "avoid_title_fr": "Évitez le sur mesure quand",
+      "avoid_title_en": "Avoid bespoke when",
+      "avoid_items_fr": [
+        "Le site tient en une dizaine de pages et vos besoins de connexion sont simples : Webflow ou WordPress suffisent.",
+        "Vous vendez des produits en ligne : Shopify fournit déjà catalogue, paiement et commandes.",
+        "Votre équipe veut modifier la structure du site seule, au quotidien : un outil visuel est plus adapté.",
+        "Vous n'avez aucun développeur ni prestataire à qui confier la maintenance : le code vieillirait sans suite.",
+        "Votre calendrier est de quelques jours : le sur mesure demande un cadrage et des jalons."
+      ],
+      "avoid_items_en": [
+        "The site is about ten pages and your connection needs are simple: Webflow or WordPress suffice.",
+        "You sell products online: Shopify already provides catalogue, payment and orders.",
+        "Your team wants to change the site structure alone, daily: a visual tool is better suited.",
+        "You have no developer or provider to entrust maintenance to: the code would age with no follow-up.",
+        "Your timeline is a few days: bespoke needs scoping and milestones."
       ]
     },
     {
       "type": "comparison-duo",
-      "background": "paper-2",
-      "kicker_fr": "§ Clé-en-main / Sur-mesure",
-      "kicker_en": "§ Turnkey / Bespoke",
-      "h2_fr": "Quand passer du clé-en-main au <i class=\"acc\">sur-mesure</i>",
-      "h2_en": "When to move from turnkey to <i class=\"acc\">bespoke</i>",
-      "without_label_fr": "Clé-en-main",
-      "without_label_en": "Turnkey",
-      "without_title_fr": "Webflow / WordPress",
-      "without_title_en": "Webflow / WordPress",
+      "background": "paper",
+      "kicker_fr": "§ Exemple type · pas un cas client",
+      "kicker_en": "§ Typical example · not a client case",
+      "h2_fr": "Exemple type : le site d'une société de conseil industriel",
+      "h2_en": "Typical example: an industrial consulting firm's site",
+      "without_label_fr": "Avant",
+      "without_label_en": "Before",
+      "without_title_fr": "Un site dans un outil fermé, qui contourne ses limites",
+      "without_title_en": "A site in a closed tool, working around its limits",
       "without_items": [
         {
-          "text_fr": "Mise en ligne rapide, idéal pour 80 % des sites vitrines et landing.",
-          "text_en": "Fast go-live, ideal for 80 % of brochure sites and landings."
+          "text_fr": "Chaque besoin (espace membre, tarifs par client, import d'un catalogue) devient un contournement fragile.",
+          "text_en": "Each need (member area, per-customer pricing, catalogue import) becomes a fragile workaround."
         },
         {
-          "text_fr": "Personnalisation bornée par les limites de la plateforme.",
-          "text_en": "Customisation bounded by the platform's limits."
+          "text_fr": "Le contenu vit dans la base de l'outil : en sortir est un projet.",
+          "text_en": "Content lives in the tool's database: getting out is a project."
         },
         {
-          "text_fr": "La perf et la sécurité dépendent du moteur et des plugins.",
-          "text_en": "Performance and security depend on the engine and plugins."
+          "text_fr": "Le design évolue page par page, avec des écarts d'une page à l'autre.",
+          "text_en": "The design evolves page by page, with gaps from one page to the next."
         },
         {
-          "text_fr": "Abonnement et écosystème propriétaire : une part de captivité.",
-          "text_en": "Subscription and proprietary ecosystem: a degree of lock-in."
+          "text_fr": "Le coût et les limites dépendent des formules du fournisseur.",
+          "text_en": "Cost and limits depend on the supplier's plans."
         }
       ],
-      "with_label_fr": "Sur-mesure",
-      "with_label_en": "Bespoke",
-      "with_title_fr": "Headless composable",
-      "with_title_en": "Composable headless",
+      "with_label_fr": "Après",
+      "with_label_en": "After",
+      "with_title_fr": "Un site sur mesure, branché et transférable",
+      "with_title_en": "A bespoke, connected, transferable site",
       "with_items": [
         {
-          "text_fr": "Architecture composable libre, modifiée brique par brique.",
-          "text_en": "Free composable architecture, changed block by block."
+          "text_fr": "Les besoins sont des briques de code : ajoutées, testées, versionnées.",
+          "text_en": "Needs are code blocks: added, tested, versioned."
         },
         {
-          "text_fr": "Perf 100/100 en SSG et surface d'attaque réduite par construction.",
-          "text_en": "100/100 SSG performance and a reduced attack surface by design."
+          "text_fr": "Le contenu est dans des fichiers ou un CMS dont vous avez les accès, et il s'exporte.",
+          "text_en": "Content is in files or a CMS you have access to, and it can be exported."
         },
         {
-          "text_fr": "Intégrations métier lourdes et scalabilité sans réécrire les fondations.",
-          "text_en": "Heavy business integrations and scalability without rewriting foundations."
+          "text_fr": "Un jeu de sections réutilisables garde le design cohérent à mesure que le site grandit.",
+          "text_en": "A set of reusable sections keeps the design consistent as the site grows."
         },
         {
-          "text_fr": "Standards ouverts, code et contenu transférés : zéro captivité.",
-          "text_en": "Open standards, code and content handed over: zero lock-in."
-        }
-      ]
-    },
-    {
-      "type": "method-stepline",
-      "background": "paper-3",
-      "kicker_fr": "§ Maturité",
-      "kicker_en": "§ Maturity",
-      "h2_fr": "Les 6 niveaux d'un site qui reste le vôtre",
-      "h2_en": "The 6 levels of a site that stays yours",
-      "lede_fr": "De la plateforme fermée au système composable transférable, six paliers. La plupart des PME stagnent au clé-en-main poussé à ses limites. On vous situe, puis on vous fait monter d'un cran.",
-      "lede_en": "From a closed platform to a transferable composable system, six tiers. Most SMEs stall at turnkey pushed to its limits. We place you, then move you up a notch.",
-      "steps": [
-        {
-          "title_fr": "Plateforme fermée",
-          "title_en": "Closed platform",
-          "sub_fr": "Tout-en-un, captif",
-          "sub_en": "All-in-one, locked in"
-        },
-        {
-          "title_fr": "Clé-en-main poussé",
-          "title_en": "Turnkey stretched",
-          "sub_fr": "Contournements fragiles",
-          "sub_en": "Fragile workarounds"
-        },
-        {
-          "title_fr": "Front découplé",
-          "title_en": "Decoupled front",
-          "sub_fr": "SSG rapide et sécurisé",
-          "sub_en": "Fast, secure SSG"
-        },
-        {
-          "title_fr": "Architecture composable",
-          "title_en": "Composable architecture",
-          "sub_fr": "Assemblage brique par brique",
-          "sub_en": "Assembled block by block"
-        },
-        {
-          "title_fr": "CMS headless + DS propre",
-          "title_en": "Headless CMS + own DS",
-          "sub_fr": "Édition versionnée, cohérence",
-          "sub_en": "Versioned editing, consistency"
-        },
-        {
-          "title_fr": "Système transférable",
-          "title_en": "Transferable system",
-          "sub_fr": "Scalable, standards ouverts",
-          "sub_en": "Scalable, open standards"
+          "text_fr": "L'hébergement est un choix, pas une contrainte.",
+          "text_en": "Hosting is a choice, not a constraint."
         }
       ]
     },
     {
       "type": "deliverables-grid",
-      "background": "paper",
-      "kicker_fr": "§ Livrables",
-      "kicker_en": "§ Deliverables",
-      "title_fr": "Ce que vous récupérez concrètement",
-      "title_en": "What you get concretely",
-      "lead_fr": "Vous gardez tout à la livraison : code, contenu, docs. Standards ouverts, zéro captivité.",
-      "lead_en": "You keep everything at delivery: code, content, docs. Open standards, zero lock-in.",
+      "background": "paper-3",
+      "kicker_fr": "§ Ce que vous gardez",
+      "kicker_en": "§ What you keep",
+      "title_fr": "Ce qui vous reste à la fin",
+      "title_en": "What you keep at the end",
+      "lead_fr": "Vous gardez tout à la livraison : le code, le contenu, la documentation et les accès.",
+      "lead_en": "You keep everything at delivery: the code, the content, the documentation and the access.",
       "items": [
         {
-          "title_fr": "Architecture composable",
-          "title_en": "Composable architecture",
-          "body_fr": "Un site assemblé en sections cataloguées, pas une page monolithique : on ajoute, déplace ou remplace une brique sans toucher au reste.",
-          "body_en": "A site assembled from catalogued sections, not a monolithic page: you add, move or replace a block without touching the rest.",
-          "format_fr": "CODE + LIVE",
-          "format_en": "CODE + LIVE",
-          "illustration_src": "/images/line-art/swi-livrable-site.svg",
-          "illustration_alt_fr": "Une architecture composable de sections cataloguées",
-          "illustration_alt_en": "A composable architecture of catalogued sections"
+          "title_fr": "Le dépôt de code",
+          "title_en": "The code repository",
+          "body_fr": "Le site complet, dans un dépôt à votre nom, avec l'historique des modifications.",
+          "body_en": "The complete site, in a repository in your name, with the change history.",
+          "format_fr": "CODE",
+          "format_en": "CODE"
         },
         {
-          "title_fr": "Design system propre",
-          "title_en": "Own design system",
-          "body_fr": "Un design system qui garantit la cohérence partout : tokens, composants réutilisables, une même valeur qui cascade sur tout le site.",
-          "body_en": "A design system that keeps consistency everywhere: tokens, reusable components, one value cascading across the whole site.",
-          "format_fr": "DESIGN",
-          "format_en": "DESIGN",
-          "illustration_src": "/images/line-art/swi-livrable-landing-pages.svg",
-          "illustration_alt_fr": "Un design system propre, cohérent partout",
-          "illustration_alt_en": "An own design system, consistent everywhere"
-        },
-        {
-          "title_fr": "CMS headless configuré",
-          "title_en": "Headless CMS configured",
-          "body_fr": "Le CMS choisi pour votre cas (git-based ou API), configuré et branché : votre équipe édite, publie et réorganise sans toucher au code.",
-          "body_en": "The CMS chosen for your case (git-based or API), configured and wired: your team edits, publishes and reorganises without touching the code.",
+          "title_fr": "Le CMS configuré",
+          "title_en": "The configured CMS",
+          "body_fr": "Le CMS choisi au cadrage, branché, avec les champs et les droits adaptés à votre équipe.",
+          "body_en": "The CMS chosen at scoping, connected, with fields and permissions suited to your team.",
           "format_fr": "CMS",
-          "format_en": "CMS",
-          "illustration_src": "/images/line-art/swi-livrable-connexion-ia.svg",
-          "illustration_alt_fr": "Un CMS headless configuré et branché au front",
-          "illustration_alt_en": "A headless CMS configured and wired to the front"
+          "format_en": "CMS"
         },
         {
-          "title_fr": "Build SSG 100/100",
-          "title_en": "SSG build 100/100",
-          "body_fr": "Un front pré-généré en pages statiques : PageSpeed 100/100, surface d'attaque réduite, pas de base exposée ni de plugins à patcher en urgence.",
-          "body_en": "A front pre-generated as static pages: 100/100 PageSpeed, reduced attack surface, no exposed database nor plugins to patch in a hurry.",
-          "format_fr": "SSG",
-          "format_en": "SSG",
-          "illustration_src": "/images/line-art/swi-livrable-capture-scoring.svg",
-          "illustration_alt_fr": "Un build SSG rapide et sécurisé",
-          "illustration_alt_en": "A fast, secure SSG build"
+          "title_fr": "Les sections réutilisables",
+          "title_en": "Reusable sections",
+          "body_fr": "Un catalogue de sections documenté : on compose une page sans réécrire.",
+          "body_en": "A documented section catalogue: a page is composed without rewriting.",
+          "format_fr": "DESIGN",
+          "format_en": "DESIGN"
         },
         {
-          "title_fr": "Intégrations métier",
-          "title_en": "Business integrations",
-          "body_fr": "Les connexions à vos outils et APIs internes, taillées sur mesure : CRM, paiement, données métier, l'IA branchée en skills quand elle sert.",
-          "body_en": "Bespoke connections to your tools and internal APIs: CRM, payment, business data, AI wired in as skills when it serves.",
-          "format_fr": "INTÉGRATIONS",
-          "format_en": "INTEGRATIONS",
-          "illustration_src": "/images/line-art/swi-livrable-tableau-pilotage.svg",
-          "illustration_alt_fr": "Des intégrations métier sur mesure branchées au site",
-          "illustration_alt_en": "Bespoke business integrations wired to the site"
+          "title_fr": "Les intégrations",
+          "title_en": "The integrations",
+          "body_fr": "Connexions au CRM, au paiement et à vos outils, décrites une par une avec leurs identifiants à votre nom.",
+          "body_en": "Connections to the CRM, payment and your tools, described one by one with credentials in your name.",
+          "format_fr": "LIENS",
+          "format_en": "LINKS"
         },
         {
-          "title_fr": "Transfert et autonomie",
-          "title_en": "Handover and autonomy",
-          "body_fr": "Code, contenu et documentation transférés, formation de votre équipe : vous reprenez la stack en interne ou avec un autre prestataire, sans captivité.",
-          "body_en": "Code, content and documentation handed over, team training: you take the stack in-house or with another provider, with no lock-in.",
+          "title_fr": "La mesure de performance",
+          "title_en": "The performance measurement",
+          "body_fr": "PageSpeed Insights sur mobile et ordinateur, avec la date et la méthode, remis à la livraison.",
+          "body_en": "PageSpeed Insights on mobile and desktop, with date and method, handed over at delivery.",
+          "format_fr": "MESURE",
+          "format_en": "MEASURE"
+        },
+        {
+          "title_fr": "La passation",
+          "title_en": "The handover",
+          "body_fr": "Documentation, session de formation, et un document pour qu'un autre prestataire puisse reprendre.",
+          "body_en": "Documentation, a training session, and a document so another provider can take over.",
           "format_fr": "PASSATION",
-          "format_en": "HANDOVER",
-          "illustration_src": "/images/line-art/swi-livrable-mode-operatoire.svg",
-          "illustration_alt_fr": "Un transfert complet de la stack pour rester autonome",
-          "illustration_alt_en": "A full handover of the stack to stay autonomous"
-        }
-      ]
-    },
-    {
-      "type": "feature-grid",
-      "anchor": "capacites",
-      "background": "paper",
-      "kicker_fr": "§ Les briques",
-      "kicker_en": "§ The building blocks",
-      "h2_fr": "Les briques du sur-mesure",
-      "h2_en": "The bespoke building blocks",
-      "lede_fr": "Sept briques, une même architecture composable. On active celles qui justifient le sur-mesure, quand elles servent. Pas de complexité qu'on vous facture pour rien.",
-      "lede_en": "Seven building blocks, one composable architecture. We activate the ones that justify going bespoke, when they serve. No complexity billed to you for nothing.",
-      "columns": "4",
-      "fillMedia": "services-layer.svg",
-      "features": [
-        {
-          "icon": "design",
-          "title_fr": "Architecture composable",
-          "title_en": "Composable architecture",
-          "body_fr": "Un assemblage de sections cataloguées : on ajoute, déplace ou remplace une brique sans toucher au reste, et le site monte de version sans refonte.",
-          "body_en": "An assembly of catalogued sections: you add, move or replace a block without touching the rest, and the site moves up versions with no rebuild."
-        },
-        {
-          "icon": "contenu",
-          "title_fr": "CMS headless au choix",
-          "title_en": "Headless CMS of choice",
-          "body_fr": "Git-based ou API selon votre cas : le contenu vit séparé de l'affichage, éditable sans développeur, versionné et réversible.",
-          "body_en": "Git-based or API depending on your case: content lives separate from display, editable without a developer, versioned and reversible."
-        },
-        {
-          "icon": "qualif",
-          "title_fr": "Design system propre",
-          "title_en": "Own design system",
-          "body_fr": "Tokens et composants réutilisables : une même valeur cascade partout, la cohérence tient à mesure que le site grandit.",
-          "body_en": "Reusable tokens and components: one value cascades everywhere, consistency holds as the site grows."
-        },
-        {
-          "icon": "tracking",
-          "title_fr": "Performance SSG",
-          "title_en": "SSG performance",
-          "body_fr": "Un front pré-généré en pages statiques : PageSpeed 100/100, pas de serveur applicatif à chaque visite, base GEO solide.",
-          "body_en": "A front pre-generated as static pages: 100/100 PageSpeed, no application server on each visit, a solid GEO base."
-        },
-        {
-          "icon": "crm",
-          "title_fr": "Sécurité réduite",
-          "title_en": "Reduced surface",
-          "body_fr": "Surface d'attaque réduite par construction : pas de base exposée, pas de plugins à patcher en urgence. Le contenu reste dans le CMS.",
-          "body_en": "Attack surface reduced by design: no exposed database, no plugins to patch in a hurry. Content stays in the CMS."
-        },
-        {
-          "icon": "ia",
-          "title_fr": "Intégrations métier",
-          "title_en": "Business integrations",
-          "body_fr": "Connexions sur mesure à vos outils et APIs internes, l'IA branchée en skills quand elle sert : le site absorbe la croissance sans réécrire.",
-          "body_en": "Bespoke connections to your tools and internal APIs, AI wired in as skills when it serves: the site absorbs growth without rewriting."
-        },
-        {
-          "icon": "pilotage",
-          "title_fr": "Zéro captivité",
-          "title_en": "Zero lock-in",
-          "body_fr": "Standards ouverts, code, contenu et docs transférés : vous reprenez la stack en interne ou la confiez à un autre prestataire.",
-          "body_en": "Open standards, code, content and docs handed over: you take the stack in-house or pass it to another provider."
+          "format_en": "HANDOVER"
         }
       ]
     },
     {
       "type": "hover-reveal-list",
-      "anchor": "cousins",
+      "anchor": "autres-plateformes",
       "background": "paper-3",
       "reveal_mode": "cursor",
-      "kicker_fr": "§ Dans la même offre",
-      "kicker_en": "§ In the same offer",
+      "kicker_fr": "§ Autres plateformes",
+      "kicker_en": "§ Other platforms",
       "h2_fr": "Sur mesure, ou une autre <i>base</i>",
       "h2_en": "Bespoke, or another <i>base</i>",
-      "lede_fr": "Le sur-mesure n'est pas toujours le bon choix. Selon votre besoin, le clé-en-main suffit, ou on part d'un existant. Survolez une base pour la voir.",
-      "lede_en": "Bespoke isn't always the right call. Depending on your need, turnkey is enough, or we start from an existing site. Hover a base to preview it.",
+      "lede_fr": "Le sur mesure n'est pas toujours le bon choix. Survolez une plateforme pour la voir, puis lisez sa page.",
+      "lede_en": "Bespoke is not always the right call. Hover a platform to preview it, then read its page.",
       "items": [
-        {
-          "label_fr": "Site web intelligent",
-          "label_en": "Intelligent website",
-          "meta_fr": "Offre mère · acquisition, CRM et contenu câblés",
-          "meta_en": "Parent offer · acquisition, CRM and content wired",
-          "media_src": "/images/illustrations/ds/man-and-woman-hi-paper.webp",
-          "media_alt_fr": "Une jonction validée : le pilier complet d'acquisition.",
-          "media_alt_en": "A validated handshake: the full acquisition pillar.",
-          "link_href": "/services/site-web-ia"
-        },
         {
           "label_fr": "Webflow",
           "label_en": "Webflow",
-          "meta_fr": "Clé-en-main · design et mise en ligne rapides",
-          "meta_en": "Turnkey · fast design and go-live",
-          "media_src": "/images/illustrations/ds/car-on-the-road-paper.webp",
-          "media_alt_fr": "Une voiture sur la route : le no-code premium instrumenté.",
-          "media_alt_en": "A car on the road: premium no-code, instrumented.",
-          "link_href": "/services/site-web-ia"
+          "meta_fr": "Design précis, édité visuellement, peu d'extensions",
+          "meta_en": "Precise design, edited visually, few extensions",
+          "media_src": "/images/illustrations/ds/webflow-colleur-affiches-paper.webp",
+          "media_alt_fr": "Illustration : un colleur d'affiches pose de grandes feuilles sur un panneau",
+          "media_alt_en": "Illustration: a bill poster pastes large sheets onto a billboard",
+          "link_href": "/services/webflow"
         },
         {
           "label_fr": "WordPress",
           "label_en": "WordPress",
-          "meta_fr": "Clé-en-main · le CMS le plus répandu, instrumenté",
-          "meta_en": "Turnkey · the most widespread CMS, instrumented",
-          "media_src": "/images/illustrations/ds/computer-health-paper.webp",
-          "media_alt_fr": "Un ordinateur ausculté : le WordPress instrumenté proprement.",
-          "media_alt_en": "A computer being checked: WordPress cleanly instrumented.",
+          "meta_fr": "Écosystème d'extensions, équipes qui le connaissent, maintenance à prévoir",
+          "meta_en": "Extension ecosystem, teams that know it, maintenance to plan for",
+          "media_src": "/images/illustrations/ds/wordpress-coeur-et-extensions-paper.webp",
+          "media_alt_fr": "Illustration : une rotonde centrale reliée à ses annexes, comme un WordPress et ses extensions",
+          "media_alt_en": "Illustration: a central rotunda linked to its annexes, like WordPress and its extensions",
+          "link_href": "/services/wordpress"
+        },
+        {
+          "label_fr": "Shopify",
+          "label_en": "Shopify",
+          "meta_fr": "Boutique en ligne : catalogue, paiement, stocks, commandes",
+          "meta_en": "Online shop: catalogue, payment, stock, orders",
+          "media_src": "/images/illustrations/ds/shopify-boutique-en-coupe-paper.webp",
+          "media_alt_fr": "Illustration : une boutique en coupe, salle de vente et réserve",
+          "media_alt_en": "Illustration: a shop in cross-section, sales floor and stockroom",
+          "link_href": "/services/shopify"
+        },
+        {
+          "label_fr": "Landing page",
+          "label_en": "Landing page",
+          "meta_fr": "Une page, une offre, un tunnel de qualification",
+          "meta_en": "One page, one offer, a qualification funnel",
+          "media_src": "/images/illustrations/ds/landing-pages-tunnels-v3-entonnoir-paper.webp",
+          "media_alt_fr": "Illustration : des billes tombent dans un entonnoir, une personne les oriente vers deux paniers",
+          "media_alt_en": "Illustration: marbles fall into a funnel, a person directs them to two baskets",
+          "link_href": "/services/landing-pages-tunnels"
+        },
+        {
+          "label_fr": "L'offre agence site web",
+          "label_en": "The web agency offer",
+          "meta_fr": "Toutes les plateformes, la grille de prix et la méthode",
+          "meta_en": "All platforms, the price grid and the method",
+          "media_src": "/images/illustrations/ds/man-and-woman-hi-paper.webp",
+          "media_alt_fr": "Illustration : deux personnes qui se saluent, l'offre agence site web dans son ensemble",
+          "media_alt_en": "Illustration: two people greeting each other, the web agency offer as a whole",
           "link_href": "/services/site-web-ia"
         }
       ]
@@ -543,63 +445,29 @@
     {
       "type": "case-card-grid",
       "background": "ink",
-      "reveal_mode": "cursor",
       "fig_num": "Fig. 05",
-      "fig_title_fr": "Cas clients",
-      "fig_title_en": "Client cases",
-      "spec_fr": "Cas clients · résultats réels",
-      "spec_en": "Client cases · real results",
-      "h2_fr": "Résultats sur le terrain",
-      "h2_en": "Results in the field",
+      "fig_title_fr": "Réalisations",
+      "fig_title_en": "Work",
+      "spec_fr": "Réalisations · données reprises des fiches publiées",
+      "spec_en": "Work · data taken from the published pages",
+      "h2_fr": "Un site Astro livré, et un retour du headless vers WordPress",
+      "h2_en": "A delivered Astro site, and a return from headless to WordPress",
       "case_label_fr": "CAS",
       "case_label_en": "CASE",
       "sector_label_fr": "Secteur · Durée",
       "sector_label_en": "Sector · Duration",
-      "impact_label_fr": "Impact",
-      "impact_label_en": "Impact",
+      "impact_label_fr": "Ce que dit la fiche",
+      "impact_label_en": "What the page says",
       "cases": [
         {
-          "client": "Balzeo",
-          "sector_fr": "E-commerce écoresponsable",
-          "sector_en": "Eco-friendly e-commerce",
-          "duration": "8 sem.",
-          "stack": "Refonte · Astro SSG · Perf",
-          "impact_fr": "Refonte complète : temps de chargement réduit de moitié (5,2 s à 2,4 s), rétention +35 %, coût de maintenance -84 %.",
-          "impact_en": "Full rebuild: load time halved (5.2s to 2.4s), retention +35%, maintenance cost cut by 84%.",
-          "href": "/cas-clients/balzeo",
-          "media_src": "/images/illustrations/ds/fruits-ink.webp",
-          "media_alt_fr": "Des fruits frais : le e-commerce écoresponsable refondu et allégé.",
-          "media_alt_en": "Fresh fruit: the eco-friendly e-commerce store rebuilt and made leaner."
+          "ref": "cases/amploi"
         },
         {
-          "client": "Les Carnets de Montpellier",
-          "sector_fr": "Patrimoine / Média local",
-          "sector_en": "Heritage / Local media",
-          "duration": "6 sem.",
-          "stack": "Création · CMS git-based · SEO",
-          "impact_fr": "Site créé de zéro : 40 articles publiés, 150 membres, 35 abonnés payants et top 10 Google local en 3 mois.",
-          "impact_en": "Built from scratch: 40 articles, 150 members, 35 paying subscribers and a top-10 local Google ranking in 3 months.",
-          "href": "/cas-clients/les-carnets-de-montpellier",
-          "media_src": "/images/illustrations/ds/band-showing-tv-ink.webp",
-          "media_alt_fr": "Un média local qui diffuse et fédère une communauté d'abonnés.",
-          "media_alt_en": "A local media outlet broadcasting and rallying a community of subscribers."
-        },
-        {
-          "client": "Amploi · groupe Vigiscope",
-          "sector_fr": "Externalisation RH",
-          "sector_en": "HR outsourcing",
-          "duration": "6 sem.",
-          "stack": "Création · Composable · GEO",
-          "impact_fr": "Site créé avec formulaires branchés HubSpot (attribution des leads) et balisage schema.org pensé pour les citations IA (Perplexity, ChatGPT, Claude).",
-          "impact_en": "Site built with HubSpot-connected forms (lead attribution) and schema.org markup designed for AI citations (Perplexity, ChatGPT, Claude).",
-          "href": "/cas-clients/amploi",
-          "media_src": "/images/illustrations/ds/super-girl-ink.webp",
-          "media_alt_fr": "Une figure dynamique : l'externalisation RH qui capte et qualifie les leads.",
-          "media_alt_en": "A dynamic figure: HR outsourcing that captures and qualifies leads."
+          "ref": "cases/balzeo"
         }
       ],
-      "all_label_fr": "Voir tous les cas →",
-      "all_label_en": "See all cases →",
+      "all_label_fr": "Voir toutes les réalisations →",
+      "all_label_en": "See all work →",
       "all_href": "/cas-clients"
     },
     {
@@ -607,32 +475,32 @@
       "background": "paper",
       "kicker_fr": "§ La gamme",
       "kicker_en": "§ The range",
-      "h2_fr": "Quatre façons de construire sur mesure",
-      "h2_en": "Four ways to build bespoke",
-      "lede_fr": "Du front découplé simple au système composable complet, même grille que nos sites : la formule dépend du périmètre. On vous oriente vers le clé-en-main si c'est le bon choix, on chiffre au cadrage, jamais avant.",
-      "lede_en": "From a simple decoupled front to a full composable system, the same grid as our sites: the plan depends on scope. We point you to turnkey when it's the right call, we price at scoping, never before.",
+      "h2_fr": "Combien coûte un site sur mesure",
+      "h2_en": "How much a bespoke site costs",
+      "lede_fr": "Quatre paliers, la même grille que nos autres sites : le prix suit le périmètre. Le sur mesure se chiffre au cadrage, jamais avant. Si le périmètre n'est pas clair, on commence par un sprint de cadrage de 10 heures à 999 € HT.",
+      "lede_en": "Four tiers, the same grid as our other sites: price follows scope. Bespoke is priced at scoping, never before. If the scope is unclear, we start with a 10-hour scoping sprint at €999 excl. VAT.",
       "tiers": [
         {
           "name_fr": "Front découplé",
           "name_en": "Decoupled front",
-          "price": "2 000 €",
+          "price": "2 000 €",
           "period_fr": "à partir de · HT",
-          "period_en": "from · ex VAT",
+          "period_en": "from · excl. VAT",
           "features_fr": [
-            "Front SSG 1 à 3 pages, découplé, mise en ligne",
-            "SEO et GEO de base, balisage Schema.org",
+            "Un front de 1 à 3 pages, généré à l'avance et mis en ligne",
             "CMS git-based configuré, édition versionnée",
-            "Tracking first-party et tableau de base"
+            "Formulaire relié au CRM, balisage schema.org",
+            "Mesure d'audience avec consentement"
           ],
           "features_en": [
-            "1-to-3-page SSG front, decoupled, deployed",
-            "Base SEO and GEO, Schema.org markup",
+            "A 1-to-3-page front, generated in advance and deployed",
             "Git-based CMS configured, versioned editing",
-            "First-party tracking and base dashboard"
+            "Form connected to the CRM, schema.org markup",
+            "Audience measurement with consent"
           ],
           "cta": {
-            "label_fr": "Cadrer un front découplé →",
-            "label_en": "Scope a decoupled front →",
+            "label_fr": "Cadrer un front →",
+            "label_en": "Scope a front →",
             "href": "/contact?offer=sur-mesure-headless&intent=landing",
             "variant": "ghost"
           }
@@ -640,84 +508,82 @@
         {
           "name_fr": "Site composable",
           "name_en": "Composable site",
-          "price": "4 000 €",
+          "price": "4 000 €",
           "period_fr": "indicatif · HT",
-          "period_en": "indicative · ex VAT",
+          "period_en": "indicative · excl. VAT",
           "features_fr": [
-            "Site 3 à 5 pages, architecture composable",
-            "Design system propre, cohérent partout",
-            "CMS headless au choix (git-based ou API)",
-            "SSG 100/100, hébergement et consentement RGPD"
+            "Site de 3 à 5 pages assemblé en sections réutilisables",
+            "CMS headless au choix, édition par votre équipe",
+            "Redirections 301 et structure pour le référencement",
+            "Hébergement et consentement configurés"
           ],
           "features_en": [
-            "3-to-5-page site, composable architecture",
-            "Own design system, consistent everywhere",
-            "Headless CMS of choice (git-based or API)",
-            "100/100 SSG, hosting and GDPR consent"
+            "A 3-to-5-page site assembled from reusable sections",
+            "Headless CMS of choice, edited by your team",
+            "301 redirects and structure for search",
+            "Hosting and consent configured"
           ],
           "cta": {
             "label_fr": "Réserver un audit IA gratuit →",
             "label_en": "Book a free AI audit →",
             "href": "/contact?offer=audit-ia-pme&intent=audit",
             "variant": "primary"
-          }
+          },
+          "featured": true
         },
         {
-          "name_fr": "Site premium",
-          "name_en": "Premium site",
-          "price": "7 000 €",
+          "name_fr": "Site complet",
+          "name_en": "Full site",
+          "price": "7 000 €",
           "period_fr": "à partir de · HT",
-          "period_en": "from · ex VAT",
+          "period_en": "from · excl. VAT",
           "features_fr": [
             "Site complet et direction artistique sur mesure",
-            "Système de contenu SEO et GEO en cadence",
-            "Connexion IA (Claude, GPT) et premiers skills",
-            "Formulaires connectés à votre CRM"
+            "Plusieurs types de pages et de collections",
+            "Formulaires connectés au CRM, séquence de suivi branchée",
+            "Une session de passation"
           ],
           "features_en": [
             "Full site and bespoke art direction",
-            "SEO and GEO content system on cadence",
-            "AI connection (Claude, GPT) and first skills",
-            "Forms connected to your CRM"
+            "Several page types and collections",
+            "Forms connected to the CRM, follow-up sequence wired in",
+            "One handover session"
           ],
           "cta": {
-            "label_fr": "Cadrer un site premium →",
-            "label_en": "Scope a premium site →",
+            "label_fr": "Cadrer un site complet →",
+            "label_en": "Scope a full site →",
             "href": "/contact?offer=sur-mesure-headless&intent=premium",
             "variant": "ghost"
           }
         },
         {
-          "name_fr": "Sur mesure complet",
-          "name_en": "Full bespoke",
-          "price": "10 000 €",
+          "name_fr": "Intégrations métier",
+          "name_en": "Business integrations",
+          "price": "10 000 €",
           "period_fr": "à partir de · HT",
-          "period_en": "from · ex VAT",
+          "period_en": "from · excl. VAT",
           "features_fr": [
-            "Tout le périmètre Site premium",
-            "Intégrations métier lourdes et APIs internes",
-            "Dashboard Google Analytics et Search Console",
-            "CRM branché (HubSpot, Salesforce, Pipedrive) et paiement Stripe",
-            "Code, contenu et docs transférés : zéro captivité"
+            "Tout le périmètre du site complet",
+            "Intégrations métier et APIs internes",
+            "Paiement Stripe, espace restreint ou tableau de suivi si le besoin le justifie",
+            "Au-delà, sur devis"
           ],
           "features_en": [
-            "The full Premium site scope",
-            "Heavy business integrations and internal APIs",
-            "Dashboard with Google Analytics and Search Console",
-            "CRM wired (HubSpot, Salesforce, Pipedrive) and Stripe payments",
-            "Code, content and docs handed over: zero lock-in"
+            "The full scope of the complete site",
+            "Business integrations and internal APIs",
+            "Stripe payment, restricted area or tracking dashboard if the need justifies it",
+            "Beyond that, on quote"
           ],
           "cta": {
             "label_fr": "Cadrer un projet sur mesure →",
             "label_en": "Scope a bespoke project →",
             "href": "/contact?offer=sur-mesure-headless&intent=sur-mesure",
             "variant": "ghost"
-          },
-          "featured": true
+          }
         }
       ],
-      "footnote_fr": "Le sur-mesure ne se justifie pas toujours : le clé-en-main (Webflow, WordPress) couvre 80 % des besoins. On vous oriente vers lui si c'est le bon choix. Au-delà de 10 000 € HT, on chiffre sur devis. Sans engagement de durée, sans abonnement caché : à la fin, code, contenu et docs sont transférés, vous gardez la stack.",
-      "footnote_en": "Bespoke isn't always justified: turnkey (Webflow, WordPress) covers 80 % of needs. We point you to it when it's the right call. Beyond 10,000 € ex VAT, we price on quote. No duration commitment, no hidden subscription: at the end, code, content and docs are handed over, you keep the stack."
+      "footnote_fr": "Le nom de domaine, l'hébergement et le CMS éventuel sont souscrits à votre nom : ils ne figurent pas dans ces prix. Aucun abonnement imposé chez nous. La maintenance après livraison est facultative, ses paliers sont publics sur la page tarifs.",
+      "footnote_en": "Domain, hosting and any CMS are taken out in your name: they are not in these prices. No subscription imposed by us. Maintenance after delivery is optional, its tiers are public on the pricing page."
     },
     {
       "type": "eeat-panel",
@@ -728,45 +594,51 @@
       "type": "faq-accordion",
       "background": "paper-2",
       "kicker_fr": "§ Questions fréquentes",
-      "kicker_en": "§ Frequently asked",
-      "h2_fr": "Ce que vous nous demandez",
-      "h2_en": "What you ask us",
+      "kicker_en": "§ Frequently asked questions",
+      "h2_fr": "Site sur mesure : vos questions",
+      "h2_en": "Bespoke site: your questions",
       "items": [
         {
-          "q_fr": "Quel CMS headless choisir pour mon cas ?",
-          "q_en": "Which headless CMS should I choose for my case?",
-          "a_fr": "On tranche au cadrage selon quatre critères : volume de contenu, taille de l'équipe éditoriale, budget et exigence de réversibilité. Pour une PME, on recommande par défaut un CMS git-based (TinaCMS, Keystatic, Decap) : édition versionnée, zéro base de données, réversible. Pour de gros volumes ou une équipe éditoriale, on bascule sur du headless classique (Contentful, Strapi, Sanity, Prismic).",
-          "a_en": "We decide at scoping on four criteria: content volume, editorial team size, budget and reversibility needs. For an SME, we recommend a git-based CMS by default (TinaCMS, Keystatic, Decap): versioned editing, no database, reversible. For high volumes or an editorial team, we switch to classic headless (Contentful, Strapi, Sanity, Prismic)."
+          "q_fr": "Quand un site sur mesure est-il justifié ?",
+          "a_fr": "Quand la plateforme vous bride : intégrations métier lourdes, espace client, logique de contenu spécifique, exigence de performance, ou besoin de posséder le code. Sinon, Webflow ou WordPress font le travail plus vite et à moindre coût. Nous ne vendons pas du sur mesure par défaut.",
+          "q_en": "When is a bespoke site justified?",
+          "a_en": "When the platform holds you back: heavy business integrations, a customer area, specific content logic, a performance requirement, or a need to own the code. Otherwise Webflow or WordPress do the job faster and cheaper. We do not sell bespoke by default."
         },
         {
-          "q_fr": "Headless, c'est quoi la différence avec WordPress ?",
-          "q_en": "Headless, what's the difference with WordPress?",
-          "a_fr": "Headless sépare le contenu (le CMS) de l'affichage (le front). Le front est un site statique généré (SSG), rapide et sécurisé, qui consomme le contenu via une API ou des fichiers git. WordPress couple les deux : un même serveur PHP rend les pages à chaque visite, ce qui pèse sur la perf et la surface d'attaque.",
-          "a_en": "Headless separates content (the CMS) from display (the front). The front is a generated static site (SSG), fast and secure, consuming content through an API or git files. WordPress couples both: one PHP server renders pages on each visit, which weighs on performance and attack surface."
+          "q_fr": "C'est quoi un CMS headless, et lequel choisir ?",
+          "a_fr": "Un CMS headless sépare l'édition du contenu de son affichage : le CMS stocke le contenu, le site le lit. Pour une PME, nous partons sur un CMS qui versionne le contenu dans git (TinaCMS, utilisé pour Amploi, Keystatic, Decap) : édition visuelle, pas de base de données à héberger, historique des modifications. Pour de gros volumes ou plusieurs rédacteurs avec des droits, un CMS par API (Contentful, Strapi, Sanity). On tranche au cadrage.",
+          "q_en": "What is a headless CMS, and which one to choose?",
+          "a_en": "A headless CMS separates editing content from displaying it: the CMS stores the content, the site reads it. For an SMB we start with a CMS that versions content in git (TinaCMS, used for Amploi, Keystatic, Decap): visual editing, no database to host, change history. For large volumes or several editors with permissions, an API-based CMS (Contentful, Strapi, Sanity). We decide at scoping."
         },
         {
-          "q_fr": "Pourquoi un site sur mesure plutôt que Webflow ou WordPress ?",
-          "q_en": "Why a bespoke site rather than Webflow or WordPress?",
-          "a_fr": "Le clé-en-main (Webflow, WordPress) couvre 80 % des besoins, vite et bien. Le sur-mesure se justifie quand l'architecture composable, des intégrations métier lourdes, un design system propre ou une scalabilité forte deviennent décisifs. On vous oriente vers le clé-en-main si c'est le bon choix : on ne vend pas du sur-mesure par défaut.",
-          "a_en": "Turnkey (Webflow, WordPress) covers 80 % of needs, fast and well. Bespoke is justified when composable architecture, heavy business integrations, a clean design system or strong scalability become decisive. We point you to turnkey when it's the right call: we don't sell bespoke by default."
+          "q_fr": "Mon équipe peut-elle modifier le site sans développeur ?",
+          "a_fr": "Oui pour le contenu : textes, images, articles, pages composées à partir de sections prévues. Non pour la structure : ajouter un nouveau type de page ou une fonction passe par un développeur, c'est le prix du sur mesure. Le site d'Amploi est éditable en glisser-déposer dans TinaCMS.",
+          "q_en": "Can my team edit the site without a developer?",
+          "a_en": "Yes for content: text, images, articles, pages composed from planned sections. Not for structure: adding a new page type or a feature goes through a developer, that is the price of bespoke. The Amploi site is editable by drag and drop in TinaCMS."
         },
         {
-          "q_fr": "Un site headless, ça reste éditable sans développeur ?",
-          "q_en": "Is a headless site still editable without a developer?",
-          "a_fr": "Oui. Le CMS headless offre une interface d'édition à votre équipe : on rédige, on publie, on réorganise les pages sans toucher au code. Avec un CMS git-based, chaque modification est versionnée et réversible, comme un historique de sauvegardes.",
-          "a_en": "Yes. The headless CMS gives your team an editing interface: you write, publish and reorganise pages without touching the code. With a git-based CMS, every change is versioned and reversible, like a history of backups."
+          "q_fr": "Quelle différence avec WordPress ?",
+          "a_fr": "WordPress rend les pages à la demande à partir d'une base de données et d'extensions ; un site statique sur mesure est généré à l'avance et servi tel quel. Résultat : moins de pièces à mettre à jour et des pages rapides, mais moins d'extensions toutes faites : une réservation ou une adhésion se développe ou se branche. Voir la page WordPress.",
+          "q_en": "What is the difference with WordPress?",
+          "a_en": "WordPress renders pages on demand from a database and extensions; a bespoke static site is generated in advance and served as is. Result: fewer parts to update and fast pages, but fewer ready-made extensions: booking or membership is developed or plugged in. See the WordPress page."
         },
         {
-          "q_fr": "Suis-je captif de votre stack à la fin ?",
-          "q_en": "Am I locked into your stack at the end?",
-          "a_fr": "Non. Le code, le contenu et la documentation sont transférés à la livraison. L'architecture repose sur des standards ouverts (Astro, git, CMS open-source), pas sur une plateforme propriétaire. Vous gardez la stack et pouvez la reprendre en interne ou avec un autre prestataire.",
-          "a_en": "No. Code, content and documentation are handed over at delivery. The architecture rests on open standards (Astro, git, open-source CMS), not a proprietary platform. You keep the stack and can take it over in-house or with another provider."
+          "q_fr": "Qui garde le code et les accès ?",
+          "a_fr": "Vous. Le dépôt de code, le CMS, le nom de domaine et l'hébergement sont à votre nom. Le code est documenté et repose sur des standards ouverts (Astro, git) : un autre prestataire peut le reprendre. Nous n'imposons aucun abonnement.",
+          "q_en": "Who keeps the code and the access?",
+          "a_en": "You do. The code repository, the CMS, the domain name and the hosting are in your name. The code is documented and rests on open standards (Astro, git): another provider can take it over. We impose no subscription."
         },
         {
-          "q_fr": "Combien de temps pour un site sur mesure headless ?",
-          "q_en": "How long for a bespoke headless site?",
-          "a_fr": "Comptez 6 à 12 semaines selon le périmètre : architecture, design system, intégration du CMS et des outils métier, build et mise en ligne. On cadre un planning réaliste et des jalons mesurables avant de signer.",
-          "a_en": "Count 6 to 12 weeks depending on scope: architecture, design system, CMS and business-tool integration, build and go-live. We frame a realistic schedule and measurable milestones before signing."
+          "q_fr": "Quelle performance peut-on attendre ?",
+          "a_fr": "Un site statique bien construit charge vite, parce que ses pages existent déjà. Sur Amploi, PageSpeed Insights a donné 100 sur 100 dans les quatre catégories, sur mobile et sur ordinateur, le 5 octobre 2026. C'est une mesure à une date, pas une promesse : images, scripts tiers et outils de mesure peuvent la dégrader. On mesure à la livraison et on remet le résultat.",
+          "q_en": "What performance can be expected?",
+          "a_en": "A well-built static site loads fast, because its pages already exist. On Amploi, PageSpeed Insights gave 100 out of 100 in all four categories, on mobile and desktop, on 5 October 2026. It is a measurement at a date, not a promise: images, third-party scripts and tracking tools can degrade it. We measure at delivery and hand over the result."
+        },
+        {
+          "q_fr": "Combien de temps et combien ça coûte ?",
+          "a_fr": "Un site marketing comme celui d'Amploi : 6 semaines. Avec des intégrations métier ou un espace restreint, comptez plus : le planning et les jalons sont fixés avant signature. À partir de 2 000 € HT pour un front de 1 à 3 pages, 4 000 € HT pour un site de 3 à 5 pages, à partir de 7 000 € HT pour un site complet, à partir de 10 000 € HT avec intégrations métier.",
+          "q_en": "How long and how much?",
+          "a_en": "A marketing site like Amploi's: 6 weeks. With business integrations or a restricted area, count more: the schedule and milestones are fixed before signing. From €2,000 excl. VAT for a 1-to-3-page front, €4,000 for a 3-to-5-page site, from €7,000 for a full site, from €10,000 with business integrations."
         }
       ]
     },
@@ -777,12 +649,12 @@
       "contentAlign": "center",
       "actionsAlign": "center",
       "rounded": true,
-      "kicker_fr": "§ Prêt à composer ?",
-      "kicker_en": "§ Ready to compose?",
-      "h2_fr": "Un site qui se modifie <i>brique par brique</i>.",
-      "h2_en": "A site changed <i>block by block</i>.",
-      "subtitle_fr": "Un diagnostic de 45 min, gratuit et sans engagement : on cadre votre architecture, on choisit le bon CMS headless et on chiffre le sur-mesure. En face, un interlocuteur unique, le fondateur qui conçoit et livre.",
-      "subtitle_en": "A 45-min diagnostic, free and with no commitment: we frame your architecture, choose the right headless CMS and price the bespoke work. Across the table, a single contact, the founder who designs and ships.",
+      "kicker_fr": "§ Audit IA gratuit",
+      "kicker_en": "§ Free AI audit",
+      "h2_fr": "Votre besoin justifie-t-il vraiment du sur mesure ?",
+      "h2_en": "Does your need really justify going bespoke?",
+      "subtitle_fr": "En 45 minutes, on passe vos besoins en revue et on vous dit si Webflow, WordPress ou Shopify suffisent, ou si le sur mesure se justifie, avec un ordre de grandeur de prix.",
+      "subtitle_en": "In 45 minutes, we review your needs and tell you whether Webflow, WordPress or Shopify are enough, or whether bespoke is justified, with a price order of magnitude.",
       "buttons": [
         {
           "label_fr": "Réserver un audit IA gratuit →",
@@ -791,9 +663,9 @@
           "variant": "primary"
         },
         {
-          "label_fr": "Revenir au site web intelligent",
-          "label_en": "Back to the intelligent website",
-          "href": "/services/site-web-ia",
+          "label_fr": "Cadrer un site sur mesure →",
+          "label_en": "Scope a bespoke site →",
+          "href": "/contact?offer=sur-mesure-headless&intent=cadrage",
           "variant": "ghost"
         }
       ]

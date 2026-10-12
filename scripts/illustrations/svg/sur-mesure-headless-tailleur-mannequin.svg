@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · moteur B · « sur mesure » : un tailleur épingle l'ourlet d'un immense buste de couturière.
+       La grande forme (bleue) est le buste ; un mètre ruban graduée l'entoure. Distribution prévue :
+       forme-bleue. Aucun texte. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-7.5 -93 Q0 -101 7.5 -93 L7 -90 Q0 -95 -7 -90 Z" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <!-- Sol -->
+  <rect y="500" width="1456" height="124" fill="{{ground}}"/>
+  <rect y="500" width="1456" height="3" fill="{{deep}}" opacity="0.6"/>
+
+  <!-- Pied : colonne et trépied -->
+  <rect x="720" y="436" width="16" height="64" fill="{{subject}}"/>
+  <g stroke="{{subject}}" stroke-width="9" stroke-linecap="round">
+    <line x1="728" y1="496" x2="640" y2="500"/><line x1="728" y1="496" x2="816" y2="500"/>
+  </g>
+  <!-- Buste : la grande forme -->
+  <path d="M728 170 C690 170 652 184 618 208 C602 220 600 240 606 262 C616 296 640 320 652 346 C656 372 640 400 636 424 L640 438 L816 438 L820 424 C816 400 800 372 804 346 C816 320 840 296 850 262 C856 240 854 220 838 208 C804 184 766 170 728 170 Z" fill="{{shape}}"/>
+  <!-- Cou et pommeau -->
+  <rect x="716" y="146" width="24" height="30" fill="{{subject}}"/>
+  <circle cx="728" cy="138" r="13" fill="{{subject}}"/>
+  <!-- Coutures du buste -->
+  <g fill="none" stroke="{{detail}}" stroke-width="3" stroke-linecap="round">
+    <path d="M728 176 L728 436"/>
+    <path d="M676 192 C648 270 692 340 672 436"/>
+    <path d="M780 192 C808 270 764 340 784 436"/>
+    <path d="M606 290 C680 306 776 306 850 290"/>
+  </g>
+  <!-- Mètre ruban en bandoulière : bande claire graduée -->
+  <path d="M640 204 C700 236 780 330 838 420" fill="none" stroke="{{light}}" stroke-width="20" stroke-linecap="butt"/>
+  <path d="M640 204 C700 236 780 330 838 420" fill="none" stroke="{{subject}}" stroke-width="20" stroke-dasharray="2 14"/>
+
+  <!-- Tailleur à gauche, bras tendu vers l'ourlet, mètre à la main -->
+  <use href="#man" transform="translate(510 500) scale(1.05)"/>
+  <path d="M520 428 L596 380" stroke="{{subject}}" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="600" cy="378" r="5" fill="{{detail}}"/>
+  <!-- Mètre ruban déroulé au sol, vers la droite -->
+  <path d="M900 540 L1260 540" stroke="{{light}}" stroke-width="22"/>
+  <path d="M900 540 L1260 540" stroke="{{subject}}" stroke-width="22" stroke-dasharray="2 14"/>
+  <circle cx="900" cy="540" r="24" fill="{{light}}"/>
+  <circle cx="900" cy="540" r="9" fill="{{subject}}"/>
+  <!-- Rouleau de tissu appuyé à droite -->
+  <rect x="1010" y="380" width="46" height="120" fill="{{light}}" stroke="{{deep}}" stroke-width="2"/>
+  <ellipse cx="1033" cy="380" rx="23" ry="7" fill="{{pale}}" stroke="{{deep}}" stroke-width="2"/>
+  <rect x="1066" y="410" width="40" height="90" fill="{{detail}}" stroke="{{deep}}" stroke-width="2"/>
+  <ellipse cx="1086" cy="410" rx="20" ry="6" fill="{{pale}}" stroke="{{deep}}" stroke-width="2"/>
+  <!-- Silhouette lointaine à droite -->
+  <use href="#man" transform="translate(1300 500) scale(0.5)"/>
+</svg>
