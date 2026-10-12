@@ -49,13 +49,13 @@
       "requeteCible": "agence n8n",
       "intention": "Trouver un prestataire pour mettre en place n8n.",
       "urlCible": "/services/automatisation-n8n",
-      "angle": "Hypothèse à vérifier en ligne : relever ce que les pages « agence n8n » classées couvrent (prix, délais, exemples de flux) et que la page n'a pas ; aligner title et H1 sur la requête ; lier le futur guide « n8n prix ».",
+      "angle": "Hypothèse à vérifier en ligne : relever ce que les pages « agence n8n » classées couvrent (prix, délais, exemples de flux) et que la page n'a pas ; aligner title et H1 sur la requête ; lier le futur guide « n8n prix ». Replanifié en 2026-W43 le 12 octobre 2026 : deux révisions de la règle 4.1-4 (sortie de Claude Haiku 5.5 le 7 octobre 2026) passent devant.",
       "sourcesALire": [
         "Premiers résultats de « agence n8n » et « automatisation n8n »",
         "Pages « agence + outil » de sparkyflow.com et pages service de kayro.ai (competitors.json)",
         "docs/seo/data/<semaine>/gsc-performance.json (requêtes réelles de la page)"
       ],
-      "semainePrevue": "2026-W42",
+      "semainePrevue": "2026-W43",
       "statut": "planifié",
       "pr": null,
       "mesureAttendue": "Page : 15 impressions et position 12,7 sur 28 jours à la collecte du 4 octobre 2026. Attendu : position sous 10. À juger deux collectes après la mise en production.",
@@ -69,13 +69,13 @@
       "requeteCible": "roi ia",
       "intention": "Estimer ce que rapporte un projet d'IA avant de le lancer.",
       "urlCible": "/ressources/outils/calculateur-roi-ia",
-      "angle": "Hypothèse à vérifier en ligne : réponse directe sur la façon de calculer le ROI (formule, postes de coût, limites), au-dessus de l'outil ; FAQ tirée des questions réelles ; lien vers le guide ROI de l'automatisation.",
+      "angle": "Hypothèse à vérifier en ligne : réponse directe sur la façon de calculer le ROI (formule, postes de coût, limites), au-dessus de l'outil ; FAQ tirée des questions réelles ; lien vers le guide ROI de l'automatisation. Replanifié en 2026-W43 le 12 octobre 2026 : deux révisions de la règle 4.1-4 (sortie de Claude Haiku 5.5 le 7 octobre 2026) passent devant.",
       "sourcesALire": [
         "Premiers résultats de « roi ia » et de deux variantes",
         "src/content/guides/roi-automatisation.json (ne pas dupliquer)",
         "docs/seo/data/<semaine>/gsc-performance.json (requêtes réelles de la page)"
       ],
-      "semainePrevue": "2026-W42",
+      "semainePrevue": "2026-W43",
       "statut": "planifié",
       "pr": null,
       "mesureAttendue": "Requête « roi ia » : 8 impressions et position 5,8 ; page : 11 impressions et position 12,2 sur 28 jours à la collecte du 4 octobre 2026. Attendu : plus de 30 impressions sur la page. À juger deux collectes après la mise en production.",
@@ -118,8 +118,8 @@
         "docs/seo/data/<semaine>/gsc-performance.json, byPageQuery"
       ],
       "semainePrevue": "2026-W41",
-      "statut": "en cours",
-      "pr": null,
+      "statut": "publié",
+      "pr": 76,
       "mesureAttendue": "Page : 10 impressions et position 25,3 sur 28 jours ; « guide claude pme » classée sur /services/consultant-ia-claude (3 impressions, position 8,3) à la collecte du 4 octobre 2026. Attendu : le guide devient la page classée sur la requête. À juger deux collectes après la mise en production.",
       "resultat": null,
       "origine": "docs/seo/data/2026-W40/gsc-performance.json, byPageQuery (mauvaise page classée : runbook, 4.1, règle 5)."
@@ -213,17 +213,23 @@
       "requeteCible": "crm sur mesure",
       "intention": "Décider entre faire développer un CRM et paramétrer un CRM existant.",
       "urlCible": "/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche",
-      "angle": "Hypothèse à vérifier en ligne : critères explicites et verdict par cas d'usage, y compris « ne le faites pas si », là où les résultats sont des pages de vente d'agences.",
+      "angle": "Recherche du 12 octobre 2026 : les premiers résultats sont des pages d'agences qui vendent du sur mesure (sparkyflow.com, Sokeo via leblogdudirigeant.com, RaftLabs) ou de comparateurs qui vendent des abonnements (appvizer, Codeur.com). Aucun ne propose la troisième voie (CRM du marché plus sur mesure autour), ni un calcul sur trois ans avec prix publics datés, ni de « ne le faites pas si ». La page apporte : trois options définies, tableau à 8 critères, prix publics Pipedrive et HubSpot du 12 octobre 2026, exemple illustratif sur trois ans (dont le cas des utilisateurs occasionnels qui inverse le calcul), test en cinq questions, retour d'expérience Amploi (HubSpot gardé, demandes routées par l'API Forms).",
       "sourcesALire": [
-        "Premiers résultats de « crm sur mesure » et de deux ou trois variantes",
-        "src/content/services/crm-scoring-routing.json et src/content/blog/cabler-son-crm-en-10-jours.json (cible actuelle, ne pas contredire)",
-        "src/content/blog/applications-internes-build-vs-buy-pme.json (même raisonnement, à lier)",
-        "Pages des concurrents de competitors.json sur le CRM"
+        "https://www.leblogdudirigeant.com/crm-standard-sur-mesure-comment-trancher/ (lu le 12 octobre 2026)",
+        "https://www.appvizer.fr/magazine/relation-client/customer-relationship-management-crm/crm-sur-mesure (lu le 12 octobre 2026)",
+        "https://www.hostinger.com/ca-fr/horizons/custom-crm (lu le 12 octobre 2026)",
+        "https://www.codeur.com/pages/prix-crm (lu le 12 octobre 2026)",
+        "https://www.raftlabs.com/blog/cost-to-build-app-like-hubspot (lu le 12 octobre 2026)",
+        "https://www.lafabriquedunet.fr/logiciels/productivite/crm/crm-tpe-pme (lu le 12 octobre 2026)",
+        "https://independant.io/prix-crm/ (lu le 12 octobre 2026)",
+        "https://sparkyflow.com/agence/agence-crm/ (concurrent, lu le 12 octobre 2026)",
+        "https://www.pipedrive.com/fr/pricing (source primaire, lue le 12 octobre 2026)",
+        "https://www.hubspot.com/pricing/sales/starter (source primaire, lue le 12 octobre 2026)"
       ],
       "semainePrevue": "2026-W42",
-      "statut": "planifié",
+      "statut": "en cours",
       "pr": null,
-      "mesureAttendue": "Page indexée et premières impressions sur « crm sur mesure ». Départ : aucune impression sur la requête à la collecte du 4 octobre 2026. À juger deux collectes après la mise en production.",
+      "mesureAttendue": "Requête « crm sur mesure » : aucune impression sur 28 jours à la collecte du 11 octobre 2026 (aucune page du site classée). Attendu : page indexée, premières impressions et onTarget vrai. À juger à partir de 2026-W45.",
       "resultat": null,
       "origine": "docs/seo/keywords.json : « crm sur mesure » et « automatisation crm » visent la même page, /services/crm-scoring-routing, pour deux intentions différentes."
     },
@@ -234,7 +240,7 @@
       "requeteCible": "agent ia vs automatisation",
       "intention": "Savoir quand un agent IA apporte quelque chose de plus qu'une automatisation.",
       "urlCible": "/blog/agent-ia-vs-automatisation-classique-2026",
-      "angle": "Hypothèse à vérifier en ligne : l'article cite un modèle daté (Claude Sonnet 4.6) ; le mettre à jour depuis les sources primaires, ajouter un tableau de décision et renvoyer la définition au guide « agents ia c'est quoi ».",
+      "angle": "Hypothèse à vérifier en ligne : l'article cite un modèle daté (Claude Sonnet 4.6) ; le mettre à jour depuis les sources primaires, ajouter un tableau de décision et renvoyer la définition au guide « agents ia c'est quoi ». Ajout du 12 octobre 2026 : la page cite Claude Haiku 4.5 ; mettre à jour avec Claude Haiku 5.5 (sorti le 7 octobre 2026).",
       "sourcesALire": [
         "https://www.anthropic.com/news (feeds.json > noFeed) et https://openai.com/news/rss.xml (modèles cités)",
         "docs/seo/data/latest.json, indexation.notIndexed (état de la page dans la collecte de la semaine)",
@@ -279,8 +285,8 @@
         "Voir le champ sources de la page"
       ],
       "semainePrevue": "2026-W41",
-      "statut": "en cours",
-      "pr": null,
+      "statut": "publié",
+      "pr": 78,
       "mesureAttendue": "Page indexée et premières impressions sur « workflow ia ». Départ : aucune impression sur la requête à la collecte du 4 octobre 2026. À juger deux collectes après la mise en production.",
       "resultat": null,
       "origine": "docs/seo/keywords.json : requête suivie dont la cible actuelle, /services/automatisations, porte trois requêtes et était « détectée, actuellement non indexée » à la collecte du 4 octobre 2026."
@@ -397,8 +403,8 @@
         "Voir le champ sources de la page"
       ],
       "semainePrevue": "2026-W41",
-      "statut": "en cours",
-      "pr": null,
+      "statut": "publié",
+      "pr": 78,
       "mesureAttendue": "Page indexée et premières impressions sur « architecte ia ». Départ : aucune impression sur la requête à la collecte du 4 octobre 2026. À juger deux collectes après la mise en production.",
       "resultat": null,
       "origine": "docs/seo/keywords.json : requête suivie (priorité 3) dont la cible actuelle est la page auteur /equipe/simon-beros, qui n'est pas nommée comme la requête."
@@ -634,8 +640,8 @@
         "https://claude.com/pricing"
       ],
       "semainePrevue": "2026-W41",
-      "statut": "en cours",
-      "pr": null,
+      "statut": "publié",
+      "pr": 76,
       "mesureAttendue": "Page indexée puis impressions sur « claude prix » et « claude pro vs team ».",
       "resultat": null,
       "origine": "Session du 5 octobre 2026 : cluster Claude autour du guide claude-pme, demandé par Simon (intention commerciale, sous-traitance, leads)."
@@ -655,8 +661,8 @@
         "https://code.claude.com/docs/en/skills"
       ],
       "semainePrevue": "2026-W41",
-      "statut": "en cours",
-      "pr": null,
+      "statut": "publié",
+      "pr": 76,
       "mesureAttendue": "impressions GSC sur « skills claude » et téléchargements du pack",
       "resultat": null,
       "origine": "brief cluster Claude 2026-10-05"
@@ -677,8 +683,8 @@
         "scratchpad faits-claude-2026-10-05.md §3 et §8"
       ],
       "semainePrevue": "2026-W41",
-      "statut": "en cours",
-      "pr": null,
+      "statut": "publié",
+      "pr": 76,
       "mesureAttendue": "Impressions et position sur claude code entreprise / claude code prix à 4 et 8 semaines (GSC).",
       "resultat": null,
       "origine": "Cluster Claude décidé par Simon le 5 octobre 2026 (lot D)."
@@ -696,8 +702,8 @@
         "https://support.claude.com/en/articles/13837440"
       ],
       "semainePrevue": "2026-W41",
-      "statut": "en cours",
-      "pr": null,
+      "statut": "publié",
+      "pr": 76,
       "mesureAttendue": "Page indexée puis impressions sur « claude plugins ».",
       "resultat": null,
       "origine": "Session du 5 octobre 2026 : cluster Claude autour du guide claude-pme, demandé par Simon (intention commerciale, sous-traitance, leads)."
@@ -715,8 +721,8 @@
         "https://support.claude.com/en/articles/14604416"
       ],
       "semainePrevue": "2026-W41",
-      "statut": "en cours",
-      "pr": null,
+      "statut": "publié",
+      "pr": 76,
       "mesureAttendue": "Page indexée puis impressions sur « claude design » et « claude design avis ».",
       "resultat": null,
       "origine": "Session du 5 octobre 2026 : cluster Claude autour du guide claude-pme, demandé par Simon (intention commerciale, sous-traitance, leads)."
@@ -735,8 +741,8 @@
         "https://support.claude.com/en/articles/16761823"
       ],
       "semainePrevue": "2026-W41",
-      "statut": "en cours",
-      "pr": null,
+      "statut": "publié",
+      "pr": 76,
       "mesureAttendue": "Maintenir ou gagner des positions sur « claude cowork » ; départ : page inconnue de Google à la dernière collecte.",
       "resultat": null,
       "origine": "Session du 5 octobre 2026 : cluster Claude autour du guide claude-pme, demandé par Simon (intention commerciale, sous-traitance, leads)."
@@ -752,9 +758,9 @@
       "sourcesALire": [
         "Voir le champ sources de la page"
       ],
-      "statut": "en cours",
+      "statut": "publié",
       "semainePrevue": "2026-W41",
-      "pr": null,
+      "pr": 78,
       "origine": "audit SEO du 5 octobre 2026, requête cible mesurée dans keywords.json",
       "mesureAttendue": "Impressions, position et clics de la requête cible à W45 ; leads par ressource.",
       "resultat": null
@@ -770,9 +776,9 @@
       "sourcesALire": [
         "Voir le champ sources de la page"
       ],
-      "statut": "en cours",
+      "statut": "publié",
       "semainePrevue": "2026-W41",
-      "pr": null,
+      "pr": 78,
       "origine": "audit SEO du 5 octobre 2026, requête cible mesurée dans keywords.json",
       "mesureAttendue": "Impressions, position et clics de la requête cible à W45 ; leads par ressource.",
       "resultat": null
@@ -788,9 +794,9 @@
       "sourcesALire": [
         "Voir le champ sources de la page"
       ],
-      "statut": "en cours",
+      "statut": "publié",
       "semainePrevue": "2026-W41",
-      "pr": null,
+      "pr": 78,
       "origine": "audit SEO du 5 octobre 2026, requête cible mesurée dans keywords.json",
       "mesureAttendue": "Impressions, position et clics de la requête cible à W45 ; leads par ressource.",
       "resultat": null
@@ -806,9 +812,9 @@
       "sourcesALire": [
         "Voir le champ sources de la page"
       ],
-      "statut": "en cours",
+      "statut": "publié",
       "semainePrevue": "2026-W41",
-      "pr": null,
+      "pr": 78,
       "origine": "audit SEO du 5 octobre 2026, requête cible mesurée dans keywords.json",
       "mesureAttendue": "Impressions, position et clics de la requête cible à W45 ; leads par ressource.",
       "resultat": null
@@ -824,9 +830,9 @@
       "sourcesALire": [
         "Voir le champ sources de la page"
       ],
-      "statut": "en cours",
+      "statut": "publié",
       "semainePrevue": "2026-W41",
-      "pr": null,
+      "pr": 78,
       "origine": "audit SEO du 5 octobre 2026, requête cible mesurée dans keywords.json",
       "mesureAttendue": "Impressions, position et clics de la requête cible à W45 ; leads par ressource.",
       "resultat": null
@@ -842,9 +848,9 @@
       "sourcesALire": [
         "Voir le champ sources de la page"
       ],
-      "statut": "en cours",
+      "statut": "publié",
       "semainePrevue": "2026-W41",
-      "pr": null,
+      "pr": 78,
       "origine": "audit SEO du 5 octobre 2026, requête cible mesurée dans keywords.json",
       "mesureAttendue": "Impressions, position et clics de la requête cible à W45 ; leads par ressource.",
       "resultat": null
@@ -860,9 +866,9 @@
       "sourcesALire": [
         "Voir le champ sources de la page"
       ],
-      "statut": "en cours",
+      "statut": "publié",
       "semainePrevue": "2026-W41",
-      "pr": null,
+      "pr": 78,
       "origine": "audit SEO du 5 octobre 2026, requête cible mesurée dans keywords.json",
       "mesureAttendue": "Impressions, position et clics de la requête cible à W45 ; leads par ressource.",
       "resultat": null
@@ -878,9 +884,9 @@
       "sourcesALire": [
         "Voir le champ sources de la page"
       ],
-      "statut": "en cours",
+      "statut": "publié",
       "semainePrevue": "2026-W41",
-      "pr": null,
+      "pr": 78,
       "origine": "audit SEO du 5 octobre 2026, requête cible mesurée dans keywords.json",
       "mesureAttendue": "Impressions, position et clics de la requête cible à W45 ; leads par ressource.",
       "resultat": null
@@ -896,9 +902,9 @@
       "sourcesALire": [
         "Voir le champ sources de la page"
       ],
-      "statut": "en cours",
+      "statut": "publié",
       "semainePrevue": "2026-W41",
-      "pr": null,
+      "pr": 78,
       "origine": "audit SEO du 5 octobre 2026, requête cible mesurée dans keywords.json",
       "mesureAttendue": "Impressions, position et clics de la requête cible à W45 ; leads par ressource.",
       "resultat": null
@@ -915,8 +921,8 @@
         "Voir le champ sources de la page"
       ],
       "semainePrevue": "2026-W41",
-      "statut": "en cours",
-      "pr": null,
+      "statut": "publié",
+      "pr": 78,
       "mesureAttendue": "Impressions, position et clics de la requête cible à W45 ; leads par ressource.",
       "resultat": null,
       "origine": "docs/seo/keywords.json : requête suivie (KD ≤ 31) retenue par le chantier maillage du 6 octobre 2026 ; cible déplacée vers l'article."
@@ -933,8 +939,8 @@
         "Voir le champ sources de la page"
       ],
       "semainePrevue": "2026-W41",
-      "statut": "en cours",
-      "pr": null,
+      "statut": "publié",
+      "pr": 78,
       "mesureAttendue": "Impressions, position et clics de la requête cible à W45 ; leads par ressource.",
       "resultat": null,
       "origine": "docs/seo/keywords.json : requête suivie (KD ≤ 31) retenue par le chantier maillage du 6 octobre 2026 ; cible déplacée vers l'article. Couvre aussi « formation ia qualiopi »."
@@ -951,8 +957,8 @@
         "Voir le champ sources de la page"
       ],
       "semainePrevue": "2026-W41",
-      "statut": "en cours",
-      "pr": null,
+      "statut": "publié",
+      "pr": 78,
       "mesureAttendue": "Impressions, position et clics de la requête cible à W45 ; leads par ressource.",
       "resultat": null,
       "origine": "docs/seo/keywords.json : requête suivie (KD ≤ 31) retenue par le chantier maillage du 6 octobre 2026 ; cible déplacée vers l'article."
@@ -969,8 +975,8 @@
         "Voir le champ sources de la page"
       ],
       "semainePrevue": "2026-W41",
-      "statut": "en cours",
-      "pr": null,
+      "statut": "publié",
+      "pr": 78,
       "mesureAttendue": "Impressions, position et clics de la requête cible à W45 ; leads par ressource.",
       "resultat": null,
       "origine": "docs/seo/keywords.json : requête suivie (KD ≤ 31) retenue par le chantier maillage du 6 octobre 2026 ; cible déplacée vers l'article."
@@ -987,11 +993,225 @@
         "Voir le champ sources de la page"
       ],
       "semainePrevue": "2026-W41",
-      "statut": "en cours",
-      "pr": null,
+      "statut": "publié",
+      "pr": 80,
       "mesureAttendue": "Impressions, position et clics sur « n8n c'est quoi » (590) et « c'est quoi n8n » (70) à W45 ; clics vers /services/automatisation-n8n.",
       "resultat": null,
       "origine": "Keyword Gap Semrush du 6/10/2026 (docs/seo/semrush/2026-10-06-recherche-semrush.md, section 5) : « n8n c'est quoi » (590, KD 19, informationnel, kayro.ai position 57, tensoria.fr position 36) et « c'est quoi n8n » (70, KD 19) font partie des 18 requêtes absentes de waimia.com ; article dédié en maillage vers la page agence n8n."
+    },
+    {
+      "id": "w42-revision-cout-agent-ia-haiku-5-5",
+      "type": "révision",
+      "titreProvisoire": "Combien coûte un agent IA : prix du modèle mis à jour (Claude Haiku 5.5, crédits API Team)",
+      "requeteCible": "combien coûte un agent ia",
+      "intention": "Chiffrer un agent IA avant de le lancer.",
+      "urlCible": "/ressources/guides/combien-coute-un-agent-ia-pme",
+      "angle": "Règle 4.1-4 : la page chiffrait le modèle avec Claude Haiku 4.5 (1 $ / 5 $), présenté comme le choix pour le tri. Haiku 5.5 (7 octobre 2026) coûte 0,10 $ / 0,50 $ sous 100 000 tokens. Ajouts absents des premiers résultats lus le 12 octobre 2026 : correction du compte de tokens (environ 30 % de plus à partir des modèles 4.7), exemple recalculé (0,59 $ contre 4,50 $ pour 1 000 e-mails), crédits API mensuels inclus dans les offres Team et Max, consigne de rejouer ses cas avant de migrer.",
+      "sourcesALire": [
+        "https://www.anthropic.com/claude-haiku-5-5 (source primaire, lue le 12 octobre 2026)",
+        "https://platform.claude.com/docs/en/about-claude/pricing (source primaire, lue le 12 octobre 2026)",
+        "https://support.claude.com/en/articles/17154008-monthly-api-credits-for-max-and-team-plans (source primaire, lue le 12 octobre 2026)",
+        "https://www.the-intelligence-academy.com/blog/cout-agent-ia-pme-budget-roi (lu le 12 octobre 2026)",
+        "https://www.studeria.fr/articles-de-blog/cout-agent-ia-production-pme-2026 (lu le 12 octobre 2026)",
+        "https://kolonell.com/fr/blog/agent-ia-service-client-pme-cout-integration-2026 (lu le 12 octobre 2026)",
+        "https://www.mission-open-data.fr/budget-ia-pme-2026-guide-complet/ (lu le 12 octobre 2026)",
+        "https://omidsaffari.com/fr/blog/agent-ia-prix-cout-mensuel (lu le 12 octobre 2026)",
+        "https://www.koino.fr/articles/employes-ia-pme-comparatif-limova-delos-alternatives-2026 (lu le 12 octobre 2026)"
+      ],
+      "semainePrevue": "2026-W42",
+      "statut": "en cours",
+      "pr": null,
+      "mesureAttendue": "Page absente de performance.byPage sur 28 jours à la collecte du 11 octobre 2026, indexée à cette collecte (première inspection). Attendu : premières impressions sur « combien coûte un agent ia ». À juger à partir de 2026-W45.",
+      "resultat": null,
+      "origine": "docs/seo/data/latest.json, collecte du 11 octobre 2026, feeds.entries : « Anthropic lance Claude Haiku 5.5 » (Le Monde Informatique, 9 octobre 2026), « Anthropic lance Claude Haiku 5.5, son modèle le plus rapide » (Blog du Modérateur, 8 octobre 2026), « App update: Claude Haiku 5.5 is available in Make » (Make Community, 10 octobre 2026). Annonce lue le 12 octobre 2026."
+    },
+    {
+      "id": "w42-revision-claude-platform-vs-openai-haiku-5-5",
+      "type": "révision",
+      "titreProvisoire": "Claude Platform ou OpenAI Platform : petits modèles au même prix",
+      "requeteCible": "claude platform vs openai platform",
+      "intention": "Choisir une plateforme d'API pour un projet d'IA.",
+      "urlCible": "/ressources/comparatifs/claude-platform-vs-openai-platform",
+      "angle": "Règle 4.1-4 : la page affirmait que GPT-6 Luna coûte dix fois moins cher que Claude Haiku 4.5. Depuis le 7 octobre 2026, Claude Haiku 5.5 est au même prix public que GPT-6 Luna (0,10 $ / 0,50 $). Ajouts absents des premiers résultats lus le 12 octobre 2026 (qui citent encore Haiku 4.5 ou Sonnet 4.6) : seuils de contexte long différents, écart de comptage des tokens, baisse du prix des lectures en cache de Sonnet 5.5 alignée sur GPT-6.1 Sol.",
+      "sourcesALire": [
+        "https://www.anthropic.com/claude-haiku-5-5 (source primaire, lue le 12 octobre 2026)",
+        "https://platform.claude.com/docs/en/about-claude/pricing (source primaire, lue le 12 octobre 2026)",
+        "https://developers.openai.com/api/docs/pricing (source primaire, lue le 12 octobre 2026)",
+        "https://tensoria.fr/blog/api-claude-openai-mistral-integrer-ia-logiciel (lu le 12 octobre 2026)",
+        "https://www.kunalganglani.com/blog/claude-api-vs-openai-api-2026 (lu le 12 octobre 2026)",
+        "https://costbench.com/compare/openai-vs-claude/ (lu le 12 octobre 2026)",
+        "https://enterprisedna.co/resources/blog/claude-api-vs-chatgpt-api (lu le 12 octobre 2026)",
+        "https://redresscompliance.com/anthropic-claude-pricing-2026.html (lu le 12 octobre 2026)"
+      ],
+      "semainePrevue": "2026-W42",
+      "statut": "en cours",
+      "pr": null,
+      "mesureAttendue": "Page : 6 impressions, position 22,5 sur 28 jours à la collecte du 11 octobre 2026, indexée depuis cette collecte. Attendu : plus de 30 impressions sur 28 jours. À juger à partir de 2026-W45.",
+      "resultat": null,
+      "origine": "Même origine que w42-revision-cout-agent-ia-haiku-5-5 (trois entrées de flux de sources différentes sur Claude Haiku 5.5, collecte du 11 octobre 2026), et « ChatGPT passe à GPT-6 » (Blog du Modérateur, 8 octobre 2026). Page de prix d'OpenAI relue le 12 octobre 2026 : GPT-6 Luna inchangé à 0,10 $ / 0,50 $."
+    },
+    {
+      "id": "w43-revision-agent-ia-definition-haiku-5-5",
+      "type": "révision",
+      "titreProvisoire": "Agent IA, définition : exemple de coût recalculé avec Claude Haiku 5.5",
+      "requeteCible": "agents ia c'est quoi",
+      "intention": "Chiffrer correctement le coût d'un modèle de langage dans un projet.",
+      "urlCible": "/ressources/guides/agent-ia-definition",
+      "angle": "Règle 4.1-4 : remplacer les calculs faits avec Claude Haiku 4.5 par Claude Haiku 5.5 (0,10 $ / 0,50 $ sous 100 000 tokens, environ 30 % de tokens de plus pour un même texte), relire la grille d'Anthropic le jour de la révision, garder Haiku 4.5 en comparaison s'il est encore proposé.",
+      "sourcesALire": [
+        "https://platform.claude.com/docs/en/about-claude/pricing",
+        "https://www.anthropic.com/claude-haiku-5-5",
+        "Premiers résultats de la requête cible"
+      ],
+      "semainePrevue": "2026-W43",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Valeur de départ à relever dans la collecte de la semaine de la révision. Attendu : page indexée, prix du modèle exacts à la date de révision. À juger deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "Sortie de Claude Haiku 5.5 le 7 octobre 2026 (annonce lue le 12 octobre 2026 : https://www.anthropic.com/claude-haiku-5-5) ; la page cite Claude Haiku 4.5 comme modèle de référence pour ses calculs de coût (relevé par grep le 12 octobre 2026). Plafond de révisions de 2026-W42 atteint."
+    },
+    {
+      "id": "w44-revision-n8n-prix-haiku-5-5",
+      "type": "révision",
+      "titreProvisoire": "Prix de n8n : coût du modèle recalculé avec Claude Haiku 5.5",
+      "requeteCible": "n8n prix",
+      "intention": "Chiffrer correctement le coût d'un modèle de langage dans un projet.",
+      "urlCible": "/ressources/guides/n8n-prix",
+      "angle": "Règle 4.1-4 : remplacer les calculs faits avec Claude Haiku 4.5 par Claude Haiku 5.5 (0,10 $ / 0,50 $ sous 100 000 tokens, environ 30 % de tokens de plus pour un même texte), relire la grille d'Anthropic le jour de la révision, garder Haiku 4.5 en comparaison s'il est encore proposé.",
+      "sourcesALire": [
+        "https://platform.claude.com/docs/en/about-claude/pricing",
+        "https://www.anthropic.com/claude-haiku-5-5",
+        "Premiers résultats de la requête cible"
+      ],
+      "semainePrevue": "2026-W44",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Valeur de départ à relever dans la collecte de la semaine de la révision. Attendu : page indexée, prix du modèle exacts à la date de révision. À juger deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "Sortie de Claude Haiku 5.5 le 7 octobre 2026 (annonce lue le 12 octobre 2026 : https://www.anthropic.com/claude-haiku-5-5) ; la page cite Claude Haiku 4.5 comme modèle de référence pour ses calculs de coût (relevé par grep le 12 octobre 2026). Plafond de révisions de 2026-W42 atteint."
+    },
+    {
+      "id": "w48-revision-trier-emails-haiku-5-5",
+      "type": "révision",
+      "titreProvisoire": "Trier les e-mails entrants avec Claude et n8n : modèle et coût mis à jour",
+      "requeteCible": "trier emails claude n8n",
+      "intention": "Chiffrer correctement le coût d'un modèle de langage dans un projet.",
+      "urlCible": "/blog/trier-emails-entrant-claude-n8n",
+      "angle": "Règle 4.1-4 : remplacer les calculs faits avec Claude Haiku 4.5 par Claude Haiku 5.5 (0,10 $ / 0,50 $ sous 100 000 tokens, environ 30 % de tokens de plus pour un même texte), relire la grille d'Anthropic le jour de la révision, garder Haiku 4.5 en comparaison s'il est encore proposé.",
+      "sourcesALire": [
+        "https://platform.claude.com/docs/en/about-claude/pricing",
+        "https://www.anthropic.com/claude-haiku-5-5",
+        "Premiers résultats de la requête cible"
+      ],
+      "semainePrevue": "2026-W48",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Valeur de départ à relever dans la collecte de la semaine de la révision. Attendu : page indexée, prix du modèle exacts à la date de révision. À juger deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "Sortie de Claude Haiku 5.5 le 7 octobre 2026 (annonce lue le 12 octobre 2026 : https://www.anthropic.com/claude-haiku-5-5) ; la page cite Claude Haiku 4.5 comme modèle de référence pour ses calculs de coût (relevé par grep le 12 octobre 2026). Plafond de révisions de 2026-W42 atteint."
+    },
+    {
+      "id": "w49-revision-roi-automatisation-haiku-5-5",
+      "type": "révision",
+      "titreProvisoire": "ROI d'une automatisation : coût du modèle mis à jour",
+      "requeteCible": "roi automatisation",
+      "intention": "Chiffrer correctement le coût d'un modèle de langage dans un projet.",
+      "urlCible": "/ressources/guides/roi-automatisation",
+      "angle": "Règle 4.1-4 : remplacer les calculs faits avec Claude Haiku 4.5 par Claude Haiku 5.5 (0,10 $ / 0,50 $ sous 100 000 tokens, environ 30 % de tokens de plus pour un même texte), relire la grille d'Anthropic le jour de la révision, garder Haiku 4.5 en comparaison s'il est encore proposé.",
+      "sourcesALire": [
+        "https://platform.claude.com/docs/en/about-claude/pricing",
+        "https://www.anthropic.com/claude-haiku-5-5",
+        "Premiers résultats de la requête cible"
+      ],
+      "semainePrevue": "2026-W49",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Valeur de départ à relever dans la collecte de la semaine de la révision. Attendu : page indexée, prix du modèle exacts à la date de révision. À juger deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "Sortie de Claude Haiku 5.5 le 7 octobre 2026 (annonce lue le 12 octobre 2026 : https://www.anthropic.com/claude-haiku-5-5) ; la page cite Claude Haiku 4.5 comme modèle de référence pour ses calculs de coût (relevé par grep le 12 octobre 2026). Plafond de révisions de 2026-W42 atteint."
+    },
+    {
+      "id": "w44-guide-application-metier",
+      "type": "guide",
+      "titreProvisoire": "Application métier : définition, exemples et coût pour une PME",
+      "requeteCible": "application métier",
+      "intention": "Comprendre ce qu'est une application métier et si son entreprise en a besoin.",
+      "urlCible": "/ressources/guides/application-metier",
+      "angle": "Hypothèse à vérifier en ligne : définition nette, exemples par fonction (devis, planning, suivi de chantier), coût sur trois ans avec les prix de src/data/pricing.ts, « ne le faites pas si », lien vers le comparatif CRM sur mesure et vers la page service.",
+      "sourcesALire": [
+        "Premiers résultats de « application métier », « application métier sur mesure », « logiciel métier exemple »",
+        "src/content/services/applications-internes.json (ne pas dupliquer)",
+        "src/content/blog/applications-internes-build-vs-buy-pme.json",
+        "Pages de sparkyflow.com sur les outils métier (competitors.json)"
+      ],
+      "semainePrevue": "2026-W44",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Requêtes « application métier » et « application métier sur mesure » : aucune impression sur 28 jours à la collecte du 11 octobre 2026. Attendu : page indexée et premières impressions sur « application métier ». À juger deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "docs/seo/keywords.json : quatre requêtes (« application métier » priorité 1, « application métier sur mesure » priorité 1, « logiciel sur mesure », « développement logiciel sur mesure ») visent toutes /services/applications-internes, une page de vente, alors que « application métier » porte une intention d'information ; aucune impression sur ces requêtes à la collecte du 11 octobre 2026."
+    },
+    {
+      "id": "w45-guide-claude-tpe",
+      "type": "guide",
+      "titreProvisoire": "Claude pour une TPE : par où commencer, avec quel abonnement, pour quoi faire",
+      "requeteCible": "claude tpe",
+      "intention": "Savoir si et comment utiliser Claude dans une entreprise de moins de 10 personnes.",
+      "urlCible": "/ressources/guides/claude-tpe",
+      "angle": "Hypothèse à vérifier en ligne : les requêtes « claude tpe » se répartissent sur quatre pages qui parlent toutes de PME ; une page dédiée aux structures de 1 à 10 personnes (abonnement Pro ou Team, trois usages de départ, ce qu'il ne faut pas confier). Vérifier d'abord qu'une révision de /ressources/guides/claude-pme ne suffit pas (risque de cannibalisation).",
+      "sourcesALire": [
+        "Premiers résultats de « claude tpe », « utiliser claude tpe », « bonnes pratiques claude tpe »",
+        "src/content/guides/claude-pme.json et claude-for-small-business.json (ne pas dupliquer)",
+        "https://claude.com/pricing (source primaire, à relire)"
+      ],
+      "semainePrevue": "2026-W45",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Collecte du 11 octobre 2026 : « claude tpe » 8 impressions en position 36,8 ; variantes (« utiliser », « test », « sensibilisation », « bonnes pratiques », « diagnostic ») classées sur quatre pages différentes, entre les positions 26 et 86. Attendu : une seule page classée sur ces requêtes. À juger deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "docs/seo/data/2026-W41/gsc-performance.json (collecte du 11 octobre 2026), byPageQuery : au moins huit variantes de « claude tpe » réparties sur /ressources/guides/claude-pme, /ressources/comparatifs/claude-vs-chatgpt-pme, /ressources/guides/claude-fonctionnalites-pme et /services/integration-claude, aucune en dessous de la position 26."
+    },
+    {
+      "id": "w47-guide-claude-finance-pme",
+      "type": "guide",
+      "titreProvisoire": "Claude pour la finance d'une PME : factures fournisseurs, clôture, trésorerie",
+      "requeteCible": "claude finance",
+      "intention": "Savoir ce que Claude peut faire pour une direction financière de PME.",
+      "urlCible": "/ressources/guides/claude-finance-pme",
+      "angle": "Hypothèse à vérifier en ligne : claudin.tech publie une série d'articles par tâche ; la page doit apporter une vue d'ensemble décisionnelle (quelles tâches, avec quel produit Claude, quelle validation humaine), l'effet de la facturation électronique obligatoire (réception depuis le 1er septembre 2026 d'après la DGFiP, à relire en source primaire), et un retour d'expérience tiré de src/content/cases/ s'il en existe un.",
+      "sourcesALire": [
+        "Premiers résultats de « claude finance », « ia direction financière pme », « claude comptabilité »",
+        "https://www.claudin.tech/blog/cloture-mensuelle-ia-pme (lu le 12 octobre 2026)",
+        "https://www.claudin.tech/blog/traitement-factures-fournisseurs-ia (lu le 12 octobre 2026)",
+        "Fiche de la DGFiP sur la facturation électronique (source primaire, à lire)",
+        "src/content/cas-usages/finance-comptabilite.json et blog/formation-ia-finance-pme.json (ne pas dupliquer)"
+      ],
+      "semainePrevue": "2026-W47",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Requête « claude finance » : aucune impression sur 28 jours à la collecte du 11 octobre 2026. Attendu : page indexée et premières impressions. À juger deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "docs/seo/keywords.json : « claude finance » vise /ressources/guides/claude-pme, guide général. docs/seo/data/latest.json (collecte du 11 octobre 2026), competitors.rows : claudin.tech publie six nouvelles pages finance (clôture mensuelle, factures fournisseurs, rapprochement bancaire, trésorerie, relance d'impayés, appels d'offres), dont deux lues le 12 octobre 2026."
+    },
+    {
+      "id": "w48-article-agent-ia-entreprise-exemples",
+      "type": "article",
+      "titreProvisoire": "Agent IA en entreprise : exemples concrets par fonction, et ce qu'ils demandent",
+      "requeteCible": "agent ia entreprise",
+      "intention": "Voir à quoi sert un agent IA dans une entreprise réelle avant d'en lancer un.",
+      "urlCible": "/blog/agent-ia-entreprise-exemples",
+      "angle": "Hypothèse à vérifier en ligne : exemples par fonction tirés des cas réels de src/content/cases/ (Brow.X, Les Carnets de Montpellier) et des cas d'usage du site, avec pour chacun le niveau d'autonomie, la validation humaine et le coût d'usage daté. Vérifier qu'une révision de /ressources/guides/agent-ia-definition ne suffit pas.",
+      "sourcesALire": [
+        "Premiers résultats de « agent ia entreprise », « exemple agent ia », « agent ia pme »",
+        "src/content/guides/agent-ia-definition.json et services/agents-ia.json (ne pas dupliquer)",
+        "Pages de limova.ai et kayro.ai (competitors.json)"
+      ],
+      "semainePrevue": "2026-W48",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Requête « agent ia entreprise » : aucune impression sur 28 jours à la collecte du 11 octobre 2026 ; « agent ia » 18 impressions en position 89,9, classée sur /ressources/guides/agent-ia-definition au lieu de la cible. Attendu : page indexée et premières impressions sur « agent ia entreprise ». À juger deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "docs/seo/keywords.json : « agent ia entreprise » (priorité 1) vise /services/agents-ia, page de vente ; docs/seo/data/latest.json (collecte du 11 octobre 2026), keywords.rows : « agent ia » et « agents ia » onTarget faux."
     }
   ]
 }
