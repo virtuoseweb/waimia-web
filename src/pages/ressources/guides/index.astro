@@ -1,0 +1,36 @@
+---
+// Page · /ressources/guides · vue filtrée du hub Ressources (rétablie 2026-10-12, ex-301 vers /ressources).
+export const prerender = true;
+
+// Même composant que /ressources (ResourcesHub), HTML filtré côté serveur sur le type
+// « guides » : URL propre, canonical auto-référent, title/description/H1 uniques.
+// Indexation CALCULÉE (src/lib/seo/hub-index.ts) : indexée dès 3 items indexables.
+import Base from '../../../layouts/Base.astro';
+import ResourcesHub from '../../../components/ui/organisms/ResourcesHub.astro';
+import { SITE } from '../../../site.config';
+import { buildCollectionPage } from '../../../lib/seo/schema-builder';
+import { getResourceItems } from '../../../lib/resources-hub';
+import { hubNoindex } from '../../../lib/seo/hub-index';
+import { RESOURCE_VIEWS } from '../../../data/ressources-hub-sections';
+import { langFromPath } from '../../../lib/i18n';
+
+const lang = langFromPath(Astro.url.pathname);
+const isFr = lang === 'fr';
+const v = RESOURCE_VIEWS.guides;
+const items = await getResourceItems();
+const shown = items.filter((i) => i.kind === 'guides');
+
+const collectionLd = buildCollectionPage(
+  isFr ? v.collection_name_fr : v.collection_name_en,
+  isFr ? v.collection_desc_fr : v.collection_desc_en,
+  shown.map((i) => `${SITE.url}${i.href}`),
+);
+---
+<Base
+  title={isFr ? v.title_fr : v.title_en}
+  description={isFr ? v.description_fr : v.description_en}
+  jsonLd={collectionLd}
+  noindex={hubNoindex(shown.length)}
+>
+  <ResourcesHub items={items} activeKind="guides" />
+</Base>

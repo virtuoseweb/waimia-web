@@ -23,14 +23,15 @@ import {
 } from '../../../data/ressources-hub-sections';
 
 // Organism · ResourcesHub · corps du hub Ressources (en-tête + pastilles + liste + newsletter
-// + CTA), partagé par /ressources, /ressources/outils et /ressources/comparatifs.
+// + CTA), partagé par /ressources, /ressources/outils, /ressources/comparatifs et
+// /ressources/guides.
 //   • `items` = liste complète (src/lib/resources-hub.ts) : même source pour les trois pages.
 //   • `activeKind` absent = index de tous les types ; sinon vue filtrée côté serveur (seules
 //     les cartes du type sont dans le HTML). Les pastilles sont de vrais liens.
 // Le fil d'Ariane (MastheadBar) n'est rendu que sur les vues filtrées.
 interface Props {
   items: ResourceItem[];
-  activeKind?: Extract<ResourceKind, 'outils' | 'comparatifs'>;
+  activeKind?: Extract<ResourceKind, 'outils' | 'comparatifs' | 'guides'>;
 }
 const { items, activeKind } = Astro.props as Props;
 const lang = langFromPath(Astro.url.pathname);
@@ -94,17 +95,18 @@ for (let i = 0; i < shown.length; i += GRID_MAX) {
       read_time_en: it.read_time,
       href: it.href,
       silo: it.silo,
+      image: it.image,
+      tint: it.tint,
     })),
   });
 }
 
-// ── Pastilles : de vrais liens. « Guides » reste une ancre CSS sur /ressources (le hub
-// /ressources/guides n'existe plus) ; « Articles » mène au hub des articles, /blog. ──
+// ── Pastilles : de vrais liens, une URL par vue ; « Articles » mène au hub des articles, /blog. ──
 const chips = [
   { key: 'all', label: isFr ? 'Tous' : 'All', n: items.length, href: '/ressources', current: !activeKind },
   { key: 'comparatifs', label: isFr ? 'Comparatifs' : 'Comparisons', n: count('comparatifs'), href: '/ressources/comparatifs', current: activeKind === 'comparatifs' },
   { key: 'outils', label: isFr ? 'Outils' : 'Tools', n: count('outils'), href: '/ressources/outils', current: activeKind === 'outils' },
-  { key: 'guides', label: isFr ? 'Guides' : 'Guides', n: count('guides'), href: '/ressources#type-guides', current: false },
+  { key: 'guides', label: isFr ? 'Guides' : 'Guides', n: count('guides'), href: '/ressources/guides', current: activeKind === 'guides' },
   { key: 'articles', label: isFr ? 'Articles' : 'Articles', n: count('articles'), href: '/blog', current: false },
 ].filter((c) => c.n > 0);
 
@@ -133,9 +135,6 @@ const listTitle = activeKind
       </div>
     </Fragment>
     <Fragment slot="list">
-      {/* Ancre du filtre « Guides » (vue /ressources uniquement) : cible :target, placée en
-          tête de liste ; le saut d'ancre amène le lecteur sur la liste filtrée. */}
-      {!activeKind && <span class="res-anchor" id="type-guides" aria-hidden="true"></span>}
       <h2 class="sr-only">{listTitle}</h2>
       <div class="res-list">
         {grids.map((g) => <ArticleGrid data={g} lang={lang} />)}
@@ -212,26 +211,13 @@ const listTitle = activeKind
   :global(.res-silos) { margin-top: var(--space-4); margin-bottom: 0; }
   .res-chip-n { font-family: var(--font-mono); color: var(--muted); }
 
-  /* Pastille active : celle de la vue courante (aria-current="page"). Sur /ressources, le
-     filtre « Guides » est une ancre CSS (#type-guides) : quand elle est ciblée, c'est la
-     pastille Guides qui devient active et « Tous » reprend l'aspect neutre. */
-  .res-chip[aria-current='page'],
-  .res-index:has(#type-guides:target) .res-chip[href$='#type-guides'] {
+  /* Pastille active : celle de la vue courante (aria-current="page"). */
+  .res-chip[aria-current='page'] {
     background: var(--ink);
     border-color: var(--ink);
     color: var(--paper);
   }
-  .res-chip[aria-current='page'] .res-chip-n,
-  .res-index:has(#type-guides:target) .res-chip[href$='#type-guides'] .res-chip-n { color: inherit; }
-  .res-index:has(#type-guides:target) .res-chip[aria-current='page'] {
-    background: transparent;
-    border-color: var(--hairline);
-    color: var(--ink);
-  }
-  .res-index:has(#type-guides:target) .res-chip[aria-current='page'] .res-chip-n { color: var(--muted); }
-
-  /* Ancres : la cible de saut tient compte de l'en-tête fixe. */
-  .res-anchor { display: block; scroll-margin-top: 96px; }
+  .res-chip[aria-current='page'] .res-chip-n { color: inherit; }
 
   /* Grilles successives fondues en UNE grille : les sections article-grid (12 cartes au plus
      chacune) et leurs conteneurs passent en `display: contents`, les cartes deviennent les
@@ -249,12 +235,6 @@ const listTitle = activeKind
   @media (max-width: 980px) { .res-list { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 768px) { .res-list { margin-top: calc(-1 * var(--space-5)); } }
   @media (max-width: 640px) { .res-list { grid-template-columns: 1fr; } }
-
-  /* ── Filtre « Guides » sur /ressources (ancre CSS) : masque les cartes hors guides.
-     Les autres types sont de vraies pages filtrées côté serveur (aucun masquage CSS). ── */
-  .res-index:has(#type-guides:target) .res-list :global(.article-card:not([href^='/ressources/guides/'])) {
-    display: none;
-  }
 
   .hub-nl { padding: var(--space-12) var(--space-6); background: var(--ink); color: var(--paper); }
   .hub-nl-wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--space-10); align-items: center; }
