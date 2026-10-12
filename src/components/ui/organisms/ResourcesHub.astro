@@ -103,7 +103,7 @@ for (let i = 0; i < shown.length; i += GRID_MAX) {
 
 // ── Pastilles : de vrais liens, une URL par vue ; « Articles » mène au hub des articles, /blog. ──
 const chips = [
-  { key: 'all', label: isFr ? 'Tous' : 'All', n: items.length, href: '/ressources', current: !activeKind },
+  { key: 'all', label: isFr ? 'Toutes les ressources' : 'All resources', n: items.length, href: '/ressources', current: !activeKind },
   { key: 'comparatifs', label: isFr ? 'Comparatifs' : 'Comparisons', n: count('comparatifs'), href: '/ressources/comparatifs', current: activeKind === 'comparatifs' },
   { key: 'outils', label: isFr ? 'Outils' : 'Tools', n: count('outils'), href: '/ressources/outils', current: activeKind === 'outils' },
   { key: 'guides', label: isFr ? 'Guides' : 'Guides', n: count('guides'), href: '/ressources/guides', current: activeKind === 'guides' },
@@ -124,14 +124,59 @@ const listTitle = activeKind
   <ListIndexSection data={head} lang={lang}>
     <Fragment slot="filters">
       <div class="res-filters-stack">
-      <nav class="res-filters" aria-label={isFr ? 'Filtrer par type' : 'Filter by type'}>
-        {chips.map((c) => (
-          <a class="res-chip" href={c.href} aria-current={c.current ? 'page' : undefined}>
-            {c.label} <span class="res-chip-n">{c.n}</span>
-          </a>
-        ))}
-      </nav>
-      <SiloFilter silos={shown.map((i) => i.silo)} lang={lang} class="res-silos" />
+      {/* Recherche dans TOUTES les ressources, quelle que soit la vue. Masquée sans JS (le
+          script retire `hidden`) : sans JS, la page reste la liste des cartes. */}
+      <div class="res-search" data-res-search data-lang={lang} data-index="/ressources/search-index.json" hidden>
+        <label for="res-q" class="sr-only">{isFr ? 'Rechercher dans toutes les ressources' : 'Search all resources'}</label>
+        <div class="res-search__field">
+          <svg class="res-search__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="1.8" />
+            <path d="M15.5 15.5 21 21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          </svg>
+          <input
+            id="res-q"
+            class="res-search__input"
+            type="search"
+            role="combobox"
+            aria-autocomplete="list"
+            aria-expanded="false"
+            aria-controls="res-q-list"
+            autocomplete="off"
+            autocapitalize="off"
+            spellcheck="false"
+            enterkeyhint="search"
+            placeholder={isFr ? 'Rechercher une ressource' : 'Search resources'}
+          />
+        </div>
+        <p class="res-search__status" role="status" data-res-status></p>
+        <div class="res-search__panel" data-res-panel hidden>
+          <p class="res-search__empty" data-res-empty hidden></p>
+          <div id="res-q-list" class="res-search__list" role="listbox" aria-label={isFr ? 'Résultats de la recherche' : 'Search results'} data-res-list></div>
+        </div>
+      </div>
+      {/* Deux niveaux de filtre : le TYPE (une URL par vue, contrôle segmenté) puis le THÈME
+          (puces discrètes, sur les cartes de la vue). Une rangée défilante chacun en mobile. */}
+      <div class="res-facets">
+        <div class="res-facet">
+          <span class="res-facet__label" aria-hidden="true">Type</span>
+          <nav class="res-filters" aria-label={isFr ? 'Type de ressource' : 'Resource type'}>
+            {chips.map((c) => (
+              <a class="res-chip" href={c.href} aria-current={c.current ? 'page' : undefined}>
+                {c.label} <span class="res-chip-n">{c.n}</span>
+              </a>
+            ))}
+          </nav>
+        </div>
+        <div class="res-facet res-facet--theme">
+          <span class="res-facet__label" aria-hidden="true">{isFr ? 'Thème' : 'Topic'}</span>
+          <SiloFilter
+            silos={shown.map((i) => i.silo)}
+            lang={lang}
+            class="res-silos"
+            allLabel={isFr ? 'Tous les thèmes' : 'All topics'}
+          />
+        </div>
+      </div>
       </div>
     </Fragment>
     <Fragment slot="list">
@@ -191,33 +236,247 @@ const listTitle = activeKind
      ListIndexSection est une rangée flex qui les mettait côte à côte). */
   .res-filters-stack { display: flex; flex-direction: column; align-items: flex-start; width: 100%; }
 
-  /* ── Filtres · pastilles (tokens DS existants, aucun token neuf) ── */
-  .res-filters { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+  /* ── Filtres à deux niveaux (tokens DS existants, aucun token neuf) ──
+     Niveau 1, TYPE : contrôle segmenté dans un cadre, segment actif en encre (une URL par vue).
+     Niveau 2, THÈME : puces sans cadre, soulignées quand actives, plus discrètes. Chaque
+     niveau porte son libellé dans une colonne fixe : la hiérarchie se lit sans les compteurs. */
+  .res-facets { display: flex; flex-direction: column; gap: var(--space-4); width: 100%; }
+  .res-facet {
+    display: grid;
+    grid-template-columns: 4.5rem minmax(0, 1fr);
+    /* Libellé aligné sur la PREMIÈRE ligne de puces (les thèmes passent sur deux lignes). */
+    align-items: baseline;
+    column-gap: var(--space-4);
+  }
+  .res-facet__label {
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono);
+    color: var(--muted);
+  }
+  /* Thème : masqué sans JS (SiloFilter reste `hidden`) ou quand la vue n'a qu'un thème. */
+  :global(.res-facet--theme:not(:has(.silo-filter:not([hidden])))) { display: none; }
+
+  .res-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1);
+    justify-self: start;
+    max-width: 100%;
+    padding: var(--space-1);
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-pill);
+  }
   .res-chip {
     display: inline-flex;
     align-items: baseline;
     gap: var(--space-2);
     padding: var(--space-2) var(--space-4);
-    border: 1px solid var(--hairline);
     border-radius: var(--radius-pill);
     font-family: var(--font-sans);
     font-size: var(--text-small);
     color: var(--ink);
     text-decoration: none;
-    transition: background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+    white-space: nowrap;
+    transition: background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
   }
-  .res-chip:hover { border-color: var(--ink); }
-  .res-chip:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 2px; }
-  :global(.res-silos) { margin-top: var(--space-4); margin-bottom: 0; }
+  .res-chip:hover { background: var(--paper-2); }
+  .res-chip:focus-visible { outline: 2px solid var(--accent-text); outline-offset: -2px; }
   .res-chip-n { font-family: var(--font-mono); color: var(--muted); }
-
-  /* Pastille active : celle de la vue courante (aria-current="page"). */
-  .res-chip[aria-current='page'] {
-    background: var(--ink);
-    border-color: var(--ink);
-    color: var(--paper);
-  }
+  /* Segment actif : la vue courante (aria-current="page"). */
+  .res-chip[aria-current='page'] { background: var(--ink); color: var(--paper); }
   .res-chip[aria-current='page'] .res-chip-n { color: inherit; }
+
+  .res-index :global(.res-silos) { margin: 0; gap: var(--space-1) var(--space-2); }
+  .res-index :global(.res-silos .silo-chip) {
+    padding: var(--space-1) var(--space-2);
+    background: transparent;
+    border: 0;
+    border-radius: var(--radius-xs);
+    color: var(--ink-2);
+    white-space: nowrap;
+  }
+  /* Indicateur sous la puce (libellé ET compteur), comme un onglet. */
+  .res-index :global(.res-silos .silo-chip:hover) { color: var(--ink); box-shadow: inset 0 -2px 0 var(--hairline-strong); }
+  .res-index :global(.res-silos .silo-chip:focus-visible) { outline-offset: -2px; }
+  .res-index :global(.res-silos .silo-chip[aria-pressed='true']) {
+    background: transparent;
+    color: var(--ink);
+    box-shadow: inset 0 -2px 0 var(--accent-text);
+  }
+  .res-index :global(.res-silos .silo-chip[aria-pressed='true'] .silo-chip-n) { color: var(--muted); }
+
+  @media (max-width: 640px) {
+    /* Une rangée défilante par niveau : le bloc de filtres garde deux lignes de haut. */
+    .res-facet { grid-template-columns: 3.5rem minmax(0, 1fr); column-gap: var(--space-3); }
+    .res-filters,
+    .res-index :global(.res-silos) {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x proximity;
+      scrollbar-width: none;
+    }
+    .res-filters::-webkit-scrollbar,
+    .res-index :global(.res-silos::-webkit-scrollbar) { display: none; }
+    .res-chip,
+    .res-index :global(.res-silos .silo-chip) {
+      flex: none;
+      align-items: center;
+      min-height: 2.75rem;
+      scroll-snap-align: start;
+    }
+    /* Fondu à droite : il reste des thèmes à faire défiler. */
+    .res-index :global(.res-silos) {
+      -webkit-mask-image: linear-gradient(to right, black calc(100% - var(--space-6)), transparent);
+      mask-image: linear-gradient(to right, black calc(100% - var(--space-6)), transparent);
+    }
+    /* En-tête resserré : des cartes visibles au-dessus de la ligne de flottaison. */
+    .res-index :global(.list-filters) { margin-top: var(--space-6); }
+    .res-index :global(.list-hd) { padding-bottom: var(--space-6); }
+  }
+
+  /* ── Recherche (tokens DS existants, aucun token neuf) ──
+     Les résultats s'ouvrent en flux sous le champ et REMPLACENT pastilles, thèmes et grille
+     tant que la requête est non vide : une seule liste à lire, et aucune pastille active
+     (« Outils ») ne laisse croire que la recherche, globale, est filtrée. */
+  .res-search { width: 100%; max-width: var(--wrap-read); margin-bottom: var(--space-6); }
+  .res-search[hidden] { display: none; }
+  .res-search__field { position: relative; }
+  .res-search__icon {
+    position: absolute;
+    left: var(--space-4);
+    top: 50%;
+    width: 1.25em;
+    height: 1.25em;
+    transform: translateY(-50%);
+    color: var(--muted);
+    pointer-events: none;
+  }
+  .res-search__input {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: calc(var(--space-6) + var(--space-4));
+    padding: var(--space-3) var(--space-4) var(--space-3) calc(var(--space-4) * 2 + 1.25em);
+    background: var(--paper);
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-xs);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    /* 16 px au moins : en dessous, iOS zoome la page au focus. */
+    font-size: max(16px, var(--text-body));
+    -webkit-appearance: none;
+    appearance: none;
+    transition: border-color var(--dur-fast) var(--ease);
+  }
+  .res-search__input::placeholder { color: var(--muted); opacity: 1; }
+  /* Croix native (bleue sous WebKit) retirée : Échap vide le champ. */
+  .res-search__input::-webkit-search-cancel-button { -webkit-appearance: none; appearance: none; display: none; }
+  .res-search__input:hover { border-color: var(--ink); }
+  .res-search__input:focus { outline: none; border-color: var(--ink); }
+  .res-search__input:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 2px; }
+  .res-search__status {
+    margin: var(--space-3) 0 0;
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    letter-spacing: var(--tracking-mono-tight);
+    color: var(--muted);
+  }
+  .res-search__status:empty { display: none; }
+  .res-search__panel { margin-top: var(--space-4); border-top: 1px solid var(--hairline); }
+  .res-search__panel[hidden] { display: none; }
+  .res-search__empty {
+    margin: 0;
+    padding: var(--space-5) 0 var(--space-4);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
+    color: var(--ink-2);
+  }
+  .res-search__empty[hidden] { display: none; }
+  .res-search__empty :global(strong) { color: var(--ink); font-weight: var(--fw-semibold); }
+
+  /* Un résultat : vignette (image de la carte) puis type et date, titre surligné, extrait. */
+  .res-search :global(.res-hit) {
+    display: grid;
+    grid-template-columns: 7.5rem 1fr;
+    gap: var(--space-5);
+    align-items: start;
+    padding: var(--space-4) var(--space-3);
+    border-bottom: 1px solid var(--hairline);
+    color: inherit;
+    text-decoration: none;
+    transition: background var(--dur-fast) var(--ease);
+  }
+  .res-search :global(.res-hit:hover),
+  .res-search :global(.res-hit[aria-selected='true']) { background: var(--paper-2); }
+  .res-search :global(.res-hit[aria-selected='true']) { box-shadow: inset 2px 0 0 var(--accent-text); }
+  .res-search :global(.res-hit__media) {
+    display: block;
+    aspect-ratio: 16 / 9;
+    background: var(--paper-3);
+    border-radius: var(--radius-xs);
+    overflow: hidden;
+  }
+  .res-search :global(.res-hit__media img) { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .res-search :global(.res-hit__body) { display: flex; flex-direction: column; gap: var(--space-2); min-width: 0; }
+  .res-search :global(.res-hit__meta) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    font-family: var(--font-mono);
+    font-size: var(--text-kicker);
+    letter-spacing: var(--tracking-kicker);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .res-search :global(.res-hit__tag) { color: var(--accent-text); }
+  .res-search :global(.res-hit__title) {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-h3);
+    font-weight: var(--fw-semibold);
+    color: var(--ink);
+    text-wrap: balance;
+  }
+  .res-search :global(.res-hit[aria-selected='true'] .res-hit__title),
+  .res-search :global(.res-hit:hover .res-hit__title) { color: var(--accent-text); }
+  .res-search :global(.res-hit__title mark) {
+    background: rgba(var(--accent-rgb), 0.14);
+    color: inherit;
+    border-radius: var(--radius-xs);
+    box-shadow: inset 0 -2px 0 var(--accent-text);
+  }
+  .res-search :global(.res-hit__excerpt) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+    font-size: var(--text-small);
+    line-height: var(--leading-body);
+    color: var(--muted);
+  }
+  .res-search :global(.res-search__hint) {
+    display: block;
+    margin-top: var(--space-2);
+    font-size: var(--text-small);
+    color: var(--muted);
+  }
+
+  /* Requête en cours : la recherche remplace les deux niveaux de filtre et la grille. */
+  .res-index[data-searching] .res-facets,
+  .res-index[data-searching] :global(.list-body) { display: none; }
+
+  @media (max-width: 640px) {
+    .res-search { max-width: none; }
+    .res-search :global(.res-hit) { grid-template-columns: 5.5rem 1fr; gap: var(--space-4); padding-inline: 0; }
+    .res-search :global(.res-hit[aria-selected='true']) { box-shadow: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .res-search__input,
+    .res-search :global(.res-hit) { transition: none; }
+  }
 
   /* Grilles successives fondues en UNE grille : les sections article-grid (12 cartes au plus
      chacune) et leurs conteneurs passent en `display: contents`, les cartes deviennent les
@@ -365,5 +624,383 @@ const listTitle = activeKind
   document.addEventListener('astro:page-load', function () {
     document.querySelectorAll('form[data-newsletter-form]').forEach(bindForm);
   });
+})();
+</script>
+
+<script is:inline>
+// Recherche du hub Ressources : index statique (/ressources/search-index.json) chargé au
+// premier focus ou à la première frappe, puis recherche locale. Normalisation sans accents
+// ni casse, ET entre les mots (repli sur les correspondances partielles), préfixes, une
+// faute de frappe tolérée sur les mots de 5 lettres et plus, titre > mots-clés > extrait,
+// récence en départage. Combobox ARIA 1.2 : les options sont de vrais liens.
+(function () {
+  var MAX = 8;
+  var W_TITLE = 10, W_TERMS = 6, W_EXCERPT = 2;
+  var STOP = {};
+  ('le la les l de des du d un une et ou en au aux a pour par sur avec dans ce ces cet cette '
+    + 'son sa ses vos votre nos notre est qui que quoi comment quel quelle quels quelles '
+    + 'the of and or to for in on an is with how what').split(' ').forEach(function (w) { STOP[w] = 1; });
+  var TAGS = {
+    fr: { guides: 'Guide', comparatifs: 'Comparatif', outils: 'Outil', articles: 'Article' },
+    en: { guides: 'Guide', comparatifs: 'Comparison', outils: 'Tool', articles: 'Article' },
+  };
+  var T = {
+    fr: {
+      count: function (n) { return n + (n > 1 ? ' résultats' : ' résultat') + ' dans toutes les ressources'; },
+      best: function (n) { return ', ' + MAX + ' affichés'; },
+      partial: function (n) { return 'Aucune ressource ne contient tous les mots. ' + n + (n > 1 ? ' résultats partiels' : ' résultat partiel'); },
+      none: function (q) { return 'Aucun résultat pour « ' + q + ' ».'; },
+      noneHint: 'Essayez un autre mot (n8n, Claude, RGPD) ou parcourez les ressources les plus récentes :',
+      noneStatus: function (q) { return 'Aucun résultat pour « ' + q + ' ». 3 ressources récentes proposées.'; },
+      loading: 'Chargement de la recherche…',
+      error: 'La recherche est indisponible pour le moment. Les ressources restent listées ci-dessous.',
+    },
+    en: {
+      count: function (n) { return n + (n > 1 ? ' results' : ' result') + ' across all resources'; },
+      best: function (n) { return ', ' + MAX + ' shown'; },
+      partial: function (n) { return 'No resource contains every word. ' + n + (n > 1 ? ' partial results' : ' partial result'); },
+      none: function (q) { return 'No results for “' + q + '”.'; },
+      noneHint: 'Try another word (n8n, Claude, GDPR) or browse the latest resources:',
+      noneStatus: function (q) { return 'No results for “' + q + '”. 3 recent resources suggested.'; },
+      loading: 'Loading search…',
+      error: 'Search is unavailable right now. Resources are still listed below.',
+    },
+  };
+
+  // Minuscules sans accents, caractère par caractère : `map[i]` = indice du caractère
+  // d'origine, pour surligner le titre affiché aux bons endroits.
+  function normMap(s) {
+    var out = '', map = [];
+    for (var i = 0; i < s.length; i++) {
+      var c = s[i].normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+      if (c === 'œ') c = 'oe'; else if (c === 'æ') c = 'ae';
+      for (var j = 0; j < c.length; j++) { out += c[j]; map.push(i); }
+    }
+    return { s: out, map: map };
+  }
+  function norm(s) { return normMap(s || '').s; }
+  function words(s) { return norm(s).split(/[^a-z0-9]+/).filter(Boolean); }
+
+  function queryTokens(q) {
+    var all = words(q);
+    var kept = all.filter(function (w) { return !STOP[w] && (w.length > 1 || /\d/.test(w)); });
+    return kept.length ? kept : all;
+  }
+
+  // Distance d'édition ≤ 1 (substitution, insertion, suppression ou deux lettres inversées).
+  function within1(a, b) {
+    if (a === b) return true;
+    var la = a.length, lb = b.length;
+    if (Math.abs(la - lb) > 1) return false;
+    var i = 0;
+    while (i < la && i < lb && a[i] === b[i]) i++;
+    if (la === lb) {
+      if (a.slice(i + 1) === b.slice(i + 1)) return true;
+      return a[i] === b[i + 1] && a[i + 1] === b[i] && a.slice(i + 2) === b.slice(i + 2);
+    }
+    return la > lb ? a.slice(i + 1) === b.slice(i) : a.slice(i) === b.slice(i + 1);
+  }
+  function fuzzy(tok, w) {
+    if (within1(tok, w)) return true;
+    for (var L = tok.length - 1; L <= tok.length + 1; L++) {
+      if (L < w.length && within1(tok, w.slice(0, L))) return true;
+    }
+    return false;
+  }
+
+  // Qualité de la correspondance d'un mot de la requête dans une liste de mots :
+  // exact 1, préfixe 0,8, dans le mot 0,45 (3 lettres et plus), faute de frappe 0,55.
+  function quality(tok, list, allowFuzzy) {
+    var best = 0;
+    for (var i = 0; i < list.length; i++) {
+      var w = list[i];
+      if (w === tok) return 1;
+      if (w.indexOf(tok) === 0) best = Math.max(best, 0.8);
+      else if (tok.length >= 3 && w.indexOf(tok) > 0) best = Math.max(best, 0.45);
+    }
+    if (best || !allowFuzzy) return best;
+    for (var k = 0; k < list.length; k++) if (fuzzy(tok, list[k])) return 0.55;
+    return 0;
+  }
+  // Mot connu de l'index tel quel (exact ou préfixe) : la faute de frappe n'est alors pas
+  // tentée pour lui, ce qui évite qu'un mot juste ramène ses voisins (« claude » / « clause »).
+  function known(tok, items) {
+    for (var i = 0; i < items.length; i++) {
+      var lists = [items[i]._t, items[i]._k, items[i]._e];
+      for (var l = 0; l < 3; l++) {
+        for (var j = 0; j < lists[l].length; j++) if (lists[l][j].indexOf(tok) === 0) return true;
+      }
+    }
+    return false;
+  }
+
+  function search(items, toks) {
+    var fuzzyOk = toks.map(function (t) { return t.length >= 5 && !known(t, items); });
+    var minT = Infinity, maxT = -Infinity;
+    items.forEach(function (it) { minT = Math.min(minT, it._time); maxT = Math.max(maxT, it._time); });
+    var span = maxT - minT || 1;
+    var phrase = toks.join(' ');
+    var hits = [];
+    items.forEach(function (it) {
+      var matched = 0, score = 0, how = [];
+      toks.forEach(function (tok, n) {
+        var q = Math.max(
+          W_TITLE * quality(tok, it._t, fuzzyOk[n]),
+          W_TERMS * quality(tok, it._k, fuzzyOk[n]),
+          W_EXCERPT * quality(tok, it._e, fuzzyOk[n])
+        );
+        if (q > 0) { matched++; score += q; }
+      });
+      if (!matched) return;
+      if (toks.length > 1 && it._tl.indexOf(phrase) !== -1) score += 5;
+      // Titre qui COMMENCE par la requête : c'est son sujet principal (« n8n c'est quoi »).
+      if (it._tl.indexOf(phrase) === 0) score += 2;
+      // Récence : bonus léger (au plus 0,5), sous l'écart entre deux qualités de titre.
+      score += 0.5 * (it._time - minT) / span;
+      hits.push({ it: it, matched: matched, score: score });
+    });
+    var all = hits.filter(function (h) { return h.matched === toks.length; });
+    var partial = !all.length && hits.length > 0;
+    var list = partial ? hits : all;
+    list.sort(function (a, b) {
+      return b.matched - a.matched || b.score - a.score || b.it._time - a.it._time;
+    });
+    return { list: list, partial: partial };
+  }
+
+  // Titre surligné : nœuds texte et <mark>, jamais innerHTML.
+  function highlight(el, title, toks, fuzzyToks) {
+    var nm = normMap(title), s = nm.s, marks = new Array(s.length);
+    var re = /[a-z0-9]+/g, m;
+    while ((m = re.exec(s))) {
+      var w = m[0], start = m.index;
+      toks.forEach(function (tok) {
+        var from = -1, len = 0;
+        if (w.indexOf(tok) === 0) { from = start; len = tok.length; }
+        else if (tok.length >= 3 && w.indexOf(tok) > 0) { from = start + w.indexOf(tok); len = tok.length; }
+        else if (fuzzyToks.indexOf(tok) !== -1 && tok.length >= 5 && fuzzy(tok, w)) { from = start; len = Math.min(w.length, tok.length + 1); }
+        for (var k = from; k >= 0 && k < from + len; k++) marks[k] = true;
+      });
+    }
+    // Passage aux indices du titre d'origine.
+    var on = new Array(title.length);
+    for (var i = 0; i < s.length; i++) if (marks[i]) on[nm.map[i]] = true;
+    var buf = '', cur = false;
+    function flush() {
+      if (!buf) return;
+      if (cur) { var mk = document.createElement('mark'); mk.textContent = buf; el.appendChild(mk); }
+      else el.appendChild(document.createTextNode(buf));
+      buf = '';
+    }
+    for (var c = 0; c < title.length; c++) {
+      var flag = !!on[c];
+      if (flag !== cur) { flush(); cur = flag; }
+      buf += title[c];
+    }
+    flush();
+  }
+
+  function fmtDate(iso) {
+    var p = iso.split('-');
+    return p[2] + '.' + p[1] + '.' + p[0];
+  }
+
+  function bind(root) {
+    if (root.dataset.resBound) return;
+    root.dataset.resBound = '1';
+    var lang = root.dataset.lang === 'en' ? 'en' : 'fr';
+    var t = T[lang];
+    var input = root.querySelector('input[type="search"]');
+    var status = root.querySelector('[data-res-status]');
+    var panel = root.querySelector('[data-res-panel]');
+    var empty = root.querySelector('[data-res-empty]');
+    var listbox = root.querySelector('[data-res-list]');
+    var hub = root.closest('.res-index');
+    var items = null, failed = false, active = -1, statusTimer = 0;
+
+    root.hidden = false;
+
+    // Le JSON brut est gardé sur window : une seule requête par visite, même après une
+    // navigation ClientRouter vers une autre vue du hub.
+    function load() {
+      if (!window.__waimiaResIndex) {
+        window.__waimiaResIndex = fetch(root.dataset.index)
+          .then(function (r) { if (!r.ok) throw new Error(String(r.status)); return r.json(); })
+          .catch(function (e) { window.__waimiaResIndex = null; throw e; });
+      }
+      return window.__waimiaResIndex.then(function (data) {
+        return data.map(function (d) {
+          var title = d['title_' + lang] || d.title_fr;
+          var excerpt = d['excerpt_' + lang] || d.excerpt_fr;
+          return Object.assign({}, d, {
+            _title: title,
+            _excerpt: excerpt,
+            _t: words(title),
+            _tl: words(title).join(' '),
+            _k: (d.terms || '').split(' ').filter(Boolean),
+            _e: words(excerpt),
+            _time: Date.parse(d.date) || 0,
+          });
+        });
+      });
+    }
+
+    function say(text, immediate) {
+      clearTimeout(statusTimer);
+      // Annonce différée : un lecteur d'écran n'énonce pas chaque frappe.
+      if (immediate) status.textContent = text;
+      else statusTimer = setTimeout(function () { status.textContent = text; }, 250);
+    }
+
+    function setActive(i) {
+      var opts = listbox.querySelectorAll('[role="option"]');
+      if (!opts.length) { active = -1; input.removeAttribute('aria-activedescendant'); return; }
+      active = (i + opts.length) % opts.length;
+      opts.forEach(function (o, k) { o.setAttribute('aria-selected', k === active ? 'true' : 'false'); });
+      input.setAttribute('aria-activedescendant', opts[active].id);
+      opts[active].scrollIntoView({ block: 'nearest' });
+    }
+
+    function option(it, i, toks, fuzzyToks) {
+      var a = document.createElement('a');
+      a.className = 'res-hit';
+      a.href = it.href;
+      a.id = 'res-q-opt-' + i;
+      a.setAttribute('role', 'option');
+      a.setAttribute('aria-selected', 'false');
+      a.tabIndex = -1;
+      var media = document.createElement('span');
+      media.className = 'res-hit__media';
+      if (it.image) {
+        var img = document.createElement('img');
+        img.src = it.image;
+        img.alt = '';
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        if (it.tint != null) img.style.filter = 'hue-rotate(' + it.tint + 'deg)';
+        media.appendChild(img);
+      }
+      var body = document.createElement('span');
+      body.className = 'res-hit__body';
+      var meta = document.createElement('span');
+      meta.className = 'res-hit__meta';
+      var tag = document.createElement('span');
+      tag.className = 'res-hit__tag';
+      tag.textContent = TAGS[lang][it.kind] || it.kind;
+      var date = document.createElement('span');
+      date.textContent = fmtDate(it.date);
+      meta.appendChild(tag);
+      meta.appendChild(date);
+      var title = document.createElement('span');
+      title.className = 'res-hit__title';
+      highlight(title, it._title, toks, fuzzyToks);
+      var ex = document.createElement('span');
+      ex.className = 'res-hit__excerpt';
+      ex.textContent = it._excerpt || '';
+      body.appendChild(meta);
+      body.appendChild(title);
+      body.appendChild(ex);
+      a.appendChild(media);
+      a.appendChild(body);
+      return a;
+    }
+
+    function close() {
+      status.classList.remove('sr-only');
+      panel.hidden = true;
+      listbox.textContent = '';
+      empty.hidden = true;
+      active = -1;
+      input.setAttribute('aria-expanded', 'false');
+      input.removeAttribute('aria-activedescendant');
+      if (hub) hub.removeAttribute('data-searching');
+    }
+
+    function render() {
+      var raw = input.value.trim();
+      if (!raw) { close(); say('', true); return; }
+      if (failed) return;
+      if (!items) { say(t.loading, true); return; }
+      var toks = queryTokens(raw);
+      if (!toks.length) { close(); say('', true); return; }
+      var res = search(items, toks);
+      var fuzzyToks = toks.filter(function (tok) { return tok.length >= 5 && !known(tok, items); });
+      listbox.textContent = '';
+      active = -1;
+      input.removeAttribute('aria-activedescendant');
+      var shown;
+      // État vide : le message visible est dans le panneau ; le statut reste pour les
+      // lecteurs d'écran seulement (pas de doublon à l'écran).
+      status.classList.toggle('sr-only', !res.list.length);
+      if (res.list.length) {
+        empty.hidden = true;
+        shown = res.list.slice(0, MAX).map(function (h) { return h.it; });
+        var n = res.list.length;
+        say(res.partial ? t.partial(n) : t.count(n) + (n > MAX ? t.best(n) : ''));
+      } else {
+        // État vide : la requête rappelée, une piste, et les 3 ressources les plus récentes.
+        empty.textContent = '';
+        var strong = document.createElement('strong');
+        strong.textContent = t.none(raw);
+        var hint = document.createElement('span');
+        hint.className = 'res-search__hint';
+        hint.textContent = t.noneHint;
+        empty.appendChild(strong);
+        empty.appendChild(hint);
+        empty.hidden = false;
+        shown = items.slice().sort(function (a, b) { return b._time - a._time; }).slice(0, 3);
+        say(t.noneStatus(raw));
+      }
+      shown.forEach(function (it, i) { listbox.appendChild(option(it, i, res.list.length ? toks : [], fuzzyToks)); });
+      panel.hidden = false;
+      input.setAttribute('aria-expanded', 'true');
+      if (hub) hub.setAttribute('data-searching', '');
+    }
+
+    function ensure() {
+      if (items || failed) return;
+      load().then(function (data) { items = data; render(); }, function () {
+        failed = true;
+        close();
+        say(t.error, true);
+      });
+    }
+
+    input.addEventListener('focus', ensure);
+    input.addEventListener('input', function () { ensure(); render(); });
+    input.addEventListener('keydown', function (e) {
+      var opts = listbox.querySelectorAll('[role="option"]');
+      if (e.key === 'ArrowDown' && opts.length) { e.preventDefault(); setActive(active + 1); }
+      else if (e.key === 'ArrowUp' && opts.length) { e.preventDefault(); setActive(active < 0 ? -1 : active - 1); }
+      else if (e.key === 'Enter' && opts.length) {
+        e.preventDefault();
+        (opts[active >= 0 ? active : 0]).click();
+      } else if (e.key === 'Escape') {
+        e.preventDefault();
+        input.value = '';
+        close();
+        say('', true);
+      }
+    });
+  }
+
+  // Mobile : la rangée des types défile ; le segment de la vue courante est amené en vue.
+  function revealActiveType() {
+    document.querySelectorAll('.res-filters').forEach(function (nav) {
+      var cur = nav.querySelector('[aria-current="page"]');
+      if (!cur || nav.scrollWidth <= nav.clientWidth) return;
+      var c = cur.getBoundingClientRect(), n = nav.getBoundingClientRect();
+      // Centré : les segments voisins restent coupés aux deux bords, signe qu'on peut défiler.
+      nav.scrollLeft += c.left - n.left - (n.width - c.width) / 2;
+    });
+  }
+
+  function bindAll() {
+    document.querySelectorAll('[data-res-search]').forEach(bind);
+    revealActiveType();
+  }
+  bindAll();
+  // Navigation ClientRouter entre les vues : le drapeau resBound évite un double branchement.
+  document.addEventListener('astro:page-load', bindAll);
 })();
 </script>
