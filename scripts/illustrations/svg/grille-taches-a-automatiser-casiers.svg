@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · grille des tâches : un grand casier de quatre colonnes sur trois rangées, une pile de cubes en vrac à gauche, une silhouette sur une échelle range les cubes ; les cases du haut sont réservées aux plus gros. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{shadow}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{shadow}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{shadow}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{shadow}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{shadow}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{shadow}}"/>
+    </g>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <rect y="520" width="1456" height="104" fill="{{ground}}"/>
+
+  <!-- Casier : cadre et douze cases -->
+  <rect x="600" y="70" width="700" height="450" fill="{{subject}}"/>
+  <g fill="{{light}}">
+    <rect x="620" y="90" width="152" height="130"/><rect x="788" y="90" width="152" height="130"/><rect x="956" y="90" width="152" height="130"/><rect x="1124" y="90" width="156" height="130"/>
+    <rect x="620" y="236" width="152" height="130"/><rect x="788" y="236" width="152" height="130"/><rect x="956" y="236" width="152" height="130"/><rect x="1124" y="236" width="156" height="130"/>
+    <rect x="620" y="382" width="152" height="118"/><rect x="788" y="382" width="152" height="118"/><rect x="956" y="382" width="152" height="118"/><rect x="1124" y="382" width="156" height="118"/>
+  </g>
+  <!-- Cubes rangés : gros en haut, moyens au milieu, petits en bas ; certains en couleur de forme -->
+  <g fill="{{shape}}">
+    <rect x="650" y="120" width="90" height="90"/><rect x="990" y="124" width="86" height="86"/>
+    <rect x="816" y="288" width="64" height="64"/><rect x="1160" y="290" width="62" height="62"/>
+    <rect x="660" y="440" width="44" height="44"/><rect x="1000" y="442" width="40" height="40"/>
+  </g>
+  <g fill="{{detail}}">
+    <rect x="1160" y="130" width="84" height="80"/><rect x="684" y="294" width="60" height="58"/>
+    <rect x="832" y="446" width="42" height="38"/><rect x="1166" y="448" width="40" height="36"/>
+  </g>
+  <!-- Pile de cubes en vrac à gauche -->
+  <g fill="{{shape}}">
+    <rect x="130" y="456" width="64" height="64"/><rect x="204" y="480" width="40" height="40"/><rect x="256" y="470" width="50" height="50"/>
+  </g>
+  <g fill="{{detail}}">
+    <rect x="160" y="400" width="54" height="56"/><rect x="226" y="438" width="36" height="42"/><rect x="108" y="500" width="22" height="20"/>
+  </g>
+  <rect x="190" y="360" width="46" height="40" fill="{{shape}}"/>
+  <!-- Échelle et silhouette qui porte un cube -->
+  <g stroke="{{shadow}}" stroke-width="5" fill="none">
+    <path d="M520 520 L572 250 M572 520 L624 250"/>
+    <path d="M530 470 L584 470 M538 420 L592 420 M546 370 L600 370 M553 320 L607 320 M560 280 L614 280"/>
+  </g>
+  <use href="#man" transform="translate(470 520) scale(1.05)"/>
+  <rect x="478" y="396" width="38" height="34" fill="{{shape}}"/>
+</svg>

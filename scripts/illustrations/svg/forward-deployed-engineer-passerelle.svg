@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · forward deployed engineer : une grande tour (l'atelier d'origine) à gauche, une petite halle d'atelier (la PME) à droite, une passerelle les relie ; une silhouette avec sa caisse à outils la traverse, une autre l'attend à la porte. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{shadow}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{shadow}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{shadow}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{shadow}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{shadow}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{shadow}}"/>
+    </g>
+    <g id="walker">
+      <circle cx="0" cy="-90" r="7.5" fill="{{shadow}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{shadow}}"/>
+      <rect x="-5" y="-46" width="9.5" height="44" fill="{{shadow}}" transform="rotate(16 0 -44)"/>
+      <rect x="-5" y="-46" width="9.5" height="44" fill="{{shadow}}" transform="rotate(-16 0 -44)"/>
+    </g>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <circle cx="700" cy="470" r="190" fill="{{shape}}"/>
+  <rect y="520" width="1456" height="104" fill="{{ground}}"/>
+
+  <!-- Grande tour à gauche : façade à fenêtres -->
+  <rect x="150" y="90" width="300" height="440" fill="{{subject}}"/>
+  <rect x="150" y="90" width="300" height="14" fill="{{light}}"/>
+  <g fill="{{light}}">
+    <rect x="185" y="140" width="50" height="40"/><rect x="265" y="140" width="50" height="40"/><rect x="345" y="140" width="50" height="40"/>
+    <rect x="185" y="215" width="50" height="40"/><rect x="265" y="215" width="50" height="40"/><rect x="345" y="215" width="50" height="40"/>
+    <rect x="185" y="290" width="50" height="40"/><rect x="265" y="290" width="50" height="40"/><rect x="345" y="290" width="50" height="40"/>
+    <rect x="185" y="365" width="50" height="40"/><rect x="265" y="365" width="50" height="40"/>
+  </g>
+  <rect x="345" y="365" width="50" height="40" fill="{{pale}}"/>
+  <rect x="270" y="440" width="60" height="90" fill="{{shadow}}"/>
+  <rect x="276" y="446" width="48" height="84" fill="{{deep}}"/>
+
+  <!-- Petite halle d'atelier à droite : toit en dents de scie -->
+  <rect x="1000" y="360" width="300" height="170" fill="{{detail}}"/>
+  <path d="M1000 360 L1000 310 L1100 360 L1100 310 L1200 360 L1200 310 L1300 360 Z" fill="{{subject}}"/>
+  <rect x="1130" y="430" width="70" height="100" fill="{{shadow}}"/>
+  <rect x="1030" y="400" width="60" height="50" fill="{{light}}"/>
+  <rect x="1215" y="400" width="60" height="50" fill="{{light}}"/>
+
+  <!-- Passerelle : tablier + piles + garde-corps -->
+  <rect x="450" y="410" width="550" height="14" fill="{{shadow}}"/>
+  <g fill="{{shadow}}">
+    <rect x="560" y="424" width="10" height="106"/><rect x="760" y="424" width="10" height="106"/><rect x="900" y="424" width="10" height="106"/>
+  </g>
+  <rect x="450" y="378" width="550" height="4" fill="{{shadow}}"/>
+  <g fill="{{shadow}}">
+    <rect x="470" y="378" width="3" height="32"/><rect x="560" y="378" width="3" height="32"/><rect x="650" y="378" width="3" height="32"/><rect x="740" y="378" width="3" height="32"/><rect x="830" y="378" width="3" height="32"/><rect x="920" y="378" width="3" height="32"/><rect x="980" y="378" width="3" height="32"/>
+  </g>
+
+  <!-- Silhouette qui traverse avec sa caisse à outils -->
+  <use href="#walker" transform="translate(720 410) scale(1.05)"/>
+  <rect x="738" y="368" width="34" height="22" rx="2" fill="{{light}}"/>
+  <rect x="750" y="362" width="10" height="8" fill="{{light}}"/>
+  <!-- Silhouette qui attend à la porte de la halle -->
+  <use href="#man" transform="translate(1075 530) scale(1.0)"/>
+</svg>
