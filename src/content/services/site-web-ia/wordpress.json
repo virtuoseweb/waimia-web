@@ -1,538 +1,459 @@
 {
   "$schema": "../../../schemas/generated/services.page.schema.json",
-  "title_fr": "Création et refonte de site WordPress · headless et instrumenté",
-  "title_en": "WordPress website design and rebuild · headless and instrumented",
-  "description_fr": "On fait aussi WordPress : headless, WooCommerce ou classique instrumenté. Builders assistés par l'IA, GEO par plugins, refonte quand la dette pèse.",
-  "description_en": "We do WordPress too: headless, WooCommerce or classic and instrumented. AI-assisted builders, GEO via plugins, a rebuild when the debt weighs.",
+  "title_fr": "Agence WordPress pour PME : création et refonte · Waimia",
+  "title_en": "WordPress agency for SMEs: build and redesign · Waimia",
+  "description_fr": "Agence WordPress pour PME : création, refonte et maintenance de site, WooCommerce ou headless, formulaires reliés à votre CRM. Dès 2 000 € HT.",
+  "description_en": "WordPress agency for SMBs: site build, redesign and maintenance, WooCommerce or headless, forms connected to your CRM. From €2,000 excl. VAT.",
   "slug": "wordpress",
   "publishedAt": "2026-06-29T00:00:00.000Z",
-  "updatedAt": "2026-07-15T00:00:00.000Z",
+  "updatedAt": "2026-10-12T00:00:00.000Z",
   "category": "acquisition",
   "tags": [
     "wordpress",
+    "agence-wordpress",
     "creation-site-wordpress",
+    "refonte-site-wordpress",
+    "maintenance-wordpress",
     "wordpress-headless",
-    "woocommerce",
-    "site-web-intelligent",
-    "seo-geo"
+    "woocommerce"
   ],
   "seo": {
     "noindex": false,
-    "serviceType": "Création, refonte et instrumentation de site WordPress (headless, WooCommerce, classique)",
+    "serviceType": "Agence WordPress : création, refonte, maintenance et instrumentation de sites (classique, WooCommerce, headless)",
     "priceRange": "2000-10000€",
     "priceMin": 2000,
     "priceMax": 10000
   },
   "faq_fr": [
     {
-      "q": "Vous faites vraiment du WordPress, ou vous poussez à le quitter ?",
-      "a": "On fait vraiment du WordPress, de trois façons : headless, WooCommerce, ou classique instrumenté. On ne pousse à refondre que dans un cas précis : quand le score mobile passe sous 80 sur PageSpeed et que le site est devenu une dette. Sinon, on le garde et on l'instrumente."
+      "q": "WordPress est-il toujours le bon choix pour une PME ?",
+      "a": "Souvent, quand votre équipe le connaît, que vous publiez régulièrement et que vous avez besoin d'extensions : réservation, adhésion, multilingue, boutique WooCommerce. Moins quand le site est une petite vitrine de quelques pages (un site plus léger demande moins d'entretien) ou quand vous vendez surtout en ligne (voir Shopify)."
     },
     {
-      "q": "Headless ou WordPress classique, lequel choisir ?",
-      "a": "Headless quand la vitesse et la sécurité priment : WordPress reste l'éditeur, le front est servi en statique. Classique quand vos équipes veulent tout piloter depuis WordPress, builders compris. On tranche à l'audit selon votre contenu, votre trafic et vos ressources internes."
+      "q": "Headless ou WordPress classique, lequel choisir ?",
+      "a": "Classique si votre équipe veut tout piloter depuis WordPress, thème et extensions compris. Headless si la vitesse et un design précis comptent plus, et si quelqu'un peut maintenir deux couches : WordPress reste l'outil d'édition, le site public est un front séparé en code. Le headless ajoute de la complexité : Balzeo a quitté un CMS headless complexe pour WordPress et WooCommerce, parce que chaque mise à jour dépendait de la technique."
     },
     {
-      "q": "Vous gérez l'e-commerce avec WooCommerce ?",
-      "a": "Oui. WooCommerce ouvre catalogue, panier et paiement éprouvés, avec un écosystème d'extensions plug n play. On le pose proprement, on le branche à vos outils et on instrumente le tunnel pour que chaque visite soit mesurée."
+      "q": "Vous reprenez et nettoyez un WordPress existant ?",
+      "a": "Oui. On commence par un audit : version, thème, extensions, sauvegardes, formulaires, mesure. On retire les extensions inutiles, on met à jour, on sécurise et on mesure la vitesse sur mobile, puis on décide avec vous : garder, refaire le thème ou refondre. La refonte n'est jamais proposée par défaut."
     },
     {
-      "q": "On peut créer des pages sans développeur ?",
-      "a": "Oui. Gutenberg, Elementor et Divi se sont tellement améliorés, IA intégrée, qu'on crée sections et landing pages en drag n drop ou en le demandant au chatbot. Vos équipes marketing restent autonomes au quotidien, sans dépendre de nous pour chaque évolution."
+      "q": "Que comprend la maintenance d'un site WordPress ?",
+      "a": "Le périmètre habituel : mises à jour du cœur, du thème et des extensions, sauvegardes, contrôle de sécurité, rapport. Il est fixé par écrit au cadrage. Les paliers de maintenance sont publics sur la page tarifs : {{prix.maintenance.p1}}, {{prix.maintenance.p2}} ou {{prix.maintenance.p3}} € HT par mois, les interventions hors forfait étant facturées {{prix.horaire}} € HT de l'heure. Elle est facultative : vous pouvez confier le site à qui vous voulez."
     },
     {
-      "q": "Le GEO fonctionne-t-il sur WordPress ?",
-      "a": "Oui, par plugins et par une structure travaillée : balisage Schema.org, format extractible et maillage interne se posent sur WordPress pour être cités par Google et les moteurs génératifs. On n'atteint pas la finesse d'un site sur mesure, mais on couvre l'essentiel du GEO."
+      "q": "WooCommerce ou Shopify pour vendre en ligne ?",
+      "a": "WooCommerce si vous avez déjà un site WordPress qui doit vendre, ou si vous voulez tout contrôler, hébergement compris. Shopify si la vente en ligne est le cœur de l'activité et que vous voulez moins de maintenance technique. Un cas publié, Balzeo, tourne sous WooCommerce ; nous ne recommandons pas une plateforme par réflexe."
     },
     {
-      "q": "Quand recommandez-vous de refondre plutôt que d'instrumenter ?",
-      "a": "Quand le score mobile passe sous 80 sur PageSpeed et que la maintenance coûte plus qu'elle ne rapporte. On bascule alors vers un site sur mesure, livré plus vite qu'une refonte WordPress classique, plus efficace, et garanti à plus de 95 en mobile sur PageSpeed."
+      "q": "Mon équipe peut-elle modifier les pages sans développeur ?",
+      "a": "Oui. L'éditeur de blocs de WordPress (Gutenberg) permet de composer et de modifier des pages. On configure des blocs et des modèles pour que l'équipe reste dans un cadre cohérent, et on documente. Un constructeur de pages supplémentaire alourdit le site : on en retient un seul, ou aucun."
+    },
+    {
+      "q": "Combien de temps et combien ça coûte ?",
+      "a": "En général 4 à 8 semaines pour un site en ligne ; Balzeo, une boutique migrée vers WordPress, en 8 semaines. À partir de 2 000 € HT pour une landing, 4 000 € HT pour 3 à 5 pages, à partir de 7 000 € HT pour un site complet ou une boutique, à partir de 10 000 € HT pour une refonte lourde ou du headless. L'hébergement et le nom de domaine sont à votre nom."
     }
   ],
   "faq_en": [
     {
-      "q": "Do you really do WordPress, or do you push people off it?",
-      "a": "We really do WordPress, in three ways: headless, WooCommerce, or classic and instrumented. We only push for a rebuild in one precise case: when the mobile score drops below 80 on PageSpeed and the site has become a debt. Otherwise, we keep it and instrument it."
+      "q": "Is WordPress still the right choice for an SMB?",
+      "a": "Often, when your team knows it, you publish regularly and you need extensions: booking, membership, multilingual, a WooCommerce shop. Less so when the site is a small brochure of a few pages (a lighter site needs less upkeep) or when you mostly sell online (see Shopify)."
     },
     {
-      "q": "Headless or classic WordPress, which one to choose?",
-      "a": "Headless when speed and security come first: WordPress stays the editor, the front is served as static. Classic when your teams want to drive everything from WordPress, builders included. We decide at the audit based on your content, traffic and in-house resources."
+      "q": "Headless or classic WordPress, which one?",
+      "a": "Classic if your team wants to run everything from WordPress, theme and extensions included. Headless if speed and a precise design matter more, and if someone can maintain two layers: WordPress stays the editing tool, the public site is a separate coded front. Headless adds complexity: Balzeo left a complex headless CMS for WordPress and WooCommerce because every update depended on technical work."
     },
     {
-      "q": "Do you handle e-commerce with WooCommerce?",
-      "a": "Yes. WooCommerce opens a proven catalogue, cart and checkout, with a plug and play ecosystem of extensions. We set it up cleanly, wire it to your tools and instrument the funnel so every visit is measured."
+      "q": "Do you take over and clean up an existing WordPress?",
+      "a": "Yes. We start with an audit: version, theme, extensions, backups, forms, measurement. We remove useless extensions, update, secure and measure mobile speed, then decide with you: keep, redo the theme or rebuild. A rebuild is never proposed by default."
     },
     {
-      "q": "Can pages be created without a developer?",
-      "a": "Yes. Gutenberg, Elementor and Divi have improved so much, with AI built in, that sections and landing pages are created by drag and drop or by asking the chatbot. Your marketing teams stay autonomous day to day, without depending on us for every change."
+      "q": "What does WordPress site maintenance include?",
+      "a": "The usual scope: updates to core, theme and extensions, backups, a security check, a report. It is set in writing at scoping. Maintenance tiers are public on the pricing page: €{{prix.maintenance.p1}}, €{{prix.maintenance.p2}} or €{{prix.maintenance.p3}} excl. VAT a month, with out-of-scope work billed at €{{prix.horaire}} excl. VAT an hour. It is optional: you can hand the site to whoever you like."
     },
     {
-      "q": "Does GEO work on WordPress?",
-      "a": "Yes, through plugins and a worked structure: Schema.org markup, extractable format and internal linking are laid on WordPress to be cited by Google and generative engines. We don't reach the finesse of a bespoke site, but we cover the essentials of GEO."
+      "q": "WooCommerce or Shopify to sell online?",
+      "a": "WooCommerce if you already have a WordPress site that must sell, or if you want to control everything, hosting included. Shopify if online sales are the core of the business and you want less technical upkeep. One published case, Balzeo, runs on WooCommerce; we do not recommend a platform by reflex."
     },
     {
-      "q": "When do you recommend rebuilding rather than instrumenting?",
-      "a": "When the mobile score drops below 80 on PageSpeed and maintenance costs more than it returns. We then move to a bespoke site, delivered faster than a classic WordPress rebuild, more efficient, and guaranteed above 95 on mobile PageSpeed."
+      "q": "Can my team edit pages without a developer?",
+      "a": "Yes. WordPress's block editor (Gutenberg) lets you compose and edit pages. We configure blocks and templates so the team stays within a consistent frame, and we document it. An extra page builder weighs the site down: we keep one, or none."
+    },
+    {
+      "q": "How long and how much?",
+      "a": "Usually 4 to 8 weeks for a live site; Balzeo, a shop migrated to WordPress, took 8 weeks. From €2,000 excl. VAT for a landing page, €4,000 for 3 to 5 pages, from €7,000 for a full site or a shop, from €10,000 for a heavy rebuild or headless. Hosting and domain are in your name."
     }
   ],
   "sections": [
     {
       "type": "hero-masthead-card",
       "background": "paper",
-      "kicker_fr": "§ WordPress · pilier du système d'acquisition",
-      "kicker_en": "§ WordPress · pillar of the acquisition system",
-      "h1_fr": "Création et refonte de site <i class=\"acc\">WordPress</i>.",
-      "h1_en": "WordPress website design and <i class=\"acc\">rebuild</i>.",
-      "lede_fr": "On fait aussi WordPress, sans détour sur les compromis. Trois façons de le poser au cœur de votre acquisition : headless pour la vitesse, WooCommerce pour vendre, ou classique instrumenté. Et si votre site est devenu une dette, on le refond, plus vite qu'une refonte WordPress classique.",
-      "lede_en": "We do WordPress too, no dodging the trade-offs. Three ways to put it at the core of your acquisition: headless for speed, WooCommerce to sell, or classic and instrumented. And if your site has become a debt, we rebuild it, faster than a classic WordPress rebuild.",
+      "kicker_fr": "§ Agence WordPress · un outil du système",
+      "kicker_en": "§ WordPress agency · a tool in the system",
+      "h1_fr": "Agence <i class=\"acc\">WordPress</i> : un site tenu à jour, que vous maîtrisez.",
+      "h1_en": "WordPress agency: a site kept <i class=\"acc\">up to date</i>, that you control.",
+      "lede_fr": "WordPress est connu de beaucoup d'équipes, et sans entretien il vieillit mal. Waimia crée, refond et entretient des sites WordPress pour PME, classiques, WooCommerce ou headless, reliés à votre CRM. Pour une boutique pure, nous vous orientons ailleurs.",
+      "lede_en": "WordPress is known to many teams, and without upkeep it ages badly. Waimia builds, redesigns and maintains WordPress sites for SMBs, classic, WooCommerce or headless, connected to your CRM. For a pure shop, we point you elsewhere.",
       "badges": [
         {
-          "label_fr": "WordPress headless",
-          "label_en": "Headless WordPress"
+          "label_fr": "Création et refonte",
+          "label_en": "Build and redesign"
         },
         {
-          "label_fr": "WooCommerce",
-          "label_en": "WooCommerce"
+          "label_fr": "WooCommerce et headless",
+          "label_en": "WooCommerce and headless"
         },
         {
-          "label_fr": "Builders + IA",
-          "label_en": "Builders + AI"
+          "label_fr": "Maintenance facultative",
+          "label_en": "Optional maintenance"
         },
         {
-          "label_fr": "GEO par plugins",
-          "label_en": "GEO via plugins"
+          "label_fr": "Formulaires reliés au CRM",
+          "label_en": "Forms connected to the CRM"
         }
       ],
-      "cta_sub_fr": "Audit de 45 min, gratuit et sans engagement : on part de votre WordPress réel et de son score mobile.",
-      "cta_sub_en": "45-min audit, free and no commitment: we start from your real WordPress and its mobile score.",
+      "cta_sub_fr": "Audit gratuit de 45 minutes en visio. Vous repartez avec au moins deux process à automatiser, chiffrés.",
+      "cta_sub_en": "Free 45-minute audit by video call. You leave with at least two processes to automate, costed.",
       "cta_primary": {
-        "label_fr": "Réserver un audit (45 min) →",
-        "label_en": "Book an audit (45 min) →",
-        "href": "/audit-ia-pme",
+        "label_fr": "Réserver un audit IA gratuit →",
+        "label_en": "Book a free AI audit →",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
         "variant": "primary"
       },
       "cta_secondary": {
-        "label_fr": "Voir les trois modes",
-        "label_en": "See the three modes",
-        "href": "#modes",
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme",
         "variant": "ghost"
       },
       "media_src": "/images/line-art/dispositif-flow.svg",
-      "media_alt_fr": "Schéma : WordPress au centre, décliné en trois modes (headless, WooCommerce, classique) branchés à l'IA et aux données.",
-      "media_alt_en": "Diagram: WordPress at the center, in three modes (headless, WooCommerce, classic) wired to AI and data.",
-      "kpis": [
-        {
-          "num": "3 modes",
-          "cap_fr": "headless, Woo, classique",
-          "cap_en": "headless, Woo, classic"
-        },
-        {
-          "num": "95+",
-          "cap_fr": "PageSpeed mobile si refonte",
-          "cap_en": "mobile PageSpeed on rebuild"
-        }
-      ]
+      "media_alt_fr": "Schéma du dispositif : un visiteur arrive sur le site, branché à vos données, ses KPI sont lus, puis le routage qualifie chaque visite.",
+      "media_alt_en": "Device diagram: a visitor lands on the site, wired to your data, its KPIs are read, then routing qualifies each visit."
     },
     {
       "type": "proof-bar",
       "background": "paper",
       "kicker_fr": "§ En bref",
-      "kicker_en": "§ At a glance",
+      "kicker_en": "§ In short",
       "metrics": [
         {
-          "value": "3 modes",
-          "label_fr": "headless, WooCommerce, classique instrumenté",
-          "label_en": "headless, WooCommerce, classic instrumented",
+          "value": "Dès 2 000 € HT",
+          "label_fr": "une landing ; grille complète plus bas",
+          "label_en": "a landing page; full grid below",
           "emphasis": true
         },
         {
-          "value": "Builders + IA",
-          "label_fr": "Gutenberg, Elementor, Divi : sections en drag n drop",
-          "label_en": "Gutenberg, Elementor, Divi: sections by drag and drop"
+          "value": "3 modes",
+          "label_fr": "classique, WooCommerce ou headless, choisi au cadrage",
+          "label_en": "classic, WooCommerce or headless, chosen at scoping",
+          "emphasis": false
         },
         {
-          "value": "Seuil 80",
-          "label_fr": "sous 80 en mobile, on refond plutôt",
-          "label_en": "below 80 on mobile, we rebuild instead"
+          "value": "Dès {{prix.maintenance.p1}} € HT",
+          "label_fr": "par mois pour la maintenance, jamais obligatoire",
+          "label_en": "a month for maintenance, never mandatory",
+          "emphasis": false
         },
         {
-          "value": "95+",
-          "label_fr": "PageSpeed mobile garanti en refonte",
-          "label_en": "mobile PageSpeed guaranteed on rebuild"
+          "value": "À vous",
+          "label_fr": "site, base de données, hébergement et accès",
+          "label_en": "site, database, hosting and access",
+          "emphasis": false
         }
       ]
     },
     {
       "type": "definition-extract",
       "background": "paper",
-      "kicker_fr": "§ Définition · format extractible",
-      "kicker_en": "§ Definition · extractable format",
-      "statement_fr": "Faire du WordPress avec Waimia, c'est le poser au cœur de votre acquisition de trois façons : headless (WordPress pour le contenu, front rapide), WooCommerce pour l'e-commerce, ou classique instrumenté. Écosystème riche et plug n play, builders assistés par l'IA, GEO travaillé par plugins. Les perfs restent en deçà d'un site sur mesure : on le dit, et sous 80 en mobile on refond.",
-      "statement_en": "Doing WordPress with Waimia means putting it at the core of your acquisition three ways: headless (WordPress for content, fast front), WooCommerce for e-commerce, or classic and instrumented. A rich, plug and play ecosystem, AI-assisted builders, GEO worked through plugins. Performance stays below a bespoke site: we say so, and below 80 on mobile we rebuild.",
+      "kicker_fr": "§ Définition",
+      "kicker_en": "§ Definition",
+      "statement_fr": "Une <i class=\"acc\">agence WordPress</i> crée, refond et entretient des sites sur WordPress, un CMS qui sépare le contenu, le thème et les extensions. Chez Waimia, le mode est choisi selon votre équipe : classique pour tout piloter dans WordPress, WooCommerce pour vendre, headless pour un site public rapide édité depuis WordPress.",
+      "statement_en": "A <i class=\"acc\">WordPress agency</i> builds, redesigns and maintains sites on WordPress, a CMS that separates content, theme and extensions. At Waimia the mode is chosen according to your team: classic to run everything in WordPress, WooCommerce to sell, headless for a fast public site edited from WordPress.",
       "pills": [
         {
-          "label_fr": "Headless",
-          "label_en": "Headless"
+          "label_fr": "WordPress classique",
+          "label_en": "Classic WordPress"
         },
         {
           "label_fr": "WooCommerce",
           "label_en": "WooCommerce"
         },
         {
-          "label_fr": "Classique instrumenté",
-          "label_en": "Classic instrumented"
+          "label_fr": "Headless",
+          "label_en": "Headless"
         },
         {
-          "label_fr": "Builders + IA",
-          "label_en": "Builders + AI"
+          "label_fr": "Maintenance",
+          "label_en": "Maintenance"
         }
       ],
       "specs": [
         {
-          "label_fr": "Écosystème plug n play",
-          "label_en": "Plug and play ecosystem"
+          "label_fr": "Éditeur de blocs",
+          "label_en": "Block editor"
         },
         {
-          "label_fr": "Plugins GEO",
-          "label_en": "GEO plugins"
+          "label_fr": "Extensions inventoriées",
+          "label_en": "Inventoried extensions"
         },
         {
-          "label_fr": "Drag n drop + IA",
-          "label_en": "Drag and drop + AI"
+          "label_fr": "Sauvegardes testées",
+          "label_en": "Tested backups"
         },
         {
-          "label_fr": "CRM connecté",
-          "label_en": "Connected CRM"
+          "label_fr": "HubSpot, Pipedrive, Salesforce",
+          "label_en": "HubSpot, Pipedrive, Salesforce"
         },
         {
-          "label_fr": "Refonte si < 80 mobile",
-          "label_en": "Rebuild if < 80 mobile"
-        },
-        {
-          "label_fr": "95+ mobile en refonte",
-          "label_en": "95+ mobile on rebuild"
+          "label_fr": "schema.org",
+          "label_en": "schema.org"
         }
       ]
     },
     {
-      "type": "pain-severity-list",
-      "background": "ink",
-      "kicker_fr": "Quand WordPress devient une dette · par sévérité",
-      "kicker_en": "When WordPress turns into debt · by severity",
-      "h2_fr": "Le WordPress qu'on <i class=\"acc\">refond</i>.",
-      "h2_en": "The WordPress we <i class=\"acc\">rebuild</i>.",
-      "items": [
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "figures": [
         {
-          "severity": "critical",
-          "title_fr": "Un score mobile sous 80 qui plombe le SEO",
-          "title_en": "A mobile score under 80 that drags the SEO down",
-          "desc_fr": "Thème lourd, empilement de plugins et base interrogée à chaque visite : sous 80 en mobile sur PageSpeed, Google déclasse et les visiteurs partent. À ce stade, instrumenter ne suffit plus.",
-          "desc_en": "Heavy theme, stacked plugins and a database queried on each visit: below 80 on mobile PageSpeed, Google demotes and visitors leave. At this stage, instrumenting is no longer enough.",
-          "fix_fr": "On refond en site sur mesure, 95+ mobile garanti.",
-          "fix_en": "We rebuild as a bespoke site, 95+ mobile guaranteed."
-        },
-        {
-          "severity": "high",
-          "title_fr": "Une maintenance et une sécurité qui coûtent",
-          "title_en": "Maintenance and security that cost",
-          "desc_fr": "Cœur, thème et extensions vivent sous perfusion de mises à jour, et chaque plugin tiers est une porte d'entrée. Le temps passé à maintenir n'est pas passé à vendre.",
-          "desc_en": "Core, theme and extensions live on a drip of updates, and every third-party plugin is an entry door. Time spent maintaining isn't time spent selling.",
-          "fix_fr": "On instrumente proprement, ou on refond si la dette est trop lourde.",
-          "fix_en": "We instrument cleanly, or rebuild if the debt is too heavy."
-        },
-        {
-          "severity": "medium",
-          "title_fr": "Un site vitrine qui ne mesure rien",
-          "title_en": "A showcase site that measures nothing",
-          "desc_fr": "Le WordPress publie, mais ne capte pas : ni scoring, ni routage CRM, ni reporting first-party. Les visiteurs passent sans qu'on sache qui ils étaient.",
-          "desc_en": "WordPress publishes, but doesn't capture: no scoring, no CRM routing, no first-party reporting. Visitors pass through without anyone knowing who they were.",
-          "fix_fr": "On branche capture, scoring et CRM par-dessus l'existant.",
-          "fix_en": "We wire capture, scoring and CRM on top of the existing site."
+          "src": "/images/illustrations/ds/wordpress-coeur-et-extensions-paper.webp",
+          "alt_fr": "Illustration : une rotonde centrale reliée par une coursive à six annexes, une personne contrôle le toit de l'une d'elles",
+          "alt_en": "Illustration: a central rotunda linked by a walkway to six annexes, a person checks the roof of one of them",
+          "side": "right"
         }
+      ],
+      "html_fr": "<h2>Ce que WordPress fait bien</h2>\n<p>WordPress sépare le contenu, le thème et les extensions. Votre équipe publie depuis un éditeur qu'elle connaît souvent déjà, et l'écosystème couvre presque tous les besoins : réservation, adhésion, multilingue, boutique. Il est facile de trouver un autre prestataire si vous voulez nous quitter.</p>\n<h2>Trois façons de le poser</h2>\n<p><strong>Classique</strong> : un thème, des extensions, un éditeur de blocs. C'est le plus simple à faire vivre. <strong>WooCommerce</strong> : la boutique s'ajoute au site, avec les extensions de paiement et d'expédition que vous choisissez ; si la vente est votre cœur de métier, comparez avec <a href=\"/services/shopify\">Shopify</a>. <strong>Headless</strong> : WordPress reste l'outil d'édition, le site public est un front en code ; plus rapide à servir, mais deux couches à maintenir.</p>\n<h2>Ce que nous faisons dessus</h2>\n<p>Nous créons le site, reprenons l'existant ou le refondons, puis nous branchons les formulaires au <a href=\"/services/crm-scoring-routing\">CRM</a> pour que chaque demande arrive sans ressaisie. Le site est l'entrée du <a href=\"/services/systeme-acquisition\">système d'acquisition</a> ; WordPress n'est qu'une des plateformes de notre <a href=\"/services/site-web-ia\">offre agence site web</a>.</p>",
+      "html_en": "<h2>What WordPress does well</h2>\n<p>WordPress separates content, theme and extensions. Your team publishes from an editor it often already knows, and the ecosystem covers almost every need: booking, membership, multilingual, shop. It is easy to find another provider if you want to leave us.</p>\n<h2>Three ways to set it up</h2>\n<p><strong>Classic</strong>: a theme, extensions, a block editor. The simplest to keep running. <strong>WooCommerce</strong>: the shop is added to the site, with the payment and shipping extensions you choose; if selling is your core business, compare with <a href=\"/services/shopify\">Shopify</a>. <strong>Headless</strong>: WordPress stays the editing tool, the public site is a coded front; faster to serve, but two layers to maintain.</p>\n<h2>What we do on it</h2>\n<p>We build the site, take over the existing one or rebuild it, then connect the forms to the <a href=\"/services/crm-scoring-routing\">CRM</a> so each request arrives with no retyping. The site is the entry to the <a href=\"/services/systeme-acquisition\">acquisition system</a>; WordPress is only one of the platforms in our <a href=\"/services/site-web-ia\">web agency offer</a>.</p>"
+    },
+    {
+      "type": "tech-when-dual",
+      "background": "paper",
+      "kicker_fr": "§ Décision",
+      "kicker_en": "§ Decision",
+      "title_fr": "WordPress, ou une autre plateforme",
+      "title_en": "WordPress, or another platform",
+      "aside_fr": "Un WordPress bien tenu est un bon site. Un WordPress laissé seul devient une dette.",
+      "aside_en": "A well-kept WordPress is a good site. A WordPress left alone becomes a debt.",
+      "use_title_fr": "Choisissez WordPress quand",
+      "use_title_en": "Choose WordPress when",
+      "use_items_fr": [
+        "Votre équipe le connaît déjà et publie souvent : articles, actualités, pages.",
+        "Vous avez besoin d'extensions éprouvées : réservation, adhésion, multilingue, annuaire.",
+        "Vous voulez pouvoir changer de prestataire sans changer de plateforme.",
+        "Vous avez déjà un site WordPress sain, à nettoyer et à relier plutôt qu'à refaire.",
+        "Vous voulez une boutique intégrée à un site éditorial riche, avec WooCommerce."
+      ],
+      "use_items_en": [
+        "Your team already knows it and publishes often: articles, news, pages.",
+        "You need proven extensions: booking, membership, multilingual, directory.",
+        "You want to be able to change provider without changing platform.",
+        "You already have a healthy WordPress site, to clean up and connect rather than rebuild.",
+        "You want a shop built into a rich editorial site, with WooCommerce."
+      ],
+      "avoid_title_fr": "Évitez WordPress quand",
+      "avoid_title_en": "Avoid WordPress when",
+      "avoid_items_fr": [
+        "Le site tient en quatre pages et change deux fois par an : un site plus léger demande moins d'entretien.",
+        "Vous vendez surtout en ligne et voulez le moins de maintenance technique possible : voir Shopify.",
+        "Personne n'est chargé des mises à jour et vous refusez toute maintenance : le site vieillira mal.",
+        "Vous voulez un design très précis édité visuellement, avec peu d'extensions : Webflow convient mieux.",
+        "Vous avez besoin d'intégrations métier lourdes et d'un espace client : un site sur mesure sera plus sain."
+      ],
+      "avoid_items_en": [
+        "The site is four pages and changes twice a year: a lighter site needs less upkeep.",
+        "You mostly sell online and want the least technical upkeep: see Shopify.",
+        "Nobody is in charge of updates and you refuse any maintenance: the site will age badly.",
+        "You want a very precise design edited visually, with few extensions: Webflow suits better.",
+        "You need heavy business integrations and a customer area: a bespoke site will be healthier."
       ]
     },
     {
       "type": "comparison-duo",
-      "background": "paper-2",
-      "kicker_fr": "§ WordPress laissé tel quel vs pris en main",
-      "kicker_en": "§ WordPress left as-is vs handled",
-      "h2_fr": "Le même WordPress, deux <i>trajectoires</i>",
-      "h2_en": "The same WordPress, two <i>trajectories</i>",
+      "background": "paper",
+      "kicker_fr": "§ Exemple type · pas un cas client",
+      "kicker_en": "§ Typical example · not a client case",
+      "h2_fr": "Exemple type : le site d'un cabinet comptable",
+      "h2_en": "Typical example: an accounting firm's site",
       "without_label_fr": "Avant",
       "without_label_en": "Before",
-      "without_title_fr": "WordPress laissé tel quel",
-      "without_title_en": "WordPress left as-is",
+      "without_title_fr": "Un WordPress laissé à lui-même",
+      "without_title_en": "A WordPress left to itself",
       "without_items": [
         {
-          "text_fr": "Le score mobile glisse sous 80, Google déclasse, sans qu'on sache vraiment pourquoi.",
-          "text_en": "The mobile score slips under 80, Google demotes, without anyone really knowing why."
+          "text_fr": "Le cœur, le thème et les extensions n'ont pas été mis à jour depuis des mois.",
+          "text_en": "Core, theme and extensions have not been updated for months."
         },
         {
-          "text_fr": "Chaque évolution passe par un chantier de plugins à risque ou par un prestataire.",
-          "text_en": "Every change goes through a risky plugin project or a vendor."
+          "text_fr": "Personne ne sait quelle extension fait quoi : en désactiver une casse une page.",
+          "text_en": "Nobody knows which extension does what: disabling one breaks a page."
         },
         {
-          "text_fr": "Le site publie mais ne mesure rien : ni scoring, ni routage CRM, ni reporting.",
-          "text_en": "The site publishes but measures nothing: no scoring, no CRM routing, no reporting."
+          "text_fr": "Des sauvegardes existent, mais personne ne les a jamais restaurées.",
+          "text_en": "Backups exist, but nobody has ever restored one."
         },
         {
-          "text_fr": "Au bout de deux ans, la pile est une dette et tout est à refaire dans l'urgence.",
-          "text_en": "After two years the stack is a debt and everything has to be redone in a rush."
+          "text_fr": "Le formulaire de contact envoie un email, sans fiche dans le CRM.",
+          "text_en": "The contact form sends an email, with no CRM record."
         }
       ],
       "with_label_fr": "Après",
       "with_label_en": "After",
-      "with_title_fr": "WordPress pris en main par Waimia",
-      "with_title_en": "WordPress handled by Waimia",
+      "with_title_fr": "Un WordPress tenu et relié",
+      "with_title_en": "A maintained, connected WordPress",
       "with_items": [
         {
-          "text_fr": "On vise le haut du mobile ; sous 80, on refond en site sur mesure, 95+ garanti.",
-          "text_en": "We aim high on mobile; below 80, we rebuild as a bespoke site, 95+ guaranteed."
+          "text_fr": "Les extensions sont inventoriées : on garde celles qui servent, on retire les autres.",
+          "text_en": "Extensions are inventoried: we keep the useful ones and remove the rest."
         },
         {
-          "text_fr": "Sections et landing en drag n drop ou par l'IA : vos équipes restent autonomes.",
-          "text_en": "Sections and landing by drag and drop or by AI: your teams stay autonomous."
+          "text_fr": "Les mises à jour sont planifiées et testées d'abord sur une copie du site.",
+          "text_en": "Updates are scheduled and tested first on a copy of the site."
         },
         {
-          "text_fr": "Capture, scoring et CRM branchés par-dessus l'existant, sans casser ce qui marche.",
-          "text_en": "Capture, scoring and CRM wired on top of the existing site, without breaking what works."
+          "text_fr": "Une sauvegarde est restaurée à titre d'essai, et la date est notée.",
+          "text_en": "A backup is restored as a test, and the date is noted."
         },
         {
-          "text_fr": "Un mode choisi pour durer : headless, WooCommerce ou classique, jamais à refaire dans l'urgence.",
-          "text_en": "A mode chosen to last: headless, WooCommerce or classic, never redone in a rush."
-        }
-      ]
-    },
-    {
-      "type": "method-stepline",
-      "background": "paper-3",
-      "kicker_fr": "§ Maturité",
-      "kicker_en": "§ Maturity",
-      "h2_fr": "Les 6 états d'un WordPress",
-      "h2_en": "The 6 states of a WordPress",
-      "lede_fr": "Du thème posé tel quel au front headless instrumenté, six paliers. La plupart des PME stagnent au builder. On vous situe, puis on vous fait monter d'un cran.",
-      "lede_en": "From a theme laid down as-is to an instrumented headless front, six tiers. Most SMEs stall at the builder. We place you, then move you up a notch.",
-      "steps": [
-        {
-          "title_fr": "WordPress par défaut",
-          "title_en": "Default WordPress",
-          "sub_fr": "Thème et plugins, passif",
-          "sub_en": "Theme and plugins, passive"
-        },
-        {
-          "title_fr": "WordPress builder",
-          "title_en": "Builder WordPress",
-          "sub_fr": "Pages en drag n drop, encore lourd",
-          "sub_en": "Pages by drag and drop, still heavy"
-        },
-        {
-          "title_fr": "WordPress suivi",
-          "title_en": "Tracked WordPress",
-          "sub_fr": "Tracking et KPI lus",
-          "sub_en": "Tracking and KPIs read"
-        },
-        {
-          "title_fr": "WordPress instrumenté",
-          "title_en": "Instrumented WordPress",
-          "sub_fr": "Capture, scoring et CRM branchés",
-          "sub_en": "Capture, scoring and CRM wired"
-        },
-        {
-          "title_fr": "WordPress headless",
-          "title_en": "Headless WordPress",
-          "sub_fr": "Front statique, rapide et sécurisé",
-          "sub_en": "Static front, fast and secure"
-        },
-        {
-          "title_fr": "Refonte sur mesure",
-          "title_en": "Bespoke rebuild",
-          "sub_fr": "Sous 80 mobile, 95+ garanti",
-          "sub_en": "Below 80 mobile, 95+ guaranteed"
+          "text_fr": "Les formulaires créent la fiche dans le CRM avec leur page d'origine.",
+          "text_en": "Forms create the CRM record with their source page."
         }
       ]
     },
     {
       "type": "deliverables-grid",
-      "background": "paper",
-      "kicker_fr": "§ Livrables",
-      "kicker_en": "§ Deliverables",
-      "title_fr": "Ce que vous récupérez concrètement",
-      "title_en": "What you get concretely",
-      "lead_fr": "Vous gardez WordPress et la main quand on part. Pas de captivité.",
-      "lead_en": "You keep WordPress and control when we leave. No lock-in.",
+      "background": "paper-3",
+      "kicker_fr": "§ Ce que vous gardez",
+      "kicker_en": "§ What you keep",
+      "title_fr": "Ce qui vous reste à la fin",
+      "title_en": "What you keep at the end",
+      "lead_fr": "Vous gardez WordPress, la base de données et les accès. Nous n'imposons aucun abonnement.",
+      "lead_en": "You keep WordPress, the database and the access. We impose no subscription.",
       "items": [
         {
-          "title_fr": "WordPress posé ou refondu",
-          "title_en": "WordPress built or rebuilt",
-          "body_fr": "Le mode choisi à l'audit, monté proprement : headless, WooCommerce ou classique, déployé en production, thème et structure assainis.",
-          "body_en": "The mode chosen at the audit, built cleanly: headless, WooCommerce or classic, deployed to production, theme and structure cleaned up.",
-          "format_fr": "CODE + LIVE",
-          "format_en": "CODE + LIVE",
-          "illustration_src": "/images/line-art/swi-livrable-site.svg",
-          "illustration_alt_fr": "Un WordPress déployé en production, structure et pages assainies",
-          "illustration_alt_en": "A WordPress deployed to production, structure and pages cleaned up"
+          "title_fr": "Le site WordPress",
+          "title_en": "The WordPress site",
+          "body_fr": "Créé, repris ou refondu dans le mode choisi, déployé sur un hébergement à votre nom.",
+          "body_en": "Built, taken over or rebuilt in the chosen mode, deployed on hosting in your name.",
+          "format_fr": "SITE",
+          "format_en": "SITE"
         },
         {
-          "title_fr": "Builders configurés + IA",
-          "title_en": "Builders configured + AI",
-          "body_fr": "Gutenberg, Elementor ou Divi paramétrés avec l'IA intégrée : vos équipes créent sections et landing pages en drag n drop, sans nous appeler.",
-          "body_en": "Gutenberg, Elementor or Divi set up with AI built in: your teams create sections and landing pages by drag and drop, without calling us.",
-          "format_fr": "BUILDER",
-          "format_en": "BUILDER",
-          "illustration_src": "/images/line-art/swi-livrable-landing-pages.svg",
-          "illustration_alt_fr": "Des builders configurés pour créer des pages en autonomie",
-          "illustration_alt_en": "Builders configured to create pages autonomously"
+          "title_fr": "L'inventaire des extensions",
+          "title_en": "The extension inventory",
+          "body_fr": "Pour chaque extension : son rôle, sa version, son responsable, et ce qui se passe si on la retire.",
+          "body_en": "For each extension: its role, version, owner, and what happens if it is removed.",
+          "format_fr": "LISTE",
+          "format_en": "LIST"
         },
         {
-          "title_fr": "GEO par plugins et structure",
-          "title_en": "GEO via plugins and structure",
-          "body_fr": "Balisage Schema.org, format extractible et maillage interne posés sur WordPress pour être cité par Google et les moteurs génératifs.",
-          "body_en": "Schema.org markup, extractable format and internal linking laid on WordPress to be cited by Google and generative engines.",
-          "format_fr": "GEO",
-          "format_en": "GEO",
-          "illustration_src": "/images/line-art/swi-livrable-connexion-ia.svg",
-          "illustration_alt_fr": "Un WordPress balisé et structuré pour les citations IA",
-          "illustration_alt_en": "A WordPress tagged and structured for AI citations"
+          "title_fr": "Les sauvegardes et le plan de reprise",
+          "title_en": "Backups and the recovery plan",
+          "body_fr": "Sauvegardes automatiques et une restauration testée, avec la procédure écrite.",
+          "body_en": "Automatic backups and one tested restore, with the written procedure.",
+          "format_fr": "SÉCURITÉ",
+          "format_en": "SECURITY"
         },
         {
-          "title_fr": "Tracking, capture et CRM",
-          "title_en": "Tracking, capture and CRM",
-          "body_fr": "Tracking first-party, formulaires WordPress connectés à votre CRM (HubSpot, Salesforce, Pipedrive), scoring et capture branchés par-dessus l'existant.",
-          "body_en": "First-party tracking, WordPress forms connected to your CRM (HubSpot, Salesforce, Pipedrive), scoring and capture wired on top of the existing site.",
+          "title_fr": "Les formulaires reliés",
+          "title_en": "The connected forms",
+          "body_fr": "Connexion au CRM avec la page d'origine, documentée.",
+          "body_en": "CRM connection with the source page, documented.",
           "format_fr": "CRM",
-          "format_en": "CRM",
-          "illustration_src": "/images/line-art/swi-livrable-capture-scoring.svg",
-          "illustration_alt_fr": "Des formulaires WordPress branchés au CRM avec scoring",
-          "illustration_alt_en": "WordPress forms wired to the CRM with scoring"
+          "format_en": "CRM"
         },
         {
-          "title_fr": "Tableau de bord",
-          "title_en": "Dashboard",
-          "body_fr": "KPI Search Console et Analytics lus par l'IA, acquisition, conversion et pipeline en temps réel, alertes sur les anomalies.",
-          "body_en": "Search Console and Analytics KPIs read by the AI, acquisition, conversion and pipeline in real time, alerts on anomalies.",
-          "format_fr": "TABLEAU",
-          "format_en": "DASHBOARD",
-          "illustration_src": "/images/line-art/swi-livrable-tableau-pilotage.svg",
-          "illustration_alt_fr": "Un tableau de pilotage des KPI d'acquisition avec alertes",
-          "illustration_alt_en": "An acquisition KPI dashboard with alerts"
+          "title_fr": "La mesure de vitesse",
+          "title_en": "The speed measurement",
+          "body_fr": "Mesure sur mobile avant et après, avec la méthode et la date, pour que l'amélioration soit vérifiable.",
+          "body_en": "Mobile measurement before and after, with method and date, so the improvement can be checked.",
+          "format_fr": "MESURE",
+          "format_en": "MEASURE"
         },
         {
-          "title_fr": "Documentation et autonomie",
-          "title_en": "Documentation and autonomy",
-          "body_fr": "Mode opératoire, prise en main des builders et du tableau de bord : votre équipe est autonome sur son WordPress à la livraison.",
-          "body_en": "Operating manual, onboarding on the builders and the dashboard: your team is autonomous on its WordPress at delivery.",
-          "format_fr": "NOTION + VIDÉO",
-          "format_en": "NOTION + VIDEO",
-          "illustration_src": "/images/line-art/swi-livrable-mode-operatoire.svg",
-          "illustration_alt_fr": "Un mode opératoire documenté pour rendre l'équipe autonome sur WordPress",
-          "illustration_alt_en": "A documented operating manual to make the team autonomous on WordPress"
+          "title_fr": "La prise en main",
+          "title_en": "The handover",
+          "body_fr": "Une session pour publier, modifier un bloc et lancer une mise à jour.",
+          "body_en": "One session to publish, edit a block and run an update.",
+          "format_fr": "FORMATION",
+          "format_en": "TRAINING"
         }
       ]
     },
     {
-      "type": "feature-grid",
-      "anchor": "capacites",
+      "type": "editorial-prose",
       "background": "paper",
-      "kicker_fr": "§ Les briques",
-      "kicker_en": "§ The building blocks",
-      "h2_fr": "Ce qu'on branche sur WordPress",
-      "h2_en": "What we wire onto WordPress",
-      "lede_fr": "Sept briques posées autour de votre WordPress. On active celles qui servent, quand elles servent. Pas de plugin qu'on empile pour rien.",
-      "lede_en": "Seven building blocks laid around your WordPress. We activate the ones that serve, when they serve. No plugin stacked for nothing.",
-      "columns": "4",
-      "fillMedia": "services-layer.svg",
-      "features": [
+      "maxWidth": "prose",
+      "figures": [
         {
-          "icon": "design",
-          "title_fr": "Trois modes",
-          "title_en": "Three modes",
-          "body_fr": "Headless, WooCommerce ou classique : on choisit à l'audit le socle qui tient dans la durée, pas celui qui plaît en démo.",
-          "body_en": "Headless, WooCommerce or classic: we choose at the audit the base that lasts, not the one that shows well in a demo."
-        },
-        {
-          "icon": "contenu",
-          "title_fr": "Contenu et GEO",
-          "title_en": "Content and GEO",
-          "body_fr": "Balisage Schema.org, format extractible et maillage interne par plugins : la marque devient citable par Google et les IA.",
-          "body_en": "Schema.org markup, extractable format and internal linking via plugins: the brand becomes citable by Google and the AIs."
-        },
-        {
-          "icon": "qualif",
-          "title_fr": "Builders + IA",
-          "title_en": "Builders + AI",
-          "body_fr": "Gutenberg, Elementor et Divi avec IA intégrée : sections et landing pages en drag n drop ou en le demandant au chatbot.",
-          "body_en": "Gutenberg, Elementor and Divi with AI built in: sections and landing pages by drag and drop or by asking the chatbot."
-        },
-        {
-          "icon": "tracking",
-          "title_fr": "Instrumentation",
-          "title_en": "Instrumentation",
-          "body_fr": "Tracking first-party, Search Console et Analytics branchés sur l'existant : vous mesurez l'avant et l'après, pas de boîte noire.",
-          "body_en": "First-party tracking, Search Console and Analytics wired onto the existing site: you measure before and after, no black box."
-        },
-        {
-          "icon": "crm",
-          "title_fr": "CRM",
-          "title_en": "CRM",
-          "body_fr": "Vos formulaires WordPress connectés à HubSpot, Salesforce ou Pipedrive, dédoublonnés et synchronisés : un contact qui revient est reconnu.",
-          "body_en": "Your WordPress forms connected to HubSpot, Salesforce or Pipedrive, deduplicated and synced: a returning contact is recognised."
-        },
-        {
-          "icon": "ia",
-          "title_fr": "IA",
-          "title_en": "AI",
-          "body_fr": "Un LLM branché en skills : il lit vos KPI, optimise le SEO et score chaque visite, par-dessus WordPress.",
-          "body_en": "An LLM wired in as skills: it reads your KPIs, optimises SEO and scores each visit, on top of WordPress."
-        },
-        {
-          "icon": "pilotage",
-          "title_fr": "Refonte maîtrisée",
-          "title_en": "Controlled rebuild",
-          "body_fr": "Quand le score mobile passe sous 80, on bascule vers un site sur mesure, 95+ garanti, plus vite qu'une refonte WordPress classique.",
-          "body_en": "When the mobile score drops under 80, we move to a bespoke site, 95+ guaranteed, faster than a classic WordPress rebuild."
+          "src": "/images/illustrations/ds/wordpress-ronde-de-nuit-paper.webp",
+          "alt_fr": "Illustration : un veilleur à la lanterne fait sa ronde devant une rangée de maisons éclairées, une fenêtre est éteinte",
+          "alt_en": "Illustration: a watchman with a lantern walks past a row of lit houses, one window is dark",
+          "side": "left"
         }
-      ]
+      ],
+      "html_fr": "<h2>Maintenance : ce qu'elle couvre</h2>\n<p>Un site WordPress se maintient : le cœur, le thème et les extensions reçoivent des correctifs, dont certains touchent à la sécurité. La maintenance couvre ces mises à jour, les sauvegardes et le contrôle de disponibilité. Elle est facultative : les paliers sont publics sur la page <a href=\"/tarifs\">tarifs</a>, de {{prix.maintenance.p1}} à {{prix.maintenance.p3}} € HT par mois, et le périmètre exact est écrit au cadrage.</p>\n<h2>Entretenir ou refondre</h2>\n<p>On mesure d'abord : vitesse sur mobile avec PageSpeed Insights, version du cœur, extensions sans support, thème abandonné. Après nettoyage (cache, images, extensions retirées), si la mesure reste mauvaise ou si une mise à jour casse le site à chaque fois, la refonte devient raisonnable. Avant, elle coûte plus qu'elle ne rapporte. Le cas de Balzeo va dans l'autre sens : une boutique sortie d'un CMS headless complexe vers WordPress et WooCommerce, pour que l'équipe soit autonome.</p>\n<h2>Ce qui peut mal tourner</h2>\n<p>Empiler les constructeurs de pages : le site s'alourdit et l'édition devient incohérente. Installer une extension gratuite sans support pour une fonction critique. Se découvrir sans sauvegarde restaurable le jour d'un incident. Ces trois risques se traitent par l'inventaire et par la restauration d'essai.</p>",
+      "html_en": "<h2>Maintenance: what it covers</h2>\n<p>A WordPress site needs maintaining: core, theme and extensions receive patches, some of them security-related. Maintenance covers these updates, backups and availability checks. It is optional: the tiers are public on the <a href=\"/tarifs\">pricing</a> page, from €{{prix.maintenance.p1}} to €{{prix.maintenance.p3}} excl. VAT a month, and the exact scope is written at scoping.</p>\n<h2>Maintain or rebuild</h2>\n<p>We measure first: mobile speed with PageSpeed Insights, core version, extensions with no support, abandoned theme. After cleanup (cache, images, extensions removed), if the measure stays poor or if an update breaks the site every time, a rebuild becomes reasonable. Before that, it costs more than it returns. The Balzeo case goes the other way: a shop moved out of a complex headless CMS to WordPress and WooCommerce so the team could be autonomous.</p>\n<h2>What can go wrong</h2>\n<p>Stacking page builders: the site grows heavy and editing becomes inconsistent. Installing a free extension with no support for a critical function. Finding out you have no restorable backup on the day of an incident. These three risks are handled by the inventory and by a test restore.</p>"
     },
     {
       "type": "hover-reveal-list",
-      "anchor": "cousins",
+      "anchor": "autres-plateformes",
       "background": "paper-3",
       "reveal_mode": "cursor",
-      "kicker_fr": "§ Trois cœurs possibles",
-      "kicker_en": "§ Three possible cores",
+      "kicker_fr": "§ Autres plateformes",
+      "kicker_en": "§ Other platforms",
       "h2_fr": "WordPress, ou une autre <i>base</i>",
       "h2_en": "WordPress, or another <i>base</i>",
-      "lede_fr": "WordPress n'est pas la seule voie. Selon votre besoin, on l'instrumente, on migre depuis le no-code, ou on part sur mesure. Survolez une base pour la voir.",
-      "lede_en": "WordPress isn't the only path. Depending on your need, we instrument it, migrate off the no-code, or go bespoke. Hover a base to preview it.",
+      "lede_fr": "Le bon choix dépend de la personne qui fera vivre le site. Survolez une plateforme pour la voir, puis lisez sa page.",
+      "lede_en": "The right choice depends on who will keep the site running. Hover a platform to preview it, then read its page.",
       "items": [
-        {
-          "label_fr": "Site web intelligent",
-          "label_en": "Intelligent website",
-          "meta_fr": "Offre · la refonte recommandée sous 80 mobile",
-          "meta_en": "Offer · the rebuild recommended below 80 mobile",
-          "media_src": "/images/illustrations/ds/man-and-woman-hi-paper.webp",
-          "media_alt_fr": "Une jonction validée : la refonte en site instrumenté.",
-          "media_alt_en": "A validated handshake: the rebuild into an instrumented site.",
-          "link_href": "/services/site-web-ia"
-        },
-        {
-          "label_fr": "Sur mesure",
-          "label_en": "Bespoke",
-          "meta_fr": "Cœur · perf et liberté maximales",
-          "meta_en": "Core · maximum performance and freedom",
-          "media_src": "/images/illustrations/ds/gentleman-craftsman-go-work-paper.webp",
-          "media_alt_fr": "Un artisan au travail : le front sur mesure façonné pièce par pièce.",
-          "media_alt_en": "A craftsman at work: the bespoke front shaped piece by piece.",
-          "link_href": "/services/site-web-ia"
-        },
         {
           "label_fr": "Webflow",
           "label_en": "Webflow",
-          "meta_fr": "Cœur · design et mise en ligne rapides du no-code",
-          "meta_en": "Core · fast design and go-live of no-code",
-          "media_src": "/images/illustrations/ds/car-on-the-road-paper.webp",
-          "media_alt_fr": "Une voiture sur la route : la migration depuis Webflow, instrumentée.",
-          "media_alt_en": "A car on the road: the migration from Webflow, instrumented.",
+          "meta_fr": "Design précis, édité visuellement, peu d'extensions",
+          "meta_en": "Precise design, edited visually, few extensions",
+          "media_src": "/images/illustrations/ds/webflow-colleur-affiches-paper.webp",
+          "media_alt_fr": "Illustration : un colleur d'affiches pose de grandes feuilles sur un panneau",
+          "media_alt_en": "Illustration: a bill poster pastes large sheets onto a billboard",
+          "link_href": "/services/webflow"
+        },
+        {
+          "label_fr": "Shopify",
+          "label_en": "Shopify",
+          "meta_fr": "Boutique en ligne : catalogue, paiement, stocks, commandes",
+          "meta_en": "Online shop: catalogue, payment, stock, orders",
+          "media_src": "/images/illustrations/ds/shopify-boutique-en-coupe-paper.webp",
+          "media_alt_fr": "Illustration : une boutique en coupe, salle de vente et réserve",
+          "media_alt_en": "Illustration: a shop in cross-section, sales floor and stockroom",
+          "link_href": "/services/shopify"
+        },
+        {
+          "label_fr": "Site sur mesure",
+          "label_en": "Bespoke site",
+          "meta_fr": "Code à vous, intégrations métier, pages générées à l'avance",
+          "meta_en": "Code you own, business integrations, pages generated in advance",
+          "media_src": "/images/illustrations/ds/sur-mesure-headless-tailleur-mannequin-paper.webp",
+          "media_alt_fr": "Illustration : un tailleur épingle l'ourlet d'un immense buste de couturière",
+          "media_alt_en": "Illustration: a tailor pins the hem of a giant dress form",
+          "link_href": "/services/sur-mesure-headless"
+        },
+        {
+          "label_fr": "Landing page",
+          "label_en": "Landing page",
+          "meta_fr": "Une page, une offre, un tunnel de qualification",
+          "meta_en": "One page, one offer, a qualification funnel",
+          "media_src": "/images/illustrations/ds/landing-pages-tunnels-v3-entonnoir-paper.webp",
+          "media_alt_fr": "Illustration : des billes tombent dans un entonnoir, une personne les oriente vers deux paniers",
+          "media_alt_en": "Illustration: marbles fall into a funnel, a person directs them to two baskets",
+          "link_href": "/services/landing-pages-tunnels"
+        },
+        {
+          "label_fr": "L'offre agence site web",
+          "label_en": "The web agency offer",
+          "meta_fr": "Toutes les plateformes, la grille de prix et la méthode",
+          "meta_en": "All platforms, the price grid and the method",
+          "media_src": "/images/illustrations/ds/man-and-woman-hi-paper.webp",
+          "media_alt_fr": "Illustration : deux personnes qui se saluent, l'offre agence site web dans son ensemble",
+          "media_alt_en": "Illustration: two people greeting each other, the web agency offer as a whole",
           "link_href": "/services/site-web-ia"
         }
       ]
@@ -540,63 +461,29 @@
     {
       "type": "case-card-grid",
       "background": "ink",
-      "reveal_mode": "cursor",
       "fig_num": "Fig. 05",
-      "fig_title_fr": "Cas clients",
-      "fig_title_en": "Client cases",
-      "spec_fr": "Cas clients · résultats réels",
-      "spec_en": "Client cases · real results",
-      "h2_fr": "Résultats sur le terrain",
-      "h2_en": "Results in the field",
+      "fig_title_fr": "Réalisations",
+      "fig_title_en": "Work",
+      "spec_fr": "Réalisations · données reprises des fiches publiées",
+      "spec_en": "Work · data taken from the published pages",
+      "h2_fr": "Deux projets WordPress publiés",
+      "h2_en": "Two published WordPress projects",
       "case_label_fr": "CAS",
       "case_label_en": "CASE",
       "sector_label_fr": "Secteur · Durée",
       "sector_label_en": "Sector · Duration",
-      "impact_label_fr": "Impact",
-      "impact_label_en": "Impact",
+      "impact_label_fr": "Ce que dit la fiche",
+      "impact_label_en": "What the page says",
       "cases": [
         {
-          "client": "Les Carnets de Montpellier",
-          "sector_fr": "Patrimoine / Média local",
-          "sector_en": "Heritage / Local media",
-          "duration": "6 sem.",
-          "stack": "Création · Abonnement · SEO",
-          "impact_fr": "Site créé de zéro : 40 articles publiés, 150 membres, 35 abonnés payants et top 10 Google local en 3 mois.",
-          "impact_en": "Built from scratch: 40 articles, 150 members, 35 paying subscribers and a top-10 local Google ranking in 3 months.",
-          "href": "/cas-clients/les-carnets-de-montpellier",
-          "media_src": "/images/illustrations/ds/band-showing-tv-ink.webp",
-          "media_alt_fr": "Un média local qui diffuse et fédère une communauté d'abonnés.",
-          "media_alt_en": "A local media outlet broadcasting and rallying a community of subscribers."
+          "ref": "cases/balzeo"
         },
         {
-          "client": "Balzeo",
-          "sector_fr": "E-commerce écoresponsable",
-          "sector_en": "Eco-friendly e-commerce",
-          "duration": "8 sem.",
-          "stack": "Refonte · E-commerce · Perf",
-          "impact_fr": "Refonte complète : temps de chargement réduit de moitié (5,2 s à 2,4 s), rétention +35 %, coût de maintenance -84 %.",
-          "impact_en": "Full rebuild: load time halved (5.2s to 2.4s), retention +35%, maintenance cost cut by 84%.",
-          "href": "/cas-clients/balzeo",
-          "media_src": "/images/illustrations/ds/fruits-ink.webp",
-          "media_alt_fr": "Des fruits frais : le e-commerce écoresponsable refondu et allégé.",
-          "media_alt_en": "Fresh fruit: the eco-friendly e-commerce store rebuilt and made leaner."
-        },
-        {
-          "client": "Amploi · groupe Vigiscope",
-          "sector_fr": "Externalisation RH",
-          "sector_en": "HR outsourcing",
-          "duration": "6 sem.",
-          "stack": "Création · CRM HubSpot · GEO",
-          "impact_fr": "Site créé avec formulaires branchés HubSpot (attribution des leads) et balisage schema.org pensé pour les citations IA (Perplexity, ChatGPT, Claude).",
-          "impact_en": "Site built with HubSpot-connected forms (lead attribution) and schema.org markup designed for AI citations (Perplexity, ChatGPT, Claude).",
-          "href": "/cas-clients/amploi",
-          "media_src": "/images/illustrations/ds/super-girl-ink.webp",
-          "media_alt_fr": "Une figure dynamique : l'externalisation RH qui capte et qualifie les leads.",
-          "media_alt_en": "A dynamic figure: HR outsourcing that captures and qualifies leads."
+          "ref": "cases/les-carnets-de-montpellier"
         }
       ],
-      "all_label_fr": "Voir tous les cas →",
-      "all_label_en": "See all cases →",
+      "all_label_fr": "Voir toutes les réalisations →",
+      "all_label_en": "See all work →",
       "all_href": "/cas-clients"
     },
     {
@@ -604,115 +491,115 @@
       "background": "paper",
       "kicker_fr": "§ La gamme",
       "kicker_en": "§ The range",
-      "h2_fr": "Quatre façons de poser votre WordPress",
-      "h2_en": "Four ways to lay down your WordPress",
-      "lede_fr": "De la landing instrumentée au site complet, même grille que nos sites : la formule dépend du périmètre, pas du mode. Le mode WordPress (headless, WooCommerce, classique) se choisit à l'audit, sans surcoût. On chiffre au cadrage, jamais avant.",
-      "lede_en": "From an instrumented landing to the full site, the same grid as our sites: the plan depends on scope, not on the mode. The WordPress mode (headless, WooCommerce, classic) is chosen at the audit, at no extra cost. We price at scoping, never before.",
+      "h2_fr": "Combien coûte un site WordPress",
+      "h2_en": "How much a WordPress site costs",
+      "lede_fr": "Quatre paliers, la même grille que nos autres sites : le prix suit le périmètre, pas l'outil. Le mode (classique, WooCommerce, headless) se choisit au cadrage. Si le périmètre n'est pas clair, on commence par un sprint de cadrage de 10 heures à 999 € HT.",
+      "lede_en": "Four tiers, the same grid as our other sites: price follows scope, not the tool. The mode (classic, WooCommerce, headless) is chosen at scoping. If the scope is unclear, we start with a 10-hour scoping sprint at €999 excl. VAT.",
       "tiers": [
         {
           "name_fr": "Landing page",
           "name_en": "Landing page",
-          "price": "2 000 €",
+          "price": "2 000 €",
           "period_fr": "à partir de · HT",
-          "period_en": "from · ex VAT",
+          "period_en": "from · excl. VAT",
           "features_fr": [
-            "Landing 1 à 3 pages sur WordPress, mise en ligne",
-            "SEO et GEO de base par plugins, balisage Schema.org",
-            "Tracking first-party et tableau de base",
-            "Formulaire de capture branché au CRM"
+            "Une landing de 1 à 3 pages, ou un WordPress existant nettoyé et relié",
+            "Inventaire des extensions et mise à jour",
+            "Formulaire relié au CRM, avec la page d'origine",
+            "Mesure d'audience avec consentement"
           ],
           "features_en": [
-            "1-to-3-page landing on WordPress, deployed",
-            "Base SEO and GEO via plugins, Schema.org markup",
-            "First-party tracking and base dashboard",
-            "Capture form wired to the CRM"
+            "A 1-to-3-page landing page, or an existing WordPress cleaned up and connected",
+            "Extension inventory and update",
+            "Form connected to the CRM, with the source page",
+            "Audience measurement with consent"
           ],
           "cta": {
             "label_fr": "Cadrer une landing →",
-            "label_en": "Scope a landing →",
+            "label_en": "Scope a landing page →",
             "href": "/contact?offer=wordpress&intent=landing",
             "variant": "ghost"
           }
         },
         {
-          "name_fr": "Site vitrine",
-          "name_en": "Showcase site",
-          "price": "4 000 €",
+          "name_fr": "Site de 3 à 5 pages",
+          "name_en": "3-to-5-page site",
+          "price": "4 000 €",
           "period_fr": "indicatif · HT",
-          "period_en": "indicative · ex VAT",
+          "period_en": "indicative · excl. VAT",
           "features_fr": [
-            "Site 3 à 5 pages, créé ou refondu, mode au choix",
-            "Builders configurés (Gutenberg, Elementor, Divi) + IA",
-            "SEO et GEO structurés, scoring et capture",
-            "Tracking server-side, consentement RGPD et hébergement"
+            "Création ou refonte en WordPress classique",
+            "Blocs et modèles configurés pour votre équipe",
+            "Redirections 301 depuis l'ancien site",
+            "Sauvegardes et une restauration testée"
           ],
           "features_en": [
-            "3-to-5-page site, built or rebuilt, mode of choice",
-            "Builders configured (Gutenberg, Elementor, Divi) + AI",
-            "Structured SEO and GEO, scoring and capture",
-            "Server-side tracking, GDPR consent and hosting"
+            "Build or redesign in classic WordPress",
+            "Blocks and templates configured for your team",
+            "301 redirects from the old site",
+            "Backups and one tested restore"
           ],
           "cta": {
-            "label_fr": "Réserver un audit (45 min) →",
-            "label_en": "Book an audit (45 min) →",
-            "href": "/audit-ia-pme",
+            "label_fr": "Réserver un audit IA gratuit →",
+            "label_en": "Book a free AI audit →",
+            "href": "/contact?offer=audit-ia-pme&intent=audit",
             "variant": "primary"
           },
           "featured": true
         },
         {
-          "name_fr": "Site premium",
-          "name_en": "Premium site",
-          "price": "7 000 €",
+          "name_fr": "Site complet ou boutique",
+          "name_en": "Full site or shop",
+          "price": "7 000 €",
           "period_fr": "à partir de · HT",
-          "period_en": "from · ex VAT",
+          "period_en": "from · excl. VAT",
           "features_fr": [
-            "Site complet, headless ou WooCommerce, direction artistique",
-            "Système de contenu SEO et GEO par plugins, en cadence",
-            "Connexion IA (Claude, GPT) et premiers skills",
-            "Formulaires connectés à votre CRM, chatbot de qualification"
+            "Site complet ou boutique WooCommerce",
+            "Direction artistique sur mesure",
+            "Paiement, expédition et notifications branchés",
+            "Séquence de suivi branchée sur le CRM"
           ],
           "features_en": [
-            "Full site, headless or WooCommerce, art direction",
-            "SEO and GEO content system via plugins, on cadence",
-            "AI connection (Claude, GPT) and first skills",
-            "Forms connected to your CRM, qualification chatbot"
+            "Full site or WooCommerce shop",
+            "Bespoke art direction",
+            "Payment, shipping and notifications connected",
+            "Follow-up sequence wired into the CRM"
           ],
           "cta": {
-            "label_fr": "Cadrer un site premium →",
-            "label_en": "Scope a premium site →",
+            "label_fr": "Cadrer un site complet →",
+            "label_en": "Scope a full site →",
             "href": "/contact?offer=wordpress&intent=premium",
             "variant": "ghost"
           }
         },
         {
-          "name_fr": "Refonte sur mesure",
-          "name_en": "Bespoke rebuild",
-          "price": "10 000 €",
+          "name_fr": "Refonte lourde ou headless",
+          "name_en": "Heavy rebuild or headless",
+          "price": "10 000 €",
           "period_fr": "à partir de · HT",
-          "period_en": "from · ex VAT",
+          "period_en": "from · excl. VAT",
           "features_fr": [
-            "Quand le mobile passe sous 80 : refonte hors WordPress",
-            "Site sur mesure 95+ mobile garanti, migration du contenu",
-            "Dashboard Google Analytics et Search Console",
-            "CRM branché (HubSpot, Salesforce, Pipedrive) et paiement Stripe"
+            "Site volumineux repris, contenus migrés, plan de redirections complet",
+            "WordPress headless avec front en code, quand il se justifie",
+            "Intégrations métier par automatisation (n8n)",
+            "Au-delà, sur devis"
           ],
           "features_en": [
-            "When mobile drops under 80: a rebuild off WordPress",
-            "Bespoke site 95+ mobile guaranteed, content migrated",
-            "Dashboard with Google Analytics and Search Console",
-            "CRM wired (HubSpot, Salesforce, Pipedrive) and Stripe payments"
+            "Large site taken over, content migrated, full redirect plan",
+            "Headless WordPress with a coded front, when justified",
+            "Business integrations through automation (n8n)",
+            "Beyond that, on quote"
           ],
           "cta": {
             "label_fr": "Cadrer une refonte →",
             "label_en": "Scope a rebuild →",
-            "href": "/services/site-web-ia",
+            "href": "/contact?offer=wordpress&intent=sur-mesure",
             "variant": "ghost"
           }
         }
       ],
-      "footnote_fr": "Le mode WordPress (headless, WooCommerce, classique) se choisit à l'audit, sans changer la formule. Sous 80 en mobile, on recommande une refonte hors WordPress, chiffrée au cadrage. Sans engagement de durée, sans abonnement caché : vous gardez WordPress et la main.",
-      "footnote_en": "The WordPress mode (headless, WooCommerce, classic) is chosen at the audit, without changing the plan. Below 80 on mobile, we recommend a rebuild off WordPress, priced at scoping. No duration commitment, no hidden subscription: you keep WordPress and control."
+      "footnote_fr": "L'hébergement, le nom de domaine et les extensions payantes sont souscrits à votre nom : ils ne figurent pas dans ces prix. Aucun abonnement imposé chez nous. La maintenance est facultative, ses paliers sont publics sur la page tarifs.",
+      "footnote_en": "Hosting, domain and paid extensions are taken out in your name: they are not in these prices. No subscription imposed by us. Maintenance is optional, its tiers are public on the pricing page."
     },
     {
       "type": "eeat-panel",
@@ -723,45 +610,51 @@
       "type": "faq-accordion",
       "background": "paper-2",
       "kicker_fr": "§ Questions fréquentes",
-      "kicker_en": "§ Frequently asked",
-      "h2_fr": "Ce que vous nous demandez",
-      "h2_en": "What you ask us",
+      "kicker_en": "§ Frequently asked questions",
+      "h2_fr": "WordPress : vos questions",
+      "h2_en": "WordPress: your questions",
       "items": [
         {
-          "q_fr": "Vous faites vraiment du WordPress, ou vous poussez à le quitter ?",
-          "q_en": "Do you really do WordPress, or do you push people off it?",
-          "a_fr": "On fait vraiment du WordPress, de trois façons : headless, WooCommerce, ou classique instrumenté. On ne pousse à refondre que dans un cas précis : quand le score mobile passe sous 80 sur PageSpeed et que le site est devenu une dette. Sinon, on le garde et on l'instrumente.",
-          "a_en": "We really do WordPress, in three ways: headless, WooCommerce, or classic and instrumented. We only push for a rebuild in one precise case: when the mobile score drops below 80 on PageSpeed and the site has become a debt. Otherwise, we keep it and instrument it."
+          "q_fr": "WordPress est-il toujours le bon choix pour une PME ?",
+          "a_fr": "Souvent, quand votre équipe le connaît, que vous publiez régulièrement et que vous avez besoin d'extensions : réservation, adhésion, multilingue, boutique WooCommerce. Moins quand le site est une petite vitrine de quelques pages (un site plus léger demande moins d'entretien) ou quand vous vendez surtout en ligne (voir Shopify).",
+          "q_en": "Is WordPress still the right choice for an SMB?",
+          "a_en": "Often, when your team knows it, you publish regularly and you need extensions: booking, membership, multilingual, a WooCommerce shop. Less so when the site is a small brochure of a few pages (a lighter site needs less upkeep) or when you mostly sell online (see Shopify)."
         },
         {
-          "q_fr": "Headless ou WordPress classique, lequel choisir ?",
-          "q_en": "Headless or classic WordPress, which one to choose?",
-          "a_fr": "Headless quand la vitesse et la sécurité priment : WordPress reste l'éditeur, le front est servi en statique. Classique quand vos équipes veulent tout piloter depuis WordPress, builders compris. On tranche à l'audit selon votre contenu, votre trafic et vos ressources internes.",
-          "a_en": "Headless when speed and security come first: WordPress stays the editor, the front is served as static. Classic when your teams want to drive everything from WordPress, builders included. We decide at the audit based on your content, traffic and in-house resources."
+          "q_fr": "Headless ou WordPress classique, lequel choisir ?",
+          "a_fr": "Classique si votre équipe veut tout piloter depuis WordPress, thème et extensions compris. Headless si la vitesse et un design précis comptent plus, et si quelqu'un peut maintenir deux couches : WordPress reste l'outil d'édition, le site public est un front séparé en code. Le headless ajoute de la complexité : Balzeo a quitté un CMS headless complexe pour WordPress et WooCommerce, parce que chaque mise à jour dépendait de la technique.",
+          "q_en": "Headless or classic WordPress, which one?",
+          "a_en": "Classic if your team wants to run everything from WordPress, theme and extensions included. Headless if speed and a precise design matter more, and if someone can maintain two layers: WordPress stays the editing tool, the public site is a separate coded front. Headless adds complexity: Balzeo left a complex headless CMS for WordPress and WooCommerce because every update depended on technical work."
         },
         {
-          "q_fr": "Vous gérez l'e-commerce avec WooCommerce ?",
-          "q_en": "Do you handle e-commerce with WooCommerce?",
-          "a_fr": "Oui. WooCommerce ouvre catalogue, panier et paiement éprouvés, avec un écosystème d'extensions plug n play. On le pose proprement, on le branche à vos outils et on instrumente le tunnel pour que chaque visite soit mesurée.",
-          "a_en": "Yes. WooCommerce opens a proven catalogue, cart and checkout, with a plug and play ecosystem of extensions. We set it up cleanly, wire it to your tools and instrument the funnel so every visit is measured."
+          "q_fr": "Vous reprenez et nettoyez un WordPress existant ?",
+          "a_fr": "Oui. On commence par un audit : version, thème, extensions, sauvegardes, formulaires, mesure. On retire les extensions inutiles, on met à jour, on sécurise et on mesure la vitesse sur mobile, puis on décide avec vous : garder, refaire le thème ou refondre. La refonte n'est jamais proposée par défaut.",
+          "q_en": "Do you take over and clean up an existing WordPress?",
+          "a_en": "Yes. We start with an audit: version, theme, extensions, backups, forms, measurement. We remove useless extensions, update, secure and measure mobile speed, then decide with you: keep, redo the theme or rebuild. A rebuild is never proposed by default."
         },
         {
-          "q_fr": "On peut créer des pages sans développeur ?",
-          "q_en": "Can pages be created without a developer?",
-          "a_fr": "Oui. Gutenberg, Elementor et Divi se sont tellement améliorés, IA intégrée, qu'on crée sections et landing pages en drag n drop ou en le demandant au chatbot. Vos équipes marketing restent autonomes au quotidien, sans dépendre de nous pour chaque évolution.",
-          "a_en": "Yes. Gutenberg, Elementor and Divi have improved so much, with AI built in, that sections and landing pages are created by drag and drop or by asking the chatbot. Your marketing teams stay autonomous day to day, without depending on us for every change."
+          "q_fr": "Que comprend la maintenance d'un site WordPress ?",
+          "a_fr": "Le périmètre habituel : mises à jour du cœur, du thème et des extensions, sauvegardes, contrôle de sécurité, rapport. Il est fixé par écrit au cadrage. Les paliers de maintenance sont publics sur la page tarifs : {{prix.maintenance.p1}}, {{prix.maintenance.p2}} ou {{prix.maintenance.p3}} € HT par mois, les interventions hors forfait étant facturées {{prix.horaire}} € HT de l'heure. Elle est facultative : vous pouvez confier le site à qui vous voulez.",
+          "q_en": "What does WordPress site maintenance include?",
+          "a_en": "The usual scope: updates to core, theme and extensions, backups, a security check, a report. It is set in writing at scoping. Maintenance tiers are public on the pricing page: €{{prix.maintenance.p1}}, €{{prix.maintenance.p2}} or €{{prix.maintenance.p3}} excl. VAT a month, with out-of-scope work billed at €{{prix.horaire}} excl. VAT an hour. It is optional: you can hand the site to whoever you like."
         },
         {
-          "q_fr": "Le GEO fonctionne-t-il sur WordPress ?",
-          "q_en": "Does GEO work on WordPress?",
-          "a_fr": "Oui, par plugins et par une structure travaillée : balisage Schema.org, format extractible et maillage interne se posent sur WordPress pour être cités par Google et les moteurs génératifs. On n'atteint pas la finesse d'un site sur mesure, mais on couvre l'essentiel du GEO.",
-          "a_en": "Yes, through plugins and a worked structure: Schema.org markup, extractable format and internal linking are laid on WordPress to be cited by Google and generative engines. We don't reach the finesse of a bespoke site, but we cover the essentials of GEO."
+          "q_fr": "WooCommerce ou Shopify pour vendre en ligne ?",
+          "a_fr": "WooCommerce si vous avez déjà un site WordPress qui doit vendre, ou si vous voulez tout contrôler, hébergement compris. Shopify si la vente en ligne est le cœur de l'activité et que vous voulez moins de maintenance technique. Un cas publié, Balzeo, tourne sous WooCommerce ; nous ne recommandons pas une plateforme par réflexe.",
+          "q_en": "WooCommerce or Shopify to sell online?",
+          "a_en": "WooCommerce if you already have a WordPress site that must sell, or if you want to control everything, hosting included. Shopify if online sales are the core of the business and you want less technical upkeep. One published case, Balzeo, runs on WooCommerce; we do not recommend a platform by reflex."
         },
         {
-          "q_fr": "Quand recommandez-vous de refondre plutôt que d'instrumenter ?",
-          "q_en": "When do you recommend rebuilding rather than instrumenting?",
-          "a_fr": "Quand le score mobile passe sous 80 sur PageSpeed et que la maintenance coûte plus qu'elle ne rapporte. On bascule alors vers un site sur mesure, livré plus vite qu'une refonte WordPress classique, plus efficace, et garanti à plus de 95 en mobile sur PageSpeed.",
-          "a_en": "When the mobile score drops below 80 on PageSpeed and maintenance costs more than it returns. We then move to a bespoke site, delivered faster than a classic WordPress rebuild, more efficient, and guaranteed above 95 on mobile PageSpeed."
+          "q_fr": "Mon équipe peut-elle modifier les pages sans développeur ?",
+          "a_fr": "Oui. L'éditeur de blocs de WordPress (Gutenberg) permet de composer et de modifier des pages. On configure des blocs et des modèles pour que l'équipe reste dans un cadre cohérent, et on documente. Un constructeur de pages supplémentaire alourdit le site : on en retient un seul, ou aucun.",
+          "q_en": "Can my team edit pages without a developer?",
+          "a_en": "Yes. WordPress's block editor (Gutenberg) lets you compose and edit pages. We configure blocks and templates so the team stays within a consistent frame, and we document it. An extra page builder weighs the site down: we keep one, or none."
+        },
+        {
+          "q_fr": "Combien de temps et combien ça coûte ?",
+          "a_fr": "En général 4 à 8 semaines pour un site en ligne ; Balzeo, une boutique migrée vers WordPress, en 8 semaines. À partir de 2 000 € HT pour une landing, 4 000 € HT pour 3 à 5 pages, à partir de 7 000 € HT pour un site complet ou une boutique, à partir de 10 000 € HT pour une refonte lourde ou du headless. L'hébergement et le nom de domaine sont à votre nom.",
+          "q_en": "How long and how much?",
+          "a_en": "Usually 4 to 8 weeks for a live site; Balzeo, a shop migrated to WordPress, took 8 weeks. From €2,000 excl. VAT for a landing page, €4,000 for 3 to 5 pages, from €7,000 for a full site or a shop, from €10,000 for a heavy rebuild or headless. Hosting and domain are in your name."
         }
       ]
     },
@@ -772,23 +665,23 @@
       "contentAlign": "center",
       "actionsAlign": "center",
       "rounded": true,
-      "kicker_fr": "§ WordPress, mais bien fait",
-      "kicker_en": "§ WordPress, done right",
-      "h2_fr": "Mettez votre WordPress au <i>travail</i>.",
-      "h2_en": "Put your WordPress to <i>work</i>.",
-      "subtitle_fr": "Un audit de 45 min, gratuit et sans engagement : on part de votre WordPress réel et de son score mobile, on choisit le mode (headless, WooCommerce ou classique), et on tranche instrumenter ou refondre. En face, le fondateur qui conçoit et livre, pas un pool de sous-traitants.",
-      "subtitle_en": "A 45-min audit, free and with no commitment: we start from your real WordPress and its mobile score, pick the mode (headless, WooCommerce or classic), and decide instrument or rebuild. Across the table, the founder who designs and ships, not a pool of subcontractors.",
+      "kicker_fr": "§ Audit IA gratuit",
+      "kicker_en": "§ Free AI audit",
+      "h2_fr": "Votre WordPress est-il à entretenir, à relier ou à refaire ?",
+      "h2_en": "Is your WordPress to maintain, connect or rebuild?",
+      "subtitle_fr": "En 45 minutes, on regarde votre site réel, sa vitesse sur mobile et ses formulaires, et on vous dit quoi garder, quoi nettoyer, et si une refonte se justifie.",
+      "subtitle_en": "In 45 minutes, we look at your real site, its mobile speed and its forms, and tell you what to keep, what to clean up and whether a rebuild is justified.",
       "buttons": [
         {
-          "label_fr": "Réserver un audit (45 min) →",
-          "label_en": "Book an audit (45 min) →",
-          "href": "/audit-ia-pme",
+          "label_fr": "Réserver un audit IA gratuit →",
+          "label_en": "Book a free AI audit →",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
           "variant": "primary"
         },
         {
-          "label_fr": "Voir le site web intelligent",
-          "label_en": "See the intelligent website",
-          "href": "/services/site-web-ia",
+          "label_fr": "Cadrer un site WordPress →",
+          "label_en": "Scope a WordPress site →",
+          "href": "/contact?offer=wordpress&intent=cadrage",
           "variant": "ghost"
         }
       ]
