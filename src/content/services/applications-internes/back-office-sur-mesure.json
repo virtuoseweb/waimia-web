@@ -1,0 +1,644 @@
+{
+  "$schema": "../../../schemas/generated/services.page.schema.json",
+  "title_fr": "Back-office sur mesure et outil interne pour PME · Waimia",
+  "title_en": "Bespoke back office and internal tool for SMEs · Waimia",
+  "description_fr": "Back-office sur mesure : formulaires, validations et tableaux de pilotage qui remplacent tableurs et ressaisies. Dès 2 000 € HT, code remis.",
+  "description_en": "Bespoke back office: forms, approvals and operations screens that replace spreadsheets and retyping. From 2,000 € excl. VAT, code handed over.",
+  "slug": "back-office-sur-mesure",
+  "publishedAt": "2026-10-12T00:00:00.000Z",
+  "updatedAt": "2026-10-12T00:00:00.000Z",
+  "category": "applications",
+  "tags": [
+    "back-office-sur-mesure",
+    "outil-interne",
+    "application-metier",
+    "workflow-de-validation",
+    "developpement-sur-mesure"
+  ],
+  "seo": {
+    "noindex": false,
+    "serviceType": "Développement de back-office et d'outil interne sur mesure pour PME",
+    "priceRange": "2000-10000€",
+    "priceMin": 2000,
+    "priceMax": 10000
+  },
+  "faq_fr": [
+    {
+      "q": "Qu'est-ce qu'un back-office sur mesure ?",
+      "a": "L'outil interne par lequel votre équipe saisit, valide et suit ce que l'entreprise produit : commandes, interventions, dossiers, demandes. Il remplace tableurs et e-mails par des formulaires contrôlés, des circuits de validation et des écrans de pilotage, sur une base de données unique."
+    },
+    {
+      "q": "Combien coûte un back-office sur mesure ?",
+      "a": "Quatre paliers selon le périmètre : à partir de 2 000 € HT pour un premier écran en production, 4 000 € HT pour un back-office branché à vos outils, 7 000 € HT pour plusieurs process sur un socle commun, à partir de 10 000 € HT pour un socle complet. Les évolutions se facturent {{prix.horaire}} € HT de l'heure."
+    },
+    {
+      "q": "Quand un outil du marché suffit-il ?",
+      "a": "Quand un tableur partagé bien tenu, un outil de formulaires, un gestionnaire de tâches ou les modules de votre ERP ou de votre CRM couvrent le circuit sans contournement. Dans ce cas, achetez : c'est moins cher et on vous le dira à l'audit. Le sur mesure se justifie quand le circuit est propre à votre métier."
+    },
+    {
+      "q": "Peut-on garder nos tableurs pendant la transition ?",
+      "a": "Oui. Les fichiers existants sont importés et nettoyés, puis l'outil devient la source. Un tableur peut rester utile comme export, mais il ne doit plus être le support de saisie : deux sources de vérité recréent le problème."
+    },
+    {
+      "q": "Le back-office se branche-t-il à notre CRM, à notre ERP, à notre facturation ?",
+      "a": "Oui, par API quand l'outil en propose une, sinon par import ou par export planifié. On vérifie ce que chaque outil permet de lire et d'écrire au cadrage, avant de promettre une connexion."
+    },
+    {
+      "q": "Quelle différence avec un tableau de bord ?",
+      "a": "Un back-office sert à saisir et à valider : c'est un outil de travail. Un tableau de bord de direction sert à lire des indicateurs consolidés. Les tableaux de pilotage d'un back-office restent opérationnels (ce qui est en attente, en retard, à valider). Pour les indicateurs de direction, voir le tableau de bord automatisé."
+    },
+    {
+      "q": "À qui appartient le code du back-office ?",
+      "a": "À vous. Le code est dans un dépôt à votre nom, la base de données et l'hébergement sont sur vos comptes, et la documentation permet à un autre développeur de reprendre l'outil."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "What is a bespoke back office?",
+      "a": "The internal tool through which your team enters, approves and tracks what the company produces: orders, jobs, cases, requests. It replaces spreadsheets and emails with controlled forms, approval flows and operations screens, on a single database."
+    },
+    {
+      "q": "How much does a bespoke back office cost?",
+      "a": "Four tiers by scope: from 2,000 € excl. VAT for a first screen in production, 4,000 € excl. VAT for a back office connected to your tools, 7,000 € excl. VAT for several processes on a shared base, from 10,000 € excl. VAT for a full base. Changes are billed {{prix.horaire}} € an hour excl. VAT."
+    },
+    {
+      "q": "When is an off-the-shelf tool enough?",
+      "a": "When a well-kept shared spreadsheet, a forms tool, a task manager or the modules of your ERP or CRM cover the flow without workarounds. In that case, buy: it costs less and we will tell you so during the audit. Bespoke is justified when the flow is specific to your trade."
+    },
+    {
+      "q": "Can we keep our spreadsheets during the transition?",
+      "a": "Yes. Existing files are imported and cleaned, then the tool becomes the source. A spreadsheet can stay useful as an export, but it should no longer be where data is entered: two sources of truth bring the problem back."
+    },
+    {
+      "q": "Does the back office connect to our CRM, ERP or invoicing?",
+      "a": "Yes, through an API when the tool offers one, otherwise through scheduled import or export. We check what each tool allows reading and writing during scoping, before promising a connection."
+    },
+    {
+      "q": "What is the difference with a dashboard?",
+      "a": "A back office is for entering and approving: it is a working tool. A management dashboard is for reading consolidated indicators. The operations screens of a back office stay operational (what is pending, late, to approve). For management indicators, see the automated dashboard."
+    },
+    {
+      "q": "Who owns the back-office code?",
+      "a": "You do. The code sits in a repository in your name, the database and hosting are on your accounts, and the documentation lets another developer take the tool over."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-masthead-card",
+      "background": "paper",
+      "kicker_fr": "§ Back-office sur mesure",
+      "kicker_en": "§ Bespoke back office",
+      "h1_fr": "Back-office <i class=\"acc\">sur mesure</i> et outil interne pour PME",
+      "h1_en": "Bespoke <i class=\"acc\">back office</i> and internal tool for SMEs",
+      "lede_fr": "Un back-office sur mesure remplace les tableurs, les ressaisies et les validations par e-mail par un outil que votre équipe utilise chaque jour : formulaires, circuit de validation, tableaux de pilotage et historique. Waimia le développe, le branche à vos données et vous remet le code.",
+      "lede_en": "A bespoke back office replaces spreadsheets, retyping and email approvals with a tool your team uses every day: forms, approval flow, operations screens and history. Waimia builds it, connects it to your data and hands over the code.",
+      "badges": [
+        {
+          "label_fr": "Formulaires et validations",
+          "label_en": "Forms and approvals"
+        },
+        {
+          "label_fr": "Tableaux de pilotage",
+          "label_en": "Operations screens"
+        },
+        {
+          "label_fr": "Historique complet",
+          "label_en": "Full history"
+        },
+        {
+          "label_fr": "Code remis",
+          "label_en": "Code handed over"
+        }
+      ],
+      "cta_sub_fr": "Audit gratuit de 45 minutes : on regarde le circuit qui vous coûte le plus de ressaisie.",
+      "cta_sub_en": "Free 45-minute audit: we look at the flow that costs you the most retyping.",
+      "cta_primary": {
+        "label_fr": "Réserver un audit IA gratuit →",
+        "label_en": "Book a free AI audit →",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme",
+        "variant": "ghost"
+      },
+      "media_src": "/images/line-art/probleme-pont-manuel.svg",
+      "media_alt_fr": "Schéma : une personne fait le pont à la main entre deux systèmes en recopiant l'information de l'un à l'autre.",
+      "media_alt_en": "Diagram: a person bridges two systems by hand, copying information from one to the other."
+    },
+    {
+      "type": "proof-bar",
+      "background": "paper",
+      "kicker_fr": "§ En bref",
+      "kicker_en": "§ In short",
+      "metrics": [
+        {
+          "value": "2 000 € HT",
+          "label_fr": "dès, quatre paliers : 2 000, 4 000, 7 000 et 10 000 €",
+          "label_en": "from, four tiers: 2,000, 4,000, 7,000 and 10,000 €",
+          "emphasis": true
+        },
+        {
+          "value": "Un process",
+          "label_fr": "à la fois, celui qui coûte le plus de ressaisie",
+          "label_en": "at a time, the one that costs the most retyping",
+          "emphasis": false
+        },
+        {
+          "value": "Historisé",
+          "label_fr": "chaque modification est datée et attribuée",
+          "label_en": "every change is dated and attributed",
+          "emphasis": false
+        },
+        {
+          "value": "À vous",
+          "label_fr": "code, base de données et hébergement remis",
+          "label_en": "code, database and hosting handed over",
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "type": "definition-extract",
+      "background": "paper",
+      "kicker_fr": "§ Définition",
+      "kicker_en": "§ Definition",
+      "statement_fr": "Un <i class=\"acc\">back-office sur mesure</i> est l'outil interne par lequel votre équipe saisit, valide et suit ce que l'entreprise produit : commandes, interventions, dossiers, demandes. Il remplace tableurs et e-mails par des formulaires contrôlés, des circuits de validation et des écrans de pilotage, sur une base de données unique.",
+      "statement_en": "A <i class=\"acc\">bespoke back office</i> is the internal tool through which your team enters, approves and tracks what the company produces: orders, jobs, cases, requests. It replaces spreadsheets and emails with controlled forms, approval flows and operations screens, on a single database.",
+      "pills": [
+        {
+          "label_fr": "Formulaires contrôlés",
+          "label_en": "Controlled forms"
+        },
+        {
+          "label_fr": "Circuit de validation",
+          "label_en": "Approval flow"
+        },
+        {
+          "label_fr": "Droits par rôle",
+          "label_en": "Role-based rights"
+        },
+        {
+          "label_fr": "Historique",
+          "label_en": "History"
+        }
+      ],
+      "specs": [
+        {
+          "label_fr": "Base de données unique",
+          "label_en": "Single database"
+        },
+        {
+          "label_fr": "Application web",
+          "label_en": "Web application"
+        },
+        {
+          "label_fr": "API vers CRM, ERP, facturation",
+          "label_en": "APIs to CRM, ERP, invoicing"
+        },
+        {
+          "label_fr": "Sauvegardes",
+          "label_en": "Backups"
+        },
+        {
+          "label_fr": "Import des fichiers existants",
+          "label_en": "Import of existing files"
+        },
+        {
+          "label_fr": "Notifications",
+          "label_en": "Notifications"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/back-office-sur-mesure-chaine-validation-paper.webp",
+          "alt_fr": "Trois bureaux en ligne : une feuille passe de main en main jusqu'à la validation finale",
+          "alt_en": "Three desks in a row: a sheet passes from hand to hand until final approval",
+          "side": "right"
+        }
+      ],
+      "html_fr": "<h2>Ce qu'il remplace</h2>\n<p>Trois habitudes, dans l'ordre où elles coûtent le plus : la ressaisie d'une même information dans deux ou trois outils ; la validation par e-mail, où personne ne sait à quelle étape on en est ; le chiffre de pilotage reconstruit à la main avant chaque réunion.</p>\n<h2>Ce qu'on construit</h2>\n<p>Des formulaires qui contrôlent la saisie : champs obligatoires, valeurs possibles, pièces jointes. Des circuits de validation avec un état et un responsable à chaque étape. Des tableaux de pilotage opérationnels : ce qui est en attente, en retard, à valider aujourd'hui. Un historique de chaque modification. Ce sont des écrans de travail, pas du reporting de direction : pour les indicateurs consolidés, voir le <a href=\"/services/donnees-reporting\">tableau de bord automatisé</a>.</p>\n<h2>D'abord vérifier qu'un outil du marché ne suffit pas</h2>\n<p>Beaucoup de besoins de back-office sont couverts par un outil du marché : un tableur partagé bien tenu, un outil de formulaires, un gestionnaire de tâches, les modules de votre ERP ou de votre CRM. Si l'un d'eux fait le travail sans contournement, prenez-le. Le sur mesure se justifie quand le circuit est propre à votre métier, ou quand vous contournez l'outil tous les jours. La méthode est détaillée dans <a href=\"/blog/applications-internes-build-vs-buy-pme\">développer ou acheter son outil interne</a>. Et si le besoin se réduit à faire circuler des données entre deux outils, une <a href=\"/services/automatisations\">automatisation</a> coûte moins cher.</p>\n<h2>Une déclinaison de l'application métier</h2>\n<p>Le back-office suit les mêmes règles que l'<a href=\"/services/applications-internes\">application métier sur mesure</a> : code, base et hébergement à votre nom, documentation de reprise. Sa particularité est d'être tourné vers votre équipe, pas vers vos clients (voir le <a href=\"/services/portail-client\">portail client</a>) ni vers un marché (voir le <a href=\"/services/mvp-saas\">MVP SaaS</a>).</p>",
+      "html_en": "<h2>What it replaces</h2>\n<p>Three habits, in the order they cost most: retyping the same information into two or three tools; approval by email, where nobody knows which stage things are at; the management figure rebuilt by hand before every meeting.</p>\n<h2>What we build</h2>\n<p>Forms that control entry: mandatory fields, allowed values, attachments. Approval flows with a status and an owner at each stage. Operations screens: what is pending, late, to approve today. A history of every change. These are working screens, not management reporting: for consolidated indicators, see the <a href=\"/services/donnees-reporting\">automated dashboard</a>.</p>\n<h2>First check that an off-the-shelf tool is not enough</h2>\n<p>Many back-office needs are covered by an off-the-shelf tool: a well-kept shared spreadsheet, a forms tool, a task manager, the modules of your ERP or CRM. If one of them does the job without workarounds, take it. Bespoke is justified when the flow is specific to your trade, or when you work around the tool every day. The method is detailed in <a href=\"/blog/applications-internes-build-vs-buy-pme\">build or buy your internal tool</a>. And if the need boils down to moving data between two tools, an <a href=\"/services/automatisations\">automation</a> costs less.</p>\n<h2>A variant of the business application</h2>\n<p>The back office follows the same rules as the <a href=\"/services/applications-internes\">bespoke business application</a>: code, database and hosting in your name, handover documentation. Its particularity is to face your team, not your customers (see the <a href=\"/services/portail-client\">client portal</a>) nor a market (see the <a href=\"/services/mvp-saas\">SaaS MVP</a>).</p>"
+    },
+    {
+      "type": "pain-severity-list",
+      "background": "ink",
+      "kicker_fr": "§ Ce qui coûte le plus",
+      "kicker_en": "§ What costs the most",
+      "h2_fr": "Quatre habitudes qu'un <i class=\"acc\">back-office</i> retire",
+      "h2_en": "Four habits a <i class=\"acc\">back office</i> removes",
+      "items": [
+        {
+          "severity": "critical",
+          "title_fr": "La même donnée saisie trois fois",
+          "title_en": "The same data entered three times",
+          "desc_fr": "Commande dans le CRM, puis dans le tableur de suivi, puis dans la facturation. Chaque ressaisie prend du temps et crée un risque d'écart.",
+          "desc_en": "Order in the CRM, then in the tracking spreadsheet, then in invoicing. Every retyping takes time and creates a risk of mismatch.",
+          "fix_fr": "Une saisie, une base, des écrans pour chaque rôle.",
+          "fix_en": "One entry, one database, screens for each role."
+        },
+        {
+          "severity": "high",
+          "title_fr": "La validation qui se perd dans les e-mails",
+          "title_en": "Approval lost in emails",
+          "desc_fr": "Une demande part en copie à cinq personnes. Personne ne sait si elle est validée, ni par qui.",
+          "desc_en": "A request goes out to five people in copy. Nobody knows whether it is approved, or by whom.",
+          "fix_fr": "Un circuit de validation avec un état et un responsable par étape.",
+          "fix_en": "An approval flow with a status and an owner for each stage."
+        },
+        {
+          "severity": "medium",
+          "title_fr": "Le chiffre reconstruit à la main",
+          "title_en": "The figure rebuilt by hand",
+          "desc_fr": "Avant chaque réunion, quelqu'un assemble des chiffres venus de plusieurs fichiers. Le résultat dépend de qui l'a fait.",
+          "desc_en": "Before every meeting, someone assembles figures from several files. The result depends on who did it.",
+          "fix_fr": "Un tableau de pilotage calculé depuis la base, toujours à jour.",
+          "fix_en": "An operations screen computed from the database, always up to date."
+        },
+        {
+          "severity": "low",
+          "title_fr": "L'outil que seule une personne comprend",
+          "title_en": "The tool only one person understands",
+          "desc_fr": "Le fichier repose sur les macros et les habitudes d'une seule personne. Son absence bloque l'équipe.",
+          "desc_en": "The file relies on the macros and habits of one person. Their absence blocks the team.",
+          "fix_fr": "Un outil documenté, avec des droits et un historique, que n'importe quel développeur peut reprendre.",
+          "fix_en": "A documented tool, with rights and history, that any developer can take over."
+        }
+      ]
+    },
+    {
+      "type": "method-stepline",
+      "background": "paper-3",
+      "kicker_fr": "§ Méthode",
+      "kicker_en": "§ Method",
+      "h2_fr": "Un process à la fois",
+      "h2_en": "One process at a time",
+      "lede_fr": "On part du process qui coûte le plus de ressaisie, on le met en production, puis on passe au suivant.",
+      "lede_en": "We start from the process that costs the most retyping, put it into production, then move to the next.",
+      "steps": [
+        {
+          "title_fr": "Observer le process",
+          "title_en": "Observe the process",
+          "sub_fr": "Qui saisit quoi, où, et ce qui est ressaisi",
+          "sub_en": "Who enters what, where, and what is retyped"
+        },
+        {
+          "title_fr": "Écrire le circuit",
+          "title_en": "Write the flow",
+          "sub_fr": "Étapes, états, responsables, règles de validation",
+          "sub_en": "Stages, statuses, owners, approval rules"
+        },
+        {
+          "title_fr": "Reprendre les données",
+          "title_en": "Take over the data",
+          "sub_fr": "Fichiers existants nettoyés et importés",
+          "sub_en": "Existing files cleaned and imported"
+        },
+        {
+          "title_fr": "Construire les écrans",
+          "title_en": "Build the screens",
+          "sub_fr": "Formulaires, validations, tableaux de pilotage",
+          "sub_en": "Forms, approvals, operations screens"
+        },
+        {
+          "title_fr": "Tester avec l'équipe",
+          "title_en": "Test with the team",
+          "sub_fr": "Les personnes qui font le métier, sur leurs cas réels",
+          "sub_en": "The people who do the job, on their real cases"
+        },
+        {
+          "title_fr": "Passation",
+          "title_en": "Handover",
+          "sub_fr": "Code, base, hébergement et documentation remis",
+          "sub_en": "Code, database, hosting and documentation handed over"
+        }
+      ]
+    },
+    {
+      "type": "deliverables-grid",
+      "background": "paper",
+      "kicker_fr": "§ Livrables",
+      "kicker_en": "§ Deliverables",
+      "title_fr": "Ce que vous récupérez",
+      "title_en": "What you get",
+      "lead_fr": "L'outil est à vous : un autre développeur peut le reprendre.",
+      "lead_en": "The tool is yours: another developer can take it over.",
+      "items": [
+        {
+          "title_fr": "Les formulaires de saisie",
+          "title_en": "The entry forms",
+          "body_fr": "Champs contrôlés, valeurs possibles, pièces jointes : la saisie est propre dès l'entrée.",
+          "body_en": "Controlled fields, allowed values, attachments: entry is clean from the start.",
+          "format_fr": "SAISIE",
+          "format_en": "ENTRY"
+        },
+        {
+          "title_fr": "Le circuit de validation",
+          "title_en": "The approval flow",
+          "body_fr": "Étapes, états et responsables écrits au cadrage, avec les notifications utiles.",
+          "body_en": "Stages, statuses and owners written during scoping, with the notifications that matter.",
+          "format_fr": "CIRCUIT",
+          "format_en": "FLOW"
+        },
+        {
+          "title_fr": "Les tableaux de pilotage",
+          "title_en": "The operations screens",
+          "body_fr": "Ce qui est en attente, en retard, à valider : des écrans de travail, calculés depuis la base.",
+          "body_en": "What is pending, late, to approve: working screens, computed from the database.",
+          "format_fr": "PILOTAGE",
+          "format_en": "OPERATIONS"
+        },
+        {
+          "title_fr": "L'historique des modifications",
+          "title_en": "The change history",
+          "body_fr": "Chaque modification datée et attribuée, consultable par fiche.",
+          "body_en": "Every change dated and attributed, viewable per record.",
+          "format_fr": "JOURNAL",
+          "format_en": "LOG"
+        },
+        {
+          "title_fr": "Les droits par rôle",
+          "title_en": "Role-based rights",
+          "body_fr": "Qui saisit, qui valide, qui consulte : une matrice écrite puis testée.",
+          "body_en": "Who enters, who approves, who views: a matrix written then tested.",
+          "format_fr": "DROITS",
+          "format_en": "RIGHTS"
+        },
+        {
+          "title_fr": "Code, base et hébergement",
+          "title_en": "Code, database and hosting",
+          "body_fr": "Dépôt à votre nom, base de données et hébergement sur vos comptes, documentation de reprise.",
+          "body_en": "Repository in your name, database and hosting on your accounts, handover documentation.",
+          "format_fr": "CODE",
+          "format_en": "CODE"
+        }
+      ]
+    },
+    {
+      "type": "decision-list",
+      "background": "paper-2",
+      "kicker_fr": "§ Quand ne pas le faire",
+      "kicker_en": "§ When not to do it",
+      "heading_fr": "Prenez un outil du marché si",
+      "heading_en": "Take an off-the-shelf tool if",
+      "items": [
+        {
+          "label_fr": "Un tableur partagé, bien tenu, avec une seule personne qui saisit, suffit.",
+          "label_en": "A well-kept shared spreadsheet, with a single person entering data, is enough."
+        },
+        {
+          "label_fr": "Un outil de formulaires ou de gestion de tâches couvre déjà le circuit, sans contournement.",
+          "label_en": "A forms or task-management tool already covers the flow, without workarounds."
+        },
+        {
+          "label_fr": "Les modules de votre ERP ou de votre CRM font déjà ce circuit.",
+          "label_en": "The modules of your ERP or CRM already do this flow."
+        },
+        {
+          "label_fr": "Vous voulez des indicateurs de direction plutôt qu'un outil de saisie : c'est un tableau de bord, pas un back-office.",
+          "label_en": "You want management indicators rather than an entry tool: that is a dashboard, not a back office."
+        },
+        {
+          "label_fr": "Le circuit n'est pas encore décidé entre les services : décidez-le d'abord.",
+          "label_en": "The flow is not yet agreed between departments: decide it first."
+        }
+      ]
+    },
+    {
+      "type": "case-card-grid",
+      "background": "ink",
+      "reveal_mode": "cursor",
+      "fig_num": "Fig. 05",
+      "fig_title_fr": "Réalisations",
+      "fig_title_en": "Work",
+      "spec_fr": "Réalisations · deux projets internes, données reprises des fiches publiées, pas des cas clients",
+      "spec_en": "Work · two internal projects, data taken from the published pages, not client cases",
+      "h2_fr": "Des outils internes déjà construits, pour le studio",
+      "h2_en": "Internal tools already built, for the studio",
+      "case_label_fr": "CAS",
+      "case_label_en": "CASE",
+      "sector_label_fr": "Secteur · État",
+      "sector_label_en": "Sector · Status",
+      "impact_label_fr": "Ce que dit la fiche",
+      "impact_label_en": "What the page says",
+      "cases": [
+        {
+          "ref": "cases/waimia-os"
+        },
+        {
+          "ref": "cases/virtuoseos"
+        }
+      ],
+      "all_label_fr": "Voir toutes les réalisations →",
+      "all_label_en": "See all work →",
+      "all_href": "/cas-clients"
+    },
+    {
+      "type": "pricing-cards",
+      "background": "paper",
+      "kicker_fr": "§ La gamme",
+      "kicker_en": "§ The range",
+      "h2_fr": "Combien coûte un back-office sur mesure",
+      "h2_en": "How much does a bespoke back office cost",
+      "lede_fr": "Quatre paliers selon le périmètre. On part d'un cadrage et on livre un outil en production, pas une maquette. Les évolutions se facturent à l'heure, en sprints.",
+      "lede_en": "Four tiers by scope. We start from scoping and ship a tool in production, not a mockup. Changes are billed hourly, in sprints.",
+      "tiers": [
+        {
+          "name_fr": "Premier écran",
+          "name_en": "First screen",
+          "price": "2 000 €",
+          "period_fr": "à partir de · HT",
+          "period_en": "from · excl. VAT",
+          "features_fr": [
+            "Le formulaire ou l'écran qui coûte le plus de ressaisie, en production",
+            "Une base de données propre à la place du tableur",
+            "Accès par rôle, historique et sauvegardes",
+            "Code livré et hébergé chez vous"
+          ],
+          "features_en": [
+            "The form or screen that costs the most retyping, in production",
+            "A clean database in place of the spreadsheet",
+            "Role-based access, history and backups",
+            "Code delivered and hosted on your side"
+          ],
+          "cta": {
+            "label_fr": "Cadrer un premier écran →",
+            "label_en": "Scope a first screen →",
+            "href": "/contact?offer=back-office-sur-mesure&intent=premier-ecran",
+            "variant": "ghost"
+          }
+        },
+        {
+          "name_fr": "Back-office branché",
+          "name_en": "Connected back office",
+          "price": "4 000 €",
+          "period_fr": "indicatif · HT",
+          "period_en": "indicative · excl. VAT",
+          "features_fr": [
+            "Un process complet : formulaires, validation, pilotage",
+            "Branché à vos outils (CRM, facturation) par API ou MCP",
+            "Notifications et historique par fiche",
+            "Code documenté et transférable"
+          ],
+          "features_en": [
+            "One full process: forms, approval, operations screens",
+            "Connected to your tools (CRM, invoicing) through API or MCP",
+            "Notifications and per-record history",
+            "Documented, transferable code"
+          ],
+          "cta": {
+            "label_fr": "Réserver un audit IA gratuit →",
+            "label_en": "Book a free AI audit →",
+            "href": "/contact?offer=audit-ia-pme&intent=audit",
+            "variant": "primary"
+          },
+          "featured": true
+        },
+        {
+          "name_fr": "Plusieurs process",
+          "name_en": "Several processes",
+          "price": "7 000 €",
+          "period_fr": "indicatif · HT",
+          "period_en": "indicative · excl. VAT",
+          "features_fr": [
+            "Plusieurs process sur un socle commun",
+            "Assistance IA là où elle sert, encadrée par vos règles",
+            "Connexions multiples à vos logiciels",
+            "Tableau de suivi de l'usage de l'outil"
+          ],
+          "features_en": [
+            "Several processes on a shared base",
+            "AI assistance where it helps, framed by your rules",
+            "Multiple connections to your software",
+            "Dashboard of tool usage"
+          ],
+          "cta": {
+            "label_fr": "Cadrer plusieurs process →",
+            "label_en": "Scope several processes →",
+            "href": "/contact?offer=back-office-sur-mesure&intent=plusieurs-process",
+            "variant": "ghost"
+          }
+        },
+        {
+          "name_fr": "Socle sur mesure",
+          "name_en": "Bespoke base",
+          "price": "10 000 €",
+          "period_fr": "à partir de · HT",
+          "period_en": "from · excl. VAT",
+          "features_fr": [
+            "Le socle interne complet, plusieurs modules orchestrés",
+            "Intégrations métier lourdes, agents là où c'est utile",
+            "Gouvernance des accès et journal durable",
+            "Code, base et hébergement chez vous : aucune captivité"
+          ],
+          "features_en": [
+            "The full internal base, several modules orchestrated",
+            "Heavy business integrations, agents where useful",
+            "Access governance and durable log",
+            "Code, database and hosting on your side: no lock-in"
+          ],
+          "cta": {
+            "label_fr": "Cadrer un socle sur mesure →",
+            "label_en": "Scope a bespoke base →",
+            "href": "/contact?offer=back-office-sur-mesure&intent=sur-mesure",
+            "variant": "ghost"
+          }
+        }
+      ],
+      "footnote_fr": "Les paliers sont des repères : le périmètre se fixe au cadrage et vous validez avant la construction. Le sprint de cadrage dure 10 heures et coûte 999 € HT. Les évolutions se facturent {{prix.horaire}} € HT de l'heure, en sprints : on estime le temps ensemble, vous validez, on exécute. Pas d'abonnement caché : vous gardez le code, la base de données et l'hébergement.",
+      "footnote_en": "The tiers are benchmarks: the scope is set during scoping and you approve before anything is built. The scoping sprint lasts 10 hours and costs 999 € excl. VAT. Changes are billed {{prix.horaire}} € an hour excl. VAT, in sprints: we size the time together, you approve, we execute. No hidden subscription: you keep the code, the database and the hosting."
+    },
+    {
+      "type": "eeat-panel",
+      "variant": "media",
+      "silo": "ops"
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper-2",
+      "kicker_fr": "§ Questions fréquentes",
+      "kicker_en": "§ Frequently asked questions",
+      "h2_fr": "Ce que vous nous demandez",
+      "h2_en": "What you ask us",
+      "items": [
+        {
+          "q_fr": "Qu'est-ce qu'un back-office sur mesure ?",
+          "q_en": "What is a bespoke back office?",
+          "a_fr": "L'outil interne par lequel votre équipe saisit, valide et suit ce que l'entreprise produit : commandes, interventions, dossiers, demandes. Il remplace tableurs et e-mails par des formulaires contrôlés, des circuits de validation et des écrans de pilotage, sur une base de données unique.",
+          "a_en": "The internal tool through which your team enters, approves and tracks what the company produces: orders, jobs, cases, requests. It replaces spreadsheets and emails with controlled forms, approval flows and operations screens, on a single database."
+        },
+        {
+          "q_fr": "Combien coûte un back-office sur mesure ?",
+          "q_en": "How much does a bespoke back office cost?",
+          "a_fr": "Quatre paliers selon le périmètre : à partir de 2 000 € HT pour un premier écran en production, 4 000 € HT pour un back-office branché à vos outils, 7 000 € HT pour plusieurs process sur un socle commun, à partir de 10 000 € HT pour un socle complet. Les évolutions se facturent {{prix.horaire}} € HT de l'heure.",
+          "a_en": "Four tiers by scope: from 2,000 € excl. VAT for a first screen in production, 4,000 € excl. VAT for a back office connected to your tools, 7,000 € excl. VAT for several processes on a shared base, from 10,000 € excl. VAT for a full base. Changes are billed {{prix.horaire}} € an hour excl. VAT."
+        },
+        {
+          "q_fr": "Quand un outil du marché suffit-il ?",
+          "q_en": "When is an off-the-shelf tool enough?",
+          "a_fr": "Quand un tableur partagé bien tenu, un outil de formulaires, un gestionnaire de tâches ou les modules de votre ERP ou de votre CRM couvrent le circuit sans contournement. Dans ce cas, achetez : c'est moins cher et on vous le dira à l'audit. Le sur mesure se justifie quand le circuit est propre à votre métier.",
+          "a_en": "When a well-kept shared spreadsheet, a forms tool, a task manager or the modules of your ERP or CRM cover the flow without workarounds. In that case, buy: it costs less and we will tell you so during the audit. Bespoke is justified when the flow is specific to your trade."
+        },
+        {
+          "q_fr": "Peut-on garder nos tableurs pendant la transition ?",
+          "q_en": "Can we keep our spreadsheets during the transition?",
+          "a_fr": "Oui. Les fichiers existants sont importés et nettoyés, puis l'outil devient la source. Un tableur peut rester utile comme export, mais il ne doit plus être le support de saisie : deux sources de vérité recréent le problème.",
+          "a_en": "Yes. Existing files are imported and cleaned, then the tool becomes the source. A spreadsheet can stay useful as an export, but it should no longer be where data is entered: two sources of truth bring the problem back."
+        },
+        {
+          "q_fr": "Le back-office se branche-t-il à notre CRM, à notre ERP, à notre facturation ?",
+          "q_en": "Does the back office connect to our CRM, ERP or invoicing?",
+          "a_fr": "Oui, par API quand l'outil en propose une, sinon par import ou par export planifié. On vérifie ce que chaque outil permet de lire et d'écrire au cadrage, avant de promettre une connexion.",
+          "a_en": "Yes, through an API when the tool offers one, otherwise through scheduled import or export. We check what each tool allows reading and writing during scoping, before promising a connection."
+        },
+        {
+          "q_fr": "Quelle différence avec un tableau de bord ?",
+          "q_en": "What is the difference with a dashboard?",
+          "a_fr": "Un back-office sert à saisir et à valider : c'est un outil de travail. Un tableau de bord de direction sert à lire des indicateurs consolidés. Les tableaux de pilotage d'un back-office restent opérationnels (ce qui est en attente, en retard, à valider). Pour les indicateurs de direction, voir le tableau de bord automatisé.",
+          "a_en": "A back office is for entering and approving: it is a working tool. A management dashboard is for reading consolidated indicators. The operations screens of a back office stay operational (what is pending, late, to approve). For management indicators, see the automated dashboard."
+        },
+        {
+          "q_fr": "À qui appartient le code du back-office ?",
+          "q_en": "Who owns the back-office code?",
+          "a_fr": "À vous. Le code est dans un dépôt à votre nom, la base de données et l'hébergement sont sur vos comptes, et la documentation permet à un autre développeur de reprendre l'outil.",
+          "a_en": "You do. The code sits in a repository in your name, the database and hosting are on your accounts, and the documentation lets another developer take the tool over."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "layout": "stacked",
+      "contentAlign": "center",
+      "actionsAlign": "center",
+      "rounded": true,
+      "kicker_fr": "§ Audit IA gratuit",
+      "kicker_en": "§ Free AI audit",
+      "h2_fr": "Quelle ressaisie vous coûte le plus de temps ?",
+      "h2_en": "Which retyping costs you the most time?",
+      "subtitle_fr": "En 45 minutes, on regarde le circuit et on vous dit s'il faut un outil sur mesure, un outil du marché ou une automatisation.",
+      "subtitle_en": "In 45 minutes, we look at the flow and tell you whether you need a bespoke tool, an off-the-shelf tool or an automation.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un audit IA gratuit →",
+          "label_en": "Book a free AI audit →",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Voir les applications internes",
+          "label_en": "See internal applications",
+          "href": "/services/applications-internes",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}
