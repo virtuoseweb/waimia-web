@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · moteur B · « pêcher le bon nom » (naming) : sur un ponton, une silhouette tire de l’eau un poisson, le seul de couleur différente parmi un banc de poissons identiques. Distribution touche bleue. Rôles remplacés par render-svg.mjs. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{subject}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{subject}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/>
+    </g>
+  </defs>
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <circle cx="1200" cy="190" r="140" fill="{{shape}}"/>
+  <rect y="380" width="1456" height="244" fill="{{ground}}"/>
+  <g fill="{{mid}}">
+    <rect x="620" y="400" width="90" height="3"/><rect x="1040" y="394" width="120" height="3"/><rect x="540" y="520" width="140" height="3"/><rect x="1300" y="600" width="100" height="3"/>
+  </g>
+  <!-- ponton -->
+  <rect x="0" y="372" width="520" height="16" fill="{{subject}}"/>
+  <g fill="{{subject}}"><rect x="60" y="388" width="14" height="110"/><rect x="200" y="388" width="14" height="110"/><rect x="340" y="388" width="14" height="110"/><rect x="470" y="388" width="14" height="110"/></g>
+  <!-- pêcheur -->
+  <use href="#man" transform="translate(420 372) scale(1.5)"/>
+  <path d="M432 262 L640 70" stroke="{{subject}}" stroke-width="5" stroke-linecap="round"/>
+  <!-- ligne vers le poisson hors de l'eau -->
+  <path d="M640 70 Q694 130 675 212" fill="none" stroke="{{subject}}" stroke-width="2.5"/>
+  <g transform="translate(690 300) rotate(80) scale(2.6)">
+    <g fill="{{detail}}"><path d="M-34 0 C-18 -20 14 -20 30 -2 L52 -18 L52 18 L30 2 C14 20 -18 20 -34 0 Z"/></g>
+    <circle cx="-18" cy="-4" r="3" fill="{{light}}"/>
+  </g>
+  <!-- banc : tous identiques -->
+  <g transform="translate(800 430) scale(1.1 1.1)" fill="{{subject}}"><path d="M-34 0 C-18 -20 14 -20 30 -2 L52 -18 L52 18 L30 2 C14 20 -18 20 -34 0 Z"/><circle cx="-18" cy="-4" r="3" fill="{{pale}}"/></g>
+  <g transform="translate(940 420) scale(1.045 1.045)" fill="{{subject}}"><path d="M-34 0 C-18 -20 14 -20 30 -2 L52 -18 L52 18 L30 2 C14 20 -18 20 -34 0 Z"/><circle cx="-18" cy="-4" r="3" fill="{{pale}}"/></g>
+  <g transform="translate(1080 436) scale(1.1550000000000002 1.1550000000000002)" fill="{{subject}}"><path d="M-34 0 C-18 -20 14 -20 30 -2 L52 -18 L52 18 L30 2 C14 20 -18 20 -34 0 Z"/><circle cx="-18" cy="-4" r="3" fill="{{pale}}"/></g>
+  <g transform="translate(1220 424) scale(1.1 1.1)" fill="{{subject}}"><path d="M-34 0 C-18 -20 14 -20 30 -2 L52 -18 L52 18 L30 2 C14 20 -18 20 -34 0 Z"/><circle cx="-18" cy="-4" r="3" fill="{{pale}}"/></g>
+  <g transform="translate(1360 440) scale(0.9900000000000001 0.9900000000000001)" fill="{{subject}}"><path d="M-34 0 C-18 -20 14 -20 30 -2 L52 -18 L52 18 L30 2 C14 20 -18 20 -34 0 Z"/><circle cx="-18" cy="-4" r="3" fill="{{pale}}"/></g>
+  <g transform="translate(760 500) scale(1.045 1.045)" fill="{{subject}}"><path d="M-34 0 C-18 -20 14 -20 30 -2 L52 -18 L52 18 L30 2 C14 20 -18 20 -34 0 Z"/><circle cx="-18" cy="-4" r="3" fill="{{pale}}"/></g>
+  <g transform="translate(900 512) scale(1.1 1.1)" fill="{{subject}}"><path d="M-34 0 C-18 -20 14 -20 30 -2 L52 -18 L52 18 L30 2 C14 20 -18 20 -34 0 Z"/><circle cx="-18" cy="-4" r="3" fill="{{pale}}"/></g>
+  <g transform="translate(1040 504) scale(0.9900000000000001 0.9900000000000001)" fill="{{subject}}"><path d="M-34 0 C-18 -20 14 -20 30 -2 L52 -18 L52 18 L30 2 C14 20 -18 20 -34 0 Z"/><circle cx="-18" cy="-4" r="3" fill="{{pale}}"/></g>
+  <g transform="translate(1180 516) scale(1.1550000000000002 1.1550000000000002)" fill="{{subject}}"><path d="M-34 0 C-18 -20 14 -20 30 -2 L52 -18 L52 18 L30 2 C14 20 -18 20 -34 0 Z"/><circle cx="-18" cy="-4" r="3" fill="{{pale}}"/></g>
+  <g transform="translate(1320 506) scale(1.1 1.1)" fill="{{subject}}"><path d="M-34 0 C-18 -20 14 -20 30 -2 L52 -18 L52 18 L30 2 C14 20 -18 20 -34 0 Z"/><circle cx="-18" cy="-4" r="3" fill="{{pale}}"/></g>
+  <g transform="translate(830 576) scale(1.1 1.1)" fill="{{subject}}"><path d="M-34 0 C-18 -20 14 -20 30 -2 L52 -18 L52 18 L30 2 C14 20 -18 20 -34 0 Z"/><circle cx="-18" cy="-4" r="3" fill="{{pale}}"/></g>
+  <g transform="translate(970 586) scale(1.045 1.045)" fill="{{subject}}"><path d="M-34 0 C-18 -20 14 -20 30 -2 L52 -18 L52 18 L30 2 C14 20 -18 20 -34 0 Z"/><circle cx="-18" cy="-4" r="3" fill="{{pale}}"/></g>
+  <g transform="translate(1110 572) scale(1.1 1.1)" fill="{{subject}}"><path d="M-34 0 C-18 -20 14 -20 30 -2 L52 -18 L52 18 L30 2 C14 20 -18 20 -34 0 Z"/><circle cx="-18" cy="-4" r="3" fill="{{pale}}"/></g>
+  <g transform="translate(1250 590) scale(1.1 1.1)" fill="{{subject}}"><path d="M-34 0 C-18 -20 14 -20 30 -2 L52 -18 L52 18 L30 2 C14 20 -18 20 -34 0 Z"/><circle cx="-18" cy="-4" r="3" fill="{{pale}}"/></g>
+  <g transform="translate(1390 578) scale(0.9900000000000001 0.9900000000000001)" fill="{{subject}}"><path d="M-34 0 C-18 -20 14 -20 30 -2 L52 -18 L52 18 L30 2 C14 20 -18 20 -34 0 Z"/><circle cx="-18" cy="-4" r="3" fill="{{pale}}"/></g>
+</svg>

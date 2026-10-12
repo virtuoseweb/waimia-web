@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · moteur B · « la refonte sans arrêter le navire » (refonte de marque) : un paquebot garde sa structure et sa cheminée, la moitié de la coque est déjà repeinte depuis une plateforme suspendue. Distribution sol bleu. Rôles remplacés par render-svg.mjs. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{subject}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{subject}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/>
+    </g>
+  </defs>
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <circle cx="1130" cy="300" r="190" fill="{{shape}}"/>
+  <rect y="448" width="1456" height="176" fill="{{ground}}"/>
+  <g fill="{{light}}">
+    <rect x="60" y="478" width="180" height="4"/><rect x="300" y="520" width="220" height="4"/><rect x="120" y="566" width="160" height="4"/>
+    <rect x="860" y="484" width="200" height="4"/><rect x="1120" y="534" width="240" height="4"/><rect x="700" y="578" width="150" height="4"/>
+  </g>
+  <!-- superstructure -->
+  <rect x="520" y="316" width="520" height="70" fill="{{subject}}"/>
+  <rect x="600" y="262" width="330" height="56" fill="{{subject}}"/>
+  <rect x="700" y="214" width="150" height="52" fill="{{subject}}"/>
+  <g fill="{{light}}">
+    <rect x="548" y="338" width="30" height="20"/><rect x="596" y="338" width="30" height="20"/><rect x="644" y="338" width="30" height="20"/>
+    <rect x="692" y="338" width="30" height="20"/><rect x="740" y="338" width="30" height="20"/><rect x="788" y="338" width="30" height="20"/>
+    <rect x="836" y="338" width="30" height="20"/><rect x="884" y="338" width="30" height="20"/><rect x="932" y="338" width="30" height="20"/><rect x="980" y="338" width="30" height="20"/>
+    <rect x="640" y="280" width="26" height="18"/><rect x="700" y="280" width="26" height="18"/><rect x="760" y="280" width="26" height="18"/><rect x="820" y="280" width="26" height="18"/><rect x="880" y="280" width="26" height="18"/>
+  </g>
+  <!-- cheminées -->
+  <rect x="740" y="140" width="28" height="78" fill="{{subject}}"/><rect x="740" y="140" width="28" height="18" fill="{{detail}}"/>
+  <rect x="790" y="150" width="28" height="68" fill="{{subject}}"/><rect x="790" y="150" width="28" height="18" fill="{{detail}}"/>
+  <!-- coque : ancienne à gauche, repeinte à droite -->
+  <path d="M420 386 L1180 386 L1110 456 L500 456 Z" fill="{{subject}}"/>
+  <path d="M780 386 L1180 386 L1110 456 L780 456 Z" fill="{{detail}}"/>
+  <rect x="420" y="386" width="760" height="8" fill="{{deep}}"/>
+  <!-- plateforme suspendue + peintres -->
+  <path d="M640 386 L640 438 M770 386 L770 438" stroke="{{light}}" stroke-width="3"/>
+  <rect x="626" y="438" width="158" height="9" fill="{{light}}"/>
+  <g fill="{{light}}">
+    <circle cx="676" cy="394.5" r="3.4"/><path d="M670.9 401 Q676 399 681 401 L682 418.7 L670 418.7 Z"/><rect x="670.7" y="418" width="4.4" height="20"/><rect x="677" y="418" width="4.4" height="20"/>
+    <circle cx="732" cy="394.5" r="3.2"/><circle cx="729.7" cy="391.6" r="2.3"/><path d="M728.3 400.7 Q732 399 735.7 400.7 L736.1 414 L727.9 414 Z"/><path d="M727.4 413.5 L736.6 413.5 L735.7 426 L728.3 426 Z"/><rect x="729.2" y="425.5" width="1.9" height="12.5"/><rect x="732.9" y="425.5" width="1.9" height="12.5"/>
+  </g>
+  <path d="M742 404 L776 410" stroke="{{light}}" stroke-width="4" stroke-linecap="round"/>
+  <!-- sillage -->
+  <path d="M420 456 Q330 470 250 462 Q160 456 70 470" fill="none" stroke="{{light}}" stroke-width="5" stroke-linecap="round"/>
+</svg>
