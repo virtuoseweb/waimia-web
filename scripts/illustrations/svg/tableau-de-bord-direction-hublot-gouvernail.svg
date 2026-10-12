@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · tableau de bord de direction : un hublot rond sur l'horizon, une barre à roue, six voyants sur le pupitre, deux silhouettes de dos.
+       Rôles de couleur remplacés par render-svg.mjs (paper / ink). -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-7.5 -93 Q0 -101 7.5 -93 L7 -90 Q0 -95 -7 -90 Z" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <clipPath id="hublot"><circle cx="728" cy="285" r="212"/></clipPath>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+
+  <!-- Le hublot : grande forme ronde, mer en bandes sous l'horizon -->
+  <circle cx="728" cy="285" r="215" fill="{{shape}}"/>
+  <g clip-path="url(#hublot)">
+    <rect x="500" y="318" width="460" height="200" fill="{{mid}}"/>
+    <rect x="500" y="318" width="460" height="4" fill="{{deep}}"/>
+    <rect x="500" y="352" width="460" height="3" fill="{{soft}}"/>
+    <rect x="500" y="392" width="460" height="3" fill="{{soft}}"/>
+    <circle cx="640" cy="180" r="34" fill="{{light}}"/>
+  </g>
+  <circle cx="728" cy="285" r="215" fill="none" stroke="{{subject}}" stroke-width="16"/>
+  <!-- Petit voilier sur l'horizon -->
+  <path d="M846 316 L846 270 L880 316 Z" fill="{{light}}"/>
+  <path d="M832 316 L894 316 L882 330 L846 330 Z" fill="{{subject}}"/>
+
+  <!-- Sol -->
+  <rect y="500" width="1456" height="124" fill="{{ground}}"/>
+  <rect y="500" width="1456" height="3" fill="{{deep}}"/>
+
+  <!-- Barre à roue posée sur le pupitre -->
+  <g transform="translate(728 365)">
+    <g stroke="{{subject}}" stroke-linecap="round">
+      <line x1="-98" y1="0" x2="98" y2="0" stroke-width="9"/>
+      <line x1="0" y1="-98" x2="0" y2="98" stroke-width="9"/>
+      <line x1="-69" y1="-69" x2="69" y2="69" stroke-width="9"/>
+      <line x1="69" y1="-69" x2="-69" y2="69" stroke-width="9"/>
+    </g>
+    <circle r="68" fill="none" stroke="{{subject}}" stroke-width="13"/>
+    <g fill="{{subject}}">
+      <circle cx="-98" cy="0" r="10"/><circle cx="98" cy="0" r="10"/>
+      <circle cx="0" cy="-98" r="10"/><circle cx="0" cy="98" r="10"/>
+      <circle cx="-69" cy="-69" r="10"/><circle cx="69" cy="-69" r="10"/>
+      <circle cx="-69" cy="69" r="10"/><circle cx="69" cy="69" r="10"/>
+    </g>
+    <circle r="17" fill="{{light}}" stroke="{{subject}}" stroke-width="6"/>
+  </g>
+
+  <!-- Pupitre : six voyants seulement -->
+  <rect x="330" y="462" width="796" height="40" fill="{{subject}}"/>
+  <g fill="{{light}}" stroke="{{deep}}" stroke-width="2">
+    <circle cx="410" cy="482" r="13"/><circle cx="480" cy="482" r="13"/><circle cx="550" cy="482" r="13"/>
+    <circle cx="906" cy="482" r="13"/><circle cx="976" cy="482" r="13"/><circle cx="1046" cy="482" r="13"/>
+  </g>
+  <g stroke="{{subject}}" stroke-width="3" stroke-linecap="round">
+    <line x1="410" y1="482" x2="418" y2="474"/><line x1="480" y1="482" x2="480" y2="472"/><line x1="550" y1="482" x2="542" y2="474"/>
+    <line x1="906" y1="482" x2="913" y2="475"/><line x1="976" y1="482" x2="969" y2="475"/><line x1="1046" y1="482" x2="1046" y2="472"/>
+  </g>
+
+  <!-- Deux silhouettes de dos, de part et d'autre du pupitre -->
+  <use href="#man" transform="translate(255 575) scale(1.25)"/>
+  <use href="#man" transform="translate(1205 570) scale(1.1)"/>
+</svg>

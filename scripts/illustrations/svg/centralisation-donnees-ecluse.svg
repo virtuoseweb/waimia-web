@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · centralisation des données : trois ruisseaux dévalent une colline vers un bassin, une écluse les laisse passer vers un seul canal ; un éclusier à la vanne.
+       Rôles de couleur remplacés par render-svg.mjs (paper / ink). -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-7.5 -93 Q0 -101 7.5 -93 L7 -90 Q0 -95 -7 -90 Z" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <circle cx="1130" cy="190" r="125" fill="{{detail}}"/>
+
+  <!-- Colline à gauche, qui se prolonge en quai plat : l'eau est creusée dans la terre -->
+  <path d="M0 110 C150 95 320 170 430 300 L1456 300 L1456 500 L0 500 Z" fill="{{shape}}"/>
+
+  <!-- Trois ruisseaux qui se rejoignent en un seul filet, une seule arrivée -->
+  <g fill="none" stroke="{{ground}}" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M60 135 C100 215 210 225 262 305" stroke-width="15"/>
+    <path d="M235 112 C260 185 225 245 262 305" stroke-width="15"/>
+    <path d="M-10 250 C80 275 180 300 262 305" stroke-width="15"/>
+    <path d="M262 305 C330 322 385 345 432 372" stroke-width="24"/>
+  </g>
+
+  <!-- Bassin amont -->
+  <rect x="430" y="355" width="332" height="145" fill="{{ground}}"/>
+  <rect x="430" y="355" width="332" height="3" fill="{{subject}}"/>
+
+  <!-- Canal aval, plus bas, unique -->
+  <rect x="794" y="430" width="662" height="70" fill="{{ground}}"/>
+  <rect x="794" y="430" width="662" height="3" fill="{{subject}}"/>
+
+  <!-- Écluse : mur de vanne, chapeau, treuil sur le quai, éclusier -->
+  <rect x="760" y="300" width="36" height="200" fill="{{subject}}"/>
+  <rect x="748" y="292" width="60" height="12" fill="{{subject}}"/>
+  <rect x="868" y="268" width="8" height="34" fill="{{subject}}"/>
+  <g transform="translate(872 262)">
+    <circle r="27" fill="none" stroke="{{subject}}" stroke-width="6"/>
+    <line x1="-27" y1="0" x2="27" y2="0" stroke="{{subject}}" stroke-width="5"/>
+    <line x1="0" y1="-27" x2="0" y2="27" stroke="{{subject}}" stroke-width="5"/>
+  </g>
+  <use href="#man" transform="translate(940 300) scale(1.05)"/>
+
+  <!-- Barge sur le canal aval, chargée de caisses nettes -->
+  <path d="M1010 430 L1160 430 L1138 456 L1032 456 Z" fill="{{subject}}"/>
+  <rect x="1040" y="400" width="34" height="30" fill="{{light}}" stroke="{{deep}}" stroke-width="1.5"/>
+  <rect x="1078" y="400" width="34" height="30" fill="{{light}}" stroke="{{deep}}" stroke-width="1.5"/>
+  <rect x="1059" y="370" width="34" height="30" fill="{{light}}" stroke="{{deep}}" stroke-width="1.5"/>
+
+  <!-- Berge -->
+  <rect y="500" width="1456" height="124" fill="{{shadow}}"/>
+    <use href="#man" transform="translate(1250 590) scale(0.5)"/>
+</svg>

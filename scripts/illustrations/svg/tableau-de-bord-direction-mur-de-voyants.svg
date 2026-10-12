@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · tableau de bord de direction : un grand panneau de voyants dont six seulement sont allumés ; une silhouette de dos devant.
+       Rôles de couleur remplacés par render-svg.mjs (paper / ink). -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-7.5 -93 Q0 -101 7.5 -93 L7 -90 Q0 -95 -7 -90 Z" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <rect y="500" width="1456" height="124" fill="{{ground}}"/>
+  <rect y="500" width="1456" height="3" fill="{{detail}}"/>
+
+  <!-- Panneau -->
+  <rect x="290" y="70" width="876" height="420" fill="{{shape}}"/>
+  <rect x="290" y="70" width="876" height="420" fill="none" stroke="{{deep}}" stroke-width="6"/>
+  <rect x="270" y="490" width="916" height="14" fill="{{deep}}"/>
+
+  <!-- Trente-deux voyants éteints -->
+  <g fill="{{deep}}">
+    <circle cx="398" cy="150" r="27"/><circle cx="490" cy="150" r="27"/><circle cx="582" cy="150" r="27"/><circle cx="674" cy="150" r="27"/><circle cx="766" cy="150" r="27"/><circle cx="858" cy="150" r="27"/><circle cx="950" cy="150" r="27"/><circle cx="1042" cy="150" r="27"/>
+    <circle cx="398" cy="242" r="27"/><circle cx="490" cy="242" r="27"/><circle cx="582" cy="242" r="27"/><circle cx="674" cy="242" r="27"/><circle cx="766" cy="242" r="27"/><circle cx="858" cy="242" r="27"/><circle cx="950" cy="242" r="27"/><circle cx="1042" cy="242" r="27"/>
+    <circle cx="398" cy="334" r="27"/><circle cx="490" cy="334" r="27"/><circle cx="582" cy="334" r="27"/><circle cx="674" cy="334" r="27"/><circle cx="766" cy="334" r="27"/><circle cx="858" cy="334" r="27"/><circle cx="950" cy="334" r="27"/><circle cx="1042" cy="334" r="27"/>
+    <circle cx="398" cy="426" r="27"/><circle cx="490" cy="426" r="27"/><circle cx="582" cy="426" r="27"/><circle cx="674" cy="426" r="27"/><circle cx="766" cy="426" r="27"/><circle cx="858" cy="426" r="27"/><circle cx="950" cy="426" r="27"/><circle cx="1042" cy="426" r="27"/>
+  </g>
+
+  <!-- Six voyants allumés, avec halo -->
+  <g fill="{{soft}}">
+    <circle cx="490" cy="150" r="40"/><circle cx="858" cy="150" r="40"/><circle cx="674" cy="242" r="40"/>
+    <circle cx="398" cy="334" r="40"/><circle cx="950" cy="334" r="40"/><circle cx="766" cy="426" r="40"/>
+  </g>
+  <g fill="{{subject}}">
+    <circle cx="490" cy="150" r="27"/><circle cx="858" cy="150" r="27"/><circle cx="674" cy="242" r="27"/>
+    <circle cx="398" cy="334" r="27"/><circle cx="950" cy="334" r="27"/><circle cx="766" cy="426" r="27"/>
+  </g>
+
+  <!-- Une silhouette de dos devant le panneau, pointeur à la main -->
+  <use href="#man" transform="translate(728 585) scale(0.95)"/>
+  <path d="M742 510 L860 372" stroke="{{subject}}" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Témoin au loin à droite -->
+  <use href="#man" transform="translate(1290 555) scale(0.7)"/>
+</svg>
