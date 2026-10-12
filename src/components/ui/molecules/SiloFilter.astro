@@ -9,7 +9,8 @@
 // Comportement (script inline, ré-initialisé sur astro:page-load) :
 //  - clic = n'affiche que les cartes du silo (attribut `hidden`), « Tous » réinitialise ;
 //  - lien profond `?silo=<clé>` lu au chargement, mis à jour par history.replaceState ;
-//  - une <section> dont toutes les cartes sont masquées est masquée avec son titre.
+//  - une <section> dont toutes les cartes sont masquées est masquée avec son titre ;
+//  - chaque application émet `silo-filter:change` (bulle, detail.key) sur le <nav>.
 //
 // API : <SiloFilter silos={cartes.map((c) => c.silo)} lang={lang} />
 import { SILO_KEYS, siloLabel } from '../../../data/taxonomies';
@@ -23,8 +24,12 @@ interface Props {
   /** Libellé de la puce de réinitialisation (défaut « Tous » / « All »). Le hub Ressources
    *  passe « Tous les thèmes » : il affiche aussi un filtre par type au-dessus. */
   allLabel?: string;
+  /** Sélecteur des cartes filtrées (défaut `[data-silo]`). Avec un périmètre explicite, une
+   *  carte SANS silo est masquée dès qu'un thème est choisi : le compteur du thème égale
+   *  alors le nombre de cartes affichées (hub Ressources : les outils n'ont pas de silo). */
+  cards?: string;
 }
-const { silos, lang, class: extraClass = '', allLabel } = Astro.props;
+const { silos, lang, class: extraClass = '', allLabel, cards } = Astro.props;
 const isFr = lang === 'fr';
 
 const chips = SILO_KEYS.map((key) => ({
@@ -34,7 +39,7 @@ const chips = SILO_KEYS.map((key) => ({
 })).filter((c) => c.n > 0);
 ---
 {chips.length > 1 && (
-  <nav class={`silo-filter ${extraClass}`.trim()} data-silo-filter hidden aria-label={isFr ? 'Filtrer par thème' : 'Filter by topic'}>
+  <nav class={`silo-filter ${extraClass}`.trim()} data-silo-filter data-silo-cards={cards} hidden aria-label={isFr ? 'Filtrer par thème' : 'Filter by topic'}>
     <button type="button" class="silo-chip" data-silo-key="" aria-pressed="true">
       {allLabel ?? (isFr ? 'Tous' : 'All')} <span class="silo-chip-n">{silos.length}</span>
     </button>
@@ -75,7 +80,7 @@ const chips = SILO_KEYS.map((key) => ({
 <script is:inline>
 (function () {
   function apply(nav, key) {
-    var cards = document.querySelectorAll('[data-silo]');
+    var cards = document.querySelectorAll(nav.getAttribute('data-silo-cards') || '[data-silo]');
     var sections = [];
     cards.forEach(function (card) {
       card.hidden = key !== '' && card.getAttribute('data-silo') !== key;
@@ -90,6 +95,9 @@ const chips = SILO_KEYS.map((key) => ({
     nav.querySelectorAll('[data-silo-key]').forEach(function (b) {
       b.setAttribute('aria-pressed', String(b.getAttribute('data-silo-key') === key));
     });
+    // Annonce le changement (bulle) : un conteneur peut tenir ses compteurs à jour sans
+    // dupliquer l'état (hub Ressources : pastilles retirables, « Voir N résultats »).
+    nav.dispatchEvent(new CustomEvent('silo-filter:change', { bubbles: true, detail: { key: key } }));
     try {
       var url = new URL(window.location.href);
       if (key) url.searchParams.set('silo', key); else url.searchParams.delete('silo');

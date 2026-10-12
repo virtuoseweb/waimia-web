@@ -128,6 +128,7 @@ const listTitle = activeKind
           script retire `hidden`) : sans JS, la page reste la liste des cartes. */}
       <div class="res-search" data-res-search data-lang={lang} data-index="/ressources/search-index.json" hidden>
         <label for="res-q" class="sr-only">{isFr ? 'Rechercher dans toutes les ressources' : 'Search all resources'}</label>
+        <div class="res-search__row">
         <div class="res-search__field">
           <svg class="res-search__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
             <circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="1.8" />
@@ -148,6 +149,23 @@ const listTitle = activeKind
             placeholder={isFr ? 'Rechercher une ressource' : 'Search resources'}
           />
         </div>
+        {/* Mobile (< 768 px) : ouvre le panneau des filtres. Masqué sans JS et en desktop, où
+            les deux niveaux restent à plat sous la recherche. */}
+        <button
+          type="button"
+          class="res-filter-btn"
+          aria-expanded="false"
+          aria-controls="res-facets-panel"
+          data-res-filter-btn
+          hidden
+        >
+          <svg class="res-filter-btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M4 7h16M7 12h10M10 17h4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          </svg>
+          <span>{isFr ? 'Filtrer' : 'Filter'}</span>
+          <span class="res-filter-btn__n" data-res-filter-n hidden></span>
+        </button>
+        </div>
         {/* Annonce lecteurs d'écran : zone live TOUJOURS présente et masquée visuellement (une zone
             display:none ou vide au chargement n'est pas annoncée de façon fiable). Le compte
             visible juste dessous est aria-hidden : pas de doublon vocal. */}
@@ -158,29 +176,46 @@ const listTitle = activeKind
           <div id="res-q-list" class="res-search__list" role="listbox" aria-label={isFr ? 'Résultats de la recherche' : 'Search results'} data-res-list></div>
         </div>
       </div>
-      {/* Deux niveaux de filtre : le TYPE (une URL par vue, contrôle segmenté) puis le THÈME
-          (puces discrètes, sur les cartes de la vue). Une rangée défilante chacun en mobile. */}
-      <div class="res-facets">
-        <div class="res-facet">
-          <span class="res-facet__label" aria-hidden="true">Type</span>
-          <nav class="res-filters" aria-label={isFr ? 'Type de ressource' : 'Resource type'}>
-            {chips.map((c) => (
-              <a class="res-chip" href={c.href} aria-current={c.current ? 'page' : undefined}>
-                {c.label} <span class="res-chip-n">{c.n}</span>
-              </a>
-            ))}
-          </nav>
-        </div>
-        <div class="res-facet res-facet--theme">
-          <span class="res-facet__label" aria-hidden="true">{isFr ? 'Thème' : 'Topic'}</span>
-          <SiloFilter
-            silos={shown.map((i) => i.silo)}
-            lang={lang}
-            class="res-silos"
-            allLabel={isFr ? 'Tous les thèmes' : 'All topics'}
-          />
+      {/* Deux niveaux de filtre, UN SEUL bloc pour toutes les largeurs : le TYPE (vrais liens,
+          une URL par vue) puis le THÈME (filtre client sur les cartes de la vue).
+            • Desktop : deux rangées à plat, retour à la ligne, aucune option cachée.
+            • Mobile avec JS : le bloc se replie derrière « Filtrer » (dépliant en flux, pas de
+              feuille modale : ni piège de focus, ni verrou de défilement) ; une ligne d'état
+              montre les filtres actifs en pastilles retirables, ou l'étendue du choix.
+            • Sans JS : le bloc reste déplié, les liens de type sont atteignables. */}
+      <div class="res-facets" data-res-facets data-lang={lang} data-types={chips.length - 1}>
+        <div class="res-active" data-res-active hidden></div>
+        <div id="res-facets-panel" class="res-facets__panel" role="region" aria-labelledby="res-facets-title">
+          <h2 id="res-facets-title" class="res-facets__title" tabindex="-1">{isFr ? 'Filtrer les ressources' : 'Filter resources'}</h2>
+          <div class="res-facet">
+            <span class="res-facet__label" aria-hidden="true">Type<span class="res-facet__more">{isFr ? ' de ressource' : ' of resource'}</span></span>
+            <nav class="res-filters" aria-label={isFr ? 'Type de ressource' : 'Resource type'}>
+              {chips.map((c) => (
+                <a class="res-chip" href={c.href} data-type-key={c.key} aria-current={c.current ? 'page' : undefined}>
+                  <span class="res-chip__label">{c.label}</span> <span class="res-chip-n">{c.n}</span>
+                </a>
+              ))}
+            </nav>
+          </div>
+          <div class="res-facet res-facet--theme">
+            <span class="res-facet__label" aria-hidden="true">{isFr ? 'Thème' : 'Topic'}</span>
+            <SiloFilter
+              silos={shown.map((i) => i.silo)}
+              lang={lang}
+              class="res-silos"
+              allLabel={isFr ? 'Tous les thèmes' : 'All topics'}
+              cards=".res-list .article-card"
+            />
+          </div>
+          <div class="res-facets__actions">
+            <Button as="button" variant="ghost" class="res-facets__reset" data-res-reset>{isFr ? 'Réinitialiser' : 'Reset'}</Button>
+            <Button as="button" variant="primary" class="res-facets__apply" data-res-apply>{isFr ? 'Voir les résultats' : 'Show results'}</Button>
+          </div>
         </div>
       </div>
+      {/* Marque le bloc comme piloté par le script AVANT la première peinture : en mobile, il
+          naît replié (pas de saut). Idempotent, rejoué sans risque après une navigation. */}
+      <script is:inline>document.querySelectorAll('[data-res-facets]').forEach(function (f) { f.setAttribute('data-ready', ''); });</script>
       </div>
     </Fragment>
     <Fragment slot="list">
@@ -241,103 +276,255 @@ const listTitle = activeKind
   .res-filters-stack { display: flex; flex-direction: column; align-items: flex-start; width: 100%; }
 
   /* ── Filtres à deux niveaux (tokens DS existants, aucun token neuf) ──
-     Niveau 1, TYPE : contrôle segmenté dans un cadre, segment actif en encre (une URL par vue).
-     Niveau 2, THÈME : puces sans cadre, soulignées quand actives, plus discrètes. Chaque
-     niveau porte son libellé dans une colonne fixe : la hiérarchie se lit sans les compteurs. */
-  .res-facets { display: flex; flex-direction: column; gap: var(--space-4); width: 100%; }
-  .res-facet {
-    display: grid;
-    grid-template-columns: 4.5rem minmax(0, 1fr);
-    /* Libellé aligné sur la PREMIÈRE ligne de puces (les thèmes passent sur deux lignes). */
-    align-items: baseline;
-    column-gap: var(--space-4);
+     Niveau 1, TYPE : pastilles-liens, une URL par vue, la vue courante en encre.
+     Niveau 2, THÈME : puces sans cadre, soulignées quand actives, plus discrètes.
+     Aucune rangée défilante : toutes les options sont toujours visibles (retour à la ligne
+     en desktop, grille dans le panneau mobile). */
+  .res-facets { width: 100%; }
+  .res-facets__title {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
   }
+  .res-facets__title:focus { outline: none; }
+  .res-facets__actions,
+  .res-active { display: none; }
   .res-facet__label {
     font-family: var(--font-mono);
     font-size: var(--text-small);
     letter-spacing: var(--tracking-mono);
     color: var(--muted);
   }
+  .res-facet__more { display: none; }
   /* Thème : masqué sans JS (SiloFilter reste `hidden`) ou quand la vue n'a qu'un thème. */
   :global(.res-facet--theme:not(:has(.silo-filter:not([hidden])))) { display: none; }
 
-  .res-filters {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-1);
-    justify-self: start;
-    max-width: 100%;
-    padding: var(--space-1);
-    border: 1px solid var(--hairline-strong);
-    border-radius: var(--radius-pill);
-  }
   .res-chip {
+    box-sizing: border-box;
     display: inline-flex;
-    align-items: baseline;
+    align-items: center;
     gap: var(--space-2);
-    padding: var(--space-2) var(--space-4);
-    border-radius: var(--radius-pill);
+    border: 1px solid var(--hairline-strong);
     font-family: var(--font-sans);
     font-size: var(--text-small);
     color: var(--ink);
     text-decoration: none;
-    white-space: nowrap;
-    transition: background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+    transition: background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
   }
-  .res-chip:hover { background: var(--paper-2); }
-  .res-chip:focus-visible { outline: 2px solid var(--accent-text); outline-offset: -2px; }
+  .res-chip:hover { border-color: var(--ink); }
+  .res-chip:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 2px; }
   .res-chip-n { font-family: var(--font-mono); color: var(--muted); }
-  /* Segment actif : la vue courante (aria-current="page"). */
-  .res-chip[aria-current='page'] { background: var(--ink); color: var(--paper); }
+  /* Vue courante (aria-current="page") : pastille pleine en encre. */
+  .res-chip[aria-current='page'] { background: var(--ink); border-color: var(--ink); color: var(--paper); }
   .res-chip[aria-current='page'] .res-chip-n { color: inherit; }
 
-  .res-index :global(.res-silos) { margin: 0; gap: var(--space-1) var(--space-2); }
+  .res-index :global(.res-silos:not([hidden])) { margin: 0; }
   .res-index :global(.res-silos .silo-chip) {
-    padding: var(--space-1) var(--space-2);
+    box-sizing: border-box;
+    align-items: center;
     background: transparent;
-    border: 0;
-    border-radius: var(--radius-xs);
     color: var(--ink-2);
-    white-space: nowrap;
   }
-  /* Indicateur sous la puce (libellé ET compteur), comme un onglet. */
-  .res-index :global(.res-silos .silo-chip:hover) { color: var(--ink); box-shadow: inset 0 -2px 0 var(--hairline-strong); }
   .res-index :global(.res-silos .silo-chip:focus-visible) { outline-offset: -2px; }
-  .res-index :global(.res-silos .silo-chip[aria-pressed='true']) {
-    background: transparent;
-    color: var(--ink);
-    box-shadow: inset 0 -2px 0 var(--accent-text);
-  }
-  .res-index :global(.res-silos .silo-chip[aria-pressed='true'] .silo-chip-n) { color: var(--muted); }
+  .res-index :global(.res-silos .silo-chip[aria-pressed='true']) { background: transparent; color: var(--ink); }
+  .res-index :global(.res-silos .silo-chip[aria-pressed='true'] .silo-chip-n) { color: var(--accent-text); }
 
-  @media (max-width: 640px) {
-    /* Une rangée défilante par niveau : le bloc de filtres garde deux lignes de haut. */
-    .res-facet { grid-template-columns: 3.5rem minmax(0, 1fr); column-gap: var(--space-3); }
-    .res-filters,
-    .res-index :global(.res-silos) {
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      overscroll-behavior-x: contain;
-      scroll-snap-type: x proximity;
-      scrollbar-width: none;
+  /* Bouton « Filtrer » : à côté de la recherche, même hauteur que le champ. */
+  .res-search__row { display: flex; gap: var(--space-2); align-items: stretch; }
+  .res-search__field { flex: 1 1 auto; min-width: 0; }
+  .res-filter-btn {
+    box-sizing: border-box;
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    gap: var(--space-2);
+    min-height: calc(var(--space-6) + var(--space-4));
+    padding: 0 var(--space-3);
+    background: var(--paper);
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-xs);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-small);
+    font-weight: var(--fw-medium);
+    cursor: pointer;
+    transition: border-color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
+  }
+  .res-filter-btn[hidden] { display: none; }
+  .res-filter-btn:hover,
+  .res-filter-btn[aria-expanded='true'] { border-color: var(--ink); }
+  .res-filter-btn[aria-expanded='true'] { background: var(--paper-2); }
+  .res-filter-btn:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 2px; }
+  .res-filter-btn__icon { width: 1.25em; height: 1.25em; }
+  /* Filtres actifs : le compteur suffit, l'icône cède sa place au champ de recherche. */
+  .res-filter-btn:has(.res-filter-btn__n:not([hidden])) .res-filter-btn__icon { display: none; }
+  .res-filter-btn__n {
+    min-width: 1.5em;
+    padding: 0 var(--space-1);
+    border-radius: var(--radius-pill);
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    line-height: 1.5;
+    text-align: center;
+  }
+  .res-filter-btn__n[hidden] { display: none; }
+  /* Requête en cours : la recherche, globale, n'est pas filtrée. */
+  .res-index[data-searching] .res-filter-btn { display: none; }
+
+  /* ── Desktop (768 px et plus) : deux rangées à plat sous la recherche ── */
+  @media (min-width: 768px) {
+    .res-filter-btn { display: none; }
+    .res-facets__panel { display: flex; flex-direction: column; gap: var(--space-4); }
+    .res-facet {
+      display: grid;
+      grid-template-columns: 4.5rem minmax(0, 1fr);
+      /* Libellé aligné sur la PREMIÈRE ligne de puces (les thèmes passent sur deux lignes). */
+      align-items: baseline;
+      column-gap: var(--space-4);
     }
-    .res-filters::-webkit-scrollbar,
-    .res-index :global(.res-silos::-webkit-scrollbar) { display: none; }
-    .res-chip,
+    .res-filters { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+    .res-chip {
+      min-height: 2.5rem;
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius-pill);
+      white-space: nowrap;
+    }
+    .res-index :global(.res-silos:not([hidden])) { gap: var(--space-1) var(--space-2); }
     .res-index :global(.res-silos .silo-chip) {
-      flex: none;
-      align-items: center;
-      min-height: 2.75rem;
-      scroll-snap-align: start;
+      padding: var(--space-1) var(--space-2);
+      border: 0;
+      border-radius: var(--radius-xs);
+      white-space: nowrap;
     }
-    /* Fondu à droite : il reste des thèmes à faire défiler. */
-    .res-index :global(.res-silos) {
-      -webkit-mask-image: linear-gradient(to right, black calc(100% - var(--space-6)), transparent);
-      mask-image: linear-gradient(to right, black calc(100% - var(--space-6)), transparent);
-    }
-    /* En-tête resserré : des cartes visibles au-dessus de la ligne de flottaison. */
+    /* Indicateur sous la puce (libellé ET compteur), comme un onglet. */
+    .res-index :global(.res-silos .silo-chip:hover) { color: var(--ink); box-shadow: inset 0 -2px 0 var(--hairline-strong); }
+    .res-index :global(.res-silos .silo-chip[aria-pressed='true']) { box-shadow: inset 0 -2px 0 var(--accent-text); }
+    .res-index :global(.res-silos .silo-chip[aria-pressed='true'] .silo-chip-n) { color: var(--muted); }
+  }
+
+  /* ── Mobile (moins de 768 px) : un bouton « Filtrer », un dépliant, une ligne d'état ── */
+  @media (max-width: 767px) {
+    /* Spécificité relevée : la règle de base de .res-search est déclarée plus bas. */
+    .res-index .res-search { margin-bottom: var(--space-3); }
     .res-index :global(.list-filters) { margin-top: var(--space-6); }
     .res-index :global(.list-hd) { padding-bottom: var(--space-6); }
+
+    /* Piloté par le script : replié tant que « Filtrer » n'est pas ouvert. */
+    .res-facets[data-ready]:not([data-open]) .res-facets__panel { display: none; }
+    .res-facets[data-ready][data-open] .res-facets__panel {
+      padding: var(--space-5) var(--space-4) var(--space-4);
+      background: var(--paper-2);
+      border-radius: var(--radius-md);
+    }
+    .res-facets[data-ready] .res-facets__title {
+      position: static; width: auto; height: auto; margin: 0 0 var(--space-5);
+      overflow: visible; clip: auto; white-space: normal;
+      font-family: var(--font-sans);
+      font-size: var(--text-body);
+      font-weight: var(--fw-semibold);
+      line-height: var(--leading-body);
+      color: var(--ink);
+    }
+
+    /* Ligne d'état, panneau fermé : filtres actifs en pastilles retirables, sinon l'étendue
+       du choix (« 87 ressources, 4 types, 11 thèmes »). Le panneau ouvert la remplace :
+       l'état ne s'affiche jamais deux fois. */
+    .res-facets[data-ready] .res-active:not([hidden]) {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    .res-facets[data-ready][data-open] .res-active { display: none; }
+    .res-active :global(.res-pill) {
+      box-sizing: border-box;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      min-height: 2.75rem;
+      padding: 0 var(--space-3) 0 var(--space-4);
+      background: var(--paper-2);
+      border: 1px solid var(--hairline-strong);
+      border-radius: var(--radius-pill);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-size: var(--text-small);
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .res-active :global(.res-pill:hover) { border-color: var(--ink); }
+    .res-active :global(.res-pill:focus-visible) { outline: 2px solid var(--accent-text); outline-offset: 2px; }
+    .res-active :global(.res-pill__x) { font-size: var(--text-body); line-height: 1; color: var(--muted); }
+    .res-active :global(.res-active__sum) {
+      margin: 0;
+      font-family: var(--font-mono);
+      font-size: var(--text-small);
+      letter-spacing: var(--tracking-mono-tight);
+      color: var(--muted);
+    }
+
+    /* Deux groupes titrés, séparés d'un filet ; options en grille de deux colonnes, la
+       réinitialisation du niveau (« Toutes les ressources », « Tous les thèmes ») sur toute
+       la largeur. Cibles de 44 px au moins. */
+    .res-facet + .res-facet {
+      margin-top: var(--space-5);
+      padding-top: var(--space-5);
+      border-top: 1px solid var(--hairline-strong);
+    }
+    .res-facet__label {
+      display: block;
+      margin-bottom: var(--space-3);
+      font-family: var(--font-sans);
+      font-weight: var(--fw-semibold);
+      letter-spacing: normal;
+      color: var(--ink);
+    }
+    .res-facet__more { display: inline; }
+    .res-filters,
+    .res-index :global(.res-silos:not([hidden])) {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-2);
+    }
+    .res-chip,
+    .res-index :global(.res-silos .silo-chip) {
+      justify-content: space-between;
+      min-height: 2.75rem;
+      padding: var(--space-2) var(--space-3);
+      border-radius: var(--radius-sm);
+      line-height: 1.3;
+      text-align: left;
+    }
+    .res-chip[data-type-key='all'],
+    .res-index :global(.res-silos .silo-chip[data-silo-key='']) { grid-column: 1 / -1; }
+    /* Type : tuiles pleines (des pages). Thème : tuiles au trait, cochées d'un double filet
+       accent (un filtre sur la page). */
+    .res-chip { background: var(--paper); }
+    .res-chip[aria-current='page'] { background: var(--ink); }
+    .res-index :global(.res-silos .silo-chip) { border: 1px solid var(--hairline-strong); }
+    .res-index :global(.res-silos .silo-chip:hover) { border-color: var(--ink); color: var(--ink); }
+    .res-index :global(.res-silos .silo-chip[aria-pressed='true']) {
+      border-color: var(--accent-text);
+      box-shadow: inset 0 0 0 1px var(--accent-text);
+      font-weight: var(--fw-medium);
+    }
+
+    .res-facets[data-ready] .res-facets__actions {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: var(--space-2);
+      margin-top: var(--space-5);
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--hairline-strong);
+    }
+    .res-facets__actions :global(.btn) { justify-content: center; min-height: 2.75rem; }
+    .res-facets__actions :global(.btn:disabled) { opacity: 0.45; cursor: default; transform: none; box-shadow: none; }
+    .res-facets__actions :global(.btn-ghost:disabled) { background: transparent; color: var(--ink); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .res-chip,
+    .res-filter-btn { transition: none; }
   }
 
   /* ── Recherche (tokens DS existants, aucun token neuf) ──
@@ -495,6 +682,8 @@ const listTitle = activeKind
   .res-list :global(.article-grid),
   .res-list :global(.article-grid > .wrap-wide),
   .res-list :global(.article-grid__list) { display: contents; }
+  /* Carte sans silo masquée par le filtre de thème : `hidden` doit l'emporter sur son flex. */
+  .res-list :global(.article-card[hidden]) { display: none; }
   @media (max-width: 980px) { .res-list { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 768px) { .res-list { margin-top: calc(-1 * var(--space-5)); } }
   @media (max-width: 640px) { .res-list { grid-template-columns: 1fr; } }
@@ -996,23 +1185,194 @@ const listTitle = activeKind
     });
   }
 
-  // Mobile : la rangée des types défile ; le segment de la vue courante est amené en vue.
-  function revealActiveType() {
-    document.querySelectorAll('.res-filters').forEach(function (nav) {
-      var cur = nav.querySelector('[aria-current="page"]');
-      if (!cur || nav.scrollWidth <= nav.clientWidth) return;
-      var c = cur.getBoundingClientRect(), n = nav.getBoundingClientRect();
-      // Centré : les segments voisins restent coupés aux deux bords, signe qu'on peut défiler.
-      nav.scrollLeft += c.left - n.left - (n.width - c.width) / 2;
-    });
-  }
-
   function bindAll() {
     document.querySelectorAll('[data-res-search]').forEach(bind);
-    revealActiveType();
   }
   bindAll();
   // Navigation ClientRouter entre les vues : le drapeau resBound évite un double branchement.
   document.addEventListener('astro:page-load', bindAll);
+})();
+</script>
+
+<script is:inline>
+// Filtres du hub Ressources en mobile (< 768 px) : bouton « Filtrer » (compte des filtres
+// actifs), dépliant en flux avec les deux groupes, ligne d'état en pastilles retirables.
+// Source unique de l'état : aria-current des liens de type et aria-pressed des thèmes
+// (SiloFilter). Rien n'est recopié : pastilles, compteurs et « Voir N résultats » sont
+// recalculés depuis le DOM à chaque changement.
+(function () {
+  var MQ = '(max-width: 767px)';
+  var T = {
+    fr: {
+      btn: function (n) { return n ? 'Filtrer, ' + n + (n > 1 ? ' filtres actifs' : ' filtre actif') : 'Filtrer'; },
+      see: function (n) { return n === 0 ? 'Aucun résultat' : 'Voir ' + n + (n > 1 ? ' résultats' : ' résultat'); },
+      results: function (n) { return n + (n > 1 ? ' résultats' : ' résultat'); },
+      scope: function (n, types, themes) {
+        var s = n + (n > 1 ? ' ressources' : ' ressource');
+        if (types > 1) s += ', ' + types + ' types';
+        if (themes > 1) s += ', ' + themes + ' thèmes';
+        return s;
+      },
+      remove: function (l) { return 'Retirer le filtre ' + l; },
+    },
+    en: {
+      btn: function (n) { return n ? 'Filter, ' + n + ' active' : 'Filter'; },
+      see: function (n) { return n === 0 ? 'No results' : 'Show ' + n + (n > 1 ? ' results' : ' result'); },
+      results: function (n) { return n + (n > 1 ? ' results' : ' result'); },
+      scope: function (n, types, themes) {
+        var s = n + (n > 1 ? ' resources' : ' resource');
+        if (types > 1) s += ', ' + types + ' types';
+        if (themes > 1) s += ', ' + themes + ' topics';
+        return s;
+      },
+      remove: function (l) { return 'Remove filter ' + l; },
+    },
+  };
+
+  // Libellé d'une option sans son compteur.
+  function labelOf(el) {
+    var c = el.cloneNode(true);
+    c.querySelectorAll('.res-chip-n, .silo-chip-n').forEach(function (n) { n.remove(); });
+    return c.textContent.replace(/\s+/g, ' ').trim();
+  }
+
+  function bind(root) {
+    if (root.dataset.facetsBound) return;
+    var hub = root.closest('.res-index');
+    var btn = hub && hub.querySelector('[data-res-filter-btn]');
+    var panel = root.querySelector('#res-facets-panel');
+    if (!btn || !panel) return;
+    root.dataset.facetsBound = '1';
+    root.setAttribute('data-ready', '');
+
+    var t = T[root.dataset.lang === 'en' ? 'en' : 'fr'];
+    var badge = btn.querySelector('[data-res-filter-n]');
+    var title = panel.querySelector('.res-facets__title');
+    var active = root.querySelector('[data-res-active]');
+    var applyBtn = root.querySelector('[data-res-apply]');
+    var applyLabel = applyBtn.querySelector('.btn-label') || applyBtn;
+    var resetBtn = root.querySelector('[data-res-reset]');
+    var live = hub.querySelector('[data-res-live]');
+    var allType = panel.querySelector('[data-type-key="all"]');
+    var mq = window.matchMedia(MQ);
+    var types = Number(root.dataset.types) || 0;
+
+    btn.hidden = false;
+
+    function silo() { return root.querySelector('[data-silo-filter]:not([hidden])'); }
+    function typeActive() {
+      var a = panel.querySelector('.res-filters [aria-current="page"]');
+      return a && a.getAttribute('data-type-key') !== 'all' ? a : null;
+    }
+    function themeActive() {
+      var s = silo();
+      return s ? s.querySelector('[data-silo-key][aria-pressed="true"]:not([data-silo-key=""])') : null;
+    }
+    function shownCount() {
+      var n = 0;
+      hub.querySelectorAll('.res-list .article-card').forEach(function (c) { if (!c.hidden) n++; });
+      return n;
+    }
+    function resetTheme() {
+      var s = silo();
+      var all = s && s.querySelector('[data-silo-key=""]');
+      if (all && all.getAttribute('aria-pressed') !== 'true') all.click();
+    }
+
+    function pill(tag, label) {
+      var el = document.createElement(tag);
+      el.className = 'res-pill';
+      el.setAttribute('aria-label', t.remove(label));
+      var txt = document.createElement('span');
+      txt.textContent = label;
+      var x = document.createElement('span');
+      x.className = 'res-pill__x';
+      x.setAttribute('aria-hidden', 'true');
+      x.textContent = '×';
+      el.appendChild(txt);
+      el.appendChild(x);
+      return el;
+    }
+
+    function sync() {
+      var ty = typeActive(), th = themeActive();
+      var count = (ty ? 1 : 0) + (th ? 1 : 0);
+      var n = shownCount();
+      badge.textContent = String(count);
+      badge.hidden = !count;
+      btn.setAttribute('aria-label', t.btn(count));
+      applyLabel.textContent = t.see(n);
+      resetBtn.disabled = !count;
+
+      active.textContent = '';
+      if (ty && allType) {
+        // Retirer le type = revenir à la vue de toutes les ressources (vrai lien).
+        var a = pill('a', labelOf(ty));
+        a.href = allType.getAttribute('href');
+        active.appendChild(a);
+      }
+      if (th) {
+        var b = pill('button', labelOf(th));
+        b.type = 'button';
+        b.addEventListener('click', function () { resetTheme(); btn.focus(); });
+        active.appendChild(b);
+      }
+      var sum = document.createElement('p');
+      sum.className = 'res-active__sum';
+      var s = silo();
+      var themes = s ? s.querySelectorAll('[data-silo-key]:not([data-silo-key=""])').length : 0;
+      sum.textContent = count ? t.results(n) : t.scope(n, types, themes);
+      active.appendChild(sum);
+      active.hidden = false;
+    }
+
+    function open() {
+      root.setAttribute('data-open', '');
+      btn.setAttribute('aria-expanded', 'true');
+      sync();
+      title.focus();
+    }
+    function close(giveFocusBack) {
+      if (!root.hasAttribute('data-open')) return;
+      root.removeAttribute('data-open');
+      btn.setAttribute('aria-expanded', 'false');
+      if (giveFocusBack) btn.focus();
+    }
+
+    btn.addEventListener('click', function () {
+      if (root.hasAttribute('data-open')) close(true); else open();
+    });
+    applyBtn.addEventListener('click', function () { close(true); });
+    resetBtn.addEventListener('click', function () {
+      if (typeActive() && allType) { allType.click(); return; }
+      resetTheme();
+    });
+    function onEsc(e) {
+      if (e.key !== 'Escape' || !root.hasAttribute('data-open')) return;
+      e.preventDefault();
+      close(true);
+    }
+    panel.addEventListener('keydown', onEsc);
+    btn.addEventListener('keydown', onEsc);
+    // SiloFilter annonce chaque changement de thème (y compris ?silo= au chargement).
+    root.addEventListener('silo-filter:change', function () {
+      sync();
+      if (live && mq.matches) live.textContent = t.results(shownCount());
+    });
+    // Passage en desktop : le bloc redevient à plat, le panneau n'a plus lieu d'être ouvert.
+    var onMq = function () { if (!mq.matches) close(false); };
+    if (mq.addEventListener) mq.addEventListener('change', onMq); else mq.addListener(onMq);
+
+    sync();
+    // SiloFilter se révèle au DOMContentLoaded (après ce script) : recompter les thèmes.
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', sync);
+  }
+
+  function bindAll() { document.querySelectorAll('[data-res-facets]').forEach(bind); }
+  bindAll();
+  if (!window.__resFacetsBound) {
+    window.__resFacetsBound = true;
+    document.addEventListener('astro:page-load', bindAll);
+  }
 })();
 </script>
