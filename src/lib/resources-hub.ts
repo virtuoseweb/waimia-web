@@ -129,12 +129,13 @@ async function build(): Promise<ResourceItem[]> {
       heroSrc: it.heroSrc,
     })),
   );
-  return sorted.map((it, i) => {
-    if (visuals[i].source === 'tags' || visuals[i].source === 'tags-weak') {
-      console.info(`[card-visual] ${visuals[i].source} score=${visuals[i].score ?? 0} ${it.href} -> ${visuals[i].image}`);
-    }
-    return { ...it, image: visuals[i].image, tint: visuals[i].tint };
-  });
+  const weak = visuals.filter((v) => v.source === 'tags-weak').length;
+  console.info(
+    `[card-visual] ${visuals.length} cartes : ${visuals.filter((v) => v.source === 'hero').length} hero, ` +
+      `${visuals.filter((v) => v.source === 'category').length} catégorie, ` +
+      `${visuals.filter((v) => v.source === 'tags').length} tags, ${weak} tags faibles`,
+  );
+  return sorted.map((it, i) => ({ ...it, image: visuals[i].image, tint: visuals[i].tint }));
 }
 
 /** Tous les items du hub (mémoïsé : une seule construction par build). */

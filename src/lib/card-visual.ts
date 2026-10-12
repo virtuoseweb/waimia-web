@@ -95,42 +95,45 @@ export function resolveCardVisuals(inputs: CardVisualInput[]): CardVisual[] {
   // 2. Les autres : affectation gloutonne par meilleur score, du couple (carte, dessin) le
   //    plus pertinent au moins pertinent, dessins déjà utilisés exclus. Un couple vaut les
   //    tags qui matchent le texte de la carte, plus un bonus si le dessin est le visuel de
-  //    sa catégorie. Égalités : ordre du lot puis hash stable (0 Math.random).
+  //    sa catégorie. Les scores sont calculés UNE fois (matrice carte x dessin), puis les
+  //    couples sont triés par score décroissant, hash stable (0 Math.random) puis ordre du
+  //    lot, et affectés dans cet ordre : une carte pourvue ou un dessin pris sont sautés.
   const pool = illustrationPool();
   const library = illustrationLibrary();
-  const pending = inputs.map((_, i) => i).filter((i) => !out[i]);
-  while (pending.length > 0) {
-    let best: { i: number; ill: Illustration; total: number; tags: number; own: boolean; tie: number } | undefined;
-    for (const i of pending) {
-      const it = inputs[i];
-      const catImage = it.silo ? BLOG_TAXO_VISUALS[it.silo as Silo]?.image : undefined;
-      const catKey = catImage ? drawingKeyOfSrc(catImage) : undefined;
-      const candidates = it.slug
-        ? [...pool, ...library.filter((ill) => !ill.fallback && isDedicated(ill, it.slug))]
-        : pool;
-      for (const ill of candidates) {
-        const key = drawingKey(ill);
-        if (used.has(key)) continue;
-        const own = catKey !== undefined && key === catKey;
-        const tags = scoreIllustration(ill, it.text);
-        const total = tags + (own ? CATEGORY_BONUS : 0) + (isDedicated(ill, it.slug) ? DEDICATED_BONUS : 0);
-        const tie = hash(`${it.text}#${ill.slug}`);
-        if (!best || total > best.total || (total === best.total && tie < best.tie)) {
-          best = { i, ill, total, tags, own, tie };
-        }
-      }
+  type Pair = { i: number; ill: Illustration; total: number; tags: number; own: boolean; tie: number };
+  const pairs: Pair[] = [];
+  for (let i = 0; i < inputs.length; i++) {
+    if (out[i]) continue;
+    const it = inputs[i];
+    const catImage = it.silo ? BLOG_TAXO_VISUALS[it.silo as Silo]?.image : undefined;
+    const catKey = catImage ? drawingKeyOfSrc(catImage) : undefined;
+    const candidates = it.slug
+      ? [...pool, ...library.filter((ill) => !ill.fallback && isDedicated(ill, it.slug))]
+      : pool;
+    for (const ill of candidates) {
+      const own = catKey !== undefined && drawingKey(ill) === catKey;
+      const tags = scoreIllustration(ill, it.text);
+      const total = tags + (own ? CATEGORY_BONUS : 0) + (isDedicated(ill, it.slug) ? DEDICATED_BONUS : 0);
+      pairs.push({ i, ill, total, tags, own, tie: hash(`${it.text}#${ill.slug}`) });
     }
-    if (!best) break; // pool épuisé
+  }
+  // Array.prototype.sort est stable : à score et hash égaux, l'ordre d'insertion (carte puis
+  // dessin du lot) départage.
+  pairs.sort((a, b) => b.total - a.total || a.tie - b.tie || a.i - b.i);
+  const pending = new Set(inputs.map((_, i) => i).filter((i) => !out[i]));
+  for (const best of pairs) {
+    if (!pending.has(best.i)) continue;
     const key = drawingKey(best.ill);
+    if (used.has(key)) continue;
     used.add(key);
+    pending.delete(best.i);
     const cat = best.own ? BLOG_TAXO_VISUALS[inputs[best.i].silo as Silo] : undefined;
     out[best.i] = best.own
       ? { image: cat!.image, tint: cat!.hue, source: 'category' }
       : { image: illustrationSrc(best.ill, 'paper'), source: best.tags > 0 ? 'tags' : 'tags-weak', score: best.tags };
-    pending.splice(pending.indexOf(best.i), 1);
   }
   // Pool épuisé (plus de dessin libre) : repli déterministe, doublon assumé et signalé.
-  for (const i of pending) {
+  for (const i of [...pending].sort((a, b) => a - b)) {
     const pick = pickIllustrationScored(inputs[i].text, { exclude: new Set() });
     out[i] = { image: illustrationSrc(pick.ill, 'paper'), source: 'tags-weak' };
   }
