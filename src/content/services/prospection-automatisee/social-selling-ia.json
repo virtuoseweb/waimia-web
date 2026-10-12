@@ -1,0 +1,667 @@
+{
+  "$schema": "../../../schemas/generated/services.page.schema.json",
+  "title_fr": "Social selling avec l'IA pour PME B2B · Waimia",
+  "title_en": "AI-assisted social selling for B2B SMEs · Waimia",
+  "description_fr": "Social selling avec l'IA pour PME B2B : veille de signaux, fiches de compte, premier message personnalisé et préparation d'appel, sans envoi aveugle.",
+  "description_en": "AI-assisted social selling for B2B SMEs: signal monitoring, account briefs, personalised first message and call preparation, no blind sending.",
+  "slug": "social-selling-ia",
+  "publishedAt": "2026-10-12T00:00:00.000Z",
+  "updatedAt": "2026-10-12T00:00:00.000Z",
+  "category": "commercial",
+  "tags": [
+    "social-selling-ia",
+    "social-selling",
+    "signaux-d-achat",
+    "veille-commerciale",
+    "preparation-appel"
+  ],
+  "seo": {
+    "noindex": false,
+    "serviceType": "Social selling assisté par IA pour PME B2B",
+    "priceRange": "dès 999 €",
+    "priceMin": 999
+  },
+  "faq_fr": [
+    {
+      "q": "Quelle différence entre social selling et prospection LinkedIn ?",
+      "a": "Le social selling décide quand et quoi écrire : il part des signaux et des fiches de compte. La prospection LinkedIn organise la préparation, la file d'envoi et le suivi d'une série de contacts. Les deux se complètent, et l'envoi reste humain dans les deux cas."
+    },
+    {
+      "q": "Quels signaux surveillez-vous, et d'où viennent-ils ?",
+      "a": "Ceux que vous choisissez au cadrage : changements de poste, annonces de financement, offres d'emploi, prises de parole, annonces commerciales du BODACC. Les sources sont publiques ou à vous : presse, sites d'entreprise, offres d'emploi publiées, e-mails d'alerte de vos propres outils. On n'aspire pas les profils LinkedIn."
+    },
+    {
+      "q": "L'IA écrit-elle à ma place ?",
+      "a": "Elle prépare des brouillons, appuyés sur un fait précis et sur votre ton. Vous relisez, corrigez et envoyez : rien ne part sans vous, et rien n'est publié ni commenté en votre nom."
+    },
+    {
+      "q": "Peut-on citer ce qu'un prospect a publié ?",
+      "a": "Citer une publication professionnelle, rendue publique par la personne et liée à sa fonction, relève à notre sens de l'intérêt légitime. On ne cite rien qui relève de la vie privée et on ne collecte pas les publications en masse. Ce n'est pas un avis juridique."
+    },
+    {
+      "q": "Faut-il un abonnement Sales Navigator ?",
+      "a": "Non. C'est un outil LinkedIn payant, utile pour la recherche et les alertes, mais le système fonctionne avec d'autres sources. Si vous l'avez, ses alertes envoyées par e-mail sont une source de signaux de plus."
+    },
+    {
+      "q": "Comment mesurez-vous le résultat ?",
+      "a": "Part des brouillons relus qui sont envoyés, réponses reçues, échanges devenus rendez-vous, signaux qui n'ont rien donné. On ne promet pas de taux de réponse : il dépend de votre offre, de votre cible et de la justesse des signaux."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "What is the difference between social selling and LinkedIn prospecting?",
+      "a": "Social selling decides when and what to write: it starts from signals and account briefs. LinkedIn prospecting organises the preparation, the sending queue and the follow-up of a series of contacts. They complement each other, and sending stays human in both."
+    },
+    {
+      "q": "Which signals do you monitor, and where do they come from?",
+      "a": "The ones you choose at scoping: job changes, funding announcements, job postings, public statements, BODACC commercial announcements. Sources are public or yours: press, company websites, published job postings, alert emails from your own tools. We do not scrape LinkedIn profiles."
+    },
+    {
+      "q": "Does the AI write in my place?",
+      "a": "It prepares drafts, based on a specific fact and your tone. You review, edit and send: nothing goes out without you, and nothing is published or commented in your name."
+    },
+    {
+      "q": "Can you quote what a prospect has published?",
+      "a": "Quoting a professional post that the person has made public and that relates to their role falls, in our view, under legitimate interest. We quote nothing private and do not collect posts in bulk. This is not legal advice."
+    },
+    {
+      "q": "Do you need a Sales Navigator subscription?",
+      "a": "No. It is a paid LinkedIn tool, useful for search and alerts, but the system works with other sources. If you have it, its email alerts are one more source of signals."
+    },
+    {
+      "q": "How do you measure the result?",
+      "a": "Share of reviewed drafts that are sent, replies received, exchanges that became meetings, signals that led nowhere. We promise no reply rate: it depends on your offer, your target and how accurate the signals are."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "illustration": {
+        "src": "/images/illustrations/ds/social-selling-ia-flotteur-paper.webp",
+        "alt_fr": "Une personne pêche à la ligne depuis un ponton, seul le flotteur bleu et ses ronds dans l'eau sont à surveiller",
+        "alt_en": "A person fishes from a jetty, only the blue float and its ripples need watching",
+        "side": "right"
+      },
+      "kicker_fr": "§ Social selling assisté par IA",
+      "kicker_en": "§ AI-assisted social selling",
+      "h1_fr": "<i class=\"acc\">Social selling</i> avec l'IA pour PME B2B",
+      "h1_en": "AI-assisted <i class=\"acc\">social selling</i> for B2B SMEs",
+      "lede_fr": "Le social selling consiste à approcher un prospect à partir de ce qu'il publie ou de ce qui change dans son entreprise, plutôt que par un message générique. L'IA fait la veille, résume les signaux (changement de poste, levée de fonds, offre d'emploi), prépare une fiche de compte, un brouillon de premier message et le brief de l'appel. Une personne décide s'il y a lieu d'écrire, et écrit. Il n'y a pas d'envoi aveugle.",
+      "lede_en": "Social selling means approaching a prospect from what they publish or from what changes in their company, rather than with a generic message. AI does the monitoring, summarises signals (job change, funding round, job posting), prepares an account brief, a first-message draft and the call brief. A person decides whether to write, and writes. There is no blind sending.",
+      "badges": [
+        {
+          "label_fr": "Veille de signaux",
+          "label_en": "Signal monitoring"
+        },
+        {
+          "label_fr": "Fiche de compte",
+          "label_en": "Account brief"
+        },
+        {
+          "label_fr": "Premier message préparé",
+          "label_en": "First message prepared"
+        },
+        {
+          "label_fr": "Aucun envoi automatique",
+          "label_en": "No automatic sending"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver un audit IA gratuit →",
+        "label_en": "Book a free AI audit →",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Du signal au premier message",
+        "label_en": "From signal to first message",
+        "href": "#du-signal-au-message",
+        "variant": "ghost"
+      }
+    },
+    {
+      "type": "proof-bar",
+      "background": "paper",
+      "kicker_fr": "§ En bref",
+      "kicker_en": "§ In short",
+      "metrics": [
+        {
+          "value": "Aucun envoi aveugle",
+          "label_fr": "chaque message est relu et envoyé par une personne",
+          "label_en": "every message is reviewed and sent by a person",
+          "emphasis": true
+        },
+        {
+          "value": "Sources publiques",
+          "label_fr": "presse, annonces commerciales, offres d'emploi, alertes de vos outils",
+          "label_en": "press, commercial announcements, job postings, your tools' alerts",
+          "emphasis": false
+        },
+        {
+          "value": "999 € HT",
+          "label_fr": "sprint de cadrage de 10 heures, puis {{prix.horaire}} € HT de l'heure",
+          "label_en": "10-hour scoping sprint, then €{{prix.horaire}} per hour excl. VAT",
+          "emphasis": false
+        },
+        {
+          "value": "Brief d'appel",
+          "label_fr": "contexte, signaux récents et questions à poser avant chaque rendez-vous",
+          "label_en": "context, recent signals and questions to ask before each meeting",
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "type": "definition-extract",
+      "background": "paper",
+      "kicker_fr": "§ Définition",
+      "kicker_en": "§ Definition",
+      "statement_fr": "Le <i class=\"acc\">social selling assisté par l'IA</i> est une approche commerciale qui s'appuie sur des signaux publics (un changement de poste, une levée de fonds, une offre d'emploi, une prise de parole) pour décider quand et comment écrire à un prospect. L'IA collecte et résume les signaux, puis prépare les textes ; la personne choisit, relit et envoie.",
+      "statement_en": "<i class=\"acc\">AI-assisted social selling</i> is a sales approach that relies on public signals (a job change, a funding round, a job posting, a public statement) to decide when and how to write to a prospect. AI collects and summarises signals, then prepares the texts; the person chooses, reviews and sends.",
+      "pills": [
+        {
+          "label_fr": "Signaux publics",
+          "label_en": "Public signals"
+        },
+        {
+          "label_fr": "Fiches de compte",
+          "label_en": "Account briefs"
+        },
+        {
+          "label_fr": "Premier message préparé",
+          "label_en": "First message prepared"
+        },
+        {
+          "label_fr": "Validation humaine",
+          "label_en": "Human approval"
+        }
+      ],
+      "specs": [
+        {
+          "label_fr": "Veille de signaux",
+          "label_en": "Signal monitoring"
+        },
+        {
+          "label_fr": "Fiche de compte",
+          "label_en": "Account brief"
+        },
+        {
+          "label_fr": "Brouillon de message",
+          "label_en": "Message draft"
+        },
+        {
+          "label_fr": "Brief d'appel",
+          "label_en": "Call brief"
+        },
+        {
+          "label_fr": "Journal dans le CRM",
+          "label_en": "Log in the CRM"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "html_fr": "<h2>Ce que l'IA fait, ce qu'elle ne fait pas</h2>\n<p>Elle surveille les sources que vous avez choisies pour une liste de comptes, repère les changements et rédige, pour chaque signal, une note de trois lignes : ce qui s'est passé, pourquoi cela peut vous concerner, quel angle prendre. Elle prépare ensuite un brouillon de premier message appuyé sur ce fait et, avant un appel, un brief : l'entreprise, ses signaux récents, les questions utiles.</p>\n<p>Elle ne décide pas d'écrire, n'envoie rien et ne publie rien en votre nom. Elle ne laisse pas non plus de commentaires ni de mentions automatiques : un commentaire généré sans lecture est le contraire du social selling.</p>\n<h2>D'où viennent les signaux</h2>\n<p>De sources publiques ou à vous : les e-mails d'alerte que vos outils vous envoient déjà (dont ceux de Sales Navigator si vous l'avez), la presse spécialisée, les annonces commerciales du <a href=\"https://www.bodacc.fr/\" rel=\"nofollow noopener\" target=\"_blank\">BODACC</a>, les offres d'emploi publiées par l'entreprise, son site et ses publications. On n'aspire pas LinkedIn : les conditions de la plateforme sont détaillées sur la page <a href=\"/services/prospection-linkedin\">prospection LinkedIn</a>.</p>\n<h2>Personnaliser sans fouiller dans la vie privée</h2>\n<p>On cite un fait professionnel et public, lié à la fonction : une embauche, une ouverture de site, un article signé. On ne cite pas ce qui relève de la vie privée ni une information que la personne n'a pas rendue publique pour cet usage. Les principes du RGPD sont ceux de la <a href=\"/services/cold-email-b2b\">prospection par e-mail</a> : rapport avec la profession, information de la personne, droit de s'opposer.</p>\n<h2>Où cela s'inscrit</h2>\n<p>Les fiches et les échanges sont consignés dans un <a href=\"/services/crm-scoring-routing\">CRM scoré et routé</a>. Le social selling décide du moment ; la <a href=\"/services/prospection-linkedin\">prospection LinkedIn</a> organise la file d'envoi et le suivi. Le dispositif complet est décrit sur la page <a href=\"/services/prospection-automatisee\">prospection automatisée</a>, dans le <a href=\"/services/systeme-acquisition\">système d'acquisition</a>.</p>",
+      "html_en": "<h2>What AI does, and what it does not</h2>\n<p>It watches the sources you have chosen for a list of accounts, spots changes and writes, for each signal, a three-line note: what happened, why it may concern you, what angle to take. It then prepares a first-message draft based on that fact and, before a call, a brief: the company, its recent signals, the useful questions.</p>\n<p>It does not decide to write, sends nothing and publishes nothing in your name. It does not leave automatic comments or mentions either: a comment generated without reading is the opposite of social selling.</p>\n<h2>Where signals come from</h2>\n<p>From public sources or your own: the alert emails your tools already send you (including Sales Navigator's if you have it), specialist press, <a href=\"https://www.bodacc.fr/\" rel=\"nofollow noopener\" target=\"_blank\">BODACC</a> commercial announcements, job postings published by the company, its website and its publications. We do not scrape LinkedIn: the platform's terms are detailed on the <a href=\"/services/prospection-linkedin\">LinkedIn prospecting</a> page.</p>\n<h2>Personalising without digging into private life</h2>\n<p>We quote a professional, public fact tied to the role: a hire, a site opening, a signed article. We do not quote anything private, nor information the person has not made public for this use. GDPR principles are those of <a href=\"/services/cold-email-b2b\">email prospecting</a>: relation to the profession, information of the person, right to object.</p>\n<h2>Where this fits</h2>\n<p>Briefs and exchanges are logged in a <a href=\"/services/crm-scoring-routing\">scored and routed CRM</a>. Social selling decides the timing; <a href=\"/services/prospection-linkedin\">LinkedIn prospecting</a> organises the sending queue and follow-up. The full setup is described on the <a href=\"/services/prospection-automatisee\">automated prospecting</a> page, within the <a href=\"/services/systeme-acquisition\">acquisition system</a>.</p>"
+    },
+    {
+      "type": "feature-grid",
+      "background": "paper-2",
+      "columns": "3",
+      "kicker_fr": "§ Les signaux",
+      "kicker_en": "§ The signals",
+      "h2_fr": "Les signaux qu'on suit",
+      "h2_en": "The signals we follow",
+      "lede_fr": "Un signal est un prétexte légitime d'écrire, à condition qu'il ait un rapport avec votre offre. Ceux qui comptent chez vous se choisissent au cadrage.",
+      "lede_en": "A signal is a legitimate reason to write, provided it relates to your offer. The ones that matter for you are chosen at scoping.",
+      "features": [
+        {
+          "icon": "tracking",
+          "title_fr": "Changement de poste",
+          "title_en": "Job change",
+          "body_fr": "Un nouvel interlocuteur arrive : c'est le moment de se présenter, pas de vendre.",
+          "body_en": "A new contact arrives: it is the time to introduce yourself, not to sell."
+        },
+        {
+          "icon": "crm",
+          "title_fr": "Financement ou croissance",
+          "title_en": "Funding or growth",
+          "body_fr": "Une annonce de financement ou d'ouverture de site change les priorités de l'entreprise.",
+          "body_en": "A funding or site-opening announcement changes the company's priorities."
+        },
+        {
+          "icon": "pilotage",
+          "title_fr": "Offre d'emploi",
+          "title_en": "Job posting",
+          "body_fr": "Une offre publiée dit quel besoin l'entreprise cherche à couvrir.",
+          "body_en": "A published posting says which need the company is trying to cover."
+        },
+        {
+          "icon": "contenu",
+          "title_fr": "Prise de parole",
+          "title_en": "Public statement",
+          "body_fr": "Un article, une interview ou un événement donne un sujet de conversation réel.",
+          "body_en": "An article, interview or event gives a real conversation topic."
+        },
+        {
+          "icon": "qualif",
+          "title_fr": "Annonce commerciale",
+          "title_en": "Commercial announcement",
+          "body_fr": "Une annonce au BODACC peut signaler un changement dans l'entreprise, à vérifier avant d'écrire.",
+          "body_en": "A BODACC announcement may signal a change in the company, to verify before writing."
+        },
+        {
+          "icon": "ia",
+          "title_fr": "Signal propre à votre marché",
+          "title_en": "Signal specific to your market",
+          "body_fr": "Un appel d'offres, un salon, une certification : ce qui compte chez vous se définit avec vous.",
+          "body_en": "A tender, a trade show, a certification: what counts for you is defined with you."
+        }
+      ]
+    },
+    {
+      "type": "system-flow",
+      "background": "ink",
+      "fig_num": "Fig. 3.0",
+      "fig_title_fr": "Du signal au message",
+      "fig_title_en": "From signal to message",
+      "h2_fr": "Du signal au premier message",
+      "h2_en": "From signal to first message",
+      "lede_fr": "Six maillons, dont deux sont des décisions humaines : choisir d'écrire, puis envoyer.",
+      "lede_en": "Six links, two of which are human decisions: choosing to write, then sending.",
+      "steps": [
+        {
+          "title_fr": "Veille",
+          "title_en": "Monitoring",
+          "desc_fr": "Les sources choisies sont parcourues pour votre liste de comptes.",
+          "desc_en": "The chosen sources are scanned for your list of accounts."
+        },
+        {
+          "title_fr": "Signal",
+          "title_en": "Signal",
+          "desc_fr": "Un changement est repéré et résumé en trois lignes.",
+          "desc_en": "A change is spotted and summarised in three lines."
+        },
+        {
+          "title_fr": "Fiche",
+          "title_en": "Brief",
+          "desc_fr": "Le compte est mis à jour : contexte, interlocuteurs, historique du CRM.",
+          "desc_en": "The account is updated: context, contacts, CRM history."
+        },
+        {
+          "title_fr": "Décision",
+          "title_en": "Decision",
+          "desc_fr": "Une personne juge s'il y a lieu d'écrire, ou de laisser passer.",
+          "desc_en": "A person judges whether to write, or let it go."
+        },
+        {
+          "title_fr": "Brouillon",
+          "title_en": "Draft",
+          "desc_fr": "Un premier message appuyé sur le fait, ou un brief d'appel.",
+          "desc_en": "A first message based on the fact, or a call brief."
+        },
+        {
+          "title_fr": "Envoi et trace",
+          "title_en": "Sending and log",
+          "desc_fr": "La personne relit, envoie, puis note l'échange dans le CRM.",
+          "desc_en": "The person reviews, sends, then logs the exchange in the CRM."
+        }
+      ],
+      "loop_label_fr": "la fiche se met à jour",
+      "loop_label_en": "the brief updates",
+      "anchor": "du-signal-au-message"
+    },
+    {
+      "type": "comparison-duo",
+      "background": "paper",
+      "kicker_fr": "§ Exemple type · pas un cas client",
+      "kicker_en": "§ Typical example · not a client case",
+      "h2_fr": "Exemple type : un éditeur de logiciel B2B de petite taille",
+      "h2_en": "Typical example: a small B2B software vendor",
+      "without_label_fr": "Avant",
+      "without_label_en": "Before",
+      "without_title_fr": "Le message générique",
+      "without_title_en": "The generic message",
+      "without_items": [
+        {
+          "text_fr": "La même invitation, avec la même phrase d'accroche, envoyée à toute la liste.",
+          "text_en": "The same invitation, with the same opening line, sent to the whole list."
+        },
+        {
+          "text_fr": "Personne ne sait pourquoi ce prospect, à ce moment.",
+          "text_en": "Nobody knows why this prospect, at this moment."
+        },
+        {
+          "text_fr": "Les appels commencent par une présentation de la société.",
+          "text_en": "Calls start with a presentation of the company."
+        },
+        {
+          "text_fr": "Rien ne reste de ce qui a été dit d'un contact à l'autre.",
+          "text_en": "Nothing is kept of what was said from one contact to the next."
+        }
+      ],
+      "with_label_fr": "Après",
+      "with_label_en": "After",
+      "with_title_fr": "Un message appuyé sur un signal",
+      "with_title_en": "A message based on a signal",
+      "with_items": [
+        {
+          "text_fr": "Le système signale que l'entreprise recrute un responsable des opérations.",
+          "text_en": "The system flags that the company is hiring an operations manager."
+        },
+        {
+          "text_fr": "La fiche rappelle le contexte et l'historique du CRM.",
+          "text_en": "The brief recalls the context and CRM history."
+        },
+        {
+          "text_fr": "Le brouillon cite l'offre d'emploi et propose un échange court sur ce sujet.",
+          "text_en": "The draft cites the job posting and proposes a short exchange on that topic."
+        },
+        {
+          "text_fr": "La personne relit, ajuste le ton et envoie.",
+          "text_en": "The person reviews, adjusts the tone and sends."
+        },
+        {
+          "text_fr": "L'appel de suivi s'ouvre sur un brief d'une page.",
+          "text_en": "The follow-up call opens with a one-page brief."
+        }
+      ]
+    },
+    {
+      "type": "deliverables-grid",
+      "background": "paper-3",
+      "kicker_fr": "§ Ce que vous gardez",
+      "kicker_en": "§ What you keep",
+      "title_fr": "Ce qui vous reste si vous arrêtez",
+      "title_en": "What remains if you stop",
+      "lead_fr": "Les sources, les modèles et les fiches sont à vous, dans vos outils.",
+      "lead_en": "Sources, templates and briefs are yours, in your tools.",
+      "items": [
+        {
+          "title_fr": "La liste des sources et des signaux",
+          "title_en": "Sources and signals list",
+          "body_fr": "Les comptes suivis, les signaux retenus et les sources de chacun.",
+          "body_en": "The tracked accounts, the signals retained and the sources of each.",
+          "format_fr": "SOURCES",
+          "format_en": "SOURCES"
+        },
+        {
+          "title_fr": "Les fiches de compte",
+          "title_en": "Account briefs",
+          "body_fr": "Contexte, interlocuteurs, signaux récents et historique, tenus dans le CRM.",
+          "body_en": "Context, contacts, recent signals and history, kept in the CRM.",
+          "format_fr": "FICHES",
+          "format_en": "FICHES"
+        },
+        {
+          "title_fr": "Les angles et les brouillons",
+          "title_en": "Angles and drafts",
+          "body_fr": "Une bibliothèque d'angles par type de signal, et les brouillons validés avec leur ton.",
+          "body_en": "A library of angles per signal type, and the drafts approved with their tone.",
+          "format_fr": "ANGLES",
+          "format_en": "ANGLES"
+        },
+        {
+          "title_fr": "Les briefs d'appel",
+          "title_en": "Call briefs",
+          "body_fr": "Le modèle de brief et ceux déjà produits, prêts avant chaque rendez-vous.",
+          "body_en": "The brief template and those already produced, ready before each meeting.",
+          "format_fr": "BRIEFS",
+          "format_en": "BRIEFS"
+        }
+      ]
+    },
+    {
+      "type": "decision-list",
+      "background": "paper-2",
+      "kicker_fr": "§ Quand ne pas le faire",
+      "kicker_en": "§ When not to do it",
+      "heading_fr": "Le social selling assisté par IA ne convient pas si",
+      "heading_en": "AI-assisted social selling is not a fit if",
+      "items": [
+        {
+          "label_fr": "Votre liste compte quelques comptes : une veille faite à la main suffit.",
+          "label_en": "Your list has a few accounts: manual monitoring is enough."
+        },
+        {
+          "label_fr": "Vous attendez que l'IA écrive et envoie sans vous : ce n'est pas du social selling, c'est de l'envoi de masse.",
+          "label_en": "You expect AI to write and send without you: that is not social selling, it is mass sending."
+        },
+        {
+          "label_fr": "Aucun signal public n'existe sur votre cible : sans fait réel à citer, le message reste générique.",
+          "label_en": "No public signal exists on your target: with no real fact to cite, the message stays generic."
+        },
+        {
+          "label_fr": "Personne n'a le temps de lire les fiches et d'écrire les messages.",
+          "label_en": "Nobody has time to read the briefs and write the messages."
+        }
+      ]
+    },
+    {
+      "type": "hover-reveal-list",
+      "anchor": "declinaisons",
+      "background": "paper-3",
+      "reveal_mode": "cursor",
+      "kicker_fr": "§ Le reste de la prospection",
+      "kicker_en": "§ The rest of prospecting",
+      "h2_fr": "Le social selling nourrit les autres <i>canaux</i>",
+      "h2_en": "Social selling feeds the other <i>channels</i>",
+      "lede_fr": "Un signal ne dit pas par quel canal écrire. Survolez une ligne pour ouvrir la page du canal qui vous concerne.",
+      "lede_en": "A signal does not say which channel to write on. Hover a line to open the page of the channel that applies to you.",
+      "items": [
+        {
+          "label_fr": "Prospection LinkedIn",
+          "label_en": "LinkedIn prospecting",
+          "meta_fr": "La préparation, la file d'envoi et le suivi",
+          "meta_en": "Preparation, sending queue and follow-up",
+          "media_src": "/images/illustrations/ds/prospection-linkedin-epreuves-paper.webp",
+          "media_alt_fr": "Des épreuves d'imprimerie pendent à une corde, une personne en relit une au crayon",
+          "media_alt_en": "Printer's proofs hang from a cord, a person checks one with a pencil",
+          "link_href": "/services/prospection-linkedin"
+        },
+        {
+          "label_fr": "Cold email B2B",
+          "label_en": "B2B cold email",
+          "meta_fr": "Le canal e-mail, depuis des domaines dédiés",
+          "meta_en": "The email channel, from dedicated domains",
+          "media_src": "/images/illustrations/ds/cold-email-b2b-ecluse-paper.webp",
+          "media_alt_fr": "Une écluse en escalier : le niveau monte par paliers, une péniche chargée d'enveloppes attend",
+          "media_alt_en": "A staircase canal lock: the water rises in stages, a barge loaded with envelopes waits",
+          "link_href": "/services/cold-email-b2b"
+        },
+        {
+          "label_fr": "Automatisation des réseaux sociaux",
+          "label_en": "Social media automation",
+          "meta_fr": "Votre propre contenu, décliné et planifié",
+          "meta_en": "Your own content, adapted and scheduled",
+          "media_src": "/images/illustrations/ds/automatisation-reseaux-sociaux-tronc-planches-paper.webp",
+          "media_alt_fr": "Un tronc posé sur un établi est débité en planches de largeurs différentes",
+          "media_alt_en": "A log on a workbench is sawn into planks of different widths",
+          "link_href": "/services/automatisation-reseaux-sociaux"
+        },
+        {
+          "label_fr": "Prospection automatisée",
+          "label_en": "Automated prospecting",
+          "meta_fr": "Le dispositif complet, en abonnement",
+          "meta_en": "The full setup, as a subscription",
+          "media_src": "/images/illustrations/ds/prospection-automatisee-v3-semeur-paper.webp",
+          "media_alt_fr": "Une personne pousse un semoir le long de sillons réguliers, des pousses lèvent derrière elle",
+          "media_alt_en": "A person pushes a seeder along even furrows, sprouts coming up behind",
+          "link_href": "/services/prospection-automatisee"
+        },
+        {
+          "label_fr": "CRM, scoring et routing",
+          "label_en": "CRM, scoring and routing",
+          "meta_fr": "Les fiches et les échanges, tenus à jour",
+          "meta_en": "Briefs and exchanges, kept up to date",
+          "media_src": "/images/illustrations/ds/logiciel-demandes-routees-paper.webp",
+          "media_alt_fr": "Des avions en papier volent vers un panneau indicateur à trois bras",
+          "media_alt_en": "Paper planes fly toward a three-armed signpost",
+          "link_href": "/services/crm-scoring-routing"
+        }
+      ]
+    },
+    {
+      "type": "pricing-cards",
+      "background": "paper",
+      "layout": "grid-asym",
+      "colRatio": "2-3",
+      "kicker_fr": "§ Deux façons d'engager",
+      "kicker_en": "§ Two ways to engage",
+      "h2_fr": "Prix du social selling assisté par IA",
+      "h2_en": "Price of AI-assisted social selling",
+      "lede_fr": "On démarre par un sprint de cadrage à prix fixe : choix des sources et des signaux, modèle de fiche de compte, premiers brouillons et brief d'appel. La suite se cale sur devis. Vous gardez les sources, les modèles et les accès.",
+      "lede_en": "We start with a fixed-price scoping sprint: choice of sources and signals, account-brief template, first drafts and call brief. What follows is quoted. You keep the sources, templates and access.",
+      "tiers": [
+        {
+          "name_fr": "Sprint de cadrage",
+          "name_en": "Scoping sprint",
+          "price": "999 €",
+          "period_fr": "10 h · HT",
+          "period_en": "10 h · ex VAT",
+          "features_fr": [
+            "Liste de comptes et signaux à suivre, choisis avec vous",
+            "Sources branchées et testées sur vos comptes",
+            "Modèle de fiche de compte et de brief d'appel",
+            "Premiers brouillons relus avec vous"
+          ],
+          "features_en": [
+            "List of accounts and signals to follow, chosen with you",
+            "Sources connected and tested on your accounts",
+            "Account-brief and call-brief template",
+            "First drafts reviewed with you"
+          ],
+          "cta": {
+            "label_fr": "Réserver un audit IA gratuit →",
+            "label_en": "Book a free AI audit →",
+            "href": "/contact?offer=audit-ia-pme&intent=audit",
+            "variant": "primary"
+          },
+          "featured": true
+        },
+        {
+          "name_fr": "Suite sur devis",
+          "name_en": "Next steps on quote",
+          "price": "Sur devis",
+          "period_fr": "estimé avec vous · HT",
+          "period_en": "estimated with you · ex VAT",
+          "features_fr": [
+            "Temps estimé ensemble, puis validé",
+            "Exécuté en sprints, facturés en régie",
+            "Nouveaux signaux ajoutés sur preuve",
+            "Vous gardez les sources, les modèles et les accès"
+          ],
+          "features_en": [
+            "Time estimated together, then validated",
+            "Run in sprints, time and materials",
+            "New signals added on proof",
+            "You keep the sources, templates and access"
+          ],
+          "cta": {
+            "label_fr": "Cadrer la suite →",
+            "label_en": "Scope what follows →",
+            "href": "/contact?offer=social-selling-ia&intent=suite",
+            "variant": "ghost"
+          }
+        }
+      ],
+      "footnote_fr": "Prix fixe de 999 € HT pour 10 heures de cadrage. Les sources et les signaux ajoutés ensuite sont estimés avec vous, puis facturés en régie à {{prix.horaire}} € HT de l'heure. Vous gardez les sources, les modèles et les accès.",
+      "footnote_en": "Fixed price of €999 excl. VAT for 10 hours of scoping. Sources and signals added afterwards are estimated with you, then billed on a time-and-materials basis at €{{prix.horaire}} excl. VAT per hour. You keep the sources, templates and access."
+    },
+    {
+      "type": "eeat-panel",
+      "variant": "media",
+      "silo": "commercial"
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper-2",
+      "kicker_fr": "§ Questions fréquentes",
+      "kicker_en": "§ Frequently asked questions",
+      "h2_fr": "Ce que vous nous demandez",
+      "h2_en": "What you ask us",
+      "items": [
+        {
+          "q_fr": "Quelle différence entre social selling et prospection LinkedIn ?",
+          "q_en": "What is the difference between social selling and LinkedIn prospecting?",
+          "a_fr": "Le social selling décide quand et quoi écrire : il part des signaux et des fiches de compte. La prospection LinkedIn organise la préparation, la file d'envoi et le suivi d'une série de contacts. Les deux se complètent, et l'envoi reste humain dans les deux cas.",
+          "a_en": "Social selling decides when and what to write: it starts from signals and account briefs. LinkedIn prospecting organises the preparation, the sending queue and the follow-up of a series of contacts. They complement each other, and sending stays human in both."
+        },
+        {
+          "q_fr": "Quels signaux surveillez-vous, et d'où viennent-ils ?",
+          "q_en": "Which signals do you monitor, and where do they come from?",
+          "a_fr": "Ceux que vous choisissez au cadrage : changements de poste, annonces de financement, offres d'emploi, prises de parole, annonces commerciales du BODACC. Les sources sont publiques ou à vous : presse, sites d'entreprise, offres d'emploi publiées, e-mails d'alerte de vos propres outils. On n'aspire pas les profils LinkedIn.",
+          "a_en": "The ones you choose at scoping: job changes, funding announcements, job postings, public statements, BODACC commercial announcements. Sources are public or yours: press, company websites, published job postings, alert emails from your own tools. We do not scrape LinkedIn profiles."
+        },
+        {
+          "q_fr": "L'IA écrit-elle à ma place ?",
+          "q_en": "Does the AI write in my place?",
+          "a_fr": "Elle prépare des brouillons, appuyés sur un fait précis et sur votre ton. Vous relisez, corrigez et envoyez : rien ne part sans vous, et rien n'est publié ni commenté en votre nom.",
+          "a_en": "It prepares drafts, based on a specific fact and your tone. You review, edit and send: nothing goes out without you, and nothing is published or commented in your name."
+        },
+        {
+          "q_fr": "Peut-on citer ce qu'un prospect a publié ?",
+          "q_en": "Can you quote what a prospect has published?",
+          "a_fr": "Citer une publication professionnelle, rendue publique par la personne et liée à sa fonction, relève à notre sens de l'intérêt légitime. On ne cite rien qui relève de la vie privée et on ne collecte pas les publications en masse. Ce n'est pas un avis juridique.",
+          "a_en": "Quoting a professional post that the person has made public and that relates to their role falls, in our view, under legitimate interest. We quote nothing private and do not collect posts in bulk. This is not legal advice."
+        },
+        {
+          "q_fr": "Faut-il un abonnement Sales Navigator ?",
+          "q_en": "Do you need a Sales Navigator subscription?",
+          "a_fr": "Non. C'est un outil LinkedIn payant, utile pour la recherche et les alertes, mais le système fonctionne avec d'autres sources. Si vous l'avez, ses alertes envoyées par e-mail sont une source de signaux de plus.",
+          "a_en": "No. It is a paid LinkedIn tool, useful for search and alerts, but the system works with other sources. If you have it, its email alerts are one more source of signals."
+        },
+        {
+          "q_fr": "Comment mesurez-vous le résultat ?",
+          "q_en": "How do you measure the result?",
+          "a_fr": "Part des brouillons relus qui sont envoyés, réponses reçues, échanges devenus rendez-vous, signaux qui n'ont rien donné. On ne promet pas de taux de réponse : il dépend de votre offre, de votre cible et de la justesse des signaux.",
+          "a_en": "Share of reviewed drafts that are sent, replies received, exchanges that became meetings, signals that led nowhere. We promise no reply rate: it depends on your offer, your target and how accurate the signals are."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "layout": "stacked",
+      "contentAlign": "center",
+      "actionsAlign": "center",
+      "rounded": true,
+      "kicker_fr": "§ Audit IA gratuit",
+      "kicker_en": "§ Free AI audit",
+      "h2_fr": "Quels signaux vos prospects émettent-ils déjà ?",
+      "h2_en": "Which signals are your prospects already emitting?",
+      "subtitle_fr": "En 45 minutes, on regarde vos comptes cibles et les signaux publics disponibles, et on vous dit lesquels valent une veille.",
+      "subtitle_en": "In 45 minutes, we look at your target accounts and the public signals available, and tell you which ones are worth monitoring.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un audit IA gratuit →",
+          "label_en": "Book a free AI audit →",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Prospection LinkedIn",
+          "label_en": "LinkedIn prospecting",
+          "href": "/services/prospection-linkedin",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "name": "CNIL, La prospection commerciale par courrier électronique (mise à jour le 10 juin 2026, lue le 12 octobre 2026)",
+      "url": "https://www.cnil.fr/fr/la-prospection-commerciale-par-courrier-electronique",
+      "type": "state",
+      "publishedAt": "2026-06-10"
+    },
+    {
+      "name": "BODACC, Bulletin officiel des annonces civiles et commerciales (lu le 12 octobre 2026)",
+      "url": "https://www.bodacc.fr/",
+      "type": "state"
+    }
+  ]
+}

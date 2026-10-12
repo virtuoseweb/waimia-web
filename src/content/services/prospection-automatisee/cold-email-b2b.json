@@ -1,109 +1,112 @@
 {
   "$schema": "../../../schemas/generated/services.page.schema.json",
-  "title_fr": "Cold email B2B pour PME · délivrabilité et RGPD",
-  "title_en": "B2B cold email for SMEs · deliverability and GDPR",
-  "description_fr": "Cold email B2B pour PME : ciblage enrichi, séquences Lemlist et Instantly, warm-up et délivrabilité surveillée, conforme RGPD, sans brûler votre domaine.",
-  "description_en": "B2B cold email for SMEs: enriched targeting, Lemlist and Instantly sequences, warm-up and monitored deliverability, GDPR-compliant, no burned domain.",
+  "title_fr": "Cold email B2B pour PME · Waimia",
+  "title_en": "B2B cold email for SMEs · Waimia",
+  "description_fr": "Cold email B2B pour PME : domaines dédiés authentifiés, listes vérifiées, séquences relues, réponses dans le CRM. RGPD et CNIL expliqués.",
+  "description_en": "B2B cold email for SMEs: authenticated dedicated domains, verified lists, reviewed sequences, replies in the CRM. GDPR and CNIL rules explained.",
   "slug": "cold-email-b2b",
   "publishedAt": "2026-07-16T00:00:00.000Z",
-  "updatedAt": "2026-10-04T00:00:00.000Z",
+  "updatedAt": "2026-10-12T00:00:00.000Z",
   "category": "commercial",
   "tags": [
     "cold-email-b2b",
     "prospection-par-email",
-    "cold-email",
     "delivrabilite-email",
+    "rgpd-prospection",
     "sequences-email"
   ],
   "seo": {
     "noindex": false,
-    "serviceType": "Campagnes de cold email B2B outillées pour PME",
-    "priceRange": "{{prix.commercial}}-1650€/mois",
-    "priceMin": 980,
-    "priceMax": 1650
+    "serviceType": "Campagnes de cold email B2B pour PME",
+    "priceRange": "dès {{prix.commercial}} €",
+    "priceMin": 980
   },
   "faq_fr": [
     {
-      "q": "Le cold email, ce n'est pas du spam ?",
-      "a": "Non, et c'est toute la différence. Le spam part à l'aveugle sur des listes achetées, en masse. Un cold email B2B propre cible serré sur votre ICP, personnalise chaque message et respecte la conformité : opt-out, RGPD, limites de volume. Il envoie moins de mails, mieux ciblés. Le scraping sale et les envois de masse brûlent votre domaine ; on fait l'inverse."
+      "q": "Combien d'e-mails peut-on envoyer par jour sans abîmer sa délivrabilité ?",
+      "a": "Il n'existe pas de chiffre universel : tout dépend de l'ancienneté de la boîte, de la qualité de la liste et de la réaction des destinataires. On monte le volume par paliers sur chaque adresse et on le plafonne. Les messageries fixent des règles côté expéditeur : Google exige des expéditeurs de plus de 5 000 messages par jour vers Gmail une authentification SPF, DKIM et DMARC, une désinscription en un clic et un taux de spam inférieur à 0,30 %. Sous ce volume, on applique les mêmes règles."
     },
     {
-      "q": "Comment vous protégez mon domaine d'envoi du spam ?",
-      "a": "Réchauffe progressive des boîtes, adresses dédiées à la prospection séparées de votre domaine principal, limites de volume, authentification SPF, DKIM et DMARC, suivi de la délivrabilité en continu. En spam, une adresse ne rapporte rien et entache la réputation de l'expéditeur. La délivrabilité n'est pas un réglage de fin de projet, c'est le socle de tout cold email qui marche."
+      "q": "SPF, DKIM, DMARC : à quoi servent-ils ?",
+      "a": "Le SPF liste les serveurs autorisés à envoyer des messages pour votre domaine. Le DKIM signe chaque message pour prouver qu'il n'a pas été modifié. Le DMARC dit à la messagerie du destinataire quoi faire quand l'un des deux échoue, et vous renvoie des rapports. Les trois s'écrivent dans la zone DNS du domaine d'envoi, avant le premier message."
     },
     {
-      "q": "Avec quels outils vous montez les campagnes ?",
-      "a": "Apollo et Pharow pour cibler et enrichir des listes propres, dédoublonnées et vérifiées. Lemlist et Instantly pour l'envoi, la personnalisation et le suivi des séquences. Ce sont les outils qu'on branche et qu'on vous laisse : à la fin, les campagnes et l'infrastructure restent chez vous, pas dans une boîte noire d'agence."
+      "q": "Faut-il un domaine dédié, et à qui appartient-il ?",
+      "a": "Oui : un nom de domaine secondaire, proche de votre marque, avec ses propres boîtes. Une mauvaise réputation d'envoi reste alors sur ce domaine et n'atteint pas celui de vos devis et de vos factures. Le domaine et les adresses sont transférables sur vos comptes si vous arrêtez."
     },
     {
-      "q": "Vous montez les listes ou je dois apporter mes contacts ?",
-      "a": "On construit le ciblage avec vous : définition de l'ICP, des signaux d'achat, puis enrichissement via Apollo et Pharow pour sortir des listes propres et vérifiées. Pas de base achetée, pas d'adresses qui rebondissent, parce qu'un rebond abîme la délivrabilité autant qu'il gaspille un contact. Vous gardez la donnée, elle reste chez vous."
+      "q": "D'où viennent les adresses des destinataires ?",
+      "a": "De vos critères de ciblage (secteur, taille, fonction, signal), appliqués à des bases B2B, puis vérifiés avant le premier envoi. Chaque contact garde sa source : si quelqu'un demande d'où vient son adresse, la réponse est dans le dossier. On ne part pas d'une liste achetée en bloc dont on ignore l'origine."
     },
     {
-      "q": "Quelle différence avec la prospection multicanale ?",
-      "a": "Le cold email est un canal, la brique la plus rentable pour ouvrir des comptes à froid. La prospection automatisée est le dispositif complet qui l'entoure : LinkedIn, voix et SMS en relance, scoring et branchement CRM. Cette page traite l'email en profondeur ; si vous voulez le multicanal branché de bout en bout, c'est la prospection automatisée."
+      "q": "Cold email ou LinkedIn : par quel canal commencer ?",
+      "a": "Par celui où votre cible répond. L'e-mail se prête à une liste large et à des séquences régulières. LinkedIn se travaille compte par compte et reste envoyé par une personne : voir la page sur la prospection LinkedIn. Les deux peuvent se compléter sur les mêmes comptes, à condition de ne pas relancer la même personne sur les deux canaux le même jour."
     },
     {
-      "q": "Combien coûte une campagne de cold email B2B ?",
-      "a": "Un essai gratuit, puis deux formules sans engagement. Essai gratuit : {{prix.commercial.essai}} leads, 0 €, avec un premier échange en visio. Standard à {{prix.commercial}} € HT par mois. Pro à 1 650 € HT par mois. On ne facture pas au volume de messages envoyés, on livre des prospects ciblés et une infrastructure d'envoi saine. Un volume plus élevé se cadre sur devis. Vous stoppez ou mettez en pause dès que vous le souhaitez."
+      "q": "Que mesurez-vous, et que ne promettez-vous pas ?",
+      "a": "Messages délivrés, rebonds, plaintes, désinscriptions, réponses, réponses positives, rendez-vous pris. On ne promet ni un nombre de rendez-vous ni un taux de réponse : ils dépendent de votre offre, de votre marché et de la précision du ciblage."
     }
   ],
   "faq_en": [
     {
-      "q": "Isn't cold email just spam?",
-      "a": "No, and that's the whole difference. Spam goes out blind on bought lists, at scale. Clean B2B cold email targets tightly on your ICP, personalises every message and respects compliance: opt-out, GDPR, volume limits. It sends fewer, better-targeted emails. Dirty scraping and mass sends burn your domain; we do the opposite."
+      "q": "How many emails a day can you send without hurting deliverability?",
+      "a": "There is no universal figure: it depends on the mailbox's age, the list's quality and how recipients react. Volume goes up in stages on each address and is capped. Mailbox providers set sender rules: Google requires senders of more than 5,000 messages a day to Gmail to authenticate with SPF, DKIM and DMARC, offer one-click unsubscribe and keep the spam rate under 0.30%. Below that volume, we apply the same rules."
     },
     {
-      "q": "How do you keep my sending domain out of spam?",
-      "a": "Gradual mailbox warm-up, dedicated prospecting addresses kept separate from your main domain, volume limits, SPF, DKIM and DMARC authentication, continuous deliverability monitoring. In spam, a mailbox earns nothing and stains the sender's reputation. Deliverability isn't an end-of-project setting, it's the foundation of any cold email that works."
+      "q": "SPF, DKIM, DMARC: what are they for?",
+      "a": "SPF lists the servers allowed to send messages for your domain. DKIM signs each message to prove it was not altered. DMARC tells the recipient's mail system what to do when either fails, and sends you reports. All three are written in the sending domain's DNS zone, before the first message."
     },
     {
-      "q": "Which tools do you build the campaigns with?",
-      "a": "Apollo and Pharow to target and enrich clean, deduplicated, verified lists. Lemlist and Instantly for sending, personalisation and sequence tracking. These are the tools we wire in and leave you: at the end, the campaigns and the infrastructure stay with you, not inside an agency black box."
+      "q": "Do you need a dedicated domain, and who owns it?",
+      "a": "Yes: a secondary domain name close to your brand, with its own mailboxes. A poor sending reputation then stays on that domain and does not reach the one used for your quotes and invoices. The domain and addresses can be transferred to your accounts if you stop."
     },
     {
-      "q": "Do you build the lists or do I bring my contacts?",
-      "a": "We build the targeting with you: ICP definition, buying signals, then enrichment via Apollo and Pharow to produce clean, verified lists. No bought database, no bouncing addresses, because a bounce hurts deliverability as much as it wastes a contact. You keep the data, it stays with you."
+      "q": "Where do recipients' addresses come from?",
+      "a": "From your targeting criteria (sector, size, role, signal), applied to B2B databases, then verified before the first send. Each contact keeps its source: if someone asks where their address came from, the answer is on file. We do not start from a bulk-bought list of unknown origin."
     },
     {
-      "q": "How is this different from multichannel prospecting?",
-      "a": "Cold email is one channel, the most cost-effective block to open cold accounts. Automated prospecting is the full setup around it: LinkedIn, voice and SMS for follow-up, scoring and CRM wiring. This page covers email in depth; if you want the full multichannel setup wired end to end, that's automated prospecting."
+      "q": "Cold email or LinkedIn: which channel first?",
+      "a": "By the one where your target replies. Email suits a wide list and regular sequences. LinkedIn is worked account by account and still sent by a person: see the LinkedIn prospecting page. The two can complement each other on the same accounts, as long as the same person is not chased on both channels on the same day."
     },
     {
-      "q": "How much does a B2B cold email campaign cost?",
-      "a": "A free trial, then two plans, no commitment. Free trial: {{prix.commercial.essai}} leads, 0 €, with a first video call. Standard at {{prix.commercial}} € ex VAT per month. Pro at 1,650 € ex VAT per month. We don't bill by volume of messages sent, we deliver targeted prospects and a healthy sending infrastructure. Higher volume is scoped on request. You stop or pause the moment you wish."
+      "q": "What do you measure, and what do you not promise?",
+      "a": "Messages delivered, bounces, complaints, unsubscribes, replies, positive replies, meetings booked. We promise neither a number of meetings nor a reply rate: they depend on your offer, your market and the precision of targeting."
     }
   ],
   "sections": [
     {
-      "type": "hero-masthead-card",
+      "type": "hero-split-media",
       "background": "paper",
-      "kicker_fr": "§ Cold email B2B · canal de prospection",
-      "kicker_en": "§ B2B cold email · prospecting channel",
-      "h1_fr": "Cold email <i class=\"acc\">B2B</i> pour PME.",
-      "h1_en": "B2B <i class=\"acc\">cold email</i> for SMEs.",
-      "lede_fr": "La prospection par email marche encore, à une condition : ne pas la traiter comme un envoi de masse. Ciblage enrichi via Apollo et Pharow, séquences personnalisées via Lemlist et Instantly, warm-up et délivrabilité surveillée. Des mails ciblés qui arrivent en boîte de réception, pas en spam. Le canal cold email de votre système de prospection.",
-      "lede_en": "Email prospecting still works, on one condition: don't treat it as a mass send. Enriched targeting via Apollo and Pharow, personalised sequences via Lemlist and Instantly, warm-up and monitored deliverability. Targeted emails that land in the inbox, not in spam. The cold email channel of your prospecting system.",
+      "illustration": {
+        "src": "/images/illustrations/ds/cold-email-b2b-ecluse-paper.webp",
+        "alt_fr": "Une écluse en escalier : le niveau monte par paliers, une péniche chargée d'enveloppes attend, un homme actionne la vanne",
+        "alt_en": "A staircase canal lock: the water rises in stages, a barge loaded with envelopes waits, a man works the sluice",
+        "side": "right"
+      },
+      "kicker_fr": "§ Cold email B2B · le canal e-mail",
+      "kicker_en": "§ B2B cold email · the email channel",
+      "h1_fr": "Cold email <i class=\"acc\">B2B</i> pour PME",
+      "h1_en": "B2B <i class=\"acc\">cold email</i> for SMEs",
+      "lede_fr": "Le cold email B2B est un premier message envoyé par e-mail à un professionnel qui ne vous connaît pas, au sujet de son métier. Il tient quand l'envoi est maîtrisé : domaines dédiés et authentifiés, listes vérifiées, volumes plafonnés, désinscription simple. Waimia monte et surveille ce canal pour les PME B2B. Vous répondez à ceux qui répondent.",
+      "lede_en": "B2B cold email is a first message sent by email to a professional who does not know you yet, about their job. It holds up when sending is controlled: dedicated, authenticated domains, verified lists, capped volumes, simple unsubscribe. Waimia builds and monitors this channel for B2B SMEs. You answer the people who answer.",
       "badges": [
         {
-          "label_fr": "Ciblage enrichi",
-          "label_en": "Enriched targeting"
+          "label_fr": "Domaines dédiés",
+          "label_en": "Dedicated domains"
         },
         {
-          "label_fr": "Lemlist + Instantly",
-          "label_en": "Lemlist + Instantly"
+          "label_fr": "SPF, DKIM, DMARC",
+          "label_en": "SPF, DKIM, DMARC"
         },
         {
-          "label_fr": "Délivrabilité surveillée",
-          "label_en": "Monitored deliverability"
+          "label_fr": "Listes vérifiées",
+          "label_en": "Verified lists"
         },
         {
-          "label_fr": "Conforme RGPD",
-          "label_en": "GDPR-compliant"
+          "label_fr": "Désinscription en un clic",
+          "label_en": "One-click unsubscribe"
         }
       ],
-      "cta_sub_fr": "Diagnostic de 45 min, gratuit et sans engagement : on part de votre domaine et de votre délivrabilité réelle.",
-      "cta_sub_en": "45-min diagnostic, free and no commitment: we start from your domain and your real deliverability.",
       "cta_primary": {
         "label_fr": "Réserver un audit IA gratuit →",
         "label_en": "Book a free AI audit →",
@@ -111,425 +114,301 @@
         "variant": "primary"
       },
       "cta_secondary": {
-        "label_fr": "Voir le dispositif",
-        "label_en": "See the system",
-        "href": "#capacites",
+        "label_fr": "Le système de prospection complet",
+        "label_en": "The full prospecting system",
+        "href": "/services/prospection-automatisee",
         "variant": "ghost"
-      },
-      "media_src": "/images/line-art/dispositif-flow.svg",
-      "media_alt_fr": "Schéma : une liste ICP est enrichie, entre dans une séquence de cold email, la boîte est réchauffée et surveillée, puis la réponse remonte au CRM.",
-      "media_alt_en": "Diagram: an ICP list is enriched, enters a cold email sequence, the mailbox is warmed up and monitored, then the reply flows up to the CRM.",
-      "kpis": [
-        {
-          "num": "SPF·DKIM·DMARC",
-          "cap_fr": "envoi authentifié",
-          "cap_en": "authenticated sending"
-        },
-        {
-          "num": "2–4 sem.",
-          "cap_fr": "première campagne en route",
-          "cap_en": "first campaign live"
-        }
-      ]
+      }
     },
     {
       "type": "proof-bar",
       "background": "paper",
       "kicker_fr": "§ En bref",
-      "kicker_en": "§ At a glance",
+      "kicker_en": "§ In short",
       "metrics": [
         {
-          "value": "{{prix.commercial}}–1 650 €",
-          "label_fr": "abonnement mensuel HT, sans engagement",
-          "label_en": "monthly subscription ex VAT, no commitment",
+          "value": "SPF · DKIM · DMARC",
+          "label_fr": "authentification posée avant le premier envoi",
+          "label_en": "authentication in place before the first send",
           "emphasis": true
         },
         {
-          "value": "2–4 sem.",
-          "label_fr": "première campagne cold email en route",
-          "label_en": "first cold email campaign live"
+          "value": "{{prix.commercial.essai}} leads",
+          "label_fr": "offerts pour l'essai, à 0 €",
+          "label_en": "free for the trial, at 0 €",
+          "emphasis": false
         },
         {
-          "value": "SPF·DKIM·DMARC",
-          "label_fr": "domaine authentifié, boîtes dédiées",
-          "label_en": "authenticated domain, dedicated mailboxes"
+          "value": "Dès {{prix.commercial}} € HT",
+          "label_fr": "par mois, sans engagement de durée",
+          "label_en": "per month, no minimum term",
+          "emphasis": false
         },
         {
-          "value": "100 %",
-          "label_fr": "campagnes transférées, zéro captivité",
-          "label_en": "campaigns handed over, no lock-in"
+          "value": "Transférable",
+          "label_fr": "domaines et boîtes à vous si vous arrêtez",
+          "label_en": "domains and mailboxes yours if you stop",
+          "emphasis": false
         }
       ]
     },
     {
       "type": "definition-extract",
       "background": "paper",
-      "kicker_fr": "§ Définition · format extractible",
-      "kicker_en": "§ Definition · extractable format",
-      "statement_fr": "Le <i class=\"acc\">cold email B2B</i> est une prospection par email envoyée à froid à des comptes ICP qui ne vous connaissent pas encore : listes enrichies via Apollo et Pharow, séquences personnalisées via Lemlist et Instantly, envoi authentifié depuis des boîtes réchauffées. Chez Waimia, il ouvre de nouveaux comptes sans brûler le domaine d'envoi. Le multicanal complet et le branchement CRM relèvent de la prospection automatisée.",
-      "statement_en": "B2B cold email is email prospecting sent cold to ICP accounts that don't know you yet: lists enriched via Apollo and Pharow, personalised sequences via Lemlist and Instantly, authenticated sending from warmed mailboxes. At Waimia, it opens new accounts without burning the sending domain. Full multichannel and CRM wiring are the job of automated prospecting.",
+      "kicker_fr": "§ Définition",
+      "kicker_en": "§ Definition",
+      "statement_fr": "Le <i class=\"acc\">cold email B2B</i> est un message envoyé par e-mail à un professionnel avec qui vous n'avez encore jamais échangé, à propos de sa fonction. En B2B il peut reposer sur l'intérêt légitime plutôt que sur le consentement préalable, à condition d'informer la personne et de respecter son droit de s'y opposer. C'est un canal de la prospection automatisée, pas son synonyme.",
+      "statement_en": "<i class=\"acc\">B2B cold email</i> is a message sent by email to a professional you have never exchanged with, about their role. In B2B it can rest on legitimate interest rather than prior consent, provided you inform the person and respect their right to object. It is one channel of automated prospecting, not a synonym for it.",
       "pills": [
         {
-          "label_fr": "Ciblage ICP enrichi",
-          "label_en": "Enriched ICP targeting"
+          "label_fr": "Sortant B2B",
+          "label_en": "B2B outbound"
         },
         {
-          "label_fr": "Séquences personnalisées",
-          "label_en": "Personalised sequences"
+          "label_fr": "Intérêt légitime",
+          "label_en": "Legitimate interest"
         },
         {
-          "label_fr": "Boîtes réchauffées",
-          "label_en": "Warmed mailboxes"
+          "label_fr": "Domaines dédiés",
+          "label_en": "Dedicated domains"
         },
         {
-          "label_fr": "Délivrabilité surveillée",
-          "label_en": "Monitored deliverability"
-        },
-        {
-          "label_fr": "Conforme RGPD",
-          "label_en": "GDPR-compliant"
+          "label_fr": "Désinscription simple",
+          "label_en": "Simple unsubscribe"
         }
       ],
       "specs": [
-        {
-          "label_fr": "Apollo + Pharow (ciblage)",
-          "label_en": "Apollo + Pharow (targeting)"
-        },
-        {
-          "label_fr": "Lemlist + Instantly (envoi)",
-          "label_en": "Lemlist + Instantly (sending)"
-        },
         {
           "label_fr": "SPF, DKIM, DMARC",
           "label_en": "SPF, DKIM, DMARC"
         },
         {
-          "label_fr": "Warm-up et boîtes dédiées",
-          "label_en": "Warm-up and dedicated mailboxes"
+          "label_fr": "Warm-up progressif",
+          "label_en": "Gradual warm-up"
         },
         {
-          "label_fr": "Opt-out et limites de volume",
-          "label_en": "Opt-out and volume limits"
+          "label_fr": "Listes vérifiées",
+          "label_en": "Verified lists"
+        },
+        {
+          "label_fr": "Plafonds de volume",
+          "label_en": "Volume caps"
+        },
+        {
+          "label_fr": "Réponses dans le CRM",
+          "label_en": "Replies in the CRM"
         }
       ]
     },
     {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "html_fr": "<h2>La délivrabilité passe avant le texte</h2>\n<p>Un message bien écrit qui finit en spam ne rapporte rien. On commence donc par l'infrastructure : un ou plusieurs noms de domaine secondaires proches de votre marque, des boîtes dédiées à la prospection et les trois enregistrements d'authentification. Votre domaine principal, celui de vos devis et de vos factures, n'envoie jamais de prospection.</p>\n<p>Les boîtes montent ensuite en volume par paliers, avec un plafond par adresse. Les grandes messageries fixent des règles : les <a href=\"https://support.google.com/a/answer/81126\" rel=\"nofollow noopener\" target=\"_blank\">règles de Google pour les expéditeurs</a> imposent, au-delà de 5 000 messages par jour vers Gmail, l'authentification, la désinscription en un clic et un taux de spam sous 0,30 %. Les volumes d'une PME dans nos formules (de l'ordre de 4 000 à 8 000 e-mails par mois) sont très inférieurs, mais on applique les mêmes règles.</p>\n<h2>Des listes qu'on peut défendre</h2>\n<p>On part de vos critères (secteur, taille, fonction, signal), on enrichit à partir de bases B2B et on vérifie les adresses avant le premier envoi. Chaque contact garde sa source. Un message adressé à contact@ n'atteint personne en particulier : on vise des fonctions nommées, avec un message qui parle de leur métier.</p>\n<h2>Où s'arrête le cold email</h2>\n<p>L'e-mail ouvre la conversation, il la conclut rarement. Les réponses remontent dans un <a href=\"/services/crm-scoring-routing\">CRM scoré et routé</a>, et les <a href=\"/services/sequences-de-suivi\">séquences de suivi</a> prennent le relais. Pour joindre les mêmes comptes ailleurs, voir la <a href=\"/services/prospection-linkedin\">prospection LinkedIn</a>, préparée par le système et envoyée par une personne, et le <a href=\"/services/social-selling-ia\">social selling assisté par l'IA</a>. Le dispositif complet est décrit sur la page <a href=\"/services/prospection-automatisee\">prospection automatisée</a> et s'inscrit dans le <a href=\"/services/systeme-acquisition\">système d'acquisition</a>.</p>",
+      "html_en": "<h2>Deliverability comes before the copy</h2>\n<p>A well-written message that lands in spam earns nothing. So we start with infrastructure: one or more secondary domain names close to your brand, mailboxes dedicated to prospecting and the three authentication records. Your main domain, the one behind your quotes and invoices, never sends prospecting.</p>\n<p>Mailboxes then ramp up in stages, with a cap per address. Large mailbox providers set rules: <a href=\"https://support.google.com/a/answer/81126\" rel=\"nofollow noopener\" target=\"_blank\">Google's sender rules</a> require, beyond 5,000 messages a day to Gmail, authentication, one-click unsubscribe and a spam rate under 0.30%. An SME's volumes in our plans (in the order of 4,000 to 8,000 emails a month) are far below that, but we apply the same rules.</p>\n<h2>Lists you can defend</h2>\n<p>We start from your criteria (sector, size, role, signal), enrich from B2B databases and verify addresses before the first send. Each contact keeps its source. A message sent to contact@ reaches no one in particular: we aim at named roles, with a message about their job.</p>\n<h2>Where cold email stops</h2>\n<p>Email opens the conversation and rarely closes it. Replies flow into a <a href=\"/services/crm-scoring-routing\">scored and routed CRM</a>, and <a href=\"/services/sequences-de-suivi\">follow-up sequences</a> take over. To reach the same accounts elsewhere, see <a href=\"/services/prospection-linkedin\">LinkedIn prospecting</a>, prepared by the system and sent by a person, and <a href=\"/services/social-selling-ia\">AI-assisted social selling</a>. The full setup is described on the <a href=\"/services/prospection-automatisee\">automated prospecting</a> page and sits within the <a href=\"/services/systeme-acquisition\">acquisition system</a>.</p>"
+    },
+    {
       "type": "feature-grid",
       "background": "paper-2",
-      "kicker_fr": "§ Conformité",
-      "kicker_en": "§ Compliance",
-      "h2_fr": "Cold email B2B et RGPD : est-ce légal en France ?",
-      "h2_en": "B2B cold email and GDPR: is it legal in France?",
-      "lede_fr": "Oui, le cold email B2B est légal en France, sous conditions. Le RGPD et la CNIL encadrent l'objet du message, la transparence et le droit de refus. Voici comment on tient chaque campagne dans les clous. Ce cadre décrit notre pratique, ce n'est pas un avis juridique.",
-      "lede_en": "Yes, B2B cold email is legal in France, under conditions. The GDPR and the CNIL govern the message's subject, transparency and the right to refuse. Here is how we keep every campaign within the lines. This framing describes our practice, it is not legal advice.",
       "columns": "4",
+      "kicker_fr": "§ Cadre légal",
+      "kicker_en": "§ Legal framework",
+      "h2_fr": "Cold email B2B et RGPD : ce qu'on applique",
+      "h2_en": "B2B cold email and GDPR: what we apply",
+      "lede_fr": "La CNIL admet la prospection par e-mail entre professionnels sur la base de l'intérêt légitime. Voici comment chaque campagne s'y tient. Ce cadre décrit notre pratique, ce n'est pas un avis juridique.",
+      "lede_en": "The CNIL accepts email prospecting between professionals on the basis of legitimate interest. Here is how each campaign stays within it. This describes our practice, not legal advice.",
       "features": [
         {
           "icon": "qualif",
-          "title_fr": "Intérêt légitime, pas consentement",
-          "title_en": "Legitimate interest, not consent",
-          "body_fr": "En B2B, on s'appuie sur l'intérêt légitime : le message doit concerner la fonction professionnelle du contact. Un dirigeant démarché sur son métier, jamais un particulier sur son adresse personnelle.",
-          "body_en": "In B2B, we rely on legitimate interest: the message must relate to the contact's professional role. A leader contacted about their work, never an individual on a personal address."
-        },
-        {
-          "icon": "tracking",
-          "title_fr": "Un lien de désinscription visible",
-          "title_en": "A visible unsubscribe link",
-          "body_fr": "Chaque email porte un moyen de refus clair. Un désabonnement sort le contact de toutes les séquences, définitivement. On n'insiste jamais après un opt-out.",
-          "body_en": "Every email carries a clear way to refuse. An unsubscribe removes the contact from every sequence, for good. We never push after an opt-out."
+          "title_fr": "Un message sur la fonction",
+          "title_en": "A message about the role",
+          "body_fr": "Le message doit avoir un rapport avec la profession de la personne démarchée. Chaque séquence est écrite pour une fonction, pas pour une liste anonyme.",
+          "body_en": "The message must relate to the profession of the person contacted. Each sequence is written for a role, not for an anonymous list."
         },
         {
           "icon": "contenu",
-          "title_fr": "Un expéditeur identifiable",
-          "title_en": "An identifiable sender",
-          "body_fr": "Nom, société et objet réel : le destinataire sait tout de suite qui écrit et pourquoi. Pas d'adresse masquée, pas d'objet trompeur, c'est ce qu'exige la loi et ce qui protège votre réputation.",
-          "body_en": "Name, company and a real subject line: the recipient knows at once who is writing and why. No masked address, no misleading subject, it is what the law requires and what protects your reputation."
+          "title_fr": "Une personne informée",
+          "title_en": "An informed person",
+          "body_fr": "Le premier message dit qui écrit, pour quelle société, et comment refuser de nouveaux messages. Pas d'adresse masquée, pas d'objet trompeur.",
+          "body_en": "The first message says who is writing, for which company, and how to refuse further messages. No masked address, no misleading subject."
+        },
+        {
+          "icon": "tracking",
+          "title_fr": "Une opposition respectée",
+          "title_en": "An objection honoured",
+          "body_fr": "Un lien de désinscription dans chaque message. L'opposition est enregistrée et la personne sort de toutes les séquences, définitivement.",
+          "body_en": "An unsubscribe link in every message. The objection is recorded and the person leaves all sequences, for good."
         },
         {
           "icon": "pilotage",
-          "title_fr": "Des données minimisées et à jour",
-          "title_en": "Minimised, up-to-date data",
-          "body_fr": "On ne collecte que ce qui sert le message, on documente la source des contacts et on purge ce qui ne convertit plus. La conformité et la délivrabilité vont dans le même sens.",
-          "body_en": "We collect only what serves the message, document the source of contacts and purge what no longer converts. Compliance and deliverability pull in the same direction."
+          "title_fr": "Des données minimisées",
+          "title_en": "Minimised data",
+          "body_fr": "Nom, fonction, société, adresse professionnelle : ce qui sert le message, avec sa source. Les contacts sans suite sont purgés.",
+          "body_en": "Name, role, company, business address: what the message needs, with its source. Contacts with no follow-up are purged."
         }
       ]
     },
     {
       "type": "pain-severity-list",
       "background": "ink",
-      "kicker_fr": "Là où le cold email cale · par sévérité",
-      "kicker_en": "Where cold email stalls · by severity",
-      "h2_fr": "Pourquoi vos mails finissent <i class=\"acc\">en spam</i>",
-      "h2_en": "Why your emails end up <i class=\"acc\">in spam</i>",
+      "kicker_fr": "§ Ce qui dégrade la délivrabilité",
+      "kicker_en": "§ What degrades deliverability",
+      "h2_fr": "Quatre causes <i class=\"acc\">fréquentes</i> de mails en spam",
+      "h2_en": "Four <i class=\"acc\">common</i> causes of emails landing in spam",
       "items": [
         {
           "severity": "critical",
-          "title_fr": "Le domaine principal brûlé en une semaine",
-          "title_en": "The main domain burned in a week",
-          "desc_fr": "Des envois de masse depuis votre domaine, sans réchauffe ni boîtes dédiées : la réputation s'effondre, et même vos mails commerciaux légitimes tombent en spam.",
-          "desc_en": "Mass sends from your domain, no warm-up or dedicated mailboxes: reputation collapses, and even your legitimate sales emails land in spam.",
-          "fix_fr": "Boîtes dédiées, réchauffe et authentification.",
-          "fix_en": "Dedicated mailboxes, warm-up and authentication."
+          "title_fr": "Le domaine principal sert à prospecter",
+          "title_en": "The main domain is used for prospecting",
+          "desc_fr": "Si les envois partent de votre domaine habituel, une mauvaise réputation touche aussi vos mails de devis et de facture.",
+          "desc_en": "If sends go out from your usual domain, a poor reputation also hits your quote and invoice emails.",
+          "fix_fr": "Domaines secondaires et boîtes dédiées.",
+          "fix_en": "Secondary domains and dedicated mailboxes."
         },
         {
           "severity": "high",
-          "title_fr": "Des listes achetées qui rebondissent",
-          "title_en": "Bought lists that bounce",
-          "desc_fr": "Bases achetées, adresses invalides, doublons : chaque rebond abîme la délivrabilité et fait chuter le taux de placement en boîte de réception.",
-          "desc_en": "Bought databases, invalid addresses, duplicates: every bounce hurts deliverability and drops the inbox placement rate.",
-          "fix_fr": "Listes enrichies et vérifiées avant le premier envoi.",
-          "fix_en": "Lists enriched and verified before the first send."
+          "title_fr": "Des listes non vérifiées",
+          "title_en": "Unverified lists",
+          "desc_fr": "Les adresses invalides produisent des rebonds, que les messageries lisent comme le signe d'un envoi non sollicité.",
+          "desc_en": "Invalid addresses produce bounces, which mail systems read as a sign of unsolicited sending.",
+          "fix_fr": "Vérification avant le premier envoi, purge des rebonds.",
+          "fix_en": "Verification before the first send, bounces purged."
+        },
+        {
+          "severity": "high",
+          "title_fr": "Un volume monté trop vite",
+          "title_en": "Volume ramped up too fast",
+          "desc_fr": "Une boîte neuve qui envoie beaucoup d'un coup ressemble à un envoi de masse.",
+          "desc_en": "A new mailbox that suddenly sends a lot looks like a mass mailing.",
+          "fix_fr": "Montée par paliers et plafond par adresse.",
+          "fix_en": "Staged ramp-up and a cap per address."
         },
         {
           "severity": "medium",
-          "title_fr": "Un seul mail, jamais de relance",
-          "title_en": "One email, never a follow-up",
-          "desc_fr": "Un envoi unique et rien derrière : la plupart des réponses arrivent aux relances, pas au premier contact. Sans séquence, les comptes tièdes s'éteignent.",
-          "desc_en": "A single send and nothing after: most replies come from follow-ups, not the first contact. Without a sequence, lukewarm accounts fade out.",
-          "fix_fr": "Séquences cadencées, itérées sur les réponses.",
-          "fix_en": "Paced sequences, iterated on replies."
-        }
-      ]
-    },
-    {
-      "type": "comparison-duo",
-      "background": "paper-2",
-      "kicker_fr": "§ L'équation",
-      "kicker_en": "§ The equation",
-      "h2_fr": "Pourquoi un cold email <i class=\"acc\">outillé</i> change l'équation",
-      "h2_en": "Why <i class=\"acc\">tooled</i> cold email changes the equation",
-      "without_label_fr": "Cold email à l'arrache",
-      "without_label_en": "Slapdash cold email",
-      "without_title_fr": "Ce qu'il gaspille",
-      "without_title_en": "What it wastes",
-      "without_items": [
-        {
-          "text_fr": "Envoi de masse depuis le domaine principal, grillé en quelques jours.",
-          "text_en": "Mass send from the main domain, burned in a few days."
-        },
-        {
-          "text_fr": "Listes achetées pleines de doublons et d'adresses qui rebondissent.",
-          "text_en": "Bought lists full of duplicates and bouncing addresses."
-        },
-        {
-          "text_fr": "Le même mail pour tout le monde, jamais personnalisé, jamais relancé.",
-          "text_en": "The same email for everyone, never personalised, never followed up."
-        },
-        {
-          "text_fr": "Aucune mesure : impossible de savoir ce qui arrive en boîte et ce qui répond.",
-          "text_en": "No measurement: impossible to know what lands in the inbox and what replies."
-        }
-      ],
-      "with_label_fr": "Cold email outillé",
-      "with_label_en": "Tooled cold email",
-      "with_title_fr": "Ce qu'il met au travail",
-      "with_title_en": "What it puts to work",
-      "with_items": [
-        {
-          "text_fr": "Boîtes dédiées et réchauffées, domaine principal jamais exposé.",
-          "text_en": "Dedicated, warmed mailboxes, main domain never exposed."
-        },
-        {
-          "text_fr": "Listes enrichies via Apollo et Pharow, dédoublonnées et vérifiées.",
-          "text_en": "Lists enriched via Apollo and Pharow, deduplicated and verified."
-        },
-        {
-          "text_fr": "Séquences personnalisées par segment via Lemlist et Instantly, itérées sur les réponses.",
-          "text_en": "Sequences personalised per segment via Lemlist and Instantly, iterated on replies."
-        },
-        {
-          "text_fr": "Délivrabilité, placement et réputation suivis en continu.",
-          "text_en": "Deliverability, placement and reputation tracked continuously."
+          "title_fr": "Pas de désinscription claire",
+          "title_en": "No clear unsubscribe",
+          "desc_fr": "Un destinataire qui ne sait pas comment se retirer signale le message comme indésirable, et les plaintes pèsent sur la réputation.",
+          "desc_en": "A recipient who cannot tell how to opt out flags the message as unwanted, and complaints weigh on reputation.",
+          "fix_fr": "Expéditeur identifié et lien de désinscription dans chaque message.",
+          "fix_en": "Identified sender and unsubscribe link in every message."
         }
       ]
     },
     {
       "type": "method-stepline",
       "background": "paper-3",
-      "kicker_fr": "§ Maturité",
-      "kicker_en": "§ Maturity",
-      "h2_fr": "Les 6 niveaux d'un cold email",
-      "h2_en": "The 6 levels of cold email",
-      "lede_fr": "De l'envoi de masse au domaine grillé à la séquence enrichie et surveillée, six paliers. La plupart des PME stagnent au deuxième, l'envoi brut sans réchauffe. On situe votre cold email sur l'échelle, puis on le fait monter d'un cran.",
-      "lede_en": "From a mass send that burns the domain to an enriched, monitored sequence, six tiers. Most SMEs stall at the second, raw sending with no warm-up. We place your cold email on the scale, then move it up a notch.",
+      "kicker_fr": "§ Le montage",
+      "kicker_en": "§ The build",
+      "h2_fr": "Six étapes, dans cet ordre",
+      "h2_en": "Six steps, in this order",
+      "lede_fr": "L'infrastructure se prépare pendant qu'on écrit les messages, ce qui explique les 2 à 4 semaines habituelles avant la première séquence.",
+      "lede_en": "Infrastructure is prepared while the messages are written, which explains the usual 2 to 4 weeks before the first sequence.",
       "steps": [
         {
-          "title_fr": "Envoi de masse",
-          "title_en": "Mass send",
-          "sub_fr": "Domaine principal, à l'aveugle",
-          "sub_en": "Main domain, blind"
+          "title_fr": "Cadrage",
+          "title_en": "Scoping",
+          "sub_fr": "Offre, cible, critères écrits",
+          "sub_en": "Offer, target, written criteria"
         },
         {
-          "title_fr": "Boîtes dédiées",
-          "title_en": "Dedicated mailboxes",
-          "sub_fr": "Séparées du domaine principal",
-          "sub_en": "Separate from the main domain"
+          "title_fr": "Domaines",
+          "title_en": "Domains",
+          "sub_fr": "Domaines secondaires, SPF, DKIM, DMARC",
+          "sub_en": "Secondary domains, SPF, DKIM, DMARC"
         },
         {
-          "title_fr": "Domaine réchauffé",
-          "title_en": "Warmed domain",
-          "sub_fr": "Warm-up et authentification",
-          "sub_en": "Warm-up and authentication"
+          "title_fr": "Warm-up",
+          "title_en": "Warm-up",
+          "sub_fr": "Montée progressive des boîtes",
+          "sub_en": "Gradual mailbox ramp-up"
         },
         {
-          "title_fr": "Listes enrichies",
-          "title_en": "Enriched lists",
-          "sub_fr": "ICP défini, vérifié",
-          "sub_en": "ICP defined, verified"
+          "title_fr": "Listes",
+          "title_en": "Lists",
+          "sub_fr": "Enrichies, vérifiées, avec leur source",
+          "sub_en": "Enriched, verified, with their source"
         },
         {
-          "title_fr": "Séquences en route",
-          "title_en": "Sequences live",
-          "sub_fr": "Cadence et personnalisation",
-          "sub_en": "Cadence and personalisation"
+          "title_fr": "Séquences",
+          "title_en": "Sequences",
+          "sub_fr": "Messages courts, relus avant le départ",
+          "sub_en": "Short messages, reviewed before they go"
         },
         {
-          "title_fr": "Envoi auto-affiné",
-          "title_en": "Self-sharpening sending",
-          "sub_fr": "Les messages apprennent des réponses",
-          "sub_en": "Messages learn from replies"
+          "title_fr": "Suivi",
+          "title_en": "Monitoring",
+          "sub_fr": "Rebonds, plaintes, réponses, retouches",
+          "sub_en": "Bounces, complaints, replies, adjustments"
         }
       ]
     },
     {
       "type": "deliverables-grid",
       "background": "paper",
-      "kicker_fr": "§ Livrables",
-      "kicker_en": "§ Deliverables",
-      "title_fr": "Ce que vous récupérez concrètement",
-      "title_en": "What you get concretely",
-      "lead_fr": "Vous gardez les campagnes et l'infrastructure quand on part. Pas de captivité.",
-      "lead_en": "You keep the campaigns and the infrastructure when we leave. No lock-in.",
+      "kicker_fr": "§ Ce que vous gardez",
+      "kicker_en": "§ What you keep",
+      "title_fr": "Ce qui vous reste si vous arrêtez",
+      "title_en": "What remains if you stop",
+      "lead_fr": "Rien n'est enfermé dans un outil qu'on garde : l'infrastructure et les campagnes sont transférables.",
+      "lead_en": "Nothing is locked in a tool we keep: the infrastructure and campaigns are transferable.",
       "items": [
         {
-          "title_fr": "Ciblage et listes ICP",
-          "title_en": "ICP targeting and lists",
-          "body_fr": "ICP défini, signaux d'achat cadrés, listes enrichies via Apollo et Pharow, dédoublonnées et vérifiées avant le premier envoi.",
-          "body_en": "ICP defined, buying signals framed, lists enriched via Apollo and Pharow, deduplicated and verified before the first send.",
-          "format_fr": "DATA",
-          "format_en": "DATA",
-          "illustration_src": "/images/line-art/livrable-tableau-mesure.svg",
-          "illustration_alt_fr": "Des listes ICP enrichies, propres et vérifiées",
-          "illustration_alt_en": "Enriched, clean, verified ICP lists"
+          "title_fr": "Le cadrage et les listes",
+          "title_en": "Scoping and lists",
+          "body_fr": "Les critères écrits et les listes de comptes, avec la source de chaque contact.",
+          "body_en": "The written criteria and account lists, with each contact's source.",
+          "format_fr": "CIBLAGE",
+          "format_en": "CIBLAGE"
         },
         {
-          "title_fr": "Séquences cold email",
-          "title_en": "Cold email sequences",
-          "body_fr": "Séquences personnalisées par segment, cadence calée, via Lemlist et Instantly. Chaque message parle à une personne, pas à une liste.",
-          "body_en": "Sequences personalised per segment, cadence set, via Lemlist and Instantly. Each message speaks to a person, not a list.",
+          "title_fr": "Les séquences et leurs variantes",
+          "title_en": "Sequences and variants",
+          "body_fr": "Les messages, leurs variantes et les résultats de chacune.",
+          "body_en": "The messages, their variants and each one's results.",
           "format_fr": "SÉQUENCES",
-          "format_en": "SEQUENCES",
-          "illustration_src": "/images/line-art/swi-livrable-landing-pages.svg",
-          "illustration_alt_fr": "Des séquences de cold email personnalisées par segment",
-          "illustration_alt_en": "Cold email sequences personalised per segment"
+          "format_en": "SÉQUENCES"
         },
         {
-          "title_fr": "Infrastructure d'envoi",
-          "title_en": "Sending infrastructure",
-          "body_fr": "Boîtes dédiées séparées de votre domaine, réchauffe progressive, SPF, DKIM et DMARC posés. Le domaine principal n'est jamais exposé.",
-          "body_en": "Dedicated mailboxes kept separate from your domain, gradual warm-up, SPF, DKIM and DMARC laid in. The main domain is never exposed.",
+          "title_fr": "Les domaines et les boîtes d'envoi",
+          "title_en": "Sending domains and mailboxes",
+          "body_fr": "Les domaines et adresses dédiés, avec leurs enregistrements, sur vos comptes.",
+          "body_en": "The dedicated domains and addresses, with their records, on your accounts.",
           "format_fr": "INFRA",
-          "format_en": "INFRA",
-          "illustration_src": "/images/line-art/swi-livrable-connexion-ia.svg",
-          "illustration_alt_fr": "Une infrastructure d'envoi saine, réchauffée et authentifiée",
-          "illustration_alt_en": "A healthy, warmed-up, authenticated sending infrastructure"
+          "format_en": "INFRA"
         },
         {
-          "title_fr": "Délivrabilité et conformité",
-          "title_en": "Deliverability and compliance",
-          "body_fr": "Suivi du placement en boîte de réception, des plaintes et des rebonds, opt-out propre, limites de volume et suivi RGPD. Le domaine reste sain.",
-          "body_en": "Inbox placement, complaints and bounces tracked, clean opt-out, volume limits and GDPR tracking. The domain stays healthy.",
-          "format_fr": "DÉLIVRABILITÉ",
-          "format_en": "DELIVERABILITY",
-          "illustration_src": "/images/line-art/swi-livrable-capture-scoring.svg",
-          "illustration_alt_fr": "Le placement en boîte de réception suivi, domaine protégé",
-          "illustration_alt_en": "Inbox placement tracked, domain protected"
-        },
-        {
-          "title_fr": "Reporting des campagnes",
-          "title_en": "Campaign reporting",
-          "body_fr": "Taux de placement, ouvertures, réponses et rebonds par séquence, lus en temps réel. Vous mesurez ce qui arrive et ce qui convertit.",
-          "body_en": "Placement rate, opens, replies and bounces per sequence, read in real time. You measure what lands and what converts.",
-          "format_fr": "TABLEAU",
-          "format_en": "DASHBOARD",
-          "illustration_src": "/images/line-art/swi-livrable-tableau-pilotage.svg",
-          "illustration_alt_fr": "Un reporting des campagnes de cold email en temps réel",
-          "illustration_alt_en": "Real-time cold email campaign reporting"
-        },
-        {
-          "title_fr": "Documentation et autonomie",
-          "title_en": "Documentation and autonomy",
-          "body_fr": "Mode opératoire, prise en main de Lemlist et Instantly, formation : votre équipe pilote les campagnes à la livraison.",
-          "body_en": "Operating manual, onboarding on Lemlist and Instantly, training: your team runs the campaigns at delivery.",
-          "format_fr": "NOTION + VIDÉO",
-          "format_en": "NOTION + VIDEO",
-          "illustration_src": "/images/line-art/swi-livrable-mode-operatoire.svg",
-          "illustration_alt_fr": "Un mode opératoire documenté pour piloter les campagnes en autonomie",
-          "illustration_alt_en": "A documented operating manual to run the campaigns autonomously"
+          "title_fr": "Le suivi de délivrabilité",
+          "title_en": "Deliverability tracking",
+          "body_fr": "Rebonds, plaintes, désinscriptions et réponses, par domaine et par séquence.",
+          "body_en": "Bounces, complaints, unsubscribes and replies, by domain and by sequence.",
+          "format_fr": "SUIVI",
+          "format_en": "SUIVI"
         }
       ]
     },
     {
-      "type": "feature-grid",
-      "anchor": "capacites",
-      "background": "paper",
-      "kicker_fr": "§ Les briques",
-      "kicker_en": "§ The building blocks",
-      "h2_fr": "Les briques d'un cold email qui arrive en boîte",
-      "h2_en": "The building blocks of cold email that lands in the inbox",
-      "lede_fr": "Sept briques, une seule base. On active les briques qui servent votre cible, au moment où elles servent. Pas de volume qu'on vous facture pour brûler votre domaine.",
-      "lede_en": "Seven building blocks, a single base. We switch on the blocks that serve your target, at the moment they serve. No volume billed to you just to burn your domain.",
-      "columns": "4",
-      "fillMedia": "services-layer.svg",
-      "features": [
+      "type": "decision-list",
+      "background": "paper-2",
+      "kicker_fr": "§ Quand ne pas le faire",
+      "kicker_en": "§ When not to do it",
+      "heading_fr": "Le cold email ne convient pas si",
+      "heading_en": "Cold email is not a fit if",
+      "items": [
         {
-          "icon": "qualif",
-          "title_fr": "Ciblage ICP",
-          "title_en": "ICP targeting",
-          "body_fr": "On définit l'ICP et les signaux d'achat pour viser serré : en cold email, un compte précis vaut mieux qu'un volume qui rebondit.",
-          "body_en": "We define the ICP and buying signals to aim tight: in cold email a precise account beats a volume that bounces."
+          "label_fr": "Vous vendez à des particuliers : le consentement préalable est requis.",
+          "label_en": "You sell to consumers: prior consent is required."
         },
         {
-          "icon": "contenu",
-          "title_fr": "Enrichissement",
-          "title_en": "Enrichment",
-          "body_fr": "Apollo et Pharow sortent des adresses propres, dédoublonnées et vérifiées. Pas de base achetée, pas de rebonds qui plombent la délivrabilité.",
-          "body_en": "Apollo and Pharow produce clean, deduplicated, verified addresses. No bought database, no bounces to sink deliverability."
+          "label_fr": "Votre marché tient en quelques dizaines de comptes : un message personnel ou un appel vaut mieux.",
+          "label_en": "Your market is a few dozen accounts: a personal message or a call is better."
         },
         {
-          "icon": "design",
-          "title_fr": "Séquences",
-          "title_en": "Sequences",
-          "body_fr": "Cold email personnalisé par segment, cadence calée, via Lemlist et Instantly. On itère sur les réponses réelles, pas en masse.",
-          "body_en": "Cold email personalised per segment, cadence set, via Lemlist and Instantly. We iterate on real replies, not at scale."
+          "label_fr": "Personne ne traitera les réponses chaque jour : une réponse laissée sans suite abîme votre image.",
+          "label_en": "Nobody will handle replies every day: an unanswered reply hurts your image."
         },
         {
-          "icon": "pilotage",
-          "title_fr": "Warm-up",
-          "title_en": "Warm-up",
-          "body_fr": "Réchauffe progressive des boîtes dédiées avant le premier envoi. Un domaine qu'on monte en réputation, pas qu'on grille d'un coup.",
-          "body_en": "Gradual warm-up of dedicated mailboxes before the first send. A domain built up in reputation, not burned all at once."
-        },
-        {
-          "icon": "tracking",
-          "title_fr": "Délivrabilité",
-          "title_en": "Deliverability",
-          "body_fr": "SPF, DKIM, DMARC et suivi du placement en continu. Une adresse classée en spam ne convertit pas et abîme la marque.",
-          "body_en": "SPF, DKIM, DMARC and continuous placement tracking. An address flagged as spam doesn't convert and hurts the brand."
-        },
-        {
-          "icon": "crm",
-          "title_fr": "Réponses au CRM",
-          "title_en": "Replies to CRM",
-          "body_fr": "Chaque réponse remonte à HubSpot ou Pipedrive, prête à être qualifiée et routée. L'email ouvre le compte, le CRM prend le relais.",
-          "body_en": "Every reply flows up to HubSpot or Pipedrive, ready to be qualified and routed. Email opens the account, the CRM takes over."
-        },
-        {
-          "icon": "ia",
-          "title_fr": "Conformité",
-          "title_en": "Compliance",
-          "body_fr": "Opt-out propre, limites de volume, RGPD respecté. Un cold email honnête n'est pas un contournement, c'est un canal durable.",
-          "body_en": "Clean opt-out, volume limits, GDPR respected. Honest cold email isn't a workaround, it's a durable channel."
+          "label_fr": "Votre offre n'a pas de destinataire précis (fonction, taille, secteur).",
+          "label_en": "Your offer has no precise recipient (role, size, sector)."
         }
       ]
     },
@@ -538,414 +417,141 @@
       "anchor": "declinaisons",
       "background": "paper-3",
       "reveal_mode": "cursor",
-      "kicker_fr": "§ Le système de prospection",
-      "kicker_en": "§ The prospecting system",
-      "h2_fr": "Le cold email s'assemble au reste du <i>système commercial</i>",
-      "h2_en": "Cold email assembles into the rest of the <i>commercial system</i>",
-      "lede_fr": "L'email ne travaille jamais seul : il ouvre les comptes que le multicanal relance, que le CRM qualifie et que les séquences entretiennent. Survolez un module voisin pour voir comment le cold email s'y raccorde.",
-      "lede_en": "Email never works alone: it opens the accounts multichannel follows up, the CRM qualifies and the sequences nurture. Hover a neighbouring module to see how cold email plugs into it.",
+      "kicker_fr": "§ Le reste de la prospection",
+      "kicker_en": "§ The rest of prospecting",
+      "h2_fr": "Le cold email s'assemble aux autres <i>canaux</i>",
+      "h2_en": "Cold email fits together with the other <i>channels</i>",
+      "lede_fr": "Chaque canal a sa page, ses règles et ses limites. Survolez une ligne pour ouvrir celle qui vous concerne.",
+      "lede_en": "Each channel has its own page, rules and limits. Hover a line to open the one that applies to you.",
       "items": [
         {
           "label_fr": "Prospection automatisée",
           "label_en": "Automated prospecting",
-          "meta_fr": "Le dispositif multicanal complet autour de l'email",
-          "meta_en": "The full multichannel setup around email",
-          "media_src": "/images/illustrations/ds/chess-paper.webp",
-          "media_alt_fr": "Un échiquier : le dispositif de prospection multicanal complet.",
-          "media_alt_en": "A chessboard: the full multichannel prospecting setup.",
+          "meta_fr": "Le dispositif complet autour de l'e-mail, en abonnement",
+          "meta_en": "The full setup around email, as a subscription",
+          "media_src": "/images/illustrations/ds/prospection-automatisee-v3-semeur-paper.webp",
+          "media_alt_fr": "Une personne pousse un semoir le long de sillons réguliers, des pousses lèvent derrière elle",
+          "media_alt_en": "A person pushes a seeder along even furrows, sprouts coming up behind",
           "link_href": "/services/prospection-automatisee"
+        },
+        {
+          "label_fr": "Prospection LinkedIn",
+          "label_en": "LinkedIn prospecting",
+          "meta_fr": "Préparée par le système, envoyée par une personne",
+          "meta_en": "Prepared by the system, sent by a person",
+          "media_src": "/images/illustrations/ds/prospection-linkedin-epreuves-paper.webp",
+          "media_alt_fr": "Des épreuves d'imprimerie pendent à une corde, une personne en relit une au crayon",
+          "media_alt_en": "Printer's proofs hang from a cord, a person checks one with a pencil",
+          "link_href": "/services/prospection-linkedin"
+        },
+        {
+          "label_fr": "Social selling assisté par IA",
+          "label_en": "AI-assisted social selling",
+          "meta_fr": "Des signaux, des fiches et des brouillons avant d'écrire",
+          "meta_en": "Signals, briefs and drafts before writing",
+          "media_src": "/images/illustrations/ds/social-selling-ia-flotteur-paper.webp",
+          "media_alt_fr": "Une personne pêche à la ligne depuis un ponton, seul le flotteur bleu est à surveiller",
+          "media_alt_en": "A person fishes from a jetty, only the blue float needs watching",
+          "link_href": "/services/social-selling-ia"
+        },
+        {
+          "label_fr": "Automatisation des réseaux sociaux",
+          "label_en": "Social media automation",
+          "meta_fr": "Votre propre contenu, décliné et planifié",
+          "meta_en": "Your own content, adapted and scheduled",
+          "media_src": "/images/illustrations/ds/automatisation-reseaux-sociaux-tronc-planches-paper.webp",
+          "media_alt_fr": "Un tronc posé sur un établi est débité en planches de largeurs différentes",
+          "media_alt_en": "A log on a workbench is sawn into planks of different widths",
+          "link_href": "/services/automatisation-reseaux-sociaux"
         },
         {
           "label_fr": "CRM, scoring et routing",
           "label_en": "CRM, scoring and routing",
-          "meta_fr": "Le CRM qui note et route les réponses captées",
-          "meta_en": "The CRM that scores and routes the replies captured",
-          "media_src": "/images/illustrations/ds/no-no-yes-paper.webp",
-          "media_alt_fr": "Un tri clair : le CRM qui note et route chaque réponse.",
-          "media_alt_en": "A clear sort: the CRM that scores and routes each reply.",
+          "meta_fr": "Le CRM qui reçoit, note et distribue les réponses",
+          "meta_en": "The CRM that receives, scores and routes replies",
+          "media_src": "/images/illustrations/ds/logiciel-demandes-routees-paper.webp",
+          "media_alt_fr": "Des avions en papier volent vers un panneau indicateur à trois bras",
+          "media_alt_en": "Paper planes fly toward a three-armed signpost",
           "link_href": "/services/crm-scoring-routing"
         },
         {
           "label_fr": "Séquences de suivi",
           "label_en": "Follow-up sequences",
           "meta_fr": "Les relances qui entretiennent les comptes ouverts",
-          "meta_en": "The follow-ups that nurture the accounts opened",
-          "media_src": "/images/illustrations/ds/man-and-woman-hi-paper.webp",
-          "media_alt_fr": "Un relais : les séquences qui relancent au moment juste.",
-          "media_alt_en": "A relay: the sequences that follow up at just the right time.",
+          "meta_en": "The follow-ups that keep open accounts warm",
+          "media_src": "/images/illustrations/ds/sequences-de-suivi-v3-horloge-paper.webp",
+          "media_alt_fr": "À côté d'une grande horloge, une personne glisse une lettre dans une haute boîte aux lettres",
+          "media_alt_en": "Next to a large clock, a person slips a letter into a tall mailbox",
           "link_href": "/services/sequences-de-suivi"
-        },
-        {
-          "label_fr": "Système commercial",
-          "label_en": "Commercial system",
-          "meta_fr": "Prospection, CRM et relances orchestrés d'un bloc",
-          "meta_en": "Prospecting, CRM and follow-ups orchestrated as one",
-          "media_src": "/images/illustrations/ds/car-on-the-road-paper.webp",
-          "media_alt_fr": "Une route qui file : le système commercial au complet.",
-          "media_alt_en": "A road unspooling: the full commercial system.",
-          "link_href": "/services/systeme-commercial"
         }
       ]
-    },
-    {
-      "type": "system-flow",
-      "background": "ink",
-      "fig_num": "Fig. 3.0",
-      "fig_title_fr": "Le cold email, de bout en bout",
-      "fig_title_en": "Cold email, end to end",
-      "meta_fr": "InboxLoop · v1",
-      "meta_en": "InboxLoop · v1",
-      "h2_fr": "Comment un cold email arrive en boîte et répond",
-      "h2_en": "How a cold email lands and replies",
-      "lede_fr": "Les briques ne s'empilent pas au hasard. Elles forment un circuit. Chaque maillon transforme un compte froid en réponse exploitable, puis renvoie la donnée au ciblage et aux messages pour les affiner.",
-      "lede_en": "The blocks don't stack at random. They form a circuit. Each link turns a cold account into a usable reply, then feeds the data back to the targeting and messages to sharpen them.",
-      "steps": [
-        {
-          "title_fr": "Cible",
-          "title_en": "Target",
-          "desc_fr": "ICP arrêté, comptes prioritaires repérés sur des signaux d'achat nets.",
-          "desc_en": "ICP set, priority accounts spotted on clear buying signals."
-        },
-        {
-          "title_fr": "Enrichissement",
-          "title_en": "Enrichment",
-          "desc_fr": "Apollo et Pharow sortent des adresses propres et vérifiées.",
-          "desc_en": "Apollo and Pharow produce clean, verified addresses."
-        },
-        {
-          "title_fr": "Warm-up",
-          "title_en": "Warm-up",
-          "desc_fr": "Boîtes dédiées réchauffées, SPF, DKIM et DMARC posés.",
-          "desc_en": "Dedicated mailboxes warmed, SPF, DKIM and DMARC laid in."
-        },
-        {
-          "title_fr": "Séquence",
-          "title_en": "Sequence",
-          "desc_fr": "Cold email personnalisé cadencé via Lemlist et Instantly.",
-          "desc_en": "Personalised cold email paced via Lemlist and Instantly."
-        },
-        {
-          "title_fr": "Réponse · CRM",
-          "title_en": "Reply · CRM",
-          "desc_fr": "Réponse captée, remontée au CRM, prête à qualifier.",
-          "desc_en": "Reply captured, flowed up to the CRM, ready to qualify."
-        },
-        {
-          "title_fr": "Affinage",
-          "title_en": "Refinement",
-          "desc_fr": "Les réponses reviennent aux messages et au ciblage. La boucle se referme.",
-          "desc_en": "Replies return to the messages and targeting. The loop closes."
-        }
-      ],
-      "loop_label_fr": "boucle d'affinage continu des messages",
-      "loop_label_en": "continuous message refinement loop"
-    },
-    {
-      "type": "feature-zigzag",
-      "anchor": "apres-lancement",
-      "background": "paper-2",
-      "kicker_fr": "§ Après le lancement",
-      "kicker_en": "§ After launch",
-      "h2_fr": "Les campagnes continuent de s'affiner après le lancement",
-      "h2_en": "The campaigns keep sharpening after launch",
-      "lede_fr": "Une campagne lancée n'est pas une campagne finie. La plupart des envois tournent une fois et s'éteignent en spam. Ici, le cold email devient un actif : des messages qui apprennent des réponses, une délivrabilité surveillée, un placement mesuré et une autonomie complète sur vos campagnes.",
-      "lede_en": "A launched campaign is not a finished campaign. Most sends run once and fade into spam. Here, cold email becomes an asset: messages that learn from replies, monitored deliverability, measured placement and full autonomy on your campaigns.",
-      "rows": [
-        {
-          "kicker_fr": "Après · 01",
-          "kicker_en": "After · 01",
-          "h3_fr": "Messages qui apprennent",
-          "h3_en": "Messages that learn",
-          "body_fr": "Les réponses réelles disent quel objet et quelle accroche fonctionnent. On garde ce qui convertit, on réécrit ce qui tombe à plat, on ajuste la cadence. La séquence suivante répond mieux que la précédente, mesuré sur vos taux de réponse.",
-          "body_en": "Real replies tell you which subject line and hook work. We keep what converts, rewrite what falls flat, adjust the cadence. The next sequence replies better than the last, measured on your reply rates.",
-          "points": [
-            {
-              "label_fr": "Objets et accroches gardés sur ce qui convertit",
-              "label_en": "Subjects and hooks kept on what converts"
-            },
-            {
-              "label_fr": "Messages réécrits sur les réponses réelles",
-              "label_en": "Messages rewritten on real replies"
-            },
-            {
-              "label_fr": "Cadence affinée à chaque cycle",
-              "label_en": "Cadence sharpened each cycle"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/computer-health-paper.webp",
-          "media_alt_fr": "Les messages de cold email qui apprennent des réponses réelles, illustration éditoriale",
-          "media_alt_en": "Cold email messages learning from real replies, editorial illustration"
-        },
-        {
-          "kicker_fr": "Après · 02",
-          "kicker_en": "After · 02",
-          "h3_fr": "Délivrabilité surveillée",
-          "h3_en": "Deliverability monitored",
-          "body_fr": "Un domaine sain n'est jamais acquis. On suit le placement en boîte, les plaintes, les rebonds, la réputation. Au premier signal de placement qui faiblit, on corrige avant la chute en spam. Votre marque ne règle jamais la facture d'un envoi trop gourmand.",
-          "body_en": "A healthy domain is never a given. We track inbox placement, complaints, bounces, reputation. At the first weakening placement signal, we correct before the spam fall. Your brand never picks up the tab for a greedy send.",
-          "points": [
-            {
-              "label_fr": "Placement et réputation suivis",
-              "label_en": "Placement and reputation tracked"
-            },
-            {
-              "label_fr": "Ajustement avant la chute en spam",
-              "label_en": "Adjustment before the spam fall"
-            },
-            {
-              "label_fr": "Volumes cadrés, domaine protégé",
-              "label_en": "Framed volumes, protected domain"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/style-11-paper.webp",
-          "media_alt_fr": "Le placement et la réputation du domaine sous surveillance continue, illustration éditoriale",
-          "media_alt_en": "Domain placement and reputation kept under continuous watch, editorial illustration"
-        },
-        {
-          "kicker_fr": "Après · 03",
-          "kicker_en": "After · 03",
-          "h3_fr": "Placement mesuré",
-          "h3_en": "Placement measured",
-          "body_fr": "Chaque envoi remonte son taux de placement, ses ouvertures, ses réponses et ses rebonds. Fini l'envoi à l'aveugle où personne ne sait ce qui arrive en boîte. Vous voyez le placement en temps réel et vous savez exactement ce qui convertit.",
-          "body_en": "Every send reports its placement rate, opens, replies and bounces. No more blind sending where nobody knows what lands. You see placement in real time and know exactly what converts.",
-          "points": [
-            {
-              "label_fr": "Taux de placement suivi par séquence",
-              "label_en": "Placement rate tracked per sequence"
-            },
-            {
-              "label_fr": "Ouvertures et réponses tracées",
-              "label_en": "Opens and replies traced"
-            },
-            {
-              "label_fr": "Reporting temps réel des campagnes",
-              "label_en": "Real-time campaign reporting"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/no-woman-cry-paper.webp",
-          "media_alt_fr": "Un placement en boîte de réception mesuré et un reporting des campagnes, illustration éditoriale",
-          "media_alt_en": "Measured inbox placement and campaign reporting, editorial illustration"
-        },
-        {
-          "kicker_fr": "Après · 04",
-          "kicker_en": "After · 04",
-          "h3_fr": "Autonomie et passation",
-          "h3_en": "Autonomy and handover",
-          "body_fr": "On documente les campagnes et on forme votre équipe : mode opératoire, prise en main de Lemlist et Instantly, lecture du placement. Vous gardez les campagnes, les listes et la main. Pas de captivité : vous faites tourner le cold email sans dépendre de nous.",
-          "body_en": "We document the campaigns and train your team: operating manual, onboarding on Lemlist and Instantly, reading placement. You keep the campaigns, the lists and the control. No lock-in: you run the cold email without depending on us.",
-          "points": [
-            {
-              "label_fr": "Mode opératoire et formation",
-              "label_en": "Operating manual and training"
-            },
-            {
-              "label_fr": "Prise en main des outils d'envoi",
-              "label_en": "Onboarding on the sending tools"
-            },
-            {
-              "label_fr": "Vous gardez les campagnes, zéro captivité",
-              "label_en": "You keep the campaigns, zero lock-in"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/style-10-paper.webp",
-          "media_alt_fr": "Passation et formation des équipes pour piloter le cold email en autonomie, illustration éditoriale",
-          "media_alt_en": "Handover and team training to run cold email autonomously, editorial illustration"
-        }
-      ]
-    },
-    {
-      "type": "case-card-grid",
-      "background": "ink",
-      "reveal_mode": "cursor",
-      "fig_num": "Fig. 05",
-      "fig_title_fr": "Cas clients",
-      "fig_title_en": "Client cases",
-      "spec_fr": "Cas clients · résultats réels",
-      "spec_en": "Client cases · real results",
-      "h2_fr": "Résultats sur le terrain",
-      "h2_en": "Results in the field",
-      "case_label_fr": "CAS",
-      "case_label_en": "CASE",
-      "sector_label_fr": "Secteur · Durée",
-      "sector_label_en": "Sector · Duration",
-      "impact_label_fr": "Impact",
-      "impact_label_en": "Impact",
-      "cases": [
-        {
-          "client": "Amploi · groupe Vigiscope",
-          "sector_fr": "Externalisation RH",
-          "sector_en": "HR outsourcing",
-          "duration": "6 sem.",
-          "stack": "CRM HubSpot · Attribution · GEO",
-          "impact_fr": "Formulaires branchés HubSpot avec attribution des leads et balisage schema.org pensé pour les citations IA : chaque contact entrant qualifié et rattaché à sa source, prêt à alimenter des campagnes de cold email ciblées.",
-          "impact_en": "HubSpot-connected forms with lead attribution and schema.org markup built for AI citations: every inbound contact qualified and tied to its source, ready to feed targeted cold email campaigns.",
-          "href": "/cas-clients/amploi",
-          "media_src": "/images/illustrations/ds/super-girl-ink.webp",
-          "media_alt_fr": "Une figure dynamique : l'externalisation RH qui capte et qualifie ses leads.",
-          "media_alt_en": "A dynamic figure: HR outsourcing that captures and qualifies its leads."
-        },
-        {
-          "client": "Les Carnets de Montpellier",
-          "sector_fr": "Patrimoine / Média local",
-          "sector_en": "Heritage / Local media",
-          "duration": "6 sem.",
-          "stack": "Création · Abonnement · SEO",
-          "impact_fr": "Créé de zéro : 40 articles, 150 membres, 35 abonnés payants en trois mois. Une base de contacts propre et vérifiée, prête à alimenter des séquences de cold email.",
-          "impact_en": "From scratch: 40 articles, 150 members, 35 paying subscribers in three months. A clean, verified contact base, ready to feed cold email sequences.",
-          "href": "/cas-clients/les-carnets-de-montpellier",
-          "media_src": "/images/illustrations/ds/band-showing-tv-ink.webp",
-          "media_alt_fr": "Un média local qui fédère une base de contacts propre et vérifiée.",
-          "media_alt_en": "A local media outlet building a clean, verified contact base."
-        },
-        {
-          "client": "Balzeo",
-          "sector_fr": "E-commerce écoresponsable",
-          "sector_en": "Eco-friendly e-commerce",
-          "duration": "8 sem.",
-          "stack": "Refonte · E-commerce · Perf",
-          "impact_fr": "Refonte de bout en bout : chargement divisé par deux (5,2 s → 2,4 s), rétention +35 %, maintenance -84 %. Une base client saine pour instrumenter l'acquisition sortante par email.",
-          "impact_en": "End-to-end rebuild: load time halved (5.2s → 2.4s), retention +35%, maintenance down 84%. A healthy customer base to instrument outbound email acquisition.",
-          "href": "/cas-clients/balzeo",
-          "media_src": "/images/illustrations/ds/fruits-ink.webp",
-          "media_alt_fr": "Des fruits frais : le e-commerce écoresponsable à la base client saine.",
-          "media_alt_en": "Fresh fruit: the eco-friendly e-commerce store with healthy customer data."
-        }
-      ],
-      "all_label_fr": "Voir tous les cas →",
-      "all_label_en": "See all cases →",
-      "all_href": "/cas-clients"
     },
     {
       "type": "pricing-cards",
       "background": "paper",
-      "kicker_fr": "§ La gamme",
-      "kicker_en": "§ The range",
-      "h2_fr": "Un essai gratuit, puis deux formules en abonnement mensuel sans engagement",
-      "h2_en": "A free trial, then two monthly subscription plans with no commitment",
-      "lede_fr": "Commencez par l'essai gratuit : {{prix.commercial.essai}} leads, 0 €, un échange en visio et des conseils cold email concrets. Ensuite, un abonnement mensuel, Standard ou Pro selon le volume d'envoi visé. Pas de projet à cinq chiffres, pas de facture au nombre de mails envoyés. Arrêtez ou mettez en pause quand vous voulez.",
-      "lede_en": "Start with the free trial: {{prix.commercial.essai}} leads, 0 €, a video call and concrete cold email advice. Then a monthly subscription, Standard or Pro depending on sending volume. No five-figure project, no billing by number of emails sent. Stop or pause whenever you want.",
+      "layout": "grid-asym",
+      "colRatio": "2-3",
+      "kicker_fr": "§ Abonnement mensuel",
+      "kicker_en": "§ Monthly subscription",
+      "h2_fr": "Un essai gratuit, puis un abonnement sans engagement",
+      "h2_en": "A free trial, then a subscription with no commitment",
+      "lede_fr": "Le cold email se facture dans l'abonnement de prospection, pas au nombre de messages envoyés. Les formules Standard et Pro, leurs volumes et leur détail figurent dans la grille de la page prospection automatisée.",
+      "lede_en": "Cold email is billed within the prospecting subscription, not per message sent. The Standard and Pro plans, their volumes and details are in the grid on the automated prospecting page.",
       "tiers": [
         {
           "name_fr": "Essai gratuit",
           "name_en": "Free trial",
           "price": "{{prix.commercial.essai}} leads",
-          "period_fr": "offerts · 0 € · un essai, pas une formule",
+          "period_fr": "offerts · 0 € · un essai, pas une formule",
           "period_en": "on us · 0 € · a trial, not a plan",
           "features_fr": [
-            "Un échange en visio pour cadrer votre délivrabilité et vos premières séquences.",
-            "Une liste de {{prix.commercial.essai}} leads offerts, pour tester le ciblage",
-            "Conseils pratiques sur votre stratégie"
+            "Une visio pour cadrer votre domaine et votre cible",
+            "{{prix.commercial.essai}} leads offerts pour tester le ciblage",
+            "Des conseils concrets sur vos premières séquences"
           ],
           "features_en": [
-            "A video call to frame your deliverability and first sequences.",
-            "A list of {{prix.commercial.essai}} leads on us, to test the targeting",
-            "Practical advice on your strategy"
+            "A video call to frame your domain and your target",
+            "{{prix.commercial.essai}} leads on us to test the targeting",
+            "Concrete advice on your first sequences"
           ],
           "cta": {
-            "label_fr": "Prendre RDV →",
-            "label_en": "Book a call →",
+            "label_fr": "Réserver un audit IA gratuit →",
+            "label_en": "Book a free AI audit →",
             "href": "/contact?offer=audit-ia-pme&intent=audit",
             "variant": "ghost"
           }
         },
         {
-          "name_fr": "Standard",
-          "name_en": "Standard",
-          "price": "{{prix.commercial}} €",
-          "period_fr": "HT / mois",
-          "period_en": "ex VAT / month",
+          "name_fr": "Abonnement",
+          "name_en": "Subscription",
+          "price": "{{prix.commercial}} €",
+          "period_fr": "HT / mois · dès",
+          "period_en": "ex VAT / month · from",
           "features_fr": [
-            "1 000 contacts ciblés / mois, soit environ 4 000 emails envoyés",
-            "800 prospects / mois",
-            "Ajouts sous 72h en moyenne",
-            "Campagnes illimitées",
-            "Segments ciblés illimités",
-            "Copywriting séquences illimité",
-            "Noms de domaines inclus",
-            "Adresses email dédiées",
-            "SPF, DKIM, DMARC & domaine custom",
-            "Warmup intelligent",
-            "Reporting",
-            "Personnalisation IA",
-            "1 RDV / mois sur demande",
-            "Hotline directe via messagerie Slack",
-            "Arrêtez ou mettez en pause à tout moment"
+            "Domaines et adresses dédiés, SPF, DKIM, DMARC",
+            "Warm-up progressif des boîtes",
+            "Séquences rédigées et personnalisées par IA, relues",
+            "Reporting sur les envois et les réponses",
+            "Sans engagement de durée : arrêt ou pause à tout moment"
           ],
           "features_en": [
-            "1,000 targeted contacts / month, about 4,000 emails sent",
-            "800 prospects / month",
-            "Additions within 72h on average",
-            "Unlimited campaigns",
-            "Unlimited targeted segments",
-            "Unlimited sequence copywriting",
-            "Domain names included",
-            "Dedicated email addresses",
-            "SPF, DKIM, DMARC & custom domain",
-            "Smart warm-up",
-            "Reporting",
-            "AI personalisation",
-            "1 call / month on request",
-            "Direct hotline via Slack messaging",
-            "Stop or pause at any time"
+            "Dedicated domains and addresses, SPF, DKIM, DMARC",
+            "Gradual mailbox warm-up",
+            "Sequences written and personalised by AI, reviewed",
+            "Reporting on sends and replies",
+            "No minimum term: stop or pause at any time"
           ],
           "cta": {
-            "label_fr": "Démarrer aujourd'hui →",
-            "label_en": "Start today →",
-            "href": "/contact?offer=cold-email-b2b&intent=standard",
-            "variant": "ghost"
-          }
-        },
-        {
-          "name_fr": "Pro",
-          "name_en": "Pro",
-          "price": "1 650 €",
-          "period_fr": "HT / mois",
-          "period_en": "ex VAT / month",
-          "features_fr": [
-            "2 000 contacts ciblés / mois, soit environ 8 000 emails envoyés",
-            "1 600 prospects / mois",
-            "Ajouts sous 72h en moyenne",
-            "Campagnes illimitées",
-            "Segments ciblés illimités",
-            "Copywriting séquences illimité",
-            "Noms de domaines inclus",
-            "Adresses email dédiées",
-            "SPF, DKIM, DMARC & domaine custom",
-            "Warmup intelligent",
-            "Reporting",
-            "Personnalisation IA",
-            "1 RDV / mois sur demande",
-            "Hotline directe via messagerie Slack",
-            "Arrêtez ou mettez en pause à tout moment"
-          ],
-          "features_en": [
-            "2,000 targeted contacts / month, about 8,000 emails sent",
-            "1,600 prospects / month",
-            "Additions within 72h on average",
-            "Unlimited campaigns",
-            "Unlimited targeted segments",
-            "Unlimited sequence copywriting",
-            "Domain names included",
-            "Dedicated email addresses",
-            "SPF, DKIM, DMARC & custom domain",
-            "Smart warm-up",
-            "Reporting",
-            "AI personalisation",
-            "1 call / month on request",
-            "Direct hotline via Slack messaging",
-            "Stop or pause at any time"
-          ],
-          "cta": {
-            "label_fr": "Démarrer aujourd'hui →",
-            "label_en": "Start today →",
-            "href": "/contact?offer=cold-email-b2b&intent=pro",
+            "label_fr": "Voir les formules →",
+            "label_en": "See the plans →",
+            "href": "/services/prospection-automatisee",
             "variant": "primary"
           },
           "featured": true
         }
       ],
-      "footnote_fr": "Essai gratuit, sans engagement : une visio et {{prix.commercial.essai}} leads offerts, à 0 €, pour voir si le cold email vaut le coup chez vous. Standard et Pro sont des abonnements mensuels HT, sans durée imposée : on stoppe ou on met en pause quand vous voulez. On ne facture pas au nombre de mails, on livre des prospects ciblés et une infra d'envoi saine. Un volume plus élevé se cadre sur devis.",
-      "footnote_en": "Free trial, no commitment: a video call and {{prix.commercial.essai}} leads on us, at 0 €, to see if cold email is worth it for you. Standard and Pro are monthly ex-VAT subscriptions, with no fixed term: stop or pause any time. We don't bill by email count, we deliver targeted prospects and a healthy sending infra. Higher volume is scoped on request."
+      "footnote_fr": "Abonnement mensuel HT, sans engagement de durée : le détail des formules Standard et Pro est sur la page prospection automatisée. Un volume plus élevé se cadre sur devis.",
+      "footnote_en": "Monthly subscription excl. VAT, no minimum term: the detail of the Standard and Pro plans is on the automated prospecting page. A higher volume is scoped on quote."
     },
     {
       "type": "eeat-panel",
@@ -956,45 +562,45 @@
       "type": "faq-accordion",
       "background": "paper-2",
       "kicker_fr": "§ Questions fréquentes",
-      "kicker_en": "§ Frequently asked",
+      "kicker_en": "§ Frequently asked questions",
       "h2_fr": "Ce que vous nous demandez",
       "h2_en": "What you ask us",
       "items": [
         {
-          "q_fr": "Le cold email, ce n'est pas du spam ?",
-          "q_en": "Isn't cold email just spam?",
-          "a_fr": "Non, et c'est toute la différence. Le spam part à l'aveugle sur des listes achetées, en masse. Un cold email B2B propre cible serré sur votre ICP, personnalise chaque message et respecte la conformité : opt-out, RGPD, limites de volume. Il envoie moins de mails, mieux ciblés. Le scraping sale et les envois de masse brûlent votre domaine ; on fait l'inverse.",
-          "a_en": "No, and that's the whole difference. Spam goes out blind on bought lists, at scale. Clean B2B cold email targets tightly on your ICP, personalises every message and respects compliance: opt-out, GDPR, volume limits. It sends fewer, better-targeted emails. Dirty scraping and mass sends burn your domain; we do the opposite."
+          "q_fr": "Combien d'e-mails peut-on envoyer par jour sans abîmer sa délivrabilité ?",
+          "q_en": "How many emails a day can you send without hurting deliverability?",
+          "a_fr": "Il n'existe pas de chiffre universel : tout dépend de l'ancienneté de la boîte, de la qualité de la liste et de la réaction des destinataires. On monte le volume par paliers sur chaque adresse et on le plafonne. Les messageries fixent des règles côté expéditeur : Google exige des expéditeurs de plus de 5 000 messages par jour vers Gmail une authentification SPF, DKIM et DMARC, une désinscription en un clic et un taux de spam inférieur à 0,30 %. Sous ce volume, on applique les mêmes règles.",
+          "a_en": "There is no universal figure: it depends on the mailbox's age, the list's quality and how recipients react. Volume goes up in stages on each address and is capped. Mailbox providers set sender rules: Google requires senders of more than 5,000 messages a day to Gmail to authenticate with SPF, DKIM and DMARC, offer one-click unsubscribe and keep the spam rate under 0.30%. Below that volume, we apply the same rules."
         },
         {
-          "q_fr": "Comment vous protégez mon domaine d'envoi du spam ?",
-          "q_en": "How do you keep my sending domain out of spam?",
-          "a_fr": "Réchauffe progressive des boîtes, adresses dédiées à la prospection séparées de votre domaine principal, limites de volume, authentification SPF, DKIM et DMARC, suivi de la délivrabilité en continu. En spam, une adresse ne rapporte rien et entache la réputation de l'expéditeur. La délivrabilité n'est pas un réglage de fin de projet, c'est le socle de tout cold email qui marche.",
-          "a_en": "Gradual mailbox warm-up, dedicated prospecting addresses kept separate from your main domain, volume limits, SPF, DKIM and DMARC authentication, continuous deliverability monitoring. In spam, a mailbox earns nothing and stains the sender's reputation. Deliverability isn't an end-of-project setting, it's the foundation of any cold email that works."
+          "q_fr": "SPF, DKIM, DMARC : à quoi servent-ils ?",
+          "q_en": "SPF, DKIM, DMARC: what are they for?",
+          "a_fr": "Le SPF liste les serveurs autorisés à envoyer des messages pour votre domaine. Le DKIM signe chaque message pour prouver qu'il n'a pas été modifié. Le DMARC dit à la messagerie du destinataire quoi faire quand l'un des deux échoue, et vous renvoie des rapports. Les trois s'écrivent dans la zone DNS du domaine d'envoi, avant le premier message.",
+          "a_en": "SPF lists the servers allowed to send messages for your domain. DKIM signs each message to prove it was not altered. DMARC tells the recipient's mail system what to do when either fails, and sends you reports. All three are written in the sending domain's DNS zone, before the first message."
         },
         {
-          "q_fr": "Avec quels outils vous montez les campagnes ?",
-          "q_en": "Which tools do you build the campaigns with?",
-          "a_fr": "Apollo et Pharow pour cibler et enrichir des listes propres, dédoublonnées et vérifiées. Lemlist et Instantly pour l'envoi, la personnalisation et le suivi des séquences. Ce sont les outils qu'on branche et qu'on vous laisse : à la fin, les campagnes et l'infrastructure restent chez vous, pas dans une boîte noire d'agence.",
-          "a_en": "Apollo and Pharow to target and enrich clean, deduplicated, verified lists. Lemlist and Instantly for sending, personalisation and sequence tracking. These are the tools we wire in and leave you: at the end, the campaigns and the infrastructure stay with you, not inside an agency black box."
+          "q_fr": "Faut-il un domaine dédié, et à qui appartient-il ?",
+          "q_en": "Do you need a dedicated domain, and who owns it?",
+          "a_fr": "Oui : un nom de domaine secondaire, proche de votre marque, avec ses propres boîtes. Une mauvaise réputation d'envoi reste alors sur ce domaine et n'atteint pas celui de vos devis et de vos factures. Le domaine et les adresses sont transférables sur vos comptes si vous arrêtez.",
+          "a_en": "Yes: a secondary domain name close to your brand, with its own mailboxes. A poor sending reputation then stays on that domain and does not reach the one used for your quotes and invoices. The domain and addresses can be transferred to your accounts if you stop."
         },
         {
-          "q_fr": "Vous montez les listes ou je dois apporter mes contacts ?",
-          "q_en": "Do you build the lists or do I bring my contacts?",
-          "a_fr": "On construit le ciblage avec vous : définition de l'ICP, des signaux d'achat, puis enrichissement via Apollo et Pharow pour sortir des listes propres et vérifiées. Pas de base achetée, pas d'adresses qui rebondissent, parce qu'un rebond abîme la délivrabilité autant qu'il gaspille un contact. Vous gardez la donnée, elle reste chez vous.",
-          "a_en": "We build the targeting with you: ICP definition, buying signals, then enrichment via Apollo and Pharow to produce clean, verified lists. No bought database, no bouncing addresses, because a bounce hurts deliverability as much as it wastes a contact. You keep the data, it stays with you."
+          "q_fr": "D'où viennent les adresses des destinataires ?",
+          "q_en": "Where do recipients' addresses come from?",
+          "a_fr": "De vos critères de ciblage (secteur, taille, fonction, signal), appliqués à des bases B2B, puis vérifiés avant le premier envoi. Chaque contact garde sa source : si quelqu'un demande d'où vient son adresse, la réponse est dans le dossier. On ne part pas d'une liste achetée en bloc dont on ignore l'origine.",
+          "a_en": "From your targeting criteria (sector, size, role, signal), applied to B2B databases, then verified before the first send. Each contact keeps its source: if someone asks where their address came from, the answer is on file. We do not start from a bulk-bought list of unknown origin."
         },
         {
-          "q_fr": "Quelle différence avec la prospection multicanale ?",
-          "q_en": "How is this different from multichannel prospecting?",
-          "a_fr": "Le cold email est un canal, la brique la plus rentable pour ouvrir des comptes à froid. La prospection automatisée est le dispositif complet qui l'entoure : LinkedIn, voix et SMS en relance, scoring et branchement CRM. Cette page traite l'email en profondeur ; si vous voulez le multicanal branché de bout en bout, c'est la prospection automatisée.",
-          "a_en": "Cold email is one channel, the most cost-effective block to open cold accounts. Automated prospecting is the full setup around it: LinkedIn, voice and SMS for follow-up, scoring and CRM wiring. This page covers email in depth; if you want the full multichannel setup wired end to end, that's automated prospecting."
+          "q_fr": "Cold email ou LinkedIn : par quel canal commencer ?",
+          "q_en": "Cold email or LinkedIn: which channel first?",
+          "a_fr": "Par celui où votre cible répond. L'e-mail se prête à une liste large et à des séquences régulières. LinkedIn se travaille compte par compte et reste envoyé par une personne : voir la page sur la prospection LinkedIn. Les deux peuvent se compléter sur les mêmes comptes, à condition de ne pas relancer la même personne sur les deux canaux le même jour.",
+          "a_en": "By the one where your target replies. Email suits a wide list and regular sequences. LinkedIn is worked account by account and still sent by a person: see the LinkedIn prospecting page. The two can complement each other on the same accounts, as long as the same person is not chased on both channels on the same day."
         },
         {
-          "q_fr": "Combien coûte une campagne de cold email B2B ?",
-          "q_en": "How much does a B2B cold email campaign cost?",
-          "a_fr": "Un essai gratuit, puis deux formules sans engagement. Essai gratuit : {{prix.commercial.essai}} leads, 0 €, avec un premier échange en visio. Standard à {{prix.commercial}} € HT par mois. Pro à 1 650 € HT par mois. On ne facture pas au volume de messages envoyés, on livre des prospects ciblés et une infrastructure d'envoi saine. Un volume plus élevé se cadre sur devis. Vous stoppez ou mettez en pause dès que vous le souhaitez.",
-          "a_en": "A free trial, then two plans, no commitment. Free trial: {{prix.commercial.essai}} leads, 0 €, with a first video call. Standard at {{prix.commercial}} € ex VAT per month. Pro at 1,650 € ex VAT per month. We don't bill by volume of messages sent, we deliver targeted prospects and a healthy sending infrastructure. Higher volume is scoped on request. You stop or pause the moment you wish."
+          "q_fr": "Que mesurez-vous, et que ne promettez-vous pas ?",
+          "q_en": "What do you measure, and what do you not promise?",
+          "a_fr": "Messages délivrés, rebonds, plaintes, désinscriptions, réponses, réponses positives, rendez-vous pris. On ne promet ni un nombre de rendez-vous ni un taux de réponse : ils dépendent de votre offre, de votre marché et de la précision du ciblage.",
+          "a_en": "Messages delivered, bounces, complaints, unsubscribes, replies, positive replies, meetings booked. We promise neither a number of meetings nor a reply rate: they depend on your offer, your market and the precision of targeting."
         }
       ]
     },
@@ -1005,12 +611,12 @@
       "contentAlign": "center",
       "actionsAlign": "center",
       "rounded": true,
-      "kicker_fr": "§ Prêt à envoyer proprement ?",
-      "kicker_en": "§ Ready to send cleanly?",
-      "h2_fr": "Faites arriver vos cold emails <i>en boîte</i>.",
-      "h2_en": "Get your cold emails <i>into the inbox</i>.",
-      "subtitle_fr": "Un diagnostic de 45 min, gratuit et sans engagement : on part de votre domaine et de votre délivrabilité réelle, et vous repartez avec un plan de cold email clair, qu'on travaille ensemble ou non. En face, le fondateur qui conçoit et livre, pas un pool de sous-traitants.",
-      "subtitle_en": "A 45-min diagnostic, free and with no commitment: we start from your domain and your real deliverability, and you leave with a clear cold email plan, whether we work together or not. Across the table, the founder who designs and ships, not a pool of subcontractors.",
+      "kicker_fr": "§ Audit IA gratuit",
+      "kicker_en": "§ Free AI audit",
+      "h2_fr": "Vos e-mails froids arrivent-ils jusqu'à la boîte de réception ?",
+      "h2_en": "Do your cold emails reach the inbox?",
+      "subtitle_fr": "En 45 minutes, on regarde votre domaine, votre cible et vos outils, et on vous dit si le cold email vaut le coup chez vous.",
+      "subtitle_en": "In 45 minutes, we look at your domain, your target and your tools, and tell you whether cold email is worth it for you.",
       "buttons": [
         {
           "label_fr": "Réserver un audit IA gratuit →",
@@ -1019,12 +625,25 @@
           "variant": "primary"
         },
         {
-          "label_fr": "Voir la prospection automatisée",
-          "label_en": "See automated prospecting",
+          "label_fr": "Prospection automatisée",
+          "label_en": "Automated prospecting",
           "href": "/services/prospection-automatisee",
           "variant": "ghost"
         }
       ]
+    }
+  ],
+  "sources": [
+    {
+      "name": "CNIL, La prospection commerciale par courrier électronique (mise à jour le 10 juin 2026, lue le 12 octobre 2026)",
+      "url": "https://www.cnil.fr/fr/la-prospection-commerciale-par-courrier-electronique",
+      "type": "state",
+      "publishedAt": "2026-06-10"
+    },
+    {
+      "name": "Google, Règles de Google pour les expéditeurs de messages (exigences pour les expéditeurs en masse, lue le 12 octobre 2026)",
+      "url": "https://support.google.com/a/answer/81126",
+      "type": "enterprise"
     }
   ]
 }

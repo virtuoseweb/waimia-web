@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · lot A4 · une personne pêche à la ligne depuis un ponton, seul le flotteur bleu est à surveiller. Rôles remplacés par render-svg.mjs. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="walk">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-5" y="-46" width="9.5" height="45" fill="{{subject}}" transform="rotate(16 0 -44)"/>
+      <rect x="-4.5" y="-46" width="9.5" height="45" fill="{{subject}}" transform="rotate(-16 0 -44)"/>
+      <rect x="-21" y="-3" width="12" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="10" y="-3" width="12" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{subject}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{subject}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -81 L0 -75 L2.5 -81 Z" fill="{{light}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <path d="M-8 -3 L-1 -3 L-1 0 L-8 0 Z M1 -3 L8 -3 L8 0 L1 0 Z" fill="{{subject}}"/>
+    </g>
+    <g id="sit">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-13" y="-46" width="34" height="10" fill="{{subject}}"/>
+      <rect x="12" y="-46" width="9" height="44" fill="{{subject}}"/>
+      <rect x="12" y="-3" width="14" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="man-s">
+      <circle cx="0" cy="-90" r="7.5" fill="{{shadow}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{shadow}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{shadow}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{shadow}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{shadow}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{shadow}}"/>
+    </g>
+    <g id="walk-s">
+      <circle cx="0" cy="-90" r="7.5" fill="{{shadow}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{shadow}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-5" y="-46" width="9.5" height="45" fill="{{shadow}}" transform="rotate(16 0 -44)"/>
+      <rect x="-4.5" y="-46" width="9.5" height="45" fill="{{shadow}}" transform="rotate(-16 0 -44)"/>
+      <rect x="-21" y="-3" width="12" height="3" rx="1.5" fill="{{shadow}}"/>
+      <rect x="10" y="-3" width="12" height="3" rx="1.5" fill="{{shadow}}"/>
+    </g>
+    <g id="woman-s">
+      <circle cx="0" cy="-90" r="7" fill="{{shadow}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{shadow}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{shadow}}"/>
+      <path d="M-2.5 -81 L0 -75 L2.5 -81 Z" fill="{{light}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{shadow}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{shadow}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{shadow}}"/>
+      <path d="M-8 -3 L-1 -3 L-1 0 L-8 0 Z M1 -3 L8 -3 L8 0 L1 0 Z" fill="{{shadow}}"/>
+    </g>
+    <g id="sit-s">
+      <circle cx="0" cy="-90" r="7.5" fill="{{shadow}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{shadow}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-13" y="-46" width="34" height="10" fill="{{shadow}}"/>
+      <rect x="12" y="-46" width="9" height="44" fill="{{shadow}}"/>
+      <rect x="12" y="-3" width="14" height="3" rx="1.5" fill="{{shadow}}"/>
+    </g>
+    <g id="man-l">
+      <circle cx="0" cy="-90" r="7.5" fill="{{light}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{light}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{shadow}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{light}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{light}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{light}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{light}}"/>
+    </g>
+    <g id="walk-l">
+      <circle cx="0" cy="-90" r="7.5" fill="{{light}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{light}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{shadow}}"/>
+      <rect x="-5" y="-46" width="9.5" height="45" fill="{{light}}" transform="rotate(16 0 -44)"/>
+      <rect x="-4.5" y="-46" width="9.5" height="45" fill="{{light}}" transform="rotate(-16 0 -44)"/>
+      <rect x="-21" y="-3" width="12" height="3" rx="1.5" fill="{{light}}"/>
+      <rect x="10" y="-3" width="12" height="3" rx="1.5" fill="{{light}}"/>
+    </g>
+    <g id="woman-l">
+      <circle cx="0" cy="-90" r="7" fill="{{light}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{light}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{light}}"/>
+      <path d="M-2.5 -81 L0 -75 L2.5 -81 Z" fill="{{shadow}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{light}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{light}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{light}}"/>
+      <path d="M-8 -3 L-1 -3 L-1 0 L-8 0 Z M1 -3 L8 -3 L8 0 L1 0 Z" fill="{{light}}"/>
+    </g>
+    <g id="sit-l">
+      <circle cx="0" cy="-90" r="7.5" fill="{{light}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{light}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{shadow}}"/>
+      <rect x="-13" y="-46" width="34" height="10" fill="{{light}}"/>
+      <rect x="12" y="-46" width="9" height="44" fill="{{light}}"/>
+      <rect x="12" y="-3" width="14" height="3" rx="1.5" fill="{{light}}"/>
+    </g></defs>
+<rect width="1456" height="624" fill="{{field}}"/>
+  <circle cx="900" cy="150" r="120" fill="{{shape}}"/>
+  <path d="M0 310 Q300 240 640 300 T1180 292 T1456 280 L1456 360 L0 360 Z" fill="{{soft}}"/>
+  <rect y="350" width="1456" height="274" fill="{{ground}}"/>
+  <rect x="520" y="400" width="280" height="4" fill="{{light}}" opacity="0.9"/>
+  <rect x="900" y="430" width="360" height="4" fill="{{light}}" opacity="0.9"/>
+  <rect x="120" y="450" width="330" height="4" fill="{{light}}" opacity="0.9"/>
+  <rect x="640" y="500" width="440" height="4" fill="{{light}}" opacity="0.9"/>
+  <rect x="1100" y="380" width="240" height="4" fill="{{light}}" opacity="0.9"/>
+  <rect x="240" y="560" width="380" height="4" fill="{{light}}" opacity="0.9"/>
+  <rect x="980" y="560" width="300" height="4" fill="{{light}}" opacity="0.9"/>
+  <rect x="400" y="346" width="420" height="14" fill="{{subject}}"/>
+  <rect x="440" y="360" width="12" height="96" fill="{{subject}}"/>
+  <rect x="590" y="360" width="12" height="96" fill="{{subject}}"/>
+  <rect x="750" y="360" width="12" height="96" fill="{{subject}}"/>
+  <use href="#sit-s" transform="translate(560 346) scale(1.5)"/>
+  <path d="M586 252 L830 108" stroke="{{subject}}" stroke-width="4" stroke-linecap="round"/>
+  <path d="M830 108 L930 356" stroke="{{subject}}" stroke-width="1.5" fill="none"/>
+  <ellipse cx="930" cy="384" rx="16" ry="28" fill="{{detail}}"/><rect x="927" y="350" width="6" height="18" fill="{{subject}}"/>
+  <ellipse cx="930" cy="400" rx="48" ry="11" fill="none" stroke="{{detail}}" stroke-width="7"/>
+  <ellipse cx="930" cy="400" rx="88" ry="19" fill="none" stroke="{{detail}}" stroke-width="7"/>
+  <ellipse cx="930" cy="400" rx="134" ry="29" fill="none" stroke="{{detail}}" stroke-width="7"/>
+  <g fill="{{subject}}"><rect x="1230" y="250" width="5" height="76"/><rect x="1252" y="232" width="5" height="94"/><rect x="1274" y="258" width="5" height="68"/><rect x="1296" y="240" width="5" height="86"/></g>
+</svg>

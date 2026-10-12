@@ -1,0 +1,615 @@
+{
+  "$schema": "../../../schemas/generated/services.page.schema.json",
+  "title_fr": "Automatisation des réseaux sociaux pour PME · Waimia",
+  "title_en": "Social media automation for SMEs · Waimia",
+  "description_fr": "Automatisation des réseaux sociaux pour PME : calendrier éditorial, déclinaison, planification, modération assistée et suivi, avec relecture avant publication.",
+  "description_en": "Social media automation for SMEs: editorial calendar, content adaptation, scheduling, assisted moderation and reporting, all reviewed before publishing.",
+  "slug": "automatisation-reseaux-sociaux",
+  "publishedAt": "2026-10-12T00:00:00.000Z",
+  "updatedAt": "2026-10-12T00:00:00.000Z",
+  "category": "commercial",
+  "tags": [
+    "automatisation-reseaux-sociaux",
+    "calendrier-editorial",
+    "planification-publications",
+    "declinaison-contenu",
+    "moderation-assistee"
+  ],
+  "seo": {
+    "noindex": false,
+    "serviceType": "Automatisation des réseaux sociaux pour PME",
+    "priceRange": "dès 999 €",
+    "priceMin": 999
+  },
+  "faq_fr": [
+    {
+      "q": "Quels réseaux couvrez-vous ?",
+      "a": "LinkedIn, Instagram et Facebook. Un autre réseau se cadre à part, selon les interfaces qu'il met à disposition et ce qu'il autorise."
+    },
+    {
+      "q": "Les contenus sont-ils écrits par l'IA ?",
+      "a": "L'IA propose des déclinaisons à partir d'un contenu source que vous avez validé : un article, une réalisation, une actualité. Le fond vient de vous, et une personne relit chaque version avant publication. Un contenu qui ne dit rien de précis ne devient pas meilleur en étant décliné."
+    },
+    {
+      "q": "Peut-on automatiser les likes et les commentaires ?",
+      "a": "Non. LinkedIn interdit dans ses conditions d'utilisation les méthodes automatisées qui créent, commentent, aiment ou partagent des publications, ou produisent un engagement artificiel, et un commentaire généré sans lecture dessert votre image. On automatise votre propre publication, pas vos interactions."
+    },
+    {
+      "q": "Comment fonctionne la modération assistée ?",
+      "a": "Les commentaires et messages sont classés : à traiter, à remercier, à signaler. L'IA propose une réponse que vous validez. Une réclamation ou une question délicate est transmise à une personne avec son contexte. Rien n'est envoyé sans validation."
+    },
+    {
+      "q": "Qui garde les accès à mes comptes ?",
+      "a": "Vous. Les connexions se font avec les droits que vous accordez, révocables à tout moment ; vos comptes ne passent pas chez nous. À la fin, la charte, le calendrier et les modèles restent à vous."
+    },
+    {
+      "q": "Quelle différence avec le social selling ?",
+      "a": "Le social selling s'adresse à des prospects précis, à partir de signaux. L'automatisation des réseaux sociaux s'occupe de votre propre contenu publié : calendrier, déclinaison, planification, suivi. Les deux se rejoignent quand un contenu publié nourrit un échange commercial."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Which networks do you cover?",
+      "a": "LinkedIn, Instagram and Facebook. Another network is scoped separately, depending on the interfaces it provides and what it allows."
+    },
+    {
+      "q": "Is the content written by AI?",
+      "a": "AI proposes adaptations from a source piece you have approved: an article, a project, a piece of news. The substance comes from you, and a person reviews each version before publishing. A piece that says nothing specific does not get better by being adapted."
+    },
+    {
+      "q": "Can likes and comments be automated?",
+      "a": "No. LinkedIn's terms prohibit automated methods that create, comment on, like or share posts, or drive artificial engagement, and a comment generated without reading harms your image. We automate your own publishing, not your interactions."
+    },
+    {
+      "q": "How does assisted moderation work?",
+      "a": "Comments and messages are sorted: to handle, to thank, to flag. AI proposes a reply that you approve. A complaint or a sensitive question is passed to a person with its context. Nothing is sent without approval."
+    },
+    {
+      "q": "Who keeps access to my accounts?",
+      "a": "You do. Connections use the permissions you grant, revocable at any time; your accounts do not move to us. At the end, the guidelines, calendar and templates stay yours."
+    },
+    {
+      "q": "How is this different from social selling?",
+      "a": "Social selling addresses specific prospects, from signals. Social media automation handles your own published content: calendar, adaptation, scheduling, tracking. The two meet when a published piece feeds a sales conversation."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "illustration": {
+        "src": "/images/illustrations/ds/automatisation-reseaux-sociaux-tronc-planches-paper.webp",
+        "alt_fr": "Un tronc posé sur un établi est débité en planches de largeurs différentes, une personne contrôle la pile",
+        "alt_en": "A log on a workbench is sawn into planks of different widths, a person checks the stack",
+        "side": "right"
+      },
+      "kicker_fr": "§ Réseaux sociaux de la PME",
+      "kicker_en": "§ The SME's social networks",
+      "h1_fr": "Automatisation des <i class=\"acc\">réseaux sociaux</i> pour PME",
+      "h1_en": "Social media <i class=\"acc\">automation</i> for SMEs",
+      "lede_fr": "Automatiser les réseaux sociaux d'une PME, c'est retirer le travail répétitif autour d'un contenu : le calendrier, la déclinaison d'un même sujet en plusieurs formats (LinkedIn, Instagram, Facebook), la planification, le tri des commentaires, le suivi des résultats. Le fond et la relecture restent à une personne : aucun contenu ne part sans avoir été relu. Waimia le construit avec Claude et vos outils.",
+      "lede_en": "Automating an SME's social networks means removing the repetitive work around a piece of content: the calendar, adapting one topic into several formats (LinkedIn, Instagram, Facebook), scheduling, sorting comments, tracking results. The substance and the review stay with a person: nothing goes out without being reviewed. Waimia builds it with Claude and your tools.",
+      "badges": [
+        {
+          "label_fr": "Calendrier éditorial",
+          "label_en": "Editorial calendar"
+        },
+        {
+          "label_fr": "Déclinaison par réseau",
+          "label_en": "Adaptation per network"
+        },
+        {
+          "label_fr": "Relu avant publication",
+          "label_en": "Reviewed before publishing"
+        },
+        {
+          "label_fr": "Suivi des résultats",
+          "label_en": "Results tracking"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver un audit IA gratuit →",
+        "label_en": "Book a free AI audit →",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Ce qu'on automatise",
+        "label_en": "What we automate",
+        "href": "#ce-quon-automatise",
+        "variant": "ghost"
+      }
+    },
+    {
+      "type": "proof-bar",
+      "background": "paper",
+      "kicker_fr": "§ En bref",
+      "kicker_en": "§ In short",
+      "metrics": [
+        {
+          "value": "Relu avant publication",
+          "label_fr": "rien n'est publié sans la validation d'une personne",
+          "label_en": "nothing is published without a person's approval",
+          "emphasis": true
+        },
+        {
+          "value": "3 réseaux",
+          "label_fr": "LinkedIn, Instagram et Facebook",
+          "label_en": "LinkedIn, Instagram and Facebook",
+          "emphasis": false
+        },
+        {
+          "value": "999 € HT",
+          "label_fr": "sprint de cadrage de 10 heures, puis {{prix.horaire}} € HT de l'heure",
+          "label_en": "10-hour scoping sprint, then €{{prix.horaire}} per hour excl. VAT",
+          "emphasis": false
+        },
+        {
+          "value": "Vos accès",
+          "label_fr": "les comptes restent chez vous, avec des droits révocables",
+          "label_en": "accounts stay with you, with revocable permissions",
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "type": "definition-extract",
+      "background": "paper",
+      "kicker_fr": "§ Définition",
+      "kicker_en": "§ Definition",
+      "statement_fr": "L'<i class=\"acc\">automatisation des réseaux sociaux</i> pour une PME consiste à outiller la chaîne qui va d'un contenu source (un article, une réalisation, une actualité) jusqu'aux publications : déclinaison par réseau, planification, modération et mesure. Elle ne remplace ni la décision de ce qu'on dit, ni la relecture, ni la réponse aux personnes.",
+      "statement_en": "<i class=\"acc\">Social media automation</i> for an SME means tooling the chain that goes from a source piece (an article, a project, a piece of news) to the posts: adaptation per network, scheduling, moderation and measurement. It replaces neither the decision of what to say, nor the review, nor replying to people.",
+      "pills": [
+        {
+          "label_fr": "Calendrier éditorial",
+          "label_en": "Editorial calendar"
+        },
+        {
+          "label_fr": "Déclinaison par réseau",
+          "label_en": "Adaptation per network"
+        },
+        {
+          "label_fr": "Planification",
+          "label_en": "Scheduling"
+        },
+        {
+          "label_fr": "Modération assistée",
+          "label_en": "Assisted moderation"
+        }
+      ],
+      "specs": [
+        {
+          "label_fr": "LinkedIn, Instagram, Facebook",
+          "label_en": "LinkedIn, Instagram, Facebook"
+        },
+        {
+          "label_fr": "Contenu source unique",
+          "label_en": "Single source content"
+        },
+        {
+          "label_fr": "Relecture avant publication",
+          "label_en": "Review before publishing"
+        },
+        {
+          "label_fr": "Charte de ton",
+          "label_en": "Tone guidelines"
+        },
+        {
+          "label_fr": "Suivi des résultats",
+          "label_en": "Results tracking"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "html_fr": "<h2>Ce qu'on automatise, ce qu'on laisse à une personne</h2>\n<p>On automatise la mise en forme et le suivi. À partir d'un contenu source que vous validez (souvent un article ou une réalisation de votre site, voir <a href=\"/services/seo-geo-contenu\">SEO, GEO et contenu</a>), l'IA propose une déclinaison par réseau : un post LinkedIn plus argumenté, une légende Instagram plus courte avec les visuels à produire, une publication Facebook pour votre page. Les versions arrivent dans un calendrier, avec leur date et leur statut.</p>\n<p>Une personne choisit les sujets, relit chaque version et répond aux commentaires qui demandent une vraie réponse. Les publications validées partent aux dates choisies, par les interfaces des réseaux.</p>\n<h2>Ce que nous ne faisons pas</h2>\n<p>Pas de likes, de commentaires ou d'abonnements automatiques, pas de faux comptes, pas d'audience achetée. LinkedIn interdit d'ailleurs, dans ses <a href=\"https://www.linkedin.com/legal/user-agreement\" rel=\"nofollow noopener\" target=\"_blank\">conditions d'utilisation</a>, les méthodes automatisées qui créent, commentent, aiment ou partagent des publications, ou produisent un engagement artificiel. Au-delà de la règle, un commentaire généré sans lecture abîme l'image d'une PME plus qu'il ne la sert.</p>\n<h2>Un contenu, plusieurs formats, un seul sujet</h2>\n<p>L'intérêt d'une déclinaison est de gagner le temps de mise en forme, pas de multiplier les prises de parole creuses. Un contenu qui dit quelque chose de précis peut vivre sur trois réseaux ; un contenu vide n'y gagne rien. C'est aussi ce qui nourrit les autres canaux : un post publié sert de point d'appui à un échange de <a href=\"/services/social-selling-ia\">social selling</a> ou à un message de <a href=\"/services/prospection-linkedin\">prospection LinkedIn</a>. L'ensemble se place dans la <a href=\"/services/prospection-automatisee\">prospection automatisée</a> et dans le <a href=\"/services/systeme-acquisition\">système d'acquisition</a>.</p>",
+      "html_en": "<h2>What we automate, what we leave to a person</h2>\n<p>We automate formatting and tracking. From a source piece you approve (often an article or project from your site, see <a href=\"/services/seo-geo-contenu\">SEO, GEO and content</a>), AI proposes an adaptation per network: a more argued LinkedIn post, a shorter Instagram caption with the visuals to produce, a Facebook post for your page. Versions land in a calendar, with their date and status.</p>\n<p>A person chooses the topics, reviews each version and replies to comments that call for a real answer. Approved posts go out on the chosen dates, through the networks' interfaces.</p>\n<h2>What we do not do</h2>\n<p>No automatic likes, comments or follows, no fake accounts, no bought audience. LinkedIn, for that matter, prohibits in its <a href=\"https://www.linkedin.com/legal/user-agreement\" rel=\"nofollow noopener\" target=\"_blank\">User Agreement</a> automated methods that create, comment on, like or share posts, or drive artificial engagement. Beyond the rule, a comment generated without reading harms an SME's image more than it helps.</p>\n<h2>One piece, several formats, one topic</h2>\n<p>The point of adaptation is to save formatting time, not to multiply empty statements. A piece that says something specific can live on three networks; an empty one gains nothing. It also feeds the other channels: a published post supports a <a href=\"/services/social-selling-ia\">social selling</a> exchange or a <a href=\"/services/prospection-linkedin\">LinkedIn prospecting</a> message. All of it sits within <a href=\"/services/prospection-automatisee\">automated prospecting</a> and the <a href=\"/services/systeme-acquisition\">acquisition system</a>.</p>"
+    },
+    {
+      "type": "feature-grid",
+      "background": "paper-2",
+      "columns": "3",
+      "kicker_fr": "§ Ce qu'on automatise",
+      "kicker_en": "§ What we automate",
+      "h2_fr": "Six briques, de l'idée à la mesure",
+      "h2_en": "Six building blocks, from idea to measurement",
+      "lede_fr": "On active les briques qui servent votre rythme de publication. Aucune ne publie sans validation.",
+      "lede_en": "We switch on the blocks that serve your publishing rhythm. None publishes without approval.",
+      "features": [
+        {
+          "icon": "contenu",
+          "title_fr": "Calendrier éditorial",
+          "title_en": "Editorial calendar",
+          "body_fr": "Un calendrier partagé : sujets, dates, réseau, statut. Les trous se voient avant la semaine concernée.",
+          "body_en": "A shared calendar: topics, dates, network, status. Gaps show before the week concerned."
+        },
+        {
+          "icon": "design",
+          "title_fr": "Déclinaison d'un contenu",
+          "title_en": "Content adaptation",
+          "body_fr": "Un article ou une réalisation devient un post LinkedIn, une légende Instagram, une publication Facebook, chacun dans le ton du réseau.",
+          "body_en": "An article or project becomes a LinkedIn post, an Instagram caption, a Facebook post, each in the network's tone."
+        },
+        {
+          "icon": "pilotage",
+          "title_fr": "Planification",
+          "title_en": "Scheduling",
+          "body_fr": "Les publications validées partent aux dates choisies, par les interfaces des réseaux.",
+          "body_en": "Approved posts go out on the chosen dates, through the networks' interfaces."
+        },
+        {
+          "icon": "qualif",
+          "title_fr": "Modération assistée",
+          "title_en": "Assisted moderation",
+          "body_fr": "Commentaires et messages triés : à traiter, à remercier, à signaler. La réponse reste humaine.",
+          "body_en": "Comments and messages sorted: to handle, to thank, to flag. The reply stays human."
+        },
+        {
+          "icon": "tracking",
+          "title_fr": "Suivi des résultats",
+          "title_en": "Results tracking",
+          "body_fr": "Un tableau de ce qui a été publié et de ce que cela a produit, relié à vos objectifs.",
+          "body_en": "A table of what was published and what it produced, tied to your goals."
+        },
+        {
+          "icon": "ia",
+          "title_fr": "Charte et relecture",
+          "title_en": "Guidelines and review",
+          "body_fr": "Une charte de ton et de sujets, à laquelle l'IA se tient, puis une relecture humaine de chaque version.",
+          "body_en": "A tone-and-topic charter that AI sticks to, then a human review of each version."
+        }
+      ],
+      "anchor": "ce-quon-automatise"
+    },
+    {
+      "type": "method-stepline",
+      "background": "paper-3",
+      "kicker_fr": "§ La chaîne",
+      "kicker_en": "§ The chain",
+      "h2_fr": "Du contenu source aux publications, en cinq étapes",
+      "h2_en": "From source content to posts, in five steps",
+      "lede_fr": "Deux étapes sont humaines : valider la source et relire chaque version.",
+      "lede_en": "Two steps are human: approving the source and reviewing each version.",
+      "steps": [
+        {
+          "title_fr": "Source",
+          "title_en": "Source",
+          "sub_fr": "Un contenu que vous avez validé : article, réalisation, actualité",
+          "sub_en": "A piece you have approved: article, project, news"
+        },
+        {
+          "title_fr": "Décliner",
+          "title_en": "Adapt",
+          "sub_fr": "Une version par réseau, dans son format et son ton",
+          "sub_en": "One version per network, in its format and tone"
+        },
+        {
+          "title_fr": "Relire",
+          "title_en": "Review",
+          "sub_fr": "Une personne corrige et valide chaque version",
+          "sub_en": "A person edits and approves each version"
+        },
+        {
+          "title_fr": "Planifier",
+          "title_en": "Schedule",
+          "sub_fr": "Dates et réseaux choisis, publication par les interfaces officielles",
+          "sub_en": "Chosen dates and networks, publishing through official interfaces"
+        },
+        {
+          "title_fr": "Mesurer",
+          "title_en": "Measure",
+          "sub_fr": "Ce qui a été publié, ce que cela a produit, ce qu'on ajuste",
+          "sub_en": "What was published, what it produced, what we adjust"
+        }
+      ]
+    },
+    {
+      "type": "deliverables-grid",
+      "background": "paper",
+      "kicker_fr": "§ Ce que vous gardez",
+      "kicker_en": "§ What you keep",
+      "title_fr": "Ce qui vous reste si vous arrêtez",
+      "title_en": "What remains if you stop",
+      "lead_fr": "La méthode est écrite et utilisable sans nous : charte, calendrier, modèles et suivi.",
+      "lead_en": "The method is written and usable without us: guidelines, calendar, templates and tracking.",
+      "items": [
+        {
+          "title_fr": "La charte éditoriale",
+          "title_en": "The editorial guidelines",
+          "body_fr": "Sujets, ton, formats par réseau et ce qu'on ne publie pas.",
+          "body_en": "Topics, tone, formats per network and what we do not publish.",
+          "format_fr": "CHARTE",
+          "format_en": "CHARTE"
+        },
+        {
+          "title_fr": "Le calendrier",
+          "title_en": "The calendar",
+          "body_fr": "Un calendrier partagé et le circuit qui le remplit, de la source à la planification.",
+          "body_en": "A shared calendar and the circuit that fills it, from source to scheduling.",
+          "format_fr": "CALENDRIER",
+          "format_en": "CALENDRIER"
+        },
+        {
+          "title_fr": "Les modèles de déclinaison",
+          "title_en": "Adaptation templates",
+          "body_fr": "Les consignes et gabarits par réseau, utilisables sans nous.",
+          "body_en": "The instructions and templates per network, usable without us.",
+          "format_fr": "MODÈLES",
+          "format_en": "MODÈLES"
+        },
+        {
+          "title_fr": "Le tableau de suivi",
+          "title_en": "The tracking table",
+          "body_fr": "Publications, commentaires traités et résultats, au même endroit.",
+          "body_en": "Posts, comments handled and results, in one place.",
+          "format_fr": "SUIVI",
+          "format_en": "SUIVI"
+        }
+      ]
+    },
+    {
+      "type": "decision-list",
+      "background": "paper-2",
+      "kicker_fr": "§ Garde-fous et limites",
+      "kicker_en": "§ Guardrails and limits",
+      "heading_fr": "Ce qu'on refuse, et quand ne pas le faire",
+      "heading_en": "What we refuse, and when not to do it",
+      "items": [
+        {
+          "label_fr": "Des likes, des commentaires ou des abonnements automatiques : exclus, ils sont contraires aux conditions des réseaux.",
+          "label_en": "Automatic likes, comments or follows: excluded, they go against the networks' terms."
+        },
+        {
+          "label_fr": "Une publication sans relecture : exclue, chaque version est validée par une personne.",
+          "label_en": "A post with no review: excluded, each version is approved by a person."
+        },
+        {
+          "label_fr": "Vous n'avez rien de précis à dire : l'automatisation multiplie un contenu, elle ne l'invente pas.",
+          "label_en": "You have nothing specific to say: automation multiplies a piece, it does not invent it."
+        },
+        {
+          "label_fr": "Personne ne peut répondre aux commentaires : mieux vaut publier moins.",
+          "label_en": "Nobody can reply to comments: better to publish less."
+        }
+      ]
+    },
+    {
+      "type": "case-card-grid",
+      "background": "ink",
+      "fig_num": "Fig. 05",
+      "fig_title_fr": "Réalisations voisines",
+      "fig_title_en": "Related work",
+      "spec_fr": "Réalisations · données reprises des fiches publiées",
+      "spec_en": "Work · data taken from the published pages",
+      "h2_fr": "Deux chantiers où du contenu est produit et publié avec l'IA",
+      "h2_en": "Two projects where content is produced and published with AI",
+      "case_label_fr": "CAS",
+      "case_label_en": "CASE",
+      "sector_label_fr": "Secteur · État",
+      "sector_label_en": "Sector · Status",
+      "impact_label_fr": "Ce que dit la fiche",
+      "impact_label_en": "What the page says",
+      "cases": [
+        {
+          "ref": "cases/isabelle-diaz-naturopathe"
+        },
+        {
+          "ref": "cases/les-carnets-de-montpellier"
+        }
+      ],
+      "all_label_fr": "Voir toutes les réalisations →",
+      "all_label_en": "See all work →",
+      "all_href": "/cas-clients"
+    },
+    {
+      "type": "hover-reveal-list",
+      "anchor": "declinaisons",
+      "background": "paper-3",
+      "reveal_mode": "cursor",
+      "kicker_fr": "§ Le reste de la prospection",
+      "kicker_en": "§ The rest of prospecting",
+      "h2_fr": "Vos publications nourrissent les autres <i>canaux</i>",
+      "h2_en": "Your posts feed the other <i>channels</i>",
+      "lede_fr": "Un contenu publié sert de point d'appui à une conversation commerciale. Survolez une ligne pour ouvrir la page du canal.",
+      "lede_en": "A published piece supports a sales conversation. Hover a line to open the channel's page.",
+      "items": [
+        {
+          "label_fr": "Social selling assisté par IA",
+          "label_en": "AI-assisted social selling",
+          "meta_fr": "Les signaux et le premier message, avant d'écrire",
+          "meta_en": "Signals and the first message, before writing",
+          "media_src": "/images/illustrations/ds/social-selling-ia-flotteur-paper.webp",
+          "media_alt_fr": "Une personne pêche à la ligne depuis un ponton, seul le flotteur bleu est à surveiller",
+          "media_alt_en": "A person fishes from a jetty, only the blue float needs watching",
+          "link_href": "/services/social-selling-ia"
+        },
+        {
+          "label_fr": "Prospection LinkedIn",
+          "label_en": "LinkedIn prospecting",
+          "meta_fr": "La préparation, la file d'envoi et le suivi",
+          "meta_en": "Preparation, sending queue and follow-up",
+          "media_src": "/images/illustrations/ds/prospection-linkedin-epreuves-paper.webp",
+          "media_alt_fr": "Des épreuves d'imprimerie pendent à une corde, une personne en relit une au crayon",
+          "media_alt_en": "Printer's proofs hang from a cord, a person checks one with a pencil",
+          "link_href": "/services/prospection-linkedin"
+        },
+        {
+          "label_fr": "Cold email B2B",
+          "label_en": "B2B cold email",
+          "meta_fr": "Le canal e-mail, depuis des domaines dédiés",
+          "meta_en": "The email channel, from dedicated domains",
+          "media_src": "/images/illustrations/ds/cold-email-b2b-ecluse-paper.webp",
+          "media_alt_fr": "Une écluse en escalier : le niveau monte par paliers, une péniche chargée d'enveloppes attend",
+          "media_alt_en": "A staircase canal lock: the water rises in stages, a barge loaded with envelopes waits",
+          "link_href": "/services/cold-email-b2b"
+        },
+        {
+          "label_fr": "Prospection automatisée",
+          "label_en": "Automated prospecting",
+          "meta_fr": "Le dispositif complet, en abonnement",
+          "meta_en": "The full setup, as a subscription",
+          "media_src": "/images/illustrations/ds/prospection-automatisee-v3-semeur-paper.webp",
+          "media_alt_fr": "Une personne pousse un semoir le long de sillons réguliers, des pousses lèvent derrière elle",
+          "media_alt_en": "A person pushes a seeder along even furrows, sprouts coming up behind",
+          "link_href": "/services/prospection-automatisee"
+        }
+      ]
+    },
+    {
+      "type": "pricing-cards",
+      "background": "paper",
+      "layout": "grid-asym",
+      "colRatio": "2-3",
+      "kicker_fr": "§ Deux façons d'engager",
+      "kicker_en": "§ Two ways to engage",
+      "h2_fr": "Prix de l'automatisation des réseaux sociaux",
+      "h2_en": "Price of social media automation",
+      "lede_fr": "On démarre par un sprint de cadrage à prix fixe : charte éditoriale, calendrier, circuit de relecture et premières déclinaisons planifiées. La suite se cale sur devis. Vous gardez la charte, le calendrier, les modèles et vos accès.",
+      "lede_en": "We start with a fixed-price scoping sprint: editorial guidelines, calendar, review circuit and first adaptations scheduled. What follows is quoted. You keep the guidelines, calendar, templates and your access.",
+      "tiers": [
+        {
+          "name_fr": "Sprint de cadrage",
+          "name_en": "Scoping sprint",
+          "price": "999 €",
+          "period_fr": "10 h · HT",
+          "period_en": "10 h · ex VAT",
+          "features_fr": [
+            "Charte éditoriale et formats par réseau",
+            "Calendrier et circuit de relecture en place",
+            "Premières déclinaisons planifiées sur un réseau",
+            "Tableau de suivi branché"
+          ],
+          "features_en": [
+            "Editorial guidelines and formats per network",
+            "Calendar and review circuit in place",
+            "First adaptations scheduled on one network",
+            "Tracking table connected"
+          ],
+          "cta": {
+            "label_fr": "Réserver un audit IA gratuit →",
+            "label_en": "Book a free AI audit →",
+            "href": "/contact?offer=audit-ia-pme&intent=audit",
+            "variant": "primary"
+          },
+          "featured": true
+        },
+        {
+          "name_fr": "Suite sur devis",
+          "name_en": "Next steps on quote",
+          "price": "Sur devis",
+          "period_fr": "estimé avec vous · HT",
+          "period_en": "estimated with you · ex VAT",
+          "features_fr": [
+            "Temps estimé ensemble, puis validé",
+            "Exécuté en sprints, facturés en régie",
+            "Réseaux et formats ajoutés sur preuve",
+            "Vous gardez la charte, les modèles et les accès"
+          ],
+          "features_en": [
+            "Time estimated together, then validated",
+            "Run in sprints, time and materials",
+            "Networks and formats added on proof",
+            "You keep the guidelines, templates and access"
+          ],
+          "cta": {
+            "label_fr": "Cadrer la suite →",
+            "label_en": "Scope what follows →",
+            "href": "/contact?offer=automatisation-reseaux-sociaux&intent=suite",
+            "variant": "ghost"
+          }
+        }
+      ],
+      "footnote_fr": "999 € HT pour 10 heures de cadrage, à prix fixe. Chaque réseau ou format ajouté ensuite est estimé avec vous, validé, puis facturé en régie à {{prix.horaire}} € HT de l'heure. La charte, le calendrier, les modèles et les accès sont à vous.",
+      "footnote_en": "€999 excl. VAT for 10 hours of scoping, fixed price. Each network or format added afterwards is estimated with you, validated, then billed on a time-and-materials basis at €{{prix.horaire}} excl. VAT per hour. The guidelines, calendar, templates and access are yours."
+    },
+    {
+      "type": "eeat-panel",
+      "variant": "media",
+      "silo": "commercial"
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper-2",
+      "kicker_fr": "§ Questions fréquentes",
+      "kicker_en": "§ Frequently asked questions",
+      "h2_fr": "Ce que vous nous demandez",
+      "h2_en": "What you ask us",
+      "items": [
+        {
+          "q_fr": "Quels réseaux couvrez-vous ?",
+          "q_en": "Which networks do you cover?",
+          "a_fr": "LinkedIn, Instagram et Facebook. Un autre réseau se cadre à part, selon les interfaces qu'il met à disposition et ce qu'il autorise.",
+          "a_en": "LinkedIn, Instagram and Facebook. Another network is scoped separately, depending on the interfaces it provides and what it allows."
+        },
+        {
+          "q_fr": "Les contenus sont-ils écrits par l'IA ?",
+          "q_en": "Is the content written by AI?",
+          "a_fr": "L'IA propose des déclinaisons à partir d'un contenu source que vous avez validé : un article, une réalisation, une actualité. Le fond vient de vous, et une personne relit chaque version avant publication. Un contenu qui ne dit rien de précis ne devient pas meilleur en étant décliné.",
+          "a_en": "AI proposes adaptations from a source piece you have approved: an article, a project, a piece of news. The substance comes from you, and a person reviews each version before publishing. A piece that says nothing specific does not get better by being adapted."
+        },
+        {
+          "q_fr": "Peut-on automatiser les likes et les commentaires ?",
+          "q_en": "Can likes and comments be automated?",
+          "a_fr": "Non. LinkedIn interdit dans ses conditions d'utilisation les méthodes automatisées qui créent, commentent, aiment ou partagent des publications, ou produisent un engagement artificiel, et un commentaire généré sans lecture dessert votre image. On automatise votre propre publication, pas vos interactions.",
+          "a_en": "No. LinkedIn's terms prohibit automated methods that create, comment on, like or share posts, or drive artificial engagement, and a comment generated without reading harms your image. We automate your own publishing, not your interactions."
+        },
+        {
+          "q_fr": "Comment fonctionne la modération assistée ?",
+          "q_en": "How does assisted moderation work?",
+          "a_fr": "Les commentaires et messages sont classés : à traiter, à remercier, à signaler. L'IA propose une réponse que vous validez. Une réclamation ou une question délicate est transmise à une personne avec son contexte. Rien n'est envoyé sans validation.",
+          "a_en": "Comments and messages are sorted: to handle, to thank, to flag. AI proposes a reply that you approve. A complaint or a sensitive question is passed to a person with its context. Nothing is sent without approval."
+        },
+        {
+          "q_fr": "Qui garde les accès à mes comptes ?",
+          "q_en": "Who keeps access to my accounts?",
+          "a_fr": "Vous. Les connexions se font avec les droits que vous accordez, révocables à tout moment ; vos comptes ne passent pas chez nous. À la fin, la charte, le calendrier et les modèles restent à vous.",
+          "a_en": "You do. Connections use the permissions you grant, revocable at any time; your accounts do not move to us. At the end, the guidelines, calendar and templates stay yours."
+        },
+        {
+          "q_fr": "Quelle différence avec le social selling ?",
+          "q_en": "How is this different from social selling?",
+          "a_fr": "Le social selling s'adresse à des prospects précis, à partir de signaux. L'automatisation des réseaux sociaux s'occupe de votre propre contenu publié : calendrier, déclinaison, planification, suivi. Les deux se rejoignent quand un contenu publié nourrit un échange commercial.",
+          "a_en": "Social selling addresses specific prospects, from signals. Social media automation handles your own published content: calendar, adaptation, scheduling, tracking. The two meet when a published piece feeds a sales conversation."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "layout": "stacked",
+      "contentAlign": "center",
+      "actionsAlign": "center",
+      "rounded": true,
+      "kicker_fr": "§ Audit IA gratuit",
+      "kicker_en": "§ Free AI audit",
+      "h2_fr": "Combien de temps passez-vous à republier le même contenu ?",
+      "h2_en": "How much time do you spend republishing the same content?",
+      "subtitle_fr": "En 45 minutes, on regarde vos réseaux, vos contenus sources et le temps qu'ils vous prennent, et on vous dit ce qui vaut d'être automatisé.",
+      "subtitle_en": "In 45 minutes, we look at your networks, your source content and the time they take, and tell you what is worth automating.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un audit IA gratuit →",
+          "label_en": "Book a free AI audit →",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Social selling assisté par IA",
+          "label_en": "AI-assisted social selling",
+          "href": "/services/social-selling-ia",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "name": "LinkedIn, Contrat d'utilisation (User Agreement), section 8.2 « Don'ts » (en vigueur le 3 novembre 2025, lu le 12 octobre 2026)",
+      "url": "https://www.linkedin.com/legal/user-agreement",
+      "type": "enterprise",
+      "publishedAt": "2025-11-03"
+    }
+  ]
+}
