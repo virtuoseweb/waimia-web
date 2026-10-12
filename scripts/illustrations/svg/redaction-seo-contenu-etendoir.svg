@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · moteur B · « rédaction et calendrier éditorial » : un étendoir tendu entre deux
+       poteaux, des feuilles pincées à intervalles réguliers, une personne qui en accroche une
+       de plus. La cadence plutôt que l'avalanche. Rôles remplacés par render-svg.mjs. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-7.5 -93 Q0 -101 7.5 -93 L7 -90 Q0 -95 -7 -90 Z" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <!-- Feuille pendue : pince au sommet, trois lignes de texte -->
+    <g id="hung">
+      <rect x="-26" y="0" width="52" height="74" fill="{{light}}"/>
+      <rect x="-26" y="0" width="52" height="74" fill="none" stroke="{{subject}}" stroke-width="1.6"/>
+      <rect x="-18" y="14" width="36" height="3" fill="{{subject}}" opacity="0.5"/>
+      <rect x="-18" y="26" width="30" height="3" fill="{{subject}}" opacity="0.5"/>
+      <rect x="-18" y="38" width="36" height="3" fill="{{subject}}" opacity="0.5"/>
+      <rect x="-18" y="50" width="22" height="3" fill="{{subject}}" opacity="0.5"/>
+      <rect x="-5" y="-8" width="10" height="16" rx="2" fill="{{subject}}"/>
+    </g>
+    <clipPath id="above"><rect width="1456" height="520"/></clipPath>
+  </defs>
+
+  <!-- Ciel en bandes (dégradé de l'aube), soleil bas au centre -->
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <circle cx="728" cy="500" r="230" fill="{{shape}}" clip-path="url(#above)"/>
+
+  <!-- Sol -->
+  <rect y="520" width="1456" height="104" fill="{{ground}}"/>
+
+  <!-- Poteaux -->
+  <rect x="164" y="150" width="16" height="372" fill="{{subject}}"/>
+  <rect x="1276" y="150" width="16" height="372" fill="{{subject}}"/>
+  <!-- Corde : courbe tendue entre les deux poteaux -->
+  <path d="M172 168 Q728 238 1284 168" fill="none" stroke="{{subject}}" stroke-width="3.5"/>
+
+  <!-- Sept feuilles pincées le long de la corde, légèrement inclinées par le vent -->
+  <use href="#hung" transform="translate(300 185) rotate(4)"/>
+  <use href="#hung" transform="translate(430 198) rotate(-3)"/>
+  <use href="#hung" transform="translate(560 208) rotate(5)"/>
+  <use href="#hung" transform="translate(690 212) rotate(-2)"/>
+  <use href="#hung" transform="translate(820 210) rotate(6)"/>
+  <use href="#hung" transform="translate(950 203) rotate(-4)"/>
+  <use href="#hung" transform="translate(1080 192) rotate(3)"/>
+
+  <!-- Panier de feuilles à côté du poteau gauche -->
+  <path d="M236 470 L330 470 L318 524 L248 524 Z" fill="{{subject}}"/>
+  <g transform="translate(260 456) rotate(-8)"><rect x="-18" y="-40" width="36" height="52" fill="{{light}}"/>
+    <rect x="-12" y="-28" width="24" height="3" fill="{{subject}}" opacity="0.5"/>
+    <rect x="-12" y="-18" width="18" height="3" fill="{{subject}}" opacity="0.5"/></g>
+  <g transform="translate(296 460) rotate(9)"><rect x="-18" y="-36" width="36" height="48" fill="{{light}}"/>
+    <rect x="-12" y="-24" width="24" height="3" fill="{{subject}}" opacity="0.5"/></g>
+
+  <!-- Personne qui accroche la huitième feuille, bras levé -->
+  <use href="#man" transform="translate(1180 560) scale(1.05)"/>
+  <rect x="1186" y="430" width="10" height="60" fill="{{subject}}" transform="rotate(14 1190 490)"/>
+  <rect x="1196" y="372" width="40" height="56" fill="{{light}}" transform="rotate(8 1216 400)"/>
+  <rect x="1202" y="384" width="26" height="3" fill="{{subject}}" opacity="0.5" transform="rotate(8 1216 400)"/>
+  <rect x="1202" y="396" width="20" height="3" fill="{{subject}}" opacity="0.5" transform="rotate(8 1216 400)"/>
+</svg>

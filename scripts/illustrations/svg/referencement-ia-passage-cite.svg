@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · moteur B · « être cité par une IA » : de grandes piles de pages ; une seule
+       feuille s'en détache et monte vers un grand disque où elle s'encadre comme un passage
+       cité. Une page ne se cite pas, un passage si. Rôles remplacés par render-svg.mjs. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-7.5 -93 Q0 -101 7.5 -93 L7 -90 Q0 -95 -7 -90 Z" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="sheet">
+      <rect x="-30" y="-21" width="60" height="42" fill="{{light}}"/>
+      <rect x="-30" y="-21" width="60" height="42" fill="none" stroke="{{subject}}" stroke-width="1.6"/>
+      <rect x="-22" y="-12" width="34" height="3" fill="{{subject}}" opacity="0.55"/>
+      <rect x="-22" y="-4" width="44" height="3" fill="{{subject}}" opacity="0.55"/>
+      <rect x="-22" y="4" width="26" height="3" fill="{{subject}}" opacity="0.55"/>
+    </g>
+    <clipPath id="sky"><rect width="1456" height="500"/></clipPath>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <!-- Le grand disque : la réponse générée -->
+  <circle cx="1040" cy="236" r="206" fill="{{shape}}" clip-path="url(#sky)"/>
+  <!-- Encadré clair dans le disque : le passage cité -->
+  <rect x="930" y="170" width="220" height="132" fill="{{light}}"/>
+  <rect x="954" y="196" width="130" height="10" fill="{{subject}}" opacity="0.8"/>
+  <rect x="954" y="220" width="172" height="8" fill="{{subject}}" opacity="0.45"/>
+  <rect x="954" y="238" width="150" height="8" fill="{{subject}}" opacity="0.45"/>
+  <rect x="954" y="256" width="96" height="8" fill="{{subject}}" opacity="0.45"/>
+
+  <!-- Sol -->
+  <rect y="500" width="1456" height="124" fill="{{ground}}"/>
+  <rect y="500" width="1456" height="3" fill="{{mid}}" opacity="0.5"/>
+
+  <!-- Trois piles de pages de hauteurs inégales -->
+  <g>
+    <rect x="120" y="330" width="150" height="170" fill="{{light}}"/>
+    <rect x="120" y="330" width="150" height="170" fill="none" stroke="{{subject}}" stroke-width="1.6"/>
+    <rect x="320" y="270" width="160" height="230" fill="{{light}}"/>
+    <rect x="320" y="270" width="160" height="230" fill="none" stroke="{{subject}}" stroke-width="1.6"/>
+    <rect x="530" y="390" width="140" height="110" fill="{{light}}"/>
+    <rect x="530" y="390" width="140" height="110" fill="none" stroke="{{subject}}" stroke-width="1.6"/>
+  </g>
+  <!-- Tranches lignées des piles -->
+  <g fill="{{subject}}" opacity="0.4">
+    <rect x="120" y="348" width="150" height="2"/><rect x="120" y="368" width="150" height="2"/>
+    <rect x="120" y="388" width="150" height="2"/><rect x="120" y="408" width="150" height="2"/>
+    <rect x="120" y="428" width="150" height="2"/><rect x="120" y="448" width="150" height="2"/>
+    <rect x="120" y="468" width="150" height="2"/>
+    <rect x="320" y="288" width="160" height="2"/><rect x="320" y="308" width="160" height="2"/>
+    <rect x="320" y="328" width="160" height="2"/><rect x="320" y="348" width="160" height="2"/>
+    <rect x="320" y="368" width="160" height="2"/><rect x="320" y="388" width="160" height="2"/>
+    <rect x="320" y="408" width="160" height="2"/><rect x="320" y="428" width="160" height="2"/>
+    <rect x="320" y="448" width="160" height="2"/><rect x="320" y="468" width="160" height="2"/>
+    <rect x="530" y="408" width="140" height="2"/><rect x="530" y="428" width="140" height="2"/>
+    <rect x="530" y="448" width="140" height="2"/><rect x="530" y="468" width="140" height="2"/>
+  </g>
+
+  <!-- Trajectoire pointillée de la feuille qui s'élève -->
+  <g fill="{{detail}}">
+    <circle cx="470" cy="236" r="4"/><circle cx="530" cy="206" r="4.5"/><circle cx="596" cy="182" r="5"/>
+    <circle cx="664" cy="168" r="5.5"/><circle cx="736" cy="162" r="6"/><circle cx="808" cy="164" r="6.5"/>
+    <circle cx="872" cy="172" r="7"/>
+  </g>
+  <!-- La feuille élue, détachée de la plus haute pile -->
+  <use href="#sheet" transform="translate(412 230) rotate(-16) scale(1.35)"/>
+  <!-- Feuilles qui restent -->
+  <use href="#sheet" transform="translate(600 360) rotate(10) scale(0.8)"/>
+  <use href="#sheet" transform="translate(760 470) rotate(-6) scale(0.9)"/>
+
+  <!-- Personnage au pied des piles, tête levée -->
+  <use href="#man" transform="translate(330 570) scale(0.95)"/>
+  <use href="#man" transform="translate(1260 560) scale(0.55)"/>
+</svg>
