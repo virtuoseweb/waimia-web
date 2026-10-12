@@ -7,11 +7,9 @@
  * (degrés), pas une couleur du Design System : il vit donc dans cette map et non
  * dans les tokens. 0 token DS créé.
  *
- * Résolution par article :
- *  - si `heroImage` explicite en frontmatter → on l'utilise tel quel (override illustration),
- *    MAIS la teinte `hue` reste dérivée de la `category`.
- *  - sinon illustration = celle de la map pour sa `category`.
- *  - `category` absente/inconnue (ou type essai/notes/avis sans category mappée) → fallback.
+ * Cette map n'est QUE le visuel de repli par catégorie : la résolution d'une carte
+ * (image du hero de la page détail d'abord, puis cette map si son dessin est libre sur la page,
+ * puis un choix par tags, sans doublon de dessin) vit dans src/lib/card-visual.ts.
  */
 
 import type { Silo } from '../data/taxonomies';
@@ -44,26 +42,3 @@ export const BLOG_TAXO_VISUALS: Record<Silo, BlogTaxoVisual> = {
   formation: { image: illustrationPath('woman-and-people'), hue: 190 },
   studio: { image: illustrationPath('style-12'), hue: 280 },
 };
-
-/** Fallback : catégorie absente/inconnue, ou type sans category mappée. */
-export const BLOG_TAXO_FALLBACK: BlogTaxoVisual = {
-  image: illustrationPath('style-12'),
-  hue: 280,
-};
-
-/** Forme minimale lue sur une entrée blog. */
-export interface BlogVisualInput {
-  category?: string | null;
-  heroImage?: string | null;
-}
-
-/**
- * Résout l'illustration + la teinte d'un article blog.
- * Robuste : category absente → fallback. heroImage explicite → override de l'image,
- * teinte toujours dérivée de la category (fallback si absente).
- */
-export function resolveBlogVisual(entryData: BlogVisualInput): BlogTaxoVisual {
-  const base = (entryData.category && BLOG_TAXO_VISUALS[entryData.category as Silo]) || BLOG_TAXO_FALLBACK;
-  const image = entryData.heroImage ? entryData.heroImage : base.image;
-  return { image, hue: base.hue };
-}

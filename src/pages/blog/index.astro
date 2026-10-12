@@ -9,7 +9,7 @@ import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
 import type { SectionByType, SectionData } from '@waimia/ds-kernel';
 import { langFromPath } from '../../lib/i18n';
 import { blogEntryHref, fieldNoteTagLabel } from '../../lib/blog-routing';
-import { resolveBlogVisual } from '../../lib/blog-taxo-visuals';
+import { getResourceItems } from '../../lib/resources-hub';
 import { buildCollectionPage } from '../../lib/seo/schema-builder';
 import { meshForBlogHub } from '../../lib/internal-mesh';
 import { SITE } from '../../site.config';
@@ -29,6 +29,12 @@ const collectionLd = buildCollectionPage(
   'Blog IA et automatisation PME · Notes & essais · Waimia',
   'Blog IA et automatisation pour PME : notes de terrain, comparatifs et méthodes par Simon Beros. Agents IA, n8n, Claude, CRM, pilotage.',
   blogItems,
+);
+
+// Image de carte : résolue une seule fois pour tout le hub (src/lib/card-visual.ts), donc
+// identique à /ressources et sans doublon de dessin sur cette page.
+const hubVisuals = new Map(
+  (await getResourceItems()).filter((i) => i.kind === 'articles').map((i) => [i.href, i]),
 );
 
 const formatDate = (d: Date) => {
@@ -56,12 +62,13 @@ const authorLabel = (author: unknown): string | undefined => {
 // Mapping entrée blog → item article-grid (illustration teintée par taxonomie).
 const articles = sortedBlog.map((entry) => {
   const d = entry.data;
-  const visual = resolveBlogVisual({ category: d.category, heroImage: d.heroImage });
+  const href = blogEntryHref(entry);
+  const visual = hubVisuals.get(href);
   const tag = tagLabel(d);
   const readTime = d.readingTime ? `${d.readingTime} min` : undefined;
   return {
-    image: visual.image,
-    tint: visual.hue,
+    image: visual?.image,
+    tint: visual?.tint,
     tag_fr: tag,
     tag_en: tag,
     title_fr: d.title_fr,
@@ -72,7 +79,7 @@ const articles = sortedBlog.map((entry) => {
     read_time_fr: readTime,
     read_time_en: readTime,
     author: authorLabel(d.author),
-    href: blogEntryHref(entry),
+    href,
     silo: d.category,
   };
 });

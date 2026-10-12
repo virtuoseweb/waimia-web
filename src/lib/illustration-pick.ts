@@ -65,10 +65,29 @@ const hash = (s: string): number => {
   return h >>> 0;
 };
 
-export function pickIllustration(
+/** Toute la bibliothèque (y compris les dessins propres à une page, `fallback: false`). */
+export const illustrationLibrary = (): readonly Illustration[] => ALL;
+
+/** Pool automatique (illustrations `fallback: true`), dans l'ordre de la bibliothèque. */
+export const illustrationPool = (): readonly Illustration[] => POOL;
+
+/** Score de tags d'une illustration pour un texte (nombre de tags qui matchent). */
+export const scoreIllustration = (ill: Illustration, text: string): number =>
+  score(ill, normalise(text).split(' ').filter(Boolean));
+
+export type ScoredPick = {
+  ill: Illustration;
+  /** Nombre de tags de l'illustration qui matchent le texte (0 = choix par hash, sans lien). */
+  score: number;
+  /** Vrai si le pool entier est exclu : l'illustration rendue est alors un doublon forcé. */
+  exhausted: boolean;
+};
+
+/** Même choix que `pickIllustration`, avec le score de tags et l'état du pool exposés. */
+export function pickIllustrationScored(
   text: string,
   opts: { exclude?: Set<string>; seed?: number } = {},
-): Illustration {
+): ScoredPick {
   const exclude = opts.exclude ?? new Set<string>();
   const seed = opts.seed ?? 0;
   const available = POOL.filter((ill) => !exclude.has(drawingKey(ill)));
@@ -87,8 +106,33 @@ export function pickIllustration(
     }
   }
   // Égalité (dont score 0) → choix déterministe par hash du texte + seed.
-  return top[hash(`${text}#${seed}`) % top.length];
+  return {
+    ill: top[hash(`${text}#${seed}`) % top.length],
+    score: best,
+    exhausted: available.length === 0,
+  };
 }
+
+export function pickIllustration(
+  text: string,
+  opts: { exclude?: Set<string>; seed?: number } = {},
+): Illustration {
+  return pickIllustrationScored(text, opts).ill;
+}
+
+const BY_SRC = new Map<string, Illustration>();
+for (const ill of ALL) {
+  BY_SRC.set(ill.paper, ill);
+  BY_SRC.set(ill.ink, ill);
+}
+
+/** Clé de dessin d'un fichier image : celle de la bibliothèque si le fichier y figure, sinon
+ *  le nom de fichier sans suffixe de fond (-paper / -ink). */
+export const drawingKeyOfSrc = (src: string): string => {
+  const hit = BY_SRC.get(src);
+  if (hit) return drawingKey(hit);
+  return (src.split('/').pop() ?? src).replace(/\.(webp|png|jpe?g|svg)$/i, '').replace(/-(paper|ink)$/, '');
+};
 
 export const illustrationSrc = (ill: Illustration, tone: 'paper' | 'ink'): string =>
   tone === 'ink' ? ill.ink : ill.paper;

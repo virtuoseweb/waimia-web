@@ -78,6 +78,11 @@ const OUTIL_BY_SLUG: Record<string, HeroIllustration> = {
 export function outilHeroIllustration(slug: string): HeroIllustration {
   return OUTIL_BY_SLUG[slug] || build('style-8', 'right');
 }
+/** Illustration de hero réellement choisie pour l'outil (undefined = le hero retombe sur le
+ *  motif générique ; les cartes du hub ne le reprennent pas, cf card-visual.ts). */
+export function outilHeroOverride(slug: string): HeroIllustration | undefined {
+  return OUTIL_BY_SLUG[slug];
+}
 
 // ── Secteurs · par slug (disjoint de la figure de prose de la page + pool workflow) ──
 const SECTEUR_BY_SLUG: Record<string, HeroIllustration> = {
