@@ -4,10 +4,9 @@ export const prerender = true;
 
 // Une page qui, comme /blog, affiche TOUS les guides, comparatifs, outils et articles.
 // Le corps (en-tête, pastilles, liste, newsletter, CTA) est le composant partagé
-// ResourcesHub, aussi rendu par /ressources/outils et /ressources/comparatifs (vues filtrées
-// côté serveur, une URL indexable chacune). Items : src/lib/resources-hub.ts.
-// Le hub /ressources/guides n'existe plus (301 vers /ressources) : le filtre « Guides » est
-// une ancre CSS (#type-guides) de cette page.
+// ResourcesHub, aussi rendu par /ressources/outils, /ressources/comparatifs et
+// /ressources/guides (vues filtrées côté serveur, une URL indexable chacune). Items :
+// src/lib/resources-hub.ts.
 import Base from '../../layouts/Base.astro';
 import ResourcesHub from '../../components/ui/organisms/ResourcesHub.astro';
 import { SITE } from '../../site.config';

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · charte IA : une grande tablette dressée, neuf cases (trois par trois) dont certaines pleines ; au pied, quelques silhouettes la lisent, l'une pose un tampon. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{shadow}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{shadow}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{shadow}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{shadow}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{shadow}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{shadow}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{shadow}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{shadow}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{shadow}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{shadow}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{shadow}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{shadow}}"/>
+    </g>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <rect y="530" width="1456" height="94" fill="{{ground}}"/>
+  <!-- Tablette : plaque haute à sommet arrondi -->
+  <path d="M520 530 L520 150 Q520 70 600 70 L856 70 Q936 70 936 150 L936 530 Z" fill="{{shape}}"/>
+  <path d="M548 530 L548 156 Q548 98 606 98 L850 98 Q908 98 908 156 L908 530 Z" fill="{{subject}}"/>
+  <!-- Neuf cases : trois lignes de trois -->
+  <g fill="{{light}}">
+    <rect x="590" y="140" width="80" height="80"/><rect x="688" y="140" width="80" height="80"/><rect x="786" y="140" width="80" height="80"/>
+    <rect x="590" y="248" width="80" height="80"/><rect x="688" y="248" width="80" height="80"/><rect x="786" y="248" width="80" height="80"/>
+    <rect x="590" y="356" width="80" height="80"/><rect x="688" y="356" width="80" height="80"/><rect x="786" y="356" width="80" height="80"/>
+  </g>
+  <!-- Cases validées (coche) / barrées -->
+  <g fill="none" stroke="{{shadow}}" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M608 180 L626 200 L654 160"/>
+    <path d="M706 180 L724 200 L752 160"/>
+    <path d="M804 290 L822 310 L850 270"/>
+    <path d="M608 396 L652 424 M652 396 L608 424"/>
+    <path d="M706 288 L750 316 M750 288 L706 316"/>
+  </g>
+  <rect x="786" y="356" width="80" height="80" fill="{{detail}}"/>
+  <!-- Silhouettes : une lit, une tamponne -->
+  <use href="#man" transform="translate(380 530) scale(1.1)"/>
+  <use href="#woman" transform="translate(1040 530) scale(1.05)"/>
+  <use href="#man" transform="translate(1150 530) scale(0.9)"/>
+  <!-- Grand tampon posé sur le sol, à droite de la tablette -->
+  <rect x="975" y="462" width="46" height="14" fill="{{shadow}}"/>
+  <rect x="990" y="430" width="16" height="34" fill="{{shadow}}"/>
+  <rect x="978" y="476" width="40" height="8" fill="{{detail}}"/>
+</svg>

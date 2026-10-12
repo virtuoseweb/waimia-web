@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · checklist 90 jours : un sentier en lacets monte une colline, une borne par étape ; au sommet, un disque. Une petite silhouette est au pied du premier lacet. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{shadow}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{shadow}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{shadow}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{shadow}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{shadow}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{shadow}}"/>
+    </g>
+    <g id="post">
+      <rect x="-2" y="-34" width="4" height="34" fill="{{shadow}}"/>
+      <rect x="-9" y="-40" width="18" height="10" fill="{{light}}"/>
+    </g>
+    <clipPath id="hill"><path d="M0 624 L0 470 Q380 330 700 250 Q960 190 1200 150 Q1340 130 1456 140 L1456 624 Z"/></clipPath>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <!-- Grand disque derrière le sommet -->
+  <circle cx="1180" cy="190" r="170" fill="{{shape}}"/>
+  <!-- Colline -->
+  <path d="M0 624 L0 470 Q380 330 700 250 Q960 190 1200 150 Q1340 130 1456 140 L1456 624 Z" fill="{{ground}}"/>
+  <g clip-path="url(#hill)">
+    <path d="M0 520 Q420 400 760 320 Q1000 262 1260 215 L1456 190 L1456 624 L0 624 Z" fill="{{soft}}"/>
+    <path d="M0 580 Q440 480 800 410 Q1060 360 1456 300 L1456 624 L0 624 Z" fill="{{mid}}"/>
+  </g>
+  <!-- Sentier en lacets : bandes claires -->
+  <g fill="none" stroke="{{light}}" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M240 560 L720 520 L300 470 L860 420 L520 380 L980 340 L700 306 L1100 270 L900 240 L1210 205"/>
+  </g>
+  <g fill="none" stroke="{{shadow}}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.55">
+    <path d="M240 569 L720 529 L300 479 L860 429 L520 389 L980 349 L700 315 L1100 279 L900 249 L1210 214"/>
+  </g>
+  <!-- Bornes : une par étape -->
+  <use href="#post" transform="translate(480 540) scale(0.9)"/>
+  <use href="#post" transform="translate(640 526) scale(0.85)"/>
+  <use href="#post" transform="translate(470 450) scale(0.8)"/>
+  <use href="#post" transform="translate(680 430) scale(0.75)"/>
+  <use href="#post" transform="translate(640 390) scale(0.7)"/>
+  <use href="#post" transform="translate(820 368) scale(0.65)"/>
+  <use href="#post" transform="translate(770 322) scale(0.6)"/>
+  <use href="#post" transform="translate(950 296) scale(0.55)"/>
+  <use href="#post" transform="translate(1020 262) scale(0.5)"/>
+  <use href="#post" transform="translate(960 238) scale(0.45)"/>
+  <use href="#post" transform="translate(1100 224) scale(0.42)"/>
+  <!-- Drapeau au sommet -->
+  <rect x="1206" y="96" width="4" height="112" fill="{{shadow}}"/>
+  <path d="M1210 98 L1262 116 L1210 136 Z" fill="{{subject}}"/>
+  <!-- Silhouette au pied du premier lacet -->
+  <use href="#man" transform="translate(200 562) scale(1.05)"/>
+</svg>

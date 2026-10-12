@@ -9,6 +9,8 @@ import { getLiveCollection } from './live-collection';
 import { blogEntryHref } from './blog-routing';
 import { isIndexableEntry } from './seo/hub-index';
 import { COMPARATIFS_CURATION } from '../data/comparatifs-curation';
+import { outilHeroOverride } from './hero-illustrations';
+import { heroSrcFromSections, resolveCardVisuals } from './card-visual';
 import type { ResourceKind } from '../data/ressources-hub-sections';
 
 export type ResourceItem = {
@@ -21,6 +23,16 @@ export type ResourceItem = {
   read_time?: string;
   href: string;
   silo?: string;
+  /** Image du hero de la page détail, quand elle en a une explicite (lue par card-visual.ts). */
+  heroSrc?: string;
+  /** Image de la carte : résolue pour tout le hub, sans doublon de dessin (card-visual.ts). */
+  image?: string;
+  /** Teinte `hue-rotate` (visuels de catégorie uniquement). */
+  tint?: number;
+  /** Tags kebab-case du contenu (mots-clés de la recherche du hub, search-index.json). */
+  tags?: string[];
+  /** Type d'outil (calculateur, checklist, modèle, audit) : mots-clés de la recherche. */
+  toolType?: 'calculator' | 'checklist' | 'template' | 'audit';
 };
 
 // Titre court : la partie avant « · ».
@@ -47,6 +59,8 @@ async function build(): Promise<ResourceItem[]> {
       date: e.data.publishedAt,
       href: `/ressources/guides/${e.data.slug ?? e.id}`,
       silo: e.data.category,
+      heroSrc: heroSrcFromSections(e.data.sections),
+      tags: e.data.tags,
     })),
     ...comparatifs.filter(isIndexableEntry).map((e) => {
       const slug = e.data.slug ?? e.id;
@@ -60,6 +74,8 @@ async function build(): Promise<ResourceItem[]> {
         date: e.data.publishedAt,
         href: `/ressources/comparatifs/${slug}`,
         silo: e.data.category,
+        heroSrc: heroSrcFromSections(e.data.sections),
+        tags: e.data.tags,
       };
     }),
     ...outils.filter((e) => !e.data.seo?.noindex).map((e) => ({
@@ -70,6 +86,8 @@ async function build(): Promise<ResourceItem[]> {
       excerpt_en: e.data.description_en,
       date: e.data.publishedAt,
       href: `/ressources/outils/${e.id}`,
+      heroSrc: e.data.heroIllustration?.src ?? outilHeroOverride(e.id)?.src,
+      toolType: e.data.type,
     })),
     ...(maturite
       ? [{
@@ -80,6 +98,8 @@ async function build(): Promise<ResourceItem[]> {
           excerpt_en: maturite.data.description_en,
           date: new Date(maturite.data.publishedAt),
           href: '/ressources/diagnostics/maturite-ia',
+          tags: maturite.data.tags,
+          toolType: 'audit' as const,
         }]
       : []),
     // Articles : même périmètre que /blog (les articles en noindex ne sont pas listés).
@@ -93,11 +113,28 @@ async function build(): Promise<ResourceItem[]> {
       read_time: e.data.readingTime ? `${e.data.readingTime} min` : undefined,
       href: blogEntryHref(e),
       silo: e.data.category,
+      heroSrc: e.data.heroIllustration?.src ?? e.data.heroImage ?? undefined,
+      tags: e.data.tags,
     })),
   ];
-  return items.sort(
+  const sorted = items.sort(
     (a, b) => b.date.getTime() - a.date.getTime() || a.title_fr.localeCompare(b.title_fr, 'fr'),
   );
+  // Image de carte : hero de la page détail, puis catégorie, puis tags ; 0 doublon de dessin.
+  const visuals = resolveCardVisuals(
+    sorted.map((it) => ({
+      text: `${it.title_fr} ${it.excerpt_fr}`,
+      silo: it.silo,
+      slug: it.href.split('/').pop(),
+      heroSrc: it.heroSrc,
+    })),
+  );
+  return sorted.map((it, i) => {
+    if (visuals[i].source === 'tags' || visuals[i].source === 'tags-weak') {
+      console.info(`[card-visual] ${visuals[i].source} score=${visuals[i].score ?? 0} ${it.href} -> ${visuals[i].image}`);
+    }
+    return { ...it, image: visuals[i].image, tint: visuals[i].tint };
+  });
 }
 
 /** Tous les items du hub (mémoïsé : une seule construction par build). */
