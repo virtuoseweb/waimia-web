@@ -52,7 +52,7 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 - 2026-W41, `/ressources/guides/devis-automatise`, requête « devis automatisé » : trop tôt. Avant : aucune impression. Maintenant : aucune impression, page « détectée, actuellement non indexée » (`weeksNotIndexed` 0).
 - 2026-W41, `/ressources/guides/claude-cowork`, requête « claude cowork prix » : trop tôt. Valeur de départ relevée : aucune impression sur la requête ; page indexée, 9 impressions en position 22,9.
 
-**Actions de la semaine** (PR de la branche `feat/seo-2026-W42`) : une création, deux révisions.
+**Actions de la semaine** (PR #84) : une création, deux révisions.
 
 1. Création de `/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche` (entrée `w45-crm-sur-mesure`, planifiée en 2026-W42).
    - Pourquoi : entrée du calendrier ; « crm sur mesure » et « automatisation crm » visaient la même page service pour deux intentions.
