@@ -29,6 +29,10 @@ export type ResourceItem = {
   image?: string;
   /** Teinte `hue-rotate` (visuels de catégorie uniquement). */
   tint?: number;
+  /** Tags kebab-case du contenu (mots-clés de la recherche du hub, search-index.json). */
+  tags?: string[];
+  /** Type d'outil (calculateur, checklist, modèle, audit) : mots-clés de la recherche. */
+  toolType?: 'calculator' | 'checklist' | 'template' | 'audit';
 };
 
 // Titre court : la partie avant « · ».
@@ -56,6 +60,7 @@ async function build(): Promise<ResourceItem[]> {
       href: `/ressources/guides/${e.data.slug ?? e.id}`,
       silo: e.data.category,
       heroSrc: heroSrcFromSections(e.data.sections),
+      tags: e.data.tags,
     })),
     ...comparatifs.filter(isIndexableEntry).map((e) => {
       const slug = e.data.slug ?? e.id;
@@ -70,6 +75,7 @@ async function build(): Promise<ResourceItem[]> {
         href: `/ressources/comparatifs/${slug}`,
         silo: e.data.category,
         heroSrc: heroSrcFromSections(e.data.sections),
+        tags: e.data.tags,
       };
     }),
     ...outils.filter((e) => !e.data.seo?.noindex).map((e) => ({
@@ -81,6 +87,7 @@ async function build(): Promise<ResourceItem[]> {
       date: e.data.publishedAt,
       href: `/ressources/outils/${e.id}`,
       heroSrc: e.data.heroIllustration?.src ?? outilHeroOverride(e.id)?.src,
+      toolType: e.data.type,
     })),
     ...(maturite
       ? [{
@@ -91,6 +98,8 @@ async function build(): Promise<ResourceItem[]> {
           excerpt_en: maturite.data.description_en,
           date: new Date(maturite.data.publishedAt),
           href: '/ressources/diagnostics/maturite-ia',
+          tags: maturite.data.tags,
+          toolType: 'audit' as const,
         }]
       : []),
     // Articles : même périmètre que /blog (les articles en noindex ne sont pas listés).
@@ -105,6 +114,7 @@ async function build(): Promise<ResourceItem[]> {
       href: blogEntryHref(e),
       silo: e.data.category,
       heroSrc: e.data.heroIllustration?.src ?? e.data.heroImage ?? undefined,
+      tags: e.data.tags,
     })),
   ];
   const sorted = items.sort(
