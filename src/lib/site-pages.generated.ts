@@ -5519,6 +5519,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/logiciel-seo-ia-pme",
+    "title": "Logiciel SEO IA pour PME : faut-il en acheter un ?",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/logiciel-seo-ia-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/n8n-c-est-quoi",
     "title": "n8n c'est quoi ? Définition, usages et limites pour une PME",
     "group": "blog",
@@ -6018,6 +6027,51 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/implantations/toulouse",
+    "title": "Agence IA à Toulouse : automatisation et agents IA · Waimia",
+    "group": "autres",
+    "collection": "implantations",
+    "file": "implantations/toulouse.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Agence IA et automatisation à Toulouse",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#1",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Ce qui se fait à distance, ce qui se fait à Toulouse",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Commençons par 45 minutes en visio.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/mentions-legales",
     "title": "Mentions legales",
     "group": "autres",
@@ -6220,6 +6274,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/forward-deployed-engineer",
       "/blog/google-ads-vs-meta-ads-pme-2026",
       "/blog/landing-page-qui-convertit-methode-2026",
+      "/blog/logiciel-seo-ia-pme",
       "/blog/n8n-c-est-quoi",
       "/blog/seo-geo-etre-cite-par-les-ia-generatives",
       "/blog/tableau-de-bord-pme-quelles-donnees-suivre",
@@ -6267,6 +6322,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/implantations/lyon",
       "/implantations/montpellier",
       "/implantations/paris",
+      "/implantations/toulouse",
       "/mentions-legales",
       "/plan-du-site",
       "/politique-confidentialite",

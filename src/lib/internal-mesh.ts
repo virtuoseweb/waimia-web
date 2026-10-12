@@ -177,6 +177,7 @@ const PAGES: Record<string, PageDef> = {
   '/formations/n8n': { label_fr: 'Formation n8n', label_en: 'n8n training', kind: 'formation', topics: ['formation', 'automatisation'] },
   '/formations/make': { label_fr: 'Formation Make', label_en: 'Make training', kind: 'formation', topics: ['formation', 'automatisation'] },
   '/formations/claude': { label_fr: 'Formation Claude', label_en: 'Claude training', kind: 'formation', topics: ['formation', 'claude'] },
+  '/formations/claude-code': { label_fr: 'Formation Claude Code', label_en: 'Claude Code training', kind: 'formation', topics: ['formation', 'claude'] },
   '/formations/chatgpt': { label_fr: 'Formation ChatGPT', label_en: 'ChatGPT training', kind: 'formation', topics: ['formation', 'claude'] },
   '/blog/formation-ia-cpf-qualiopi': { label_fr: 'Formation IA éligible au CPF', label_en: 'CPF-eligible AI training', kind: 'article', topics: ['formation', 'conseil'] },
   '/blog/formation-ia-finance-pme': { label_fr: 'Formation IA pour une équipe finance', label_en: 'AI training for finance teams', kind: 'article', topics: ['formation', 'donnees'] },
@@ -189,6 +190,7 @@ const PAGES: Record<string, PageDef> = {
   '/ressources/comparatifs/geo-vs-seo': { label_fr: 'GEO ou SEO', label_en: 'GEO or SEO', kind: 'comparatif', topics: ['acquisition'] },
   '/ressources/comparatifs/site-web-intelligent-vs-wordpress': { label_fr: 'Site web intelligent ou WordPress', label_en: 'Smart website or WordPress', kind: 'comparatif', topics: ['acquisition'] },
   '/blog/seo-geo-etre-cite-par-les-ia-generatives': { label_fr: 'Être cité par les IA génératives', label_en: 'Get cited by generative AI', kind: 'article', topics: ['acquisition'] },
+  '/blog/logiciel-seo-ia-pme': { label_fr: 'Logiciel SEO IA pour PME', label_en: 'AI SEO software for SMBs', kind: 'article', topics: ['acquisition'] },
   '/cas-clients/amploi': { label_fr: 'Cas client : Amploi', label_en: 'Case: Amploi', kind: 'cas-client', topics: ['acquisition'] },
   '/cas-clients/balzeo': { label_fr: 'Cas client : Balzeo', label_en: 'Case: Balzeo', kind: 'cas-client', topics: ['acquisition'] },
   '/cas-clients/desangles-peinture': { label_fr: 'Cas client : Desangles Peinture', label_en: 'Case: Desangles Peinture', kind: 'cas-client', topics: ['acquisition'] },
@@ -209,6 +211,7 @@ const PAGES: Record<string, PageDef> = {
   '/implantations/bordeaux': { label_fr: 'Waimia à Bordeaux', label_en: 'Waimia in Bordeaux', kind: 'implantation', topics: ['studio'] },
   '/implantations/montpellier': { label_fr: 'Waimia à Montpellier', label_en: 'Waimia in Montpellier', kind: 'implantation', topics: ['studio'] },
   '/implantations/lyon': { label_fr: 'Waimia à Lyon', label_en: 'Waimia in Lyon', kind: 'implantation', topics: ['studio'] },
+  '/implantations/toulouse': { label_fr: 'Waimia à Toulouse', label_en: 'Waimia in Toulouse', kind: 'implantation', topics: ['studio'] },
   '/implantations/paris': { label_fr: 'Waimia à Paris', label_en: 'Waimia in Paris', kind: 'implantation', topics: ['studio'] },
 };
 

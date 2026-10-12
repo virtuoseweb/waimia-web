@@ -1,0 +1,629 @@
+{
+  "$schema": "../../schemas/generated/formations.page.schema.json",
+  "title_fr": "Formation Claude Code : développer son projet avec l'IA · Waimia",
+  "title_en": "Claude Code training: develop your project with AI · Waimia",
+  "description_fr": "Formation Claude Code et agents : devenir un développeur augmenté. Claude Code, Codex, Agent SDK, Managed Agents, Mistral. Pour tout public et développeurs.",
+  "description_en": "Claude Code and agents training: become an augmented developer. Claude Code, Codex, Agent SDK, Managed Agents, Mistral. For anyone and for developers.",
+  "slug": "claude-code",
+  "publishedAt": "2026-10-12T00:00:00.000Z",
+  "updatedAt": "2026-10-12",
+  "tags": [
+    "formation-claude-code",
+    "formation-developpeur-ia",
+    "formation-agent-ia",
+    "formation-intra-entreprise"
+  ],
+  "seo": {
+    "noindex": false,
+    "serviceType": "Formation Claude Code et orchestration d'agents"
+  },
+  "faq_fr": [
+    {
+      "q": "À qui s'adresse la formation Claude Code ?",
+      "a": "À deux publics. D'abord toute personne qui veut apprendre à développer avec l'IA, sans être développeur de métier, et qui veut dépasser le « je demande et je colle ». Ensuite les développeurs que le rythme du changement dépasse et qui veulent consolider leurs acquis avec l'orchestration d'agents et l'usage des modèles. Le cadrage décide du parcours."
+    },
+    {
+      "q": "Quelle différence avec « prompter et laisser l'IA faire » ?",
+      "a": "Le mode automatique produit vite du code que personne n'a relu ni compris. La formation apprend l'inverse : écrire la spécification, découper, faire exécuter par l'agent, puis relire, tester et décider. L'outil fait le geste ; vous gardez le jugement et la responsabilité du résultat."
+    },
+    {
+      "q": "Faut-il savoir programmer pour suivre la formation ?",
+      "a": "Pas pour le parcours tout public : il demande un ordinateur, de la curiosité et un projet réel à mener. Le parcours développeur suppose Git et un terminal. Dans les deux cas, on travaille sur votre projet, pas sur un exercice de catalogue."
+    },
+    {
+      "q": "Quels outils sont couverts, et lesquels ont changé récemment ?",
+      "a": "Claude Code, Claude Design, Claude Platform, le Claude Agent SDK et Claude Managed Agents ; Codex et son harnais, l'OpenAI Agents SDK, l'Agents API d'OpenAI, AgentKit et les dots ; chez Mistral AI, l'Agents API et l'outil d'exécution de code. Au 12 octobre 2026, OpenAI annonce l'arrêt d'Agent Builder, l'un des éléments d'AgentKit, pour le 30 novembre 2026 : le programme est relu avant chaque session."
+    },
+    {
+      "q": "Combien coûte la formation et combien de temps dure-t-elle ?",
+      "a": "Deux formats : {{prix.formation.f1.heures}} heures pour {{prix.formation.f1}} € HT, ou {{prix.formation.f2.heures}} heures pour {{prix.formation.f2}} € HT. {{prix.formation.note}}. Pas de session catalogue à date fixe : le programme est construit pour votre projet."
+    },
+    {
+      "q": "Peut-on faire financer la formation ?",
+      "a": "Elle est dispensée via Akigora, organisme certifié Qualiopi. Une prise en charge est possible selon votre situation : nous la vérifions avec vous et avec Akigora au cadrage, avant tout engagement."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Who is the Claude Code training for?",
+      "a": "Two audiences. First, anyone who wants to learn to develop with AI without being a professional developer, and wants to go beyond “ask and paste”. Second, developers overtaken by the pace of change who want to consolidate what they know with agent orchestration and model use. Scoping decides the track."
+    },
+    {
+      "q": "How is this different from “prompting and letting the AI do it”?",
+      "a": "Automatic mode quickly produces code nobody has read or understood. The training teaches the opposite: write the specification, break the work down, let the agent execute, then review, test and decide. The tool does the gesture; you keep the judgement and the responsibility for the result."
+    },
+    {
+      "q": "Do I need to know how to program?",
+      "a": "Not for the general track: it asks for a computer, curiosity and a real project to carry. The developer track assumes Git and a terminal. In both cases we work on your project, not on a catalogue exercise."
+    },
+    {
+      "q": "Which tools are covered, and which changed recently?",
+      "a": "Claude Code, Claude Design, Claude Platform, the Claude Agent SDK and Claude Managed Agents; Codex and its harness, the OpenAI Agents SDK, OpenAI's Agents API, AgentKit and dots; at Mistral AI, the Agents API and the code execution tool. As of 12 October 2026, OpenAI announces that Agent Builder, one of the AgentKit components, shuts down on 30 November 2026: the programme is re-read before each session."
+    },
+    {
+      "q": "How much does the training cost and how long does it last?",
+      "a": "Two formats: {{prix.formation.f1.heures}} hours for {{prix.formation.f1.en}} € ex VAT, or {{prix.formation.f2.heures}} hours for {{prix.formation.f2.en}} € ex VAT. {{prix.formation.note.en}}. No fixed-date catalogue session: the programme is built for your project."
+    },
+    {
+      "q": "Can the training be funded?",
+      "a": "It is delivered via Akigora, a Qualiopi-certified training organisation. Funding may be possible depending on your situation: we check it with you and with Akigora at scoping, before any commitment."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "kicker_fr": "§ Formation · devenir un développeur augmenté à l'ère de l'IA",
+      "kicker_en": "§ Training · becoming an augmented developer in the age of AI",
+      "h1_fr": "Développer son projet avec Claude Code",
+      "h1_en": "Develop your project with Claude Code",
+      "lede_fr": "Une formation pour apprendre à développer avec l'IA, pas à lui faire faire n'importe quoi. Elle s'adresse à tout public qui veut mener un vrai projet, et aux développeurs que le changement dépasse et qui veulent consolider leurs acquis : orchestration d'agents, usage des modèles et des outils génératifs, de Claude Code à Codex en passant par les SDK.",
+      "lede_en": "A training to learn to develop with AI, not to let it do whatever it likes. It is for anyone who wants to carry a real project, and for developers overtaken by change who want to consolidate what they know: agent orchestration, using models and generative tools, from Claude Code to Codex and the SDKs.",
+      "badges": [
+        {
+          "label_fr": "Intra-entreprise",
+          "label_en": "In-company"
+        },
+        {
+          "label_fr": "À distance ou sur site",
+          "label_en": "Remote or on site"
+        },
+        {
+          "label_fr": "Sur votre projet réel",
+          "label_en": "On your real project"
+        },
+        {
+          "label_fr": "Via Akigora, Qualiopi",
+          "label_en": "Via Akigora, Qualiopi"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver un audit IA gratuit",
+        "label_en": "Book a free AI audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Voir les outils couverts",
+        "label_en": "See the tools covered",
+        "href": "#outils",
+        "variant": "ghost"
+      },
+      "media_src": "/images/line-art/orbit-network.svg",
+      "media_alt_fr": "Schéma : un réseau de points reliés, pour des agents qui coopèrent autour d'un projet",
+      "media_alt_en": "Diagram: a network of connected points, for agents cooperating around a project"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "À qui s'adresse cette formation ?",
+      "question_en": "Who is this training for?",
+      "term_fr": "Public",
+      "term_en": "Audience",
+      "answer_fr": "À deux publics. Le premier : toute personne qui veut apprendre à développer avec l'IA, avec ou sans formation de développeur, et qui veut faire les choses bien plutôt que de laisser un outil en mode automatique produire ce qu'elle ne sait pas juger. Le second : les développeurs que la vitesse du changement dépasse et qui veulent faire plus, en consolidant leurs acquis avec l'orchestration d'agents et l'usage des modèles. Le cadrage décide du parcours.",
+      "answer_en": "Two audiences. The first: anyone who wants to learn to develop with AI, with or without a developer background, and wants to do things properly rather than let a tool in automatic mode produce what they cannot judge. The second: developers overtaken by the pace of change who want to do more, consolidating what they know with agent orchestration and model use. Scoping decides the track."
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper",
+      "kicker_fr": "§ La différence",
+      "kicker_en": "§ The difference",
+      "heading_fr": "Faire faire par l'IA, ou développer avec l'IA",
+      "heading_en": "Having the AI do it, or developing with AI",
+      "caption_fr": "Lecture de Waimia. Pas une critique des outils : une différence de méthode.",
+      "caption_en": "Waimia's reading. Not a criticism of the tools: a difference of method.",
+      "columns_fr": [
+        "Question",
+        "Mode automatique, sans connaissance du métier",
+        "Développer avec l'IA, avec méthode"
+      ],
+      "columns_en": [
+        "Question",
+        "Automatic mode, no domain knowledge",
+        "Developing with AI, with method"
+      ],
+      "rows_fr": [
+        [
+          "Point de départ",
+          "Une demande en une phrase",
+          "Une spécification écrite : le besoin, les contraintes, ce qui ne doit pas changer"
+        ],
+        [
+          "Découpage",
+          "Tout d'un coup",
+          "Des étapes courtes, un plan relu avant d'écrire du code"
+        ],
+        [
+          "Vérification",
+          "On regarde si ça s'affiche",
+          "Des tests, une relecture des modifications, un avis sur ce qui passe en revue humaine"
+        ],
+        [
+          "Responsabilité",
+          "Floue : « c'est l'IA qui l'a fait »",
+          "Vous répondez du résultat, vous savez l'expliquer"
+        ],
+        [
+          "Maintenance",
+          "Un code que personne ne comprend plus",
+          "Un code que l'équipe sait encore modifier"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Starting point",
+          "A one-sentence request",
+          "A written specification: the need, the constraints, what must not change"
+        ],
+        [
+          "Breakdown",
+          "Everything at once",
+          "Short steps, a plan reviewed before writing code"
+        ],
+        [
+          "Checking",
+          "We see whether it displays",
+          "Tests, a review of the changes, a view on what goes to human review"
+        ],
+        [
+          "Responsibility",
+          "Blurred: “the AI did it”",
+          "You answer for the result and can explain it"
+        ],
+        [
+          "Maintenance",
+          "Code nobody understands any more",
+          "Code the team can still change"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "decision-list",
+      "background": "paper-2",
+      "anchor": "objectifs",
+      "kicker_fr": "§ Objectifs",
+      "kicker_en": "§ Goals",
+      "heading_fr": "À l'issue, vous savez développer avec l'IA et la piloter",
+      "heading_en": "By the end, you can develop with AI and steer it",
+      "items": [
+        {
+          "label_fr": "Écrire la spécification d'un projet et la découper en étapes qu'un agent peut exécuter.",
+          "label_en": "Write a project specification and break it into steps an agent can execute."
+        },
+        {
+          "label_fr": "Donner à Claude Code le contexte du projet, régler ce qu'il peut faire seul et ce qui demande votre accord.",
+          "label_en": "Give Claude Code the project context and set what it may do alone and what needs your approval."
+        },
+        {
+          "label_fr": "Relire, tester et refuser une modification : savoir dire pourquoi un résultat n'est pas bon.",
+          "label_en": "Review, test and reject a change: know how to say why a result is not good."
+        },
+        {
+          "label_fr": "Passer d'une maquette dans Claude Design à du code, et choisir quand utiliser un autre outil.",
+          "label_en": "Go from a mock-up in Claude Design to code, and choose when to use another tool."
+        },
+        {
+          "label_fr": "Orchestrer plusieurs agents : sous-agents, outils, points de validation humaine.",
+          "label_en": "Orchestrate several agents: subagents, tools, human approval points."
+        },
+        {
+          "label_fr": "Construire un agent avec un SDK ou une plateforme, et dire ce qu'il coûte et ce qu'il risque.",
+          "label_en": "Build an agent with an SDK or a platform, and say what it costs and what it risks."
+        }
+      ]
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper",
+      "anchor": "outils",
+      "kicker_fr": "§ Les outils",
+      "kicker_en": "§ The tools",
+      "heading_fr": "Les outils et plateformes couverts, relus le 12 octobre 2026",
+      "heading_en": "The tools and platforms covered, re-read on 12 October 2026",
+      "caption_fr": "Descriptions tirées de la documentation et des annonces des éditeurs, relues le 12 octobre 2026 (sources en bas de page). Ces outils changent vite : le programme est relu avant chaque session.",
+      "caption_en": "Descriptions taken from the vendors' documentation and announcements, re-read on 12 October 2026 (sources at the bottom of the page). These tools change fast: the programme is re-read before each session.",
+      "columns_fr": [
+        "Outil",
+        "Ce que c'est",
+        "Ce qu'on en fait en formation",
+        "À savoir"
+      ],
+      "columns_en": [
+        "Tool",
+        "What it is",
+        "What we do with it in training",
+        "Worth knowing"
+      ],
+      "rows_fr": [
+        [
+          "Claude Code",
+          "L'agent de développement d'Anthropic : terminal, éditeur de code, application de bureau, navigateur. Inclus dans Pro, Max, Team et Enterprise, pas dans Free.",
+          "L'outil de base : contexte projet, plan, modifications, relecture, permissions.",
+          "Il propose, vous décidez."
+        ],
+        [
+          "Claude Design",
+          "Création de maquettes, prototypes et présentations par conversation. Disponible dans toute conversation Claude, y compris Claude Code ; export en PPTX, PDF ou HTML, et passage à Claude Code.",
+          "Partir d'une maquette plutôt que d'une page blanche, puis passer au code.",
+          "Le site autonome claude.ai/design reste ouvert jusqu'au 14 décembre 2026."
+        ],
+        [
+          "Claude Platform, Claude Agent SDK, Managed Agents",
+          "L'API et la console d'Anthropic. Le Claude Agent SDK (Python et TypeScript) fait tourner la boucle d'agent de Claude Code dans votre propre application. Managed Agents est un agent hébergé : Anthropic fait tourner l'agent et son bac à sable.",
+          "Choisir entre piloter soi-même la boucle (SDK) et la confier à un service (Managed Agents).",
+          "Managed Agents est en bêta et n'est pas éligible à la rétention zéro des données ni au BAA HIPAA."
+        ],
+        [
+          "Codex et le harnais Codex",
+          "L'agent de code d'OpenAI. Son harnais, la boucle d'agent open source, fait tourner l'application, la ligne de commande et l'extension d'éditeur ; on l'utilise aussi par codex exec, par le SDK Codex ou par app-server.",
+          "Comparer deux agents de code sur le même projet, et intégrer le harnais dans un outil.",
+          "Le mode WebSocket de app-server est signalé expérimental par OpenAI."
+        ],
+        [
+          "OpenAI Platform, Agents SDK, Agents API",
+          "L'Agents SDK s'exécute dans votre application : agents, outils, transferts entre agents, validations. L'Agents API d'OpenAI fait tourner un harnais Codex géré par OpenAI pour des tâches longues.",
+          "Le même agent construit avec Claude Platform et avec OpenAI Platform, et la comparaison.",
+          "Voir le comparatif Claude Platform et OpenAI Platform."
+        ],
+        [
+          "AgentKit : Agent Builder, ChatKit, Evals",
+          "Ensemble d'outils lancé par OpenAI en octobre 2025 : éditeur visuel de workflows (Agent Builder), interface de chat intégrable (ChatKit), évaluations.",
+          "Savoir quand un éditeur visuel suffit et quand on repasse au code.",
+          "OpenAI arrête Agent Builder et Evals le 30 novembre 2026 ; ChatKit reste disponible."
+        ],
+        [
+          "Dots (OpenAI)",
+          "Agents ChatGPT toujours actifs, avec leur propre ordinateur dans le cloud, qui peuvent confier des tâches à Codex. Déploiement annoncé le 29 septembre 2026 pour Pro, Business Premium et Enterprise, dans les marchés éligibles.",
+          "Ce qu'on délègue à un agent permanent, ce qu'on ne lui délègue pas, comment poser les limites.",
+          "Disponibilité selon le pays et l'offre : à vérifier avant d'en faire un prérequis."
+        ],
+        [
+          "Mistral AI : Agents API et exécution de code",
+          "L'Agents API de Mistral crée des agents avec outils intégrés (recherche web, exécution de code, génération d'images, bibliothèque de documents), outils personnalisés et transferts entre agents. L'outil d'exécution de code fait tourner du code dans un conteneur isolé.",
+          "Construire le même agent chez un fournisseur européen et comparer.",
+          "Les fonctions de l'Agents API sont encore proposées dans l'espace beta du SDK Mistral."
+        ]
+      ],
+      "rows_en": [
+        [
+          "Claude Code",
+          "Anthropic's development agent: terminal, code editor, desktop app, browser. Included in Pro, Max, Team and Enterprise, not in Free.",
+          "The core tool: project context, plan, changes, review, permissions.",
+          "It proposes, you decide."
+        ],
+        [
+          "Claude Design",
+          "Creating mock-ups, prototypes and presentations by conversation. Available in any Claude conversation, including Claude Code; export to PPTX, PDF or HTML, and hand-off to Claude Code.",
+          "Starting from a mock-up rather than a blank page, then moving to code.",
+          "The standalone claude.ai/design site stays open until 14 December 2026."
+        ],
+        [
+          "Claude Platform, Claude Agent SDK, Managed Agents",
+          "Anthropic's API and console. The Claude Agent SDK (Python and TypeScript) runs Claude Code's agent loop inside your own application. Managed Agents is a hosted agent: Anthropic runs the agent and its sandbox.",
+          "Choosing between driving the loop yourself (SDK) and handing it to a service (Managed Agents).",
+          "Managed Agents is in beta and is not eligible for zero data retention or the HIPAA BAA."
+        ],
+        [
+          "Codex and the Codex harness",
+          "OpenAI's coding agent. Its harness, the open-source agent loop, powers the app, the command line and the editor extension; it is also used through codex exec, the Codex SDK or app-server.",
+          "Comparing two coding agents on the same project, and embedding the harness in a tool.",
+          "OpenAI flags app-server's WebSocket mode as experimental."
+        ],
+        [
+          "OpenAI Platform, Agents SDK, Agents API",
+          "The Agents SDK runs inside your application: agents, tools, handoffs, approvals. OpenAI's Agents API runs a Codex harness managed by OpenAI for long-running tasks.",
+          "The same agent built with Claude Platform and OpenAI Platform, and the comparison.",
+          "See the Claude Platform versus OpenAI Platform comparison."
+        ],
+        [
+          "AgentKit: Agent Builder, ChatKit, Evals",
+          "Tool set launched by OpenAI in October 2025: visual workflow editor (Agent Builder), embeddable chat interface (ChatKit), evaluations.",
+          "Knowing when a visual editor is enough and when to go back to code.",
+          "OpenAI shuts down Agent Builder and Evals on 30 November 2026; ChatKit remains available."
+        ],
+        [
+          "Dots (OpenAI)",
+          "Always-on ChatGPT agents with their own cloud computer, which can hand tasks to Codex. Rollout announced on 29 September 2026 for Pro, Business Premium and Enterprise, in eligible markets.",
+          "What you delegate to a permanent agent, what you do not, how to set the limits.",
+          "Availability depends on country and plan: check before making it a prerequisite."
+        ],
+        [
+          "Mistral AI: Agents API and code execution",
+          "Mistral's Agents API creates agents with built-in tools (web search, code execution, image generation, document library), custom tools and handoffs between agents. The code execution tool runs code in an isolated container.",
+          "Building the same agent with a European provider and comparing.",
+          "The Agents API functions are still offered in the beta namespace of Mistral's SDK."
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-timeline",
+      "background": "paper-2",
+      "orientation": "vertical",
+      "numbered": true,
+      "eyebrow_fr": "§ Programme type",
+      "eyebrow_en": "§ Standard programme",
+      "title_fr": "Six modules, ajustés à votre projet au cadrage",
+      "title_en": "Six modules, adjusted to your project at scoping",
+      "events": [
+        {
+          "num": "01",
+          "title_fr": "Cadrer le projet",
+          "title_en": "Scoping the project",
+          "meta_fr": "Tous les parcours",
+          "meta_en": "All tracks",
+          "body_fr": "Le besoin, les contraintes, ce qui ne doit pas changer. On écrit la spécification avant de demander du code.",
+          "body_en": "The need, the constraints, what must not change. We write the specification before asking for code."
+        },
+        {
+          "num": "02",
+          "title_fr": "Claude Code au quotidien",
+          "title_en": "Claude Code day to day",
+          "meta_fr": "Tous les parcours",
+          "meta_en": "All tracks",
+          "body_fr": "Contexte du projet, plan, modifications par petites étapes, relecture, tests, permissions. Chaque participant travaille sur son projet.",
+          "body_en": "Project context, plan, changes in small steps, review, tests, permissions. Each participant works on their own project."
+        },
+        {
+          "num": "03",
+          "title_fr": "Les outils génératifs autour du code",
+          "title_en": "Generative tools around the code",
+          "meta_fr": "Tous les parcours",
+          "meta_en": "All tracks",
+          "body_fr": "De la maquette dans Claude Design au code. Comparaison avec Codex sur la même tâche : où chacun est meilleur, où chacun se trompe.",
+          "body_en": "From a mock-up in Claude Design to code. Comparison with Codex on the same task: where each is better, where each gets it wrong."
+        },
+        {
+          "num": "04",
+          "title_fr": "Orchestrer des agents",
+          "title_en": "Orchestrating agents",
+          "meta_fr": "Parcours développeur",
+          "meta_en": "Developer track",
+          "body_fr": "Sous-agents, outils, hooks, serveurs MCP, points de validation humaine. Quand un seul agent suffit, quand en séparer plusieurs.",
+          "body_en": "Subagents, tools, hooks, MCP servers, human approval points. When one agent is enough, when to split into several."
+        },
+        {
+          "num": "05",
+          "title_fr": "Construire avec les kits et les plateformes",
+          "title_en": "Building with kits and platforms",
+          "meta_fr": "Parcours développeur",
+          "meta_en": "Developer track",
+          "body_fr": "Claude Agent SDK, Managed Agents, OpenAI Agents SDK et Agents API, Mistral Agents API : le même agent sur deux ou trois d'entre eux, avec le coût et les limites de chacun.",
+          "body_en": "Claude Agent SDK, Managed Agents, OpenAI Agents SDK and Agents API, Mistral Agents API: the same agent on two or three of them, with each one's cost and limits."
+        },
+        {
+          "num": "06",
+          "title_fr": "Mettre en production sans perdre la main",
+          "title_en": "Going live without losing control",
+          "meta_fr": "Tous les parcours, en version courte pour le tout public",
+          "meta_en": "All tracks, short version for the general track",
+          "body_fr": "Secrets, accès, journaux, coûts, revue humaine. Ce qui doit rester sous votre contrôle quand l'agent travaille seul.",
+          "body_en": "Secrets, access, logs, costs, human review. What must stay under your control when the agent works alone."
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "maxWidth": "prose",
+      "html_fr": "<h2>Pourquoi plusieurs outils et pas un seul</h2>\n<p>Aucun éditeur n'a le meilleur outil pour tout, et les offres bougent : Anthropic a rendu Claude Design disponible dans toutes les conversations, et OpenAI a annoncé la fin d'Agent Builder. Se former à un seul produit, c'est se former à une date. La formation apprend les gestes qui restent : spécifier, découper, vérifier, borner ce que l'agent peut faire. Les outils servent à les pratiquer.</p>\n<p>Elle ne promet ni diplôme, ni dépendance à un fournisseur. Pour une équipe qui n'écrit pas de code, la formation <a href=\"/formations/claude\">Claude et agents IA</a> reste le bon point de départ ; pour le coût, la sécurité et le déploiement de Claude Code côté entreprise, voir le guide <a href=\"/ressources/guides/claude-code-entreprise\">Claude Code en entreprise</a>. Pour choisir entre deux plateformes, voir le comparatif <a href=\"/ressources/comparatifs/claude-platform-vs-openai-platform\">Claude Platform et OpenAI Platform</a>.</p>",
+      "html_en": "<h2>Why several tools and not just one</h2>\n<p>No vendor has the best tool for everything, and the offers move: Anthropic has made Claude Design available in every conversation, and OpenAI announced the end of Agent Builder. Training on a single product is training to a date. The training teaches the gestures that last: specifying, breaking down, checking, bounding what the agent may do. The tools are there to practise them.</p>\n<p>It promises no diploma and no dependence on a vendor. For a team that does not write code, the <a href=\"/formations/claude\">Claude and AI agents</a> training remains the right starting point; for the cost, security and company-side rollout of Claude Code, see the guide <a href=\"/ressources/guides/claude-code-entreprise\">Claude Code in business</a>. To choose between two platforms, see the comparison <a href=\"/ressources/comparatifs/claude-platform-vs-openai-platform\">Claude Platform and OpenAI Platform</a>.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Fiche pratique",
+      "kicker_en": "§ Practical details",
+      "heading_fr": "Prérequis, format, durée et tarif",
+      "heading_en": "Prerequisites, format, duration and price",
+      "columns_fr": [
+        "Rubrique",
+        "Détail"
+      ],
+      "columns_en": [
+        "Item",
+        "Detail"
+      ],
+      "rows_fr": [
+        [
+          "Prérequis",
+          "Un ordinateur, un projet réel à mener et un accès aux outils choisis au cadrage (compte Claude, et le cas échéant OpenAI ou Mistral). Parcours développeur : Git et un terminal"
+        ],
+        [
+          "Format",
+          "Séances en intra-entreprise, à distance ou dans vos locaux. Les exercices portent sur votre projet, votre code et vos documents."
+        ],
+        [
+          "Durée",
+          "{{prix.formation.f1.heures}} heures pour le parcours tout public ou pour une partie du parcours développeur ; {{prix.formation.f2.heures}} heures pour le parcours développeur complet. Le découpage est arrêté au cadrage"
+        ],
+        [
+          "Tarif",
+          "Session de {{prix.formation.f1.heures}} heures : {{prix.formation.f1}} € HT {{prix.formation.base}}. Session de {{prix.formation.f2.heures}} heures : {{prix.formation.f2}} € HT {{prix.formation.base}}."
+        ],
+        [
+          "Formateur",
+          "Simon Beros, fondateur de Waimia. Il déploie Claude, ses skills et ses agents chez des PME, et forme sur ce qu'il utilise en mission."
+        ],
+        [
+          "Organisme",
+          "Akigora, organisme certifié Qualiopi"
+        ],
+        [
+          "Financement",
+          "Prise en charge possible selon votre situation. Nous la vérifions avec vous au cadrage"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Prerequisites",
+          "A computer, a real project to carry and access to the tools chosen at scoping (Claude account, and where relevant OpenAI or Mistral). Developer track: Git and a terminal"
+        ],
+        [
+          "Format",
+          "In-company sessions, remote or at your premises. Exercises are on your project, your code and your documents."
+        ],
+        [
+          "Duration",
+          "{{prix.formation.f1.heures}} hours for the general track or part of the developer track; {{prix.formation.f2.heures}} hours for the full developer track. The split is set during scoping"
+        ],
+        [
+          "Price",
+          "{{prix.formation.f1.heures}} hours session: {{prix.formation.f1.en}} € ex VAT {{prix.formation.base.en}}. {{prix.formation.f2.heures}} hours session: {{prix.formation.f2.en}} € ex VAT {{prix.formation.base.en}}."
+        ],
+        [
+          "Trainer",
+          "Simon Beros, founder of Waimia. He rolls out Claude, its skills and its agents at SMEs, and trains on what he uses on engagements."
+        ],
+        [
+          "Training organisation",
+          "Akigora, a Qualiopi-certified training organisation"
+        ],
+        [
+          "Funding",
+          "Funding may be possible depending on your situation. We check it with you at scoping"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-callout",
+      "background": "paper",
+      "variant": "note",
+      "body_fr": "Formation dispensée via Akigora, organisme certifié Qualiopi. Une prise en charge est possible selon votre situation : nous la vérifions avec vous au cadrage, avant que vous signiez.",
+      "body_en": "Delivered via Akigora, a Qualiopi-certified training organisation. Funding may be possible depending on your situation: we check it with you at scoping, before you sign."
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper-2",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Go further",
+      "cards": [
+        {
+          "kicker_fr": "Formation",
+          "kicker_en": "Training",
+          "title_fr": "Formation Claude et agents IA",
+          "title_en": "Claude and AI agents training",
+          "lead_fr": "Trois niveaux, de l'application aux agents, pour les équipes métier.",
+          "lead_en": "Three levels, from the app to agents, for business teams.",
+          "href": "/formations/claude"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Claude Code en entreprise",
+          "title_en": "Claude Code in business",
+          "lead_fr": "Coût, sécurité et déploiement côté entreprise.",
+          "lead_en": "Cost, security and company-side rollout.",
+          "href": "/ressources/guides/claude-code-entreprise"
+        },
+        {
+          "kicker_fr": "Comparatif",
+          "kicker_en": "Comparison",
+          "title_fr": "Claude Platform ou OpenAI Platform",
+          "title_en": "Claude Platform or OpenAI Platform",
+          "lead_fr": "Prix, outils et limites des deux plateformes.",
+          "lead_en": "Prices, tools and limits of the two platforms.",
+          "href": "/ressources/comparatifs/claude-platform-vs-openai-platform"
+        }
+      ]
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "h2_fr": "Questions fréquentes",
+      "h2_en": "Frequently asked questions",
+      "items": [
+        {
+          "q_fr": "À qui s'adresse la formation Claude Code ?",
+          "q_en": "Who is the Claude Code training for?",
+          "a_fr": "À deux publics. D'abord toute personne qui veut apprendre à développer avec l'IA, sans être développeur de métier, et qui veut dépasser le « je demande et je colle ». Ensuite les développeurs que le rythme du changement dépasse et qui veulent consolider leurs acquis avec l'orchestration d'agents et l'usage des modèles. Le cadrage décide du parcours.",
+          "a_en": "Two audiences. First, anyone who wants to learn to develop with AI without being a professional developer, and wants to go beyond “ask and paste”. Second, developers overtaken by the pace of change who want to consolidate what they know with agent orchestration and model use. Scoping decides the track."
+        },
+        {
+          "q_fr": "Quelle différence avec « prompter et laisser l'IA faire » ?",
+          "q_en": "How is this different from “prompting and letting the AI do it”?",
+          "a_fr": "Le mode automatique produit vite du code que personne n'a relu ni compris. La formation apprend l'inverse : écrire la spécification, découper, faire exécuter par l'agent, puis relire, tester et décider. L'outil fait le geste ; vous gardez le jugement et la responsabilité du résultat.",
+          "a_en": "Automatic mode quickly produces code nobody has read or understood. The training teaches the opposite: write the specification, break the work down, let the agent execute, then review, test and decide. The tool does the gesture; you keep the judgement and the responsibility for the result."
+        },
+        {
+          "q_fr": "Faut-il savoir programmer pour suivre la formation ?",
+          "q_en": "Do I need to know how to program?",
+          "a_fr": "Pas pour le parcours tout public : il demande un ordinateur, de la curiosité et un projet réel à mener. Le parcours développeur suppose Git et un terminal. Dans les deux cas, on travaille sur votre projet, pas sur un exercice de catalogue.",
+          "a_en": "Not for the general track: it asks for a computer, curiosity and a real project to carry. The developer track assumes Git and a terminal. In both cases we work on your project, not on a catalogue exercise."
+        },
+        {
+          "q_fr": "Quels outils sont couverts, et lesquels ont changé récemment ?",
+          "q_en": "Which tools are covered, and which changed recently?",
+          "a_fr": "Claude Code, Claude Design, Claude Platform, le Claude Agent SDK et Claude Managed Agents ; Codex et son harnais, l'OpenAI Agents SDK, l'Agents API d'OpenAI, AgentKit et les dots ; chez Mistral AI, l'Agents API et l'outil d'exécution de code. Au 12 octobre 2026, OpenAI annonce l'arrêt d'Agent Builder, l'un des éléments d'AgentKit, pour le 30 novembre 2026 : le programme est relu avant chaque session.",
+          "a_en": "Claude Code, Claude Design, Claude Platform, the Claude Agent SDK and Claude Managed Agents; Codex and its harness, the OpenAI Agents SDK, OpenAI's Agents API, AgentKit and dots; at Mistral AI, the Agents API and the code execution tool. As of 12 October 2026, OpenAI announces that Agent Builder, one of the AgentKit components, shuts down on 30 November 2026: the programme is re-read before each session."
+        },
+        {
+          "q_fr": "Combien coûte la formation et combien de temps dure-t-elle ?",
+          "q_en": "How much does the training cost and how long does it last?",
+          "a_fr": "Deux formats : {{prix.formation.f1.heures}} heures pour {{prix.formation.f1}} € HT, ou {{prix.formation.f2.heures}} heures pour {{prix.formation.f2}} € HT. {{prix.formation.note}}. Pas de session catalogue à date fixe : le programme est construit pour votre projet.",
+          "a_en": "Two formats: {{prix.formation.f1.heures}} hours for {{prix.formation.f1.en}} € ex VAT, or {{prix.formation.f2.heures}} hours for {{prix.formation.f2.en}} € ex VAT. {{prix.formation.note.en}}. No fixed-date catalogue session: the programme is built for your project."
+        },
+        {
+          "q_fr": "Peut-on faire financer la formation ?",
+          "q_en": "Can the training be funded?",
+          "a_fr": "Elle est dispensée via Akigora, organisme certifié Qualiopi. Une prise en charge est possible selon votre situation : nous la vérifions avec vous et avec Akigora au cadrage, avant tout engagement.",
+          "a_en": "It is delivered via Akigora, a Qualiopi-certified training organisation. Funding may be possible depending on your situation: we check it with you and with Akigora at scoping, before any commitment."
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "maxWidth": "prose",
+      "html_fr": "<h2>Sources, relues le 12 octobre 2026</h2><ul><li><a href=\"https://code.claude.com/docs/en/agent-sdk/overview\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Agent SDK overview</a></li><li><a href=\"https://platform.claude.com/docs/en/managed-agents/overview\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Managed Agents overview</a></li><li><a href=\"https://claude.com/product/design\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Design</a></li><li><a href=\"https://claude.com/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, offres et tarifs de Claude</a></li><li><a href=\"https://openai.com/index/unlocking-the-codex-harness/\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, « Unlocking the Codex harness »</a></li><li><a href=\"https://developers.openai.com/blog/codex-as-a-platform\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, « Codex as a platform »</a></li><li><a href=\"https://developers.openai.com/api/docs/guides/agents\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, Agents SDK et Agents API</a></li><li><a href=\"https://openai.com/index/introducing-agentkit/\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, « Introducing AgentKit » (mise à jour du 3 juin 2026)</a></li><li><a href=\"https://developers.openai.com/api/docs/guides/agent-builder\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, Agent Builder</a></li><li><a href=\"https://openai.com/index/introducing-dots/\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, « Introducing dots », 29 septembre 2026</a></li><li><a href=\"https://docs.mistral.ai/studio/agents/agents-api\" rel=\"noopener noreferrer\" target=\"_blank\">Mistral AI, Agents et Conversations</a></li><li><a href=\"https://docs.mistral.ai/studio/agents/agent-tools/code_interpreter\" rel=\"noopener noreferrer\" target=\"_blank\">Mistral AI, Code Interpreter</a></li></ul>",
+      "html_en": "<h2>Sources, re-read on 12 October 2026</h2><ul><li><a href=\"https://code.claude.com/docs/en/agent-sdk/overview\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Agent SDK overview</a></li><li><a href=\"https://platform.claude.com/docs/en/managed-agents/overview\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Managed Agents overview</a></li><li><a href=\"https://claude.com/product/design\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Design</a></li><li><a href=\"https://claude.com/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude plans and pricing</a></li><li><a href=\"https://openai.com/index/unlocking-the-codex-harness/\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, “Unlocking the Codex harness”</a></li><li><a href=\"https://developers.openai.com/blog/codex-as-a-platform\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, “Codex as a platform”</a></li><li><a href=\"https://developers.openai.com/api/docs/guides/agents\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, Agents SDK and Agents API</a></li><li><a href=\"https://openai.com/index/introducing-agentkit/\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, “Introducing AgentKit” (update of 3 June 2026)</a></li><li><a href=\"https://developers.openai.com/api/docs/guides/agent-builder\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, Agent Builder</a></li><li><a href=\"https://openai.com/index/introducing-dots/\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, “Introducing dots”, 29 September 2026</a></li><li><a href=\"https://docs.mistral.ai/studio/agents/agents-api\" rel=\"noopener noreferrer\" target=\"_blank\">Mistral AI, Agents and Conversations</a></li><li><a href=\"https://docs.mistral.ai/studio/agents/agent-tools/code_interpreter\" rel=\"noopener noreferrer\" target=\"_blank\">Mistral AI, Code Interpreter</a></li></ul>"
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Formation",
+      "kicker_en": "§ Training",
+      "h2_fr": "Le programme se monte sur votre projet, pas sur un catalogue.",
+      "h2_en": "The programme is built on your project, not on a catalogue.",
+      "subtitle_fr": "45 minutes, gratuites : on regarde votre projet, votre niveau de départ, les outils qui ont du sens, et on vous dit si une formation est utile.",
+      "subtitle_en": "45 minutes, free: we look at your project, your starting level and the tools that make sense, and tell you whether training is useful.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un audit IA gratuit",
+          "label_en": "Book a free AI audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Comment se passe l'audit",
+          "label_en": "How the audit works",
+          "href": "/audit-ia-pme",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

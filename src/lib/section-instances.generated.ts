@@ -1584,6 +1584,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "formations",
+      "file": "formations/claude-code.json",
+      "slug": "claude-code",
+      "route": "src/content/formations/claude-code.json",
+      "index": 3,
+      "label": "À l'issue, vous savez développer avec l'IA et la piloter",
+      "background": "paper-2"
+    },
+    {
+      "collection": "formations",
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
@@ -2356,6 +2365,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "background": "paper-2"
     },
     {
+      "collection": "implantations",
+      "file": "implantations/toulouse.json",
+      "slug": "toulouse",
+      "route": "/implantations/toulouse",
+      "index": 1,
+      "label": "#1",
+      "background": "paper-2"
+    },
+    {
       "collection": "comparatifs",
       "file": "comparatifs/claude-code-vs-cursor.json",
       "slug": "claude-code-vs-cursor",
@@ -2690,6 +2708,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "formations",
+      "file": "formations/claude-code.json",
+      "slug": "claude-code",
+      "route": "src/content/formations/claude-code.json",
+      "index": 1,
+      "label": "#1",
+      "background": "paper-2"
+    },
+    {
+      "collection": "formations",
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
@@ -2744,6 +2771,16 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "src/content/formations/chatgpt.json",
       "index": 11,
       "label": "#11",
+      "variant": "note",
+      "background": "paper"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/claude-code.json",
+      "slug": "claude-code",
+      "route": "src/content/formations/claude-code.json",
+      "index": 8,
+      "label": "#8",
       "variant": "note",
       "background": "paper"
     },
@@ -2892,6 +2929,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "implantations/paris.json",
       "slug": "paris",
       "route": "/implantations/paris",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "implantations",
+      "file": "implantations/toulouse.json",
+      "slug": "toulouse",
+      "route": "/implantations/toulouse",
       "index": 3,
       "label": "#3",
       "background": "paper-2"
@@ -3951,6 +3997,24 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "formations",
+      "file": "formations/claude-code.json",
+      "slug": "claude-code",
+      "route": "src/content/formations/claude-code.json",
+      "index": 6,
+      "label": "#6",
+      "background": "paper"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/claude-code.json",
+      "slug": "claude-code",
+      "route": "src/content/formations/claude-code.json",
+      "index": 11,
+      "label": "#11",
+      "background": "paper"
+    },
+    {
+      "collection": "formations",
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
@@ -4562,6 +4626,36 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "formations",
+      "file": "formations/claude-code.json",
+      "slug": "claude-code",
+      "route": "src/content/formations/claude-code.json",
+      "index": 2,
+      "label": "Faire faire par l'IA, ou développer avec l'IA",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/claude-code.json",
+      "slug": "claude-code",
+      "route": "src/content/formations/claude-code.json",
+      "index": 4,
+      "label": "Les outils et plateformes couverts, relus le 12 octobre 2026",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/claude-code.json",
+      "slug": "claude-code",
+      "route": "src/content/formations/claude-code.json",
+      "index": 7,
+      "label": "Prérequis, format, durée et tarif",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "formations",
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
@@ -4683,6 +4777,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 8,
       "label": "Programme du niveau 3 : parcours plateforme, parcours Codex, socle partagé",
       "background": "paper"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/claude-code.json",
+      "slug": "claude-code",
+      "route": "src/content/formations/claude-code.json",
+      "index": 5,
+      "label": "Six modules, ajustés à votre projet au cadrage",
+      "background": "paper-2"
     },
     {
       "collection": "formations",
@@ -5146,6 +5249,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 5,
       "label": "Questions fréquentes",
       "background": "paper-2"
+    },
+    {
+      "collection": "implantations",
+      "file": "implantations/toulouse.json",
+      "slug": "toulouse",
+      "route": "/implantations/toulouse",
+      "index": 5,
+      "label": "Questions fréquentes",
+      "background": "paper"
     },
     {
       "collection": "lp",
@@ -5675,6 +5787,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "chatgpt",
       "route": "src/content/formations/chatgpt.json",
       "index": 13,
+      "label": "Questions fréquentes",
+      "background": "paper"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/claude-code.json",
+      "slug": "claude-code",
+      "route": "src/content/formations/claude-code.json",
+      "index": 10,
       "label": "Questions fréquentes",
       "background": "paper"
     },
@@ -6398,6 +6519,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "background": "ink"
     },
     {
+      "collection": "implantations",
+      "file": "implantations/toulouse.json",
+      "slug": "toulouse",
+      "route": "/implantations/toulouse",
+      "index": 6,
+      "label": "Commençons par 45 minutes en visio.",
+      "background": "ink"
+    },
+    {
       "collection": "lp",
       "file": "lp/hub.json",
       "slug": "hub",
@@ -6935,6 +7065,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "src/content/formations/chatgpt.json",
       "index": 14,
       "label": "Vos usages ChatGPT d'aujourd'hui servent de matière première.",
+      "background": "ink"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/claude-code.json",
+      "slug": "claude-code",
+      "route": "src/content/formations/claude-code.json",
+      "index": 12,
+      "label": "Le programme se monte sur votre projet, pas sur un catalogue.",
       "background": "ink"
     },
     {
@@ -7506,6 +7645,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "background": "paper"
     },
     {
+      "collection": "implantations",
+      "file": "implantations/toulouse.json",
+      "slug": "toulouse",
+      "route": "/implantations/toulouse",
+      "index": 0,
+      "label": "Agence IA et automatisation à Toulouse",
+      "background": "paper"
+    },
+    {
       "collection": "comparatifs",
       "file": "comparatifs/claude-code-vs-cursor.json",
       "slug": "claude-code-vs-cursor",
@@ -7899,6 +8047,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "src/content/formations/chatgpt.json",
       "index": 0,
       "label": "Formation ChatGPT en entreprise",
+      "background": "paper"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/claude-code.json",
+      "slug": "claude-code",
+      "route": "src/content/formations/claude-code.json",
+      "index": 0,
+      "label": "Développer son projet avec Claude Code",
       "background": "paper"
     },
     {
@@ -9895,6 +10052,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "background": "paper"
     },
     {
+      "collection": "implantations",
+      "file": "implantations/toulouse.json",
+      "slug": "toulouse",
+      "route": "/implantations/toulouse",
+      "index": 4,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
       "collection": "comparatifs",
       "file": "comparatifs/claude-code-vs-cursor.json",
       "slug": "claude-code-vs-cursor",
@@ -10238,6 +10404,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "formations",
+      "file": "formations/claude-code.json",
+      "slug": "claude-code",
+      "route": "src/content/formations/claude-code.json",
+      "index": 9,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "formations",
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
@@ -10302,7 +10477,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "formations",
       "route": "src/content/formations/index.json",
       "index": 2,
-      "label": "Cinq formations, construites sur vos tâches",
+      "label": "Six formations, construites sur vos tâches",
       "background": "paper"
     }
   ],
@@ -10491,6 +10666,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/implantations/paris",
       "index": 2,
       "label": "Ce qui se décide au devis pour une mission à Paris",
+      "background": "paper"
+    },
+    {
+      "collection": "implantations",
+      "file": "implantations/toulouse.json",
+      "slug": "toulouse",
+      "route": "/implantations/toulouse",
+      "index": 2,
+      "label": "Ce qui se fait à distance, ce qui se fait à Toulouse",
       "background": "paper"
     },
     {
