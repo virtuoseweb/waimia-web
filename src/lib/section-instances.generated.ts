@@ -1588,7 +1588,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-code",
       "route": "src/content/formations/claude-code.json",
       "index": 3,
-      "label": "À l'issue, vous savez développer avec l'IA et la piloter",
+      "label": "Objectifs visés : développer avec l'IA et la piloter",
       "background": "paper-2"
     },
     {
