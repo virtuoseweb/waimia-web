@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · moteur B · « tout le monde accordé sur le même la » (charte graphique et brand book) : un diapason géant planté dans le sol, des ondes concentriques qui atteignent chaque silhouette. Distribution objet bleu. Rôles remplacés par render-svg.mjs. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{detail}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{detail}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{detail}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{detail}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{detail}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{detail}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{detail}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{detail}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{detail}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{detail}}"/>
+    </g>
+    <clipPath id="sky"><rect width="1456" height="500"/></clipPath>
+  </defs>
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <circle cx="728" cy="300" r="230" fill="{{shape}}"/>
+  <rect y="500" width="1456" height="124" fill="{{ground}}"/>
+  <!-- ondes -->
+  <g clip-path="url(#sky)" fill="none" stroke="{{mid}}" stroke-width="5">
+    <circle cx="728" cy="230" r="150"/><circle cx="728" cy="230" r="250"/><circle cx="728" cy="230" r="360"/>
+    <circle cx="728" cy="230" r="480"/><circle cx="728" cy="230" r="610"/>
+  </g>
+  <!-- monticule + diapason -->
+  <path d="M600 500 Q728 430 856 500 Z" fill="{{soft}}"/>
+  <g fill="none" stroke="{{subject}}" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M697 50 L697 200 Q697 262 728 262 Q759 262 759 200 L759 50" stroke-width="30"/>
+    <path d="M728 262 L728 452" stroke-width="36"/>
+  </g>
+  <circle cx="728" cy="462" r="24" fill="{{subject}}"/>
+  <g fill="none" stroke="{{shadow}}" stroke-width="5" stroke-linecap="round">
+    <path d="M660 70 Q646 110 660 150"/><path d="M634 56 Q614 110 634 164"/>
+    <path d="M796 70 Q810 110 796 150"/><path d="M822 56 Q842 110 822 164"/>
+  </g>
+  <!-- silhouettes accordées -->
+  <use href="#man" transform="translate(140 500) scale(1.15)"/>
+  <use href="#woman" transform="translate(270 500) scale(1.05)"/>
+  <use href="#man" transform="translate(410 500) scale(0.95)"/>
+  <use href="#woman" transform="translate(560 500) scale(1.2)"/>
+  <use href="#man" transform="translate(900 500) scale(1.2)"/>
+  <use href="#woman" transform="translate(1040 500) scale(1)"/>
+  <use href="#man" transform="translate(1170 500) scale(1.1)"/>
+  <use href="#woman" transform="translate(1300 500) scale(1.2)"/>
+</svg>
