@@ -1,0 +1,612 @@
+{
+  "$schema": "../../../schemas/generated/services.page.schema.json",
+  "title_fr": "Tableau de bord de direction pour dirigeant de PME · Waimia",
+  "title_en": "Management dashboard for SME owners · Waimia",
+  "description_fr": "Tableau de bord de direction pour dirigeant de PME : cinq à huit indicateurs, sources branchées, alertes envoyées à une personne nommée. Dès 999 € HT.",
+  "description_en": "Management dashboard for SME owners: five to eight indicators, connected sources, alerts sent to a named person. From €999 excl. VAT.",
+  "slug": "tableau-de-bord-direction",
+  "publishedAt": "2026-10-12T00:00:00.000Z",
+  "updatedAt": "2026-10-12",
+  "category": "donnees",
+  "tags": [
+    "tableau-de-bord-direction",
+    "pilotage-pme",
+    "kpi-dirigeant",
+    "indicateurs-cles",
+    "alertes-seuil"
+  ],
+  "seo": {
+    "noindex": false,
+    "serviceType": "Tableau de bord de pilotage pour dirigeant de PME",
+    "priceRange": "dès 999 €",
+    "priceMin": 999
+  },
+  "faq_fr": [
+    {
+      "q": "Combien d'indicateurs faut-il sur un tableau de bord de direction ?",
+      "a": "Entre cinq et huit sur l'écran principal. Au-delà, l'écran se lit mal et chaque chiffre perd son responsable. Les autres chiffres vivent dans des pages de détail, ouvertes quand un indicateur sort de sa plage."
+    },
+    {
+      "q": "Qui reçoit les alertes, et que se passe-t-il ensuite ?",
+      "a": "Chaque alerte est adressée à une personne nommée, par email ou message, avec le chiffre, sa plage normale et la date de la donnée. Elle ne déclenche aucune action : la personne regarde, puis décide."
+    },
+    {
+      "q": "Faut-il changer de logiciel de comptabilité ou de CRM ?",
+      "a": "Dans la plupart des cas, non. On lit vos outils tels qu'ils sont, par leurs connecteurs ou par des exports automatisés. Un outil qui n'expose aucune donnée exploitable se traite à part, et on le dit dès l'audit."
+    },
+    {
+      "q": "Le tableau de bord se lit-il sur téléphone ?",
+      "a": "L'écran principal est conçu pour tenir sur un téléphone : un dirigeant l'ouvre entre deux rendez-vous. Les pages de détail sont pensées pour l'ordinateur."
+    },
+    {
+      "q": "Quels chiffres déconseillez-vous de suivre ?",
+      "a": "Ceux sans décision attachée (audience, abonnés), ceux saisis à la main une fois par trimestre, et les ratios qui croisent des sources dont les définitions ne concordent pas. On les écarte par écrit pour ne pas les rouvrir à chaque réunion."
+    },
+    {
+      "q": "Mes données sont de qualité moyenne : est-ce bloquant ?",
+      "a": "L'écran les rendra visibles, il ne les corrigera pas. À l'audit, on mesure le retard de saisie, les doublons et les champs vides sur un échantillon. Si c'est trop dégradé, on commence par le socle de données plutôt que par le tableau."
+    },
+    {
+      "q": "Cela remplace-t-il mon expert-comptable ?",
+      "a": "Non. Le tableau donne une lecture en cours d'année, sur des chiffres non clôturés. Les chiffres officiels restent ceux de la comptabilité et du bilan."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "How many indicators should a management dashboard have?",
+      "a": "Between five and eight on the main screen. Beyond that the screen is hard to read and each figure loses its owner. The other figures live on detail pages, opened when an indicator leaves its range."
+    },
+    {
+      "q": "Who receives the alerts, and what happens next?",
+      "a": "Each alert goes to a named person, by email or message, with the figure, its normal range and the date of the data. It triggers no action: the person looks, then decides."
+    },
+    {
+      "q": "Do we need to change our accounting software or CRM?",
+      "a": "In most cases, no. We read your tools as they are, through their connectors or automated exports. A tool that exposes no usable data is handled separately, and we say so at the audit."
+    },
+    {
+      "q": "Can the dashboard be read on a phone?",
+      "a": "The main screen is designed to fit on a phone: a manager opens it between two meetings. The detail pages are designed for a computer."
+    },
+    {
+      "q": "Which figures do you advise against tracking?",
+      "a": "Those with no decision attached (audience, followers), those typed by hand once a quarter, and ratios that cross sources whose definitions do not match. We set them aside in writing so they are not reopened at every meeting."
+    },
+    {
+      "q": "My data quality is average: is that a blocker?",
+      "a": "The screen will make it visible, it will not fix it. At the audit we measure entry delays, duplicates and empty fields on a sample. If it is too degraded, we start with the data base rather than the dashboard."
+    },
+    {
+      "q": "Does it replace my accountant?",
+      "a": "No. The dashboard gives an in-year reading, on figures that are not yet closed. The official figures remain those of the accounts and the annual statements."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-masthead-card",
+      "background": "paper",
+      "kicker_fr": "§ Tableau de bord de direction",
+      "kicker_en": "§ Management dashboard",
+      "h1_fr": "Un <i class=\"acc\">tableau de bord</i> de direction qui tient sur un écran",
+      "h1_en": "A management <i class=\"acc\">dashboard</i> that fits on one screen",
+      "lede_fr": "Un tableau de bord de direction réunit sur un écran les cinq à huit chiffres qui servent à décider. Waimia le conçoit avec le dirigeant : indicateurs choisis un par un, sources branchées, une personne nommée pour chaque alerte.",
+      "lede_en": "A management dashboard gathers on one screen the five to eight figures that help decide. Waimia designs it with the owner: indicators picked one by one, sources connected, one named person for each alert.",
+      "badges": [
+        {
+          "label_fr": "5 à 8 indicateurs",
+          "label_en": "5 to 8 indicators"
+        },
+        {
+          "label_fr": "Alertes nommées",
+          "label_en": "Named alerts"
+        },
+        {
+          "label_fr": "Données chez vous",
+          "label_en": "Data on your side"
+        }
+      ],
+      "cta_sub_fr": "Audit gratuit de 45 minutes en visio. On choisit ensemble les indicateurs qui méritent un écran.",
+      "cta_sub_en": "Free 45-minute audit by video call. Together we choose the indicators that deserve a screen.",
+      "cta_primary": {
+        "label_fr": "Réserver un audit IA gratuit →",
+        "label_en": "Book a free AI audit →",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme",
+        "variant": "ghost"
+      },
+      "media_src": "/images/illustrations/ds/tableau-de-bord-direction-hublot-gouvernail-ink.webp",
+      "media_alt_fr": "Illustration : un grand hublot sur l'horizon, une barre à roue et six voyants sur le pupitre, deux silhouettes de dos.",
+      "media_alt_en": "Illustration: a large porthole on the horizon, a ship's wheel and six lamps on the console, two figures seen from behind."
+    },
+    {
+      "type": "proof-bar",
+      "background": "paper",
+      "kicker_fr": "§ En bref",
+      "kicker_en": "§ In short",
+      "metrics": [
+        {
+          "value": "999 € HT",
+          "label_fr": "sprint de cadrage de 10 h : indicateurs choisis, premier écran en ligne",
+          "label_en": "10-hour scoping sprint: indicators chosen, first screen online",
+          "emphasis": true
+        },
+        {
+          "value": "5 à 8",
+          "label_fr": "indicateurs sur l'écran principal, jamais davantage",
+          "label_en": "indicators on the main screen, never more",
+          "emphasis": false
+        },
+        {
+          "value": "1 nom",
+          "label_fr": "par alerte : une personne prévenue, qui décide",
+          "label_en": "per alert: one person notified, who decides",
+          "emphasis": false
+        },
+        {
+          "value": "À vous",
+          "label_fr": "tableau, définitions et règles d'alerte, documentés",
+          "label_en": "dashboard, definitions and alert rules, documented",
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "type": "definition-extract",
+      "background": "paper",
+      "kicker_fr": "§ Définition",
+      "kicker_en": "§ Definition",
+      "statement_fr": "Un <i class=\"acc\">tableau de bord de direction</i> est un écran de pilotage limité à ce qu'un dirigeant décide : cinq à huit indicateurs, chacun avec sa source, sa définition écrite, son seuil d'alerte et la personne qui agit quand il bouge. Il ne remplace ni la comptabilité ni les rapports détaillés : il dit où regarder.",
+      "statement_en": "A <i class=\"acc\">management dashboard</i> is a steering screen limited to what an owner decides: five to eight indicators, each with its source, written definition, alert threshold and the person who acts when it moves. It replaces neither accounting nor detailed reports: it says where to look.",
+      "pills": [
+        {
+          "label_fr": "5 à 8 indicateurs",
+          "label_en": "5 to 8 indicators"
+        },
+        {
+          "label_fr": "Une source par chiffre",
+          "label_en": "One source per figure"
+        },
+        {
+          "label_fr": "Seuil d'alerte",
+          "label_en": "Alert threshold"
+        },
+        {
+          "label_fr": "Responsable nommé",
+          "label_en": "Named owner"
+        },
+        {
+          "label_fr": "Mise à jour automatique",
+          "label_en": "Automatic refresh"
+        }
+      ],
+      "specs": [
+        {
+          "label_fr": "Facturation et banque",
+          "label_en": "Invoicing and bank"
+        },
+        {
+          "label_fr": "CRM",
+          "label_en": "CRM"
+        },
+        {
+          "label_fr": "Tableur de suivi",
+          "label_en": "Tracking spreadsheet"
+        },
+        {
+          "label_fr": "Outil métier",
+          "label_en": "Business tool"
+        },
+        {
+          "label_fr": "Base de données",
+          "label_en": "Database"
+        },
+        {
+          "label_fr": "Outil de tableaux de bord",
+          "label_en": "Dashboard tool"
+        }
+      ]
+    },
+    {
+      "type": "pain-severity-list",
+      "background": "ink",
+      "columns": "2",
+      "kicker_fr": "§ Les échecs courants",
+      "kicker_en": "§ Common failures",
+      "h2_fr": "Comment un tableau de direction <i class=\"acc\">échoue</i>.",
+      "h2_en": "How a management dashboard <i class=\"acc\">fails</i>.",
+      "items": [
+        {
+          "severity": "critical",
+          "title_fr": "Des chiffres que personne ne croit",
+          "title_en": "Figures nobody believes",
+          "desc_fr": "Deux sources donnent deux totaux différents et personne ne sait lequel est juste. Le tableau est abandonné en quelques semaines.",
+          "desc_en": "Two sources give two different totals and nobody knows which is right. The dashboard is abandoned within weeks.",
+          "fix_fr": "Une définition écrite par indicateur, une source désignée.",
+          "fix_en": "One written definition per indicator, one designated source."
+        },
+        {
+          "severity": "high",
+          "title_fr": "Trop d'indicateurs",
+          "title_en": "Too many indicators",
+          "desc_fr": "À trente graphiques, aucun n'a de responsable et la réunion repart sur les mêmes débats.",
+          "desc_en": "With thirty charts, none has an owner and the meeting restarts the same debates.",
+          "fix_fr": "Cinq à huit chiffres, chacun rattaché à une décision.",
+          "fix_en": "Five to eight figures, each tied to a decision."
+        },
+        {
+          "severity": "high",
+          "title_fr": "Une donnée en retard affichée comme à jour",
+          "title_en": "Late data shown as up to date",
+          "desc_fr": "L'écran montre le mois en cours avec des factures saisies trois semaines plus tard.",
+          "desc_en": "The screen shows the current month with invoices entered three weeks later.",
+          "fix_fr": "La date de la dernière donnée est visible sur chaque chiffre.",
+          "fix_en": "The date of the latest data is visible on each figure."
+        },
+        {
+          "severity": "medium",
+          "title_fr": "Des alertes sans destinataire",
+          "title_en": "Alerts with no recipient",
+          "desc_fr": "Un seuil dépassé s'affiche en rouge, personne n'est prévenu, personne n'agit.",
+          "desc_en": "A crossed threshold shows in red, nobody is notified, nobody acts.",
+          "fix_fr": "Un nom par alerte, un canal, une plage normale.",
+          "fix_en": "One name per alert, one channel, one normal range."
+        },
+        {
+          "severity": "medium",
+          "title_fr": "Un tableau figé à la livraison",
+          "title_en": "A dashboard frozen at delivery",
+          "desc_fr": "L'entreprise change d'offre ou de métier, les indicateurs ne suivent pas.",
+          "desc_en": "The company changes offer or trade, the indicators do not follow.",
+          "fix_fr": "Revue trimestrielle : ce qui ne sert plus est retiré.",
+          "fix_en": "Quarterly review: what no longer serves is removed."
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/tableau-de-bord-direction-mur-de-voyants-paper.webp",
+          "alt_fr": "Illustration : un grand panneau de trente-deux voyants dont six seulement sont allumés, une silhouette de dos le désigne.",
+          "alt_en": "Illustration: a large panel of thirty-two lamps with only six lit, a figure seen from behind pointing at it.",
+          "side": "right"
+        }
+      ],
+      "html_fr": "<h2>Partir des décisions, pas des données</h2>\n<p>La question de départ n'est pas « que peut-on mesurer ? » mais « quelle décision prenez-vous chaque lundi ? ». Relancer un client en retard, repousser un recrutement, refuser un chantier : chaque indicateur retenu est rattaché à une décision et à la personne qui la prend. Celui qui n'a ni décision ni responsable ne passe pas sur l'écran principal.</p>\n<p>La sélection se fait avec le dirigeant, à partir des exports que vous utilisez déjà. L'article <a href=\"/blog/tableau-de-bord-pme-quelles-donnees-suivre\">tableau de bord PME : les données qui comptent</a> donne les familles d'indicateurs ; ici, on tranche pour votre entreprise.</p>\n<h2>Ce qu'on ne suit pas</h2>\n<p>Quatre catégories reviennent. Les indicateurs d'audience sans lien avec une vente. Les chiffres que personne ne peut influencer à son niveau. Les données saisies à la main une fois par trimestre : un écran « à jour » alimenté par une saisie trimestrielle ment sans le dire. Enfin les ratios qui croisent des sources dont les définitions ne concordent pas. Ces écarts sont consignés par écrit, avec la raison, pour ne pas rouvrir le débat à chaque réunion.</p>\n<h2>Ce que fait une alerte, et ce qu'elle ne fait pas</h2>\n<p>Une alerte prévient une personne nommée quand un indicateur sort de sa plage habituelle : le chiffre, la plage normale, la date de la donnée. Elle ne bloque aucune commande et ne déclenche aucune relance toute seule. La décision reste humaine ; l'automatisation fait gagner le temps de la découverte, pas celui du jugement.</p>\n<h2>Prérequis : une donnée saisie à temps</h2>\n<p>L'écran affiche la qualité de vos données, il ne la fabrique pas. Si les factures sont saisies avec trois semaines de retard, il affichera trois semaines de retard. Cela se mesure à l'audit sur un échantillon, avant de promettre un écran. Quand les sources sont éparpillées ou en double, c'est le <a href=\"/services/centralisation-donnees\">socle de données</a> qui passe en premier ; quand le besoin est un document envoyé à un tiers plutôt qu'un écran, c'est le <a href=\"/services/reporting-automatise\">reporting automatisé</a>.</p>\n<p>Si l'acquisition fait partie de vos chiffres (demandes entrantes par canal, coût d'une demande), ils viennent du <a href=\"/services/systeme-acquisition\">système d'acquisition</a> et se lisent sur le même écran. Le cadre général reste sur la page <a href=\"/services/donnees-reporting\">données et reporting</a>.</p>",
+      "html_en": "<h2>Start from decisions, not from data</h2>\n<p>The starting question is not \"what can we measure?\" but \"which decision do you make every Monday?\". Chasing a late customer, postponing a hire, turning down a job: each indicator kept is tied to a decision and to the person who makes it. One with no decision and no owner does not reach the main screen.</p>\n<p>The selection is made with the manager, from the exports you already use. The article <a href=\"/blog/tableau-de-bord-pme-quelles-donnees-suivre\">SMB dashboard: the data that matters</a> gives the families of indicators; here, we decide for your company.</p>\n<h2>What we do not track</h2>\n<p>Four categories come back. Audience indicators with no link to a sale. Figures nobody can influence at their level. Data typed by hand once a quarter: an \"up to date\" screen fed by a quarterly entry lies without saying so. And ratios that cross sources whose definitions do not match. These gaps are recorded in writing, with the reason, so the debate is not reopened at every meeting.</p>\n<h2>What an alert does, and what it does not</h2>\n<p>An alert notifies a named person when an indicator leaves its usual range: the figure, the normal range, the date of the data. It blocks no order and triggers no follow-up on its own. The decision stays human; automation saves the time of discovery, not the time of judgement.</p>\n<h2>Prerequisite: data entered on time</h2>\n<p>The screen shows the quality of your data, it does not create it. If invoices are entered three weeks late, it will show three weeks of delay. This is measured at the audit on a sample, before promising a screen. When sources are scattered or duplicated, the <a href=\"/services/centralisation-donnees\">data base</a> comes first; when the need is a document sent to a third party rather than a screen, it is <a href=\"/services/reporting-automatise\">automated reporting</a>.</p>\n<p>If acquisition is part of your figures (inbound requests by channel, cost of a request), they come from the <a href=\"/services/systeme-acquisition\">acquisition system</a> and read on the same screen. The general frame stays on the <a href=\"/services/donnees-reporting\">data and reporting</a> page.</p>"
+    },
+    {
+      "type": "method-stepline",
+      "background": "paper-3",
+      "kicker_fr": "§ Méthode",
+      "kicker_en": "§ Method",
+      "duration_fr": "Sprint de cadrage · 10 h",
+      "duration_en": "Scoping sprint · 10 h",
+      "h2_fr": "De la décision à l'écran, en cinq étapes",
+      "h2_en": "From decision to screen, in five steps",
+      "lede_fr": "Chaque étape produit une page courte que vous relisez avant de passer à la suivante.",
+      "lede_en": "Each step produces a short page you review before moving to the next.",
+      "steps": [
+        {
+          "title_fr": "Les décisions",
+          "title_en": "The decisions",
+          "sub_fr": "Ce que vous tranchez chaque semaine",
+          "sub_en": "What you decide every week"
+        },
+        {
+          "title_fr": "Les indicateurs",
+          "title_en": "The indicators",
+          "sub_fr": "Cinq à huit, définis par écrit",
+          "sub_en": "Five to eight, defined in writing"
+        },
+        {
+          "title_fr": "Les sources",
+          "title_en": "The sources",
+          "sub_fr": "Une source par chiffre, branchée",
+          "sub_en": "One source per figure, connected"
+        },
+        {
+          "title_fr": "Les seuils",
+          "title_en": "The thresholds",
+          "sub_fr": "Plage normale et personne prévenue",
+          "sub_en": "Normal range and person notified"
+        },
+        {
+          "title_fr": "L'écran",
+          "title_en": "The screen",
+          "sub_fr": "Une page, lisible sur téléphone",
+          "sub_en": "One page, readable on a phone"
+        }
+      ]
+    },
+    {
+      "type": "comparison-duo",
+      "background": "paper",
+      "kicker_fr": "§ Deux écrans",
+      "kicker_en": "§ Two screens",
+      "h2_fr": "Un tableau qui informe, ou un tableau qui décore",
+      "h2_en": "A dashboard that informs, or one that decorates",
+      "without_label_fr": "Avant",
+      "without_label_en": "Before",
+      "without_title_fr": "Trente graphiques, aucun responsable",
+      "without_title_en": "Thirty charts, no owner",
+      "without_items": [
+        {
+          "text_fr": "Des chiffres de trois sources qui ne se recoupent pas.",
+          "text_en": "Figures from three sources that do not reconcile."
+        },
+        {
+          "text_fr": "Une mise à jour quand quelqu'un y pense.",
+          "text_en": "Updated when someone remembers."
+        },
+        {
+          "text_fr": "Personne ne sait lesquels regarder le lundi.",
+          "text_en": "Nobody knows which ones to look at on Monday."
+        },
+        {
+          "text_fr": "Une alerte rouge que personne n'a reçue.",
+          "text_en": "A red alert nobody received."
+        }
+      ],
+      "with_label_fr": "Après",
+      "with_label_en": "After",
+      "with_title_fr": "Un écran, six chiffres",
+      "with_title_en": "One screen, six figures",
+      "with_items": [
+        {
+          "text_fr": "Chaque chiffre a sa décision et son responsable.",
+          "text_en": "Each figure has its decision and its owner."
+        },
+        {
+          "text_fr": "Une définition écrite par indicateur.",
+          "text_en": "One written definition per indicator."
+        },
+        {
+          "text_fr": "Une mise à jour chaque nuit, avec la date visible.",
+          "text_en": "A refresh every night, with the date visible."
+        },
+        {
+          "text_fr": "Une alerte à une personne nommée quand une plage est dépassée.",
+          "text_en": "An alert to a named person when a range is crossed."
+        },
+        {
+          "text_fr": "Les indicateurs retirés sont listés, avec la raison.",
+          "text_en": "Removed indicators are listed, with the reason."
+        }
+      ]
+    },
+    {
+      "type": "deliverables-grid",
+      "background": "paper-3",
+      "kicker_fr": "§ Ce que vous gardez",
+      "kicker_en": "§ What you keep",
+      "title_fr": "Ce qui vous reste à la fin",
+      "title_en": "What you keep at the end",
+      "lead_fr": "Quatre documents et un écran, à votre nom, que votre équipe peut faire évoluer.",
+      "lead_en": "Four documents and one screen, in your name, that your team can evolve.",
+      "items": [
+        {
+          "title_fr": "Le choix des indicateurs",
+          "title_en": "The indicator selection",
+          "body_fr": "Pour chacun : la décision attachée, la source, la définition et le seuil.",
+          "body_en": "For each: the attached decision, the source, the definition and the threshold.",
+          "format_fr": "FICHE",
+          "format_en": "SHEET"
+        },
+        {
+          "title_fr": "L'écran de direction",
+          "title_en": "The management screen",
+          "body_fr": "Une page, lisible sur téléphone, avec la date de la dernière donnée.",
+          "body_en": "One page, readable on a phone, with the date of the latest data.",
+          "format_fr": "ÉCRAN",
+          "format_en": "SCREEN"
+        },
+        {
+          "title_fr": "Les règles d'alerte",
+          "title_en": "The alert rules",
+          "body_fr": "Plages normales, canal et personne prévenue, modifiables par votre équipe.",
+          "body_en": "Normal ranges, channel and person notified, editable by your team.",
+          "format_fr": "ALERTES",
+          "format_en": "ALERTS"
+        },
+        {
+          "title_fr": "La liste des indicateurs écartés",
+          "title_en": "The list of discarded indicators",
+          "body_fr": "Ce qu'on ne suit pas et pourquoi, pour ne pas le rouvrir chaque trimestre.",
+          "body_en": "What we do not track and why, so it is not reopened every quarter.",
+          "format_fr": "ÉCARTÉS",
+          "format_en": "DISCARDED"
+        }
+      ]
+    },
+    {
+      "type": "decision-list",
+      "background": "paper",
+      "kicker_fr": "§ Quand ne pas le faire",
+      "kicker_en": "§ When not to do it",
+      "heading_fr": "Ne commandez pas ce tableau si",
+      "heading_en": "Do not order this dashboard if",
+      "items": [
+        {
+          "label_fr": "Vous suivez déjà trois chiffres dans un seul logiciel qui les affiche correctement.",
+          "label_en": "You already track three figures in a single tool that displays them properly."
+        },
+        {
+          "label_fr": "Vos factures ou vos devis sont saisis avec des semaines de retard : réglez d'abord la saisie.",
+          "label_en": "Your invoices or quotes are entered weeks late: fix data entry first."
+        },
+        {
+          "label_fr": "Personne ne peut dire quelle décision dépend de tel indicateur.",
+          "label_en": "Nobody can say which decision depends on a given indicator."
+        },
+        {
+          "label_fr": "Vous attendez que l'écran décide à votre place : il signale, il ne tranche pas.",
+          "label_en": "You expect the screen to decide for you: it flags, it does not decide."
+        },
+        {
+          "label_fr": "Vos chiffres sont répartis dans de nombreux outils sans identifiant commun : commencez par le socle de données.",
+          "label_en": "Your figures are spread across many tools with no common identifier: start with the data base."
+        }
+      ]
+    },
+    {
+      "type": "pricing-cards",
+      "background": "paper",
+      "layout": "grid-asym",
+      "colRatio": "2-3",
+      "kicker_fr": "§ Deux façons d'engager",
+      "kicker_en": "§ Two ways to engage",
+      "h2_fr": "Prix d'un tableau de bord de direction",
+      "h2_en": "Price of a management dashboard",
+      "lede_fr": "On démarre par un sprint de cadrage à prix fixe : choix des indicateurs, sources principales branchées et un premier écran en ligne. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints en régie. Vous gardez vos données, vos accès et votre tableau.",
+      "lede_en": "We start with a fixed-price scoping sprint: indicators chosen, main sources connected and a first screen online. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the time and materials frame. You keep your data, your access and your dashboard.",
+      "tiers": [
+        {
+          "name_fr": "Sprint de cadrage",
+          "name_en": "Scoping sprint",
+          "price": "999 €",
+          "period_fr": "10 h · HT",
+          "period_en": "10 h · ex VAT",
+          "features_fr": [
+            "Choix des cinq à huit indicateurs, par écrit",
+            "Sources principales branchées, mise à jour automatique",
+            "Écran de direction et alertes à des personnes nommées",
+            "Un premier écran qui tourne, pas une maquette"
+          ],
+          "features_en": [
+            "Five to eight indicators chosen, in writing",
+            "Main sources connected, automatic refresh",
+            "Management screen and alerts to named people",
+            "A first screen that runs, not a mockup"
+          ],
+          "cta": {
+            "label_fr": "Réserver un audit IA gratuit →",
+            "label_en": "Book a free AI audit →",
+            "href": "/contact?offer=audit-ia-pme&intent=audit",
+            "variant": "primary"
+          },
+          "featured": true
+        },
+        {
+          "name_fr": "Suite sur devis",
+          "name_en": "Next steps on quote",
+          "price": "Sur devis",
+          "period_fr": "estimé avec vous · HT",
+          "period_en": "estimated with you · ex VAT",
+          "features_fr": [
+            "Temps nécessaire estimé ensemble, puis validé",
+            "Exécuté en sprints, facturés en régie",
+            "Sources et pages de détail ajoutées",
+            "Vous gardez données, accès et tableau"
+          ],
+          "features_en": [
+            "Time needed estimated together, then validated",
+            "Run in sprints, time and materials frame",
+            "Sources and detail pages added",
+            "You keep the data, access and dashboard"
+          ],
+          "cta": {
+            "label_fr": "Cadrer la suite →",
+            "label_en": "Scope what follows →",
+            "href": "/contact?offer=tableau-de-bord-direction&intent=suite",
+            "variant": "ghost"
+          }
+        }
+      ],
+      "footnote_fr": "Le sprint de cadrage est à prix fixe, 999 € HT pour 10 heures : choix des indicateurs, sources principales branchées, un premier écran et ses alertes. La suite se cale sur devis : on estime ensemble le temps des sources et des pages de détail supplémentaires, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, vos données, vos accès et votre tableau sont à vous.",
+      "footnote_en": "The scoping sprint is fixed-price, 999 € ex VAT for 10 hours: indicators chosen, main sources connected, a first screen and its alerts. What follows is quoted: we estimate together the time for additional sources and detail pages, validate it, then run it in sprints within the time and materials frame, at {{prix.horaire}} € an hour, non-degressive. No subscription, no lock-in: at the end, your data, your access and your dashboard are yours."
+    },
+    {
+      "type": "eeat-panel",
+      "variant": "media",
+      "silo": "ops"
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper-2",
+      "kicker_fr": "§ Questions fréquentes",
+      "kicker_en": "§ Frequently asked questions",
+      "h2_fr": "Tableau de bord de direction : vos questions",
+      "h2_en": "Management dashboard: your questions",
+      "items": [
+        {
+          "q_fr": "Combien d'indicateurs faut-il sur un tableau de bord de direction ?",
+          "a_fr": "Entre cinq et huit sur l'écran principal. Au-delà, l'écran se lit mal et chaque chiffre perd son responsable. Les autres chiffres vivent dans des pages de détail, ouvertes quand un indicateur sort de sa plage.",
+          "q_en": "How many indicators should a management dashboard have?",
+          "a_en": "Between five and eight on the main screen. Beyond that the screen is hard to read and each figure loses its owner. The other figures live on detail pages, opened when an indicator leaves its range."
+        },
+        {
+          "q_fr": "Qui reçoit les alertes, et que se passe-t-il ensuite ?",
+          "a_fr": "Chaque alerte est adressée à une personne nommée, par email ou message, avec le chiffre, sa plage normale et la date de la donnée. Elle ne déclenche aucune action : la personne regarde, puis décide.",
+          "q_en": "Who receives the alerts, and what happens next?",
+          "a_en": "Each alert goes to a named person, by email or message, with the figure, its normal range and the date of the data. It triggers no action: the person looks, then decides."
+        },
+        {
+          "q_fr": "Faut-il changer de logiciel de comptabilité ou de CRM ?",
+          "a_fr": "Dans la plupart des cas, non. On lit vos outils tels qu'ils sont, par leurs connecteurs ou par des exports automatisés. Un outil qui n'expose aucune donnée exploitable se traite à part, et on le dit dès l'audit.",
+          "q_en": "Do we need to change our accounting software or CRM?",
+          "a_en": "In most cases, no. We read your tools as they are, through their connectors or automated exports. A tool that exposes no usable data is handled separately, and we say so at the audit."
+        },
+        {
+          "q_fr": "Le tableau de bord se lit-il sur téléphone ?",
+          "a_fr": "L'écran principal est conçu pour tenir sur un téléphone : un dirigeant l'ouvre entre deux rendez-vous. Les pages de détail sont pensées pour l'ordinateur.",
+          "q_en": "Can the dashboard be read on a phone?",
+          "a_en": "The main screen is designed to fit on a phone: a manager opens it between two meetings. The detail pages are designed for a computer."
+        },
+        {
+          "q_fr": "Quels chiffres déconseillez-vous de suivre ?",
+          "a_fr": "Ceux sans décision attachée (audience, abonnés), ceux saisis à la main une fois par trimestre, et les ratios qui croisent des sources dont les définitions ne concordent pas. On les écarte par écrit pour ne pas les rouvrir à chaque réunion.",
+          "q_en": "Which figures do you advise against tracking?",
+          "a_en": "Those with no decision attached (audience, followers), those typed by hand once a quarter, and ratios that cross sources whose definitions do not match. We set them aside in writing so they are not reopened at every meeting."
+        },
+        {
+          "q_fr": "Mes données sont de qualité moyenne : est-ce bloquant ?",
+          "a_fr": "L'écran les rendra visibles, il ne les corrigera pas. À l'audit, on mesure le retard de saisie, les doublons et les champs vides sur un échantillon. Si c'est trop dégradé, on commence par le socle de données plutôt que par le tableau.",
+          "q_en": "My data quality is average: is that a blocker?",
+          "a_en": "The screen will make it visible, it will not fix it. At the audit we measure entry delays, duplicates and empty fields on a sample. If it is too degraded, we start with the data base rather than the dashboard."
+        },
+        {
+          "q_fr": "Cela remplace-t-il mon expert-comptable ?",
+          "a_fr": "Non. Le tableau donne une lecture en cours d'année, sur des chiffres non clôturés. Les chiffres officiels restent ceux de la comptabilité et du bilan.",
+          "q_en": "Does it replace my accountant?",
+          "a_en": "No. The dashboard gives an in-year reading, on figures that are not yet closed. The official figures remain those of the accounts and the annual statements."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "layout": "stacked",
+      "contentAlign": "center",
+      "actionsAlign": "center",
+      "rounded": true,
+      "kicker_fr": "§ Audit IA gratuit",
+      "kicker_en": "§ Free AI audit",
+      "h2_fr": "Quelle décision attend un chiffre que vous n'avez pas ?",
+      "h2_en": "Which decision is waiting for a figure you do not have?",
+      "subtitle_fr": "En 45 minutes, on liste vos décisions de la semaine et on vous dit quels indicateurs méritent un écran, lesquels n'en méritent pas.",
+      "subtitle_en": "In 45 minutes, we list your decisions of the week and tell you which indicators deserve a screen and which do not.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un audit IA gratuit →",
+          "label_en": "Book a free AI audit →",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Cadrer un tableau de direction",
+          "label_en": "Scope a management dashboard",
+          "href": "/contact?offer=tableau-de-bord-direction&intent=cadrage",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}
