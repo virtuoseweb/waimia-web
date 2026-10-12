@@ -1,12 +1,12 @@
 {
   "$schema": "../../../schemas/generated/services.page.schema.json",
-  "title_fr": "Développement de MVP SaaS pour PME · vendable en semaines",
-  "title_en": "SaaS MVP development for SMEs · sellable in weeks",
-  "description_fr": "Développement MVP SaaS : on lance votre produit vendable en semaines, stack moderne, IA-assisté, itérations courtes. Le code est à vous. Diagnostic gratuit.",
-  "description_en": "SaaS MVP development: we launch your sellable product in weeks, modern stack, AI-assisted, short iterations. The code is yours. Free diagnostic.",
+  "title_fr": "Développement de MVP SaaS pour PME · Waimia",
+  "title_en": "SaaS MVP development for SMEs · Waimia",
+  "description_fr": "Développement de MVP SaaS pour PME et fondateurs : un premier produit vendable avec inscription, comptes et paiement. Dès 2 000 € HT, code remis.",
+  "description_en": "SaaS MVP development for SMEs and founders: a first sellable product with sign-up, accounts and payment. From 2,000 € excl. VAT, code handed over.",
   "slug": "mvp-saas",
   "publishedAt": "2026-07-16T00:00:00.000Z",
-  "updatedAt": "2026-07-16T00:00:00.000Z",
+  "updatedAt": "2026-10-12T00:00:00.000Z",
   "category": "applications",
   "tags": [
     "developpement-mvp-saas",
@@ -24,102 +24,94 @@
   },
   "faq_fr": [
     {
-      "q": "C'est quoi un MVP SaaS ?",
-      "a": "La première version minimale mais vendable d'un produit logiciel : juste assez de fonctions pour qu'un client s'inscrive, l'utilise et le paie. Elle sert à apprendre du marché vite, avec inscription, authentification et paiement dès le départ, puis à itérer sur l'usage réel plutôt que sur des suppositions."
+      "q": "C'est quoi un MVP SaaS ?",
+      "a": "La première version d'un logiciel vendu par abonnement : le minimum qu'un client peut utiliser et payer. Elle comprend l'inscription, des comptes séparés par client, un paiement et un seul parcours qui apporte de la valeur. On l'utilise pour apprendre du marché, puis on ajoute une fonction quand l'usage mesuré la justifie."
     },
     {
-      "q": "Combien coûte un MVP SaaS ?",
-      "a": "Quatre socles selon le périmètre, de 2 000 € à 10 000 € HT : un premier produit vendable en ligne avec inscription et paiement, puis des itérations en sprints à {{prix.horaire}} € de l'heure. On estime le temps ensemble, vous validez, on livre. Le code est à vous, sans captivité."
+      "q": "Combien coûte un MVP SaaS ?",
+      "a": "Quatre paliers selon le périmètre de la v0 : à partir de 2 000 € HT, puis 4 000, 7 000 et à partir de 10 000 € HT. Le sprint de cadrage de 10 heures coûte 999 € HT et fixe le périmètre avant la construction. Les itérations ensuite se facturent {{prix.horaire}} € HT de l'heure."
     },
     {
-      "q": "Quelle différence entre un MVP SaaS et un outil interne ?",
-      "a": "Un outil interne sert votre équipe : il porte votre process, personne ne le paie. Un MVP SaaS est tourné vers un marché : des clients s'inscrivent, l'utilisent et le paient. Ça change tout, on ajoute l'authentification, le multi-compte, la facturation et le tunnel d'inscription. C'est un produit, pas un back-office."
+      "q": "Quelle différence entre un MVP SaaS et un outil interne ?",
+      "a": "Un outil interne sert votre équipe : il porte votre process et personne ne le paie. Un MVP SaaS s'adresse à un marché : des clients s'inscrivent, l'utilisent et le paient. Il faut alors des comptes séparés, un paiement et un tunnel d'inscription. Pour un outil d'équipe, voir l'application interne sur mesure."
     },
     {
-      "q": "Combien de temps pour un MVP en ligne ?",
-      "a": "Une première version vendable tourne souvent en quelques semaines, pas en trimestres. L'IA accélère l'écriture du code, on garde la main sur l'architecture et les tests. On livre un socle utile vite, avec inscription et paiement, puis on itère au rythme de vos premiers utilisateurs."
+      "q": "Combien de temps faut-il pour sortir une v0 ?",
+      "a": "Cela dépend du périmètre et de la disponibilité de la personne qui décide. Le sprint de cadrage de 10 heures fixe le parcours à construire, et l'estimation de durée vient à la fin de ce cadrage. Nous ne donnons pas de délai avant."
     },
     {
-      "q": "L'IA vous fait développer plus vite, le produit reste solide ?",
-      "a": "Oui. L'IA accélère l'écriture du code, pas les décisions d'architecture ni les tests. On livre un MVP vite, avec de vrais garde-fous : authentification, contrôle des accès, sauvegardes, cas limites testés. Un produit qu'on vend ne peut pas être fragile, même en version zéro."
+      "q": "L'IA accélère le développement : le produit reste-t-il solide ?",
+      "a": "L'IA réduit le temps d'écriture du code, pas le temps de décision. L'architecture, les accès, les sauvegardes et les cas limites (paiement refusé, compte supprimé) restent conçus et testés par une personne. Un produit qu'on vend ne peut pas être fragile, même en version zéro."
     },
     {
-      "q": "Vous gérez l'inscription, l'authentification et le paiement ?",
-      "a": "Oui. Un MVP SaaS a besoin d'un tunnel d'inscription, d'une authentification propre, de comptes cloisonnés et d'un paiement, souvent Stripe. On pose ces briques dès la première version pour que le produit encaisse dès qu'un client dit oui, pas plus tard."
+      "q": "Gérez-vous l'inscription, l'authentification et le paiement ?",
+      "a": "Oui. Un MVP SaaS a besoin d'un tunnel d'inscription, d'une authentification propre, de comptes cloisonnés et d'un paiement, souvent Stripe. On pose ces briques dès la première version pour que le produit puisse encaisser le jour où un client dit oui."
     },
     {
-      "q": "À qui appartient le code, et où est-il hébergé ?",
-      "a": "Le code est à vous, livré et documenté. L'hébergement se fait sur une infra que vous contrôlez. Pas de captivité : vous levez des fonds, vous recrutez une équipe technique, vous changez de prestataire, sans repartir de zéro ni tout perdre. Le produit reste votre actif."
-    },
-    {
-      "q": "Comment on trouve le product-market fit avec un MVP ?",
-      "a": "En livrant vite une version minimale mais vendable, en la mettant devant de vrais utilisateurs, et en itérant sur ce qu'ils font, pas sur ce qu'on suppose. Le MVP sert à apprendre : on mesure l'usage, on ajuste au rythme des retours, on ajoute une fonction quand elle est prouvée, pas avant."
+      "q": "À qui appartient le code, et où est-il hébergé ?",
+      "a": "À vous. Le code est dans un dépôt à votre nom, la base de données et l'hébergement sont sur vos comptes, et la documentation permet à un autre développeur de reprendre. Vous pouvez lever des fonds, recruter une équipe technique ou changer de prestataire sans repartir de zéro."
     }
   ],
   "faq_en": [
     {
       "q": "What is a SaaS MVP?",
-      "a": "The first minimal but sellable version of a software product: just enough features for a customer to sign up, use it and pay. It's there to learn from the market fast, with sign-up, authentication and payment from the start, then iterate on real usage rather than on assumptions."
+      "a": "The first version of software sold by subscription: the minimum a customer can use and pay for. It includes sign-up, accounts kept separate per customer, a payment and a single journey that delivers value. You use it to learn from the market, then add a feature when measured usage justifies it."
     },
     {
       "q": "How much does a SaaS MVP cost?",
-      "a": "Four tiers by scope, from 2,000 € to 10,000 € ex VAT: a first sellable product online with sign-up and payment, then iterations in sprints at {{prix.horaire}} € an hour. We size the time together, you validate, we ship. The code is yours, no lock-in."
+      "a": "Four tiers by v0 scope: from 2,000 € excl. VAT, then 4,000, 7,000 and from 10,000 € excl. VAT. The 10-hour scoping sprint costs 999 € excl. VAT and sets the scope before anything is built. Later iterations are billed {{prix.horaire}} € an hour excl. VAT."
     },
     {
-      "q": "What's the difference between a SaaS MVP and an internal tool?",
-      "a": "An internal tool serves your team: it carries your process, no one pays for it. A SaaS MVP is turned toward a market: customers sign up, use it and pay for it. That changes everything, we add authentication, multi-account, billing and the sign-up funnel. It's a product, not a back-office."
+      "q": "What is the difference between a SaaS MVP and an internal tool?",
+      "a": "An internal tool serves your team: it carries your process and nobody pays for it. A SaaS MVP is aimed at a market: customers sign up, use it and pay for it. That calls for separate accounts, a payment and a sign-up funnel. For a team tool, see the bespoke internal application."
     },
     {
-      "q": "How long for an MVP online?",
-      "a": "A first sellable version often runs within a few weeks, not quarters. AI speeds up writing the code, we keep control of the architecture and the tests. We ship a useful base fast, with sign-up and payment, then iterate at the pace of your first users."
+      "q": "How long does it take to ship a v0?",
+      "a": "It depends on the scope and on how available the decision-maker is. The 10-hour scoping sprint fixes the journey to build, and the time estimate comes at the end of that scoping. We do not quote a lead time before."
     },
     {
-      "q": "AI makes you build faster, does the product stay solid?",
-      "a": "Yes. AI speeds up writing the code, not the architecture decisions or the tests. We ship an MVP fast, with real guardrails: authentication, access control, backups, edge cases tested. A product you sell can't be fragile, even in version zero."
+      "q": "AI speeds up development: does the product stay solid?",
+      "a": "AI cuts the time spent writing code, not the time spent deciding. Architecture, access, backups and edge cases (declined payment, deleted account) are still designed and tested by a person. A product you sell cannot be fragile, even in version zero."
     },
     {
       "q": "Do you handle sign-up, authentication and payment?",
-      "a": "Yes. A SaaS MVP needs a sign-up funnel, clean authentication, compartmentalised accounts and a payment, often Stripe. We lay these blocks in from the first version so the product can charge the moment a customer says yes, not later."
+      "a": "Yes. A SaaS MVP needs a sign-up funnel, clean authentication, separate accounts and a payment, often Stripe. We lay these blocks in from the first version so the product can take payment the day a customer says yes."
     },
     {
       "q": "Who owns the code, and where is it hosted?",
-      "a": "The code is yours, delivered and documented. Hosting is on infrastructure you control. No lock-in: you raise funds, hire a technical team, change providers, without starting over or losing everything. The product stays your asset."
-    },
-    {
-      "q": "How do you find product-market fit with an MVP?",
-      "a": "By shipping a minimal but sellable version fast, putting it in front of real users, and iterating on what they do, not on what we assume. The MVP is there to learn: we measure usage, adjust at the pace of feedback, add a feature when it's proven, not before."
+      "a": "You do. The code sits in a repository in your name, the database and hosting are on your accounts, and the documentation lets another developer take over. You can raise funds, hire a technical team or change provider without starting over."
     }
   ],
   "sections": [
     {
       "type": "hero-masthead-card",
       "background": "paper",
-      "kicker_fr": "§ MVP SaaS · brique du système opérationnel",
-      "kicker_en": "§ SaaS MVP · block of the operational system",
-      "h1_fr": "Développement de <i class=\"acc\">MVP SaaS</i>.",
-      "h1_en": "SaaS <i class=\"acc\">MVP</i> development.",
-      "lede_fr": "Une idée de produit reste une idée tant qu'un client ne l'a pas payée. Un MVP SaaS la met à l'épreuve du marché : une première version minimale mais vendable, avec inscription, authentification et paiement, construite vite grâce à l'IA. Là où l'outil interne sert votre équipe, le MVP se vend à un marché. On livre un socle solide, puis on itère avec vos premiers utilisateurs.",
-      "lede_en": "A product idea stays an idea until a customer has paid for it. A SaaS MVP puts it to the market's test: a first minimal but sellable version, with sign-up, authentication and payment, built fast thanks to AI. Where the internal tool serves your team, the MVP sells to a market. We ship a solid base, then iterate with your first users.",
+      "kicker_fr": "§ Développement de MVP SaaS",
+      "kicker_en": "§ SaaS MVP development",
+      "h1_fr": "Développement de <i class=\"acc\">MVP SaaS</i> pour PME",
+      "h1_en": "<i class=\"acc\">SaaS MVP</i> development for SMEs",
+      "lede_fr": "Un MVP SaaS est la première version d'un logiciel que vos clients peuvent utiliser et payer : inscription, comptes séparés, paiement et un seul parcours qui apporte de la valeur. Waimia le développe pour les PME et les fondateurs, le branche à vos outils et vous remet le code.",
+      "lede_en": "A SaaS MVP is the first version of software your customers can use and pay for: sign-up, separate accounts, payment and a single journey that delivers value. Waimia builds it for SMEs and founders, connects it to your tools and hands over the code.",
       "badges": [
         {
-          "label_fr": "Vendable",
-          "label_en": "Sellable"
+          "label_fr": "Inscription et paiement",
+          "label_en": "Sign-up and payment"
         },
         {
-          "label_fr": "Stack moderne",
-          "label_en": "Modern stack"
+          "label_fr": "Comptes cloisonnés",
+          "label_en": "Separate accounts"
         },
         {
-          "label_fr": "Construit vite, IA-assisté",
-          "label_en": "Built fast, AI-assisted"
+          "label_fr": "Mesure d'usage",
+          "label_en": "Usage measurement"
         },
         {
-          "label_fr": "Le code est à vous",
-          "label_en": "The code is yours"
+          "label_fr": "Code remis",
+          "label_en": "Code handed over"
         }
       ],
-      "cta_sub_fr": "Diagnostic de 45 min, gratuit et sans engagement : on part de votre idée et du premier client à convaincre.",
-      "cta_sub_en": "45-min diagnostic, free and no commitment: we start from your idea and the first customer to convince.",
+      "cta_sub_fr": "Audit gratuit de 45 minutes : on part de votre idée et du premier client à convaincre.",
+      "cta_sub_en": "Free 45-minute audit: we start from your idea and the first customer to convince.",
       "cta_primary": {
         "label_fr": "Réserver un audit IA gratuit →",
         "label_en": "Book a free AI audit →",
@@ -127,67 +119,70 @@
         "variant": "primary"
       },
       "cta_secondary": {
-        "label_fr": "Voir ce qu'on construit",
-        "label_en": "See what we build",
-        "href": "#capacites",
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme",
         "variant": "ghost"
       },
       "media_src": "/images/line-art/dispositif-flow.svg",
-      "media_alt_fr": "Schéma d'un MVP SaaS : un tunnel d'inscription, une authentification et un paiement branchés à un produit minimal mais vendable, mis devant de vrais utilisateurs.",
-      "media_alt_en": "Diagram of a SaaS MVP: a sign-up funnel, authentication and payment wired to a minimal but sellable product, put in front of real users."
+      "media_alt_fr": "Schéma : des outils dispersés et non reliés, puis un nœud central qui les connecte, puis une courbe de résultat mesuré.",
+      "media_alt_en": "Diagram: scattered, unlinked tools, then a central node connecting them, then a measured results curve."
     },
     {
       "type": "proof-bar",
       "background": "paper",
       "kicker_fr": "§ En bref",
-      "kicker_en": "§ At a glance",
+      "kicker_en": "§ In short",
       "metrics": [
         {
-          "value": "2–10 k€",
-          "label_fr": "budget HT indicatif, 4 socles au périmètre",
-          "label_en": "indicative ex-VAT budget, 4 tiers by scope",
+          "value": "2 000 € HT",
+          "label_fr": "dès, quatre paliers : 2 000, 4 000, 7 000 et 10 000 €",
+          "label_en": "from, four tiers: 2,000, 4,000, 7,000 and 10,000 €",
           "emphasis": true
         },
         {
-          "value": "3–8 sem.",
-          "label_fr": "première version vendable en ligne",
-          "label_en": "first sellable version online"
+          "value": "999 € HT",
+          "label_fr": "sprint de cadrage de 10 heures, avant la construction",
+          "label_en": "10-hour scoping sprint, before anything is built",
+          "emphasis": false
         },
         {
-          "value": "Stack moderne",
-          "label_fr": "auth, comptes cloisonnés, paiement",
-          "label_en": "auth, compartmentalised accounts, payment"
+          "value": "{{prix.horaire}} € HT",
+          "label_fr": "de l'heure pour les itérations après la v0",
+          "label_en": "an hour for iterations after the v0",
+          "emphasis": false
         },
         {
-          "value": "Code à vous",
-          "label_fr": "livré, documenté, transférable",
-          "label_en": "delivered, documented, transferable"
+          "value": "À vous",
+          "label_fr": "code, base de données et hébergement remis",
+          "label_en": "code, database and hosting handed over",
+          "emphasis": false
         }
       ]
     },
     {
       "type": "definition-extract",
       "background": "paper",
-      "kicker_fr": "§ Définition · format extractible",
-      "kicker_en": "§ Definition · extractable format",
-      "statement_fr": "Un <i class=\"acc\">MVP SaaS</i> est un produit minimal mais vendable que Waimia développe pour les PME et les fondateurs afin de tester une idée sur son marché : inscription, authentification, comptes cloisonnés et paiement dès la première version, construits vite grâce à l'IA sur une stack moderne. À la différence d'un outil interne, il est tourné vers des clients qui l'utilisent et le paient. Le code vous appartient.",
-      "statement_en": "A <i class=\"acc\">SaaS MVP</i> is a minimal but sellable product Waimia builds for SMEs and founders to test an idea on its market: sign-up, authentication, compartmentalised accounts and payment from the first version, built fast thanks to AI on a modern stack. Unlike an internal tool, it is turned toward customers who use it and pay for it. The code is yours.",
+      "kicker_fr": "§ Définition",
+      "kicker_en": "§ Definition",
+      "statement_fr": "Un <i class=\"acc\">MVP SaaS</i> est la première version d'un logiciel vendu par abonnement : le minimum qu'un client peut utiliser et payer. Il comprend l'inscription, des comptes séparés par client, un paiement et un seul parcours qui apporte de la valeur. À la différence d'un outil interne, il s'adresse à un marché : on le juge à ce que des inconnus en font.",
+      "statement_en": "A <i class=\"acc\">SaaS MVP</i> is the first version of software sold by subscription: the minimum a customer can use and pay for. It includes sign-up, accounts kept separate per customer, a payment and a single journey that delivers value. Unlike an internal tool, it is aimed at a market: it is judged by what strangers do with it.",
       "pills": [
         {
-          "label_fr": "Vendable dès la v0",
-          "label_en": "Sellable from v0"
+          "label_fr": "Un parcours vendable",
+          "label_en": "One sellable journey"
         },
         {
           "label_fr": "Inscription et paiement",
           "label_en": "Sign-up and payment"
         },
         {
-          "label_fr": "Stack moderne",
-          "label_en": "Modern stack"
+          "label_fr": "Comptes cloisonnés",
+          "label_en": "Separate accounts"
         },
         {
-          "label_fr": "Développé vite",
-          "label_en": "Built fast"
+          "label_fr": "Mesure d'usage",
+          "label_en": "Usage measurement"
         },
         {
           "label_fr": "Code transférable",
@@ -200,8 +195,8 @@
           "label_en": "Sign-up funnel"
         },
         {
-          "label_fr": "Authentification et comptes",
-          "label_en": "Authentication and accounts"
+          "label_fr": "Authentification",
+          "label_en": "Authentication"
         },
         {
           "label_fr": "Paiement Stripe",
@@ -212,8 +207,8 @@
           "label_en": "Edge cases tested"
         },
         {
-          "label_fr": "Mesure d'usage",
-          "label_en": "Usage measurement"
+          "label_fr": "Journal et sauvegardes",
+          "label_en": "Log and backups"
         },
         {
           "label_fr": "Hébergé chez vous",
@@ -222,139 +217,111 @@
       ]
     },
     {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/mvp-saas-etal-ouvert-paper.webp",
+          "alt_fr": "Un étal ouvert où des clients achètent déjà, devant une grande tour à peine commencée",
+          "alt_en": "An open stall where customers already buy, in front of a large tower barely begun",
+          "side": "right"
+        }
+      ],
+      "html_fr": "<h2>Ce que contient la v0, et ce qu'elle laisse de côté</h2>\n<p>La v0 tient en un parcours : un visiteur s'inscrit, accomplit la tâche pour laquelle il vient, puis paie. Tout le reste attend une preuve d'usage : tableau d'administration étendu, notifications, import en masse, application mobile, rôles supplémentaires. On les écrit dans une liste, avec le critère qui déclenche leur construction.</p>\n<h2>Ce qu'on pose dès le départ</h2>\n<p>Trois choses ne se rajoutent pas proprement après coup : la séparation des comptes entre clients, l'authentification et le paiement. Elles sont posées dès la première version. Le reste se choisit au cadrage : emails, connexions à vos outils par API ou MCP, une fonction IA là où elle porte la valeur du produit.</p>\n<h2>Avec quelle technologie</h2>\n<p><a href=\"/cas-clients/waimia-os\">Waimia OS</a>, projet interne du studio, tourne sur Next.js et PostgreSQL. Pour un client, la technique se choisit selon ce que son équipe, ou un futur développeur, saura reprendre : le code, la base et l'hébergement sont à votre nom.</p>\n<h2>Ce qu'un MVP ne garantit pas</h2>\n<p>Un produit vendable ne se vend pas tout seul. Il lui faut un canal pour trouver ses premiers clients, ce qui relève de l'acquisition : voir le <a href=\"/services/systeme-acquisition\">système d'acquisition</a>. Le MVP donne l'objet à vendre et la mesure de ce qui se passe. Il ne promet ni un chiffre d'affaires, ni un nombre d'inscrits.</p>",
+      "html_en": "<h2>What the v0 contains, and what it leaves out</h2>\n<p>The v0 fits in one journey: a visitor signs up, does the task they came for, then pays. Everything else waits for proof of use: extended admin panel, notifications, bulk import, mobile app, extra roles. They go on a list, with the criterion that triggers building each one.</p>\n<h2>What goes in from the start</h2>\n<p>Three things cannot be added cleanly afterwards: separation of accounts between customers, authentication and payment. They go in with the first version. The rest is chosen during scoping: emails, connections to your tools through API or MCP, an AI feature where it carries the value of the product.</p>\n<h2>With which technology</h2>\n<p><a href=\"/cas-clients/waimia-os\">Waimia OS</a>, an internal studio project, runs on Next.js and PostgreSQL. For a client, the stack is chosen according to what their team, or a future developer, can take over: the code, the database and the hosting are in your name.</p>\n<h2>What an MVP does not guarantee</h2>\n<p>A sellable product does not sell itself. It needs a channel to find its first customers, which is an acquisition matter: see the <a href=\"/services/systeme-acquisition\">acquisition system</a>. The MVP provides the thing to sell and the measurement of what happens. It promises neither revenue nor a number of sign-ups.</p>"
+    },
+    {
       "type": "pain-severity-list",
       "background": "ink",
-      "kicker_fr": "Là où un lancement produit se plante · par sévérité",
-      "kicker_en": "Where a product launch fails · by severity",
-      "h2_fr": "Le lancement qu'un <i class=\"acc\">MVP</i> corrige.",
-      "h2_en": "The launch an <i class=\"acc\">MVP</i> fixes.",
+      "kicker_fr": "§ Là où un lancement produit se plante",
+      "kicker_en": "§ Where a product launch goes wrong",
+      "h2_fr": "Ce qu'un <i class=\"acc\">MVP</i> évite",
+      "h2_en": "What an <i class=\"acc\">MVP</i> avoids",
       "items": [
         {
           "severity": "critical",
-          "title_fr": "Six mois de dev avant le premier client",
-          "title_en": "Six months of dev before the first customer",
-          "desc_fr": "Un produit complet construit dans le noir, sans qu'un seul utilisateur l'ait vu. Le jour du lancement, on découvre que le marché voulait autre chose, et le budget est déjà brûlé.",
-          "desc_en": "A full product built in the dark, without a single user having seen it. On launch day, you discover the market wanted something else, and the budget is already burnt.",
-          "fix_fr": "Un MVP vendable en semaines, mis vite devant des clients.",
-          "fix_en": "A sellable MVP in weeks, put in front of customers fast."
+          "title_fr": "Un produit complet construit sans client",
+          "title_en": "A full product built without a customer",
+          "desc_fr": "Des mois de développement avant qu'un utilisateur l'ait vu. Au lancement, on découvre que le marché voulait autre chose, et le budget est dépensé.",
+          "desc_en": "Months of development before a user has seen it. At launch you find the market wanted something else, and the budget is spent.",
+          "fix_fr": "Un seul parcours vendable, mis devant des clients avant d'ajouter le reste.",
+          "fix_en": "One sellable journey, put in front of customers before adding the rest."
         },
         {
           "severity": "high",
-          "title_fr": "Un prototype qui ne peut rien encaisser",
-          "title_en": "A prototype that can charge nothing",
-          "desc_fr": "Une démo jolie mais sans inscription, sans authentification, sans paiement. Un client veut acheter, et le produit n'a aucun moyen de le facturer. L'intérêt retombe.",
-          "desc_en": "A pretty demo but with no sign-up, no authentication, no payment. A customer wants to buy, and the product has no way to charge them. The interest fades.",
+          "title_fr": "Une démo qui ne sait rien encaisser",
+          "title_en": "A demo that cannot take payment",
+          "desc_fr": "Un client veut acheter, et le produit n'a ni inscription ni paiement. Il faut tout construire avant la première facture.",
+          "desc_en": "A customer wants to buy, and the product has no sign-up and no payment. Everything must be built before the first invoice.",
           "fix_fr": "Inscription, comptes et paiement dès la v0.",
-          "fix_en": "Sign-up, accounts and payment from v0."
+          "fix_en": "Sign-up, accounts and payment from the v0."
         },
         {
           "severity": "medium",
           "title_fr": "Un code jetable qui bloque la suite",
-          "title_en": "Throwaway code that blocks what's next",
-          "desc_fr": "Un MVP bâclé, sans architecture ni tests, qu'il faut tout réécrire dès qu'il faut grandir. La dette technique tue le produit juste au moment où il commence à marcher.",
-          "desc_en": "A rushed MVP, with no architecture or tests, to be fully rewritten the moment you need to scale. Technical debt kills the product just as it starts to work.",
-          "fix_fr": "Une base propre, pensée pour s'étendre.",
-          "fix_en": "A clean base, built to extend."
-        }
-      ]
-    },
-    {
-      "type": "comparison-duo",
-      "background": "paper-2",
-      "kicker_fr": "§ Tunnel long vs MVP itératif",
-      "kicker_en": "§ Long tunnel vs iterative MVP",
-      "h2_fr": "Pourquoi un <i class=\"acc\">MVP</i> change le lancement",
-      "h2_en": "Why an <i class=\"acc\">MVP</i> changes the launch",
-      "without_label_fr": "Produit complet dans le noir",
-      "without_label_en": "Full product in the dark",
-      "without_title_fr": "Ce qu'il vous coûte",
-      "without_title_en": "What it costs you",
-      "without_items": [
-        {
-          "text_fr": "Des mois de développement avant qu'un seul utilisateur ait testé.",
-          "text_en": "Months of development before a single user has tested."
+          "title_en": "Throwaway code that blocks what comes next",
+          "desc_fr": "Sans architecture ni tests, la v0 est à réécrire dès qu'elle marche. La dette technique arrive au pire moment.",
+          "desc_en": "Without architecture or tests, the v0 has to be rewritten the moment it works. Technical debt arrives at the worst time.",
+          "fix_fr": "Une base propre, testée sur les cas limites, documentée.",
+          "fix_en": "A clean base, tested on edge cases, documented."
         },
         {
-          "text_fr": "Un budget entier misé sur des suppositions, pas sur des retours.",
-          "text_en": "A whole budget bet on assumptions, not on feedback."
-        },
-        {
-          "text_fr": "Un produit qui ne peut rien encaisser le jour où un client dit oui.",
-          "text_en": "A product that can charge nothing the day a customer says yes."
-        },
-        {
-          "text_fr": "Un code jetable, à tout réécrire dès qu'il faut grandir.",
-          "text_en": "Throwaway code, to fully rewrite the moment you need to scale."
-        }
-      ],
-      "with_label_fr": "MVP itératif",
-      "with_label_en": "Iterative MVP",
-      "with_title_fr": "Ce qu'il vous rend",
-      "with_title_en": "What it gives back",
-      "with_items": [
-        {
-          "text_fr": "Une version vendable en semaines, mise vite devant de vrais utilisateurs.",
-          "text_en": "A sellable version in weeks, put in front of real users fast."
-        },
-        {
-          "text_fr": "Des décisions prises sur l'usage mesuré, pas sur des suppositions.",
-          "text_en": "Decisions made on measured usage, not on assumptions."
-        },
-        {
-          "text_fr": "Un produit qui encaisse dès la v0 : inscription, comptes, paiement.",
-          "text_en": "A product that charges from v0: sign-up, accounts, payment."
-        },
-        {
-          "text_fr": "Un code propre et documenté, qui s'étend sans tout réécrire.",
-          "text_en": "Clean, documented code, that extends without a full rewrite."
+          "severity": "low",
+          "title_fr": "Des fonctions ajoutées sans preuve d'usage",
+          "title_en": "Features added without proof of use",
+          "desc_fr": "Chaque fonction coûte du temps de construction et de maintenance, même si personne ne s'en sert.",
+          "desc_en": "Every feature costs build and maintenance time, even if nobody uses it.",
+          "fix_fr": "On construit une fonction quand l'usage mesuré la justifie.",
+          "fix_en": "A feature is built when measured usage justifies it."
         }
       ]
     },
     {
       "type": "method-stepline",
       "background": "paper-3",
-      "kicker_fr": "§ Maturité",
-      "kicker_en": "§ Maturity",
-      "h2_fr": "Les 6 niveaux d'un produit SaaS",
-      "h2_en": "The 6 levels of a SaaS product",
-      "lede_fr": "De l'idée sur un coin de table au produit qui trouve son marché, six paliers. La plupart des projets s'enlisent avant le premier client payant. On vous situe, puis on vous fait monter d'un cran.",
-      "lede_en": "From an idea on a napkin to a product finding its market, six tiers. Most projects get stuck before the first paying customer. We place you, then move you up a notch.",
+      "kicker_fr": "§ Méthode",
+      "kicker_en": "§ Method",
+      "h2_fr": "De l'idée au produit qui encaisse",
+      "h2_en": "From idea to a product that takes payment",
+      "lede_fr": "Six étapes. Le sprint de cadrage fixe le périmètre ; ensuite on construit, on met en ligne, on mesure.",
+      "lede_en": "Six steps. The scoping sprint fixes the scope; then we build, go live and measure.",
       "steps": [
         {
-          "title_fr": "Idée",
-          "title_en": "Idea",
-          "sub_fr": "Un pitch, une maquette",
-          "sub_en": "A pitch, a mockup"
+          "title_fr": "Audit gratuit",
+          "title_en": "Free audit",
+          "sub_fr": "45 minutes : l'idée, le premier client, ce qui existe déjà",
+          "sub_en": "45 minutes: the idea, the first customer, what already exists"
         },
         {
-          "title_fr": "Prototype",
-          "title_en": "Prototype",
-          "sub_fr": "Une démo qui n'encaisse rien",
-          "sub_en": "A demo that charges nothing"
+          "title_fr": "Sprint de cadrage",
+          "title_en": "Scoping sprint",
+          "sub_fr": "10 heures, 999 € HT : parcours, périmètre, modèle de données",
+          "sub_en": "10 hours, 999 € excl. VAT: journey, scope, data model"
         },
         {
-          "title_fr": "MVP vendable",
-          "title_en": "Sellable MVP",
-          "sub_fr": "Inscription et paiement en ligne",
-          "sub_en": "Sign-up and payment online"
+          "title_fr": "Construction de la v0",
+          "title_en": "Building the v0",
+          "sub_fr": "Inscription, comptes, paiement et le parcours qui vend",
+          "sub_en": "Sign-up, accounts, payment and the journey that sells"
         },
         {
-          "title_fr": "Premiers clients",
-          "title_en": "First customers",
-          "sub_fr": "Usage mesuré, itérations",
-          "sub_en": "Usage measured, iterations"
+          "title_fr": "Mise en ligne",
+          "title_en": "Going live",
+          "sub_fr": "Production, sauvegardes, mesure d'usage branchée",
+          "sub_en": "Production, backups, usage measurement wired in"
         },
         {
-          "title_fr": "Product-market fit",
-          "title_en": "Product-market fit",
-          "sub_fr": "Une fonction prouvée après l'autre",
-          "sub_en": "One proven feature after another"
+          "title_fr": "Itérations",
+          "title_en": "Iterations",
+          "sub_fr": "Par sprints, à {{prix.horaire}} € HT de l'heure",
+          "sub_en": "In sprints, at {{prix.horaire}} € an hour excl. VAT"
         },
         {
-          "title_fr": "Produit qui grandit",
-          "title_en": "Growing product",
-          "sub_fr": "Base propre, prête à scaler",
-          "sub_en": "Clean base, ready to scale"
+          "title_fr": "Passation",
+          "title_en": "Handover",
+          "sub_fr": "Code, accès et documentation remis",
+          "sub_en": "Code, access and documentation handed over"
         }
       ]
     },
@@ -363,204 +330,103 @@
       "background": "paper",
       "kicker_fr": "§ Livrables",
       "kicker_en": "§ Deliverables",
-      "title_fr": "Ce que vous récupérez concrètement",
-      "title_en": "What you get concretely",
-      "lead_fr": "Vous gardez le code et l'hébergement quand on part. Le produit reste votre actif.",
-      "lead_en": "You keep the code and the hosting when we leave. The product stays your asset.",
+      "title_fr": "Ce que vous récupérez",
+      "title_en": "What you get",
+      "lead_fr": "Vous gardez le code, la base de données et l'hébergement. Un autre développeur peut reprendre.",
+      "lead_en": "You keep the code, the database and the hosting. Another developer can take over.",
       "items": [
         {
-          "title_fr": "Cadrage du produit",
-          "title_en": "Product scoping",
-          "body_fr": "La carte de votre produit minimal : la promesse, le premier client, les fonctions vendables et celles qu'on écarte pour la v0, avec un périmètre chiffré.",
-          "body_en": "The map of your minimal product: the promise, the first customer, the sellable features and the ones we drop for v0, with a costed perimeter.",
+          "title_fr": "Le cadrage du produit",
+          "title_en": "The product scoping",
+          "body_fr": "Le parcours vendable, le premier client visé, la liste de ce qui est écarté de la v0 et le périmètre chiffré.",
+          "body_en": "The sellable journey, the first target customer, the list of what is left out of the v0 and the costed scope.",
           "format_fr": "SPEC",
-          "format_en": "SPEC",
-          "illustration_src": "/images/line-art/probleme-outils-cloisonnes.svg",
-          "illustration_alt_fr": "Un cadrage du produit minimal vendable et de son premier client",
-          "illustration_alt_en": "A scoping of the minimal sellable product and its first customer"
+          "format_en": "SPEC"
         },
         {
-          "title_fr": "MVP en production",
-          "title_en": "MVP in production",
-          "body_fr": "Votre produit construit, testé et mis en ligne : inscription, authentification, comptes cloisonnés et paiement, vendable dès la première version.",
-          "body_en": "Your product built, tested and deployed: sign-up, authentication, compartmentalised accounts and payment, sellable from the first version.",
+          "title_fr": "Le produit en production",
+          "title_en": "The product in production",
+          "body_fr": "L'application en ligne : inscription, authentification, comptes cloisonnés et paiement.",
+          "body_en": "The application online: sign-up, authentication, separate accounts and payment.",
           "format_fr": "CODE + LIVE",
-          "format_en": "CODE + LIVE",
-          "illustration_src": "/images/line-art/livrable-skills-orchestration.svg",
-          "illustration_alt_fr": "Un MVP SaaS en production avec inscription et paiement",
-          "illustration_alt_en": "A SaaS MVP in production with sign-up and payment"
+          "format_en": "CODE + LIVE"
         },
         {
-          "title_fr": "Inscription, auth et paiement",
-          "title_en": "Sign-up, auth and payment",
-          "body_fr": "Le tunnel d'inscription, l'authentification, les comptes cloisonnés et le paiement Stripe : le produit encaisse dès qu'un client dit oui, pas plus tard.",
-          "body_en": "The sign-up funnel, authentication, compartmentalised accounts and Stripe payment: the product charges the moment a customer says yes, not later.",
+          "title_fr": "Inscription, accès et paiement",
+          "title_en": "Sign-up, access and payment",
+          "body_fr": "Le tunnel d'inscription, les droits par compte et le paiement Stripe, avec les cas limites testés : paiement refusé, compte supprimé.",
+          "body_en": "The sign-up funnel, per-account rights and Stripe payment, with edge cases tested: declined payment, deleted account.",
           "format_fr": "STRIPE",
-          "format_en": "STRIPE",
-          "illustration_src": "/images/line-art/livrable-connecteurs-mcp.svg",
-          "illustration_alt_fr": "Le tunnel d'inscription, l'authentification et le paiement Stripe du MVP",
-          "illustration_alt_en": "The MVP's sign-up funnel, authentication and Stripe payment"
+          "format_en": "STRIPE"
         },
         {
-          "title_fr": "Sécurité et garde-fous",
-          "title_en": "Security and guardrails",
-          "body_fr": "L'authentification, le contrôle des accès par compte, la journalisation et les sauvegardes : un produit qu'on vend ne peut pas être fragile, même en v0.",
-          "body_en": "Authentication, per-account access control, logging and backups: a product you sell can't be fragile, even in v0.",
-          "format_fr": "SÉCURITÉ",
-          "format_en": "SECURITY",
-          "illustration_src": "/images/line-art/livrable-gouvernance.svg",
-          "illustration_alt_fr": "L'authentification, le contrôle des accès et les sauvegardes du produit",
-          "illustration_alt_en": "The product's authentication, access control and backups"
-        },
-        {
-          "title_fr": "Mesure d'usage",
+          "title_fr": "La mesure d'usage",
           "title_en": "Usage measurement",
-          "body_fr": "Le suivi de ce que font vos premiers utilisateurs : inscriptions, activation, usage, paiements. On décide d'ajouter une fonction sur des chiffres, pas sur une intuition.",
-          "body_en": "The tracking of what your first users do: sign-ups, activation, usage, payments. We decide to add a feature on figures, not on a hunch.",
+          "body_fr": "Inscriptions, activation, usage et paiements suivis dès le premier utilisateur, pour décider sur des chiffres.",
+          "body_en": "Sign-ups, activation, usage and payments tracked from the first user, so decisions rest on figures.",
           "format_fr": "TABLEAU",
-          "format_en": "DASHBOARD",
-          "illustration_src": "/images/line-art/livrable-tableau-mesure.svg",
-          "illustration_alt_fr": "Un tableau de mesure de l'usage du MVP par les premiers utilisateurs",
-          "illustration_alt_en": "A dashboard measuring the MVP's usage by the first users"
+          "format_en": "DASHBOARD"
         },
         {
-          "title_fr": "Le code, à vous",
-          "title_en": "The code, yours",
-          "body_fr": "Le code source livré, documenté et hébergé chez vous. Transférable : vous levez des fonds, recrutez une équipe ou changez de prestataire sans repartir de zéro.",
-          "body_en": "The source code delivered, documented and hosted on your side. Transferable: you raise funds, hire a team or change provider without starting over.",
+          "title_fr": "La sécurité de base",
+          "title_en": "Baseline security",
+          "body_fr": "Authentification, contrôle d'accès par compte, journal et sauvegardes.",
+          "body_en": "Authentication, per-account access control, log and backups.",
+          "format_fr": "SÉCURITÉ",
+          "format_en": "SECURITY"
+        },
+        {
+          "title_fr": "Code, base et hébergement",
+          "title_en": "Code, database and hosting",
+          "body_fr": "Dépôt à votre nom, base de données et hébergement sur vos comptes, documentation de reprise.",
+          "body_en": "Repository in your name, database and hosting on your accounts, handover documentation.",
           "format_fr": "CODE",
-          "format_en": "CODE",
-          "illustration_src": "/images/line-art/livrable-passation-formation.svg",
-          "illustration_alt_fr": "Le code source du MVP livré, documenté et transférable",
-          "illustration_alt_en": "The MVP source code delivered, documented and transferable"
+          "format_en": "CODE"
         }
       ]
     },
     {
-      "type": "feature-grid",
-      "anchor": "capacites",
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/mvp-saas-portillon-paper.webp",
+          "alt_fr": "Une file de personnes devant un portillon : une carte ouvre l'accès à une grande halle",
+          "alt_en": "A queue of people at a turnstile: a card opens the way into a large hall",
+          "side": "left"
+        }
+      ],
+      "html_fr": "<h2>MVP SaaS, outil interne ou portail : choisir la bonne forme</h2>\n<p>Un MVP SaaS se vend à un marché. Si l'outil sert votre équipe et que personne ne le paie, c'est une <a href=\"/services/applications-internes\">application interne sur mesure</a>, ou un <a href=\"/services/back-office-sur-mesure\">back-office sur mesure</a> quand il remplace des tableurs. Si vos clients existants doivent suivre leurs dossiers ou récupérer leurs documents, c'est un <a href=\"/services/portail-client\">portail client</a>.</p>\n<h2>Développer ou acheter</h2>\n<p>Avant de construire, vérifiez qu'un logiciel du marché ne fait pas déjà le travail. La grille de décision est détaillée dans <a href=\"/blog/applications-internes-build-vs-buy-pme\">développer ou acheter son outil interne</a>. Elle vaut aussi pour un produit : si votre différence n'est pas dans le logiciel, n'en construisez pas.</p>\n<h2>Autour du produit</h2>\n<p>Les relances, la facturation ou l'envoi des emails d'activation se traitent par des <a href=\"/services/automatisations\">automatisations</a>. Une tâche qui demande du jugement dans le produit relève des <a href=\"/services/agents-ia\">agents IA</a>.</p>",
+      "html_en": "<h2>SaaS MVP, internal tool or portal: choosing the right form</h2>\n<p>A SaaS MVP is sold to a market. If the tool serves your team and nobody pays for it, it is a <a href=\"/services/applications-internes\">bespoke internal application</a>, or a <a href=\"/services/back-office-sur-mesure\">bespoke back office</a> when it replaces spreadsheets. If your existing customers need to follow their cases or retrieve their documents, it is a <a href=\"/services/portail-client\">client portal</a>.</p>\n<h2>Build or buy</h2>\n<p>Before building, check that off-the-shelf software does not already do the job. The decision grid is detailed in <a href=\"/blog/applications-internes-build-vs-buy-pme\">build or buy your internal tool</a>. It applies to a product too: if your difference is not in the software, do not build it.</p>\n<h2>Around the product</h2>\n<p>Follow-ups, invoicing or activation emails are handled by <a href=\"/services/automatisations\">automations</a>. A task that needs judgement inside the product belongs to <a href=\"/services/agents-ia\">AI agents</a>.</p>"
+    },
+    {
+      "type": "decision-list",
       "background": "paper",
-      "kicker_fr": "§ Les briques",
-      "kicker_en": "§ The building blocks",
-      "h2_fr": "Les briques d'un MVP SaaS qui se vend",
-      "h2_en": "The building blocks of a SaaS MVP that sells",
-      "lede_fr": "Sept briques, un seul socle propre. On active celles que le produit réclame pour sa v0, pas une fonction qu'on empile pour faire riche en démo.",
-      "lede_en": "Seven building blocks, one clean base. We activate the ones the product needs for its v0, not a feature stacked to look rich in a demo.",
-      "columns": "4",
-      "fillMedia": "services-layer.svg",
-      "features": [
-        {
-          "icon": "design",
-          "title_fr": "Interface produit",
-          "title_en": "Product interface",
-          "body_fr": "Un écran clair pensé pour vos utilisateurs, pas pour vous. S'inscrire, prendre en main et acheter sans mode d'emploi : la première impression d'un produit qui se vend.",
-          "body_en": "A clear screen designed for your users, not for you. Sign up, get started and buy without a manual: the first impression of a product that sells."
-        },
-        {
-          "icon": "contenu",
-          "title_fr": "Inscription et comptes",
-          "title_en": "Sign-up and accounts",
-          "body_fr": "Le tunnel d'inscription, l'authentification et les comptes cloisonnés : chaque client a son espace, ses données isolées, ses droits. La base d'un vrai produit multi-client.",
-          "body_en": "The sign-up funnel, authentication and compartmentalised accounts: each customer has their space, their isolated data, their rights. The base of a true multi-customer product."
-        },
-        {
-          "icon": "qualif",
-          "title_fr": "Paiement",
-          "title_en": "Payment",
-          "body_fr": "Le paiement branché, souvent Stripe : abonnement ou à l'usage, essais, facturation. Le produit encaisse dès qu'un client dit oui, dès la première version.",
-          "body_en": "Payment wired in, often Stripe: subscription or usage-based, trials, billing. The product charges the moment a customer says yes, from the first version."
-        },
-        {
-          "icon": "crm",
-          "title_fr": "Connexions",
-          "title_en": "Connections",
-          "body_fr": "Le produit lit et écrit dans les outils que vos clients utilisent, via API ou MCP. Il s'intègre à un écosystème, il ne vit pas en vase clos.",
-          "body_en": "The product reads and writes into the tools your customers use, via API or MCP. It integrates into an ecosystem, it doesn't live in a vacuum."
-        },
-        {
-          "icon": "ia",
-          "title_fr": "Fonctions IA",
-          "title_en": "AI features",
-          "body_fr": "Là où c'est le cœur de la valeur, un LLM classe, résume, rédige ou recherche dans le produit, encadré par vos règles. L'IA comme fonctionnalité, pas comme argument.",
-          "body_en": "Where it's the core of the value, an LLM classifies, summarises, drafts or searches within the product, framed by your rules. AI as a feature, not as a pitch."
-        },
-        {
-          "icon": "tracking",
-          "title_fr": "Mesure d'usage",
-          "title_en": "Usage measurement",
-          "body_fr": "Inscriptions, activation, rétention, paiements suivis dès le premier utilisateur. Vous pilotez le produit sur des chiffres réels, pas sur une intuition de fondateur.",
-          "body_en": "Sign-ups, activation, retention, payments tracked from the first user. You steer the product on real figures, not on a founder's hunch."
-        },
-        {
-          "icon": "pilotage",
-          "title_fr": "Hébergement maîtrisé",
-          "title_en": "Controlled hosting",
-          "body_fr": "Le produit hébergé sur une infra que vous contrôlez, avec le code livré. Vous gardez la main : levée de fonds, équipe technique, changement de prestataire, sans captivité.",
-          "body_en": "The product hosted on infrastructure you control, with the code delivered. You keep control: fundraising, a technical team, a change of provider, with no lock-in."
-        }
-      ]
-    },
-    {
-      "type": "hover-reveal-list",
-      "anchor": "declinaisons",
-      "background": "paper-3",
-      "reveal_mode": "cursor",
-      "kicker_fr": "§ Le système ops & IA",
-      "kicker_en": "§ The ops & AI system",
-      "h2_fr": "Le MVP SaaS est une <i>brique</i> du système",
-      "h2_en": "The SaaS MVP is one <i>block</i> of the system",
-      "lede_fr": "Un produit vit rarement seul. Il s'appuie sur des outils internes qui le pilotent, des workflows qui l'automatisent, des agents qui décident dedans, un socle de données qui le mesure. Survolez une brique voisine pour la voir.",
-      "lede_en": "A product rarely lives alone. It leans on internal tools that drive it, workflows that automate it, agents that decide within it, a data foundation that measures it. Hover a neighbouring block to preview it.",
+      "kicker_fr": "§ Quand ne pas le faire",
+      "kicker_en": "§ When not to do it",
+      "heading_fr": "Ne faites pas développer de MVP SaaS si",
+      "heading_en": "Do not commission a SaaS MVP if",
       "items": [
         {
-          "label_fr": "Applications internes",
-          "label_en": "Internal applications",
-          "meta_fr": "L'offre mère · l'outil tourné vers l'équipe",
-          "meta_en": "The parent offer · the tool turned to the team",
-          "media_src": "/images/illustrations/ds/gentleman-craftsman-go-work-paper.webp",
-          "media_alt_fr": "Un artisan au travail : l'outil interne sur mesure tourné vers l'équipe.",
-          "media_alt_en": "A craftsman at work: the bespoke internal tool turned to the team.",
-          "link_href": "/services/applications-internes"
+          "label_fr": "Vous n'avez parlé à aucun client potentiel : commencez par là, un produit ne remplace pas une conversation.",
+          "label_en": "You have not spoken to a single potential customer: start there, a product is no substitute for a conversation."
         },
         {
-          "label_fr": "Automatisations",
-          "label_en": "Automations",
-          "meta_fr": "Automatiser · les gestes répétitifs du produit",
-          "meta_en": "Automate · the product's repetitive gestures",
-          "media_src": "/images/illustrations/ds/car-on-the-road-paper.webp",
-          "media_alt_fr": "Une voiture sur la route : les workflows qui font avancer le produit.",
-          "media_alt_en": "A car on the road: the workflows that move the product forward.",
-          "link_href": "/services/automatisations"
+          "label_fr": "Un outil du marché ou un site avec abonnement couvre déjà le besoin, sans contournement.",
+          "label_en": "An off-the-shelf tool or a site with subscriptions already covers the need, without workarounds."
         },
         {
-          "label_fr": "Agents IA",
-          "label_en": "AI agents",
-          "meta_fr": "Décider · quand une tâche demande du jugement",
-          "meta_en": "Decide · when a task needs judgement",
-          "media_src": "/images/illustrations/ds/chess-paper.webp",
-          "media_alt_fr": "Un échiquier : l'agent qui décide dans le produit là où une règle fixe ne suffit pas.",
-          "media_alt_en": "A chessboard: the agent that decides inside the product where a fixed rule falls short.",
-          "link_href": "/services/agents-ia"
+          "label_fr": "Vous attendez un produit complet dès la première version : ce n'est plus un MVP.",
+          "label_en": "You expect a complete product from the first version: that is no longer an MVP."
         },
         {
-          "label_fr": "Intégration Claude",
-          "label_en": "Claude integration",
-          "meta_fr": "Brancher · l'IA au produit via MCP",
-          "meta_en": "Wire · AI to the product via MCP",
-          "media_src": "/images/illustrations/ds/man-and-woman-hi-paper.webp",
-          "media_alt_fr": "Une jonction validée : l'IA branchée proprement à votre produit.",
-          "media_alt_en": "A validated handshake: AI wired cleanly to your product.",
-          "link_href": "/services/integration-claude"
+          "label_fr": "Personne ne peut décider du périmètre et consacrer du temps aux tests.",
+          "label_en": "Nobody can decide the scope and give time to testing."
         },
         {
-          "label_fr": "Le système ops & IA",
-          "label_en": "The ops & AI system",
-          "meta_fr": "Assembler · l'ensemble, de bout en bout",
-          "meta_en": "Assemble · the whole, end to end",
-          "media_src": "/images/illustrations/ds/woman-and-people-paper.webp",
-          "media_alt_fr": "Une équipe alignée : le système opérationnel et IA assemblé de bout en bout.",
-          "media_alt_en": "An aligned team: the operational and AI system assembled end to end.",
-          "link_href": "/services/systemes-operationnels-ia"
+          "label_fr": "L'outil ne servirait que votre équipe et personne ne le paierait : c'est une application interne.",
+          "label_en": "The tool would only serve your team and nobody would pay for it: that is an internal application."
         }
       ]
     },
@@ -569,61 +435,31 @@
       "background": "ink",
       "reveal_mode": "cursor",
       "fig_num": "Fig. 05",
-      "fig_title_fr": "Cas clients",
-      "fig_title_en": "Client cases",
-      "spec_fr": "Cas clients · résultats réels",
-      "spec_en": "Client cases · real results",
-      "h2_fr": "Résultats sur le terrain",
-      "h2_en": "Results in the field",
+      "fig_title_fr": "Réalisations",
+      "fig_title_en": "Work",
+      "spec_fr": "Réalisations · données reprises des fiches publiées, aucune n'est un SaaS commercialisé",
+      "spec_en": "Work · data taken from the published pages, none is a commercial SaaS",
+      "h2_fr": "Un abonnement payant, des prototypes, un produit en construction",
+      "h2_en": "A paid subscription, prototypes, a product under construction",
       "case_label_fr": "CAS",
       "case_label_en": "CASE",
-      "sector_label_fr": "Secteur · Durée",
-      "sector_label_en": "Sector · Duration",
-      "impact_label_fr": "Impact",
-      "impact_label_en": "Impact",
+      "sector_label_fr": "Secteur · État",
+      "sector_label_en": "Sector · Status",
+      "impact_label_fr": "Ce que dit la fiche",
+      "impact_label_en": "What the page says",
       "cases": [
         {
-          "client": "Les Carnets de Montpellier",
-          "sector_fr": "Patrimoine / Média local",
-          "sector_en": "Heritage / Local media",
-          "duration": "6 sem.",
-          "stack": "Abonnement · Espace membre · Paiement",
-          "impact_fr": "Application d'abonnement multi-niveaux et espace membre sur mesure : 150 membres et 35 abonnés payants gérés dans un produit dédié en 3 mois.",
-          "impact_en": "Bespoke tiered subscription application and member area: 150 members and 35 paying subscribers handled in a dedicated product in 3 months.",
-          "href": "/cas-clients/les-carnets-de-montpellier",
-          "media_src": "/images/illustrations/ds/band-showing-tv-ink.webp",
-          "media_alt_fr": "Un média local : abonnements payants gérés dans un produit dédié.",
-          "media_alt_en": "A local media outlet: paying subscriptions handled in a dedicated product."
+          "ref": "cases/les-carnets-de-montpellier"
         },
         {
-          "client": "Balzeo",
-          "sector_fr": "E-commerce écoresponsable",
-          "sector_en": "Eco-friendly e-commerce",
-          "duration": "8 sem.",
-          "stack": "Back-office · WooCommerce · Perf",
-          "impact_fr": "Back-office refondu et remis d'aplomb : coût de maintenance réduit de 84 %, temps de chargement divisé par deux et catalogue trois fois plus consulté.",
-          "impact_en": "Back office rebuilt and set straight: maintenance cost cut by 84%, load time halved and catalog browsed three times more.",
-          "href": "/cas-clients/balzeo",
-          "media_src": "/images/illustrations/ds/fruits-ink.webp",
-          "media_alt_fr": "Des fruits frais : le back-office e-commerce refait, plus rapide et moins coûteux.",
-          "media_alt_en": "Fresh fruit: the e-commerce back office rebuilt, faster and cheaper."
+          "ref": "cases/prototypes-internes"
         },
         {
-          "client": "Amploi · groupe Vigiscope",
-          "sector_fr": "Externalisation RH",
-          "sector_en": "HR outsourcing",
-          "duration": "6 sem.",
-          "stack": "Design system · CRM HubSpot · Formulaires",
-          "impact_fr": "Site marketing sur mesure avec design system dédié et formulaires branchés HubSpot : un socle taillé au métier, livré en 6 semaines.",
-          "impact_en": "Bespoke marketing site with a dedicated design system and HubSpot-connected forms: a base cut to the business, delivered in 6 weeks.",
-          "href": "/cas-clients/amploi",
-          "media_src": "/images/illustrations/ds/super-girl-ink.webp",
-          "media_alt_fr": "Une figure dynamique : un socle sur mesure livré vite.",
-          "media_alt_en": "A dynamic figure: a bespoke base delivered fast."
+          "ref": "cases/waimia-os"
         }
       ],
-      "all_label_fr": "Voir tous les cas →",
-      "all_label_en": "See all cases →",
+      "all_label_fr": "Voir toutes les réalisations →",
+      "all_label_en": "See all work →",
       "all_href": "/cas-clients"
     },
     {
@@ -633,25 +469,25 @@
       "kicker_en": "§ The range",
       "h2_fr": "Combien coûte un MVP SaaS",
       "h2_en": "How much does a SaaS MVP cost",
-      "lede_fr": "Un produit vendable se chiffre sur les mêmes bases qu'un site ou une application : quatre socles selon le périmètre de la v0. On part toujours d'un cadrage, on livre un produit en ligne, pas une maquette. Les itérations qui suivent se font en régie growth, en sprints.",
-      "lede_en": "A sellable product is priced on the same bases as a site or an application: four tiers by the scope of the v0. We always start from scoping and ship a product online, not a mockup. The iterations that follow run on a growth retainer, in sprints.",
+      "lede_fr": "Quatre paliers selon le périmètre de la v0. On part d'un cadrage et on livre un produit en ligne, pas une maquette. Les itérations qui suivent se facturent à l'heure, en sprints.",
+      "lede_en": "Four tiers by v0 scope. We start from scoping and ship a product online, not a mockup. The iterations that follow are billed hourly, in sprints.",
       "tiers": [
         {
           "name_fr": "MVP minimal",
           "name_en": "Minimal MVP",
           "price": "2 000 €",
           "period_fr": "à partir de · HT",
-          "period_en": "from · ex VAT",
+          "period_en": "from · excl. VAT",
           "features_fr": [
-            "Un parcours vendable, la fonction qui suffit à vendre",
-            "Inscription, authentification et paiement Stripe en ligne",
-            "Le produit encaisse dès la v0",
+            "Un parcours vendable, celui qui suffit à vendre",
+            "Inscription, authentification et paiement en ligne",
+            "Le produit peut encaisser dès la v0",
             "Code livré et hébergé chez vous"
           ],
           "features_en": [
-            "One sellable journey, the feature that's enough to sell",
-            "Sign-up, authentication and Stripe payment online",
-            "The product charges from v0",
+            "One sellable journey, the one that is enough to sell",
+            "Sign-up, authentication and payment online",
+            "The product can take payment from the v0",
             "Code delivered and hosted on your side"
           ],
           "cta": {
@@ -666,18 +502,18 @@
           "name_en": "Standard MVP",
           "price": "4 000 €",
           "period_fr": "indicatif · HT",
-          "period_en": "indicative · ex VAT",
+          "period_en": "indicative · excl. VAT",
           "features_fr": [
             "Plusieurs parcours et comptes cloisonnés",
             "Mesure d'usage dès le premier utilisateur",
-            "Une connexion à vos outils via API ou MCP",
-            "Base propre, pensée pour itérer, code transférable"
+            "Une connexion à vos outils par API ou MCP",
+            "Code documenté et transférable"
           ],
           "features_en": [
-            "Several journeys and compartmentalised accounts",
+            "Several journeys and separate accounts",
             "Usage measurement from the first user",
-            "One connection to your tools via API or MCP",
-            "A clean base, built to iterate, transferable code"
+            "One connection to your tools through API or MCP",
+            "Documented, transferable code"
           ],
           "cta": {
             "label_fr": "Réserver un audit IA gratuit →",
@@ -688,26 +524,26 @@
           "featured": true
         },
         {
-          "name_fr": "MVP premium",
-          "name_en": "Premium MVP",
+          "name_fr": "MVP étendu",
+          "name_en": "Extended MVP",
           "price": "7 000 €",
-          "period_fr": "à partir de · HT",
-          "period_en": "from · ex VAT",
+          "period_fr": "indicatif · HT",
+          "period_en": "indicative · excl. VAT",
           "features_fr": [
-            "Produit multi-fonction sur un socle commun",
-            "Fonctions IA là où elles créent la valeur",
-            "Tableau d'usage : inscriptions, activation, paiements",
-            "Prêt à itérer vite vers le product-market fit"
+            "Plusieurs fonctions sur un socle commun",
+            "Fonctions IA là où elles portent la valeur",
+            "Tableau d'usage : inscriptions, activation, paiements",
+            "Base prête à itérer"
           ],
           "features_en": [
-            "A multi-feature product on a shared base",
-            "AI features where they create the value",
+            "Several features on a shared base",
+            "AI features where they carry the value",
             "Usage dashboard: sign-ups, activation, payments",
-            "Ready to iterate fast toward product-market fit"
+            "A base ready to iterate on"
           ],
           "cta": {
-            "label_fr": "Cadrer un MVP premium →",
-            "label_en": "Scope a premium MVP →",
+            "label_fr": "Cadrer un MVP étendu →",
+            "label_en": "Scope an extended MVP →",
             "href": "/contact?offer=mvp-saas&intent=premium",
             "variant": "ghost"
           }
@@ -717,18 +553,18 @@
           "name_en": "Bespoke product",
           "price": "10 000 €",
           "period_fr": "à partir de · HT",
-          "period_en": "from · ex VAT",
+          "period_en": "from · excl. VAT",
           "features_fr": [
             "Intégrations lourdes et connexions multiples",
-            "Agents et automatisations là où c'est le cœur du produit",
-            "Base prête à scaler ou à présenter à des investisseurs",
-            "Code livré, documenté, hébergé chez vous : zéro captivité"
+            "Agents et automatisations au cœur du produit",
+            "Base documentée, prête à être reprise par une équipe",
+            "Code, base et hébergement chez vous : aucune captivité"
           ],
           "features_en": [
             "Heavy integrations and multiple connections",
-            "Agents and automations where they're the core of the product",
-            "A base ready to scale or to show investors",
-            "Code delivered, documented, hosted on your side: zero lock-in"
+            "Agents and automations at the core of the product",
+            "A documented base, ready to be taken over by a team",
+            "Code, database and hosting on your side: no lock-in"
           ],
           "cta": {
             "label_fr": "Cadrer un produit sur mesure →",
@@ -738,8 +574,8 @@
           }
         }
       ],
-      "footnote_fr": "La v0 vendable démarre à partir de 2 000 € HT : quatre socles selon le périmètre (2 000, 4 000, 7 000, 10 000 € HT), les mêmes bases qu'un site web, une application, ou les deux. Les itérations qui suivent (nouvelles fonctions, montée en charge) se font en régie growth, {{prix.horaire}} € de l'heure, en sprints : on estime le temps ensemble, vous validez, on exécute. Sans abonnement caché ni captivité : vous gardez le code source et l'hébergement.",
-      "footnote_en": "The sellable v0 starts from 2,000 € ex VAT: four tiers by scope (2,000, 4,000, 7,000, 10,000 € ex VAT), the same bases as a website, an application, or both. The iterations that follow (new features, scaling) run on a growth retainer, {{prix.horaire}} € an hour, in sprints: we size the time together, you validate, we execute. No hidden subscription, no lock-in: you keep the source code and the hosting."
+      "footnote_fr": "Les paliers sont des repères : le périmètre se fixe au cadrage et vous validez avant la construction. Le sprint de cadrage dure 10 heures et coûte 999 € HT. Les évolutions se facturent {{prix.horaire}} € HT de l'heure, en sprints : on estime le temps ensemble, vous validez, on exécute. Pas d'abonnement caché : vous gardez le code, la base de données et l'hébergement.",
+      "footnote_en": "The tiers are benchmarks: the scope is set during scoping and you approve before anything is built. The scoping sprint lasts 10 hours and costs 999 € excl. VAT. Changes are billed {{prix.horaire}} € an hour excl. VAT, in sprints: we size the time together, you approve, we execute. No hidden subscription: you keep the code, the database and the hosting."
     },
     {
       "type": "eeat-panel",
@@ -750,57 +586,51 @@
       "type": "faq-accordion",
       "background": "paper-2",
       "kicker_fr": "§ Questions fréquentes",
-      "kicker_en": "§ Frequently asked",
+      "kicker_en": "§ Frequently asked questions",
       "h2_fr": "Ce que vous nous demandez",
       "h2_en": "What you ask us",
       "items": [
         {
-          "q_fr": "C'est quoi un MVP SaaS ?",
+          "q_fr": "C'est quoi un MVP SaaS ?",
           "q_en": "What is a SaaS MVP?",
-          "a_fr": "La première version minimale mais vendable d'un produit logiciel : juste assez de fonctions pour qu'un client s'inscrive, l'utilise et le paie. Elle sert à apprendre du marché vite, avec inscription, authentification et paiement dès le départ, puis à itérer sur l'usage réel plutôt que sur des suppositions.",
-          "a_en": "The first minimal but sellable version of a software product: just enough features for a customer to sign up, use it and pay. It's there to learn from the market fast, with sign-up, authentication and payment from the start, then iterate on real usage rather than on assumptions."
+          "a_fr": "La première version d'un logiciel vendu par abonnement : le minimum qu'un client peut utiliser et payer. Elle comprend l'inscription, des comptes séparés par client, un paiement et un seul parcours qui apporte de la valeur. On l'utilise pour apprendre du marché, puis on ajoute une fonction quand l'usage mesuré la justifie.",
+          "a_en": "The first version of software sold by subscription: the minimum a customer can use and pay for. It includes sign-up, accounts kept separate per customer, a payment and a single journey that delivers value. You use it to learn from the market, then add a feature when measured usage justifies it."
         },
         {
-          "q_fr": "Combien coûte un MVP SaaS ?",
+          "q_fr": "Combien coûte un MVP SaaS ?",
           "q_en": "How much does a SaaS MVP cost?",
-          "a_fr": "Quatre socles selon le périmètre, de 2 000 € à 10 000 € HT : un premier produit vendable en ligne avec inscription et paiement, puis des itérations en sprints à {{prix.horaire}} € de l'heure. On estime le temps ensemble, vous validez, on livre. Le code est à vous, sans captivité.",
-          "a_en": "Four tiers by scope, from 2,000 € to 10,000 € ex VAT: a first sellable product online with sign-up and payment, then iterations in sprints at {{prix.horaire}} € an hour. We size the time together, you validate, we ship. The code is yours, no lock-in."
+          "a_fr": "Quatre paliers selon le périmètre de la v0 : à partir de 2 000 € HT, puis 4 000, 7 000 et à partir de 10 000 € HT. Le sprint de cadrage de 10 heures coûte 999 € HT et fixe le périmètre avant la construction. Les itérations ensuite se facturent {{prix.horaire}} € HT de l'heure.",
+          "a_en": "Four tiers by v0 scope: from 2,000 € excl. VAT, then 4,000, 7,000 and from 10,000 € excl. VAT. The 10-hour scoping sprint costs 999 € excl. VAT and sets the scope before anything is built. Later iterations are billed {{prix.horaire}} € an hour excl. VAT."
         },
         {
-          "q_fr": "Quelle différence entre un MVP SaaS et un outil interne ?",
-          "q_en": "What's the difference between a SaaS MVP and an internal tool?",
-          "a_fr": "Un outil interne sert votre équipe : il porte votre process, personne ne le paie. Un MVP SaaS est tourné vers un marché : des clients s'inscrivent, l'utilisent et le paient. Ça change tout, on ajoute l'authentification, le multi-compte, la facturation et le tunnel d'inscription. C'est un produit, pas un back-office.",
-          "a_en": "An internal tool serves your team: it carries your process, no one pays for it. A SaaS MVP is turned toward a market: customers sign up, use it and pay for it. That changes everything, we add authentication, multi-account, billing and the sign-up funnel. It's a product, not a back-office."
+          "q_fr": "Quelle différence entre un MVP SaaS et un outil interne ?",
+          "q_en": "What is the difference between a SaaS MVP and an internal tool?",
+          "a_fr": "Un outil interne sert votre équipe : il porte votre process et personne ne le paie. Un MVP SaaS s'adresse à un marché : des clients s'inscrivent, l'utilisent et le paient. Il faut alors des comptes séparés, un paiement et un tunnel d'inscription. Pour un outil d'équipe, voir l'application interne sur mesure.",
+          "a_en": "An internal tool serves your team: it carries your process and nobody pays for it. A SaaS MVP is aimed at a market: customers sign up, use it and pay for it. That calls for separate accounts, a payment and a sign-up funnel. For a team tool, see the bespoke internal application."
         },
         {
-          "q_fr": "Combien de temps pour un MVP en ligne ?",
-          "q_en": "How long for an MVP online?",
-          "a_fr": "Une première version vendable tourne souvent en quelques semaines, pas en trimestres. L'IA accélère l'écriture du code, on garde la main sur l'architecture et les tests. On livre un socle utile vite, avec inscription et paiement, puis on itère au rythme de vos premiers utilisateurs.",
-          "a_en": "A first sellable version often runs within a few weeks, not quarters. AI speeds up writing the code, we keep control of the architecture and the tests. We ship a useful base fast, with sign-up and payment, then iterate at the pace of your first users."
+          "q_fr": "Combien de temps faut-il pour sortir une v0 ?",
+          "q_en": "How long does it take to ship a v0?",
+          "a_fr": "Cela dépend du périmètre et de la disponibilité de la personne qui décide. Le sprint de cadrage de 10 heures fixe le parcours à construire, et l'estimation de durée vient à la fin de ce cadrage. Nous ne donnons pas de délai avant.",
+          "a_en": "It depends on the scope and on how available the decision-maker is. The 10-hour scoping sprint fixes the journey to build, and the time estimate comes at the end of that scoping. We do not quote a lead time before."
         },
         {
-          "q_fr": "L'IA vous fait développer plus vite, le produit reste solide ?",
-          "q_en": "AI makes you build faster, does the product stay solid?",
-          "a_fr": "Oui. L'IA accélère l'écriture du code, pas les décisions d'architecture ni les tests. On livre un MVP vite, avec de vrais garde-fous : authentification, contrôle des accès, sauvegardes, cas limites testés. Un produit qu'on vend ne peut pas être fragile, même en version zéro.",
-          "a_en": "Yes. AI speeds up writing the code, not the architecture decisions or the tests. We ship an MVP fast, with real guardrails: authentication, access control, backups, edge cases tested. A product you sell can't be fragile, even in version zero."
+          "q_fr": "L'IA accélère le développement : le produit reste-t-il solide ?",
+          "q_en": "AI speeds up development: does the product stay solid?",
+          "a_fr": "L'IA réduit le temps d'écriture du code, pas le temps de décision. L'architecture, les accès, les sauvegardes et les cas limites (paiement refusé, compte supprimé) restent conçus et testés par une personne. Un produit qu'on vend ne peut pas être fragile, même en version zéro.",
+          "a_en": "AI cuts the time spent writing code, not the time spent deciding. Architecture, access, backups and edge cases (declined payment, deleted account) are still designed and tested by a person. A product you sell cannot be fragile, even in version zero."
         },
         {
-          "q_fr": "Vous gérez l'inscription, l'authentification et le paiement ?",
+          "q_fr": "Gérez-vous l'inscription, l'authentification et le paiement ?",
           "q_en": "Do you handle sign-up, authentication and payment?",
-          "a_fr": "Oui. Un MVP SaaS a besoin d'un tunnel d'inscription, d'une authentification propre, de comptes cloisonnés et d'un paiement, souvent Stripe. On pose ces briques dès la première version pour que le produit encaisse dès qu'un client dit oui, pas plus tard.",
-          "a_en": "Yes. A SaaS MVP needs a sign-up funnel, clean authentication, compartmentalised accounts and a payment, often Stripe. We lay these blocks in from the first version so the product can charge the moment a customer says yes, not later."
+          "a_fr": "Oui. Un MVP SaaS a besoin d'un tunnel d'inscription, d'une authentification propre, de comptes cloisonnés et d'un paiement, souvent Stripe. On pose ces briques dès la première version pour que le produit puisse encaisser le jour où un client dit oui.",
+          "a_en": "Yes. A SaaS MVP needs a sign-up funnel, clean authentication, separate accounts and a payment, often Stripe. We lay these blocks in from the first version so the product can take payment the day a customer says yes."
         },
         {
-          "q_fr": "À qui appartient le code, et où est-il hébergé ?",
+          "q_fr": "À qui appartient le code, et où est-il hébergé ?",
           "q_en": "Who owns the code, and where is it hosted?",
-          "a_fr": "Le code est à vous, livré et documenté. L'hébergement se fait sur une infra que vous contrôlez. Pas de captivité : vous levez des fonds, vous recrutez une équipe technique, vous changez de prestataire, sans repartir de zéro ni tout perdre. Le produit reste votre actif.",
-          "a_en": "The code is yours, delivered and documented. Hosting is on infrastructure you control. No lock-in: you raise funds, hire a technical team, change providers, without starting over or losing everything. The product stays your asset."
-        },
-        {
-          "q_fr": "Comment on trouve le product-market fit avec un MVP ?",
-          "q_en": "How do you find product-market fit with an MVP?",
-          "a_fr": "En livrant vite une version minimale mais vendable, en la mettant devant de vrais utilisateurs, et en itérant sur ce qu'ils font, pas sur ce qu'on suppose. Le MVP sert à apprendre : on mesure l'usage, on ajuste au rythme des retours, on ajoute une fonction quand elle est prouvée, pas avant.",
-          "a_en": "By shipping a minimal but sellable version fast, putting it in front of real users, and iterating on what they do, not on what we assume. The MVP is there to learn: we measure usage, adjust at the pace of feedback, add a feature when it's proven, not before."
+          "a_fr": "À vous. Le code est dans un dépôt à votre nom, la base de données et l'hébergement sont sur vos comptes, et la documentation permet à un autre développeur de reprendre. Vous pouvez lever des fonds, recruter une équipe technique ou changer de prestataire sans repartir de zéro.",
+          "a_en": "You do. The code sits in a repository in your name, the database and hosting are on your accounts, and the documentation lets another developer take over. You can raise funds, hire a technical team or change provider without starting over."
         }
       ]
     },
@@ -811,12 +641,12 @@
       "contentAlign": "center",
       "actionsAlign": "center",
       "rounded": true,
-      "kicker_fr": "§ Prêt à confronter votre idée au marché ?",
-      "kicker_en": "§ Ready to test your idea on the market?",
-      "h2_fr": "Sortez un MVP <i>vendable</i>, pas une démo.",
-      "h2_en": "Ship a <i>sellable</i> MVP, not a demo.",
-      "subtitle_fr": "Un diagnostic de 45 min, gratuit et sans engagement : vous repartez avec le périmètre d'une v0 vendable et une première estimation du temps pour la mettre en ligne, qu'on travaille ensemble ou non. En face, le fondateur qui conçoit et livre, pas un pool de sous-traitants.",
-      "subtitle_en": "A 45-min diagnostic, free and with no commitment: you leave with the perimeter of a sellable v0 and a first estimate of the time to put it online, whether we work together or not. Across the table, the founder who designs and ships, not a pool of subcontractors.",
+      "kicker_fr": "§ Audit IA gratuit",
+      "kicker_en": "§ Free AI audit",
+      "h2_fr": "Quel est le premier client que votre produit doit convaincre ?",
+      "h2_en": "Who is the first customer your product must convince?",
+      "subtitle_fr": "En 45 minutes, on regarde votre idée et ce qui existe déjà sur le marché, et on vous dit si un MVP est la bonne étape ou s'il vaut mieux acheter un outil.",
+      "subtitle_en": "In 45 minutes, we look at your idea and what already exists on the market, and tell you whether an MVP is the right step or whether you should buy a tool instead.",
       "buttons": [
         {
           "label_fr": "Réserver un audit IA gratuit →",
