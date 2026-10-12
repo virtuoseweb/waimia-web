@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · moteur B · « audit SEO technique » : un long mur de portes dont certaines
+       sont entrouvertes (pages indexées) et d'autres closes ; un inspecteur minuscule longe
+       le mur avec une échelle. Rôles remplacés par render-svg.mjs. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-7.5 -93 Q0 -101 7.5 -93 L7 -90 Q0 -95 -7 -90 Z" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <!-- Porte close : arche pleine -->
+    <g id="door-shut">
+      <path d="M-40 0 L-40 -110 Q-40 -150 0 -150 Q40 -150 40 -110 L40 0 Z" fill="{{deep}}"/>
+      <rect x="-3" y="-70" width="6" height="40" fill="{{mid}}"/>
+    </g>
+    <!-- Porte entrouverte : l'ouverture claire, le battant en biais -->
+    <g id="door-open">
+      <path d="M-40 0 L-40 -110 Q-40 -150 0 -150 Q40 -150 40 -110 L40 0 Z" fill="{{light}}"/>
+      <path d="M-40 0 L-40 -110 Q-40 -150 -16 -150 L-16 -8 Z" fill="{{mid}}"/>
+      <path d="M-40 -110 Q-40 -150 -16 -150" fill="none" stroke="{{shadow}}" stroke-width="2"/>
+    </g>
+    <clipPath id="sky"><rect width="1456" height="500"/></clipPath>
+  </defs>
+
+  <!-- Ciel sombre et grand disque derrière le mur -->
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <circle cx="1090" cy="250" r="195" fill="{{shape}}" clip-path="url(#sky)"/>
+
+  <!-- Sol -->
+  <rect y="500" width="1456" height="124" fill="{{ground}}"/>
+
+  <!-- Le mur : une longue bande claire, rythmée par ses créneaux -->
+  <rect x="40" y="300" width="1376" height="200" fill="{{pale}}"/>
+  <g fill="{{pale}}">
+    <rect x="40" y="270" width="70" height="32"/><rect x="170" y="270" width="70" height="32"/>
+    <rect x="300" y="270" width="70" height="32"/><rect x="430" y="270" width="70" height="32"/>
+    <rect x="560" y="270" width="70" height="32"/><rect x="690" y="270" width="70" height="32"/>
+    <rect x="820" y="270" width="70" height="32"/><rect x="950" y="270" width="70" height="32"/>
+    <rect x="1080" y="270" width="70" height="32"/><rect x="1210" y="270" width="70" height="32"/>
+    <rect x="1340" y="270" width="76" height="32"/>
+  </g>
+  <rect x="40" y="494" width="1376" height="6" fill="{{soft}}"/>
+
+  <!-- Huit portes : trois entrouvertes, cinq closes -->
+  <use href="#door-open" transform="translate(150 500)"/>
+  <use href="#door-shut" transform="translate(320 500)"/>
+  <use href="#door-shut" transform="translate(490 500)"/>
+  <use href="#door-open" transform="translate(660 500)"/>
+  <use href="#door-shut" transform="translate(830 500)"/>
+  <use href="#door-shut" transform="translate(1000 500)"/>
+  <use href="#door-open" transform="translate(1170 500)"/>
+  <use href="#door-shut" transform="translate(1330 500)"/>
+
+  <!-- Lumière qui déborde des portes ouvertes sur le sol -->
+  <g fill="{{light}}" opacity="0.55">
+    <path d="M110 500 L190 500 L240 580 L90 580 Z"/>
+    <path d="M620 500 L700 500 L750 580 L600 580 Z"/>
+    <path d="M1130 500 L1210 500 L1260 580 L1110 580 Z"/>
+  </g>
+
+  <!-- Échelle posée contre le mur, entre deux portes -->
+  <g stroke="{{light}}" stroke-width="5" stroke-linecap="round">
+    <line x1="395" y1="500" x2="420" y2="318"/>
+    <line x1="425" y1="500" x2="450" y2="318"/>
+  </g>
+  <g stroke="{{light}}" stroke-width="4">
+    <line x1="399" y1="470" x2="429" y2="470"/><line x1="402" y1="440" x2="432" y2="440"/>
+    <line x1="405" y1="410" x2="435" y2="410"/><line x1="408" y1="380" x2="438" y2="380"/>
+    <line x1="411" y1="350" x2="441" y2="350"/>
+  </g>
+
+  <!-- Inspecteur au pied du mur, planchette à la main -->
+  <use href="#man" transform="translate(560 570) scale(0.95)"/>
+  <rect x="575" y="500" width="26" height="34" fill="{{light}}" transform="rotate(-8 588 517)"/>
+  <rect x="580" y="508" width="16" height="3" fill="{{shadow}}" transform="rotate(-8 588 517)"/>
+  <rect x="580" y="516" width="12" height="3" fill="{{shadow}}" transform="rotate(-8 588 517)"/>
+  <!-- Second personnage, très loin, à droite -->
+  <use href="#man" transform="translate(1290 560) scale(0.5)"/>
+</svg>
