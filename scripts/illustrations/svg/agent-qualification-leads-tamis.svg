@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · moteur B · « qualifier = tamiser » : un grand tamis bleu suspendu à un portique,
+       le gravier tombe en dessous, quelques pierres restent dessus et finissent dans le bol.
+       Distribution prévue : objet-bleu (le tamis = {{subject}}, personnages = {{shadow}}). -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{shadow}}"/>
+      <path d="M-7.5 -93 Q0 -101 7.5 -93 L7 -90 Q0 -95 -7 -90 Z" fill="{{shadow}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{shadow}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{shadow}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{shadow}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{shadow}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{shadow}}"/>
+    </g>
+    <pattern id="mesh" width="16" height="16" patternUnits="userSpaceOnUse">
+      <circle cx="8" cy="8" r="2.4" fill="{{subject}}"/>
+    </pattern>
+    <clipPath id="above-ground"><rect width="1456" height="500"/></clipPath>
+  </defs>
+
+  <!-- Fond clair, grand disque derrière le portique, sol -->
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <circle cx="1010" cy="330" r="215" fill="{{shape}}" clip-path="url(#above-ground)"/>
+  <rect y="500" width="1456" height="124" fill="{{ground}}"/>
+  <rect y="500" width="1456" height="3" fill="{{deep}}" opacity="0.55"/>
+
+  <!-- Portique : deux jambages et une traverse -->
+  <g stroke="{{shadow}}" stroke-width="9" stroke-linecap="round" fill="none">
+    <line x1="470" y1="500" x2="560" y2="150"/>
+    <line x1="890" y1="500" x2="800" y2="150"/>
+    <line x1="548" y1="150" x2="812" y2="150"/>
+  </g>
+  <!-- Suspentes du tamis -->
+  <g stroke="{{shadow}}" stroke-width="3" fill="none">
+    <line x1="590" y1="152" x2="548" y2="292"/>
+    <line x1="770" y1="152" x2="812" y2="292"/>
+  </g>
+
+  <!-- Tamis vu de côté : cuve bleue, bord clair, maille en pointillé -->
+  <path d="M530 290 Q680 420 830 290 Z" fill="{{subject}}"/>
+  <ellipse cx="680" cy="290" rx="150" ry="34" fill="{{light}}"/>
+  <ellipse cx="680" cy="290" rx="150" ry="34" fill="url(#mesh)"/>
+  <ellipse cx="680" cy="290" rx="150" ry="34" fill="none" stroke="{{subject}}" stroke-width="9"/>
+
+  <!-- Les pierres qui restent sur le tamis (les demandes qualifiées) -->
+  <g fill="{{detail}}">
+    <ellipse cx="640" cy="282" rx="17" ry="12"/>
+    <ellipse cx="690" cy="272" rx="21" ry="14"/>
+    <ellipse cx="736" cy="284" rx="15" ry="11"/>
+  </g>
+
+  <!-- Gravier fin qui tombe à travers la maille -->
+  <g fill="{{detail}}">
+    <circle cx="590" cy="352" r="4"/><circle cx="616" cy="388" r="3.5"/><circle cx="650" cy="362" r="4"/>
+    <circle cx="672" cy="404" r="3.5"/><circle cx="700" cy="372" r="4"/><circle cx="722" cy="418" r="3.5"/>
+    <circle cx="748" cy="380" r="4"/><circle cx="640" cy="432" r="3.5"/><circle cx="690" cy="444" r="4"/>
+    <circle cx="738" cy="454" r="3.5"/><circle cx="604" cy="446" r="3.5"/><circle cx="772" cy="410" r="3.5"/>
+  </g>
+  <!-- Tas de gravier au pied du tamis -->
+  <path d="M560 500 Q680 440 800 500 Z" fill="{{shape}}"/>
+  <path d="M560 500 Q680 440 800 500" fill="none" stroke="{{shadow}}" stroke-width="3"/>
+
+  <!-- Bol bleu, à gauche, avec les pierres gardées -->
+  <g>
+    <ellipse cx="330" cy="470" rx="62" ry="12" fill="{{shadow}}" opacity="0.18"/>
+    <path d="M268 452 Q330 520 392 452 Z" fill="{{subject}}"/>
+    <ellipse cx="330" cy="452" rx="62" ry="11" fill="{{subject}}"/>
+    <ellipse cx="305" cy="446" rx="14" ry="10" fill="{{detail}}"/>
+    <ellipse cx="338" cy="440" rx="17" ry="12" fill="{{detail}}"/>
+    <ellipse cx="364" cy="448" rx="12" ry="9" fill="{{detail}}"/>
+  </g>
+
+  <!-- Personnage à droite, il regarde passer le gravier -->
+  <use href="#man" transform="translate(960 500) scale(1.05)"/>
+  <!-- Petit témoin au loin -->
+  <use href="#man" transform="translate(150 560) scale(0.42)"/>
+</svg>

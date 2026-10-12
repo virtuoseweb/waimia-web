@@ -1,0 +1,518 @@
+{
+  "$schema": "../../../schemas/generated/services.page.schema.json",
+  "title_fr": "Agent IA de qualification de leads · Waimia",
+  "title_en": "AI lead qualification agent · Waimia",
+  "description_fr": "Agent IA qui lit vos demandes entrantes (formulaire, e-mail, chat), les note et les route vers le bon commercial, avec validation humaine. Dès 999 € HT.",
+  "description_en": "AI agent that reads incoming requests (form, email, chat), scores them and routes them to the right salesperson, with human approval. From €999 excl. VAT.",
+  "slug": "agent-qualification-leads",
+  "publishedAt": "2026-10-12T00:00:00.000Z",
+  "updatedAt": "2026-10-12",
+  "category": "agents",
+  "tags": [
+    "agent-qualification-leads",
+    "qualification-leads-ia",
+    "scoring-leads",
+    "agent-ia",
+    "routage-commercial"
+  ],
+  "seo": {
+    "noindex": false,
+    "serviceType": "Agent IA de qualification et de routage des leads pour PME",
+    "priceRange": "dès 999 €",
+    "priceMin": 999
+  },
+  "faq_fr": [
+    {
+      "q": "Qu'est-ce qu'un agent de qualification de leads ?",
+      "a": "Un programme qui lit une demande écrite (formulaire, e-mail, conversation), en extrait le besoin, l'urgence et la taille de l'entreprise, propose une note appuyée sur vos critères et la route vers le bon commercial. Il prépare la décision ; un commercial la prend sur les cas limites."
+    },
+    {
+      "q": "Combien coûte un agent de qualification de leads ?",
+      "a": "La conception démarre par un sprint de cadrage à 999 € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure selon le nombre de canaux et d'outils à connecter. S'ajoute l'usage du modèle, facturé par l'éditeur au volume de demandes, estimé avant le lancement."
+    },
+    {
+      "q": "Agent de qualification ou scoring à règles : lequel choisir ?",
+      "a": "Si vos demandes arrivent par un formulaire à cases, un scoring à règles suffit et se trompe moins : c'est le sujet de l'automatisation CRM. L'agent sert quand l'information est dans une phrase, un e-mail ou une conversation. Les deux se combinent : l'agent transforme le texte en champs, les règles notent et affectent."
+    },
+    {
+      "q": "L'agent peut-il écarter à tort un bon prospect ?",
+      "a": "Oui, c'est le risque principal. On le réduit de trois façons : tout ce qui est douteux ou non classé part vers une personne, rien n'est supprimé, et l'écart entre la note de l'agent et la décision de vos commerciaux est mesuré chaque semaine au démarrage."
+    },
+    {
+      "q": "Agent de qualification et RGPD : que faut-il prévoir ?",
+      "a": "Le texte des demandes contient des données personnelles. On limite ce qui est envoyé au modèle, on fixe une durée de conservation, on inscrit le traitement à votre registre et on informe les personnes dans votre politique de confidentialité. On fournit la fiche descriptive du traitement."
+    },
+    {
+      "q": "Avec quels CRM et sur quels canaux ?",
+      "a": "Avec ceux de notre page automatisation CRM (HubSpot, Pipedrive, Salesforce), et par API ou n8n pour un autre outil : c'est vérifié au cadrage. On commence par un seul canal, celui qui concentre le plus de demandes en texte libre : formulaire de contact, boîte e-mail ou chat du site."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "What is a lead qualification agent?",
+      "a": "A program that reads a written request (form, email, conversation), extracts the need, urgency and company size, proposes a score based on your criteria and routes it to the right salesperson. It prepares the decision; a salesperson makes it on borderline cases."
+    },
+    {
+      "q": "How much does a lead qualification agent cost?",
+      "a": "Design starts with a scoping sprint at €999 excl. VAT for 10 hours, then €{{prix.horaire}} per hour excl. VAT depending on the number of channels and tools to connect. Add model usage, billed by the vendor by request volume, estimated before launch."
+    },
+    {
+      "q": "Qualification agent or rule-based scoring: which one?",
+      "a": "If your requests come through a form with fields, rule-based scoring is enough and makes fewer mistakes: that is the subject of CRM automation. The agent is for when the information sits in a sentence, an email or a conversation. The two combine: the agent turns text into fields, rules score and assign."
+    },
+    {
+      "q": "Can the agent wrongly discard a good prospect?",
+      "a": "Yes, that is the main risk. We reduce it three ways: anything doubtful or unclassified goes to a person, nothing is deleted, and the gap between the agent's score and your salespeople's decision is measured every week at the start."
+    },
+    {
+      "q": "Qualification agent and GDPR: what should be planned?",
+      "a": "Requests contain personal data. We limit what is sent to the model, set a retention period, record the processing in your register and inform people in your privacy policy. We provide the processing description sheet."
+    },
+    {
+      "q": "With which CRMs and on which channels?",
+      "a": "With those on our CRM automation page (HubSpot, Pipedrive, Salesforce), and through API or n8n for another tool: this is checked at scoping. We start with one channel, the one with the most free-text requests: contact form, mailbox or site chat."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-masthead-card",
+      "background": "paper",
+      "kicker_fr": "§ Agent de qualification de leads",
+      "kicker_en": "§ Lead qualification agent",
+      "h1_fr": "Agent IA de <i class=\"acc\">qualification</i> de leads",
+      "h1_en": "AI lead <i class=\"acc\">qualification</i> agent",
+      "lede_fr": "Un agent de qualification lit chaque demande entrante, qu'elle arrive par formulaire, e-mail ou chat, en extrait le besoin, l'urgence et la taille de l'entreprise quand elles sont écrites, propose une note et la route vers le bon commercial. Waimia le conçoit pour les PME dont les demandes arrivent en texte libre et que personne ne trie assez vite. Un commercial tranche les cas limites ; l'agent prépare, il n'écrit pas seul à un prospect.",
+      "lede_en": "A qualification agent reads each incoming request, whether it comes by form, email or chat, extracts the need, urgency and company size when they are written, proposes a score and routes it to the right salesperson. Waimia designs it for SMBs whose requests arrive as free text and that nobody sorts fast enough. A salesperson settles borderline cases; the agent prepares, it does not write to a prospect on its own.",
+      "badges": [
+        {
+          "label_fr": "Formulaire, e-mail, chat",
+          "label_en": "Form, email, chat"
+        },
+        {
+          "label_fr": "Note expliquée en une phrase",
+          "label_en": "Score explained in one sentence"
+        },
+        {
+          "label_fr": "Routage vers le bon commercial",
+          "label_en": "Routed to the right salesperson"
+        },
+        {
+          "label_fr": "Validation sur les cas limites",
+          "label_en": "Approval on borderline cases"
+        }
+      ],
+      "cta_sub_fr": "Audit gratuit de 45 minutes en visio : vos demandes entrantes passées en revue, ce qui relève d'un agent et ce qui n'en vaut pas la peine.",
+      "cta_sub_en": "Free 45-minute audit by video call: your incoming requests reviewed, what calls for an agent and what is not worth it.",
+      "cta_primary": {
+        "label_fr": "Réserver un audit IA gratuit →",
+        "label_en": "Book a free AI audit →",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme",
+        "variant": "ghost"
+      },
+      "media_src": "/images/line-art/dispositif-flow.svg",
+      "media_alt_fr": "Schéma : des outils dispersés à gauche, un nœud d'orchestration au centre, un flux ordonné à droite.",
+      "media_alt_en": "Diagram: scattered tools on the left, an orchestration node in the centre, an ordered flow on the right."
+    },
+    {
+      "type": "proof-bar",
+      "background": "paper",
+      "kicker_fr": "§ En bref",
+      "kicker_en": "§ In short",
+      "metrics": [
+        {
+          "value": "999 € HT",
+          "label_fr": "sprint de cadrage de 10 h, puis {{prix.horaire}} € HT de l'heure",
+          "label_en": "10-hour scoping sprint, then €{{prix.horaire}} per hour excl. VAT",
+          "emphasis": true
+        },
+        {
+          "value": "Texte libre",
+          "label_fr": "il lit ce que les formulaires à cases ne captent pas",
+          "label_en": "it reads what forms with fields do not capture",
+          "emphasis": false
+        },
+        {
+          "value": "Une phrase",
+          "label_fr": "chaque note s'explique en une phrase, sur des critères écrits avec vous",
+          "label_en": "each score is explained in one sentence, on criteria written with you",
+          "emphasis": false
+        },
+        {
+          "value": "À vous",
+          "label_fr": "critères, consignes et connecteurs remis",
+          "label_en": "criteria, instructions and connectors handed over",
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "type": "definition-extract",
+      "background": "paper",
+      "kicker_fr": "§ Définition",
+      "kicker_en": "§ Definition",
+      "statement_fr": "Un <i class=\"acc\">agent de qualification de leads</i> lit une demande écrite en texte libre, la compare aux critères que vous avez fixés (secteur, taille, besoin, urgence), propose une note avec sa justification et la route vers la bonne personne. Il propose, une personne tranche les cas limites.",
+      "statement_en": "A <i class=\"acc\">lead qualification agent</i> reads a request written in free text, compares it with the criteria you set (sector, size, need, urgency), proposes a score with its justification and routes it to the right person. It proposes, a person settles borderline cases.",
+      "pills": [
+        {
+          "label_fr": "Lecture du texte libre",
+          "label_en": "Free-text reading"
+        },
+        {
+          "label_fr": "Critères écrits",
+          "label_en": "Written criteria"
+        },
+        {
+          "label_fr": "Note expliquée",
+          "label_en": "Explained score"
+        },
+        {
+          "label_fr": "Routage",
+          "label_en": "Routing"
+        }
+      ],
+      "specs": [
+        {
+          "label_fr": "Modèle choisi selon la tâche",
+          "label_en": "Model chosen for the task"
+        },
+        {
+          "label_fr": "CRM et outil de tâches",
+          "label_en": "CRM and task tool"
+        },
+        {
+          "label_fr": "Formulaire, e-mail, chat",
+          "label_en": "Form, email, chat"
+        },
+        {
+          "label_fr": "Validation humaine",
+          "label_en": "Human approval"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/agent-qualification-leads-tamis-paper.webp",
+          "alt_fr": "Un grand tamis bleu suspendu à un portique : le gravier tombe, quelques pierres restent dessus, une personne regarde.",
+          "alt_en": "A large blue sieve hangs from a frame: gravel falls through, a few stones stay on top, a person looks on.",
+          "side": "right"
+        }
+      ],
+      "html_fr": "<h2>Ce qu'il fait, et ce qu'il ne fait pas</h2>\n<p>Il lit le message, relève ce qui s'y trouve (activité, taille de l'entreprise, besoin exprimé, délai, budget s'il est cité), rapproche l'entreprise d'une fiche existante dans le CRM, propose une note et un commercial. Quand l'essentiel manque, il peut poser une ou deux questions de précision, si vous l'autorisez. Il ne chiffre pas un devis, ne promet aucun délai et ne répond pas sur le fond à un prospect sans validation.</p>\n<p>C'est un cas particulier d'<a href=\"/services/agents-ia\">agent IA</a> : une mission, un périmètre écrit, un journal.</p>\n<h2>Agent ou scoring à règles</h2>\n<p>Si vos demandes arrivent par un formulaire à cases (taille, secteur, budget dans une liste), un scoring à règles suffit et se trompe moins. C'est le sujet de l'<a href=\"/services/crm-scoring-routing\">automatisation CRM, scoring et routage</a>. L'agent sert quand l'information est dans une phrase, un e-mail transféré ou une conversation. Les deux se combinent : l'agent transforme le texte en champs, les règles notent et affectent.</p>\n<h2>Où il s'insère</h2>\n<p>Il prend la suite du formulaire ou de la page de capture et précède la prise de rendez-vous. C'est une pièce du <a href=\"/services/systeme-acquisition\">système d'acquisition</a>, pas un projet isolé : sans suite rapide par un commercial, qualifier plus vite ne change rien. Les <a href=\"/services/systeme-commercial\">relances et le suivi commercial</a> prennent le relais.</p>\n<h2>Le vrai chantier : les critères</h2>\n<p>La qualité d'une qualification dépend de critères écrits, pas du modèle. On passe une heure avec votre responsable commercial : qu'est-ce qu'un bon lead, un lead à rappeler le jour même, un lead à écarter ? Sans ce travail, l'agent reproduit votre flou. On teste ensuite sur quelques dizaines de demandes passées que vos commerciaux ont déjà classées, et on compare.</p>\n<h2>Combien de temps</h2>\n<p>Quelques jours pour écrire les critères et réunir l'échantillon, puis quelques semaines pour un agent branché à votre CRM sur un canal. On élargit canal par canal, en regardant deux chiffres : la part des demandes classées sans intervention et l'écart avec la décision de vos commerciaux.</p>\n<h2>Ce qui peut mal tourner</h2>\n<p>Une note que l'équipe ne croit pas : elle doit s'expliquer en une phrase, et l'écart avec les décisions humaines est mesuré. Un bon prospect écarté à tort : tout ce qui est douteux part vers une personne, rien n'est supprimé. Les données personnelles : on limite ce qui est envoyé au modèle et on le documente pour votre registre. Enfin, la rapidité : un lead qualifié en une minute qu'on rappelle trois jours plus tard ne gagne rien.</p>\n<p>Aucune de nos réalisations publiées n'est une qualification de leads par agent : les deux projets plus bas en sont les plus proches. Pour savoir si vos demandes justifient un agent, commencez par l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>.</p>",
+      "html_en": "<h2>What it does, and what it does not</h2>\n<p>It reads the message, picks out what is there (activity, company size, stated need, deadline, budget if mentioned), matches the company to an existing CRM record, proposes a score and a salesperson. When the essentials are missing, it can ask one or two clarifying questions, if you allow it. It does not price a quote, promises no deadline and does not answer a prospect on the substance without approval.</p>\n<p>It is a specific kind of <a href=\"/services/agents-ia\">AI agent</a>: one mission, a written scope, a log.</p>\n<h2>Agent or rule-based scoring</h2>\n<p>If your requests come through a form with fields (size, sector, budget in a list), rule-based scoring is enough and makes fewer mistakes. That is the subject of <a href=\"/services/crm-scoring-routing\">CRM automation, scoring and routing</a>. The agent is for when the information sits in a sentence, a forwarded email or a conversation. The two combine: the agent turns text into fields, rules score and assign.</p>\n<h2>Where it fits</h2>\n<p>It follows the form or capture page and precedes the booking of a meeting. It is one piece of the <a href=\"/services/systeme-acquisition\">acquisition system</a>, not an isolated project: without a quick follow-up by a salesperson, qualifying faster changes nothing. <a href=\"/services/systeme-commercial\">Follow-ups and sales tracking</a> take over from there.</p>\n<h2>The real work: the criteria</h2>\n<p>The quality of qualification depends on written criteria, not on the model. We spend an hour with your sales lead: what is a good lead, a lead to call back the same day, a lead to drop? Without that work, the agent reproduces your vagueness. We then test on a few dozen past requests your salespeople have already sorted, and compare.</p>\n<h2>How long</h2>\n<p>A few days to write the criteria and gather the sample, then a few weeks for an agent connected to your CRM on one channel. We widen channel by channel, watching two figures: the share of requests classified without intervention and the gap with your salespeople's decisions.</p>\n<h2>What can go wrong</h2>\n<p>A score the team does not believe: it must be explainable in one sentence, and the gap with human decisions is measured. A good prospect wrongly discarded: anything doubtful goes to a person, nothing is deleted. Personal data: we limit what is sent to the model and document it for your register. And speed: a lead qualified in one minute and called back three days later gains nothing.</p>\n<p>None of our published work is a lead qualification by agent: the two projects below are the closest. To find out whether your requests justify an agent, start with the <a href=\"/audit-ia-pme\">free AI audit</a>.</p>"
+    },
+    {
+      "type": "comparison-duo",
+      "background": "paper",
+      "kicker_fr": "§ Exemple type · pas un cas client",
+      "kicker_en": "§ Typical example · not a client case",
+      "h2_fr": "Exemple type : les demandes du site d'une PME de services",
+      "h2_en": "Typical example: the website requests of a services SMB",
+      "without_label_fr": "Avant",
+      "without_label_en": "Before",
+      "without_title_fr": "Tout arrive au même endroit, dans le désordre",
+      "without_title_en": "Everything lands in the same place, in no order",
+      "without_items": [
+        {
+          "text_fr": "Les demandes arrivent par formulaire, e-mail et chat, sans ordre.",
+          "text_en": "Requests arrive by form, email and chat, in no order."
+        },
+        {
+          "text_fr": "Un commercial lit tout, y compris le démarchage fournisseur et les candidatures.",
+          "text_en": "A salesperson reads everything, including supplier solicitations and job applications."
+        },
+        {
+          "text_fr": "La demande urgente attend derrière dix demandes vagues.",
+          "text_en": "The urgent request waits behind ten vague ones."
+        },
+        {
+          "text_fr": "Personne ne sait quelle part des demandes était qualifiée.",
+          "text_en": "Nobody knows what share of requests was qualified."
+        }
+      ],
+      "with_label_fr": "Après",
+      "with_label_en": "After",
+      "with_title_fr": "L'agent trie, le commercial décide",
+      "with_title_en": "The agent sorts, the salesperson decides",
+      "with_items": [
+        {
+          "text_fr": "L'agent classe chaque demande : prospect, client existant, fournisseur, candidature, autre.",
+          "text_en": "The agent classifies each request: prospect, existing client, supplier, application, other."
+        },
+        {
+          "text_fr": "Pour un prospect, il remplit la fiche CRM : besoin, urgence, taille, source.",
+          "text_en": "For a prospect, it fills the CRM record: need, urgency, size, source."
+        },
+        {
+          "text_fr": "Il propose une note avec sa justification en une phrase.",
+          "text_en": "It proposes a score with its justification in one sentence."
+        },
+        {
+          "text_fr": "Une demande urgente ou à fort enjeu crée une tâche datée pour le bon commercial.",
+          "text_en": "An urgent or high-stakes request creates a dated task for the right salesperson."
+        },
+        {
+          "text_fr": "Ce qu'il ne sait pas classer part dans une file « à trier », sans supposition.",
+          "text_en": "What it cannot classify goes to a \"to sort\" queue, with no guessing."
+        }
+      ]
+    },
+    {
+      "type": "deliverables-grid",
+      "background": "paper-3",
+      "kicker_fr": "§ Ce que vous gardez",
+      "kicker_en": "§ What you keep",
+      "title_fr": "Ce qui vous reste à la fin",
+      "title_en": "What you keep at the end",
+      "lead_fr": "Les critères sont le livrable le plus durable : ils servent à l'agent comme à vos commerciaux.",
+      "lead_en": "The criteria are the most lasting deliverable: they serve the agent and your salespeople alike.",
+      "items": [
+        {
+          "title_fr": "Les critères de qualification",
+          "title_en": "The qualification criteria",
+          "body_fr": "Ce qu'est un bon lead, un lead urgent, un lead à écarter, écrits et validés par votre responsable commercial.",
+          "body_en": "What a good lead, an urgent lead and a lead to drop are, written and approved by your sales lead.",
+          "format_fr": "CRITÈRES",
+          "format_en": "CRITERIA"
+        },
+        {
+          "title_fr": "L'agent et ses consignes",
+          "title_en": "The agent and its instructions",
+          "body_fr": "Mission, périmètre, ce qu'il fait seul et ce qu'il soumet, sur vos comptes et versionné.",
+          "body_en": "Mission, scope, what it does alone and what it submits, on your accounts and versioned.",
+          "format_fr": "AGENT",
+          "format_en": "AGENT"
+        },
+        {
+          "title_fr": "Le routage et les escalades",
+          "title_en": "Routing and escalations",
+          "body_fr": "À qui va quelle demande, dans quel délai, et ce qui part vers une personne quand l'agent doute.",
+          "body_en": "Who gets which request, within what time, and what goes to a person when the agent is unsure.",
+          "format_fr": "RÈGLES",
+          "format_en": "RULES"
+        },
+        {
+          "title_fr": "Le tableau de suivi",
+          "title_en": "The tracking dashboard",
+          "body_fr": "Volume par catégorie, écart avec les décisions humaines, demandes non classées.",
+          "body_en": "Volume per category, gap with human decisions, unclassified requests.",
+          "format_fr": "SUIVI",
+          "format_en": "TRACKING"
+        }
+      ]
+    },
+    {
+      "type": "decision-list",
+      "background": "paper",
+      "kicker_fr": "§ Quand ne pas le faire",
+      "kicker_en": "§ When not to do it",
+      "heading_fr": "Un agent de qualification n'est pas utile si",
+      "heading_en": "A qualification agent is not useful if",
+      "items": [
+        {
+          "label_fr": "Vous recevez quelques demandes par semaine : un commercial les lit en dix minutes.",
+          "label_en": "You get a few requests a week: a salesperson reads them in ten minutes."
+        },
+        {
+          "label_fr": "Vos demandes arrivent par un formulaire à cases : un scoring à règles suffit, voir l'automatisation CRM.",
+          "label_en": "Your requests come through a form with fields: rule-based scoring is enough, see CRM automation."
+        },
+        {
+          "label_fr": "Vous n'avez pas défini ce qu'est un bon lead : l'agent reproduirait le flou.",
+          "label_en": "You have not defined what a good lead is: the agent would reproduce the vagueness."
+        },
+        {
+          "label_fr": "Personne ne rappellera dans les heures qui suivent : qualifier vite ne sert à rien sans suite.",
+          "label_en": "Nobody will call back within hours: qualifying fast is useless without follow-up."
+        },
+        {
+          "label_fr": "Vous attendez qu'il décide à la place du commercial : il propose, il ne tranche pas.",
+          "label_en": "You expect it to decide in place of the salesperson: it proposes, it does not settle."
+        }
+      ]
+    },
+    {
+      "type": "case-card-grid",
+      "background": "ink",
+      "fig_num": "Fig. 05",
+      "fig_title_fr": "Réalisations",
+      "fig_title_en": "Work",
+      "spec_fr": "Réalisations · données reprises des fiches publiées",
+      "spec_en": "Work · data taken from the published pages",
+      "h2_fr": "Deux projets voisins : le routage des demandes, et l'agent sous validation",
+      "h2_en": "Two neighbouring projects: request routing, and the agent under approval",
+      "case_label_fr": "CAS",
+      "case_label_en": "CASE",
+      "sector_label_fr": "Secteur · État",
+      "sector_label_en": "Sector · Status",
+      "impact_label_fr": "Ce que dit la fiche",
+      "impact_label_en": "What the page says",
+      "cases": [
+        {
+          "ref": "cases/amploi"
+        },
+        {
+          "ref": "cases/brow-x-professionnel"
+        }
+      ],
+      "all_label_fr": "Voir toutes les réalisations →",
+      "all_label_en": "See all work →",
+      "all_href": "/cas-clients"
+    },
+    {
+      "type": "pricing-cards",
+      "background": "paper",
+      "layout": "grid-asym",
+      "colRatio": "2-3",
+      "kicker_fr": "§ Deux façons d'engager",
+      "kicker_en": "§ Two ways to engage",
+      "h2_fr": "Prix d'un agent de qualification de leads",
+      "h2_en": "Price of a lead qualification agent",
+      "lede_fr": "On démarre par un sprint de cadrage à prix fixe : critères écrits avec votre responsable commercial et un premier agent sur un canal. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints en régie. Vous gardez votre agent, vos accès et la documentation.",
+      "lede_en": "We start with a fixed-price scoping sprint: criteria written with your sales lead and a first agent on one channel. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the time and materials frame. You keep your agent, your access and the documentation.",
+      "tiers": [
+        {
+          "name_fr": "Sprint de cadrage",
+          "name_en": "Scoping sprint",
+          "price": "999 €",
+          "period_fr": "10 h · HT",
+          "period_en": "10 h · ex VAT",
+          "features_fr": [
+            "Critères de qualification écrits avec votre responsable commercial",
+            "Un premier agent sur un canal, branché à votre CRM",
+            "Note expliquée, routage et validation humaine posés",
+            "Test sur un échantillon de vos demandes passées"
+          ],
+          "features_en": [
+            "Qualification criteria written with your sales lead",
+            "A first agent on one channel, connected to your CRM",
+            "Explained score, routing and human approval in place",
+            "Tested on a sample of your past requests"
+          ],
+          "cta": {
+            "label_fr": "Réserver un audit IA gratuit →",
+            "label_en": "Book a free AI audit →",
+            "href": "/contact?offer=audit-ia-pme&intent=audit",
+            "variant": "primary"
+          },
+          "featured": true
+        },
+        {
+          "name_fr": "Suite sur devis",
+          "name_en": "Next steps on quote",
+          "price": "Sur devis",
+          "period_fr": "estimé avec vous · HT",
+          "period_en": "estimated with you · ex VAT",
+          "features_fr": [
+            "Temps nécessaire estimé ensemble, puis validé",
+            "Exécuté en sprints, facturés en régie",
+            "Nouveaux canaux ajoutés sur preuve",
+            "Vous gardez l'agent, les accès et la documentation"
+          ],
+          "features_en": [
+            "Time needed estimated together, then validated",
+            "Run in sprints, time and materials frame",
+            "New channels added on proof",
+            "You keep the agent, access and documentation"
+          ],
+          "cta": {
+            "label_fr": "Cadrer la suite →",
+            "label_en": "Scope what follows →",
+            "href": "/contact?offer=agent-qualification-leads&intent=suite",
+            "variant": "ghost"
+          }
+        }
+      ],
+      "footnote_fr": "Le sprint de cadrage est à prix fixe, 999 € HT pour 10 heures : critères de qualification, premier agent sur un canal branché à votre CRM, test sur vos demandes passées. La suite se cale sur devis : on estime ensemble le temps que demandent les nouveaux canaux, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € HT de l'heure, non dégressif. L'usage du modèle est facturé par l'éditeur au volume, estimé avant le lancement. Sans abonnement ni captivité : à la fin, votre agent, vos accès et la documentation sont à vous.",
+      "footnote_en": "The scoping sprint is fixed-price, €999 excl. VAT for 10 hours: qualification criteria, a first agent on one channel connected to your CRM, tested on your past requests. What follows is quoted: we estimate together the time new channels require, validate it, then run it in sprints within the time and materials frame, at €{{prix.horaire}} excl. VAT an hour, non-degressive. Model usage is billed by the vendor by volume, estimated before launch. No subscription, no lock-in: at the end, your agent, your access and the documentation are yours."
+    },
+    {
+      "type": "eeat-panel",
+      "variant": "media",
+      "silo": "commercial"
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper-2",
+      "kicker_fr": "§ Questions fréquentes",
+      "kicker_en": "§ Frequently asked questions",
+      "h2_fr": "Agent de qualification de leads : vos questions",
+      "h2_en": "Lead qualification agent: your questions",
+      "items": [
+        {
+          "q_fr": "Qu'est-ce qu'un agent de qualification de leads ?",
+          "a_fr": "Un programme qui lit une demande écrite (formulaire, e-mail, conversation), en extrait le besoin, l'urgence et la taille de l'entreprise, propose une note appuyée sur vos critères et la route vers le bon commercial. Il prépare la décision ; un commercial la prend sur les cas limites.",
+          "q_en": "What is a lead qualification agent?",
+          "a_en": "A program that reads a written request (form, email, conversation), extracts the need, urgency and company size, proposes a score based on your criteria and routes it to the right salesperson. It prepares the decision; a salesperson makes it on borderline cases."
+        },
+        {
+          "q_fr": "Combien coûte un agent de qualification de leads ?",
+          "a_fr": "La conception démarre par un sprint de cadrage à 999 € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure selon le nombre de canaux et d'outils à connecter. S'ajoute l'usage du modèle, facturé par l'éditeur au volume de demandes, estimé avant le lancement.",
+          "q_en": "How much does a lead qualification agent cost?",
+          "a_en": "Design starts with a scoping sprint at €999 excl. VAT for 10 hours, then €{{prix.horaire}} per hour excl. VAT depending on the number of channels and tools to connect. Add model usage, billed by the vendor by request volume, estimated before launch."
+        },
+        {
+          "q_fr": "Agent de qualification ou scoring à règles : lequel choisir ?",
+          "a_fr": "Si vos demandes arrivent par un formulaire à cases, un scoring à règles suffit et se trompe moins : c'est le sujet de l'automatisation CRM. L'agent sert quand l'information est dans une phrase, un e-mail ou une conversation. Les deux se combinent : l'agent transforme le texte en champs, les règles notent et affectent.",
+          "q_en": "Qualification agent or rule-based scoring: which one?",
+          "a_en": "If your requests come through a form with fields, rule-based scoring is enough and makes fewer mistakes: that is the subject of CRM automation. The agent is for when the information sits in a sentence, an email or a conversation. The two combine: the agent turns text into fields, rules score and assign."
+        },
+        {
+          "q_fr": "L'agent peut-il écarter à tort un bon prospect ?",
+          "a_fr": "Oui, c'est le risque principal. On le réduit de trois façons : tout ce qui est douteux ou non classé part vers une personne, rien n'est supprimé, et l'écart entre la note de l'agent et la décision de vos commerciaux est mesuré chaque semaine au démarrage.",
+          "q_en": "Can the agent wrongly discard a good prospect?",
+          "a_en": "Yes, that is the main risk. We reduce it three ways: anything doubtful or unclassified goes to a person, nothing is deleted, and the gap between the agent's score and your salespeople's decision is measured every week at the start."
+        },
+        {
+          "q_fr": "Agent de qualification et RGPD : que faut-il prévoir ?",
+          "a_fr": "Le texte des demandes contient des données personnelles. On limite ce qui est envoyé au modèle, on fixe une durée de conservation, on inscrit le traitement à votre registre et on informe les personnes dans votre politique de confidentialité. On fournit la fiche descriptive du traitement.",
+          "q_en": "Qualification agent and GDPR: what should be planned?",
+          "a_en": "Requests contain personal data. We limit what is sent to the model, set a retention period, record the processing in your register and inform people in your privacy policy. We provide the processing description sheet."
+        },
+        {
+          "q_fr": "Avec quels CRM et sur quels canaux ?",
+          "a_fr": "Avec ceux de notre page automatisation CRM (HubSpot, Pipedrive, Salesforce), et par API ou n8n pour un autre outil : c'est vérifié au cadrage. On commence par un seul canal, celui qui concentre le plus de demandes en texte libre : formulaire de contact, boîte e-mail ou chat du site.",
+          "q_en": "With which CRMs and on which channels?",
+          "a_en": "With those on our CRM automation page (HubSpot, Pipedrive, Salesforce), and through API or n8n for another tool: this is checked at scoping. We start with one channel, the one with the most free-text requests: contact form, mailbox or site chat."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "layout": "stacked",
+      "contentAlign": "center",
+      "actionsAlign": "center",
+      "rounded": true,
+      "kicker_fr": "§ Audit IA gratuit",
+      "kicker_en": "§ Free AI audit",
+      "h2_fr": "Combien de demandes lisez-vous avant de trouver la bonne ?",
+      "h2_en": "How many requests do you read before finding the right one?",
+      "subtitle_fr": "En 45 minutes, on regarde vos demandes entrantes et vos critères, et on vous dit si un agent de qualification est justifié à votre volume, ou si un scoring à règles suffit.",
+      "subtitle_en": "In 45 minutes, we look at your incoming requests and your criteria, and tell you whether a qualification agent is justified at your volume, or whether rule-based scoring is enough.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un audit IA gratuit →",
+          "label_en": "Book a free AI audit →",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Agents IA pour entreprise",
+          "label_en": "AI agents for business",
+          "href": "/services/agents-ia",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

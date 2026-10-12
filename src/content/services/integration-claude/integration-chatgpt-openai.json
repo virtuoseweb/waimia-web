@@ -1,0 +1,622 @@
+{
+  "$schema": "../../../schemas/generated/services.page.schema.json",
+  "title_fr": "Intégration ChatGPT et OpenAI aux outils métier · Waimia",
+  "title_en": "ChatGPT and OpenAI integration with business tools · Waimia",
+  "description_fr": "Intégration de ChatGPT et de l'API OpenAI à vos outils métier : GPT personnalisés, automatisations, agents. Quand c'est le bon choix, quand préférer Claude.",
+  "description_en": "ChatGPT and OpenAI API integration with your business tools: custom GPTs, automations, agents. When it is the right choice, when to prefer Claude.",
+  "slug": "integration-chatgpt-openai",
+  "publishedAt": "2026-10-12T00:00:00.000Z",
+  "updatedAt": "2026-10-12",
+  "category": "claude",
+  "tags": [
+    "integration-chatgpt",
+    "integration-openai",
+    "gpt-personnalises",
+    "api-openai",
+    "choix-modele-ia"
+  ],
+  "seo": {
+    "noindex": false,
+    "serviceType": "Intégration de ChatGPT et de l'API OpenAI aux outils métier pour PME",
+    "priceRange": "dès 999 €",
+    "priceMin": 999
+  },
+  "faq_fr": [
+    {
+      "q": "Peut-on intégrer ChatGPT à ses outils métier ?",
+      "a": "Oui, à trois niveaux : l'application d'équipe avec ses connecteurs et des GPT personnalisés, des automatisations qui appellent l'API d'OpenAI depuis n8n ou Make, ou une application ou un agent sur mesure construit sur l'API. Le bon niveau dépend de qui lance la tâche : une personne qui relit, ou un traitement qui tourne seul."
+    },
+    {
+      "q": "ChatGPT ou Claude : lequel choisir pour une PME ?",
+      "a": "Celui que vous pourrez encadrer. Si vos équipes utilisent déjà ChatGPT, partez de là et encadrez-le : changer coûte plus que cela ne rapporte. Si vous partez de zéro avec l'objectif d'agents connectés à vos outils, nous déployons Claude. Le comparatif Claude vs ChatGPT détaille prix, données et outils, relus à la source."
+    },
+    {
+      "q": "Mes données servent-elles à entraîner les modèles d'OpenAI ?",
+      "a": "Pas par défaut sur les offres professionnelles et l'API, selon la documentation d'OpenAI relue le 6 octobre 2026 dans nos comparatifs. Les comptes personnels ne sont pas couverts par le contrat de votre entreprise : c'est l'un des premiers points qu'on règle, en passant les équipes sur l'offre d'équipe."
+    },
+    {
+      "q": "Peut-on garder les données en Europe avec OpenAI ?",
+      "a": "OpenAI documente une région européenne directe, sous conditions écrites dans sa documentation (éligibilité accordée par son équipe commerciale, contrôle de conservation approuvé, surcoût). Le détail, daté et sourcé, est dans notre comparatif des plateformes. Vérifiez-le le jour de l'achat : ces conditions bougent."
+    },
+    {
+      "q": "Combien coûte une intégration de ChatGPT ou d'OpenAI ?",
+      "a": "La conception démarre par un sprint de cadrage à 999 € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure selon le nombre d'outils à connecter. S'ajoutent les abonnements d'équipe, ou l'usage de l'API facturé par l'éditeur au volume, estimé avant le lancement. Les prix publics bougent : on les relit le jour de l'achat."
+    },
+    {
+      "q": "Un GPT personnalisé suffit-il pour automatiser une tâche ?",
+      "a": "Pour une tâche qu'une personne lance et relit, souvent oui : des consignes partagées, quelques documents, un format de sortie. Pas pour un traitement qui doit tourner seul sur un flux entrant, ni pour écrire dans vos outils avec des droits précis. Traitez aussi le contenu d'un GPT comme lisible par toute personne qui peut l'utiliser."
+    },
+    {
+      "q": "Peut-on utiliser ChatGPT et Claude ensemble ?",
+      "a": "Techniquement oui, et des projets le justifient (une tâche d'image ou de voix d'un côté, des agents de l'autre). Pour une PME, nous ne le recommandons pas par défaut : chaque outil ajoute ses règles, ses comptes, sa formation et son contrat de sous-traitance. Un assistant bien encadré rend plus de services que deux sans cadre."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Can ChatGPT be integrated with business tools?",
+      "a": "Yes, at three levels: the team app with its connectors and custom GPTs, automations that call the OpenAI API from n8n or Make, or a custom application or agent built on the API. The right level depends on who starts the task: a person who reviews, or a process that runs on its own."
+    },
+    {
+      "q": "ChatGPT or Claude: which one for an SMB?",
+      "a": "The one you can govern. If your teams already use ChatGPT, start there and govern it: switching costs more than it earns. If you start from scratch aiming at agents connected to your tools, we deploy Claude. The Claude vs ChatGPT comparison details price, data and tools, re-read at the source."
+    },
+    {
+      "q": "Is my data used to train OpenAI's models?",
+      "a": "Not by default on business plans and the API, according to OpenAI's documentation re-read on 6 October 2026 in our comparisons. Personal accounts are not covered by your company's contract: it is one of the first points we settle, by moving teams to the team plan."
+    },
+    {
+      "q": "Can data stay in Europe with OpenAI?",
+      "a": "OpenAI documents a direct European region, under conditions written in its documentation (eligibility granted by its sales team, approved retention control, a surcharge). The dated, sourced detail is in our platform comparison. Check it on the purchase date: these conditions move."
+    },
+    {
+      "q": "How much does a ChatGPT or OpenAI integration cost?",
+      "a": "Design starts with a scoping sprint at €999 excl. VAT for 10 hours, then €{{prix.horaire}} per hour excl. VAT depending on the number of tools to connect. Add team subscriptions, or API usage billed by the vendor by volume, estimated before launch. Public prices move: we re-read them on the purchase date."
+    },
+    {
+      "q": "Is a custom GPT enough to automate a task?",
+      "a": "For a task a person starts and reviews, often yes: shared instructions, a few documents, an output format. Not for a process that must run on its own on an incoming flow, nor for writing to your tools with precise rights. Also treat the content of a GPT as readable by anyone who can use it."
+    },
+    {
+      "q": "Can ChatGPT and Claude be used together?",
+      "a": "Technically yes, and some projects justify it (an image or voice task on one side, agents on the other). For an SMB, we do not recommend it by default: each tool adds its rules, accounts, training and data processing agreement. One well-governed assistant does more than two with no framework."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "illustration": {
+        "src": "/images/illustrations/ds/integration-chatgpt-openai-sentier-paper.webp",
+        "alt_fr": "Un sentier usé serpente sur la pelouse jusqu'à une porte, une personne pose à côté une allée droite en dalles.",
+        "alt_en": "A worn path winds across a lawn to a door, a person lays a straight tiled walkway beside it.",
+        "side": "right"
+      },
+      "kicker_fr": "§ Intégration ChatGPT et OpenAI",
+      "kicker_en": "§ ChatGPT and OpenAI integration",
+      "h1_fr": "Intégrer <i class=\"acc\">ChatGPT et OpenAI</i> à vos outils métier",
+      "h1_en": "Integrating <i class=\"acc\">ChatGPT and OpenAI</i> with your business tools",
+      "lede_fr": "Vos équipes utilisent déjà ChatGPT, ou vous voulez brancher l'API d'OpenAI à vos logiciels. Waimia encadre l'usage et l'intègre à vos outils : GPT personnalisés, applications connectées, automatisations par l'API, agents. Et nous vous disons quand Claude conviendrait mieux, puisque nous le déployons par défaut : c'est un choix d'outillage, pas un jugement sur ChatGPT.",
+      "lede_en": "Your teams already use ChatGPT, or you want to connect the OpenAI API to your software. Waimia governs the use and integrates it with your tools: custom GPTs, connected apps, API automations, agents. And we tell you when Claude would fit better, since we deploy it by default: a tooling choice, not a judgement on ChatGPT.",
+      "badges": [
+        {
+          "label_fr": "GPT personnalisés",
+          "label_en": "Custom GPTs"
+        },
+        {
+          "label_fr": "API d'OpenAI",
+          "label_en": "OpenAI API"
+        },
+        {
+          "label_fr": "Offre d'équipe encadrée",
+          "label_en": "Governed team plan"
+        },
+        {
+          "label_fr": "Réversible",
+          "label_en": "Reversible"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver un audit IA gratuit →",
+        "label_en": "Book a free AI audit →",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme",
+        "variant": "ghost"
+      }
+    },
+    {
+      "type": "proof-bar",
+      "background": "paper",
+      "kicker_fr": "§ En bref",
+      "kicker_en": "§ In short",
+      "metrics": [
+        {
+          "value": "999 € HT",
+          "label_fr": "sprint de cadrage de 10 h, puis {{prix.horaire}} € HT de l'heure",
+          "label_en": "10-hour scoping sprint, then €{{prix.horaire}} per hour excl. VAT",
+          "emphasis": true
+        },
+        {
+          "value": "Trois niveaux",
+          "label_fr": "application d'équipe, automatisation par l'API, agent sur mesure",
+          "label_en": "team app, API automation, custom agent",
+          "emphasis": false
+        },
+        {
+          "value": "Un seul assistant",
+          "label_fr": "encadré, plutôt que deux sans cadre",
+          "label_en": "governed, rather than two with no framework",
+          "emphasis": false
+        },
+        {
+          "value": "À vous",
+          "label_fr": "consignes, GPT, jeux de test et connecteurs remis",
+          "label_en": "instructions, GPTs, test sets and connectors handed over",
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "type": "definition-extract",
+      "background": "paper",
+      "kicker_fr": "§ Définition",
+      "kicker_en": "§ Definition",
+      "statement_fr": "L'<i class=\"acc\">intégration de ChatGPT ou d'OpenAI</i> consiste à relier les modèles d'OpenAI à vos outils métier, par l'application d'équipe (connecteurs, GPT personnalisés) ou par l'API (automatisations, agents), avec des consignes écrites, des droits limités et un journal. Elle commence par une question : qui lance la tâche, une personne qui relit, ou un traitement qui tourne seul ?",
+      "statement_en": "<i class=\"acc\">ChatGPT or OpenAI integration</i> means connecting OpenAI's models to your business tools, through the team app (connectors, custom GPTs) or the API (automations, agents), with written instructions, limited rights and a log. It starts with one question: who starts the task, a person who reviews, or a process that runs on its own?",
+      "pills": [
+        {
+          "label_fr": "Application d'équipe",
+          "label_en": "Team app"
+        },
+        {
+          "label_fr": "GPT personnalisés",
+          "label_en": "Custom GPTs"
+        },
+        {
+          "label_fr": "API d'OpenAI",
+          "label_en": "OpenAI API"
+        },
+        {
+          "label_fr": "Droits limités",
+          "label_en": "Limited rights"
+        }
+      ],
+      "specs": [
+        {
+          "label_fr": "ChatGPT Business ou Enterprise",
+          "label_en": "ChatGPT Business or Enterprise"
+        },
+        {
+          "label_fr": "Vos outils par API",
+          "label_en": "Your tools through APIs"
+        },
+        {
+          "label_fr": "n8n ou Make pour l'orchestration",
+          "label_en": "n8n or Make for orchestration"
+        },
+        {
+          "label_fr": "Validation humaine",
+          "label_en": "Human approval"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/integration-chatgpt-openai-prise-paper.webp",
+          "alt_fr": "Devant un grand panneau à deux prises, une personne tient une fiche bleue reliée par un câble à une lampe.",
+          "alt_en": "In front of a large panel with two sockets, a person holds a blue plug linked by a cable to a lamp.",
+          "side": "right"
+        }
+      ],
+      "html_fr": "<h2>Ce que recouvre « intégrer ChatGPT »</h2>\n<p>Trois niveaux, qu'on ne confond pas. L'application d'équipe : ChatGPT sur une offre professionnelle, avec ses connecteurs, ses applications et des GPT personnalisés partagés. L'automatisation : un modèle d'OpenAI appelé par l'API depuis un workflow <a href=\"/services/automatisation-n8n\">n8n</a> ou <a href=\"/services/automatisation-make\">Make</a>, à chaque événement. L'agent ou l'application sur mesure : un programme qui utilise l'API pour lire, choisir et agir dans vos logiciels, sur le modèle d'un <a href=\"/services/agents-ia\">agent IA</a>. Le premier niveau suffit à beaucoup de PME ; les deux autres demandent quelqu'un qui maintiendra l'intégration.</p>\n<h2>Quand c'est le bon choix</h2>\n<p>Quand vos équipes l'utilisent déjà : l'adoption est acquise, et encadrer vaut mieux que changer. Quand le projet demande de l'image ou de la voix, présentes au catalogue d'OpenAI. Quand une exigence de région européenne directe est satisfaite par les conditions d'OpenAI. Le <a href=\"/ressources/comparatifs/claude-platform-vs-openai-platform\">comparatif des plateformes Claude et OpenAI</a> donne ces critères, sourcés et datés ; le <a href=\"/ressources/comparatifs/claude-vs-chatgpt-pme\">comparatif Claude vs ChatGPT</a> traite les applications d'équipe.</p>\n<h2>Quand nous recommandons plutôt Claude</h2>\n<p>Nous déployons Claude par défaut, parce que nous travaillons chaque jour avec lui, avec Claude Code et le protocole MCP, et que nous les connaissons mieux. Si vous partez de zéro avec l'objectif d'agents connectés à vos outils, c'est notre point de départ : voir l'<a href=\"/services/integration-claude\">intégration de Claude</a>. Si vos équipes utilisent déjà ChatGPT, nous ne vous demandons pas de changer. Et nous ne recommandons pas de cumuler les deux : un assistant bien encadré rend plus de services que deux sans cadre.</p>\n<h2>Ce qui demande du soin</h2>\n<p>Les comptes personnels : tant que des collaborateurs travaillent sur un compte gratuit, vos données ne sont pas couvertes par le contrat de l'entreprise. Les GPT personnalisés : traitez leur contenu comme lisible par toute personne qui peut les utiliser, et ne leur confiez pas de documents que chacun ne doit pas voir. Les versions de modèles : elles changent, un jeu de test permet de s'en apercevoir. Le coût : l'abonnement d'équipe est facturé par siège, l'API au volume ; on estime l'un et l'autre avant de choisir.</p>\n<h2>Combien de temps</h2>\n<p>Quelques jours pour cadrer et encadrer l'usage existant, quelques semaines pour un premier cas d'usage branché à vos outils. Le temps part dans les consignes et les tests sur vos cas, pas dans la connexion.</p>\n<p>Pour la méthode données et conformité, le guide <a href=\"/ressources/guides/claude-rgpd-pme\">Claude et RGPD en PME</a> et le <a href=\"/ressources/guides/ai-act-pme-calendrier\">calendrier de l'AI Act</a> valent quel que soit le modèle ; les réglages détaillés du premier sont ceux de Claude, à transposer. Si votre objectif est de remplir et qualifier un pipeline commercial, le modèle compte moins que le <a href=\"/services/systeme-acquisition\">système d'acquisition</a> qui l'entoure. Si vos équipes veulent apprendre à s'en servir, la <a href=\"/formations/chatgpt\">formation ChatGPT en entreprise</a> couvre prompts, GPT personnalisés et API. Pour trancher sur votre cas, commencez par l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>.</p>",
+      "html_en": "<h2>What \"integrating ChatGPT\" covers</h2>\n<p>Three levels, not to be confused. The team app: ChatGPT on a business plan, with its connectors, apps and shared custom GPTs. Automation: an OpenAI model called through the API from an <a href=\"/services/automatisation-n8n\">n8n</a> or <a href=\"/services/automatisation-make\">Make</a> workflow, on each event. The custom agent or application: a program that uses the API to read, choose and act in your software, on the model of an <a href=\"/services/agents-ia\">AI agent</a>. The first level is enough for many SMBs; the other two need someone who will maintain the integration.</p>\n<h2>When it is the right choice</h2>\n<p>When your teams already use it: adoption is a given, and governing beats switching. When the project needs image or voice, present in OpenAI's catalogue. When a requirement for a direct European region is met by OpenAI's conditions. The <a href=\"/ressources/comparatifs/claude-platform-vs-openai-platform\">Claude and OpenAI platform comparison</a> gives these criteria, sourced and dated; the <a href=\"/ressources/comparatifs/claude-vs-chatgpt-pme\">Claude vs ChatGPT comparison</a> covers the team apps.</p>\n<h2>When we recommend Claude instead</h2>\n<p>We deploy Claude by default, because we work with it every day, with Claude Code and the MCP protocol, and know them better. If you start from scratch aiming at agents connected to your tools, that is our starting point: see <a href=\"/services/integration-claude\">Claude integration</a>. If your teams already use ChatGPT, we do not ask you to switch. And we do not recommend stacking both: one well-governed assistant does more than two with no framework.</p>\n<h2>What needs care</h2>\n<p>Personal accounts: as long as staff work on a free account, your data is not covered by the company's contract. Custom GPTs: treat their content as readable by anyone who can use them, and do not give them documents that not everyone should see. Model versions: they change, a test set lets you notice. Cost: the team subscription is billed per seat, the API by volume; we estimate both before choosing.</p>\n<h2>How long</h2>\n<p>A few days to scope and govern existing use, a few weeks for a first use case connected to your tools. Time goes into instructions and tests on your cases, not into the connection.</p>\n<p>For data and compliance method, the guide <a href=\"/ressources/guides/claude-rgpd-pme\">Claude and GDPR for SMBs</a> and the <a href=\"/ressources/guides/ai-act-pme-calendrier\">AI Act calendar</a> apply whatever the model; the former's detailed settings are Claude's, to transpose. If your goal is to fill and qualify a sales pipeline, the model matters less than the <a href=\"/services/systeme-acquisition\">acquisition system</a> around it. If your teams want to learn to use it, the <a href=\"/formations/chatgpt\">ChatGPT training for business</a> covers prompts, custom GPTs and the API. To settle your case, start with the <a href=\"/audit-ia-pme\">free AI audit</a>.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper",
+      "kicker_fr": "§ Les trois niveaux",
+      "kicker_en": "§ The three levels",
+      "heading_fr": "De l'application d'équipe à l'agent sur mesure",
+      "heading_en": "From the team app to the custom agent",
+      "caption_fr": "Lecture de Waimia. Pas de prix ni de nom de modèle : ils changent, et les offres aussi. Les critères datés et sourcés sont dans nos deux comparatifs.",
+      "caption_en": "Waimia's reading. No prices or model names: they change, and so do the plans. Dated, sourced criteria are in our two comparisons.",
+      "columns_fr": [
+        "Niveau",
+        "Ce que c'est",
+        "Pour quels usages",
+        "Limite"
+      ],
+      "columns_en": [
+        "Level",
+        "What it is",
+        "For which uses",
+        "Limit"
+      ],
+      "rows_fr": [
+        [
+          "Application d'équipe",
+          "ChatGPT sur une offre professionnelle, avec connecteurs, applications et GPT personnalisés",
+          "Rédaction, analyse, recherche ; peu d'outils à relier",
+          "Une personne lance la tâche : rien ne tourne seul"
+        ],
+        [
+          "Automatisation par API",
+          "Un modèle appelé par n8n, Make ou du code à chaque événement",
+          "Tri, extraction, brouillons sur un flux entrant",
+          "Règles et validations à écrire ; usage facturé au volume"
+        ],
+        [
+          "Agent ou application sur mesure",
+          "Un programme qui utilise l'API pour lire, choisir et agir dans vos logiciels",
+          "Missions longues, plusieurs outils, droits à cadrer",
+          "Du code à maintenir, et un responsable nommé"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Team app",
+          "ChatGPT on a business plan, with connectors, apps and custom GPTs",
+          "Writing, analysis, research; few tools to link",
+          "A person starts the task: nothing runs on its own"
+        ],
+        [
+          "API automation",
+          "A model called by n8n, Make or code on each event",
+          "Sorting, extraction, drafts on an incoming flow",
+          "Rules and approvals to write; usage billed by volume"
+        ],
+        [
+          "Custom agent or application",
+          "A program that uses the API to read, choose and act in your software",
+          "Long missions, several tools, rights to frame",
+          "Code to maintain, and a named owner"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "tech-when-dual",
+      "background": "paper-2",
+      "kicker_fr": "§ Choisir sans dogme",
+      "kicker_en": "§ Choosing without dogma",
+      "title_fr": "Quand passer par ChatGPT et OpenAI, quand préférer Claude",
+      "title_en": "When to go through ChatGPT and OpenAI, when to prefer Claude",
+      "aside_fr": "Lecture de Waimia. Nous déployons Claude par défaut, par choix d'outillage. Ce n'est pas un jugement sur ChatGPT : nous travaillons aussi avec les modèles d'OpenAI quand un client les utilise déjà.",
+      "aside_en": "Waimia's reading. We deploy Claude by default, as a tooling choice. It is not a judgement on ChatGPT: we also work with OpenAI models when a client already uses them.",
+      "use_title_fr": "ChatGPT ou OpenAI se justifie si",
+      "use_title_en": "ChatGPT or OpenAI is justified if",
+      "use_items_fr": [
+        "Vos équipes l'utilisent déjà au quotidien et vous voulez l'encadrer plutôt que changer",
+        "Le projet a besoin d'image ou de voix, que le catalogue d'OpenAI couvre",
+        "Une exigence de région européenne directe est satisfaite par les conditions d'OpenAI",
+        "Des GPT personnalisés partagés suffisent à standardiser les tâches de vos équipes"
+      ],
+      "use_items_en": [
+        "Your teams already use it daily and you want to govern it rather than switch",
+        "The project needs image or voice, which OpenAI's catalogue covers",
+        "A requirement for a direct European region is met by OpenAI's conditions",
+        "Shared custom GPTs are enough to standardise your teams' tasks"
+      ],
+      "avoid_title_fr": "Préférez Claude si",
+      "avoid_title_en": "Prefer Claude if",
+      "avoid_items_fr": [
+        "Vous partez de zéro et visez des agents connectés à vos outils par MCP, avec des skills partagés",
+        "Vos équipes travaillent déjà avec Claude : y ajouter un second assistant double les règles à tenir",
+        "Un test sur vos propres documents donne un avantage net à Claude sur votre tâche",
+        "Vous voulez un seul prestataire qui connaît à fond l'outil qu'il met en production"
+      ],
+      "avoid_items_en": [
+        "You start from scratch and aim at agents connected to your tools through MCP, with shared skills",
+        "Your teams already work with Claude: adding a second assistant doubles the rules to keep",
+        "A test on your own documents gives Claude a clear edge on your task",
+        "You want one provider that knows the tool it puts into production inside out"
+      ]
+    },
+    {
+      "type": "comparison-duo",
+      "background": "paper",
+      "kicker_fr": "§ Exemple type · pas un cas client",
+      "kicker_en": "§ Typical example · not a client case",
+      "h2_fr": "Exemple type : une équipe commerciale qui utilise ChatGPT chacune de son côté",
+      "h2_en": "Typical example: a sales team where everyone uses ChatGPT alone",
+      "without_label_fr": "Avant",
+      "without_label_en": "Before",
+      "without_title_fr": "Six comptes, six façons de faire",
+      "without_title_en": "Six accounts, six ways of working",
+      "without_items": [
+        {
+          "text_fr": "Chacun utilise un compte personnel, avec des informations clients collées dans la conversation.",
+          "text_en": "Everyone uses a personal account, with client information pasted into the conversation."
+        },
+        {
+          "text_fr": "Les bonnes consignes restent chez celui qui les a trouvées.",
+          "text_en": "Good instructions stay with whoever found them."
+        },
+        {
+          "text_fr": "Rien n'est relié au CRM : on recopie à la main.",
+          "text_en": "Nothing is connected to the CRM: people copy by hand."
+        },
+        {
+          "text_fr": "Personne ne sait quelles données ont été envoyées.",
+          "text_en": "Nobody knows what data has been sent."
+        }
+      ],
+      "with_label_fr": "Après",
+      "with_label_en": "After",
+      "with_title_fr": "Un cadre commun sur l'outil déjà adopté",
+      "with_title_en": "A shared framework on the tool already adopted",
+      "with_items": [
+        {
+          "text_fr": "L'équipe passe sur l'offre d'équipe, avec règles écrites sur les données.",
+          "text_en": "The team moves to the team plan, with written data rules."
+        },
+        {
+          "text_fr": "Les meilleures consignes deviennent des GPT personnalisés partagés.",
+          "text_en": "The best instructions become shared custom GPTs."
+        },
+        {
+          "text_fr": "Le CRM est branché avec des droits limités : lecture d'abord, écriture validée.",
+          "text_en": "The CRM is connected with limited rights: read first, approved writes."
+        },
+        {
+          "text_fr": "Un référent tient les règles et un jeu de test rejoué à chaque changement de version.",
+          "text_en": "A lead owns the rules and a test set replayed at each version change."
+        }
+      ]
+    },
+    {
+      "type": "deliverables-grid",
+      "background": "paper-3",
+      "kicker_fr": "§ Ce que vous gardez",
+      "kicker_en": "§ What you keep",
+      "title_fr": "Ce qui vous reste à la fin",
+      "title_en": "What you keep at the end",
+      "lead_fr": "Les consignes et le jeu de test sont le livrable le plus durable : ils survivent à un changement de modèle.",
+      "lead_en": "Instructions and the test set are the most lasting deliverable: they survive a change of model.",
+      "items": [
+        {
+          "title_fr": "Les règles d'usage",
+          "title_en": "Usage rules",
+          "body_fr": "Qui a un compte, sur quelle offre, quelles données sont interdites, quels usages sont attendus.",
+          "body_en": "Who has an account, on which plan, which data is forbidden, which uses are expected.",
+          "format_fr": "RÈGLES",
+          "format_en": "RULES"
+        },
+        {
+          "title_fr": "Les GPT et les consignes",
+          "title_en": "GPTs and instructions",
+          "body_fr": "Des consignes testées par métier, partagées, versionnées dans vos fichiers.",
+          "body_en": "Tested instructions per job, shared, versioned in your own files.",
+          "format_fr": "GPT",
+          "format_en": "GPT"
+        },
+        {
+          "title_fr": "Les connecteurs et automatisations",
+          "title_en": "Connectors and automations",
+          "body_fr": "Les accès à vos outils, créés sur vos comptes, avec des droits limités et un journal.",
+          "body_en": "Access to your tools, created on your accounts, with limited rights and a log.",
+          "format_fr": "FLUX",
+          "format_en": "FLOWS"
+        },
+        {
+          "title_fr": "Le jeu de test",
+          "title_en": "The test set",
+          "body_fr": "Des cas réels et leur grille de notation, rejouables sur un autre modèle ou une nouvelle version.",
+          "body_en": "Real cases and their scoring grid, replayable on another model or a new version.",
+          "format_fr": "TEST",
+          "format_en": "TEST"
+        }
+      ]
+    },
+    {
+      "type": "process-steps",
+      "background": "paper",
+      "kicker_fr": "§ Le déroulé",
+      "kicker_en": "§ The process",
+      "h2_fr": "De l'usage éparpillé à l'outil branché",
+      "h2_en": "From scattered use to a connected tool",
+      "steps": [
+        {
+          "title_fr": "Recenser l'usage",
+          "title_en": "Take stock of use",
+          "body_fr": "Qui utilise quoi, sur quel compte, pour quelles tâches, avec quelles données. Un recensement, pas un audit de sécurité.",
+          "body_en": "Who uses what, on which account, for which tasks, with which data. A stocktake, not a security audit.",
+          "meta_fr": "Cadrage",
+          "meta_en": "Scoping"
+        },
+        {
+          "title_fr": "Encadrer",
+          "title_en": "Govern",
+          "body_fr": "Offre d'équipe, règles sur les données, comptes personnels fermés pour le travail, un référent nommé.",
+          "body_en": "Team plan, data rules, personal accounts closed for work, a named lead.",
+          "meta_fr": "Règles",
+          "meta_en": "Rules"
+        },
+        {
+          "title_fr": "Choisir le niveau",
+          "title_en": "Pick the level",
+          "body_fr": "Application d'équipe, automatisation ou agent : on décide selon qui lance la tâche et ce qu'elle touche.",
+          "body_en": "Team app, automation or agent: we decide on who starts the task and what it touches.",
+          "meta_fr": "Décision",
+          "meta_en": "Decision"
+        },
+        {
+          "title_fr": "Brancher et tester",
+          "title_en": "Connect and test",
+          "body_fr": "Un premier cas d'usage relié à vos outils, avec droits limités, testé sur des cas réels.",
+          "body_en": "A first use case connected to your tools, with limited rights, tested on real cases.",
+          "meta_fr": "Mise en service",
+          "meta_en": "Go-live"
+        },
+        {
+          "title_fr": "Garder la porte ouverte",
+          "title_en": "Keep the door open",
+          "body_fr": "Consignes et jeu de test chez vous : le choix du modèle se rejoue quand les offres bougent.",
+          "body_en": "Instructions and test set with you: the choice of model can be replayed when offers move.",
+          "meta_fr": "Suivi",
+          "meta_en": "Follow-up"
+        }
+      ]
+    },
+    {
+      "type": "pricing-cards",
+      "background": "paper",
+      "layout": "grid-asym",
+      "colRatio": "2-3",
+      "kicker_fr": "§ Deux façons d'engager",
+      "kicker_en": "§ Two ways to engage",
+      "h2_fr": "Prix d'une intégration de ChatGPT ou d'OpenAI",
+      "h2_en": "Price of a ChatGPT or OpenAI integration",
+      "lede_fr": "On démarre par un sprint de cadrage à prix fixe : l'usage existant recensé, les règles écrites, le niveau d'intégration choisi et un premier cas d'usage testé. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints en régie. Vous gardez vos consignes, vos accès et la documentation.",
+      "lede_en": "We start with a fixed-price scoping sprint: existing use taken stock of, rules written, the integration level chosen and a first use case tested. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the time and materials frame. You keep your instructions, your access and the documentation.",
+      "tiers": [
+        {
+          "name_fr": "Sprint de cadrage",
+          "name_en": "Scoping sprint",
+          "price": "999 €",
+          "period_fr": "10 h · HT",
+          "period_en": "10 h · ex VAT",
+          "features_fr": [
+            "Usage existant recensé, règles sur les données écrites",
+            "Niveau d'intégration choisi : application, automatisation ou agent",
+            "Un premier cas d'usage branché à vos outils, testé sur vos cas",
+            "Jeu de test remis, rejouable sur un autre modèle"
+          ],
+          "features_en": [
+            "Existing use taken stock of, data rules written",
+            "Integration level chosen: app, automation or agent",
+            "A first use case connected to your tools, tested on your cases",
+            "Test set delivered, replayable on another model"
+          ],
+          "cta": {
+            "label_fr": "Réserver un audit IA gratuit →",
+            "label_en": "Book a free AI audit →",
+            "href": "/contact?offer=audit-ia-pme&intent=audit",
+            "variant": "primary"
+          },
+          "featured": true
+        },
+        {
+          "name_fr": "Suite sur devis",
+          "name_en": "Next steps on quote",
+          "price": "Sur devis",
+          "period_fr": "estimé avec vous · HT",
+          "period_en": "estimated with you · ex VAT",
+          "features_fr": [
+            "Temps nécessaire estimé ensemble, puis validé",
+            "Exécuté en sprints, facturés en régie",
+            "Nouveaux cas d'usage ajoutés sur preuve",
+            "Vous gardez consignes, accès et documentation"
+          ],
+          "features_en": [
+            "Time needed estimated together, then validated",
+            "Run in sprints, time and materials frame",
+            "New use cases added on proof",
+            "You keep instructions, access and documentation"
+          ],
+          "cta": {
+            "label_fr": "Cadrer la suite →",
+            "label_en": "Scope what follows →",
+            "href": "/contact?offer=integration-chatgpt-openai&intent=suite",
+            "variant": "ghost"
+          }
+        }
+      ],
+      "footnote_fr": "Le sprint de cadrage est à prix fixe, 999 € HT pour 10 heures : usage recensé, règles écrites, niveau d'intégration choisi, premier cas d'usage branché et testé, jeu de test remis. La suite se cale sur devis : on estime ensemble le temps que demandent les autres cas d'usage, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € HT de l'heure, non dégressif. Les abonnements d'équipe et l'usage de l'API sont facturés par l'éditeur ; on les estime avant de choisir. Aucun abonnement chez Waimia, aucune captivité : à la fin, vos consignes, vos accès et la documentation sont à vous.",
+      "footnote_en": "The scoping sprint is fixed-price, €999 excl. VAT for 10 hours: use taken stock of, rules written, integration level chosen, a first use case connected and tested, test set delivered. What follows is quoted: we estimate together the time the other use cases require, validate it, then run it in sprints within the time and materials frame, at €{{prix.horaire}} excl. VAT an hour, non-degressive. Team subscriptions and API usage are billed by the vendor; we estimate them before choosing. No Waimia subscription, no lock-in: at the end, your instructions, your access and the documentation are yours."
+    },
+    {
+      "type": "eeat-panel",
+      "variant": "media",
+      "silo": "ops"
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper-2",
+      "kicker_fr": "§ Questions fréquentes",
+      "kicker_en": "§ Frequently asked questions",
+      "h2_fr": "Intégration de ChatGPT et d'OpenAI : vos questions",
+      "h2_en": "ChatGPT and OpenAI integration: your questions",
+      "items": [
+        {
+          "q_fr": "Peut-on intégrer ChatGPT à ses outils métier ?",
+          "a_fr": "Oui, à trois niveaux : l'application d'équipe avec ses connecteurs et des GPT personnalisés, des automatisations qui appellent l'API d'OpenAI depuis n8n ou Make, ou une application ou un agent sur mesure construit sur l'API. Le bon niveau dépend de qui lance la tâche : une personne qui relit, ou un traitement qui tourne seul.",
+          "q_en": "Can ChatGPT be integrated with business tools?",
+          "a_en": "Yes, at three levels: the team app with its connectors and custom GPTs, automations that call the OpenAI API from n8n or Make, or a custom application or agent built on the API. The right level depends on who starts the task: a person who reviews, or a process that runs on its own."
+        },
+        {
+          "q_fr": "ChatGPT ou Claude : lequel choisir pour une PME ?",
+          "a_fr": "Celui que vous pourrez encadrer. Si vos équipes utilisent déjà ChatGPT, partez de là et encadrez-le : changer coûte plus que cela ne rapporte. Si vous partez de zéro avec l'objectif d'agents connectés à vos outils, nous déployons Claude. Le comparatif Claude vs ChatGPT détaille prix, données et outils, relus à la source.",
+          "q_en": "ChatGPT or Claude: which one for an SMB?",
+          "a_en": "The one you can govern. If your teams already use ChatGPT, start there and govern it: switching costs more than it earns. If you start from scratch aiming at agents connected to your tools, we deploy Claude. The Claude vs ChatGPT comparison details price, data and tools, re-read at the source."
+        },
+        {
+          "q_fr": "Mes données servent-elles à entraîner les modèles d'OpenAI ?",
+          "a_fr": "Pas par défaut sur les offres professionnelles et l'API, selon la documentation d'OpenAI relue le 6 octobre 2026 dans nos comparatifs. Les comptes personnels ne sont pas couverts par le contrat de votre entreprise : c'est l'un des premiers points qu'on règle, en passant les équipes sur l'offre d'équipe.",
+          "q_en": "Is my data used to train OpenAI's models?",
+          "a_en": "Not by default on business plans and the API, according to OpenAI's documentation re-read on 6 October 2026 in our comparisons. Personal accounts are not covered by your company's contract: it is one of the first points we settle, by moving teams to the team plan."
+        },
+        {
+          "q_fr": "Peut-on garder les données en Europe avec OpenAI ?",
+          "a_fr": "OpenAI documente une région européenne directe, sous conditions écrites dans sa documentation (éligibilité accordée par son équipe commerciale, contrôle de conservation approuvé, surcoût). Le détail, daté et sourcé, est dans notre comparatif des plateformes. Vérifiez-le le jour de l'achat : ces conditions bougent.",
+          "q_en": "Can data stay in Europe with OpenAI?",
+          "a_en": "OpenAI documents a direct European region, under conditions written in its documentation (eligibility granted by its sales team, approved retention control, a surcharge). The dated, sourced detail is in our platform comparison. Check it on the purchase date: these conditions move."
+        },
+        {
+          "q_fr": "Combien coûte une intégration de ChatGPT ou d'OpenAI ?",
+          "a_fr": "La conception démarre par un sprint de cadrage à 999 € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure selon le nombre d'outils à connecter. S'ajoutent les abonnements d'équipe, ou l'usage de l'API facturé par l'éditeur au volume, estimé avant le lancement. Les prix publics bougent : on les relit le jour de l'achat.",
+          "q_en": "How much does a ChatGPT or OpenAI integration cost?",
+          "a_en": "Design starts with a scoping sprint at €999 excl. VAT for 10 hours, then €{{prix.horaire}} per hour excl. VAT depending on the number of tools to connect. Add team subscriptions, or API usage billed by the vendor by volume, estimated before launch. Public prices move: we re-read them on the purchase date."
+        },
+        {
+          "q_fr": "Un GPT personnalisé suffit-il pour automatiser une tâche ?",
+          "a_fr": "Pour une tâche qu'une personne lance et relit, souvent oui : des consignes partagées, quelques documents, un format de sortie. Pas pour un traitement qui doit tourner seul sur un flux entrant, ni pour écrire dans vos outils avec des droits précis. Traitez aussi le contenu d'un GPT comme lisible par toute personne qui peut l'utiliser.",
+          "q_en": "Is a custom GPT enough to automate a task?",
+          "a_en": "For a task a person starts and reviews, often yes: shared instructions, a few documents, an output format. Not for a process that must run on its own on an incoming flow, nor for writing to your tools with precise rights. Also treat the content of a GPT as readable by anyone who can use it."
+        },
+        {
+          "q_fr": "Peut-on utiliser ChatGPT et Claude ensemble ?",
+          "a_fr": "Techniquement oui, et des projets le justifient (une tâche d'image ou de voix d'un côté, des agents de l'autre). Pour une PME, nous ne le recommandons pas par défaut : chaque outil ajoute ses règles, ses comptes, sa formation et son contrat de sous-traitance. Un assistant bien encadré rend plus de services que deux sans cadre.",
+          "q_en": "Can ChatGPT and Claude be used together?",
+          "a_en": "Technically yes, and some projects justify it (an image or voice task on one side, agents on the other). For an SMB, we do not recommend it by default: each tool adds its rules, accounts, training and data processing agreement. One well-governed assistant does more than two with no framework."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "layout": "stacked",
+      "contentAlign": "center",
+      "actionsAlign": "center",
+      "rounded": true,
+      "kicker_fr": "§ Audit IA gratuit",
+      "kicker_en": "§ Free AI audit",
+      "h2_fr": "Vos équipes utilisent déjà ChatGPT : qui encadre, et avec quelles règles ?",
+      "h2_en": "Your teams already use ChatGPT: who governs it, and with which rules?",
+      "subtitle_fr": "En 45 minutes, on fait le point sur les usages existants, les données en jeu et le niveau d'intégration qui vous convient, ChatGPT ou Claude.",
+      "subtitle_en": "In 45 minutes, we review existing uses, the data at stake and the integration level that suits you, ChatGPT or Claude.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un audit IA gratuit →",
+          "label_en": "Book a free AI audit →",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Intégration de Claude en entreprise",
+          "label_en": "Claude integration for business",
+          "href": "/services/integration-claude",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · moteur B · « choisir la direction » : une grande girouette sur un toit, le vent du
+       sud-est qui souffle en rubans, deux personnes qui lèvent la tête. Pas de texte.
+       Distribution prévue : ciel-bleu (ciel = {{field}}, disque = {{shape}}). -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-7.5 -93 Q0 -101 7.5 -93 L7 -90 Q0 -95 -7 -90 Z" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{subject}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{subject}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/>
+    </g>
+    <g id="cloud">
+      <rect x="-70" y="-10" width="140" height="20" rx="10" fill="{{detail}}"/>
+      <rect x="-40" y="-26" width="80" height="22" rx="11" fill="{{detail}}"/>
+    </g>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <!-- Grand disque derrière la girouette -->
+  <circle cx="800" cy="300" r="205" fill="{{shape}}"/>
+  <!-- Nuages plats -->
+  <use href="#cloud" transform="translate(240 150)"/>
+  <use href="#cloud" transform="translate(1180 120) scale(1.2)"/>
+  <use href="#cloud" transform="translate(1290 330) scale(0.8)"/>
+
+  <!-- Rubans de vent -->
+  <g fill="none" stroke="{{detail}}" stroke-width="3" stroke-linecap="round" opacity="0.9">
+    <path d="M60 260 Q330 200 560 250 T1020 230"/>
+    <path d="M120 350 Q400 300 620 340 T1140 320"/>
+    <path d="M30 430 Q300 380 520 420 T930 402"/>
+  </g>
+
+  <!-- Sol et petit cabanon -->
+  <rect y="500" width="1456" height="124" fill="{{ground}}"/>
+  <rect y="500" width="1456" height="3" fill="{{deep}}" opacity="0.55"/>
+  <g transform="translate(280 0)">
+    <rect x="360" y="418" width="250" height="82" fill="{{subject}}"/>
+    <path d="M340 418 L485 352 L630 418 Z" fill="{{subject}}"/>
+    <rect x="470" y="448" width="30" height="52" fill="{{detail}}"/>
+    <rect x="394" y="444" width="26" height="22" fill="{{detail}}"/>
+  </g>
+
+  <!-- Mât et girouette -->
+  <g transform="translate(280 0)">
+    <rect x="481" y="150" width="8" height="204" fill="{{subject}}"/>
+    <!-- croisillon -->
+    <rect x="445" y="206" width="80" height="6" fill="{{subject}}"/>
+    <rect x="482" y="176" width="6" height="64" fill="{{subject}}"/>
+    <circle cx="485" cy="209" r="5" fill="{{subject}}"/>
+    <!-- flèche -->
+    <path d="M395 130 L560 130 L560 116 L612 140 L560 164 L560 150 L395 150 Z" fill="{{subject}}"/>
+    <path d="M395 130 L360 108 L384 140 L360 172 L395 150 Z" fill="{{subject}}"/>
+    <circle cx="485" cy="140" r="9" fill="{{light}}"/>
+  </g>
+
+  <!-- Deux personnes au pied du cabanon -->
+  <use href="#man" transform="translate(970 500) scale(1.05)"/>
+  <use href="#woman" transform="translate(1025 500) scale(1.05)"/>
+</svg>
