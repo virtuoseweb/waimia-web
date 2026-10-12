@@ -1,0 +1,668 @@
+{
+  "$schema": "../../../schemas/generated/services.page.schema.json",
+  "title_fr": "Prospection LinkedIn B2B automatisée · Waimia",
+  "title_en": "Automated B2B LinkedIn prospecting · Waimia",
+  "description_fr": "Prospection LinkedIn B2B pour PME : ciblage, enrichissement et brouillons préparés par l'IA, envoi validé par une personne, réponses dans le CRM.",
+  "description_en": "B2B LinkedIn prospecting for SMEs: targeting, enrichment and drafts prepared by AI, sending approved by a person, replies logged in the CRM.",
+  "slug": "prospection-linkedin",
+  "publishedAt": "2026-10-12T00:00:00.000Z",
+  "updatedAt": "2026-10-12T00:00:00.000Z",
+  "category": "commercial",
+  "tags": [
+    "prospection-linkedin",
+    "linkedin-b2b",
+    "prospection-b2b",
+    "validation-humaine",
+    "enrichissement-prospects"
+  ],
+  "seo": {
+    "noindex": false,
+    "serviceType": "Prospection LinkedIn B2B préparée par IA et validée par un humain",
+    "priceRange": "dès 999 €",
+    "priceMin": 999
+  },
+  "faq_fr": [
+    {
+      "q": "Peut-on automatiser LinkedIn sans risquer son compte ?",
+      "a": "Pas sans risque, et on ne le prétend pas. Les conditions d'utilisation de LinkedIn interdisent les robots et les outils qui envoient des messages, ajoutent des contacts ou copient des profils à votre place, et LinkedIn indique qu'un compte qui les utilise peut être restreint ou fermé. On automatise donc ce qui précède l'envoi (ciblage, enrichissement, brouillons, rappels) et l'envoi reste un geste humain. Le risque diminue, il ne disparaît pas : LinkedIn applique ses propres limites à tout compte."
+    },
+    {
+      "q": "D'où vient la liste des contacts, si LinkedIn n'est pas aspiré ?",
+      "a": "De sources que vous maîtrisez : votre CRM, vos clients et prospects existants, vos contacts de salons, le registre Sirene, les sites des entreprises, et une base B2B dont la source est documentée. La personne qui prépare la liste peut aussi chercher dans LinkedIn à la main, avec les outils de LinkedIn que vous avez déjà. Chaque contact garde sa source."
+    },
+    {
+      "q": "Les messages sont-ils écrits par l'IA ?",
+      "a": "Les brouillons le sont, par Claude, à partir d'un fait public sur l'entreprise et de vos règles de ton. Ils sont relus par la personne qui envoie, qui reste responsable du texte. Un brouillon qui ne sonne pas comme vous n'est pas envoyé."
+    },
+    {
+      "q": "Prospection LinkedIn et RGPD : que faut-il prévoir ?",
+      "a": "Un message qui concerne la fonction de la personne, une information claire sur qui vous êtes et pourquoi vous écrivez, un refus respecté sur tous les canaux, et des données limitées à ce qui sert le message, avec leur source. La CNIL décrit ces principes pour la prospection par e-mail entre professionnels ; on les applique aussi aux messages LinkedIn. Ce n'est pas un avis juridique."
+    },
+    {
+      "q": "Combien de messages par semaine ?",
+      "a": "Pas de volume universel : c'est celui qu'une personne peut relire, envoyer et suivre avec soin. Il est plus bas que ce qu'enverrait un robot, et c'est voulu : peu de messages bien ciblés valent mieux que beaucoup de messages génériques, pour vos résultats comme pour votre compte."
+    },
+    {
+      "q": "Quelle différence avec le cold email et le social selling ?",
+      "a": "Le cold email part d'un système, depuis des domaines dédiés, sur une liste large. Ici chaque envoi est manuel et la liste se travaille compte par compte. Le social selling, lui, s'occupe des signaux qui décident quand écrire et de la préparation du premier message : voir les pages cold email B2B et social selling assisté par l'IA."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Can you automate LinkedIn without risking your account?",
+      "a": "Not without risk, and we do not claim otherwise. LinkedIn's terms prohibit bots and tools that send messages, add contacts or copy profiles on your behalf, and LinkedIn says an account using them may be restricted or closed. So we automate what comes before sending (targeting, enrichment, drafts, reminders) and sending stays a human act. The risk goes down, it does not disappear: LinkedIn applies its own limits to every account."
+    },
+    {
+      "q": "Where does the contact list come from if LinkedIn is not scraped?",
+      "a": "From sources you control: your CRM, existing clients and prospects, trade-show contacts, the Sirene register, company websites, and a B2B database whose source is documented. The person preparing the list can also search LinkedIn by hand, with the LinkedIn tools you already have. Each contact keeps its source."
+    },
+    {
+      "q": "Are the messages written by AI?",
+      "a": "The drafts are, by Claude, from a public fact about the company and your tone rules. They are reviewed by the person who sends, who remains responsible for the text. A draft that does not sound like you is not sent."
+    },
+    {
+      "q": "LinkedIn prospecting and GDPR: what to plan for?",
+      "a": "A message about the person's role, clear information on who you are and why you are writing, a refusal honoured on every channel, and data limited to what the message needs, with its source. The CNIL describes these principles for email prospecting between professionals; we apply them to LinkedIn messages too. This is not legal advice."
+    },
+    {
+      "q": "How many messages a week?",
+      "a": "No universal volume: it is what a person can review, send and follow up with care. It is lower than what a bot would send, and that is intended: a few well-targeted messages beat many generic ones, for your results and for your account."
+    },
+    {
+      "q": "How does this differ from cold email and social selling?",
+      "a": "Cold email comes from a system, from dedicated domains, over a wide list. Here every send is manual and the list is worked account by account. Social selling deals with the signals that decide when to write and with preparing the first message: see the B2B cold email and AI-assisted social selling pages."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "illustration": {
+        "src": "/images/illustrations/ds/prospection-linkedin-epreuves-paper.webp",
+        "alt_fr": "Des épreuves d'imprimerie pendent à une corde, une personne en relit une au crayon avant le tirage",
+        "alt_en": "Printer's proofs hang from a cord, a person checks one with a pencil before printing",
+        "side": "right"
+      },
+      "kicker_fr": "§ Prospection LinkedIn B2B",
+      "kicker_en": "§ B2B LinkedIn prospecting",
+      "h1_fr": "Prospection <i class=\"acc\">LinkedIn</i> B2B automatisée",
+      "h1_en": "Automated B2B <i class=\"acc\">LinkedIn</i> prospecting",
+      "lede_fr": "La prospection LinkedIn automatisée, telle que Waimia la pratique, prépare tout ce qui précède l'envoi : ciblage des comptes, enrichissement hors de LinkedIn, brouillons personnalisés par Claude, rappels datés, report des réponses dans le CRM. L'envoi de chaque invitation et de chaque message reste un geste humain, depuis votre compte. C'est plus lent qu'un robot, et c'est ce qui protège votre compte.",
+      "lede_en": "LinkedIn prospecting automation, as Waimia practises it, prepares everything that comes before sending: account targeting, enrichment outside LinkedIn, drafts personalised by Claude, dated reminders, replies logged in the CRM. Sending each invitation and each message stays a human act, from your account. It is slower than a bot, and that is what protects your account.",
+      "badges": [
+        {
+          "label_fr": "Ciblage par critères",
+          "label_en": "Criteria-based targeting"
+        },
+        {
+          "label_fr": "Brouillons relus",
+          "label_en": "Reviewed drafts"
+        },
+        {
+          "label_fr": "Envoi par une personne",
+          "label_en": "Sent by a person"
+        },
+        {
+          "label_fr": "Réponses dans le CRM",
+          "label_en": "Replies in the CRM"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver un audit IA gratuit →",
+        "label_en": "Book a free AI audit →",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Le cadre : LinkedIn et RGPD",
+        "label_en": "The framework: LinkedIn and GDPR",
+        "href": "#cadre",
+        "variant": "ghost"
+      }
+    },
+    {
+      "type": "proof-bar",
+      "background": "paper",
+      "kicker_fr": "§ En bref",
+      "kicker_en": "§ In short",
+      "metrics": [
+        {
+          "value": "Un humain envoie",
+          "label_fr": "chaque invitation et chaque message part de votre compte, après validation",
+          "label_en": "each invitation and message goes from your account, after approval",
+          "emphasis": true
+        },
+        {
+          "value": "Hors LinkedIn",
+          "label_fr": "ciblage et enrichissement sans aspirer les profils LinkedIn",
+          "label_en": "targeting and enrichment without scraping LinkedIn profiles",
+          "emphasis": false
+        },
+        {
+          "value": "999 € HT",
+          "label_fr": "sprint de cadrage de 10 heures, puis {{prix.horaire}} € HT de l'heure",
+          "label_en": "10-hour scoping sprint, then €{{prix.horaire}} per hour excl. VAT",
+          "emphasis": false
+        },
+        {
+          "value": "Audit gratuit",
+          "label_fr": "45 minutes pour juger si le canal vaut le coup chez vous",
+          "label_en": "45 minutes to judge whether the channel is worth it for you",
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "type": "definition-extract",
+      "background": "paper",
+      "kicker_fr": "§ Définition",
+      "kicker_en": "§ Definition",
+      "statement_fr": "La <i class=\"acc\">prospection LinkedIn automatisée</i> désigne ici une prospection B2B dont la préparation est outillée (ciblage, enrichissement, rédaction, planification) et dont l'envoi reste humain. Le système produit une file de tâches : qui contacter, avec quel message, quand relancer. La personne qui détient le compte décide et envoie.",
+      "statement_en": "<i class=\"acc\">Automated LinkedIn prospecting</i> here means B2B prospecting whose preparation is tooled (targeting, enrichment, drafting, scheduling) and whose sending stays human. The system produces a task queue: who to contact, with which message, when to follow up. The person who holds the account decides and sends.",
+      "pills": [
+        {
+          "label_fr": "Préparation outillée",
+          "label_en": "Tooled preparation"
+        },
+        {
+          "label_fr": "Envoi humain",
+          "label_en": "Human sending"
+        },
+        {
+          "label_fr": "Brouillons relus",
+          "label_en": "Reviewed drafts"
+        },
+        {
+          "label_fr": "Compte protégé",
+          "label_en": "Account protected"
+        }
+      ],
+      "specs": [
+        {
+          "label_fr": "Critères de ciblage écrits",
+          "label_en": "Written targeting criteria"
+        },
+        {
+          "label_fr": "Enrichissement hors LinkedIn",
+          "label_en": "Enrichment outside LinkedIn"
+        },
+        {
+          "label_fr": "Brouillons par Claude",
+          "label_en": "Drafts by Claude"
+        },
+        {
+          "label_fr": "File de tâches datée",
+          "label_en": "Dated task queue"
+        },
+        {
+          "label_fr": "Réponses reportées au CRM",
+          "label_en": "Replies logged in the CRM"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/prospection-linkedin-cible-paper.webp",
+          "alt_fr": "Une silhouette tend son arc vers une grande cible à anneaux bleus, une flèche plantée près du centre",
+          "alt_en": "A figure draws a bow toward a large target with blue rings, an arrow planted near the centre",
+          "side": "right"
+        }
+      ],
+      "html_fr": "<h2>Ce que le système prépare, ce qu'il laisse à une personne</h2>\n<p>Le système prépare ce qui précède l'envoi : la liste des comptes et des interlocuteurs selon vos critères, son enrichissement à partir de sources hors LinkedIn (votre CRM, vos clients existants, le registre Sirene, les sites des entreprises, une base B2B dont la source est documentée), un brouillon d'invitation et de premiers messages rédigé par Claude à partir d'un fait public, et un calendrier de relances.</p>\n<p>La personne qui détient le compte relit, corrige, envoie, puis note la réponse. Le système n'ouvre pas LinkedIn à sa place : il n'envoie pas d'invitations, ne like pas, ne commente pas. Deux gestes restent manuels, l'envoi et la conversation.</p>\n<h2>Pourquoi pas un robot d'envoi</h2>\n<p>Les <a href=\"https://www.linkedin.com/legal/user-agreement\" rel=\"nofollow noopener\" target=\"_blank\">conditions d'utilisation de LinkedIn</a> (en vigueur depuis le 3 novembre 2025) interdisent les robots et autres méthodes automatisées pour envoyer des messages ou ajouter des contacts, ainsi que les logiciels, scripts et extensions qui copient des profils. LinkedIn précise dans <a href=\"https://www.linkedin.com/help/linkedin/answer/a1341387\" rel=\"nofollow noopener\" target=\"_blank\">son centre d'aide</a> qu'un membre qui utilise de tels outils s'expose à une restriction ou à la fermeture de son compte, et que ces outils peuvent cesser de fonctionner sans préavis. Pour une PME, le compte du dirigeant ou du commercial est un actif : on ne le met pas en jeu pour gagner quelques minutes d'envoi.</p>\n<p>Le gain est ailleurs : la recherche, la rédaction et le suivi prennent bien plus de temps que le clic d'envoi.</p>\n<h2>Un canal parmi d'autres</h2>\n<p>La même liste de comptes se travaille aussi par <a href=\"/services/cold-email-b2b\">cold email B2B</a>, depuis des domaines dédiés. Les signaux qui disent quand écrire se trouvent avec le <a href=\"/services/social-selling-ia\">social selling assisté par l'IA</a>. Les réponses vont dans un <a href=\"/services/crm-scoring-routing\">CRM scoré et routé</a>, et les <a href=\"/services/sequences-de-suivi\">séquences de suivi</a> gardent les comptes ouverts. Le dispositif complet est décrit sur la page <a href=\"/services/prospection-automatisee\">prospection automatisée</a>, dans le <a href=\"/services/systeme-acquisition\">système d'acquisition</a>.</p>",
+      "html_en": "<h2>What the system prepares, what it leaves to a person</h2>\n<p>The system prepares what comes before sending: the list of accounts and contacts from your criteria, its enrichment from sources outside LinkedIn (your CRM, existing clients, the Sirene register, company websites, a B2B database whose source is documented), a draft invitation and first messages written by Claude from a public fact, and a follow-up calendar.</p>\n<p>The person who holds the account reviews, edits, sends, then notes the reply. The system does not open LinkedIn for them: it does not send invitations, like or comment. Two acts stay manual, sending and the conversation.</p>\n<h2>Why not a sending bot</h2>\n<p><a href=\"https://www.linkedin.com/legal/user-agreement\" rel=\"nofollow noopener\" target=\"_blank\">LinkedIn's User Agreement</a> (effective since 3 November 2025) prohibits bots and other automated methods to send messages or add contacts, as well as software, scripts and extensions that copy profiles. LinkedIn states in <a href=\"https://www.linkedin.com/help/linkedin/answer/a1341387\" rel=\"nofollow noopener\" target=\"_blank\">its help centre</a> that a member using such tools risks having their account restricted or shut down, and that these tools may stop working without notice. For an SME, the owner's or salesperson's account is an asset: we do not put it at stake to save a few minutes of sending.</p>\n<p>The gain is elsewhere: research, writing and follow-up take far more time than the send click.</p>\n<h2>One channel among others</h2>\n<p>The same account list can also be worked by <a href=\"/services/cold-email-b2b\">B2B cold email</a>, from dedicated domains. The signals that say when to write come with <a href=\"/services/social-selling-ia\">AI-assisted social selling</a>. Replies go into a <a href=\"/services/crm-scoring-routing\">scored and routed CRM</a>, and <a href=\"/services/sequences-de-suivi\">follow-up sequences</a> keep accounts open. The full setup is described on the <a href=\"/services/prospection-automatisee\">automated prospecting</a> page, within the <a href=\"/services/systeme-acquisition\">acquisition system</a>.</p>"
+    },
+    {
+      "type": "method-stepline",
+      "background": "paper-3",
+      "kicker_fr": "§ La méthode",
+      "kicker_en": "§ The method",
+      "h2_fr": "De la liste au rendez-vous, en cinq étapes",
+      "h2_en": "From list to meeting, in five steps",
+      "lede_fr": "Les trois premières sont préparées par le système, les deux dernières sont des gestes humains.",
+      "lede_en": "The first three are prepared by the system, the last two are human acts.",
+      "steps": [
+        {
+          "title_fr": "Cibler",
+          "title_en": "Target",
+          "sub_fr": "Critères écrits : secteur, taille, fonction, signal",
+          "sub_en": "Written criteria: sector, size, role, signal"
+        },
+        {
+          "title_fr": "Enrichir",
+          "title_en": "Enrich",
+          "sub_fr": "Sources hors LinkedIn, avec la source de chaque donnée",
+          "sub_en": "Sources outside LinkedIn, with each datum's source"
+        },
+        {
+          "title_fr": "Rédiger",
+          "title_en": "Draft",
+          "sub_fr": "Brouillons personnalisés, une variante par segment",
+          "sub_en": "Personalised drafts, one variant per segment"
+        },
+        {
+          "title_fr": "Valider et envoyer",
+          "title_en": "Approve and send",
+          "sub_fr": "Relecture, puis envoi par la personne, depuis son compte",
+          "sub_en": "Review, then sending by the person, from their account"
+        },
+        {
+          "title_fr": "Suivre",
+          "title_en": "Follow up",
+          "sub_fr": "Réponse notée dans le CRM, relance datée ou arrêt",
+          "sub_en": "Reply logged in the CRM, dated follow-up or stop"
+        }
+      ]
+    },
+    {
+      "type": "feature-grid",
+      "background": "paper",
+      "columns": "4",
+      "kicker_fr": "§ Le cadre",
+      "kicker_en": "§ The framework",
+      "h2_fr": "Conditions de LinkedIn et RGPD : ce qu'on applique",
+      "h2_en": "LinkedIn terms and GDPR: what we apply",
+      "lede_fr": "Deux cadres s'appliquent : les règles de la plateforme et le droit des données personnelles. Ce qui suit décrit notre pratique, ce n'est pas un avis juridique.",
+      "lede_en": "Two frameworks apply: the platform's rules and personal data law. What follows describes our practice, not legal advice.",
+      "features": [
+        {
+          "icon": "qualif",
+          "title_fr": "Les règles de la plateforme",
+          "title_en": "The platform's rules",
+          "body_fr": "Pas de robot d'envoi, pas d'extension qui agit sur LinkedIn, pas d'aspiration de profils. Le système travaille hors de la plateforme.",
+          "body_en": "No sending bot, no extension acting on LinkedIn, no profile scraping. The system works outside the platform."
+        },
+        {
+          "icon": "contenu",
+          "title_fr": "L'intérêt légitime",
+          "title_en": "Legitimate interest",
+          "body_fr": "En B2B, la prospection peut reposer sur l'intérêt légitime si le message a un rapport avec la profession de la personne. Chaque brouillon est écrit pour une fonction, pas pour une liste.",
+          "body_en": "In B2B, prospecting can rest on legitimate interest if the message relates to the person's profession. Each draft is written for a role, not for a list."
+        },
+        {
+          "icon": "tracking",
+          "title_fr": "Information et opposition",
+          "title_en": "Information and objection",
+          "body_fr": "Le premier message dit qui vous êtes et pourquoi vous écrivez. Une personne qui refuse est notée dans le CRM et n'est plus contactée, sur aucun canal.",
+          "body_en": "The first message says who you are and why you are writing. A person who refuses is logged in the CRM and no longer contacted, on any channel."
+        },
+        {
+          "icon": "pilotage",
+          "title_fr": "Des données minimisées",
+          "title_en": "Minimised data",
+          "body_fr": "Nom, fonction, société, source, historique des échanges : rien de plus. Les contacts sans suite sont purgés.",
+          "body_en": "Name, role, company, source, exchange history: nothing more. Contacts with no follow-up are purged."
+        }
+      ],
+      "anchor": "cadre"
+    },
+    {
+      "type": "comparison-duo",
+      "background": "paper-2",
+      "kicker_fr": "§ Deux façons d'automatiser",
+      "kicker_en": "§ Two ways to automate",
+      "h2_fr": "Un robot d'envoi ou une file de tâches <i class=\"acc\">validée</i>",
+      "h2_en": "A sending bot or an <i class=\"acc\">approved</i> task queue",
+      "without_label_fr": "Robot d'envoi",
+      "without_label_en": "Sending bot",
+      "without_title_fr": "Ce qu'on ne fait pas",
+      "without_title_en": "What we don't do",
+      "without_items": [
+        {
+          "text_fr": "Des invitations envoyées en masse par un outil branché à votre compte.",
+          "text_en": "Invitations sent in bulk by a tool plugged into your account."
+        },
+        {
+          "text_fr": "Des profils aspirés pour constituer la liste.",
+          "text_en": "Profiles scraped to build the list."
+        },
+        {
+          "text_fr": "Le même message pour tout le monde, sans relecture.",
+          "text_en": "The same message for everyone, with no review."
+        },
+        {
+          "text_fr": "Un compte exposé à une restriction, donc un canal perdu.",
+          "text_en": "An account exposed to restriction, hence a lost channel."
+        }
+      ],
+      "with_label_fr": "File validée",
+      "with_label_en": "Approved queue",
+      "with_title_fr": "Ce qu'on met en place",
+      "with_title_en": "What we set up",
+      "with_items": [
+        {
+          "text_fr": "Une liste de comptes issue de vos critères et de sources documentées.",
+          "text_en": "An account list from your criteria and documented sources."
+        },
+        {
+          "text_fr": "Un brouillon par personne, appuyé sur un fait public et relu.",
+          "text_en": "A draft per person, based on a public fact and reviewed."
+        },
+        {
+          "text_fr": "Une file de tâches datée : qui contacter aujourd'hui, qui relancer.",
+          "text_en": "A dated task queue: who to contact today, who to follow up."
+        },
+        {
+          "text_fr": "Chaque envoi fait par la personne, depuis son compte.",
+          "text_en": "Each send done by the person, from their account."
+        },
+        {
+          "text_fr": "Chaque réponse reportée dans le CRM, chaque refus respecté.",
+          "text_en": "Each reply logged in the CRM, each refusal honoured."
+        }
+      ]
+    },
+    {
+      "type": "deliverables-grid",
+      "background": "paper",
+      "kicker_fr": "§ Ce que vous gardez",
+      "kicker_en": "§ What you keep",
+      "title_fr": "Ce qui vous reste si vous arrêtez",
+      "title_en": "What remains if you stop",
+      "lead_fr": "Le travail de préparation vous appartient : il ne dépend pas d'un outil qu'on garde.",
+      "lead_en": "The preparation work belongs to you: it does not depend on a tool we keep.",
+      "items": [
+        {
+          "title_fr": "Les critères et la liste de comptes",
+          "title_en": "Criteria and account list",
+          "body_fr": "Le ciblage écrit, la liste des comptes et des interlocuteurs, avec la source de chaque donnée.",
+          "body_en": "The written targeting, the list of accounts and contacts, with each datum's source.",
+          "format_fr": "CIBLAGE",
+          "format_en": "CIBLAGE"
+        },
+        {
+          "title_fr": "Les modèles de messages",
+          "title_en": "Message templates",
+          "body_fr": "Invitation, premier message, relances : une variante par segment, avec les règles de personnalisation.",
+          "body_en": "Invitation, first message, follow-ups: one variant per segment, with personalisation rules.",
+          "format_fr": "MESSAGES",
+          "format_en": "MESSAGES"
+        },
+        {
+          "title_fr": "La file de travail",
+          "title_en": "The work queue",
+          "body_fr": "La liste des envois à valider et des relances à faire, dans votre CRM ou un tableau partagé.",
+          "body_en": "The list of sends to approve and follow-ups to do, in your CRM or a shared sheet.",
+          "format_fr": "FILE",
+          "format_en": "FILE"
+        },
+        {
+          "title_fr": "Le suivi dans le CRM",
+          "title_en": "CRM tracking",
+          "body_fr": "Chaque contact, chaque réponse et chaque refus, rattachés à la fiche du compte.",
+          "body_en": "Every contact, reply and refusal, attached to the account record.",
+          "format_fr": "CRM",
+          "format_en": "CRM"
+        }
+      ]
+    },
+    {
+      "type": "decision-list",
+      "background": "paper-2",
+      "kicker_fr": "§ Quand ne pas le faire",
+      "kicker_en": "§ When not to do it",
+      "heading_fr": "La prospection LinkedIn préparée ne convient pas si",
+      "heading_en": "Prepared LinkedIn prospecting is not a fit if",
+      "items": [
+        {
+          "label_fr": "Vous attendez des invitations envoyées en masse sans intervention : ce n'est pas ce qu'on met en place.",
+          "label_en": "You expect invitations sent in bulk without intervention: that is not what we set up."
+        },
+        {
+          "label_fr": "Personne n'a le temps de valider et d'envoyer, chaque semaine, les messages préparés.",
+          "label_en": "Nobody has time to approve and send the prepared messages each week."
+        },
+        {
+          "label_fr": "Votre cible n'est pas sur LinkedIn : le canal n'a alors aucune raison d'être.",
+          "label_en": "Your target is not on LinkedIn: the channel then has no reason to exist."
+        },
+        {
+          "label_fr": "Vous ne tolérez aucun risque sur le compte : LinkedIn applique ses propres limites et peut restreindre un compte, même quand le volume reste humain.",
+          "label_en": "You tolerate no risk on the account: LinkedIn applies its own limits and can restrict an account, even when the volume stays human."
+        }
+      ]
+    },
+    {
+      "type": "hover-reveal-list",
+      "anchor": "declinaisons",
+      "background": "paper-3",
+      "reveal_mode": "cursor",
+      "kicker_fr": "§ Le reste de la prospection",
+      "kicker_en": "§ The rest of prospecting",
+      "h2_fr": "LinkedIn s'assemble aux autres <i>canaux</i>",
+      "h2_en": "LinkedIn fits together with the other <i>channels</i>",
+      "lede_fr": "Chaque page traite un canal ou une étape, avec ses règles. Survolez une ligne pour ouvrir la page concernée.",
+      "lede_en": "Each page covers one channel or step, with its rules. Hover a line to open the one that applies to you.",
+      "items": [
+        {
+          "label_fr": "Cold email B2B",
+          "label_en": "B2B cold email",
+          "meta_fr": "Le canal e-mail : domaines dédiés, délivrabilité, RGPD",
+          "meta_en": "The email channel: dedicated domains, deliverability, GDPR",
+          "media_src": "/images/illustrations/ds/cold-email-b2b-ecluse-paper.webp",
+          "media_alt_fr": "Une écluse en escalier : le niveau monte par paliers, une péniche chargée d'enveloppes attend",
+          "media_alt_en": "A staircase canal lock: the water rises in stages, a barge loaded with envelopes waits",
+          "link_href": "/services/cold-email-b2b"
+        },
+        {
+          "label_fr": "Social selling assisté par IA",
+          "label_en": "AI-assisted social selling",
+          "meta_fr": "Les signaux et le premier message, avant d'écrire",
+          "meta_en": "Signals and the first message, before writing",
+          "media_src": "/images/illustrations/ds/social-selling-ia-flotteur-paper.webp",
+          "media_alt_fr": "Une personne pêche à la ligne depuis un ponton, seul le flotteur bleu est à surveiller",
+          "media_alt_en": "A person fishes from a jetty, only the blue float needs watching",
+          "link_href": "/services/social-selling-ia"
+        },
+        {
+          "label_fr": "Automatisation des réseaux sociaux",
+          "label_en": "Social media automation",
+          "meta_fr": "Votre propre contenu, décliné et planifié",
+          "meta_en": "Your own content, adapted and scheduled",
+          "media_src": "/images/illustrations/ds/automatisation-reseaux-sociaux-tronc-planches-paper.webp",
+          "media_alt_fr": "Un tronc posé sur un établi est débité en planches de largeurs différentes",
+          "media_alt_en": "A log on a workbench is sawn into planks of different widths",
+          "link_href": "/services/automatisation-reseaux-sociaux"
+        },
+        {
+          "label_fr": "Prospection automatisée",
+          "label_en": "Automated prospecting",
+          "meta_fr": "Le dispositif complet, en abonnement",
+          "meta_en": "The full setup, as a subscription",
+          "media_src": "/images/illustrations/ds/prospection-automatisee-v3-semeur-paper.webp",
+          "media_alt_fr": "Une personne pousse un semoir le long de sillons réguliers, des pousses lèvent derrière elle",
+          "media_alt_en": "A person pushes a seeder along even furrows, sprouts coming up behind",
+          "link_href": "/services/prospection-automatisee"
+        },
+        {
+          "label_fr": "CRM, scoring et routing",
+          "label_en": "CRM, scoring and routing",
+          "meta_fr": "Le CRM qui reçoit, note et distribue les réponses",
+          "meta_en": "The CRM that receives, scores and routes replies",
+          "media_src": "/images/illustrations/ds/logiciel-demandes-routees-paper.webp",
+          "media_alt_fr": "Des avions en papier volent vers un panneau indicateur à trois bras",
+          "media_alt_en": "Paper planes fly toward a three-armed signpost",
+          "link_href": "/services/crm-scoring-routing"
+        },
+        {
+          "label_fr": "Séquences de suivi",
+          "label_en": "Follow-up sequences",
+          "meta_fr": "Les relances qui gardent les comptes ouverts",
+          "meta_en": "The follow-ups that keep accounts open",
+          "media_src": "/images/illustrations/ds/sequences-de-suivi-v3-horloge-paper.webp",
+          "media_alt_fr": "À côté d'une grande horloge, une personne glisse une lettre dans une haute boîte aux lettres",
+          "media_alt_en": "Next to a large clock, a person slips a letter into a tall mailbox",
+          "link_href": "/services/sequences-de-suivi"
+        }
+      ]
+    },
+    {
+      "type": "pricing-cards",
+      "background": "paper",
+      "layout": "grid-asym",
+      "colRatio": "2-3",
+      "kicker_fr": "§ Deux façons d'engager",
+      "kicker_en": "§ Two ways to engage",
+      "h2_fr": "Prix de la prospection LinkedIn préparée",
+      "h2_en": "Price of prepared LinkedIn prospecting",
+      "lede_fr": "On démarre par un sprint de cadrage à prix fixe : critères de ciblage, sources d'enrichissement, modèles de messages et file de travail en place. La suite se cale sur devis. L'abonnement de prospection (dès {{prix.commercial}} € HT par mois) est décrit sur la page prospection automatisée ; ce qui relève de LinkedIn s'y rattache ou se monte en sprint, et cela se décide avec vous à l'audit.",
+      "lede_en": "We start with a fixed-price scoping sprint: targeting criteria, enrichment sources, message templates and work queue in place. What follows is quoted. The prospecting subscription (from €{{prix.commercial}} excl. VAT per month) is described on the automated prospecting page; what concerns LinkedIn either attaches to it or is built as a sprint, and that is decided with you at the audit.",
+      "tiers": [
+        {
+          "name_fr": "Sprint de cadrage",
+          "name_en": "Scoping sprint",
+          "price": "999 €",
+          "period_fr": "10 h · HT",
+          "period_en": "10 h · ex VAT",
+          "features_fr": [
+            "Critères de ciblage écrits et première liste de comptes",
+            "Sources d'enrichissement choisies et documentées",
+            "Modèles d'invitation et de messages, relus avec vous",
+            "File de travail et report des réponses dans le CRM"
+          ],
+          "features_en": [
+            "Written targeting criteria and a first account list",
+            "Enrichment sources chosen and documented",
+            "Invitation and message templates, reviewed with you",
+            "Work queue and replies logged in the CRM"
+          ],
+          "cta": {
+            "label_fr": "Réserver un audit IA gratuit →",
+            "label_en": "Book a free AI audit →",
+            "href": "/contact?offer=audit-ia-pme&intent=audit",
+            "variant": "primary"
+          },
+          "featured": true
+        },
+        {
+          "name_fr": "Suite sur devis",
+          "name_en": "Next steps on quote",
+          "price": "Sur devis",
+          "period_fr": "estimé avec vous · HT",
+          "period_en": "estimated with you · ex VAT",
+          "features_fr": [
+            "Temps estimé ensemble, puis validé",
+            "Exécuté en sprints, facturés en régie",
+            "Nouveaux segments ajoutés sur preuve",
+            "Vous gardez les listes, les modèles et les accès"
+          ],
+          "features_en": [
+            "Time estimated together, then validated",
+            "Run in sprints, time and materials",
+            "New segments added on proof",
+            "You keep the lists, templates and access"
+          ],
+          "cta": {
+            "label_fr": "Cadrer la suite →",
+            "label_en": "Scope what follows →",
+            "href": "/contact?offer=prospection-linkedin&intent=suite",
+            "variant": "ghost"
+          }
+        }
+      ],
+      "footnote_fr": "Sprint de cadrage à 999 € HT pour 10 heures, à prix fixe. Ensuite, on estime avec vous le temps que demandent vos segments, vous validez, puis on exécute en régie à {{prix.horaire}} € HT de l'heure. À la fin, les listes, les modèles et les accès sont à vous.",
+      "footnote_en": "Scoping sprint at €999 excl. VAT for 10 hours, fixed price. Afterwards, we estimate with you the time your segments need, you approve, then we run it on a time-and-materials basis at €{{prix.horaire}} excl. VAT per hour. At the end, the lists, templates and access are yours."
+    },
+    {
+      "type": "eeat-panel",
+      "variant": "media",
+      "silo": "commercial"
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper-2",
+      "kicker_fr": "§ Questions fréquentes",
+      "kicker_en": "§ Frequently asked questions",
+      "h2_fr": "Ce que vous nous demandez",
+      "h2_en": "What you ask us",
+      "items": [
+        {
+          "q_fr": "Peut-on automatiser LinkedIn sans risquer son compte ?",
+          "q_en": "Can you automate LinkedIn without risking your account?",
+          "a_fr": "Pas sans risque, et on ne le prétend pas. Les conditions d'utilisation de LinkedIn interdisent les robots et les outils qui envoient des messages, ajoutent des contacts ou copient des profils à votre place, et LinkedIn indique qu'un compte qui les utilise peut être restreint ou fermé. On automatise donc ce qui précède l'envoi (ciblage, enrichissement, brouillons, rappels) et l'envoi reste un geste humain. Le risque diminue, il ne disparaît pas : LinkedIn applique ses propres limites à tout compte.",
+          "a_en": "Not without risk, and we do not claim otherwise. LinkedIn's terms prohibit bots and tools that send messages, add contacts or copy profiles on your behalf, and LinkedIn says an account using them may be restricted or closed. So we automate what comes before sending (targeting, enrichment, drafts, reminders) and sending stays a human act. The risk goes down, it does not disappear: LinkedIn applies its own limits to every account."
+        },
+        {
+          "q_fr": "D'où vient la liste des contacts, si LinkedIn n'est pas aspiré ?",
+          "q_en": "Where does the contact list come from if LinkedIn is not scraped?",
+          "a_fr": "De sources que vous maîtrisez : votre CRM, vos clients et prospects existants, vos contacts de salons, le registre Sirene, les sites des entreprises, et une base B2B dont la source est documentée. La personne qui prépare la liste peut aussi chercher dans LinkedIn à la main, avec les outils de LinkedIn que vous avez déjà. Chaque contact garde sa source.",
+          "a_en": "From sources you control: your CRM, existing clients and prospects, trade-show contacts, the Sirene register, company websites, and a B2B database whose source is documented. The person preparing the list can also search LinkedIn by hand, with the LinkedIn tools you already have. Each contact keeps its source."
+        },
+        {
+          "q_fr": "Les messages sont-ils écrits par l'IA ?",
+          "q_en": "Are the messages written by AI?",
+          "a_fr": "Les brouillons le sont, par Claude, à partir d'un fait public sur l'entreprise et de vos règles de ton. Ils sont relus par la personne qui envoie, qui reste responsable du texte. Un brouillon qui ne sonne pas comme vous n'est pas envoyé.",
+          "a_en": "The drafts are, by Claude, from a public fact about the company and your tone rules. They are reviewed by the person who sends, who remains responsible for the text. A draft that does not sound like you is not sent."
+        },
+        {
+          "q_fr": "Prospection LinkedIn et RGPD : que faut-il prévoir ?",
+          "q_en": "LinkedIn prospecting and GDPR: what to plan for?",
+          "a_fr": "Un message qui concerne la fonction de la personne, une information claire sur qui vous êtes et pourquoi vous écrivez, un refus respecté sur tous les canaux, et des données limitées à ce qui sert le message, avec leur source. La CNIL décrit ces principes pour la prospection par e-mail entre professionnels ; on les applique aussi aux messages LinkedIn. Ce n'est pas un avis juridique.",
+          "a_en": "A message about the person's role, clear information on who you are and why you are writing, a refusal honoured on every channel, and data limited to what the message needs, with its source. The CNIL describes these principles for email prospecting between professionals; we apply them to LinkedIn messages too. This is not legal advice."
+        },
+        {
+          "q_fr": "Combien de messages par semaine ?",
+          "q_en": "How many messages a week?",
+          "a_fr": "Pas de volume universel : c'est celui qu'une personne peut relire, envoyer et suivre avec soin. Il est plus bas que ce qu'enverrait un robot, et c'est voulu : peu de messages bien ciblés valent mieux que beaucoup de messages génériques, pour vos résultats comme pour votre compte.",
+          "a_en": "No universal volume: it is what a person can review, send and follow up with care. It is lower than what a bot would send, and that is intended: a few well-targeted messages beat many generic ones, for your results and for your account."
+        },
+        {
+          "q_fr": "Quelle différence avec le cold email et le social selling ?",
+          "q_en": "How does this differ from cold email and social selling?",
+          "a_fr": "Le cold email part d'un système, depuis des domaines dédiés, sur une liste large. Ici chaque envoi est manuel et la liste se travaille compte par compte. Le social selling, lui, s'occupe des signaux qui décident quand écrire et de la préparation du premier message : voir les pages cold email B2B et social selling assisté par l'IA.",
+          "a_en": "Cold email comes from a system, from dedicated domains, over a wide list. Here every send is manual and the list is worked account by account. Social selling deals with the signals that decide when to write and with preparing the first message: see the B2B cold email and AI-assisted social selling pages."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "layout": "stacked",
+      "contentAlign": "center",
+      "actionsAlign": "center",
+      "rounded": true,
+      "kicker_fr": "§ Audit IA gratuit",
+      "kicker_en": "§ Free AI audit",
+      "h2_fr": "Votre cible répond-elle sur LinkedIn ?",
+      "h2_en": "Does your target answer on LinkedIn?",
+      "subtitle_fr": "En 45 minutes, on regarde votre cible, vos comptes et le temps disponible pour envoyer, et on vous dit si ce canal vaut un sprint avant que vous y consacriez du budget.",
+      "subtitle_en": "In 45 minutes, we look at your target, your accounts and the time available to send, and tell you whether this channel is worth a sprint before you commit budget.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un audit IA gratuit →",
+          "label_en": "Book a free AI audit →",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Cold email B2B",
+          "label_en": "B2B cold email",
+          "href": "/services/cold-email-b2b",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "name": "LinkedIn, Contrat d'utilisation (User Agreement), section 8.2 « Don'ts » (en vigueur le 3 novembre 2025, lu le 12 octobre 2026)",
+      "url": "https://www.linkedin.com/legal/user-agreement",
+      "type": "enterprise",
+      "publishedAt": "2025-11-03"
+    },
+    {
+      "name": "LinkedIn, Centre d'aide : logiciels et extensions tiers interdits (lu le 12 octobre 2026)",
+      "url": "https://www.linkedin.com/help/linkedin/answer/a1341387",
+      "type": "enterprise"
+    },
+    {
+      "name": "CNIL, La prospection commerciale par courrier électronique (mise à jour le 10 juin 2026, lue le 12 octobre 2026)",
+      "url": "https://www.cnil.fr/fr/la-prospection-commerciale-par-courrier-electronique",
+      "type": "state",
+      "publishedAt": "2026-06-10"
+    }
+  ]
+}
