@@ -45,6 +45,8 @@ interface RelatedCard {
 }
 interface Props {
   title: string;
+  /** <title> SEO distinct du H1 (sinon `title`). */
+  seoTitle?: string;
   description: string;
   /** Exclure la page de l'index (robots noindex) · forwarded to Base */
   noindex?: boolean;
@@ -137,6 +139,7 @@ const {
   faqItems,
   leadSection,
   noindex = false,
+  seoTitle,
   variant = 'essay',
 } = Astro.props as Props;
 const isTool = variant === 'tool';
@@ -208,7 +211,7 @@ const articleLd = buildArticle({
   keywords: tags,
 });
 ---
-<Base title={title} description={description} jsonLd={articleLd} noindex={noindex}>
+<Base title={seoTitle ?? title} description={description} jsonLd={articleLd} noindex={noindex}>
   {breadcrumbItems && breadcrumbItems.length > 0 && (
     <MastheadBar lang={lang ?? 'fr'} items={breadcrumbItems} />
   )}

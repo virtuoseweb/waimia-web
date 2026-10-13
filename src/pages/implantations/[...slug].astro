@@ -26,6 +26,8 @@ const data = entry.data;
 
 const lang = Astro.url.pathname.startsWith('/en/') ? 'en' : 'fr';
 const title = lang === 'en' ? data.title_en : data.title_fr;
+// Titre SEO distinct du H1 quand `seoTitle_*` est renseigné (sinon titre de la page).
+const seoTitle = (lang === 'en' ? data.seoTitle_en : data.seoTitle_fr) ?? title;
 const description = lang === 'en' ? data.description_en : data.description_fr;
 
 if (!Array.isArray(data.sections) || data.sections.length === 0) {
@@ -57,7 +59,7 @@ const localLd =
 const pageLd = [articleLd, ...(localLd ? [localLd] : [])];
 ---
 
-<Base title={title} description={description} jsonLd={pageLd} noindex={data.seo?.noindex}>
+<Base title={seoTitle} description={description} jsonLd={pageLd} noindex={data.seo?.noindex}>
   <MastheadBar
     lang={lang}
     items={[

@@ -73,7 +73,7 @@ const templateSections: SectionData[] = override
 const renderSections = override ?? templateSections;
 ---
 <Base
-  title={`${d.title_fr.split(/\s*:\s*/)[0].trim()} · Waimia`}
+  title={d.seoTitle_fr ?? `${d.title_fr.split(/\s*:\s*/)[0].trim()} · Waimia`}
   description={d.description_fr}
   jsonLd={sectorJsonLd}
   noindex={d.seo?.noindex}

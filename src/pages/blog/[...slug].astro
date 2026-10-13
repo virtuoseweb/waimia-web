@@ -120,7 +120,7 @@ const ctx: EssayContext = {
 };
 const essayProps = buildEssayProps(ctx);
 ---
-<EssayTemplate {...essayProps} noindex={d.seo?.noindex}>
+<EssayTemplate {...essayProps} seoTitle={d.seoTitle_fr} noindex={d.seo?.noindex}>
   <Fragment slot="headline">{d.h1_fr ?? d.title_fr}</Fragment>
   <Fragment slot="lede">{d.description_fr}</Fragment>
   <Fragment slot="body" set:html={bodyHtml} />

@@ -124,7 +124,7 @@ const resolved = resolveTemplate(caseStudyTemplate, {
   relatedCards,
 });
 ---
-<Base title={`${d.title_fr} · Waimia`} description={d.description_fr} jsonLd={caseLd} ogType="article">
+<Base title={`${d.seoTitle_fr ?? d.title_fr} · Waimia`} description={d.description_fr} jsonLd={caseLd} ogType="article">
   <div class="case-flow">
   {resolved.map((item) => {
     if (item.kind === 'slot') {

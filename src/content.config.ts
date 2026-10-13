@@ -46,6 +46,9 @@ const faqArray = z
 const baseFields = {
   title_fr: z.string().min(1),
   title_en: z.string().min(1),
+  // <title> SEO distinct du H1 (optionnel) : sinon `title_*` sert aux deux.
+  seoTitle_fr: z.string().min(10).max(70).optional(),
+  seoTitle_en: z.string().min(10).max(70).optional(),
   description_fr: z.string().min(40).max(180),
   description_en: z.string().min(40).max(180),
   slug: z.string().regex(/^[a-z0-9-]+$/, 'kebab-case lowercase'),
