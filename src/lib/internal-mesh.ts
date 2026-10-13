@@ -224,6 +224,7 @@ const PAGES: Record<string, PageDef> = {
   '/blog/logiciel-seo-ia-pme': { label_fr: 'Logiciel SEO IA pour PME', label_en: 'AI SEO software for SMBs', kind: 'article', topics: ['acquisition'] },
   '/cas-clients/amploi': { label_fr: 'Cas client : Amploi', label_en: 'Case: Amploi', kind: 'cas-client', topics: ['acquisition'] },
   '/cas-clients/balzeo': { label_fr: 'Cas client : Balzeo', label_en: 'Case: Balzeo', kind: 'cas-client', topics: ['acquisition'] },
+  '/cas-clients/sprinkable-airess': { label_fr: 'Cas client : Sprinkable et Airess', label_en: 'Case: Sprinkable and Airess', kind: 'cas-client', topics: ['acquisition'] },
   '/cas-clients/desangles-peinture': { label_fr: 'Cas client : Desangles Peinture', label_en: 'Case: Desangles Peinture', kind: 'cas-client', topics: ['acquisition'] },
 
   // ── Secteurs (indexables depuis 2026-10-05) : cibles du maillage, sans bloc émis par
@@ -233,6 +234,7 @@ const PAGES: Record<string, PageDef> = {
   '/secteurs/agence': { label_fr: 'Site web et IA pour les agences', label_en: 'Website and AI for agencies', kind: 'secteur', topics: ['acquisition', 'automatisation'], emit: false },
   '/secteurs/conseil': { label_fr: 'Site web et IA pour les cabinets de conseil', label_en: 'Website and AI for consulting firms', kind: 'secteur', topics: ['commercial', 'agents'], emit: false },
   '/secteurs/esn': { label_fr: 'Site web et IA pour les ESN', label_en: 'Website and AI for IT services firms', kind: 'secteur', topics: ['applications', 'agents'], emit: false },
+  '/secteurs/industrie': { label_fr: 'Site web et IA pour les PME industrielles', label_en: 'Website and AI for industrial SMBs', kind: 'secteur', topics: ['applications', 'automatisation'], emit: false },
   '/secteurs/startup-logiciel': { label_fr: 'Automatisation commerciale des éditeurs de logiciel', label_en: 'Sales automation for software vendors', kind: 'secteur', topics: ['commercial', 'agents'], emit: false },
 
   // ── Studio : qui, comment, où ──
@@ -681,6 +683,7 @@ export function sectorSlugFromLabel(sectorFr?: string): string | undefined {
     return 'therapeutes';
   if (s.includes('patrimoine') || s.includes('média') || s.includes('media') || s.includes('local'))
     return 'liberal-independant';
+  if (s.includes('industr')) return 'industrie';
   if (s.includes('conseil')) return 'conseil';
   return undefined;
 }

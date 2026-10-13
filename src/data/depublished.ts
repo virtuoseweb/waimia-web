@@ -62,7 +62,6 @@ export const REDIRECTED_PATHS: Readonly<Record<string, string>> = {
   // Secteurs hors cible, sans cas client propre.
   '/secteurs/comptabilite': '/services',
   '/secteurs/formation': '/services',
-  '/secteurs/industrie': '/services',
   '/secteurs/services-b2b': '/services',
   '/secteurs/therapeutes': '/services',
   '/secteurs/liberal-independant': '/services',
