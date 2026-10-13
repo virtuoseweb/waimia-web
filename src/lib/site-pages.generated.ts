@@ -2680,7 +2680,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-masthead-card",
-        "label": "Référencement IA : être cité par ChatGPT, Perplexity et Gemini.",
+        "label": "Agence GEO : être cité par ChatGPT, Perplexity et Gemini.",
         "background": "paper"
       },
       {
@@ -6575,8 +6575,13 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "code-showcase",
-        "label": "Un en-tête de deux champs, puis une procédure en texte",
+        "label": "Exemple de SKILL.md : un en-tête de deux champs, puis une procédure en texte",
         "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper"
       },
       {
         "type": "editorial-table-block",
@@ -6586,7 +6591,12 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-prose",
-        "label": "#7",
+        "label": "#8",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#9",
         "background": "paper-2"
       },
       {
@@ -6607,7 +6617,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-prose",
-        "label": "#11",
+        "label": "#13",
         "background": "paper"
       },
       {
@@ -7710,6 +7720,11 @@ export const SITE_PAGES: SitePage[] = [
     "file": "audits/audit-ia-pme.json",
     "editable": true,
     "sections": [
+      {
+        "type": "editorial-prose",
+        "label": "#0",
+        "background": "paper"
+      },
       {
         "type": "faq-accordion",
         "label": "Questions avant de réserver",

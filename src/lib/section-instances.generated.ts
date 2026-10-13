@@ -667,7 +667,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-skills",
       "route": "/ressources/guides/claude-skills",
       "index": 5,
-      "label": "Un en-tête de deux champs, puis une procédure en texte",
+      "label": "Exemple de SKILL.md : un en-tête de deux champs, puis une procédure en texte",
       "background": "paper-2"
     }
   ],
@@ -812,7 +812,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-skills.json",
       "slug": "claude-skills",
       "route": "/ressources/guides/claude-skills",
-      "index": 12,
+      "index": 14,
       "label": "Quand le faire vous-même, quand le faire faire",
       "background": "paper-2"
     },
@@ -1614,7 +1614,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-skills.json",
       "slug": "claude-skills",
       "route": "/ressources/guides/claude-skills",
-      "index": 13,
+      "index": 15,
       "label": "Les cas où vous n'avez pas besoin de nous",
       "background": "paper"
     },
@@ -3609,8 +3609,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/make.json",
       "slug": "make",
       "route": "src/content/formations/make.json",
-      "index": 6,
-      "label": "#6",
+      "index": 8,
+      "label": "#8",
       "variant": "note",
       "background": "paper"
     },
@@ -3619,13 +3619,22 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/n8n.json",
       "slug": "n8n",
       "route": "src/content/formations/n8n.json",
-      "index": 6,
-      "label": "#6",
+      "index": 8,
+      "label": "#8",
       "variant": "note",
       "background": "paper"
     }
   ],
   "editorial-prose": [
+    {
+      "collection": "audits",
+      "file": "audits/audit-ia-pme.json",
+      "slug": "audit-ia-pme",
+      "route": "/audit-ia-pme",
+      "index": 0,
+      "label": "#0",
+      "background": "paper"
+    },
     {
       "collection": "cas-usages",
       "file": "cas-usages/centraliser-donnees.json",
@@ -4387,8 +4396,17 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-skills.json",
       "slug": "claude-skills",
       "route": "/ressources/guides/claude-skills",
-      "index": 7,
-      "label": "#7",
+      "index": 6,
+      "label": "#6",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-skills.json",
+      "slug": "claude-skills",
+      "route": "/ressources/guides/claude-skills",
+      "index": 8,
+      "label": "#8",
       "background": "paper-2"
     },
     {
@@ -4396,8 +4414,17 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-skills.json",
       "slug": "claude-skills",
       "route": "/ressources/guides/claude-skills",
-      "index": 11,
-      "label": "#11",
+      "index": 9,
+      "label": "#9",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-skills.json",
+      "slug": "claude-skills",
+      "route": "/ressources/guides/claude-skills",
+      "index": 13,
+      "label": "#13",
       "background": "paper"
     },
     {
@@ -5179,8 +5206,26 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/make.json",
       "slug": "make",
       "route": "src/content/formations/make.json",
-      "index": 4,
-      "label": "#4",
+      "index": 5,
+      "label": "#5",
+      "background": "paper"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/make.json",
+      "slug": "make",
+      "route": "src/content/formations/make.json",
+      "index": 6,
+      "label": "#6",
+      "background": "paper"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/make.json",
+      "slug": "make",
+      "route": "src/content/formations/make.json",
+      "index": 11,
+      "label": "#11",
       "background": "paper"
     },
     {
@@ -5188,8 +5233,26 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/n8n.json",
       "slug": "n8n",
       "route": "src/content/formations/n8n.json",
-      "index": 4,
-      "label": "#4",
+      "index": 5,
+      "label": "#5",
+      "background": "paper"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/n8n.json",
+      "slug": "n8n",
+      "route": "src/content/formations/n8n.json",
+      "index": 6,
+      "label": "#6",
+      "background": "paper"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/n8n.json",
+      "slug": "n8n",
+      "route": "src/content/formations/n8n.json",
+      "index": 11,
+      "label": "#11",
       "background": "paper"
     }
   ],
@@ -5516,7 +5579,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-skills.json",
       "slug": "claude-skills",
       "route": "/ressources/guides/claude-skills",
-      "index": 6,
+      "index": 7,
       "label": "Quatre surfaces, quatre façons d'installer et de partager",
       "variant": "editorial",
       "background": "paper"
@@ -5526,7 +5589,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-skills.json",
       "slug": "claude-skills",
       "route": "/ressources/guides/claude-skills",
-      "index": 8,
+      "index": 10,
       "label": "Six exemples concrets, avec ce qu'il faut leur donner",
       "variant": "editorial",
       "background": "paper"
@@ -5843,7 +5906,17 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/make.json",
       "slug": "make",
       "route": "src/content/formations/make.json",
-      "index": 5,
+      "index": 4,
+      "label": "Format court ou format long : ce qui change",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/make.json",
+      "slug": "make",
+      "route": "src/content/formations/make.json",
+      "index": 7,
       "label": "Prérequis, format, durée et tarif",
       "variant": "editorial",
       "background": "paper-2"
@@ -5853,7 +5926,17 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/n8n.json",
       "slug": "n8n",
       "route": "src/content/formations/n8n.json",
-      "index": 5,
+      "index": 4,
+      "label": "Format court ou format long : ce que chacun couvre",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/n8n.json",
+      "slug": "n8n",
+      "route": "src/content/formations/n8n.json",
+      "index": 7,
       "label": "Prérequis, format, durée et tarif",
       "variant": "editorial",
       "background": "paper-2"
@@ -6436,7 +6519,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "audits/audit-ia-pme.json",
       "slug": "audit-ia-pme",
       "route": "/audit-ia-pme",
-      "index": 0,
+      "index": 1,
       "label": "Questions avant de réserver",
       "background": "paper-2"
     },
@@ -6886,7 +6969,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-skills.json",
       "slug": "claude-skills",
       "route": "/ressources/guides/claude-skills",
-      "index": 17,
+      "index": 19,
       "label": "Skills Claude : les questions des dirigeants",
       "background": "paper"
     },
@@ -7444,7 +7527,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/make.json",
       "slug": "make",
       "route": "src/content/formations/make.json",
-      "index": 8,
+      "index": 10,
       "label": "Questions fréquentes",
       "background": "paper"
     },
@@ -7453,7 +7536,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/n8n.json",
       "slug": "n8n",
       "route": "src/content/formations/n8n.json",
-      "index": 8,
+      "index": 10,
       "label": "Questions fréquentes",
       "background": "paper"
     },
@@ -7810,7 +7893,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-skills.json",
       "slug": "claude-skills",
       "route": "/ressources/guides/claude-skills",
-      "index": 9,
+      "index": 11,
       "label": "Écrire, sécuriser, diffuser",
       "background": "paper-2"
     },
@@ -7884,7 +7967,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "audits/audit-ia-pme.json",
       "slug": "audit-ia-pme",
       "route": "/audit-ia-pme",
-      "index": 1,
+      "index": 2,
       "label": "Quarante-cinq minutes, et une liste de tâches classées par priorité.",
       "background": "ink"
     },
@@ -8343,7 +8426,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-skills.json",
       "slug": "claude-skills",
       "route": "/ressources/guides/claude-skills",
-      "index": 18,
+      "index": 20,
       "label": "Vos procédures en skills qui tournent, pour toute l'équipe",
       "background": "ink"
     },
@@ -8901,7 +8984,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/make.json",
       "slug": "make",
       "route": "src/content/formations/make.json",
-      "index": 9,
+      "index": 12,
       "label": "Vos scénarios Make servent de support de cours.",
       "background": "ink"
     },
@@ -8910,7 +8993,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/n8n.json",
       "slug": "n8n",
       "route": "src/content/formations/n8n.json",
-      "index": 9,
+      "index": 12,
       "label": "Vos workflows n8n sont le programme.",
       "background": "ink"
     },
@@ -9198,7 +9281,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "referencement-ia",
       "route": "/services/referencement-ia",
       "index": 0,
-      "label": "Référencement IA : être cité par ChatGPT, Perplexity et Gemini.",
+      "label": "Agence GEO : être cité par ChatGPT, Perplexity et Gemini.",
       "background": "paper"
     },
     {
@@ -10431,7 +10514,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-skills.json",
       "slug": "claude-skills",
       "route": "/ressources/guides/claude-skills",
-      "index": 10,
+      "index": 12,
       "label": "Recevez le pack de 8 skills Claude pour PME",
       "background": "ink"
     },
@@ -10820,7 +10903,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-skills.json",
       "slug": "claude-skills",
       "route": "/ressources/guides/claude-skills",
-      "index": 16,
+      "index": 18,
       "label": "Les changements de Claude qui comptent pour une PME, une fois par mois",
       "background": "ink"
     },
@@ -11757,7 +11840,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-skills.json",
       "slug": "claude-skills",
       "route": "/ressources/guides/claude-skills",
-      "index": 14,
+      "index": 16,
       "label": "De la procédure orale au plugin qui tourne",
       "background": "paper-2"
     },
@@ -12830,7 +12913,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-skills.json",
       "slug": "claude-skills",
       "route": "/ressources/guides/claude-skills",
-      "index": 15,
+      "index": 17,
       "label": "Pour aller plus loin",
       "background": "paper"
     },
@@ -12992,7 +13075,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/make.json",
       "slug": "make",
       "route": "src/content/formations/make.json",
-      "index": 7,
+      "index": 9,
       "label": "Pour aller plus loin",
       "background": "paper-2"
     },
@@ -13001,7 +13084,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/n8n.json",
       "slug": "n8n",
       "route": "src/content/formations/n8n.json",
-      "index": 7,
+      "index": 9,
       "label": "Pour aller plus loin",
       "background": "paper-2"
     }
