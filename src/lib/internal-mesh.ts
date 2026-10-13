@@ -113,7 +113,7 @@ const PAGES: Record<string, PageDef> = {
   '/services/integration-claude': { label_fr: 'Claude en entreprise', label_en: 'Claude for business', kind: 'service', topics: ['claude', 'agents'] },
   '/services/integration-mistral-ai': { label_fr: 'Intégration Mistral AI aux outils métier', label_en: 'Mistral AI integration for business tools', kind: 'service', topics: ['claude', 'agents'] },
   '/services/integration-chatgpt-openai': { label_fr: 'Intégration ChatGPT et OpenAI aux outils métier', label_en: 'ChatGPT and OpenAI integration for business tools', kind: 'service', topics: ['claude', 'agents'] },
-  '/ressources/guides/claude-pme': { label_fr: 'Guide pilier : déployer Claude en PME', label_en: 'Pillar guide: deploying Claude in an SMB', kind: 'guide', topics: ['claude', 'conseil'] },
+  '/ressources/guides/claude-pme': { label_fr: 'Guide complet : déployer Claude en PME', label_en: 'Pillar guide: deploying Claude in an SMB', kind: 'guide', topics: ['claude', 'conseil'] },
   '/ressources/guides/choisir-agence-ia-pme': { label_fr: 'Choisir une agence IA en PME', label_en: 'Choosing an AI agency for an SMB', kind: 'guide', topics: ['claude', 'conseil'] },
   '/ressources/guides/cout-integration-claude-pme': { label_fr: "Coût d'une intégration Claude en PME", label_en: 'Cost of a Claude integration for SMBs', kind: 'guide', topics: ['claude', 'conseil'] },
   '/ressources/guides/financement-formation-ia-opco': { label_fr: 'Financer une formation IA avec un OPCO', label_en: 'Funding AI training through an OPCO', kind: 'guide', topics: ['formation', 'conformite', 'claude'] },
