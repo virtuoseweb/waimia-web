@@ -230,6 +230,9 @@ const PAGES: Record<string, PageDef> = {
   //    Base (le gabarit secteur pose déjà le sien via `meshForSecteur`). ──
   '/secteurs/batiment': { label_fr: 'Automatisation des devis dans le bâtiment', label_en: 'Quote automation in construction', kind: 'secteur', topics: ['commercial', 'acquisition'], emit: false },
   '/secteurs/e-commerce': { label_fr: "Automatisation d'une boutique en ligne", label_en: 'Online shop automation', kind: 'secteur', topics: ['automatisation', 'agents'], emit: false },
+  '/secteurs/agence': { label_fr: 'Site web et IA pour les agences', label_en: 'Website and AI for agencies', kind: 'secteur', topics: ['acquisition', 'automatisation'], emit: false },
+  '/secteurs/conseil': { label_fr: 'Site web et IA pour les cabinets de conseil', label_en: 'Website and AI for consulting firms', kind: 'secteur', topics: ['commercial', 'agents'], emit: false },
+  '/secteurs/esn': { label_fr: 'Site web et IA pour les ESN', label_en: 'Website and AI for IT services firms', kind: 'secteur', topics: ['applications', 'agents'], emit: false },
   '/secteurs/startup-logiciel': { label_fr: 'Automatisation commerciale des éditeurs de logiciel', label_en: 'Sales automation for software vendors', kind: 'secteur', topics: ['commercial', 'agents'], emit: false },
 
   // ── Studio : qui, comment, où ──

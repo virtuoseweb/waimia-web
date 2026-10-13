@@ -525,6 +525,8 @@ const secteurs = defineCollection({
     kpis_en: z.array(z.string()).default([]),
     metricsHero: z.array(bilingualMetric).default([]),
     caseRef: z.string().optional(),
+    // Cas affichés en premier dans la grille de la page secteur (ids de la collection cases).
+    caseRefs: z.array(z.string()).optional(),
     visible: z.boolean().default(true),
     ctaPrimary_fr: z.string(),
     ctaPrimary_en: z.string(),

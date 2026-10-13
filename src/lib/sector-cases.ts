@@ -19,6 +19,7 @@ type CaseRow = CaseGridData['cases'][number];
 export async function sectorCaseGridData(
   sectorSlug: string,
   lang: 'fr' | 'en',
+  caseRefs: string[] = [],
 ): Promise<CaseGridData> {
   const all = (await getCollection('cases'))
     .filter((e) => e.data.card && e.data.kind === 'client')
@@ -28,7 +29,12 @@ export async function sectorCaseGridData(
   // `sectorSlugFromLabel` (internal-mesh.ts) : la collection cases n'a pas de champ `facets`.
   const inSector = all.filter((e) => sectorSlugFromLabel(e.data.sector_fr) === sectorSlug);
   const others = all.filter((e) => sectorSlugFromLabel(e.data.sector_fr) !== sectorSlug);
-  const picked = [...inSector, ...others].slice(0, 3);
+  // Cas déclarés par la page secteur (`caseRefs`) d'abord, dans l'ordre déclaré, puis le reste.
+  const declared = caseRefs
+    .map((id) => all.find((e) => (e.data.slug ?? e.id) === id || e.id === id))
+    .filter((e): e is (typeof all)[number] => Boolean(e));
+  const rest = [...inSector, ...others].filter((e) => !declared.includes(e));
+  const picked = [...declared, ...rest].slice(0, 3);
 
   const cases: CaseRow[] = picked.map((e) => {
     const d = e.data;

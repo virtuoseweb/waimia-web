@@ -87,7 +87,6 @@ export const NOINDEX_SITEMAP_PATHS: ReadonlySet<string> = new Set([
   // Intégration refonte IA 2026-10 · les secteurs, articles et hubs retirés de cette liste
   // sont désormais REDIRIGÉS en 301 (src/data/depublished.ts → REDIRECTED_PATHS) : ils ne
   // sont plus générés, donc plus à exclure. Le hub /implantations est repassé indexable.
-  // Deux pages hors positionnement restent en ligne en noindex (seo.noindex dans le contenu).
-  "/ressources/comparatifs/claude-code-vs-cursor",
+  // Une page hors positionnement reste en ligne en noindex (seo.noindex dans le contenu).
   "/blog/brain-circuit",
 ]);

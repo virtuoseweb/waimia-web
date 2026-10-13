@@ -3795,7 +3795,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/secteurs/agence",
-    "title": "Site web et IA pour les agences marketing et com : prouver votre valeur par l'exemple, industrialiser sans diluer la créa",
+    "title": "Site web et IA pour les agences marketing et com : prouver votre valeur par l'exemple",
     "group": "secteurs",
     "collection": "secteurs",
     "file": "secteurs/agence.json",
@@ -7581,15 +7581,6 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
-    "route": "/blog/google-ads-vs-meta-ads-pme-2026",
-    "title": "Google Ads vs Meta Ads en PME : lequel choisir",
-    "group": "blog",
-    "collection": "blog",
-    "file": "blog/google-ads-vs-meta-ads-pme-2026.json",
-    "editable": false,
-    "sections": []
-  },
-  {
     "route": "/blog/landing-page-qui-convertit-methode-2026",
     "title": "Landing page qui convertit : la méthode 2026",
     "group": "blog",
@@ -8380,7 +8371,6 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/formation-ia-cpf-qualiopi",
       "/blog/formation-ia-finance-pme",
       "/blog/forward-deployed-engineer",
-      "/blog/google-ads-vs-meta-ads-pme-2026",
       "/blog/landing-page-qui-convertit-methode-2026",
       "/blog/logiciel-seo-ia-pme",
       "/blog/n8n-c-est-quoi",

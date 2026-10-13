@@ -55,14 +55,10 @@ export const REDIRECTED_PATHS: Readonly<Record<string, string>> = {
   // Studio solo : la page équipe est la page du fondateur.
   '/equipe': '/equipe/simon-beros',
   // Articles hors positionnement (agence web / marketing).
-  '/blog/google-ads-vs-meta-ads-pme-2026': '/blog',
-  '/blog/landing-page-qui-convertit-methode-2026': '/blog',
-  '/blog/webflow-vs-wordpress-vs-site-code-ia-2026': '/blog',
+  '/blog/landing-page-qui-convertit-methode-2026': '/services/landing-pages-tunnels',
+  '/blog/webflow-vs-wordpress-vs-site-code-ia-2026': '/services/site-web-ia',
   // Secteurs hors cible, sans cas client propre.
-  '/secteurs/agence': '/services',
   '/secteurs/comptabilite': '/services',
-  '/secteurs/conseil': '/services',
-  '/secteurs/esn': '/services',
   '/secteurs/formation': '/services',
   '/secteurs/industrie': '/services',
   '/secteurs/services-b2b': '/services',

@@ -60,7 +60,7 @@ const sectorJsonLd = [sectorLd] as Array<Record<string, unknown>>;
 const override = Array.isArray(d.sections) && d.sections.length > 0 ? d.sections : null;
 
 // ── Grille de cas INJECTÉE (sector-cases.ts, async cross-collection) → contexte template. ──
-const caseGrid = await sectorCaseGridData(slug, lang);
+const caseGrid = await sectorCaseGridData(slug, lang, d.caseRefs ?? (d.caseRef ? [d.caseRef] : []));
 
 // ── « Template-as-data » : la séquence composable se résout depuis `sectorTemplate`
 //    (aucun slot hors-catalogue pour ce template → items = sections cataloguées). ──
