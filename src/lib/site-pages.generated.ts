@@ -3992,7 +3992,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/cas-clients/virtuoseos",
-    "title": "VirtuoseOS : le premier OS agentique du studio",
+    "title": "VirtuoseOS : le premier OS à agents IA du studio",
     "group": "cas-clients",
     "collection": "cases",
     "file": "cases/virtuoseos.json",
@@ -4001,7 +4001,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/cas-clients/waimia-os",
-    "title": "Waimia OS : un OS agentique multi-entreprises",
+    "title": "Waimia OS : un OS à agents IA multi-entreprises",
     "group": "cas-clients",
     "collection": "cases",
     "file": "cases/waimia-os.json",

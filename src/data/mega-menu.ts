@@ -313,7 +313,7 @@ const RESSOURCES: MegaMenuSection = {
     },
   ],
   featured: {
-    kicker: { fr: 'GUIDE PILIER', en: 'PILLAR GUIDE' },
+    kicker: { fr: 'GUIDE COMPLET', en: 'COMPLETE GUIDE' },
     label: { fr: 'Déployer Claude en PME', en: 'Deploying Claude in an SME' },
     body: {
       fr: 'Quel produit pour quel besoin, ce que ça coûte, les risques et l\'ordre de déploiement.',
@@ -717,7 +717,7 @@ const CAS: MegaMenuSection = {
       kicker: { fr: 'PROJETS DU STUDIO', en: 'STUDIO PROJECTS' },
       title: { fr: 'Projets du studio', en: 'Studio projects' },
       links: [
-        { label: { fr: 'Waimia OS', en: 'Waimia OS' }, href: '/cas-clients/waimia-os', description: { fr: 'OS agentique multi-entreprises, en construction.', en: 'Multi-company agentic OS, under construction.' } },
+        { label: { fr: 'Waimia OS', en: 'Waimia OS' }, href: '/cas-clients/waimia-os', description: { fr: 'OS à agents IA multi-entreprises, en construction.', en: 'Multi-company agentic OS, under construction.' } },
         { label: { fr: 'Prototypes internes', en: 'Internal prototypes' }, href: '/cas-clients/prototypes-internes', description: { fr: 'LegiCheck, agent d\'entretien, quiz.', en: 'LegiCheck, interview agent, quiz.' } },
       ],
     },

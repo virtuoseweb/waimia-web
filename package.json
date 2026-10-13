@@ -79,7 +79,8 @@
     "seo:freshness": "node scripts/seo-routine/freshness.mjs",
     "test:seo-routine": "node --test \"scripts/seo-routine/tests/*.test.mjs\"",
     "board:regen": "node scripts/sync-board.mjs --regen",
-    "ds:apply": "node scripts/apply-ds-export.mjs"
+    "ds:apply": "node scripts/apply-ds-export.mjs",
+    "check:jargon": "node scripts/check-jargon.mjs"
   },
   "dependencies": {
     "@waimia/atelier-ui": "workspace:*",

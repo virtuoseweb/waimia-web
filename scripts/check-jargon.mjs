@@ -60,7 +60,9 @@ for (const f of walk(ROOT)) {
     ['title', (h.match(/<title>([^<]*)/i) || [])[1]],
     ['description', (h.match(/name="description" content="([^"]*)/i) || [])[1]],
   ].filter(([, v]) => v);
-  const zones = [...head.map(([k, v]) => [k, v]), ['main', text(main)]];
+  // Accueil : on contrôle aussi le chrome du site (en-tête, menus, pied de page), commun à toutes les pages.
+  const body = (h.match(/<body[\s\S]*<\/body>/i) || [h])[0];
+  const zones = [...head.map(([k, v]) => [k, v]), [page === '/' ? 'page' : 'main', text(page === '/' ? body : main)]];
   for (const [zone, str] of zones) {
     for (const { id, re, use } of LEXICON) {
       re.lastIndex = 0;
