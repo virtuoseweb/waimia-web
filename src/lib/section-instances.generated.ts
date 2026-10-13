@@ -9497,7 +9497,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-fonctionnalites-pme",
       "route": "/ressources/guides/claude-fonctionnalites-pme",
       "index": 0,
-      "label": "Claude : fonctionnalités, offres et prix pour une PME",
+      "label": "Claude Pro, Max, Team : offres et prix en PME",
       "background": "paper"
     },
     {

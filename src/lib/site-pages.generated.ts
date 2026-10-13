@@ -2672,7 +2672,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/services/seo-geo-contenu/referencement-ia",
-    "title": "Référencement IA (GEO) : être cité par les IA · Waimia",
+    "title": "Agence GEO : référencement IA pour être cité · Waimia",
     "group": "offres",
     "collection": "services",
     "file": "services/seo-geo-contenu/referencement-ia.json",
@@ -5991,7 +5991,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/ressources/guides/claude-fonctionnalites-pme",
-    "title": "Claude : fonctionnalités, offres et prix pour une PME",
+    "title": "Claude Pro, Max, Team : offres, prix et usages en PME",
     "group": "ressources",
     "collection": "guides",
     "file": "guides/claude-fonctionnalites-pme.json",
@@ -5999,7 +5999,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-split-media",
-        "label": "Claude : fonctionnalités, offres et prix pour une PME",
+        "label": "Claude Pro, Max, Team : offres et prix en PME",
         "background": "paper"
       },
       {
