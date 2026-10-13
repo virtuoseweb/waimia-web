@@ -12,6 +12,7 @@ import llmsMdPages from './src/integrations/llms-md-pages';
 import dsSaveDev from './src/integrations/ds-save-dev.mjs';
 import sitemapHygiene from './src/integrations/sitemap-hygiene.mjs';
 import seoPostbuild from './src/integrations/seo-postbuild.mjs';
+import { sectionCssChunks } from './src/integrations/section-css-chunks.mjs';
 import { NOINDEX_SITEMAP_PATHS } from './src/data/sitemap-noindex-exclude';
 import { REDIRECTED_PATHS } from './src/data/depublished.ts';
 import { SITE } from './src/site.config.ts';
@@ -419,7 +420,9 @@ export default defineConfig({
   // pas aux pages SSG. Conservé pour les futures API routes qui consommeront Resend.
   // (validé empiriquement le 2026-04-27 via /api/healthcheck OK post-bascule monorepo)
   vite: {
-    plugins: [/** @type {any} */ (tailwindcss())],
+    // sectionCssChunks : un chunk serveur par composant atteint depuis une section, pour que la
+    // CSS propagée d'une section n'entraîne pas la feuille globale (cf le fichier).
+    plugins: [/** @type {any} */ (tailwindcss()), /** @type {any} */ (sectionCssChunks())],
     // DEV-ONLY · git worktrees n'ont pas leur propre node_modules (résolu vers le
     // repo parent, HORS racine worktree) → Vite `@fs` renvoie 403 sur le client
     // React et les îles n'hydratent pas sous `astro dev`. On autorise la remontée

@@ -4,8 +4,9 @@
 // Le générateur (section-registry.generated.ts) importe SectionDescriptor/AstroComponent
 // d'ici, le god-file (section-registry.ts) ré-exporte ces types → 0 cycle runtime (types only).
 //
-// SectionDescriptor = SectionMeta (feuille _shared/types) + le runtime `component`. Source
-// unique de la forme « meta » conservée dans _shared/types.ts (déjà = Omit<…, 'component'>).
+// SectionDescriptor = SectionMeta (feuille _shared/types), SANS composant runtime : le rendu
+// passe par section-loaders.generated.ts (CSS par page), les composants statiques par
+// section-components.generated.ts (outils internes seulement).
 
 import type { SectionMeta } from '@waimia/ds-kernel/sections/_shared/types';
 
@@ -16,9 +17,7 @@ export type SectionCategory = 'marketing';
 export type SectionStatus = 'stable' | 'wip' | 'deprecated';
 
 /**
- * Descripteur complet d'une section = métadonnées (SectionMeta) + composant runtime.
- * `SectionMeta` porte déjà tous les champs descriptifs (category, facettes, intent...).
+ * Descripteur d'une section = métadonnées (SectionMeta : category, facettes, intent...).
+ * Aucun composant ici : l'importer statiquement chargerait le CSS des 221 sections partout.
  */
-export interface SectionDescriptor extends SectionMeta {
-  component: AstroComponent;
-}
+export type SectionDescriptor = SectionMeta;

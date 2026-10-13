@@ -349,7 +349,10 @@ export const LIBRARY_SECTIONS: LibrarySectionEntry[] = SECTION_USAGE.map(
   ({ id, consumers }) => ({
     id,
     category: SECTIONS[id].categorySlug,
-    component: (SECTIONS[id].component as unknown as { name: string }).name,
+    // Nom du composant Astro (= basename du fichier) : `Component.astro` pour tout module
+    // co-localisé (forme imposée par check:section-modules). Plus lu sur l'objet composant :
+    // l'import statique des 221 composants chargeait leur CSS sur toutes les pages.
+    component: 'Component',
     rendering: consumers.length > 0 ? 'live' : 'catalogue-only',
     usage: deriveUsage(id, consumers),
     consumers,

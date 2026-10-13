@@ -22,22 +22,15 @@ export type {
   SectionStatus,
   SectionDescriptor,
 } from './section-registry-types';
-import type { SectionDescriptor, AstroComponent } from './section-registry-types';
+import type { SectionDescriptor } from './section-registry-types';
 
 // SECTIONS reconstruit depuis les modules (generated) - ré-export drop-in.
 export { SECTIONS } from './section-registry.generated';
 import { SECTIONS } from './section-registry.generated';
 
-export const SECTION_REGISTRY: Record<SectionType, AstroComponent> = Object.fromEntries(
-  Object.entries(SECTIONS).map(([type, d]) => [type, d.component]),
-) as Record<SectionType, AstroComponent>;
-
-/**
- * Helper : récupère le composant pour un type donné. Retourne undefined si type inconnu.
- */
-export function getSectionComponent(type: SectionType): AstroComponent | undefined {
-  return SECTIONS[type]?.component;
-}
+// SECTION_REGISTRY / getSectionComponent (composants statiques) : déplacés dans
+// `section-components.ts`, réservé aux outils internes. Ce module reste SANS composant pour
+// que ses importeurs (pages publiques, manifestes) ne chargent pas le CSS des 221 sections.
 
 export function getSectionMeta(type: SectionType): SectionDescriptor | undefined {
   return SECTIONS[type];

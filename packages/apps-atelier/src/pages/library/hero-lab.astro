@@ -21,7 +21,8 @@ export const prerender = true;
 
 import Base from '../../../../../src/layouts/Base.astro';
 import DsLocalNav from '@waimia/catalogue-ui/DsLocalNav.astro';
-import { listSections, SECTION_REGISTRY } from '../../../../../src/lib/section-registry';
+import { listSections } from '../../../../../src/lib/section-registry';
+import { SECTION_REGISTRY } from '../../../../../src/lib/section-components';
 import { SECTION_DEMOS } from '../../../../../src/lib/section-demos';
 
 const CATEGORY_SLUG = 'hero-header-sections';

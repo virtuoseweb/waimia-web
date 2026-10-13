@@ -4,7 +4,7 @@ export const prerender = true;
 import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
 import { resolveTemplate } from '@waimia/ds-kernel/templates';
 import { caseStudyTemplate, type RelatedCardInput } from '../../lib/templates/case-study';
-import { SECTION_REGISTRY } from '../../lib/section-registry';
+import { loadSections } from '../../lib/lazy-section';
 import HeroCentered from '../../components/sections/HeroCentered.astro';
 import TechStackBand from '../../components/sections/TechStackBand.astro';
 import AuthorByline from '../../components/ui/molecules/AuthorByline.astro';
@@ -123,6 +123,10 @@ const resolved = resolveTemplate(caseStudyTemplate, {
   authorSlug,
   relatedCards,
 });
+// Composants des seules sections rendues (CSS par page, cf lib/lazy-section.ts).
+const sectionComponents = await loadSections(
+  resolved.flatMap((item) => (item.kind === 'section' ? [item.section.type] : [])),
+);
 ---
 <Base title={`${d.seoTitle_fr ?? d.title_fr} · Waimia`} description={d.description_fr} jsonLd={caseLd} ogType="article">
   <div class="case-flow">
@@ -167,7 +171,7 @@ const resolved = resolveTemplate(caseStudyTemplate, {
       const tp = item.props as { reveal?: boolean; style?: string };
       return <TechStackBand data={s} lang={lang} reveal={tp?.reveal} style={tp?.style} />;
     }
-    const Component = SECTION_REGISTRY[s.type] as any;
+    const Component = sectionComponents[s.type];
     if (!Component) {
       console.error(`[cas-clients] type de section inconnu: ${s.type}`);
       return null;

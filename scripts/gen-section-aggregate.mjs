@@ -13,10 +13,12 @@
  *       en ordre ALPHA déterministe + les types dérivés (SectionData/SectionType/SectionByType)
  *       + l'anchor wrapper + sectionsArraySchema (API publique de sections.ts préservée).
  *   - src/lib/section-registry.generated.ts
- *       reconstruit `SECTIONS: Record<SectionType, SectionDescriptor>` drop-in (component
- *       réattaché depuis le module + spread du `meta`), exports nommés IDENTIQUES
+ *       reconstruit `SECTIONS: Record<SectionType, SectionDescriptor>` (spread du `meta`, SANS
+ *       composant : CSS par page), exports nommés IDENTIQUES
  *       (SECTIONS, SECTION_REGISTRY, getSectionComponent, getSectionMeta, getCapabilities,
  *       listSections, listCategories, ... - voir API_PUBLIC). 0 import `../components/sections`.
+ *   - src/lib/section-loaders.generated.ts : chargeurs propagés (rendu public, CSS par page).
+ *   - src/lib/section-components.generated.ts : composants statiques (outils internes).
  *   - src/lib/section-demos.generated.ts
  *       reconstruit `SECTION_DEMOS: Record<SectionType, DemoData>` (demo réattachée par module)
  *       + getSectionDemo.
@@ -146,20 +148,54 @@ function genFamily(ids) {
 }
 
 // ─── 2. section-registry.generated.ts ───
+// METADONNEES SEULES (meta.ts), 0 import de Component.astro : un import statique des 221
+// composants regroupait leurs styles dans une feuille chargée par TOUTES les pages (~690 Ko).
+// Le rendu passe par section-loaders.generated.ts (chargement propagé, CSS par page) ; les
+// outils internes qui veulent les composants statiques importent section-components.generated.ts.
 function genRegistry(ids) {
   let out = banner('src/lib/section-registry.generated.ts');
   out += `import type { SectionType } from '@waimia/ds-kernel';\n`;
-  out += `import type { SectionDescriptor, AstroComponent } from './section-registry-types';\n`;
-  // Import component + meta de chaque module.
+  out += `import type { SectionDescriptor } from './section-registry-types';\n`;
   for (const id of ids) {
-    const C = camel(id);
-    out += `import { Component as ${C}Component, meta as ${C}Meta } from '../sections/${id}';\n`;
+    out += `import { meta as ${camel(id)}Meta } from '../sections/${id}/meta';\n`;
   }
   out += `\nexport const SECTIONS: Record<SectionType, SectionDescriptor> = {\n`;
   for (const id of ids) {
-    const C = camel(id);
-    out += `  '${id}': {\n    component: ${C}Component,\n    ...${C}Meta,\n  },\n`;
+    out += `  '${id}': {\n    ...${camel(id)}Meta,\n  },\n`;
   }
+  out += `};\n`;
+  return out;
+}
+
+// ─── 2bis. section-loaders.generated.ts ───
+// Chargeurs `index.ts?astroPropagatedAssets` (cf src/lib/lazy-section.ts) : frontière CSS
+// d'Astro, les styles d'une section ne sont injectés que sur les pages qui la rendent. Le
+// drapeau va sur index.ts et JAMAIS sur Component.astro : le plugin Astro recompilerait le
+// module synthétique comme un composant (scripts cassés, cache de compilation pollué).
+function genLoaders(ids) {
+  let out = banner('src/lib/section-loaders.generated.ts');
+  out += `import type { SectionType } from '@waimia/ds-kernel';\n`;
+  out += `import type { SectionLoader } from './lazy-section';\n`;
+  out += `\nexport const SECTION_LOADERS: Record<SectionType, SectionLoader> = {\n`;
+  for (const id of ids) {
+    out += `  '${id}': () => import('../sections/${id}/index.ts?astroPropagatedAssets'),\n`;
+  }
+  out += `};\n`;
+  return out;
+}
+
+// ─── 2ter. section-components.generated.ts ───
+// Composants STATIQUES, réservés aux outils internes (preview, atelier) : tout importeur
+// charge les styles des 221 sections. Jamais depuis une page publique ni SectionsRenderer.
+function genComponents(ids) {
+  let out = banner('src/lib/section-components.generated.ts');
+  out += `import type { SectionType } from '@waimia/ds-kernel';\n`;
+  out += `import type { AstroComponent } from './section-registry-types';\n`;
+  for (const id of ids) {
+    out += `import ${camel(id)}Component from '../sections/${id}/Component.astro';\n`;
+  }
+  out += `\nexport const SECTION_COMPONENTS: Record<SectionType, AstroComponent> = {\n`;
+  for (const id of ids) out += `  '${id}': ${camel(id)}Component,\n`;
   out += `};\n`;
   return out;
 }
@@ -188,6 +224,8 @@ export function buildGenerated() {
     'packages/ds-kernel/src/schemas/sections.generated.ts': genSchemas(alphaIds),
     'packages/ds-kernel/src/lib/section-family.generated.ts': genFamily(alphaIds),
     'src/lib/section-registry.generated.ts': genRegistry(orderedIds),
+    'src/lib/section-loaders.generated.ts': genLoaders(orderedIds),
+    'src/lib/section-components.generated.ts': genComponents(orderedIds),
     'src/lib/section-demos.generated.ts': genDemos(orderedIds),
     ids: alphaIds,
   };

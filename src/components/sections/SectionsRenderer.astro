@@ -1,6 +1,7 @@
 ---
 // Waimia · SectionsRenderer V2 (2026-05-15)
-// Renderer composable data-driven. Consomme `sections[]` validé Zod et délègue à `SECTION_REGISTRY`.
+// Renderer composable data-driven. Consomme `sections[]` validé Zod et délègue aux chargeurs
+// paresseux `SECTION_LOADERS` (CSS par page, cf lib/lazy-section.ts).
 // Cf docs/15-STRATEGIC-AUDIT.md Tier 2.3 + docs/16-EXECUTION-TRACKER.md T2.3a
 //
 // Usage minimal :
@@ -8,8 +9,8 @@
 //
 // Le `lang` est propagé à chaque section pour rendu bilingue.
 
-import { SECTION_REGISTRY } from '../../lib/section-registry';
 import { resolveSectionRefs } from '../../lib/resolve-section-refs';
+import { loadSections } from '../../lib/lazy-section';
 import type { SectionData } from '@waimia/ds-kernel';
 
 interface Props {
@@ -19,10 +20,13 @@ interface Props {
 
 const { sections, lang } = Astro.props;
 const resolved = await Promise.all(sections.map((s) => resolveSectionRefs(s, lang)));
+// Chargement paresseux des seuls types rendus : leurs styles sont injectés dans le <head>
+// de CETTE page (cf lib/lazy-section.ts), au lieu d'une feuille commune aux 221 sections.
+const components = await loadSections(resolved.map((s) => s.type));
 ---
 
 {resolved.map((section, i) => {
-  const Component = SECTION_REGISTRY[section.type] as any;
+  const Component = components[section.type];
   if (!Component) {
     console.error(`[SectionsRenderer] Type inconnu: ${section.type}`);
     return null;

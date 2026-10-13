@@ -44,7 +44,8 @@ import PricingTier from '../../../../../src/components/ui/molecules/PricingTier.
 import TerminalMockup from '../../../../../src/components/ui/molecules/TerminalMockup.astro';
 
 // Sections cataloguées (rendu inline → réactif au token LIVE, contrairement aux iframes)
-import { SECTION_REGISTRY, listSections, listCategories } from '../../../../../src/lib/section-registry';
+import { listSections, listCategories } from '../../../../../src/lib/section-registry';
+import { SECTION_REGISTRY } from '../../../../../src/lib/section-components';
 import { SECTION_DEMOS } from '../../../../../src/lib/section-demos';
 import { sectionSchema } from '@waimia/ds-kernel';
 import type { SectionType } from '@waimia/ds-kernel';
