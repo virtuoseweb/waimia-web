@@ -133,7 +133,7 @@ const ARTICLE_LINKS: Record<string, EeatLink> = {
   },
   'pillar-ia-pme': {
     label: "L'IA pour les PME en 2026",
-    href: '/blog/essai-pillar-ia-pme-2026',
+    href: '/blog/ia-pme-guide-complet-2026',
     kicker: 'Essai',
     lead: "Le tour d'horizon : où l'IA crée vraiment de la valeur pour une PME.",
   },

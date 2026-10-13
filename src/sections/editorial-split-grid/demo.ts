@@ -14,7 +14,7 @@ export const demo: DemoData = {
       lede_fr: 'Pas de calendrier éditorial. On publie quand on a vraiment quelque chose à dire.',
       lede_en: 'No editorial calendar. We publish when there is something worth saying.',
       cards: [
-        { kicker: 'NOTE 01', title_fr: 'Pourquoi les agents IA échouent en PME', title_en: 'Why AI agents fail in SMBs', lead_fr: 'La dette de process précède la dette technique.', lead_en: 'Process debt comes before technical debt.', href: '/blog/essai-pillar-ia-pme-2026' },
+        { kicker: 'NOTE 01', title_fr: 'Pourquoi les agents IA échouent en PME', title_en: 'Why AI agents fail in SMBs', lead_fr: 'La dette de process précède la dette technique.', lead_en: 'Process debt comes before technical debt.', href: '/blog/ia-pme-guide-complet-2026' },
         { kicker: 'NOTE 02', title_fr: 'Le CRM comme mémoire opérationnelle', title_en: 'CRM as operational memory', lead_fr: 'Une stack utile commence par une mémoire propre.', lead_en: 'A useful stack starts with clean memory.', href: '/blog/cabler-son-crm-en-10-jours' },
         { kicker: 'NOTE 03', title_fr: 'Agent IA ou automatisation classique', title_en: 'AI agent vs classic automation', lead_fr: 'Choisir le bon outil avant d’écrire la moindre règle.', lead_en: 'Pick the right tool before writing a single rule.', href: '/blog/agent-ia-vs-automatisation-classique-2026' },
       ],

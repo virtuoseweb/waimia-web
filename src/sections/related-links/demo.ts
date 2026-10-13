@@ -64,7 +64,7 @@ export const demo: DemoData = {
         {
           label_fr: "L'IA pilier pour les PME en 2026",
           label_en: 'AI as a pillar for SMBs in 2026',
-          href: '/blog/essai-pillar-ia-pme-2026',
+          href: '/blog/ia-pme-guide-complet-2026',
         },
         {
           label_fr: 'Agent IA contre automatisation classique',

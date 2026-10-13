@@ -54,6 +54,8 @@ export const REDIRECTED_PATHS: Readonly<Record<string, string>> = {
   '/cas-usages/reduire-reporting': '/cas-usages/centraliser-donnees',
   // Studio solo : la page équipe est la page du fondateur.
   '/equipe': '/equipe/simon-beros',
+  // Article pilier renommé (slug sans jargon interne) : 301 vers la nouvelle URL.
+  '/blog/essai-pillar-ia-pme-2026': '/blog/ia-pme-guide-complet-2026',
   // Articles hors positionnement (agence web / marketing).
   '/blog/landing-page-qui-convertit-methode-2026': '/services/landing-pages-tunnels',
   '/blog/webflow-vs-wordpress-vs-site-code-ia-2026': '/services/site-web-ia',

@@ -184,7 +184,7 @@ const PAGES: Record<string, PageDef> = {
   '/ressources/guides/roi-automatisation': { label_fr: "Guide : mesurer le ROI d'une automatisation", label_en: 'Guide: measuring automation ROI', kind: 'guide', topics: ['conseil', 'automatisation'] },
   '/ressources/outils/grille-taches-a-automatiser': { label_fr: 'Grille des tâches à automatiser', label_en: 'Task automation grid', kind: 'diagnostic', topics: ['automatisation', 'conseil'] },
   '/ressources/outils/charte-ia-entreprise': { label_fr: 'Modèle de charte IA pour PME', label_en: 'AI charter template for SMBs', kind: 'guide', topics: ['conformite', 'conseil'] },
-  '/blog/essai-pillar-ia-pme-2026': { label_fr: "L'IA appliquée aux PME en 2026", label_en: 'Applied AI for SMBs in 2026', kind: 'article', topics: ['conseil'] },
+  '/blog/ia-pme-guide-complet-2026': { label_fr: 'IA pour PME en 2026 : le guide complet', label_en: 'Applied AI for SMBs in 2026', kind: 'article', topics: ['conseil'] },
   '/blog/forward-deployed-engineer': { label_fr: "Forward deployed engineer : le rôle", label_en: 'Forward deployed engineer: the role', kind: 'article', topics: ['conseil', 'studio'] },
   '/blog/architecte-ia-role-pme': { label_fr: 'Architecte IA : le rôle en PME', label_en: 'AI architect: the role in an SMB', kind: 'article', topics: ['conseil', 'claude'] },
   '/tarifs': { label_fr: 'Tarifs', label_en: 'Pricing', kind: 'studio', topics: ['conseil', 'studio'], emit: false },

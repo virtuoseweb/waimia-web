@@ -7545,15 +7545,6 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
-    "route": "/blog/essai-pillar-ia-pme-2026",
-    "title": "L'IA appliquée aux PME en 2026 : le guide complet",
-    "group": "blog",
-    "collection": "blog",
-    "file": "blog/essai-pillar-ia-pme-2026.json",
-    "editable": false,
-    "sections": []
-  },
-  {
     "route": "/blog/formation-ia-cpf-qualiopi",
     "title": "Formation IA CPF : ce qu'il faut vérifier",
     "group": "blog",
@@ -7577,6 +7568,15 @@ export const SITE_PAGES: SitePage[] = [
     "group": "blog",
     "collection": "blog",
     "file": "blog/forward-deployed-engineer.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/ia-pme-guide-complet-2026",
+    "title": "IA pour PME en 2026 : le guide complet",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/ia-pme-guide-complet-2026.json",
     "editable": false,
     "sections": []
   },
@@ -8367,10 +8367,10 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/cabler-son-crm-en-10-jours",
       "/blog/claude-microsoft-copilot-pme",
       "/blog/creer-agent-ia-claude",
-      "/blog/essai-pillar-ia-pme-2026",
       "/blog/formation-ia-cpf-qualiopi",
       "/blog/formation-ia-finance-pme",
       "/blog/forward-deployed-engineer",
+      "/blog/ia-pme-guide-complet-2026",
       "/blog/landing-page-qui-convertit-methode-2026",
       "/blog/logiciel-seo-ia-pme",
       "/blog/n8n-c-est-quoi",
