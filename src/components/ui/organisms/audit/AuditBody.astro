@@ -69,7 +69,7 @@ const cols = session.map((s) => `minmax(190px, ${s.to - s.from}fr)`).join(' ');
           {/* set:html : un item peut porter un lien interne (ex. vers /formations) */}
           {fit.no.map((t) => <li set:html={t} />)}
         </ul>
-        <p class="ab-fit-link"><a href="/contact?intent=message">Envoyer une demande par le formulaire</a></p>
+        <p class="ab-fit-link"><a href="/contact#intent=message">Envoyer une demande par le formulaire</a></p>
       </div>
     </div>
   </div>

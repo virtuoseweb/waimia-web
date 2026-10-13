@@ -44,16 +44,13 @@ const inside = pick(data.inside_fr, data.inside_en);
 const forWho = pick(data.forWho_fr, data.forWho_en);
 const strip = (h: string) => h.replace(/<[^>]+>/g, '');
 
-const articleLd = {
-  ...buildArticle({
-    headline: pick(data.seoTitle_fr, data.seoTitle_en),
-    description: pick(data.seoDescription_fr, data.seoDescription_en),
-    datePublished: data.publishedAt ?? '2026-10-05',
-    dateModified: data.updatedAt ?? data.publishedAt ?? '2026-10-05',
-    mainEntityOfPage: url,
-  }),
-  ...(data.relatedPages.length > 0 ? { relatedLink: data.relatedPages.map((p) => `${SITE.url}${p}`) } : {}),
-};
+const articleLd = buildArticle({
+  headline: pick(data.seoTitle_fr, data.seoTitle_en),
+  description: pick(data.seoDescription_fr, data.seoDescription_en),
+  datePublished: data.publishedAt ?? '2026-10-05',
+  dateModified: data.updatedAt ?? data.publishedAt ?? '2026-10-05',
+  mainEntityOfPage: url,
+});
 const faqLd = faq.length > 0
   ? {
       '@context': 'https://schema.org',

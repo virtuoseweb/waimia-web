@@ -33,7 +33,7 @@ export default function ContactConfirmation({
     `<p style="${pStyle}margin:0;font-style:italic;">« ${briefSafe} »</p>` +
     `</div>` +
     `<p style="${pStyle}">Pour gagner du temps, vous pouvez choisir directement un créneau pour l'audit IA gratuit de 45 minutes :</p>` +
-    `<p style="${mutedStyle}">· <a href="${SITE.url}/contact?offer=audit-ia-pme&intent=audit" style="${accentLinkStyle}">Choisir un créneau</a><br />· <a href="${SITE.url}/audit-ia-pme" style="${accentLinkStyle}">Ce que couvre l'audit</a></p>` +
+    `<p style="${mutedStyle}">· <a href="${SITE.url}/contact#offer=audit-ia-pme&intent=audit" style="${accentLinkStyle}">Choisir un créneau</a><br />· <a href="${SITE.url}/audit-ia-pme" style="${accentLinkStyle}">Ce que couvre l'audit</a></p>` +
     `<p style="${mutedStyle}">Si urgent : <a href="mailto:${SITE.email}" style="${accentLinkStyle}">${SITE.email}</a></p>`;
 
   return wrapEmail(

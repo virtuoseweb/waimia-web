@@ -29,7 +29,7 @@ export const demo: DemoData = {
       'Action tracking dashboard',
       'Results guaranteed or refunded within 30 days',
     ],
-    cta: { label_fr: 'Réserver mon pilote →', label_en: 'Book my pilot →', href: '/contact?offer=pilot', variant: 'accent' },
+    cta: { label_fr: 'Réserver mon pilote →', label_en: 'Book my pilot →', href: '/contact#offer=pilot', variant: 'accent' },
     guarantee_fr: 'Satisfait ou remboursé sous 30 jours, sans condition.',
     guarantee_en: 'Satisfied or refunded within 30 days, no strings attached.',
     secondary_note_fr: 'Places limitées à 4 pilotes par mois pour garantir la qualité du suivi.',

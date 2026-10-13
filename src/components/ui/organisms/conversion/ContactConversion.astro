@@ -93,7 +93,13 @@ const calUrl = `https://cal.com/${SITE.cal.username}/${SITE.cal.event}`;
   function apply() {
     var root = document.querySelector('[data-contact-root]');
     if (!root) return;
-    var params = new URLSearchParams(window.location.search);
+    // Les CTA du site portent l'offre en fragment (/contact#offer=…) : une seule URL
+    // crawlable. La query reste lue pour les anciens liens et les campagnes.
+    var hash = window.location.hash.replace(/^#/, '');
+    var params = new URLSearchParams(hash.indexOf('=') !== -1 ? hash : window.location.search);
+    if (hash.indexOf('=') !== -1 && !params.get('offer') && !params.get('intent')) {
+      params = new URLSearchParams(window.location.search);
+    }
     var offer = (params.get('offer') || '').toLowerCase();
     var intent = (params.get('intent') || '').toLowerCase();
     if (!SLUG.test(offer)) offer = '';
@@ -129,6 +135,7 @@ const calUrl = `https://cal.com/${SITE.cal.username}/${SITE.cal.event}`;
   }
   apply();
   document.addEventListener('astro:page-load', apply);
+  window.addEventListener('hashchange', apply);
 })();
 </script>
 

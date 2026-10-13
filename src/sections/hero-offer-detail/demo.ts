@@ -14,7 +14,7 @@ export const demo: DemoData = {
     h1_en: 'AI Growth System. <i class="acc">Wire</i> AI into your delivery.',
     lead_fr: '8 à 12 semaines pour livrer un système opérationnel mesuré. <span>Pas de POC. Pas de slide. Un livrable.</span>',
     lead_en: '8–12 weeks to ship an operational, measured system. <span>No POC. No slide. A deliverable.</span>',
-    cta: { label_fr: 'Réserver un audit →', label_en: 'Book an audit →', href: '/contact?offer=growth-system', variant: 'primary' },
+    cta: { label_fr: 'Réserver un audit →', label_en: 'Book an audit →', href: '/contact#offer=growth-system', variant: 'primary' },
     meta_fr: 'Booking · T3 2026',
     meta_en: 'Booking · Q3 2026',
   };

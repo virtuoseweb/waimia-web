@@ -20,7 +20,7 @@ const altHref = alternateHref(Astro.url.pathname, lang);
 // restaurer `hasBilingualMirror(Astro.url.pathname)` pour réactiver l'EN.
 const enMirror = false;
 // Prise de rendez-vous : URL unique (décision Simon 2026-10), la page contact porte le calendrier.
-const ctaHref = '/contact?offer=audit-ia-pme&intent=audit';
+const ctaHref = '/contact#offer=audit-ia-pme&intent=audit';
 
 // i18n · tous les liens de panel passent par la localisation (R3 fix) :
 // en EN, `/solutions/x` → `/en/solutions/x`. `localizeHref` ne préfixe que les

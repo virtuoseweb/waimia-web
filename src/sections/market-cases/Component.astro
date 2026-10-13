@@ -146,7 +146,7 @@ const pick = (c: MarketCase) => ({
                       <ul class="mkt__sources">
                         {c.sources.map((s) => (
                           <li>
-                            <a href={s.url} target="_blank" rel="noopener noreferrer nofollow">{s.publisher}, {isFr ? s.kind_fr : s.kind_en}<span class="mkt__sr"> {t.newTab}</span></a>{s.publishedOn && <span>, {t.published} {fmtDate(s.publishedOn)}</span>}
+                            <a href={s.url} target="_blank" rel="noopener noreferrer">{s.publisher}, {isFr ? s.kind_fr : s.kind_en}<span class="mkt__sr"> {t.newTab}</span></a>{s.publishedOn && <span>, {t.published} {fmtDate(s.publishedOn)}</span>}
                           </li>
                         ))}
                       </ul>

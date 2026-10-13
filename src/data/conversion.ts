@@ -5,7 +5,7 @@
 // Tout bouton « Réserver un audit » pointe vers AUDIT_BOOKING_HREF. Les liens
 // « En savoir plus sur l'audit » pointent vers AUDIT_PAGE_HREF.
 
-export const AUDIT_BOOKING_HREF = '/contact?offer=audit-ia-pme&intent=audit';
+export const AUDIT_BOOKING_HREF = '/contact#offer=audit-ia-pme&intent=audit';
 export const AUDIT_PAGE_HREF = '/audit-ia-pme';
 /** Libellé unique du bouton de prise de rendez-vous. */
 export const AUDIT_BOOKING_LABEL = { fr: 'Réserver un audit IA gratuit', en: 'Book a free AI audit' } as const;

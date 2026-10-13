@@ -22,7 +22,7 @@ import Button from '../atoms/Button.astro';
 
 const lang = langFromPath(Astro.url.pathname);
 // Prise de rendez-vous : URL unique (la page contact porte le calendrier). /audit-ia-pme présente l'audit.
-const ctaHref = '/contact?offer=audit-ia-pme&intent=audit';
+const ctaHref = '/contact#offer=audit-ia-pme&intent=audit';
 const auditHref = localizeHref('/audit-ia-pme', lang);
 const fr = lang === 'fr';
 // L'offre dans son ordre : (1) automatisation et agents IA, (2) applications métier, (3) conseil et formation.

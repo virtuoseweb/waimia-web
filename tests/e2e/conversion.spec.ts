@@ -3,10 +3,10 @@
 // paramètres d'URL, le calcul des outils et la présence des CTA, pas le texte ni le CSS.
 import { test, expect } from "@playwright/test";
 
-const AUDIT_BOOKING = "/contact?offer=audit-ia-pme&intent=audit";
+const AUDIT_BOOKING = "/contact#offer=audit-ia-pme&intent=audit";
 
 test.describe("contact · paramètres d'URL", () => {
-  test("?offer=audit-ia-pme&intent=audit : prise de RDV en premier, offre pré-sélectionnée", async ({ page }) => {
+  test("#offer=audit-ia-pme&intent=audit : prise de RDV en premier, offre pré-sélectionnée", async ({ page }) => {
     await page.goto(AUDIT_BOOKING);
     const root = page.locator("[data-contact-root]");
     await expect(root).toHaveAttribute("data-first", "rdv");
