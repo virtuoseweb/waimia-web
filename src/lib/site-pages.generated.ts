@@ -3982,6 +3982,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/cas-clients/sprinkable-airess",
+    "title": "Sprinkable et Airess : site du groupe et blog de la protection incendie",
+    "group": "cas-clients",
+    "collection": "cases",
+    "file": "cases/sprinkable-airess.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/cas-clients/virtuoseos",
     "title": "VirtuoseOS : le premier OS agentique du studio",
     "group": "cas-clients",
@@ -8280,6 +8289,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/cas-clients/isabelle-diaz-naturopathe",
       "/cas-clients/les-carnets-de-montpellier",
       "/cas-clients/prototypes-internes",
+      "/cas-clients/sprinkable-airess",
       "/cas-clients/virtuoseos",
       "/cas-clients/waimia-os"
     ]
