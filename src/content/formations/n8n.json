@@ -5,7 +5,7 @@
   "description_en": "In-company n8n training: workflows built, hardened and maintained. A modular programme on your workflows, cloud or self-hosted.",
   "slug": "n8n",
   "publishedAt": "2026-10-04T00:00:00.000Z",
-  "updatedAt": "2026-10-04T00:00:00.000Z",
+  "updatedAt": "2026-10-13T00:00:00.000Z",
   "tags": [
     "formation-n8n",
     "n8n",
@@ -35,6 +35,18 @@
     {
       "q": "Existe-t-il un financement pour la formation n8n ?",
       "a": "Oui, selon votre OPCO. Akigora, l'organisme qui la porte, est certifié Qualiopi. Nous vérifions la prise en charge avec vous au cadrage, avant tout engagement."
+    },
+    {
+      "q": "Combien de temps dure chaque module de la formation n8n ?",
+      "a": "Comptez entre 1 h 30 et 2 h 30 par module sur le format de {{prix.formation.f2.heures}} heures, la moitié environ sur le format de {{prix.formation.f1.heures}} heures. Si le module sur le nœud Code est écarté pour un groupe non technique, son temps revient à l'atelier."
+    },
+    {
+      "q": "Les workflows d'erreur sont-ils au programme ?",
+      "a": "Oui : le module 04, « Fiabiliser », y est consacré. L'atelier en produit un seul, partagé par vos workflows, qui alerte la personne responsable."
+    },
+    {
+      "q": "n8n ou Make : quelle formation choisir ?",
+      "a": "Make convient mieux à une équipe métier qui veut lire et modifier ses scénarios ; n8n à un groupe plus à l'aise avec la logique, ou qui doit héberger l'outil chez lui. Si le choix n'est pas fait, l'audit gratuit sert à le trancher. Les critères sont dans le <a href=\"/ressources/comparatifs/n8n-vs-make\">comparatif n8n vs Make</a> et la page <a href=\"/formations/make\">formation Make</a>."
     }
   ],
   "faq_en": [
@@ -57,6 +69,18 @@
     {
       "q": "Is there funding for the n8n training?",
       "a": "Yes, depending on your OPCO. Akigora, the provider behind it, is Qualiopi-certified. We check funding with you at scoping, before any commitment."
+    },
+    {
+      "q": "How long does each module of the n8n training last?",
+      "a": "Allow 1 h 30 to 2 h 30 per module on the {{prix.formation.f2.heures}}-hour format, about half that on the {{prix.formation.f1.heures}}-hour format. If the Code node module is left out for a non-technical group, its time goes back to the workshop."
+    },
+    {
+      "q": "Are error workflows part of the programme?",
+      "a": "Yes: module 04, “Make it reliable”, is devoted to them. The workshop produces a single one, shared by your workflows, which alerts the person in charge."
+    },
+    {
+      "q": "n8n or Make: which training to choose?",
+      "a": "Make suits a business team that wants to read and edit its scenarios; n8n suits a group more at ease with logic, or one that must host the tool itself. If the choice is not made, the free audit settles it. The criteria are in the <a href=\"/ressources/comparatifs/n8n-vs-make\">n8n vs Make comparison</a> and on the <a href=\"/formations/make\">Make training</a> page."
     }
   ],
   "sections": [
@@ -160,59 +184,157 @@
           "num": "01",
           "title_fr": "Lire un workflow",
           "title_en": "Read a workflow",
-          "body_fr": "Déclencheurs, nœuds, circulation des données d'un nœud à l'autre, historique d'exécution.",
-          "body_en": "Triggers, nodes, how data flows from node to node, execution history."
+          "meta_fr": "Environ 1 h 30 en format de {{prix.formation.f2.heures}} heures, 45 min en format de {{prix.formation.f1.heures}} heures",
+          "meta_en": "About 1 h 30 in the {{prix.formation.f2.heures}}-hour format, 45 min in the {{prix.formation.f1.heures}}-hour format",
+          "body_fr": "Objectif : comprendre un workflow que l'on n'a pas écrit. Déclencheurs, nœuds, circulation des données d'un nœud à l'autre, historique des exécutions. Exercice : sur une exécution réussie et une exécution en échec, retrouver le nœud responsable. Livrable : un schéma commenté d'un de vos workflows.",
+          "body_en": "Goal: understand a workflow you did not write. Triggers, nodes, data passing from one node to the next, execution history. Exercise: on a successful run and a failed run, find the node responsible. Deliverable: an annotated diagram of one of your workflows."
         },
         {
           "num": "02",
           "title_fr": "Connecter vos outils",
           "title_en": "Connect your tools",
-          "body_fr": "Connecteurs existants, identifiants, webhooks et requêtes HTTP.",
-          "body_en": "Existing connectors, credentials, webhooks and HTTP requests."
+          "meta_fr": "Environ 2 h en format de {{prix.formation.f2.heures}} heures, 1 h en format de {{prix.formation.f1.heures}} heures",
+          "meta_en": "About 2 h in the {{prix.formation.f2.heures}}-hour format, 1 h in the {{prix.formation.f1.heures}}-hour format",
+          "body_fr": "Objectif : relier n8n à un outil, qu'il ait un connecteur ou non. Connecteurs existants, identifiants, webhooks et requêtes HTTP. Exercice : brancher deux de vos outils, dont un par requête HTTP. Livrable : un workflow déclenché par un webhook qui écrit dans l'un de vos outils.",
+          "body_en": "Goal: connect n8n to a tool, whether or not it has a connector. Existing connectors, credentials, webhooks and HTTP requests. Exercise: plug in two of your tools, one of them through an HTTP request. Deliverable: a workflow triggered by a webhook that writes into one of your tools."
         },
         {
           "num": "03",
           "title_fr": "Écrire la logique",
           "title_en": "Write the logic",
-          "body_fr": "Conditions, branches, boucles, expressions pour transformer les données.",
-          "body_en": "Conditions, branches, loops, expressions to transform data."
+          "meta_fr": "Environ 2 h 30 en format de {{prix.formation.f2.heures}} heures, 1 h 15 en format de {{prix.formation.f1.heures}} heures",
+          "meta_en": "About 2 h 30 in the {{prix.formation.f2.heures}}-hour format, 1 h 15 in the {{prix.formation.f1.heures}}-hour format",
+          "body_fr": "Objectif : faire prendre des décisions au workflow. Conditions, branches, boucles, expressions pour transformer les données. Exercice : trier des enregistrements selon des règles écrites par l'équipe, puis remettre leurs champs en forme. Livrable : un workflow avec ses conditions, sa boucle et ses expressions, relu en séance.",
+          "body_en": "Goal: have the workflow make decisions. Conditions, branches, loops, expressions to transform data. Exercise: sort records according to rules written by the team, then reformat their fields. Deliverable: a workflow with its conditions, its loop and its expressions, reviewed in session."
         },
         {
           "num": "04",
           "title_fr": "Fiabiliser",
-          "title_en": "Harden",
-          "body_fr": "Gestion des erreurs, reprises, alertes, tests sur des cas limites.",
-          "body_en": "Error handling, retries, alerts, tests on edge cases."
+          "title_en": "Make it reliable",
+          "meta_fr": "Environ 2 h en format de {{prix.formation.f2.heures}} heures, 1 h en format de {{prix.formation.f1.heures}} heures",
+          "meta_en": "About 2 h in the {{prix.formation.f2.heures}}-hour format, 1 h in the {{prix.formation.f1.heures}}-hour format",
+          "body_fr": "Objectif : être prévenu quand un workflow échoue. D'après la documentation de n8n, un workflow d'erreur démarre par un nœud Error Trigger, se rattache aux autres dans leurs réglages et peut alerter par e-mail ou par message Slack ; le nœud Stop And Error force un échec selon vos conditions. L'épinglage de données, réservé au développement, rejoue un test sans rappeler vos outils. Exercice : provoquer un échec volontaire et recevoir l'alerte. Livrable : un workflow d'erreur partagé.",
+          "body_en": "Goal: be told when a workflow fails. According to n8n's documentation, an error workflow starts with an Error Trigger node, is attached to other workflows in their settings and can alert by email or Slack message; the Stop And Error node forces a failure under your conditions. Data pinning, for development only, replays a test without calling your tools again. Exercise: cause a deliberate failure and receive the alert. Deliverable: a shared error workflow."
         },
         {
           "num": "05",
           "title_fr": "Le nœud Code",
           "title_en": "The Code node",
-          "body_fr": "Quand un peu de JavaScript ou de Python évite dix nœuds. Sur n8n Cloud, on ne peut importer aucune bibliothèque externe (seuls crypto et moment sont fournis) ; en auto-hébergé, c'est possible. Module adapté au niveau du groupe.",
-          "body_en": "When a bit of JavaScript or Python saves ten nodes. On n8n Cloud, no external library can be imported (only crypto and moment are provided); self-hosted, it is possible. Module adapted to the group's level."
+          "meta_fr": "Environ 2 h en format de {{prix.formation.f2.heures}} heures, 1 h en format de {{prix.formation.f1.heures}} heures",
+          "meta_en": "About 2 h in the {{prix.formation.f2.heures}}-hour format, 1 h in the {{prix.formation.f1.heures}}-hour format",
+          "body_fr": "Objectif : savoir quand un peu de code remplace plusieurs nœuds, et quand s'en passer. Sur n8n Cloud, on ne peut importer aucune bibliothèque externe (seuls crypto et moment sont fournis) ; en auto-hébergé, c'est possible. Exercice : transformer un jeu de données en JavaScript ou en Python, puis le refaire avec des nœuds standard et comparer. Livrable : un nœud Code commenté et sa version sans code. Module adapté au niveau du groupe, écarté pour un public non technique.",
+          "body_en": "Goal: know when a little code replaces several nodes, and when to do without. On n8n Cloud, no external library can be imported (only crypto and moment are provided); self-hosted, it is possible. Exercise: transform a dataset in JavaScript or Python, then redo it with standard nodes and compare. Deliverable: a commented Code node and its no-code version. Module adapted to the group's level, left out for a non-technical audience."
         },
         {
           "num": "06",
           "title_fr": "L'IA dans n8n",
           "title_en": "AI in n8n",
-          "body_fr": "Appeler un modèle pour classer, extraire ou rédiger ; principes d'un agent ; validation humaine.",
-          "body_en": "Calling a model to classify, extract or draft; agent principles; human approval."
+          "meta_fr": "Environ 2 h 30 en format de {{prix.formation.f2.heures}} heures, 1 h 15 en format de {{prix.formation.f1.heures}} heures",
+          "meta_en": "About 2 h 30 in the {{prix.formation.f2.heures}}-hour format, 1 h 15 in the {{prix.formation.f1.heures}}-hour format",
+          "body_fr": "Objectif : appeler un modèle d'IA là où il sert, avec une personne qui valide. Appeler un modèle pour classer, extraire ou rédiger ; principes d'un agent ; validation humaine. Exercice : classer des e-mails entrants par catégorie, puis les orienter selon la catégorie. Livrable : un workflow qui classe et prépare une réponse sans l'envoyer avant validation.",
+          "body_en": "Goal: call an AI model where it helps, with a person who approves. Calling a model to classify, extract or draft; principles of an agent; human approval. Exercise: classify incoming emails by category, then route them by category. Deliverable: a workflow that classifies and prepares a reply without sending it before approval."
         },
         {
           "num": "07",
           "title_fr": "Héberger et maintenir",
           "title_en": "Host and maintain",
-          "body_fr": "Cloud ou auto-hébergé, mises à jour, sauvegardes, documentation des workflows.",
-          "body_en": "Cloud or self-hosted, updates, backups, workflow documentation."
+          "meta_fr": "Environ 1 h 30 en format de {{prix.formation.f2.heures}} heures, 45 min en format de {{prix.formation.f1.heures}} heures",
+          "meta_en": "About 1 h 30 in the {{prix.formation.f2.heures}}-hour format, 45 min in the {{prix.formation.f1.heures}}-hour format",
+          "body_fr": "Objectif : choisir entre cloud et auto-hébergé en connaissance de cause, et garder les workflows en état. Mises à jour, sauvegardes, documentation des workflows. Exercice : remplir une fiche d'exploitation : qui met à jour, où sont les sauvegardes, qui reçoit les alertes. Livrable : cette fiche, sur une page.",
+          "body_en": "Goal: choose between cloud and self-hosted with full knowledge, and keep workflows in good order. Updates, backups, workflow documentation. Exercise: fill in an operations sheet: who updates, where the backups are, who receives the alerts. Deliverable: that sheet, on one page."
         },
         {
           "num": "08",
           "title_fr": "Atelier",
           "title_en": "Workshop",
-          "body_fr": "Chaque participant construit un workflow sur une tâche réelle de l'entreprise.",
-          "body_en": "Each participant builds a workflow on a real company task."
+          "meta_fr": "Environ 6 h en format de {{prix.formation.f2.heures}} heures, 3 h en format de {{prix.formation.f1.heures}} heures",
+          "meta_en": "About 6 h in the {{prix.formation.f2.heures}}-hour format, 3 h in the {{prix.formation.f1.heures}}-hour format",
+          "body_fr": "Objectif : repartir avec un workflow qui sert. Chaque participant construit un workflow sur une tâche réelle de l'entreprise, avec le formateur disponible. Exercice : construire, tester, corriger. Livrable : un workflow documenté et la liste de ce qui reste avant de l'activer.",
+          "body_en": "Goal: leave with a workflow that is useful. Each participant builds a workflow on a real company task, with the trainer available. Exercise: build, test, correct. Deliverable: a documented workflow and the list of what remains before activating it."
         }
       ]
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "anchor": "formats",
+      "kicker_fr": "§ Deux formats",
+      "kicker_en": "§ Two formats",
+      "heading_fr": "Format court ou format long : ce que chacun couvre",
+      "heading_en": "Short or long format: what each one covers",
+      "caption_fr": "Les durées par module sont indicatives, ajustées au cadrage selon vos workflows et le niveau du groupe.",
+      "caption_en": "Module durations are indicative, adjusted at scoping to your workflows and the group's level.",
+      "columns_fr": [
+        "Ce qui change",
+        "Format de {{prix.formation.f1.heures}} heures",
+        "Format de {{prix.formation.f2.heures}} heures"
+      ],
+      "columns_en": [
+        "What changes",
+        "{{prix.formation.f1.heures}}-hour format",
+        "{{prix.formation.f2.heures}}-hour format"
+      ],
+      "rows_fr": [
+        [
+          "Profondeur",
+          "Un premier passage sur chaque module : savoir lire, connecter et fiabiliser un workflow",
+          "Un passage complet, avec le temps de reprendre vos propres workflows et de traiter les cas limites"
+        ],
+        [
+          "Atelier final",
+          "3 h sur une tâche réelle",
+          "6 h : un workflow neuf et la reprise d'un workflow existant"
+        ],
+        [
+          "Pour qui",
+          "Un groupe qui découvre n8n ou doit surtout lire et ajuster des workflows",
+          "Un groupe qui va maintenir des workflows en production, en cloud ou auto-hébergés"
+        ],
+        [
+          "Vous repartez avec",
+          "Un workflow construit et fiabilisé sur une tâche réelle",
+          "Ce workflow, un workflow d'erreur partagé, une fiche d'exploitation et un workflow existant repris"
+        ],
+        [
+          "Quand le choisir",
+          "Pour poser les bases avant de décider ce qui passe en production",
+          "Quand l'équipe doit devenir autonome sur l'instance et sa maintenance"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Depth",
+          "A first pass on each module: knowing how to read, connect and make a workflow reliable",
+          "A full pass, with time to rework your own workflows and handle edge cases"
+        ],
+        [
+          "Final workshop",
+          "3 h on a real task",
+          "6 h: a new workflow and the rework of an existing one"
+        ],
+        [
+          "Who it is for",
+          "A group discovering n8n or that mostly needs to read and adjust workflows",
+          "A group that will maintain workflows in production, cloud or self-hosted"
+        ],
+        [
+          "You leave with",
+          "A workflow built and made reliable on a real task",
+          "That workflow, a shared error workflow, an operations sheet and an existing workflow reworked"
+        ],
+        [
+          "When to choose it",
+          "To lay the groundwork before deciding what goes into production",
+          "When the team must become autonomous on the instance and its maintenance"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Une session de formation n8n, du cadrage à l'atelier</h2>\n<p>Le cadrage fixe trois choses : l'instance utilisée (la vôtre, en cloud ou auto-hébergée, ou une instance de test), le niveau technique du groupe et les workflows à reprendre. Un accès qui manque le jour de la séance coûte plus de temps que n'importe quel exercice : les identifiants et les droits sur vos outils sont donc réglés avant.</p>\n<p>En séance, on alterne la démonstration sur un de vos workflows et l'exercice individuel. Chaque participant garde ses propres workflows ouverts : à la fin de chaque module, il a modifié quelque chose qui existe vraiment chez vous.</p>\n<p>Un workflow écrit aujourd'hui sera relu dans un an par quelqu'un d'autre. Pendant l'atelier, chaque workflow reçoit un nom lisible, une note sur son rôle et une personne responsable. C'est ce qui sépare un workflow que l'on sait maintenir d'un workflow que l'on n'ose plus toucher.</p>",
+      "html_en": "<h2>An n8n training session, from scoping to the workshop</h2>\n<p>Scoping sets three things: the instance used (yours, cloud or self-hosted, or a test instance), the group's technical level and the workflows to rework. A missing access on the day of the session costs more time than any exercise: credentials and rights on your tools are therefore sorted out beforehand.</p>\n<p>In session, we alternate a demonstration on one of your workflows and an individual exercise. Each participant keeps their own workflows open: at the end of each module, they have changed something that really exists in your company.</p>\n<p>A workflow written today will be read again in a year by someone else. During the workshop, each workflow gets a readable name, a note on its role and a person in charge. That is what separates a workflow you can maintain from one you no longer dare touch.</p>"
     },
     {
       "type": "editorial-prose",
@@ -382,8 +504,32 @@
           "q_en": "Is there funding for the n8n training?",
           "a_fr": "Oui, selon votre OPCO. Akigora, l'organisme qui la porte, est certifié Qualiopi. Nous vérifions la prise en charge avec vous au cadrage, avant tout engagement.",
           "a_en": "Yes, depending on your OPCO. Akigora, the provider behind it, is Qualiopi-certified. We check funding with you at scoping, before any commitment."
+        },
+        {
+          "q_fr": "Combien de temps dure chaque module de la formation n8n ?",
+          "q_en": "How long does each module of the n8n training last?",
+          "a_fr": "Comptez entre 1 h 30 et 2 h 30 par module sur le format de {{prix.formation.f2.heures}} heures, la moitié environ sur le format de {{prix.formation.f1.heures}} heures. Si le module sur le nœud Code est écarté pour un groupe non technique, son temps revient à l'atelier.",
+          "a_en": "Allow 1 h 30 to 2 h 30 per module on the {{prix.formation.f2.heures}}-hour format, about half that on the {{prix.formation.f1.heures}}-hour format. If the Code node module is left out for a non-technical group, its time goes back to the workshop."
+        },
+        {
+          "q_fr": "Les workflows d'erreur sont-ils au programme ?",
+          "q_en": "Are error workflows part of the programme?",
+          "a_fr": "Oui : le module 04, « Fiabiliser », y est consacré. L'atelier en produit un seul, partagé par vos workflows, qui alerte la personne responsable.",
+          "a_en": "Yes: module 04, “Make it reliable”, is devoted to them. The workshop produces a single one, shared by your workflows, which alerts the person in charge."
+        },
+        {
+          "q_fr": "n8n ou Make : quelle formation choisir ?",
+          "q_en": "n8n or Make: which training to choose?",
+          "a_fr": "Make convient mieux à une équipe métier qui veut lire et modifier ses scénarios ; n8n à un groupe plus à l'aise avec la logique, ou qui doit héberger l'outil chez lui. Si le choix n'est pas fait, l'audit gratuit sert à le trancher. Les critères sont dans le <a href=\"/ressources/comparatifs/n8n-vs-make\">comparatif n8n vs Make</a> et la page <a href=\"/formations/make\">formation Make</a>.",
+          "a_en": "Make suits a business team that wants to read and edit its scenarios; n8n suits a group more at ease with logic, or one that must host the tool itself. If the choice is not made, the free audit settles it. The criteria are in the <a href=\"/ressources/comparatifs/n8n-vs-make\">n8n vs Make comparison</a> and on the <a href=\"/formations/make\">Make training</a> page."
         }
       ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Sources, relues le 13 octobre 2026</h2><ul><li><a href=\"https://docs.n8n.io/flow-logic/error-handling/\" rel=\"noopener noreferrer\" target=\"_blank\">n8n, documentation : gestion des erreurs et workflow d'erreur</a></li><li><a href=\"https://docs.n8n.io/data/data-pinning/\" rel=\"noopener noreferrer\" target=\"_blank\">n8n, documentation : épinglage de données</a></li></ul>",
+      "html_en": "<h2>Sources, re-read on 13 October 2026</h2><ul><li><a href=\"https://docs.n8n.io/flow-logic/error-handling/\" rel=\"noopener noreferrer\" target=\"_blank\">n8n, documentation: error handling and error workflow</a></li><li><a href=\"https://docs.n8n.io/data/data-pinning/\" rel=\"noopener noreferrer\" target=\"_blank\">n8n, documentation: data pinning</a></li></ul>"
     },
     {
       "type": "footer-cta-band",

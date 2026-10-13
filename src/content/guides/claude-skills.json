@@ -7,7 +7,7 @@
   "description_en": "Claude Skills: how they work, SKILL.md structure, sharing limits, security, 6 SMB examples and real cost. Do it yourself or have it done.",
   "slug": "claude-skills",
   "publishedAt": "2026-10-05T00:00:00.000Z",
-  "updatedAt": "2026-10-06T00:00:00.000Z",
+  "updatedAt": "2026-10-13T00:00:00.000Z",
   "category": "claude",
   "cluster": "claude-pme",
   "tags": [
@@ -26,22 +26,22 @@
       "publishedAt": "2026-10-05"
     },
     {
-      "name": "Anthropic, Use skills in Claude (centre d'aide), lu le 5 octobre 2026",
+      "name": "Anthropic, Use skills in Claude (centre d'aide), lu le 5 octobre 2026, relu le 13 octobre 2026",
       "url": "https://support.claude.com/en/articles/12512180-using-skills-in-claude",
       "type": "enterprise",
-      "publishedAt": "2026-10-05"
+      "publishedAt": "2026-10-13"
     },
     {
-      "name": "Anthropic, How to create custom skills (centre d'aide), lu le 5 octobre 2026",
+      "name": "Anthropic, How to create custom skills (centre d'aide), lu le 5 octobre 2026, relu le 13 octobre 2026",
       "url": "https://support.claude.com/en/articles/12512198-creating-custom-skills",
       "type": "enterprise",
-      "publishedAt": "2026-10-05"
+      "publishedAt": "2026-10-13"
     },
     {
-      "name": "Anthropic, Extend Claude with skills (documentation Claude Code), lue le 5 octobre 2026",
+      "name": "Anthropic, Extend Claude with skills (documentation Claude Code), lue le 5 octobre 2026, relu le 13 octobre 2026",
       "url": "https://code.claude.com/docs/en/skills",
       "type": "enterprise",
-      "publishedAt": "2026-10-05"
+      "publishedAt": "2026-10-13"
     },
     {
       "name": "Anthropic, plugins dans Claude (centre d'aide), lu le 5 octobre 2026",
@@ -60,6 +60,12 @@
       "url": "https://support.claude.com/en/articles/13119606",
       "type": "enterprise",
       "publishedAt": "2026-10-06"
+    },
+    {
+      "name": "Anthropic, How to create a skill with Claude through conversation (tutoriel), lu le 13 octobre 2026",
+      "url": "https://claude.com/resources/tutorials/how-to-create-a-skill-with-claude-through-conversation",
+      "type": "enterprise",
+      "publishedAt": "2026-10-13"
     }
   ],
   "seo": {
@@ -185,7 +191,7 @@
       "role_en": "Founder of Waimia · AI and automation engineer",
       "profileHref": "/equipe/simon-beros",
       "publishedDate": "5 octobre 2026",
-      "updatedDate": "6 octobre 2026"
+      "updatedDate": "13 octobre 2026"
     },
     {
       "type": "direct-answer",
@@ -249,8 +255,8 @@
       "tone": "ink",
       "kicker_fr": "§ Structure d'un SKILL.md",
       "kicker_en": "§ Anatomy of a SKILL.md",
-      "h2_fr": "Un en-tête de deux champs, puis une procédure en texte",
-      "h2_en": "A two-field header, then a procedure in plain text",
+      "h2_fr": "Exemple de SKILL.md : un en-tête de deux champs, puis une procédure en texte",
+      "h2_en": "SKILL.md example: a two-field header, then a procedure in plain text",
       "intro_fr": "Extrait du skill de relance d'impayés de notre pack. L'en-tête YAML est obligatoire : name (64 caractères au plus, minuscules, chiffres, tirets) et description (1 024 caractères au plus selon la documentation développeurs, 200 selon le centre d'aide de claude.ai ; Claude Code n'a pas de plafond documenté mais tronque description et when_to_use à 1 536 caractères dans la liste des skills). Le reste est libre.",
       "intro_en": "Excerpt from the unpaid-invoice skill in our pack. The YAML header is mandatory: name (64 characters max, lowercase, digits, hyphens) and description (1,024 characters max per the developer docs, 200 per the claude.ai help center; Claude Code sets no documented cap but truncates description and when_to_use to 1,536 characters in the skill listing). The rest is free-form.",
       "label": "skills/relance-facture-impayee/SKILL.md",
@@ -317,6 +323,12 @@
           "text": "Reprends les pénalités des CGV ; n'en calcule pas d'autres."
         }
       ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Créer un skill Claude : trois voies</h2>\n<p>Un skill se crée de trois façons. Le choix dépend de votre aisance avec les fichiers, pas de votre niveau technique. Les points ci-dessous viennent de la documentation et du centre d'aide d'Anthropic, relus le 13 octobre 2026.</p>\n<h3>Par la conversation</h3>\n<p>Vous décrivez votre procédure à Claude dans une conversation, en joignant vos modèles ou vos exemples. Claude pose des questions, puis rédige le SKILL.md en s'appuyant sur un skill de création, skill-creator, range vos fichiers et produit le fichier à enregistrer. Vous l'activez dans les réglages des skills et vous l'essayez sur une vraie demande. C'est la voie la plus courte pour un premier skill (<a href=\"https://claude.com/resources/tutorials/how-to-create-a-skill-with-claude-through-conversation\" rel=\"noopener noreferrer\" target=\"_blank\">tutoriel Anthropic</a>).</p>\n<h3>À la main, en dossier puis en zip</h3>\n<p>Créez un dossier au nom du skill avec un fichier SKILL.md : un en-tête YAML (name, 64 caractères au plus ; description, 200 au plus sur claude.ai), puis la procédure en Markdown. Ajoutez au besoin un fichier de référence que le SKILL.md cite, pour que Claude sache quand l'ouvrir. Compressez le dossier : il doit être la racine du zip, pas son contenu à plat. Puis Personnaliser > Skills, bouton +, téléversement d'un skill (<a href=\"https://support.claude.com/en/articles/12512198-creating-custom-skills\" rel=\"noopener noreferrer\" target=\"_blank\">centre d'aide</a>).</p>\n<h3>Par l'enregistrement d'écran</h3>\n<p>Sur Pro, Max et Team, dans Cowork sur Mac, vous pouvez enregistrer votre écran pendant que vous faites la tâche, en la commentant à voix haute. Claude propose un skill que vous relisez avant de l'enregistrer. Cette voie n'existe ni sur Free ni sur Enterprise, ni sous Windows, ni dans le chat. Aucun mot de passe ni donnée sensible ne doit apparaître à l'écran pendant l'enregistrement.</p>\n<p>Dans les trois cas, l'essai décide. Testez plusieurs demandes qui doivent déclencher le skill, relisez le raisonnement de Claude pour voir s'il le charge, et réécrivez la description s'il l'ignore.</p>",
+      "html_en": "<h2>Creating a Claude skill: three routes</h2>\n<p>A skill can be created in three ways. The choice depends on how comfortable you are with files, not on your technical level. The points below come from Anthropic's documentation and help centre, re-read on 13 October 2026.</p>\n<h3>Through conversation</h3>\n<p>You describe your procedure to Claude in a conversation, attaching your templates or examples. Claude asks questions, then writes the SKILL.md using a skill-creation skill, skill-creator, organises your files and produces the file to save. You turn it on in the skills settings and try it on a real request. It is the shortest route for a first skill (<a href=\"https://claude.com/resources/tutorials/how-to-create-a-skill-with-claude-through-conversation\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic tutorial</a>).</p>\n<h3>By hand, as a folder then a zip</h3>\n<p>Create a folder named after the skill with a SKILL.md file: a YAML header (name, 64 characters at most; description, 200 at most on claude.ai), then the procedure in Markdown. Add, if needed, a reference file that the SKILL.md cites, so Claude knows when to open it. Compress the folder: it must be the root of the zip, not its contents laid flat. Then Customize > Skills, the + button, upload a skill (<a href=\"https://support.claude.com/en/articles/12512198-creating-custom-skills\" rel=\"noopener noreferrer\" target=\"_blank\">help centre</a>).</p>\n<h3>By screen recording</h3>\n<p>On Pro, Max and Team, in Cowork on Mac, you can record your screen while you do the task, commenting aloud. Claude proposes a skill that you review before saving it. This route is not available on Free or Enterprise, on Windows, or in chat. No password or sensitive data should appear on screen during the recording.</p>\n<p>In all three cases, the test decides. Try several requests that should trigger the skill, read Claude's reasoning to see whether it loads it, and rewrite the description if it ignores it.</p>"
     },
     {
       "type": "editorial-table-block",
@@ -392,6 +404,12 @@
         ]
       ],
       "variant": "editorial"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Skills Claude Code : où les ranger, comment les appeler</h2>\n<p>Dans Claude Code, un skill est un dossier contenant un SKILL.md, rangé à l'endroit qui décide de sa portée : ~/.claude/skills pour tous vos projets, .claude/skills dans un dépôt pour ceux qui y travaillent, ou dans un plugin. Si un même nom existe à plusieurs niveaux, le niveau entreprise passe avant le personnel, qui passe avant le projet. Pour le partager à l'équipe, on enregistre le dossier du projet avec le code (<a href=\"https://code.claude.com/docs/en/skills\" rel=\"noopener noreferrer\" target=\"_blank\">documentation Claude Code</a>).</p>\n<p>On l'appelle de deux façons : en tapant /nom-du-skill, ou sans rien faire quand la demande correspond à sa description. Dans l'en-tête, seule la description est recommandée ; le nom prend par défaut celui du dossier. Deux réglages servent souvent. Le réglage disable-model-invocation à true empêche Claude de charger le skill de lui-même : il convient aux actions avec effet de bord, comme un déploiement. Le réglage allowed-tools accorde des outils sans demande, le temps du tour où le skill est invoqué.</p>\n<p>Claude Code surveille ces dossiers : une modification est prise en compte dans la session en cours, sans redémarrage. Seule exception, un dossier de skills créé après le début de la session demande la commande /reload-skills.</p>\n<h2>Claude skills gratuit : ce qui est inclus, ce qui ne l'est pas</h2>\n<p>Le skill ne se paie pas à part. D'après le centre d'aide d'Anthropic, relu le 13 octobre 2026, les skills sont disponibles sur les offres Free, Pro, Max, Team et Enterprise, à condition d'activer l'exécution de code et la création de fichiers (Paramètres > Capacités sur les offres individuelles). Sur Free, vous pouvez donc activer les skills d'exemple et téléverser les vôtres (<a href=\"https://support.claude.com/en/articles/12512180-using-skills-in-claude\" rel=\"noopener noreferrer\" target=\"_blank\">centre d'aide</a>).</p>\n<p>Ce qui reste limité : les limites d'usage de votre offre s'appliquent comme pour le reste, le partage à l'organisation et la diffusion par plugin demandent Team ou Enterprise, l'enregistrement d'écran est réservé à Pro, Max et Team, et Claude Code figure dans les offres Pro, Max, Team et Enterprise, pas dans Free. Le détail est dans la <a href=\"/formations/claude-code\">formation Claude Code</a>.</p>",
+      "html_en": "<h2>Claude Code skills: where to store them, how to call them</h2>\n<p>In Claude Code, a skill is a folder containing a SKILL.md, stored at the place that decides its scope: ~/.claude/skills for all your projects, .claude/skills in a repository for those who work in it, or in a plugin. If the same name exists at several levels, the enterprise level takes precedence over the personal one, which takes precedence over the project one. To share it with the team, the project folder is committed along with the code (<a href=\"https://code.claude.com/docs/en/skills\" rel=\"noopener noreferrer\" target=\"_blank\">Claude Code documentation</a>).</p>\n<p>It is called in two ways: by typing /skill-name, or by doing nothing when the request matches its description. In the header, only the description is recommended; the name defaults to the folder's. Two settings are often useful. Setting disable-model-invocation to true stops Claude from loading the skill by itself: it suits actions with side effects, such as a deployment. The allowed-tools setting grants tools without asking, for the turn in which the skill is invoked.</p>\n<p>Claude Code watches these folders: a change is picked up in the current session, without a restart. The one exception is a skills folder created after the session started, which needs the /reload-skills command.</p>\n<h2>Free Claude skills: what is included, what is not</h2>\n<p>A skill is not paid for separately. According to Anthropic's help centre, re-read on 13 October 2026, skills are available on the Free, Pro, Max, Team and Enterprise plans, provided code execution and file creation are turned on (Settings > Capabilities on individual plans). On Free, you can therefore turn on the example skills and upload your own (<a href=\"https://support.claude.com/en/articles/12512180-using-skills-in-claude\" rel=\"noopener noreferrer\" target=\"_blank\">help centre</a>).</p>\n<p>What remains limited: your plan's usage limits apply as for everything else, sharing with the organisation and distribution by plugin require Team or Enterprise, screen recording is reserved for Pro, Max and Team, and Claude Code is part of the Pro, Max, Team and Enterprise plans, not Free. The detail is in the <a href=\"/formations/claude-code\">Claude Code training</a>.</p>"
     },
     {
       "type": "editorial-prose",

@@ -5,7 +5,7 @@
   "description_en": "In-company Make training: reliable scenarios, handled errors, controlled credits. A programme built on your own automations, by video or on site.",
   "slug": "make",
   "publishedAt": "2026-10-04T00:00:00.000Z",
-  "updatedAt": "2026-10-04T00:00:00.000Z",
+  "updatedAt": "2026-10-13T00:00:00.000Z",
   "tags": [
     "formation-make",
     "make",
@@ -35,6 +35,18 @@
     {
       "q": "Peut-on financer la formation Make ?",
       "a": "Oui, selon votre OPCO. La formation passe par Akigora, certifié Qualiopi ; nous vérifions la prise en charge avec vous et Akigora au cadrage, avant tout engagement de votre part."
+    },
+    {
+      "q": "Peut-on écarter ou allonger un module de la formation Make ?",
+      "a": "Oui. Le niveau de départ est évalué au cadrage et le programme suit : un module que l'équipe maîtrise déjà est raccourci, un module dont dépendent vos scénarios (listes, erreurs, crédits) est allongé. Les durées affichées par module sont des repères, pas un minuteur."
+    },
+    {
+      "q": "Que faut-il préparer avant la formation Make ?",
+      "a": "Un compte Make, la liste des applications à relier et deux ou trois tâches répétitives de votre quotidien. Si vous avez déjà des scénarios, repérez ceux que plus personne n'ose toucher : ils servent de support de cours."
+    },
+    {
+      "q": "Quelle différence entre la formation Make et une mission d'agence Make ?",
+      "a": "La formation apprend à votre équipe à construire et à modifier ses scénarios. La mission d'agence les conçoit pour vous, dans votre compte, avec documentation et passation. Les deux se combinent : les scénarios critiques confiés, les scénarios simples repris par l'équipe. Le détail est sur la page <a href=\"/services/automatisation-make\">agence Make</a>."
     }
   ],
   "faq_en": [
@@ -57,6 +69,18 @@
     {
       "q": "Can the Make training be funded?",
       "a": "Yes, depending on your OPCO. The training goes through Akigora, Qualiopi-certified; we check funding with you and Akigora at scoping, before any commitment on your side."
+    },
+    {
+      "q": "Can a module of the Make training be dropped or lengthened?",
+      "a": "Yes. The starting level is assessed at scoping and the programme follows: a module the team already masters is shortened, a module your scenarios depend on (lists, errors, credits) is lengthened. The durations shown per module are guidelines, not a timer."
+    },
+    {
+      "q": "What should we prepare before the Make training?",
+      "a": "A Make account, the list of applications to connect and two or three repetitive tasks from your daily work. If you already have scenarios, spot the ones nobody dares touch any more: they serve as course material."
+    },
+    {
+      "q": "What is the difference between the Make training and a Make agency engagement?",
+      "a": "The training teaches your team to build and edit its own scenarios. An agency engagement designs them for you, in your account, with documentation and handover. The two combine: critical scenarios handed over, simple scenarios taken over by the team. The detail is on the <a href=\"/services/automatisation-make\">Make agency</a> page."
     }
   ],
   "sections": [
@@ -160,59 +184,157 @@
           "num": "01",
           "title_fr": "Lire un scénario",
           "title_en": "Read a scenario",
-          "body_fr": "Déclencheur, modules, données qui passent de l'un à l'autre, historique d'exécution.",
-          "body_en": "Trigger, modules, data passing from one to the next, execution history."
+          "meta_fr": "Durée indicative : 1 h 30 sur {{prix.formation.f2.heures}} heures, 45 min sur {{prix.formation.f1.heures}} heures",
+          "meta_en": "Indicative duration: 1 h 30 on {{prix.formation.f2.heures}} hours, 45 min on {{prix.formation.f1.heures}} hours",
+          "body_fr": "Objectif : expliquer ce que fait un scénario que l'on n'a pas écrit. On suit le déclencheur, les modules, les données qui passent de l'un à l'autre et l'historique d'exécution. Exercice : chaque participant ouvre un de vos scénarios et en raconte le déroulé à voix haute. Livrable : une fiche d'une page qui décrit un scénario réel.",
+          "body_en": "Goal: explain what a scenario does without having written it. We follow the trigger, the modules, the data passing from one to the next and the execution history. Exercise: each participant opens one of your scenarios and walks through it aloud. Deliverable: a one-page sheet describing a real scenario."
         },
         {
           "num": "02",
           "title_fr": "Connecter vos outils",
           "title_en": "Connect your tools",
-          "body_fr": "Connexions aux applications, webhooks, application HTTP pour les outils absents du catalogue.",
-          "body_en": "App connections, webhooks, the HTTP app for tools missing from the catalogue."
+          "meta_fr": "Durée indicative : 2 h sur {{prix.formation.f2.heures}} heures, 1 h sur {{prix.formation.f1.heures}} heures",
+          "meta_en": "Indicative duration: 2 h on {{prix.formation.f2.heures}} hours, 1 h on {{prix.formation.f1.heures}} hours",
+          "body_fr": "Objectif : relier Make aux logiciels que vous utilisez. Connexions aux applications, webhooks, application HTTP pour les outils absents du catalogue. Exercice : connecter deux de vos outils et faire passer une donnée de l'un à l'autre. Livrable : un déclencheur et une première action qui fonctionnent sur un cas réel.",
+          "body_en": "Goal: connect Make to the software you use. App connections, webhooks, the HTTP app for tools missing from the catalogue. Exercise: connect two of your tools and pass a piece of data from one to the other. Deliverable: a trigger and a first action that work on a real case."
         },
         {
           "num": "03",
           "title_fr": "Router et filtrer",
           "title_en": "Route and filter",
-          "body_fr": "Routeurs, filtres, route de repli pour les cas non prévus.",
-          "body_en": "Routers, filters, a fallback route for unplanned cases."
+          "meta_fr": "Durée indicative : 1 h 30 sur {{prix.formation.f2.heures}} heures, 45 min sur {{prix.formation.f1.heures}} heures",
+          "meta_en": "Indicative duration: 1 h 30 on {{prix.formation.f2.heures}} hours, 45 min on {{prix.formation.f1.heures}} hours",
+          "body_fr": "Objectif : faire suivre à chaque cas le bon chemin. Un routeur répartit les données sur plusieurs routes, chacune avec son filtre. D'après le centre d'aide de Make, les routes s'exécutent l'une après l'autre et une route de repli reçoit ce qui ne correspond à aucune autre. Exercice : répartir des demandes entrantes selon trois critères. Livrable : un scénario à trois routes et une route de repli.",
+          "body_en": "Goal: send each case down the right path. A router splits data across several routes, each with its own filter. According to Make's help centre, routes run one after another and a fallback route receives whatever matches no other route. Exercise: split incoming requests on three criteria. Deliverable: a scenario with three routes and a fallback route."
         },
         {
           "num": "04",
           "title_fr": "Traiter des listes",
           "title_en": "Process lists",
-          "body_fr": "Itérateur et agrégateur : traiter chaque ligne, puis regrouper le résultat.",
-          "body_en": "Iterator and aggregator: process each row, then group the result."
+          "meta_fr": "Durée indicative : 2 h sur {{prix.formation.f2.heures}} heures, 1 h sur {{prix.formation.f1.heures}} heures",
+          "meta_en": "Indicative duration: 2 h on {{prix.formation.f2.heures}} hours, 1 h on {{prix.formation.f1.heures}} hours",
+          "body_fr": "Objectif : traiter un nombre variable de lignes sans copier des modules. L'itérateur sépare une liste en éléments, l'agrégateur regroupe le résultat. Exercice : traiter les lignes d'un tableau, par exemple des commandes, puis envoyer un seul message récapitulatif. Livrable : un scénario qui prend une liste et rend une synthèse.",
+          "body_en": "Goal: process a variable number of rows without copying modules. The iterator splits a list into items, the aggregator groups the result. Exercise: process the rows of a table, for example orders, then send a single summary message. Deliverable: a scenario that takes a list and returns a summary."
         },
         {
           "num": "05",
           "title_fr": "Gérer les erreurs",
           "title_en": "Handle errors",
-          "body_fr": "Gestionnaires d'erreur, alertes, reprise après un échec.",
-          "body_en": "Error handlers, alerts, resuming after a failure."
+          "meta_fr": "Durée indicative : 2 h 30 sur {{prix.formation.f2.heures}} heures, 1 h 15 sur {{prix.formation.f1.heures}} heures",
+          "meta_en": "Indicative duration: 2 h 30 on {{prix.formation.f2.heures}} hours, 1 h 15 on {{prix.formation.f1.heures}} hours",
+          "body_fr": "Objectif : savoir ce qui se passe quand un module échoue. Le centre d'aide de Make décrit cinq gestionnaires : Skip ignore l'erreur et passe aux éléments suivants, Retry garde l'exécution pour une reprise, Resume fournit une valeur de remplacement, Commit arrête en conservant les changements faits, Rollback arrête en les annulant. Exercice : provoquer une erreur volontaire, poser le gestionnaire adapté et une alerte. Livrable : un scénario qui prévient une personne quand il échoue.",
+          "body_en": "Goal: know what happens when a module fails. Make's help centre describes five handlers: Skip disregards the error and moves on to the next items, Retry stores the execution for a retry, Resume supplies a substitute value, Commit stops while keeping the changes already made, Rollback stops and reverts them. Exercise: trigger a deliberate error, then set the right handler and an alert. Deliverable: a scenario that notifies a person when it fails."
         },
         {
           "num": "06",
           "title_fr": "Stocker entre deux exécutions",
           "title_en": "Store between runs",
-          "body_fr": "Les data stores de Make, et quand préférer votre propre outil.",
-          "body_en": "Make's data stores, and when to prefer your own tool."
+          "meta_fr": "Durée indicative : 1 h 30 sur {{prix.formation.f2.heures}} heures, 45 min sur {{prix.formation.f1.heures}} heures",
+          "meta_en": "Indicative duration: 1 h 30 on {{prix.formation.f2.heures}} hours, 45 min on {{prix.formation.f1.heures}} hours",
+          "body_fr": "Objectif : garder une information d'une exécution à la suivante, par exemple ce qui a déjà été traité. Les data stores de Make le permettent ; on voit aussi quand un tableur ou une base à vous reste préférable. Exercice : mémoriser les éléments traités pour ne jamais les traiter deux fois. Livrable : un scénario qui évite les doublons.",
+          "body_en": "Goal: keep a piece of information from one run to the next, for example what has already been processed. Make's data stores allow it; we also look at when a spreadsheet or a database of your own remains preferable. Exercise: remember processed items so none is processed twice. Deliverable: a scenario that avoids duplicates."
         },
         {
           "num": "07",
           "title_fr": "Maîtriser les crédits",
           "title_en": "Keep credits under control",
-          "body_fr": "Un crédit par action de module, d'après la page tarifs de Make au 6 octobre 2026. On repère où un scénario gaspille et on le raccourcit.",
-          "body_en": "One credit per module action, according to Make's pricing page on 6 October 2026. We spot where a scenario wastes credits and shorten it."
+          "meta_fr": "Durée indicative : 2 h sur {{prix.formation.f2.heures}} heures, 1 h sur {{prix.formation.f1.heures}} heures",
+          "meta_en": "Indicative duration: 2 h on {{prix.formation.f2.heures}} hours, 1 h on {{prix.formation.f1.heures}} hours",
+          "body_fr": "Objectif : savoir ce que coûte un scénario avant de l'activer. Un crédit par action de module, d'après la page tarifs de Make au 6 octobre 2026 : on compte les modules, on multiplie par le nombre d'exécutions. Exercice : estimer la consommation mensuelle d'un de vos scénarios, puis le raccourcir en filtrant plus tôt. Livrable : une estimation chiffrée, avant et après.",
+          "body_en": "Goal: know what a scenario costs before activating it. One credit per module action, according to Make's pricing page on 6 October 2026: count the modules, multiply by the number of runs. Exercise: estimate the monthly usage of one of your scenarios, then shorten it by filtering earlier. Deliverable: a figured estimate, before and after."
         },
         {
           "num": "08",
           "title_fr": "Atelier",
           "title_en": "Workshop",
-          "body_fr": "Chaque participant construit ou reprend un scénario sur une tâche réelle.",
-          "body_en": "Each participant builds or reworks a scenario on a real task."
+          "meta_fr": "Durée indicative : 7 h sur {{prix.formation.f2.heures}} heures, 3 h 30 sur {{prix.formation.f1.heures}} heures",
+          "meta_en": "Indicative duration: 7 h on {{prix.formation.f2.heures}} hours, 3 h 30 on {{prix.formation.f1.heures}} hours",
+          "body_fr": "Objectif : repartir avec un scénario qui sert vraiment. Chaque participant construit ou reprend un scénario sur une tâche réelle, avec le formateur à côté. Exercice : construire, tester sur des cas réels, corriger. Livrable : un scénario testé, sa fiche d'une page et la liste de ce qu'il reste à corriger.",
+          "body_en": "Goal: leave with a scenario that is genuinely useful. Each participant builds or reworks a scenario on a real task, with the trainer alongside. Exercise: build, test on real cases, correct. Deliverable: a tested scenario, its one-page sheet and the list of what is left to fix."
         }
       ]
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "anchor": "formats",
+      "kicker_fr": "§ Deux formats",
+      "kicker_en": "§ Two formats",
+      "heading_fr": "Format court ou format long : ce qui change",
+      "heading_en": "Short or long format: what changes",
+      "caption_fr": "Les durées par module sont indicatives, ajustées au cadrage selon vos scénarios.",
+      "caption_en": "Module durations are indicative, adjusted at scoping to your scenarios.",
+      "columns_fr": [
+        "Ce qui change",
+        "Format de {{prix.formation.f1.heures}} heures",
+        "Format de {{prix.formation.f2.heures}} heures"
+      ],
+      "columns_en": [
+        "What changes",
+        "{{prix.formation.f1.heures}}-hour format",
+        "{{prix.formation.f2.heures}}-hour format"
+      ],
+      "rows_fr": [
+        [
+          "Profondeur",
+          "Chaque module en version essentielle : un geste, un cas simple, un exercice",
+          "Chaque module avec ses cas limites et davantage d'exercices sur vos propres scénarios"
+        ],
+        [
+          "Atelier final",
+          "3 h 30 sur une tâche réelle",
+          "7 h pour construire un scénario neuf et en reprendre un existant"
+        ],
+        [
+          "Pour qui",
+          "Une équipe qui débute, avec quelques scénarios simples à construire",
+          "Une équipe qui a déjà des scénarios en service ou qui va devenir référente"
+        ],
+        [
+          "Vous repartez avec",
+          "Un scénario construit, testé et documenté sur une tâche réelle",
+          "Ce scénario, plus un scénario existant repris avec sa gestion d'erreur, son alerte et une estimation de crédits"
+        ],
+        [
+          "Quand le choisir",
+          "Pour acquérir les bases, puis décider de ce que l'on automatise",
+          "Pour que l'équipe devienne autonome et maintienne ses scénarios"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Depth",
+          "Each module in its essential version: one gesture, one simple case, one exercise",
+          "Each module with its edge cases and more exercises on your own scenarios"
+        ],
+        [
+          "Final workshop",
+          "3 h 30 on a real task",
+          "7 h to build a new scenario and rework an existing one"
+        ],
+        [
+          "Who it is for",
+          "A team just starting out, with a few simple scenarios to build",
+          "A team that already has scenarios in service or is about to become the in-house lead"
+        ],
+        [
+          "You leave with",
+          "A scenario built, tested and documented on a real task",
+          "That scenario, plus an existing scenario reworked with its error handling, its alert and a credit estimate"
+        ],
+        [
+          "When to choose it",
+          "To get the basics, then decide what to automate",
+          "For the team to become autonomous and maintain its scenarios"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Comment se déroule la formation Make en entreprise</h2>\n<p>La formation est montée pour une entreprise : un seul groupe, vos scénarios. Elle se tient en visio ou dans vos locaux, au choix du groupe. L'audit gratuit de 45 minutes sert à lister les scénarios existants et les tâches à automatiser ; le cadrage fixe ensuite le niveau de départ, le format et les scénarios qui serviront de support.</p>\n<p>Une séance suit toujours le même fil. On ouvre un scénario de votre quotidien, on explique chaque module, puis chaque participant refait le geste sur son propre cas pendant que le formateur reste disponible. Les connexions, les données et le compte Make sont les vôtres : ce qui est construit en séance fonctionne le lendemain, sans transposition.</p>\n<p>Le dernier module répond à une question que l'on oublie souvent : qui s'occupe du scénario ensuite ? Pour chaque scénario construit ou repris, l'atelier fixe qui le possède, où est écrit ce qu'il fait et qui reçoit l'alerte quand il échoue. Ces trois réponses tiennent sur la fiche d'une page livrée avec le scénario.</p>",
+      "html_en": "<h2>How the Make training runs in a company</h2>\n<p>The training is built for one company: a single group, your scenarios. It takes place by video or at your premises, as the group prefers. The free 45-minute audit lists the existing scenarios and the tasks to automate; scoping then sets the starting level, the format and the scenarios that will serve as course material.</p>\n<p>A session always follows the same thread. We open a scenario from your daily work, explain each module, then each participant repeats the gesture on their own case while the trainer stays available. The connections, the data and the Make account are yours: what is built in the session works the next day, with no transposition.</p>\n<p>The last module answers a question that is often forgotten: who looks after the scenario afterwards? For each scenario built or reworked, the workshop sets who owns it, where what it does is written down and who receives the alert when it fails. These three answers fit on the one-page sheet delivered with the scenario.</p>"
     },
     {
       "type": "editorial-prose",
@@ -382,8 +504,32 @@
           "q_en": "Can the Make training be funded?",
           "a_fr": "Oui, selon votre OPCO. La formation passe par Akigora, certifié Qualiopi ; nous vérifions la prise en charge avec vous et Akigora au cadrage, avant tout engagement de votre part.",
           "a_en": "Yes, depending on your OPCO. The training goes through Akigora, Qualiopi-certified; we check funding with you and Akigora at scoping, before any commitment on your side."
+        },
+        {
+          "q_fr": "Peut-on écarter ou allonger un module de la formation Make ?",
+          "q_en": "Can a module of the Make training be dropped or lengthened?",
+          "a_fr": "Oui. Le niveau de départ est évalué au cadrage et le programme suit : un module que l'équipe maîtrise déjà est raccourci, un module dont dépendent vos scénarios (listes, erreurs, crédits) est allongé. Les durées affichées par module sont des repères, pas un minuteur.",
+          "a_en": "Yes. The starting level is assessed at scoping and the programme follows: a module the team already masters is shortened, a module your scenarios depend on (lists, errors, credits) is lengthened. The durations shown per module are guidelines, not a timer."
+        },
+        {
+          "q_fr": "Que faut-il préparer avant la formation Make ?",
+          "q_en": "What should we prepare before the Make training?",
+          "a_fr": "Un compte Make, la liste des applications à relier et deux ou trois tâches répétitives de votre quotidien. Si vous avez déjà des scénarios, repérez ceux que plus personne n'ose toucher : ils servent de support de cours.",
+          "a_en": "A Make account, the list of applications to connect and two or three repetitive tasks from your daily work. If you already have scenarios, spot the ones nobody dares touch any more: they serve as course material."
+        },
+        {
+          "q_fr": "Quelle différence entre la formation Make et une mission d'agence Make ?",
+          "q_en": "What is the difference between the Make training and a Make agency engagement?",
+          "a_fr": "La formation apprend à votre équipe à construire et à modifier ses scénarios. La mission d'agence les conçoit pour vous, dans votre compte, avec documentation et passation. Les deux se combinent : les scénarios critiques confiés, les scénarios simples repris par l'équipe. Le détail est sur la page <a href=\"/services/automatisation-make\">agence Make</a>.",
+          "a_en": "The training teaches your team to build and edit its own scenarios. An agency engagement designs them for you, in your account, with documentation and handover. The two combine: critical scenarios handed over, simple scenarios taken over by the team. The detail is on the <a href=\"/services/automatisation-make\">Make agency</a> page."
         }
       ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Sources, relues le 13 octobre 2026</h2><ul><li><a href=\"https://help.make.com/router\" rel=\"noopener noreferrer\" target=\"_blank\">Make, centre d'aide : routeurs, filtres et route de repli</a></li><li><a href=\"https://help.make.com/error-handlers\" rel=\"noopener noreferrer\" target=\"_blank\">Make, centre d'aide : gestionnaires d'erreur</a></li><li><a href=\"https://www.make.com/en/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Make, page tarifs (crédits, offre gratuite), relevée le 6 octobre 2026</a></li></ul>",
+      "html_en": "<h2>Sources, re-read on 13 October 2026</h2><ul><li><a href=\"https://help.make.com/router\" rel=\"noopener noreferrer\" target=\"_blank\">Make, help centre: routers, filters and fallback route</a></li><li><a href=\"https://help.make.com/error-handlers\" rel=\"noopener noreferrer\" target=\"_blank\">Make, help centre: error handlers</a></li><li><a href=\"https://www.make.com/en/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Make, pricing page (credits, free plan), taken on 6 October 2026</a></li></ul>"
     },
     {
       "type": "footer-cta-band",
