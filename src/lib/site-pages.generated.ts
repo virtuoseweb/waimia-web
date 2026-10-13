@@ -703,7 +703,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/services/automatisations",
-    "title": "Automatisation des processus métier par l'IA · Waimia",
+    "title": "Agence automatisation no code : processus métier par l'IA · Waimia",
     "group": "offres",
     "collection": "services",
     "file": "services/automatisations.json",

@@ -16,6 +16,8 @@ const faqArray = z.array(z.object({ q: z.string(), a: z.string() })).optional();
 const formationSchema = z.object({
   title_fr: z.string().min(1),
   title_en: z.string().min(1),
+  seoTitle_fr: z.string().min(10).max(70).optional(),
+  seoTitle_en: z.string().min(10).max(70).optional(),
   description_fr: z.string().min(40).max(180),
   description_en: z.string().min(40).max(180),
   slug: z.string().regex(/^[a-z0-9-]+$/, 'kebab-case lowercase'),

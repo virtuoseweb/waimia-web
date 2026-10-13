@@ -27,6 +27,7 @@ if (!Array.isArray(data.sections) || data.sections.length === 0) {
 }
 
 const title = data.title_fr;
+const seoTitle = data.seoTitle_fr ?? title;
 const description = data.description_fr;
 const canonicalUrl = `${SITE.url}/ressources/diagnostics/maturite-ia`;
 
@@ -43,7 +44,7 @@ const webAppLd = buildWebApplication({ name: 'Diagnostic de maturité IA', descr
 const [first, ...rest] = data.sections!;
 ---
 
-<Base title={title} description={description} jsonLd={[articleLd, webAppLd]} noindex={data.seo?.noindex}>
+<Base title={seoTitle} description={description} jsonLd={[articleLd, webAppLd]} noindex={data.seo?.noindex}>
   <MastheadBar
     lang="fr"
     items={[
