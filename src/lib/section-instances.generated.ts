@@ -3104,9 +3104,36 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "implantations",
+      "file": "implantations/dijon.json",
+      "slug": "dijon",
+      "route": "/implantations/dijon",
+      "index": 1,
+      "label": "#1",
+      "background": "paper-2"
+    },
+    {
+      "collection": "implantations",
+      "file": "implantations/lille.json",
+      "slug": "lille",
+      "route": "/implantations/lille",
+      "index": 1,
+      "label": "#1",
+      "background": "paper-2"
+    },
+    {
+      "collection": "implantations",
       "file": "implantations/lyon.json",
       "slug": "lyon",
       "route": "/implantations/lyon",
+      "index": 1,
+      "label": "#1",
+      "background": "paper-2"
+    },
+    {
+      "collection": "implantations",
+      "file": "implantations/marseille.json",
+      "slug": "marseille",
+      "route": "/implantations/marseille",
       "index": 1,
       "label": "#1",
       "background": "paper-2"
@@ -3122,9 +3149,27 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "implantations",
+      "file": "implantations/nantes.json",
+      "slug": "nantes",
+      "route": "/implantations/nantes",
+      "index": 1,
+      "label": "#1",
+      "background": "paper-2"
+    },
+    {
+      "collection": "implantations",
       "file": "implantations/paris.json",
       "slug": "paris",
       "route": "/implantations/paris",
+      "index": 1,
+      "label": "#1",
+      "background": "paper-2"
+    },
+    {
+      "collection": "implantations",
+      "file": "implantations/strasbourg.json",
+      "slug": "strasbourg",
+      "route": "/implantations/strasbourg",
       "index": 1,
       "label": "#1",
       "background": "paper-2"
@@ -3673,9 +3718,36 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "implantations",
+      "file": "implantations/dijon.json",
+      "slug": "dijon",
+      "route": "/implantations/dijon",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "implantations",
+      "file": "implantations/lille.json",
+      "slug": "lille",
+      "route": "/implantations/lille",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "implantations",
       "file": "implantations/lyon.json",
       "slug": "lyon",
       "route": "/implantations/lyon",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "implantations",
+      "file": "implantations/marseille.json",
+      "slug": "marseille",
+      "route": "/implantations/marseille",
       "index": 3,
       "label": "#3",
       "background": "paper-2"
@@ -3691,9 +3763,27 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "implantations",
+      "file": "implantations/nantes.json",
+      "slug": "nantes",
+      "route": "/implantations/nantes",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "implantations",
       "file": "implantations/paris.json",
       "slug": "paris",
       "route": "/implantations/paris",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "implantations",
+      "file": "implantations/strasbourg.json",
+      "slug": "strasbourg",
+      "route": "/implantations/strasbourg",
       "index": 3,
       "label": "#3",
       "background": "paper-2"
@@ -6469,9 +6559,36 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "implantations",
+      "file": "implantations/dijon.json",
+      "slug": "dijon",
+      "route": "/implantations/dijon",
+      "index": 5,
+      "label": "Questions fréquentes",
+      "background": "paper"
+    },
+    {
+      "collection": "implantations",
+      "file": "implantations/lille.json",
+      "slug": "lille",
+      "route": "/implantations/lille",
+      "index": 5,
+      "label": "Questions fréquentes",
+      "background": "paper"
+    },
+    {
+      "collection": "implantations",
       "file": "implantations/lyon.json",
       "slug": "lyon",
       "route": "/implantations/lyon",
+      "index": 5,
+      "label": "Questions fréquentes",
+      "background": "paper"
+    },
+    {
+      "collection": "implantations",
+      "file": "implantations/marseille.json",
+      "slug": "marseille",
+      "route": "/implantations/marseille",
       "index": 5,
       "label": "Questions fréquentes",
       "background": "paper"
@@ -6487,12 +6604,30 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "implantations",
+      "file": "implantations/nantes.json",
+      "slug": "nantes",
+      "route": "/implantations/nantes",
+      "index": 5,
+      "label": "Questions fréquentes",
+      "background": "paper"
+    },
+    {
+      "collection": "implantations",
       "file": "implantations/paris.json",
       "slug": "paris",
       "route": "/implantations/paris",
       "index": 5,
       "label": "Questions fréquentes",
       "background": "paper-2"
+    },
+    {
+      "collection": "implantations",
+      "file": "implantations/strasbourg.json",
+      "slug": "strasbourg",
+      "route": "/implantations/strasbourg",
+      "index": 5,
+      "label": "Questions fréquentes",
+      "background": "paper"
     },
     {
       "collection": "implantations",
@@ -7872,9 +8007,36 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "implantations",
+      "file": "implantations/dijon.json",
+      "slug": "dijon",
+      "route": "/implantations/dijon",
+      "index": 6,
+      "label": "Commençons par 45 minutes en visio.",
+      "background": "ink"
+    },
+    {
+      "collection": "implantations",
+      "file": "implantations/lille.json",
+      "slug": "lille",
+      "route": "/implantations/lille",
+      "index": 6,
+      "label": "Commençons par 45 minutes en visio.",
+      "background": "ink"
+    },
+    {
+      "collection": "implantations",
       "file": "implantations/lyon.json",
       "slug": "lyon",
       "route": "/implantations/lyon",
+      "index": 6,
+      "label": "Commençons par 45 minutes en visio.",
+      "background": "ink"
+    },
+    {
+      "collection": "implantations",
+      "file": "implantations/marseille.json",
+      "slug": "marseille",
+      "route": "/implantations/marseille",
       "index": 6,
       "label": "Commençons par 45 minutes en visio.",
       "background": "ink"
@@ -7890,11 +8052,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "implantations",
+      "file": "implantations/nantes.json",
+      "slug": "nantes",
+      "route": "/implantations/nantes",
+      "index": 6,
+      "label": "Commençons par 45 minutes en visio.",
+      "background": "ink"
+    },
+    {
+      "collection": "implantations",
       "file": "implantations/paris.json",
       "slug": "paris",
       "route": "/implantations/paris",
       "index": 6,
       "label": "Un premier échange en visio, depuis Paris.",
+      "background": "ink"
+    },
+    {
+      "collection": "implantations",
+      "file": "implantations/strasbourg.json",
+      "slug": "strasbourg",
+      "route": "/implantations/strasbourg",
+      "index": 6,
+      "label": "Commençons par 45 minutes en visio.",
       "background": "ink"
     },
     {
@@ -9304,11 +9484,38 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "implantations",
+      "file": "implantations/dijon.json",
+      "slug": "dijon",
+      "route": "/implantations/dijon",
+      "index": 0,
+      "label": "Agence IA et automatisation à Dijon",
+      "background": "paper"
+    },
+    {
+      "collection": "implantations",
+      "file": "implantations/lille.json",
+      "slug": "lille",
+      "route": "/implantations/lille",
+      "index": 0,
+      "label": "Agence IA et automatisation à Lille",
+      "background": "paper"
+    },
+    {
+      "collection": "implantations",
       "file": "implantations/lyon.json",
       "slug": "lyon",
       "route": "/implantations/lyon",
       "index": 0,
       "label": "Agence IA et automatisation à Lyon",
+      "background": "paper"
+    },
+    {
+      "collection": "implantations",
+      "file": "implantations/marseille.json",
+      "slug": "marseille",
+      "route": "/implantations/marseille",
+      "index": 0,
+      "label": "Agence IA et automatisation à Marseille",
       "background": "paper"
     },
     {
@@ -9322,11 +9529,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "implantations",
+      "file": "implantations/nantes.json",
+      "slug": "nantes",
+      "route": "/implantations/nantes",
+      "index": 0,
+      "label": "Agence IA et automatisation à Nantes",
+      "background": "paper"
+    },
+    {
+      "collection": "implantations",
       "file": "implantations/paris.json",
       "slug": "paris",
       "route": "/implantations/paris",
       "index": 0,
       "label": "Agence IA à Paris, sans bureau à Paris",
+      "background": "paper"
+    },
+    {
+      "collection": "implantations",
+      "file": "implantations/strasbourg.json",
+      "slug": "strasbourg",
+      "route": "/implantations/strasbourg",
+      "index": 0,
+      "label": "Agence IA et automatisation à Strasbourg",
       "background": "paper"
     },
     {
@@ -12323,9 +12548,36 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "implantations",
+      "file": "implantations/dijon.json",
+      "slug": "dijon",
+      "route": "/implantations/dijon",
+      "index": 4,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "implantations",
+      "file": "implantations/lille.json",
+      "slug": "lille",
+      "route": "/implantations/lille",
+      "index": 4,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "implantations",
       "file": "implantations/lyon.json",
       "slug": "lyon",
       "route": "/implantations/lyon",
+      "index": 4,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "implantations",
+      "file": "implantations/marseille.json",
+      "slug": "marseille",
+      "route": "/implantations/marseille",
       "index": 4,
       "label": "Pour aller plus loin",
       "background": "paper-2"
@@ -12341,12 +12593,30 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "implantations",
+      "file": "implantations/nantes.json",
+      "slug": "nantes",
+      "route": "/implantations/nantes",
+      "index": 4,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "implantations",
       "file": "implantations/paris.json",
       "slug": "paris",
       "route": "/implantations/paris",
       "index": 4,
       "label": "Pour aller plus loin",
       "background": "paper"
+    },
+    {
+      "collection": "implantations",
+      "file": "implantations/strasbourg.json",
+      "slug": "strasbourg",
+      "route": "/implantations/strasbourg",
+      "index": 4,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
     },
     {
       "collection": "implantations",
@@ -12931,6 +13201,24 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "implantations",
+      "file": "implantations/dijon.json",
+      "slug": "dijon",
+      "route": "/implantations/dijon",
+      "index": 2,
+      "label": "Ce qui se fait à distance, ce qui se fait à Dijon",
+      "background": "paper"
+    },
+    {
+      "collection": "implantations",
+      "file": "implantations/lille.json",
+      "slug": "lille",
+      "route": "/implantations/lille",
+      "index": 2,
+      "label": "Ce qui se fait à distance, ce qui se fait à Lille",
+      "background": "paper"
+    },
+    {
+      "collection": "implantations",
       "file": "implantations/lyon.json",
       "slug": "lyon",
       "route": "/implantations/lyon",
@@ -12940,11 +13228,38 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "implantations",
+      "file": "implantations/marseille.json",
+      "slug": "marseille",
+      "route": "/implantations/marseille",
+      "index": 2,
+      "label": "Ce qui se fait à distance, ce qui se fait à Marseille",
+      "background": "paper"
+    },
+    {
+      "collection": "implantations",
+      "file": "implantations/nantes.json",
+      "slug": "nantes",
+      "route": "/implantations/nantes",
+      "index": 2,
+      "label": "Ce qui se fait à distance, ce qui se fait à Nantes",
+      "background": "paper"
+    },
+    {
+      "collection": "implantations",
       "file": "implantations/paris.json",
       "slug": "paris",
       "route": "/implantations/paris",
       "index": 2,
       "label": "Ce qui se décide au devis pour une mission à Paris",
+      "background": "paper"
+    },
+    {
+      "collection": "implantations",
+      "file": "implantations/strasbourg.json",
+      "slug": "strasbourg",
+      "route": "/implantations/strasbourg",
+      "index": 2,
+      "label": "Ce qui se fait à distance, ce qui se fait à Strasbourg",
       "background": "paper"
     },
     {

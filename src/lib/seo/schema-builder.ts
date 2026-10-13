@@ -129,6 +129,11 @@ export const AREA_SERVED: JsonLdObject[] = [
   { '@type': 'City', name: 'Montpellier' },
   { '@type': 'City', name: 'Lyon' },
   { '@type': 'City', name: 'Toulouse' },
+  { '@type': 'City', name: 'Strasbourg' },
+  { '@type': 'City', name: 'Lille' },
+  { '@type': 'City', name: 'Marseille' },
+  { '@type': 'City', name: 'Dijon' },
+  { '@type': 'City', name: 'Nantes' },
   { '@type': 'City', name: 'Paris' },
   { '@type': 'Country', name: 'France' },
 ];

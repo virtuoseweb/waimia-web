@@ -493,7 +493,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "direct-answer": {
-    "count": 52,
+    "count": 57,
     "pages": [
       "/cas-usages/finance-comptabilite",
       "/cas-usages/rh",
@@ -502,9 +502,14 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/demonstrations/avant-apres",
       "/demonstrations/site-web-intelligent",
       "/implantations/bordeaux",
+      "/implantations/dijon",
+      "/implantations/lille",
       "/implantations/lyon",
+      "/implantations/marseille",
       "/implantations/montpellier",
+      "/implantations/nantes",
       "/implantations/paris",
+      "/implantations/strasbourg",
       "/implantations/toulouse",
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-platform-vs-openai-platform",
@@ -576,7 +581,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "editorial-prose": {
-    "count": 170,
+    "count": 175,
     "pages": [
       "/cas-usages/centraliser-donnees",
       "/cas-usages/finance-comptabilite",
@@ -586,9 +591,14 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/cas-usages/support-sav",
       "/conformite-ia",
       "/implantations/bordeaux",
+      "/implantations/dijon",
+      "/implantations/lille",
       "/implantations/lyon",
+      "/implantations/marseille",
       "/implantations/montpellier",
+      "/implantations/nantes",
       "/implantations/paris",
+      "/implantations/strasbourg",
       "/implantations/toulouse",
       "/ressources/comparatifs/claude-platform-vs-openai-platform",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
@@ -795,7 +805,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "faq-accordion": {
-    "count": 116,
+    "count": 121,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -811,9 +821,14 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/demonstrations/avant-apres",
       "/demonstrations/site-web-intelligent",
       "/implantations/bordeaux",
+      "/implantations/dijon",
+      "/implantations/lille",
       "/implantations/lyon",
+      "/implantations/marseille",
       "/implantations/montpellier",
+      "/implantations/nantes",
       "/implantations/paris",
+      "/implantations/strasbourg",
       "/implantations/toulouse",
       "/lp/site-web-intelligent",
       "/lp/systeme-acquisition",
@@ -973,7 +988,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "footer-cta-band": {
-    "count": 115,
+    "count": 120,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -989,9 +1004,14 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/demonstrations/avant-apres",
       "/demonstrations/site-web-intelligent",
       "/implantations/bordeaux",
+      "/implantations/dijon",
+      "/implantations/lille",
       "/implantations/lyon",
+      "/implantations/marseille",
       "/implantations/montpellier",
+      "/implantations/nantes",
       "/implantations/paris",
+      "/implantations/strasbourg",
       "/implantations/toulouse",
       "/lp/hub",
       "/lp/site-web-intelligent",
@@ -1214,7 +1234,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "hero-split-media": {
-    "count": 72,
+    "count": 77,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
@@ -1229,9 +1249,14 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/demonstrations/avant-apres",
       "/demonstrations/site-web-intelligent",
       "/implantations/bordeaux",
+      "/implantations/dijon",
+      "/implantations/lille",
       "/implantations/lyon",
+      "/implantations/marseille",
       "/implantations/montpellier",
+      "/implantations/nantes",
       "/implantations/paris",
+      "/implantations/strasbourg",
       "/implantations/toulouse",
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-platform-vs-openai-platform",
@@ -1701,7 +1726,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "related-cards-band": {
-    "count": 59,
+    "count": 64,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
@@ -1716,9 +1741,14 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/demonstrations/avant-apres",
       "/demonstrations/site-web-intelligent",
       "/implantations/bordeaux",
+      "/implantations/dijon",
+      "/implantations/lille",
       "/implantations/lyon",
+      "/implantations/marseille",
       "/implantations/montpellier",
+      "/implantations/nantes",
       "/implantations/paris",
+      "/implantations/strasbourg",
       "/implantations/toulouse",
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-platform-vs-openai-platform",
@@ -1881,13 +1911,18 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "tech-when-dual": {
-    "count": 29,
+    "count": 34,
     "pages": [
       "/cas-usages/finance-comptabilite",
       "/cas-usages/rh",
       "/cas-usages/support-sav",
+      "/implantations/dijon",
+      "/implantations/lille",
       "/implantations/lyon",
+      "/implantations/marseille",
+      "/implantations/nantes",
       "/implantations/paris",
+      "/implantations/strasbourg",
       "/implantations/toulouse",
       "/ressources/comparatifs/claude-platform-vs-openai-platform",
       "/ressources/guides/agent-ia-definition",

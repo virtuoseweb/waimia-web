@@ -248,6 +248,11 @@ const PAGES: Record<string, PageDef> = {
   '/implantations/montpellier': { label_fr: 'Waimia à Montpellier', label_en: 'Waimia in Montpellier', kind: 'implantation', topics: ['studio'] },
   '/implantations/lyon': { label_fr: 'Waimia à Lyon', label_en: 'Waimia in Lyon', kind: 'implantation', topics: ['studio'] },
   '/implantations/toulouse': { label_fr: 'Waimia à Toulouse', label_en: 'Waimia in Toulouse', kind: 'implantation', topics: ['studio'] },
+  '/implantations/strasbourg': { label_fr: 'Waimia à Strasbourg', label_en: 'Waimia in Strasbourg', kind: 'implantation', topics: ['studio'] },
+  '/implantations/lille': { label_fr: 'Waimia à Lille', label_en: 'Waimia in Lille', kind: 'implantation', topics: ['studio'] },
+  '/implantations/marseille': { label_fr: 'Waimia à Marseille', label_en: 'Waimia in Marseille', kind: 'implantation', topics: ['studio'] },
+  '/implantations/dijon': { label_fr: 'Waimia à Dijon', label_en: 'Waimia in Dijon', kind: 'implantation', topics: ['studio'] },
+  '/implantations/nantes': { label_fr: 'Waimia à Nantes', label_en: 'Waimia in Nantes', kind: 'implantation', topics: ['studio'] },
   '/implantations/paris': { label_fr: 'Waimia à Paris', label_en: 'Waimia in Paris', kind: 'implantation', topics: ['studio'] },
 };
 

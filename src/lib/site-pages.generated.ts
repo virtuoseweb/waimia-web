@@ -7972,6 +7972,96 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/implantations/dijon",
+    "title": "Agence IA à Dijon : automatisation et agents IA · Waimia",
+    "group": "autres",
+    "collection": "implantations",
+    "file": "implantations/dijon.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Agence IA et automatisation à Dijon",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#1",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Ce qui se fait à distance, ce qui se fait à Dijon",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Commençons par 45 minutes en visio.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/implantations/lille",
+    "title": "Agence IA à Lille : automatisation et agents IA · Waimia",
+    "group": "autres",
+    "collection": "implantations",
+    "file": "implantations/lille.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Agence IA et automatisation à Lille",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#1",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Ce qui se fait à distance, ce qui se fait à Lille",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Commençons par 45 minutes en visio.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/implantations/lyon",
     "title": "Agence IA à Lyon : automatisation et agents IA · Waimia",
     "group": "autres",
@@ -7992,6 +8082,51 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "tech-when-dual",
         "label": "Ce qui se fait à distance, ce qui se fait à Lyon",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Commençons par 45 minutes en visio.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/implantations/marseille",
+    "title": "Agence IA à Marseille : automatisation et agents IA · Waimia",
+    "group": "autres",
+    "collection": "implantations",
+    "file": "implantations/marseille.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Agence IA et automatisation à Marseille",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#1",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Ce qui se fait à distance, ce qui se fait à Marseille",
         "background": "paper"
       },
       {
@@ -8062,6 +8197,51 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/implantations/nantes",
+    "title": "Agence IA à Nantes : automatisation et agents IA · Waimia",
+    "group": "autres",
+    "collection": "implantations",
+    "file": "implantations/nantes.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Agence IA et automatisation à Nantes",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#1",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Ce qui se fait à distance, ce qui se fait à Nantes",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Commençons par 45 minutes en visio.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/implantations/paris",
     "title": "Agence IA à Paris : automatisation et formation · Waimia",
     "group": "autres",
@@ -8102,6 +8282,51 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "footer-cta-band",
         "label": "Un premier échange en visio, depuis Paris.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/implantations/strasbourg",
+    "title": "Agence IA à Strasbourg : agents IA, LLM et no code · Waimia",
+    "group": "autres",
+    "collection": "implantations",
+    "file": "implantations/strasbourg.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Agence IA et automatisation à Strasbourg",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#1",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Ce qui se fait à distance, ce qui se fait à Strasbourg",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Commençons par 45 minutes en visio.",
         "background": "ink"
       }
     ]
@@ -8427,9 +8652,14 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/equipe/_index",
       "/implantations",
       "/implantations/bordeaux",
+      "/implantations/dijon",
+      "/implantations/lille",
       "/implantations/lyon",
+      "/implantations/marseille",
       "/implantations/montpellier",
+      "/implantations/nantes",
       "/implantations/paris",
+      "/implantations/strasbourg",
       "/implantations/toulouse",
       "/mentions-legales",
       "/plan-du-site",
