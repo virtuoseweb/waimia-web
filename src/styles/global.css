@@ -1159,6 +1159,16 @@ a:not([class]):hover,
 .m-sheet.is-open {
   transform: translateY(0);
 }
+/* Au-delà de 1180 px le burger est masqué : le menu mobile ne peut pas s'ouvrir. Retiré du
+   rendu, ses illustrations (.m-card) ne sont plus chargées par le lazy-loading, qui les
+   voyait juste au-dessus du viewport (translateY(-100%)) : ~120 Ko par page desktop.
+   Fermé seulement : ouvert à 1024 px puis élargi (tablette tournée), il reste visible et
+   refermable, sinon la page resterait bloquée par le verrou de défilement du header. */
+@media (min-width: 1181px) {
+  .m-sheet:not(.is-open) {
+    display: none;
+  }
+}
 .m-sheet-top {
   display: flex;
   justify-content: space-between;

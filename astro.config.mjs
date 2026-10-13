@@ -13,6 +13,8 @@ import dsSaveDev from './src/integrations/ds-save-dev.mjs';
 import sitemapHygiene from './src/integrations/sitemap-hygiene.mjs';
 import seoPostbuild from './src/integrations/seo-postbuild.mjs';
 import { sectionCssChunks } from './src/integrations/section-css-chunks.mjs';
+import responsiveImages from './src/integrations/responsive-images.mjs';
+import minifyInlineScripts from './src/integrations/minify-inline-scripts.mjs';
 import { NOINDEX_SITEMAP_PATHS } from './src/data/sitemap-noindex-exclude';
 import { REDIRECTED_PATHS } from './src/data/depublished.ts';
 import { SITE } from './src/site.config.ts';
@@ -381,6 +383,11 @@ export default defineConfig({
     // JSON-LD : normalisation des blocs émis par les composants + fil d'Ariane réparé ou
     // ajouté sur chaque page publique (cf src/integrations/seo-postbuild.mjs).
     seoPostbuild({ siteUrl: SITE.url, site: SITE_IDENTITY }),
+    // Images : width/height, variantes webp + srcset/sizes mesurés, lazy/fetchpriority, posés
+    // sur le HTML bâti (cf src/integrations/responsive-images.mjs). Avant la copie Vercel.
+    responsiveImages(),
+    // Scripts inline classiques (`is:inline`, non minifiés par Astro) minifiés avec esbuild.
+    minifyInlineScripts(),
     // robots.txt : un seul groupe pour tous les robots (cf src/integrations/robots.mjs).
     robots({
       userAgents: AI_USER_AGENTS,
