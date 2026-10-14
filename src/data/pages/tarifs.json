@@ -28,24 +28,22 @@
       "kicker_en": "§ Pricing",
       "h1_fr": "Tarifs automatisation et <i>intégration IA</i> pour PME",
       "h1_en": "AI automation and <i>integration</i> pricing for SMEs",
-      "lede_fr": "Un parcours en cinq étapes, prix affichés. Tout commence par un audit gratuit de 45 minutes ; le devis ferme vient après, jamais avant.",
-      "lede_en": "A five-step path, prices shown. It all starts with a free 45-minute audit; the firm quote comes after, never before.",
+      "lede_fr": "Cinq étapes, prix affichés. Audit gratuit d'abord, devis ferme après.",
+      "lede_en": "Five steps, prices shown. Free audit first, firm quote after.",
       "rows": [
         {
           "step_fr": "Étape 1",
           "step_en": "Step 1",
           "name_fr": "Audit IA",
           "name_en": "AI audit",
-          "body_fr": "Quarante-cinq minutes en visio avec Simon Beros, qui réalisera la mission. On passe vos processus en revue et on repère ce qui mérite d'être automatisé.",
-          "body_en": "Forty-five minutes on a call with Simon Beros, who will do the work. We review your processes and spot what is worth automating.",
+          "body_fr": "Avec Simon Beros, qui réalisera la mission. On passe vos processus et vos outils en revue.",
+          "body_en": "With Simon Beros, who will do the work. We go through your processes and tools.",
           "includes_fr": [
-            "Revue de vos processus et de vos outils",
-            "Trois automatisations rentables identifiées",
+            "Une cartographie écrite et un ou deux chantiers classés",
             "Un avis net : faire, attendre ou ne pas faire"
           ],
           "includes_en": [
-            "Review of your processes and tools",
-            "Three profitable automations identified",
+            "A written task map and one or two ranked projects",
             "A clear opinion: do it, wait, or don't"
           ],
           "duration_fr": "45 min, en visio",
@@ -66,8 +64,8 @@
           "step_en": "Step 2",
           "name_fr": "Sprint de cadrage",
           "name_en": "Scoping sprint",
-          "body_fr": "Dix heures pour cadrer le premier chantier : périmètre, données, outils à brancher, risques. Vous repartez avec un premier livrable en main, pas avec un rapport qui dort.",
-          "body_en": "Ten hours to scope the first project: perimeter, data, tools to connect, risks. You leave with a first deliverable in hand, not a report that sleeps.",
+          "body_fr": "Dix heures pour cadrer le premier chantier : périmètre, données, outils à brancher, risques. Vous repartez avec un premier livrable en main.",
+          "body_en": "Ten hours to scope the first project: perimeter, data, tools to connect, risks. You leave with a first deliverable in hand.",
           "includes_fr": [
             "Cartographie du processus visé",
             "Premier livrable actionnable",
@@ -216,8 +214,8 @@
       "aside": {
         "title_fr": "Aussi au catalogue",
         "title_en": "Also available",
-        "body_fr": "Le site web et la prospection sont des outils au service du système, pas le cœur du métier. Même règle : audit d'abord, prix affichés.",
-        "body_en": "The website and prospecting are tools serving the system, not the core of the job. Same rule: audit first, prices shown.",
+        "body_fr": "Même règle que le parcours : audit d'abord, prix affichés.",
+        "body_en": "Same rule as the path above: audit first, prices shown.",
         "items": [
           {
             "label_fr": "Site web IA",
@@ -350,8 +348,8 @@
       "fig_title_en": "Work",
       "spec_fr": "Cas réels · chiffres issus des études de cas",
       "spec_en": "Real cases · figures from the case studies",
-      "h2_fr": "Ce que ces budgets ont produit",
-      "h2_en": "What these budgets produced",
+      "h2_fr": "Trois missions réalisées",
+      "h2_en": "Three completed projects",
       "case_label_fr": "CAS",
       "case_label_en": "CASE",
       "sector_label_fr": "Contexte",
@@ -405,8 +403,8 @@
         {
           "q_fr": "Combien coûte un premier projet d'automatisation ou d'agent IA ?",
           "q_en": "How much does a first automation or AI agent project cost?",
-          "a_fr": "L'audit est gratuit. Le sprint de cadrage coûte 999 € HT pour 10 heures. Un pilote, c'est-à-dire un premier système en production, démarre à 2 000 € HT. Comptez 4 000 € HT à titre indicatif pour une application de 3 à 5 écrans avec un premier agent.",
-          "a_en": "The audit is free. The scoping sprint costs 999 € ex VAT for 10 hours. A pilot, meaning a first system in production, starts at 2,000 € ex VAT. Count 4,000 € ex VAT as an indication for a 3-to-5-screen application with a first agent."
+          "a_fr": "L'audit est gratuit. Le sprint de cadrage coûte 999 € HT pour 10 heures, puis le travail est facturé en régie à {{prix.horaire}} € HT de l'heure. Un pilote, c'est-à-dire un premier système en production, démarre à 2 000 € HT. Comptez 4 000 € HT à titre indicatif pour une application de 3 à 5 écrans avec un premier agent.",
+          "a_en": "The audit is free. The scoping sprint costs 999 € ex VAT for 10 hours, then the work is billed on a time-and-materials basis at {{prix.horaire}} € ex VAT an hour. A pilot, meaning a first system in production, starts at 2,000 € ex VAT. Count 4,000 € ex VAT as an indication for a 3-to-5-screen application with a first agent."
         },
         {
           "q_fr": "Comment le devis est-il établi ?",
@@ -423,8 +421,8 @@
         {
           "q_fr": "Que couvre l'accompagnement continu ?",
           "q_en": "What does ongoing support cover?",
-          "a_fr": "La maintenance des systèmes livrés : garder en état de marche les workflows, les agents et les applications en production. Elle se vend en trois paliers mensuels. Palier {{prix.maintenance.p1.nom}} ({{prix.maintenance.p1}} € HT par mois). {{prix.maintenance.p1.resume}} Palier {{prix.maintenance.p2.nom}} ({{prix.maintenance.p2}} € HT par mois). {{prix.maintenance.p2.resume}} Palier {{prix.maintenance.p3.nom}} ({{prix.maintenance.p3}} € HT par mois). {{prix.maintenance.p3.resume}} Les interventions hors forfait sont facturées {{prix.horaire}} € HT de l'heure, sur un temps estimé et validé avant exécution. Vous arrêtez quand vous voulez.",
-          "a_en": "Maintenance of the systems delivered: keeping workflows, agents and applications in production in working order. It is sold in three monthly tiers. {{prix.maintenance.p1.nom.en}} tier ({{prix.maintenance.p1}} € ex VAT a month). {{prix.maintenance.p1.resume.en}} {{prix.maintenance.p2.nom.en}} tier ({{prix.maintenance.p2}} € ex VAT a month). {{prix.maintenance.p2.resume.en}} {{prix.maintenance.p3.nom.en}} tier ({{prix.maintenance.p3}} € ex VAT a month). {{prix.maintenance.p3.resume.en}} Work outside the plan is billed {{prix.horaire}} € ex VAT an hour, on a time estimate validated before work starts. You stop whenever you want."
+          "a_fr": "La maintenance garde en état de marche les workflows, les agents et les applications livrés. Elle se vend en trois forfaits mensuels, du suivi seul à l'optimisation continue : {{prix.maintenance.p1.nom}} à {{prix.maintenance.p1}} € HT, {{prix.maintenance.p2.nom}} à {{prix.maintenance.p2}} € HT, {{prix.maintenance.p3.nom}} à {{prix.maintenance.p3}} € HT. Hors forfait : {{prix.horaire}} € HT de l'heure, sur un temps estimé et validé avant exécution. Vous arrêtez quand vous voulez.",
+          "a_en": "Maintenance keeps the workflows, agents and applications delivered in working order. It is sold as three monthly plans, from monitoring alone to continuous optimisation: {{prix.maintenance.p1.nom.en}} at {{prix.maintenance.p1}} € ex VAT, {{prix.maintenance.p2.nom.en}} at {{prix.maintenance.p2}} € ex VAT, {{prix.maintenance.p3.nom.en}} at {{prix.maintenance.p3}} € ex VAT, a month. Outside the plan: {{prix.horaire}} € ex VAT an hour, on a time estimate validated before work starts. You stop whenever you want."
         },
         {
           "q_fr": "Comment se passent les formations ?",
@@ -435,8 +433,8 @@
         {
           "q_fr": "Et si j'ai seulement besoin d'un site web ou de prospection ?",
           "q_en": "What if I only need a website or prospecting?",
-          "a_fr": "C'est possible, mais ce n'est plus le cœur du studio. Un site web IA démarre à 2 000 € HT, sa maintenance démarre à {{prix.maintenance.p1}} € HT par mois. La prospection automatisée est en abonnement, dès {{prix.commercial}} € HT par mois (formule Standard ; formule Pro à 1 650 € HT par mois). Point d'entrée : un essai gratuit de {{prix.commercial.essai}} leads, à 0 €.",
-          "a_en": "It is possible, but it is no longer the core of the studio. An AI website starts at 2,000 € ex VAT, its maintenance starts at {{prix.maintenance.p1}} € ex VAT a month. Automated prospecting is a subscription, from {{prix.commercial}} € ex VAT a month (Standard plan; Pro plan at 1,650 € ex VAT a month). Entry point: a free trial of {{prix.commercial.essai}} leads, at 0 €."
+          "a_fr": "Oui, Waimia développe aussi des sites web. Un site web IA démarre à 2 000 € HT, sa maintenance démarre à {{prix.maintenance.p1}} € HT par mois. La prospection automatisée est en abonnement, dès {{prix.commercial}} € HT par mois (formule Standard ; formule Pro à 1 650 € HT par mois). Point d'entrée : un essai gratuit de {{prix.commercial.essai}} leads, à 0 €.",
+          "a_en": "Yes, Waimia also builds websites. An AI website starts at 2,000 € ex VAT, its maintenance starts at {{prix.maintenance.p1}} € ex VAT a month. Automated prospecting is a subscription, from {{prix.commercial}} € ex VAT a month (Standard plan; Pro plan at 1,650 € ex VAT a month). Entry point: a free trial of {{prix.commercial.essai}} leads, at 0 €."
         }
       ]
     },
@@ -449,10 +447,10 @@
       "rounded": true,
       "kicker_fr": "§ Première étape",
       "kicker_en": "§ First step",
-      "h2_fr": "Le chiffrage commence par un audit <i>gratuit</i>.",
-      "h2_en": "Pricing starts with a <i>free</i> audit.",
-      "subtitle_fr": "Quarante-cinq minutes en visio. Vous repartez avec trois automatisations rentables identifiées et un avis net sur la suite, qu'on travaille ensemble ou non.",
-      "subtitle_en": "Forty-five minutes on a call. You leave with three profitable automations identified and a clear opinion on what to do next, whether we work together or not.",
+      "h2_fr": "Le devis ferme vient après un audit <i>gratuit</i>.",
+      "h2_en": "The firm quote comes after a <i>free</i> audit.",
+      "subtitle_fr": "Quarante-cinq minutes en visio. Vous repartez avec une cartographie écrite, un ou deux chantiers classés et un avis net sur la suite, qu'on travaille ensemble ou non.",
+      "subtitle_en": "Forty-five minutes on a call. You leave with a written task map, one or two ranked projects and a clear opinion on what to do next, whether we work together or not.",
       "buttons": [
         {
           "label_fr": "Réserver un audit →",
