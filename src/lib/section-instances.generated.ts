@@ -502,7 +502,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/applications-internes/mvp-saas.json",
       "slug": "mvp-saas",
       "route": "/services/mvp-saas",
-      "index": 9,
+      "index": 8,
       "label": "Un abonnement payant, des prototypes, un produit en construction",
       "background": "ink"
     },
@@ -1552,7 +1552,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "n8n-vs-make-vs-zapier",
       "route": "/ressources/comparatifs/n8n-vs-make-vs-zapier",
       "index": 5,
-      "label": "Notre verdict, situation par situation",
+      "label": "Le verdict, situation par situation",
       "background": "paper-2"
     },
     {
@@ -1866,7 +1866,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/applications-internes/mvp-saas.json",
       "slug": "mvp-saas",
       "route": "/services/mvp-saas",
-      "index": 8,
+      "index": 7,
       "label": "Ne faites pas développer de MVP SaaS si",
       "background": "paper"
     },
@@ -1975,7 +1975,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "site-web-ia",
       "route": "/services/site-web-ia",
       "index": 6,
-      "label": "Ne nous confiez pas votre site si",
+      "label": "Waimia n'est pas le bon choix si",
       "background": "paper"
     },
     {
@@ -2797,7 +2797,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/applications-internes/mvp-saas.json",
       "slug": "mvp-saas",
       "route": "/services/mvp-saas",
-      "index": 6,
+      "index": 5,
       "label": "Ce que vous récupérez",
       "background": "paper"
     },
@@ -5033,8 +5033,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/applications-internes/mvp-saas.json",
       "slug": "mvp-saas",
       "route": "/services/mvp-saas",
-      "index": 7,
-      "label": "#7",
+      "index": 6,
+      "label": "#6",
       "background": "paper-2"
     },
     {
@@ -5564,7 +5564,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-design",
       "route": "/ressources/guides/claude-design",
       "index": 3,
-      "label": "Idées reçues sur Claude Design, corrigées au 5 octobre 2026",
+      "label": "Idées reçues sur Claude Design, corrigées au 15 octobre 2026",
       "variant": "editorial",
       "background": "paper-2"
     },
@@ -5574,7 +5574,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-design",
       "route": "/ressources/guides/claude-design",
       "index": 7,
-      "label": "Claude Design prix : inclus dans les offres payantes de Claude",
+      "label": "Claude Design prix : inclus dans les offres de Claude",
       "variant": "editorial",
       "background": "paper-2"
     },
@@ -6409,8 +6409,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/applications-internes/mvp-saas.json",
       "slug": "mvp-saas",
       "route": "/services/mvp-saas",
-      "index": 11,
-      "label": "#11",
+      "index": 10,
+      "label": "#10",
       "variant": "media"
     },
     {
@@ -6700,7 +6700,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "reduire-reporting",
       "route": "/cas-usages/reduire-reporting",
       "index": 7,
-      "label": "Ce que vous nous demandez",
+      "label": "Reporting automatisé : vos questions",
       "background": "paper"
     },
     {
@@ -6709,7 +6709,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "reduire-temps-cms",
       "route": "/cas-usages/reduire-temps-cms",
       "index": 7,
-      "label": "Ce que vous nous demandez",
+      "label": "CMS git-based : vos questions",
       "background": "paper"
     },
     {
@@ -6800,7 +6800,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/implantations/lyon",
       "index": 5,
       "label": "Questions fréquentes",
-      "background": "paper"
+      "background": "paper-2"
     },
     {
       "collection": "implantations",
@@ -6898,7 +6898,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-code-vs-cursor",
       "route": "/ressources/comparatifs/claude-code-vs-cursor",
       "index": 6,
-      "label": "Ce que vous nous demandez",
+      "label": "Claude Code ou Cursor : vos questions",
       "background": "paper"
     },
     {
@@ -7410,8 +7410,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/applications-internes/mvp-saas.json",
       "slug": "mvp-saas",
       "route": "/services/mvp-saas",
-      "index": 12,
-      "label": "Ce que vous nous demandez",
+      "index": 11,
+      "label": "Développement de MVP SaaS : vos questions",
       "background": "paper-2"
     },
     {
@@ -7555,7 +7555,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "systeme-acquisition",
       "route": "/services/systeme-acquisition",
       "index": 7,
-      "label": "Ce que vous nous demandez",
+      "label": "Visibilité web : vos questions",
       "background": "paper-2"
     },
     {
@@ -7564,7 +7564,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "systeme-commercial",
       "route": "/services/systeme-commercial",
       "index": 10,
-      "label": "Ce que vous nous demandez",
+      "label": "Développement commercial : vos questions",
       "background": "paper-2"
     },
     {
@@ -7573,7 +7573,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "systemes-operationnels-ia",
       "route": "/services/systemes-operationnels-ia",
       "index": 8,
-      "label": "Ce que vous nous demandez",
+      "label": "Automatisation IA : vos questions",
       "background": "paper-2"
     },
     {
@@ -8876,7 +8876,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/applications-internes/mvp-saas.json",
       "slug": "mvp-saas",
       "route": "/services/mvp-saas",
-      "index": 13,
+      "index": 12,
       "label": "Quel est le premier client que votre produit doit convaincre ?",
       "background": "ink"
     },
@@ -8994,7 +8994,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "site-web-ia",
       "route": "/services/site-web-ia",
       "index": 11,
-      "label": "Que devient une demande après le formulaire ?",
+      "label": "Votre site est-il à corriger, à refaire ou à reprendre ?",
       "background": "ink"
     },
     {
@@ -9021,7 +9021,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "systeme-acquisition",
       "route": "/services/systeme-acquisition",
       "index": 8,
-      "label": "La visibilité n'a de valeur que si la demande est traitée.",
+      "label": "Quarante-cinq minutes pour savoir par quel outil commencer.",
       "background": "ink"
     },
     {
@@ -9506,7 +9506,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "systeme-acquisition",
       "route": "/services/systeme-acquisition",
       "index": 0,
-      "label": "Des outils de visibilité au service de votre système.",
+      "label": "Des outils de visibilité web pour générer des leads B2B.",
       "background": "paper"
     },
     {
@@ -10836,7 +10836,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/applications-internes/mvp-saas.json",
       "slug": "mvp-saas",
       "route": "/services/mvp-saas",
-      "index": 5,
+      "index": 4,
       "label": "De l'idée au produit qui encaisse",
       "background": "paper-3"
     },
@@ -11159,15 +11159,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/services/identite-de-marque",
       "index": 3,
       "label": "Ce que coûte une marque faite en une soirée.",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
-      "file": "services/applications-internes/mvp-saas.json",
-      "slug": "mvp-saas",
-      "route": "/services/mvp-saas",
-      "index": 4,
-      "label": "Ce qu'un MVP évite",
       "background": "ink"
     },
     {
@@ -11519,7 +11510,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/applications-internes/mvp-saas.json",
       "slug": "mvp-saas",
       "route": "/services/mvp-saas",
-      "index": 10,
+      "index": 9,
       "label": "Combien coûte un MVP SaaS",
       "background": "paper"
     },
@@ -12825,7 +12816,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/implantations/lyon",
       "index": 4,
       "label": "Pour aller plus loin",
-      "background": "paper-2"
+      "background": "paper"
     },
     {
       "collection": "implantations",
@@ -13329,7 +13320,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "reduire-reporting",
       "route": "/cas-usages/reduire-reporting",
       "index": 2,
-      "label": "De trois jours à quelques minutes de relecture",
+      "label": "De la compilation à la relecture",
       "background": "paper"
     },
     {
