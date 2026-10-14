@@ -39,6 +39,8 @@ const heroIllustration = d.heroIllustration ?? outilHeroIllustration(entry.id);
 // seulement si l'outil la demande ET que son slug est servi par /api/lead-magnet.
 const captureSlug = d.captureEmail && entry.id in LEAD_MAGNETS ? (entry.id as LeadMagnetSlug) : null;
 
+// Libellé affiché du type logique (le type du JSON reste inchangé).
+const TYPE_LABEL: Record<string, string> = { calculator: 'calculateur' };
 // JSON-LD WebApplication · décrit l'outil interactif (calculateur/score) comme une vraie
 // web-app gratuite, en complément de l'Article émis par EssayTemplate. Émis au niveau page.
 const toolUrl = `${SITE.url}/ressources/outils/${entry.id}`;
@@ -48,7 +50,7 @@ const webAppLd = buildWebApplication({ name: d.title_fr, description: d.descript
   title={d.title_fr}
   seoTitle={d.seoTitle_fr}
   description={d.description_fr}
-  kicker={`§ Outil · ${d.type}${categoryKicker}`}
+  kicker={`§ Outil · ${TYPE_LABEL[d.type] ?? d.type}${categoryKicker}`}
   date={dateStr}
   datePublished={d.publishedAt.toISOString().slice(0, 10)}
   author={SITE.name}
