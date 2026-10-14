@@ -2,8 +2,8 @@
   "$schema": "../../schemas/generated/implantations.page.schema.json",
   "title_fr": "Agence IA à Toulouse : automatisation et agents IA · Waimia",
   "title_en": "AI agency in Toulouse: automation and AI agents · Waimia",
-  "description_fr": "Agence IA pour les entreprises de Toulouse : automatisation, agents IA et formation. Studio basé à Bordeaux, missions à distance, déplacement possible.",
-  "description_en": "AI agency for Toulouse companies: automation, AI agents and training. Studio based in Bordeaux, remote engagements, travel possible.",
+  "description_fr": "Agence IA pour les entreprises de Toulouse : automatisation avec n8n et Make, agents IA et formation. Studio basé à Bordeaux, missions à distance, déplacement possible.",
+  "description_en": "AI agency for Toulouse companies: automation with n8n and Make, AI agents and training. Studio based in Bordeaux, remote engagements, travel possible.",
   "slug": "toulouse",
   "publishedAt": "2026-10-12T00:00:00.000Z",
   "updatedAt": "2026-10-14T00:00:00.000Z",
@@ -11,6 +11,7 @@
   "tags": [
     "agence-ia-toulouse",
     "formation-ia-toulouse",
+    "agence-n8n-toulouse",
     "automatisation",
     "agents-ia"
   ],
@@ -44,7 +45,15 @@
     },
     {
       "q": "Un sous-traitant aéronautique peut-il automatiser ses tâches administratives ?",
-      "a": "Oui, pour les tâches répétitives : chiffrage de consultations, dossiers de conformité, relances fournisseurs. Ce qui engage la société, comme une offre de prix, garde une validation humaine avant envoi. Les données de vos donneurs d'ordre sont un sujet à poser dès l'audit."
+      "a": "Oui, pour les tâches répétitives : réponses aux consultations de prix, dossiers de conformité, relances fournisseurs. Ce qui engage la société, comme une offre de prix, garde une validation humaine avant envoi. Les données de vos donneurs d'ordre sont un sujet à poser dès l'audit."
+    },
+    {
+      "q": "Cherchez-vous une agence n8n ou Make à Toulouse ?",
+      "a": "Waimia construit des workflows n8n et Make pour des entreprises toulousaines, à distance depuis Bordeaux. Pour un sous-traitant qui reçoit des consultations de prix et des plans, n8n se justifie quand ces documents ne doivent pas quitter vos serveurs ; Make suffit pour des enchaînements simples entre outils en ligne. Le choix se fait à l'audit, selon vos outils et vos données."
+    },
+    {
+      "q": "Que fait une agence d'automatisation de workflows pour une PME toulousaine ?",
+      "a": "Elle relie les outils que vous utilisez déjà pour supprimer la ressaisie : une demande de prix arrive par mail, ses données partent dans votre outil de gestion, un brouillon de réponse est préparé puis validé par une personne avant envoi. Autour de l'aéronautique, les tâches concernées sont les consultations de prix, les dossiers de conformité et les relances fournisseurs. L'audit gratuit de 45 minutes sert à choisir celle qui coûte le plus de temps."
     }
   ],
   "faq_en": [
@@ -67,6 +76,14 @@
     {
       "q": "Can an aerospace subcontractor automate its administrative tasks?",
       "a": "Yes, for repetitive tasks: pricing requests, compliance files, supplier reminders. Anything that commits the company, such as a price offer, keeps human approval before sending. Your customers' data is a topic to raise from the audit onwards."
+    },
+    {
+      "q": "Are you looking for an n8n or Make agency in Toulouse?",
+      "a": "Waimia builds n8n and Make workflows for Toulouse companies, remotely from Bordeaux. For a subcontractor receiving price requests and drawings, n8n is justified when those documents must not leave your servers; Make is enough for simple chains between online tools. The choice is made at the audit, based on your tools and data."
+    },
+    {
+      "q": "What does a workflow automation agency do for a Toulouse SME?",
+      "a": "It connects the tools you already use to remove re-keying: a price request arrives by email, its data goes into your management tool, a draft reply is prepared then approved by a person before sending. Around aerospace, the tasks involved are pricing requests, compliance files and supplier reminders. The free 45-minute audit is used to pick the one that costs the most time."
     }
   ],
   "sections": [
@@ -105,17 +122,18 @@
         "href": "/audit-ia-pme",
         "variant": "ghost"
       },
-      "media_src": "/images/line-art/orbit-network.svg",
-      "media_alt_fr": "Schéma : un réseau de points reliés, pour des missions menées à distance",
-      "media_alt_en": "Diagram: a network of connected points, for engagements run remotely"
+      "illustration": {
+        "src": "/images/illustrations/ds/seo-local-epingle-carte-paper.webp",
+        "alt_fr": "Illustration : une grande épingle de carte se dresse à l'horizon, des chemins en éventail la relient à des silhouettes au premier plan, pour des missions menées à distance",
+        "alt_en": "Illustration: a large map pin stands on the horizon, paths fan out from it to figures in the foreground, for engagements run remotely",
+        "side": "right"
+      }
     },
     {
       "type": "direct-answer",
       "background": "paper-2",
       "question_fr": "Peut-on travailler avec Waimia depuis Toulouse ?",
       "question_en": "Can you work with Waimia from Toulouse?",
-      "term_fr": "La réponse honnête",
-      "term_en": "The honest answer",
       "answer_fr": "Oui. L'automatisation et les agents IA se construisent dans vos outils en ligne, donc à distance. Il n'y a ni bureau ni équipe à Toulouse, et l'agence ne prétend pas le contraire. Un déplacement a du sens pour observer sur place le circuit d'un dossier, animer un atelier de cadrage ou former une équipe.",
       "answer_en": "Yes. Automation and AI agents are built in your online tools, so remotely. There is no office or team in Toulouse, and the agency does not pretend otherwise. Travel makes sense to observe how a file moves on site, run a scoping workshop or train a team."
     },
@@ -156,12 +174,12 @@
     {
       "type": "editorial-prose",
       "background": "paper-2",
-      "html_fr": "<h2>Intégration : automatisation et agents IA pour les entreprises toulousaines</h2>\n<p>Intégrer, c'est faire tourner un processus sans ressaisie, dans les outils que vous utilisez déjà. Pour un flux de documents, un workflow <a href=\"/services/automatisation-n8n\">n8n</a> ou <a href=\"/services/automatisation-make\">Make</a> convient. Quand il faut du jugement, par exemple lire une demande de prix et en tirer l'essentiel, on met en place un <a href=\"/services/agents-ia\">agent IA</a>. Une <a href=\"/services/integration-claude\">intégration de Claude</a> sert le travail quotidien d'une équipe, une <a href=\"/services/base-de-connaissance-ia\">base de connaissance</a> règle le problème de l'information introuvable, et une <a href=\"/services/applications-internes\">application métier</a> prend le relais quand aucun outil existant ne convient.</p>\n<p>La <a href=\"/agence/methode\">méthode</a> décrit le déroulé d'une mission et la page <a href=\"/tarifs\">tarifs</a> les prix d'entrée ; à Toulouse comme ailleurs, tout commence par l'audit gratuit.</p>\n<h2>Ce que l'aérospatiale change à l'automatisation, autour de Toulouse</h2>\n<p>En Haute-Garonne, la filière aéronautique et spatiale emploie 70 400 salariés en 2022, soit 9,6 % de l'emploi du département, selon l'Insee (Insee Analyses Occitanie n° 159, février 2025). À l'échelle de l'ex-région Midi-Pyrénées, la filière compte 81 000 salariés et les constructeurs n'en emploient plus que la moitié : le reste travaille dans la sous-traitance industrielle, dont les équipementiers, et dans les services.</p>\n<p>Le même texte précise qu'un tiers de ces 81 000 salariés travaillent dans des établissements tertiaires. Dans les services aux entreprises de la filière, surtout l'ingénierie et l'informatique, l'emploi passe de 2 000 en 1982 à 27 000 en 2022. Autour des constructeurs, on trouve des bureaux d'études et des sociétés de services dont le travail passe par des devis, des dossiers et des échanges avec les donneurs d'ordre.</p>\n<p>Pour un sous-traitant, l'automatisation porte d'abord sur la paperasse : chiffrage de consultations, dossiers de conformité, relances fournisseurs. Ces tâches engagent la société : elles gardent une validation humaine avant tout envoi. L'audit gratuit de 45 minutes sert à repérer celles qui coûtent le plus.</p>\n<ul>\n<li><strong>Chiffrage de consultations</strong> : lecture de la demande reçue, extraction des quantités et des délais, brouillon de réponse validé avant envoi.</li>\n<li><strong>Dossiers de conformité</strong> : liste des pièces attendues, relance de ce qui manque, classement dans le bon dossier.</li>\n<li><strong>Relances fournisseurs</strong> : suivi des livraisons attendues, message au fournisseur en retard, alerte à l'équipe.</li>\n</ul>\n<p>Aucun client toulousain n'est cité sur cette page. Ces cas d'usage se vérifient sur vos données pendant l'audit.</p>\n<h2>Formation IA à Toulouse</h2>\n<p>Les <a href=\"/formations\">formations</a> se font en intra-entreprise, sur les tâches réelles de votre équipe : <a href=\"/formations/automatisation\">automatisation et IA</a>, <a href=\"/formations/n8n\">n8n</a>, <a href=\"/formations/make\">Make</a>, <a href=\"/formations/claude\">Claude et agents IA</a>, <a href=\"/formations/claude-code\">développer son projet avec Claude Code</a>. À distance, ou dans vos locaux à Toulouse quand le groupe et le sujet le justifient. Elles sont dispensées via Akigora, organisme certifié Qualiopi ; une prise en charge est possible selon votre situation.</p>",
-      "html_en": "<h2>Integration: automation and AI agents for Toulouse companies</h2>\n<p>Integrating means making a process run without re-keying, in the tools you already use. For a flow of documents, an <a href=\"/services/automatisation-n8n\">n8n</a> or <a href=\"/services/automatisation-make\">Make</a> workflow fits. When judgement is needed, for example reading a price request and pulling out the essentials, we set up an <a href=\"/services/agents-ia\">AI agent</a>. A <a href=\"/services/integration-claude\">Claude integration</a> serves a team's daily work, a <a href=\"/services/base-de-connaissance-ia\">knowledge base</a> solves the problem of information nobody can find, and a <a href=\"/services/applications-internes\">business application</a> takes over when no existing tool fits.</p>\n<p>The <a href=\"/agence/methode\">method</a> page describes how an engagement runs and the <a href=\"/tarifs\">pricing</a> page gives entry prices; in Toulouse as elsewhere, everything starts with the free audit.</p>\n<h2>What aerospace changes for automation, around Toulouse</h2>\n<p>In Haute-Garonne, the aeronautics and space sector employs 70,400 people in 2022, or 9.6% of the department's jobs, according to Insee (Insee Analyses Occitanie no. 159, February 2025). Across the former Midi-Pyrénées region, the sector has 81,000 employees and prime contractors employ only half of them: the rest work in the industrial supply chain, including equipment suppliers, and in services.</p>\n<p>The same publication notes that a third of those 81,000 employees work in tertiary establishments. In the sector's business services, mainly engineering and IT, employment goes from 2,000 in 1982 to 27,000 in 2022. Around the prime contractors you find design offices and service firms whose work runs on quotes, files and exchanges with their customers.</p>\n<p>For a subcontractor, automation first targets paperwork: pricing requests, compliance files, supplier reminders. These tasks commit the company: they keep human approval before anything is sent. The free 45-minute audit is used to spot the ones that cost the most.</p>\n<ul>\n<li><strong>Pricing requests</strong>: reading the request received, extracting quantities and lead times, a draft reply approved before sending.</li>\n<li><strong>Compliance files</strong>: list of expected documents, chasing what is missing, filing in the right folder.</li>\n<li><strong>Supplier reminders</strong>: tracking expected deliveries, a message to the late supplier, an alert to the team.</li>\n</ul>\n<p>No Toulouse client is cited on this page. These use cases are checked on your data during the audit.</p>\n<h2>AI training in Toulouse</h2>\n<p><a href=\"/formations\">Training</a> is in-company, on your team's real tasks: <a href=\"/formations/automatisation\">automation and AI</a>, <a href=\"/formations/n8n\">n8n</a>, <a href=\"/formations/make\">Make</a>, <a href=\"/formations/claude\">Claude and AI agents</a>, <a href=\"/formations/claude-code\">developing your project with Claude Code</a>. Remotely, or at your premises in Toulouse when the group and subject justify it. Training is delivered via Akigora, a Qualiopi-certified training organisation; funding may be possible depending on your situation.</p>"
+      "html_fr": "<h2>Agence n8n et Make à Toulouse : automatiser un flux de documents</h2>\n<p>Pour un flux de documents, un workflow <a href=\"/services/automatisation-n8n\">n8n</a> ou <a href=\"/services/automatisation-make\">Make</a> évite la ressaisie dans les outils que vous utilisez déjà. n8n peut tourner sur vos serveurs, ce qui compte quand les plans et les prix de vos donneurs d'ordre ne doivent pas sortir ; Make convient aux enchaînements simples entre outils en ligne. Quand il faut du jugement, par exemple lire une demande de prix et en tirer l'essentiel, on met en place un <a href=\"/services/agents-ia\">agent IA</a>. Une <a href=\"/services/integration-claude\">intégration de Claude</a> sert le travail quotidien d'une équipe, une <a href=\"/services/base-de-connaissance-ia\">base de connaissance</a> règle le problème de l'information introuvable, et une <a href=\"/services/applications-internes\">application métier</a> prend le relais quand aucun outil existant ne convient.</p>\n<p>Le déroulé d'une mission est sur la page <a href=\"/agence/methode\">méthode</a>, les prix d'entrée sur la page <a href=\"/tarifs\">tarifs</a>.</p>\n<h2>Ce que l'aérospatiale change à l'automatisation, autour de Toulouse</h2>\n<p>En Haute-Garonne, la filière aéronautique et spatiale emploie 70 400 salariés en 2022, soit 9,6 % de l'emploi du département, selon l'Insee (Insee Analyses Occitanie n° 159, février 2025). À l'échelle de l'ex-région Midi-Pyrénées, la filière compte 81 000 salariés et les constructeurs n'en emploient plus que la moitié : le reste travaille dans la sous-traitance industrielle, dont les équipementiers, et dans les services.</p>\n<p>Le même texte précise qu'un tiers de ces 81 000 salariés travaillent dans des établissements tertiaires. Dans les services aux entreprises de la filière, surtout l'ingénierie et l'informatique, l'emploi passe de 2 000 en 1982 à 27 000 en 2022. Autour des constructeurs, on trouve des bureaux d'études et des sociétés de services dont le travail passe par des devis, des dossiers et des échanges avec les donneurs d'ordre.</p>\n<p>Pour un sous-traitant, l'automatisation porte d'abord sur la paperasse : réponses aux consultations de prix, dossiers de conformité, relances fournisseurs. Ces tâches engagent la société : elles gardent une validation humaine avant tout envoi. L'audit gratuit de 45 minutes sert à repérer celles qui coûtent le plus.</p>\n<ul>\n<li><strong>Consultations de prix</strong> : lecture de la demande reçue, extraction des quantités et des délais, brouillon de réponse validé avant envoi.</li>\n<li><strong>Dossiers de conformité</strong> : liste des pièces attendues, relance de ce qui manque, classement dans le bon dossier.</li>\n<li><strong>Relances fournisseurs</strong> : suivi des livraisons attendues, message au fournisseur en retard, alerte à l'équipe.</li>\n</ul>\n<p>Cette page ne cite aucun client toulousain : les statistiques viennent de l'Insee, les tâches de la structure de la filière. L'audit gratuit les confronte à vos consultations et à vos dossiers réels.</p>\n<h2>Formation IA à Toulouse</h2>\n<p>Les <a href=\"/formations\">formations</a> se font en intra-entreprise, sur les tâches réelles de votre équipe : <a href=\"/formations/automatisation\">automatisation et IA</a>, <a href=\"/formations/n8n\">n8n</a>, <a href=\"/formations/make\">Make</a>, <a href=\"/formations/claude\">Claude et agents IA</a>, <a href=\"/formations/claude-code\">développer son projet avec Claude Code</a>. À distance, ou dans vos locaux à Toulouse quand le groupe et le sujet le justifient. Elles sont dispensées via Akigora, organisme certifié Qualiopi ; une prise en charge est possible selon votre situation.</p>",
+      "html_en": "<h2>n8n and Make agency in Toulouse: automating a document flow</h2>\n<p>For a flow of documents, an <a href=\"/services/automatisation-n8n\">n8n</a> or <a href=\"/services/automatisation-make\">Make</a> workflow avoids re-keying in the tools you already use. n8n can run on your own servers, which matters when your customers' drawings and prices must not leave; Make suits simple chains between online tools. When judgement is needed, for example reading a price request and pulling out the essentials, we set up an <a href=\"/services/agents-ia\">AI agent</a>. A <a href=\"/services/integration-claude\">Claude integration</a> serves a team's daily work, a <a href=\"/services/base-de-connaissance-ia\">knowledge base</a> solves the problem of information nobody can find, and a <a href=\"/services/applications-internes\">business application</a> takes over when no existing tool fits.</p>\n<p>How an engagement runs is on the <a href=\"/agence/methode\">method</a> page, entry prices on the <a href=\"/tarifs\">pricing</a> page.</p>\n<h2>What aerospace changes for automation, around Toulouse</h2>\n<p>In Haute-Garonne, the aeronautics and space sector employs 70,400 people in 2022, or 9.6% of the department's jobs, according to Insee (Insee Analyses Occitanie no. 159, February 2025). Across the former Midi-Pyrénées region, the sector has 81,000 employees and prime contractors employ only half of them: the rest work in the industrial supply chain, including equipment suppliers, and in services.</p>\n<p>The same publication notes that a third of those 81,000 employees work in tertiary establishments. In the sector's business services, mainly engineering and IT, employment goes from 2,000 in 1982 to 27,000 in 2022. Around the prime contractors you find design offices and service firms whose work runs on quotes, files and exchanges with their customers.</p>\n<p>For a subcontractor, automation first targets paperwork: pricing requests, compliance files, supplier reminders. These tasks commit the company: they keep human approval before anything is sent. The free 45-minute audit is used to spot the ones that cost the most.</p>\n<ul>\n<li><strong>Pricing requests</strong>: reading the request received, extracting quantities and lead times, a draft reply approved before sending.</li>\n<li><strong>Compliance files</strong>: list of expected documents, chasing what is missing, filing in the right folder.</li>\n<li><strong>Supplier reminders</strong>: tracking expected deliveries, a message to the late supplier, an alert to the team.</li>\n</ul>\n<p>This page cites no Toulouse client: the statistics come from Insee, the tasks from the structure of the sector. The free audit checks them against your actual requests and files.</p>\n<h2>AI training in Toulouse</h2>\n<p><a href=\"/formations\">Training</a> is in-company, on your team's real tasks: <a href=\"/formations/automatisation\">automation and AI</a>, <a href=\"/formations/n8n\">n8n</a>, <a href=\"/formations/make\">Make</a>, <a href=\"/formations/claude\">Claude and AI agents</a>, <a href=\"/formations/claude-code\">developing your project with Claude Code</a>. Remotely, or at your premises in Toulouse when the group and subject justify it. Training is delivered via Akigora, a Qualiopi-certified training organisation; funding may be possible depending on your situation.</p>"
     },
     {
       "type": "related-cards-band",
-      "background": "paper-2",
+      "background": "paper",
       "kicker_fr": "§ Pour aller plus loin",
       "kicker_en": "§ Go further",
       "cards": [
@@ -196,7 +214,7 @@
     },
     {
       "type": "faq-accordion",
-      "background": "paper",
+      "background": "paper-2",
       "h2_fr": "Questions fréquentes",
       "h2_en": "Frequently asked questions",
       "items": [
@@ -227,8 +245,20 @@
         {
           "q_fr": "Un sous-traitant aéronautique peut-il automatiser ses tâches administratives ?",
           "q_en": "Can an aerospace subcontractor automate its administrative tasks?",
-          "a_fr": "Oui, pour les tâches répétitives : chiffrage de consultations, dossiers de conformité, relances fournisseurs. Ce qui engage la société, comme une offre de prix, garde une validation humaine avant envoi. Les données de vos donneurs d'ordre sont un sujet à poser dès l'audit.",
+          "a_fr": "Oui, pour les tâches répétitives : réponses aux consultations de prix, dossiers de conformité, relances fournisseurs. Ce qui engage la société, comme une offre de prix, garde une validation humaine avant envoi. Les données de vos donneurs d'ordre sont un sujet à poser dès l'audit.",
           "a_en": "Yes, for repetitive tasks: pricing requests, compliance files, supplier reminders. Anything that commits the company, such as a price offer, keeps human approval before sending. Your customers' data is a topic to raise from the audit onwards."
+        },
+        {
+          "q_fr": "Cherchez-vous une agence n8n ou Make à Toulouse ?",
+          "q_en": "Are you looking for an n8n or Make agency in Toulouse?",
+          "a_fr": "Waimia construit des workflows n8n et Make pour des entreprises toulousaines, à distance depuis Bordeaux. Pour un sous-traitant qui reçoit des consultations de prix et des plans, n8n se justifie quand ces documents ne doivent pas quitter vos serveurs ; Make suffit pour des enchaînements simples entre outils en ligne. Le choix se fait à l'audit, selon vos outils et vos données.",
+          "a_en": "Waimia builds n8n and Make workflows for Toulouse companies, remotely from Bordeaux. For a subcontractor receiving price requests and drawings, n8n is justified when those documents must not leave your servers; Make is enough for simple chains between online tools. The choice is made at the audit, based on your tools and data."
+        },
+        {
+          "q_fr": "Que fait une agence d'automatisation de workflows pour une PME toulousaine ?",
+          "q_en": "What does a workflow automation agency do for a Toulouse SME?",
+          "a_fr": "Elle relie les outils que vous utilisez déjà pour supprimer la ressaisie : une demande de prix arrive par mail, ses données partent dans votre outil de gestion, un brouillon de réponse est préparé puis validé par une personne avant envoi. Autour de l'aéronautique, les tâches concernées sont les consultations de prix, les dossiers de conformité et les relances fournisseurs. L'audit gratuit de 45 minutes sert à choisir celle qui coûte le plus de temps.",
+          "a_en": "It connects the tools you already use to remove re-keying: a price request arrives by email, its data goes into your management tool, a draft reply is prepared then approved by a person before sending. Around aerospace, the tasks involved are pricing requests, compliance files and supplier reminders. The free 45-minute audit is used to pick the one that costs the most time."
         }
       ]
     },
@@ -236,12 +266,10 @@
       "type": "footer-cta-band",
       "background": "ink",
       "rounded": true,
-      "kicker_fr": "§ Toulouse",
-      "kicker_en": "§ Toulouse",
       "h2_fr": "Commençons par 45 minutes en visio.",
       "h2_en": "Let us start with 45 minutes by video.",
-      "subtitle_fr": "L'audit est gratuit. On repère deux processus à automatiser et on vous dit si un déplacement à Toulouse est utile pour la suite.",
-      "subtitle_en": "The audit is free. We identify two processes to automate and tell you whether a trip to Toulouse is useful for what follows.",
+      "subtitle_fr": "L'audit est gratuit. Vous repartez avec une cartographie écrite et un ou deux chantiers classés, et on vous dit si un déplacement à Toulouse est utile pour la suite.",
+      "subtitle_en": "The audit is free. You leave with a written task map and one or two ranked projects, and we tell you whether a trip to Toulouse is useful for what follows.",
       "buttons": [
         {
           "label_fr": "Réserver un audit IA gratuit",
