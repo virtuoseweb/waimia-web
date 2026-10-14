@@ -152,7 +152,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "comparison-duo": {
-    "count": 62,
+    "count": 63,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
@@ -179,6 +179,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/agents-ia",
       "/services/applications-internes",
       "/services/audit-seo-technique",
+      "/services/automatisation-make",
       "/services/automatisation-n8n",
       "/services/automatisations",
       "/services/centralisation-donnees",
@@ -279,7 +280,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "decision-list": {
-    "count": 68,
+    "count": 69,
     "pages": [
       "/demonstrations/avant-apres",
       "/demonstrations/site-web-intelligent",
@@ -309,6 +310,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/agents-ia",
       "/services/applications-internes",
       "/services/audit-seo-technique",
+      "/services/automatisation-make",
       "/services/automatisation-n8n",
       "/services/automatisation-reseaux-sociaux",
       "/services/automatisations",
@@ -745,7 +747,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "eeat-panel": {
-    "count": 50,
+    "count": 51,
     "pages": [
       "/services/agent-qualification-leads",
       "/services/agent-support-client",
@@ -753,6 +755,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/agents-ia",
       "/services/applications-internes",
       "/services/audit-seo-technique",
+      "/services/automatisation-make",
       "/services/automatisation-n8n",
       "/services/automatisation-reseaux-sociaux",
       "/services/automatisations",
@@ -1532,7 +1535,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "pricing-cards": {
-    "count": 54,
+    "count": 55,
     "pages": [
       "/lp/site-web-intelligent",
       "/lp/systeme-acquisition",
@@ -1544,6 +1547,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/agents-ia",
       "/services/applications-internes",
       "/services/audit-seo-technique",
+      "/services/automatisation-make",
       "/services/automatisation-n8n",
       "/services/automatisation-reseaux-sociaux",
       "/services/automatisations",

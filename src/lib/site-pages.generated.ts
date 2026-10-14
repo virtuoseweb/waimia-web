@@ -638,7 +638,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/services/automatisation-make",
-    "title": "Agence Make : automatisation Make pour PME · Waimia",
+    "title": "Agence automatisation Make : scénarios pour PME",
     "group": "offres",
     "collection": "services",
     "file": "services/automatisation-make.json",
@@ -646,7 +646,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-split-media",
-        "label": "Agence Make pour PME",
+        "label": "Agence d'automatisation Make pour PME",
         "background": "paper"
       },
       {
@@ -670,6 +670,11 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-2"
       },
       {
+        "type": "comparison-duo",
+        "label": "Exemple type : l'ouverture d'un dossier après la signature d'un devis",
+        "background": "paper-3"
+      },
+      {
         "type": "deliverables-grid",
         "label": "Ce qui est livré",
         "background": "paper"
@@ -680,8 +685,23 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-3"
       },
       {
+        "type": "decision-list",
+        "label": "Make n'est pas le bon choix si",
+        "background": "paper"
+      },
+      {
+        "type": "pricing-cards",
+        "label": "Prix d'une prestation Make",
+        "background": "paper-2"
+      },
+      {
+        "type": "eeat-panel",
+        "label": "#10",
+        "variant": "media"
+      },
+      {
         "type": "editorial-prose",
-        "label": "#7",
+        "label": "#11",
         "background": "paper"
       },
       {
