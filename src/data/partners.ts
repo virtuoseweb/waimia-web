@@ -159,7 +159,7 @@ export const PARTNERS: Partner[] = [
     name: 'Activateur France Num',
     asset: '/logos/partners/partner-france-num.png',
     category: 'certification',
-    href: 'https://www.francenum.gouv.fr',
+    href: 'https://www.francenum.gouv.fr/activateurs/beros-simon',
     external: true,
   },
   // ── Outils / dev ──

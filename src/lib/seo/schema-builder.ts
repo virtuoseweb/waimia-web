@@ -140,6 +140,8 @@ export const AREA_SERVED: JsonLdObject[] = [
 
 const LOGO_URL = `${SITE_URL}/favicon-256.png`;
 
+export const FRANCE_NUM_PROFILE = 'https://www.francenum.gouv.fr/activateurs/beros-simon';
+
 /**
  * Fondateur : une seule entité sur tout le site (même `@id` partout). Nom et profil LinkedIn
  * viennent de la fiche auteur (src/content/authors/simon-beros.json), pas d'une copie.
@@ -148,7 +150,10 @@ export const FOUNDER = {
   id: SCHEMA_IDS.founder,
   name: founderData.title_fr,
   url: `${SITE_URL}/equipe/simon-beros`,
-  sameAs: [founderData.social?.linkedin].filter((u): u is string => Boolean(u)),
+  // La fiche France Num décrit la personne (Activateur), pas la société : elle va sur le Person.
+  sameAs: [founderData.social?.linkedin, founderData.social?.github, FRANCE_NUM_PROFILE].filter(
+    (u): u is string => Boolean(u),
+  ),
 } as const;
 
 /** Nœud `Person` court du fondateur (auteur d'article, fondateur de l'organisation). */
@@ -518,21 +523,22 @@ function buildService(
 }
 
 /**
- * Présence dans une ville SANS bureau (Bordeaux, Lyon…) : `ProfessionalService` rattaché à
- * l'Organization, `areaServed` = la ville, AUCUNE adresse postale. L'adresse n'existe que
- * sur l'entité du siège (buildLocalBusiness).
+ * Présence dans une ville SANS bureau (Lyon, Paris…) : `Service` fourni par l'Organization,
+ * `areaServed` = la ville, AUCUNE adresse postale (un `ProfessionalService` sans adresse est
+ * signalé par Semrush). L'adresse n'existe que sur l'entité du siège (buildLocalBusiness).
  */
 function buildCityService(input: { city: string; url: string; description?: string }): JsonLdObject {
   return withContext({
-    '@type': 'ProfessionalService',
+    '@type': 'Service',
     '@id': `${input.url}#service-local`,
-    name: SITE.name,
+    name: `Waimia à ${input.city}`,
     url: input.url,
-    ...(input.description ? { description: input.description } : {}),
-    image: LOGO_URL,
-    email: SITE.email,
+    description:
+      input.description ??
+      `Automatisation, agents IA et systèmes sur mesure pour les PME de ${input.city}, conçus et déployés à distance par Waimia.`,
+    serviceType: 'Automatisation et agents IA pour PME',
     areaServed: { '@type': 'City', name: input.city },
-    parentOrganization: ORGANIZATION_REF,
+    provider: ORGANIZATION_REF,
   });
 }
 
