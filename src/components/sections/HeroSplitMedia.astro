@@ -32,6 +32,9 @@ const ctaSecondary = data.cta_secondary;
 // grille split media/texte. Preserve tout le contenu. Optionnel → rendu split inchange.
 const illustration = data.illustration;
 const illusSide = illustration?.side ?? 'right';
+// Lede seul (ni question `definition_kicker`, ni `subtitle`) : il porte tout l'appui du
+// titre, donc il passe en registre de lecture (cf .hsm-lede--solo). 56 instances sur 77.
+const soloLede = !definitionKicker && !subtitle;
 ---
 <section class:list={['hsm', illustration && `hsm--illus hsm--illus-${illusSide}`]} data-bg={data.background === 'ink' ? 'ink' : undefined}>
   {illustration ? (
@@ -48,7 +51,7 @@ const illusSide = illustration?.side ?? 'right';
         <h1 class="hsm-title hsm-title--illus" set:html={h1} />
         {subtitle && <p class="hsm-subtitle">{subtitle}</p>}
         {definitionKicker && <p class="hsm-def-kicker" set:html={definitionKicker} />}
-        <p class="hsm-lede" set:html={lede} />
+        <p class:list={['hsm-lede', soloLede && 'hsm-lede--solo']} set:html={lede} />
 
         <div class="hsm-ctas">
           <Button href={ctaPrimary.href} variant="primary" size="lg">
@@ -77,7 +80,7 @@ const illusSide = illustration?.side ?? 'right';
         <h1 class="hsm-title" set:html={h1} />
         {subtitle && <p class="hsm-subtitle">{subtitle}</p>}
         {definitionKicker && <p class="hsm-def-kicker" set:html={definitionKicker} />}
-        <p class="hsm-lede" set:html={lede} />
+        <p class:list={['hsm-lede', soloLede && 'hsm-lede--solo']} set:html={lede} />
 
         <div class="hsm-ctas">
           <Button href={ctaPrimary.href} variant="primary" size="lg">
@@ -179,7 +182,8 @@ const illusSide = illustration?.side ?? 'right';
 
     /* Lede fin · style de .problem-statement__text (sans + emphase <i> serif italique
        terracotta) mais en registre plus petit/léger adapté à un lede (var(--text-fine),
-       couleur muted). La question (def-kicker) domine, le lede est l'appui discret. */
+       couleur muted). La question (def-kicker) domine, le lede est l'appui discret.
+       Sans question ni sous-titre, voir .hsm-lede--solo plus bas. */
     .hsm-lede {
       font-family: var(--font-sans);
       font-size: var(--text-fine);
@@ -317,6 +321,17 @@ const illusSide = illustration?.side ?? 'right';
     }
     /* Lede : sans, registre text-small (pas fine), lecture normale. */
     .hsm--illus .hsm-lede { font-size: var(--text-small); }
+    /* Lede seul (aucune question ni sous-titre au-dessus) : le registre fin n'a plus de
+       raison d'etre, c'est le seul texte d'appui du titre. Corps de lecture (comme le
+       paragraphe de tete d'editorial-prose), encre pleine. Specificite (0,2,0) posee
+       APRES `.hsm--illus .hsm-lede` : vaut pour les deux mises en page. La largeur
+       reste celle de chaque mise en page (50ch, ou la colonne claire de l'illustration). */
+    .hsm .hsm-lede--solo {
+      font-size: calc(var(--text-body) + 2px);
+      line-height: var(--leading-body);
+      color: var(--ink-2);
+    }
+    .hsm[data-bg='ink'] .hsm-lede--solo { color: rgba(var(--paper-rgb), 0.82); }
     /* Badges : sans, text-small, graisse normale, casse de phrase, pill discret. */
     .hsm--illus .hsm-badge {
       font-family: var(--font-sans);
@@ -404,6 +419,9 @@ const illusSide = illustration?.side ?? 'right';
       .hsm-subtitle { max-width: none; margin-bottom: var(--space-3); }
       .hsm-def-kicker { margin-bottom: var(--space-2); }
       .hsm-lede { margin-bottom: var(--space-3); }
+      /* Lede seul : corps de lecture sans le cran +2px (ledes jusqu'a ~480 signes,
+         CTA a garder au-dessus de la ligne de flottaison a 390x844). */
+      .hsm .hsm-lede--solo { font-size: var(--text-body); }
       /* Badges : typo micro + padding resserré → empilent moins haut. */
       .hsm-badges { gap: var(--space-1); margin-top: var(--space-3); }
       .hsm-badge { font-size: var(--text-micro); padding: var(--space-1) var(--space-3); }

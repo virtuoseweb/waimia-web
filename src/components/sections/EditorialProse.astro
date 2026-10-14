@@ -100,6 +100,12 @@ const html = lang === 'en' ? data.html_en : data.html_fr;
     color: var(--accent-text);
     margin-bottom: var(--space-3);
   }
+  /* Un seul h2 dans le bloc : rien a compter, pas de « § 01 » (le compteur est
+     remis a zero par section ; un numero sans suite serait une sequence inventee).
+     Les blocs a plusieurs h2 gardent § 01, § 02… */
+  .editorial-prose__col :global(h2:only-of-type)::before {
+    content: none;
+  }
   /* Premier h2 : ouverture franche, pas de filet detache du haut de section. */
   .editorial-prose__col :global(h2:first-of-type) {
     margin-top: 0;
