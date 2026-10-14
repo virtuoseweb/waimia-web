@@ -78,8 +78,13 @@ const actionsHide = pl?.actions?.hideOn;
 </section>
 
 <style>
+  /* Rythme par défaut = section de contenu (--section-base : 96px à 1440, ~53px à 390).
+     Avant la vague 2 : --section-grand (256px, « rare, climax ») sur chaque page,
+     soit ~840px de bande pour un titre, une phrase et deux boutons (design.md C12).
+     Le climax tient au fond ink et au titre, pas au vide. L'axe data-density reste
+     prioritaire quand il est posé. */
   .footer-cta {
-    padding-block: var(--section-grand);
+    padding-block: var(--section-base);
     border-block: 1px solid var(--hairline);
   }
   .footer-cta--rounded {
@@ -160,7 +165,7 @@ const actionsHide = pl?.actions?.hideOn;
   /* ── Axe DENSITY (data-density) : rythme padding-block + gap. Tokens --space-* seulement. ── */
   .footer-cta[data-density='compact'] { padding-block: var(--space-8); }
   .footer-cta[data-density='compact'] .footer-cta__copy { gap: var(--space-3); }
-  .footer-cta[data-density='base'] { padding-block: var(--space-10); }
+  .footer-cta[data-density='base'] { padding-block: var(--section-base); }
   .footer-cta[data-density='ample'] { padding-block: var(--space-12); }
   .footer-cta[data-density='ample'] .footer-cta__copy { gap: var(--space-5); }
 

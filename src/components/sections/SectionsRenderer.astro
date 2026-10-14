@@ -12,6 +12,8 @@
 import { resolveSectionRefs } from '../../lib/resolve-section-refs';
 import { loadSections } from '../../lib/lazy-section';
 import type { SectionData } from '@waimia/ds-kernel';
+import type { RelatedLinksData } from '../../lib/internal-mesh';
+import RelatedLinks from './RelatedLinks.astro';
 
 interface Props {
   sections: SectionData[];
@@ -23,6 +25,32 @@ const resolved = await Promise.all(sections.map((s) => resolveSectionRefs(s, lan
 // Chargement paresseux des seuls types rendus : leurs styles sont injectés dans le <head>
 // de CETTE page (cf lib/lazy-section.ts), au lieu d'une feuille commune aux 221 sections.
 const components = await loadSections(resolved.map((s) => s.type));
+
+// Maillage automatique AVANT la bande CTA finale (design.md C11) : quand la dernière section
+// est un `footer-cta-band`, le bloc « Sur le même sujet » calculé par Base (lib/internal-mesh)
+// est rendu juste avant elle, pour que le CTA soit le dernier bloc avant le pied de page.
+// Passage de relais par Astro.locals, même clé dans layouts/Base.astro :
+// 1. ici (frontmatter), ce renderer se déclare hôte (le dernier déclaré l'emporte) ;
+// 2. Base (frontmatter) délègue seulement si un hôte est déclaré et pas encore rendu ;
+// 3. au rendu, l'hôte affiche le maillage seulement si Base l'a délégué.
+// Base décide une seule fois et rend lui-même le maillage en fin de <main> s'il ne délègue
+// pas : quel que soit l'ordre d'exécution, le bloc sort une fois, jamais deux. Le report
+// avant le CTA suppose que ce frontmatter tourne avant celui de Base, ce que fait la
+// propagation de head d'Astro pour ce composant « in-tree » (cf lib/lazy-section.ts) ;
+// sinon, rendu historique (maillage après le CTA).
+type MeshHandoff = { host?: symbol; rendered: symbol[]; mesh?: RelatedLinksData };
+const locals = Astro.locals as unknown as Record<string, unknown> | undefined;
+const lastIdx = resolved.length - 1;
+let handoff: MeshHandoff | null = null;
+const hostToken = Symbol('mesh-host');
+if (locals && lastIdx >= 0 && resolved[lastIdx].type === 'footer-cta-band') {
+  handoff = (locals.__waimiaMeshHandoff ??= { rendered: [] }) as MeshHandoff;
+  handoff.host = hostToken;
+}
+// Fond du maillage : l'inverse de la section qui le précède, pour ne pas accoler deux
+// bandes de même fond (paper-2 sinon, comme le rendu historique de Base).
+const prevBg = lastIdx > 0 ? (resolved[lastIdx - 1] as unknown as { background?: string }).background : undefined;
+const meshBg = prevBg === 'paper-2' ? 'paper' : 'paper-2';
 ---
 
 {resolved.map((section, i) => {
@@ -61,14 +89,23 @@ const components = await loadSections(resolved.map((s) => s.type));
   // que l'atelier (library/builder) puisse la localiser en direct. `display:contents` =
   // 0 boite generee -> aucun impact mise en page en dev. `import.meta.env.DEV` est remplace
   // statiquement par `false` au build de prod : la branche est eliminee -> HTML prod IDENTIQUE.
+  // Hôte du maillage : fonction évaluée AU RENDU (après le frontmatter de Base), pas à la
+  // construction du template, car c'est là que la délégation est connue. Placée avant
+  // l'ancre éventuelle de la bande CTA.
+  const meshBefore = () => {
+    handoff!.rendered.push(hostToken);
+    const mesh = handoff!.host === hostToken ? handoff!.mesh : undefined;
+    return mesh ? <RelatedLinks data={{ ...mesh, background: meshBg } as any} lang={lang} /> : null;
+  };
+  const placed = handoff && i === lastIdx ? [meshBefore, out] : out;
   if (import.meta.env.DEV) {
     return (
       <div data-atelier-idx={i} style="display:contents">
-        {out}
+        {placed}
       </div>
     );
   }
-  return out;
+  return placed;
 })}
 {/* Focus d'atelier DEV-ONLY (P4.4-h E2) : la fiche /library/[type] deep-linke une instance via
     `?atelier-focus=<idx>`. Ce script scrolle vers `[data-atelier-idx]`, pose un outline temporaire

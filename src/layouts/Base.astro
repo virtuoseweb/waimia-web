@@ -156,6 +156,17 @@ if (showMesh !== false && !robotsNoindex && !OWN_MESH_PREFIXES.some((prefix) => 
     autoMesh = null;
   }
 }
+// Report du maillage avant la bande CTA finale : relais posé par SectionsRenderer (même clé,
+// mode d'emploi dans components/sections/SectionsRenderer.astro). Délégué seulement si un
+// renderer dont la dernière section est un `footer-cta-band` s'est déclaré hôte et n'a pas
+// encore été rendu ; sinon le maillage reste en fin de <main>, comme avant. Une seule
+// décision, ici : le bloc sort une fois, jamais deux.
+type MeshHandoff = { host?: symbol; rendered: symbol[]; mesh?: typeof autoMesh };
+const meshHandoff = (Astro.locals as unknown as Record<string, unknown> | undefined)?.__waimiaMeshHandoff as
+  | MeshHandoff
+  | undefined;
+const meshDelegated = Boolean(autoMesh && meshHandoff?.host && !meshHandoff.rendered.includes(meshHandoff.host));
+if (meshDelegated && meshHandoff) meshHandoff.mesh = autoMesh;
 ---
 <!doctype html>
 <html lang={HREFLANG[lang]} data-lang={lang}>
@@ -243,7 +254,7 @@ if (showMesh !== false && !robotsNoindex && !OWN_MESH_PREFIXES.some((prefix) => 
     <Header />
     <main id="main" tabindex="-1">
       <slot />
-      {autoMesh && <RelatedLinks data={{ ...autoMesh, background: 'paper-2' } as any} lang={lang} />}
+      {autoMesh && !meshDelegated && <RelatedLinks data={{ ...autoMesh, background: 'paper-2' } as any} lang={lang} />}
       {updatedDate && <PageUpdated date={updatedDate} />}
     </main>
     <Footer />

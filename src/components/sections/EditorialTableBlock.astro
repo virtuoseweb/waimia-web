@@ -3,6 +3,7 @@
 // Header + EditorialTable (molécule unique). Branche sur `data.type` ; chaque variante
 // conserve markup + CSS BYTE-IDENTIQUES à son composant d'origine (qualification
 // `:where(.tech-sec) .wrap` rendue nécessaire par la colocalisation, spécificité inchangée).
+// Écart assumé depuis la vague 2 : les trois H2 passent à --text-h2 (design.md C10).
 // Noyau : editorial-table-block (kicker + h2 + table). Absorbe (R5b) :
 // tech-models-table (header 2 col + aside + wrap bordé paper-2),
 // department-stack (header sol-sec + aside Callout, famille Solutions).
@@ -110,10 +111,12 @@ const tmRows = data.type === 'tech-models-table'
   :global(.ed-table-block-kicker) {
     margin-bottom: var(--space-4);
   }
+  /* H2 au registre de section (--text-h2) dans les 3 variantes : l'échelle h1 reste au
+     seul titre de page (vague 2, design.md C10). */
   .ed-table-block-h2 {
     font-family: var(--font-sans);
-    font-size: var(--text-h1);
-    line-height: .96;
+    font-size: var(--text-h2);
+    line-height: var(--leading-h2);
     font-weight: var(--fw-medium);
     margin: 0 0 var(--space-6);
   }
@@ -132,8 +135,8 @@ const tmRows = data.type === 'tech-models-table'
   }
   .tech-sec-hd h2 {
     font-family: var(--font-sans);
-    font-size: var(--text-h1);
-    line-height: var(--leading-h1);
+    font-size: var(--text-h2);
+    line-height: var(--leading-h2);
     letter-spacing: -0.018em;
     font-weight: var(--fw-medium);
     margin: var(--space-2) 0 0;
@@ -174,8 +177,8 @@ const tmRows = data.type === 'tech-models-table'
   }
   .sol-sec-hd h2 {
     font-family: var(--font-sans);
-    font-size: var(--text-h1);
-    line-height: var(--leading-h1);
+    font-size: var(--text-h2);
+    line-height: var(--leading-h2);
     letter-spacing: -0.018em;
     font-weight: var(--fw-medium);
     margin: var(--space-2) 0 0;

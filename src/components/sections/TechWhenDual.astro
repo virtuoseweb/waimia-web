@@ -3,7 +3,10 @@
 // Aide décision dual (Utiliser quand / Considérer autre chose quand), puces +/− mono.
 // Source : TechnologiesDetailTemplate.astro « 5. WHEN TO USE DUAL »
 //          + CSS .tech-sec-hd / .tech-when-* (l.440-464, 614-658).
-// - CSS = COPIE VERBATIM des règles du template (mêmes tokens/valeurs).
+// - CSS = copie des règles du template, sauf deux écarts (vague 2, design.md C10 et C14) :
+//   H2 au registre de section (--text-h2, l'échelle h1 reste au seul titre de page) et
+//   conteneur global .wrap-wide (axe gauche commun aux autres sections, au lieu d'un
+//   .wrap local à 1240px qui décalait le bloc de 132px à 1440).
 import Kicker from '../ui/atoms/Kicker.astro';
 import type { SectionByType } from '@waimia/ds-kernel';
 interface Props {
@@ -16,7 +19,7 @@ const useItems = (isFr ? data.use_items_fr : data.use_items_en) ?? [];
 const avoidItems = (isFr ? data.avoid_items_fr : data.avoid_items_en) ?? [];
 ---
 <section class="tech-sec sec-band-rel-loose" data-bg={data.background} data-screen-label="05 When To Use">
-  <div class="wrap">
+  <div class="wrap-wide">
     <div class="tech-sec-hd u-sec-hd-split u-serif-accent">
       <div>
         <Kicker>{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
@@ -44,10 +47,10 @@ const avoidItems = (isFr ? data.avoid_items_fr : data.avoid_items_en) ?? [];
 </section>
 
 <style>
-  /* ───── Sec common + header (COPIE VERBATIM TechnologiesDetailTemplate.astro) ───── */ .tech-sec-hd h2 {
+  /* ───── Sec common + header (repris de TechnologiesDetailTemplate.astro) ───── */ .tech-sec-hd h2 {
     font-family: var(--font-sans);
-    font-size: var(--text-h1);
-    line-height: var(--leading-h1);
+    font-size: var(--text-h2);
+    line-height: var(--leading-h2);
     letter-spacing: -0.018em;
     font-weight: var(--fw-medium);
     margin: var(--space-2) 0 0;
@@ -98,12 +101,6 @@ const avoidItems = (isFr ? data.avoid_items_fr : data.avoid_items_en) ?? [];
     font-size: var(--text-glyph);
     color: var(--muted);
     line-height: 1;
-  }
-
-  .wrap {
-    max-width: 1240px;
-    margin: 0 auto;
-    padding: 0 var(--gut);
   }
 
   @media (max-width: 800px) {
