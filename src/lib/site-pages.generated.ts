@@ -215,13 +215,18 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
         "type": "definition-extract",
         "label": "Définition",
         "background": "paper"
       },
       {
         "type": "editorial-prose",
-        "label": "#3",
+        "label": "#4",
         "background": "paper-2"
       },
       {
@@ -251,7 +256,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "eeat-panel",
-        "label": "#9",
+        "label": "#10",
         "variant": "media"
       },
       {
@@ -338,7 +343,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/services/applications-internes",
-    "title": "Application métier sur mesure pour PME · Waimia",
+    "title": "Logiciel sur mesure et application métier pour PME · Waimia",
     "group": "offres",
     "collection": "services",
     "file": "services/applications-internes.json",
@@ -676,7 +681,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "deliverables-grid",
-        "label": "Ce qui est livré",
+        "label": "Développement Make : ce qui est livré",
         "background": "paper"
       },
       {
@@ -810,8 +815,8 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
-        "type": "definition-extract",
-        "label": "Définition",
+        "type": "direct-answer",
+        "label": "#2",
         "background": "paper"
       },
       {
@@ -866,7 +871,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-split-media",
-        "label": "Base de connaissance IA : le second cerveau de votre entreprise",
+        "label": "Base de connaissance IA : vos documents, chaque réponse avec sa source",
         "background": "paper"
       },
       {
@@ -1437,7 +1442,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "case-card-grid",
-        "label": "Deux projets où la saisie manuelle a disparu",
+        "label": "Deux projets : demandes routées sans ressaisie, abonnements gérés automatiquement",
         "background": "ink"
       },
       {
@@ -2075,7 +2080,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "footer-cta-band",
-        "label": "Le problème vient-il de la page, ou de ce qui suit ?",
+        "label": "Votre landing page attire-t-elle les bonnes demandes ?",
         "background": "ink"
       }
     ]
@@ -2475,7 +2480,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-masthead-card",
-        "label": "Agence SEO et référencement naturel, l'inbound marketing mesuré.",
+        "label": "Agence SEO et référencement naturel pour PME, suivi jusqu'à la demande.",
         "background": "paper"
       },
       {
@@ -2537,7 +2542,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/services/seo-geo-contenu/audit-seo-technique",
-    "title": "Audit SEO technique et sémantique pour PME · Waimia",
+    "title": "Agence audit SEO : audit technique de site pour PME · Waimia",
     "group": "offres",
     "collection": "services",
     "file": "services/seo-geo-contenu/audit-seo-technique.json",
@@ -2760,7 +2765,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "faq-accordion",
-        "label": "Référencement IA : vos questions",
+        "label": "Agence GEO : vos questions",
         "background": "paper-2"
       },
       {
@@ -2995,7 +3000,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-masthead-card",
-        "label": "Agence Shopify : une boutique qui vend, un SAV qui suit.",
+        "label": "Agence Shopify : votre boutique en ligne, créée, refondue ou migrée.",
         "background": "paper"
       },
       {
@@ -3040,7 +3045,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "case-card-grid",
-        "label": "Aucune boutique Shopify publiée : un SAV branché à Shopify, et une migration e-commerce mesurée",
+        "label": "Aucune boutique Shopify publiée : une migration e-commerce mesurée, sous WooCommerce",
         "background": "ink"
       },
       {
@@ -3060,14 +3065,14 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "footer-cta-band",
-        "label": "Combien d'heures par semaine vont aux commandes, aux stocks et au SAV ?",
+        "label": "Votre boutique actuelle est-elle à corriger, à migrer ou à refaire ?",
         "background": "ink"
       }
     ]
   },
   {
     "route": "/services/site-web-ia/sur-mesure",
-    "title": "Création de site sur mesure : Astro et CMS headless · Waimia",
+    "title": "Développement web sur mesure : Astro, CMS headless · Waimia",
     "group": "offres",
     "collection": "services",
     "file": "services/site-web-ia/sur-mesure.json",
@@ -3075,7 +3080,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-masthead-card",
-        "label": "Création de site sur mesure : un code qui vous appartient.",
+        "label": "Développement web sur mesure : un code qui vous appartient.",
         "background": "paper"
       },
       {
@@ -3190,7 +3195,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "case-card-grid",
-        "label": "Aucune fiche Webflow publiée : un branchement CRM et une migration, sur d'autres plateformes",
+        "label": "Aucune fiche Webflow publiée : un site Astro et une migration WordPress, sur d'autres plateformes",
         "background": "ink"
       },
       {
@@ -3360,7 +3365,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-masthead-card",
-        "label": "Un développement commercial B2B qui ne s'arrête jamais.",
+        "label": "Un développement commercial B2B sur une seule base.",
         "background": "paper"
       },
       {
@@ -4387,7 +4392,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/cas-usages/standardiser-processus",
-    "title": "Automatiser les tâches administratives d'une PME · Waimia",
+    "title": "Standardiser et automatiser l'administratif en PME · Waimia",
     "group": "cas-usages",
     "collection": "cas-usages",
     "file": "cas-usages/standardiser-processus.json",
@@ -4395,7 +4400,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-split-media",
-        "label": "Automatiser les tâches administratives",
+        "label": "Standardiser et automatiser les tâches administratives",
         "background": "paper"
       },
       {
@@ -5634,6 +5639,11 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "editorial-prose",
         "label": "#5",
+        "background": "paper-3"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
         "background": "paper"
       },
       {
@@ -5643,12 +5653,12 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-prose",
-        "label": "#7",
+        "label": "#8",
         "background": "paper"
       },
       {
         "type": "editorial-prose",
-        "label": "#8",
+        "label": "#9",
         "background": "ink"
       },
       {
@@ -5658,7 +5668,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-prose",
-        "label": "#10",
+        "label": "#11",
         "background": "paper"
       },
       {
@@ -6337,7 +6347,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "resource-card-grid",
-        "label": "Six guides détaillés, une question d'acheteur chacun",
+        "label": "Sept guides détaillés, une question d'acheteur chacun",
         "background": "paper"
       },
       {
@@ -6741,7 +6751,7 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "cta-form-inline",
         "label": "Recevez le guide d'achat Claude pour PME",
-        "background": "accent"
+        "background": "paper-3"
       },
       {
         "type": "comparison-duo",
@@ -6759,18 +6769,13 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-2"
       },
       {
-        "type": "newsletter-signup-section",
-        "label": "Les prix de Claude et des outils d'agents, une fois par mois",
-        "background": "ink"
-      },
-      {
         "type": "faq-accordion",
         "label": "Prix d'un agent IA : questions fréquentes",
         "background": "paper"
       },
       {
         "type": "footer-cta-band",
-        "label": "Savoir ce qu'un agent coûtera chez vous, avant la première heure facturée.",
+        "label": "Savoir si un agent vaut son coût chez vous, avant la première heure facturée.",
         "background": "ink"
       }
     ]
@@ -6871,7 +6876,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "footer-cta-band",
-        "label": "Un budget écrit avant d'acheter la première licence. L'audit est gratuit.",
+        "label": "Savoir ce que vos licences Claude vous coûteront, avant d'acheter la première. L'audit est gratuit.",
         "background": "ink"
       }
     ]
@@ -7238,7 +7243,88 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "footer-cta-band",
-        "label": "Savoir ce que n8n coûtera chez vous, avant le premier workflow.",
+        "label": "n8n Cloud ou auto-hébergé : décidez avant le premier workflow.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/ressources/guides/refonte-site-internet",
+    "title": "Refonte de site internet : étapes, coût et SEO à garder",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/refonte-site-internet.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Refonte de site internet : étapes, coût et SEO à garder",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "decision-list",
+        "label": "Ce qu'il faut réunir avant de lancer une refonte",
+        "background": "paper"
+      },
+      {
+        "type": "process-steps",
+        "label": "Les étapes d'une refonte de site internet",
+        "background": "paper-3"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper"
+      },
+      {
+        "type": "comparison-duo",
+        "label": "Balzeo : une boutique migrée sans perdre ses URL",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Corriger, refondre ou migrer : ce que chaque option touche",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#8",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Refondre votre site, ou s'en abstenir",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#10",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Refonte de site internet : questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Savoir s'il faut corriger votre site ou le refaire.",
         "background": "ink"
       }
     ]
@@ -7748,7 +7834,7 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "faq-accordion",
         "label": "Questions avant de réserver",
-        "background": "paper-2"
+        "background": "paper"
       },
       {
         "type": "footer-cta-band",
@@ -8231,7 +8317,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "footer-cta-band",
-        "label": "Deux processus à automatiser, identifiés en 45 minutes.",
+        "label": "Un ou deux chantiers classés en 45 minutes.",
         "background": "ink"
       }
     ]
@@ -8328,7 +8414,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/implantations/strasbourg",
-    "title": "Agence IA à Strasbourg : agents IA, LLM et no code · Waimia",
+    "title": "Agence IA à Strasbourg : agents IA, LLM et ChatGPT · Waimia",
     "group": "autres",
     "collection": "implantations",
     "file": "implantations/strasbourg.json",
@@ -8402,12 +8488,12 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "related-cards-band",
         "label": "Pour aller plus loin",
-        "background": "paper-2"
+        "background": "paper"
       },
       {
         "type": "faq-accordion",
         "label": "Questions fréquentes",
-        "background": "paper"
+        "background": "paper-2"
       },
       {
         "type": "footer-cta-band",
@@ -8615,6 +8701,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/guides/financement-formation-ia-opco",
       "/ressources/guides/mcp-claude",
       "/ressources/guides/n8n-prix",
+      "/ressources/guides/refonte-site-internet",
       "/ressources/guides/roi-automatisation",
       "/ressources/guides/taches-a-automatiser-pme",
       "/ressources/outils",
