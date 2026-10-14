@@ -33,7 +33,7 @@
     },
     {
       "q": "Quelle différence entre un MVP SaaS et un outil interne ?",
-      "a": "Un outil interne sert votre équipe : il porte votre process et personne ne le paie. Un MVP SaaS s'adresse à un marché : des clients s'inscrivent, l'utilisent et le paient. Il faut alors des comptes séparés, un paiement et un tunnel d'inscription. Pour un outil d'équipe, voir l'application interne sur mesure."
+      "a": "Un outil interne sert votre équipe : il porte votre process et personne ne le paie. Un MVP SaaS s'adresse à un marché : des clients s'inscrivent, l'utilisent et le paient. Il faut alors des comptes séparés, un paiement et un tunnel d'inscription. Un outil réservé à votre équipe relève d'une application interne sur mesure."
     },
     {
       "q": "Combien de temps faut-il pour sortir une v0 ?",
@@ -63,7 +63,7 @@
     },
     {
       "q": "What is the difference between a SaaS MVP and an internal tool?",
-      "a": "An internal tool serves your team: it carries your process and nobody pays for it. A SaaS MVP is aimed at a market: customers sign up, use it and pay for it. That calls for separate accounts, a payment and a sign-up funnel. For a team tool, see the bespoke internal application."
+      "a": "An internal tool serves your team: it carries your process and nobody pays for it. A SaaS MVP is aimed at a market: customers sign up, use it and pay for it. That calls for separate accounts, a payment and a sign-up funnel. A tool reserved for your team is a bespoke internal application."
     },
     {
       "q": "How long does it take to ship a v0?",
@@ -230,52 +230,6 @@
       ],
       "html_fr": "<h2>Ce que contient la v0, et ce qu'elle laisse de côté</h2>\n<p>La v0 tient en un parcours : un visiteur s'inscrit, accomplit la tâche pour laquelle il vient, puis paie. Tout le reste attend une preuve d'usage : tableau d'administration étendu, notifications, import en masse, application mobile, rôles supplémentaires. On les écrit dans une liste, avec le critère qui déclenche leur construction.</p>\n<h2>Ce qu'on pose dès le départ</h2>\n<p>Trois choses ne se rajoutent pas proprement après coup : la séparation des comptes entre clients, l'authentification et le paiement. Elles sont posées dès la première version. Le reste se choisit au cadrage : emails, connexions à vos outils par API ou MCP, une fonction IA là où elle porte la valeur du produit.</p>\n<h2>Avec quelle technologie</h2>\n<p><a href=\"/cas-clients/waimia-os\">Waimia OS</a>, projet interne du studio, tourne sur Next.js et PostgreSQL. Pour un client, la technique se choisit selon ce que son équipe, ou un futur développeur, saura reprendre : le code, la base et l'hébergement sont à votre nom.</p>\n<h2>Ce qu'un MVP ne garantit pas</h2>\n<p>Un produit vendable ne se vend pas tout seul. Il lui faut un canal pour trouver ses premiers clients, ce qui relève de l'acquisition : voir le <a href=\"/services/systeme-acquisition\">système d'acquisition</a>. Le MVP donne l'objet à vendre et la mesure de ce qui se passe. Il ne promet ni un chiffre d'affaires, ni un nombre d'inscrits.</p>",
       "html_en": "<h2>What the v0 contains, and what it leaves out</h2>\n<p>The v0 fits in one journey: a visitor signs up, does the task they came for, then pays. Everything else waits for proof of use: extended admin panel, notifications, bulk import, mobile app, extra roles. They go on a list, with the criterion that triggers building each one.</p>\n<h2>What goes in from the start</h2>\n<p>Three things cannot be added cleanly afterwards: separation of accounts between customers, authentication and payment. They go in with the first version. The rest is chosen during scoping: emails, connections to your tools through API or MCP, an AI feature where it carries the value of the product.</p>\n<h2>With which technology</h2>\n<p><a href=\"/cas-clients/waimia-os\">Waimia OS</a>, an internal studio project, runs on Next.js and PostgreSQL. For a client, the stack is chosen according to what their team, or a future developer, can take over: the code, the database and the hosting are in your name.</p>\n<h2>What an MVP does not guarantee</h2>\n<p>A sellable product does not sell itself. It needs a channel to find its first customers, which is an acquisition matter: see the <a href=\"/services/systeme-acquisition\">acquisition system</a>. The MVP provides the thing to sell and the measurement of what happens. It promises neither revenue nor a number of sign-ups.</p>"
-    },
-    {
-      "type": "pain-severity-list",
-      "background": "ink",
-      "kicker_fr": "§ Là où un lancement produit se plante",
-      "kicker_en": "§ Where a product launch goes wrong",
-      "h2_fr": "Ce qu'un <i class=\"acc\">MVP</i> évite",
-      "h2_en": "What an <i class=\"acc\">MVP</i> avoids",
-      "items": [
-        {
-          "severity": "critical",
-          "title_fr": "Un produit complet construit sans client",
-          "title_en": "A full product built without a customer",
-          "desc_fr": "Le produit complet est livré avant que le premier client l'ait vu. S'il fallait autre chose, le budget est déjà dépensé.",
-          "desc_en": "The full product ships before the first customer has seen it. If something else was needed, the budget is already spent.",
-          "fix_fr": "Un seul parcours vendable, mis devant des clients avant d'ajouter le reste.",
-          "fix_en": "One sellable journey, put in front of customers before adding the rest."
-        },
-        {
-          "severity": "high",
-          "title_fr": "Une démo qui ne sait rien encaisser",
-          "title_en": "A demo that cannot take payment",
-          "desc_fr": "Un client veut acheter, et le produit n'a ni inscription ni paiement. Il faut tout construire avant la première facture.",
-          "desc_en": "A customer wants to buy, and the product has no sign-up and no payment. Everything must be built before the first invoice.",
-          "fix_fr": "Inscription, comptes et paiement dès la v0.",
-          "fix_en": "Sign-up, accounts and payment from the v0."
-        },
-        {
-          "severity": "medium",
-          "title_fr": "Un code jetable qui bloque la suite",
-          "title_en": "Throwaway code that blocks what comes next",
-          "desc_fr": "Sans tests, la moindre évolution casse la v0.",
-          "desc_en": "Without tests, the slightest change breaks the v0.",
-          "fix_fr": "Une base propre, testée sur les cas limites, documentée.",
-          "fix_en": "A clean base, tested on edge cases, documented."
-        },
-        {
-          "severity": "low",
-          "title_fr": "Des fonctions ajoutées sans preuve d'usage",
-          "title_en": "Features added without proof of use",
-          "desc_fr": "Chaque fonction coûte du temps de construction et de maintenance, même si personne ne s'en sert.",
-          "desc_en": "Every feature costs build and maintenance time, even if nobody uses it.",
-          "fix_fr": "On construit une fonction quand l'usage mesuré la justifie.",
-          "fix_en": "A feature is built when measured usage justifies it."
-        }
-      ]
     },
     {
       "type": "method-stepline",
@@ -587,8 +541,8 @@
       "background": "paper-2",
       "kicker_fr": "§ Questions fréquentes",
       "kicker_en": "§ Frequently asked questions",
-      "h2_fr": "Ce que vous nous demandez",
-      "h2_en": "What you ask us",
+      "h2_fr": "Développement de MVP SaaS : vos questions",
+      "h2_en": "SaaS MVP development: your questions",
       "items": [
         {
           "q_fr": "C'est quoi un MVP SaaS ?",
@@ -605,8 +559,8 @@
         {
           "q_fr": "Quelle différence entre un MVP SaaS et un outil interne ?",
           "q_en": "What is the difference between a SaaS MVP and an internal tool?",
-          "a_fr": "Un outil interne sert votre équipe : il porte votre process et personne ne le paie. Un MVP SaaS s'adresse à un marché : des clients s'inscrivent, l'utilisent et le paient. Il faut alors des comptes séparés, un paiement et un tunnel d'inscription. Pour un outil d'équipe, voir l'application interne sur mesure.",
-          "a_en": "An internal tool serves your team: it carries your process and nobody pays for it. A SaaS MVP is aimed at a market: customers sign up, use it and pay for it. That calls for separate accounts, a payment and a sign-up funnel. For a team tool, see the bespoke internal application."
+          "a_fr": "Un outil interne sert votre équipe : il porte votre process et personne ne le paie. Un MVP SaaS s'adresse à un marché : des clients s'inscrivent, l'utilisent et le paient. Il faut alors des comptes séparés, un paiement et un tunnel d'inscription. Un outil réservé à votre équipe relève d'une application interne sur mesure.",
+          "a_en": "An internal tool serves your team: it carries your process and nobody pays for it. A SaaS MVP is aimed at a market: customers sign up, use it and pay for it. That calls for separate accounts, a payment and a sign-up funnel. A tool reserved for your team is a bespoke internal application."
         },
         {
           "q_fr": "Combien de temps faut-il pour sortir une v0 ?",
