@@ -56,6 +56,7 @@ for (const u of sitemap) {
   if (!u.loc.startsWith(SITE_ORIGIN)) err('origine', `${u.loc} n'est pas sur ${SITE_ORIGIN}`);
   // L'accueil suit son canonical (`https://waimia.com/`) ; les autres URL n'ont pas de slash final.
   if (u.pathname !== '/' && u.loc.endsWith('/')) err('forme', `${u.loc} porte un slash final`);
+  if (u.pathname === '/' && u.loc !== `${SITE_ORIGIN}/`) err('forme', `${u.loc} : l'accueil s'écrit ${SITE_ORIGIN}/, comme son canonical`);
   if (/[?#]/.test(u.loc)) err('forme', `${u.loc} contient une query ou un fragment`);
 
   const page = byPath.get(u.pathname);
@@ -67,7 +68,7 @@ for (const u of sitemap) {
   if (page.noindex) err('noindex', `${u.pathname} est noindex`);
   const expected = SITE_ORIGIN + (u.pathname === '/' ? '/' : u.pathname);
   if (!page.canonical) err('canonical', `${u.pathname} n'a pas de canonical`);
-  else if (page.canonical.replace(/\/$/, '') !== expected.replace(/\/$/, '')) {
+  else if (page.canonical !== expected) {
     err('canonical', `${u.pathname} a pour canonical ${page.canonical}`);
   }
   if (redirects) {
