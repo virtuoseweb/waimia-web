@@ -2,14 +2,17 @@
 // Organism · AuditHero · tête de /audit-ia-pme (hors catalogue).
 // Le visuel du hero EST le livrable : un extrait de la cartographie des tâches
 // (organism TaskMap, variant excerpt), pas une illustration décorative.
+// Le H1 est à l'échelle des autres pages (--text-h1) : il couvre les deux colonnes sur
+// desktop : dans la seule colonne de gauche, ses 70 caractères prendraient environ
+// 5 lignes (estimation, à mesurer) et pousseraient les CTA vers le bas de l'écran à 1440×900.
 import TaskMap from './TaskMap.astro';
 import { AUDIT_BOOKING_HREF } from '../../../../data/conversion';
 ---
 <section class="ah" aria-labelledby="ah-h1">
   <div class="wrap-wide ah-in">
+    <h1 class="ah-h1" id="ah-h1">Audit IA pour PME : 45&nbsp;minutes pour savoir quoi automatiser en premier</h1>
     <div class="ah-text">
-      <h1 class="ah-h1" id="ah-h1">Audit IA pour PME : 45 minutes pour savoir quoi automatiser en premier</h1>
-      <p class="ah-lede">On passe vos process en revue tâche par tâche, avec leur fréquence et leur durée. Vous repartez avec une cartographie écrite et un ou deux chantiers classés par priorité. L'audit IA d'entreprise est gratuit et mené par Simon Beros, consultant IA et ingénieur qui construirait la suite.</p>
+      <p class="ah-lede">On passe vos process en revue tâche par tâche, avec leur fréquence et leur durée. Vous repartez avec une cartographie écrite et un ou deux chantiers classés par priorité. L'audit IA d'entreprise est gratuit. Il est mené par Simon Beros, qui construirait la suite.</p>
       <div class="ah-cta">
         <a class="btn btn-primary btn-lg" href={AUDIT_BOOKING_HREF}>Choisir un créneau</a>
         <a class="btn btn-ghost btn-lg" href="#deroule">Voir le déroulé</a>
@@ -33,16 +36,18 @@ import { AUDIT_BOOKING_HREF } from '../../../../data/conversion';
   .ah-in {
     display: grid;
     grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-    gap: var(--space-9);
-    align-items: center;
+    column-gap: var(--space-9);
+    align-items: start;
   }
   .ah-h1 {
+    grid-column: 1 / -1;
+    max-width: 14em;
     font-family: var(--font-sans);
-    font-size: var(--text-h2);
-    line-height: 1.03;
+    font-size: var(--text-h1);
+    line-height: var(--leading-h1);
     letter-spacing: -0.028em;
     font-weight: var(--fw-semibold);
-    margin: 0 0 var(--space-5);
+    margin: 0 0 var(--space-7);
     text-wrap: balance;
   }
   .ah-lede {
@@ -68,7 +73,9 @@ import { AUDIT_BOOKING_HREF } from '../../../../data/conversion';
   .ah-doc-k { margin: 0 0 var(--space-3); font-size: var(--text-small); color: var(--muted); }
 
   @media (max-width: 1100px) {
-    .ah-in { grid-template-columns: 1fr; gap: var(--space-7); }
+    .ah-in { grid-template-columns: 1fr; }
+    .ah-h1 { margin-bottom: var(--space-5); }
+    .ah-doc { margin-top: var(--space-7); }
     .ah-facts { grid-template-columns: repeat(2, auto); gap: var(--space-4) var(--space-7); }
   }
   @media (max-width: 640px) {

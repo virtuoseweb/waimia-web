@@ -1,12 +1,13 @@
 ---
 /**
- * Section · CTA diagnostic
+ * Section · appel final de l'accueil
  *
- * M4 remplace le ton « working session » par un cadrage business-first :
- * diagnostic de 45 minutes, plan d'action concret, sans engagement.
+ * Appel final de l'accueil : audit de 45 minutes, un ou deux chantiers classés, sans engagement.
+ * La promesse vient de AUDIT_PROMISE (data/conversion.ts, source unique) ; le chapeau garde
+ * ce qui est propre à cette bande : l'ingénieur qui fera le travail, et on ne relance pas.
  */
 
-import { AUDIT_BOOKING_HREF } from '../../../data/conversion';
+import { AUDIT_BOOKING_HREF, AUDIT_PAGE_HREF, AUDIT_PROMISE } from '../../../data/conversion';
 import ChapterLabel from '../atoms/ChapterLabel.astro';
 import Button from '../atoms/Button.astro';
 import { langFromPath, localizeHref } from '../../../lib/i18n';
@@ -14,7 +15,8 @@ import { langFromPath, localizeHref } from '../../../lib/i18n';
 const lang = langFromPath(Astro.url.pathname);
 // Prise de rendez-vous : URL unique (la page contact porte le calendrier). /audit-ia-pme présente l'audit.
 const ctaHref = AUDIT_BOOKING_HREF;
-const auditHref = localizeHref('/audit-ia-pme', lang);
+const auditHref = localizeHref(AUDIT_PAGE_HREF, lang);
+const auditPromise = AUDIT_PROMISE.general.tiny[lang === 'fr' ? 'fr' : 'en'];
 ---
 <section id="act-5" class="book-session scale-in on-dark" aria-labelledby="book-h2">
   <div class="wrap-wide book-inner">
@@ -35,8 +37,8 @@ const auditHref = localizeHref('/audit-ia-pme', lang);
 
     <p class="book-lede u-serif">
       {lang === 'fr'
-        ? "Un audit gratuit, en visio, avec l'ingénieur qui fera le travail. On passe vos processus en revue et on repère trois automatisations rentables. Si rien ne vaut le coup, on vous le dit, et on ne relance pas."
-        : "A free audit, on a call, with the engineer who will do the work. We review your processes and spot three profitable automations. If nothing is worth it, we tell you, and we don't follow up."}
+        ? "Un échange en visio avec l'ingénieur qui fera le travail. On passe vos processus en revue, tâche par tâche, sans engagement. Si rien ne vaut le coup, on vous le dit, et on ne relance pas."
+        : "A video call with the engineer who will do the work. We go through your processes task by task, with no commitment. If nothing is worth it, we tell you, and we don't follow up."}
     </p>
 
     <div class="book-ctas reveal-snap">
@@ -47,8 +49,8 @@ const auditHref = localizeHref('/audit-ia-pme', lang);
 
     <p class="book-sub">
       {lang === 'fr'
-        ? <>Audit <i>gratuit</i> · 45 min · sans engagement. <a href={auditHref}>En savoir plus sur l'audit</a></>
-        : <>Free <i>audit</i> · 45 min · no commitment. <a href={auditHref}>More about the audit</a></>}
+        ? <>{auditPromise}{' '}<a href={auditHref}>En savoir plus sur l'audit</a></>
+        : <>{auditPromise}{' '}<a href={auditHref}>More about the audit</a></>}
     </p>
   </div>
 </section>
@@ -73,7 +75,6 @@ const auditHref = localizeHref('/audit-ia-pme', lang);
 
   .book-sub a{color:var(--paper);text-decoration:underline;text-decoration-color:var(--hairline);text-underline-offset:.25em}
   .book-sub a:hover{color:var(--accent-text)}
-  /* Sub-CTA · réassurance · serif italique terracotta sur les mots clés */
+  /* Sub-CTA · réassurance · promesse canonique de l'audit, sans italique (décision 10) */
   .book-sub{margin:var(--space-5) auto 0;font-family:var(--font-sans);font-size:var(--text-small);line-height:var(--leading-body);color:var(--muted);max-width:560px}
-  .book-sub i{font-style:italic;color:var(--accent-text)}
 </style>

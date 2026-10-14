@@ -1,12 +1,12 @@
 {
   "$schema": "../../schemas/generated/cas-usages.page.schema.json",
-  "title_fr": "Automatiser les tâches administratives d'une PME · Waimia",
-  "title_en": "Automating an SMB's administrative tasks · Waimia",
-  "description_fr": "Automatiser l'administratif en PME : dossiers clients, factures, onboarding, RH. D'abord écrire le process, ensuite l'automatiser. Exemple type et limites.",
-  "description_en": "Automating admin in an SMB: client files, invoices, onboarding, HR. First write the process, then automate it. Typical example and limits.",
+  "title_fr": "Standardiser et automatiser l'administratif en PME · Waimia",
+  "title_en": "Standardizing and automating SMB admin · Waimia",
+  "description_fr": "Standardiser puis automatiser l'administratif en PME : dossiers clients, factures, onboarding, RH. Écrire le process, puis l'automatiser. Exemple et limites.",
+  "description_en": "Standardizing then automating admin in an SMB: client files, invoices, onboarding, HR. First write the process, then automate it. Typical example and limits.",
   "slug": "standardiser-processus",
   "publishedAt": "2026-06-26T00:00:00.000Z",
-  "updatedAt": "2026-10-04T00:00:00.000Z",
+  "updatedAt": "2026-10-14T00:00:00.000Z",
   "category": "automatisation",
   "tags": [
     "standardiser-processus",
@@ -21,7 +21,7 @@
   "faq_fr": [
     {
       "q": "Quelles tâches administratives peut-on automatiser en PME ?",
-      "a": "L'ouverture de dossiers, le classement et la pré-saisie des factures, la génération de documents types, l'accueil d'un nouveau salarié, les relances de pièces manquantes. Le critère : une tâche fréquente, aux règles stables, où l'erreur coûte."
+      "a": "Celles qui reviennent souvent, suivent des règles stables et coûtent cher quand on se trompe : l'ouverture de dossiers, les pièces entrantes, l'accueil d'un salarié et les relances internes."
     },
     {
       "q": "Peut-on automatiser la comptabilité avec l'IA ?",
@@ -43,7 +43,7 @@
   "faq_en": [
     {
       "q": "Which administrative tasks can an SMB automate?",
-      "a": "File opening, invoice filing and pre-entry, template document generation, new-hire onboarding, chasing missing documents. The criterion: a frequent task with stable rules where an error costs something."
+      "a": "Those that come back often, follow stable rules and are costly to get wrong: opening files, incoming documents, onboarding an employee and internal reminders."
     },
     {
       "q": "Can accounting be automated with AI?",
@@ -71,12 +71,12 @@
       "media_alt_en": "Illustration: know-how formalised into method, constant quality no longer depending on people",
       "kicker_fr": "§ Cas d'usage · fonction administrative",
       "kicker_en": "§ Use case · administrative function",
-      "h1_fr": "Automatiser les tâches <i class=\"acc\">administratives</i>",
-      "h1_en": "Automating <i class=\"acc\">administrative</i> tasks",
+      "h1_fr": "Standardiser et automatiser les tâches <i class=\"acc\">administratives</i>",
+      "h1_en": "Standardizing and automating <i class=\"acc\">administrative</i> tasks",
       "definition_kicker_fr": "En une phrase",
       "definition_kicker_en": "In one sentence",
-      "lede_fr": "Automatiser l'administratif, c'est écrire une fois pour toutes la façon dont un dossier est ouvert, une facture traitée ou un nouveau salarié accueilli, puis confier les étapes mécaniques à un workflow. Ce cas d'usage concerne les PME où ces procédures existent surtout dans la tête d'une ou deux personnes.",
-      "lede_en": "Automating admin means writing down once and for all how a file is opened, an invoice processed or a new hire onboarded, then handing the mechanical steps to a workflow. This use case concerns SMBs where these procedures mostly live in one or two people's heads.",
+      "lede_fr": "Standardiser l'administratif, c'est écrire une fois pour toutes la façon dont un dossier est ouvert, une facture traitée ou un nouveau salarié accueilli. L'automatiser, c'est ensuite confier les étapes mécaniques à un workflow. Ce cas d'usage concerne les PME où ces procédures existent surtout dans la tête d'une ou deux personnes.",
+      "lede_en": "Standardizing admin means writing down once and for all how a file is opened, an invoice processed or a new hire onboarded. Automating it then means handing the mechanical steps to a workflow. This use case concerns SMBs where these procedures mostly live in one or two people's heads.",
       "badges": [
         {
           "label_fr": "Dossiers clients",
@@ -108,8 +108,8 @@
       "type": "editorial-prose",
       "background": "paper-2",
       "maxWidth": "prose",
-      "html_fr": "<h2>Le problème, vu de l'intérieur</h2>\n<p>Dans une PME, l'administratif repose sur des habitudes. L'ouverture d'un dossier client suit douze étapes que seule l'assistante de direction connaît dans l'ordre. Les factures fournisseurs sont saisies par la personne qui a toujours fait ainsi. Quand elle est absente, les tâches attendent ou sont faites autrement. Le coût n'apparaît nulle part : il se loge dans les oublis, les retards et le temps passé à redemander une information.</p>\n<h2>Ce qui s'automatise bien</h2>\n<p>Quatre familles de tâches. L'ouverture d'un dossier : création des dossiers, des accès, des documents types et des tâches à partir d'un seul formulaire. Les pièces entrantes : factures, bons de commande et justificatifs lus par une étape IA, classés et pré-saisis pour validation. L'accueil d'un salarié : comptes, matériel, documents à signer, rappels aux échéances. Les relances internes : notes de frais, feuilles de temps, pièces manquantes.</p>\n<p>Chacune se traite avec une <a href=\"/services/automatisations\">automatisation de processus</a>, le plus souvent sur <a href=\"/services/automatisation-n8n\">n8n</a>. Quand la tâche demande de lire et d'interpréter un document, on ajoute un <a href=\"/services/agents-ia\">agent IA</a>.</p>\n<h2>L'ordre compte : écrire avant d'automatiser</h2>\n<p>On ne peut pas automatiser un process que personne ne décrit de la même façon. La première étape est donc de l'écrire avec la personne qui le fait : les étapes réelles, les exceptions, les contournements. On en profite pour supprimer ce qui ne sert plus. La procédure écrite a de la valeur seule : elle permet à quelqu'un d'autre de prendre le relais.</p>\n<h2>Les limites</h2>\n<p>Ce qui relève d'un arbitrage reste humain : valider un paiement, accorder une exception, traiter un litige. Les logiciels comptables ou de paie fermés, sans API, limitent ce qu'on peut brancher : on le vérifie avant de chiffrer. Et un process qui change tous les mois n'est pas un bon candidat.</p>\n<p>Pour classer vos tâches administratives par temps consommé, l'<a href=\"/audit-ia-pme\">audit IA gratuit</a> est le point de départ. Le <a href=\"/ressources/outils/calculateur-roi-ia\">calculateur de ROI</a> donne un ordre de grandeur à partir de vos propres chiffres.</p>",
-      "html_en": "<h2>The problem, from the inside</h2>\n<p>In an SMB, admin runs on habit. Opening a client file follows twelve steps only the executive assistant knows in order. Supplier invoices are entered by the person who has always done it that way. When she is away, tasks wait or are done differently. The cost shows nowhere: it sits in omissions, delays and time spent asking for information again.</p>\n<h2>What automates well</h2>\n<p>Four families of tasks. Opening a file: folders, access, template documents and tasks created from a single form. Incoming documents: invoices, purchase orders and receipts read by an AI step, filed and pre-entered for approval. Onboarding an employee: accounts, equipment, documents to sign, reminders at deadlines. Internal reminders: expense reports, timesheets, missing documents.</p>\n<p>Each is handled with <a href=\"/services/automatisations\">process automation</a>, most often on <a href=\"/services/automatisation-n8n\">n8n</a>. When the task requires reading and interpreting a document, we add an <a href=\"/services/agents-ia\">AI agent</a>.</p>\n<h2>Order matters: write before automating</h2>\n<p>You cannot automate a process nobody describes the same way. The first step is to write it with the person who does it: real steps, exceptions, workarounds. We take the chance to remove what no longer serves. The written procedure has value on its own: it lets someone else take over.</p>\n<h2>The limits</h2>\n<p>What requires a judgement call stays human: approving a payment, granting an exception, handling a dispute. Closed accounting or payroll software, with no API, limits what can be connected: we check before quoting. And a process that changes every month is not a good candidate.</p>\n<p>To rank your admin tasks by time consumed, the <a href=\"/audit-ia-pme\">free AI audit</a> is the starting point. The <a href=\"/ressources/outils/calculateur-roi-ia\">ROI calculator</a> gives an order of magnitude from your own figures.</p>"
+      "html_fr": "<h2>Le problème, vu de l'intérieur</h2>\n<p>Dans une PME, l'administratif repose sur des habitudes. Dans l'exemple plus bas, l'ouverture d'un dossier client suit douze étapes que seule l'assistante de direction connaît dans l'ordre. Les factures fournisseurs sont saisies par la personne qui a toujours fait ainsi. Quand elle est absente, les tâches attendent ou sont faites autrement. Le coût n'apparaît nulle part : il se loge dans les oublis, les retards et le temps passé à redemander une information.</p>\n<h2>Ce qui s'automatise bien</h2>\n<p>Quatre familles de tâches. L'ouverture d'un dossier : création des dossiers, des accès, des documents types et des tâches à partir d'un seul formulaire. Les pièces entrantes : factures, bons de commande et justificatifs lus par une étape IA, classés et pré-saisis pour validation. L'accueil d'un salarié : comptes, matériel, documents à signer, rappels aux échéances. Les relances internes : notes de frais, feuilles de temps, pièces manquantes.</p>\n<p>Chacune se traite avec une <a href=\"/services/automatisations\">automatisation de processus</a>, le plus souvent sur <a href=\"/services/automatisation-n8n\">n8n</a>. Quand la tâche demande de lire et d'interpréter un document, on ajoute un <a href=\"/services/agents-ia\">agent IA</a>.</p>\n<h2>L'ordre compte : écrire avant d'automatiser</h2>\n<p>La première étape est d'écrire le process avec la personne qui le fait : les étapes réelles, les exceptions, les contournements. On en profite pour supprimer ce qui ne sert plus. La procédure écrite a de la valeur seule : elle permet à quelqu'un d'autre de prendre le relais.</p>\n<h2>Les limites</h2>\n<p>Ce qui relève d'un arbitrage reste humain : valider un paiement, accorder une exception, traiter un litige. Les logiciels comptables ou de paie fermés, sans API, limitent ce qu'on peut brancher : on le vérifie avant le devis. Et un process qui change tous les mois n'est pas un bon candidat.</p>\n<p>Pour classer vos tâches administratives par temps consommé, l'<a href=\"/audit-ia-pme\">audit IA gratuit</a> est le point de départ. Le <a href=\"/ressources/outils/calculateur-roi-ia\">calculateur de ROI</a> donne un ordre de grandeur à partir de vos propres données.</p>",
+      "html_en": "<h2>The problem, from the inside</h2>\n<p>In an SMB, admin runs on habit. In the example below, opening a client file follows twelve steps only the executive assistant knows in order. Supplier invoices are entered by the person who has always done it that way. When she is away, tasks wait or are done differently. The cost shows nowhere: it sits in omissions, delays and time spent asking for information again.</p>\n<h2>What automates well</h2>\n<p>Four families of tasks. Opening a file: folders, access, template documents and tasks created from a single form. Incoming documents: invoices, purchase orders and receipts read by an AI step, filed and pre-entered for approval. Onboarding an employee: accounts, equipment, documents to sign, reminders at deadlines. Internal reminders: expense reports, timesheets, missing documents.</p>\n<p>Each is handled with <a href=\"/services/automatisations\">process automation</a>, most often on <a href=\"/services/automatisation-n8n\">n8n</a>. When the task requires reading and interpreting a document, we add an <a href=\"/services/agents-ia\">AI agent</a>.</p>\n<h2>Order matters: write before automating</h2>\n<p>The first step is to write the process with the person who does it: real steps, exceptions, workarounds. We take the chance to remove what no longer serves. The written procedure has value on its own: it lets someone else take over.</p>\n<h2>The limits</h2>\n<p>What requires a judgement call stays human: approving a payment, granting an exception, handling a dispute. Closed accounting or payroll software, with no API, limits what can be connected: we check before quoting. And a process that changes every month is not a good candidate.</p>\n<p>To rank your admin tasks by time consumed, the <a href=\"/audit-ia-pme\">free AI audit</a> is the starting point. The <a href=\"/ressources/outils/calculateur-roi-ia\">ROI calculator</a> gives an order of magnitude from your own data.</p>"
     },
     {
       "type": "comparison-duo",
@@ -176,7 +176,7 @@
       "role_en": "Founder of Waimia · AI and automation engineer",
       "profileHref": "/equipe/simon-beros",
       "publishedDate": "26 juin 2026",
-      "updatedDate": "4 octobre 2026"
+      "updatedDate": "14 octobre 2026"
     },
     {
       "type": "related-cards-band",
@@ -223,9 +223,9 @@
       "items": [
         {
           "q_fr": "Quelles tâches administratives peut-on automatiser en PME ?",
-          "a_fr": "L'ouverture de dossiers, le classement et la pré-saisie des factures, la génération de documents types, l'accueil d'un nouveau salarié, les relances de pièces manquantes. Le critère : une tâche fréquente, aux règles stables, où l'erreur coûte.",
+          "a_fr": "Celles qui reviennent souvent, suivent des règles stables et coûtent cher quand on se trompe : l'ouverture de dossiers, les pièces entrantes, l'accueil d'un salarié et les relances internes.",
           "q_en": "Which administrative tasks can an SMB automate?",
-          "a_en": "File opening, invoice filing and pre-entry, template document generation, new-hire onboarding, chasing missing documents. The criterion: a frequent task with stable rules where an error costs something."
+          "a_en": "Those that come back often, follow stable rules and are costly to get wrong: opening files, incoming documents, onboarding an employee and internal reminders."
         },
         {
           "q_fr": "Peut-on automatiser la comptabilité avec l'IA ?",
@@ -261,8 +261,8 @@
       "kicker_en": "§ Free AI audit",
       "h2_fr": "Quelle procédure ne tient que sur une personne ?",
       "h2_en": "Which procedure depends on a single person?",
-      "subtitle_fr": "En 45 minutes, on liste vos tâches administratives récurrentes et on repère celles qui méritent d'être écrites, puis automatisées.",
-      "subtitle_en": "In 45 minutes, we list your recurring admin tasks and spot those worth writing down, then automating.",
+      "subtitle_fr": "En 45 minutes, on liste vos tâches administratives récurrentes et on repère celles qui méritent d'être écrites, puis automatisées. Gratuit et sans engagement : vous repartez avec une cartographie écrite et un ou deux chantiers classés.",
+      "subtitle_en": "In 45 minutes, we list your recurring admin tasks and spot those worth writing down, then automating. Free, no commitment: you leave with a written task map and one or two ranked projects.",
       "buttons": [
         {
           "label_fr": "Réserver un audit IA gratuit →",

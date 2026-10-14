@@ -48,7 +48,7 @@ export const AUDIT_PROMISE = {
   },
   /** Méta description de /audit-ia-pme (166 caractères, plafond 175). */
   meta: {
-    fr: "Audit IA entreprise de 45 min pour PME et ETI : process, site web ou logiciel passés en revue, cartographie écrite, un ou deux chantiers classés. Gratuit, en visio.",
+    fr: "Audit IA entreprise de 45 min pour PME et ETI : process, site ou logiciel passés en revue, cartographie écrite, un ou deux chantiers classés. Gratuit, en visio.",
     en: '45-min AI audit for SMBs: processes, website or software reviewed, a written map and one or two ranked projects. Free, by video call.',
   },
 } as const;
@@ -66,7 +66,7 @@ export const KIT_CONFORMITE_CLAUDE_HREF = '/ressources/outils/kit-conformite-cla
 /** Objets de demande proposés dans le formulaire de contact (`subject`). */
 export const CONTACT_SUBJECTS = [
   { value: 'audit', label: 'Audit IA gratuit (45 min)' },
-  { value: 'projet', label: 'Un projet : automatisation, agent IA, application métier' },
+  { value: 'projet', label: 'Un projet : site web, automatisation, agent IA, application métier' },
   { value: 'formation', label: 'Une formation IA ou automatisation' },
   { value: 'autre', label: 'Autre demande' },
 ] as const;
