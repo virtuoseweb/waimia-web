@@ -48,7 +48,7 @@ export const AUDIT_PROMISE = {
   },
   /** Méta description de /audit-ia-pme (166 caractères, plafond 175). */
   meta: {
-    fr: "Audit IA d'entreprise de 45 min pour PME et ETI : process, site web ou logiciel passés en revue, cartographie écrite, un ou deux chantiers classés. Gratuit, en visio.",
+    fr: "Audit IA entreprise de 45 min pour PME et ETI : process, site web ou logiciel passés en revue, cartographie écrite, un ou deux chantiers classés. Gratuit, en visio.",
     en: '45-min AI audit for SMBs: processes, website or software reviewed, a written map and one or two ranked projects. Free, by video call.',
   },
 } as const;
