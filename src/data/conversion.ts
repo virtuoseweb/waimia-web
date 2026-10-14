@@ -66,7 +66,7 @@ export const KIT_CONFORMITE_CLAUDE_HREF = '/ressources/outils/kit-conformite-cla
 /** Objets de demande proposés dans le formulaire de contact (`subject`). */
 export const CONTACT_SUBJECTS = [
   { value: 'audit', label: 'Audit IA gratuit (45 min)' },
-  { value: 'projet', label: 'Un projet : automatisation, agent IA, application métier' },
+  { value: 'projet', label: 'Un projet : site web, automatisation, agent IA, application métier' },
   { value: 'formation', label: 'Une formation IA ou automatisation' },
   { value: 'autre', label: 'Autre demande' },
 ] as const;
