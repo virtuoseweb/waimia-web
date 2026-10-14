@@ -64,6 +64,15 @@ Le rôle fixe modèle et effort (socle Claude ou Codex).
 - `analyst` : contenu JSON, SEO/GEO, rédaction, audit écrit ; `explorer` : cartographie du catalogue.
 - Workflows `.claude/workflows/` : 3 workers lourds (build, navigateur) simultanés au plus.
 
+## Pilotage et ressources
+
+- L'orchestrateur coordonne et intègre ; chaque worker est lancé par rôle (tableau ci-dessus) avec un modèle explicite.
+- 3 workers lourds au plus ; un build ou une suite lourde à la fois (`scripts/claude/crochet-ressources.mjs` refuse le second ; échappatoire `WAIMIA_LOURD_OK=1` sur demande de Simon).
+- Un worker ne builde pas : il prouve sans build, rend la main, et le parent construit une fois.
+- Un seul navigateur à la fois ; servir le build (`scripts/serve-dist.mjs`), jamais le dev.
+- Procédures récurrentes en skills (`/nom` côté Claude, `$nom` côté Codex) : `ecrire-un-brief`, `integrer-un-lot`,
+  `prouver-une-page`, `optimiser-une-page-seo`, `lire-un-gros-volume`. Épreuve des crochets : `npm run test:claude-hooks`.
+
 ## Leçons actives
 
 Une leçon nouvelle remplace ou ajoute une ligne ici (20 maximum) ; une leçon devenue garde-fou outillé est retirée. Historique : `docs/archive/lessons-2026-06-09.md`.
@@ -89,7 +98,7 @@ SEO et redirections
 
 - Avant d'ajouter un builder JSON-LD : compter `"@type"` dans le HTML rendu ; `FaqAccordion` et `Breadcrumb` émettent déjà le leur.
 - Supprimer ou renommer des pages : `rg` des liens entrants dans tout le dépôt ; 301 seulement si la page était en prod ; les prouver dans `.vercel/output/config.json`.
-- Brief de page : donner les plafonds de `src/schemas/sections.ts` (`description` ≤175) et une green-list d'URLs vérifiées dans `dist/`.
+- Brief de page : donner les plafonds de `packages/ds-kernel/src/schemas/sections.ts` (`description` ≤175) et une green-list d'URLs vérifiées dans `dist/`.
 
 Workers et git
 
