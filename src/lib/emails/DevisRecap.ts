@@ -9,6 +9,7 @@ import {
   buttonLinkStyle,
   ACCENT,
 } from "./_layout";
+import { AUDIT_BOOKING_HREF, AUDIT_PROMISE } from "../../data/conversion";
 import { SITE } from "../../site.config";
 
 interface Props {
@@ -41,7 +42,7 @@ export default function DevisRecap({
 
   const content =
     `<h1 style="${h1Style}">Devis reçu, ${fn}.</h1>` +
-    `<p style="${pStyle}">Voici le récapitulatif de votre demande. Notre équipe revient vers vous sous 24h ouvrées avec un audit gratuit de 10 jours en option (préalable à tout devis ferme).</p>` +
+    `<p style="${pStyle}">Voici le récapitulatif de votre demande. Notre équipe revient vers vous sous 24h ouvrées. L'audit est préalable à tout devis ferme. ${AUDIT_PROMISE.general.short.fr}</p>` +
     `<div style="background:#EFEAE0;padding:22px;border-radius:8px;margin:20px 0;">` +
     `<p style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:${ACCENT};margin:0 0 6px;">Référence · ${refSafe}</p>` +
     `<p style="${pStyle}margin:0 0 14px;font-weight:500;font-size:18px;">${offerSafe}</p>` +
@@ -49,7 +50,7 @@ export default function DevisRecap({
     `<p style="${pStyle}margin:0;font-style:italic;">« ${briefSafe} »</p>` +
     `</div>` +
     `<div style="text-align:center;padding:12px 0 24px;">` +
-    `<a href="${SITE.url}/contact" style="${buttonLinkStyle}">Réserver l'audit 10 jours →</a>` +
+    `<a href="${SITE.url}${AUDIT_BOOKING_HREF}" style="${buttonLinkStyle}">Réserver l'audit de 45 minutes →</a>` +
     `</div>` +
     `<p style="${mutedStyle}">Tous les chiffres sont indicatifs. Devis ferme après audit. Pas de frais cachés.</p>`;
 
