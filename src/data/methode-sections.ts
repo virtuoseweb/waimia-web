@@ -5,16 +5,17 @@
 // dans cet ordre : audit, pilote, mesure, transfert. Un ingénieur travaille avec les équipes
 // métier, sur leurs outils et leurs données (forward deployed engineer).
 // Les étapes alimentent la Timeline ET le JSON-LD HowTo de la page (source unique).
-// Retirée : la bande « impact » (5 jours / 2 semaines / 100 %), promesses chiffrées non
+// Retirée : la bande « impact » (5 jours / 2 semaines / 100 %), promesses en nombres non
 // vérifiables et contradictoires avec l'audit de 45 minutes.
 import type { SectionByType } from '@waimia/ds-kernel';
+import { AUDIT_PROMISE } from './conversion';
 
 // ── Quatre étapes · source unique (Timeline + JSON-LD HowTo) ──
 export const phases = [
   {
     n: '01',
     label_fr: 'Audit',
-    body_fr: "Quarante-cinq minutes en visio, gratuites. On regarde vos processus réels, pas vos présentations : qui fait quoi, dans quel outil, avec quelle donnée. On repère trois automatisations rentables et on vous dit par laquelle commencer. Si rien ne vaut le coup aujourd'hui, on vous le dit aussi.",
+    body_fr: `${AUDIT_PROMISE.general.short.fr} On regarde vos processus réels, pas vos présentations : qui fait quoi, dans quel outil, avec quelle donnée. On vous dit par quel chantier commencer et, si rien ne vaut le coup aujourd'hui, on vous le dit aussi.`,
   },
   {
     n: '02',

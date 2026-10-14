@@ -15,6 +15,7 @@ import Base from '../../layouts/Base.astro';
 import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
 import MastheadBar from '../../components/sections/MastheadBar.astro';
 import { langFromPath } from '../../lib/i18n';
+import { AUDIT_PROMISE } from '../../data/conversion';
 import type { SectionData } from '@waimia/ds-kernel';
 
 // Tableau partagé (bilingue) — exporté pour le miroir EN.
@@ -43,8 +44,8 @@ export const agenceSections: SectionData[] = [
     type: 'manifesto-statement',
     kicker_fr: '§ La conviction',
     kicker_en: '§ The conviction',
-    text_fr: 'La plupart des projets IA livrent des démonstrations, pas des systèmes. Le studio fait l&rsquo;inverse : il met <span class="acc">en production</span>, mesure, puis remet le code. Le goulot n&rsquo;est presque jamais le modèle. Ce sont les données, les règles, et l&rsquo;humain qui sait quand débrancher.',
-    text_en: 'Most AI projects ship demos, not systems. The studio does the opposite: it ships <span class="acc">to production</span>, measures, then hands over the code. The bottleneck is almost never the model. It is the data, the rules, and the human who knows when to unplug.',
+    text_fr: 'La plupart des projets IA livrent des démonstrations, pas des systèmes. Le studio fait l&rsquo;inverse : il met <span class="acc">en production</span>, mesure, puis remet le code.',
+    text_en: 'Most AI projects ship demos, not systems. The studio does the opposite: it ships <span class="acc">to production</span>, measures, then hands over the code.',
     tone: 'ink',
     show_grid: true,
     pinned: true,
@@ -58,10 +59,10 @@ export const agenceSections: SectionData[] = [
     kicker_en: '§ The method',
     h2_fr: 'Audit, pilote, mesure, transfert.',
     h2_en: 'Audit, pilot, measure, handover.',
-    lede_fr: "Quatre étapes, toujours dans cet ordre. L'ingénieur travaille avec vos équipes métier, sur vos outils et vos données : c'est ce qu'on appelle ailleurs un forward deployed engineer.",
-    lede_en: 'Four steps, always in this order. The engineer works with your business teams, on your tools and your data: what is elsewhere called a forward deployed engineer.',
+    lede_fr: "Chaque mission suit ces étapes. L'ingénieur travaille avec vos équipes métier, sur vos outils et vos données : c'est ce qu'on appelle ailleurs un forward deployed engineer.",
+    lede_en: 'Every engagement follows these steps. The engineer works with your business teams, on your tools and your data: what is elsewhere called a forward deployed engineer.',
     steps: [
-      { num: '01', label_fr: 'Audit', label_en: 'Audit', body_fr: 'Quarante-cinq minutes, gratuites. On regarde vos processus réels et on repère trois automatisations rentables.', body_en: 'Forty-five minutes, free. We look at your real processes and spot three profitable automations.' },
+      { num: '01', label_fr: 'Audit', label_en: 'Audit', body_fr: `On regarde vos processus réels, tâche par tâche. ${AUDIT_PROMISE.general.tiny.fr}`, body_en: `We look at your real processes, task by task. ${AUDIT_PROMISE.general.tiny.en}` },
       { num: '02', label_fr: 'Pilote', label_en: 'Pilot', body_fr: 'Un premier système en production, branché à vos outils : Excel, HubSpot, votre ERP. Pas de migration imposée.', body_en: 'A first system in production, connected to your tools: Excel, HubSpot, your ERP. No forced migration.' },
       { num: '03', label_fr: 'Mesure', label_en: 'Measure', body_fr: 'Chaque workflow a sa mesure avant et après, relevée sur vos données. Sans mesure, on ne peut pas décider d’étendre.', body_en: 'Every workflow has its before and after measurement, recorded on your data. Without it, there is no basis to extend.' },
       { num: '04', label_fr: 'Transfert', label_en: 'Handover', body_fr: 'Le code, les workflows et la documentation sont à vous. Vos équipes sont formées pour continuer sans le studio.', body_en: 'The code, the workflows and the documentation are yours. Your teams are trained to carry on without the studio.' },
@@ -117,8 +118,8 @@ export const agenceSections: SectionData[] = [
     kicker_en: '§ Origin',
     h2_fr: "Née d'une <i>frustration</i> de chantier",
     h2_en: 'Born from a <i>delivery</i> frustration',
-    body_fr: "Waimia part d'une observation répétée : un prototype IA passe en comité, impressionne en démonstration, puis s'arrête avant la production. Le studio prend le problème par l'autre bout. Simon Beros vient du développement web et de l'intégration : il construit et pilote chaque mission lui-même, sans agence relais ni chargé de compte. Waimia a commencé par des sites et du marketing ; le métier est aujourd'hui l'automatisation, les agents IA et les applications métier. Le site web reste un outil parmi d'autres.",
-    body_en: 'Waimia starts from a recurring observation: an AI prototype clears committee, impresses in a demo, then stops before production. The studio takes the problem from the other end. Simon Beros comes from web development and integration: he builds and runs every engagement himself, with no relay agency or account manager. Waimia began with websites and marketing; the job today is automation, AI agents and business applications. The website remains one tool among others.',
+    body_fr: "Waimia part d'une observation répétée : un prototype IA passe en comité, impressionne en démonstration, puis s'arrête avant la production. Le studio prend le problème par l'autre bout. Simon Beros vient du développement web et de l'intégration : il construit et pilote chaque mission lui-même, sans agence relais ni chargé de compte. Waimia a commencé par des sites et du marketing ; le studio fait aujourd'hui de l'automatisation, des agents IA, des applications métier et des sites web.",
+    body_en: 'Waimia starts from a recurring observation: an AI prototype clears committee, impresses in a demo, then stops before production. The studio takes the problem from the other end. Simon Beros comes from web development and integration: he builds and runs every engagement himself, with no relay agency or account manager. Waimia began with websites and marketing; today the studio does automation, AI agents, business applications and websites.',
     points: [
       { label_fr: 'Studio solo · Simon Beros, fondateur', label_en: 'Solo studio · Simon Beros, founder' },
       { label_fr: 'Bordeaux · missions à distance (Bordeaux, Montpellier, Lyon, Paris)', label_en: 'Bordeaux · remote engagements (Bordeaux, Montpellier, Lyon, Paris)' },
@@ -143,7 +144,7 @@ export const agenceSections: SectionData[] = [
     specs: [
       { label_fr: 'Forme', label_en: 'Structure', value: 'Studio solo · Waimia / VirtuoseWeb' },
       { label_fr: 'Fondateur', label_en: 'Founder', value: 'Simon Beros' },
-      { label_fr: 'Métier', label_en: 'Trade', value: 'Automatisation, agents IA, applications métier, conseil et formation' },
+      { label_fr: 'Métier', label_en: 'Trade', value: 'Automatisation, agents IA, applications métier, sites web, conseil et formation' },
       { label_fr: 'Clients', label_en: 'Clients', value: 'PME et ETI françaises · 10 à 250 collaborateurs' },
       { label_fr: 'Ancrage', label_en: 'Based in', value: 'Bordeaux (FR) · missions à distance : Bordeaux, Montpellier, Lyon, Paris' },
       { label_fr: 'Formation', label_en: 'Training', value: 'Formations dispensées via Akigora, organisme certifié Qualiopi' },
