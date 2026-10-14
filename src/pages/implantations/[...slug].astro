@@ -68,8 +68,8 @@ const articleLd = buildArticle({
 // FAQPage JSON-LD émis une seule fois par la section catalogue `faq-accordion`
 // (source canonique, cf docs/audits #56). La page ne le duplique plus ici.
 // Entité locale. Ville du siège : ProfessionalService avec son adresse postale (fiche Google
-// réelle). Autres villes desservies : aucun bureau, donc aucune adresse ; ProfessionalService
-// rattaché à l'Organization avec `areaServed` = la ville.
+// réelle). Autres villes desservies : aucun bureau, donc aucune adresse ; Service fourni par
+// l'Organization (`provider`) avec `areaServed` = la ville et la description de la page.
 const slugify = (v: string) => v.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-');
 const servedCity = AREA_SERVED.find((a) => a['@type'] === 'City' && slugify(String(a.name)) === entry.id);
 const localLd =
