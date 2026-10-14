@@ -33,7 +33,7 @@ const ctaSecondary = data.cta_secondary;
 const illustration = data.illustration;
 const illusSide = illustration?.side ?? 'right';
 // Lede seul (ni question `definition_kicker`, ni `subtitle`) : il porte tout l'appui du
-// titre, donc il passe en registre de lecture (cf .hsm-lede--solo). 56 instances sur 77.
+// titre, donc il passe en registre de lecture (cf .hsm-lede--solo).
 const soloLede = !definitionKicker && !subtitle;
 ---
 <section class:list={['hsm', illustration && `hsm--illus hsm--illus-${illusSide}`]} data-bg={data.background === 'ink' ? 'ink' : undefined}>
