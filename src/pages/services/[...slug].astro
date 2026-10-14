@@ -42,6 +42,28 @@ if (!Array.isArray(data.sections) || data.sections.length === 0) {
   throw new Error(`services/${entry.id} : frontmatter \`sections:\` requis (page service composable, anti-orphelin)`);
 }
 
+// Sources déclarées au frontmatter : rendues en section `editorial-prose` (type catalogué),
+// juste avant `footer-cta-band`. Garde anti-doublon : une section qui porte déjà un
+// `<h2>Sources…` (liste écrite à la main) reste telle quelle.
+const escHtml = (v: string) =>
+  v.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+const sourcesList = (data.sources ?? [])
+  .map((s) => `<li><a href="${escHtml(s.url)}" rel="noopener" target="_blank">${escHtml(s.name)}</a></li>`)
+  .join('');
+const hasManualSources = data.sections!.some((s) =>
+  [(s as { html_fr?: unknown }).html_fr, (s as { html_en?: unknown }).html_en].some(
+    (h) => typeof h === 'string' && /<h2[^>]*>\s*Sources/i.test(h),
+  ),
+);
+const sectionsWithSources: typeof data.sections = (() => {
+  const base = data.sections!;
+  if (sourcesList === '' || hasManualSources) return base;
+  const html = `<h2 id="sources">Sources</h2><ul>${sourcesList}</ul>`;
+  const block = { type: 'editorial-prose', background: 'paper', html_fr: html, html_en: html } as (typeof base)[number];
+  const at = base.findIndex((s) => s.type === 'footer-cta-band');
+  return at === -1 ? [...base, block] : [...base.slice(0, at), block, ...base.slice(at)];
+})();
+
 // JSON-LD métier · Service (GEO/AIO). BreadcrumbList émis par le composant <Breadcrumb>.
 // Le FAQPage JSON-LD est émis UNE seule fois par la section catalogue `faq-accordion`
 // (source canonique, cf docs/audits #56). La page ne le duplique plus ici.
@@ -71,5 +93,5 @@ const pageLd = [serviceLd];
       { label: title.split(' · ')[0] },
     ]}
   />
-  <SectionsRenderer sections={data.sections!} lang={lang} />
+  <SectionsRenderer sections={sectionsWithSources!} lang={lang} />
 </Base>
