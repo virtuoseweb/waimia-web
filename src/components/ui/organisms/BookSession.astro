@@ -49,8 +49,8 @@ const auditPromise = AUDIT_PROMISE.general.tiny[lang === 'fr' ? 'fr' : 'en'];
 
     <p class="book-sub">
       {lang === 'fr'
-        ? <>{auditPromise} <a href={auditHref}>En savoir plus sur l'audit</a></>
-        : <>{auditPromise} <a href={auditHref}>More about the audit</a></>}
+        ? <>{auditPromise}{' '}<a href={auditHref}>En savoir plus sur l'audit</a></>
+        : <>{auditPromise}{' '}<a href={auditHref}>More about the audit</a></>}
     </p>
   </div>
 </section>

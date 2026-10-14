@@ -1021,8 +1021,12 @@ const hasReveal = variant !== 'columns' && revealLinks.some((l) => l.media);
     letter-spacing: var(--tracking-mono-tight);
     line-height: 1.3;
   }
+  /* Mobile : les labels restent sur une rangée qui passe à la ligne ; la portée (« Publicité et
+     visibilité ») passe sous le badge au lieu de l'allonger, elle reste lisible. */
   @media (max-width: 760px) {
-    .eep-creds__list { flex-direction: column; align-items: flex-start; }
+    .eep-creds__list { align-items: flex-start; }
+    .eep-creds__item { flex-direction: column; align-items: flex-start; }
+    .eep-creds__scope { margin: var(--space-1) 0 0; padding-left: 0; border-left: 0; }
   }
 
   /* ===== Columns layout ===== */
@@ -1157,11 +1161,21 @@ const hasReveal = variant !== 'columns' && revealLinks.some((l) => l.media);
        ligne que le premier repère, juste au-dessus) et « Services & outil » (déjà dans le menu ;
        les liens restent dans le DOM). Padding des cases resserré sur un token existant. */
     .eep--media .eep-cell,
-    .eep--light .eep-cell { padding: var(--space-5); }
+    .eep--light .eep-cell { padding: var(--space-4); }
     .eep-grid .eep-cell--media,
     .eep-grid .eep-cell--focus,
     .eep--media .eep-cell--services,
     .eep--light .eep-cell--services { display: none; }
+    /* Cible C13 (≤ 1 800 px à 390) : la note d'honnêteté redit la case Auteur ; deux lectures,
+       comme le mode compact, sans le lien de hub ; la case CTA tient sur une ligne ; seul le
+       premier engagement (la promesse d'audit) garde son détail, les libellés suivants se lisent seuls. */
+    .eep-grid .eep-honesty,
+    .eep-grid .eep-cell--read .eep-links > li:nth-child(n+3),
+    .eep-grid .eep-cell--read .eep-hubs,
+    .eep-grid .eep-cell--cta .eep-celllabel,
+    .eep-grid .eep-commit:not(:first-child) .eep-commit__detail { display: none; }
+    .eep-grid .eep-cell--cta { flex-direction: row; align-items: center; }
+    .eep-grid .eep-cell--cta .eep-cta__title { margin-top: 0; }
     .eep--hero .eep-cell--hero { min-height: 16rem; }
     .eep-cols { grid-template-columns: 1fr; }
     .eep-band__img { max-height: 14rem; }

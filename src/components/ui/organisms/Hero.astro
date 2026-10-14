@@ -121,8 +121,8 @@ const pageTransitionId = Astro.url.pathname
         </div>
         <p class="hero-cta-sub">
           {lang === 'fr'
-            ? <>{auditPromise} <a href={auditHref}>En savoir plus sur l'audit</a></>
-            : <>{auditPromise} <a href={auditHref}>More about the audit</a></>}
+            ? <>{auditPromise}{' '}<a href={auditHref}>En savoir plus sur l'audit</a></>
+            : <>{auditPromise}{' '}<a href={auditHref}>More about the audit</a></>}
         </p>
       </div>
 
