@@ -80,6 +80,9 @@ export default function sitemapHygiene() {
               kept++;
             }
           }
+          // @astrojs/sitemap (trailingSlash: 'never') retire la barre de l'accueil : on la rétablit
+          // ici, seul point qui s'exécute après l'écriture, pour que `<loc>` égale le canonical.
+          out = out.replace(/<loc>(https?:\/\/[^/<]+)<\/loc>/g, '<loc>$1/</loc>');
           if (out !== xml) await fs.writeFile(full, out, 'utf8');
         }
 

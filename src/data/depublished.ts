@@ -59,6 +59,9 @@ export const REDIRECTED_PATHS: Readonly<Record<string, string>> = {
   // Articles hors positionnement (agence web / marketing).
   '/blog/landing-page-qui-convertit-methode-2026': '/services/landing-pages-tunnels',
   '/blog/webflow-vs-wordpress-vs-site-code-ia-2026': '/services/site-web-ia',
+  // Article publicitaire retiré sans redirection (9 impressions GSC, était en production) :
+  // même cible que les pages publicitaires dépubliées (landing-page-google-ads).
+  '/blog/google-ads-vs-meta-ads-pme-2026': '/services/landing-pages-tunnels',
   // Secteurs hors cible, sans cas client propre.
   '/secteurs/comptabilite': '/services',
   '/secteurs/formation': '/services',
