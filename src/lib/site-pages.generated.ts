@@ -703,7 +703,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/services/automatisations",
-    "title": "Agence automatisation no code : processus métier par l'IA · Waimia",
+    "title": "Automatisation des processus métier pour PME · Waimia",
     "group": "offres",
     "collection": "services",
     "file": "services/automatisations.json",
@@ -8193,6 +8193,11 @@ export const SITE_PAGES: SitePage[] = [
         "type": "decision-list",
         "label": "Trois situations, trois premiers pas",
         "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#4",
+        "background": "paper"
       },
       {
         "type": "related-cards-band",

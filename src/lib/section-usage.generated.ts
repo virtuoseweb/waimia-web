@@ -581,7 +581,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "editorial-prose": {
-    "count": 182,
+    "count": 185,
     "pages": [
       "/audit-ia-pme",
       "/cas-usages/centraliser-donnees",
@@ -687,7 +687,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "editorial-table-block": {
-    "count": 70,
+    "count": 71,
     "pages": [
       "/cas-usages/finance-comptabilite",
       "/cas-usages/rh",

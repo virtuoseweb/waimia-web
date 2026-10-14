@@ -55,7 +55,9 @@ for (const f of walk(ROOT)) {
   if (SKIP.test(page)) continue;
   const raw = readFileSync(f, 'utf8');
   const h = strip(raw);
-  const main = (h.match(/<main[\s\S]*?<\/main>/i) || [h])[0];
+  // Liste « Sources » générée par les gabarits (h2#sources + ul) : titres de pages tierces cités tels quels,
+  // comme une citation entre guillemets. Ce n'est pas de la prose maison : on la retire du texte contrôlé.
+  const main = ((h.match(/<main[\s\S]*?<\/main>/i) || [h])[0]).replace(/<h2 id="sources">[\s\S]*?<\/ul>/gi, ' ');
   const head = [
     ['title', (h.match(/<title>([^<]*)/i) || [])[1]],
     ['description', (h.match(/name="description" content="([^"]*)/i) || [])[1]],

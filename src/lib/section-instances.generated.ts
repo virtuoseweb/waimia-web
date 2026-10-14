@@ -3569,8 +3569,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/automatisation.json",
       "slug": "automatisation",
       "route": "src/content/formations/automatisation.json",
-      "index": 6,
-      "label": "#6",
+      "index": 9,
+      "label": "#9",
       "variant": "note",
       "background": "paper"
     },
@@ -3768,6 +3768,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/implantations/montpellier",
       "index": 2,
       "label": "#2",
+      "background": "paper"
+    },
+    {
+      "collection": "implantations",
+      "file": "implantations/montpellier.json",
+      "slug": "montpellier",
+      "route": "/implantations/montpellier",
+      "index": 4,
+      "label": "#4",
       "background": "paper"
     },
     {
@@ -5143,8 +5152,26 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/automatisation.json",
       "slug": "automatisation",
       "route": "src/content/formations/automatisation.json",
-      "index": 4,
-      "label": "#4",
+      "index": 5,
+      "label": "#5",
+      "background": "paper"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/automatisation.json",
+      "slug": "automatisation",
+      "route": "src/content/formations/automatisation.json",
+      "index": 6,
+      "label": "#6",
+      "background": "paper"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/automatisation.json",
+      "slug": "automatisation",
+      "route": "src/content/formations/automatisation.json",
+      "index": 7,
+      "label": "#7",
       "background": "paper"
     },
     {
@@ -5816,7 +5843,17 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/automatisation.json",
       "slug": "automatisation",
       "route": "src/content/formations/automatisation.json",
-      "index": 5,
+      "index": 4,
+      "label": "Format court ou format long : ce qui change",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/automatisation.json",
+      "slug": "automatisation",
+      "route": "src/content/formations/automatisation.json",
+      "index": 8,
       "label": "Prérequis, format, durée et tarif",
       "variant": "editorial",
       "background": "paper-2"
@@ -6681,7 +6718,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "implantations/montpellier.json",
       "slug": "montpellier",
       "route": "/implantations/montpellier",
-      "index": 5,
+      "index": 6,
       "label": "Questions fréquentes",
       "background": "paper"
     },
@@ -7482,7 +7519,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/automatisation.json",
       "slug": "automatisation",
       "route": "src/content/formations/automatisation.json",
-      "index": 8,
+      "index": 11,
       "label": "Questions fréquentes",
       "background": "paper"
     },
@@ -8129,7 +8166,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "implantations/montpellier.json",
       "slug": "montpellier",
       "route": "/implantations/montpellier",
-      "index": 6,
+      "index": 7,
       "label": "Deux processus à automatiser, identifiés en 45 minutes.",
       "background": "ink"
     },
@@ -8939,7 +8976,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/automatisation.json",
       "slug": "automatisation",
       "route": "src/content/formations/automatisation.json",
-      "index": 9,
+      "index": 12,
       "label": "On construit le programme sur vos tâches, pas sur un catalogue.",
       "background": "ink"
     },
@@ -12670,7 +12707,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "implantations/montpellier.json",
       "slug": "montpellier",
       "route": "/implantations/montpellier",
-      "index": 4,
+      "index": 5,
       "label": "Pour aller plus loin",
       "background": "paper-2"
     },
@@ -13039,7 +13076,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/automatisation.json",
       "slug": "automatisation",
       "route": "src/content/formations/automatisation.json",
-      "index": 7,
+      "index": 10,
       "label": "Pour aller plus loin",
       "background": "paper-2"
     },
@@ -13127,7 +13164,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "formations",
       "route": "src/content/formations/index.json",
       "index": 2,
-      "label": "Six formations, construites sur vos tâches",
+      "label": "Formation intelligence artificielle : six formations construites sur vos tâches",
       "background": "paper"
     }
   ],
