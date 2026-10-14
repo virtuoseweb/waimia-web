@@ -2,7 +2,7 @@
 /**
  * hero-split-media · « Split média » (pilote X2, famille éditoriale)
  * Héro FULL-VIEWPORT en grille 2-col (texte 1fr / média 1.1fr), align center.
- * GAUCHE → kicker mono, titre serif accent, lede court, badges pills mono, 2 CTA.
+ * GAUCHE → kicker mono, titre serif accent, lede court, 2 CTA, badges pills mono.
  * DROITE → carte média line-art (currentColor, lisible paper ET ink). Pas de KPI.
  * Props-driven (data), variante paper/ink via `background`, responsive 1-col ≤768.
  * Source visuelle : src/components/library/hero-explore/HeroX2.astro.
@@ -50,12 +50,6 @@ const illusSide = illustration?.side ?? 'right';
         {definitionKicker && <p class="hsm-def-kicker" set:html={definitionKicker} />}
         <p class="hsm-lede" set:html={lede} />
 
-        {badges.length > 0 && (
-          <ul class="hsm-badges" aria-label={isFr ? 'Capacités' : 'Capabilities'}>
-            {badges.map((b) => <li class="hsm-badge">{isFr ? b.label_fr : b.label_en}</li>)}
-          </ul>
-        )}
-
         <div class="hsm-ctas">
           <Button href={ctaPrimary.href} variant="primary" size="lg">
             {isFr ? ctaPrimary.label_fr : ctaPrimary.label_en}
@@ -66,6 +60,12 @@ const illusSide = illustration?.side ?? 'right';
             </Button>
           )}
         </div>
+
+        {badges.length > 0 && (
+          <ul class="hsm-badges" aria-label={isFr ? 'Capacités' : 'Capabilities'}>
+            {badges.map((b) => <li class="hsm-badge">{isFr ? b.label_fr : b.label_en}</li>)}
+          </ul>
+        )}
       </div>
     </div>
   ) : (
@@ -79,12 +79,6 @@ const illusSide = illustration?.side ?? 'right';
         {definitionKicker && <p class="hsm-def-kicker" set:html={definitionKicker} />}
         <p class="hsm-lede" set:html={lede} />
 
-        {badges.length > 0 && (
-          <ul class="hsm-badges" aria-label={isFr ? 'Capacités' : 'Capabilities'}>
-            {badges.map((b) => <li class="hsm-badge">{isFr ? b.label_fr : b.label_en}</li>)}
-          </ul>
-        )}
-
         <div class="hsm-ctas">
           <Button href={ctaPrimary.href} variant="primary" size="lg">
             {isFr ? ctaPrimary.label_fr : ctaPrimary.label_en}
@@ -95,6 +89,12 @@ const illusSide = illustration?.side ?? 'right';
             </Button>
           )}
         </div>
+
+        {badges.length > 0 && (
+          <ul class="hsm-badges" aria-label={isFr ? 'Capacités' : 'Capabilities'}>
+            {badges.map((b) => <li class="hsm-badge">{isFr ? b.label_fr : b.label_en}</li>)}
+          </ul>
+        )}
       </div>
 
       {/* Média line-art */}
@@ -200,10 +200,11 @@ const illusSide = illustration?.side ?? 'right';
       color: var(--accent-text);
     }
 
-    /* Badges · pills mono uppercase, border hairline */
+    /* Badges · pills mono uppercase, border hairline. Placés SOUS les CTA
+       (l'action d'abord) : la marge est portée vers le haut. */
     .hsm-badges {
       list-style: none;
-      margin: 0 0 var(--space-5);
+      margin: var(--space-5) 0 0;
       padding: 0;
       display: flex;
       flex-wrap: wrap;
@@ -325,13 +326,16 @@ const illusSide = illustration?.side ?? 'right';
       text-transform: none;
     }
     /* Illustration a gauche → on ancre le contenu a droite pour degager l'image. */
-    .hsm--illus-left .hsm-kicker,
+    /* `.hsm-kicker` est posée sur <Kicker> (composant enfant, sans data-astro-cid) :
+       seule une règle :global() l'atteint. Largeur calée sur le titre (aligné à x du H1). */
+    .hsm--illus-left :global(.hsm-kicker),
     .hsm--illus-left .hsm-title--illus,
     .hsm--illus-left .hsm-subtitle,
     .hsm--illus-left .hsm-def-kicker,
     .hsm--illus-left .hsm-lede,
     .hsm--illus-left .hsm-badges,
     .hsm--illus-left .hsm-ctas { margin-left: auto; }
+    .hsm--illus-left :global(.hsm-kicker) { max-width: min(66%, 760px); }
     .hsm-illus {
       position: absolute;
       top: 0;
@@ -373,13 +377,14 @@ const illusSide = illustration?.side ?? 'right';
       .hsm--illus .hsm-lede,
       .hsm--illus .hsm-badges,
       .hsm--illus .hsm-ctas { max-width: none; }
-      .hsm--illus-left .hsm-kicker,
+      .hsm--illus-left :global(.hsm-kicker),
       .hsm--illus-left .hsm-title--illus,
       .hsm--illus-left .hsm-subtitle,
       .hsm--illus-left .hsm-def-kicker,
       .hsm--illus-left .hsm-lede,
       .hsm--illus-left .hsm-badges,
       .hsm--illus-left .hsm-ctas { margin-left: 0; }
+      .hsm--illus-left :global(.hsm-kicker) { max-width: none; }
     }
     @media (max-width: 768px) {
       .hsm {
@@ -400,7 +405,7 @@ const illusSide = illustration?.side ?? 'right';
       .hsm-def-kicker { margin-bottom: var(--space-2); }
       .hsm-lede { margin-bottom: var(--space-3); }
       /* Badges : typo micro + padding resserré → empilent moins haut. */
-      .hsm-badges { gap: var(--space-1); margin-bottom: var(--space-3); }
+      .hsm-badges { gap: var(--space-1); margin-top: var(--space-3); }
       .hsm-badge { font-size: var(--text-micro); padding: var(--space-1) var(--space-3); }
       .hsm-ctas { gap: var(--space-2); }
       .hsm-ctas :global(.btn) { flex: 1 1 auto; justify-content: center; }
