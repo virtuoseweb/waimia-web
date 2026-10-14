@@ -98,7 +98,7 @@ SEO et redirections
 
 - Avant d'ajouter un builder JSON-LD : compter `"@type"` dans le HTML rendu ; `FaqAccordion` et `Breadcrumb` émettent déjà le leur.
 - Supprimer ou renommer des pages : `rg` des liens entrants dans tout le dépôt ; 301 seulement si la page était en prod ; les prouver dans `.vercel/output/config.json`.
-- Brief de page : donner les plafonds de `packages/ds-kernel/src/schemas/sections.ts` (`description` ≤175) et une green-list d'URLs vérifiées dans `dist/`.
+- Brief de page : méta `description` ≤ 160 (plafond de `check:head` et `check:seo` ; le schéma tolère 175, il ne fait pas foi), `seoTitle` ≤ 60, et une green-list d'URLs vérifiées dans `dist/`.
 
 Workers et git
 
