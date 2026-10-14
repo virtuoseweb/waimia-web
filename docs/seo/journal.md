@@ -67,6 +67,18 @@ Neuf lots, intégrés puis prouvés sur la preview Vercel, puis en production : 
 - **Moteurs.** IndexNow et l'Indexing API sont laissés à la routine du dimanche, qui évite les doubles envois. Les demandes d'indexation manuelles dans Search Console restent à faire par Simon.
 - **Siège.** Le registre officiel (recherche-entreprises, lu le 14 octobre) donne toujours l'établissement de Montpellier. « Basé à Bordeaux » est uniformisé, mais aucun identifiant légal bordelais (RCS, adresse, tribunaux) n'est écrit sans pièce.
 
+### Vague 2 du 14 octobre 2026 · stratégie tirée des audits Semrush (branche `seo/vague2-1014`)
+
+Source : lecture intégrale des 31 fichiers du dossier Semrush (PDF, xlsx, csv des quatre concurrents, audit du site, données Waimia), confrontée au dépôt ; stratégie en 39 lots, plan de design en 19 changements. Vingt lots écrits en worktrees séparés, chacun revu par Opus, puis intégrés ; le lot `catalogue` (composants partagés) part dans une PR distincte.
+
+- **Promesse de l'audit** : une source unique, `AUDIT_PROMISE` (`src/data/conversion.ts`), avec une variante site web et logiciel liée à `/audit-ia-pme#site-web-logiciel`. « Trois automatisations rentables » : 175 pages, puis 0. Scan de la promesse sur `src/` : 834 signalements, puis 558, aucun fichier en hausse ; dans le HTML servi, aucune formule interdite ne décrit l'audit.
+- **Clusters (décision 3)** : silos E-E-A-T `web` et `apps`, thème `web` du maillage, catégorie `web` sur 9 pages de site ; `/services/site-web-ia` ne lie plus l'automatisation (4 liens, puis 0). Nouveau guide `/ressources/guides/refonte-site-internet` (refonte site internet, 3 600, KD 28).
+- **GEO (décision 4)** : `seo-geo-contenu` et `referencement-ia` restent deux pages ; libellé « Agence GEO : être cité par les IA » au méga-menu, au plan du site et au maillage ; anneau acquisition réordonné vers `referencement-ia`.
+- **Technique** : `WebApplication` retiré des 5 outils (sans note ni avis, erreur Semrush), `Article` à la place ; `check:jsonld` suit ce choix. Accueil au sitemap avec sa barre finale, comme son canonical ; `check:sitemap` l'accepte. 301 de l'article Google Ads vs Meta Ads. Badges du panneau E-E-A-T dimensionnés (46 sans dimensions, puis 0). Schémas de pages régénérés : `check:page-schemas` passe de 5 erreurs à 0.
+- **Plafond des méta descriptions** : 160 caractères (portes `check:head` et `check:seo`), pas 175 ; sept descriptions raccourcies, leçon d'`AGENTS.md` corrigée.
+- **Contenu** : villes, formations, guides Claude, pilier IA, ressources et pages automatisation réécrits contre le texte générique ; aucun fait, client ni chiffre ajouté sans source.
+- **Gelé, en attente de Simon** : visio ou sur site, siège légal, badges partenaires, prix « pilote » et « déploiement », Diag Data IA, page « agence web Montpellier », mesure de conversion.
+
 ### 2026-W42 (session du 12 octobre 2026, collecte du 11 octobre 2026)
 
 **Données** : collecte du 11 octobre 2026 à 22:55 UTC (`generatedAt`), fraîche oui (`freshness.mjs` : « FRAÎCHE · collecte complète de 6.8 h ») · Search Console configuré oui · étapes en erreur : aucune (8 étapes `ok`). Les données de performance s'arrêtent au 8 octobre 2026. Flux : 0 en erreur. Concurrents : 14 URL nouvelles, toutes chez claudin.tech.
