@@ -65,7 +65,7 @@ const layers = [
   {
     n: '05',
     label: 'Web et mesure',
-    intro: 'En appui du système : un site rapide, relié au CRM, et une mesure avant et après.',
+    intro: 'Un site rapide, relié au CRM, et une mesure avant et après.',
     items: [
       'Astro en génération statique pour les sites.',
       'Search Console pour l’indexation et la visibilité.',
@@ -80,8 +80,8 @@ export function technologiesSections(lang: Lang) {
     type: 'hero-utility-masthead',
     kicker_fr: '§ Stack et technologies',
     kicker_en: '§ Stack and technologies',
-    h1_fr: 'Les outils du studio, <i>couche par couche</i>.',
-    h1_en: 'The studio’s tools, <i>layer by layer</i>.',
+    h1_fr: 'Stack et technologies IA : les outils, <i>couche par couche</i>.',
+    h1_en: 'AI stack and technologies: the tools, <i>layer by layer</i>.',
     lede_fr: 'n8n et Make pour automatiser, Claude et OpenAI pour les agents, vos outils gardés tels quels. Voici ce qu’on utilise, pour quoi, et ce que vous récupérez à la fin.',
     lede_en: 'n8n and Make to automate, Claude and OpenAI for agents, your tools kept as they are. Here is what we use, for what, and what you get at the end.',
     align: 'left',
