@@ -62,11 +62,11 @@
     },
     {
       "q": "Consultant IA ou freelance IA : quelle différence ?",
-      "a": "Le consultant aide à décider quoi faire et dans quel ordre. Le freelance réalise un chantier déjà défini. Waimia fait les deux : le cadrage est mené par la personne qui construira, ce qui évite les recommandations irréalisables."
+      "a": "Le consultant aide à décider quoi faire et dans quel ordre, le freelance réalise un chantier déjà défini ; chez Waimia, la même personne cadre puis construit."
     },
     {
       "q": "Comment choisir un consultant IA ?",
-      "a": "Mon conseil : demandez trois choses. Un livrable d'une mission passée, même anonymisé. Qui construit après le conseil, et à quel prix. Ce qu'il vous déconseillerait de faire. Un consultant qui ne sait pas chiffrer la réalisation de ses recommandations, ou qui n'en écarte aucune, vous vendra une étude. La grille complète des questions est plus haut sur cette page."
+      "a": "Demandez trois choses. Un livrable d'une mission passée, même anonymisé. Qui construit après le conseil, et à quel prix. Ce qu'il vous déconseillerait de faire. Un consultant qui ne sait pas chiffrer la réalisation de ses recommandations, ou qui n'en écarte aucune, vous vendra une étude."
     },
     {
       "q": "Un consultant Claude, ça sert à quoi si on a déjà les licences ?",
@@ -108,11 +108,11 @@
     },
     {
       "q": "AI consultant or AI freelancer: what is the difference?",
-      "a": "The consultant helps decide what to do and in what order. The freelancer delivers a project already defined. Waimia does both: scoping is led by the person who will build, which avoids unbuildable recommendations."
+      "a": "The consultant helps decide what to do and in what order, the freelancer delivers a project already defined; at Waimia, the same person scopes and then builds."
     },
     {
       "q": "How do you choose an AI consultant?",
-      "a": "My advice: ask three things. A deliverable from a past engagement, even anonymised. Who builds after the advice, and at what price. What they would advise you not to do. A consultant who cannot cost the delivery of their recommendations, or who discards none, will sell you a study. The full list of questions is higher up on this page."
+      "a": "Ask three things. A deliverable from a past engagement, even anonymised. Who builds after the advice, and at what price. What they would advise you not to do. A consultant who cannot cost the delivery of their recommendations, or who discards none, will sell you a study."
     },
     {
       "q": "What is a Claude consultant for if we already have the licences?",
@@ -161,8 +161,8 @@
       "kicker_en": "§ AI consultant",
       "h1_fr": "Consultant IA <i class=\"acc\">indépendant</i> pour PME",
       "h1_en": "<i class=\"acc\">Independent</i> AI consultant for SMEs",
-      "lede_fr": "Un consultant IA aide une direction à décider où l'IA vaut un investissement, dans quel ordre et avec quelles règles. Sans ce travail, on paie des licences que personne n'ouvre et on empile les outils proposés par chaque éditeur, pendant que les données partent sur des comptes personnels. Je fais ce travail pour les PME et ETI de 10 à 250 personnes : état des lieux, cas d'usage chiffrés, feuille de route. Et c'est moi, Simon Beros, qui construis ensuite.",
-      "lede_en": "An AI consultant helps management decide where AI is worth the money, in what order and under which rules. Skip that work and you pay for licences nobody opens and stack whatever each vendor pitches, while data leaves on personal accounts. I do this for SMBs of 10 to 250 people: assessment, costed use cases, roadmap. And I, Simon Beros, am the one who builds afterwards.",
+      "lede_fr": "Un consultant IA aide une direction à décider où l'IA vaut un investissement, dans quel ordre et avec quelles règles. Sans ce travail, on paie des licences que personne n'ouvre et on empile les outils proposés par chaque éditeur, pendant que les données partent sur des comptes personnels. Pour les PME et ETI de 10 à 250 personnes, on fait l'état des lieux, on chiffre les cas d'usage, on écrit la feuille de route. C'est Simon Beros qui construit ensuite.",
+      "lede_en": "An AI consultant helps management decide where AI is worth the money, in what order and under which rules. Skip that work and you pay for licences nobody opens and stack whatever each vendor pitches, while data leaves on personal accounts. For SMBs of 10 to 250 people, we run the assessment, cost the use cases and write the roadmap. Simon Beros is the one who builds afterwards.",
       "badges": [
         {
           "label_fr": "Indépendant",
@@ -339,8 +339,8 @@
       "type": "editorial-prose",
       "background": "paper-2",
       "maxWidth": "prose",
-      "html_fr": "<h2>Consultant Claude : quand l'outil est déjà choisi</h2>\n<p>Beaucoup de PME arrivent avec la décision prise : ce sera Claude. La mission change alors de nature : on ne compare plus les éditeurs, on fait en sorte que l'outil rapporte plus qu'il ne coûte. Cinq décisions reviennent à chaque fois.</p>\n<p><strong>L'offre et le nombre de sièges.</strong> Team Standard pour la plupart, quelques sièges Premium là où l'usage le justifie, Enterprise seulement si une exigence de conformité l'impose. Les prix et les pièges sont détaillés dans le guide <a href=\"/ressources/guides/claude-fonctionnalites-pme\">fonctionnalités, offres et prix de Claude</a>.</p>\n<p><strong>Les réglages d'administration.</strong> Cowork, l'agent de Claude qui exécute des tâches dans vos fichiers et vos outils, est désormais intégré à Claude (déploiement en cours sur Pro et Max ; Team et Enterprise conservent pour l'instant Cowork séparé). Dans une organisation Team, il est activé par défaut, et son exécution dans le cloud aussi. Ce sont des choix à faire consciemment, pas des valeurs à découvrir après coup : voir <a href=\"/ressources/guides/claude-cowork\">ce que la fusion de Cowork change</a>.</p>\n<p><strong>Les données.</strong> Les applications Claude stockent les données aux États-Unis par défaut ; une résidence européenne passe par l'API sur Amazon Bedrock ou Google Vertex. L'historique local des sessions Cowork échappe à la politique de rétention de l'organisation. Ces deux faits pèsent dans une analyse d'impact : je les traite au cadrage, pas après l'ouverture des comptes.</p>\n<p><strong>La diffusion du savoir-faire.</strong> Un skill chargé sur claude.ai est personnel par défaut ; sur Team et Enterprise, un propriétaire peut le provisionner pour toute l'organisation. Pour cibler un groupe ou livrer un ensemble cohérent, on passe par des <a href=\"/ressources/guides/claude-skills\">skills Claude</a> regroupés dans des <a href=\"/ressources/guides/claude-plugins-entreprise\">plugins</a> diffusés depuis une marketplace privée, avec quatre niveaux : installé par défaut, disponible, requis ou indisponible.</p>\n<p><strong>Les profils techniques.</strong> Si vous avez des développeurs, <a href=\"/ressources/guides/claude-code-entreprise\">Claude Code</a> est inclus dans Team, et son coût à l'API se pilote : Anthropic observe environ 13 dollars par développeur et par jour actif en entreprise.</p>\n<h2>Partenaire certifié ou pas : ce qu'il faut regarder</h2>\n<p>Anthropic a lancé en mars 2026 le Claude Partner Network, avec une certification « Claude Certified Architect, Foundations » et un <a href=\"https://claude.com/marketplace/service-partners\" rel=\"noopener\" target=\"_blank\">annuaire de partenaires de services</a>. C'est un signal utile, pas une garantie. Waimia ne s'en prévaut pas sur ce site : jugez-nous, comme tout prestataire, sur des livrables, des réalisations publiées et la franchise des recommandations. Si votre besoin est d'abord le déploiement, la page <a href=\"/services/integration-claude\">intégration de Claude en entreprise</a> décrit la mission ; si c'est la montée en compétence, la <a href=\"/formations/claude\">formation Claude</a>.</p>",
-      "html_en": "<h2>Claude consultant: when the tool is already chosen</h2>\n<p>Many SMBs arrive with the decision made: it will be Claude. The engagement then changes: we stop comparing vendors and make the tool earn more than it costs. Five decisions come up every time.</p>\n<p><strong>Plan and seat count.</strong> Team Standard for most, a few Premium seats where usage justifies it, Enterprise only if a compliance requirement demands it. Prices and traps are detailed in the guide <a href=\"/ressources/guides/claude-fonctionnalites-pme\">Claude features, plans and prices</a>.</p>\n<p><strong>Admin settings.</strong> Cowork, Claude's agent that carries out tasks in your files and tools, is now built into Claude (rolling out on Pro and Max; Team and Enterprise keep Cowork separate for now). In a Team organisation, it is on by default, and so is cloud execution. These are choices to make deliberately, not defaults to discover later: see <a href=\"/ressources/guides/claude-cowork\">what the Cowork merger changes</a>.</p>\n<p><strong>Data.</strong> Claude apps store data in the United States by default; European residency goes through the API on Amazon Bedrock or Google Vertex. The local history of Cowork sessions sits outside the organisation's retention policy. Both facts weigh in an impact assessment: I deal with them during scoping, not after the accounts are open.</p>\n<p><strong>Spreading know-how.</strong> A skill uploaded on claude.ai is personal by default; on Team and Enterprise, an owner can provision it for the whole organisation. To target a group or ship a consistent set, you use <a href=\"/ressources/guides/claude-skills\">Claude skills</a> bundled in <a href=\"/ressources/guides/claude-plugins-entreprise\">plugins</a> rolled out from a private marketplace, with four levels: installed by default, available, required or unavailable.</p>\n<p><strong>Technical profiles.</strong> If you have developers, <a href=\"/ressources/guides/claude-code-entreprise\">Claude Code</a> is included in Team, and its API cost can be steered: Anthropic observes around $13 per developer per active day in companies.</p>\n<h2>Certified partner or not: what to look at</h2>\n<p>In March 2026 Anthropic launched the Claude Partner Network, with a \"Claude Certified Architect, Foundations\" certification and a <a href=\"https://claude.com/marketplace/service-partners\" rel=\"noopener\" target=\"_blank\">directory of service partners</a>. It is a useful signal, not a guarantee. Waimia does not claim it on this site: judge us, like any provider, on deliverables, published work and how frank the recommendations are. If your need is first the rollout, the page <a href=\"/services/integration-claude\">Claude integration in business</a> describes the engagement; if it is upskilling, the <a href=\"/formations/claude\">Claude training</a>.</p>"
+      "html_fr": "<h2>Consultant Claude : quand l'outil est déjà choisi</h2>\n<p>Beaucoup de PME arrivent avec la décision prise : ce sera Claude. La mission change alors de nature : on ne compare plus les éditeurs, on fait en sorte que l'outil rapporte plus qu'il ne coûte. Cinq décisions reviennent à chaque fois.</p>\n<p><strong>L'offre et le nombre de sièges.</strong> Team Standard pour la plupart, quelques sièges Premium là où l'usage le justifie, Enterprise seulement si une exigence de conformité l'impose. Les prix et les pièges sont détaillés dans le guide <a href=\"/ressources/guides/claude-fonctionnalites-pme\">fonctionnalités, offres et prix de Claude</a>.</p>\n<p><strong>Les réglages d'administration.</strong> Cowork, l'agent de Claude qui exécute des tâches dans vos fichiers et vos outils, est désormais intégré à Claude (déploiement en cours sur Pro et Max ; Team et Enterprise conservent pour l'instant Cowork séparé). Dans une organisation Team, il est activé par défaut, et son exécution dans le cloud aussi. Ce sont des choix à faire consciemment, pas des valeurs à découvrir après coup : voir <a href=\"/ressources/guides/claude-cowork\">ce que la fusion de Cowork change</a>.</p>\n<p><strong>Les données.</strong> Les applications Claude stockent les données aux États-Unis par défaut ; une résidence européenne passe par l'API sur Amazon Bedrock ou Google Vertex. L'historique local des sessions Cowork échappe à la politique de rétention de l'organisation. Ces deux faits pèsent dans une analyse d'impact : on les traite au cadrage, pas après l'ouverture des comptes.</p>\n<p><strong>La diffusion du savoir-faire.</strong> Un skill chargé sur claude.ai est personnel par défaut ; sur Team et Enterprise, un propriétaire peut le provisionner pour toute l'organisation. Pour cibler un groupe ou livrer un ensemble cohérent, on passe par des <a href=\"/ressources/guides/claude-skills\">skills Claude</a> regroupés dans des <a href=\"/ressources/guides/claude-plugins-entreprise\">plugins</a> diffusés depuis une marketplace privée, avec quatre niveaux : installé par défaut, disponible, requis ou indisponible.</p>\n<p><strong>Les profils techniques.</strong> Si vous avez des développeurs, <a href=\"/ressources/guides/claude-code-entreprise\">Claude Code</a> est inclus dans Team, et son coût à l'API se pilote : Anthropic observe environ 13 dollars par développeur et par jour actif en entreprise.</p>\n<h2>Partenaire certifié ou pas : ce qu'il faut regarder</h2>\n<p>Anthropic a lancé en mars 2026 le Claude Partner Network, avec une certification « Claude Certified Architect, Foundations » et un <a href=\"https://claude.com/marketplace/service-partners\" rel=\"noopener\" target=\"_blank\">annuaire de partenaires de services</a>. C'est un signal utile, pas une garantie. Waimia ne s'en prévaut pas sur ce site : jugez Waimia, comme tout prestataire, sur des livrables, des réalisations publiées et la franchise des recommandations. Si votre besoin est d'abord le déploiement, la page <a href=\"/services/integration-claude\">intégration de Claude en entreprise</a> décrit la mission ; si c'est la montée en compétence, la <a href=\"/formations/claude\">formation Claude</a>.</p>",
+      "html_en": "<h2>Claude consultant: when the tool is already chosen</h2>\n<p>Many SMBs arrive with the decision made: it will be Claude. The engagement then changes: we stop comparing vendors and make the tool earn more than it costs. Five decisions come up every time.</p>\n<p><strong>Plan and seat count.</strong> Team Standard for most, a few Premium seats where usage justifies it, Enterprise only if a compliance requirement demands it. Prices and traps are detailed in the guide <a href=\"/ressources/guides/claude-fonctionnalites-pme\">Claude features, plans and prices</a>.</p>\n<p><strong>Admin settings.</strong> Cowork, Claude's agent that carries out tasks in your files and tools, is now built into Claude (rolling out on Pro and Max; Team and Enterprise keep Cowork separate for now). In a Team organisation, it is on by default, and so is cloud execution. These are choices to make deliberately, not defaults to discover later: see <a href=\"/ressources/guides/claude-cowork\">what the Cowork merger changes</a>.</p>\n<p><strong>Data.</strong> Claude apps store data in the United States by default; European residency goes through the API on Amazon Bedrock or Google Vertex. The local history of Cowork sessions sits outside the organisation's retention policy. Both facts weigh in an impact assessment: we deal with them during scoping, not after the accounts are open.</p>\n<p><strong>Spreading know-how.</strong> A skill uploaded on claude.ai is personal by default; on Team and Enterprise, an owner can provision it for the whole organisation. To target a group or ship a consistent set, you use <a href=\"/ressources/guides/claude-skills\">Claude skills</a> bundled in <a href=\"/ressources/guides/claude-plugins-entreprise\">plugins</a> rolled out from a private marketplace, with four levels: installed by default, available, required or unavailable.</p>\n<p><strong>Technical profiles.</strong> If you have developers, <a href=\"/ressources/guides/claude-code-entreprise\">Claude Code</a> is included in Team, and its API cost can be steered: Anthropic observes around $13 per developer per active day in companies.</p>\n<h2>Certified partner or not: what to look at</h2>\n<p>In March 2026 Anthropic launched the Claude Partner Network, with a \"Claude Certified Architect, Foundations\" certification and a <a href=\"https://claude.com/marketplace/service-partners\" rel=\"noopener\" target=\"_blank\">directory of service partners</a>. It is a useful signal, not a guarantee. Waimia does not claim it on this site: judge Waimia, like any provider, on deliverables, published work and how frank the recommendations are. If your need is first the rollout, the page <a href=\"/services/integration-claude\">Claude integration in business</a> describes the engagement; if it is upskilling, the <a href=\"/formations/claude\">Claude training</a>.</p>"
     },
     {
       "type": "editorial-table-block",
@@ -349,8 +349,8 @@
       "kicker_en": "§ Choosing",
       "heading_fr": "Six questions à poser à un consultant IA avant de signer",
       "heading_en": "Six questions to ask an AI consultant before signing",
-      "caption_fr": "Grille de Waimia, valable pour nous comme pour un concurrent. Une mauvaise réponse à une seule question suffit à creuser.",
-      "caption_en": "Waimia's checklist, valid for us as for a competitor. One bad answer is enough to dig deeper.",
+      "caption_fr": "Grille valable pour Waimia comme pour un concurrent. Une mauvaise réponse à une seule question suffit à creuser.",
+      "caption_en": "Checklist valid for Waimia as for a competitor. One bad answer is enough to dig deeper.",
       "columns_fr": [
         "Question",
         "Bonne réponse",
@@ -435,8 +435,8 @@
       "kicker_en": "§ Compliance kit · free PDF",
       "h2_fr": "Recevez le kit conformité et administration de Claude (PDF, 11 pages)",
       "h2_en": "Get the Claude compliance and administration kit (PDF, 11 pages)",
-      "body_fr": "La liste de contrôle que je déroule en début de mission, utilisable par votre équipe : les réglages Team et Enterprise avec leur valeur par défaut, les points RGPD qui comptent vraiment (stockage, résidence, entraînement, historique local de Cowork), une trame d'analyse d'impact en huit questions, un modèle de politique d'usage d'une page, un registre des usages et douze questions à poser au fournisseur. Chaque fait sur Claude est sourcé et daté. Le fichier arrive par e-mail, en pièce jointe.",
-      "body_en": "The checklist I run at the start of an engagement, usable by your own team: Team and Enterprise settings with their default value, the GDPR points that really matter (storage, residency, training, local Cowork history), an eight-question impact assessment template, a one-page usage policy, a register of uses and twelve questions to ask the vendor. Every fact about Claude is sourced and dated. The file arrives by email, as an attachment.",
+      "body_fr": "La liste de contrôle qu'on déroule en début de mission, utilisable par votre équipe : les réglages Team et Enterprise avec leur valeur par défaut, les points RGPD qui comptent vraiment (stockage, résidence, entraînement, historique local de Cowork), une trame d'analyse d'impact en huit questions, un modèle de politique d'usage d'une page, un registre des usages et douze questions à poser au fournisseur. Chaque fait sur Claude est sourcé et daté. Le fichier arrive par e-mail, en pièce jointe.",
+      "body_en": "The checklist we run at the start of an engagement, usable by your own team: Team and Enterprise settings with their default value, the GDPR points that really matter (storage, residency, training, local Cowork history), an eight-question impact assessment template, a one-page usage policy, a register of uses and twelve questions to ask the vendor. Every fact about Claude is sourced and dated. The file arrives by email, as an attachment.",
       "submit_label_fr": "Recevoir le kit conformité →",
       "submit_label_en": "Get the compliance kit →",
       "hint_fr": "Pas un avis juridique. Un seul envoi : le PDF ; la lettre mensuelle seulement si vous cochez la case.",
@@ -536,8 +536,8 @@
         {
           "title_fr": "Le cadrage du premier chantier",
           "title_en": "Scoping of the first project",
-          "body_fr": "Un cahier des charges utilisable par nous ou par un autre prestataire.",
-          "body_en": "A specification usable by us or by another provider.",
+          "body_fr": "Un cahier des charges utilisable par Waimia ou par un autre prestataire.",
+          "body_en": "A specification usable by Waimia or by another provider.",
           "format_fr": "CADRAGE",
           "format_en": "CADRAGE"
         }
@@ -616,8 +616,8 @@
           "title_en": "Decision",
           "meta_fr": "Restitution",
           "meta_en": "Debrief",
-          "body_fr": "Vous repartez avec la feuille de route et le cadrage du premier chantier, réalisable par nous ou par un autre prestataire.",
-          "body_en": "You leave with the roadmap and the scoping of the first project, deliverable by us or another provider."
+          "body_fr": "Vous repartez avec la feuille de route et le cadrage du premier chantier, réalisable par Waimia ou par un autre prestataire.",
+          "body_en": "You leave with the roadmap and the scoping of the first project, deliverable by Waimia or another provider."
         }
       ]
     },
@@ -643,13 +643,13 @@
             "Diagnostic de maturité et repérage des cas d'usage",
             "Feuille de route chiffrée et séquencée",
             "Cadre de gouvernance et cadrage du premier chantier",
-            "Une décision actionnable, pas une étude qui dort"
+            "Les chantiers écartés, avec leur raison, par écrit"
           ],
           "features_en": [
             "Maturity diagnostic and use-case spotting",
             "Costed, sequenced roadmap",
             "Governance frame and first project framing",
-            "An actionable decision, not a study that sleeps"
+            "Discarded projects, with the reason, in writing"
           ],
           "cta": {
             "label_fr": "Réserver un audit IA gratuit →",
@@ -709,15 +709,15 @@
         },
         {
           "q_fr": "Consultant IA ou freelance IA : quelle différence ?",
-          "a_fr": "Le consultant aide à décider quoi faire et dans quel ordre. Le freelance réalise un chantier déjà défini. Waimia fait les deux : le cadrage est mené par la personne qui construira, ce qui évite les recommandations irréalisables.",
+          "a_fr": "Le consultant aide à décider quoi faire et dans quel ordre, le freelance réalise un chantier déjà défini ; chez Waimia, la même personne cadre puis construit.",
           "q_en": "AI consultant or AI freelancer: what is the difference?",
-          "a_en": "The consultant helps decide what to do and in what order. The freelancer delivers a project already defined. Waimia does both: scoping is led by the person who will build, which avoids unbuildable recommendations."
+          "a_en": "The consultant helps decide what to do and in what order, the freelancer delivers a project already defined; at Waimia, the same person scopes and then builds."
         },
         {
           "q_fr": "Comment choisir un consultant IA ?",
-          "a_fr": "Mon conseil : demandez trois choses. Un livrable d'une mission passée, même anonymisé. Qui construit après le conseil, et à quel prix. Ce qu'il vous déconseillerait de faire. Un consultant qui ne sait pas chiffrer la réalisation de ses recommandations, ou qui n'en écarte aucune, vous vendra une étude. La grille complète des questions est plus haut sur cette page.",
+          "a_fr": "Demandez trois choses. Un livrable d'une mission passée, même anonymisé. Qui construit après le conseil, et à quel prix. Ce qu'il vous déconseillerait de faire. Un consultant qui ne sait pas chiffrer la réalisation de ses recommandations, ou qui n'en écarte aucune, vous vendra une étude.",
           "q_en": "How do you choose an AI consultant?",
-          "a_en": "My advice: ask three things. A deliverable from a past engagement, even anonymised. Who builds after the advice, and at what price. What they would advise you not to do. A consultant who cannot cost the delivery of their recommendations, or who discards none, will sell you a study. The full list of questions is higher up on this page."
+          "a_en": "Ask three things. A deliverable from a past engagement, even anonymised. Who builds after the advice, and at what price. What they would advise you not to do. A consultant who cannot cost the delivery of their recommendations, or who discards none, will sell you a study."
         },
         {
           "q_fr": "Un consultant Claude, ça sert à quoi si on a déjà les licences ?",
