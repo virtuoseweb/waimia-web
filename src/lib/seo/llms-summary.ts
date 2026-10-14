@@ -23,6 +23,9 @@ import {
 } from '../../data/pricing';
 import { serviceDomains } from './service-catalog';
 
+// Nombre de domaines écrit en lettres : il suit le nombre de colonnes du menu Solutions.
+const NUMBER_WORDS_FR = ['zéro', 'un', 'deux', 'trois', 'quatre', 'cinq', 'six', 'sept', 'huit', 'neuf', 'dix'];
+
 // Espace insécable fine (formatEur) → espace simple : sortie texte brut pour les modèles.
 const eur = (value: number) => formatEur(value).replace(/[  ]/g, ' ');
 
@@ -31,9 +34,11 @@ export const LLMS_SUMMARY = `${SITE.name} est un studio de développement IA et 
 
 /** Paragraphes de contexte, dans l'ordre : offre, parcours et prix, formations, garde-fous, contact. */
 export function llmsDetails(): string[] {
-  const domains = serviceDomains()
+  const serviceDomainList = serviceDomains();
+  const domains = serviceDomainList
     .map((d, i) => `${i + 1}. ${d.name} : ${d.services.map((s) => s.name).join(', ')}.`)
     .join('\n');
+  const domainCount = NUMBER_WORDS_FR[serviceDomainList.length] ?? String(serviceDomainList.length);
 
   const maintenance = MAINTENANCE_PLANS.map(
     (plan) => `  - ${plan.name.fr} (${eur(plan.price)} HT par mois). ${plan.summary.fr}`,
@@ -50,7 +55,7 @@ export function llmsDetails(): string[] {
   ].join('\n');
 
   return [
-    `L'offre, en cinq domaines :\n${domains}`,
+    `L'offre, en ${domainCount} domaines :\n${domains}`,
     `Le parcours et les prix d'entrée (hors taxes, détail sur ${SITE.url}/tarifs) :\n${path}`,
     `Formations : deux formats, ${training}. ${TRAINING_PRICE_NOTE.fr}. Formations dispensées via Akigora, organisme certifié Qualiopi. Prise en charge possible selon votre situation.`,
     'Garde-fous : RGPD et AI Act pris en compte dès la conception, validation humaine sur les actions sensibles, journal des actions, code et workflows transférés au client en fin de mission.',

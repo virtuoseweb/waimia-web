@@ -1,7 +1,7 @@
 // Waimia · service-catalog.ts · catalogue des services pour le JSON-LD (`OfferCatalog`).
 //
-// Source unique = le menu Solutions (src/data/sitemap.ts → MM_SOLUTIONS_NEW) : les cinq
-// domaines de l'offre et leurs pages. Aucune liste recopiée ici : une page ajoutée au menu
+// Source unique = le menu Solutions (src/data/sitemap.ts → MM_SOLUTIONS_NEW) : les
+// domaines de l'offre (une colonne de menu chacun) et leurs pages. Aucune liste recopiée ici : une page ajoutée au menu
 // entre dans le catalogue, une page retirée en sort.
 
 import { MM_SOLUTIONS_NEW } from '../../data/sitemap';
@@ -16,7 +16,7 @@ export const SERVICE_HUB_PATHS = [
 
 const isHub = (href: string) => (SERVICE_HUB_PATHS as readonly string[]).includes(href);
 
-/** Les cinq domaines de l'offre, avec leurs pages (ordre du menu). */
+/** Les domaines de l'offre (colonnes du menu), avec leurs pages (ordre du menu). */
 export function serviceDomains(): Array<{ name: string; services: CatalogService[] }> {
   return MM_SOLUTIONS_NEW.cols.map((col) => ({
     name: col.label.fr,
