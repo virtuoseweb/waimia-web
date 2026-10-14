@@ -3045,7 +3045,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "case-card-grid",
-        "label": "Aucune boutique Shopify publiée : une migration e-commerce mesurée, sous WooCommerce",
+        "label": "Aucune boutique Shopify publiée : une migration e-commerce mesurée, et un site livré en 6 semaines",
         "background": "ink"
       },
       {
@@ -6751,12 +6751,12 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "cta-form-inline",
         "label": "Recevez le guide d'achat Claude pour PME",
-        "background": "paper-3"
+        "background": "paper"
       },
       {
         "type": "comparison-duo",
         "label": "Quand vous n'avez pas besoin de Waimia",
-        "background": "paper"
+        "background": "paper-2"
       },
       {
         "type": "process-steps",

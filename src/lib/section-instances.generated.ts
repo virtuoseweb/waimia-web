@@ -557,7 +557,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "shopify",
       "route": "/services/shopify",
       "index": 9,
-      "label": "Aucune boutique Shopify publiée : une migration e-commerce mesurée, sous WooCommerce",
+      "label": "Aucune boutique Shopify publiée : une migration e-commerce mesurée, et un site livré en 6 semaines",
       "background": "ink"
     },
     {
@@ -832,7 +832,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/combien-coute-un-agent-ia-pme",
       "index": 11,
       "label": "Quand vous n'avez pas besoin de Waimia",
-      "background": "paper"
+      "background": "paper-2"
     },
     {
       "collection": "guides",
@@ -1396,7 +1396,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/combien-coute-un-agent-ia-pme",
       "index": 10,
       "label": "Recevez le guide d'achat Claude pour PME",
-      "background": "paper-3"
+      "background": "paper"
     },
     {
       "collection": "services",
