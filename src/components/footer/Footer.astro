@@ -35,10 +35,17 @@ const year = new Date().getFullYear();
   <div class="wrap" style="padding-bottom:var(--space-9)">
     <div class="trust-row">
       {TRUST_BADGES.map((b) => (
-        <span class={`trust-pill ${b.kind}`}>
-          <span class="dot"></span>
-          {t(b.label, lang)}
-        </span>
+        b.href ? (
+          <a class={`trust-pill ${b.kind}`} href={b.href} target="_blank" rel="noopener">
+            <span class="dot"></span>
+            {t(b.label, lang)}
+          </a>
+        ) : (
+          <span class={`trust-pill ${b.kind}`}>
+            <span class="dot"></span>
+            {t(b.label, lang)}
+          </span>
+        )
       ))}
     </div>
   </div>

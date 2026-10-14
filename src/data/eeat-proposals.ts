@@ -73,7 +73,7 @@ export interface EeatPack {
    * l'activité concernée : Meta Business Partner et Google Partner relèvent de la publicité et
    * de la visibilité, PAS de l'IA (aucun partenariat éditeur IA n'est revendiqué).
    */
-  credentials?: { src?: string; alt: string; scope?: string }[];
+  credentials?: { src?: string; alt: string; scope?: string; href?: string }[];
 }
 
 /**
@@ -233,9 +233,9 @@ export const EEAT_PACK: EeatPack = {
     { label: 'Formation incluse', detail: 'Documentation et passation : votre équipe est autonome à la livraison.' },
     { label: 'Zéro captivité', detail: 'Code, workflows et documentation transférés : vous gardez la main.' },
   ],
-  honestyNote: 'Studio solo · un ingénieur, cinq missions documentées.',
+  honestyNote: 'Studio solo : un ingénieur, chaque mission documentée sur sa propre fiche.',
   credentials: [
-    { src: '/logos/badge-france-num-activateur.png', alt: 'Activateur France Num' },
+    { src: '/logos/badge-france-num-activateur.png', alt: 'Activateur France Num', href: 'https://www.francenum.gouv.fr/activateurs/beros-simon' },
     // Confirmés par Simon (2026-10) : références du volet publicité et visibilité.
     { src: '/logos/badge-meta-business-partner.svg', alt: 'Meta Business Partner', scope: 'Publicité et visibilité' },
     // Pas de badge officiel Google Partner dans le repo → libellé texte.

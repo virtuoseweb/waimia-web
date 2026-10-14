@@ -17,7 +17,7 @@ import PortraitSimon from '../svg/sumie/PortraitSimon.astro';
 import type { SectionByType } from '@waimia/ds-kernel';
 import { langFromPath, localizeHref, t } from '../../lib/i18n';
 import { SITE } from '../../site.config';
-import { absoluteUrl, buildBreadcrumbList, buildPerson, buildProfilePage } from '../../lib/seo/schema-builder';
+import { FRANCE_NUM_PROFILE, absoluteUrl, buildBreadcrumbList, buildPerson, buildProfilePage } from '../../lib/seo/schema-builder';
 
 import KeywordStrip from '../../sections/keyword-strip/Component.astro';
 import type { KeywordStripData } from '@waimia/ds-kernel/sections/keyword-strip/schema';
@@ -165,7 +165,8 @@ const personLd = buildPerson({
   jobTitle: role,
   description,
   image: author.photo,
-  sameAs: socialUrls,
+  // Même ensemble que founderPerson() : LinkedIn, GitHub, fiche France Num (même @id, mêmes sameAs).
+  sameAs: authorSlug === 'simon-beros' ? [...new Set([...socialUrls, FRANCE_NUM_PROFILE])] : socialUrls,
   knowsAbout: author.expertise,
 });
 const profilePageLd = buildProfilePage({ slug: authorSlug, name: displayName });
@@ -188,8 +189,17 @@ const accentLastWord = (value: string) => {
 };
 
 const nameParts = accentLastWord(displayName);
-const ledeFr = (author.bio_fr.trim().split(/\n\s*\n/).filter(Boolean)[0] ?? author.description_fr).replace(/\*\*/g, '');
-const ledeEn = (author.bio_en.trim().split(/\n\s*\n/).filter(Boolean)[0] ?? author.description_en).replace(/\*\*/g, '');
+// Lede du héros : paragraphe 1 de la bio. Les paragraphes suivants vont dans le corps de la page.
+const bioParagraphs = (bio: string) =>
+  bio.trim().split(/\n\s*\n/).map((p) => p.replace(/\*\*/g, '').trim()).filter(Boolean);
+const bioFrParas = bioParagraphs(author.bio_fr);
+const bioEnParas = bioParagraphs(author.bio_en);
+const ledeFr = bioFrParas[0] ?? author.description_fr;
+const ledeEn = bioEnParas[0] ?? author.description_en;
+const bioRest = lang === 'fr' ? bioFrParas.slice(1) : bioEnParas.slice(1);
+// Année du curriculum : « Depuis 2020 » devient « Since 2020 » en anglais.
+const yearLabel = (year: string) =>
+  lang === 'fr' ? year : year.replace(/^Depuis\s+/i, 'Since ').replace(/-présent$/i, '-present');
 const heroData = {
   type: 'hero-author' as const,
   team_label_fr: 'Le studio',
@@ -232,16 +242,16 @@ const pullquoteData = {
     'L&rsquo;intelligence artificielle n&rsquo;est pas un outil. C&rsquo;est une <i>nouvelle façon de travailler.</i>&nbsp;',
   quote_html_en:
     'Artificial intelligence is not a tool. It&rsquo;s <i>a new way of working.</i>&nbsp;',
-  cite_fr: '&mdash;&nbsp;Waimia',
-  cite_en: '&mdash;&nbsp;Waimia',
+  cite_fr: 'Waimia',
+  cite_en: 'Waimia',
 } satisfies BorderedPullquoteData;
 
 // ── ESSAYS → signed-writing-list (auto-jointure : contenus long-form signes). ──
 const essaysData = essays.length > 0
   ? ({
       type: 'signed-writing-list',
-      kicker_fr: '§ Essays · Long form',
-      kicker_en: '§ Essays · Long form',
+      kicker_fr: '§ Articles de fond',
+      kicker_en: '§ Long-form articles',
       title_fr: 'Ce que je publie',
       title_en: 'What I publish',
       items: essays.map((essay) => ({
@@ -304,8 +314,8 @@ const curriculumEvents = [
     num: item.year,
     title_fr: item.role_fr,
     title_en: item.role_en,
-    meta_fr: item.company,
-    meta_en: item.company,
+    meta_fr: `${item.company} · ${item.year}`,
+    meta_en: `${item.company} · ${yearLabel(item.year)}`,
     body_fr: item.summary_fr ?? item.company,
     body_en: item.summary_en ?? item.company,
   })),
@@ -313,8 +323,8 @@ const curriculumEvents = [
     num: item.year,
     title_fr: item.degree_fr,
     title_en: item.degree_en,
-    meta_fr: item.institution,
-    meta_en: item.institution,
+    meta_fr: `${item.institution} · ${item.year}`,
+    meta_en: `${item.institution} · ${yearLabel(item.year)}`,
     body_fr: item.institution,
     body_en: item.institution,
   })),
@@ -322,8 +332,8 @@ const curriculumEvents = [
     num: item.year,
     title_fr: item.label_fr,
     title_en: item.label_en,
-    meta_fr: 'Distinction',
-    meta_en: 'Award',
+    meta_fr: `Distinction · ${item.year}`,
+    meta_en: `Award · ${yearLabel(item.year)}`,
     body_fr: item.label_fr,
     body_en: item.label_en,
   })),
@@ -435,7 +445,10 @@ const ctaData = {
     {expertiseData && <KeywordStrip data={expertiseData} lang={lang} />}
 
     {/* Pourquoi Waimia : corps MDX (<Content/>) forwarde en slot par défaut à prose-aside. */}
-    <ProseAside data={whyData} lang={lang}><slot /></ProseAside>
+    <ProseAside data={whyData} lang={lang}>
+      <slot />
+      {bioRest.map((para) => <p>{para}</p>)}
+    </ProseAside>
 
     <BorderedPullquote data={pullquoteData} lang={lang} />
 
