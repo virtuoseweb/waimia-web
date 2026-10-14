@@ -34,7 +34,7 @@ Sources : dossier Semrush du 9 octobre (audit du site, 4 domaines concurrents), 
 
 **ia4ops.com** : 65 visites, 135 mots-clés, 773 domaines référents dont 86 % d'ancres de spam [IP]. « agence ia bordeaux » (3, 70) : 10 visites [I]. Liens crédibles : francenum.gouv.fr, annuaire French Tech Bordeaux [IP]. Son article « choisir un organisme de formation IA » est 72e sur « formation ia bordeaux » [I] ; aucun article Waimia ne cible Bordeaux.
 
-**lucasfonseque.fr** : 2,9 K visites, 1,5 K mots-clés [LP]. 1 843 de 2 972 visites sur 25 URL /claude… (prix, Max, essai, étudiant) ; 1 641 via AI Overview [L]. Waimia a /ressources/guides/claude-fonctionnalites-pme, au titre sans « Pro » ni « Max ».
+**lucasfonseque.fr** : 2,9 K visites, 1,5 K mots-clés [LP]. 1 843 de 2 972 visites sur 25 URL /claude… (prix, Max, essai, étudiant) ; 1 641 via AI Overview : 54 mots-clés, dont 46 en position 1 (les 8 autres en position 2, 3 ou 6) [L]. Waimia a /ressources/guides/claude-fonctionnalites-pme, au titre sans « Pro » ni « Max ».
 
 **noiise.com** : 27,7 K visites, 15 K mots-clés [NP] ; /ressources 31 %, /agences/ville 23 % [N]. Zéro requête n8n, Claude ou « agence automatisation » sur 14 986 lignes [N], donc concurrent sur le GEO seulement. Local pack : 2 799 visites via 7 URL de fiches Google Business à UTM [N2] ; la fiche Bordeaux de Waimia reste au plan (audit du 5 octobre).
 
@@ -48,7 +48,7 @@ Tri par volume ÷ KD. « n.c. » : absent des extraits. Action par défaut : ren
 | 2 | agence geo | 2 900 | 27 | noiise 4 | /services/referencement-ia : retitrer « Agence GEO » |
 | 3 | claude pro | 3 600 | 35 | Lucas 7 | /ressources/guides/claude-fonctionnalites-pme : retitrer ; intention grand public |
 | 4 | claude max | 1 600 | 20 | Lucas 1, AI Overview | même page |
-| 5 | agence no code (+ bordeaux 260, KD 15) | 1 600 | 21 | ia4ops 36, Kayro Lille 14 | /services/automatisations : rattacher ou non |
+| 5 | agence no code (+ bordeaux 260, KD 15) | 1 600 | 21 | ia4ops 36, Kayro Lille 14 | /services/automatisations : rattacher ou non (décision de Simon, aucune page à créer sans accord) |
 | 6 | claude vs chatgpt | 1 600 | 24 | Lucas 11 | /ressources/comparatifs/claude-vs-chatgpt-pme |
 | 7 | formation make | 720 | 12 | n.c. [F] | /formations/make |
 | 8 | formation n8n | 1 000 | 23 | n.c. [F] | /formations/n8n |
