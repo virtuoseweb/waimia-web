@@ -46,7 +46,7 @@ export const AUDIT_PROMISE = {
       en: "Forty-five minutes on a call, free and with no commitment. We look at your website, or at the process your current tool no longer handles, and tell you whether to fix it, rebuild it, build it custom or buy an existing tool. You leave with one or two ranked projects. If nothing is worth it, we tell you.",
     },
   },
-  /** Méta description de /audit-ia-pme (166 caractères, plafond 175). */
+  /** Méta description de /audit-ia-pme (160 caractères, plafond 160 de `check:head`). */
   meta: {
     fr: "Audit IA entreprise de 45 min pour PME et ETI : process, site ou logiciel passés en revue, cartographie écrite, un ou deux chantiers classés. Gratuit, en visio.",
     en: '45-min AI audit for SMBs: processes, website or software reviewed, a written map and one or two ranked projects. Free, by video call.',
