@@ -14,7 +14,9 @@ export const schema = z.object({
   // Silo de maillage interne : sélectionne le jeu de liens (services / outil / secteurs /
   // articles) cohérent avec le silo de la page hôte. Absent = 'generic' (jeu historique),
   // donc rétrocompatible : les instances sans ce champ rendent le maillage actuel.
-  silo: z.enum(['acquisition', 'commercial', 'ops', 'hub', 'generic']).optional(),
+  // 'web' = pages de site (cluster site web), 'apps' = pages de logiciel sur mesure : liens
+  // restreints à leur cluster (décision du 14 octobre 2026). Valeurs ajoutées, aucune retirée.
+  silo: z.enum(['acquisition', 'commercial', 'ops', 'hub', 'generic', 'web', 'apps']).optional(),
   eyebrow: z.string().optional(),
   title: z.string().optional(),
   lead: z.string().optional(),

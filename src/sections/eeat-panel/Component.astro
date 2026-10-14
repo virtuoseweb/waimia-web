@@ -14,7 +14,7 @@
  * Wave #38 (T3) : DÉPLACÉ depuis src/components/sections/EeatPanel.astro. Seul import
  * relatif = `../../data/eeat-proposals`, qui résout à l'identique depuis src/sections/eeat-panel/.
  */
-import { EEAT_PACK, EEAT_IMAGES, eeatSiloSet, type EeatSilo } from '../../data/eeat-proposals';
+import { EEAT_PACK, EEAT_IMAGES, EEAT_WEB_SILOS, eeatCommitments, eeatSiloSet, type EeatSilo } from '../../data/eeat-proposals';
 
 interface Props {
   variant?: 'media' | 'columns' | 'light' | 'hero';
@@ -57,6 +57,9 @@ const articles = linkMode === 'compact' ? set.articles.slice(0, 2) : set.article
 const services = linkMode === 'compact' ? siloServices.slice(0, 2) : siloServices.slice(0, MAX_DEFAULT);
 const tools = linkMode === 'compact' ? [] : [set.tool];
 const hubs = P.hubs;
+// Engagements : la promesse d'audit suit le silo (variante `web` sur les pages site web et logiciel).
+const commitments = eeatCommitments(silo);
+const isWebSilo = silo !== undefined && EEAT_WEB_SILOS.has(silo);
 
 // Fond dérivé du variant si non forcé : light → paper, sinon ink.
 const bg: 'ink' | 'paper' = background ?? (variant === 'light' ? 'paper' : 'ink');
@@ -187,7 +190,7 @@ const hasReveal = variant !== 'columns' && revealLinks.some((l) => l.media);
             <header class="eep-colhd"><span class="eep-collabel eep-collabel--ink">Engagements</span></header>
             <div class="eep-colbody">
               <ul class="eep-commits">
-                {P.commitments.map((c) => (
+                {commitments.map((c) => (
                   <li class="eep-commit">
                     <span class="eep-commit__label">{c.label}</span>
                     <span class="eep-commit__detail">{c.detail}</span>
@@ -220,7 +223,9 @@ const hasReveal = variant !== 'columns' && revealLinks.some((l) => l.media);
             loading="lazy"
           />
           <figcaption class="eep-cap">
-            {variant === 'light' ? "Travail augmenté par l'IA" : 'Supervision continue · workflows et agents'}
+            {variant === 'light'
+              ? "Travail augmenté par l'IA"
+              : isWebSilo ? 'En production, pas en maquette' : 'Supervision continue · workflows et agents'}
           </figcaption>
         </figure>
 
@@ -299,7 +304,7 @@ const hasReveal = variant !== 'columns' && revealLinks.some((l) => l.media);
         <article class="eep-cell eep-cell--commit">
           <span class="eep-celllabel">Engagements</span>
           <ul class="eep-commits">
-            {P.commitments.map((c) => (
+            {commitments.map((c) => (
               <li class="eep-commit">
                 <span class="eep-commit__label">{c.label}</span>
                 <span class="eep-commit__detail">{c.detail}</span>
@@ -408,7 +413,7 @@ const hasReveal = variant !== 'columns' && revealLinks.some((l) => l.media);
         <article class="eep-cell eep-cell--commit">
           <span class="eep-celllabel">Engagements</span>
           <ul class="eep-commits">
-            {P.commitments.map((c) => (
+            {commitments.map((c) => (
               <li class="eep-commit">
                 <span class="eep-commit__label">{c.label}</span>
                 <span class="eep-commit__detail">{c.detail}</span>
@@ -454,8 +459,8 @@ const hasReveal = variant !== 'columns' && revealLinks.some((l) => l.media);
             <li class="eep-creds__item">
               {c.src
                 ? (c.href
-                    ? <a href={c.href} target="_blank" rel="noopener"><img class="eep-creds__badge" src={c.src} alt={c.alt} loading="lazy" /></a>
-                    : <img class="eep-creds__badge" src={c.src} alt={c.alt} loading="lazy" />)
+                    ? <a href={c.href} target="_blank" rel="noopener"><img class="eep-creds__badge" src={c.src} alt={c.alt} width={c.width} height={c.height} loading="lazy" /></a>
+                    : <img class="eep-creds__badge" src={c.src} alt={c.alt} width={c.width} height={c.height} loading="lazy" />)
                 : <span class="eep-creds__text">{c.alt}</span>}
               {c.scope && <span class="eep-creds__scope">{c.scope}</span>}
             </li>
@@ -613,8 +618,9 @@ const hasReveal = variant !== 'columns' && revealLinks.some((l) => l.media);
   }
   .eep--light .eep-celllabel { color: var(--muted); }
 
-  /* MÉDIA cells */
-  .eep-cell--media { padding: 0; gap: 0; position: relative; min-height: 0; }
+  /* MÉDIA cells · overflow:hidden : sans lui, l'image (plus haute que la cellule, puis translatée
+     par la parallaxe) recouvrait les cellules voisines (« Repère fondateur », « Voir le parcours »). */
+  .eep-cell--media { padding: 0; gap: 0; position: relative; min-height: 0; overflow: hidden; }
   .eep-img {
     display: block;
     width: 100%;
@@ -623,13 +629,14 @@ const hasReveal = variant !== 'columns' && revealLinks.some((l) => l.media);
     object-fit: cover;
   }
   /* ── MOMENT motion signature (P2.10) · parallaxe de profondeur sur les duotones média ──
-     Le JS scroll-reveal.ts (parallaxe [data-par]) translate l'image au scroll. La cellule
-     clippe (overflow:hidden) ; on donne de la réserve verticale (image plus haute, recentrée)
-     pour que la translation reste couverte sans laisser de bord. reduced-motion : le JS
-     remet transform='' → image statique recentrée (réserve neutre, aucun trou). */
+     Le JS scroll-reveal.ts (parallaxe [data-par]) translate l'image de vitesse × écart au centre
+     du viewport : à 0,06, environ ±36 px tant que la cellule est visible (viewport de 900 px).
+     La cellule clippe (overflow:hidden, ci-dessus) ; la réserve verticale (image plus haute,
+     recentrée) vaut --space-8 de chaque côté (48 px en desktop), donc couvre la translation sans
+     laisser de bord. reduced-motion : le JS remet transform='' → image statique recentrée. */
   .eep-cell--media .eep-img[data-par] {
-    height: calc(100% + 56px);
-    margin-block: -28px;
+    height: calc(100% + 2 * var(--space-8));
+    margin-block: calc(-1 * var(--space-8));
     will-change: transform;
   }
   .eep-cap {
@@ -1145,6 +1152,16 @@ const hasReveal = variant !== 'columns' && revealLinks.some((l) => l.media);
     .eep-grid { grid-template-columns: 1fr; }
     .eep-cell { grid-column: span 1 !important; }
     .eep-img { min-height: 14rem; }
+    /* Mobile (design C13) : le bento empilé faisait 4 écrans. On retire ce qui se répète ou
+       décore : les deux images (légendes décoratives), la case « Repère fondateur » (même
+       ligne que le premier repère, juste au-dessus) et « Services & outil » (déjà dans le menu ;
+       les liens restent dans le DOM). Padding des cases resserré sur un token existant. */
+    .eep--media .eep-cell,
+    .eep--light .eep-cell { padding: var(--space-5); }
+    .eep-grid .eep-cell--media,
+    .eep-grid .eep-cell--focus,
+    .eep--media .eep-cell--services,
+    .eep--light .eep-cell--services { display: none; }
     .eep--hero .eep-cell--hero { min-height: 16rem; }
     .eep-cols { grid-template-columns: 1fr; }
     .eep-band__img { max-height: 14rem; }
