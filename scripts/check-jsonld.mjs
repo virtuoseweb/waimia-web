@@ -106,7 +106,9 @@ const COVERAGE = [
   [(p) => /^\/ressources\/(guides|comparatifs|diagnostics)\/.+/.test(p), [ARTICLE_TYPES], 'ressource éditoriale'],
   // Ressources verrouillées (fichier livré par e-mail, aucune application en ligne) : Article, pas WebApplication.
   [(p) => /^\/ressources\/outils\/.+/.test(p) && GATED_RESOURCES.has(p.split('/').pop()), [ARTICLE_TYPES], 'ressource à télécharger'],
-  [(p) => /^\/ressources\/outils\/.+/.test(p) && !GATED_RESOURCES.has(p.split('/').pop()), [['WebApplication', 'SoftwareApplication']], 'outil interactif'],
+  // Outils interactifs : Article aussi. Google exige une note ou des avis pour WebApplication et
+  // SoftwareApplication ; sans avis réels, ce bloc est une erreur de balisage (audit Semrush du 9 octobre 2026).
+  [(p) => /^\/ressources\/outils\/.+/.test(p) && !GATED_RESOURCES.has(p.split('/').pop()), [ARTICLE_TYPES], 'outil interactif'],
   [(p) => /^\/cas-clients\/.+/.test(p), [ARTICLE_TYPES], 'cas client'],
   [(p) => /^\/equipe\/.+/.test(p), [['Person'], ['ProfilePage']], 'page auteur'],
   // Siège (Bordeaux) : ProfessionalService avec adresse. Autres villes, sans bureau : Service (areaServed).
