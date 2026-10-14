@@ -14,6 +14,7 @@ import sitemapHygiene from './src/integrations/sitemap-hygiene.mjs';
 import seoPostbuild from './src/integrations/seo-postbuild.mjs';
 import { sectionCssChunks } from './src/integrations/section-css-chunks.mjs';
 import responsiveImages from './src/integrations/responsive-images.mjs';
+import aboveFold from './src/integrations/above-fold.mjs';
 import minifyInlineScripts from './src/integrations/minify-inline-scripts.mjs';
 import { NOINDEX_SITEMAP_PATHS } from './src/data/sitemap-noindex-exclude';
 import { REDIRECTED_PATHS } from './src/data/depublished.ts';
@@ -386,6 +387,9 @@ export default defineConfig({
     // Images : width/height, variantes webp + srcset/sizes mesurés, lazy/fetchpriority, posés
     // sur le HTML bâti (cf src/integrations/responsive-images.mjs). Avant la copie Vercel.
     responsiveImages(),
+    // Première section de <main> visible sans JS : reveals → animation CSS `af-in`
+    // (cf src/integrations/above-fold.mjs).
+    aboveFold(),
     // Scripts inline classiques (`is:inline`, non minifiés par Astro) minifiés avec esbuild.
     minifyInlineScripts(),
     // robots.txt : un seul groupe pour tous les robots (cf src/integrations/robots.mjs).

@@ -396,3 +396,17 @@ a.link-hairline:focus-visible {
     animation: none;
   }
 }
+
+/* ── Première section (af-in, posé au build par src/integrations/above-fold.mjs) ──
+   Entrée en CSS pure : aucune attente du JS, opacité de départ non nulle, donc l'élément est
+   peint (et compté comme LCP) dès le premier rendu. */
+.af-in {
+  animation: af-in 700ms var(--ease-out, cubic-bezier(0.2, 0.7, 0.2, 1)) both;
+}
+@keyframes af-in {
+  from { opacity: 0.35; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .af-in { animation: none; }
+}

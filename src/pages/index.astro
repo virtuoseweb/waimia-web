@@ -18,14 +18,14 @@ export const prerender = true;
  *   06 Qui · eeat-panel variant media (ink) · le fondateur, seul, assumé
  *   07 FAQ · 6 questions (paper)
  *   08 Action · BookSession (ink) + FooterMarquee
- * (BootSplash en tête + ScrollProgress en pied = expérience de marque, hors séquence.)
+ * (ScrollProgress en pied = expérience de marque, hors séquence. BootSplash retiré le 14 octobre
+ *  2026 : son voile plein écran de 1,7 s repoussait tout le rendu, Speed Index mobile jusqu'à 5 s.)
  *
  * Retirées (aucune information utile à la décision) : mur de logos, « la boucle »
  * (statement-orbit), « la tension » (3 cartes de douleurs), bento de chiffres pré-FAQ.
  * Toutes les sections passent par SectionsRenderer ou un organism : 0 markup inline.
  */
 import Base from '../layouts/Base.astro';
-import BootSplash from '../components/motion/BootSplash.astro';
 import ScrollProgress from '../components/ui/atoms/ScrollProgress.astro';
 import Hero from '../components/ui/organisms/Hero.astro';
 import SectionsRenderer from '../components/sections/SectionsRenderer.astro';
@@ -62,9 +62,6 @@ const faqItems = faqConfig.idx.map((i) => ({ q: faqAll[i].q_fr, a: faqAll[i].a_f
   title="Agence IA et cabinet d'automatisation pour PME · Waimia"
   description="Agence IA et cabinet d'automatisation pour PME et ETI : automatisations, agents IA, applications métier, conseil et formation. Audit gratuit de 45 min."
 >
-  {/* Splash · respiration 1.1s · CSS-only (zéro JS bundle) */}
-  <BootSplash lang="fr" />
-
   {/* 01 · Hero · le métier en une phrase + l'offre en trois lignes */}
   <Hero />
 

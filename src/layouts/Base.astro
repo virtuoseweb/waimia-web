@@ -198,8 +198,10 @@ if (showMesh !== false && !robotsNoindex && !OWN_MESH_PREFIXES.some((prefix) => 
     {/* Polices self-hosted · Mission 03 perf · @font-face dans src/styles/fonts.css
         woff2 latin + latin-ext, servi depuis /public/fonts/ → 0 requête CDN tiers */}
     <link rel="preload" as="font" type="font/woff2" href="/fonts/instrument-serif-regular.woff2" crossorigin />
+    {/* Italique préchargée avec la régulière : les titres mêlent les deux (<i class="acc">) ; si
+        l'italique arrive après, le titre change de nombre de lignes (CLS 0,15 mesuré). */}
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/instrument-serif-italic.woff2" crossorigin />
     <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-tight-regular.woff2" crossorigin fetchpriority="high" />
-    <link rel="preload" as="font" type="font/woff2" href="/fonts/jetbrains-mono-regular.woff2" crossorigin />
 
     {/* JSON-LD : Organization + WebSite + blocs de la page (cf lib/seo/page-schema.ts) */}
     <JsonLd data={allLd} />
