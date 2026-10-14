@@ -21,6 +21,7 @@ import { lastmodFor } from '../lib/seo/lastmod.mjs';
 import { SITE } from '../site.config';
 import { langFromPath, HREFLANG } from '../lib/i18n';
 import { ClientRouter } from 'astro:transitions';
+import { isInternalPath } from '../lib/seo/internal-tools.mjs';
 
 interface Props {
   title: string;
@@ -75,6 +76,24 @@ const pagePath = Astro.url.pathname.length > 1 ? Astro.url.pathname.replace(/\/+
 const canonicalUrl = canonical ?? `${siteUrl}${pagePath}`;
 // Staging non-indexable : forcé sur les projets Vercel de preview (env PUBLIC_STAGING_NOINDEX=1), inactif sur waimia.com.
 const robotsNoindex = noindex || import.meta.env.PUBLIC_STAGING_NOINDEX === '1';
+
+// Règle unique du <title> : le suffixe « · Waimia » (écrit dans title_fr de nombreuses
+// pages) saute quand le titre complet dépasse 60 caractères. Jamais de second suffixe,
+// jamais de troncature. Même valeur pour og:title et twitter:title.
+const TITLE_SUFFIX_RE = /[\s\u00A0\u202F]· Waimia$/;
+const TITLE_MAX = 60;
+const suffixMatch = TITLE_SUFFIX_RE.exec(title);
+const pageTitle = suffixMatch && [...title].length > TITLE_MAX ? title.slice(0, suffixMatch.index) : title;
+
+// Miroir markdown (.md) : mêmes pages que l'intégration llms-md-pages (indexables, hors surfaces
+// internes, hors 404/admin/api/bienvenue/lp). Lien émis seulement si la page est indexable.
+const MD_EXCLUDED_PREFIXES = ['/admin', '/api', '/bienvenue', '/lp'];
+const hasMarkdownMirror =
+  !robotsNoindex &&
+  !isInternalPath(pagePath) &&
+  pagePath !== '/404' &&
+  !MD_EXCLUDED_PREFIXES.some((prefix) => pagePath === prefix || pagePath.startsWith(`${prefix}/`));
+const markdownHref = pagePath === '/' ? '/index.md' : `${pagePath}.md`;
 
 // T1.6b · OG image dynamique via /api/og.png si pas d'image fournie
 // Utilise title + kicker dérivé de la description (first sentence) pour le rendu SVG
@@ -148,13 +167,13 @@ if (showMesh !== false && !robotsNoindex && !OWN_MESH_PREFIXES.some((prefix) => 
     <meta name="format-detection" content="telephone=no" />
 
     <SEO
-      title={title}
+      title={pageTitle}
       description={description}
       noindex={robotsNoindex}
       canonical={canonicalUrl}
       openGraph={{
         basic: {
-          title: title,
+          title: pageTitle,
           type: ogType,
           image: finalOgImage,
           url: canonicalUrl,
@@ -169,15 +188,15 @@ if (showMesh !== false && !robotsNoindex && !OWN_MESH_PREFIXES.some((prefix) => 
           width: 1200,
           height: 630,
           type: 'image/png',
-          alt: title,
+          alt: pageTitle,
         },
       }}
       twitter={{
         card: 'summary_large_image',
-        title: title,
+        title: pageTitle,
         description: description,
         image: finalOgImage,
-        imageAlt: title,
+        imageAlt: pageTitle,
       }}
     />
 
@@ -186,6 +205,8 @@ if (showMesh !== false && !robotsNoindex && !OWN_MESH_PREFIXES.some((prefix) => 
         le compte déclaré dans site.config n'existe pas sur X (404 vérifié le 4 octobre 2026). */}
     <link rel="alternate" hreflang={HREFLANG[lang]} href={canonicalUrl} />
     <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
+    <link rel="alternate" type="application/rss+xml" title="Waimia · Blog" href="/rss.xml" />
+    {hasMarkdownMirror && <link rel="alternate" type="text/markdown" href={markdownHref} />}
 
 
     {/* Favicons + PWA manifest · nouveau mark PNG (identité géométrique) */}
