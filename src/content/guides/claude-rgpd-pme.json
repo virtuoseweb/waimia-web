@@ -87,6 +87,18 @@
       "url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview",
       "type": "enterprise",
       "publishedAt": "2026-10-06"
+    },
+    {
+      "name": "Anthropic, politique de confidentialité (entités Anthropic PBC et Anthropic Ireland Limited), lue le 14 octobre 2026",
+      "url": "https://www.anthropic.com/legal/privacy",
+      "type": "enterprise",
+      "publishedAt": "2026-10-14"
+    },
+    {
+      "name": "Anthropic, conditions commerciales (entité contractante et droit applicable), lues le 14 octobre 2026",
+      "url": "https://www.anthropic.com/legal/commercial-terms",
+      "type": "enterprise",
+      "publishedAt": "2026-10-14"
     }
   ],
   "seo": {
@@ -363,8 +375,8 @@
     {
       "type": "editorial-prose",
       "background": "paper",
-      "html_fr": "<h2>Le registre : une ligne par usage, pas un roman</h2>\n<p>Le registre est le document que les PME repoussent, et celui qui répond le plus vite à un client ou un auditeur qui demande « où passent mes données ? ». Une ligne par usage de Claude suffit : le service et son référent, la surface (chat, tâche automatisée, Claude Code, plugin), les catégories de données, les connecteurs avec leurs droits (lecture ou écriture), et qui valide avant que quelque chose parte à l'extérieur.</p>\n<p>Un registre à jour sert à trois choses : répondre vite, savoir quoi revoir quand une offre, un plugin ou un réglage change, et préparer les obligations de l'AI Act qui vous concernent (voir le <a href=\"/ressources/guides/ai-act-pme-calendrier\">calendrier de l'AI Act pour les PME</a>). Le <a href=\"/ressources/outils/kit-conformite-claude-entreprise\">kit de conformité</a> fournit un modèle de registre à remplir, une trame d'analyse d'impact d'une page et un modèle de politique d'usage. La <a href=\"/ressources/outils/charte-ia-entreprise\">charte IA</a> en donne la version longue.</p>",
-      "html_en": "<h2>The register: one line per use, not a novel</h2>\n<p>The register is the document SMBs put off, and the one that answers fastest when a client or auditor asks \"where does my data go?\". One line per use of Claude is enough: the team and its lead, the surface (chat, automated task, Claude Code, plugin), the categories of data, the connectors with their rights (read or write), and who validates before anything leaves the company.</p>\n<p>An up-to-date register does three things: answer quickly, know what to review when a plan, plugin or setting changes, and prepare the AI Act obligations that apply to you (see the <a href=\"/ressources/guides/ai-act-pme-calendrier\">AI Act timeline for SMBs</a>). The <a href=\"/ressources/outils/kit-conformite-claude-entreprise\">compliance kit</a> provides a register template to fill in, a one-page impact assessment outline and a usage policy template. The <a href=\"/ressources/outils/charte-ia-entreprise\">AI charter</a> gives the long version.</p>",
+      "html_fr": "<h2>Le registre : une ligne par usage, pas un roman</h2>\n<p>Le registre est le document qui répond le plus vite à un client ou un auditeur qui demande « où passent mes données ? ». Une ligne par usage de Claude suffit : le service et son référent, la surface (chat, tâche automatisée, Claude Code, plugin), les catégories de données, les connecteurs avec leurs droits (lecture ou écriture), et qui valide avant que quelque chose parte à l'extérieur.</p>\n<p>Un registre à jour sert à trois choses : répondre vite, savoir quoi revoir quand une offre, un plugin ou un réglage change, et préparer les obligations de l'AI Act qui vous concernent (voir le <a href=\"/ressources/guides/ai-act-pme-calendrier\">calendrier de l'AI Act pour les PME</a>). Le <a href=\"/ressources/outils/kit-conformite-claude-entreprise\">kit de conformité</a> fournit un modèle de registre à remplir, une trame d'analyse d'impact d'une page et un modèle de politique d'usage. La <a href=\"/ressources/outils/charte-ia-entreprise\">charte IA</a> en donne la version longue.</p>",
+      "html_en": "<h2>The register: one line per use, not a novel</h2>\n<p>The register is the document that answers fastest when a client or auditor asks \"where does my data go?\". One line per use of Claude is enough: the team and its lead, the surface (chat, automated task, Claude Code, plugin), the categories of data, the connectors with their rights (read or write), and who validates before anything leaves the company.</p>\n<p>An up-to-date register does three things: answer quickly, know what to review when a plan, plugin or setting changes, and prepare the AI Act obligations that apply to you (see the <a href=\"/ressources/guides/ai-act-pme-calendrier\">AI Act timeline for SMBs</a>). The <a href=\"/ressources/outils/kit-conformite-claude-entreprise\">compliance kit</a> provides a register template to fill in, a one-page impact assessment outline and a usage policy template. The <a href=\"/ressources/outils/charte-ia-entreprise\">AI charter</a> gives the long version.</p>",
       "figures": [
         {
           "src": "/images/illustrations/ds/claude-rgpd-pme-registre-paper.webp",
@@ -608,6 +620,12 @@
           "a_en": "Not with the claude.ai app: Anthropic states US storage, with no European option. European residency goes through AWS Bedrock or Google Vertex, which means an integration. Microsoft Foundry is announced for Europe but not available as of 6 October 2026."
         },
         {
+          "q_fr": "Claude est-il une IA européenne ou américaine ?",
+          "a_fr": "Claude est une IA américaine : Anthropic PBC, son éditeur, a son adresse enregistrée à San Francisco, en Californie (politique de confidentialité d'Anthropic, lue le 14 octobre 2026). Cette nationalité ne dit pas où sont vos données. Pour les clients de l'Espace économique européen, les conditions commerciales (Team, Enterprise, API) sont conclues avec Anthropic Ireland Limited, à Dublin, et relèvent du droit irlandais. Le stockage des apps Claude reste aux États-Unis par défaut. Ce guide n'est pas un avis juridique.",
+          "q_en": "Is Claude a European or an American AI?",
+          "a_en": "Claude is an American AI: Anthropic PBC, its publisher, has its registered address in San Francisco, California (Anthropic privacy policy, read on 14 October 2026). That nationality says nothing about where your data sits. For customers in the European Economic Area, the commercial terms (Team, Enterprise, API) are concluded with Anthropic Ireland Limited, in Dublin, and are governed by Irish law. Claude app data stays in the United States by default. This guide is not legal advice."
+        },
+        {
           "q_fr": "Faut-il un DPA avec Anthropic ?",
           "a_fr": "Oui. Dès que vous traitez des données personnelles, l'article 28 du RGPD exige un contrat avec votre sous-traitant. Chez Anthropic, le DPA fait partie des conditions commerciales (Team, Enterprise, API) : pas de signature séparée. Archivez la version datée et faites lire à votre DPO les clauses types de transfert et la liste des sous-traitants ultérieurs.",
           "q_en": "Do I need a DPA with Anthropic?",
@@ -647,8 +665,8 @@
       "kicker_en": "§ Frame before deploying",
       "h2_fr": "Savoir quelles données passent par Claude, avant que ce soit trop tard.",
       "h2_en": "Know which data goes through Claude, before it is too late.",
-      "subtitle_fr": "L'audit de 45 minutes est gratuit. On liste vos usages de Claude, on repère ceux qui posent question et vous repartez avec un registre de départ. Pas un avis juridique.",
-      "subtitle_en": "The 45-minute audit is free. We list your Claude uses, spot the ones that raise questions, and you leave with a starting register. Not legal advice.",
+      "subtitle_fr": "L'audit de 45 minutes est gratuit. On liste vos usages de Claude, on repère ceux qui posent question et vous repartez avec un ou deux chantiers classés. Pas un avis juridique.",
+      "subtitle_en": "The 45-minute audit is free. We list your Claude uses, spot the ones that raise questions, and you leave with one or two ranked projects. Not legal advice.",
       "buttons": [
         {
           "label_fr": "Réserver un audit IA gratuit",
@@ -677,6 +695,10 @@
     {
       "q": "Mes données restent-elles en Europe ?",
       "a": "Pas avec l'application claude.ai : Anthropic indique un stockage aux États-Unis, sans option européenne. La résidence européenne passe par AWS Bedrock ou Google Vertex, donc par une intégration. Microsoft Foundry est annoncé en Europe mais pas disponible au 6 octobre 2026."
+    },
+    {
+      "q": "Claude est-il une IA européenne ou américaine ?",
+      "a": "Claude est une IA américaine : Anthropic PBC, son éditeur, a son adresse enregistrée à San Francisco, en Californie (politique de confidentialité d'Anthropic, lue le 14 octobre 2026). Cette nationalité ne dit pas où sont vos données. Pour les clients de l'Espace économique européen, les conditions commerciales (Team, Enterprise, API) sont conclues avec Anthropic Ireland Limited, à Dublin, et relèvent du droit irlandais. Le stockage des apps Claude reste aux États-Unis par défaut. Ce guide n'est pas un avis juridique."
     },
     {
       "q": "Faut-il un DPA avec Anthropic ?",
@@ -711,6 +733,10 @@
     {
       "q": "Does my data stay in Europe?",
       "a": "Not with the claude.ai app: Anthropic states US storage, with no European option. European residency goes through AWS Bedrock or Google Vertex, which means an integration. Microsoft Foundry is announced for Europe but not available as of 6 October 2026."
+    },
+    {
+      "q": "Is Claude a European or an American AI?",
+      "a": "Claude is an American AI: Anthropic PBC, its publisher, has its registered address in San Francisco, California (Anthropic privacy policy, read on 14 October 2026). That nationality says nothing about where your data sits. For customers in the European Economic Area, the commercial terms (Team, Enterprise, API) are concluded with Anthropic Ireland Limited, in Dublin, and are governed by Irish law. Claude app data stays in the United States by default. This guide is not legal advice."
     },
     {
       "q": "Do I need a DPA with Anthropic?",
