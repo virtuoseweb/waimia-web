@@ -8,7 +8,7 @@ export const prerender = true;
 // Collection vide → 0 carte → 0 band (pas de crash).
 // Profondeur 2 niveaux (implantations/) → imports en `../../`.
 
-import { AUDIT_BOOKING_HREF, AUDIT_BOOKING_LABEL, AUDIT_PAGE_HREF, AUDIT_PAGE_LABEL } from '../../data/conversion';
+import { AUDIT_BOOKING_HREF, AUDIT_BOOKING_LABEL, AUDIT_PAGE_HREF, AUDIT_PAGE_LABEL, AUDIT_PROMISE } from '../../data/conversion';
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
@@ -76,8 +76,8 @@ const ctaFinal: SectionByType<'cta-final'> = {
   background: 'ink',
   h2_fr: 'Un projet près de chez vous, ou à distance ?',
   h2_en: 'Want to talk about it?',
-  body_fr: 'Un audit de 45 minutes, gratuit et sans engagement : on part de vos processus réels et on repère trois automatisations rentables.',
-  body_en: 'A free 45-minute audit, with no commitment: we start from your real processes and spot three profitable automations.',
+  body_fr: `${AUDIT_PROMISE.general.tiny.fr} On part de vos processus réels, sans engagement.`,
+  body_en: `${AUDIT_PROMISE.general.tiny.en} We start from your real processes, with no commitment.`,
   cta_primary: {
     label_fr: AUDIT_BOOKING_LABEL.fr,
     label_en: AUDIT_BOOKING_LABEL.en,

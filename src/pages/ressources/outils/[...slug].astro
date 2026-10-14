@@ -8,7 +8,6 @@ import LeadCaptureBand from '../../../sections/lead-capture-band/Component.astro
 import { LEAD_MAGNETS, type LeadMagnetSlug } from '../../../data/conversion';
 import { outilHeroIllustration } from '../../../lib/hero-illustrations';
 import { SITE } from '../../../site.config';
-import { buildWebApplication } from '../../../lib/seo/schema-builder';
 
 export async function getStaticPaths() {
   const entries = await getCollection('outils');
@@ -41,10 +40,6 @@ const captureSlug = d.captureEmail && entry.id in LEAD_MAGNETS ? (entry.id as Le
 
 // Libellé affiché du type logique (le type du JSON reste inchangé).
 const TYPE_LABEL: Record<string, string> = { calculator: 'calculateur' };
-// JSON-LD WebApplication · décrit l'outil interactif (calculateur/score) comme une vraie
-// web-app gratuite, en complément de l'Article émis par EssayTemplate. Émis au niveau page.
-const toolUrl = `${SITE.url}/ressources/outils/${entry.id}`;
-const webAppLd = buildWebApplication({ name: d.title_fr, description: d.description_fr, url: toolUrl });
 ---
 <EssayTemplate
   title={d.title_fr}
@@ -81,8 +76,6 @@ const webAppLd = buildWebApplication({ name: d.title_fr, description: d.descript
     <Fragment set:html={bodyHtml} />
   </Fragment>
 </EssayTemplate>
-
-<script type="application/ld+json" set:html={JSON.stringify(webAppLd)} />
 
 {/* Comportement du ToolWidget · hoisté au niveau page (le slot body d'EssayTemplate
     est capturé via Astro.slots.render() puis réinjecté en set:html, ce qui rend

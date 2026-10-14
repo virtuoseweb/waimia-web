@@ -333,23 +333,24 @@
     },
     {
       "id": "w47-freelance-cabinet-agence-ia",
-      "type": "comparatif",
-      "titreProvisoire": "Freelance IA, cabinet de conseil ou agence : qui choisir pour un projet d'IA en PME",
-      "requeteCible": "freelance ia",
+      "type": "révision",
+      "titreProvisoire": "Agence, freelance ou cabinet : intégrer le choix dans le guide « choisir une agence IA »",
+      "requeteCible": "agence ia ou freelance",
       "intention": "Choisir le bon type de prestataire pour un projet d'IA.",
-      "urlCible": "/ressources/comparatifs/freelance-ia-vs-cabinet-conseil-ia",
-      "angle": "Hypothèse à vérifier en ligne : critères explicites (prix, continuité, responsabilité, transfert du code) et verdict par cas, écrit par quelqu'un qui est lui-même indépendant, sans le cacher.",
+      "urlCible": "/ressources/guides/choisir-agence-ia-pme",
+      "angle": "Hypothèse à vérifier en ligne : pas de comparatif séparé, le guide existant gagne une section par type de prestataire avec critères explicites (prix, continuité, responsabilité, transfert du code) et verdict par cas, écrite par quelqu'un qui est lui-même indépendant, sans le cacher. « freelance ia » reste suivie vers /services/consultant-ia-claude.",
       "sourcesALire": [
-        "Premiers résultats de « freelance ia », « cabinet conseil ia », « consultant ia »",
+        "Premiers résultats de « freelance ia », « cabinet conseil ia », « agence ia ou freelance »",
+        "src/content/guides/choisir-agence-ia-pme.json (état en production après la vague 2)",
         "src/content/services/consultant-ia-claude.json et src/content/authors/ (ce que le site dit déjà de Simon)",
         "Pages des concurrents de competitors.json"
       ],
       "semainePrevue": "2026-W43",
       "statut": "planifié",
       "pr": null,
-      "mesureAttendue": "Page indexée et premières impressions sur « freelance ia ». Départ : aucune impression sur la requête à la collecte du 4 octobre 2026. À juger deux collectes après la mise en production.",
+      "mesureAttendue": "Requête « agence ia ou freelance » : volume non mesuré, aucune impression à la collecte du 4 octobre 2026. Attendu : premières impressions sur la page. À juger deux collectes après la mise en production.",
       "resultat": null,
-      "origine": "docs/seo/keywords.json : « freelance ia », « consultant ia », « conseil intelligence artificielle » et « cabinet conseil ia » visent toutes /services/consultant-ia-claude. Avancé de W44 à W43 le 6 octobre 2026 : la matrice Semrush du même jour mesure « freelance ia » à 260 recherches par mois (KD 14) et « freelance n8n » à 140 (KD 15), parmi les plus faciles du marché."
+      "origine": "docs/seo/keywords.json : « agence ia ou freelance » vise /ressources/guides/choisir-agence-ia-pme, « freelance ia » (260, KD 14) et « cabinet conseil ia » visent /services/consultant-ia-claude. Entrée d'abord prévue comme comparatif /ressources/comparatifs/freelance-ia-vs-cabinet-conseil-ia (avancée de W44 à W43 le 6 octobre 2026, matrice Semrush du même jour) ; retargetée en révision le 14 octobre 2026 (vague 2 : une requête, une URL)."
     },
     {
       "id": "w47-revision-cas-usage-finance-comptabilite",
@@ -451,24 +452,24 @@
     },
     {
       "id": "w49-chatbot-service-client",
-      "type": "guide",
-      "titreProvisoire": "Chatbot de service client : ce qu'il sait faire, ce qu'il coûte, quand ne pas en mettre",
+      "type": "révision",
+      "titreProvisoire": "Chatbot de service client : renforcer la page agent de support avec les variantes recherchées",
       "requeteCible": "chatbot service client",
       "intention": "Évaluer l'intérêt d'un chatbot pour son service client avant de chercher un prestataire.",
-      "urlCible": "/ressources/guides/chatbot-service-client",
-      "angle": "Hypothèse à vérifier en ligne : une grille de décision et un exemple illustratif étiqueté, avec « ne le faites pas si », là où les résultats sont des pages d'éditeurs.",
+      "urlCible": "/services/agent-support-client",
+      "angle": "Hypothèse à vérifier en ligne : pas de guide, la page service reprend les variantes recherchées (chatbot SAV, helpdesk, support client, relation client, call center) avec une grille de décision et un « ne le faites pas si », là où les résultats sont des pages d'éditeurs.",
       "sourcesALire": [
         "Premiers résultats de « chatbot service client » et de deux ou trois variantes",
-        "src/content/services/agents-ia/agent-support-client.json et src/content/cas-usages/support-sav.json (à lier, ne pas dupliquer)",
+        "src/content/services/agents-ia/agent-support-client.json (état en production après la vague 2) et src/content/cas-usages/support-sav.json (à lier, ne pas dupliquer)",
         "Pages de limova.ai et subti.ai (competitors.json)",
         "src/data/pricing.ts (aucun prix hors de cette source)"
       ],
-      "semainePrevue": "2026-W46",
+      "semainePrevue": "2026-W45",
       "statut": "planifié",
       "pr": null,
-      "mesureAttendue": "Page indexée et premières impressions sur « chatbot service client ». Départ : aucune impression sur la requête à la collecte du 4 octobre 2026. À juger deux collectes après la mise en production.",
+      "mesureAttendue": "Requête « chatbot service client » : aucune impression à la collecte du 4 octobre 2026. Attendu : premières impressions sur /services/agent-support-client. À juger deux collectes après la mise en production.",
       "resultat": null,
-      "origine": "docs/seo/keywords.json : « chatbot service client » (information) et « agence chatbot » (recherche de prestataire) visent la même page service."
+      "origine": "docs/seo/keywords.json : « chatbot service client » (priorité 2), « agence chatbot » (priorité 1) et les variantes ajoutées le 14 octobre 2026 visent /services/agent-support-client. Entrée d'abord prévue comme guide /ressources/guides/chatbot-service-client ; retargetée en révision le 14 octobre 2026 (vague 2 : une requête, une URL). Passée de W46 à W45 pour tenir le plafond de trois révisions par semaine."
     },
     {
       "id": "w49-revision-n8n-vs-make",
@@ -1051,6 +1052,26 @@
       "origine": "Même origine que w42-revision-cout-agent-ia-haiku-5-5 (trois entrées de flux de sources différentes sur Claude Haiku 5.5, collecte du 11 octobre 2026), et « ChatGPT passe à GPT-6 » (Blog du Modérateur, 8 octobre 2026). Page de prix d'OpenAI relue le 12 octobre 2026 : GPT-6 Luna inchangé à 0,10 $ / 0,50 $."
     },
     {
+      "id": "w42-guide-refonte-site-internet",
+      "type": "guide",
+      "titreProvisoire": "Refonte de site internet : étapes, coût et SEO à garder",
+      "requeteCible": "refonte site internet",
+      "intention": "Décider et préparer la refonte d'un site : périmètre, SEO conservé, redirections, coût.",
+      "urlCible": "/ressources/guides/refonte-site-internet",
+      "angle": "Livré par la vague 2 (lot guide-refonte), pas par la session hebdomadaire. Preuve propre : le cas Balzeo (migration WordPress et WooCommerce, chargement de 5,2 s à 2,4 s). La migration SEO et les redirections 301 sont une section du guide, pas une page à part. Passer l'entrée à « publié » avec la PR quand le guide est en production.",
+      "sourcesALire": [
+        "Premiers résultats de « refonte site internet » et « refonte site web »",
+        "src/content/cases/balzeo.json",
+        "src/content/services/site-web-ia.json (la prestation, à lier, ne pas dupliquer)"
+      ],
+      "semainePrevue": "2026-W42",
+      "statut": "en cours",
+      "pr": null,
+      "mesureAttendue": "Page indexée et premières impressions sur « refonte site internet ». Départ : aucune position Semrush de waimia.com sur ces requêtes (Domain Overview du 9 octobre 2026). À juger deux collectes après la mise en production ; l'absence d'impressions après six semaines garde le guide « cahier des charges » à l'état d'idée.",
+      "resultat": null,
+      "origine": "docs/seo/keywords.json : « refonte site internet » (3 600, KD 28) et cinq variantes, ajoutées le 14 octobre 2026 avec cette page pour cible ; export Positions de noiise.com du 9 octobre 2026, où un seul article concurrent porte 956 visites sur ces requêtes."
+    },
+    {
       "id": "w43-revision-agent-ia-definition-haiku-5-5",
       "type": "révision",
       "titreProvisoire": "Agent IA, définition : exemple de coût recalculé avec Claude Haiku 5.5",
@@ -1132,24 +1153,24 @@
     },
     {
       "id": "w44-guide-application-metier",
-      "type": "guide",
-      "titreProvisoire": "Application métier : définition, exemples et coût pour une PME",
+      "type": "révision",
+      "titreProvisoire": "Logiciel sur mesure et application métier : faire porter les requêtes par la page service",
       "requeteCible": "application métier",
-      "intention": "Comprendre ce qu'est une application métier et si son entreprise en a besoin.",
-      "urlCible": "/ressources/guides/application-metier",
-      "angle": "Hypothèse à vérifier en ligne : définition nette, exemples par fonction (devis, planning, suivi de chantier), coût sur trois ans avec les prix de src/data/pricing.ts, « ne le faites pas si », lien vers le comparatif CRM sur mesure et vers la page service.",
+      "intention": "Comprendre ce qu'est une application métier sur mesure et ce qu'une PME peut en attendre.",
+      "urlCible": "/services/applications-internes",
+      "angle": "Hypothèse à vérifier en ligne : pas de guide, la page de vente reprend la définition et les exemples (devis, planning, suivi de chantier) avec « développement logiciel sur mesure » en H2 et en FAQ, le coût sur trois ans tiré de src/data/pricing.ts, « ne le faites pas si », un lien vers le comparatif CRM sur mesure. Ne rouvrir un guide que si une requête informationnelle distincte est mesurée (par exemple « logiciel métier exemple », volume inconnu).",
       "sourcesALire": [
-        "Premiers résultats de « application métier », « application métier sur mesure », « logiciel métier exemple »",
-        "src/content/services/applications-internes.json (ne pas dupliquer)",
+        "Premiers résultats de « application métier », « application métier sur mesure », « logiciel sur mesure »",
+        "src/content/services/applications-internes.json (retitrée dans la vague 2, relire l'état en production)",
         "src/content/blog/applications-internes-build-vs-buy-pme.json",
         "Pages de sparkyflow.com sur les outils métier (competitors.json)"
       ],
       "semainePrevue": "2026-W44",
       "statut": "planifié",
       "pr": null,
-      "mesureAttendue": "Requêtes « application métier » et « application métier sur mesure » : aucune impression sur 28 jours à la collecte du 11 octobre 2026. Attendu : page indexée et premières impressions sur « application métier ». À juger deux collectes après la mise en production.",
+      "mesureAttendue": "Requêtes « application métier » et « application métier sur mesure » : aucune impression sur 28 jours à la collecte du 11 octobre 2026. Attendu : impressions sur « application métier » classées sur /services/applications-internes. À juger deux collectes après la mise en production.",
       "resultat": null,
-      "origine": "docs/seo/keywords.json : quatre requêtes (« application métier » priorité 1, « application métier sur mesure » priorité 1, « logiciel sur mesure », « développement logiciel sur mesure ») visent toutes /services/applications-internes, une page de vente, alors que « application métier » porte une intention d'information ; aucune impression sur ces requêtes à la collecte du 11 octobre 2026."
+      "origine": "docs/seo/keywords.json : quatre requêtes (« application métier » priorité 1, « application métier sur mesure » priorité 1, « logiciel sur mesure », « développement logiciel sur mesure ») visent déjà /services/applications-internes. Entrée d'abord prévue comme guide /ressources/guides/application-metier ; retargetée en révision le 14 octobre 2026 (vague 2 : une requête, une URL) ; aucune impression sur ces requêtes à la collecte du 11 octobre 2026."
     },
     {
       "id": "w45-guide-claude-tpe",
@@ -1212,6 +1233,26 @@
       "mesureAttendue": "Requête « agent ia entreprise » : aucune impression sur 28 jours à la collecte du 11 octobre 2026 ; « agent ia » 18 impressions en position 89,9, classée sur /ressources/guides/agent-ia-definition au lieu de la cible. Attendu : page indexée et premières impressions sur « agent ia entreprise ». À juger deux collectes après la mise en production.",
       "resultat": null,
       "origine": "docs/seo/keywords.json : « agent ia entreprise » (priorité 1) vise /services/agents-ia, page de vente ; docs/seo/data/latest.json (collecte du 11 octobre 2026), keywords.rows : « agent ia » et « agents ia » onTarget faux."
+    },
+    {
+      "id": "w50-guide-cahier-des-charges-site-internet",
+      "type": "guide",
+      "titreProvisoire": "Cahier des charges de site internet : modèle commenté",
+      "requeteCible": "cahier des charges site internet",
+      "intention": "Rédiger le cahier des charges d'un site avant de consulter des agences.",
+      "urlCible": "/ressources/guides/cahier-des-charges-site-internet",
+      "angle": "Idée conditionnelle, à ne pas planifier tant que les deux conditions ne sont pas réunies : (1) le guide de refonte reçoit des impressions dans les six semaines qui suivent sa mise en production ; (2) Simon fournit un exemple de brief réel, sans quoi le texte serait générique. Le modèle s'écrit dans un tableau éditorial du gabarit guide, pas dans une page outil.",
+      "sourcesALire": [
+        "Premiers résultats de « cahier des charges site internet » et « cahier des charges site web »",
+        "Un brief de site réel fourni par Simon",
+        "src/content/guides/refonte-site-internet.json (à lier, ne pas dupliquer)"
+      ],
+      "semainePrevue": null,
+      "statut": "idée",
+      "pr": null,
+      "mesureAttendue": "Page indexée et premières impressions sur « cahier des charges site internet ». Aucune mesure de départ : requête suivie sans page cible.",
+      "resultat": null,
+      "origine": "docs/seo/keywords.json : quatre requêtes « cahier des charges » ajoutées le 14 octobre 2026 sans page cible (« cahier des charges site internet » 1 000, KD 26). Création conditionnelle décidée dans la stratégie SEO de la vague 2, section 2.2."
     }
   ]
 }

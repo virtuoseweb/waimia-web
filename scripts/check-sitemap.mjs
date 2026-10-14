@@ -5,7 +5,7 @@
  * Chaque URL du sitemap doit :
  *   1. répondre 200      : un fichier HTML existe dans le build pour cette URL ;
  *   2. être indexable    : pas de meta robots noindex ;
- *   3. être canonique    : son canonical pointe elle-même, sans slash final ;
+ *   3. être canonique    : son canonical pointe elle-même, sans slash final (sauf l'accueil) ;
  *   4. ne pas rediriger  : ce n'est pas la source d'une redirection (config Vercel générée) ;
  *   5. être explorable   : aucune règle Disallow de robots.txt ne la couvre ;
  *   6. porter un lastmod : une date réelle, pas la même date sur tout le site.
@@ -54,7 +54,9 @@ for (const u of sitemap) {
   seen.add(u.pathname);
 
   if (!u.loc.startsWith(SITE_ORIGIN)) err('origine', `${u.loc} n'est pas sur ${SITE_ORIGIN}`);
-  if (u.loc !== SITE_ORIGIN && u.loc.endsWith('/')) err('forme', `${u.loc} porte un slash final`);
+  // L'accueil suit son canonical (`https://waimia.com/`) ; les autres URL n'ont pas de slash final.
+  if (u.pathname !== '/' && u.loc.endsWith('/')) err('forme', `${u.loc} porte un slash final`);
+  if (u.pathname === '/' && u.loc !== `${SITE_ORIGIN}/`) err('forme', `${u.loc} : l'accueil s'écrit ${SITE_ORIGIN}/, comme son canonical`);
   if (/[?#]/.test(u.loc)) err('forme', `${u.loc} contient une query ou un fragment`);
 
   const page = byPath.get(u.pathname);
@@ -66,7 +68,7 @@ for (const u of sitemap) {
   if (page.noindex) err('noindex', `${u.pathname} est noindex`);
   const expected = SITE_ORIGIN + (u.pathname === '/' ? '/' : u.pathname);
   if (!page.canonical) err('canonical', `${u.pathname} n'a pas de canonical`);
-  else if (page.canonical.replace(/\/$/, '') !== expected.replace(/\/$/, '')) {
+  else if (page.canonical !== expected) {
     err('canonical', `${u.pathname} a pour canonical ${page.canonical}`);
   }
   if (redirects) {

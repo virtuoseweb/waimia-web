@@ -16,7 +16,7 @@ import ToolIntro from '../../../components/ui/organisms/conversion/ToolIntro.ast
 import CharterDocument from '../../../components/ui/organisms/conversion/CharterDocument.astro';
 import LeadCaptureBand from '../../../sections/lead-capture-band/Component.astro';
 import ResourceLinks from '../../../components/ui/organisms/conversion/ResourceLinks.astro';
-import { buildArticle, buildWebApplication } from '../../../lib/seo/schema-builder';
+import { buildArticle } from '../../../lib/seo/schema-builder';
 import { SITE } from '../../../site.config';
 import { CHARTE_HREF, auditCtaFinal } from '../../../data/conversion';
 import { charterArticles } from '../../../data/charte-ia-pme';
@@ -30,15 +30,13 @@ const ld = buildArticle({
   dateModified: '2026-10-04',
   mainEntityOfPage: `${SITE.url}${CHARTE_HREF}`,
 });
-// Le modèle se personnalise et s'exporte dans le navigateur : outil gratuit, balisé comme tel.
-const webAppLd = buildWebApplication({ name: 'Modèle de charte IA pour PME', description, url: `${SITE.url}${CHARTE_HREF}` });
 const cta = auditCtaFinal(
   'Une charte dit ce qui est permis. L\'audit dit par quelle tâche commencer.',
   '45 minutes en visio, gratuit : vos process passés en revue tâche par tâche, et une cartographie écrite à la fin.',
 );
 ---
 {/* showUpdated={false} : la date de mise à jour figure déjà dans les repères du bandeau d'introduction. */}
-<Base title={title} description={description} jsonLd={[ld, webAppLd]} ogType="article" showUpdated={false}>
+<Base title={title} description={description} jsonLd={ld} ogType="article" showUpdated={false}>
   <MastheadBar
     lang="fr"
     items={[

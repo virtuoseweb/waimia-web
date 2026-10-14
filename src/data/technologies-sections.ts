@@ -14,6 +14,7 @@ import type { SectionByType } from '@waimia/ds-kernel';
 import type { NumberedLayerListData } from '@waimia/ds-kernel/sections/numbered-layer-list/schema';
 import { localizeHref, type Lang } from '../lib/i18n';
 import { AUDIT_BOOKING_HREF } from './sitemap';
+import { AUDIT_PROMISE } from './conversion';
 
 // ── Couches de la stack. Contenu FR (page FR-only) : les champs _en reflètent le FR. ──
 const layers = [
@@ -142,8 +143,8 @@ export function technologiesSections(lang: Lang) {
     type: 'cta-final',
     h2_fr: 'Quels outils pour <i>votre</i> cas ?',
     h2_en: 'Which tools for <i>your</i> case?',
-    body_fr: "L'audit gratuit de 45 minutes part de vos processus et de vos outils actuels. Vous repartez avec trois automatisations rentables identifiées et les outils qui conviennent.",
-    body_en: 'The free 45-minute audit starts from your processes and your current tools. You leave with three profitable automations identified and the tools that fit.',
+    body_fr: `${AUDIT_PROMISE.general.short.fr} On part de vos processus et de vos outils actuels, et on vous dit quels outils conviennent.`,
+    body_en: `${AUDIT_PROMISE.general.short.en} We start from your processes and your current tools, and tell you which tools fit.`,
     cta_primary: {
       label_fr: 'Réserver un audit →',
       label_en: 'Book an audit →',

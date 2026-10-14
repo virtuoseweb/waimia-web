@@ -23,7 +23,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "author-byline": {
-    "count": 26,
+    "count": 27,
     "pages": [
       "/cas-usages/centraliser-donnees",
       "/cas-usages/finance-comptabilite",
@@ -49,6 +49,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/financement-formation-ia-opco",
       "/ressources/guides/mcp-claude",
       "/ressources/guides/n8n-prix",
+      "/ressources/guides/refonte-site-internet",
       "/ressources/guides/roi-automatisation",
       "/ressources/guides/taches-a-automatiser-pme"
     ]
@@ -152,7 +153,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "comparison-duo": {
-    "count": 63,
+    "count": 64,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
@@ -173,6 +174,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/combien-coute-un-agent-ia-pme",
       "/ressources/guides/devis-automatise",
       "/ressources/guides/n8n-prix",
+      "/ressources/guides/refonte-site-internet",
       "/services/agent-qualification-leads",
       "/services/agent-support-client",
       "/services/agent-traitement-documents",
@@ -280,7 +282,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "decision-list": {
-    "count": 69,
+    "count": 70,
     "pages": [
       "/demonstrations/avant-apres",
       "/demonstrations/site-web-intelligent",
@@ -304,6 +306,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-skills",
       "/ressources/guides/devis-automatise",
       "/ressources/guides/mcp-claude",
+      "/ressources/guides/refonte-site-internet",
       "/services/agent-qualification-leads",
       "/services/agent-support-client",
       "/services/agent-traitement-documents",
@@ -350,7 +353,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "definition-extract": {
-    "count": 49,
+    "count": 48,
     "pages": [
       "/services/agent-qualification-leads",
       "/services/agent-support-client",
@@ -358,7 +361,6 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/agents-ia",
       "/services/applications-internes",
       "/services/audit-seo-technique",
-      "/services/automatisation-n8n",
       "/services/automatisation-reseaux-sociaux",
       "/services/automatisations",
       "/services/back-office-sur-mesure",
@@ -495,7 +497,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "direct-answer": {
-    "count": 57,
+    "count": 60,
     "pages": [
       "/cas-usages/finance-comptabilite",
       "/cas-usages/rh",
@@ -543,9 +545,12 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/financement-formation-ia-opco",
       "/ressources/guides/mcp-claude",
       "/ressources/guides/n8n-prix",
+      "/ressources/guides/refonte-site-internet",
       "/ressources/guides/roi-automatisation",
       "/ressources/guides/taches-a-automatiser-pme",
+      "/services/agent-support-client",
       "/services/automatisation-make",
+      "/services/automatisation-n8n",
       "/services/base-de-connaissance-ia",
       "src/content/demonstrations/integration-claude.json",
       "src/content/formations/automatisation.json",
@@ -557,13 +562,11 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "editorial-callout": {
-    "count": 7,
+    "count": 5,
     "pages": [
       "/conformite-ia",
       "src/content/formations/automatisation.json",
       "src/content/formations/chatgpt.json",
-      "src/content/formations/claude-code.json",
-      "src/content/formations/claude.json",
       "src/content/formations/make.json",
       "src/content/formations/n8n.json"
     ]
@@ -583,7 +586,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "editorial-prose": {
-    "count": 185,
+    "count": 189,
     "pages": [
       "/audit-ia-pme",
       "/cas-usages/centraliser-donnees",
@@ -626,6 +629,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/financement-formation-ia-opco",
       "/ressources/guides/mcp-claude",
       "/ressources/guides/n8n-prix",
+      "/ressources/guides/refonte-site-internet",
       "/ressources/guides/roi-automatisation",
       "/ressources/guides/taches-a-automatiser-pme",
       "/services/agent-qualification-leads",
@@ -689,7 +693,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "editorial-table-block": {
-    "count": 71,
+    "count": 72,
     "pages": [
       "/cas-usages/finance-comptabilite",
       "/cas-usages/rh",
@@ -717,6 +721,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/financement-formation-ia-opco",
       "/ressources/guides/mcp-claude",
       "/ressources/guides/n8n-prix",
+      "/ressources/guides/refonte-site-internet",
       "/ressources/guides/roi-automatisation",
       "/ressources/guides/taches-a-automatiser-pme",
       "/services/consultant-ia-claude",
@@ -809,7 +814,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "faq-accordion": {
-    "count": 121,
+    "count": 122,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -868,6 +873,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/financement-formation-ia-opco",
       "/ressources/guides/mcp-claude",
       "/ressources/guides/n8n-prix",
+      "/ressources/guides/refonte-site-internet",
       "/ressources/guides/roi-automatisation",
       "/ressources/guides/taches-a-automatiser-pme",
       "/services/agent-qualification-leads",
@@ -992,7 +998,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "footer-cta-band": {
-    "count": 120,
+    "count": 121,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -1052,6 +1058,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/financement-formation-ia-opco",
       "/ressources/guides/mcp-claude",
       "/ressources/guides/n8n-prix",
+      "/ressources/guides/refonte-site-internet",
       "/ressources/guides/roi-automatisation",
       "/ressources/guides/taches-a-automatiser-pme",
       "/services/agent-qualification-leads",
@@ -1238,7 +1245,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "hero-split-media": {
-    "count": 77,
+    "count": 78,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
@@ -1291,6 +1298,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/financement-formation-ia-opco",
       "/ressources/guides/mcp-claude",
       "/ressources/guides/n8n-prix",
+      "/ressources/guides/refonte-site-internet",
       "/ressources/guides/roi-automatisation",
       "/ressources/guides/taches-a-automatiser-pme",
       "/services/agents-ia",
@@ -1457,7 +1465,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "newsletter-signup-section": {
-    "count": 12,
+    "count": 11,
     "pages": [
       "/ressources/guides/choisir-agence-ia-pme",
       "/ressources/guides/claude-code-entreprise",
@@ -1469,7 +1477,6 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-pme",
       "/ressources/guides/claude-rgpd-pme",
       "/ressources/guides/claude-skills",
-      "/ressources/guides/combien-coute-un-agent-ia-pme",
       "/ressources/guides/cout-integration-claude-pme"
     ]
   },
@@ -1607,7 +1614,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "process-steps": {
-    "count": 35,
+    "count": 36,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/finance-comptabilite",
@@ -1636,6 +1643,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/devis-automatise",
       "/ressources/guides/financement-formation-ia-opco",
       "/ressources/guides/n8n-prix",
+      "/ressources/guides/refonte-site-internet",
       "/ressources/guides/taches-a-automatiser-pme",
       "/services/consultant-ia-claude",
       "/services/integration-chatgpt-openai",
@@ -1731,7 +1739,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "related-cards-band": {
-    "count": 64,
+    "count": 65,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
@@ -1784,6 +1792,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/financement-formation-ia-opco",
       "/ressources/guides/mcp-claude",
       "/ressources/guides/n8n-prix",
+      "/ressources/guides/refonte-site-internet",
       "/ressources/guides/roi-automatisation",
       "/ressources/guides/taches-a-automatiser-pme",
       "/services/automatisation-make",
@@ -1916,7 +1925,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "tech-when-dual": {
-    "count": 34,
+    "count": 35,
     "pages": [
       "/cas-usages/finance-comptabilite",
       "/cas-usages/rh",
@@ -1942,6 +1951,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/financement-formation-ia-opco",
       "/ressources/guides/mcp-claude",
       "/ressources/guides/n8n-prix",
+      "/ressources/guides/refonte-site-internet",
       "/ressources/guides/taches-a-automatiser-pme",
       "/services/automatisation-make",
       "/services/base-de-connaissance-ia",

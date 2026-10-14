@@ -3,14 +3,20 @@
  * Sert à check-config.mjs (pages cibles des mots-clés) et à check-calendar.mjs (pages du
  * calendrier éditorial).
  */
-import { existsSync, readdirSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { ROOT } from '../config.mjs';
 
 function contentBasenames(dir, out = new Set()) {
   for (const e of readdirSync(dir, { withFileTypes: true })) {
     if (e.isDirectory()) contentBasenames(join(dir, e.name), out);
-    else if (e.name.endsWith('.json')) out.add(e.name.replace(/\.json$/, ''));
+    else if (e.name.endsWith('.json')) {
+      out.add(e.name.replace(/\.json$/, ''));
+      // La route d'un contenu vient de son `slug`, qui peut différer du nom de fichier
+      // (services/site-web-ia/sur-mesure.json a pour slug sur-mesure-headless).
+      const slug = readFileSync(join(dir, e.name), 'utf8').match(/^ {2}"slug":\s*"([a-z0-9-]+)"/m)?.[1];
+      if (slug) out.add(slug);
+    }
   }
   return out;
 }

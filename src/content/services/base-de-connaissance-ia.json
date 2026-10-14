@@ -21,7 +21,7 @@
   "faq_fr": [
     {
       "q": "Quelle différence entre une base de connaissance IA et un chatbot ?",
-      "a": "Le chatbot est l'interface. La base de connaissance est ce qu'il y a derrière : vos documents indexés, les droits d'accès, les sources citées. Un chatbot sans base de connaissance répond avec ce que le modèle sait en général. Avec, il répond à partir de vos documents et montre d'où vient la réponse."
+      "a": "Le chatbot est l'interface ; la base de connaissance est ce qu'il y a derrière : vos documents indexés, avec leurs droits d'accès. Sans elle, il répond avec ce que le modèle sait en général ; avec elle, il répond à partir de vos documents et cite ses sources."
     },
     {
       "q": "Faut-il forcément du RAG ?",
@@ -29,7 +29,7 @@
     },
     {
       "q": "Nos documents sont mal rangés. Est-ce bloquant ?",
-      "a": "C'est le cas normal, et c'est le vrai chantier. Une base de connaissance ne répare pas des documents contradictoires : elle les expose. On commence donc par un périmètre réduit, on choisit pour chaque sujet le document qui fait foi, on écarte les versions périmées. Cette étape compte plus que le choix de la technologie."
+      "a": "C'est le cas normal, et c'est le vrai chantier. Une base de connaissance ne répare pas des documents contradictoires : elle les expose. On commence donc par un périmètre réduit, on choisit pour chaque sujet le document qui fait foi, on écarte les versions périmées. La qualité des réponses suit celle de ces documents."
     },
     {
       "q": "Un salarié peut-il voir des documents auxquels il n'a pas droit ?",
@@ -47,7 +47,7 @@
   "faq_en": [
     {
       "q": "What is the difference between an AI knowledge base and a chatbot?",
-      "a": "The chatbot is the interface. The knowledge base is what sits behind it: your indexed documents, access rights, cited sources. A chatbot without a knowledge base answers from what the model knows in general. With one, it answers from your documents and shows where the answer comes from."
+      "a": "The chatbot is the interface; the knowledge base is what sits behind it: your indexed documents, with their access rights. Without it, the chatbot answers from what the model knows in general; with it, the chatbot answers from your documents and cites its sources."
     },
     {
       "q": "Is RAG always required?",
@@ -55,7 +55,7 @@
     },
     {
       "q": "Our documents are a mess. Is that a blocker?",
-      "a": "That is the normal case, and it is the real work. A knowledge base does not fix contradictory documents: it exposes them. So we start with a narrow scope, pick the authoritative document for each topic, and set aside outdated versions. This step matters more than the choice of technology."
+      "a": "That is the normal case, and it is the real work. A knowledge base does not fix contradictory documents: it exposes them. So we start with a narrow scope, pick the authoritative document for each topic, and set aside outdated versions. The quality of answers follows the quality of these documents."
     },
     {
       "q": "Can an employee see documents they are not allowed to?",
@@ -82,8 +82,8 @@
       },
       "kicker_fr": "§ Base de connaissance IA",
       "kicker_en": "§ AI knowledge base",
-      "h1_fr": "Base de connaissance IA : le second cerveau de votre entreprise",
-      "h1_en": "AI knowledge base: your company's second brain",
+      "h1_fr": "Base de connaissance IA : vos documents, chaque réponse avec sa source",
+      "h1_en": "AI knowledge base: your documents, every answer with its source",
       "lede_fr": "Vos procédures, vos offres, vos comptes rendus et vos réponses types existent déjà. Ils sont juste introuvables au moment où on en a besoin. Une base de connaissance IA permet à votre équipe de poser une question en français et d'obtenir une réponse tirée de vos documents, avec la source.",
       "lede_en": "Your procedures, offers, meeting notes and standard replies already exist. They are just impossible to find when needed. An AI knowledge base lets your team ask a question in plain language and get an answer drawn from your documents, with the source.",
       "badges": [
@@ -213,8 +213,8 @@
       "kicker_en": "§ Architecture",
       "title_fr": "L'architecture en mots simples",
       "title_en": "The architecture in plain words",
-      "lead_fr": "Quatre couches. Les deux premières décident de la qualité des réponses, bien plus que le choix du modèle.",
-      "lead_en": "Four layers. The first two decide the quality of answers, far more than the choice of model.",
+      "lead_fr": "Quatre couches, de vos documents jusqu'à la réponse affichée.",
+      "lead_en": "Four layers, from your documents to the answer on screen.",
       "items": [
         {
           "title_fr": "Les sources",
@@ -377,8 +377,8 @@
         {
           "q_fr": "Quelle différence entre une base de connaissance IA et un chatbot ?",
           "q_en": "What is the difference between an AI knowledge base and a chatbot?",
-          "a_fr": "Le chatbot est l'interface. La base de connaissance est ce qu'il y a derrière : vos documents indexés, les droits d'accès, les sources citées. Un chatbot sans base de connaissance répond avec ce que le modèle sait en général. Avec, il répond à partir de vos documents et montre d'où vient la réponse.",
-          "a_en": "The chatbot is the interface. The knowledge base is what sits behind it: your indexed documents, access rights, cited sources. A chatbot without a knowledge base answers from what the model knows in general. With one, it answers from your documents and shows where the answer comes from."
+          "a_fr": "Le chatbot est l'interface ; la base de connaissance est ce qu'il y a derrière : vos documents indexés, avec leurs droits d'accès. Sans elle, il répond avec ce que le modèle sait en général ; avec elle, il répond à partir de vos documents et cite ses sources.",
+          "a_en": "The chatbot is the interface; the knowledge base is what sits behind it: your indexed documents, with their access rights. Without it, the chatbot answers from what the model knows in general; with it, the chatbot answers from your documents and cites its sources."
         },
         {
           "q_fr": "Faut-il forcément du RAG ?",
@@ -389,8 +389,8 @@
         {
           "q_fr": "Nos documents sont mal rangés. Est-ce bloquant ?",
           "q_en": "Our documents are a mess. Is that a blocker?",
-          "a_fr": "C'est le cas normal, et c'est le vrai chantier. Une base de connaissance ne répare pas des documents contradictoires : elle les expose. On commence donc par un périmètre réduit, on choisit pour chaque sujet le document qui fait foi, on écarte les versions périmées. Cette étape compte plus que le choix de la technologie.",
-          "a_en": "That is the normal case, and it is the real work. A knowledge base does not fix contradictory documents: it exposes them. So we start with a narrow scope, pick the authoritative document for each topic, and set aside outdated versions. This step matters more than the choice of technology."
+          "a_fr": "C'est le cas normal, et c'est le vrai chantier. Une base de connaissance ne répare pas des documents contradictoires : elle les expose. On commence donc par un périmètre réduit, on choisit pour chaque sujet le document qui fait foi, on écarte les versions périmées. La qualité des réponses suit celle de ces documents.",
+          "a_en": "That is the normal case, and it is the real work. A knowledge base does not fix contradictory documents: it exposes them. So we start with a narrow scope, pick the authoritative document for each topic, and set aside outdated versions. The quality of answers follows the quality of these documents."
         },
         {
           "q_fr": "Un salarié peut-il voir des documents auxquels il n'a pas droit ?",

@@ -52,7 +52,8 @@ type Topic =
   | 'conseil'
   | 'conformite'
   | 'formation'
-  | 'studio';
+  | 'studio'
+  | 'web';
 
 type Kind =
   | 'service'
@@ -142,10 +143,10 @@ const PAGES: Record<string, PageDef> = {
   '/ressources/comparatifs/claude-code-vs-cursor': { label_fr: 'Claude Code ou Cursor', label_en: 'Claude Code or Cursor', kind: 'comparatif', topics: ['claude', 'applications'] },
 
   // ── Applications métier et données ──
-  '/services/applications-internes': { label_fr: 'Application métier sur mesure', label_en: 'Custom business application', kind: 'service', topics: ['applications', 'donnees'] },
+  '/services/applications-internes': { label_fr: 'Application métier sur mesure', label_en: 'Custom business application', kind: 'service', topics: ['applications'] },
   '/services/mvp-saas': { label_fr: 'Développement de MVP SaaS', label_en: 'SaaS MVP development', kind: 'service', topics: ['applications'] },
-  '/services/portail-client': { label_fr: 'Portail client sur mesure', label_en: 'Custom client portal', kind: 'service', topics: ['applications', 'donnees'] },
-  '/services/back-office-sur-mesure': { label_fr: 'Back-office sur mesure', label_en: 'Custom back office', kind: 'service', topics: ['applications', 'donnees'] },
+  '/services/portail-client': { label_fr: 'Portail client sur mesure', label_en: 'Custom client portal', kind: 'service', topics: ['applications'] },
+  '/services/back-office-sur-mesure': { label_fr: 'Back-office sur mesure', label_en: 'Custom back office', kind: 'service', topics: ['applications'] },
   '/blog/applications-internes-build-vs-buy-pme': { label_fr: 'Développer ou acheter son outil interne', label_en: 'Build or buy your internal tool', kind: 'article', topics: ['applications'] },
   '/cas-clients/les-carnets-de-montpellier': { label_fr: 'Cas client : Les Carnets de Montpellier', label_en: 'Case: Les Carnets de Montpellier', kind: 'cas-client', topics: ['applications', 'agents'] },
   '/cas-clients/waimia-os': { label_fr: 'Projet interne : Waimia OS', label_en: 'Internal project: Waimia OS', kind: 'cas-client', topics: ['agents', 'applications'] },
@@ -197,20 +198,35 @@ const PAGES: Record<string, PageDef> = {
   '/formations/claude': { label_fr: 'Formation Claude', label_en: 'Claude training', kind: 'formation', topics: ['formation', 'claude'] },
   '/formations/claude-code': { label_fr: 'Formation Claude Code', label_en: 'Claude Code training', kind: 'formation', topics: ['formation', 'claude'] },
   '/formations/chatgpt': { label_fr: 'Formation ChatGPT', label_en: 'ChatGPT training', kind: 'formation', topics: ['formation', 'claude'] },
-  '/blog/formation-ia-cpf-qualiopi': { label_fr: 'Formation IA éligible au CPF', label_en: 'CPF-eligible AI training', kind: 'article', topics: ['formation', 'conseil'] },
+  '/blog/formation-ia-cpf-qualiopi': { label_fr: 'Financer une formation IA : CPF, OPCO', label_en: 'Funding AI training: CPF, OPCO', kind: 'article', topics: ['formation', 'conseil'] },
   '/blog/formation-ia-finance-pme': { label_fr: 'Formation IA pour une équipe finance', label_en: 'AI training for finance teams', kind: 'article', topics: ['formation', 'donnees'] },
 
-  // ── Acquisition : site, SEO et GEO ──
+  // ── Acquisition : SEO, GEO et marque ──
   '/services/systeme-acquisition': { label_fr: "Système d'acquisition", label_en: 'Acquisition system', kind: 'service', topics: ['acquisition'] },
-  '/services/site-web-ia': { label_fr: 'Agence site web', label_en: 'Web agency', kind: 'service', topics: ['acquisition'] },
-  '/services/webflow': { label_fr: 'Agence Webflow', label_en: 'Webflow agency', kind: 'service', topics: ['acquisition'] },
-  '/services/wordpress': { label_fr: 'Agence WordPress', label_en: 'WordPress agency', kind: 'service', topics: ['acquisition'] },
-  '/services/shopify': { label_fr: 'Agence Shopify', label_en: 'Shopify agency', kind: 'service', topics: ['acquisition'] },
-  '/services/sur-mesure-headless': { label_fr: 'Site sur mesure : Astro et CMS headless', label_en: 'Custom website: Astro and headless CMS', kind: 'service', topics: ['acquisition'] },
-  '/services/landing-pages-tunnels': { label_fr: 'Landing pages et tunnels', label_en: 'Landing pages and funnels', kind: 'service', topics: ['acquisition', 'commercial'] },
-  '/services/seo-geo-contenu': { label_fr: 'Agence SEO et référencement naturel', label_en: 'SEO and organic search agency', kind: 'service', topics: ['acquisition'] },
+
+  // ── Site web et développement (thème `web`) : cas, services de site, secteurs « Site web et IA »
+  //    puis guide de refonte. Cet ordre fait l'anneau. ──
+  '/cas-clients/amploi': { label_fr: 'Cas client : Amploi', label_en: 'Case: Amploi', kind: 'cas-client', topics: ['web'] },
+  '/cas-clients/balzeo': { label_fr: 'Cas client : Balzeo', label_en: 'Case: Balzeo', kind: 'cas-client', topics: ['web'] },
+  '/cas-clients/sprinkable-airess': { label_fr: 'Cas client : Sprinkable et Airess', label_en: 'Case: Sprinkable and Airess', kind: 'cas-client', topics: ['web'] },
+  '/services/site-web-ia': { label_fr: 'Agence site web', label_en: 'Web agency', kind: 'service', topics: ['web'] },
+  '/services/webflow': { label_fr: 'Agence Webflow', label_en: 'Webflow agency', kind: 'service', topics: ['web'] },
+  '/services/wordpress': { label_fr: 'Agence WordPress', label_en: 'WordPress agency', kind: 'service', topics: ['web'] },
+  '/services/shopify': { label_fr: 'Agence Shopify', label_en: 'Shopify agency', kind: 'service', topics: ['web'] },
+  '/services/sur-mesure-headless': { label_fr: 'Site sur mesure : Astro et CMS headless', label_en: 'Custom website: Astro and headless CMS', kind: 'service', topics: ['web'] },
+  '/services/landing-pages-tunnels': { label_fr: 'Landing pages et tunnels', label_en: 'Landing pages and funnels', kind: 'service', topics: ['web'] },
+  '/secteurs/agence': { label_fr: 'Site web et IA pour les agences', label_en: 'Website and AI for agencies', kind: 'secteur', topics: ['web'], emit: false },
+  '/secteurs/conseil': { label_fr: 'Site web et IA pour les cabinets de conseil', label_en: 'Website and AI for consulting firms', kind: 'secteur', topics: ['web'], emit: false },
+  '/secteurs/esn': { label_fr: 'Site web et IA pour les ESN', label_en: 'Website and AI for IT services firms', kind: 'secteur', topics: ['web'], emit: false },
+  '/secteurs/industrie': { label_fr: 'Site web et IA pour les PME industrielles', label_en: 'Website and AI for industrial SMBs', kind: 'secteur', topics: ['web'], emit: false },
+  '/ressources/guides/refonte-site-internet': { label_fr: 'Refonte de site internet : le guide', label_en: 'Website redesign: the guide', kind: 'guide', topics: ['web'] },
+
+  // ── Acquisition (suite) ──
   '/services/audit-seo-technique': { label_fr: 'Audit SEO technique', label_en: 'Technical SEO audit', kind: 'service', topics: ['acquisition'] },
-  '/services/referencement-ia': { label_fr: 'GEO : être cité par les IA', label_en: 'GEO: get cited by AI', kind: 'service', topics: ['acquisition'] },
+  '/services/seo-geo-contenu': { label_fr: 'Agence SEO et référencement naturel', label_en: 'SEO and organic search agency', kind: 'service', topics: ['acquisition'] },
+  '/ressources/comparatifs/geo-vs-seo': { label_fr: 'GEO ou SEO', label_en: 'GEO or SEO', kind: 'comparatif', topics: ['acquisition'] },
+  '/blog/seo-geo-etre-cite-par-les-ia-generatives': { label_fr: 'Être cité par les IA génératives', label_en: 'Get cited by generative AI', kind: 'article', topics: ['acquisition'] },
+  '/services/referencement-ia': { label_fr: 'Agence GEO : être cité par les IA', label_en: 'GEO agency: get cited by AI', kind: 'service', topics: ['acquisition'] },
   '/services/redaction-seo-contenu': { label_fr: 'Rédaction SEO et contenu', label_en: 'SEO writing and content', kind: 'service', topics: ['acquisition'] },
   '/services/seo-local': { label_fr: 'SEO local', label_en: 'Local SEO', kind: 'service', topics: ['acquisition'] },
   '/services/branding': { label_fr: 'Agence de branding', label_en: 'Branding agency', kind: 'service', topics: ['acquisition'] },
@@ -218,23 +234,14 @@ const PAGES: Record<string, PageDef> = {
   '/services/refonte-de-marque': { label_fr: 'Refonte de marque', label_en: 'Rebranding', kind: 'service', topics: ['acquisition'] },
   '/services/naming-et-positionnement': { label_fr: 'Naming et positionnement', label_en: 'Naming and positioning', kind: 'service', topics: ['acquisition'] },
   '/services/charte-graphique-brand-book': { label_fr: 'Charte graphique et brand book', label_en: 'Brand guidelines and brand book', kind: 'service', topics: ['acquisition'] },
-  '/ressources/comparatifs/geo-vs-seo': { label_fr: 'GEO ou SEO', label_en: 'GEO or SEO', kind: 'comparatif', topics: ['acquisition'] },
   '/ressources/comparatifs/site-web-intelligent-vs-wordpress': { label_fr: 'Site web intelligent ou WordPress', label_en: 'Smart website or WordPress', kind: 'comparatif', topics: ['acquisition'] },
-  '/blog/seo-geo-etre-cite-par-les-ia-generatives': { label_fr: 'Être cité par les IA génératives', label_en: 'Get cited by generative AI', kind: 'article', topics: ['acquisition'] },
   '/blog/logiciel-seo-ia-pme': { label_fr: 'Logiciel SEO IA pour PME', label_en: 'AI SEO software for SMBs', kind: 'article', topics: ['acquisition'] },
-  '/cas-clients/amploi': { label_fr: 'Cas client : Amploi', label_en: 'Case: Amploi', kind: 'cas-client', topics: ['acquisition'] },
-  '/cas-clients/balzeo': { label_fr: 'Cas client : Balzeo', label_en: 'Case: Balzeo', kind: 'cas-client', topics: ['acquisition'] },
-  '/cas-clients/sprinkable-airess': { label_fr: 'Cas client : Sprinkable et Airess', label_en: 'Case: Sprinkable and Airess', kind: 'cas-client', topics: ['acquisition'] },
   '/cas-clients/desangles-peinture': { label_fr: 'Cas client : Desangles Peinture', label_en: 'Case: Desangles Peinture', kind: 'cas-client', topics: ['acquisition'] },
 
   // ── Secteurs (indexables depuis 2026-10-05) : cibles du maillage, sans bloc émis par
   //    Base (le gabarit secteur pose déjà le sien via `meshForSecteur`). ──
   '/secteurs/batiment': { label_fr: 'Automatisation des devis dans le bâtiment', label_en: 'Quote automation in construction', kind: 'secteur', topics: ['commercial', 'acquisition'], emit: false },
   '/secteurs/e-commerce': { label_fr: "Automatisation d'une boutique en ligne", label_en: 'Online shop automation', kind: 'secteur', topics: ['automatisation', 'agents'], emit: false },
-  '/secteurs/agence': { label_fr: 'Site web et IA pour les agences', label_en: 'Website and AI for agencies', kind: 'secteur', topics: ['acquisition', 'automatisation'], emit: false },
-  '/secteurs/conseil': { label_fr: 'Site web et IA pour les cabinets de conseil', label_en: 'Website and AI for consulting firms', kind: 'secteur', topics: ['commercial', 'agents'], emit: false },
-  '/secteurs/esn': { label_fr: 'Site web et IA pour les ESN', label_en: 'Website and AI for IT services firms', kind: 'secteur', topics: ['applications', 'agents'], emit: false },
-  '/secteurs/industrie': { label_fr: 'Site web et IA pour les PME industrielles', label_en: 'Website and AI for industrial SMBs', kind: 'secteur', topics: ['applications', 'automatisation'], emit: false },
   '/secteurs/startup-logiciel': { label_fr: 'Automatisation commerciale des éditeurs de logiciel', label_en: 'Sales automation for software vendors', kind: 'secteur', topics: ['commercial', 'agents'], emit: false },
 
   // ── Studio : qui, comment, où ──
@@ -696,12 +703,12 @@ export function sectorSlugFromLabel(sectorFr?: string): string | undefined {
 
 /** Thèmes dominants par secteur : sert à proposer les bonnes pages sur une page secteur. */
 const SECTEUR_TOPICS: Record<string, Topic[]> = {
-  conseil: ['commercial', 'agents'],
+  conseil: ['web', 'acquisition'],
   comptabilite: ['donnees', 'automatisation'],
-  agence: ['acquisition', 'automatisation'],
-  industrie: ['applications', 'automatisation'],
+  agence: ['web', 'acquisition'],
+  industrie: ['web', 'applications'],
   formation: ['acquisition', 'automatisation'],
-  esn: ['applications', 'agents'],
+  esn: ['web', 'applications'],
   batiment: ['acquisition', 'commercial'],
   'e-commerce': ['acquisition', 'donnees'],
   'liberal-independant': ['acquisition', 'commercial'],
@@ -713,6 +720,9 @@ const SECTEUR_TOPICS: Record<string, Topic[]> = {
 /** Cas client rattaché à un secteur, quand il en existe un. */
 const SECTEUR_CASE: Record<string, string> = {
   batiment: '/cas-clients/desangles-peinture',
+  agence: '/cas-clients/amploi',
+  conseil: '/cas-clients/amploi',
+  industrie: '/cas-clients/sprinkable-airess',
   'e-commerce': '/cas-clients/balzeo',
   'liberal-independant': '/cas-clients/les-carnets-de-montpellier',
   'services-b2b': '/cas-clients/amploi',

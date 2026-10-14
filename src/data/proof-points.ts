@@ -188,8 +188,8 @@ export const PROOF_POINTS: readonly ProofPoint[] = [
     value: 'dès 2 000 €',
     label_fr: 'Prix d’entrée fixe et transparent',
     label_en: 'Fixed, transparent entry price',
-    description_fr: 'Grille publique 2 000 / 4 000 / 7 000 / 10 000 € HT, diagnostic gratuit, aucun surcoût caché.',
-    description_en: 'Public grid 2,000 / 4,000 / 7,000 / 10,000 € ex VAT, free diagnostic, no hidden costs.',
+    description_fr: 'Grille publique 2 000 / 4 000 / 7 000 / 10 000 € HT, audit gratuit, aucun surcoût caché.',
+    description_en: 'Public grid 2,000 / 4,000 / 7,000 / 10,000 € ex VAT, free audit, no hidden costs.',
     sources: ['proof-points/cost-prix-transparent'],
   },
   // ── Qualité ──

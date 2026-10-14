@@ -68,8 +68,6 @@ const REQUIRED = {
   Course: ['name', 'description', 'provider'],
   HowTo: ['name', 'step'],
   ItemList: ['itemListElement'],
-  WebApplication: ['name', 'applicationCategory', 'operatingSystem', 'offers'],
-  SoftwareApplication: ['name', 'applicationCategory', 'operatingSystem', 'offers'],
   CollectionPage: ['name'],
   WebPage: ['name'],
   ContactPage: ['name'],
@@ -80,7 +78,8 @@ const REQUIRED = {
 const ARTICLE_TYPES = ['Article', 'BlogPosting', 'TechArticle'];
 // Types et propriétés interdits : le site n'a ni avis vérifiable, ni produit, ni actualité à
 // chaud, ni vidéo, ni recherche interne. Les baliser serait une donnée structurée trompeuse.
-const FORBIDDEN_TYPES = new Set(['Review', 'AggregateRating', 'Rating', 'Product', 'NewsArticle', 'VideoObject', 'SearchAction']);
+// WebApplication et SoftwareApplication : Google exige une note ou des avis, que le site n'a pas.
+const FORBIDDEN_TYPES = new Set(['Review', 'AggregateRating', 'Rating', 'Product', 'NewsArticle', 'VideoObject', 'SearchAction', 'WebApplication', 'SoftwareApplication']);
 const FORBIDDEN_PROPS = new Set(['review', 'aggregateRating', 'reviewRating', 'video', 'potentialAction']);
 const ORG_ID = `${SITE_ORIGIN}/#organization`;
 const HQ_ID = `${SITE_ORIGIN}/#localbusiness`;
@@ -106,7 +105,9 @@ const COVERAGE = [
   [(p) => /^\/ressources\/(guides|comparatifs|diagnostics)\/.+/.test(p), [ARTICLE_TYPES], 'ressource éditoriale'],
   // Ressources verrouillées (fichier livré par e-mail, aucune application en ligne) : Article, pas WebApplication.
   [(p) => /^\/ressources\/outils\/.+/.test(p) && GATED_RESOURCES.has(p.split('/').pop()), [ARTICLE_TYPES], 'ressource à télécharger'],
-  [(p) => /^\/ressources\/outils\/.+/.test(p) && !GATED_RESOURCES.has(p.split('/').pop()), [['WebApplication', 'SoftwareApplication']], 'outil interactif'],
+  // Outils interactifs : Article aussi. Google exige une note ou des avis pour WebApplication et
+  // SoftwareApplication ; sans avis réels, ce bloc est une erreur de balisage (audit Semrush du 9 octobre 2026).
+  [(p) => /^\/ressources\/outils\/.+/.test(p) && !GATED_RESOURCES.has(p.split('/').pop()), [ARTICLE_TYPES], 'outil interactif'],
   [(p) => /^\/cas-clients\/.+/.test(p), [ARTICLE_TYPES], 'cas client'],
   [(p) => /^\/equipe\/.+/.test(p), [['Person'], ['ProfilePage']], 'page auteur'],
   // Siège (Bordeaux) : ProfessionalService avec adresse. Autres villes, sans bureau : Service (areaServed).

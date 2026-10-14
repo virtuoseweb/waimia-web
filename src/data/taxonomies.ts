@@ -1,4 +1,5 @@
 import type { Lang } from '../lib/i18n';
+import { AUDIT_PROMISE } from './conversion';
 
 export type BiText = Record<Lang, string>;
 
@@ -31,6 +32,12 @@ export const SILOS = {
     pillar: '/ressources/guides/claude-pme',
     question: { fr: "Comment Claude s'intégrerait-il à vos outils et à vos équipes ?", en: 'How would Claude fit your tools and your team?' },
   },
+  // Cluster site web (décision Simon du 14 octobre 2026, point 3) : séparé de l'acquisition.
+  web: {
+    label: { fr: 'Site web et développement', en: 'Websites and development' },
+    pillar: '/services/site-web-ia',
+    question: { fr: 'Votre site vous amène-t-il des demandes, ou seulement des visites ?', en: 'Does your website bring in enquiries, or only visits?' },
+  },
   applications: {
     label: { fr: 'Applications métier', en: 'Business apps' },
     pillar: '/services/applications-internes',
@@ -44,7 +51,7 @@ export const SILOS = {
   acquisition: {
     label: { fr: 'Acquisition et visibilité', en: 'Acquisition and visibility' },
     pillar: '/services/systeme-acquisition',
-    question: { fr: 'Votre site attire-t-il les bons prospects ?', en: 'Does your website attract the right prospects?' },
+    question: { fr: 'Google et les assistants IA vous citent-ils quand on cherche votre métier ?', en: 'Do Google and AI assistants cite you when people search for what you do?' },
   },
   donnees: {
     label: { fr: 'Données et pilotage', en: 'Data and reporting' },
@@ -124,14 +131,19 @@ export const SOURCE_TYPES = {
   },
 };
 
+/** Silos du cluster site web et logiciel : promesse d'audit en variante `web`. */
+const WEB_AUDIT_SILOS: ReadonlySet<string> = new Set<Silo>(['web', 'applications']);
+
 /**
  * Phrase du bandeau CTA d'un contenu : la question de son silo + l'offre d'audit.
- * Sans silo (outil, page hors taxonomie), question générique.
+ * Sans silo (outil, page hors taxonomie), question générique. Silos site web et logiciel :
+ * promesse `web` d'AUDIT_PROMISE (source unique, jamais recopiée).
  */
 export function siloCtaText(key: string | undefined, lang: Lang = 'fr'): string {
   const question = key && key in SILOS
     ? SILOS[key as Silo].question[lang]
     : lang === 'fr' ? 'Vous voulez savoir ce que ce sujet change chez vous ?' : 'Want to know what this changes for you?';
+  if (key && WEB_AUDIT_SILOS.has(key)) return `${question} ${AUDIT_PROMISE.web.short[lang]}`;
   return lang === 'fr'
     ? `${question} L'audit gratuit de 45 minutes part de vos tâches réelles et dit par où commencer, ou s'il vaut mieux ne rien faire.`
     : `${question} The free 45-minute audit starts from your real tasks and says where to begin, or whether to leave it alone.`;
