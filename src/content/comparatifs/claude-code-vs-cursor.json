@@ -25,7 +25,7 @@
     },
     {
       "q": "Cursor n'a-t-il pas aussi un mode agent ?",
-      "a": "Si, et il est bon : sa documentation décrit des sous-agents lancés en parallèle, des Cloud Agents qui tournent dans des machines virtuelles isolées et une CLI pour les scripts. Mais son centre de gravité reste l'éditeur. Claude Code est né agent : il tourne en terminal, sans interface, et c'est précisément ce qui le rend orchestrable, scriptable et lançable en arrière-plan. La différence n'est pas une case à cocher, c'est une posture de conception."
+      "a": "Si, et il est bon : sa documentation décrit des sous-agents lancés en parallèle, des Cloud Agents qui tournent dans des machines virtuelles isolées et une CLI pour les scripts. Mais son centre de gravité reste l'éditeur. Claude Code est né agent : il tourne en terminal, sans interface, et c'est précisément ce qui le rend orchestrable, scriptable et lançable en arrière-plan. La différence tient à la posture de conception."
     },
     {
       "q": "Qu'est-ce que l'orchestration multi-agents apporte concrètement ?",
@@ -37,7 +37,7 @@
     },
     {
       "q": "Claude Code est-il dangereux puisqu'il agit seul ?",
-      "a": "Il agit dans un périmètre que vous fixez. Il propose un plan, demande validation sur les actions sensibles, travaille sur des branches isolées et, bien configuré, n'écrit pas en production sans votre feu vert. Par défaut, d'après la documentation d'Anthropic, un classifieur bloque les actions jugées dangereuses et une sandbox peut isoler fichiers et réseau. L'autonomie n'est pas l'absence de garde-fous. Le vrai risque, c'est de le lancer sans cadre, pas l'outil lui-même."
+      "a": "Il agit dans un périmètre que vous fixez. Il propose un plan, demande validation sur les actions sensibles, travaille sur des branches isolées et, bien configuré, n'écrit pas en production sans votre feu vert. Par défaut, d'après la documentation d'Anthropic, un classifieur bloque les actions jugées dangereuses et une sandbox peut isoler fichiers et réseau. Le risque vient de le lancer sans cadre."
     },
     {
       "q": "Peut-on utiliser les deux en même temps ?",
@@ -49,7 +49,11 @@
     },
     {
       "q": "Vous nous aidez à mettre en place lequel ?",
-      "a": "Les deux, selon votre maturité et vos process. Notre métier d'intégrateur Claude est précisément de câbler ces outils à vos dépôts, vos données et vos garde-fous : choisir la bonne posture par type de tâche, poser les barrières de sécurité, et former vos équipes pour que la compétence reste chez vous. Si Cursor sert mieux votre équipe, nous le disons. L'audit gratuit de 45 min sert à cadrer ce point de départ."
+      "a": "Les deux, selon votre maturité et vos process. Le métier d'intégrateur Claude est de câbler ces outils à vos dépôts, vos données et vos garde-fous : choisir la bonne posture par type de tâche, poser les barrières de sécurité, et former vos équipes pour que la compétence reste chez vous. Si Cursor sert mieux votre équipe, on le dit. L'audit gratuit de 45 min sert à cadrer ce point de départ."
+    },
+    {
+      "q": "Et Codex, l'agent de code d'OpenAI ?",
+      "a": "Codex lit, modifie et exécute du code, depuis la ligne de commande, une extension d'éditeur (VS Code et la plupart de ses dérivés), l'application ChatGPT ou le web. Il est inclus dans les offres ChatGPT, avec un usage plafonné selon l'offre ; les tâches déléguées dans le cloud sont réservées aux offres éligibles, d'après l'aide d'OpenAI lue le 15 octobre 2026. Dans ce comparatif, il se range du côté de Claude Code : un agent à qui on délègue une tâche, plus qu'un éditeur augmenté. Essayez-le en face de Claude Code sur votre propre dépôt avant de trancher."
     }
   ],
   "faq_en": [
@@ -59,7 +63,7 @@
     },
     {
       "q": "Doesn't Cursor also have an agent mode?",
-      "a": "It does, and it's good: its documentation describes sub-agents launched in parallel, Cloud Agents running in isolated virtual machines and a CLI for scripts. But its center of gravity stays the editor. Claude Code was born an agent: it runs in the terminal, with no interface, and that's exactly what makes it orchestrable, scriptable and launchable in the background. The difference isn't a checkbox, it's a design stance."
+      "a": "It does, and it's good: its documentation describes sub-agents launched in parallel, Cloud Agents running in isolated virtual machines and a CLI for scripts. But its center of gravity stays the editor. Claude Code was born an agent: it runs in the terminal, with no interface, and that's exactly what makes it orchestrable, scriptable and launchable in the background. The difference lies in the design stance."
     },
     {
       "q": "What does multi-agent orchestration actually bring?",
@@ -71,7 +75,7 @@
     },
     {
       "q": "Is Claude Code dangerous since it acts alone?",
-      "a": "It acts inside a perimeter you set. It proposes a plan, asks for approval on sensitive actions, works on isolated branches and, properly configured, doesn't write to production without your green light. By default, according to Anthropic's documentation, a classifier blocks actions deemed dangerous and a sandbox can isolate files and network. Autonomy isn't the absence of guardrails. The real risk is launching it with no frame, not the tool itself."
+      "a": "It acts inside a perimeter you set. It proposes a plan, asks for approval on sensitive actions, works on isolated branches and, properly configured, doesn't write to production without your green light. By default, according to Anthropic's documentation, a classifier blocks actions deemed dangerous and a sandbox can isolate files and network. The risk comes from launching it with no frame."
     },
     {
       "q": "Can you use both at the same time?",
@@ -83,7 +87,11 @@
     },
     {
       "q": "Which one do you help us set up?",
-      "a": "Both, depending on your maturity and your processes. Our job as a Claude integrator is precisely to wire these tools to your repos, your data and your guardrails: pick the right stance per task type, set the safety barriers, and train your teams so the skill stays with you. If Cursor serves your team better, we say so. The free 45-min audit exists to frame that starting point."
+      "a": "Both, depending on your maturity and your processes. The job of a Claude integrator is to wire these tools to your repos, your data and your guardrails: pick the right stance per task type, set the safety barriers, and train your teams so the skill stays with you. If Cursor serves your team better, we say so. The free 45-min audit exists to frame that starting point."
+    },
+    {
+      "q": "What about Codex, OpenAI's coding agent?",
+      "a": "Codex reads, edits and runs code from the command line, an editor extension (VS Code and most of its forks), the ChatGPT app or the web. It is included in ChatGPT plans, with usage capped by plan; delegated cloud tasks are limited to eligible plans, according to OpenAI's help centre read on 15 October 2026. In this comparison it sits on Claude Code's side: an agent you hand a task to, more than an augmented editor. Try it against Claude Code on your own repository before deciding."
     }
   ],
   "sources": [
@@ -140,6 +148,12 @@
       "url": "https://code.claude.com/docs/en/security",
       "type": "enterprise",
       "publishedAt": "2026-10-05"
+    },
+    {
+      "name": "OpenAI, aide : utiliser Codex avec votre offre ChatGPT",
+      "url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan",
+      "type": "enterprise",
+      "publishedAt": "2026-10-15"
     }
   ],
   "sections": [
@@ -387,8 +401,8 @@
           "kicker_en": "Fracture 03",
           "h3_fr": "Terminal scriptable vs IDE",
           "h3_en": "Scriptable terminal vs IDE",
-          "body_fr": "Sans interface, Claude Code se branche partout : en arrière-plan, dans un script, dans une intégration continue (GitHub Actions, GitLab CI), lancé puis surveillé pendant que vous faites autre chose. Cette absence d'éditeur n'est pas un manque, c'est ce qui le rend orchestrable. Cursor, lui, met l'IDE au centre et y excelle pour le travail fin et interactif, même s'il propose aussi une CLI non interactive pour les scripts.",
-          "body_en": "With no interface, Claude Code plugs in everywhere: in the background, in a script, in continuous integration (GitHub Actions, GitLab CI), launched then watched while you do something else. That lack of an editor isn't a gap, it's what makes it orchestrable. Cursor, conversely, puts the IDE at the center and excels there for fine, interactive work, even though it also offers a non-interactive CLI for scripts.",
+          "body_fr": "Sans interface, Claude Code se branche partout : en arrière-plan, dans un script, dans une intégration continue (GitHub Actions, GitLab CI), lancé puis surveillé pendant que vous faites autre chose. Cette absence d'éditeur le rend orchestrable. Cursor, lui, met l'IDE au centre et y excelle pour le travail fin et interactif, même s'il propose aussi une CLI non interactive pour les scripts.",
+          "body_en": "With no interface, Claude Code plugs in everywhere: in the background, in a script, in continuous integration (GitHub Actions, GitLab CI), launched then watched while you do something else. That lack of an editor is what makes it orchestrable. Cursor, conversely, puts the IDE at the center and excels there for fine, interactive work, even though it also offers a non-interactive CLI for scripts.",
           "points": [
             {
               "label_fr": "Lançable en arrière-plan",
@@ -409,8 +423,8 @@
           "kicker_en": "Fracture 04",
           "h3_fr": "Contrôle et garde-fous",
           "h3_en": "Control and guardrails",
-          "body_fr": "Avec Cursor, vous validez chaque suggestion : le contrôle est immédiat et granulaire. Avec Claude Code, le contrôle se déplace vers le plan et le diff : l'agent propose une approche, demande validation sur le sensible, travaille sur branche isolée et ne touche pas la production sans feu vert. D'après la documentation d'Anthropic, le mode Auto, actif par défaut, passe chaque action par un classifieur qui bloque celles jugées dangereuses, et l'administrateur peut imposer ces réglages à toute l'entreprise. Lire un diff plutôt que taper chaque ligne, c'est un autre mode de maîtrise, pas une perte.",
-          "body_en": "With Cursor, you approve every suggestion: control is immediate and granular. With Claude Code, control shifts to the plan and the diff: the agent proposes an approach, asks for approval on the sensitive, works on an isolated branch and never touches production without a green light. According to Anthropic's documentation, Auto mode, on by default, runs every action through a classifier that blocks the ones deemed dangerous, and the admin can enforce these settings company-wide. Reading a diff rather than typing every line is another mode of mastery, not a loss.",
+          "body_fr": "Avec Cursor, vous validez chaque suggestion : le contrôle est immédiat et granulaire. Avec Claude Code, le contrôle se déplace vers le plan et le diff : l'agent propose une approche, demande validation sur le sensible, travaille sur branche isolée et ne touche pas la production sans feu vert. D'après la documentation d'Anthropic, le mode Auto, actif par défaut, passe chaque action par un classifieur qui bloque celles jugées dangereuses, et l'administrateur peut imposer ces réglages à toute l'entreprise. Lire un diff plutôt que taper chaque ligne, c'est un autre mode de maîtrise.",
+          "body_en": "With Cursor, you approve every suggestion: control is immediate and granular. With Claude Code, control shifts to the plan and the diff: the agent proposes an approach, asks for approval on the sensitive, works on an isolated branch and never touches production without a green light. According to Anthropic's documentation, Auto mode, on by default, runs every action through a classifier that blocks the ones deemed dangerous, and the admin can enforce these settings company-wide. Reading a diff rather than typing every line is another mode of mastery.",
           "points": [
             {
               "label_fr": "Cursor : validation ligne à ligne",
@@ -436,8 +450,8 @@
           "h3_en": "What you pay, and for whom",
           "body_fr": "Un siège Cursor Teams coûte 40 $ par mois et ne sert qu'aux développeurs. Un siège Claude Team Standard coûte 25 $ (20 $ en annuel) et donne aussi le chat, Cowork et Claude Design à la même personne. Sur une équipe de dix personnes dont trois développeurs, le calcul change. Dans Cursor, les modèles Claude sont décomptés au tarif de l'API : 4 $ en entrée et 20 $ en sortie par million de jetons pour Claude Opus 5.5. Facturé à l'usage via l'API, Claude Code coûte en moyenne environ 13 $ par développeur et par jour actif, selon Anthropic. Prix hors taxes au 6 octobre 2026.",
           "body_en": "A Cursor Teams seat costs $40 a month and only serves developers. A Claude Team Standard seat costs $25 ($20 billed annually) and also gives the same person chat, Cowork and Claude Design. On a ten-person team with three developers, the math changes. In Cursor, Claude models are billed at API rates: $4 input and $20 output per million tokens for Claude Opus 5.5. Billed by usage through the API, Claude Code averages about $13 per developer per active day, according to Anthropic. Prices excl. tax as of October 6, 2026.",
-          "link_label_fr": "Voir nos tarifs d'intégration",
-          "link_label_en": "See our integration pricing",
+          "link_label_fr": "Voir les tarifs d'intégration",
+          "link_label_en": "See the integration pricing",
           "link_href": "/tarifs",
           "points": [
             {
@@ -495,6 +509,10 @@
         {
           "label_fr": "Vous voulez le meilleur des deux : Cursor pour le fin, l'extension Claude Code dedans pour les missions déléguées, le dépôt git comme arbitre.",
           "label_en": "You want the best of both: Cursor for fine work, the Claude Code extension inside it for delegated missions, the git repo as referee."
+        },
+        {
+          "label_fr": "Votre équipe a déjà ChatGPT : Codex, l'agent de code d'OpenAI, y est inclus ; essayez-le en face de Claude Code sur votre dépôt.",
+          "label_en": "Your team already has ChatGPT: Codex, OpenAI's coding agent, is included; try it against Claude Code on your repository."
         }
       ]
     },
@@ -550,8 +568,8 @@
         {
           "q_fr": "Cursor n'a-t-il pas aussi un mode agent ?",
           "q_en": "Doesn't Cursor also have an agent mode?",
-          "a_fr": "Si, et il est bon : sa documentation décrit des sous-agents lancés en parallèle, des Cloud Agents qui tournent dans des machines virtuelles isolées et une CLI pour les scripts. Mais son centre de gravité reste l'éditeur. Claude Code est né agent : il tourne en terminal, sans interface, et c'est précisément ce qui le rend orchestrable, scriptable et lançable en arrière-plan. La différence n'est pas une case à cocher, c'est une posture de conception.",
-          "a_en": "It does, and it's good: its documentation describes sub-agents launched in parallel, Cloud Agents running in isolated virtual machines and a CLI for scripts. But its center of gravity stays the editor. Claude Code was born an agent: it runs in the terminal, with no interface, and that's exactly what makes it orchestrable, scriptable and launchable in the background. The difference isn't a checkbox, it's a design stance."
+          "a_fr": "Si, et il est bon : sa documentation décrit des sous-agents lancés en parallèle, des Cloud Agents qui tournent dans des machines virtuelles isolées et une CLI pour les scripts. Mais son centre de gravité reste l'éditeur. Claude Code est né agent : il tourne en terminal, sans interface, et c'est précisément ce qui le rend orchestrable, scriptable et lançable en arrière-plan. La différence tient à la posture de conception.",
+          "a_en": "It does, and it's good: its documentation describes sub-agents launched in parallel, Cloud Agents running in isolated virtual machines and a CLI for scripts. But its center of gravity stays the editor. Claude Code was born an agent: it runs in the terminal, with no interface, and that's exactly what makes it orchestrable, scriptable and launchable in the background. The difference lies in the design stance."
         },
         {
           "q_fr": "Qu'est-ce que l'orchestration multi-agents apporte concrètement ?",
@@ -568,8 +586,8 @@
         {
           "q_fr": "Claude Code est-il dangereux puisqu'il agit seul ?",
           "q_en": "Is Claude Code dangerous since it acts alone?",
-          "a_fr": "Il agit dans un périmètre que vous fixez. Il propose un plan, demande validation sur les actions sensibles, travaille sur des branches isolées et, bien configuré, n'écrit pas en production sans votre feu vert. Par défaut, d'après la documentation d'Anthropic, un classifieur bloque les actions jugées dangereuses et une sandbox peut isoler fichiers et réseau. L'autonomie n'est pas l'absence de garde-fous. Le vrai risque, c'est de le lancer sans cadre, pas l'outil lui-même.",
-          "a_en": "It acts inside a perimeter you set. It proposes a plan, asks for approval on sensitive actions, works on isolated branches and, properly configured, doesn't write to production without your green light. By default, according to Anthropic's documentation, a classifier blocks actions deemed dangerous and a sandbox can isolate files and network. Autonomy isn't the absence of guardrails. The real risk is launching it with no frame, not the tool itself."
+          "a_fr": "Il agit dans un périmètre que vous fixez. Il propose un plan, demande validation sur les actions sensibles, travaille sur des branches isolées et, bien configuré, n'écrit pas en production sans votre feu vert. Par défaut, d'après la documentation d'Anthropic, un classifieur bloque les actions jugées dangereuses et une sandbox peut isoler fichiers et réseau. Le risque vient de le lancer sans cadre.",
+          "a_en": "It acts inside a perimeter you set. It proposes a plan, asks for approval on sensitive actions, works on isolated branches and, properly configured, doesn't write to production without your green light. By default, according to Anthropic's documentation, a classifier blocks actions deemed dangerous and a sandbox can isolate files and network. The risk comes from launching it with no frame."
         },
         {
           "q_fr": "Peut-on utiliser les deux en même temps ?",
@@ -586,8 +604,14 @@
         {
           "q_fr": "Vous nous aidez à mettre en place lequel ?",
           "q_en": "Which one do you help us set up?",
-          "a_fr": "Les deux, selon votre maturité et vos process. Notre métier d'intégrateur Claude est précisément de câbler ces outils à vos dépôts, vos données et vos garde-fous : choisir la bonne posture par type de tâche, poser les barrières de sécurité, et former vos équipes pour que la compétence reste chez vous. Si Cursor sert mieux votre équipe, nous le disons. L'audit gratuit de 45 min sert à cadrer ce point de départ.",
-          "a_en": "Both, depending on your maturity and your processes. Our job as a Claude integrator is precisely to wire these tools to your repos, your data and your guardrails: pick the right stance per task type, set the safety barriers, and train your teams so the skill stays with you. If Cursor serves your team better, we say so. The free 45-min audit exists to frame that starting point."
+          "a_fr": "Les deux, selon votre maturité et vos process. Le métier d'intégrateur Claude est de câbler ces outils à vos dépôts, vos données et vos garde-fous : choisir la bonne posture par type de tâche, poser les barrières de sécurité, et former vos équipes pour que la compétence reste chez vous. Si Cursor sert mieux votre équipe, on le dit. L'audit gratuit de 45 min sert à cadrer ce point de départ.",
+          "a_en": "Both, depending on your maturity and your processes. The job of a Claude integrator is to wire these tools to your repos, your data and your guardrails: pick the right stance per task type, set the safety barriers, and train your teams so the skill stays with you. If Cursor serves your team better, we say so. The free 45-min audit exists to frame that starting point."
+        },
+        {
+          "q_fr": "Et Codex, l'agent de code d'OpenAI ?",
+          "a_fr": "Codex lit, modifie et exécute du code, depuis la ligne de commande, une extension d'éditeur (VS Code et la plupart de ses dérivés), l'application ChatGPT ou le web. Il est inclus dans les offres ChatGPT, avec un usage plafonné selon l'offre ; les tâches déléguées dans le cloud sont réservées aux offres éligibles, d'après l'aide d'OpenAI lue le 15 octobre 2026. Dans ce comparatif, il se range du côté de Claude Code : un agent à qui on délègue une tâche, plus qu'un éditeur augmenté. Essayez-le en face de Claude Code sur votre propre dépôt avant de trancher.",
+          "q_en": "What about Codex, OpenAI's coding agent?",
+          "a_en": "Codex reads, edits and runs code from the command line, an editor extension (VS Code and most of its forks), the ChatGPT app or the web. It is included in ChatGPT plans, with usage capped by plan; delegated cloud tasks are limited to eligible plans, according to OpenAI's help centre read on 15 October 2026. In this comparison it sits on Claude Code's side: an agent you hand a task to, more than an augmented editor. Try it against Claude Code on your own repository before deciding."
         }
       ]
     },
