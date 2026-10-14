@@ -33,6 +33,7 @@ export const BLOG_TAXO_VISUALS: Record<Silo, BlogTaxoVisual> = {
   automatisation: { image: illustrationPath('computer-health'), hue: 250 },
   agents: { image: illustrationPath('man-and-woman-hi'), hue: 320 },
   claude: { image: illustrationPath('style-11'), hue: 60 },
+  web: { image: illustrationPath('computer-health'), hue: 20 },
   applications: { image: illustrationPath('woman-computer'), hue: 140 },
   commercial: { image: illustrationPath('men-on-hand'), hue: 0 },
   acquisition: { image: illustrationPath('money-money'), hue: 30 },

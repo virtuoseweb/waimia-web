@@ -10,6 +10,7 @@
 // /ressources/outils/<slug>, /services/<slug>, /equipe/simon-beros.
 
 import { NOINDEX_SITEMAP_PATHS } from './sitemap-noindex-exclude';
+import { AUDIT_PROMISE } from './conversion';
 
 export interface EeatLink {
   /** Vrai si la page cible est en noindex : le libellé s'affiche sans lien. */
@@ -63,8 +64,12 @@ export interface EeatPack {
     services: { label: string; href: string };
     tools: { label: string; href: string };
   };
-  /** Bloc « avis » honnête : engagements d'offre, PAS de témoignage client. */
-  commitments: { label: string; detail: string }[];
+  /**
+   * Bloc « avis » honnête : engagements d'offre, PAS de témoignage client. `audit: true` marque
+   * l'engagement dont le détail est la promesse d'audit : le composant le résout par silo via
+   * `eeatCommitments` (variante `web` sur les pages site web et logiciel).
+   */
+  commitments: { label: string; detail: string; audit?: boolean }[];
   /** Note d'honnêteté à afficher près du bloc avis/preuves. */
   honestyNote: string;
   /**
@@ -73,7 +78,7 @@ export interface EeatPack {
    * l'activité concernée : Meta Business Partner et Google Partner relèvent de la publicité et
    * de la visibilité, PAS de l'IA (aucun partenariat éditeur IA n'est revendiqué).
    */
-  credentials?: { src?: string; alt: string; scope?: string; href?: string }[];
+  credentials?: { src?: string; alt: string; scope?: string; href?: string; width?: number; height?: number }[];
 }
 
 /**
@@ -81,7 +86,7 @@ export interface EeatPack {
  * sélectionne alors le jeu de liens cohérent (services / outil / secteurs / articles).
  * 'generic' = jeu historique (fallback rétrocompatible pour toute instance sans champ `silo`).
  */
-export type EeatSilo = 'acquisition' | 'commercial' | 'ops' | 'hub' | 'generic';
+export type EeatSilo = 'acquisition' | 'commercial' | 'ops' | 'hub' | 'generic' | 'web' | 'apps';
 
 /** Jeu de liens d'un silo : 3 services (hub en pose 4, filtré à 3 au rendu), 1 outil, 3 secteurs, 3 articles. */
 export interface EeatSiloSet {
@@ -113,7 +118,15 @@ const SERVICE_LINKS: Record<string, EeatLink> = {
   'automatisations': { label: 'Automatisations', href: '/services/automatisations', kicker: 'Service', media: ds('gentleman-craftsman-go-work') },
   'agents-ia': { label: 'Agents IA', href: '/services/agents-ia', kicker: 'Service', media: ds('its-x') },
   'consultant-ia-claude': { label: 'Consultant IA Claude', href: '/services/consultant-ia-claude', kicker: 'Service', media: ds('pretty-woman') },
-  'site-web-ia': { label: 'Site web intelligent', href: '/services/site-web-ia', kicker: 'Service', media: ds('computer-health') },
+  // Cluster site web (silo 'web') et logiciel sur mesure (silo 'apps') : libellés = requêtes
+  // visées par les pages (« développement web sur mesure », « logiciel sur mesure »).
+  'site-web-ia': { label: 'Agence site web', href: '/services/site-web-ia', kicker: 'Service', media: ds('computer-health') },
+  'sur-mesure-headless': { label: 'Développement web sur mesure', href: '/services/sur-mesure-headless', kicker: 'Service', media: ds('sur-mesure-headless-tailleur-mannequin') },
+  'wordpress': { label: 'Agence WordPress', href: '/services/wordpress', kicker: 'Service', media: ds('wordpress-coeur-et-extensions') },
+  'applications-internes': { label: 'Logiciel sur mesure', href: '/services/applications-internes', kicker: 'Service', media: ds('applications-internes-v3-porte') },
+  'mvp-saas': { label: 'Développement de MVP SaaS', href: '/services/mvp-saas', kicker: 'Service', media: ds('mvp-saas-etal-ouvert') },
+  'portail-client': { label: 'Portail client sur mesure', href: '/services/portail-client', kicker: 'Service', media: ds('portail-client-fenetre-suivi') },
+  'back-office-sur-mesure': { label: 'Back-office sur mesure', href: '/services/back-office-sur-mesure', kicker: 'Service', media: ds('back-office-sur-mesure-chaine-validation') },
 };
 
 // Intégration 2026-10 : seuls les secteurs encore publiés (les autres sont redirigés en 301
@@ -122,6 +135,11 @@ const SECTOR_LINKS: Record<string, EeatLink> = {
   'batiment': { label: 'Bâtiment & artisans', href: '/secteurs/batiment', kicker: 'Secteur' },
   'e-commerce': { label: 'E-commerce', href: '/secteurs/e-commerce', kicker: 'Secteur' },
   'startup-logiciel': { label: 'Startup & éditeur logiciel', href: '/secteurs/startup-logiciel', kicker: 'Secteur' },
+  // Secteurs « Site web et IA pour… » (cluster web) : agences, conseil, ESN, industrie.
+  'agence': { label: 'Agences marketing et com', href: '/secteurs/agence', kicker: 'Secteur' },
+  'conseil': { label: 'Cabinets de conseil', href: '/secteurs/conseil', kicker: 'Secteur' },
+  'esn': { label: 'ESN', href: '/secteurs/esn', kicker: 'Secteur' },
+  'industrie': { label: 'PME industrielles', href: '/secteurs/industrie', kicker: 'Secteur' },
 };
 
 const ARTICLE_LINKS: Record<string, EeatLink> = {
@@ -154,6 +172,21 @@ const ARTICLE_LINKS: Record<string, EeatLink> = {
     href: '/blog/automatiser-relances-b2b-sans-sdr-guide-cabinet-conseil',
     kicker: 'Guide',
     lead: 'Relancer chaque lead au bon moment sans recruter un commercial dédié.',
+  },
+  'refonte-site': {
+    label: 'Refonte de site internet',
+    href: '/ressources/guides/refonte-site-internet',
+    kicker: 'Guide',
+  },
+  'build-vs-buy': {
+    label: 'Application interne : développer ou acheter ?',
+    href: '/blog/applications-internes-build-vs-buy-pme',
+    kicker: 'Article',
+  },
+  'crm-sur-mesure': {
+    label: 'CRM sur mesure ou CRM du marché',
+    href: '/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche',
+    kicker: 'Comparatif',
   },
 };
 
@@ -228,16 +261,19 @@ export const EEAT_PACK: EeatPack = {
     tools: { label: 'Tous les outils', href: '/ressources/outils' },
   },
   commitments: [
-    { label: 'Audit gratuit', detail: '45 minutes en visio, trois automatisations rentables repérées avant tout engagement.' },
+    // Détail = promesse canonique (AUDIT_PROMISE), résolue par silo dans eeatCommitments.
+    { label: 'Avant tout engagement', detail: AUDIT_PROMISE.general.short.fr, audit: true },
     { label: 'Prix fixe transparent', detail: 'Périmètre et budget connus avant de signer, pas de dérive.' },
     { label: 'Formation incluse', detail: 'Documentation et passation : votre équipe est autonome à la livraison.' },
     { label: 'Zéro captivité', detail: 'Code, workflows et documentation transférés : vous gardez la main.' },
   ],
   honestyNote: 'Studio solo : un ingénieur, chaque mission documentée sur sa propre fiche.',
   credentials: [
-    { src: '/logos/badge-france-num-activateur.png', alt: 'Activateur France Num', href: 'https://www.francenum.gouv.fr/activateurs/beros-simon' },
+    // width/height = dimensions intrinsèques du fichier (PNG 500×455), réservent la place (CLS).
+    { src: '/logos/badge-france-num-activateur.png', alt: 'Activateur France Num', href: 'https://www.francenum.gouv.fr/activateurs/beros-simon', width: 500, height: 455 },
     // Confirmés par Simon (2026-10) : références du volet publicité et visibilité.
-    { src: '/logos/badge-meta-business-partner.svg', alt: 'Meta Business Partner', scope: 'Publicité et visibilité' },
+    // SVG : viewBox 841.89 × 595.28, arrondi.
+    { src: '/logos/badge-meta-business-partner.svg', alt: 'Meta Business Partner', scope: 'Publicité et visibilité', width: 842, height: 595 },
     // Pas de badge officiel Google Partner dans le repo → libellé texte.
     { alt: 'Google Partner', scope: 'Publicité et visibilité' },
   ],
@@ -281,7 +317,31 @@ export const EEAT_SILOS: Record<EeatSilo, EeatSiloSet> = {
     sectors: sec('batiment', 'e-commerce', 'startup-logiciel'),
     articles: art('seo-geo', 'pillar-ia-pme', 'crm-10-jours'),
   },
+  // Cluster site web : 4 services (le lien vers la page hôte est retiré au rendu, 3 restent).
+  // Aucun outil propre au web n'existe : l'outil reste le calculateur (à revoir avec Simon).
+  web: {
+    services: svc('site-web-ia', 'sur-mesure-headless', 'landing-pages-tunnels', 'wordpress'),
+    tool: TOOL_LINKS['calculateur-roi-ia'],
+    sectors: sec('agence', 'conseil', 'industrie'),
+    articles: art('refonte-site', 'seo-geo'),
+  },
+  // Cluster logiciel sur mesure : pilier + 3 feuilles, même retrait de la page hôte.
+  apps: {
+    services: svc('applications-internes', 'mvp-saas', 'portail-client', 'back-office-sur-mesure'),
+    tool: TOOL_LINKS['diagnostic-maturite-ia'],
+    sectors: sec('esn', 'industrie'),
+    articles: art('build-vs-buy', 'crm-sur-mesure'),
+  },
 };
+
+/** Silos du cluster site web et logiciel : promesse d'audit et légendes propres à ce cluster. */
+export const EEAT_WEB_SILOS: ReadonlySet<EeatSilo> = new Set<EeatSilo>(['web', 'apps']);
+
+/** Engagements du pack, promesse d'audit en variante `web` sur les silos site web et logiciel. */
+export function eeatCommitments(silo?: EeatSilo): EeatPack['commitments'] {
+  const promise = silo && EEAT_WEB_SILOS.has(silo) ? AUDIT_PROMISE.web.short.fr : AUDIT_PROMISE.general.short.fr;
+  return EEAT_PACK.commitments.map((c) => (c.audit ? { ...c, detail: promise } : c));
+}
 
 /** Résout le jeu de liens d'un silo (fallback 'generic' pour undefined / valeur inconnue). */
 export function eeatSiloSet(silo?: EeatSilo): EeatSiloSet {

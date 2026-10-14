@@ -57,6 +57,7 @@ const BLOG_BY_CATEGORY: Record<Silo, HeroIllustration> = {
   automatisation: build('computer-health', 'right'),
   agents: build('man-and-woman-hi', 'left'),
   claude: build('style-11', 'right'),
+  web: build('computer-health', 'left'),
   applications: build('woman-computer', 'left'),
   commercial: build('man-and-woman-hi', 'right'),
   acquisition: build('money-in-the-pig', 'left'),
