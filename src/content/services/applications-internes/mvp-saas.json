@@ -6,7 +6,7 @@
   "description_en": "SaaS MVP development for SMEs and founders: a first sellable product with sign-up, accounts and payment. From 2,000 € excl. VAT, code handed over.",
   "slug": "mvp-saas",
   "publishedAt": "2026-07-16T00:00:00.000Z",
-  "updatedAt": "2026-10-12T00:00:00.000Z",
+  "updatedAt": "2026-10-14T00:00:00.000Z",
   "category": "applications",
   "tags": [
     "developpement-mvp-saas",
@@ -37,7 +37,7 @@
     },
     {
       "q": "Combien de temps faut-il pour sortir une v0 ?",
-      "a": "Cela dépend du périmètre et de la disponibilité de la personne qui décide. Le sprint de cadrage de 10 heures fixe le parcours à construire, et l'estimation de durée vient à la fin de ce cadrage. Nous ne donnons pas de délai avant."
+      "a": "Cela dépend du périmètre et de la disponibilité de la personne qui décide. Le sprint de cadrage de 10 heures fixe le parcours à construire, et l'estimation de durée vient à la fin de ce cadrage. On ne donne pas de délai avant."
     },
     {
       "q": "L'IA accélère le développement : le produit reste-t-il solide ?",
@@ -110,8 +110,8 @@
           "label_en": "Code handed over"
         }
       ],
-      "cta_sub_fr": "Audit gratuit de 45 minutes : on part de votre idée et du premier client à convaincre.",
-      "cta_sub_en": "Free 45-minute audit: we start from your idea and the first customer to convince.",
+      "cta_sub_fr": "Audit gratuit de 45 minutes : on part de votre idée et du premier client à convaincre, et vous repartez avec un ou deux chantiers classés.",
+      "cta_sub_en": "Free 45-minute audit: we start from your idea and the first customer to convince, and you leave with one or two ranked projects.",
       "cta_primary": {
         "label_fr": "Réserver un audit IA gratuit →",
         "label_en": "Book a free AI audit →",
@@ -121,7 +121,7 @@
       "cta_secondary": {
         "label_fr": "Comment se passe l'audit",
         "label_en": "How the audit works",
-        "href": "/audit-ia-pme",
+        "href": "/audit-ia-pme#site-web-logiciel",
         "variant": "ghost"
       },
       "media_src": "/images/line-art/dispositif-flow.svg",
@@ -243,8 +243,8 @@
           "severity": "critical",
           "title_fr": "Un produit complet construit sans client",
           "title_en": "A full product built without a customer",
-          "desc_fr": "Des mois de développement avant qu'un utilisateur l'ait vu. Au lancement, on découvre que le marché voulait autre chose, et le budget est dépensé.",
-          "desc_en": "Months of development before a user has seen it. At launch you find the market wanted something else, and the budget is spent.",
+          "desc_fr": "Le produit complet est livré avant que le premier client l'ait vu. S'il fallait autre chose, le budget est déjà dépensé.",
+          "desc_en": "The full product ships before the first customer has seen it. If something else was needed, the budget is already spent.",
           "fix_fr": "Un seul parcours vendable, mis devant des clients avant d'ajouter le reste.",
           "fix_en": "One sellable journey, put in front of customers before adding the rest."
         },
@@ -261,8 +261,8 @@
           "severity": "medium",
           "title_fr": "Un code jetable qui bloque la suite",
           "title_en": "Throwaway code that blocks what comes next",
-          "desc_fr": "Sans architecture ni tests, la v0 est à réécrire dès qu'elle marche. La dette technique arrive au pire moment.",
-          "desc_en": "Without architecture or tests, the v0 has to be rewritten the moment it works. Technical debt arrives at the worst time.",
+          "desc_fr": "Sans tests, la moindre évolution casse la v0.",
+          "desc_en": "Without tests, the slightest change breaks the v0.",
           "fix_fr": "Une base propre, testée sur les cas limites, documentée.",
           "fix_en": "A clean base, tested on edge cases, documented."
         },
@@ -397,8 +397,8 @@
           "side": "left"
         }
       ],
-      "html_fr": "<h2>MVP SaaS, outil interne ou portail : choisir la bonne forme</h2>\n<p>Un MVP SaaS se vend à un marché. Si l'outil sert votre équipe et que personne ne le paie, c'est une <a href=\"/services/applications-internes\">application interne sur mesure</a>, ou un <a href=\"/services/back-office-sur-mesure\">back-office sur mesure</a> quand il remplace des tableurs. Si vos clients existants doivent suivre leurs dossiers ou récupérer leurs documents, c'est un <a href=\"/services/portail-client\">portail client</a>.</p>\n<h2>Développer ou acheter</h2>\n<p>Avant de construire, vérifiez qu'un logiciel du marché ne fait pas déjà le travail. La grille de décision est détaillée dans <a href=\"/blog/applications-internes-build-vs-buy-pme\">développer ou acheter son outil interne</a>. Elle vaut aussi pour un produit : si votre différence n'est pas dans le logiciel, n'en construisez pas.</p>\n<h2>Autour du produit</h2>\n<p>Les relances, la facturation ou l'envoi des emails d'activation se traitent par des <a href=\"/services/automatisations\">automatisations</a>. Une tâche qui demande du jugement dans le produit relève des <a href=\"/services/agents-ia\">agents IA</a>.</p>",
-      "html_en": "<h2>SaaS MVP, internal tool or portal: choosing the right form</h2>\n<p>A SaaS MVP is sold to a market. If the tool serves your team and nobody pays for it, it is a <a href=\"/services/applications-internes\">bespoke internal application</a>, or a <a href=\"/services/back-office-sur-mesure\">bespoke back office</a> when it replaces spreadsheets. If your existing customers need to follow their cases or retrieve their documents, it is a <a href=\"/services/portail-client\">client portal</a>.</p>\n<h2>Build or buy</h2>\n<p>Before building, check that off-the-shelf software does not already do the job. The decision grid is detailed in <a href=\"/blog/applications-internes-build-vs-buy-pme\">build or buy your internal tool</a>. It applies to a product too: if your difference is not in the software, do not build it.</p>\n<h2>Around the product</h2>\n<p>Follow-ups, invoicing or activation emails are handled by <a href=\"/services/automatisations\">automations</a>. A task that needs judgement inside the product belongs to <a href=\"/services/agents-ia\">AI agents</a>.</p>"
+      "html_fr": "<h2>MVP SaaS, outil interne ou portail : choisir la bonne forme</h2>\n<p>Un MVP SaaS se vend à un marché. Si l'outil sert votre équipe et que personne ne le paie, c'est un <a href=\"/services/applications-internes\">logiciel sur mesure interne</a>, ou un <a href=\"/services/back-office-sur-mesure\">back-office sur mesure</a> quand il remplace des tableurs. Si vos clients existants doivent suivre leurs dossiers ou récupérer leurs documents, c'est un <a href=\"/services/portail-client\">portail client</a>.</p>\n<h2>Développer ou acheter</h2>\n<p>Avant de construire, vérifiez qu'un logiciel du marché ne fait pas déjà le travail. La grille de décision est détaillée dans <a href=\"/blog/applications-internes-build-vs-buy-pme\">développer ou acheter son outil interne</a>. Elle vaut aussi pour un produit : si votre différence n'est pas dans le logiciel, n'en construisez pas.</p>\n<h2>Autour du produit</h2>\n<p>Les relances, la facturation ou l'envoi des emails d'activation se traitent par des <a href=\"/services/automatisations\">automatisations</a>. Une tâche qui demande du jugement dans le produit relève des agents IA.</p>",
+      "html_en": "<h2>SaaS MVP, internal tool or portal: choosing the right form</h2>\n<p>A SaaS MVP is sold to a market. If the tool serves your team and nobody pays for it, it is <a href=\"/services/applications-internes\">bespoke internal software</a>, or a <a href=\"/services/back-office-sur-mesure\">bespoke back office</a> when it replaces spreadsheets. If your existing customers need to follow their cases or retrieve their documents, it is a <a href=\"/services/portail-client\">client portal</a>.</p>\n<h2>Build or buy</h2>\n<p>Before building, check that off-the-shelf software does not already do the job. The decision grid is detailed in <a href=\"/blog/applications-internes-build-vs-buy-pme\">build or buy your internal tool</a>. It applies to a product too: if your difference is not in the software, do not build it.</p>\n<h2>Around the product</h2>\n<p>Follow-ups, invoicing or activation emails are handled by <a href=\"/services/automatisations\">automations</a>. A task that needs judgement inside the product belongs to AI agents.</p>"
     },
     {
       "type": "decision-list",
@@ -469,8 +469,8 @@
       "kicker_en": "§ The range",
       "h2_fr": "Combien coûte un MVP SaaS",
       "h2_en": "How much does a SaaS MVP cost",
-      "lede_fr": "Quatre paliers selon le périmètre de la v0. On part d'un cadrage et on livre un produit en ligne, pas une maquette. Les itérations qui suivent se facturent à l'heure, en sprints.",
-      "lede_en": "Four tiers by v0 scope. We start from scoping and ship a product online, not a mockup. The iterations that follow are billed hourly, in sprints.",
+      "lede_fr": "Quatre paliers selon le périmètre de la v0. On part d'un cadrage et on livre un produit en ligne, avec inscription et paiement. Les itérations qui suivent se facturent à l'heure, en sprints.",
+      "lede_en": "Four tiers by v0 scope. We start from scoping and ship a product online, with sign-up and payment. The iterations that follow are billed hourly, in sprints.",
       "tiers": [
         {
           "name_fr": "MVP minimal",
@@ -580,7 +580,7 @@
     {
       "type": "eeat-panel",
       "variant": "media",
-      "silo": "ops"
+      "silo": "apps"
     },
     {
       "type": "faq-accordion",
@@ -611,7 +611,7 @@
         {
           "q_fr": "Combien de temps faut-il pour sortir une v0 ?",
           "q_en": "How long does it take to ship a v0?",
-          "a_fr": "Cela dépend du périmètre et de la disponibilité de la personne qui décide. Le sprint de cadrage de 10 heures fixe le parcours à construire, et l'estimation de durée vient à la fin de ce cadrage. Nous ne donnons pas de délai avant.",
+          "a_fr": "Cela dépend du périmètre et de la disponibilité de la personne qui décide. Le sprint de cadrage de 10 heures fixe le parcours à construire, et l'estimation de durée vient à la fin de ce cadrage. On ne donne pas de délai avant.",
           "a_en": "It depends on the scope and on how available the decision-maker is. The 10-hour scoping sprint fixes the journey to build, and the time estimate comes at the end of that scoping. We do not quote a lead time before."
         },
         {
@@ -655,8 +655,8 @@
           "variant": "primary"
         },
         {
-          "label_fr": "Voir les applications internes",
-          "label_en": "See internal applications",
+          "label_fr": "Voir le logiciel sur mesure",
+          "label_en": "See bespoke software",
           "href": "/services/applications-internes",
           "variant": "ghost"
         }
