@@ -52,7 +52,8 @@ type Topic =
   | 'conseil'
   | 'conformite'
   | 'formation'
-  | 'studio';
+  | 'studio'
+  | 'web';
 
 type Kind =
   | 'service'
