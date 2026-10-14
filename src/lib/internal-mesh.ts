@@ -104,7 +104,7 @@ const PAGES: Record<string, PageDef> = {
 
   // ── Agents IA et Claude ──
   '/services/agents-ia': { label_fr: 'Agents IA pour entreprise', label_en: 'AI agents for business', kind: 'service', topics: ['agents', 'claude'] },
-  '/services/agent-support-client': { label_fr: 'Chatbot et agent de service client', label_en: 'Customer service agent', kind: 'service', topics: ['agents'] },
+  '/services/agent-support-client': { label_fr: 'Agence chatbot et agent de service client', label_en: 'Chatbot and customer service agent', kind: 'service', topics: ['agents'] },
   '/services/agent-qualification-leads': { label_fr: 'Agent IA de qualification de leads', label_en: 'AI lead qualification agent', kind: 'service', topics: ['agents', 'commercial'] },
   '/services/agent-traitement-documents': { label_fr: 'Agent IA de traitement de documents', label_en: 'AI document processing agent', kind: 'service', topics: ['agents', 'automatisation'] },
   '/cas-usages/support-sav': { label_fr: 'Automatiser le service client et le SAV', label_en: 'Automating customer service', kind: 'cas-usage', topics: ['agents', 'automatisation'] },
@@ -244,16 +244,17 @@ const PAGES: Record<string, PageDef> = {
   '/technologies': { label_fr: 'Les technologies utilisées', label_en: 'Technologies used', kind: 'studio', topics: ['studio', 'automatisation'], emit: false },
   '/manifesto': { label_fr: 'Le manifeste', label_en: 'The manifesto', kind: 'studio', topics: ['studio'], emit: false },
   '/blog/brain-circuit': { label_fr: "L'iconographie de l'IA", label_en: 'The iconography of AI', kind: 'article', topics: ['studio'] },
-  '/implantations/bordeaux': { label_fr: 'Waimia à Bordeaux', label_en: 'Waimia in Bordeaux', kind: 'implantation', topics: ['studio'] },
-  '/implantations/montpellier': { label_fr: 'Waimia à Montpellier', label_en: 'Waimia in Montpellier', kind: 'implantation', topics: ['studio'] },
-  '/implantations/lyon': { label_fr: 'Waimia à Lyon', label_en: 'Waimia in Lyon', kind: 'implantation', topics: ['studio'] },
-  '/implantations/toulouse': { label_fr: 'Waimia à Toulouse', label_en: 'Waimia in Toulouse', kind: 'implantation', topics: ['studio'] },
-  '/implantations/strasbourg': { label_fr: 'Waimia à Strasbourg', label_en: 'Waimia in Strasbourg', kind: 'implantation', topics: ['studio'] },
-  '/implantations/lille': { label_fr: 'Waimia à Lille', label_en: 'Waimia in Lille', kind: 'implantation', topics: ['studio'] },
-  '/implantations/marseille': { label_fr: 'Waimia à Marseille', label_en: 'Waimia in Marseille', kind: 'implantation', topics: ['studio'] },
-  '/implantations/dijon': { label_fr: 'Waimia à Dijon', label_en: 'Waimia in Dijon', kind: 'implantation', topics: ['studio'] },
-  '/implantations/nantes': { label_fr: 'Waimia à Nantes', label_en: 'Waimia in Nantes', kind: 'implantation', topics: ['studio'] },
-  '/implantations/paris': { label_fr: 'Waimia à Paris', label_en: 'Waimia in Paris', kind: 'implantation', topics: ['studio'] },
+  '/implantations': { label_fr: 'Où le studio intervient', label_en: 'Where the studio works', kind: 'implantation', topics: ['studio', 'acquisition'], emit: false },
+  '/implantations/bordeaux': { label_fr: 'Agence IA à Bordeaux', label_en: 'AI agency in Bordeaux', kind: 'implantation', topics: ['studio', 'acquisition'] },
+  '/implantations/montpellier': { label_fr: 'Agence IA à Montpellier', label_en: 'AI agency in Montpellier', kind: 'implantation', topics: ['studio', 'acquisition'] },
+  '/implantations/lyon': { label_fr: 'Agence IA à Lyon', label_en: 'AI agency in Lyon', kind: 'implantation', topics: ['studio', 'acquisition'] },
+  '/implantations/toulouse': { label_fr: 'Agence IA à Toulouse', label_en: 'AI agency in Toulouse', kind: 'implantation', topics: ['studio', 'acquisition'] },
+  '/implantations/strasbourg': { label_fr: 'Agence IA à Strasbourg', label_en: 'AI agency in Strasbourg', kind: 'implantation', topics: ['studio', 'acquisition'] },
+  '/implantations/lille': { label_fr: 'Agence IA à Lille', label_en: 'AI agency in Lille', kind: 'implantation', topics: ['studio', 'acquisition'] },
+  '/implantations/marseille': { label_fr: 'Agence IA à Marseille', label_en: 'AI agency in Marseille', kind: 'implantation', topics: ['studio', 'acquisition'] },
+  '/implantations/dijon': { label_fr: 'Agence IA à Dijon', label_en: 'AI agency in Dijon', kind: 'implantation', topics: ['studio', 'acquisition'] },
+  '/implantations/nantes': { label_fr: 'Agence IA à Nantes', label_en: 'AI agency in Nantes', kind: 'implantation', topics: ['studio', 'acquisition'] },
+  '/implantations/paris': { label_fr: 'Agence IA à Paris', label_en: 'AI agency in Paris', kind: 'implantation', topics: ['studio', 'acquisition'] },
 };
 
 /** Intitulé du groupe d'affichage par nature de page (ordre = ordre d'affichage). */
