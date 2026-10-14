@@ -1,7 +1,7 @@
 {
   "$schema": "../../schemas/generated/cas-usages.page.schema.json",
-  "title_fr": "Réduire le temps passé sur le CMS · éditer sans dépendre d'un dev",
-  "title_en": "Cut time spent on the CMS · edit without depending on a dev",
+  "title_fr": "Réduire le temps passé sur le CMS · éditer en autonomie",
+  "title_en": "Cut time spent on the CMS · edit on your own",
   "description_fr": "Chaque changement de contenu vire au chantier de plugins ? On passe à un CMS git-based : édition en minutes, versionnée et réversible.",
   "description_en": "Every content change becomes a plugin project? We move to a git-based CMS: editing in minutes, versioned and reversible, no heavy upkeep.",
   "slug": "reduire-temps-cms",
@@ -21,7 +21,7 @@
   "faq_fr": [
     {
       "q": "Pourquoi mon site WordPress me prend autant de temps ?",
-      "a": "Un site WordPress classique demande couramment vingt à quarante heures de maintenance par an : mises à jour du cœur, des extensions une par semaine en moyenne, conflits entre plugins, correctifs de sécurité, sauvegardes. Un site sur base git en réclame plutôt cinq à dix, surtout des mises à jour de dépendances. La différence n'est pas dans le contenu, elle est dans la couche technique que vous entretenez sans le voir."
+      "a": "Parce qu'un site WordPress classique demande une maintenance continue : mises à jour du cœur et des extensions, conflits entre plugins, correctifs de sécurité, sauvegardes. Un site sur base git en demande moins, surtout des mises à jour de dépendances. La différence vient de la couche technique que vous entretenez sans la voir."
     },
     {
       "q": "C'est quoi un CMS git-based comme TinaCMS ?",
@@ -33,25 +33,25 @@
     },
     {
       "q": "Et si je me trompe en éditant ?",
-      "a": "Chaque modification est versionnée dans le code, donc réversible. Une erreur se corrige par un retour à la version précédente, instantané, sans procédure de restauration complexe. Là où un site WordPress piraté ou cassé peut coûter des nuits blanches, un front statique versionné se répare par un rollback."
+      "a": "Chaque modification est versionnée dans le code, donc réversible. Une erreur se corrige par un retour à la version précédente, sans procédure de restauration complexe. Sur un site WordPress piraté ou cassé, il faut restaurer une base de données ; sur un front statique versionné, on revient à la version précédente."
     },
     {
       "q": "Faut-il refaire tout le site pour changer de CMS ?",
-      "a": "Pas toujours. Si le site mérite d'être gardé, on évalue d'abord ce qui se migre et ce qui se garde. La migration d'un CMS n'impose pas une refonte complète, et on cadre le périmètre au diagnostic. Si le site est obsolète, la création repart sur une base saine, instrumentée dès le départ."
+      "a": "Pas toujours. Si le site mérite d'être gardé, on évalue d'abord ce qui se migre et ce qui se garde. La migration d'un CMS n'impose pas une refonte complète, et le périmètre se fixe au cadrage. Si le site est obsolète, la création repart sur une base saine, instrumentée dès le départ."
     },
     {
       "q": "Un CMS headless, n'est-ce pas trop complexe pour une PME ?",
-      "a": "Pas avec une approche git-based bien posée. Le headless devient pertinent quand votre contenu doit vivre indépendamment du design, ou quand la maintenance WordPress devient un poids. Si vos besoins sont simples, on ne suréquipe pas : l'objectif est un système que votre équipe comprend et maintient sans nous appeler."
+      "a": "Pas avec une approche git-based bien posée. Le headless devient pertinent quand votre contenu doit vivre indépendamment du design, ou quand la maintenance WordPress devient un poids. Si vos besoins sont simples, on ne suréquipe pas : l'objectif est un système que votre équipe comprend et maintient seule."
     },
     {
       "q": "Vous êtes basés où, et faut-il être à Bordeaux ?",
-      "a": "Le studio est à Bordeaux et travaille avec des PME en local comme à distance. Le diagnostic se fait en visio ou sur site selon votre préférence. La proximité aide pour la prise en main, mais elle n'est pas une condition."
+      "a": "Le studio est à Bordeaux et travaille avec des PME en local comme à distance. La mise en place d'un CMS se fait à distance ; la présence sur site aide pour la prise en main, sans être une condition. L'audit gratuit se fait en visio ou sur site selon votre préférence."
     }
   ],
   "faq_en": [
     {
       "q": "Why does my WordPress site take so much of my time?",
-      "a": "A classic WordPress site commonly needs twenty to forty hours of maintenance a year: core updates, plugin updates roughly one a week, conflicts between plugins, security patches, backups. A git-based site needs more like five to ten, mostly dependency updates. The difference isn't in the content, it's in the technical layer you maintain without seeing it."
+      "a": "Because a classic WordPress site needs continuous maintenance: core and plugin updates, conflicts between plugins, security patches, backups. A git-based site needs less, mostly dependency updates. The difference comes from the technical layer you maintain without seeing it."
     },
     {
       "q": "What is a git-based CMS like TinaCMS?",
@@ -63,19 +63,19 @@
     },
     {
       "q": "What if I make a mistake while editing?",
-      "a": "Every change is versioned in the code, so reversible. A mistake is fixed by returning to the previous version, instantly, with no complex restore procedure. Where a hacked or broken WordPress site can cost sleepless nights, a versioned static front is fixed by a rollback."
+      "a": "Every change is versioned in the code, so reversible. A mistake is fixed by returning to the previous version, with no complex restore procedure. On a hacked or broken WordPress site you have to restore a database; on a versioned static front you go back to the previous version."
     },
     {
       "q": "Do we need to rebuild the whole site to change CMS?",
-      "a": "Not always. If the site is worth keeping, we first assess what migrates and what stays. A CMS migration doesn't require a full rebuild, and we frame the scope at the diagnostic. If the site is dated, the build starts again on a clean base, instrumented from the start."
+      "a": "Not always. If the site is worth keeping, we first assess what migrates and what stays. A CMS migration doesn't require a full rebuild, and the scope is set at scoping. If the site is dated, the build starts again on a clean base, instrumented from the start."
     },
     {
       "q": "Isn't a headless CMS too complex for an SMB?",
-      "a": "Not with a well-set git-based approach. Headless becomes relevant when your content must live independently of the design, or when WordPress maintenance becomes a burden. If your needs are simple, we don't over-equip: the goal is a system your team understands and maintains without calling us."
+      "a": "Not with a well-set git-based approach. Headless becomes relevant when your content must live independently of the design, or when WordPress maintenance becomes a burden. If your needs are simple, we don't over-equip: the goal is a system your team understands and maintains on its own."
     },
     {
       "q": "Where are you based, and do we need to be in Bordeaux?",
-      "a": "The studio is in Bordeaux and works with SMBs locally and remotely. The diagnostic happens by video or on site depending on your preference. Proximity helps for onboarding, but it isn't a condition."
+      "a": "The studio is in Bordeaux and works with SMBs locally and remotely. A CMS is set up remotely; being on site helps for onboarding, without being a condition. The free audit takes place by video or on site, as you prefer."
     }
   ],
   "sections": [
@@ -91,8 +91,8 @@
       "h1_en": "Cut time spent on the <i class=\"acc\">CMS</i>.",
       "definition_kicker_fr": "Le problème",
       "definition_kicker_en": "The problem",
-      "lede_fr": "Changer un prix, publier un article, corriger une coquille : ce qui devrait prendre deux minutes se transforme en mise à jour de plugins, conflit d'extensions ou appel au prestataire. On passe à un CMS <i>git-based</i> : édition en minutes, versionnée et réversible, sans la maintenance qui vous épuise.",
-      "lede_en": "Changing a price, publishing an article, fixing a typo: what should take two minutes turns into plugin updates, extension conflicts or a call to the provider. We move to a <i>git-based</i> CMS: editing in minutes, versioned and reversible, without the maintenance that drains you.",
+      "lede_fr": "Changer un prix, publier un article, corriger une coquille : ce qui devrait être immédiat se transforme en mise à jour de plugins, conflit d'extensions ou appel au prestataire. On passe à un CMS <i>git-based</i> : édition en minutes, versionnée et réversible, sans la maintenance qui vous épuise.",
+      "lede_en": "Changing a price, publishing an article, fixing a typo: what should be immediate turns into plugin updates, extension conflicts or a call to the provider. We move to a <i>git-based</i> CMS: editing in minutes, versioned and reversible, without the maintenance that drains you.",
       "badges": [
         {
           "label_fr": "TinaCMS git-based par défaut",
@@ -133,8 +133,8 @@
         {
           "kicker_fr": "01 · Maintenance invisible",
           "kicker_en": "01 · Invisible maintenance",
-          "h3_fr": "Vingt à quarante heures par an",
-          "h3_en": "Twenty to forty hours a year",
+          "h3_fr": "Une maintenance qu'on ne voit pas",
+          "h3_en": "Maintenance you never see",
           "body_fr": "Mises à jour du cœur, des extensions chaque semaine, conflits de plugins, correctifs de sécurité, sauvegardes. Ce travail ne se voit pas sur le site mais il mange un temps réel, ou une facture de prestataire, mois après mois.",
           "body_en": "Core updates, weekly extension updates, plugin conflicts, security patches, backups. This work never shows on the site but it eats real time, or a provider invoice, month after month.",
           "media_src": "/images/illustrations/ds/computer-crash-landscape-paper.webp",
@@ -146,8 +146,8 @@
           "kicker_en": "02 · Dependence on a dev",
           "h3_fr": "Une coquille, et il faut appeler",
           "h3_en": "A typo, and you must call",
-          "body_fr": "Modifier un titre ou un prix demande un ticket, une intervention, un délai. Le contenu vieillit parce que chaque changement coûte un aller-retour avec un prestataire, au lieu de se faire en deux minutes par vous-même.",
-          "body_en": "Changing a title or a price needs a ticket, an intervention, a delay. Content ages because every change costs a round trip with a provider, instead of being done in two minutes by you.",
+          "body_fr": "Modifier un titre ou un prix demande un ticket, une intervention, un délai. Le contenu vieillit parce que chaque changement coûte un aller-retour avec un prestataire, au lieu de se faire vous-même, en quelques minutes.",
+          "body_en": "Changing a title or a price needs a ticket, an intervention, a delay. Content ages because every change costs a round trip with a provider, instead of being done by you, in a few minutes.",
           "media_src": "/images/illustrations/ds/style-8-paper.webp",
           "media_alt_fr": "Un changement simple bloqué par une dépendance technique",
           "media_alt_en": "A simple change blocked by a technical dependency"
@@ -189,14 +189,14 @@
         {
           "title_fr": "On rend l'équipe autonome",
           "title_en": "We make the team autonomous",
-          "body_fr": "On forme votre équipe à éditer textes, prix, articles et images depuis l'interface, en minutes. Documentation claire à la clé. Vous ne nous appelez plus que pour une nouvelle brique de design, jamais pour une coquille.",
-          "body_en": "We train your team to edit text, prices, articles and images from the interface, in minutes. Clear documentation included. You only call us for a new design block, never for a typo."
+          "body_fr": "On forme votre équipe à éditer textes, prix, articles et images depuis l'interface, en minutes. Documentation claire à la clé. Un prestataire n'intervient que pour une nouvelle brique de design, jamais pour une coquille.",
+          "body_en": "We train your team to edit text, prices, articles and images from the interface, in minutes. Clear documentation included. A provider is needed only for a new design block, never for a typo."
         },
         {
           "title_fr": "On sécurise dans la durée",
           "title_en": "We secure it over time",
-          "body_fr": "Le front statique réduit la surface d'attaque, le versioning rend chaque erreur réversible par un rollback. La maintenance tombe à quelques heures par an, sur les dépendances, pas sur des extensions qui se battent entre elles.",
-          "body_en": "The static front cuts the attack surface, versioning makes every mistake reversible by a rollback. Maintenance drops to a few hours a year, on dependencies, not on plugins fighting each other."
+          "body_fr": "Le front statique réduit la surface d'attaque, le versioning rend chaque erreur réversible par un rollback. La maintenance se limite aux dépendances, pas à des extensions qui se battent entre elles.",
+          "body_en": "The static front cuts the attack surface, versioning makes every mistake reversible by a rollback. Maintenance is limited to dependencies, not plugins fighting each other."
         }
       ]
     },
@@ -228,8 +228,8 @@
           "glyph": "▣",
           "title_fr": "Audit IA pour PME",
           "title_en": "AI audit for SMBs",
-          "body_fr": "Le point d'entrée pour chiffrer le temps que vous perdez aujourd'hui et prioriser. On cartographie vos tâches d'édition et le coût réel, sans engagement de chantier.",
-          "body_en": "The entry point to size the time you lose today and prioritise. We map your editing tasks and the real cost, with no project commitment.",
+          "body_fr": "Le point d'entrée : on regarde votre site et vos tâches d'édition, et vous repartez avec un ou deux chantiers classés. Sans engagement de chantier.",
+          "body_en": "The entry point: we look at your site and your editing tasks, and you leave with one or two ranked projects. No project commitment.",
           "span": "sm"
         },
         {
@@ -259,16 +259,16 @@
           "text_en": "Every change goes through plugins, conflicts and a provider delay."
         },
         {
-          "text_fr": "Vingt à quarante heures de maintenance par an pour des mises à jour invisibles.",
-          "text_en": "Twenty to forty hours of maintenance a year for invisible updates."
+          "text_fr": "Des heures de maintenance chaque année pour des mises à jour invisibles.",
+          "text_en": "Hours of maintenance every year for invisible updates."
         },
         {
           "text_fr": "Une coquille ou un prix à changer demande d'appeler un développeur.",
           "text_en": "A typo or a price to change means calling a developer."
         },
         {
-          "text_fr": "Une mise à jour ratée ou un piratage peut coûter des nuits blanches.",
-          "text_en": "A failed update or a hack can cost sleepless nights."
+          "text_fr": "Une mise à jour ratée ou un piratage oblige à restaurer une sauvegarde.",
+          "text_en": "A failed update or a hack means restoring a backup."
         }
       ],
       "with_label_fr": "Avec",
@@ -281,8 +281,8 @@
           "text_en": "A content change happens in minutes, from a visual interface."
         },
         {
-          "text_fr": "La maintenance tombe à quelques heures par an, sur les dépendances.",
-          "text_en": "Maintenance drops to a few hours a year, on dependencies."
+          "text_fr": "La maintenance se limite aux dépendances.",
+          "text_en": "Maintenance is limited to dependencies."
         },
         {
           "text_fr": "Vous éditez textes, prix et articles sans dépendre d'un développeur.",
@@ -325,8 +325,8 @@
           "kicker_en": "All cases",
           "title_fr": "Cas clients",
           "title_en": "Client cases",
-          "lead_fr": "Les projets réels que nous avons livrés, en toute transparence.",
-          "lead_en": "The real projects we have delivered, openly.",
+          "lead_fr": "Les réalisations publiées par le studio.",
+          "lead_en": "The projects the studio has published.",
           "href": "/cas-clients"
         }
       ]
@@ -336,14 +336,14 @@
       "background": "paper",
       "kicker_fr": "§ Questions fréquentes",
       "kicker_en": "§ Frequently asked",
-      "h2_fr": "Ce que vous nous demandez",
-      "h2_en": "What you ask us",
+      "h2_fr": "CMS git-based : vos questions",
+      "h2_en": "Git-based CMS: your questions",
       "items": [
         {
           "q_fr": "Pourquoi mon site WordPress me prend autant de temps ?",
           "q_en": "Why does my WordPress site take so much of my time?",
-          "a_fr": "Un site WordPress classique demande couramment vingt à quarante heures de maintenance par an : mises à jour du cœur, des extensions une par semaine en moyenne, conflits entre plugins, correctifs de sécurité, sauvegardes. Un site sur base git en réclame plutôt cinq à dix, surtout des mises à jour de dépendances. La différence n'est pas dans le contenu, elle est dans la couche technique que vous entretenez sans le voir.",
-          "a_en": "A classic WordPress site commonly needs twenty to forty hours of maintenance a year: core updates, plugin updates roughly one a week, conflicts between plugins, security patches, backups. A git-based site needs more like five to ten, mostly dependency updates. The difference isn't in the content, it's in the technical layer you maintain without seeing it."
+          "a_fr": "Parce qu'un site WordPress classique demande une maintenance continue : mises à jour du cœur et des extensions, conflits entre plugins, correctifs de sécurité, sauvegardes. Un site sur base git en demande moins, surtout des mises à jour de dépendances. La différence vient de la couche technique que vous entretenez sans la voir.",
+          "a_en": "Because a classic WordPress site needs continuous maintenance: core and plugin updates, conflicts between plugins, security patches, backups. A git-based site needs less, mostly dependency updates. The difference comes from the technical layer you maintain without seeing it."
         },
         {
           "q_fr": "C'est quoi un CMS git-based comme TinaCMS ?",
@@ -360,26 +360,26 @@
         {
           "q_fr": "Et si je me trompe en éditant ?",
           "q_en": "What if I make a mistake while editing?",
-          "a_fr": "Chaque modification est versionnée dans le code, donc réversible. Une erreur se corrige par un retour à la version précédente, instantané, sans procédure de restauration complexe. Là où un site WordPress piraté ou cassé peut coûter des nuits blanches, un front statique versionné se répare par un rollback.",
-          "a_en": "Every change is versioned in the code, so reversible. A mistake is fixed by returning to the previous version, instantly, with no complex restore procedure. Where a hacked or broken WordPress site can cost sleepless nights, a versioned static front is fixed by a rollback."
+          "a_fr": "Chaque modification est versionnée dans le code, donc réversible. Une erreur se corrige par un retour à la version précédente, sans procédure de restauration complexe. Sur un site WordPress piraté ou cassé, il faut restaurer une base de données ; sur un front statique versionné, on revient à la version précédente.",
+          "a_en": "Every change is versioned in the code, so reversible. A mistake is fixed by returning to the previous version, with no complex restore procedure. On a hacked or broken WordPress site you have to restore a database; on a versioned static front you go back to the previous version."
         },
         {
           "q_fr": "Faut-il refaire tout le site pour changer de CMS ?",
           "q_en": "Do we need to rebuild the whole site to change CMS?",
-          "a_fr": "Pas toujours. Si le site mérite d'être gardé, on évalue d'abord ce qui se migre et ce qui se garde. La migration d'un CMS n'impose pas une refonte complète, et on cadre le périmètre au diagnostic. Si le site est obsolète, la création repart sur une base saine, instrumentée dès le départ.",
-          "a_en": "Not always. If the site is worth keeping, we first assess what migrates and what stays. A CMS migration doesn't require a full rebuild, and we frame the scope at the diagnostic. If the site is dated, the build starts again on a clean base, instrumented from the start."
+          "a_fr": "Pas toujours. Si le site mérite d'être gardé, on évalue d'abord ce qui se migre et ce qui se garde. La migration d'un CMS n'impose pas une refonte complète, et le périmètre se fixe au cadrage. Si le site est obsolète, la création repart sur une base saine, instrumentée dès le départ.",
+          "a_en": "Not always. If the site is worth keeping, we first assess what migrates and what stays. A CMS migration doesn't require a full rebuild, and the scope is set at scoping. If the site is dated, the build starts again on a clean base, instrumented from the start."
         },
         {
           "q_fr": "Un CMS headless, n'est-ce pas trop complexe pour une PME ?",
           "q_en": "Isn't a headless CMS too complex for an SMB?",
-          "a_fr": "Pas avec une approche git-based bien posée. Le headless devient pertinent quand votre contenu doit vivre indépendamment du design, ou quand la maintenance WordPress devient un poids. Si vos besoins sont simples, on ne suréquipe pas : l'objectif est un système que votre équipe comprend et maintient sans nous appeler.",
-          "a_en": "Not with a well-set git-based approach. Headless becomes relevant when your content must live independently of the design, or when WordPress maintenance becomes a burden. If your needs are simple, we don't over-equip: the goal is a system your team understands and maintains without calling us."
+          "a_fr": "Pas avec une approche git-based bien posée. Le headless devient pertinent quand votre contenu doit vivre indépendamment du design, ou quand la maintenance WordPress devient un poids. Si vos besoins sont simples, on ne suréquipe pas : l'objectif est un système que votre équipe comprend et maintient seule.",
+          "a_en": "Not with a well-set git-based approach. Headless becomes relevant when your content must live independently of the design, or when WordPress maintenance becomes a burden. If your needs are simple, we don't over-equip: the goal is a system your team understands and maintains on its own."
         },
         {
           "q_fr": "Vous êtes basés où, et faut-il être à Bordeaux ?",
           "q_en": "Where are you based, and do we need to be in Bordeaux?",
-          "a_fr": "Le studio est à Bordeaux et travaille avec des PME en local comme à distance. Le diagnostic se fait en visio ou sur site selon votre préférence. La proximité aide pour la prise en main, mais elle n'est pas une condition.",
-          "a_en": "The studio is in Bordeaux and works with SMBs locally and remotely. The diagnostic happens by video or on site depending on your preference. Proximity helps for onboarding, but it isn't a condition."
+          "a_fr": "Le studio est à Bordeaux et travaille avec des PME en local comme à distance. La mise en place d'un CMS se fait à distance ; la présence sur site aide pour la prise en main, sans être une condition. L'audit gratuit se fait en visio ou sur site selon votre préférence.",
+          "a_en": "The studio is in Bordeaux and works with SMBs locally and remotely. A CMS is set up remotely; being on site helps for onboarding, without being a condition. The free audit takes place by video or on site, as you prefer."
         }
       ]
     },
@@ -391,8 +391,8 @@
       "kicker_en": "§ Ready to take back time?",
       "h2_fr": "Reprenez la main sur votre contenu, sans dépendre de personne.",
       "h2_en": "Take back control of your content, without depending on anyone.",
-      "subtitle_fr": "Un diagnostic de 45 min, gratuit et sans engagement : on chiffre le temps que vous perdez sur votre CMS et le gain d'une migration, qu'on travaille ensemble ou non. En face, le fondateur qui conçoit et livre, pas un pool de sous-traitants.",
-      "subtitle_en": "A 45-min diagnostic, free and with no commitment: we size the time you lose on your CMS and the gain of a migration, whether we work together or not. Across the table, the founder who designs and ships, not a pool of subcontractors.",
+      "subtitle_fr": "Audit gratuit de 45 minutes, sans engagement : on regarde votre site et la façon dont vous l'éditez, et vous repartez avec un ou deux chantiers classés. Si rien ne vaut le coup, on vous le dit.",
+      "subtitle_en": "Free 45-minute audit with no commitment: we look at your site and how you edit it, and you leave with one or two ranked projects. If nothing is worth it, we tell you.",
       "buttons": [
         {
           "label_fr": "Réserver un audit IA gratuit →",
