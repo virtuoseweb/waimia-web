@@ -11,10 +11,11 @@
  * Source : docs/34-AMBIGUS-VERDICTS-OPUS.md§5 + docs/28-DESIGN-SYSTEM-CONTRACT.md§1
  *
  * M4 recadre la home : promesse lisible en 5 secondes, CTA vers l'audit IA PME
- * et le calculateur de ROI, engagements factuels (pas de chiffres non sourcés).
+ * et le calculateur de ROI, engagements factuels (aucun nombre sans source).
  */
 
 import { langFromPath, localizeHref } from '../../../lib/i18n';
+import { AUDIT_BOOKING_HREF, AUDIT_PAGE_HREF, AUDIT_PROMISE } from '../../../data/conversion';
 
 import MastheadRow from '../molecules/MastheadRow.astro';
 import Kicker from '../atoms/Kicker.astro';
@@ -22,10 +23,13 @@ import Button from '../atoms/Button.astro';
 
 const lang = langFromPath(Astro.url.pathname);
 // Prise de rendez-vous : URL unique (la page contact porte le calendrier). /audit-ia-pme présente l'audit.
-const ctaHref = '/contact#offer=audit-ia-pme&intent=audit';
-const auditHref = localizeHref('/audit-ia-pme', lang);
+const ctaHref = AUDIT_BOOKING_HREF;
+const auditHref = localizeHref(AUDIT_PAGE_HREF, lang);
+// Promesse canonique de l'audit (source unique : data/conversion.ts, décision du 14 octobre 2026).
+const auditPromise = AUDIT_PROMISE.general.short[lang === 'fr' ? 'fr' : 'en'];
 const fr = lang === 'fr';
 // L'offre dans son ordre : (1) automatisation et agents IA, (2) applications métier, (3) conseil et formation.
+// Les sites web sont un métier du studio (décision du 14 octobre 2026) : ligne `.hero-support`.
 const offers = [
   {
     name: fr ? 'Automatisation et agents IA' : 'Automation and AI agents',
@@ -91,9 +95,9 @@ const pageTransitionId = Astro.url.pathname
         <Kicker class="hero-fig">§ 01 · {lang === 'fr' ? 'Le métier' : 'What we do'}</Kicker>
         <p class="hero-lede reveal reveal-fade">
           {lang === 'fr' ? (
-            <>Waimia, agence IA, audite vos processus, puis construit et met <i>en production</i> les automatisations, agents IA et applications métier qui les font tourner. Un ingénieur travaille avec vos équipes, sur vos outils.</>
+            <>Waimia, agence IA, audite vos processus, puis construit et met en production les automatisations, agents IA et applications métier qui les font tourner. Un ingénieur travaille avec vos équipes, sur vos outils.</>
           ) : (
-            <>Waimia, an AI agency, audits your processes, then builds and ships <i>to production</i> the automations, AI agents and business applications that run them. One engineer works with your teams, on your tools.</>
+            <>Waimia, an AI agency, audits your processes, then builds and ships to production the automations, AI agents and business applications that run them. One engineer works with your teams, on your tools.</>
           )}
         </p>
 
@@ -117,8 +121,8 @@ const pageTransitionId = Astro.url.pathname
         </div>
         <p class="hero-cta-sub">
           {lang === 'fr'
-            ? <>Audit IA gratuit · 45 min en visio · on repère <i>3 automatisations rentables</i>. <a href={auditHref}>En savoir plus sur l'audit</a></>
-            : <>Free AI audit · 45 min on a call · we spot <i>3 profitable automations</i>. <a href={auditHref}>More about the audit</a></>}
+            ? <>{auditPromise} <a href={auditHref}>En savoir plus sur l'audit</a></>
+            : <>{auditPromise} <a href={auditHref}>More about the audit</a></>}
         </p>
       </div>
 
@@ -126,7 +130,7 @@ const pageTransitionId = Astro.url.pathname
         <Kicker class="hero-fig">§ 02 · {lang === 'fr' ? "Ce qu'on construit" : 'What we build'}</Kicker>
 
         {/* L'offre dans son ordre (pas une séquence : aucun numéro). Trois lignes cœur, puis
-            les outils en appui sur une ligne discrète. */}
+            les sites web et les outils commerciaux sur une ligne discrète. */}
         <ul class="hero-offers reveal reveal-fade">
           {offers.map((o) => (
             <li class="hero-offer">
@@ -139,10 +143,8 @@ const pageTransitionId = Astro.url.pathname
           ))}
         </ul>
         <p class="hero-support">
-          {lang === 'fr' ? 'En appui, quand le système en a besoin : ' : 'In support, when the system needs it: '}
-          <a href={localizeHref('/services/systeme-commercial', lang)}>{lang === 'fr' ? 'outils commerciaux' : 'sales tooling'}</a>
-          {lang === 'fr' ? ' et ' : ' and '}
-          <a href={localizeHref('/services/systeme-acquisition', lang)}>{lang === 'fr' ? 'visibilité web' : 'web visibility'}</a>.
+          {lang === 'fr' ? 'Le studio fait aussi des ' : 'The studio also builds '}
+          <a href={localizeHref('/services/site-web-ia', lang)}>{lang === 'fr' ? 'sites web' : 'websites'}</a>{lang === 'fr' ? ' et des ' : ' and '}<a href={localizeHref('/services/systeme-commercial', lang)}>{lang === 'fr' ? 'outils commerciaux' : 'sales tools'}</a>.
         </p>
       </div>
     </div>
@@ -234,7 +236,6 @@ const pageTransitionId = Astro.url.pathname
     text-wrap: pretty;
     transition-delay: var(--dur-fast);
   }
-  .hero-lede i { font-style: italic; color: var(--accent-text); }
 
   /* V7 §12 · Mini-map scope · cartographie 3×2 éditoriale (vs strip linéaire)
      · 6 territoires en grid 3 colonnes desktop · 2 cols tablet · stack mobile
@@ -309,7 +310,6 @@ const pageTransitionId = Astro.url.pathname
     letter-spacing: 0.005em;
     transition-delay: var(--dur-panel);
   }
-  .hero-cta-sub i { font-style: italic; color: var(--accent-text); }
 
   /* Colonne droite · l'offre en trois lignes (titre serif + descriptif), hairline entre.
      Pas de numéro : ce n'est pas une séquence. Toute la ligne est le lien. */

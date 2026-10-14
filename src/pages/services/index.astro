@@ -1,7 +1,8 @@
 ---
 // Page · /services · Hub Solutions (refonte positionnement 2026-10).
 // L'offre dans son ordre : (1) automatisation et agents IA, (2) applications métier,
-// (3) conseil et formation, puis en retrait (4) outils commerciaux, (5) visibilité web.
+// (3) sites web (décision du 14 octobre 2026 : un métier du studio, plus « en appui »),
+// (4) conseil et formation, puis outils commerciaux, visibilité et cas d'usage.
 // Les bandes média qui répétaient chaque bloc d'offre ont été retirées (doublon).
 export const prerender = true;
 
@@ -13,6 +14,7 @@ import { SITE } from '../../site.config';
 import { buildServicesHubCatalog } from '../../lib/seo/schema-builder';
 import { serviceDomains } from '../../lib/seo/service-catalog';
 import { AUDIT_BOOKING_HREF } from '../../data/sitemap';
+import { AUDIT_PROMISE } from '../../data/conversion';
 import { HOURLY_RATE_EUR, MAINTENANCE_TIERS_EUR } from '../../data/pricing';
 
 // JSON-LD · catalogue des services : les cinq domaines du menu Solutions et leurs pages
@@ -30,8 +32,8 @@ const heroData = {
   kicker_en: '§ Solutions · Waimia',
   h1_fr: 'Automatiser, développer,<br/><i>conseiller</i>.',
   h1_en: 'Automate, build,<br/><i>advise</i>.',
-  lede_fr: "Waimia est un studio de développement IA et un cabinet d'automatisation des processus pour PME et ETI. Trois métiers, dans cet ordre. Le site web et la prospection viennent en appui, quand le système en a besoin.",
-  lede_en: 'Waimia is an AI development studio and a process automation practice for SMEs. Three trades, in this order. The website and prospecting come in support, when the system needs them.',
+  lede_fr: "Waimia est un studio de développement IA et un cabinet d'automatisation des processus pour PME et ETI. Il relie vos outils, développe les logiciels et les <a href=\"/services/site-web-ia\">sites web</a> qui manquent, puis forme vos équipes.",
+  lede_en: 'Waimia is an AI development studio and a process automation practice for SMEs. It connects your tools, builds the software and <a href="/services/site-web-ia">websites</a> that are missing, then trains your teams.',
   decoration: false as const,
   align: 'left' as const,
 } satisfies SectionByType<'hero-hub-masthead'>;
@@ -150,11 +152,73 @@ const applicationsData = {
   ],
 } satisfies SectionByType<'offer-tier-grid'>;
 
-// 3 · Conseil et formation (paper-2)
-const conseilData = {
+// 3 · Sites web (paper-2) : création, refonte, sur mesure. Pilier : /services/site-web-ia.
+const webData = {
   type: 'offer-tier-grid' as const,
   variant: 'standard' as const,
   background: 'paper-2' as const,
+  wrap: true,
+  pad_block: 'var(--section-base)',
+  eyebrow_fr: 'SITES WEB',
+  eyebrow_en: 'WEBSITES',
+  h2_fr: 'Créer ou refaire le site qui amène la demande.',
+  h2_en: 'Build or rebuild the site that brings in demand.',
+  lede_fr: 'Un site rapide, lisible par Google et par les moteurs IA, que votre équipe peut faire vivre. La plateforme se choisit selon qui le mettra à jour.',
+  lede_en: 'A fast site, readable by Google and AI engines, that your team can keep alive. The platform is chosen based on who will update it.',
+  featured_card: {
+    eyebrow_fr: 'AGENCE SITE WEB',
+    eyebrow_en: 'WEBSITE AGENCY',
+    title_fr: 'Création et refonte de site web',
+    title_en: 'Website creation and redesign',
+    sub_fr: 'Webflow, WordPress, Shopify ou sur mesure.',
+    sub_en: 'Webflow, WordPress, Shopify or custom.',
+    lead_fr: 'Le site s’inscrit dans un système mesuré : formulaires reliés au CRM, contenu structuré pour Google et les moteurs IA.',
+    lead_en: 'The site is part of a measured system: forms connected to the CRM, content structured for Google and AI engines.',
+    cta_fr: 'Voir l’agence site web →',
+    cta_en: 'See the website agency →',
+    href: '/services/site-web-ia',
+  },
+  offers: [
+    {
+      price_fr: 'SUR MESURE',
+      price_en: 'CUSTOM',
+      title_fr: 'Site sur mesure',
+      title_en: 'Custom website',
+      lead_fr: 'Astro et CMS headless : pages rapides, intégrations à vos outils, code remis à votre nom.',
+      lead_en: 'Astro and headless CMS: fast pages, integrations with your tools, code handed over in your name.',
+      cta_fr: 'Voir le service →',
+      cta_en: 'See the service →',
+      href: '/services/sur-mesure-headless',
+    },
+    {
+      price_fr: 'WEBFLOW',
+      price_en: 'WEBFLOW',
+      title_fr: 'Agence Webflow',
+      title_en: 'Webflow agency',
+      lead_fr: 'Création ou refonte, contenus que votre équipe modifie seule, formulaires reliés à votre CRM.',
+      lead_en: 'Creation or redesign, content your team edits on its own, forms connected to your CRM.',
+      cta_fr: 'Voir le service →',
+      cta_en: 'See the service →',
+      href: '/services/webflow',
+    },
+    {
+      price_fr: 'LANDING PAGES',
+      price_en: 'LANDING PAGES',
+      title_fr: 'Landing pages',
+      title_en: 'Landing pages',
+      lead_fr: 'Une page par offre, un formulaire qui qualifie, des leads triés dans votre CRM.',
+      lead_en: 'One page per offer, a form that qualifies, leads sorted in your CRM.',
+      cta_fr: 'Voir le service →',
+      cta_en: 'See the service →',
+      href: '/services/landing-pages-tunnels',
+    },
+  ],
+} satisfies SectionByType<'offer-tier-grid'>;
+
+// 4 · Conseil et formation (paper)
+const conseilData = {
+  type: 'offer-tier-grid' as const,
+  variant: 'standard' as const,
   wrap: true,
   pad_block: 'var(--section-base)',
   eyebrow_fr: 'CONSEIL ET FORMATION',
@@ -168,10 +232,10 @@ const conseilData = {
     eyebrow_en: 'FIRST STEP',
     title_fr: 'Audit IA PME',
     title_en: 'SME AI audit',
-    sub_fr: 'Gratuit, 45 minutes, en visio.',
-    sub_en: 'Free, 45 minutes, on a call.',
-    lead_fr: 'On passe vos processus en revue et on repère trois automatisations rentables. Si rien ne vaut le coup aujourd’hui, on vous le dit.',
-    lead_en: 'We review your processes and spot three profitable automations. If nothing is worth it today, we tell you.',
+    sub_fr: AUDIT_PROMISE.general.tiny.fr,
+    sub_en: AUDIT_PROMISE.general.tiny.en,
+    lead_fr: 'En visio, on passe vos processus en revue, tâche par tâche. Si rien ne vaut le coup aujourd’hui, on vous le dit.',
+    lead_en: 'On a video call, we go through your processes task by task. If nothing is worth it today, we tell you.',
     cta_fr: 'En savoir plus sur l’audit →',
     cta_en: 'More about the audit →',
     href: '/audit-ia-pme',
@@ -182,8 +246,8 @@ const conseilData = {
       price_en: 'ROADMAP',
       title_fr: 'Consultant IA',
       title_en: 'AI consultant',
-      lead_fr: 'Cadrer où l’IA crée de la valeur, poser la gouvernance et accompagner le référent IA en interne.',
-      lead_en: 'Frame where AI creates value, set governance and support the in-house AI lead.',
+      lead_fr: 'Un état des lieux par équipe, trois chantiers au plus, une charte d’usage de l’IA.',
+      lead_en: 'An assessment per team, three projects at most, an AI usage policy.',
       cta_fr: 'Voir le service →',
       cta_en: 'See the service →',
       href: '/services/consultant-ia-claude',
@@ -213,13 +277,13 @@ const conseilData = {
   ],
 } satisfies SectionByType<'offer-tier-grid'>;
 
-// 4 · En appui : outils commerciaux et visibilité web (clairement secondaires)
+// 5 · Outils commerciaux, visibilité et cas d'usage (paper-2)
 const supportData = {
   type: 'related-cards-band' as const,
-  background: 'paper' as const,
+  background: 'paper-2' as const,
   pad_block: 'var(--section-base)',
-  kicker_fr: '§ En appui · des outils au service du système',
-  kicker_en: '§ In support · tools serving the system',
+  kicker_fr: '§ Commercial, visibilité et cas d’usage',
+  kicker_en: '§ Sales, visibility and use cases',
   cards: [
     {
       kicker_fr: 'OUTILS COMMERCIAUX',
@@ -233,10 +297,10 @@ const supportData = {
     {
       kicker_fr: 'VISIBILITÉ WEB',
       kicker_en: 'WEB VISIBILITY',
-      title_fr: 'Site web, référencement et marque',
-      title_en: 'Website, search and brand',
-      lead_fr: 'Agence site web, agence SEO et référencement naturel, agence de branding : la visibilité qui amène la demande que le système traite ensuite.',
-      lead_en: 'Web agency, SEO and organic search agency, branding agency: the visibility that brings the demand the system then processes.',
+      title_fr: 'Référencement Google et moteurs IA',
+      title_en: 'Google and AI search visibility',
+      lead_fr: 'Être trouvé sur Google et par les moteurs IA, avec des pages qui captent un contact propre et l’envoient au CRM.',
+      lead_en: 'Being found on Google and by AI engines, with pages that capture a clean contact and send it to the CRM.',
       href: '/services/systeme-acquisition',
     },
     {
@@ -255,8 +319,8 @@ const ctaData = {
   type: 'cta-final' as const,
   h2_fr: 'Par où <em>commencer</em> ?<br />Un audit gratuit le dit.',
   h2_en: 'Where to <em>start</em>?<br />A free audit tells you.',
-  body_fr: 'Quarante-cinq minutes en visio, sans engagement. On passe vos processus en revue et vous repartez avec trois automatisations rentables identifiées.',
-  body_en: 'Forty-five minutes on a call, no commitment. We review your processes and you leave with three profitable automations identified.',
+  body_fr: AUDIT_PROMISE.general.medium.fr,
+  body_en: AUDIT_PROMISE.general.medium.en,
   cta_primary: { label_fr: 'Réserver un audit →', label_en: 'Book an audit →', href: AUDIT_BOOKING_HREF, variant: 'primary' as const },
   cta_secondary: { label_fr: 'Voir les réalisations →', label_en: 'See our work →', href: '/cas-clients', variant: 'ghost' as const },
   background: 'ink' as const,
@@ -267,6 +331,7 @@ const sections = [
   heroData,
   automationData,
   applicationsData,
+  webData,
   conseilData,
   supportData,
   ctaData,
@@ -274,7 +339,7 @@ const sections = [
 ---
 <Base
   title="Automatisation, agents IA, applications métier · Waimia"
-  description="Les prestations du studio Waimia pour PME et ETI : automatisation des processus, agents IA, applications métier, conseil et formation. Audit gratuit."
+  description="Les prestations du studio Waimia pour PME et ETI : automatisation des processus, agents IA, applications métier, sites web, conseil et formation. Audit gratuit."
   jsonLd={solutionsJsonLd}
 >
 

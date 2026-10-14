@@ -3,9 +3,9 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // Refonte positionnement 2026-10 : la home dit le métier (studio de développement IA et
 // cabinet d'automatisation des processus pour PME et ETI) et présente l'offre DANS SON ORDRE :
-// (1) automatisation et agents IA, (2) applications métier, (3) conseil et formation, puis en
-// retrait (4) outils commerciaux et (5) visibilité web. Le site web et la prospection sont des
-// outils parmi d'autres, plus le cœur de l'offre.
+// (1) automatisation et agents IA, (2) applications métier, (3) conseil et formation, puis
+// (4) sites web et outils commerciaux. Décision du 14 octobre 2026 : le studio fait aussi des
+// sites web (création, refonte, sur mesure) ; le web n'est plus présenté « en appui ».
 //
 // Séquence de la page (src/pages/index.astro) : Hero · Offre (offer-rail) · Méthode
 // (sticky-scroll) · Réalisations (case-card-grid) · Où en êtes-vous (diagnostic-stages) ·
@@ -15,6 +15,7 @@
 // Les cas, la méthode et les réponses de FAQ restent sourcés dans
 // `src/data/page-variants/home/c.json` (source unique, mergée dans la page).
 import type { SectionData } from '@waimia/ds-kernel';
+import { AUDIT_PROMISE } from './conversion';
 
 // ── 02 · L'offre · offer-rail CATALOGUE. Un onglet par domaine, dans l'ordre de l'offre.
 // `anchor: 'offres'` préserve la cible de scroll #offres.
@@ -26,8 +27,8 @@ export const offerRail = {
   kicker_en: '§ What we build',
   h2_fr: 'Des systèmes <i>en production</i>, pas des démonstrations.',
   h2_en: 'Systems <i>in production</i>, not demos.',
-  lede_fr: 'Trois métiers : automatiser les processus, développer les applications qui manquent, conseiller et former. Le site web et la prospection viennent en appui, quand le système en a besoin.',
-  lede_en: 'Three trades: automating processes, building the applications that are missing, advising and training. The website and prospecting come in support, when the system needs them.',
+  lede_fr: 'Automatiser les processus, développer les applications et les sites web qui manquent, conseiller et former vos équipes. Le même ingénieur s’en charge, de l’audit à la remise du code.',
+  lede_en: 'Automating processes, building the applications and websites that are missing, advising and training your teams. The same engineer handles it, from the audit to the code handover.',
   tablist_label_fr: 'Domaines d’intervention',
   tablist_label_en: 'Areas of work',
   families: [
@@ -135,8 +136,8 @@ export const offerRail = {
           tag_en: 'Advisory',
           title_fr: 'Audit et feuille de route',
           title_en: 'Audit and roadmap',
-          body_fr: 'L’audit gratuit de 45 minutes repère trois automatisations rentables. Le sprint de cadrage (10 h, 999 € HT) transforme la première en plan chiffré, avec un premier livrable en main.',
-          body_en: 'The free 45-minute audit spots three profitable automations. The scoping sprint (10 h, 999 € ex VAT) turns the first into a costed plan, with a first deliverable in hand.',
+          body_fr: `${AUDIT_PROMISE.general.short.fr} Le sprint de cadrage (10 h, 999 € HT) transforme le premier chantier en plan chiffré, avec un premier livrable en main.`,
+          body_en: `${AUDIT_PROMISE.general.short.en} The scoping sprint (10 h, 999 € ex VAT) turns the first project into a costed plan, with a first deliverable in hand.`,
           points_fr: ['Audit IA gratuit, 45 min', 'Sprint de cadrage, 10 h', 'RGPD et AI Act regardés au cadrage'],
           points_en: ['Free AI audit, 45 min', 'Scoping sprint, 10 h', 'GDPR and AI Act reviewed during scoping'],
           link_label_fr: 'En savoir plus sur l’audit →',
@@ -160,39 +161,42 @@ export const offerRail = {
       ],
     },
     {
-      id: 'appui',
-      tab_label_fr: 'Outils en appui',
-      tab_label_en: 'Supporting tools',
-      intro_eyebrow_fr: '§ En appui · commercial et visibilité web',
-      intro_eyebrow_en: '§ In support · sales and web visibility',
-      intro_lede_fr: 'Waimia n’est pas une agence web ni une agence marketing. Un site ou une séquence de prospection sont des outils qu’on branche au système quand ils servent le processus.',
-      intro_lede_en: 'Waimia is neither a web agency nor a marketing agency. A website or a prospecting sequence are tools we connect to the system when they serve the process.',
+      id: 'site-web',
+      tab_label_fr: 'Sites web et commercial',
+      tab_label_en: 'Websites and sales',
+      intro_eyebrow_fr: '§ Sites web et outils commerciaux · la demande, puis son suivi',
+      intro_eyebrow_en: '§ Websites and sales tools · the demand, then its follow-up',
+      intro_lede_fr: 'Le studio crée et refait des <a href="/services/site-web-ia">sites web</a> pour PME. On choisit la plateforme selon qui fera vivre le site, et les formulaires arrivent dans votre CRM.',
+      intro_lede_en: 'The studio builds and rebuilds <a href="/services/site-web-ia">websites</a> for SMEs. We choose the platform based on who will run the site, and the forms land in your CRM.',
       layout: 'diptych',
       offers: [
+        {
+          tag_fr: 'Site web',
+          tag_en: 'Website',
+          title_fr: 'Création et refonte de site',
+          title_en: 'Website creation and redesign',
+          body_fr: 'Webflow, WordPress, Shopify ou développement sur mesure. Un site rapide et mesuré, lisible par Google et par les moteurs IA, relié à votre CRM.',
+          body_en: 'Webflow, WordPress, Shopify or custom development. A fast, measured site, readable by Google and AI engines, connected to your CRM.',
+          link_label_fr: 'Voir l’agence site web →',
+          link_label_en: 'See the website agency →',
+          link_href: '/services/site-web-ia',
+        },
         {
           tag_fr: 'Commercial',
           tag_en: 'Sales',
           title_fr: 'Outils commerciaux',
           title_en: 'Sales tooling',
+          accent: 'complement',
           body_fr: 'Prospection automatisée, CRM avec scoring et affectation, relances déclenchées par le comportement. Les mêmes briques d’automatisation, appliquées au pipeline.',
           body_en: 'Automated prospecting, CRM with scoring and assignment, follow-ups triggered by behaviour. The same automation building blocks, applied to the pipeline.',
           link_label_fr: 'Voir les outils commerciaux →',
           link_label_en: 'See sales tooling →',
           link_href: '/services/systeme-commercial',
         },
-        {
-          tag_fr: 'Visibilité',
-          tag_en: 'Visibility',
-          title_fr: 'Visibilité web',
-          title_en: 'Web visibility',
-          accent: 'complement',
-          body_fr: 'Un site rapide et mesuré, lisible par Google et par les moteurs IA, relié au CRM. Il amène la demande que les automatisations traitent ensuite.',
-          body_en: 'A fast, measured site, readable by Google and AI engines, connected to the CRM. It brings the demand the automations then process.',
-          link_label_fr: 'Voir les outils de visibilité →',
-          link_label_en: 'See visibility tooling →',
-          link_href: '/services/systeme-acquisition',
-        },
       ],
+      panel_cta_label_fr: 'Voir aussi le référencement et les landing pages →',
+      panel_cta_label_en: 'See also search visibility and landing pages →',
+      panel_cta_href: '/services/systeme-acquisition',
     },
   ],
 } as unknown as SectionData;
