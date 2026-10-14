@@ -42,9 +42,9 @@
   --complementary-rgb: 32, 144, 168;
 
   /* Typography stacks */
-  --font-display: "Instrument Serif", ui-serif, Georgia, serif;
-  --font-sans:    "Inter Tight", ui-sans-serif, system-ui, sans-serif;
-  --font-mono:    "JetBrains Mono", ui-monospace, Menlo, monospace;
+  --font-display: "Instrument Serif", "Instrument Serif Fallback", ui-serif, Georgia, serif;
+  --font-sans:    "Inter Tight", "Inter Tight Fallback", ui-sans-serif, system-ui, sans-serif;
+  --font-mono:    "JetBrains Mono", "JetBrains Mono Fallback", ui-monospace, Menlo, monospace;
 
   /* Easing */
   --ease:        cubic-bezier(0.22, 1, 0.36, 1);

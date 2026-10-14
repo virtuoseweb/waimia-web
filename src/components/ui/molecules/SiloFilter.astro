@@ -3,8 +3,10 @@
 //
 // Source des silos : src/data/taxonomies.ts (SILOS, siloLabel). Les cartes à filtrer portent
 // `data-silo="<clé>"` (champ optionnel `silo` des sections cataloguées article-grid et
-// related-cards-band). Amélioration progressive : le <nav> est `hidden` dans le HTML ; le script
-// le révèle, ce qui évite des puces mortes sans JS (toutes les cartes restent visibles).
+// related-cards-band). Amélioration progressive : le <nav> occupe sa place dès le HTML mais reste
+// invisible (visibility) tant que le script ne l'a pas activé : pas de puces mortes sans JS, et
+// pas de décalage de la grille à l'activation (un `hidden` retiré par le script coûtait un CLS
+// de 0,14 à 0,22 sur /blog).
 //
 // Comportement (script inline, ré-initialisé sur astro:page-load) :
 //  - clic = n'affiche que les cartes du silo (attribut `hidden`), « Tous » réinitialise ;
@@ -39,7 +41,7 @@ const chips = SILO_KEYS.map((key) => ({
 })).filter((c) => c.n > 0);
 ---
 {chips.length > 1 && (
-  <nav class={`silo-filter ${extraClass}`.trim()} data-silo-filter data-silo-cards={cards} hidden aria-label={isFr ? 'Filtrer par thème' : 'Filter by topic'}>
+  <nav class={`silo-filter ${extraClass}`.trim()} data-silo-filter data-silo-cards={cards} aria-label={isFr ? 'Filtrer par thème' : 'Filter by topic'}>
     <button type="button" class="silo-chip" data-silo-key="" aria-pressed="true">
       {allLabel ?? (isFr ? 'Tous' : 'All')} <span class="silo-chip-n">{silos.length}</span>
     </button>
@@ -53,7 +55,7 @@ const chips = SILO_KEYS.map((key) => ({
 
 <style>
   .silo-filter { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-bottom: var(--space-6); }
-  .silo-filter[hidden] { display: none; }
+  .silo-filter:not([data-silo-bound]) { visibility: hidden; }
   .silo-chip {
     display: inline-flex;
     align-items: baseline;
@@ -109,7 +111,6 @@ const chips = SILO_KEYS.map((key) => ({
     var nav = document.querySelector('[data-silo-filter]');
     if (!nav || nav.dataset.siloBound) return;
     nav.dataset.siloBound = '1';
-    nav.hidden = false;
     nav.addEventListener('click', function (e) {
       var b = e.target.closest && e.target.closest('[data-silo-key]');
       if (b) apply(nav, b.getAttribute('data-silo-key'));

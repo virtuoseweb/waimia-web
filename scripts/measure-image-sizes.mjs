@@ -30,9 +30,11 @@ const OUT = path.resolve(opt('out', 'src/integrations/responsive-images-sizes.js
 // ses viewports ET de ceux qui la bordent (une bascule de grille entre deux mesures reste couverte).
 const VIEWPORTS = [390, 768, 1024, 1280, 1440, 1920];
 const BANDS = [
-  { media: '(max-width: 768px)', from: [390, 768, 1024] },
-  { media: '(max-width: 1280px)', from: [768, 1024, 1280, 1440] },
-  { media: null, from: [1280, 1440, 1920] },
+  // Chaque tranche ne lit que les largeurs qu'elle couvre : y mêler 1024 donnait au mobile la
+  // largeur bureau (hsm-illus : 185vw en mobile, image de 1 456 px pour 380 px affichés).
+  { media: '(max-width: 768px)', from: [390, 768] },
+  { media: '(max-width: 1280px)', from: [1024, 1280] },
+  { media: null, from: [1440, 1920] },
 ];
 
 const routes = [];
@@ -107,7 +109,10 @@ for (const [key, byVw] of Object.entries(ratios).sort()) {
   if (all === 0) continue; // jamais affichée : le défaut s'applique
   const parts = BANDS.map(({ media, from }) => {
     const m = Math.max(...from.map((v) => byVw[v] ?? 0));
-    const vw = up5(m || all); // tranche où l'image est masquée : ratio global (prudent)
+    let vw = up5(m || all); // tranche où l'image est masquée : ratio global (prudent)
+    // Mobile plafonné à 100vw : au-delà (recadrage cover), le gain de netteté ne vaut pas le
+    // poids sur réseau mobile, et Lighthouse compte l'excédent comme image surdimensionnée.
+    if (media === '(max-width: 768px)') vw = Math.min(vw, 100);
     return media ? `${media} ${vw}vw` : `${vw}vw`;
   });
   sizes[key] = parts.join(', ');
