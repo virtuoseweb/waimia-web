@@ -39,6 +39,10 @@
       "a": "Ceux qui déclenchent une décision. En général : chiffre d'affaires facturé et encaissé, marge, carnet de commandes, délai de paiement, charge des équipes, et un ou deux indicateurs propres à votre métier. Notre article sur le tableau de bord PME détaille la sélection."
     },
     {
+      "q": "Proposez-vous du conseil data pour une PME ?",
+      "a": "Oui, centré sur le pilotage. Un cabinet de conseil data peut couvrir la stratégie, la gouvernance ou l'architecture des données ; ici, on part de la décision à prendre. On recense vos sources, on fixe avec la direction la définition de chaque indicateur, puis on branche les données et on monte les tableaux qui servent cette décision."
+    },
+    {
       "q": "Où sont stockées les données du reporting ?",
       "a": "Dans une base de données ouverte à votre nom, chez l'hébergeur de votre choix. On documente les données personnelles qui y figurent et les droits d'accès par tableau."
     },
@@ -65,6 +69,10 @@
       "a": "Those that trigger a decision. Typically: revenue invoiced and collected, margin, order book, payment delay, team workload, and one or two indicators specific to your trade. Our SMB dashboard article details the selection."
     },
     {
+      "q": "Do you offer data consulting for an SMB?",
+      "a": "Yes, centred on steering. A data consulting firm may cover strategy, governance or data architecture; here, we start from the decision to be made. We list your sources, settle with management the definition of each indicator, then connect the data and build the dashboards that serve that decision."
+    },
+    {
       "q": "Where is the reporting data stored?",
       "a": "In a database opened in your name, at the host of your choice. We document the personal data it contains and access rights per dashboard."
     },
@@ -87,8 +95,8 @@
       "kicker_en": "§ Data and steering",
       "h1_fr": "Le <i class=\"acc\">pilotage</i> par la donnée, sans tableur refait à la main.",
       "h1_en": "<i class=\"acc\">Steering</i> by data, with no spreadsheet rebuilt by hand.",
-      "lede_fr": "Piloter par la donnée, c'est lire les mêmes chiffres, avec la même définition, sans attendre un export. Waimia, studio d'automatisation et d'IA, rassemble les données de vos logiciels dans une base unique, fixe la définition de chaque indicateur et tient le suivi à jour, pour les PME dont le suivi mensuel se fabrique encore à la main dans un tableur. Trois entrées selon votre besoin : centraliser les données, produire les rapports récurrents ou équiper la direction.",
-      "lede_en": "Steering by data means reading the same figures, with the same definition, without waiting for an export. Waimia, an automation and AI studio, gathers the data from your tools into a single base, fixes the definition of each indicator and keeps the tracking up to date, for SMBs whose monthly tracking is still hand-made in a spreadsheet. Three entry points depending on your need: centralise the data, produce recurring reports or equip management.",
+      "lede_fr": "Piloter par la donnée, c'est lire les mêmes chiffres, avec la même définition, sans attendre un export. Waimia, studio d'automatisation et d'IA, rassemble les données de vos logiciels dans une base unique et fixe la définition de chaque indicateur. On tient ensuite le suivi à jour, pour les PME dont le suivi mensuel se fabrique encore à la main dans un tableur. Trois entrées selon votre besoin : centraliser les données, produire les rapports récurrents ou équiper la direction.",
+      "lede_en": "Steering by data means reading the same figures, with the same definition, without waiting for an export. Waimia, an automation and AI studio, gathers the data from your tools into a single base and fixes the definition of each indicator. We then keep the tracking up to date, for SMBs whose monthly tracking is still hand-made in a spreadsheet. Three entry points depending on your need: centralise the data, produce recurring reports or equip management.",
       "badges": [
         {
           "label_fr": "Sources branchées",
@@ -401,8 +409,8 @@
           }
         }
       ],
-      "footnote_fr": "Le sprint de cadrage est à prix fixe, 999 € HT pour 10 heures : cadrage des KPI prioritaires, sources branchées et un premier tableau de bord mis en ligne, avec un livrable qui tourne dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent les nouveaux indicateurs, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, vos données, vos accès et votre socle sont à vous.",
-      "footnote_en": "The scoping sprint is fixed-price, 999 € ex VAT for 10 hours: scoping of the priority KPIs, wired sources and a first dashboard put online, with a deliverable that runs by the end. What follows is quoted: we estimate together the time the new indicators require, validate it, then run it in sprints within the time and materials frame, at {{prix.horaire}} € an hour, non-degressive. No subscription, no lock-in: at the end, your data, your access and your base are yours."
+      "footnote_fr": "La suite est facturée en régie à {{prix.horaire}} € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, vos données, vos accès et votre socle sont à vous.",
+      "footnote_en": "What follows is billed on a time-and-materials basis at {{prix.horaire}} € an hour, non-degressive. No subscription, no lock-in: at the end, your data, your access and your base are yours."
     },
     {
       "type": "eeat-panel",
@@ -440,6 +448,12 @@
           "a_fr": "Ceux qui déclenchent une décision. En général : chiffre d'affaires facturé et encaissé, marge, carnet de commandes, délai de paiement, charge des équipes, et un ou deux indicateurs propres à votre métier. Notre article sur le tableau de bord PME détaille la sélection.",
           "q_en": "Which indicators should an SMB track?",
           "a_en": "Those that trigger a decision. Typically: revenue invoiced and collected, margin, order book, payment delay, team workload, and one or two indicators specific to your trade. Our SMB dashboard article details the selection."
+        },
+        {
+          "q_fr": "Proposez-vous du conseil data pour une PME ?",
+          "a_fr": "Oui, centré sur le pilotage. Un cabinet de conseil data peut couvrir la stratégie, la gouvernance ou l'architecture des données ; ici, on part de la décision à prendre. On recense vos sources, on fixe avec la direction la définition de chaque indicateur, puis on branche les données et on monte les tableaux qui servent cette décision.",
+          "q_en": "Do you offer data consulting for an SMB?",
+          "a_en": "Yes, centred on steering. A data consulting firm may cover strategy, governance or data architecture; here, we start from the decision to be made. We list your sources, settle with management the definition of each indicator, then connect the data and build the dashboards that serve that decision."
         },
         {
           "q_fr": "Où sont stockées les données du reporting ?",

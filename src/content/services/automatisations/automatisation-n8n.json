@@ -89,8 +89,8 @@
       "kicker_en": "§ n8n agency",
       "h1_fr": "Agence <i class=\"acc\">n8n</i> pour PME",
       "h1_en": "<i class=\"acc\">n8n</i> agency for SMEs",
-      "lede_fr": "Waimia est une agence n8n : un studio qui conçoit, héberge et supervise des workflows n8n pour les PME et ETI. n8n est un outil d'automatisation dont la version auto-hébergée s'installe sur votre propre serveur : vos données n'en sortent pas. On livre un workflow en production, branché à vos logiciels, avec son journal d'exécutions, ses alertes et un référent formé chez vous.",
-      "lede_en": "Waimia is an n8n agency: a studio that designs, hosts and supervises n8n workflows for SMBs. n8n is an automation tool whose self-hosted version runs on your own server: your data stays there. We ship a workflow to production, wired to your software, with its run log, its alerts and a trained owner on your side.",
+      "lede_fr": "Waimia est une agence n8n : un studio qui conçoit, héberge et supervise des workflows n8n pour les PME et ETI. Un workflow en production, branché à vos logiciels, avec son journal d'exécutions, ses alertes et un référent formé chez vous.",
+      "lede_en": "Waimia is an n8n agency: a studio that designs, hosts and supervises n8n workflows for SMBs. One workflow in production, wired to your software, with its run log, its alerts and a trained owner on your side.",
       "badges": [
         {
           "label_fr": "Workflows n8n",
@@ -109,8 +109,8 @@
           "label_en": "Trained owner"
         }
       ],
-      "cta_sub_fr": "Audit gratuit de 45 minutes en visio. Vous repartez avec au moins deux process à automatiser, chiffrés.",
-      "cta_sub_en": "Free 45-minute audit by video call. You leave with at least two processes to automate, costed.",
+      "cta_sub_fr": "Audit gratuit de 45 minutes en visio. Vous repartez avec une cartographie écrite et un ou deux chantiers classés.",
+      "cta_sub_en": "Free 45-minute audit by video call. You leave with a written task map and one or two ranked projects.",
       "cta_primary": {
         "label_fr": "Réserver un audit IA gratuit →",
         "label_en": "Book a free AI audit →",
@@ -160,55 +160,21 @@
       ]
     },
     {
-      "type": "definition-extract",
+      "type": "direct-answer",
       "background": "paper",
-      "kicker_fr": "§ Définition",
-      "kicker_en": "§ Definition",
-      "statement_fr": "Une <i class=\"acc\">automatisation n8n</i> est un workflow construit dans n8n : un déclencheur, des étapes branchées à vos logiciels par API, des conditions, et si besoin une étape IA. n8n compte une exécution par lancement du workflow, quel que soit le nombre d'étapes, et peut être installé sur votre propre serveur.",
-      "statement_en": "An <i class=\"acc\">n8n automation</i> is a workflow built in n8n: a trigger, steps wired to your software through APIs, conditions, and an AI step where needed. n8n counts one execution per workflow run, whatever the number of steps, and can be installed on your own server.",
-      "pills": [
-        {
-          "label_fr": "Une exécution par lancement",
-          "label_en": "One execution per run"
-        },
-        {
-          "label_fr": "Auto-hébergeable",
-          "label_en": "Self-hostable"
-        },
-        {
-          "label_fr": "Étapes IA",
-          "label_en": "AI steps"
-        },
-        {
-          "label_fr": "Journal d'exécutions",
-          "label_en": "Execution log"
-        }
-      ],
-      "specs": [
-        {
-          "label_fr": "n8n auto-hébergé ou Cloud",
-          "label_en": "Self-hosted n8n or Cloud"
-        },
-        {
-          "label_fr": "API et webhooks",
-          "label_en": "APIs and webhooks"
-        },
-        {
-          "label_fr": "Claude ou OpenAI en étape IA",
-          "label_en": "Claude or OpenAI as an AI step"
-        },
-        {
-          "label_fr": "Sauvegarde des workflows",
-          "label_en": "Workflow backups"
-        }
-      ]
+      "question_fr": "Agence n8n : que fait-elle, concrètement ?",
+      "question_en": "n8n agency: what does it actually do?",
+      "term_fr": "Agence n8n",
+      "term_en": "n8n agency",
+      "answer_fr": "Elle transforme une tâche répétitive en workflow n8n : un déclencheur, des étapes branchées à vos logiciels par API, des conditions et, si besoin, une étape IA. n8n compte une exécution par lancement du workflow, quel que soit le nombre d'étapes, et sa version auto-hébergée s'installe sur votre propre serveur, où vos données restent, hors étapes IA.",
+      "answer_en": "It turns a repetitive task into an n8n workflow: a trigger, steps wired to your software through APIs, conditions and, where needed, an AI step. n8n counts one execution per workflow run, whatever the number of steps, and its self-hosted version installs on your own server, where your data stays, except what you send to an AI step."
     },
     {
       "type": "editorial-prose",
       "background": "paper-2",
       "maxWidth": "prose",
-      "html_fr": "<h2>Pourquoi n8n, et ce qu'on a vérifié</h2>\n<p>Si l'outil vous est encore inconnu, <a href=\"/blog/n8n-c-est-quoi\">n8n, c'est quoi</a> l'explique en cinq minutes. Deux caractéristiques comptent pour une PME. La facturation : selon la <a href=\"https://n8n.io/pricing/\" rel=\"noopener\" target=\"_blank\">page tarifs de n8n</a>, une exécution correspond à un lancement complet du workflow, quel que soit le nombre d'étapes ou le volume de données traité. Un workflow à vingt étapes ne coûte pas plus qu'un workflow à trois. L'hébergement : une version auto-hébergée est disponible sur GitHub, et pour les offres hébergées par n8n les données sont stockées dans l'Union européenne, sur des serveurs situés à Francfort. Offres hébergées à partir de 20 € par mois en facturation annuelle. Informations vérifiées le 4 octobre 2026. Le détail des offres, des limites et du coût complet est dans le guide <a href=\"/ressources/guides/n8n-prix\">prix de n8n</a>.</p>\n<h2>Agence automatisation n8n : ce qu'on fait exactement</h2>\n<p>On installe n8n sur votre serveur ou on configure votre compte n8n Cloud, on construit le workflow, on le branche à vos logiciels et on teste les cas d'erreur avant la mise en production. Quand une étape demande de lire un texte libre (classer un email, extraire les lignes d'une facture), on y branche un modèle Claude ou OpenAI. Pour une décision plus ouverte, on passe à un <a href=\"/services/agents-ia\">agent IA</a>.</p>\n<p>n8n n'est pas toujours le bon choix. La page <a href=\"/services/automatisations\">automatisation des processus</a> explique comment on tranche entre n8n et Make, le comparatif <a href=\"/ressources/comparatifs/n8n-vs-make\">n8n vs Make</a> pose les critères côte à côte, et notre article <a href=\"/blog/avis-n8n-vs-zapier-2026\">n8n vs Zapier</a> les détaille. Si Make est déjà en place chez vous, voir la page <a href=\"/services/automatisation-make\">agence Make</a>.</p>\n<h2>Combien de temps</h2>\n<p>Un premier workflow n8n est habituellement en production en 2 à 6 semaines. L'installation auto-hébergée ajoute quelques jours : serveur, nom de domaine, sauvegardes, mises à jour. Le reste du délai dépend de vos accès et du temps que la personne qui connaît le process peut y consacrer.</p>\n<h2>Ce qui peut mal tourner</h2>\n<p>Le risque principal avec n8n est organisationnel. Auto-hébergé, il faut quelqu'un pour appliquer les mises à jour et surveiller les sauvegardes : soit votre équipe, soit nous en régie. Sans propriétaire, un n8n devient une collection de workflows que personne n'ose toucher. On forme donc un référent, et on peut former toute une équipe (formations dispensées via Akigora, organisme certifié Qualiopi). Pour que votre équipe reprenne la main sur ses workflows : <a href=\"/formations/n8n\">formation n8n</a>, ou <a href=\"/formations/make\">formation Make</a> si vous travaillez sur Make.</p>\n<p>Pour voir ce que n8n change sur un process précis, partez du cas d'usage <a href=\"/cas-usages/centraliser-donnees\">centraliser ses données</a>, listez vos tâches dans la <a href=\"/ressources/outils/grille-taches-a-automatiser\">grille des tâches à automatiser</a>, estimez le budget avec le <a href=\"/ressources/outils/calculateur-roi-ia\">calculateur de ROI</a>, ou réservez l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>.</p>",
-      "html_en": "<h2>Why n8n, and what we checked</h2>\n<p>Two traits matter for an SMB. Billing: according to the <a href=\"https://n8n.io/pricing/\" rel=\"noopener\" target=\"_blank\">n8n pricing page</a>, an execution is a single run of the entire workflow, whatever the number of steps or the volume of data processed. A twenty-step workflow costs no more than a three-step one. Hosting: a self-hosted version is available on GitHub, and for plans hosted by n8n the data is stored in the EU, on servers located in Frankfurt. Hosted plans start at €20 per month billed annually. Checked on 4 October 2026.</p>\n<h2>n8n automation agency: what we do exactly</h2>\n<p>We install n8n on your server or set up your n8n Cloud account, build the workflow, wire it to your software and test the error cases before going live. When a step requires reading free text (classifying an email, extracting invoice lines), we plug in a Claude or OpenAI model. For a more open decision, we move to an <a href=\"/services/agents-ia\">AI agent</a>.</p>\n<p>n8n is not always the right choice. The <a href=\"/services/automatisations\">process automation</a> page explains how we decide between n8n and Make, and our article <a href=\"/blog/avis-n8n-vs-zapier-2026\">n8n vs Zapier</a> details the criteria.</p>\n<h2>How long</h2>\n<p>A first n8n workflow is usually in production within 2 to 6 weeks. Self-hosting adds a few days: server, domain name, backups, updates. The rest depends on your access and on the time the person who knows the process can give.</p>\n<h2>What can go wrong</h2>\n<p>The main risk with n8n is organisational. Self-hosted, someone must apply updates and watch the backups: your team, or us on a time-and-materials basis. Without an owner, n8n becomes a pile of workflows nobody dares touch. So we train an owner, and can train a whole team (training delivered via Akigora, a Qualiopi-certified body). For your team to take over its workflows: <a href=\"/formations/n8n\">n8n training</a>, or <a href=\"/formations/make\">Make training</a> if you work on Make.</p>\n<p>To see what n8n changes on a given process, start from the use case <a href=\"/cas-usages/centraliser-donnees\">centralising your data</a> or book the <a href=\"/audit-ia-pme\">free AI audit</a>.</p>"
+      "html_fr": "<h2>Pourquoi n8n, et ce qu'on a vérifié</h2>\n<p>Si l'outil vous est encore inconnu, <a href=\"/blog/n8n-c-est-quoi\">n8n, c'est quoi</a> l'explique en cinq minutes. Deux caractéristiques comptent pour une PME. La facturation : selon la <a href=\"https://n8n.io/pricing/\" rel=\"noopener\" target=\"_blank\">page tarifs de n8n</a>, une exécution correspond à un lancement complet du workflow, quel que soit le nombre d'étapes ou le volume de données traité. Un workflow à vingt étapes ne coûte pas plus qu'un workflow à trois. L'hébergement : une version auto-hébergée est disponible sur GitHub, et pour les offres hébergées par n8n les données sont stockées dans l'Union européenne, sur des serveurs situés à Francfort. Offres hébergées à partir de 20 € par mois en facturation annuelle. Informations vérifiées le 4 octobre 2026. Le détail des offres, des limites et du coût complet est dans le guide <a href=\"/ressources/guides/n8n-prix\">prix de n8n</a>.</p>\n<h2>Agence automatisation n8n : ce qu'on fait exactement</h2>\n<p>On installe n8n sur votre serveur ou on configure votre compte n8n Cloud, on construit le workflow, on le branche à vos logiciels et on teste les cas d'erreur avant la mise en production. Quand une étape demande de lire un texte libre (classer un email, extraire les lignes d'une facture), on y branche un modèle Claude ou OpenAI. Pour une décision plus ouverte, on passe à un <a href=\"/services/agents-ia\">agent IA</a>.</p>\n<p>n8n n'est pas toujours le bon choix. La page <a href=\"/services/automatisations\">automatisation des processus</a> explique comment on tranche entre n8n et Make, le comparatif <a href=\"/ressources/comparatifs/n8n-vs-make\">n8n vs Make</a> pose les critères côte à côte, et notre article <a href=\"/blog/avis-n8n-vs-zapier-2026\">n8n vs Zapier</a> les détaille. Si Make est déjà en place chez vous, voir la page <a href=\"/services/automatisation-make\">agence Make</a>. Si le process demande un écran de saisie, des droits d'accès ou une base de données, il faut une <a href=\"/services/applications-internes\">application interne</a>, pas un workflow.</p>\n<h2>Combien de temps</h2>\n<p>Un premier workflow n8n est habituellement en production en 2 à 6 semaines. L'installation auto-hébergée ajoute quelques jours : serveur, nom de domaine, sauvegardes, mises à jour. Le reste du délai dépend de vos accès et du temps que la personne qui connaît le process peut y consacrer.</p>\n<h2>Ce qui peut mal tourner</h2>\n<p>Le risque principal avec n8n est organisationnel. Auto-hébergé, il faut quelqu'un pour appliquer les mises à jour et surveiller les sauvegardes : soit votre équipe, soit nous en régie. Sans propriétaire, un n8n devient une collection de workflows que personne n'ose toucher. On forme donc un référent, et on peut former toute une équipe (formations dispensées via Akigora, organisme certifié Qualiopi). Pour que votre équipe reprenne la main sur ses workflows : <a href=\"/formations/n8n\">formation n8n</a>, ou <a href=\"/formations/make\">formation Make</a> si vous travaillez sur Make.</p>\n<p>Pour voir ce que n8n change sur un process précis, partez du cas d'usage <a href=\"/cas-usages/centraliser-donnees\">centraliser ses données</a>, listez vos tâches dans la <a href=\"/ressources/outils/grille-taches-a-automatiser\">grille des tâches à automatiser</a>, estimez le gain avec le <a href=\"/ressources/outils/calculateur-roi-ia\">calculateur de ROI</a>, ou réservez l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>.</p>",
+      "html_en": "<h2>Why n8n, and what we checked</h2>\n<p>Two traits matter for an SMB. Billing: according to the <a href=\"https://n8n.io/pricing/\" rel=\"noopener\" target=\"_blank\">n8n pricing page</a>, an execution is a single run of the entire workflow, whatever the number of steps or the volume of data processed. A twenty-step workflow costs no more than a three-step one. Hosting: a self-hosted version is available on GitHub, and for plans hosted by n8n the data is stored in the EU, on servers located in Frankfurt. Hosted plans start at €20 per month billed annually. Checked on 4 October 2026.</p>\n<h2>n8n automation agency: what we do exactly</h2>\n<p>We install n8n on your server or set up your n8n Cloud account, build the workflow, wire it to your software and test the error cases before going live. When a step requires reading free text (classifying an email, extracting invoice lines), we plug in a Claude or OpenAI model. For a more open decision, we move to an <a href=\"/services/agents-ia\">AI agent</a>.</p>\n<p>n8n is not always the right choice. The <a href=\"/services/automatisations\">process automation</a> page explains how we decide between n8n and Make, and our article <a href=\"/blog/avis-n8n-vs-zapier-2026\">n8n vs Zapier</a> details the criteria. If the process needs a data-entry screen, access rights or a database, you need an <a href=\"/services/applications-internes\">internal application</a>, not a workflow.</p>\n<h2>How long</h2>\n<p>A first n8n workflow is usually in production within 2 to 6 weeks. Self-hosting adds a few days: server, domain name, backups, updates. The rest depends on your access and on the time the person who knows the process can give.</p>\n<h2>What can go wrong</h2>\n<p>The main risk with n8n is organisational. Self-hosted, someone must apply updates and watch the backups: your team, or us on a time-and-materials basis. Without an owner, n8n becomes a pile of workflows nobody dares touch. So we train an owner, and can train a whole team (training delivered via Akigora, a Qualiopi-certified body). For your team to take over its workflows: <a href=\"/formations/n8n\">n8n training</a>, or <a href=\"/formations/make\">Make training</a> if you work on Make.</p>\n<p>To see what n8n changes on a given process, start from the use case <a href=\"/cas-usages/centraliser-donnees\">centralising your data</a> or book the <a href=\"/audit-ia-pme\">free AI audit</a>.</p>"
     },
     {
       "type": "comparison-duo",
@@ -400,8 +366,8 @@
           }
         }
       ],
-      "footnote_fr": "Le sprint de cadrage est à prix fixe, 999 € HT pour 10 heures : cadrage de la tâche prioritaire, un premier workflow n8n conçu, branché et mis en production, avec un livrable qui tourne dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent les workflows n8n suivants, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, vos workflows n8n, vos accès et la documentation sont à vous.",
-      "footnote_en": "The scoping sprint is fixed-price, 999 € ex VAT for 10 hours: scoping of the priority task, a first n8n workflow designed, wired and put into production, with a deliverable that runs by the end. What follows is quoted: we estimate together the time the next n8n workflows require, validate it, then run it in sprints within the time and materials frame, at {{prix.horaire}} € an hour, non-degressive. No subscription, no lock-in: at the end, your n8n workflows, your access and the documentation are yours."
+      "footnote_fr": "La suite est facturée en régie à {{prix.horaire}} € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, vos workflows n8n, vos accès et la documentation sont à vous.",
+      "footnote_en": "What follows is billed on a time-and-materials basis at {{prix.horaire}} € an hour, non-degressive. No subscription, no lock-in: at the end, your n8n workflows, your access and the documentation are yours."
     },
     {
       "type": "eeat-panel",
