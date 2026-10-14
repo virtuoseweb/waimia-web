@@ -85,6 +85,23 @@ Source : lecture intégrale des 31 fichiers du dossier Semrush (PDF, xlsx, csv d
 - **Lot catalogue (PR #90, merge `393213f1`, en production le 15 octobre 2026)** : bande CTA finale à 414 à 548 px au lieu de 731 à 868 (390 et 1440, 8 pages) ; maillage « Sur le même sujet » une seule fois, avant la bande CTA ; « § 01 » retiré des blocs de prose à un seul H2 ; lede seul du héros en registre de lecture (CTA du héros toujours dans le premier écran : 638 px au plus à 390, 837 à 1440) ; TechWhenDual sur `.wrap-wide`. En production : statut Vercel du commit de fusion en succès, marqueur `hsm-lede--solo` présent sur waimia.com 80 s après la fusion, mêmes mesures que sur la preview.
 - **Preuves locales (PR #89)** : portes `check:*` vertes sauf `semantic` et `hover-reflow` (hors CI, fichiers non touchés) ; `astro check` à 8 erreurs comme `main` ; Playwright 71 réussis ; marqueurs de la vague 1 : 11 sur 11 ; CTA des héros à 390 : 10 pages sur 11, comme en vague 1.
 
+### Vague 3 du 15 octobre 2026 · restes mesurés après la vague 2 (branche `seo-v3/integration`)
+
+**Décisions de Simon du 15 octobre 2026**, acquises :
+- Siège : « ok pour le siège, pas de RCS sans pièce », puis « c mon adresse a bdx c juste ». L'adresse d'activité de Bordeaux reste partout où elle est ; mentions légales inchangées tant qu'aucune pièce ne montre un siège bordelais.
+- Ressources : « on voulait que les hub outils et comparatif disparaisse car se sont déjà des liens filtrables dans ressource et les liens affiche le bon filtre », puis « c les hub mais les filtres et les liens généré par les filtres doivent rester ». Appliqué : `/ressources/outils` et `/ressources/comparatifs` restent les URL des pastilles de filtre, sans 301 ; leur tête propre (H1, chapô, fil d'Ariane) est retirée, elles reprennent celle de `/ressources`. Title, description et indexation inchangés. `/ressources/guides` (non cité) garde sa tête.
+
+**Six lots en worktrees, revus par Opus, puis intégrés** (phase A : navigation et hubs, services, ressources ; phase B : services, villes et GEO, promesse et clusters) :
+- Méga-menu : « Commercial et visibilité » scindé en « Outils commerciaux » et « Site web, SEO et marque » ; `/llms.txt` tire le nombre de domaines du menu (six, au lieu de « cinq » écrit en dur).
+- Services : formules creuses et chiffres sans source retirés, voix en « on », cartes de cas réalignées sur les fiches (rétention Balzeo écrite « de 32 % à 43 % »), FAQ « basés où » propres à chaque page, H1 de `/services` et `/implantations` sur leur requête.
+- Faits Claude relus le 15 octobre sur la page tarifs d'Anthropic : Max dès 100 $ ; Claude Docs, Slides et Design inclus dans toutes les offres, Free comprise ; chartes de marque de Claude Design en bêta sur les offres payantes. Formation Claude et intégration Claude alignées.
+- Villes et GEO : Lyon et Toulouse sur leurs requêtes, description de `/services/referencement-ia` sur « agence GEO et référencement IA », lien « agence GEO » depuis `/services/site-web-ia`.
+- Cluster web : promesse de l'audit en variante site web sur la démonstration, redite corps et FAQ retirée de `/services/shopify`, source primaire Palantir pour l'article forward deployed engineer.
+
+**Preuves locales** (build servi, 35 pages touchées) : 35 en 200 ; à 390×844 et 1440×900, aucun débordement horizontal et le CTA du héros dans le premier écran (783 px au plus à 390, 863 à 1440) ; aucun `{{prix` ni `<i>` échappé dans les 176 pages ; vues outils et comparatifs : H1 de `/ressources`, pastille active, seules les cartes du type, filtre de thème fonctionnel, aucune entrée de redirection dans `.vercel/output/config.json`, toujours au sitemap. Portes `check:*` vertes sauf `semantic` et `hover-reflow` (dette connue, fichiers non touchés) ; `astro check` à 8 erreurs comme `main`.
+
+**Reste pour la phase C** (PR distincte) : chapôs de plus de 40 mots sur 35 pages de service, visuels de héros par sujet, alternance des fonds des villes, jeton de prix du sprint de cadrage, typographie des titres.
+
 ### 2026-W42 (session du 12 octobre 2026, collecte du 11 octobre 2026)
 
 **Données** : collecte du 11 octobre 2026 à 22:55 UTC (`generatedAt`), fraîche oui (`freshness.mjs` : « FRAÎCHE · collecte complète de 6.8 h ») · Search Console configuré oui · étapes en erreur : aucune (8 étapes `ok`). Les données de performance s'arrêtent au 8 octobre 2026. Flux : 0 en erreur. Concurrents : 14 URL nouvelles, toutes chez claudin.tech.
