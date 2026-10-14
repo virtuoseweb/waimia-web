@@ -52,6 +52,21 @@ Réponses de Simon aux dix questions de l'audit global du 14 octobre 2026 (9 dim
 9. **Mise en production** : validée.
 10. **Italiques** : alléger l'accueil et `/manifesto` (paragraphes seulement, les accents serif des titres restent).
 
+### Vague 1 en production le 14 octobre 2026 (PR #88, merge `b25b6b62`)
+
+Neuf lots, intégrés puis prouvés sur la preview Vercel, puis en production : 11 marqueurs de contenu présents sur waimia.com, parcours Playwright à 390×844 et à 1440×900.
+
+- **Mesures, avant puis après** :
+  - bannière cookies en mobile : 141 px, puis 56 px ;
+  - CTA du héros au-dessus de la bannière : 3 pages sur 11, puis 10 sur 11 ;
+  - titres de plus de 60 caractères : 10, puis 0 ;
+  - paragraphes longs : 33, puis 24 ;
+  - contenu propre à la page de Toulouse : 16 %, puis 63 % ; de Lyon : 23 %, puis 61 %.
+- **Exception sur `/tarifs` mobile.** Le fil d'Ariane ajouté sort de l'écran le CTA de l'étape 1, dont le bas passe à 907 px pour un écran de 844. En échange, le kicker n'est plus caché sous le header fixe, et le CTA « Audit gratuit » du header reste visible.
+- **Chiffres retirés de la page sources, faute de source primaire lisible** : McKinsey (10 à 25 %), Clickzou, Batiweb, Warmly et CNB. Les six sources gardées ont été relues le 14 octobre.
+- **Moteurs.** IndexNow et l'Indexing API sont laissés à la routine du dimanche, qui évite les doubles envois. Les demandes d'indexation manuelles dans Search Console restent à faire par Simon.
+- **Siège.** Le registre officiel (recherche-entreprises, lu le 14 octobre) donne toujours l'établissement de Montpellier. « Basé à Bordeaux » est uniformisé, mais aucun identifiant légal bordelais (RCS, adresse, tribunaux) n'est écrit sans pièce.
+
 ### 2026-W42 (session du 12 octobre 2026, collecte du 11 octobre 2026)
 
 **Données** : collecte du 11 octobre 2026 à 22:55 UTC (`generatedAt`), fraîche oui (`freshness.mjs` : « FRAÎCHE · collecte complète de 6.8 h ») · Search Console configuré oui · étapes en erreur : aucune (8 étapes `ok`). Les données de performance s'arrêtent au 8 octobre 2026. Flux : 0 en erreur. Concurrents : 14 URL nouvelles, toutes chez claudin.tech.
