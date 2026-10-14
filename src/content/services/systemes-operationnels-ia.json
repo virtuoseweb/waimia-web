@@ -41,7 +41,7 @@
     },
     {
       "q": "Par où commencer si je ne sais pas quoi automatiser ?",
-      "a": "Par l'audit gratuit de 45 minutes. On passe vos tâches répétitives en revue et on les classe par le temps qu'elles prennent. On démarre par le chantier le plus rentable, on mesure, puis on étend."
+      "a": "Par l'audit gratuit de 45 minutes. On passe vos tâches répétitives en revue et on les classe par le temps qu'elles prennent. Vous repartez avec une cartographie écrite et un ou deux chantiers classés. On démarre par celui qui rend le plus de temps, on mesure, puis on étend."
     },
     {
       "q": "Qu'est-ce que MCP et pourquoi ça compte ?",
@@ -83,7 +83,7 @@
     },
     {
       "q": "Where to start if I don't know what to automate?",
-      "a": "With the diagnostic. We map your repetitive tasks and prioritise them by the time and money they burn. We start with the work that hurts most, prove the value, then extend."
+      "a": "With the free 45-minute audit. We go through your repetitive tasks and rank them by the time they take. You leave with a written task map and one or two ranked projects. We start with the one that gives back the most time, prove the value, then extend."
     },
     {
       "q": "What is MCP and why does it matter?",
@@ -107,7 +107,7 @@
     },
     {
       "q": "Where are you based, and do we need to be in Bordeaux?",
-      "a": "The studio is in Bordeaux and supports SMBs locally and remotely. The diagnostic, the build and the follow-up happen by video or on site, as you prefer. Proximity helps, it is not a condition."
+      "a": "The studio is in Bordeaux and supports SMBs locally and remotely. The audit, the build and the follow-up happen by video or on site, as you prefer. Proximity helps, it is not a condition."
     },
     {
       "q": "Should I pick an automation agency, an expert or a freelancer?",
@@ -168,8 +168,8 @@
       "metrics": [
         {
           "value": "Audit",
-          "label_fr": "gratuit, 45 min, trois automatisations repérées",
-          "label_en": "free, 45 min, three automations spotted",
+          "label_fr": "gratuit, 45 min, un ou deux chantiers classés",
+          "label_en": "free, 45 min, one or two ranked projects",
           "emphasis": true
         },
         {
@@ -250,8 +250,8 @@
       "kicker_en": "§ The modules",
       "h2_fr": "Six modules, une même <i>base</i>",
       "h2_en": "Six modules, one shared <i>base</i>",
-      "lede_fr": "Chaque module existe seul et se branche sur la même base. Survolez un module pour le découvrir, puis ouvrez sa page.",
-      "lede_en": "Each module stands alone and connects to the same base. Hover a module to discover it, then open its page.",
+      "lede_fr": "Chaque module existe seul et se branche sur la même base. Ouvrez celui qui vous concerne.",
+      "lede_en": "Each module stands alone and connects to the same base. Open the one that concerns you.",
       "items": [
         {
           "label_fr": "Automatisations",
@@ -259,8 +259,8 @@
           "meta_fr": "Exécuter · supprimer la ressaisie entre outils",
           "meta_en": "Execute · remove re-entry between tools",
           "media_src": "/images/illustrations/ds/computer-health-paper.webp",
-          "media_alt_fr": "Un ordinateur ausculté : les automatisations qui suppriment le geste répétitif.",
-          "media_alt_en": "A computer being checked: the automations that remove the repetitive gesture.",
+          "media_alt_fr": "Un ordinateur portable traversé par une ligne d'électrocardiogramme.",
+          "media_alt_en": "A laptop crossed by a heartbeat line.",
           "link_href": "/services/automatisations"
         },
         {
@@ -299,8 +299,8 @@
           "meta_fr": "Piloter · les KPI rapprochés et lus par l'IA",
           "meta_en": "Steer · KPIs pulled together and read by the AI",
           "media_src": "/images/illustrations/ds/money-in-the-pig-paper.webp",
-          "media_alt_fr": "Une tirelire : les données rapprochées qui rendent le pilotage lisible.",
-          "media_alt_en": "A piggy bank: the pulled-together data that makes steering legible.",
+          "media_alt_fr": "Une main glisse une pièce dans la fente d'un boîtier métallique.",
+          "media_alt_en": "A hand slides a coin into the slot of a metal box.",
           "link_href": "/services/donnees-reporting"
         },
         {
@@ -309,8 +309,8 @@
           "meta_fr": "Cadrer · la feuille de route avant d'investir, la formation après",
           "meta_en": "Frame · the roadmap before investing, the training after",
           "media_src": "/images/illustrations/ds/snow-movement-paper.webp",
-          "media_alt_fr": "Un mouvement cadré : le conseil qui priorise avant de dépenser.",
-          "media_alt_en": "A framed movement: the advisory that prioritises before spending.",
+          "media_alt_fr": "Une boule de neige géante dévale une pente, au-dessus d'une silhouette minuscule.",
+          "media_alt_en": "A giant snowball rolls down a slope above a tiny figure.",
           "link_href": "/services/consultant-ia-claude"
         }
       ]
@@ -323,16 +323,16 @@
       "kicker_en": "§ The modules articulated",
       "h2_fr": "Comment les modules se nourrissent",
       "h2_en": "How the modules feed each other",
-      "lede_fr": "L'automatisation supprime le geste. L'agent IA raisonne sur la tâche. L'intégration Claude connecte vos outils. L'application interne outille l'équipe, le reporting rend tout lisible. La gouvernance tient l'ensemble. Des modules articulés, pas des projets séparés.",
-      "lede_en": "Automation removes the gesture. The AI agent reasons over the task. Claude integration connects your tools. The internal app equips the team, reporting makes it all legible. Governance holds the whole. Articulated modules, not separate projects.",
+      "lede_fr": "Les workflows suppriment la ressaisie, les agents traitent ce qui demande du jugement, l'intégration Claude les relie à vos outils. Chaque module marche seul ; on les ajoute dans l'ordre où ils rendent du temps.",
+      "lede_en": "Workflows remove re-keying, agents handle what needs judgement, Claude integration connects them to your tools. Each module works on its own; we add them in the order in which they give back time.",
       "rows": [
         {
           "kicker_fr": "Module 01",
           "kicker_en": "Module 01",
           "h3_fr": "Automatiser · exécuter le répétitif",
           "h3_en": "Automate · run the repetitive",
-          "body_fr": "Les automatisations suppriment la ressaisie entre vos outils, les agents IA prennent en charge les tâches qui demandent du jugement. Mon conseil : prenez le plus simple des deux qui fait le travail. Un workflow coûte moins cher à faire tourner et se trompe moins qu'un agent.",
-          "body_en": "Automations remove re-entry between your tools, AI agents take on the tasks that need judgement. My advice: pick the simpler of the two that does the job. A workflow costs less to run and makes fewer mistakes than an agent.",
+          "body_fr": "Les automatisations suppriment la ressaisie entre vos outils, les agents IA prennent en charge les tâches qui demandent du jugement. On prend le plus simple des deux qui fait le travail. Un workflow suit des règles fixes et reste facile à contrôler ; un agent n'a de sens que là où la tâche demande du jugement.",
+          "body_en": "Automations remove re-entry between your tools, AI agents take on the tasks that need judgement. We pick the simpler of the two that does the job. A workflow follows fixed rules and stays easy to control; an agent only makes sense where the task needs judgement.",
           "points": [
             {
               "label_fr": "Workflows qui suppriment le copier-coller",
@@ -415,8 +415,8 @@
           "kicker_en": "Core",
           "h3_fr": "Piloter · données, reporting et gouvernance",
           "h3_en": "Steer · data, reporting and governance",
-          "body_fr": "Tous les modules partagent une seule base et un seul pilotage. L'IA rapproche vos KPI, synthétise le tableau de bord et alerte sur les anomalies. La gouvernance borne chaque agent et trace chaque action. Vous décidez, le système exécute.",
-          "body_en": "All modules share one base and one piloting layer. The AI pulls your KPIs together, synthesises the dashboard and alerts on anomalies. Governance bounds each agent and traces each action. You decide, the system executes.",
+          "body_fr": "Tous les modules partagent une seule base et un seul pilotage. L'IA rapproche vos KPI, synthétise le tableau de bord et alerte sur les anomalies. Le périmètre de chaque agent est posé dès le départ, chaque action est tracée, et les actions sensibles passent par une validation humaine.",
+          "body_en": "All modules share one base and one piloting layer. The AI pulls your KPIs together, synthesises the dashboard and alerts on anomalies. The scope of each agent is set from the start, every action is traced, and sensitive actions go through human validation.",
           "points": [
             {
               "label_fr": "KPI rapprochés et lus par l'IA",
@@ -644,9 +644,9 @@
         },
         {
           "q_fr": "Par où commencer si je ne sais pas quoi automatiser ?",
-          "a_fr": "Par l'audit gratuit de 45 minutes. On passe vos tâches répétitives en revue et on les classe par le temps qu'elles prennent. On démarre par le chantier le plus rentable, on mesure, puis on étend.",
+          "a_fr": "Par l'audit gratuit de 45 minutes. On passe vos tâches répétitives en revue et on les classe par le temps qu'elles prennent. Vous repartez avec une cartographie écrite et un ou deux chantiers classés. On démarre par celui qui rend le plus de temps, on mesure, puis on étend.",
           "q_en": "Where to start if I don't know what to automate?",
-          "a_en": "With the diagnostic. We map your repetitive tasks and prioritise them by the time and money they burn. We start with the work that hurts most, prove the value, then extend."
+          "a_en": "With the free 45-minute audit. We go through your repetitive tasks and rank them by the time they take. You leave with a written task map and one or two ranked projects. We start with the one that gives back the most time, prove the value, then extend."
         },
         {
           "q_fr": "Qu'est-ce que MCP et pourquoi ça compte ?",
@@ -682,7 +682,7 @@
           "q_fr": "Vous êtes basés où, et faut-il être à Bordeaux ?",
           "a_fr": "Le studio est basé à Bordeaux et travaille à distance, avec des déplacements à Bordeaux, Montpellier, Lyon et Paris. L'audit, la conception et le suivi se font en visio ou sur site, selon vous.",
           "q_en": "Where are you based, and do we need to be in Bordeaux?",
-          "a_en": "The studio is in Bordeaux and supports SMBs locally and remotely. The diagnostic, the build and the follow-up happen by video or on site, as you prefer. Proximity helps, it is not a condition."
+          "a_en": "The studio is in Bordeaux and supports SMBs locally and remotely. The audit, the build and the follow-up happen by video or on site, as you prefer. Proximity helps, it is not a condition."
         },
         {
           "q_fr": "Agence d'automatisation, expert ou freelance : que choisir ?",
@@ -703,8 +703,8 @@
       "kicker_en": "§ Ready to automate?",
       "h2_fr": "Quarante-cinq minutes pour savoir quoi automatiser.",
       "h2_en": "Forty-five minutes to know what to automate.",
-      "subtitle_fr": "Un audit gratuit et sans engagement : on passe vos processus en revue et on repère trois automatisations rentables. En face, un interlocuteur unique, l'ingénieur qui construit et transfère.",
-      "subtitle_en": "A free audit with no commitment: we review your processes and spot three profitable automations. Facing you, a single contact, the engineer who builds and hands over.",
+      "subtitle_fr": "Un audit gratuit et sans engagement : on passe vos processus en revue et vous repartez avec un ou deux chantiers classés. En face, un interlocuteur unique, l'ingénieur qui construit et transfère.",
+      "subtitle_en": "A free audit with no commitment: we review your processes and you leave with one or two ranked projects. Facing you, a single contact, the engineer who builds and hands over.",
       "buttons": [
         {
           "label_fr": "Réserver un audit →",
