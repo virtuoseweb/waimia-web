@@ -234,6 +234,22 @@ export const SALES_SYSTEM_FLOOR_EUR = 980 as const;
 /** Essai gratuit : nombre de leads offerts, pour 0 €. C'est un essai, pas le prix. */
 export const SALES_SYSTEM_TRIAL_LEADS = 30 as const;
 
+/**
+ * Date de dernière vérification de la grille tarifaire (ISO, jour UTC). Source unique de
+ * « Prix en vigueur au… » : jetons `{{prix.maj}}` (fr) et `{{prix.maj.en}}` (en). À mettre à
+ * jour à chaque changement de prix ou relecture de la grille.
+ */
+export const PRICING_UPDATED_AT = '2026-10-14' as const;
+
+/** Date longue d'un jour ISO : « 14 octobre 2026 » (fr) ou « 14 October 2026 » (en). */
+const longDate = (iso: string, lang: 'fr' | 'en') =>
+  new Date(`${iso}T00:00:00Z`).toLocaleDateString(lang === 'fr' ? 'fr-FR' : 'en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
+  });
+
 /** Montant en toutes lettres typographiques, sans devise : « 2 000 » (fr) ou « 2,000 » (en). */
 const amount = (value: number, lang: 'fr' | 'en') =>
   lang === 'fr' ? value.toLocaleString('fr-FR').replace(/[\u00a0\u202f\s]/g, ' ') : value.toLocaleString('en-US');
@@ -244,6 +260,8 @@ const amount = (value: number, lang: 'fr' | 'en') =>
  */
 export const PRICING_TOKENS: Readonly<Record<string, string>> = {
   'prix.horaire': String(HOURLY_RATE_EUR),
+  'prix.maj': longDate(PRICING_UPDATED_AT, 'fr'),
+  'prix.maj.en': longDate(PRICING_UPDATED_AT, 'en'),
   'prix.maintenance.p1': String(MAINTENANCE_TIERS_EUR[0]),
   'prix.maintenance.p2': String(MAINTENANCE_TIERS_EUR[1]),
   'prix.maintenance.p3': String(MAINTENANCE_TIERS_EUR[2]),
