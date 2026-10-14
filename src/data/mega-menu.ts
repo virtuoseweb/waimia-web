@@ -6,6 +6,7 @@
 // Les autres sections restent mappées depuis sitemap.ts pour conserver le contenu validé.
 
 import type { Lang } from '../lib/i18n';
+import { AUDIT_PROMISE } from './conversion';
 import {
   AUDIT_BOOKING_HREF,
   MM_RESOURCES,
@@ -404,8 +405,8 @@ const SOLUTIONS: MegaMenuSection = {
             kicker: { fr: 'PREMIÈRE ÉTAPE', en: 'FIRST STEP' },
             label: { fr: 'Audit IA gratuit', en: 'Free AI audit' },
             body: {
-              fr: 'Quarante-cinq minutes en visio pour repérer trois automatisations rentables dans vos processus. Sans engagement.',
-              en: 'Forty-five minutes on a call to spot three profitable automations in your processes. No commitment.',
+              fr: AUDIT_PROMISE.general.short.fr,
+              en: AUDIT_PROMISE.general.short.en,
             },
             cta: { fr: 'En savoir plus sur l\'audit →', en: 'More about the audit →' },
             href: '/audit-ia-pme',
@@ -472,7 +473,7 @@ const SOLUTIONS: MegaMenuSection = {
             {
               label: { fr: 'Audit IA PME', en: 'SME AI audit' },
               href: '/audit-ia-pme',
-              description: { fr: 'Gratuit, 45 minutes : trois automatisations rentables identifiées.', en: 'Free, 45 minutes: three profitable automations identified.' },
+              description: AUDIT_PROMISE.general.tiny,
               detail: [
                 {
                   label: { fr: 'Préparer l\'audit', en: 'Prepare the audit' },
@@ -567,13 +568,13 @@ const SOLUTIONS: MegaMenuSection = {
             {
               label: { fr: 'Agence SEO et référencement naturel', en: 'SEO and organic search agency' },
               href: '/services/seo-geo-contenu',
-              description: { fr: 'Être trouvé par Google et cité par les moteurs IA.', en: 'Be found by Google and cited by AI engines.' },
+              description: { fr: 'Être trouvé sur Google : audit, contenu et SEO local.', en: 'Be found on Google: audit, content and local SEO.' },
               detail: [
                 {
                   label: { fr: 'Déclinaisons', en: 'Editions' },
                   links: [
                     { label: { fr: 'Audit SEO technique', en: 'Technical SEO audit' }, href: '/services/audit-seo-technique' },
-                    { label: { fr: 'GEO : être cité par les IA', en: 'GEO: get cited by AI' }, href: '/services/referencement-ia' },
+                    { label: { fr: 'Agence GEO : être cité par les IA', en: 'GEO agency: get cited by AI' }, href: '/services/referencement-ia' },
                     { label: { fr: 'Rédaction SEO et contenu', en: 'SEO writing and content' }, href: '/services/redaction-seo-contenu' },
                     { label: { fr: 'SEO local', en: 'Local SEO' }, href: '/services/seo-local' },
                   ],
@@ -677,8 +678,8 @@ const CAS_USAGES: MegaMenuSection = {
     kicker: { fr: 'VOTRE CAS', en: 'YOUR CASE' },
     label: { fr: 'Votre problème n\'est pas dans la liste ?', en: 'Your problem is not listed?' },
     body: {
-      fr: 'L\'audit gratuit de 45 minutes part de vos processus réels et repère trois automatisations rentables.',
-      en: 'The free 45-minute audit starts from your real processes and spots three profitable automations.',
+      fr: AUDIT_PROMISE.general.short.fr,
+      en: AUDIT_PROMISE.general.short.en,
     },
     cta: { fr: 'Réserver un audit →', en: 'Book an audit →' },
     href: AUDIT_BOOKING_HREF,

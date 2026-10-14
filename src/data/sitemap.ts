@@ -132,7 +132,7 @@ export const MM_SOLUTIONS_NEW: MegaMenu = {
         { href: '/services/landing-pages-tunnels', label: { en: 'Landing pages and funnels', fr: 'Landing pages et tunnels' } },
         { href: '/services/seo-geo-contenu', label: { en: 'SEO and organic search agency', fr: 'Agence SEO et référencement naturel' } },
         { href: '/services/audit-seo-technique', label: { en: 'Technical SEO audit', fr: 'Audit SEO technique' } },
-        { href: '/services/referencement-ia', label: { en: 'GEO: get cited by AI', fr: 'GEO : être cité par les IA' } },
+        { href: '/services/referencement-ia', label: { en: 'GEO agency: get cited by AI', fr: 'Agence GEO : être cité par les IA' } },
         { href: '/services/redaction-seo-contenu', label: { en: 'SEO writing and content', fr: 'Rédaction SEO et contenu' } },
         { href: '/services/seo-local', label: { en: 'Local SEO', fr: 'SEO local' } },
         { href: '/services/branding', label: { en: 'Branding agency', fr: 'Agence de branding' } },
