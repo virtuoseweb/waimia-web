@@ -135,16 +135,16 @@
 /* ─── Polices de secours calibrées ───
    Le texte peint d'abord avec une police système puis bascule (font-display: swap). Ces faces
    donnent à la police système les métriques de la police web (size-adjust, ascent/descent
-   calculés sur les woff2 de /public/fonts) : la bascule ne déplace plus la mise en page (CLS).
+   calculés sur les woff2 de /public/fonts, largeur moyenne pondérée par le texte réel du site) : la bascule ne déplace plus la mise en page (CLS).
    Liberation = équivalent métrique d'Arial, Times New Roman et Courier New sous Linux. */
 @font-face {
   font-family: 'Inter Tight Fallback';
   font-style: normal;
   font-weight: 100 500;
   src: local('Arial'), local('ArialMT'), local('Liberation Sans');
-  size-adjust: 95.86%;
-  ascent-override: 101.06%;
-  descent-override: 25.16%;
+  size-adjust: 95.16%;
+  ascent-override: 101.80%;
+  descent-override: 25.35%;
   line-gap-override: 0%;
 }
 @font-face {
@@ -152,9 +152,9 @@
   font-style: normal;
   font-weight: 600 900;
   src: local('Arial Bold'), local('Arial-BoldMT'), local('Liberation Sans Bold');
-  size-adjust: 95.86%;
-  ascent-override: 101.06%;
-  descent-override: 25.16%;
+  size-adjust: 95.16%;
+  ascent-override: 101.80%;
+  descent-override: 25.35%;
   line-gap-override: 0%;
 }
 @font-face {
@@ -162,9 +162,9 @@
   font-style: italic;
   font-weight: 100 500;
   src: local('Arial Italic'), local('Arial-ItalicMT'), local('Liberation Sans Italic');
-  size-adjust: 95.96%;
-  ascent-override: 100.95%;
-  descent-override: 25.14%;
+  size-adjust: 95.27%;
+  ascent-override: 101.68%;
+  descent-override: 25.32%;
   line-gap-override: 0%;
 }
 @font-face {
@@ -172,9 +172,9 @@
   font-style: italic;
   font-weight: 600 900;
   src: local('Arial Bold Italic'), local('Arial-BoldItalicMT'), local('Liberation Sans Bold Italic');
-  size-adjust: 95.96%;
-  ascent-override: 100.95%;
-  descent-override: 25.14%;
+  size-adjust: 95.27%;
+  ascent-override: 101.68%;
+  descent-override: 25.32%;
   line-gap-override: 0%;
 }
 @font-face {
@@ -182,9 +182,9 @@
   font-style: normal;
   font-weight: 100 900;
   src: local('Times New Roman'), local('TimesNewRomanPSMT'), local('Liberation Serif');
-  size-adjust: 80.79%;
-  ascent-override: 122.55%;
-  descent-override: 38.37%;
+  size-adjust: 82.78%;
+  ascent-override: 119.59%;
+  descent-override: 37.45%;
   line-gap-override: 0%;
 }
 @font-face {
@@ -192,9 +192,9 @@
   font-style: italic;
   font-weight: 100 900;
   src: local('Times New Roman Italic'), local('TimesNewRomanPS-ItalicMT'), local('Liberation Serif Italic');
-  size-adjust: 85.60%;
-  ascent-override: 115.66%;
-  descent-override: 36.22%;
+  size-adjust: 86.88%;
+  ascent-override: 113.95%;
+  descent-override: 35.68%;
   line-gap-override: 0%;
 }
 @font-face {
