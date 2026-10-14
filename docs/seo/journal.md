@@ -37,6 +37,21 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### Décisions de Simon du 14 octobre 2026 · audit global SEO, GEO et conversion
+
+Réponses de Simon aux dix questions de l'audit global du 14 octobre 2026 (9 dimensions, 117 constats retenus après relecture contradictoire). Elles sont acquises : ne pas les redemander.
+
+1. **Bannière cookies** : la réduire à une barre compacte sur mobile, en gardant son style (couleurs, police, bordure). Pas de suppression.
+2. **Mesure de conversion** : ajouter une mesure légère, open source ou maison (script et tableau de bord), sans outil payant. Cal reçoit très peu de réservations : l'effort va au référencement naturel, au GEO et à un contenu qui parle vraiment aux lecteurs, sans texte générique.
+3. **Promesse de l'audit gratuit** : aligner partout sur `/audit-ia-pme`. Ajouter une partie site web et logiciel : Waimia fait aussi du développement web (sites et logiciels sur mesure). Sur les pages du sujet site web, recentrer les liens internes sur ce sujet au lieu de l'automatisation ou de l'IA, et séparer proprement les clusters. Créer les pages qui manquent, sur preuve de demande.
+4. **`/services/seo-geo-contenu` et `/services/referencement-ia`** : garder deux pages différenciées, puis poser les liens « agence GEO » vers `/services/referencement-ia`.
+5. **Pages créées les 12 et 13 octobre sans requête suivie** (5 villes, 6 secteurs) : les garder indexées. Point de contrôle le 11 novembre 2026 : sans impression à cette date dans `gsc-performance.json`, passer en `seo.noindex`.
+6. **Siège** : Bordeaux, à uniformiser sur tout le site.
+7. **Offre no code et Airtable** : aucune offre tant qu'aucune mission réelle n'est documentée ; le title de `/services/automatisations` se centre sur l'automatisation des processus métier.
+8. **Description de l'événement Cal `simonberos/audit`** : elle existe ; proposer à Simon un texte de remplacement seulement si elle peut être améliorée.
+9. **Mise en production** : validée.
+10. **Italiques** : alléger l'accueil et `/manifesto` (paragraphes seulement, les accents serif des titres restent).
+
 ### 2026-W42 (session du 12 octobre 2026, collecte du 11 octobre 2026)
 
 **Données** : collecte du 11 octobre 2026 à 22:55 UTC (`generatedAt`), fraîche oui (`freshness.mjs` : « FRAÎCHE · collecte complète de 6.8 h ») · Search Console configuré oui · étapes en erreur : aucune (8 étapes `ok`). Les données de performance s'arrêtent au 8 octobre 2026. Flux : 0 en erreur. Concurrents : 14 URL nouvelles, toutes chez claudin.tech.
