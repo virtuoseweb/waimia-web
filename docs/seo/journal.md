@@ -78,6 +78,9 @@ Source : lecture intégrale des 31 fichiers du dossier Semrush (PDF, xlsx, csv d
 - **Plafond des méta descriptions** : 160 caractères (portes `check:head` et `check:seo`), pas 175 ; sept descriptions raccourcies, leçon d'`AGENTS.md` corrigée.
 - **Contenu** : villes, formations, guides Claude, pilier IA, ressources et pages automatisation réécrits contre le texte générique ; aucun fait, client ni chiffre ajouté sans source.
 - **Gelé, en attente de Simon** : visio ou sur site, siège légal, badges partenaires, prix « pilote » et « déploiement », Diag Data IA, page « agence web Montpellier », mesure de conversion.
+- **Revue visuelle D1** (build servi, 390×844 et 1440×900) : espace avant « En savoir plus sur l'audit », panneau E-E-A-T mobile sous 1 800 px (environ 2 300 avant), métrique du guide de coût contenue, cas Balzeo et Amploi sur `/services/shopify` au lieu de l'état vide. Liens retirés des réponses de FAQ rendues en texte échappé (6 pages, 0 restante dans le build).
+- **Revue Opus avant fusion** : aucun bloquant, les 15 bloquants de la phase 1 résolus. `check:jsonld` interdit désormais `WebApplication` et `SoftwareApplication` ; `check:sitemap` compare le canonical à l'identique et n'accepte l'accueil qu'avec sa barre. Les trois mutations correspondantes font rougir les portes.
+- **Preuves locales (PR #89)** : portes `check:*` vertes sauf `semantic` et `hover-reflow` (hors CI, fichiers non touchés) ; `astro check` à 8 erreurs comme `main` ; Playwright 71 réussis ; marqueurs de la vague 1 : 11 sur 11 ; CTA des héros à 390 : 10 pages sur 11, comme en vague 1.
 
 ### 2026-W42 (session du 12 octobre 2026, collecte du 11 octobre 2026)
 
