@@ -64,18 +64,18 @@ const hero: SectionByType<'hero-hub-masthead'> = {
   decoration: false,
   align: 'left',
   kicker_fr: '§ Implantations · Bordeaux et neuf autres villes',
-  kicker_en: '§ Locations · AI near you',
-  h1_fr: '<span>Où le studio</span><br/><span><i>intervient</i>.</span>',
-  h1_en: '<span>Our</span><br/><span><i>locations</i>.</span>',
+  kicker_en: '§ Locations · Bordeaux and nine other cities',
+  h1_fr: '<span>Agence IA en France :</span><br/><span><i>où le studio intervient</i>.</span>',
+  h1_en: '<span>AI agency in France:</span><br/><span><i>where the studio works</i>.</span>',
   lede_fr: "Waimia est basé à Bordeaux et travaille à distance pour des PME et ETI partout en France. Sur site à Bordeaux et, selon la mission, à Montpellier, Lyon, Toulouse, Paris, Strasbourg, Lille, Marseille, Dijon et Nantes.",
-  lede_en: 'Where we operate and support SMBs in their AI transformation. Local roots, territorial references.',
+  lede_en: 'Waimia is based in Bordeaux and works remotely for SMEs and mid-sized companies across France. On site in Bordeaux and, depending on the engagement, in Montpellier, Lyon, Toulouse, Paris, Strasbourg, Lille, Marseille, Dijon and Nantes.',
 };
 
 const ctaFinal: SectionByType<'cta-final'> = {
   type: 'cta-final',
   background: 'ink',
   h2_fr: 'Un projet près de chez vous, ou à distance ?',
-  h2_en: 'Want to talk about it?',
+  h2_en: 'A project near you, or remote?',
   body_fr: `${AUDIT_PROMISE.general.tiny.fr} On part de vos processus réels, sans engagement.`,
   body_en: `${AUDIT_PROMISE.general.tiny.en} We start from your real processes, with no commitment.`,
   cta_primary: {
@@ -105,7 +105,7 @@ const sections: SectionData[] = [hero, ...cardBands, ctaFinal];
 ---
 
 <Base
-  title={isFr ? 'Agence IA à Bordeaux et dans neuf autres villes · Waimia' : 'Locations · Waimia'}
+  title={isFr ? 'Implantations IA : dix villes en France · Waimia' : 'AI studio locations: ten cities in France · Waimia'}
   description={isFr
     ? "Studio IA basé à Bordeaux : à distance ou sur site à Bordeaux, Montpellier, Lyon, Toulouse, Paris, Strasbourg, Lille, Marseille, Dijon et Nantes."
     : 'AI studio based in Bordeaux: automation, AI agents and business applications for SMEs. Remote or on-site engagements in Bordeaux, Montpellier, Lyon, Toulouse, Paris, Strasbourg, Lille, Marseille, Dijon and Nantes.'}
