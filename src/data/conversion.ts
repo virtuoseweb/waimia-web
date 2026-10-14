@@ -11,6 +11,49 @@ export const AUDIT_PAGE_HREF = '/audit-ia-pme';
 export const AUDIT_BOOKING_LABEL = { fr: 'Réserver un audit IA gratuit', en: 'Book a free AI audit' } as const;
 /** Libellé du lien secondaire vers la page qui présente l'audit. */
 export const AUDIT_PAGE_LABEL = { fr: "Comment se passe l'audit", en: 'How the audit works' } as const;
+
+/**
+ * Promesse de l'audit gratuit, alignée sur /audit-ia-pme (décision Simon du 14 octobre 2026).
+ * Noyau commun : 45 minutes, visio, gratuit, sans engagement, un ou deux chantiers classés.
+ * Variante `web` pour les pages site web et logiciel (groupe « Site web » de HUB_GROUPS,
+ * colonne « Applications métier » du méga-menu) ; variante `general` partout ailleurs.
+ * Interdits dans toute promesse d'audit : « trois », « au moins deux », « rentables »,
+ * « chiffrés » (sauf heures), « plan d'action », « budget », « diagnostic », « offert ».
+ * Les pages JSON ne peuvent pas importer : elles recopient ces chaînes mot pour mot.
+ */
+export const AUDIT_PROMISE = {
+  general: {
+    short: {
+      fr: 'Audit gratuit de 45 minutes en visio. Vous repartez avec une cartographie écrite et un ou deux chantiers classés.',
+      en: 'Free 45-minute audit by video call. You leave with a written task map and one or two ranked projects.',
+    },
+    tiny: {
+      fr: 'Gratuit, 45 minutes : un ou deux chantiers classés.',
+      en: 'Free, 45 minutes: one or two ranked projects.',
+    },
+    medium: {
+      fr: "Quarante-cinq minutes en visio, gratuites et sans engagement. On passe vos process en revue tâche par tâche et vous repartez avec une cartographie écrite et un ou deux chantiers classés. Si rien ne vaut le coup aujourd'hui, on vous le dit.",
+      en: "Forty-five minutes on a call, free and with no commitment. We go through your processes task by task and you leave with a written task map and one or two ranked projects. If nothing is worth it today, we tell you.",
+    },
+  },
+  web: {
+    short: {
+      fr: 'Audit gratuit de 45 minutes en visio : on regarde votre site ou votre outil, et vous repartez avec un ou deux chantiers classés.',
+      en: 'Free 45-minute audit by video call: we look at your website or your tool, and you leave with one or two ranked projects.',
+    },
+    medium: {
+      fr: "Quarante-cinq minutes en visio, gratuites et sans engagement. On regarde votre site ou le circuit que votre outil actuel ne tient plus, et on vous dit s'il faut le corriger, le refaire, le développer sur mesure ou prendre un outil du marché. Vous repartez avec un ou deux chantiers classés. Si rien ne vaut le coup, on vous le dit.",
+      en: "Forty-five minutes on a call, free and with no commitment. We look at your website, or at the process your current tool no longer handles, and tell you whether to fix it, rebuild it, build it custom or buy an existing tool. You leave with one or two ranked projects. If nothing is worth it, we tell you.",
+    },
+  },
+  /** Méta description de /audit-ia-pme (166 caractères, plafond 175). */
+  meta: {
+    fr: "Audit IA d'entreprise de 45 min pour PME et ETI : process, site web ou logiciel passés en revue, cartographie écrite, un ou deux chantiers classés. Gratuit, en visio.",
+    en: '45-min AI audit for SMBs: processes, website or software reviewed, a written map and one or two ranked projects. Free, by video call.',
+  },
+} as const;
+/** Ancre de la section « site web et logiciel » de /audit-ia-pme. */
+export const AUDIT_WEB_ANCHOR = 'site-web-logiciel';
 export const DIAGNOSTIC_HREF = '/ressources/diagnostics/maturite-ia';
 export const ROI_HREF = '/ressources/outils/calculateur-roi-ia';
 export const CHARTE_HREF = '/ressources/outils/charte-ia-entreprise';
