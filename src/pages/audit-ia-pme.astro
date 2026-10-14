@@ -8,6 +8,10 @@ export const prerender = true;
 // src/data/audit-ia-pme.ts) + sections catalogue pour la FAQ et la bande finale
 // (entrée `audits/audit-ia-pme`, rendues par SectionsRenderer : la FAQ émet le FAQPage
 // JSON-LD, source canonique). Aucun markup inline dans cette page.
+// La partie « site web et logiciel » (`auditWebSection`, ancre AUDIT_WEB_ANCHOR) est une
+// section catalogue construite dans src/data/audit-ia-pme.ts, insérée avant la FAQ.
+// Fonds alternés : hero paper, déroulé paper-2, livrable paper, pour qui paper-2, après paper,
+// ressources paper-2, « ce qu'on examine » paper, site web et logiciel paper-2, FAQ paper, bande ink.
 
 import { getEntry } from 'astro:content';
 import Base from '../layouts/Base.astro';
@@ -19,7 +23,8 @@ import ResourceLinks from '../components/ui/organisms/conversion/ResourceLinks.a
 import { buildService, buildOffer } from '../lib/seo/schema-builder';
 import { engagementOffer } from '../data/pricing';
 import { SITE } from '../site.config';
-import { AUDIT_BOOKING_HREF } from '../data/conversion';
+import { AUDIT_BOOKING_HREF, AUDIT_PROMISE } from '../data/conversion';
+import { auditWebSection } from '../data/audit-ia-pme';
 
 const entry = await getEntry('audits', 'audit-ia-pme');
 if (!entry) {
@@ -31,11 +36,16 @@ const lang = Astro.url.pathname.startsWith('/en/') ? 'en' : 'fr';
 const title = lang === 'en' ? data.title_en : data.title_fr;
 // Titre SEO distinct du H1 quand `seoTitle_*` est renseigné (sinon titre de la page).
 const seoTitle = (lang === 'en' ? data.seoTitle_en : data.seoTitle_fr) ?? title;
-const description = lang === 'en' ? data.description_en : data.description_fr;
+// Méta description : source unique AUDIT_PROMISE.meta (le JSON en garde une copie identique).
+const description = AUDIT_PROMISE.meta[lang];
 
 if (!Array.isArray(data.sections) || data.sections.length === 0) {
   throw new Error("audit-ia-pme : `sections` requis (FAQ + bande finale).");
 }
+// La partie site web et logiciel se place juste avant la FAQ (après « ce qu'on examine »).
+const sections = [...(data.sections ?? [])];
+const faqIndex = sections.findIndex((s) => s.type === 'faq-accordion');
+sections.splice(faqIndex < 0 ? sections.length : faqIndex, 0, auditWebSection);
 
 // JSON-LD métier · Service avec son offre (prestation gratuite). FAQPage émis par `faq-accordion`.
 const auditOffer = engagementOffer('audit');
@@ -43,7 +53,7 @@ const serviceLd = buildService({
   name: title,
   description,
   url: `${SITE.url}/audit-ia-pme`,
-  serviceType: data.seo?.serviceType ?? 'Audit IA / Diagnostic IA',
+  serviceType: data.seo?.serviceType ?? 'Audit IA',
   // Prix ferme (0 €) lu dans la source de prix ; l'offre pointe la page de prise de rendez-vous.
   offers: buildOffer({
     name: auditOffer.name,
@@ -66,6 +76,6 @@ const pageLd = [serviceLd];
   />
   <AuditHero />
   <AuditBody />
-  <ResourceLinks exclude={['audit']} title="Pour préparer l'audit, seul et sans inscription" />
-  <SectionsRenderer sections={data.sections!} lang={lang} />
+  <ResourceLinks exclude={['audit']} title="Pour préparer l'audit, seul et sans inscription" background="paper-2" />
+  <SectionsRenderer sections={sections} lang={lang} />
 </Base>
