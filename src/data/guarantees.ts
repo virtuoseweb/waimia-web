@@ -6,6 +6,8 @@
 // `sources` = chemins de contenu (collection/slug) d'origine, conservés comme trace de provenance.
 // Validé par scripts/check-content-refs.mjs (ids stables kebab-case).
 
+import { AUDIT_PROMISE } from './conversion';
+
 export type GuaranteeCategory =
   | 'remboursement'
   | 'delai'
@@ -59,16 +61,14 @@ export const GUARANTEES: readonly Guarantee[] = [
     id: 'audit-cadrage-45min-sous-5-jours',
     category: 'delai',
     icon: 'clock',
-    label_fr: 'Audit de cadrage sous 5 jours',
-    label_en: 'Scoping audit within 5 business days',
-    promise_fr:
-      'Waimia planifie un audit de cadrage de 45 minutes sous 5 jours ouvrés après une prise de contact qualifiée et documentée.',
-    promise_en:
-      'Waimia schedules a 45-minute scoping audit within 5 business days after a qualified and documented first contact.',
+    label_fr: 'Audit IA gratuit de 45 minutes',
+    label_en: 'Free 45-minute AI audit',
+    promise_fr: AUDIT_PROMISE.general.short.fr,
+    promise_en: AUDIT_PROMISE.general.short.en,
     detail_fr:
-      "Le délai court après réception des éléments de contexte minimaux et validation d'un créneau commun. Hors périodes de fermeture annoncées.",
+      "Le créneau se choisit en ligne sur le calendrier de l'audit, sans engagement. Si rien ne vaut le coup, on vous le dit.",
     detail_en:
-      'The delay starts after receiving the minimum context and confirming a shared time slot. Announced closure periods are excluded.',
+      'You pick the slot online on the audit calendar, with no commitment. If nothing is worth it, we tell you.',
     relatedOffres: ['activation-ia', 'growth-system-ia'],
     sources: ['guarantees/audit-cadrage-45min-sous-5-jours'],
   },
