@@ -3,7 +3,8 @@
 export const prerender = true;
 
 // Même composant que /ressources (ResourcesHub), HTML filtré côté serveur sur le type
-// « comparatifs » : URL propre, canonical auto-référent, title/description/H1 uniques.
+// « comparatifs » : URL de la pastille de filtre, canonical auto-référent, title/description
+// propres ; la tête (H1, chapô) est celle de /ressources (décision Simon du 15/10/2026).
 // Indexation CALCULÉE (src/lib/seo/hub-index.ts) : indexée dès 3 items indexables.
 import Base from '../../../layouts/Base.astro';
 import ResourcesHub from '../../../components/ui/organisms/ResourcesHub.astro';
