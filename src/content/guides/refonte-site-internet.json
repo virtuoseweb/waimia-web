@@ -1,0 +1,544 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "Refonte de site internet : étapes, coût et SEO à garder",
+  "title_en": "Website redesign: steps, cost and the SEO to keep",
+  "seoTitle_fr": "Refonte de site internet : étapes, coût et SEO à garder",
+  "seoTitle_en": "Website redesign: steps, cost and the SEO to keep",
+  "description_fr": "Refonte de site internet : les sept étapes, les redirections 301 pour garder son référencement, ce qui fait varier le coût, et le cas Balzeo mesuré.",
+  "description_en": "Website redesign: the seven steps, 301 redirects to keep your search rankings, what makes the cost vary, and the measured Balzeo case.",
+  "slug": "refonte-site-internet",
+  "publishedAt": "2026-10-14T00:00:00.000Z",
+  "category": "web",
+  "tags": [
+    "refonte",
+    "site-web",
+    "migration",
+    "redirections",
+    "seo",
+    "guide-pme"
+  ],
+  "sources": [
+    {
+      "name": "Google Search Central, « Migrations de sites », relue le 14 octobre 2026",
+      "url": "https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes?hl=fr",
+      "type": "enterprise"
+    }
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "Combien coûte une refonte de site internet ?",
+      "a": "Le prix dépend du nombre de gabarits, de la reprise des contenus, des intégrations et de la table de redirections, plus que du graphisme. Chez Waimia, les paliers de prix d'un site sont publiés sur la page création et refonte de site, et le périmètre exact est fixé par écrit au cadrage. Un devis de refonte qui ne parle pas des redirections est incomplet."
+    },
+    {
+      "q": "Comment choisir une agence de refonte de site web ?",
+      "a": "Demandez ce que le devis prévoit pour le référencement : une table de redirections URL par URL, des essais sur une adresse à part, un suivi après la mise en ligne. Vérifiez qui écrit les contenus, et que les accès au domaine, à l'hébergement et au code restent à votre nom. Une proposition qui refait le site sans relever l'existant vous fait prendre un risque."
+    },
+    {
+      "q": "Combien de temps dure une refonte de site ?",
+      "a": "Cela dépend du nombre de pages et des contenus à reprendre. Sur le cas Balzeo, une boutique WooCommerce, la migration a pris huit semaines : une pour l'inventaire, cinq pour la migration et la vitesse, deux pour le parcours d'achat et la formation. Côté Google, un site petit ou moyen demande en général quelques semaines pour être pris en compte."
+    },
+    {
+      "q": "Une refonte fait-elle perdre son référencement ?",
+      "a": "Pas si chaque ancienne URL redirige vers sa nouvelle adresse. Selon Google, une redirection 301 ne fait pas perdre de PageRank, mais le classement peut fluctuer le temps que les pages soient explorées de nouveau. Les pertes durables viennent d'URL changées sans redirection, de redirections en masse vers la page d'accueil, ou d'un blocage de test (noindex, robots.txt) oublié à la mise en ligne."
+    },
+    {
+      "q": "Combien de temps garder les redirections 301 après une refonte ?",
+      "a": "Google recommande de les garder aussi longtemps que possible, en général au moins un an. Ce délai lui laisse le temps de transférer les signaux vers les nouvelles URL, y compris les liens venus d'autres sites. Mettez aussi à jour vos propres liens internes : chaque redirection ralentit l'affichage pour le visiteur."
+    },
+    {
+      "q": "Faut-il refaire son site ou seulement le corriger ?",
+      "a": "Mesurez avant de décider : vitesse sur mobile, extensions sans support, formulaires, pages que votre équipe ne sait pas modifier. Si quelques corrections règlent le problème, gardez le site. La refonte se justifie quand la plateforme bloque : lenteur qui résiste au nettoyage, mises à jour qui cassent le site, équipe qui dépend d'un développeur pour changer une page."
+    },
+    {
+      "q": "Faut-il prévenir Google d'un changement de nom de domaine ?",
+      "a": "Oui. Pour un changement de domaine ou de sous-domaine, Google demande d'envoyer un changement d'adresse dans Search Console, en plus des redirections 301 de toutes les pages. Ce n'est pas nécessaire pour un passage de HTTP à HTTPS. Google conseille aussi de ne pas changer de domaine, de plateforme et de mise en page en même temps."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "How much does a website redesign cost?",
+      "a": "The price depends on the number of templates, the content to carry over, the integrations and the redirect table, more than on the design. At Waimia, the price tiers for a site are published on the website creation and redesign page, and the exact scope is set in writing at scoping. A redesign quote that says nothing about redirects is incomplete."
+    },
+    {
+      "q": "How do you choose a website redesign agency?",
+      "a": "Ask what the quote covers for search rankings: a URL-by-URL redirect table, tests on a separate address, monitoring after go-live. Check who writes the content, and that access to the domain, hosting and code stays in your name. A proposal that rebuilds the site without recording what exists exposes you to a risk."
+    },
+    {
+      "q": "How long does a website redesign take?",
+      "a": "It depends on the number of pages and the content to carry over. On the Balzeo case, a WooCommerce shop, the migration took eight weeks: one for the inventory, five for the migration and speed, two for the checkout journey and training. On Google's side, a small or medium site generally needs a few weeks to be processed."
+    },
+    {
+      "q": "Does a redesign lose your search rankings?",
+      "a": "Not if every old URL redirects to its new address. According to Google, a 301 redirect does not lose PageRank, but rankings can fluctuate while the pages are crawled again. Lasting losses come from URLs changed without a redirect, mass redirects to the home page, or a test block (noindex, robots.txt) left in place at go-live."
+    },
+    {
+      "q": "How long should you keep 301 redirects after a redesign?",
+      "a": "Google recommends keeping them for as long as possible, generally at least one year. That gives it time to transfer signals to the new URLs, including links from other sites. Also update your own internal links: every redirect slows the page down for the visitor."
+    },
+    {
+      "q": "Should you rebuild your site or just fix it?",
+      "a": "Measure before deciding: mobile speed, unsupported extensions, forms, pages your team cannot edit. If a few fixes solve the problem, keep the site. A redesign is justified when the platform is the blocker: slowness that survives a clean-up, updates that break the site, a team that needs a developer to change a page."
+    },
+    {
+      "q": "Do you need to tell Google about a domain name change?",
+      "a": "Yes. For a domain or subdomain change, Google asks you to submit a change of address in Search Console, on top of 301 redirects for every page. It is not needed for a move from HTTP to HTTPS. Google also advises against changing domain, platform and layout at the same time."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "kicker_fr": "§ Guide · site web",
+      "kicker_en": "§ Guide · website",
+      "h1_fr": "Refonte de site internet : étapes, coût et SEO à garder",
+      "h1_en": "Website redesign: steps, cost and the SEO to keep",
+      "lede_fr": "Une refonte se joue avant la mise en ligne : savoir quelles pages reçoivent du trafic, écrire la table de redirections, tester sur une adresse à part. Voici les sept étapes, ce qui fait perdre le référencement selon Google, ce qui fait varier le coût, et un cas mesuré.",
+      "lede_en": "A redesign is won before go-live: knowing which pages get traffic, writing the redirect table, testing on a separate address. Here are the seven steps, what loses rankings according to Google, what makes the cost vary, and a measured case.",
+      "badges": [
+        {
+          "label_fr": "Méthode en sept étapes",
+          "label_en": "Seven-step method"
+        },
+        {
+          "label_fr": "Sources Google Search Central",
+          "label_en": "Google Search Central sources"
+        },
+        {
+          "label_fr": "Relu le 14 octobre 2026",
+          "label_en": "Reviewed on 14 October 2026"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver un audit IA gratuit",
+        "label_en": "Book a free AI audit",
+        "href": "/contact#offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme#site-web-logiciel",
+        "variant": "ghost"
+      },
+      "illustration": {
+        "src": "/images/illustrations/ds/site-web-intelligent-vs-wordpress-v3-deux-batiments-paper.webp",
+        "alt_fr": "Un bâtiment compact d'un seul bloc à côté d'une haute pile de caisses dépareillées tenue par des étais",
+        "alt_en": "A compact single-block building beside a tall stack of mismatched crates held up by props",
+        "side": "right"
+      }
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "14 octobre 2026"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "Qu'est-ce qu'une refonte de site internet ?",
+      "question_en": "What is a website redesign?",
+      "term_fr": "Réponse courte",
+      "term_en": "Short answer",
+      "answer_fr": "Une refonte de site internet refait la structure, le graphisme ou la plateforme d'un site existant, en gardant ce qu'il a acquis : ses contenus utiles et son référencement. Le point qui décide du référencement est la table de redirections : chaque ancienne URL renvoie en 301 vers sa nouvelle adresse. Le coût dépend surtout du nombre de gabarits, des contenus à reprendre et des intégrations.",
+      "answer_en": "A website redesign rebuilds the structure, design or platform of an existing site while keeping what it has earned: its useful content and its search rankings. The point that decides the rankings is the redirect table: every old URL points with a 301 to its new address. The cost depends mostly on the number of templates, the content to carry over and the integrations."
+    },
+    {
+      "type": "decision-list",
+      "background": "paper",
+      "kicker_fr": "§ Avant de commencer",
+      "kicker_en": "§ Before you start",
+      "heading_fr": "Ce qu'il faut réunir avant de lancer une refonte",
+      "heading_en": "What to gather before starting a redesign",
+      "items": [
+        {
+          "label_fr": "La liste des pages qui reçoivent du trafic et des liens : Search Console, statistiques de visite, sitemap actuel.",
+          "label_en": "The list of pages that get traffic and links: Search Console, visit statistics, current sitemap."
+        },
+        {
+          "label_fr": "Les accès : nom de domaine, hébergement, CMS, Search Console. Un accès perdu retarde la mise en ligne.",
+          "label_en": "The access: domain name, hosting, CMS, Search Console. A lost access delays go-live."
+        },
+        {
+          "label_fr": "Les formulaires et ce qu'ils deviennent : qui reçoit chaque demande, dans quel outil.",
+          "label_en": "The forms and what happens to them: who receives each request, in which tool."
+        },
+        {
+          "label_fr": "Ce qui change et ce qui reste : plateforme, domaine, structure des pages, graphisme.",
+          "label_en": "What changes and what stays: platform, domain, page structure, design."
+        },
+        {
+          "label_fr": "La personne qui écrit ou valide les contenus, nommée dès le départ.",
+          "label_en": "The person who writes or approves the content, named from the start."
+        }
+      ]
+    },
+    {
+      "type": "process-steps",
+      "background": "paper-3",
+      "kicker_fr": "§ Procédure",
+      "kicker_en": "§ Procedure",
+      "h2_fr": "Les étapes d'une refonte de site internet",
+      "h2_en": "The steps of a website redesign",
+      "intro_fr": "Sept étapes. Les premières se font avant d'ouvrir le moindre outil de conception : ce sont elles qui protègent le référencement.",
+      "intro_en": "Seven steps. The first ones happen before opening any design tool: they are the ones that protect your search rankings.",
+      "steps": [
+        {
+          "title_fr": "Relever l'existant",
+          "title_en": "Record what exists",
+          "body_fr": "Pages qui reçoivent du trafic et des liens, vitesse sur mobile, formulaires qui fonctionnent. On sait ce qu'on risque de perdre.",
+          "body_en": "Pages that get traffic and links, mobile speed, forms that work. You know what you stand to lose.",
+          "meta_fr": "Avant tout devis",
+          "meta_en": "Before any quote"
+        },
+        {
+          "title_fr": "Décider ce qui change",
+          "title_en": "Decide what changes",
+          "body_fr": "Plateforme, domaine, structure ou graphisme. Google conseille de ne pas tout changer en même temps.",
+          "body_en": "Platform, domain, structure or design. Google advises against changing everything at once.",
+          "meta_fr": "Une chose à la fois",
+          "meta_en": "One thing at a time"
+        },
+        {
+          "title_fr": "Écrire la table de redirections",
+          "title_en": "Write the redirect table",
+          "body_fr": "Chaque ancienne URL reçoit sa nouvelle adresse. Une page supprimée sans équivalent répond 404 ou 410, pas la page d'accueil.",
+          "body_en": "Every old URL gets its new address. A deleted page with no equivalent returns 404 or 410, not the home page.",
+          "meta_fr": "Le fichier qui protège le SEO",
+          "meta_en": "The file that protects SEO"
+        },
+        {
+          "title_fr": "Reprendre les contenus",
+          "title_en": "Carry over the content",
+          "body_fr": "Textes, images et PDF repris ou réécrits avant la mise en ligne. Un contenu qui n'arrive pas bloque tout le reste.",
+          "body_en": "Text, images and PDFs carried over or rewritten before go-live. Content that does not arrive blocks everything else.",
+          "meta_fr": "Qui écrit quoi",
+          "meta_en": "Who writes what"
+        },
+        {
+          "title_fr": "Construire et tester à part",
+          "title_en": "Build and test separately",
+          "body_fr": "Le nouveau site vit sur une adresse de test, fermée aux moteurs. On teste les formulaires, la vitesse sur mobile et chaque redirection.",
+          "body_en": "The new site lives on a test address, closed to search engines. Forms, mobile speed and every redirect are tested.",
+          "meta_fr": "Hors ligne",
+          "meta_en": "Offline"
+        },
+        {
+          "title_fr": "Basculer",
+          "title_en": "Switch over",
+          "body_fr": "Redirections 301 actives, blocage de test retiré, liens internes mis à jour, nouveau sitemap envoyé dans Search Console.",
+          "body_en": "301 redirects live, test block removed, internal links updated, new sitemap submitted in Search Console.",
+          "meta_fr": "Le jour de la mise en ligne",
+          "meta_en": "Go-live day"
+        },
+        {
+          "title_fr": "Suivre, puis garder les redirections",
+          "title_en": "Monitor, then keep the redirects",
+          "body_fr": "Plusieurs semaines de suivi : pages en erreur, pages indexées, requêtes. Les redirections restent en place au moins un an.",
+          "body_en": "Several weeks of monitoring: error pages, indexed pages, queries. Redirects stay in place for at least a year.",
+          "meta_fr": "Après la mise en ligne",
+          "meta_en": "After go-live"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Refonte et migration SEO : ce qui fait perdre le référencement</h2>\n<p>Une refonte fait perdre des positions quand des URL changent sans redirection. Google ne retrouve plus la page qu'il avait classée, et les liens venus d'autres sites tombent sur une erreur.</p>\n<p>La documentation de <a href=\"https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes?hl=fr\" rel=\"noopener noreferrer\" target=\"_blank\">Google Search Central sur les migrations de site</a>, relue le 14 octobre 2026, donne la marche à suivre :</p>\n<ul><li><strong>Une correspondance URL par URL</strong> entre l'ancien et le nouveau site, en commençant par les pages qui reçoivent du trafic et des liens. Images et PDF compris.</li><li><strong>Des redirections permanentes côté serveur</strong>, 301 ou 308, directement vers la destination finale, sans chaîne de redirections.</li><li><strong>Pas de renvoi en masse vers la page d'accueil</strong> : Google peut le traiter comme une fausse page 404. Une page supprimée sans équivalent répond 404 ou 410.</li><li><strong>Des redirections gardées aussi longtemps que possible</strong>, en général au moins un an.</li><li><strong>Les liens internes et le sitemap mis à jour</strong>, puis le nouveau sitemap envoyé dans Search Console.</li></ul>\n<p>Selon la même page, une redirection 301 ne fait pas perdre de PageRank. Le classement peut fluctuer pendant la migration. Pour un site petit ou moyen, il faut en général quelques semaines pour que la plupart des pages soient prises en compte.</p>\n<p>Google conseille aussi de changer une chose à la fois : le domaine, puis la plateforme, puis la mise en page. Et de retirer, le jour de la mise en ligne, le blocage posé pendant les essais (noindex, robots.txt).</p>\n<p>Avant de toucher au site, il faut savoir ce que Google en voit déjà. C'est l'objet de l'<a href=\"/services/audit-seo-technique\">audit SEO technique</a> : indexation, structure, vitesse et maillage.</p>\n<h2>Un cas mesuré : Balzeo</h2>\n<p>Sur le projet <a href=\"/cas-clients/balzeo\">Balzeo</a>, une boutique de gourdes écoresponsables, le site est passé d'un CMS headless à WordPress et WooCommerce, sans perte de contenu ni d'URL. Le chargement sur mobile est passé de 5,2 s à 2,4 s, avec cache, compression des images et CDN.</p>\n<p>La migration a pris huit semaines. C'est un seul cas, pas une règle : votre durée dépend du nombre de pages et des contenus à reprendre.</p>",
+      "html_en": "<h2>Redesign and SEO migration: what loses your rankings</h2>\n<p>A redesign loses positions when URLs change without a redirect. Google can no longer find the page it had ranked, and links from other sites land on an error.</p>\n<p>The <a href=\"https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes?hl=fr\" rel=\"noopener noreferrer\" target=\"_blank\">Google Search Central documentation on site moves</a>, reread on 14 October 2026, sets out the steps:</p>\n<ul><li><strong>A URL-by-URL mapping</strong> between the old and the new site, starting with the pages that get traffic and links. Images and PDFs included.</li><li><strong>Permanent server-side redirects</strong>, 301 or 308, straight to the final destination, with no redirect chain.</li><li><strong>No mass redirect to the home page</strong>: Google may treat it as a soft 404. A deleted page with no equivalent returns 404 or 410.</li><li><strong>Redirects kept for as long as possible</strong>, generally at least one year.</li><li><strong>Internal links and the sitemap updated</strong>, then the new sitemap submitted in Search Console.</li></ul>\n<p>According to the same page, a 301 redirect does not lose PageRank. Rankings can fluctuate during the move. For a small or medium site, it generally takes a few weeks for most pages to be processed.</p>\n<p>Google also advises changing one thing at a time: the domain, then the platform, then the layout. And removing, on go-live day, the block put in place during testing (noindex, robots.txt).</p>\n<p>Before touching the site, you need to know what Google already sees of it. That is what the <a href=\"/services/audit-seo-technique\">technical SEO audit</a> covers: indexing, structure, speed and internal linking.</p>\n<h2>A measured case: Balzeo</h2>\n<p>On the <a href=\"/cas-clients/balzeo\">Balzeo</a> project, an eco-friendly water bottle shop, the site moved from a headless CMS to WordPress and WooCommerce, with no loss of content or URLs. Mobile load time went from 5.2 s to 2.4 s, with caching, image compression and a CDN.</p>\n<p>The migration took eight weeks. It is a single case, not a rule: your timeline depends on the number of pages and the content to carry over.</p>",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/site-web-intelligent-vs-wordpress-v3-tuyau-fuites-paper.webp",
+          "alt_fr": "Un long tuyau rapiécé fuit en plusieurs points, des personnes tentent chacune de boucher une fuite",
+          "alt_en": "A long patched pipe leaks in several places, people each trying to plug a leak"
+        }
+      ]
+    },
+    {
+      "type": "comparison-duo",
+      "background": "paper-2",
+      "kicker_fr": "§ Cas client · Balzeo",
+      "kicker_en": "§ Client case · Balzeo",
+      "h2_fr": "Balzeo : une boutique migrée sans perdre ses URL",
+      "h2_en": "Balzeo: a shop migrated without losing its URLs",
+      "without_label_fr": "Avant",
+      "without_label_en": "Before",
+      "without_title_fr": "Un CMS headless lent et difficile à faire vivre",
+      "without_title_en": "A slow headless CMS that was hard to run",
+      "without_items": [
+        {
+          "text_fr": "Chargement sur mobile : 5,2 s.",
+          "text_en": "Mobile load time: 5.2 s."
+        },
+        {
+          "text_fr": "Chaque mise à jour du site passait par la technique.",
+          "text_en": "Every site update went through the tech team."
+        },
+        {
+          "text_fr": "Une navigation peu intuitive et des abandons de panier en hausse.",
+          "text_en": "Unintuitive navigation and rising cart abandonment."
+        }
+      ],
+      "with_label_fr": "Après",
+      "with_label_en": "After",
+      "with_title_fr": "WordPress et WooCommerce, mêmes URL",
+      "with_title_en": "WordPress and WooCommerce, same URLs",
+      "with_items": [
+        {
+          "text_fr": "Chargement sur mobile : 2,4 s, avec cache, images compressées et CDN.",
+          "text_en": "Mobile load time: 2.4 s, with caching, compressed images and a CDN."
+        },
+        {
+          "text_fr": "Migration sans perte de contenu ni d'URL.",
+          "text_en": "Migration with no loss of content or URLs."
+        },
+        {
+          "text_fr": "Une équipe formée, qui gère le site elle-même.",
+          "text_en": "A trained team that runs the site itself."
+        }
+      ]
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper",
+      "kicker_fr": "§ Quelle ampleur",
+      "kicker_en": "§ How far to go",
+      "heading_fr": "Corriger, refondre ou migrer : ce que chaque option touche",
+      "heading_en": "Fix, redesign or migrate: what each option affects",
+      "caption_fr": "Classement de Waimia, du moins risqué au plus risqué pour le référencement. Google conseille de ne pas cumuler ces changements en une seule fois.",
+      "caption_en": "Waimia's ranking, from the least to the most risky for search rankings. Google advises against combining these changes in one go.",
+      "columns_fr": [
+        "Option",
+        "Ce qui change",
+        "Les URL",
+        "Point de vigilance"
+      ],
+      "columns_en": [
+        "Option",
+        "What changes",
+        "The URLs",
+        "Watch point"
+      ],
+      "rows_fr": [
+        [
+          "Corriger le site actuel",
+          "Vitesse, extensions, contenus, formulaires",
+          "Inchangées",
+          "Aucun déménagement : risque faible"
+        ],
+        [
+          "Refonte graphique sur la même plateforme",
+          "Mise en page, gabarits, parfois la structure",
+          "Souvent inchangées",
+          "Rediriger chaque URL modifiée"
+        ],
+        [
+          "Changement de plateforme",
+          "CMS, hébergement, gabarits, reprise des contenus",
+          "Souvent modifiées",
+          "Table de redirections complète, images et PDF compris"
+        ],
+        [
+          "Changement de domaine",
+          "L'adresse de tout le site",
+          "Toutes modifiées",
+          "Redirections de tout le domaine et changement d'adresse dans Search Console"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Fix the current site",
+          "Speed, extensions, content, forms",
+          "Unchanged",
+          "No move: low risk"
+        ],
+        [
+          "Visual redesign on the same platform",
+          "Layout, templates, sometimes the structure",
+          "Often unchanged",
+          "Redirect every changed URL"
+        ],
+        [
+          "Platform change",
+          "CMS, hosting, templates, content carried over",
+          "Often changed",
+          "Complete redirect table, images and PDFs included"
+        ],
+        [
+          "Domain change",
+          "The address of the whole site",
+          "All changed",
+          "Redirects for the whole domain and a change of address in Search Console"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Ce qui fait varier le coût d'une refonte</h2>\n<p>Le prix d'une refonte dépend moins du graphisme que du volume à reprendre. Quatre postes le font varier :</p>\n<ul><li><strong>Le nombre de gabarits</strong> : une page de service, un article, une fiche produit sont chacun un modèle à concevoir.</li><li><strong>La reprise des contenus</strong> : copiés tels quels, réécrits, ou migrés depuis une autre plateforme avec leurs images et leurs PDF.</li><li><strong>Les intégrations</strong> : formulaires reliés à un CRM, paiement, catalogue, espace client.</li><li><strong>La table de redirections</strong> : elle grossit avec le nombre de pages et de fiches produits.</li></ul>\n<p>Les paliers de prix de Waimia pour un site sont publiés sur la page <a href=\"/services/site-web-ia\">création et refonte de site</a>. Le périmètre exact est fixé par écrit au cadrage.</p>\n<p>Après la mise en ligne, l'entretien est facultatif : forfaits de {{prix.maintenance.p1}}, {{prix.maintenance.p2}} ou {{prix.maintenance.p3}} € HT par mois, interventions hors forfait à {{prix.horaire}} € HT de l'heure. Le détail est sur la page <a href=\"/tarifs\">tarifs</a>.</p>\n<h2>Quelle plateforme pour le nouveau site</h2>\n<p>La plateforme se choisit selon la personne qui fera vivre le site. Sur un site WordPress existant, la page <a href=\"/services/wordpress\">agence WordPress</a> explique quand entretenir et quand refondre. Pour une boutique, voir <a href=\"/services/shopify\">Shopify</a> ; pour des intégrations métier et la propriété du code, le <a href=\"/services/sur-mesure-headless\">site sur mesure</a>.</p>\n<p>Pour une seule offre ou une campagne, une <a href=\"/services/landing-pages-tunnels\">landing page</a> suffit souvent, sans refaire tout le site.</p>",
+      "html_en": "<h2>What makes the cost of a redesign vary</h2>\n<p>The price of a redesign depends less on the design than on the volume to carry over. Four items make it vary:</p>\n<ul><li><strong>The number of templates</strong>: a service page, an article, a product page are each a model to design.</li><li><strong>Carrying over the content</strong>: copied as is, rewritten, or migrated from another platform with its images and PDFs.</li><li><strong>The integrations</strong>: forms connected to a CRM, payment, catalogue, customer area.</li><li><strong>The redirect table</strong>: it grows with the number of pages and product pages.</li></ul>\n<p>Waimia's price tiers for a site are published on the <a href=\"/services/site-web-ia\">website creation and redesign</a> page. The exact scope is set in writing at scoping.</p>\n<p>After go-live, maintenance is optional: plans at €{{prix.maintenance.p1}}, €{{prix.maintenance.p2}} or €{{prix.maintenance.p3}} excl. VAT a month, out-of-scope work at €{{prix.horaire}} excl. VAT per hour. Details are on the <a href=\"/tarifs\">pricing</a> page.</p>\n<h2>Which platform for the new site</h2>\n<p>The platform is chosen according to who will run the site. On an existing WordPress site, the <a href=\"/services/wordpress\">WordPress agency</a> page explains when to maintain and when to rebuild. For a shop, see <a href=\"/services/shopify\">Shopify</a>; for business integrations and code ownership, the <a href=\"/services/sur-mesure-headless\">custom website</a>.</p>\n<p>For a single offer or a campaign, a <a href=\"/services/landing-pages-tunnels\">landing page</a> is often enough, without redoing the whole site.</p>"
+    },
+    {
+      "type": "tech-when-dual",
+      "background": "paper",
+      "kicker_fr": "§ Avis Waimia",
+      "kicker_en": "§ Waimia's view",
+      "title_fr": "Refondre votre site, ou s'en abstenir",
+      "title_en": "Rebuild your site, or hold back",
+      "aside_fr": "Repère de Waimia : on mesure avant de refaire. Une refonte se justifie par ce que la plateforme empêche, pas par l'envie d'un nouveau graphisme.",
+      "aside_en": "Waimia's rule of thumb: measure before rebuilding. A redesign is justified by what the platform prevents, not by the wish for a new look.",
+      "use_title_fr": "Refondre si",
+      "use_title_en": "Rebuild if",
+      "use_items_fr": [
+        "Le site reste lent sur mobile après le nettoyage des extensions et des images",
+        "Une mise à jour casse le site, ou la plateforme n'a plus de support",
+        "Votre équipe ne peut pas modifier une page sans développeur",
+        "Vos offres ont changé et la structure des pages ne les montre plus"
+      ],
+      "use_items_en": [
+        "The site is still slow on mobile after cleaning up extensions and images",
+        "An update breaks the site, or the platform is no longer supported",
+        "Your team cannot edit a page without a developer",
+        "Your offers have changed and the page structure no longer shows them"
+      ],
+      "avoid_title_fr": "Abstenez-vous si",
+      "avoid_title_en": "Hold back if",
+      "avoid_items_fr": [
+        "Le problème tient à quelques pages : corrigez-les",
+        "Personne n'a le temps d'écrire ni de relire les contenus",
+        "Vous lancez une seule offre : une landing page suffit",
+        "Vous changeriez domaine, plateforme et graphisme d'un coup : étalez les changements"
+      ],
+      "avoid_items_en": [
+        "The problem comes down to a few pages: fix them",
+        "Nobody has time to write or review the content",
+        "You are launching a single offer: a landing page is enough",
+        "You would change domain, platform and design at once: spread the changes out"
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Sources, relues le 14 octobre 2026</h2><ul><li><a href=\"https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes?hl=fr\" rel=\"noopener noreferrer\" target=\"_blank\">Google Search Central, « Migrations de sites »</a> : correspondance des URL, redirections 301 et 308, durée de conservation des redirections, délai de prise en compte, changement d'adresse.</li><li><a href=\"/cas-clients/balzeo\">Fiche du cas Balzeo</a> : migration sans perte de contenu ni d'URL, chargement sur mobile avant et après, durée des phases.</li></ul><p>Aucun autre chiffre de résultat n'est avancé dans ce guide.</p>",
+      "html_en": "<h2>Sources, reread on 14 October 2026</h2><ul><li><a href=\"https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes?hl=fr\" rel=\"noopener noreferrer\" target=\"_blank\">Google Search Central, “Site moves and migrations”</a>: URL mapping, 301 and 308 redirects, how long to keep redirects, processing time, change of address.</li><li><a href=\"/cas-clients/balzeo\">Balzeo case page</a>: migration with no loss of content or URLs, mobile load time before and after, phase durations.</li></ul><p>No other result figure is put forward in this guide.</p>"
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper-2",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Further reading",
+      "cards": [
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Création et refonte de site",
+          "title_en": "Website creation and redesign",
+          "lead_fr": "Les paliers de prix, les plateformes et ce qui est livré.",
+          "lead_en": "The price tiers, the platforms and what is delivered.",
+          "href": "/services/site-web-ia"
+        },
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Audit SEO technique",
+          "title_en": "Technical SEO audit",
+          "lead_fr": "Indexation, structure, vitesse et maillage, relevés avant de toucher au site.",
+          "lead_en": "Indexing, structure, speed and internal linking, checked before touching the site.",
+          "href": "/services/audit-seo-technique"
+        },
+        {
+          "kicker_fr": "Cas client",
+          "kicker_en": "Client case",
+          "title_fr": "Balzeo : migration WordPress",
+          "title_en": "Balzeo: WordPress migration",
+          "lead_fr": "Une boutique migrée sans perte d'URL, de 5,2 s à 2,4 s sur mobile.",
+          "lead_en": "A shop migrated with no URL loss, from 5.2 s to 2.4 s on mobile.",
+          "href": "/cas-clients/balzeo"
+        }
+      ]
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "h2_fr": "Refonte de site internet : questions fréquentes",
+      "h2_en": "Website redesign: frequently asked questions",
+      "items": [
+        {
+          "q_fr": "Combien coûte une refonte de site internet ?",
+          "a_fr": "Le prix dépend du nombre de gabarits, de la reprise des contenus, des intégrations et de la table de redirections, plus que du graphisme. Chez Waimia, les paliers de prix d'un site sont publiés sur la page création et refonte de site, et le périmètre exact est fixé par écrit au cadrage. Un devis de refonte qui ne parle pas des redirections est incomplet.",
+          "q_en": "How much does a website redesign cost?",
+          "a_en": "The price depends on the number of templates, the content to carry over, the integrations and the redirect table, more than on the design. At Waimia, the price tiers for a site are published on the website creation and redesign page, and the exact scope is set in writing at scoping. A redesign quote that says nothing about redirects is incomplete."
+        },
+        {
+          "q_fr": "Comment choisir une agence de refonte de site web ?",
+          "a_fr": "Demandez ce que le devis prévoit pour le référencement : une table de redirections URL par URL, des essais sur une adresse à part, un suivi après la mise en ligne. Vérifiez qui écrit les contenus, et que les accès au domaine, à l'hébergement et au code restent à votre nom. Une proposition qui refait le site sans relever l'existant vous fait prendre un risque.",
+          "q_en": "How do you choose a website redesign agency?",
+          "a_en": "Ask what the quote covers for search rankings: a URL-by-URL redirect table, tests on a separate address, monitoring after go-live. Check who writes the content, and that access to the domain, hosting and code stays in your name. A proposal that rebuilds the site without recording what exists exposes you to a risk."
+        },
+        {
+          "q_fr": "Combien de temps dure une refonte de site ?",
+          "a_fr": "Cela dépend du nombre de pages et des contenus à reprendre. Sur le cas Balzeo, une boutique WooCommerce, la migration a pris huit semaines : une pour l'inventaire, cinq pour la migration et la vitesse, deux pour le parcours d'achat et la formation. Côté Google, un site petit ou moyen demande en général quelques semaines pour être pris en compte.",
+          "q_en": "How long does a website redesign take?",
+          "a_en": "It depends on the number of pages and the content to carry over. On the Balzeo case, a WooCommerce shop, the migration took eight weeks: one for the inventory, five for the migration and speed, two for the checkout journey and training. On Google's side, a small or medium site generally needs a few weeks to be processed."
+        },
+        {
+          "q_fr": "Une refonte fait-elle perdre son référencement ?",
+          "a_fr": "Pas si chaque ancienne URL redirige vers sa nouvelle adresse. Selon Google, une redirection 301 ne fait pas perdre de PageRank, mais le classement peut fluctuer le temps que les pages soient explorées de nouveau. Les pertes durables viennent d'URL changées sans redirection, de redirections en masse vers la page d'accueil, ou d'un blocage de test (noindex, robots.txt) oublié à la mise en ligne.",
+          "q_en": "Does a redesign lose your search rankings?",
+          "a_en": "Not if every old URL redirects to its new address. According to Google, a 301 redirect does not lose PageRank, but rankings can fluctuate while the pages are crawled again. Lasting losses come from URLs changed without a redirect, mass redirects to the home page, or a test block (noindex, robots.txt) left in place at go-live."
+        },
+        {
+          "q_fr": "Combien de temps garder les redirections 301 après une refonte ?",
+          "a_fr": "Google recommande de les garder aussi longtemps que possible, en général au moins un an. Ce délai lui laisse le temps de transférer les signaux vers les nouvelles URL, y compris les liens venus d'autres sites. Mettez aussi à jour vos propres liens internes : chaque redirection ralentit l'affichage pour le visiteur.",
+          "q_en": "How long should you keep 301 redirects after a redesign?",
+          "a_en": "Google recommends keeping them for as long as possible, generally at least one year. That gives it time to transfer signals to the new URLs, including links from other sites. Also update your own internal links: every redirect slows the page down for the visitor."
+        },
+        {
+          "q_fr": "Faut-il refaire son site ou seulement le corriger ?",
+          "a_fr": "Mesurez avant de décider : vitesse sur mobile, extensions sans support, formulaires, pages que votre équipe ne sait pas modifier. Si quelques corrections règlent le problème, gardez le site. La refonte se justifie quand la plateforme bloque : lenteur qui résiste au nettoyage, mises à jour qui cassent le site, équipe qui dépend d'un développeur pour changer une page.",
+          "q_en": "Should you rebuild your site or just fix it?",
+          "a_en": "Measure before deciding: mobile speed, unsupported extensions, forms, pages your team cannot edit. If a few fixes solve the problem, keep the site. A redesign is justified when the platform is the blocker: slowness that survives a clean-up, updates that break the site, a team that needs a developer to change a page."
+        },
+        {
+          "q_fr": "Faut-il prévenir Google d'un changement de nom de domaine ?",
+          "a_fr": "Oui. Pour un changement de domaine ou de sous-domaine, Google demande d'envoyer un changement d'adresse dans Search Console, en plus des redirections 301 de toutes les pages. Ce n'est pas nécessaire pour un passage de HTTP à HTTPS. Google conseille aussi de ne pas changer de domaine, de plateforme et de mise en page en même temps.",
+          "q_en": "Do you need to tell Google about a domain name change?",
+          "a_en": "Yes. For a domain or subdomain change, Google asks you to submit a change of address in Search Console, on top of 301 redirects for every page. It is not needed for a move from HTTP to HTTPS. Google also advises against changing domain, platform and layout at the same time."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Avant de refaire votre site",
+      "kicker_en": "§ Before you rebuild your site",
+      "h2_fr": "Savoir s'il faut corriger votre site ou le refaire.",
+      "h2_en": "Find out whether to fix your site or rebuild it.",
+      "subtitle_fr": "Quarante-cinq minutes en visio, gratuites et sans engagement. On regarde votre site, ses pages qui comptent et ses formulaires, et on vous dit s'il faut le corriger ou le refaire. Vous repartez avec un ou deux chantiers classés. Si rien ne vaut le coup, on vous le dit.",
+      "subtitle_en": "Forty-five minutes on a call, free and with no commitment. We look at your site, the pages that matter and its forms, and tell you whether to fix it or rebuild it. You leave with one or two ranked projects. If nothing is worth it, we tell you.",
+      "buttons": [
+        {
+          "label_fr": "Réserver un audit IA gratuit",
+          "label_en": "Book a free AI audit",
+          "href": "/contact#offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Comment se passe l'audit",
+          "label_en": "How the audit works",
+          "href": "/audit-ia-pme#site-web-logiciel",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}
