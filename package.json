@@ -80,7 +80,8 @@
     "test:seo-routine": "node --test \"scripts/seo-routine/tests/*.test.mjs\"",
     "board:regen": "node scripts/sync-board.mjs --regen",
     "ds:apply": "node scripts/apply-ds-export.mjs",
-    "check:jargon": "node scripts/check-jargon.mjs"
+    "check:jargon": "node scripts/check-jargon.mjs",
+    "test:claude-hooks": "node --test \"scripts/claude/tests/*.test.mjs\""
   },
   "dependencies": {
     "@waimia/atelier-ui": "workspace:*",
