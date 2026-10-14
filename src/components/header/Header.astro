@@ -90,7 +90,9 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
         </a>
       )}
       <a href={ctaHref} class="cta" data-mag="0.18">
-        {lang === 'fr' ? 'Réserver un audit' : 'Book an audit'}
+        {/* Libellé long en desktop, court sous 1180 px (global.css) : le CTA reste visible en mobile. */}
+        <span class="cta-label-long">{lang === 'fr' ? 'Réserver un audit' : 'Book an audit'}</span>
+        <span class="cta-label-short">{lang === 'fr' ? 'Audit gratuit' : 'Free audit'}</span>
         <span aria-hidden>→</span>
       </a>
       <button class="burger" data-burger type="button" aria-label={lang === 'fr' ? 'Ouvrir le menu principal' : 'Open main menu'} aria-expanded="false" aria-controls="m-sheet">

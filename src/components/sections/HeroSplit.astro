@@ -40,7 +40,7 @@ const isFr = lang === 'fr';
       )}
       <span class="hero-author__eyebrow">§ {isFr ? data.role_fr : data.role_en}</span>
       <h1 class="hero-author__h1 reveal-mask-up u-serif-accent-em" transition:name={transitionId ? `hero-h1-${transitionId}` : undefined}>
-        {data.name_lead}<em>{data.name_accent}</em>
+        {data.name_lead.trimEnd()}{' '}<em>{data.name_accent}</em>
       </h1>
       <p class="hero-author__lede" set:html={isFr ? data.lede_fr : data.lede_en} />
     </div>
@@ -326,6 +326,8 @@ const isFr = lang === 'fr';
   @media (max-width: 900px) {
     .hero-author {
       grid-template-columns: 1fr;
+      /* Le fil d'Ariane passe sous l'en-tête fixe avec --section-loose seul. */
+      padding-top: calc(var(--header-height) + var(--space-7));
     }
     .hero-author__copy { grid-column: 1; }
     .hero-author__portrait {
