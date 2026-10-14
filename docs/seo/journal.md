@@ -69,6 +69,8 @@ Neuf lots, intégrés puis prouvés sur la preview Vercel, puis en production : 
 
 ### Vague 2 du 14 octobre 2026 · stratégie tirée des audits Semrush (branche `seo/vague2-1014`)
 
+**En production le 14 octobre 2026 (PR #89, merge `40715069`).** Statut Vercel du commit de fusion : succès ; marqueur `id="site-web-logiciel"` présent sur waimia.com 60 s après la fusion. Sur la production : 21 contrôles de la vague 2 sur 21 (le même script donnait 16 KO sur la production précédente), 11 marqueurs de la vague 1 sur 11, CTA des héros à 390 sur 10 pages sur 11 (exception `/tarifs` inchangée), aucun débordement. Aucun envoi IndexNow ni demande Search Console manuels : routine du dimanche.
+
 Source : lecture intégrale des 31 fichiers du dossier Semrush (PDF, xlsx, csv des quatre concurrents, audit du site, données Waimia), confrontée au dépôt ; stratégie en 39 lots, plan de design en 19 changements. Vingt lots écrits en worktrees séparés, chacun revu par Opus, puis intégrés ; le lot `catalogue` (composants partagés) part dans une PR distincte.
 
 - **Promesse de l'audit** : une source unique, `AUDIT_PROMISE` (`src/data/conversion.ts`), avec une variante site web et logiciel liée à `/audit-ia-pme#site-web-logiciel`. « Trois automatisations rentables » : 175 pages, puis 0. Scan de la promesse sur `src/` : 834 signalements, puis 558, aucun fichier en hausse ; dans le HTML servi, aucune formule interdite ne décrit l'audit.
@@ -78,7 +80,7 @@ Source : lecture intégrale des 31 fichiers du dossier Semrush (PDF, xlsx, csv d
 - **Plafond des méta descriptions** : 160 caractères (portes `check:head` et `check:seo`), pas 175 ; sept descriptions raccourcies, leçon d'`AGENTS.md` corrigée.
 - **Contenu** : villes, formations, guides Claude, pilier IA, ressources et pages automatisation réécrits contre le texte générique ; aucun fait, client ni chiffre ajouté sans source.
 - **Gelé, en attente de Simon** : visio ou sur site, siège légal, badges partenaires, prix « pilote » et « déploiement », Diag Data IA, page « agence web Montpellier », mesure de conversion.
-- **Revue visuelle D1** (build servi, 390×844 et 1440×900) : espace avant « En savoir plus sur l'audit », panneau E-E-A-T mobile sous 1 800 px (environ 2 300 avant), métrique du guide de coût contenue, cas Balzeo et Amploi sur `/services/shopify` au lieu de l'état vide. Liens retirés des réponses de FAQ rendues en texte échappé (6 pages, 0 restante dans le build).
+- **Revue visuelle D1** (build servi, 390×844 et 1440×900) : espace avant « En savoir plus sur l'audit », panneau E-E-A-T mobile sous 1 800 px (environ 2 300 avant), métrique du guide de coût contenue, grille de cas de `/services/shopify` : Balzeo et Amploi, deux cas web, au lieu de Brow-X (cas de SAV, hors cluster) et Balzeo. Liens retirés des réponses de FAQ rendues en texte échappé (6 pages, 0 restante dans le build).
 - **Revue Opus avant fusion** : aucun bloquant, les 15 bloquants de la phase 1 résolus. `check:jsonld` interdit désormais `WebApplication` et `SoftwareApplication` ; `check:sitemap` compare le canonical à l'identique et n'accepte l'accueil qu'avec sa barre. Les trois mutations correspondantes font rougir les portes.
 - **Preuves locales (PR #89)** : portes `check:*` vertes sauf `semantic` et `hover-reflow` (hors CI, fichiers non touchés) ; `astro check` à 8 erreurs comme `main` ; Playwright 71 réussis ; marqueurs de la vague 1 : 11 sur 11 ; CTA des héros à 390 : 10 pages sur 11, comme en vague 1.
 
