@@ -154,9 +154,6 @@ export default defineConfig({
   // avec le mega menu et le footer, `viewport` déclenchait le téléchargement de dizaines de
   // pages HTML à chaque affichage (réseau mobile gaspillé, sans gain mesurable sur la page vue).
   prefetch: { prefetchAll: true, defaultStrategy: 'hover' },
-  // CSS inline dans chaque page (~25 Ko brotli) : aucune feuille bloquante avant le premier rendu.
-  // Lighthouse mobile comptait 300 à 600 ms par feuille liée (5 à 10 par page).
-  build: { inlineStylesheets: 'always' },
   // Une seule forme d'URL : sans slash final. L'adapter Vercel émet la 308 `/x/` → `/x`
   // (1re règle de .vercel/output/config.json), vérifiée par scripts/check-redirects.mjs.
   trailingSlash: 'never',
