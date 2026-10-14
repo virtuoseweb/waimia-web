@@ -16,7 +16,7 @@ import MastheadBar from '../../../components/sections/MastheadBar.astro';
 import ToolIntro from '../../../components/ui/organisms/conversion/ToolIntro.astro';
 import MaturityDiagnostic from '../../../components/ui/organisms/conversion/MaturityDiagnostic.astro';
 import ResourceLinks from '../../../components/ui/organisms/conversion/ResourceLinks.astro';
-import { buildArticle, buildWebApplication } from '../../../lib/seo/schema-builder';
+import { buildArticle } from '../../../lib/seo/schema-builder';
 import { SITE } from '../../../site.config';
 
 const entry = await getEntry('diagnostics', 'maturite-ia');
@@ -38,13 +38,12 @@ const articleLd = buildArticle({
   dateModified: data.updatedAt ? new Date(data.updatedAt).toISOString().slice(0, 10) : undefined,
   mainEntityOfPage: canonicalUrl,
 });
-const webAppLd = buildWebApplication({ name: 'Diagnostic de maturité IA', description, url: canonicalUrl });
 
 // Le questionnaire s'insère après la réponse directe (première section du JSON).
 const [first, ...rest] = data.sections!;
 ---
 
-<Base title={seoTitle} description={description} jsonLd={[articleLd, webAppLd]} noindex={data.seo?.noindex}>
+<Base title={seoTitle} description={description} jsonLd={articleLd} noindex={data.seo?.noindex}>
   <MastheadBar
     lang="fr"
     items={[

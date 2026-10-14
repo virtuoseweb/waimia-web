@@ -16,7 +16,7 @@ import ToolIntro from '../../../components/ui/organisms/conversion/ToolIntro.ast
 import ChecklistDocument from '../../../components/ui/organisms/conversion/ChecklistDocument.astro';
 import LeadCaptureBand from '../../../sections/lead-capture-band/Component.astro';
 import ResourceLinks from '../../../components/ui/organisms/conversion/ResourceLinks.astro';
-import { buildArticle, buildWebApplication } from '../../../lib/seo/schema-builder';
+import { buildArticle } from '../../../lib/seo/schema-builder';
 import { SITE } from '../../../site.config';
 import { CHECKLIST_HREF, auditCtaFinal } from '../../../data/conversion';
 import { prerequisites, phases } from '../../../data/checklist-90-jours-claude';
@@ -31,15 +31,13 @@ const ld = buildArticle({
   dateModified: '2026-10-05',
   mainEntityOfPage: `${SITE.url}${CHECKLIST_HREF}`,
 });
-// La checklist se coche et se remplit dans le navigateur : outil gratuit, balisé comme tel.
-const webAppLd = buildWebApplication({ name: 'Checklist 90 jours pour déployer Claude en PME', description, url: `${SITE.url}${CHECKLIST_HREF}` });
 const cta = auditCtaFinal(
   'La checklist donne l\'ordre des actions. L\'audit choisit votre cas pilote.',
-  '45 minutes en visio, gratuit : vos process passés en revue tâche par tâche, et le cas d\'usage par lequel commencer, écrit noir sur blanc.',
+  '45 minutes en visio, gratuit : vos process passés en revue tâche par tâche, et un ou deux chantiers classés, écrits noir sur blanc.',
 );
 ---
 {/* showUpdated={false} : la date de mise à jour figure déjà dans les repères du bandeau d'introduction. */}
-<Base title={title} description={description} jsonLd={[ld, webAppLd]} ogType="article" showUpdated={false}>
+<Base title={title} description={description} jsonLd={ld} ogType="article" showUpdated={false}>
   <MastheadBar
     lang="fr"
     items={[
