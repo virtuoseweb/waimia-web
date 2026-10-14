@@ -5,7 +5,7 @@
   "description_en": "In-company automation and AI training: spot tasks to automate, choose the tool, build a first reliable flow. On your real cases.",
   "slug": "automatisation",
   "publishedAt": "2026-10-04T00:00:00.000Z",
-  "updatedAt": "2026-10-05T00:00:00.000Z",
+  "updatedAt": "2026-10-14T00:00:00.000Z",
   "tags": [
     "formation-automatisation",
     "formation-automatisation-ia",
@@ -90,15 +90,15 @@
         }
       ],
       "cta_primary": {
-        "label_fr": "Réserver un audit IA gratuit",
-        "label_en": "Book a free AI audit",
-        "href": "/contact#offer=audit-ia-pme&intent=audit",
+        "label_fr": "Demander le programme et un devis",
+        "label_en": "Request the programme and a quote",
+        "href": "/contact#offer=formation-automatisation&intent=formation",
         "variant": "primary"
       },
       "cta_secondary": {
-        "label_fr": "Comment se passe l'audit",
-        "label_en": "How the audit works",
-        "href": "/audit-ia-pme",
+        "label_fr": "Voir format, durée et tarif",
+        "label_en": "See format, duration and price",
+        "href": "#tarif",
         "variant": "ghost"
       }
     },
@@ -208,6 +208,78 @@
       ]
     },
     {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "anchor": "formats",
+      "kicker_fr": "§ Deux formats",
+      "kicker_en": "§ Two formats",
+      "heading_fr": "Format court ou format long : ce qui change",
+      "heading_en": "Short or long format: what changes",
+      "caption_fr": "Le format se décide au cadrage, selon vos tâches et le niveau de départ de l'équipe.",
+      "caption_en": "The format is decided at scoping, based on your tasks and the team's starting level.",
+      "columns_fr": [
+        "Ce qui change",
+        "Format de {{prix.formation.f1.heures}} heures",
+        "Format de {{prix.formation.f2.heures}} heures"
+      ],
+      "columns_en": [
+        "What changes",
+        "{{prix.formation.f1.heures}}-hour format",
+        "{{prix.formation.f2.heures}}-hour format"
+      ],
+      "rows_fr": [
+        [
+          "Profondeur",
+          "Chaque module en version essentielle : un geste, un cas simple, un exercice",
+          "Chaque module avec ses cas limites et davantage d'exercices sur vos propres tâches"
+        ],
+        [
+          "Pour qui",
+          "Une équipe qui débute, avec quelques tâches simples à automatiser",
+          "Une équipe qui a déjà des flux en service ou qui va devenir référente automatisation"
+        ],
+        [
+          "Vous repartez avec",
+          "Un premier flux construit, testé et mis en service sur une tâche réelle",
+          "Ce flux, plus un flux existant repris avec sa gestion d'erreur et son alerte"
+        ],
+        [
+          "Quand le choisir",
+          "Pour acquérir les bases, puis décider de ce que l'on automatise",
+          "Pour que l'équipe devienne autonome et maintienne ses flux"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Depth",
+          "Each module in its essential version: one gesture, one simple case, one exercise",
+          "Each module with its edge cases and more exercises on your own tasks"
+        ],
+        [
+          "Who it is for",
+          "A team just starting out, with a few simple tasks to automate",
+          "A team that already has flows in service or is about to become the in-house automation lead"
+        ],
+        [
+          "You leave with",
+          "A first flow built, tested and switched on for a real task",
+          "That flow, plus an existing flow reworked with its error handling and its alert"
+        ],
+        [
+          "When to choose it",
+          "To get the basics, then decide what to automate",
+          "For the team to become autonomous and maintain its flows"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Ce que le programme couvre, de la tâche au flux en service</h2>\n<p>Le programme suit le chemin d'une tâche réelle. On commence par lister les tâches répétitives de l'équipe, estimer le temps qu'elles prennent et retenir les premières. Une tâche qui revient souvent, suit toujours les mêmes règles et se fait aujourd'hui à la main est un bon candidat. Une tâche qui demande du jugement à chaque fois l'est moins : mieux vaut le savoir avant de construire.</p>\n<p>Chaque tâche retenue s'écrit ensuite comme une procédure : ce qui la déclenche, les règles, les cas particuliers, le moment où une personne valide. Un flux construit sur une tâche mal décrite reproduit ses ambiguïtés.</p>\n<p>Le choix de l'outil vient après la description, pas avant. La formation compare n8n, Make et un agent IA sur les tâches retenues, puis s'appuie sur l'outil qui convient : n8n, Make ou les deux, décidé au cadrage. Si votre entreprise a déjà un outil en place, on forme dessus. Pour comparer les deux outils, voir le comparatif <a href=\"/ressources/comparatifs/n8n-vs-make\">n8n vs Make</a>.</p>\n<p>On construit alors un premier flux : déclencheur, connexions aux outils, conditions, puis test sur des cas réels. Si la tâche le demande, une étape IA s'ajoute à l'intérieur du flux pour classer, résumer ou rédiger, avec des consignes précises.</p>\n<p>Deux modules gardent le flux utile une fois la séance terminée. Le module Garder le contrôle fixe la validation humaine sur les actions sensibles, le traitement des données personnelles et les traces de ce qui a été fait. Le module Maintenir couvre la gestion des erreurs, les alertes, la documentation et une question simple : qui fait quoi quand un flux casse ?</p>\n<p>Pour le détail des modules par outil, les programmes complets sont publiés : <a href=\"/formations/n8n\">formation n8n</a> (workflows, nœud Code, hébergement) et <a href=\"/formations/make\">formation Make</a> (scénarios, routeurs, gestion des erreurs, crédits).</p>",
+      "html_en": "<h2>What the programme covers, from the task to the flow in service</h2>\n<p>The programme follows the path of a real task. We start by listing the team's repetitive tasks, estimating the time they take and picking the first ones. A task that comes up often, always follows the same rules and is done by hand today is a good candidate. A task that calls for judgement every time is less so: better to know that before building.</p>\n<p>Each chosen task is then written as a procedure: what triggers it, the rules, the special cases, the point where a person approves. A flow built on a badly described task reproduces its ambiguities.</p>\n<p>The choice of tool comes after the description, not before. The training compares n8n, Make and an AI agent on the chosen tasks, then relies on the tool that fits: n8n, Make or both, decided at scoping. If your company already has a tool in place, we train on it. To compare the two tools, see the <a href=\"/ressources/comparatifs/n8n-vs-make\">n8n vs Make</a> comparison.</p>\n<p>We then build a first flow: trigger, tool connections, conditions, then testing on real cases. If the task calls for it, an AI step is added inside the flow to classify, summarise or draft, with precise instructions.</p>\n<p>Two modules keep the flow useful once the session is over. The Stay in control module sets human approval on sensitive actions, the handling of personal data and the traces of what was done. The Maintain module covers error handling, alerts, documentation and a simple question: who does what when a flow breaks?</p>\n<p>For the module-by-module detail per tool, the full programmes are published: <a href=\"/formations/n8n\">n8n training</a> (workflows, Code node, hosting) and <a href=\"/formations/make\">Make training</a> (scenarios, routers, error handling, credits).</p>"
+    },
+    {
       "type": "editorial-prose",
       "background": "paper",
       "figures": [
@@ -222,8 +294,15 @@
       "html_en": "<h2>AI automation training: what AI changes, and what it does not</h2>\n<p>A classic automation applies a rule: if a form arrives, create a record. It is predictable and costs almost nothing to run. AI is useful where a rule is not enough: reading a freely written email, classifying a request, drafting a reply.</p>\n<p>The training teaches how to combine both without mixing them up. Our position: put AI only at the step that needs it, and keep the rest deterministic. A flow handed entirely to a model is more expensive, slower and harder to verify.</p>\n<p>This training is about the flows between your tools. For the team's use of an AI assistant, the <a href=\"/formations/claude\">Claude</a> and <a href=\"/formations/chatgpt\">ChatGPT</a> courses follow three levels, from first use to development.</p>"
     },
     {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Limites et prérequis de la formation automatisation</h2>\n<p>Le prérequis tient en une ligne : savoir utiliser un tableur et les logiciels en ligne de l'entreprise.</p>\n<p>Les accès comptent autant que le niveau : un identifiant ou un droit qui manque sur l'un de vos outils le jour de la séance coûte plus de temps que n'importe quel exercice. Ils sont donc réglés avant.</p>\n<p>La formation ne remplace pas une mission de réalisation. Si le besoin est d'avoir plusieurs automatisations en production le mois prochain, confiez-les-nous avec notre service d'<a href=\"/services/systemes-operationnels-ia\">automatisation des processus</a>, puis formez l'équipe à les maintenir.</p>",
+      "html_en": "<h2>Limits and prerequisites of the automation training</h2>\n<p>The prerequisite fits on one line: being comfortable with a spreadsheet and the company's online tools.</p>\n<p>Access matters as much as level: a missing login or right on one of your tools on the day of the session costs more time than any exercise. They are therefore sorted out beforehand.</p>\n<p>The training does not replace a delivery engagement. If the need is several automations in production next month, hand them to us with our <a href=\"/services/systemes-operationnels-ia\">process automation</a> service, then train the team to maintain them.</p>"
+    },
+    {
       "type": "editorial-table-block",
       "background": "paper-2",
+      "anchor": "tarif",
       "kicker_fr": "§ Fiche pratique",
       "kicker_en": "§ Practical details",
       "heading_fr": "Prérequis, format, durée et tarif",
@@ -390,15 +469,15 @@
       "subtitle_en": "The 45-minute audit is free. We identify the tasks to train your team on, the starting level, and tell you whether training is the right answer.",
       "buttons": [
         {
-          "label_fr": "Réserver un audit IA gratuit",
-          "label_en": "Book a free AI audit",
-          "href": "/contact#offer=audit-ia-pme&intent=audit",
+          "label_fr": "Demander le programme et un devis",
+          "label_en": "Request the programme and a quote",
+          "href": "/contact#offer=formation-automatisation&intent=formation",
           "variant": "primary"
         },
         {
-          "label_fr": "Comment se passe l'audit",
-          "label_en": "How the audit works",
-          "href": "/audit-ia-pme",
+          "label_fr": "Réserver un audit IA gratuit",
+          "label_en": "Book a free AI audit",
+          "href": "/contact#offer=audit-ia-pme&intent=audit",
           "variant": "ghost"
         }
       ]

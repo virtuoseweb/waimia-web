@@ -109,7 +109,11 @@ const COVERAGE = [
   [(p) => /^\/ressources\/outils\/.+/.test(p) && !GATED_RESOURCES.has(p.split('/').pop()), [['WebApplication', 'SoftwareApplication']], 'outil interactif'],
   [(p) => /^\/cas-clients\/.+/.test(p), [ARTICLE_TYPES], 'cas client'],
   [(p) => /^\/equipe\/.+/.test(p), [['Person'], ['ProfilePage']], 'page auteur'],
-  [(p) => /^\/implantations\/.+/.test(p), [['ProfessionalService']], 'page implantation'],
+  // Siège (Bordeaux) : ProfessionalService avec adresse. Autres villes, sans bureau : Service (areaServed).
+  // Couplage : « bordeaux » doit rester le slug de SITE.city (src/site.config.ts, HQ_CITY_SLUG dans
+  // src/lib/seo/page-schema.ts) ; ce script .mjs ne peut pas importer ces modules TypeScript.
+  [(p) => /^\/implantations\/bordeaux\/?$/.test(p), [['ProfessionalService']], 'page implantation du siège'],
+  [(p) => /^\/implantations\/.+/.test(p) && !/^\/implantations\/bordeaux\/?$/.test(p), [['Service']], 'page implantation (ville desservie)'],
   [(p) => /^\/audit-/.test(p), [['Service']], "page d'audit"],
   [(p) => p === '/tarifs', [['OfferCatalog']], 'tarifs'],
   [(p) => p === '/services', [['OfferCatalog']], 'catalogue des services'],

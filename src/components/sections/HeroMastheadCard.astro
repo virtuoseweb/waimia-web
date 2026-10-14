@@ -2,7 +2,7 @@
 /**
  * hero-masthead-card · « Masthead 64/36 · carte média ink réduite » (modèle Z7, template service)
  * Héro FULL-VIEWPORT en grille 1.8fr 1fr (~64/36).
- * GAUCHE → §-label + h1 serif accent + lede + badges mono + CTA dual + cta-sub.
+ * GAUCHE → §-label + h1 serif accent + lede + CTA dual + cta-sub + badges mono.
  * DROITE (rail) → carte média line-art réduite (aspect 4/5, fond ink dans les deux modes)
  * + 2 micro-KPI mono optionnels sous la carte.
  * Props-driven (data), variante paper/ink via `background`, responsive 1-col ≤768.
@@ -64,12 +64,6 @@ const svgInline = isSvgMedia ? inlineLineArt(data.media_src) : undefined;
         <h1 class="hmc__title" set:html={h1} />
         <p class="hmc__lede" set:html={lede} />
 
-        {badges.length > 0 && (
-          <ul class="hmc__badges" aria-label={isFr ? 'Capacités' : 'Capabilities'}>
-            {badges.map((b) => <li class="hmc__badge">{isFr ? b.label_fr : b.label_en}</li>)}
-          </ul>
-        )}
-
         <div class="hmc__ctas">
           <Button href={ctaPrimary.href} variant="primary" size="lg">
             {isFr ? ctaPrimary.label_fr : ctaPrimary.label_en}
@@ -81,6 +75,13 @@ const svgInline = isSvgMedia ? inlineLineArt(data.media_src) : undefined;
           )}
         </div>
         {ctaSub && <p class="hmc__cta-sub" set:html={ctaSub} />}
+
+        {/* Badges APRÈS l'action : le CTA reste dans le premier écran mobile. */}
+        {badges.length > 0 && (
+          <ul class="hmc__badges" aria-label={isFr ? 'Capacités' : 'Capabilities'}>
+            {badges.map((b) => <li class="hmc__badge">{isFr ? b.label_fr : b.label_en}</li>)}
+          </ul>
+        )}
       </div>
 
       <aside class="hmc__rail">
@@ -161,7 +162,7 @@ const svgInline = isSvgMedia ? inlineLineArt(data.media_src) : undefined;
 
     .hmc__badges {
       list-style: none;
-      margin: 0 0 var(--space-6);
+      margin: var(--space-6) 0 0;
       padding: 0;
       display: flex;
       flex-wrap: wrap;
@@ -274,8 +275,8 @@ const svgInline = isSvgMedia ? inlineLineArt(data.media_src) : undefined;
       .hmc__rail { order: 1; }
       .hmc__media { aspect-ratio: 2 / 1; max-height: 26svh; }
       .hmc__title { margin-bottom: var(--space-4); }
-      .hmc__lede { margin-bottom: var(--space-5); }
-      .hmc__badges { margin-bottom: var(--space-5); }
+      .hmc__lede { font-size: var(--text-body); margin-bottom: var(--space-5); }
+      .hmc__badges { margin-top: var(--space-5); }
       .hmc__ctas { gap: var(--space-2); }
       .hmc__ctas :global(.btn) { flex: 1 1 auto; justify-content: center; }
     }

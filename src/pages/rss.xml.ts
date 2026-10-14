@@ -12,6 +12,7 @@ export async function GET(context: APIContext) {
   const blog = await getLiveCollection('blog');
 
   const items = blog
+    .filter((e) => e.data.seo?.noindex !== true)
     .map((entry) => ({
       title: entry.data.title_fr,
       pubDate: new Date(entry.data.publishedAt),
@@ -25,6 +26,7 @@ export async function GET(context: APIContext) {
     description: "Articles, essais et veille sur l'IA appliquée aux PME.",
     site: context.site ?? SITE.url,
     items,
+    trailingSlash: false,
     customData: '<language>fr-FR</language>',
   });
 }

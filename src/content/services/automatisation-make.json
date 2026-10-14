@@ -1,12 +1,12 @@
 {
   "$schema": "../../schemas/generated/services.page.schema.json",
-  "title_fr": "Agence Make : automatisation Make pour PME · Waimia",
-  "title_en": "Make agency: Make automation for SMEs · Waimia",
+  "title_fr": "Agence automatisation Make : scénarios pour PME",
+  "title_en": "Make automation agency: scenarios for SMEs",
   "description_fr": "Agence d'automatisation Make pour PME : scénarios conçus, mis en production et documentés. On vous dit si n8n est un meilleur choix. Audit gratuit de 45 min.",
   "description_en": "Make automation agency for SMEs: scenarios designed, shipped and documented. We also tell you when n8n is the better choice. Free 45-minute audit.",
   "slug": "automatisation-make",
   "publishedAt": "2026-10-04T00:00:00.000Z",
-  "updatedAt": "2026-10-13T00:00:00.000Z",
+  "updatedAt": "2026-10-14T00:00:00.000Z",
   "category": "automatisation",
   "tags": [
     "agence-make",
@@ -114,8 +114,8 @@
       },
       "kicker_fr": "§ Automatisation Make",
       "kicker_en": "§ Make automation",
-      "h1_fr": "Agence Make pour PME",
-      "h1_en": "Make agency for SMEs",
+      "h1_fr": "Agence d'automatisation Make pour PME",
+      "h1_en": "Make automation agency for SMEs",
       "lede_fr": "Waimia est une agence d'automatisation Make. Nous concevons vos scénarios, nous les mettons en production et nous les documentons pour que votre équipe puisse les reprendre. Si Make n'est pas le bon outil pour votre cas, on vous le dit avant de commencer.",
       "lede_en": "Waimia is a Make automation agency. We design your scenarios, put them into production and document them so your team can take them over. If Make is the wrong tool for your case, we say so before we start.",
       "badges": [
@@ -180,8 +180,8 @@
     {
       "type": "direct-answer",
       "background": "paper-2",
-      "question_fr": "Que fait une agence Make, concrètement ?",
-      "question_en": "What does a Make agency actually do?",
+      "question_fr": "Agence automatisation Make : que fait-elle, concrètement ?",
+      "question_en": "Make automation agency: what does it actually do?",
       "term_fr": "Agence Make",
       "term_en": "Make agency",
       "answer_fr": "Elle transforme une tâche répétitive en scénario Make fiable : un déclencheur, des modules reliés à vos outils, des filtres, une gestion des erreurs et une alerte quand quelque chose casse. Un scénario qui marche en démo ne suffit pas. Le nôtre tourne dans votre compte, il est mesuré, documenté, puis confié à une personne de votre équipe.",
@@ -238,6 +238,62 @@
       ],
       "html_fr": "<h2>Make : automatisation de vos processus</h2>\n<p>Make est une plateforme d'automatisation en ligne : vous y dessinez, étape par étape, le chemin d'une donnée d'une application à l'autre. Automatiser vos processus avec Make, c'est confier à des scénarios les tâches qui se répètent à l'identique : saisie, relance, création de dossier, notification. Un processus entier se découpe en plusieurs scénarios courts, plus faciles à lire, à tester et à corriger.</p>\n<h2>Automatisation Make : par quoi on commence</h2>\n<p>Pas par l'outil. Par la tâche qui vous coûte le plus d'heures et qui se répète à l'identique. Trois premiers scénarios typiques (des exemples, pas des références clients) :</p>\n<ul>\n<li><strong>Demande entrante vers CRM.</strong> Un formulaire ou un mail arrive, le scénario crée la fiche, l'affecte et prévient la bonne personne. Plus de ressaisie.</li>\n<li><strong>Relance de devis.</strong> Un devis sans réponse après le délai que vous fixez déclenche une relance préparée, envoyée après votre validation.</li>\n<li><strong>Dossier client à l'ouverture.</strong> Une affaire signée crée le dossier, les tâches et les accès dans vos outils, dans le même ordre à chaque fois.</li>\n</ul>\n<h2>Ce que Make facture, et pourquoi ça compte</h2>\n<p>Make facture au crédit. Au 6 octobre 2026, sa page tarifs l'écrit ainsi : chaque action de module, comme ajouter une ligne dans Google Sheets ou lire un compte Gmail, compte pour un crédit. Un scénario de dix modules exécuté mille fois consomme donc environ dix mille crédits. L'offre gratuite donne 1 000 crédits par mois et deux scénarios actifs au maximum. L'offre Core est affichée à 9 $ par mois pour 10 000 crédits.</p>\n<p>Conséquence : sur Make, un bon scénario est un scénario court. On filtre tôt, on évite les boucles inutiles, on regroupe les appels. Ce travail fait partie de ce que vous payez. C'est aussi le critère qui fait parfois pencher vers <a href=\"/services/automatisation-n8n\">n8n</a> : sa page tarifs définit une exécution comme un passage complet du workflow, quel que soit le nombre d'étapes.</p>",
       "html_en": "<h2>Make: automating your processes</h2>\n<p>Make is an online automation platform: you draw, step by step, the path of a piece of data from one application to another. Automating your processes with Make means handing the tasks that repeat identically to scenarios: data entry, follow-ups, file creation, notifications. A whole process breaks down into several short scenarios, easier to read, test and correct.</p>\n<h2>Make automation: where we start</h2>\n<p>Not with the tool. With the task that costs you the most hours and repeats the same way every time. Three typical first scenarios (examples, not client references):</p>\n<ul>\n<li><strong>Inbound request to CRM.</strong> A form or email arrives; the scenario creates the record, assigns it and notifies the right person. No more re-keying.</li>\n<li><strong>Quote follow-up.</strong> A quote left unanswered past the delay you set triggers a prepared reminder, sent once you approve it.</li>\n<li><strong>Client file at kickoff.</strong> A signed deal creates the folder, tasks and access in your tools, in the same order every time.</li>\n</ul>\n<h2>What Make bills, and why it matters</h2>\n<p>Make bills by the credit. As of 6 October 2026, its pricing page puts it this way: each module action, such as adding a Google Sheets row or fetching Gmail data, counts as one credit. A ten-module scenario run a thousand times therefore uses about ten thousand credits. The free plan gives 1,000 credits a month and at most two active scenarios. The Core plan is listed at $9 a month for 10,000 credits.</p>\n<p>The upshot: on Make, a good scenario is a short one. Filter early, avoid needless loops, batch calls. That work is part of what you pay for. It is also what sometimes tips the choice to <a href=\"/services/automatisation-n8n\">n8n</a>: its pricing page defines an execution as one full run of the workflow, however many steps it has.</p>"
+    },
+    {
+      "type": "comparison-duo",
+      "background": "paper-3",
+      "kicker_fr": "§ Exemple type · pas un cas client",
+      "kicker_en": "§ Typical example · not a client case",
+      "h2_fr": "Exemple type : l'ouverture d'un dossier après la signature d'un devis",
+      "h2_en": "Typical example: opening a file after a quote is signed",
+      "without_label_fr": "Avant",
+      "without_label_en": "Before",
+      "without_title_fr": "Une signature, des saisies en série",
+      "without_title_en": "One signature, a string of manual entries",
+      "without_items": [
+        {
+          "text_fr": "Le devis signé arrive par mail, et quelqu'un le remarque quand il a le temps.",
+          "text_en": "The signed quote arrives by email, and someone notices it when they have time."
+        },
+        {
+          "text_fr": "Le dossier, les tâches et les accès sont créés à la main, outil par outil.",
+          "text_en": "The file, the tasks and the access are created by hand, tool by tool."
+        },
+        {
+          "text_fr": "L'ordre change selon la personne qui s'en occupe, et une étape saute de temps en temps.",
+          "text_en": "The order changes depending on who handles it, and a step gets skipped now and then."
+        },
+        {
+          "text_fr": "Le responsable du projet apprend la signature par un message, parfois en retard.",
+          "text_en": "The project lead learns about the signature through a message, sometimes late."
+        }
+      ],
+      "with_label_fr": "Après",
+      "with_label_en": "After",
+      "with_title_fr": "Un scénario Make dans votre compte",
+      "with_title_en": "One Make scenario in your account",
+      "with_items": [
+        {
+          "text_fr": "La signature du devis déclenche le scénario.",
+          "text_en": "The quote signature triggers the scenario."
+        },
+        {
+          "text_fr": "Les tâches et les accès suivent la même liste, quelle que soit la personne en charge.",
+          "text_en": "Tasks and access follow the same checklist, whoever is in charge."
+        },
+        {
+          "text_fr": "Le responsable est prévenu, avec le lien du dossier.",
+          "text_en": "The project lead is notified, with the link to the file."
+        },
+        {
+          "text_fr": "Si un outil refuse la création, le scénario s'arrête et envoie une alerte, sans rien deviner.",
+          "text_en": "If a tool refuses the creation, the scenario stops and sends an alert, with no guessing."
+        },
+        {
+          "text_fr": "Le détail de chaque exécution reste consultable dans Make.",
+          "text_en": "The detail of each run stays available in Make."
+        }
+      ]
     },
     {
       "type": "deliverables-grid",
@@ -336,6 +392,104 @@
           "body_en": "Documentation, a walkthrough for your team, then on to the next tasks if the pilot held up."
         }
       ]
+    },
+    {
+      "type": "decision-list",
+      "background": "paper",
+      "kicker_fr": "§ Quand ne pas le faire",
+      "kicker_en": "§ When not to do it",
+      "heading_fr": "Make n'est pas le bon choix si",
+      "heading_en": "Make is not the right choice if",
+      "items": [
+        {
+          "label_fr": "Personne, chez vous ou chez un prestataire, ne suivra les scénarios : un scénario sans responsable se dégrade sans bruit.",
+          "label_en": "Nobody, in-house or at a provider, will follow the scenarios: a scenario with no owner decays quietly."
+        },
+        {
+          "label_fr": "La tâche n'est pas stabilisée : un scénario fige des règles qui doivent exister avant d'être automatisées.",
+          "label_en": "The task is not stable: a scenario freezes rules that must exist before being automated."
+        },
+        {
+          "label_fr": "Le volume est de quelques cas par mois : le temps de conception ne sera pas amorti, un tableur ou une règle de messagerie suffit.",
+          "label_en": "The volume is a few cases a month: the design time will not pay off, a spreadsheet or a mail rule will do."
+        },
+        {
+          "label_fr": "Une erreur ne se rattrape pas (paiement, envoi à un client) et personne ne validera ces actions : il faut une étape humaine avant d'automatiser.",
+          "label_en": "A mistake cannot be undone (payment, message to a customer) and nobody will approve these actions: a human step is needed before automating."
+        }
+      ]
+    },
+    {
+      "type": "pricing-cards",
+      "background": "paper-2",
+      "layout": "grid-asym",
+      "colRatio": "2-3",
+      "kicker_fr": "§ Deux façons d'engager",
+      "kicker_en": "§ Two ways to engage",
+      "h2_fr": "Prix d'une prestation Make",
+      "h2_en": "Price of a Make engagement",
+      "lede_fr": "On démarre par un sprint de cadrage à prix fixe : cadrage de la tâche prioritaire et un premier scénario Make en production. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints en régie. Vous gardez vos scénarios Make, vos accès et la documentation.",
+      "lede_en": "We start with a fixed-price scoping sprint: scoping of the priority task and a first Make scenario in production. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the time and materials frame. You keep your Make scenarios, your access and the documentation.",
+      "tiers": [
+        {
+          "name_fr": "Sprint de cadrage",
+          "name_en": "Scoping sprint",
+          "price": "999 €",
+          "period_fr": "10 h · HT",
+          "period_en": "10 h · ex VAT",
+          "features_fr": [
+            "Cadrage de la tâche prioritaire à automatiser",
+            "Un premier scénario Make conçu, branché et en production",
+            "Gestion des erreurs, alertes et heures gagnées mesurées",
+            "Un premier livrable qui tourne, pas une maquette"
+          ],
+          "features_en": [
+            "Scoping of the priority task to automate",
+            "A first Make scenario designed, wired and in production",
+            "Error handling, alerts and hours saved measured",
+            "A first deliverable that runs, not a mockup"
+          ],
+          "cta": {
+            "label_fr": "Réserver un audit IA gratuit →",
+            "label_en": "Book a free AI audit →",
+            "href": "/contact#offer=audit-ia-pme&intent=audit",
+            "variant": "primary"
+          },
+          "featured": true
+        },
+        {
+          "name_fr": "Suite sur devis",
+          "name_en": "Next steps on quote",
+          "price": "Sur devis",
+          "period_fr": "estimé avec vous · HT",
+          "period_en": "estimated with you · ex VAT",
+          "features_fr": [
+            "Temps nécessaire estimé ensemble, puis validé",
+            "Exécuté en sprints, facturés en régie",
+            "Nouveaux scénarios Make ajoutés et supervisés",
+            "Vous gardez scénarios, accès et documentation"
+          ],
+          "features_en": [
+            "Time needed estimated together, then validated",
+            "Run in sprints, time and materials frame",
+            "New Make scenarios added and supervised",
+            "You keep the scenarios, access and documentation"
+          ],
+          "cta": {
+            "label_fr": "Cadrer la suite →",
+            "label_en": "Scope what follows →",
+            "href": "/contact#offer=automatisation-make&intent=suite",
+            "variant": "ghost"
+          }
+        }
+      ],
+      "footnote_fr": "Le sprint de cadrage est à prix fixe, 999 € HT pour 10 heures : cadrage de la tâche prioritaire, un premier scénario Make conçu, branché et mis en production, avec un livrable qui tourne dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent les scénarios Make suivants, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € de l'heure, non dégressif. L'abonnement Make reste à votre nom et à votre charge. Sans captivité : à la fin, vos scénarios Make, vos accès et la documentation sont à vous.",
+      "footnote_en": "The scoping sprint is fixed-price, 999 € ex VAT for 10 hours: scoping of the priority task, a first Make scenario designed, wired and put into production, with a deliverable that runs by the end. What follows is quoted: we estimate together the time the next Make scenarios require, validate it, then run it in sprints within the time and materials frame, at {{prix.horaire}} € an hour, non-degressive. The Make subscription stays in your name and at your cost. No lock-in: at the end, your Make scenarios, your access and the documentation are yours."
+    },
+    {
+      "type": "eeat-panel",
+      "variant": "media",
+      "silo": "ops"
     },
     {
       "type": "editorial-prose",

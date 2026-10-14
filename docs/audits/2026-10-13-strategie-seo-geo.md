@@ -10,7 +10,7 @@
 4. **Le site grossit** : 88 URL le 5 octobre [A5], 158 le 13. 37 URL du sitemap manquent au crawl du 9 [SA][G].
 5. **Fusions du 4 octobre défaites** : `astro.config.mjs:304-313` (commit 936e04f0) redirigeait 7 slugs ; aucune redirection aujourd'hui, 7 pages en 200. Cinq restaurées le 12 par commit nommé, plus wordpress et webflow [G][P].
 6. **Format à parité** : Kayro 3 880 à 4 430 mots, requête en H1 ; Lucas 4 010 mots ; Waimia 3 030 à 4 980 [P]. L'écart est l'autorité.
-7. **Trafic concentré** : Kayro, 10 mots-clés, 39 % de marque [KP] ; AI Overview : Lucas 1 641 de 2 972 visites [L], noiise 2 796 de 27 701 [N]. Ses 410 requêtes en question : 100 visites [N], donc PAA et FAQ ne sont pas un levier.
+7. **Trafic concentré** : Kayro, 10 mots-clés, 39 % de marque [KP] ; AI Overview : Lucas 1 641 de 2 972 visites, 54 mots-clés dont 46 en position 1 [L], noiise 2 796 de 27 701 [N]. Ses 410 requêtes en question : 100 visites [N], donc PAA et FAQ ne sont pas un levier.
 8. **ia4ops** vit de pages outil (airtable : 40 500 recherches, 14 visites) [I].
 
 ## 2. Six chantiers
@@ -40,7 +40,7 @@ Aucune page neuve. Volume et KD : export cité.
 12. **audit ia entreprise** 90 KD 7, **audit intelligence artificielle** 140 KD 20 [K]. `/audit-ia-pme` : H2.
 13. **n8n vs make** 590 KD 31 [S4 l.308]. Fusion à trancher entre `n8n-vs-make` et `n8n-vs-make-vs-zapier` : 18,8 % commun [P].
 14. **seo-geo-contenu et referencement-ia** : 22,4 % commun [P]. Fusion ou différenciation.
-15. **agence no code** 1 600 KD 21 [I], **formation no code** 1 000 KD 28 [F]. Décision Simon ; H2 « no-code » sur `/services/automatisations` seulement si l'offre le dit.
+15. **agence no code** 1 600 KD 21 [I], **formation no code** 1 000 KD 28 [F]. Décision de Simon, aucune page à créer sans accord ; H2 « no-code » sur `/services/automatisations` seulement si l'offre le dit.
 
 **Écartés** : airtable, lovable, Claude et WordPress (pages outil) ; gratuit, étudiant, moins cher (743 visites chez Lucas), origine (417) [L] : grand public.
 

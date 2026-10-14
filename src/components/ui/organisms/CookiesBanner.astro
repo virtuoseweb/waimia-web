@@ -17,9 +17,12 @@ const lang = propLang ?? langFromPath(Astro.url.pathname);
 >
   <div class="cb-inner wrap">
     <p class="cb-text">
-      {lang === 'fr'
-        ? "Ce site utilise uniquement des cookies essentiels à son fonctionnement et à vos préférences. Aucune donnée personnelle identifiable n'est collectée."
-        : 'This site only uses cookies essential to its operation and to your preferences. No personally identifiable data is collected.'}
+      <span class="cb-text-long">
+        {lang === 'fr'
+          ? "Ce site utilise uniquement des cookies essentiels à son fonctionnement et à vos préférences. Aucune donnée personnelle identifiable n'est collectée."
+          : 'This site only uses cookies essential to its operation and to your preferences. No personally identifiable data is collected.'}
+      </span>
+      <span class="cb-text-short">{lang === 'fr' ? 'Cookies essentiels uniquement.' : 'Essential cookies only.'}</span>
     </p>
     <div class="cb-actions">
       <button id="cb-accept" class="cb-btn cb-btn--primary">
@@ -90,9 +93,18 @@ const lang = propLang ?? langFromPath(Astro.url.pathname);
     border-color: var(--ink);
     color: var(--ink);
   }
+  .cb-text-short { display: none; }
+  /* Mobile · barre compacte sur une rangée : texte court à gauche, boutons à
+     droite. Couleurs, polices, bordure et casse d'origine ; seules la densité et
+     la longueur du texte changent (le texte complet reste au-delà de 600 px). */
   @media (max-width: 600px) {
-    .cb-actions { width: 100% }
-    .cb-btn { flex: 1; text-align: center }
+    .cb { padding: var(--space-2) 0; }
+    .cb-inner { flex-wrap: nowrap; gap: var(--space-3); }
+    .cb-text { line-height: var(--leading-body); }
+    .cb-text-long { display: none; }
+    .cb-text-short { display: inline; }
+    .cb-actions { flex-wrap: nowrap; }
+    .cb-btn { flex: none; padding: var(--space-2) var(--space-3); text-align: center; }
   }
 </style>
 
@@ -101,11 +113,45 @@ const lang = propLang ?? langFromPath(Astro.url.pathname);
   var KEY = 'waimia_cookies_consent';
 
   // Pilote --cookie-banner-height via data-attribute sur <html> · cf tokens.css
-  // → permet aux sections (hero, CTA final) de réserver l'espace bas dynamiquement
+  // → permet aux sections (hero, CTA final) de réserver l'espace bas dynamiquement.
+  // Bannière visible : la hauteur RÉELLE mesurée surcharge la valeur forfaitaire
+  // des tokens (78/124 px) et suit ses changements (largeur, polices chargées) ;
+  // fermée : la propriété est retirée et l'observateur déconnecté.
+  var observer = null;
+  var last = null;
+
+  function isVisible(banner) {
+    return !!banner && !banner.hidden &&
+      document.documentElement.hasAttribute('data-cookie-visible');
+  }
+
+  function measure() {
+    var banner = document.getElementById('cookies-banner');
+    if (!isVisible(banner)) return;
+    var h = Math.round(banner.getBoundingClientRect().height);
+    if (!h || h === last) return;
+    last = h;
+    document.documentElement.style.setProperty('--cookie-banner-height', h + 'px');
+  }
+
   function setVisible(visible) {
     var root = document.documentElement;
-    if (visible) root.setAttribute('data-cookie-visible', 'true');
-    else root.removeAttribute('data-cookie-visible');
+    var banner = document.getElementById('cookies-banner');
+    if (observer) observer.disconnect();
+    if (visible && banner) {
+      root.setAttribute('data-cookie-visible', 'true');
+      last = null;
+      measure();
+      if ('ResizeObserver' in window) {
+        if (!observer) observer = new ResizeObserver(measure);
+        observer.observe(banner);
+      }
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
+    } else {
+      root.removeAttribute('data-cookie-visible');
+      root.style.removeProperty('--cookie-banner-height');
+      last = null;
+    }
   }
 
   function initBanner() {

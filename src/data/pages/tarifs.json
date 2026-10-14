@@ -5,6 +5,22 @@
   "description_en": "Waimia pricing: free 45-min AI audit, scoping sprint at 999 € ex VAT, pilot from 2,000 € ex VAT, maintenance in three tiers from {{prix.maintenance.p1}} € a month.",
   "sections": [
     {
+      "type": "masthead-bar",
+      "breadcrumb": [
+        {
+          "label_fr": "Accueil",
+          "label_en": "Home",
+          "href": "/"
+        },
+        {
+          "label_fr": "Tarifs",
+          "label_en": "Pricing"
+        }
+      ],
+      "locations_fr": "FR",
+      "locations_en": "FR"
+    },
+    {
       "type": "engagement-ledger",
       "anchor": "parcours",
       "background": "paper",
@@ -232,8 +248,8 @@
           }
         ]
       },
-      "footnote_fr": "Prix hors taxes. Les montants « dès » sont des planchers : le devis ferme est établi après l'audit gratuit, sur un temps estimé avec vous et validé avant exécution. Taux horaire unique de {{prix.horaire}} € HT, non dégressif.",
-      "footnote_en": "Prices exclude VAT. \"From\" amounts are floors: the firm quote is drawn up after the free audit, on a time estimate made with you and validated before work starts. Single hourly rate of {{prix.horaire}} € ex VAT, flat."
+      "footnote_fr": "Prix hors taxes. Les montants « dès » sont des planchers : le devis ferme est établi après l'audit gratuit, sur un temps estimé avec vous et validé avant exécution. Taux horaire unique de {{prix.horaire}} € HT, non dégressif. Prix en vigueur au {{prix.maj}}.",
+      "footnote_en": "Prices exclude VAT. \"From\" amounts are floors: the firm quote is drawn up after the free audit, on a time estimate made with you and validated before work starts. Single hourly rate of {{prix.horaire}} € ex VAT, flat. Prices valid as of {{prix.maj.en}}."
     },
     {
       "type": "pricing-cards",

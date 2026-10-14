@@ -24,7 +24,7 @@ export const phases = [
   {
     n: '03',
     label_fr: 'Mesure',
-    body_fr: "Chaque workflow a sa mesure avant et après, relevée sur vos données : temps rendu, erreurs évitées, coût des modèles. C'est ce relevé qui décide si on étend, si on corrige ou si on s'arrête là.",
+    body_fr: "Chaque workflow a sa mesure avant et après, relevée sur vos données : temps rendu, erreurs évitées, coût des modèles. C'est ce relevé qui décide si on étend, si on corrige ou si on s'arrête là. Exemple de relevé : minutes passées par facture fournisseur sur deux semaines avant, puis deux semaines après la mise en production, avec le nombre de corrections manuelles. Quand aucune mesure n'existe, la fiche publiée le dit.",
   },
   {
     n: '04',

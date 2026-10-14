@@ -453,7 +453,9 @@ const hasReveal = variant !== 'columns' && revealLinks.some((l) => l.media);
           {credentials.map((c) => (
             <li class="eep-creds__item">
               {c.src
-                ? <img class="eep-creds__badge" src={c.src} alt={c.alt} loading="lazy" />
+                ? (c.href
+                    ? <a href={c.href} target="_blank" rel="noopener"><img class="eep-creds__badge" src={c.src} alt={c.alt} loading="lazy" /></a>
+                    : <img class="eep-creds__badge" src={c.src} alt={c.alt} loading="lazy" />)
                 : <span class="eep-creds__text">{c.alt}</span>}
               {c.scope && <span class="eep-creds__scope">{c.scope}</span>}
             </li>
@@ -942,7 +944,7 @@ const hasReveal = variant !== 'columns' && revealLinks.some((l) => l.media);
   .eep-honesty {
     margin: var(--space-2) 0 0;
     font-family: var(--font-mono);
-    font-size: var(--text-micro);
+    font-size: var(--text-small);
     letter-spacing: var(--tracking-mono);
     color: rgba(var(--paper-rgb), 0.55);
     text-wrap: pretty;

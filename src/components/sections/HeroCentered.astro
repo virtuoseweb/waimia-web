@@ -935,10 +935,16 @@ const primaryAttrs = ctaPrimaryExternal ? { target: '_blank', rel: 'noopener nor
   .hero-essay__hd--right .hero-essay__illus { right: var(--space-3); object-position: right center; }
   .hero-essay__hd--left .hero-essay__illus { left: var(--space-3); object-position: left center; }
   .hero-essay__hd--left .wrap-wide { margin-left: auto; }
+  /* Le h1 garde toute la largeur et passe sur l'illustration ; seuls le lede et
+     la ligne meta sont repoussés à droite pour ne pas se lire sur le dessin. */
+  .hero-essay__hd--left .hero-essay__lede,
+  .hero-essay__hd--left .hero-essay__meta { margin-left: auto; max-width: min(66%, 760px); }
   .hero-essay[data-bg='ink'] .hero-essay__illus { mix-blend-mode: screen; }
   @media (max-width: 768px) {
     .hero-essay__hd--illus { display: flex; flex-direction: column; min-height: 0; }
     .hero-essay__hd--illus .wrap-wide { order: 0; margin-left: 0; }
+    .hero-essay__hd--illus .hero-essay__lede { margin-left: 0; max-width: 760px; }
+    .hero-essay__hd--illus .hero-essay__meta { margin-left: 0; max-width: none; }
     .hero-essay__illus {
       order: 1;
       position: static;

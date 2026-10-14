@@ -43,6 +43,7 @@ const calUrl = `https://cal.com/${SITE.cal.username}/${SITE.cal.event}`;
             <span class="cc-selected-k">Rendez-vous sélectionné</span>
             <span class="cc-selected-v" data-offer-label>Audit IA pour PME</span>
           </p>
+          <p class="cc-selected-note" data-offer-note hidden>Tout projet commence par l'audit gratuit de 45 minutes ; le devis ferme vient après, jamais avant.</p>
           <h2 class="cc-h2" id="rdv-h2">45 minutes, en visio, gratuit</h2>
           <dl class="cc-facts">
             <div><dt>Avec qui</dt><dd>Simon Beros, fondateur. C'est lui qui mènerait le projet ensuite.</dd></div>
@@ -119,7 +120,17 @@ const calUrl = `https://cal.com/${SITE.cal.username}/${SITE.cal.event}`;
     root.dataset.intent = intent;
 
     var label = root.querySelector('[data-offer-label]');
-    if (label && known) label.textContent = known.label;
+    var note = root.querySelector('[data-offer-note]');
+    var isFormation = subject === 'formation';
+    var unknownOffer = offer !== '' && !known;
+    if (label) {
+      if (label.dataset.initial === undefined) label.dataset.initial = label.textContent || '';
+      if (known) label.textContent = known.label;
+      else if (isFormation) label.textContent = 'Formation : programme et devis';
+      else if (unknownOffer) label.textContent = 'Audit IA gratuit, première étape avant tout devis';
+      else label.textContent = label.dataset.initial;
+    }
+    if (note) note.hidden = !(unknownOffer && !isFormation);
 
     var sel = root.querySelector('[data-contact-subject]');
     if (sel) sel.value = subject;
@@ -209,6 +220,7 @@ const calUrl = `https://cal.com/${SITE.cal.username}/${SITE.cal.event}`;
     border-left: 3px solid var(--accent);
     background: var(--paper);
   }
+  .cc-selected-note { margin: calc(-1 * var(--space-3)) 0 var(--space-5); font-size: var(--text-small); color: var(--muted); }
   .cc-selected-k { font-size: var(--text-small); color: var(--muted); }
   .cc-selected-v { font-size: var(--text-body); font-weight: var(--fw-semibold); color: var(--ink); }
   .cc-h2 {
@@ -272,6 +284,7 @@ const calUrl = `https://cal.com/${SITE.cal.username}/${SITE.cal.event}`;
     /* Mobile : le calendrier d'abord, les détails pratiques ensuite. */
     .cc-rdv-info { display: contents; }
     .cc-selected { order: -2; margin: 0; }
+    .cc-selected-note { order: -2; margin: 0; }
     .cc-rdv-cal { order: -1; }
     .cc-rdv-in { display: flex; flex-direction: column; gap: var(--space-5); }
     .cc-rdv-in > .cc-rdv-info > * { width: 100%; }
