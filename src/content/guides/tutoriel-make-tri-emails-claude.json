@@ -62,11 +62,11 @@
   "faq_fr": [
     {
       "q": "Combien coûte un scénario Make de tri d'e-mails ?",
-      "a": "En crédits, quatre à cinq par e-mail traité (borne haute : cinq), plus un par vérification de la boîte (un par passage du déclencheur). Avec 880 e-mails par mois et une vérification par heure, le calcul donne environ 5 120 crédits, ce qui dépasse l'offre gratuite. À cela s'ajoutent les jetons facturés par Anthropic si vous utilisez votre propre clé. Le chiffre réel se lit dans le compteur de Make, sur dix e-mails."
+      "a": "En crédits, trois à cinq par e-mail traité (trois sans brouillon, cinq avec), plus un par vérification de la boîte (un par passage du déclencheur). Avec 880 e-mails par mois et une vérification par heure, le calcul donne environ 5 120 crédits, ce qui dépasse l'offre gratuite. À cela s'ajoutent les jetons facturés par Anthropic si vous utilisez votre propre clé. Le chiffre réel se lit dans le compteur de Make, sur dix e-mails."
     },
     {
       "q": "L'offre gratuite de Make suffit-elle ?",
-      "a": "Pour tester, oui : 1 000 crédits par mois, deux scénarios actifs, 15 minutes au minimum entre deux exécutions. Sur l'offre gratuite, le module « Simple Text Prompt » est limité à Claude Haiku 4.5. Pour un volume réel, comptez en crédits avant de décider."
+      "a": "Pour tester, oui : 1 000 crédits par mois, deux scénarios actifs, 15 minutes au minimum entre deux exécutions. Sur l'offre gratuite, le module « Simple Text Prompt » est limité aux modèles Claude Haiku. Pour un volume réel, comptez en crédits avant de décider."
     },
     {
       "q": "Que se passe-t-il si Claude ou Gmail tombe en panne ?",
@@ -78,21 +78,21 @@
     },
     {
       "q": "Make ou n8n pour ce scénario ?",
-      "a": "Make si la personne qui maintiendra le scénario n'est pas technique et si le volume reste modéré, car la facture suit le nombre de modules. n8n si le volume monte ou si les données doivent rester sur votre serveur : il compte l'exécution entière. Le comparatif <a href=\"/ressources/comparatifs/n8n-vs-make\">n8n vs Make</a> détaille le calcul, et la version n8n est dans <a href=\"/blog/trier-emails-entrant-claude-n8n\">trier ses e-mails avec Claude et n8n</a>."
+      "a": "Make si la personne qui maintiendra le scénario n'est pas technique et si le volume reste modéré, car la facture suit le nombre de modules. n8n si le volume monte ou si les données doivent rester sur votre serveur : il compte l'exécution entière. Le comparatif n8n vs Make détaille le calcul, et la version n8n est dans trier ses e-mails avec Claude et n8n."
     },
     {
       "q": "Combien coûte la mise en place par Waimia ?",
-      "a": "Un audit gratuit de 45 minutes, puis un sprint de cadrage à {{prix.sprint}} € HT pour 10 heures : cadrage de la tâche et un premier scénario Make en production. La suite est facturée {{prix.horaire}} € HT de l'heure ou sur devis. L'abonnement Make est à votre nom et à votre charge. Le détail est sur la page <a href=\"/services/automatisation-make\">agence Make</a>."
+      "a": "Un audit gratuit de 45 minutes, puis un sprint de cadrage à {{prix.sprint}} € HT pour 10 heures : cadrage de la tâche et premier scénario Make prototypé ; la mise en production relève du pilote, dès {{prix.pilote}} € HT. La suite est facturée {{prix.horaire}} € HT de l'heure ou sur devis. L'abonnement Make est à votre nom et à votre charge. Le détail est sur la page agence Make."
     }
   ],
   "faq_en": [
     {
       "q": "How much does a Make email-sorting scenario cost?",
-      "a": "In credits, four to five per email processed (upper bound: five), plus one per mailbox check (one per trigger pass). With 880 emails a month and one check an hour, the calculation gives about 5,120 credits, which exceeds the free plan. Tokens billed by Anthropic come on top if you use your own key. The real figure is read on Make's counter, on ten emails."
+      "a": "In credits, three to five per email processed (three without a draft, five with one), plus one per mailbox check (one per trigger pass). With 880 emails a month and one check an hour, the calculation gives about 5,120 credits, which exceeds the free plan. Tokens billed by Anthropic come on top if you use your own key. The real figure is read on Make's counter, on ten emails."
     },
     {
       "q": "Is Make's free plan enough?",
-      "a": "To test, yes: 1,000 credits a month, two active scenarios, at least 15 minutes between runs. On the free plan, the “Simple Text Prompt” module is limited to Claude Haiku 4.5. For a real volume, count in credits before deciding."
+      "a": "To test, yes: 1,000 credits a month, two active scenarios, at least 15 minutes between runs. On the free plan, the “Simple Text Prompt” module is limited to Claude Haiku models. For a real volume, count in credits before deciding."
     },
     {
       "q": "What happens if Claude or Gmail goes down?",
@@ -104,11 +104,11 @@
     },
     {
       "q": "Make or n8n for this scenario?",
-      "a": "Make if the person who will maintain the scenario is not technical and the volume stays moderate, since the bill follows the number of modules. n8n if the volume grows or the data must stay on your server: it counts the whole run. The <a href=\"/ressources/comparatifs/n8n-vs-make\">n8n vs Make</a> comparison details the calculation, and the n8n version is in <a href=\"/blog/trier-emails-entrant-claude-n8n\">sorting emails with Claude and n8n</a>."
+      "a": "Make if the person who will maintain the scenario is not technical and the volume stays moderate, since the bill follows the number of modules. n8n if the volume grows or the data must stay on your server: it counts the whole run. The n8n vs Make comparison details the calculation, and the n8n version is in sorting emails with Claude and n8n."
     },
     {
       "q": "How much does Waimia's setup cost?",
-      "a": "A free 45-minute audit, then a scoping sprint at €{{prix.sprint.en}} excl. VAT for 10 hours: scoping the task and a first Make scenario in production. What follows is billed €{{prix.horaire}} excl. VAT per hour or on a quote. The Make subscription is in your name and paid by you. Details are on the <a href=\"/services/automatisation-make\">Make agency</a> page."
+      "a": "A free 45-minute audit, then a scoping sprint at €{{prix.sprint.en}} excl. VAT for 10 hours: scoping the task and a first Make scenario prototyped; going live is part of the pilot, from €{{prix.pilote.en}} excl. VAT. What follows is billed €{{prix.horaire}} excl. VAT per hour or on a quote. The Make subscription is in your name and paid by you. Details are on the Make agency page."
     }
   ],
   "sections": [
@@ -172,14 +172,14 @@
       "question_en": "How do you sort your emails with Claude in Make?",
       "term_fr": "Réponse courte",
       "term_en": "Short answer",
-      "answer_fr": "Enchaînez six modules : Gmail « Watch emails », Anthropic Claude « Create a prompt », JSON « Parse JSON », Google Sheets « Add a Row », un routeur avec une route de repli, puis Gmail « Create a draft email ». Le scénario classe chaque message et prépare un brouillon, sans rien envoyer. Il consomme quatre à cinq crédits par e-mail (le routeur est à mesurer), plus un crédit à chaque vérification de la boîte.",
-      "answer_en": "Chain six modules: Gmail “Watch emails”, Anthropic Claude “Create a prompt”, JSON “Parse JSON”, Google Sheets “Add a Row”, a router with a fallback route, then Gmail “Create a draft email”. The scenario sorts each message and prepares a draft, sending nothing. It uses four to five credits per email (the router is to be measured), plus one credit on every mailbox check."
+      "answer_fr": "Enchaînez six modules : Gmail « Watch emails », Anthropic Claude « Create a prompt », JSON « Parse JSON », Google Sheets « Add a Row », un routeur avec une route de repli, puis Gmail « Create a draft email ». Le scénario classe chaque message et prépare un brouillon, sans rien envoyer. Il consomme trois à cinq crédits par e-mail (le routeur est à mesurer), plus un crédit à chaque vérification de la boîte.",
+      "answer_en": "Chain six modules: Gmail “Watch emails”, Anthropic Claude “Create a prompt”, JSON “Parse JSON”, Google Sheets “Add a Row”, a router with a fallback route, then Gmail “Create a draft email”. The scenario sorts each message and prepares a draft, sending nothing. It uses three to five credits per email (the router is to be measured), plus one credit on every mailbox check."
     },
     {
       "type": "editorial-prose",
       "background": "paper",
-      "html_fr": "<h2>Ce que fait le scénario, et ce qu'il ne fait pas</h2>\n<p>Le scénario lit chaque nouvel e-mail d'une boîte Gmail, demande à Claude de le classer dans une liste fermée de catégories, note le résultat dans un tableau, puis prépare un brouillon de réponse quand le message en appelle un. Il ne supprime rien et n'envoie rien : le brouillon attend votre relecture, dans le fil de discussion d'origine.</p>\n<p>C'est une automatisation à jugement léger : la catégorie vient d'une lecture du message, pas d'une règle fixe. Pour une règle fixe (un expéditeur connu, un mot-clé), un filtre Gmail suffit et ne consomme aucun crédit. La version n8n du même scénario est décrite dans <a href=\"/blog/trier-emails-entrant-claude-n8n\">trier ses e-mails avec Claude et n8n</a>, et le choix entre les deux outils dans le comparatif <a href=\"/ressources/comparatifs/n8n-vs-make\">n8n vs Make</a>.</p>\n<h2>Avant de commencer</h2>\n<ul>\n<li><strong>Un compte Make.</strong> Le module « Simple Text Prompt » d'Anthropic Claude ne demande aucune clé ; sur l'offre gratuite, il se limite à Claude Haiku 4.5. Les autres modules d'Anthropic Claude, dont « Create a prompt », passent par une connexion avec votre propre clé API Anthropic.</li>\n<li><strong>Une connexion Gmail</strong> et un tableau Google Sheets pour le journal.</li>\n<li><strong>La liste des catégories, écrite avant le prompt.</strong> Quatre à six suffisent : par exemple devis, support, facture, information, à vérifier.</li>\n<li><strong>Un libellé Gmail</strong> qui limite le périmètre, pour ne pas faire lire toute la boîte à Claude.</li>\n</ul>",
-      "html_en": "<h2>What the scenario does, and what it does not</h2>\n<p>The scenario reads each new email in a Gmail mailbox, asks Claude to sort it into a closed list of categories, logs the result in a spreadsheet, then prepares a draft reply when the message calls for one. It deletes nothing and sends nothing: the draft waits for your review, in the original thread.</p>\n<p>This is a light-judgement automation: the category comes from reading the message, not from a fixed rule. For a fixed rule (a known sender, a keyword), a Gmail filter is enough and uses no credit. The n8n version of the same scenario is described in <a href=\"/blog/trier-emails-entrant-claude-n8n\">sorting emails with Claude and n8n</a>, and the choice between the two tools in the <a href=\"/ressources/comparatifs/n8n-vs-make\">n8n vs Make</a> comparison.</p>\n<h2>Before you start</h2>\n<ul>\n<li><strong>A Make account.</strong> Anthropic Claude's “Simple Text Prompt” module needs no key; on the free plan, it is limited to Claude Haiku 4.5. The other Anthropic Claude modules, including “Create a prompt”, go through a connection with your own Anthropic API key.</li>\n<li><strong>A Gmail connection</strong> and a Google Sheets spreadsheet for the log.</li>\n<li><strong>The list of categories, written before the prompt.</strong> Four to six are enough: for example quote, support, invoice, information, to check.</li>\n<li><strong>A Gmail label</strong> that limits the scope, so Claude does not read the whole mailbox.</li>\n</ul>"
+      "html_fr": "<h2>Ce que fait le scénario, et ce qu'il ne fait pas</h2>\n<p>Le scénario lit chaque nouvel e-mail d'une boîte Gmail, demande à Claude de le classer dans une liste fermée de catégories, note le résultat dans un tableau, puis prépare un brouillon de réponse quand le message en appelle un. Il ne supprime rien et n'envoie rien : le brouillon attend votre relecture, dans le fil de discussion d'origine.</p>\n<p>C'est une automatisation à jugement léger : la catégorie vient d'une lecture du message, pas d'une règle fixe. Pour une règle fixe (un expéditeur connu, un mot-clé), un filtre Gmail suffit et ne consomme aucun crédit. La version n8n du même scénario est décrite dans <a href=\"/blog/trier-emails-entrant-claude-n8n\">trier ses e-mails avec Claude et n8n</a>, et le choix entre les deux outils dans le comparatif <a href=\"/ressources/comparatifs/n8n-vs-make\">n8n vs Make</a>.</p>\n<h2>Avant de commencer</h2>\n<ul>\n<li><strong>Un compte Make.</strong> Le module « Simple Text Prompt » d'Anthropic Claude ne demande aucune clé ; sur l'offre gratuite, il se limite aux modèles Claude Haiku. Les autres modules d'Anthropic Claude, dont « Create a prompt », passent par une connexion avec votre propre clé API Anthropic.</li>\n<li><strong>Une connexion Gmail</strong> et un tableau Google Sheets pour le journal.</li>\n<li><strong>La liste des catégories, écrite avant le prompt.</strong> Quatre à six suffisent : par exemple devis, support, facture, information, à vérifier.</li>\n<li><strong>Un libellé Gmail</strong> qui limite le périmètre, pour ne pas faire lire toute la boîte à Claude.</li>\n</ul>",
+      "html_en": "<h2>What the scenario does, and what it does not</h2>\n<p>The scenario reads each new email in a Gmail mailbox, asks Claude to sort it into a closed list of categories, logs the result in a spreadsheet, then prepares a draft reply when the message calls for one. It deletes nothing and sends nothing: the draft waits for your review, in the original thread.</p>\n<p>This is a light-judgement automation: the category comes from reading the message, not from a fixed rule. For a fixed rule (a known sender, a keyword), a Gmail filter is enough and uses no credit. The n8n version of the same scenario is described in <a href=\"/blog/trier-emails-entrant-claude-n8n\">sorting emails with Claude and n8n</a>, and the choice between the two tools in the <a href=\"/ressources/comparatifs/n8n-vs-make\">n8n vs Make</a> comparison.</p>\n<h2>Before you start</h2>\n<ul>\n<li><strong>A Make account.</strong> Anthropic Claude's “Simple Text Prompt” module needs no key; on the free plan, it is limited to Claude Haiku models. The other Anthropic Claude modules, including “Create a prompt”, go through a connection with your own Anthropic API key.</li>\n<li><strong>A Gmail connection</strong> and a Google Sheets spreadsheet for the log.</li>\n<li><strong>The list of categories, written before the prompt.</strong> Four to six are enough: for example quote, support, invoice, information, to check.</li>\n<li><strong>A Gmail label</strong> that limits the scope, so Claude does not read the whole mailbox.</li>\n</ul>"
     },
     {
       "type": "process-steps",
@@ -422,8 +422,8 @@
       "heading_en": "The limits and traps to know before switching on",
       "items": [
         {
-          "label_fr": "Données personnelles : le contenu des e-mails part chez Anthropic. Avant d'activer le scénario, relisez le guide <a href=\"/ressources/guides/claude-rgpd-pme\">Claude et RGPD en PME</a> et décidez quels libellés Gmail entrent dans le périmètre.",
-          "label_en": "Personal data: the content of the emails goes to Anthropic. Before activating the scenario, reread the guide <a href=\"/ressources/guides/claude-rgpd-pme\">Claude and GDPR for SMBs</a> and decide which Gmail labels fall within the scope."
+          "label_fr": "Données personnelles : le contenu des e-mails part chez Anthropic. Avant d'activer le scénario, relisez le guide Claude et RGPD en PME et décidez quels libellés Gmail entrent dans le périmètre.",
+          "label_en": "Personal data: the content of the emails goes to Anthropic. Before activating the scenario, reread the guide Claude and GDPR for SMBs and decide which Gmail labels fall within the scope."
         },
         {
           "label_fr": "Choix du modèle : la documentation de Make signale que, selon les conditions d'Anthropic, les données traitées par le modèle Fable peuvent être conservées 30 jours. Prenez un modèle de la liste du module en connaissance de cause.",
@@ -496,15 +496,15 @@
       "items": [
         {
           "q_fr": "Combien coûte un scénario Make de tri d'e-mails ?",
-          "a_fr": "En crédits, quatre à cinq par e-mail traité (borne haute : cinq), plus un par vérification de la boîte (un par passage du déclencheur). Avec 880 e-mails par mois et une vérification par heure, le calcul donne environ 5 120 crédits, ce qui dépasse l'offre gratuite. À cela s'ajoutent les jetons facturés par Anthropic si vous utilisez votre propre clé. Le chiffre réel se lit dans le compteur de Make, sur dix e-mails.",
+          "a_fr": "En crédits, trois à cinq par e-mail traité (trois sans brouillon, cinq avec), plus un par vérification de la boîte (un par passage du déclencheur). Avec 880 e-mails par mois et une vérification par heure, le calcul donne environ 5 120 crédits, ce qui dépasse l'offre gratuite. À cela s'ajoutent les jetons facturés par Anthropic si vous utilisez votre propre clé. Le chiffre réel se lit dans le compteur de Make, sur dix e-mails.",
           "q_en": "How much does a Make email-sorting scenario cost?",
-          "a_en": "In credits, four to five per email processed (upper bound: five), plus one per mailbox check (one per trigger pass). With 880 emails a month and one check an hour, the calculation gives about 5,120 credits, which exceeds the free plan. Tokens billed by Anthropic come on top if you use your own key. The real figure is read on Make's counter, on ten emails."
+          "a_en": "In credits, three to five per email processed (three without a draft, five with one), plus one per mailbox check (one per trigger pass). With 880 emails a month and one check an hour, the calculation gives about 5,120 credits, which exceeds the free plan. Tokens billed by Anthropic come on top if you use your own key. The real figure is read on Make's counter, on ten emails."
         },
         {
           "q_fr": "L'offre gratuite de Make suffit-elle ?",
-          "a_fr": "Pour tester, oui : 1 000 crédits par mois, deux scénarios actifs, 15 minutes au minimum entre deux exécutions. Sur l'offre gratuite, le module « Simple Text Prompt » est limité à Claude Haiku 4.5. Pour un volume réel, comptez en crédits avant de décider.",
+          "a_fr": "Pour tester, oui : 1 000 crédits par mois, deux scénarios actifs, 15 minutes au minimum entre deux exécutions. Sur l'offre gratuite, le module « Simple Text Prompt » est limité aux modèles Claude Haiku. Pour un volume réel, comptez en crédits avant de décider.",
           "q_en": "Is Make's free plan enough?",
-          "a_en": "To test, yes: 1,000 credits a month, two active scenarios, at least 15 minutes between runs. On the free plan, the “Simple Text Prompt” module is limited to Claude Haiku 4.5. For a real volume, count in credits before deciding."
+          "a_en": "To test, yes: 1,000 credits a month, two active scenarios, at least 15 minutes between runs. On the free plan, the “Simple Text Prompt” module is limited to Claude Haiku models. For a real volume, count in credits before deciding."
         },
         {
           "q_fr": "Que se passe-t-il si Claude ou Gmail tombe en panne ?",
@@ -520,15 +520,15 @@
         },
         {
           "q_fr": "Make ou n8n pour ce scénario ?",
-          "a_fr": "Make si la personne qui maintiendra le scénario n'est pas technique et si le volume reste modéré, car la facture suit le nombre de modules. n8n si le volume monte ou si les données doivent rester sur votre serveur : il compte l'exécution entière. Le comparatif <a href=\"/ressources/comparatifs/n8n-vs-make\">n8n vs Make</a> détaille le calcul, et la version n8n est dans <a href=\"/blog/trier-emails-entrant-claude-n8n\">trier ses e-mails avec Claude et n8n</a>.",
+          "a_fr": "Make si la personne qui maintiendra le scénario n'est pas technique et si le volume reste modéré, car la facture suit le nombre de modules. n8n si le volume monte ou si les données doivent rester sur votre serveur : il compte l'exécution entière. Le comparatif n8n vs Make détaille le calcul, et la version n8n est dans trier ses e-mails avec Claude et n8n.",
           "q_en": "Make or n8n for this scenario?",
-          "a_en": "Make if the person who will maintain the scenario is not technical and the volume stays moderate, since the bill follows the number of modules. n8n if the volume grows or the data must stay on your server: it counts the whole run. The <a href=\"/ressources/comparatifs/n8n-vs-make\">n8n vs Make</a> comparison details the calculation, and the n8n version is in <a href=\"/blog/trier-emails-entrant-claude-n8n\">sorting emails with Claude and n8n</a>."
+          "a_en": "Make if the person who will maintain the scenario is not technical and the volume stays moderate, since the bill follows the number of modules. n8n if the volume grows or the data must stay on your server: it counts the whole run. The n8n vs Make comparison details the calculation, and the n8n version is in sorting emails with Claude and n8n."
         },
         {
           "q_fr": "Combien coûte la mise en place par Waimia ?",
-          "a_fr": "Un audit gratuit de 45 minutes, puis un sprint de cadrage à {{prix.sprint}} € HT pour 10 heures : cadrage de la tâche et un premier scénario Make en production. La suite est facturée {{prix.horaire}} € HT de l'heure ou sur devis. L'abonnement Make est à votre nom et à votre charge. Le détail est sur la page <a href=\"/services/automatisation-make\">agence Make</a>.",
+          "a_fr": "Un audit gratuit de 45 minutes, puis un sprint de cadrage à {{prix.sprint}} € HT pour 10 heures : cadrage de la tâche et premier scénario Make prototypé ; la mise en production relève du pilote, dès {{prix.pilote}} € HT. La suite est facturée {{prix.horaire}} € HT de l'heure ou sur devis. L'abonnement Make est à votre nom et à votre charge. Le détail est sur la page agence Make.",
           "q_en": "How much does Waimia's setup cost?",
-          "a_en": "A free 45-minute audit, then a scoping sprint at €{{prix.sprint.en}} excl. VAT for 10 hours: scoping the task and a first Make scenario in production. What follows is billed €{{prix.horaire}} excl. VAT per hour or on a quote. The Make subscription is in your name and paid by you. Details are on the <a href=\"/services/automatisation-make\">Make agency</a> page."
+          "a_en": "A free 45-minute audit, then a scoping sprint at €{{prix.sprint.en}} excl. VAT for 10 hours: scoping the task and a first Make scenario prototyped; going live is part of the pilot, from €{{prix.pilote.en}} excl. VAT. What follows is billed €{{prix.horaire}} excl. VAT per hour or on a quote. The Make subscription is in your name and paid by you. Details are on the Make agency page."
         }
       ]
     },
