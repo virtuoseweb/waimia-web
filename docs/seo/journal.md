@@ -37,6 +37,14 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### Vague 8 en production, 15 octobre 2026 (PR #97, `663f5b98`)
+
+- **Contenu** : guide `claude-managed-agents` (17 sources Anthropic lues le 15 octobre), tutoriel Make `tutoriel-make-tri-emails-claude`, guide `second-cerveau-entreprise`, section « Combien coûte une automatisation n8n livrée ? » dans `n8n-prix`. Title de `/services/integration-claude` : « Agence Claude, intégrateur Claude pour PME : audit gratuit » (requêtes « agence Claude », « intégrateur Claude »).
+- **Maillage local** : liens contextuels vers `/implantations/bordeaux` (5 → 14 dans le contenu), Montpellier (6 → 9), Lyon (8 → 11).
+- **Écarté** : réindexer `/secteurs/comptabilite`. Décision du 5 octobre (les neuf secteurs restent en 301) et cannibalisation avec `/cas-usages/finance-comptabilite`.
+- **Revue** : liens `<a>` affichés en texte brut dans deux guides, sprint présenté comme mise en production (contraire à `/tarifs`), crédits Make et modèles Haiku inexacts. Tout corrigé avant fusion.
+- **Preuves** : portes 37 sur 39, `astro check` 8 erreurs, balayage des 178 pages (356 en 200, 0 débordement, 0 jeton brut), E2E 72 passés, preview balayée, production vérifiée (trois guides en 200, title servi).
+
 ### Vague 7 en production, 15 octobre 2026 (PR #96, `444eb942`)
 
 - **Navigation** : entrée « Formations » au menu principal ; `/conformite-ia` et `/technologies` dans les panneaux ; H1 auteur « Simon Beros, architecte de systèmes IA » ; rubrique « Réalisations Waimia » sur `/cas-usages`, séparée des études de cas du marché.
