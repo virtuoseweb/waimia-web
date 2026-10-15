@@ -20,14 +20,17 @@ const cards = data.cards.map((c) => ({
   href: c.href,
   silo: c.silo,
 }));
+const kicker = isFr ? data.kicker_fr : data.kicker_en;
+// Titre lu par les lecteurs d'écran et les moteurs : le kicker visible sans son « § », sinon le libellé générique.
+const srHeading = kicker?.replace(/^§\s*/, '').trim() || (isFr ? "Cas d'usage associés" : 'Related use cases');
 ---
 
 <section class="related-cards-band" data-bg={data.background} style={data.pad_block ? `--related-cards-band-pad:${data.pad_block}` : undefined}>
   <div class="wrap-wide">
-    {(isFr ? data.kicker_fr : data.kicker_en) && (
-      <Kicker as="span" class="related-cards-band__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
+    {kicker && (
+      <Kicker as="span" class="related-cards-band__kicker">{kicker}</Kicker>
     )}
-    <h2 class="sr-only">{isFr ? "Cas d'usage associés" : 'Related use cases'}</h2>
+    <h2 class="sr-only">{srHeading}</h2>
     <RelatedCards cards={cards} class="related-cards-band__grid reveal-stagger" />
   </div>
 </section>
