@@ -23,7 +23,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "author-byline": {
-    "count": 37,
+    "count": 40,
     "pages": [
       "/cas-usages/centraliser-donnees",
       "/cas-usages/finance-comptabilite",
@@ -43,6 +43,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-fonctionnalites-pme",
       "/ressources/guides/claude-for-small-business",
       "/ressources/guides/claude-gratuit",
+      "/ressources/guides/claude-managed-agents",
       "/ressources/guides/claude-plugins-entreprise",
       "/ressources/guides/claude-pme",
       "/ressources/guides/claude-rgpd-pme",
@@ -61,7 +62,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/rgpd-agents-ia-checklist",
       "/ressources/guides/roi-automatisation",
       "/ressources/guides/rpa-ou-agent-ia",
-      "/ressources/guides/taches-a-automatiser-pme"
+      "/ressources/guides/second-cerveau-entreprise",
+      "/ressources/guides/taches-a-automatiser-pme",
+      "/ressources/guides/tutoriel-make-tri-emails-claude"
     ]
   },
   "bento-grid": {
@@ -295,7 +298,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "decision-list": {
-    "count": 78,
+    "count": 82,
     "pages": [
       "/demonstrations/avant-apres",
       "/demonstrations/site-web-intelligent",
@@ -318,6 +321,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/choisir-agence-ia-pme",
       "/ressources/guides/claude-fonctionnalites-pme",
       "/ressources/guides/claude-gratuit",
+      "/ressources/guides/claude-managed-agents",
       "/ressources/guides/claude-pme",
       "/ressources/guides/claude-skills",
       "/ressources/guides/cout-projet-ia-pme",
@@ -328,6 +332,8 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/quel-modele-claude-choisir",
       "/ressources/guides/refonte-site-internet",
       "/ressources/guides/rgpd-agents-ia-checklist",
+      "/ressources/guides/second-cerveau-entreprise",
+      "/ressources/guides/tutoriel-make-tri-emails-claude",
       "/services/agent-qualification-leads",
       "/services/agent-support-client",
       "/services/agent-traitement-documents",
@@ -518,7 +524,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "direct-answer": {
-    "count": 71,
+    "count": 74,
     "pages": [
       "/cas-usages/finance-comptabilite",
       "/cas-usages/rh",
@@ -561,6 +567,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-fonctionnalites-pme",
       "/ressources/guides/claude-for-small-business",
       "/ressources/guides/claude-gratuit",
+      "/ressources/guides/claude-managed-agents",
       "/ressources/guides/claude-plugins-entreprise",
       "/ressources/guides/claude-pme",
       "/ressources/guides/claude-rgpd-pme",
@@ -579,7 +586,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/rgpd-agents-ia-checklist",
       "/ressources/guides/roi-automatisation",
       "/ressources/guides/rpa-ou-agent-ia",
+      "/ressources/guides/second-cerveau-entreprise",
       "/ressources/guides/taches-a-automatiser-pme",
+      "/ressources/guides/tutoriel-make-tri-emails-claude",
       "/services/agent-support-client",
       "/services/automatisation-make",
       "/services/automatisation-n8n",
@@ -621,7 +630,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "editorial-prose": {
-    "count": 234,
+    "count": 249,
     "pages": [
       "/audit-ia-pme",
       "/cas-usages/centraliser-donnees",
@@ -659,6 +668,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-fonctionnalites-pme",
       "/ressources/guides/claude-for-small-business",
       "/ressources/guides/claude-gratuit",
+      "/ressources/guides/claude-managed-agents",
       "/ressources/guides/claude-plugins-entreprise",
       "/ressources/guides/claude-pme",
       "/ressources/guides/claude-rgpd-pme",
@@ -677,7 +687,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/rgpd-agents-ia-checklist",
       "/ressources/guides/roi-automatisation",
       "/ressources/guides/rpa-ou-agent-ia",
+      "/ressources/guides/second-cerveau-entreprise",
       "/ressources/guides/taches-a-automatiser-pme",
+      "/ressources/guides/tutoriel-make-tri-emails-claude",
       "/services/agent-qualification-leads",
       "/services/agent-support-client",
       "/services/agent-traitement-documents",
@@ -739,7 +751,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "editorial-table-block": {
-    "count": 100,
+    "count": 105,
     "pages": [
       "/cas-usages/finance-comptabilite",
       "/cas-usages/rh",
@@ -762,6 +774,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-fonctionnalites-pme",
       "/ressources/guides/claude-for-small-business",
       "/ressources/guides/claude-gratuit",
+      "/ressources/guides/claude-managed-agents",
       "/ressources/guides/claude-plugins-entreprise",
       "/ressources/guides/claude-pme",
       "/ressources/guides/claude-rgpd-pme",
@@ -780,7 +793,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/rgpd-agents-ia-checklist",
       "/ressources/guides/roi-automatisation",
       "/ressources/guides/rpa-ou-agent-ia",
+      "/ressources/guides/second-cerveau-entreprise",
       "/ressources/guides/taches-a-automatiser-pme",
+      "/ressources/guides/tutoriel-make-tri-emails-claude",
       "/services/consultant-ia-claude",
       "/services/integration-chatgpt-openai",
       "/services/integration-claude",
@@ -872,7 +887,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "faq-accordion": {
-    "count": 133,
+    "count": 136,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -926,6 +941,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-fonctionnalites-pme",
       "/ressources/guides/claude-for-small-business",
       "/ressources/guides/claude-gratuit",
+      "/ressources/guides/claude-managed-agents",
       "/ressources/guides/claude-plugins-entreprise",
       "/ressources/guides/claude-pme",
       "/ressources/guides/claude-rgpd-pme",
@@ -944,7 +960,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/rgpd-agents-ia-checklist",
       "/ressources/guides/roi-automatisation",
       "/ressources/guides/rpa-ou-agent-ia",
+      "/ressources/guides/second-cerveau-entreprise",
       "/ressources/guides/taches-a-automatiser-pme",
+      "/ressources/guides/tutoriel-make-tri-emails-claude",
       "/services/agent-qualification-leads",
       "/services/agent-support-client",
       "/services/agent-traitement-documents",
@@ -1067,7 +1085,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "footer-cta-band": {
-    "count": 132,
+    "count": 135,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -1122,6 +1140,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-fonctionnalites-pme",
       "/ressources/guides/claude-for-small-business",
       "/ressources/guides/claude-gratuit",
+      "/ressources/guides/claude-managed-agents",
       "/ressources/guides/claude-plugins-entreprise",
       "/ressources/guides/claude-pme",
       "/ressources/guides/claude-rgpd-pme",
@@ -1140,7 +1159,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/rgpd-agents-ia-checklist",
       "/ressources/guides/roi-automatisation",
       "/ressources/guides/rpa-ou-agent-ia",
+      "/ressources/guides/second-cerveau-entreprise",
       "/ressources/guides/taches-a-automatiser-pme",
+      "/ressources/guides/tutoriel-make-tri-emails-claude",
       "/services/agent-qualification-leads",
       "/services/agent-support-client",
       "/services/agent-traitement-documents",
@@ -1325,7 +1346,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "hero-split-media": {
-    "count": 89,
+    "count": 92,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
@@ -1373,6 +1394,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-fonctionnalites-pme",
       "/ressources/guides/claude-for-small-business",
       "/ressources/guides/claude-gratuit",
+      "/ressources/guides/claude-managed-agents",
       "/ressources/guides/claude-plugins-entreprise",
       "/ressources/guides/claude-pme",
       "/ressources/guides/claude-rgpd-pme",
@@ -1391,7 +1413,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/rgpd-agents-ia-checklist",
       "/ressources/guides/roi-automatisation",
       "/ressources/guides/rpa-ou-agent-ia",
+      "/ressources/guides/second-cerveau-entreprise",
       "/ressources/guides/taches-a-automatiser-pme",
+      "/ressources/guides/tutoriel-make-tri-emails-claude",
       "/services/agents-ia",
       "/services/applications-internes",
       "/services/automatisation-make",
@@ -1450,7 +1474,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "key-metric-grid": {
-    "count": 17,
+    "count": 19,
     "pages": [
       "/ressources/guides/aides-financement-projet-ia",
       "/ressources/guides/claude-code-entreprise",
@@ -1459,6 +1483,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-fonctionnalites-pme",
       "/ressources/guides/claude-for-small-business",
       "/ressources/guides/claude-gratuit",
+      "/ressources/guides/claude-managed-agents",
       "/ressources/guides/claude-plugins-entreprise",
       "/ressources/guides/claude-pme",
       "/ressources/guides/claude-rgpd-pme",
@@ -1468,7 +1493,8 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/cout-projet-ia-pme",
       "/ressources/guides/financement-formation-ia-opco",
       "/ressources/guides/n8n-prix",
-      "/ressources/guides/quel-modele-claude-choisir"
+      "/ressources/guides/quel-modele-claude-choisir",
+      "/ressources/guides/second-cerveau-entreprise"
     ]
   },
   "keyword-strip": {
@@ -1710,7 +1736,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "process-steps": {
-    "count": 41,
+    "count": 44,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/finance-comptabilite",
@@ -1735,6 +1761,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-fonctionnalites-pme",
       "/ressources/guides/claude-for-small-business",
       "/ressources/guides/claude-gratuit",
+      "/ressources/guides/claude-managed-agents",
       "/ressources/guides/claude-plugins-entreprise",
       "/ressources/guides/claude-pme",
       "/ressources/guides/claude-rgpd-pme",
@@ -1745,7 +1772,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/n8n-prix",
       "/ressources/guides/quel-modele-claude-choisir",
       "/ressources/guides/refonte-site-internet",
+      "/ressources/guides/second-cerveau-entreprise",
       "/ressources/guides/taches-a-automatiser-pme",
+      "/ressources/guides/tutoriel-make-tri-emails-claude",
       "/services/consultant-ia-claude",
       "/services/integration-chatgpt-openai",
       "/services/integration-claude",
@@ -1840,7 +1869,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "related-cards-band": {
-    "count": 76,
+    "count": 79,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
@@ -1888,6 +1917,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-fonctionnalites-pme",
       "/ressources/guides/claude-for-small-business",
       "/ressources/guides/claude-gratuit",
+      "/ressources/guides/claude-managed-agents",
       "/ressources/guides/claude-plugins-entreprise",
       "/ressources/guides/claude-pme",
       "/ressources/guides/claude-rgpd-pme",
@@ -1906,7 +1936,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/rgpd-agents-ia-checklist",
       "/ressources/guides/roi-automatisation",
       "/ressources/guides/rpa-ou-agent-ia",
+      "/ressources/guides/second-cerveau-entreprise",
       "/ressources/guides/taches-a-automatiser-pme",
+      "/ressources/guides/tutoriel-make-tri-emails-claude",
       "/services/automatisation-make",
       "/services/base-de-connaissance-ia",
       "/services/consultant-ia-claude",
