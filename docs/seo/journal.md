@@ -37,6 +37,13 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### Vague 6 en production, 15 octobre 2026 (PR #95, `10da1e3f`)
+
+- **Contenu** : cinq pages nouvelles sur des requêtes sans page dédiée : guides `quel-modele-claude-choisir`, `claude-gratuit` (usage commercial vérifié dans les conditions grand public d'Anthropic), `llm-rag-dirigeant`, `rpa-ou-agent-ia`, comparatif `mistral-vs-claude-pme`. Toutes reliées par le maillage interne et présentes au sitemap.
+- **Maillage** : pied de page allégé (environ 26 liens), médiane des liens distincts par page 104 → 96, pages recevant 170 liens ou plus 98 → 90 (`mesure-liens.py` sur le build). Plan du site complet : les 169 URL du sitemap.
+- **Performance** : feuilles CSS bloquantes 6 → 4 (petites feuilles intégrées au HTML).
+- **Preuves** : portes 37 sur 39 (rouges connues), `astro check` 8 erreurs (référence), E2E local 72 passés et 38 ignorés (GitHub Actions bloqué par la facturation, CI rejouée en local), production vérifiée (les cinq pages en 200).
+
 ### Vague 5 en production, 15 octobre 2026 (PR #94, `a4ba5c5a`)
 
 Demande de Simon du 15 octobre : traiter tout le contenu, tout le dossier `waimia seo`, le SEO/GEO et le design. Cinq audits en lecture seule (écart stratégie, écart audits du 5 octobre et Semrush, CTR/GEO des 99 pages d'offre, CTR/GEO des 62 ressources, design par gabarit), puis trois lots.
