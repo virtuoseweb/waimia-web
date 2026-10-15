@@ -3,8 +3,8 @@
   "title_fr": "Création d'identité de marque pour PME · Waimia",
   "title_en": "Brand identity creation for SMBs · Waimia",
   "seoTitle_fr": "Agence d'identité de marque pour PME : positionnement, logo",
-  "description_fr": "Agence d'identité de marque pour PME : positionnement, promesse, logo et système visuel. Sprint de cadrage 999 € HT. Réservez l'audit gratuit.",
-  "description_en": "Brand identity creation for SMBs: positioning, promise, logo and visual system, first materials. €999 excl. VAT scoping sprint, free audit.",
+  "description_fr": "Agence d'identité de marque pour PME : positionnement, promesse, logo et système visuel. Sprint de cadrage {{prix.sprint}} € HT. Réservez l'audit gratuit.",
+  "description_en": "Brand identity creation for SMBs: positioning, promise, logo and visual system, first materials. €{{prix.sprint.en}} excl. VAT scoping sprint, free audit.",
   "slug": "identite-de-marque",
   "publishedAt": "2026-10-12T00:00:00.000Z",
   "updatedAt": "2026-10-12T00:00:00.000Z",
@@ -19,13 +19,13 @@
   "seo": {
     "noindex": false,
     "serviceType": "Création d'identité de marque pour PME : positionnement, logo, système visuel et premiers supports",
-    "priceRange": "dès 999 €",
+    "priceRange": "dès {{prix.sprint}} €",
     "priceMin": 999
   },
   "faq_fr": [
     {
       "q": "Combien coûte la création d'une identité de marque ?",
-      "a": "L'audit de 45 minutes est gratuit, le sprint de cadrage coûte 999 € HT pour 10 heures, puis la production est sur devis et se chiffre sur le périmètre établi par le sprint : nombre de supports, déclinaisons du logo. Nous n'annonçons pas de montant avant d'avoir cadré : il serait faux. Les heures hors périmètre sont à {{prix.horaire}} € HT de l'heure."
+      "a": "L'audit de 45 minutes est gratuit, le sprint de cadrage coûte {{prix.sprint}} € HT pour 10 heures, puis la production est sur devis et se chiffre sur le périmètre établi par le sprint : nombre de supports, déclinaisons du logo. Nous n'annonçons pas de montant avant d'avoir cadré : il serait faux. Les heures hors périmètre sont à {{prix.horaire}} € HT de l'heure."
     },
     {
       "q": "Quelle différence entre identité de marque, logo et charte graphique ?",
@@ -55,7 +55,7 @@
   "faq_en": [
     {
       "q": "How much does creating a brand identity cost?",
-      "a": "The 45-minute audit is free, the scoping sprint costs €999 excl. VAT for 10 hours, then production is quoted separately and is priced on the scope the sprint sets: number of materials, logo variants. We do not quote a figure before scoping: it would be wrong. Hours outside the scope are €{{prix.horaire}} excl. VAT an hour."
+      "a": "The 45-minute audit is free, the scoping sprint costs €{{prix.sprint.en}} excl. VAT for 10 hours, then production is quoted separately and is priced on the scope the sprint sets: number of materials, logo variants. We do not quote a figure before scoping: it would be wrong. Hours outside the scope are €{{prix.horaire}} excl. VAT an hour."
     },
     {
       "q": "What is the difference between brand identity, logo and visual guidelines?",
@@ -90,8 +90,8 @@
       "kicker_en": "§ Branding agency · brand identity",
       "h1_fr": "Création d'<i class=\"acc\">identité de marque</i> pour PME.",
       "h1_en": "<i class=\"acc\">Brand identity</i> creation for SMBs.",
-      "lede_fr": "Vous avez un nom et un logo faits à la hâte, ou rien. Nous posons le socle : positionnement, promesse, ton de voix, puis logo et système visuel appliqués à vos premiers supports, en fichiers que vous confiez à un prestataire ou à Claude.",
-      "lede_en": "You have a name and a logo made in a hurry, or nothing. We lay the foundation: positioning, promise, tone of voice, then a logo and visual system applied to your first materials, in files you can hand to a contractor or to Claude.",
+      "lede_fr": "Vous avez un nom et un logo faits à la hâte, ou rien. On pose le socle : positionnement, promesse, ton de voix, logo et système visuel, en fichiers que vous confiez à un prestataire ou à Claude.",
+      "lede_en": "You have a name and a logo made in a hurry, or nothing. We lay the foundation: positioning, promise, tone of voice, logo and visual system, in files you can hand to a contractor or to Claude.",
       "badges": [
         {
           "label_fr": "Positionnement et promesse",
@@ -135,7 +135,7 @@
       "kicker_en": "§ In short",
       "metrics": [
         {
-          "value": "999 € HT",
+          "value": "{{prix.sprint}} € HT",
           "label_fr": "sprint de cadrage de 10 h, prix fixe, puis réalisation sur devis",
           "label_en": "10-hour scoping sprint, fixed price, then production quoted separately",
           "emphasis": true
@@ -431,7 +431,7 @@
         {
           "name_fr": "Sprint de cadrage",
           "name_en": "Scoping sprint",
-          "price": "999 €",
+          "price": "{{prix.sprint}} €",
           "period_fr": "10 h · HT",
           "period_en": "10 h · excl. VAT",
           "features_fr": [
@@ -480,8 +480,8 @@
           }
         }
       ],
-      "footnote_fr": "Le sprint de cadrage est à prix fixe, 999 € HT pour 10 heures. La production est sur devis et se chiffre sur le périmètre établi : nombre de supports, déclinaisons du logo. Les heures hors périmètre sont à {{prix.horaire}} € HT de l'heure. Sans abonnement ni captivité : à la fin, les fichiers et les accès sont à vous.",
-      "footnote_en": "The scoping sprint is fixed-price, €999 excl. VAT for 10 hours. Production is quoted separately and is priced on the scope set: number of materials, logo variants. Hours outside the scope are €{{prix.horaire}} excl. VAT an hour. No subscription or lock-in: at the end, the files and access are yours."
+      "footnote_fr": "Le sprint de cadrage est à prix fixe, {{prix.sprint}} € HT pour 10 heures. La production est sur devis et se chiffre sur le périmètre établi : nombre de supports, déclinaisons du logo. Les heures hors périmètre sont à {{prix.horaire}} € HT de l'heure. Sans abonnement ni captivité : à la fin, les fichiers et les accès sont à vous.",
+      "footnote_en": "The scoping sprint is fixed-price, €{{prix.sprint.en}} excl. VAT for 10 hours. Production is quoted separately and is priced on the scope set: number of materials, logo variants. Hours outside the scope are €{{prix.horaire}} excl. VAT an hour. No subscription or lock-in: at the end, the files and access are yours."
     },
     {
       "type": "eeat-panel",
@@ -498,9 +498,9 @@
       "items": [
         {
           "q_fr": "Combien coûte la création d'une identité de marque ?",
-          "a_fr": "L'audit de 45 minutes est gratuit, le sprint de cadrage coûte 999 € HT pour 10 heures, puis la production est sur devis et se chiffre sur le périmètre établi par le sprint : nombre de supports, déclinaisons du logo. Nous n'annonçons pas de montant avant d'avoir cadré : il serait faux. Les heures hors périmètre sont à {{prix.horaire}} € HT de l'heure.",
+          "a_fr": "L'audit de 45 minutes est gratuit, le sprint de cadrage coûte {{prix.sprint}} € HT pour 10 heures, puis la production est sur devis et se chiffre sur le périmètre établi par le sprint : nombre de supports, déclinaisons du logo. Nous n'annonçons pas de montant avant d'avoir cadré : il serait faux. Les heures hors périmètre sont à {{prix.horaire}} € HT de l'heure.",
           "q_en": "How much does creating a brand identity cost?",
-          "a_en": "The 45-minute audit is free, the scoping sprint costs €999 excl. VAT for 10 hours, then production is quoted separately and is priced on the scope the sprint sets: number of materials, logo variants. We do not quote a figure before scoping: it would be wrong. Hours outside the scope are €{{prix.horaire}} excl. VAT an hour."
+          "a_en": "The 45-minute audit is free, the scoping sprint costs €{{prix.sprint.en}} excl. VAT for 10 hours, then production is quoted separately and is priced on the scope the sprint sets: number of materials, logo variants. We do not quote a figure before scoping: it would be wrong. Hours outside the scope are €{{prix.horaire}} excl. VAT an hour."
         },
         {
           "q_fr": "Quelle différence entre identité de marque, logo et charte graphique ?",

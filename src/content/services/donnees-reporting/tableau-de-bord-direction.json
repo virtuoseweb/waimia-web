@@ -2,8 +2,8 @@
   "$schema": "../../../schemas/generated/services.page.schema.json",
   "title_fr": "Tableau de bord de direction pour dirigeant de PME · Waimia",
   "title_en": "Management dashboard for SME owners · Waimia",
-  "description_fr": "Tableau de bord de direction pour dirigeant de PME : cinq à huit indicateurs, sources branchées, alertes envoyées à une personne nommée. Dès 999 € HT.",
-  "description_en": "Management dashboard for SME owners: five to eight indicators, connected sources, alerts sent to a named person. From €999 excl. VAT.",
+  "description_fr": "Tableau de bord de direction pour dirigeant de PME : cinq à huit indicateurs, sources branchées, alertes envoyées à une personne nommée. Dès {{prix.sprint}} € HT.",
+  "description_en": "Management dashboard for SME owners: five to eight indicators, connected sources, alerts sent to a named person. From €{{prix.sprint.en}} excl. VAT.",
   "slug": "tableau-de-bord-direction",
   "publishedAt": "2026-10-12T00:00:00.000Z",
   "updatedAt": "2026-10-12",
@@ -18,7 +18,7 @@
   "seo": {
     "noindex": false,
     "serviceType": "Tableau de bord de pilotage pour dirigeant de PME",
-    "priceRange": "dès 999 €",
+    "priceRange": "dès {{prix.sprint}} €",
     "priceMin": 999
   },
   "faq_fr": [
@@ -130,7 +130,7 @@
       "kicker_en": "§ In short",
       "metrics": [
         {
-          "value": "999 € HT",
+          "value": "{{prix.sprint}} € HT",
           "label_fr": "sprint de cadrage de 10 h : indicateurs choisis, premier écran en ligne",
           "label_en": "10-hour scoping sprint: indicators chosen, first screen online",
           "emphasis": true
@@ -471,7 +471,7 @@
         {
           "name_fr": "Sprint de cadrage",
           "name_en": "Scoping sprint",
-          "price": "999 €",
+          "price": "{{prix.sprint}} €",
           "period_fr": "10 h · HT",
           "period_en": "10 h · ex VAT",
           "features_fr": [
@@ -520,8 +520,8 @@
           }
         }
       ],
-      "footnote_fr": "Le sprint de cadrage est à prix fixe, 999 € HT pour 10 heures : choix des indicateurs, sources principales branchées, un premier écran et ses alertes. La suite se cale sur devis : on estime ensemble le temps des sources et des pages de détail supplémentaires, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, vos données, vos accès et votre tableau sont à vous.",
-      "footnote_en": "The scoping sprint is fixed-price, 999 € ex VAT for 10 hours: indicators chosen, main sources connected, a first screen and its alerts. What follows is quoted: we estimate together the time for additional sources and detail pages, validate it, then run it in sprints within the time and materials frame, at {{prix.horaire}} € an hour, non-degressive. No subscription, no lock-in: at the end, your data, your access and your dashboard are yours."
+      "footnote_fr": "Le sprint de cadrage est à prix fixe, {{prix.sprint}} € HT pour 10 heures : choix des indicateurs, sources principales branchées, un premier écran et ses alertes. La suite se cale sur devis : on estime ensemble le temps des sources et des pages de détail supplémentaires, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, vos données, vos accès et votre tableau sont à vous.",
+      "footnote_en": "The scoping sprint is fixed-price, {{prix.sprint.en}} € ex VAT for 10 hours: indicators chosen, main sources connected, a first screen and its alerts. What follows is quoted: we estimate together the time for additional sources and detail pages, validate it, then run it in sprints within the time and materials frame, at {{prix.horaire}} € an hour, non-degressive. No subscription, no lock-in: at the end, your data, your access and your dashboard are yours."
     },
     {
       "type": "eeat-panel",

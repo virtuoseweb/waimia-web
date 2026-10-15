@@ -4905,7 +4905,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "decision-list",
-        "label": "Notre verdict, situation par situation",
+        "label": "Le verdict de Waimia, situation par situation",
         "background": "paper-2"
       },
       {
@@ -5522,7 +5522,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-split-media",
-        "label": "AI Act pour les PME : le calendrier à jour et ce qui vous concerne vraiment",
+        "label": "AI Act pour les PME : le calendrier à jour et ce qui vous concerne",
         "background": "paper"
       },
       {
@@ -5678,7 +5678,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "process-steps",
-        "label": "Si vous nous choisissez : comment Waimia travaille",
+        "label": "Si vous choisissez Waimia : comment Waimia travaille",
         "background": "paper-2"
       },
       {
@@ -7005,7 +7005,7 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "editorial-table-block",
         "label": "Chaque fait, sa source, sa date",
-        "variant": "editorial",
+        "variant": "default",
         "background": "paper-2"
       },
       {
@@ -8073,12 +8073,12 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "related-cards-band",
         "label": "Pour aller plus loin",
-        "background": "paper-2"
+        "background": "paper"
       },
       {
         "type": "faq-accordion",
         "label": "Questions fréquentes",
-        "background": "paper"
+        "background": "paper-2"
       },
       {
         "type": "footer-cta-band",
@@ -8118,12 +8118,12 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "related-cards-band",
         "label": "Pour aller plus loin",
-        "background": "paper-2"
+        "background": "paper"
       },
       {
         "type": "faq-accordion",
         "label": "Questions fréquentes",
-        "background": "paper"
+        "background": "paper-2"
       },
       {
         "type": "footer-cta-band",
@@ -8163,12 +8163,12 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "related-cards-band",
         "label": "Pour aller plus loin",
-        "background": "paper-2"
+        "background": "paper"
       },
       {
         "type": "faq-accordion",
         "label": "Questions fréquentes",
-        "background": "paper"
+        "background": "paper-2"
       },
       {
         "type": "footer-cta-band",
@@ -8253,12 +8253,12 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "related-cards-band",
         "label": "Pour aller plus loin",
-        "background": "paper-2"
+        "background": "paper"
       },
       {
         "type": "faq-accordion",
         "label": "Questions fréquentes",
-        "background": "paper"
+        "background": "paper-2"
       },
       {
         "type": "footer-cta-band",
@@ -8348,12 +8348,12 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "related-cards-band",
         "label": "Pour aller plus loin",
-        "background": "paper-2"
+        "background": "paper"
       },
       {
         "type": "faq-accordion",
         "label": "Questions fréquentes",
-        "background": "paper"
+        "background": "paper-2"
       },
       {
         "type": "footer-cta-band",
@@ -8438,12 +8438,12 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "related-cards-band",
         "label": "Pour aller plus loin",
-        "background": "paper-2"
+        "background": "paper"
       },
       {
         "type": "faq-accordion",
         "label": "Questions fréquentes",
-        "background": "paper"
+        "background": "paper-2"
       },
       {
         "type": "footer-cta-band",

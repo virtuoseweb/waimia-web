@@ -3,8 +3,8 @@
   "title_fr": "Landing page de site web et tunnel de conversion · Waimia",
   "title_en": "Website landing pages and conversion funnels · Waimia",
   "seoTitle_fr": "Landing page pour PME : une page par offre, des leads triés",
-  "description_fr": "Landing page pour PME : une page par offre, un formulaire qui qualifie et des leads triés dans votre CRM. Dès 999 € HT. Réservez l'audit gratuit.",
-  "description_en": "Website landing pages and conversion funnels for SMBs: one page per offer, a form that qualifies, leads sorted in your CRM. From €999 excl. VAT.",
+  "description_fr": "Landing page pour PME : une page par offre, un formulaire qui qualifie et des leads triés dans votre CRM. Dès {{prix.sprint}} € HT. Réservez l'audit gratuit.",
+  "description_en": "Website landing pages and conversion funnels for SMBs: one page per offer, a form that qualifies, leads sorted in your CRM. From €{{prix.sprint.en}} excl. VAT.",
   "slug": "landing-pages-tunnels",
   "publishedAt": "2026-06-22T00:00:00.000Z",
   "updatedAt": "2026-10-14T00:00:00.000Z",
@@ -19,13 +19,13 @@
   "seo": {
     "noindex": false,
     "serviceType": "Landing pages de conversion et tunnels de qualification de leads",
-    "priceRange": "dès 999 €",
+    "priceRange": "dès {{prix.sprint}} €",
     "priceMin": 999
   },
   "faq_fr": [
     {
       "q": "Combien coûte une landing page ?",
-      "a": "Le sprint de cadrage est à 999 € HT pour 10 heures : une première landing page avec son formulaire de qualification et sa mesure. Les pages suivantes, les tests et la connexion complète au CRM sont estimés en heures puis facturés {{prix.horaire}} € HT de l'heure."
+      "a": "Le sprint de cadrage est à {{prix.sprint}} € HT pour 10 heures : une première landing page avec son formulaire de qualification et sa mesure. Les pages suivantes, les tests et la connexion complète au CRM sont estimés en heures puis facturés {{prix.horaire}} € HT de l'heure."
     },
     {
       "q": "Quelle différence entre une landing page et une page de site ?",
@@ -47,7 +47,7 @@
   "faq_en": [
     {
       "q": "How much does a landing page cost?",
-      "a": "The scoping sprint is €999 excl. VAT for 10 hours: a first landing page with its qualification form and tracking. Further pages, tests and full CRM connection are estimated in hours then billed €{{prix.horaire}} per hour excl. VAT."
+      "a": "The scoping sprint is €{{prix.sprint.en}} excl. VAT for 10 hours: a first landing page with its qualification form and tracking. Further pages, tests and full CRM connection are estimated in hours then billed €{{prix.horaire}} per hour excl. VAT."
     },
     {
       "q": "What is the difference between a landing page and a site page?",
@@ -80,8 +80,8 @@
       "kicker_en": "§ Landing pages",
       "h1_fr": "Une landing page de <i class=\"acc\">site web</i> qui convertit et qui trie vos leads.",
       "h1_en": "A website landing page that <i class=\"acc\">converts</i> and sorts your leads.",
-      "lede_fr": "Une landing page est une page consacrée à une seule offre et à une seule action. Un tunnel de qualification y ajoute quelques questions qui permettent de trier les demandes avant qu'elles n'arrivent chez vos commerciaux. Waimia construit la page et le tunnel, puis les branche à votre CRM : la demande est notée, affectée et suivie.",
-      "lede_en": "A landing page is a page devoted to one offer and one action. A qualification funnel adds a few questions that sort requests before they reach your salespeople. Waimia builds the page and the funnel, then connects them to your CRM: the request is scored, assigned and tracked.",
+      "lede_fr": "Une landing page est consacrée à une seule offre et une seule action. Waimia y ajoute un tunnel de qualification qui trie les demandes, puis branche le tout à votre CRM : la demande est notée, affectée et suivie.",
+      "lede_en": "A landing page is devoted to one offer and one action. Waimia adds a qualification funnel that sorts requests, then connects it all to your CRM: the request is scored, assigned and tracked.",
       "badges": [
         {
           "label_fr": "Une offre, une page",
@@ -120,7 +120,7 @@
       "kicker_en": "§ In short",
       "metrics": [
         {
-          "value": "999 € HT",
+          "value": "{{prix.sprint}} € HT",
           "label_fr": "sprint de cadrage de 10 h, puis {{prix.horaire}} € HT de l'heure",
           "label_en": "10-hour scoping sprint, then €{{prix.horaire}} per hour excl. VAT",
           "emphasis": true
@@ -333,7 +333,7 @@
         {
           "name_fr": "Sprint de cadrage",
           "name_en": "Scoping sprint",
-          "price": "999 €",
+          "price": "{{prix.sprint}} €",
           "period_fr": "10 h · HT",
           "period_en": "10 h · ex VAT",
           "features_fr": [
@@ -382,8 +382,8 @@
           }
         }
       ],
-      "footnote_fr": "Le sprint de cadrage est à prix fixe, 999 € HT pour 10 heures : une première landing scorée à l'entrée, le copywriting et le tracking posés, avec la landing en ligne dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent l'A/B testing, le scoring prédictif et la connexion CRM, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, vous disposez de landing pages sur votre domaine et d'une note vivante dans votre CRM. L'entretien et l'enrichissement de la donnée elle-même relèvent du CRM intelligent.",
-      "footnote_en": "The scoping sprint is fixed-price, 999 € ex VAT for 10 hours: a first landing scored on entry, the copywriting and the tracking in place, with the landing page live by the end. What follows is quoted: we estimate together the time A/B testing, predictive scoring and CRM connection require, validate it, then run it in sprints within the time and materials frame, at {{prix.horaire}} € an hour, non-degressive. No subscription, no lock-in: at the end, you have landing pages on your domain and a live score in your CRM. The upkeep and enrichment of the data itself belong to the intelligent CRM."
+      "footnote_fr": "Le sprint de cadrage est à prix fixe, {{prix.sprint}} € HT pour 10 heures : une première landing scorée à l'entrée, le copywriting et le tracking posés, avec la landing en ligne dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent l'A/B testing, le scoring prédictif et la connexion CRM, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, vous disposez de landing pages sur votre domaine et d'une note vivante dans votre CRM. L'entretien et l'enrichissement de la donnée elle-même relèvent du CRM intelligent.",
+      "footnote_en": "The scoping sprint is fixed-price, {{prix.sprint.en}} € ex VAT for 10 hours: a first landing scored on entry, the copywriting and the tracking in place, with the landing page live by the end. What follows is quoted: we estimate together the time A/B testing, predictive scoring and CRM connection require, validate it, then run it in sprints within the time and materials frame, at {{prix.horaire}} € an hour, non-degressive. No subscription, no lock-in: at the end, you have landing pages on your domain and a live score in your CRM. The upkeep and enrichment of the data itself belong to the intelligent CRM."
     },
     {
       "type": "eeat-panel",
@@ -400,9 +400,9 @@
       "items": [
         {
           "q_fr": "Combien coûte une landing page ?",
-          "a_fr": "Le sprint de cadrage est à 999 € HT pour 10 heures : une première landing page avec son formulaire de qualification et sa mesure. Les pages suivantes, les tests et la connexion complète au CRM sont estimés en heures puis facturés {{prix.horaire}} € HT de l'heure.",
+          "a_fr": "Le sprint de cadrage est à {{prix.sprint}} € HT pour 10 heures : une première landing page avec son formulaire de qualification et sa mesure. Les pages suivantes, les tests et la connexion complète au CRM sont estimés en heures puis facturés {{prix.horaire}} € HT de l'heure.",
           "q_en": "How much does a landing page cost?",
-          "a_en": "The scoping sprint is €999 excl. VAT for 10 hours: a first landing page with its qualification form and tracking. Further pages, tests and full CRM connection are estimated in hours then billed €{{prix.horaire}} per hour excl. VAT."
+          "a_en": "The scoping sprint is €{{prix.sprint.en}} excl. VAT for 10 hours: a first landing page with its qualification form and tracking. Further pages, tests and full CRM connection are estimated in hours then billed €{{prix.horaire}} per hour excl. VAT."
         },
         {
           "q_fr": "Quelle différence entre une landing page et une page de site ?",

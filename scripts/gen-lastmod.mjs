@@ -11,6 +11,9 @@
  * renvoie que le dernier commit pour tous les fichiers (= une date identique partout,
  * exactement ce qu'on veut éviter). On calcule donc depuis un clone complet et on commite.
  *
+ * Un commit de pure forme (typographie, jeton qui rend le même texte) porte la ligne
+ * `Lastmod: ignore` dans son message : il ne date pas les pages qu'il touche.
+ *
  * Usage :
  *   node scripts/gen-lastmod.mjs           # régénère (refuse sur clone superficiel)
  *   node scripts/gen-lastmod.mjs --check   # exit 1 si l'instantané commité est en retard
@@ -50,7 +53,7 @@ for (const { route, file } of listRouteSources(ROOT)) {
   let day = '';
   try {
     // %cs = date du commit (YYYY-MM-DD). --follow suit un renommage de fichier.
-    day = git(['log', '-1', '--format=%cs', '--follow', '--', rel]);
+    day = git(['log', '-1', '--format=%cs', '--follow', '--invert-grep', '--grep=^Lastmod: ignore$', '--', rel]);
   } catch {
     day = '';
   }

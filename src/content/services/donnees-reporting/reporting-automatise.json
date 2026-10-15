@@ -2,8 +2,8 @@
   "$schema": "../../../schemas/generated/services.page.schema.json",
   "title_fr": "Reporting automatisé hebdomadaire et mensuel pour PME · Waimia",
   "title_en": "Weekly and monthly automated reporting for SMEs · Waimia",
-  "description_fr": "Reporting automatisé pour PME : rapport hebdomadaire ou mensuel pour client, direction ou financeur, généré et envoyé après relecture. Dès 999 € HT.",
-  "description_en": "Automated reporting for SMEs: weekly or monthly reports for clients, management or funders, generated, formatted and sent after review. From €999 excl. VAT.",
+  "description_fr": "Reporting automatisé pour PME : rapport hebdomadaire ou mensuel pour client, direction ou financeur, généré et envoyé après relecture. Dès {{prix.sprint}} € HT.",
+  "description_en": "Automated reporting for SMEs: weekly or monthly reports for clients, management or funders, generated, formatted and sent after review. From €{{prix.sprint.en}} excl. VAT.",
   "slug": "reporting-automatise",
   "publishedAt": "2026-10-12T00:00:00.000Z",
   "updatedAt": "2026-10-12",
@@ -18,7 +18,7 @@
   "seo": {
     "noindex": false,
     "serviceType": "Reporting automatisé hebdomadaire et mensuel pour PME",
-    "priceRange": "dès 999 €",
+    "priceRange": "dès {{prix.sprint}} €",
     "priceMin": 999
   },
   "faq_fr": [
@@ -81,8 +81,8 @@
       "kicker_en": "§ Automated reporting",
       "h1_fr": "<i class=\"acc\">Reporting automatisé</i> : le rapport est prêt, vous le relisez, il part",
       "h1_en": "<i class=\"acc\">Automated reporting</i>: the report is ready, you review it, it goes out",
-      "lede_fr": "Le reporting automatisé produit à rythme fixe un rapport de même forme : chiffres relevés dans vos outils, mise en page à votre charte, commentaire préparé par une IA, relecture par une personne avant l'envoi. Pour les PME qui refont chaque semaine ou chaque mois le même rapport.",
-      "lede_en": "Automated reporting produces a report of the same shape at a fixed pace: figures pulled from your tools, laid out in your brand, commentary prepared by an AI, review by a person before sending. For SMEs that rebuild the same report every week or month.",
+      "lede_fr": "Le reporting automatisé produit à rythme fixe un rapport de même forme : chiffres relevés dans vos outils, commentaire préparé par une IA, relecture par une personne avant l'envoi. Pour les PME qui refont ce rapport chaque semaine ou mois.",
+      "lede_en": "Automated reporting produces a report of the same shape at a fixed pace: figures pulled from your tools, commentary prepared by an AI, review by a person before sending. For SMEs that rebuild this report every week or month.",
       "badges": [
         {
           "label_fr": "Hebdo ou mensuel",
@@ -122,7 +122,7 @@
       "kicker_en": "§ In short",
       "metrics": [
         {
-          "value": "999 € HT",
+          "value": "{{prix.sprint}} € HT",
           "label_fr": "sprint de cadrage de 10 h : un premier rapport récurrent branché sur ses sources",
           "label_en": "10-hour scoping sprint: a first recurring report wired to its sources",
           "emphasis": true
@@ -448,7 +448,7 @@
         {
           "name_fr": "Sprint de cadrage",
           "name_en": "Scoping sprint",
-          "price": "999 €",
+          "price": "{{prix.sprint}} €",
           "period_fr": "10 h · HT",
           "period_en": "10 h · ex VAT",
           "features_fr": [
@@ -497,8 +497,8 @@
           }
         }
       ],
-      "footnote_fr": "Le sprint de cadrage est à prix fixe, 999 € HT pour 10 heures : un rapport récurrent choisi, ses sources branchées, son gabarit et un premier envoi relu. La suite se cale sur devis : on estime ensemble le temps de chaque rapport supplémentaire, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, vos gabarits, vos accès et l'archive sont à vous.",
-      "footnote_en": "The scoping sprint is fixed-price, 999 € ex VAT for 10 hours: one recurring report chosen, its sources connected, its template and a first reviewed sending. What follows is quoted: we estimate together the time of each additional report, validate it, then run it in sprints within the time and materials frame, at {{prix.horaire}} € an hour, non-degressive. No subscription, no lock-in: at the end, your templates, your access and the archive are yours."
+      "footnote_fr": "Le sprint de cadrage est à prix fixe, {{prix.sprint}} € HT pour 10 heures : un rapport récurrent choisi, ses sources branchées, son gabarit et un premier envoi relu. La suite se cale sur devis : on estime ensemble le temps de chaque rapport supplémentaire, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, vos gabarits, vos accès et l'archive sont à vous.",
+      "footnote_en": "The scoping sprint is fixed-price, {{prix.sprint.en}} € ex VAT for 10 hours: one recurring report chosen, its sources connected, its template and a first reviewed sending. What follows is quoted: we estimate together the time of each additional report, validate it, then run it in sprints within the time and materials frame, at {{prix.horaire}} € an hour, non-degressive. No subscription, no lock-in: at the end, your templates, your access and the archive are yours."
     },
     {
       "type": "eeat-panel",

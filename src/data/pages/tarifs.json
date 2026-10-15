@@ -1,8 +1,8 @@
 {
   "title_fr": "Tarifs automatisation et intégration IA pour PME · Waimia",
   "title_en": "AI automation and integration pricing for SMEs · Waimia",
-  "description_fr": "Tarifs Waimia : audit IA gratuit de 45 min, sprint de cadrage à 999 € HT, pilote dès 2 000 € HT, maintenance en trois paliers dès {{prix.maintenance.p1}} € HT par mois.",
-  "description_en": "Waimia pricing: free 45-min AI audit, scoping sprint at 999 € ex VAT, pilot from 2,000 € ex VAT, maintenance in three tiers from {{prix.maintenance.p1}} € a month.",
+  "description_fr": "Tarifs Waimia : audit IA gratuit de 45 min, sprint de cadrage à {{prix.sprint}} € HT, pilote dès 2 000 € HT, maintenance en trois paliers dès {{prix.maintenance.p1}} € HT par mois.",
+  "description_en": "Waimia pricing: free 45-min AI audit, scoping sprint at {{prix.sprint.en}} € ex VAT, pilot from 2,000 € ex VAT, maintenance in three tiers from {{prix.maintenance.p1}} € a month.",
   "sections": [
     {
       "type": "masthead-bar",
@@ -24,8 +24,6 @@
       "type": "engagement-ledger",
       "anchor": "parcours",
       "background": "paper",
-      "kicker_fr": "§ Tarifs",
-      "kicker_en": "§ Pricing",
       "h1_fr": "Tarifs automatisation et <i>intégration IA</i> pour PME",
       "h1_en": "AI automation and <i>integration</i> pricing for SMEs",
       "lede_fr": "Cinq étapes, prix affichés. Audit gratuit d'abord, devis ferme après.",
@@ -80,8 +78,8 @@
           ],
           "duration_fr": "10 h",
           "duration_en": "10 h",
-          "price_fr": "999 € HT",
-          "price_en": "999 € ex VAT",
+          "price_fr": "{{prix.sprint}} € HT",
+          "price_en": "{{prix.sprint.en}} € ex VAT",
           "price_note_fr": "Prix fixe",
           "price_note_en": "Fixed price",
           "cta": {
@@ -233,8 +231,8 @@
           {
             "label_fr": "SEO, GEO et contenu",
             "label_en": "SEO, GEO and content",
-            "price_fr": "sprint à 999 € HT, puis {{prix.horaire}} € HT/h",
-            "price_en": "sprint at 999 € ex VAT, then {{prix.horaire}} €/h",
+            "price_fr": "sprint à {{prix.sprint}} € HT, puis {{prix.horaire}} € HT/h",
+            "price_en": "sprint at {{prix.sprint.en}} € ex VAT, then {{prix.horaire}} €/h",
             "href": "/services/seo-geo-contenu"
           },
           {
@@ -401,10 +399,10 @@
       "h2_en": "Pricing questions",
       "items": [
         {
-          "q_fr": "Combien coûte un premier projet d'automatisation ou d'agent IA ?",
-          "q_en": "How much does a first automation or AI agent project cost?",
-          "a_fr": "L'audit est gratuit. Le sprint de cadrage coûte 999 € HT pour 10 heures, puis le travail est facturé en régie à {{prix.horaire}} € HT de l'heure. Un pilote, c'est-à-dire un premier système en production, démarre à 2 000 € HT. Comptez 4 000 € HT à titre indicatif pour une application de 3 à 5 écrans avec un premier agent.",
-          "a_en": "The audit is free. The scoping sprint costs 999 € ex VAT for 10 hours, then the work is billed on a time-and-materials basis at {{prix.horaire}} € ex VAT an hour. A pilot, meaning a first system in production, starts at 2,000 € ex VAT. Count 4,000 € ex VAT as an indication for a 3-to-5-screen application with a first agent."
+          "q_fr": "Combien coûte une agence IA pour une PME ?",
+          "q_en": "How much does an AI agency cost for an SME?",
+          "a_fr": "L'audit est gratuit. Le sprint de cadrage coûte {{prix.sprint}} € HT pour 10 heures, puis le travail est facturé en régie à {{prix.horaire}} € HT de l'heure. Un pilote, c'est-à-dire un premier système en production, démarre à 2 000 € HT. Comptez 4 000 € HT à titre indicatif pour une application de 3 à 5 écrans avec un premier agent. Une formation se chiffre à part : {{prix.formation.f1.heures}} heures pour {{prix.formation.f1}} € HT, ou {{prix.formation.f2.heures}} heures pour {{prix.formation.f2}} € HT.",
+          "a_en": "The audit is free. The scoping sprint costs {{prix.sprint.en}} € ex VAT for 10 hours, then the work is billed on a time-and-materials basis at {{prix.horaire}} € ex VAT an hour. A pilot, meaning a first system in production, starts at 2,000 € ex VAT. Count 4,000 € ex VAT as an indication for a 3-to-5-screen application with a first agent. Training is priced separately: {{prix.formation.f1.heures}} hours for {{prix.formation.f1.en}} € ex VAT, or {{prix.formation.f2.heures}} hours for {{prix.formation.f2.en}} € ex VAT."
         },
         {
           "q_fr": "Comment le devis est-il établi ?",

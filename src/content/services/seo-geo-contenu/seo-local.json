@@ -18,7 +18,7 @@
   "seo": {
     "noindex": false,
     "serviceType": "Référencement local (SEO local) pour PME et artisans : fiche Google Business Profile, pages par ville, avis et cohérence NAP",
-    "priceRange": "dès 999 €",
+    "priceRange": "dès {{prix.sprint}} €",
     "priceMin": 999
   },
   "faq_fr": [
@@ -123,9 +123,9 @@
         "href": "/services/seo-geo-contenu",
         "variant": "ghost"
       },
-      "media_src": "/images/line-art/dispositif-flow.svg",
-      "media_alt_fr": "Schéma avant, pendant, après : des éléments dispersés, reliés par un nœud central, puis organisés en un flux.",
-      "media_alt_en": "Before, during, after diagram: scattered elements, linked by a central node, then organised into one flow."
+      "media_src": "/images/illustrations/ds/cabler-son-crm-en-10-jours-poteau-ink.webp",
+      "media_alt_fr": "Un poteau relie par des câbles une rangée de petites maisons, un homme se tient au pied de l'échelle",
+      "media_alt_en": "A pole runs cables to a row of small houses, a man stands at the foot of the ladder"
     },
     {
       "type": "proof-bar",
@@ -134,7 +134,7 @@
       "kicker_en": "§ At a glance",
       "metrics": [
         {
-          "value": "Dès 999 € HT",
+          "value": "Dès {{prix.sprint}} € HT",
           "label_fr": "sprint de cadrage de 10 h · suite sur devis",
           "label_en": "10-hour scoping sprint · next steps on quote",
           "emphasis": true
@@ -497,7 +497,7 @@
         {
           "name_fr": "Sprint de cadrage",
           "name_en": "Scoping sprint",
-          "price": "999 €",
+          "price": "{{prix.sprint}} €",
           "period_fr": "10 h · HT",
           "period_en": "10 h · ex VAT",
           "features_fr": [
@@ -546,8 +546,8 @@
           }
         }
       ],
-      "footnote_fr": "Le sprint de cadrage est à prix fixe, 999 € HT pour 10 heures : audit des positions, fiche Google Business Profile structurée et premières pages locales. La suite se cale sur devis : on estime ensemble le temps que demandent les pages par ville, les avis et le suivi, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € de l'heure, non dégressif. Sans abonnement : à la fin, la fiche, les pages et les accès sont à vous.",
-      "footnote_en": "The scoping sprint is fixed-price, €999 excl. VAT for 10 hours: position audit, a structured Google Business Profile and first local pages. What follows is quoted: we estimate together the time the per-town pages, reviews and tracking require, validate it, then run it in sprints on a time and materials basis, at €{{prix.horaire}} an hour, non-degressive. No subscription: at the end, the profile, the pages and the access are yours."
+      "footnote_fr": "Le sprint de cadrage est à prix fixe, {{prix.sprint}} € HT pour 10 heures : audit des positions, fiche Google Business Profile structurée et premières pages locales. La suite se cale sur devis : on estime ensemble le temps que demandent les pages par ville, les avis et le suivi, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € de l'heure, non dégressif. Sans abonnement : à la fin, la fiche, les pages et les accès sont à vous.",
+      "footnote_en": "The scoping sprint is fixed-price, €{{prix.sprint.en}} excl. VAT for 10 hours: position audit, a structured Google Business Profile and first local pages. What follows is quoted: we estimate together the time the per-town pages, reviews and tracking require, validate it, then run it in sprints on a time and materials basis, at €{{prix.horaire}} an hour, non-degressive. No subscription: at the end, the profile, the pages and the access are yours."
     },
     {
       "type": "eeat-panel",

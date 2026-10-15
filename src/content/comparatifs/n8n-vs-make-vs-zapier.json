@@ -1,6 +1,6 @@
 {
   "$schema": "../../schemas/generated/comparatifs.page.schema.json",
-  "title_fr": "n8n vs Make vs Zapier : comparatif PME · Waimia",
+  "title_fr": "n8n vs Make vs Zapier : comparatif PME · Waimia",
   "title_en": "n8n vs Make vs Zapier: SME comparison · Waimia",
   "description_fr": "n8n vs Make vs Zapier : prix officiels datés, coût total, hébergement, limites, et quel outil choisir selon votre PME. Quand aucun des trois ne suffit.",
   "description_en": "n8n vs Make vs Zapier: dated official prices, total cost, hosting, limits, and which tool to choose for your SME. When none of the three is enough.",
@@ -46,7 +46,7 @@
     },
     {
       "q": "Peut-on être accompagné sans changer toute notre stack ?",
-      "a": "Oui. L'audit gratuit de 45 minutes part de vos automatisations réelles et dit lequel de ces outils convient, ou si aucun ne convient. Ensuite, le sprint de cadrage est à 999 € HT, puis la régie à {{prix.horaire}} € HT de l'heure si vous poursuivez. Les formations n8n et Make sont dispensées via Akigora, organisme certifié Qualiopi."
+      "a": "Oui. L'audit gratuit de 45 minutes part de vos automatisations réelles et dit lequel de ces outils convient, ou si aucun ne convient. Ensuite, le sprint de cadrage est à {{prix.sprint}} € HT, puis la régie à {{prix.horaire}} € HT de l'heure si vous poursuivez. Les formations n8n et Make sont dispensées via Akigora, organisme certifié Qualiopi."
     }
   ],
   "faq_en": [
@@ -76,7 +76,7 @@
     },
     {
       "q": "Can we get support without changing our whole stack?",
-      "a": "Yes. The free 45-minute audit starts from your real automations and says which of these tools fits, or whether none does. Then the scoping sprint is €999 excl. VAT, followed by time-and-materials at €99 excl. VAT per hour if you continue. The n8n and Make trainings are delivered through Akigora, a Qualiopi-certified body."
+      "a": "Yes. The free 45-minute audit starts from your real automations and says which of these tools fits, or whether none does. Then the scoping sprint is €{{prix.sprint.en}} excl. VAT, followed by time-and-materials at €99 excl. VAT per hour if you continue. The n8n and Make trainings are delivered through Akigora, a Qualiopi-certified body."
     }
   ],
   "sections": [
@@ -85,7 +85,7 @@
       "background": "paper",
       "kicker_fr": "§ Comparatif",
       "kicker_en": "§ Comparison",
-      "h1_fr": "n8n vs Make vs Zapier : lequel choisir pour votre PME",
+      "h1_fr": "n8n vs Make vs Zapier : lequel choisir pour votre PME",
       "h1_en": "n8n vs Make vs Zapier: which to choose for your SME",
       "lede_fr": "n8n, Make et Zapier automatisent les mêmes tâches, mais ne se facturent, ne s'hébergent et ne se maintiennent pas de la même façon. Prix et faits relevés sur les pages des éditeurs le 6 octobre 2026.",
       "lede_en": "n8n, Make and Zapier automate the same tasks, but they are not billed, hosted or maintained the same way. Prices and facts taken from the vendors' pages on 6 October 2026.",
@@ -423,9 +423,9 @@
         },
         {
           "q_fr": "Peut-on être accompagné sans changer toute notre stack ?",
-          "a_fr": "Oui. L'audit gratuit de 45 minutes part de vos automatisations réelles et dit lequel de ces outils convient, ou si aucun ne convient. Ensuite, le sprint de cadrage est à 999 € HT, puis la régie à {{prix.horaire}} € HT de l'heure si vous poursuivez. Les formations n8n et Make sont dispensées via Akigora, organisme certifié Qualiopi.",
+          "a_fr": "Oui. L'audit gratuit de 45 minutes part de vos automatisations réelles et dit lequel de ces outils convient, ou si aucun ne convient. Ensuite, le sprint de cadrage est à {{prix.sprint}} € HT, puis la régie à {{prix.horaire}} € HT de l'heure si vous poursuivez. Les formations n8n et Make sont dispensées via Akigora, organisme certifié Qualiopi.",
           "q_en": "Can we get support without changing our whole stack?",
-          "a_en": "Yes. The free 45-minute audit starts from your real automations and says which of these tools fits, or whether none does. Then the scoping sprint is €999 excl. VAT, followed by time-and-materials at €99 excl. VAT per hour if you continue. The n8n and Make trainings are delivered through Akigora, a Qualiopi-certified body."
+          "a_en": "Yes. The free 45-minute audit starts from your real automations and says which of these tools fits, or whether none does. Then the scoping sprint is €{{prix.sprint.en}} excl. VAT, followed by time-and-materials at €99 excl. VAT per hour if you continue. The n8n and Make trainings are delivered through Akigora, a Qualiopi-certified body."
         }
       ]
     },

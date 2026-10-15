@@ -2,8 +2,8 @@
   "$schema": "../../../schemas/generated/services.page.schema.json",
   "title_fr": "Agence chatbot et agent IA de service client · Waimia",
   "title_en": "Chatbot and AI customer service agent agency · Waimia",
-  "description_fr": "Chatbot et agent IA de service client pour PME : il répond depuis votre base de connaissance, crée le ticket et passe la main à un humain. Dès 999 € HT.",
-  "description_en": "Customer service chatbot and AI agent for SMBs: it answers from your knowledge base, creates the ticket and hands over to a human. From €999 excl. VAT.",
+  "description_fr": "Chatbot et agent IA de service client pour PME : il répond depuis votre base de connaissance, crée le ticket et passe la main à un humain. Dès {{prix.sprint}} € HT.",
+  "description_en": "Customer service chatbot and AI agent for SMBs: it answers from your knowledge base, creates the ticket and hands over to a human. From €{{prix.sprint.en}} excl. VAT.",
   "slug": "agent-support-client",
   "publishedAt": "2026-07-16T00:00:00.000Z",
   "updatedAt": "2026-10-14",
@@ -18,13 +18,13 @@
   "seo": {
     "noindex": false,
     "serviceType": "Agent de support client et chatbot IA pour PME",
-    "priceRange": "dès 999 €",
+    "priceRange": "dès {{prix.sprint}} €",
     "priceMin": 999
   },
   "faq_fr": [
     {
       "q": "Combien coûte un chatbot de service client pour une PME ?",
-      "a": "Un sprint de cadrage à 999 € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure selon le nombre de sources et d'outils à connecter. S'ajoute l'usage du modèle, facturé par l'éditeur selon le volume de conversations, estimé avant le lancement."
+      "a": "Un sprint de cadrage à {{prix.sprint}} € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure selon le nombre de sources et d'outils à connecter. S'ajoute l'usage du modèle, facturé par l'éditeur selon le volume de conversations, estimé avant le lancement."
     },
     {
       "q": "Chatbot scripté ou agent IA : quelle différence ?",
@@ -58,7 +58,7 @@
   "faq_en": [
     {
       "q": "How much does a customer service chatbot cost for an SMB?",
-      "a": "A scoping sprint at €999 excl. VAT for 10 hours, then €{{prix.horaire}} per hour excl. VAT depending on the number of sources and tools to connect. Add model usage, billed by the vendor based on conversation volume, estimated before launch."
+      "a": "A scoping sprint at €{{prix.sprint.en}} excl. VAT for 10 hours, then €{{prix.horaire}} per hour excl. VAT depending on the number of sources and tools to connect. Add model usage, billed by the vendor based on conversation volume, estimated before launch."
     },
     {
       "q": "Scripted chatbot or AI agent: what is the difference?",
@@ -97,8 +97,8 @@
       "kicker_en": "§ Customer service chatbot and agent",
       "h1_fr": "<i class=\"acc\">Chatbot</i> et agent IA pour votre service client",
       "h1_en": "<i class=\"acc\">Chatbot</i> and AI agent for your customer service",
-      "lede_fr": "Un agent IA de service client répond aux questions récurrentes de vos clients à partir de votre documentation, de votre CRM et de votre suivi de commandes, puis transmet à un humain ce qu'il ne sait pas traiter. On le conçoit pour les PME qui reçoivent chaque semaine les mêmes demandes par email, formulaire ou chat, et on le livre avec ses règles d'escalade et son tableau de suivi.",
-      "lede_en": "A customer service AI agent answers your customers' recurring questions from your documentation, CRM and order tracking, then passes on to a human what it cannot handle. We design it for SMBs that receive the same requests every week by email, form or chat, and ship it with its escalation rules and its tracking dashboard.",
+      "lede_fr": "Un agent IA de service client répond aux questions récurrentes depuis votre documentation et votre CRM, puis passe la main à un humain en cas de doute. Pour les PME qui reçoivent chaque semaine les mêmes demandes, avec règles d'escalade.",
+      "lede_en": "A customer service AI agent answers recurring questions from your documentation and CRM, then hands over to a human when in doubt. For SMBs that receive the same requests every week, with escalation rules.",
       "badges": [
         {
           "label_fr": "Répond depuis vos sources",
@@ -131,9 +131,9 @@
         "href": "/audit-ia-pme",
         "variant": "ghost"
       },
-      "media_src": "/images/line-art/dispositif-flow.svg",
-      "media_alt_fr": "Schéma : demandes clients en entrée, un agent de support branché via MCP qui répond ou escalade, réponses mesurées.",
-      "media_alt_en": "Diagram: customer requests in, a support agent wired via MCP that answers or escalates, measured responses."
+      "media_src": "/images/line-art/livrable-agents-production.svg",
+      "media_alt_fr": "Pictogramme : un robot posé sur un socle",
+      "media_alt_en": "Icon: a robot on a stand"
     },
     {
       "type": "proof-bar",
@@ -142,7 +142,7 @@
       "kicker_en": "§ In short",
       "metrics": [
         {
-          "value": "999 € HT",
+          "value": "{{prix.sprint}} € HT",
           "label_fr": "sprint de cadrage de 10 h, puis {{prix.horaire}} € HT de l'heure",
           "label_en": "10-hour scoping sprint, then €{{prix.horaire}} per hour excl. VAT",
           "emphasis": true
@@ -397,7 +397,7 @@
         {
           "name_fr": "Sprint de cadrage",
           "name_en": "Scoping sprint",
-          "price": "999 €",
+          "price": "{{prix.sprint}} €",
           "period_fr": "10 h · HT",
           "period_en": "10 h · ex VAT",
           "features_fr": [
@@ -446,8 +446,8 @@
           }
         }
       ],
-      "footnote_fr": "Le sprint de cadrage est à prix fixe, 999 € HT pour 10 heures : cadrage des demandes récurrentes, un premier agent de support branché via MCP et mis en production, avec un livrable qui répond dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent les nouveaux types de demandes, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, votre agent, vos accès et la documentation sont à vous.",
-      "footnote_en": "The scoping sprint is fixed-price, 999 € ex VAT for 10 hours: scoping of the recurring requests, a first support agent wired via MCP and put into production, with a deliverable that answers by the end. What follows is quoted: we estimate together the time the new request types require, validate it, then run it in sprints within the time and materials frame, at {{prix.horaire}} € an hour, non-degressive. No subscription, no lock-in: at the end, your agent, your access and the documentation are yours."
+      "footnote_fr": "La suite est facturée en régie, à {{prix.horaire}} € HT de l'heure, non dégressif. Sans abonnement ni captivité.",
+      "footnote_en": "What follows is billed on a time and materials basis, at {{prix.horaire}} € ex VAT an hour, non-degressive. No subscription, no lock-in."
     },
     {
       "type": "eeat-panel",
@@ -464,9 +464,9 @@
       "items": [
         {
           "q_fr": "Combien coûte un chatbot de service client pour une PME ?",
-          "a_fr": "Un sprint de cadrage à 999 € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure selon le nombre de sources et d'outils à connecter. S'ajoute l'usage du modèle, facturé par l'éditeur selon le volume de conversations, estimé avant le lancement.",
+          "a_fr": "Un sprint de cadrage à {{prix.sprint}} € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure selon le nombre de sources et d'outils à connecter. S'ajoute l'usage du modèle, facturé par l'éditeur selon le volume de conversations, estimé avant le lancement.",
           "q_en": "How much does a customer service chatbot cost for an SMB?",
-          "a_en": "A scoping sprint at €999 excl. VAT for 10 hours, then €{{prix.horaire}} per hour excl. VAT depending on the number of sources and tools to connect. Add model usage, billed by the vendor based on conversation volume, estimated before launch."
+          "a_en": "A scoping sprint at €{{prix.sprint.en}} excl. VAT for 10 hours, then €{{prix.horaire}} per hour excl. VAT depending on the number of sources and tools to connect. Add model usage, billed by the vendor based on conversation volume, estimated before launch."
         },
         {
           "q_fr": "Chatbot scripté ou agent IA : quelle différence ?",

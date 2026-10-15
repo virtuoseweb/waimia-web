@@ -35,8 +35,7 @@ const cta = auditCtaFinal(
   '45 minutes en visio, gratuit : vos process passés en revue tâche par tâche, et une cartographie écrite à la fin.',
 );
 ---
-{/* showUpdated={false} : la date de mise à jour figure déjà dans les repères du bandeau d'introduction. */}
-<Base title={title} description={description} jsonLd={ld} ogType="article" showUpdated={false}>
+<Base title={title} description={description} jsonLd={ld} ogType="article">
   <MastheadBar
     lang="fr"
     items={[
@@ -53,7 +52,6 @@ const cta = auditCtaFinal(
       { label: 'Format', value: 'En ligne, Word, PDF par e-mail' },
       { label: 'Longueur', value: `${charterArticles.length} articles, 8 min de lecture` },
       { label: 'E-mail', value: 'Requis pour le PDF seulement' },
-      { label: 'Mise à jour', value: '4 octobre 2026' },
     ]}
   />
   <CharterDocument />

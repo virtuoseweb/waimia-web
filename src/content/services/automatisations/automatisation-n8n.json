@@ -1,9 +1,9 @@
 {
   "$schema": "../../../schemas/generated/services.page.schema.json",
-  "title_fr": "Agence n8n : expert en automatisation n8n pour PME · Waimia",
+  "title_fr": "Agence n8n : expert en automatisation n8n pour PME · Waimia",
   "title_en": "n8n agency: n8n automation expert for SMEs · Waimia",
-  "description_fr": "Agence n8n pour PME : un expert n8n pour concevoir, héberger et superviser vos workflows, sur votre serveur ou en cloud UE. Premier workflow dès 999 € HT.",
-  "description_en": "n8n agency for SMBs: an n8n expert for the design, hosting and supervision of your workflows, on your server or EU cloud. First workflow from €999 excl. VAT.",
+  "description_fr": "Agence n8n pour PME : un expert n8n pour concevoir, héberger et superviser vos workflows, sur votre serveur ou en cloud UE. Premier workflow dès {{prix.sprint}} € HT.",
+  "description_en": "n8n agency for SMBs: an n8n expert for the design, hosting and supervision of your workflows, on your server or EU cloud. First workflow from €{{prix.sprint.en}} excl. VAT.",
   "slug": "automatisation-n8n",
   "publishedAt": "2026-07-16T00:00:00.000Z",
   "updatedAt": "2026-10-04T00:00:00.000Z",
@@ -18,13 +18,13 @@
   "seo": {
     "noindex": false,
     "serviceType": "Automatisation n8n pour PME (workflows self-hosted, connectés)",
-    "priceRange": "dès 999 €",
+    "priceRange": "dès {{prix.sprint}} €",
     "priceMin": 999
   },
   "faq_fr": [
     {
       "q": "Combien coûte n8n pour une PME ?",
-      "a": "Deux postes. L'outil : la version auto-hébergée est disponible sur GitHub, et les offres hébergées par n8n démarrent à 20 € par mois en facturation annuelle (page tarifs de n8n, vérifiée le 4 octobre 2026). La prestation Waimia : 999 € HT pour un sprint de cadrage de 10 heures, puis {{prix.horaire}} € HT de l'heure."
+      "a": "Deux postes. L'outil : la version auto-hébergée est disponible sur GitHub, et les offres hébergées par n8n démarrent à 20 € par mois en facturation annuelle (page tarifs de n8n, vérifiée le 4 octobre 2026). La prestation Waimia : {{prix.sprint}} € HT pour un sprint de cadrage de 10 heures, puis {{prix.horaire}} € HT de l'heure."
     },
     {
       "q": "n8n vs Make : lequel choisir ?",
@@ -54,7 +54,7 @@
   "faq_en": [
     {
       "q": "How much does n8n cost for an SMB?",
-      "a": "Two items. The tool: the self-hosted version is available on GitHub, and plans hosted by n8n start at €20 per month billed annually (n8n pricing page, checked on 4 October 2026). The Waimia engagement: €999 excl. VAT for a 10-hour scoping sprint, then €{{prix.horaire}} per hour excl. VAT."
+      "a": "Two items. The tool: the self-hosted version is available on GitHub, and plans hosted by n8n start at €20 per month billed annually (n8n pricing page, checked on 4 October 2026). The Waimia engagement: €{{prix.sprint.en}} excl. VAT for a 10-hour scoping sprint, then €{{prix.horaire}} per hour excl. VAT."
     },
     {
       "q": "n8n vs Make: which one to choose?",
@@ -89,8 +89,8 @@
       "kicker_en": "§ n8n agency",
       "h1_fr": "Agence <i class=\"acc\">n8n</i> pour PME",
       "h1_en": "<i class=\"acc\">n8n</i> agency for SMEs",
-      "lede_fr": "Waimia est une agence n8n : un studio qui conçoit, héberge et supervise des workflows n8n pour les PME et ETI. Un workflow en production, branché à vos logiciels, avec son journal d'exécutions, ses alertes et un référent formé chez vous.",
-      "lede_en": "Waimia is an n8n agency: a studio that designs, hosts and supervises n8n workflows for SMBs. One workflow in production, wired to your software, with its run log, its alerts and a trained owner on your side.",
+      "lede_fr": "Waimia est une agence n8n : un studio qui conçoit, héberge et supervise des workflows pour les PME et ETI. Un workflow en production, branché à vos logiciels, avec journal d'exécutions, alertes et un référent formé chez vous.",
+      "lede_en": "Waimia is an n8n agency: a studio that designs, hosts and supervises workflows for SMBs and mid-size companies. One workflow in production, wired to your software, with its run log, alerts and a trained owner on your side.",
       "badges": [
         {
           "label_fr": "Workflows n8n",
@@ -134,7 +134,7 @@
       "kicker_en": "§ In short",
       "metrics": [
         {
-          "value": "999 € HT",
+          "value": "{{prix.sprint}} € HT",
           "label_fr": "sprint de cadrage de 10 h, puis {{prix.horaire}} € HT de l'heure",
           "label_en": "10-hour scoping sprint, then €{{prix.horaire}} per hour excl. VAT",
           "emphasis": true
@@ -317,7 +317,7 @@
         {
           "name_fr": "Sprint de cadrage",
           "name_en": "Scoping sprint",
-          "price": "999 €",
+          "price": "{{prix.sprint}} €",
           "period_fr": "10 h · HT",
           "period_en": "10 h · ex VAT",
           "features_fr": [
@@ -384,9 +384,9 @@
       "items": [
         {
           "q_fr": "Combien coûte n8n pour une PME ?",
-          "a_fr": "Deux postes. L'outil : la version auto-hébergée est disponible sur GitHub, et les offres hébergées par n8n démarrent à 20 € par mois en facturation annuelle (page tarifs de n8n, vérifiée le 4 octobre 2026). La prestation Waimia : 999 € HT pour un sprint de cadrage de 10 heures, puis {{prix.horaire}} € HT de l'heure.",
+          "a_fr": "Deux postes. L'outil : la version auto-hébergée est disponible sur GitHub, et les offres hébergées par n8n démarrent à 20 € par mois en facturation annuelle (page tarifs de n8n, vérifiée le 4 octobre 2026). La prestation Waimia : {{prix.sprint}} € HT pour un sprint de cadrage de 10 heures, puis {{prix.horaire}} € HT de l'heure.",
           "q_en": "How much does n8n cost for an SMB?",
-          "a_en": "Two items. The tool: the self-hosted version is available on GitHub, and plans hosted by n8n start at €20 per month billed annually (n8n pricing page, checked on 4 October 2026). The Waimia engagement: €999 excl. VAT for a 10-hour scoping sprint, then €{{prix.horaire}} per hour excl. VAT."
+          "a_en": "Two items. The tool: the self-hosted version is available on GitHub, and plans hosted by n8n start at €20 per month billed annually (n8n pricing page, checked on 4 October 2026). The Waimia engagement: €{{prix.sprint.en}} excl. VAT for a 10-hour scoping sprint, then €{{prix.horaire}} per hour excl. VAT."
         },
         {
           "q_fr": "n8n vs Make : lequel choisir ?",

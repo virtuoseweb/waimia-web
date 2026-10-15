@@ -92,8 +92,8 @@
       "kicker_en": "§ Bespoke site · Astro and headless CMS",
       "h1_fr": "Développement web <i class=\"acc\">sur mesure</i> : un code qui vous appartient.",
       "h1_en": "Bespoke <i class=\"acc\">web development</i>: code you own.",
-      "lede_fr": "Un site sur mesure est écrit pour vos besoins : pages rapides, contenu éditable dans un CMS, intégrations métier, code remis à votre nom. C'est la plateforme la plus libre et la plus exigeante à entretenir. Nous la recommandons quand les autres ne suffisent pas.",
-      "lede_en": "A bespoke site is written for your needs: fast pages, content editable in a CMS, business integrations, code handed over in your name. It is the freest platform and the most demanding to maintain. We recommend it when the others are not enough.",
+      "lede_fr": "Un site sur mesure est écrit pour vos besoins : pages rapides, CMS éditable, intégrations métier, code remis. C'est la plateforme la plus libre et la plus exigeante à entretenir ; on la recommande quand les autres ne suffisent pas.",
+      "lede_en": "A bespoke site is written for your needs: fast pages, editable CMS, business integrations, code handed over. It is the freest platform and the most demanding to maintain; we recommend it when the others are not enough.",
       "badges": [
         {
           "label_fr": "Astro, pages statiques",
@@ -126,9 +126,9 @@
         "href": "/audit-ia-pme#site-web-logiciel",
         "variant": "ghost"
       },
-      "media_src": "/images/line-art/dispositif-flow.svg",
-      "media_alt_fr": "Schéma du dispositif : un visiteur arrive sur le site, branché à vos données, ses KPI sont lus, puis le routage qualifie chaque visite.",
-      "media_alt_en": "Device diagram: a visitor lands on the site, wired to your data, its KPIs are read, then routing qualifies each visit."
+      "media_src": "/images/line-art/livrable-passation-formation.svg",
+      "media_alt_fr": "Pictogramme : une flèche va d'une personne à une autre, au-dessus d'un écran",
+      "media_alt_en": "Icon: an arrow goes from one person to another, above a screen"
     },
     {
       "type": "proof-bar",
@@ -144,8 +144,8 @@
         },
         {
           "value": "Cadrage d'abord",
-          "label_fr": "sprint de cadrage à 999 € HT : périmètre, planning et jalons fixés avant signature",
-          "label_en": "scoping sprint at €999 excl. VAT: scope, schedule and milestones set before signing",
+          "label_fr": "sprint de cadrage à {{prix.sprint}} € HT : périmètre, planning et jalons fixés avant signature",
+          "label_en": "scoping sprint at €{{prix.sprint.en}} excl. VAT: scope, schedule and milestones set before signing",
           "emphasis": false
         },
         {
@@ -478,8 +478,8 @@
       "kicker_en": "§ The range",
       "h2_fr": "Combien coûte un site sur mesure",
       "h2_en": "How much a bespoke site costs",
-      "lede_fr": "Quatre paliers, la même grille que nos autres sites : le prix suit le périmètre. Le sur mesure se chiffre au cadrage, jamais avant. Si le périmètre n'est pas clair, on commence par un sprint de cadrage de 10 heures à 999 € HT.",
-      "lede_en": "Four tiers, the same grid as our other sites: price follows scope. Bespoke is priced at scoping, never before. If the scope is unclear, we start with a 10-hour scoping sprint at €999 excl. VAT.",
+      "lede_fr": "Quatre paliers, la même grille que nos autres sites : le prix suit le périmètre. Le sur mesure se chiffre au cadrage, jamais avant. Si le périmètre n'est pas clair, on commence par un sprint de cadrage de 10 heures à {{prix.sprint}} € HT.",
+      "lede_en": "Four tiers, the same grid as our other sites: price follows scope. Bespoke is priced at scoping, never before. If the scope is unclear, we start with a 10-hour scoping sprint at €{{prix.sprint.en}} excl. VAT.",
       "tiers": [
         {
           "name_fr": "Front découplé",

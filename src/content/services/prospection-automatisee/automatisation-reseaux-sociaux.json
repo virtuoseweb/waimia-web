@@ -18,7 +18,7 @@
   "seo": {
     "noindex": false,
     "serviceType": "Automatisation des réseaux sociaux pour PME",
-    "priceRange": "dès 999 €",
+    "priceRange": "dès {{prix.sprint}} €",
     "priceMin": 999
   },
   "faq_fr": [
@@ -87,8 +87,8 @@
       "kicker_en": "§ The SME's social networks",
       "h1_fr": "Automatisation des <i class=\"acc\">réseaux sociaux</i> pour PME",
       "h1_en": "Social media <i class=\"acc\">automation</i> for SMEs",
-      "lede_fr": "Automatiser les réseaux sociaux d'une PME, c'est retirer le travail répétitif autour d'un contenu : le calendrier, la déclinaison d'un même sujet en plusieurs formats (LinkedIn, Instagram, Facebook), la planification, le tri des commentaires, le suivi des résultats. Le fond et la relecture restent à une personne : aucun contenu ne part sans avoir été relu. Waimia le construit avec Claude et vos outils.",
-      "lede_en": "Automating an SME's social networks means removing the repetitive work around a piece of content: the calendar, adapting one topic into several formats (LinkedIn, Instagram, Facebook), scheduling, sorting comments, tracking results. The substance and the review stay with a person: nothing goes out without being reviewed. Waimia builds it with Claude and your tools.",
+      "lede_fr": "Automatiser les réseaux sociaux d'une PME retire le travail répétitif autour d'un contenu : calendrier, déclinaison par réseau, planification, tri des commentaires, suivi. Aucun contenu ne part sans relecture ; Waimia le construit avec Claude et vos outils.",
+      "lede_en": "Automating an SME's social networks removes the repetitive work around a piece of content: calendar, adaptation per network, scheduling, sorting comments, tracking. Nothing goes out without review; Waimia builds it with Claude and your tools.",
       "badges": [
         {
           "label_fr": "Calendrier éditorial",
@@ -139,7 +139,7 @@
           "emphasis": false
         },
         {
-          "value": "999 € HT",
+          "value": "{{prix.sprint}} € HT",
           "label_fr": "sprint de cadrage de 10 heures, puis {{prix.horaire}} € HT de l'heure",
           "label_en": "10-hour scoping sprint, then €{{prix.horaire}} per hour excl. VAT",
           "emphasis": false
@@ -412,8 +412,8 @@
       "kicker_en": "§ The rest of prospecting",
       "h2_fr": "Vos publications nourrissent les autres <i>canaux</i>",
       "h2_en": "Your posts feed the other <i>channels</i>",
-      "lede_fr": "Un contenu publié sert de point d'appui à une conversation commerciale. Survolez une ligne pour ouvrir la page du canal.",
-      "lede_en": "A published piece supports a sales conversation. Hover a line to open the channel's page.",
+      "lede_fr": "Un contenu publié sert de point d'appui à une conversation commerciale. Chaque ligne ouvre la page du canal.",
+      "lede_en": "A published piece supports a sales conversation. Each line opens the channel's page.",
       "items": [
         {
           "label_fr": "Social selling assisté par IA",
@@ -472,7 +472,7 @@
         {
           "name_fr": "Sprint de cadrage",
           "name_en": "Scoping sprint",
-          "price": "999 €",
+          "price": "{{prix.sprint}} €",
           "period_fr": "10 h · HT",
           "period_en": "10 h · ex VAT",
           "features_fr": [
@@ -521,8 +521,8 @@
           }
         }
       ],
-      "footnote_fr": "999 € HT pour 10 heures de cadrage, à prix fixe. Chaque réseau ou format ajouté ensuite est estimé avec vous, validé, puis facturé en régie à {{prix.horaire}} € HT de l'heure. La charte, le calendrier, les modèles et les accès sont à vous.",
-      "footnote_en": "€999 excl. VAT for 10 hours of scoping, fixed price. Each network or format added afterwards is estimated with you, validated, then billed on a time-and-materials basis at €{{prix.horaire}} excl. VAT per hour. The guidelines, calendar, templates and access are yours."
+      "footnote_fr": "{{prix.sprint}} € HT pour 10 heures de cadrage, à prix fixe. Chaque réseau ou format ajouté ensuite est estimé avec vous, validé, puis facturé en régie à {{prix.horaire}} € HT de l'heure. La charte, le calendrier, les modèles et les accès sont à vous.",
+      "footnote_en": "€{{prix.sprint.en}} excl. VAT for 10 hours of scoping, fixed price. Each network or format added afterwards is estimated with you, validated, then billed on a time-and-materials basis at €{{prix.horaire}} excl. VAT per hour. The guidelines, calendar, templates and access are yours."
     },
     {
       "type": "eeat-panel",

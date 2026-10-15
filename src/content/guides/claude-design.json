@@ -1,6 +1,6 @@
 {
   "$schema": "../../schemas/generated/guides.page.schema.json",
-  "title_fr": "Claude Design : usages en PME, prix, limites, alternatives",
+  "title_fr": "Claude Design : usages en PME, prix, limites, alternatives",
   "title_en": "Claude Design: SMB uses, price, limits, alternatives",
   "description_fr": "Claude Design en PME : ce qu'il produit, son prix dans les offres Claude, ses limites au 15 octobre 2026 et quand un designer reste utile.",
   "description_en": "Claude Design for SMBs: what it produces, its price within Claude plans, its limits as of 15 October 2026 and when a designer is still needed.",
@@ -90,7 +90,7 @@
     },
     {
       "q": "Qui s'en occupe dans une PME, et faut-il se faire accompagner ?",
-      "a": "Une personne qui produit déjà les supports, souvent au marketing ou à la direction commerciale, peut être autonome en quelques séances si votre charte existe. Un accompagnement se justifie pour poser la charte dans l'outil, écrire les consignes de l'équipe et former plusieurs personnes. Chez Waimia, le sprint de cadrage est à 999 euros HT pour 10 heures."
+      "a": "Une personne qui produit déjà les supports, souvent au marketing ou à la direction commerciale, peut être autonome en quelques séances si votre charte existe. Un accompagnement se justifie pour poser la charte dans l'outil, écrire les consignes de l'équipe et former plusieurs personnes. Chez Waimia, le sprint de cadrage est à {{prix.sprint}} euros HT pour 10 heures."
     }
   ],
   "faq_en": [
@@ -124,7 +124,7 @@
     },
     {
       "q": "Who handles it in an SMB, and do we need help?",
-      "a": "Someone who already produces your materials, often in marketing or sales, can be autonomous within a few sessions if your guidelines exist. Outside help makes sense to set the guidelines up in the tool, write the team's instructions and train several people. At Waimia, the scoping sprint costs 999 euros ex VAT for 10 hours."
+      "a": "Someone who already produces your materials, often in marketing or sales, can be autonomous within a few sessions if your guidelines exist. Outside help makes sense to set the guidelines up in the tool, write the team's instructions and train several people. At Waimia, the scoping sprint costs {{prix.sprint.en}} euros ex VAT for 10 hours."
     }
   ],
   "sections": [
@@ -133,7 +133,7 @@
       "background": "paper",
       "kicker_fr": "§ Guide · Claude Design",
       "kicker_en": "§ Guide · Claude Design",
-      "h1_fr": "Claude Design : usages en PME, limites et <i class=\"acc\">alternatives</i>",
+      "h1_fr": "Claude Design : usages en PME, limites et <i class=\"acc\">alternatives</i>",
       "h1_en": "Claude Design: SMB uses, limits and <i class=\"acc\">alternatives</i>",
       "lede_fr": "Claude Design fabrique des maquettes, des decks et des fiches d'une page à partir d'une demande écrite. Il ne remplace ni une charte graphique ni un site. Faits relus le 15 octobre 2026 sur les pages d'Anthropic.",
       "lede_en": "Claude Design builds mock-ups, decks and one-pagers from a written request. It replaces neither a brand design system nor a website. Facts checked on 15 October 2026 against Anthropic's pages.",
@@ -177,8 +177,8 @@
       "question_en": "What is Claude Design, and is it useful to an SMB?",
       "term_fr": "Réponse courte",
       "term_en": "Short answer",
-      "answer_fr": "Claude Design est l'outil de création visuelle de Claude, lancé le 17 avril 2026. Il produit maquettes, prototypes, decks et fiches d'une page en appliquant votre charte, sans abonnement séparé : il consomme les limites d'usage de votre offre, y compris l'offre gratuite. Il suffit pour les supports courants ; un site ou une identité de marque demandent encore un professionnel.",
-      "answer_en": "Claude Design is Claude's visual creation tool, launched on 17 April 2026. It produces mock-ups, prototypes, decks and one-pagers using your brand guidelines, with no separate subscription: it draws on your plan's usage limits, free plan included. It covers everyday materials; a website or a brand identity still need a professional."
+      "answer_fr": "Claude Design est l'outil de création visuelle de Claude, lancé le 17 avril 2026. Il produit maquettes, prototypes, decks et fiches d'une page, sans abonnement séparé : il consomme les limites d'usage de votre offre, y compris l'offre gratuite. Sur les offres payantes, il applique aussi la charte de votre marque (fonction en bêta). Il suffit pour les supports courants ; un site ou une identité de marque demandent encore un professionnel.",
+      "answer_en": "Claude Design is Claude's visual creation tool, launched on 17 April 2026. It produces mock-ups, prototypes, decks and one-pagers, with no separate subscription: it draws on your plan's usage limits, free plan included. On paid plans, it also applies your brand guidelines (a beta feature). It covers everyday materials; a website or a brand identity still need a professional."
     },
     {
       "type": "key-metric-grid",
@@ -600,7 +600,7 @@
       "background": "paper-2",
       "kicker_fr": "§ Faire soi-même ou sous-traiter",
       "kicker_en": "§ Do it yourself or outsource",
-      "title_fr": "Claude Design suffit, ou il faut un professionnel ?",
+      "title_fr": "Claude Design suffit, ou il faut un professionnel ?",
       "title_en": "Is Claude Design enough, or do you need a professional?",
       "aside_fr": "Lecture Waimia, à partir de ce que l'outil fait et ne fait pas au 15 octobre 2026.",
       "aside_en": "Waimia's reading, based on what the tool does and does not do as of 15 October 2026.",
@@ -642,8 +642,8 @@
       "kicker_en": "§ Waimia method",
       "h2_fr": "Comment Waimia s'y prend",
       "h2_en": "How Waimia goes about it",
-      "intro_fr": "Un accompagnement possible, pas obligatoire. L'audit de 45 minutes est gratuit ; le sprint de cadrage est à prix fixe, 999 € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure si vous voulez aller plus loin.",
-      "intro_en": "Support if you want it, not a requirement. The 45-minute audit is free; the scoping sprint is fixed-price, 999 € ex VAT for 10 hours, then {{prix.horaire}} € ex VAT per hour if you want to go further.",
+      "intro_fr": "Un accompagnement possible, pas obligatoire. L'audit de 45 minutes est gratuit ; le sprint de cadrage est à prix fixe, {{prix.sprint}} € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure si vous voulez aller plus loin.",
+      "intro_en": "Support if you want it, not a requirement. The 45-minute audit is free; the scoping sprint is fixed-price, {{prix.sprint.en}} € ex VAT for 10 hours, then {{prix.horaire}} € ex VAT per hour if you want to go further.",
       "steps": [
         {
           "title_fr": "Regarder vos supports actuels",
@@ -757,8 +757,8 @@
         {
           "q_fr": "Qui s'en occupe dans une PME, et faut-il se faire accompagner ?",
           "q_en": "Who handles it in an SMB, and do we need help?",
-          "a_fr": "Une personne qui produit déjà les supports, souvent au marketing ou à la direction commerciale, peut être autonome en quelques séances si votre charte existe. Un accompagnement se justifie pour poser la charte dans l'outil, écrire les consignes de l'équipe et former plusieurs personnes. Chez Waimia, le sprint de cadrage est à 999 euros HT pour 10 heures.",
-          "a_en": "Someone who already produces your materials, often in marketing or sales, can be autonomous within a few sessions if your guidelines exist. Outside help makes sense to set the guidelines up in the tool, write the team's instructions and train several people. At Waimia, the scoping sprint costs 999 euros ex VAT for 10 hours."
+          "a_fr": "Une personne qui produit déjà les supports, souvent au marketing ou à la direction commerciale, peut être autonome en quelques séances si votre charte existe. Un accompagnement se justifie pour poser la charte dans l'outil, écrire les consignes de l'équipe et former plusieurs personnes. Chez Waimia, le sprint de cadrage est à {{prix.sprint}} euros HT pour 10 heures.",
+          "a_en": "Someone who already produces your materials, often in marketing or sales, can be autonomous within a few sessions if your guidelines exist. Outside help makes sense to set the guidelines up in the tool, write the team's instructions and train several people. At Waimia, the scoping sprint costs {{prix.sprint.en}} euros ex VAT for 10 hours."
         }
       ]
     },

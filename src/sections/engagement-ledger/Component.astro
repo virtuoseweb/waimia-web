@@ -24,7 +24,7 @@ const uid = `ledger-${Math.random().toString(36).slice(2, 8)}`;
 const RowHeading = h1 ? 'h2' : 'h3';
 ---
 
-<section class="ledger sec-base" data-bg={data.background} aria-labelledby={`${uid}-title`}>
+<section class:list={['ledger sec-base', h1 && 'ledger--page']} data-bg={data.background} aria-labelledby={`${uid}-title`}>
   <div class="wrap-wide">
     <header class="ledger__head">
       {kicker && <Kicker tone="muted">{kicker}</Kicker>}
@@ -294,6 +294,9 @@ const RowHeading = h1 ? 'h2' : 'h3';
     .ledger__aside-items { grid-column: 2; }
   }
   @media (max-width: 700px) {
+    /* Registre en héros de page (porte le h1) : la masthead-bar dégage déjà le header,
+       le cran --section-base repoussait le CTA de l'étape 1 sous le premier écran. */
+    .ledger--page { padding-top: var(--space-5); }
     .ledger__head { margin-bottom: var(--space-7); }
     .ledger__row {
       grid-template-columns: minmax(0, 1fr);

@@ -36,8 +36,7 @@ const cta = auditCtaFinal(
   '45 minutes en visio, gratuit : vos process passés en revue tâche par tâche, et un ou deux chantiers classés, écrits noir sur blanc.',
 );
 ---
-{/* showUpdated={false} : la date de mise à jour figure déjà dans les repères du bandeau d'introduction. */}
-<Base title={title} description={description} jsonLd={ld} ogType="article" showUpdated={false}>
+<Base title={title} description={description} jsonLd={ld} ogType="article">
   <MastheadBar
     lang="fr"
     items={[
@@ -54,7 +53,6 @@ const cta = auditCtaFinal(
       { label: 'Format', value: 'En ligne, PDF par e-mail' },
       { label: 'Longueur', value: `${prerequisites.length} prérequis, ${nWeeks} semaines` },
       { label: 'E-mail', value: 'Requis pour le PDF seulement' },
-      { label: 'Mise à jour', value: '5 octobre 2026' },
     ]}
   >
     <a slot="actions" class="btn btn-ghost" href="/ressources/guides/claude-pme">Lire le guide complet</a>

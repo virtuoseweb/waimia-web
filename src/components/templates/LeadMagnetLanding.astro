@@ -72,7 +72,6 @@ const cta = auditCtaFinal(
   description={pick(data.seoDescription_fr, data.seoDescription_en)}
   jsonLd={faqLd ? [articleLd, faqLd] : [articleLd]}
   ogType="article"
-  showUpdated={false}
 >
   <MastheadBar
     lang={lang}
@@ -89,7 +88,6 @@ const cta = auditCtaFinal(
     facts={[
       { label: 'Format', value: pick(data.format_fr, data.format_en) },
       { label: 'E-mail', value: pick('Requis : le fichier arrive en pièce jointe', 'Required: the file arrives as an attachment') },
-      { label: pick('Mise à jour', 'Updated'), value: data.updatedAt ?? data.publishedAt ?? '2026-10-05' },
     ]}
   >
     <a slot="actions" class="btn btn-primary" href="#recevoir-le-fichier">{pick('Recevoir par e-mail', 'Get it by email')}</a>

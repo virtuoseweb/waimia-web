@@ -2,8 +2,8 @@
   "$schema": "../../schemas/generated/services.page.schema.json",
   "title_fr": "Données et pilotage d'activité pour PME · Waimia",
   "title_en": "Data and business steering for SMBs · Waimia",
-  "description_fr": "Données et pilotage pour PME : vos sources réunies, des indicateurs définis une fois, des chiffres fiables pour décider. Trois offres, dès 999 € HT.",
-  "description_en": "Data and steering for SMBs: your sources gathered, indicators defined once, reliable figures to decide on. Three offers, from €999 excl. VAT.",
+  "description_fr": "Données et pilotage pour PME : vos sources réunies, des indicateurs définis une fois, des chiffres fiables pour décider. Trois offres, dès {{prix.sprint}} € HT.",
+  "description_en": "Data and steering for SMBs: your sources gathered, indicators defined once, reliable figures to decide on. Three offers, from €{{prix.sprint.en}} excl. VAT.",
   "slug": "donnees-reporting",
   "publishedAt": "2026-07-13T00:00:00.000Z",
   "updatedAt": "2026-10-12T00:00:00.000Z",
@@ -18,13 +18,13 @@
   "seo": {
     "noindex": false,
     "serviceType": "Pilotage par les données pour PME : centralisation, tableaux de bord et reporting",
-    "priceRange": "dès 999 €",
+    "priceRange": "dès {{prix.sprint}} €",
     "priceMin": 999
   },
   "faq_fr": [
     {
       "q": "Combien coûte la mise en place d'un pilotage par les données pour une PME ?",
-      "a": "Le sprint de cadrage est à 999 € HT pour 10 heures : indicateurs prioritaires, premières sources branchées, un premier tableau en ligne. Les sources et indicateurs suivants sont estimés en heures puis facturés {{prix.horaire}} € HT de l'heure. L'outil de tableaux de bord et l'hébergement de la base sont à votre nom."
+      "a": "Le sprint de cadrage est à {{prix.sprint}} € HT pour 10 heures : indicateurs prioritaires, premières sources branchées, un premier tableau en ligne. Les sources et indicateurs suivants sont estimés en heures puis facturés {{prix.horaire}} € HT de l'heure. L'outil de tableaux de bord et l'hébergement de la base sont à votre nom."
     },
     {
       "q": "Peut-on automatiser un reporting fait sur Excel ?",
@@ -54,7 +54,7 @@
   "faq_en": [
     {
       "q": "How much does setting up data-driven management cost for an SMB?",
-      "a": "The scoping sprint is €999 excl. VAT for 10 hours: priority indicators, first sources connected, a first dashboard online. Further sources and indicators are estimated in hours then billed €{{prix.horaire}} per hour excl. VAT. The dashboard tool and database hosting are in your name."
+      "a": "The scoping sprint is €{{prix.sprint.en}} excl. VAT for 10 hours: priority indicators, first sources connected, a first dashboard online. Further sources and indicators are estimated in hours then billed €{{prix.horaire}} per hour excl. VAT. The dashboard tool and database hosting are in your name."
     },
     {
       "q": "Can reporting done in Excel be automated?",
@@ -95,8 +95,8 @@
       "kicker_en": "§ Data and steering",
       "h1_fr": "Le <i class=\"acc\">pilotage</i> par la donnée, sans tableur refait à la main.",
       "h1_en": "<i class=\"acc\">Steering</i> by data, with no spreadsheet rebuilt by hand.",
-      "lede_fr": "Piloter par la donnée, c'est lire les mêmes chiffres, avec la même définition, sans attendre un export. On rassemble les données de vos logiciels dans une base unique, on fixe la définition de chaque indicateur, puis on tient le suivi à jour.",
-      "lede_en": "Steering by data means reading the same figures, with the same definition, without waiting for an export. We gather the data from your tools into a single base, fix the definition of each indicator, then keep the tracking up to date.",
+      "lede_fr": "Piloter par la donnée, c'est lire les mêmes chiffres, avec la même définition, sans attendre un export. On réunit les données de vos logiciels dans une base unique, on fixe chaque indicateur et on tient le suivi à jour.",
+      "lede_en": "Steering by data means reading the same figures, with the same definition, without waiting for an export. We gather the data from your tools into a single base, fix each indicator and keep the tracking up to date.",
       "badges": [
         {
           "label_fr": "Sources branchées",
@@ -135,7 +135,7 @@
       "kicker_en": "§ In short",
       "metrics": [
         {
-          "value": "999 € HT",
+          "value": "{{prix.sprint}} € HT",
           "label_fr": "sprint de cadrage de 10 h, puis {{prix.horaire}} € HT de l'heure",
           "label_en": "10-hour scoping sprint, then €{{prix.horaire}} per hour excl. VAT",
           "emphasis": true
@@ -360,7 +360,7 @@
         {
           "name_fr": "Sprint de cadrage",
           "name_en": "Scoping sprint",
-          "price": "999 €",
+          "price": "{{prix.sprint}} €",
           "period_fr": "10 h · HT",
           "period_en": "10 h · ex VAT",
           "features_fr": [
@@ -427,9 +427,9 @@
       "items": [
         {
           "q_fr": "Combien coûte la mise en place d'un pilotage par les données pour une PME ?",
-          "a_fr": "Le sprint de cadrage est à 999 € HT pour 10 heures : indicateurs prioritaires, premières sources branchées, un premier tableau en ligne. Les sources et indicateurs suivants sont estimés en heures puis facturés {{prix.horaire}} € HT de l'heure. L'outil de tableaux de bord et l'hébergement de la base sont à votre nom.",
+          "a_fr": "Le sprint de cadrage est à {{prix.sprint}} € HT pour 10 heures : indicateurs prioritaires, premières sources branchées, un premier tableau en ligne. Les sources et indicateurs suivants sont estimés en heures puis facturés {{prix.horaire}} € HT de l'heure. L'outil de tableaux de bord et l'hébergement de la base sont à votre nom.",
           "q_en": "How much does setting up data-driven management cost for an SMB?",
-          "a_en": "The scoping sprint is €999 excl. VAT for 10 hours: priority indicators, first sources connected, a first dashboard online. Further sources and indicators are estimated in hours then billed €{{prix.horaire}} per hour excl. VAT. The dashboard tool and database hosting are in your name."
+          "a_en": "The scoping sprint is €{{prix.sprint.en}} excl. VAT for 10 hours: priority indicators, first sources connected, a first dashboard online. Further sources and indicators are estimated in hours then billed €{{prix.horaire}} per hour excl. VAT. The dashboard tool and database hosting are in your name."
         },
         {
           "q_fr": "Peut-on automatiser un reporting fait sur Excel ?",

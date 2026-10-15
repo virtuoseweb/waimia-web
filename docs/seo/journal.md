@@ -37,6 +37,12 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### Mesure de la provenance des leads, 15 octobre 2026 (PR #92, branche `seo-v4/mesure`, non fusionnée)
+
+Décision 2 du 14 octobre (mesure légère, maison, gratuite). Chaque alerte interne de contact et de lead magnet dit d'où vient la personne : source d'entrée (moteur, site, direct), page d'arrivée, page précédente et page du formulaire ; les journaux Vercel portent les mêmes champs (contact, lead magnet, newsletter) et Cal reçoit `metadata[landing]`, `metadata[entry]`, `metadata[prev]`. Ni cookie ni stockage : `window.wmLeadSource()` vit en mémoire pendant la visite ; politique de confidentialité v1.1. Défaut de production corrigé dans la même PR : un envoi de newsletter partait trois fois (3 POST mesurés sur waimia.com, 1 sur le build de la PR, au chargement et après navigation). Preuves locales : tests 18 sur 18 avec falsification, navigateur sur le build servi, `astro check` à 8 erreurs (référence), portes 36 vertes et 2 rouges connues. Non vérifié : l'enregistrement des `metadata` par Cal (exige une réservation réelle).
+
+**Décisions de la nuit (Claude, mandat de Simon)** : pas de réécriture de title ni de description cette nuit, les pages candidates ayant déjà changé depuis le 8 octobre (effet à lire en W43 et W44) ; pas de lot de maillage (pages candidates déjà liées de 10 à 58 fois dans le corps des pages) ; pas d'embed Cal sur `/audit-ia-pme` (la page n'embarque aucune île React ; l'embed y ajouterait le client React et le script Cal sans preuve que l'étape `/contact` coûte des leads, à revoir avec la provenance mesurée) ; pas de création de guide (conditions de la stratégie non remplies).
+
 ### Décisions de Simon du 14 octobre 2026 · audit global SEO, GEO et conversion
 
 Réponses de Simon aux dix questions de l'audit global du 14 octobre 2026 (9 dimensions, 117 constats retenus après relecture contradictoire). Elles sont acquises : ne pas les redemander.
@@ -87,6 +93,8 @@ Source : lecture intégrale des 31 fichiers du dossier Semrush (PDF, xlsx, csv d
 
 ### Vague 3 du 15 octobre 2026 · restes mesurés après la vague 2 (branche `seo-v3/integration`)
 
+**En production le 15 octobre 2026 (PR #91, merge `233a9426`)**, sur ordre de Simon (« met en prod ce qu'on a pour le moment »). Avant la fusion : Build (astro), E2E Playwright, SEO, tests de la routine et balayage GF-1 de la preview verts ; revue Opus des commits du parent « fusionnable », sans bloquant (ses mineurs sont repris dans la phase C). Après : statut Vercel du commit de fusion « success » ; marqueurs absents de la production avant la fusion, présents à 00:12 UTC (H1 `Ressources <i>IA</i> pour PME` sur `/ressources/outils`, « en six domaines » dans `/llms.txt`) ; les 35 pages touchées, les trois vues de ressources et `/llms.txt` en 200, aucun `{{prix` servi.
+
 **Décisions de Simon du 15 octobre 2026**, acquises :
 - Siège : « ok pour le siège, pas de RCS sans pièce », puis « c mon adresse a bdx c juste ». L'adresse d'activité de Bordeaux reste partout où elle est ; mentions légales inchangées tant qu'aucune pièce ne montre un siège bordelais.
 - Ressources : « on voulait que les hub outils et comparatif disparaisse car se sont déjà des liens filtrables dans ressource et les liens affiche le bon filtre », puis « c les hub mais les filtres et les liens généré par les filtres doivent rester ». Appliqué : `/ressources/outils` et `/ressources/comparatifs` restent les URL des pastilles de filtre, sans 301 ; leur tête propre (H1, chapô, fil d'Ariane) est retirée, elles reprennent celle de `/ressources`. Title, description et indexation inchangés. `/ressources/guides` (non cité) garde sa tête.
@@ -101,6 +109,20 @@ Source : lecture intégrale des 31 fichiers du dossier Semrush (PDF, xlsx, csv d
 **Preuves locales** (build servi, 35 pages touchées) : 35 en 200 ; à 390×844 et 1440×900, aucun débordement horizontal et le CTA du héros dans le premier écran (783 px au plus à 390, 863 à 1440) ; aucun `{{prix` ni `<i>` échappé dans les 176 pages ; vues outils et comparatifs : H1 de `/ressources`, pastille active, seules les cartes du type, filtre de thème fonctionnel, aucune entrée de redirection dans `.vercel/output/config.json`, toujours au sitemap. Portes `check:*` vertes sauf `semantic` et `hover-reflow` (dette connue, fichiers non touchés) ; `astro check` à 8 erreurs comme `main`.
 
 **Reste pour la phase C** (PR distincte) : chapôs de plus de 40 mots sur 35 pages de service, visuels de héros par sujet, alternance des fonds des villes, jeton de prix du sprint de cadrage, typographie des titres.
+
+**Phase C (branche `seo-v3c/integration`, PR #93, non fusionnée)**. Quatre lots en worktrees, chacun revu par Opus, puis les mineurs des revues.
+- **Chapôs** des 35 pages services : 40 mots au plus, deux phrases, intitulé recherché gardé.
+- **Villes** : aucune section voisine au même fond sur les 10 villes, bloc Sources compris (fond calculé dans `[...slug].astro`) ; épingle au lieu du réseau générique sur 5 villes.
+- **Héros** : un visuel par sujet sur 20 pages.
+- **Ressources** :
+  - chapôs directs ;
+  - phrase MCP unique : « Anthropic examine les connecteurs de son annuaire, mais n'audite pas la sécurité des serveurs MCP » ;
+  - ancres réécrites pour décrire leur cible.
+- **Prix** : jeton `prix.sprint` (source `SCOPING_SPRINT_EUR`) à la place de 535 « 999 € » écrits en dur dans 78 fichiers. Le texte visible des 177 pages est identique avant et après, hors notes de prix allégées.
+- **Titres** : insécable avant `? ! : ;`, imposée par la porte `check:title-typo`.
+- **Dates** : `gen-lastmod` saute les commits marqués `Lastmod: ignore`. Instantané régénéré : `/outils-hub` retirée, 58 routes datées.
+- **Débordement corrigé** sur le guide financement OPCO, présent en production : la variante `editorial` fige la première colonne sans retour à la ligne, et la page débordait de 872 px à 1440. Le tableau des sources passe en variante `default`.
+- **Question ouverte à Simon** : le fil d'Ariane JSON-LD des vues `/ressources`, outils et comparatifs n'a pas de fil visible. La revue de #91 demandait de le retirer ; il est laissé en place, en attente de sa décision : le retirer, ou afficher un fil d'Ariane visible.
 
 ### 2026-W42 (session du 12 octobre 2026, collecte du 11 octobre 2026)
 

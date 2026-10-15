@@ -2,8 +2,8 @@
   "$schema": "../../schemas/generated/services.page.schema.json",
   "title_fr": "Devis automatisé et relances clients · Waimia",
   "title_en": "Automated quotes and customer follow-ups · Waimia",
-  "description_fr": "Devis automatisé et relances clients pour PME : devis pré-rempli depuis le CRM, relances déclenchées à date, un suivi pour chaque devis envoyé. Dès 999 € HT.",
-  "description_en": "Automated quotes and client follow-ups for SMBs: quote pre-filled from the CRM, follow-ups on schedule, every quote followed. From €999 excl. VAT.",
+  "description_fr": "Devis automatisé et relances clients pour PME : devis pré-rempli depuis le CRM, relances déclenchées à date, un suivi pour chaque devis envoyé. Dès {{prix.sprint}} € HT.",
+  "description_en": "Automated quotes and client follow-ups for SMBs: quote pre-filled from the CRM, follow-ups on schedule, every quote followed. From €{{prix.sprint.en}} excl. VAT.",
   "slug": "sequences-de-suivi",
   "publishedAt": "2026-07-13T00:00:00.000Z",
   "updatedAt": "2026-10-06T00:00:00.000Z",
@@ -18,13 +18,13 @@
   "seo": {
     "noindex": false,
     "serviceType": "Devis automatisé, relances de devis et de factures impayées",
-    "priceRange": "dès 999 €",
+    "priceRange": "dès {{prix.sprint}} €",
     "priceMin": 999
   },
   "faq_fr": [
     {
       "q": "Combien coûte l'automatisation des devis et des relances ?",
-      "a": "Le sprint de cadrage est à 999 € HT pour 10 heures : une première séquence de relance en service sur vos devis en attente. La génération automatique des devis et les séquences suivantes sont estimées en heures, puis facturées {{prix.horaire}} € HT de l'heure."
+      "a": "Le sprint de cadrage est à {{prix.sprint}} € HT pour 10 heures : une première séquence de relance en service sur vos devis en attente. La génération automatique des devis et les séquences suivantes sont estimées en heures, puis facturées {{prix.horaire}} € HT de l'heure."
     },
     {
       "q": "Comment relancer un devis sans réponse ?",
@@ -50,7 +50,7 @@
   "faq_en": [
     {
       "q": "How much does it cost to automate quotes and follow-ups?",
-      "a": "The scoping sprint is €999 excl. VAT for 10 hours: a first follow-up sequence live on your pending quotes. Automatic quote generation and further sequences are estimated in hours, then billed €{{prix.horaire}} per hour excl. VAT."
+      "a": "The scoping sprint is €{{prix.sprint.en}} excl. VAT for 10 hours: a first follow-up sequence live on your pending quotes. Automatic quote generation and further sequences are estimated in hours, then billed €{{prix.horaire}} per hour excl. VAT."
     },
     {
       "q": "How do you follow up on an unanswered quote?",
@@ -87,8 +87,8 @@
       "kicker_en": "§ Automated quotes and follow-ups",
       "h1_fr": "<i class=\"acc\">Devis automatisés</i> et relances sans oubli",
       "h1_en": "<i class=\"acc\">Automated quotes</i> and follow-ups, nothing forgotten",
-      "lede_fr": "Un devis automatisé est un devis généré à partir des informations déjà saisies dans votre CRM ou votre formulaire, puis suivi par des relances déclenchées à date fixe tant que le client n'a pas répondu. Waimia met en place cette chaîne pour les PME qui envoient des devis chaque semaine et n'ont pas le temps de tous les relancer. Le commercial valide chaque envoi.",
-      "lede_en": "An automated quote is a quote generated from information already entered in your CRM or form, then followed by reminders triggered on a schedule as long as the client has not replied. Waimia sets up this chain for SMBs that send quotes every week and lack the time to chase them all. The salesperson approves every send.",
+      "lede_fr": "Un devis automatisé est généré depuis les informations déjà saisies dans votre CRM, puis suivi de relances à date fixe jusqu'à la réponse du client. Le commercial valide chaque envoi, pour les PME qui envoient des devis chaque semaine.",
+      "lede_en": "An automated quote is generated from the information already entered in your CRM, then followed by reminders on a schedule until the client replies. The salesperson approves every send, for SMBs that send quotes every week.",
       "badges": [
         {
           "label_fr": "Devis pré-rempli",
@@ -127,7 +127,7 @@
       "kicker_en": "§ In short",
       "metrics": [
         {
-          "value": "999 € HT",
+          "value": "{{prix.sprint}} € HT",
           "label_fr": "sprint de cadrage de 10 h, puis {{prix.horaire}} € HT de l'heure",
           "label_en": "10-hour scoping sprint, then €{{prix.horaire}} per hour excl. VAT",
           "emphasis": true
@@ -352,7 +352,7 @@
         {
           "name_fr": "Sprint de cadrage",
           "name_en": "Scoping sprint",
-          "price": "999 €",
+          "price": "{{prix.sprint}} €",
           "period_fr": "10 h · HT",
           "period_en": "10 h · ex VAT",
           "features_fr": [
@@ -419,9 +419,9 @@
       "items": [
         {
           "q_fr": "Combien coûte l'automatisation des devis et des relances ?",
-          "a_fr": "Le sprint de cadrage est à 999 € HT pour 10 heures : une première séquence de relance en service sur vos devis en attente. La génération automatique des devis et les séquences suivantes sont estimées en heures, puis facturées {{prix.horaire}} € HT de l'heure.",
+          "a_fr": "Le sprint de cadrage est à {{prix.sprint}} € HT pour 10 heures : une première séquence de relance en service sur vos devis en attente. La génération automatique des devis et les séquences suivantes sont estimées en heures, puis facturées {{prix.horaire}} € HT de l'heure.",
           "q_en": "How much does it cost to automate quotes and follow-ups?",
-          "a_en": "The scoping sprint is €999 excl. VAT for 10 hours: a first follow-up sequence live on your pending quotes. Automatic quote generation and further sequences are estimated in hours, then billed €{{prix.horaire}} per hour excl. VAT."
+          "a_en": "The scoping sprint is €{{prix.sprint.en}} excl. VAT for 10 hours: a first follow-up sequence live on your pending quotes. Automatic quote generation and further sequences are estimated in hours, then billed €{{prix.horaire}} per hour excl. VAT."
         },
         {
           "q_fr": "Comment relancer un devis sans réponse ?",

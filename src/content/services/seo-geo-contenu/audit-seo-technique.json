@@ -1,6 +1,6 @@
 {
   "$schema": "../../../schemas/generated/services.page.schema.json",
-  "title_fr": "Agence audit SEO : audit technique de site pour PME · Waimia",
+  "title_fr": "Agence audit SEO : audit technique de site pour PME · Waimia",
   "title_en": "SEO audit agency: technical site audit for SMBs · Waimia",
   "description_fr": "Agence audit SEO pour PME : indexation, structure, vitesse et maillage de votre site, puis les correctifs classés. Rapport écrit, correctifs posés sur demande.",
   "description_en": "SEO audit agency for SMBs: indexing, structure, speed and internal links, then a ranked list of fixes. Written report, fixes applied on request.",
@@ -18,7 +18,7 @@
   "seo": {
     "noindex": false,
     "serviceType": "Audit SEO technique et sémantique : indexation, structure, vitesse, maillage et liste de correctifs classés",
-    "priceRange": "dès 999 €",
+    "priceRange": "dès {{prix.sprint}} €",
     "priceMin": 999
   },
   "faq_fr": [
@@ -32,7 +32,7 @@
     },
     {
       "q": "Combien coûte un audit SEO technique ?",
-      "a": "Le sprint de cadrage est à 999 € HT pour 10 heures : exploration du site, contrôle d'indexation et première liste d'actions classées. Sur un petit site, il peut suffire. Sur un site volumineux, la suite est estimée avec vous, puis facturée {{prix.horaire}} € HT de l'heure, sans abonnement imposé."
+      "a": "Le sprint de cadrage est à {{prix.sprint}} € HT pour 10 heures : exploration du site, contrôle d'indexation et première liste d'actions classées. Sur un petit site, il peut suffire. Sur un site volumineux, la suite est estimée avec vous, puis facturée {{prix.horaire}} € HT de l'heure, sans abonnement imposé."
     },
     {
       "q": "Faut-il auditer le site avant de produire du contenu ?",
@@ -58,7 +58,7 @@
     },
     {
       "q": "How much does a technical SEO audit cost?",
-      "a": "The scoping sprint is €999 excl. VAT for 10 hours: site crawl, indexing check and first backlog. On a small site it may be enough. On a large site, the rest is estimated with you, then billed at €{{prix.horaire}} per hour excl. VAT, with no imposed subscription."
+      "a": "The scoping sprint is €{{prix.sprint.en}} excl. VAT for 10 hours: site crawl, indexing check and first backlog. On a small site it may be enough. On a large site, the rest is estimated with you, then billed at €{{prix.horaire}} per hour excl. VAT, with no imposed subscription."
     },
     {
       "q": "Should the site be audited before producing content?",
@@ -115,9 +115,9 @@
         "href": "/services/seo-geo-contenu",
         "variant": "ghost"
       },
-      "media_src": "/images/line-art/dispositif-flow.svg",
-      "media_alt_fr": "Schéma avant, pendant, après : des éléments dispersés, reliés par un nœud central, puis organisés en un flux.",
-      "media_alt_en": "Before, during, after diagram: scattered elements, linked by a central node, then organised into one flow."
+      "media_src": "/images/line-art/livrable-gouvernance.svg",
+      "media_alt_fr": "Pictogramme : un bouclier marqué d'une coche et de lignes de texte",
+      "media_alt_en": "Icon: a shield with a check mark and lines of text"
     },
     {
       "type": "proof-bar",
@@ -126,7 +126,7 @@
       "kicker_en": "§ At a glance",
       "metrics": [
         {
-          "value": "999 € HT",
+          "value": "{{prix.sprint}} € HT",
           "label_fr": "sprint de cadrage de 10 h, puis {{prix.horaire}} € HT de l'heure",
           "label_en": "10-hour scoping sprint, then €{{prix.horaire}} per hour excl. VAT",
           "emphasis": true
@@ -477,7 +477,7 @@
         {
           "name_fr": "Sprint de cadrage",
           "name_en": "Scoping sprint",
-          "price": "999 €",
+          "price": "{{prix.sprint}} €",
           "period_fr": "10 h · HT",
           "period_en": "10 h · ex VAT",
           "features_fr": [
@@ -526,8 +526,8 @@
           }
         }
       ],
-      "footnote_fr": "Le sprint de cadrage est à prix fixe, 999 € HT pour 10 heures : exploration du site, contrôle d'indexation et de structure, première liste d'actions classées et restitution. La suite se cale sur devis : on estime ensemble le temps que demandent les correctifs, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € de l'heure, non dégressif. Sans abonnement : à la fin, le rapport, les exports et les accès sont à vous.",
-      "footnote_en": "The scoping sprint is fixed-price, €999 excl. VAT for 10 hours: site crawl, indexing and structure check, first backlog and walkthrough. What follows is quoted: we estimate together the time the fixes require, validate it, then run it in sprints on a time and materials basis, at €{{prix.horaire}} an hour, non-degressive. No subscription: at the end, the report, exports and access are yours."
+      "footnote_fr": "Le sprint de cadrage est à prix fixe, {{prix.sprint}} € HT pour 10 heures : exploration du site, contrôle d'indexation et de structure, première liste d'actions classées et restitution. La suite se cale sur devis : on estime ensemble le temps que demandent les correctifs, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € de l'heure, non dégressif. Sans abonnement : à la fin, le rapport, les exports et les accès sont à vous.",
+      "footnote_en": "The scoping sprint is fixed-price, €{{prix.sprint.en}} excl. VAT for 10 hours: site crawl, indexing and structure check, first backlog and walkthrough. What follows is quoted: we estimate together the time the fixes require, validate it, then run it in sprints on a time and materials basis, at €{{prix.horaire}} an hour, non-degressive. No subscription: at the end, the report, exports and access are yours."
     },
     {
       "type": "eeat-panel",
@@ -557,8 +557,8 @@
         {
           "q_fr": "Combien coûte un audit SEO technique ?",
           "q_en": "How much does a technical SEO audit cost?",
-          "a_fr": "Le sprint de cadrage est à 999 € HT pour 10 heures : exploration du site, contrôle d'indexation et première liste d'actions classées. Sur un petit site, il peut suffire. Sur un site volumineux, la suite est estimée avec vous, puis facturée {{prix.horaire}} € HT de l'heure, sans abonnement imposé.",
-          "a_en": "The scoping sprint is €999 excl. VAT for 10 hours: site crawl, indexing check and first backlog. On a small site it may be enough. On a large site, the rest is estimated with you, then billed at €{{prix.horaire}} per hour excl. VAT, with no imposed subscription."
+          "a_fr": "Le sprint de cadrage est à {{prix.sprint}} € HT pour 10 heures : exploration du site, contrôle d'indexation et première liste d'actions classées. Sur un petit site, il peut suffire. Sur un site volumineux, la suite est estimée avec vous, puis facturée {{prix.horaire}} € HT de l'heure, sans abonnement imposé.",
+          "a_en": "The scoping sprint is €{{prix.sprint.en}} excl. VAT for 10 hours: site crawl, indexing check and first backlog. On a small site it may be enough. On a large site, the rest is estimated with you, then billed at €{{prix.horaire}} per hour excl. VAT, with no imposed subscription."
         },
         {
           "q_fr": "Faut-il auditer le site avant de produire du contenu ?",

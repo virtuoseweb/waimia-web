@@ -2,8 +2,8 @@
   "$schema": "../../../schemas/generated/services.page.schema.json",
   "title_fr": "Agent IA de qualification de leads · Waimia",
   "title_en": "AI lead qualification agent · Waimia",
-  "description_fr": "Agent IA qui lit vos demandes entrantes (formulaire, e-mail, chat), les note et les route vers le bon commercial, avec validation humaine. Dès 999 € HT.",
-  "description_en": "AI agent that reads incoming requests (form, email, chat), scores them and routes them to the right salesperson, with human approval. From €999 excl. VAT.",
+  "description_fr": "Agent IA qui lit vos demandes entrantes (formulaire, e-mail, chat), les note et les route vers le bon commercial, avec validation humaine. Dès {{prix.sprint}} € HT.",
+  "description_en": "AI agent that reads incoming requests (form, email, chat), scores them and routes them to the right salesperson, with human approval. From €{{prix.sprint.en}} excl. VAT.",
   "slug": "agent-qualification-leads",
   "publishedAt": "2026-10-12T00:00:00.000Z",
   "updatedAt": "2026-10-12",
@@ -18,7 +18,7 @@
   "seo": {
     "noindex": false,
     "serviceType": "Agent IA de qualification et de routage des leads pour PME",
-    "priceRange": "dès 999 €",
+    "priceRange": "dès {{prix.sprint}} €",
     "priceMin": 999
   },
   "faq_fr": [
@@ -28,7 +28,7 @@
     },
     {
       "q": "Combien coûte un agent de qualification de leads ?",
-      "a": "La conception démarre par un sprint de cadrage à 999 € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure selon le nombre de canaux et d'outils à connecter. S'ajoute l'usage du modèle, facturé par l'éditeur au volume de demandes, estimé avant le lancement."
+      "a": "La conception démarre par un sprint de cadrage à {{prix.sprint}} € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure selon le nombre de canaux et d'outils à connecter. S'ajoute l'usage du modèle, facturé par l'éditeur au volume de demandes, estimé avant le lancement."
     },
     {
       "q": "Agent de qualification ou scoring à règles : lequel choisir ?",
@@ -54,7 +54,7 @@
     },
     {
       "q": "How much does a lead qualification agent cost?",
-      "a": "Design starts with a scoping sprint at €999 excl. VAT for 10 hours, then €{{prix.horaire}} per hour excl. VAT depending on the number of channels and tools to connect. Add model usage, billed by the vendor by request volume, estimated before launch."
+      "a": "Design starts with a scoping sprint at €{{prix.sprint.en}} excl. VAT for 10 hours, then €{{prix.horaire}} per hour excl. VAT depending on the number of channels and tools to connect. Add model usage, billed by the vendor by request volume, estimated before launch."
     },
     {
       "q": "Qualification agent or rule-based scoring: which one?",
@@ -81,8 +81,8 @@
       "kicker_en": "§ Lead qualification agent",
       "h1_fr": "Agent IA de <i class=\"acc\">qualification</i> de leads",
       "h1_en": "AI lead <i class=\"acc\">qualification</i> agent",
-      "lede_fr": "Un agent de qualification lit chaque demande entrante, qu'elle arrive par formulaire, e-mail ou chat, en extrait le besoin, l'urgence et la taille de l'entreprise quand elles sont écrites, propose une note et la route vers le bon commercial. Waimia le conçoit pour les PME dont les demandes arrivent en texte libre et que personne ne trie assez vite. Un commercial tranche les cas limites ; l'agent prépare, il n'écrit pas seul à un prospect.",
-      "lede_en": "A qualification agent reads each incoming request, whether it comes by form, email or chat, extracts the need, urgency and company size when they are written, proposes a score and routes it to the right salesperson. Waimia designs it for SMBs whose requests arrive as free text and that nobody sorts fast enough. A salesperson settles borderline cases; the agent prepares, it does not write to a prospect on its own.",
+      "lede_fr": "Un agent de qualification lit chaque demande entrante (formulaire, e-mail, chat), propose une note expliquée et la route vers le bon commercial. Pour les PME dont les demandes arrivent en texte libre ; un commercial tranche les cas limites.",
+      "lede_en": "A qualification agent reads each incoming request (form, email, chat), proposes an explained score and routes it to the right salesperson. For SMBs whose requests arrive as free text; a salesperson settles borderline cases.",
       "badges": [
         {
           "label_fr": "Formulaire, e-mail, chat",
@@ -115,9 +115,9 @@
         "href": "/audit-ia-pme",
         "variant": "ghost"
       },
-      "media_src": "/images/line-art/dispositif-flow.svg",
-      "media_alt_fr": "Schéma : des outils dispersés à gauche, un nœud d'orchestration au centre, un flux ordonné à droite.",
-      "media_alt_en": "Diagram: scattered tools on the left, an orchestration node in the centre, an ordered flow on the right."
+      "media_src": "/images/line-art/swi-livrable-capture-scoring.svg",
+      "media_alt_fr": "Pictogramme : un entonnoir et une coche de validation",
+      "media_alt_en": "Icon: a funnel and a check mark"
     },
     {
       "type": "proof-bar",
@@ -126,7 +126,7 @@
       "kicker_en": "§ In short",
       "metrics": [
         {
-          "value": "999 € HT",
+          "value": "{{prix.sprint}} € HT",
           "label_fr": "sprint de cadrage de 10 h, puis {{prix.horaire}} € HT de l'heure",
           "label_en": "10-hour scoping sprint, then €{{prix.horaire}} per hour excl. VAT",
           "emphasis": true
@@ -383,7 +383,7 @@
         {
           "name_fr": "Sprint de cadrage",
           "name_en": "Scoping sprint",
-          "price": "999 €",
+          "price": "{{prix.sprint}} €",
           "period_fr": "10 h · HT",
           "period_en": "10 h · ex VAT",
           "features_fr": [
@@ -432,8 +432,8 @@
           }
         }
       ],
-      "footnote_fr": "Le sprint de cadrage est à prix fixe, 999 € HT pour 10 heures : critères de qualification, premier agent sur un canal branché à votre CRM, test sur vos demandes passées. La suite se cale sur devis : on estime ensemble le temps que demandent les nouveaux canaux, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € HT de l'heure, non dégressif. L'usage du modèle est facturé par l'éditeur au volume, estimé avant le lancement. Sans abonnement ni captivité : à la fin, votre agent, vos accès et la documentation sont à vous.",
-      "footnote_en": "The scoping sprint is fixed-price, €999 excl. VAT for 10 hours: qualification criteria, a first agent on one channel connected to your CRM, tested on your past requests. What follows is quoted: we estimate together the time new channels require, validate it, then run it in sprints within the time and materials frame, at €{{prix.horaire}} excl. VAT an hour, non-degressive. Model usage is billed by the vendor by volume, estimated before launch. No subscription, no lock-in: at the end, your agent, your access and the documentation are yours."
+      "footnote_fr": "Le sprint de cadrage est à prix fixe, {{prix.sprint}} € HT pour 10 heures : critères de qualification, premier agent sur un canal branché à votre CRM, test sur vos demandes passées. La suite se cale sur devis : on estime ensemble le temps que demandent les nouveaux canaux, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € HT de l'heure, non dégressif. L'usage du modèle est facturé par l'éditeur au volume, estimé avant le lancement. Sans abonnement ni captivité : à la fin, votre agent, vos accès et la documentation sont à vous.",
+      "footnote_en": "The scoping sprint is fixed-price, €{{prix.sprint.en}} excl. VAT for 10 hours: qualification criteria, a first agent on one channel connected to your CRM, tested on your past requests. What follows is quoted: we estimate together the time new channels require, validate it, then run it in sprints within the time and materials frame, at €{{prix.horaire}} excl. VAT an hour, non-degressive. Model usage is billed by the vendor by volume, estimated before launch. No subscription, no lock-in: at the end, your agent, your access and the documentation are yours."
     },
     {
       "type": "eeat-panel",
@@ -456,9 +456,9 @@
         },
         {
           "q_fr": "Combien coûte un agent de qualification de leads ?",
-          "a_fr": "La conception démarre par un sprint de cadrage à 999 € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure selon le nombre de canaux et d'outils à connecter. S'ajoute l'usage du modèle, facturé par l'éditeur au volume de demandes, estimé avant le lancement.",
+          "a_fr": "La conception démarre par un sprint de cadrage à {{prix.sprint}} € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure selon le nombre de canaux et d'outils à connecter. S'ajoute l'usage du modèle, facturé par l'éditeur au volume de demandes, estimé avant le lancement.",
           "q_en": "How much does a lead qualification agent cost?",
-          "a_en": "Design starts with a scoping sprint at €999 excl. VAT for 10 hours, then €{{prix.horaire}} per hour excl. VAT depending on the number of channels and tools to connect. Add model usage, billed by the vendor by request volume, estimated before launch."
+          "a_en": "Design starts with a scoping sprint at €{{prix.sprint.en}} excl. VAT for 10 hours, then €{{prix.horaire}} per hour excl. VAT depending on the number of channels and tools to connect. Add model usage, billed by the vendor by request volume, estimated before launch."
         },
         {
           "q_fr": "Agent de qualification ou scoring à règles : lequel choisir ?",

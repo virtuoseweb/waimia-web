@@ -1,6 +1,6 @@
 {
   "$schema": "../../schemas/generated/guides.page.schema.json",
-  "title_fr": "Claude for Small Business : le guide pour PME en France",
+  "title_fr": "Claude for Small Business : le guide pour PME en France",
   "title_en": "Claude for Small Business: a guide for SMBs in France",
   "description_fr": "Claude for Small Business en France : 43 workflows, connecteurs QuickBooks, Pennylane ou Sage, offres Pro ou Team, coût réel, RGPD et limites.",
   "description_en": "Claude for Small Business in France: 43 workflows, QuickBooks, Pennylane or Sage connectors, Pro or Team plans, real cost, GDPR and limits.",
@@ -152,7 +152,7 @@
     },
     {
       "q": "Quand faut-il faire appel à un prestataire ?",
-      "a": "Quand la valeur est dans un outil que le plugin ne lit pas, ou quand l'erreur coûte cher : clôture, paie, relances clients. Seul avec QuickBooks, Stripe et Gmail, vous n'avez probablement besoin de personne. Avec une pile française, un sprint de cadrage de 999 € HT chez Waimia sert à décider quels connecteurs et quels skills valent d'être construits, avant d'engager quoi que ce soit."
+      "a": "Quand la valeur est dans un outil que le plugin ne lit pas, ou quand l'erreur coûte cher : clôture, paie, relances clients. Seul avec QuickBooks, Stripe et Gmail, vous n'avez probablement besoin de personne. Avec une pile française, un sprint de cadrage de {{prix.sprint}} € HT chez Waimia sert à décider quels connecteurs et quels skills valent d'être construits, avant d'engager quoi que ce soit."
     }
   ],
   "faq_en": [
@@ -186,7 +186,7 @@
     },
     {
       "q": "When should I bring in a provider?",
-      "a": "When the value sits in a tool the plugin does not read, or when mistakes are expensive: month-end close, payroll, customer reminders. Alone with QuickBooks, Stripe and Gmail, you probably need nobody. With a French stack, a €999 excl. VAT scoping sprint at Waimia is for deciding which connectors and skills are worth building, before committing to anything."
+      "a": "When the value sits in a tool the plugin does not read, or when mistakes are expensive: month-end close, payroll, customer reminders. Alone with QuickBooks, Stripe and Gmail, you probably need nobody. With a French stack, a €{{prix.sprint.en}} excl. VAT scoping sprint at Waimia is for deciding which connectors and skills are worth building, before committing to anything."
     }
   ],
   "sections": [
@@ -195,7 +195,7 @@
       "background": "paper",
       "kicker_fr": "§ Guide · Claude en PME",
       "kicker_en": "§ Guide · Claude for SMBs",
-      "h1_fr": "Claude for Small Business : ce que le plugin fait pour une PME française",
+      "h1_fr": "Claude for Small Business : ce que le plugin fait pour une PME française",
       "h1_en": "Claude for Small Business: what the plugin does for a French SMB",
       "lede_fr": "Anthropic a sorti en mai 2026 un plugin pour petites entreprises : 43 workflows, 37 connecteurs, de la clôture du mois à la relance des devis. Il est bien pensé. Il est aussi écrit pour une PME américaine qui tourne sur QuickBooks et Gusto. Voici ce qui marche chez vous, ce qui ne marche pas, et ce que ça coûte.",
       "lede_en": "In May 2026 Anthropic released a plugin for small businesses: 43 workflows, 37 connectors, from month-end close to chasing quotes. It is well designed. It is also written for a US business running on QuickBooks and Gusto. Here is what works for you, what does not, and what it costs.",
@@ -697,8 +697,8 @@
           "title_en": "Scoping sprint",
           "body_fr": "Installation du plugin, branchement des connecteurs officiels existants (Pennylane, Qonto, Pipedrive selon votre pile), réécriture des deux ou trois skills qui comptent, et spécification des connecteurs à construire.",
           "body_en": "Plugin installation, connection of existing official connectors (Pennylane, Qonto, Pipedrive depending on your stack), rewrite of the two or three skills that matter, and spec of the connectors to build.",
-          "meta_fr": "999 € HT · 10 h",
-          "meta_en": "€999 excl. VAT · 10 h"
+          "meta_fr": "{{prix.sprint}} € HT · 10 h",
+          "meta_en": "€{{prix.sprint.en}} excl. VAT · 10 h"
         },
         {
           "title_fr": "Connecteurs sur mesure",
@@ -727,7 +727,7 @@
         {
           "kicker_fr": "Guide",
           "kicker_en": "Guide",
-          "title_fr": "Claude pour les PME : le guide complet",
+          "title_fr": "Claude pour les PME : le guide complet",
           "title_en": "Claude for SMBs: the complete guide",
           "lead_fr": "Offres, usages, déploiement d'équipe et limites, au-delà du seul plugin.",
           "lead_en": "Plans, uses, team rollout and limits, beyond the plugin alone.",
@@ -736,7 +736,7 @@
         {
           "kicker_fr": "Guide",
           "kicker_en": "Guide",
-          "title_fr": "Claude Cowork : ce qu'il devient",
+          "title_fr": "Claude Cowork : ce qu'il devient",
           "title_en": "Claude Cowork: what it is becoming",
           "lead_fr": "L'agent qui fait tourner le plugin, et sa fusion avec le chat.",
           "lead_en": "The agent that runs the plugin, and its merger with chat.",
@@ -815,9 +815,9 @@
         },
         {
           "q_fr": "Quand faut-il faire appel à un prestataire ?",
-          "a_fr": "Quand la valeur est dans un outil que le plugin ne lit pas, ou quand l'erreur coûte cher : clôture, paie, relances clients. Seul avec QuickBooks, Stripe et Gmail, vous n'avez probablement besoin de personne. Avec une pile française, un sprint de cadrage de 999 € HT chez Waimia sert à décider quels connecteurs et quels skills valent d'être construits, avant d'engager quoi que ce soit.",
+          "a_fr": "Quand la valeur est dans un outil que le plugin ne lit pas, ou quand l'erreur coûte cher : clôture, paie, relances clients. Seul avec QuickBooks, Stripe et Gmail, vous n'avez probablement besoin de personne. Avec une pile française, un sprint de cadrage de {{prix.sprint}} € HT chez Waimia sert à décider quels connecteurs et quels skills valent d'être construits, avant d'engager quoi que ce soit.",
           "q_en": "When should I bring in a provider?",
-          "a_en": "When the value sits in a tool the plugin does not read, or when mistakes are expensive: month-end close, payroll, customer reminders. Alone with QuickBooks, Stripe and Gmail, you probably need nobody. With a French stack, a €999 excl. VAT scoping sprint at Waimia is for deciding which connectors and skills are worth building, before committing to anything."
+          "a_en": "When the value sits in a tool the plugin does not read, or when mistakes are expensive: month-end close, payroll, customer reminders. Alone with QuickBooks, Stripe and Gmail, you probably need nobody. With a French stack, a €{{prix.sprint.en}} excl. VAT scoping sprint at Waimia is for deciding which connectors and skills are worth building, before committing to anything."
         }
       ]
     },
