@@ -189,7 +189,7 @@ function buildOrganization(): JsonLdObject {
     '@id': SCHEMA_IDS.organization,
     name: SITE.name,
     legalName: SITE.legalName,
-    url: SITE_URL,
+    url: `${SITE_URL}/`,
     logo: { '@type': 'ImageObject', url: LOGO_URL, width: 256, height: 256 },
     description: ORGANIZATION_DESCRIPTION,
     email: SITE.email,
@@ -230,7 +230,7 @@ function buildWebSite(lang: Lang = 'fr'): JsonLdObject {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     '@id': SCHEMA_IDS.website,
-    url: SITE_URL,
+    url: `${SITE_URL}/`,
     name: SITE.name,
     description: ORGANIZATION_DESCRIPTION,
     inLanguage: lang === 'en' ? 'en-US' : 'fr-FR',
@@ -250,7 +250,7 @@ function buildLocalBusiness(): JsonLdObject {
     name: SITE.name,
     alternateName: SITE.legalName,
     description: ORGANIZATION_DESCRIPTION,
-    url: SITE_URL,
+    url: `${SITE_URL}/`,
     image: LOGO_URL,
     logo: LOGO_URL,
     telephone: SITE.telE164,
@@ -956,7 +956,7 @@ function buildCourseSchema(entry: any, lang: Lang): JsonLdObject {
   const title = lang === 'fr' ? d.title_fr : d.title_en;
   const description = lang === 'fr' ? d.description_fr : d.description_en;
 
-  const provider = { '@type': 'Organization', name: SITE.name, url: SITE_URL };
+  const provider = { '@type': 'Organization', name: SITE.name, url: `${SITE_URL}/` };
 
   if (d.course_type === 'atelier') {
     const ad = d;
@@ -1042,7 +1042,7 @@ function buildProductSchema(entry: any, lang: Lang): JsonLdObject {
     '@type': 'Service',
     name,
     description,
-    provider: { '@type': 'Organization', name: SITE.name, url: SITE_URL },
+    provider: { '@type': 'Organization', name: SITE.name, url: `${SITE_URL}/` },
     offers: {
       '@type': 'Offer',
       price: d.price_eur_monthly,
@@ -1071,7 +1071,7 @@ export function buildSchemaForPage(
       }
       schemas.push(
         buildBreadcrumbList([
-          { name: lang === 'fr' ? 'Accueil' : 'Home', url: SITE_URL },
+          { name: lang === 'fr' ? 'Accueil' : 'Home', url: `${SITE_URL}/` },
           {
             name: lang === 'fr' ? "L'equipe" : 'The team',
             url: `${SITE_URL}/equipe`,
@@ -1088,7 +1088,7 @@ export function buildSchemaForPage(
       if (citations.length > 0) schemas.push(...citations);
       schemas.push(
         buildBreadcrumbList([
-          { name: lang === 'fr' ? 'Accueil' : 'Home', url: SITE_URL },
+          { name: lang === 'fr' ? 'Accueil' : 'Home', url: `${SITE_URL}/` },
           {
             name: lang === 'fr' ? 'Ressources' : 'Resources',
             url: `${SITE_URL}/ressources`,
@@ -1108,7 +1108,7 @@ export function buildSchemaForPage(
       schemas.push(buildArticleSchema(entry, lang, fullUrl, authorEntry));
       schemas.push(
         buildBreadcrumbList([
-          { name: lang === 'fr' ? 'Accueil' : 'Home', url: SITE_URL },
+          { name: lang === 'fr' ? 'Accueil' : 'Home', url: `${SITE_URL}/` },
           {
             name: lang === 'fr' ? 'Ressources' : 'Resources',
             url: `${SITE_URL}/ressources`,
@@ -1126,7 +1126,7 @@ export function buildSchemaForPage(
       schemas.push(buildOfferSchema(entry, lang));
       schemas.push(
         buildBreadcrumbList([
-          { name: lang === 'fr' ? 'Accueil' : 'Home', url: SITE_URL },
+          { name: lang === 'fr' ? 'Accueil' : 'Home', url: `${SITE_URL}/` },
           {
             name: lang === 'fr' ? 'Ressources' : 'Resources',
             url: `${SITE_URL}/ressources`,
@@ -1147,7 +1147,7 @@ export function buildSchemaForPage(
       if (citations.length > 0) schemas.push(...citations);
       schemas.push(
         buildBreadcrumbList([
-          { name: lang === 'fr' ? 'Accueil' : 'Home', url: SITE_URL },
+          { name: lang === 'fr' ? 'Accueil' : 'Home', url: `${SITE_URL}/` },
           {
             name: lang === 'fr' ? 'Ressources' : 'Resources',
             url: `${SITE_URL}/ressources`,
@@ -1164,7 +1164,7 @@ export function buildSchemaForPage(
       schemas.push(buildArticleSchema(entry, lang, fullUrl, authorEntry));
       schemas.push(
         buildBreadcrumbList([
-          { name: lang === 'fr' ? 'Accueil' : 'Home', url: SITE_URL },
+          { name: lang === 'fr' ? 'Accueil' : 'Home', url: `${SITE_URL}/` },
           {
             name: lang === 'fr' ? 'Cas clients' : 'Case studies',
             url: `${SITE_URL}/cas-clients`,
@@ -1181,7 +1181,7 @@ export function buildSchemaForPage(
       if (faq) schemas.push(faq);
       schemas.push(
         buildBreadcrumbList([
-          { name: lang === 'fr' ? 'Accueil' : 'Home', url: SITE_URL },
+          { name: lang === 'fr' ? 'Accueil' : 'Home', url: `${SITE_URL}/` },
           {
             name: 'Services',
             url: `${SITE_URL}/services`,
@@ -1198,7 +1198,7 @@ export function buildSchemaForPage(
       if (faq) schemas.push(faq);
       schemas.push(
         buildBreadcrumbList([
-          { name: lang === 'fr' ? 'Accueil' : 'Home', url: SITE_URL },
+          { name: lang === 'fr' ? 'Accueil' : 'Home', url: `${SITE_URL}/` },
           { name: 'Solutions', url: `${SITE_URL}/solutions` },
           { name: d.title_fr },
         ]),
@@ -1212,7 +1212,7 @@ export function buildSchemaForPage(
       if (faq) schemas.push(faq);
       schemas.push(
         buildBreadcrumbList([
-          { name: lang === 'fr' ? 'Accueil' : 'Home', url: SITE_URL },
+          { name: lang === 'fr' ? 'Accueil' : 'Home', url: `${SITE_URL}/` },
           {
             name: lang === 'fr' ? 'Offres' : 'Services',
             url: `${SITE_URL}/services`,
@@ -1227,7 +1227,7 @@ export function buildSchemaForPage(
       schemas.push(buildCourseSchema(entry, lang));
       schemas.push(
         buildBreadcrumbList([
-          { name: lang === 'fr' ? 'Accueil' : 'Home', url: SITE_URL },
+          { name: lang === 'fr' ? 'Accueil' : 'Home', url: `${SITE_URL}/` },
           { name: lang === 'fr' ? 'École' : 'Academy', url: `${SITE_URL}/ecole` },
           { name: d.course_type },
           { name: lang === 'fr' ? d.title_fr : d.title_en },
@@ -1240,7 +1240,7 @@ export function buildSchemaForPage(
       schemas.push(buildProductSchema(entry, lang));
       schemas.push(
         buildBreadcrumbList([
-          { name: lang === 'fr' ? 'Accueil' : 'Home', url: SITE_URL },
+          { name: lang === 'fr' ? 'Accueil' : 'Home', url: `${SITE_URL}/` },
           { name: 'Commerce', url: `${SITE_URL}/commerce` },
           { name: d.commerce_type, url: `${SITE_URL}/commerce/${d.commerce_type}` },
           { name: lang === 'fr' ? d.title_fr : d.title_en },
@@ -1252,7 +1252,7 @@ export function buildSchemaForPage(
     default:
       schemas.push(
         buildBreadcrumbList([
-          { name: lang === 'fr' ? 'Accueil' : 'Home', url: SITE_URL },
+          { name: lang === 'fr' ? 'Accueil' : 'Home', url: `${SITE_URL}/` },
           { name: d.title_fr ?? 'Page' },
         ]),
       );
