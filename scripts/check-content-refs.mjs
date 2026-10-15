@@ -316,6 +316,19 @@ function collectRefs(node, acc) {
   return acc;
 }
 
+// Collecte des champs de lien : clés `href` ou finissant par `_href`, valeur chaîne non vide.
+function collectLinks(node, acc) {
+  if (Array.isArray(node)) {
+    for (const v of node) collectLinks(v, acc);
+  } else if (node && typeof node === 'object') {
+    for (const [k, v] of Object.entries(node)) {
+      if ((k === 'href' || k.endsWith('_href')) && typeof v === 'string' && v !== '') acc.push([k, v]);
+      else collectLinks(v, acc);
+    }
+  }
+  return acc;
+}
+
 let refCount = 0;
 for (const file of walkJson(join(ROOT, 'src/content'))) {
   const rel = file.slice(ROOT.length + 1);
@@ -325,6 +338,11 @@ for (const file of walkJson(join(ROOT, 'src/content'))) {
   } catch (e) {
     fail(`${rel} : JSON invalide (${e.message})`);
     continue;
+  }
+  // Un champ de lien (`href`, `*_href`) doit être une adresse : chemin absolu, ancre, URL ou mailto/tel.
+  // Un libellé recopié à la place d'un lien (vague 7 : « How much an AI agent costs an SMB ») donne une 404 relative.
+  for (const [key, val] of collectLinks(parsed, [])) {
+    if (!/^(\/|#|https?:\/\/|mailto:|tel:)/.test(val)) fail(`${rel} : ${key} n'est pas une adresse → « ${val} »`);
   }
   for (const ref of collectRefs(parsed, [])) {
     refCount++;
