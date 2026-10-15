@@ -49,9 +49,9 @@ export const RESOURCE_VIEWS: Record<ResourceView, {
 }> = {
   all: {
     href: '/ressources',
-    title_fr: 'Ressources IA pour PME : guides et outils · Waimia',
+    title_fr: 'Ressources IA pour PME : guides, comparatifs, outils',
     title_en: 'AI resources for SMEs: guides and tools · Waimia',
-    description_fr: 'Guides pratiques, comparatifs outils IA, calculateur et checklists gratuits, articles : toutes les ressources IA pour PME, du plus récent au plus ancien.',
+    description_fr: 'Guides pratiques, comparatifs d\'outils IA, calculateur ROI, checklists et modèles gratuits pour PME. Chaque contenu est daté, signé et relu.',
     description_en: 'Practical guides, AI tool comparisons, free calculator and checklists, articles: all AI resources for SMEs, newest first.',
     collection_name_fr: 'Ressources IA pour PME · Waimia',
     collection_name_en: 'AI resources for SMEs · Waimia',
