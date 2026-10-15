@@ -9,7 +9,7 @@ Objet : Votre site {{entreprise}}, deux ou trois choses à corriger
 
 Bonjour {{prenom}},
 
-Simon, de Waimia, agence IA à Montpellier. {{declencheur}} : c'est souvent le signe qu'un site travaille moins bien qu'il ne pourrait pour {{entreprise}}.
+Simon, de Waimia, agence IA à Bordeaux. {{declencheur}} : c'est souvent le signe qu'un site travaille moins bien qu'il ne pourrait pour {{entreprise}}.
 
 Un exemple de ce qui est faisable : {{preuve_locale}}.
 

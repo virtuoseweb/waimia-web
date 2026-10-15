@@ -11,7 +11,7 @@ export const demo: DemoData = {
       { label_fr: 'Site web intelligent', label_en: 'Intelligent website' },
     ],
     meta: [
-      { label_fr: 'Montpellier · FR', label_en: 'Montpellier · FR' },
+      { label_fr: 'Bordeaux · FR', label_en: 'Bordeaux · FR' },
       { label_fr: 'Édition française', label_en: 'French edition' },
       { label_fr: '◉ Disponible · T3 2026', label_en: '◉ Available · Q3 2026' },
     ],
