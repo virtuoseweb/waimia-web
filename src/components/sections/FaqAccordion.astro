@@ -80,7 +80,7 @@ if ('data' in Astro.props) {
           <span class="faq-accordion__arrow" aria-hidden="true">↓</span>
         </summary>
         <div class="faq-accordion__a">
-          <p>{item.a}</p>
+          {item.a.split(/\n\n+/).map((para) => <p>{para}</p>)}
         </div>
       </details>
     ))}
@@ -88,7 +88,7 @@ if ('data' in Astro.props) {
   </div>
 </section>
 
-{normalizedItems.length > 0 && <JsonLd data={faqPage(normalizedItems)} />}
+{normalizedItems.length > 0 && <JsonLd data={faqPage(normalizedItems.map((it) => ({ ...it, a: it.a.replace(/\s*\n\n+\s*/g, ' ') })))} />}
 
 <style> .faq-accordion__intro {
     font-family: var(--font-sans);
@@ -137,6 +137,8 @@ if ('data' in Astro.props) {
     margin: 0;
     max-width: 64ch;
   }
+  /* Réponse en plusieurs paragraphes (séparés par une ligne vide dans la donnée). */
+  .faq-accordion__a p + p { margin-top: var(--space-3); }
   /* ── Alternance des fonds R4 (docs/37 §2.6) · defaut paper = rendu inchange ── */
   .faq-accordion[data-bg='paper-2'] { background: var(--paper-2); }
   .faq-accordion[data-bg='paper-3'] { background: var(--paper-3); }

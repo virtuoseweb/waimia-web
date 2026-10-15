@@ -1,6 +1,6 @@
 ---
 // Footer · 5 colonnes éditoriales · pur Astro (pas d'interactivité)
-import { FOOTER_COLS, TRUST_BADGES } from '../../data/sitemap';
+import { FOOTER_LEAN, TRUST_BADGES } from '../../data/sitemap';
 import { langFromPath, t } from '../../lib/i18n';
 import NewsletterSignup from '../ui/molecules/NewsletterSignup.astro';
 import { SITE } from '../../site.config';
@@ -67,10 +67,10 @@ const year = new Date().getFullYear();
     </div>
   </div>
 
-  {/* Tier 1 : colonnes pérennes pilotées par FOOTER_COLS (5 ; colonne temporaire « À placer » dissoute #63). */}
+  {/* Tier 1 : colonnes pérennes pilotées par FOOTER_LEAN (3 ; hubs et pages prioritaires, O12). */}
   <div class="wrap hline" style="padding-top:var(--space-9);padding-bottom:var(--space-11)">
-    <div class="ft-tier1-grid" style={`display:grid;grid-template-columns:repeat(${FOOTER_COLS.length},1fr);gap:var(--space-8)`}>
-      {FOOTER_COLS.map((col) => (
+    <div class="ft-tier1-grid" style={`display:grid;grid-template-columns:repeat(${FOOTER_LEAN.length},1fr);gap:var(--space-8)`}>
+      {FOOTER_LEAN.map((col) => (
         <div>
           <h3 style="font-family:var(--font-mono);font-size:var(--text-small);letter-spacing:.16em;text-transform:uppercase;color:var(--accent-text);margin-bottom:18px;font-weight:var(--fw-medium)">
             {t(col.heading, lang)}
@@ -103,6 +103,7 @@ const year = new Date().getFullYear();
       </a>
     </div>
     <div class="ft-bottom-right">
+      <a href="/sitemap-index.xml" class="ft-link">Sitemap (XML)</a>
       <a href={SITE.linkedin} target="_blank" rel="noopener" class="ft-link">LinkedIn</a>
     </div>
   </div>

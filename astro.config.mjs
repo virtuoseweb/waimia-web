@@ -434,6 +434,16 @@ export default defineConfig({
     // sectionCssChunks : un chunk serveur par composant atteint depuis une section, pour que la
     // CSS propagée d'une section n'entraîne pas la feuille globale (cf le fichier).
     plugins: [/** @type {any} */ (tailwindcss()), /** @type {any} */ (sectionCssChunks())],
+    // Feuilles CSS bloquantes (audit v5 X11a/T3 : 4 à 13 par page, médiane 6) : Astro en 'auto'
+    // n'inline que les feuilles de moins de 4 Ko. On relève ce seuil à 12 Ko POUR LES SEULES
+    // FEUILLES CSS (forme fonction : `undefined` laisse la règle par défaut aux images, polices
+    // et scripts, qui ne doivent pas passer en data URI). Mesuré sur le build de référence :
+    // feuilles bloquantes médiane 6 -> 4, HTML médian 172 Ko -> 195 Ko. 'always' ferait
+    // ~360 Ko de HTML médian : écarté. Mesure à rejouer sur le nouveau build (scratchpad/mesure-liens.py).
+    build: {
+      assetsInlineLimit: (/** @type {string} */ file, /** @type {Buffer} */ content) =>
+        file.endsWith('.css') ? content.byteLength < 12288 : undefined,
+    },
     // DEV-ONLY · git worktrees n'ont pas leur propre node_modules (résolu vers le
     // repo parent, HORS racine worktree) → Vite `@fs` renvoie 403 sur le client
     // React et les îles n'hydratent pas sous `astro dev`. On autorise la remontée
