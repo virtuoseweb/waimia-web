@@ -122,7 +122,7 @@ Source : lecture intégrale des 31 fichiers du dossier Semrush (PDF, xlsx, csv d
 - **Titres** : insécable avant `? ! : ;`, imposée par la porte `check:title-typo`.
 - **Dates** : `gen-lastmod` saute les commits marqués `Lastmod: ignore`. Instantané régénéré : `/outils-hub` retirée, 58 routes datées.
 - **Débordement corrigé** sur le guide financement OPCO, présent en production : la variante `editorial` fige la première colonne sans retour à la ligne, et la page débordait de 872 px à 1440. Le tableau des sources passe en variante `default`.
-- **Décision de la nuit** : le fil d'Ariane JSON-LD des vues `/ressources`, outils et comparatifs, sans fil visible, est gardé (affiché par Google ; tête de `/ressources` voulue par Simon).
+- **Question ouverte à Simon** : le fil d'Ariane JSON-LD des vues `/ressources`, outils et comparatifs n'a pas de fil visible. La revue de #91 demandait de le retirer ; il est laissé en place, en attente de sa décision : le retirer, ou afficher un fil d'Ariane visible.
 
 ### 2026-W42 (session du 12 octobre 2026, collecte du 11 octobre 2026)
 
