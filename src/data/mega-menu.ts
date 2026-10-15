@@ -745,10 +745,6 @@ const FORMATIONS: MegaMenuSection = {
         { label: { fr: 'Formation n8n', en: 'n8n training' }, href: '/formations/n8n', description: { fr: 'Workflows fiables, cloud ou auto-hébergés.', en: 'Reliable workflows, cloud or self-hosted.' } },
         { label: { fr: 'Formation Make', en: 'Make training' }, href: '/formations/make', description: { fr: 'Scénarios fiables, erreurs gérées.', en: 'Reliable scenarios, handled errors.' } },
       ],
-      footer: {
-        label: { fr: 'Toutes les formations →', en: 'All training →' },
-        href: '/formations',
-      },
     },
   ],
   featured: {
