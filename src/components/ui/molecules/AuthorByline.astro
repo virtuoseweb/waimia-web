@@ -37,7 +37,7 @@ const published = toDate(date);
 const modified = toDate(updatedAt);
 const fmt = (d: Date) =>
   d.toLocaleDateString(lang === 'fr' ? 'fr-FR' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
-const iso = (d: Date) => d.toISOString().slice(0, 10);
+const iso = (d: Date) => (Number.isNaN(d.getTime()) ? '' : d.toISOString().slice(0, 10));
 const dateFormatted = published ? fmt(published) : null;
 const showUpdated = Boolean(published && modified && !Number.isNaN(modified.getTime()) && iso(modified) > iso(published));
 const updatedLabel = lang === 'fr' ? 'Mis à jour le' : 'Updated';
