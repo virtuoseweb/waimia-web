@@ -38,7 +38,7 @@ const tmRows = data.type === 'tech-models-table'
   : [];
 // Id déterministe dérivé du titre : une page peut porter plusieurs tableaux (31 pages en avaient deux ou plus).
 let headingHash = 0;
-for (const ch of data.heading_fr ?? '') headingHash = (headingHash * 31 + ch.charCodeAt(0)) >>> 0;
+for (const ch of 'heading_fr' in data ? data.heading_fr : '') headingHash = (headingHash * 31 + ch.charCodeAt(0)) >>> 0;
 const headingId = `ed-table-block-h2-${headingHash.toString(36)}`;
 ---
 {data.type === 'tech-models-table' ? (
