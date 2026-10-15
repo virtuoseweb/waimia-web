@@ -87,6 +87,8 @@ Source : lecture intégrale des 31 fichiers du dossier Semrush (PDF, xlsx, csv d
 
 ### Vague 3 du 15 octobre 2026 · restes mesurés après la vague 2 (branche `seo-v3/integration`)
 
+**En production le 15 octobre 2026 (PR #91, merge `233a9426`)**, sur ordre de Simon (« met en prod ce qu'on a pour le moment »). Avant la fusion : Build (astro), E2E Playwright, SEO, tests de la routine et balayage GF-1 de la preview verts ; revue Opus des commits du parent « fusionnable », sans bloquant (ses mineurs sont repris dans la phase C). Après : statut Vercel du commit de fusion « success » ; marqueurs absents de la production avant la fusion, présents à 00:12 UTC (H1 `Ressources <i>IA</i> pour PME` sur `/ressources/outils`, « en six domaines » dans `/llms.txt`) ; les 35 pages touchées, les trois vues de ressources et `/llms.txt` en 200, aucun `{{prix` servi.
+
 **Décisions de Simon du 15 octobre 2026**, acquises :
 - Siège : « ok pour le siège, pas de RCS sans pièce », puis « c mon adresse a bdx c juste ». L'adresse d'activité de Bordeaux reste partout où elle est ; mentions légales inchangées tant qu'aucune pièce ne montre un siège bordelais.
 - Ressources : « on voulait que les hub outils et comparatif disparaisse car se sont déjà des liens filtrables dans ressource et les liens affiche le bon filtre », puis « c les hub mais les filtres et les liens généré par les filtres doivent rester ». Appliqué : `/ressources/outils` et `/ressources/comparatifs` restent les URL des pastilles de filtre, sans 301 ; leur tête propre (H1, chapô, fil d'Ariane) est retirée, elles reprennent celle de `/ressources`. Title, description et indexation inchangés. `/ressources/guides` (non cité) garde sa tête.
