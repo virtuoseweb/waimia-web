@@ -110,6 +110,20 @@ Source : lecture intégrale des 31 fichiers du dossier Semrush (PDF, xlsx, csv d
 
 **Reste pour la phase C** (PR distincte) : chapôs de plus de 40 mots sur 35 pages de service, visuels de héros par sujet, alternance des fonds des villes, jeton de prix du sprint de cadrage, typographie des titres.
 
+**Phase C (branche `seo-v3c/integration`, PR __PR_C__, non fusionnée)**. Quatre lots en worktrees, chacun revu par Opus, puis les mineurs des revues.
+- **Chapôs** des 35 pages services : 40 mots au plus, deux phrases, intitulé recherché gardé.
+- **Villes** : aucune section voisine au même fond sur les 10 villes, bloc Sources compris (fond calculé dans `[...slug].astro`) ; épingle au lieu du réseau générique sur 5 villes.
+- **Héros** : un visuel par sujet sur 20 pages.
+- **Ressources** :
+  - chapôs directs ;
+  - phrase MCP unique : « Anthropic examine les connecteurs de son annuaire, mais n'audite pas la sécurité des serveurs MCP » ;
+  - ancres réécrites pour décrire leur cible.
+- **Prix** : jeton `prix.sprint` (source `SCOPING_SPRINT_EUR`) à la place de 535 « 999 € » écrits en dur dans 78 fichiers. Le texte visible des 177 pages est identique avant et après, hors notes de prix allégées.
+- **Titres** : insécable avant `? ! : ;`, imposée par la porte `check:title-typo`.
+- **Dates** : `gen-lastmod` saute les commits marqués `Lastmod: ignore`. Instantané régénéré : `/outils-hub` retirée, 58 routes datées.
+- **Débordement corrigé** sur le guide financement OPCO, présent en production : la variante `editorial` fige la première colonne sans retour à la ligne, et la page débordait de 872 px à 1440. Le tableau des sources passe en variante `default`.
+- **Décision de la nuit** : le fil d'Ariane JSON-LD des vues `/ressources`, outils et comparatifs, sans fil visible, est gardé (affiché par Google ; tête de `/ressources` voulue par Simon).
+
 ### 2026-W42 (session du 12 octobre 2026, collecte du 11 octobre 2026)
 
 **Données** : collecte du 11 octobre 2026 à 22:55 UTC (`generatedAt`), fraîche oui (`freshness.mjs` : « FRAÎCHE · collecte complète de 6.8 h ») · Search Console configuré oui · étapes en erreur : aucune (8 étapes `ok`). Les données de performance s'arrêtent au 8 octobre 2026. Flux : 0 en erreur. Concurrents : 14 URL nouvelles, toutes chez claudin.tech.
