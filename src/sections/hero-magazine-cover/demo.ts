@@ -7,7 +7,7 @@ export const demo: DemoData = {
     type: 'hero-magazine-cover',
     masthead: [
       { label_fr: 'Accueil / Services / Site web intelligent', label_en: 'Home / Services / Intelligent website' },
-      { label_fr: 'Montpellier · FR', label_en: 'Montpellier · FR' },
+      { label_fr: 'Bordeaux · FR', label_en: 'Bordeaux · FR' },
       { label_fr: 'Édition française', label_en: 'French edition' },
       { label_fr: '◉ T3 2026', label_en: '◉ Q3 2026' },
     ],
