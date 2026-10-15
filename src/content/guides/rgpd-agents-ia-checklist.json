@@ -1,0 +1,541 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "RGPD et agents IA : 12 points à vérifier avant de déployer",
+  "title_en": "GDPR and AI agents: 12 checks before you deploy",
+  "seoTitle_fr": "RGPD et agents IA : 12 points à vérifier avant de déployer",
+  "description_fr": "Un agent IA qui traite des données personnelles relève du RGPD : base légale, registre, DPA, transferts, durée, AIPD, droits. Checklist de 12 points.",
+  "description_en": "An AI agent that processes personal data falls under the GDPR: legal basis, register, DPA, transfers, retention, DPIA, rights. A 12-point checklist.",
+  "slug": "rgpd-agents-ia-checklist",
+  "publishedAt": "2026-10-15T00:00:00.000Z",
+  "updatedAt": "2026-10-15T00:00:00.000Z",
+  "category": "conformite",
+  "tags": [
+    "rgpd",
+    "agent-ia",
+    "cnil",
+    "checklist",
+    "aipd",
+    "sous-traitant",
+    "transferts",
+    "conformite-ia",
+    "guide-pme"
+  ],
+  "sources": [
+    {
+      "name": "CNIL, règlement (UE) 2016/679, chapitres 2 à 5 et 8, relevé le 15 octobre 2026",
+      "url": "https://www.cnil.fr/fr/reglement-europeen-protection-donnees",
+      "type": "state"
+    },
+    {
+      "name": "CNIL, questions-réponses sur l'utilisation d'un système d'IA générative (18 juillet 2024), relevé le 15 octobre 2026",
+      "url": "https://www.cnil.fr/fr/les-questions-reponses-de-la-cnil-sur-lutilisation-dun-systeme-dia-generative",
+      "type": "state",
+      "publishedAt": "2024-07-18"
+    },
+    {
+      "name": "CNIL, IA : comment se mettre en conformité, relevé le 15 octobre 2026",
+      "url": "https://www.cnil.fr/fr/ia-comment-se-mettre-en-conformite",
+      "type": "state"
+    },
+    {
+      "name": "CNIL, base légale de l'intérêt légitime, relevé le 15 octobre 2026",
+      "url": "https://www.cnil.fr/fr/base-legale-interet-legitime-developpement-systeme",
+      "type": "state"
+    },
+    {
+      "name": "CNIL, ce qu'il faut savoir sur l'AIPD, relevé le 15 octobre 2026",
+      "url": "https://www.cnil.fr/fr/ce-quil-faut-savoir-sur-lanalyse-dimpact-relative-la-protection-des-donnees-aipd",
+      "type": "state"
+    },
+    {
+      "name": "CNIL, le registre des activités de traitement, relevé le 15 octobre 2026",
+      "url": "https://www.cnil.fr/fr/RGPD-le-registre-des-activites-de-traitement",
+      "type": "state"
+    },
+    {
+      "name": "Commission européenne, décision d'exécution (UE) 2021/915 (clauses types sous-traitance), relevé le 15 octobre 2026",
+      "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/PDF/?uri=CELEX%3A32021D0915",
+      "type": "state"
+    },
+    {
+      "name": "Tribunal de l'UE, communiqué sur l'arrêt T-553/23 (3 septembre 2025), relevé le 15 octobre 2026",
+      "url": "https://curia.europa.eu/site/upload/docs/application/pdf/2025-09/cp250106en.pdf",
+      "type": "state",
+      "publishedAt": "2025-09-03"
+    },
+    {
+      "name": "Journal officiel de l'UE, pourvoi C-703/25 P, JO C/2025/6610, relevé le 15 octobre 2026",
+      "url": "https://eur-lex.europa.eu/eli/C/2025/6610/oj/eng",
+      "type": "state",
+      "publishedAt": "2025-10-31"
+    },
+    {
+      "name": "CEPD, lettre à la Commission du 31 juillet 2026, relevé le 15 octobre 2026",
+      "url": "https://www.edpb.europa.eu/system/files/2026-08/edpb_letter_20260731_us_supremecourt_judgment_trump_v_slaughter_en.pdf",
+      "type": "state",
+      "publishedAt": "2026-07-31"
+    },
+    {
+      "name": "Légifrance, article L1111-8 du code de la santé publique, relevé le 15 octobre 2026",
+      "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000049577902",
+      "type": "state"
+    }
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "Le RGPD s'applique-t-il à un agent IA ?",
+      "a": "Oui, dès que l'agent traite des données relatives à des personnes identifiables : noms, e-mails, messages de clients, CV, tickets. L'outil utilisé n'y change rien. Vous êtes en général responsable de traitement, et l'éditeur ou le prestataire est votre sous-traitant au sens de l'article 28."
+    },
+    {
+      "q": "Faut-il un contrat avec le fournisseur du modèle ?",
+      "a": "Oui, si le fournisseur traite des données personnelles pour votre compte. L'article 28 exige un contrat écrit qui prévoit, entre autres, le traitement sur instruction documentée, la sécurité, l'aide aux droits des personnes, la suppression ou la restitution, et l'autorisation préalable des sous-traitants ultérieurs. Vérifiez que le DPA est signé, pas seulement proposé."
+    },
+    {
+      "q": "Un agent IA est-il dispensé de registre ?",
+      "a": "Rarement. L'article 30, paragraphe 5, exempte les organismes de moins de 250 personnes, sauf si le traitement n'est pas occasionnel. Un agent qui traite des données chaque jour n'est pas occasionnel. Le plus simple est d'ajouter une ligne au registre par agent."
+    },
+    {
+      "q": "Peut-on utiliser un modèle américain avec des données de clients européens ?",
+      "a": "C'est possible avec un mécanisme de transfert valable (articles 44 à 46) : une décision d'adéquation, des clauses contractuelles types ou une autre garantie. La décision relative au cadre UE-États-Unis a été confirmée par le Tribunal le 3 septembre 2025 ; un pourvoi a été formé le 31 octobre 2025. Demandez le mécanisme à votre fournisseur et gardez la preuve."
+    },
+    {
+      "q": "Quand une AIPD est-elle obligatoire pour un agent IA ?",
+      "a": "Quand le traitement figure sur la liste de la CNIL, ou remplit au moins deux de ses neuf critères (évaluation, décision automatique, données sensibles, grande échelle, personnes vulnérables, usage innovant, par exemple). Elle se fait avant le déploiement. Un agent qui note des candidats ou refuse seul une demande y entre vite."
+    },
+    {
+      "q": "Combien de temps garder les conversations d'un agent ?",
+      "a": "Le RGPD ne donne pas de durée : seulement « pas plus longtemps que nécessaire » (article 5, paragraphe 1, e) et l'obligation d'informer les personnes de la durée (article 13). Fixez une durée par catégorie, appliquez-la aux historiques et aux journaux, et programmez la suppression plutôt que de compter sur un nettoyage manuel."
+    },
+    {
+      "q": "L'AI Act remplace-t-il le RGPD pour un agent ?",
+      "a": "Non, les deux s'appliquent. L'AI Act impose par exemple l'information des personnes qui parlent à un chatbot (article 50) ; le RGPD encadre les données personnelles que l'agent traite. Un même agent peut donc devoir respecter les deux, avec des documents distincts."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Does the GDPR apply to an AI agent?",
+      "a": "Yes, as soon as the agent processes data about identifiable people: names, emails, customer messages, CVs, tickets. The tool used changes nothing. You are generally the controller, and the vendor or contractor is your processor within the meaning of Article 28."
+    },
+    {
+      "q": "Do I need a contract with the model provider?",
+      "a": "Yes, if the provider processes personal data on your behalf. Article 28 requires a written contract providing, among other things, for processing on documented instructions, security, help with individuals' rights, deletion or return, and prior authorisation of sub-processors. Check that the DPA is signed, not just offered."
+    },
+    {
+      "q": "Is an AI agent exempt from the register?",
+      "a": "Rarely. Article 30(5) exempts organisations of fewer than 250 people, unless the processing is not occasional. An agent that processes data every day is not occasional. The simplest approach is to add one line to the register per agent."
+    },
+    {
+      "q": "Can I use a US model with European customers' data?",
+      "a": "It is possible with a valid transfer mechanism (Articles 44 to 46): an adequacy decision, standard contractual clauses or another safeguard. The decision on the EU-US framework was upheld by the General Court on 3 September 2025; an appeal was lodged on 31 October 2025. Ask your provider for the mechanism and keep the evidence."
+    },
+    {
+      "q": "When is a DPIA mandatory for an AI agent?",
+      "a": "When the processing is on the CNIL's list, or meets at least two of its nine criteria (evaluation, automated decision, sensitive data, large scale, vulnerable people, innovative use, for example). It is done before deployment. An agent that scores candidates or alone refuses a request quickly qualifies."
+    },
+    {
+      "q": "How long should an agent's conversations be kept?",
+      "a": "The GDPR gives no period: only \"no longer than necessary\" (Article 5(1)(e)) and the duty to inform people of the period (Article 13). Set a period per category, apply it to histories and logs, and schedule deletion rather than relying on manual clean-up."
+    },
+    {
+      "q": "Does the AI Act replace the GDPR for an agent?",
+      "a": "No, both apply. The AI Act requires, for example, informing people who talk to a chatbot (Article 50); the GDPR governs the personal data the agent processes. The same agent may therefore have to comply with both, with separate documents."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "kicker_fr": "§ Guide",
+      "kicker_en": "§ Guide",
+      "h1_fr": "RGPD et agents IA : 12 points à vérifier avant de déployer",
+      "h1_en": "GDPR and AI agents: 12 checks before you deploy",
+      "lede_fr": "Dès qu'un agent IA traite des données sur des personnes, le RGPD s'applique, quel que soit l'outil. Huit sujets se vérifient avant le déploiement, de la base légale aux droits des personnes. Ce guide les détaille et finit par une checklist de 12 points. Il n'est pas un avis juridique.",
+      "lede_en": "As soon as an AI agent processes data about people, the GDPR applies, whatever the tool. Eight topics need checking before deployment, from the legal basis to individuals' rights. This guide details them and ends with a 12-point checklist. It is not legal advice.",
+      "badges": [
+        {
+          "label_fr": "Sources officielles",
+          "label_en": "Official sources"
+        },
+        {
+          "label_fr": "Relevé le 15 octobre 2026",
+          "label_en": "Read on 15 October 2026"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver l'audit gratuit",
+        "label_en": "Book the free audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme",
+        "variant": "ghost"
+      },
+      "illustration": {
+        "src": "/images/illustrations/ds/kit-conformite-claude-registre-paper.webp",
+        "alt_fr": "Un grand registre ouvert comme un paysage, des silhouettes y écrivent avec un crayon géant",
+        "alt_en": "A huge open register like a landscape, figures writing in it with a giant pencil",
+        "side": "right"
+      }
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "15 octobre 2026",
+      "updatedDate": "15 octobre 2026"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "Que vérifier côté RGPD avant de mettre un agent IA en production ?",
+      "question_en": "What to check under the GDPR before putting an AI agent into production?",
+      "term_fr": "Au 15 octobre 2026",
+      "term_en": "As of 15 October 2026",
+      "answer_fr": "Huit points : la finalité et la base légale (article 6), la minimisation des données (article 5), l'inscription au registre (article 30), le contrat avec chaque sous-traitant (article 28), l'encadrement des transferts hors de l'Union (articles 44 à 46), la durée de conservation, la nécessité d'une analyse d'impact (article 35) et les droits des personnes (articles 12 à 22). Les amendes peuvent atteindre 20 millions d'euros ou 4 % du chiffre d'affaires mondial (article 83).",
+      "answer_en": "Eight points: purpose and legal basis (Article 6), data minimisation (Article 5), the register (Article 30), the contract with each processor (Article 28), framing of transfers outside the Union (Articles 44 to 46), retention, whether an impact assessment is needed (Article 35) and individuals' rights (Articles 12 to 22). Fines can reach EUR 20 million or 4% of worldwide turnover (Article 83)."
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>En bref</h2>\n<ul>\n<li><strong>Le RGPD s'applique à l'agent, pas à l'outil.</strong> Ce qui compte : quelles données personnelles entrent, pour quoi faire, chez qui elles passent et combien de temps elles restent.</li>\n<li><strong>Vous restez responsable de traitement.</strong> Le prestataire ou l'éditeur est en général votre sous-traitant (article 28). Il faut un contrat.</li>\n<li><strong>Le registre est presque toujours dû.</strong> L'exemption pour les moins de 250 salariés tombe quand le traitement n'est pas occasionnel (article 30, paragraphe 5). Un agent qui tourne chaque jour n'est pas occasionnel.</li>\n<li><strong>L'analyse d'impact (AIPD) se décide sur critères.</strong> Au moins deux des neuf critères de la CNIL, ou un traitement de sa liste.</li>\n</ul>\n<p>Les faits de ce guide sont <strong>relevés le 15 octobre 2026</strong> dans le texte du règlement (UE) 2016/679 tel que présenté par la CNIL et dans les publications de la CNIL. Ce guide n'est pas un avis juridique ; il ne remplace ni un délégué à la protection des données (DPO) ni un avocat. Pour l'obligation de transparence d'un chatbot, voir le guide <a href=\"/ressources/guides/chatbot-transparence-article-50\">chatbot et article 50 de l'AI Act</a>.</p>\n<h2>Qui est responsable quand un agent traite des données personnelles ?</h2>\n<p>Vous, en principe, si vous décidez des finalités et des moyens : vous êtes responsable de traitement (article 24 : mettre en œuvre des mesures appropriées et pouvoir le démontrer, article 5, paragraphe 2). L'éditeur du modèle ou de la plateforme qui exécute le traitement pour votre compte est sous-traitant (article 28). La CNIL le rappelle dans ses questions-réponses sur l'IA générative du 18 juillet 2024 : l'organisme qui utilise un système d'IA générative doit qualifier son rôle et celui du fournisseur, et conclure un contrat de sous-traitance avec l'hébergeur et le fournisseur. Elle précise qu'un déployeur qui connecte une base de connaissances (RAG) ou affine un modèle devient responsable de ce traitement.</p>\n<p>Conséquence pratique : le contrat, la liste des sous-traitants et les consignes de l'agent sont des pièces de votre dossier de conformité, pas des détails techniques de l'éditeur.</p>",
+      "html_en": "<h2>In short</h2>\n<ul>\n<li><strong>The GDPR applies to the agent, not to the tool.</strong> What matters: which personal data goes in, for what purpose, through whom it passes and how long it stays.</li>\n<li><strong>You remain the controller.</strong> The contractor or vendor is generally your processor (Article 28). A contract is needed.</li>\n<li><strong>The register is almost always due.</strong> The exemption for fewer than 250 employees falls away when the processing is not occasional (Article 30(5)). An agent that runs every day is not occasional.</li>\n<li><strong>The impact assessment (DPIA) is decided on criteria.</strong> At least two of the CNIL's nine criteria, or a processing on its list.</li>\n</ul>\n<p>The facts in this guide were <strong>read on 15 October 2026</strong> in the text of Regulation (EU) 2016/679 as presented by the CNIL and in CNIL publications. This guide is not legal advice; it does not replace a data protection officer (DPO) or a lawyer. For a chatbot's transparency obligation, see the guide <a href=\"/ressources/guides/chatbot-transparence-article-50\">chatbots and Article 50 of the AI Act</a>.</p>\n<h2>Who is responsible when an agent processes personal data?</h2>\n<p>You, in principle, if you decide the purposes and means: you are the controller (Article 24: implement appropriate measures and be able to demonstrate it, Article 5(2)). The model or platform vendor that runs the processing on your behalf is a processor (Article 28). The CNIL recalls this in its questions and answers on generative AI of 18 July 2024: an organisation using a generative AI system must qualify its role and the provider's, and conclude a processing contract with the host and the provider. It specifies that a deployer who connects a knowledge base (RAG) or fine-tunes a model becomes responsible for that processing.</p>\n<p>Practical consequence: the contract, the list of processors and the agent's instructions are part of your compliance file, not technical details left to the vendor.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Les huit sujets",
+      "kicker_en": "§ The eight topics",
+      "heading_fr": "RGPD et agent IA : ce que dit le texte, ce que vous faites",
+      "heading_en": "GDPR and AI agent: what the text says, what you do",
+      "caption_fr": "Articles du règlement (UE) 2016/679, relevés le 15 octobre 2026 via la CNIL. La colonne de droite est la pratique de Waimia.",
+      "caption_en": "Articles of Regulation (EU) 2016/679, read on 15 October 2026 via the CNIL. The right-hand column is Waimia's practice.",
+      "columns_fr": [
+        "Sujet",
+        "Ce que dit le texte",
+        "Ce que vous faites"
+      ],
+      "columns_en": [
+        "Topic",
+        "What the text says",
+        "What you do"
+      ],
+      "rows_fr": [
+        [
+          "Finalité et base légale",
+          "Finalité déterminée, explicite, légitime (art. 5) ; une des six bases de l'article 6 (consentement, contrat, obligation légale, intérêts vitaux, mission d'intérêt public, intérêt légitime)",
+          "Écrire en une phrase ce que fait l'agent, puis choisir la base ; si c'est l'intérêt légitime, documenter la mise en balance"
+        ],
+        [
+          "Minimisation",
+          "Données adéquates, pertinentes, limitées à ce qui est nécessaire (art. 5, par. 1, c)",
+          "Ne donner à l'agent que les champs utiles ; masquer ou retirer les autres avant l'envoi"
+        ],
+        [
+          "Registre",
+          "Registre des activités de traitement (art. 30) ; exemption sous 250 salariés levée si le traitement n'est pas occasionnel",
+          "Ajouter une ligne par agent : finalité, données, destinataires, transferts, durée, sécurité"
+        ],
+        [
+          "Sous-traitants",
+          "Contrat écrit ; autorisation préalable pour les sous-traitants ultérieurs (art. 28, par. 2 et 3)",
+          "Signer le DPA de chaque éditeur et lister leurs sous-traitants ultérieurs"
+        ],
+        [
+          "Transferts hors UE",
+          "Décision d'adéquation, garanties appropriées ou dérogation (art. 44 à 46)",
+          "Demander où les données sont traitées et sur quel mécanisme le transfert repose"
+        ],
+        [
+          "Conservation",
+          "Pas plus longtemps que nécessaire (art. 5, par. 1, e) ; durée à communiquer (art. 13, par. 2, a)",
+          "Fixer une durée par catégorie de données, y compris pour les journaux et les historiques de conversation"
+        ],
+        [
+          "Analyse d'impact (AIPD)",
+          "Requise pour un traitement susceptible d'engendrer un risque élevé (art. 35)",
+          "Passer les neuf critères de la CNIL ; deux ou plus, ou liste CNIL : faire l'AIPD avant la mise en production"
+        ],
+        [
+          "Droits des personnes",
+          "Information (art. 13), accès, effacement, opposition ; réponse sous un mois (art. 12, par. 3) ; décision automatisée encadrée (art. 22)",
+          "Savoir retrouver et supprimer les données d'une personne dans l'agent, ses journaux et ses sauvegardes"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Purpose and legal basis",
+          "Specified, explicit, legitimate purpose (Art. 5); one of the six bases of Article 6 (consent, contract, legal obligation, vital interests, public interest, legitimate interest)",
+          "Write in one sentence what the agent does, then choose the basis; if legitimate interest, document the balancing test"
+        ],
+        [
+          "Minimisation",
+          "Data adequate, relevant, limited to what is necessary (Art. 5(1)(c))",
+          "Give the agent only the useful fields; mask or remove the others before sending"
+        ],
+        [
+          "Register",
+          "Record of processing activities (Art. 30); the exemption under 250 employees is lifted if the processing is not occasional",
+          "Add one line per agent: purpose, data, recipients, transfers, retention, security"
+        ],
+        [
+          "Processors",
+          "Written contract; prior authorisation for sub-processors (Art. 28(2) and (3))",
+          "Sign each vendor's DPA and list their sub-processors"
+        ],
+        [
+          "Transfers outside the EU",
+          "Adequacy decision, appropriate safeguards or derogation (Arts 44 to 46)",
+          "Ask where data is processed and on which mechanism the transfer relies"
+        ],
+        [
+          "Retention",
+          "No longer than necessary (Art. 5(1)(e)); period to be communicated (Art. 13(2)(a))",
+          "Set a period per data category, including logs and conversation histories"
+        ],
+        [
+          "Impact assessment (DPIA)",
+          "Required for processing likely to result in a high risk (Art. 35)",
+          "Run the CNIL's nine criteria; two or more, or the CNIL list: do the DPIA before going live"
+        ],
+        [
+          "Individuals' rights",
+          "Information (Art. 13), access, erasure, objection; reply within one month (Art. 12(3)); automated decisions framed (Art. 22)",
+          "Be able to find and delete a person's data in the agent, its logs and its backups"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Quelle base légale pour un agent IA ?</h2>\n<p>L'article 6 en liste six. Pour un agent de support, la base la plus courante est l'exécution du contrat (répondre à un client) ou l'intérêt légitime (qualifier des demandes entrantes). Pour l'intérêt légitime, la CNIL fixe trois conditions : l'intérêt est légitime, le traitement est nécessaire, et il ne porte pas une atteinte disproportionnée aux personnes. Elle demande de documenter cette mise en balance. Le consentement convient quand la personne peut réellement refuser sans perdre le service. Choisissez la base <em>avant</em> de brancher l'agent, et gardez-la écrite : c'est elle qui conditionne les droits (opposition, effacement).</p>\n<h2>Faut-il inscrire l'agent au registre des traitements ?</h2>\n<p>Oui, dans la pratique. L'article 30 impose le registre au responsable et au sous-traitant, avec les finalités, les catégories de données et de personnes, les destinataires, les transferts, les durées et les mesures de sécurité. Le paragraphe 5 exempte les organismes de moins de 250 personnes, sauf si le traitement n'est pas occasionnel. Un agent qui traite des tickets ou des e-mails chaque jour tombe donc dans le champ. Le registre est un document unique, daté, à mettre à jour à chaque nouvel agent ; la CNIL publie un modèle sur sa page <a href=\"https://www.cnil.fr/fr/RGPD-le-registre-des-activites-de-traitement\" rel=\"noopener noreferrer\" target=\"_blank\">registre des activités de traitement</a>.</p>\n<h2>Que doit contenir le contrat avec le fournisseur de l'agent ?</h2>\n<p>L'article 28 exige un contrat écrit (paragraphe 9) fixant l'objet, la durée, la nature et la finalité du traitement, les types de données et les catégories de personnes. Le paragraphe 3 liste ce que le sous-traitant s'engage à faire : traiter sur instruction documentée, garantir la confidentialité, assurer la sécurité, aider à répondre aux demandes de droits, supprimer ou restituer les données à la fin, permettre les audits. Le paragraphe 2 impose son autorisation écrite, spécifique ou générale, avant qu'il recoure à un autre sous-traitant ; en cas d'autorisation générale, il doit vous informer des changements. La Commission a adopté des clauses contractuelles types entre responsable et sous-traitant (décision d'exécution (UE) 2021/915). Pour un exemple de DPA lu clause par clause, voir le guide <a href=\"/ressources/guides/claude-rgpd-pme\">Claude et RGPD pour une PME</a>.</p>",
+      "html_en": "<h2>Which legal basis for an AI agent?</h2>\n<p>Article 6 lists six. For a support agent, the most common basis is performance of a contract (answering a customer) or legitimate interest (qualifying incoming requests). For legitimate interest, the CNIL sets three conditions: the interest is legitimate, the processing is necessary, and it does not disproportionately affect individuals. It asks that this balancing be documented. Consent fits when the person can genuinely refuse without losing the service. Choose the basis <em>before</em> plugging in the agent, and keep it in writing: it determines the rights (objection, erasure).</p>\n<h2>Must the agent be entered in the record of processing?</h2>\n<p>Yes, in practice. Article 30 requires the record from the controller and the processor, with purposes, categories of data and of people, recipients, transfers, retention periods and security measures. Paragraph 5 exempts organisations of fewer than 250 people, unless the processing is not occasional. An agent that handles tickets or emails every day therefore falls within scope. The record is a single dated document, updated for each new agent; the CNIL publishes a template on its page <a href=\"https://www.cnil.fr/fr/RGPD-le-registre-des-activites-de-traitement\" rel=\"noopener noreferrer\" target=\"_blank\">record of processing activities</a>.</p>\n<h2>What must the contract with the agent's provider contain?</h2>\n<p>Article 28 requires a written contract (paragraph 9) setting the subject matter, duration, nature and purpose of the processing, the types of data and the categories of people. Paragraph 3 lists what the processor undertakes to do: process on documented instructions, ensure confidentiality, ensure security, help answer rights requests, delete or return data at the end, allow audits. Paragraph 2 requires its written authorisation, specific or general, before it uses another processor; under a general authorisation, it must inform you of changes. The Commission has adopted standard contractual clauses between controller and processor (implementing decision (EU) 2021/915). For an example of a DPA read clause by clause, see the guide <a href=\"/ressources/guides/claude-rgpd-pme\">Claude and GDPR for an SME</a>.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Peut-on envoyer des données personnelles à un fournisseur hors de l'Union ?</h2>\n<p>Oui, à condition d'un mécanisme de transfert (articles 44 à 46) : une décision d'adéquation de la Commission, des garanties appropriées comme des clauses contractuelles types, ou une dérogation. Pour les États-Unis, la décision d'adéquation relative au cadre de protection des données UE-États-Unis (Data Privacy Framework) est la décision d'exécution (UE) 2023/1795 du 10 juillet 2023. Événements datés, relevés le 15 octobre 2026 :</p>\n<ul>\n<li>le 3 septembre 2025, le Tribunal de l'Union a rejeté le recours contre cette décision (affaire T-553/23, Latombe) ;</li>\n<li>un pourvoi a été formé le 31 octobre 2025 (affaire C-703/25 P, publié au Journal officiel C/2025/6610) ;</li>\n<li>le 31 juillet 2026, le Comité européen de la protection des données a écrit à la Commission pour lui demander d'examiner l'effet de l'arrêt <i>Trump v. Slaughter</i> de la Cour suprême des États-Unis du 29 juin 2026 ;</li>\n<li>Waimia n'a trouvé, à la date de lecture, aucune décision de la Cour de justice sur ce pourvoi.</li>\n</ul>\n<p>Concrètement : demandez à chaque fournisseur sur quel mécanisme il s'appuie, et préférez un contrat qui ne repose pas sur une seule décision d'adéquation si vos données sont sensibles. La CNIL recommande par ailleurs, pour des usages avec données personnelles, de privilégier un déploiement maîtrisé (sur site ou chez un hébergeur sous contrat) ; elle souligne que via une API la maîtrise du traitement reste chez le fournisseur, d'où l'intérêt d'éviter d'y envoyer des données personnelles.</p>\n<p>Cas des données de santé : l'article L1111-8 du code de la santé publique impose que l'hébergement de données de santé sur support numérique soit confié à un hébergeur titulaire d'un certificat de conformité (HDS), par contrat. Un agent qui traite des dossiers de patients ne se branche donc pas sur n'importe quel modèle hébergé.</p>\n<h2>Combien de temps conserver les données d'un agent IA ?</h2>\n<p>Le texte ne fixe pas de durée : il impose de ne pas conserver plus longtemps que nécessaire (article 5, paragraphe 1, e) et de communiquer la durée aux personnes (article 13, paragraphe 2, a). À vous de fixer une durée par catégorie, et de l'appliquer aussi aux traces de l'agent : historiques de conversation, journaux d'exécution, sorties intermédiaires, copies dans les outils de l'éditeur. C'est le point que l'on oublie le plus souvent, car ces traces sont créées sans que personne ne les ait décidées. Pour n8n, le guide <a href=\"/ressources/guides/n8n-auto-heberge-rgpd\">n8n auto-hébergé et RGPD</a> détaille les journaux d'exécution.</p>\n<h2>Faut-il faire une analyse d'impact (AIPD) ?</h2>\n<p>L'article 35 la rend obligatoire pour un traitement susceptible d'engendrer un risque élevé, notamment une évaluation systématique et approfondie fondée sur un traitement automatisé (y compris le profilage) produisant des effets juridiques ou significatifs, un traitement à grande échelle de données sensibles, ou une surveillance systématique à grande échelle d'un lieu public. La CNIL donne deux voies : le traitement figure sur sa liste, ou il remplit au moins deux de ses neuf critères :</p>\n<ol>\n<li>évaluation ou notation de personnes ;</li>\n<li>décision automatique avec effet juridique ou significatif ;</li>\n<li>surveillance systématique ;</li>\n<li>données sensibles ou hautement personnelles ;</li>\n<li>traitement à grande échelle ;</li>\n<li>croisement ou combinaison de jeux de données ;</li>\n<li>personnes vulnérables ;</li>\n<li>usage innovant ou nouvelle technologie ;</li>\n<li>traitement qui empêche d'exercer un droit ou de bénéficier d'un contrat.</li>\n</ol>\n<p>Un agent qui note des candidats (critère 1) ou qui trie des demandes de clients vulnérables relève vite de l'AIPD. La fiche de la CNIL sur la mise en conformité d'un système d'IA indique qu'elle est requise pour les traitements de profilage ou de décision automatisée. L'AIPD se fait avant le déploiement, et se tient à jour.</p>\n<h2>Quels droits les personnes gardent-elles face à un agent ?</h2>\n<p>Information (article 13, dont la durée de conservation et, en cas de décision automatisée, des informations utiles sur la logique sous-jacente), accès, effacement, opposition. La réponse est due dans un mois, prolongeable de deux mois pour les demandes complexes (article 12, paragraphe 3). L'article 22 donne le droit de ne pas faire l'objet d'une décision fondée exclusivement sur un traitement automatisé produisant des effets juridiques ou significatifs, avec des exceptions et des garanties dont l'intervention humaine. Un agent qui prépare une décision que quelqu'un valide réellement n'est pas une décision exclusivement automatisée. Un agent qui refuse seul un remboursement ou un candidat l'est peut-être.</p>\n<h2>Que risque-t-on, et que faire en cas de fuite ?</h2>\n<p>L'article 83, paragraphe 5, fixe un plafond de 20 millions d'euros ou 4 % du chiffre d'affaires mondial annuel pour les manquements aux principes (articles 5, 6, 7 et 9), aux droits (articles 12 à 22) et aux transferts (articles 44 à 49). Le paragraphe 4 retient 10 millions ou 2 % pour d'autres obligations, dont celles du responsable et du sous-traitant (articles 25 à 39) : le montant le plus élevé s'applique. Une violation de données se notifie à l'autorité dans les 72 heures (article 33, paragraphe 1), et un sous-traitant vous prévient sans retard injustifié (paragraphe 2). Ces plafonds ne sont pas des barèmes.</p>",
+      "html_en": "<h2>Can personal data be sent to a provider outside the Union?</h2>\n<p>Yes, provided there is a transfer mechanism (Articles 44 to 46): a Commission adequacy decision, appropriate safeguards such as standard contractual clauses, or a derogation. For the United States, the adequacy decision on the EU-US Data Privacy Framework is implementing decision (EU) 2023/1795 of 10 July 2023. Dated events, read on 15 October 2026:</p>\n<ul>\n<li>on 3 September 2025, the General Court of the Union dismissed the action against this decision (case T-553/23, Latombe);</li>\n<li>an appeal was lodged on 31 October 2025 (case C-703/25 P, published in Official Journal C/2025/6610);</li>\n<li>on 31 July 2026, the European Data Protection Board wrote to the Commission asking it to examine the effect of the US Supreme Court's <i>Trump v. Slaughter</i> judgment of 29 June 2026;</li>\n<li>at the reading date, Waimia found no decision of the Court of Justice on this appeal.</li>\n</ul>\n<p>In practice: ask each provider which mechanism it relies on, and prefer a contract that does not rest on a single adequacy decision if your data is sensitive. The CNIL also recommends, for uses involving personal data, favouring a controlled deployment (on-premises or with a host under contract); it stresses that through an API control of the processing stays with the provider, hence the interest in not sending personal data there.</p>\n<p>Health data: Article L1111-8 of the Public Health Code requires that hosting of health data on digital media be entrusted to a host holding a conformity certificate (HDS), under contract. An agent that processes patient records therefore cannot be plugged into just any hosted model.</p>\n<h2>How long should an AI agent's data be kept?</h2>\n<p>The text sets no period: it requires not keeping data longer than necessary (Article 5(1)(e)) and informing people of the period (Article 13(2)(a)). It is for you to set a period per category and to apply it to the agent's traces too: conversation histories, execution logs, intermediate outputs, copies in the vendor's tools. This is the point most often forgotten, because these traces are created without anyone having decided them. For n8n, the guide <a href=\"/ressources/guides/n8n-auto-heberge-rgpd\">self-hosted n8n and GDPR</a> details execution logs.</p>\n<h2>Is a data protection impact assessment (DPIA) needed?</h2>\n<p>Article 35 makes it mandatory for processing likely to result in a high risk, notably a systematic and extensive evaluation based on automated processing (including profiling) producing legal or significant effects, large-scale processing of sensitive data, or systematic large-scale monitoring of a public area. The CNIL gives two routes: the processing is on its list, or it meets at least two of its nine criteria:</p>\n<ol>\n<li>evaluation or scoring of people;</li>\n<li>automated decision with legal or significant effect;</li>\n<li>systematic monitoring;</li>\n<li>sensitive or highly personal data;</li>\n<li>large-scale processing;</li>\n<li>matching or combining datasets;</li>\n<li>vulnerable people;</li>\n<li>innovative use or new technology;</li>\n<li>processing that prevents exercising a right or benefiting from a contract.</li>\n</ol>\n<p>An agent that scores candidates (criterion 1) or sorts requests from vulnerable customers quickly falls under the DPIA. The CNIL's sheet on bringing an AI system into compliance states that it is required for profiling or automated decision processing. The DPIA is done before deployment, and kept up to date.</p>\n<h2>What rights do people keep against an agent?</h2>\n<p>Information (Article 13, including the retention period and, for automated decisions, meaningful information about the logic involved), access, erasure, objection. The reply is due within one month, extendable by two months for complex requests (Article 12(3)). Article 22 gives the right not to be subject to a decision based solely on automated processing producing legal or significant effects, with exceptions and safeguards including human intervention. An agent that prepares a decision someone genuinely validates is not a solely automated decision. An agent that alone refuses a refund or a candidate possibly is.</p>\n<h2>What is the risk, and what to do in case of a breach?</h2>\n<p>Article 83(5) sets a ceiling of EUR 20 million or 4% of annual worldwide turnover for breaches of the principles (Articles 5, 6, 7 and 9), rights (Articles 12 to 22) and transfers (Articles 44 to 49). Paragraph 4 retains EUR 10 million or 2% for other obligations, including those of the controller and processor (Articles 25 to 39): the higher amount applies. A personal data breach is notified to the authority within 72 hours (Article 33(1)), and a processor informs you without undue delay (paragraph 2). These ceilings are not scales.</p>"
+    },
+    {
+      "type": "tech-when-dual",
+      "background": "paper-2",
+      "kicker_fr": "§ Qui fait quoi",
+      "kicker_en": "§ Who does what",
+      "title_fr": "Avancer seul, ou faire appel à un DPO ou à un juriste",
+      "title_en": "Go it alone, or call a DPO or a lawyer",
+      "aside_fr": "Recommandation de Waimia : le seuil se place sur la donnée et sur la décision, pas sur la taille de l'entreprise.",
+      "aside_en": "Waimia's recommendation: the threshold is set by the data and the decision, not the size of the company.",
+      "use_title_fr": "Vous pouvez avancer seul",
+      "use_title_en": "You can go it alone",
+      "use_items_fr": [
+        "Agent interne sans données de clients ni de salariés (résumés de documents publics, veille).",
+        "Données de contact professionnelles, éditeur sous DPA signé, hébergement dans l'Union, conservation courte.",
+        "Registre à compléter avec le modèle de la CNIL, huit sujets du tableau passés un par un."
+      ],
+      "use_items_en": [
+        "Internal agent without customer or employee data (summaries of public documents, monitoring).",
+        "Business contact data, vendor under a signed DPA, hosting in the Union, short retention.",
+        "Register to complete with the CNIL template, the eight topics of the table covered one by one."
+      ],
+      "avoid_title_fr": "Faites relire par un DPO ou un juriste",
+      "avoid_title_en": "Have a DPO or a lawyer review",
+      "avoid_items_fr": [
+        "Données de santé, données sensibles, mineurs, personnes vulnérables.",
+        "Décision à effet juridique ou significatif : recrutement, crédit, assurance, sanction, remboursement.",
+        "Au moins deux critères de la CNIL, donc une AIPD à rédiger.",
+        "Transfert hors UE sur un mécanisme contesté, ou fournisseur qui refuse de signer un DPA."
+      ],
+      "avoid_items_en": [
+        "Health data, sensitive data, minors, vulnerable people.",
+        "Decision with legal or significant effect: hiring, credit, insurance, sanction, refund.",
+        "At least two CNIL criteria, hence a DPIA to write.",
+        "Transfer outside the EU on a contested mechanism, or a provider that refuses to sign a DPA."
+      ]
+    },
+    {
+      "type": "decision-list",
+      "background": "paper",
+      "kicker_fr": "§ Checklist",
+      "kicker_en": "§ Checklist",
+      "heading_fr": "12 points à cocher avant de déployer un agent IA",
+      "heading_en": "12 points to tick before deploying an AI agent",
+      "items": [
+        {
+          "label_fr": "Décrivez en une phrase ce que fait l'agent et pour qui, puis listez les données personnelles qu'il touche.",
+          "label_en": "Describe in one sentence what the agent does and for whom, then list the personal data it touches."
+        },
+        {
+          "label_fr": "Choisissez et écrivez la base légale de l'article 6 ; pour l'intérêt légitime, gardez la mise en balance.",
+          "label_en": "Choose and write down the Article 6 legal basis; for legitimate interest, keep the balancing test."
+        },
+        {
+          "label_fr": "Retirez ou masquez les champs inutiles avant l'envoi à l'agent (minimisation).",
+          "label_en": "Remove or mask unnecessary fields before sending them to the agent (minimisation)."
+        },
+        {
+          "label_fr": "Ajoutez l'agent au registre des traitements (article 30), avec les destinataires et les durées.",
+          "label_en": "Add the agent to the register of processing (Article 30), with recipients and retention periods."
+        },
+        {
+          "label_fr": "Qualifiez chaque acteur : responsable, sous-traitant, sous-traitant ultérieur.",
+          "label_en": "Qualify each actor: controller, processor, sub-processor."
+        },
+        {
+          "label_fr": "Signez le DPA de chaque éditeur et prestataire (article 28) et archivez la liste de leurs sous-traitants ultérieurs.",
+          "label_en": "Sign each vendor's and contractor's DPA (Article 28) and archive the list of their sub-processors."
+        },
+        {
+          "label_fr": "Demandez où les données sont traitées et stockées, et le mécanisme de transfert hors UE si besoin ; HDS si ce sont des données de santé.",
+          "label_en": "Ask where data is processed and stored, and the transfer mechanism outside the EU if any; HDS if it is health data."
+        },
+        {
+          "label_fr": "Fixez une durée de conservation par catégorie, y compris journaux et historiques, et paramétrez la purge.",
+          "label_en": "Set a retention period per category, including logs and histories, and configure the purge."
+        },
+        {
+          "label_fr": "Passez les neuf critères de la CNIL ; si deux ou plus, faites l'AIPD avant la mise en production.",
+          "label_en": "Run the CNIL's nine criteria; if two or more, do the DPIA before going live."
+        },
+        {
+          "label_fr": "Mettez à jour vos mentions d'information (article 13) : l'IA, les destinataires, la durée, les droits.",
+          "label_en": "Update your information notices (Article 13): the AI, recipients, retention, rights."
+        },
+        {
+          "label_fr": "Prévoyez un humain pour toute décision à effet juridique ou significatif (article 22) et un chemin pour les droits d'accès et d'effacement.",
+          "label_en": "Provide a human for any decision with legal or significant effect (Article 22) and a path for access and erasure rights."
+        },
+        {
+          "label_fr": "Définissez la procédure de violation (72 heures, article 33), les accès, la journalisation et les consignes de l'agent, puis testez-les.",
+          "label_en": "Define the breach procedure (72 hours, Article 33), access, logging and agent instructions, then test them."
+        }
+      ]
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Going further",
+      "cards": [
+        {
+          "kicker_fr": "Hub",
+          "kicker_en": "Hub",
+          "title_fr": "Conformité IA : RGPD et AI Act",
+          "title_en": "AI compliance: GDPR and AI Act",
+          "lead_fr": "Le cadre d'ensemble et ce que Waimia met en place en mission.",
+          "lead_en": "The overall framework and what Waimia puts in place on engagements.",
+          "href": "/conformite-ia"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Chatbot et AI Act : l'article 50",
+          "title_en": "Chatbot and AI Act: Article 50",
+          "lead_fr": "Ce qu'il faut afficher quand un agent parle à vos clients.",
+          "lead_en": "What to display when an agent talks to your customers.",
+          "href": "/ressources/guides/chatbot-transparence-article-50"
+        },
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Agents IA sur mesure",
+          "title_en": "Custom AI agents",
+          "lead_fr": "Des agents conçus avec le registre, le DPA et les durées dès le départ.",
+          "lead_en": "Agents designed with the register, DPA and retention periods from the start.",
+          "href": "/services/agents-ia"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Sources, relevées le 15 octobre 2026</h2>\n<ul>\n<li>CNIL, texte du <a href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees\" rel=\"noopener noreferrer\" target=\"_blank\">règlement (UE) 2016/679</a>, chapitres <a href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre2\" rel=\"noopener noreferrer\" target=\"_blank\">2</a>, <a href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre3\" rel=\"noopener noreferrer\" target=\"_blank\">3</a>, <a href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre4\" rel=\"noopener noreferrer\" target=\"_blank\">4</a>, <a href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre5\" rel=\"noopener noreferrer\" target=\"_blank\">5</a> et <a href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre8\" rel=\"noopener noreferrer\" target=\"_blank\">8</a> (articles 5, 6, 12, 13, 22, 24, 28, 30, 32, 33, 35, 44 à 46 et 83). Texte officiel : <a href=\"https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32016R0679\" rel=\"noopener noreferrer\" target=\"_blank\">EUR-Lex</a>.</li>\n<li>CNIL, <a href=\"https://www.cnil.fr/fr/les-questions-reponses-de-la-cnil-sur-lutilisation-dun-systeme-dia-generative\" rel=\"noopener noreferrer\" target=\"_blank\">questions-réponses sur l'utilisation d'un système d'IA générative</a> (18 juillet 2024).</li>\n<li>CNIL, <a href=\"https://www.cnil.fr/fr/ia-comment-se-mettre-en-conformite\" rel=\"noopener noreferrer\" target=\"_blank\">IA : comment se mettre en conformité</a> et <a href=\"https://www.cnil.fr/fr/base-legale-interet-legitime-developpement-systeme\" rel=\"noopener noreferrer\" target=\"_blank\">base légale de l'intérêt légitime</a>.</li>\n<li>CNIL, <a href=\"https://www.cnil.fr/fr/ce-quil-faut-savoir-sur-lanalyse-dimpact-relative-la-protection-des-donnees-aipd\" rel=\"noopener noreferrer\" target=\"_blank\">ce qu'il faut savoir sur l'AIPD</a> et <a href=\"https://www.cnil.fr/fr/RGPD-le-registre-des-activites-de-traitement\" rel=\"noopener noreferrer\" target=\"_blank\">le registre des activités de traitement</a>.</li>\n<li>Commission européenne, <a href=\"https://eur-lex.europa.eu/legal-content/FR/TXT/PDF/?uri=CELEX%3A32021D0915\" rel=\"noopener noreferrer\" target=\"_blank\">décision d'exécution (UE) 2021/915</a> (clauses contractuelles types responsable de traitement et sous-traitant).</li>\n<li>Tribunal de l'Union européenne, <a href=\"https://curia.europa.eu/site/upload/docs/application/pdf/2025-09/cp250106en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">communiqué sur l'arrêt T-553/23 du 3 septembre 2025</a> ; <a href=\"https://eur-lex.europa.eu/eli/C/2025/6610/oj/eng\" rel=\"noopener noreferrer\" target=\"_blank\">pourvoi C-703/25 P, JO C/2025/6610</a> ; <a href=\"https://www.edpb.europa.eu/system/files/2026-08/edpb_letter_20260731_us_supremecourt_judgment_trump_v_slaughter_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">lettre du CEPD du 31 juillet 2026</a>.</li>\n<li>Légifrance, <a href=\"https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000049577902\" rel=\"noopener noreferrer\" target=\"_blank\">article L1111-8 du code de la santé publique</a>.</li>\n</ul>\n<p>Ce guide est une information générale, il n'est pas un avis juridique : pour un cas précis, adressez-vous à votre délégué à la protection des données ou à un avocat. Le cadre d'ensemble est sur la page <a href=\"/conformite-ia\">conformité IA</a> ; pour faire cadrer un projet, voir l'<a href=\"/audit-ia-pme\">audit IA pour PME</a>.</p>",
+      "html_en": "<h2>Sources, read on 15 October 2026</h2>\n<ul>\n<li>CNIL, text of <a href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees\" rel=\"noopener noreferrer\" target=\"_blank\">Regulation (EU) 2016/679</a>, chapters <a href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre2\" rel=\"noopener noreferrer\" target=\"_blank\">2</a>, <a href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre3\" rel=\"noopener noreferrer\" target=\"_blank\">3</a>, <a href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre4\" rel=\"noopener noreferrer\" target=\"_blank\">4</a>, <a href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre5\" rel=\"noopener noreferrer\" target=\"_blank\">5</a> and <a href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre8\" rel=\"noopener noreferrer\" target=\"_blank\">8</a> (Articles 5, 6, 12, 13, 22, 24, 28, 30, 32, 33, 35, 44 to 46 and 83). Official text: <a href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679\" rel=\"noopener noreferrer\" target=\"_blank\">EUR-Lex</a>.</li>\n<li>CNIL, <a href=\"https://www.cnil.fr/fr/les-questions-reponses-de-la-cnil-sur-lutilisation-dun-systeme-dia-generative\" rel=\"noopener noreferrer\" target=\"_blank\">questions and answers on using a generative AI system</a> (18 July 2024).</li>\n<li>CNIL, <a href=\"https://www.cnil.fr/fr/ia-comment-se-mettre-en-conformite\" rel=\"noopener noreferrer\" target=\"_blank\">AI: how to comply</a> and <a href=\"https://www.cnil.fr/fr/base-legale-interet-legitime-developpement-systeme\" rel=\"noopener noreferrer\" target=\"_blank\">legitimate interest as a legal basis</a>.</li>\n<li>CNIL, <a href=\"https://www.cnil.fr/fr/ce-quil-faut-savoir-sur-lanalyse-dimpact-relative-la-protection-des-donnees-aipd\" rel=\"noopener noreferrer\" target=\"_blank\">what to know about the DPIA</a> and <a href=\"https://www.cnil.fr/fr/RGPD-le-registre-des-activites-de-traitement\" rel=\"noopener noreferrer\" target=\"_blank\">the record of processing activities</a>.</li>\n<li>European Commission, <a href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX%3A32021D0915\" rel=\"noopener noreferrer\" target=\"_blank\">implementing decision (EU) 2021/915</a> (standard contractual clauses controller and processor).</li>\n<li>General Court of the European Union, <a href=\"https://curia.europa.eu/site/upload/docs/application/pdf/2025-09/cp250106en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">press release on judgment T-553/23 of 3 September 2025</a>; <a href=\"https://eur-lex.europa.eu/eli/C/2025/6610/oj/eng\" rel=\"noopener noreferrer\" target=\"_blank\">appeal C-703/25 P, OJ C/2025/6610</a>; <a href=\"https://www.edpb.europa.eu/system/files/2026-08/edpb_letter_20260731_us_supremecourt_judgment_trump_v_slaughter_en.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">EDPB letter of 31 July 2026</a>.</li>\n<li>Légifrance, <a href=\"https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000049577902\" rel=\"noopener noreferrer\" target=\"_blank\">Article L1111-8 of the Public Health Code</a>.</li>\n</ul>\n<p>This guide is general information, not legal advice: for a specific case, consult your data protection officer or a lawyer. The overall framework is on the <a href=\"/conformite-ia\">AI compliance</a> page; to scope a project, see the <a href=\"/audit-ia-pme\">AI audit for SMEs</a>.</p>"
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "h2_fr": "RGPD et agents IA : questions fréquentes",
+      "h2_en": "GDPR and AI agents: frequently asked questions",
+      "items": [
+        {
+          "q_fr": "Le RGPD s'applique-t-il à un agent IA ?",
+          "a_fr": "Oui, dès que l'agent traite des données relatives à des personnes identifiables : noms, e-mails, messages de clients, CV, tickets. L'outil utilisé n'y change rien. Vous êtes en général responsable de traitement, et l'éditeur ou le prestataire est votre sous-traitant au sens de l'article 28.",
+          "q_en": "Does the GDPR apply to an AI agent?",
+          "a_en": "Yes, as soon as the agent processes data about identifiable people: names, emails, customer messages, CVs, tickets. The tool used changes nothing. You are generally the controller, and the vendor or contractor is your processor within the meaning of Article 28."
+        },
+        {
+          "q_fr": "Faut-il un contrat avec le fournisseur du modèle ?",
+          "a_fr": "Oui, si le fournisseur traite des données personnelles pour votre compte. L'article 28 exige un contrat écrit qui prévoit, entre autres, le traitement sur instruction documentée, la sécurité, l'aide aux droits des personnes, la suppression ou la restitution, et l'autorisation préalable des sous-traitants ultérieurs. Vérifiez que le DPA est signé, pas seulement proposé.",
+          "q_en": "Do I need a contract with the model provider?",
+          "a_en": "Yes, if the provider processes personal data on your behalf. Article 28 requires a written contract providing, among other things, for processing on documented instructions, security, help with individuals' rights, deletion or return, and prior authorisation of sub-processors. Check that the DPA is signed, not just offered."
+        },
+        {
+          "q_fr": "Un agent IA est-il dispensé de registre ?",
+          "a_fr": "Rarement. L'article 30, paragraphe 5, exempte les organismes de moins de 250 personnes, sauf si le traitement n'est pas occasionnel. Un agent qui traite des données chaque jour n'est pas occasionnel. Le plus simple est d'ajouter une ligne au registre par agent.",
+          "q_en": "Is an AI agent exempt from the register?",
+          "a_en": "Rarely. Article 30(5) exempts organisations of fewer than 250 people, unless the processing is not occasional. An agent that processes data every day is not occasional. The simplest approach is to add one line to the register per agent."
+        },
+        {
+          "q_fr": "Peut-on utiliser un modèle américain avec des données de clients européens ?",
+          "a_fr": "C'est possible avec un mécanisme de transfert valable (articles 44 à 46) : une décision d'adéquation, des clauses contractuelles types ou une autre garantie. La décision relative au cadre UE-États-Unis a été confirmée par le Tribunal le 3 septembre 2025 ; un pourvoi a été formé le 31 octobre 2025. Demandez le mécanisme à votre fournisseur et gardez la preuve.",
+          "q_en": "Can I use a US model with European customers' data?",
+          "a_en": "It is possible with a valid transfer mechanism (Articles 44 to 46): an adequacy decision, standard contractual clauses or another safeguard. The decision on the EU-US framework was upheld by the General Court on 3 September 2025; an appeal was lodged on 31 October 2025. Ask your provider for the mechanism and keep the evidence."
+        },
+        {
+          "q_fr": "Quand une AIPD est-elle obligatoire pour un agent IA ?",
+          "a_fr": "Quand le traitement figure sur la liste de la CNIL, ou remplit au moins deux de ses neuf critères (évaluation, décision automatique, données sensibles, grande échelle, personnes vulnérables, usage innovant, par exemple). Elle se fait avant le déploiement. Un agent qui note des candidats ou refuse seul une demande y entre vite.",
+          "q_en": "When is a DPIA mandatory for an AI agent?",
+          "a_en": "When the processing is on the CNIL's list, or meets at least two of its nine criteria (evaluation, automated decision, sensitive data, large scale, vulnerable people, innovative use, for example). It is done before deployment. An agent that scores candidates or alone refuses a request quickly qualifies."
+        },
+        {
+          "q_fr": "Combien de temps garder les conversations d'un agent ?",
+          "a_fr": "Le RGPD ne donne pas de durée : seulement « pas plus longtemps que nécessaire » (article 5, paragraphe 1, e) et l'obligation d'informer les personnes de la durée (article 13). Fixez une durée par catégorie, appliquez-la aux historiques et aux journaux, et programmez la suppression plutôt que de compter sur un nettoyage manuel.",
+          "q_en": "How long should an agent's conversations be kept?",
+          "a_en": "The GDPR gives no period: only \"no longer than necessary\" (Article 5(1)(e)) and the duty to inform people of the period (Article 13). Set a period per category, apply it to histories and logs, and schedule deletion rather than relying on manual clean-up."
+        },
+        {
+          "q_fr": "L'AI Act remplace-t-il le RGPD pour un agent ?",
+          "a_fr": "Non, les deux s'appliquent. L'AI Act impose par exemple l'information des personnes qui parlent à un chatbot (article 50) ; le RGPD encadre les données personnelles que l'agent traite. Un même agent peut donc devoir respecter les deux, avec des documents distincts.",
+          "q_en": "Does the AI Act replace the GDPR for an agent?",
+          "a_en": "No, both apply. The AI Act requires, for example, informing people who talk to a chatbot (Article 50); the GDPR governs the personal data the agent processes. The same agent may therefore have to comply with both, with separate documents."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ RGPD",
+      "kicker_en": "§ GDPR",
+      "h2_fr": "Passer vos agents IA au crible du RGPD avant la mise en production.",
+      "h2_en": "Screen your AI agents against the GDPR before going live.",
+      "subtitle_fr": "L'audit de 45 minutes est gratuit. On liste vos agents, les données qu'ils touchent et les contrats à signer. Ce n'est pas un conseil juridique.",
+      "subtitle_en": "The 45-minute audit is free. We list your agents, the data they touch and the contracts to sign. This is not legal advice.",
+      "buttons": [
+        {
+          "label_fr": "Réserver l'audit gratuit",
+          "label_en": "Book the free audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Comment se passe l'audit",
+          "label_en": "How the audit works",
+          "href": "/audit-ia-pme",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

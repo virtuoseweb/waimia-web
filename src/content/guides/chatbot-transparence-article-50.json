@@ -1,0 +1,646 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "Chatbot et AI Act : l'obligation de transparence de l'article 50",
+  "title_en": "Chatbot and AI Act: the Article 50 transparency obligation",
+  "seoTitle_fr": "Chatbot et AI Act : afficher que c'est une IA (article 50)",
+  "description_fr": "AI Act, article 50 : depuis le 2 août 2026, un chatbot ou un agent IA doit signaler qu'il est une IA. Qui est visé, quoi afficher, amendes. Sources officielles.",
+  "description_en": "AI Act, Article 50: since 2 August 2026, a chatbot or AI agent must disclose that it is an AI. Who is covered, what to display, fines. Official sources.",
+  "slug": "chatbot-transparence-article-50",
+  "publishedAt": "2026-10-15T00:00:00.000Z",
+  "updatedAt": "2026-10-15T00:00:00.000Z",
+  "category": "conformite",
+  "tags": [
+    "ai-act",
+    "article-50",
+    "transparence",
+    "chatbot",
+    "agent-ia",
+    "conformite-ia",
+    "guide-pme"
+  ],
+  "sources": [
+    {
+      "name": "Commission européenne, AI Act Service Desk, article 50, relevé le 15 octobre 2026",
+      "url": "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-50",
+      "type": "state"
+    },
+    {
+      "name": "Commission européenne, AI Act Service Desk, article 113, relevé le 15 octobre 2026",
+      "url": "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-113",
+      "type": "state"
+    },
+    {
+      "name": "Commission européenne, AI Act Service Desk, article 111, relevé le 15 octobre 2026",
+      "url": "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-111",
+      "type": "state"
+    },
+    {
+      "name": "Commission européenne, AI Act Service Desk, article 99, relevé le 15 octobre 2026",
+      "url": "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-99",
+      "type": "state"
+    },
+    {
+      "name": "Commission européenne, lignes directrices sur les obligations de transparence (article 50), C(2026) 5054 du 20 juillet 2026, relevé le 15 octobre 2026",
+      "url": "https://digital-strategy.ec.europa.eu/en/library/guidelines-transparency-obligations-providers-and-deployers-ai-systems",
+      "type": "state",
+      "publishedAt": "2026-07-20"
+    },
+    {
+      "name": "Commission européenne, questions-réponses sur l'article 50 (mise à jour du 24 juillet 2026), relevé le 15 octobre 2026",
+      "url": "https://digital-strategy.ec.europa.eu/en/faqs/transparency-obligations-under-article-50-ai-act",
+      "type": "state",
+      "publishedAt": "2026-07-24"
+    },
+    {
+      "name": "Commission européenne, AI Omnibus enters into force (27 juillet 2026), relevé le 15 octobre 2026",
+      "url": "https://digital-strategy.ec.europa.eu/en/news/ai-omnibus-enters-force",
+      "type": "state",
+      "publishedAt": "2026-07-27"
+    },
+    {
+      "name": "Commission européenne, autorités de surveillance du marché (mise à jour du 7 septembre 2026), relevé le 15 octobre 2026",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/market-surveillance-authorities-under-ai-act",
+      "type": "state",
+      "publishedAt": "2026-09-07"
+    },
+    {
+      "name": "DGE et DGCCRF, projet de désignation des autorités nationales de l'AI Act (9 septembre 2025), relevé le 15 octobre 2026",
+      "url": "https://www.entreprises.gouv.fr/espace-presse/la-dge-et-la-dgccrf-publient-le-projet-de-designation-des-autorites-nationales-en",
+      "type": "state",
+      "publishedAt": "2025-09-09"
+    },
+    {
+      "name": "DGE et DGCCRF, schéma de gouvernance de l'AI Act en France (PDF, septembre 2025), relevé le 15 octobre 2026",
+      "url": "https://www.entreprises.gouv.fr/files/files/Priorites-et-actions/Transition-numerique/202509-reglement-ia-schema-gouvernance.pdf",
+      "type": "state",
+      "publishedAt": "2025-09-09"
+    }
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "Faut-il prévenir un client qu'il parle à un chatbot ?",
+      "a": "Oui, dans la plupart des cas. L'article 50, paragraphe 1, de l'AI Act veut que le système soit conçu pour que les personnes sachent qu'elles interagissent avec une IA, au plus tard au premier échange. Seule exception pratique : l'interaction évidente pour une personne raisonnablement informée, que la Commission interprète de façon restrictive. Un chatbot d'assistance ouvert au public n'y entre pas."
+    },
+    {
+      "q": "Depuis quand l'article 50 s'applique-t-il ?",
+      "a": "Depuis le 2 août 2026, d'après l'article 113. L'omnibus IA, en vigueur depuis le 27 juillet 2026, a reporté le haut risque, pas la transparence. Un seul délai de grâce existe : jusqu'au 2 décembre 2026 pour le marquage des contenus générés par les systèmes déjà sur le marché avant le 2 août 2026. Il ne concerne pas l'annonce « vous parlez à une IA »."
+    },
+    {
+      "q": "Qui est responsable si j'utilise le chatbot d'un éditeur ?",
+      "a": "L'article 50, paragraphe 1, vise le fournisseur du système. Pour un produit vendu par un éditeur sous son nom, c'est l'éditeur, et vous êtes déployeur. Si vous faites développer l'agent et le mettez en service sous votre nom, la définition de l'article 3 (celui qui développe un système ou le fait développer) peut vous viser. C'est la lecture de Waimia : faites-la qualifier par un juriste."
+    },
+    {
+      "q": "Quelle amende une PME risque-t-elle ?",
+      "a": "Le plafond est de 15 millions d'euros ou 3 % du chiffre d'affaires mondial annuel pour un manquement à l'article 50 (article 99, paragraphe 4). Pour une PME, c'est le plus faible des deux montants (paragraphe 6). Les États membres fixent les règles de sanction et tiennent compte de la gravité, de la durée et de la coopération. Ce sont des plafonds, pas des barèmes."
+    },
+    {
+      "q": "Un agent qui envoie des e-mails doit-il se présenter comme IA ?",
+      "a": "Si l'agent écrit lui-même aux personnes, oui : les lignes directrices citent l'e-mail généré par un agent portant une étiquette « IA » en tête de message, et demandent à l'agent d'indiquer aussi pour le compte de qui il agit. Si un salarié relit puis envoie le message, l'interaction n'est plus directe au sens du paragraphe 1."
+    },
+    {
+      "q": "Une mention dans les conditions générales suffit-elle ?",
+      "a": "Non. Les lignes directrices écrivent qu'une information qui figure seulement dans les conditions générales, une URL ou une documentation ne suffit pas à remplir l'obligation. L'annonce doit être claire, distincte et présente au plus tard au premier échange."
+    },
+    {
+      "q": "Le chatbot interne réservé à mes salariés est-il concerné ?",
+      "a": "Peut-être pas. Les lignes directrices donnent comme évident un assistant interne destiné à des salariés formés à l'IA qui savent qu'ils l'utilisent. L'exception reste restrictive : documentez la raison pour laquelle l'interaction est évidente pour ce public, ou annoncez-le, ce qui ne coûte presque rien."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Must I tell a customer they are talking to a chatbot?",
+      "a": "Yes, in most cases. Article 50(1) of the AI Act requires the system to be designed so that people know they are interacting with an AI, at the latest at the first exchange. The only practical exception is an interaction that is obvious to a reasonably well-informed person, which the Commission reads restrictively. A public support chatbot does not qualify."
+    },
+    {
+      "q": "Since when does Article 50 apply?",
+      "a": "Since 2 August 2026, under Article 113. The AI Omnibus, in force since 27 July 2026, postponed high risk, not transparency. A single grace period exists: until 2 December 2026 for marking content generated by systems already on the market before 2 August 2026. It does not cover the \"you are talking to an AI\" notice."
+    },
+    {
+      "q": "Who is responsible if I use a vendor's chatbot?",
+      "a": "Article 50(1) targets the provider of the system. For a product sold by a vendor under its own name, that is the vendor, and you are the deployer. If you have the agent developed and put it into service under your name, the Article 3 definition (whoever develops a system or has it developed) may cover you. This is Waimia's reading: have a lawyer qualify it."
+    },
+    {
+      "q": "What fine does an SME risk?",
+      "a": "The ceiling is EUR 15 million or 3% of annual worldwide turnover for a breach of Article 50 (Article 99(4)). For an SME, it is the lower of the two amounts (paragraph 6). Member States set the penalty rules and consider gravity, duration and cooperation. These are ceilings, not scales."
+    },
+    {
+      "q": "Must an agent that sends emails identify itself as AI?",
+      "a": "If the agent itself writes to people, yes: the guidelines cite an agent-generated email carrying an \"AI\" label at the top, and ask the agent to also state on whose behalf it acts. If an employee reviews and then sends the message, the interaction is no longer direct within the meaning of paragraph 1."
+    },
+    {
+      "q": "Is a mention in the terms and conditions enough?",
+      "a": "No. The guidelines state that information appearing only in terms and conditions, a URL or documentation is not enough to meet the obligation. The notice must be clear, distinguishable and present at the latest at the first exchange."
+    },
+    {
+      "q": "Is the internal chatbot reserved for my employees covered?",
+      "a": "Possibly not. The guidelines give as obvious an internal assistant intended for staff trained in AI who know they are using it. The exception remains restrictive: document why the interaction is obvious for that audience, or announce it, which costs almost nothing."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "kicker_fr": "§ Guide",
+      "kicker_en": "§ Guide",
+      "h1_fr": "Chatbot et AI Act : l'obligation de transparence de l'article 50",
+      "h1_en": "Chatbot and AI Act: the Article 50 transparency obligation",
+      "lede_fr": "Depuis le 2 août 2026, un chatbot ou un agent IA doit se signaler comme tel au plus tard au premier échange, sauf si c'est évident. L'obligation pèse sur le fournisseur : si vous avez fait développer l'agent sous votre nom, c'est probablement vous. Ce guide n'est pas un avis juridique.",
+      "lede_en": "Since 2 August 2026, a chatbot or AI agent must identify itself as such at the latest at the first exchange, unless it is obvious. The duty falls on the provider: if you had the agent built under your name, that is probably you. This guide is not legal advice.",
+      "badges": [
+        {
+          "label_fr": "Sources officielles",
+          "label_en": "Official sources"
+        },
+        {
+          "label_fr": "Relevé le 15 octobre 2026",
+          "label_en": "Read on 15 October 2026"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver l'audit gratuit",
+        "label_en": "Book the free audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme",
+        "variant": "ghost"
+      },
+      "illustration": {
+        "src": "/images/illustrations/ds/woman-computer-paper.webp",
+        "alt_fr": "Une femme assise dont l'ombre tape à sa place sur un ordinateur",
+        "alt_en": "A seated woman whose shadow types on a laptop for her",
+        "side": "right"
+      }
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "15 octobre 2026",
+      "updatedDate": "15 octobre 2026"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "Faut-il prévenir un client qu'il parle à un chatbot ?",
+      "question_en": "Must you tell a customer they are talking to a chatbot?",
+      "term_fr": "Au 15 octobre 2026",
+      "term_en": "As of 15 October 2026",
+      "answer_fr": "Oui, dans la plupart des cas. L'article 50, paragraphe 1, de l'AI Act s'applique depuis le 2 août 2026, sans période de grâce pour cette obligation. Le système doit être conçu pour que la personne sache qu'elle interagit avec une IA, au plus tard au premier échange, sauf si c'est évident pour une personne raisonnablement informée. La Commission juge l'exception d'interprétation restrictive et cite le chatbot d'un service d'assistance parmi les cas non évidents.",
+      "answer_en": "Yes, in most cases. Article 50(1) of the AI Act has applied since 2 August 2026, with no grace period for this obligation. The system must be designed so that the person knows they are interacting with an AI, at the latest at the first exchange, unless this is obvious to a reasonably well-informed person. The Commission treats the exception restrictively and lists a helpdesk chatbot among the non-obvious cases."
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>En bref</h2>\n<ul>\n<li><strong>Depuis quand.</strong> L'article 50 s'applique depuis le 2 août 2026. L'omnibus entré en vigueur le 27 juillet 2026 a reporté le haut risque, pas la transparence.</li>\n<li><strong>Qui.</strong> Pour un chatbot, l'obligation pèse sur le <em>fournisseur</em> du système (article 50, paragraphe 1). Selon votre montage, ce fournisseur est l'éditeur de l'outil ou vous.</li>\n<li><strong>Quoi.</strong> Dire clairement que c'est une IA, au plus tard au premier échange. « Assistant » ne suffit pas.</li>\n<li><strong>Combien.</strong> Jusqu'à 15 millions d'euros ou 3 % du chiffre d'affaires mondial, le plus faible des deux pour une PME.</li>\n</ul>\n<p>Les faits de ce guide sont <strong>relevés le 15 octobre 2026</strong> sur le AI Act Service Desk de la Commission européenne (texte consolidé au 27 juillet 2026) et dans ses lignes directrices sur l'article 50, C(2026) 5054 du 20 juillet 2026. Ces lignes directrices ne sont pas contraignantes : seule la Cour de justice de l'Union donne l'interprétation faisant autorité (paragraphe 5). Pour le calendrier complet, voir le guide <a href=\"/ressources/guides/ai-act-pme-calendrier\">AI Act pour PME : le calendrier à jour</a>. Ce guide n'est pas un avis juridique.</p>\n<h2>Depuis quand l'article 50 s'applique-t-il, et l'omnibus a-t-il changé quelque chose ?</h2>\n<p>L'article 113 fixe l'application générale du règlement au 2 août 2026. L'omnibus IA, en vigueur depuis le 27 juillet 2026, a modifié les dates du haut risque (2 décembre 2027 pour l'annexe III, 2 août 2028 pour l'annexe I) et ajouté des interdictions applicables au 2 décembre 2026. Il n'a pas déplacé l'article 50.</p>\n<p>Un seul délai de grâce existe, à l'article 111, paragraphe 4 : les fournisseurs de systèmes qui génèrent de l'audio, de l'image, de la vidéo ou du texte, <em>mis sur le marché avant le 2 août 2026</em>, ont jusqu'au 2 décembre 2026 pour le marquage lisible par machine des contenus (article 50, paragraphe 2). Il ne vise pas l'annonce « vous parlez à une IA ». Les lignes directrices le disent pour les systèmes à la fois interactifs et génératifs : le délai ne couvre que le marquage, et l'information des personnes qui interagissent doit être assurée dès le 2 août 2026 (paragraphe 153).</p>",
+      "html_en": "<h2>In short</h2>\n<ul>\n<li><strong>Since when.</strong> Article 50 has applied since 2 August 2026. The omnibus that entered into force on 27 July 2026 postponed high risk, not transparency.</li>\n<li><strong>Who.</strong> For a chatbot, the obligation falls on the <em>provider</em> of the system (Article 50(1)). Depending on your setup, that provider is the tool vendor or you.</li>\n<li><strong>What.</strong> Say clearly that it is an AI, at the latest at the first exchange. \"Assistant\" is not enough.</li>\n<li><strong>How much.</strong> Up to EUR 15 million or 3% of worldwide turnover, the lower of the two for an SME.</li>\n</ul>\n<p>The facts in this guide were <strong>read on 15 October 2026</strong> on the European Commission's AI Act Service Desk (text consolidated at 27 July 2026) and in its guidelines on Article 50, C(2026) 5054 of 20 July 2026. These guidelines are not binding: only the Court of Justice of the Union gives the authoritative interpretation (paragraph 5). For the full timeline, see the guide <a href=\"/ressources/guides/ai-act-pme-calendrier\">AI Act for SMEs: the up-to-date timeline</a>. This guide is not legal advice.</p>\n<h2>Since when does Article 50 apply, and did the omnibus change anything?</h2>\n<p>Article 113 sets the general application of the regulation at 2 August 2026. The AI Omnibus, in force since 27 July 2026, changed the high-risk dates (2 December 2027 for Annex III, 2 August 2028 for Annex I) and added prohibitions applicable on 2 December 2026. It did not move Article 50.</p>\n<p>A single grace period exists, in Article 111(4): providers of systems that generate audio, image, video or text, <em>placed on the market before 2 August 2026</em>, have until 2 December 2026 for machine-readable marking of content (Article 50(2)). It does not cover the \"you are talking to an AI\" notice. The guidelines say so for systems that are both interactive and generative: the period covers marking only, and informing the people who interact must be ensured from 2 August 2026 (paragraph 153).</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Ce que couvre l'article 50",
+      "kicker_en": "§ What Article 50 covers",
+      "heading_fr": "Les quatre obligations de l'article 50, et qui doit agir",
+      "heading_en": "The four Article 50 obligations, and who must act",
+      "caption_fr": "Texte de l'article 50 sur le AI Act Service Desk, relevé le 15 octobre 2026. Seul le paragraphe 1 concerne directement un chatbot.",
+      "caption_en": "Text of Article 50 on the AI Act Service Desk, read on 15 October 2026. Only paragraph 1 directly concerns a chatbot.",
+      "columns_fr": [
+        "Paragraphe",
+        "Sujet",
+        "Qui est visé",
+        "Pour un chatbot"
+      ],
+      "columns_en": [
+        "Paragraph",
+        "Subject",
+        "Who is covered",
+        "For a chatbot"
+      ],
+      "rows_fr": [
+        [
+          "50(1)",
+          "Informer la personne qu'elle interagit avec une IA",
+          "Le fournisseur",
+          "Oui : c'est l'obligation centrale"
+        ],
+        [
+          "50(2)",
+          "Marquer en format lisible par machine les contenus audio, image, vidéo et texte générés",
+          "Le fournisseur",
+          "Vise l'éditeur du système qui génère ; délai de grâce au 2 décembre 2026 pour les systèmes déjà sur le marché"
+        ],
+        [
+          "50(3)",
+          "Informer les personnes exposées à un système de reconnaissance des émotions ou de catégorisation biométrique",
+          "Le déployeur",
+          "Seulement si vous utilisez un tel système"
+        ],
+        [
+          "50(4)",
+          "Signaler les hypertrucages et les textes générés publiés pour informer le public sur des sujets d'intérêt public",
+          "Le déployeur",
+          "Pas pour une conversation de support ; oui pour un contenu publié"
+        ]
+      ],
+      "rows_en": [
+        [
+          "50(1)",
+          "Inform the person that they are interacting with an AI",
+          "The provider",
+          "Yes: this is the central obligation"
+        ],
+        [
+          "50(2)",
+          "Mark generated audio, image, video and text content in a machine-readable format",
+          "The provider",
+          "Targets the vendor of the generating system; grace period to 2 December 2026 for systems already on the market"
+        ],
+        [
+          "50(3)",
+          "Inform people exposed to an emotion recognition or biometric categorisation system",
+          "The deployer",
+          "Only if you use such a system"
+        ],
+        [
+          "50(4)",
+          "Disclose deepfakes and generated text published to inform the public on matters of public interest",
+          "The deployer",
+          "Not for a support conversation; yes for published content"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper",
+      "kicker_fr": "§ Votre rôle",
+      "kicker_en": "§ Your role",
+      "heading_fr": "Chatbot d'éditeur ou agent sur mesure : qui doit prévoir l'annonce ?",
+      "heading_en": "Vendor chatbot or custom agent: who must provide the notice?",
+      "caption_fr": "Lecture de Waimia, à partir de l'article 3, point 3, et des paragraphes 10 à 12 des lignes directrices de la Commission (non contraignantes). Un cas limite se fait qualifier par un juriste.",
+      "caption_en": "Waimia's reading, based on Article 3(3) and paragraphs 10 to 12 of the Commission guidelines (non-binding). A borderline case should be qualified by a lawyer.",
+      "columns_fr": [
+        "Votre situation",
+        "Rôle probable",
+        "Qui doit prévoir l'annonce"
+      ],
+      "columns_en": [
+        "Your situation",
+        "Likely role",
+        "Who must provide the notice"
+      ],
+      "rows_fr": [
+        [
+          "Vous branchez sur votre site le chatbot d'un éditeur, vendu comme produit",
+          "L'éditeur est fournisseur ; vous êtes déployeur",
+          "L'éditeur, dans le produit. Vous la demandez au contrat et vous vérifiez à l'écran qu'elle s'affiche"
+        ],
+        [
+          "Vous faites développer un agent par un prestataire, mis en service sous le nom de votre entreprise",
+          "Vous, probablement : l'article 3 vise celui qui développe un système « ou le fait développer » et le met en service sous son nom",
+          "Vous, avec le prestataire. Le contrat dit qui l'écrit, qui la teste et qui la maintient"
+        ],
+        [
+          "Vous développez un agent en interne pour vos clients",
+          "Vous : les lignes directrices citent ce cas comme exemple de fournisseur",
+          "Vous"
+        ],
+        [
+          "Vous affinez un modèle existant avec vos données et le mettez en service sous votre nom",
+          "Vous, pour le nouveau système (paragraphe 11)",
+          "Vous"
+        ],
+        [
+          "Un assistant interne réservé à des salariés formés à l'IA",
+          "Fournisseur ou vous, selon le montage ; exception « évident » possible (paragraphe 45)",
+          "À documenter ; l'annoncer reste la voie la plus simple"
+        ],
+        [
+          "Un salarié utilise l'IA pour préparer ses réponses puis les envoie lui-même",
+          "Hors du paragraphe 1 : l'interaction n'est pas directe (paragraphe 30)",
+          "Pas d'obligation au titre du paragraphe 1"
+        ]
+      ],
+      "rows_en": [
+        [
+          "You plug a vendor's chatbot, sold as a product, into your website",
+          "The vendor is the provider; you are the deployer",
+          "The vendor, in the product. You ask for it in the contract and check on screen that it displays"
+        ],
+        [
+          "You have a contractor build an agent, put into service under your company's name",
+          "You, probably: Article 3 covers whoever develops a system \"or has it developed\" and puts it into service under its name",
+          "You, with the contractor. The contract says who writes it, tests it and maintains it"
+        ],
+        [
+          "You build an agent in-house for your customers",
+          "You: the guidelines cite this case as an example of a provider",
+          "You"
+        ],
+        [
+          "You fine-tune an existing model with your data and put it into service under your name",
+          "You, for the new system (paragraph 11)",
+          "You"
+        ],
+        [
+          "An internal assistant reserved for staff trained in AI",
+          "Provider or you, depending on the setup; \"obvious\" exception possible (paragraph 45)",
+          "To be documented; announcing it remains the simplest route"
+        ],
+        [
+          "An employee uses AI to prepare replies and then sends them personally",
+          "Outside paragraph 1: the interaction is not direct (paragraph 30)",
+          "No obligation under paragraph 1"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Que faut-il afficher, et quand ?</h2>\n<p>Le texte fixe trois exigences (article 50, paragraphe 5) : l'information est donnée <strong>au plus tard à la première interaction</strong>, de façon <strong>claire et distincte</strong>, et dans le respect des règles d'accessibilité applicables. Les lignes directrices précisent ce qui ne suffit pas, seul (paragraphe 38) :</p>\n<ul>\n<li>une mention dans les conditions générales, une URL ou une documentation ;</li>\n<li>un signal ambigu comme « assistant » ou une représentation qui laisse croire à un humain ;</li>\n<li>une mention générale du type « les services de ce site utilisent l'IA » ;</li>\n<li>une description technique du type « ce système utilise des modèles de langage ».</li>\n</ul>\n<p>Une annonce unique avant le premier échange suffit en général (paragraphe 40). Des rappels deviennent nécessaires dans les contextes à risque : personnes vulnérables ou mineurs, risque d'être induit en erreur (conseil financier, assurance, juridique, santé, traitement de réclamations) et suivi des actions d'un agent. L'IA doit aussi se signaler chaque fois qu'on l'interroge sur sa nature.</p>\n<p>Le format dépend du canal (paragraphes 36 et 37). Texte : un message d'accueil ou un bandeau près du champ de saisie. Voix : une phrase au début de la session. E-mail rédigé par un agent : une étiquette « IA » en tête du message.</p>\n<h2>Et si le chatbot passe la main à un humain ?</h2>\n<p>Les lignes directrices traitent les services qui mêlent réponses de l'IA et contenus relus par des humains (paragraphe 30). Ils restent dans le champ du paragraphe 1 : il faut signaler les réponses produites par l'IA, sauf celles que des humains ont relues et envoyées en tant qu'interlocuteurs principaux. La simple possibilité qu'un humain intervienne ne dispense pas d'annoncer.</p>\n<h2>Que doit dire un agent qui agit à votre place ?</h2>\n<p>Les lignes directrices couvrent explicitement les agents capables d'interagir avec des personnes : réserver, gérer une correspondance, négocier, acheter (paragraphe 31). Ils doivent signaler leur nature artificielle <strong>et la personne pour le compte de laquelle ils agissent</strong>. Pour un agent qui écrit à vos clients, voir les services <a href=\"/services/agents-ia\">agents IA</a> et <a href=\"/services/agent-support-client\">agent de support client</a>.</p>",
+      "html_en": "<h2>What must be displayed, and when?</h2>\n<p>The text sets three requirements (Article 50(5)): the information is given <strong>at the latest at the first interaction</strong>, in a <strong>clear and distinguishable</strong> manner, and in line with applicable accessibility requirements. The guidelines spell out what is not enough on its own (paragraph 38):</p>\n<ul>\n<li>a mention in the terms and conditions, a URL or documentation;</li>\n<li>an ambiguous signal such as \"assistant\", or a representation that suggests a human;</li>\n<li>a general mention such as \"services on this website use AI\";</li>\n<li>a technical description such as \"this system uses language models\".</li>\n</ul>\n<p>A single notice before the first exchange is generally enough (paragraph 40). Reminders become necessary in risky contexts: vulnerable people or minors, risk of being misled (financial advice, insurance, legal, health, complaint handling) and oversight of an agent's actions. The AI must also identify itself whenever it is asked about its nature.</p>\n<p>The format depends on the channel (paragraphs 36 and 37). Text: a welcome message or a banner near the input field. Voice: a sentence at the start of the session. Email written by an agent: an \"AI\" label at the top of the message.</p>\n<h2>What if the chatbot hands over to a human?</h2>\n<p>The guidelines address services that blend AI replies with human-reviewed content (paragraph 30). They remain within paragraph 1: the AI-produced replies must be flagged, except those that humans have reviewed and sent as the main interlocutors. The mere possibility of a human stepping in does not remove the duty to disclose.</p>\n<h2>What must an agent acting on your behalf say?</h2>\n<p>The guidelines explicitly cover agents able to interact with people: making bookings, managing correspondence, negotiating, buying (paragraph 31). They must disclose their artificial nature <strong>and the person on whose behalf they act</strong>. For an agent that writes to your customers, see the <a href=\"/services/agents-ia\">AI agents</a> and <a href=\"/services/agent-support-client\">customer support agent</a> services.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Exemples de formulation",
+      "kicker_en": "§ Sample wording",
+      "heading_fr": "Quoi écrire selon le canal",
+      "heading_en": "What to write by channel",
+      "caption_fr": "Formulations proposées par Waimia à titre d'exemple : le texte ne fixe aucun libellé. Elles disent « IA », nomment l'entreprise et proposent un humain. Adaptez-les à votre public.",
+      "caption_en": "Wording proposed by Waimia as examples: the text sets no wording. They say \"AI\", name the company and offer a human. Adapt them to your audience.",
+      "columns_fr": [
+        "Canal",
+        "Exemple de formulation",
+        "Pourquoi"
+      ],
+      "columns_en": [
+        "Channel",
+        "Sample wording",
+        "Why"
+      ],
+      "rows_fr": [
+        [
+          "Chat sur le site",
+          "« Bonjour, je suis l'assistant IA de [Entreprise]. Je ne suis pas une personne. Je réponds à vos questions sur [sujet] et je peux vous passer à un conseiller. »",
+          "Dit « IA » et « pas une personne » dès le premier message (paragraphes 36 et 38)"
+        ],
+        [
+          "Réponse à « Êtes-vous un robot ? »",
+          "« Oui, je suis une IA. Souhaitez-vous qu'un conseiller prenne le relais ? »",
+          "L'IA doit se signaler quand on l'interroge sur sa nature (paragraphe 40)"
+        ],
+        [
+          "Téléphone",
+          "« Bonjour, vous êtes en ligne avec l'assistant vocal IA de [Entreprise]. Dites « conseiller » à tout moment pour parler à une personne. »",
+          "Annonce parlée au début de la session (paragraphe 37)"
+        ],
+        [
+          "E-mail écrit par un agent",
+          "En-tête : « Message rédigé par l'assistant IA de [Entreprise] »",
+          "Étiquette en tête du message (paragraphe 36)"
+        ],
+        [
+          "Agent qui agit pour vous",
+          "« Je suis un agent IA et j'agis pour le compte de [Entreprise]. »",
+          "Nature artificielle et personne représentée (paragraphe 31)"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Chat on the website",
+          "\"Hello, I am [Company]'s AI assistant. I am not a person. I answer questions about [topic] and can hand you over to an adviser.\"",
+          "Says \"AI\" and \"not a person\" from the first message (paragraphs 36 and 38)"
+        ],
+        [
+          "Reply to \"Are you a robot?\"",
+          "\"Yes, I am an AI. Would you like an adviser to take over?\"",
+          "The AI must identify itself when asked about its nature (paragraph 40)"
+        ],
+        [
+          "Phone",
+          "\"Hello, you are speaking with [Company]'s AI voice assistant. Say \"adviser\" at any time to speak to a person.\"",
+          "Spoken notice at the start of the session (paragraph 37)"
+        ],
+        [
+          "Email written by an agent",
+          "Header: \"Message written by [Company]'s AI assistant\"",
+          "Label at the top of the message (paragraph 36)"
+        ],
+        [
+          "Agent acting for you",
+          "\"I am an AI agent and I act on behalf of [Company].\"",
+          "Artificial nature and person represented (paragraph 31)"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "tech-when-dual",
+      "background": "paper-2",
+      "kicker_fr": "§ Bonnes pratiques",
+      "kicker_en": "§ Good practice",
+      "title_fr": "Ce qui tient, ce qui ne tient pas",
+      "title_en": "What holds up, what does not",
+      "aside_fr": "Recommandations de Waimia, adossées aux paragraphes 38, 40 et 45 des lignes directrices.",
+      "aside_en": "Waimia's recommendations, based on paragraphs 38, 40 and 45 of the guidelines.",
+      "use_title_fr": "À faire",
+      "use_title_en": "Do",
+      "use_items_fr": [
+        "Annoncer « IA » dans le premier message, près du champ de saisie, aussi sur mobile.",
+        "Écrire dans les consignes de l'agent la réponse à « êtes-vous un robot ? ».",
+        "Proposer un relais humain (c'est notre pratique, le texte ne l'impose pas).",
+        "Archiver une capture datée de l'annonce, canal par canal.",
+        "Refaire la vérification à chaque nouveau canal ou changement de prestataire."
+      ],
+      "use_items_en": [
+        "Announce \"AI\" in the first message, near the input field, on mobile too.",
+        "Write the answer to \"are you a robot?\" into the agent's instructions.",
+        "Offer a human handover (this is our practice, the text does not require it).",
+        "Archive a dated screenshot of the notice, channel by channel.",
+        "Re-check at every new channel or change of contractor."
+      ],
+      "avoid_title_fr": "À éviter",
+      "avoid_title_en": "Avoid",
+      "avoid_items_fr": [
+        "Se contenter des conditions générales ou d'un pied de page.",
+        "Appeler l'agent « assistant » seul, ou lui donner un prénom et une photo humaine.",
+        "Compter sur l'exception « évident » pour un chatbot grand public : la Commission cite le chatbot de helpdesk comme non évident.",
+        "Laisser un agent signer ses e-mails comme un salarié."
+      ],
+      "avoid_items_en": [
+        "Relying on the terms and conditions or a footer.",
+        "Calling the agent just \"assistant\", or giving it a human first name and photo.",
+        "Counting on the \"obvious\" exception for a public chatbot: the Commission cites the helpdesk chatbot as non-obvious.",
+        "Letting an agent sign its emails like an employee."
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Quand l'annonce n'est-elle pas nécessaire ?</h2>\n<p>Le paragraphe 1 prévoit deux exceptions : le caractère <strong>évident</strong> de l'interaction pour une personne raisonnablement informée, attentive et avisée, et les systèmes autorisés par la loi à détecter ou poursuivre des infractions pénales. La première est d'interprétation <strong>restrictive</strong> (paragraphe 45) : elle ne couvre pas les cas où un doute raisonnable subsiste.</p>\n<p>Exemples donnés comme évidents : un assistant de relecture de code réservé à des développeurs, et un assistant interne destiné à des salariés formés à l'IA. Exemple donné comme <em>non</em> évident : les chatbots intégrés à des plateformes ou à des outils d'assistance (helpdesk) où l'utilisateur reçoit des réponses qu'il peut croire humaines.</p>\n<h2>Que risque-t-on, et qui contrôle ?</h2>\n<p>L'article 99, paragraphe 4, point g, place les manquements à l'article 50 dans la tranche des <strong>15 millions d'euros ou 3 % du chiffre d'affaires mondial annuel</strong>, le plus élevé des deux. Pour une PME, le paragraphe 6 retient le <strong>plus faible</strong> des deux. Les États membres fixent les règles de sanction et tiennent compte de la situation des PME (paragraphe 1), de la gravité, de la durée et du degré de coopération (paragraphe 7). Ces chiffres sont des plafonds, pas des barèmes.</p>\n<p>Le contrôle revient surtout aux autorités nationales de surveillance du marché. Toute personne concernée peut déposer une plainte (paragraphe 151 des lignes directrices, article 85). Pour la France, la liste des points de contact publiée par la Commission, mise à jour le 7 septembre 2026, indique la DGCCRF avec un astérisque : la décision nationale de désignation reste en attente d'adoption finale. Le projet de désignation publié le 9 septembre 2025 par la DGE et la DGCCRF, dont le schéma doit être soumis au Parlement par un projet de loi, confie à la DGCCRF et à l'Arcom le contrôle des systèmes destinés à interagir directement avec des personnes (article 50, paragraphe 1). Waimia n'a pas relevé de texte national de désignation publié à la date de lecture.</p>\n<p>L'AI Act ne remplace pas le RGPD : un chatbot qui recueille des données personnelles relève aussi du RGPD. Voir la <a href=\"/ressources/guides/rgpd-agents-ia-checklist\">checklist RGPD avant de déployer un agent IA</a> et la page <a href=\"/conformite-ia\">conformité IA</a>.</p>",
+      "html_en": "<h2>When is the notice not needed?</h2>\n<p>Paragraph 1 provides two exceptions: the <strong>obvious</strong> nature of the interaction for a reasonably well-informed, observant and circumspect person, and systems authorised by law to detect or prosecute criminal offences. The first is interpreted <strong>restrictively</strong> (paragraph 45): it does not cover cases where reasonable doubt remains.</p>\n<p>Examples given as obvious: a code review assistant reserved for developers, and an internal assistant for staff trained in AI. Example given as <em>not</em> obvious: chatbots embedded in platforms or helpdesk tools where the user receives replies they may take for human ones.</p>\n<h2>What is the risk, and who enforces?</h2>\n<p>Article 99(4)(g) places breaches of Article 50 in the band of <strong>EUR 15 million or 3% of annual worldwide turnover</strong>, whichever is higher. For an SME, paragraph 6 applies the <strong>lower</strong> of the two. Member States set the penalty rules and take SMEs into account (paragraph 1), as well as gravity, duration and cooperation (paragraph 7). These figures are ceilings, not scales.</p>\n<p>Enforcement falls mainly to national market surveillance authorities. Any person concerned may lodge a complaint (paragraph 151 of the guidelines, Article 85). For France, the list of contact points published by the Commission, updated on 7 September 2026, shows the DGCCRF with an asterisk: the national designation decision is still pending final adoption. The draft designation published on 9 September 2025 by the DGE and the DGCCRF, whose scheme is to be submitted to Parliament through a bill, gives the DGCCRF and Arcom oversight of systems intended to interact directly with people (Article 50(1)). Waimia found no published national designation text at the reading date.</p>\n<p>The AI Act does not replace the GDPR: a chatbot that collects personal data also falls under the GDPR. See the <a href=\"/ressources/guides/rgpd-agents-ia-checklist\">GDPR checklist before deploying an AI agent</a> and the <a href=\"/conformite-ia\">AI compliance</a> page.</p>"
+    },
+    {
+      "type": "decision-list",
+      "background": "paper",
+      "kicker_fr": "§ À faire cette semaine",
+      "kicker_en": "§ To do this week",
+      "heading_fr": "Six vérifications pour vos chatbots et agents",
+      "heading_en": "Six checks for your chatbots and agents",
+      "items": [
+        {
+          "label_fr": "Listez tout ce qui parle à des clients, prospects ou candidats : chat du site, WhatsApp, téléphone, e-mails rédigés par un agent.",
+          "label_en": "List everything that talks to customers, prospects or candidates: website chat, WhatsApp, phone, emails written by an agent."
+        },
+        {
+          "label_fr": "Pour chaque canal, notez qui a conçu le système et sous quel nom il est exposé : éditeur, vous ou un prestataire.",
+          "label_en": "For each channel, note who designed the system and under what name it is exposed: vendor, you or a contractor."
+        },
+        {
+          "label_fr": "Vérifiez à l'écran que « IA » apparaît dans le premier message, sur mobile aussi, et pas seulement dans les conditions générales.",
+          "label_en": "Check on screen that \"AI\" appears in the first message, on mobile too, and not only in the terms and conditions."
+        },
+        {
+          "label_fr": "Écrivez dans les consignes de l'agent la réponse à « êtes-vous un robot ? » et le relais vers un humain.",
+          "label_en": "Write into the agent's instructions the answer to \"are you a robot?\" and the handover to a human."
+        },
+        {
+          "label_fr": "Ajoutez au contrat de l'éditeur ou du prestataire : qui prévoit l'annonce, qui la maintient, qui la prouve.",
+          "label_en": "Add to the vendor or contractor contract: who provides the notice, who maintains it, who proves it."
+        },
+        {
+          "label_fr": "Datez et archivez une capture de l'annonce pour chaque canal, et refaites-la à chaque changement.",
+          "label_en": "Date and archive a screenshot of the notice for each channel, and redo it at every change."
+        }
+      ]
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Going further",
+      "cards": [
+        {
+          "kicker_fr": "Hub",
+          "kicker_en": "Hub",
+          "title_fr": "Conformité IA : RGPD et AI Act",
+          "title_en": "AI compliance: GDPR and AI Act",
+          "lead_fr": "Le cadre d'ensemble et ce que Waimia met en place en mission.",
+          "lead_en": "The overall framework and what Waimia puts in place on engagements.",
+          "href": "/conformite-ia"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "AI Act pour PME : le calendrier à jour",
+          "title_en": "AI Act for SMEs: the up-to-date timeline",
+          "lead_fr": "Les dates en vigueur, le report du haut risque, vos obligations réelles.",
+          "lead_en": "Dates in force, the high-risk postponement, your actual obligations.",
+          "href": "/ressources/guides/ai-act-pme-calendrier"
+        },
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Agent de support client",
+          "title_en": "Customer support agent",
+          "lead_fr": "Un agent qui répond, se présente comme tel et passe la main à un humain.",
+          "lead_en": "An agent that answers, identifies itself and hands over to a human.",
+          "href": "/services/agent-support-client"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Sources, relevées le 15 octobre 2026</h2>\n<ul>\n<li>AI Act Service Desk, Commission européenne : <a href=\"https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-50\" rel=\"noopener noreferrer\" target=\"_blank\">article 50</a>, <a href=\"https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-113\" rel=\"noopener noreferrer\" target=\"_blank\">article 113</a>, <a href=\"https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-111\" rel=\"noopener noreferrer\" target=\"_blank\">article 111</a> et <a href=\"https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-99\" rel=\"noopener noreferrer\" target=\"_blank\">article 99</a> (texte consolidé au 27 juillet 2026).</li>\n<li>Commission européenne, <a href=\"https://digital-strategy.ec.europa.eu/en/library/guidelines-transparency-obligations-providers-and-deployers-ai-systems\" rel=\"noopener noreferrer\" target=\"_blank\">lignes directrices sur les obligations de transparence de l'article 50</a>, C(2026) 5054, 20 juillet 2026 (non contraignantes).</li>\n<li>Commission européenne, <a href=\"https://digital-strategy.ec.europa.eu/en/faqs/transparency-obligations-under-article-50-ai-act\" rel=\"noopener noreferrer\" target=\"_blank\">questions-réponses sur l'article 50</a> (mise à jour du 24 juillet 2026).</li>\n<li>Commission européenne, <a href=\"https://digital-strategy.ec.europa.eu/en/news/ai-omnibus-enters-force\" rel=\"noopener noreferrer\" target=\"_blank\">AI Omnibus enters into force</a> (27 juillet 2026).</li>\n<li>Commission européenne, <a href=\"https://digital-strategy.ec.europa.eu/en/policies/market-surveillance-authorities-under-ai-act\" rel=\"noopener noreferrer\" target=\"_blank\">autorités de surveillance du marché</a> (liste des points de contact, mise à jour du 7 septembre 2026).</li>\n<li>DGE et DGCCRF, <a href=\"https://www.entreprises.gouv.fr/espace-presse/la-dge-et-la-dgccrf-publient-le-projet-de-designation-des-autorites-nationales-en\" rel=\"noopener noreferrer\" target=\"_blank\">projet de désignation des autorités nationales</a> (9 septembre 2025) et son <a href=\"https://www.entreprises.gouv.fr/files/files/Priorites-et-actions/Transition-numerique/202509-reglement-ia-schema-gouvernance.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">schéma de gouvernance</a> (PDF).</li>\n</ul>\n<p>Les numéros de paragraphe renvoient aux lignes directrices ; les exemples de formulation sont ceux de Waimia. Ce guide est une information générale, il n'est pas un avis juridique : pour qualifier votre rôle (fournisseur ou déployeur), adressez-vous à un avocat ou à votre délégué à la protection des données. Texte officiel : <a href=\"https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32024R1689\" rel=\"noopener noreferrer\" target=\"_blank\">règlement (UE) 2024/1689 sur EUR-Lex</a>.</p>",
+      "html_en": "<h2>Sources, read on 15 October 2026</h2>\n<ul>\n<li>AI Act Service Desk, European Commission: <a href=\"https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-50\" rel=\"noopener noreferrer\" target=\"_blank\">Article 50</a>, <a href=\"https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-113\" rel=\"noopener noreferrer\" target=\"_blank\">Article 113</a>, <a href=\"https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-111\" rel=\"noopener noreferrer\" target=\"_blank\">Article 111</a> and <a href=\"https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-99\" rel=\"noopener noreferrer\" target=\"_blank\">Article 99</a> (text consolidated at 27 July 2026).</li>\n<li>European Commission, <a href=\"https://digital-strategy.ec.europa.eu/en/library/guidelines-transparency-obligations-providers-and-deployers-ai-systems\" rel=\"noopener noreferrer\" target=\"_blank\">guidelines on the Article 50 transparency obligations</a>, C(2026) 5054, 20 July 2026 (non-binding).</li>\n<li>European Commission, <a href=\"https://digital-strategy.ec.europa.eu/en/faqs/transparency-obligations-under-article-50-ai-act\" rel=\"noopener noreferrer\" target=\"_blank\">questions and answers on Article 50</a> (updated 24 July 2026).</li>\n<li>European Commission, <a href=\"https://digital-strategy.ec.europa.eu/en/news/ai-omnibus-enters-force\" rel=\"noopener noreferrer\" target=\"_blank\">AI Omnibus enters into force</a> (27 July 2026).</li>\n<li>European Commission, <a href=\"https://digital-strategy.ec.europa.eu/en/policies/market-surveillance-authorities-under-ai-act\" rel=\"noopener noreferrer\" target=\"_blank\">market surveillance authorities</a> (list of single points of contact, updated 7 September 2026).</li>\n<li>DGE and DGCCRF, <a href=\"https://www.entreprises.gouv.fr/espace-presse/la-dge-et-la-dgccrf-publient-le-projet-de-designation-des-autorites-nationales-en\" rel=\"noopener noreferrer\" target=\"_blank\">draft designation of national authorities</a> (9 September 2025) and its <a href=\"https://www.entreprises.gouv.fr/files/files/Priorites-et-actions/Transition-numerique/202509-reglement-ia-schema-gouvernance.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">governance scheme</a> (PDF).</li>\n</ul>\n<p>Paragraph numbers refer to the guidelines; the sample wording is Waimia's. This guide is general information, not legal advice: to qualify your role (provider or deployer), consult a lawyer or your data protection officer. Official text: <a href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689\" rel=\"noopener noreferrer\" target=\"_blank\">Regulation (EU) 2024/1689 on EUR-Lex</a>.</p>"
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "h2_fr": "Chatbot et article 50 : questions fréquentes",
+      "h2_en": "Chatbot and Article 50: frequently asked questions",
+      "items": [
+        {
+          "q_fr": "Faut-il prévenir un client qu'il parle à un chatbot ?",
+          "a_fr": "Oui, dans la plupart des cas. L'article 50, paragraphe 1, de l'AI Act veut que le système soit conçu pour que les personnes sachent qu'elles interagissent avec une IA, au plus tard au premier échange. Seule exception pratique : l'interaction évidente pour une personne raisonnablement informée, que la Commission interprète de façon restrictive. Un chatbot d'assistance ouvert au public n'y entre pas.",
+          "q_en": "Must I tell a customer they are talking to a chatbot?",
+          "a_en": "Yes, in most cases. Article 50(1) of the AI Act requires the system to be designed so that people know they are interacting with an AI, at the latest at the first exchange. The only practical exception is an interaction that is obvious to a reasonably well-informed person, which the Commission reads restrictively. A public support chatbot does not qualify."
+        },
+        {
+          "q_fr": "Depuis quand l'article 50 s'applique-t-il ?",
+          "a_fr": "Depuis le 2 août 2026, d'après l'article 113. L'omnibus IA, en vigueur depuis le 27 juillet 2026, a reporté le haut risque, pas la transparence. Un seul délai de grâce existe : jusqu'au 2 décembre 2026 pour le marquage des contenus générés par les systèmes déjà sur le marché avant le 2 août 2026. Il ne concerne pas l'annonce « vous parlez à une IA ».",
+          "q_en": "Since when does Article 50 apply?",
+          "a_en": "Since 2 August 2026, under Article 113. The AI Omnibus, in force since 27 July 2026, postponed high risk, not transparency. A single grace period exists: until 2 December 2026 for marking content generated by systems already on the market before 2 August 2026. It does not cover the \"you are talking to an AI\" notice."
+        },
+        {
+          "q_fr": "Qui est responsable si j'utilise le chatbot d'un éditeur ?",
+          "a_fr": "L'article 50, paragraphe 1, vise le fournisseur du système. Pour un produit vendu par un éditeur sous son nom, c'est l'éditeur, et vous êtes déployeur. Si vous faites développer l'agent et le mettez en service sous votre nom, la définition de l'article 3 (celui qui développe un système ou le fait développer) peut vous viser. C'est la lecture de Waimia : faites-la qualifier par un juriste.",
+          "q_en": "Who is responsible if I use a vendor's chatbot?",
+          "a_en": "Article 50(1) targets the provider of the system. For a product sold by a vendor under its own name, that is the vendor, and you are the deployer. If you have the agent developed and put it into service under your name, the Article 3 definition (whoever develops a system or has it developed) may cover you. This is Waimia's reading: have a lawyer qualify it."
+        },
+        {
+          "q_fr": "Quelle amende une PME risque-t-elle ?",
+          "a_fr": "Le plafond est de 15 millions d'euros ou 3 % du chiffre d'affaires mondial annuel pour un manquement à l'article 50 (article 99, paragraphe 4). Pour une PME, c'est le plus faible des deux montants (paragraphe 6). Les États membres fixent les règles de sanction et tiennent compte de la gravité, de la durée et de la coopération. Ce sont des plafonds, pas des barèmes.",
+          "q_en": "What fine does an SME risk?",
+          "a_en": "The ceiling is EUR 15 million or 3% of annual worldwide turnover for a breach of Article 50 (Article 99(4)). For an SME, it is the lower of the two amounts (paragraph 6). Member States set the penalty rules and consider gravity, duration and cooperation. These are ceilings, not scales."
+        },
+        {
+          "q_fr": "Un agent qui envoie des e-mails doit-il se présenter comme IA ?",
+          "a_fr": "Si l'agent écrit lui-même aux personnes, oui : les lignes directrices citent l'e-mail généré par un agent portant une étiquette « IA » en tête de message, et demandent à l'agent d'indiquer aussi pour le compte de qui il agit. Si un salarié relit puis envoie le message, l'interaction n'est plus directe au sens du paragraphe 1.",
+          "q_en": "Must an agent that sends emails identify itself as AI?",
+          "a_en": "If the agent itself writes to people, yes: the guidelines cite an agent-generated email carrying an \"AI\" label at the top, and ask the agent to also state on whose behalf it acts. If an employee reviews and then sends the message, the interaction is no longer direct within the meaning of paragraph 1."
+        },
+        {
+          "q_fr": "Une mention dans les conditions générales suffit-elle ?",
+          "a_fr": "Non. Les lignes directrices écrivent qu'une information qui figure seulement dans les conditions générales, une URL ou une documentation ne suffit pas à remplir l'obligation. L'annonce doit être claire, distincte et présente au plus tard au premier échange.",
+          "q_en": "Is a mention in the terms and conditions enough?",
+          "a_en": "No. The guidelines state that information appearing only in terms and conditions, a URL or documentation is not enough to meet the obligation. The notice must be clear, distinguishable and present at the latest at the first exchange."
+        },
+        {
+          "q_fr": "Le chatbot interne réservé à mes salariés est-il concerné ?",
+          "a_fr": "Peut-être pas. Les lignes directrices donnent comme évident un assistant interne destiné à des salariés formés à l'IA qui savent qu'ils l'utilisent. L'exception reste restrictive : documentez la raison pour laquelle l'interaction est évidente pour ce public, ou annoncez-le, ce qui ne coûte presque rien.",
+          "q_en": "Is the internal chatbot reserved for my employees covered?",
+          "a_en": "Possibly not. The guidelines give as obvious an internal assistant intended for staff trained in AI who know they are using it. The exception remains restrictive: document why the interaction is obvious for that audience, or announce it, which costs almost nothing."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ AI Act",
+      "kicker_en": "§ AI Act",
+      "h2_fr": "Savoir lequel de vos agents doit afficher « IA », et le faire proprement.",
+      "h2_en": "Know which of your agents must display \"AI\", and do it properly.",
+      "subtitle_fr": "L'audit de 45 minutes est gratuit. On liste vos chatbots et agents, on repère qui est fournisseur et on vous dit quoi afficher. Ce n'est pas un conseil juridique.",
+      "subtitle_en": "The 45-minute audit is free. We list your chatbots and agents, identify who is the provider and tell you what to display. This is not legal advice.",
+      "buttons": [
+        {
+          "label_fr": "Réserver l'audit gratuit",
+          "label_en": "Book the free audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Comment se passe l'audit",
+          "label_en": "How the audit works",
+          "href": "/audit-ia-pme",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}
