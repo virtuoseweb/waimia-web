@@ -15,7 +15,7 @@ import Base from '../../layouts/Base.astro';
 import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
 import MastheadBar from '../../components/sections/MastheadBar.astro';
 import { langFromPath } from '../../lib/i18n';
-import { AUDIT_PROMISE } from '../../data/conversion';
+import { AUDIT_BOOKING_HREF, AUDIT_BOOKING_LABEL, AUDIT_PROMISE, auditCtaBand } from '../../data/conversion';
 import type { SectionData } from '@waimia/ds-kernel';
 
 // Tableau partagé (bilingue) — exporté pour le miroir EN.
@@ -50,6 +50,10 @@ export const agenceSections: SectionData[] = [
     show_grid: true,
     pinned: true,
   },
+
+  // 2 bis · CTA de page (paper-2) : sans elle, le premier CTA de page arrivait à 6 484 px en
+  // mobile (audit v5, point 4). Texte et lien depuis data/conversion.ts.
+  auditCtaBand(),
 
   // 3 · MÉTHODE (paper) — audit, pilote, mesure, transfert (détail sur /agence/methode)
   {
@@ -165,7 +169,7 @@ export const agenceSections: SectionData[] = [
     body_en: 'A free audit, on a call, with the engineer who will do the work. If we have nothing useful to offer, we say so, and we do not follow up.',
     availability_fr: '● DISPONIBLE · RÉPONSE SOUS 24H',
     availability_en: '● AVAILABLE · RESPONSE IN 24H',
-    cta_primary: { label_fr: 'Réserver un audit →', label_en: 'Book an audit →', href: '/contact#offer=audit-ia-pme&intent=audit', variant: 'primary' },
+    cta_primary: { label_fr: `${AUDIT_BOOKING_LABEL.fr} →`, label_en: `${AUDIT_BOOKING_LABEL.en} →`, href: AUDIT_BOOKING_HREF, variant: 'primary' },
     cta_secondary: { label_fr: 'Voir la méthode', label_en: 'See the method', href: '/agence/methode', variant: 'ghost' },
     reassurance_fr: 'Audit gratuit · 45 min · sans engagement.',
     reassurance_en: 'Free audit · 45 min · no commitment.',

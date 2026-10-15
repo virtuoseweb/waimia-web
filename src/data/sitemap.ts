@@ -46,7 +46,7 @@ export type SimpleNav = { key: string; label: BiText; href: string; simple: true
 // formation, puis (5) outils commerciaux.
 
 /** URL unique de prise de rendez-vous : source unique dans conversion.ts, ré-exportée ici. */
-import { AUDIT_BOOKING_HREF } from './conversion';
+import { AUDIT_BOOKING_HREF, AUDIT_BOOKING_LABEL } from './conversion';
 export { AUDIT_BOOKING_HREF };
 
 // ─── MEGA-MENU 1 · SOLUTIONS
@@ -394,7 +394,7 @@ export const FOOTER_COLS: FooterCol[] = [
       { href: '/formations', label: { en: 'Training', fr: 'Formations' } },
       { href: '/ressources/outils/calculateur-roi-ia', label: { en: 'AI ROI calculator', fr: 'Calculateur ROI IA' } },
       { href: '/ressources/diagnostics/maturite-ia', label: { en: 'AI maturity diagnostic', fr: 'Diagnostic maturité IA' } },
-      { href: AUDIT_BOOKING_HREF, label: { en: 'Book an audit', fr: 'Réserver un audit' } },
+      { href: AUDIT_BOOKING_HREF, label: { en: AUDIT_BOOKING_LABEL.en, fr: AUDIT_BOOKING_LABEL.fr } },
     ],
   },
   // Col 3 : le site web, le référencement et la marque (le web n'est plus « en appui »).

@@ -7,7 +7,7 @@
  * ce qui est propre à cette bande : l'ingénieur qui fera le travail, et on ne relance pas.
  */
 
-import { AUDIT_BOOKING_HREF, AUDIT_PAGE_HREF, AUDIT_PROMISE } from '../../../data/conversion';
+import { AUDIT_BOOKING_HREF, AUDIT_PAGE_HREF, AUDIT_PROMISE, AUDIT_BOOKING_LABEL } from '../../../data/conversion';
 import ChapterLabel from '../atoms/ChapterLabel.astro';
 import Button from '../atoms/Button.astro';
 import { langFromPath, localizeHref } from '../../../lib/i18n';
@@ -43,7 +43,7 @@ const auditPromise = AUDIT_PROMISE.general.tiny[lang === 'fr' ? 'fr' : 'en'];
 
     <div class="book-ctas reveal-snap">
       <Button href={ctaHref} variant="primary" size="lg" mag={0.22}>
-        {lang === 'fr' ? 'Réserver un audit →' : 'Book an audit →'}
+        {lang === 'fr' ? `${AUDIT_BOOKING_LABEL.fr} →` : `${AUDIT_BOOKING_LABEL.en} →`}
       </Button>
     </div>
 

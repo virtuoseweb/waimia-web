@@ -7,6 +7,7 @@ import SiloFilter from '../molecules/SiloFilter.astro';
 import ListIndexSection from '../../sections/ListIndexSection.astro';
 import ArticleGrid from '../../sections/ArticleGrid.astro';
 import CtaFinal from '../../sections/CtaFinal.astro';
+import CtaBandSection from '../../sections/CtaBandSection.astro';
 import ManifestoStatement from '../../sections/ManifestoStatement.astro';
 import MastheadBar from '../../sections/MastheadBar.astro';
 import type { SectionByType } from '@waimia/ds-kernel';
@@ -20,6 +21,7 @@ import {
   RESOURCE_VIEWS,
   type ResourceKind,
 } from '../../../data/ressources-hub-sections';
+import { auditCtaBand } from '../../../data/conversion';
 
 // Organism · ResourcesHub · corps du hub Ressources (en-tête + pastilles + liste + newsletter
 // + CTA), partagé par /ressources, /ressources/outils, /ressources/comparatifs et
@@ -211,7 +213,17 @@ const listTitle = activeKind
     <Fragment slot="list">
       <h2 class="sr-only">{listTitle}</h2>
       <div class="res-list">
-        {grids.map((g) => <ArticleGrid data={g} lang={lang} />)}
+        {/* CTA de page après la 12e carte (fin de la première grille) : sans elle, le premier
+            CTA de page arrivait à 29 373 px sur 32 530 en mobile (audit v5, point 4). Ligne
+            pleine largeur de la grille fondue, jamais comptée comme une carte. */}
+        {grids.map((g, i) => (
+          <Fragment>
+            <ArticleGrid data={g} lang={lang} />
+            {i === 0 && grids.length > 1 && (
+              <div class="res-list__cta"><CtaBandSection data={auditCtaBand()} lang={lang} /></div>
+            )}
+          </Fragment>
+        ))}
       </div>
     </Fragment>
   </ListIndexSection>
@@ -681,6 +693,7 @@ const listTitle = activeKind
   .res-list :global(.article-grid__list) { display: contents; }
   /* Carte sans silo masquée par le filtre de thème : `hidden` doit l'emporter sur son flex. */
   .res-list :global(.article-card[hidden]) { display: none; }
+  .res-list__cta { grid-column: 1 / -1; }
   @media (max-width: 980px) { .res-list { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 768px) { .res-list { margin-top: calc(-1 * var(--space-5)); } }
   @media (max-width: 640px) { .res-list { grid-template-columns: 1fr; } }

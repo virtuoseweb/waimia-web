@@ -89,7 +89,9 @@ const lang_label = lang === 'fr' ? 'Édition française' : 'French edition';
 
   .u-masthead-cell{
     font-family:var(--font-mono);
-    font-size:var(--text-micro);
+    /* --text-kicker (11 px) à toutes largeurs : à 9 px, le fil d'Ariane bureau était plus
+       petit que sur mobile (audit v5). Reste sur une ligne à 1024 et 1366. */
+    font-size:var(--text-kicker);
     letter-spacing:var(--tracking-mono-tight);
     text-transform:uppercase;
     color:var(--muted);

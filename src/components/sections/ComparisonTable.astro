@@ -112,8 +112,8 @@ const headers = data.type === 'comparison-table' ? (isFr ? data.column_headers_f
           {data.rows.map((row: (typeof data.rows)[number]) => (
             <tr>
               <td class="comparison-table__feature">{isFr ? row.feature_fr : row.feature_en}</td>
-              {row.values.map((v: (typeof row.values)[number]) => (
-                <td class="comparison-table__cell">
+              {row.values.map((v: (typeof row.values)[number], i: number) => (
+                <td class="comparison-table__cell" data-label={headers[i + 1]}>
                   {typeof v === 'boolean' ? (
                     <span class:list={['comparison-table__bool', v ? 'comparison-table__bool--yes' : 'comparison-table__bool--no']}>
                       {v ? '◉' : '◦'}
@@ -188,7 +188,44 @@ const headers = data.type === 'comparison-table' ? (isFr ? data.column_headers_f
   }
   .comparison-table[data-bg='ink'] :is(h2, h3, p) { color: var(--paper); }
   /* Conformite declinaison ink : td/feature sont en var(--ink) direct (regle plus specifique que la couleur heritee) -> remap clair sinon texte invisible sur fond sombre (bug "table vide" image #4) */
-  .comparison-table[data-bg='ink'] :is(td, .comparison-table__feature) { color: var(--paper); } .pcm__body {
+  .comparison-table[data-bg='ink'] :is(td, .comparison-table__feature) { color: var(--paper); }
+  /* Sous 600 px : repli en fiches (une par critère, chaque valeur sous l'étiquette de sa
+     colonne, `data-label`), comme les tableaux éditoriaux. Le tableau de 436 px débordait
+     d'un conteneur de 358 sans signal de défilement (audit v5). En-têtes gardés pour les
+     lecteurs d'écran (masqués visuellement). */
+  @media (max-width: 600px) {
+    .comparison-table__wrap { overflow-x: visible; }
+    :where(.comparison-table) :is(table, tbody, tr, td) { display: block; width: 100%; }
+    :where(.comparison-table) thead {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+    }
+    :where(.comparison-table) tbody tr { padding: var(--space-4) 0; }
+    :where(.comparison-table) td { padding: 0; }
+    .comparison-table__feature { font-weight: var(--fw-medium); margin-bottom: var(--space-2); }
+    .comparison-table__cell {
+      display: grid;
+      grid-template-columns: minmax(0, 7.5rem) minmax(0, 1fr);
+      gap: var(--space-3);
+      align-items: baseline;
+      text-align: left;
+      padding: var(--space-2) 0;
+      border-top: 1px solid var(--hairline);
+    }
+    .comparison-table__cell::before {
+      content: attr(data-label);
+      font-family: var(--font-mono);
+      font-size: var(--text-kicker);
+      letter-spacing: var(--tracking-mono);
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+  }
+  .pcm__body {
     font-family: var(--font-sans);
     font-size: var(--text-body);
     color: var(--muted);

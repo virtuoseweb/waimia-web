@@ -14,7 +14,7 @@ import type { SectionByType } from '@waimia/ds-kernel';
 import type { NumberedLayerListData } from '@waimia/ds-kernel/sections/numbered-layer-list/schema';
 import { localizeHref, type Lang } from '../lib/i18n';
 import { AUDIT_BOOKING_HREF } from './sitemap';
-import { AUDIT_PROMISE } from './conversion';
+import { AUDIT_PROMISE, AUDIT_BOOKING_LABEL } from './conversion';
 
 // ── Couches de la stack. Contenu FR (page FR-only) : les champs _en reflètent le FR. ──
 const layers = [
@@ -146,8 +146,8 @@ export function technologiesSections(lang: Lang) {
     body_fr: `${AUDIT_PROMISE.general.short.fr} On part de vos processus et de vos outils actuels, et on vous dit quels outils conviennent.`,
     body_en: `${AUDIT_PROMISE.general.short.en} We start from your processes and your current tools, and tell you which tools fit.`,
     cta_primary: {
-      label_fr: 'Réserver un audit →',
-      label_en: 'Book an audit →',
+      label_fr: `${AUDIT_BOOKING_LABEL.fr} →`,
+      label_en: `${AUDIT_BOOKING_LABEL.en} →`,
       href: AUDIT_BOOKING_HREF,
       variant: 'primary',
     },

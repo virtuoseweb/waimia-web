@@ -355,13 +355,16 @@ const cfMediaRegister =
     line-height: 1;
     color: var(--ink);
     margin-bottom: var(--space-2);
-    /* Filet de sécurité : retour à la ligne plutôt que débordement hors cellule. */
-    overflow-wrap: anywhere;
+    /* Jamais de coupure au milieu d'un mot (« Bordeau x » à 390, audit v5) : c'est la
+       taille fluide ci-dessous qui fait tenir la valeur dans sa cellule. */
+    overflow-wrap: normal;
   }
-  /* Cellule de tête : taille fluide bornée par des tokens existants (h2 de repli sans cqi,
-     puis h3 → h1 selon la largeur de la cellule). 0 nouvelle variable. */
+  /* Taille fluide bornée par des tokens existants, sur TOUTES les cellules (h2 de repli
+     sans cqi, puis h3 → h2 selon la largeur de la cellule ; h3 → h1 pour la cellule de
+     tête). 0 nouvelle variable. */
   .hero-hub-stats__cell--lead .hero-hub-stats__value { font-size: var(--text-h2); }
   @supports (font-size: 1cqi) {
+    .hero-hub-stats__value { font-size: clamp(var(--text-h3), 22cqi, var(--text-h2)); }
     .hero-hub-stats__cell--lead .hero-hub-stats__value { font-size: clamp(var(--text-h3), 22cqi, var(--text-h1)); }
   }
   .hero-hub-stats__cell--accent .hero-hub-stats__value { color: var(--accent-text); }

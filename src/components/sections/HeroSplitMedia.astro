@@ -180,13 +180,14 @@ const soloLede = !definitionKicker && !subtitle;
       text-wrap: balance;
     }
 
-    /* Lede fin · style de .problem-statement__text (sans + emphase <i> serif italique
-       terracotta) mais en registre plus petit/léger adapté à un lede (var(--text-fine),
-       couleur muted). La question (def-kicker) domine, le lede est l'appui discret.
+    /* Lede · style de .problem-statement__text (sans + emphase <i> serif italique
+       terracotta), couleur muted. Corps de lecture (var(--text-body)), à la taille de la
+       question (def-kicker) au-dessus : la phrase qui vend l'offre n'est jamais plus petite
+       que son étiquette (elle était à 11 px sous une étiquette de 15 px, audit v5).
        Sans question ni sous-titre, voir .hsm-lede--solo plus bas. */
     .hsm-lede {
       font-family: var(--font-sans);
-      font-size: var(--text-fine);
+      font-size: var(--text-body);
       line-height: var(--leading-relaxed);
       letter-spacing: var(--tracking-body);
       font-weight: var(--fw-regular);
@@ -268,8 +269,15 @@ const soloLede = !definitionKicker && !subtitle;
        Le titre passe pleine largeur PAR-DESSUS l'illustration (z-index 2, blend multiply garde la lisibilite). */
     /* La section est le referent de l'image full-bleed (bord d'ecran, pleine hauteur). */
     .hsm--illus { position: relative; overflow: hidden; }
+    /* Hauteur bornée par la hauteur utile : sans ce plafond, 62vw donnait 847 px à
+       1366 de large, plus haut que l'écran (768), et le contenu centré poussait les
+       CTA sous la ligne de flottaison. Plafond = fenêtre moins chrome au-dessus et
+       paddings de `.hsm` (haut : header + space-5, bas : space-9). */
     .hsm--illus .hsm-illus-wrap {
-      min-height: clamp(560px, 62vw, 880px);
+      min-height: min(
+        clamp(560px, 62vw, 880px),
+        calc(var(--viewport-h) - var(--hero-chrome-above) - var(--header-height) - var(--space-5) - var(--space-9))
+      );
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -319,12 +327,10 @@ const soloLede = !definitionKicker && !subtitle;
       letter-spacing: var(--tracking-display);
       color: var(--accent-text);
     }
-    /* Lede : sans, registre text-small (pas fine), lecture normale. */
-    .hsm--illus .hsm-lede { font-size: var(--text-small); }
-    /* Lede seul (aucune question ni sous-titre au-dessus) : le registre fin n'a plus de
-       raison d'etre, c'est le seul texte d'appui du titre. Corps de lecture (comme le
-       paragraphe de tete d'editorial-prose), encre pleine. Specificite (0,2,0) posee
-       APRES `.hsm--illus .hsm-lede` : vaut pour les deux mises en page. La largeur
+    /* Lede seul (aucune question ni sous-titre au-dessus) : c'est le seul texte d'appui
+       du titre. Un cran au-dessus du corps (comme le paragraphe de tete
+       d'editorial-prose), encre pleine. Specificite (0,2,0) : vaut pour les deux mises
+       en page. La largeur
        reste celle de chaque mise en page (50ch, ou la colonne claire de l'illustration). */
     .hsm .hsm-lede--solo {
       font-size: calc(var(--text-body) + 2px);

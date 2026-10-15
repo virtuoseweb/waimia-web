@@ -48,7 +48,9 @@ export default function CalEmbedReact({
       const cal = await getCalApi({ namespace });
       cal('ui', {
         theme,
-        hideEventTypeDetails: false,
+        // Durée, format et interlocuteur sont déjà écrits à gauche (ContactConversion) :
+        // le panneau Cal les répétait et repoussait les dates sous la ligne de flottaison.
+        hideEventTypeDetails: true,
         layout: 'month_view',
       });
     })();

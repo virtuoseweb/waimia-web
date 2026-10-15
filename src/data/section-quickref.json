@@ -4765,7 +4765,7 @@
           "cta": {
             "label_fr": "Réserver un audit",
             "label_en": "Book an audit",
-            "href": "/contact#offer=audit-ia-pme&intent=audit"
+            "href": "/contact?offer=audit-ia-pme&intent=audit"
           },
           "entry": true
         },
@@ -4797,7 +4797,7 @@
           "cta": {
             "label_fr": "Lancer un sprint de cadrage",
             "label_en": "Start a scoping sprint",
-            "href": "/contact#offer=sprint-cadrage"
+            "href": "/contact?offer=sprint-cadrage"
           }
         },
         {
@@ -4826,7 +4826,7 @@
           "cta": {
             "label_fr": "Cadrer un pilote",
             "label_en": "Scope a pilot",
-            "href": "/contact#offer=pilote"
+            "href": "/contact?offer=pilote"
           }
         }
       ]
@@ -8151,7 +8151,7 @@
       "cta_primary": {
         "label_fr": "Réserver un audit →",
         "label_en": "Book an audit →",
-        "href": "/contact#offer=site-web-ia&action=audit",
+        "href": "/contact?offer=site-web-ia&action=audit",
         "variant": "primary"
       }
     }
@@ -8798,7 +8798,7 @@
       "cta": {
         "label_fr": "Réserver un audit →",
         "label_en": "Book an audit →",
-        "href": "/contact#offer=growth-system",
+        "href": "/contact?offer=growth-system",
         "variant": "primary"
       }
     }
@@ -10937,6 +10937,91 @@
           "label": "Data & reporting"
         }
       ]
+    }
+  },
+  {
+    "type": "lead-capture-band",
+    "category": "marketing",
+    "categorySlug": "cta-sections",
+    "subcategory": "CTA Sections",
+    "status": "stable",
+    "description_fr": "Bande de capture d'e-mail d'une ressource (lead magnet) : titre fort, accroche, liste de ce que l'e-mail apporte, un seul champ, bouton primaire, mention RGPD courte et aperçu (couverture dessinée ou illustration). Mode `required` (fichier verrouillé, envoyé en pièce jointe) ou `open` (résultat d'un outil déjà affiché, l'e-mail en garde la version). Variantes `band` (pleine largeur) et `card` (dans un article). Moteur : organism LeadCapture → POST /api/lead-magnet.",
+    "requiredProps": [
+      {
+        "name": "lead_magnet",
+        "type": "string"
+      }
+    ],
+    "optionalProps": [
+      {
+        "name": "anchor_id",
+        "type": "string"
+      },
+      {
+        "name": "benefits_en",
+        "type": "array",
+        "constraint": "min:1 max:6"
+      },
+      {
+        "name": "benefits_fr",
+        "type": "array",
+        "constraint": "min:1 max:6"
+      },
+      {
+        "name": "body_en",
+        "type": "string"
+      },
+      {
+        "name": "body_fr",
+        "type": "string"
+      },
+      {
+        "name": "h2_en",
+        "type": "string"
+      },
+      {
+        "name": "h2_fr",
+        "type": "string"
+      },
+      {
+        "name": "initially_hidden",
+        "type": "boolean"
+      },
+      {
+        "name": "kicker_en",
+        "type": "string"
+      },
+      {
+        "name": "kicker_fr",
+        "type": "string"
+      },
+      {
+        "name": "mode",
+        "type": "enum",
+        "constraint": "required | open"
+      },
+      {
+        "name": "preview",
+        "type": "unknown"
+      },
+      {
+        "name": "submit_label_en",
+        "type": "string"
+      },
+      {
+        "name": "submit_label_fr",
+        "type": "string"
+      },
+      {
+        "name": "variant",
+        "type": "enum",
+        "constraint": "band | card"
+      }
+    ],
+    "hasDemo": true,
+    "demo": {
+      "type": "lead-capture-band",
+      "lead_magnet": "guide-achat-claude-pme"
     }
   },
   {
@@ -13598,7 +13683,7 @@
           "cta": {
             "label_fr": "Démarrer",
             "label_en": "Start",
-            "href": "/contact#offer=activation",
+            "href": "/contact?offer=activation",
             "variant": "ghost"
           },
           "featured": false
@@ -13624,7 +13709,7 @@
           "cta": {
             "label_fr": "Choisir Growth",
             "label_en": "Choose Growth",
-            "href": "/contact#offer=growth",
+            "href": "/contact?offer=growth",
             "variant": "primary"
           },
           "featured": true
@@ -13650,7 +13735,7 @@
           "cta": {
             "label_fr": "Nous parler",
             "label_en": "Talk to us",
-            "href": "/contact#offer=custom",
+            "href": "/contact?offer=custom",
             "variant": "ghost"
           },
           "featured": false
@@ -13676,7 +13761,7 @@
           "cta": {
             "label_fr": "Demander une démo",
             "label_en": "Request a demo",
-            "href": "/contact#offer=enterprise",
+            "href": "/contact?offer=enterprise",
             "variant": "ghost"
           },
           "featured": false
@@ -14013,7 +14098,7 @@
       "cta": {
         "label_fr": "Réserver mon pilote →",
         "label_en": "Book my pilot →",
-        "href": "/contact#offer=pilot",
+        "href": "/contact?offer=pilot",
         "variant": "accent"
       }
     }
@@ -14213,7 +14298,7 @@
               "cta": {
                 "label_fr": "Choisir lancement",
                 "label_en": "Choose launch",
-                "href": "/contact#offer=lancement",
+                "href": "/contact?offer=lancement",
                 "variant": "ghost"
               }
             },
@@ -14235,7 +14320,7 @@
               "cta": {
                 "label_fr": "Choisir refonte",
                 "label_en": "Choose rebuild",
-                "href": "/contact#offer=refonte",
+                "href": "/contact?offer=refonte",
                 "variant": "primary"
               },
               "featured": true
@@ -14258,7 +14343,7 @@
               "cta": {
                 "label_fr": "Choisir migration",
                 "label_en": "Choose migration",
-                "href": "/contact#offer=migration",
+                "href": "/contact?offer=migration",
                 "variant": "ghost"
               }
             }

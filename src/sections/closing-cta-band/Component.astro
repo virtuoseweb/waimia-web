@@ -17,7 +17,10 @@ const kicker = isEn ? data.kicker_en : data.kicker_fr;
 const h2Html = isEn ? data.h2_html_en : data.h2_html_fr;
 const buttonLabel = isEn ? data.button_label_en : data.button_label_fr;
 ---
-<section class="closing-cta-band g12 g12--full" data-bg={data.background}>
+{/* Fond toujours ink (CSS ci-dessous, quel que soit `background`) : `data-bg="ink"` active
+    l'idiome sombre de global.css (--accent-text sur sombre, btn-primary papier). Sans lui,
+    le kicker accent tombait à 3,14:1 et le bouton était encre sur encre. */}
+<section class="closing-cta-band g12 g12--full" data-bg="ink">
   <div class="col-prose closing-cta-band__inner reveal">
     <Kicker as="span" tone="accent" letterSpacing="0.12em" class="eyebrow">{kicker}</Kicker>
     <h2 class="display-lg" set:html={h2Html} />

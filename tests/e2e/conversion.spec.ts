@@ -3,10 +3,12 @@
 // paramètres d'URL, le calcul des outils et la présence des CTA, pas le texte ni le CSS.
 import { test, expect } from "@playwright/test";
 
-const AUDIT_BOOKING = "/contact#offer=audit-ia-pme&intent=audit";
+const AUDIT_BOOKING = "/contact?offer=audit-ia-pme&intent=audit";
+// Forme fragment des anciens liens (avant le 15 octobre 2026) et des PDF déjà envoyés.
+const AUDIT_BOOKING_FRAGMENT = "/contact#offer=audit-ia-pme&intent=audit";
 
 test.describe("contact · paramètres d'URL", () => {
-  test("#offer=audit-ia-pme&intent=audit : prise de RDV en premier, offre pré-sélectionnée", async ({ page }) => {
+  test("?offer=audit-ia-pme&intent=audit : prise de RDV en premier, offre pré-sélectionnée", async ({ page }) => {
     await page.goto(AUDIT_BOOKING);
     const root = page.locator("[data-contact-root]");
     await expect(root).toHaveAttribute("data-first", "rdv");
@@ -21,6 +23,14 @@ test.describe("contact · paramètres d'URL", () => {
     const rdvTop = await page.locator("#rdv").evaluate((el) => el.getBoundingClientRect().top);
     const msgTop = await page.locator("#message").evaluate((el) => el.getBoundingClientRect().top);
     expect(rdvTop).toBeLessThan(msgTop);
+  });
+
+  test("#offer=audit-ia-pme&intent=audit (ancien lien) : offre toujours pré-sélectionnée", async ({ page }) => {
+    await page.goto(AUDIT_BOOKING_FRAGMENT);
+    const root = page.locator("[data-contact-root]");
+    await expect(root).toHaveAttribute("data-first", "rdv");
+    await expect(root.locator("[data-contact-subject]")).toHaveValue("audit");
+    await expect(root.locator("[data-contact-offer]")).toHaveValue("audit-ia-pme");
   });
 
   test("?intent=message : formulaire en premier", async ({ page }) => {

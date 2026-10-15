@@ -22,6 +22,7 @@ import type { EditorialCaseGridData } from '@waimia/ds-kernel/sections/editorial
 import { localizeHref as flh, type Lang } from '../lib/i18n';
 import { AUDIT_BOOKING_HREF, CLIENT_LOGOS, SIX_SERVICES, FIELD_NOTES } from './sitemap';
 import { SITE } from '../site.config';
+import { AUDIT_BOOKING_LABEL } from './conversion';
 
 // Ancres descriptives : chaque note de terrain pointe vers l'article reel le plus proche
 // (fallback /blog si aucun billet dedie). Cle = texte EN de la note (stable) → route /blog/<slug>.
@@ -52,8 +53,8 @@ export function manifestoSections(lang: Lang) {
     subhead_en: 'A manifesto in five acts. What the studio does, what it refuses, and why it hands over the code at the end.',
     intro_fr: "Waimia automatise les processus des PME et ETI, y branche des agents IA et développe les applications métier qui manquent. Sur vos outils, sans vous imposer de migration.",
     intro_en: 'Waimia automates the processes of SMEs, connects AI agents to them and builds the business applications that are missing. On your tools, with no forced migration.',
-    cta_primary_label_fr: 'Réserver un audit →',
-    cta_primary_label_en: 'Book an audit →',
+    cta_primary_label_fr: `${AUDIT_BOOKING_LABEL.fr} →`,
+    cta_primary_label_en: `${AUDIT_BOOKING_LABEL.en} →`,
     cta_primary_href: AUDIT_BOOKING_HREF,
     cta_secondary_label_fr: 'Voir la méthode',
     cta_secondary_label_en: 'See the method',
@@ -198,7 +199,7 @@ export function manifestoSections(lang: Lang) {
     h2_fr: 'Quarante-cinq minutes<br />pour savoir quoi <i class="accent">automatiser</i>.',
     h2_en: 'Forty-five minutes<br />to know what to <i class="accent">automate</i>.',
     cta_primary: {
-      label_fr: 'Réserver un audit →', label_en: 'Book an audit →',
+      label_fr: `${AUDIT_BOOKING_LABEL.fr} →`, label_en: `${AUDIT_BOOKING_LABEL.en} →`,
       href: AUDIT_BOOKING_HREF, variant: 'accent', mag: 0.22,
     },
     cta_secondary: {

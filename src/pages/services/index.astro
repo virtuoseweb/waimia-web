@@ -14,7 +14,7 @@ import { SITE } from '../../site.config';
 import { buildServicesHubCatalog } from '../../lib/seo/schema-builder';
 import { serviceDomains } from '../../lib/seo/service-catalog';
 import { AUDIT_BOOKING_HREF } from '../../data/sitemap';
-import { AUDIT_PROMISE } from '../../data/conversion';
+import { AUDIT_PROMISE, AUDIT_BOOKING_LABEL } from '../../data/conversion';
 import { HOURLY_RATE_EUR, MAINTENANCE_TIERS_EUR } from '../../data/pricing';
 
 // JSON-LD · catalogue des services : les domaines du menu Solutions et leurs pages
@@ -321,7 +321,7 @@ const ctaData = {
   h2_en: 'Where to <em>start</em>?<br />A free audit tells you.',
   body_fr: AUDIT_PROMISE.general.medium.fr,
   body_en: AUDIT_PROMISE.general.medium.en,
-  cta_primary: { label_fr: 'Réserver un audit →', label_en: 'Book an audit →', href: AUDIT_BOOKING_HREF, variant: 'primary' as const },
+  cta_primary: { label_fr: `${AUDIT_BOOKING_LABEL.fr} →`, label_en: `${AUDIT_BOOKING_LABEL.en} →`, href: AUDIT_BOOKING_HREF, variant: 'primary' as const },
   cta_secondary: { label_fr: 'Voir les réalisations →', label_en: 'See our work →', href: '/cas-clients', variant: 'ghost' as const },
   background: 'ink' as const,
 } satisfies SectionByType<'cta-final'>;

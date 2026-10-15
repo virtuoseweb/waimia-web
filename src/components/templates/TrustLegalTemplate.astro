@@ -20,8 +20,9 @@ import MastheadBar from '../sections/MastheadBar.astro';
 import CtaBandSection from '../sections/CtaBandSection.astro';
 import TrustLegalSection from '../sections/TrustLegalSection.astro';
 import type { SectionByType } from '@waimia/ds-kernel';
-import { langFromPath, localizeHref } from '../../lib/i18n';
+import { langFromPath } from '../../lib/i18n';
 import { SITE } from '../../site.config';
+import { AUDIT_BOOKING_HREF, AUDIT_BOOKING_LABEL } from '../../data/conversion';
 
 interface Section {
   /** Anchor id (slug) */
@@ -70,9 +71,9 @@ const ctaData = {
   text_fr: `Une question sur ${ctaSubjectFr} ? Écrivez à ${SITE.email}. Pour un projet d'IA ou d'automatisation, tout commence par un audit gratuit de 45 minutes.`,
   text_en: `A question about ${ctaSubjectEn}? Write to ${SITE.email}. For an AI or automation project, it all starts with a free 45-minute audit.`,
   cta: {
-    label_fr: 'Réserver un audit →',
-    label_en: 'Book an audit →',
-    href: localizeHref('/audit-ia-pme', lang),
+    label_fr: `${AUDIT_BOOKING_LABEL.fr} →`,
+    label_en: `${AUDIT_BOOKING_LABEL.en} →`,
+    href: AUDIT_BOOKING_HREF,
     variant: 'primary',
   },
   background: 'paper-2',
