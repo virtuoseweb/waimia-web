@@ -37,6 +37,12 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### Mesure de la provenance des leads, 15 octobre 2026 (PR #92, branche `seo-v4/mesure`, non fusionnée)
+
+Décision 2 du 14 octobre (mesure légère, maison, gratuite). Chaque alerte interne de contact et de lead magnet dit d'où vient la personne : source d'entrée (moteur, site, direct), page d'arrivée, page précédente et page du formulaire ; les journaux Vercel portent les mêmes champs (contact, lead magnet, newsletter) et Cal reçoit `metadata[landing]`, `metadata[entry]`, `metadata[prev]`. Ni cookie ni stockage : `window.wmLeadSource()` vit en mémoire pendant la visite ; politique de confidentialité v1.1. Défaut de production corrigé dans la même PR : un envoi de newsletter partait trois fois (3 POST mesurés sur waimia.com, 1 sur le build de la PR, au chargement et après navigation). Preuves locales : tests 18 sur 18 avec falsification, navigateur sur le build servi, `astro check` à 8 erreurs (référence), portes 36 vertes et 2 rouges connues. Non vérifié : l'enregistrement des `metadata` par Cal (exige une réservation réelle).
+
+**Décisions de la nuit (Claude, mandat de Simon)** : pas de réécriture de title ni de description cette nuit, les pages candidates ayant déjà changé depuis le 8 octobre (effet à lire en W43 et W44) ; pas de lot de maillage (pages candidates déjà liées de 10 à 58 fois dans le corps des pages) ; pas d'embed Cal sur `/audit-ia-pme` (la page n'embarque aucune île React ; l'embed y ajouterait le client React et le script Cal sans preuve que l'étape `/contact` coûte des leads, à revoir avec la provenance mesurée) ; pas de création de guide (conditions de la stratégie non remplies).
+
 ### Décisions de Simon du 14 octobre 2026 · audit global SEO, GEO et conversion
 
 Réponses de Simon aux dix questions de l'audit global du 14 octobre 2026 (9 dimensions, 117 constats retenus après relecture contradictoire). Elles sont acquises : ne pas les redemander.
