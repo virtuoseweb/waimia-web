@@ -87,6 +87,8 @@ interface Author {
   title_en: string;
   seoTitle_fr?: string;
   seoTitle_en?: string;
+  h1_fr?: string;
+  h1_en?: string;
   description_fr: string;
   description_en: string;
   role_fr: string;
@@ -189,7 +191,14 @@ const accentLastWord = (value: string) => {
   return { lead: parts.join(' '), accent };
 };
 
-const nameParts = accentLastWord(displayName);
+// H1 dédié « Nom, intitulé » : le nom reste romain, l'intitulé porte l'accent. Sans h1_*, repli
+// historique (dernier mot du nom en accent).
+const h1Text = (lang === 'fr' ? author.h1_fr : author.h1_en)?.trim();
+const h1Comma = h1Text ? h1Text.indexOf(',') : -1;
+const nameParts =
+  h1Text && h1Comma > 0
+    ? { lead: h1Text.slice(0, h1Comma + 1), accent: h1Text.slice(h1Comma + 1).trim() }
+    : accentLastWord(displayName);
 // Lede du héros : paragraphe 1 de la bio. Les paragraphes suivants vont dans le corps de la page.
 const bioParagraphs = (bio: string) =>
   bio.trim().split(/\n\s*\n/).map((p) => p.replace(/\*\*/g, '').trim()).filter(Boolean);
