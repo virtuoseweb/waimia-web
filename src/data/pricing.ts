@@ -254,6 +254,9 @@ const longDate = (iso: string, lang: 'fr' | 'en') =>
 export const SCOPING_SPRINT_EUR = 999 as const;
 export const SCOPING_SPRINT_HOURS = 10 as const;
 
+/** Pilote : prix d'entrée (= plancher de la grille). (Déclaré avant PRICING_TOKENS qui le lit.) */
+export const PILOT_FLOOR_EUR = PRICE_FLOOR_EUR;
+
 /** Montant en toutes lettres typographiques, sans devise : « 2 000 » (fr) ou « 2,000 » (en). */
 const amount = (value: number, lang: 'fr' | 'en') =>
   lang === 'fr' ? value.toLocaleString('fr-FR').replace(/[\u00a0\u202f\s]/g, ' ') : value.toLocaleString('en-US');
@@ -291,6 +294,9 @@ export const PRICING_TOKENS: Readonly<Record<string, string>> = {
   // Sprint de cadrage : montant seul, sans devise.
   'prix.sprint': amount(SCOPING_SPRINT_EUR, 'fr'),
   'prix.sprint.en': amount(SCOPING_SPRINT_EUR, 'en'),
+  // Pilote : prix d'entrée (plancher de la grille), montant seul, sans devise.
+  'prix.pilote': amount(PILOT_FLOOR_EUR, 'fr'),
+  'prix.pilote.en': amount(PILOT_FLOOR_EUR, 'en'),
   'prix.formation.base': TRAINING_PRICE_BASIS.fr,
   'prix.formation.base.en': TRAINING_PRICE_BASIS.en,
   'prix.formation.note': TRAINING_PRICE_NOTE.fr,
@@ -336,9 +342,6 @@ export function applyPricingTokens<T>(value: T): T {
 
 /** Durée de l'audit gratuit, en minutes. */
 export const AUDIT_DURATION_MIN = 45 as const;
-
-/** Pilote : prix d'entrée (= plancher de la grille). */
-export const PILOT_FLOOR_EUR = PRICE_FLOOR_EUR;
 
 /** Déploiement sur mesure : prix d'entrée (= palier « avancé » de la grille). */
 export const DEPLOYMENT_FLOOR_EUR = tierById('avance').price as number;
