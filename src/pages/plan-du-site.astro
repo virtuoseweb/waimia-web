@@ -124,6 +124,16 @@ const allOutils = (await getCollection('outils'))
   .filter((e) => !e.data.seo?.noindex)
   .map((e) => ({ href: `/ressources/outils/${e.id}`, label: { fr: e.data.title_fr, en: e.data.title_en } }));
 
+// Libellé sans le suffixe de marque que certains title_fr portent (« … · Waimia »).
+const noBrand = (s: string) => s.replace(/[\s\u00A0]·[\s\u00A0]Waimia$/, '');
+// guides et comparatifs → /ressources/<collection>/<entry.id> · filtre !seo.noindex (cf ressources/*/[...slug].astro)
+const allGuides = (await getCollection('guides'))
+  .filter((e) => !e.data.seo?.noindex)
+  .map((e) => ({ href: `/ressources/guides/${e.id}`, label: { fr: noBrand(e.data.title_fr), en: noBrand(e.data.title_en) } }));
+const allComparatifs = (await getLiveCollection('comparatifs'))
+  .filter((e) => !e.data.seo?.noindex)
+  .map((e) => ({ href: `/ressources/comparatifs/${e.id}`, label: { fr: noBrand(e.data.title_fr), en: noBrand(e.data.title_en) } }));
+
 // services → /services/<entry.id> · pas de filtre (cf services/[...slug].astro mappe tout)
 const allServices = (await getCollection('services'))
   .filter((e) => e.id !== 'template-service-ref' && !DEPUBLISHED_SERVICE_IDS.has(e.id))
@@ -159,6 +169,8 @@ const indexSection: PlanSection = {
     { heading: { fr: 'Secteurs', en: 'Sectors' }, links: uniqueAgainstNav(allSecteurs).sort(sortFr) },
     { heading: { fr: 'Articles & ressources', en: 'Articles & resources' }, links: uniqueAgainstNav(allBlog).sort(sortFr) },
     { heading: { fr: 'Outils', en: 'Tools' }, links: uniqueAgainstNav(allOutils).sort(sortFr) },
+    { heading: { fr: 'Guides', en: 'Guides' }, links: uniqueAgainstNav(allGuides).sort(sortFr) },
+    { heading: { fr: 'Comparatifs', en: 'Comparisons' }, links: uniqueAgainstNav(allComparatifs).sort(sortFr) },
     { heading: { fr: 'Services & offres', en: 'Services & offers' }, links: uniqueAgainstNav([...allServices, ...allOffres]).sort(sortFr) },
     { heading: { fr: 'Le studio', en: 'The studio' }, links: uniqueAgainstNav([homePage, ...allAuthors, ...teamPages]).sort(sortFr) },
   ].filter((g) => g.links.length > 0),

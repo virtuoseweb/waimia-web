@@ -132,6 +132,7 @@ export const MM_SOLUTIONS_NEW: MegaMenu = {
         { href: '/formations/n8n', label: { en: 'n8n training', fr: 'Formation n8n' } },
         { href: '/formations/make', label: { en: 'Make training', fr: 'Formation Make' } },
         { href: '/formations/claude', label: { en: 'Claude training', fr: 'Formation Claude' } },
+        { href: '/formations/claude-code', label: { en: 'Claude Code training', fr: 'Formation Claude Code' } },
         { href: '/formations/chatgpt', label: { en: 'ChatGPT training', fr: 'Formation ChatGPT' } },
       ],
     },
@@ -446,7 +447,7 @@ export const FOOTER_COLS: FooterCol[] = [
 ];
 
 // Pied de page servi (refonte 2026-10 · O12) : hubs et pages prioritaires seulement. Le menu
-// porte déjà le détail des offres sur chaque page ; FOOTER_COLS reste la liste COMPLÈTE
+// porte déjà le détail des offres sur chaque page ; FOOTER_COLS reste la liste longue du pied
 // (plan du site). Pages retirées du pied, toujours atteignables : les autres villes par le
 // hub /implantations (10 villes), /manifesto et /conformite-ia par /agence, les offres par
 // le menu et /services. Libellés repris de FOOTER_COLS (une seule source par href).
