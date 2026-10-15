@@ -104,6 +104,7 @@ const PAGES: Record<string, PageDef> = {
   '/ressources/guides/agent-ia-definition': { label_fr: 'Agent IA : définition et limites', label_en: 'AI agent: definition and limits', kind: 'guide', topics: ['agents', 'automatisation'] },
   '/ressources/guides/llm-rag-dirigeant': { label_fr: 'LLM et RAG : définitions pour dirigeants', label_en: 'LLM and RAG: definitions for business owners', kind: 'guide', topics: ['agents', 'claude'] },
   '/blog/workflow-ia-exemples-pme': { label_fr: 'Workflow IA : cinq exemples concrets', label_en: 'AI workflow: five concrete examples', kind: 'article', topics: ['automatisation', 'agents'] },
+  '/blog/agent-ia-entreprise-exemples': { label_fr: 'Agent IA en entreprise : exemples par fonction', label_en: 'AI agents in business: examples by function', kind: 'article', topics: ['agents', 'automatisation'] },
 
   // ── Agents IA et Claude ──
   '/services/agents-ia': { label_fr: 'Agents IA pour entreprise', label_en: 'AI agents for business', kind: 'service', topics: ['agents', 'claude'] },
