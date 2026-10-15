@@ -6694,6 +6694,97 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/ressources/guides/claude-managed-agents",
+    "title": "Claude Managed Agents : prix, limites, données et usages en PME",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/claude-managed-agents.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Claude Managed Agents : l'agent hébergé par Anthropic, expliqué à un dirigeant",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "key-metric-grid",
+        "label": "Quels sont les chiffres à retenir ?",
+        "variant": "accent",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#4",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Managed Agents, API Messages, Agent SDK, Claude Code ou n8n : lequel choisir ?",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper"
+      },
+      {
+        "type": "decision-list",
+        "label": "Quand ne pas choisir Managed Agents ?",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Quels sont les postes de coût de Managed Agents ?",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#9",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#10",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#11",
+        "background": "paper-2"
+      },
+      {
+        "type": "process-steps",
+        "label": "Comment Waimia choisit entre un workflow, le SDK et Managed Agents ?",
+        "background": "paper-3"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Claude Managed Agents : questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "La bonne voie pour votre agent, choisie avant d'écrire une ligne de code.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/ressources/guides/claude-plugins-entreprise",
     "title": "Plugins Claude en entreprise : le guide 2026",
     "group": "ressources",
@@ -8401,6 +8492,92 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/ressources/guides/second-cerveau-entreprise",
+    "title": "Second cerveau en entreprise : quand il vaut le coût",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/second-cerveau-entreprise.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Second cerveau en entreprise : quand il vaut le coût",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "key-metric-grid",
+        "label": "Quels chiffres retenir avant de lancer le projet ?",
+        "variant": "accent",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#4",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Notes, projet Claude ou base indexée : lequel pour quel besoin ?",
+        "background": "paper"
+      },
+      {
+        "type": "decision-list",
+        "label": "Dans quels cas un second cerveau vaut-il son coût ?",
+        "background": "paper-2"
+      },
+      {
+        "type": "decision-list",
+        "label": "Dans quels cas ce n'est pas le bon projet ?",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#8",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#9",
+        "background": "paper"
+      },
+      {
+        "type": "process-steps",
+        "label": "Comment décider en une semaine ?",
+        "background": "paper-3"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#11",
+        "background": "paper-2"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Second cerveau en entreprise : questions fréquentes",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Vérifions d'abord si un projet Claude suffit, avant de construire une base.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/ressources/guides/taches-a-automatiser-pme",
     "title": "Automatisation PME : quelles tâches automatiser d'abord",
     "group": "ressources",
@@ -8484,6 +8661,96 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "footer-cta-band",
         "label": "Votre liste de tâches, classée et tranchée en 45 minutes.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/ressources/guides/tutoriel-make-tri-emails-claude",
+    "title": "Tutoriel Make : trier ses e-mails avec Claude, pas à pas",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/tutoriel-make-tri-emails-claude.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Trier ses e-mails avec Claude dans Make : le scénario pas à pas",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper"
+      },
+      {
+        "type": "process-steps",
+        "label": "Le scénario, module par module",
+        "background": "paper-3"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Combien de crédits consomme chaque module ?",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Combien coûte la seule vérification de la boîte ?",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#10",
+        "background": "paper-2"
+      },
+      {
+        "type": "decision-list",
+        "label": "Les limites et les pièges à connaître avant d'activer",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#12",
+        "background": "paper-2"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Tutoriel Make : questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Un scénario qui trie vos e-mails, chiffré en crédits avant la première heure facturée.",
         "background": "ink"
       }
     ]
@@ -9694,6 +9961,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/guides/claude-fonctionnalites-pme",
       "/ressources/guides/claude-for-small-business",
       "/ressources/guides/claude-gratuit",
+      "/ressources/guides/claude-managed-agents",
       "/ressources/guides/claude-plugins-entreprise",
       "/ressources/guides/claude-pme",
       "/ressources/guides/claude-rgpd-pme",
@@ -9712,7 +9980,9 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/guides/rgpd-agents-ia-checklist",
       "/ressources/guides/roi-automatisation",
       "/ressources/guides/rpa-ou-agent-ia",
+      "/ressources/guides/second-cerveau-entreprise",
       "/ressources/guides/taches-a-automatiser-pme",
+      "/ressources/guides/tutoriel-make-tri-emails-claude",
       "/ressources/outils",
       "/ressources/outils/calculateur-roi-ia",
       "/ressources/outils/charte-ia-entreprise",

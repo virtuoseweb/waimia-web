@@ -196,6 +196,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-managed-agents.json",
+      "slug": "claude-managed-agents",
+      "route": "/ressources/guides/claude-managed-agents",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-plugins-entreprise.json",
       "slug": "claude-plugins-entreprise",
       "route": "/ressources/guides/claude-plugins-entreprise",
@@ -358,9 +367,27 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/second-cerveau-entreprise.json",
+      "slug": "second-cerveau-entreprise",
+      "route": "/ressources/guides/second-cerveau-entreprise",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/taches-a-automatiser-pme.json",
       "slug": "taches-a-automatiser-pme",
       "route": "/ressources/guides/taches-a-automatiser-pme",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/tutoriel-make-tri-emails-claude.json",
+      "slug": "tutoriel-make-tri-emails-claude",
+      "route": "/ressources/guides/tutoriel-make-tri-emails-claude",
       "index": 1,
       "label": "Simon Beros",
       "background": "paper"
@@ -1773,6 +1800,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-managed-agents.json",
+      "slug": "claude-managed-agents",
+      "route": "/ressources/guides/claude-managed-agents",
+      "index": 7,
+      "label": "Quand ne pas choisir Managed Agents ?",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
@@ -1859,6 +1895,33 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/rgpd-agents-ia-checklist",
       "index": 8,
       "label": "12 points à cocher avant de déployer un agent IA",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/second-cerveau-entreprise.json",
+      "slug": "second-cerveau-entreprise",
+      "route": "/ressources/guides/second-cerveau-entreprise",
+      "index": 6,
+      "label": "Dans quels cas un second cerveau vaut-il son coût ?",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/second-cerveau-entreprise.json",
+      "slug": "second-cerveau-entreprise",
+      "route": "/ressources/guides/second-cerveau-entreprise",
+      "index": 7,
+      "label": "Dans quels cas ce n'est pas le bon projet ?",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/tutoriel-make-tri-emails-claude.json",
+      "slug": "tutoriel-make-tri-emails-claude",
+      "route": "/ressources/guides/tutoriel-make-tri-emails-claude",
+      "index": 11,
+      "label": "Les limites et les pièges à connaître avant d'activer",
       "background": "paper"
     },
     {
@@ -3635,6 +3698,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-managed-agents.json",
+      "slug": "claude-managed-agents",
+      "route": "/ressources/guides/claude-managed-agents",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-plugins-entreprise.json",
       "slug": "claude-plugins-entreprise",
       "route": "/ressources/guides/claude-plugins-entreprise",
@@ -3797,9 +3869,27 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/second-cerveau-entreprise.json",
+      "slug": "second-cerveau-entreprise",
+      "route": "/ressources/guides/second-cerveau-entreprise",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/taches-a-automatiser-pme.json",
       "slug": "taches-a-automatiser-pme",
       "route": "/ressources/guides/taches-a-automatiser-pme",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/tutoriel-make-tri-emails-claude.json",
+      "slug": "tutoriel-make-tri-emails-claude",
+      "route": "/ressources/guides/tutoriel-make-tri-emails-claude",
       "index": 2,
       "label": "#2",
       "background": "paper-2"
@@ -4874,6 +4964,51 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-managed-agents.json",
+      "slug": "claude-managed-agents",
+      "route": "/ressources/guides/claude-managed-agents",
+      "index": 4,
+      "label": "#4",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-managed-agents.json",
+      "slug": "claude-managed-agents",
+      "route": "/ressources/guides/claude-managed-agents",
+      "index": 6,
+      "label": "#6",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-managed-agents.json",
+      "slug": "claude-managed-agents",
+      "route": "/ressources/guides/claude-managed-agents",
+      "index": 9,
+      "label": "#9",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-managed-agents.json",
+      "slug": "claude-managed-agents",
+      "route": "/ressources/guides/claude-managed-agents",
+      "index": 10,
+      "label": "#10",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-managed-agents.json",
+      "slug": "claude-managed-agents",
+      "route": "/ressources/guides/claude-managed-agents",
+      "index": 11,
+      "label": "#11",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-plugins-entreprise.json",
       "slug": "claude-plugins-entreprise",
       "route": "/ressources/guides/claude-plugins-entreprise",
@@ -5495,6 +5630,42 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/second-cerveau-entreprise.json",
+      "slug": "second-cerveau-entreprise",
+      "route": "/ressources/guides/second-cerveau-entreprise",
+      "index": 4,
+      "label": "#4",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/second-cerveau-entreprise.json",
+      "slug": "second-cerveau-entreprise",
+      "route": "/ressources/guides/second-cerveau-entreprise",
+      "index": 8,
+      "label": "#8",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/second-cerveau-entreprise.json",
+      "slug": "second-cerveau-entreprise",
+      "route": "/ressources/guides/second-cerveau-entreprise",
+      "index": 9,
+      "label": "#9",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/second-cerveau-entreprise.json",
+      "slug": "second-cerveau-entreprise",
+      "route": "/ressources/guides/second-cerveau-entreprise",
+      "index": 11,
+      "label": "#11",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/taches-a-automatiser-pme.json",
       "slug": "taches-a-automatiser-pme",
       "route": "/ressources/guides/taches-a-automatiser-pme",
@@ -5519,6 +5690,60 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 11,
       "label": "#11",
       "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/tutoriel-make-tri-emails-claude.json",
+      "slug": "tutoriel-make-tri-emails-claude",
+      "route": "/ressources/guides/tutoriel-make-tri-emails-claude",
+      "index": 3,
+      "label": "#3",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/tutoriel-make-tri-emails-claude.json",
+      "slug": "tutoriel-make-tri-emails-claude",
+      "route": "/ressources/guides/tutoriel-make-tri-emails-claude",
+      "index": 5,
+      "label": "#5",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/tutoriel-make-tri-emails-claude.json",
+      "slug": "tutoriel-make-tri-emails-claude",
+      "route": "/ressources/guides/tutoriel-make-tri-emails-claude",
+      "index": 6,
+      "label": "#6",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/tutoriel-make-tri-emails-claude.json",
+      "slug": "tutoriel-make-tri-emails-claude",
+      "route": "/ressources/guides/tutoriel-make-tri-emails-claude",
+      "index": 7,
+      "label": "#7",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/tutoriel-make-tri-emails-claude.json",
+      "slug": "tutoriel-make-tri-emails-claude",
+      "route": "/ressources/guides/tutoriel-make-tri-emails-claude",
+      "index": 10,
+      "label": "#10",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/tutoriel-make-tri-emails-claude.json",
+      "slug": "tutoriel-make-tri-emails-claude",
+      "route": "/ressources/guides/tutoriel-make-tri-emails-claude",
+      "index": 12,
+      "label": "#12",
+      "background": "paper-2"
     },
     {
       "collection": "services",
@@ -6484,6 +6709,24 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-managed-agents.json",
+      "slug": "claude-managed-agents",
+      "route": "/ressources/guides/claude-managed-agents",
+      "index": 5,
+      "label": "Managed Agents, API Messages, Agent SDK, Claude Code ou n8n : lequel choisir ?",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-managed-agents.json",
+      "slug": "claude-managed-agents",
+      "route": "/ressources/guides/claude-managed-agents",
+      "index": 8,
+      "label": "Quels sont les postes de coût de Managed Agents ?",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-plugins-entreprise.json",
       "slug": "claude-plugins-entreprise",
       "route": "/ressources/guides/claude-plugins-entreprise",
@@ -6879,6 +7122,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/second-cerveau-entreprise.json",
+      "slug": "second-cerveau-entreprise",
+      "route": "/ressources/guides/second-cerveau-entreprise",
+      "index": 5,
+      "label": "Notes, projet Claude ou base indexée : lequel pour quel besoin ?",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/taches-a-automatiser-pme.json",
       "slug": "taches-a-automatiser-pme",
       "route": "/ressources/guides/taches-a-automatiser-pme",
@@ -6906,6 +7158,24 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "label": "Par fonction : le bon premier candidat",
       "variant": "editorial",
       "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/tutoriel-make-tri-emails-claude.json",
+      "slug": "tutoriel-make-tri-emails-claude",
+      "route": "/ressources/guides/tutoriel-make-tri-emails-claude",
+      "index": 8,
+      "label": "Combien de crédits consomme chaque module ?",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/tutoriel-make-tri-emails-claude.json",
+      "slug": "tutoriel-make-tri-emails-claude",
+      "route": "/ressources/guides/tutoriel-make-tri-emails-claude",
+      "index": 9,
+      "label": "Combien coûte la seule vérification de la boîte ?",
+      "background": "paper"
     },
     {
       "collection": "services",
@@ -8148,6 +8418,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-managed-agents.json",
+      "slug": "claude-managed-agents",
+      "route": "/ressources/guides/claude-managed-agents",
+      "index": 14,
+      "label": "Claude Managed Agents : questions fréquentes",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-plugins-entreprise.json",
       "slug": "claude-plugins-entreprise",
       "route": "/ressources/guides/claude-plugins-entreprise",
@@ -8310,11 +8589,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/second-cerveau-entreprise.json",
+      "slug": "second-cerveau-entreprise",
+      "route": "/ressources/guides/second-cerveau-entreprise",
+      "index": 13,
+      "label": "Second cerveau en entreprise : questions fréquentes",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/taches-a-automatiser-pme.json",
       "slug": "taches-a-automatiser-pme",
       "route": "/ressources/guides/taches-a-automatiser-pme",
       "index": 13,
       "label": "Questions fréquentes",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/tutoriel-make-tri-emails-claude.json",
+      "slug": "tutoriel-make-tri-emails-claude",
+      "route": "/ressources/guides/tutoriel-make-tri-emails-claude",
+      "index": 14,
+      "label": "Tutoriel Make : questions fréquentes",
       "background": "paper"
     },
     {
@@ -9713,6 +10010,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-managed-agents.json",
+      "slug": "claude-managed-agents",
+      "route": "/ressources/guides/claude-managed-agents",
+      "index": 15,
+      "label": "La bonne voie pour votre agent, choisie avant d'écrire une ligne de code.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-plugins-entreprise.json",
       "slug": "claude-plugins-entreprise",
       "route": "/ressources/guides/claude-plugins-entreprise",
@@ -9875,11 +10181,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/second-cerveau-entreprise.json",
+      "slug": "second-cerveau-entreprise",
+      "route": "/ressources/guides/second-cerveau-entreprise",
+      "index": 14,
+      "label": "Vérifions d'abord si un projet Claude suffit, avant de construire une base.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/taches-a-automatiser-pme.json",
       "slug": "taches-a-automatiser-pme",
       "route": "/ressources/guides/taches-a-automatiser-pme",
       "index": 14,
       "label": "Votre liste de tâches, classée et tranchée en 45 minutes.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/tutoriel-make-tri-emails-claude.json",
+      "slug": "tutoriel-make-tri-emails-claude",
+      "route": "/ressources/guides/tutoriel-make-tri-emails-claude",
+      "index": 15,
+      "label": "Un scénario qui trie vos e-mails, chiffré en crédits avant la première heure facturée.",
       "background": "ink"
     },
     {
@@ -11244,6 +11568,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-managed-agents.json",
+      "slug": "claude-managed-agents",
+      "route": "/ressources/guides/claude-managed-agents",
+      "index": 0,
+      "label": "Claude Managed Agents : l'agent hébergé par Anthropic, expliqué à un dirigeant",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-plugins-entreprise.json",
       "slug": "claude-plugins-entreprise",
       "route": "/ressources/guides/claude-plugins-entreprise",
@@ -11406,11 +11739,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/second-cerveau-entreprise.json",
+      "slug": "second-cerveau-entreprise",
+      "route": "/ressources/guides/second-cerveau-entreprise",
+      "index": 0,
+      "label": "Second cerveau en entreprise : quand il vaut le coût",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/taches-a-automatiser-pme.json",
       "slug": "taches-a-automatiser-pme",
       "route": "/ressources/guides/taches-a-automatiser-pme",
       "index": 0,
       "label": "Automatisation en PME : quelles tâches automatiser en premier",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/tutoriel-make-tri-emails-claude.json",
+      "slug": "tutoriel-make-tri-emails-claude",
+      "route": "/ressources/guides/tutoriel-make-tri-emails-claude",
+      "index": 0,
+      "label": "Trier ses e-mails avec Claude dans Make : le scénario pas à pas",
       "background": "paper"
     },
     {
@@ -11831,6 +12182,16 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-managed-agents.json",
+      "slug": "claude-managed-agents",
+      "route": "/ressources/guides/claude-managed-agents",
+      "index": 3,
+      "label": "Quels sont les chiffres à retenir ?",
+      "variant": "accent",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-plugins-entreprise.json",
       "slug": "claude-plugins-entreprise",
       "route": "/ressources/guides/claude-plugins-entreprise",
@@ -11924,6 +12285,16 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/quel-modele-claude-choisir",
       "index": 3,
       "label": "Quels sont les quatre prix de l'API à retenir ?",
+      "variant": "accent",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/second-cerveau-entreprise.json",
+      "slug": "second-cerveau-entreprise",
+      "route": "/ressources/guides/second-cerveau-entreprise",
+      "index": 3,
+      "label": "Quels chiffres retenir avant de lancer le projet ?",
       "variant": "accent",
       "background": "paper"
     }
@@ -13374,6 +13745,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-managed-agents.json",
+      "slug": "claude-managed-agents",
+      "route": "/ressources/guides/claude-managed-agents",
+      "index": 12,
+      "label": "Comment Waimia choisit entre un workflow, le SDK et Managed Agents ?",
+      "background": "paper-3"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-plugins-entreprise.json",
       "slug": "claude-plugins-entreprise",
       "route": "/ressources/guides/claude-plugins-entreprise",
@@ -13473,11 +13853,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/second-cerveau-entreprise.json",
+      "slug": "second-cerveau-entreprise",
+      "route": "/ressources/guides/second-cerveau-entreprise",
+      "index": 10,
+      "label": "Comment décider en une semaine ?",
+      "background": "paper-3"
+    },
+    {
+      "collection": "guides",
       "file": "guides/taches-a-automatiser-pme.json",
       "slug": "taches-a-automatiser-pme",
       "route": "/ressources/guides/taches-a-automatiser-pme",
       "index": 6,
       "label": "La cartographie en cinq étapes, sur deux semaines",
+      "background": "paper-3"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/tutoriel-make-tri-emails-claude.json",
+      "slug": "tutoriel-make-tri-emails-claude",
+      "route": "/ressources/guides/tutoriel-make-tri-emails-claude",
+      "index": 4,
+      "label": "Le scénario, module par module",
       "background": "paper-3"
     },
     {
@@ -14519,6 +14917,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-managed-agents.json",
+      "slug": "claude-managed-agents",
+      "route": "/ressources/guides/claude-managed-agents",
+      "index": 13,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-plugins-entreprise.json",
       "slug": "claude-plugins-entreprise",
       "route": "/ressources/guides/claude-plugins-entreprise",
@@ -14681,12 +15088,30 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/second-cerveau-entreprise.json",
+      "slug": "second-cerveau-entreprise",
+      "route": "/ressources/guides/second-cerveau-entreprise",
+      "index": 12,
+      "label": "Pour aller plus loin",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/taches-a-automatiser-pme.json",
       "slug": "taches-a-automatiser-pme",
       "route": "/ressources/guides/taches-a-automatiser-pme",
       "index": 12,
       "label": "Pour aller plus loin",
       "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/tutoriel-make-tri-emails-claude.json",
+      "slug": "tutoriel-make-tri-emails-claude",
+      "route": "/ressources/guides/tutoriel-make-tri-emails-claude",
+      "index": 13,
+      "label": "Pour aller plus loin",
+      "background": "paper"
     },
     {
       "collection": "services",

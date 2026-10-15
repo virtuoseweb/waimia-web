@@ -1,0 +1,662 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "Claude Managed Agents : prix, limites, données et usages en PME",
+  "title_en": "Claude Managed Agents: pricing, limits, data and uses for SMBs",
+  "seoTitle_fr": "Claude Managed Agents : prix, limites et RGPD en PME",
+  "seoTitle_en": "Claude Managed Agents: pricing, limits and GDPR for SMBs",
+  "description_fr": "Claude Managed Agents, agent hébergé par Anthropic : définition, prix (0,08 $ l'heure plus les jetons), limites, RGPD. Relevé le 15 octobre 2026.",
+  "description_en": "Claude Managed Agents, the agent hosted by Anthropic: definition, pricing ($0.08 per session hour plus tokens), limits and GDPR. Checked on 15 October 2026.",
+  "slug": "claude-managed-agents",
+  "publishedAt": "2026-10-15",
+  "updatedAt": "2026-10-15",
+  "category": "claude",
+  "cluster": "claude",
+  "tags": [
+    "claude",
+    "managed-agents",
+    "agents-ia",
+    "bac-a-sable",
+    "prix-api",
+    "rgpd",
+    "guide-pme"
+  ],
+  "sources": [
+    {
+      "name": "Anthropic, Claude Managed Agents : vue d'ensemble, lue le 15 octobre 2026",
+      "url": "https://platform.claude.com/docs/en/managed-agents/overview",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, tarification de l'API Claude, section Claude Managed Agents, lue le 15 octobre 2026",
+      "url": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, page tarifs de Claude (Managed Agents, 0,08 $ par heure de session), lue le 15 octobre 2026",
+      "url": "https://claude.com/pricing",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, Managed Agents : environnements et réseau, lus le 15 octobre 2026",
+      "url": "https://platform.claude.com/docs/en/managed-agents/environments",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, Managed Agents : référence des bacs à sable du cloud, lue le 15 octobre 2026",
+      "url": "https://platform.claude.com/docs/en/managed-agents/cloud-sandboxes-reference",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, Managed Agents : bacs à sable auto-hébergés, lus le 15 octobre 2026",
+      "url": "https://platform.claude.com/docs/en/managed-agents/self-hosted-sandboxes",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, Managed Agents : opérations de session (suppression), lues le 15 octobre 2026",
+      "url": "https://platform.claude.com/docs/en/managed-agents/session-operations",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, Managed Agents : référence (limites de débit), lue le 15 octobre 2026",
+      "url": "https://platform.claude.com/docs/en/managed-agents/reference",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, Managed Agents : politiques de permission, lues le 15 octobre 2026",
+      "url": "https://platform.claude.com/docs/en/managed-agents/permission-policies",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, API et rétention des données (rétention zéro), lue le 15 octobre 2026",
+      "url": "https://platform.claude.com/docs/en/manage-claude/api-and-data-retention",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, résidence des données, lue le 15 octobre 2026",
+      "url": "https://platform.claude.com/docs/en/manage-claude/data-residency",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, annonce de Claude Managed Agents (8 avril 2026), lue le 15 octobre 2026",
+      "url": "https://claude.com/blog/claude-managed-agents",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, déploiements planifiés et coffres (9 juin 2026), lus le 15 octobre 2026",
+      "url": "https://claude.com/blog/whats-new-in-claude-managed-agents",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, vue d'ensemble de l'Agent SDK, lue le 15 octobre 2026",
+      "url": "https://platform.claude.com/docs/en/agent-sdk/overview",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, vue d'ensemble de Claude Code, lue le 15 octobre 2026",
+      "url": "https://code.claude.com/docs/en/overview",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, conditions commerciales (entité contractante, entraînement), lues le 15 octobre 2026",
+      "url": "https://www.anthropic.com/legal/commercial-terms",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, accord de traitement des données (en vigueur depuis le 24 février 2025), lu le 15 octobre 2026",
+      "url": "https://www.anthropic.com/legal/data-processing-addendum",
+      "type": "enterprise"
+    }
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "Qu'est-ce que Claude Managed Agents ?",
+      "a": "C'est un service d'Anthropic, en bêta, qui héberge l'agent à votre place. Anthropic fournit la boucle d'agent (le programme qui enchaîne les étapes et appelle les outils) et un bac à sable où l'agent lit et écrit des fichiers, lance des commandes, cherche sur le web et exécute du code. Vous créez l'agent, un environnement et des sessions par API. Relevé le 15 octobre 2026."
+    },
+    {
+      "q": "Quelle différence avec l'API Messages ?",
+      "a": "Avec l'API Messages, vous appelez le modèle et vous écrivez vous-même la boucle d'agent, l'exécution des outils et le suivi de l'état. Avec Managed Agents, Anthropic fournit cette boucle et le bac à sable, et garde l'historique de chaque session. L'API Messages donne un contrôle fin ; Managed Agents évite de bâtir l'infrastructure, pour les tâches longues ou asynchrones. Les deux se paient aux jetons ; Managed Agents ajoute 0,08 $ par heure de session active."
+    },
+    {
+      "q": "Quelle différence avec Claude Code ?",
+      "a": "Claude Code est un outil de programmation piloté par un agent IA, qui se lance dans un terminal, un éditeur, une application de bureau ou un navigateur : il sert à un développeur qui travaille chaque jour avec Claude. Managed Agents est une API pour intégrer votre propre agent à une application ou à un processus métier, avec un hébergement par Anthropic. Anthropic les range dans des produits distincts, comme l'Agent SDK, une bibliothèque qui fait tourner la boucle dans votre propre application."
+    },
+    {
+      "q": "Managed Agents ou un agent construit sur n8n ?",
+      "a": "Notre lecture : n8n quand les étapes sont connues d'avance et qu'une équipe sans développeur doit pouvoir les modifier ; Managed Agents quand la tâche est ouverte, longue ou demande d'exécuter du code, et qu'un développeur peut maintenir une intégration en bêta. Les deux se combinent : un workflow n8n peut déclencher une session. Pour les coûts et les données côté n8n, voir nos guides n8n."
+    },
+    {
+      "q": "Combien coûte Claude Managed Agents ?",
+      "a": "Deux postes : les jetons, au tarif du modèle choisi (Sonnet 5.5 à 2 $ en entrée et 10 $ en sortie par million de jetons, Opus 5.5 à 4 $ et 20 $), et 0,08 $ par heure de session active. L'attente d'un message ne compte pas. Exemple d'Anthropic : une heure sur Opus 5.5 avec 50 000 jetons en entrée et 15 000 en sortie coûte 0,58 $. Relevé le 15 octobre 2026 ; le service étant en bêta, les tarifs peuvent changer."
+    },
+    {
+      "q": "Les données restent-elles en Europe ? Est-ce conforme au RGPD ?",
+      "a": "Pas de garantie européenne dans la documentation : Anthropic indique que la seule zone de stockage disponible est « us ». Les sessions sont conservées jusqu'à leur suppression et le service n'est pas éligible à la rétention zéro. Un accord de traitement (DPA) avec clauses contractuelles types existe pour les conditions commerciales, mais Managed Agents n'y est pas nommé. Conformité possible, à documenter et à faire valider avant d'y mettre des données personnelles."
+    },
+    {
+      "q": "Faut-il un développeur pour utiliser Managed Agents ?",
+      "a": "Oui, en pratique. Le service s'utilise avec une clé d'API, un SDK ou une ligne de commande, et Anthropic l'indique en bêta : l'interface peut évoluer entre deux versions. Une PME sans développeur passe par un prestataire, ou choisit une voie plus simple : l'application Claude avec ses connecteurs, ou un workflow n8n."
+    },
+    {
+      "q": "Managed Agents est-il prêt pour la production ?",
+      "a": "Anthropic le propose en bêta publique depuis le 8 avril 2026 et précise que les comportements peuvent être affinés entre deux versions. Des fonctions comme le dreaming et les tunnels MCP restent en aperçu de recherche, sur demande. Pour un usage en production, prévoyez une validation humaine avant toute action irréversible et un plan de repli sur un workflow classique."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "What is Claude Managed Agents?",
+      "a": "It is an Anthropic service, in beta, that hosts the agent for you. Anthropic provides the agent loop (the program that chains the steps and calls the tools) and a sandbox where the agent reads and writes files, runs commands, searches the web and runs code. You create the agent, an environment and sessions through the API. Checked on 15 October 2026."
+    },
+    {
+      "q": "What is the difference from the Messages API?",
+      "a": "With the Messages API you call the model and write the agent loop, tool execution and state tracking yourself. With Managed Agents, Anthropic provides that loop and the sandbox, and keeps each session's history. The Messages API gives fine control; Managed Agents spares you the infrastructure, for long or asynchronous tasks. Both are billed per token; Managed Agents adds $0.08 per hour of active session."
+    },
+    {
+      "q": "What is the difference from Claude Code?",
+      "a": "Claude Code is an agentic coding tool that runs in a terminal, an editor, a desktop app or a browser: it serves a developer who works with Claude every day. Managed Agents is an API for building your own agent into an application or a business process, hosted by Anthropic. Anthropic lists them as separate products, like the Agent SDK, a library that runs the loop inside your own application."
+    },
+    {
+      "q": "Managed Agents or an agent built on n8n?",
+      "a": "Our reading: n8n when the steps are known in advance and a team without developers must be able to change them; Managed Agents when the task is open-ended, long or needs to run code, and a developer can maintain a beta integration. The two combine: an n8n workflow can start a session. For n8n costs and data, see our n8n guides."
+    },
+    {
+      "q": "How much does Claude Managed Agents cost?",
+      "a": "Two items: tokens, at the chosen model's rate (Sonnet 5.5 at $2 input and $10 output per million tokens, Opus 5.5 at $4 and $20), and $0.08 per hour of active session. Waiting for a message does not count. Anthropic's example: one hour on Opus 5.5 with 50,000 input tokens and 15,000 output tokens costs $0.58. Checked on 15 October 2026; as the service is in beta, rates may change."
+    },
+    {
+      "q": "Does the data stay in Europe? Is it GDPR-compliant?",
+      "a": "The documentation gives no European guarantee: Anthropic states the only storage region available is \"us\". Sessions are kept until deleted and the service is not eligible for zero data retention. A data processing agreement (DPA) with standard contractual clauses exists for the commercial terms, but Managed Agents is not named in it. Compliance is possible, to be documented and validated before putting personal data in."
+    },
+    {
+      "q": "Do you need a developer to use Managed Agents?",
+      "a": "In practice, yes. The service is used with an API key, an SDK or a command line, and Anthropic marks it as beta: the interface may change between versions. An SMB without a developer goes through a provider, or picks a simpler route: the Claude app with its connectors, or an n8n workflow."
+    },
+    {
+      "q": "Is Managed Agents ready for production?",
+      "a": "Anthropic has offered it in public beta since 8 April 2026 and states that behaviours may be refined between releases. Features such as dreaming and MCP tunnels remain a research preview, on request. For production use, plan human approval before any irreversible action and a fallback to a conventional workflow."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "illustration": {
+        "src": "/images/illustrations/ds/agent-ia-definition-v3-chien-berger-paper.webp",
+        "alt_fr": "Illustration : un chien de berger rassemble seul le troupeau vers l'enclos, le berger attend à la barrière ouverte",
+        "alt_en": "Illustration: a sheepdog herds the flock into the pen on its own while the shepherd waits at the open gate",
+        "side": "right"
+      },
+      "kicker_fr": "§ Guide",
+      "kicker_en": "§ Guide",
+      "h1_fr": "Claude <i class=\"acc\">Managed Agents</i> : l'agent hébergé par Anthropic, expliqué à un dirigeant",
+      "h1_en": "Claude <i class=\"acc\">Managed Agents</i>: the agent hosted by Anthropic, explained to a business owner",
+      "lede_fr": "Claude Managed Agents est un service d'Anthropic, en bêta, qui fait tourner un agent Claude dans un bac à sable hébergé par Anthropic : vous l'appelez par API, Anthropic fournit la boucle d'agent et l'exécution. Il se paie aux jetons plus 0,08 $ par heure de session active, sans rétention zéro des données ni option de stockage européenne documentée.",
+      "lede_en": "Claude Managed Agents is an Anthropic service, in beta, that runs a Claude agent in a sandbox hosted by Anthropic: you call it through the API, and it provides the agent loop and the execution. It is billed per token plus $0.08 per hour of active session, with no zero data retention and no documented European storage option.",
+      "badges": [
+        {
+          "label_fr": "Bêta publique depuis le 8 avril 2026",
+          "label_en": "Public beta since 8 April 2026"
+        },
+        {
+          "label_fr": "Relevé le 15 octobre 2026",
+          "label_en": "Checked on 15 October 2026"
+        },
+        {
+          "label_fr": "Sources Anthropic",
+          "label_en": "Anthropic sources"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver l'audit gratuit",
+        "label_en": "Book the free audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Comparer les quatre voies pour un agent Claude",
+        "label_en": "Compare the four routes for a Claude agent",
+        "href": "/blog/creer-agent-ia-claude",
+        "variant": "ghost"
+      }
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "15 octobre 2026",
+      "updatedDate": "15 octobre 2026"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "Qu'est-ce que Claude Managed Agents ?",
+      "question_en": "What is Claude Managed Agents?",
+      "term_fr": "Réponse courte",
+      "term_en": "Short answer",
+      "answer_fr": "Un service d'Anthropic qui héberge l'agent à votre place : Anthropic fournit la boucle d'agent, un bac à sable (fichiers, commandes, web, code), l'historique des sessions et la planification. Il convient aux tâches longues, asynchrones ou récurrentes, avec un développeur pour l'intégrer. Il est en bêta, non éligible à la rétention zéro, et se paie aux jetons plus 0,08 $ par heure de session. Relevé le 15 octobre 2026.",
+      "answer_en": "A service from Anthropic that hosts the agent for you: Anthropic provides the agent loop, a sandbox (files, commands, web, code), session history and scheduling. It suits long, asynchronous or recurring tasks, with a developer to integrate it. It is in beta, not eligible for zero data retention, and billed per token plus $0.08 per hour of session. Checked on 15 October 2026."
+    },
+    {
+      "type": "key-metric-grid",
+      "background": "paper",
+      "variant": "accent",
+      "columns": 4,
+      "eyebrow_fr": "§ Les chiffres à retenir",
+      "eyebrow_en": "§ Numbers to remember",
+      "title_fr": "Quels sont les chiffres à retenir ?",
+      "title_en": "Which numbers should you remember?",
+      "metrics": [
+        {
+          "value": "0,08 $",
+          "label_fr": "par heure de session active, en plus des jetons du modèle",
+          "label_en": "per hour of active session, on top of the model's tokens"
+        },
+        {
+          "value": "0,58 $",
+          "label_fr": "une heure sur Opus 5.5 avec 50 000 jetons en entrée et 15 000 en sortie (exemple d'Anthropic)",
+          "label_en": "one hour on Opus 5.5 with 50,000 input and 15,000 output tokens (Anthropic's example)"
+        },
+        {
+          "value": "8 Go / 10 Go",
+          "label_fr": "mémoire et disque maximum d'un bac à sable du cloud",
+          "label_en": "maximum memory and disk of a cloud sandbox"
+        },
+        {
+          "value": "Non",
+          "label_fr": "éligibilité à la rétention zéro des données (ZDR)",
+          "label_en": "eligibility for zero data retention (ZDR)"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Qu'est-ce que Claude Managed Agents ?</h2>\n<p>Un agent est un programme qui enchaîne lui-même ses étapes et appelle des outils jusqu'à atteindre un but. Claude en est le modèle ; il faut encore une « boucle » qui exécute les outils, garde l'historique et gère les erreurs. Avec Managed Agents, Anthropic fournit cette boucle et l'infrastructure qui la fait tourner : sa <a href=\"https://platform.claude.com/docs/en/managed-agents/overview\" rel=\"noopener noreferrer\" target=\"_blank\">documentation</a> parle d'un « agent harness » préconstruit, qui s'exécute sur une infrastructure gérée. Le service est ouvert en bêta publique depuis le <a href=\"https://claude.com/blog/claude-managed-agents\" rel=\"noopener noreferrer\" target=\"_blank\">8 avril 2026</a>.</p>\n<h3>Les quatre notions à connaître</h3>\n<ul>\n<li><strong>L'agent</strong> : le modèle, les consignes, les outils, les serveurs MCP et les skills. On le crée une fois, puis on le réutilise par son identifiant.</li>\n<li><strong>L'environnement</strong> : l'endroit où tournent les sessions. Soit un bac à sable dans le cloud d'Anthropic, soit un bac à sable hébergé chez vous.</li>\n<li><strong>La session</strong> : une exécution de l'agent pour une tâche précise.</li>\n<li><strong>Les événements</strong> : les messages échangés entre votre application et l'agent (consignes, résultats d'outils, statuts). Vous pouvez orienter l'agent en cours de route, ou l'interrompre.</li>\n</ul>\n<h3>Ce que l'agent sait faire dans son bac à sable</h3>\n<p>Il lance des commandes, lit, écrit, modifie et cherche des fichiers, cherche sur le web et lit des pages (avec une liste de domaines autorisés ou bloqués), et se connecte à des serveurs MCP. Le bac à sable du cloud est un conteneur Linux isolé, avec Python, Node.js, des bibliothèques de traitement de tableurs, de documents Word et de PDF, LibreOffice en mode sans écran et un navigateur piloté par Playwright (<a href=\"https://platform.claude.com/docs/en/managed-agents/cloud-sandboxes-reference\" rel=\"noopener noreferrer\" target=\"_blank\">liste complète</a>).</p>\n<h3>Ce qui s'est ajouté depuis le lancement</h3>\n<p>Le <a href=\"https://claude.com/blog/whats-new-in-claude-managed-agents\" rel=\"noopener noreferrer\" target=\"_blank\">9 juin 2026</a>, Anthropic a ouvert en bêta publique les déploiements planifiés (un agent qui démarre une session selon un calendrier, sans planificateur à héberger) et les coffres, qui stockent des identifiants que l'agent utilise sans les voir. Pour comparer cette voie aux trois autres, voir l'article <a href=\"/blog/creer-agent-ia-claude\">Agent IA Claude : quatre façons d'en construire un</a>.</p>",
+      "html_en": "<h2>What is Claude Managed Agents?</h2>\n<p>An agent is a program that chains its own steps and calls tools until it reaches a goal. Claude is the model; you still need a \"loop\" that runs the tools, keeps the history and handles errors. With Managed Agents, Anthropic provides that loop and the infrastructure that runs it: its <a href=\"https://platform.claude.com/docs/en/managed-agents/overview\" rel=\"noopener noreferrer\" target=\"_blank\">documentation</a> describes a pre-built \"agent harness\" that runs in managed infrastructure. The service has been in public beta since <a href=\"https://claude.com/blog/claude-managed-agents\" rel=\"noopener noreferrer\" target=\"_blank\">8 April 2026</a>.</p>\n<h3>The four notions to know</h3>\n<ul>\n<li><strong>The agent</strong>: the model, instructions, tools, MCP servers and skills. You create it once, then reuse it by its identifier.</li>\n<li><strong>The environment</strong>: where sessions run. Either a sandbox in Anthropic's cloud, or a sandbox hosted on your side.</li>\n<li><strong>The session</strong>: one run of the agent for a specific task.</li>\n<li><strong>The events</strong>: the messages exchanged between your application and the agent (instructions, tool results, statuses). You can steer the agent mid-run, or interrupt it.</li>\n</ul>\n<h3>What the agent can do inside its sandbox</h3>\n<p>It runs commands, reads, writes, edits and searches files, searches the web and reads pages (with an allowlist or blocklist of domains), and connects to MCP servers. The cloud sandbox is an isolated Linux container with Python, Node.js, libraries for spreadsheets, Word documents and PDFs, headless LibreOffice and a browser driven by Playwright (<a href=\"https://platform.claude.com/docs/en/managed-agents/cloud-sandboxes-reference\" rel=\"noopener noreferrer\" target=\"_blank\">full list</a>).</p>\n<h3>What was added after launch</h3>\n<p>On <a href=\"https://claude.com/blog/whats-new-in-claude-managed-agents\" rel=\"noopener noreferrer\" target=\"_blank\">9 June 2026</a>, Anthropic opened scheduled deployments (an agent that starts a session on a calendar, with no scheduler to host) and vaults, which store credentials the agent uses without seeing them, in public beta. To compare this route with the other three, see the article <a href=\"/blog/creer-agent-ia-claude\">Claude AI agent: four ways to build one</a>.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper",
+      "kicker_fr": "§ Comparer les voies",
+      "kicker_en": "§ Comparing the routes",
+      "heading_fr": "Managed Agents, API Messages, Agent SDK, Claude Code ou n8n : lequel choisir ?",
+      "heading_en": "Managed Agents, Messages API, Agent SDK, Claude Code or n8n: which one?",
+      "caption_fr": "Sources : Anthropic, vue d'ensemble de Managed Agents, vue d'ensemble de l'Agent SDK (tableau de comparaison des outils Claude) et vue d'ensemble de Claude Code, lues le 15 octobre 2026. Les limites de Claude Code et la ligne n8n sont notre lecture, pas une source d'Anthropic.",
+      "caption_en": "Sources: Anthropic, Managed Agents overview, Agent SDK overview (Claude tools comparison table) and Claude Code overview, read on 15 October 2026. The Claude Code limits and the n8n row are our reading, not an Anthropic source.",
+      "columns_fr": [
+        "Voie",
+        "Ce que c'est",
+        "Qui fait tourner l'agent",
+        "À choisir quand",
+        "Limite à connaître"
+      ],
+      "columns_en": [
+        "Route",
+        "What it is",
+        "Who runs the agent",
+        "Pick it when",
+        "Limit to know"
+      ],
+      "rows_fr": [
+        [
+          "API Messages",
+          "Accès direct au modèle ; vous écrivez la boucle d'agent, l'exécution des outils et le suivi d'état",
+          "Votre application, sur votre infrastructure",
+          "Vous voulez un contrôle fin de chaque étape",
+          "Tout le reste est à bâtir et à maintenir : boucle, bac à sable, historique"
+        ],
+        [
+          "Claude Managed Agents",
+          "Une boucle d'agent préconstruite et un bac à sable, hébergés par Anthropic",
+          "Anthropic (bac à sable géré) ou votre serveur (bac à sable auto-hébergé)",
+          "Tâches longues, asynchrones ou récurrentes, sans infrastructure d'agent à bâtir",
+          "Bêta, pas de rétention zéro, intégration par API"
+        ],
+        [
+          "Claude Agent SDK",
+          "Bibliothèque Python et TypeScript qui fait tourner la boucle de Claude Code dans votre processus",
+          "Votre application",
+          "Un agent intégré à votre logiciel, avec un contrôle complet",
+          "Il faut un développeur, et l'hébergement est à votre charge"
+        ],
+        [
+          "Claude Code",
+          "Outil de programmation piloté par un agent IA : terminal, éditeur, application de bureau, navigateur",
+          "Le développeur qui l'utilise, dans son terminal, son éditeur, une application ou un navigateur",
+          "Des développeurs qui codent chaque jour avec Claude",
+          "C'est un outil de travail, pas une API pour intégrer un agent à votre processus métier"
+        ],
+        [
+          "Agent sur n8n (notre lecture)",
+          "Un workflow visuel dont certaines étapes appellent Claude",
+          "n8n, en nuage ou auto-hébergé",
+          "Un processus aux étapes connues, maintenu par une équipe sans développeur",
+          "Les étapes sont fixées d'avance : une tâche ouverte et longue s'y prête mal"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Messages API",
+          "Direct model access; you write the agent loop, tool execution and state tracking",
+          "Your application, on your infrastructure",
+          "You want fine control of every step",
+          "Everything else is yours to build and maintain: loop, sandbox, history"
+        ],
+        [
+          "Claude Managed Agents",
+          "A pre-built agent loop and a sandbox, hosted by Anthropic",
+          "Anthropic (managed sandbox) or your server (self-hosted sandbox)",
+          "Long, asynchronous or recurring tasks, with no agent infrastructure to build",
+          "Beta, no zero retention, integration through the API"
+        ],
+        [
+          "Claude Agent SDK",
+          "Python and TypeScript library that runs Claude Code's loop inside your process",
+          "Your application",
+          "An agent built into your software, with full control",
+          "It needs a developer, and hosting is on you"
+        ],
+        [
+          "Claude Code",
+          "Agentic coding tool: terminal, editor, desktop app, browser",
+          "The developer using it, in a terminal, an editor, an app or a browser",
+          "Developers who code with Claude every day",
+          "A working tool, not an API to build an agent into your business process"
+        ],
+        [
+          "Agent on n8n (our reading)",
+          "A visual workflow where some steps call Claude",
+          "n8n, cloud or self-hosted",
+          "A process with known steps, maintained by a team without developers",
+          "Steps are fixed in advance: an open-ended, long task fits poorly"
+        ]
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Dans quels cas Managed Agents est-il pertinent pour une PME ?</h2>\n<p>Anthropic le recommande pour six types de charges : l'exécution longue (des minutes ou des heures, avec plusieurs appels d'outils), l'infrastructure cloud avec bac à sable, l'exécution sur une infrastructure que vous contrôlez, le besoin de bâtir peu d'infrastructure, les sessions avec état (fichiers et historique conservés) et l'exécution planifiée. Pour une PME, cela donne trois situations.</p>\n<ul>\n<li><strong>Un travail récurrent qui produit un fichier.</strong> Anthropic cite une synchronisation de données nocturne, un contrôle de conformité hebdomadaire ou un digest quotidien. L'agent démarre selon un calendrier et dépose son résultat.</li>\n<li><strong>Une tâche qui demande d'exécuter du code ou de manipuler des fichiers</strong> : convertir des documents, remplir un tableur, extraire des tableaux de PDF.</li>\n<li><strong>Un agent qui prépare, une personne qui valide.</strong> L'agent travaille en arrière-plan, la personne relit avant tout envoi ou toute écriture dans un outil.</li>\n</ul>\n<p>Waimia construit actuellement un agent de service après-vente de ce type sur Claude Managed Agents, pour un site e-commerce : le projet est en cours, aucun résultat n'est publié (fiche <a href=\"/cas-clients/brow-x-professionnel\">Brow.X Professionnel</a>). Si vos étapes sont toujours les mêmes, un workflow est plus fiable et moins cher : voir <a href=\"/ressources/guides/rpa-ou-agent-ia\">RPA ou agent IA</a>, la <a href=\"/ressources/guides/agent-ia-definition\">définition d'un agent IA</a> et, pour les données d'un workflow, le guide <a href=\"/ressources/guides/n8n-auto-heberge-rgpd\">n8n auto-hébergé ou cloud</a>.</p>\n<p>Deux précisions. Un développeur qui veut Claude à son poste de travail cherche Claude Code, pas Managed Agents : voir le guide <a href=\"/ressources/guides/claude-code-entreprise\">Claude Code en entreprise</a>. Et les outils internes se branchent à l'agent par MCP, le standard expliqué dans le guide <a href=\"/ressources/guides/mcp-claude\">MCP pour un dirigeant</a>.</p>",
+      "html_en": "<h2>When is Managed Agents relevant for an SMB?</h2>\n<p>Anthropic recommends it for six kinds of workload: long-running execution (minutes or hours, with several tool calls), cloud infrastructure with a sandbox, execution on infrastructure you control, little infrastructure to build, stateful sessions (files and history kept) and scheduled execution. For an SMB, that gives three situations.</p>\n<ul>\n<li><strong>Recurring work that produces a file.</strong> Anthropic mentions a nightly data sync, a weekly compliance scan or a daily digest. The agent starts on a calendar and drops its result.</li>\n<li><strong>A task that needs to run code or handle files</strong>: converting documents, filling a spreadsheet, extracting tables from PDFs.</li>\n<li><strong>An agent that prepares, a person who approves.</strong> The agent works in the background, the person reviews before anything is sent or written into a tool.</li>\n</ul>\n<p>Waimia is currently building an after-sales agent of this kind on Claude Managed Agents, for an e-commerce site: the project is in progress, no result is published (see the <a href=\"/cas-clients/brow-x-professionnel\">Brow.X Professionnel</a> case). If your steps are always the same, a workflow is more reliable and cheaper: see <a href=\"/ressources/guides/rpa-ou-agent-ia\">RPA or AI agent</a>, the <a href=\"/ressources/guides/agent-ia-definition\">AI agent definition</a> and, for a workflow's data, the guide <a href=\"/ressources/guides/n8n-auto-heberge-rgpd\">self-hosted or cloud n8n</a>.</p>\n<p>Two clarifications. A developer who wants Claude at their workstation is looking for Claude Code, not Managed Agents: see the guide <a href=\"/ressources/guides/claude-code-entreprise\">Claude Code in business</a>. And internal tools connect to the agent through MCP, the standard explained in the guide <a href=\"/ressources/guides/mcp-claude\">MCP for a business owner</a>.</p>"
+    },
+    {
+      "type": "decision-list",
+      "background": "paper-2",
+      "kicker_fr": "§ Quand l'éviter",
+      "kicker_en": "§ When to avoid it",
+      "heading_fr": "Quand ne pas choisir Managed Agents ?",
+      "heading_en": "When not to choose Managed Agents?",
+      "items": [
+        {
+          "label_fr": "Vos données exigent la rétention zéro ou une couverture HIPAA : le service n'y est pas éligible.",
+          "label_en": "Your data requires zero retention or HIPAA coverage: the service is not eligible."
+        },
+        {
+          "label_fr": "Les données personnelles de vos clients ne doivent pas quitter l'Europe : Anthropic ne documente pas d'option de stockage européenne pour ce service.",
+          "label_en": "Your customers' personal data must not leave Europe: Anthropic documents no European storage option for this service."
+        },
+        {
+          "label_fr": "Les étapes sont toujours les mêmes : un workflow coûte moins cher et se vérifie mieux qu'un agent.",
+          "label_en": "The steps are always the same: a workflow costs less and is easier to check than an agent."
+        },
+        {
+          "label_fr": "Personne ne peut maintenir une intégration par API en bêta, dont l'interface peut changer entre deux versions.",
+          "label_en": "Nobody can maintain a beta API integration whose interface may change between releases."
+        },
+        {
+          "label_fr": "Vous voulez un assistant pour une personne, dans ses outils du quotidien : l'application Claude avec ses connecteurs suffit.",
+          "label_en": "You want an assistant for one person, in their everyday tools: the Claude app with its connectors is enough."
+        }
+      ]
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper",
+      "kicker_fr": "§ Les tarifs",
+      "kicker_en": "§ Pricing",
+      "heading_fr": "Quels sont les postes de coût de Managed Agents ?",
+      "heading_en": "What are the cost items of Managed Agents?",
+      "caption_fr": "Source : Anthropic, tarification de l'API Claude (section Claude Managed Agents) et page tarifs de Claude, lues le 15 octobre 2026. Prix en dollars. Service en bêta : les tarifs peuvent changer.",
+      "caption_en": "Source: Anthropic, Claude API pricing (Claude Managed Agents section) and Claude pricing page, read on 15 October 2026. Prices in dollars. Beta service: rates may change.",
+      "columns_fr": [
+        "Poste",
+        "Tarif",
+        "Précision"
+      ],
+      "columns_en": [
+        "Item",
+        "Rate",
+        "Detail"
+      ],
+      "rows_fr": [
+        [
+          "Jetons du modèle",
+          "Prix du modèle choisi",
+          "Sonnet 5.5 : 2 $ en entrée et 10 $ en sortie par million de jetons ; Opus 5.5 : 4 $ et 20 $. Les multiplicateurs du cache s'appliquent comme sur l'API."
+        ],
+        [
+          "Durée de session",
+          "0,08 $ par heure",
+          "Comptée à la milliseconde, seulement pendant le statut « running ». L'attente d'un message ou d'une confirmation ne compte pas. Remplace la facturation à l'heure de conteneur de l'outil d'exécution de code."
+        ],
+        [
+          "Recherche web",
+          "10 $ pour 1 000 recherches",
+          "Tarif standard, pour les recherches lancées dans une session."
+        ],
+        [
+          "Remise Batch",
+          "Non applicable",
+          "Les sessions ont un état et sont interactives : il n'y a pas de mode Batch."
+        ],
+        [
+          "Inférence limitée aux États-Unis",
+          "Jetons × 1,1",
+          "Seulement si l'agent est épinglé sur « us »."
+        ]
+      ],
+      "rows_en": [
+        [
+          "Model tokens",
+          "Chosen model's price",
+          "Sonnet 5.5: $2 input and $10 output per million tokens; Opus 5.5: $4 and $20. Cache multipliers apply as on the API."
+        ],
+        [
+          "Session time",
+          "$0.08 per hour",
+          "Counted to the millisecond, only while the status is \"running\". Waiting for a message or a confirmation does not count. Replaces the container-hour billing of the code execution tool."
+        ],
+        [
+          "Web search",
+          "$10 per 1,000 searches",
+          "Standard rate, for searches run inside a session."
+        ],
+        [
+          "Batch discount",
+          "Not applicable",
+          "Sessions are stateful and interactive: there is no Batch mode."
+        ],
+        [
+          "US-only inference",
+          "Tokens × 1.1",
+          "Only if the agent is pinned to \"us\"."
+        ]
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Combien coûte Managed Agents en pratique ?</h2>\n<p>L'exemple d'Anthropic : une heure de session sur Claude Opus 5.5, avec 50 000 jetons en entrée et 15 000 en sortie. Jetons en entrée : 50 000 × 4 $ / 1 000 000 = 0,20 $. Jetons en sortie : 15 000 × 20 $ / 1 000 000 = 0,30 $. Durée de session : 1 heure × 0,08 $ = 0,08 $. Total : <strong>0,58 $</strong>. Avec 40 000 jetons d'entrée lus dans le cache, Anthropic obtient 0,428 $.</p>\n<p>Notre illustration, une hypothèse et non une mesure : une tâche de 15 minutes sur Sonnet 5.5, avec 100 000 jetons en entrée et 20 000 en sortie. Entrée : 100 000 × 2 $ / 1 000 000 = 0,20 $. Sortie : 20 000 × 10 $ / 1 000 000 = 0,20 $. Session : 0,25 heure × 0,08 $ = 0,02 $. Total : <strong>0,42 $</strong>. Dans les deux calculs, la durée de session pèse peu ; l'essentiel vient des jetons.</p>\n<p>Ces montants ne sont pas le coût du projet. Il faut y ajouter le travail d'intégration, les tests sur vos cas et le suivi, que détaille le guide <a href=\"/ressources/guides/combien-coute-un-agent-ia-pme\">combien coûte un agent IA en PME</a>. Pour choisir le modèle de l'agent, voir <a href=\"/ressources/guides/quel-modele-claude-choisir\">quel modèle Claude choisir</a>.</p>",
+      "html_en": "<h2>What does Managed Agents cost in practice?</h2>\n<p>Anthropic's example: one session hour on Claude Opus 5.5, with 50,000 input tokens and 15,000 output tokens. Input tokens: 50,000 × $4 / 1,000,000 = $0.20. Output tokens: 15,000 × $20 / 1,000,000 = $0.30. Session time: 1 hour × $0.08 = $0.08. Total: <strong>$0.58</strong>. With 40,000 input tokens read from the cache, Anthropic gets $0.428.</p>\n<p>Our illustration, an assumption and not a measurement: a 15-minute task on Sonnet 5.5, with 100,000 input tokens and 20,000 output tokens. Input: 100,000 × $2 / 1,000,000 = $0.20. Output: 20,000 × $10 / 1,000,000 = $0.20. Session: 0.25 hour × $0.08 = $0.02. Total: <strong>$0.42</strong>. In both calculations session time weighs little; most of the cost comes from tokens.</p>\n<p>These amounts are not the project cost. Add the integration work, tests on your cases and monitoring, detailed in the guide <a href=\"/ressources/guides/combien-coute-un-agent-ia-pme\">how much an AI agent costs an SMB</a>. To pick the agent's model, see <a href=\"/ressources/guides/quel-modele-claude-choisir\">which Claude model to choose</a>.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Quelles sont les limites de Managed Agents ?</h2>\n<h3>Un service en bêta</h3>\n<p>Tous les points d'accès exigent un en-tête de bêta, et Anthropic prévient que les comportements peuvent être affinés entre deux versions (<a href=\"https://platform.claude.com/docs/en/managed-agents/overview\" rel=\"noopener noreferrer\" target=\"_blank\">vue d'ensemble</a>). Le dreaming (un nettoyage de la mémoire de l'agent) et les tunnels MCP sont en aperçu de recherche, sur demande. Une bêta convient à un pilote suivi par un développeur, pas à un processus que personne ne surveille.</p>\n<h3>Un réseau à régler soi-même</h3>\n<p>Un environnement créé par API reçoit par défaut un réseau « unrestricted » ; le formulaire de la console Claude, lui, démarre sur « limited ». Les outils de l'agent s'exécutent par défaut sans demander de confirmation, y compris les commandes shell. La documentation liste les risques : l'agent peut modifier des sites externes, tout ce qui est dans le bac à sable peut en sortir, et un contenu lu peut contenir des instructions qui détournent l'agent. Réglage prudent : réseau limité à une liste de domaines, confirmation demandée pour les outils sensibles (<a href=\"https://platform.claude.com/docs/en/managed-agents/environments#networking\" rel=\"noopener noreferrer\" target=\"_blank\">réseau</a>, <a href=\"https://platform.claude.com/docs/en/managed-agents/permission-policies\" rel=\"noopener noreferrer\" target=\"_blank\">permissions</a>).</p>\n<h3>Des plafonds et des manques</h3>\n<ul>\n<li>Un bac à sable du cloud offre jusqu'à 8 Go de mémoire et 10 Go de disque.</li>\n<li>Par organisation : 300 requêtes de création et 1 200 requêtes de lecture par minute (<a href=\"https://platform.claude.com/docs/en/managed-agents/reference#rate-limits\" rel=\"noopener noreferrer\" target=\"_blank\">limites</a>).</li>\n<li>L'OCR préinstallé (Tesseract) ne contient que les données de langue anglaise : à tester avant de promettre la lecture de scans en français.</li>\n<li>Pas de remise Batch, et le service n'est pas disponible sur les plateformes cloud opérées par des partenaires, comme Amazon Bedrock ou Google Cloud (<a href=\"https://platform.claude.com/docs/en/about-claude/pricing#claude-managed-agents-pricing\" rel=\"noopener noreferrer\" target=\"_blank\">tarifs</a>).</li>\n<li>Une variante existe sur « Claude Platform on AWS », avec des différences de fonctions, et une zone de stockage elle aussi limitée à « us » ; ce guide décrit la plateforme d'Anthropic.</li>\n</ul>",
+      "html_en": "<h2>What are the limits of Managed Agents?</h2>\n<h3>A beta service</h3>\n<p>All endpoints require a beta header, and Anthropic warns that behaviours may be refined between releases (<a href=\"https://platform.claude.com/docs/en/managed-agents/overview\" rel=\"noopener noreferrer\" target=\"_blank\">overview</a>). Dreaming (a clean-up of the agent's memory) and MCP tunnels are a research preview, on request. A beta suits a pilot followed by a developer, not a process nobody watches.</p>\n<h3>A network you must set yourself</h3>\n<p>An environment created through the API gets \"unrestricted\" networking by default; the Claude Console form, by contrast, starts on \"limited\". The agent's tools run by default without asking for confirmation, shell commands included. The documentation lists the risks: the agent can change external sites, anything in the sandbox can leave it, and content it reads can carry instructions that divert it. Cautious setting: network limited to a list of domains, confirmation required for sensitive tools (<a href=\"https://platform.claude.com/docs/en/managed-agents/environments#networking\" rel=\"noopener noreferrer\" target=\"_blank\">networking</a>, <a href=\"https://platform.claude.com/docs/en/managed-agents/permission-policies\" rel=\"noopener noreferrer\" target=\"_blank\">permissions</a>).</p>\n<h3>Ceilings and gaps</h3>\n<ul>\n<li>A cloud sandbox offers up to 8 GB of memory and 10 GB of disk.</li>\n<li>Per organisation: 300 create requests and 1,200 read requests per minute (<a href=\"https://platform.claude.com/docs/en/managed-agents/reference#rate-limits\" rel=\"noopener noreferrer\" target=\"_blank\">limits</a>).</li>\n<li>The pre-installed OCR (Tesseract) only ships English language data: test before promising to read scans in French.</li>\n<li>No Batch discount, and the service is not available on partner-operated cloud platforms such as Amazon Bedrock or Google Cloud (<a href=\"https://platform.claude.com/docs/en/about-claude/pricing#claude-managed-agents-pricing\" rel=\"noopener noreferrer\" target=\"_blank\">pricing</a>).</li>\n<li>A variant exists on \"Claude Platform on AWS\", with differences in features and a storage region also limited to \"us\"; this guide describes Anthropic's own platform.</li>\n</ul>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Que deviennent vos données, et que dit le RGPD ?</h2>\n<h3>Ce qu'Anthropic documente</h3>\n<ul>\n<li><strong>Conservation.</strong> Les sessions sont « stateful » : l'historique, l'état du bac à sable et les productions sont conservés côté serveur jusqu'à ce que vous supprimiez la session (<a href=\"https://platform.claude.com/docs/en/managed-agents/overview#beta-access\" rel=\"noopener noreferrer\" target=\"_blank\">vue d'ensemble</a>). La suppression efface aussi les fichiers produits par la session ; les fichiers que vous avez téléversés, les mémoires, les coffres, les skills, les environnements et les agents sont des ressources distinctes, à supprimer séparément (<a href=\"https://platform.claude.com/docs/en/managed-agents/session-operations\" rel=\"noopener noreferrer\" target=\"_blank\">opérations de session</a>).</li>\n<li><strong>Pas de rétention zéro.</strong> Managed Agents n'est éligible ni à la rétention zéro des données (ZDR) ni à l'accord HIPAA (BAA) (<a href=\"https://platform.claude.com/docs/en/manage-claude/api-and-data-retention\" rel=\"noopener noreferrer\" target=\"_blank\">rétention des données</a>).</li>\n<li><strong>Pas d'option européenne documentée.</strong> La zone de stockage ne peut être que « us » ; la zone d'inférence, « us » ou « global ». Épingler l'inférence sur « us » majore les jetons de 10 % (<a href=\"https://platform.claude.com/docs/en/manage-claude/data-residency\" rel=\"noopener noreferrer\" target=\"_blank\">résidence des données</a>).</li>\n<li><strong>Bac à sable chez vous.</strong> Les fichiers, processus et flux réseau de l'agent restent chez vous, mais les entrées et sorties des outils remontent au plan de contrôle d'Anthropic, qui stocke aussi les skills et les mémoires (<a href=\"https://platform.claude.com/docs/en/managed-agents/self-hosted-sandboxes\" rel=\"noopener noreferrer\" target=\"_blank\">bacs à sable auto-hébergés</a>).</li>\n</ul>\n<h3>Le cadre contractuel</h3>\n<p>Dans les <a href=\"https://www.anthropic.com/legal/commercial-terms\" rel=\"noopener noreferrer\" target=\"_blank\">conditions commerciales</a>, « Anthropic » désigne Anthropic Ireland, Limited pour un client de l'Espace économique européen, de Suisse ou du Royaume-Uni. Ces conditions interdisent à Anthropic d'entraîner ses modèles sur le contenu du client et incorporent un <a href=\"https://www.anthropic.com/legal/data-processing-addendum\" rel=\"noopener noreferrer\" target=\"_blank\">accord de traitement des données</a>, qui prévoit les clauses contractuelles types et oblige Anthropic à fournir au client les informations utiles pour réaliser, si le droit applicable l'exige, une analyse d'impact du transfert.</p>\n<p><strong>Notre lecture.</strong> Nous n'avons trouvé aucune mention de Managed Agents dans ces deux textes (recherche de l'expression le 15 octobre 2026). Ils régissent l'usage des clés d'API, et le service s'utilise avec une clé d'API : l'accord s'applique donc très probablement. À faire confirmer par Anthropic ou par votre délégué à la protection des données avant d'y traiter des données personnelles. Les routes européennes de notre guide Claude et RGPD (l'API via Amazon Bedrock ou Google Vertex) ne s'appliquent pas à ce service, absent des clouds partenaires. Le traitement est donc un transfert hors de l'Union : registre des traitements, minimisation ou pseudonymisation des données, suppression des sessions terminées, aucun secret dans le bac à sable (les coffres existent pour cela), validation humaine avant toute action irréversible. La suite est dans <a href=\"/ressources/guides/claude-rgpd-pme\">Claude et RGPD en PME</a> et la <a href=\"/ressources/guides/rgpd-agents-ia-checklist\">checklist RGPD des agents IA</a>.</p>",
+      "html_en": "<h2>What happens to your data, and what does the GDPR say?</h2>\n<h3>What Anthropic documents</h3>\n<ul>\n<li><strong>Retention.</strong> Sessions are stateful: history, sandbox state and outputs are kept server-side until you delete the session (<a href=\"https://platform.claude.com/docs/en/managed-agents/overview#beta-access\" rel=\"noopener noreferrer\" target=\"_blank\">overview</a>). Deletion also erases the files the session produced; files you uploaded, memories, vaults, skills, environments and agents are separate resources, to delete separately (<a href=\"https://platform.claude.com/docs/en/managed-agents/session-operations\" rel=\"noopener noreferrer\" target=\"_blank\">session operations</a>).</li>\n<li><strong>No zero data retention.</strong> Managed Agents is eligible for neither zero data retention (ZDR) nor the HIPAA agreement (BAA) (<a href=\"https://platform.claude.com/docs/en/manage-claude/api-and-data-retention\" rel=\"noopener noreferrer\" target=\"_blank\">data retention</a>).</li>\n<li><strong>No documented European option.</strong> The storage region can only be \"us\"; the inference region, \"us\" or \"global\". Pinning inference to \"us\" adds 10% to token prices (<a href=\"https://platform.claude.com/docs/en/manage-claude/data-residency\" rel=\"noopener noreferrer\" target=\"_blank\">data residency</a>).</li>\n<li><strong>Sandbox on your side.</strong> The agent's files, processes and network traffic stay with you, but tool inputs and outputs go up to Anthropic's control plane, which also stores skills and memories (<a href=\"https://platform.claude.com/docs/en/managed-agents/self-hosted-sandboxes\" rel=\"noopener noreferrer\" target=\"_blank\">self-hosted sandboxes</a>).</li>\n</ul>\n<h3>The contractual framework</h3>\n<p>In the <a href=\"https://www.anthropic.com/legal/commercial-terms\" rel=\"noopener noreferrer\" target=\"_blank\">commercial terms</a>, \"Anthropic\" means Anthropic Ireland, Limited for a customer in the European Economic Area, Switzerland or the UK. These terms forbid Anthropic from training models on customer content and incorporate a <a href=\"https://www.anthropic.com/legal/data-processing-addendum\" rel=\"noopener noreferrer\" target=\"_blank\">data processing addendum</a>, which provides for the standard contractual clauses and requires Anthropic to give the customer the information needed to carry out, where applicable law requires it, a transfer impact assessment.</p>\n<p><strong>Our reading.</strong> We found no mention of Managed Agents in these two texts (search for the phrase on 15 October 2026). They govern the use of API keys, and the service is used with an API key: the agreement therefore most likely applies. Have Anthropic or your data protection officer confirm it before processing personal data there. The European routes in our Claude and GDPR guide (the API through Amazon Bedrock or Google Vertex) do not apply to this service, which is absent from partner clouds. The processing is therefore a transfer outside the Union: record of processing activities, data minimisation or pseudonymisation, deletion of finished sessions, no secret in the sandbox (vaults exist for that), human approval before any irreversible action. More in <a href=\"/ressources/guides/claude-rgpd-pme\">Claude and GDPR for SMBs</a> and the <a href=\"/ressources/guides/rgpd-agents-ia-checklist\">GDPR checklist for AI agents</a>.</p>"
+    },
+    {
+      "type": "process-steps",
+      "background": "paper-3",
+      "kicker_fr": "§ Méthode Waimia",
+      "kicker_en": "§ Waimia's method",
+      "h2_fr": "Comment Waimia choisit entre un workflow, le SDK et Managed Agents ?",
+      "h2_en": "How does Waimia choose between a workflow, the SDK and Managed Agents?",
+      "intro_fr": "Par la tâche et la donnée, pas par la technologie. Le détail des services est sur la page agents IA.",
+      "intro_en": "By the task and the data, not by the technology. Service details are on the AI agents page.",
+      "steps": [
+        {
+          "title_fr": "Audit gratuit",
+          "title_en": "Free audit",
+          "body_fr": "45 minutes en visio : vos tâches, vos volumes, vos outils, les données en jeu. On dit quelles tâches justifient un agent, et lesquelles relèvent d'un simple workflow.",
+          "body_en": "45 minutes by video: your tasks, volumes, tools and the data involved. We say which tasks justify an agent, and which are a plain workflow.",
+          "meta_fr": "Gratuit",
+          "meta_en": "Free"
+        },
+        {
+          "title_fr": "Sprint de cadrage",
+          "title_en": "Scoping sprint",
+          "body_fr": "La tâche prioritaire, la voie retenue (workflow, SDK ou Managed Agents), la cartographie des données, le réseau et les permissions du bac à sable, puis un premier agent prototypé et testé sous supervision ; la mise en production relève du pilote, dès {{prix.pilote}} € HT.",
+          "body_en": "The priority task, the chosen route (workflow, SDK or Managed Agents), the data map, the sandbox network and permissions, then a first agent prototyped and tested under supervision; going live is part of the pilot, from €{{prix.pilote.en}} excl. VAT.",
+          "meta_fr": "{{prix.sprint}} € HT pour 10 heures",
+          "meta_en": "€{{prix.sprint.en}} excl. VAT for 10 hours"
+        },
+        {
+          "title_fr": "Suite sur devis",
+          "title_en": "Next steps on quote",
+          "body_fr": "On estime ensemble le temps nécessaire, vous validez, puis on exécute en sprints en régie. Vos agents, vos accès et la documentation restent à vous.",
+          "body_en": "We estimate the time together, you approve it, then we deliver in time-and-materials sprints. Your agents, your access and the documentation stay yours.",
+          "meta_fr": "{{prix.horaire}} € HT de l'heure",
+          "meta_en": "€{{prix.horaire}} excl. VAT per hour"
+        }
+      ]
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper-2",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Further reading",
+      "cards": [
+        {
+          "kicker_fr": "Article",
+          "kicker_en": "Article",
+          "title_fr": "Agent IA Claude : quatre façons d'en construire un",
+          "title_en": "Claude AI agent: four ways to build one",
+          "lead_fr": "n8n, Claude lui-même, Agent SDK ou Managed Agents : la voie qui convient à une PME.",
+          "lead_en": "n8n, Claude itself, the Agent SDK or Managed Agents: the route that suits an SMB.",
+          "href": "/blog/creer-agent-ia-claude"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Claude et RGPD en PME",
+          "title_en": "Claude and GDPR for SMBs",
+          "lead_fr": "Comptes, entraînement, stockage, accord de traitement des données : ce qui change selon l'offre.",
+          "lead_en": "Accounts, training, storage, data processing agreement: what changes by plan.",
+          "href": "/ressources/guides/claude-rgpd-pme"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Combien coûte un agent IA en PME : le coût complet",
+          "title_en": "How much does an AI agent cost an SMB: the full cost",
+          "lead_fr": "Au-delà des jetons : intégration, tests, suivi.",
+          "lead_en": "Beyond tokens: integration, tests, monitoring.",
+          "href": "/ressources/guides/combien-coute-un-agent-ia-pme"
+        }
+      ]
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "h2_fr": "Claude Managed Agents : questions fréquentes",
+      "h2_en": "Claude Managed Agents: frequently asked questions",
+      "items": [
+        {
+          "q_fr": "Qu'est-ce que Claude Managed Agents ?",
+          "a_fr": "C'est un service d'Anthropic, en bêta, qui héberge l'agent à votre place. Anthropic fournit la boucle d'agent (le programme qui enchaîne les étapes et appelle les outils) et un bac à sable où l'agent lit et écrit des fichiers, lance des commandes, cherche sur le web et exécute du code. Vous créez l'agent, un environnement et des sessions par API. Relevé le 15 octobre 2026.",
+          "q_en": "What is Claude Managed Agents?",
+          "a_en": "It is an Anthropic service, in beta, that hosts the agent for you. Anthropic provides the agent loop (the program that chains the steps and calls the tools) and a sandbox where the agent reads and writes files, runs commands, searches the web and runs code. You create the agent, an environment and sessions through the API. Checked on 15 October 2026."
+        },
+        {
+          "q_fr": "Quelle différence avec l'API Messages ?",
+          "a_fr": "Avec l'API Messages, vous appelez le modèle et vous écrivez vous-même la boucle d'agent, l'exécution des outils et le suivi de l'état. Avec Managed Agents, Anthropic fournit cette boucle et le bac à sable, et garde l'historique de chaque session. L'API Messages donne un contrôle fin ; Managed Agents évite de bâtir l'infrastructure, pour les tâches longues ou asynchrones. Les deux se paient aux jetons ; Managed Agents ajoute 0,08 $ par heure de session active.",
+          "q_en": "What is the difference from the Messages API?",
+          "a_en": "With the Messages API you call the model and write the agent loop, tool execution and state tracking yourself. With Managed Agents, Anthropic provides that loop and the sandbox, and keeps each session's history. The Messages API gives fine control; Managed Agents spares you the infrastructure, for long or asynchronous tasks. Both are billed per token; Managed Agents adds $0.08 per hour of active session."
+        },
+        {
+          "q_fr": "Quelle différence avec Claude Code ?",
+          "a_fr": "Claude Code est un outil de programmation piloté par un agent IA, qui se lance dans un terminal, un éditeur, une application de bureau ou un navigateur : il sert à un développeur qui travaille chaque jour avec Claude. Managed Agents est une API pour intégrer votre propre agent à une application ou à un processus métier, avec un hébergement par Anthropic. Anthropic les range dans des produits distincts, comme l'Agent SDK, une bibliothèque qui fait tourner la boucle dans votre propre application.",
+          "q_en": "What is the difference from Claude Code?",
+          "a_en": "Claude Code is an agentic coding tool that runs in a terminal, an editor, a desktop app or a browser: it serves a developer who works with Claude every day. Managed Agents is an API for building your own agent into an application or a business process, hosted by Anthropic. Anthropic lists them as separate products, like the Agent SDK, a library that runs the loop inside your own application."
+        },
+        {
+          "q_fr": "Managed Agents ou un agent construit sur n8n ?",
+          "a_fr": "Notre lecture : n8n quand les étapes sont connues d'avance et qu'une équipe sans développeur doit pouvoir les modifier ; Managed Agents quand la tâche est ouverte, longue ou demande d'exécuter du code, et qu'un développeur peut maintenir une intégration en bêta. Les deux se combinent : un workflow n8n peut déclencher une session. Pour les coûts et les données côté n8n, voir nos guides n8n.",
+          "q_en": "Managed Agents or an agent built on n8n?",
+          "a_en": "Our reading: n8n when the steps are known in advance and a team without developers must be able to change them; Managed Agents when the task is open-ended, long or needs to run code, and a developer can maintain a beta integration. The two combine: an n8n workflow can start a session. For n8n costs and data, see our n8n guides."
+        },
+        {
+          "q_fr": "Combien coûte Claude Managed Agents ?",
+          "a_fr": "Deux postes : les jetons, au tarif du modèle choisi (Sonnet 5.5 à 2 $ en entrée et 10 $ en sortie par million de jetons, Opus 5.5 à 4 $ et 20 $), et 0,08 $ par heure de session active. L'attente d'un message ne compte pas. Exemple d'Anthropic : une heure sur Opus 5.5 avec 50 000 jetons en entrée et 15 000 en sortie coûte 0,58 $. Relevé le 15 octobre 2026 ; le service étant en bêta, les tarifs peuvent changer.",
+          "q_en": "How much does Claude Managed Agents cost?",
+          "a_en": "Two items: tokens, at the chosen model's rate (Sonnet 5.5 at $2 input and $10 output per million tokens, Opus 5.5 at $4 and $20), and $0.08 per hour of active session. Waiting for a message does not count. Anthropic's example: one hour on Opus 5.5 with 50,000 input tokens and 15,000 output tokens costs $0.58. Checked on 15 October 2026; as the service is in beta, rates may change."
+        },
+        {
+          "q_fr": "Les données restent-elles en Europe ? Est-ce conforme au RGPD ?",
+          "a_fr": "Pas de garantie européenne dans la documentation : Anthropic indique que la seule zone de stockage disponible est « us ». Les sessions sont conservées jusqu'à leur suppression et le service n'est pas éligible à la rétention zéro. Un accord de traitement (DPA) avec clauses contractuelles types existe pour les conditions commerciales, mais Managed Agents n'y est pas nommé. Conformité possible, à documenter et à faire valider avant d'y mettre des données personnelles.",
+          "q_en": "Does the data stay in Europe? Is it GDPR-compliant?",
+          "a_en": "The documentation gives no European guarantee: Anthropic states the only storage region available is \"us\". Sessions are kept until deleted and the service is not eligible for zero data retention. A data processing agreement (DPA) with standard contractual clauses exists for the commercial terms, but Managed Agents is not named in it. Compliance is possible, to be documented and validated before putting personal data in."
+        },
+        {
+          "q_fr": "Faut-il un développeur pour utiliser Managed Agents ?",
+          "a_fr": "Oui, en pratique. Le service s'utilise avec une clé d'API, un SDK ou une ligne de commande, et Anthropic l'indique en bêta : l'interface peut évoluer entre deux versions. Une PME sans développeur passe par un prestataire, ou choisit une voie plus simple : l'application Claude avec ses connecteurs, ou un workflow n8n.",
+          "q_en": "Do you need a developer to use Managed Agents?",
+          "a_en": "In practice, yes. The service is used with an API key, an SDK or a command line, and Anthropic marks it as beta: the interface may change between versions. An SMB without a developer goes through a provider, or picks a simpler route: the Claude app with its connectors, or an n8n workflow."
+        },
+        {
+          "q_fr": "Managed Agents est-il prêt pour la production ?",
+          "a_fr": "Anthropic le propose en bêta publique depuis le 8 avril 2026 et précise que les comportements peuvent être affinés entre deux versions. Des fonctions comme le dreaming et les tunnels MCP restent en aperçu de recherche, sur demande. Pour un usage en production, prévoyez une validation humaine avant toute action irréversible et un plan de repli sur un workflow classique.",
+          "q_en": "Is Managed Agents ready for production?",
+          "a_en": "Anthropic has offered it in public beta since 8 April 2026 and states that behaviours may be refined between releases. Features such as dreaming and MCP tunnels remain a research preview, on request. For production use, plan human approval before any irreversible action and a fallback to a conventional workflow."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Choisir avant de bâtir",
+      "kicker_en": "§ Choose before building",
+      "h2_fr": "La bonne voie pour votre agent, choisie avant d'écrire une ligne de code.",
+      "h2_en": "The right route for your agent, chosen before writing a line of code.",
+      "subtitle_fr": "L'audit de 45 minutes est gratuit. On regarde vos tâches et vos données, et on vous dit où un workflow suffit, où un agent se justifie, et ce qu'il faut régler côté RGPD.",
+      "subtitle_en": "The 45-minute audit is free. We look at your tasks and data, and tell you where a workflow is enough, where an agent is justified, and what to settle on the GDPR side.",
+      "buttons": [
+        {
+          "label_fr": "Réserver l'audit gratuit",
+          "label_en": "Book the free audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Voir le service agents IA",
+          "label_en": "See the AI agents service",
+          "href": "/services/agents-ia",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

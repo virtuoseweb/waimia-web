@@ -37,6 +37,15 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### Vague 7 en production, 15 octobre 2026 (PR #96, `444eb942`)
+
+- **Navigation** : entrée « Formations » au menu principal ; `/conformite-ia` et `/technologies` dans les panneaux ; H1 auteur « Simon Beros, architecte de systèmes IA » ; rubrique « Réalisations Waimia » sur `/cas-usages`, séparée des études de cas du marché.
+- **Contenu** : six guides sourcés (relevés le 15 octobre) qui comblent les absents de la stratégie : transparence des chatbots (article 50), checklist RGPD des agents IA, n8n auto-hébergé et RGPD, coût d'un projet IA, aides au financement, architecture d'un agent SAV. FAQ article 4 de `/conformite-ia` alignée sur le texte modifié.
+- **Design et qualité** : formation Claude rythmée par niveau, comparatif Claude vs ChatGPT aéré, carte Balzeo illustrée par la boutique (13 grilles), ids de titre uniques (31 pages avaient des doublons), titres masqués des bandes de cartes tirés du kicker.
+- **Défaut attrapé par la revue** : neuf cartes « Pour aller plus loin » portaient un libellé à la place du lien (404 relatives). Réparées, et `check:content-refs` refuse désormais tout `href` qui n'est pas une adresse (falsifiée).
+- **Preuves** : portes 37 sur 39 (rouges connues), `astro check` 8 erreurs (référence), balayage des 175 pages à deux tailles (0 débordement, 0 CTA hors écran), E2E 72 passés, preview balayée (26 mesures en 200), production vérifiée (six guides en 200).
+- **Décisions pour Simon** : badges Meta Business Partner et Google Partner encore affichés (`src/data/eeat-proposals.ts`) alors que la stratégie les dit retirés faute de preuve ; mention « Activateur France Num » à confirmer.
+
 ### Vague 6 en production, 15 octobre 2026 (PR #95, `10da1e3f`)
 
 - **Contenu** : cinq pages nouvelles sur des requêtes sans page dédiée : guides `quel-modele-claude-choisir`, `claude-gratuit` (usage commercial vérifié dans les conditions grand public d'Anthropic), `llm-rag-dirigeant`, `rpa-ou-agent-ia`, comparatif `mistral-vs-claude-pme`. Toutes reliées par le maillage interne et présentes au sitemap.
