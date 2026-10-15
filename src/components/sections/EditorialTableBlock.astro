@@ -36,6 +36,10 @@ const tmRows = data.type === 'tech-models-table'
       isFr ? m.use_case_fr : m.use_case_en,
     ])
   : [];
+// Id déterministe dérivé du titre : une page peut porter plusieurs tableaux (31 pages en avaient deux ou plus).
+let headingHash = 0;
+for (const ch of 'heading_fr' in data ? data.heading_fr : '') headingHash = (headingHash * 31 + ch.charCodeAt(0)) >>> 0;
+const headingId = `ed-table-block-h2-${headingHash.toString(36)}`;
 ---
 {data.type === 'tech-models-table' ? (
   <section class="tech-sec sec-band-rel-loose tech-sec-paper" data-bg={data.background} data-screen-label="04 Models">
@@ -86,10 +90,10 @@ const tmRows = data.type === 'tech-models-table'
     </div>
   </section>
 ) : (
-  <section class="ed-table-block reveal-stagger" data-bg={data.background} aria-labelledby="ed-table-block-h2">
+  <section class="ed-table-block reveal-stagger" data-bg={data.background} aria-labelledby={headingId}>
     <div class="wrap-wide">
       <Kicker class="ed-table-block-kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
-      <h2 id="ed-table-block-h2" class="ed-table-block-h2 u-serif-accent" set:html={isFr ? data.heading_fr : data.heading_en} />
+      <h2 id={headingId} class="ed-table-block-h2 u-serif-accent" set:html={isFr ? data.heading_fr : data.heading_en} />
       <EditorialTable
         caption={isFr ? data.caption_fr : data.caption_en}
         columns={isFr ? data.columns_fr : data.columns_en}

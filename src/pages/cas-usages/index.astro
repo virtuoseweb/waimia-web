@@ -11,6 +11,7 @@ export const prerender = true;
 // séparé des cartes Waimia. Aucun de leurs chiffres ne remonte dans le hero ni les cartes.
 
 import { AUDIT_BOOKING_HREF, AUDIT_BOOKING_LABEL } from '../../data/conversion';
+import { getCollection } from 'astro:content';
 import { getLiveCollection } from '../../lib/live-collection';
 import Base from '../../layouts/Base.astro';
 import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
@@ -46,6 +47,22 @@ const cards: Card[] = (await getLiveCollection('cas-usages'))
     };
   });
 
+// Rubrique « Réalisations Waimia » : missions clients réelles, lues dans la collection `cases`
+// (mêmes trois fiches que le menu Réalisations). Jamais mélangée aux études de cas du marché.
+const WAIMIA_WORK_SLUGS = ['amploi', 'inbound-value', 'les-carnets-de-montpellier'];
+const waimiaWork: Card[] = (await getCollection('cases'))
+  .filter((e) => WAIMIA_WORK_SLUGS.includes(e.data.slug ?? e.id))
+  .sort((a, b) => WAIMIA_WORK_SLUGS.indexOf(a.data.slug ?? a.id) - WAIMIA_WORK_SLUGS.indexOf(b.data.slug ?? b.id))
+  .map((e) => ({
+    kicker_fr: e.data.sector_fr ?? 'Réalisation Waimia',
+    kicker_en: e.data.sector_en ?? 'Waimia project',
+    title_fr: e.data.title_fr,
+    title_en: e.data.title_en,
+    lead_fr: e.data.description_fr,
+    lead_en: e.data.description_en,
+    href: `/cas-clients/${e.data.slug ?? e.id}`,
+  }));
+
 // Chunker équilibré 2-3 (jamais de singleton) : respecte .min(2)/.max(3) du schéma.
 function chunkCards(items: Card[]): Card[][] {
   if (items.length < 2) return [];
@@ -77,8 +94,8 @@ const hero: SectionByType<'hero-hub-masthead'> = {
   kicker_en: '§ Use cases · what AI unblocks concretely',
   h1_fr: '<span>Cas d\'usage <i>IA</i> en PME :</span><br/><span>le gain réel, pas une démo.</span>',
   h1_en: '<span><i>AI</i> use cases:</span><br/><span>real gain, not a demo.</span>',
-  lede_fr: "Par problème (administratif, données, suivi commercial) et par fonction (support, comptabilité, RH). Chaque page dit ce qu'on automatise, dans quel ordre et où sont les limites. Les cas réalisés par d'autres que Waimia sont sourcés et présentés à part.",
-  lede_en: 'By problem (admin, data, sales follow-up) and by function (support, accounting, HR). Each page says what to automate, in what order and where the limits are. Cases delivered by others than Waimia are sourced and shown separately.',
+  lede_fr: "Par problème (administratif, données, suivi commercial) et par fonction (support, comptabilité, RH). Chaque page dit ce qu'on automatise, dans quel ordre et où sont les limites. Les réalisations Waimia et les études de cas du marché (cas réalisés par d'autres, sourcés) sont deux rubriques distinctes.",
+  lede_en: 'By problem (admin, data, sales follow-up) and by function (support, accounting, HR). Each page says what to automate, in what order and where the limits are. Waimia work and market case studies (delivered by others, sourced) are two separate sections.',
 };
 
 const ctaFinal: SectionByType<'cta-final'> = {
@@ -116,6 +133,12 @@ const cardBands: SectionData[] = [
   ...bandsFor(cards.filter((c) => FUNCTION_HREFS.has(c.href)), { fr: "§ Par fonction de l'entreprise", en: '§ By business function' }, 'paper-2'),
 ];
 
+const waimiaWorkBands: SectionData[] = bandsFor(
+  waimiaWork,
+  { fr: '§ Réalisations Waimia', en: '§ Waimia work' },
+  'paper',
+);
+
 const marketCases: SectionByType<'market-cases'> = {
   type: 'market-cases',
   background: 'paper-3',
@@ -131,7 +154,7 @@ const marketCases: SectionByType<'market-cases'> = {
   ),
 };
 
-const sections: SectionData[] = [hero, ...cardBands, { ...marketCases, anchor: 'etudes-de-cas-du-marche' } as SectionData, ctaFinal];
+const sections: SectionData[] = [hero, ...cardBands, ...waimiaWorkBands, { ...marketCases, anchor: 'etudes-de-cas-du-marche' } as SectionData, ctaFinal];
 
 const pageLd = buildCollectionPage(
   isFr ? "Cas d'usage IA pour PME · Waimia" : 'AI use cases for SMBs · Waimia',

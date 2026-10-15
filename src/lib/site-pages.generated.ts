@@ -4841,12 +4841,23 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "editorial-callout",
         "label": "#6",
-        "variant": "quote",
+        "variant": "warn",
         "background": "paper"
       },
       {
         "type": "editorial-prose",
         "label": "#7",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-callout",
+        "label": "#8",
+        "variant": "quote",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#9",
         "background": "paper-2"
       },
       {
@@ -4857,7 +4868,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-prose",
-        "label": "#9",
+        "label": "#11",
         "background": "paper-2"
       },
       {
@@ -5624,6 +5635,101 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/ressources/guides/agent-sav-architecture",
+    "title": "Agent IA de service client (SAV) : architecture, garde-fous, mesure",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/agent-sav-architecture.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Agent IA de service client (SAV) : architecture, garde-fous, mesure",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "De quoi se compose l'architecture d'un agent IA de service client ?",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper"
+      },
+      {
+        "type": "decision-list",
+        "label": "Quels garde-fous poser à un agent de service client ?",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#8",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Que mesurer pour juger un agent IA de service client, et comment ?",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#10",
+        "background": "paper"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Agent du marché ou agent sur mesure : lequel choisir ?",
+        "background": "paper"
+      },
+      {
+        "type": "process-steps",
+        "label": "Comment mettre en place un agent IA de service client, étape par étape ?",
+        "background": "paper-3"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#13",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Agent IA de service client : questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Savoir quelles demandes un agent peut traiter chez vous, avant d'en construire un. L'audit est gratuit.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/ressources/guides/ai-act-pme-calendrier",
     "title": "AI Act pour PME : le calendrier à jour (octobre 2026)",
     "group": "ressources",
@@ -5705,6 +5811,185 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "footer-cta-band",
         "label": "Savoir lesquels de vos usages d'IA demandent une attention, et lesquels n'en demandent aucune.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/ressources/guides/aides-financement-projet-ia",
+    "title": "Aides et financements d'un projet IA en PME : ce qui existe en 2026",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/aides-financement-projet-ia.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Aides et financements d'un projet IA en PME : ce qui existe en 2026",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "key-metric-grid",
+        "label": "Quels chiffres du Diag Data IA et du Prêt Boost IA faut-il retenir ?",
+        "variant": "accent",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Quels dispositifs existent pour un projet IA en octobre 2026 ?",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#8",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Quel projet ouvre droit au crédit d'impôt innovation ?",
+        "background": "paper-2"
+      },
+      {
+        "type": "process-steps",
+        "label": "Comment monter un dossier de financement pour un projet IA ?",
+        "background": "paper-3"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Quand compter sur une aide, et quand ne pas le faire ?",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#12",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Financer un projet IA : questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Un projet écrit et chiffré avant de déposer un dossier. L'audit est gratuit.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/ressources/guides/chatbot-transparence-article-50",
+    "title": "Chatbot et AI Act : l'obligation de transparence de l'article 50",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/chatbot-transparence-article-50.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Chatbot et AI Act : l'obligation de transparence de l'article 50",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Les quatre obligations de l'article 50, et qui doit agir",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Chatbot d'éditeur ou agent sur mesure : qui doit prévoir l'annonce ?",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Quoi écrire selon le canal",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Ce qui tient, ce qui ne tient pas",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#9",
+        "background": "paper"
+      },
+      {
+        "type": "decision-list",
+        "label": "Six vérifications pour vos chatbots et agents",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#12",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Chatbot et article 50 : questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Savoir lequel de vos agents doit afficher « IA », et le faire proprement.",
         "background": "ink"
       }
     ]
@@ -7069,6 +7354,92 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/ressources/guides/cout-projet-ia-pme",
+    "title": "Combien coûte un projet IA en PME ? Les huit postes de coût",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/cout-projet-ia-pme.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Combien coûte un projet IA en PME ? Les huit postes",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "key-metric-grid",
+        "label": "Quels chiffres retenir avant de demander un devis ?",
+        "variant": "accent",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Quels sont les postes de coût d'un projet IA ?",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Quels sont les ordres de grandeur publics des licences, API et hébergement ?",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Combien coûte l'accompagnement de Waimia ?",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#8",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Quel tableau remplir pour chiffrer votre projet ?",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#10",
+        "background": "paper"
+      },
+      {
+        "type": "decision-list",
+        "label": "Qu'est-ce qui fait monter ou baisser la facture ?",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Coût d'un projet IA : questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Un coût complet chiffré sur un périmètre écrit, avant la première heure facturée. L'audit est gratuit.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/ressources/guides/devis-automatise",
     "title": "Devis automatisé : la méthode pas à pas pour une PME",
     "group": "ressources",
@@ -7425,6 +7796,82 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/ressources/guides/n8n-auto-heberge-rgpd",
+    "title": "n8n auto-hébergé ou cloud : que change le RGPD ?",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/n8n-auto-heberge-rgpd.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "n8n auto-hébergé ou cloud : que change le RGPD ?",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "n8n Cloud et n8n auto-hébergé : qui porte quoi",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Quand l'auto-hébergement vaut la peine",
+        "background": "paper-2"
+      },
+      {
+        "type": "decision-list",
+        "label": "Neuf points pour n8n, quel que soit l'hébergement",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#10",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "n8n et RGPD : questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Choisir entre Cloud et auto-hébergé, puis régler la purge et les accès.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/ressources/guides/n8n-prix",
     "title": "n8n prix : tarifs 2026 et coût complet pour une PME",
     "group": "ressources",
@@ -7707,6 +8154,82 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "footer-cta-band",
         "label": "Savoir s'il faut corriger votre site ou le refaire.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/ressources/guides/rgpd-agents-ia-checklist",
+    "title": "RGPD et agents IA : 12 points à vérifier avant de déployer",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/rgpd-agents-ia-checklist.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "RGPD et agents IA : 12 points à vérifier avant de déployer",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "RGPD et agent IA : ce que dit le texte, ce que vous faites",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Avancer seul, ou faire appel à un DPO ou à un juriste",
+        "background": "paper-2"
+      },
+      {
+        "type": "decision-list",
+        "label": "12 points à cocher avant de déployer un agent IA",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#10",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "RGPD et agents IA : questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Passer vos agents IA au crible du RGPD avant la mise en production.",
         "background": "ink"
       }
     ]
@@ -9160,7 +9683,10 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/diagnostics/site-web-intelligent",
       "/ressources/guides",
       "/ressources/guides/agent-ia-definition",
+      "/ressources/guides/agent-sav-architecture",
       "/ressources/guides/ai-act-pme-calendrier",
+      "/ressources/guides/aides-financement-projet-ia",
+      "/ressources/guides/chatbot-transparence-article-50",
       "/ressources/guides/choisir-agence-ia-pme",
       "/ressources/guides/claude-code-entreprise",
       "/ressources/guides/claude-cowork",
@@ -9174,13 +9700,16 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/guides/claude-skills",
       "/ressources/guides/combien-coute-un-agent-ia-pme",
       "/ressources/guides/cout-integration-claude-pme",
+      "/ressources/guides/cout-projet-ia-pme",
       "/ressources/guides/devis-automatise",
       "/ressources/guides/financement-formation-ia-opco",
       "/ressources/guides/llm-rag-dirigeant",
       "/ressources/guides/mcp-claude",
+      "/ressources/guides/n8n-auto-heberge-rgpd",
       "/ressources/guides/n8n-prix",
       "/ressources/guides/quel-modele-claude-choisir",
       "/ressources/guides/refonte-site-internet",
+      "/ressources/guides/rgpd-agents-ia-checklist",
       "/ressources/guides/roi-automatisation",
       "/ressources/guides/rpa-ou-agent-ia",
       "/ressources/guides/taches-a-automatiser-pme",

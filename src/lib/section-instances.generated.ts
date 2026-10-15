@@ -124,9 +124,36 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/agent-sav-architecture.json",
+      "slug": "agent-sav-architecture",
+      "route": "/ressources/guides/agent-sav-architecture",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/ai-act-pme-calendrier.json",
       "slug": "ai-act-pme-calendrier",
       "route": "/ressources/guides/ai-act-pme-calendrier",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/aides-financement-projet-ia.json",
+      "slug": "aides-financement-projet-ia",
+      "route": "/ressources/guides/aides-financement-projet-ia",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/chatbot-transparence-article-50.json",
+      "slug": "chatbot-transparence-article-50",
+      "route": "/ressources/guides/chatbot-transparence-article-50",
       "index": 1,
       "label": "Simon Beros",
       "background": "paper"
@@ -223,6 +250,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/cout-projet-ia-pme.json",
+      "slug": "cout-projet-ia-pme",
+      "route": "/ressources/guides/cout-projet-ia-pme",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/devis-automatise.json",
       "slug": "devis-automatise",
       "route": "/ressources/guides/devis-automatise",
@@ -259,6 +295,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/n8n-auto-heberge-rgpd.json",
+      "slug": "n8n-auto-heberge-rgpd",
+      "route": "/ressources/guides/n8n-auto-heberge-rgpd",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/n8n-prix.json",
       "slug": "n8n-prix",
       "route": "/ressources/guides/n8n-prix",
@@ -280,6 +325,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/refonte-site-internet.json",
       "slug": "refonte-site-internet",
       "route": "/ressources/guides/refonte-site-internet",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/rgpd-agents-ia-checklist.json",
+      "slug": "rgpd-agents-ia-checklist",
+      "route": "/ressources/guides/rgpd-agents-ia-checklist",
       "index": 1,
       "label": "Simon Beros",
       "background": "paper"
@@ -1439,7 +1493,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
-      "index": 10,
+      "index": 12,
       "label": "Vous penchez pour Claude ? Recevez le guide d'achat pour PME (PDF, 14 pages)",
       "background": "paper"
     },
@@ -1484,7 +1538,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
-      "index": 13,
+      "index": 15,
       "label": "Recevez la checklist des 90 jours pour déployer Claude (PDF, 5 pages)",
       "background": "paper-2"
     }
@@ -1578,7 +1632,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
-      "index": 11,
+      "index": 13,
       "label": "Choisir selon votre situation",
       "background": "paper"
     },
@@ -1665,12 +1719,30 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/agent-sav-architecture.json",
+      "slug": "agent-sav-architecture",
+      "route": "/ressources/guides/agent-sav-architecture",
+      "index": 6,
+      "label": "Quels garde-fous poser à un agent de service client ?",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/ai-act-pme-calendrier.json",
       "slug": "ai-act-pme-calendrier",
       "route": "/ressources/guides/ai-act-pme-calendrier",
       "index": 7,
       "label": "Si vous déployez un système à haut risque : ce que l'article 26 demandera au 2 décembre 2027",
       "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/chatbot-transparence-article-50.json",
+      "slug": "chatbot-transparence-article-50",
+      "route": "/ressources/guides/chatbot-transparence-article-50",
+      "index": 10,
+      "label": "Six vérifications pour vos chatbots et agents",
+      "background": "paper"
     },
     {
       "collection": "guides",
@@ -1719,6 +1791,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/cout-projet-ia-pme.json",
+      "slug": "cout-projet-ia-pme",
+      "route": "/ressources/guides/cout-projet-ia-pme",
+      "index": 11,
+      "label": "Qu'est-ce qui fait monter ou baisser la facture ?",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/devis-automatise.json",
       "slug": "devis-automatise",
       "route": "/ressources/guides/devis-automatise",
@@ -1746,6 +1827,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/n8n-auto-heberge-rgpd.json",
+      "slug": "n8n-auto-heberge-rgpd",
+      "route": "/ressources/guides/n8n-auto-heberge-rgpd",
+      "index": 8,
+      "label": "Neuf points pour n8n, quel que soit l'hébergement",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/quel-modele-claude-choisir.json",
       "slug": "quel-modele-claude-choisir",
       "route": "/ressources/guides/quel-modele-claude-choisir",
@@ -1760,6 +1850,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/refonte-site-internet",
       "index": 3,
       "label": "Ce qu'il faut réunir avant de lancer une refonte",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/rgpd-agents-ia-checklist.json",
+      "slug": "rgpd-agents-ia-checklist",
+      "route": "/ressources/guides/rgpd-agents-ia-checklist",
+      "index": 8,
+      "label": "12 points à cocher avant de déployer un agent IA",
       "background": "paper"
     },
     {
@@ -2147,14 +2246,14 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "src/content/formations/claude.json",
       "index": 4,
       "label": "Niveau 1 : à l'issue, vous savez utiliser Claude",
-      "background": "paper-2"
+      "background": "paper-3"
     },
     {
       "collection": "formations",
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
-      "index": 6,
+      "index": 7,
       "label": "Niveau 2 : à l'issue, vous savez étendre Claude",
       "background": "paper-2"
     },
@@ -2163,9 +2262,9 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
-      "index": 8,
+      "index": 10,
       "label": "Niveau 3 : à l'issue, vous savez construire un système IA avec Claude",
-      "background": "paper-2"
+      "background": "paper-3"
     },
     {
       "collection": "formations",
@@ -3437,9 +3536,36 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/agent-sav-architecture.json",
+      "slug": "agent-sav-architecture",
+      "route": "/ressources/guides/agent-sav-architecture",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/ai-act-pme-calendrier.json",
       "slug": "ai-act-pme-calendrier",
       "route": "/ressources/guides/ai-act-pme-calendrier",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/aides-financement-projet-ia.json",
+      "slug": "aides-financement-projet-ia",
+      "route": "/ressources/guides/aides-financement-projet-ia",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/chatbot-transparence-article-50.json",
+      "slug": "chatbot-transparence-article-50",
+      "route": "/ressources/guides/chatbot-transparence-article-50",
       "index": 2,
       "label": "#2",
       "background": "paper-2"
@@ -3563,6 +3689,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/cout-projet-ia-pme.json",
+      "slug": "cout-projet-ia-pme",
+      "route": "/ressources/guides/cout-projet-ia-pme",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/devis-automatise.json",
       "slug": "devis-automatise",
       "route": "/ressources/guides/devis-automatise",
@@ -3599,6 +3734,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/n8n-auto-heberge-rgpd.json",
+      "slug": "n8n-auto-heberge-rgpd",
+      "route": "/ressources/guides/n8n-auto-heberge-rgpd",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/n8n-prix.json",
       "slug": "n8n-prix",
       "route": "/ressources/guides/n8n-prix",
@@ -3620,6 +3764,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/refonte-site-internet.json",
       "slug": "refonte-site-internet",
       "route": "/ressources/guides/refonte-site-internet",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/rgpd-agents-ia-checklist.json",
+      "slug": "rgpd-agents-ia-checklist",
+      "route": "/ressources/guides/rgpd-agents-ia-checklist",
       "index": 2,
       "label": "#2",
       "background": "paper-2"
@@ -3779,6 +3932,16 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "index": 6,
       "label": "#6",
+      "variant": "warn",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/claude-vs-chatgpt-pme.json",
+      "slug": "claude-vs-chatgpt-pme",
+      "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
+      "index": 8,
+      "label": "#8",
       "variant": "quote",
       "background": "paper"
     },
@@ -3810,6 +3973,26 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 11,
       "label": "#11",
       "variant": "note",
+      "background": "paper"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/claude.json",
+      "slug": "claude",
+      "route": "src/content/formations/claude.json",
+      "index": 6,
+      "label": "#6",
+      "variant": "quote",
+      "background": "paper"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/claude.json",
+      "slug": "claude",
+      "route": "src/content/formations/claude.json",
+      "index": 9,
+      "label": "#9",
+      "variant": "quote",
       "background": "paper"
     },
     {
@@ -4097,6 +4280,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/claude-vs-chatgpt-pme.json",
+      "slug": "claude-vs-chatgpt-pme",
+      "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
+      "index": 11,
+      "label": "#11",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/crm-sur-mesure-vs-crm-du-marche.json",
       "slug": "crm-sur-mesure-vs-crm-du-marche",
       "route": "/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche",
@@ -4259,6 +4451,60 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/agent-sav-architecture.json",
+      "slug": "agent-sav-architecture",
+      "route": "/ressources/guides/agent-sav-architecture",
+      "index": 3,
+      "label": "#3",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/agent-sav-architecture.json",
+      "slug": "agent-sav-architecture",
+      "route": "/ressources/guides/agent-sav-architecture",
+      "index": 5,
+      "label": "#5",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/agent-sav-architecture.json",
+      "slug": "agent-sav-architecture",
+      "route": "/ressources/guides/agent-sav-architecture",
+      "index": 7,
+      "label": "#7",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/agent-sav-architecture.json",
+      "slug": "agent-sav-architecture",
+      "route": "/ressources/guides/agent-sav-architecture",
+      "index": 8,
+      "label": "#8",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/agent-sav-architecture.json",
+      "slug": "agent-sav-architecture",
+      "route": "/ressources/guides/agent-sav-architecture",
+      "index": 10,
+      "label": "#10",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/agent-sav-architecture.json",
+      "slug": "agent-sav-architecture",
+      "route": "/ressources/guides/agent-sav-architecture",
+      "index": 13,
+      "label": "#13",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/ai-act-pme-calendrier.json",
       "slug": "ai-act-pme-calendrier",
       "route": "/ressources/guides/ai-act-pme-calendrier",
@@ -4292,6 +4538,87 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 11,
       "label": "#11",
       "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/aides-financement-projet-ia.json",
+      "slug": "aides-financement-projet-ia",
+      "route": "/ressources/guides/aides-financement-projet-ia",
+      "index": 5,
+      "label": "#5",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/aides-financement-projet-ia.json",
+      "slug": "aides-financement-projet-ia",
+      "route": "/ressources/guides/aides-financement-projet-ia",
+      "index": 6,
+      "label": "#6",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/aides-financement-projet-ia.json",
+      "slug": "aides-financement-projet-ia",
+      "route": "/ressources/guides/aides-financement-projet-ia",
+      "index": 7,
+      "label": "#7",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/aides-financement-projet-ia.json",
+      "slug": "aides-financement-projet-ia",
+      "route": "/ressources/guides/aides-financement-projet-ia",
+      "index": 8,
+      "label": "#8",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/aides-financement-projet-ia.json",
+      "slug": "aides-financement-projet-ia",
+      "route": "/ressources/guides/aides-financement-projet-ia",
+      "index": 12,
+      "label": "#12",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/chatbot-transparence-article-50.json",
+      "slug": "chatbot-transparence-article-50",
+      "route": "/ressources/guides/chatbot-transparence-article-50",
+      "index": 3,
+      "label": "#3",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/chatbot-transparence-article-50.json",
+      "slug": "chatbot-transparence-article-50",
+      "route": "/ressources/guides/chatbot-transparence-article-50",
+      "index": 6,
+      "label": "#6",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/chatbot-transparence-article-50.json",
+      "slug": "chatbot-transparence-article-50",
+      "route": "/ressources/guides/chatbot-transparence-article-50",
+      "index": 9,
+      "label": "#9",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/chatbot-transparence-article-50.json",
+      "slug": "chatbot-transparence-article-50",
+      "route": "/ressources/guides/chatbot-transparence-article-50",
+      "index": 12,
+      "label": "#12",
+      "background": "paper-2"
     },
     {
       "collection": "guides",
@@ -4808,6 +5135,33 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/cout-projet-ia-pme.json",
+      "slug": "cout-projet-ia-pme",
+      "route": "/ressources/guides/cout-projet-ia-pme",
+      "index": 5,
+      "label": "#5",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/cout-projet-ia-pme.json",
+      "slug": "cout-projet-ia-pme",
+      "route": "/ressources/guides/cout-projet-ia-pme",
+      "index": 8,
+      "label": "#8",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/cout-projet-ia-pme.json",
+      "slug": "cout-projet-ia-pme",
+      "route": "/ressources/guides/cout-projet-ia-pme",
+      "index": 10,
+      "label": "#10",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/devis-automatise.json",
       "slug": "devis-automatise",
       "route": "/ressources/guides/devis-automatise",
@@ -4916,6 +5270,42 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/n8n-auto-heberge-rgpd.json",
+      "slug": "n8n-auto-heberge-rgpd",
+      "route": "/ressources/guides/n8n-auto-heberge-rgpd",
+      "index": 3,
+      "label": "#3",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/n8n-auto-heberge-rgpd.json",
+      "slug": "n8n-auto-heberge-rgpd",
+      "route": "/ressources/guides/n8n-auto-heberge-rgpd",
+      "index": 5,
+      "label": "#5",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/n8n-auto-heberge-rgpd.json",
+      "slug": "n8n-auto-heberge-rgpd",
+      "route": "/ressources/guides/n8n-auto-heberge-rgpd",
+      "index": 6,
+      "label": "#6",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/n8n-auto-heberge-rgpd.json",
+      "slug": "n8n-auto-heberge-rgpd",
+      "route": "/ressources/guides/n8n-auto-heberge-rgpd",
+      "index": 10,
+      "label": "#10",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/n8n-prix.json",
       "slug": "n8n-prix",
       "route": "/ressources/guides/n8n-prix",
@@ -5003,6 +5393,42 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 10,
       "label": "#10",
       "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/rgpd-agents-ia-checklist.json",
+      "slug": "rgpd-agents-ia-checklist",
+      "route": "/ressources/guides/rgpd-agents-ia-checklist",
+      "index": 3,
+      "label": "#3",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/rgpd-agents-ia-checklist.json",
+      "slug": "rgpd-agents-ia-checklist",
+      "route": "/ressources/guides/rgpd-agents-ia-checklist",
+      "index": 5,
+      "label": "#5",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/rgpd-agents-ia-checklist.json",
+      "slug": "rgpd-agents-ia-checklist",
+      "route": "/ressources/guides/rgpd-agents-ia-checklist",
+      "index": 6,
+      "label": "#6",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/rgpd-agents-ia-checklist.json",
+      "slug": "rgpd-agents-ia-checklist",
+      "route": "/ressources/guides/rgpd-agents-ia-checklist",
+      "index": 10,
+      "label": "#10",
+      "background": "paper-2"
     },
     {
       "collection": "guides",
@@ -5612,8 +6038,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
-      "index": 10,
-      "label": "#10",
+      "index": 12,
+      "label": "#12",
       "background": "paper-2"
     },
     {
@@ -5621,8 +6047,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
-      "index": 11,
-      "label": "#11",
+      "index": 13,
+      "label": "#13",
       "background": "paper-2"
     },
     {
@@ -5735,7 +6161,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
-      "index": 8,
+      "index": 10,
       "label": "Ce qui a bougé chez Claude et ChatGPT, et ce que ça change",
       "variant": "editorial",
       "background": "paper"
@@ -5830,11 +6256,77 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/agent-sav-architecture.json",
+      "slug": "agent-sav-architecture",
+      "route": "/ressources/guides/agent-sav-architecture",
+      "index": 4,
+      "label": "De quoi se compose l'architecture d'un agent IA de service client ?",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/agent-sav-architecture.json",
+      "slug": "agent-sav-architecture",
+      "route": "/ressources/guides/agent-sav-architecture",
+      "index": 9,
+      "label": "Que mesurer pour juger un agent IA de service client, et comment ?",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/ai-act-pme-calendrier.json",
       "slug": "ai-act-pme-calendrier",
       "route": "/ressources/guides/ai-act-pme-calendrier",
       "index": 5,
       "label": "Le calendrier de l'AI Act au 6 octobre 2026",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/aides-financement-projet-ia.json",
+      "slug": "aides-financement-projet-ia",
+      "route": "/ressources/guides/aides-financement-projet-ia",
+      "index": 4,
+      "label": "Quels dispositifs existent pour un projet IA en octobre 2026 ?",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/aides-financement-projet-ia.json",
+      "slug": "aides-financement-projet-ia",
+      "route": "/ressources/guides/aides-financement-projet-ia",
+      "index": 9,
+      "label": "Quel projet ouvre droit au crédit d'impôt innovation ?",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/chatbot-transparence-article-50.json",
+      "slug": "chatbot-transparence-article-50",
+      "route": "/ressources/guides/chatbot-transparence-article-50",
+      "index": 4,
+      "label": "Les quatre obligations de l'article 50, et qui doit agir",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/chatbot-transparence-article-50.json",
+      "slug": "chatbot-transparence-article-50",
+      "route": "/ressources/guides/chatbot-transparence-article-50",
+      "index": 5,
+      "label": "Chatbot d'éditeur ou agent sur mesure : qui doit prévoir l'annonce ?",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/chatbot-transparence-article-50.json",
+      "slug": "chatbot-transparence-article-50",
+      "route": "/ressources/guides/chatbot-transparence-article-50",
+      "index": 7,
+      "label": "Quoi écrire selon le canal",
       "variant": "editorial",
       "background": "paper-2"
     },
@@ -6115,6 +6607,42 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/cout-projet-ia-pme.json",
+      "slug": "cout-projet-ia-pme",
+      "route": "/ressources/guides/cout-projet-ia-pme",
+      "index": 4,
+      "label": "Quels sont les postes de coût d'un projet IA ?",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/cout-projet-ia-pme.json",
+      "slug": "cout-projet-ia-pme",
+      "route": "/ressources/guides/cout-projet-ia-pme",
+      "index": 6,
+      "label": "Quels sont les ordres de grandeur publics des licences, API et hébergement ?",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/cout-projet-ia-pme.json",
+      "slug": "cout-projet-ia-pme",
+      "route": "/ressources/guides/cout-projet-ia-pme",
+      "index": 7,
+      "label": "Combien coûte l'accompagnement de Waimia ?",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/cout-projet-ia-pme.json",
+      "slug": "cout-projet-ia-pme",
+      "route": "/ressources/guides/cout-projet-ia-pme",
+      "index": 9,
+      "label": "Quel tableau remplir pour chiffrer votre projet ?",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/devis-automatise.json",
       "slug": "devis-automatise",
       "route": "/ressources/guides/devis-automatise",
@@ -6195,6 +6723,16 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/n8n-auto-heberge-rgpd.json",
+      "slug": "n8n-auto-heberge-rgpd",
+      "route": "/ressources/guides/n8n-auto-heberge-rgpd",
+      "index": 4,
+      "label": "n8n Cloud et n8n auto-hébergé : qui porte quoi",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/n8n-prix.json",
       "slug": "n8n-prix",
       "route": "/ressources/guides/n8n-prix",
@@ -6268,6 +6806,16 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "label": "Corriger, refondre ou migrer : ce que chaque option touche",
       "variant": "editorial",
       "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/rgpd-agents-ia-checklist.json",
+      "slug": "rgpd-agents-ia-checklist",
+      "route": "/ressources/guides/rgpd-agents-ia-checklist",
+      "index": 4,
+      "label": "RGPD et agent IA : ce que dit le texte, ce que vous faites",
+      "variant": "editorial",
+      "background": "paper-2"
     },
     {
       "collection": "guides",
@@ -6484,7 +7032,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
-      "index": 12,
+      "index": 14,
       "label": "Formation Waimia, ressources gratuites ou cursus long : comment choisir",
       "variant": "editorial",
       "background": "paper"
@@ -6494,7 +7042,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
-      "index": 14,
+      "index": 16,
       "label": "Prérequis, format, durée et tarif",
       "variant": "editorial",
       "background": "paper"
@@ -6629,15 +7177,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "src/content/formations/claude.json",
       "index": 5,
       "label": "Programme du niveau 1 : utiliser l'application Claude",
-      "background": "paper"
-    },
-    {
-      "collection": "formations",
-      "file": "formations/claude.json",
-      "slug": "claude",
-      "route": "src/content/formations/claude.json",
-      "index": 7,
-      "label": "Programme du niveau 2 : brancher Claude à vos outils et diffuser vos consignes",
       "background": "paper-3"
     },
     {
@@ -6645,9 +7184,18 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
-      "index": 9,
+      "index": 8,
+      "label": "Programme du niveau 2 : brancher Claude à vos outils et diffuser vos consignes",
+      "background": "paper-2"
+    },
+    {
+      "collection": "formations",
+      "file": "formations/claude.json",
+      "slug": "claude",
+      "route": "src/content/formations/claude.json",
+      "index": 11,
       "label": "Programme du niveau 3 : deux parcours, un tronc commun",
-      "background": "paper"
+      "background": "paper-3"
     },
     {
       "collection": "formations",
@@ -7396,7 +7944,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
-      "index": 14,
+      "index": 16,
       "label": "Claude vs ChatGPT : vos questions",
       "background": "paper"
     },
@@ -7501,11 +8049,38 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/agent-sav-architecture.json",
+      "slug": "agent-sav-architecture",
+      "route": "/ressources/guides/agent-sav-architecture",
+      "index": 15,
+      "label": "Agent IA de service client : questions fréquentes",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/ai-act-pme-calendrier.json",
       "slug": "ai-act-pme-calendrier",
       "route": "/ressources/guides/ai-act-pme-calendrier",
       "index": 13,
       "label": "Questions fréquentes",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/aides-financement-projet-ia.json",
+      "slug": "aides-financement-projet-ia",
+      "route": "/ressources/guides/aides-financement-projet-ia",
+      "index": 14,
+      "label": "Financer un projet IA : questions fréquentes",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/chatbot-transparence-article-50.json",
+      "slug": "chatbot-transparence-article-50",
+      "route": "/ressources/guides/chatbot-transparence-article-50",
+      "index": 13,
+      "label": "Chatbot et article 50 : questions fréquentes",
       "background": "paper"
     },
     {
@@ -7627,6 +8202,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/cout-projet-ia-pme.json",
+      "slug": "cout-projet-ia-pme",
+      "route": "/ressources/guides/cout-projet-ia-pme",
+      "index": 13,
+      "label": "Coût d'un projet IA : questions fréquentes",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/devis-automatise.json",
       "slug": "devis-automatise",
       "route": "/ressources/guides/devis-automatise",
@@ -7663,6 +8247,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/n8n-auto-heberge-rgpd.json",
+      "slug": "n8n-auto-heberge-rgpd",
+      "route": "/ressources/guides/n8n-auto-heberge-rgpd",
+      "index": 11,
+      "label": "n8n et RGPD : questions fréquentes",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/n8n-prix.json",
       "slug": "n8n-prix",
       "route": "/ressources/guides/n8n-prix",
@@ -7686,6 +8279,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/refonte-site-internet",
       "index": 12,
       "label": "Refonte de site internet : questions fréquentes",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/rgpd-agents-ia-checklist.json",
+      "slug": "rgpd-agents-ia-checklist",
+      "route": "/ressources/guides/rgpd-agents-ia-checklist",
+      "index": 11,
+      "label": "RGPD et agents IA : questions fréquentes",
       "background": "paper"
     },
     {
@@ -8179,7 +8781,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
-      "index": 16,
+      "index": 18,
       "label": "Questions fréquentes",
       "background": "paper"
     },
@@ -8907,7 +9509,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
-      "index": 15,
+      "index": 17,
       "label": "L'outil compte moins que le cadre.",
       "background": "ink"
     },
@@ -9012,11 +9614,38 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/agent-sav-architecture.json",
+      "slug": "agent-sav-architecture",
+      "route": "/ressources/guides/agent-sav-architecture",
+      "index": 16,
+      "label": "Savoir quelles demandes un agent peut traiter chez vous, avant d'en construire un. L'audit est gratuit.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/ai-act-pme-calendrier.json",
       "slug": "ai-act-pme-calendrier",
       "route": "/ressources/guides/ai-act-pme-calendrier",
       "index": 14,
       "label": "Savoir lesquels de vos usages d'IA demandent une attention, et lesquels n'en demandent aucune.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/aides-financement-projet-ia.json",
+      "slug": "aides-financement-projet-ia",
+      "route": "/ressources/guides/aides-financement-projet-ia",
+      "index": 15,
+      "label": "Un projet écrit et chiffré avant de déposer un dossier. L'audit est gratuit.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/chatbot-transparence-article-50.json",
+      "slug": "chatbot-transparence-article-50",
+      "route": "/ressources/guides/chatbot-transparence-article-50",
+      "index": 14,
+      "label": "Savoir lequel de vos agents doit afficher « IA », et le faire proprement.",
       "background": "ink"
     },
     {
@@ -9138,6 +9767,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/cout-projet-ia-pme.json",
+      "slug": "cout-projet-ia-pme",
+      "route": "/ressources/guides/cout-projet-ia-pme",
+      "index": 14,
+      "label": "Un coût complet chiffré sur un périmètre écrit, avant la première heure facturée. L'audit est gratuit.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/devis-automatise.json",
       "slug": "devis-automatise",
       "route": "/ressources/guides/devis-automatise",
@@ -9174,6 +9812,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/n8n-auto-heberge-rgpd.json",
+      "slug": "n8n-auto-heberge-rgpd",
+      "route": "/ressources/guides/n8n-auto-heberge-rgpd",
+      "index": 12,
+      "label": "Choisir entre Cloud et auto-hébergé, puis régler la purge et les accès.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/n8n-prix.json",
       "slug": "n8n-prix",
       "route": "/ressources/guides/n8n-prix",
@@ -9197,6 +9844,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/refonte-site-internet",
       "index": 13,
       "label": "Savoir s'il faut corriger votre site ou le refaire.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/rgpd-agents-ia-checklist.json",
+      "slug": "rgpd-agents-ia-checklist",
+      "route": "/ressources/guides/rgpd-agents-ia-checklist",
+      "index": 12,
+      "label": "Passer vos agents IA au crible du RGPD avant la mise en production.",
       "background": "ink"
     },
     {
@@ -9690,7 +10346,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
-      "index": 17,
+      "index": 19,
       "label": "Le programme se monte sur vos tâches.",
       "background": "ink"
     },
@@ -10489,11 +11145,38 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/agent-sav-architecture.json",
+      "slug": "agent-sav-architecture",
+      "route": "/ressources/guides/agent-sav-architecture",
+      "index": 0,
+      "label": "Agent IA de service client (SAV) : architecture, garde-fous, mesure",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/ai-act-pme-calendrier.json",
       "slug": "ai-act-pme-calendrier",
       "route": "/ressources/guides/ai-act-pme-calendrier",
       "index": 0,
       "label": "AI Act pour les PME : le calendrier à jour et ce qui vous concerne",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/aides-financement-projet-ia.json",
+      "slug": "aides-financement-projet-ia",
+      "route": "/ressources/guides/aides-financement-projet-ia",
+      "index": 0,
+      "label": "Aides et financements d'un projet IA en PME : ce qui existe en 2026",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/chatbot-transparence-article-50.json",
+      "slug": "chatbot-transparence-article-50",
+      "route": "/ressources/guides/chatbot-transparence-article-50",
+      "index": 0,
+      "label": "Chatbot et AI Act : l'obligation de transparence de l'article 50",
       "background": "paper"
     },
     {
@@ -10615,6 +11298,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/cout-projet-ia-pme.json",
+      "slug": "cout-projet-ia-pme",
+      "route": "/ressources/guides/cout-projet-ia-pme",
+      "index": 0,
+      "label": "Combien coûte un projet IA en PME ? Les huit postes",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/devis-automatise.json",
       "slug": "devis-automatise",
       "route": "/ressources/guides/devis-automatise",
@@ -10651,6 +11343,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/n8n-auto-heberge-rgpd.json",
+      "slug": "n8n-auto-heberge-rgpd",
+      "route": "/ressources/guides/n8n-auto-heberge-rgpd",
+      "index": 0,
+      "label": "n8n auto-hébergé ou cloud : que change le RGPD ?",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/n8n-prix.json",
       "slug": "n8n-prix",
       "route": "/ressources/guides/n8n-prix",
@@ -10674,6 +11375,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/refonte-site-internet",
       "index": 0,
       "label": "Refonte de site internet : étapes, coût et SEO à garder",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/rgpd-agents-ia-checklist.json",
+      "slug": "rgpd-agents-ia-checklist",
+      "route": "/ressources/guides/rgpd-agents-ia-checklist",
+      "index": 0,
+      "label": "RGPD et agents IA : 12 points à vérifier avant de déployer",
       "background": "paper"
     },
     {
@@ -11051,6 +11761,16 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
   "key-metric-grid": [
     {
       "collection": "guides",
+      "file": "guides/aides-financement-projet-ia.json",
+      "slug": "aides-financement-projet-ia",
+      "route": "/ressources/guides/aides-financement-projet-ia",
+      "index": 3,
+      "label": "Quels chiffres du Diag Data IA et du Prêt Boost IA faut-il retenir ?",
+      "variant": "accent",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-code-entreprise.json",
       "slug": "claude-code-entreprise",
       "route": "/ressources/guides/claude-code-entreprise",
@@ -11164,6 +11884,16 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/cout-integration-claude-pme",
       "index": 3,
       "label": "Trois chiffres d'Anthropic, un prix Waimia",
+      "variant": "accent",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/cout-projet-ia-pme.json",
+      "slug": "cout-projet-ia-pme",
+      "route": "/ressources/guides/cout-projet-ia-pme",
+      "index": 3,
+      "label": "Quels chiffres retenir avant de demander un devis ?",
       "variant": "accent",
       "background": "paper"
     },
@@ -12503,7 +13233,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
-      "index": 12,
+      "index": 14,
       "label": "Comment trancher en deux semaines, sur vos documents",
       "background": "paper-2"
     },
@@ -12554,11 +13284,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/agent-sav-architecture.json",
+      "slug": "agent-sav-architecture",
+      "route": "/ressources/guides/agent-sav-architecture",
+      "index": 12,
+      "label": "Comment mettre en place un agent IA de service client, étape par étape ?",
+      "background": "paper-3"
+    },
+    {
+      "collection": "guides",
       "file": "guides/ai-act-pme-calendrier.json",
       "slug": "ai-act-pme-calendrier",
       "route": "/ressources/guides/ai-act-pme-calendrier",
       "index": 10,
       "label": "Quoi faire, échéance par échéance",
+      "background": "paper-3"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/aides-financement-projet-ia.json",
+      "slug": "aides-financement-projet-ia",
+      "route": "/ressources/guides/aides-financement-projet-ia",
+      "index": 10,
+      "label": "Comment monter un dossier de financement pour un projet IA ?",
       "background": "paper-3"
     },
     {
@@ -13576,7 +14324,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
-      "index": 13,
+      "index": 15,
       "label": "Pour aller plus loin",
       "background": "paper-2"
     },
@@ -13672,12 +14420,39 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/agent-sav-architecture.json",
+      "slug": "agent-sav-architecture",
+      "route": "/ressources/guides/agent-sav-architecture",
+      "index": 14,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/ai-act-pme-calendrier.json",
       "slug": "ai-act-pme-calendrier",
       "route": "/ressources/guides/ai-act-pme-calendrier",
       "index": 12,
       "label": "Pour aller plus loin",
       "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/aides-financement-projet-ia.json",
+      "slug": "aides-financement-projet-ia",
+      "route": "/ressources/guides/aides-financement-projet-ia",
+      "index": 13,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/chatbot-transparence-article-50.json",
+      "slug": "chatbot-transparence-article-50",
+      "route": "/ressources/guides/chatbot-transparence-article-50",
+      "index": 11,
+      "label": "Pour aller plus loin",
+      "background": "paper"
     },
     {
       "collection": "guides",
@@ -13798,6 +14573,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/cout-projet-ia-pme.json",
+      "slug": "cout-projet-ia-pme",
+      "route": "/ressources/guides/cout-projet-ia-pme",
+      "index": 12,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/devis-automatise.json",
       "slug": "devis-automatise",
       "route": "/ressources/guides/devis-automatise",
@@ -13834,6 +14618,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/n8n-auto-heberge-rgpd.json",
+      "slug": "n8n-auto-heberge-rgpd",
+      "route": "/ressources/guides/n8n-auto-heberge-rgpd",
+      "index": 9,
+      "label": "Pour aller plus loin",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/n8n-prix.json",
       "slug": "n8n-prix",
       "route": "/ressources/guides/n8n-prix",
@@ -13858,6 +14651,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 11,
       "label": "Pour aller plus loin",
       "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/rgpd-agents-ia-checklist.json",
+      "slug": "rgpd-agents-ia-checklist",
+      "route": "/ressources/guides/rgpd-agents-ia-checklist",
+      "index": 9,
+      "label": "Pour aller plus loin",
+      "background": "paper"
     },
     {
       "collection": "guides",
@@ -13963,7 +14765,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "formations/claude.json",
       "slug": "claude",
       "route": "src/content/formations/claude.json",
-      "index": 15,
+      "index": 17,
       "label": "Pour aller plus loin",
       "background": "paper-2"
     },
@@ -14280,12 +15082,39 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/agent-sav-architecture.json",
+      "slug": "agent-sav-architecture",
+      "route": "/ressources/guides/agent-sav-architecture",
+      "index": 11,
+      "label": "Agent du marché ou agent sur mesure : lequel choisir ?",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/ai-act-pme-calendrier.json",
       "slug": "ai-act-pme-calendrier",
       "route": "/ressources/guides/ai-act-pme-calendrier",
       "index": 8,
       "label": "Ce qui vous concerne, ce qui ne vous concerne pas",
       "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/aides-financement-projet-ia.json",
+      "slug": "aides-financement-projet-ia",
+      "route": "/ressources/guides/aides-financement-projet-ia",
+      "index": 11,
+      "label": "Quand compter sur une aide, et quand ne pas le faire ?",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/chatbot-transparence-article-50.json",
+      "slug": "chatbot-transparence-article-50",
+      "route": "/ressources/guides/chatbot-transparence-article-50",
+      "index": 8,
+      "label": "Ce qui tient, ce qui ne tient pas",
+      "background": "paper-2"
     },
     {
       "collection": "guides",
@@ -14388,6 +15217,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/n8n-auto-heberge-rgpd.json",
+      "slug": "n8n-auto-heberge-rgpd",
+      "route": "/ressources/guides/n8n-auto-heberge-rgpd",
+      "index": 7,
+      "label": "Quand l'auto-hébergement vaut la peine",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/n8n-prix.json",
       "slug": "n8n-prix",
       "route": "/ressources/guides/n8n-prix",
@@ -14403,6 +15241,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 9,
       "label": "Refondre votre site, ou s'en abstenir",
       "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/rgpd-agents-ia-checklist.json",
+      "slug": "rgpd-agents-ia-checklist",
+      "route": "/ressources/guides/rgpd-agents-ia-checklist",
+      "index": 7,
+      "label": "Avancer seul, ou faire appel à un DPO ou à un juriste",
+      "background": "paper-2"
     },
     {
       "collection": "guides",

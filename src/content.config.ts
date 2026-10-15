@@ -655,6 +655,10 @@ const authors = defineCollection({
     // <title> SEO dédié (optionnel) : sinon le template compose « nom · rôle · marque ».
     seoTitle_fr: z.string().optional(),
     seoTitle_en: z.string().optional(),
+    // H1 dédié (optionnel) « Nom, intitulé » : sinon le H1 est le seul nom. La virgule sépare
+    // le nom (romain) de l'intitulé (accent).
+    h1_fr: z.string().optional(),
+    h1_en: z.string().optional(),
     role_fr: z.string(),
     role_en: z.string(),
     bio_fr: z.string().min(120),

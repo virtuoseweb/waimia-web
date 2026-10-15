@@ -1,0 +1,522 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "n8n auto-hébergé ou cloud : que change le RGPD ?",
+  "title_en": "Self-hosted n8n or cloud: what does the GDPR change?",
+  "seoTitle_fr": "n8n auto-hébergé ou cloud : que change le RGPD ?",
+  "description_fr": "n8n Cloud ou auto-hébergé : où vivent les données, journaux d'exécution, identifiants, sous-traitants, hébergeurs UE et licence. Quand auto-héberger.",
+  "description_en": "n8n Cloud or self-hosted: where the data lives, execution logs, credentials, sub-processors, EU hosts and licence. When to self-host.",
+  "slug": "n8n-auto-heberge-rgpd",
+  "publishedAt": "2026-10-15T00:00:00.000Z",
+  "updatedAt": "2026-10-15T00:00:00.000Z",
+  "category": "conformite",
+  "tags": [
+    "n8n",
+    "rgpd",
+    "auto-hebergement",
+    "journaux-execution",
+    "sous-traitant",
+    "licence",
+    "conformite-ia",
+    "guide-pme"
+  ],
+  "sources": [
+    {
+      "name": "n8n, tarifs et tableau comparatif des offres, relevé le 15 octobre 2026",
+      "url": "https://n8n.io/pricing/",
+      "type": "enterprise"
+    },
+    {
+      "name": "n8n, documentation Privacy, relevée le 15 octobre 2026",
+      "url": "https://docs.n8n.io/privacy-security/privacy/",
+      "type": "enterprise"
+    },
+    {
+      "name": "n8n, liste des sous-traitants (mise à jour du 22 septembre 2026), relevée le 15 octobre 2026",
+      "url": "https://n8n.io/legal/sub-processors/",
+      "type": "enterprise",
+      "publishedAt": "2026-09-22"
+    },
+    {
+      "name": "n8n, accord de traitement des données (DPA), relevé le 15 octobre 2026",
+      "url": "https://n8n.io/legal/data-processing-agreement/",
+      "type": "enterprise"
+    },
+    {
+      "name": "n8n, variables d'environnement des exécutions, relevées le 15 octobre 2026",
+      "url": "https://docs.n8n.io/hosting/configuration/environment-variables/executions/",
+      "type": "enterprise"
+    },
+    {
+      "name": "n8n, clé de chiffrement, relevée le 15 octobre 2026",
+      "url": "https://docs.n8n.io/hosting/configuration/configuration-examples/encryption-key/",
+      "type": "enterprise"
+    },
+    {
+      "name": "n8n, fonctions de l'édition Community, relevées le 15 octobre 2026",
+      "url": "https://docs.n8n.io/hosting/community-edition-features/",
+      "type": "enterprise"
+    },
+    {
+      "name": "n8n, FAQ de la licence Sustainable Use, relevée le 15 octobre 2026",
+      "url": "https://docs.n8n.io/n8n-community-license/community-license/license-faq",
+      "type": "enterprise"
+    },
+    {
+      "name": "OVHcloud, conditions et mentions légales, relevées le 15 octobre 2026",
+      "url": "https://www.ovhcloud.com/fr/terms-and-conditions/",
+      "type": "enterprise"
+    },
+    {
+      "name": "Scaleway, mentions légales, relevées le 15 octobre 2026",
+      "url": "https://www.scaleway.com/en/legal-notice/",
+      "type": "enterprise"
+    },
+    {
+      "name": "Hetzner, mentions légales, relevées le 15 octobre 2026",
+      "url": "https://www.hetzner.com/legal/legal-notice/",
+      "type": "enterprise"
+    },
+    {
+      "name": "Légifrance, article L1111-8 du code de la santé publique, relevé le 15 octobre 2026",
+      "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000049577902",
+      "type": "state"
+    }
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "n8n est-il conforme au RGPD ?",
+      "a": "Un outil n'est pas conforme en soi : c'est votre usage qui l'est ou non. n8n fournit un DPA avec clauses contractuelles types pour Cloud et héberge les offres hébergées dans l'Union. En auto-hébergement, la conformité dépend de votre hébergeur, de la purge des journaux et de vos accès. Dans les deux cas, n8n et les services que vos workflows appellent vont dans votre registre."
+    },
+    {
+      "q": "n8n auto-hébergé est-il sous-traitant de mes données ?",
+      "a": "Non, d'après la documentation de n8n : en auto-hébergement, n8n n'est ni responsable de traitement ni sous-traitant pour les données de vos workflows. Votre hébergeur, lui, traite les données pour vous, donc vous signez avec lui. n8n reste responsable de sa télémétrie, qui se désactive en grande partie par variables."
+    },
+    {
+      "q": "Combien de temps n8n garde-t-il les exécutions ?",
+      "a": "En auto-hébergement, par défaut, la purge est activée avec un âge maximal de 336 heures (14 jours) et 10 000 exécutions, et tout est enregistré. Sur Cloud, le tableau des offres indique une durée maximale de journaux de 7 jours (Starter), 30 jours (Pro) et illimitée (Enterprise). Réglez la durée au plus court utile."
+    },
+    {
+      "q": "Où n8n Cloud héberge-t-il les données ?",
+      "a": "La page de tarifs de n8n indique un hébergement dans l'Union, à Francfort, pour les offres hébergées. La page des sous-traitants cite Microsoft Azure, avec des régions de l'Union. Certains sous-traitants listés (fournisseurs d'IA, services « n8n Gateway ») sont hors de l'Union : lisez la liste pour les fonctions que vous activez."
+    },
+    {
+      "q": "Puis-je utiliser n8n Community pour des clients ?",
+      "a": "Dans un cadre limité. D'après la FAQ de la licence, un prestataire peut construire des workflows pour ses clients si ceux-ci ne peuvent pas les créer ni les éditer, facturer création, maintenance et formation, et installer n8n chez le client s'il n'héberge pas lui-même. Héberger n8n comme un service où les clients construisent est exclu. Vérifiez avec la FAQ avant de vous lancer."
+    },
+    {
+      "q": "Que manque-t-il à l'édition Community côté sécurité ?",
+      "a": "D'après la documentation, l'édition Community n'inclut pas le SSO, les environnements, Git, les projets, le stockage externe des secrets ni la diffusion des journaux (log streaming). Le SSO et LDAP sont listés dans l'offre Business ; le stockage externe des secrets et la diffusion des journaux dans l'offre Enterprise."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Is n8n GDPR-compliant?",
+      "a": "A tool is not compliant in itself: your use is or is not. n8n provides a DPA with standard contractual clauses for Cloud and hosts its hosted plans in the Union. When self-hosting, compliance depends on your host, log purging and your access controls. In both cases, n8n and the services your workflows call go into your register."
+    },
+    {
+      "q": "Is self-hosted n8n a processor of my data?",
+      "a": "No, according to n8n's documentation: when self-hosting, n8n is neither controller nor processor for your workflow data. Your host does process data for you, so you sign with it. n8n remains responsible for its telemetry, which can largely be disabled by variables."
+    },
+    {
+      "q": "How long does n8n keep executions?",
+      "a": "When self-hosting, by default pruning is on with a maximum age of 336 hours (14 days) and 10,000 executions, and everything is saved. On Cloud, the plans table gives a maximum log duration of 7 days (Starter), 30 days (Pro) and unlimited (Enterprise). Set the shortest useful period."
+    },
+    {
+      "q": "Where does n8n Cloud host the data?",
+      "a": "n8n's pricing page states hosting in the Union, in Frankfurt, for the hosted plans. The sub-processor page names Microsoft Azure, with Union regions. Some listed sub-processors (AI providers, \"n8n Gateway\" services) are outside the Union: read the list for the features you enable."
+    },
+    {
+      "q": "Can I use n8n Community for clients?",
+      "a": "Within limits. According to the licence FAQ, a provider may build workflows for its clients if they cannot create or edit them, bill for creation, maintenance and training, and install n8n at the client's if it does not host it itself. Hosting n8n as a service where clients build is excluded. Check the FAQ before starting."
+    },
+    {
+      "q": "What does the Community edition lack on security?",
+      "a": "According to the documentation, the Community edition does not include SSO, environments, Git, projects, external secret storage or log streaming. SSO and LDAP are listed in the Business plan; external secret storage and log streaming in the Enterprise plan."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "kicker_fr": "§ Guide",
+      "kicker_en": "§ Guide",
+      "h1_fr": "n8n auto-hébergé ou cloud : que change le RGPD ?",
+      "h1_en": "Self-hosted n8n or cloud: what does the GDPR change?",
+      "lede_fr": "Avec n8n Cloud, n8n héberge vos données de workflow et agit comme sous-traitant, avec un DPA intégré à ses conditions. En auto-hébergement, n8n n'est pas sous-traitant de ces données, mais la sécurité, la conservation et l'hébergeur deviennent votre travail. Ce guide n'est pas un avis juridique.",
+      "lede_en": "With n8n Cloud, n8n hosts your workflow data and acts as a processor, with a DPA built into its terms. When self-hosting, n8n is not a processor of that data, but security, retention and the host become your job. This guide is not legal advice.",
+      "badges": [
+        {
+          "label_fr": "Sources officielles",
+          "label_en": "Official sources"
+        },
+        {
+          "label_fr": "Relevé le 15 octobre 2026",
+          "label_en": "Read on 15 October 2026"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver l'audit gratuit",
+        "label_en": "Book the free audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme",
+        "variant": "ghost"
+      },
+      "illustration": {
+        "src": "/images/illustrations/ds/integration-mistral-ai-atelier-paper.webp",
+        "alt_fr": "De nuit, une personne pousse un moteur sur un chariot vers un petit atelier éclairé au bord d'un champ.",
+        "alt_en": "At night, a person pushes an engine on a cart toward a small lit workshop at the edge of a field.",
+        "side": "right"
+      }
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "15 octobre 2026",
+      "updatedDate": "15 octobre 2026"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "n8n auto-hébergé est-il plus conforme au RGPD que n8n Cloud ?",
+      "question_en": "Is self-hosted n8n more GDPR-compliant than n8n Cloud?",
+      "term_fr": "Au 15 octobre 2026",
+      "term_en": "As of 15 October 2026",
+      "answer_fr": "Pas automatiquement. Les deux peuvent être conformes. Cloud déplace une partie du travail vers n8n, qui héberge dans l'Union (Francfort pour les offres hébergées) et fournit un DPA. L'auto-hébergement vous donne la maîtrise du lieu et des durées, mais n8n n'est plus sous-traitant de vos données de workflow : vous gérez la sécurité, les mises à jour, la purge des journaux et le contrat avec l'hébergeur.",
+      "answer_en": "Not automatically. Both can be compliant. Cloud shifts part of the work to n8n, which hosts in the Union (Frankfurt for the hosted plans) and provides a DPA. Self-hosting gives you control of location and retention, but n8n is no longer a processor of your workflow data: you handle security, updates, log purging and the contract with the host."
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>En bref</h2>\n<ul>\n<li><strong>Cloud.</strong> n8n est à la fois responsable de traitement et sous-traitant selon les données ; un DPA avec clauses contractuelles types est intégré à ses conditions.</li>\n<li><strong>Auto-hébergé.</strong> n8n n'est ni responsable ni sous-traitant pour vos données de workflow. Votre hébergeur, lui, l'est : il vous faut un contrat avec lui.</li>\n<li><strong>Le point qui piège.</strong> Les journaux d'exécution gardent les données qui ont traversé vos workflows. Ils se purgent par réglage, et il faut le régler.</li>\n<li><strong>La licence compte.</strong> L'édition Community est gratuite mais n'inclut ni SSO, ni stockage externe des secrets, ni diffusion des journaux.</li>\n</ul>\n<p>Les faits de ce guide sont <strong>relevés le 15 octobre 2026</strong> sur n8n.io (tarifs, sous-traitants, DPA) et dans la documentation officielle de n8n. Ils changent : n8n met ses pages à jour sans préavis. Ce guide n'est pas un avis juridique. Pour les tarifs, voir le guide <a href=\"/ressources/guides/n8n-prix\">prix de n8n</a> ; pour le RGPD d'un agent, la <a href=\"/ressources/guides/rgpd-agents-ia-checklist\">checklist RGPD avant déploiement</a>.</p>\n<h2>Où sont les données avec n8n Cloud, et avec n8n auto-hébergé ?</h2>\n<p>Sur les offres hébergées, n8n indique sur sa page de tarifs que les données sont hébergées dans l'Union, à Francfort. Sa page des sous-traitants cite Microsoft Azure pour l'infrastructure cloud, avec des régions de l'Union (l'Allemagne et la Suède sont données à titre d'exemples). En auto-hébergement, les données sont là où vous installez n8n : sur votre serveur, chez un hébergeur de votre choix, sur votre poste.</p>\n<p>Deux flux existent dans tous les cas, quel que soit l'hébergement : les services que vos workflows appellent (un modèle d'IA, un CRM, une messagerie) et la télémétrie de n8n. Les premiers sont vos propres sous-traitants, à ajouter à votre registre. La seconde est traitée plus bas.</p>",
+      "html_en": "<h2>In short</h2>\n<ul>\n<li><strong>Cloud.</strong> n8n is both controller and processor depending on the data; a DPA with standard contractual clauses is built into its terms.</li>\n<li><strong>Self-hosted.</strong> n8n is neither controller nor processor for your workflow data. Your host is: you need a contract with it.</li>\n<li><strong>The point that traps.</strong> Execution logs keep the data that flowed through your workflows. They are purged by setting, and you have to set it.</li>\n<li><strong>The licence matters.</strong> The Community edition is free but includes no SSO, no external secret store, no log streaming.</li>\n</ul>\n<p>The facts in this guide were <strong>read on 15 October 2026</strong> on n8n.io (pricing, sub-processors, DPA) and in n8n's official documentation. They change: n8n updates its pages without notice. This guide is not legal advice. For pricing, see the guide <a href=\"/ressources/guides/n8n-prix\">n8n pricing</a>; for an agent's GDPR, the <a href=\"/ressources/guides/rgpd-agents-ia-checklist\">GDPR checklist before deployment</a>.</p>\n<h2>Where is the data with n8n Cloud, and with self-hosted n8n?</h2>\n<p>On the hosted plans, n8n states on its pricing page that data is hosted in the Union, in Frankfurt. Its sub-processor page names Microsoft Azure for the cloud infrastructure, with Union regions (Germany and Sweden are given as examples). When self-hosting, the data is wherever you install n8n: on your server, with a host of your choice, on your own machine.</p>\n<p>Two flows exist in every case, whatever the hosting: the services your workflows call (an AI model, a CRM, a mailbox) and n8n's telemetry. The former are your own processors, to be added to your register. The latter is covered below.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Comparatif",
+      "kicker_en": "§ Comparison",
+      "heading_fr": "n8n Cloud et n8n auto-hébergé : qui porte quoi",
+      "heading_en": "n8n Cloud and self-hosted n8n: who carries what",
+      "caption_fr": "Sources : docs.n8n.io/privacy-security/privacy, n8n.io/pricing, n8n.io/legal/sub-processors, relevées le 15 octobre 2026. La dernière colonne est la lecture de Waimia.",
+      "caption_en": "Sources: docs.n8n.io/privacy-security/privacy, n8n.io/pricing, n8n.io/legal/sub-processors, read on 15 October 2026. The last column is Waimia's reading.",
+      "columns_fr": [
+        "Sujet",
+        "n8n Cloud",
+        "n8n auto-hébergé",
+        "À retenir"
+      ],
+      "columns_en": [
+        "Topic",
+        "n8n Cloud",
+        "Self-hosted n8n",
+        "Takeaway"
+      ],
+      "rows_fr": [
+        [
+          "Rôle de n8n",
+          "Responsable de traitement et sous-traitant selon les données ; DPA avec clauses types intégré aux conditions",
+          "Ni responsable ni sous-traitant pour les données de workflow",
+          "Cloud : DPA à contresigner via n8n. Auto-hébergé : contrat avec votre hébergeur"
+        ],
+        [
+          "Lieu des données",
+          "Hébergé dans l'Union, à Francfort (page de tarifs) ; Azure, régions de l'Union (page des sous-traitants)",
+          "Où vous l'installez",
+          "Dans les deux cas, demandez et gardez la preuve du lieu"
+        ],
+        [
+          "Journaux d'exécution",
+          "Durée maximale de 7 jours (Starter), 30 jours (Pro), illimitée (Enterprise), selon le tableau des offres",
+          "Réglée par variables ; purge activée par défaut à 336 heures, 10 000 exécutions",
+          "Sur auto-hébergé, vérifiez les valeurs : elles s'appliquent à vous"
+        ],
+        [
+          "Sauvegardes et suppression",
+          "Suppression de compte traitée le jour même ; sauvegardes et journaux internes conservés 90 jours",
+          "À votre charge",
+          "Une demande d'effacement doit couvrir sauvegardes et journaux"
+        ],
+        [
+          "Télémétrie",
+          "Non désactivable sur Cloud",
+          "Désactivable par variables d'environnement, sauf les comptages de licence payante",
+          "Documenter le flux dans le registre"
+        ],
+        [
+          "Assistant IA de n8n",
+          "Actif par défaut : envoie le contexte du workflow (pas les données de sortie ni les identifiants)",
+          "Non précisé dans la documentation lue",
+          "Décider si on le laisse actif"
+        ],
+        [
+          "Sécurité et mises à jour",
+          "Assurées par n8n",
+          "Assurées par vous : serveur, sauvegardes, accès, correctifs",
+          "Le vrai coût de l'auto-hébergement"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Role of n8n",
+          "Controller and processor depending on the data; DPA with standard clauses built into the terms",
+          "Neither controller nor processor for workflow data",
+          "Cloud: DPA to countersign via n8n. Self-hosted: contract with your host"
+        ],
+        [
+          "Data location",
+          "Hosted in the Union, in Frankfurt (pricing page); Azure, Union regions (sub-processor page)",
+          "Wherever you install it",
+          "In both cases, ask for and keep proof of location"
+        ],
+        [
+          "Execution logs",
+          "Maximum duration of 7 days (Starter), 30 days (Pro), unlimited (Enterprise), per the plans table",
+          "Set by variables; pruning enabled by default at 336 hours, 10,000 executions",
+          "When self-hosted, check the values: they apply to you"
+        ],
+        [
+          "Backups and deletion",
+          "Account deletion handled the same day; backups and internal logs kept 90 days",
+          "Your responsibility",
+          "An erasure request must cover backups and logs"
+        ],
+        [
+          "Telemetry",
+          "Cannot be disabled on Cloud",
+          "Can be disabled by environment variables, except paid-licence counts",
+          "Document the flow in the register"
+        ],
+        [
+          "n8n's AI assistant",
+          "On by default: sends the workflow context (not output data or credentials)",
+          "Not stated in the documentation read",
+          "Decide whether to leave it on"
+        ],
+        [
+          "Security and updates",
+          "Handled by n8n",
+          "Handled by you: server, backups, access, patches",
+          "The real cost of self-hosting"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Que contiennent les journaux d'exécution, et comment les purger ?</h2>\n<p>Une exécution enregistre ce qui a traversé le workflow : un e-mail reçu, une fiche contact, la réponse d'un modèle. C'est donc de la donnée personnelle dès que le workflow en traite. La documentation de n8n sur le RGPD en auto-hébergement indique que c'est à vous de supprimer les données (supprimer l'exécution) et recommande de purger automatiquement avec <code>EXECUTIONS_DATA_MAX_AGE</code>.</p>\n<p>Valeurs par défaut documentées (page des variables d'exécution) :</p>\n<ul>\n<li><code>EXECUTIONS_DATA_SAVE_ON_ERROR=all</code> et <code>EXECUTIONS_DATA_SAVE_ON_SUCCESS=all</code> : tout est enregistré, succès comme erreurs ;</li>\n<li><code>EXECUTIONS_DATA_SAVE_MANUAL_EXECUTIONS=true</code> : les essais manuels aussi ;</li>\n<li><code>EXECUTIONS_DATA_PRUNE=true</code>, <code>EXECUTIONS_DATA_MAX_AGE=336</code> (en heures, soit 14 jours) et <code>EXECUTIONS_DATA_PRUNE_MAX_COUNT=10000</code> ;</li>\n<li><code>N8N_EXECUTION_DATA_STORAGE_MODE=database</code> : le stockage par défaut est la base de n8n.</li>\n</ul>\n<p>Rien n'oblige à garder 14 jours. Choisissez la durée la plus courte qui vous permet de déboguer, enregistrez moins quand un workflow manipule des données sensibles (ne pas sauvegarder les succès, par exemple), et ajoutez la base de n8n et ses sauvegardes à la liste de ce qu'une demande d'effacement doit couvrir. Cette durée entre dans votre registre et dans vos mentions d'information.</p>\n<h2>Où sont les identifiants, et comment sont-ils protégés ?</h2>\n<p>n8n chiffre les identifiants qu'il enregistre avec une clé d'encryption créée au premier lancement dans <code>~/.n8n</code>. La documentation recommande de la fixer avec <code>N8N_ENCRYPTION_KEY</code> ; en mode queue, la même clé est obligatoire sur tous les workers. Perdre cette clé rend les identifiants illisibles ; la divulguer annule la protection. Conservez-la dans un coffre de secrets, hors du dépôt de code, avec une sauvegarde séparée de la base. Le stockage externe des secrets est une fonction de l'offre Enterprise.</p>\n<h2>Que collecte n8n par télémétrie, et peut-on la couper ?</h2>\n<p>La page de confidentialité de n8n distingue la télémétrie, pour laquelle n8n est responsable de traitement, de vos données de workflow. En auto-hébergement, elle se désactive avec des variables d'environnement, dont <code>N8N_DIAGNOSTICS_ENABLED=false</code>, <code>N8N_VERSION_NOTIFICATIONS_ENABLED=false</code> et <code>N8N_TEMPLATES_ENABLED=false</code>. Exception documentée : les comptages liés à une licence payante ne se désactivent pas. n8n précise aussi que la clé de licence Business ou Enterprise contacte son serveur de licence chaque jour avec le nombre d'exécutions de production. Sur Cloud, la télémétrie ne se désactive pas ; les enregistrements de session sont supprimés après 21 jours.</p>",
+      "html_en": "<h2>What do execution logs contain, and how do you purge them?</h2>\n<p>An execution records what flowed through the workflow: an incoming email, a contact record, a model's reply. It is therefore personal data as soon as the workflow processes any. n8n's documentation on GDPR for self-hosted users states that it is up to you to delete the data (delete the execution) and recommends pruning automatically with <code>EXECUTIONS_DATA_MAX_AGE</code>.</p>\n<p>Documented defaults (execution variables page):</p>\n<ul>\n<li><code>EXECUTIONS_DATA_SAVE_ON_ERROR=all</code> and <code>EXECUTIONS_DATA_SAVE_ON_SUCCESS=all</code>: everything is saved, successes and errors alike;</li>\n<li><code>EXECUTIONS_DATA_SAVE_MANUAL_EXECUTIONS=true</code>: manual test runs too;</li>\n<li><code>EXECUTIONS_DATA_PRUNE=true</code>, <code>EXECUTIONS_DATA_MAX_AGE=336</code> (in hours, i.e. 14 days) and <code>EXECUTIONS_DATA_PRUNE_MAX_COUNT=10000</code>;</li>\n<li><code>N8N_EXECUTION_DATA_STORAGE_MODE=database</code>: default storage is n8n's database.</li>\n</ul>\n<p>Nothing requires keeping 14 days. Choose the shortest period that lets you debug, save less when a workflow handles sensitive data (not saving successful runs, for example), and add n8n's database and its backups to the list of what an erasure request must cover. This period goes into your register and your information notices.</p>\n<h2>Where are credentials stored, and how are they protected?</h2>\n<p>n8n encrypts the credentials it stores with an encryption key created on first launch in <code>~/.n8n</code>. The documentation recommends setting it with <code>N8N_ENCRYPTION_KEY</code>; in queue mode, the same key is required on all workers. Losing the key makes the credentials unreadable; leaking it cancels the protection. Keep it in a secrets vault, outside the code repository, with a backup separate from the database. External secret storage is an Enterprise-plan feature.</p>\n<h2>What does n8n collect through telemetry, and can it be switched off?</h2>\n<p>n8n's privacy page distinguishes telemetry, for which n8n is the controller, from your workflow data. When self-hosting, it is disabled with environment variables, including <code>N8N_DIAGNOSTICS_ENABLED=false</code>, <code>N8N_VERSION_NOTIFICATIONS_ENABLED=false</code> and <code>N8N_TEMPLATES_ENABLED=false</code>. Documented exception: counts tied to a paid licence cannot be disabled. n8n also states that the Business or Enterprise licence key contacts its licence server every day with the number of production executions. On Cloud, telemetry cannot be disabled; session recordings are deleted after 21 days.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Quels sous-traitants n8n Cloud fait-il intervenir ?</h2>\n<p>La page <a href=\"https://n8n.io/legal/sub-processors/\" rel=\"noopener noreferrer\" target=\"_blank\">sous-traitants de n8n</a> (mise à jour le 22 septembre 2026) liste notamment :</p>\n<ul>\n<li>Microsoft Azure pour l'infrastructure cloud, régions de l'Union (Allemagne, Suède à titre d'exemples) ;</li>\n<li>des fournisseurs d'IA, avec des localisations aux États-Unis et dans l'Union selon le fournisseur ;</li>\n<li>des sous-traitants du service « n8n Gateway », situés aux États-Unis, dans l'Union et à Singapour selon l'entrée ;</li>\n<li>les filiales n8n US Inc. et n8n UK Ltd pour le support, et Hetzner Online GmbH (Allemagne) pour le forum communautaire.</li>\n</ul>\n<p>La liste est longue et change : lisez-la avant de signer, et repérez ceux qui concernent les fonctions que vous activez. Le <a href=\"https://n8n.io/legal/data-processing-agreement/\" rel=\"noopener noreferrer\" target=\"_blank\">DPA de n8n</a> est pré-signé par n8n ; vous devez le contresigner et l'archiver. En auto-hébergement, cette liste ne vous concerne pas pour les données de workflow ; la vôtre commence avec votre hébergeur et les services que vos workflows appellent.</p>\n<h2>Quel hébergeur européen choisir pour auto-héberger n8n ?</h2>\n<p>Trois options courantes, avec ce que leurs mentions légales établissent à la date de lecture :</p>\n<ul>\n<li><strong>OVHcloud</strong> : OVH SAS, 2 rue Kellermann, 59100 Roubaix, France ;</li>\n<li><strong>Scaleway</strong> : Scaleway SAS, Paris, France ;</li>\n<li><strong>Hetzner</strong> : Hetzner Online GmbH, Gunzenhausen, Allemagne.</li>\n</ul>\n<p>Ce sont des sociétés établies dans l'Union, ce qui ne dispense de rien : vérifiez le lieu du centre de données choisi, le contrat de sous-traitance proposé (article 28) et, pour des données de santé, un hébergement certifié HDS (article L1111-8 du code de la santé publique). Waimia n'a pas vérifié les certifications de ces trois hébergeurs ; demandez-les au contrat. Les sauvegardes et les journaux de l'hébergeur lui-même sont aussi à mettre dans votre registre.</p>\n<h2>Que change la licence Community, Business ou Enterprise ?</h2>\n<p>L'édition Community est gratuite, auto-hébergée, sous la Sustainable Use License. D'après la documentation et la page de tarifs :</p>\n<ul>\n<li><strong>Community</strong> : sans partage de workflows et d'identifiants, sans SSO, sans environnements, sans Git, sans projets, sans secrets externes ni diffusion des journaux (la journalisation standard est incluse). La version Community enregistrée (gratuite) ajoute notamment des dossiers et la donnée d'exécution personnalisée ;</li>\n<li><strong>Business</strong> : auto-hébergé uniquement, avec SSO et LDAP, environnements, Git et mode queue ; la page de tarifs le mentionne pour moins de 100 salariés (667 €/mois, 40 000 exécutions) ;</li>\n<li><strong>Enterprise</strong> : sur devis, avec stockage externe des secrets, diffusion des journaux (log streaming), rétention étendue des données et support avec engagement de service.</li>\n</ul>\n<p>La licence encadre aussi le prestataire. D'après la FAQ de la licence, un prestataire peut construire des workflows pour ses clients si ceux-ci ne peuvent pas les créer ni les éditer, facturer la création, la maintenance et la formation, et installer n8n chez le client s'il n'héberge pas lui-même. Il ne peut pas héberger n8n comme un service où les clients construisent, ni le revendre en marque blanche. C'est le cadre dans lequel Waimia livre des automatisations <a href=\"/services/automatisation-n8n\">n8n</a>.</p>",
+      "html_en": "<h2>Which sub-processors does n8n Cloud use?</h2>\n<p>The <a href=\"https://n8n.io/legal/sub-processors/\" rel=\"noopener noreferrer\" target=\"_blank\">n8n sub-processor page</a> (updated 22 September 2026) lists notably:</p>\n<ul>\n<li>Microsoft Azure for cloud infrastructure, Union regions (Germany, Sweden as examples);</li>\n<li>AI providers, located in the United States and in the Union depending on the provider;</li>\n<li>sub-processors of the \"n8n Gateway\" service, located in the United States, the Union and Singapore depending on the entry;</li>\n<li>the subsidiaries n8n US Inc. and n8n UK Ltd for support, and Hetzner Online GmbH (Germany) for the community forum.</li>\n</ul>\n<p>The list is long and changes: read it before signing, and spot those that concern the features you enable. The <a href=\"https://n8n.io/legal/data-processing-agreement/\" rel=\"noopener noreferrer\" target=\"_blank\">n8n DPA</a> is pre-signed by n8n; you must countersign and archive it. When self-hosting, this list does not concern you for workflow data; yours starts with your host and the services your workflows call.</p>\n<h2>Which European host for self-hosting n8n?</h2>\n<p>Three common options, with what their legal notices establish at the reading date:</p>\n<ul>\n<li><strong>OVHcloud</strong>: OVH SAS, 2 rue Kellermann, 59100 Roubaix, France;</li>\n<li><strong>Scaleway</strong>: Scaleway SAS, Paris, France;</li>\n<li><strong>Hetzner</strong>: Hetzner Online GmbH, Gunzenhausen, Germany.</li>\n</ul>\n<p>These are companies established in the Union, which exempts nothing: check the location of the chosen data centre, the processing contract offered (Article 28) and, for health data, HDS-certified hosting (Article L1111-8 of the Public Health Code). Waimia did not verify the certifications of these three hosts; ask for them in the contract. The backups and the host's own logs also belong in your register.</p>\n<h2>What do the Community, Business and Enterprise licences change?</h2>\n<p>The Community edition is free, self-hosted, under the Sustainable Use License. According to the documentation and the pricing page:</p>\n<ul>\n<li><strong>Community</strong>: no sharing of workflows and credentials, no SSO, no environments, no Git, no projects, no external secrets or log streaming (standard logging is included). The registered (free) Community version adds folders and custom execution data, among others;</li>\n<li><strong>Business</strong>: self-hosted only, with SSO and LDAP, environments, Git and queue mode; the pricing page lists it for fewer than 100 employees (EUR 667/month, 40,000 executions);</li>\n<li><strong>Enterprise</strong>: on quote, with external secret storage, log streaming, extended data retention and support with a service-level commitment.</li>\n</ul>\n<p>The licence also frames the service provider. According to the licence FAQ, a provider may build workflows for its clients if they cannot create or edit them, bill for creation, maintenance and training, and install n8n at the client's if it does not also host it. It may not host n8n as a service where clients build, nor resell it white-label. This is the framework in which Waimia delivers <a href=\"/services/automatisation-n8n\">n8n</a> automations.</p>"
+    },
+    {
+      "type": "tech-when-dual",
+      "background": "paper-2",
+      "kicker_fr": "§ Décider",
+      "kicker_en": "§ Deciding",
+      "title_fr": "Quand l'auto-hébergement vaut la peine",
+      "title_en": "When self-hosting is worth it",
+      "aside_fr": "Lecture de Waimia : l'économie de licence ne suffit pas, c'est la capacité à exploiter et à prouver qui tranche.",
+      "aside_en": "Waimia's reading: licence savings are not enough; the ability to operate and prove decides.",
+      "use_title_fr": "Auto-hébergez si",
+      "use_title_en": "Self-host if",
+      "use_items_fr": [
+        "Vous devez choisir le lieu exact des données ou les garder dans votre périmètre (secteur régulé, exigence client).",
+        "Quelqu'un peut tenir serveur, sauvegardes, correctifs et accès, avec une astreinte réelle.",
+        "Vos workflows traitent des données que vous ne voulez pas confier à un sous-traitant de plus.",
+        "Vous savez régler la purge des journaux et la clé de chiffrement dès le premier jour."
+      ],
+      "use_items_en": [
+        "You must choose the exact location of the data or keep it within your perimeter (regulated sector, client requirement).",
+        "Someone can run the server, backups, patches and access, with real on-call.",
+        "Your workflows process data you do not want to entrust to one more processor.",
+        "You can set log purging and the encryption key from day one."
+      ],
+      "avoid_title_fr": "Restez sur Cloud si",
+      "avoid_title_en": "Stay on Cloud if",
+      "avoid_items_fr": [
+        "Personne ne sera responsable du serveur : un n8n non mis à jour et exposé est un risque plus grand que l'hébergement chez n8n.",
+        "Vos volumes sont modestes et vos données peu sensibles.",
+        "Vous voulez un DPA unique et une assistance de l'éditeur, quitte à lire la liste de ses sous-traitants."
+      ],
+      "avoid_items_en": [
+        "Nobody will own the server: an unpatched, exposed n8n is a bigger risk than hosting with n8n.",
+        "Your volumes are modest and your data is not very sensitive.",
+        "You want a single DPA and vendor support, even if it means reading its sub-processor list."
+      ]
+    },
+    {
+      "type": "decision-list",
+      "background": "paper",
+      "kicker_fr": "§ Checklist",
+      "kicker_en": "§ Checklist",
+      "heading_fr": "Neuf points pour n8n, quel que soit l'hébergement",
+      "heading_en": "Nine points for n8n, whatever the hosting",
+      "items": [
+        {
+          "label_fr": "Ajoutez n8n et chaque service appelé par vos workflows (IA, CRM, messagerie) à votre registre des traitements.",
+          "label_en": "Add n8n and each service called by your workflows (AI, CRM, mailbox) to your register of processing."
+        },
+        {
+          "label_fr": "Cloud : contresignez et archivez le DPA de n8n, et relisez la liste de ses sous-traitants avant de signer.",
+          "label_en": "Cloud: countersign and archive n8n's DPA, and re-read its sub-processor list before signing."
+        },
+        {
+          "label_fr": "Auto-hébergé : signez le contrat de sous-traitance avec l'hébergeur et notez le lieu du centre de données.",
+          "label_en": "Self-hosted: sign the processing contract with the host and note the data centre location."
+        },
+        {
+          "label_fr": "Réglez la conservation des exécutions (EXECUTIONS_DATA_MAX_AGE) à la durée la plus courte utile.",
+          "label_en": "Set execution retention (EXECUTIONS_DATA_MAX_AGE) to the shortest useful period."
+        },
+        {
+          "label_fr": "Fixez N8N_ENCRYPTION_KEY, rangez-la dans un coffre et testez la restauration d'une sauvegarde.",
+          "label_en": "Set N8N_ENCRYPTION_KEY, store it in a vault and test restoring a backup."
+        },
+        {
+          "label_fr": "Désactivez la télémétrie qui peut l'être et décidez de l'assistant IA de n8n.",
+          "label_en": "Disable the telemetry that can be disabled and decide on n8n's AI assistant."
+        },
+        {
+          "label_fr": "Limitez les accès : un compte par personne, aucun secret dans les workflows partagés.",
+          "label_en": "Limit access: one account per person, no secrets in shared workflows."
+        },
+        {
+          "label_fr": "Écrivez la procédure d'effacement : exécutions, base, sauvegardes, journaux de l'hébergeur.",
+          "label_en": "Write the erasure procedure: executions, database, backups, the host's logs."
+        },
+        {
+          "label_fr": "Contrôlez que la licence correspond à l'usage (interne ou prestataire) avant d'ouvrir à des clients.",
+          "label_en": "Check that the licence matches the use (internal or provider) before opening to clients."
+        }
+      ]
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Going further",
+      "cards": [
+        {
+          "kicker_fr": "Hub",
+          "kicker_en": "Hub",
+          "title_fr": "Conformité IA : RGPD et AI Act",
+          "title_en": "AI compliance: GDPR and AI Act",
+          "lead_fr": "Le cadre d'ensemble et ce que Waimia met en place en mission.",
+          "lead_en": "The overall framework and what Waimia puts in place on engagements.",
+          "href": "/conformite-ia"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "RGPD et agents IA : 12 points",
+          "title_en": "GDPR and AI agents: 12 checks",
+          "lead_fr": "La checklist à passer avant de mettre un agent en production.",
+          "lead_en": "The checklist to run before putting an agent into production.",
+          "href": "/ressources/guides/rgpd-agents-ia-checklist"
+        },
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Automatisation n8n",
+          "title_en": "n8n automation",
+          "lead_fr": "Des workflows n8n livrés avec registre, purge et accès réglés.",
+          "lead_en": "n8n workflows delivered with register, purge and access set up.",
+          "href": "/services/automatisation-n8n"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Sources, relevées le 15 octobre 2026</h2>\n<ul>\n<li>n8n, <a href=\"https://n8n.io/pricing/\" rel=\"noopener noreferrer\" target=\"_blank\">tarifs et tableau comparatif des offres</a>.</li>\n<li>n8n, <a href=\"https://docs.n8n.io/privacy-security/privacy/\" rel=\"noopener noreferrer\" target=\"_blank\">documentation Privacy</a> (rôles, RGPD en auto-hébergement, télémétrie).</li>\n<li>n8n, <a href=\"https://n8n.io/legal/sub-processors/\" rel=\"noopener noreferrer\" target=\"_blank\">liste des sous-traitants</a> (mise à jour du 22 septembre 2026) et <a href=\"https://n8n.io/legal/data-processing-agreement/\" rel=\"noopener noreferrer\" target=\"_blank\">DPA</a>.</li>\n<li>n8n, <a href=\"https://docs.n8n.io/hosting/configuration/environment-variables/executions/\" rel=\"noopener noreferrer\" target=\"_blank\">variables d'environnement des exécutions</a> et <a href=\"https://docs.n8n.io/hosting/configuration/configuration-examples/encryption-key/\" rel=\"noopener noreferrer\" target=\"_blank\">clé de chiffrement</a>.</li>\n<li>n8n, <a href=\"https://docs.n8n.io/hosting/community-edition-features/\" rel=\"noopener noreferrer\" target=\"_blank\">fonctions de l'édition Community</a> et <a href=\"https://docs.n8n.io/n8n-community-license/community-license/license-faq\" rel=\"noopener noreferrer\" target=\"_blank\">FAQ de la licence</a>.</li>\n<li>Mentions légales : <a href=\"https://www.ovhcloud.com/fr/terms-and-conditions/\" rel=\"noopener noreferrer\" target=\"_blank\">OVHcloud</a>, <a href=\"https://www.scaleway.com/en/legal-notice/\" rel=\"noopener noreferrer\" target=\"_blank\">Scaleway</a>, <a href=\"https://www.hetzner.com/legal/legal-notice/\" rel=\"noopener noreferrer\" target=\"_blank\">Hetzner</a>.</li>\n<li>Légifrance, <a href=\"https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000049577902\" rel=\"noopener noreferrer\" target=\"_blank\">article L1111-8 du code de la santé publique</a> (hébergement de données de santé).</li>\n</ul>\n<p>Ce guide est une information générale, il n'est pas un avis juridique : pour votre cas, consultez votre délégué à la protection des données ou un avocat. Voir aussi la page <a href=\"/conformite-ia\">conformité IA</a> et, pour automatiser avec n8n, le service <a href=\"/services/automatisation-n8n\">automatisation n8n</a>.</p>",
+      "html_en": "<h2>Sources, read on 15 October 2026</h2>\n<ul>\n<li>n8n, <a href=\"https://n8n.io/pricing/\" rel=\"noopener noreferrer\" target=\"_blank\">pricing and plans comparison table</a>.</li>\n<li>n8n, <a href=\"https://docs.n8n.io/privacy-security/privacy/\" rel=\"noopener noreferrer\" target=\"_blank\">Privacy documentation</a> (roles, GDPR for self-hosted users, telemetry).</li>\n<li>n8n, <a href=\"https://n8n.io/legal/sub-processors/\" rel=\"noopener noreferrer\" target=\"_blank\">sub-processor list</a> (updated 22 September 2026) and <a href=\"https://n8n.io/legal/data-processing-agreement/\" rel=\"noopener noreferrer\" target=\"_blank\">DPA</a>.</li>\n<li>n8n, <a href=\"https://docs.n8n.io/hosting/configuration/environment-variables/executions/\" rel=\"noopener noreferrer\" target=\"_blank\">execution environment variables</a> and <a href=\"https://docs.n8n.io/hosting/configuration/configuration-examples/encryption-key/\" rel=\"noopener noreferrer\" target=\"_blank\">encryption key</a>.</li>\n<li>n8n, <a href=\"https://docs.n8n.io/hosting/community-edition-features/\" rel=\"noopener noreferrer\" target=\"_blank\">Community edition features</a> and <a href=\"https://docs.n8n.io/n8n-community-license/community-license/license-faq\" rel=\"noopener noreferrer\" target=\"_blank\">licence FAQ</a>.</li>\n<li>Legal notices: <a href=\"https://www.ovhcloud.com/fr/terms-and-conditions/\" rel=\"noopener noreferrer\" target=\"_blank\">OVHcloud</a>, <a href=\"https://www.scaleway.com/en/legal-notice/\" rel=\"noopener noreferrer\" target=\"_blank\">Scaleway</a>, <a href=\"https://www.hetzner.com/legal/legal-notice/\" rel=\"noopener noreferrer\" target=\"_blank\">Hetzner</a>.</li>\n<li>Légifrance, <a href=\"https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000049577902\" rel=\"noopener noreferrer\" target=\"_blank\">Article L1111-8 of the Public Health Code</a> (health data hosting).</li>\n</ul>\n<p>This guide is general information, not legal advice: for your case, consult your data protection officer or a lawyer. See also the <a href=\"/conformite-ia\">AI compliance</a> page and, to automate with n8n, the <a href=\"/services/automatisation-n8n\">n8n automation</a> service.</p>"
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "h2_fr": "n8n et RGPD : questions fréquentes",
+      "h2_en": "n8n and GDPR: frequently asked questions",
+      "items": [
+        {
+          "q_fr": "n8n est-il conforme au RGPD ?",
+          "a_fr": "Un outil n'est pas conforme en soi : c'est votre usage qui l'est ou non. n8n fournit un DPA avec clauses contractuelles types pour Cloud et héberge les offres hébergées dans l'Union. En auto-hébergement, la conformité dépend de votre hébergeur, de la purge des journaux et de vos accès. Dans les deux cas, n8n et les services que vos workflows appellent vont dans votre registre.",
+          "q_en": "Is n8n GDPR-compliant?",
+          "a_en": "A tool is not compliant in itself: your use is or is not. n8n provides a DPA with standard contractual clauses for Cloud and hosts its hosted plans in the Union. When self-hosting, compliance depends on your host, log purging and your access controls. In both cases, n8n and the services your workflows call go into your register."
+        },
+        {
+          "q_fr": "n8n auto-hébergé est-il sous-traitant de mes données ?",
+          "a_fr": "Non, d'après la documentation de n8n : en auto-hébergement, n8n n'est ni responsable de traitement ni sous-traitant pour les données de vos workflows. Votre hébergeur, lui, traite les données pour vous, donc vous signez avec lui. n8n reste responsable de sa télémétrie, qui se désactive en grande partie par variables.",
+          "q_en": "Is self-hosted n8n a processor of my data?",
+          "a_en": "No, according to n8n's documentation: when self-hosting, n8n is neither controller nor processor for your workflow data. Your host does process data for you, so you sign with it. n8n remains responsible for its telemetry, which can largely be disabled by variables."
+        },
+        {
+          "q_fr": "Combien de temps n8n garde-t-il les exécutions ?",
+          "a_fr": "En auto-hébergement, par défaut, la purge est activée avec un âge maximal de 336 heures (14 jours) et 10 000 exécutions, et tout est enregistré. Sur Cloud, le tableau des offres indique une durée maximale de journaux de 7 jours (Starter), 30 jours (Pro) et illimitée (Enterprise). Réglez la durée au plus court utile.",
+          "q_en": "How long does n8n keep executions?",
+          "a_en": "When self-hosting, by default pruning is on with a maximum age of 336 hours (14 days) and 10,000 executions, and everything is saved. On Cloud, the plans table gives a maximum log duration of 7 days (Starter), 30 days (Pro) and unlimited (Enterprise). Set the shortest useful period."
+        },
+        {
+          "q_fr": "Où n8n Cloud héberge-t-il les données ?",
+          "a_fr": "La page de tarifs de n8n indique un hébergement dans l'Union, à Francfort, pour les offres hébergées. La page des sous-traitants cite Microsoft Azure, avec des régions de l'Union. Certains sous-traitants listés (fournisseurs d'IA, services « n8n Gateway ») sont hors de l'Union : lisez la liste pour les fonctions que vous activez.",
+          "q_en": "Where does n8n Cloud host the data?",
+          "a_en": "n8n's pricing page states hosting in the Union, in Frankfurt, for the hosted plans. The sub-processor page names Microsoft Azure, with Union regions. Some listed sub-processors (AI providers, \"n8n Gateway\" services) are outside the Union: read the list for the features you enable."
+        },
+        {
+          "q_fr": "Puis-je utiliser n8n Community pour des clients ?",
+          "a_fr": "Dans un cadre limité. D'après la FAQ de la licence, un prestataire peut construire des workflows pour ses clients si ceux-ci ne peuvent pas les créer ni les éditer, facturer création, maintenance et formation, et installer n8n chez le client s'il n'héberge pas lui-même. Héberger n8n comme un service où les clients construisent est exclu. Vérifiez avec la FAQ avant de vous lancer.",
+          "q_en": "Can I use n8n Community for clients?",
+          "a_en": "Within limits. According to the licence FAQ, a provider may build workflows for its clients if they cannot create or edit them, bill for creation, maintenance and training, and install n8n at the client's if it does not host it itself. Hosting n8n as a service where clients build is excluded. Check the FAQ before starting."
+        },
+        {
+          "q_fr": "Que manque-t-il à l'édition Community côté sécurité ?",
+          "a_fr": "D'après la documentation, l'édition Community n'inclut pas le SSO, les environnements, Git, les projets, le stockage externe des secrets ni la diffusion des journaux (log streaming). Le SSO et LDAP sont listés dans l'offre Business ; le stockage externe des secrets et la diffusion des journaux dans l'offre Enterprise.",
+          "q_en": "What does the Community edition lack on security?",
+          "a_en": "According to the documentation, the Community edition does not include SSO, environments, Git, projects, external secret storage or log streaming. SSO and LDAP are listed in the Business plan; external secret storage and log streaming in the Enterprise plan."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ n8n",
+      "kicker_en": "§ n8n",
+      "h2_fr": "Choisir entre Cloud et auto-hébergé, puis régler la purge et les accès.",
+      "h2_en": "Choose between Cloud and self-hosted, then set up purging and access.",
+      "subtitle_fr": "L'audit de 45 minutes est gratuit. On regarde où vivent vos données, ce que gardent vos journaux et ce que votre licence autorise. Ce n'est pas un conseil juridique.",
+      "subtitle_en": "The 45-minute audit is free. We look at where your data lives, what your logs keep and what your licence allows. This is not legal advice.",
+      "buttons": [
+        {
+          "label_fr": "Réserver l'audit gratuit",
+          "label_en": "Book the free audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Comment se passe l'audit",
+          "label_en": "How the audit works",
+          "href": "/audit-ia-pme",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

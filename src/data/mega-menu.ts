@@ -331,7 +331,7 @@ const SOLUTIONS: MegaMenuSection = {
   parent: 'solutions',
   label: { fr: 'Solutions', en: 'Solutions' },
   parentHref: '/services',
-  matchPrefixes: ['/services', '/formations', '/audit-ia-pme'],
+  matchPrefixes: ['/services', '/audit-ia-pme'],
   lead: {
     fr: 'Studio de développement IA et cabinet d\'automatisation des processus pour PME et ETI.',
     en: 'AI development studio and process automation practice for SMEs.',
@@ -559,6 +559,11 @@ const SOLUTIONS: MegaMenuSection = {
               description: { fr: 'Feuille de route, gouvernance et montée en compétence des équipes.', en: 'Roadmap, governance and team upskilling.' },
                           },
             {
+              label: { fr: 'Conformité IA', en: 'AI compliance' },
+              href: '/conformite-ia',
+              description: { fr: 'AI Act, RGPD et charte d\'usage : ce qui s\'applique à une PME.', en: 'AI Act, GDPR and usage policy: what applies to an SME.' },
+            },
+            {
               label: { fr: 'Formations', en: 'Training' },
               href: '/formations',
               description: { fr: 'IA et automatisation, pour que vos équipes reprennent la main.', en: 'AI and automation, so your teams take over.' },
@@ -569,6 +574,7 @@ const SOLUTIONS: MegaMenuSection = {
                     { label: { fr: 'Formation n8n', en: 'n8n training' }, href: '/formations/n8n' },
                     { label: { fr: 'Formation Make', en: 'Make training' }, href: '/formations/make' },
                     { label: { fr: 'Formation Claude', en: 'Claude training' }, href: '/formations/claude' },
+                    { label: { fr: 'Formation Claude Code', en: 'Claude Code training' }, href: '/formations/claude-code' },
                     { label: { fr: 'Formation ChatGPT', en: 'ChatGPT training' }, href: '/formations/chatgpt' },
                   ],
                 },
@@ -708,6 +714,52 @@ const CAS_USAGES: MegaMenuSection = {
   },
 };
 
+// ─── FORMATIONS · entrée de premier niveau après « Cas d'usage » (stratégie v7, section Menu).
+// Hub /formations + les six programmes ; mêmes deux rubriques que les pages : IA (Claude,
+// Claude Code, ChatGPT) et automatisation (n8n, Make, parcours général). Aucun prix dans le
+// menu : ils vivent sur les pages (jetons prix.formation.*).
+const FORMATIONS: MegaMenuSection = {
+  parent: 'formations',
+  label: { fr: 'Formations', en: 'Training' },
+  parentHref: '/formations',
+  matchPrefixes: ['/formations'],
+  lead: {
+    fr: 'Former les équipes sur leurs cas réels, pour qu\'elles reprennent la main.',
+    en: 'Train teams on their real use cases, so they take over.',
+  },
+  columns: [
+    {
+      kicker: { fr: 'IA ET AGENTS', en: 'AI AND AGENTS' },
+      title: { fr: 'IA et agents', en: 'AI and agents' },
+      links: [
+        { label: { fr: 'Formation Claude', en: 'Claude training' }, href: '/formations/claude', description: { fr: 'De l\'application à Claude Platform.', en: 'From the app to Claude Platform.' } },
+        { label: { fr: 'Formation Claude Code', en: 'Claude Code training' }, href: '/formations/claude-code', description: { fr: 'Développer son projet avec l\'IA.', en: 'Develop your project with AI.' } },
+        { label: { fr: 'Formation ChatGPT', en: 'ChatGPT training' }, href: '/formations/chatgpt', description: { fr: 'Méthode commune, GPT personnalisés, API.', en: 'Shared method, custom GPTs, API.' } },
+      ],
+    },
+    {
+      kicker: { fr: 'AUTOMATISATION', en: 'AUTOMATION' },
+      title: { fr: 'Automatisation', en: 'Automation' },
+      links: [
+        { label: { fr: 'Formation automatisation', en: 'Automation training' }, href: '/formations/automatisation', description: { fr: 'Repérer les tâches, choisir l\'outil, un premier flux.', en: 'Spot the tasks, pick the tool, build a first flow.' } },
+        { label: { fr: 'Formation n8n', en: 'n8n training' }, href: '/formations/n8n', description: { fr: 'Workflows fiables, cloud ou auto-hébergés.', en: 'Reliable workflows, cloud or self-hosted.' } },
+        { label: { fr: 'Formation Make', en: 'Make training' }, href: '/formations/make', description: { fr: 'Scénarios fiables, erreurs gérées.', en: 'Reliable scenarios, handled errors.' } },
+      ],
+    },
+  ],
+  featured: {
+    kicker: { fr: 'FORMATIONS', en: 'TRAINING' },
+    label: { fr: 'IA et automatisation pour vos équipes', en: 'AI and automation for your teams' },
+    body: {
+      fr: 'Des sessions construites sur vos cas réels. Pas sûr du programme ? L\'audit gratuit sert aussi à le choisir.',
+      en: 'Sessions built on your real use cases. Unsure which programme? The free audit helps pick it.',
+    },
+    cta: { fr: 'Voir les formations →', en: 'See the training →' },
+    href: '/formations',
+    image: '/images/besoins/besoin-operer.webp',
+  },
+};
+
 // ─── RÉALISATIONS · ex « Cas clients » (libellé seul : les URL /cas-clients ne changent pas).
 // Mêmes deux rubriques que le hub : réalisations clients (deux colonnes, par nature du
 // travail) et projets internes (vague 2, 2026-10-05). Les /secteurs/* (noindex) sortent du menu.
@@ -785,6 +837,14 @@ const AGENCE: MegaMenuSection = {
           },
         },
         {
+          label: { fr: 'Technologies', en: 'Technologies' },
+          href: '/technologies',
+          description: {
+            fr: 'Les outils et modèles que le studio utilise, et pourquoi.',
+            en: 'The tools and models the studio uses, and why.',
+          },
+        },
+        {
           label: { fr: 'Implantations', en: 'Locations' },
           href: '/implantations',
           description: {
@@ -835,10 +895,11 @@ const AGENCE: MegaMenuSection = {
 };
 
 // Premier niveau (refonte positionnement 2026-10) :
-// Solutions · Cas d'usage · Réalisations · Ressources · Le studio.
+// Solutions · Cas d'usage · Formations · Réalisations · Ressources · Le studio.
 export const MEGA_MENU: MegaMenuSection[] = [
   SOLUTIONS,
   CAS_USAGES,
+  FORMATIONS,
   CAS,
   RESSOURCES,
   AGENCE,
