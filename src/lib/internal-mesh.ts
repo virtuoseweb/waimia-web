@@ -93,6 +93,7 @@ const PAGES: Record<string, PageDef> = {
   '/services/automatisation-make': { label_fr: 'Automatisation Make', label_en: 'Make automation', kind: 'service', topics: ['automatisation'] },
   '/ressources/comparatifs/n8n-vs-make': { label_fr: 'n8n ou Make : le comparatif', label_en: 'n8n vs Make', kind: 'comparatif', topics: ['automatisation'] },
   '/ressources/guides/n8n-prix': { label_fr: 'n8n : prix et coût complet', label_en: 'n8n: pricing and full cost', kind: 'guide', topics: ['automatisation'] },
+  '/ressources/guides/rpa-ou-agent-ia': { label_fr: 'RPA, API ou agent IA : comment choisir', label_en: 'RPA, API or AI agent: how to choose', kind: 'guide', topics: ['automatisation', 'agents'] },
   '/blog/n8n-c-est-quoi': { label_fr: "n8n, c'est quoi", label_en: 'What is n8n', kind: 'article', topics: ['automatisation'] },
   '/blog/avis-n8n-vs-zapier-2026': { label_fr: 'n8n ou Zapier : notre avis', label_en: 'n8n vs Zapier: our take', kind: 'article', topics: ['automatisation'] },
   '/cas-usages/standardiser-processus': { label_fr: "Automatiser l'administratif", label_en: 'Standardise processes', kind: 'cas-usage', topics: ['automatisation'] },
@@ -101,6 +102,7 @@ const PAGES: Record<string, PageDef> = {
   '/ressources/guides/taches-a-automatiser-pme': { label_fr: "Guide : quelles tâches automatiser d'abord", label_en: 'Guide: which tasks to automate first', kind: 'guide', topics: ['automatisation', 'conseil'] },
   '/blog/agent-ia-vs-automatisation-classique-2026': { label_fr: 'Agent IA ou automatisation classique', label_en: 'AI agent or classic automation', kind: 'article', topics: ['agents', 'automatisation'] },
   '/ressources/guides/agent-ia-definition': { label_fr: 'Agent IA : définition et limites', label_en: 'AI agent: definition and limits', kind: 'guide', topics: ['agents', 'automatisation'] },
+  '/ressources/guides/llm-rag-dirigeant': { label_fr: 'LLM et RAG : définitions pour dirigeants', label_en: 'LLM and RAG: definitions for business owners', kind: 'guide', topics: ['agents', 'claude'] },
   '/blog/workflow-ia-exemples-pme': { label_fr: 'Workflow IA : cinq exemples concrets', label_en: 'AI workflow: five concrete examples', kind: 'article', topics: ['automatisation', 'agents'] },
 
   // ── Agents IA et Claude ──
@@ -138,6 +140,7 @@ const PAGES: Record<string, PageDef> = {
   '/ressources/guides/claude-design': { label_fr: 'Claude Design en PME : usages et limites', label_en: 'Claude Design for SMBs: uses and limits', kind: 'guide', topics: ['claude', 'applications'] },
   '/cas-clients/inbound-value': { label_fr: 'Cas client : Inbound Value', label_en: 'Case: Inbound Value', kind: 'cas-client', topics: ['agents', 'claude'] },
   '/ressources/comparatifs/claude-vs-chatgpt-pme': { label_fr: 'Claude ou ChatGPT pour une PME', label_en: 'Claude or ChatGPT for an SMB', kind: 'comparatif', topics: ['claude', 'agents'] },
+  '/ressources/comparatifs/mistral-vs-claude-pme': { label_fr: 'Mistral AI ou Claude pour une PME', label_en: 'Mistral AI or Claude for an SMB', kind: 'comparatif', topics: ['claude', 'conformite'] },
   '/ressources/comparatifs/claude-platform-vs-openai-platform': { label_fr: 'Claude Platform ou OpenAI Platform', label_en: 'Claude Platform or OpenAI Platform', kind: 'comparatif', topics: ['claude', 'agents'] },
   '/cas-clients/isabelle-diaz-naturopathe': { label_fr: 'Cas client : Isabelle Diaz', label_en: 'Case: Isabelle Diaz', kind: 'cas-client', topics: ['agents', 'acquisition'] },
   '/ressources/comparatifs/claude-code-vs-cursor': { label_fr: 'Claude Code ou Cursor', label_en: 'Claude Code or Cursor', kind: 'comparatif', topics: ['claude', 'applications'] },
