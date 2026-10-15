@@ -114,7 +114,7 @@ export const data: LeadMagnetPage = {
     '/ressources/outils/checklist-90-jours-claude',
     '/services/integration-claude',
   ],
-  seoTitle_fr: "Guide d'achat Claude pour PME (PDF gratuit)",
+  seoTitle_fr: "Guide d'achat Claude 2026 : abonnement et budget PME (PDF)",
   seoTitle_en: "Claude buyer's guide for SMBs (free PDF)",
   seoDescription_fr:
     "Choisir son abonnement Claude, chiffrer le budget pour 5, 15 ou 40 personnes et configurer Team dès le jour 1. Guide d'achat PDF de 14 pages, gratuit.",

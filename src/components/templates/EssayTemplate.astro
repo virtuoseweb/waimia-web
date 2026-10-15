@@ -241,7 +241,7 @@ const articleLd = buildArticle({
           </aside>
         )}
         <div class="essay-prose reveal">
-          <AuthorByline authorSlug={bylineAuthorSlug} date={publishedAt} readingTime={readingTime} />
+          <AuthorByline authorSlug={bylineAuthorSlug} date={publishedAt} updatedAt={dateModified} readingTime={readingTime} />
           <Fragment set:html={localizedBodyHtml} />
           {leadSection?.type === 'lead-capture-band' && <LeadCaptureBand data={leadSection} lang={lang} />}
           <div class="essay-share-end">
