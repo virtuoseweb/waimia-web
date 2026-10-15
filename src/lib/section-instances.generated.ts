@@ -345,6 +345,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
   ],
   "case-card-grid": [
     {
+      "collection": "audits",
+      "file": "audits/audit-ia-pme.json",
+      "slug": "audit-ia-pme",
+      "route": "/audit-ia-pme",
+      "index": 1,
+      "label": "Ce que le studio a déjà livré",
+      "background": "paper"
+    },
+    {
       "collection": "lp",
       "file": "lp/hub.json",
       "slug": "hub",
@@ -1376,7 +1385,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
-      "index": 6,
+      "index": 10,
       "label": "Vous penchez pour Claude ? Recevez le guide d'achat pour PME (PDF, 14 pages)",
       "background": "paper"
     },
@@ -1515,7 +1524,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
-      "index": 7,
+      "index": 11,
       "label": "Choisir selon votre situation",
       "background": "paper"
     },
@@ -3628,6 +3637,26 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "background": "paper"
     },
     {
+      "collection": "comparatifs",
+      "file": "comparatifs/claude-vs-chatgpt-pme.json",
+      "slug": "claude-vs-chatgpt-pme",
+      "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
+      "index": 4,
+      "label": "#4",
+      "variant": "quote",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/claude-vs-chatgpt-pme.json",
+      "slug": "claude-vs-chatgpt-pme",
+      "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
+      "index": 6,
+      "label": "#6",
+      "variant": "quote",
+      "background": "paper"
+    },
+    {
       "collection": "formations",
       "file": "formations/automatisation.json",
       "slug": "automatisation",
@@ -3910,6 +3939,24 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "index": 5,
       "label": "#5",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/claude-vs-chatgpt-pme.json",
+      "slug": "claude-vs-chatgpt-pme",
+      "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
+      "index": 7,
+      "label": "#7",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/claude-vs-chatgpt-pme.json",
+      "slug": "claude-vs-chatgpt-pme",
+      "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
+      "index": 9,
+      "label": "#9",
       "background": "paper-2"
     },
     {
@@ -5408,7 +5455,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
-      "index": 4,
+      "index": 8,
       "label": "Ce qui a bougé chez Claude et ChatGPT, et ce que ça change",
       "variant": "editorial",
       "background": "paper"
@@ -6198,6 +6245,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
   ],
   "eeat-panel": [
     {
+      "collection": "audits",
+      "file": "audits/audit-ia-pme.json",
+      "slug": "audit-ia-pme",
+      "route": "/audit-ia-pme",
+      "index": 2,
+      "label": "#2",
+      "variant": "media"
+    },
+    {
       "collection": "services",
       "file": "services/agents-ia/agent-qualification-leads.json",
       "slug": "agent-qualification-leads",
@@ -6654,7 +6710,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "audits/audit-ia-pme.json",
       "slug": "audit-ia-pme",
       "route": "/audit-ia-pme",
-      "index": 1,
+      "index": 3,
       "label": "Questions avant de réserver",
       "background": "paper"
     },
@@ -6915,7 +6971,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
-      "index": 10,
+      "index": 14,
       "label": "Claude vs ChatGPT : vos questions",
       "background": "paper"
     },
@@ -8111,7 +8167,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "audits/audit-ia-pme.json",
       "slug": "audit-ia-pme",
       "route": "/audit-ia-pme",
-      "index": 2,
+      "index": 4,
       "label": "Quarante-cinq minutes, et une liste de tâches classées par priorité.",
       "background": "ink"
     },
@@ -8381,7 +8437,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
-      "index": 11,
+      "index": 15,
       "label": "L'outil compte moins que le cadre.",
       "background": "ink"
     },
@@ -11849,7 +11905,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
-      "index": 8,
+      "index": 12,
       "label": "Comment trancher en deux semaines, sur vos documents",
       "background": "paper-2"
     },
@@ -12895,7 +12951,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
-      "index": 9,
+      "index": 13,
       "label": "Pour aller plus loin",
       "background": "paper-2"
     },
