@@ -1,6 +1,6 @@
 {
   "$schema": "../../schemas/generated/implantations.page.schema.json",
-  "title_fr": "Agence IA à Bordeaux : automatisation et agents IA · Waimia",
+  "title_fr": "Agence IA à Bordeaux : automatisation et agents IA · Waimia",
   "title_en": "AI agency in Bordeaux: automation and AI agents · Waimia",
   "description_fr": "Agence IA à Bordeaux : automatisation n8n et Make, agents IA, applications métier, formation IA à Bordeaux pour PME et ETI. Rencontres sur place.",
   "description_en": "AI agency in Bordeaux: n8n and Make automation, AI agents, business applications and AI training in Bordeaux for SMEs. On-site meetings.",
@@ -48,7 +48,7 @@
     },
     {
       "q": "Combien coûte une mission ?",
-      "a": "L'audit de 45 minutes est gratuit. Ensuite, le sprint de cadrage est à 999 € HT pour 10 heures, comme indiqué sur la page tarifs. Le reste se chiffre sur devis après l'audit, quand le périmètre est connu."
+      "a": "L'audit de 45 minutes est gratuit. Ensuite, le sprint de cadrage est à {{prix.sprint}} € HT pour 10 heures, comme indiqué sur la page tarifs. Le reste se chiffre sur devis après l'audit, quand le périmètre est connu."
     }
   ],
   "faq_en": [
@@ -74,7 +74,7 @@
     },
     {
       "q": "How much does an engagement cost?",
-      "a": "The 45-minute audit is free. After that, the scoping sprint is €999 excl. VAT for 10 hours, as listed on the pricing page. Everything else is quoted after the audit, once the scope is known."
+      "a": "The 45-minute audit is free. After that, the scoping sprint is €{{prix.sprint.en}} excl. VAT for 10 hours, as listed on the pricing page. Everything else is quoted after the audit, once the scope is known."
     }
   ],
   "sections": [
@@ -252,8 +252,8 @@
         {
           "q_fr": "Combien coûte une mission ?",
           "q_en": "How much does an engagement cost?",
-          "a_fr": "L'audit de 45 minutes est gratuit. Ensuite, le sprint de cadrage est à 999 € HT pour 10 heures, comme indiqué sur la page tarifs. Le reste se chiffre sur devis après l'audit, quand le périmètre est connu.",
-          "a_en": "The 45-minute audit is free. After that, the scoping sprint is €999 excl. VAT for 10 hours, as listed on the pricing page. Everything else is quoted after the audit, once the scope is known."
+          "a_fr": "L'audit de 45 minutes est gratuit. Ensuite, le sprint de cadrage est à {{prix.sprint}} € HT pour 10 heures, comme indiqué sur la page tarifs. Le reste se chiffre sur devis après l'audit, quand le périmètre est connu.",
+          "a_en": "The 45-minute audit is free. After that, the scoping sprint is €{{prix.sprint.en}} excl. VAT for 10 hours, as listed on the pricing page. Everything else is quoted after the audit, once the scope is known."
         }
       ]
     },

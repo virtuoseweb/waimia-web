@@ -1,6 +1,6 @@
 {
   "$schema": "../../schemas/generated/guides.page.schema.json",
-  "title_fr": "Choisir une agence IA en PME : le guide honnête",
+  "title_fr": "Choisir une agence IA en PME : le guide honnête",
   "title_en": "Choosing an AI agency for an SMB: the honest guide",
   "description_fr": "Choisir une agence IA, un freelance ou un éditeur en PME : grille de décision, signaux d'alerte, contrat et propriété, et quand Waimia n'est pas le bon choix.",
   "description_en": "How to choose an AI agency, freelancer or vendor for an SMB: decision grid, warning signs, contract and ownership, and when Waimia is not the right choice.",
@@ -55,7 +55,7 @@
   "faq_fr": [
     {
       "q": "Comment comparer les prix de plusieurs agences IA ?",
-      "a": "Cela dépend du périmètre : un audit d'une demi-journée et un agent branché sur votre CRM n'ont pas le même prix, donc une moyenne ne dit rien. Comparez la structure plutôt que le total : nombre d'heures, livrables, plafond, coût de la suite. Chez Waimia : audit gratuit de 45 minutes, sprint de cadrage à 999 € HT pour 10 heures, puis estimation en heures validée par vous et facturée {{prix.horaire}} € HT de l'heure, sans dégressivité. Les licences Claude sont une dépense séparée, détaillée dans le guide du coût d'une intégration Claude."
+      "a": "Cela dépend du périmètre : un audit d'une demi-journée et un agent branché sur votre CRM n'ont pas le même prix, donc une moyenne ne dit rien. Comparez la structure plutôt que le total : nombre d'heures, livrables, plafond, coût de la suite. Chez Waimia : audit gratuit de 45 minutes, sprint de cadrage à {{prix.sprint}} € HT pour 10 heures, puis estimation en heures validée par vous et facturée {{prix.horaire}} € HT de l'heure, sans dégressivité. Les licences Claude sont une dépense séparée, détaillée dans le guide du coût d'une intégration Claude."
     },
     {
       "q": "Agence IA, freelance ou éditeur : lequel choisir ?",
@@ -89,7 +89,7 @@
   "faq_en": [
     {
       "q": "How do you compare prices between AI agencies?",
-      "a": "It depends on scope: a half-day audit and an agent wired to your CRM do not cost the same, so an average tells you nothing. Compare the structure rather than the total: number of hours, deliverables, cap, cost of what follows. At Waimia: a free 45-minute audit, a scoping sprint at €999 excl. VAT for 10 hours, then an estimate in hours that you approve, billed at €{{prix.horaire}} excl. VAT per hour, with no volume discount. Claude licences are a separate cost, detailed in the guide to what a Claude integration costs."
+      "a": "It depends on scope: a half-day audit and an agent wired to your CRM do not cost the same, so an average tells you nothing. Compare the structure rather than the total: number of hours, deliverables, cap, cost of what follows. At Waimia: a free 45-minute audit, a scoping sprint at €{{prix.sprint.en}} excl. VAT for 10 hours, then an estimate in hours that you approve, billed at €{{prix.horaire}} excl. VAT per hour, with no volume discount. Claude licences are a separate cost, detailed in the guide to what a Claude integration costs."
     },
     {
       "q": "AI agency, freelancer or software vendor: which one to choose?",
@@ -421,8 +421,8 @@
     {
       "type": "editorial-prose",
       "background": "paper",
-      "html_fr": "<h2>Comment utiliser la grille, et quoi penser des prix</h2>\n<p>Envoyez les mêmes huit questions par écrit à trois candidats, pas deux, pas cinq. Comparez les réponses côte à côte. À l'oral, un commercial entraîné gagne toujours ; par écrit, les esquives se voient. Demandez aussi le nom de la personne qui fera réellement le travail, et lisez ce qu'elle a déjà livré.</p>\n<p>Appelez une référence. Pas un logo sur une plaquette : un client que vous pouvez joindre, à qui vous demanderez ce qui a mal tourné et ce que le prestataire a fait ensuite. Un prestataire qui n'a personne à vous donner n'est pas forcément mauvais. C'est un risque, et c'est vous qui le payez.</p>\n<h3>Les prix : pourquoi je ne donne pas de moyenne</h3>\n<p>Une moyenne de marché pour « une mission d'agence IA » ne vaut rien : elle mélange un audit d'une demi-journée et un agent en production branché sur un CRM. Le chiffre qui compte est celui de votre périmètre : combien d'heures, pour quel livrable, avec quel plafond, et ce que coûte la suite. Je me méfie du prestataire qui annonce un prix avant d'avoir posé une seule question.</p>\n<p>Chez Waimia, les tarifs sont publics. L'audit de 45 minutes est gratuit. Le sprint de cadrage est à prix fixe, 999 € HT pour 10 heures. Au-delà, la mission est estimée en heures, validée par vous, puis facturée {{prix.horaire}} € HT de l'heure, sans dégressivité (détail sur la page <a href=\"/tarifs\">tarifs</a>). Un chiffrage complet, licences Claude comprises, figure dans le guide <a href=\"/ressources/guides/cout-integration-claude-pme\">coût d'une intégration Claude en PME</a>.</p>",
-      "html_en": "<h2>How to use the grid, and what to make of prices</h2>\n<p>Send the same eight questions in writing to three candidates, not two, not five. Compare the answers side by side. Face to face, a trained salesperson always wins; in writing, evasions show. Also ask for the name of the person who will actually do the work, and read what they have already delivered.</p>\n<p>Call a reference. Not a logo on a brochure: a client you can reach, whom you ask what went wrong and what the supplier did next. A supplier with nobody to give you is not necessarily bad. It is a risk, and you are the one paying for it.</p>\n<h3>Prices: why I give no average</h3>\n<p>A market average for \"an AI agency engagement\" is worthless: it lumps a half-day audit together with a production agent wired to a CRM. The number that matters is the one for your scope: how many hours, for which deliverable, with what cap, and what comes next. I distrust any supplier who names a price before asking a single question.</p>\n<p>At Waimia, prices are public. The 45-minute audit is free. The scoping sprint is fixed price, €999 excl. VAT for 10 hours. Beyond that, the work is estimated in hours, approved by you, then billed at €{{prix.horaire}} excl. VAT per hour, with no volume discount (details on the <a href=\"/tarifs\">pricing</a> page). A full costing, Claude licences included, is in the guide <a href=\"/ressources/guides/cout-integration-claude-pme\">what a Claude integration costs an SMB</a>.</p>"
+      "html_fr": "<h2>Comment utiliser la grille, et quoi penser des prix</h2>\n<p>Envoyez les mêmes huit questions par écrit à trois candidats, pas deux, pas cinq. Comparez les réponses côte à côte. À l'oral, un commercial entraîné gagne toujours ; par écrit, les esquives se voient. Demandez aussi le nom de la personne qui fera réellement le travail, et lisez ce qu'elle a déjà livré.</p>\n<p>Appelez une référence. Pas un logo sur une plaquette : un client que vous pouvez joindre, à qui vous demanderez ce qui a mal tourné et ce que le prestataire a fait ensuite. Un prestataire qui n'a personne à vous donner n'est pas forcément mauvais. C'est un risque, et c'est vous qui le payez.</p>\n<h3>Les prix : pourquoi je ne donne pas de moyenne</h3>\n<p>Une moyenne de marché pour « une mission d'agence IA » ne vaut rien : elle mélange un audit d'une demi-journée et un agent en production branché sur un CRM. Le chiffre qui compte est celui de votre périmètre : combien d'heures, pour quel livrable, avec quel plafond, et ce que coûte la suite. Je me méfie du prestataire qui annonce un prix avant d'avoir posé une seule question.</p>\n<p>Chez Waimia, les tarifs sont publics. L'audit de 45 minutes est gratuit. Le sprint de cadrage est à prix fixe, {{prix.sprint}} € HT pour 10 heures. Au-delà, la mission est estimée en heures, validée par vous, puis facturée {{prix.horaire}} € HT de l'heure, sans dégressivité (détail sur la page <a href=\"/tarifs\">tarifs</a>). Un chiffrage complet, licences Claude comprises, figure dans le guide <a href=\"/ressources/guides/cout-integration-claude-pme\">coût d'une intégration Claude en PME</a>.</p>",
+      "html_en": "<h2>How to use the grid, and what to make of prices</h2>\n<p>Send the same eight questions in writing to three candidates, not two, not five. Compare the answers side by side. Face to face, a trained salesperson always wins; in writing, evasions show. Also ask for the name of the person who will actually do the work, and read what they have already delivered.</p>\n<p>Call a reference. Not a logo on a brochure: a client you can reach, whom you ask what went wrong and what the supplier did next. A supplier with nobody to give you is not necessarily bad. It is a risk, and you are the one paying for it.</p>\n<h3>Prices: why I give no average</h3>\n<p>A market average for \"an AI agency engagement\" is worthless: it lumps a half-day audit together with a production agent wired to a CRM. The number that matters is the one for your scope: how many hours, for which deliverable, with what cap, and what comes next. I distrust any supplier who names a price before asking a single question.</p>\n<p>At Waimia, prices are public. The 45-minute audit is free. The scoping sprint is fixed price, €{{prix.sprint.en}} excl. VAT for 10 hours. Beyond that, the work is estimated in hours, approved by you, then billed at €{{prix.horaire}} excl. VAT per hour, with no volume discount (details on the <a href=\"/tarifs\">pricing</a> page). A full costing, Claude licences included, is in the guide <a href=\"/ressources/guides/cout-integration-claude-pme\">what a Claude integration costs an SMB</a>.</p>"
     },
     {
       "type": "editorial-prose",
@@ -522,7 +522,7 @@
         [
           "Prix et plafond",
           "Heures estimées, validées par vous, plafond, ce qui est facturé en plus.",
-          "Sprint à prix fixe (999 € HT pour 10 heures), puis estimation en heures validée par vous, au taux de {{prix.horaire}} € HT. Devis valable 30 jours (CGV, article 3)."
+          "Sprint à prix fixe ({{prix.sprint}} € HT pour 10 heures), puis estimation en heures validée par vous, au taux de {{prix.horaire}} € HT. Devis valable 30 jours (CGV, article 3)."
         ],
         [
           "Sortie",
@@ -564,7 +564,7 @@
         [
           "Price and cap",
           "Estimated hours, approved by you, a cap, what is billed on top.",
-          "Fixed-price sprint (€999 excl. VAT for 10 hours), then an estimate in hours approved by you, at €{{prix.horaire}} excl. VAT. Quote valid for 30 days (terms, article 3)."
+          "Fixed-price sprint (€{{prix.sprint.en}} excl. VAT for 10 hours), then an estimate in hours approved by you, at €{{prix.horaire}} excl. VAT. Quote valid for 30 days (terms, article 3)."
         ],
         [
           "Exit",
@@ -630,8 +630,8 @@
           "title_en": "Fixed-price scoping sprint",
           "body_fr": "Cartographie des usages, budget licences, choix de l'offre, un premier usage branché et mesuré.",
           "body_en": "Mapping of uses, licence budget, choice of plan, a first use connected and measured.",
-          "meta_fr": "999 € HT · 10 h",
-          "meta_en": "€999 excl. VAT · 10 h"
+          "meta_fr": "{{prix.sprint}} € HT · 10 h",
+          "meta_en": "€{{prix.sprint.en}} excl. VAT · 10 h"
         },
         {
           "title_fr": "Devis en heures, validé par vous",
@@ -668,7 +668,7 @@
         {
           "kicker_fr": "Guide",
           "kicker_en": "Guide",
-          "title_fr": "Claude pour les PME : le guide complet",
+          "title_fr": "Claude pour les PME : le guide complet",
           "title_en": "Claude for SMBs: the complete guide",
           "lead_fr": "Le panorama d'ensemble : offres, fonctions, données, déploiement.",
           "lead_en": "The overall picture: plans, features, data, rollout.",
@@ -679,8 +679,8 @@
           "kicker_en": "Guide",
           "title_fr": "Coût d'une intégration Claude en PME",
           "title_en": "What a Claude integration costs an SMB",
-          "lead_fr": "Licences en dollars, sprint à 999 € HT, coûts cachés, trois scénarios illustratifs.",
-          "lead_en": "Licences in dollars, the €999 sprint, hidden costs, three illustrative scenarios.",
+          "lead_fr": "Licences en dollars, sprint à {{prix.sprint}} € HT, coûts cachés, trois scénarios illustratifs.",
+          "lead_en": "Licences in dollars, the €{{prix.sprint.en}} sprint, hidden costs, three illustrative scenarios.",
           "href": "/ressources/guides/cout-integration-claude-pme"
         },
         {
@@ -714,9 +714,9 @@
       "items": [
         {
           "q_fr": "Comment comparer les prix de plusieurs agences IA ?",
-          "a_fr": "Cela dépend du périmètre : un audit d'une demi-journée et un agent branché sur votre CRM n'ont pas le même prix, donc une moyenne ne dit rien. Comparez la structure plutôt que le total : nombre d'heures, livrables, plafond, coût de la suite. Chez Waimia : audit gratuit de 45 minutes, sprint de cadrage à 999 € HT pour 10 heures, puis estimation en heures validée par vous et facturée {{prix.horaire}} € HT de l'heure, sans dégressivité. Les licences Claude sont une dépense séparée, détaillée dans le guide du coût d'une intégration Claude.",
+          "a_fr": "Cela dépend du périmètre : un audit d'une demi-journée et un agent branché sur votre CRM n'ont pas le même prix, donc une moyenne ne dit rien. Comparez la structure plutôt que le total : nombre d'heures, livrables, plafond, coût de la suite. Chez Waimia : audit gratuit de 45 minutes, sprint de cadrage à {{prix.sprint}} € HT pour 10 heures, puis estimation en heures validée par vous et facturée {{prix.horaire}} € HT de l'heure, sans dégressivité. Les licences Claude sont une dépense séparée, détaillée dans le guide du coût d'une intégration Claude.",
           "q_en": "How do you compare prices between AI agencies?",
-          "a_en": "It depends on scope: a half-day audit and an agent wired to your CRM do not cost the same, so an average tells you nothing. Compare the structure rather than the total: number of hours, deliverables, cap, cost of what follows. At Waimia: a free 45-minute audit, a scoping sprint at €999 excl. VAT for 10 hours, then an estimate in hours that you approve, billed at €{{prix.horaire}} excl. VAT per hour, with no volume discount. Claude licences are a separate cost, detailed in the guide to what a Claude integration costs."
+          "a_en": "It depends on scope: a half-day audit and an agent wired to your CRM do not cost the same, so an average tells you nothing. Compare the structure rather than the total: number of hours, deliverables, cap, cost of what follows. At Waimia: a free 45-minute audit, a scoping sprint at €{{prix.sprint.en}} excl. VAT for 10 hours, then an estimate in hours that you approve, billed at €{{prix.horaire}} excl. VAT per hour, with no volume discount. Claude licences are a separate cost, detailed in the guide to what a Claude integration costs."
         },
         {
           "q_fr": "Agence IA, freelance ou éditeur : lequel choisir ?",

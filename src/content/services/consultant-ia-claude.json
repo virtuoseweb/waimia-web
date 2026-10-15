@@ -1,6 +1,6 @@
 {
   "$schema": "../../schemas/generated/services.page.schema.json",
-  "title_fr": "Consultant IA pour PME : conseil et mise en œuvre · Waimia",
+  "title_fr": "Consultant IA pour PME : conseil et mise en œuvre · Waimia",
   "title_en": "AI consultant for SMEs: advice and implementation · Waimia",
   "seoTitle_fr": "Consultant IA indépendant : accompagnement IA des PME · Waimia",
   "description_fr": "Consultant IA indépendant : état des lieux, cas d'usage chiffrés, feuille de route, puis mise en œuvre par la même personne. Réservez l'audit gratuit.",
@@ -52,13 +52,13 @@
   "seo": {
     "noindex": false,
     "serviceType": "Conseil IA / Cadrage / Accompagnement Claude",
-    "priceRange": "dès 999 €",
+    "priceRange": "dès {{prix.sprint}} €",
     "priceMin": 999
   },
   "faq_fr": [
     {
       "q": "Combien coûte un consultant IA pour une PME ?",
-      "a": "Le sprint de cadrage est à 999 € HT pour 10 heures : état des lieux d'une équipe et cadrage d'un premier chantier. Une feuille de route complète sur plusieurs services est estimée en heures, validée par vous, puis facturée {{prix.horaire}} € HT de l'heure."
+      "a": "Le sprint de cadrage est à {{prix.sprint}} € HT pour 10 heures : état des lieux d'une équipe et cadrage d'un premier chantier. Une feuille de route complète sur plusieurs services est estimée en heures, validée par vous, puis facturée {{prix.horaire}} € HT de l'heure."
     },
     {
       "q": "Consultant IA ou freelance IA : quelle différence ?",
@@ -104,7 +104,7 @@
   "faq_en": [
     {
       "q": "How much does an AI consultant cost for an SMB?",
-      "a": "The scoping sprint is €999 excl. VAT for 10 hours: assessment of one team and scoping of a first project. A full multi-department roadmap is estimated in hours, approved by you, then billed €{{prix.horaire}} per hour excl. VAT."
+      "a": "The scoping sprint is €{{prix.sprint.en}} excl. VAT for 10 hours: assessment of one team and scoping of a first project. A full multi-department roadmap is estimated in hours, approved by you, then billed €{{prix.horaire}} per hour excl. VAT."
     },
     {
       "q": "AI consultant or AI freelancer: what is the difference?",
@@ -201,7 +201,7 @@
       "kicker_en": "§ In short",
       "metrics": [
         {
-          "value": "999 € HT",
+          "value": "{{prix.sprint}} € HT",
           "label_fr": "sprint de cadrage de 10 h, puis {{prix.horaire}} € HT de l'heure",
           "label_en": "10-hour scoping sprint, then €{{prix.horaire}} per hour excl. VAT",
           "emphasis": true
@@ -636,7 +636,7 @@
         {
           "name_fr": "Sprint de cadrage",
           "name_en": "Scoping sprint",
-          "price": "999 €",
+          "price": "{{prix.sprint}} €",
           "period_fr": "10 h · HT",
           "period_en": "10 h · ex VAT",
           "features_fr": [
@@ -703,9 +703,9 @@
       "items": [
         {
           "q_fr": "Combien coûte un consultant IA pour une PME ?",
-          "a_fr": "Le sprint de cadrage est à 999 € HT pour 10 heures : état des lieux d'une équipe et cadrage d'un premier chantier. Une feuille de route complète sur plusieurs services est estimée en heures, validée par vous, puis facturée {{prix.horaire}} € HT de l'heure.",
+          "a_fr": "Le sprint de cadrage est à {{prix.sprint}} € HT pour 10 heures : état des lieux d'une équipe et cadrage d'un premier chantier. Une feuille de route complète sur plusieurs services est estimée en heures, validée par vous, puis facturée {{prix.horaire}} € HT de l'heure.",
           "q_en": "How much does an AI consultant cost for an SMB?",
-          "a_en": "The scoping sprint is €999 excl. VAT for 10 hours: assessment of one team and scoping of a first project. A full multi-department roadmap is estimated in hours, approved by you, then billed €{{prix.horaire}} per hour excl. VAT."
+          "a_en": "The scoping sprint is €{{prix.sprint.en}} excl. VAT for 10 hours: assessment of one team and scoping of a first project. A full multi-department roadmap is estimated in hours, approved by you, then billed €{{prix.horaire}} per hour excl. VAT."
         },
         {
           "q_fr": "Consultant IA ou freelance IA : quelle différence ?",

@@ -14,7 +14,7 @@
   ],
   "seo": {
     "noindex": true,
-    "priceRange": "dès 999 €",
+    "priceRange": "dès {{prix.sprint}} €",
     "priceMin": 999
   },
   "faq_fr": [
@@ -126,7 +126,7 @@
       },
       "stats": [
         {
-          "value": "dès 999 €",
+          "value": "dès {{prix.sprint}} €",
           "label_fr": "sprint de cadrage 10 h, la suite sur devis",
           "label_en": "10-h scoping sprint, the rest on quote"
         },
@@ -154,7 +154,7 @@
       "kicker_en": "§ At a glance",
       "metrics": [
         {
-          "value": "Dès 999 €",
+          "value": "Dès {{prix.sprint}} €",
           "label_fr": "sprint de cadrage · suite sur devis",
           "label_en": "scoping sprint · rest on quote",
           "emphasis": true
@@ -569,7 +569,7 @@
         {
           "name_fr": "Sprint de cadrage",
           "name_en": "Scoping sprint",
-          "price": "999 €",
+          "price": "{{prix.sprint}} €",
           "period_fr": "10 h · HT",
           "period_en": "10 h · ex VAT",
           "features_fr": [
@@ -616,8 +616,8 @@
           }
         }
       ],
-      "footnote_fr": "Le sprint de cadrage est à prix fixe, 999 € HT pour 10 heures : cadrage et premier livrable en main. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints, en régie growth à {{prix.horaire}} € HT/h. Sans abonnement caché ni captivité : vous gardez la stack.",
-      "footnote_en": "The scoping sprint is fixed-price, 999 € ex VAT for 10 hours: scoping and a first deliverable in hand. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints, on the growth retainer at {{prix.horaire}} €/h ex VAT. No hidden subscription, no lock-in: you keep the stack."
+      "footnote_fr": "Le sprint de cadrage est à prix fixe, {{prix.sprint}} € HT pour 10 heures : cadrage et premier livrable en main. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints, en régie growth à {{prix.horaire}} € HT/h. Sans abonnement caché ni captivité : vous gardez la stack.",
+      "footnote_en": "The scoping sprint is fixed-price, {{prix.sprint.en}} € ex VAT for 10 hours: scoping and a first deliverable in hand. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints, on the growth retainer at {{prix.horaire}} €/h ex VAT. No hidden subscription, no lock-in: you keep the stack."
     },
     {
       "type": "faq-accordion",

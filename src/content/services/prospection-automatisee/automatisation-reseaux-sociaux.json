@@ -18,7 +18,7 @@
   "seo": {
     "noindex": false,
     "serviceType": "Automatisation des réseaux sociaux pour PME",
-    "priceRange": "dès 999 €",
+    "priceRange": "dès {{prix.sprint}} €",
     "priceMin": 999
   },
   "faq_fr": [
@@ -139,7 +139,7 @@
           "emphasis": false
         },
         {
-          "value": "999 € HT",
+          "value": "{{prix.sprint}} € HT",
           "label_fr": "sprint de cadrage de 10 heures, puis {{prix.horaire}} € HT de l'heure",
           "label_en": "10-hour scoping sprint, then €{{prix.horaire}} per hour excl. VAT",
           "emphasis": false
@@ -472,7 +472,7 @@
         {
           "name_fr": "Sprint de cadrage",
           "name_en": "Scoping sprint",
-          "price": "999 €",
+          "price": "{{prix.sprint}} €",
           "period_fr": "10 h · HT",
           "period_en": "10 h · ex VAT",
           "features_fr": [
@@ -521,8 +521,8 @@
           }
         }
       ],
-      "footnote_fr": "999 € HT pour 10 heures de cadrage, à prix fixe. Chaque réseau ou format ajouté ensuite est estimé avec vous, validé, puis facturé en régie à {{prix.horaire}} € HT de l'heure. La charte, le calendrier, les modèles et les accès sont à vous.",
-      "footnote_en": "€999 excl. VAT for 10 hours of scoping, fixed price. Each network or format added afterwards is estimated with you, validated, then billed on a time-and-materials basis at €{{prix.horaire}} excl. VAT per hour. The guidelines, calendar, templates and access are yours."
+      "footnote_fr": "{{prix.sprint}} € HT pour 10 heures de cadrage, à prix fixe. Chaque réseau ou format ajouté ensuite est estimé avec vous, validé, puis facturé en régie à {{prix.horaire}} € HT de l'heure. La charte, le calendrier, les modèles et les accès sont à vous.",
+      "footnote_en": "€{{prix.sprint.en}} excl. VAT for 10 hours of scoping, fixed price. Each network or format added afterwards is estimated with you, validated, then billed on a time-and-materials basis at €{{prix.horaire}} excl. VAT per hour. The guidelines, calendar, templates and access are yours."
     },
     {
       "type": "eeat-panel",

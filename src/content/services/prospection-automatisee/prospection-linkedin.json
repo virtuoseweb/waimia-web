@@ -18,7 +18,7 @@
   "seo": {
     "noindex": false,
     "serviceType": "Prospection LinkedIn B2B préparée par IA et validée par un humain",
-    "priceRange": "dès 999 €",
+    "priceRange": "dès {{prix.sprint}} €",
     "priceMin": 999
   },
   "faq_fr": [
@@ -139,7 +139,7 @@
           "emphasis": false
         },
         {
-          "value": "999 € HT",
+          "value": "{{prix.sprint}} € HT",
           "label_fr": "sprint de cadrage de 10 heures, puis {{prix.horaire}} € HT de l'heure",
           "label_en": "10-hour scoping sprint, then €{{prix.horaire}} per hour excl. VAT",
           "emphasis": false
@@ -514,7 +514,7 @@
         {
           "name_fr": "Sprint de cadrage",
           "name_en": "Scoping sprint",
-          "price": "999 €",
+          "price": "{{prix.sprint}} €",
           "period_fr": "10 h · HT",
           "period_en": "10 h · ex VAT",
           "features_fr": [
@@ -563,8 +563,8 @@
           }
         }
       ],
-      "footnote_fr": "Sprint de cadrage à 999 € HT pour 10 heures, à prix fixe. Ensuite, on estime avec vous le temps que demandent vos segments, vous validez, puis on exécute en régie à {{prix.horaire}} € HT de l'heure. À la fin, les listes, les modèles et les accès sont à vous.",
-      "footnote_en": "Scoping sprint at €999 excl. VAT for 10 hours, fixed price. Afterwards, we estimate with you the time your segments need, you approve, then we run it on a time-and-materials basis at €{{prix.horaire}} excl. VAT per hour. At the end, the lists, templates and access are yours."
+      "footnote_fr": "Sprint de cadrage à {{prix.sprint}} € HT pour 10 heures, à prix fixe. Ensuite, on estime avec vous le temps que demandent vos segments, vous validez, puis on exécute en régie à {{prix.horaire}} € HT de l'heure. À la fin, les listes, les modèles et les accès sont à vous.",
+      "footnote_en": "Scoping sprint at €{{prix.sprint.en}} excl. VAT for 10 hours, fixed price. Afterwards, we estimate with you the time your segments need, you approve, then we run it on a time-and-materials basis at €{{prix.horaire}} excl. VAT per hour. At the end, the lists, templates and access are yours."
     },
     {
       "type": "eeat-panel",

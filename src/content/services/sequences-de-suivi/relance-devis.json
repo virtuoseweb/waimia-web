@@ -18,7 +18,7 @@
   "seo": {
     "noindex": false,
     "serviceType": "Relance de devis automatique par séquences email et SMS",
-    "priceRange": "dès 999 €",
+    "priceRange": "dès {{prix.sprint}} €",
     "priceMin": 999
   },
   "faq_fr": [
@@ -44,7 +44,7 @@
     },
     {
       "q": "Combien coûte la relance de devis automatique ?",
-      "a": "Deux façons d'engager. On démarre par un sprint de cadrage de 10 heures à 999 € HT : on branche vos devis et on lance la première séquence email et SMS, avec un livrable en main dès la fin. Ensuite, le temps nécessaire est estimé avec vous, validé, puis exécuté en sprints dans le cadre de la régie growth, à {{prix.horaire}} € de l'heure, non dégressif. Sans durée imposée : au terme, les séquences et la base vous appartiennent."
+      "a": "Deux façons d'engager. On démarre par un sprint de cadrage de 10 heures à {{prix.sprint}} € HT : on branche vos devis et on lance la première séquence email et SMS, avec un livrable en main dès la fin. Ensuite, le temps nécessaire est estimé avec vous, validé, puis exécuté en sprints dans le cadre de la régie growth, à {{prix.horaire}} € de l'heure, non dégressif. Sans durée imposée : au terme, les séquences et la base vous appartiennent."
     }
   ],
   "faq_en": [
@@ -70,7 +70,7 @@
     },
     {
       "q": "How much does automated quote follow-up cost?",
-      "a": "Two ways to engage. We start with a 10-hour scoping sprint at 999 € ex VAT: we wire your quotes and launch the first email and SMS sequence, with a deliverable in hand by the end. After that, the time needed is estimated with you, validated, then run in sprints within the growth retainer frame, at {{prix.horaire}} € an hour, non-degressive. No imposed duration: in the end, the sequences and the base are yours."
+      "a": "Two ways to engage. We start with a 10-hour scoping sprint at {{prix.sprint.en}} € ex VAT: we wire your quotes and launch the first email and SMS sequence, with a deliverable in hand by the end. After that, the time needed is estimated with you, validated, then run in sprints within the growth retainer frame, at {{prix.horaire}} € an hour, non-degressive. No imposed duration: in the end, the sequences and the base are yours."
     }
   ],
   "sections": [
@@ -138,7 +138,7 @@
       "kicker_en": "§ At a glance",
       "metrics": [
         {
-          "value": "Dès 999 €",
+          "value": "Dès {{prix.sprint}} €",
           "label_fr": "sprint de cadrage de 10 h · suite sur devis",
           "label_en": "10-h scoping sprint · next steps on quote",
           "emphasis": true
@@ -788,7 +788,7 @@
         {
           "name_fr": "Sprint de cadrage",
           "name_en": "Scoping sprint",
-          "price": "999 €",
+          "price": "{{prix.sprint}} €",
           "period_fr": "10 h · HT",
           "period_en": "10 h · ex VAT",
           "features_fr": [
@@ -837,8 +837,8 @@
           }
         }
       ],
-      "footnote_fr": "Le sprint de cadrage est à prix fixe, 999 € HT pour 10 heures : on branche vos devis et on lance la première séquence email et SMS, avec un livrable en main dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent vos relances multicanal dans la durée, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth, à {{prix.horaire}} € de l'heure, non dégressif. Sans durée imposée ni abonnement : au terme, les séquences et la base vous appartiennent.",
-      "footnote_en": "The scoping sprint is fixed-price, 999 € ex VAT for 10 hours: we wire your quotes and launch the first email and SMS sequence, with a deliverable in hand by the end. What follows is quoted: we estimate together the time your multichannel follow-ups require over time, validate it, then run it in sprints within the growth retainer frame, at {{prix.horaire}} € an hour, non-degressive. No imposed duration, no subscription: in the end, the sequences and the base are yours."
+      "footnote_fr": "Le sprint de cadrage est à prix fixe, {{prix.sprint}} € HT pour 10 heures : on branche vos devis et on lance la première séquence email et SMS, avec un livrable en main dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent vos relances multicanal dans la durée, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth, à {{prix.horaire}} € de l'heure, non dégressif. Sans durée imposée ni abonnement : au terme, les séquences et la base vous appartiennent.",
+      "footnote_en": "The scoping sprint is fixed-price, {{prix.sprint.en}} € ex VAT for 10 hours: we wire your quotes and launch the first email and SMS sequence, with a deliverable in hand by the end. What follows is quoted: we estimate together the time your multichannel follow-ups require over time, validate it, then run it in sprints within the growth retainer frame, at {{prix.horaire}} € an hour, non-degressive. No imposed duration, no subscription: in the end, the sequences and the base are yours."
     },
     {
       "type": "eeat-panel",
@@ -886,8 +886,8 @@
         {
           "q_fr": "Combien coûte la relance de devis automatique ?",
           "q_en": "How much does automated quote follow-up cost?",
-          "a_fr": "Deux façons d'engager. On démarre par un sprint de cadrage de 10 heures à 999 € HT : on branche vos devis et on lance la première séquence email et SMS, avec un livrable en main dès la fin. Ensuite, le temps nécessaire est estimé avec vous, validé, puis exécuté en sprints dans le cadre de la régie growth, à {{prix.horaire}} € de l'heure, non dégressif. Sans durée imposée : au terme, les séquences et la base vous appartiennent.",
-          "a_en": "Two ways to engage. We start with a 10-hour scoping sprint at 999 € ex VAT: we wire your quotes and launch the first email and SMS sequence, with a deliverable in hand by the end. After that, the time needed is estimated with you, validated, then run in sprints within the growth retainer frame, at {{prix.horaire}} € an hour, non-degressive. No imposed duration: in the end, the sequences and the base are yours."
+          "a_fr": "Deux façons d'engager. On démarre par un sprint de cadrage de 10 heures à {{prix.sprint}} € HT : on branche vos devis et on lance la première séquence email et SMS, avec un livrable en main dès la fin. Ensuite, le temps nécessaire est estimé avec vous, validé, puis exécuté en sprints dans le cadre de la régie growth, à {{prix.horaire}} € de l'heure, non dégressif. Sans durée imposée : au terme, les séquences et la base vous appartiennent.",
+          "a_en": "Two ways to engage. We start with a 10-hour scoping sprint at {{prix.sprint.en}} € ex VAT: we wire your quotes and launch the first email and SMS sequence, with a deliverable in hand by the end. After that, the time needed is estimated with you, validated, then run in sprints within the growth retainer frame, at {{prix.horaire}} € an hour, non-degressive. No imposed duration: in the end, the sequences and the base are yours."
         }
       ]
     },

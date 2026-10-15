@@ -1,8 +1,8 @@
 {
-  "title_fr": "IA et automatisation pour l'e-commerce : commandes, support et catalogue",
+  "title_fr": "IA et automatisation pour l'e-commerce : commandes, support et catalogue",
   "title_en": "AI and automation for e-commerce: orders, support and catalogue",
-  "description_fr": "PME e-commerce : commandes synchronisées sans ressaisie, support client répondu par un agent IA, catalogue tenu à jour. Sprint de départ à 999 € HT.",
-  "description_en": "E-commerce SMBs: orders synced with no re-keying, customer support answered by an AI agent, catalogue kept up to date. Starter sprint at 999 € ex VAT.",
+  "description_fr": "PME e-commerce : commandes synchronisées sans ressaisie, support client répondu par un agent IA, catalogue tenu à jour. Sprint de départ à {{prix.sprint}} € HT.",
+  "description_en": "E-commerce SMBs: orders synced with no re-keying, customer support answered by an AI agent, catalogue kept up to date. Starter sprint at {{prix.sprint.en}} € ex VAT.",
   "slug": "e-commerce",
   "publishedAt": "2026-06-15",
   "icp_fr": "Boutiques en ligne et PME e-commerce",
@@ -73,7 +73,7 @@
   "faq_fr": [
     {
       "q": "Combien coûte l'automatisation d'une boutique en ligne ?",
-      "a": "On démarre par un sprint de cadrage de 10 heures à 999 € HT, avec un premier livrable en service à la fin. La suite est estimée avec vous, validée, puis exécutée en sprints facturés {{prix.horaire}} € HT de l'heure. Pas d'abonnement imposé, et vous gardez les workflows."
+      "a": "On démarre par un sprint de cadrage de 10 heures à {{prix.sprint}} € HT, avec un premier livrable en service à la fin. La suite est estimée avec vous, validée, puis exécutée en sprints facturés {{prix.horaire}} € HT de l'heure. Pas d'abonnement imposé, et vous gardez les workflows."
     },
     {
       "q": "Faut-il changer de plateforme e-commerce ?",
@@ -99,7 +99,7 @@
   "faq_en": [
     {
       "q": "How much does automating an online shop cost?",
-      "a": "We start with a 10-hour scoping sprint at 999 € ex VAT, with a first deliverable live at the end. What follows is estimated with you, approved, then run in sprints billed at {{prix.horaire}} € ex VAT per hour. No forced subscription, and you keep the workflows."
+      "a": "We start with a 10-hour scoping sprint at {{prix.sprint.en}} € ex VAT, with a first deliverable live at the end. What follows is estimated with you, approved, then run in sprints billed at {{prix.horaire}} € ex VAT per hour. No forced subscription, and you keep the workflows."
     },
     {
       "q": "Do I need to change e-commerce platform?",
@@ -185,7 +185,7 @@
         {
           "name_fr": "Sprint de cadrage",
           "name_en": "Scoping sprint",
-          "price": "999 €",
+          "price": "{{prix.sprint}} €",
           "period_fr": "10 h · HT",
           "period_en": "10 h · ex VAT",
           "features_fr": [

@@ -35,7 +35,7 @@
   "seo": {
     "noindex": false,
     "serviceType": "Référencement IA (GEO, Generative Engine Optimization) : audit de citabilité, passages extractibles, mesure des citations",
-    "priceRange": "dès 999 €",
+    "priceRange": "dès {{prix.sprint}} €",
     "priceMin": 999
   },
   "faq_fr": [
@@ -143,7 +143,7 @@
       "kicker_en": "§ At a glance",
       "metrics": [
         {
-          "value": "Dès 999 € HT",
+          "value": "Dès {{prix.sprint}} € HT",
           "label_fr": "sprint de cadrage de 10 h · suite sur devis",
           "label_en": "10-hour scoping sprint · next steps on quote",
           "emphasis": true
@@ -502,7 +502,7 @@
         {
           "name_fr": "Sprint de cadrage",
           "name_en": "Scoping sprint",
-          "price": "999 €",
+          "price": "{{prix.sprint}} €",
           "period_fr": "10 h · HT",
           "period_en": "10 h · ex VAT",
           "features_fr": [
@@ -551,8 +551,8 @@
           }
         }
       ],
-      "footnote_fr": "Le sprint de cadrage est à prix fixe, 999 € HT pour 10 heures : relevé de départ, audit de citabilité, mise au format citable des pages prioritaires et balisage de base. La suite se cale sur devis : on estime ensemble le temps que demandent le balisage étendu et le relevé des citations, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € de l'heure, non dégressif. Sans abonnement : à la fin, les pages et le protocole de mesure sont à vous.",
-      "footnote_en": "The scoping sprint is fixed-price, €999 excl. VAT for 10 hours: starting reading, citability audit, citable format on priority pages and base markup. What follows is quoted: we estimate together the time the extended markup and citation reading require, validate it, then run it in sprints on a time and materials basis, at €{{prix.horaire}} an hour, non-degressive. No subscription: at the end, the pages and the measurement protocol are yours."
+      "footnote_fr": "Le sprint de cadrage est à prix fixe, {{prix.sprint}} € HT pour 10 heures : relevé de départ, audit de citabilité, mise au format citable des pages prioritaires et balisage de base. La suite se cale sur devis : on estime ensemble le temps que demandent le balisage étendu et le relevé des citations, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € de l'heure, non dégressif. Sans abonnement : à la fin, les pages et le protocole de mesure sont à vous.",
+      "footnote_en": "The scoping sprint is fixed-price, €{{prix.sprint.en}} excl. VAT for 10 hours: starting reading, citability audit, citable format on priority pages and base markup. What follows is quoted: we estimate together the time the extended markup and citation reading require, validate it, then run it in sprints on a time and materials basis, at €{{prix.horaire}} an hour, non-degressive. No subscription: at the end, the pages and the measurement protocol are yours."
     },
     {
       "type": "eeat-panel",

@@ -1,6 +1,6 @@
 {
   "$schema": "../../schemas/generated/guides.page.schema.json",
-  "title_fr": "Claude et RGPD : utiliser Claude en conformité en PME",
+  "title_fr": "Claude et RGPD : utiliser Claude en conformité en PME",
   "title_en": "Claude and GDPR: using Claude in compliance in an SMB",
   "seoTitle_fr": "Claude et RGPD : les points à vérifier pour une PME",
   "description_fr": "Claude et RGPD au 6 octobre 2026 : entraînement, DPA et clauses types, stockage aux États-Unis, registre, AIPD et données à ne pas envoyer.",
@@ -110,7 +110,7 @@
       "background": "paper",
       "kicker_fr": "§ Guide",
       "kicker_en": "§ Guide",
-      "h1_fr": "Claude et <i class=\"acc\">RGPD</i> : utiliser Claude en conformité dans une PME",
+      "h1_fr": "Claude et <i class=\"acc\">RGPD</i> : utiliser Claude en conformité dans une PME",
       "h1_en": "Claude and <i class=\"acc\">GDPR</i>: using Claude in compliance in an SMB",
       "lede_fr": "Le RGPD se joue dans le compte que vous ouvrez : Team, Enterprise et API relèvent de conditions commerciales et d'un DPA, Free, Pro et Max de conditions grand public. Le texte confronte ce qu'Anthropic écrit dans ses pages et son DPA à ce que le RGPD vous demande, puis liste les données qui ne passent pas par Claude. C'est un cadrage technique, pas un avis juridique.",
       "lede_en": "GDPR compliance is decided by the account you open: Team, Enterprise and API fall under commercial terms and a DPA, Free, Pro and Max under consumer terms. The text sets what Anthropic states in its pages and its DPA against what the GDPR asks of you, then lists the data that does not go through Claude. This is technical framing, not legal advice.",
@@ -527,8 +527,8 @@
           "title_en": "Scoping sprint",
           "body_fr": "Registre, fiches de décision par usage, réglages d'administration, architecture si l'UE est exigée.",
           "body_en": "Register, one decision sheet per use, administration settings, architecture if the EU is required.",
-          "meta_fr": "10 h, 999 € HT, prix fixe",
-          "meta_en": "10 h, €999 excl. VAT, fixed price"
+          "meta_fr": "10 h, {{prix.sprint}} € HT, prix fixe",
+          "meta_en": "10 h, €{{prix.sprint.en}} excl. VAT, fixed price"
         },
         {
           "title_fr": "Mise en place",
@@ -557,7 +557,7 @@
         {
           "kicker_fr": "Guide",
           "kicker_en": "Guide",
-          "title_fr": "AI Act pour PME : le calendrier à jour",
+          "title_fr": "AI Act pour PME : le calendrier à jour",
           "title_en": "AI Act for SMBs: the current timeline",
           "lead_fr": "Ce qui s'applique, à quelle date, et ce que votre registre doit déjà préparer.",
           "lead_en": "What applies, from when, and what your register should already prepare.",
@@ -566,7 +566,7 @@
         {
           "kicker_fr": "Service",
           "kicker_en": "Service",
-          "title_fr": "Conformité IA : RGPD et AI Act",
+          "title_fr": "Conformité IA : RGPD et AI Act",
           "title_en": "AI compliance: GDPR and AI Act",
           "lead_fr": "Cadrer les usages, la politique et les preuves avant le premier incident.",
           "lead_en": "Frame uses, policy and evidence before the first incident.",
@@ -651,9 +651,9 @@
         },
         {
           "q_fr": "Waimia peut-il garantir ma conformité ?",
-          "a_fr": "Non, et méfiez-vous de qui le promet. Waimia cadre l'usage technique de Claude (comptes, réglages, connecteurs, registre, formation) et date chaque source. La qualification juridique reste celle de votre DPO ou de votre conseil. L'audit de 45 minutes est gratuit, le sprint de cadrage coûte 999 € HT.",
+          "a_fr": "Non, et méfiez-vous de qui le promet. Waimia cadre l'usage technique de Claude (comptes, réglages, connecteurs, registre, formation) et date chaque source. La qualification juridique reste celle de votre DPO ou de votre conseil. L'audit de 45 minutes est gratuit, le sprint de cadrage coûte {{prix.sprint}} € HT.",
           "q_en": "Can Waimia guarantee my compliance?",
-          "a_en": "No, and be wary of anyone who promises it. Waimia frames the technical use of Claude (accounts, settings, connectors, register, training) and dates every source. The legal qualification stays with your DPO or counsel. The 45-minute audit is free; the scoping sprint costs €999 excl. VAT."
+          "a_en": "No, and be wary of anyone who promises it. Waimia frames the technical use of Claude (accounts, settings, connectors, register, training) and dates every source. The legal qualification stays with your DPO or counsel. The 45-minute audit is free; the scoping sprint costs €{{prix.sprint.en}} excl. VAT."
         }
       ]
     },
@@ -718,7 +718,7 @@
     },
     {
       "q": "Waimia peut-il garantir ma conformité ?",
-      "a": "Non, et méfiez-vous de qui le promet. Waimia cadre l'usage technique de Claude (comptes, réglages, connecteurs, registre, formation) et date chaque source. La qualification juridique reste celle de votre DPO ou de votre conseil. L'audit de 45 minutes est gratuit, le sprint de cadrage coûte 999 € HT."
+      "a": "Non, et méfiez-vous de qui le promet. Waimia cadre l'usage technique de Claude (comptes, réglages, connecteurs, registre, formation) et date chaque source. La qualification juridique reste celle de votre DPO ou de votre conseil. L'audit de 45 minutes est gratuit, le sprint de cadrage coûte {{prix.sprint}} € HT."
     }
   ],
   "faq_en": [
@@ -756,7 +756,7 @@
     },
     {
       "q": "Can Waimia guarantee my compliance?",
-      "a": "No, and be wary of anyone who promises it. Waimia frames the technical use of Claude (accounts, settings, connectors, register, training) and dates every source. The legal qualification stays with your DPO or counsel. The 45-minute audit is free; the scoping sprint costs €999 excl. VAT."
+      "a": "No, and be wary of anyone who promises it. Waimia frames the technical use of Claude (accounts, settings, connectors, register, training) and dates every source. The legal qualification stays with your DPO or counsel. The 45-minute audit is free; the scoping sprint costs €{{prix.sprint.en}} excl. VAT."
     }
   ]
 }

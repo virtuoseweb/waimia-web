@@ -38,7 +38,7 @@
     },
     {
       "q": "Combien coûte un projet de centralisation des données ?",
-      "a": "Le sprint de cadrage est à 999 € HT pour 10 heures : indicateurs prioritaires, premières sources, premier tableau. La suite est estimée en heures puis facturée {{prix.horaire}} € HT de l'heure."
+      "a": "Le sprint de cadrage est à {{prix.sprint}} € HT pour 10 heures : indicateurs prioritaires, premières sources, premier tableau. La suite est estimée en heures puis facturée {{prix.horaire}} € HT de l'heure."
     }
   ],
   "faq_en": [
@@ -60,7 +60,7 @@
     },
     {
       "q": "How much does a data centralisation project cost?",
-      "a": "The scoping sprint is €999 excl. VAT for 10 hours: priority indicators, first sources, first dashboard. The rest is estimated in hours then billed €{{prix.horaire}} per hour excl. VAT."
+      "a": "The scoping sprint is €{{prix.sprint.en}} excl. VAT for 10 hours: priority indicators, first sources, first dashboard. The rest is estimated in hours then billed €{{prix.horaire}} per hour excl. VAT."
     }
   ],
   "sections": [
@@ -244,9 +244,9 @@
         },
         {
           "q_fr": "Combien coûte un projet de centralisation des données ?",
-          "a_fr": "Le sprint de cadrage est à 999 € HT pour 10 heures : indicateurs prioritaires, premières sources, premier tableau. La suite est estimée en heures puis facturée {{prix.horaire}} € HT de l'heure.",
+          "a_fr": "Le sprint de cadrage est à {{prix.sprint}} € HT pour 10 heures : indicateurs prioritaires, premières sources, premier tableau. La suite est estimée en heures puis facturée {{prix.horaire}} € HT de l'heure.",
           "q_en": "How much does a data centralisation project cost?",
-          "a_en": "The scoping sprint is €999 excl. VAT for 10 hours: priority indicators, first sources, first dashboard. The rest is estimated in hours then billed €{{prix.horaire}} per hour excl. VAT."
+          "a_en": "The scoping sprint is €{{prix.sprint.en}} excl. VAT for 10 hours: priority indicators, first sources, first dashboard. The rest is estimated in hours then billed €{{prix.horaire}} per hour excl. VAT."
         }
       ]
     },
