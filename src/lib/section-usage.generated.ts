@@ -23,7 +23,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "author-byline": {
-    "count": 40,
+    "count": 42,
     "pages": [
       "/cas-usages/centraliser-donnees",
       "/cas-usages/finance-comptabilite",
@@ -40,6 +40,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/aides-financement-projet-ia",
       "/ressources/guides/chatbot-transparence-article-50",
       "/ressources/guides/choisir-agence-ia-pme",
+      "/ressources/guides/claude-finance-pme",
       "/ressources/guides/claude-fonctionnalites-pme",
       "/ressources/guides/claude-for-small-business",
       "/ressources/guides/claude-gratuit",
@@ -48,6 +49,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-pme",
       "/ressources/guides/claude-rgpd-pme",
       "/ressources/guides/claude-skills",
+      "/ressources/guides/claude-tpe",
       "/ressources/guides/combien-coute-un-agent-ia-pme",
       "/ressources/guides/cout-integration-claude-pme",
       "/ressources/guides/cout-projet-ia-pme",
@@ -236,12 +238,14 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "comparison-table": {
-    "count": 5,
+    "count": 7,
     "pages": [
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "/ressources/comparatifs/geo-vs-seo",
       "/ressources/comparatifs/site-web-intelligent-vs-wordpress",
+      "/services/agent-support-client",
+      "/services/applications-internes",
       "/services/branding"
     ]
   },
@@ -298,7 +302,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "decision-list": {
-    "count": 82,
+    "count": 83,
     "pages": [
       "/demonstrations/avant-apres",
       "/demonstrations/site-web-intelligent",
@@ -319,6 +323,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/ai-act-pme-calendrier",
       "/ressources/guides/chatbot-transparence-article-50",
       "/ressources/guides/choisir-agence-ia-pme",
+      "/ressources/guides/claude-finance-pme",
       "/ressources/guides/claude-fonctionnalites-pme",
       "/ressources/guides/claude-gratuit",
       "/ressources/guides/claude-managed-agents",
@@ -524,7 +529,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "direct-answer": {
-    "count": 74,
+    "count": 76,
     "pages": [
       "/cas-usages/finance-comptabilite",
       "/cas-usages/rh",
@@ -564,6 +569,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-code-entreprise",
       "/ressources/guides/claude-cowork",
       "/ressources/guides/claude-design",
+      "/ressources/guides/claude-finance-pme",
       "/ressources/guides/claude-fonctionnalites-pme",
       "/ressources/guides/claude-for-small-business",
       "/ressources/guides/claude-gratuit",
@@ -572,6 +578,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-pme",
       "/ressources/guides/claude-rgpd-pme",
       "/ressources/guides/claude-skills",
+      "/ressources/guides/claude-tpe",
       "/ressources/guides/combien-coute-un-agent-ia-pme",
       "/ressources/guides/cout-integration-claude-pme",
       "/ressources/guides/cout-projet-ia-pme",
@@ -630,7 +637,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "editorial-prose": {
-    "count": 249,
+    "count": 261,
     "pages": [
       "/audit-ia-pme",
       "/cas-usages/centraliser-donnees",
@@ -665,6 +672,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-code-entreprise",
       "/ressources/guides/claude-cowork",
       "/ressources/guides/claude-design",
+      "/ressources/guides/claude-finance-pme",
       "/ressources/guides/claude-fonctionnalites-pme",
       "/ressources/guides/claude-for-small-business",
       "/ressources/guides/claude-gratuit",
@@ -673,6 +681,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-pme",
       "/ressources/guides/claude-rgpd-pme",
       "/ressources/guides/claude-skills",
+      "/ressources/guides/claude-tpe",
       "/ressources/guides/combien-coute-un-agent-ia-pme",
       "/ressources/guides/cout-integration-claude-pme",
       "/ressources/guides/cout-projet-ia-pme",
@@ -751,7 +760,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "editorial-table-block": {
-    "count": 105,
+    "count": 107,
     "pages": [
       "/cas-usages/finance-comptabilite",
       "/cas-usages/rh",
@@ -771,6 +780,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-code-entreprise",
       "/ressources/guides/claude-cowork",
       "/ressources/guides/claude-design",
+      "/ressources/guides/claude-finance-pme",
       "/ressources/guides/claude-fonctionnalites-pme",
       "/ressources/guides/claude-for-small-business",
       "/ressources/guides/claude-gratuit",
@@ -779,6 +789,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-pme",
       "/ressources/guides/claude-rgpd-pme",
       "/ressources/guides/claude-skills",
+      "/ressources/guides/claude-tpe",
       "/ressources/guides/combien-coute-un-agent-ia-pme",
       "/ressources/guides/cout-integration-claude-pme",
       "/ressources/guides/cout-projet-ia-pme",
@@ -887,7 +898,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "faq-accordion": {
-    "count": 136,
+    "count": 138,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -938,6 +949,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-code-entreprise",
       "/ressources/guides/claude-cowork",
       "/ressources/guides/claude-design",
+      "/ressources/guides/claude-finance-pme",
       "/ressources/guides/claude-fonctionnalites-pme",
       "/ressources/guides/claude-for-small-business",
       "/ressources/guides/claude-gratuit",
@@ -946,6 +958,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-pme",
       "/ressources/guides/claude-rgpd-pme",
       "/ressources/guides/claude-skills",
+      "/ressources/guides/claude-tpe",
       "/ressources/guides/combien-coute-un-agent-ia-pme",
       "/ressources/guides/cout-integration-claude-pme",
       "/ressources/guides/cout-projet-ia-pme",
@@ -1085,7 +1098,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "footer-cta-band": {
-    "count": 135,
+    "count": 137,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -1137,6 +1150,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-code-entreprise",
       "/ressources/guides/claude-cowork",
       "/ressources/guides/claude-design",
+      "/ressources/guides/claude-finance-pme",
       "/ressources/guides/claude-fonctionnalites-pme",
       "/ressources/guides/claude-for-small-business",
       "/ressources/guides/claude-gratuit",
@@ -1145,6 +1159,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-pme",
       "/ressources/guides/claude-rgpd-pme",
       "/ressources/guides/claude-skills",
+      "/ressources/guides/claude-tpe",
       "/ressources/guides/combien-coute-un-agent-ia-pme",
       "/ressources/guides/cout-integration-claude-pme",
       "/ressources/guides/cout-projet-ia-pme",
@@ -1346,7 +1361,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "hero-split-media": {
-    "count": 92,
+    "count": 94,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
@@ -1391,6 +1406,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-code-entreprise",
       "/ressources/guides/claude-cowork",
       "/ressources/guides/claude-design",
+      "/ressources/guides/claude-finance-pme",
       "/ressources/guides/claude-fonctionnalites-pme",
       "/ressources/guides/claude-for-small-business",
       "/ressources/guides/claude-gratuit",
@@ -1399,6 +1415,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-pme",
       "/ressources/guides/claude-rgpd-pme",
       "/ressources/guides/claude-skills",
+      "/ressources/guides/claude-tpe",
       "/ressources/guides/combien-coute-un-agent-ia-pme",
       "/ressources/guides/cout-integration-claude-pme",
       "/ressources/guides/cout-projet-ia-pme",
@@ -1474,12 +1491,13 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "key-metric-grid": {
-    "count": 19,
+    "count": 21,
     "pages": [
       "/ressources/guides/aides-financement-projet-ia",
       "/ressources/guides/claude-code-entreprise",
       "/ressources/guides/claude-cowork",
       "/ressources/guides/claude-design",
+      "/ressources/guides/claude-finance-pme",
       "/ressources/guides/claude-fonctionnalites-pme",
       "/ressources/guides/claude-for-small-business",
       "/ressources/guides/claude-gratuit",
@@ -1488,6 +1506,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-pme",
       "/ressources/guides/claude-rgpd-pme",
       "/ressources/guides/claude-skills",
+      "/ressources/guides/claude-tpe",
       "/ressources/guides/combien-coute-un-agent-ia-pme",
       "/ressources/guides/cout-integration-claude-pme",
       "/ressources/guides/cout-projet-ia-pme",
@@ -1736,7 +1755,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "process-steps": {
-    "count": 44,
+    "count": 45,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/finance-comptabilite",
@@ -1766,6 +1785,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-pme",
       "/ressources/guides/claude-rgpd-pme",
       "/ressources/guides/claude-skills",
+      "/ressources/guides/claude-tpe",
       "/ressources/guides/combien-coute-un-agent-ia-pme",
       "/ressources/guides/devis-automatise",
       "/ressources/guides/financement-formation-ia-opco",
@@ -1869,7 +1889,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "related-cards-band": {
-    "count": 79,
+    "count": 81,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
@@ -1914,6 +1934,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-code-entreprise",
       "/ressources/guides/claude-cowork",
       "/ressources/guides/claude-design",
+      "/ressources/guides/claude-finance-pme",
       "/ressources/guides/claude-fonctionnalites-pme",
       "/ressources/guides/claude-for-small-business",
       "/ressources/guides/claude-gratuit",
@@ -1922,6 +1943,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-pme",
       "/ressources/guides/claude-rgpd-pme",
       "/ressources/guides/claude-skills",
+      "/ressources/guides/claude-tpe",
       "/ressources/guides/combien-coute-un-agent-ia-pme",
       "/ressources/guides/cout-integration-claude-pme",
       "/ressources/guides/cout-projet-ia-pme",
@@ -2069,7 +2091,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "tech-when-dual": {
-    "count": 44,
+    "count": 45,
     "pages": [
       "/cas-usages/finance-comptabilite",
       "/cas-usages/rh",
@@ -2095,6 +2117,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-gratuit",
       "/ressources/guides/claude-plugins-entreprise",
       "/ressources/guides/claude-rgpd-pme",
+      "/ressources/guides/claude-tpe",
       "/ressources/guides/cout-integration-claude-pme",
       "/ressources/guides/devis-automatise",
       "/ressources/guides/financement-formation-ia-opco",

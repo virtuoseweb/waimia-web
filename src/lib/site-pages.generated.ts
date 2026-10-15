@@ -230,6 +230,16 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-2"
       },
       {
+        "type": "comparison-table",
+        "label": "Chatbot à règles ou agent conversationnel IA : lequel pour votre service client",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper-2"
+      },
+      {
         "type": "comparison-duo",
         "label": "Exemple type : le SAV d'un distributeur B2B",
         "background": "paper"
@@ -256,7 +266,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "eeat-panel",
-        "label": "#10",
+        "label": "#12",
         "variant": "media"
       },
       {
@@ -370,6 +380,16 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-2"
       },
       {
+        "type": "comparison-table",
+        "label": "Application métier ou logiciel du marché : comment décider",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper-2"
+      },
+      {
         "type": "comparison-duo",
         "label": "Exemple type : le suivi d'interventions d'une entreprise de maintenance",
         "background": "paper"
@@ -391,7 +411,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "eeat-panel",
-        "label": "#8",
+        "label": "#10",
         "variant": "media"
       },
       {
@@ -6024,7 +6044,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-table-block",
-        "label": "Agence IA, freelance, éditeur, équipe interne : le comparatif honnête",
+        "label": "Agence IA, freelance, cabinet, éditeur, équipe interne : le comparatif honnête",
         "background": "paper-2"
       },
       {
@@ -6406,6 +6426,92 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "footer-cta-band",
         "label": "Savoir ce que Claude Design peut produire chez vous, et ce qu'il faut confier à un pro.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/ressources/guides/claude-finance-pme",
+    "title": "Claude pour la finance d'une PME : factures fournisseurs, clôture, trésorerie",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/claude-finance-pme.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Claude pour la finance d'une PME : factures fournisseurs, clôture, trésorerie",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "key-metric-grid",
+        "label": "Quels chiffres retenir avant de confier une tâche financière à Claude ?",
+        "variant": "accent",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#4",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Quelles tâches financières confier à quel produit Claude, et qui valide ?",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#8",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#9",
+        "background": "paper"
+      },
+      {
+        "type": "decision-list",
+        "label": "Qu'est-ce qu'une personne garde toujours dans la finance d'une PME ?",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#11",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Claude et finance en PME : questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Une tâche financière choisie, une validation humaine écrite, avant d'automatiser quoi que ce soit.",
         "background": "ink"
       }
     ]
@@ -7246,6 +7352,87 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "footer-cta-band",
         "label": "Vos procédures en skills qui tournent, pour toute l'équipe",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/ressources/guides/claude-tpe",
+    "title": "Claude pour une TPE : par où commencer, avec quel abonnement, pour quoi faire",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/claude-tpe.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Claude pour une TPE : par où commencer, avec quel abonnement",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "key-metric-grid",
+        "label": "Quels chiffres retenir avant de choisir un compte ?",
+        "variant": "accent",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Quel compte Claude pour quelle situation de TPE ?",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Qu'est-ce qu'une TPE confie à Claude, et qu'est-ce qu'elle garde ?",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#8",
+        "background": "paper"
+      },
+      {
+        "type": "process-steps",
+        "label": "Que faire la première semaine, puis le premier mois ?",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#10",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Claude pour une TPE : questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Le bon compte et un premier usage, choisis avant la première facture.",
         "background": "ink"
       }
     ]
@@ -8835,6 +9022,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/agent-ia-entreprise-exemples",
+    "title": "Agent IA en entreprise : exemples concrets par fonction",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/agent-ia-entreprise-exemples.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/agent-ia-vs-automatisation-classique-2026",
     "title": "Agent IA vs automatisation : la frontière en 2026",
     "group": "blog",
@@ -9958,6 +10154,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/guides/claude-code-entreprise",
       "/ressources/guides/claude-cowork",
       "/ressources/guides/claude-design",
+      "/ressources/guides/claude-finance-pme",
       "/ressources/guides/claude-fonctionnalites-pme",
       "/ressources/guides/claude-for-small-business",
       "/ressources/guides/claude-gratuit",
@@ -9966,6 +10163,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/guides/claude-pme",
       "/ressources/guides/claude-rgpd-pme",
       "/ressources/guides/claude-skills",
+      "/ressources/guides/claude-tpe",
       "/ressources/guides/combien-coute-un-agent-ia-pme",
       "/ressources/guides/cout-integration-claude-pme",
       "/ressources/guides/cout-projet-ia-pme",
@@ -9998,6 +10196,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
     "label_fr": "Blog",
     "routes": [
       "/blog",
+      "/blog/agent-ia-entreprise-exemples",
       "/blog/agent-ia-vs-automatisation-classique-2026",
       "/blog/applications-internes-build-vs-buy-pme",
       "/blog/architecte-ia-role-pme",
