@@ -37,6 +37,17 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### Vague 10 en production, 16 octobre 2026 (PR #99, `eb73dba7`)
+
+- **Contenu** : guides `claude-tpe` (dirigeant seul et conditions grand public, comptes Team) et `claude-finance-pme` (factures, PDF, Excel, facturation électronique DGFiP 2026-2027), billet `agent-ia-entreprise-exemples`, section « Agence, freelance ou cabinet de conseil » dans `choisir-agence-ia-pme` (tarifs Freeland sourcés), pages services `agent-support-client` (chatbot à règles ou agent, article 50) et `applications-internes` (application métier ou logiciel du marché). Six entrées du calendrier publiées.
+- **Revue Opus** : sources relues (Anthropic, Intercom, Salesforce, Freeland, DGFiP). Réserves corrigées avant fusion : réserve sur Pro et l'usage commercial ajoutée à `claude-for-small-business` (contradiction avec `claude-tpe`), limite PDF à 600 pages, marge d'environ 30 % du découpage des modèles depuis 4.7, accès de l'agent en lecture puis écriture. Laissé : « Quelques semaines, premier agent de support en production » (`agent-support-client`), qui ne l'attribue pas au sprint.
+- **Preuves** : portes 37 sur 39 avec le numéro de PR (rouges connues), `astro check` 8 erreurs, balayage des 181 pages à deux tailles (362 rendus, 0 erreur, 0 débordement, 0 CTA hors écran), E2E 72 passés, preview vérifiée sur le SHA (200, un H1, marqueurs), production vérifiée (3 nouvelles URL en 200, sitemap 181 URL).
+- **Rapprochements du dossier `waimia seo`** : « Pages with only one internal link » soldé (mesure sur le build, hors en-tête et pied : seules `/cgv` et `/mentions-legales` ont moins de 2 liens entrants) ; « Content not optimized » soldé (les 4 pages signalées le 9 octobre ont un paragraphe maximal de 68 à 69 mots).
+
+### Vague 9 en production, 15 octobre 2026 (PR #98, `5a5881ab`)
+
+- **Promesse du sprint** : 28 formulations « premier workflow/agent en production » remplacées par « prototypé et testé » sur les pages services Make, n8n, automatisations, agents IA, support client et la LP système IA marketing, alignées sur `/tarifs` (la mise en production relève du pilote). Faux positifs laissés : durées de mise en production d'un pilote, cas du marché.
+
 ### Vague 8 en production, 15 octobre 2026 (PR #97, `663f5b98`)
 
 - **Contenu** : guide `claude-managed-agents` (17 sources Anthropic lues le 15 octobre), tutoriel Make `tutoriel-make-tri-emails-claude`, guide `second-cerveau-entreprise`, section « Combien coûte une automatisation n8n livrée ? » dans `n8n-prix`. Title de `/services/integration-claude` : « Agence Claude, intégrateur Claude pour PME : audit gratuit » (requêtes « agence Claude », « intégrateur Claude »).
