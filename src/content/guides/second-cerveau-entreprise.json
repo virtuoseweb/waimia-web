@@ -1,0 +1,498 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "Second cerveau en entreprise : quand il vaut le coût",
+  "title_en": "Company second brain: when it is worth the cost",
+  "seoTitle_fr": "Second cerveau en entreprise : quand il vaut le coût",
+  "description_fr": "Second cerveau en entreprise : définition, base de connaissance et IA, prix publics des outils, quand le projet vaut son coût et quand l'éviter.",
+  "description_en": "Company second brain: definition, knowledge base and AI, public tool prices, when the project is worth its cost and when to avoid it.",
+  "slug": "second-cerveau-entreprise",
+  "publishedAt": "2026-10-15",
+  "updatedAt": "2026-10-15",
+  "category": "agents",
+  "tags": [
+    "second-cerveau",
+    "base-de-connaissance",
+    "rag",
+    "notion",
+    "obsidian",
+    "projets-claude",
+    "cout",
+    "guide-pme"
+  ],
+  "sources": [
+    {
+      "name": "Forte Labs, Building a Second Brain: The Definitive Introductory Guide (1er mai 2023, mis à jour le 23 novembre 2023), lu le 15 octobre 2026",
+      "url": "https://fortelabs.com/blog/basboverview/",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, Introducing Contextual Retrieval (19 septembre 2024), lu le 15 octobre 2026",
+      "url": "https://www.anthropic.com/news/contextual-retrieval",
+      "type": "enterprise"
+    },
+    {
+      "name": "Claude, centre d'aide : créer et gérer des projets, lu le 15 octobre 2026",
+      "url": "https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects",
+      "type": "enterprise"
+    },
+    {
+      "name": "Claude, tarifs (Free, Pro, Team), lus le 15 octobre 2026",
+      "url": "https://claude.com/pricing",
+      "type": "enterprise"
+    },
+    {
+      "name": "Notion, tarifs, lus le 15 octobre 2026",
+      "url": "https://www.notion.com/pricing",
+      "type": "enterprise"
+    },
+    {
+      "name": "Obsidian, tarifs, lus le 15 octobre 2026",
+      "url": "https://obsidian.md/pricing",
+      "type": "enterprise"
+    }
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "Qu'est-ce qu'un second cerveau en entreprise ?",
+      "a": "C'est la mémoire écrite de l'équipe (procédures, offres, comptes rendus, réponses types), tenue à jour par des responsables nommés et interrogée par un assistant IA qui répond depuis ces documents en citant ses sources. L'expression vient de la méthode personnelle de Tiago Forte, transposée à l'équipe. Sans documents écrits ni règle de mise à jour, il n'y a pas de second cerveau, seulement un chatbot."
+    },
+    {
+      "q": "Combien coûte un second cerveau d'entreprise ?",
+      "a": "Il n'existe pas de prix moyen honnête. Les abonnements ont un prix public : Notion Plus 10 $ et Business 20 $ par membre et par mois, Claude Team 20 $ ou 25 $ par siège et par mois, Obsidian gratuit. Le gros du coût est le tri et la rédaction des documents, en heures de votre équipe, qu'aucun prix public ne couvre. Une base indexée sur mesure se chiffre après un audit."
+    },
+    {
+      "q": "Notion, Obsidian ou Claude : lequel choisir ?",
+      "a": "Ils ne font pas le même travail. Notion et Obsidian rangent et retrouvent des notes ; Claude répond à des questions à partir de documents versés dans un projet. Si votre base tient sous 200 000 jetons, environ 500 pages, un projet Claude couvre le besoin sans développement. Si elle grandit, change souvent ou exige des droits d'accès différents, il faut une base indexée."
+    },
+    {
+      "q": "Faut-il forcément du RAG ?",
+      "a": "Non. Anthropic écrit qu'une base de moins de 200 000 jetons, environ 500 pages, peut être placée entièrement dans la requête, sans RAG. Le RAG se justifie quand le volume dépasse ce seuil, quand les documents changent souvent ou quand les droits d'accès diffèrent. Les définitions sont dans le guide <a href=\"/ressources/guides/llm-rag-dirigeant\">LLM et RAG pour dirigeants</a>."
+    },
+    {
+      "q": "Mes documents servent-ils à entraîner l'IA ?",
+      "a": "Cela dépend de l'offre. Notion écrit qu'il n'utilise pas vos données pour entraîner ses modèles sans votre accord. Anthropic indique, pour l'offre Team, qu'aucun entraînement n'est fait sur votre contenu par défaut, et prévoit une option de refus sur les offres Free, Pro et Max. Lisez les conditions de l'offre que vous achetez avant d'y verser des documents."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "What is a company second brain?",
+      "a": "It is the team's written memory (procedures, offers, meeting notes, standard replies), kept up to date by named owners and queried by an AI assistant that answers from those documents, citing its sources. The phrase comes from Tiago Forte's personal method, transposed to the team. Without written documents or an update rule, there is no second brain, only a chatbot."
+    },
+    {
+      "q": "How much does a company second brain cost?",
+      "a": "There is no honest average price. Subscriptions have a public price: Notion Plus $10 and Business $20 per member per month, Claude Team $20 or $25 per seat per month, Obsidian free. Most of the cost is sorting and writing the documents, in your team's hours, which no public price covers. A custom indexed base is costed after an audit."
+    },
+    {
+      "q": "Notion, Obsidian or Claude: which to choose?",
+      "a": "They do not do the same job. Notion and Obsidian file and find notes; Claude answers questions from documents added to a project. If your base fits under 200,000 tokens, about 500 pages, a Claude project covers the need with no development. If it grows, changes often or needs different access rights, you need an indexed base."
+    },
+    {
+      "q": "Do you necessarily need RAG?",
+      "a": "No. Anthropic writes that a base under 200,000 tokens, about 500 pages, can be placed entirely in the request, with no RAG. RAG is justified when volume exceeds that threshold, when documents change often or when access rights differ. Definitions are in the guide <a href=\"/ressources/guides/llm-rag-dirigeant\">LLM and RAG for business owners</a>."
+    },
+    {
+      "q": "Are my documents used to train the AI?",
+      "a": "It depends on the plan. Notion writes that it does not use your data to train its models unless you agree. Anthropic states, for the Team plan, that no training is done on your content by default, and provides an opt-out on the Free, Pro and Max plans. Read the terms of the plan you buy before adding documents."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "illustration": {
+        "src": "/images/illustrations/ds/claude-code-entreprise-carnet-paper.webp",
+        "alt_fr": "Un carnet géant ouvert comme un paysage, de petites silhouettes lisent des feuilles posées sur ses pages",
+        "alt_en": "A giant notebook open like a landscape, small figures reading sheets laid on its pages",
+        "side": "right"
+      },
+      "kicker_fr": "§ Guide",
+      "kicker_en": "§ Guide",
+      "h1_fr": "Second cerveau en <i class=\"acc\">entreprise</i> : quand il vaut le coût",
+      "h1_en": "Company <i class=\"acc\">second brain</i>: when it is worth the cost",
+      "lede_fr": "Un second cerveau rend le savoir de l'équipe interrogeable par une IA. Définition, coûts publics des outils, cas où il rapporte et cas où il ne sert à rien.",
+      "lede_en": "A second brain makes the team's knowledge queryable by an AI. Definition, public tool costs, when it pays off and when it is pointless.",
+      "badges": [
+        {
+          "label_fr": "Prix publics relevés le 15 octobre 2026",
+          "label_en": "Public prices checked on 15 October 2026"
+        },
+        {
+          "label_fr": "Sources primaires datées",
+          "label_en": "Dated primary sources"
+        },
+        {
+          "label_fr": "Aucun gain chiffré sans mesure",
+          "label_en": "No gain figure without a measurement"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver l'audit gratuit",
+        "label_en": "Book the free audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Voir la base de connaissance IA",
+        "label_en": "See the AI knowledge base",
+        "href": "/services/base-de-connaissance-ia",
+        "variant": "ghost"
+      }
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "15 octobre 2026",
+      "updatedDate": "15 octobre 2026"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "Un second cerveau en entreprise vaut-il le coût ?",
+      "question_en": "Is a company second brain worth the cost?",
+      "term_fr": "Réponse courte",
+      "term_en": "Short answer",
+      "answer_fr": "Un second cerveau d'entreprise est une base de connaissance écrite et tenue à jour que l'équipe interroge avec une IA qui cite ses sources. Il vaut le coût quand les mêmes questions reviennent chaque semaine et que le savoir existe déjà, dispersé. Sous 200 000 jetons, environ 500 pages, un projet Claude suffit, sans développement. Au-delà, ou si les droits d'accès diffèrent selon les personnes, il faut une base indexée.",
+      "answer_en": "A company second brain is a written, up-to-date knowledge base that the team queries with an AI that cites its sources. It is worth the cost when the same questions come back every week and the knowledge already exists, scattered. Under 200,000 tokens, about 500 pages, a Claude project is enough, with no development. Beyond that, or if access rights differ between people, you need an indexed base."
+    },
+    {
+      "type": "key-metric-grid",
+      "background": "paper",
+      "variant": "accent",
+      "columns": 4,
+      "eyebrow_fr": "§ Les repères",
+      "eyebrow_en": "§ Key figures",
+      "title_fr": "Quels chiffres retenir avant de lancer le projet ?",
+      "title_en": "Which figures should you remember before starting?",
+      "metrics": [
+        {
+          "value": "200 000 jetons",
+          "label_fr": "environ 500 pages : sous ce seuil, toute la base tient dans la requête, sans RAG (Anthropic, 19 septembre 2024)",
+          "label_en": "about 500 pages: under this threshold, the whole base fits in the request, with no RAG (Anthropic, 19 September 2024)"
+        },
+        {
+          "value": "20 $ / 25 $",
+          "label_fr": "par siège et par mois pour Claude Team, facturé à l'année ou au mois (claude.com, 15 octobre 2026)",
+          "label_en": "per seat per month for Claude Team, billed annually or monthly (claude.com, 15 October 2026)"
+        },
+        {
+          "value": "10 $ / 20 $",
+          "label_fr": "par membre et par mois pour Notion Plus et Business (notion.com, 15 octobre 2026)",
+          "label_en": "per member per month for Notion Plus and Business (notion.com, 15 October 2026)"
+        },
+        {
+          "value": "{{prix.sprint}} € HT",
+          "label_fr": "le sprint de cadrage de 10 heures, à prix fixe, chez Waimia",
+          "label_en": "the 10-hour scoping sprint, at a fixed price, at Waimia"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Qu'est-ce qu'un second cerveau en entreprise ?</h2>\n<p>L'expression vient de Tiago Forte. Dans son guide <em>Building a Second Brain</em>, publié le 1er mai 2023 et mis à jour le 23 novembre 2023, il décrit un dépôt numérique centralisé où l'on consigne ce que l'on apprend, pour ne plus dépendre de sa mémoire. Sa méthode tient en quatre gestes : capturer, organiser, distiller, exprimer. C'est à l'origine une méthode personnelle.</p>\n<p>En entreprise, le principe change d'échelle. Notre lecture : le second cerveau devient la mémoire partagée de l'équipe, c'est-à-dire des procédures, des offres, des comptes rendus et des réponses types rangés au même endroit, avec une personne responsable de chaque famille de documents. L'IA y ajoute ce que la recherche seule ne fait pas : répondre en français à une question, à partir de ces documents, en citant la source.</p>\n<p><strong>Définition courte.</strong> Un second cerveau d'entreprise réunit trois choses : des connaissances écrites, une règle pour les tenir à jour, et un assistant IA qui répond depuis elles. Sans les deux premières, l'assistant ne répond que de mémoire, avec ce que le modèle sait en général. Les deux expressions, « second cerveau » et « base de connaissance », décrivent la même chose vue de deux côtés : l'usage d'un côté, la technique de l'autre. Notre page <a href=\"/services/base-de-connaissance-ia\">base de connaissance IA</a> détaille la seconde.</p>",
+      "html_en": "<h2>What is a second brain in a company?</h2>\n<p>The phrase comes from Tiago Forte. In his guide <em>Building a Second Brain</em>, published on 1 May 2023 and updated on 23 November 2023, he describes a centralised digital repository where you record what you learn, so you stop depending on memory. His method comes down to four moves: capture, organise, distil, express. It is originally a personal method.</p>\n<p>In a company, the principle changes scale. Our reading: the second brain becomes the team's shared memory, that is procedures, offers, meeting notes and standard replies kept in one place, with a person responsible for each family of documents. AI adds what search alone does not do: answer a question in plain language, from those documents, citing the source.</p>\n<p><strong>Short definition.</strong> A company second brain brings together three things: written knowledge, a rule to keep it up to date, and an AI assistant that answers from it. Without the first two, the assistant answers only from memory, with what the model knows in general. The two phrases, “second brain” and “knowledge base”, describe the same thing seen from two sides: use on one side, technology on the other. Our <a href=\"/services/base-de-connaissance-ia\">AI knowledge base</a> page details the second.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper",
+      "kicker_fr": "§ Trois niveaux",
+      "kicker_en": "§ Three levels",
+      "heading_fr": "Notes, projet Claude ou base indexée : lequel pour quel besoin ?",
+      "heading_en": "Notes, Claude project or indexed base: which for which need?",
+      "caption_fr": "Prix publics en dollars, relevés le 15 octobre 2026 sur les pages officielles des éditeurs. Les prix Waimia viennent de la grille tarifaire à jour. Commencez par le niveau le plus simple qui règle le problème.",
+      "caption_en": "Public prices in dollars, read on 15 October 2026 on the vendors' official pages. Waimia prices come from the up-to-date price grid. Start with the simplest level that solves the problem.",
+      "columns_fr": [
+        "Niveau",
+        "Ce que c'est",
+        "Coût public relevé",
+        "Limite principale"
+      ],
+      "columns_en": [
+        "Level",
+        "What it is",
+        "Public cost read",
+        "Main limit"
+      ],
+      "rows_fr": [
+        [
+          "1. Notes et wiki partagé",
+          "Un outil où l'équipe écrit et classe : Notion, Obsidian.",
+          "Notion : gratuit ; Plus 10 $ et Business 20 $ par membre et par mois ; agents personnalisés 10 $ pour 1 000 crédits Notion. Obsidian : gratuit ; Sync 4 $ par utilisateur et par mois facturé à l'année ; licence commerciale de 50 $ par utilisateur et par an, facultative.",
+          "Il retrouve ce qu'on y a écrit. La qualité dépend de la discipline de rangement, et l'IA de l'outil n'est pas toujours incluse dans le prix de base."
+        ],
+        [
+          "2. Projet Claude avec vos documents",
+          "Les documents sont ajoutés à la connaissance d'un projet ; Claude répond avec eux.",
+          "Offre gratuite : jusqu'à 5 projets. Pro : 17 $ par mois avec abonnement annuel, 20 $ au mois. Team : siège standard à 20 $ par mois facturé à l'année, 25 $ au mois.",
+          "Sous 200 000 jetons (environ 500 pages), tout tient dans le contexte ; sur offre payante, le mode RAG s'active seul près de la limite. Le partage d'un projet est réservé aux offres Team et Enterprise."
+        ],
+        [
+          "3. Base indexée sur vos sources",
+          "Documents découpés et indexés, droits d'accès repris, réponses citées (RAG).",
+          "Sur devis. Chez Waimia : audit gratuit, puis sprint de cadrage à {{prix.sprint}} € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure.",
+          "Développement, hébergement et maintenance à prévoir. La qualité des réponses suit celle des documents."
+        ]
+      ],
+      "rows_en": [
+        [
+          "1. Notes and shared wiki",
+          "A tool where the team writes and files: Notion, Obsidian.",
+          "Notion: free; Plus $10 and Business $20 per member per month; custom agents $10 per 1,000 Notion credits. Obsidian: free; Sync $4 per user per month billed annually; commercial licence $50 per user per year, optional.",
+          "It finds what was written in it. Quality depends on filing discipline, and the tool's AI is not always included in the base price."
+        ],
+        [
+          "2. A Claude project with your documents",
+          "Documents are added to a project's knowledge; Claude answers with them.",
+          "Free plan: up to 5 projects. Pro: $17 a month with an annual subscription, $20 monthly. Team: standard seat $20 a month billed annually, $25 monthly.",
+          "Under 200,000 tokens (about 500 pages), everything fits in the context; on a paid plan, RAG mode switches on by itself near the limit. Sharing a project is reserved for Team and Enterprise plans."
+        ],
+        [
+          "3. An index built on your sources",
+          "Documents split and indexed, access rights reused, answers cited (RAG).",
+          "On quote. At Waimia: free audit, then a scoping sprint at €{{prix.sprint.en}} excl. VAT for 10 hours, then €{{prix.horaire}} excl. VAT per hour.",
+          "Development, hosting and maintenance to plan for. Answer quality follows document quality."
+        ]
+      ]
+    },
+    {
+      "type": "decision-list",
+      "background": "paper-2",
+      "kicker_fr": "§ Quand ça vaut le coût",
+      "kicker_en": "§ When it is worth the cost",
+      "heading_fr": "Dans quels cas un second cerveau vaut-il son coût ?",
+      "heading_en": "In which cases is a second brain worth its cost?",
+      "items": [
+        {
+          "label_fr": "Les mêmes questions reviennent chaque semaine vers les deux ou trois mêmes personnes.",
+          "label_en": "The same questions come back every week to the same two or three people."
+        },
+        {
+          "label_fr": "L'intégration d'un nouveau collaborateur repose sur la mémoire des anciens.",
+          "label_en": "Onboarding a new hire relies on the memory of senior staff."
+        },
+        {
+          "label_fr": "Le support ou les commerciaux cherchent la réponse dans plusieurs outils avant de répondre.",
+          "label_en": "Support or sales search several tools for the answer before replying."
+        },
+        {
+          "label_fr": "Le savoir est écrit, mais dispersé entre un drive, une messagerie et un outil métier.",
+          "label_en": "The knowledge is written, but spread across a drive, a messaging tool and a business app."
+        },
+        {
+          "label_fr": "Une personne est nommée pour tenir chaque famille de documents à jour.",
+          "label_en": "A person is named to keep each family of documents up to date."
+        }
+      ]
+    },
+    {
+      "type": "decision-list",
+      "background": "paper",
+      "kicker_fr": "§ Quand non",
+      "kicker_en": "§ When not",
+      "heading_fr": "Dans quels cas ce n'est pas le bon projet ?",
+      "heading_en": "In which cases is it the wrong project?",
+      "items": [
+        {
+          "label_fr": "Le savoir n'est écrit nulle part : documentez d'abord, aucun outil ne remplace cette étape.",
+          "label_en": "The knowledge is written nowhere: document it first, no tool replaces that step."
+        },
+        {
+          "label_fr": "Quelques dizaines de pages suffisent : un projet Claude avec ces documents fait le travail, sans développement.",
+          "label_en": "A few dozen pages are enough: a Claude project with those documents does the job, with no development."
+        },
+        {
+          "label_fr": "Personne ne tiendra les documents à jour : la base vieillit et ses réponses avec elle.",
+          "label_en": "Nobody will keep the documents up to date: the base ages and its answers with it."
+        },
+        {
+          "label_fr": "Les questions sont rares : une page bien rangée et une recherche suffisent (notre avis).",
+          "label_en": "Questions are rare: a well-filed page and a search are enough (our view)."
+        },
+        {
+          "label_fr": "Le vrai problème est un outil mal utilisé, pas un savoir introuvable.",
+          "label_en": "The real problem is a poorly used tool, not unfindable knowledge."
+        },
+        {
+          "label_fr": "Les documents se contredisent ou contiennent des données sensibles sans règle d'accès : triez avant d'indexer.",
+          "label_en": "Documents contradict each other or contain sensitive data with no access rule: sort before indexing."
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Quels sont les cinq postes de coût ?</h2>\n<ol>\n<li><strong>Les abonnements.</strong> Les prix publics sont dans le tableau ci-dessus. Ils pèsent peu à côté des postes suivants.</li>\n<li><strong>Le tri et la rédaction des documents.</strong> Ce sont des heures de votre équipe : choisir le document qui fait foi, réécrire ce qui est obscur, supprimer ce qui est périmé. Aucun prix public ne le dit, et nous n'avançons pas de chiffre : mesurez-le sur un service pilote.</li>\n<li><strong>La mise en place</strong>, seulement pour une base indexée. Chez Waimia : audit gratuit de 45 minutes, sprint de cadrage à {{prix.sprint}} € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure ou devis après l'audit.</li>\n<li><strong>La tenue à jour.</strong> Une base sans responsable vieillit. Elle se paie en heures internes ou par un forfait mensuel : le palier d'entrée chez Waimia, « {{prix.maintenance.p1.nom}} », coûte {{prix.maintenance.p1}} € HT par mois.</li>\n<li><strong>L'usage du modèle.</strong> Les jetons se paient au texte traité. Pour une petite base placée en entier dans la requête, Anthropic indique que la mise en cache d'une invite fréquente réduit la latence de plus de moitié et les coûts jusqu'à 90 % (septembre 2024). Les prix de l'API sont détaillés dans le guide <a href=\"/ressources/guides/cout-projet-ia-pme\">combien coûte un projet IA en PME</a>.</li>\n</ol>\n<p>Pour savoir si le projet rapportera plus qu'il ne coûte, la méthode est dans le guide <a href=\"/ressources/guides/roi-automatisation\">mesurer le ROI d'une automatisation</a> : une mesure de départ, un coût complet, puis un seuil de rentabilité.</p>",
+      "html_en": "<h2>What are the five cost lines?</h2>\n<ol>\n<li><strong>Subscriptions.</strong> Public prices are in the table above. They weigh little next to the following lines.</li>\n<li><strong>Sorting and writing the documents.</strong> These are hours of your team: choosing the authoritative document, rewriting what is unclear, deleting what is outdated. No public price says what it costs, and we put forward no figure: measure it on a pilot department.</li>\n<li><strong>Setup</strong>, only for an indexed base. At Waimia: a free 45-minute audit, a scoping sprint at €{{prix.sprint.en}} excl. VAT for 10 hours, then €{{prix.horaire}} excl. VAT per hour or a quote after the audit.</li>\n<li><strong>Keeping it up to date.</strong> A base with no owner ages. It is paid in internal hours or through a monthly flat fee: Waimia's entry tier, “{{prix.maintenance.p1.nom.en}}”, costs €{{prix.maintenance.p1}} excl. VAT per month.</li>\n<li><strong>Model usage.</strong> Tokens are paid for the text processed. For a small base placed whole in the request, Anthropic states that caching a frequent prompt cuts latency by more than half and costs by up to 90% (September 2024). API prices are detailed in the guide <a href=\"/ressources/guides/cout-projet-ia-pme\">how much an AI project costs an SMB</a>.</li>\n</ol>\n<p>To know whether the project will bring in more than it costs, the method is in the guide <a href=\"/ressources/guides/roi-automatisation\">measuring automation ROI</a>: a baseline measurement, a full cost, then a break-even point.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Quels sont les pièges d'un second cerveau ?</h2>\n<ul>\n<li><strong>Des documents qui se contredisent.</strong> Deux procédures différentes donnent une réponse hésitante. Le tri documentaire fait partie du projet.</li>\n<li><strong>Un document périmé reste une source.</strong> Sans règle de mise à jour, la base vieillit sans bruit.</li>\n<li><strong>Une réponse citée n'est pas une réponse vérifiée.</strong> Pour une décision qui engage (juridique, sécurité, paie), la personne ouvre le document source.</li>\n<li><strong>Le partage donne accès à tout le contenu.</strong> Dans un projet Claude partagé, les membres peuvent consulter les documents et les instructions du projet. Ne versez pas de contrat ni de donnée RH dans un projet ouvert à toute l'équipe.</li>\n<li><strong>Les données personnelles.</strong> Notion précise que les informations utilisées par son IA sont transmises à des sous-traitants d'IA. Décidez ce qui entre dans le périmètre, puis lisez le guide <a href=\"/ressources/guides/claude-rgpd-pme\">Claude et RGPD en PME</a>.</li>\n<li><strong>L'outil de plus que personne n'ouvre.</strong> Un second cerveau sert quand il est branché sur l'endroit où l'équipe pose déjà ses questions.</li>\n</ul>",
+      "html_en": "<h2>What are the traps of a second brain?</h2>\n<ul>\n<li><strong>Documents that contradict each other.</strong> Two different procedures give a hesitant answer. Sorting documents is part of the project.</li>\n<li><strong>An outdated document is still a source.</strong> Without an update rule, the base ages silently.</li>\n<li><strong>A cited answer is not a verified answer.</strong> For a binding decision (legal, safety, payroll), the person opens the source document.</li>\n<li><strong>Sharing gives access to all the content.</strong> In a shared Claude project, members can see the project's documents and instructions. Do not put a contract or HR data in a project open to the whole team.</li>\n<li><strong>Personal data.</strong> Notion states that the information used by its AI is passed to AI subprocessors. Decide what falls within the scope, then read the guide <a href=\"/ressources/guides/claude-rgpd-pme\">Claude and GDPR for SMBs</a>.</li>\n<li><strong>The extra tool nobody opens.</strong> A second brain works when it is plugged into the place where the team already asks its questions.</li>\n</ul>"
+    },
+    {
+      "type": "process-steps",
+      "background": "paper-3",
+      "kicker_fr": "§ Méthode",
+      "kicker_en": "§ Method",
+      "h2_fr": "Comment décider en une semaine ?",
+      "h2_en": "How to decide in a week?",
+      "intro_fr": "Cinq étapes, sans développement, pour savoir si un projet Claude suffit ou si une base indexée se justifie.",
+      "intro_en": "Five steps, with no development, to find out whether a Claude project is enough or an indexed base is justified.",
+      "steps": [
+        {
+          "title_fr": "Lister vingt vraies questions",
+          "title_en": "List twenty real questions",
+          "body_fr": "Reprenez celles posées à l'équipe depuis un mois, dans la messagerie ou les tickets. Ce sont elles qui jugent l'outil, pas une démonstration.",
+          "body_en": "Take those asked of the team over the past month, in the mailbox or the tickets. They judge the tool, not a demo.",
+          "meta_fr": "Source : votre messagerie",
+          "meta_en": "Source: your mailbox"
+        },
+        {
+          "title_fr": "Mesurer le volume de documents",
+          "title_en": "Measure the volume of documents",
+          "body_fr": "Comptez les pages utiles. Sous environ 500 pages, soit 200 000 jetons, la base tient dans la requête et le RAG n'est pas nécessaire.",
+          "body_en": "Count the useful pages. Under about 500 pages, i.e. 200,000 tokens, the base fits in the request and RAG is not needed.",
+          "meta_fr": "Seuil Anthropic",
+          "meta_en": "Anthropic threshold"
+        },
+        {
+          "title_fr": "Tester dans un projet Claude",
+          "title_en": "Test in a Claude project",
+          "body_fr": "Versez les documents les plus consultés, posez les vingt questions et notez chaque réponse fausse ou incomplète avec le document en cause.",
+          "body_en": "Add the most consulted documents, ask the twenty questions and log each wrong or incomplete answer with the document at fault.",
+          "meta_fr": "Sans développement",
+          "meta_en": "No development"
+        },
+        {
+          "title_fr": "Mesurer le temps perdu à chercher",
+          "title_en": "Measure the time lost searching",
+          "body_fr": "Relevez, sur dix jours ouvrés, le temps que chaque personne passe à chercher une réponse. C'est la base du calcul de rentabilité.",
+          "body_en": "Over ten working days, record the time each person spends looking for an answer. It is the basis of the break-even calculation.",
+          "meta_fr": "Votre mesure",
+          "meta_en": "Your measurement"
+        },
+        {
+          "title_fr": "Décider",
+          "title_en": "Decide",
+          "body_fr": "Si le projet suffit, arrêtez-vous là. Sinon, chiffrez une base indexée sur un seul service, avec l'audit.",
+          "body_en": "If the project is enough, stop there. Otherwise, cost an indexed base on a single department, with the audit.",
+          "meta_fr": "Le plus simple d'abord",
+          "meta_en": "The simplest first"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Sources, relevées le 15 octobre 2026</h2><ul><li><a href=\"https://fortelabs.com/blog/basboverview/\" target=\"_blank\" rel=\"noopener noreferrer\">Forte Labs, « Building a Second Brain: The Definitive Introductory Guide » (1er mai 2023, mis à jour le 23 novembre 2023)</a> : définition et méthode en quatre gestes</li><li><a href=\"https://www.anthropic.com/news/contextual-retrieval\" target=\"_blank\" rel=\"noopener noreferrer\">Anthropic, « Introducing Contextual Retrieval » (19 septembre 2024)</a> : définition du RAG, seuil de 200 000 jetons, mise en cache</li><li><a href=\"https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects\" target=\"_blank\" rel=\"noopener noreferrer\">Claude, centre d'aide « Projects »</a> : projets, mode RAG, partage</li><li><a href=\"https://claude.com/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">Claude, tarifs</a> : offres Free, Pro, Team</li><li><a href=\"https://www.notion.com/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">Notion, tarifs</a> : offres Free, Plus, Business, agents personnalisés, sous-traitants d'IA</li><li><a href=\"https://obsidian.md/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">Obsidian, tarifs</a> : gratuité, Sync, licence commerciale facultative</li></ul><p>Prix des outils relevés sur leurs pages officielles le 15 octobre 2026, en dollars, hors taxes. La page Notion lue n'indique pas si ses prix s'entendent à l'année ou au mois. Les offres changent : vérifiez avant d'acheter.</p>",
+      "html_en": "<h2>Sources, read on 15 October 2026</h2><ul><li><a href=\"https://fortelabs.com/blog/basboverview/\" target=\"_blank\" rel=\"noopener noreferrer\">Forte Labs, “Building a Second Brain: The Definitive Introductory Guide” (1 May 2023, updated 23 November 2023)</a>: definition and four-move method</li><li><a href=\"https://www.anthropic.com/news/contextual-retrieval\" target=\"_blank\" rel=\"noopener noreferrer\">Anthropic, “Introducing Contextual Retrieval” (19 September 2024)</a>: definition of RAG, 200,000-token threshold, caching</li><li><a href=\"https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects\" target=\"_blank\" rel=\"noopener noreferrer\">Claude, help center “Projects”</a>: projects, RAG mode, sharing</li><li><a href=\"https://claude.com/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">Claude, pricing</a>: Free, Pro, Team plans</li><li><a href=\"https://www.notion.com/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">Notion, pricing</a>: Free, Plus, Business plans, custom agents, AI subprocessors</li><li><a href=\"https://obsidian.md/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">Obsidian, pricing</a>: free use, Sync, optional commercial licence</li></ul><p>Tool prices read on their official pages on 15 October 2026, in dollars, excluding tax. The Notion page read does not say whether its prices are annual or monthly. Plans change: check before buying.</p>"
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Further reading",
+      "cards": [
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Base de connaissance IA pour entreprise",
+          "title_en": "AI knowledge base for business",
+          "lead_fr": "Un assistant qui répond depuis vos documents, cite ses sources et respecte les droits d'accès.",
+          "lead_en": "An assistant that answers from your documents, cites its sources and respects access rights.",
+          "href": "/services/base-de-connaissance-ia"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "LLM et RAG : définitions pour dirigeants",
+          "title_en": "LLM and RAG: definitions for business owners",
+          "lead_fr": "Quatre définitions, ce qu'elles changent pour une PME, et les sources officielles.",
+          "lead_en": "Four definitions, what they change for an SMB, and the official sources.",
+          "href": "/ressources/guides/llm-rag-dirigeant"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Combien coûte un projet IA en PME",
+          "title_en": "How much does an AI project cost an SMB",
+          "lead_fr": "Les huit postes de coût, avec les prix publics d'API, de licences et de serveur.",
+          "lead_en": "The eight cost items, with public API, licence and server prices.",
+          "href": "/ressources/guides/cout-projet-ia-pme"
+        }
+      ]
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper-2",
+      "h2_fr": "Second cerveau en entreprise : questions fréquentes",
+      "h2_en": "Company second brain: frequently asked questions",
+      "items": [
+        {
+          "q_fr": "Qu'est-ce qu'un second cerveau en entreprise ?",
+          "a_fr": "C'est la mémoire écrite de l'équipe (procédures, offres, comptes rendus, réponses types), tenue à jour par des responsables nommés et interrogée par un assistant IA qui répond depuis ces documents en citant ses sources. L'expression vient de la méthode personnelle de Tiago Forte, transposée à l'équipe. Sans documents écrits ni règle de mise à jour, il n'y a pas de second cerveau, seulement un chatbot.",
+          "q_en": "What is a company second brain?",
+          "a_en": "It is the team's written memory (procedures, offers, meeting notes, standard replies), kept up to date by named owners and queried by an AI assistant that answers from those documents, citing its sources. The phrase comes from Tiago Forte's personal method, transposed to the team. Without written documents or an update rule, there is no second brain, only a chatbot."
+        },
+        {
+          "q_fr": "Combien coûte un second cerveau d'entreprise ?",
+          "a_fr": "Il n'existe pas de prix moyen honnête. Les abonnements ont un prix public : Notion Plus 10 $ et Business 20 $ par membre et par mois, Claude Team 20 $ ou 25 $ par siège et par mois, Obsidian gratuit. Le gros du coût est le tri et la rédaction des documents, en heures de votre équipe, qu'aucun prix public ne couvre. Une base indexée sur mesure se chiffre après un audit.",
+          "q_en": "How much does a company second brain cost?",
+          "a_en": "There is no honest average price. Subscriptions have a public price: Notion Plus $10 and Business $20 per member per month, Claude Team $20 or $25 per seat per month, Obsidian free. Most of the cost is sorting and writing the documents, in your team's hours, which no public price covers. A custom indexed base is costed after an audit."
+        },
+        {
+          "q_fr": "Notion, Obsidian ou Claude : lequel choisir ?",
+          "a_fr": "Ils ne font pas le même travail. Notion et Obsidian rangent et retrouvent des notes ; Claude répond à des questions à partir de documents versés dans un projet. Si votre base tient sous 200 000 jetons, environ 500 pages, un projet Claude couvre le besoin sans développement. Si elle grandit, change souvent ou exige des droits d'accès différents, il faut une base indexée.",
+          "q_en": "Notion, Obsidian or Claude: which to choose?",
+          "a_en": "They do not do the same job. Notion and Obsidian file and find notes; Claude answers questions from documents added to a project. If your base fits under 200,000 tokens, about 500 pages, a Claude project covers the need with no development. If it grows, changes often or needs different access rights, you need an indexed base."
+        },
+        {
+          "q_fr": "Faut-il forcément du RAG ?",
+          "a_fr": "Non. Anthropic écrit qu'une base de moins de 200 000 jetons, environ 500 pages, peut être placée entièrement dans la requête, sans RAG. Le RAG se justifie quand le volume dépasse ce seuil, quand les documents changent souvent ou quand les droits d'accès diffèrent. Les définitions sont dans le guide <a href=\"/ressources/guides/llm-rag-dirigeant\">LLM et RAG pour dirigeants</a>.",
+          "q_en": "Do you necessarily need RAG?",
+          "a_en": "No. Anthropic writes that a base under 200,000 tokens, about 500 pages, can be placed entirely in the request, with no RAG. RAG is justified when volume exceeds that threshold, when documents change often or when access rights differ. Definitions are in the guide <a href=\"/ressources/guides/llm-rag-dirigeant\">LLM and RAG for business owners</a>."
+        },
+        {
+          "q_fr": "Mes documents servent-ils à entraîner l'IA ?",
+          "a_fr": "Cela dépend de l'offre. Notion écrit qu'il n'utilise pas vos données pour entraîner ses modèles sans votre accord. Anthropic indique, pour l'offre Team, qu'aucun entraînement n'est fait sur votre contenu par défaut, et prévoit une option de refus sur les offres Free, Pro et Max. Lisez les conditions de l'offre que vous achetez avant d'y verser des documents.",
+          "q_en": "Are my documents used to train the AI?",
+          "a_en": "It depends on the plan. Notion writes that it does not use your data to train its models unless you agree. Anthropic states, for the Team plan, that no training is done on your content by default, and provides an opt-out on the Free, Pro and Max plans. Read the terms of the plan you buy before adding documents."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Avant de construire",
+      "kicker_en": "§ Before building",
+      "h2_fr": "Vérifions d'abord si un projet Claude suffit, avant de construire une base.",
+      "h2_en": "Let us first check whether a Claude project is enough, before building a base.",
+      "subtitle_fr": "L'audit de 45 minutes est gratuit. On regarde où votre équipe perd du temps à chercher, et quelle est la solution la plus simple qui règle le problème.",
+      "subtitle_en": "The 45-minute audit is free. We look at where your team loses time searching, and what the simplest solution is that fixes the problem.",
+      "buttons": [
+        {
+          "label_fr": "Réserver l'audit gratuit",
+          "label_en": "Book the free audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Voir la base de connaissance IA",
+          "label_en": "See the AI knowledge base",
+          "href": "/services/base-de-connaissance-ia",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}
