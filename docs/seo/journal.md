@@ -110,7 +110,7 @@ Source : lecture intégrale des 31 fichiers du dossier Semrush (PDF, xlsx, csv d
 
 **Reste pour la phase C** (PR distincte) : chapôs de plus de 40 mots sur 35 pages de service, visuels de héros par sujet, alternance des fonds des villes, jeton de prix du sprint de cadrage, typographie des titres.
 
-**Phase C (branche `seo-v3c/integration`, PR __PR_C__, non fusionnée)**. Quatre lots en worktrees, chacun revu par Opus, puis les mineurs des revues.
+**Phase C (branche `seo-v3c/integration`, PR #93, non fusionnée)**. Quatre lots en worktrees, chacun revu par Opus, puis les mineurs des revues.
 - **Chapôs** des 35 pages services : 40 mots au plus, deux phrases, intitulé recherché gardé.
 - **Villes** : aucune section voisine au même fond sur les 10 villes, bloc Sources compris (fond calculé dans `[...slug].astro`) ; épingle au lieu du réseau générique sur 5 villes.
 - **Héros** : un visuel par sujet sur 20 pages.
