@@ -1,0 +1,538 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "Claude pour la finance d'une PME : factures fournisseurs, clôture, trésorerie",
+  "title_en": "Claude for an SMB's finance function: supplier invoices, closing, cash",
+  "seoTitle_fr": "Claude finance en PME : factures, clôture, trésorerie",
+  "seoTitle_en": "Claude for SMB finance: invoices, closing, cash",
+  "description_fr": "Claude pour la finance d'une PME : factures fournisseurs, clôture, trésorerie, facture électronique, qui valide quoi. Relevé le 15 octobre 2026.",
+  "description_en": "Claude for an SMB's finance function: which tasks, which product, who approves; supplier invoices, closing, cash, e-invoicing. Checked on 15 October 2026.",
+  "slug": "claude-finance-pme",
+  "publishedAt": "2026-10-15",
+  "updatedAt": "2026-10-15",
+  "category": "claude",
+  "cluster": "claude",
+  "tags": [
+    "claude",
+    "finance",
+    "factures-fournisseurs",
+    "cloture",
+    "tresorerie",
+    "facture-electronique",
+    "guide-pme"
+  ],
+  "sources": [
+    {
+      "name": "Direction générale des Finances publiques, À partir de quand suis-je concerné par la réforme de la facturation électronique ?, lu le 15 octobre 2026",
+      "url": "https://www.impots.gouv.fr/professionnel/questions/partir-de-quand-suis-je-concerne-par-la-reforme-de-la-facturation",
+      "type": "state"
+    },
+    {
+      "name": "Direction générale des Finances publiques, Je découvre la facturation électronique (formats, plateforme agréée, e-reporting), lu le 15 octobre 2026",
+      "url": "https://www.impots.gouv.fr/professionnel/je-decouvre-la-facturation-electronique",
+      "type": "state"
+    },
+    {
+      "name": "Direction générale des Finances publiques, fiche réforme 1-f (PDF, formats UBL, CII et Factur-X, calendrier fournisseurs), lue le 15 octobre 2026",
+      "url": "https://www.impots.gouv.fr/sites/default/files/media/1_metier/2_professionnel/EV/2_gestion/290_facturation_electronique/fiches_reforme/fiche-1_f.pdf",
+      "type": "state"
+    },
+    {
+      "name": "Anthropic, page tarifs de Claude (Team, Pro, Enterprise), lue le 15 octobre 2026",
+      "url": "https://claude.com/pricing",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, plugin Claude for Small Business (43 workflows, mode approbation, /close-month), lu le 15 octobre 2026",
+      "url": "https://claude.com/marketplace/plugins/small-business",
+      "type": "enterprise"
+    },
+    {
+      "name": "Claude Academy, How to install and use the Claude for Small Business plugin, lu le 15 octobre 2026",
+      "url": "https://claude.com/resources/tutorials/how-to-install-the-claude-for-small-business-plugin",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, documentation Claude for Excel (offres, limites, conservation des données), lue le 15 octobre 2026",
+      "url": "https://claude.com/docs/office-agents/excel",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, documentation développeurs : prise en charge des PDF (limites, coût en jetons), lue le 15 octobre 2026",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/pdf-support",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, documentation développeurs : vision, limites, lue le 15 octobre 2026",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/vision",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, documentation développeurs : sorties structurées, lue le 15 octobre 2026",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, tarification de l'API Claude (Haiku 5.5, Sonnet 5.5), lue le 15 octobre 2026",
+      "url": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, Claude for Financial Services (offre destinée aux institutions), lue le 15 octobre 2026",
+      "url": "https://claude.com/solutions/financial-services",
+      "type": "enterprise"
+    },
+    {
+      "name": "Centre d'aide Claude, Does Anthropic act as a data processor or controller ?, lu le 15 octobre 2026",
+      "url": "https://support.claude.com/en/articles/9267385-does-anthropic-act-as-a-data-processor-or-controller",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, conditions grand public pour l'Espace économique européen et la Suisse (en vigueur au 8 octobre 2025), lues le 15 octobre 2026",
+      "url": "https://www.anthropic.com/legal/consumer-terms",
+      "type": "enterprise"
+    },
+    {
+      "name": "CNIL, questions-réponses sur l'utilisation d'un système d'IA générative (18 juillet 2024), lues le 15 octobre 2026",
+      "url": "https://www.cnil.fr/fr/les-questions-reponses-de-la-cnil-sur-lutilisation-dun-systeme-dia-generative",
+      "type": "state"
+    }
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "Claude peut-il faire la comptabilité d'une PME ?",
+      "a": "Il prépare, il ne tient pas les comptes. Claude lit des factures, propose des imputations et des rapprochements, rédige une note de clôture et construit une prévision de trésorerie. Une personne valide les écritures, les déclarations et les paiements. Ce guide ne donne ni conseil comptable ni conseil fiscal. Relevé le 15 octobre 2026."
+    },
+    {
+      "q": "Claude peut-il lire des factures fournisseurs ?",
+      "a": "Oui, y compris les PDF : Anthropic accepte les PDF standards jusqu'à 32 Mo et 600 pages par requête, 100 seulement quand la fenêtre de contexte est inférieure à 1 million de jetons. Mais la lecture d'image peut se tromper sur un scan de mauvaise qualité, pivoté ou très petit. Recalculez les totaux par un tableur ou du code, rapprochez du bon de commande, et faites approuver le paiement par une personne."
+    },
+    {
+      "q": "La facture électronique rend-elle Claude inutile pour les factures ?",
+      "a": "Non, elle change son rôle. Depuis le 1er septembre 2026, toute entreprise assujettie à la TVA doit pouvoir recevoir des factures électroniques, mais les PME et micro-entreprises n'ont l'obligation de les émettre qu'au 1er septembre 2027 : des PDF circuleront encore. Pour les factures structurées, Claude sert surtout à contrôler (écarts, doublons, imputation proposée)."
+    },
+    {
+      "q": "Quel abonnement Claude pour une direction financière de PME ?",
+      "a": "Team, qui relève des conditions commerciales d'Anthropic : 20 $ par siège et par mois en annuel, 25 $ au mois, hors taxes, dès 2 sièges. Claude pour Excel est disponible avec Pro, Max, Team et Enterprise. Pour un flux de factures, l'API se paie aux jetons. Free, Pro et Max relèvent des conditions grand public, dont la version européenne exclut l'usage commercial."
+    },
+    {
+      "q": "Claude remplace-t-il l'expert-comptable ?",
+      "a": "Non. Le plugin Claude for Small Business prépare un dossier de clôture « pour votre comptable » et démarre chaque workflow en mode approbation : rien n'est envoyé, publié ou payé sans votre accord. Le travail de l'expert-comptable (validation, déclarations, conseil) reste le sien. Waimia ne promet aucun résultat comptable ou fiscal."
+    },
+    {
+      "q": "Les données financières sont-elles protégées avec Claude ?",
+      "a": "Sur Team et par l'API, Anthropic n'utilise pas vos entrées et sorties pour entraîner ses modèles par défaut ; sur Team, il agit comme sous-traitant de vos données. Une facture adressée à une personne physique, un RIB ou une fiche de paie contiennent des données personnelles : le RGPD s'applique. Écartez la paie des essais et encadrez l'usage par une règle écrite."
+    },
+    {
+      "q": "Combien coûte la lecture de 1 000 factures par l'API de Claude ?",
+      "a": "Une page de PDF consomme 1 500 à 3 000 jetons de texte d'après Anthropic. Mille factures d'une page représentent donc 1,5 à 3 millions de jetons en entrée : 0,15 à 0,30 $ sur Haiku 5.5 (0,10 $ le million) et 3 à 6 $ sur Sonnet 5.5 (2 $ le million), avant les jetons d'image et de sortie. Le coût réel est celui de la validation."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Can Claude do an SMB's accounting?",
+      "a": "It prepares, it does not keep the books. Claude reads invoices, proposes allocations and reconciliations, drafts a closing note and builds a cash forecast. A person approves entries, filings and payments. This guide gives neither accounting nor tax advice. Checked on 15 October 2026."
+    },
+    {
+      "q": "Can Claude read supplier invoices?",
+      "a": "Yes, including PDFs: Anthropic accepts standard PDFs up to 32 MB, 100 pages per request under 1 million tokens of context. But image reading can go wrong on a poor-quality, rotated or very small scan. Recompute totals with a spreadsheet or code, match against the purchase order, and have a person approve the payment."
+    },
+    {
+      "q": "Does e-invoicing make Claude useless for invoices?",
+      "a": "No, it changes its role. Since 1 September 2026, every VAT-liable company must be able to receive electronic invoices, but SMBs and micro-enterprises only have to issue them from 1 September 2027: PDFs will still circulate. For structured invoices, Claude mainly serves to check (discrepancies, duplicates, proposed allocation)."
+    },
+    {
+      "q": "Which Claude plan for an SMB finance department?",
+      "a": "Team, which falls under Anthropic's commercial terms: $20 per seat per month billed annually, $25 monthly, excluding tax, from 2 seats. Claude for Excel is available with Pro, Max, Team and Enterprise. For an invoice flow, the API is paid per token. Free, Pro and Max fall under consumer terms, whose European version excludes commercial use."
+    },
+    {
+      "q": "Does Claude replace the accountant?",
+      "a": "No. The Claude for Small Business plugin prepares a closing packet \"for your accountant\" and starts every workflow in approval mode: nothing is sent, posted or paid without your say-so. The accountant's work (approval, filings, advice) remains theirs. Waimia promises no accounting or tax outcome."
+    },
+    {
+      "q": "Is financial data protected with Claude?",
+      "a": "On Team and through the API, Anthropic does not use your inputs and outputs to train its models by default; on Team, it acts as a processor of your data. An invoice addressed to an individual, a bank account number or a payslip contains personal data: the GDPR applies. Keep payroll out of trials and frame use with a written rule."
+    },
+    {
+      "q": "How much does reading 1,000 invoices through Claude's API cost?",
+      "a": "A PDF page uses 1,500 to 3,000 text tokens according to Anthropic. A thousand one-page invoices therefore represent 1.5 to 3 million input tokens: $0.15 to $0.30 on Haiku 5.5 ($0.10 per million) and $3 to $6 on Sonnet 5.5 ($2 per million), before image and output tokens. The real cost is the validation."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "illustration": {
+        "src": "/images/illustrations/ds/finance-comptabilite-v3-double-cle-paper.webp",
+        "alt_fr": "Une grande porte de coffre ronde à deux serrures éloignées, deux personnes tournent chacune leur clé",
+        "alt_en": "A large round vault door with two distant locks, two people each turning their own key",
+        "side": "right"
+      },
+      "kicker_fr": "§ Guide",
+      "kicker_en": "§ Guide",
+      "h1_fr": "Claude pour la <i class=\"acc\">finance</i> d'une PME : factures fournisseurs, clôture, trésorerie",
+      "h1_en": "Claude for an SMB's <i class=\"acc\">finance</i> function: supplier invoices, closing, cash",
+      "lede_fr": "Claude prépare, une personne valide. Il lit des factures, propose des imputations et des rapprochements, construit une prévision de trésorerie et rédige une note de clôture, dans le chat, dans Excel, dans Cowork ou par l'API. Il ne signe ni écriture, ni déclaration, ni paiement. Relevé le 15 octobre 2026.",
+      "lede_en": "Claude prepares, a person approves. It reads invoices, proposes allocations and reconciliations, builds a cash forecast and drafts a closing note, in chat, in Excel, in Cowork or through the API. It signs no entry, filing or payment. Checked on 15 October 2026.",
+      "badges": [
+        {
+          "label_fr": "Sources Anthropic et DGFiP relues le 15 octobre 2026",
+          "label_en": "Anthropic and DGFiP sources rechecked on 15 October 2026"
+        },
+        {
+          "label_fr": "Ni conseil comptable ni conseil fiscal",
+          "label_en": "Neither accounting nor tax advice"
+        },
+        {
+          "label_fr": "Aucun gain chiffré sans mesure",
+          "label_en": "No gain figure without a measurement"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver l'audit gratuit",
+        "label_en": "Book the free audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Voir le cas d'usage comptabilité",
+        "label_en": "See the accounting use case",
+        "href": "/cas-usages/finance-comptabilite",
+        "variant": "ghost"
+      }
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "15 octobre 2026",
+      "updatedDate": "15 octobre 2026"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "Que peut faire Claude pour la finance d'une PME ?",
+      "question_en": "What can Claude do for an SMB's finance function?",
+      "term_fr": "Réponse courte",
+      "term_en": "Short answer",
+      "answer_fr": "Préparer le travail, jamais le signer : lire des factures, proposer des imputations et des rapprochements, bâtir une prévision de trésorerie, rédiger une note de clôture. Le bon produit dépend du volume : chat, Claude pour Excel, Cowork ou API. Une personne valide écritures, déclarations et paiements. Avec la facture électronique, les données reçues sont déjà structurées : Claude contrôle plus qu'il ne lit. Relevé le 15 octobre 2026.",
+      "answer_en": "Prepare the work, never sign it: read invoices, propose allocations and reconciliations, build a cash forecast, draft a closing note. The right product depends on volume: chat, Claude for Excel, Cowork or the API. A person approves entries, filings and payments. With e-invoicing, the data received is already structured: Claude checks more than it reads. Checked on 15 October 2026."
+    },
+    {
+      "type": "key-metric-grid",
+      "background": "paper",
+      "variant": "accent",
+      "columns": 4,
+      "eyebrow_fr": "§ Les repères",
+      "eyebrow_en": "§ Key figures",
+      "title_fr": "Quels chiffres retenir avant de confier une tâche financière à Claude ?",
+      "title_en": "Which figures should you remember before handing a finance task to Claude?",
+      "metrics": [
+        {
+          "value": "1er sept. 2026",
+          "label_fr": "toute entreprise assujettie à la TVA doit pouvoir recevoir des factures électroniques ; les grandes entreprises et les ETI doivent aussi les émettre (impots.gouv.fr)",
+          "label_en": "every VAT-liable company must be able to receive electronic invoices; large companies and mid-caps must also issue them (impots.gouv.fr)"
+        },
+        {
+          "value": "1er sept. 2027",
+          "label_fr": "date à partir de laquelle les PME et les micro-entreprises doivent émettre leurs factures sous forme électronique (impots.gouv.fr)",
+          "label_en": "date from which SMBs and micro-enterprises must issue their invoices electronically (impots.gouv.fr)"
+        },
+        {
+          "value": "32 Mo",
+          "label_fr": "taille maximale d'une requête API avec PDF ; 100 pages sous 1 million de jetons de contexte, 600 au-delà (Anthropic)",
+          "label_en": "maximum size of an API request with a PDF; 100 pages under 1 million tokens of context, 600 above (Anthropic)"
+        },
+        {
+          "value": "1 500 à 3 000",
+          "label_fr": "jetons de texte par page de PDF d'après Anthropic, hors jetons d'image et de sortie",
+          "label_en": "text tokens per PDF page according to Anthropic, excluding image and output tokens"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Claude pour la finance d'une PME ou Claude for Financial Services ?</h2>\n<p>Ce sont deux sujets. La page « Financial Services » d'Anthropic s'adresse aux institutions : banque, assurance, gestion d'actifs et technologies financières. La fonction finance d'une PME (comptabilité fournisseurs, clôture, trésorerie, relances) s'appuie sur les offres générales de Claude : le chat, le module Claude pour Excel, Cowork avec ses plugins et l'API. C'est l'objet de ce guide. Les tarifs des offres sont dans le guide <a href=\"/ressources/guides/claude-fonctionnalites-pme\">Claude Pro, Max, Team</a> ; le choix du modèle, dans <a href=\"/ressources/guides/quel-modele-claude-choisir\">quel modèle Claude choisir</a>.</p>",
+      "html_en": "<h2>Claude for an SMB's finance function, or Claude for Financial Services?</h2>\n<p>These are two subjects. Anthropic's \"Financial Services\" page is addressed to institutions: banking, insurance, asset management and fintech. An SMB's finance function (accounts payable, closing, cash, reminders) relies on Claude's general plans: chat, the Claude for Excel add-in, Cowork with its plugins, and the API. That is the subject of this guide. Plan prices are in the guide <a href=\"/ressources/guides/claude-fonctionnalites-pme\">Claude Pro, Max, Team</a>; model choice is in <a href=\"/ressources/guides/quel-modele-claude-choisir\">which Claude model to choose</a>.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Tâche par tâche",
+      "kicker_en": "§ Task by task",
+      "heading_fr": "Quelles tâches financières confier à quel produit Claude, et qui valide ?",
+      "heading_en": "Which finance tasks to give to which Claude product, and who approves?",
+      "caption_fr": "Sources : pages d'Anthropic (plugin Claude for Small Business, Claude pour Excel, documentation de l'API), lues le 15 octobre 2026. Le classement est une lecture de Waimia ; aucun gain n'est chiffré sans mesure chez vous.",
+      "caption_en": "Sources: Anthropic pages (Claude for Small Business plugin, Claude for Excel, API documentation), read on 15 October 2026. The grid is Waimia's reading; no gain is quantified without a measurement at your company.",
+      "columns_fr": [
+        "Tâche",
+        "Produit Claude",
+        "Ce que Claude prépare",
+        "Ce qu'une personne valide"
+      ],
+      "columns_en": [
+        "Task",
+        "Claude product",
+        "What Claude prepares",
+        "What a person approves"
+      ],
+      "rows_fr": [
+        [
+          "Factures fournisseurs",
+          "Le chat pour quelques factures ; l'API et les sorties structurées pour un flux",
+          "Lit le PDF, extrait fournisseur, date, numéro, lignes et montants, propose une imputation",
+          "L'imputation, les totaux recalculés, le bon à payer"
+        ],
+        [
+          "Rapprochement bancaire",
+          "Claude pour Excel ou Cowork sur un export CSV ; connecteur comptable si l'éditeur en propose un",
+          "Propose les appariements, liste les écarts et les doublons suspects",
+          "Chaque écart. Claude ne passe aucune écriture"
+        ],
+        [
+          "Clôture mensuelle",
+          "Cowork, avec le plugin Claude for Small Business ou un skill maison",
+          "Liste des pièces manquantes, note d'analyse, dossier pour le comptable",
+          "Le comptable ou le responsable financier, avant toute écriture définitive"
+        ],
+        [
+          "Trésorerie",
+          "Claude pour Excel, ou le plugin (prévision à 30, 60 et 90 jours)",
+          "Construit le modèle, signale les semaines tendues, expose ses hypothèses",
+          "Les hypothèses, écrites, puis l'écart avec le réel"
+        ],
+        [
+          "Relances de clients",
+          "Le chat, ou le plugin (relances graduées)",
+          "Classe les impayés, rédige les relances",
+          "L'envoi. Le plugin démarre en mode approbation ; les clients sensibles sont exclus"
+        ],
+        [
+          "Écarts budgétaires",
+          "Claude pour Excel",
+          "Répond aux questions sur le classeur et cite les cellules",
+          "La diffusion : pas de livrable final sans relecture"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Supplier invoices",
+          "Chat for a few invoices; the API and structured outputs for a flow",
+          "Reads the PDF, extracts supplier, date, number, lines and amounts, proposes an allocation",
+          "The allocation, the recomputed totals, the approval to pay"
+        ],
+        [
+          "Bank reconciliation",
+          "Claude for Excel or Cowork on a CSV export; accounting connector if the vendor offers one",
+          "Proposes matches, lists gaps and suspected duplicates",
+          "Every gap. Claude posts no entry"
+        ],
+        [
+          "Monthly close",
+          "Cowork, with the Claude for Small Business plugin or an in-house skill",
+          "List of missing documents, analysis note, packet for the accountant",
+          "The accountant or the finance lead, before any final entry"
+        ],
+        [
+          "Cash forecast",
+          "Claude for Excel, or the plugin (30, 60 and 90-day forecast)",
+          "Builds the model, flags tight weeks, exposes its assumptions",
+          "The assumptions, in writing, then the gap with actuals"
+        ],
+        [
+          "Customer reminders",
+          "Chat, or the plugin (graduated reminders)",
+          "Sorts the unpaid invoices, drafts the reminders",
+          "The sending. The plugin starts in approval mode; sensitive customers are excluded"
+        ],
+        [
+          "Budget variances",
+          "Claude for Excel",
+          "Answers questions about the workbook and cites the cells",
+          "The circulation: no final deliverable without review"
+        ]
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Que devient la lecture de factures avec la facture électronique ?</h2>\n<p><strong>Les faits.</strong> Depuis le 1er septembre 2026, toutes les entreprises assujetties à la TVA doivent pouvoir recevoir des factures sous forme électronique. À cette date, les grandes entreprises et les entreprises de taille intermédiaire doivent aussi les émettre. Pour les PME et les micro-entreprises, l'émission devient obligatoire le 1er septembre 2027. Les factures transitent par une plateforme agréée par l'administration, ou par une solution compatible raccordée à une plateforme agréée. Trois formats sont admis : UBL, CII et Factur-X, ce dernier mêlant des données structurées et une image lisible. La DGFiP précise qu'un PDF n'est pas nécessairement une facture électronique.</p>\n<p><strong>Notre lecture.</strong> Pendant un an, deux flux coexistent chez un acheteur de PME. Les fournisseurs soumis à l'émission depuis septembre 2026 envoient des données structurées : Claude sert alors à contrôler (écart avec le bon de commande, doublon, imputation proposée d'après l'historique), pas à déchiffrer. Les autres fournisseurs peuvent encore envoyer des PDF jusqu'au 1er septembre 2027 : l'extraction garde sa valeur, avec les limites décrites plus bas. Claude n'est pas une plateforme agréée : il ne remplace ni le choix de la plateforme ni l'inscription à l'annuaire.</p>\n<p>Les factures de fournisseurs établis à l'étranger relèvent de la transmission de données de transaction (e-reporting) et non de la facture électronique entre assujettis français. Faites confirmer votre cas par votre expert-comptable : ce guide n'est pas un conseil fiscal. Le détail du calendrier est sur <a href=\"https://www.impots.gouv.fr/professionnel/questions/partir-de-quand-suis-je-concerne-par-la-reforme-de-la-facturation\">impots.gouv.fr</a>.</p>",
+      "html_en": "<h2>What happens to invoice reading with e-invoicing?</h2>\n<p><strong>The facts.</strong> Since 1 September 2026, all VAT-liable companies must be able to receive invoices in electronic form. From that date, large companies and mid-caps must also issue them. For SMBs and micro-enterprises, issuing becomes mandatory on 1 September 2027. Invoices go through a platform approved by the administration, or a compatible solution connected to an approved platform. Three formats are admitted: UBL, CII and Factur-X, the latter combining structured data and a readable image. The DGFiP specifies that a PDF is not necessarily an electronic invoice.</p>\n<p><strong>Our reading.</strong> For a year, two flows coexist at an SMB buyer. Suppliers subject to issuing since September 2026 send structured data: Claude then serves to check (gap with the purchase order, duplicate, allocation proposed from history), not to decipher. Other suppliers may still send PDFs until 1 September 2027: extraction keeps its value, with the limits described below. Claude is not an approved platform: it replaces neither the choice of platform nor the registration in the directory.</p>\n<p>Invoices from suppliers established abroad fall under transaction data reporting (e-reporting) and not under electronic invoicing between French VAT-liable companies. Have your accountant confirm your case: this guide is not tax advice. The calendar detail is on <a href=\"https://www.impots.gouv.fr/professionnel/questions/partir-de-quand-suis-je-concerne-par-la-reforme-de-la-facturation\">impots.gouv.fr</a>.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Comment lire des factures avec Claude sans se tromper ?</h2>\n<p><strong>Les limites publiées.</strong> Anthropic accepte les PDF standards, sans mot de passe ni chiffrement, jusqu'à 32 Mo par requête ; 600 pages, ou 100 quand la fenêtre de contexte de la requête est inférieure à 1 million de jetons. Une page consomme 1 500 à 3 000 jetons de texte, d'après la documentation ; comptez environ 30 % de plus avec les modèles Claude depuis la version 4.7, qui découpent un même texte en plus de jetons, plus les jetons d'image puisque chaque page est aussi lue comme une image. La documentation prévient que Claude peut se tromper sur des images de mauvaise qualité, pivotées ou très petites, et qu'il ne faut pas lui confier une tâche exigeant une précision parfaite sans contrôle humain.</p>\n<p><strong>La méthode que nous recommandons.</strong></p>\n<ol>\n<li>Demandez une sortie structurée : l'API de Claude peut contraindre la réponse à un schéma JSON (fonction disponible sur Haiku 5.5, Sonnet 5.5 et Opus 5.5).</li>\n<li>Recalculez hors de Claude : total hors taxes, TVA et total toutes taxes comprises par un tableur ou du code, jamais « de tête » par le modèle.</li>\n<li>Rapprochez la facture du bon de commande et de l'historique du fournisseur ; signalez les doublons.</li>\n<li>Faites approuver l'imputation et le bon à payer par une personne.</li>\n<li>Testez d'abord sur un échantillon de vos vraies factures, dont les plus mal scannées, et comparez avec la saisie manuelle.</li>\n</ol>\n<p><strong>Le coût d'API.</strong> Mille factures d'une page, ce sont 1,5 à 3 millions de jetons de texte en entrée : 0,15 à 0,30 $ sur Haiku 5.5 (0,10 $ le million de jetons en entrée) et 3 à 6 $ sur Sonnet 5.5 (2 $ le million), avant les jetons d'image et de sortie. Calcul de Waimia sur les prix publics d'Anthropic. Le coût qui compte est celui de la validation, pas celui des jetons.</p>\n<p>Quelques factures par semaine se traitent dans le chat. Un flux régulier demande un workflow : voir le <a href=\"/services/agent-traitement-documents\">service de traitement de documents</a> et le guide <a href=\"/ressources/guides/taches-a-automatiser-pme\">quelles tâches automatiser d'abord</a>.</p>",
+      "html_en": "<h2>How do you read invoices with Claude without making mistakes?</h2>\n<p><strong>The published limits.</strong> Anthropic accepts standard PDFs, with no password or encryption, up to 32 MB per request; 600 pages, or 100 when the request's context window is under 1 million tokens. A page uses 1,500 to 3,000 text tokens, plus image tokens since each page is also read as an image. The documentation warns that Claude can make mistakes on poor-quality, rotated or very small images, and that it should not be given a task requiring perfect precision without human oversight.</p>\n<p><strong>The method we recommend.</strong></p>\n<ol>\n<li>Ask for a structured output: Claude's API can constrain the response to a JSON schema (available on Haiku 5.5, Sonnet 5.5 and Opus 5.5).</li>\n<li>Recompute outside Claude: total excluding tax, VAT and total including tax with a spreadsheet or code, never \"in the model's head\".</li>\n<li>Match the invoice against the purchase order and the supplier's history; flag duplicates.</li>\n<li>Have a person approve the allocation and the approval to pay.</li>\n<li>Test first on a sample of your real invoices, including the worst scanned ones, and compare with manual entry.</li>\n</ol>\n<p><strong>The API cost.</strong> A thousand one-page invoices are 1.5 to 3 million input text tokens: $0.15 to $0.30 on Haiku 5.5 ($0.10 per million input tokens) and $3 to $6 on Sonnet 5.5 ($2 per million), before image and output tokens. Waimia's calculation from Anthropic's public prices. The cost that matters is validation, not tokens.</p>\n<p>A few invoices a week can be handled in chat. A regular flow calls for a workflow: see the <a href=\"/services/agent-traitement-documents\">document processing service</a> and the guide <a href=\"/ressources/guides/taches-a-automatiser-pme\">which tasks to automate first</a>.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Que prépare Claude pour la clôture et la trésorerie ?</h2>\n<p>Le plugin Claude for Small Business, installé dans Cowork, propose une commande de clôture (<code>/close-month</code>) qui rapproche vos comptes des relevés de vos prestataires de paiement, signale ce qui ne colle pas et rédige un dossier pour le comptable, ainsi qu'une prévision de trésorerie à 30, 60 et 90 jours. Tout workflow démarre en mode approbation : Claude prépare, rien n'est envoyé, publié ni payé sans votre accord. Si un connecteur manque, la plupart des workflows tournent encore à partir d'un export ou d'un tableur téléversé.</p>\n<p><strong>Attention au pays.</strong> Les connecteurs cités par Anthropic pour la comptabilité visent d'abord des logiciels étrangers (QuickBooks, Xero, NetSuite, Zoho Books, MYOB). Pour Pennylane, Qonto, Sage ou PayFit, l'état des connecteurs est dans le guide <a href=\"/ressources/guides/claude-for-small-business\">Claude for Small Business en France</a>. En pratique, un export CSV et Claude pour Excel couvrent déjà le rapprochement et la prévision.</p>\n<p>La clôture reste l'affaire du dirigeant, du responsable financier et du comptable : Claude liste les pièces manquantes et écrit la note d'analyse, il ne passe pas d'écriture. Pour Excel, Anthropic ne recommande pas son module pour des calculs critiques d'audit sans vérification, ni pour un livrable client sans relecture, et conseille de partir d'une copie du classeur.</p>",
+      "html_en": "<h2>What does Claude prepare for closing and cash?</h2>\n<p>The Claude for Small Business plugin, installed in Cowork, offers a closing command (<code>/close-month</code>) that reconciles your books against your payment providers' statements, flags what does not match and drafts a packet for the accountant, along with a 30, 60 and 90-day cash forecast. Every workflow starts in approval mode: Claude prepares, nothing is sent, posted or paid without your say-so. If a connector is missing, most workflows still run from an export or an uploaded spreadsheet.</p>\n<p><strong>Mind the country.</strong> The accounting connectors Anthropic cites point first at foreign software (QuickBooks, Xero, NetSuite, Zoho Books, MYOB). For Pennylane, Qonto, Sage or PayFit, the state of connectors is in the guide <a href=\"/ressources/guides/claude-for-small-business\">Claude for Small Business in France</a>. In practice, a CSV export and Claude for Excel already cover reconciliation and forecasting.</p>\n<p>Closing remains the business of the manager, the finance lead and the accountant: Claude lists the missing documents and writes the analysis note, it posts no entry. For Excel, Anthropic does not recommend its add-in for audit-critical calculations without verification, nor for a client deliverable without review, and advises starting from a copy of the workbook.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Quelles données financières peuvent passer par Claude ?</h2>\n<p>Une facture adressée à une entreprise individuelle, un RIB, un contrat de travail ou une fiche de paie contiennent des données personnelles : le RGPD s'applique et c'est votre entreprise qui en répond. Trois repères :</p>\n<ul>\n<li><strong>Le contrat.</strong> Team et l'API relèvent des conditions commerciales d'Anthropic, qui n'utilise pas vos entrées et sorties pour entraîner ses modèles par défaut. Sur Team, il agit comme sous-traitant : il traite les données sur vos instructions. Free, Pro et Max relèvent des conditions grand public, dont la version européenne exclut l'usage commercial. Voir <a href=\"/ressources/guides/claude-rgpd-pme\">Claude et RGPD en PME</a>.</li>\n<li><strong>La conservation.</strong> Claude pour Excel supprime en principe entrées et sorties sous 30 jours côté Anthropic, sauf exceptions prévues par sa politique de conservation, et ne reprend pas les durées de conservation personnalisées de l'organisation. Anthropic déconseille son module pour des modèles contenant des données très sensibles ou réglementées sans contrôles adaptés.</li>\n<li><strong>La règle écrite.</strong> La CNIL recommande une charte d'usage qui fixe les usages autorisés et interdits, et d'éviter autant que possible la saisie de données personnelles dans un service accessible par API. Écartez la paie des essais.</li>\n</ul>",
+      "html_en": "<h2>Which financial data can go through Claude?</h2>\n<p>An invoice addressed to a sole proprietorship, a bank account number, an employment contract or a payslip contains personal data: the GDPR applies and your company answers for it. Three markers:</p>\n<ul>\n<li><strong>The contract.</strong> Team and the API fall under Anthropic's commercial terms, under which Anthropic does not use your inputs and outputs to train its models by default. On Team, it acts as a processor: it processes data on your instructions. Free, Pro and Max fall under consumer terms, whose European version excludes commercial use. See <a href=\"/ressources/guides/claude-rgpd-pme\">Claude and GDPR for SMBs</a>.</li>\n<li><strong>Retention.</strong> Claude for Excel deletes inputs and outputs in principle within 30 days on Anthropic's side, except in cases set out in its retention policy, and does not inherit the organisation's custom retention settings. Anthropic advises against its add-in for models containing highly sensitive or regulated data without proper controls.</li>\n<li><strong>The written rule.</strong> The CNIL recommends a usage charter that sets authorised and forbidden uses, and avoiding as far as possible entering personal data into a service reached through an API. Keep payroll out of trials.</li>\n</ul>"
+    },
+    {
+      "type": "decision-list",
+      "background": "paper-2",
+      "kicker_fr": "§ Ce qui reste à une personne",
+      "kicker_en": "§ What stays with a person",
+      "heading_fr": "Qu'est-ce qu'une personne garde toujours dans la finance d'une PME ?",
+      "heading_en": "What does a person always keep in an SMB finance function?",
+      "items": [
+        {
+          "label_fr": "Valider les écritures et signer les comptes.",
+          "label_en": "Approving entries and signing the accounts."
+        },
+        {
+          "label_fr": "Déposer les déclarations de TVA, d'impôt et sociales.",
+          "label_en": "Filing VAT, tax and social returns."
+        },
+        {
+          "label_fr": "Ordonner un paiement ou un virement : Claude prépare, il ne paie pas.",
+          "label_en": "Ordering a payment or a transfer: Claude prepares, it does not pay."
+        },
+        {
+          "label_fr": "Choisir la plateforme agréée de facturation électronique et vérifier l'inscription à l'annuaire.",
+          "label_en": "Choosing the approved e-invoicing platform and checking the directory registration."
+        },
+        {
+          "label_fr": "Trancher un traitement inhabituel : provision, litige, opération exceptionnelle.",
+          "label_en": "Deciding an unusual treatment: provision, dispute, exceptional item."
+        },
+        {
+          "label_fr": "Conseiller le dirigeant : une note de Claude n'est pas un avis du comptable.",
+          "label_en": "Advising the owner: a note from Claude is not the accountant's opinion."
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Quel retour d'expérience Waimia peut-il apporter ?</h2>\n<p>Aucun, et nous préférons l'écrire : Waimia n'a pas livré de projet de comptabilité à ce jour, comme l'indique la page <a href=\"/cas-usages/finance-comptabilite\">IA et automatisation de la comptabilité</a>, qui cite des études de cas du marché sourcées. Ce que nous proposons repose sur des briques maîtrisées ailleurs : relier des outils, lire des documents, router une validation. Un audit gratuit de 45 minutes cadre la tâche, puis un sprint de cadrage de 10 heures à {{prix.sprint}} € HT, à prix fixe, livre un premier workflow prototypé et testé, par exemple la lecture d'un échantillon de vos factures. La mise en production relève du pilote, dès {{prix.pilote}} € HT, comme sur la page <a href=\"/tarifs\">Tarifs</a>. Pour la formation d'une équipe financière, voir <a href=\"/blog/formation-ia-finance-pme\">le programme à exiger</a>.</p>",
+      "html_en": "<h2>What track record can Waimia bring?</h2>\n<p>None, and we prefer to say so: Waimia has not delivered an accounting project to date, as the page <a href=\"/cas-usages/finance-comptabilite\">AI and accounting automation</a> states, which cites sourced market case studies. What we offer rests on building blocks mastered elsewhere: linking tools, reading documents, routing an approval. A free 45-minute audit frames the task, then a 10-hour scoping sprint at €{{prix.sprint.en}} excl. VAT, fixed price, delivers a first workflow prototyped and tested, for example reading a sample of your invoices. Going live is part of the pilot, from €{{prix.pilote.en}} excl. VAT, as on the <a href=\"/tarifs\">Pricing</a> page. For training a finance team, see <a href=\"/blog/formation-ia-finance-pme\">the programme to demand</a>.</p>"
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper-2",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Further reading",
+      "cards": [
+        {
+          "kicker_fr": "Cas d'usage",
+          "kicker_en": "Use case",
+          "title_fr": "IA et automatisation de la comptabilité",
+          "title_en": "AI and accounting automation",
+          "lead_fr": "Les tâches comptables classées par rentabilité probable et par risque, avec leurs garde-fous.",
+          "lead_en": "Accounting tasks ranked by likely return and by risk, with their safeguards.",
+          "href": "/cas-usages/finance-comptabilite"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Claude for Small Business : le guide pour PME en France",
+          "title_en": "Claude for Small Business: the guide for SMBs in France",
+          "lead_fr": "Le plugin d'Anthropic, ses commandes de clôture et de trésorerie, et ce qui marche avec les logiciels français.",
+          "lead_en": "Anthropic's plugin, its closing and cash commands, and what works with French software.",
+          "href": "/ressources/guides/claude-for-small-business"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Claude et RGPD en PME",
+          "title_en": "Claude and GDPR for SMBs",
+          "lead_fr": "Comptes, entraînement, stockage, accord de traitement des données : ce qui change selon l'offre.",
+          "lead_en": "Accounts, training, storage, data processing agreement: what changes by plan.",
+          "href": "/ressources/guides/claude-rgpd-pme"
+        }
+      ]
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "h2_fr": "Claude et finance en PME : questions fréquentes",
+      "h2_en": "Claude and SMB finance: frequently asked questions",
+      "items": [
+        {
+          "q_fr": "Claude peut-il faire la comptabilité d'une PME ?",
+          "a_fr": "Il prépare, il ne tient pas les comptes. Claude lit des factures, propose des imputations et des rapprochements, rédige une note de clôture et construit une prévision de trésorerie. Une personne valide les écritures, les déclarations et les paiements. Ce guide ne donne ni conseil comptable ni conseil fiscal. Relevé le 15 octobre 2026.",
+          "q_en": "Can Claude do an SMB's accounting?",
+          "a_en": "It prepares, it does not keep the books. Claude reads invoices, proposes allocations and reconciliations, drafts a closing note and builds a cash forecast. A person approves entries, filings and payments. This guide gives neither accounting nor tax advice. Checked on 15 October 2026."
+        },
+        {
+          "q_fr": "Claude peut-il lire des factures fournisseurs ?",
+          "a_fr": "Oui, y compris les PDF : Anthropic accepte les PDF standards jusqu'à 32 Mo et 600 pages par requête, 100 seulement quand la fenêtre de contexte est inférieure à 1 million de jetons. Mais la lecture d'image peut se tromper sur un scan de mauvaise qualité, pivoté ou très petit. Recalculez les totaux par un tableur ou du code, rapprochez du bon de commande, et faites approuver le paiement par une personne.",
+          "q_en": "Can Claude read supplier invoices?",
+          "a_en": "Yes, including PDFs: Anthropic accepts standard PDFs up to 32 MB, 100 pages per request under 1 million tokens of context. But image reading can go wrong on a poor-quality, rotated or very small scan. Recompute totals with a spreadsheet or code, match against the purchase order, and have a person approve the payment."
+        },
+        {
+          "q_fr": "La facture électronique rend-elle Claude inutile pour les factures ?",
+          "a_fr": "Non, elle change son rôle. Depuis le 1er septembre 2026, toute entreprise assujettie à la TVA doit pouvoir recevoir des factures électroniques, mais les PME et micro-entreprises n'ont l'obligation de les émettre qu'au 1er septembre 2027 : des PDF circuleront encore. Pour les factures structurées, Claude sert surtout à contrôler (écarts, doublons, imputation proposée).",
+          "q_en": "Does e-invoicing make Claude useless for invoices?",
+          "a_en": "No, it changes its role. Since 1 September 2026, every VAT-liable company must be able to receive electronic invoices, but SMBs and micro-enterprises only have to issue them from 1 September 2027: PDFs will still circulate. For structured invoices, Claude mainly serves to check (discrepancies, duplicates, proposed allocation)."
+        },
+        {
+          "q_fr": "Quel abonnement Claude pour une direction financière de PME ?",
+          "a_fr": "Team, qui relève des conditions commerciales d'Anthropic : 20 $ par siège et par mois en annuel, 25 $ au mois, hors taxes, dès 2 sièges. Claude pour Excel est disponible avec Pro, Max, Team et Enterprise. Pour un flux de factures, l'API se paie aux jetons. Free, Pro et Max relèvent des conditions grand public, dont la version européenne exclut l'usage commercial.",
+          "q_en": "Which Claude plan for an SMB finance department?",
+          "a_en": "Team, which falls under Anthropic's commercial terms: $20 per seat per month billed annually, $25 monthly, excluding tax, from 2 seats. Claude for Excel is available with Pro, Max, Team and Enterprise. For an invoice flow, the API is paid per token. Free, Pro and Max fall under consumer terms, whose European version excludes commercial use."
+        },
+        {
+          "q_fr": "Claude remplace-t-il l'expert-comptable ?",
+          "a_fr": "Non. Le plugin Claude for Small Business prépare un dossier de clôture « pour votre comptable » et démarre chaque workflow en mode approbation : rien n'est envoyé, publié ou payé sans votre accord. Le travail de l'expert-comptable (validation, déclarations, conseil) reste le sien. Waimia ne promet aucun résultat comptable ou fiscal.",
+          "q_en": "Does Claude replace the accountant?",
+          "a_en": "No. The Claude for Small Business plugin prepares a closing packet \"for your accountant\" and starts every workflow in approval mode: nothing is sent, posted or paid without your say-so. The accountant's work (approval, filings, advice) remains theirs. Waimia promises no accounting or tax outcome."
+        },
+        {
+          "q_fr": "Les données financières sont-elles protégées avec Claude ?",
+          "a_fr": "Sur Team et par l'API, Anthropic n'utilise pas vos entrées et sorties pour entraîner ses modèles par défaut ; sur Team, il agit comme sous-traitant de vos données. Une facture adressée à une personne physique, un RIB ou une fiche de paie contiennent des données personnelles : le RGPD s'applique. Écartez la paie des essais et encadrez l'usage par une règle écrite.",
+          "q_en": "Is financial data protected with Claude?",
+          "a_en": "On Team and through the API, Anthropic does not use your inputs and outputs to train its models by default; on Team, it acts as a processor of your data. An invoice addressed to an individual, a bank account number or a payslip contains personal data: the GDPR applies. Keep payroll out of trials and frame use with a written rule."
+        },
+        {
+          "q_fr": "Combien coûte la lecture de 1 000 factures par l'API de Claude ?",
+          "a_fr": "Une page de PDF consomme 1 500 à 3 000 jetons de texte d'après Anthropic. Mille factures d'une page représentent donc 1,5 à 3 millions de jetons en entrée : 0,15 à 0,30 $ sur Haiku 5.5 (0,10 $ le million) et 3 à 6 $ sur Sonnet 5.5 (2 $ le million), avant les jetons d'image et de sortie. Le coût réel est celui de la validation.",
+          "q_en": "How much does reading 1,000 invoices through Claude's API cost?",
+          "a_en": "A PDF page uses 1,500 to 3,000 text tokens according to Anthropic. A thousand one-page invoices therefore represent 1.5 to 3 million input tokens: $0.15 to $0.30 on Haiku 5.5 ($0.10 per million) and $3 to $6 on Sonnet 5.5 ($2 per million), before image and output tokens. The real cost is the validation."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Cadrer avant d'automatiser",
+      "kicker_en": "§ Scope before automating",
+      "h2_fr": "Une tâche financière choisie, une validation humaine écrite, avant d'automatiser quoi que ce soit.",
+      "h2_en": "One finance task chosen, one human approval written down, before automating anything.",
+      "subtitle_fr": "L'audit de 45 minutes est gratuit. On regarde vos factures, vos logiciels et vos validations, et on vous dit ce qu'un compte Team suffit à faire, ce qui demande un workflow, et ce qu'il faut garder à une personne.",
+      "subtitle_en": "The 45-minute audit is free. We look at your invoices, tools and approvals, and tell you what a Team account is enough for, what calls for a workflow, and what to keep with a person.",
+      "buttons": [
+        {
+          "label_fr": "Réserver l'audit gratuit",
+          "label_en": "Book the free audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Voir le cas d'usage comptabilité",
+          "label_en": "See the accounting use case",
+          "href": "/cas-usages/finance-comptabilite",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

@@ -169,6 +169,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-finance-pme.json",
+      "slug": "claude-finance-pme",
+      "route": "/ressources/guides/claude-finance-pme",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-fonctionnalites-pme.json",
       "slug": "claude-fonctionnalites-pme",
       "route": "/ressources/guides/claude-fonctionnalites-pme",
@@ -235,6 +244,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-skills.json",
       "slug": "claude-skills",
       "route": "/ressources/guides/claude-skills",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-tpe.json",
+      "slug": "claude-tpe",
+      "route": "/ressources/guides/claude-tpe",
       "index": 1,
       "label": "Simon Beros",
       "background": "paper"
@@ -529,7 +547,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia/agent-support-client.json",
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
-      "index": 8,
+      "index": 10,
       "label": "Un cas en cours, et le projet interne qui pose les garde-fous",
       "background": "ink"
     },
@@ -1001,7 +1019,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia/agent-support-client.json",
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
-      "index": 5,
+      "index": 7,
       "label": "Exemple type : le SAV d'un distributeur B2B",
       "background": "paper"
     },
@@ -1028,7 +1046,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/applications-internes.json",
       "slug": "applications-internes",
       "route": "/services/applications-internes",
-      "index": 4,
+      "index": 6,
       "label": "Exemple type : le suivi d'interventions d'une entreprise de maintenance",
       "background": "paper"
     },
@@ -1423,6 +1441,24 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/agents-ia/agent-support-client.json",
+      "slug": "agent-support-client",
+      "route": "/services/agent-support-client",
+      "index": 5,
+      "label": "Chatbot à règles ou agent conversationnel IA : lequel pour votre service client",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/applications-internes.json",
+      "slug": "applications-internes",
+      "route": "/services/applications-internes",
+      "index": 4,
+      "label": "Application métier ou logiciel du marché : comment décider",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/branding.json",
       "slug": "branding",
       "route": "/services/branding",
@@ -1782,6 +1818,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-finance-pme.json",
+      "slug": "claude-finance-pme",
+      "route": "/ressources/guides/claude-finance-pme",
+      "index": 10,
+      "label": "Qu'est-ce qu'une personne garde toujours dans la finance d'une PME ?",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-fonctionnalites-pme.json",
       "slug": "claude-fonctionnalites-pme",
       "route": "/ressources/guides/claude-fonctionnalites-pme",
@@ -1938,7 +1983,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia/agent-support-client.json",
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
-      "index": 7,
+      "index": 9,
       "label": "Un chatbot de support n'est pas utile si",
       "background": "paper"
     },
@@ -1965,7 +2010,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/applications-internes.json",
       "slug": "applications-internes",
       "route": "/services/applications-internes",
-      "index": 6,
+      "index": 8,
       "label": "Ne faites pas développer d'application si",
       "background": "paper"
     },
@@ -2851,7 +2896,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia/agent-support-client.json",
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
-      "index": 6,
+      "index": 8,
       "label": "Ce qui vous reste à la fin",
       "background": "paper-3"
     },
@@ -2878,7 +2923,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/applications-internes.json",
       "slug": "applications-internes",
       "route": "/services/applications-internes",
-      "index": 5,
+      "index": 7,
       "label": "Ce qui vous reste à la fin",
       "background": "paper-3"
     },
@@ -3671,6 +3716,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-finance-pme.json",
+      "slug": "claude-finance-pme",
+      "route": "/ressources/guides/claude-finance-pme",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-fonctionnalites-pme.json",
       "slug": "claude-fonctionnalites-pme",
       "route": "/ressources/guides/claude-fonctionnalites-pme",
@@ -3740,6 +3794,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 2,
       "label": "#2",
       "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-tpe.json",
+      "slug": "claude-tpe",
+      "route": "/ressources/guides/claude-tpe",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
     },
     {
       "collection": "guides",
@@ -4883,6 +4946,60 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-finance-pme.json",
+      "slug": "claude-finance-pme",
+      "route": "/ressources/guides/claude-finance-pme",
+      "index": 4,
+      "label": "#4",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-finance-pme.json",
+      "slug": "claude-finance-pme",
+      "route": "/ressources/guides/claude-finance-pme",
+      "index": 6,
+      "label": "#6",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-finance-pme.json",
+      "slug": "claude-finance-pme",
+      "route": "/ressources/guides/claude-finance-pme",
+      "index": 7,
+      "label": "#7",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-finance-pme.json",
+      "slug": "claude-finance-pme",
+      "route": "/ressources/guides/claude-finance-pme",
+      "index": 8,
+      "label": "#8",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-finance-pme.json",
+      "slug": "claude-finance-pme",
+      "route": "/ressources/guides/claude-finance-pme",
+      "index": 9,
+      "label": "#9",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-finance-pme.json",
+      "slug": "claude-finance-pme",
+      "route": "/ressources/guides/claude-finance-pme",
+      "index": 11,
+      "label": "#11",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-fonctionnalites-pme.json",
       "slug": "claude-fonctionnalites-pme",
       "route": "/ressources/guides/claude-fonctionnalites-pme",
@@ -5185,6 +5302,42 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/claude-skills",
       "index": 13,
       "label": "#13",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-tpe.json",
+      "slug": "claude-tpe",
+      "route": "/ressources/guides/claude-tpe",
+      "index": 5,
+      "label": "#5",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-tpe.json",
+      "slug": "claude-tpe",
+      "route": "/ressources/guides/claude-tpe",
+      "index": 6,
+      "label": "#6",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-tpe.json",
+      "slug": "claude-tpe",
+      "route": "/ressources/guides/claude-tpe",
+      "index": 8,
+      "label": "#8",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-tpe.json",
+      "slug": "claude-tpe",
+      "route": "/ressources/guides/claude-tpe",
+      "index": 10,
+      "label": "#10",
       "background": "paper"
     },
     {
@@ -5765,6 +5918,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/agents-ia/agent-support-client.json",
+      "slug": "agent-support-client",
+      "route": "/services/agent-support-client",
+      "index": 6,
+      "label": "#6",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
       "file": "services/agents-ia/agent-traitement-documents.json",
       "slug": "agent-traitement-documents",
       "route": "/services/agent-traitement-documents",
@@ -5788,6 +5950,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/services/applications-internes",
       "index": 3,
       "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/applications-internes.json",
+      "slug": "applications-internes",
+      "route": "/services/applications-internes",
+      "index": 5,
+      "label": "#5",
       "background": "paper-2"
     },
     {
@@ -6561,7 +6732,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "choisir-agence-ia-pme",
       "route": "/ressources/guides/choisir-agence-ia-pme",
       "index": 4,
-      "label": "Agence IA, freelance, éditeur, équipe interne : le comparatif honnête",
+      "label": "Agence IA, freelance, cabinet, éditeur, équipe interne : le comparatif honnête",
       "background": "paper-2"
     },
     {
@@ -6660,6 +6831,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 9,
       "label": "Quatre usages concrets en PME, et ce qui reste à faire",
       "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-finance-pme.json",
+      "slug": "claude-finance-pme",
+      "route": "/ressources/guides/claude-finance-pme",
+      "index": 5,
+      "label": "Quelles tâches financières confier à quel produit Claude, et qui valide ?",
       "background": "paper-2"
     },
     {
@@ -6800,6 +6980,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "label": "Six exemples concrets, avec ce qu'il faut leur donner",
       "variant": "editorial",
       "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-tpe.json",
+      "slug": "claude-tpe",
+      "route": "/ressources/guides/claude-tpe",
+      "index": 4,
+      "label": "Quel compte Claude pour quelle situation de TPE ?",
+      "background": "paper-2"
     },
     {
       "collection": "guides",
@@ -7510,8 +7699,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia/agent-support-client.json",
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
-      "index": 10,
-      "label": "#10",
+      "index": 12,
+      "label": "#12",
       "variant": "media"
     },
     {
@@ -7537,8 +7726,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/applications-internes.json",
       "slug": "applications-internes",
       "route": "/services/applications-internes",
-      "index": 8,
-      "label": "#8",
+      "index": 10,
+      "label": "#10",
       "variant": "media"
     },
     {
@@ -8391,6 +8580,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-finance-pme.json",
+      "slug": "claude-finance-pme",
+      "route": "/ressources/guides/claude-finance-pme",
+      "index": 13,
+      "label": "Claude et finance en PME : questions fréquentes",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-fonctionnalites-pme.json",
       "slug": "claude-fonctionnalites-pme",
       "route": "/ressources/guides/claude-fonctionnalites-pme",
@@ -8459,6 +8657,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/claude-skills",
       "index": 19,
       "label": "Skills Claude : les questions des dirigeants",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-tpe.json",
+      "slug": "claude-tpe",
+      "route": "/ressources/guides/claude-tpe",
+      "index": 12,
+      "label": "Claude pour une TPE : questions fréquentes",
       "background": "paper"
     },
     {
@@ -8628,7 +8835,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia/agent-support-client.json",
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
-      "index": 11,
+      "index": 13,
       "label": "Chatbot et agent de service client : vos questions",
       "background": "paper-2"
     },
@@ -8655,7 +8862,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/applications-internes.json",
       "slug": "applications-internes",
       "route": "/services/applications-internes",
-      "index": 9,
+      "index": 11,
       "label": "Application métier sur mesure : vos questions",
       "background": "paper-2"
     },
@@ -9983,6 +10190,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-finance-pme.json",
+      "slug": "claude-finance-pme",
+      "route": "/ressources/guides/claude-finance-pme",
+      "index": 14,
+      "label": "Une tâche financière choisie, une validation humaine écrite, avant d'automatiser quoi que ce soit.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-fonctionnalites-pme.json",
       "slug": "claude-fonctionnalites-pme",
       "route": "/ressources/guides/claude-fonctionnalites-pme",
@@ -10051,6 +10267,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/claude-skills",
       "index": 20,
       "label": "Vos procédures en skills qui tournent, pour toute l'équipe",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-tpe.json",
+      "slug": "claude-tpe",
+      "route": "/ressources/guides/claude-tpe",
+      "index": 13,
+      "label": "Le bon compte et un premier usage, choisis avant la première facture.",
       "background": "ink"
     },
     {
@@ -10220,7 +10445,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia/agent-support-client.json",
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
-      "index": 12,
+      "index": 14,
       "label": "Combien de demandes identiques recevez-vous chaque semaine ?",
       "background": "ink"
     },
@@ -10247,7 +10472,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/applications-internes.json",
       "slug": "applications-internes",
       "route": "/services/applications-internes",
-      "index": 10,
+      "index": 12,
       "label": "Quel tableur fait office de logiciel chez vous ?",
       "background": "ink"
     },
@@ -11541,6 +11766,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-finance-pme.json",
+      "slug": "claude-finance-pme",
+      "route": "/ressources/guides/claude-finance-pme",
+      "index": 0,
+      "label": "Claude pour la finance d'une PME : factures fournisseurs, clôture, trésorerie",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-fonctionnalites-pme.json",
       "slug": "claude-fonctionnalites-pme",
       "route": "/ressources/guides/claude-fonctionnalites-pme",
@@ -11609,6 +11843,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/claude-skills",
       "index": 0,
       "label": "Skills Claude : créer, partager et déployer vos procédures en entreprise",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-tpe.json",
+      "slug": "claude-tpe",
+      "route": "/ressources/guides/claude-tpe",
+      "index": 0,
+      "label": "Claude pour une TPE : par où commencer, avec quel abonnement",
       "background": "paper"
     },
     {
@@ -12152,6 +12395,16 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-finance-pme.json",
+      "slug": "claude-finance-pme",
+      "route": "/ressources/guides/claude-finance-pme",
+      "index": 3,
+      "label": "Quels chiffres retenir avant de confier une tâche financière à Claude ?",
+      "variant": "accent",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-fonctionnalites-pme.json",
       "slug": "claude-fonctionnalites-pme",
       "route": "/ressources/guides/claude-fonctionnalites-pme",
@@ -12227,6 +12480,16 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 3,
       "label": "Ce qu'Anthropic fixe, au 5 octobre 2026",
       "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-tpe.json",
+      "slug": "claude-tpe",
+      "route": "/ressources/guides/claude-tpe",
+      "index": 3,
+      "label": "Quels chiffres retenir avant de choisir un compte ?",
+      "variant": "accent",
+      "background": "paper"
     },
     {
       "collection": "guides",
@@ -13067,7 +13330,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia/agent-support-client.json",
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
-      "index": 9,
+      "index": 11,
       "label": "Prix d'un chatbot de service client",
       "background": "paper"
     },
@@ -13094,7 +13357,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/applications-internes.json",
       "slug": "applications-internes",
       "route": "/services/applications-internes",
-      "index": 7,
+      "index": 9,
       "label": "Combien coûte une application sur mesure",
       "background": "paper"
     },
@@ -13795,6 +14058,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/claude-skills",
       "index": 16,
       "label": "De la procédure orale au plugin qui tourne",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-tpe.json",
+      "slug": "claude-tpe",
+      "route": "/ressources/guides/claude-tpe",
+      "index": 9,
+      "label": "Que faire la première semaine, puis le premier mois ?",
       "background": "paper-2"
     },
     {
@@ -14890,6 +15162,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-finance-pme.json",
+      "slug": "claude-finance-pme",
+      "route": "/ressources/guides/claude-finance-pme",
+      "index": 12,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-fonctionnalites-pme.json",
       "slug": "claude-fonctionnalites-pme",
       "route": "/ressources/guides/claude-fonctionnalites-pme",
@@ -14959,6 +15240,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 17,
       "label": "Pour aller plus loin",
       "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-tpe.json",
+      "slug": "claude-tpe",
+      "route": "/ressources/guides/claude-tpe",
+      "index": 11,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
     },
     {
       "collection": "guides",
@@ -15593,6 +15883,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/claude-rgpd-pme",
       "index": 13,
       "label": "Quand avancer seul, quand faire intervenir un DPO ou Waimia",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-tpe.json",
+      "slug": "claude-tpe",
+      "route": "/ressources/guides/claude-tpe",
+      "index": 7,
+      "label": "Qu'est-ce qu'une TPE confie à Claude, et qu'est-ce qu'elle garde ?",
       "background": "paper"
     },
     {

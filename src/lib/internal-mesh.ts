@@ -104,6 +104,7 @@ const PAGES: Record<string, PageDef> = {
   '/ressources/guides/agent-ia-definition': { label_fr: 'Agent IA : définition et limites', label_en: 'AI agent: definition and limits', kind: 'guide', topics: ['agents', 'automatisation'] },
   '/ressources/guides/llm-rag-dirigeant': { label_fr: 'LLM et RAG : définitions pour dirigeants', label_en: 'LLM and RAG: definitions for business owners', kind: 'guide', topics: ['agents', 'claude'] },
   '/blog/workflow-ia-exemples-pme': { label_fr: 'Workflow IA : cinq exemples concrets', label_en: 'AI workflow: five concrete examples', kind: 'article', topics: ['automatisation', 'agents'] },
+  '/blog/agent-ia-entreprise-exemples': { label_fr: 'Agent IA en entreprise : exemples par fonction', label_en: 'AI agents in business: examples by function', kind: 'article', topics: ['agents', 'automatisation'] },
 
   // ── Agents IA et Claude ──
   '/services/agents-ia': { label_fr: 'Agents IA pour entreprise', label_en: 'AI agents for business', kind: 'service', topics: ['agents', 'claude'] },
@@ -138,6 +139,8 @@ const PAGES: Record<string, PageDef> = {
   '/ressources/guides/claude-fonctionnalites-pme': { label_fr: 'Guide : fonctionnalités, offres et prix de Claude', label_en: 'Guide: Claude features, plans and pricing', kind: 'guide', topics: ['claude', 'conseil'] },
   '/ressources/guides/quel-modele-claude-choisir': { label_fr: 'Quel modèle Claude choisir : Opus, Sonnet ou Haiku', label_en: 'Which Claude model to choose: Opus, Sonnet or Haiku', kind: 'guide', topics: ['claude', 'conseil'] },
   '/ressources/guides/claude-managed-agents': { label_fr: 'Claude Managed Agents : prix, limites et données', label_en: 'Claude Managed Agents: pricing, limits and data', kind: 'guide', topics: ['claude', 'agents'] },
+  '/ressources/guides/claude-tpe': { label_fr: 'Claude pour une TPE : abonnement et premiers usages', label_en: 'Claude for a very small business: plan and first uses', kind: 'guide', topics: ['claude', 'conseil'] },
+  '/ressources/guides/claude-finance-pme': { label_fr: "Claude pour la finance d'une PME : factures, clôture, trésorerie", label_en: "Claude for an SMB's finance function: invoices, closing, cash", kind: 'guide', topics: ['claude', 'automatisation'] },
   '/ressources/guides/claude-gratuit': { label_fr: "Claude gratuit : ce que permet l'offre Free", label_en: 'Free Claude: what the Free plan allows', kind: 'guide', topics: ['claude', 'conformite'] },
   '/ressources/outils/guide-achat-claude-pme': { label_fr: "Guide d'achat Claude pour PME (PDF)", label_en: "Claude buyer's guide for SMBs (PDF)", kind: 'guide', topics: ['claude', 'conseil'] },
   '/ressources/guides/claude-skills': { label_fr: 'Guide : skills Claude en entreprise', label_en: 'Guide: Claude skills in business', kind: 'guide', topics: ['claude', 'agents'] },

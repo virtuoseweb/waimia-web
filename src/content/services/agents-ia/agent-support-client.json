@@ -7,7 +7,7 @@
   "description_en": "Customer service chatbot and AI agent: it answers from your knowledge base, creates the ticket, hands over to a human. From €{{prix.sprint.en}} excl. VAT. Free audit.",
   "slug": "agent-support-client",
   "publishedAt": "2026-07-16T00:00:00.000Z",
-  "updatedAt": "2026-10-14",
+  "updatedAt": "2026-10-15",
   "category": "agents",
   "tags": [
     "agent-support-client",
@@ -54,6 +54,18 @@
     {
       "q": "Agence chatbot ou logiciel de chatbot : que choisir pour son service client ?",
       "a": "Un logiciel de chatbot s'installe vite, mais il répond à partir de ce qu'on y a saisi et reste à configurer par vos équipes. Une agence chatbot branche l'agent sur vos vraies sources (documentation, CRM, suivi de commandes), règle l'escalade vers un humain et suit les réponses après la mise en ligne. Si vos demandes sont simples et peu nombreuses, un logiciel suffit : on vous le dit au cadrage."
+    },
+    {
+      "q": "Qu'est-ce qu'un agent conversationnel, et en quoi diffère-t-il d'un chatbot ?",
+      "a": "Agent conversationnel est le terme français pour un programme qui dialogue en langage naturel : le mot chatbot en est l'usage courant. Piloté par un modèle d'IA et branché sur vos sources et vos outils, c'est l'agent IA décrit sur cette page. Le chatbot à règles, lui, suit un arbre de choix écrit à l'avance : le tableau ci-dessus compare les deux."
+    },
+    {
+      "q": "Que faut-il pour brancher un chatbot sur son service client ?",
+      "a": "Un canal pour commencer, des sources écrites, un accès à vos outils (CRM, suivi de commandes, tickets), en lecture d'abord, puis en écriture sur les actions que vous autorisez, une règle d'escalade écrite et une mesure de départ sur quatre semaines. Si les procédures ne sont pas écrites, leur rédaction est le premier chantier : le guide architecture de l'agent de service client détaille chaque étape."
+    },
+    {
+      "q": "Faut-il prévenir le client qu'il parle à une IA ?",
+      "a": "Oui, dans la plupart des cas. L'article 50 de l'AI Act s'applique depuis le 2 août 2026 : l'information est donnée au plus tard au premier échange, et le mot « assistant » ne suffit pas. Le guide chatbot et transparence détaille l'annonce à afficher selon le canal. Ce n'est pas un avis juridique."
     }
   ],
   "faq_en": [
@@ -88,6 +100,18 @@
     {
       "q": "Chatbot agency or chatbot software: which to pick for customer service?",
       "a": "Chatbot software installs quickly, but it answers from what was typed into it and your teams still have to configure it. A chatbot agency wires the agent to your real sources (documentation, CRM, order tracking), sets the handover to a human and monitors the answers after launch. If your requests are simple and few, software is enough: we tell you at scoping."
+    },
+    {
+      "q": "What is a conversational agent, and how does it differ from a chatbot?",
+      "a": "Conversational agent is the French term for a program that talks in natural language: chatbot is the everyday word for it. Driven by an AI model and wired to your sources and tools, it is the AI agent described on this page. A rule-based chatbot follows a decision tree written in advance: the table above compares the two."
+    },
+    {
+      "q": "What do you need to wire a chatbot to your customer service?",
+      "a": "A channel to start with, written sources, read access to your tools (CRM, order tracking, tickets) with permissions you set, a written escalation rule and a four-week baseline. If procedures are not written down, writing them is the first job: the customer service agent architecture guide details each step."
+    },
+    {
+      "q": "Do you have to tell the customer they are talking to an AI?",
+      "a": "Yes, in most cases. Article 50 of the AI Act has applied since 2 August 2026: the information is given at the latest at the first exchange, and the word \"assistant\" is not enough. The chatbot and transparency guide details the notice to display by channel. This is not legal advice."
     }
   ],
   "sections": [
@@ -98,8 +122,8 @@
       "kicker_en": "§ Customer service chatbot and agent",
       "h1_fr": "<i class=\"acc\">Chatbot</i> et agent IA pour votre service client",
       "h1_en": "<i class=\"acc\">Chatbot</i> and AI agent for your customer service",
-      "lede_fr": "Un agent IA de service client répond aux questions récurrentes depuis votre documentation et votre CRM, puis passe la main à un humain en cas de doute. Pour les PME qui reçoivent chaque semaine les mêmes demandes, avec règles d'escalade.",
-      "lede_en": "A customer service AI agent answers recurring questions from your documentation and CRM, then hands over to a human when in doubt. For SMBs that receive the same requests every week, with escalation rules.",
+      "lede_fr": "Un chatbot de service client, ou agent conversationnel IA, répond aux questions récurrentes depuis votre documentation et votre CRM, puis passe la main à un humain en cas de doute. Pour les PME qui reçoivent chaque semaine les mêmes demandes, chatbot SAV compris, avec règles d'escalade.",
+      "lede_en": "A customer service chatbot, or conversational AI agent, answers recurring questions from your documentation and CRM, then hands over to a human when in doubt. For SMBs that receive the same requests every week, after-sales chatbot included, with escalation rules.",
       "badges": [
         {
           "label_fr": "Répond depuis vos sources",
@@ -228,6 +252,79 @@
       "maxWidth": "prose",
       "html_fr": "<h2>Ce qu'il fait, et ce qu'il ne fait pas</h2>\n<p>Il traite ce qui revient : où en est ma commande, comment modifier mon rendez-vous, quel est le délai, où trouver ma facture, comment fonctionne telle option. Il peut créer un ticket, mettre à jour une fiche client ou envoyer un document. Il ne décide pas d'un remboursement, d'un geste commercial ou d'une modification de contrat : ces actions sont préparées, puis validées par votre équipe.</p>\n<p>C'est un cas particulier d'<a href=\"/services/agents-ia\">agent IA</a> : une mission, un périmètre écrit, un journal. Le cas d'usage <a href=\"/cas-usages/support-sav\">automatiser le service client et le SAV</a> dit par quelles demandes commencer et lesquelles laisser à une personne.</p>\n<h2>Call center et chatbot helpdesk : où il s'arrête, où il sert</h2>\n<p>Le chantier décrit ici couvre l'écrit : email, formulaire, chat. Dans un call center, il absorbe les demandes répétitives reçues par écrit, et les conseillers gardent les cas qui demandent un humain.</p>\n<p>Un chatbot helpdesk, c'est-à-dire un support informatique pour vos salariés, suit la même mécanique avec d'autres sources et d'autres droits d'accès. Les questions des salariés sur les congés ou les règles internes relèvent plutôt d'un <a href=\"/cas-usages/rh\">chatbot RH</a>.</p>\n<h2>Le vrai chantier : la base de connaissance</h2>\n<p>La qualité des réponses dépend de vos sources, pas du modèle. Si la procédure de retour n'est écrite nulle part, l'agent ne peut pas l'inventer et ne doit pas le faire. Le premier livrable est donc un inventaire des demandes récurrentes et des sources qui y répondent. Les trous sont comblés avec la personne qui répond aujourd'hui. Ce travail sert aussi à votre équipe, agent ou non.</p>\n<h2>Avec quels outils</h2>\n<p>Un modèle Claude ou OpenAI, une base de connaissance construite sur vos documents, des connexions à votre CRM et à votre outil de tickets, et un workflow <a href=\"/services/automatisation-n8n\">n8n</a> pour l'aiguillage. L'agent s'intègre au canal existant (boîte support, formulaire, chat du site) plutôt que d'en créer un nouveau.</p>\n<h2>Combien de temps</h2>\n<p>Quelques jours pour cartographier les demandes, quelques semaines pour un agent en production sur un premier lot de questions. On élargit ensuite par lots, en regardant deux chiffres : le volume traité sans intervention et le taux d'escalade.</p>\n<h2>Ce qui peut mal tourner</h2>\n<p>La réponse fausse donnée avec aplomb : on la prévient en imposant la citation d'une source et l'escalade quand il n'y en a pas. Le client qui veut un humain : il doit pouvoir l'obtenir en un message. Les données personnelles : on limite ce qui est envoyé au modèle et on le documente. Enfin la base qui vieillit : quelqu'un chez vous doit en être responsable.</p>\n<p>Pour évaluer votre volume et vos sources, passez par l'<a href=\"/audit-ia-pme\">audit IA gratuit</a> ou estimez le temps en jeu avec le <a href=\"/ressources/outils/calculateur-roi-ia\">calculateur de ROI</a>.</p>",
       "html_en": "<h2>What it does, and what it does not</h2>\n<p>It handles what comes back: where is my order, how do I change my appointment, what is the lead time, where is my invoice, how does this option work. It can create a ticket, update a customer record or send a document. It does not decide on a refund, a commercial gesture or a contract change: those actions are prepared, then approved by your team.</p>\n<p>It is a specific kind of <a href=\"/services/agents-ia\">AI agent</a>: one mission, a written scope, a log. The use case <a href=\"/cas-usages/support-sav\">automating customer service and after-sales</a> says which requests to start with and which to leave to a person.</p>\n<h2>Call center and helpdesk chatbot: where it stops, where it helps</h2>\n<p>The work described here covers written channels: email, form, chat. In a call center, it absorbs the repetitive requests that arrive in writing, and the advisers keep the cases that need a human.</p>\n<p>A helpdesk chatbot, meaning IT support for your employees, follows the same mechanics with different sources and different access rights. Employee questions about leave or internal rules are better handled by an <a href=\"/cas-usages/rh\">HR chatbot</a>.</p>\n<h2>The real work: the knowledge base</h2>\n<p>Answer quality depends on your sources, not on the model. If the return procedure is written nowhere, the agent cannot invent it and must not. The first deliverable is therefore an inventory of recurring requests and the sources that answer them. Gaps are filled with the person who answers today. This work helps your team too, agent or not.</p>\n<h2>With which tools</h2>\n<p>A Claude or OpenAI model, a knowledge base built on your documents, connections to your CRM and ticketing tool, and an <a href=\"/services/automatisation-n8n\">n8n</a> workflow for routing. The agent fits into the existing channel (support mailbox, form, site chat) rather than creating a new one.</p>\n<h2>How long</h2>\n<p>A few days to map requests, a few weeks for an agent in production on a first batch of questions. We then widen batch by batch, watching two figures: volume handled without intervention and escalation rate.</p>\n<h2>What can go wrong</h2>\n<p>A wrong answer given with confidence: we prevent it by requiring a cited source and escalation when there is none. A customer who wants a human: they must get one in a single message. Personal data: we limit what is sent to the model and document it. And an ageing knowledge base: someone on your side must own it.</p>\n<p>To assess your volume and sources, go through the <a href=\"/audit-ia-pme\">free AI audit</a> or estimate the time at stake with the <a href=\"/ressources/outils/calculateur-roi-ia\">ROI calculator</a>.</p>"
+    },
+    {
+      "type": "comparison-table",
+      "background": "paper",
+      "h2_fr": "Chatbot à règles ou agent conversationnel IA : lequel pour votre service client",
+      "h2_en": "Rule-based chatbot or conversational AI agent: which one for your customer service",
+      "column_headers_fr": [
+        "Critère",
+        "Chatbot à règles",
+        "Agent IA conversationnel"
+      ],
+      "column_headers_en": [
+        "Criterion",
+        "Rule-based chatbot",
+        "Conversational AI agent"
+      ],
+      "rows": [
+        {
+          "feature_fr": "Comprendre la demande",
+          "feature_en": "Understanding the request",
+          "values": [
+            "Il suit un arbre de choix écrit à l'avance",
+            "Il lit la question en langage libre"
+          ]
+        },
+        {
+          "feature_fr": "D'où vient la réponse",
+          "feature_en": "Where the answer comes from",
+          "values": [
+            "De réponses saisies une par une",
+            "De votre base de connaissance, avec la source citée"
+          ]
+        },
+        {
+          "feature_fr": "Agir dans vos outils (ticket, suivi de commande)",
+          "feature_en": "Acting in your tools (ticket, order tracking)",
+          "values": [
+            false,
+            "Oui, par des outils dont vous fixez les droits"
+          ]
+        },
+        {
+          "feature_fr": "Question hors du prévu",
+          "feature_en": "A question outside the plan",
+          "values": [
+            "Il échoue",
+            "Il transmet à un humain, avec l'historique"
+          ]
+        },
+        {
+          "feature_fr": "Ce que vous maintenez",
+          "feature_en": "What you maintain",
+          "values": [
+            "L'arbre, à chaque nouveau cas",
+            "La base de connaissance, tenue à jour"
+          ]
+        },
+        {
+          "feature_fr": "À préférer quand",
+          "feature_en": "Better when",
+          "values": [
+            "Peu de questions, toujours les mêmes, réponses fixes",
+            "Demandes variées dont la réponse est dans vos documents"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "html_fr": "<h2>Brancher un chatbot sur votre service client : ce qu'il faut</h2>\n<p>Cinq éléments, dans cet ordre. Un canal pour commencer : la boîte support, le formulaire ou le chat du site, celui qui reçoit le plus de demandes récurrentes. Des sources écrites : FAQ, documentation, conditions de retour, car l'agent ne répond que depuis elles. L'accès à vos outils (CRM, suivi de commandes, outil de tickets), avec des droits que vous fixez. Une règle d'escalade écrite avant le lancement : demande explicite d'un humain, sujet hors périmètre, aucune source qui répond, client en colère ou qui répète sa demande. Enfin une mesure de départ sur quatre semaines : demandes par type, délai de première réponse, renvois entre collègues.</p>\n<p>L'architecture complète (canaux, base de connaissance, outils, garde-fous, mesures) est détaillée dans le guide <a href=\"/ressources/guides/agent-sav-architecture\">agent IA de service client : architecture, garde-fous, mesure</a>.</p>\n<h2>Chatbot de service client et article 50 de l'AI Act</h2>\n<p>Depuis le 2 août 2026, un chatbot ou un agent IA doit dire à la personne qu'elle parle à une IA, au plus tard au premier échange. Le mot « assistant » ne suffit pas, et la Commission européenne cite le chatbot d'un service d'assistance parmi les cas où l'IA n'est pas évidente pour l'utilisateur. Le message d'accueil de l'agent annonce donc dès le départ qu'il est une IA et que le client peut demander un humain. Qui est fournisseur, quoi afficher selon le canal et ce que risque un manquement : <a href=\"/ressources/guides/chatbot-transparence-article-50\">chatbot et AI Act : l'obligation de transparence de l'article 50</a>. Ce n'est pas un avis juridique.</p>",
+      "html_en": "<h2>Wiring a chatbot to your customer service: what you need</h2>\n<p>Five elements, in this order. A channel to start with: the support mailbox, the form or the site chat, whichever receives the most recurring requests. Written sources: FAQ, documentation, return conditions, because the agent only answers from them. Access to your tools (CRM, order tracking, ticketing tool), with permissions you set. An escalation rule written before launch: explicit request for a human, out-of-scope topic, no source that answers, an angry customer or one who repeats the request. Finally a four-week baseline: requests by type, first response time, handovers between colleagues.</p>\n<p>The full architecture (channels, knowledge base, tools, guardrails, measures) is detailed in the guide <a href=\"/ressources/guides/agent-sav-architecture\">customer service AI agent: architecture, guardrails, measurement</a>.</p>\n<h2>Customer service chatbot and Article 50 of the AI Act</h2>\n<p>Since 2 August 2026, a chatbot or an AI agent must tell the person they are talking to an AI, at the latest at the first exchange. The word \"assistant\" is not enough, and the European Commission lists a support service chatbot among the cases where the AI is not obvious to the user. The agent's welcome message therefore states from the start that it is an AI and that the customer can ask for a human. Who is the provider, what to display by channel and what a breach risks: <a href=\"/ressources/guides/chatbot-transparence-article-50\">chatbot and the AI Act: the Article 50 transparency obligation</a>. This is not legal advice.</p>"
     },
     {
       "type": "comparison-duo",
@@ -404,14 +501,14 @@
           "features_fr": [
             "Cadrage des demandes récurrentes à traiter",
             "Un premier agent de support branché via MCP",
-            "Agent en production, règles d'escalade posées",
-            "Un premier agent qui répond à vos vraies demandes"
+            "Règles d'escalade posées, premier agent prototypé et testé",
+            "Un premier agent testé sur vos vraies demandes"
           ],
           "features_en": [
             "Scoping of the recurring requests to handle",
             "A first support agent wired via MCP",
-            "Agent in production, escalation rules in place",
-            "A first agent that answers your real requests"
+            "Escalation rules in place, first agent prototyped and tested",
+            "A first agent tested on your real requests"
           ],
           "cta": {
             "label_fr": "Réserver l'audit gratuit →",
@@ -510,6 +607,24 @@
           "a_fr": "Un logiciel de chatbot s'installe vite, mais il répond à partir de ce qu'on y a saisi et reste à configurer par vos équipes. Une agence chatbot branche l'agent sur vos vraies sources (documentation, CRM, suivi de commandes), règle l'escalade vers un humain et suit les réponses après la mise en ligne. Si vos demandes sont simples et peu nombreuses, un logiciel suffit : on vous le dit au cadrage.",
           "q_en": "Chatbot agency or chatbot software: which to pick for customer service?",
           "a_en": "Chatbot software installs quickly, but it answers from what was typed into it and your teams still have to configure it. A chatbot agency wires the agent to your real sources (documentation, CRM, order tracking), sets the handover to a human and monitors the answers after launch. If your requests are simple and few, software is enough: we tell you at scoping."
+        },
+        {
+          "q_fr": "Qu'est-ce qu'un agent conversationnel, et en quoi diffère-t-il d'un chatbot ?",
+          "a_fr": "Agent conversationnel est le terme français pour un programme qui dialogue en langage naturel : le mot chatbot en est l'usage courant. Piloté par un modèle d'IA et branché sur vos sources et vos outils, c'est l'agent IA décrit sur cette page. Le chatbot à règles, lui, suit un arbre de choix écrit à l'avance : le tableau ci-dessus compare les deux.",
+          "q_en": "What is a conversational agent, and how does it differ from a chatbot?",
+          "a_en": "Conversational agent is the French term for a program that talks in natural language: chatbot is the everyday word for it. Driven by an AI model and wired to your sources and tools, it is the AI agent described on this page. A rule-based chatbot follows a decision tree written in advance: the table above compares the two."
+        },
+        {
+          "q_fr": "Que faut-il pour brancher un chatbot sur son service client ?",
+          "a_fr": "Un canal pour commencer, des sources écrites, un accès à vos outils (CRM, suivi de commandes, tickets), en lecture d'abord, puis en écriture sur les actions que vous autorisez, une règle d'escalade écrite et une mesure de départ sur quatre semaines. Si les procédures ne sont pas écrites, leur rédaction est le premier chantier : le guide architecture de l'agent de service client détaille chaque étape.",
+          "q_en": "What do you need to wire a chatbot to your customer service?",
+          "a_en": "A channel to start with, written sources, read access to your tools (CRM, order tracking, tickets) with permissions you set, a written escalation rule and a four-week baseline. If procedures are not written down, writing them is the first job: the customer service agent architecture guide details each step."
+        },
+        {
+          "q_fr": "Faut-il prévenir le client qu'il parle à une IA ?",
+          "a_fr": "Oui, dans la plupart des cas. L'article 50 de l'AI Act s'applique depuis le 2 août 2026 : l'information est donnée au plus tard au premier échange, et le mot « assistant » ne suffit pas. Le guide chatbot et transparence détaille l'annonce à afficher selon le canal. Ce n'est pas un avis juridique.",
+          "q_en": "Do you have to tell the customer they are talking to an AI?",
+          "a_en": "Yes, in most cases. Article 50 of the AI Act has applied since 2 August 2026: the information is given at the latest at the first exchange, and the word \"assistant\" is not enough. The chatbot and transparency guide details the notice to display by channel. This is not legal advice."
         }
       ]
     },
