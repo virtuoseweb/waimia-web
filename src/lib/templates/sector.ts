@@ -107,12 +107,12 @@ const SECTOR_COPY: Record<string, {
     ctaSubtitle_en: 'We follow an order and a customer question in 45 minutes, and tell you quickly what can be automated. No empty promises.',
     workflowBodies_fr: [
       'Chaque commande part de la boutique vers la facturation, le stock et le transporteur sans copier-coller. Si une étape échoue, une alerte arrive avant que le client ne s\'en aperçoive.',
-      'Un agent répond aux questions récurrentes depuis vos vraies sources : suivi de colis, conditions de retour, délais. Ce qu\'il ne sait pas traiter part à l\'équipe avec le contexte déjà rempli.',
+      'Un agent prépare la réponse aux questions récurrentes depuis vos vraies sources : suivi de colis, conditions de retour, délais. Une personne la valide avant l\'envoi ; ce qu\'il ne sait pas traiter part à l\'équipe avec le contexte déjà rempli.',
       'Les fiches produits sont complétées et mises en forme à partir des données fournisseurs, puis relues avant publication. Vos nouveautés sont en ligne quand elles arrivent en stock.',
     ],
     workflowBodies_en: [
       'Every order flows from the shop to invoicing, stock and the carrier with no copy-paste. If a step fails, an alert arrives before the customer notices.',
-      'An agent answers recurring questions from your real sources: parcel tracking, return terms, lead times. What it cannot handle goes to the team with the context already filled in.',
+      'An agent prepares the answer to recurring questions from your real sources: parcel tracking, return terms, lead times. A person approves it before it is sent; what the agent cannot handle goes to the team with the context already filled in.',
       'Product pages are completed and formatted from supplier data, then reviewed before publishing. New products are online when they arrive in stock.',
     ],
   },
