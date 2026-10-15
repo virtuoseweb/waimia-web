@@ -1,0 +1,645 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "RPA, automatisation par API ou agent IA : comment choisir en PME · Waimia",
+  "title_en": "RPA, API automation or AI agent: how to choose in an SMB · Waimia",
+  "seoTitle_fr": "RPA ou agent IA ? Définition, UiPath, comment choisir",
+  "description_fr": "RPA, automatisation par API (n8n, Make) ou agent IA : définition du RPA, prix UiPath et Power Automate relevés le 15 octobre 2026, tableau pour choisir.",
+  "description_en": "RPA, API automation (n8n, Make) or AI agent: RPA definition, UiPath and Power Automate prices read on 15 October 2026, and a table to choose.",
+  "slug": "rpa-ou-agent-ia",
+  "publishedAt": "2026-10-15T00:00:00.000Z",
+  "updatedAt": "2026-10-15",
+  "category": "automatisation",
+  "tags": [
+    "rpa",
+    "uipath",
+    "power-automate",
+    "agent-ia",
+    "automatisation",
+    "guide-pme"
+  ],
+  "sources": [
+    {
+      "name": "UiPath, What is robotic process automation (lu le 15 octobre 2026)",
+      "url": "https://www.uipath.com/rpa/robotic-process-automation",
+      "type": "enterprise"
+    },
+    {
+      "name": "UiPath, What is workflow automation (lu le 15 octobre 2026)",
+      "url": "https://www.uipath.com/automation/workflow-automation",
+      "type": "enterprise"
+    },
+    {
+      "name": "UiPath, UI automation for every interface (lu le 15 octobre 2026)",
+      "url": "https://www.uipath.com/platform/agentic-automation/rpa/ui-automation",
+      "type": "enterprise"
+    },
+    {
+      "name": "UiPath, pricing (lu le 15 octobre 2026)",
+      "url": "https://www.uipath.com/pricing",
+      "type": "enterprise"
+    },
+    {
+      "name": "Microsoft Learn, types of Power Automate licenses (lu le 15 octobre 2026)",
+      "url": "https://learn.microsoft.com/en-us/power-platform/admin/power-automate-licensing/types",
+      "type": "enterprise"
+    },
+    {
+      "name": "Microsoft Learn, Power Automate licensing FAQ (22 septembre 2026, lu le 15 octobre 2026)",
+      "url": "https://learn.microsoft.com/en-us/power-platform/admin/power-automate-licensing/faqs",
+      "type": "enterprise",
+      "publishedAt": "2026-09-22"
+    },
+    {
+      "name": "Microsoft, Power Automate pricing (lu le 15 octobre 2026)",
+      "url": "https://www.microsoft.com/en-us/power-platform/products/power-automate/pricing/",
+      "type": "enterprise"
+    },
+    {
+      "name": "Microsoft Learn, get started with Power Automate in Windows 11 (lu le 15 octobre 2026)",
+      "url": "https://learn.microsoft.com/en-us/power-automate/desktop-flows/getting-started-windows-11",
+      "type": "enterprise"
+    },
+    {
+      "name": "n8n, documentation, HTTP Request node (lue le 15 octobre 2026)",
+      "url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.httprequest/",
+      "type": "enterprise"
+    }
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "RPA, c'est quoi ?",
+      "a": "Le RPA (robotic process automation) est un robot logiciel qui reproduit ce qu'une personne fait à l'écran : cliquer, saisir, copier, se connecter. UiPath le définit comme des robots logiciels qui automatisent des tâches répétitives fondées sur des règles. On l'emploie surtout quand un logiciel n'a ni connecteur ni API."
+    },
+    {
+      "q": "UiPath, c'est quoi, et combien ça coûte ?",
+      "a": "UiPath est un éditeur de logiciels de RPA. Sa page tarifs du 15 octobre 2026 affiche une offre Community « gratuite pour toujours », une offre Basic à partir de 25 dollars par mois avec 2 robots (la page précise que cette offre évolue et qu'une version mise à jour arrive), et des offres Standard et Enterprise sur devis. La devise n'est pas précisée sur la page."
+    },
+    {
+      "q": "RPA ou automatisation par API (n8n, Make) : laquelle choisir ?",
+      "a": "Si le logiciel a une API, passez par elle : un workflow n8n ou Make appelle le logiciel directement, sans dépendre de son écran. Le RPA se justifie quand il n'y a ni API ni export, que la tâche se répète à l'identique et que les entrées sont structurées. Microsoft écrit que le RPA sert pour les applications sans connecteur ni API."
+    },
+    {
+      "q": "RPA ou agent IA : quelle différence ?",
+      "a": "Un robot RPA suit un scénario écrit à l'avance, étape par étape, sur des écrans. Un agent IA laisse un modèle de langage choisir les étapes et les outils selon ce qu'il lit. Le RPA convient aux tâches identiques sur des données structurées, l'agent aux demandes en texte libre qui varient. Les deux peuvent se combiner : l'agent lit et décide, le robot exécute à l'écran quand aucune API n'existe."
+    },
+    {
+      "q": "Existe-t-il un RPA gratuit ?",
+      "a": "Oui, avec des limites. Microsoft livre Power Automate pour le poste de travail avec Windows 11 : les utilisateurs peuvent y essayer le RPA en mode supervisé pour leur productivité personnelle, dans l'environnement par défaut, sans partage des flux ni flux cloud. UiPath propose aussi une offre Community gratuite. Pour un usage d'équipe, il faut une licence payante (relevé le 15 octobre 2026)."
+    },
+    {
+      "q": "Les agents IA remplacent-ils le RPA ?",
+      "a": "Pas à ce jour dans les faits relevés. UiPath décrit le RPA comme la couche d'exécution des agents : l'agent planifie et décide, le robot agit sur les systèmes. Et un robot reste utile là où aucun logiciel n'offre d'API. La vraie question n'est pas la mode, c'est : le logiciel a-t-il une API, et les entrées sont-elles prévisibles ?"
+    },
+    {
+      "q": "Waimia fait-il du RPA ?",
+      "a": "Notre catalogue publié porte sur les workflows n8n ou Make et sur les agents IA ; il ne comprend pas de prestation RPA. Ce guide sert à décider avant de payer une licence. À l'audit gratuit de 45 minutes, on regarde d'abord si une API, un export ou un connecteur existe pour la tâche, avant de parler d'écran."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "What is RPA?",
+      "a": "RPA (robotic process automation) is a software robot that reproduces what a person does on screen: clicking, typing, copying, logging in. UiPath defines it as software robots that automate repetitive, rule-based tasks. It is used mostly when a piece of software has neither a connector nor an API."
+    },
+    {
+      "q": "What is UiPath, and how much does it cost?",
+      "a": "UiPath is an RPA software vendor. Its pricing page of 15 October 2026 shows a \"free forever\" Community plan, a Basic plan from $25 a month with 2 robots (the page states that this plan is evolving and an updated version is coming), and Standard and Enterprise plans on quote. The currency is not specified on the page."
+    },
+    {
+      "q": "RPA or API automation (n8n, Make): which one to choose?",
+      "a": "If the software has an API, use it: an n8n or Make workflow calls the software directly, without depending on its screen. RPA is justified when there is no API or export, the task repeats identically and the inputs are structured. Microsoft writes that RPA is for applications that lack a connector and an API."
+    },
+    {
+      "q": "RPA or AI agent: what is the difference?",
+      "a": "An RPA robot follows a scenario written in advance, step by step, on screens. An AI agent lets a language model choose the steps and tools according to what it reads. RPA suits identical tasks on structured data, the agent suits free-text requests that vary. The two can be combined: the agent reads and decides, the robot executes on screen when no API exists."
+    },
+    {
+      "q": "Is there a free RPA?",
+      "a": "Yes, with limits. Microsoft ships Power Automate for desktop with Windows 11: users can try attended RPA there for personal productivity, in the default environment, without sharing flows or cloud flows. UiPath also offers a free Community plan. For team use, a paid license is needed (read on 15 October 2026)."
+    },
+    {
+      "q": "Are AI agents replacing RPA?",
+      "a": "Not at present, on the facts read. UiPath describes RPA as the execution layer for agents: the agent plans and decides, the robot acts on the systems. And a robot stays useful where no software offers an API. The real question is not fashion, it is: does the software have an API, and are the inputs predictable?"
+    },
+    {
+      "q": "Does Waimia do RPA?",
+      "a": "Our published catalogue covers n8n or Make workflows and AI agents; it does not include an RPA service. This guide is meant to help you decide before paying for a license. At the free 45-minute audit, we first look at whether an API, an export or a connector exists for the task, before talking about screens."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "kicker_fr": "§ Guide",
+      "kicker_en": "§ Guide",
+      "h1_fr": "RPA, automatisation par API ou agent IA : comment choisir",
+      "h1_en": "RPA, API automation or AI agent: how to choose",
+      "lede_fr": "Le RPA est un robot logiciel qui refait ce qu'une personne fait à l'écran : cliquer, saisir, copier. On y recourt quand un logiciel n'a ni API ni export. Si une API existe, un workflow n8n ou Make est plus solide ; si les demandes arrivent en texte libre et varient, un agent IA entre en jeu. Deux questions tranchent : le logiciel a-t-il une API, et les entrées sont-elles prévisibles ?",
+      "lede_en": "RPA is a software robot that redoes what a person does on screen: clicking, typing, copying. It is used when a piece of software has neither an API nor an export. If an API exists, an n8n or Make workflow is more robust; if requests arrive as free text and vary, an AI agent comes into play. Two questions decide: does the software have an API, and are the inputs predictable?",
+      "badges": [
+        {
+          "label_fr": "Définition sourcée",
+          "label_en": "Sourced definition"
+        },
+        {
+          "label_fr": "Prix relevés le 15 octobre 2026",
+          "label_en": "Prices read on 15 October 2026"
+        },
+        {
+          "label_fr": "Tableau de choix",
+          "label_en": "Decision table"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver l'audit gratuit",
+        "label_en": "Book the free audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme",
+        "variant": "ghost"
+      },
+      "illustration": {
+        "src": "/images/illustrations/ds/mcp-standard-paper.webp",
+        "alt_fr": "Illustration : une opératrice relie par des câbles un standard géant à trois machines posées au loin",
+        "alt_en": "Illustration: an operator wires a giant switchboard to three machines standing in the distance",
+        "side": "right"
+      }
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "15 octobre 2026",
+      "updatedDate": "15 octobre 2026"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "RPA, c'est quoi ?",
+      "question_en": "What is RPA?",
+      "term_fr": "Définition",
+      "term_en": "Definition",
+      "answer_fr": "Le RPA (robotic process automation, automatisation robotisée des processus) est un robot logiciel qui reproduit ce qu'une personne fait à l'écran : cliquer, saisir, copier, se connecter. UiPath le définit comme des robots logiciels qui automatisent des tâches répétitives fondées sur des règles, en imitant les actions humaines dans les systèmes numériques. Microsoft précise son créneau : il sert pour les applications sans connecteur ni API. Quand le logiciel offre une API, on passe par elle plutôt que par l'écran.",
+      "answer_en": "RPA (robotic process automation) is a software robot that reproduces what a person does on screen: clicking, typing, copying, logging in. UiPath defines it as software robots that automate repetitive, rule-based tasks by mimicking human actions in digital systems. Microsoft states its niche: it is for applications without a connector or an API. When the software offers an API, you go through it rather than through the screen."
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper",
+      "kicker_fr": "§ Trois façons d'automatiser",
+      "kicker_en": "§ Three ways to automate",
+      "heading_fr": "RPA, automatisation par API, agent IA : le tableau pour les distinguer",
+      "heading_en": "RPA, API automation, AI agent: the table to tell them apart",
+      "caption_fr": "Lecture de Waimia, avec les sources citées dans les cellules (UiPath, Microsoft Learn, documentation de n8n, relevées le 15 octobre 2026). Pour la frontière entre automatisation et agent, voir le guide agent IA et l'article qui la détaille.",
+      "caption_en": "Waimia's reading, with sources cited in the cells (UiPath, Microsoft Learn, n8n documentation, read on 15 October 2026). For the boundary between automation and agent, see the AI agent guide and the article that details it.",
+      "columns_fr": [
+        "Critère",
+        "RPA",
+        "Automatisation par API (n8n, Make)",
+        "Agent IA"
+      ],
+      "columns_en": [
+        "Criterion",
+        "RPA",
+        "API automation (n8n, Make)",
+        "AI agent"
+      ],
+      "rows_fr": [
+        [
+          "Comment il touche le logiciel",
+          "Par l'écran : il clique et saisit comme une personne",
+          "Par l'API du logiciel, sans écran (n8n : requêtes vers toute application dotée d'une API REST)",
+          "Par des outils branchés (API, protocole MCP) ; certains agents pilotent aussi un écran"
+        ],
+        [
+          "Qui décide des étapes",
+          "Le scénario écrit à l'avance",
+          "Le scénario écrit à l'avance",
+          "Le modèle, à chaque étape"
+        ],
+        [
+          "Entrées attendues",
+          "Structurées, règles claires (UiPath : tâches répétitives fondées sur des règles)",
+          "Structurées",
+          "Texte libre possible"
+        ],
+        [
+          "Ce qui le casse",
+          "Un changement d'interface : UiPath propose des sélecteurs sémantiques pour retrouver un élément quand l'écran change",
+          "Un changement d'API ou d'authentification",
+          "Une mauvaise lecture qui s'enchaîne sur les étapes suivantes"
+        ],
+        [
+          "Coût d'usage",
+          "Licence par robot ou par utilisateur (voir les prix plus bas)",
+          "Abonnement de la plateforme ou auto-hébergement",
+          "Facturé au volume de texte lu et écrit par le modèle"
+        ],
+        [
+          "Bon terrain",
+          "Logiciel ancien ou fermé, sans API ni export, tâche à l'identique",
+          "Logiciels dotés d'une API, enchaînements prévisibles",
+          "Demandes en texte libre, étapes qui varient"
+        ]
+      ],
+      "rows_en": [
+        [
+          "How it touches the software",
+          "Through the screen: it clicks and types like a person",
+          "Through the software's API, without a screen (n8n: requests to any app with a REST API)",
+          "Through connected tools (API, MCP protocol); some agents also drive a screen"
+        ],
+        [
+          "Who decides the steps",
+          "The scenario written in advance",
+          "The scenario written in advance",
+          "The model, at each step"
+        ],
+        [
+          "Expected inputs",
+          "Structured, clear rules (UiPath: repetitive, rule-based tasks)",
+          "Structured",
+          "Free text possible"
+        ],
+        [
+          "What breaks it",
+          "An interface change: UiPath offers semantic selectors to find an element when the screen changes",
+          "A change of API or authentication",
+          "A misreading that carries through to the next steps"
+        ],
+        [
+          "Running cost",
+          "License per robot or per user (see prices below)",
+          "Platform subscription or self-hosting",
+          "Billed on the volume of text read and written by the model"
+        ],
+        [
+          "Good ground",
+          "Old or closed software, no API or export, identical task",
+          "Software with an API, predictable sequences",
+          "Free-text requests, steps that vary"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Qu'est-ce que le RPA, et comment fonctionne-t-il ?</h2><p>Selon <a href=\"https://www.uipath.com/rpa/robotic-process-automation\" rel=\"noopener noreferrer\" target=\"_blank\">UiPath</a>, le RPA utilise des robots logiciels pour automatiser des tâches répétitives fondées sur des règles, comme la saisie de données, le déplacement de fichiers ou le traitement de transactions, en imitant la façon dont une personne interagit avec les écrans et les systèmes. La <a href=\"https://www.uipath.com/platform/agentic-automation/rpa/ui-automation\" rel=\"noopener noreferrer\" target=\"_blank\">page sur l'automatisation d'interface</a> du même éditeur décrit des robots qui cliquent sur des boutons, saisissent des informations et naviguent dans des logiciels et des applications web.</p><p>Deux modes d'exécution reviennent dans la <a href=\"https://learn.microsoft.com/en-us/power-platform/admin/power-automate-licensing/types\" rel=\"noopener noreferrer\" target=\"_blank\">documentation de Microsoft</a>. En mode supervisé (« attended »), le robot s'exécute sur le poste d'une personne qui le déclenche et garde la main. En mode non supervisé (« unattended »), le robot ouvre lui-même une session sur la machine au nom de l'utilisateur, exécute les actions, puis ferme la session, sans personne devant l'écran. Le second demande donc un compte dédié, avec des droits que vous avez décidés.</p><p>Où en trouve-t-on dans une PME ? Là où un logiciel n'offre pas d'accès par programme : un vieux logiciel de gestion, un portail fournisseur sans export, une application installée sur un poste. UiPath indique couvrir les environnements Citrix, les bureaux à distance, les machines virtuelles et les applications anciennes.</p><h2>RPA, automatisation par API ou agent IA : qu'est-ce qui change ?</h2><p>Le premier critère est l'accès au logiciel. Microsoft écrit que le RPA est nécessaire pour les applications qui n'ont pas de connecteur prêt à l'emploi et pas d'API utilisable ; UiPath le dit idéal quand il n'existe pas d'API ou d'intégration simple. Dès qu'une API existe, le workflow l'appelle directement : le nœud de requêtes de n8n permet d'interroger « toute application ou service doté d'une API REST » (<a href=\"https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.httprequest/\" rel=\"noopener noreferrer\" target=\"_blank\">documentation de n8n</a>). Pas d'écran à piloter, donc rien qui casse quand l'interface change. C'est le terrain des <a href=\"/services/automatisations\">automatisations</a> n8n ou Make ; pour choisir entre les deux, voir <a href=\"/ressources/comparatifs/n8n-vs-make\">n8n ou Make</a>.</p><p>Le second critère est la nature des entrées. Un robot RPA, comme un workflow, suit des étapes écrites à l'avance. Si les demandes arrivent en texte libre, avec des cas qui varient, il faut un modèle de langage pour lire : c'est le rôle d'un <a href=\"/services/agents-ia\">agent IA</a>, ou d'un simple appel à un modèle à l'intérieur d'une automatisation. Les définitions se trouvent dans <a href=\"/ressources/guides/agent-ia-definition\">agent IA : définition et limites</a> et l'article <a href=\"/blog/agent-ia-vs-automatisation-classique-2026\">agent IA ou automatisation classique</a> détaille où passe la frontière.</p><p>Les deux ne s'excluent pas. UiPath présente le RPA comme la couche d'exécution de l'automatisation par agents : l'agent planifie et décide, le robot agit sur les systèmes. Il propose aussi ScreenPlay, un agent qui transforme des instructions en langage courant en automatisations d'écran. La frontière bouge, la question de départ reste la même : quel accès, et quelles entrées ?</p>",
+      "html_en": "<h2>What is RPA, and how does it work?</h2><p>According to <a href=\"https://www.uipath.com/rpa/robotic-process-automation\" rel=\"noopener noreferrer\" target=\"_blank\">UiPath</a>, RPA uses software robots to automate repetitive, rule-based tasks such as data entry, moving files or processing transactions, by mimicking the way a person interacts with screens and systems. The same vendor's <a href=\"https://www.uipath.com/platform/agentic-automation/rpa/ui-automation\" rel=\"noopener noreferrer\" target=\"_blank\">page on UI automation</a> describes robots that click buttons, type information and navigate through software and web applications.</p><p>Two execution modes come up in <a href=\"https://learn.microsoft.com/en-us/power-platform/admin/power-automate-licensing/types\" rel=\"noopener noreferrer\" target=\"_blank\">Microsoft's documentation</a>. In attended mode, the robot runs on the machine of a person who triggers it and stays in control. In unattended mode, the robot itself signs into the machine on the user's behalf, runs the actions, then signs out, with nobody in front of the screen. The second therefore needs a dedicated account, with rights you have decided.</p><p>Where do you find it in an SMB? Where a piece of software offers no programmatic access: an old management package, a supplier portal without export, an application installed on a workstation. UiPath states that it covers Citrix environments, remote desktops, virtual machines and legacy applications.</p><h2>RPA, API automation or AI agent: what changes?</h2><p>The first criterion is access to the software. Microsoft writes that RPA is needed for applications that have no ready-made connector and no usable API; UiPath calls it ideal when there is no easy API or integration. As soon as an API exists, the workflow calls it directly: n8n's request node lets you query \"any app or service with a REST API\" (<a href=\"https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.httprequest/\" rel=\"noopener noreferrer\" target=\"_blank\">n8n documentation</a>). No screen to drive, so nothing breaks when the interface changes. This is the ground of n8n or Make <a href=\"/services/automatisations\">automations</a>; to choose between the two, see <a href=\"/ressources/comparatifs/n8n-vs-make\">n8n vs Make</a>.</p><p>The second criterion is the nature of the inputs. An RPA robot, like a workflow, follows steps written in advance. If requests arrive as free text, with cases that vary, a language model is needed to read: that is the role of an <a href=\"/services/agents-ia\">AI agent</a>, or of a simple call to a model inside an automation. The definitions are in <a href=\"/ressources/guides/agent-ia-definition\">AI agent: definition and limits</a> and the article <a href=\"/blog/agent-ia-vs-automatisation-classique-2026\">AI agent or classic automation</a> details where the boundary lies.</p><p>The two are not mutually exclusive. UiPath presents RPA as the execution layer of agent-based automation: the agent plans and decides, the robot acts on the systems. It also offers ScreenPlay, an agent that turns plain-language instructions into screen automations. The boundary is moving, the starting question stays the same: which access, and which inputs?</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper",
+      "kicker_fr": "§ Prix relevés le 15 octobre 2026",
+      "kicker_en": "§ Prices read on 15 October 2026",
+      "heading_fr": "Ce que coûte le RPA : Power Automate et UiPath",
+      "heading_en": "What RPA costs: Power Automate and UiPath",
+      "caption_fr": "Prix affichés en dollars sur les pages des éditeurs, relevés le 15 octobre 2026 ; aucun tarif en euros relevé. Microsoft précise que ses prix sont donnés à titre indicatif et peuvent différer au paiement. UiPath ne précise pas la devise, indique que son offre Basic évolue et ne publie pas les prix de Standard et Enterprise. Un robot non supervisé de Microsoft exécute un flux de bureau à la fois : plusieurs flux en parallèle demandent plusieurs robots.",
+      "caption_en": "Prices displayed in dollars on the vendors' pages, read on 15 October 2026; no euro price found. Microsoft states that its prices are given for information and may differ at checkout. UiPath does not specify the currency, states that its Basic plan is evolving and does not publish Standard and Enterprise prices. A Microsoft unattended robot runs one desktop flow at a time: several flows in parallel need several robots.",
+      "columns_fr": [
+        "Offre",
+        "Prix affiché",
+        "Ce que ça inclut pour le RPA"
+      ],
+      "columns_en": [
+        "Plan",
+        "Displayed price",
+        "What it includes for RPA"
+      ],
+      "rows_fr": [
+        [
+          "Power Automate dans Windows 11",
+          "Inclus, sans coût supplémentaire",
+          "RPA supervisé pour la productivité personnelle, environnement par défaut ; pas de partage des flux, pas de flux cloud"
+        ],
+        [
+          "Power Automate Premium",
+          "15 $ par utilisateur et par mois, facturés à l'année",
+          "RPA supervisé, flux cloud, exploration de processus"
+        ],
+        [
+          "Power Automate Process",
+          "150 $ par robot et par mois, facturés à l'année",
+          "RPA non supervisé, flux cloud"
+        ],
+        [
+          "Power Automate Hosted Process",
+          "215 $ par robot et par mois, facturés à l'année",
+          "Comme Process, plus une machine virtuelle Azure hébergée par Microsoft"
+        ],
+        [
+          "UiPath Community",
+          "Gratuite « pour toujours »",
+          "Offre d'entrée ; limites non détaillées sur la page"
+        ],
+        [
+          "UiPath Basic",
+          "À partir de 25 $ par mois (devise non précisée)",
+          "2 robots et un nombre limité d'utilisateurs ; la page indique que l'offre évolue"
+        ],
+        [
+          "UiPath Standard et Enterprise",
+          "Sur devis",
+          "Utilisateurs et robots illimités d'après la page"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Power Automate in Windows 11",
+          "Included, at no extra cost",
+          "Attended RPA for personal productivity, default environment; no flow sharing, no cloud flows"
+        ],
+        [
+          "Power Automate Premium",
+          "$15 per user per month, billed yearly",
+          "Attended RPA, cloud flows, process mining"
+        ],
+        [
+          "Power Automate Process",
+          "$150 per bot per month, billed yearly",
+          "Unattended RPA, cloud flows"
+        ],
+        [
+          "Power Automate Hosted Process",
+          "$215 per bot per month, billed yearly",
+          "Same as Process, plus an Azure virtual machine hosted by Microsoft"
+        ],
+        [
+          "UiPath Community",
+          "\"Free forever\"",
+          "Entry plan; limits not detailed on the page"
+        ],
+        [
+          "UiPath Basic",
+          "From $25 a month (currency not specified)",
+          "2 robots and a limited number of users; the page states the plan is evolving"
+        ],
+        [
+          "UiPath Standard and Enterprise",
+          "On quote",
+          "Unlimited users and robots according to the page"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Où le RPA s'arrête-t-il ?</h2><p><strong>Il dépend de l'écran.</strong> Un robot qui clique sur un bouton casse quand le bouton change de place. UiPath propose de quoi y remédier : des sélecteurs sémantiques qui retrouvent un élément « même quand les interfaces changent ou sont redessinées » (<a href=\"https://www.uipath.com/platform/agentic-automation/rpa/ui-automation\" rel=\"noopener noreferrer\" target=\"_blank\">page d'automatisation d'interface</a>). Une automatisation par API n'a pas ce point faible.</p><p><strong>Il attend des entrées prévisibles.</strong> Un robot suit des règles. Un e-mail rédigé autrement, un PDF dont la mise en page change, une demande ambiguë : il s'arrête ou se trompe sans le savoir. C'est l'endroit où un modèle de langage prend le relais.</p><p><strong>Il se licencie par robot.</strong> Chez Microsoft, un robot non supervisé exécute un flux de bureau à la fois ; pour en lancer plusieurs en parallèle, il faut autant de robots (<a href=\"https://www.microsoft.com/en-us/power-platform/products/power-automate/pricing/\" rel=\"noopener noreferrer\" target=\"_blank\">page tarifs de Power Automate</a>). Le coût monte avec le nombre de tâches simultanées, pas avec leur difficulté.</p><p><strong>Il détient des accès.</strong> Un robot non supervisé se connecte à une machine au nom d'un utilisateur. Donnez-lui un compte de service dédié, limité au nécessaire, jamais celui d'un dirigeant, et journalisez ce qu'il fait.</p>",
+      "html_en": "<h2>Where does RPA stop?</h2><p><strong>It depends on the screen.</strong> A robot that clicks a button breaks when the button moves. UiPath offers a way to address this: semantic selectors that find an element \"even when interfaces shift or get redesigned\" (<a href=\"https://www.uipath.com/platform/agentic-automation/rpa/ui-automation\" rel=\"noopener noreferrer\" target=\"_blank\">UI automation page</a>). An API automation does not have this weak point.</p><p><strong>It expects predictable inputs.</strong> A robot follows rules. An e-mail worded differently, a PDF whose layout changes, an ambiguous request: it stops or gets it wrong without knowing. This is where a language model takes over.</p><p><strong>It is licensed per robot.</strong> At Microsoft, an unattended robot runs one desktop flow at a time; to run several in parallel, you need as many robots (<a href=\"https://www.microsoft.com/en-us/power-platform/products/power-automate/pricing/\" rel=\"noopener noreferrer\" target=\"_blank\">Power Automate pricing page</a>). The cost rises with the number of simultaneous tasks, not with their difficulty.</p><p><strong>It holds access.</strong> An unattended robot signs into a machine on a user's behalf. Give it a dedicated service account, limited to what is needed, never an executive's, and log what it does.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-3",
+      "kicker_fr": "§ Tableau de choix",
+      "kicker_en": "§ Decision table",
+      "heading_fr": "Votre situation, l'outil à essayer en premier",
+      "heading_en": "Your situation, the tool to try first",
+      "caption_fr": "Lecture de Waimia, fondée sur les critères d'accès et d'entrées vus plus haut. Dans le doute, l'outil le plus simple qui suffit : on monte d'un cran seulement si le précédent échoue.",
+      "caption_en": "Waimia's reading, based on the access and input criteria seen above. When in doubt, the simplest tool that is enough: move up a notch only if the previous one fails.",
+      "columns_fr": [
+        "Votre situation",
+        "À essayer en premier",
+        "Pourquoi"
+      ],
+      "columns_en": [
+        "Your situation",
+        "Try first",
+        "Why"
+      ],
+      "rows_fr": [
+        [
+          "La tâche est rare ou ponctuelle",
+          "À la main, ou un export",
+          "Un robot se paie en mise en place et en maintenance ; il ne se rentabilise que sur la répétition"
+        ],
+        [
+          "Le logiciel a une API ou un connecteur, les étapes sont toujours les mêmes",
+          "Automatisation par API (n8n, Make)",
+          "Pas d'écran à piloter, donc rien qui casse quand l'interface change"
+        ],
+        [
+          "Pas d'API ni d'export, écran toujours identique, saisie répétée",
+          "RPA",
+          "Seul moyen d'atteindre le logiciel ; Power Automate dans Windows 11 permet d'essayer sans licence supplémentaire"
+        ],
+        [
+          "Les données arrivent en texte libre : e-mails, PDF dont la forme varie, demandes ambiguës",
+          "Agent IA, ou appel d'un modèle dans une automatisation",
+          "Il faut lire et décider, ce qu'un scénario écrit à l'avance ne sait pas faire"
+        ],
+        [
+          "Pas d'API ET entrées variables",
+          "Un modèle pour lire, un robot RPA pour exécuter à l'écran",
+          "C'est l'architecture que décrit UiPath : l'agent décide, le robot agit"
+        ]
+      ],
+      "rows_en": [
+        [
+          "The task is rare or one-off",
+          "By hand, or an export",
+          "A robot costs setup and maintenance; it only pays off through repetition"
+        ],
+        [
+          "The software has an API or a connector, the steps are always the same",
+          "API automation (n8n, Make)",
+          "No screen to drive, so nothing breaks when the interface changes"
+        ],
+        [
+          "No API or export, screen always identical, repeated entry",
+          "RPA",
+          "Only way to reach the software; Power Automate in Windows 11 lets you try without an extra license"
+        ],
+        [
+          "The data arrives as free text: e-mails, PDFs whose layout varies, ambiguous requests",
+          "AI agent, or a model call inside an automation",
+          "Reading and deciding are needed, which a scenario written in advance cannot do"
+        ],
+        [
+          "No API AND variable inputs",
+          "A model to read, an RPA robot to execute on screen",
+          "This is the architecture UiPath describes: the agent decides, the robot acts"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "tech-when-dual",
+      "background": "paper",
+      "kicker_fr": "§ Avis Waimia",
+      "kicker_en": "§ Waimia view",
+      "title_fr": "Quand le RPA se justifie, et quand non",
+      "title_en": "When RPA is justified, and when it is not",
+      "aside_fr": "Lecture de Waimia. Notre catalogue publié ne comprend pas de prestation RPA : cet avis sert à décider avant de payer une licence. On cherche d'abord un export, un connecteur ou une API, et on garde le robot pour le dernier recours.",
+      "aside_en": "Waimia's reading. Our published catalogue does not include an RPA service: this view is meant to help you decide before paying for a license. We first look for an export, a connector or an API, and keep the robot as a last resort.",
+      "use_title_fr": "Le RPA se justifie si",
+      "use_title_en": "RPA is justified if",
+      "use_items_fr": [
+        "Le logiciel n'a ni API, ni export, ni connecteur, et vous ne pouvez pas en changer",
+        "La tâche est identique à chaque fois, sur des données structurées",
+        "Elle se répète assez pour amortir la mise en place et la maintenance",
+        "L'interface change rarement, et quelqu'un surveillera les pannes"
+      ],
+      "use_items_en": [
+        "The software has no API, no export, no connector, and you cannot replace it",
+        "The task is identical each time, on structured data",
+        "It repeats enough to amortise setup and maintenance",
+        "The interface rarely changes, and someone will watch for failures"
+      ],
+      "avoid_title_fr": "Passez-vous-en si",
+      "avoid_title_en": "Skip it if",
+      "avoid_items_fr": [
+        "Une API ou un connecteur existe : un workflow n8n ou Make est plus solide",
+        "Les entrées arrivent en texte libre et varient : il faut un modèle de langage pour lire",
+        "L'interface change souvent : vous paierez la réparation à chaque changement",
+        "La tâche est rare : un export ou un tableur fait aussi bien"
+      ],
+      "avoid_items_en": [
+        "An API or a connector exists: an n8n or Make workflow is more robust",
+        "Inputs arrive as free text and vary: a language model is needed to read",
+        "The interface changes often: you will pay for repairs at each change",
+        "The task is rare: an export or a spreadsheet does as well"
+      ]
+    },
+    {
+      "type": "cta-final",
+      "background": "paper-2",
+      "h2_fr": "Classez vos tâches avant de choisir l'outil",
+      "h2_en": "Rank your tasks before choosing the tool",
+      "body_fr": "Dix minutes, un classement par priorité en heures par mois : la grille vous le donne tout de suite, sans inscription. Elle vous dit aussi quelles tâches méritent une automatisation, et lesquelles non.",
+      "body_en": "Ten minutes, a ranking by priority in hours per month: the grid gives it to you right away, without signing up. It also tells you which tasks deserve automation, and which do not.",
+      "cta_primary": {
+        "label_fr": "Classer mes tâches →",
+        "label_en": "Rank my tasks →",
+        "href": "/ressources/outils/grille-taches-a-automatiser",
+        "variant": "primary"
+      }
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Sources, relues le 15 octobre 2026</h2><ul><li><a href=\"https://www.uipath.com/rpa/robotic-process-automation\" rel=\"noopener noreferrer\" target=\"_blank\">UiPath, What is robotic process automation</a> : définition du RPA, tâches répétitives fondées sur des règles</li><li><a href=\"https://www.uipath.com/automation/workflow-automation\" rel=\"noopener noreferrer\" target=\"_blank\">UiPath, What is workflow automation</a> : RPA idéal quand il n'existe pas d'API ni d'intégration simple, RPA et workflow complémentaires</li><li><a href=\"https://www.uipath.com/platform/agentic-automation/rpa/ui-automation\" rel=\"noopener noreferrer\" target=\"_blank\">UiPath, UI automation</a> : robots qui cliquent et saisissent, Citrix et applications anciennes, sélecteurs sémantiques, ScreenPlay, RPA comme couche d'exécution des agents</li><li><a href=\"https://www.uipath.com/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">UiPath, pricing</a> : Community gratuite, Basic à partir de 25 dollars par mois, Standard et Enterprise sur devis</li><li><a href=\"https://learn.microsoft.com/en-us/power-platform/admin/power-automate-licensing/types\" rel=\"noopener noreferrer\" target=\"_blank\">Microsoft Learn, types de licences Power Automate</a> : RPA nécessaire pour les applications sans connecteur ni API, modes supervisé et non supervisé</li><li><a href=\"https://learn.microsoft.com/en-us/power-platform/admin/power-automate-licensing/faqs\" rel=\"noopener noreferrer\" target=\"_blank\">Microsoft Learn, FAQ sur les licences Power Automate, 22 septembre 2026</a> : ce que Windows inclut, RPA supervisé en environnement par défaut</li><li><a href=\"https://www.microsoft.com/en-us/power-platform/products/power-automate/pricing/\" rel=\"noopener noreferrer\" target=\"_blank\">Microsoft, tarifs de Power Automate</a> : Premium 15 dollars, Process 150 dollars, Hosted Process 215 dollars, par mois et facturés à l'année</li><li><a href=\"https://learn.microsoft.com/en-us/power-automate/desktop-flows/getting-started-windows-11\" rel=\"noopener noreferrer\" target=\"_blank\">Microsoft Learn, Power Automate dans Windows 11</a> : application préinstallée, enregistreur d'actions</li><li><a href=\"https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.httprequest/\" rel=\"noopener noreferrer\" target=\"_blank\">n8n, nœud HTTP Request</a> : requêtes vers toute application dotée d'une API REST</li></ul><p>Pour aller plus loin : <a href=\"/services/automatisations\">automatisations</a>, <a href=\"/services/agents-ia\">agents IA</a>, <a href=\"/ressources/comparatifs/n8n-vs-make\">n8n ou Make</a> et <a href=\"/ressources/guides/taches-a-automatiser-pme\">les tâches à automatiser en premier en PME</a>.</p>",
+      "html_en": "<h2>Sources, re-read on 15 October 2026</h2><ul><li><a href=\"https://www.uipath.com/rpa/robotic-process-automation\" rel=\"noopener noreferrer\" target=\"_blank\">UiPath, What is robotic process automation</a>: definition of RPA, repetitive rule-based tasks</li><li><a href=\"https://www.uipath.com/automation/workflow-automation\" rel=\"noopener noreferrer\" target=\"_blank\">UiPath, What is workflow automation</a>: RPA ideal when there is no API or easy integration, RPA and workflow complementary</li><li><a href=\"https://www.uipath.com/platform/agentic-automation/rpa/ui-automation\" rel=\"noopener noreferrer\" target=\"_blank\">UiPath, UI automation</a>: robots that click and type, Citrix and legacy applications, semantic selectors, ScreenPlay, RPA as the execution layer for agents</li><li><a href=\"https://www.uipath.com/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">UiPath, pricing</a>: free Community, Basic from $25 a month, Standard and Enterprise on quote</li><li><a href=\"https://learn.microsoft.com/en-us/power-platform/admin/power-automate-licensing/types\" rel=\"noopener noreferrer\" target=\"_blank\">Microsoft Learn, Power Automate license types</a>: RPA needed for applications without a connector or API, attended and unattended modes</li><li><a href=\"https://learn.microsoft.com/en-us/power-platform/admin/power-automate-licensing/faqs\" rel=\"noopener noreferrer\" target=\"_blank\">Microsoft Learn, Power Automate licensing FAQ, 22 September 2026</a>: what Windows includes, attended RPA in the default environment</li><li><a href=\"https://www.microsoft.com/en-us/power-platform/products/power-automate/pricing/\" rel=\"noopener noreferrer\" target=\"_blank\">Microsoft, Power Automate pricing</a>: Premium $15, Process $150, Hosted Process $215, per month, billed yearly</li><li><a href=\"https://learn.microsoft.com/en-us/power-automate/desktop-flows/getting-started-windows-11\" rel=\"noopener noreferrer\" target=\"_blank\">Microsoft Learn, Power Automate in Windows 11</a>: preinstalled app, action recorder</li><li><a href=\"https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.httprequest/\" rel=\"noopener noreferrer\" target=\"_blank\">n8n, HTTP Request node</a>: requests to any app with a REST API</li></ul><p>To go further: <a href=\"/services/automatisations\">automations</a>, <a href=\"/services/agents-ia\">AI agents</a>, <a href=\"/ressources/comparatifs/n8n-vs-make\">n8n vs Make</a> and <a href=\"/ressources/guides/taches-a-automatiser-pme\">the tasks to automate first in an SMB</a>.</p>"
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper-2",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Go further",
+      "cards": [
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Automatisation de vos processus",
+          "title_en": "Automating your processes",
+          "lead_fr": "Workflows n8n ou Make branchés à vos outils, journalisés, supervisés.",
+          "lead_en": "n8n or Make workflows connected to your tools, logged, monitored.",
+          "href": "/services/automatisations"
+        },
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Agents IA pour entreprise",
+          "title_en": "AI agents for business",
+          "lead_fr": "Un agent par mission, branché à vos outils, avec validation humaine.",
+          "lead_en": "One agent per mission, connected to your tools, with human validation.",
+          "href": "/services/agents-ia"
+        },
+        {
+          "kicker_fr": "Article",
+          "kicker_en": "Article",
+          "title_fr": "Agent IA ou automatisation classique",
+          "title_en": "AI agent or classic automation",
+          "lead_fr": "Où s'arrête le workflow, où commence l'agent, et comment choisir tâche par tâche.",
+          "lead_en": "Where the workflow stops, where the agent starts, and how to choose task by task.",
+          "href": "/blog/agent-ia-vs-automatisation-classique-2026"
+        }
+      ]
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "h2_fr": "RPA, API ou agent IA : questions fréquentes",
+      "h2_en": "RPA, API or AI agent: frequently asked questions",
+      "items": [
+        {
+          "q_fr": "RPA, c'est quoi ?",
+          "q_en": "What is RPA?",
+          "a_fr": "Le RPA (robotic process automation) est un robot logiciel qui reproduit ce qu'une personne fait à l'écran : cliquer, saisir, copier, se connecter. UiPath le définit comme des robots logiciels qui automatisent des tâches répétitives fondées sur des règles. On l'emploie surtout quand un logiciel n'a ni connecteur ni API.",
+          "a_en": "RPA (robotic process automation) is a software robot that reproduces what a person does on screen: clicking, typing, copying, logging in. UiPath defines it as software robots that automate repetitive, rule-based tasks. It is used mostly when a piece of software has neither a connector nor an API."
+        },
+        {
+          "q_fr": "UiPath, c'est quoi, et combien ça coûte ?",
+          "q_en": "What is UiPath, and how much does it cost?",
+          "a_fr": "UiPath est un éditeur de logiciels de RPA. Sa page tarifs du 15 octobre 2026 affiche une offre Community « gratuite pour toujours », une offre Basic à partir de 25 dollars par mois avec 2 robots (la page précise que cette offre évolue et qu'une version mise à jour arrive), et des offres Standard et Enterprise sur devis. La devise n'est pas précisée sur la page.",
+          "a_en": "UiPath is an RPA software vendor. Its pricing page of 15 October 2026 shows a \"free forever\" Community plan, a Basic plan from $25 a month with 2 robots (the page states that this plan is evolving and an updated version is coming), and Standard and Enterprise plans on quote. The currency is not specified on the page."
+        },
+        {
+          "q_fr": "RPA ou automatisation par API (n8n, Make) : laquelle choisir ?",
+          "q_en": "RPA or API automation (n8n, Make): which one to choose?",
+          "a_fr": "Si le logiciel a une API, passez par elle : un workflow n8n ou Make appelle le logiciel directement, sans dépendre de son écran. Le RPA se justifie quand il n'y a ni API ni export, que la tâche se répète à l'identique et que les entrées sont structurées. Microsoft écrit que le RPA sert pour les applications sans connecteur ni API.",
+          "a_en": "If the software has an API, use it: an n8n or Make workflow calls the software directly, without depending on its screen. RPA is justified when there is no API or export, the task repeats identically and the inputs are structured. Microsoft writes that RPA is for applications that lack a connector and an API."
+        },
+        {
+          "q_fr": "RPA ou agent IA : quelle différence ?",
+          "q_en": "RPA or AI agent: what is the difference?",
+          "a_fr": "Un robot RPA suit un scénario écrit à l'avance, étape par étape, sur des écrans. Un agent IA laisse un modèle de langage choisir les étapes et les outils selon ce qu'il lit. Le RPA convient aux tâches identiques sur des données structurées, l'agent aux demandes en texte libre qui varient. Les deux peuvent se combiner : l'agent lit et décide, le robot exécute à l'écran quand aucune API n'existe.",
+          "a_en": "An RPA robot follows a scenario written in advance, step by step, on screens. An AI agent lets a language model choose the steps and tools according to what it reads. RPA suits identical tasks on structured data, the agent suits free-text requests that vary. The two can be combined: the agent reads and decides, the robot executes on screen when no API exists."
+        },
+        {
+          "q_fr": "Existe-t-il un RPA gratuit ?",
+          "q_en": "Is there a free RPA?",
+          "a_fr": "Oui, avec des limites. Microsoft livre Power Automate pour le poste de travail avec Windows 11 : les utilisateurs peuvent y essayer le RPA en mode supervisé pour leur productivité personnelle, dans l'environnement par défaut, sans partage des flux ni flux cloud. UiPath propose aussi une offre Community gratuite. Pour un usage d'équipe, il faut une licence payante (relevé le 15 octobre 2026).",
+          "a_en": "Yes, with limits. Microsoft ships Power Automate for desktop with Windows 11: users can try attended RPA there for personal productivity, in the default environment, without sharing flows or cloud flows. UiPath also offers a free Community plan. For team use, a paid license is needed (read on 15 October 2026)."
+        },
+        {
+          "q_fr": "Les agents IA remplacent-ils le RPA ?",
+          "q_en": "Are AI agents replacing RPA?",
+          "a_fr": "Pas à ce jour dans les faits relevés. UiPath décrit le RPA comme la couche d'exécution des agents : l'agent planifie et décide, le robot agit sur les systèmes. Et un robot reste utile là où aucun logiciel n'offre d'API. La vraie question n'est pas la mode, c'est : le logiciel a-t-il une API, et les entrées sont-elles prévisibles ?",
+          "a_en": "Not at present, on the facts read. UiPath describes RPA as the execution layer for agents: the agent plans and decides, the robot acts on the systems. And a robot stays useful where no software offers an API. The real question is not fashion, it is: does the software have an API, and are the inputs predictable?"
+        },
+        {
+          "q_fr": "Waimia fait-il du RPA ?",
+          "q_en": "Does Waimia do RPA?",
+          "a_fr": "Notre catalogue publié porte sur les workflows n8n ou Make et sur les agents IA ; il ne comprend pas de prestation RPA. Ce guide sert à décider avant de payer une licence. À l'audit gratuit de 45 minutes, on regarde d'abord si une API, un export ou un connecteur existe pour la tâche, avant de parler d'écran.",
+          "a_en": "Our published catalogue covers n8n or Make workflows and AI agents; it does not include an RPA service. This guide is meant to help you decide before paying for a license. At the free 45-minute audit, we first look at whether an API, an export or a connector exists for the task, before talking about screens."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Automatisation",
+      "kicker_en": "§ Automation",
+      "h2_fr": "Savoir si votre tâche demande un robot, une API ou un agent.",
+      "h2_en": "Find out whether your task needs a robot, an API or an agent.",
+      "subtitle_fr": "L'audit de 45 minutes est gratuit. On passe vos tâches en revue, on regarde pour chacune si une API ou un export existe, et on classe celles qui relèvent d'une automatisation et celles qui justifient un agent.",
+      "subtitle_en": "The 45-minute audit is free. We go through your tasks, check for each whether an API or an export exists, and sort those that call for automation from those that justify an agent.",
+      "buttons": [
+        {
+          "label_fr": "Réserver l'audit gratuit",
+          "label_en": "Book the free audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Comment se passe l'audit",
+          "label_en": "How the audit works",
+          "href": "/audit-ia-pme",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

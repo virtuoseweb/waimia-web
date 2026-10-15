@@ -160,6 +160,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-gratuit.json",
+      "slug": "claude-gratuit",
+      "route": "/ressources/guides/claude-gratuit",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-plugins-entreprise.json",
       "slug": "claude-plugins-entreprise",
       "route": "/ressources/guides/claude-plugins-entreprise",
@@ -232,6 +241,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/llm-rag-dirigeant.json",
+      "slug": "llm-rag-dirigeant",
+      "route": "/ressources/guides/llm-rag-dirigeant",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/mcp-claude.json",
       "slug": "mcp-claude",
       "route": "/ressources/guides/mcp-claude",
@@ -250,6 +268,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/quel-modele-claude-choisir.json",
+      "slug": "quel-modele-claude-choisir",
+      "route": "/ressources/guides/quel-modele-claude-choisir",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/refonte-site-internet.json",
       "slug": "refonte-site-internet",
       "route": "/ressources/guides/refonte-site-internet",
@@ -262,6 +289,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/roi-automatisation.json",
       "slug": "roi-automatisation",
       "route": "/ressources/guides/roi-automatisation",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/rpa-ou-agent-ia.json",
+      "slug": "rpa-ou-agent-ia",
+      "route": "/ressources/guides/rpa-ou-agent-ia",
       "index": 1,
       "label": "Simon Beros",
       "background": "paper"
@@ -1344,6 +1380,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/llm-rag-dirigeant.json",
+      "slug": "llm-rag-dirigeant",
+      "route": "/ressources/guides/llm-rag-dirigeant",
+      "index": 8,
+      "label": "Voir si votre cas justifie une base de connaissance",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/n8n-prix.json",
       "slug": "n8n-prix",
       "route": "/ressources/guides/n8n-prix",
@@ -1358,6 +1403,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/roi-automatisation",
       "index": 4,
       "label": "Chiffrez le gain avant de vous engager",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/rpa-ou-agent-ia.json",
+      "slug": "rpa-ou-agent-ia",
+      "route": "/ressources/guides/rpa-ou-agent-ia",
+      "index": 9,
+      "label": "Classez vos tâches avant de choisir l'outil",
       "background": "paper-2"
     },
     {
@@ -1638,6 +1692,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-gratuit.json",
+      "slug": "claude-gratuit",
+      "route": "/ressources/guides/claude-gratuit",
+      "index": 8,
+      "label": "Free, Pro ou Team : quelle offre choisir ?",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
@@ -1665,11 +1728,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/llm-rag-dirigeant.json",
+      "slug": "llm-rag-dirigeant",
+      "route": "/ressources/guides/llm-rag-dirigeant",
+      "index": 11,
+      "label": "Cinq questions à se poser avant de lancer un RAG",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/mcp-claude.json",
       "slug": "mcp-claude",
       "route": "/ressources/guides/mcp-claude",
       "index": 6,
       "label": "Huit questions à poser avant de brancher un serveur MCP",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/quel-modele-claude-choisir.json",
+      "slug": "quel-modele-claude-choisir",
+      "route": "/ressources/guides/quel-modele-claude-choisir",
+      "index": 11,
+      "label": "Quand monter ou descendre de gamme ?",
       "background": "paper"
     },
     {
@@ -3275,6 +3356,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/mistral-vs-claude-pme.json",
+      "slug": "mistral-vs-claude-pme",
+      "route": "/ressources/comparatifs/mistral-vs-claude-pme",
+      "index": 1,
+      "label": "#1",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/n8n-vs-make.json",
       "slug": "n8n-vs-make",
       "route": "/ressources/comparatifs/n8n-vs-make",
@@ -3410,6 +3500,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-gratuit.json",
+      "slug": "claude-gratuit",
+      "route": "/ressources/guides/claude-gratuit",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-plugins-entreprise.json",
       "slug": "claude-plugins-entreprise",
       "route": "/ressources/guides/claude-plugins-entreprise",
@@ -3482,6 +3581,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/llm-rag-dirigeant.json",
+      "slug": "llm-rag-dirigeant",
+      "route": "/ressources/guides/llm-rag-dirigeant",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/mcp-claude.json",
       "slug": "mcp-claude",
       "route": "/ressources/guides/mcp-claude",
@@ -3500,6 +3608,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/quel-modele-claude-choisir.json",
+      "slug": "quel-modele-claude-choisir",
+      "route": "/ressources/guides/quel-modele-claude-choisir",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/refonte-site-internet.json",
       "slug": "refonte-site-internet",
       "route": "/ressources/guides/refonte-site-internet",
@@ -3512,6 +3629,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/roi-automatisation.json",
       "slug": "roi-automatisation",
       "route": "/ressources/guides/roi-automatisation",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/rpa-ou-agent-ia.json",
+      "slug": "rpa-ou-agent-ia",
+      "route": "/ressources/guides/rpa-ou-agent-ia",
       "index": 2,
       "label": "#2",
       "background": "paper-2"
@@ -3653,6 +3779,16 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "index": 6,
       "label": "#6",
+      "variant": "quote",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/mistral-vs-claude-pme.json",
+      "slug": "mistral-vs-claude-pme",
+      "route": "/ressources/comparatifs/mistral-vs-claude-pme",
+      "index": 5,
+      "label": "#5",
       "variant": "quote",
       "background": "paper"
     },
@@ -4006,6 +4142,42 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/mistral-vs-claude-pme.json",
+      "slug": "mistral-vs-claude-pme",
+      "route": "/ressources/comparatifs/mistral-vs-claude-pme",
+      "index": 2,
+      "label": "#2",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/mistral-vs-claude-pme.json",
+      "slug": "mistral-vs-claude-pme",
+      "route": "/ressources/comparatifs/mistral-vs-claude-pme",
+      "index": 4,
+      "label": "#4",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/mistral-vs-claude-pme.json",
+      "slug": "mistral-vs-claude-pme",
+      "route": "/ressources/comparatifs/mistral-vs-claude-pme",
+      "index": 6,
+      "label": "#6",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/mistral-vs-claude-pme.json",
+      "slug": "mistral-vs-claude-pme",
+      "route": "/ressources/comparatifs/mistral-vs-claude-pme",
+      "index": 8,
+      "label": "#8",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/n8n-vs-make.json",
       "slug": "n8n-vs-make",
       "route": "/ressources/comparatifs/n8n-vs-make",
@@ -4354,6 +4526,24 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 10,
       "label": "#10",
       "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-gratuit.json",
+      "slug": "claude-gratuit",
+      "route": "/ressources/guides/claude-gratuit",
+      "index": 5,
+      "label": "#5",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-gratuit.json",
+      "slug": "claude-gratuit",
+      "route": "/ressources/guides/claude-gratuit",
+      "index": 6,
+      "label": "#6",
+      "background": "paper"
     },
     {
       "collection": "guides",
@@ -4663,6 +4853,33 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/llm-rag-dirigeant.json",
+      "slug": "llm-rag-dirigeant",
+      "route": "/ressources/guides/llm-rag-dirigeant",
+      "index": 4,
+      "label": "#4",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/llm-rag-dirigeant.json",
+      "slug": "llm-rag-dirigeant",
+      "route": "/ressources/guides/llm-rag-dirigeant",
+      "index": 5,
+      "label": "#5",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/llm-rag-dirigeant.json",
+      "slug": "llm-rag-dirigeant",
+      "route": "/ressources/guides/llm-rag-dirigeant",
+      "index": 12,
+      "label": "#12",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/mcp-claude.json",
       "slug": "mcp-claude",
       "route": "/ressources/guides/mcp-claude",
@@ -4726,6 +4943,42 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/quel-modele-claude-choisir.json",
+      "slug": "quel-modele-claude-choisir",
+      "route": "/ressources/guides/quel-modele-claude-choisir",
+      "index": 5,
+      "label": "#5",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/quel-modele-claude-choisir.json",
+      "slug": "quel-modele-claude-choisir",
+      "route": "/ressources/guides/quel-modele-claude-choisir",
+      "index": 7,
+      "label": "#7",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/quel-modele-claude-choisir.json",
+      "slug": "quel-modele-claude-choisir",
+      "route": "/ressources/guides/quel-modele-claude-choisir",
+      "index": 9,
+      "label": "#9",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/quel-modele-claude-choisir.json",
+      "slug": "quel-modele-claude-choisir",
+      "route": "/ressources/guides/quel-modele-claude-choisir",
+      "index": 12,
+      "label": "#12",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/refonte-site-internet.json",
       "slug": "refonte-site-internet",
       "route": "/ressources/guides/refonte-site-internet",
@@ -4783,6 +5036,33 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/roi-automatisation.json",
       "slug": "roi-automatisation",
       "route": "/ressources/guides/roi-automatisation",
+      "index": 10,
+      "label": "#10",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/rpa-ou-agent-ia.json",
+      "slug": "rpa-ou-agent-ia",
+      "route": "/ressources/guides/rpa-ou-agent-ia",
+      "index": 4,
+      "label": "#4",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/rpa-ou-agent-ia.json",
+      "slug": "rpa-ou-agent-ia",
+      "route": "/ressources/guides/rpa-ou-agent-ia",
+      "index": 6,
+      "label": "#6",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/rpa-ou-agent-ia.json",
+      "slug": "rpa-ou-agent-ia",
+      "route": "/ressources/guides/rpa-ou-agent-ia",
       "index": 10,
       "label": "#10",
       "background": "paper"
@@ -5471,6 +5751,36 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/mistral-vs-claude-pme.json",
+      "slug": "mistral-vs-claude-pme",
+      "route": "/ressources/comparatifs/mistral-vs-claude-pme",
+      "index": 3,
+      "label": "Mistral AI vs Claude : hébergement, données, prix, modèles",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/mistral-vs-claude-pme.json",
+      "slug": "mistral-vs-claude-pme",
+      "route": "/ressources/comparatifs/mistral-vs-claude-pme",
+      "index": 7,
+      "label": "Le même scénario d'API chez Mistral AI et chez Claude",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/mistral-vs-claude-pme.json",
+      "slug": "mistral-vs-claude-pme",
+      "route": "/ressources/comparatifs/mistral-vs-claude-pme",
+      "index": 9,
+      "label": "Ce que chaque éditeur annonce, tâche par tâche",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/n8n-vs-make.json",
       "slug": "n8n-vs-make",
       "route": "/ressources/comparatifs/n8n-vs-make",
@@ -5673,6 +5983,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-gratuit.json",
+      "slug": "claude-gratuit",
+      "route": "/ressources/guides/claude-gratuit",
+      "index": 4,
+      "label": "Qu'est-ce qui change entre Claude gratuit et Claude Pro ?",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-plugins-entreprise.json",
       "slug": "claude-plugins-entreprise",
       "route": "/ressources/guides/claude-plugins-entreprise",
@@ -5816,6 +6135,46 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/llm-rag-dirigeant.json",
+      "slug": "llm-rag-dirigeant",
+      "route": "/ressources/guides/llm-rag-dirigeant",
+      "index": 3,
+      "label": "LLM, contexte, hallucination, RAG : le tableau",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/llm-rag-dirigeant.json",
+      "slug": "llm-rag-dirigeant",
+      "route": "/ressources/guides/llm-rag-dirigeant",
+      "index": 6,
+      "label": "Modèle seul, documents dans le contexte, RAG ou fine-tuning",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/llm-rag-dirigeant.json",
+      "slug": "llm-rag-dirigeant",
+      "route": "/ressources/guides/llm-rag-dirigeant",
+      "index": 9,
+      "label": "Ce que coûte un RAG : les repères publics, datés",
+      "variant": "editorial",
+      "background": "paper-3"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/llm-rag-dirigeant.json",
+      "slug": "llm-rag-dirigeant",
+      "route": "/ressources/guides/llm-rag-dirigeant",
+      "index": 10,
+      "label": "Cinq limites d'un RAG, et la parade",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/mcp-claude.json",
       "slug": "mcp-claude",
       "route": "/ressources/guides/mcp-claude",
@@ -5866,6 +6225,42 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/quel-modele-claude-choisir.json",
+      "slug": "quel-modele-claude-choisir",
+      "route": "/ressources/guides/quel-modele-claude-choisir",
+      "index": 4,
+      "label": "Quels sont les modèles Claude actuels ?",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/quel-modele-claude-choisir.json",
+      "slug": "quel-modele-claude-choisir",
+      "route": "/ressources/guides/quel-modele-claude-choisir",
+      "index": 6,
+      "label": "Pour quelle tâche choisir Opus, Sonnet ou Haiku ?",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/quel-modele-claude-choisir.json",
+      "slug": "quel-modele-claude-choisir",
+      "route": "/ressources/guides/quel-modele-claude-choisir",
+      "index": 8,
+      "label": "Que coûte le classement de 1 000 e-mails selon le modèle ?",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/quel-modele-claude-choisir.json",
+      "slug": "quel-modele-claude-choisir",
+      "route": "/ressources/guides/quel-modele-claude-choisir",
+      "index": 10,
+      "label": "Quels modèles Claude sont accessibles dans chaque offre ?",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/refonte-site-internet.json",
       "slug": "refonte-site-internet",
       "route": "/ressources/guides/refonte-site-internet",
@@ -5903,6 +6298,36 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "label": "Le tableau de calcul, ligne par ligne",
       "variant": "editorial",
       "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/rpa-ou-agent-ia.json",
+      "slug": "rpa-ou-agent-ia",
+      "route": "/ressources/guides/rpa-ou-agent-ia",
+      "index": 3,
+      "label": "RPA, automatisation par API, agent IA : le tableau pour les distinguer",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/rpa-ou-agent-ia.json",
+      "slug": "rpa-ou-agent-ia",
+      "route": "/ressources/guides/rpa-ou-agent-ia",
+      "index": 5,
+      "label": "Ce que coûte le RPA : Power Automate et UiPath",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/rpa-ou-agent-ia.json",
+      "slug": "rpa-ou-agent-ia",
+      "route": "/ressources/guides/rpa-ou-agent-ia",
+      "index": 7,
+      "label": "Votre situation, l'outil à essayer en premier",
+      "variant": "editorial",
+      "background": "paper-3"
     },
     {
       "collection": "guides",
@@ -6995,6 +7420,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/mistral-vs-claude-pme.json",
+      "slug": "mistral-vs-claude-pme",
+      "route": "/ressources/comparatifs/mistral-vs-claude-pme",
+      "index": 13,
+      "label": "Mistral AI vs Claude : vos questions",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/n8n-vs-make.json",
       "slug": "n8n-vs-make",
       "route": "/ressources/comparatifs/n8n-vs-make",
@@ -7130,6 +7564,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-gratuit.json",
+      "slug": "claude-gratuit",
+      "route": "/ressources/guides/claude-gratuit",
+      "index": 12,
+      "label": "Claude gratuit : questions fréquentes",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-plugins-entreprise.json",
       "slug": "claude-plugins-entreprise",
       "route": "/ressources/guides/claude-plugins-entreprise",
@@ -7202,6 +7645,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/llm-rag-dirigeant.json",
+      "slug": "llm-rag-dirigeant",
+      "route": "/ressources/guides/llm-rag-dirigeant",
+      "index": 14,
+      "label": "LLM et RAG : questions fréquentes",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/mcp-claude.json",
       "slug": "mcp-claude",
       "route": "/ressources/guides/mcp-claude",
@@ -7220,6 +7672,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/quel-modele-claude-choisir.json",
+      "slug": "quel-modele-claude-choisir",
+      "route": "/ressources/guides/quel-modele-claude-choisir",
+      "index": 16,
+      "label": "Modèles Claude : questions fréquentes",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/refonte-site-internet.json",
       "slug": "refonte-site-internet",
       "route": "/ressources/guides/refonte-site-internet",
@@ -7234,6 +7695,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/roi-automatisation",
       "index": 12,
       "label": "Questions fréquentes",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/rpa-ou-agent-ia.json",
+      "slug": "rpa-ou-agent-ia",
+      "route": "/ressources/guides/rpa-ou-agent-ia",
+      "index": 12,
+      "label": "RPA, API ou agent IA : questions fréquentes",
       "background": "paper"
     },
     {
@@ -8461,6 +8931,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/mistral-vs-claude-pme.json",
+      "slug": "mistral-vs-claude-pme",
+      "route": "/ressources/comparatifs/mistral-vs-claude-pme",
+      "index": 14,
+      "label": "Le modèle compte moins que le cadre : données, contrat, test.",
+      "background": "ink"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/n8n-vs-make.json",
       "slug": "n8n-vs-make",
       "route": "/ressources/comparatifs/n8n-vs-make",
@@ -8596,6 +9075,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-gratuit.json",
+      "slug": "claude-gratuit",
+      "route": "/ressources/guides/claude-gratuit",
+      "index": 13,
+      "label": "Savoir quels comptes Claude existent dans l'équipe, et lesquels doivent passer sous conditions commerciales.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-plugins-entreprise.json",
       "slug": "claude-plugins-entreprise",
       "route": "/ressources/guides/claude-plugins-entreprise",
@@ -8668,6 +9156,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/llm-rag-dirigeant.json",
+      "slug": "llm-rag-dirigeant",
+      "route": "/ressources/guides/llm-rag-dirigeant",
+      "index": 15,
+      "label": "Savoir si vos documents justifient un RAG, ou si une solution simple suffit.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/mcp-claude.json",
       "slug": "mcp-claude",
       "route": "/ressources/guides/mcp-claude",
@@ -8686,6 +9183,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/quel-modele-claude-choisir.json",
+      "slug": "quel-modele-claude-choisir",
+      "route": "/ressources/guides/quel-modele-claude-choisir",
+      "index": 17,
+      "label": "Le bon modèle pour chaque tâche, testé sur vos cas avant la première facture.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/refonte-site-internet.json",
       "slug": "refonte-site-internet",
       "route": "/ressources/guides/refonte-site-internet",
@@ -8700,6 +9206,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/roi-automatisation",
       "index": 13,
       "label": "Un seuil de rentabilité calculé sur vos chiffres, pas sur une moyenne de marché.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/rpa-ou-agent-ia.json",
+      "slug": "rpa-ou-agent-ia",
+      "route": "/ressources/guides/rpa-ou-agent-ia",
+      "index": 13,
+      "label": "Savoir si votre tâche demande un robot, une API ou un agent.",
       "background": "ink"
     },
     {
@@ -9902,6 +10417,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/mistral-vs-claude-pme.json",
+      "slug": "mistral-vs-claude-pme",
+      "route": "/ressources/comparatifs/mistral-vs-claude-pme",
+      "index": 0,
+      "label": "Mistral AI vs Claude pour une PME",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/n8n-vs-make.json",
       "slug": "n8n-vs-make",
       "route": "/ressources/comparatifs/n8n-vs-make",
@@ -10028,6 +10552,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-gratuit.json",
+      "slug": "claude-gratuit",
+      "route": "/ressources/guides/claude-gratuit",
+      "index": 0,
+      "label": "Claude gratuit : ce que permet l'offre Free",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-plugins-entreprise.json",
       "slug": "claude-plugins-entreprise",
       "route": "/ressources/guides/claude-plugins-entreprise",
@@ -10100,6 +10633,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/llm-rag-dirigeant.json",
+      "slug": "llm-rag-dirigeant",
+      "route": "/ressources/guides/llm-rag-dirigeant",
+      "index": 0,
+      "label": "LLM et RAG : les définitions utiles à un dirigeant de PME",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/mcp-claude.json",
       "slug": "mcp-claude",
       "route": "/ressources/guides/mcp-claude",
@@ -10118,6 +10660,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/quel-modele-claude-choisir.json",
+      "slug": "quel-modele-claude-choisir",
+      "route": "/ressources/guides/quel-modele-claude-choisir",
+      "index": 0,
+      "label": "Quel modèle Claude choisir : Opus, Sonnet ou Haiku ?",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/refonte-site-internet.json",
       "slug": "refonte-site-internet",
       "route": "/ressources/guides/refonte-site-internet",
@@ -10132,6 +10683,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/roi-automatisation",
       "index": 0,
       "label": "Mesurer le ROI d'une automatisation ou d'un projet IA : la méthode complète",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/rpa-ou-agent-ia.json",
+      "slug": "rpa-ou-agent-ia",
+      "route": "/ressources/guides/rpa-ou-agent-ia",
+      "index": 0,
+      "label": "RPA, automatisation par API ou agent IA : comment choisir",
       "background": "paper"
     },
     {
@@ -10541,6 +11101,16 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-gratuit.json",
+      "slug": "claude-gratuit",
+      "route": "/ressources/guides/claude-gratuit",
+      "index": 3,
+      "label": "Que donne l'offre Free de Claude, en quatre repères ?",
+      "variant": "accent",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-plugins-entreprise.json",
       "slug": "claude-plugins-entreprise",
       "route": "/ressources/guides/claude-plugins-entreprise",
@@ -10616,6 +11186,16 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "label": "Prix mensuels, facturation annuelle, hors taxes",
       "variant": "accent",
       "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/quel-modele-claude-choisir.json",
+      "slug": "quel-modele-claude-choisir",
+      "route": "/ressources/guides/quel-modele-claude-choisir",
+      "index": 3,
+      "label": "Quels sont les quatre prix de l'API à retenir ?",
+      "variant": "accent",
+      "background": "paper"
     }
   ],
   "lead-capture-band": [
@@ -10671,6 +11251,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/claude-for-small-business",
       "index": 11,
       "label": "Recevez le guide d'achat Claude pour PME (PDF, 14 pages)",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-gratuit.json",
+      "slug": "claude-gratuit",
+      "route": "/ressources/guides/claude-gratuit",
+      "index": 9,
+      "label": "Recevez le kit de conformité Claude en entreprise",
       "background": "ink"
     },
     {
@@ -10752,6 +11341,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/mcp-claude",
       "index": 9,
       "label": "Avant de brancher un connecteur : recevez le kit conformité Claude (PDF, 11 pages)",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/quel-modele-claude-choisir.json",
+      "slug": "quel-modele-claude-choisir",
+      "route": "/ressources/guides/quel-modele-claude-choisir",
+      "index": 13,
+      "label": "Le guide d'achat Claude pour PME : plan, coût, configuration",
       "background": "ink"
     }
   ],
@@ -11910,6 +12508,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "background": "paper-2"
     },
     {
+      "collection": "comparatifs",
+      "file": "comparatifs/mistral-vs-claude-pme.json",
+      "slug": "mistral-vs-claude-pme",
+      "route": "/ressources/comparatifs/mistral-vs-claude-pme",
+      "index": 11,
+      "label": "Comment trancher en quatre étapes",
+      "background": "paper-3"
+    },
+    {
       "collection": "diagnostics",
       "file": "diagnostics/claude-pme.json",
       "slug": "claude-pme",
@@ -12010,6 +12617,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-gratuit.json",
+      "slug": "claude-gratuit",
+      "route": "/ressources/guides/claude-gratuit",
+      "index": 10,
+      "label": "Comment sortir des comptes gratuits avec Waimia ?",
+      "background": "paper-3"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-plugins-entreprise.json",
       "slug": "claude-plugins-entreprise",
       "route": "/ressources/guides/claude-plugins-entreprise",
@@ -12087,6 +12703,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/n8n-prix",
       "index": 13,
       "label": "Chiffrer votre cas en cinq étapes",
+      "background": "paper-3"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/quel-modele-claude-choisir.json",
+      "slug": "quel-modele-claude-choisir",
+      "route": "/ressources/guides/quel-modele-claude-choisir",
+      "index": 14,
+      "label": "Comment Waimia choisit le modèle d'une automatisation ?",
       "background": "paper-3"
     },
     {
@@ -12975,6 +13600,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/mistral-vs-claude-pme.json",
+      "slug": "mistral-vs-claude-pme",
+      "route": "/ressources/comparatifs/mistral-vs-claude-pme",
+      "index": 12,
+      "label": "Pour aller plus loin",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/n8n-vs-make.json",
       "slug": "n8n-vs-make",
       "route": "/ressources/comparatifs/n8n-vs-make",
@@ -13101,6 +13735,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-gratuit.json",
+      "slug": "claude-gratuit",
+      "route": "/ressources/guides/claude-gratuit",
+      "index": 11,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-plugins-entreprise.json",
       "slug": "claude-plugins-entreprise",
       "route": "/ressources/guides/claude-plugins-entreprise",
@@ -13173,6 +13816,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/llm-rag-dirigeant.json",
+      "slug": "llm-rag-dirigeant",
+      "route": "/ressources/guides/llm-rag-dirigeant",
+      "index": 13,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/mcp-claude.json",
       "slug": "mcp-claude",
       "route": "/ressources/guides/mcp-claude",
@@ -13191,6 +13843,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/quel-modele-claude-choisir.json",
+      "slug": "quel-modele-claude-choisir",
+      "route": "/ressources/guides/quel-modele-claude-choisir",
+      "index": 15,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/refonte-site-internet.json",
       "slug": "refonte-site-internet",
       "route": "/ressources/guides/refonte-site-internet",
@@ -13203,6 +13864,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/roi-automatisation.json",
       "slug": "roi-automatisation",
       "route": "/ressources/guides/roi-automatisation",
+      "index": 11,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/rpa-ou-agent-ia.json",
+      "slug": "rpa-ou-agent-ia",
+      "route": "/ressources/guides/rpa-ou-agent-ia",
       "index": 11,
       "label": "Pour aller plus loin",
       "background": "paper-2"
@@ -13591,6 +14261,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "background": "paper"
     },
     {
+      "collection": "comparatifs",
+      "file": "comparatifs/mistral-vs-claude-pme.json",
+      "slug": "mistral-vs-claude-pme",
+      "route": "/ressources/comparatifs/mistral-vs-claude-pme",
+      "index": 10,
+      "label": "Quand choisir Mistral AI, quand choisir Claude",
+      "background": "paper-2"
+    },
+    {
       "collection": "guides",
       "file": "guides/agent-ia-definition.json",
       "slug": "agent-ia-definition",
@@ -13634,6 +14313,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 12,
       "label": "Quand le plugin suffit, quand faire développer des connecteurs",
       "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-gratuit.json",
+      "slug": "claude-gratuit",
+      "route": "/ressources/guides/claude-gratuit",
+      "index": 7,
+      "label": "Quand rester sur Free, et quand passer à Team ?",
+      "background": "paper-2"
     },
     {
       "collection": "guides",
@@ -13682,6 +14370,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/llm-rag-dirigeant.json",
+      "slug": "llm-rag-dirigeant",
+      "route": "/ressources/guides/llm-rag-dirigeant",
+      "index": 7,
+      "label": "Quand un RAG vaut le coût, et quand non",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/mcp-claude.json",
       "slug": "mcp-claude",
       "route": "/ressources/guides/mcp-claude",
@@ -13705,6 +14402,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/refonte-site-internet",
       "index": 9,
       "label": "Refondre votre site, ou s'en abstenir",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/rpa-ou-agent-ia.json",
+      "slug": "rpa-ou-agent-ia",
+      "route": "/ressources/guides/rpa-ou-agent-ia",
+      "index": 8,
+      "label": "Quand le RPA se justifie, et quand non",
       "background": "paper"
     },
     {

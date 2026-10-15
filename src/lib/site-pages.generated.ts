@@ -5013,6 +5013,95 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/ressources/comparatifs/mistral-vs-claude-pme",
+    "title": "Mistral AI vs Claude : lequel choisir en PME · Waimia",
+    "group": "ressources",
+    "collection": "comparatifs",
+    "file": "comparatifs/mistral-vs-claude-pme.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Mistral AI vs Claude pour une PME",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#1",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#2",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Mistral AI vs Claude : hébergement, données, prix, modèles",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#4",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-callout",
+        "label": "#5",
+        "variant": "quote",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Le même scénario d'API chez Mistral AI et chez Claude",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#8",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Ce que chaque éditeur annonce, tâche par tâche",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Quand choisir Mistral AI, quand choisir Claude",
+        "background": "paper-2"
+      },
+      {
+        "type": "process-steps",
+        "label": "Comment trancher en quatre étapes",
+        "background": "paper-3"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Mistral AI vs Claude : vos questions",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Le modèle compte moins que le cadre : données, contrat, test.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/ressources/comparatifs/n8n-vs-make",
     "title": "n8n vs Make : lequel choisir pour une PME · Waimia",
     "group": "ressources",
@@ -6239,6 +6328,87 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/ressources/guides/claude-gratuit",
+    "title": "Claude gratuit : ce que permet l'offre Free et où elle s'arrête",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/claude-gratuit.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Claude gratuit : ce que permet l'offre Free",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "key-metric-grid",
+        "label": "Que donne l'offre Free de Claude, en quatre repères ?",
+        "variant": "accent",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Qu'est-ce qui change entre Claude gratuit et Claude Pro ?",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Quand rester sur Free, et quand passer à Team ?",
+        "background": "paper-2"
+      },
+      {
+        "type": "decision-list",
+        "label": "Free, Pro ou Team : quelle offre choisir ?",
+        "background": "paper"
+      },
+      {
+        "type": "lead-capture-band",
+        "label": "Recevez le kit de conformité Claude en entreprise",
+        "background": "ink"
+      },
+      {
+        "type": "process-steps",
+        "label": "Comment sortir des comptes gratuits avec Waimia ?",
+        "background": "paper-3"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Claude gratuit : questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Savoir quels comptes Claude existent dans l'équipe, et lesquels doivent passer sous conditions commerciales.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/ressources/guides/claude-plugins-entreprise",
     "title": "Plugins Claude en entreprise : le guide 2026",
     "group": "ressources",
@@ -7074,6 +7244,100 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/ressources/guides/llm-rag-dirigeant",
+    "title": "LLM et RAG : les définitions utiles à un dirigeant de PME · Waimia",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/llm-rag-dirigeant.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "LLM et RAG : les définitions utiles à un dirigeant de PME",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "LLM, contexte, hallucination, RAG : le tableau",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#4",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Modèle seul, documents dans le contexte, RAG ou fine-tuning",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Quand un RAG vaut le coût, et quand non",
+        "background": "paper"
+      },
+      {
+        "type": "cta-final",
+        "label": "Voir si votre cas justifie une base de connaissance",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Ce que coûte un RAG : les repères publics, datés",
+        "variant": "editorial",
+        "background": "paper-3"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Cinq limites d'un RAG, et la parade",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "decision-list",
+        "label": "Cinq questions à se poser avant de lancer un RAG",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#12",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "LLM et RAG : questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Savoir si vos documents justifient un RAG, ou si une solution simple suffit.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/ressources/guides/mcp-claude",
     "title": "MCP Claude : le protocole expliqué aux dirigeants · Waimia",
     "group": "ressources",
@@ -7266,6 +7530,107 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/ressources/guides/quel-modele-claude-choisir",
+    "title": "Quel modèle Claude choisir : Opus, Sonnet ou Haiku ?",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/quel-modele-claude-choisir.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Quel modèle Claude choisir : Opus, Sonnet ou Haiku ?",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "key-metric-grid",
+        "label": "Quels sont les quatre prix de l'API à retenir ?",
+        "variant": "accent",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Quels sont les modèles Claude actuels ?",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Pour quelle tâche choisir Opus, Sonnet ou Haiku ?",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Que coûte le classement de 1 000 e-mails selon le modèle ?",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#9",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Quels modèles Claude sont accessibles dans chaque offre ?",
+        "background": "paper"
+      },
+      {
+        "type": "decision-list",
+        "label": "Quand monter ou descendre de gamme ?",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#12",
+        "background": "paper"
+      },
+      {
+        "type": "lead-capture-band",
+        "label": "Le guide d'achat Claude pour PME : plan, coût, configuration",
+        "background": "ink"
+      },
+      {
+        "type": "process-steps",
+        "label": "Comment Waimia choisit le modèle d'une automatisation ?",
+        "background": "paper-3"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Modèles Claude : questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Le bon modèle pour chaque tâche, testé sur vos cas avant la première facture.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/ressources/guides/refonte-site-internet",
     "title": "Refonte de site internet : étapes, coût et SEO à garder",
     "group": "ressources",
@@ -7425,6 +7790,89 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "footer-cta-band",
         "label": "Un seuil de rentabilité calculé sur vos chiffres, pas sur une moyenne de marché.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/ressources/guides/rpa-ou-agent-ia",
+    "title": "RPA, automatisation par API ou agent IA : comment choisir en PME · Waimia",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/rpa-ou-agent-ia.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "RPA, automatisation par API ou agent IA : comment choisir",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "RPA, automatisation par API, agent IA : le tableau pour les distinguer",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#4",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Ce que coûte le RPA : Power Automate et UiPath",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Votre situation, l'outil à essayer en premier",
+        "variant": "editorial",
+        "background": "paper-3"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Quand le RPA se justifie, et quand non",
+        "background": "paper"
+      },
+      {
+        "type": "cta-final",
+        "label": "Classez vos tâches avant de choisir l'outil",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#10",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "RPA, API ou agent IA : questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Savoir si votre tâche demande un robot, une API ou un agent.",
         "background": "ink"
       }
     ]
@@ -8701,6 +9149,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche",
       "/ressources/comparatifs/geo-vs-seo",
+      "/ressources/comparatifs/mistral-vs-claude-pme",
       "/ressources/comparatifs/n8n-vs-make",
       "/ressources/comparatifs/n8n-vs-make-vs-zapier",
       "/ressources/comparatifs/site-web-intelligent-vs-wordpress",
@@ -8718,6 +9167,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/guides/claude-design",
       "/ressources/guides/claude-fonctionnalites-pme",
       "/ressources/guides/claude-for-small-business",
+      "/ressources/guides/claude-gratuit",
       "/ressources/guides/claude-plugins-entreprise",
       "/ressources/guides/claude-pme",
       "/ressources/guides/claude-rgpd-pme",
@@ -8726,10 +9176,13 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/guides/cout-integration-claude-pme",
       "/ressources/guides/devis-automatise",
       "/ressources/guides/financement-formation-ia-opco",
+      "/ressources/guides/llm-rag-dirigeant",
       "/ressources/guides/mcp-claude",
       "/ressources/guides/n8n-prix",
+      "/ressources/guides/quel-modele-claude-choisir",
       "/ressources/guides/refonte-site-internet",
       "/ressources/guides/roi-automatisation",
+      "/ressources/guides/rpa-ou-agent-ia",
       "/ressources/guides/taches-a-automatiser-pme",
       "/ressources/outils",
       "/ressources/outils/calculateur-roi-ia",

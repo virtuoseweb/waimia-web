@@ -37,6 +37,17 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### Vague 5 en production, 15 octobre 2026 (PR #94, `a4ba5c5a`)
+
+Demande de Simon du 15 octobre : traiter tout le contenu, tout le dossier `waimia seo`, le SEO/GEO et le design. Cinq audits en lecture seule (écart stratégie, écart audits du 5 octobre et Semrush, CTR/GEO des 99 pages d'offre, CTR/GEO des 62 ressources, design par gabarit), puis trois lots.
+
+- **Titles et descriptions** : 103 titles et 68 descriptions changés sur 110 pages (mesure sur le HTML buildé avant et après). La requête reste en tête, suivie d'une raison de cliquer lue dans la page. Villes différenciées par un fait local. Jeton `prix.pilote` à la place de 2 000 € HT en dur dans 9 descriptions. Effet à lire en W43 et W44 dans `gsc-performance.json`.
+- **GEO** : chapôs qui répondent dans les 80 premiers mots (services clés, 10 guides et comparatifs) ; blog : date de mise à jour affichée et `<time>` ISO, FAQPage servi par `FaqAccordion` sur 5 billets.
+- **Conversion** : libellé unique « Réserver l'audit gratuit » et lien `/contact?offer=audit-ia-pme&intent=audit` (le fragment `#offer=` n'atteignait ni le serveur ni la mesure ; il reste lu pour les anciens liens) ; CTA du héros dans le premier écran à 1366×768 ; calendrier remonté sur `/contact` mobile ; cas et panneau auteur sur `/audit-ia-pme` ; bande CTA dans les fiches cas, le hub ressources, les billets, `/agence`, la page auteur.
+- **Lisibilité** : chapô des héros 11 → 15 px, contrastes, libellés 9 → 11 px, comparatif replié sur mobile.
+- **Preuves** : portes 37 sur 39 (rouges connues), `astro check` 8 erreurs (référence), balayage des 176 pages à deux tailles en local et sur la preview (352 en 200, 0 débordement), revue Opus « ok », production vérifiée (9 liens `?offer=` sur l'accueil, 0 fragment, nouveau title de `/services/agents-ia`).
+- **Hors dépôt, à Simon** : portrait, réglages Cal.com (description, semaine au lundi), demandes d'indexation, liens entrants.
+
 ### Mesure de la provenance des leads, 15 octobre 2026 (PR #92, branche `seo-v4/mesure`, non fusionnée)
 
 Décision 2 du 14 octobre (mesure légère, maison, gratuite). Chaque alerte interne de contact et de lead magnet dit d'où vient la personne : source d'entrée (moteur, site, direct), page d'arrivée, page précédente et page du formulaire ; les journaux Vercel portent les mêmes champs (contact, lead magnet, newsletter) et Cal reçoit `metadata[landing]`, `metadata[entry]`, `metadata[prev]`. Ni cookie ni stockage : `window.wmLeadSource()` vit en mémoire pendant la visite ; politique de confidentialité v1.1. Défaut de production corrigé dans la même PR : un envoi de newsletter partait trois fois (3 POST mesurés sur waimia.com, 1 sur le build de la PR, au chargement et après navigation). Preuves locales : tests 18 sur 18 avec falsification, navigateur sur le build servi, `astro check` à 8 erreurs (référence), portes 36 vertes et 2 rouges connues. Non vérifié : l'enregistrement des `metadata` par Cal (exige une réservation réelle).

@@ -1,5 +1,12 @@
 # Audit Semrush et concurrence · 13 octobre 2026
 
+> **Note du 15 octobre 2026 : plusieurs constats ci-dessous sont périmés.** Ce document est un état au 13 octobre ; ne pas le lire comme l'état courant.
+> - Ligne « Adresse manquante Paris/Lyon » (« Refusé, volontaire ») : résolue autrement. Le build n'émet plus `LocalBusiness` sur Paris, Montpellier et Lyon, mais `Service` (zone desservie, sans adresse) ; seuls `/` et `/implantations/bordeaux` émettent `ProfessionalService` avec adresse (écart X2c de l'audit v5).
+> - Ligne « 4 pages à paragraphes longs » (« FAQ de `/tarifs` non traitée ») : la FAQ de `/tarifs` est scindée en deux paragraphes dans le lot technique v6, à confirmer après build.
+> - Ligne « Core Web Vitals » (« Chantier perf à part ») : le CSS n'est plus un fichier unique (plus de `section-registry.css`) ; le seuil d'inlining des feuilles est relevé dans le lot technique v6, mesure à rejouer après build (écarts X11a, T3).
+> - Comptes de pages et de liens (164 pages, 183 fichiers) : datés du 13 octobre, à remesurer sur le build courant.
+> Source de l'état courant : audit v5, fiches X2c, X5, X11a, N4.
+
 Sources : dossier Semrush du 9 octobre (audit du site, 4 domaines concurrents), `audit seo 5 octobre maj.md`, `waimia strat claude.md`.
 
 ## 1. Audit technique waimia.com (santé 94 %, IA 95 %, 164 pages)

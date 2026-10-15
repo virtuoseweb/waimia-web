@@ -132,6 +132,7 @@ export const MM_SOLUTIONS_NEW: MegaMenu = {
         { href: '/formations/n8n', label: { en: 'n8n training', fr: 'Formation n8n' } },
         { href: '/formations/make', label: { en: 'Make training', fr: 'Formation Make' } },
         { href: '/formations/claude', label: { en: 'Claude training', fr: 'Formation Claude' } },
+        { href: '/formations/claude-code', label: { en: 'Claude Code training', fr: 'Formation Claude Code' } },
         { href: '/formations/chatgpt', label: { en: 'ChatGPT training', fr: 'Formation ChatGPT' } },
       ],
     },
@@ -441,6 +442,54 @@ export const FOOTER_COLS: FooterCol[] = [
       { href: '/cgv', label: { en: 'Terms of sale', fr: 'CGV' } },
       // Sitemap XML réel généré par @astrojs/sitemap (liste des URL indexées).
       { href: '/sitemap-index.xml', label: { en: 'Sitemap (XML)', fr: 'Sitemap (XML)' } },
+    ],
+  },
+];
+
+// Pied de page servi (refonte 2026-10 · O12) : hubs et pages prioritaires seulement. Le menu
+// porte déjà le détail des offres sur chaque page ; FOOTER_COLS reste la liste longue du pied
+// (plan du site). Pages retirées du pied, toujours atteignables : les autres villes par le
+// hub /implantations (10 villes), /manifesto et /conformite-ia par /agence, les offres par
+// le menu et /services. Libellés repris de FOOTER_COLS (une seule source par href).
+const footerItem = (href: string) => {
+  for (const col of FOOTER_COLS) {
+    const it = col.items.find((i) => i.href === href);
+    if (it) return it;
+  }
+  throw new Error(`FOOTER_LEAN : href absent de FOOTER_COLS (${href})`);
+};
+export const FOOTER_LEAN: FooterCol[] = [
+  {
+    heading: { en: 'Automation and AI', fr: 'Automatisation et IA' },
+    items: [
+      { href: '/services/systemes-operationnels-ia', label: { en: 'Automation and AI agents', fr: 'Automatisation et agents IA' } },
+      footerItem('/services/systeme-commercial'),
+      footerItem('/services/systeme-acquisition'),
+      { href: '/services', label: { en: 'All services', fr: 'Tous les services' } },
+    ],
+  },
+  {
+    heading: { en: 'Getting started', fr: 'Démarrer' },
+    items: [
+      footerItem('/audit-ia-pme'),
+      footerItem(AUDIT_BOOKING_HREF),
+      footerItem('/tarifs'),
+      footerItem('/formations'),
+    ],
+  },
+  {
+    heading: { en: 'The studio', fr: 'Le studio' },
+    items: [
+      footerItem('/agence'),
+      footerItem('/cas-clients'),
+      footerItem('/ressources'),
+      footerItem('/blog'),
+      { href: '/implantations', label: { en: 'Locations', fr: 'Implantations' } },
+      footerItem('/implantations/bordeaux'),
+      footerItem('/implantations/lyon'),
+      footerItem('/implantations/paris'),
+      footerItem('/implantations/montpellier'),
+      footerItem('/contact'),
     ],
   },
 ];
