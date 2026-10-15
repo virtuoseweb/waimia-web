@@ -6,7 +6,7 @@
 // Les autres sections restent mappées depuis sitemap.ts pour conserver le contenu validé.
 
 import type { Lang } from '../lib/i18n';
-import { AUDIT_PROMISE } from './conversion';
+import { AUDIT_PROMISE, AUDIT_BOOKING_LABEL } from './conversion';
 import {
   AUDIT_BOOKING_HREF,
   MM_RESOURCES,
@@ -701,7 +701,7 @@ const CAS_USAGES: MegaMenuSection = {
       fr: AUDIT_PROMISE.general.short.fr,
       en: AUDIT_PROMISE.general.short.en,
     },
-    cta: { fr: 'Réserver un audit →', en: 'Book an audit →' },
+    cta: { fr: `${AUDIT_BOOKING_LABEL.fr} →`, en: `${AUDIT_BOOKING_LABEL.en} →` },
     href: AUDIT_BOOKING_HREF,
     image: '/images/editorial/image-style-12.webp',
     imageSize: [1456, 624],
@@ -816,7 +816,7 @@ const AGENCE: MegaMenuSection = {
         },
       ],
       footer: {
-        label: { fr: 'Réserver un audit →', en: 'Book an audit →' },
+        label: { fr: `${AUDIT_BOOKING_LABEL.fr} →`, en: `${AUDIT_BOOKING_LABEL.en} →` },
         href: AUDIT_BOOKING_HREF,
       },
     },

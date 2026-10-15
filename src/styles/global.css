@@ -772,6 +772,8 @@ a:not([class]):hover,
   }
   .hdr-end .cta {
     padding: var(--space-2) var(--space-3);
+    /* Cible tactile de 44 px (32 + 12), audit v5 : le CTA mesurait 36 px de haut. */
+    min-height: calc(var(--space-6) + var(--space-3));
   }
   .hdr .cta .cta-label-long {
     display: none;

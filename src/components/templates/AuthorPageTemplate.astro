@@ -12,6 +12,8 @@
 //   · prose-aside · bordered-pullquote · signed-writing-list · method-diagram-list
 //   · curriculum-timeline · publications-panel · closing-cta-band.
 import Base from '../../layouts/Base.astro';
+import CtaBandSection from '../sections/CtaBandSection.astro';
+import { AUDIT_BOOKING_HREF, AUDIT_BOOKING_LABEL, auditCtaBand } from '../../data/conversion';
 import HeroSplit from '../sections/HeroSplit.astro';
 import PortraitSimon from '../svg/sumie/PortraitSimon.astro';
 import type { SectionByType } from '@waimia/ds-kernel';
@@ -143,7 +145,6 @@ const description = lang === 'fr' ? author.description_fr : author.description_e
 // Studio solo : la page /equipe est redirigée vers la fiche du fondateur, le fil d'Ariane
 // remonte donc vers la page du studio.
 const teamHref = localizeHref('/agence', lang);
-const auditHref = localizeHref('/audit-ia-pme', lang);
 const seoTitle = (lang === 'fr' ? author.seoTitle_fr : author.seoTitle_en) ?? `${displayName} · ${role} · Waimia`;
 const resourcesHref = localizeHref('/ressources', lang);
 
@@ -425,9 +426,9 @@ const ctaData = {
   kicker_en: '§ Work together',
   h2_html_fr: 'Le mardi on câble.<em> Le vendredi on mesure.</em>',
   h2_html_en: 'On Tuesday we wire.<em> On Friday we measure.</em>',
-  button_label_fr: 'Réserver un audit →',
-  button_label_en: 'Book an audit →',
-  button_href: auditHref,
+  button_label_fr: `${AUDIT_BOOKING_LABEL.fr} →`,
+  button_label_en: `${AUDIT_BOOKING_LABEL.en} →`,
+  button_href: AUDIT_BOOKING_HREF,
 } satisfies ClosingCtaBandData;
 ---
 
@@ -443,6 +444,10 @@ const ctaData = {
     </HeroSplit>
 
     {expertiseData && <KeywordStrip data={expertiseData} lang={lang} />}
+
+    {/* CTA de page après la 2e section : sans elle, le premier CTA de page arrivait à
+        9 170 px en mobile (audit v5, point 4). Texte et lien depuis data/conversion.ts. */}
+    <CtaBandSection data={auditCtaBand()} lang={lang} />
 
     {/* Pourquoi Waimia : corps MDX (<Content/>) forwarde en slot par défaut à prose-aside. */}
     <ProseAside data={whyData} lang={lang}>

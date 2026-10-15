@@ -94,8 +94,8 @@ const calUrl = `https://cal.com/${SITE.cal.username}/${SITE.cal.event}`;
   function apply() {
     var root = document.querySelector('[data-contact-root]');
     if (!root) return;
-    // Les CTA du site portent l'offre en fragment (/contact#offer=…) : une seule URL
-    // crawlable. La query reste lue pour les anciens liens et les campagnes.
+    // Les CTA du site portent l'offre en paramètres (/contact?offer=…, décision du
+    // 15 octobre 2026). Le fragment (/contact#offer=…) reste lu : anciens liens, PDF envoyés.
     var hash = window.location.hash.replace(/^#/, '');
     var params = new URLSearchParams(hash.indexOf('=') !== -1 ? hash : window.location.search);
     if (hash.indexOf('=') !== -1 && !params.get('offer') && !params.get('intent')) {
@@ -284,6 +284,12 @@ const calUrl = `https://cal.com/${SITE.cal.username}/${SITE.cal.event}`;
     /* Mobile : le calendrier d'abord, les détails pratiques ensuite. */
     .cc-rdv-info { display: contents; }
     .cc-selected { order: -2; margin: 0; }
+    /* Audit par défaut : l'encadré répète le H1 (« Réserver l'audit IA ») et repoussait
+       le calendrier de 94 px à 390. Il reste affiché quand il apporte une information
+       (formation, offre inconnue et sa note, suite du diagnostic). */
+    .cc:not([data-offer]) .cc-selected,
+    .cc[data-offer=''] .cc-selected,
+    .cc[data-offer='audit-ia-pme'] .cc-selected { display: none; }
     .cc-selected-note { order: -2; margin: 0; }
     .cc-rdv-cal { order: -1; }
     .cc-rdv-in { display: flex; flex-direction: column; gap: var(--space-5); }

@@ -37,7 +37,7 @@ export const demo: DemoData = {
       "cta": {
         "label_fr": "Réserver un audit",
         "label_en": "Book an audit",
-        "href": "/contact#offer=audit-ia-pme&intent=audit"
+        "href": "/contact?offer=audit-ia-pme&intent=audit"
       },
       "entry": true
     },
@@ -69,7 +69,7 @@ export const demo: DemoData = {
       "cta": {
         "label_fr": "Lancer un sprint de cadrage",
         "label_en": "Start a scoping sprint",
-        "href": "/contact#offer=sprint-cadrage"
+        "href": "/contact?offer=sprint-cadrage"
       }
     },
     {
@@ -98,7 +98,7 @@ export const demo: DemoData = {
       "cta": {
         "label_fr": "Cadrer un pilote",
         "label_en": "Scope a pilot",
-        "href": "/contact#offer=pilote"
+        "href": "/contact?offer=pilote"
       }
     }
   ],

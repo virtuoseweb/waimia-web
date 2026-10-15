@@ -21,7 +21,7 @@ export const demo: DemoData = {
           body_en: 'To start from zero with a clear presence.',
           features_fr: ['Landing page', 'Copywriting', 'SEO de base'],
           features_en: ['Landing page', 'Copywriting', 'Base SEO'],
-          cta: { label_fr: 'Choisir lancement', label_en: 'Choose launch', href: '/contact#offer=lancement', variant: 'ghost' },
+          cta: { label_fr: 'Choisir lancement', label_en: 'Choose launch', href: '/contact?offer=lancement', variant: 'ghost' },
         },
         {
           title_fr: 'Refonte',
@@ -30,7 +30,7 @@ export const demo: DemoData = {
           body_en: 'To bring an existing site up to standard.',
           features_fr: ['Audit', 'Direction artistique', 'Tracking'],
           features_en: ['Audit', 'Art direction', 'Tracking'],
-          cta: { label_fr: 'Choisir refonte', label_en: 'Choose rebuild', href: '/contact#offer=refonte', variant: 'primary' },
+          cta: { label_fr: 'Choisir refonte', label_en: 'Choose rebuild', href: '/contact?offer=refonte', variant: 'primary' },
           featured: true,
         },
         {
@@ -40,7 +40,7 @@ export const demo: DemoData = {
           body_en: 'To change foundation without losing what works.',
           features_fr: ['Redirections', 'Performance', 'Formation'],
           features_en: ['Redirects', 'Performance', 'Training'],
-          cta: { label_fr: 'Choisir migration', label_en: 'Choose migration', href: '/contact#offer=migration', variant: 'ghost' },
+          cta: { label_fr: 'Choisir migration', label_en: 'Choose migration', href: '/contact?offer=migration', variant: 'ghost' },
         },
       ],
     },

@@ -15,7 +15,7 @@
  */
 
 import { langFromPath, localizeHref } from '../../../lib/i18n';
-import { AUDIT_BOOKING_HREF, AUDIT_PAGE_HREF, AUDIT_PROMISE } from '../../../data/conversion';
+import { AUDIT_BOOKING_HREF, AUDIT_PAGE_HREF, AUDIT_PROMISE, AUDIT_BOOKING_LABEL } from '../../../data/conversion';
 
 import MastheadRow from '../molecules/MastheadRow.astro';
 import Kicker from '../atoms/Kicker.astro';
@@ -113,7 +113,7 @@ const pageTransitionId = Astro.url.pathname
 
         <div class="hero-ctas reveal reveal-snap">
           <Button href={ctaHref} variant="primary" size="lg" mag={0.18}>
-            {lang === 'fr' ? 'Réserver un audit →' : 'Book an audit →'}
+            {lang === 'fr' ? `${AUDIT_BOOKING_LABEL.fr} →` : `${AUDIT_BOOKING_LABEL.en} →`}
           </Button>
           <Button href={offerHref} variant="ghost" size="lg">
             {lang === 'fr' ? 'Calculer mon ROI' : 'Calculate my ROI'}
@@ -404,5 +404,8 @@ const pageTransitionId = Astro.url.pathname
   @media (max-height: 920px) and (min-width: 900px) {
     .hero-sub { margin-top: var(--space-5); padding: var(--space-4) 0 var(--space-7); }
     .hero-headline { font-size: var(--text-h1); }
+    /* Même levier que sous 900 px : la mini-map passe sous les CTA. À 1366×768, le bas
+       du CTA principal tombait à 791 px pour 768 de fenêtre. */
+    .hero-minimap { order: 1; }
   }
 </style>

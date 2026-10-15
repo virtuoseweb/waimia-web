@@ -221,7 +221,7 @@ const families = data.families;
   .he-tab.is-disabled { cursor: not-allowed; color: var(--muted); }
   .he-tab__badge {
     font-family: var(--font-mono);
-    font-size: var(--text-micro);
+    font-size: var(--text-kicker);
     letter-spacing: var(--tracking-caps);
     text-transform: uppercase;
     color: var(--accent-text);
@@ -327,11 +327,30 @@ const families = data.families;
     background: var(--accent);
     transform: translateY(0.5em);
   }
-  /* Branche « complement » (Automation & IA) : teinte DS --complementary (#2090A8). */
+  /* Branche « complement » (Automation & IA) : teinte DS --complementary (#2090A8) sur les
+     signes (pastille, puces, filet du lien, anneau de survol), jamais sur le texte : en 13 px
+     sur paper-2, le bleu donnait 3,09:1 (audit v5). Le texte passe en encre (≥ 4,5:1). */
   .he-offer--complement .he-offer__tag,
   .he-offer--complement .he-offer__link {
-    color: var(--complementary);
+    color: var(--ink);
   }
+  .he-offer--complement .he-offer__tag::before {
+    content: '';
+    display: inline-block;
+    inline-size: var(--space-2);
+    block-size: var(--space-2);
+    margin-inline-end: var(--space-2);
+    border-radius: var(--radius-full);
+    background: var(--complementary);
+    vertical-align: 0.1em;
+  }
+  .he-offer--complement .he-offer__link {
+    text-decoration: underline;
+    text-decoration-color: var(--complementary);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.3em;
+  }
+  .he-offer--complement .he-offer__link:hover { color: var(--accent-text); }
   .he-offer--complement .he-offer__points li::before {
     background: var(--complementary);
   }
@@ -395,7 +414,7 @@ const families = data.families;
   }
   .he-svc__k {
     font-family: var(--font-mono);
-    font-size: var(--text-micro);
+    font-size: var(--text-kicker);
     letter-spacing: var(--tracking-caps);
     text-transform: uppercase;
     color: var(--accent-text);

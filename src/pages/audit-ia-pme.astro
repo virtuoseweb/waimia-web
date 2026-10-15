@@ -2,16 +2,17 @@
 export const prerender = true;
 
 // Page SSG · /audit-ia-pme · la page qui PRÉSENTE l'audit (refonte 4 octobre 2026).
-// Son CTA mène à /contact#offer=audit-ia-pme&intent=audit (prise de rendez-vous).
+// Son CTA mène à /contact?offer=audit-ia-pme&intent=audit (prise de rendez-vous).
 //
 // Composition : organisms dédiés (src/components/ui/organisms/audit/*, contenu dans
 // src/data/audit-ia-pme.ts) + sections catalogue pour la FAQ et la bande finale
 // (entrée `audits/audit-ia-pme`, rendues par SectionsRenderer : la FAQ émet le FAQPage
 // JSON-LD, source canonique). Aucun markup inline dans cette page.
 // La partie « site web et logiciel » (`auditWebSection`, ancre AUDIT_WEB_ANCHOR) est une
-// section catalogue construite dans src/data/audit-ia-pme.ts, insérée avant la FAQ.
+// section catalogue construite dans src/data/audit-ia-pme.ts, insérée avant la preuve.
 // Fonds alternés : hero paper, déroulé paper-2, livrable paper, pour qui paper-2, après paper,
-// ressources paper-2, « ce qu'on examine » paper, site web et logiciel paper-2, FAQ paper, bande ink.
+// ressources paper-2, « ce qu'on examine » paper, site web et logiciel paper-2, réalisations
+// paper, auteur (eeat-panel media) ink, FAQ paper, bande ink.
 
 import { getEntry } from 'astro:content';
 import Base from '../layouts/Base.astro';
@@ -44,7 +45,10 @@ if (!Array.isArray(data.sections) || data.sections.length === 0) {
 }
 // La partie site web et logiciel se place juste avant la FAQ (après « ce qu'on examine »).
 const sections = [...(data.sections ?? [])];
-const faqIndex = sections.findIndex((s) => s.type === 'faq-accordion');
+// Avant la preuve (réalisations, auteur) si elle existe, sinon avant la FAQ : la partie
+// « site web et logiciel » complète la description de l'audit, la preuve vient après.
+const proofTypes = ['case-card-grid', 'eeat-panel', 'faq-accordion'];
+const faqIndex = sections.findIndex((s) => proofTypes.includes(s.type));
 sections.splice(faqIndex < 0 ? sections.length : faqIndex, 0, auditWebSection);
 
 // JSON-LD métier · Service avec son offre (prestation gratuite). FAQPage émis par `faq-accordion`.
