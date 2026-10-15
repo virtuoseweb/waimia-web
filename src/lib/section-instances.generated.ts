@@ -1525,7 +1525,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "crm-sur-mesure-vs-crm-du-marche",
       "route": "/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche",
       "index": 5,
-      "label": "Notre verdict, situation par situation",
+      "label": "Le verdict de Waimia, situation par situation",
       "background": "paper-2"
     },
     {
@@ -5764,7 +5764,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/financement-formation-ia-opco",
       "index": 6,
       "label": "Chaque fait, sa source, sa date",
-      "variant": "editorial",
+      "variant": "default",
       "background": "paper-2"
     },
     {
@@ -6773,7 +6773,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/implantations/bordeaux",
       "index": 5,
       "label": "Questions fréquentes",
-      "background": "paper"
+      "background": "paper-2"
     },
     {
       "collection": "implantations",
@@ -6782,7 +6782,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/implantations/dijon",
       "index": 5,
       "label": "Questions fréquentes",
-      "background": "paper"
+      "background": "paper-2"
     },
     {
       "collection": "implantations",
@@ -6791,7 +6791,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/implantations/lille",
       "index": 5,
       "label": "Questions fréquentes",
-      "background": "paper"
+      "background": "paper-2"
     },
     {
       "collection": "implantations",
@@ -6809,7 +6809,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/implantations/marseille",
       "index": 5,
       "label": "Questions fréquentes",
-      "background": "paper"
+      "background": "paper-2"
     },
     {
       "collection": "implantations",
@@ -6827,7 +6827,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/implantations/nantes",
       "index": 5,
       "label": "Questions fréquentes",
-      "background": "paper"
+      "background": "paper-2"
     },
     {
       "collection": "implantations",
@@ -6845,7 +6845,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/implantations/strasbourg",
       "index": 5,
       "label": "Questions fréquentes",
-      "background": "paper"
+      "background": "paper-2"
     },
     {
       "collection": "implantations",
@@ -9913,7 +9913,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "ai-act-pme-calendrier",
       "route": "/ressources/guides/ai-act-pme-calendrier",
       "index": 0,
-      "label": "AI Act pour les PME : le calendrier à jour et ce qui vous concerne vraiment",
+      "label": "AI Act pour les PME : le calendrier à jour et ce qui vous concerne",
       "background": "paper"
     },
     {
@@ -11904,7 +11904,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "choisir-agence-ia-pme",
       "route": "/ressources/guides/choisir-agence-ia-pme",
       "index": 14,
-      "label": "Si vous nous choisissez : comment Waimia travaille",
+      "label": "Si vous choisissez Waimia : comment Waimia travaille",
       "background": "paper-2"
     },
     {
@@ -12789,7 +12789,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/implantations/bordeaux",
       "index": 4,
       "label": "Pour aller plus loin",
-      "background": "paper-2"
+      "background": "paper"
     },
     {
       "collection": "implantations",
@@ -12798,7 +12798,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/implantations/dijon",
       "index": 4,
       "label": "Pour aller plus loin",
-      "background": "paper-2"
+      "background": "paper"
     },
     {
       "collection": "implantations",
@@ -12807,7 +12807,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/implantations/lille",
       "index": 4,
       "label": "Pour aller plus loin",
-      "background": "paper-2"
+      "background": "paper"
     },
     {
       "collection": "implantations",
@@ -12825,7 +12825,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/implantations/marseille",
       "index": 4,
       "label": "Pour aller plus loin",
-      "background": "paper-2"
+      "background": "paper"
     },
     {
       "collection": "implantations",
@@ -12843,7 +12843,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/implantations/nantes",
       "index": 4,
       "label": "Pour aller plus loin",
-      "background": "paper-2"
+      "background": "paper"
     },
     {
       "collection": "implantations",
@@ -12861,7 +12861,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/implantations/strasbourg",
       "index": 4,
       "label": "Pour aller plus loin",
-      "background": "paper-2"
+      "background": "paper"
     },
     {
       "collection": "implantations",

@@ -91,6 +91,7 @@ Preuve visuelle
 
 - GF-1 visuel : ajouter un jugement (hiérarchie, équilibre, débordements) et une passe mobile 390×844 aux styles calculés.
 - `.reveal` : scroller et attendre la fin de l'animation avant de mesurer .
+- Balayage GF-1 : en plus des pages touchées, un passage débordement horizontal sur tout le build aux deux tailles ; le guide OPCO débordait de 872 px en production, hors de tout périmètre de vague.
 - Servir le build, jamais le dev : `node scripts/serve-dist.mjs --root dist/client` ; e2e contre ce build.
 - Bug visible seulement en prod : lire la donnée servie (HTML, env, `iframe.src` après hydratation) avant de toucher le code, puis reproduire avec les mêmes variables.
 
