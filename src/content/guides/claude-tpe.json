@@ -1,0 +1,546 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "Claude pour une TPE : par où commencer, avec quel abonnement, pour quoi faire",
+  "title_en": "Claude for a very small business: where to start, which plan, for what",
+  "seoTitle_fr": "Claude pour une TPE : abonnement et premiers usages",
+  "seoTitle_en": "Claude for a very small business: plan and first uses",
+  "description_fr": "Claude pour une TPE : Team dès 2 sièges, Pro sous conditions grand public, trois usages de départ, ce qu'il ne faut pas confier. Relevé le 15 octobre 2026.",
+  "description_en": "Claude for a very small business: Team from 2 seats, Pro under consumer terms, three first uses, what not to hand over. Checked on 15 October 2026.",
+  "slug": "claude-tpe",
+  "publishedAt": "2026-10-15",
+  "updatedAt": "2026-10-15",
+  "category": "claude",
+  "cluster": "claude",
+  "tags": [
+    "claude",
+    "tpe",
+    "abonnement",
+    "team",
+    "pro",
+    "premiers-usages",
+    "guide-pme"
+  ],
+  "sources": [
+    {
+      "name": "Anthropic, page tarifs de Claude (Free, Pro, Max, Team, Enterprise), lue le 15 octobre 2026",
+      "url": "https://claude.com/pricing",
+      "type": "enterprise"
+    },
+    {
+      "name": "Centre d'aide Claude, What is the Team plan ? (minimum deux membres, 150 sièges, quota par siège), lu le 15 octobre 2026",
+      "url": "https://support.claude.com/en/articles/9266767",
+      "type": "enterprise"
+    },
+    {
+      "name": "Centre d'aide Claude, Get started with the Team plan (adresse e-mail professionnelle, pas d'usage individuel), lu le 15 octobre 2026",
+      "url": "https://support.claude.com/en/articles/9267247",
+      "type": "enterprise"
+    },
+    {
+      "name": "Centre d'aide Claude, What is the Pro plan ? (limites de session et hebdomadaires), lu le 15 octobre 2026",
+      "url": "https://support.claude.com/en/articles/8325606-what-is-the-pro-plan",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, conditions grand public pour l'Espace économique européen et la Suisse (en vigueur au 8 octobre 2025), clause « Non-commercial use only », lues le 15 octobre 2026",
+      "url": "https://www.anthropic.com/legal/consumer-terms",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, centre de confidentialité : Is my data used for model training ? (produits commerciaux), lu le 15 octobre 2026",
+      "url": "https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training",
+      "type": "enterprise"
+    },
+    {
+      "name": "Centre d'aide Claude, Does Anthropic act as a data processor or controller ?, lu le 15 octobre 2026",
+      "url": "https://support.claude.com/en/articles/9267385-does-anthropic-act-as-a-data-processor-or-controller",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, documentation Claude for Excel (offres, limites, bonnes pratiques), lue le 15 octobre 2026",
+      "url": "https://claude.com/docs/office-agents/excel",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, documentation développeurs : vision, limites (qualité d'image, précision), lue le 15 octobre 2026",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/vision",
+      "type": "enterprise"
+    },
+    {
+      "name": "CNIL, questions-réponses sur l'utilisation d'un système d'IA générative (18 juillet 2024), lues le 15 octobre 2026",
+      "url": "https://www.cnil.fr/fr/les-questions-reponses-de-la-cnil-sur-lutilisation-dun-systeme-dia-generative",
+      "type": "state"
+    },
+    {
+      "name": "Commission européenne, AI Act Service Desk, article 4 (maîtrise de l'IA), lu le 15 octobre 2026",
+      "url": "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-4",
+      "type": "state"
+    }
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "Claude est-il adapté à une TPE ?",
+      "a": "Oui pour la rédaction, la lecture de documents et les tableaux, à deux conditions : un contrat adapté à un usage professionnel et une relecture humaine. Claude peut produire une réponse plausible mais fausse, rappelle la CNIL. Ne lui confiez ni décision sur une personne, ni envoi, ni paiement sans relecture. Relevé le 15 octobre 2026."
+    },
+    {
+      "q": "Quel abonnement Claude choisir pour une TPE ?",
+      "a": "Pour du travail d'entreprise à deux personnes ou plus, Team : 20 $ par siège et par mois en annuel, 25 $ au mois, hors taxes, 2 sièges au minimum, avec les conditions commerciales d'Anthropic. Un siège Premium (100 $ en annuel, 125 $ au mois) convient à un gros utilisateur. Max reste un compte individuel sous conditions grand public."
+    },
+    {
+      "q": "L'abonnement Pro suffit-il pour une TPE ?",
+      "a": "Pour l'usage, souvent oui. Pour le contrat, c'est moins clair : Pro relève des conditions grand public, et la version européenne, conclue avec Anthropic Ireland, Limited, contient une clause « Usage non commercial uniquement ». Pour un dirigeant seul, faites valider la solution par un conseil juridique avant d'y mettre un document client. Ce n'est pas un avis juridique."
+    },
+    {
+      "q": "Combien coûte Claude pour une TPE de cinq personnes ?",
+      "a": "Cinq sièges Team Standard coûtent 100 $ par mois en annuel (5 × 20 $) ou 125 $ au mois, hors taxes. Si l'un des cinq prend un siège Premium, le total passe à 180 $ en annuel (4 × 20 $ + 100 $). Calcul de Waimia à partir de la page tarifs d'Anthropic, en dollars, relevée le 15 octobre 2026."
+    },
+    {
+      "q": "Claude est-il gratuit pour une TPE ?",
+      "a": "L'offre Free coûte 0 $ et donne le chat, la recherche web, les fichiers, la mémoire et jusqu'à cinq projets. Elle relève elle aussi des conditions grand public. Servez-vous-en pour tester avec des textes publics ou fictifs, pas pour traiter les documents de vos clients. Le guide Claude gratuit détaille ses limites."
+    },
+    {
+      "q": "Que ne faut-il pas confier à Claude dans une TPE ?",
+      "a": "Les données personnelles de clients ou de salariés sur un compte grand public, les secrets d'affaires, toute décision visant une personne, tout envoi ou paiement sans relecture, et les avis juridiques, fiscaux ou comptables définitifs. Mots de passe et clés d'accès restent hors de la conversation."
+    },
+    {
+      "q": "Faut-il former une TPE à l'usage de Claude ?",
+      "a": "Oui, et le droit européen y pousse. L'article 4 du règlement européen sur l'IA demande aux entreprises qui utilisent un système d'IA de prendre des mesures pour développer la maîtrise de l'IA de leur personnel, sans garantir un niveau à chaque personne. Une règle d'usage d'une page et une demi-journée d'essais sur des cas réels suffisent pour démarrer."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Is Claude suited to a very small business?",
+      "a": "Yes for drafting, reading documents and spreadsheets, on two conditions: a contract suited to professional use and human review. Claude can produce an answer that is plausible but wrong, the CNIL reminds us. Do not leave decisions about people, sending or payments to it without review. Checked on 15 October 2026."
+    },
+    {
+      "q": "Which Claude plan should a very small business choose?",
+      "a": "For business work with two people or more, Team: $20 per seat per month billed annually, $25 monthly, excluding tax, 2 seats minimum, under Anthropic's commercial terms. A Premium seat ($100 annually, $125 monthly) suits a heavy user. Max remains an individual account under consumer terms."
+    },
+    {
+      "q": "Is the Pro plan enough for a very small business?",
+      "a": "For the usage, often yes. For the contract, it is less clear: Pro falls under consumer terms, and the European version, concluded with Anthropic Ireland, Limited, contains a \"Non-commercial use only\" clause. A sole manager should have a legal adviser check the setup before putting a client document in. This is not legal advice."
+    },
+    {
+      "q": "How much does Claude cost a five-person business?",
+      "a": "Five Team Standard seats cost $100 a month billed annually (5 × $20) or $125 monthly, excluding tax. If one of the five takes a Premium seat, the total becomes $180 billed annually (4 × $20 + $100). Waimia's calculation from Anthropic's pricing page, in dollars, checked on 15 October 2026."
+    },
+    {
+      "q": "Is Claude free for a very small business?",
+      "a": "The Free plan costs $0 and gives chat, web search, files, memory and up to five projects. It also falls under consumer terms. Use it to test with public or fictional texts, not to process your clients' documents. The free Claude guide details its limits."
+    },
+    {
+      "q": "What should a very small business not entrust to Claude?",
+      "a": "Personal data of clients or employees on a consumer account, trade secrets, any decision about a person, any sending or payment without review, and final legal, tax or accounting opinions. Passwords and access keys stay out of the conversation."
+    },
+    {
+      "q": "Does a very small business need to train its people to use Claude?",
+      "a": "Yes, and European law pushes that way. Article 4 of the European AI Act asks companies that use an AI system to take measures to develop their staff's AI literacy, without guaranteeing a level for each person. A one-page usage rule and half a day of trials on real cases are enough to start."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "illustration": {
+        "src": "/images/illustrations/ds/batiment-demandes-triees-paper.webp",
+        "alt_fr": "Des enveloppes tombent dans trois caisses de chantier, sous le regard d'un homme",
+        "alt_en": "Envelopes drop into three site crates while a man watches",
+        "side": "right"
+      },
+      "kicker_fr": "§ Guide",
+      "kicker_en": "§ Guide",
+      "h1_fr": "Claude pour une <i class=\"acc\">TPE</i> : par où commencer, avec quel abonnement",
+      "h1_en": "Claude for a <i class=\"acc\">very small business</i>: where to start, with which plan",
+      "lede_fr": "Une TPE démarre par un seul usage, sur un compte Team : 2 sièges au minimum, 20 $ par siège et par mois en annuel, 25 $ au mois, hors taxes. Un dirigeant seul est un cas à part : Pro relève des conditions grand public, dont la version européenne exclut l'usage commercial. Relevé le 15 octobre 2026.",
+      "lede_en": "A very small business starts with one use, on a Team account: 2 seats minimum, $20 per seat per month billed annually, $25 monthly, excluding tax. A sole manager is a case of its own: Pro falls under consumer terms, whose European version excludes commercial use. Checked on 15 October 2026.",
+      "badges": [
+        {
+          "label_fr": "Prix Anthropic relevés le 15 octobre 2026",
+          "label_en": "Anthropic prices checked on 15 October 2026"
+        },
+        {
+          "label_fr": "Prix en dollars, hors taxes",
+          "label_en": "Prices in dollars, excluding tax"
+        },
+        {
+          "label_fr": "Pas un avis juridique",
+          "label_en": "Not legal advice"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver l'audit gratuit",
+        "label_en": "Book the free audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Voir les offres Claude et leurs prix",
+        "label_en": "See the Claude plans and their prices",
+        "href": "/ressources/guides/claude-fonctionnalites-pme",
+        "variant": "ghost"
+      }
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "15 octobre 2026",
+      "updatedDate": "15 octobre 2026"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "Comment une TPE démarre-t-elle avec Claude ?",
+      "question_en": "How does a very small business start with Claude?",
+      "term_fr": "Réponse courte",
+      "term_en": "Short answer",
+      "answer_fr": "Elle choisit d'abord le contrat, puis un seul usage. Pour du travail d'entreprise, la voie claire est Team : conditions commerciales, aucun entraînement sur vos contenus par défaut, dès 2 sièges. Un dirigeant seul fait valider sa situation par un conseil juridique avant d'y mettre un document client. Trois usages pour commencer : rédiger, lire un document, préparer un tableau. Relevé le 15 octobre 2026.",
+      "answer_en": "It chooses the contract first, then a single use. For business work the clear route is Team: commercial terms, no training on your content by default, from 2 seats. A sole manager has a legal adviser check the situation before putting a client document in. Three uses to start: drafting, reading a document, preparing a spreadsheet. Checked on 15 October 2026."
+    },
+    {
+      "type": "key-metric-grid",
+      "background": "paper",
+      "variant": "accent",
+      "columns": 4,
+      "eyebrow_fr": "§ Les repères",
+      "eyebrow_en": "§ Key figures",
+      "title_fr": "Quels chiffres retenir avant de choisir un compte ?",
+      "title_en": "Which figures should you remember before choosing an account?",
+      "metrics": [
+        {
+          "value": "2 sièges",
+          "label_fr": "minimum d'un compte Team, jusqu'à 150 ; l'offre n'est pas prévue pour un usage individuel (Anthropic)",
+          "label_en": "minimum for a Team account, up to 150; the plan is not intended for individual use (Anthropic)"
+        },
+        {
+          "value": "20 $ / 25 $",
+          "label_fr": "par siège et par mois pour Team Standard, facturé à l'année ou au mois, hors taxes",
+          "label_en": "per seat per month for Team Standard, billed annually or monthly, excluding tax"
+        },
+        {
+          "value": "17 $ / 20 $",
+          "label_fr": "par mois pour Pro, facturé à l'année (200 $ d'avance) ou au mois, hors taxes",
+          "label_en": "per month for Pro, billed annually ($200 up front) or monthly, excluding tax"
+        },
+        {
+          "value": "1,25 fois",
+          "label_fr": "l'usage par session de Pro pour un siège Team Standard : Team apporte surtout le contrat et l'administration, peu de quota en plus",
+          "label_en": "the per-session usage of Pro for a Team Standard seat: Team mainly brings the contract and administration, not much extra quota"
+        }
+      ]
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Quel compte",
+      "kicker_en": "§ Which account",
+      "heading_fr": "Quel compte Claude pour quelle situation de TPE ?",
+      "heading_en": "Which Claude account for which very small business situation?",
+      "caption_fr": "Sources : page tarifs d'Anthropic et articles de son centre d'aide sur Pro et Team, lus le 15 octobre 2026. Prix en dollars, hors taxes. La colonne « À vérifier » est une lecture de Waimia, pas un avis juridique.",
+      "caption_en": "Sources: Anthropic's pricing page and its help-centre articles on Pro and Team, read on 15 October 2026. Prices in dollars, excluding tax. The \"To check\" column is Waimia's reading, not legal advice.",
+      "columns_fr": [
+        "Situation",
+        "Compte",
+        "Ce que disent les sources",
+        "À vérifier"
+      ],
+      "columns_en": [
+        "Situation",
+        "Account",
+        "What the sources say",
+        "To check"
+      ],
+      "rows_fr": [
+        [
+          "Tester sans engagement, sans donnée d'entreprise",
+          "Free, à 0 $",
+          "Chat, recherche web, fichiers, mémoire, Claude Design, jusqu'à cinq projets. Conditions grand public.",
+          "Textes publics ou fictifs uniquement."
+        ],
+        [
+          "Dirigeant seul, au-delà du test",
+          "Cas à part",
+          "Team commence à 2 membres et n'est pas prévu pour un usage individuel. Pro et Max restent sous les conditions grand public, dont la version européenne exclut l'usage commercial.",
+          "Validation par un conseil juridique avant tout document client."
+        ],
+        [
+          "2 à 10 personnes qui travaillent avec Claude",
+          "Team Standard : 20 $ par siège en annuel, 25 $ au mois",
+          "Conditions commerciales, aucun entraînement sur vos contenus par défaut, facturation et administration centralisées, projets partagés.",
+          "Adresse e-mail professionnelle pour créer l'organisation ; quota propre à chaque siège."
+        ],
+        [
+          "Un gros utilisateur dans l'équipe",
+          "Siège Premium : 100 $ en annuel, 125 $ au mois",
+          "Cinq fois l'usage d'un siège Standard. Les sièges se mélangent dans une même organisation.",
+          "Chat, Cowork et Claude Code puisent dans le même quota."
+        ],
+        [
+          "Une personne qui sature Pro",
+          "Max, dès 100 $ par mois",
+          "Cinq ou vingt fois l'usage de Pro. Compte individuel.",
+          "Même cadre contractuel que Pro."
+        ]
+      ],
+      "rows_en": [
+        [
+          "Testing with no commitment and no company data",
+          "Free, at $0",
+          "Chat, web search, files, memory, Claude Design, up to five projects. Consumer terms.",
+          "Public or fictional texts only."
+        ],
+        [
+          "Sole manager, beyond testing",
+          "A case of its own",
+          "Team starts at 2 members and is not intended for individual use. Pro and Max stay under consumer terms, whose European version excludes commercial use.",
+          "Legal adviser's check before any client document."
+        ],
+        [
+          "2 to 10 people working with Claude",
+          "Team Standard: $20 per seat billed annually, $25 monthly",
+          "Commercial terms, no training on your content by default, central billing and administration, shared projects.",
+          "Business email address to create the organisation; each seat has its own quota."
+        ],
+        [
+          "A heavy user in the team",
+          "Premium seat: $100 annually, $125 monthly",
+          "Five times the usage of a Standard seat. Seat types can be mixed within one organisation.",
+          "Chat, Cowork and Claude Code draw from the same quota."
+        ],
+        [
+          "One person who saturates Pro",
+          "Max, from $100 a month",
+          "Five or twenty times the usage of Pro. Individual account.",
+          "Same contractual framework as Pro."
+        ]
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Pourquoi le contrat compte-t-il plus que le prix ?</h2>\n<p>Deux comptes Pro coûtent 34 $ par mois en annuel, deux sièges Team Standard 40 $ : 6 $ d'écart pour deux personnes, hors taxes (calcul de Waimia sur la page tarifs d'Anthropic). Le prix ne décide pas. Le cadre, si.</p>\n<p><strong>Les conditions.</strong> Free, Pro et Max relèvent des conditions grand public. La version européenne, conclue avec Anthropic Ireland, Limited et en vigueur au 8 octobre 2025, contient une clause « Usage non commercial uniquement » : l'utilisateur accepte de ne pas utiliser les services à des fins commerciales ou professionnelles. Team, Enterprise et l'API relèvent des conditions commerciales. Le détail est dans le guide <a href=\"/ressources/guides/claude-gratuit\">Claude gratuit</a>.</p>\n<p><strong>Les données.</strong> Sur Team, Anthropic n'utilise pas vos entrées et sorties pour entraîner ses modèles, sauf choix contraire de votre organisation. Sur Free, Pro et Max, l'entraînement est un réglage (« Opt-out » sur la page tarifs) que chaque utilisateur doit couper lui-même. Dans les deux cas, un retour envoyé volontairement à Anthropic (pouce vers le haut ou vers le bas) peut servir à l'entraînement. Détail offre par offre : <a href=\"/ressources/guides/claude-rgpd-pme\">Claude et RGPD en PME</a>.</p>\n<p><strong>Le compte.</strong> Pour créer une organisation Team, la personne qui la crée doit utiliser une adresse e-mail professionnelle : gmail.com, yahoo.com ou hotmail.com sont refusés pour elle, mais peuvent être autorisés pour les autres membres.</p>\n<h2>Et si vous êtes seul à l'utiliser ?</h2>\n<p>Team commence à deux membres et n'est pas prévu pour un usage individuel. Pro et Max restent sous les conditions grand public. Ce sont les faits publiés ; leur portée juridique pour votre situation est l'affaire d'un juriste. <strong>Avant d'y mettre un document client, faites valider la solution par un conseil juridique.</strong> D'ici là, travaillez sur des textes publics ou fictifs. Ce guide n'est pas un avis juridique.</p>",
+      "html_en": "<h2>Why does the contract matter more than the price?</h2>\n<p>Two Pro accounts cost $34 a month billed annually, two Team Standard seats $40: a $6 gap for two people, excluding tax (Waimia's calculation from Anthropic's pricing page). The price does not decide. The framework does.</p>\n<p><strong>The terms.</strong> Free, Pro and Max fall under consumer terms. The European version, concluded with Anthropic Ireland, Limited and in force on 8 October 2025, contains a \"Non-commercial use only\" clause: the user agrees not to use the services for any commercial or business purposes. Team, Enterprise and the API fall under commercial terms. The detail is in the guide <a href=\"/ressources/guides/claude-gratuit\">Free Claude</a>.</p>\n<p><strong>The data.</strong> On Team, Anthropic does not use your inputs and outputs to train its models unless your organisation chooses otherwise. On Free, Pro and Max, training is a setting (\"Opt-out\" on the pricing page) that each user must switch off. In both cases, feedback sent voluntarily to Anthropic (thumbs up or down) can be used for training. Plan-by-plan detail: <a href=\"/ressources/guides/claude-rgpd-pme\">Claude and GDPR for SMBs</a>.</p>\n<p><strong>The account.</strong> To create a Team organisation, the person creating it must use a business email address: gmail.com, yahoo.com or hotmail.com are refused for them, but can be allowed for the other members.</p>\n<h2>What if you are the only user?</h2>\n<p>Team starts at two members and is not intended for individual use. Pro and Max stay under consumer terms. Those are the published facts; their legal scope for your situation is a lawyer's matter. <strong>Before putting a client document in, have a legal adviser check the setup.</strong> Until then, work on public or fictional texts. This guide is not legal advice.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Quels sont les trois usages pour commencer ?</h2>\n<p>La CNIL range les tâches d'une IA générative en trois familles : produire un contenu, retraiter un contenu existant (corriger, traduire), analyser des données (trier, synthétiser). Une TPE démarre avec une tâche, deux au plus, et la mesure avant d'en ajouter une. Le choix du modèle se règle ensuite : voir <a href=\"/ressources/guides/quel-modele-claude-choisir\">quel modèle Claude choisir</a>.</p>\n<h3>1. Rédiger et répondre</h3>\n<p>Réponse à un client, devis rédigé à partir de vos notes, relance polie, annonce. Claude propose un brouillon, vous relisez, vous envoyez. Un projet qui garde votre ton et vos conditions de vente évite de tout réexpliquer : les projets existent dès l'offre Free (jusqu'à cinq) et sans limite affichée en Pro, Max et Team. La CNIL recommande de ne jamais reproduire telle quelle une sortie, même filtrée.</p>\n<h3>2. Lire un document</h3>\n<p>Un contrat fournisseur, un cahier des charges, un devis concurrent, une notice : demandez un résumé, les points à vérifier et les passages cités. Anthropic précise que la lecture d'une image peut se tromper sur un document de mauvaise qualité, pivoté ou très petit : vérifiez chiffres et dates dans l'original. Retirez d'abord les données personnelles.</p>\n<h3>3. Préparer un tableau</h3>\n<p>Suivi de trésorerie, grille de tarifs, planning : le module Claude pour Excel répond aux questions sur le classeur avec des citations de cellule et modifie une hypothèse sans casser les formules. Il est disponible avec Pro, Max, Team et Enterprise. Anthropic ne le recommande pas pour des calculs critiques d'audit sans vérification, ni pour un livrable client sans relecture humaine, et conseille de travailler sur une copie du fichier.</p>\n<p>Mesurez avant d'élargir : notez le temps passé sur la tâche sans Claude, puis avec, pendant deux semaines. Le <a href=\"/ressources/outils/calculateur-roi-ia\">calculateur de retour</a> met vos chiffres en forme.</p>",
+      "html_en": "<h2>What are the three uses to start with?</h2>\n<p>The CNIL groups a generative AI's tasks into three families: producing content, reprocessing existing content (correcting, translating), analysing data (sorting, summarising). A very small business starts with one task, two at most, and measures before adding one. Model choice comes next: see <a href=\"/ressources/guides/quel-modele-claude-choisir\">which Claude model to choose</a>.</p>\n<h3>1. Draft and reply</h3>\n<p>A reply to a client, a quote drafted from your notes, a polite reminder, an announcement. Claude proposes a draft, you review, you send. A project that keeps your tone and sales conditions saves explaining everything again: projects exist from the Free plan (up to five) and with no stated limit in Pro, Max and Team. The CNIL recommends never reproducing an output as it stands, even a filtered one.</p>\n<h3>2. Read a document</h3>\n<p>A supplier contract, a specification, a competitor's quote, a manual: ask for a summary, the points to check and the passages quoted. Anthropic notes that image reading can go wrong on a poor-quality, rotated or very small document: check figures and dates in the original. Remove personal data first.</p>\n<h3>3. Prepare a spreadsheet</h3>\n<p>Cash tracking, price grid, schedule: the Claude for Excel add-in answers questions about the workbook with cell-level citations and changes an assumption without breaking formulas. It is available with Pro, Max, Team and Enterprise. Anthropic does not recommend it for audit-critical calculations without verification, nor for a client deliverable without human review, and advises working on a copy of the file.</p>\n<p>Measure before widening: note the time spent on the task without Claude, then with it, over two weeks. The <a href=\"/ressources/outils/calculateur-roi-ia\">return calculator</a> puts your figures in shape.</p>"
+    },
+    {
+      "type": "tech-when-dual",
+      "background": "paper",
+      "kicker_fr": "§ Périmètre",
+      "kicker_en": "§ Scope",
+      "title_fr": "Qu'est-ce qu'une TPE confie à Claude, et qu'est-ce qu'elle garde ?",
+      "title_en": "What does a very small business hand to Claude, and what does it keep?",
+      "aside_fr": "Claude propose, une personne décide. Le risque grandit avec la sensibilité des données et avec la portée de l'action.",
+      "aside_en": "Claude proposes, a person decides. The risk grows with the sensitivity of the data and the reach of the action.",
+      "use_title_fr": "À confier, avec relecture",
+      "use_title_en": "To hand over, with review",
+      "use_items_fr": [
+        "Des brouillons de courriers, de devis et de relances, relus avant envoi",
+        "Le résumé d'un document sans donnée personnelle, chiffres et dates revérifiés dans l'original",
+        "Des questions et des corrections sur vos tableaux, sur une copie du fichier",
+        "La mise en forme et la traduction de textes que vous maîtrisez"
+      ],
+      "use_items_en": [
+        "Drafts of letters, quotes and reminders, reviewed before sending",
+        "A summary of a document with no personal data, figures and dates rechecked in the original",
+        "Questions and corrections on your spreadsheets, on a copy of the file",
+        "Formatting and translating texts you master"
+      ],
+      "avoid_title_fr": "À garder",
+      "avoid_title_en": "To keep",
+      "avoid_items_fr": [
+        "Les données personnelles de clients ou de salariés, sur un compte grand public",
+        "Les secrets d'affaires et les informations soumises à confidentialité, hors cadre contractuel",
+        "Toute décision visant une personne : recrutement, évaluation, refus d'un client",
+        "L'envoi d'un courrier, d'un devis ou d'un paiement sans relecture humaine",
+        "Un avis juridique, fiscal ou comptable définitif, sans professionnel",
+        "Mots de passe, codes bancaires et clés d'accès"
+      ],
+      "avoid_items_en": [
+        "Personal data of clients or employees, on a consumer account",
+        "Trade secrets and information under confidentiality, outside a contractual framework",
+        "Any decision about a person: hiring, appraisal, refusing a client",
+        "Sending a letter, a quote or a payment without human review",
+        "A final legal, tax or accounting opinion, without a professional",
+        "Passwords, bank codes and access keys"
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Quelle règle d'usage écrire avant de commencer ?</h2>\n<p>La CNIL recommande d'encadrer l'usage d'une IA générative par une charte qui définit les usages autorisés et interdits, de former les utilisateurs et de contrôler régulièrement. Pour une TPE, une page suffit :</p>\n<ol>\n<li>Qui a un compte, et lequel : comptes professionnels uniquement, jamais une adresse personnelle.</li>\n<li>Ce qu'on peut y mettre, et ce qu'on n'y met jamais (la colonne « À garder » ci-dessus).</li>\n<li>Qui relit avant tout envoi.</li>\n<li>Où l'on note une erreur de Claude : un fichier partagé, daté.</li>\n<li>Qui met la règle à jour, et quand.</li>\n</ol>\n<p>Cette règle sert aussi l'article 4 du règlement européen sur l'IA, qui demande aux entreprises utilisatrices de prendre des mesures pour développer la maîtrise de l'IA de leur personnel, sans garantir un niveau donné à chaque personne. Le calendrier complet est dans le guide <a href=\"/ressources/guides/ai-act-pme-calendrier\">AI Act pour PME</a>.</p>",
+      "html_en": "<h2>Which usage rule should you write before starting?</h2>\n<p>The CNIL recommends framing the use of a generative AI with a charter that defines authorised and forbidden uses, training users and checking regularly. For a very small business, one page is enough:</p>\n<ol>\n<li>Who has an account, and which one: business accounts only, never a personal address.</li>\n<li>What can go in, and what never does (the \"To keep\" column above).</li>\n<li>Who reviews before anything is sent.</li>\n<li>Where a Claude error is noted: a shared, dated file.</li>\n<li>Who updates the rule, and when.</li>\n</ol>\n<p>This rule also serves Article 4 of the European AI Act, which asks companies that use AI to take measures to develop their staff's AI literacy, without guaranteeing a given level for each person. The full timeline is in the guide <a href=\"/ressources/guides/ai-act-pme-calendrier\">AI Act for SMBs</a>.</p>"
+    },
+    {
+      "type": "process-steps",
+      "background": "paper-2",
+      "kicker_fr": "§ Le premier mois",
+      "kicker_en": "§ The first month",
+      "h2_fr": "Que faire la première semaine, puis le premier mois ?",
+      "h2_en": "What to do in the first week, then in the first month?",
+      "intro_fr": "Pas de déploiement : un compte, une règle, un usage, une mesure. Chaque étape se ferme sur une décision.",
+      "intro_en": "No rollout: one account, one rule, one use, one measurement. Each step ends on a decision.",
+      "steps": [
+        {
+          "title_fr": "Jour 1 : choisir le compte et poser la règle",
+          "title_en": "Day 1: choose the account and set the rule",
+          "body_fr": "Team dès deux personnes, ou une solution validée par un conseil juridique pour un dirigeant seul. La règle d'une page est écrite et partagée.",
+          "body_en": "Team from two people, or a setup validated by a legal adviser for a sole manager. The one-page rule is written and shared.",
+          "meta_fr": "Décision : quel compte ?",
+          "meta_en": "Decision: which account?"
+        },
+        {
+          "title_fr": "Jours 2 à 5 : un seul usage, des cas réels",
+          "title_en": "Days 2 to 5: a single use, real cases",
+          "body_fr": "Rédaction, lecture de documents ou tableau, au choix. Vous testez sur vos cas réels, sans donnée personnelle, et vous relisez tout.",
+          "body_en": "Drafting, document reading or spreadsheet, your pick. You test on your real cases, with no personal data, and review everything.",
+          "meta_fr": "Décision : le brouillon est-il utilisable ?",
+          "meta_en": "Decision: is the draft usable?"
+        },
+        {
+          "title_fr": "Semaine 2 : mesurer",
+          "title_en": "Week 2: measure",
+          "body_fr": "Temps passé avec et sans Claude, erreurs notées, corrections nécessaires. Sans mesure, aucun gain ne s'affirme.",
+          "body_en": "Time spent with and without Claude, errors noted, corrections needed. Without a measurement, no gain can be claimed.",
+          "meta_fr": "Décision : le gain est-il réel ?",
+          "meta_en": "Decision: is the gain real?"
+        },
+        {
+          "title_fr": "Semaine 4 : élargir, ajuster ou arrêter",
+          "title_en": "Week 4: widen, adjust or stop",
+          "body_fr": "Un deuxième usage, un siège Premium pour qui sature son quota, ou l'arrêt. Une tâche qui touche plusieurs logiciels relève d'un workflow, pas d'un abonnement.",
+          "body_en": "A second use, a Premium seat for whoever saturates their quota, or stopping. A task that touches several tools calls for a workflow, not a subscription.",
+          "meta_fr": "Décision : on poursuit ?",
+          "meta_en": "Decision: carry on?"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Quand faut-il se faire accompagner ?</h2>\n<p>Pour une TPE dont les usages se limitent à la rédaction, à la lecture de documents et aux tableaux, ce guide et un compte Team suffisent. L'accompagnement se justifie quand une tâche répétée traverse plusieurs logiciels (devis, e-mails, facturation, agenda). Chez Waimia : un audit gratuit de 45 minutes, puis un sprint de cadrage de 10 heures à {{prix.sprint}} € HT, à prix fixe, qui livre un premier workflow prototypé et testé. La mise en production relève du pilote, dès {{prix.pilote}} € HT, comme sur la page <a href=\"/tarifs\">Tarifs</a>. Pour aller plus loin sur la méthode, voir le guide <a href=\"/ressources/guides/claude-pme\">déployer Claude en PME</a> et, pour les workflows prêts à l'emploi d'Anthropic, <a href=\"/ressources/guides/claude-for-small-business\">Claude for Small Business en France</a>.</p>",
+      "html_en": "<h2>When should you get support?</h2>\n<p>For a very small business whose uses are limited to drafting, document reading and spreadsheets, this guide and a Team account are enough. Support is justified when a repeated task crosses several tools (quotes, emails, invoicing, calendar). At Waimia: a free 45-minute audit, then a 10-hour scoping sprint at €{{prix.sprint.en}} excl. VAT, fixed price, which delivers a first workflow prototyped and tested. Going live is part of the pilot, from €{{prix.pilote.en}} excl. VAT, as on the <a href=\"/tarifs\">Pricing</a> page. To go further on method, see the guide <a href=\"/ressources/guides/claude-pme\">deploying Claude in an SMB</a> and, for Anthropic's ready-made workflows, <a href=\"/ressources/guides/claude-for-small-business\">Claude for Small Business in France</a>.</p>"
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper-2",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Further reading",
+      "cards": [
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Claude Pro, Max, Team : offres et prix en PME",
+          "title_en": "Claude Pro, Max, Team: plans and pricing for SMBs",
+          "lead_fr": "La grille complète des offres, les sièges Premium et le quota partagé.",
+          "lead_en": "The full plan grid, Premium seats and the shared quota.",
+          "href": "/ressources/guides/claude-fonctionnalites-pme"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Claude gratuit : ce que permet l'offre Free",
+          "title_en": "Free Claude: what the Free plan allows",
+          "lead_fr": "Ce que donne l'offre Free, ses limites et la clause d'usage non commercial.",
+          "lead_en": "What the Free plan gives, its limits and the non-commercial clause.",
+          "href": "/ressources/guides/claude-gratuit"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Claude et RGPD en PME",
+          "title_en": "Claude and GDPR for SMBs",
+          "lead_fr": "Comptes, entraînement, stockage, accord de traitement des données : ce qui change selon l'offre.",
+          "lead_en": "Accounts, training, storage, data processing agreement: what changes by plan.",
+          "href": "/ressources/guides/claude-rgpd-pme"
+        }
+      ]
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "h2_fr": "Claude pour une TPE : questions fréquentes",
+      "h2_en": "Claude for a very small business: frequently asked questions",
+      "items": [
+        {
+          "q_fr": "Claude est-il adapté à une TPE ?",
+          "a_fr": "Oui pour la rédaction, la lecture de documents et les tableaux, à deux conditions : un contrat adapté à un usage professionnel et une relecture humaine. Claude peut produire une réponse plausible mais fausse, rappelle la CNIL. Ne lui confiez ni décision sur une personne, ni envoi, ni paiement sans relecture. Relevé le 15 octobre 2026.",
+          "q_en": "Is Claude suited to a very small business?",
+          "a_en": "Yes for drafting, reading documents and spreadsheets, on two conditions: a contract suited to professional use and human review. Claude can produce an answer that is plausible but wrong, the CNIL reminds us. Do not leave decisions about people, sending or payments to it without review. Checked on 15 October 2026."
+        },
+        {
+          "q_fr": "Quel abonnement Claude choisir pour une TPE ?",
+          "a_fr": "Pour du travail d'entreprise à deux personnes ou plus, Team : 20 $ par siège et par mois en annuel, 25 $ au mois, hors taxes, 2 sièges au minimum, avec les conditions commerciales d'Anthropic. Un siège Premium (100 $ en annuel, 125 $ au mois) convient à un gros utilisateur. Max reste un compte individuel sous conditions grand public.",
+          "q_en": "Which Claude plan should a very small business choose?",
+          "a_en": "For business work with two people or more, Team: $20 per seat per month billed annually, $25 monthly, excluding tax, 2 seats minimum, under Anthropic's commercial terms. A Premium seat ($100 annually, $125 monthly) suits a heavy user. Max remains an individual account under consumer terms."
+        },
+        {
+          "q_fr": "L'abonnement Pro suffit-il pour une TPE ?",
+          "a_fr": "Pour l'usage, souvent oui. Pour le contrat, c'est moins clair : Pro relève des conditions grand public, et la version européenne, conclue avec Anthropic Ireland, Limited, contient une clause « Usage non commercial uniquement ». Pour un dirigeant seul, faites valider la solution par un conseil juridique avant d'y mettre un document client. Ce n'est pas un avis juridique.",
+          "q_en": "Is the Pro plan enough for a very small business?",
+          "a_en": "For the usage, often yes. For the contract, it is less clear: Pro falls under consumer terms, and the European version, concluded with Anthropic Ireland, Limited, contains a \"Non-commercial use only\" clause. A sole manager should have a legal adviser check the setup before putting a client document in. This is not legal advice."
+        },
+        {
+          "q_fr": "Combien coûte Claude pour une TPE de cinq personnes ?",
+          "a_fr": "Cinq sièges Team Standard coûtent 100 $ par mois en annuel (5 × 20 $) ou 125 $ au mois, hors taxes. Si l'un des cinq prend un siège Premium, le total passe à 180 $ en annuel (4 × 20 $ + 100 $). Calcul de Waimia à partir de la page tarifs d'Anthropic, en dollars, relevée le 15 octobre 2026.",
+          "q_en": "How much does Claude cost a five-person business?",
+          "a_en": "Five Team Standard seats cost $100 a month billed annually (5 × $20) or $125 monthly, excluding tax. If one of the five takes a Premium seat, the total becomes $180 billed annually (4 × $20 + $100). Waimia's calculation from Anthropic's pricing page, in dollars, checked on 15 October 2026."
+        },
+        {
+          "q_fr": "Claude est-il gratuit pour une TPE ?",
+          "a_fr": "L'offre Free coûte 0 $ et donne le chat, la recherche web, les fichiers, la mémoire et jusqu'à cinq projets. Elle relève elle aussi des conditions grand public. Servez-vous-en pour tester avec des textes publics ou fictifs, pas pour traiter les documents de vos clients. Le guide Claude gratuit détaille ses limites.",
+          "q_en": "Is Claude free for a very small business?",
+          "a_en": "The Free plan costs $0 and gives chat, web search, files, memory and up to five projects. It also falls under consumer terms. Use it to test with public or fictional texts, not to process your clients' documents. The free Claude guide details its limits."
+        },
+        {
+          "q_fr": "Que ne faut-il pas confier à Claude dans une TPE ?",
+          "a_fr": "Les données personnelles de clients ou de salariés sur un compte grand public, les secrets d'affaires, toute décision visant une personne, tout envoi ou paiement sans relecture, et les avis juridiques, fiscaux ou comptables définitifs. Mots de passe et clés d'accès restent hors de la conversation.",
+          "q_en": "What should a very small business not entrust to Claude?",
+          "a_en": "Personal data of clients or employees on a consumer account, trade secrets, any decision about a person, any sending or payment without review, and final legal, tax or accounting opinions. Passwords and access keys stay out of the conversation."
+        },
+        {
+          "q_fr": "Faut-il former une TPE à l'usage de Claude ?",
+          "a_fr": "Oui, et le droit européen y pousse. L'article 4 du règlement européen sur l'IA demande aux entreprises qui utilisent un système d'IA de prendre des mesures pour développer la maîtrise de l'IA de leur personnel, sans garantir un niveau à chaque personne. Une règle d'usage d'une page et une demi-journée d'essais sur des cas réels suffisent pour démarrer.",
+          "q_en": "Does a very small business need to train its people to use Claude?",
+          "a_en": "Yes, and European law pushes that way. Article 4 of the European AI Act asks companies that use an AI system to take measures to develop their staff's AI literacy, without guaranteeing a level for each person. A one-page usage rule and half a day of trials on real cases are enough to start."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Démarrer proprement",
+      "kicker_en": "§ Start properly",
+      "h2_fr": "Le bon compte et un premier usage, choisis avant la première facture.",
+      "h2_en": "The right account and a first use, chosen before the first invoice.",
+      "subtitle_fr": "L'audit de 45 minutes est gratuit. On regarde vos tâches répétées, vos logiciels et vos données, et on vous dit si un compte Team et ce guide suffisent, ou si une tâche mérite un workflow.",
+      "subtitle_en": "The 45-minute audit is free. We look at your repeated tasks, tools and data, and tell you whether a Team account and this guide are enough, or whether a task deserves a workflow.",
+      "buttons": [
+        {
+          "label_fr": "Réserver l'audit gratuit",
+          "label_en": "Book the free audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Voir les offres Claude et leurs prix",
+          "label_en": "See the Claude plans and their prices",
+          "href": "/ressources/guides/claude-fonctionnalites-pme",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}
