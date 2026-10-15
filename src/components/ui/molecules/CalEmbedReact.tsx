@@ -14,6 +14,21 @@ import Cal, { getCalApi } from '@calcom/embed-react';
 import { useEffect } from 'react';
 import { SITE } from '../../../site.config';
 
+type LeadSource = { landing?: string; entry?: string; prev?: string };
+
+/** Provenance tenue en mémoire par layouts/Base.astro (src/lib/lead-source.ts), passée à Cal
+ *  en `metadata[...]` pour que la réservation dise d'où vient la personne. Elle part dans l'URL
+ *  de l'iframe dès l'affichage, avant toute réservation : la politique de confidentialité le dit. */
+function leadSourceMetadata(): Record<string, string> {
+  const read = (window as unknown as { wmLeadSource?: () => LeadSource }).wmLeadSource;
+  const src = read ? read() : undefined;
+  const out: Record<string, string> = {};
+  if (src?.landing) out['metadata[landing]'] = src.landing;
+  if (src?.entry) out['metadata[entry]'] = src.entry;
+  if (src?.prev) out['metadata[prev]'] = src.prev;
+  return out;
+}
+
 interface Props {
   /** Namespace Cal isolant l'instance sur la page (default: SITE.cal.namespace) */
   namespace?: string;
@@ -49,6 +64,7 @@ export default function CalEmbedReact({
         theme,
         // Cal.com quirk : "true"/"false" en string, pas booléen
         useSlotsViewOnSmallScreen: 'true',
+        ...leadSourceMetadata(),
       }}
     />
   );

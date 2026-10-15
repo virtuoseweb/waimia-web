@@ -7,6 +7,7 @@ import { sendEmail, emitEvent } from "../../lib/resend";
 import { upsertSubscriber } from "../../lib/mailerlite";
 import WelcomeNewsletter from "../../lib/emails/WelcomeNewsletter";
 import { z } from "zod";
+import { LeadSourceSchema, leadSourceLog, refererPath } from "../../lib/lead-source";
 import { isBotSubmission } from "../../lib/honeypot";
 import { SITE } from "../../site.config";
 
@@ -62,6 +63,8 @@ const NewsletterSchema = z.object({
   email: z.string().email(),
   lang: z.enum(["fr", "en"]).optional().default("fr"),
   website: z.string().optional(),
+  /** Provenance tenue en mémoire par le navigateur (src/lib/lead-source.ts). */
+  source: LeadSourceSchema,
 });
 
 // Workaround bug @astrojs/vercel@10 (POST exclu du bundle). Cf known-issues #1.
@@ -100,7 +103,7 @@ export const ALL: APIRoute = async ({ request }) => {
       { status: 400, headers: CORS_HEADERS },
     );
   }
-  const { email, lang, website } = parsed.data;
+  const { email, lang, website, source } = parsed.data;
   // Honeypot : un bot a rempli le champ caché → faux succès silencieux
   if (website) {
     return Response.json({ ok: true }, { status: 200, headers: CORS_HEADERS });
@@ -125,7 +128,7 @@ export const ALL: APIRoute = async ({ request }) => {
     await emitEvent("contact_submitted", { email, firstName });
     await upsertSubscriber({ email, name: firstName, groups: ["114701253078942792"] });
     const maskedEmail = email.replace(/(?<=.{3}).(?=.*@)/g, "*");
-    console.log(JSON.stringify({ ts: new Date().toISOString(), action: "newsletter_signup", ip, email: maskedEmail }));
+    console.log(JSON.stringify({ ts: new Date().toISOString(), action: "newsletter_signup", ...leadSourceLog(source, refererPath(request)), ip, email: maskedEmail }));
     return Response.json({
       ok: true,
       redirect: lang === "en" ? "/en/bienvenue/newsletter" : "/bienvenue/newsletter",

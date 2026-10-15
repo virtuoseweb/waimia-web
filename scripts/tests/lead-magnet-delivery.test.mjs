@@ -104,6 +104,39 @@ test('ressource sans fichier : e-mail sans pièce jointe', async () => {
   assert.equal(received.find((x) => x.body.to?.[0] === 'visiteur@example.com').body.attachments, undefined);
 });
 
+test('provenance : lignes dans l’alerte interne ; provenance mal formée ignorée sans bloquer', async () => {
+  reset();
+  const source = { landing: '/ressources/guides/claude-pme', entry: 'google.com', prev: '/services/agents-ia' };
+  const r = await processLeadMagnet({ ...good, source }, { ...deps, page: '/ressources/outils/faux-guide' });
+  assert.equal(r.status, 200);
+  const internal = received.find((x) => x.body.to?.[0] !== 'visiteur@example.com');
+  for (const s of ['Venu de', 'google.com', 'arriv', '/ressources/guides/claude-pme', 'Page précédente', '/services/agents-ia', 'Page du formulaire', '/ressources/outils/faux-guide']) {
+    assert.ok(internal.body.html.includes(s), `alerte interne sans « ${s} »`);
+  }
+  const toVisitor = received.find((x) => x.body.to?.[0] === 'visiteur@example.com');
+  assert.ok(!toVisitor.body.html.includes('/services/agents-ia'), 'la provenance ne part jamais chez le visiteur');
+
+  reset();
+  const bad = await processLeadMagnet({ ...good, source: { landing: 'javascript:alert(1)', entry: '<b>x</b>', prev: 42 } }, deps);
+  assert.equal(bad.status, 200, 'une provenance mal formée ne bloque pas la demande');
+  const internal2 = received.find((x) => x.body.to?.[0] !== 'visiteur@example.com');
+  assert.ok(!internal2.body.html.includes('Venu de'), 'provenance mal formée ignorée');
+  assert.ok(!internal2.body.html.includes('javascript:'), 'aucune valeur mal formée recopiée');
+
+  reset();
+  const junk = await processLeadMagnet({ ...good, source: 'pas un objet' }, deps);
+  assert.equal(junk.status, 200, 'une provenance qui n’est pas un objet ne bloque pas non plus');
+});
+
+test('refererPath : même hôte seulement, sans requête ni fragment', async () => {
+  const { refererPath } = await import(srcUrl('lib/lead-source.ts'));
+  const req = (ref) => new Request('https://waimia.com/api/contact', { method: 'POST', headers: ref ? { referer: ref } : {} });
+  assert.equal(refererPath(req('https://waimia.com/services/agents-ia?utm_source=x#rdv')), '/services/agents-ia');
+  assert.equal(refererPath(req('https://autre-site.fr/services/agents-ia')), undefined, 'autre hôte ignoré');
+  assert.equal(refererPath(req('pas une url')), undefined);
+  assert.equal(refererPath(req()), undefined);
+});
+
 test('503 email_not_configured sans clé Resend, aucun appel réseau', async () => {
   reset();
   delete process.env.RESEND_API_KEY;
@@ -248,6 +281,25 @@ test('endpoints newsletter, contact, devis : honeypot = faux succès silencieux,
     assert.deepEqual(await fast.json(), { ok: true }, name);
   }
   assert.equal(received.length, 0, 'aucun e-mail pour aucun des trois');
+});
+
+test('endpoint contact : la provenance et la page du formulaire arrivent dans l’alerte interne', async () => {
+  reset();
+  const { ALL } = await import(srcUrl('pages/api/contact.ts'));
+  const req = post('/api/contact', {
+    email: 'prospect@example.com', name: 'Prospect Test', brief: 'Un besoin réel.',
+    source: { landing: '/ressources/guides/claude-pme', entry: 'google.com', prev: '/services/agents-ia' },
+  });
+  req.headers.set('referer', 'http://localhost/contact?offer=audit-ia-pme');
+  const res = await ALL({ request: req });
+  assert.equal(res.status, 200);
+  const internal = received.find((x) => x.body.to?.[0] !== 'prospect@example.com');
+  assert.ok(internal, 'alerte interne envoyée');
+  for (const s of ['google.com', '/ressources/guides/claude-pme', '/services/agents-ia', 'Page du formulaire', '/contact']) {
+    assert.ok(internal.body.html.includes(s), `alerte interne sans « ${s} »`);
+  }
+  const toProspect = received.find((x) => x.body.to?.[0] === 'prospect@example.com');
+  assert.ok(!toProspect.body.html.includes('google.com'), 'la provenance ne part jamais chez le prospect');
 });
 
 test('endpoint lead-magnet (route Astro) : honeypot et slug inconnu', async () => {

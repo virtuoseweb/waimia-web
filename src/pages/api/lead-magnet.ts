@@ -11,6 +11,7 @@
 import type { APIRoute } from "astro";
 import { SITE } from "../../site.config";
 import { msg, processLeadMagnet } from "../../lib/lead-magnet-delivery";
+import { refererPath } from "../../lib/lead-source";
 
 export const prerender = false;
 
@@ -53,6 +54,6 @@ export const ALL: APIRoute = async ({ request }) => {
     return Response.json({ ok: false, code: "invalid_body", error: msg("invalid_body") }, { status: 400, headers: CORS_HEADERS });
   }
 
-  const { status, body } = await processLeadMagnet(rawPayload, { ip });
+  const { status, body } = await processLeadMagnet(rawPayload, { ip, page: refererPath(request) });
   return Response.json(body, { status, headers: CORS_HEADERS });
 };

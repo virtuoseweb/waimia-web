@@ -275,6 +275,30 @@ if (meshDelegated && meshHandoff) meshHandoff.mesh = autoMesh;
       initScrollMorph();
     </script>
 
+    {/* Provenance des demandes (src/lib/lead-source.ts) : page d'arrivée, source d'entrée et page
+        précédente, tenues EN MÉMOIRE pendant la visite (ni cookie ni stockage). Les formulaires
+        lisent window.wmLeadSource() au moment de l'envoi ; l'embed Cal la reçoit à son affichage
+        (politique de confidentialité v1.1). */}
+    <script is:inline>
+      (() => {
+        if (typeof window === 'undefined' || window.wmLeadSource) return;
+        const state = { landing: location.pathname, entry: 'direct', prev: '', current: location.pathname };
+        try {
+          if (document.referrer) {
+            const u = new URL(document.referrer);
+            if (u.origin === location.origin) { state.entry = 'interne'; state.prev = u.pathname; }
+            else state.entry = u.hostname.replace(/^www\./, '');
+          }
+        } catch (_) { /* référent illisible : on garde « direct » */ }
+        document.addEventListener('astro:after-swap', () => {
+          if (location.pathname === state.current) return;
+          state.prev = state.current;
+          state.current = location.pathname;
+        });
+        window.wmLeadSource = () => ({ landing: state.landing, entry: state.entry, prev: state.prev || undefined });
+      })();
+    </script>
+
     {/* Magnetic hover sur [data-mag] · réexécuté après View Transitions */}
     <script is:inline>
       (() => {

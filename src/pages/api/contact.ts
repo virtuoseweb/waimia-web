@@ -10,6 +10,7 @@ import InternalLeadAlert, { internalLeadSubject } from "../../lib/emails/Interna
 import { z } from "zod";
 import { isBotSubmission } from "../../lib/honeypot";
 import { SITE } from "../../site.config";
+import { LeadSourceSchema, leadSourceLog, leadSourceRows, refererPath } from "../../lib/lead-source";
 
 export const prerender = false;
 
@@ -72,6 +73,8 @@ const ContactSchema = z.object({
   intent: z.string().regex(/^[a-z0-9-]{1,40}$/).optional().or(z.literal("")),
   lang: z.enum(["fr", "en"]).optional().default("fr"),
   website: z.string().optional(),
+  /** Provenance tenue en mémoire par le navigateur (src/lib/lead-source.ts). */
+  source: LeadSourceSchema,
 });
 
 // Bug @astrojs/vercel@10 adapter : `export const POST` exclu du bundle SSR
@@ -117,12 +120,14 @@ export const ALL: APIRoute = async ({ request }) => {
       { status: 400, headers: CORS_HEADERS },
     );
   }
-  const { email, lang, name, brief, company, role, website, subject, offer, intent } = parsed.data;
+  const { email, lang, name, brief, company, role, website, subject, offer, intent, source } = parsed.data;
+  const page = refererPath(request);
   const details = [
     ...(subject ? [{ label: "Objet", value: subject }] : []),
     ...(offer ? [{ label: "Offre (URL)", value: offer }] : []),
     ...(intent ? [{ label: "Intention (URL)", value: intent }] : []),
     ...(name ? [{ label: "Nom", value: name }] : []),
+    ...leadSourceRows(source, page),
   ];
   // Honeypot : un bot a rempli le champ caché → faux succès silencieux
   if (website) {
@@ -175,7 +180,7 @@ export const ALL: APIRoute = async ({ request }) => {
       groups: ["117973699968108238"],
     });
     const maskedEmail = email.replace(/(?<=.{3}).(?=.*@)/g, "*");
-    console.log(JSON.stringify({ ts: new Date().toISOString(), action: "contact_submitted", ip, email: maskedEmail }));
+    console.log(JSON.stringify({ ts: new Date().toISOString(), action: "contact_submitted", ...leadSourceLog(source, page), ip, email: maskedEmail }));
     return Response.json({ ok: true, redirect: "/bienvenue/contact" }, { status: 200, headers: CORS_HEADERS });
   } catch (err) {
     console.error("[api/contact] error", err);
