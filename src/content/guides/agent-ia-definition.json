@@ -1,6 +1,6 @@
 {
   "$schema": "../../schemas/generated/guides.page.schema.json",
-  "title_fr": "Agent IA : c'est quoi ? Définition, coût et limites",
+  "title_fr": "Agent IA : c'est quoi ? Définition, coût et limites",
   "title_en": "What is an AI agent? Definition, cost and limits",
   "description_fr": "Agent IA : définition, tableau pour le distinguer d'un chatbot et d'une automatisation, coût d'usage chiffré, questions à poser à un vendeur, limites.",
   "description_en": "AI agent: definition, a table to tell it from a chatbot and an automation, a worked running cost, questions to ask a vendor, limits.",
@@ -64,7 +64,7 @@
     },
     {
       "q": "Combien coûte un agent IA pour une PME ?",
-      "a": "Deux postes : la construction, et l'usage du modèle, que son éditeur facture au volume de texte lu et écrit. Dans l'exemple illustratif de ce guide, 500 demandes par mois traitées en six étapes par Claude Sonnet 5.5 coûtent 30 dollars de modèle par mois. Chez Waimia, un projet commence par un audit gratuit de 45 minutes, puis un sprint de cadrage de 10 heures à 999 € HT. Le reste fait l'objet d'un devis après l'audit."
+      "a": "Deux postes : la construction, et l'usage du modèle, que son éditeur facture au volume de texte lu et écrit. Dans l'exemple illustratif de ce guide, 500 demandes par mois traitées en six étapes par Claude Sonnet 5.5 coûtent 30 dollars de modèle par mois. Chez Waimia, un projet commence par un audit gratuit de 45 minutes, puis un sprint de cadrage de 10 heures à {{prix.sprint}} € HT. Le reste fait l'objet d'un devis après l'audit."
     }
   ],
   "faq_en": [
@@ -90,7 +90,7 @@
     },
     {
       "q": "How much does an AI agent cost for an SMB?",
-      "a": "Two lines: the build, and model usage, which its vendor bills on the volume of text read and written. In this guide's illustrative example, 500 requests a month handled in six steps by Claude Sonnet 5.5 cost 30 dollars of model usage per month. At Waimia, a project starts with a free 45-minute audit, then a 10-hour scoping sprint at €999 excl. VAT. The rest is quoted after the audit."
+      "a": "Two lines: the build, and model usage, which its vendor bills on the volume of text read and written. In this guide's illustrative example, 500 requests a month handled in six steps by Claude Sonnet 5.5 cost 30 dollars of model usage per month. At Waimia, a project starts with a free 45-minute audit, then a 10-hour scoping sprint at €{{prix.sprint.en}} excl. VAT. The rest is quoted after the audit."
     }
   ],
   "sections": [
@@ -99,7 +99,7 @@
       "background": "paper",
       "kicker_fr": "§ Guide",
       "kicker_en": "§ Guide",
-      "h1_fr": "Agent IA : c'est quoi ? Définition, coût d'usage et limites",
+      "h1_fr": "Agent IA : c'est quoi ? Définition, coût d'usage et limites",
       "h1_en": "What is an AI agent? Definition, running cost and limits",
       "lede_fr": "Le mot « agent » sert à vendre trois choses très différentes : un assistant qui répond, une automatisation qui déroule un scénario, un agent qui décide de ses étapes. Ils n'ont ni le même prix ni les mêmes risques. Une seule question les sépare : qui décide des étapes, une personne à l'avance ou le modèle à chaque fois ?",
       "lede_en": "The word “agent” is used to sell three very different things: an assistant that answers, an automation that runs a script, an agent that decides its own steps. They differ in price and in risk. One question tells them apart: who decides the steps, a person in advance or the model each time?",
@@ -524,7 +524,7 @@
       "background": "paper",
       "kicker_fr": "§ Avis Waimia",
       "kicker_en": "§ Waimia's view",
-      "title_fr": "Avez-vous besoin d'un agent, ou d'une automatisation ?",
+      "title_fr": "Avez-vous besoin d'un agent, ou d'une automatisation ?",
       "title_en": "Do you need an agent, or an automation?",
       "aside_fr": "Mon conseil : essayez l'automatisation d'abord. Dans l'exemple de coût plus haut, l'agent fait six appels à un modèle plus cher là où l'automatisation en fait un : 30 dollars par mois contre 0,25.",
       "aside_en": "My advice: try the automation first. In the cost example above, the agent makes six calls to a pricier model where the automation makes one: 30 dollars a month against 0.25.",
@@ -692,9 +692,9 @@
         },
         {
           "q_fr": "Combien coûte un agent IA pour une PME ?",
-          "a_fr": "Deux postes : la construction, et l'usage du modèle, que son éditeur facture au volume de texte lu et écrit. Dans l'exemple illustratif de ce guide, 500 demandes par mois traitées en six étapes par Claude Sonnet 5.5 coûtent 30 dollars de modèle par mois. Chez Waimia, un projet commence par un audit gratuit de 45 minutes, puis un sprint de cadrage de 10 heures à 999 € HT. Le reste fait l'objet d'un devis après l'audit.",
+          "a_fr": "Deux postes : la construction, et l'usage du modèle, que son éditeur facture au volume de texte lu et écrit. Dans l'exemple illustratif de ce guide, 500 demandes par mois traitées en six étapes par Claude Sonnet 5.5 coûtent 30 dollars de modèle par mois. Chez Waimia, un projet commence par un audit gratuit de 45 minutes, puis un sprint de cadrage de 10 heures à {{prix.sprint}} € HT. Le reste fait l'objet d'un devis après l'audit.",
           "q_en": "How much does an AI agent cost for an SMB?",
-          "a_en": "Two lines: the build, and model usage, which its vendor bills on the volume of text read and written. In this guide's illustrative example, 500 requests a month handled in six steps by Claude Sonnet 5.5 cost 30 dollars of model usage per month. At Waimia, a project starts with a free 45-minute audit, then a 10-hour scoping sprint at €999 excl. VAT. The rest is quoted after the audit."
+          "a_en": "Two lines: the build, and model usage, which its vendor bills on the volume of text read and written. In this guide's illustrative example, 500 requests a month handled in six steps by Claude Sonnet 5.5 cost 30 dollars of model usage per month. At Waimia, a project starts with a free 45-minute audit, then a 10-hour scoping sprint at €{{prix.sprint.en}} excl. VAT. The rest is quoted after the audit."
         }
       ]
     },

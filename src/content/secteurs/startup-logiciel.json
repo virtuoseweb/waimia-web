@@ -1,5 +1,5 @@
 {
-  "title_fr": "IA et automatisation pour éditeurs de logiciel : demandes routées, support outillé",
+  "title_fr": "IA et automatisation pour éditeurs de logiciel : demandes routées, support outillé",
   "title_en": "AI and automation for software vendors: routed requests, equipped support",
   "description_fr": "Éditeurs de logiciel et startups B2B : demandes de démo routées dans le CRM le jour même, support de premier niveau par agent IA, prospection ciblée.",
   "description_en": "Software vendors and B2B startups: demo requests routed into the CRM the same day, first-line support by an AI agent, targeted prospecting.",
@@ -73,7 +73,7 @@
   "faq_fr": [
     {
       "q": "Combien coûte l'automatisation commerciale d'un éditeur de logiciel ?",
-      "a": "On démarre par un sprint de cadrage de 10 heures à 999 € HT, avec un premier livrable en service à la fin. La suite est estimée avec vous, validée, puis exécutée en sprints facturés {{prix.horaire}} € HT de l'heure. Pas d'abonnement imposé, et vous gardez les workflows."
+      "a": "On démarre par un sprint de cadrage de 10 heures à {{prix.sprint}} € HT, avec un premier livrable en service à la fin. La suite est estimée avec vous, validée, puis exécutée en sprints facturés {{prix.horaire}} € HT de l'heure. Pas d'abonnement imposé, et vous gardez les workflows."
     },
     {
       "q": "Quel CRM faut-il ?",
@@ -99,7 +99,7 @@
   "faq_en": [
     {
       "q": "How much does sales automation cost for a software vendor?",
-      "a": "We start with a 10-hour scoping sprint at 999 € ex VAT, with a first deliverable live at the end. What follows is estimated with you, approved, then run in sprints billed at {{prix.horaire}} € ex VAT per hour. No forced subscription, and you keep the workflows."
+      "a": "We start with a 10-hour scoping sprint at {{prix.sprint.en}} € ex VAT, with a first deliverable live at the end. What follows is estimated with you, approved, then run in sprints billed at {{prix.horaire}} € ex VAT per hour. No forced subscription, and you keep the workflows."
     },
     {
       "q": "Which CRM do we need?",
@@ -185,7 +185,7 @@
         {
           "name_fr": "Sprint de cadrage",
           "name_en": "Scoping sprint",
-          "price": "999 €",
+          "price": "{{prix.sprint}} €",
           "period_fr": "10 h · HT",
           "period_en": "10 h · ex VAT",
           "features_fr": [

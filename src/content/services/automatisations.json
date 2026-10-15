@@ -3,8 +3,8 @@
   "title_fr": "Automatisation des processus métier pour PME · Waimia",
   "seoTitle_fr": "Automatisation des processus métier pour PME · Waimia",
   "title_en": "AI business process automation · Waimia",
-  "description_fr": "Automatisation des processus métier pour PME : workflows n8n ou Make branchés à vos outils, journalisés et supervisés. Premier process dès 999 € HT.",
-  "description_en": "Business process automation and AI automation for SMBs: a workflow wired to your tools, logged and supervised. First process in production from €999 excl. VAT.",
+  "description_fr": "Automatisation des processus métier pour PME : workflows n8n ou Make branchés à vos outils, journalisés et supervisés. Premier process dès {{prix.sprint}} € HT.",
+  "description_en": "Business process automation and AI automation for SMBs: a workflow wired to your tools, logged and supervised. First process in production from €{{prix.sprint.en}} excl. VAT.",
   "slug": "automatisations",
   "publishedAt": "2026-07-13T00:00:00.000Z",
   "updatedAt": "2026-10-04T00:00:00.000Z",
@@ -19,13 +19,13 @@
   "seo": {
     "noindex": false,
     "serviceType": "Automatisation des processus métier pour PME",
-    "priceRange": "dès 999 €",
+    "priceRange": "dès {{prix.sprint}} €",
     "priceMin": 999
   },
   "faq_fr": [
     {
       "q": "Combien coûte l'automatisation d'un processus en PME ?",
-      "a": "Le premier process se traite en sprint de cadrage à 999 € HT pour 10 heures : cadrage et un premier workflow en production. Les suivants sont estimés en heures, validés par vous, puis facturés {{prix.horaire}} € HT de l'heure. Les abonnements n8n ou Make sont à votre nom et à votre charge."
+      "a": "Le premier process se traite en sprint de cadrage à {{prix.sprint}} € HT pour 10 heures : cadrage et un premier workflow en production. Les suivants sont estimés en heures, validés par vous, puis facturés {{prix.horaire}} € HT de l'heure. Les abonnements n8n ou Make sont à votre nom et à votre charge."
     },
     {
       "q": "Faut-il du code pour automatiser un processus ?",
@@ -59,7 +59,7 @@
   "faq_en": [
     {
       "q": "How much does it cost to automate a process in an SMB?",
-      "a": "The first process is handled in a scoping sprint at €999 excl. VAT for 10 hours: scoping and a first workflow in production. The next ones are estimated in hours, approved by you, then billed €{{prix.horaire}} per hour excl. VAT. n8n or Make subscriptions are in your name and at your expense."
+      "a": "The first process is handled in a scoping sprint at €{{prix.sprint.en}} excl. VAT for 10 hours: scoping and a first workflow in production. The next ones are estimated in hours, approved by you, then billed €{{prix.horaire}} per hour excl. VAT. n8n or Make subscriptions are in your name and at your expense."
     },
     {
       "q": "Do you need code to automate a process?",
@@ -143,7 +143,7 @@
       "kicker_en": "§ In short",
       "metrics": [
         {
-          "value": "999 € HT",
+          "value": "{{prix.sprint}} € HT",
           "label_fr": "sprint de cadrage de 10 h, puis {{prix.horaire}} € HT de l'heure",
           "label_en": "10-hour scoping sprint, then €{{prix.horaire}} per hour excl. VAT",
           "emphasis": true
@@ -413,7 +413,7 @@
         {
           "name_fr": "Sprint de cadrage",
           "name_en": "Scoping sprint",
-          "price": "999 €",
+          "price": "{{prix.sprint}} €",
           "period_fr": "10 h · HT",
           "period_en": "10 h · ex VAT",
           "features_fr": [
@@ -478,9 +478,9 @@
       "items": [
         {
           "q_fr": "Combien coûte l'automatisation d'un processus en PME ?",
-          "a_fr": "Le premier process se traite en sprint de cadrage à 999 € HT pour 10 heures : cadrage et un premier workflow en production. Les suivants sont estimés en heures, validés par vous, puis facturés {{prix.horaire}} € HT de l'heure. Les abonnements n8n ou Make sont à votre nom et à votre charge.",
+          "a_fr": "Le premier process se traite en sprint de cadrage à {{prix.sprint}} € HT pour 10 heures : cadrage et un premier workflow en production. Les suivants sont estimés en heures, validés par vous, puis facturés {{prix.horaire}} € HT de l'heure. Les abonnements n8n ou Make sont à votre nom et à votre charge.",
           "q_en": "How much does it cost to automate a process in an SMB?",
-          "a_en": "The first process is handled in a scoping sprint at €999 excl. VAT for 10 hours: scoping and a first workflow in production. The next ones are estimated in hours, approved by you, then billed €{{prix.horaire}} per hour excl. VAT. n8n or Make subscriptions are in your name and at your expense."
+          "a_en": "The first process is handled in a scoping sprint at €{{prix.sprint.en}} excl. VAT for 10 hours: scoping and a first workflow in production. The next ones are estimated in hours, approved by you, then billed €{{prix.horaire}} per hour excl. VAT. n8n or Make subscriptions are in your name and at your expense."
         },
         {
           "q_fr": "Faut-il du code pour automatiser un processus ?",

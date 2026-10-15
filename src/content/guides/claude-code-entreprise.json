@@ -1,6 +1,6 @@
 {
   "$schema": "../../schemas/generated/guides.page.schema.json",
-  "title_fr": "Claude Code entreprise : fonctions, prix et déploiement",
+  "title_fr": "Claude Code entreprise : fonctions, prix et déploiement",
   "title_en": "Claude Code for business: features, pricing and rollout",
   "seoTitle_fr": "Claude Code Pro, Max, Team : prix, déploiement en entreprise",
   "description_fr": "Claude Code dans Pro, Max, Team et Enterprise : 10 fonctions, prix, sécurité, formation et quand le faire déployer. 13 $ par jour actif selon Anthropic.",
@@ -117,7 +117,7 @@
     },
     {
       "q": "Qui fait quoi si Waimia déploie Claude Code chez nous ?",
-      "a": "On commence par un audit gratuit de 45 minutes pour dire si Claude Code est le bon outil. Si oui, le sprint de cadrage (999 euros HT, 10 heures) cadre l'offre, écrit les règles du projet, pose les permissions et livre un premier outil relu et testé. Vous gardez les accès, la configuration et la documentation. La suite fait l'objet d'un devis, à {{prix.horaire}} euros HT de l'heure."
+      "a": "On commence par un audit gratuit de 45 minutes pour dire si Claude Code est le bon outil. Si oui, le sprint de cadrage ({{prix.sprint}} euros HT, 10 heures) cadre l'offre, écrit les règles du projet, pose les permissions et livre un premier outil relu et testé. Vous gardez les accès, la configuration et la documentation. La suite fait l'objet d'un devis, à {{prix.horaire}} euros HT de l'heure."
     },
     {
       "q": "Existe-t-il une formation Claude Code, et combien coûte-t-elle ?",
@@ -151,7 +151,7 @@
     },
     {
       "q": "Who does what if Waimia deploys Claude Code for us?",
-      "a": "We start with a free 45-minute audit to tell you whether Claude Code is the right tool. If it is, the scoping sprint (€999 excl. VAT, 10 hours) scopes the plan, writes the project rules, sets the permissions and delivers a first reviewed and tested tool. You keep the access, the configuration and the documentation. What follows is quoted, at €{{prix.horaire}} per hour excl. VAT."
+      "a": "We start with a free 45-minute audit to tell you whether Claude Code is the right tool. If it is, the scoping sprint (€{{prix.sprint.en}} excl. VAT, 10 hours) scopes the plan, writes the project rules, sets the permissions and delivers a first reviewed and tested tool. You keep the access, the configuration and the documentation. What follows is quoted, at €{{prix.horaire}} per hour excl. VAT."
     },
     {
       "q": "Is there Claude Code training, and what does it cost?",
@@ -170,7 +170,7 @@
       },
       "kicker_fr": "§ Guide Claude Code",
       "kicker_en": "§ Claude Code guide",
-      "h1_fr": "<i class=\"acc\">Claude Code</i> en entreprise : fonctionnalités, coût et déploiement",
+      "h1_fr": "<i class=\"acc\">Claude Code</i> en entreprise : fonctionnalités, coût et déploiement",
       "h1_en": "<i class=\"acc\">Claude Code</i> for business: features, cost and rollout",
       "definition_kicker_fr": "L'essentiel pour décider",
       "definition_kicker_en": "What to know to decide",
@@ -726,7 +726,7 @@
         [
           "Faire faire",
           "Vous n'avez pas de profil technique, ou le chantier touche des données sensibles et des outils en production.",
-          "Sprint de cadrage à 999 € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure sur devis validé.",
+          "Sprint de cadrage à {{prix.sprint}} € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure sur devis validé.",
           "Sous-traiter sans récupérer la documentation, les accès et la configuration. Vous devez pouvoir changer de prestataire."
         ]
       ],
@@ -746,7 +746,7 @@
         [
           "Have it done",
           "You have no technical profile, or the project touches sensitive data and tools in production.",
-          "Scoping sprint at €999 excl. VAT for 10 hours, then €{{prix.horaire}} per hour excl. VAT on an approved quote.",
+          "Scoping sprint at €{{prix.sprint.en}} excl. VAT for 10 hours, then €{{prix.horaire}} per hour excl. VAT on an approved quote.",
           "Outsourcing without getting the documentation, access and configuration back. You must be able to change contractor."
         ]
       ],
@@ -773,8 +773,8 @@
         {
           "title_fr": "Cadrage et configuration",
           "title_en": "Scoping and setup",
-          "body_fr": "Choix de l'offre et du mode de facturation, CLAUDE.md du projet, permissions, paramètres gérés, règle sur les secrets et sur les dépendances. Démarrage par le sprint de cadrage, 999 € HT pour 10 heures.",
-          "body_en": "Choice of plan and billing model, project CLAUDE.md, permissions, managed settings, rules on secrets and dependencies. Starts with the scoping sprint, €999 excl. VAT for 10 hours.",
+          "body_fr": "Choix de l'offre et du mode de facturation, CLAUDE.md du projet, permissions, paramètres gérés, règle sur les secrets et sur les dépendances. Démarrage par le sprint de cadrage, {{prix.sprint}} € HT pour 10 heures.",
+          "body_en": "Choice of plan and billing model, project CLAUDE.md, permissions, managed settings, rules on secrets and dependencies. Starts with the scoping sprint, €{{prix.sprint.en}} excl. VAT for 10 hours.",
           "meta_fr": "Sprint de cadrage",
           "meta_en": "Scoping sprint"
         },
@@ -825,7 +825,7 @@
         {
           "kicker_fr": "Guide",
           "kicker_en": "Guide",
-          "title_fr": "Skills Claude : créer et partager des procédures",
+          "title_fr": "Skills Claude : créer et partager des procédures",
           "title_en": "Claude skills: build and share procedures",
           "lead_fr": "Ce qu'est un skill, où il vit, comment le diffuser à une équipe et ses limites officielles.",
           "lead_en": "What a skill is, where it lives, how to roll it out to a team and its official limits.",
@@ -899,8 +899,8 @@
         {
           "q_fr": "Qui fait quoi si Waimia déploie Claude Code chez nous ?",
           "q_en": "Who does what if Waimia deploys Claude Code for us?",
-          "a_fr": "On commence par un audit gratuit de 45 minutes pour dire si Claude Code est le bon outil. Si oui, le sprint de cadrage (999 euros HT, 10 heures) cadre l'offre, écrit les règles du projet, pose les permissions et livre un premier outil relu et testé. Vous gardez les accès, la configuration et la documentation. La suite fait l'objet d'un devis, à {{prix.horaire}} euros HT de l'heure.",
-          "a_en": "We start with a free 45-minute audit to tell you whether Claude Code is the right tool. If it is, the scoping sprint (€999 excl. VAT, 10 hours) scopes the plan, writes the project rules, sets the permissions and delivers a first reviewed and tested tool. You keep the access, the configuration and the documentation. What follows is quoted, at €{{prix.horaire}} per hour excl. VAT."
+          "a_fr": "On commence par un audit gratuit de 45 minutes pour dire si Claude Code est le bon outil. Si oui, le sprint de cadrage ({{prix.sprint}} euros HT, 10 heures) cadre l'offre, écrit les règles du projet, pose les permissions et livre un premier outil relu et testé. Vous gardez les accès, la configuration et la documentation. La suite fait l'objet d'un devis, à {{prix.horaire}} euros HT de l'heure.",
+          "a_en": "We start with a free 45-minute audit to tell you whether Claude Code is the right tool. If it is, the scoping sprint (€{{prix.sprint.en}} excl. VAT, 10 hours) scopes the plan, writes the project rules, sets the permissions and delivers a first reviewed and tested tool. You keep the access, the configuration and the documentation. What follows is quoted, at €{{prix.horaire}} per hour excl. VAT."
         },
         {
           "q_fr": "Existe-t-il une formation Claude Code, et combien coûte-t-elle ?",

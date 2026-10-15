@@ -1,6 +1,6 @@
 {
   "$schema": "../../schemas/generated/guides.page.schema.json",
-  "title_fr": "Claude Pro, Max, Team : offres, prix et usages en PME",
+  "title_fr": "Claude Pro, Max, Team : offres, prix et usages en PME",
   "title_en": "Claude: features, plans and pricing for an SMB",
   "seoTitle_fr": "Claude Pro, Max, Team : abonnements, prix et usages en PME",
   "description_fr": "Claude Pro, Max, Team et Enterprise : abonnements, prix 2026 en dollars, ce que chaque offre inclut, quota partagé et données. Le guide pour choisir.",
@@ -148,7 +148,7 @@
     },
     {
       "q": "Qui configure Claude dans une PME, et combien de temps faut-il ?",
-      "a": "Une équipe de quelques personnes sans connecteur sensible peut configurer Team elle-même en suivant ce guide. Dès qu'il faut relier un CRM ou un ERP, diffuser des plugins ou écrire des règles d'usage, un accompagnement fait gagner du temps. Chez Waimia : audit gratuit de 45 minutes, puis sprint de 10 heures à 999 € HT."
+      "a": "Une équipe de quelques personnes sans connecteur sensible peut configurer Team elle-même en suivant ce guide. Dès qu'il faut relier un CRM ou un ERP, diffuser des plugins ou écrire des règles d'usage, un accompagnement fait gagner du temps. Chez Waimia : audit gratuit de 45 minutes, puis sprint de 10 heures à {{prix.sprint}} € HT."
     }
   ],
   "faq_en": [
@@ -190,7 +190,7 @@
     },
     {
       "q": "Who sets up Claude in an SMB, and how long does it take?",
-      "a": "A small team with no sensitive connector can set up Team itself by following this guide. Once you need to connect a CRM or ERP, distribute plugins or write usage rules, outside help saves time. At Waimia: a free 45-minute audit, then a 10-hour sprint at €999 excl. VAT."
+      "a": "A small team with no sensitive connector can set up Team itself by following this guide. Once you need to connect a CRM or ERP, distribute plugins or write usage rules, outside help saves time. At Waimia: a free 45-minute audit, then a 10-hour sprint at €{{prix.sprint.en}} excl. VAT."
     }
   ],
   "sections": [
@@ -205,7 +205,7 @@
       },
       "kicker_fr": "§ Guide d'achat",
       "kicker_en": "§ Buyer's guide",
-      "h1_fr": "Claude Pro, Max, Team : offres et <i class=\"acc\">prix</i> en PME",
+      "h1_fr": "Claude Pro, Max, Team : offres et <i class=\"acc\">prix</i> en PME",
       "h1_en": "Claude: features, plans and <i class=\"acc\">pricing</i> for an SMB",
       "lede_fr": "Cinq offres, deux types de siège et un quota partagé entre le chat, Cowork et Claude Code : le choix d'une offre se fait sur l'usage de chaque personne. Grille d'Anthropic relue le 15 octobre 2026.",
       "lede_en": "Five plans, two seat types and a quota shared between chat, Cowork and Claude Code: the plan is chosen on each person's usage. Anthropic's price list rechecked on 15 October 2026.",
@@ -875,8 +875,8 @@
           "title_en": "Scoping sprint",
           "body_fr": "Cartographie des cas d'usage, répartition Standard et Premium, choix des connecteurs, premières règles d'usage.",
           "body_en": "Use-case map, Standard and Premium split, connector choice, first usage rules.",
-          "meta_fr": "999 € HT pour 10 heures",
-          "meta_en": "€999 excl. VAT for 10 hours"
+          "meta_fr": "{{prix.sprint}} € HT pour 10 heures",
+          "meta_en": "€{{prix.sprint.en}} excl. VAT for 10 hours"
         },
         {
           "title_fr": "Configuration et référent",
@@ -1005,9 +1005,9 @@
         },
         {
           "q_fr": "Qui configure Claude dans une PME, et combien de temps faut-il ?",
-          "a_fr": "Une équipe de quelques personnes sans connecteur sensible peut configurer Team elle-même en suivant ce guide. Dès qu'il faut relier un CRM ou un ERP, diffuser des plugins ou écrire des règles d'usage, un accompagnement fait gagner du temps. Chez Waimia : audit gratuit de 45 minutes, puis sprint de 10 heures à 999 € HT.",
+          "a_fr": "Une équipe de quelques personnes sans connecteur sensible peut configurer Team elle-même en suivant ce guide. Dès qu'il faut relier un CRM ou un ERP, diffuser des plugins ou écrire des règles d'usage, un accompagnement fait gagner du temps. Chez Waimia : audit gratuit de 45 minutes, puis sprint de 10 heures à {{prix.sprint}} € HT.",
           "q_en": "Who sets up Claude in an SMB, and how long does it take?",
-          "a_en": "A small team with no sensitive connector can set up Team itself by following this guide. Once you need to connect a CRM or ERP, distribute plugins or write usage rules, outside help saves time. At Waimia: a free 45-minute audit, then a 10-hour sprint at €999 excl. VAT."
+          "a_en": "A small team with no sensitive connector can set up Team itself by following this guide. Once you need to connect a CRM or ERP, distribute plugins or write usage rules, outside help saves time. At Waimia: a free 45-minute audit, then a 10-hour sprint at €{{prix.sprint.en}} excl. VAT."
         }
       ]
     },

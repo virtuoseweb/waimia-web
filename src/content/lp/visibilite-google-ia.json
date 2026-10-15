@@ -16,7 +16,7 @@
   "seo": {
     "noindex": true,
     "serviceType": "Référencement SEO et GEO pour PME, visibilité Google et IA",
-    "priceRange": "999€+",
+    "priceRange": "{{prix.sprint}}€+",
     "priceMin": 999
   },
   "sections": [
@@ -50,7 +50,7 @@
       "kicker_en": "§ At a glance",
       "metrics": [
         {
-          "value": "Dès 999 €",
+          "value": "Dès {{prix.sprint}} €",
           "label_fr": "sprint de cadrage de 10 h · suite sur devis",
           "label_en": "10-h scoping sprint · next steps on quote",
           "emphasis": true
@@ -423,7 +423,7 @@
         {
           "name_fr": "Sprint de cadrage",
           "name_en": "Scoping sprint",
-          "price": "999 €",
+          "price": "{{prix.sprint}} €",
           "period_fr": "10 h · HT",
           "period_en": "10 h · ex VAT",
           "features_fr": [
@@ -472,8 +472,8 @@
           }
         }
       ],
-      "footnote_fr": "Le sprint de cadrage est à prix fixe, 999 € HT pour 10 heures : audit de visibilité, mise au format citable des pages prioritaires et balisage de base, avec un livrable qui produit dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent le balisage étendu, le contenu en cadence, le monitoring et la mesure, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth, à {{prix.horaire}} € de l'heure, non dégressif. Sans abonnement : à la fin, vous gardez les pages balisées et le protocole de mesure, autonomes et transférables.",
-      "footnote_en": "The scoping sprint is fixed-price, 999 € ex VAT for 10 hours: visibility audit, citable format on priority pages and base markup, with a deliverable that produces by the end. What follows is quoted: we estimate together the time extended markup, content on cadence, monitoring and measurement require, validate it, then run it in sprints within the growth retainer frame, at {{prix.horaire}} € an hour, non-degressive. No subscription: at the end, you keep the tagged pages and the measurement protocol, autonomous and transferable."
+      "footnote_fr": "Le sprint de cadrage est à prix fixe, {{prix.sprint}} € HT pour 10 heures : audit de visibilité, mise au format citable des pages prioritaires et balisage de base, avec un livrable qui produit dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent le balisage étendu, le contenu en cadence, le monitoring et la mesure, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth, à {{prix.horaire}} € de l'heure, non dégressif. Sans abonnement : à la fin, vous gardez les pages balisées et le protocole de mesure, autonomes et transférables.",
+      "footnote_en": "The scoping sprint is fixed-price, {{prix.sprint.en}} € ex VAT for 10 hours: visibility audit, citable format on priority pages and base markup, with a deliverable that produces by the end. What follows is quoted: we estimate together the time extended markup, content on cadence, monitoring and measurement require, validate it, then run it in sprints within the growth retainer frame, at {{prix.horaire}} € an hour, non-degressive. No subscription: at the end, you keep the tagged pages and the measurement protocol, autonomous and transferable."
     },
     {
       "type": "faq-accordion",

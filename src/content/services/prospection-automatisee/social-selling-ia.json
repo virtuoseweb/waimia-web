@@ -18,7 +18,7 @@
   "seo": {
     "noindex": false,
     "serviceType": "Social selling assisté par IA pour PME B2B",
-    "priceRange": "dès 999 €",
+    "priceRange": "dès {{prix.sprint}} €",
     "priceMin": 999
   },
   "faq_fr": [
@@ -139,7 +139,7 @@
           "emphasis": false
         },
         {
-          "value": "999 € HT",
+          "value": "{{prix.sprint}} € HT",
           "label_fr": "sprint de cadrage de 10 heures, puis {{prix.horaire}} € HT de l'heure",
           "label_en": "10-hour scoping sprint, then €{{prix.horaire}} per hour excl. VAT",
           "emphasis": false
@@ -519,7 +519,7 @@
         {
           "name_fr": "Sprint de cadrage",
           "name_en": "Scoping sprint",
-          "price": "999 €",
+          "price": "{{prix.sprint}} €",
           "period_fr": "10 h · HT",
           "period_en": "10 h · ex VAT",
           "features_fr": [
@@ -568,8 +568,8 @@
           }
         }
       ],
-      "footnote_fr": "Prix fixe de 999 € HT pour 10 heures de cadrage. Les sources et les signaux ajoutés ensuite sont estimés avec vous, puis facturés en régie à {{prix.horaire}} € HT de l'heure. Vous gardez les sources, les modèles et les accès.",
-      "footnote_en": "Fixed price of €999 excl. VAT for 10 hours of scoping. Sources and signals added afterwards are estimated with you, then billed on a time-and-materials basis at €{{prix.horaire}} excl. VAT per hour. You keep the sources, templates and access."
+      "footnote_fr": "Prix fixe de {{prix.sprint}} € HT pour 10 heures de cadrage. Les sources et les signaux ajoutés ensuite sont estimés avec vous, puis facturés en régie à {{prix.horaire}} € HT de l'heure. Vous gardez les sources, les modèles et les accès.",
+      "footnote_en": "Fixed price of €{{prix.sprint.en}} excl. VAT for 10 hours of scoping. Sources and signals added afterwards are estimated with you, then billed on a time-and-materials basis at €{{prix.horaire}} excl. VAT per hour. You keep the sources, templates and access."
     },
     {
       "type": "eeat-panel",

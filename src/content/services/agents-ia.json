@@ -1,9 +1,9 @@
 {
   "$schema": "../../schemas/generated/services.page.schema.json",
-  "title_fr": "Agence agents IA pour entreprise : conception et production",
+  "title_fr": "Agence agents IA pour entreprise : conception et production",
   "title_en": "AI agent agency for business: design and deployment",
-  "description_fr": "Agence agents IA pour entreprise : un agent par mission (tri, relance, veille, reporting), branché à vos outils, avec validation humaine. Dès 999 € HT.",
-  "description_en": "AI agent agency for business: one agent per mission (triage, follow-up, monitoring, reporting), wired to your tools, with human approval. From €999 excl. VAT.",
+  "description_fr": "Agence agents IA pour entreprise : un agent par mission (tri, relance, veille, reporting), branché à vos outils, avec validation humaine. Dès {{prix.sprint}} € HT.",
+  "description_en": "AI agent agency for business: one agent per mission (triage, follow-up, monitoring, reporting), wired to your tools, with human approval. From €{{prix.sprint.en}} excl. VAT.",
   "slug": "agents-ia",
   "publishedAt": "2026-06-22T00:00:00.000Z",
   "updatedAt": "2026-10-14",
@@ -31,7 +31,7 @@
   "seo": {
     "noindex": false,
     "serviceType": "Conception et déploiement d'agents IA pour PME",
-    "priceRange": "dès 999 €",
+    "priceRange": "dès {{prix.sprint}} €",
     "priceMin": 999
   },
   "faq_fr": [
@@ -41,7 +41,7 @@
     },
     {
       "q": "Combien coûte un agent IA pour une entreprise ?",
-      "a": "Trois postes. La conception : sprint de cadrage à 999 € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure. L'usage du modèle, facturé au volume par l'éditeur. La maintenance en régie quand le périmètre bouge. On chiffre l'usage avant le lancement, pour que la facture du modèle ne soit pas une surprise."
+      "a": "Trois postes. La conception : sprint de cadrage à {{prix.sprint}} € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure. L'usage du modèle, facturé au volume par l'éditeur. La maintenance en régie quand le périmètre bouge. On chiffre l'usage avant le lancement, pour que la facture du modèle ne soit pas une surprise."
     },
     {
       "q": "Agent IA ou chatbot : quelle différence ?",
@@ -75,7 +75,7 @@
     },
     {
       "q": "How much does an AI agent cost for a business?",
-      "a": "Three items. Design: a scoping sprint at 999 € ex VAT for 10 hours, then {{prix.horaire}} € ex VAT an hour. Model usage, billed by volume by the vendor. Time-and-materials maintenance when the scope changes. We estimate usage before launch so the model bill is no surprise."
+      "a": "Three items. Design: a scoping sprint at {{prix.sprint.en}} € ex VAT for 10 hours, then {{prix.horaire}} € ex VAT an hour. Model usage, billed by volume by the vendor. Time-and-materials maintenance when the scope changes. We estimate usage before launch so the model bill is no surprise."
     },
     {
       "q": "AI agent or chatbot: what is the difference?",
@@ -156,7 +156,7 @@
       "kicker_en": "§ In short",
       "metrics": [
         {
-          "value": "999 € HT",
+          "value": "{{prix.sprint}} € HT",
           "label_fr": "sprint de cadrage de 10 h, puis {{prix.horaire}} € HT de l'heure",
           "label_en": "10-hour scoping sprint, then €{{prix.horaire}} per hour excl. VAT",
           "emphasis": true
@@ -412,7 +412,7 @@
         {
           "name_fr": "Sprint de cadrage",
           "name_en": "Scoping sprint",
-          "price": "999 €",
+          "price": "{{prix.sprint}} €",
           "period_fr": "10 h · HT",
           "period_en": "10 h · ex VAT",
           "features_fr": [
@@ -461,8 +461,8 @@
           }
         }
       ],
-      "footnote_fr": "Le sprint de cadrage est à prix fixe : 999 € HT pour 10 heures. Il couvre le cadrage de la tâche prioritaire et un premier agent branché via MCP, mis en production, qui tourne à la fin du sprint. La suite se fait sur devis : on estime ensemble le temps des agents suivants, vous validez, on l'exécute en sprints en régie à {{prix.horaire}} € HT de l'heure, sans dégressivité. Pas d'abonnement, pas de captivité : vos agents, vos accès et la documentation restent à vous.",
-      "footnote_en": "The scoping sprint is fixed-price: 999 € ex VAT for 10 hours. It covers scoping the priority task and a first agent wired via MCP and put into production, running by the end of the sprint. What follows is quoted: we estimate together the time the next agents need, you approve it, we deliver it in time-and-materials sprints at {{prix.horaire}} € ex VAT an hour, with no volume discount. No subscription, no lock-in: your agents, your access and the documentation stay yours."
+      "footnote_fr": "La suite est facturée en régie, à {{prix.horaire}} € HT de l'heure, sans dégressivité. Pas d'abonnement, pas de captivité.",
+      "footnote_en": "What follows is billed on a time and materials basis, at {{prix.horaire}} € ex VAT an hour, with no volume discount. No subscription, no lock-in."
     },
     {
       "type": "eeat-panel",
@@ -485,9 +485,9 @@
         },
         {
           "q_fr": "Combien coûte un agent IA pour une entreprise ?",
-          "a_fr": "Trois postes. La conception : sprint de cadrage à 999 € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure. L'usage du modèle, facturé au volume par l'éditeur. La maintenance en régie quand le périmètre bouge. On chiffre l'usage avant le lancement, pour que la facture du modèle ne soit pas une surprise.",
+          "a_fr": "Trois postes. La conception : sprint de cadrage à {{prix.sprint}} € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure. L'usage du modèle, facturé au volume par l'éditeur. La maintenance en régie quand le périmètre bouge. On chiffre l'usage avant le lancement, pour que la facture du modèle ne soit pas une surprise.",
           "q_en": "How much does an AI agent cost for a business?",
-          "a_en": "Three items. Design: a scoping sprint at 999 € ex VAT for 10 hours, then {{prix.horaire}} € ex VAT an hour. Model usage, billed by volume by the vendor. Time-and-materials maintenance when the scope changes. We estimate usage before launch so the model bill is no surprise."
+          "a_en": "Three items. Design: a scoping sprint at {{prix.sprint.en}} € ex VAT for 10 hours, then {{prix.horaire}} € ex VAT an hour. Model usage, billed by volume by the vendor. Time-and-materials maintenance when the scope changes. We estimate usage before launch so the model bill is no surprise."
         },
         {
           "q_fr": "Agent IA ou chatbot : quelle différence ?",

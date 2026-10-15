@@ -2,8 +2,8 @@
   "$schema": "../../../schemas/generated/services.page.schema.json",
   "title_fr": "Centralisation des données pour PME : un socle unique · Waimia",
   "title_en": "Data centralisation for SMEs: one lean base · Waimia",
-  "description_fr": "Centralisation des données de PME : CRM, compta et tableurs réunis dans un socle unique, dédoublonné, avec droits d'accès et RGPD documenté. Dès 999 € HT.",
-  "description_en": "SME data centralisation: CRM, accounting and spreadsheets gathered in one deduplicated base, with access rights and documented GDPR. From €999 excl. VAT.",
+  "description_fr": "Centralisation des données de PME : CRM, compta et tableurs réunis dans un socle unique, dédoublonné, avec droits d'accès et RGPD documenté. Dès {{prix.sprint}} € HT.",
+  "description_en": "SME data centralisation: CRM, accounting and spreadsheets gathered in one deduplicated base, with access rights and documented GDPR. From €{{prix.sprint.en}} excl. VAT.",
   "slug": "centralisation-donnees",
   "publishedAt": "2026-10-12T00:00:00.000Z",
   "updatedAt": "2026-10-12",
@@ -18,7 +18,7 @@
   "seo": {
     "noindex": false,
     "serviceType": "Centralisation des données de PME dans un socle unique",
-    "priceRange": "dès 999 €",
+    "priceRange": "dès {{prix.sprint}} €",
     "priceMin": 999
   },
   "faq_fr": [
@@ -130,7 +130,7 @@
       "kicker_en": "§ In short",
       "metrics": [
         {
-          "value": "999 € HT",
+          "value": "{{prix.sprint}} € HT",
           "label_fr": "sprint de cadrage de 10 h : sources prioritaires branchées, règles de rapprochement écrites",
           "label_en": "10-hour scoping sprint: priority sources connected, matching rules written",
           "emphasis": true
@@ -479,7 +479,7 @@
         {
           "name_fr": "Sprint de cadrage",
           "name_en": "Scoping sprint",
-          "price": "999 €",
+          "price": "{{prix.sprint}} €",
           "period_fr": "10 h · HT",
           "period_en": "10 h · ex VAT",
           "features_fr": [
@@ -528,8 +528,8 @@
           }
         }
       ],
-      "footnote_fr": "Le sprint de cadrage est à prix fixe, 999 € HT pour 10 heures : inventaire des sources, règles de rapprochement et premières sources branchées, avec un socle qui tourne dès la fin. La suite se cale sur devis : on estime ensemble le temps de chaque source supplémentaire, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, votre base, vos accès et la documentation sont à vous.",
-      "footnote_en": "The scoping sprint is fixed-price, 999 € ex VAT for 10 hours: inventory of sources, matching rules and first sources connected, with a base that runs by the end. What follows is quoted: we estimate together the time of each additional source, validate it, then run it in sprints within the time and materials frame, at {{prix.horaire}} € an hour, non-degressive. No subscription, no lock-in: at the end, your base, your access and the documentation are yours."
+      "footnote_fr": "Le sprint de cadrage est à prix fixe, {{prix.sprint}} € HT pour 10 heures : inventaire des sources, règles de rapprochement et premières sources branchées, avec un socle qui tourne dès la fin. La suite se cale sur devis : on estime ensemble le temps de chaque source supplémentaire, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, votre base, vos accès et la documentation sont à vous.",
+      "footnote_en": "The scoping sprint is fixed-price, {{prix.sprint.en}} € ex VAT for 10 hours: inventory of sources, matching rules and first sources connected, with a base that runs by the end. What follows is quoted: we estimate together the time of each additional source, validate it, then run it in sprints within the time and materials frame, at {{prix.horaire}} € an hour, non-degressive. No subscription, no lock-in: at the end, your base, your access and the documentation are yours."
     },
     {
       "type": "eeat-panel",

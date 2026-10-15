@@ -144,8 +144,8 @@
         },
         {
           "value": "Cadrage d'abord",
-          "label_fr": "sprint de cadrage à 999 € HT : périmètre, planning et jalons fixés avant signature",
-          "label_en": "scoping sprint at €999 excl. VAT: scope, schedule and milestones set before signing",
+          "label_fr": "sprint de cadrage à {{prix.sprint}} € HT : périmètre, planning et jalons fixés avant signature",
+          "label_en": "scoping sprint at €{{prix.sprint.en}} excl. VAT: scope, schedule and milestones set before signing",
           "emphasis": false
         },
         {
@@ -478,8 +478,8 @@
       "kicker_en": "§ The range",
       "h2_fr": "Combien coûte un site sur mesure",
       "h2_en": "How much a bespoke site costs",
-      "lede_fr": "Quatre paliers, la même grille que nos autres sites : le prix suit le périmètre. Le sur mesure se chiffre au cadrage, jamais avant. Si le périmètre n'est pas clair, on commence par un sprint de cadrage de 10 heures à 999 € HT.",
-      "lede_en": "Four tiers, the same grid as our other sites: price follows scope. Bespoke is priced at scoping, never before. If the scope is unclear, we start with a 10-hour scoping sprint at €999 excl. VAT.",
+      "lede_fr": "Quatre paliers, la même grille que nos autres sites : le prix suit le périmètre. Le sur mesure se chiffre au cadrage, jamais avant. Si le périmètre n'est pas clair, on commence par un sprint de cadrage de 10 heures à {{prix.sprint}} € HT.",
+      "lede_en": "Four tiers, the same grid as our other sites: price follows scope. Bespoke is priced at scoping, never before. If the scope is unclear, we start with a 10-hour scoping sprint at €{{prix.sprint.en}} excl. VAT.",
       "tiers": [
         {
           "name_fr": "Front découplé",
