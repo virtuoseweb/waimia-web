@@ -1,0 +1,671 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "Agent IA de service client (SAV) : architecture, garde-fous, mesure",
+  "title_en": "AI customer service agent: architecture, safeguards, measurement",
+  "seoTitle_fr": "Chatbot service client : architecture d'un agent IA",
+  "description_fr": "Chatbot et agent IA de service client : architecture (canaux, base de connaissance, outils, escalade), garde-fous, mesures et étapes. Relevé le 15 octobre 2026.",
+  "description_en": "Customer service chatbot and AI agent: architecture (channels, knowledge base, tools, escalation), safeguards, measures and steps. Checked on 15 October 2026.",
+  "slug": "agent-sav-architecture",
+  "publishedAt": "2026-10-15",
+  "updatedAt": "2026-10-15",
+  "category": "agents",
+  "cluster": "agents",
+  "tags": [
+    "agent-sav",
+    "chatbot-service-client",
+    "automatisation-service-client",
+    "architecture",
+    "garde-fous",
+    "escalade",
+    "mesure",
+    "guide-pme"
+  ],
+  "sources": [
+    {
+      "name": "Anthropic, guide du support client avec Claude (critères d'évaluation, garde-fous, outils), lu le 15 octobre 2026",
+      "url": "https://platform.claude.com/docs/en/about-claude/use-case-guides/customer-support-chat",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, réduire les hallucinations, lu le 15 octobre 2026",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, limiter les jailbreaks et les injections de consignes, lu le 15 octobre 2026",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, utilisation d'outils par Claude (stop_reason tool_use), lue le 15 octobre 2026",
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, tarification de l'API Claude (Haiku 5.5), lue le 15 octobre 2026",
+      "url": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "type": "enterprise"
+    },
+    {
+      "name": "Commission européenne, AI Act Service Desk : article 50, obligations de transparence (texte consolidé au 27 juillet 2026), lu le 15 octobre 2026",
+      "url": "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-50",
+      "type": "state"
+    },
+    {
+      "name": "Commission européenne, AI Act Service Desk : article 113, entrée en vigueur et application (2 août 2026), lu le 15 octobre 2026",
+      "url": "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-113",
+      "type": "state"
+    },
+    {
+      "name": "Intercom, tarification de Fin AI Agent (0,99 $ par outcome et définition d'un outcome), lue le 15 octobre 2026",
+      "url": "https://www.intercom.com/pricing",
+      "type": "enterprise"
+    }
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "Qu'est-ce qu'un agent IA de service client ?",
+      "a": "C'est un logiciel qui lit les demandes de vos clients en langage libre, répond depuis votre base de connaissance, appelle des outils (suivi de commande, création de ticket) et passe la main à un humain selon une règle écrite. Il garde un journal de chaque échange. Il se distingue d'un chatbot à règles, qui suit un arbre de choix écrit à l'avance. Il demande un périmètre étroit et des garde-fous."
+    },
+    {
+      "q": "Comment éviter qu'un chatbot de service client invente une réponse ?",
+      "a": "En le faisant répondre depuis vos sources seules, en l'autorisant à dire « je ne sais pas » et à transmettre, en lui faisant citer le passage qui appuie sa réponse, et en relisant chaque semaine un échantillon de conversations. La documentation d'Anthropic précise que ces techniques réduisent les inventions sans les éliminer : les informations critiques se valident."
+    },
+    {
+      "q": "Quand un agent doit-il passer la main à un humain ?",
+      "a": "Quand le client le demande, quand le sujet est hors du périmètre écrit, quand aucune source de la base ne répond, et quand le ton monte ou que la demande se répète. Le passage de main emporte l'historique et les actions déjà faites pour que le client ne répète rien. Ces quatre déclencheurs sont ceux de Waimia, à adapter à votre activité."
+    },
+    {
+      "q": "Faut-il dire au client qu'il parle à une IA ?",
+      "a": "Oui, c'est la pratique à retenir. L'article 50 du règlement européen sur l'IA prévoit que les systèmes destinés à interagir directement avec des personnes les informent qu'elles échangent avec une IA, sauf si c'est évident, et la règle générale du règlement s'applique depuis le 2 août 2026. Dites-le dès le premier message. Ce guide n'est pas un avis juridique : voir le guide AI Act."
+    },
+    {
+      "q": "Comment mesurer le taux de résolution d'un agent IA ?",
+      "a": "Écrivez d'abord la définition : une conversation est résolue si le client confirme, ou ne revient pas sur le même sujet dans un délai que vous fixez, sans passage par un humain. Divisez les conversations résolues par les conversations entrantes, sur le journal, et relisez un échantillon à la main. Deux éditeurs ne comptent pas la résolution de la même façon : ne comparez pas leurs taux."
+    },
+    {
+      "q": "Un chatbot de service client est-il fait pour une petite entreprise ?",
+      "a": "Oui si vos demandes sont répétitives et si quelqu'un relit les conversations chaque semaine. Non si chaque demande est un cas particulier ou si personne n'a le temps de superviser. Commencez par trois à cinq sujets sur un canal, mesurez pendant quatre semaines avant de lancer, puis comparez. Un helpdesk avec agent intégré peut suffire avant de passer au sur mesure."
+    },
+    {
+      "q": "Combien coûte un agent IA de service client ?",
+      "a": "Cela dépend du périmètre. Côté prix publics au 15 octobre 2026 : l'API de Claude Haiku 5.5 coûte 0,10 $ en entrée et 0,50 $ en sortie par million de jetons, et Intercom facture son agent 0,99 $ par « outcome ». Chez Waimia, l'audit est gratuit et le cadrage coûte {{prix.sprint}} € HT pour 10 heures. Le détail des postes est dans le guide du coût d'un projet IA."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "What is an AI customer service agent?",
+      "a": "It is software that reads your customers' requests in free language, answers from your knowledge base, calls tools (order tracking, ticket creation) and hands over to a human under a written rule. It keeps a log of every exchange. It differs from a rule-based chatbot, which follows a decision tree written in advance. It needs a narrow scope and safeguards."
+    },
+    {
+      "q": "How do you stop a customer service chatbot from making up an answer?",
+      "a": "By making it answer from your sources alone, allowing it to say \"I don't know\" and hand over, having it quote the passage that backs its answer, and reviewing a sample of conversations each week. Anthropic's documentation says these techniques reduce invention without eliminating it: critical information must be validated."
+    },
+    {
+      "q": "When should an agent hand over to a human?",
+      "a": "When the customer asks, when the topic is outside the written scope, when no source in the base answers, and when the tone rises or the request repeats. The handover carries the history and the actions already taken so the customer repeats nothing. These four triggers are Waimia's, to adapt to your business."
+    },
+    {
+      "q": "Do you need to tell the customer they are talking to an AI?",
+      "a": "Yes, that is the practice to adopt. Article 50 of the EU AI Act provides that systems intended to interact directly with people inform them that they are dealing with an AI, unless this is obvious, and the regulation's general rule has applied since 2 August 2026. Say so in the first message. This guide is not legal advice: see the AI Act guide."
+    },
+    {
+      "q": "How do you measure an AI agent's resolution rate?",
+      "a": "First write the definition: a conversation is resolved if the customer confirms, or does not return on the same topic within a period you set, without going through a human. Divide resolved conversations by incoming conversations, from the log, and review a sample by hand. Two vendors do not count resolution the same way: do not compare their rates."
+    },
+    {
+      "q": "Is a customer service chatbot made for a small business?",
+      "a": "Yes if your requests are repetitive and someone reviews the conversations each week. No if every request is a special case or nobody has time to supervise. Start with three to five topics on one channel, measure for four weeks before launching, then compare. A helpdesk with a built-in agent may be enough before moving to custom work."
+    },
+    {
+      "q": "How much does an AI customer service agent cost?",
+      "a": "It depends on the scope. In public prices on 15 October 2026: the Claude Haiku 5.5 API costs $0.10 input and $0.50 output per million tokens, and Intercom bills its agent $0.99 per \"outcome\". At Waimia, the audit is free and scoping costs €{{prix.sprint.en}} excl. VAT for 10 hours. The cost items are detailed in the guide to the cost of an AI project."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "illustration": {
+        "src": "/images/illustrations/ds/ecommerce-support-client-paper.webp",
+        "alt_fr": "Une file de clients avec des colis passe devant un long guichet",
+        "alt_en": "A queue of customers with parcels passes a long desk",
+        "side": "right"
+      },
+      "kicker_fr": "§ Guide",
+      "kicker_en": "§ Guide",
+      "h1_fr": "Agent IA de service client (SAV) : <i class=\"acc\">architecture</i>, garde-fous, mesure",
+      "h1_en": "AI customer service agent: <i class=\"acc\">architecture</i>, safeguards, measurement",
+      "lede_fr": "Un agent IA de service client se compose de six briques : des canaux d'entrée, une base de connaissance, un modèle de langage, des outils (suivi de commande, création de ticket), une règle d'escalade vers un humain et un journal de chaque échange. Les garde-fous (périmètre, refus, transparence) comptent plus que le modèle. Ce qui se mesure : résolution, délai, satisfaction. Relevé le 15 octobre 2026.",
+      "lede_en": "An AI customer service agent has six building blocks: entry channels, a knowledge base, a language model, tools (order tracking, ticket creation), a rule for escalating to a human and a log of every exchange. Safeguards (scope, refusals, transparency) matter more than the model. What can be measured: resolution, response time, satisfaction. Checked on 15 October 2026.",
+      "badges": [
+        {
+          "label_fr": "Documentation Anthropic lue le 15 octobre 2026",
+          "label_en": "Anthropic documentation read on 15 October 2026"
+        },
+        {
+          "label_fr": "Six briques, trois garde-fous, trois mesures",
+          "label_en": "Six blocks, three safeguards, three measures"
+        },
+        {
+          "label_fr": "Aucun résultat client inventé",
+          "label_en": "No invented client result"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver l'audit gratuit",
+        "label_en": "Book the free audit",
+        "href": "/audit-ia-pme",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Voir l'offre agent de service client",
+        "label_en": "See the customer service agent offer",
+        "href": "/services/agent-support-client",
+        "variant": "ghost"
+      }
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "15 octobre 2026",
+      "updatedDate": "15 octobre 2026"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "Comment fonctionne un agent IA de service client ?",
+      "question_en": "How does an AI customer service agent work?",
+      "term_fr": "Réponse courte",
+      "term_en": "Short answer",
+      "answer_fr": "Il répond depuis votre base de connaissance, appelle des outils (suivi de commande, création de ticket) et passe la main à un humain selon une règle écrite, en gardant un journal de chaque échange. Trois garde-fous le cadrent : un périmètre, des refus, la transparence sur l'IA. Trois mesures le jugent : le taux de résolution, défini par écrit, le délai et la satisfaction. Aucun résultat n'est garanti : il se mesure chez vous.",
+      "answer_en": "It answers from your knowledge base, calls tools (order tracking, ticket creation) and hands over to a human under a written rule, keeping a log of every exchange. Three safeguards frame it: a scope, refusals, transparency about the AI. Three measures judge it: the resolution rate, defined in writing, response time and satisfaction. No result is guaranteed: it is measured in your company."
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Chatbot de service client ou agent IA : quelle différence ?</h2>\n<p>Un chatbot de service client à règles suit un arbre de choix écrit à l'avance : il répond bien aux questions prévues et échoue sur les autres. Un agent IA de service client lit la question en langage libre, retrouve la réponse dans votre base de connaissance et peut agir dans vos outils. La différence tient donc à trois capacités : comprendre la demande, s'appuyer sur vos sources, appeler des outils. Pour la définition générale, voir le guide <a href=\"/ressources/guides/agent-ia-definition\">agent IA : définition et limites</a>.</p>\n<p>L'automatisation du service client se fait alors par couches : une règle simple pour ce qui est fixe (envoyer un accusé de réception), l'agent pour ce qui demande de lire et de rédiger, l'humain pour ce qui engage l'entreprise. Le but n'est pas de supprimer le service client, mais de lui retirer les demandes répétitives et de lui laisser le reste avec le contexte déjà réuni.</p>",
+      "html_en": "<h2>Customer service chatbot or AI agent: what is the difference?</h2>\n<p>A rule-based customer service chatbot follows a decision tree written in advance: it answers the expected questions well and fails on the others. An AI customer service agent reads the question in free language, finds the answer in your knowledge base and can act in your tools. The difference therefore comes down to three abilities: understanding the request, relying on your sources, calling tools. For the general definition, see the guide <a href=\"/ressources/guides/agent-ia-definition\">AI agent: definition and limits</a>.</p>\n<p>Customer service automation then works in layers: a simple rule for what is fixed (sending an acknowledgement), the agent for what needs reading and writing, the human for what commits the company. The goal is not to remove customer service, but to take repetitive requests off it and leave it the rest with the context already gathered.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ L'architecture",
+      "kicker_en": "§ The architecture",
+      "heading_fr": "De quoi se compose l'architecture d'un agent IA de service client ?",
+      "heading_en": "What are the building blocks of an AI customer service agent?",
+      "caption_fr": "Les six briques sont la lecture de Waimia de la documentation d'Anthropic sur les agents de support (base documentaire, appels d'outils, garde-fous). La colonne « Erreur fréquente » est notre expérience de cadrage, pas un résultat mesuré.",
+      "caption_en": "The six blocks are Waimia's reading of Anthropic's documentation on support agents (document base, tool calls, safeguards). The \"Frequent mistake\" column is our scoping experience, not a measured result.",
+      "columns_fr": [
+        "Brique",
+        "Son rôle",
+        "Ce qu'il faut décider",
+        "Erreur fréquente"
+      ],
+      "columns_en": [
+        "Block",
+        "Its role",
+        "What to decide",
+        "Frequent mistake"
+      ],
+      "rows_fr": [
+        [
+          "1. Canaux",
+          "Là où le client écrit : chat du site, e-mail, formulaire, messagerie",
+          "Un seul canal au départ ; comment identifier le client",
+          "Ouvrir tous les canaux le premier jour"
+        ],
+        [
+          "2. Base de connaissance",
+          "Les réponses autorisées : FAQ, conditions de vente, fiches produits, procédures",
+          "Qui la tient à jour ; quelle est la source de vérité",
+          "Y verser des documents périmés ou contradictoires"
+        ],
+        [
+          "3. Modèle de langage",
+          "Comprendre la demande et rédiger depuis les sources seules",
+          "Quel modèle pour quelle étape ; quel niveau d'effort",
+          "Choisir le plus gros par réflexe"
+        ],
+        [
+          "4. Outils",
+          "Les actions : chercher une commande, créer un ticket, proposer un rendez-vous",
+          "Lecture seule d'abord ; quelles actions exigent une validation humaine",
+          "Donner un droit d'écriture dès le premier jour"
+        ],
+        [
+          "5. Escalade",
+          "Le passage de main à un humain, avec l'historique",
+          "Les déclencheurs, le canal, les horaires, qui reçoit",
+          "Escalader sans l'historique : le client répète tout"
+        ],
+        [
+          "6. Journal",
+          "La trace de chaque échange : question, sources, actions, issue",
+          "Ce qui est conservé, combien de temps, qui relit",
+          "Ne rien journaliser : impossible de mesurer ni de corriger"
+        ]
+      ],
+      "rows_en": [
+        [
+          "1. Channels",
+          "Where the customer writes: site chat, email, form, messaging",
+          "A single channel to start with; how to identify the customer",
+          "Opening every channel on day one"
+        ],
+        [
+          "2. Knowledge base",
+          "The allowed answers: FAQ, terms of sale, product sheets, procedures",
+          "Who keeps it up to date; what the source of truth is",
+          "Loading it with outdated or contradictory documents"
+        ],
+        [
+          "3. Language model",
+          "Understanding the request and writing from the sources alone",
+          "Which model for which step; which effort level",
+          "Picking the biggest by reflex"
+        ],
+        [
+          "4. Tools",
+          "The actions: looking up an order, creating a ticket, offering an appointment",
+          "Read-only first; which actions need human approval",
+          "Granting write access on day one"
+        ],
+        [
+          "5. Escalation",
+          "The handover to a human, with the history",
+          "The triggers, the channel, the hours, who receives",
+          "Escalating without the history: the customer repeats everything"
+        ],
+        [
+          "6. Log",
+          "The trace of every exchange: question, sources, actions, outcome",
+          "What is kept, for how long, who reviews",
+          "Logging nothing: impossible to measure or correct"
+        ]
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Comment l'agent répond-il sans inventer ?</h2>\n<p>Un agent de service client ne répond pas « de mémoire ». Il cherche d'abord dans votre base de connaissance les passages qui concernent la question, puis rédige à partir de ces seuls passages : c'est la récupération documentaire, dite RAG, expliquée dans le guide <a href=\"/ressources/guides/llm-rag-dirigeant\">LLM et RAG pour dirigeants</a>. La documentation d'Anthropic sur <a href=\"https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations\" rel=\"noopener noreferrer\" target=\"_blank\">la réduction des hallucinations</a> liste les réflexes : autoriser explicitement le modèle à dire « je ne sais pas », lui faire extraire des citations avant de répondre, et lui faire retirer toute affirmation qu'il ne peut pas appuyer sur une citation. Elle précise que ces techniques réduisent les hallucinations sans les éliminer : les informations critiques se valident.</p>\n<p>Pour les données qui changent, comme le statut d'une commande, la recherche documentaire ne suffit pas : l'agent appelle un outil. <a href=\"https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic décrit le mécanisme</a> : le modèle renvoie une demande d'outil structurée (<code>stop_reason: \"tool_use\"</code>), c'est votre application qui exécute l'opération, puis elle renvoie le résultat. Le modèle ne touche donc jamais seul à votre système : vous décidez quels outils existent et avec quels droits. C'est le point de contrôle le plus utile de toute l'architecture. La mise en place d'une base documentaire est traitée sur la page <a href=\"/services/base-de-connaissance-ia\">base de connaissance IA</a>.</p>\n<p><strong>Quel modèle ?</strong> Le <a href=\"https://platform.claude.com/docs/en/about-claude/use-case-guides/customer-support-chat\" rel=\"noopener noreferrer\" target=\"_blank\">guide d'Anthropic sur le support client</a> recommande Opus 5.5 pour les scénarios les plus complexes, et Haiku 5.5 quand le flux enchaîne récupération documentaire, outils ou longs contextes et qu'il faut optimiser la latence. Notre lecture pour une PME : testez d'abord le modèle le plus léger sur vingt cas réels, puis montez seulement là où il échoue. La comparaison des prix est dans le <a href=\"/ressources/guides/quel-modele-claude-choisir\">guide du choix de modèle</a>.</p>",
+      "html_en": "<h2>How does the agent answer without making things up?</h2>\n<p>A customer service agent does not answer \"from memory\". It first searches your knowledge base for the passages that concern the question, then writes from those passages alone: this is document retrieval, called RAG, explained in the guide <a href=\"/ressources/guides/llm-rag-dirigeant\">LLM and RAG for business owners</a>. Anthropic's documentation on <a href=\"https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations\" rel=\"noopener noreferrer\" target=\"_blank\">reducing hallucinations</a> lists the habits: explicitly allow the model to say \"I don't know\", have it extract quotes before answering, and have it remove any claim it cannot back with a quote. It adds that these techniques reduce hallucinations without eliminating them: critical information must be validated.</p>\n<p>For data that changes, such as an order's status, document search is not enough: the agent calls a tool. <a href=\"https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic describes the mechanism</a>: the model returns a structured tool request (<code>stop_reason: \"tool_use\"</code>), your application runs the operation, then sends back the result. The model therefore never touches your system alone: you decide which tools exist and with what rights. It is the most useful control point in the whole architecture. Setting up a document base is covered on the <a href=\"/services/base-de-connaissance-ia\">AI knowledge base</a> page.</p>\n<p><strong>Which model?</strong> <a href=\"https://platform.claude.com/docs/en/about-claude/use-case-guides/customer-support-chat\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic's customer support guide</a> recommends Opus 5.5 for the most complex scenarios, and Haiku 5.5 when the flow chains document retrieval, tools or long contexts and latency needs optimising. Our reading for an SMB: test the lightest model first on twenty real cases, then move up only where it fails. The price comparison is in the <a href=\"/ressources/guides/quel-modele-claude-choisir\">model choice guide</a>.</p>"
+    },
+    {
+      "type": "decision-list",
+      "background": "paper",
+      "kicker_fr": "§ Garde-fous",
+      "kicker_en": "§ Safeguards",
+      "heading_fr": "Quels garde-fous poser à un agent de service client ?",
+      "heading_en": "Which safeguards should a customer service agent have?",
+      "items": [
+        {
+          "label_fr": "Périmètre : une liste écrite des sujets que l'agent traite (statut de commande, horaires, retours, questions produit) et de ceux qui partent à l'humain (litige, remboursement hors règle écrite, réclamation formelle).",
+          "label_en": "Scope: a written list of the topics the agent handles (order status, hours, returns, product questions) and those that go to a human (dispute, refund outside the written rule, formal complaint)."
+        },
+        {
+          "label_fr": "Moindre privilège : l'agent consulte avant d'agir. Tant que vous n'avez pas relu ses conversations, toute action qui modifie quelque chose (annulation, remboursement) passe par une validation humaine. Anthropic recommande de limiter l'accès aux données et aux actions sensibles pour qu'une injection réussie fasse peu de dégâts.",
+          "label_en": "Least privilege: the agent looks before it acts. Until you have reviewed its conversations, any action that changes something (cancellation, refund) goes through human approval. Anthropic recommends limiting access to sensitive data and actions so that a successful injection does little damage."
+        },
+        {
+          "label_fr": "Refus : l'agent a le droit de répondre « je ne sais pas » et de transmettre. Il refuse les conseils juridiques ou médicaux, les sujets hors périmètre et les engagements contractuels qu'il n'est pas autorisé à prendre (remise, geste commercial, délai garanti), un point que le guide support d'Anthropic cite parmi ses garde-fous.",
+          "label_en": "Refusals: the agent may answer \"I don't know\" and hand over. It refuses legal or medical advice, out-of-scope topics and contractual commitments it is not authorised to make (discount, goodwill gesture, guaranteed deadline), a point Anthropic's support guide lists among its safeguards."
+        },
+        {
+          "label_fr": "Contenus entrants : un e-mail ou une pièce jointe est une donnée, pas une instruction. Anthropic distingue l'injection directe (le client est l'adversaire) de l'injection indirecte (un texte tiers contient des consignes cachées) et conseille de tester son propre agent avec des contenus piégés avant la mise en service.",
+          "label_en": "Incoming content: an email or an attachment is data, not an instruction. Anthropic distinguishes direct injection (the customer is the adversary) from indirect injection (a third-party text contains hidden instructions) and advises testing your own agent with booby-trapped content before go-live."
+        },
+        {
+          "label_fr": "Transparence : le client sait dès le premier message qu'il parle à une IA. L'article 50 du règlement européen sur l'IA prévoit que les systèmes destinés à interagir directement avec des personnes les informent qu'elles échangent avec une IA, sauf si c'est évident ; la règle générale s'applique depuis le 2 août 2026. Voir le guide AI Act pour savoir qui est visé.",
+          "label_en": "Transparency: the customer knows from the first message that they are talking to an AI. Article 50 of the EU AI Act provides that systems intended to interact directly with people inform them that they are dealing with an AI, unless this is obvious; the general rule has applied since 2 August 2026. See the AI Act guide to know who is covered."
+        },
+        {
+          "label_fr": "Données : ne demandez que ce dont l'agent a besoin, fixez la durée de conservation du journal et dites au client ce qui est enregistré. Le cadre RGPD d'un assistant IA est détaillé dans le guide Claude et RGPD.",
+          "label_en": "Data: ask only for what the agent needs, set the log's retention period and tell the customer what is recorded. The GDPR framework for an AI assistant is detailed in the Claude and GDPR guide."
+        },
+        {
+          "label_fr": "Relecture : une personne relit chaque semaine un échantillon de conversations, en priorité celles qui ont fini en escalade ou en note basse.",
+          "label_en": "Review: a person reads a sample of conversations each week, first those that ended in escalation or a low rating."
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<p>Pour le détail juridique, deux guides complètent celui-ci : le <a href=\"/ressources/guides/ai-act-pme-calendrier\">calendrier de l'AI Act pour les PME</a>, qui dit qui est fournisseur et qui est déployeur, et <a href=\"/ressources/guides/claude-rgpd-pme\">Claude et RGPD en PME</a>. Le texte de l'<a href=\"https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-50\" rel=\"noopener noreferrer\" target=\"_blank\">article 50</a> se lit sur le site de la Commission européenne. Ce guide n'est pas un avis juridique.</p>",
+      "html_en": "<p>For the legal detail, two guides complete this one: the <a href=\"/ressources/guides/ai-act-pme-calendrier\">AI Act calendar for SMBs</a>, which says who is a provider and who is a deployer, and <a href=\"/ressources/guides/claude-rgpd-pme\">Claude and GDPR for SMBs</a>. The text of <a href=\"https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-50\" rel=\"noopener noreferrer\" target=\"_blank\">Article 50</a> can be read on the European Commission's site. This guide is not legal advice.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Quand l'agent doit-il passer la main à un humain ?</h2>\n<p>La règle d'escalade s'écrit avant le lancement, pas après le premier incident. Anthropic range l'« escalation efficiency » parmi ses critères d'évaluation : la part des conversations correctement transmises à un humain, par rapport à celles qui auraient dû l'être sans l'être. Quatre déclencheurs suffisent pour démarrer, et ce sont ceux de Waimia, pas ceux d'Anthropic :</p>\n<ul>\n<li><strong>La demande explicite.</strong> Le client demande une personne : l'agent transmet, sans discuter.</li>\n<li><strong>Le hors-périmètre.</strong> Le sujet n'est pas dans la liste écrite : l'agent le dit et transmet.</li>\n<li><strong>L'incertitude.</strong> Aucune source de la base ne répond : l'agent ne devine pas, il transmet.</li>\n<li><strong>Le ton.</strong> Le client exprime une colère ou répète sa demande deux fois : l'agent transmet avec l'historique.</li>\n</ul>\n<p>Le passage de main emporte avec lui la question, les sources consultées et les actions déjà faites, pour que le client ne répète rien. Il se fait dans les horaires où quelqu'un lit : hors horaires, l'agent le dit et crée un ticket plutôt que de laisser croire à une réponse immédiate.</p>",
+      "html_en": "<h2>When should the agent hand over to a human?</h2>\n<p>The escalation rule is written before launch, not after the first incident. Anthropic lists \"escalation efficiency\" among its evaluation criteria: the share of conversations correctly passed to a human, against those that should have been without being. Four triggers are enough to start, and they are Waimia's, not Anthropic's:</p>\n<ul>\n<li><strong>The explicit request.</strong> The customer asks for a person: the agent hands over, without arguing.</li>\n<li><strong>The out-of-scope topic.</strong> The topic is not on the written list: the agent says so and hands over.</li>\n<li><strong>Uncertainty.</strong> No source in the base answers: the agent does not guess, it hands over.</li>\n<li><strong>The tone.</strong> The customer expresses anger or repeats the request twice: the agent hands over with the history.</li>\n</ul>\n<p>The handover carries the question, the sources consulted and the actions already taken, so the customer repeats nothing. It happens during the hours when someone reads: outside those hours, the agent says so and creates a ticket rather than imply an immediate reply.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Ce qui se mesure",
+      "kicker_en": "§ What is measured",
+      "heading_fr": "Que mesurer pour juger un agent IA de service client, et comment ?",
+      "heading_en": "What should you measure to judge an AI customer service agent, and how?",
+      "caption_fr": "Définitions à écrire avant le lancement, relevées sur le journal des conversations. Le piège central est la définition de la « résolution » : chez Intercom, un « outcome » facturé 0,99 $ est compté lorsque le client confirme que son problème est résolu, ou ne demande plus d'aide après la réponse de l'agent, ou lorsque l'agent termine un parcours, y compris une transmission à un humain (page tarifs d'Intercom, lue le 15 octobre 2026). Deux outils n'ont donc pas le même « taux de résolution ». Anthropic cite aussi des cibles d'évaluation suggérées (par exemple 70 à 80 % de déflexion, un CSAT d'au moins 4 sur 5) : ce sont des objectifs à fixer avec votre équipe, ni des résultats mesurés ni des promesses.",
+      "caption_en": "Definitions to write before launch, taken from the conversation log. The central trap is the definition of \"resolution\": at Intercom, an \"outcome\" billed $0.99 is counted when the customer confirms the problem is resolved, or asks for no more help after the agent's reply, or when the agent completes a workflow, including a handover to a human (Intercom pricing page, read on 15 October 2026). Two tools therefore do not share the same \"resolution rate\". Anthropic also cites suggested evaluation targets (for example 70 to 80% deflection, a CSAT of at least 4 out of 5): these are goals to set with your team, neither measured results nor promises.",
+      "columns_fr": [
+        "Mesure",
+        "Définition à écrire",
+        "Comment la relever",
+        "Piège"
+      ],
+      "columns_en": [
+        "Measure",
+        "Definition to write",
+        "How to take it",
+        "Trap"
+      ],
+      "rows_fr": [
+        [
+          "Taux de résolution",
+          "Conversations clôturées sans humain, avec une règle explicite : le client confirme, ou ne revient pas sur le même sujet dans un délai fixé",
+          "Conversations résolues par l'agent ÷ conversations entrantes, sur le journal, avec un échantillon relu à la main",
+          "Compter une transmission à un humain, ou un silence du client, comme une résolution"
+        ],
+        [
+          "Taux de transmission",
+          "Part des conversations passées à un humain, justifiées ou non",
+          "Conversations transmises ÷ conversations entrantes ; relire un échantillon pour séparer les transmissions utiles des évitables",
+          "Chercher un taux bas : une transmission utile est un bon résultat"
+        ],
+        [
+          "Délai",
+          "Délai de première réponse, délai jusqu'à la clôture, et délai de prise en charge humaine après une transmission",
+          "Horodatages du journal : message du client, première réponse, clôture, première réponse humaine",
+          "Une première réponse rapide n'est pas une résolution : mesurer les trois délais séparément"
+        ],
+        [
+          "Satisfaction",
+          "Note donnée par le client après la conversation (par exemple de 1 à 5)",
+          "Une question posée en fin d'échange ; relever aussi le taux de réponse",
+          "Un faible taux de réponse biaise la moyenne ; comparer à votre mesure d'avant, pas à un objectif générique"
+        ],
+        [
+          "Exactitude",
+          "Part des réponses conformes à la source de la base de connaissance",
+          "Relecture hebdomadaire d'un échantillon de conversations par une personne du métier",
+          "Ne relire que les conversations notées bas : les erreurs silencieuses échappent"
+        ],
+        [
+          "Coût par conversation",
+          "Coût d'API, d'orchestration et de supervision rapporté aux conversations traitées",
+          "Facture de l'éditeur, abonnement d'orchestration, temps de relecture",
+          "Oublier le temps de relecture : il fait partie du coût"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Resolution rate",
+          "Conversations closed without a human, with an explicit rule: the customer confirms, or does not return on the same topic within a set period",
+          "Conversations resolved by the agent ÷ incoming conversations, from the log, with a hand-reviewed sample",
+          "Counting a handover to a human, or customer silence, as a resolution"
+        ],
+        [
+          "Handover rate",
+          "Share of conversations passed to a human, justified or not",
+          "Conversations handed over ÷ incoming conversations; review a sample to separate useful handovers from avoidable ones",
+          "Chasing a low rate: a useful handover is a good result"
+        ],
+        [
+          "Response time",
+          "Time to first reply, time to closure, and time for a human to pick up after a handover",
+          "Log timestamps: customer message, first reply, closure, first human reply",
+          "A fast first reply is not a resolution: measure the three times separately"
+        ],
+        [
+          "Satisfaction",
+          "Rating given by the customer after the conversation (for example 1 to 5)",
+          "A question asked at the end; also record the response rate",
+          "A low response rate skews the average; compare with your own earlier measurement, not a generic target"
+        ],
+        [
+          "Accuracy",
+          "Share of answers consistent with the knowledge base source",
+          "Weekly review of a sample of conversations by a business person",
+          "Reviewing only low-rated conversations: silent errors slip through"
+        ],
+        [
+          "Cost per conversation",
+          "API, orchestration and supervision cost divided by conversations handled",
+          "Vendor invoice, orchestration subscription, review time",
+          "Forgetting the review time: it is part of the cost"
+        ]
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Quelle mesure de départ avant de lancer l'agent ?</h2>\n<p>Sans mesure d'avant, aucune mesure d'après ne prouve quoi que ce soit. Relevez pendant quatre semaines les demandes reçues par type, le délai de première réponse et de clôture, les renvois entre collègues et la satisfaction si vous la collectez déjà. C'est cette base, et non un taux de marché, qui permettra de dire si l'agent a amélioré le service, ou seulement déplacé le travail. Le <a href=\"/ressources/guides/roi-automatisation\">guide du ROI d'une automatisation</a> déroule la méthode de calcul, et le <a href=\"/ressources/guides/cout-projet-ia-pme\">guide du coût d'un projet IA</a> liste les postes de dépense à y mettre en face. Nous ne publions aucun gain moyen : tout chiffre sans mesure de départ est un argument de vente.</p>",
+      "html_en": "<h2>What starting measurement should you take before launching the agent?</h2>\n<p>Without a measurement from before, no measurement from after proves anything. For four weeks, record the requests received by type, the time to first reply and to closure, the referrals between colleagues and satisfaction if you already collect it. That base, not a market rate, is what will tell you whether the agent improved the service or only moved the work. The <a href=\"/ressources/guides/roi-automatisation\">automation ROI guide</a> walks through the calculation method, and the <a href=\"/ressources/guides/cout-projet-ia-pme\">guide to the cost of an AI project</a> lists the spending items to set against it. We publish no average gain: any figure without a starting measurement is a sales argument.</p>"
+    },
+    {
+      "type": "tech-when-dual",
+      "background": "paper",
+      "kicker_fr": "§ Marché ou sur mesure",
+      "kicker_en": "§ Off-the-shelf or custom",
+      "title_fr": "Agent du marché ou agent sur mesure : lequel choisir ?",
+      "title_en": "Off-the-shelf or custom agent: which one?",
+      "aside_fr": "Avis de Waimia, qui vend du sur mesure : si vous cochez la colonne de gauche, gardez votre budget.",
+      "aside_en": "Waimia's opinion, and Waimia sells custom work: if you tick the left column, keep your budget.",
+      "use_title_fr": "Un agent du marché suffit si",
+      "use_title_en": "An off-the-shelf agent is enough if",
+      "use_items_fr": [
+        "Vous avez déjà un logiciel de support (helpdesk) qui propose un agent intégré.",
+        "Vos questions sont standard et vos réponses tiennent dans une base de connaissance simple.",
+        "Une facturation au résultat vous convient et vous acceptez la définition de « résolution » de l'éditeur.",
+        "Aucun outil interne ne doit être interrogé : stock, contrat, dossier client."
+      ],
+      "use_items_en": [
+        "You already have a support tool (helpdesk) that offers a built-in agent.",
+        "Your questions are standard and your answers fit in a simple knowledge base.",
+        "Billing per result suits you and you accept the vendor's definition of \"resolution\".",
+        "No internal tool needs to be queried: stock, contract, customer file."
+      ],
+      "avoid_title_fr": "Un agent sur mesure se justifie si",
+      "avoid_title_en": "A custom agent is justified if",
+      "avoid_items_fr": [
+        "L'agent doit interroger plusieurs de vos outils (commandes, stock, contrats) avant de répondre.",
+        "Vos règles métier sont spécifiques : exceptions, barèmes, cas qui engagent l'entreprise.",
+        "Vous voulez définir vous-même ce qu'est une résolution et relire chaque conversation.",
+        "Des données de clients ne doivent pas partir chez un éditeur sans contrôle : voir le cadre RGPD."
+      ],
+      "avoid_items_en": [
+        "The agent must query several of your tools (orders, stock, contracts) before answering.",
+        "Your business rules are specific: exceptions, scales, cases that commit the company.",
+        "You want to define yourself what a resolution is and review every conversation.",
+        "Customer data must not go to a vendor without control: see the GDPR framework."
+      ]
+    },
+    {
+      "type": "process-steps",
+      "background": "paper-3",
+      "kicker_fr": "§ Mise en place",
+      "kicker_en": "§ Implementation",
+      "h2_fr": "Comment mettre en place un agent IA de service client, étape par étape ?",
+      "h2_en": "How do you set up an AI customer service agent, step by step?",
+      "intro_fr": "Six étapes, de la mesure à l'élargissement. Chaque étape se termine par un livrable que vous pouvez relire.",
+      "intro_en": "Six steps, from measurement to extension. Each step ends with a deliverable you can read.",
+      "steps": [
+        {
+          "title_fr": "Mesurer l'existant",
+          "title_en": "Measure what exists",
+          "body_fr": "Quatre semaines de demandes par type, délais et satisfaction. Le livrable est un tableau de départ, avec les sujets les plus répétitifs en tête.",
+          "body_en": "Four weeks of requests by type, response times and satisfaction. The deliverable is a starting table, with the most repetitive topics first.",
+          "meta_fr": "Audit gratuit",
+          "meta_en": "Free audit"
+        },
+        {
+          "title_fr": "Fixer un périmètre étroit",
+          "title_en": "Set a narrow scope",
+          "body_fr": "Trois à cinq sujets, un canal, une liste écrite de ce qui part à l'humain, la définition de la résolution. Le livrable est un périmètre signé par la personne qui tient le service client.",
+          "body_en": "Three to five topics, one channel, a written list of what goes to a human, the definition of resolution. The deliverable is a scope signed by the person who runs customer service.",
+          "meta_fr": "Sprint de cadrage à {{prix.sprint}} € HT les 10 heures",
+          "meta_en": "Scoping sprint at €{{prix.sprint.en}} excl. VAT for 10 hours"
+        },
+        {
+          "title_fr": "Préparer la base de connaissance",
+          "title_en": "Prepare the knowledge base",
+          "body_fr": "Réunir les sources de vérité, retirer les documents contradictoires ou périmés, nommer un propriétaire et une date de relecture par document.",
+          "body_en": "Gather the sources of truth, remove contradictory or outdated documents, name an owner and a review date per document.",
+          "meta_fr": "Du temps de vos équipes",
+          "meta_en": "Your teams' time"
+        },
+        {
+          "title_fr": "Construire en lecture seule, avec escalade et journal",
+          "title_en": "Build read-only, with escalation and log",
+          "body_fr": "L'agent consulte la base et les outils en lecture, transmet selon la règle écrite et journalise chaque échange. Les actions qui modifient quelque chose restent à validation humaine.",
+          "body_en": "The agent reads the base and the tools, hands over under the written rule and logs every exchange. Actions that change something remain subject to human approval.",
+          "meta_fr": "Pilote à partir de {{prix.pilote}} € HT",
+          "meta_en": "Pilot from €{{prix.pilote.en}} excl. VAT"
+        },
+        {
+          "title_fr": "Tester avant d'ouvrir",
+          "title_en": "Test before opening",
+          "body_fr": "Vingt cas réels avec la réponse attendue, dont des cas limites, plus des messages piégés (consignes cachées dans un e-mail ou une pièce jointe). On ouvre si le résultat est conforme à ce que vous avez écrit, pas avant.",
+          "body_en": "Twenty real cases with the expected answer, including edge cases, plus booby-trapped messages (instructions hidden in an email or attachment). We open if the result matches what you wrote, not before.",
+          "meta_fr": "Recette avec votre équipe",
+          "meta_en": "Acceptance testing with your team"
+        },
+        {
+          "title_fr": "Ouvrir à une part du trafic, relire, élargir",
+          "title_en": "Open to part of the traffic, review, extend",
+          "body_fr": "Une part des demandes d'abord, un échantillon relu chaque semaine, les trois mesures comparées à la base de départ. On élargit le périmètre seulement si la mesure le justifie.",
+          "body_en": "Part of the requests first, a sample reviewed each week, the three measures compared with the starting base. We extend the scope only if the measurement justifies it.",
+          "meta_fr": "Suivi : {{prix.maintenance.p1}} à {{prix.maintenance.p3}} € HT par mois",
+          "meta_en": "Monitoring: €{{prix.maintenance.p1}} to €{{prix.maintenance.p3}} excl. VAT a month"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Que fait Waimia pour un service client, et que ne promet-il pas ?</h2>\n<p>Waimia cadre, construit et suit des agents de service client branchés sur vos outils : la page <a href=\"/services/agent-support-client\">agent IA de service client</a> décrit l'offre, et la page <a href=\"/cas-usages/support-sav\">automatiser le service client et le SAV</a> donne le point de départ par type de demande, avec des études de cas du marché sourcées. Le cadrage est facturé {{prix.sprint}} € HT pour 10 heures ; la suite se facture {{prix.horaire}} € HT de l'heure ou au forfait de pilote. L'audit est gratuit.</p>\n<p>Waimia ne promet aucun taux de résolution, aucun délai gagné, aucune économie. Ces chiffres n'existent qu'après la mesure de départ et la mesure d'après, chez vous.</p>",
+      "html_en": "<h2>What does Waimia do for a customer service, and what does it not promise?</h2>\n<p>Waimia scopes, builds and monitors customer service agents connected to your tools: the <a href=\"/services/agent-support-client\">AI customer service agent</a> page describes the offer, and the <a href=\"/cas-usages/support-sav\">automating customer service</a> page gives the starting point by type of request, with sourced market case studies. Scoping is billed at €{{prix.sprint.en}} excl. VAT for 10 hours; what follows is billed at €{{prix.horaire}} excl. VAT per hour or under a pilot package. The audit is free.</p>\n<p>Waimia promises no resolution rate, no time saved, no savings. Those figures exist only after the starting measurement and the measurement after, in your company.</p>"
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper-2",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Further reading",
+      "cards": [
+        {
+          "kicker_fr": "S",
+          "kicker_en": "e",
+          "title_fr": "S",
+          "title_en": "e",
+          "lead_fr": "A",
+          "lead_en": "g",
+          "href": "AI customer service agent"
+        },
+        {
+          "kicker_fr": "C",
+          "kicker_en": "a",
+          "title_fr": "U",
+          "title_en": "s",
+          "lead_fr": "A",
+          "lead_en": "u",
+          "href": "Automating customer service"
+        },
+        {
+          "kicker_fr": "G",
+          "kicker_en": "u",
+          "title_fr": "G",
+          "title_en": "u",
+          "lead_fr": "C",
+          "lead_en": "o",
+          "href": "How much an AI project costs an SMB"
+        }
+      ]
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "h2_fr": "Agent IA de service client : questions fréquentes",
+      "h2_en": "AI customer service agent: frequently asked questions",
+      "items": [
+        {
+          "q_fr": "Qu'est-ce qu'un agent IA de service client ?",
+          "a_fr": "C'est un logiciel qui lit les demandes de vos clients en langage libre, répond depuis votre base de connaissance, appelle des outils (suivi de commande, création de ticket) et passe la main à un humain selon une règle écrite. Il garde un journal de chaque échange. Il se distingue d'un chatbot à règles, qui suit un arbre de choix écrit à l'avance. Il demande un périmètre étroit et des garde-fous.",
+          "q_en": "What is an AI customer service agent?",
+          "a_en": "It is software that reads your customers' requests in free language, answers from your knowledge base, calls tools (order tracking, ticket creation) and hands over to a human under a written rule. It keeps a log of every exchange. It differs from a rule-based chatbot, which follows a decision tree written in advance. It needs a narrow scope and safeguards."
+        },
+        {
+          "q_fr": "Comment éviter qu'un chatbot de service client invente une réponse ?",
+          "a_fr": "En le faisant répondre depuis vos sources seules, en l'autorisant à dire « je ne sais pas » et à transmettre, en lui faisant citer le passage qui appuie sa réponse, et en relisant chaque semaine un échantillon de conversations. La documentation d'Anthropic précise que ces techniques réduisent les inventions sans les éliminer : les informations critiques se valident.",
+          "q_en": "How do you stop a customer service chatbot from making up an answer?",
+          "a_en": "By making it answer from your sources alone, allowing it to say \"I don't know\" and hand over, having it quote the passage that backs its answer, and reviewing a sample of conversations each week. Anthropic's documentation says these techniques reduce invention without eliminating it: critical information must be validated."
+        },
+        {
+          "q_fr": "Quand un agent doit-il passer la main à un humain ?",
+          "a_fr": "Quand le client le demande, quand le sujet est hors du périmètre écrit, quand aucune source de la base ne répond, et quand le ton monte ou que la demande se répète. Le passage de main emporte l'historique et les actions déjà faites pour que le client ne répète rien. Ces quatre déclencheurs sont ceux de Waimia, à adapter à votre activité.",
+          "q_en": "When should an agent hand over to a human?",
+          "a_en": "When the customer asks, when the topic is outside the written scope, when no source in the base answers, and when the tone rises or the request repeats. The handover carries the history and the actions already taken so the customer repeats nothing. These four triggers are Waimia's, to adapt to your business."
+        },
+        {
+          "q_fr": "Faut-il dire au client qu'il parle à une IA ?",
+          "a_fr": "Oui, c'est la pratique à retenir. L'article 50 du règlement européen sur l'IA prévoit que les systèmes destinés à interagir directement avec des personnes les informent qu'elles échangent avec une IA, sauf si c'est évident, et la règle générale du règlement s'applique depuis le 2 août 2026. Dites-le dès le premier message. Ce guide n'est pas un avis juridique : voir le guide AI Act.",
+          "q_en": "Do you need to tell the customer they are talking to an AI?",
+          "a_en": "Yes, that is the practice to adopt. Article 50 of the EU AI Act provides that systems intended to interact directly with people inform them that they are dealing with an AI, unless this is obvious, and the regulation's general rule has applied since 2 August 2026. Say so in the first message. This guide is not legal advice: see the AI Act guide."
+        },
+        {
+          "q_fr": "Comment mesurer le taux de résolution d'un agent IA ?",
+          "a_fr": "Écrivez d'abord la définition : une conversation est résolue si le client confirme, ou ne revient pas sur le même sujet dans un délai que vous fixez, sans passage par un humain. Divisez les conversations résolues par les conversations entrantes, sur le journal, et relisez un échantillon à la main. Deux éditeurs ne comptent pas la résolution de la même façon : ne comparez pas leurs taux.",
+          "q_en": "How do you measure an AI agent's resolution rate?",
+          "a_en": "First write the definition: a conversation is resolved if the customer confirms, or does not return on the same topic within a period you set, without going through a human. Divide resolved conversations by incoming conversations, from the log, and review a sample by hand. Two vendors do not count resolution the same way: do not compare their rates."
+        },
+        {
+          "q_fr": "Un chatbot de service client est-il fait pour une petite entreprise ?",
+          "a_fr": "Oui si vos demandes sont répétitives et si quelqu'un relit les conversations chaque semaine. Non si chaque demande est un cas particulier ou si personne n'a le temps de superviser. Commencez par trois à cinq sujets sur un canal, mesurez pendant quatre semaines avant de lancer, puis comparez. Un helpdesk avec agent intégré peut suffire avant de passer au sur mesure.",
+          "q_en": "Is a customer service chatbot made for a small business?",
+          "a_en": "Yes if your requests are repetitive and someone reviews the conversations each week. No if every request is a special case or nobody has time to supervise. Start with three to five topics on one channel, measure for four weeks before launching, then compare. A helpdesk with a built-in agent may be enough before moving to custom work."
+        },
+        {
+          "q_fr": "Combien coûte un agent IA de service client ?",
+          "a_fr": "Cela dépend du périmètre. Côté prix publics au 15 octobre 2026 : l'API de Claude Haiku 5.5 coûte 0,10 $ en entrée et 0,50 $ en sortie par million de jetons, et Intercom facture son agent 0,99 $ par « outcome ». Chez Waimia, l'audit est gratuit et le cadrage coûte {{prix.sprint}} € HT pour 10 heures. Le détail des postes est dans le guide du coût d'un projet IA.",
+          "q_en": "How much does an AI customer service agent cost?",
+          "a_en": "It depends on the scope. In public prices on 15 October 2026: the Claude Haiku 5.5 API costs $0.10 input and $0.50 output per million tokens, and Intercom bills its agent $0.99 per \"outcome\". At Waimia, the audit is free and scoping costs €{{prix.sprint.en}} excl. VAT for 10 hours. The cost items are detailed in the guide to the cost of an AI project."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Service client",
+      "kicker_en": "§ Customer service",
+      "h2_fr": "Savoir quelles demandes un agent peut traiter chez vous, avant d'en construire un. L'audit est gratuit.",
+      "h2_en": "Knowing which requests an agent can handle in your company, before building one. The audit is free.",
+      "subtitle_fr": "En 45 minutes, on regarde vos demandes par type, vos outils et vos délais actuels, et on vous dit si un agent vaut la peine, avec quel périmètre et quelles mesures.",
+      "subtitle_en": "In 45 minutes, we look at your requests by type, your tools and your current response times, and tell you whether an agent is worth it, with what scope and which measures.",
+      "buttons": [
+        {
+          "label_fr": "Réserver l'audit gratuit",
+          "label_en": "Book the free audit",
+          "href": "/audit-ia-pme",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Voir l'agent de service client",
+          "label_en": "See the customer service agent",
+          "href": "/services/agent-support-client",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}
