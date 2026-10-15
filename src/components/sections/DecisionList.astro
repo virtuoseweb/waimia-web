@@ -15,13 +15,17 @@ const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 const kicker = isFr ? data.kicker_fr : data.kicker_en;
 const heading = isFr ? data.heading_fr : data.heading_en;
+// Id déterministe dérivé du titre : une page peut porter plusieurs decision-list (formation Claude : trois).
+let hash = 0;
+for (const ch of data.heading_fr) hash = (hash * 31 + ch.charCodeAt(0)) >>> 0;
+const headingId = `decision-list-h2-${hash.toString(36)}`;
 ---
-<section class="decision-list reveal-stagger" aria-labelledby="decision-list-h2" data-bg={data.background}>
+<section class="decision-list reveal-stagger" aria-labelledby={headingId} data-bg={data.background}>
   <div class="wrap-wide">
     <div class="decision-list-grid">
       <div>
         <Kicker class="decision-list-kicker">{kicker}</Kicker>
-        <h2 id="decision-list-h2" class="decision-list-h2 u-serif-accent" set:html={heading} />
+        <h2 id={headingId} class="decision-list-h2 u-serif-accent" set:html={heading} />
       </div>
       <ol class="decision-list-ol">
         {data.items.map((item, index) => (
