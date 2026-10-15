@@ -135,6 +135,7 @@ const id = (k: string) => `${idPrefix}-${k}`;
       }
       busy(true);
       var payload = Object.fromEntries(new FormData(form).entries());
+      payload.source = window.wmLeadSource ? window.wmLeadSource() : undefined;
       var mail = '<a href="mailto:' + fallbackEmail + '">' + fallbackEmail + '</a>';
       try {
         var res = await fetch('/api/contact', {

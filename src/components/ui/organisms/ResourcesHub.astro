@@ -784,6 +784,7 @@ const listTitle = activeKind
       if (btn) btn.disabled = true;
 
       var payload = Object.fromEntries(new FormData(form).entries());
+      payload.source = window.wmLeadSource ? window.wmLeadSource() : undefined;
 
       try {
         var res = await fetch('/api/newsletter', {

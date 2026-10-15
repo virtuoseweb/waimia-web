@@ -148,10 +148,15 @@ const lang = propLang ?? langFromPath(Astro.url.pathname);
 
 <script is:inline>
 (function () {
+  // Le script est émis par chaque instance du composant : une seule initialisation par visite,
+  // sinon chaque formulaire reçoit plusieurs gestionnaires et un envoi part plusieurs fois.
+  if (window.__wmNlInit) return;
+  window.__wmNlInit = true;
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
   function bindForm(form) {
-    if (form.dataset.nlBound) return;
+    // Les formulaires de CtaFormInline portent aussi data-nl-form mais ont leur propre gestionnaire.
+    if (form.dataset.nlBound || form.closest('.cta-form')) return;
     form.dataset.nlBound = '1';
 
     var section = form.closest('[data-nl-lang]');
@@ -198,6 +203,7 @@ const lang = propLang ?? langFromPath(Astro.url.pathname);
         lang: lang,
         website: honeypot ? honeypot.value : '',
         _t: (form.querySelector('input[name="_t"]') || {}).value || '',
+        source: window.wmLeadSource ? window.wmLeadSource() : undefined,
       };
 
       try {
@@ -228,11 +234,10 @@ const lang = propLang ?? langFromPath(Astro.url.pathname);
 
   document.querySelectorAll('[data-nl-form]').forEach(bindForm);
 
+  // Navigation ClientRouter : les formulaires de la nouvelle page sont des nœuds neufs (sans
+  // drapeau) ; un nœud conservé garde son gestionnaire, il ne faut donc jamais effacer le drapeau.
   document.addEventListener('astro:page-load', function () {
-    document.querySelectorAll('[data-nl-form]').forEach(function (form) {
-      delete form.dataset.nlBound;
-      bindForm(form);
-    });
+    document.querySelectorAll('[data-nl-form]').forEach(bindForm);
   });
 })();
 </script>

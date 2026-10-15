@@ -39,6 +39,7 @@ import { SITE } from "../site.config";
 import { LEAD_MAGNETS, AUDIT_BOOKING_HREF, type LeadMagnetEntry } from "../data/conversion";
 import { computeLeadTool, type LeadToolPayload, type LeadToolResult } from "./lead-tools";
 import { LeadToolPayloadSchema } from "./lead-tools/schema";
+import { LeadSourceSchema, leadSourceLog, leadSourceRows } from "./lead-source";
 import { digestLeadTool, gmailComposeUrl, replyDraft } from "./lead-tools/digest";
 import { AUDIT_RDV_URL } from "./lead-tools/links";
 import { renderLeadToolPdf } from "./pdf";
@@ -97,6 +98,8 @@ export const LeadMagnetSchema = z.object({
    * (LeadToolPayloadSchema) pour renvoyer un code dédié ; le serveur recalcule tout.
    */
   result: z.unknown().optional(),
+  /** Provenance tenue en mémoire par le navigateur (src/lib/lead-source.ts). */
+  source: LeadSourceSchema,
 });
 
 export interface DeliveryDeps {
@@ -107,6 +110,8 @@ export interface DeliveryDeps {
   /** Horloge (tests du délai minimal). */
   now?: number;
   ip?: string;
+  /** Page qui a envoyé le formulaire (en-tête Referer, même origine). */
+  page?: string;
   /** Génération du rapport PDF (injectable pour tester l'échec). */
   renderPdf?: typeof renderLeadToolPdf;
 }
@@ -176,7 +181,7 @@ export async function processLeadMagnet(rawPayload: unknown, deps: DeliveryDeps 
       },
     };
   }
-  const { email, lang, slug, company, role, summary, headline } = parsed.data;
+  const { email, lang, slug, company, role, summary, headline, source } = parsed.data;
   const optIn = Boolean(parsed.data.newsletter);
   const magnets = deps.magnets ?? (LEAD_MAGNETS as Readonly<Record<string, LeadMagnetEntry>>);
   if (!Object.prototype.hasOwnProperty.call(magnets, slug)) {
@@ -317,6 +322,7 @@ export async function processLeadMagnet(rawPayload: unknown, deps: DeliveryDeps 
             { label: "Ressource", value: magnet.title },
             { label: "Lettre mensuelle", value: optIn ? "inscription demandée" : "non (ne pas ajouter à une liste)" },
             ...(digest || isToolSlug ? [] : [...(headline ? [{ label: "Résultat", value: headline }] : []), ...(summary ?? [])]),
+            ...leadSourceRows(source, deps.page),
           ],
           sections: digest?.sections,
           attachments: report ? [report.filename] : [],
@@ -344,7 +350,7 @@ export async function processLeadMagnet(rawPayload: unknown, deps: DeliveryDeps 
     }
     const maskedEmail = email.replace(/(?<=.{3}).(?=.*@)/g, "*");
     console.log(
-      JSON.stringify({ ts: new Date().toISOString(), action: "lead_magnet_delivered", slug, ip: deps.ip, email: maskedEmail, files: attachments.length + (report ? 1 : 0), pdf: toolResult ? Boolean(report) : undefined }),
+      JSON.stringify({ ts: new Date().toISOString(), action: "lead_magnet_delivered", slug, ...leadSourceLog(source, deps.page), ip: deps.ip, email: maskedEmail, files: attachments.length + (report ? 1 : 0), pdf: toolResult ? Boolean(report) : undefined }),
     );
     return {
       status: 200,

@@ -193,6 +193,9 @@ const details = data.details ?? [];
 
 <script is:inline>
 (function () {
+  // Une seule initialisation par visite, même si le composant apparaît plusieurs fois.
+  if (window.__wmContactFormInit) return;
+  window.__wmContactFormInit = true;
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
   function bind(form) {
     if (form.dataset.cfBound) return;
@@ -228,7 +231,7 @@ const details = data.details ?? [];
       if (!emailVal || !EMAIL_RE.test(emailVal)) { showError(lang === 'fr' ? 'Adresse email invalide.' : 'Invalid email address.', email); if (email) email.focus(); return; }
       if (!briefVal) { showError(lang === 'fr' ? 'Écrivez un message.' : 'Write a message.', brief); if (brief) brief.focus(); return; }
       if (btn) btn.disabled = true;
-      var payload = { name: nameVal, email: emailVal, brief: briefVal, lang: lang, website: honeypot ? honeypot.value : '', _t: (form.querySelector('input[name="_t"]') || {}).value || '' };
+      var payload = { name: nameVal, email: emailVal, brief: briefVal, lang: lang, website: honeypot ? honeypot.value : '', _t: (form.querySelector('input[name="_t"]') || {}).value || '', source: window.wmLeadSource ? window.wmLeadSource() : undefined };
       try {
         var res = await fetch(form.getAttribute('action') || '/api/contact', {
           method: 'POST',
@@ -252,7 +255,8 @@ const details = data.details ?? [];
   }
   document.querySelectorAll('.contact-form [data-cf-form]').forEach(bind);
   document.addEventListener('astro:page-load', function () {
-    document.querySelectorAll('.contact-form [data-cf-form]').forEach(function (f) { delete f.dataset.cfBound; bind(f); });
+    // Nœuds neufs après navigation : ne jamais effacer le drapeau (sinon double envoi).
+    document.querySelectorAll('.contact-form [data-cf-form]').forEach(bind);
   });
 })();
 </script>

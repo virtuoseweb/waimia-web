@@ -157,6 +157,9 @@ const action = leadMagnet ? '/api/lead-magnet' : (data.form_action ?? '/api/news
 
 <script is:inline>
 (function () {
+  // Une seule initialisation par visite, même si le composant apparaît plusieurs fois.
+  if (window.__wmCtaFormInit) return;
+  window.__wmCtaFormInit = true;
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
   function bind(form) {
     if (form.dataset.ctaFormBound) return;
@@ -191,7 +194,7 @@ const action = leadMagnet ? '/api/lead-magnet' : (data.form_action ?? '/api/news
       }
       if (btn) btn.disabled = true;
       var slug = form.dataset.leadMagnet;
-      var payload = { email: value, lang: lang, website: honeypot ? honeypot.value : '', _t: (form.querySelector('input[name="_t"]') || {}).value || '' };
+      var payload = { email: value, lang: lang, website: honeypot ? honeypot.value : '', _t: (form.querySelector('input[name="_t"]') || {}).value || '', source: window.wmLeadSource ? window.wmLeadSource() : undefined };
       if (slug) {
         payload.slug = slug;
         var optin = form.querySelector('input[name="newsletter"]');
@@ -230,7 +233,8 @@ const action = leadMagnet ? '/api/lead-magnet' : (data.form_action ?? '/api/news
   }
   document.querySelectorAll('.cta-form [data-nl-form]').forEach(bind);
   document.addEventListener('astro:page-load', function () {
-    document.querySelectorAll('.cta-form [data-nl-form]').forEach(function (f) { delete f.dataset.ctaFormBound; bind(f); });
+    // Nœuds neufs après navigation : ne jamais effacer le drapeau (sinon double gestionnaire).
+    document.querySelectorAll('.cta-form [data-nl-form]').forEach(bind);
   });
 })();
 </script>

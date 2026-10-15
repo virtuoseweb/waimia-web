@@ -186,6 +186,7 @@ const descId = bare ? describedBy : `${fid}-desc`;
             _t: form.elements._t ? form.elements._t.value : '',
             lang: 'fr',
             result: detail.result,
+            source: window.wmLeadSource ? window.wmLeadSource() : undefined,
           }),
         });
         var data = await res.json().catch(function () { return {}; });
