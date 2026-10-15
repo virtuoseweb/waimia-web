@@ -277,7 +277,8 @@ if (meshDelegated && meshHandoff) meshHandoff.mesh = autoMesh;
 
     {/* Provenance des demandes (src/lib/lead-source.ts) : page d'arrivée, source d'entrée et page
         précédente, tenues EN MÉMOIRE pendant la visite (ni cookie ni stockage). Les formulaires
-        lisent window.wmLeadSource() au moment de l'envoi ; rien ne part sans formulaire soumis. */}
+        lisent window.wmLeadSource() au moment de l'envoi ; l'embed Cal la reçoit à son affichage
+        (politique de confidentialité v1.1). */}
     <script is:inline>
       (() => {
         if (typeof window === 'undefined' || window.wmLeadSource) return;

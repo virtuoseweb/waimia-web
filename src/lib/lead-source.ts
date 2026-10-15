@@ -4,7 +4,8 @@
  *  - page du formulaire : en-tête `Referer` de l'envoi (même origine seulement) ;
  *  - page d'arrivée, source d'entrée et page précédente : fournies par `window.wmLeadSource()`
  *    (script inline de `layouts/Base.astro`), tenues EN MÉMOIRE pendant la visite.
- * Ni cookie ni stockage sur l'appareil, rien n'est transmis sans formulaire soumis.
+ * Ni cookie ni stockage sur l'appareil. Transmis avec un formulaire envoyé, et à Cal.com dès
+ * l'affichage de l'embed de réservation (`metadata[...]` de CalEmbedReact) : la politique le dit.
  *
  * Une provenance absente ou mal formée ne bloque jamais une demande : `.catch(undefined)`.
  */

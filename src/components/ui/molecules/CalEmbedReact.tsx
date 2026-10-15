@@ -17,7 +17,8 @@ import { SITE } from '../../../site.config';
 type LeadSource = { landing?: string; entry?: string; prev?: string };
 
 /** Provenance tenue en mémoire par layouts/Base.astro (src/lib/lead-source.ts), passée à Cal
- *  en `metadata[...]` pour que la réservation dise d'où vient la personne. */
+ *  en `metadata[...]` pour que la réservation dise d'où vient la personne. Elle part dans l'URL
+ *  de l'iframe dès l'affichage, avant toute réservation : la politique de confidentialité le dit. */
 function leadSourceMetadata(): Record<string, string> {
   const read = (window as unknown as { wmLeadSource?: () => LeadSource }).wmLeadSource;
   const src = read ? read() : undefined;
