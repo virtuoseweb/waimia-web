@@ -13,7 +13,7 @@
 // (data+lang pass-through) n'acheminent pas → la route les rend en direct via ces
 // props (`hero-case-study` : topPad/h1Gap/VT ids ; `tech-stack-band` : reveal + style).
 
-import { AUDIT_BOOKING_HREF, AUDIT_BOOKING_LABEL, AUDIT_PAGE_HREF, AUDIT_PAGE_LABEL } from '../../data/conversion';
+import { AUDIT_BOOKING_HREF, AUDIT_BOOKING_LABEL, AUDIT_PAGE_HREF, AUDIT_PAGE_LABEL, auditCtaBand } from '../../data/conversion';
 import type { CollectionEntry } from 'astro:content';
 import { defineTemplate, type TemplateContext } from '@waimia/ds-kernel/templates';
 import type { SectionByType } from '@waimia/ds-kernel';
@@ -250,6 +250,15 @@ export const caseStudyTemplate = defineTemplate<CaseStudyContext>({
         shifts: data.shifts!,
         background: 'ink',
       } satisfies SectionByType<'metric-shift'>),
+    },
+
+    // ── CTA de page juste après la preuve chiffrée (audit v5, point 4) : sans elle, rien
+    //    entre `metric-shift` (~70 % de la page) et la bande finale. Même condition que
+    //    metric-shift ; texte et lien depuis data/conversion.ts (aucune phrase propre). ──
+    {
+      id: 'metric-shift-cta',
+      when: ({ data }) => Boolean(data.shifts && data.shifts.length >= 2),
+      build: () => auditCtaBand() satisfies SectionByType<'cta-band'>,
     },
 
     // ── KEY METRICS → stat-block (migré uniquement, metrics > 0) ──────────────────────

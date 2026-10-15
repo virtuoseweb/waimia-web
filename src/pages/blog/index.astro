@@ -26,8 +26,8 @@ const sortedBlog = [...allBlog].sort(
 
 const blogItems = sortedBlog.map((entry) => `${SITE.url}${blogEntryHref(entry)}`);
 const collectionLd = buildCollectionPage(
-  'Blog IA et automatisation PME · Notes & essais · Waimia',
-  'Blog IA et automatisation pour PME : notes de terrain, comparatifs et méthodes par Simon Beros. Agents IA, n8n, Claude, CRM, pilotage.',
+  'Blog IA et automatisation pour PME : notes de terrain',
+  'Notes de terrain de Simon Beros sur l\'IA et l\'automatisation en PME : agents IA, n8n, Claude, CRM, pilotage. Méthodes, comparatifs, coûts datés et sourcés.',
   blogItems,
 );
 
@@ -162,8 +162,8 @@ const ctaSection = {
 } satisfies SectionByType<'cta-band'>;
 ---
 <Base
-  title="Blog IA et automatisation PME · Notes & essais · Waimia"
-  description="Blog IA et automatisation pour PME : notes de terrain, comparatifs et méthodes par Simon Beros. Agents IA, n8n, Claude, CRM, pilotage."
+  title="Blog IA et automatisation pour PME : notes de terrain"
+  description="Notes de terrain de Simon Beros sur l'IA et l'automatisation en PME : agents IA, n8n, Claude, CRM, pilotage. Méthodes, comparatifs, coûts datés et sourcés."
   jsonLd={collectionLd}
 >
   <SectionsRenderer sections={[mastheadSection]} lang={lang} />

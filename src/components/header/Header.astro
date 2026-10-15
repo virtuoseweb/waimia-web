@@ -11,6 +11,7 @@
 import { MEGA_MENU, type MegaMenuCategory } from '../../data/mega-menu';
 import { langFromPath, alternateHref, t, hasBilingualMirror, localizeHref } from '../../lib/i18n';
 import { SITE } from '../../site.config';
+import { AUDIT_BOOKING_HREF, AUDIT_BOOKING_LABEL } from '../../data/conversion';
 
 const lang = langFromPath(Astro.url.pathname);
 const altHref = alternateHref(Astro.url.pathname, lang);
@@ -20,7 +21,7 @@ const altHref = alternateHref(Astro.url.pathname, lang);
 // restaurer `hasBilingualMirror(Astro.url.pathname)` pour réactiver l'EN.
 const enMirror = false;
 // Prise de rendez-vous : URL unique (décision Simon 2026-10), la page contact porte le calendrier.
-const ctaHref = '/contact#offer=audit-ia-pme&intent=audit';
+const ctaHref = AUDIT_BOOKING_HREF;
 
 // i18n · tous les liens de panel passent par la localisation (R3 fix) :
 // en EN, `/solutions/x` → `/en/solutions/x`. `localizeHref` ne préfixe que les
@@ -91,8 +92,8 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
       )}
       <a href={ctaHref} class="cta" data-mag="0.18">
         {/* Libellé long en desktop, court sous 1180 px (global.css) : le CTA reste visible en mobile. */}
-        <span class="cta-label-long">{lang === 'fr' ? 'Réserver un audit' : 'Book an audit'}</span>
-        <span class="cta-label-short">{lang === 'fr' ? 'Audit gratuit' : 'Free audit'}</span>
+        <span class="cta-label-long">{AUDIT_BOOKING_LABEL[lang === 'fr' ? 'fr' : 'en']}</span>
+        <span class="cta-label-short">{lang === 'fr' ? "Réserver l'audit" : 'Book the audit'}</span>
         <span aria-hidden>→</span>
       </a>
       <button class="burger" data-burger type="button" aria-label={lang === 'fr' ? 'Ouvrir le menu principal' : 'Open main menu'} aria-expanded="false" aria-controls="m-sheet">
@@ -669,7 +670,7 @@ const isCurrentSection = (parentHref?: string, matchPrefixes?: string[]) => {
       </a>
     )}
     <a href={ctaHref} class="btn btn-primary">
-      {lang === 'fr' ? 'Réserver un audit →' : 'Book an audit →'}
+      {lang === 'fr' ? `${AUDIT_BOOKING_LABEL.fr} →` : `${AUDIT_BOOKING_LABEL.en} →`}
     </a>
   </div>
 </div>

@@ -4828,6 +4828,28 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-2"
       },
       {
+        "type": "editorial-callout",
+        "label": "#4",
+        "variant": "quote",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-callout",
+        "label": "#6",
+        "variant": "quote",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper-2"
+      },
+      {
         "type": "editorial-table-block",
         "label": "Ce qui a bougé chez Claude et ChatGPT, et ce que ça change",
         "variant": "editorial",
@@ -4835,7 +4857,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-prose",
-        "label": "#5",
+        "label": "#9",
         "background": "paper-2"
       },
       {
@@ -7825,6 +7847,16 @@ export const SITE_PAGES: SitePage[] = [
         "type": "editorial-prose",
         "label": "#0",
         "background": "paper"
+      },
+      {
+        "type": "case-card-grid",
+        "label": "Ce que le studio a déjà livré",
+        "background": "paper"
+      },
+      {
+        "type": "eeat-panel",
+        "label": "#2",
+        "variant": "media"
       },
       {
         "type": "faq-accordion",

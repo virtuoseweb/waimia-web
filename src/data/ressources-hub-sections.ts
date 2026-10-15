@@ -11,6 +11,7 @@
 //   • le manifesto (« La promesse ») ;
 //   • le CTA final.
 import type { SectionByType } from '@waimia/ds-kernel';
+import { AUDIT_BOOKING_HREF, AUDIT_BOOKING_LABEL } from './conversion';
 
 // ── EN-TÊTE · list-index-section (paper, statique) ──
 export const indexHeadData = {
@@ -48,9 +49,9 @@ export const RESOURCE_VIEWS: Record<ResourceView, {
 }> = {
   all: {
     href: '/ressources',
-    title_fr: 'Ressources IA pour PME : guides et outils · Waimia',
+    title_fr: 'Ressources IA pour PME : guides, comparatifs, outils',
     title_en: 'AI resources for SMEs: guides and tools · Waimia',
-    description_fr: 'Guides pratiques, comparatifs outils IA, calculateur et checklists gratuits, articles : toutes les ressources IA pour PME, du plus récent au plus ancien.',
+    description_fr: 'Guides pratiques, comparatifs d\'outils IA, calculateur ROI, checklists et modèles gratuits pour PME. Chaque contenu est daté, signé et relu.',
     description_en: 'Practical guides, AI tool comparisons, free calculator and checklists, articles: all AI resources for SMEs, newest first.',
     collection_name_fr: 'Ressources IA pour PME · Waimia',
     collection_name_en: 'AI resources for SMEs · Waimia',
@@ -141,7 +142,7 @@ export const ctaData = {
   h2_en: 'Ready to ship an <em>agent</em>,<br />not a slide deck?',
   body_fr: 'Audit IA gratuit de 45 minutes : vos process passés en revue tâche par tâche, une cartographie écrite à la fin.',
   body_en: 'Free 45-minute AI audit: your processes reviewed task by task, a written map at the end.',
-  cta_primary: { label_fr: 'Réserver un audit →', label_en: 'Book an audit →', href: '/contact#offer=audit-ia-pme&intent=audit', variant: 'primary' as const },
+  cta_primary: { label_fr: `${AUDIT_BOOKING_LABEL.fr} →`, label_en: `${AUDIT_BOOKING_LABEL.en} →`, href: AUDIT_BOOKING_HREF, variant: 'primary' as const },
   cta_secondary: { label_fr: "Ce que couvre l'audit →", label_en: 'What the audit covers →', href: '/audit-ia-pme', variant: 'ghost' as const },
   background: 'paper' as const,
 } satisfies SectionByType<'cta-final'>;

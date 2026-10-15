@@ -2,13 +2,19 @@
 // /audit-ia-pme, /contact, le diagnostic et les lead magnets (GLOBAL, pas INSTANCE).
 //
 // Décision Simon (4 octobre 2026) : le rendez-vous se prend sur la page contact.
-// Tout bouton « Réserver un audit » pointe vers AUDIT_BOOKING_HREF. Les liens
-// « En savoir plus sur l'audit » pointent vers AUDIT_PAGE_HREF.
+// Tout bouton de réservation pointe vers AUDIT_BOOKING_HREF avec le libellé
+// AUDIT_BOOKING_LABEL. Les liens « En savoir plus sur l'audit » pointent vers AUDIT_PAGE_HREF.
+//
+// Décision du 15 octobre 2026 (audit visuel v5) : l'offre passe en paramètres de requête
+// (`?offer=…&intent=…`) et non plus en fragment (`#offer=…`), qui n'atteint ni le serveur
+// ni la plupart des outils de mesure. La page contact lit les deux formes (anciens liens,
+// PDF déjà envoyés) ; le canonical de /contact reste sans paramètre.
 
-export const AUDIT_BOOKING_HREF = '/contact#offer=audit-ia-pme&intent=audit';
+export const AUDIT_BOOKING_HREF = '/contact?offer=audit-ia-pme&intent=audit';
 export const AUDIT_PAGE_HREF = '/audit-ia-pme';
-/** Libellé unique du bouton de prise de rendez-vous. */
-export const AUDIT_BOOKING_LABEL = { fr: 'Réserver un audit IA gratuit', en: 'Book a free AI audit' } as const;
+/** Libellé de référence du bouton de prise de rendez-vous (décision du 15 octobre 2026).
+ *  Les pages JSON, qui ne peuvent pas importer, recopient ce texte mot pour mot. */
+export const AUDIT_BOOKING_LABEL = { fr: "Réserver l'audit gratuit", en: 'Book the free audit' } as const;
 /** Libellé du lien secondaire vers la page qui présente l'audit. */
 export const AUDIT_PAGE_LABEL = { fr: "Comment se passe l'audit", en: 'How the audit works' } as const;
 
@@ -191,6 +197,33 @@ export function auditCtaFinal(h2: string, body: string) {
     body_en: body,
     cta_primary: { label_fr: AUDIT_BOOKING_LABEL.fr, label_en: AUDIT_BOOKING_LABEL.en, href: AUDIT_BOOKING_HREF, variant: 'primary' as const },
     cta_secondary: { label_fr: AUDIT_PAGE_LABEL.fr, label_en: AUDIT_PAGE_LABEL.en, href: AUDIT_PAGE_HREF, variant: 'ghost' as const },
+  };
+}
+
+/**
+ * Bande CTA de milieu de page (section catalogue `cta-band` ; dans une colonne de lecture,
+ * `{ ...auditCtaBand(), type: 'cta-inline' }`, préréglage boîte du même composant). Source unique : libellé et lien de réservation, accroche
+ * reprise d'AUDIT_PROMISE (`short` ou `tiny`), aucune phrase propre à la page.
+ * Utilisée là où la preuve arrive sans CTA de page (audit v5, point 4) : fiches cas après
+ * `metric-shift`, hub ressources après la 12e carte, billets après l'introduction, /agence
+ * et page auteur après la 2e section.
+ */
+export function auditCtaBand(
+  options: { promise?: 'short' | 'tiny'; background?: 'paper-2' | 'paper-3' | 'ink' | 'accent' } = {},
+) {
+  const { promise = 'short', background = 'paper-2' } = options;
+  const text = promise === 'tiny' ? AUDIT_PROMISE.general.tiny : AUDIT_PROMISE.general.short;
+  return {
+    type: 'cta-band' as const,
+    text_fr: text.fr,
+    text_en: text.en,
+    cta: {
+      label_fr: `${AUDIT_BOOKING_LABEL.fr} →`,
+      label_en: `${AUDIT_BOOKING_LABEL.en} →`,
+      href: AUDIT_BOOKING_HREF,
+      variant: 'primary' as const,
+    },
+    background,
   };
 }
 

@@ -1,8 +1,8 @@
 {
-  "title_fr": "Tarifs automatisation et intégration IA pour PME · Waimia",
-  "title_en": "AI automation and integration pricing for SMEs · Waimia",
-  "description_fr": "Tarifs Waimia : audit IA gratuit de 45 min, sprint de cadrage à {{prix.sprint}} € HT, pilote dès 2 000 € HT, maintenance en trois paliers dès {{prix.maintenance.p1}} € HT par mois.",
-  "description_en": "Waimia pricing: free 45-min AI audit, scoping sprint at {{prix.sprint.en}} € ex VAT, pilot from 2,000 € ex VAT, maintenance in three tiers from {{prix.maintenance.p1}} € a month.",
+  "title_fr": "Tarifs automatisation IA : audit gratuit, cadrage {{prix.sprint}} € HT",
+  "title_en": "AI automation pricing: free audit, scoping {{prix.sprint.en}} € ex VAT",
+  "description_fr": "Audit IA gratuit de 45 min, sprint de cadrage à {{prix.sprint}} € HT, pilote dès {{prix.pilote}} € HT, maintenance dès {{prix.maintenance.p1}} € HT/mois. Devis ferme après l'audit.",
+  "description_en": "Free 45-min AI audit, scoping sprint at {{prix.sprint.en}} € ex VAT, pilot from {{prix.pilote.en}} € ex VAT, maintenance from {{prix.maintenance.p1}} € a month. Firm quote after the audit.",
   "sections": [
     {
       "type": "masthead-bar",
@@ -26,8 +26,8 @@
       "background": "paper",
       "h1_fr": "Tarifs automatisation et <i>intégration IA</i> pour PME",
       "h1_en": "AI automation and <i>integration</i> pricing for SMEs",
-      "lede_fr": "Cinq étapes, prix affichés. Audit gratuit d'abord, devis ferme après.",
-      "lede_en": "Five steps, prices shown. Free audit first, firm quote after.",
+      "lede_fr": "Audit IA gratuit de 45 min, sprint de cadrage de 10 h à {{prix.sprint}} € HT, pilote dès {{prix.pilote}} € HT, puis {{prix.horaire}} € HT de l'heure. Maintenance dès {{prix.maintenance.p1}} € HT par mois. Devis ferme après l'audit.",
+      "lede_en": "Free 45-min AI audit, 10-hour scoping sprint at {{prix.sprint.en}} € ex VAT, pilot from {{prix.pilote.en}} € ex VAT, then {{prix.horaire}} € ex VAT an hour. Maintenance from {{prix.maintenance.p1}} € a month. Firm quote after the audit.",
       "rows": [
         {
           "step_fr": "Étape 1",
@@ -51,9 +51,9 @@
           "price_note_fr": "Sans engagement",
           "price_note_en": "No commitment",
           "cta": {
-            "label_fr": "Réserver un audit",
-            "label_en": "Book an audit",
-            "href": "/contact#offer=audit-ia-pme&intent=audit"
+            "label_fr": "Réserver l'audit gratuit",
+            "label_en": "Book the free audit",
+            "href": "/contact?offer=audit-ia-pme&intent=audit"
           },
           "entry": true
         },
@@ -85,7 +85,7 @@
           "cta": {
             "label_fr": "Lancer un sprint de cadrage",
             "label_en": "Start a scoping sprint",
-            "href": "/contact#offer=sprint-cadrage"
+            "href": "/contact?offer=sprint-cadrage"
           }
         },
         {
@@ -114,7 +114,7 @@
           "cta": {
             "label_fr": "Cadrer un pilote",
             "label_en": "Scope a pilot",
-            "href": "/contact#offer=pilote"
+            "href": "/contact?offer=pilote"
           }
         },
         {
@@ -280,7 +280,7 @@
           "cta": {
             "label_fr": "Mettre en place ce palier →",
             "label_en": "Set up this tier →",
-            "href": "/contact#offer=accompagnement&intent=palier-1",
+            "href": "/contact?offer=accompagnement&intent=palier-1",
             "variant": "ghost"
           }
         },
@@ -303,7 +303,7 @@
           "cta": {
             "label_fr": "Mettre en place ce palier →",
             "label_en": "Set up this tier →",
-            "href": "/contact#offer=accompagnement&intent=palier-2",
+            "href": "/contact?offer=accompagnement&intent=palier-2",
             "variant": "ghost"
           }
         },
@@ -332,7 +332,7 @@
           "cta": {
             "label_fr": "Mettre en place ce palier →",
             "label_en": "Set up this tier →",
-            "href": "/contact#offer=accompagnement&intent=palier-3",
+            "href": "/contact?offer=accompagnement&intent=palier-3",
             "variant": "ghost"
           }
         }
@@ -451,9 +451,9 @@
       "subtitle_en": "Forty-five minutes on a call. You leave with a written task map, one or two ranked projects and a clear opinion on what to do next, whether we work together or not.",
       "buttons": [
         {
-          "label_fr": "Réserver un audit →",
-          "label_en": "Book an audit →",
-          "href": "/contact#offer=audit-ia-pme&intent=audit",
+          "label_fr": "Réserver l'audit gratuit →",
+          "label_en": "Book the free audit →",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
           "variant": "primary"
         },
         {

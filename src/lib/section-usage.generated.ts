@@ -78,8 +78,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "case-card-grid": {
-    "count": 42,
+    "count": 43,
     "pages": [
+      "/audit-ia-pme",
       "/lp/hub",
       "/lp/site-web-intelligent",
       "/lp/systeme-acquisition",
@@ -562,9 +563,10 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "editorial-callout": {
-    "count": 5,
+    "count": 7,
     "pages": [
       "/conformite-ia",
+      "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "src/content/formations/automatisation.json",
       "src/content/formations/chatgpt.json",
       "src/content/formations/make.json",
@@ -586,7 +588,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "editorial-prose": {
-    "count": 189,
+    "count": 191,
     "pages": [
       "/audit-ia-pme",
       "/cas-usages/centraliser-donnees",
@@ -752,8 +754,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "eeat-panel": {
-    "count": 51,
+    "count": 52,
     "pages": [
+      "/audit-ia-pme",
       "/services/agent-qualification-leads",
       "/services/agent-support-client",
       "/services/agent-traitement-documents",

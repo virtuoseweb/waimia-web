@@ -18,7 +18,7 @@ const lede = isFr ? data.lede_fr : data.lede_en;
 const hasHeader = Boolean(kicker || h2 || lede);
 ---
 
-<section class:list={['metric-shift', `metric-shift--${data.background}`]}>
+<section class:list={['metric-shift', `metric-shift--${data.background}`]} data-bg={data.background === 'ink' ? 'ink' : undefined}>
   <div class="wrap-wide">
     {hasHeader && (
       <header class="metric-shift__hd">

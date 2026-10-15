@@ -11,7 +11,7 @@
 // Décision : pas de spec bar (différencie d'un Case). Le squelette est plus simple
 // et laisse 100 % du body en slot pour le HTML rich text (h2, h3, p, blockquote, code).
 
-import { AUDIT_BOOKING_HREF, AUDIT_BOOKING_LABEL } from '../../data/conversion';
+import { AUDIT_BOOKING_HREF, AUDIT_BOOKING_LABEL, auditCtaBand } from '../../data/conversion';
 import Base from '../../layouts/Base.astro';
 import Bi from '../ui/atoms/Bi.astro';
 import Kicker from '../ui/atoms/Kicker.astro';
@@ -107,6 +107,8 @@ interface Props {
   leadSection?: SectionByType<'lead-capture-band'> | SectionByType<'cta-final'>;
   /** Variante de page. `tool` (route /ressources/outils/[...slug] seulement) : héros compact
    *  et slot `stage` rendu pleine largeur entre le héros et la prose. Défaut `essay` = rendu inchangé. */
+  /** Billet : bande CTA d'audit après l'introduction (avant le premier H2 du corps). */
+  midCta?: boolean;
   variant?: 'essay' | 'tool';
 }
 const {
@@ -141,6 +143,7 @@ const {
   noindex = false,
   seoTitle,
   variant = 'essay',
+  midCta = false,
 } = Astro.props as Props;
 const isTool = variant === 'tool';
 
@@ -152,6 +155,19 @@ const ledeHtml = (await Astro.slots.render('lede')).trim();
 // filtrés sur les seuls headings présents dans la moitié retenue.
 const rawBodyHtml = await Astro.slots.render('body');
 const localizedBodyHtml = splitLocaleHtml(rawBodyHtml, lang);
+// CTA de milieu (billets, audit v5 point 4) : le corps est coupé avant le premier H2 qui suit
+// un paragraphe, donc après l'introduction (un « En bref » en liste ouvre souvent le corps,
+// le premier paragraphe vient ensuite). Sans paragraphe suivi d'un H2, pas de bande.
+const firstP = midCta && !isTool ? localizedBodyHtml.search(/<p[\s>]/i) : -1;
+const h2AfterP = firstP >= 0 ? localizedBodyHtml.slice(firstP).search(/<h2[\s>]/i) : -1;
+const introEnd = h2AfterP > 0 ? firstP + h2AfterP : -1;
+const bodyIntroHtml = introEnd > 0 ? localizedBodyHtml.slice(0, introEnd) : localizedBodyHtml;
+const bodyRestHtml = introEnd > 0 ? localizedBodyHtml.slice(introEnd) : '';
+// Préréglage boîte `cta-inline` du composant catalogué cta-band (in-flow, colonne de lecture).
+// Accroche `tiny`, distincte de la bande finale (siloCtaText).
+const midCtaData = introEnd > 0
+  ? ({ ...auditCtaBand({ promise: 'tiny' }), type: 'cta-inline' } satisfies SectionByType<'cta-inline'>)
+  : null;
 const localizedHeadings = filterHeadingsForHtml(headings, localizedBodyHtml);
 const tocCount = localizedHeadings.filter((h) => h.depth === 2 || h.depth === 3).length;
 const hasToc = tocCount >= 2;
@@ -241,8 +257,14 @@ const articleLd = buildArticle({
           </aside>
         )}
         <div class="essay-prose reveal">
-          <AuthorByline authorSlug={bylineAuthorSlug} date={publishedAt} readingTime={readingTime} />
-          <Fragment set:html={localizedBodyHtml} />
+          <AuthorByline authorSlug={bylineAuthorSlug} date={publishedAt} updatedAt={dateModified} readingTime={readingTime} />
+          <Fragment set:html={bodyIntroHtml} />
+          {midCtaData && (
+            <div class="essay-mid-cta">
+              <CtaBandSection data={midCtaData} lang={lang} />
+            </div>
+          )}
+          {bodyRestHtml && <Fragment set:html={bodyRestHtml} />}
           {leadSection?.type === 'lead-capture-band' && <LeadCaptureBand data={leadSection} lang={lang} />}
           <div class="essay-share-end">
             <ShareButtons url={canonicalUrl} title={title} lang={lang} />
@@ -410,7 +432,7 @@ const articleLd = buildArticle({
 }
 
 /* Drop cap sur premier paragraphe */
-.essay-prose :global(p:first-of-type::first-letter) {
+.essay-prose :global(p:first-of-type:not(.essay-mid-cta *)::first-letter) {
   float: left;
   font-family: var(--font-display);
   font-size: 5em;
@@ -464,7 +486,11 @@ const articleLd = buildArticle({
   margin: var(--space-8) 0 var(--space-4);
   line-height: 1.2;
 }
-.essay-prose :global(p) { margin: 0 0 1.4em; }
+.essay-prose :global(p:not(.essay-mid-cta *)) { margin: 0 0 1.4em; }
+/* Bande CTA de milieu : hors des règles de prose (lettrine, liens soulignés, marges de p,
+   exclues par :not(.essay-mid-cta *)) ; la boîte suit la colonne de lecture. */
+.essay-mid-cta { margin: var(--space-6) 0 var(--space-7); }
+.essay-mid-cta :global(.wrap-wide) { padding-inline: 0; max-width: none; }
 
 .essay-prose :global(blockquote) {
   border-left: 2px solid var(--ink-2);
@@ -487,7 +513,7 @@ const articleLd = buildArticle({
   font-style: normal;
 }
 
-.essay-prose :global(a) {
+.essay-prose :global(a:not(.essay-mid-cta *)) {
   color: var(--ink);
   background-image: linear-gradient(var(--accent), var(--accent));
   background-size: 100% 1px;
@@ -497,7 +523,7 @@ const articleLd = buildArticle({
   padding-bottom: 1px;
   transition: background-size 120ms var(--ease);
 }
-.essay-prose :global(a:hover) {
+.essay-prose :global(a:not(.essay-mid-cta *):hover) {
   background-size: 100% 2px;
 }
 

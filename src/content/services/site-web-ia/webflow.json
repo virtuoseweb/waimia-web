@@ -1,9 +1,10 @@
 {
   "$schema": "../../../schemas/generated/services.page.schema.json",
   "title_fr": "Agence Webflow pour PME : création et refonte · Waimia",
+  "seoTitle_fr": "Agence Webflow : un site que votre équipe édite seule",
   "title_en": "Webflow agency for SMEs: build and redesign · Waimia",
-  "description_fr": "Agence Webflow pour PME : création ou refonte de site, formulaires reliés à votre CRM, contenus que votre équipe modifie seule. Dès 2 000 € HT.",
-  "description_en": "Webflow agency for SMBs: site build or redesign, forms connected to your CRM, content your team edits alone. From €2,000 excl. VAT.",
+  "description_fr": "Agence Webflow pour PME : création ou refonte, formulaires reliés au CRM, contenus que votre équipe modifie seule. Dès {{prix.pilote}} € HT, compte à votre nom.",
+  "description_en": "Webflow agency for SMBs: build or redesign, forms connected to the CRM, content your team edits alone. From €{{prix.pilote.en}} excl. VAT, account in your name.",
   "slug": "webflow",
   "publishedAt": "2026-06-29T00:00:00.000Z",
   "updatedAt": "2026-10-14T00:00:00.000Z",
@@ -121,9 +122,9 @@
       "cta_sub_fr": "Audit gratuit de 45 minutes en visio : on regarde votre site, ses formulaires et ce qui se passe après, et vous repartez avec un ou deux chantiers classés.",
       "cta_sub_en": "Free 45-minute audit by video call: we look at your site, its forms and what happens afterwards, and you leave with one or two ranked projects.",
       "cta_primary": {
-        "label_fr": "Réserver un audit IA gratuit →",
-        "label_en": "Book a free AI audit →",
-        "href": "/contact#offer=audit-ia-pme&intent=audit",
+        "label_fr": "Réserver l'audit gratuit →",
+        "label_en": "Book the free audit →",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
         "variant": "primary"
       },
       "cta_secondary": {
@@ -500,7 +501,7 @@
           "cta": {
             "label_fr": "Cadrer une landing →",
             "label_en": "Scope a landing page →",
-            "href": "/contact#offer=webflow&intent=landing",
+            "href": "/contact?offer=webflow&intent=landing",
             "variant": "ghost"
           }
         },
@@ -523,9 +524,9 @@
             "One handover session"
           ],
           "cta": {
-            "label_fr": "Réserver un audit IA gratuit →",
-            "label_en": "Book a free AI audit →",
-            "href": "/contact#offer=audit-ia-pme&intent=audit",
+            "label_fr": "Réserver l'audit gratuit →",
+            "label_en": "Book the free audit →",
+            "href": "/contact?offer=audit-ia-pme&intent=audit",
             "variant": "primary"
           },
           "featured": true
@@ -551,7 +552,7 @@
           "cta": {
             "label_fr": "Cadrer un site complet →",
             "label_en": "Scope a full site →",
-            "href": "/contact#offer=webflow&intent=premium",
+            "href": "/contact?offer=webflow&intent=premium",
             "variant": "ghost"
           }
         },
@@ -576,7 +577,7 @@
           "cta": {
             "label_fr": "Cadrer une migration →",
             "label_en": "Scope a migration →",
-            "href": "/contact#offer=webflow&intent=sur-mesure",
+            "href": "/contact?offer=webflow&intent=sur-mesure",
             "variant": "ghost"
           }
         }
@@ -656,15 +657,15 @@
       "subtitle_en": "In 45 minutes, we look at your site, its forms and what happens afterwards, and tell you whether to fix Webflow, rebuild it, or change platform.",
       "buttons": [
         {
-          "label_fr": "Réserver un audit IA gratuit →",
-          "label_en": "Book a free AI audit →",
-          "href": "/contact#offer=audit-ia-pme&intent=audit",
+          "label_fr": "Réserver l'audit gratuit →",
+          "label_en": "Book the free audit →",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
           "variant": "primary"
         },
         {
           "label_fr": "Cadrer un site Webflow →",
           "label_en": "Scope a Webflow site →",
-          "href": "/contact#offer=webflow&intent=cadrage",
+          "href": "/contact?offer=webflow&intent=cadrage",
           "variant": "ghost"
         }
       ]

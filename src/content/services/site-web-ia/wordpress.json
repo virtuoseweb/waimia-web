@@ -1,9 +1,10 @@
 {
   "$schema": "../../../schemas/generated/services.page.schema.json",
   "title_fr": "Agence WordPress pour PME : création et refonte · Waimia",
+  "seoTitle_fr": "Agence WordPress : site à vous, maintenance facultative",
   "title_en": "WordPress agency for SMEs: build and redesign · Waimia",
-  "description_fr": "Agence WordPress pour PME : création, refonte et maintenance de site, WooCommerce ou headless, formulaires reliés à votre CRM. Dès 2 000 € HT.",
-  "description_en": "WordPress agency for SMBs: site build, redesign and maintenance, WooCommerce or headless, forms connected to your CRM. From €2,000 excl. VAT.",
+  "description_fr": "Agence WordPress pour PME : création, refonte, WooCommerce ou headless, formulaires reliés au CRM. Dès {{prix.pilote}} € HT, maintenance facultative.",
+  "description_en": "WordPress agency for SMBs: build, redesign, WooCommerce or headless, forms connected to the CRM. From €{{prix.pilote.en}} excl. VAT, maintenance optional.",
   "slug": "wordpress",
   "publishedAt": "2026-06-29T00:00:00.000Z",
   "updatedAt": "2026-10-14T00:00:00.000Z",
@@ -115,9 +116,9 @@
       "cta_sub_fr": "Audit gratuit de 45 minutes en visio : on regarde votre site réel, sa vitesse sur mobile et ses formulaires, et vous repartez avec un ou deux chantiers classés.",
       "cta_sub_en": "Free 45-minute audit by video call: we look at your real site, its mobile speed and its forms, and you leave with one or two ranked projects.",
       "cta_primary": {
-        "label_fr": "Réserver un audit IA gratuit →",
-        "label_en": "Book a free AI audit →",
-        "href": "/contact#offer=audit-ia-pme&intent=audit",
+        "label_fr": "Réserver l'audit gratuit →",
+        "label_en": "Book the free audit →",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
         "variant": "primary"
       },
       "cta_secondary": {
@@ -517,7 +518,7 @@
           "cta": {
             "label_fr": "Cadrer une landing →",
             "label_en": "Scope a landing page →",
-            "href": "/contact#offer=wordpress&intent=landing",
+            "href": "/contact?offer=wordpress&intent=landing",
             "variant": "ghost"
           }
         },
@@ -540,9 +541,9 @@
             "Backups and one tested restore"
           ],
           "cta": {
-            "label_fr": "Réserver un audit IA gratuit →",
-            "label_en": "Book a free AI audit →",
-            "href": "/contact#offer=audit-ia-pme&intent=audit",
+            "label_fr": "Réserver l'audit gratuit →",
+            "label_en": "Book the free audit →",
+            "href": "/contact?offer=audit-ia-pme&intent=audit",
             "variant": "primary"
           },
           "featured": true
@@ -568,7 +569,7 @@
           "cta": {
             "label_fr": "Cadrer un site complet →",
             "label_en": "Scope a full site →",
-            "href": "/contact#offer=wordpress&intent=premium",
+            "href": "/contact?offer=wordpress&intent=premium",
             "variant": "ghost"
           }
         },
@@ -593,7 +594,7 @@
           "cta": {
             "label_fr": "Cadrer une refonte →",
             "label_en": "Scope a rebuild →",
-            "href": "/contact#offer=wordpress&intent=sur-mesure",
+            "href": "/contact?offer=wordpress&intent=sur-mesure",
             "variant": "ghost"
           }
         }
@@ -673,15 +674,15 @@
       "subtitle_en": "In 45 minutes, we look at your real site, its mobile speed and its forms, and tell you what to keep, what to clean up and whether a rebuild is justified.",
       "buttons": [
         {
-          "label_fr": "Réserver un audit IA gratuit →",
-          "label_en": "Book a free AI audit →",
-          "href": "/contact#offer=audit-ia-pme&intent=audit",
+          "label_fr": "Réserver l'audit gratuit →",
+          "label_en": "Book the free audit →",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
           "variant": "primary"
         },
         {
           "label_fr": "Cadrer un site WordPress →",
           "label_en": "Scope a WordPress site →",
-          "href": "/contact#offer=wordpress&intent=cadrage",
+          "href": "/contact?offer=wordpress&intent=cadrage",
           "variant": "ghost"
         }
       ]

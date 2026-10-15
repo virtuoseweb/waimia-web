@@ -12,7 +12,7 @@
 //
 // Composé de · HeroCentered (section cataloguée) · CtaFinal / CtaBandSection
 
-import { AUDIT_BOOKING_HREF } from '../../data/conversion';
+import { AUDIT_BOOKING_HREF, AUDIT_BOOKING_LABEL } from '../../data/conversion';
 import Base from '../../layouts/Base.astro';
 import MastheadBar from '../sections/MastheadBar.astro';
 import HeroCentered from '../sections/HeroCentered.astro';
@@ -92,8 +92,8 @@ const listCtaData = {
     ? `Beyond ${ctaSubjectEn}, let's look at your real case: a free 45-minute audit to pick the first thing to automate.`
     : "Now to your real case: a free 45-minute audit to pick the first thing to automate.",
   cta: {
-    label_fr: 'Réserver un audit →',
-    label_en: 'Book an audit →',
+    label_fr: `${AUDIT_BOOKING_LABEL.fr} →`,
+    label_en: `${AUDIT_BOOKING_LABEL.en} →`,
     href: AUDIT_BOOKING_HREF,
     variant: 'primary',
   },
@@ -146,8 +146,8 @@ const ctaData: SectionByType<'cta-final'> = isContactPage
       body_fr: "Un audit gratuit, en visio, avec l'ingénieur qui fera le travail. On passe vos processus en revue et vous repartez avec un ou deux chantiers classés, sans engagement.",
       body_en: 'A free audit, on a call, with the engineer who will do the work. We review your processes and you leave with one or two ranked projects, with no commitment.',
       cta_primary: {
-        label_fr: 'Réserver un audit →',
-        label_en: 'Book an audit →',
+        label_fr: `${AUDIT_BOOKING_LABEL.fr} →`,
+        label_en: `${AUDIT_BOOKING_LABEL.en} →`,
         href: AUDIT_BOOKING_HREF,
         variant: 'primary',
       },

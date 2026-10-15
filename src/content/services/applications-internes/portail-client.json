@@ -1,9 +1,10 @@
 {
   "$schema": "../../../schemas/generated/services.page.schema.json",
   "title_fr": "Portail client sur mesure pour PME · Waimia",
+  "seoTitle_fr": "Portail client sur mesure : dossiers, documents, devis",
   "title_en": "Bespoke client portal for SMEs · Waimia",
-  "description_fr": "Portail client sur mesure : suivi de dossiers, documents, devis et tickets pour vos clients, branché à votre CRM ou ERP. Dès 2 000 € HT, code remis.",
-  "description_en": "Bespoke client portal: case tracking, documents, quotes and tickets for your customers, connected to your CRM or ERP. From 2,000 € excl. VAT, code handed over.",
+  "description_fr": "Portail client sur mesure pour PME : vos clients suivent dossiers, documents, devis et tickets, branché à votre CRM ou ERP. Dès {{prix.pilote}} € HT, code remis.",
+  "description_en": "Bespoke client portal for SMBs: your customers follow cases, documents, quotes and tickets, connected to your CRM or ERP. From €{{prix.pilote.en}} excl. VAT, code handed over.",
   "slug": "portail-client",
   "publishedAt": "2026-10-12T00:00:00.000Z",
   "updatedAt": "2026-10-14T00:00:00.000Z",
@@ -113,9 +114,9 @@
       "cta_sub_fr": "Audit gratuit de 45 minutes : on regarde ce que vos clients vous demandent par e-mail ou par téléphone, et vous repartez avec un ou deux chantiers classés.",
       "cta_sub_en": "Free 45-minute audit: we look at what your customers ask you by email or phone, and you leave with one or two ranked projects.",
       "cta_primary": {
-        "label_fr": "Réserver un audit IA gratuit →",
-        "label_en": "Book a free AI audit →",
-        "href": "/contact#offer=audit-ia-pme&intent=audit",
+        "label_fr": "Réserver l'audit gratuit →",
+        "label_en": "Book the free audit →",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
         "variant": "primary"
       },
       "cta_secondary": {
@@ -493,7 +494,7 @@
           "cta": {
             "label_fr": "Cadrer un premier parcours →",
             "label_en": "Scope a first journey →",
-            "href": "/contact#offer=portail-client&intent=premier-parcours",
+            "href": "/contact?offer=portail-client&intent=premier-parcours",
             "variant": "ghost"
           }
         },
@@ -516,9 +517,9 @@
             "Documented, transferable code"
           ],
           "cta": {
-            "label_fr": "Réserver un audit IA gratuit →",
-            "label_en": "Book a free AI audit →",
-            "href": "/contact#offer=audit-ia-pme&intent=audit",
+            "label_fr": "Réserver l'audit gratuit →",
+            "label_en": "Book the free audit →",
+            "href": "/contact?offer=audit-ia-pme&intent=audit",
             "variant": "primary"
           },
           "featured": true
@@ -544,7 +545,7 @@
           "cta": {
             "label_fr": "Cadrer un portail complet →",
             "label_en": "Scope a full portal →",
-            "href": "/contact#offer=portail-client&intent=complet",
+            "href": "/contact?offer=portail-client&intent=complet",
             "variant": "ghost"
           }
         },
@@ -569,7 +570,7 @@
           "cta": {
             "label_fr": "Cadrer un portail sur mesure →",
             "label_en": "Scope a bespoke portal →",
-            "href": "/contact#offer=portail-client&intent=sur-mesure",
+            "href": "/contact?offer=portail-client&intent=sur-mesure",
             "variant": "ghost"
           }
         }
@@ -649,9 +650,9 @@
       "subtitle_en": "In 45 minutes, we look at your incoming requests and your tools, and tell you whether a portal, an automation or an off-the-shelf tool is the right answer.",
       "buttons": [
         {
-          "label_fr": "Réserver un audit IA gratuit →",
-          "label_en": "Book a free AI audit →",
-          "href": "/contact#offer=audit-ia-pme&intent=audit",
+          "label_fr": "Réserver l'audit gratuit →",
+          "label_en": "Book the free audit →",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
           "variant": "primary"
         },
         {
