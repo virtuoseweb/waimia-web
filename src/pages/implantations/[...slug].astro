@@ -51,8 +51,11 @@ const sectionsWithSources: typeof data.sections = (() => {
   const base = data.sections!;
   if (sourcesList === '' || hasManualSources) return base;
   const html = `<h2 id="sources">Sources</h2><ul>${sourcesList}</ul>`;
-  const block = { type: 'editorial-prose', background: 'paper', html_fr: html, html_en: html } as (typeof base)[number];
   const at = base.findIndex((s) => s.type === 'footer-cta-band');
+  // Fond opposé à la section qui précède le bloc : jamais deux bandes de même fond accolées.
+  const prev = base[(at === -1 ? base.length : at) - 1] as { background?: string } | undefined;
+  const background = (prev?.background ?? 'paper') === 'paper' ? 'paper-2' : 'paper';
+  const block = { type: 'editorial-prose', background, html_fr: html, html_en: html } as (typeof base)[number];
   return at === -1 ? [...base, block] : [...base.slice(0, at), block, ...base.slice(at)];
 })();
 
