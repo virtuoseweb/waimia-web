@@ -41,8 +41,9 @@ export type SimpleNav = { key: string; label: BiText; href: string; simple: true
 
 // Refonte positionnement 2026-10 : ces structures sont le MIROIR de la navigation servie
 // (src/data/mega-menu.ts) pour le plan du site (/plan-du-site) et le footer. Ordre de
-// l'offre : (1) automatisation et agents IA, (2) applications métier, (3) conseil et
-// formation, puis en retrait (4) outils commerciaux et (5) visibilité web.
+// l'offre : (1) automatisation et agents IA, (2) applications métier, (3) site web, SEO et
+// marque (décision du 14 octobre 2026 : le web n'est plus « en appui »), (4) conseil et
+// formation, puis (5) outils commerciaux.
 
 /** URL unique de prise de rendez-vous : source unique dans conversion.ts, ré-exportée ici. */
 import { AUDIT_BOOKING_HREF } from './conversion';
@@ -91,6 +92,29 @@ export const MM_SOLUTIONS_NEW: MegaMenu = {
       ],
     },
     {
+      kicker: { en: 'WEBSITE, SEO AND BRAND', fr: 'SITE WEB, SEO ET MARQUE' },
+      label: { en: 'Website, SEO and brand', fr: 'Site web, SEO et marque' },
+      items: [
+        { href: '/services/systeme-acquisition', label: { en: 'Website, search and brand', fr: 'Site, référencement et marque' } },
+        { href: '/services/site-web-ia', label: { en: 'Web agency', fr: 'Agence site web' } },
+        { href: '/services/webflow', label: { en: 'Webflow agency', fr: 'Agence Webflow' } },
+        { href: '/services/wordpress', label: { en: 'WordPress agency', fr: 'Agence WordPress' } },
+        { href: '/services/shopify', label: { en: 'Shopify agency', fr: 'Agence Shopify' } },
+        { href: '/services/sur-mesure-headless', label: { en: 'Custom website', fr: 'Site sur mesure' } },
+        { href: '/services/landing-pages-tunnels', label: { en: 'Landing pages and funnels', fr: 'Landing pages et tunnels' } },
+        { href: '/services/seo-geo-contenu', label: { en: 'SEO and organic search agency', fr: 'Agence SEO et référencement naturel' } },
+        { href: '/services/audit-seo-technique', label: { en: 'Technical SEO audit', fr: 'Audit SEO technique' } },
+        { href: '/services/referencement-ia', label: { en: 'GEO agency: get cited by AI', fr: 'Agence GEO : être cité par les IA' } },
+        { href: '/services/redaction-seo-contenu', label: { en: 'SEO writing and content', fr: 'Rédaction SEO et contenu' } },
+        { href: '/services/seo-local', label: { en: 'Local SEO', fr: 'SEO local' } },
+        { href: '/services/branding', label: { en: 'Branding agency', fr: 'Agence de branding' } },
+        { href: '/services/identite-de-marque', label: { en: 'Brand identity', fr: 'Identité de marque' } },
+        { href: '/services/refonte-de-marque', label: { en: 'Rebranding', fr: 'Refonte de marque' } },
+        { href: '/services/naming-et-positionnement', label: { en: 'Naming and positioning', fr: 'Naming et positionnement' } },
+        { href: '/services/charte-graphique-brand-book', label: { en: 'Brand guidelines and brand book', fr: 'Charte graphique et brand book' } },
+      ],
+    },
+    {
       kicker: { en: 'ADVISORY AND TRAINING', fr: 'CONSEIL ET FORMATION' },
       label: { en: 'Advisory and training', fr: 'Conseil et formation' },
       items: [
@@ -112,8 +136,8 @@ export const MM_SOLUTIONS_NEW: MegaMenu = {
       ],
     },
     {
-      kicker: { en: 'IN SUPPORT', fr: 'EN APPUI' },
-      label: { en: 'Sales tooling, web visibility and brand', fr: 'Outils commerciaux, visibilité web et marque' },
+      kicker: { en: 'SALES TOOLING', fr: 'OUTILS COMMERCIAUX' },
+      label: { en: 'Sales tooling', fr: 'Outils commerciaux' },
       items: [
         { href: '/services/systeme-commercial', label: { en: 'Sales tooling', fr: 'Outils commerciaux' } },
         { href: '/services/prospection-automatisee', label: { en: 'Automated prospecting, overview', fr: "Prospection automatisée, vue d'ensemble" } },
@@ -123,23 +147,6 @@ export const MM_SOLUTIONS_NEW: MegaMenu = {
         { href: '/services/cold-email-b2b', label: { en: 'B2B cold email', fr: 'Cold email B2B' } },
         { href: '/services/crm-scoring-routing', label: { en: 'CRM, scoring and routing', fr: 'CRM, scoring et routing' } },
         { href: '/services/sequences-de-suivi', label: { en: 'Follow-up sequences', fr: 'Séquences de suivi' } },
-        { href: '/services/systeme-acquisition', label: { en: 'Website, search and brand', fr: 'Site, référencement et marque' } },
-        { href: '/services/site-web-ia', label: { en: 'Web agency', fr: 'Agence site web' } },
-        { href: '/services/webflow', label: { en: 'Webflow agency', fr: 'Agence Webflow' } },
-        { href: '/services/wordpress', label: { en: 'WordPress agency', fr: 'Agence WordPress' } },
-        { href: '/services/shopify', label: { en: 'Shopify agency', fr: 'Agence Shopify' } },
-        { href: '/services/sur-mesure-headless', label: { en: 'Custom website', fr: 'Site sur mesure' } },
-        { href: '/services/landing-pages-tunnels', label: { en: 'Landing pages and funnels', fr: 'Landing pages et tunnels' } },
-        { href: '/services/seo-geo-contenu', label: { en: 'SEO and organic search agency', fr: 'Agence SEO et référencement naturel' } },
-        { href: '/services/audit-seo-technique', label: { en: 'Technical SEO audit', fr: 'Audit SEO technique' } },
-        { href: '/services/referencement-ia', label: { en: 'GEO agency: get cited by AI', fr: 'Agence GEO : être cité par les IA' } },
-        { href: '/services/redaction-seo-contenu', label: { en: 'SEO writing and content', fr: 'Rédaction SEO et contenu' } },
-        { href: '/services/seo-local', label: { en: 'Local SEO', fr: 'SEO local' } },
-        { href: '/services/branding', label: { en: 'Branding agency', fr: 'Agence de branding' } },
-        { href: '/services/identite-de-marque', label: { en: 'Brand identity', fr: 'Identité de marque' } },
-        { href: '/services/refonte-de-marque', label: { en: 'Rebranding', fr: 'Refonte de marque' } },
-        { href: '/services/naming-et-positionnement', label: { en: 'Naming and positioning', fr: 'Naming et positionnement' } },
-        { href: '/services/charte-graphique-brand-book', label: { en: 'Brand guidelines and brand book', fr: 'Charte graphique et brand book' } },
       ],
     },
   ],
@@ -368,6 +375,9 @@ export const FOOTER_COLS: FooterCol[] = [
       { href: '/services/applications-internes', label: { en: 'Business applications', fr: 'Applications métier' } },
       { href: '/services/donnees-reporting', label: { en: 'Data and reporting', fr: 'Données et reporting' } },
       { href: '/services/consultant-ia-claude', label: { en: 'AI consultant', fr: 'Consultant IA' } },
+      { href: '/services/systeme-commercial', label: { en: 'Sales tooling', fr: 'Outils commerciaux' } },
+      { href: '/services/prospection-automatisee', label: { en: 'Automated prospecting, overview', fr: "Prospection automatisée, vue d'ensemble" } },
+      { href: '/services/crm-scoring-routing', label: { en: 'CRM, scoring and routing', fr: 'CRM, scoring et routing' } },
     ],
   },
   // Col 2 : comment on démarre.
@@ -387,13 +397,10 @@ export const FOOTER_COLS: FooterCol[] = [
       { href: AUDIT_BOOKING_HREF, label: { en: 'Book an audit', fr: 'Réserver un audit' } },
     ],
   },
-  // Col 3 : les outils en appui (commercial, visibilité web).
+  // Col 3 : le site web, le référencement et la marque (le web n'est plus « en appui »).
   {
-    heading: { en: 'Supporting tools', fr: 'Outils en appui' },
+    heading: { en: 'Website, SEO and brand', fr: 'Site web, SEO et marque' },
     items: [
-      { href: '/services/systeme-commercial', label: { en: 'Sales tooling', fr: 'Outils commerciaux' } },
-      { href: '/services/prospection-automatisee', label: { en: 'Automated prospecting, overview', fr: "Prospection automatisée, vue d'ensemble" } },
-      { href: '/services/crm-scoring-routing', label: { en: 'CRM, scoring and routing', fr: 'CRM, scoring et routing' } },
       { href: '/services/systeme-acquisition', label: { en: 'Website, search and brand', fr: 'Site, référencement et marque' } },
       { href: '/services/site-web-ia', label: { en: 'Web agency', fr: 'Agence site web' } },
       { href: '/services/seo-geo-contenu', label: { en: 'SEO and organic search agency', fr: 'Agence SEO et référencement naturel' } },

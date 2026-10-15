@@ -918,7 +918,8 @@ const dashboardSeo = defineCollection({
 // collections séparées pour ~8 entrées : `legal` (TrustLegalTemplate, CGV,
 // mentions légales, politique de confidentialité, sources et méthodologie),
 // `welcome` (WelcomeTemplate : bienvenue/contact, newsletter, livre-blanc),
-// `hub-copy` (copy minimale du hub /ressources/outils, listing déjà piloté
+// `hub-copy` (copy minimale d'un hub de listing ; aucune entrée depuis le 15/10/2026, la vue
+// /ressources/outils reprend la tête de /ressources. Ancien usage : listing déjà piloté
 // par la collection `outils`). Contenu HTML pré-rendu (`*_html`) capturé
 // depuis le rendu réel (dev server, parité caractère près) et réinjecté via
 // `set:html`, même idiome que `body_sections[].html_fr` (cases/secteurs).
@@ -966,8 +967,8 @@ const legal = defineCollection({
       )
       .optional(),
 
-    // ── kind: 'hub-copy' (ressources/outils index, headline/lede/labels only,
-    //    le listing lui-même reste piloté par `getCollection('outils')`) ──
+    // ── kind: 'hub-copy' (headline/lede/labels only ; aucune entrée depuis le 15/10/2026,
+    //    l'ancien index ressources/outils reprend la tête de /ressources) ──
     typeLabels: z.record(z.string(), z.string()).optional(),
   }),
 });

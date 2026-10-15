@@ -49,9 +49,6 @@ export const NOINDEX_SITEMAP_PATHS: ReadonlySet<string> = new Set([
   // est posé (seo.noindex:false, 0 placeholder vérifié) → money page #2 indexable + dans le
   // sitemap. Le commentaire « DÉMO placeholders / fiche 0004 » était stale.
   // (2026-07-14) `/agence-web-montpellier` retiré : page supprimée + 301 → /implantations/montpellier.
-  // Page locale Bordeaux : seo.noindex tant que le NAP/GBP réel n'est pas posé (audit pré-lancement
-  // 2026-07-14) → hors sitemap pour cohérence noindex↔crawl. Retirer cette entrée ET le noindex
-  // de bordeaux.json quand les vraies coordonnées Bordeaux seront fournies.
   // Secteurs noindex (seo.noindex:true frontmatter) → hors sitemap pour cohérence noindex↔crawl.
   // (2026-07-14 vague 1) complétés par les 6 autres secteurs noindex (politique index ⟺ caseRef
   // réel, cf strategy/14 §4) détectés par le gate check-seo noindex-not-in-sitemap.

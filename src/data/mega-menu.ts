@@ -464,90 +464,12 @@ const SOLUTIONS: MegaMenuSection = {
           },
         },
         {
-          label: { fr: 'Conseil et formation', en: 'Advisory and training' },
-          key: 'conseil',
-          href: '/services/consultant-ia-claude',
-          hubLabel: { fr: 'Voir le conseil IA →', en: 'See AI advisory →' },
-          description: { fr: 'Savoir où l\'IA crée de la valeur avant d\'investir, puis rendre les équipes autonomes.', en: 'Know where AI creates value before investing, then make teams autonomous.' },
+          label: { fr: 'Site web, SEO et marque', en: 'Website, SEO and brand' },
+          key: 'web',
+          href: '/services/systeme-acquisition',
+          hubLabel: { fr: 'Voir le site, le référencement et la marque →', en: 'See website, search and brand →' },
+          description: { fr: 'Créer ou refaire le site, être trouvé sur Google et par les moteurs IA, poser la marque.', en: 'Build or rebuild the website, be found on Google and by AI engines, set the brand.' },
           links: [
-            {
-              label: { fr: 'Audit IA PME', en: 'SME AI audit' },
-              href: '/audit-ia-pme',
-              description: AUDIT_PROMISE.general.tiny,
-              detail: [
-                {
-                  label: { fr: 'Préparer l\'audit', en: 'Prepare the audit' },
-                  links: [
-                    { label: { fr: 'Diagnostic maturité IA', en: 'AI maturity diagnostic' }, href: '/ressources/diagnostics/maturite-ia' },
-                    { label: { fr: 'Calculateur ROI IA', en: 'AI ROI calculator' }, href: '/ressources/outils/calculateur-roi-ia' },
-                  ],
-                },
-              ],
-            },
-            {
-              label: { fr: 'Consultant IA', en: 'AI consultant' },
-              href: '/services/consultant-ia-claude',
-              description: { fr: 'Feuille de route, gouvernance et montée en compétence des équipes.', en: 'Roadmap, governance and team upskilling.' },
-                          },
-            {
-              label: { fr: 'Formations', en: 'Training' },
-              href: '/formations',
-              description: { fr: 'IA et automatisation, pour que vos équipes reprennent la main.', en: 'AI and automation, so your teams take over.' },
-              detail: [
-                {
-                  label: { fr: 'Programmes', en: 'Programmes' },
-                  links: [
-                    { label: { fr: 'Formation n8n', en: 'n8n training' }, href: '/formations/n8n' },
-                    { label: { fr: 'Formation Make', en: 'Make training' }, href: '/formations/make' },
-                    { label: { fr: 'Formation Claude', en: 'Claude training' }, href: '/formations/claude' },
-                    { label: { fr: 'Formation ChatGPT', en: 'ChatGPT training' }, href: '/formations/chatgpt' },
-                  ],
-                },
-              ],
-            },
-          ],
-          featured: {
-            kicker: { fr: 'MÉTHODE', en: 'METHOD' },
-            label: { fr: 'Audit, pilote, mesure, transfert', en: 'Audit, pilot, measure, handover' },
-            body: {
-              fr: 'Un ingénieur qui travaille avec vos équipes métier, du premier audit au transfert du code et des workflows.',
-              en: 'An engineer working with your business teams, from the first audit to the handover of code and workflows.',
-            },
-            cta: { fr: 'Voir la méthode →', en: 'See the method →' },
-            href: '/agence/methode',
-            image: '/images/besoins/besoin-operer.webp',
-          },
-        },
-        {
-          label: { fr: 'Commercial et visibilité', en: 'Sales and visibility' },
-          key: 'appui',
-          href: '/services/systeme-commercial',
-          hubLabel: { fr: 'Voir les outils commerciaux →', en: 'See sales tooling →' },
-          description: { fr: 'En appui : CRM et prospection, site, référencement et marque, branchés au reste du système.', en: 'In support: CRM and prospecting, website, search and brand, connected to the rest of the system.' },
-          links: [
-            {
-              label: { fr: 'Prospection et CRM', en: 'Prospecting and CRM' },
-              href: '/services/systeme-commercial',
-              description: { fr: 'Prospection outillée, CRM branché et relances automatiques.', en: 'Tool-driven prospecting, connected CRM and automatic follow-ups.' },
-              detail: [
-                {
-                  label: { fr: 'Prospection automatisée', en: 'Automated prospecting' },
-                  links: [
-                    { label: { fr: 'Prospection automatisée, vue d\'ensemble', en: 'Automated prospecting, overview' }, href: '/services/prospection-automatisee' },
-                    { label: { fr: 'Prospection LinkedIn', en: 'LinkedIn prospecting' }, href: '/services/prospection-linkedin' },
-                    { label: { fr: 'Social selling avec l\'IA', en: 'Social selling with AI' }, href: '/services/social-selling-ia' },
-                    { label: { fr: 'Réseaux sociaux', en: 'Social media' }, href: '/services/automatisation-reseaux-sociaux' },
-                    { label: { fr: 'Cold email B2B', en: 'B2B cold email' }, href: '/services/cold-email-b2b' },
-                  ],
-                },
-                {
-                  label: { fr: 'CRM et suivi', en: 'CRM and follow-up' },
-                  links: [
-                    { label: { fr: 'CRM, scoring et routing', en: 'CRM, scoring and routing' }, href: '/services/crm-scoring-routing' },
-                  ],
-                },
-              ],
-            },
             {
               label: { fr: 'Agence site web', en: 'Web agency' },
               href: '/services/site-web-ia',
@@ -608,6 +530,104 @@ const SOLUTIONS: MegaMenuSection = {
             cta: { fr: 'Voir le système d\'acquisition →', en: 'See the acquisition system →' },
             href: '/services/systeme-acquisition',
             image: '/images/besoins/besoin-acquerir.webp',
+          },
+        },
+        {
+          label: { fr: 'Conseil et formation', en: 'Advisory and training' },
+          key: 'conseil',
+          href: '/services/consultant-ia-claude',
+          hubLabel: { fr: 'Voir le conseil IA →', en: 'See AI advisory →' },
+          description: { fr: 'Savoir où l\'IA crée de la valeur avant d\'investir, puis rendre les équipes autonomes.', en: 'Know where AI creates value before investing, then make teams autonomous.' },
+          links: [
+            {
+              label: { fr: 'Audit IA PME', en: 'SME AI audit' },
+              href: '/audit-ia-pme',
+              description: AUDIT_PROMISE.general.tiny,
+              detail: [
+                {
+                  label: { fr: 'Préparer l\'audit', en: 'Prepare the audit' },
+                  links: [
+                    { label: { fr: 'Diagnostic maturité IA', en: 'AI maturity diagnostic' }, href: '/ressources/diagnostics/maturite-ia' },
+                    { label: { fr: 'Calculateur ROI IA', en: 'AI ROI calculator' }, href: '/ressources/outils/calculateur-roi-ia' },
+                  ],
+                },
+              ],
+            },
+            {
+              label: { fr: 'Consultant IA', en: 'AI consultant' },
+              href: '/services/consultant-ia-claude',
+              description: { fr: 'Feuille de route, gouvernance et montée en compétence des équipes.', en: 'Roadmap, governance and team upskilling.' },
+                          },
+            {
+              label: { fr: 'Formations', en: 'Training' },
+              href: '/formations',
+              description: { fr: 'IA et automatisation, pour que vos équipes reprennent la main.', en: 'AI and automation, so your teams take over.' },
+              detail: [
+                {
+                  label: { fr: 'Programmes', en: 'Programmes' },
+                  links: [
+                    { label: { fr: 'Formation n8n', en: 'n8n training' }, href: '/formations/n8n' },
+                    { label: { fr: 'Formation Make', en: 'Make training' }, href: '/formations/make' },
+                    { label: { fr: 'Formation Claude', en: 'Claude training' }, href: '/formations/claude' },
+                    { label: { fr: 'Formation ChatGPT', en: 'ChatGPT training' }, href: '/formations/chatgpt' },
+                  ],
+                },
+              ],
+            },
+          ],
+          featured: {
+            kicker: { fr: 'MÉTHODE', en: 'METHOD' },
+            label: { fr: 'Audit, pilote, mesure, transfert', en: 'Audit, pilot, measure, handover' },
+            body: {
+              fr: 'Un ingénieur qui travaille avec vos équipes métier, du premier audit au transfert du code et des workflows.',
+              en: 'An engineer working with your business teams, from the first audit to the handover of code and workflows.',
+            },
+            cta: { fr: 'Voir la méthode →', en: 'See the method →' },
+            href: '/agence/methode',
+            image: '/images/besoins/besoin-operer.webp',
+          },
+        },
+        {
+          label: { fr: 'Outils commerciaux', en: 'Sales tooling' },
+          key: 'commercial',
+          href: '/services/systeme-commercial',
+          hubLabel: { fr: 'Voir les outils commerciaux →', en: 'See sales tooling →' },
+          description: { fr: 'Prospection outillée, CRM branché et relances automatiques : les mêmes briques d\'automatisation, appliquées au pipeline commercial.', en: 'Tool-driven prospecting, connected CRM and automatic follow-ups: the same automation building blocks, applied to the sales pipeline.' },
+          links: [
+            {
+              label: { fr: 'Prospection et CRM', en: 'Prospecting and CRM' },
+              href: '/services/systeme-commercial',
+              description: { fr: 'Prospection outillée, CRM branché et relances automatiques.', en: 'Tool-driven prospecting, connected CRM and automatic follow-ups.' },
+              detail: [
+                {
+                  label: { fr: 'Prospection automatisée', en: 'Automated prospecting' },
+                  links: [
+                    { label: { fr: 'Prospection automatisée, vue d\'ensemble', en: 'Automated prospecting, overview' }, href: '/services/prospection-automatisee' },
+                    { label: { fr: 'Prospection LinkedIn', en: 'LinkedIn prospecting' }, href: '/services/prospection-linkedin' },
+                    { label: { fr: 'Social selling avec l\'IA', en: 'Social selling with AI' }, href: '/services/social-selling-ia' },
+                    { label: { fr: 'Réseaux sociaux', en: 'Social media' }, href: '/services/automatisation-reseaux-sociaux' },
+                    { label: { fr: 'Cold email B2B', en: 'B2B cold email' }, href: '/services/cold-email-b2b' },
+                  ],
+                },
+                {
+                  label: { fr: 'CRM et suivi', en: 'CRM and follow-up' },
+                  links: [
+                    { label: { fr: 'CRM, scoring et routing', en: 'CRM, scoring and routing' }, href: '/services/crm-scoring-routing' },
+                  ],
+                },
+              ],
+            },
+          ],
+          featured: {
+            kicker: { fr: 'COMMERCIAL', en: 'SALES' },
+            label: { fr: 'Outils commerciaux', en: 'Sales tooling' },
+            body: {
+              fr: 'Prospection, scoring et affectation dans le CRM, relances déclenchées par le comportement.',
+              en: 'Prospecting, scoring and assignment in the CRM, follow-ups triggered by behaviour.',
+            },
+            cta: { fr: 'Voir les outils commerciaux →', en: 'See sales tooling →' },
+            href: '/services/systeme-commercial',
+            image: '/images/besoins/besoin-piloter.webp',
           },
         },
       ],

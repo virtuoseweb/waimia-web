@@ -28,6 +28,8 @@ Les slugs historiques (site-web-ia, seo-geo-contenu, landing-pages-tunnels) sont
 ## Menu Solutions
 Voir le méga-menu sur n'importe quelle page, onglet Solutions puis « Commercial et visibilité » : Agence site web (Webflow, WordPress, Shopify, landing pages et tunnels), Agence SEO et référencement naturel, Agence de branding. Prospection : LinkedIn et Réseaux sociaux. Applications métier et Données et reporting ont leurs enfants. Un libellé identique entre menu et plan du site est garanti par `check:menu-labels`.
 
+Mise à jour du 15 octobre 2026 (vague 3) : la colonne « Commercial et visibilité » est scindée en « Outils commerciaux » et « Site web, SEO et marque ». Le menu Solutions compte six colonnes ; `/llms.txt` en tire le nombre de domaines.
+
 ## Maillage de /services/systeme-acquisition
 5 groupes de liens (site web 6, référencement naturel 5, marque 5, guides et comparatifs 1, aller plus loin 2), 19 cibles toutes en 200. Plafond 6 liens et 5 groupes imposé par `check-related-links-groups`.
 

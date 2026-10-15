@@ -17,7 +17,7 @@ import { AUDIT_BOOKING_HREF } from '../../data/sitemap';
 import { AUDIT_PROMISE } from '../../data/conversion';
 import { HOURLY_RATE_EUR, MAINTENANCE_TIERS_EUR } from '../../data/pricing';
 
-// JSON-LD · catalogue des services : les cinq domaines du menu Solutions et leurs pages
+// JSON-LD · catalogue des services : les domaines du menu Solutions et leurs pages
 // (source unique src/data/sitemap.ts), rattaché à l'Organization par `hasOfferCatalog`.
 const solutionsJsonLd = buildServicesHubCatalog(
   'Solutions Waimia : automatisation, agents IA et applications métier pour PME',
@@ -30,10 +30,10 @@ const heroData = {
   variant: 'hub' as const,
   kicker_fr: '§ Solutions · Waimia',
   kicker_en: '§ Solutions · Waimia',
-  h1_fr: 'Automatiser, développer,<br/><i>conseiller</i>.',
-  h1_en: 'Automate, build,<br/><i>advise</i>.',
-  lede_fr: "Waimia est un studio de développement IA et un cabinet d'automatisation des processus pour PME et ETI. Il relie vos outils, développe les logiciels et les <a href=\"/services/site-web-ia\">sites web</a> qui manquent, puis forme vos équipes.",
-  lede_en: 'Waimia is an AI development studio and a process automation practice for SMEs. It connects your tools, builds the software and <a href="/services/site-web-ia">websites</a> that are missing, then trains your teams.',
+  h1_fr: 'Services IA pour PME :<br/><i>automatiser, développer, conseiller</i>.',
+  h1_en: 'AI services for SMEs:<br/><i>automate, build, advise</i>.',
+  lede_fr: "Waimia est un studio de développement IA et un cabinet d'automatisation des processus pour PME et ETI. Il relie vos outils, développe les logiciels et les <a href=\"/services/site-web-ia\">sites web</a> qui manquent, puis forme vos équipes. À distance ou, selon le projet, sur site dans <a href=\"/implantations\">dix villes en France</a>.",
+  lede_en: 'Waimia is an AI development studio and a process automation practice for SMEs. It connects your tools, builds the software and <a href="/services/site-web-ia">websites</a> that are missing, then trains your teams. Remote or, depending on the project, on site in <a href="/implantations">ten cities across France</a>.',
   decoration: false as const,
   align: 'left' as const,
 } satisfies SectionByType<'hero-hub-masthead'>;
@@ -317,7 +317,7 @@ const supportData = {
 
 const ctaData = {
   type: 'cta-final' as const,
-  h2_fr: 'Par où <em>commencer</em> ?<br />Un audit gratuit le dit.',
+  h2_fr: 'Par où <em>commencer</em>&nbsp;?<br />Un audit gratuit le dit.',
   h2_en: 'Where to <em>start</em>?<br />A free audit tells you.',
   body_fr: AUDIT_PROMISE.general.medium.fr,
   body_en: AUDIT_PROMISE.general.medium.en,

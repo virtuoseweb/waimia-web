@@ -510,11 +510,6 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-2"
       },
       {
-        "type": "pain-severity-list",
-        "label": "Ce qu'un MVP évite",
-        "background": "ink"
-      },
-      {
         "type": "method-stepline",
         "label": "De l'idée au produit qui encaisse",
         "background": "paper-3"
@@ -526,7 +521,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-prose",
-        "label": "#7",
+        "label": "#6",
         "background": "paper-2"
       },
       {
@@ -546,12 +541,12 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "eeat-panel",
-        "label": "#11",
+        "label": "#10",
         "variant": "media"
       },
       {
         "type": "faq-accordion",
-        "label": "Ce que vous nous demandez",
+        "label": "Développement de MVP SaaS : vos questions",
         "background": "paper-2"
       },
       {
@@ -2960,7 +2955,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "decision-list",
-        "label": "Ne nous confiez pas votre site si",
+        "label": "Waimia n'est pas le bon choix si",
         "background": "paper"
       },
       {
@@ -2985,7 +2980,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "footer-cta-band",
-        "label": "Que devient une demande après le formulaire ?",
+        "label": "Votre site est-il à corriger, à refaire ou à reprendre ?",
         "background": "ink"
       }
     ]
@@ -3310,7 +3305,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-masthead-card",
-        "label": "Des outils de visibilité au service de votre système.",
+        "label": "Des outils de visibilité web pour générer des leads B2B.",
         "background": "paper"
       },
       {
@@ -3345,12 +3340,12 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "faq-accordion",
-        "label": "Ce que vous nous demandez",
+        "label": "Visibilité web : vos questions",
         "background": "paper-2"
       },
       {
         "type": "footer-cta-band",
-        "label": "La visibilité n'a de valeur que si la demande est traitée.",
+        "label": "Quarante-cinq minutes pour savoir par quel outil commencer.",
         "background": "ink"
       }
     ]
@@ -3415,7 +3410,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "faq-accordion",
-        "label": "Ce que vous nous demandez",
+        "label": "Développement commercial : vos questions",
         "background": "paper-2"
       },
       {
@@ -3475,7 +3470,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "faq-accordion",
-        "label": "Ce que vous nous demandez",
+        "label": "Automatisation IA : vos questions",
         "background": "paper-2"
       },
       {
@@ -4205,7 +4200,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/cas-usages/reduire-reporting",
-    "title": "Réduire le temps de reporting · des chiffres prêts, pas à compiler",
+    "title": "Réduire le temps de reporting · chiffres prêts à analyser",
     "group": "cas-usages",
     "collection": "cas-usages",
     "file": "cas-usages/reduire-reporting.json",
@@ -4223,7 +4218,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "steps-horizontal",
-        "label": "De trois jours à quelques minutes de relecture",
+        "label": "De la compilation à la relecture",
         "background": "paper"
       },
       {
@@ -4248,7 +4243,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "faq-accordion",
-        "label": "Ce que vous nous demandez",
+        "label": "Reporting automatisé : vos questions",
         "background": "paper"
       },
       {
@@ -4260,7 +4255,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/cas-usages/reduire-temps-cms",
-    "title": "Réduire le temps passé sur le CMS · éditer sans dépendre d'un dev",
+    "title": "Réduire le temps passé sur le CMS · éditer en autonomie",
     "group": "cas-usages",
     "collection": "cas-usages",
     "file": "cas-usages/reduire-temps-cms.json",
@@ -4303,7 +4298,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "faq-accordion",
-        "label": "Ce que vous nous demandez",
+        "label": "CMS git-based : vos questions",
         "background": "paper"
       },
       {
@@ -4713,7 +4708,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "faq-accordion",
-        "label": "Ce que vous nous demandez",
+        "label": "Claude Code ou Cursor : vos questions",
         "background": "paper"
       },
       {
@@ -5086,7 +5081,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "decision-list",
-        "label": "Notre verdict, situation par situation",
+        "label": "Le verdict, situation par situation",
         "background": "paper-2"
       },
       {
@@ -5941,7 +5936,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-table-block",
-        "label": "Idées reçues sur Claude Design, corrigées au 5 octobre 2026",
+        "label": "Idées reçues sur Claude Design, corrigées au 15 octobre 2026",
         "variant": "editorial",
         "background": "paper-2"
       },
@@ -5962,7 +5957,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-table-block",
-        "label": "Claude Design prix : inclus dans les offres payantes de Claude",
+        "label": "Claude Design prix : inclus dans les offres de Claude",
         "variant": "editorial",
         "background": "paper-2"
       },
@@ -8213,12 +8208,12 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "related-cards-band",
         "label": "Pour aller plus loin",
-        "background": "paper-2"
+        "background": "paper"
       },
       {
         "type": "faq-accordion",
         "label": "Questions fréquentes",
-        "background": "paper"
+        "background": "paper-2"
       },
       {
         "type": "footer-cta-band",

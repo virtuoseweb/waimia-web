@@ -25,9 +25,8 @@ export const indexHeadData = {
 
 // ── VUES DU HUB · /ressources (toutes), /ressources/outils, /ressources/comparatifs et
 // /ressources/guides sont rendues par le MÊME composant (ResourcesHub.astro) ; chaque vue a sa propre URL, son
-// title/description et sa tête éditoriale. Les H1/lede d'« outils » viennent de l'entrée
-// `outils-hub` de la collection `legal` (source unique, conservée) ; ceux d'« all » et de
-// « comparatifs » sont ci-dessous. ──
+// title/description. Outils et comparatifs sont des filtres de /ressources (décision Simon du
+// 15/10/2026) : sans `h1_fr`, leur vue garde la tête de /ressources. Guides a sa tête éditoriale. ──
 export type ResourceView = 'all' | 'outils' | 'comparatifs' | 'guides';
 
 export const RESOURCE_VIEWS: Record<ResourceView, {
@@ -79,10 +78,6 @@ export const RESOURCE_VIEWS: Record<ResourceView, {
     description_en: 'AI tool comparisons for SMEs: Claude vs ChatGPT, n8n vs Make, Zapier. Criteria set, gaps documented, the call made so you can decide.',
     label_fr: 'Comparatifs',
     label_en: 'Comparisons',
-    h1_fr: 'Comparatifs <i>objectifs</i>.',
-    h1_en: 'Objective <i>comparisons</i>.',
-    lede_fr: 'Des comparatifs clairs pour trancher entre outils, approches et fournisseurs. On pose les critères, on documente les écarts, vous décidez en connaissance de cause.',
-    lede_en: 'Clear comparisons to decide between tools, approaches and vendors. We set the criteria, document the gaps, you choose with full context.',
     collection_name_fr: 'Comparatifs IA · Waimia',
     collection_name_en: 'AI comparisons · Waimia',
     collection_desc_fr: 'Comparatifs objectifs pour trancher entre outils, approches et fournisseurs IA.',

@@ -1,9 +1,9 @@
 {
   "$schema": "../../schemas/generated/cas-usages.page.schema.json",
-  "title_fr": "Réduire le temps de reporting · des chiffres prêts, pas à compiler",
-  "title_en": "Cut reporting time · figures ready, not to compile",
-  "description_fr": "Deux à trois jours par mois à compiler des tableaux Excel ? On automatise le reporting : données consolidées, tableau à jour, vous analysez.",
-  "description_en": "Two to three days a month compiling Excel sheets? We automate reporting: consolidated data, an up-to-date dashboard, you analyse.",
+  "title_fr": "Réduire le temps de reporting · chiffres prêts à analyser",
+  "title_en": "Cut reporting time · figures ready to analyse",
+  "description_fr": "Reporting mensuel compilé à la main dans Excel ? On automatise la collecte et la consolidation : tableau à jour, vous analysez.",
+  "description_en": "Monthly reporting compiled by hand in Excel? We automate collection and consolidation: an up-to-date dashboard, you analyse.",
   "slug": "reduire-reporting",
   "publishedAt": "2026-06-26T00:00:00.000Z",
   "updatedAt": "2026-10-04T00:00:00.000Z",
@@ -21,7 +21,7 @@
   "faq_fr": [
     {
       "q": "Combien de temps prend vraiment un reporting manuel ?",
-      "a": "Dans beaucoup de PME, la production du reporting mensuel mobilise deux à trois jours : extraire les données de la comptabilité et du CRM, les retraiter dans Excel, recalculer les ratios, corriger les imputations, mettre en forme et rédiger les commentaires. Un reporting hebdomadaire, lui, coûte couramment deux à quatre heures chaque lundi. C'est du temps qui part en copier-coller au lieu d'analyse."
+      "a": "Cela dépend du nombre de sources et de retraitements. Un reporting mensuel suit les mêmes étapes : extraire les données de la comptabilité et du CRM, les retraiter dans Excel, recalculer les ratios, corriger les imputations, mettre en forme et rédiger les commentaires. Un reporting hebdomadaire les reprend chaque lundi. Ce temps part en copier-coller au lieu d'analyse."
     },
     {
       "q": "Vous remplacez l'humain qui rédige les commentaires ?",
@@ -33,25 +33,25 @@
     },
     {
       "q": "Mes chiffres seront-ils enfin à jour ?",
-      "a": "Oui. Un reporting n'a de valeur que s'il est disponible rapidement : au-delà de quinze jours après la clôture, les chiffres ont perdu leur pouvoir de décision. On consolide les sources automatiquement pour un tableau à jour et un rapport disponible en début de mois, pas en milieu de mois suivant."
+      "a": "Oui. Un reporting n'a de valeur que s'il est disponible rapidement : plus il arrive tard après la clôture, moins il sert à décider. On consolide les sources automatiquement pour un tableau à jour et un rapport disponible en début de mois, pas en milieu de mois suivant."
     },
     {
       "q": "Faut-il changer mes outils comptables et mon CRM ?",
-      "a": "Le plus souvent, non. On connecte vos sources existantes, comptabilité, CRM, banque, à un tableau consolidé. On ne change un outil que s'il bloque réellement la consolidation, et cette décision se prend au diagnostic. L'idée est de relier ce que vous avez, pas d'ajouter une usine à gaz."
+      "a": "Le plus souvent, non. On connecte vos sources existantes, comptabilité, CRM, banque, à un tableau consolidé. On ne change un outil que s'il bloque réellement la consolidation, et cette décision se prend au cadrage. L'idée est de relier ce que vous avez, pas d'ajouter une usine à gaz."
     },
     {
       "q": "Combien de temps pour mettre ça en place ?",
-      "a": "La mise en place demande un effort initial réel : quelques jours à quelques semaines selon le nombre de sources et la complexité de vos modèles. C'est ce cadrage rigoureux qui permet ensuite un reporting fiable et quasi sans intervention. On chiffre le périmètre et le retour attendu au diagnostic."
+      "a": "Habituellement 2 à 6 semaines pour un premier tableau sur un périmètre restreint, selon le nombre de sources et la qualité des données. Un sprint de cadrage de 10 heures fixe d'abord les indicateurs et les sources à brancher."
     },
     {
       "q": "Vous êtes basés où, et faut-il être à Bordeaux ?",
-      "a": "Le studio est à Bordeaux et travaille avec des PME en local comme à distance. Le diagnostic se fait en visio ou sur site selon votre préférence. La proximité aide pour les premiers ateliers, mais elle n'est pas une condition."
+      "a": "Le studio est à Bordeaux et travaille avec des PME en local comme à distance. La consolidation des sources se fait à distance ; la présence sur site sert surtout aux premiers ateliers, sans être une condition. L'audit gratuit se fait en visio ou sur site selon votre préférence."
     }
   ],
   "faq_en": [
     {
       "q": "How long does a manual report really take?",
-      "a": "In many SMBs, producing the monthly report takes two to three days: extracting data from accounting and the CRM, reworking it in Excel, recalculating ratios, fixing entries, formatting and writing the commentary. A weekly report commonly costs two to four hours every Monday. That's time spent copy-pasting instead of analysing."
+      "a": "It depends on the number of sources and reworking steps. A monthly report follows the same steps: extracting data from accounting and the CRM, reworking it in Excel, recalculating ratios, fixing entries, formatting and writing the commentary. A weekly report repeats them every Monday. That time goes into copy-pasting instead of analysing."
     },
     {
       "q": "Do you replace the person who writes the commentary?",
@@ -63,19 +63,19 @@
     },
     {
       "q": "Will my figures finally be up to date?",
-      "a": "Yes. A report only has value if it's available quickly: beyond fifteen days after closing, figures have lost their decision-making power. We consolidate the sources automatically for an up-to-date dashboard and a report available early in the month, not mid-way through the next one."
+      "a": "Yes. A report only has value if it's available quickly: the later it arrives after closing, the less it helps decide. We consolidate the sources automatically for an up-to-date dashboard and a report available early in the month, not mid-way through the next one."
     },
     {
       "q": "Do we need to change our accounting tools and CRM?",
-      "a": "Most often, no. We connect your existing sources, accounting, CRM, bank, to a consolidated dashboard. We only change a tool if it genuinely blocks consolidation, and that decision is made at the diagnostic. The idea is to link what you have, not add an over-engineered system."
+      "a": "Most often, no. We connect your existing sources, accounting, CRM, bank, to a consolidated dashboard. We only change a tool if it genuinely blocks consolidation, and that decision is made at scoping. The idea is to link what you have, not add an over-engineered system."
     },
     {
       "q": "How long to set this up?",
-      "a": "Setting it up takes a real initial effort: a few days to a few weeks depending on the number of sources and the complexity of your models. It's that rigorous framing that then enables reliable, almost hands-free reporting. We size the scope and the expected return at the diagnostic."
+      "a": "Usually 2 to 6 weeks for a first dashboard on a narrow scope, depending on the number of sources and data quality. A 10-hour scoping sprint first settles the indicators and the sources to connect."
     },
     {
       "q": "Where are you based, and do we need to be in Bordeaux?",
-      "a": "The studio is in Bordeaux and works with SMBs locally and remotely. The diagnostic happens by video or on site depending on your preference. Proximity helps for the first workshops, but it isn't a condition."
+      "a": "The studio is in Bordeaux and works with SMBs locally and remotely. Source consolidation is done remotely; being on site mostly helps for the first workshops, without being a condition. The free audit takes place by video or on site, as you prefer."
     }
   ],
   "sections": [
@@ -91,8 +91,8 @@
       "h1_en": "Cut <i class=\"acc\">reporting</i> time.",
       "definition_kicker_fr": "Le problème",
       "definition_kicker_en": "The problem",
-      "lede_fr": "Chaque mois, deux à trois jours partent à extraire, recopier, recalculer et mettre en forme un rapport que le board consulte vingt minutes. Le sujet n'est pas de travailler plus vite à la main, c'est d'<i>automatiser la compilation</i> pour que vous arriviez avec des chiffres prêts à analyser.",
-      "lede_en": "Every month, two to three days go into extracting, retyping, recalculating and formatting a report the board reads for twenty minutes. The issue isn't working faster by hand, it's <i>automating the compilation</i> so you arrive with figures ready to analyse.",
+      "lede_fr": "Chaque mois, le rapport demande d'extraire, de recopier, de recalculer et de mettre en forme les mêmes chiffres. On <i>automatise la compilation</i> pour que vous arriviez avec des chiffres prêts à analyser.",
+      "lede_en": "Every month, the report means extracting, retyping, recalculating and formatting the same figures. We <i>automate the compilation</i> so you arrive with figures ready to analyse.",
       "badges": [
         {
           "label_fr": "Sources consolidées automatiquement",
@@ -135,8 +135,8 @@
           "kicker_en": "01 · Direct time",
           "h3_fr": "Des jours à copier des chiffres",
           "h3_en": "Days spent copying figures",
-          "body_fr": "Extraire la balance comptable, exporter le CRM, consolider dans Excel, recalculer, corriger, mettre en forme. Deux à trois jours par mois, ou deux à quatre heures chaque lundi, passés à compiler au lieu d'analyser et de décider.",
-          "body_en": "Extract the accounting balance, export the CRM, consolidate in Excel, recalculate, fix, format. Two to three days a month, or two to four hours every Monday, spent compiling instead of analysing and deciding.",
+          "body_fr": "Extraire la balance comptable, exporter le CRM, consolider dans Excel, recalculer, corriger, mettre en forme. Ce temps part à compiler au lieu d'analyser et de décider.",
+          "body_en": "Extract the accounting balance, export the CRM, consolidate in Excel, recalculate, fix, format. That time goes into compiling instead of analysing and deciding.",
           "media_src": "/images/illustrations/ds/snow-movement-paper.webp",
           "media_alt_fr": "Des heures passées à compiler des tableaux à la main",
           "media_alt_en": "Hours spent compiling spreadsheets by hand"
@@ -146,8 +146,8 @@
           "kicker_en": "02 · Stale data",
           "h3_fr": "Des décisions avec du retard",
           "h3_en": "Decisions taken late",
-          "body_fr": "Un rapport produit deux semaines après la clôture présente des chiffres qui ont déjà perdu leur pouvoir de décision. Vous pilotez avec du retard, sur une photo périmée, et les dérives se détectent trop tard pour être corrigées.",
-          "body_en": "A report produced two weeks after closing shows figures that have already lost their decision-making power. You steer with a lag, on a stale snapshot, and drifts are spotted too late to be corrected.",
+          "body_fr": "Un rapport produit longtemps après la clôture présente des chiffres que l'activité a déjà dépassés. Vous pilotez avec du retard, sur une photo périmée, et les dérives se détectent trop tard pour être corrigées.",
+          "body_en": "A report produced long after closing shows figures the business has already moved past. You steer with a lag, on a stale snapshot, and drifts are spotted too late to be corrected.",
           "media_src": "/images/illustrations/ds/car-on-the-road-paper.webp",
           "media_alt_fr": "Un rapport en retard sur la réalité de l'activité",
           "media_alt_en": "A report lagging behind the real activity"
@@ -171,8 +171,8 @@
       "background": "paper",
       "kicker_fr": "§ Comment on le résout",
       "kicker_en": "§ How we solve it",
-      "h2_fr": "De trois jours à <i>quelques minutes</i> de relecture",
-      "h2_en": "From three days to <i>a few minutes</i> of review",
+      "h2_fr": "De la compilation à la <i>relecture</i>",
+      "h2_en": "From compiling to <i>reviewing</i>",
       "steps": [
         {
           "title_fr": "On cartographie les sources",
@@ -195,8 +195,8 @@
         {
           "title_fr": "On livre dans la durée",
           "title_en": "We deliver over time",
-          "body_fr": "Le rapport sort en début de mois, à date fixe, sans relance. La maintenance se limite à suivre les sources. Vous passez votre temps à décider, pas à recopier, et vous détectez les dérives quand il est encore temps d'agir.",
-          "body_en": "The report ships early in the month, on a fixed date, with no chasing. Maintenance is limited to tracking the sources. You spend your time deciding, not retyping, and you spot drifts while there's still time to act."
+          "body_fr": "Le rapport sort à date fixe, sans relance. La maintenance se limite à suivre les sources.",
+          "body_en": "The report ships on a fixed date, with no chasing. Maintenance is limited to tracking the sources."
         }
       ]
     },
@@ -228,8 +228,8 @@
           "glyph": "▣",
           "title_fr": "Audit IA pour PME",
           "title_en": "AI audit for SMBs",
-          "body_fr": "Le point d'entrée pour chiffrer le temps que coûte votre reporting actuel et le retour d'une automatisation. On priorise le rapport le plus lourd, sans engagement de chantier.",
-          "body_en": "The entry point to size the time your current reporting costs and the return of automation. We prioritise the heaviest report, with no project commitment.",
+          "body_fr": "Le point d'entrée : une cartographie écrite de vos tâches et un ou deux chantiers classés, en commençant par le rapport le plus lourd. Sans engagement.",
+          "body_en": "The entry point: a written task map and one or two ranked projects, starting with the heaviest report. No commitment.",
           "span": "sm"
         },
         {
@@ -255,8 +255,8 @@
       "without_title_en": "Report compiled by hand",
       "without_items": [
         {
-          "text_fr": "Deux à trois jours par mois passés à extraire et consolider des chiffres.",
-          "text_en": "Two to three days a month spent extracting and consolidating figures."
+          "text_fr": "Du temps passé chaque mois à extraire et consolider des chiffres.",
+          "text_en": "Time spent every month extracting and consolidating figures."
         },
         {
           "text_fr": "Un rapport disponible en retard, sur des chiffres déjà périmés.",
@@ -325,8 +325,8 @@
           "kicker_en": "All cases",
           "title_fr": "Cas clients",
           "title_en": "Client cases",
-          "lead_fr": "Les projets réels que nous avons livrés, en toute transparence.",
-          "lead_en": "The real projects we have delivered, openly.",
+          "lead_fr": "Les réalisations publiées par le studio.",
+          "lead_en": "The projects the studio has published.",
           "href": "/cas-clients"
         }
       ]
@@ -336,14 +336,14 @@
       "background": "paper",
       "kicker_fr": "§ Questions fréquentes",
       "kicker_en": "§ Frequently asked",
-      "h2_fr": "Ce que vous nous demandez",
-      "h2_en": "What you ask us",
+      "h2_fr": "Reporting automatisé : vos questions",
+      "h2_en": "Automated reporting: your questions",
       "items": [
         {
           "q_fr": "Combien de temps prend vraiment un reporting manuel ?",
           "q_en": "How long does a manual report really take?",
-          "a_fr": "Dans beaucoup de PME, la production du reporting mensuel mobilise deux à trois jours : extraire les données de la comptabilité et du CRM, les retraiter dans Excel, recalculer les ratios, corriger les imputations, mettre en forme et rédiger les commentaires. Un reporting hebdomadaire, lui, coûte couramment deux à quatre heures chaque lundi. C'est du temps qui part en copier-coller au lieu d'analyse.",
-          "a_en": "In many SMBs, producing the monthly report takes two to three days: extracting data from accounting and the CRM, reworking it in Excel, recalculating ratios, fixing entries, formatting and writing the commentary. A weekly report commonly costs two to four hours every Monday. That's time spent copy-pasting instead of analysing."
+          "a_fr": "Cela dépend du nombre de sources et de retraitements. Un reporting mensuel suit les mêmes étapes : extraire les données de la comptabilité et du CRM, les retraiter dans Excel, recalculer les ratios, corriger les imputations, mettre en forme et rédiger les commentaires. Un reporting hebdomadaire les reprend chaque lundi. Ce temps part en copier-coller au lieu d'analyse.",
+          "a_en": "It depends on the number of sources and reworking steps. A monthly report follows the same steps: extracting data from accounting and the CRM, reworking it in Excel, recalculating ratios, fixing entries, formatting and writing the commentary. A weekly report repeats them every Monday. That time goes into copy-pasting instead of analysing."
         },
         {
           "q_fr": "Vous remplacez l'humain qui rédige les commentaires ?",
@@ -360,26 +360,26 @@
         {
           "q_fr": "Mes chiffres seront-ils enfin à jour ?",
           "q_en": "Will my figures finally be up to date?",
-          "a_fr": "Oui. Un reporting n'a de valeur que s'il est disponible rapidement : au-delà de quinze jours après la clôture, les chiffres ont perdu leur pouvoir de décision. On consolide les sources automatiquement pour un tableau à jour et un rapport disponible en début de mois, pas en milieu de mois suivant.",
-          "a_en": "Yes. A report only has value if it's available quickly: beyond fifteen days after closing, figures have lost their decision-making power. We consolidate the sources automatically for an up-to-date dashboard and a report available early in the month, not mid-way through the next one."
+          "a_fr": "Oui. Un reporting n'a de valeur que s'il est disponible rapidement : plus il arrive tard après la clôture, moins il sert à décider. On consolide les sources automatiquement pour un tableau à jour et un rapport disponible en début de mois, pas en milieu de mois suivant.",
+          "a_en": "Yes. A report only has value if it's available quickly: the later it arrives after closing, the less it helps decide. We consolidate the sources automatically for an up-to-date dashboard and a report available early in the month, not mid-way through the next one."
         },
         {
           "q_fr": "Faut-il changer mes outils comptables et mon CRM ?",
           "q_en": "Do we need to change our accounting tools and CRM?",
-          "a_fr": "Le plus souvent, non. On connecte vos sources existantes, comptabilité, CRM, banque, à un tableau consolidé. On ne change un outil que s'il bloque réellement la consolidation, et cette décision se prend au diagnostic. L'idée est de relier ce que vous avez, pas d'ajouter une usine à gaz.",
-          "a_en": "Most often, no. We connect your existing sources, accounting, CRM, bank, to a consolidated dashboard. We only change a tool if it genuinely blocks consolidation, and that decision is made at the diagnostic. The idea is to link what you have, not add an over-engineered system."
+          "a_fr": "Le plus souvent, non. On connecte vos sources existantes, comptabilité, CRM, banque, à un tableau consolidé. On ne change un outil que s'il bloque réellement la consolidation, et cette décision se prend au cadrage. L'idée est de relier ce que vous avez, pas d'ajouter une usine à gaz.",
+          "a_en": "Most often, no. We connect your existing sources, accounting, CRM, bank, to a consolidated dashboard. We only change a tool if it genuinely blocks consolidation, and that decision is made at scoping. The idea is to link what you have, not add an over-engineered system."
         },
         {
           "q_fr": "Combien de temps pour mettre ça en place ?",
           "q_en": "How long to set this up?",
-          "a_fr": "La mise en place demande un effort initial réel : quelques jours à quelques semaines selon le nombre de sources et la complexité de vos modèles. C'est ce cadrage rigoureux qui permet ensuite un reporting fiable et quasi sans intervention. On chiffre le périmètre et le retour attendu au diagnostic.",
-          "a_en": "Setting it up takes a real initial effort: a few days to a few weeks depending on the number of sources and the complexity of your models. It's that rigorous framing that then enables reliable, almost hands-free reporting. We size the scope and the expected return at the diagnostic."
+          "a_fr": "Habituellement 2 à 6 semaines pour un premier tableau sur un périmètre restreint, selon le nombre de sources et la qualité des données. Un sprint de cadrage de 10 heures fixe d'abord les indicateurs et les sources à brancher.",
+          "a_en": "Usually 2 to 6 weeks for a first dashboard on a narrow scope, depending on the number of sources and data quality. A 10-hour scoping sprint first settles the indicators and the sources to connect."
         },
         {
           "q_fr": "Vous êtes basés où, et faut-il être à Bordeaux ?",
           "q_en": "Where are you based, and do we need to be in Bordeaux?",
-          "a_fr": "Le studio est à Bordeaux et travaille avec des PME en local comme à distance. Le diagnostic se fait en visio ou sur site selon votre préférence. La proximité aide pour les premiers ateliers, mais elle n'est pas une condition.",
-          "a_en": "The studio is in Bordeaux and works with SMBs locally and remotely. The diagnostic happens by video or on site depending on your preference. Proximity helps for the first workshops, but it isn't a condition."
+          "a_fr": "Le studio est à Bordeaux et travaille avec des PME en local comme à distance. La consolidation des sources se fait à distance ; la présence sur site sert surtout aux premiers ateliers, sans être une condition. L'audit gratuit se fait en visio ou sur site selon votre préférence.",
+          "a_en": "The studio is in Bordeaux and works with SMBs locally and remotely. Source consolidation is done remotely; being on site mostly helps for the first workshops, without being a condition. The free audit takes place by video or on site, as you prefer."
         }
       ]
     },
@@ -391,8 +391,8 @@
       "kicker_en": "§ Ready to stop compiling?",
       "h2_fr": "Passez du <i>copier-coller</i> à la décision.",
       "h2_en": "Move from <i>copy-paste</i> to decision.",
-      "subtitle_fr": "Un diagnostic de 45 min, gratuit et sans engagement : on chiffre le temps que coûte votre reporting et le retour d'une automatisation, qu'on travaille ensemble ou non. En face, le fondateur qui conçoit, câble et supervise lui-même, pas un pool de sous-traitants.",
-      "subtitle_en": "A 45-min diagnostic, free and with no commitment: we size the time your reporting costs and the return of automation, whether we work together or not. Across the table, the founder who designs, wires and supervises himself, not a pool of subcontractors.",
+      "subtitle_fr": "Audit gratuit de 45 minutes, sans engagement : on passe votre reporting en revue et vous repartez avec une cartographie écrite et un ou deux chantiers classés. Si rien ne vaut le coup, on vous le dit.",
+      "subtitle_en": "Free 45-minute audit with no commitment: we go through your reporting and you leave with a written task map and one or two ranked projects. If nothing is worth it, we tell you.",
       "buttons": [
         {
           "label_fr": "Réserver un audit IA gratuit →",

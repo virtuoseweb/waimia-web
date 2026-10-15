@@ -10,7 +10,6 @@ import CtaFinal from '../../sections/CtaFinal.astro';
 import ManifestoStatement from '../../sections/ManifestoStatement.astro';
 import MastheadBar from '../../sections/MastheadBar.astro';
 import type { SectionByType } from '@waimia/ds-kernel';
-import { getEntry } from 'astro:content';
 import { langFromPath } from '../../../lib/i18n';
 import type { ResourceItem } from '../../../lib/resources-hub';
 import {
@@ -28,7 +27,9 @@ import {
 //   • `items` = liste complète (src/lib/resources-hub.ts) : même source pour les trois pages.
 //   • `activeKind` absent = index de tous les types ; sinon vue filtrée côté serveur (seules
 //     les cartes du type sont dans le HTML). Les pastilles sont de vrais liens.
-// Le fil d'Ariane (MastheadBar) n'est rendu que sur les vues filtrées.
+//   • Outils et comparatifs ne sont que des filtres (décision Simon du 15/10/2026) : leur vue
+//     garde la tête de /ressources. Seule une vue dotée de son propre H1 dans RESOURCE_VIEWS
+//     (guides) a sa tête éditoriale et son fil d'Ariane (MastheadBar).
 interface Props {
   items: ResourceItem[];
   activeKind?: Extract<ResourceKind, 'outils' | 'comparatifs' | 'guides'>;
@@ -45,7 +46,8 @@ const fmtDate = (d: Date) =>
 
 // ── Tête éditoriale de la vue ──
 let head: SectionByType<'list-index-section'> = indexHeadData;
-if (activeKind) {
+const ownHead = activeKind !== undefined && Boolean(RESOURCE_VIEWS[activeKind].h1_fr);
+if (activeKind && ownHead) {
   const v = RESOURCE_VIEWS[activeKind];
   const n = shown.length;
   const label = isFr ? v.label_fr : v.label_en;
@@ -61,18 +63,6 @@ if (activeKind) {
     lede_fr: v.lede_fr ?? '',
     lede_en: v.lede_en ?? '',
   };
-  if (activeKind === 'outils') {
-    // H1 et chapô des outils : entrée `outils-hub` de la collection `legal` (source conservée).
-    const hubCopy = await getEntry('legal', 'outils-hub');
-    if (!hubCopy) throw new Error('Collection "legal" · entrée "outils-hub" introuvable.');
-    head = {
-      ...head,
-      h1_fr: hubCopy.data.headlineHtml ?? '',
-      h1_en: hubCopy.data.headlineHtml ?? '',
-      lede_fr: hubCopy.data.ledeHtml ?? '',
-      lede_en: hubCopy.data.ledeHtml ?? '',
-    };
-  }
 }
 
 // Grilles successives de 12 cartes (borne du schéma article-grid), ordre chronologique conservé.
@@ -119,8 +109,8 @@ const listTitle = activeKind
   ? (isFr ? `${RESOURCE_VIEWS[activeKind].label_fr}, de la plus récente à la plus ancienne` : `${RESOURCE_VIEWS[activeKind].label_en}, newest first`)
   : (isFr ? 'Toutes les ressources, de la plus récente à la plus ancienne' : 'All resources, newest first');
 ---
-{activeKind && <MastheadBar lang={lang} items={crumbs} />}
-<div class:list={['res-index', { 'res-index--view': activeKind }]}>
+{ownHead && <MastheadBar lang={lang} items={crumbs} />}
+<div class:list={['res-index', { 'res-index--view': ownHead }]}>
   <ListIndexSection data={head} lang={lang}>
     <Fragment slot="filters">
       <div class="res-filters-stack">

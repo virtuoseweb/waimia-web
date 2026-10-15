@@ -127,8 +127,8 @@ export const offerRail = {
       tab_label_en: 'Advisory and training',
       intro_eyebrow_fr: '§ Conseil et formation · avant et après le projet',
       intro_eyebrow_en: '§ Advisory and training · before and after the project',
-      intro_lede_fr: 'Savoir où l’IA crée de la valeur avant d’investir, puis rendre vos équipes capables de faire évoluer ce qui a été construit.',
-      intro_lede_en: 'Know where AI creates value before investing, then make your teams able to evolve what was built.',
+      intro_lede_fr: 'Savoir où l’IA crée de la valeur avant d’investir, puis rendre vos équipes capables de faire évoluer ce qui a été construit. À distance ou, selon le projet, sur site dans <a href="/implantations">dix villes en France</a>.',
+      intro_lede_en: 'Know where AI creates value before investing, then make your teams able to evolve what was built. Remote or, depending on the project, on site in <a href="/implantations">ten cities across France</a>.',
       layout: 'diptych',
       offers: [
         {

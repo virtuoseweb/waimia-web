@@ -1510,7 +1510,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "pain-severity-list": {
-    "count": 21,
+    "count": 20,
     "pages": [
       "/lp/systeme-acquisition",
       "/lp/systeme-ia-marketing",
@@ -1521,7 +1521,6 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/centralisation-donnees",
       "/services/cold-email-b2b",
       "/services/identite-de-marque",
-      "/services/mvp-saas",
       "/services/naming-et-positionnement",
       "/services/referencement-ia",
       "/services/refonte-de-marque",
