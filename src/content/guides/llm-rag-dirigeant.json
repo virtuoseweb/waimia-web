@@ -1,0 +1,692 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "LLM et RAG : les définitions utiles à un dirigeant de PME · Waimia",
+  "title_en": "LLM and RAG: the definitions a business owner needs · Waimia",
+  "seoTitle_fr": "LLM, RAG : c'est quoi ? Définitions pour une PME",
+  "description_fr": "LLM, contexte, hallucination, RAG : quatre définitions sourcées, ce que ça change pour une PME, quand une base de connaissance vaut le coût, ses limites.",
+  "description_en": "LLM, context, hallucination, RAG: four sourced definitions, what they change for an SMB, when a knowledge base is worth the cost, and its limits.",
+  "slug": "llm-rag-dirigeant",
+  "publishedAt": "2026-10-15T00:00:00.000Z",
+  "updatedAt": "2026-10-15",
+  "category": "agents",
+  "tags": [
+    "llm",
+    "rag",
+    "definition",
+    "hallucination",
+    "base-de-connaissance",
+    "guide-pme"
+  ],
+  "sources": [
+    {
+      "name": "CNIL, questions-réponses sur l'utilisation d'un système d'IA générative (18 juillet 2024, lu le 15 octobre 2026)",
+      "url": "https://www.cnil.fr/fr/les-questions-reponses-de-la-cnil-sur-lutilisation-dun-systeme-dia-generative",
+      "type": "state",
+      "publishedAt": "2024-07-18"
+    },
+    {
+      "name": "France Num et CNIL, fiche IA 1 : une IA générative, à quoi ça sert, comment ça marche (lue le 15 octobre 2026)",
+      "url": "https://www.cnil.fr/sites/cnil/files/2025-03/tpe_pme_ficheia_1_a_quoi_ca_sert.pdf",
+      "type": "state"
+    },
+    {
+      "name": "Direction générale des Entreprises, guide de la génération augmentée par récupération (RAG), novembre 2024 (lu le 15 octobre 2026)",
+      "url": "https://www.entreprises.gouv.fr/files/files/Publications/2024/Guides/20241127-bro-guide-ragv4-interactif.pdf",
+      "type": "state",
+      "publishedAt": "2024-11-27"
+    },
+    {
+      "name": "Anthropic, Claude Platform, context windows (lu le 15 octobre 2026)",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/context-windows",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, Claude Platform, reduce hallucinations (lu le 15 octobre 2026)",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, Introducing Contextual Retrieval (19 septembre 2024, lu le 15 octobre 2026)",
+      "url": "https://www.anthropic.com/news/contextual-retrieval",
+      "type": "research",
+      "publishedAt": "2024-09-19"
+    },
+    {
+      "name": "Anthropic, Claude Platform, pricing (lu le 15 octobre 2026)",
+      "url": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, Claude Platform, models overview (lu le 15 octobre 2026)",
+      "url": "https://platform.claude.com/docs/en/models/overview",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, privacy center, is my data used for model training (lu le 15 octobre 2026)",
+      "url": "https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training",
+      "type": "enterprise"
+    }
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "LLM, c'est quoi ?",
+      "a": "Un LLM (large language model, ou grand modèle de langage) est un programme entraîné sur de très grands volumes de texte pour estimer la suite la plus probable d'une phrase. La fiche France Num et CNIL le décrit ainsi. C'est le moteur de ChatGPT, de Claude ou de Vibe, l'assistant de Mistral AI."
+    },
+    {
+      "q": "Quelle différence entre un LLM et ChatGPT ou Claude ?",
+      "a": "Le LLM est le moteur. ChatGPT, Claude ou Vibe sont des produits qui l'enveloppent d'une interface, de réglages et parfois d'outils. Le même moteur peut servir dans plusieurs produits, et un produit peut proposer plusieurs moteurs : on choisit les deux séparément."
+    },
+    {
+      "q": "RAG IA : c'est quoi, en une phrase ?",
+      "a": "Un RAG (retrieval augmented generation, génération augmentée par la recherche) retrouve d'abord les passages utiles dans vos documents, les ajoute à la question, puis laisse le modèle répondre à partir d'eux. Anthropic le décrit comme une méthode qui retrouve les informations pertinentes dans une base de connaissance et les ajoute à la requête."
+    },
+    {
+      "q": "Un RAG supprime-t-il les hallucinations ?",
+      "a": "Non, il les réduit. Le guide de la DGE écrit que le RAG réduit le risque d'hallucinations mais que celles-ci peuvent toujours se manifester. D'où les sources citées, une consigne « je ne sais pas » et une évaluation sur de vraies questions avant l'ouverture à l'équipe."
+    },
+    {
+      "q": "Faut-il un RAG si mes documents tiennent dans une conversation ?",
+      "a": "Pas forcément. Les modèles Claude actuels ont une fenêtre de contexte de 1 million de tokens (documentation Anthropic, relevée le 15 octobre 2026), et quelques dizaines de pages peuvent y tenir. Reste à regarder le coût à chaque question et la précision, qui baisse quand le contexte grossit. Le RAG se justifie quand la base est volumineuse, change souvent ou demande des droits d'accès différents selon les personnes."
+    },
+    {
+      "q": "Combien coûte un RAG pour une PME ?",
+      "a": "La DGE publie des ordres de grandeur, évalués en juin 2024 : de 10 000 à 100 000 euros par an pour un produit SaaS, environ 100 000 euros pour une installation par un intégrateur. Ils visent des projets d'entreprise. Chez Waimia, l'audit de 45 minutes est gratuit, puis un sprint de cadrage de 10 heures à {{prix.sprint}} € HT ; la suite fait l'objet d'un devis. L'audit vérifie d'abord si une solution plus simple suffit."
+    },
+    {
+      "q": "Mes données restent-elles protégées avec un RAG ?",
+      "a": "Cela dépend du contrat et de la configuration. La CNIL précise que l'organisation qui connecte un système à sa propre base de connaissance est responsable de ce traitement quand la base contient des données personnelles. Anthropic écrit ne pas entraîner ses modèles par défaut sur les données de ses produits commerciaux (relevé le 15 octobre 2026). Le guide Claude et RGPD donne la méthode."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "What is an LLM?",
+      "a": "An LLM (large language model) is a program trained on very large volumes of text to estimate the most likely continuation of a sentence. The France Num and CNIL fact sheet describes it that way. It is the engine behind ChatGPT, Claude or Vibe, Mistral AI's assistant."
+    },
+    {
+      "q": "What is the difference between an LLM and ChatGPT or Claude?",
+      "a": "The LLM is the engine. ChatGPT, Claude or Vibe are products that wrap it in an interface, settings and sometimes tools. The same engine can power several products, and a product can offer several engines: you choose the two separately."
+    },
+    {
+      "q": "RAG in AI: what is it, in one sentence?",
+      "a": "A RAG (retrieval augmented generation) first finds the useful passages in your documents, adds them to the question, then lets the model answer from them. Anthropic describes it as a method that retrieves relevant information from a knowledge base and appends it to the prompt."
+    },
+    {
+      "q": "Does a RAG remove hallucinations?",
+      "a": "No, it reduces them. The DGE guide states that RAG lowers the risk of hallucinations but that they can still occur. Hence cited sources, an \"I don't know\" instruction and an evaluation on real questions before opening it to the team."
+    },
+    {
+      "q": "Do I need a RAG if my documents fit in a conversation?",
+      "a": "Not necessarily. Current Claude models have a 1-million-token context window (Anthropic documentation, read on 15 October 2026), and a few dozen pages can fit in it. You still have to look at the cost per question and at accuracy, which falls as the context grows. A RAG is justified when the base is large, changes often or needs different access rights per person."
+    },
+    {
+      "q": "How much does a RAG cost for an SMB?",
+      "a": "The DGE publishes orders of magnitude, estimated in June 2024: from 10,000 to 100,000 euros a year for a SaaS product, about 100,000 euros for an installation by an integrator. They target company projects. At Waimia, the 45-minute audit is free, then a 10-hour scoping sprint at {{prix.sprint.en}} excl. VAT; the rest is quoted. The audit first checks whether a simpler solution is enough."
+    },
+    {
+      "q": "Is my data protected with a RAG?",
+      "a": "It depends on the contract and the setup. The CNIL states that an organisation that connects a system to its own knowledge base is responsible for that processing when the base contains personal data. Anthropic writes that it does not train its models by default on data from its commercial products (read on 15 October 2026). The Claude and GDPR guide gives the method."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "kicker_fr": "§ Guide",
+      "kicker_en": "§ Guide",
+      "h1_fr": "LLM et RAG : les définitions utiles à un dirigeant de PME",
+      "h1_en": "LLM and RAG: the definitions a business owner needs",
+      "lede_fr": "Un LLM est un grand modèle de langage : un programme entraîné sur d'énormes volumes de texte pour produire la suite la plus probable d'une phrase. ChatGPT et Claude reposent dessus. Un RAG le fait chercher dans vos documents avant de répondre, avec la source. Il réduit les réponses inventées sans les supprimer, et ne vaut le coût que dans certains cas.",
+      "lede_en": "An LLM is a large language model: a program trained on huge volumes of text to produce the most likely continuation of a sentence. ChatGPT and Claude run on them. A RAG makes it search your documents before answering, with the source. It reduces invented answers without removing them, and is only worth the cost in certain cases.",
+      "badges": [
+        {
+          "label_fr": "Sources officielles",
+          "label_en": "Official sources"
+        },
+        {
+          "label_fr": "Relevé le 15 octobre 2026",
+          "label_en": "Read on 15 October 2026"
+        },
+        {
+          "label_fr": "Sans jargon",
+          "label_en": "No jargon"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver l'audit gratuit",
+        "label_en": "Book the free audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme",
+        "variant": "ghost"
+      },
+      "illustration": {
+        "src": "/images/illustrations/ds/donnees-pile-unique-paper.webp",
+        "alt_fr": "Illustration : des feuilles éparpillées s'envolent vers une seule grande pile où un homme pose la dernière",
+        "alt_en": "Illustration: scattered sheets fly toward one tall stack where a man places the last one",
+        "side": "right"
+      }
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "15 octobre 2026",
+      "updatedDate": "15 octobre 2026"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "LLM, c'est quoi ?",
+      "question_en": "What is an LLM?",
+      "term_fr": "Définition",
+      "term_en": "Definition",
+      "answer_fr": "Un LLM (large language model, grand modèle de langage) est un programme entraîné sur de très grands volumes de texte pour estimer le mot suivant le plus probable. C'est le moteur de ChatGPT, de Claude ou de Mistral. Il rédige, résume, classe et traduit bien. Il ne consulte pas vos dossiers et ne connaît que ce qu'il a appris : la CNIL rappelle que ces modèles ne sont pas des bases de connaissance. Pour qu'il réponde depuis vos documents, on lui adjoint un RAG.",
+      "answer_en": "An LLM (large language model) is a program trained on very large volumes of text to estimate the most likely next word. It is the engine of ChatGPT, Claude or Mistral. It writes, summarises, classifies and translates well. It does not consult your files and only knows what it has learned: the CNIL points out that these models are not knowledge bases. For it to answer from your documents, a RAG is added to it."
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper",
+      "kicker_fr": "§ Quatre définitions",
+      "kicker_en": "§ Four definitions",
+      "heading_fr": "LLM, contexte, hallucination, RAG : le tableau",
+      "heading_en": "LLM, context, hallucination, RAG: the table",
+      "caption_fr": "Définitions reprises de la CNIL (questions-réponses du 18 juillet 2024 et fiche France Num et CNIL), de la documentation d'Anthropic et du guide RAG de la DGE (novembre 2024), tous relevés le 15 octobre 2026.",
+      "caption_en": "Definitions taken from the CNIL (Q&A of 18 July 2024 and France Num and CNIL fact sheet), Anthropic's documentation and the DGE RAG guide (November 2024), all read on 15 October 2026.",
+      "columns_fr": [
+        "Terme",
+        "En une phrase",
+        "Ce que ça change pour une PME"
+      ],
+      "columns_en": [
+        "Term",
+        "In one sentence",
+        "What it changes for an SMB"
+      ],
+      "rows_fr": [
+        [
+          "LLM",
+          "Programme qui estime la suite la plus probable d'un texte, entraîné sur de très grands volumes de texte (CNIL)",
+          "Il rédige, résume, classe, traduit. Il ne connaît ni vos prix ni vos procédures."
+        ],
+        [
+          "Contexte",
+          "Tout le texte que le modèle peut consulter pour répondre : consigne, historique, documents joints, et sa propre réponse (Anthropic)",
+          "C'est ce que vous lui montrez à chaque question. Hors du contexte, il ne le sait pas."
+        ],
+        [
+          "Hallucination",
+          "Résultat inexact qui paraît plausible (CNIL)",
+          "Une réponse sans source est à vérifier avant tout usage sensible."
+        ],
+        [
+          "RAG",
+          "Méthode qui retrouve les informations pertinentes dans une base de connaissance et les ajoute à la question (Anthropic)",
+          "Des réponses depuis vos documents, avec leur source, à jour tant que les documents le sont."
+        ]
+      ],
+      "rows_en": [
+        [
+          "LLM",
+          "Program that estimates the most likely continuation of a text, trained on very large volumes of text (CNIL)",
+          "It writes, summarises, classifies, translates. It knows neither your prices nor your procedures."
+        ],
+        [
+          "Context",
+          "All the text the model can refer to when answering: instruction, history, attached documents, and its own answer (Anthropic)",
+          "It is what you show it with each question. Outside the context, it does not know."
+        ],
+        [
+          "Hallucination",
+          "Inaccurate output that looks plausible (CNIL)",
+          "An answer without a source must be checked before any sensitive use."
+        ],
+        [
+          "RAG",
+          "Method that retrieves relevant information from a knowledge base and appends it to the question (Anthropic)",
+          "Answers drawn from your documents, with their source, as up to date as the documents are."
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Pourquoi un LLM ne connaît-il pas votre entreprise ?</h2><p>Un LLM apprend sur des textes réunis avant sa sortie. Il ne connaît ni vos tarifs, ni vos contrats, ni la procédure de retour de votre équipe. Le <a href=\"https://www.entreprises.gouv.fr/files/files/Publications/2024/Guides/20241127-bro-guide-ragv4-interactif.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">guide de la DGE sur le RAG</a> (novembre 2024) l'écrit ainsi : ces modèles sont entraînés sur des corpus généralistes, ils ne sont donc pas informés du contexte de votre entreprise, et leurs données sont figées à l'entraînement. La <a href=\"https://www.cnil.fr/sites/cnil/files/2025-03/tpe_pme_ficheia_1_a_quoi_ca_sert.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">fiche France Num et CNIL</a> décrit le principe : le modèle estime, à partir du début d'une phrase, le mot suivant le plus probable.</p><p>Sans vos données, il sait déjà faire beaucoup. La <a href=\"https://www.cnil.fr/fr/les-questions-reponses-de-la-cnil-sur-lutilisation-dun-systeme-dia-generative\" rel=\"noopener noreferrer\" target=\"_blank\">CNIL</a> range ces usages en trois familles : générer un contenu, retraiter un texte existant (corriger, traduire) et analyser des données (trier, résumer des documents). Ce qu'il ne fait pas, c'est répondre depuis vos fichiers sans qu'on les lui montre.</p><h2>Qu'est-ce que le contexte, et pourquoi sa taille compte ?</h2><p>Anthropic appelle « fenêtre de contexte » tout le texte auquel le modèle peut se référer pour répondre, sa réponse comprise : une mémoire de travail. Les modèles Claude actuels (Opus 5.5, Sonnet 5.5, Haiku 5.5) ont une fenêtre de 1 million de tokens, soit environ 555 000 mots selon la <a href=\"https://platform.claude.com/docs/en/models/overview\" rel=\"noopener noreferrer\" target=\"_blank\">documentation d'Anthropic</a>, le décompte variant avec la langue (relevé le 15 octobre 2026). Un token est un morceau de mot, l'unité sur laquelle le modèle lit et sur laquelle l'éditeur facture.</p><p>Une fenêtre plus grande n'est pas gratuite. Anthropic écrit que, lorsque le nombre de tokens augmente, la précision et le rappel se dégradent (« context rot »), et que ce que l'on met dans le contexte compte autant que la place disponible (<a href=\"https://platform.claude.com/docs/en/build-with-claude/context-windows\" rel=\"noopener noreferrer\" target=\"_blank\">context windows</a>). Elle se paie aussi. Calcul illustratif : un document de 100 000 tokens renvoyé à chaque question coûte 0,20 dollar en entrée avec Claude Sonnet 5.5, à 2 dollars le million de tokens, soit 20 dollars pour 100 questions. La lecture depuis le cache de prompt est facturée 0,10 dollar le million pour ce modèle, soit 0,01 dollar par question (<a href=\"https://platform.claude.com/docs/en/about-claude/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">tarifs de l'API d'Anthropic</a>, relevés le 15 octobre 2026, hors taxes).</p><h2>Qu'est-ce qu'une hallucination, et peut-on l'éviter ?</h2><p>La CNIL définit le phénomène : ces systèmes peuvent produire des résultats inexacts qui paraissent pourtant plausibles, ce qu'on appelle souvent des hallucinations. Cela survient notamment sur des informations absentes de leurs données d'entraînement. Elle ajoute qu'une confiance excessive, sans vérification, peut conduire à des décisions erronées.</p><p>Anthropic recense notamment trois parades dans sa <a href=\"https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations\" rel=\"noopener noreferrer\" target=\"_blank\">documentation</a> : autoriser explicitement le modèle à dire qu'il ne sait pas, lui faire extraire d'abord des citations mot pour mot du document, lui faire citer ses sources pour chaque affirmation. Sa conclusion est la même que celle de la CNIL : ces techniques réduisent les hallucinations, elles ne les éliminent pas. Une personne vérifie donc toute information critique.</p>",
+      "html_en": "<h2>Why does an LLM not know your business?</h2><p>An LLM learns from texts gathered before its release. It knows neither your prices, nor your contracts, nor your team's returns procedure. The <a href=\"https://www.entreprises.gouv.fr/files/files/Publications/2024/Guides/20241127-bro-guide-ragv4-interactif.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">DGE guide on RAG</a> (November 2024) puts it this way: these models are trained on general-purpose corpora, so they are not informed of your company's context, and their data is frozen at training time. The <a href=\"https://www.cnil.fr/sites/cnil/files/2025-03/tpe_pme_ficheia_1_a_quoi_ca_sert.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">France Num and CNIL fact sheet</a> describes the principle: from the start of a sentence, the model estimates the most likely next word.</p><p>Without your data, it can already do a lot. The <a href=\"https://www.cnil.fr/fr/les-questions-reponses-de-la-cnil-sur-lutilisation-dun-systeme-dia-generative\" rel=\"noopener noreferrer\" target=\"_blank\">CNIL</a> groups these uses into three families: generating content, reprocessing an existing text (correcting, translating) and analysing data (sorting, summarising documents). What it does not do is answer from your files without being shown them.</p><h2>What is the context, and why does its size matter?</h2><p>Anthropic calls \"context window\" all the text the model can refer to when answering, its own answer included: a working memory. Current Claude models (Opus 5.5, Sonnet 5.5, Haiku 5.5) have a window of 1 million tokens, about 555,000 words according to <a href=\"https://platform.claude.com/docs/en/models/overview\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic's documentation</a>, the count varying with the language (read on 15 October 2026). A token is a piece of a word, the unit the model reads in and the vendor bills on.</p><p>A larger window is not free. Anthropic writes that, as the token count grows, accuracy and recall degrade (\"context rot\"), and that what you put in the context matters as much as the space available (<a href=\"https://platform.claude.com/docs/en/build-with-claude/context-windows\" rel=\"noopener noreferrer\" target=\"_blank\">context windows</a>). It also costs money. Illustrative calculation: a 100,000-token document sent with every question costs $0.20 of input with Claude Sonnet 5.5, at $2 per million tokens, or $20 for 100 questions. Reading from the prompt cache is billed at $0.10 per million for this model, or $0.01 per question (<a href=\"https://platform.claude.com/docs/en/about-claude/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic API pricing</a>, read on 15 October 2026, excluding tax).</p><h2>What is a hallucination, and can it be avoided?</h2><p>The CNIL defines the phenomenon: these systems can produce inaccurate results that nonetheless look plausible, often called hallucinations. It happens notably on information absent from their training data. It adds that excessive trust, without checking, can lead to wrong decisions.</p><p>Anthropic lists, among others, three countermeasures in its <a href=\"https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations\" rel=\"noopener noreferrer\" target=\"_blank\">documentation</a>: explicitly allow the model to say it does not know, make it first extract word-for-word quotes from the document, make it cite its sources for each claim. Its conclusion matches the CNIL's: these techniques reduce hallucinations, they do not eliminate them. A person therefore checks any critical information.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Qu'est-ce qu'un RAG, et en quoi diffère-t-il d'un LLM seul ?</h2><p>RAG signifie « retrieval augmented generation », génération augmentée par la recherche. Anthropic le définit comme <a href=\"https://www.anthropic.com/news/contextual-retrieval\" rel=\"noopener noreferrer\" target=\"_blank\">une méthode qui retrouve les informations pertinentes</a> dans une base de connaissance et les ajoute à la question posée au modèle. Le guide de la DGE le décompose en deux modules : l'un cherche dans vos documents les extraits qui répondent à la question, l'autre fait rédiger la réponse par le modèle à partir de ces extraits. Le modèle ne répond plus de mémoire, il répond avec les bons passages sous les yeux.</p><p>Les bénéfices annoncés par la DGE : des réponses contextualisées, une meilleure traçabilité de l'information et un risque d'hallucination réduit par rapport à un modèle seul. La CNIL ajoute le revers : un RAG demande davantage de ressources et de compétences qu'un modèle du commerce, mais ses réponses sont plus faciles à actualiser que le modèle lui-même. Le détail du fonctionnement, du découpage des documents à l'application des droits d'accès, est sur la page <a href=\"/services/base-de-connaissance-ia\">base de connaissance IA</a>.</p><p>Un RAG répond à des questions. Un agent, lui, agit dans vos logiciels. Les deux se combinent : la DGE cite l'« agentisation du RAG » parmi les évolutions en cours. Pour la différence entre les deux, voir <a href=\"/ressources/guides/agent-ia-definition\">agent IA : définition et limites</a>.</p>",
+      "html_en": "<h2>What is a RAG, and how does it differ from an LLM alone?</h2><p>RAG stands for retrieval augmented generation. Anthropic defines it as <a href=\"https://www.anthropic.com/news/contextual-retrieval\" rel=\"noopener noreferrer\" target=\"_blank\">a method that retrieves relevant information</a> from a knowledge base and appends it to the question put to the model. The DGE guide splits it into two modules: one searches your documents for the extracts that answer the question, the other has the model write the answer from those extracts. The model no longer answers from memory, it answers with the right passages in front of it.</p><p>The benefits stated by the DGE: contextualised answers, better traceability of information and a reduced risk of hallucination compared with a model alone. The CNIL adds the downside: a RAG takes more resources and skills than an off-the-shelf model, but its answers are easier to update than the model itself. The detail of how it works, from cutting documents up to applying access rights, is on the <a href=\"/services/base-de-connaissance-ia\">AI knowledge base</a> page.</p><p>A RAG answers questions. An agent acts in your software. The two combine: the DGE lists the \"agentisation of RAG\" among ongoing developments. For the difference between them, see <a href=\"/ressources/guides/agent-ia-definition\">AI agent: definition and limits</a>.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Quatre approches",
+      "kicker_en": "§ Four approaches",
+      "heading_fr": "Modèle seul, documents dans le contexte, RAG ou fine-tuning",
+      "heading_en": "Model alone, documents in the context, RAG or fine-tuning",
+      "caption_fr": "Lecture de Waimia à partir des questions-réponses de la CNIL (18 juillet 2024) et de la documentation d'Anthropic, relues le 15 octobre 2026. Anthropic écrivait en septembre 2024 qu'une base de moins de 200 000 tokens, environ 500 pages, peut tenir entière dans la requête ; ses modèles actuels ont une fenêtre de 1 million de tokens, mais le coût et la précision restent des critères.",
+      "caption_en": "Waimia's reading based on the CNIL Q&A (18 July 2024) and Anthropic's documentation, read on 15 October 2026. In September 2024 Anthropic wrote that a base under 200,000 tokens, about 500 pages, can fit entirely in the request; its current models have a 1-million-token window, but cost and accuracy remain criteria.",
+      "columns_fr": [
+        "Approche",
+        "Principe",
+        "Convient quand",
+        "Limite"
+      ],
+      "columns_en": [
+        "Approach",
+        "Principle",
+        "Fits when",
+        "Limit"
+      ],
+      "rows_fr": [
+        [
+          "Modèle seul, avec consignes",
+          "Un modèle du commerce, orienté par des consignes préalables",
+          "Rédiger, reformuler, trier ou résumer des textes que vous lui donnez",
+          "Ne connaît pas vos documents"
+        ],
+        [
+          "Documents dans le contexte",
+          "Vous placez les documents dans la conversation ou le projet",
+          "La base est courte (quelques dizaines de pages) et change peu",
+          "Le coût et la précision se dégradent quand le contexte grossit ; la mise à jour est manuelle"
+        ],
+        [
+          "RAG",
+          "Une recherche retrouve les passages utiles, le modèle répond depuis eux",
+          "La base est volumineuse, change souvent, et chaque réponse doit citer sa source",
+          "La recherche peut rater un passage ; mise en place, documents à tenir propres, maintenance"
+        ],
+        [
+          "Fine-tuning",
+          "On modifie les paramètres du modèle avec vos données (CNIL)",
+          "Un style, un format ou une tâche très spécifiques, répétés à grande échelle",
+          "Ressources de calcul importantes (CNIL) ; l'information est dans le modèle, plus difficile à actualiser qu'une base"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Model alone, with instructions",
+          "An off-the-shelf model, steered by prior instructions",
+          "Writing, rewording, sorting or summarising texts you give it",
+          "Does not know your documents"
+        ],
+        [
+          "Documents in the context",
+          "You place the documents in the conversation or project",
+          "The base is short (a few dozen pages) and changes little",
+          "Cost and accuracy degrade as the context grows; updating is manual"
+        ],
+        [
+          "RAG",
+          "A search retrieves the useful passages, the model answers from them",
+          "The base is large, changes often, and every answer must cite its source",
+          "The search can miss a passage; setup, documents to keep clean, maintenance"
+        ],
+        [
+          "Fine-tuning",
+          "The model parameters are modified with your data (CNIL)",
+          "A very specific style, format or task, repeated at scale",
+          "Significant computing resources (CNIL); the information sits in the model, harder to update than a base"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "tech-when-dual",
+      "background": "paper",
+      "kicker_fr": "§ Avis Waimia",
+      "kicker_en": "§ Waimia view",
+      "title_fr": "Quand un RAG vaut le coût, et quand non",
+      "title_en": "When a RAG is worth the cost, and when it is not",
+      "aside_fr": "Lecture de Waimia, qui rejoint les critères de la DGE : choisir le cas d'usage avec soin et vérifier qu'une recherche plus classique ne répondrait pas aussi bien. On regarde toujours d'abord si la base tient dans une conversation.",
+      "aside_en": "Waimia's reading, in line with the DGE's criteria: choose the use case carefully and check that a more classic search would not answer as well. We always look first at whether the base fits in a conversation.",
+      "use_title_fr": "Un RAG se justifie si",
+      "use_title_en": "A RAG is justified if",
+      "use_items_fr": [
+        "Les mêmes questions reviennent chaque semaine et la réponse est écrite quelque part",
+        "La base dépasse ce qu'on joint raisonnablement à une conversation, ou change souvent",
+        "Chaque réponse doit citer son document pour être vérifiée",
+        "Les droits d'accès diffèrent selon les personnes ou les services",
+        "Quelqu'un est nommé pour tenir les documents à jour"
+      ],
+      "use_items_en": [
+        "The same questions come back every week and the answer is written somewhere",
+        "The base exceeds what can reasonably be attached to a conversation, or changes often",
+        "Every answer must cite its document so it can be checked",
+        "Access rights differ by person or department",
+        "Someone is named to keep the documents up to date"
+      ],
+      "avoid_title_fr": "Passez-vous-en si",
+      "avoid_title_en": "Skip it if",
+      "avoid_items_fr": [
+        "Quelques dizaines de pages suffisent : un projet Claude avec ces documents fait le travail, sans développement",
+        "Le savoir n'est écrit nulle part : il faut d'abord le documenter",
+        "La question demande de comparer ou de synthétiser un grand nombre de documents : la DGE y voit un point faible du RAG, que les méthodes récentes tendent à corriger",
+        "Les documents sont surtout des tableaux ou des scans : la DGE signale une performance moindre hors texte",
+        "Un moteur de recherche classique répondrait aussi bien"
+      ],
+      "avoid_items_en": [
+        "A few dozen pages are enough: a Claude project with those documents does the job, without development",
+        "The knowledge is written nowhere: it has to be documented first",
+        "The question requires comparing or synthesising many documents: the DGE sees this as a weak point of RAG, which recent methods tend to correct",
+        "The documents are mostly tables or scans: the DGE reports lower performance outside plain text",
+        "A classic search engine would answer as well"
+      ]
+    },
+    {
+      "type": "cta-final",
+      "background": "paper-2",
+      "h2_fr": "Voir si votre cas justifie une base de connaissance",
+      "h2_en": "See whether your case justifies a knowledge base",
+      "body_fr": "L'audit de 45 minutes est gratuit et vérifie d'abord si une solution simple, sans développement, suffit. La page de service décrit ensuite comment Waimia construit une base de connaissance IA : sources citées, droits d'accès respectés.",
+      "body_en": "The 45-minute audit is free and first checks whether a simple solution, without development, is enough. The service page then describes how Waimia builds an AI knowledge base: cited sources, access rights respected.",
+      "cta_primary": {
+        "label_fr": "Voir la base de connaissance IA →",
+        "label_en": "See the AI knowledge base →",
+        "href": "/services/base-de-connaissance-ia",
+        "variant": "primary"
+      }
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-3",
+      "kicker_fr": "§ Ordres de grandeur publiés",
+      "kicker_en": "§ Published orders of magnitude",
+      "heading_fr": "Ce que coûte un RAG : les repères publics, datés",
+      "heading_en": "What a RAG costs: public benchmarks, dated",
+      "caption_fr": "Ordres de grandeur du guide RAG de la DGE (novembre 2024), coûts évalués en juin 2024 à partir d'entretiens avec des professionnels, relevés le 15 octobre 2026. Ils visent des projets d'entreprise et datent : les prix des modèles ont changé depuis. Pour une PME, le chiffrage se fait sur devis, après un audit.",
+      "caption_en": "Orders of magnitude from the DGE RAG guide (November 2024), costs estimated in June 2024 from interviews with professionals, read on 15 October 2026. They target company projects and are dated: model prices have changed since. For an SMB, pricing is done by quote, after an audit.",
+      "columns_fr": [
+        "Poste",
+        "Ordre de grandeur",
+        "Précision de la DGE"
+      ],
+      "columns_en": [
+        "Item",
+        "Order of magnitude",
+        "DGE's note"
+      ],
+      "rows_fr": [
+        [
+          "Produit SaaS",
+          "De 10 000 à 100 000 € par an selon la gamme",
+          "Très variable selon les cas d'usage et les fonctions"
+        ],
+        [
+          "Installation par un intégrateur",
+          "Environ 100 000 €, payés une fois",
+          "Ordre de grandeur issu d'entretiens avec des professionnels"
+        ],
+        [
+          "Développement interne",
+          "Au moins un data scientist, un développeur et un administrateur système pendant au moins 3 mois",
+          "Coût de la main-d'œuvre affectée"
+        ],
+        [
+          "Modèle hébergé dans le cloud (exemple avec Mistral Small)",
+          "7,8 € pour 1 000 requêtes, soit environ 106 € par employé et par an à 300 requêtes par semaine",
+          "Coût entièrement variable ; calcul de juin 2024"
+        ]
+      ],
+      "rows_en": [
+        [
+          "SaaS product",
+          "From €10,000 to €100,000 a year depending on the range",
+          "Highly variable depending on use cases and features"
+        ],
+        [
+          "Installation by an integrator",
+          "About €100,000, paid once",
+          "Order of magnitude from interviews with professionals"
+        ],
+        [
+          "In-house development",
+          "At least one data scientist, one developer and one system administrator for at least 3 months",
+          "Cost of the staff assigned"
+        ],
+        [
+          "Model hosted in the cloud (example with Mistral Small)",
+          "€7.8 per 1,000 requests, or about €106 per employee per year at 300 requests a week",
+          "Entirely variable cost; June 2024 calculation"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper",
+      "kicker_fr": "§ Ce qui peut rater",
+      "kicker_en": "§ What can go wrong",
+      "heading_fr": "Cinq limites d'un RAG, et la parade",
+      "heading_en": "Five limits of a RAG, and the countermeasure",
+      "caption_fr": "Limites tirées du guide RAG de la DGE (section « Difficultés ») et des questions-réponses de la CNIL, relevés le 15 octobre 2026. Les parades de la dernière colonne sont les recommandations de Waimia, sauf mention contraire.",
+      "caption_en": "Limits taken from the DGE RAG guide (\"Difficulties\" section) and the CNIL Q&A, read on 15 October 2026. The countermeasures in the last column are Waimia's recommendations unless stated otherwise.",
+      "columns_fr": [
+        "Limite",
+        "Ce qu'on observe",
+        "Parade"
+      ],
+      "columns_en": [
+        "Limit",
+        "What you see",
+        "Countermeasure"
+      ],
+      "rows_fr": [
+        [
+          "La recherche rate un passage utile",
+          "La recherche par mots n'est pas robuste aux synonymes, la recherche par sens peut passer à côté selon la formulation, et la récupération se limite souvent aux N extraits les plus proches (DGE)",
+          "Recherche combinant sens et mots-clés, et test sur une liste de vraies questions"
+        ],
+        [
+          "Il hallucine encore",
+          "Le RAG réduit les hallucinations, elles peuvent toujours se manifester (DGE)",
+          "Sources citées, consigne « je ne sais pas » (Anthropic), évaluation régulière"
+        ],
+        [
+          "Les documents se contredisent",
+          "Le RAG expose les contradictions au lieu de les réparer ; la DGE recommande d'éliminer les contradictions internes de la base",
+          "Choisir pour chaque sujet le document qui fait foi, écarter les versions périmées"
+        ],
+        [
+          "Tableaux, scans, PDF mixtes",
+          "Performance moindre sur les documents multimodaux (DGE)",
+          "Prétraitement des documents, ou RAG multimodal quand c'est le cœur du besoin"
+        ],
+        [
+          "Données personnelles",
+          "L'organisation qui connecte un système à sa propre base de connaissance est responsable du traitement quand elle contient des données personnelles (CNIL)",
+          "Associer le DPO, analyse d'impact si besoin (CNIL), exclure par défaut RH, contrats et données clients sensibles, appliquer les droits d'accès à la recherche"
+        ]
+      ],
+      "rows_en": [
+        [
+          "The search misses a useful passage",
+          "Keyword search is not robust to synonyms, meaning-based search can miss depending on wording, and retrieval is often limited to the N closest extracts (DGE)",
+          "Search combining meaning and keywords, and a test on a list of real questions"
+        ],
+        [
+          "It still hallucinates",
+          "RAG reduces hallucinations, they can still occur (DGE)",
+          "Cited sources, \"I don't know\" instruction (Anthropic), regular evaluation"
+        ],
+        [
+          "The documents contradict each other",
+          "RAG exposes contradictions instead of fixing them; the DGE recommends removing internal contradictions from the base",
+          "Choose for each topic the document that is authoritative, drop outdated versions"
+        ],
+        [
+          "Tables, scans, mixed PDFs",
+          "Lower performance on multimodal documents (DGE)",
+          "Document preprocessing, or multimodal RAG when it is the core of the need"
+        ],
+        [
+          "Personal data",
+          "An organisation that connects a system to its own knowledge base is responsible for the processing when it contains personal data (CNIL)",
+          "Involve the DPO, impact assessment if needed (CNIL), exclude HR, contracts and sensitive customer data by default, apply access rights at search time"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "decision-list",
+      "background": "paper-2",
+      "kicker_fr": "§ Avant de lancer",
+      "kicker_en": "§ Before you start",
+      "heading_fr": "Cinq questions à se poser avant de lancer un RAG",
+      "heading_en": "Five questions to ask before starting a RAG",
+      "items": [
+        {
+          "label_fr": "Quelle question revient le plus souvent, et où la réponse est-elle écrite aujourd'hui ? Pas de réponse écrite : documentez d'abord.",
+          "label_en": "Which question comes up most, and where is the answer written today? No written answer: document it first."
+        },
+        {
+          "label_fr": "Les documents tiennent-ils dans une conversation ou un projet Claude ? Si oui, commencez par là, c'est plus simple et moins cher.",
+          "label_en": "Do the documents fit in a conversation or a Claude project? If so, start there, it is simpler and cheaper."
+        },
+        {
+          "label_fr": "Qui tient les documents à jour, et qui décide du document qui fait foi quand deux se contredisent ?",
+          "label_en": "Who keeps the documents up to date, and who decides which document is authoritative when two contradict each other?"
+        },
+        {
+          "label_fr": "Qui a le droit de voir quoi, et quelles données personnelles la base contiendra-t-elle ? Le DPO se consulte avant, pas après.",
+          "label_en": "Who is allowed to see what, and what personal data will the base contain? The DPO is consulted before, not after."
+        },
+        {
+          "label_fr": "Comment mesurera-t-on la qualité : quelle liste de vraies questions, quelle part de réponses justes exigée avant d'ouvrir à l'équipe ?",
+          "label_en": "How will quality be measured: which list of real questions, what share of correct answers required before opening it to the team?"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Sources, relues le 15 octobre 2026</h2><ul><li><a href=\"https://www.cnil.fr/fr/les-questions-reponses-de-la-cnil-sur-lutilisation-dun-systeme-dia-generative\" rel=\"noopener noreferrer\" target=\"_blank\">CNIL, questions-réponses sur l'utilisation d'un système d'IA générative, 18 juillet 2024</a> : définition de l'hallucination, du RAG et du fine-tuning, responsabilité du déployeur, DPO et analyse d'impact</li><li><a href=\"https://www.cnil.fr/sites/cnil/files/2025-03/tpe_pme_ficheia_1_a_quoi_ca_sert.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">France Num et CNIL, fiche IA 1</a> : principe du modèle de langage, prédiction du mot suivant</li><li><a href=\"https://www.entreprises.gouv.fr/files/files/Publications/2024/Guides/20241127-bro-guide-ragv4-interactif.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Direction générale des Entreprises, guide de la génération augmentée par récupération (RAG), novembre 2024</a> : fonctionnement en deux modules, cas d'usage, limites, ordres de grandeur de coût évalués en juin 2024</li><li><a href=\"https://platform.claude.com/docs/en/build-with-claude/context-windows\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, context windows</a> : définition de la fenêtre de contexte, fenêtre de 1 million de tokens, « context rot »</li><li><a href=\"https://platform.claude.com/docs/en/models/overview\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, models overview</a> : 1 million de tokens, environ 555 000 mots</li><li><a href=\"https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, reduce hallucinations</a> : parades recensées, aucune ne supprime le risque</li><li><a href=\"https://www.anthropic.com/news/contextual-retrieval\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Introducing Contextual Retrieval, 19 septembre 2024</a> : définition du RAG, seuil de 200 000 tokens alors cité</li><li><a href=\"https://platform.claude.com/docs/en/about-claude/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, tarifs de l'API</a> : Claude Sonnet 5.5 à 2 dollars le million de tokens en entrée, lecture du cache à 0,10 dollar</li><li><a href=\"https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, centre de confidentialité</a> : pas d'entraînement par défaut sur les produits commerciaux</li></ul><p>Pour aller plus loin : la page <a href=\"/services/base-de-connaissance-ia\">base de connaissance IA</a> décrit la prestation, le guide <a href=\"/ressources/guides/agent-ia-definition\">agent IA : définition et limites</a> la différence avec un agent, et <a href=\"/ressources/guides/claude-rgpd-pme\">Claude et RGPD en PME</a> la méthode pour les données personnelles.</p>",
+      "html_en": "<h2>Sources, re-read on 15 October 2026</h2><ul><li><a href=\"https://www.cnil.fr/fr/les-questions-reponses-de-la-cnil-sur-lutilisation-dun-systeme-dia-generative\" rel=\"noopener noreferrer\" target=\"_blank\">CNIL, Q&A on using a generative AI system, 18 July 2024</a>: definition of hallucination, RAG and fine-tuning, deployer's responsibility, DPO and impact assessment</li><li><a href=\"https://www.cnil.fr/sites/cnil/files/2025-03/tpe_pme_ficheia_1_a_quoi_ca_sert.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">France Num and CNIL, AI fact sheet 1</a>: principle of the language model, next-word prediction</li><li><a href=\"https://www.entreprises.gouv.fr/files/files/Publications/2024/Guides/20241127-bro-guide-ragv4-interactif.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">Direction générale des Entreprises, guide to retrieval augmented generation (RAG), November 2024</a>: two-module operation, use cases, limits, cost orders of magnitude estimated in June 2024</li><li><a href=\"https://platform.claude.com/docs/en/build-with-claude/context-windows\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, context windows</a>: definition of the context window, 1-million-token window, \"context rot\"</li><li><a href=\"https://platform.claude.com/docs/en/models/overview\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, models overview</a>: 1 million tokens, about 555,000 words</li><li><a href=\"https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, reduce hallucinations</a>: listed countermeasures, none removes the risk</li><li><a href=\"https://www.anthropic.com/news/contextual-retrieval\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Introducing Contextual Retrieval, 19 September 2024</a>: definition of RAG, the 200,000-token threshold quoted at the time</li><li><a href=\"https://platform.claude.com/docs/en/about-claude/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, API pricing</a>: Claude Sonnet 5.5 at $2 per million input tokens, cache reads at $0.10</li><li><a href=\"https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, privacy center</a>: no training by default on commercial products</li></ul><p>To go further: the <a href=\"/services/base-de-connaissance-ia\">AI knowledge base</a> page describes the service, the <a href=\"/ressources/guides/agent-ia-definition\">AI agent: definition and limits</a> guide the difference with an agent, and <a href=\"/ressources/guides/claude-rgpd-pme\">Claude and GDPR for SMBs</a> the method for personal data.</p>"
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper-2",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Go further",
+      "cards": [
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Base de connaissance IA",
+          "title_en": "AI knowledge base",
+          "lead_fr": "Un assistant qui répond depuis vos documents, cite ses sources, respecte les droits d'accès.",
+          "lead_en": "An assistant that answers from your documents, cites its sources, respects access rights.",
+          "href": "/services/base-de-connaissance-ia"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Agent IA : définition et limites",
+          "title_en": "AI agent: definition and limits",
+          "lead_fr": "Assistant, automatisation, agent : le tableau pour les distinguer.",
+          "lead_en": "Assistant, automation, agent: the table to tell them apart.",
+          "href": "/ressources/guides/agent-ia-definition"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Claude et RGPD en PME",
+          "title_en": "Claude and GDPR for SMBs",
+          "lead_fr": "Compte pro, DPA, stockage, registre, analyse d'impact.",
+          "lead_en": "Business account, DPA, storage, register, impact assessment.",
+          "href": "/ressources/guides/claude-rgpd-pme"
+        }
+      ]
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "h2_fr": "LLM et RAG : questions fréquentes",
+      "h2_en": "LLM and RAG: frequently asked questions",
+      "items": [
+        {
+          "q_fr": "LLM, c'est quoi ?",
+          "q_en": "What is an LLM?",
+          "a_fr": "Un LLM (large language model, ou grand modèle de langage) est un programme entraîné sur de très grands volumes de texte pour estimer la suite la plus probable d'une phrase. La fiche France Num et CNIL le décrit ainsi. C'est le moteur de ChatGPT, de Claude ou de Vibe, l'assistant de Mistral AI.",
+          "a_en": "An LLM (large language model) is a program trained on very large volumes of text to estimate the most likely continuation of a sentence. The France Num and CNIL fact sheet describes it that way. It is the engine behind ChatGPT, Claude or Vibe, Mistral AI's assistant."
+        },
+        {
+          "q_fr": "Quelle différence entre un LLM et ChatGPT ou Claude ?",
+          "q_en": "What is the difference between an LLM and ChatGPT or Claude?",
+          "a_fr": "Le LLM est le moteur. ChatGPT, Claude ou Vibe sont des produits qui l'enveloppent d'une interface, de réglages et parfois d'outils. Le même moteur peut servir dans plusieurs produits, et un produit peut proposer plusieurs moteurs : on choisit les deux séparément.",
+          "a_en": "The LLM is the engine. ChatGPT, Claude or Vibe are products that wrap it in an interface, settings and sometimes tools. The same engine can power several products, and a product can offer several engines: you choose the two separately."
+        },
+        {
+          "q_fr": "RAG IA : c'est quoi, en une phrase ?",
+          "q_en": "RAG in AI: what is it, in one sentence?",
+          "a_fr": "Un RAG (retrieval augmented generation, génération augmentée par la recherche) retrouve d'abord les passages utiles dans vos documents, les ajoute à la question, puis laisse le modèle répondre à partir d'eux. Anthropic le décrit comme une méthode qui retrouve les informations pertinentes dans une base de connaissance et les ajoute à la requête.",
+          "a_en": "A RAG (retrieval augmented generation) first finds the useful passages in your documents, adds them to the question, then lets the model answer from them. Anthropic describes it as a method that retrieves relevant information from a knowledge base and appends it to the prompt."
+        },
+        {
+          "q_fr": "Un RAG supprime-t-il les hallucinations ?",
+          "q_en": "Does a RAG remove hallucinations?",
+          "a_fr": "Non, il les réduit. Le guide de la DGE écrit que le RAG réduit le risque d'hallucinations mais que celles-ci peuvent toujours se manifester. D'où les sources citées, une consigne « je ne sais pas » et une évaluation sur de vraies questions avant l'ouverture à l'équipe.",
+          "a_en": "No, it reduces them. The DGE guide states that RAG lowers the risk of hallucinations but that they can still occur. Hence cited sources, an \"I don't know\" instruction and an evaluation on real questions before opening it to the team."
+        },
+        {
+          "q_fr": "Faut-il un RAG si mes documents tiennent dans une conversation ?",
+          "q_en": "Do I need a RAG if my documents fit in a conversation?",
+          "a_fr": "Pas forcément. Les modèles Claude actuels ont une fenêtre de contexte de 1 million de tokens (documentation Anthropic, relevée le 15 octobre 2026), et quelques dizaines de pages peuvent y tenir. Reste à regarder le coût à chaque question et la précision, qui baisse quand le contexte grossit. Le RAG se justifie quand la base est volumineuse, change souvent ou demande des droits d'accès différents selon les personnes.",
+          "a_en": "Not necessarily. Current Claude models have a 1-million-token context window (Anthropic documentation, read on 15 October 2026), and a few dozen pages can fit in it. You still have to look at the cost per question and at accuracy, which falls as the context grows. A RAG is justified when the base is large, changes often or needs different access rights per person."
+        },
+        {
+          "q_fr": "Combien coûte un RAG pour une PME ?",
+          "q_en": "How much does a RAG cost for an SMB?",
+          "a_fr": "La DGE publie des ordres de grandeur, évalués en juin 2024 : de 10 000 à 100 000 euros par an pour un produit SaaS, environ 100 000 euros pour une installation par un intégrateur. Ils visent des projets d'entreprise. Chez Waimia, l'audit de 45 minutes est gratuit, puis un sprint de cadrage de 10 heures à {{prix.sprint}} € HT ; la suite fait l'objet d'un devis. L'audit vérifie d'abord si une solution plus simple suffit.",
+          "a_en": "The DGE publishes orders of magnitude, estimated in June 2024: from 10,000 to 100,000 euros a year for a SaaS product, about 100,000 euros for an installation by an integrator. They target company projects. At Waimia, the 45-minute audit is free, then a 10-hour scoping sprint at {{prix.sprint.en}} excl. VAT; the rest is quoted. The audit first checks whether a simpler solution is enough."
+        },
+        {
+          "q_fr": "Mes données restent-elles protégées avec un RAG ?",
+          "q_en": "Is my data protected with a RAG?",
+          "a_fr": "Cela dépend du contrat et de la configuration. La CNIL précise que l'organisation qui connecte un système à sa propre base de connaissance est responsable de ce traitement quand la base contient des données personnelles. Anthropic écrit ne pas entraîner ses modèles par défaut sur les données de ses produits commerciaux (relevé le 15 octobre 2026). Le guide Claude et RGPD donne la méthode.",
+          "a_en": "It depends on the contract and the setup. The CNIL states that an organisation that connects a system to its own knowledge base is responsible for that processing when the base contains personal data. Anthropic writes that it does not train its models by default on data from its commercial products (read on 15 October 2026). The Claude and GDPR guide gives the method."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Base de connaissance",
+      "kicker_en": "§ Knowledge base",
+      "h2_fr": "Savoir si vos documents justifient un RAG, ou si une solution simple suffit.",
+      "h2_en": "Find out whether your documents justify a RAG, or whether a simple solution is enough.",
+      "subtitle_fr": "L'audit de 45 minutes est gratuit. On regarde les questions qui reviennent, l'état de vos documents et les données en jeu, puis on dit si un projet Claude, un RAG ou rien du tout répond au besoin.",
+      "subtitle_en": "The 45-minute audit is free. We look at the questions that keep coming back, the state of your documents and the data involved, then say whether a Claude project, a RAG or nothing at all meets the need.",
+      "buttons": [
+        {
+          "label_fr": "Réserver l'audit gratuit",
+          "label_en": "Book the free audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Comment se passe l'audit",
+          "label_en": "How the audit works",
+          "href": "/audit-ia-pme",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}
