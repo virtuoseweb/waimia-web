@@ -129,6 +129,8 @@ const PAGES: Record<string, PageDef> = {
   '/ressources/guides/claude-cowork': { label_fr: 'Claude Cowork est désormais Claude', label_en: 'Claude Cowork is now Claude', kind: 'guide', topics: ['claude', 'conformite'] },
   '/ressources/guides/mcp-claude': { label_fr: 'Guide MCP : brancher Claude à vos outils', label_en: 'MCP guide: connecting Claude to your tools', kind: 'guide', topics: ['claude', 'agents'] },
   '/ressources/guides/claude-fonctionnalites-pme': { label_fr: 'Guide : fonctionnalités, offres et prix de Claude', label_en: 'Guide: Claude features, plans and pricing', kind: 'guide', topics: ['claude', 'conseil'] },
+  '/ressources/guides/quel-modele-claude-choisir': { label_fr: 'Quel modèle Claude choisir : Opus, Sonnet ou Haiku', label_en: 'Which Claude model to choose: Opus, Sonnet or Haiku', kind: 'guide', topics: ['claude', 'conseil'] },
+  '/ressources/guides/claude-gratuit': { label_fr: "Claude gratuit : ce que permet l'offre Free", label_en: 'Free Claude: what the Free plan allows', kind: 'guide', topics: ['claude', 'conformite'] },
   '/ressources/outils/guide-achat-claude-pme': { label_fr: "Guide d'achat Claude pour PME (PDF)", label_en: "Claude buyer's guide for SMBs (PDF)", kind: 'guide', topics: ['claude', 'conseil'] },
   '/ressources/guides/claude-skills': { label_fr: 'Guide : skills Claude en entreprise', label_en: 'Guide: Claude skills in business', kind: 'guide', topics: ['claude', 'agents'] },
   '/ressources/outils/pack-skills-claude-pme': { label_fr: 'Pack de 8 skills Claude pour PME', label_en: 'Pack of 8 Claude skills for SMBs', kind: 'guide', topics: ['claude', 'conseil'] },

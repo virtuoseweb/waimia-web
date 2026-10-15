@@ -1,0 +1,654 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "Claude gratuit : ce que permet l'offre Free et où elle s'arrête",
+  "title_en": "Free Claude: what the Free plan allows and where it stops",
+  "seoTitle_fr": "Claude gratuit : offre Free, limites et usage en PME",
+  "description_fr": "Claude AI est gratuit en offre Free : ce qu'elle donne, ses limites, l'essai de Pro, le RGPD en entreprise, l'éditeur (Anthropic). Relevé le 15 octobre 2026.",
+  "description_en": "Claude AI is free on the Free plan: what it gives, its limits, the Pro trial question, GDPR in business, the maker (Anthropic). Checked on 15 October 2026.",
+  "slug": "claude-gratuit",
+  "publishedAt": "2026-10-15",
+  "updatedAt": "2026-10-15",
+  "category": "claude",
+  "cluster": "claude",
+  "tags": [
+    "claude",
+    "claude-gratuit",
+    "offre-free",
+    "anthropic",
+    "rgpd",
+    "guide-pme"
+  ],
+  "sources": [
+    {
+      "name": "Anthropic, page tarifs de Claude (offres Free et Pro), relue le 15 octobre 2026",
+      "url": "https://claude.com/pricing",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, conditions grand public pour l'Espace économique européen et la Suisse (en vigueur au 8 octobre 2025), lues le 15 octobre 2026",
+      "url": "https://www.anthropic.com/legal/consumer-terms",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, mise à jour des conditions grand public (entraînement et conservation des données), lue le 15 octobre 2026",
+      "url": "https://www.anthropic.com/news/updates-to-our-consumer-terms",
+      "type": "enterprise",
+      "publishedAt": "2025-08-28"
+    },
+    {
+      "name": "Centre d'aide Claude, What is the Pro plan ?, lu le 15 octobre 2026",
+      "url": "https://support.claude.com/en/articles/8325606-what-is-the-pro-plan",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, pays et régions pris en charge, page lue le 15 octobre 2026",
+      "url": "https://www.anthropic.com/supported-countries",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, présentation de l'entreprise, lue le 15 octobre 2026",
+      "url": "https://www.anthropic.com/company",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, équipe de direction, lue le 15 octobre 2026",
+      "url": "https://www.anthropic.com/company/leadership",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, annonce de sa première levée de fonds, 28 mai 2021, lue le 15 octobre 2026",
+      "url": "https://www.anthropic.com/news/anthropic-raises-124-million-to-build-more-reliable-general-ai-systems",
+      "type": "enterprise",
+      "publishedAt": "2021-05-28"
+    },
+    {
+      "name": "Claude Academy, Choosing the right Claude model, lu le 15 octobre 2026",
+      "url": "https://academy.claude.com/tutorials/choosing-the-right-claude-model",
+      "type": "enterprise"
+    }
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "Claude AI est-il vraiment gratuit ?",
+      "a": "Oui. L'offre Free coûte 0 $ : chat sur le web, l'ordinateur et le mobile, recherche web, création de fichiers avec exécution de code, mémoire, connecteurs, artefacts, Claude Design, Slides et Docs, avec les modèles Sonnet et Haiku. L'usage est limité par fenêtres de 5 heures, sans nombre de messages garanti. Relevé sur la page tarifs d'Anthropic le 15 octobre 2026."
+    },
+    {
+      "q": "Qui a créé Claude AI ?",
+      "a": "Claude est créé et édité par Anthropic, une entreprise qui se décrit comme une société de sécurité et de recherche en IA, constituée en « public benefit corporation ». Sa page de direction nomme sept cofondateurs, dont Dario Amodei (directeur général) et Daniela Amodei (présidente). Pour l'Union européenne, les services sont fournis par Anthropic Ireland, Limited, à Dublin. Pages lues le 15 octobre 2026."
+    },
+    {
+      "q": "Quelle différence entre Claude gratuit et Claude Pro ?",
+      "a": "Pro (20 $ par mois, 17 $ par mois en annuel) donne au moins 5 fois l'usage de Free par session de 5 heures, ajoute Opus, Claude Code, la recherche approfondie, des projets sans plafond affiché, Claude in Chrome et les extensions Claude pour Microsoft 365. Free reste limité à Sonnet et Haiku et à 5 projets. Les deux relèvent des mêmes conditions grand public. Relevé le 15 octobre 2026."
+    },
+    {
+      "q": "Y a-t-il un essai gratuit de Claude Pro ?",
+      "a": "L'aide d'Anthropic ne décrit pas d'essai gratuit de Pro : elle indique qu'il n'y a pas de remise standard sur les offres individuelles, seulement des promotions ponctuelles annoncées sur les canaux officiels, et que le support ne peut pas accorder de coupon. Pro se prend au mois, se résilie à tout moment et le compte repasse en Free à la fin de la période. Relevé le 15 octobre 2026."
+    },
+    {
+      "q": "Peut-on utiliser Claude gratuit pour son entreprise ?",
+      "a": "Ce n'est pas prévu par les conditions. Free, Pro et Max relèvent des conditions grand public ; la version pour les résidents de l'Espace économique européen et de la Suisse contient une clause « usage non commercial uniquement » : l'utilisateur s'engage à ne pas utiliser les services à des fins commerciales ou professionnelles. Pour une entreprise, la voie prévue est Team, Enterprise ou l'API, sous conditions commerciales. Ce n'est pas un avis juridique."
+    },
+    {
+      "q": "Claude gratuit utilise-t-il mes conversations pour s'entraîner ?",
+      "a": "Sur Free, Pro et Max, c'est un réglage de l'utilisateur. Activé, Anthropic peut conserver les données jusqu'à cinq ans ; désactivé, la durée habituelle reste de 30 jours. Même désactivé, les contenus notés par un retour ou signalés pour examen de sécurité peuvent servir à l'entraînement, selon les conditions. Team, Enterprise et l'API sont hors du champ de cette mise à jour. Relevé le 15 octobre 2026."
+    },
+    {
+      "q": "Claude est-il disponible en France, et à partir de quel âge ?",
+      "a": "Oui, la France figure sur la liste des pays pris en charge d'Anthropic (page en vigueur au 12 mai 2026). Les conditions grand public pour l'Espace économique européen exigent d'avoir au moins 18 ans. L'inscription à l'offre gratuite se fait avec une adresse e-mail sur claude.ai. Relevé le 15 octobre 2026."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Is Claude AI really free?",
+      "a": "Yes. The Free plan costs $0: chat on web, desktop and mobile, web search, file creation with code execution, memory, connectors, artifacts, Claude Design, Slides and Docs, with the Sonnet and Haiku models. Usage is limited in 5-hour windows, with no guaranteed message count. Taken from Anthropic's pricing page on 15 October 2026."
+    },
+    {
+      "q": "Who created Claude AI?",
+      "a": "Claude is created and published by Anthropic, a company that describes itself as an AI safety and research company, set up as a public benefit corporation. Its leadership page names seven co-founders, including Dario Amodei (chief executive) and Daniela Amodei (president). For the European Union, services are provided by Anthropic Ireland, Limited, in Dublin. Pages read on 15 October 2026."
+    },
+    {
+      "q": "What is the difference between free Claude and Claude Pro?",
+      "a": "Pro ($20 a month, $17 a month billed annually) gives at least 5 times Free's usage per 5-hour session, and adds Opus, Claude Code, deep research, projects with no listed cap, Claude in Chrome and the Claude add-ins for Microsoft 365. Free stays limited to Sonnet and Haiku and to 5 projects. Both fall under the same consumer terms. Checked on 15 October 2026."
+    },
+    {
+      "q": "Is there a free trial of Claude Pro?",
+      "a": "Anthropic's help centre describes no free trial of Pro: it says there is no standard discount on individual plans, only occasional limited-time promotions announced on official channels, and that support cannot issue coupons. Pro can be taken monthly and cancelled any time, and the account goes back to Free at the end of the period. Checked on 15 October 2026."
+    },
+    {
+      "q": "Can you use free Claude for your business?",
+      "a": "The terms do not provide for it. Free, Pro and Max fall under consumer terms; the version for residents of the European Economic Area and Switzerland contains a \"non-commercial use only\" clause: the user agrees not to use the services for commercial or business purposes. For a company, the intended route is Team, Enterprise or the API, under commercial terms. This is not legal advice."
+    },
+    {
+      "q": "Does free Claude use my conversations for training?",
+      "a": "On Free, Pro and Max, it is a user setting. When on, Anthropic can keep data for up to five years; when off, the usual period stays 30 days. Even when off, content rated through feedback or flagged for safety review can be used for training, under the terms. Team, Enterprise and the API are outside the scope of that update. Checked on 15 October 2026."
+    },
+    {
+      "q": "Is Claude available in France, and from what age?",
+      "a": "Yes, France is on Anthropic's list of supported countries (page in force on 12 May 2026). The consumer terms for the European Economic Area require users to be at least 18. Sign-up to the free plan uses an email address on claude.ai. Checked on 15 October 2026."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "illustration": {
+        "src": "/images/illustrations/ds/claude-pme-hub-premiere-marche-paper.webp",
+        "alt_fr": "Illustration : une femme pose le pied sur la première marche, très basse, d'un grand escalier qui monte vers un soleil",
+        "alt_en": "Illustration: a woman steps onto the very low first step of a tall staircase rising toward a sun",
+        "side": "right"
+      },
+      "kicker_fr": "§ Guide",
+      "kicker_en": "§ Guide",
+      "h1_fr": "Claude <i class=\"acc\">gratuit</i> : ce que permet l'offre Free",
+      "h1_en": "Free <i class=\"acc\">Claude</i>: what the Free plan allows",
+      "lede_fr": "Oui, Claude est gratuit. L'offre Free coûte 0 $ et donne le chat, la recherche web, les fichiers, la mémoire, Claude Design, Slides et Docs, avec les modèles Sonnet et Haiku. Claude est édité par Anthropic. Mais ses conditions pour l'Espace économique européen excluent l'usage professionnel. Relevé le 15 octobre 2026.",
+      "lede_en": "Yes, Claude is free. The Free plan costs $0 and gives chat, web search, files, memory, Claude Design, Slides and Docs, with the Sonnet and Haiku models. Claude is published by Anthropic. But its terms for the European Economic Area exclude business use. Checked on 15 October 2026.",
+      "badges": [
+        {
+          "label_fr": "Pages d'Anthropic relues le 15 octobre 2026",
+          "label_en": "Anthropic pages rechecked on 15 October 2026"
+        },
+        {
+          "label_fr": "Prix en dollars, hors taxes",
+          "label_en": "Prices in dollars, excl. tax"
+        },
+        {
+          "label_fr": "Pas un avis juridique",
+          "label_en": "Not legal advice"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver l'audit gratuit",
+        "label_en": "Book the free audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Claude et RGPD en PME",
+        "label_en": "Claude and GDPR for SMBs",
+        "href": "/ressources/guides/claude-rgpd-pme",
+        "variant": "ghost"
+      }
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "15 octobre 2026",
+      "updatedDate": "15 octobre 2026"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "Claude AI est-il gratuit ?",
+      "question_en": "Is Claude AI free?",
+      "term_fr": "Réponse courte",
+      "term_en": "Short answer",
+      "answer_fr": "Oui. L'offre Free est à 0 $ : on s'inscrit avec une adresse e-mail sur claude.ai, dans un pays pris en charge, dont la France. Elle donne les modèles Sonnet et Haiku, avec un usage limité par fenêtres de 5 heures. Elle ne donne ni Opus, ni Claude Code. L'aide d'Anthropic ne décrit pas d'essai gratuit de Pro. Pour une entreprise, Free ne convient pas : voir plus bas. Relevé le 15 octobre 2026.",
+      "answer_en": "Yes. The Free plan is $0: you sign up with an email address on claude.ai, in a supported country, France included. It gives the Sonnet and Haiku models, with usage limited in 5-hour windows. It gives neither Opus nor Claude Code. Anthropic's help centre describes no free trial of Pro. For a business, Free is not suitable: see below. Checked on 15 October 2026."
+    },
+    {
+      "type": "key-metric-grid",
+      "background": "paper",
+      "variant": "accent",
+      "columns": 4,
+      "eyebrow_fr": "§ Les quatre chiffres à retenir",
+      "eyebrow_en": "§ The four figures to remember",
+      "title_fr": "Que donne l'offre Free de Claude, en quatre repères ?",
+      "title_en": "What does Claude's Free plan give, in four markers?",
+      "metrics": [
+        {
+          "value": "0 $",
+          "label_fr": "Prix de l'offre Free : inscription par e-mail sur claude.ai",
+          "label_en": "Price of the Free plan: sign-up by email on claude.ai"
+        },
+        {
+          "value": "2 modèles",
+          "label_fr": "Sonnet et Haiku ; ni Opus ni Fable",
+          "label_en": "Sonnet and Haiku; neither Opus nor Fable"
+        },
+        {
+          "value": "5 heures",
+          "label_fr": "Fenêtre glissante des limites d'usage, sans nombre de messages garanti",
+          "label_en": "Rolling window of usage limits, with no guaranteed message count"
+        },
+        {
+          "value": "5 projets",
+          "label_fr": "Maximum sur Free ; la ligne Pro n'affiche pas de plafond",
+          "label_en": "Maximum on Free; the Pro line shows no cap"
+        }
+      ]
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Free et Pro",
+      "kicker_en": "§ Free and Pro",
+      "heading_fr": "Qu'est-ce qui change entre Claude gratuit et Claude Pro ?",
+      "heading_en": "What changes between free Claude and Claude Pro?",
+      "caption_fr": "Source : page tarifs de Claude (claude.com/pricing), relue le 15 octobre 2026 ; aide d'Anthropic sur l'offre Pro. Prix en dollars, hors taxes. Les offres Max, Team et Enterprise sont détaillées dans le guide des offres et prix de Claude.",
+      "caption_en": "Source: Claude pricing page (claude.com/pricing), rechecked on 15 October 2026; Anthropic's help centre on the Pro plan. Prices in dollars, excluding tax. Max, Team and Enterprise are covered in the Claude plans and pricing guide.",
+      "columns_fr": [
+        "Fonction",
+        "Free",
+        "Pro"
+      ],
+      "columns_en": [
+        "Feature",
+        "Free",
+        "Pro"
+      ],
+      "rows_fr": [
+        [
+          "Prix",
+          "0 $",
+          "20 $ par mois ; 17 $ par mois en annuel (200 $ payés d'avance)"
+        ],
+        [
+          "Chat sur le web, l'ordinateur, iOS et Android",
+          "Oui",
+          "Oui"
+        ],
+        [
+          "Recherche web, artefacts, mémoire, connecteurs, skills",
+          "Oui",
+          "Oui"
+        ],
+        [
+          "Création et modification de fichiers avec exécution de code",
+          "Oui",
+          "Oui"
+        ],
+        [
+          "Claude Design, Slides, Docs",
+          "Oui",
+          "Oui"
+        ],
+        [
+          "Mode vocal, chats incognito",
+          "Oui",
+          "Oui"
+        ],
+        [
+          "Modèles",
+          "Sonnet et Haiku",
+          "Opus, Sonnet, Haiku ; Fable avec des crédits d'usage"
+        ],
+        [
+          "Projets",
+          "Jusqu'à 5",
+          "Oui"
+        ],
+        [
+          "Recherche approfondie",
+          "Non",
+          "Oui"
+        ],
+        [
+          "Claude Code",
+          "Non",
+          "Oui"
+        ],
+        [
+          "Tâches déléguées et planifiées",
+          "Non",
+          "Oui"
+        ],
+        [
+          "Claude in Chrome, les extensions Claude pour Microsoft 365 et Outlook",
+          "Non",
+          "Oui"
+        ],
+        [
+          "Usage par session de 5 heures",
+          "« Les questions du quotidien »",
+          "Au moins 5 fois Free"
+        ],
+        [
+          "Limites hebdomadaires",
+          "Non citées par la page tarifs",
+          "Oui"
+        ],
+        [
+          "Authentification unique, console d'administration",
+          "Non",
+          "Non"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Price",
+          "$0",
+          "$20 a month; $17 a month billed annually ($200 paid up front)"
+        ],
+        [
+          "Chat on web, desktop, iOS and Android",
+          "Yes",
+          "Yes"
+        ],
+        [
+          "Web search, artifacts, memory, connectors, skills",
+          "Yes",
+          "Yes"
+        ],
+        [
+          "Creating and editing files with code execution",
+          "Yes",
+          "Yes"
+        ],
+        [
+          "Claude Design, Slides, Docs",
+          "Yes",
+          "Yes"
+        ],
+        [
+          "Voice mode, incognito chats",
+          "Yes",
+          "Yes"
+        ],
+        [
+          "Models",
+          "Sonnet and Haiku",
+          "Opus, Sonnet, Haiku; Fable with usage credits"
+        ],
+        [
+          "Projects",
+          "Up to 5",
+          "Yes"
+        ],
+        [
+          "Deep research",
+          "No",
+          "Yes"
+        ],
+        [
+          "Claude Code",
+          "No",
+          "Yes"
+        ],
+        [
+          "Hand-off and scheduled tasks",
+          "No",
+          "Yes"
+        ],
+        [
+          "Claude in Chrome, the Claude add-ins for Microsoft 365 and Outlook",
+          "No",
+          "Yes"
+        ],
+        [
+          "Usage per 5-hour session",
+          "\"Everyday questions\"",
+          "At least 5 times Free"
+        ],
+        [
+          "Weekly limits",
+          "Not cited on the pricing page",
+          "Yes"
+        ],
+        [
+          "Single sign-on, admin console",
+          "No",
+          "No"
+        ]
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Qui a créé Claude AI, et qui l'édite ?</h2>\n<p>Claude est créé et édité par <a href=\"https://www.anthropic.com/company\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic</a>. L'entreprise se décrit comme une « entreprise de sécurité et de recherche en IA » et comme une « public benefit corporation », dont l'objet est le développement responsable de l'IA avancée au bénéfice à long terme de l'humanité. Sa <a href=\"https://www.anthropic.com/company/leadership\" rel=\"noopener noreferrer\" target=\"_blank\">page de direction</a> nomme sept cofondateurs : Dario Amodei (directeur général), Daniela Amodei (présidente, qui préside aussi le conseil d'administration), Tom Brown, Jack Clark, Jared Kaplan, Sam McCandlish et Chris Olah. Sa première levée de fonds a été <a href=\"https://www.anthropic.com/news/anthropic-raises-124-million-to-build-more-reliable-general-ai-systems\" rel=\"noopener noreferrer\" target=\"_blank\">annoncée le 28 mai 2021</a>.</p>\n<p>Pour les clients de l'Union européenne, les services sont fournis par Anthropic Ireland, Limited, à Dublin. C'est aussi la société avec laquelle un utilisateur de l'Espace économique européen conclut les conditions grand public. Les pages lues le 15 octobre 2026 ne donnent ni année de fondation ni adresse de siège : nous ne les écrivons donc pas.</p>\n<h2>Que permet l'offre gratuite de Claude, et quelles sont ses limites ?</h2>\n<p>L'inscription se fait avec une adresse e-mail sur claude.ai, dans un pays pris en charge. La France figure sur la <a href=\"https://www.anthropic.com/supported-countries\" rel=\"noopener noreferrer\" target=\"_blank\">liste d'Anthropic</a>, en vigueur au 12 mai 2026. Les conditions grand public pour l'Espace économique européen exigent 18 ans au moins.</p>\n<h3>L'usage est limité par fenêtres de 5 heures</h3>\n<p>Selon la <a href=\"https://claude.com/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">page tarifs</a>, chaque offre a des limites qui se remettent à zéro sur une fenêtre glissante de 5 heures ; les offres payantes y ajoutent des limites hebdomadaires. Il n'y a pas de nombre de messages fixe : ce que vous pouvez faire dépend de la longueur et de la complexité des conversations, du modèle choisi et des fonctions utilisées. Anthropic résume : « Free couvre les questions du quotidien », et Pro donne au moins 5 fois plus d'usage par session. Anthropic se réserve aussi d'autres limitations pour garantir un accès équitable.</p>\n<h3>Faire durer la limite</h3>\n<p>Trois gestes, qui sont des conseils de Waimia fondés sur ces critères. Confiez les tâches simples à Haiku, que la formation d'Anthropic décrit comme le plus économe de la limite d'usage. Ouvrez une nouvelle conversation par sujet plutôt qu'un fil unique très long. Évitez de joindre de gros fichiers quand un extrait suffit.</p>\n<h3>Ce que l'offre gratuite ne fait pas</h3>\n<p>Pas d'Opus ni de Fable, pas de Claude Code, pas de recherche approfondie, pas de tâches déléguées ou planifiées, pas de Claude in Chrome ni des extensions Claude pour Microsoft 365 et Outlook, pas de partage de projet. Pas de console d'administration ni d'authentification unique non plus, mais ces deux-là manquent aussi à Pro et à Max. Les modèles et leurs prix sont détaillés dans le guide <a href=\"/ressources/guides/quel-modele-claude-choisir\">quel modèle Claude choisir</a>.</p>\n<h2>Existe-t-il un essai gratuit de Claude Pro ?</h2>\n<p>L'<a href=\"https://support.claude.com/en/articles/8325606-what-is-the-pro-plan\" rel=\"noopener noreferrer\" target=\"_blank\">aide d'Anthropic sur l'offre Pro</a> ne décrit pas d'essai gratuit. Elle écrit qu'il n'y a pas de remise standard sur les offres individuelles (Pro et Max), que des promotions limitées dans le temps existent de façon occasionnelle, annoncées sur les canaux officiels, et que le support ne peut pas émettre de coupon ni de remise isolée.</p>\n<p>Pour essayer Pro, la page tarifs décrit la voie sans engagement : abonnement mensuel à 20 $, résiliable à tout moment, le plan restant actif jusqu'à la fin de la période payée. Pour les offres Pro et Max, le compte repasse ensuite en Free, et vos conversations, projets et fichiers restent attachés au compte. Dans l'Espace économique européen et au Royaume-Uni, une demande de remboursement dans le délai de rétractation de 14 jours se fait directement dans l'application. Les paiements sont sinon, en général, non remboursables.</p>",
+      "html_en": "<h2>Who created Claude AI, and who publishes it?</h2>\n<p>Claude is created and published by <a href=\"https://www.anthropic.com/company\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic</a>. The company describes itself as an \"AI safety and research company\" and as a \"public benefit corporation\", whose purpose is the responsible development of advanced AI for the long-term benefit of humanity. Its <a href=\"https://www.anthropic.com/company/leadership\" rel=\"noopener noreferrer\" target=\"_blank\">leadership page</a> names seven co-founders: Dario Amodei (chief executive), Daniela Amodei (president, who also chairs the board), Tom Brown, Jack Clark, Jared Kaplan, Sam McCandlish and Chris Olah. Its first funding round was <a href=\"https://www.anthropic.com/news/anthropic-raises-124-million-to-build-more-reliable-general-ai-systems\" rel=\"noopener noreferrer\" target=\"_blank\">announced on 28 May 2021</a>.</p>\n<p>For customers in the European Union, services are provided by Anthropic Ireland, Limited, in Dublin. That is also the company with which a user in the European Economic Area concludes the consumer terms. The pages read on 15 October 2026 give neither a founding year nor a head-office address: we do not write them.</p>\n<h2>What does the free Claude plan allow, and what are its limits?</h2>\n<p>Sign-up uses an email address on claude.ai, in a supported country. France is on <a href=\"https://www.anthropic.com/supported-countries\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic's list</a>, in force on 12 May 2026. The consumer terms for the European Economic Area require users to be at least 18.</p>\n<h3>Usage is limited in 5-hour windows</h3>\n<p>According to the <a href=\"https://claude.com/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">pricing page</a>, every plan has limits that reset on a rolling 5-hour window; paid plans add weekly limits on top. There is no fixed message count: what you can do depends on the length and complexity of your conversations, the model you choose and the features you use. Anthropic sums it up: \"Free covers everyday questions\", and Pro gives at least 5 times more usage per session. Anthropic also reserves other limits to keep access fair.</p>\n<h3>Making the limit last</h3>\n<p>Three habits, which are Waimia's advice based on those criteria. Give simple tasks to Haiku, which Anthropic's training describes as the most economical with the usage limit. Open a new conversation per topic rather than one very long thread. Avoid attaching large files when an extract will do.</p>\n<h3>What the free plan does not do</h3>\n<p>No Opus or Fable, no Claude Code, no deep research, no hand-off or scheduled tasks, no Claude in Chrome or the Claude add-ins for Microsoft 365 and Outlook, no project sharing. No admin console or single sign-on either, but Pro and Max lack those two as well. Models and their prices are detailed in the <a href=\"/ressources/guides/quel-modele-claude-choisir\">which Claude model to choose</a> guide.</p>\n<h2>Is there a free trial of Claude Pro?</h2>\n<p><a href=\"https://support.claude.com/en/articles/8325606-what-is-the-pro-plan\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic's help centre on the Pro plan</a> describes no free trial. It says there is no standard discounted pricing on individual plans (Pro and Max), that limited-time promotions run occasionally, announced on official channels, and that support cannot issue one-off coupons or discounts.</p>\n<p>To try Pro, the pricing page describes the no-commitment route: a monthly subscription at $20, cancellable at any time, the plan staying active until the end of the paid period. For Pro and Max, the account then moves to Free, and your chats, projects and files stay with the account. In the European Economic Area and the United Kingdom, a refund request within the 14-day withdrawal period is made directly in the app. Payments are otherwise generally non-refundable.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Peut-on utiliser Claude gratuit pour le travail d'une entreprise ?</h2>\n<p>Les conditions de l'offre gratuite ne sont pas faites pour cela. Trois constats, relevés sur les pages d'Anthropic le 15 octobre 2026.</p>\n<p><strong>Free, Pro et Max relèvent des conditions grand public.</strong> Team, Enterprise et l'API relèvent des conditions commerciales : l'<a href=\"https://www.anthropic.com/news/updates-to-our-consumer-terms\" rel=\"noopener noreferrer\" target=\"_blank\">annonce d'Anthropic sur les conditions grand public</a> les exclut expressément de son champ.</p>\n<p><strong>La version européenne exclut l'usage commercial.</strong> Les <a href=\"https://www.anthropic.com/legal/consumer-terms\" rel=\"noopener noreferrer\" target=\"_blank\">conditions grand public</a> pour les résidents de l'Espace économique européen et de la Suisse, conclues avec Anthropic Ireland, Limited, s'adressent à un consommateur, défini comme quelqu'un qui agit « entièrement ou principalement en dehors de son activité commerciale, artisanale ou professionnelle ». Elles contiennent une clause intitulée « Usage non commercial uniquement » : « vous acceptez de ne pas utiliser nos Services à des fins commerciales ou professionnelles ». Les services d'évaluation sont, eux aussi, réservés à un usage personnel et non commercial. Page en vigueur au 8 octobre 2025, traduction de Waimia. Pro et Max sont sous les mêmes conditions : un abonnement Pro payé par l'entreprise ne change pas la nature du compte.</p>\n<p><strong>Une adresse e-mail d'entreprise peut rattacher le compte à l'organisation.</strong> Si vous ouvrez un compte avec l'adresse e-mail de votre employeur, il peut être relié au compte entreprise de l'organisation, dont l'administrateur peut surveiller et contrôler le compte, y compris l'accès aux contenus. Anthropic prévient l'utilisateur avant le rattachement, sauf si l'organisation l'a déjà fait.</p>\n<h3>Et le RGPD ?</h3>\n<p>Dès qu'un nom, une adresse e-mail, un contrat ou un dossier de salarié passe dans Claude, c'est un traitement de données personnelles dont votre entreprise répond. Sur un compte gratuit, l'utilisateur règle seul l'entraînement : activé, Anthropic peut conserver les données jusqu'à cinq ans ; désactivé, la durée habituelle est de 30 jours (<a href=\"https://www.anthropic.com/news/updates-to-our-consumer-terms\" rel=\"noopener noreferrer\" target=\"_blank\">annonce du 28 août 2025</a>). Même désactivé, les contenus accompagnés d'un retour ou signalés pour examen de sécurité peuvent servir à l'entraînement, selon les conditions. Le détail, offre par offre, est dans le guide <a href=\"/ressources/guides/claude-rgpd-pme\">Claude et RGPD en PME</a>. Ce guide n'est pas un avis juridique.</p>\n<h3>Notre lecture</h3>\n<p>Pour du travail d'entreprise, on part d'un compte sous conditions commerciales : Team dès deux sièges (prix dans le guide des <a href=\"/ressources/guides/claude-fonctionnalites-pme\">offres et prix de Claude</a>), Enterprise, ou l'API. Un indépendant seul est dans un cas à part : Team commence à deux sièges. Faites valider la solution par un conseil juridique. Et pour comparer avec un autre assistant avant de choisir, voir le comparatif <a href=\"/ressources/comparatifs/claude-vs-chatgpt-pme\">Claude ou ChatGPT en PME</a>.</p>",
+      "html_en": "<h2>Can you use free Claude for a company's work?</h2>\n<p>The free plan's terms are not made for it. Three findings, taken from Anthropic's pages on 15 October 2026.</p>\n<p><strong>Free, Pro and Max fall under consumer terms.</strong> Team, Enterprise and the API fall under commercial terms: <a href=\"https://www.anthropic.com/news/updates-to-our-consumer-terms\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic's announcement on the consumer terms</a> expressly excludes them from its scope.</p>\n<p><strong>The European version excludes commercial use.</strong> The <a href=\"https://www.anthropic.com/legal/consumer-terms\" rel=\"noopener noreferrer\" target=\"_blank\">consumer terms</a> for residents of the European Economic Area and Switzerland, concluded with Anthropic Ireland, Limited, address a consumer, defined as someone \"acting wholly or mainly outside your trade, business, craft or profession\". They contain a clause titled \"Non-commercial use only\": \"You agree that you will not use our Services for any commercial or business purposes\". Evaluation services are likewise reserved for personal, non-commercial use. Page in force on 8 October 2025. Pro and Max sit under the same terms: a Pro subscription paid by the company does not change the nature of the account.</p>\n<p><strong>A company email address can link the account to the organisation.</strong> If you open an account with your employer's email address, it may be linked to the organisation's enterprise account, whose administrator may monitor and control the account, including access to content. Anthropic notifies the user before the link, unless the organisation has already done so.</p>\n<h3>And GDPR?</h3>\n<p>As soon as a name, an email address, a contract or an employee file goes into Claude, it is processing of personal data for which your company answers. On a free account, the user alone sets training: when on, Anthropic can keep data for up to five years; when off, the usual period is 30 days (<a href=\"https://www.anthropic.com/news/updates-to-our-consumer-terms\" rel=\"noopener noreferrer\" target=\"_blank\">announcement of 28 August 2025</a>). Even when off, content that comes with feedback or is flagged for safety review can be used for training, under the terms. The detail, plan by plan, is in the <a href=\"/ressources/guides/claude-rgpd-pme\">Claude and GDPR for SMBs</a> guide. This guide is not legal advice.</p>\n<h3>Our reading</h3>\n<p>For company work, start from an account under commercial terms: Team from two seats (prices in the <a href=\"/ressources/guides/claude-fonctionnalites-pme\">Claude plans and pricing</a> guide), Enterprise, or the API. A sole freelancer is a special case: Team starts at two seats. Have the solution checked by legal counsel. And to compare with another assistant before choosing, see the <a href=\"/ressources/comparatifs/claude-vs-chatgpt-pme\">Claude or ChatGPT for an SMB</a> comparison.</p>"
+    },
+    {
+      "type": "tech-when-dual",
+      "background": "paper-2",
+      "kicker_fr": "§ Position Waimia",
+      "kicker_en": "§ Waimia position",
+      "title_fr": "Quand rester sur Free, et quand passer à Team ?",
+      "title_en": "When to stay on Free, and when to move to Team?",
+      "aside_fr": "Recommandations de Waimia, hors avis juridique.",
+      "aside_en": "Waimia's recommendations, not legal advice.",
+      "use_title_fr": "Restez sur Free si",
+      "use_title_en": "Stay on Free if",
+      "use_items_fr": [
+        "Vous testez Claude seul, avec des textes publics ou inventés",
+        "Vous apprenez à écrire une bonne consigne avant d'équiper l'équipe",
+        "Vous préparez un brouillon sans aucune donnée de client, de salarié ou de contrat",
+        "Personne d'autre dans l'entreprise ne dépend de ce que vous produisez avec"
+      ],
+      "use_items_en": [
+        "You are testing Claude alone, with public or made-up text",
+        "You are learning to write a good instruction before equipping the team",
+        "You are preparing a draft with no client, employee or contract data",
+        "Nobody else in the company depends on what you produce with it"
+      ],
+      "avoid_title_fr": "Passez à Team (ou à l'API) si",
+      "avoid_title_en": "Move to Team (or the API) if",
+      "avoid_items_fr": [
+        "Deux personnes ou plus utilisent Claude pour le travail",
+        "Des documents de clients, de salariés ou de fournisseurs passent par Claude",
+        "Vous voulez une console d'administration et l'authentification unique, absentes de Free, de Pro et de Max",
+        "Vous devez pouvoir dire à un client ou à un délégué à la protection des données quelles données passent où"
+      ],
+      "avoid_items_en": [
+        "Two or more people use Claude for work",
+        "Documents from clients, employees or suppliers go through Claude",
+        "You want an admin console and single sign-on, which Free, Pro and Max lack",
+        "You must be able to tell a client or a data protection officer which data goes where"
+      ]
+    },
+    {
+      "type": "decision-list",
+      "background": "paper",
+      "kicker_fr": "§ Quand passer à Pro",
+      "kicker_en": "§ When to move to Pro",
+      "heading_fr": "Free, Pro ou Team : quelle offre choisir ?",
+      "heading_en": "Free, Pro or Team: which plan to choose?",
+      "items": [
+        {
+          "label_fr": "Vous testez, seul, sans donnée d'entreprise : Free suffit.",
+          "label_en": "You are testing, alone, with no company data: Free is enough."
+        },
+        {
+          "label_fr": "Vous atteignez la limite chaque jour pour un usage personnel : Pro donne au moins 5 fois l'usage de Free par session de 5 heures.",
+          "label_en": "You hit the limit every day for personal use: Pro gives at least 5 times Free's usage per 5-hour session."
+        },
+        {
+          "label_fr": "Il vous faut Opus, Claude Code, la recherche approfondie ou les extensions Claude pour Microsoft 365 : Free ne les inclut pas, il faut au moins Pro.",
+          "label_en": "You need Opus, Claude Code, deep research or the Claude add-ins for Microsoft 365: Free does not include them, you need at least Pro."
+        },
+        {
+          "label_fr": "Vous voulez seulement essayer Pro : prenez le mois, résiliable à tout moment, plutôt qu'attendre un essai que l'aide d'Anthropic ne décrit pas.",
+          "label_en": "You only want to try Pro: take the month, cancellable any time, rather than wait for a trial that Anthropic's help centre does not describe."
+        },
+        {
+          "label_fr": "Vous êtes plusieurs, ou des données de tiers sont en jeu : Team, sous conditions commerciales.",
+          "label_en": "You are several, or third-party data is involved: Team, under commercial terms."
+        },
+        {
+          "label_fr": "Vous restez sur Free par défaut dans l'équipe sans l'avoir décidé : faites d'abord l'inventaire des comptes déjà ouverts, y compris les comptes personnels.",
+          "label_en": "Your team is on Free by default without having decided it: first take stock of the accounts already opened, personal ones included."
+        }
+      ]
+    },
+    {
+      "type": "lead-capture-band",
+      "lead_magnet": "kit-conformite-claude-entreprise",
+      "background": "ink",
+      "anchor_id": "kit-conformite",
+      "kicker_fr": "§ Ressource gratuite · envoyée par e-mail",
+      "kicker_en": "§ Free resource · sent by email",
+      "h2_fr": "Recevez le kit de conformité Claude en entreprise",
+      "h2_en": "Get the Claude compliance kit for business",
+      "body_fr": "Un PDF de 11 pages : les réglages Team et Enterprise à vérifier (avec la valeur par défaut et une recommandation de départ), les points RGPD par sujet, une trame d'analyse d'impact, un modèle de politique d'usage d'une page, un registre à remplir et les questions à poser au fournisseur. Chaque affirmation sur Claude porte la source et la date de lecture. Ce n'est pas un avis juridique.",
+      "body_en": "An 11-page PDF: the Team and Enterprise settings to check (with the default value and a starting recommendation), GDPR points by topic, an impact assessment outline, a one-page usage policy template, a register to fill in and the questions to ask the vendor. Every statement about Claude carries its source and reading date. It is not legal advice."
+    },
+    {
+      "type": "process-steps",
+      "background": "paper-3",
+      "kicker_fr": "§ Méthode Waimia",
+      "kicker_en": "§ Waimia's method",
+      "h2_fr": "Comment sortir des comptes gratuits avec Waimia ?",
+      "h2_en": "How do you move off free accounts with Waimia?",
+      "intro_fr": "Quatre étapes, un prix fixe pour démarrer, puis à l'heure. Le détail est sur la page intégration Claude.",
+      "intro_en": "Four steps, a fixed price to start, then hourly. Details on the Claude integration page.",
+      "steps": [
+        {
+          "title_fr": "Audit gratuit",
+          "title_en": "Free audit",
+          "body_fr": "45 minutes en visio : on liste les comptes Claude déjà ouverts dans l'équipe, y compris les comptes personnels, et ce qui y passe.",
+          "body_en": "45 minutes by video: we list the Claude accounts already open in the team, personal ones included, and what goes through them.",
+          "meta_fr": "Gratuit",
+          "meta_en": "Free"
+        },
+        {
+          "title_fr": "Sprint de cadrage",
+          "title_en": "Scoping sprint",
+          "body_fr": "Règle d'usage écrite : ce qui peut passer dans Claude, ce qui ne passe jamais. Choix de l'offre et du nombre de sièges.",
+          "body_en": "A written usage rule: what may go into Claude, what never does. Choice of plan and number of seats.",
+          "meta_fr": "{{prix.sprint}} € HT pour 10 heures",
+          "meta_en": "€{{prix.sprint.en}} excl. VAT for 10 hours"
+        },
+        {
+          "title_fr": "Configuration et formation",
+          "title_en": "Setup and training",
+          "body_fr": "Organisation Team, administration, projets de référence, et formation d'un référent interne.",
+          "body_en": "Team organisation, administration, reference projects, and training of an internal lead.",
+          "meta_fr": "{{prix.horaire}} € HT de l'heure",
+          "meta_en": "€{{prix.horaire}} excl. VAT per hour"
+        },
+        {
+          "title_fr": "Mesure à 90 jours",
+          "title_en": "90-day review",
+          "body_fr": "Usage par siège, temps gagné sur les cas choisis, comptes personnels encore actifs.",
+          "body_en": "Usage per seat, time saved on chosen cases, personal accounts still active.",
+          "meta_fr": "Avant de renouveler",
+          "meta_en": "Before renewal"
+        }
+      ]
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper-2",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Further reading",
+      "cards": [
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Claude et RGPD en PME",
+          "title_en": "Claude and GDPR for SMBs",
+          "lead_fr": "Comptes, entraînement, stockage, accord de traitement des données : ce qui change selon l'offre.",
+          "lead_en": "Accounts, training, storage, data processing agreement: what changes by plan.",
+          "href": "/ressources/guides/claude-rgpd-pme"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Quel modèle Claude choisir",
+          "title_en": "Which Claude model to choose",
+          "lead_fr": "Opus, Sonnet, Haiku, Fable : prix par million de jetons et offres.",
+          "lead_en": "Opus, Sonnet, Haiku, Fable: price per million tokens and plans.",
+          "href": "/ressources/guides/quel-modele-claude-choisir"
+        },
+        {
+          "kicker_fr": "Formation",
+          "kicker_en": "Training",
+          "title_fr": "Formation Claude et agents IA en entreprise",
+          "title_en": "Claude and AI agents training for businesses",
+          "lead_fr": "Former l'équipe aux usages et aux règles avant d'ouvrir les comptes.",
+          "lead_en": "Train the team in uses and rules before opening accounts.",
+          "href": "/formations/claude"
+        }
+      ]
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "h2_fr": "Claude gratuit : questions fréquentes",
+      "h2_en": "Free Claude: frequently asked questions",
+      "items": [
+        {
+          "q_fr": "Claude AI est-il vraiment gratuit ?",
+          "a_fr": "Oui. L'offre Free coûte 0 $ : chat sur le web, l'ordinateur et le mobile, recherche web, création de fichiers avec exécution de code, mémoire, connecteurs, artefacts, Claude Design, Slides et Docs, avec les modèles Sonnet et Haiku. L'usage est limité par fenêtres de 5 heures, sans nombre de messages garanti. Relevé sur la page tarifs d'Anthropic le 15 octobre 2026.",
+          "q_en": "Is Claude AI really free?",
+          "a_en": "Yes. The Free plan costs $0: chat on web, desktop and mobile, web search, file creation with code execution, memory, connectors, artifacts, Claude Design, Slides and Docs, with the Sonnet and Haiku models. Usage is limited in 5-hour windows, with no guaranteed message count. Taken from Anthropic's pricing page on 15 October 2026."
+        },
+        {
+          "q_fr": "Qui a créé Claude AI ?",
+          "a_fr": "Claude est créé et édité par Anthropic, une entreprise qui se décrit comme une société de sécurité et de recherche en IA, constituée en « public benefit corporation ». Sa page de direction nomme sept cofondateurs, dont Dario Amodei (directeur général) et Daniela Amodei (présidente). Pour l'Union européenne, les services sont fournis par Anthropic Ireland, Limited, à Dublin. Pages lues le 15 octobre 2026.",
+          "q_en": "Who created Claude AI?",
+          "a_en": "Claude is created and published by Anthropic, a company that describes itself as an AI safety and research company, set up as a public benefit corporation. Its leadership page names seven co-founders, including Dario Amodei (chief executive) and Daniela Amodei (president). For the European Union, services are provided by Anthropic Ireland, Limited, in Dublin. Pages read on 15 October 2026."
+        },
+        {
+          "q_fr": "Quelle différence entre Claude gratuit et Claude Pro ?",
+          "a_fr": "Pro (20 $ par mois, 17 $ par mois en annuel) donne au moins 5 fois l'usage de Free par session de 5 heures, ajoute Opus, Claude Code, la recherche approfondie, des projets sans plafond affiché, Claude in Chrome et les extensions Claude pour Microsoft 365. Free reste limité à Sonnet et Haiku et à 5 projets. Les deux relèvent des mêmes conditions grand public. Relevé le 15 octobre 2026.",
+          "q_en": "What is the difference between free Claude and Claude Pro?",
+          "a_en": "Pro ($20 a month, $17 a month billed annually) gives at least 5 times Free's usage per 5-hour session, and adds Opus, Claude Code, deep research, projects with no listed cap, Claude in Chrome and the Claude add-ins for Microsoft 365. Free stays limited to Sonnet and Haiku and to 5 projects. Both fall under the same consumer terms. Checked on 15 October 2026."
+        },
+        {
+          "q_fr": "Y a-t-il un essai gratuit de Claude Pro ?",
+          "a_fr": "L'aide d'Anthropic ne décrit pas d'essai gratuit de Pro : elle indique qu'il n'y a pas de remise standard sur les offres individuelles, seulement des promotions ponctuelles annoncées sur les canaux officiels, et que le support ne peut pas accorder de coupon. Pro se prend au mois, se résilie à tout moment et le compte repasse en Free à la fin de la période. Relevé le 15 octobre 2026.",
+          "q_en": "Is there a free trial of Claude Pro?",
+          "a_en": "Anthropic's help centre describes no free trial of Pro: it says there is no standard discount on individual plans, only occasional limited-time promotions announced on official channels, and that support cannot issue coupons. Pro can be taken monthly and cancelled any time, and the account goes back to Free at the end of the period. Checked on 15 October 2026."
+        },
+        {
+          "q_fr": "Peut-on utiliser Claude gratuit pour son entreprise ?",
+          "a_fr": "Ce n'est pas prévu par les conditions. Free, Pro et Max relèvent des conditions grand public ; la version pour les résidents de l'Espace économique européen et de la Suisse contient une clause « usage non commercial uniquement » : l'utilisateur s'engage à ne pas utiliser les services à des fins commerciales ou professionnelles. Pour une entreprise, la voie prévue est Team, Enterprise ou l'API, sous conditions commerciales. Ce n'est pas un avis juridique.",
+          "q_en": "Can you use free Claude for your business?",
+          "a_en": "The terms do not provide for it. Free, Pro and Max fall under consumer terms; the version for residents of the European Economic Area and Switzerland contains a \"non-commercial use only\" clause: the user agrees not to use the services for commercial or business purposes. For a company, the intended route is Team, Enterprise or the API, under commercial terms. This is not legal advice."
+        },
+        {
+          "q_fr": "Claude gratuit utilise-t-il mes conversations pour s'entraîner ?",
+          "a_fr": "Sur Free, Pro et Max, c'est un réglage de l'utilisateur. Activé, Anthropic peut conserver les données jusqu'à cinq ans ; désactivé, la durée habituelle reste de 30 jours. Même désactivé, les contenus notés par un retour ou signalés pour examen de sécurité peuvent servir à l'entraînement, selon les conditions. Team, Enterprise et l'API sont hors du champ de cette mise à jour. Relevé le 15 octobre 2026.",
+          "q_en": "Does free Claude use my conversations for training?",
+          "a_en": "On Free, Pro and Max, it is a user setting. When on, Anthropic can keep data for up to five years; when off, the usual period stays 30 days. Even when off, content rated through feedback or flagged for safety review can be used for training, under the terms. Team, Enterprise and the API are outside the scope of that update. Checked on 15 October 2026."
+        },
+        {
+          "q_fr": "Claude est-il disponible en France, et à partir de quel âge ?",
+          "a_fr": "Oui, la France figure sur la liste des pays pris en charge d'Anthropic (page en vigueur au 12 mai 2026). Les conditions grand public pour l'Espace économique européen exigent d'avoir au moins 18 ans. L'inscription à l'offre gratuite se fait avec une adresse e-mail sur claude.ai. Relevé le 15 octobre 2026.",
+          "q_en": "Is Claude available in France, and from what age?",
+          "a_en": "Yes, France is on Anthropic's list of supported countries (page in force on 12 May 2026). The consumer terms for the European Economic Area require users to be at least 18. Sign-up to the free plan uses an email address on claude.ai. Checked on 15 October 2026."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Sortir des comptes gratuits",
+      "kicker_en": "§ Moving off free accounts",
+      "h2_fr": "Savoir quels comptes Claude existent dans l'équipe, et lesquels doivent passer sous conditions commerciales.",
+      "h2_en": "Know which Claude accounts exist in the team, and which should move under commercial terms.",
+      "subtitle_fr": "L'audit de 45 minutes est gratuit. On liste les comptes ouverts, ce qui y passe, et on vous dit quelle offre et combien de sièges se justifient.",
+      "subtitle_en": "The 45-minute audit is free. We list the open accounts and what goes through them, and tell you which plan and how many seats are justified.",
+      "buttons": [
+        {
+          "label_fr": "Réserver l'audit gratuit",
+          "label_en": "Book the free audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Faire déployer Claude par Waimia",
+          "label_en": "Have Waimia deploy Claude",
+          "href": "/services/integration-claude",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}
