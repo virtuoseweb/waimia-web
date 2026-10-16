@@ -34,8 +34,19 @@ const html = lang === 'en' ? data.html_en : data.html_fr;
   </div>
 </section>
 
-<style> .editorial-prose__col {
-    max-width: var(--wrap-prose);
+<style>
+  /* La bande de fond reste pleine largeur : la règle utilitaire globale
+     `[data-width='prose']` (section-layouts.css, couche sizing) bornait la SECTION
+     à --wrap-prose, d'où un fond paper-2 en boîte centrée et un filet bas tronqué.
+     Ici `data-width` règle la COLONNE (ci-dessous), jamais la bande. */
+  .editorial-prose {
+    max-width: none;
+    margin-inline: 0;
+  }
+  /* Mesure de lecture inchangée : la colonne garde la largeur qu'elle avait dans la
+     section bornée (--wrap-prose moins les gouttières de .sec-prose-band). */
+  .editorial-prose__col {
+    max-width: calc(var(--wrap-prose) - 2 * var(--gut));
     margin: 0 auto;
     counter-reset: prose-section;
   }
