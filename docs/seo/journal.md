@@ -37,7 +37,7 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
-### Contenu W44, 16 octobre 2026 (PR #PRNUM)
+### Contenu W44, 16 octobre 2026 (PR #110)
 
 - **Guide pilier** `automatisation-factures-fournisseurs-pme` (sources DGFiP : réception obligatoire au 1er septembre 2026, émission des PME au 1er septembre 2027) et deux articles : `relance-factures-impayees-automatique-pme` (Code de commerce L441-10 et D441-5) et `ia-reponse-appel-offres-pme` (fiches Service-Public sur les marchés publics). Illustrés, déclarés au maillage, cibles basculées dans `keywords.json`.
 - **Règle de Simon appliquée** : un sujet large reste un guide, entouré de 2 à 3 articles satellites qui le citent dans le corps. Le billet relance des impayés renvoie au guide ; deux satellites planifiés (réception de la facture électronique, saisie automatique des factures).
