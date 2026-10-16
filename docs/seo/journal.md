@@ -37,6 +37,14 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### Vague 14 en production, 16 octobre 2026 (PR #105, `3d884315`)
+
+- **Mesure** : Vercel Web Analytics activé et posé (composant Astro, injecté seulement lors d'un build Vercel). Première page vue comptée en production le 16 octobre. Une mesure maison (Neon, PR #104) a été construite puis fermée sur décision de Simon : Web Analytics est inclus dans le plan. Limite : les événements personnalisés (conversions) ne sont pas suivis ; l'e-mail interne de chaque lead porte déjà la page d'origine.
+- **Contenu** : guide `cahier-des-charges-site-internet` (exemple de brief, méthode de Simon du 16 octobre, packs de 10 et 20 heures au taux horaire, option SEO/GEO, maillage vers le système complet) ; billet `ia-auto-hebergee-open-webui-pme` (accord de Simon), publié en article et non en guide.
+- **Prix** : pages site web (hub, Shopify, Webflow, WordPress), prix d'entrée ramené au sprint de 10 heures.
+- **Calendrier** : article « audit site internet » planifié en W48 ; 6 semaines d'avance. Orientation : plus d'articles que de guides (42 guides pour 32 billets le 16 octobre).
+- **Preuves** : build 0, `astro check` 8 erreurs (référence), portes à la référence, balayage des 202 pages à deux tailles (404 rendus, 0 défaut), E2E 77 passés, preview vérifiée sur le SHA (script d'analyse en 200), production vérifiée.
+
 ### Vague 13 en production, 16 octobre 2026 (PR #102, `bfd8bdb1`)
 
 - **Conversion d'abord** : mesure sur le build, avant la vague, 23 pages du sitemap sur 193 portaient une bande de capture, et 12 des 15 pages à impressions n'en avaient aucune. Ajouts : 9 bandes `lead-capture-band` (aimants à pièce jointe : guide d'achat Claude, kit conformité, charte) et 50 appels vers les outils (diagnostic de maturité, grille des tâches, calculateur ROI), car les aimants-outils exigent un résultat calculé (`lead-magnet-delivery.ts` renvoie 400 sans lui). Après : 37 pages sur 200 avec bande, les 15 pages à impressions ont toutes une capture (777 impressions sur 777 de la collecte du 8 octobre).
