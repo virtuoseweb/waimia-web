@@ -37,6 +37,13 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### Contenu W47, 16 octobre 2026 (PR #116)
+
+- **Articles** : `facture-electronique-reception-pme` (satellite du guide factures fournisseurs ; sources DGFiP, impots.gouv.fr, economie.gouv.fr, Service-Public, lues le 16 octobre ; montant de l'amende non cité, non relu sur Légifrance) et `ai-act-pme-utilisatrice-ia` (satellite du guide AI Act ; articles 3, 4, 26, 50 et 113 relus, dates identiques au guide). Illustrés (`boite-unique`, `conductrice`), au maillage ; les deux guides renvoient vers leur satellite en FR et EN.
+- **Calendrier** : deux satellites planifiés pour garder 6 semaines d'avance : `claude-code-skills` (« claude code skill », 480, KD 12, guide Claude Skills) en W43 et `cahier-des-charges-refonte-site` (320, KD 21, guide cahier des charges) en W44.
+- **À reprendre** : le guide factures dit n'avoir lu aucune source sur les PDF reçus ; le guide pratique DGFiP (réponse 3) couvre ce cas.
+- **Preuves** : build 0, portes à la référence, 4 pages mesurées aux deux tailles (image, opacity 1, 0 erreur), balayage de 212 pages sans débordement, E2E 83 passés.
+
 ### Contenu W46, 16 octobre 2026 (PR #115)
 
 - **Pourquoi ces deux billets** : les requêtes « agence » (n8n, IA PME) sont classées sur la bonne page, sans cannibalisation, mais en position 40 à 50 ; la page n8n compte déjà 4 552 mots : ce qui manque est l'autorité (liens entrants, action extérieure à Simon), pas le contenu. Le levier disponible tout de suite est le volume à faible difficulté : « claude max » (1 600, KD 20) et « claude pro vs team » visaient le guide des prix Claude.

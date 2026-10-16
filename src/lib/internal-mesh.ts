@@ -283,6 +283,8 @@ const PAGES: Record<string, PageDef> = {
   '/blog/claude-cowork-windows': { label_fr: 'Claude Cowork sur Windows : installation et limites', label_en: 'Claude Cowork on Windows: installation and limits', kind: 'article', topics: ['claude', 'conformite'] },
   '/blog/claude-max-pme': { label_fr: 'Claude Max en PME : pour qui, et quand Pro suffit', label_en: 'Claude Max for an SMB: who it is for', kind: 'article', topics: ['claude', 'conseil'] },
   '/blog/claude-pro-vs-team': { label_fr: 'Claude Pro ou Team : lequel choisir', label_en: 'Claude Pro vs Team: which to choose', kind: 'article', topics: ['claude', 'conseil'] },
+  '/blog/facture-electronique-reception-pme': { label_fr: 'Facture électronique : ce que change la réception en PME', label_en: 'E-invoicing: what receiving changes for a small business', kind: 'article', topics: ['automatisation', 'conformite'] },
+  '/blog/ai-act-pme-utilisatrice-ia': { label_fr: "AI Act : les obligations d'une PME qui utilise ChatGPT ou Claude", label_en: 'AI Act: what a small business using ChatGPT or Claude must do', kind: 'article', topics: ['conformite', 'conseil'] },
   '/blog/application-metier-exemples-pme': { label_fr: 'Application métier : exemples par service en PME', label_en: 'Business application: examples by department', kind: 'article', topics: ['applications'] },
   '/cas-clients/desangles-peinture': { label_fr: 'Cas client : Desangles Peinture', label_en: 'Case: Desangles Peinture', kind: 'cas-client', topics: ['acquisition'] },
 

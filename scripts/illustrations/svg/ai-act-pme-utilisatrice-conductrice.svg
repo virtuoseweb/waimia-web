@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · « L'AI Act côté PME utilisatrice » : une conductrice au volant d'une voiture
+       qu'elle n'a pas construite s'approche d'un panneau de signalisation au bord d'une route
+       droite ; au loin, l'usine qui l'a fabriquée. Elle répond de sa conduite, pas de la
+       fabrication. Rôles remplacés par render-svg.mjs (shape = la voiture, detail = marquage). -->
+  <rect width="1456" height="624" fill="{{field}}"/>
+
+  <!-- Usine lointaine, à gauche -->
+  <g fill="{{deep}}">
+    <path d="M90 360 L90 300 L150 330 L150 300 L210 330 L210 300 L270 330 L270 360 Z"/>
+    <rect x="110" y="250" width="22" height="60"/>
+  </g>
+  <g fill="{{pale}}">
+    <circle cx="122" cy="236" r="12"/>
+    <circle cx="140" cy="218" r="16"/>
+  </g>
+
+  <!-- Sol et route -->
+  <rect y="360" width="1456" height="264" fill="{{ground}}"/>
+  <path d="M0 430 L1456 430 L1456 520 L0 520 Z" fill="{{deep}}"/>
+  <g fill="{{detail}}">
+    <rect x="60" y="472" width="80" height="6" rx="3"/>
+    <rect x="240" y="472" width="80" height="6" rx="3"/>
+    <rect x="420" y="472" width="80" height="6" rx="3"/>
+    <rect x="1000" y="472" width="80" height="6" rx="3"/>
+    <rect x="1180" y="472" width="80" height="6" rx="3"/>
+    <rect x="1360" y="472" width="80" height="6" rx="3"/>
+  </g>
+
+  <!-- Panneau de signalisation, sans texte -->
+  <rect x="1150" y="260" width="10" height="170" fill="{{subject}}"/>
+  <path d="M1155 190 L1215 290 L1095 290 Z" fill="{{pale}}"/>
+  <path d="M1155 214 L1196 280 L1114 280 Z" fill="{{shape}}"/>
+
+  <!-- La voiture années 60, de profil -->
+  <path d="M560 470 L560 432 Q562 410 600 404 L660 400 Q690 364 740 360 L840 360 Q880 362 904 400 L956 406 Q992 412 994 440 L994 470 Z" fill="{{subject}}"/>
+  <!-- Vitres -->
+  <path d="M676 400 Q700 374 744 372 L780 372 L780 400 Z" fill="{{pale}}"/>
+  <path d="M792 372 L836 372 Q868 374 888 400 L792 400 Z" fill="{{pale}}"/>
+  <!-- La conductrice -->
+  <circle cx="752" cy="386" r="9" fill="{{subject}}"/>
+  <path d="M742 400 Q752 395 762 400 L762 404 L742 404 Z" fill="{{subject}}"/>
+  <!-- Roues -->
+  <g fill="{{shadow}}">
+    <circle cx="650" cy="472" r="28"/>
+    <circle cx="902" cy="472" r="28"/>
+  </g>
+  <g fill="{{pale}}">
+    <circle cx="650" cy="472" r="10"/>
+    <circle cx="902" cy="472" r="10"/>
+  </g>
+</svg>
