@@ -33,8 +33,11 @@ export async function sectorCaseGridData(
   const declared = caseRefs
     .map((id) => all.find((e) => (e.data.slug ?? e.id) === id || e.id === id))
     .filter((e): e is (typeof all)[number] => Boolean(e));
+  // Une page qui déclare ses cas n'affiche qu'eux : compléter avec un cas d'un autre secteur
+  // contredirait sa prose (« deux projets livrés » sous trois cartes).
   const rest = [...inSector, ...others].filter((e) => !declared.includes(e));
-  const picked = [...declared, ...rest].slice(0, 3);
+  const picked = (declared.length > 0 ? declared : rest).slice(0, 3);
+  const n = picked.length;
 
   const cases: CaseRow[] = picked.map((e) => {
     const d = e.data;
@@ -56,10 +59,10 @@ export async function sectorCaseGridData(
     fig_num: 'FIG · CAS',
     fig_title_fr: 'Cas clients',
     fig_title_en: 'Case studies',
-    spec_fr: '3 CAS CLIENTS',
-    spec_en: '3 CASE STUDIES',
-    h2_fr: 'Un <i>cas</i> concret.',
-    h2_en: 'A real <i>case</i>.',
+    spec_fr: n > 1 ? `${n} CAS CLIENTS` : '1 CAS CLIENT',
+    spec_en: n > 1 ? `${n} CASE STUDIES` : '1 CASE STUDY',
+    h2_fr: n > 1 ? 'Des <i>cas</i> concrets.' : 'Un <i>cas</i> concret.',
+    h2_en: n > 1 ? 'Real <i>cases</i>.' : 'A real <i>case</i>.',
     case_label_fr: 'CASE',
     case_label_en: 'CASE',
     sector_label_fr: 'Secteur',

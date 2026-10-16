@@ -2,12 +2,12 @@
   "$schema": "../../schemas/generated/services.page.schema.json",
   "title_fr": "Consultant IA pour PME : conseil et mise en œuvre · Waimia",
   "title_en": "AI consultant for SMEs: advice and implementation · Waimia",
-  "seoTitle_fr": "Consultant IA indépendant : de la feuille de route à la prod",
-  "description_fr": "Consultant IA indépendant : état des lieux, cas d'usage chiffrés, feuille de route, puis mise en œuvre par la même personne. Réservez l'audit gratuit.",
-  "description_en": "Independent AI consultant and AI expert for SMBs: assessment, costed use cases, roadmap and usage rules. Then implementation by the same person.",
+  "seoTitle_fr": "Consultant IA pour PME : missions, livrables et prix",
+  "description_fr": "Consultant IA pour PME : état des lieux, cas d'usage chiffrés, feuille de route et règles d'usage. Sprint de cadrage {{prix.sprint}} € HT, audit gratuit.",
+  "description_en": "AI consultant for SMBs: assessment, costed use cases, roadmap and usage rules. Scoping sprint €{{prix.sprint.en}} excl. VAT, free audit. Then delivery by the same person.",
   "slug": "consultant-ia-claude",
   "publishedAt": "2026-06-22T00:00:00.000Z",
-  "updatedAt": "2026-10-06",
+  "updatedAt": "2026-10-16",
   "category": "conseil",
   "tags": [
     "consultant-ia-claude",
@@ -47,6 +47,13 @@
       "name": "Anthropic, Claude Cowork et le chat ne font plus qu'un (lue le 5 octobre 2026)",
       "url": "https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude",
       "type": "enterprise"
+    },
+    {
+      "name": "Studeria, TJM d'un consultant IA en 2026 (organisme de formation ; publié le 20 juillet 2026, mis à jour le 5 octobre 2026 ; lu le 16 octobre 2026)",
+      "url": "https://www.studeria.fr/articles-de-blog/tjm-consultant-ia-2026-tarifs-grille",
+      "type": "enterprise",
+      "publishedAt": "2026-07-20",
+      "author": "Matthieu Baranez"
     }
   ],
   "seo": {
@@ -58,7 +65,7 @@
   "faq_fr": [
     {
       "q": "Combien coûte un consultant IA pour une PME ?",
-      "a": "Le sprint de cadrage est à {{prix.sprint}} € HT pour 10 heures : état des lieux d'une équipe et cadrage d'un premier chantier. Une feuille de route complète sur plusieurs services est estimée en heures, validée par vous, puis facturée {{prix.horaire}} € HT de l'heure."
+      "a": "Le sprint de cadrage est à {{prix.sprint}} € HT pour 10 heures : état des lieux d'une équipe et cadrage d'un premier chantier. Une feuille de route complète sur plusieurs services est estimée en heures, validée par vous, puis facturée {{prix.horaire}} € HT de l'heure. Aucun chantier n'est mis en production pendant le conseil : un chantier retenu relève ensuite d'un pilote, dès {{prix.pilote}} € HT."
     },
     {
       "q": "Consultant IA ou freelance IA : quelle différence ?",
@@ -74,7 +81,7 @@
     },
     {
       "q": "Par où commencer un projet IA en PME ?",
-      "a": "Par l'inventaire des tâches récurrentes d'une seule équipe, chiffrées en heures. On retient celle où le gain est le plus net et le risque le plus faible, on la met en production, on mesure, puis on passe à la suivante."
+      "a": "Par l'inventaire des tâches récurrentes d'une seule équipe, chiffrées en heures. On retient celle où le gain est le plus net et le risque le plus faible, on la prototype et on la teste, puis un pilote (dès {{prix.pilote}} € HT) la met en production et on mesure avant de passer à la suivante."
     },
     {
       "q": "Qu'est-ce qu'une charte IA d'entreprise ?",
@@ -99,12 +106,16 @@
     {
       "q": "Accompagnement intelligence artificielle : jusqu'où va la mission ?",
       "a": "Le conseil s'arrête à la décision : état des lieux, feuille de route, règles d'usage. L'accompagnement va plus loin : pilotage des chantiers retenus avec des comités réguliers, conduite du changement et montée en compétence des équipes. Il est estimé en heures, validé par vous, puis facturé en régie ; la mise en œuvre technique relève de l'intégration."
+    },
+    {
+      "q": "Pourquoi une mission de conseil IA échoue-t-elle ?",
+      "a": "Trois causes reviennent : une feuille de route qui reste dans un tiroir faute de responsable et de date, une liste trop longue où tout est prioritaire, et une décision prise sans les équipes qui utiliseront l'outil. D'où trois garde-fous : un responsable interne par chantier, trois chantiers au plus, des entretiens dès le départ."
     }
   ],
   "faq_en": [
     {
       "q": "How much does an AI consultant cost for an SMB?",
-      "a": "The scoping sprint is €{{prix.sprint.en}} excl. VAT for 10 hours: assessment of one team and scoping of a first project. A full multi-department roadmap is estimated in hours, approved by you, then billed €{{prix.horaire}} per hour excl. VAT."
+      "a": "The scoping sprint is €{{prix.sprint.en}} excl. VAT for 10 hours: assessment of one team and scoping of a first project. A full multi-department roadmap is estimated in hours, approved by you, then billed €{{prix.horaire}} per hour excl. VAT. No project goes into production during the advisory phase: a chosen project then moves to a pilot, from €{{prix.pilote.en}} excl. VAT."
     },
     {
       "q": "AI consultant or AI freelancer: what is the difference?",
@@ -120,7 +131,7 @@
     },
     {
       "q": "Where should an SMB start an AI project?",
-      "a": "With the inventory of one team's recurring tasks, costed in hours. Keep the one with the clearest gain and lowest risk, put it into production, measure, then move to the next."
+      "a": "With the inventory of one team's recurring tasks, costed in hours. Keep the one with the clearest gain and lowest risk, prototype and test it, then a pilot (from €{{prix.pilote.en}} excl. VAT) puts it into production and you measure before moving to the next."
     },
     {
       "q": "What is a company AI policy?",
@@ -145,6 +156,10 @@
     {
       "q": "AI support and advisory: how far does the engagement go?",
       "a": "Consulting stops at the decision: assessment, roadmap, usage rules. Support goes further: steering the chosen projects with regular reviews, change management and skill-up for the teams. It is estimated in hours, approved by you, then billed on a time-and-materials basis; technical implementation moves to integration."
+    },
+    {
+      "q": "Why does an AI consulting engagement fail?",
+      "a": "Three causes come up: a roadmap left in a drawer for lack of an owner and a date, a list so long that everything is a priority, and a decision made without the teams who will use the tool. Hence three safeguards: an internal owner per project, three projects at most, interviews from the start."
     }
   ],
   "sections": [
@@ -271,6 +286,16 @@
       ]
     },
     {
+      "type": "direct-answer",
+      "background": "paper",
+      "question_fr": "Que fait un consultant IA, et combien ça coûte ?",
+      "question_en": "What does an AI consultant do, and what does it cost?",
+      "term_fr": "Consultant IA",
+      "term_en": "AI consultant",
+      "answer_fr": "Il repère où l'IA vaut un investissement, chiffre chaque piste, fixe les règles d'usage et remet une feuille de route. Chez Waimia, l'audit est gratuit (45 minutes), le sprint de cadrage de 10 heures coûte {{prix.sprint}} € HT, puis {{prix.horaire}} € HT de l'heure sur un temps estimé et validé par vous. Rien n'est mis en production pendant le conseil : un pilote est un chantier distinct, dès {{prix.pilote}} € HT. Pour comparer, selon Studeria (organisme de formation, article mis à jour le 5 octobre 2026, relevé le 16 octobre 2026), le tarif journalier d'un consultant IA confirmé en France est de 600 à 900 €, une fourchette que l'éditeur dit tirée de baromètres qu'il ne nomme pas.",
+      "answer_en": "It spots where AI is worth an investment, costs each lead, sets usage rules and hands over a roadmap. At Waimia, the audit is free (45 minutes), the 10-hour scoping sprint costs €{{prix.sprint.en}} excl. VAT, then €{{prix.horaire}} excl. VAT an hour on a time estimate you approve. Nothing goes into production during the advisory phase: a pilot is a separate project, from €{{prix.pilote.en}} excl. VAT. For comparison, according to Studeria (a training provider, article updated on 5 October 2026, read on 16 October 2026), the daily rate of an experienced AI consultant in France is €600 to €900, a range whose method the publisher does not detail."
+    },
+    {
       "type": "editorial-prose",
       "background": "paper-2",
       "maxWidth": "prose",
@@ -334,13 +359,6 @@
           "media_alt_en": "Illustration: a person climbs a tall staircase holding the railing, another waits on the platform above"
         }
       ]
-    },
-    {
-      "type": "editorial-prose",
-      "background": "paper-2",
-      "maxWidth": "prose",
-      "html_fr": "<h2>Consultant Claude : quand l'outil est déjà choisi</h2>\n<p>Beaucoup de PME arrivent avec la décision prise : ce sera Claude. La mission change alors de nature : on ne compare plus les éditeurs, on fait en sorte que l'outil rapporte plus qu'il ne coûte. Cinq décisions reviennent à chaque fois.</p>\n<p><strong>L'offre et le nombre de sièges.</strong> Team Standard pour la plupart, quelques sièges Premium là où l'usage le justifie, Enterprise seulement si une exigence de conformité l'impose. Les prix et les pièges sont détaillés dans le guide <a href=\"/ressources/guides/claude-fonctionnalites-pme\">fonctionnalités, offres et prix de Claude</a>.</p>\n<p><strong>Les réglages d'administration.</strong> Côté mission, Cowork est un réglage d'organisation : en Team, il est activé par défaut, et son exécution dans le cloud aussi. Ce sont des choix à faire consciemment, pas des valeurs à découvrir après coup : voir <a href=\"/ressources/guides/claude-cowork\">ce que la fusion de Cowork change</a>.</p>\n<p><strong>Les données.</strong> Les applications Claude stockent les données aux États-Unis par défaut ; une résidence européenne passe par l'API sur Amazon Bedrock ou Google Vertex. L'historique local des sessions Cowork échappe à la politique de rétention de l'organisation. Ces deux faits pèsent dans une analyse d'impact : on les traite au cadrage, pas après l'ouverture des comptes.</p>\n<p><strong>La diffusion du savoir-faire.</strong> Un skill chargé sur claude.ai est personnel par défaut ; sur Team et Enterprise, un propriétaire peut le provisionner pour toute l'organisation. Pour cibler un groupe ou livrer un ensemble cohérent, on passe par des <a href=\"/ressources/guides/claude-skills\">skills Claude</a> regroupés dans des <a href=\"/ressources/guides/claude-plugins-entreprise\">plugins</a> diffusés depuis une marketplace privée, avec quatre niveaux : installé par défaut, disponible, requis ou indisponible.</p>\n<p><strong>Les profils techniques.</strong> Si vous avez des développeurs, <a href=\"/ressources/guides/claude-code-entreprise\">Claude Code</a> est inclus dans Team, et son coût à l'API se pilote : Anthropic observe environ 13 dollars par développeur et par jour actif en entreprise.</p>\n<h2>Partenaire certifié ou pas : ce qu'il faut regarder</h2>\n<p>Anthropic a lancé en mars 2026 le Claude Partner Network, avec une certification « Claude Certified Architect, Foundations » et un <a href=\"https://claude.com/marketplace/service-partners\" rel=\"noopener\" target=\"_blank\">annuaire de partenaires de services</a>. C'est un signal utile, pas une garantie. Waimia ne s'en prévaut pas sur ce site : jugez Waimia, comme tout prestataire, sur des livrables, des réalisations publiées et la franchise des recommandations. Si votre besoin est d'abord le déploiement, la page <a href=\"/services/integration-claude\">intégration de Claude en entreprise</a> décrit la mission ; si c'est la montée en compétence, la <a href=\"/formations/claude\">formation Claude</a>. La mission se mène à distance ; les déplacements sont possibles, par exemple à <a href=\"/implantations/lyon\">Lyon</a>.</p>",
-      "html_en": "<h2>Claude consultant: when the tool is already chosen</h2>\n<p>Many SMBs arrive with the decision made: it will be Claude. The engagement then changes: we stop comparing vendors and make the tool earn more than it costs. Five decisions come up every time.</p>\n<p><strong>Plan and seat count.</strong> Team Standard for most, a few Premium seats where usage justifies it, Enterprise only if a compliance requirement demands it. Prices and traps are detailed in the guide <a href=\"/ressources/guides/claude-fonctionnalites-pme\">Claude features, plans and prices</a>.</p>\n<p><strong>Admin settings.</strong> In an engagement, Cowork is an organisation setting: in Team, it is on by default, and so is cloud execution. These are choices to make deliberately, not defaults to discover later: see <a href=\"/ressources/guides/claude-cowork\">what the Cowork merger changes</a>.</p>\n<p><strong>Data.</strong> Claude apps store data in the United States by default; European residency goes through the API on Amazon Bedrock or Google Vertex. The local history of Cowork sessions sits outside the organisation's retention policy. Both facts weigh in an impact assessment: we deal with them during scoping, not after the accounts are open.</p>\n<p><strong>Spreading know-how.</strong> A skill uploaded on claude.ai is personal by default; on Team and Enterprise, an owner can provision it for the whole organisation. To target a group or ship a consistent set, you use <a href=\"/ressources/guides/claude-skills\">Claude skills</a> bundled in <a href=\"/ressources/guides/claude-plugins-entreprise\">plugins</a> rolled out from a private marketplace, with four levels: installed by default, available, required or unavailable.</p>\n<p><strong>Technical profiles.</strong> If you have developers, <a href=\"/ressources/guides/claude-code-entreprise\">Claude Code</a> is included in Team, and its API cost can be steered: Anthropic observes around $13 per developer per active day in companies.</p>\n<h2>Certified partner or not: what to look at</h2>\n<p>In March 2026 Anthropic launched the Claude Partner Network, with a \"Claude Certified Architect, Foundations\" certification and a <a href=\"https://claude.com/marketplace/service-partners\" rel=\"noopener\" target=\"_blank\">directory of service partners</a>. It is a useful signal, not a guarantee. Waimia does not claim it on this site: judge Waimia, like any provider, on deliverables, published work and how frank the recommendations are. If your need is first the rollout, the page <a href=\"/services/integration-claude\">Claude integration in business</a> describes the engagement; if it is upskilling, the <a href=\"/formations/claude\">Claude training</a>. The engagement is run remotely; travel is possible, for example to <a href=\"/implantations/lyon\">Lyon</a>.</p>"
     },
     {
       "type": "editorial-table-block",
@@ -428,22 +446,6 @@
       "variant": "editorial"
     },
     {
-      "type": "cta-form-inline",
-      "background": "paper-2",
-      "anchor": "kit-conformite",
-      "kicker_fr": "§ Kit conformité · PDF gratuit",
-      "kicker_en": "§ Compliance kit · free PDF",
-      "h2_fr": "Recevez le kit conformité et administration de Claude (PDF, 11 pages)",
-      "h2_en": "Get the Claude compliance and administration kit (PDF, 11 pages)",
-      "body_fr": "La liste de contrôle qu'on déroule en début de mission, utilisable par votre équipe : les réglages Team et Enterprise avec leur valeur par défaut, les points RGPD qui comptent vraiment (stockage, résidence, entraînement, historique local de Cowork), une trame d'analyse d'impact en huit questions, un modèle de politique d'usage d'une page, un registre des usages et douze questions à poser au fournisseur. Chaque fait sur Claude est sourcé et daté. Le fichier arrive par e-mail, en pièce jointe.",
-      "body_en": "The checklist we run at the start of an engagement, usable by your own team: Team and Enterprise settings with their default value, the GDPR points that really matter (storage, residency, training, local Cowork history), an eight-question impact assessment template, a one-page usage policy, a register of uses and twelve questions to ask the vendor. Every fact about Claude is sourced and dated. The file arrives by email, as an attachment.",
-      "submit_label_fr": "Recevoir le kit conformité →",
-      "submit_label_en": "Get the compliance kit →",
-      "hint_fr": "Pas un avis juridique. Un seul envoi : le PDF ; la lettre mensuelle seulement si vous cochez la case.",
-      "hint_en": "Not legal advice. One email: the PDF; the monthly newsletter only if you tick the box.",
-      "lead_magnet": "kit-conformite-claude-entreprise"
-    },
-    {
       "type": "comparison-duo",
       "background": "paper",
       "kicker_fr": "§ Exemple type · pas un cas client",
@@ -512,8 +514,8 @@
         {
           "title_fr": "L'inventaire des tâches",
           "title_en": "The task inventory",
-          "body_fr": "Par service : tâches récurrentes, temps passé, outils, données.",
-          "body_en": "Per department: recurring tasks, time spent, tools, data.",
+          "body_fr": "Par service, la cartographie des tâches récurrentes : temps passé, outils, données.",
+          "body_en": "Per department, a map of recurring tasks: time spent, tools, data.",
           "format_fr": "INVENTAIRE",
           "format_en": "INVENTAIRE"
         },
@@ -542,6 +544,29 @@
           "format_en": "CADRAGE"
         }
       ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "html_fr": "<h2>Consultant Claude : quand l'outil est déjà choisi</h2>\n<p>Beaucoup de PME arrivent avec la décision prise : ce sera Claude. La mission change alors de nature : on ne compare plus les éditeurs, on fait en sorte que l'outil rapporte plus qu'il ne coûte. Cinq décisions reviennent à chaque fois.</p>\n<p>Cette section résume la mission de conseil ; le guide <a href=\"/ressources/guides/claude-pme\">déployer Claude en PME</a> détaille le déploiement pas à pas.</p>\n<p><strong>L'offre et le nombre de sièges.</strong> Team Standard pour la plupart, quelques sièges Premium là où l'usage le justifie, Enterprise seulement si une exigence de conformité l'impose. Les prix et les pièges sont détaillés dans le guide <a href=\"/ressources/guides/claude-fonctionnalites-pme\">fonctionnalités, offres et prix de Claude</a>.</p>\n<p><strong>Les réglages d'administration.</strong> Côté mission, Cowork est un réglage d'organisation : en Team, il est activé par défaut, et son exécution dans le cloud aussi. Ce sont des choix à faire consciemment, pas des valeurs à découvrir après coup : voir <a href=\"/ressources/guides/claude-cowork\">ce que la fusion de Cowork change</a>.</p>\n<p><strong>Les données.</strong> Les applications Claude stockent les données aux États-Unis par défaut ; une résidence européenne passe par l'API sur Amazon Bedrock ou Google Vertex. L'historique local des sessions Cowork échappe à la politique de rétention de l'organisation. Ces deux faits pèsent dans une analyse d'impact : on les traite au cadrage, pas après l'ouverture des comptes.</p>\n<p><strong>La diffusion du savoir-faire.</strong> Un skill chargé sur claude.ai est personnel par défaut ; sur Team et Enterprise, un propriétaire peut le provisionner pour toute l'organisation. Pour cibler un groupe ou livrer un ensemble cohérent, on passe par des <a href=\"/ressources/guides/claude-skills\">skills Claude</a> regroupés dans des <a href=\"/ressources/guides/claude-plugins-entreprise\">plugins</a> diffusés depuis une marketplace privée, avec quatre niveaux : installé par défaut, disponible, requis ou indisponible.</p>\n<p><strong>Les profils techniques.</strong> Si vous avez des développeurs, <a href=\"/ressources/guides/claude-code-entreprise\">Claude Code</a> est inclus dans Team, et son coût à l'API se pilote : Anthropic observe environ 13 dollars par développeur et par jour actif en entreprise.</p>\n<h2>Partenaire certifié ou pas : ce qu'il faut regarder</h2>\n<p>Anthropic a lancé en mars 2026 le Claude Partner Network, avec une certification « Claude Certified Architect, Foundations » et un <a href=\"https://claude.com/marketplace/service-partners\" rel=\"noopener\" target=\"_blank\">annuaire de partenaires de services</a>. C'est un signal utile, pas une garantie. Waimia ne s'en prévaut pas sur ce site : jugez Waimia, comme tout prestataire, sur des livrables, des réalisations publiées et la franchise des recommandations. Si votre besoin est d'abord le déploiement, la page <a href=\"/services/integration-claude\">intégration de Claude en entreprise</a> décrit la mission ; si c'est la montée en compétence, la <a href=\"/formations/claude\">formation Claude</a>. La mission se mène à distance ; les déplacements sont possibles, par exemple à <a href=\"/implantations/lyon\">Lyon</a>.</p>",
+      "html_en": "<h2>Claude consultant: when the tool is already chosen</h2>\n<p>Many SMBs arrive with the decision made: it will be Claude. The engagement then changes: we stop comparing vendors and make the tool earn more than it costs. Five decisions come up every time.</p>\n<p>This section summarises the advisory engagement; the guide <a href=\"/ressources/guides/claude-pme\">deploying Claude in an SMB</a> covers the rollout step by step.</p>\n<p><strong>Plan and seat count.</strong> Team Standard for most, a few Premium seats where usage justifies it, Enterprise only if a compliance requirement demands it. Prices and traps are detailed in the guide <a href=\"/ressources/guides/claude-fonctionnalites-pme\">Claude features, plans and prices</a>.</p>\n<p><strong>Admin settings.</strong> In an engagement, Cowork is an organisation setting: in Team, it is on by default, and so is cloud execution. These are choices to make deliberately, not defaults to discover later: see <a href=\"/ressources/guides/claude-cowork\">what the Cowork merger changes</a>.</p>\n<p><strong>Data.</strong> Claude apps store data in the United States by default; European residency goes through the API on Amazon Bedrock or Google Vertex. The local history of Cowork sessions sits outside the organisation's retention policy. Both facts weigh in an impact assessment: we deal with them during scoping, not after the accounts are open.</p>\n<p><strong>Spreading know-how.</strong> A skill uploaded on claude.ai is personal by default; on Team and Enterprise, an owner can provision it for the whole organisation. To target a group or ship a consistent set, you use <a href=\"/ressources/guides/claude-skills\">Claude skills</a> bundled in <a href=\"/ressources/guides/claude-plugins-entreprise\">plugins</a> rolled out from a private marketplace, with four levels: installed by default, available, required or unavailable.</p>\n<p><strong>Technical profiles.</strong> If you have developers, <a href=\"/ressources/guides/claude-code-entreprise\">Claude Code</a> is included in Team, and its API cost can be steered: Anthropic observes around $13 per developer per active day in companies.</p>\n<h2>Certified partner or not: what to look at</h2>\n<p>In March 2026 Anthropic launched the Claude Partner Network, with a \"Claude Certified Architect, Foundations\" certification and a <a href=\"https://claude.com/marketplace/service-partners\" rel=\"noopener\" target=\"_blank\">directory of service partners</a>. It is a useful signal, not a guarantee. Waimia does not claim it on this site: judge Waimia, like any provider, on deliverables, published work and how frank the recommendations are. If your need is first the rollout, the page <a href=\"/services/integration-claude\">Claude integration in business</a> describes the engagement; if it is upskilling, the <a href=\"/formations/claude\">Claude training</a>. The engagement is run remotely; travel is possible, for example to <a href=\"/implantations/lyon\">Lyon</a>.</p>"
+    },
+    {
+      "type": "cta-form-inline",
+      "background": "paper-2",
+      "anchor": "kit-conformite",
+      "kicker_fr": "§ Kit conformité · PDF gratuit",
+      "kicker_en": "§ Compliance kit · free PDF",
+      "h2_fr": "Recevez le kit conformité et administration de Claude (PDF, 11 pages)",
+      "h2_en": "Get the Claude compliance and administration kit (PDF, 11 pages)",
+      "body_fr": "La liste de contrôle qu'on déroule en début de mission, utilisable par votre équipe : les réglages Team et Enterprise avec leur valeur par défaut, les points RGPD qui comptent vraiment (stockage, résidence, entraînement, historique local de Cowork), une trame d'analyse d'impact en huit questions, un modèle de politique d'usage d'une page, un registre des usages et douze questions à poser au fournisseur. Chaque fait sur Claude est sourcé et daté. Le fichier arrive par e-mail, en pièce jointe.",
+      "body_en": "The checklist we run at the start of an engagement, usable by your own team: Team and Enterprise settings with their default value, the GDPR points that really matter (storage, residency, training, local Cowork history), an eight-question impact assessment template, a one-page usage policy, a register of uses and twelve questions to ask the vendor. Every fact about Claude is sourced and dated. The file arrives by email, as an attachment.",
+      "submit_label_fr": "Recevoir le kit conformité →",
+      "submit_label_en": "Get the compliance kit →",
+      "hint_fr": "Pas un avis juridique. Un seul envoi : le PDF ; la lettre mensuelle seulement si vous cochez la case.",
+      "hint_en": "Not legal advice. One email: the PDF; the monthly newsletter only if you tick the box.",
+      "lead_magnet": "kit-conformite-claude-entreprise"
     },
     {
       "type": "decision-list",
@@ -630,8 +655,8 @@
       "kicker_en": "§ Two ways to engage",
       "h2_fr": "Combien coûte un accompagnement IA",
       "h2_en": "How much does AI advisory cost",
-      "lede_fr": "On démarre par un sprint de cadrage à prix fixe : diagnostic de maturité et feuille de route chiffrée en main. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints en régie. La mise en œuvre technique, si elle est décidée, bascule sur l'intégration.",
-      "lede_en": "We start with a fixed-price scoping sprint: a maturity diagnostic and a costed roadmap in hand. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the time and materials frame. Technical implementation, if decided, moves to integration.",
+      "lede_fr": "On démarre par un sprint de cadrage à prix fixe : diagnostic de maturité et feuille de route chiffrée en main. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints en régie. La mise en œuvre technique, si elle est décidée, bascule sur l'intégration, avec un pilote en production dès {{prix.pilote}} € HT.",
+      "lede_en": "We start with a fixed-price scoping sprint: a maturity diagnostic and a costed roadmap in hand. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the time and materials frame. Technical implementation, if decided, moves to integration, with a pilot in production from €{{prix.pilote.en}} excl. VAT.",
       "tiers": [
         {
           "name_fr": "Sprint de cadrage",
@@ -703,9 +728,9 @@
       "items": [
         {
           "q_fr": "Combien coûte un consultant IA pour une PME ?",
-          "a_fr": "Le sprint de cadrage est à {{prix.sprint}} € HT pour 10 heures : état des lieux d'une équipe et cadrage d'un premier chantier. Une feuille de route complète sur plusieurs services est estimée en heures, validée par vous, puis facturée {{prix.horaire}} € HT de l'heure.",
+          "a_fr": "Le sprint de cadrage est à {{prix.sprint}} € HT pour 10 heures : état des lieux d'une équipe et cadrage d'un premier chantier. Une feuille de route complète sur plusieurs services est estimée en heures, validée par vous, puis facturée {{prix.horaire}} € HT de l'heure. Aucun chantier n'est mis en production pendant le conseil : un chantier retenu relève ensuite d'un pilote, dès {{prix.pilote}} € HT.",
           "q_en": "How much does an AI consultant cost for an SMB?",
-          "a_en": "The scoping sprint is €{{prix.sprint.en}} excl. VAT for 10 hours: assessment of one team and scoping of a first project. A full multi-department roadmap is estimated in hours, approved by you, then billed €{{prix.horaire}} per hour excl. VAT."
+          "a_en": "The scoping sprint is €{{prix.sprint.en}} excl. VAT for 10 hours: assessment of one team and scoping of a first project. A full multi-department roadmap is estimated in hours, approved by you, then billed €{{prix.horaire}} per hour excl. VAT. No project goes into production during the advisory phase: a chosen project then moves to a pilot, from €{{prix.pilote.en}} excl. VAT."
         },
         {
           "q_fr": "Consultant IA ou freelance IA : quelle différence ?",
@@ -727,9 +752,9 @@
         },
         {
           "q_fr": "Par où commencer un projet IA en PME ?",
-          "a_fr": "Par l'inventaire des tâches récurrentes d'une seule équipe, chiffrées en heures. On retient celle où le gain est le plus net et le risque le plus faible, on la met en production, on mesure, puis on passe à la suivante.",
+          "a_fr": "Par l'inventaire des tâches récurrentes d'une seule équipe, chiffrées en heures. On retient celle où le gain est le plus net et le risque le plus faible, on la prototype et on la teste, puis un pilote (dès {{prix.pilote}} € HT) la met en production et on mesure avant de passer à la suivante.",
           "q_en": "Where should an SMB start an AI project?",
-          "a_en": "With the inventory of one team's recurring tasks, costed in hours. Keep the one with the clearest gain and lowest risk, put it into production, measure, then move to the next."
+          "a_en": "With the inventory of one team's recurring tasks, costed in hours. Keep the one with the clearest gain and lowest risk, prototype and test it, then a pilot (from €{{prix.pilote.en}} excl. VAT) puts it into production and you measure before moving to the next."
         },
         {
           "q_fr": "Qu'est-ce qu'une charte IA d'entreprise ?",
@@ -766,6 +791,12 @@
           "a_fr": "Le conseil s'arrête à la décision : état des lieux, feuille de route, règles d'usage. L'accompagnement va plus loin : pilotage des chantiers retenus avec des comités réguliers, conduite du changement et montée en compétence des équipes. Il est estimé en heures, validé par vous, puis facturé en régie ; la mise en œuvre technique relève de l'intégration.",
           "q_en": "AI support and advisory: how far does the engagement go?",
           "a_en": "Consulting stops at the decision: assessment, roadmap, usage rules. Support goes further: steering the chosen projects with regular reviews, change management and skill-up for the teams. It is estimated in hours, approved by you, then billed on a time-and-materials basis; technical implementation moves to integration."
+        },
+        {
+          "q_fr": "Pourquoi une mission de conseil IA échoue-t-elle ?",
+          "a_fr": "Trois causes reviennent : une feuille de route qui reste dans un tiroir faute de responsable et de date, une liste trop longue où tout est prioritaire, et une décision prise sans les équipes qui utiliseront l'outil. D'où trois garde-fous : un responsable interne par chantier, trois chantiers au plus, des entretiens dès le départ.",
+          "q_en": "Why does an AI consulting engagement fail?",
+          "a_en": "Three causes come up: a roadmap left in a drawer for lack of an owner and a date, a list so long that everything is a priority, and a decision made without the teams who will use the tool. Hence three safeguards: an internal owner per project, three projects at most, interviews from the start."
         }
       ]
     },

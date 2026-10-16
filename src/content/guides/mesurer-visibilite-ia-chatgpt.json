@@ -1,0 +1,525 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "Mesurer sa visibilité dans ChatGPT et les moteurs IA : un protocole mensuel, sans abonnement",
+  "title_en": "Measuring your visibility in ChatGPT and AI engines: a monthly protocol, no subscription",
+  "seoTitle_fr": "Mesurer sa visibilité dans ChatGPT : le protocole",
+  "seoTitle_en": "Measuring your ChatGPT visibility: the protocol",
+  "description_fr": "Surveiller sa visibilité IA dans ChatGPT sans abonnement : panel de questions, relevé mensuel, trafic des assistants et journal. Sources du 16 octobre 2026.",
+  "description_en": "Protocol to measure your visibility in ChatGPT and AI engines without a subscription: question panel, monthly reading, traffic, log. Checked on 16 October 2026.",
+  "slug": "mesurer-visibilite-ia-chatgpt",
+  "publishedAt": "2026-10-16",
+  "updatedAt": "2026-10-16",
+  "category": "acquisition",
+  "tags": [
+    "geo",
+    "visibilite-ia",
+    "chatgpt",
+    "mesure",
+    "search-console",
+    "analytique",
+    "protocole",
+    "guide-pme"
+  ],
+  "sources": [
+    {
+      "name": "Google Search Central, Introducing Search Generative AI performance reports in Search Console (3 juin 2026), lu le 16 octobre 2026",
+      "url": "https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports",
+      "type": "enterprise"
+    },
+    {
+      "name": "Aide Search Console, Generative AI performance report (Search) (déployé à tous les sites le 31 août 2026), lue le 16 octobre 2026",
+      "url": "https://support.google.com/webmasters/answer/16984139",
+      "type": "enterprise"
+    },
+    {
+      "name": "Aide Search Console, Search generative AI control (valeur par défaut « Include », déployé à tous les sites le 31 août 2026), lue le 16 octobre 2026",
+      "url": "https://support.google.com/webmasters/answer/16908024",
+      "type": "enterprise"
+    },
+    {
+      "name": "Google Search Central, Optimizing your website for generative AI features on Google Search (mis à jour le 10 juillet 2026), lu le 16 octobre 2026",
+      "url": "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide",
+      "type": "enterprise"
+    },
+    {
+      "name": "Google Search Central, AI features and your website (mis à jour le 10 décembre 2025), lu le 16 octobre 2026",
+      "url": "https://developers.google.com/search/docs/appearance/ai-features",
+      "type": "enterprise"
+    },
+    {
+      "name": "OpenAI, Publishers and Developers FAQ (utm_source=chatgpt.com, OAI-SearchBot), lue le 16 octobre 2026",
+      "url": "https://help.openai.com/en/articles/12627856-publishers-and-developers-faq",
+      "type": "enterprise"
+    },
+    {
+      "name": "OpenAI, Overview of OpenAI crawlers (OAI-SearchBot, ChatGPT-User), lu le 16 octobre 2026",
+      "url": "https://developers.openai.com/api/docs/bots",
+      "type": "enterprise"
+    },
+    {
+      "name": "OpenAI, Searching the web with ChatGPT (mémoire, localisation approximative), lu le 16 octobre 2026",
+      "url": "https://help.openai.com/en/articles/9237897-searching-the-web-with-chatgpt",
+      "type": "enterprise"
+    },
+    {
+      "name": "Aide Google Analytics, Custom channel groups (exemple AI assistants), lue le 16 octobre 2026",
+      "url": "https://support.google.com/analytics/answer/13051316",
+      "type": "enterprise"
+    },
+    {
+      "name": "SparkToro (R. Fishkin et P. O'Donnell), AIs are highly inconsistent when recommending brands or products (janvier 2026), lu le 16 octobre 2026",
+      "url": "https://sparktoro.com/blog/new-research-ais-are-highly-inconsistent-when-recommending-brands-or-products-marketers-should-take-care-when-tracking-ai-visibility/",
+      "type": "research"
+    }
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "Comment surveiller sa visibilité dans ChatGPT gratuitement ?",
+      "a": "Posez chaque mois les mêmes 20 questions à ChatGPT, trois fois chacune, dans une session sans historique, et notez si votre marque et votre site apparaissent. Ajoutez le trafic venu de chatgpt.com dans votre analytique. Aucun abonnement n'est nécessaire, mais il faut tenir la discipline : mêmes questions, mêmes conditions, journal des changements. Relevé le 16 octobre 2026."
+    },
+    {
+      "q": "Peut-on connaître sa position dans ChatGPT ?",
+      "a": "Pas de façon fiable. Selon l'étude de SparkToro de janvier 2026, reposer une même question à ChatGPT ou à l'IA de Google donne moins d'une fois sur 100 la même liste de marques, et presque jamais dans le même ordre. Un rang affiché par un outil ne décrit donc qu'une réponse. Ce qui se lit sur la durée, c'est la fréquence d'apparition d'une marque sur de nombreux passages."
+    },
+    {
+      "q": "Comment savoir si ChatGPT envoie des visiteurs sur mon site ?",
+      "a": "OpenAI indique que ChatGPT ajoute automatiquement utm_source=chatgpt.com aux liens de sa recherche. Dans votre outil d'analyse, filtrez ou regroupez les visites dont la source est chatgpt.com. Le chiffre ne compte que les clics : une citation sans clic n'y figure pas. Pour que le site puisse apparaître dans la recherche de ChatGPT, OpenAI demande de ne pas bloquer OAI-SearchBot."
+    },
+    {
+      "q": "La Search Console mesure-t-elle ChatGPT ?",
+      "a": "Non. Son rapport IA générative couvre les fonctions d'IA de la recherche Google, c'est-à-dire les Aperçus IA et le Mode IA, et donne des impressions par page, pays, appareil et date. Pour ChatGPT, il faut passer par l'analytique, les journaux du serveur et un relevé manuel des réponses."
+    },
+    {
+      "q": "Faut-il autoriser OAI-SearchBot ?",
+      "a": "Si vous voulez apparaître dans la recherche de ChatGPT, oui. OpenAI écrit qu'un site fermé à OAI-SearchBot n'est pas affiché dans les réponses de recherche, même s'il peut rester en lien de navigation. Le robot GPTBot, qui concerne l'entraînement, est un choix distinct. Autoriser le robot rend l'apparition possible, il ne la garantit pas."
+    },
+    {
+      "q": "Combien de temps le relevé demande-t-il chaque mois ?",
+      "a": "Environ trois heures pour 20 questions, trois passages et trois assistants, à raison d'une minute par passage. C'est une estimation de Waimia, à vérifier sur vos deux premiers mois. Si cela dépasse ce que vous pouvez tenir, réduisez le nombre d'assistants avant de réduire le nombre de passages."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "How can you monitor your visibility in ChatGPT for free?",
+      "a": "Ask ChatGPT the same 20 questions every month, three times each, in a session with no history, and note whether your brand and site appear. Add the traffic coming from chatgpt.com in your analytics. No subscription is needed, but you must keep the discipline: same questions, same conditions, a log of changes. Checked on 16 October 2026."
+    },
+    {
+      "q": "Can you know your position in ChatGPT?",
+      "a": "Not reliably. According to SparkToro's study of 27 January 2026, asking the same question again to ChatGPT or Google's AI gives the same list of brands less than once in 100 times, and almost never in the same order. A rank shown by a tool therefore describes a single answer. What can be read over time is how often a brand appears across many passes."
+    },
+    {
+      "q": "How do I know whether ChatGPT sends visitors to my site?",
+      "a": "OpenAI states that ChatGPT automatically adds utm_source=chatgpt.com to the links in its search. In your analytics tool, filter or group visits whose source is chatgpt.com. The figure only counts clicks: a citation without a click does not appear in it. For a site to appear in ChatGPT search, OpenAI asks you not to block OAI-SearchBot."
+    },
+    {
+      "q": "Does Search Console measure ChatGPT?",
+      "a": "No. Its generative AI report covers the AI features of Google Search, that is AI Overviews and AI Mode, and gives impressions by page, country, device and date. For ChatGPT, you need analytics, server logs and a manual reading of the answers."
+    },
+    {
+      "q": "Should you allow OAI-SearchBot?",
+      "a": "If you want to appear in ChatGPT search, yes. OpenAI writes that a site closed to OAI-SearchBot is not shown in search answers, though it may remain as a navigational link. The GPTBot crawler, which concerns training, is a separate choice. Allowing the crawler makes appearing possible, it does not guarantee it."
+    },
+    {
+      "q": "How long does the reading take each month?",
+      "a": "About three hours for 20 questions, three passes and three assistants, at one minute per pass. This is a Waimia estimate, to check over your first two months. If that is more than you can sustain, cut the number of assistants before cutting the number of passes."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "illustration": {
+        "src": "/images/illustrations/ds/donnees-reporting-v3-trois-mesures-paper.webp",
+        "alt_fr": "Trois règles de longueurs différentes posées sur la même planche, trois personnes autour",
+        "alt_en": "Three rulers of different lengths laid on the same plank, three people around it",
+        "side": "right"
+      },
+      "kicker_fr": "§ Guide",
+      "kicker_en": "§ Guide",
+      "h1_fr": "Mesurer sa <i class=\"acc\">visibilité IA</i> : un protocole mensuel, sans abonnement",
+      "h1_en": "Measuring your <i class=\"acc\">AI visibility</i>: a monthly protocol, no subscription",
+      "lede_fr": "Mesurer sa visibilité dans ChatGPT demande quatre relevés, pas un abonnement : un panel de 20 questions posées chaque mois, trois passages par question, le trafic qui arrive des assistants dans votre analytique et un journal de ce que vous changez. Le résultat est un taux de présence et une tendance, jamais une position. Protocole de Waimia, sources relevées le 16 octobre 2026.",
+      "lede_en": "Measuring your visibility in ChatGPT takes four readings, not a subscription: a panel of 20 questions asked every month, three passes per question, the traffic that reaches you from assistants in your analytics, and a log of what you change. The result is a presence rate and a trend, never a position. Waimia's protocol, sources checked on 16 October 2026.",
+      "badges": [
+        {
+          "label_fr": "Sources Google et OpenAI relevées le 16 octobre 2026",
+          "label_en": "Google and OpenAI sources checked on 16 October 2026"
+        },
+        {
+          "label_fr": "Aucun outil payant requis",
+          "label_en": "No paid tool required"
+        },
+        {
+          "label_fr": "Protocole de Waimia, pas une norme",
+          "label_en": "Waimia's protocol, not a standard"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Voir l'offre référencement IA",
+        "label_en": "See the AI search optimisation offer",
+        "href": "/services/referencement-ia",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "SEO local, pour une clientèle de proximité",
+        "label_en": "Local SEO, for a nearby clientele",
+        "href": "/services/seo-local",
+        "variant": "ghost"
+      }
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "16 octobre 2026",
+      "updatedDate": "16 octobre 2026"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "Comment mesurer sa visibilité dans ChatGPT sans payer d'outil ?",
+      "question_en": "How can you measure your visibility in ChatGPT without paying for a tool?",
+      "term_fr": "Réponse courte",
+      "term_en": "Short answer",
+      "answer_fr": "Posez chaque mois les mêmes 20 questions à chaque assistant, trois fois chacune, dans des conditions fixes, et notez si votre marque et votre site apparaissent. Ajoutez le trafic venu des assistants (ChatGPT marque ses liens avec utm_source=chatgpt.com, selon OpenAI) et, pour Google, le rapport IA générative de la Search Console. Tenez un journal de vos changements. Ce que vous lisez est un taux de présence, pas un rang. Relevé le 16 octobre 2026.",
+      "answer_en": "Ask each assistant the same 20 questions every month, three times each, under fixed conditions, and note whether your brand and your site appear. Add the traffic coming from assistants (ChatGPT tags its links with utm_source=chatgpt.com, according to OpenAI) and, for Google, the generative AI report in Search Console. Keep a log of your changes. What you read is a presence rate, not a rank. Checked on 16 October 2026."
+    },
+    {
+      "type": "key-metric-grid",
+      "background": "paper",
+      "variant": "accent",
+      "columns": 4,
+      "eyebrow_fr": "§ Les repères",
+      "eyebrow_en": "§ Key figures",
+      "title_fr": "Quels repères retenir avant de commencer ?",
+      "title_en": "Which figures should you keep in mind before starting?",
+      "metrics": [
+        {
+          "value": "20 questions",
+          "label_fr": "taille de départ du panel : assez pour couvrir vos offres, assez peu pour tenir en trois heures par mois (repère de Waimia, pas une norme)",
+          "label_en": "starting size of the panel: enough to cover your offers, few enough to fit in three hours a month (Waimia's benchmark, not a standard)"
+        },
+        {
+          "value": "3 passages",
+          "label_fr": "par question et par assistant : une même question ne rend pas deux fois la même réponse",
+          "label_en": "per question and per assistant: the same question does not return the same answer twice"
+        },
+        {
+          "value": "Moins de 1 sur 100",
+          "label_fr": "chance d'obtenir deux fois la même liste de marques en reposant la même question à ChatGPT ou à l'IA de Google (SparkToro, janvier 2026, outils américains)",
+          "label_en": "chance of getting the same list of brands twice when asking ChatGPT or Google's AI the same question again (SparkToro, 27 January 2026, US tools)"
+        },
+        {
+          "value": "31 août 2026",
+          "label_fr": "date à laquelle Google a étendu à tous les sites le rapport IA générative de la Search Console (aide Search Console)",
+          "label_en": "date on which Google rolled the generative AI report in Search Console out to all sites (Search Console Help)"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Pourquoi une capture d'écran ne prouve-t-elle rien ?</h2>\n<p>Scénario illustratif, pas un cas client. Imaginez qu'un client vous écrive : « Je vous ai cherché dans ChatGPT, vous n'y êtes pas. » Vous reposez la question dix minutes plus tard et vous y figurez. Le site n'a pas changé. C'est la façon dont ces outils répondent.</p>\n<p>SparkToro, éditeur d'un outil d'analyse d'audience, a fait poser les mêmes questions à ChatGPT, à Claude et à l'IA de Google par 600 volontaires : 12 questions, 2 961 réponses relevées en novembre et décembre 2025, sur des outils américains. Publiée fin janvier 2026, l'étude trouve moins d'une chance sur 100 d'obtenir deux fois la même liste de marques, et de l'ordre d'une sur 1 000 d'obtenir la même liste dans le même ordre. Ses auteurs en tirent deux conclusions : un rang dans une réponse d'IA ne veut rien dire, et la fréquence d'apparition d'une marque sur de nombreuses répétitions est un indicateur raisonnable.</p>\n<p>D'où la règle du protocole : on ne mesure pas une position, on mesure une présence sur plusieurs passages.</p>\n<p><strong>Limites de l'étude.</strong> Le panel était américain, les questions étaient en anglais, le relevé date de fin 2025 et l'étude est co-signée par le cofondateur d'une société de suivi de la visibilité IA. Ses auteurs écrivent que des modèles plus récents peuvent varier plus ou moins. Chaque question était en outre répétée 60 à 100 fois : avec trois passages, notre protocole donne une tendance grossière, pas une mesure précise.</p>",
+      "html_en": "<h2>Why does a screenshot prove nothing?</h2>\n<p>Illustrative scenario, not a client case. Imagine a client writes: \"I looked for you in ChatGPT, you are not there.\" You ask the question again ten minutes later and you appear. The site has not changed. That is simply how these tools answer.</p>\n<p>SparkToro, a maker of an audience analysis tool, had 600 volunteers put the same questions to ChatGPT, Claude and Google's AI: 12 questions, 2,961 answers collected in November and December 2025, on US tools. Published on 27 January 2026, the study finds less than a 1 in 100 chance of getting the same list of brands twice, and about 1 in 1,000 of getting the same list in the same order. Its authors draw two conclusions: a rank in an AI answer means nothing, and how often a brand appears across many repetitions is a reasonable indicator.</p>\n<p>Hence the protocol's rule: you do not measure a position, you measure a presence across several passes.</p>\n<p><strong>Limits of the study.</strong> The panel was American, the questions were in English, the data dates from late 2025 and the study is co-signed by the co-founder of an AI visibility tracking company. Its authors write that newer models may vary more or less. Each question was also repeated 60 to 100 times: with three passes, our protocol gives a rough trend, not a precise measurement.</p>"
+    },
+    {
+      "type": "process-steps",
+      "background": "paper",
+      "kicker_fr": "§ Le protocole",
+      "kicker_en": "§ The protocol",
+      "h2_fr": "Le protocole en cinq étapes",
+      "h2_en": "The protocol in five steps",
+      "intro_fr": "Prévoyez une heure pour le montage, puis environ trois heures par mois (estimation de Waimia). Chaque étape livre une trace que vous pouvez relire.",
+      "intro_en": "Allow an hour for set-up, then about three hours a month (Waimia estimate). Each step leaves a trace you can reread.",
+      "steps": [
+        {
+          "title_fr": "Écrire le panel",
+          "title_en": "Write the panel",
+          "body_fr": "20 questions, formulées comme vos clients les posent : définition, choix d'un prestataire, comparaison, proximité si vous servez une zone, question sur votre marque. Vous les figez.",
+          "body_en": "Twenty questions, worded as your customers ask them: definition, choice of a provider, comparison, proximity if you serve an area, a question about your brand. You freeze them.",
+          "meta_fr": "Livrable : la liste, datée",
+          "meta_en": "Deliverable: the list, dated"
+        },
+        {
+          "title_fr": "Fixer les conditions",
+          "title_en": "Fix the conditions",
+          "body_fr": "Même appareil, même lieu, même jour du mois, session sans historique ni mémoire. OpenAI indique que la mémoire et la localisation estimée par l'adresse IP peuvent changer la recherche lancée.",
+          "body_en": "Same device, same place, same day of the month, a session with no history or memory. OpenAI states that memory and the location estimated from the IP address can change the search that is run.",
+          "meta_fr": "Livrable : la fiche de conditions",
+          "meta_en": "Deliverable: the conditions sheet"
+        },
+        {
+          "title_fr": "Relever",
+          "title_en": "Record",
+          "body_fr": "Chaque question, trois fois, dans chaque assistant que vos clients utilisent. Vous copiez la réponse et les sources citées, puis vous notez : marque citée ou non, site en source ou non, concurrents nommés.",
+          "body_en": "Each question, three times, in each assistant your customers use. You copy the answer and the cited sources, then note: brand cited or not, site in the sources or not, competitors named.",
+          "meta_fr": "Livrable : la fiche de relevé remplie",
+          "meta_en": "Deliverable: the completed recording sheet"
+        },
+        {
+          "title_fr": "Croiser avec les chiffres réels",
+          "title_en": "Cross-check with real figures",
+          "body_fr": "Rapport IA générative de la Search Console pour Google, visites venues des assistants dans l'analytique, passages d'OAI-SearchBot dans les journaux du serveur si vous y avez accès.",
+          "body_en": "Search Console generative AI report for Google, visits from assistants in your analytics, OAI-SearchBot hits in the server logs if you have access.",
+          "meta_fr": "Livrable : trois chiffres du mois",
+          "meta_en": "Deliverable: three figures for the month"
+        },
+        {
+          "title_fr": "Journaliser et conclure",
+          "title_en": "Log and conclude",
+          "body_fr": "Une ligne par changement : date, page, nature. Vous comparez au mois précédent et vous ne concluez qu'à écart net.",
+          "body_en": "One line per change: date, page, nature. You compare with the previous month and only conclude on a clear gap.",
+          "meta_fr": "Décision : on garde, on ajuste, on arrête",
+          "meta_en": "Decision: keep, adjust, stop"
+        }
+      ]
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Les relevés",
+      "kicker_en": "§ The readings",
+      "heading_fr": "Quel relevé mesure quoi, et que ne dit-il pas ?",
+      "heading_en": "Which reading measures what, and what does it not say?",
+      "caption_fr": "Sources : blog Search Central du 3 juin 2026, aide Search Console, aide et documentation des robots d'OpenAI, lus le 16 octobre 2026 ; étude SparkToro de janvier 2026. La colonne « Ce qu'il ne dit pas » est une lecture de Waimia, pas un avis des éditeurs.",
+      "caption_en": "Sources: Search Central blog of 3 June 2026, Search Console Help, OpenAI help and crawler documentation, read on 16 October 2026; SparkToro study of 27 January 2026. The \"What it does not say\" column is Waimia's reading, not the publishers' view.",
+      "columns_fr": [
+        "Relevé",
+        "Ce qu'il mesure",
+        "Ce que dit la source",
+        "Ce qu'il ne dit pas"
+      ],
+      "columns_en": [
+        "Reading",
+        "What it measures",
+        "What the source says",
+        "What it does not say"
+      ],
+      "rows_fr": [
+        [
+          "Panel de questions, à la main",
+          "Votre présence et vos sources citées dans la réponse d'un assistant",
+          "SparkToro : seule la fréquence d'apparition sur de nombreux passages s'interprète, pas le rang",
+          "Le nombre de personnes qui posent la question. Le résultat dépend de la formulation et du lieu"
+        ],
+        [
+          "Rapport IA générative, Search Console",
+          "Les impressions de vos pages dans les Aperçus IA et le Mode IA de Google, par page, pays, appareil et date",
+          "Google, 3 juin 2026 : rapport d'impressions, étendu à tous les sites le 31 août 2026",
+          "Les clics, qui restent dans le rapport de performance, type de recherche Web. La documentation ne décrit pas de dimension « requête »"
+        ],
+        [
+          "Analytique (GA4 par exemple)",
+          "Les visites arrivées d'un assistant",
+          "OpenAI : ChatGPT ajoute utm_source=chatgpt.com aux liens de sa recherche",
+          "Les citations sans clic. Seule la source de ChatGPT est documentée ici : repérez les autres dans vos propres sources"
+        ],
+        [
+          "Journaux du serveur",
+          "Les passages d'OAI-SearchBot, le robot de la recherche de ChatGPT",
+          "OpenAI : un site fermé à OAI-SearchBot n'est pas affiché dans les réponses de recherche",
+          "Une citation. Un passage du robot prouve l'accès, pas la reprise"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Question panel, by hand",
+          "Your presence and your cited sources in an assistant answer",
+          "SparkToro: only how often a brand appears across many passes can be interpreted, not the rank",
+          "How many people ask the question. The result depends on wording and place"
+        ],
+        [
+          "Generative AI report, Search Console",
+          "Impressions of your pages in Google's AI Overviews and AI Mode, by page, country, device and date",
+          "Google, 3 June 2026: an impressions report, extended to all sites on 31 August 2026",
+          "Clicks, which stay in the performance report, Web search type. The documentation describes no \"query\" dimension"
+        ],
+        [
+          "Analytics (GA4 for example)",
+          "Visits that arrived from an assistant",
+          "OpenAI: ChatGPT adds utm_source=chatgpt.com to the links in its search",
+          "Citations without a click. Only ChatGPT's source is documented here: spot the others in your own sources"
+        ],
+        [
+          "Server logs",
+          "OAI-SearchBot hits, the crawler for ChatGPT's search",
+          "OpenAI: a site closed to OAI-SearchBot is not shown in search answers",
+          "A citation. A crawler hit proves access, not that the page was used"
+        ]
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Comment composer le panel de questions ?</h2>\n<p>Partez de ce que vos prospects demandent vraiment : les questions reçues par téléphone et par mail, les requêtes de votre Search Console, les objections des devis. Un panel de 20 questions couvre cinq familles :</p>\n<ul>\n<li><strong>Définition (4).</strong> « Qu'est-ce que [votre sujet] ? »</li>\n<li><strong>Choix d'un prestataire (6).</strong> « Quelle agence, quel artisan ou quel cabinet pour [besoin] ? »</li>\n<li><strong>Comparaison (4).</strong> « [Option A] ou [option B] pour une PME ? »</li>\n<li><strong>Proximité (3).</strong> Si vous servez une zone : « [métier] à [ville] ». Le <a href=\"/blog/geo-local-recommande-par-les-ia\">billet sur le GEO local</a> détaille ce qui change.</li>\n<li><strong>Marque (3).</strong> « Que penser de [votre marque] ? », « [Votre marque] ou [concurrent] ? »</li>\n</ul>\n<p>Ce découpage est un point de départ de Waimia, à ajuster à votre activité. Trois règles. Écrivez chaque question une fois et ne la reformulez plus : changer une formulation crée un autre panel, à noter dans le journal. Gardez des questions où vous espérez ne pas apparaître : c'est là que se voit l'écart avec vos concurrents. Ajoutez les nouvelles questions en fin de liste, avec leur date.</p>",
+      "html_en": "<h2>How do you build the question panel?</h2>\n<p>Start from what your prospects actually ask: the questions received by phone and email, your Search Console queries, the objections raised in quotes. A 20-question panel covers five families:</p>\n<ul>\n<li><strong>Definition (4).</strong> \"What is [your subject]?\"</li>\n<li><strong>Choice of a provider (6).</strong> \"Which agency, tradesperson or firm for [need]?\"</li>\n<li><strong>Comparison (4).</strong> \"[Option A] or [option B] for a small business?\"</li>\n<li><strong>Proximity (3).</strong> If you serve an area: \"[trade] in [town]\". The <a href=\"/blog/geo-local-recommande-par-les-ia\">post on local GEO</a> details what changes.</li>\n<li><strong>Brand (3).</strong> \"What to think of [your brand]?\", \"[Your brand] or [competitor]?\"</li>\n</ul>\n<p>This split is a Waimia starting point, to adjust to your business. Three rules. Write each question once and never reword it: changing a wording creates a different panel, to be noted in the log. Keep questions where you hope not to appear: that is where the gap with your competitors shows. Add new questions at the end of the list, with their date.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Comment relever sans fausser le résultat ?</h2>\n<p>Le but est que seul votre site change d'un mois à l'autre, pas les conditions du relevé.</p>\n<ul>\n<li><strong>Session neuve.</strong> Navigation privée ou compte sans mémoire. OpenAI précise que, mémoire activée, ChatGPT peut s'appuyer sur des souvenirs enregistrés pour réécrire la recherche, et qu'un VPN peut déplacer la localisation approximative déduite de l'adresse IP.</li>\n<li><strong>Même lieu, même appareil.</strong> Relevez depuis la même connexion, le même jour du mois.</li>\n<li><strong>Trois passages.</strong> Reposez la question dans trois conversations neuves. Notez « présent » si la marque apparaît dans la réponse, « source » si votre site figure parmi les liens cités.</li>\n<li><strong>Le modèle affiché.</strong> Notez le nom du modèle ou du mode : un changement de modèle explique un saut que votre site n'explique pas.</li>\n<li><strong>La réponse entière.</strong> Copiez le texte et les liens. Une réponse non conservée ne se relit pas.</li>\n</ul>\n<p><strong>La fiche de relevé</strong> compte une ligne par passage :</p>\n<table><thead><tr><th>Date</th><th>Assistant et modèle</th><th>Question</th><th>Passage</th><th>Marque citée</th><th>Site en source</th><th>Concurrents nommés</th><th>Domaines cités</th></tr></thead><tbody><tr><td>jj/mm</td><td>nom, mode</td><td>n° 1 à 20</td><td>1, 2 ou 3</td><td>oui / non</td><td>oui / non</td><td>noms</td><td>liste</td></tr></tbody></table>\n<p>Le taux de présence du mois est le nombre de passages où la marque apparaît, divisé par le nombre de passages. Pour 20 questions et 3 passages, vous avez 60 passages par assistant : un écart de quelques passages d'un mois à l'autre relève du bruit (lecture de Waimia). Comptez environ une minute par passage, soit trois heures par mois pour trois assistants (estimation à vérifier sur vos premiers relevés).</p>",
+      "html_en": "<h2>How do you record without distorting the result?</h2>\n<p>The aim is that only your site changes from one month to the next, not the conditions of the reading.</p>\n<ul>\n<li><strong>A fresh session.</strong> Private browsing or an account without memory. OpenAI specifies that, with memory on, ChatGPT may rely on saved memories to rewrite the search, and that a VPN can shift the approximate location inferred from the IP address.</li>\n<li><strong>Same place, same device.</strong> Record from the same connection, on the same day of the month.</li>\n<li><strong>Three passes.</strong> Ask the question again in three fresh conversations. Note \"present\" if the brand appears in the answer, \"source\" if your site is among the cited links.</li>\n<li><strong>The model shown.</strong> Note the name of the model or mode: a model change explains a jump your site does not.</li>\n<li><strong>The whole answer.</strong> Copy the text and the links. An answer that is not kept cannot be reread.</li>\n</ul>\n<p><strong>The recording sheet</strong> has one line per pass:</p>\n<table><thead><tr><th>Date</th><th>Assistant and model</th><th>Question</th><th>Pass</th><th>Brand cited</th><th>Site in sources</th><th>Competitors named</th><th>Domains cited</th></tr></thead><tbody><tr><td>dd/mm</td><td>name, mode</td><td>no. 1 to 20</td><td>1, 2 or 3</td><td>yes / no</td><td>yes / no</td><td>names</td><td>list</td></tr></tbody></table>\n<p>The month's presence rate is the number of passes where the brand appears, divided by the number of passes. With 20 questions and 3 passes, you have 60 passes per assistant: a gap of a few passes from one month to the next is noise (Waimia's reading). Allow about a minute per pass, that is three hours a month for three assistants (estimate to check on your first recordings).</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Comment suivre le trafic qui vient des assistants ?</h2>\n<h3>Pour Google : le rapport IA générative de la Search Console</h3>\n<p>Le 3 juin 2026, Google a annoncé des rapports de performance IA générative dans la Search Console, étendus à tous les sites dans le monde le 31 août 2026. Le rapport pour la Recherche donne les impressions de vos pages dans les Aperçus IA et le Mode IA, par page, pays, appareil et date. Deux précisions de la documentation : ce sont des impressions, et les clics de ces fonctions restent comptés dans le rapport de performance, au type de recherche « Web ».</p>\n<p>Si le rapport n'apparaît pas, Google indique que le site n'a pas reçu assez d'impressions, ou qu'il a été exclu des fonctions d'IA générative. Vérifiez dans Paramètres, « Search generative AI » (libellé anglais de la documentation), que la propriété est sur « Inclure », valeur par défaut.</p>\n<h3>Pour ChatGPT et les autres : l'analytique</h3>\n<p>OpenAI écrit que ChatGPT ajoute automatiquement utm_source=chatgpt.com aux liens de sa recherche, ce qui permet de suivre ces visites dans un outil comme Google Analytics, à condition de ne pas bloquer OAI-SearchBot. Dans GA4, l'aide de Google décrit un groupe de canaux personnalisé « AI assistants », défini par une condition « correspond à l'expression régulière », à placer au-dessus de « Referrals » dans la liste pour que ces visites y soient classées en premier. Google donne un exemple large. Voici une version plus étroite, lecture de Waimia à tester :</p>\n<p><code>.*(chatgpt|perplexity|claude\\.ai|copilot\\.microsoft|gemini\\.google).*</code></p>\n<p>Avant de l'enregistrer, regardez sur 90 jours les sources réellement présentes dans votre propriété : les assistants changent de domaine, et l'expression doit suivre. Relisez-la chaque trimestre. Les clics venus des Aperçus IA et du Mode IA sont comptés avec la recherche : la documentation relevée ne décrit pas de source distincte pour eux.</p>\n<h3>Pour le serveur : les journaux d'accès</h3>\n<p>Si votre hébergeur donne accès aux journaux, cherchez OAI-SearchBot. OpenAI le décrit comme le robot qui fait apparaître les sites dans les fonctions de recherche de ChatGPT, et précise qu'un site qui s'en exclut n'est pas affiché dans les réponses, même s'il peut rester en lien de navigation. ChatGPT-User agit à la demande d'un utilisateur et ne sert pas à décider de l'apparition dans la recherche. Un passage dans les journaux prouve l'accès, pas la citation. La configuration des accès est décrite dans <a href=\"/blog/seo-geo-etre-cite-par-les-ia-generatives\">le billet sur les mécaniques du GEO</a>.</p>",
+      "html_en": "<h2>How do you track the traffic that comes from assistants?</h2>\n<h3>For Google: the generative AI report in Search Console</h3>\n<p>On 3 June 2026, Google announced generative AI performance reports in Search Console, rolled out to all sites worldwide on 31 August 2026. The Search report gives the impressions of your pages in AI Overviews and AI Mode, by page, country, device and date. Two points from the documentation: these are impressions, and the clicks from these features stay counted in the performance report, under the \"Web\" search type.</p>\n<p>If the report does not appear, Google says the site has not received enough impressions, or that it has been excluded from generative AI features. Check in Settings, \"Search generative AI\" (the documentation's label), that the property is set to \"Include\", the default.</p>\n<h3>For ChatGPT and the others: analytics</h3>\n<p>OpenAI writes that ChatGPT automatically adds utm_source=chatgpt.com to the links in its search, which lets you track these visits in a tool such as Google Analytics, provided you do not block OAI-SearchBot. In GA4, Google's help describes a custom channel group \"AI assistants\", defined by a \"matches regex\" condition, to be placed above \"Referrals\" in the list so that these visits are classified there first. Google gives a broad example. Here is a narrower version, Waimia's reading, to test:</p>\n<p><code>.*(chatgpt|perplexity|claude\\.ai|copilot\\.microsoft|gemini\\.google).*</code></p>\n<p>Before saving it, look at the sources actually present in your property over 90 days: assistants change domains, and the expression must follow. Reread it every quarter. Clicks from AI Overviews and AI Mode are counted with search: the documentation read describes no separate source for them.</p>\n<h3>For the server: access logs</h3>\n<p>If your host gives access to logs, look for OAI-SearchBot. OpenAI describes it as the crawler that makes sites appear in ChatGPT's search features, and states that a site that opts out is not shown in the answers, though it may remain as a navigational link. ChatGPT-User acts at a user's request and is not used to decide whether content appears in search. A hit in the logs proves access, not citation. Setting up access is described in <a href=\"/blog/seo-geo-etre-cite-par-les-ia-generatives\">the post on the mechanics of GEO</a>.</p>"
+    },
+    {
+      "type": "tech-when-dual",
+      "background": "paper-2",
+      "kicker_fr": "§ Lecture",
+      "kicker_en": "§ Reading",
+      "title_fr": "Que peut-on conclure du relevé, et que faut-il s'interdire ?",
+      "title_en": "What can you conclude from the reading, and what should you rule out?",
+      "aside_fr": "Le relevé dit où vous en êtes. Il ne dit pas pourquoi.",
+      "aside_en": "The reading tells you where you stand. It does not tell you why.",
+      "use_title_fr": "À conclure",
+      "use_title_en": "To conclude",
+      "use_items_fr": [
+        "Votre taux de présence a monté ou baissé de plusieurs points sur plusieurs mois, pour plusieurs questions à la fois",
+        "Les domaines que les assistants citent à votre place sur vos questions : c'est votre liste d'écarts",
+        "Les questions où un concurrent apparaît à chaque passage et vous jamais",
+        "Une variation du trafic venu d'un assistant, rapprochée d'une ligne du journal"
+      ],
+      "use_items_en": [
+        "Your presence rate has gone up or down by several points over several months, on several questions at once",
+        "The domains assistants cite in your place on your questions: that is your list of gaps",
+        "The questions where a competitor appears on every pass and you never do",
+        "A change in traffic from an assistant, matched with a line in the log"
+      ],
+      "avoid_title_fr": "À s'interdire",
+      "avoid_title_en": "To rule out",
+      "avoid_items_fr": [
+        "Annoncer un rang ou une position dans ChatGPT",
+        "Conclure sur un écart d'une ou deux questions d'un mois à l'autre (repère de Waimia)",
+        "Attribuer une hausse à un changement qui n'a pas de date dans le journal",
+        "Comparer deux mois relevés dans des conditions différentes (modèle, lieu, formulation)"
+      ],
+      "avoid_items_en": [
+        "Announcing a rank or a position in ChatGPT",
+        "Concluding from a gap of one or two questions from one month to the next (Waimia's benchmark)",
+        "Crediting a rise to a change that has no date in the log",
+        "Comparing two months recorded under different conditions (model, place, wording)"
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Quand passer à un outil payant, ou à un accompagnement ?</h2>\n<p>Quand la liste de questions dépasse ce que vous relevez à la main, ou quand il faut suivre plusieurs marques. Ce guide ne compare pas les outils : c'est le sujet de <a href=\"/blog/logiciel-seo-ia-pme\">logiciel SEO IA pour PME : faut-il en acheter un ?</a>. Google rappelle de son côté, dans son guide d'optimisation mis à jour le 10 juillet 2026, qu'aucun outil tiers n'a accès à ses systèmes internes de classement ou d'IA, et conseille de se méfier de ceux qui promettent un succès de classement.</p>\n<p>Si le relevé montre que des concurrents sont cités et pas vous, la suite est un travail sur les pages elles-mêmes. <a href=\"/services/referencement-ia\">L'offre de référencement IA</a> démarre par un sprint de cadrage de 10 heures à {{prix.sprint}} € HT, avec un relevé de départ sur vos sujets clés, sans promesse de citation. Si votre clientèle est locale, <a href=\"/services/seo-local\">le SEO local</a> traite la fiche d'établissement, les pages de zone et les avis. Pour démarrer sans engagement : <a href=\"/contact?offer=audit-ia-pme&amp;intent=audit\">l'audit IA gratuit</a>.</p>",
+      "html_en": "<h2>When should you move to a paid tool, or to support?</h2>\n<p>When the list of questions exceeds what you can record by hand, or when several brands must be tracked. This guide does not compare tools: that is the subject of <a href=\"/blog/logiciel-seo-ia-pme\">AI SEO software for SMBs: should you buy one?</a>. Google, for its part, reminds readers in its optimisation guide updated on 10 July 2026 that no third-party tool has access to its internal ranking or AI systems, and advises caution towards those that promise ranking success.</p>\n<p>If the reading shows competitors being cited and not you, the next step is work on the pages themselves. <a href=\"/services/referencement-ia\">The AI search optimisation offer</a> starts with a 10-hour scoping sprint at {{prix.sprint.en}} excl. VAT, with a starting reading on your key topics and no promise of being cited. If your clientele is local, <a href=\"/services/seo-local\">local SEO</a> covers the business profile, area pages and reviews. To start without commitment: <a href=\"/contact?offer=audit-ia-pme&amp;intent=audit\">the free AI audit</a>.</p>"
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper-2",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Further reading",
+      "cards": [
+        {
+          "kicker_fr": "Billet",
+          "kicker_en": "Post",
+          "title_fr": "Être cité par les IA : les mécaniques du GEO",
+          "title_en": "Getting cited by AIs: the mechanics of GEO",
+          "lead_fr": "Passages citables, entités nommées, balisage, accès des robots et mesure des citations.",
+          "lead_en": "Citable passages, named entities, markup, crawler access and citation measurement.",
+          "href": "/blog/seo-geo-etre-cite-par-les-ia-generatives"
+        },
+        {
+          "kicker_fr": "Billet",
+          "kicker_en": "Post",
+          "title_fr": "Logiciel SEO IA pour PME : faut-il en acheter un ?",
+          "title_en": "AI SEO software for SMBs: should you buy one?",
+          "lead_fr": "Ce que fait un logiciel, ce qu'il coûte en octobre 2026 et quand les outils gratuits suffisent.",
+          "lead_en": "What the software does, what it costs in October 2026 and when free tools are enough.",
+          "href": "/blog/logiciel-seo-ia-pme"
+        },
+        {
+          "kicker_fr": "Billet",
+          "kicker_en": "Post",
+          "title_fr": "Mode IA et Aperçus IA de Google : ce que Google annonce",
+          "title_en": "Google's AI Mode and AI Overviews: what Google announces",
+          "lead_fr": "Ce que Google déclare, ce que la Search Console mesure, ce qu'une PME peut vérifier.",
+          "lead_en": "What Google states, what Search Console measures, what a small business can check.",
+          "href": "/blog/ai-mode-google-ai-overviews-pme"
+        }
+      ]
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "h2_fr": "Mesurer sa visibilité dans ChatGPT : questions fréquentes",
+      "h2_en": "Measuring your visibility in ChatGPT: frequently asked questions",
+      "items": [
+        {
+          "q_fr": "Comment surveiller sa visibilité dans ChatGPT gratuitement ?",
+          "a_fr": "Posez chaque mois les mêmes 20 questions à ChatGPT, trois fois chacune, dans une session sans historique, et notez si votre marque et votre site apparaissent. Ajoutez le trafic venu de chatgpt.com dans votre analytique. Aucun abonnement n'est nécessaire, mais il faut tenir la discipline : mêmes questions, mêmes conditions, journal des changements. Relevé le 16 octobre 2026.",
+          "q_en": "How can you monitor your visibility in ChatGPT for free?",
+          "a_en": "Ask ChatGPT the same 20 questions every month, three times each, in a session with no history, and note whether your brand and site appear. Add the traffic coming from chatgpt.com in your analytics. No subscription is needed, but you must keep the discipline: same questions, same conditions, a log of changes. Checked on 16 October 2026."
+        },
+        {
+          "q_fr": "Peut-on connaître sa position dans ChatGPT ?",
+          "a_fr": "Pas de façon fiable. Selon l'étude de SparkToro de janvier 2026, reposer une même question à ChatGPT ou à l'IA de Google donne moins d'une fois sur 100 la même liste de marques, et presque jamais dans le même ordre. Un rang affiché par un outil ne décrit donc qu'une réponse. Ce qui se lit sur la durée, c'est la fréquence d'apparition d'une marque sur de nombreux passages.",
+          "q_en": "Can you know your position in ChatGPT?",
+          "a_en": "Not reliably. According to SparkToro's study of 27 January 2026, asking the same question again to ChatGPT or Google's AI gives the same list of brands less than once in 100 times, and almost never in the same order. A rank shown by a tool therefore describes a single answer. What can be read over time is how often a brand appears across many passes."
+        },
+        {
+          "q_fr": "Comment savoir si ChatGPT envoie des visiteurs sur mon site ?",
+          "a_fr": "OpenAI indique que ChatGPT ajoute automatiquement utm_source=chatgpt.com aux liens de sa recherche. Dans votre outil d'analyse, filtrez ou regroupez les visites dont la source est chatgpt.com. Le chiffre ne compte que les clics : une citation sans clic n'y figure pas. Pour que le site puisse apparaître dans la recherche de ChatGPT, OpenAI demande de ne pas bloquer OAI-SearchBot.",
+          "q_en": "How do I know whether ChatGPT sends visitors to my site?",
+          "a_en": "OpenAI states that ChatGPT automatically adds utm_source=chatgpt.com to the links in its search. In your analytics tool, filter or group visits whose source is chatgpt.com. The figure only counts clicks: a citation without a click does not appear in it. For a site to appear in ChatGPT search, OpenAI asks you not to block OAI-SearchBot."
+        },
+        {
+          "q_fr": "La Search Console mesure-t-elle ChatGPT ?",
+          "a_fr": "Non. Son rapport IA générative couvre les fonctions d'IA de la recherche Google, c'est-à-dire les Aperçus IA et le Mode IA, et donne des impressions par page, pays, appareil et date. Pour ChatGPT, il faut passer par l'analytique, les journaux du serveur et un relevé manuel des réponses.",
+          "q_en": "Does Search Console measure ChatGPT?",
+          "a_en": "No. Its generative AI report covers the AI features of Google Search, that is AI Overviews and AI Mode, and gives impressions by page, country, device and date. For ChatGPT, you need analytics, server logs and a manual reading of the answers."
+        },
+        {
+          "q_fr": "Faut-il autoriser OAI-SearchBot ?",
+          "a_fr": "Si vous voulez apparaître dans la recherche de ChatGPT, oui. OpenAI écrit qu'un site fermé à OAI-SearchBot n'est pas affiché dans les réponses de recherche, même s'il peut rester en lien de navigation. Le robot GPTBot, qui concerne l'entraînement, est un choix distinct. Autoriser le robot rend l'apparition possible, il ne la garantit pas.",
+          "q_en": "Should you allow OAI-SearchBot?",
+          "a_en": "If you want to appear in ChatGPT search, yes. OpenAI writes that a site closed to OAI-SearchBot is not shown in search answers, though it may remain as a navigational link. The GPTBot crawler, which concerns training, is a separate choice. Allowing the crawler makes appearing possible, it does not guarantee it."
+        },
+        {
+          "q_fr": "Combien de temps le relevé demande-t-il chaque mois ?",
+          "a_fr": "Environ trois heures pour 20 questions, trois passages et trois assistants, à raison d'une minute par passage. C'est une estimation de Waimia, à vérifier sur vos deux premiers mois. Si cela dépasse ce que vous pouvez tenir, réduisez le nombre d'assistants avant de réduire le nombre de passages.",
+          "q_en": "How long does the reading take each month?",
+          "a_en": "About three hours for 20 questions, three passes and three assistants, at one minute per pass. This is a Waimia estimate, to check over your first two months. If that is more than you can sustain, cut the number of assistants before cutting the number of passes."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Passer à l'action",
+      "kicker_en": "§ Take action",
+      "h2_fr": "Savoir où vous en êtes avant de changer quoi que ce soit.",
+      "h2_en": "Know where you stand before changing anything.",
+      "subtitle_fr": "L'audit de 45 minutes est gratuit. On teste ensemble ce que les assistants répondent sur votre marché et on repère ce qui bloque la citation. Vous repartez avec un ou deux chantiers classés, qu'on travaille ensemble ou non.",
+      "subtitle_en": "The 45-minute audit is free. Together we test what assistants answer on your market and spot what blocks citation. You leave with one or two ranked projects, whether or not we work together.",
+      "buttons": [
+        {
+          "label_fr": "Réserver l'audit gratuit",
+          "label_en": "Book the free audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Voir l'offre référencement IA",
+          "label_en": "See the AI search optimisation offer",
+          "href": "/services/referencement-ia",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

@@ -1,13 +1,13 @@
 {
   "$schema": "../../../schemas/generated/services.page.schema.json",
-  "title_fr": "Agence n8n : expert en automatisation n8n pour PME · Waimia",
-  "seoTitle_fr": "Agence n8n pour PME : workflows en 2 à 6 semaines, cloud UE",
-  "title_en": "n8n agency: n8n automation expert for SMEs · Waimia",
-  "description_fr": "Agence n8n pour PME : un expert n8n conçoit, héberge et supervise vos workflows, sur votre serveur ou en cloud UE. Cadrage {{prix.sprint}} € HT, audit gratuit de 45 min.",
-  "description_en": "n8n agency for SMBs: an n8n expert designs, hosts and supervises your workflows, on your server or EU cloud. Scoping €{{prix.sprint.en}} excl. VAT, free 45-min audit.",
+  "title_fr": "Agence n8n pour PME : workflows, prix et délais · Waimia",
+  "seoTitle_fr": "Agence n8n pour PME : prix, délais, exemples de flux",
+  "title_en": "n8n agency for SMEs: workflows, price and lead times · Waimia",
+  "description_fr": "Agence n8n pour PME : sprint de cadrage {{prix.sprint}} € HT avec un workflow testé, mise en production dès {{prix.pilote}} € HT. Délais et exemples de flux.",
+  "description_en": "n8n agency for SMBs: scoping sprint €{{prix.sprint.en}} excl. VAT with a tested workflow, production from €{{prix.pilote.en}} excl. VAT. Lead times and example flows.",
   "slug": "automatisation-n8n",
   "publishedAt": "2026-07-16T00:00:00.000Z",
-  "updatedAt": "2026-10-04T00:00:00.000Z",
+  "updatedAt": "2026-10-16T00:00:00.000Z",
   "category": "automatisation",
   "tags": [
     "automatisation-n8n",
@@ -25,7 +25,7 @@
   "faq_fr": [
     {
       "q": "Combien coûte n8n pour une PME ?",
-      "a": "Deux postes. L'outil : la version auto-hébergée est disponible sur GitHub, et les offres hébergées par n8n démarrent à 20 € par mois en facturation annuelle (page tarifs de n8n, vérifiée le 4 octobre 2026). La prestation Waimia : {{prix.sprint}} € HT pour un sprint de cadrage de 10 heures, puis {{prix.horaire}} € HT de l'heure."
+      "a": "Deux postes. L'outil : la version auto-hébergée est disponible sur GitHub, et les offres hébergées par n8n démarrent à 20 € par mois en facturation annuelle (page tarifs de n8n, vérifiée le 4 octobre 2026). La prestation Waimia : {{prix.sprint}} € HT pour un sprint de cadrage de 10 heures avec un premier workflow testé, mise en production dès {{prix.pilote}} € HT avec le pilote, puis {{prix.horaire}} € HT de l'heure."
     },
     {
       "q": "n8n vs Make : lequel choisir ?",
@@ -50,12 +50,20 @@
     {
       "q": "Agence n8n, expert n8n ou freelance n8n : que choisir ?",
       "a": "Un freelance n8n prend souvent un chantier précis et le livre seul. Une agence n8n ajoute le cadrage, l'hébergement, la supervision et la formation d'un référent. Waimia est un studio dirigé par un ingénieur : celui qui cadre votre automatisation n8n est aussi celui qui la construit et qui l'explique à votre équipe. Vous avez un seul interlocuteur, avec les accès et la documentation à vous dès le départ."
+    },
+    {
+      "q": "Combien de temps pour mettre en place un workflow n8n ?",
+      "a": "Un premier workflow n8n prototypé et testé demande les 10 heures du sprint de cadrage, à {{prix.sprint}} € HT, réparties sur 2 à 6 semaines selon vos accès. La mise en production relève du pilote, dès {{prix.pilote}} € HT. L'auto-hébergement ajoute quelques jours, et le reste dépend de vos accès et de la disponibilité de la personne qui connaît le process."
+    },
+    {
+      "q": "Qui corrige un workflow n8n en cas de panne ?",
+      "a": "Un workflow s'arrête quand un identifiant expire, qu'une API change le format de sa réponse ou qu'un volume dépasse une limite. Le journal d'exécutions et les alertes livrés avec le pilote le signalent. La correction est une intervention : {{prix.horaire}} € HT de l'heure avec le suivi à {{prix.maintenance.p1}} € HT par mois, ou prise sur les heures incluses dans les paliers supérieurs de la maintenance (détail sur la page tarifs). Une fois la passation faite, votre référent peut aussi la traiter."
     }
   ],
   "faq_en": [
     {
       "q": "How much does n8n cost for an SMB?",
-      "a": "Two items. The tool: the self-hosted version is available on GitHub, and plans hosted by n8n start at €20 per month billed annually (n8n pricing page, checked on 4 October 2026). The Waimia engagement: €{{prix.sprint.en}} excl. VAT for a 10-hour scoping sprint, then €{{prix.horaire}} per hour excl. VAT."
+      "a": "Two items. The tool: the self-hosted version is available on GitHub, and plans hosted by n8n start at €20 per month billed annually (n8n pricing page, checked on 4 October 2026). The Waimia engagement: €{{prix.sprint.en}} excl. VAT for a 10-hour scoping sprint with a first tested workflow, production from €{{prix.pilote.en}} excl. VAT with the pilot, then €{{prix.horaire}} per hour excl. VAT."
     },
     {
       "q": "n8n vs Make: which one to choose?",
@@ -80,6 +88,14 @@
     {
       "q": "n8n agency, n8n expert or n8n freelancer: which one?",
       "a": "A freelancer often takes one defined job and delivers it alone. An n8n agency adds scoping, hosting, supervision and the training of an owner. Waimia is a studio run by an engineer: the person who scopes your n8n automation also builds it and explains it to your team. You have one contact, with access and documentation yours from day one."
+    },
+    {
+      "q": "How long does it take to set up an n8n workflow?",
+      "a": "A first prototyped and tested n8n workflow takes the 10 hours of the scoping sprint, at €{{prix.sprint.en}} excl. VAT, spread over 2 to 6 weeks depending on your access. Production is the pilot, from €{{prix.pilote.en}} excl. VAT. Self-hosting adds a few days, and the rest depends on your access and on the availability of the person who knows the process."
+    },
+    {
+      "q": "Who fixes an n8n workflow when it breaks?",
+      "a": "A workflow stops when a credential expires, an API changes its response format or a volume exceeds a limit. The run log and alerts delivered with the pilot flag it. The fix is an intervention: €{{prix.horaire}} excl. VAT an hour with the monitoring tier at €{{prix.maintenance.p1}} excl. VAT per month, or drawn from the hours included in the higher maintenance tiers (details on the pricing page). Once the handover is done, your owner can handle it too."
     }
   ],
   "sections": [
@@ -90,8 +106,8 @@
       "kicker_en": "§ n8n agency",
       "h1_fr": "Agence <i class=\"acc\">n8n</i> pour PME",
       "h1_en": "<i class=\"acc\">n8n</i> agency for SMEs",
-      "lede_fr": "Waimia est une agence n8n : un studio qui conçoit, héberge et supervise des workflows pour les PME et ETI. Un workflow en production, branché à vos logiciels, avec journal d'exécutions, alertes et un référent formé chez vous.",
-      "lede_en": "Waimia is an n8n agency: a studio that designs, hosts and supervises workflows for SMBs and mid-size companies. One workflow in production, wired to your software, with its run log, alerts and a trained owner on your side.",
+      "lede_fr": "Waimia est une agence n8n : un studio qui conçoit, héberge et supervise des workflows pour les PME et ETI. Le sprint de cadrage livre un premier workflow testé ; le pilote le met en production, avec journal d'exécutions, alertes et un référent formé chez vous.",
+      "lede_en": "Waimia is an n8n agency: a studio that designs, hosts and supervises workflows for SMBs and mid-size companies. The scoping sprint delivers a first tested workflow; the pilot puts it into production, with its run log, alerts and a trained owner on your side.",
       "badges": [
         {
           "label_fr": "Workflows n8n",
@@ -174,8 +190,8 @@
       "type": "editorial-prose",
       "background": "paper-2",
       "maxWidth": "prose",
-      "html_fr": "<h2>Pourquoi n8n, et ce qu'on a vérifié</h2>\n<p>Si l'outil vous est encore inconnu, <a href=\"/blog/n8n-c-est-quoi\">n8n, c'est quoi</a> l'explique en cinq minutes. Deux caractéristiques comptent pour une PME. La facturation : selon la <a href=\"https://n8n.io/pricing/\" rel=\"noopener\" target=\"_blank\">page tarifs de n8n</a>, une exécution correspond à un lancement complet du workflow, quel que soit le nombre d'étapes ou le volume de données traité. Un workflow à vingt étapes ne coûte pas plus qu'un workflow à trois. L'hébergement : une version auto-hébergée est disponible sur GitHub, et pour les offres hébergées par n8n les données sont stockées dans l'Union européenne, sur des serveurs situés à Francfort. Offres hébergées à partir de 20 € par mois en facturation annuelle. Informations vérifiées le 4 octobre 2026. Le détail des offres, des limites et du coût complet est dans le guide <a href=\"/ressources/guides/n8n-prix\">prix de n8n</a>.</p>\n<h2>Agence automatisation n8n : ce qu'on fait exactement</h2>\n<p>On installe n8n sur votre serveur ou on configure votre compte n8n Cloud, on construit le workflow, on le branche à vos logiciels et on teste les cas d'erreur avant la mise en production. Quand une étape demande de lire un texte libre (classer un email, extraire les lignes d'une facture), on y branche un modèle Claude ou OpenAI. Pour une décision plus ouverte, on passe à un <a href=\"/services/agents-ia\">agent IA</a>.</p>\n<p>n8n n'est pas toujours le bon choix. La page <a href=\"/services/automatisations\">automatisation des processus</a> explique comment on tranche entre n8n et Make, le comparatif <a href=\"/ressources/comparatifs/n8n-vs-make\">n8n vs Make</a> pose les critères côte à côte, et l'article <a href=\"/blog/avis-n8n-vs-zapier-2026\">n8n vs Zapier</a> les détaille. Si Make est déjà en place chez vous, voir la page <a href=\"/services/automatisation-make\">agence Make</a>. Si le process demande un écran de saisie, des droits d'accès ou une base de données, il faut une <a href=\"/services/applications-internes\">application interne</a>, pas un workflow.</p>\n<h2>Combien de temps</h2>\n<p>Un premier workflow n8n est habituellement en production en 2 à 6 semaines. L'installation auto-hébergée ajoute quelques jours : serveur, nom de domaine, sauvegardes, mises à jour. Le reste du délai dépend de vos accès et du temps que la personne qui connaît le process peut y consacrer.</p>\n<h2>Ce qui peut mal tourner</h2>\n<p>Le risque principal avec n8n est organisationnel. Auto-hébergé, il faut quelqu'un pour appliquer les mises à jour et surveiller les sauvegardes : soit votre équipe, soit Waimia en régie. Sans propriétaire, un n8n devient une collection de workflows que personne n'ose toucher. On forme donc un référent, et on peut former toute une équipe. Pour que votre équipe reprenne la main sur ses workflows : <a href=\"/formations/n8n\">formation n8n</a>, ou <a href=\"/formations/make\">formation Make</a> si vous travaillez sur Make.</p>\n<p>Pour voir ce que n8n change sur un process précis, partez du cas d'usage <a href=\"/cas-usages/centraliser-donnees\">centraliser ses données</a>, listez vos tâches dans la <a href=\"/ressources/outils/grille-taches-a-automatiser\">grille des tâches à automatiser</a>, estimez le gain avec le <a href=\"/ressources/outils/calculateur-roi-ia\">calculateur de ROI</a>, ou réservez l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>.</p>",
-      "html_en": "<h2>Why n8n, and what we checked</h2>\n<p>Two traits matter for an SMB. Billing: according to the <a href=\"https://n8n.io/pricing/\" rel=\"noopener\" target=\"_blank\">n8n pricing page</a>, an execution is a single run of the entire workflow, whatever the number of steps or the volume of data processed. A twenty-step workflow costs no more than a three-step one. Hosting: a self-hosted version is available on GitHub, and for plans hosted by n8n the data is stored in the EU, on servers located in Frankfurt. Hosted plans start at €20 per month billed annually. Checked on 4 October 2026.</p>\n<h2>n8n automation agency: what we do exactly</h2>\n<p>We install n8n on your server or set up your n8n Cloud account, build the workflow, wire it to your software and test the error cases before going live. When a step requires reading free text (classifying an email, extracting invoice lines), we plug in a Claude or OpenAI model. For a more open decision, we move to an <a href=\"/services/agents-ia\">AI agent</a>.</p>\n<p>n8n is not always the right choice. The <a href=\"/services/automatisations\">process automation</a> page explains how we decide between n8n and Make, and the article <a href=\"/blog/avis-n8n-vs-zapier-2026\">n8n vs Zapier</a> details the criteria. If the process needs a data-entry screen, access rights or a database, you need an <a href=\"/services/applications-internes\">internal application</a>, not a workflow.</p>\n<h2>How long</h2>\n<p>A first n8n workflow is usually in production within 2 to 6 weeks. Self-hosting adds a few days: server, domain name, backups, updates. The rest depends on your access and on the time the person who knows the process can give.</p>\n<h2>What can go wrong</h2>\n<p>The main risk with n8n is organisational. Self-hosted, someone must apply updates and watch the backups: your team, or Waimia on a time-and-materials basis. Without an owner, n8n becomes a pile of workflows nobody dares touch. So we train an owner, and can train a whole team. For your team to take over its workflows: <a href=\"/formations/n8n\">n8n training</a>, or <a href=\"/formations/make\">Make training</a> if you work on Make.</p>\n<p>To see what n8n changes on a given process, start from the use case <a href=\"/cas-usages/centraliser-donnees\">centralising your data</a> or book the <a href=\"/audit-ia-pme\">free AI audit</a>.</p>"
+      "html_fr": "<h2>Pourquoi n8n, et ce qu'on a vérifié</h2>\n<p>Si l'outil vous est encore inconnu, <a href=\"/blog/n8n-c-est-quoi\">n8n, c'est quoi</a> l'explique en cinq minutes. Deux caractéristiques comptent pour une PME. La facturation : selon la <a href=\"https://n8n.io/pricing/\" rel=\"noopener\" target=\"_blank\">page tarifs de n8n</a>, une exécution correspond à un lancement complet du workflow, quel que soit le nombre d'étapes ou le volume de données traité. Un workflow à vingt étapes ne coûte pas plus qu'un workflow à trois. L'hébergement : une version auto-hébergée est disponible sur GitHub, et pour les offres hébergées par n8n les données sont stockées dans l'Union européenne, sur des serveurs situés à Francfort. Offres hébergées à partir de 20 € par mois en facturation annuelle. Informations vérifiées le 4 octobre 2026. Le détail des offres, des limites et du coût complet est dans le guide <a href=\"/ressources/guides/n8n-prix\">prix de n8n</a>.</p>\n<h2>Agence automatisation n8n : ce qu'on fait exactement</h2>\n<p>On installe n8n sur votre serveur ou on configure votre compte n8n Cloud, on construit le workflow, on le branche à vos logiciels et on teste les cas d'erreur avant la mise en production. Quand une étape demande de lire un texte libre (classer un email, extraire les lignes d'une facture), on y branche un modèle Claude ou OpenAI. Pour une décision plus ouverte, on passe à un <a href=\"/services/agents-ia\">agent IA</a>.</p>\n<p>n8n n'est pas toujours le bon choix. La page <a href=\"/services/automatisations\">automatisation des processus</a> explique comment on tranche entre n8n et Make, le comparatif <a href=\"/ressources/comparatifs/n8n-vs-make\">n8n vs Make</a> pose les critères côte à côte, et l'article <a href=\"/blog/avis-n8n-vs-zapier-2026\">n8n vs Zapier</a> les détaille. Si Make est déjà en place chez vous, voir la page <a href=\"/services/automatisation-make\">agence Make</a>. Si le process demande un écran de saisie, des droits d'accès ou une base de données, il faut une <a href=\"/services/applications-internes\">application interne</a>, pas un workflow.</p>\n<h2>Combien de temps, et à quel prix</h2>\n<p>Un premier workflow n8n prototypé et testé prend habituellement 2 à 6 semaines : c'est le contenu du sprint de cadrage, à {{prix.sprint}} € HT. Sa mise en production relève du pilote, dès {{prix.pilote}} € HT ; la maintenance démarre ensuite à {{prix.maintenance.p1}} € HT par mois. L'installation auto-hébergée ajoute quelques jours : serveur, nom de domaine, sauvegardes, mises à jour. Le reste du délai dépend de vos accès et du temps que la personne qui connaît le process peut y consacrer. Les montants et ce qu'ils couvrent sont sur la page <a href=\"/tarifs\">tarifs</a>.</p>\n<h2>Ce qui peut mal tourner</h2>\n<p>Un workflow peut aussi s'arrêter : un identifiant expire, une API change le format de sa réponse, un volume dépasse une limite. D'où le journal d'exécutions et les alertes livrés avec le pilote. La correction est une intervention : facturée {{prix.horaire}} € HT de l'heure avec le suivi à {{prix.maintenance.p1}} € HT par mois, ou prise sur les heures incluses dans les paliers supérieurs de la maintenance (détail sur la page <a href=\"/tarifs\">tarifs</a>).</p>\n<p>Le risque principal avec n8n est organisationnel. Auto-hébergé, il faut quelqu'un pour appliquer les mises à jour et surveiller les sauvegardes : soit votre équipe, soit Waimia en régie. Sans propriétaire, un n8n devient une collection de workflows que personne n'ose toucher. On forme donc un référent, et on peut former toute une équipe. Pour que votre équipe reprenne la main sur ses workflows : <a href=\"/formations/n8n\">formation n8n</a>, ou <a href=\"/formations/make\">formation Make</a> si vous travaillez sur Make.</p>\n<p>Pour voir ce que n8n change sur un process précis, partez du cas d'usage <a href=\"/cas-usages/centraliser-donnees\">centraliser ses données</a>, listez vos tâches dans la <a href=\"/ressources/outils/grille-taches-a-automatiser\">grille des tâches à automatiser</a>, estimez le gain avec le <a href=\"/ressources/outils/calculateur-roi-ia\">calculateur de ROI</a>, ou réservez l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>.</p>",
+      "html_en": "<h2>Why n8n, and what we checked</h2>\n<p>Two traits matter for an SMB. Billing: according to the <a href=\"https://n8n.io/pricing/\" rel=\"noopener\" target=\"_blank\">n8n pricing page</a>, an execution is a single run of the entire workflow, whatever the number of steps or the volume of data processed. A twenty-step workflow costs no more than a three-step one. Hosting: a self-hosted version is available on GitHub, and for plans hosted by n8n the data is stored in the EU, on servers located in Frankfurt. Hosted plans start at €20 per month billed annually. Checked on 4 October 2026.</p>\n<h2>n8n automation agency: what we do exactly</h2>\n<p>We install n8n on your server or set up your n8n Cloud account, build the workflow, wire it to your software and test the error cases before going live. When a step requires reading free text (classifying an email, extracting invoice lines), we plug in a Claude or OpenAI model. For a more open decision, we move to an <a href=\"/services/agents-ia\">AI agent</a>.</p>\n<p>n8n is not always the right choice. The <a href=\"/services/automatisations\">process automation</a> page explains how we decide between n8n and Make, and the article <a href=\"/blog/avis-n8n-vs-zapier-2026\">n8n vs Zapier</a> details the criteria. If the process needs a data-entry screen, access rights or a database, you need an <a href=\"/services/applications-internes\">internal application</a>, not a workflow.</p>\n<h2>How long, and at what price</h2>\n<p>A first prototyped and tested n8n workflow usually takes 2 to 6 weeks: that is the content of the scoping sprint, at €{{prix.sprint.en}} excl. VAT. Putting it into production is the pilot, from €{{prix.pilote.en}} excl. VAT; maintenance then starts at €{{prix.maintenance.p1}} excl. VAT per month. Self-hosting adds a few days: server, domain name, backups, updates. The rest depends on your access and on the time the person who knows the process can give. Amounts and what they cover are on the <a href=\"/tarifs\">pricing</a> page.</p>\n<h2>What can go wrong</h2>\n<p>A workflow can also stop: a credential expires, an API changes its response format, a volume exceeds a limit. Hence the run log and alerts delivered with the pilot. The fix is an intervention: billed at €{{prix.horaire}} excl. VAT an hour with the monitoring tier at €{{prix.maintenance.p1}} excl. VAT per month, or drawn from the hours included in the higher maintenance tiers (details on the <a href=\"/tarifs\">pricing</a> page).</p>\n<p>The main risk with n8n is organisational. Self-hosted, someone must apply updates and watch the backups: your team, or Waimia on a time-and-materials basis. Without an owner, n8n becomes a pile of workflows nobody dares touch. So we train an owner, and can train a whole team. For your team to take over its workflows: <a href=\"/formations/n8n\">n8n training</a>, or <a href=\"/formations/make\">Make training</a> if you work on Make.</p>\n<p>To see what n8n changes on a given process, start from the use case <a href=\"/cas-usages/centraliser-donnees\">centralising your data</a> or book the <a href=\"/audit-ia-pme\">free AI audit</a>.</p>"
     },
     {
       "type": "comparison-duo",
@@ -234,6 +250,93 @@
       ]
     },
     {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Exemples de flux · scénarios illustratifs",
+      "kicker_en": "§ Example flows · illustrative scenarios",
+      "heading_fr": "Cinq workflows n8n qu'une PME demande souvent",
+      "heading_en": "Five n8n workflows an SMB often asks for",
+      "caption_fr": "Scénarios illustratifs, pas des cas clients : aucun chiffre n'est annoncé. Le temps gagné dépend de votre volume ; il se mesure pendant le pilote.",
+      "caption_en": "Illustrative scenarios, not client cases: no figure is claimed. Time saved depends on your volume; it is measured during the pilot.",
+      "columns_fr": [
+        "Workflow",
+        "Déclencheur",
+        "Ce que n8n fait",
+        "Ce qui reste humain"
+      ],
+      "columns_en": [
+        "Workflow",
+        "Trigger",
+        "What n8n does",
+        "What stays human"
+      ],
+      "rows_fr": [
+        [
+          "Devis depuis un formulaire",
+          "Un prospect remplit le formulaire du site",
+          "Crée le contact dans le CRM, prépare un brouillon de devis, envoie l'accusé de réception",
+          "Le commercial relit et envoie le devis"
+        ],
+        [
+          "Relance de facture impayée",
+          "Une échéance dépasse sa date dans l'outil de facturation",
+          "Envoie le rappel selon le calendrier fixé avec vous et note la relance dans le dossier",
+          "Une personne décide d'une relance ferme ou d'un appel"
+        ],
+        [
+          "Synchronisation CRM et facturation",
+          "Une affaire passe à « gagnée » dans le CRM",
+          "Crée le client et la facture dans l'outil de facturation",
+          "Un écart entre les deux outils déclenche une alerte, pas une correction automatique"
+        ],
+        [
+          "Rapport hebdomadaire",
+          "Chaque lundi matin, par planification",
+          "Lit les chiffres dans vos outils, les met en forme et les envoie par e-mail",
+          "Vous choisissez les indicateurs ; n8n ne les interprète pas"
+        ],
+        [
+          "Tri de la boîte de support",
+          "Un nouveau message arrive",
+          "Classe le message avec une étape IA, pose l'étiquette et l'affecte",
+          "Les messages ambigus sont renvoyés à une personne"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Quote from a form",
+          "A prospect fills in the website form",
+          "Creates the contact in the CRM, prepares a draft quote, sends the acknowledgement",
+          "The salesperson reviews and sends the quote"
+        ],
+        [
+          "Overdue invoice reminder",
+          "A due date passes in the invoicing tool",
+          "Sends the reminder on the schedule set with you and logs it in the record",
+          "A person decides on a firm reminder or a call"
+        ],
+        [
+          "CRM and invoicing sync",
+          "A deal moves to \"won\" in the CRM",
+          "Creates the customer and the invoice in the invoicing tool",
+          "A mismatch between the two tools raises an alert, not an automatic fix"
+        ],
+        [
+          "Weekly report",
+          "Every Monday morning, on a schedule",
+          "Reads the figures in your tools, formats them and emails them",
+          "You choose the indicators; n8n does not interpret them"
+        ],
+        [
+          "Support inbox triage",
+          "A new message arrives",
+          "Classifies the message with an AI step, applies the label and assigns it",
+          "Ambiguous messages go back to a person"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
       "type": "deliverables-grid",
       "background": "paper-3",
       "kicker_fr": "§ Ce que vous gardez",
@@ -278,6 +381,58 @@
       ]
     },
     {
+      "type": "process-steps",
+      "background": "paper-3",
+      "kicker_fr": "§ Déroulé",
+      "kicker_en": "§ How it runs",
+      "h2_fr": "Comment se passe une mission n8n, du premier appel à la maintenance",
+      "h2_en": "How an n8n engagement runs, from the first call to maintenance",
+      "intro_fr": "Délais indicatifs : ils dépendent surtout de vos accès et du temps que la personne qui connaît le process peut y consacrer.",
+      "intro_en": "Indicative lead times: they depend mostly on your access and on the time the person who knows the process can give.",
+      "steps": [
+        {
+          "title_fr": "Audit gratuit",
+          "title_en": "Free audit",
+          "meta_fr": "45 minutes, en visio",
+          "meta_en": "45 minutes, on a call",
+          "body_fr": "On regarde vos process, on vérifie que vos logiciels ont une API et on vous dit si n8n est le bon outil, ou non.",
+          "body_en": "We look at your processes, check that your software has an API and tell you whether n8n is the right tool, or not."
+        },
+        {
+          "title_fr": "Sprint de cadrage",
+          "title_en": "Scoping sprint",
+          "meta_fr": "10 h, {{prix.sprint}} € HT",
+          "meta_en": "10 h, €{{prix.sprint.en}} excl. VAT",
+          "body_fr": "Cadrage de la tâche prioritaire, choix de l'hébergement (votre serveur ou n8n Cloud) et un premier workflow prototypé et testé, avec ses cas d'erreur.",
+          "body_en": "Scoping of the priority task, hosting choice (your server or n8n Cloud) and a first workflow prototyped and tested, with its error cases."
+        },
+        {
+          "title_fr": "Premier workflow testé",
+          "title_en": "First tested workflow",
+          "meta_fr": "Habituellement 2 à 6 semaines",
+          "meta_en": "Usually 2 to 6 weeks",
+          "body_fr": "Le délai dépend de vos accès. À l'issue, vous voyez le workflow tourner sur des données de test et vous décidez de le mettre en production ou non.",
+          "body_en": "The lead time depends on your access. At the end, you see the workflow run on test data and decide whether to put it into production."
+        },
+        {
+          "title_fr": "Pilote en production",
+          "title_en": "Pilot in production",
+          "meta_fr": "Dès {{prix.pilote}} € HT",
+          "meta_en": "From €{{prix.pilote.en}} excl. VAT",
+          "body_fr": "Le workflow retenu est mis en production et branché à vos logiciels, avec journal d'exécutions, alertes et validation humaine. Un référent est formé chez vous.",
+          "body_en": "The chosen workflow goes into production, wired to your software, with a run log, alerts and human validation. An owner is trained on your side."
+        },
+        {
+          "title_fr": "Maintenance",
+          "title_en": "Maintenance",
+          "meta_fr": "Dès {{prix.maintenance.p1}} € HT par mois",
+          "meta_en": "From €{{prix.maintenance.p1}} excl. VAT per month",
+          "body_fr": "Suivi mensuel et interventions, sans engagement de durée. Les interventions hors forfait sont facturées {{prix.horaire}} € HT de l'heure.",
+          "body_en": "Monthly monitoring and interventions, with no minimum term. Interventions outside the plan are billed at €{{prix.horaire}} excl. VAT an hour."
+        }
+      ]
+    },
+    {
       "type": "decision-list",
       "background": "paper",
       "kicker_fr": "§ Quand ne pas le faire",
@@ -312,8 +467,8 @@
       "kicker_en": "§ Two ways to engage",
       "h2_fr": "Prix d'une prestation n8n",
       "h2_en": "Price of an n8n engagement",
-      "lede_fr": "On démarre par un sprint de cadrage à prix fixe : cadrage de la tâche prioritaire et un premier workflow n8n prototypé et testé. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints en régie. Vous gardez vos workflows n8n, vos accès et la documentation.",
-      "lede_en": "We start with a fixed-price scoping sprint: scoping of the priority task and a first n8n workflow prototyped and tested. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the time and materials frame. You keep your n8n workflows, your access and the documentation.",
+      "lede_fr": "On démarre par un sprint de cadrage à prix fixe : cadrage de la tâche prioritaire et un premier workflow n8n prototypé et testé. La mise en production relève du pilote, dès {{prix.pilote}} € HT ; la suite se cale ensuite sur devis, en sprints en régie. Vous gardez vos workflows n8n, vos accès et la documentation.",
+      "lede_en": "We start with a fixed-price scoping sprint: scoping of the priority task and a first n8n workflow prototyped and tested. Production is the pilot, from €{{prix.pilote.en}} excl. VAT; what follows is quoted, in sprints within the time and materials frame. You keep your n8n workflows, your access and the documentation.",
       "tiers": [
         {
           "name_fr": "Sprint de cadrage",
@@ -323,15 +478,15 @@
           "period_en": "10 h · ex VAT",
           "features_fr": [
             "Cadrage de la tâche prioritaire à automatiser",
-            "Un premier workflow n8n conçu, branché et en production",
-            "Supervision, alertes et heures gagnées mesurées",
-            "Un journal d'exécutions consultable et un référent formé chez vous"
+            "Un premier workflow n8n prototypé et testé, avec ses cas d'erreur",
+            "Choix de l'hébergement : votre serveur ou n8n Cloud",
+            "Temps estimé et plan d'action pour la mise en production"
           ],
           "features_en": [
             "Scoping of the priority task to automate",
-            "A first n8n workflow designed, wired and in production",
-            "Supervision, alerts and hours saved measured",
-            "A run log you can read and an owner trained on your side"
+            "A first n8n workflow prototyped and tested, with its error cases",
+            "Hosting choice: your server or n8n Cloud",
+            "Estimated time and action plan for going to production"
           ],
           "cta": {
             "label_fr": "Réserver l'audit gratuit →",
@@ -342,33 +497,108 @@
           "featured": true
         },
         {
-          "name_fr": "Suite sur devis",
-          "name_en": "Next steps on quote",
-          "price": "Sur devis",
-          "period_fr": "estimé avec vous · HT",
-          "period_en": "estimated with you · ex VAT",
+          "name_fr": "Pilote, puis suite",
+          "name_en": "Pilot, then next steps",
+          "price": "{{prix.pilote}} €",
+          "period_fr": "à partir de · HT",
+          "period_en": "from · ex VAT",
           "features_fr": [
-            "Temps nécessaire estimé ensemble, puis validé",
-            "Exécuté en sprints, facturés en régie",
-            "Nouveaux workflows n8n ajoutés et supervisés",
-            "Vous gardez workflows, accès et documentation"
+            "Le workflow retenu mis en production, branché à vos logiciels",
+            "Journal d'exécutions, alertes et validation humaine",
+            "Heures gagnées mesurées sur vos données, avec un référent formé chez vous",
+            "Suite en sprints facturés en régie ; vous gardez workflows, accès et documentation"
           ],
           "features_en": [
-            "Time needed estimated together, then validated",
-            "Run in sprints, time and materials frame",
-            "New n8n workflows added and supervised",
-            "You keep the workflows, access and documentation"
+            "The chosen workflow put into production, wired to your software",
+            "Run log, alerts and human validation",
+            "Hours saved measured on your data, with an owner trained on your side",
+            "Next steps in sprints on a time and materials basis; you keep the workflows, access and documentation"
           ],
           "cta": {
-            "label_fr": "Cadrer la suite →",
-            "label_en": "Scope what follows →",
+            "label_fr": "Cadrer le pilote →",
+            "label_en": "Scope the pilot →",
             "href": "/contact?offer=automatisation-n8n&intent=suite",
             "variant": "ghost"
           }
         }
       ],
-      "footnote_fr": "La suite est facturée en régie à {{prix.horaire}} € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, vos workflows n8n, vos accès et la documentation sont à vous.",
-      "footnote_en": "What follows is billed on a time-and-materials basis at {{prix.horaire}} € an hour, non-degressive. No subscription, no lock-in: at the end, your n8n workflows, your access and the documentation are yours."
+      "footnote_fr": "Le pilote démarre dès {{prix.pilote}} € HT ; la suite est facturée en régie à {{prix.horaire}} € de l'heure, non dégressif. Maintenance dès {{prix.maintenance.p1}} € HT par mois, sans engagement de durée. Sans abonnement ni captivité : à la fin, vos workflows n8n, vos accès et la documentation sont à vous.",
+      "footnote_en": "The pilot starts from €{{prix.pilote.en}} excl. VAT; what follows is billed on a time-and-materials basis at {{prix.horaire}} € an hour, non-degressive. Maintenance from €{{prix.maintenance.p1}} excl. VAT per month, with no minimum term. No subscription, no lock-in: at the end, your n8n workflows, your access and the documentation are yours."
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper",
+      "kicker_fr": "§ Choisir",
+      "kicker_en": "§ Choosing",
+      "heading_fr": "Cinq questions à poser à une agence n8n avant de signer",
+      "heading_en": "Five questions to ask an n8n agency before signing",
+      "caption_fr": "Grille valable pour Waimia comme pour un concurrent. Une mauvaise réponse à une seule question suffit à creuser.",
+      "caption_en": "Checklist valid for Waimia as for a competitor. One bad answer is enough to dig deeper.",
+      "columns_fr": [
+        "Question",
+        "Bonne réponse",
+        "Signal d'alerte"
+      ],
+      "columns_en": [
+        "Question",
+        "Good answer",
+        "Warning sign"
+      ],
+      "rows_fr": [
+        [
+          "À qui appartiennent l'instance et les identifiants ?",
+          "À vous : instance, comptes et clés d'API créés chez vous, workflows exportables en JSON",
+          "Instance ou clés au nom du prestataire"
+        ],
+        [
+          "Qui répare quand un workflow s'arrête, et à quel prix ?",
+          "Un journal d'exécutions, des alertes, un responsable nommé et un tarif d'intervention écrit",
+          "« Ça n'arrive pas »"
+        ],
+        [
+          "Cloud ou auto-hébergé, et pourquoi ?",
+          "Une raison liée à vos données et à la personne qui appliquera les mises à jour",
+          "Un choix imposé sans propriétaire des mises à jour"
+        ],
+        [
+          "Que livre le premier forfait ?",
+          "Un workflow testé et un temps estimé pour la suite, avec un prix fixe",
+          "Un abonnement annuel sans périmètre"
+        ],
+        [
+          "Que se passe-t-il si vous partez ?",
+          "Un référent formé, une fiche par workflow, un autre prestataire peut reprendre",
+          "Une documentation qui n'existe que chez le prestataire"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Who owns the instance and the credentials?",
+          "You: instance, accounts and API keys created on your side, workflows exportable as JSON",
+          "Instance or keys in the provider's name"
+        ],
+        [
+          "Who fixes it when a workflow stops, and at what price?",
+          "A run log, alerts, a named owner and a written intervention rate",
+          "\"That does not happen\""
+        ],
+        [
+          "Cloud or self-hosted, and why?",
+          "A reason tied to your data and to who will apply the updates",
+          "A choice imposed with nobody owning the updates"
+        ],
+        [
+          "What does the first package deliver?",
+          "A tested workflow and an estimated time for what follows, at a fixed price",
+          "An annual subscription with no scope"
+        ],
+        [
+          "What happens if you leave?",
+          "A trained owner, one sheet per workflow, another provider can take over",
+          "Documentation that exists only at the provider"
+        ]
+      ],
+      "variant": "editorial"
     },
     {
       "type": "eeat-panel",
@@ -385,9 +615,9 @@
       "items": [
         {
           "q_fr": "Combien coûte n8n pour une PME ?",
-          "a_fr": "Deux postes. L'outil : la version auto-hébergée est disponible sur GitHub, et les offres hébergées par n8n démarrent à 20 € par mois en facturation annuelle (page tarifs de n8n, vérifiée le 4 octobre 2026). La prestation Waimia : {{prix.sprint}} € HT pour un sprint de cadrage de 10 heures, puis {{prix.horaire}} € HT de l'heure.",
+          "a_fr": "Deux postes. L'outil : la version auto-hébergée est disponible sur GitHub, et les offres hébergées par n8n démarrent à 20 € par mois en facturation annuelle (page tarifs de n8n, vérifiée le 4 octobre 2026). La prestation Waimia : {{prix.sprint}} € HT pour un sprint de cadrage de 10 heures avec un premier workflow testé, mise en production dès {{prix.pilote}} € HT avec le pilote, puis {{prix.horaire}} € HT de l'heure.",
           "q_en": "How much does n8n cost for an SMB?",
-          "a_en": "Two items. The tool: the self-hosted version is available on GitHub, and plans hosted by n8n start at €20 per month billed annually (n8n pricing page, checked on 4 October 2026). The Waimia engagement: €{{prix.sprint.en}} excl. VAT for a 10-hour scoping sprint, then €{{prix.horaire}} per hour excl. VAT."
+          "a_en": "Two items. The tool: the self-hosted version is available on GitHub, and plans hosted by n8n start at €20 per month billed annually (n8n pricing page, checked on 4 October 2026). The Waimia engagement: €{{prix.sprint.en}} excl. VAT for a 10-hour scoping sprint with a first tested workflow, production from €{{prix.pilote.en}} excl. VAT with the pilot, then €{{prix.horaire}} per hour excl. VAT."
         },
         {
           "q_fr": "n8n vs Make : lequel choisir ?",
@@ -424,6 +654,18 @@
           "a_fr": "Un freelance n8n prend souvent un chantier précis et le livre seul. Une agence n8n ajoute le cadrage, l'hébergement, la supervision et la formation d'un référent. Waimia est un studio dirigé par un ingénieur : celui qui cadre votre automatisation n8n est aussi celui qui la construit et qui l'explique à votre équipe. Vous avez un seul interlocuteur, avec les accès et la documentation à vous dès le départ.",
           "q_en": "n8n agency, n8n expert or n8n freelancer: which one?",
           "a_en": "A freelancer often takes one defined job and delivers it alone. An n8n agency adds scoping, hosting, supervision and the training of an owner. Waimia is a studio run by an engineer: the person who scopes your n8n automation also builds it and explains it to your team. You have one contact, with access and documentation yours from day one."
+        },
+        {
+          "q_fr": "Combien de temps pour mettre en place un workflow n8n ?",
+          "a_fr": "Un premier workflow n8n prototypé et testé demande les 10 heures du sprint de cadrage, à {{prix.sprint}} € HT, réparties sur 2 à 6 semaines selon vos accès. La mise en production relève du pilote, dès {{prix.pilote}} € HT. L'auto-hébergement ajoute quelques jours, et le reste dépend de vos accès et de la disponibilité de la personne qui connaît le process.",
+          "q_en": "How long does it take to set up an n8n workflow?",
+          "a_en": "A first prototyped and tested n8n workflow takes the 10 hours of the scoping sprint, at €{{prix.sprint.en}} excl. VAT, spread over 2 to 6 weeks depending on your access. Production is the pilot, from €{{prix.pilote.en}} excl. VAT. Self-hosting adds a few days, and the rest depends on your access and on the availability of the person who knows the process."
+        },
+        {
+          "q_fr": "Qui corrige un workflow n8n en cas de panne ?",
+          "a_fr": "Un workflow s'arrête quand un identifiant expire, qu'une API change le format de sa réponse ou qu'un volume dépasse une limite. Le journal d'exécutions et les alertes livrés avec le pilote le signalent. La correction est une intervention : {{prix.horaire}} € HT de l'heure avec le suivi à {{prix.maintenance.p1}} € HT par mois, ou prise sur les heures incluses dans les paliers supérieurs de la maintenance (détail sur la page tarifs). Une fois la passation faite, votre référent peut aussi la traiter.",
+          "q_en": "Who fixes an n8n workflow when it breaks?",
+          "a_en": "A workflow stops when a credential expires, an API changes its response format or a volume exceeds a limit. The run log and alerts delivered with the pilot flag it. The fix is an intervention: €{{prix.horaire}} excl. VAT an hour with the monitoring tier at €{{prix.maintenance.p1}} excl. VAT per month, or drawn from the hours included in the higher maintenance tiers (details on the pricing page). Once the handover is done, your owner can handle it too."
         }
       ]
     },
@@ -436,8 +678,8 @@
       "rounded": true,
       "kicker_fr": "§ Audit IA gratuit",
       "kicker_en": "§ Free AI audit",
-      "h2_fr": "Un premier workflow n8n en production, sur votre serveur.",
-      "h2_en": "A first n8n workflow in production, on your server.",
+      "h2_fr": "Un premier workflow n8n testé en quelques semaines, sur votre serveur.",
+      "h2_en": "A first n8n workflow tested within weeks, on your server.",
       "subtitle_fr": "Pendant l'audit gratuit de 45 minutes, on regarde vos process, on vérifie que vos logiciels ont une API et on vous dit si n8n est le bon outil, ou non.",
       "subtitle_en": "During the free 45-minute audit, we look at your processes, check that your software has an API and tell you whether n8n is the right tool, or not.",
       "buttons": [

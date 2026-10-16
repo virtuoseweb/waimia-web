@@ -1,8 +1,9 @@
 {
-  "title_fr": "IA et automatisation pour éditeurs de logiciel : demandes routées, support outillé",
-  "title_en": "AI and automation for software vendors: routed requests, equipped support",
-  "description_fr": "Éditeurs de logiciel et startups B2B : demandes de démo routées dans le CRM le jour même, support de premier niveau par agent IA, prospection ciblée.",
-  "description_en": "Software vendors and B2B startups: demo requests routed into the CRM the same day, first-line support by an AI agent, targeted prospecting.",
+  "title_fr": "IA pour startups et éditeurs de logiciel : produit, support et ventes",
+  "seoTitle_fr": "Intégrer l'IA dans son SaaS : produit, support, ventes",
+  "title_en": "AI for startups and software vendors: product, support and sales",
+  "description_fr": "Développement SaaS et IA : assistant dans le produit, serveur MCP, support et demandes de démo automatisés. Audit gratuit de 45 minutes.",
+  "description_en": "SaaS development and AI: an assistant in the product, an MCP server, automated support and demo requests. Free 45-minute audit.",
   "slug": "startup-logiciel",
   "publishedAt": "2026-06-15",
   "icp_fr": "Startups, SaaS et éditeurs de logiciel",
@@ -13,16 +14,20 @@
   },
   "pains_fr": [
     {
-      "title": "Des demandes de démo qui attendent",
-      "body": "La demande arrive dans une boîte partagée. Elle est traitée le lendemain, ou la semaine suivante. Entre-temps, le prospect a pris rendez-vous chez le concurrent."
+      "title": "L'IA reste au stade de la démo",
+      "body": "Un prototype avec un modèle de langage se monte vite. Le mettre en production, avec des droits par compte, un coût d'usage qui reste sous contrôle et des réponses vérifiées, est un autre travail. L'équipe produit n'a pas toujours la place de le faire."
+    },
+    {
+      "title": "Le produit ne parle pas aux assistants IA",
+      "body": "Un assistant comme Claude n'agit dans un logiciel que si celui-ci expose une interface prévue pour lui, par exemple un serveur MCP. Sans elle, votre produit reste en dehors de ces outils."
     },
     {
       "title": "Le support absorbe l'équipe produit",
       "body": "Les mêmes questions de prise en main reviennent chaque jour et tombent sur les développeurs. La feuille de route recule d'autant."
     },
     {
-      "title": "Le pipeline est illisible",
-      "body": "Des leads éparpillés entre la boîte mail, un tableur et le CRM. Personne ne sait ce qui est chaud, ce qui dort, ce qui est perdu."
+      "title": "Des demandes de démo qui attendent",
+      "body": "La demande arrive dans une boîte partagée. Elle est traitée le lendemain, ou la semaine suivante. Entre-temps, le prospect a pris rendez-vous chez le concurrent."
     },
     {
       "title": "La prospection dépend de l'agenda du fondateur",
@@ -31,16 +36,20 @@
   ],
   "pains_en": [
     {
-      "title": "Demo requests that wait",
-      "body": "The request lands in a shared inbox. It gets handled the next day, or the next week. Meanwhile the prospect has booked with a competitor."
+      "title": "AI stays at the demo stage",
+      "body": "A prototype with a language model comes together fast. Getting it into production, with per-account rights, a usage cost that stays under control and verified answers, is another job. The product team does not always have room for it."
+    },
+    {
+      "title": "The product does not talk to AI assistants",
+      "body": "An assistant such as Claude only acts in software that exposes an interface built for it, for example an MCP server. Without one, your product stays outside these tools."
     },
     {
       "title": "Support swallows the product team",
-      "body": "The same onboarding questions come back every day and land on developers. The roadmap slips accordingly."
+      "body": "The same onboarding questions come back every day and land on the developers. The roadmap slips by as much."
     },
     {
-      "title": "The pipeline is unreadable",
-      "body": "Leads scattered across the inbox, a spreadsheet and the CRM. Nobody knows what is hot, what sleeps, what is lost."
+      "title": "Demo requests that wait",
+      "body": "The request lands in a shared inbox. It is handled the next day, or the week after. Meanwhile, the prospect has booked a meeting with a competitor."
     },
     {
       "title": "Prospecting depends on the founder's calendar",
@@ -53,14 +62,14 @@
     "prospection automatisée vers vos comptes cibles"
   ],
   "kpis_fr": [
-    "délai de prise en charge d'une démo",
+    "fonctions IA en production",
     "tickets résolus sans l'équipe",
-    "rendez-vous qualifiés par mois"
+    "délai de prise en charge d'une démo"
   ],
   "kpis_en": [
-    "time to handle a demo request",
+    "AI features in production",
     "tickets resolved without the team",
-    "qualified meetings per month"
+    "time to handle a demo request"
   ],
   "metricsHero": [],
   "caseRef": "amploi",
@@ -68,58 +77,58 @@
   "ctaPrimary_fr": "Réserver l'audit gratuit →",
   "ctaPrimary_en": "Book a free AI audit →",
   "seo": {
-    "noindex": true
+    "noindex": false
   },
   "faq_fr": [
     {
-      "q": "Combien coûte l'automatisation commerciale d'un éditeur de logiciel ?",
-      "a": "On démarre par un sprint de cadrage de 10 heures à {{prix.sprint}} € HT, avec un premier livrable en service à la fin. La suite est estimée avec vous, validée, puis exécutée en sprints facturés {{prix.horaire}} € HT de l'heure. Pas d'abonnement imposé, et vous gardez les workflows."
+      "q": "Combien coûte l'intégration d'une fonction IA dans un SaaS ?",
+      "a": "L'audit de 45 minutes est gratuit. Le sprint de cadrage coûte {{prix.sprint}} € HT pour 10 heures et livre un prototype testé sur vos données. La mise en production relève du pilote, dès {{prix.pilote}} € HT. La suite est facturée {{prix.horaire}} € HT de l'heure. Le coût d'usage du modèle, facturé au volume par son fournisseur, monte avec le nombre d'utilisateurs : on l'estime pendant le sprint."
     },
     {
-      "q": "Quel CRM faut-il ?",
-      "a": "Celui que vous avez déjà : HubSpot, Pipedrive, Salesforce ou un CRM plus léger. Si vous n'en avez pas, on vous aide à en choisir un simple avant d'automatiser quoi que ce soit."
+      "q": "Faut-il choisir Claude, GPT ou Mistral ?",
+      "a": "Celui qui convient au besoin et à vos contraintes : qualité des réponses, coût d'usage, lieu de traitement des données. On travaille surtout avec Claude, et on compare avec d'autres modèles quand le besoin l'exige. Le choix est fait pendant le sprint de cadrage, sur vos données."
     },
     {
-      "q": "On est une petite équipe, est-ce que c'est trop tôt pour ça ?",
-      "a": "Non. Plus la demande est traitée tôt et proprement, moins vous en brûlez. On câble l'essentiel d'abord, le routage des démos, pas une usine à gaz."
+      "q": "Qu'est-ce qu'un serveur MCP, et pourquoi en exposer un ?",
+      "a": "MCP (Model Context Protocol) est un standard ouvert qui relie des applications IA à des systèmes externes. Un serveur MCP expose des données et des outils de votre produit à un assistant comme Claude. Waimia en a réalisé un pour Inbound Value, qui génère des sites hub de preuve sociale. Les actions exposées sont listées une à une, avec des droits par compte."
     },
     {
-      "q": "L'agent de support a-t-il accès à nos données clients ?",
-      "a": "Seulement à ce que vous lui ouvrez : la documentation d'abord, les données de compte ensuite si vous le décidez. Les accès sont tracés et révocables."
+      "q": "L'assistant voit-il les données de mes clients ?",
+      "a": "Seulement ce qu'on lui ouvre : la documentation d'abord, les données de compte ensuite si vous le décidez, avec les droits de l'utilisateur concerné. Les accès sont tracés et révocables."
     },
     {
-      "q": "Comment prospecter sans tomber dans le flou RGPD ?",
-      "a": "On reste sur des mécanismes propres : comptes B2B ciblés, intérêt légitime documenté, désinscription en un clic, aucune donnée sensible. L'objectif est d'écrire aux bons comptes, pas de pister tout le monde."
+      "q": "Faut-il développer sur mesure ou acheter une brique du marché ?",
+      "a": "Pour un usage courant comme la transcription ou le tri, une brique du marché est souvent plus rapide et moins chère. Le sur-mesure se justifie quand l'IA touche vos données ou votre produit. On vous dit à l'audit lequel des deux s'applique."
     },
     {
-      "q": "En combien de temps c'est en place ?",
-      "a": "Le routage des démos tourne à la fin du sprint de cadrage, en deux semaines. L'agent de support et la prospection suivent en trois à quatre semaines chacun."
+      "q": "Et si je n'ai pas encore de produit ?",
+      "a": "On peut le construire : Waimia développe des MVP SaaS, avec inscription, comptes séparés et paiement. C'est l'objet d'une autre offre, décrite sur la page MVP SaaS ; l'audit gratuit sert à choisir par où commencer."
     }
   ],
   "faq_en": [
     {
-      "q": "How much does sales automation cost for a software vendor?",
-      "a": "We start with a 10-hour scoping sprint at {{prix.sprint.en}} € ex VAT, with a first deliverable live at the end. What follows is estimated with you, approved, then run in sprints billed at {{prix.horaire}} € ex VAT per hour. No forced subscription, and you keep the workflows."
+      "q": "How much does adding an AI feature to a SaaS cost?",
+      "a": "The 45-minute audit is free. The scoping sprint is {{prix.sprint.en}} € ex VAT for 10 hours and delivers a prototype tested on your data. Going into production is part of the pilot, from {{prix.pilote.en}} € ex VAT. What follows is billed at {{prix.horaire}} € ex VAT per hour. The usage cost of the model, billed by volume by its provider, rises with the number of users: we estimate it during the sprint."
     },
     {
-      "q": "Which CRM do we need?",
-      "a": "The one you already have: HubSpot, Pipedrive, Salesforce or a lighter CRM. If you have none, we help you pick a simple one before automating anything."
+      "q": "Should we pick Claude, GPT or Mistral?",
+      "a": "The one that fits the need and your constraints: answer quality, usage cost, where data is processed. We mostly work with Claude, and compare with other models when the need requires it. The choice is made during the scoping sprint, on your data."
     },
     {
-      "q": "We're a small team, is it too early for this?",
-      "a": "No. The earlier and cleaner requests are handled, the less demand you burn. We wire the essentials first, demo routing, not an over-engineered machine."
+      "q": "What is an MCP server, and why expose one?",
+      "a": "MCP (Model Context Protocol) is an open standard that connects AI applications to external systems. An MCP server exposes your product's data and tools to an assistant such as Claude. Waimia built one for Inbound Value, which generates social proof hub sites. Exposed actions are listed one by one, with per-account rights."
     },
     {
-      "q": "Does the support agent access our customer data?",
-      "a": "Only what you open to it: documentation first, account data later if you decide so. Access is logged and revocable."
+      "q": "Does the assistant see my customers' data?",
+      "a": "Only what we open to it: documentation first, account data later if you decide so, with the rights of the user concerned. Access is logged and revocable."
     },
     {
-      "q": "How do you prospect without GDPR ambiguity?",
-      "a": "We stick to clean mechanisms: targeted B2B accounts, documented legitimate interest, one-click unsubscribe, no sensitive data. The goal is to write to the right accounts, not to track everyone."
+      "q": "Should we build custom or buy an off-the-shelf component?",
+      "a": "For a common use such as transcription or sorting, an off-the-shelf component is often faster and cheaper. Custom work is justified when AI touches your data or your product. We tell you at the audit which of the two applies."
     },
     {
-      "q": "How long until it runs?",
-      "a": "Demo routing runs at the end of the scoping sprint, in two weeks. The support agent and prospecting follow in three to four weeks each."
+      "q": "What if I do not have a product yet?",
+      "a": "We can build it: Waimia develops SaaS MVPs, with sign-up, separate accounts and payment. That is a separate offer, described on the SaaS MVP page; the free audit is for choosing where to start."
     }
   ],
   "body_sections": [
@@ -127,8 +136,8 @@
       "type": "editorial-prose",
       "background": "paper",
       "maxWidth": "prose",
-      "html_fr": "<h2>Où l'automatisation sert un éditeur de logiciel</h2>\n<p>Trois endroits. Les demandes entrantes : chaque demande de démonstration crée une fiche dans le CRM, est notée et affectée le jour même, comme décrit sur la page <a href=\"/services/crm-scoring-routing\">automatisation CRM</a>. Le support : un <a href=\"/services/agent-support-client\">agent de service client</a> répond aux questions récurrentes depuis votre documentation et ouvre un ticket pour le reste. La prospection : des séquences régulières vers vos comptes cibles, avec la <a href=\"/services/prospection-automatisee\">prospection automatisée</a>.</p>\n<h2>Ce qui reste humain</h2>\n<p>La démonstration, la négociation, les tickets complexes et les choix de produit.</p>\n<h2>Un cas réel</h2>\n<p>Pour <a href=\"/cas-clients/amploi\">Amploi</a>, qui s'appuie sur la plateforme VigiScope, les demandes du site sont captées et routées dans HubSpot sans ressaisie, et le contenu est structuré pour être lu par les moteurs IA. Pour suivre le trajet d'une demande chez vous, commencez par l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>.</p>",
-      "html_en": "<h2>Where automation serves a software vendor</h2>\n<p>Three places. Incoming requests: every demo request creates a CRM record, is scored and assigned the same day, as described on the <a href=\"/services/crm-scoring-routing\">CRM automation</a> page. Support: a <a href=\"/services/agent-support-client\">customer service agent</a> answers recurring questions from your documentation and opens a ticket for the rest. Prospecting: regular sequences to your target accounts, with <a href=\"/services/prospection-automatisee\">automated prospecting</a>.</p>\n<h2>What stays human</h2>\n<p>The demo, negotiation, complex tickets and product choices.</p>\n<h2>A real case</h2>\n<p>For <a href=\"/cas-clients/amploi\">Amploi</a>, which relies on the VigiScope platform, site requests are captured and routed into HubSpot with no retyping, and content is structured to be read by AI engines. To follow a request's path in your company, start with the <a href=\"/audit-ia-pme\">free AI audit</a>.</p>"
+      "html_fr": "<h2>Où l'IA sert un éditeur de logiciel</h2>\n<p>Pour un éditeur, l'IA s'ajoute à deux endroits : dans le produit, là où vos utilisateurs la voient, et autour, dans le support, les ventes et la publication. Les écueils sont les mêmes : un coût d'usage facturé au volume par le fournisseur du modèle, les données de chaque client à garder séparées, des réponses à vérifier avant l'ouverture. On commence donc par une seule fonction, en prototype testé, avant de la mettre en production. Si vous partez de zéro, la page <a href=\"/services/mvp-saas\">MVP SaaS</a> décrit la première version du produit ; cette page-ci suppose un produit qui existe ou qui se construit.</p>\n<h2>Six usages, et le garde-fou de chacun</h2>\n<ul>\n<li><strong>Un assistant dans le produit.</strong> Il répond depuis votre documentation et les données du compte. Garde-fou : droits limités à ce que l'utilisateur voit déjà, réponses vérifiées sur un jeu de questions avant l'ouverture, plafond de coût d'usage. Voir <a href=\"/services/agents-ia\">agents IA</a> et <a href=\"/services/integration-claude\">Claude en entreprise</a>.</li>\n<li><strong>Un serveur MCP.</strong> Il permet à Claude ou à un autre assistant d'agir dans votre produit. Garde-fou : actions listées une à une, droits par compte, journal, confirmation humaine avant toute écriture ou suppression. Le principe est expliqué dans le guide <a href=\"/ressources/guides/mcp-claude\">MCP Claude</a>.</li>\n<li><strong>Des outils internes.</strong> Back-office, administration, tableaux de suivi qui remplacent des tableurs. Garde-fou : code remis, accès à votre nom. Voir <a href=\"/services/applications-internes\">logiciel sur mesure</a> et l'article <a href=\"/blog/applications-internes-build-vs-buy-pme\">développer ou acheter</a>.</li>\n<li><strong>Un support de premier niveau.</strong> Un agent répond aux questions de prise en main depuis votre documentation et ouvre un ticket propre pour le reste. Garde-fou : relu les premières semaines, escalade vers une personne. Voir <a href=\"/services/agent-support-client\">agent IA de service client</a>.</li>\n<li><strong>La publication de contenu.</strong> Des skills livrés dans un dépôt, qu'un agent Claude utilise pour rédiger, commiter et déclencher le déploiement. Garde-fou : tout passe par le dépôt, donc par un historique et une relecture possible.</li>\n<li><strong>Les demandes entrantes et la prospection.</strong> Une demande de démo crée une fiche dans le CRM le jour même. Garde-fou : comptes B2B ciblés, intérêt légitime documenté, désinscription en un clic. Voir <a href=\"/services/crm-scoring-routing\">automatisation CRM</a> et <a href=\"/services/prospection-automatisee\">prospection automatisée</a>.</li>\n</ul>\n<h2>Deux projets logiciels livrés</h2>\n<p><a href=\"/cas-clients/amploi\">Amploi</a>, entreprise adaptée qui s'appuie sur la plateforme VigiScope : le projet n'a pas porté sur cette plateforme, mais sur son site marketing, le routage de ses demandes et la publication de contenu. Le projet a livré, en six semaines, un site Astro avec un TinaCMS configuré sur mesure (pages composées en glisser-déposer), les demandes du site routées dans HubSpot par la Forms API, une couche de lisibilité pour les moteurs IA (graphe schema.org et fichier llm.md), et des skills de création de contenu dans un dépôt GitHub : Amploi les connecte à un agent Claude, qui écrit, commite et déclenche le déploiement sur Vercel. Google PageSpeed Insights a donné 100 sur 100 dans les quatre catégories, sur mobile et sur ordinateur, le 5 octobre 2026, sur le site en production. Aucun chiffre d'impact commercial n'est publié.</p>\n<p><a href=\"/cas-clients/inbound-value\">Inbound Value</a>, agence partenaire de Waimia : un serveur MCP réalisé sur Lovable, dans l'espace d'Inbound Value, qui génère des sites hub de preuve sociale à partir des preuves enregistrées par l'entreprise et d'un chat IA, en texte ou en vocal. La fiche ne décrit ni les règles de relecture avant publication, ni l'hébergement des sites générés, et ne publie aucun chiffre d'impact.</p>\n<p>Ce que ces deux projets ne sont pas : une fonction IA intégrée au produit d'un éditeur tiers. Ils montrent les briques (serveur MCP, routage dans un CRM, publication par un agent), pas encore un assistant livré dans le logiciel d'un client. Les autres usages de la liste (assistant dans le produit, outils internes, support, prospection) sont ce que nous proposons, pas des références.</p>\n<h2>Par où commencer</h2>\n<p>Par l'<a href=\"/audit-ia-pme\">audit IA gratuit</a> de 45 minutes. Le sprint de cadrage, à {{prix.sprint}} € HT pour 10 heures, livre un prototype testé. La mise en production relève du pilote, dès {{prix.pilote}} € HT, comme sur la page des <a href=\"/tarifs\">tarifs</a>.</p>",
+      "html_en": "<h2>Where AI serves a software vendor</h2>\n<p>For a software vendor, AI fits in two places: in the product, where your users see it, and around it, in support, sales and publishing. The pitfalls are the same: a usage cost billed by volume by the model provider, each customer's data to keep separate, answers to verify before launch. So we start with a single feature, as a tested prototype, before taking it to production. If you are starting from scratch, the <a href=\"/services/mvp-saas\">SaaS MVP</a> page describes the first version of the product; this page assumes a product that exists or is being built.</p>\n<h2>Six uses, and the safeguard for each</h2>\n<ul>\n<li><strong>An assistant in the product.</strong> It answers from your documentation and the account's data. Safeguard: rights limited to what the user already sees, answers verified on a set of questions before launch, a usage cost cap. See <a href=\"/services/agents-ia\">AI agents</a> and <a href=\"/services/integration-claude\">Claude in business</a>.</li>\n<li><strong>An MCP server.</strong> It lets Claude or another assistant act in your product. Safeguard: actions listed one by one, per-account rights, a log, human confirmation before any write or delete. The principle is explained in the <a href=\"/ressources/guides/mcp-claude\">MCP Claude</a> guide.</li>\n<li><strong>Internal tools.</strong> Back office, administration, tracking dashboards that replace spreadsheets. Safeguard: code handed over, access in your name. See <a href=\"/services/applications-internes\">custom software</a> and the article <a href=\"/blog/applications-internes-build-vs-buy-pme\">build or buy</a>.</li>\n<li><strong>First-level support.</strong> An agent answers onboarding questions from your documentation and opens a clean ticket for the rest. Safeguard: reviewed in the first weeks, escalation to a person. See <a href=\"/services/agent-support-client\">AI customer service agent</a>.</li>\n<li><strong>Content publishing.</strong> Skills delivered in a repository, which a Claude agent uses to write, commit and trigger deployment. Safeguard: everything goes through the repository, hence a history and a possible review.</li>\n<li><strong>Inbound requests and prospecting.</strong> A demo request creates a CRM record the same day. Safeguard: targeted B2B accounts, documented legitimate interest, one-click unsubscribe. See <a href=\"/services/crm-scoring-routing\">CRM automation</a> and <a href=\"/services/prospection-automatisee\">automated prospecting</a>.</li>\n</ul>\n<h2>Two software projects delivered</h2>\n<p><a href=\"/cas-clients/amploi\">Amploi</a>, an \"entreprise adaptée\" (adapted company) that relies on the VigiScope platform: the project did not cover that platform, but its marketing site, request routing and content publishing. The project delivered, in six weeks, an Astro site with a custom-configured TinaCMS (pages composed by drag and drop), site requests routed into HubSpot through the Forms API, a readability layer for AI engines (schema.org graph and llm.md file), and content creation skills in a GitHub repository: Amploi connects them to a Claude agent, which writes, commits and triggers the deployment on Vercel. Google PageSpeed Insights gave 100 out of 100 in all four categories, on mobile and desktop, on 5 October 2026, on the production site. No commercial impact figure is published.</p>\n<p><a href=\"/cas-clients/inbound-value\">Inbound Value</a>, a Waimia partner agency: an MCP server built on Lovable, in Inbound Value's workspace, that generates social proof hub sites from the proofs the company records and an AI chat, by text or voice. The case file describes neither the review rules before publication nor the hosting of the generated sites, and publishes no impact figure.</p>\n<p>What these two projects are not: an AI feature built into a third-party vendor's product. They show the building blocks (MCP server, CRM routing, publishing by an agent), not yet an assistant delivered inside a client's software. The other uses in the list (assistant in the product, internal tools, support, prospecting) are what we offer, not references.</p>\n<h2>Where to start</h2>\n<p>With the <a href=\"/audit-ia-pme\">free AI audit</a>, 45 minutes. The scoping sprint, {{prix.sprint.en}} € ex VAT for 10 hours, delivers a tested prototype. Going into production is part of the pilot, from {{prix.pilote.en}} € ex VAT, as on the <a href=\"/tarifs\">pricing</a> page.</p>"
     }
   ],
   "methodSteps": [
@@ -136,35 +145,35 @@
       "num": "01",
       "label_fr": "Audit gratuit de 45 minutes",
       "label_en": "Free 45-minute audit",
-      "body_fr": "On suit le trajet d'une demande de démo et d'un ticket de support chez vous, pour repérer les points de fuite. Vous repartez avec une cartographie écrite et un ou deux chantiers classés.",
-      "body_en": "We follow the path of a demo request and of a support ticket in your company, to spot the leak points. You leave with a written task map and one or two ranked projects.",
+      "body_fr": "On regarde votre produit, votre documentation, le trajet d'une demande de démo et celui d'un ticket de support. Vous repartez avec une cartographie écrite et un ou deux chantiers classés, même si on ne travaille pas ensemble.",
+      "body_en": "We look at your product, your documentation, the path of a demo request and of a support ticket. You leave with a written task map and one or two ranked projects, even if we do not work together.",
       "meta_fr": "Semaine 0",
       "meta_en": "Week 0"
     },
     {
       "num": "02",
-      "label_fr": "Sprint de cadrage : le routage des démos",
-      "label_en": "Scoping sprint: demo routing",
-      "body_fr": "Dix heures pour qu'une demande crée une fiche CRM enrichie, notée et affectée le jour même. Un premier flux en service, pas un rapport.",
-      "body_en": "Ten hours so that a request creates an enriched, scored CRM record assigned the same day. A first flow live, not a report.",
+      "label_fr": "Sprint de cadrage : un prototype testé",
+      "label_en": "Scoping sprint: a tested prototype",
+      "body_fr": "Dix heures pour cadrer une seule fonction (un assistant, un serveur MCP ou le routage des démos) et la tester sur vos vraies données. Vous repartez avec un prototype testé, un modèle choisi pour le besoin, un coût d'usage estimé et un plan, pas encore avec une fonction en production.",
+      "body_en": "Ten hours to scope a single feature (an assistant, an MCP server or demo routing) and test it on your real data. You leave with a tested prototype, a model chosen for the need, an estimated usage cost and a plan, not yet with a feature in production.",
       "meta_fr": "Semaines 1 et 2",
       "meta_en": "Weeks 1 and 2"
     },
     {
       "num": "03",
-      "label_fr": "Agent de support de premier niveau",
-      "label_en": "First-line support agent",
-      "body_fr": "Branché sur votre documentation, relu les premières semaines, il ouvre un ticket propre dès que la question dépasse son périmètre.",
-      "body_en": "Wired to your documentation, reviewed in the first weeks, it opens a clean ticket as soon as a question goes beyond its scope.",
+      "label_fr": "Pilote : la fonction en production",
+      "label_en": "Pilot: the feature in production",
+      "body_fr": "La fonction retenue est branchée à votre produit, à votre CRM ou à votre documentation, avec des droits par compte et un journal des actions. Le pilote démarre dès {{prix.pilote}} € HT ; le code est remis.",
+      "body_en": "The chosen feature is wired to your product, your CRM or your documentation, with per-account rights and an action log. The pilot starts from {{prix.pilote.en}} € ex VAT; the code is handed over.",
       "meta_fr": "Semaines 3 à 6",
       "meta_en": "Weeks 3 to 6"
     },
     {
       "num": "04",
-      "label_fr": "Prospection et pilotage",
-      "label_en": "Prospecting and steering",
-      "body_fr": "Séquences vers vos comptes cibles, réponses qui remontent dans le CRM, et un tableau lisible : démos, tickets, rendez-vous.",
-      "body_en": "Sequences to your target accounts, replies flowing back into the CRM, and a readable dashboard: demos, tickets, meetings.",
+      "label_fr": "Extension et suivi",
+      "label_en": "Extension and tracking",
+      "body_fr": "Les fonctions suivantes s'ajoutent une à une, et un tableau lisible suit ce qui compte : fonctions en production, tickets traités, démos prises en charge. Le tarif horaire s'applique ensuite.",
+      "body_en": "Further features are added one by one, and a readable dashboard tracks what matters: features in production, tickets handled, demo requests handled. The hourly rate applies after that.",
       "meta_fr": "Ensuite",
       "meta_en": "Then"
     }
@@ -175,12 +184,12 @@
       "background": "paper",
       "layout": "grid-asym",
       "colRatio": "2-3",
-      "kicker_fr": "§ Deux façons d'engager",
-      "kicker_en": "§ Two ways to engage",
-      "h2_fr": "Prix de l'automatisation commerciale pour un éditeur de logiciel",
-      "h2_en": "Price of sales automation for a software vendor",
-      "lede_fr": "On démarre par un sprint de cadrage à prix fixe : le routage des démos tourne à la fin. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints. Vous gardez tout.",
-      "lede_en": "We start with a fixed-price scoping sprint: demo routing runs at the end of it. What follows is quoted: we estimate the time together, validate it, then run it in sprints. You keep everything.",
+      "kicker_fr": "§ Du prototype à la production",
+      "kicker_en": "§ From prototype to production",
+      "h2_fr": "Prix de l'IA et du développement pour un éditeur de logiciel",
+      "h2_en": "Price of AI and development for a software vendor",
+      "lede_fr": "On démarre par un sprint de cadrage à prix fixe : il livre un prototype testé sur vos données. La mise en production relève du pilote. Vous gardez tout.",
+      "lede_en": "We start with a fixed-price scoping sprint: it delivers a prototype tested on your data. Going into production is part of the pilot. You keep everything.",
       "tiers": [
         {
           "name_fr": "Sprint de cadrage",
@@ -189,16 +198,16 @@
           "period_fr": "10 h · HT",
           "period_en": "10 h · ex VAT",
           "features_fr": [
-            "Chaque demande de démo crée une fiche CRM",
-            "Fiche enrichie, notée, affectée le jour même",
-            "Branché sur votre CRM actuel, sans migration",
-            "Un premier flux en service, pas un audit dormant"
+            "Cadrage d'une fonction : assistant, serveur MCP ou routage des démos",
+            "Un prototype testé sur vos vraies données",
+            "Modèle choisi pour le besoin, coût d'usage estimé",
+            "Un plan et un temps estimé pour la mise en production"
           ],
           "features_en": [
-            "Every demo request creates a CRM record",
-            "Record enriched, scored, assigned the same day",
-            "Wired to your current CRM, no migration",
-            "A first flow live, not a dormant audit"
+            "Scoping of one feature: assistant, MCP server or demo routing",
+            "A prototype tested on your real data",
+            "Model chosen for the need, usage cost estimated",
+            "A plan and an estimated time for going into production"
           ],
           "cta": {
             "label_fr": "Réserver l'audit gratuit →",
@@ -209,21 +218,21 @@
           "featured": true
         },
         {
-          "name_fr": "Suite sur devis",
-          "name_en": "Next steps on quote",
-          "price": "Sur devis",
-          "period_fr": "estimé avec vous · HT",
-          "period_en": "estimated with you · ex VAT",
+          "name_fr": "Pilote",
+          "name_en": "Pilot",
+          "price": "dès {{prix.pilote}} €",
+          "period_fr": "mise en production · HT",
+          "period_en": "going into production · ex VAT",
           "features_fr": [
-            "Agent de support relu puis élargi",
-            "Séquences de prospection vers vos comptes cibles",
-            "Exécuté en sprints, facturés en régie à {{prix.horaire}} € HT/h",
+            "Fonction en production, branchée à votre produit, CRM ou documentation",
+            "Droits par compte, journal des actions, code remis",
+            "Ensuite {{prix.horaire}} € HT de l'heure, sans abonnement imposé",
             "Vous gardez les workflows, les accès et les données"
           ],
           "features_en": [
-            "Support agent reviewed then widened",
-            "Prospecting sequences to your target accounts",
-            "Run in sprints, time and materials at {{prix.horaire}} € ex VAT/h",
+            "Feature in production, wired to your product, CRM or documentation",
+            "Per-account rights, action log, code handed over",
+            "Then {{prix.horaire}} € ex VAT per hour, no forced subscription",
             "You keep the workflows, the access and the data"
           ],
           "cta": {
@@ -236,5 +245,9 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-05"
+  "updatedAt": "2026-10-16",
+  "caseRefs": [
+    "amploi",
+    "inbound-value"
+  ]
 }

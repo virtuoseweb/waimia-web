@@ -140,6 +140,8 @@ const PAGES: Record<string, PageDef> = {
   '/ressources/guides/quel-modele-claude-choisir': { label_fr: 'Quel modèle Claude choisir : Opus, Sonnet ou Haiku', label_en: 'Which Claude model to choose: Opus, Sonnet or Haiku', kind: 'guide', topics: ['claude', 'conseil'] },
   '/ressources/guides/claude-managed-agents': { label_fr: 'Claude Managed Agents : prix, limites et données', label_en: 'Claude Managed Agents: pricing, limits and data', kind: 'guide', topics: ['claude', 'agents'] },
   '/ressources/guides/claude-tpe': { label_fr: 'Claude pour une TPE : abonnement et premiers usages', label_en: 'Claude for a very small business: plan and first uses', kind: 'guide', topics: ['claude', 'conseil'] },
+  '/ressources/guides/claude-in-chrome-entreprise': { label_fr: 'Claude in Chrome en entreprise : installer et encadrer', label_en: 'Claude in Chrome for business: install and govern', kind: 'guide', topics: ['claude', 'conformite'] },
+  '/ressources/guides/prompt-engineering-pme': { label_fr: 'Prompt engineering en PME : méthode et gabarits', label_en: 'Prompt engineering for SMBs: method and templates', kind: 'guide', topics: ['formation', 'claude'] },
   '/ressources/guides/claude-finance-pme': { label_fr: "Claude pour la finance d'une PME : factures, clôture, trésorerie", label_en: "Claude for an SMB's finance function: invoices, closing, cash", kind: 'guide', topics: ['claude', 'automatisation'] },
   '/ressources/guides/claude-gratuit': { label_fr: "Claude gratuit : ce que permet l'offre Free", label_en: 'Free Claude: what the Free plan allows', kind: 'guide', topics: ['claude', 'conformite'] },
   '/ressources/outils/guide-achat-claude-pme': { label_fr: "Guide d'achat Claude pour PME (PDF)", label_en: "Claude buyer's guide for SMBs (PDF)", kind: 'guide', topics: ['claude', 'conseil'] },
@@ -152,6 +154,7 @@ const PAGES: Record<string, PageDef> = {
   '/cas-clients/inbound-value': { label_fr: 'Cas client : Inbound Value', label_en: 'Case: Inbound Value', kind: 'cas-client', topics: ['agents', 'claude'] },
   '/ressources/comparatifs/claude-vs-chatgpt-pme': { label_fr: 'Claude ou ChatGPT pour une PME', label_en: 'Claude or ChatGPT for an SMB', kind: 'comparatif', topics: ['claude', 'agents'] },
   '/ressources/comparatifs/mistral-vs-claude-pme': { label_fr: 'Mistral AI ou Claude pour une PME', label_en: 'Mistral AI or Claude for an SMB', kind: 'comparatif', topics: ['claude', 'conformite'] },
+  '/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme': { label_fr: 'ChatGPT, Claude, Gemini ou Perplexity : quelle IA choisir', label_en: 'ChatGPT, Claude, Gemini or Perplexity: which AI to choose', kind: 'comparatif', topics: ['claude', 'conseil'] },
   '/ressources/comparatifs/claude-platform-vs-openai-platform': { label_fr: 'Claude Platform ou OpenAI Platform', label_en: 'Claude Platform or OpenAI Platform', kind: 'comparatif', topics: ['claude', 'agents'] },
   '/cas-clients/isabelle-diaz-naturopathe': { label_fr: 'Cas client : Isabelle Diaz', label_en: 'Case: Isabelle Diaz', kind: 'cas-client', topics: ['agents', 'acquisition'] },
   '/ressources/comparatifs/claude-code-vs-cursor': { label_fr: 'Claude Code ou Cursor', label_en: 'Claude Code or Cursor', kind: 'comparatif', topics: ['claude', 'applications'] },
@@ -253,13 +256,16 @@ const PAGES: Record<string, PageDef> = {
   '/services/charte-graphique-brand-book': { label_fr: 'Charte graphique et brand book', label_en: 'Brand guidelines and brand book', kind: 'service', topics: ['acquisition'] },
   '/ressources/comparatifs/site-web-intelligent-vs-wordpress': { label_fr: 'Site web intelligent ou WordPress', label_en: 'Smart website or WordPress', kind: 'comparatif', topics: ['acquisition'] },
   '/blog/logiciel-seo-ia-pme': { label_fr: 'Logiciel SEO IA pour PME', label_en: 'AI SEO software for SMBs', kind: 'article', topics: ['acquisition'] },
+  '/ressources/guides/mesurer-visibilite-ia-chatgpt': { label_fr: 'Mesurer sa visibilité dans ChatGPT : le protocole', label_en: 'Measuring your ChatGPT visibility: the protocol', kind: 'guide', topics: ['acquisition'] },
+  '/blog/ai-mode-google-ai-overviews-pme': { label_fr: 'AI Mode et AI Overviews de Google : que faire en PME', label_en: 'Google AI Mode and AI Overviews: what a small business does', kind: 'article', topics: ['acquisition'] },
+  '/blog/geo-local-recommande-par-les-ia': { label_fr: 'GEO local : être recommandé par les IA', label_en: 'Local GEO: getting recommended by AIs', kind: 'article', topics: ['acquisition'] },
   '/cas-clients/desangles-peinture': { label_fr: 'Cas client : Desangles Peinture', label_en: 'Case: Desangles Peinture', kind: 'cas-client', topics: ['acquisition'] },
 
   // ── Secteurs (indexables depuis 2026-10-05) : cibles du maillage, sans bloc émis par
   //    Base (le gabarit secteur pose déjà le sien via `meshForSecteur`). ──
   '/secteurs/batiment': { label_fr: 'Automatisation des devis dans le bâtiment', label_en: 'Quote automation in construction', kind: 'secteur', topics: ['commercial', 'acquisition'], emit: false },
   '/secteurs/e-commerce': { label_fr: "Automatisation d'une boutique en ligne", label_en: 'Online shop automation', kind: 'secteur', topics: ['automatisation', 'agents'], emit: false },
-  '/secteurs/startup-logiciel': { label_fr: 'Automatisation commerciale des éditeurs de logiciel', label_en: 'Sales automation for software vendors', kind: 'secteur', topics: ['commercial', 'agents'], emit: false },
+  '/secteurs/startup-logiciel': { label_fr: 'IA et développement pour les éditeurs de logiciel', label_en: 'AI and development for software vendors', kind: 'secteur', topics: ['commercial', 'agents'], emit: false },
 
   // ── Studio : qui, comment, où ──
   '/agence': { label_fr: 'Le studio', label_en: 'The studio', kind: 'studio', topics: ['studio'], emit: false },

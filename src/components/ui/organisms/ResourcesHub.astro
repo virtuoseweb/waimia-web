@@ -233,7 +233,7 @@ const listTitle = activeKind
   <ManifestoStatement data={manifestoData} lang={lang} />
 
   {/* NEWSLETTER BAND · ink (ancre #newsletter liée depuis /blog) */}
-  <section id="newsletter" class="hub-nl">
+  <section id="newsletter" class="hub-nl on-dark">
     <div class="wrap-wide hub-nl-wrap">
       <div>
         <Kicker tone="accent" class="hub-nl-k">§ Newsletter · une fois par mois</Kicker>
@@ -698,7 +698,11 @@ const listTitle = activeKind
   @media (max-width: 768px) { .res-list { margin-top: calc(-1 * var(--space-5)); } }
   @media (max-width: 640px) { .res-list { grid-template-columns: 1fr; } }
 
-  .hub-nl { padding: var(--space-12) var(--space-6); background: var(--ink); color: var(--paper); }
+  /* `.on-dark` (markup) : idiome sombre commun, le bouton primaire passe en papier au lieu
+     d'encre sur encre. Pas de gouttière propre : `.wrap-wide` porte déjà la sienne, la
+     bande s'aligne ainsi sur le manifesto qui la précède (même axe gauche). Les deux
+     bandes sont encre : le filet (--hairline sombre via .on-dark) marque la frontière. */
+  .hub-nl { padding: var(--space-12) 0; background: var(--ink); color: var(--paper); border-top: 1px solid var(--hairline); }
   .hub-nl-wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--space-10); align-items: center; }
   :global(.hub-nl-k) { display: block; margin-bottom: 18px; }
   .hub-nl-h2 {

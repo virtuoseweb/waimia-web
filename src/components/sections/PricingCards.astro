@@ -247,6 +247,8 @@ const colRatio = data.layout === 'grid-asym' ? (data.colRatio ?? 'equal') : unde
     color: var(--muted);
     letter-spacing: 0.04em;
     margin: var(--spacing-block) 0 0;
+    /* Note mono de 150 à 650 signes : sans borne, une ligne courait sur toute la grille. */
+    max-width: var(--wrap-prose);
   }
   /* ── Axe DENSITY (data-density) : rythme du header + gap de la grille + padding des cartes.
      Défaut (absent) = gap --space-5 (rendu actuel). Tokens --space-* uniquement. ── */

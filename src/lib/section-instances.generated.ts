@@ -205,6 +205,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-in-chrome-entreprise.json",
+      "slug": "claude-in-chrome-entreprise",
+      "route": "/ressources/guides/claude-in-chrome-entreprise",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-managed-agents.json",
       "slug": "claude-managed-agents",
       "route": "/ressources/guides/claude-managed-agents",
@@ -322,6 +331,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/mesurer-visibilite-ia-chatgpt.json",
+      "slug": "mesurer-visibilite-ia-chatgpt",
+      "route": "/ressources/guides/mesurer-visibilite-ia-chatgpt",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/n8n-auto-heberge-rgpd.json",
       "slug": "n8n-auto-heberge-rgpd",
       "route": "/ressources/guides/n8n-auto-heberge-rgpd",
@@ -334,6 +352,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/n8n-prix.json",
       "slug": "n8n-prix",
       "route": "/ressources/guides/n8n-prix",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/prompt-engineering-pme.json",
+      "slug": "prompt-engineering-pme",
+      "route": "/ressources/guides/prompt-engineering-pme",
       "index": 1,
       "label": "Simon Beros",
       "background": "paper"
@@ -822,6 +849,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 5,
       "label": "Exemple de SKILL.md : un en-tête de deux champs, puis une procédure en texte",
       "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/prompt-engineering-pme.json",
+      "slug": "prompt-engineering-pme",
+      "route": "/ressources/guides/prompt-engineering-pme",
+      "index": 6,
+      "label": "Un gabarit de consigne en cinq blocs, à adapter à chaque tâche",
+      "background": "paper-2"
     }
   ],
   "comparison-duo": [
@@ -1109,7 +1145,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/consultant-ia-claude.json",
       "slug": "consultant-ia-claude",
       "route": "/services/consultant-ia-claude",
-      "index": 8,
+      "index": 7,
       "label": "Exemple type : une PME de négoce de 60 personnes",
       "background": "paper"
     },
@@ -1583,7 +1619,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/consultant-ia-claude.json",
       "slug": "consultant-ia-claude",
       "route": "/services/consultant-ia-claude",
-      "index": 7,
+      "index": 10,
       "label": "Recevez le kit conformité et administration de Claude (PDF, 11 pages)",
       "background": "paper-2"
     },
@@ -1697,7 +1733,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "index": 13,
       "label": "Choisir selon votre situation",
-      "background": "paper"
+      "background": "paper-2"
     },
     {
       "collection": "comparatifs",
@@ -2037,7 +2073,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisations/automatisation-n8n.json",
       "slug": "automatisation-n8n",
       "route": "/services/automatisation-n8n",
-      "index": 6,
+      "index": 8,
       "label": "n8n n'est pas le bon choix si",
       "background": "paper"
     },
@@ -2109,7 +2145,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/consultant-ia-claude.json",
       "slug": "consultant-ia-claude",
       "route": "/services/consultant-ia-claude",
-      "index": 10,
+      "index": 11,
       "label": "Vous n'avez pas besoin d'un consultant IA si",
       "background": "paper"
     },
@@ -2752,7 +2788,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/services/systemes-operationnels-ia",
       "index": 2,
       "label": "Définition",
-      "background": "paper"
+      "background": "paper-2"
     },
     {
       "collection": "services",
@@ -2950,7 +2986,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisations/automatisation-n8n.json",
       "slug": "automatisation-n8n",
       "route": "/services/automatisation-n8n",
-      "index": 5,
+      "index": 6,
       "label": "Ce qui vous reste à la fin",
       "background": "paper-3"
     },
@@ -3022,7 +3058,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/consultant-ia-claude.json",
       "slug": "consultant-ia-claude",
       "route": "/services/consultant-ia-claude",
-      "index": 9,
+      "index": 8,
       "label": "Ce qui vous reste à la fin",
       "background": "paper-3"
     },
@@ -3518,6 +3554,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/chatgpt-claude-gemini-perplexity-pme.json",
+      "slug": "chatgpt-claude-gemini-perplexity-pme",
+      "route": "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
+      "index": 1,
+      "label": "#1",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/claude-code-vs-cursor.json",
       "slug": "claude-code-vs-cursor",
       "route": "/ressources/comparatifs/claude-code-vs-cursor",
@@ -3752,6 +3797,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-in-chrome-entreprise.json",
+      "slug": "claude-in-chrome-entreprise",
+      "route": "/ressources/guides/claude-in-chrome-entreprise",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-managed-agents.json",
       "slug": "claude-managed-agents",
       "route": "/ressources/guides/claude-managed-agents",
@@ -3869,6 +3923,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/mesurer-visibilite-ia-chatgpt.json",
+      "slug": "mesurer-visibilite-ia-chatgpt",
+      "route": "/ressources/guides/mesurer-visibilite-ia-chatgpt",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/n8n-auto-heberge-rgpd.json",
       "slug": "n8n-auto-heberge-rgpd",
       "route": "/ressources/guides/n8n-auto-heberge-rgpd",
@@ -3881,6 +3944,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/n8n-prix.json",
       "slug": "n8n-prix",
       "route": "/ressources/guides/n8n-prix",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/prompt-engineering-pme.json",
+      "slug": "prompt-engineering-pme",
+      "route": "/ressources/guides/prompt-engineering-pme",
       "index": 2,
       "label": "#2",
       "background": "paper-2"
@@ -3994,6 +4066,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "background": "paper-2"
     },
     {
+      "collection": "services",
+      "file": "services/consultant-ia-claude.json",
+      "slug": "consultant-ia-claude",
+      "route": "/services/consultant-ia-claude",
+      "index": 3,
+      "label": "#3",
+      "background": "paper"
+    },
+    {
       "collection": "demonstrations",
       "file": "demonstrations/integration-claude.json",
       "slug": "integration-claude",
@@ -4070,6 +4151,16 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/chatgpt-claude-gemini-perplexity-pme.json",
+      "slug": "chatgpt-claude-gemini-perplexity-pme",
+      "route": "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
+      "index": 7,
+      "label": "#7",
+      "variant": "quote",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
@@ -4105,6 +4196,16 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/comparatifs/mistral-vs-claude-pme",
       "index": 5,
       "label": "#5",
+      "variant": "quote",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-in-chrome-entreprise.json",
+      "slug": "claude-in-chrome-entreprise",
+      "route": "/ressources/guides/claude-in-chrome-entreprise",
+      "index": 7,
+      "label": "#7",
       "variant": "quote",
       "background": "paper"
     },
@@ -4358,6 +4459,24 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 3,
       "label": "#3",
       "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/chatgpt-claude-gemini-perplexity-pme.json",
+      "slug": "chatgpt-claude-gemini-perplexity-pme",
+      "route": "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/chatgpt-claude-gemini-perplexity-pme.json",
+      "slug": "chatgpt-claude-gemini-perplexity-pme",
+      "route": "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
+      "index": 10,
+      "label": "#10",
+      "background": "paper"
     },
     {
       "collection": "comparatifs",
@@ -5077,6 +5196,42 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/claude-gratuit",
       "index": 6,
       "label": "#6",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-in-chrome-entreprise.json",
+      "slug": "claude-in-chrome-entreprise",
+      "route": "/ressources/guides/claude-in-chrome-entreprise",
+      "index": 5,
+      "label": "#5",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-in-chrome-entreprise.json",
+      "slug": "claude-in-chrome-entreprise",
+      "route": "/ressources/guides/claude-in-chrome-entreprise",
+      "index": 6,
+      "label": "#6",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-in-chrome-entreprise.json",
+      "slug": "claude-in-chrome-entreprise",
+      "route": "/ressources/guides/claude-in-chrome-entreprise",
+      "index": 8,
+      "label": "#8",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-in-chrome-entreprise.json",
+      "slug": "claude-in-chrome-entreprise",
+      "route": "/ressources/guides/claude-in-chrome-entreprise",
+      "index": 11,
+      "label": "#11",
       "background": "paper"
     },
     {
@@ -5558,6 +5713,51 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/mesurer-visibilite-ia-chatgpt.json",
+      "slug": "mesurer-visibilite-ia-chatgpt",
+      "route": "/ressources/guides/mesurer-visibilite-ia-chatgpt",
+      "index": 4,
+      "label": "#4",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mesurer-visibilite-ia-chatgpt.json",
+      "slug": "mesurer-visibilite-ia-chatgpt",
+      "route": "/ressources/guides/mesurer-visibilite-ia-chatgpt",
+      "index": 7,
+      "label": "#7",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mesurer-visibilite-ia-chatgpt.json",
+      "slug": "mesurer-visibilite-ia-chatgpt",
+      "route": "/ressources/guides/mesurer-visibilite-ia-chatgpt",
+      "index": 8,
+      "label": "#8",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mesurer-visibilite-ia-chatgpt.json",
+      "slug": "mesurer-visibilite-ia-chatgpt",
+      "route": "/ressources/guides/mesurer-visibilite-ia-chatgpt",
+      "index": 9,
+      "label": "#9",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mesurer-visibilite-ia-chatgpt.json",
+      "slug": "mesurer-visibilite-ia-chatgpt",
+      "route": "/ressources/guides/mesurer-visibilite-ia-chatgpt",
+      "index": 11,
+      "label": "#11",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/n8n-auto-heberge-rgpd.json",
       "slug": "n8n-auto-heberge-rgpd",
       "route": "/ressources/guides/n8n-auto-heberge-rgpd",
@@ -5618,6 +5818,33 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 14,
       "label": "#14",
       "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/prompt-engineering-pme.json",
+      "slug": "prompt-engineering-pme",
+      "route": "/ressources/guides/prompt-engineering-pme",
+      "index": 5,
+      "label": "#5",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/prompt-engineering-pme.json",
+      "slug": "prompt-engineering-pme",
+      "route": "/ressources/guides/prompt-engineering-pme",
+      "index": 8,
+      "label": "#8",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/prompt-engineering-pme.json",
+      "slug": "prompt-engineering-pme",
+      "route": "/ressources/guides/prompt-engineering-pme",
+      "index": 10,
+      "label": "#10",
+      "background": "paper-2"
     },
     {
       "collection": "guides",
@@ -6083,8 +6310,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/consultant-ia-claude.json",
       "slug": "consultant-ia-claude",
       "route": "/services/consultant-ia-claude",
-      "index": 3,
-      "label": "#3",
+      "index": 4,
+      "label": "#4",
       "background": "paper-2"
     },
     {
@@ -6092,8 +6319,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/consultant-ia-claude.json",
       "slug": "consultant-ia-claude",
       "route": "/services/consultant-ia-claude",
-      "index": 5,
-      "label": "#5",
+      "index": 9,
+      "label": "#9",
       "background": "paper-2"
     },
     {
@@ -6544,6 +6771,51 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/chatgpt-claude-gemini-perplexity-pme.json",
+      "slug": "chatgpt-claude-gemini-perplexity-pme",
+      "route": "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
+      "index": 2,
+      "label": "Rédiger, rechercher, analyser un fichier, connecter ses outils : ce que chaque offre d'équipe documente",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/chatgpt-claude-gemini-perplexity-pme.json",
+      "slug": "chatgpt-claude-gemini-perplexity-pme",
+      "route": "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
+      "index": 4,
+      "label": "Combien coûte une offre d'équipe chez chaque éditeur ?",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/chatgpt-claude-gemini-perplexity-pme.json",
+      "slug": "chatgpt-claude-gemini-perplexity-pme",
+      "route": "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
+      "index": 5,
+      "label": "Le même effectif de dix personnes, cinq offres",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/chatgpt-claude-gemini-perplexity-pme.json",
+      "slug": "chatgpt-claude-gemini-perplexity-pme",
+      "route": "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
+      "index": 6,
+      "label": "Entraînement et conservation : ce que chaque éditeur écrit",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/chatgpt-claude-gemini-perplexity-pme.json",
+      "slug": "chatgpt-claude-gemini-perplexity-pme",
+      "route": "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
+      "index": 8,
+      "label": "Quel outil dans quel cas ?",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/claude-platform-vs-openai-platform.json",
       "slug": "claude-platform-vs-openai-platform",
       "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
@@ -6889,6 +7161,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-in-chrome-entreprise.json",
+      "slug": "claude-in-chrome-entreprise",
+      "route": "/ressources/guides/claude-in-chrome-entreprise",
+      "index": 4,
+      "label": "Quels réglages d'administration, et quelle valeur de départ ?",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-managed-agents.json",
       "slug": "claude-managed-agents",
       "route": "/ressources/guides/claude-managed-agents",
@@ -7155,6 +7436,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/mesurer-visibilite-ia-chatgpt.json",
+      "slug": "mesurer-visibilite-ia-chatgpt",
+      "route": "/ressources/guides/mesurer-visibilite-ia-chatgpt",
+      "index": 6,
+      "label": "Quel relevé mesure quoi, et que ne dit-il pas ?",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/n8n-auto-heberge-rgpd.json",
       "slug": "n8n-auto-heberge-rgpd",
       "route": "/ressources/guides/n8n-auto-heberge-rgpd",
@@ -7191,6 +7481,24 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 10,
       "label": "Trois budgets mensuels de fonctionnement, hypothèses écrites",
       "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/prompt-engineering-pme.json",
+      "slug": "prompt-engineering-pme",
+      "route": "/ressources/guides/prompt-engineering-pme",
+      "index": 4,
+      "label": "Ce que disent Anthropic et OpenAI, élément par élément",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/prompt-engineering-pme.json",
+      "slug": "prompt-engineering-pme",
+      "route": "/ressources/guides/prompt-engineering-pme",
+      "index": 7,
+      "label": "Un gabarit par fonction de l'entreprise",
       "background": "paper"
     },
     {
@@ -7364,6 +7672,26 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/tutoriel-make-tri-emails-claude",
       "index": 9,
       "label": "Combien coûte la seule vérification de la boîte ?",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/automatisations/automatisation-n8n.json",
+      "slug": "automatisation-n8n",
+      "route": "/services/automatisation-n8n",
+      "index": 5,
+      "label": "Cinq workflows n8n qu'une PME demande souvent",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/automatisations/automatisation-n8n.json",
+      "slug": "automatisation-n8n",
+      "route": "/services/automatisation-n8n",
+      "index": 10,
+      "label": "Cinq questions à poser à une agence n8n avant de signer",
+      "variant": "editorial",
       "background": "paper"
     },
     {
@@ -7753,8 +8081,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisations/automatisation-n8n.json",
       "slug": "automatisation-n8n",
       "route": "/services/automatisation-n8n",
-      "index": 8,
-      "label": "#8",
+      "index": 11,
+      "label": "#11",
       "variant": "media"
     },
     {
@@ -7825,8 +8153,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/consultant-ia-claude.json",
       "slug": "consultant-ia-claude",
       "route": "/services/consultant-ia-claude",
-      "index": 13,
-      "label": "#13",
+      "index": 14,
+      "label": "#14",
       "variant": "media"
     },
     {
@@ -8382,6 +8710,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/chatgpt-claude-gemini-perplexity-pme.json",
+      "slug": "chatgpt-claude-gemini-perplexity-pme",
+      "route": "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
+      "index": 12,
+      "label": "Quelle IA choisir : vos questions",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/claude-code-vs-cursor.json",
       "slug": "claude-code-vs-cursor",
       "route": "/ressources/comparatifs/claude-code-vs-cursor",
@@ -8616,6 +8953,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-in-chrome-entreprise.json",
+      "slug": "claude-in-chrome-entreprise",
+      "route": "/ressources/guides/claude-in-chrome-entreprise",
+      "index": 13,
+      "label": "Claude in Chrome en entreprise : questions fréquentes",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-managed-agents.json",
       "slug": "claude-managed-agents",
       "route": "/ressources/guides/claude-managed-agents",
@@ -8733,6 +9079,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/mesurer-visibilite-ia-chatgpt.json",
+      "slug": "mesurer-visibilite-ia-chatgpt",
+      "route": "/ressources/guides/mesurer-visibilite-ia-chatgpt",
+      "index": 13,
+      "label": "Mesurer sa visibilité dans ChatGPT : questions fréquentes",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/n8n-auto-heberge-rgpd.json",
       "slug": "n8n-auto-heberge-rgpd",
       "route": "/ressources/guides/n8n-auto-heberge-rgpd",
@@ -8748,6 +9103,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 16,
       "label": "Prix de n8n : questions fréquentes",
       "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/prompt-engineering-pme.json",
+      "slug": "prompt-engineering-pme",
+      "route": "/ressources/guides/prompt-engineering-pme",
+      "index": 12,
+      "label": "Prompt engineering en PME : questions fréquentes",
+      "background": "paper-2"
     },
     {
       "collection": "guides",
@@ -8889,7 +9253,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisations/automatisation-n8n.json",
       "slug": "automatisation-n8n",
       "route": "/services/automatisation-n8n",
-      "index": 9,
+      "index": 12,
       "label": "Agence n8n : vos questions",
       "background": "paper-2"
     },
@@ -8970,7 +9334,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/consultant-ia-claude.json",
       "slug": "consultant-ia-claude",
       "route": "/services/consultant-ia-claude",
-      "index": 14,
+      "index": 15,
       "label": "Consultant IA : vos questions",
       "background": "paper-2"
     },
@@ -9678,7 +10042,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/consultant-ia-claude.json",
       "slug": "consultant-ia-claude",
       "route": "/services/consultant-ia-claude",
-      "index": 4,
+      "index": 5,
       "label": "Ce que la mission tranche pour vous",
       "background": "paper"
     },
@@ -9992,6 +10356,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/chatgpt-claude-gemini-perplexity-pme.json",
+      "slug": "chatgpt-claude-gemini-perplexity-pme",
+      "route": "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
+      "index": 13,
+      "label": "L'outil compte moins que le cadre : tâches, données, test.",
+      "background": "ink"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/claude-code-vs-cursor.json",
       "slug": "claude-code-vs-cursor",
       "route": "/ressources/comparatifs/claude-code-vs-cursor",
@@ -10226,6 +10599,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-in-chrome-entreprise.json",
+      "slug": "claude-in-chrome-entreprise",
+      "route": "/ressources/guides/claude-in-chrome-entreprise",
+      "index": 14,
+      "label": "Une liste de sites, une règle d'une page, un groupe pilote : avant l'installation.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-managed-agents.json",
       "slug": "claude-managed-agents",
       "route": "/ressources/guides/claude-managed-agents",
@@ -10343,6 +10725,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/mesurer-visibilite-ia-chatgpt.json",
+      "slug": "mesurer-visibilite-ia-chatgpt",
+      "route": "/ressources/guides/mesurer-visibilite-ia-chatgpt",
+      "index": 14,
+      "label": "Savoir où vous en êtes avant de changer quoi que ce soit.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/n8n-auto-heberge-rgpd.json",
       "slug": "n8n-auto-heberge-rgpd",
       "route": "/ressources/guides/n8n-auto-heberge-rgpd",
@@ -10357,6 +10748,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/n8n-prix",
       "index": 17,
       "label": "n8n Cloud ou auto-hébergé : décidez avant le premier workflow.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/prompt-engineering-pme.json",
+      "slug": "prompt-engineering-pme",
+      "route": "/ressources/guides/prompt-engineering-pme",
+      "index": 13,
+      "label": "Des consignes écrites sur vos tâches, testées sur vos dossiers.",
       "background": "ink"
     },
     {
@@ -10499,8 +10899,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisations/automatisation-n8n.json",
       "slug": "automatisation-n8n",
       "route": "/services/automatisation-n8n",
-      "index": 10,
-      "label": "Un premier workflow n8n en production, sur votre serveur.",
+      "index": 13,
+      "label": "Un premier workflow n8n testé en quelques semaines, sur votre serveur.",
       "background": "ink"
     },
     {
@@ -10580,7 +10980,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/consultant-ia-claude.json",
       "slug": "consultant-ia-claude",
       "route": "/services/consultant-ia-claude",
-      "index": 16,
+      "index": 17,
       "label": "Par quoi commencer, et que laisser de côté ?",
       "background": "ink"
     },
@@ -11577,6 +11977,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/chatgpt-claude-gemini-perplexity-pme.json",
+      "slug": "chatgpt-claude-gemini-perplexity-pme",
+      "route": "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
+      "index": 0,
+      "label": "ChatGPT, Claude, Gemini ou Perplexity : quelle IA choisir en 2026 ?",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/claude-code-vs-cursor.json",
       "slug": "claude-code-vs-cursor",
       "route": "/ressources/comparatifs/claude-code-vs-cursor",
@@ -11802,6 +12211,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-in-chrome-entreprise.json",
+      "slug": "claude-in-chrome-entreprise",
+      "route": "/ressources/guides/claude-in-chrome-entreprise",
+      "index": 0,
+      "label": "Extension Claude in Chrome en entreprise : installer, régler, encadrer",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-managed-agents.json",
       "slug": "claude-managed-agents",
       "route": "/ressources/guides/claude-managed-agents",
@@ -11919,6 +12337,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/mesurer-visibilite-ia-chatgpt.json",
+      "slug": "mesurer-visibilite-ia-chatgpt",
+      "route": "/ressources/guides/mesurer-visibilite-ia-chatgpt",
+      "index": 0,
+      "label": "Mesurer sa visibilité IA : un protocole mensuel, sans abonnement",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/n8n-auto-heberge-rgpd.json",
       "slug": "n8n-auto-heberge-rgpd",
       "route": "/ressources/guides/n8n-auto-heberge-rgpd",
@@ -11933,6 +12360,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/n8n-prix",
       "index": 0,
       "label": "n8n prix : tarifs 2026 et coût complet pour une PME",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/prompt-engineering-pme.json",
+      "slug": "prompt-engineering-pme",
+      "route": "/ressources/guides/prompt-engineering-pme",
+      "index": 0,
+      "label": "Prompt engineering en PME : une méthode de consignes en cinq éléments",
       "background": "paper"
     },
     {
@@ -12435,6 +12871,16 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-in-chrome-entreprise.json",
+      "slug": "claude-in-chrome-entreprise",
+      "route": "/ressources/guides/claude-in-chrome-entreprise",
+      "index": 3,
+      "label": "Quels chiffres et réglages retenir avant de déployer ?",
+      "variant": "accent",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-managed-agents.json",
       "slug": "claude-managed-agents",
       "route": "/ressources/guides/claude-managed-agents",
@@ -12533,11 +12979,31 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/mesurer-visibilite-ia-chatgpt.json",
+      "slug": "mesurer-visibilite-ia-chatgpt",
+      "route": "/ressources/guides/mesurer-visibilite-ia-chatgpt",
+      "index": 3,
+      "label": "Quels repères retenir avant de commencer ?",
+      "variant": "accent",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/n8n-prix.json",
       "slug": "n8n-prix",
       "route": "/ressources/guides/n8n-prix",
       "index": 3,
       "label": "Prix mensuels, facturation annuelle, hors taxes",
+      "variant": "accent",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/prompt-engineering-pme.json",
+      "slug": "prompt-engineering-pme",
+      "route": "/ressources/guides/prompt-engineering-pme",
+      "index": 3,
+      "label": "Quels repères retenir avant d'écrire vos consignes ?",
       "variant": "accent",
       "background": "paper"
     },
@@ -13384,7 +13850,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisations/automatisation-n8n.json",
       "slug": "automatisation-n8n",
       "route": "/services/automatisation-n8n",
-      "index": 7,
+      "index": 9,
       "label": "Prix d'une prestation n8n",
       "background": "paper"
     },
@@ -13456,7 +13922,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/consultant-ia-claude.json",
       "slug": "consultant-ia-claude",
       "route": "/services/consultant-ia-claude",
-      "index": 12,
+      "index": 13,
       "label": "Combien coûte un accompagnement IA",
       "background": "paper"
     },
@@ -13864,12 +14330,21 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/chatgpt-claude-gemini-perplexity-pme.json",
+      "slug": "chatgpt-claude-gemini-perplexity-pme",
+      "route": "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
+      "index": 9,
+      "label": "Comment trancher en quatre étapes",
+      "background": "paper-3"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "index": 14,
       "label": "Comment trancher en deux semaines, sur vos documents",
-      "background": "paper-2"
+      "background": "paper"
     },
     {
       "collection": "comparatifs",
@@ -14008,6 +14483,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-in-chrome-entreprise.json",
+      "slug": "claude-in-chrome-entreprise",
+      "route": "/ressources/guides/claude-in-chrome-entreprise",
+      "index": 10,
+      "label": "Comment mener un pilote en quatre temps ?",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-managed-agents.json",
       "slug": "claude-managed-agents",
       "route": "/ressources/guides/claude-managed-agents",
@@ -14098,12 +14582,30 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/mesurer-visibilite-ia-chatgpt.json",
+      "slug": "mesurer-visibilite-ia-chatgpt",
+      "route": "/ressources/guides/mesurer-visibilite-ia-chatgpt",
+      "index": 5,
+      "label": "Le protocole en cinq étapes",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/n8n-prix.json",
       "slug": "n8n-prix",
       "route": "/ressources/guides/n8n-prix",
       "index": 13,
       "label": "Chiffrer votre cas en cinq étapes",
       "background": "paper-3"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/prompt-engineering-pme.json",
+      "slug": "prompt-engineering-pme",
+      "route": "/ressources/guides/prompt-engineering-pme",
+      "index": 9,
+      "label": "Comment faire entrer la méthode dans l'équipe ?",
+      "background": "paper"
     },
     {
       "collection": "guides",
@@ -14152,10 +14654,19 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/automatisations/automatisation-n8n.json",
+      "slug": "automatisation-n8n",
+      "route": "/services/automatisation-n8n",
+      "index": 7,
+      "label": "Comment se passe une mission n8n, du premier appel à la maintenance",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
       "file": "services/consultant-ia-claude.json",
       "slug": "consultant-ia-claude",
       "route": "/services/consultant-ia-claude",
-      "index": 11,
+      "index": 12,
       "label": "Comment se déroule une mission de conseil IA",
       "background": "paper-3"
     },
@@ -14973,6 +15484,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/chatgpt-claude-gemini-perplexity-pme.json",
+      "slug": "chatgpt-claude-gemini-perplexity-pme",
+      "route": "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
+      "index": 11,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/claude-code-vs-cursor.json",
       "slug": "claude-code-vs-cursor",
       "route": "/ressources/comparatifs/claude-code-vs-cursor",
@@ -15198,6 +15718,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-in-chrome-entreprise.json",
+      "slug": "claude-in-chrome-entreprise",
+      "route": "/ressources/guides/claude-in-chrome-entreprise",
+      "index": 12,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-managed-agents.json",
       "slug": "claude-managed-agents",
       "route": "/ressources/guides/claude-managed-agents",
@@ -15315,6 +15844,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/mesurer-visibilite-ia-chatgpt.json",
+      "slug": "mesurer-visibilite-ia-chatgpt",
+      "route": "/ressources/guides/mesurer-visibilite-ia-chatgpt",
+      "index": 12,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/n8n-auto-heberge-rgpd.json",
       "slug": "n8n-auto-heberge-rgpd",
       "route": "/ressources/guides/n8n-auto-heberge-rgpd",
@@ -15330,6 +15868,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 15,
       "label": "Pour aller plus loin",
       "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/prompt-engineering-pme.json",
+      "slug": "prompt-engineering-pme",
+      "route": "/ressources/guides/prompt-engineering-pme",
+      "index": 11,
+      "label": "Pour aller plus loin",
+      "background": "paper"
     },
     {
       "collection": "guides",
@@ -15426,7 +15973,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/consultant-ia-claude.json",
       "slug": "consultant-ia-claude",
       "route": "/services/consultant-ia-claude",
-      "index": 15,
+      "index": 16,
       "label": "Pour aller plus loin",
       "background": "paper"
     },
@@ -15869,6 +16416,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-in-chrome-entreprise.json",
+      "slug": "claude-in-chrome-entreprise",
+      "route": "/ressources/guides/claude-in-chrome-entreprise",
+      "index": 9,
+      "label": "Que confier à Claude in Chrome, et que garder hors du navigateur ?",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-plugins-entreprise.json",
       "slug": "claude-plugins-entreprise",
       "route": "/ressources/guides/claude-plugins-entreprise",
@@ -15937,6 +16493,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/mcp-claude",
       "index": 7,
       "label": "Quand faire développer un serveur MCP, et quand s'en passer",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mesurer-visibilite-ia-chatgpt.json",
+      "slug": "mesurer-visibilite-ia-chatgpt",
+      "route": "/ressources/guides/mesurer-visibilite-ia-chatgpt",
+      "index": 10,
+      "label": "Que peut-on conclure du relevé, et que faut-il s'interdire ?",
       "background": "paper-2"
     },
     {

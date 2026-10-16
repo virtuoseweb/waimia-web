@@ -23,7 +23,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "author-byline": {
-    "count": 42,
+    "count": 45,
     "pages": [
       "/cas-usages/centraliser-donnees",
       "/cas-usages/finance-comptabilite",
@@ -44,6 +44,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-fonctionnalites-pme",
       "/ressources/guides/claude-for-small-business",
       "/ressources/guides/claude-gratuit",
+      "/ressources/guides/claude-in-chrome-entreprise",
       "/ressources/guides/claude-managed-agents",
       "/ressources/guides/claude-plugins-entreprise",
       "/ressources/guides/claude-pme",
@@ -57,8 +58,10 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/financement-formation-ia-opco",
       "/ressources/guides/llm-rag-dirigeant",
       "/ressources/guides/mcp-claude",
+      "/ressources/guides/mesurer-visibilite-ia-chatgpt",
       "/ressources/guides/n8n-auto-heberge-rgpd",
       "/ressources/guides/n8n-prix",
+      "/ressources/guides/prompt-engineering-pme",
       "/ressources/guides/quel-modele-claude-choisir",
       "/ressources/guides/refonte-site-internet",
       "/ressources/guides/rgpd-agents-ia-checklist",
@@ -157,9 +160,10 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "code-showcase": {
-    "count": 1,
+    "count": 2,
     "pages": [
-      "/ressources/guides/claude-skills"
+      "/ressources/guides/claude-skills",
+      "/ressources/guides/prompt-engineering-pme"
     ]
   },
   "coming-soon-pills": {
@@ -529,7 +533,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "direct-answer": {
-    "count": 76,
+    "count": 81,
     "pages": [
       "/cas-usages/finance-comptabilite",
       "/cas-usages/rh",
@@ -547,6 +551,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/implantations/paris",
       "/implantations/strasbourg",
       "/implantations/toulouse",
+      "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-platform-vs-openai-platform",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
@@ -573,6 +578,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-fonctionnalites-pme",
       "/ressources/guides/claude-for-small-business",
       "/ressources/guides/claude-gratuit",
+      "/ressources/guides/claude-in-chrome-entreprise",
       "/ressources/guides/claude-managed-agents",
       "/ressources/guides/claude-plugins-entreprise",
       "/ressources/guides/claude-pme",
@@ -586,8 +592,10 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/financement-formation-ia-opco",
       "/ressources/guides/llm-rag-dirigeant",
       "/ressources/guides/mcp-claude",
+      "/ressources/guides/mesurer-visibilite-ia-chatgpt",
       "/ressources/guides/n8n-auto-heberge-rgpd",
       "/ressources/guides/n8n-prix",
+      "/ressources/guides/prompt-engineering-pme",
       "/ressources/guides/quel-modele-claude-choisir",
       "/ressources/guides/refonte-site-internet",
       "/ressources/guides/rgpd-agents-ia-checklist",
@@ -600,6 +608,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/automatisation-make",
       "/services/automatisation-n8n",
       "/services/base-de-connaissance-ia",
+      "/services/consultant-ia-claude",
       "src/content/demonstrations/integration-claude.json",
       "src/content/formations/automatisation.json",
       "src/content/formations/chatgpt.json",
@@ -610,11 +619,13 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "editorial-callout": {
-    "count": 11,
+    "count": 13,
     "pages": [
       "/conformite-ia",
+      "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "/ressources/comparatifs/mistral-vs-claude-pme",
+      "/ressources/guides/claude-in-chrome-entreprise",
       "src/content/formations/automatisation.json",
       "src/content/formations/chatgpt.json",
       "src/content/formations/claude.json",
@@ -637,7 +648,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "editorial-prose": {
-    "count": 261,
+    "count": 275,
     "pages": [
       "/audit-ia-pme",
       "/cas-usages/centraliser-donnees",
@@ -657,6 +668,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/implantations/paris",
       "/implantations/strasbourg",
       "/implantations/toulouse",
+      "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
       "/ressources/comparatifs/claude-platform-vs-openai-platform",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche",
@@ -676,6 +688,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-fonctionnalites-pme",
       "/ressources/guides/claude-for-small-business",
       "/ressources/guides/claude-gratuit",
+      "/ressources/guides/claude-in-chrome-entreprise",
       "/ressources/guides/claude-managed-agents",
       "/ressources/guides/claude-plugins-entreprise",
       "/ressources/guides/claude-pme",
@@ -689,8 +702,10 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/financement-formation-ia-opco",
       "/ressources/guides/llm-rag-dirigeant",
       "/ressources/guides/mcp-claude",
+      "/ressources/guides/mesurer-visibilite-ia-chatgpt",
       "/ressources/guides/n8n-auto-heberge-rgpd",
       "/ressources/guides/n8n-prix",
+      "/ressources/guides/prompt-engineering-pme",
       "/ressources/guides/quel-modele-claude-choisir",
       "/ressources/guides/refonte-site-internet",
       "/ressources/guides/rgpd-agents-ia-checklist",
@@ -760,11 +775,12 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "editorial-table-block": {
-    "count": 107,
+    "count": 118,
     "pages": [
       "/cas-usages/finance-comptabilite",
       "/cas-usages/rh",
       "/cas-usages/support-sav",
+      "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
       "/ressources/comparatifs/claude-platform-vs-openai-platform",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche",
@@ -784,6 +800,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-fonctionnalites-pme",
       "/ressources/guides/claude-for-small-business",
       "/ressources/guides/claude-gratuit",
+      "/ressources/guides/claude-in-chrome-entreprise",
       "/ressources/guides/claude-managed-agents",
       "/ressources/guides/claude-plugins-entreprise",
       "/ressources/guides/claude-pme",
@@ -797,8 +814,10 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/financement-formation-ia-opco",
       "/ressources/guides/llm-rag-dirigeant",
       "/ressources/guides/mcp-claude",
+      "/ressources/guides/mesurer-visibilite-ia-chatgpt",
       "/ressources/guides/n8n-auto-heberge-rgpd",
       "/ressources/guides/n8n-prix",
+      "/ressources/guides/prompt-engineering-pme",
       "/ressources/guides/quel-modele-claude-choisir",
       "/ressources/guides/refonte-site-internet",
       "/ressources/guides/rgpd-agents-ia-checklist",
@@ -807,6 +826,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/second-cerveau-entreprise",
       "/ressources/guides/taches-a-automatiser-pme",
       "/ressources/guides/tutoriel-make-tri-emails-claude",
+      "/services/automatisation-n8n",
       "/services/consultant-ia-claude",
       "/services/integration-chatgpt-openai",
       "/services/integration-claude",
@@ -898,7 +918,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "faq-accordion": {
-    "count": 138,
+    "count": 142,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -927,6 +947,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/lp/systeme-acquisition",
       "/lp/systeme-ia-marketing",
       "/lp/visibilite-google-ia",
+      "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-platform-vs-openai-platform",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
@@ -953,6 +974,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-fonctionnalites-pme",
       "/ressources/guides/claude-for-small-business",
       "/ressources/guides/claude-gratuit",
+      "/ressources/guides/claude-in-chrome-entreprise",
       "/ressources/guides/claude-managed-agents",
       "/ressources/guides/claude-plugins-entreprise",
       "/ressources/guides/claude-pme",
@@ -966,8 +988,10 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/financement-formation-ia-opco",
       "/ressources/guides/llm-rag-dirigeant",
       "/ressources/guides/mcp-claude",
+      "/ressources/guides/mesurer-visibilite-ia-chatgpt",
       "/ressources/guides/n8n-auto-heberge-rgpd",
       "/ressources/guides/n8n-prix",
+      "/ressources/guides/prompt-engineering-pme",
       "/ressources/guides/quel-modele-claude-choisir",
       "/ressources/guides/refonte-site-internet",
       "/ressources/guides/rgpd-agents-ia-checklist",
@@ -1098,7 +1122,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "footer-cta-band": {
-    "count": 137,
+    "count": 141,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -1128,6 +1152,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/lp/systeme-acquisition",
       "/lp/systeme-ia-marketing",
       "/lp/visibilite-google-ia",
+      "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-platform-vs-openai-platform",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
@@ -1154,6 +1179,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-fonctionnalites-pme",
       "/ressources/guides/claude-for-small-business",
       "/ressources/guides/claude-gratuit",
+      "/ressources/guides/claude-in-chrome-entreprise",
       "/ressources/guides/claude-managed-agents",
       "/ressources/guides/claude-plugins-entreprise",
       "/ressources/guides/claude-pme",
@@ -1167,8 +1193,10 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/financement-formation-ia-opco",
       "/ressources/guides/llm-rag-dirigeant",
       "/ressources/guides/mcp-claude",
+      "/ressources/guides/mesurer-visibilite-ia-chatgpt",
       "/ressources/guides/n8n-auto-heberge-rgpd",
       "/ressources/guides/n8n-prix",
+      "/ressources/guides/prompt-engineering-pme",
       "/ressources/guides/quel-modele-claude-choisir",
       "/ressources/guides/refonte-site-internet",
       "/ressources/guides/rgpd-agents-ia-checklist",
@@ -1361,7 +1389,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "hero-split-media": {
-    "count": 94,
+    "count": 98,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
@@ -1385,6 +1413,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/implantations/paris",
       "/implantations/strasbourg",
       "/implantations/toulouse",
+      "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-platform-vs-openai-platform",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
@@ -1410,6 +1439,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-fonctionnalites-pme",
       "/ressources/guides/claude-for-small-business",
       "/ressources/guides/claude-gratuit",
+      "/ressources/guides/claude-in-chrome-entreprise",
       "/ressources/guides/claude-managed-agents",
       "/ressources/guides/claude-plugins-entreprise",
       "/ressources/guides/claude-pme",
@@ -1423,8 +1453,10 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/financement-formation-ia-opco",
       "/ressources/guides/llm-rag-dirigeant",
       "/ressources/guides/mcp-claude",
+      "/ressources/guides/mesurer-visibilite-ia-chatgpt",
       "/ressources/guides/n8n-auto-heberge-rgpd",
       "/ressources/guides/n8n-prix",
+      "/ressources/guides/prompt-engineering-pme",
       "/ressources/guides/quel-modele-claude-choisir",
       "/ressources/guides/refonte-site-internet",
       "/ressources/guides/rgpd-agents-ia-checklist",
@@ -1491,7 +1523,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "key-metric-grid": {
-    "count": 21,
+    "count": 24,
     "pages": [
       "/ressources/guides/aides-financement-projet-ia",
       "/ressources/guides/claude-code-entreprise",
@@ -1501,6 +1533,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-fonctionnalites-pme",
       "/ressources/guides/claude-for-small-business",
       "/ressources/guides/claude-gratuit",
+      "/ressources/guides/claude-in-chrome-entreprise",
       "/ressources/guides/claude-managed-agents",
       "/ressources/guides/claude-plugins-entreprise",
       "/ressources/guides/claude-pme",
@@ -1511,7 +1544,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/cout-integration-claude-pme",
       "/ressources/guides/cout-projet-ia-pme",
       "/ressources/guides/financement-formation-ia-opco",
+      "/ressources/guides/mesurer-visibilite-ia-chatgpt",
       "/ressources/guides/n8n-prix",
+      "/ressources/guides/prompt-engineering-pme",
       "/ressources/guides/quel-modele-claude-choisir",
       "/ressources/guides/second-cerveau-entreprise"
     ]
@@ -1755,7 +1790,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "process-steps": {
-    "count": 45,
+    "count": 50,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/finance-comptabilite",
@@ -1764,6 +1799,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/demonstrations/avant-apres",
       "/demonstrations/site-web-intelligent",
       "/implantations/bordeaux",
+      "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "/ressources/comparatifs/mistral-vs-claude-pme",
       "/ressources/diagnostics/claude-pme",
@@ -1780,6 +1816,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-fonctionnalites-pme",
       "/ressources/guides/claude-for-small-business",
       "/ressources/guides/claude-gratuit",
+      "/ressources/guides/claude-in-chrome-entreprise",
       "/ressources/guides/claude-managed-agents",
       "/ressources/guides/claude-plugins-entreprise",
       "/ressources/guides/claude-pme",
@@ -1789,12 +1826,15 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/combien-coute-un-agent-ia-pme",
       "/ressources/guides/devis-automatise",
       "/ressources/guides/financement-formation-ia-opco",
+      "/ressources/guides/mesurer-visibilite-ia-chatgpt",
       "/ressources/guides/n8n-prix",
+      "/ressources/guides/prompt-engineering-pme",
       "/ressources/guides/quel-modele-claude-choisir",
       "/ressources/guides/refonte-site-internet",
       "/ressources/guides/second-cerveau-entreprise",
       "/ressources/guides/taches-a-automatiser-pme",
       "/ressources/guides/tutoriel-make-tri-emails-claude",
+      "/services/automatisation-n8n",
       "/services/consultant-ia-claude",
       "/services/integration-chatgpt-openai",
       "/services/integration-claude",
@@ -1889,7 +1929,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "related-cards-band": {
-    "count": 81,
+    "count": 85,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
@@ -1913,6 +1953,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/implantations/paris",
       "/implantations/strasbourg",
       "/implantations/toulouse",
+      "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-platform-vs-openai-platform",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
@@ -1938,6 +1979,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-fonctionnalites-pme",
       "/ressources/guides/claude-for-small-business",
       "/ressources/guides/claude-gratuit",
+      "/ressources/guides/claude-in-chrome-entreprise",
       "/ressources/guides/claude-managed-agents",
       "/ressources/guides/claude-plugins-entreprise",
       "/ressources/guides/claude-pme",
@@ -1951,8 +1993,10 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/financement-formation-ia-opco",
       "/ressources/guides/llm-rag-dirigeant",
       "/ressources/guides/mcp-claude",
+      "/ressources/guides/mesurer-visibilite-ia-chatgpt",
       "/ressources/guides/n8n-auto-heberge-rgpd",
       "/ressources/guides/n8n-prix",
+      "/ressources/guides/prompt-engineering-pme",
       "/ressources/guides/quel-modele-claude-choisir",
       "/ressources/guides/refonte-site-internet",
       "/ressources/guides/rgpd-agents-ia-checklist",
@@ -2091,7 +2135,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "tech-when-dual": {
-    "count": 45,
+    "count": 47,
     "pages": [
       "/cas-usages/finance-comptabilite",
       "/cas-usages/rh",
@@ -2115,6 +2159,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/claude-design",
       "/ressources/guides/claude-for-small-business",
       "/ressources/guides/claude-gratuit",
+      "/ressources/guides/claude-in-chrome-entreprise",
       "/ressources/guides/claude-plugins-entreprise",
       "/ressources/guides/claude-rgpd-pme",
       "/ressources/guides/claude-tpe",
@@ -2123,6 +2168,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/financement-formation-ia-opco",
       "/ressources/guides/llm-rag-dirigeant",
       "/ressources/guides/mcp-claude",
+      "/ressources/guides/mesurer-visibilite-ia-chatgpt",
       "/ressources/guides/n8n-auto-heberge-rgpd",
       "/ressources/guides/n8n-prix",
       "/ressources/guides/refonte-site-internet",

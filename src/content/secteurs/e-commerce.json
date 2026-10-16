@@ -1,9 +1,9 @@
 {
-  "title_fr": "IA et automatisation pour l'e-commerce : commandes, support et catalogue",
-  "seoTitle_fr": "IA et automatisation e-commerce : commandes, SAV, catalogue",
-  "title_en": "AI and automation for e-commerce: orders, support and catalogue",
-  "description_fr": "PME e-commerce : commandes synchronisées sans ressaisie, support client répondu par un agent IA, catalogue tenu à jour. Sprint de départ à {{prix.sprint}} € HT.",
-  "description_en": "E-commerce SMBs: orders synced with no re-keying, customer support answered by an AI agent, catalogue kept up to date. Starter sprint at {{prix.sprint.en}} € ex VAT.",
+  "title_fr": "IA pour l'e-commerce : support client, commandes et catalogue",
+  "seoTitle_fr": "IA e-commerce : agent SAV, commandes, catalogue",
+  "title_en": "AI for e-commerce: customer support, orders and catalogue",
+  "description_fr": "Agent IA pour le SAV, commandes sans ressaisie, fiches produits complétées : ce qu'une boutique en ligne peut automatiser, et ce qui reste humain.",
+  "description_en": "An AI agent for support, orders without re-keying, completed product pages: what an online shop can automate, and what stays human.",
   "slug": "e-commerce",
   "publishedAt": "2026-06-15",
   "icp_fr": "Boutiques en ligne et PME e-commerce",
@@ -50,7 +50,7 @@
   ],
   "workflowsCible": [
     "commandes synchronisées sans ressaisie",
-    "support client répondu par un agent IA",
+    "support client assisté par un agent IA",
     "catalogue tenu à jour automatiquement"
   ],
   "kpis_fr": [
@@ -64,7 +64,7 @@
     "product pages up to date"
   ],
   "metricsHero": [],
-  "caseRef": "balzeo",
+  "caseRef": "brow-x-professionnel",
   "visible": true,
   "ctaPrimary_fr": "Réserver l'audit gratuit →",
   "ctaPrimary_en": "Book a free AI audit →",
@@ -73,24 +73,24 @@
   },
   "faq_fr": [
     {
-      "q": "Combien coûte l'automatisation d'une boutique en ligne ?",
-      "a": "On démarre par un sprint de cadrage de 10 heures à {{prix.sprint}} € HT, avec un premier livrable en service à la fin. La suite est estimée avec vous, validée, puis exécutée en sprints facturés {{prix.horaire}} € HT de l'heure. Pas d'abonnement imposé, et vous gardez les workflows."
+      "q": "Un agent IA peut-il répondre seul à mes clients ?",
+      "a": "Au départ, non. Sur le projet Brow.X, chaque réponse préparée par l'agent est validée par une personne avant l'envoi, et les exceptions sont escaladées. Le périmètre ne s'élargit que lorsque les réponses sont justes. Les réclamations, les remboursements et les gestes commerciaux restent humains."
+    },
+    {
+      "q": "Combien coûte un agent IA de service client pour une boutique en ligne ?",
+      "a": "L'audit de 45 minutes est gratuit. Le sprint de cadrage coûte {{prix.sprint}} € HT pour 10 heures et livre un prototype testé sur vos messages. La mise en production relève du pilote, dès {{prix.pilote}} € HT. La suite est facturée {{prix.horaire}} € HT de l'heure. Vous gardez les workflows, les accès et les données."
     },
     {
       "q": "Faut-il changer de plateforme e-commerce ?",
       "a": "Non. On se branche sur votre boutique actuelle, Shopify, WooCommerce ou PrestaShop, et sur vos outils de facturation, par leurs API ou par un outil d'automatisation comme n8n ou Make. Une migration n'est proposée que si la plateforme bloque vraiment."
     },
     {
-      "q": "Qu'est-ce qu'un agent de service client IA, concrètement ?",
-      "a": "Un assistant branché sur vos commandes et vos conditions de vente. Il répond aux questions courantes sur le site ou par email, s'appuie sur vos sources, et transmet au bon interlocuteur ce qui sort de son périmètre."
+      "q": "Mon outil de support propose déjà une IA : faut-il un agent sur mesure ?",
+      "a": "Pas forcément. Si votre outil de support répond déjà bien aux demandes courantes, gardez-le. Le sur-mesure se justifie quand l'information est répartie sur plusieurs outils, par exemple la messagerie, la boutique, un portail logistique sans API et le suivi du transporteur. On vous dit à l'audit si votre outil suffit."
     },
     {
-      "q": "L'agent peut-il répondre faux à un client ?",
-      "a": "Il ne répond qu'à partir de vos sources et transmet dès qu'il ne sait pas. Ses réponses sont relues les premières semaines avant d'élargir son périmètre. Les réclamations et les gestes commerciaux restent humains."
-    },
-    {
-      "q": "En combien de temps c'est en place ?",
-      "a": "Le premier flux de commande tourne à la fin du sprint de cadrage, en deux semaines. L'agent de service client demande trois à quatre semaines de plus, relecture comprise."
+      "q": "Un agent doit-il dire à mon client qu'il parle à une IA ?",
+      "a": "Oui, s'il s'adresse directement au client. Depuis le 2 août 2026, l'article 50 de l'AI Act impose à un chatbot de se signaler comme IA au plus tard au premier échange, sauf si c'est évident. Notre guide détaille qui est visé et quoi afficher ; ce n'est pas un avis juridique."
     },
     {
       "q": "Faut-il refaire tout mon site pour vendre mieux ?",
@@ -99,28 +99,28 @@
   ],
   "faq_en": [
     {
-      "q": "How much does automating an online shop cost?",
-      "a": "We start with a 10-hour scoping sprint at {{prix.sprint.en}} € ex VAT, with a first deliverable live at the end. What follows is estimated with you, approved, then run in sprints billed at {{prix.horaire}} € ex VAT per hour. No forced subscription, and you keep the workflows."
+      "q": "Can an AI agent answer my customers on its own?",
+      "a": "Not at first. On the Brow.X project, every answer the agent prepares is approved by a person before it is sent, and exceptions are escalated. The scope only widens once answers are right. Complaints, refunds and goodwill gestures stay human."
+    },
+    {
+      "q": "How much does a customer service AI agent cost for an online shop?",
+      "a": "The 45-minute audit is free. The scoping sprint is {{prix.sprint.en}} € ex VAT for 10 hours and delivers a prototype tested on your messages. Going into production is part of the pilot, from {{prix.pilote.en}} € ex VAT. What follows is billed at {{prix.horaire}} € ex VAT per hour. You keep the workflows, the access and the data."
     },
     {
       "q": "Do I need to change e-commerce platform?",
       "a": "No. We connect to your current shop, Shopify, WooCommerce or PrestaShop, and to your invoicing tools, through their APIs or an automation tool such as n8n or Make. A migration is only suggested if the platform really blocks."
     },
     {
-      "q": "What is an AI customer service agent, concretely?",
-      "a": "An assistant wired to your orders and terms of sale. It answers common questions on the site or by email, relies on your sources, and hands over to the right person whatever falls outside its scope."
+      "q": "My support tool already offers AI: do I need a custom agent?",
+      "a": "Not necessarily. If your support tool already handles common requests well, keep it. Custom work makes sense when the information is spread over several tools, for example the mailbox, the shop, a logistics portal without an API and carrier tracking. We tell you at the audit whether your tool is enough."
     },
     {
-      "q": "Can the agent give a customer a wrong answer?",
-      "a": "It only answers from your sources and hands over as soon as it does not know. Its answers are reviewed in the first weeks before widening its scope. Complaints and commercial gestures stay human."
+      "q": "Must an agent tell my customer they are talking to an AI?",
+      "a": "Yes, if it speaks directly to the customer. Since 2 August 2026, Article 50 of the AI Act requires a chatbot to identify itself as AI no later than the first exchange, unless it is obvious. Our guide covers who is concerned and what to display; it is not legal advice."
     },
     {
-      "q": "How long until it runs?",
-      "a": "The first order flow runs at the end of the scoping sprint, in two weeks. The customer service agent takes three to four more weeks, review included."
-    },
-    {
-      "q": "Do I need to rebuild my whole site to sell more?",
-      "a": "Not always. The back office often costs more than the storefront: re-keying, stock errors, overloaded support. We start there, and only talk about a rebuild if the site really holds sales back."
+      "q": "Do I need to rebuild my whole site to sell better?",
+      "a": "Not always. Often the back office costs more than the storefront: re-keying, stock errors, an overloaded support team. We start there, and only talk about a rebuild if the site really holds sales back."
     }
   ],
   "body_sections": [
@@ -128,8 +128,8 @@
       "type": "editorial-prose",
       "background": "paper",
       "maxWidth": "prose",
-      "html_fr": "<h2>Trois process qui s'automatisent dans une boutique en ligne</h2>\n<p>Le flux de commande : de la boutique vers la facturation, le stock et le transporteur, sans ressaisie, avec une alerte quand une étape échoue. C'est une <a href=\"/services/automatisations\">automatisation de processus</a> classique. Le support : « où en est ma commande », retours, délais. Un <a href=\"/services/agent-support-client\">agent de service client</a> répond depuis vos sources et transmet le reste à l'équipe. Le catalogue : fiches produits complétées et mises en forme à partir des données fournisseurs, relues avant publication.</p>\n<h2>Ce qui reste humain</h2>\n<p>Les réclamations, les gestes commerciaux, le choix de l'assortiment et les prix.</p>\n<h2>Un cas réel</h2>\n<p>Pour <a href=\"/cas-clients/balzeo\">Balzeo</a>, marque de gourdes écoresponsables, le projet a consisté à migrer la boutique vers <a href=\"/services/wordpress\">WordPress et WooCommerce</a> : chargement mobile passé de 5,2 à 2,4 secondes et coût de maintenance mensuel de 500 à 80 euros. C'est le volet site. Pour regarder vos flux de commande et votre support, commencez par l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>.</p>",
-      "html_en": "<h2>Three processes that automate in an online shop</h2>\n<p>The order flow: from the shop to invoicing, stock and carrier, with no retyping, and an alert when a step fails. This is classic <a href=\"/services/automatisations\">process automation</a>. Support: \"where is my order\", returns, lead times. A <a href=\"/services/agent-support-client\">customer service agent</a> answers from your sources and passes the rest to the team. The catalogue: product pages completed and formatted from supplier data, reviewed before publication.</p>\n<h2>What stays human</h2>\n<p>Complaints, commercial gestures, assortment choices and prices.</p>\n<h2>A real case</h2>\n<p>For <a href=\"/cas-clients/balzeo\">Balzeo</a>, an eco-friendly bottle brand, the project migrated the shop to <a href=\"/services/wordpress\">WordPress and WooCommerce</a>: mobile load time from 5.2 to 2.4 seconds and monthly maintenance cost from 500 to 80 euros. That is the site strand. To look at your order flows and support, start with the <a href=\"/audit-ia-pme\">free AI audit</a>.</p>"
+      "html_fr": "<h2>Ce que l'IA change dans une boutique en ligne</h2>\n<p>Dans une boutique en ligne, l'IA sert là où le travail se répète et se répartit entre plusieurs outils : répondre aux demandes liées à une commande, faire circuler les commandes, compléter les fiches produits. Elle prépare la réponse ou la fiche ; une personne valide ce qui engage la marque. Elle ne décide ni d'un remboursement, ni d'un geste commercial, ni d'un prix, ni de l'assortiment.</p>\n<h2>Cinq usages, et le garde-fou de chacun</h2>\n<ul>\n<li><strong>Réponses au « où est ma commande ».</strong> L'agent croise le message reçu, la commande, le portail logistique et le suivi du transporteur, puis prépare la réponse. Garde-fou : validation humaine avant l'envoi, périmètre limité au départ aux demandes rattachées à une commande. Voir <a href=\"/services/agent-support-client\">agent IA de service client</a> et le guide <a href=\"/ressources/guides/agent-sav-architecture\">architecture d'un agent de SAV</a>.</li>\n<li><strong>Retours et réclamations.</strong> L'agent classe la demande et rassemble le dossier (commande, échanges, état du colis). Garde-fou : règles écrites par l'entreprise, escalade des exceptions ; le remboursement et le geste commercial restent humains. Le cas d'usage <a href=\"/cas-usages/support-sav\">automatiser le service client</a> donne l'ordre pour commencer.</li>\n<li><strong>Commandes entre outils.</strong> De la boutique vers la facturation, le stock et le transporteur, sans ressaisie. Garde-fou : une alerte quand une étape échoue, un journal des actions, une reprise à la main possible. Voir <a href=\"/services/automatisations\">automatisation des processus</a> ou <a href=\"/services/automatisation-n8n\">automatisation n8n</a>.</li>\n<li><strong>Fiches produits.</strong> Complétées et mises en forme depuis les données fournisseurs. Garde-fou : l'IA ne complète qu'à partir des données fournies, une personne relit avant la publication.</li>\n<li><strong>Lisibilité par les assistants IA.</strong> Un fichier llms.txt et un site structuré pour les moteurs et les assistants. Garde-fou : on ne promet pas d'être cité. Voir <a href=\"/services/referencement-ia\">agence GEO</a>.</li>\n</ul>\n<p>Un agent qui répond directement à un client doit se signaler comme IA : le guide <a href=\"/ressources/guides/chatbot-transparence-article-50\">chatbot et AI Act, article 50</a> détaille l'obligation.</p>\n<h2>Deux projets dans l'e-commerce</h2>\n<p><a href=\"/cas-clients/brow-x-professionnel\">Brow.X Professionnel</a> vend en ligne depuis Montpellier, sur une boutique Shopify. Waimia construit un agent de SAV sur Claude Managed Agents, relié à Gmail, à Shopify, au portail logistique et aux transporteurs. Il prépare la réponse, une personne la valide avant l'envoi. La première version ne traite que les demandes rattachées à un numéro de commande. Le projet est en cours : rien n'est annoncé comme livré, et aucun chiffre d'impact n'est publié.</p>\n<p><a href=\"/cas-clients/balzeo\">Balzeo</a>, marque de gourdes écoresponsables, a migré en huit semaines vers <a href=\"/services/wordpress\">WordPress et WooCommerce</a>. Volet site, réalisé par VirtuoseWeb : chargement mobile de 5,2 à 2,4 secondes, maintenance de 500 à 80 euros par mois. Volet IA : un fichier llms.txt et une optimisation SEO et GEO, sans mesure publiée. Aucun agent n'agit sur cette boutique.</p>\n<h2>Par où commencer</h2>\n<p>Par l'<a href=\"/audit-ia-pme\">audit IA gratuit</a> de 45 minutes : le trajet d'une commande et d'une question client. Le sprint de cadrage, à {{prix.sprint}} € HT pour 10 heures, livre un prototype testé. La mise en production relève du pilote, dès {{prix.pilote}} € HT, comme sur la page des <a href=\"/tarifs\">tarifs</a>.</p>",
+      "html_en": "<h2>What AI changes in an online shop</h2>\n<p>In an online shop, AI helps where work repeats and is spread across several tools: answering order-related requests, moving orders between systems, completing product pages. It prepares the answer or the page; a person approves what commits the brand. It decides neither a refund, nor a goodwill gesture, nor a price, nor the range.</p>\n<h2>Five uses, and the safeguard for each</h2>\n<ul>\n<li><strong>Answers to \"where is my order\".</strong> The agent combines the message received, the order, the logistics portal and carrier tracking, then prepares the answer. Safeguard: human approval before sending, scope limited at first to requests tied to an order. See <a href=\"/services/agent-support-client\">AI customer service agent</a> and the guide on <a href=\"/ressources/guides/agent-sav-architecture\">customer service agent architecture</a>.</li>\n<li><strong>Returns and complaints.</strong> The agent classifies the request and gathers the file (order, exchanges, parcel status). Safeguard: rules written by the company, exceptions escalated; refunds and goodwill gestures stay human. The use case <a href=\"/cas-usages/support-sav\">automating customer service</a> gives the order to start in.</li>\n<li><strong>Orders between tools.</strong> From the shop to invoicing, stock and the carrier, without re-keying. Safeguard: an alert when a step fails, an action log, manual recovery possible. See <a href=\"/services/automatisations\">process automation</a> or <a href=\"/services/automatisation-n8n\">n8n automation</a>.</li>\n<li><strong>Product pages.</strong> Completed and formatted from supplier data. Safeguard: AI only completes from the data supplied, and a person reviews before publishing.</li>\n<li><strong>Readability for AI assistants.</strong> An llms.txt file and a site structured for engines and assistants. Safeguard: we do not promise to be cited. See <a href=\"/services/referencement-ia\">GEO agency</a>.</li>\n</ul>\n<p>An agent that answers a customer directly must identify itself as AI: the guide on <a href=\"/ressources/guides/chatbot-transparence-article-50\">chatbots and the AI Act, Article 50</a> covers the obligation.</p>\n<h2>Two projects in e-commerce</h2>\n<p><a href=\"/cas-clients/brow-x-professionnel\">Brow.X Professionnel</a> sells online from Montpellier, on a Shopify shop. Waimia is building a customer service agent on Claude Managed Agents, connected to Gmail, Shopify, the logistics portal and the carriers. It prepares the answer, a person approves it before sending. The first version only handles requests tied to an order number. The project is in progress: nothing is announced as delivered, and no impact figure is published.</p>\n<p><a href=\"/cas-clients/balzeo\">Balzeo</a>, an eco-responsible water bottle brand, migrated to <a href=\"/services/wordpress\">WordPress and WooCommerce</a> in eight weeks. Site strand, built by VirtuoseWeb: mobile load time from 5.2 to 2.4 seconds, maintenance from 500 to 80 euros a month. AI strand: an llms.txt file and SEO and GEO optimisation, with no published measurement. No agent acts on this shop.</p>\n<h2>Where to start</h2>\n<p>With the <a href=\"/audit-ia-pme\">free AI audit</a>, 45 minutes: the path of an order and of a customer question. The scoping sprint, {{prix.sprint.en}} € ex VAT for 10 hours, delivers a tested prototype. Going into production is part of the pilot, from {{prix.pilote.en}} € ex VAT, as on the <a href=\"/tarifs\">pricing</a> page.</p>"
     }
   ],
   "methodSteps": [
@@ -144,19 +144,19 @@
     },
     {
       "num": "02",
-      "label_fr": "Sprint de cadrage : le flux de commande",
-      "label_en": "Scoping sprint: the order flow",
-      "body_fr": "Dix heures pour relier la boutique à la facturation et au stock, avec une alerte en cas d'échec. Un premier flux en service, pas un rapport.",
-      "body_en": "Ten hours to connect the shop to invoicing and stock, with an alert on failure. A first flow live, not a report.",
+      "label_fr": "Sprint de cadrage : un prototype testé",
+      "label_en": "Scoping sprint: a tested prototype",
+      "body_fr": "Dix heures pour cadrer le premier chantier (le flux de commande ou les demandes liées à une commande) et le tester sur vos vrais messages. Vous repartez avec un prototype testé et un plan, pas encore avec un système en production.",
+      "body_en": "Ten hours to scope the first project (the order flow or order-related requests) and test it on your real messages. You leave with a tested prototype and a plan, not yet with a system in production.",
       "meta_fr": "Semaines 1 et 2",
       "meta_en": "Weeks 1 and 2"
     },
     {
       "num": "03",
-      "label_fr": "Agent de service client",
-      "label_en": "Customer service agent",
-      "body_fr": "Branché sur vos commandes et vos conditions de vente, relu les premières semaines, élargi question par question quand ses réponses sont justes.",
-      "body_en": "Wired to your orders and terms of sale, reviewed in the first weeks, widened question by question once its answers are right.",
+      "label_fr": "Pilote : l'agent de service client en production",
+      "label_en": "Pilot: the customer service agent in production",
+      "body_fr": "Branché à votre messagerie, à votre boutique et à votre suivi de colis, limité d'abord aux demandes rattachées à une commande. Chaque réponse est validée avant l'envoi ; le périmètre s'élargit question par question. Le pilote démarre dès {{prix.pilote}} € HT.",
+      "body_en": "Wired to your mailbox, your shop and your parcel tracking, limited at first to requests tied to an order. Every answer is approved before it is sent; the scope widens question by question. The pilot starts from {{prix.pilote.en}} € ex VAT.",
       "meta_fr": "Semaines 3 à 6",
       "meta_en": "Weeks 3 to 6"
     },
@@ -176,12 +176,12 @@
       "background": "paper",
       "layout": "grid-asym",
       "colRatio": "2-3",
-      "kicker_fr": "§ Deux façons d'engager",
-      "kicker_en": "§ Two ways to engage",
-      "h2_fr": "Prix de l'automatisation d'une boutique en ligne",
-      "h2_en": "Price of automating an online shop",
-      "lede_fr": "On démarre par un sprint de cadrage à prix fixe : le flux de commande tourne à la fin. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints. Vous gardez tout.",
-      "lede_en": "We start with a fixed-price scoping sprint: the order flow runs at the end of it. What follows is quoted: we estimate the time together, validate it, then run it in sprints. You keep everything.",
+      "kicker_fr": "§ Du prototype à la production",
+      "kicker_en": "§ From prototype to production",
+      "h2_fr": "Prix de l'IA et de l'automatisation pour une boutique en ligne",
+      "h2_en": "Price of AI and automation for an online shop",
+      "lede_fr": "On démarre par un sprint de cadrage à prix fixe : il livre un prototype testé sur vos commandes et vos messages. La mise en production relève du pilote. Vous gardez tout.",
+      "lede_en": "We start with a fixed-price scoping sprint: it delivers a prototype tested on your orders and messages. Going into production is part of the pilot. You keep everything.",
       "tiers": [
         {
           "name_fr": "Sprint de cadrage",
@@ -190,16 +190,16 @@
           "period_fr": "10 h · HT",
           "period_en": "10 h · ex VAT",
           "features_fr": [
-            "Boutique reliée à la facturation et au stock",
-            "Alerte dès qu'une commande reste bloquée",
+            "Cadrage du premier chantier : flux de commande ou demandes liées à une commande",
+            "Un prototype testé sur vos vrais messages",
             "Branché sur votre plateforme actuelle, sans migration",
-            "Un premier flux en service, pas un audit dormant"
+            "Un plan et un temps estimé pour la mise en production"
           ],
           "features_en": [
-            "Shop connected to invoicing and stock",
-            "Alert as soon as an order gets stuck",
+            "Scoping of the first project: order flow or order-related requests",
+            "A prototype tested on your real messages",
             "Wired to your current platform, no migration",
-            "A first flow live, not a dormant audit"
+            "A plan and an estimated time for going into production"
           ],
           "cta": {
             "label_fr": "Réserver l'audit gratuit →",
@@ -210,21 +210,21 @@
           "featured": true
         },
         {
-          "name_fr": "Suite sur devis",
-          "name_en": "Next steps on quote",
-          "price": "Sur devis",
-          "period_fr": "estimé avec vous · HT",
-          "period_en": "estimated with you · ex VAT",
+          "name_fr": "Pilote",
+          "name_en": "Pilot",
+          "price": "dès {{prix.pilote}} €",
+          "period_fr": "mise en production · HT",
+          "period_en": "going into production · ex VAT",
           "features_fr": [
-            "Agent de service client relu puis élargi",
-            "Catalogue complété depuis vos fournisseurs",
-            "Exécuté en sprints, facturés en régie à {{prix.horaire}} € HT/h",
+            "Agent de service client ou flux de commande en production",
+            "Validation humaine avant l'envoi, journal des actions",
+            "Ensuite {{prix.horaire}} € HT de l'heure, sans abonnement imposé",
             "Vous gardez les workflows, les accès et les données"
           ],
           "features_en": [
-            "Customer service agent reviewed then widened",
-            "Catalogue completed from your suppliers",
-            "Run in sprints, time and materials at {{prix.horaire}} € ex VAT/h",
+            "Customer service agent or order flow in production",
+            "Human approval before sending, action log",
+            "Then {{prix.horaire}} € ex VAT per hour, no forced subscription",
             "You keep the workflows, the access and the data"
           ],
           "cta": {
@@ -237,5 +237,9 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-05"
+  "updatedAt": "2026-10-16",
+  "caseRefs": [
+    "brow-x-professionnel",
+    "balzeo"
+  ]
 }
