@@ -10325,6 +10325,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/ai-act-pme-utilisatrice-ia",
+    "title": "AI Act : les obligations d'une PME qui utilise ChatGPT ou Claude",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/ai-act-pme-utilisatrice-ia.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/ai-mode-google-ai-overviews-pme",
     "title": "AI Mode (Mode IA) et AI Overviews de Google : ce que fait une PME",
     "group": "blog",
@@ -10501,6 +10510,15 @@ export const SITE_PAGES: SitePage[] = [
     "group": "blog",
     "collection": "blog",
     "file": "blog/etre-cite-par-perplexity.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/facture-electronique-reception-pme",
+    "title": "Facture électronique : ce que la réception obligatoire change pour une PME",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/facture-electronique-reception-pme.json",
     "editable": false,
     "sections": []
   },
@@ -11708,6 +11726,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/agent-ia-24-7-pme",
       "/blog/agent-ia-entreprise-exemples",
       "/blog/agent-ia-vs-automatisation-classique-2026",
+      "/blog/ai-act-pme-utilisatrice-ia",
       "/blog/ai-mode-google-ai-overviews-pme",
       "/blog/application-metier-exemples-pme",
       "/blog/applications-internes-build-vs-buy-pme",
@@ -11728,6 +11747,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/contenu-ia-seo-google-penalise",
       "/blog/creer-agent-ia-claude",
       "/blog/etre-cite-par-perplexity",
+      "/blog/facture-electronique-reception-pme",
       "/blog/formation-ia-cpf-qualiopi",
       "/blog/formation-ia-finance-pme",
       "/blog/formation-ia-marketing-pme",

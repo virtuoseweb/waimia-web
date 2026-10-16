@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · « Recevoir les factures électroniques » : une file d'enveloppes vole en ligne
+       droite vers une seule grande boîte aux lettres sur pied ; une femme ouvre la trappe du
+       bas et reçoit les plis. Rôles remplacés par render-svg.mjs
+       (shape = la boîte, detail = les enveloppes). -->
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <circle cx="1220" cy="150" r="56" fill="{{pale}}"/>
+  <rect y="470" width="1456" height="154" fill="{{ground}}"/>
+  <rect x="760" y="482" width="230" height="9" rx="4" fill="{{soft}}"/>
+
+  <!-- Trajectoire pointillée des enveloppes -->
+  <g fill="{{soft}}">
+    <rect x="150" y="262" width="22" height="4" rx="2"/>
+    <rect x="250" y="252" width="22" height="4" rx="2"/>
+    <rect x="350" y="244" width="22" height="4" rx="2"/>
+    <rect x="450" y="238" width="22" height="4" rx="2"/>
+    <rect x="550" y="234" width="22" height="4" rx="2"/>
+    <rect x="650" y="232" width="22" height="4" rx="2"/>
+  </g>
+  <!-- Enveloppes en vol -->
+  <g>
+    <g transform="translate(196 236) rotate(-6)">
+      <rect width="56" height="36" fill="{{detail}}"/><path d="M0 0 L28 20 L56 0" fill="none" stroke="{{mid}}" stroke-width="3"/>
+    </g>
+    <g transform="translate(386 214) rotate(-4)">
+      <rect width="56" height="36" fill="{{detail}}"/><path d="M0 0 L28 20 L56 0" fill="none" stroke="{{mid}}" stroke-width="3"/>
+    </g>
+    <g transform="translate(580 204) rotate(-2)">
+      <rect width="56" height="36" fill="{{detail}}"/><path d="M0 0 L28 20 L56 0" fill="none" stroke="{{mid}}" stroke-width="3"/>
+    </g>
+  </g>
+
+  <!-- La boîte aux lettres sur pied -->
+  <rect x="862" y="380" width="26" height="100" fill="{{deep}}"/>
+  <path d="M760 400 L760 230 Q760 170 875 170 Q990 170 990 230 L990 400 Z" fill="{{shape}}"/>
+  <!-- Fente -->
+  <rect x="790" y="222" width="170" height="16" rx="8" fill="{{deep}}"/>
+  <!-- Trappe du bas, ouverte -->
+  <rect x="790" y="300" width="170" height="80" rx="6" fill="{{deep}}"/>
+  <path d="M790 380 L760 440 L930 440 L960 380 Z" fill="{{mid}}"/>
+  <g transform="translate(818 404) rotate(4)">
+    <rect width="50" height="30" fill="{{detail}}"/><path d="M0 0 L25 17 L50 0" fill="none" stroke="{{mid}}" stroke-width="3"/>
+  </g>
+
+  <!-- La femme qui reçoit les plis -->
+  <g transform="translate(1050 500) scale(1.6)">
+    <g fill="{{subject}}">
+      <circle cx="0" cy="-90" r="7"/>
+      <circle cx="1" cy="-99" r="5"/>
+      <path d="M-10 -80 Q0 -84 10 -80 L11 -56 L-11 -56 Z"/>
+      <path d="M-12 -57 L12 -57 L10 -22 L-10 -22 Z"/>
+      <rect x="-7" y="-23" width="5" height="21"/>
+      <rect x="2" y="-23" width="5" height="21"/>
+      <rect x="-9" y="-3" width="8" height="3" rx="1.5"/>
+      <rect x="1" y="-3" width="8" height="3" rx="1.5"/>
+    </g>
+    <g fill="none" stroke="{{subject}}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-7 -78 L-18 -62 L-34 -58"/>
+      <path d="M8 -78 L11 -58"/>
+    </g>
+  </g>
+</svg>
