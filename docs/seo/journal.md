@@ -37,6 +37,14 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### Anciennes URL de l'export « backlinks pages », 16 octobre 2026
+
+**Source.** Export Semrush `waimia.com-backlinks_pages.csv` (1 077 lignes) : ce sont les anciennes URL de nos propres domaines, pas des liens entrants. Elles viennent de l'ancien WordPress multisite (boutique, formations, démos de modèles sur demo.waimia.com), supprimé et refondu depuis en une seule entité sur waimia.com, sans sous-domaine. Aucune ne porte de backlink ni de domaine référent.
+
+**Mesure du 16 octobre (chaque URL rejouée, redirections suivies).** demo.waimia.com : 462 URL, toutes en 404 (le sous-domaine ne résout que par l'enregistrement générique `*` de Vercel, rattaché à aucun projet). waimia.com : 553 en 404 (dont 337 après la 308 du slash final), 60 en 200 (les `?sc_product=`, `?sc_collection=`, `?page_id=` servent l'accueil, canonique `https://waimia.com/`), 2 en 403 (`wp-login.php`, `wp-comments-post.php`). Huit anciennes adresses `/ressources/blog/*` passent par la règle générique vers `/blog/*` puis tombent sur des billets supprimés : règle correcte, rien à corriger. Aucune URL morte n'a d'impression dans Search Console sur 56 jours.
+
+**Décision.** Laisser ces URL en 404 : sans lien entrant, sans impression et sans équivalent actuel, une redirection de masse vers l'accueil ou vers `/cas-clients` serait lue par Google comme un soft 404 et n'apporterait rien. Simon a proposé de rediriger les démos vers `/cas-clients`, puis s'est demandé si la suppression définitive n'était pas plus pertinente : c'est l'option retenue, et elle est déjà effective. Les URL sortiront seules des outils au fil des recrawls.
+
 ### Base de conversions, 16 octobre 2026 (alertes internes, Cal.com, Web Analytics)
 
 **Mesure.** Les formulaires (`/api/contact`, `/api/devis`, `/api/lead-magnet`) envoient à la boîte interne une alerte dont le sujet commence par `[Lead]`. Du 1er août au 16 octobre : 11 alertes, dont 8 tests internes (adresses de Simon, `contact@`, `resend.dev`), 1 démarchage SEO, et **1 lead réel** (7 octobre, une personne, diagnostic de maturité IA puis calculateur de ROI). Aucune demande de contact ni de devis réelle. Cal.com : aucun e-mail de réservation, seulement des lettres d'information (limite : une confirmation envoyée à une autre adresse échapperait à ce compte). Web Analytics : collecte active seulement depuis le 16 octobre (36 visiteurs et 118 pages vues ce jour-là, dont 1 venu de Google, une partie étant des vérifications internes), aucun relevé antérieur ; aucun événement personnalisé, le plan Hobby ne les enregistre pas et le code n'appelle pas `track()`.
