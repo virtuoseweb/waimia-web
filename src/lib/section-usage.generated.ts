@@ -23,7 +23,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "author-byline": {
-    "count": 49,
+    "count": 50,
     "pages": [
       "/cas-usages/centraliser-donnees",
       "/cas-usages/finance-comptabilite",
@@ -40,6 +40,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/ai-act-pme-calendrier",
       "/ressources/guides/aides-financement-projet-ia",
       "/ressources/guides/audit-geo-pme",
+      "/ressources/guides/automatisation-factures-fournisseurs-pme",
       "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/chatbot-transparence-article-50",
       "/ressources/guides/choisir-agence-ia-pme",
@@ -264,7 +265,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "cta-final": {
-    "count": 63,
+    "count": 64,
     "pages": [
       "/cas-usages/centraliser-donnees",
       "/cas-usages/finance-comptabilite",
@@ -287,6 +288,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/comparatifs/n8n-vs-make-vs-zapier",
       "/ressources/guides/agent-ia-definition",
       "/ressources/guides/agent-sav-architecture",
+      "/ressources/guides/automatisation-factures-fournisseurs-pme",
       "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/cout-projet-ia-pme",
       "/ressources/guides/devis-automatise",
@@ -588,7 +590,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "direct-answer": {
-    "count": 87,
+    "count": 88,
     "pages": [
       "/cas-usages/finance-comptabilite",
       "/cas-usages/rh",
@@ -628,6 +630,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/ai-act-pme-calendrier",
       "/ressources/guides/aides-financement-projet-ia",
       "/ressources/guides/audit-geo-pme",
+      "/ressources/guides/automatisation-factures-fournisseurs-pme",
       "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/chatbot-transparence-article-50",
       "/ressources/guides/choisir-agence-ia-pme",
@@ -680,7 +683,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "editorial-callout": {
-    "count": 18,
+    "count": 19,
     "pages": [
       "/conformite-ia",
       "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
@@ -689,6 +692,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/comparatifs/lovable-vs-developpement-sur-mesure",
       "/ressources/comparatifs/mistral-vs-claude-pme",
       "/ressources/guides/audit-geo-pme",
+      "/ressources/guides/automatisation-factures-fournisseurs-pme",
       "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/claude-in-chrome-entreprise",
       "/ressources/guides/refonte-logiciel-metier",
@@ -714,7 +718,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "editorial-prose": {
-    "count": 302,
+    "count": 308,
     "pages": [
       "/audit-ia-pme",
       "/cas-usages/centraliser-donnees",
@@ -749,6 +753,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/ai-act-pme-calendrier",
       "/ressources/guides/aides-financement-projet-ia",
       "/ressources/guides/audit-geo-pme",
+      "/ressources/guides/automatisation-factures-fournisseurs-pme",
       "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/chatbot-transparence-article-50",
       "/ressources/guides/choisir-agence-ia-pme",
@@ -847,7 +852,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "editorial-table-block": {
-    "count": 135,
+    "count": 136,
     "pages": [
       "/cas-usages/finance-comptabilite",
       "/cas-usages/rh",
@@ -868,6 +873,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/ai-act-pme-calendrier",
       "/ressources/guides/aides-financement-projet-ia",
       "/ressources/guides/audit-geo-pme",
+      "/ressources/guides/automatisation-factures-fournisseurs-pme",
       "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/chatbot-transparence-article-50",
       "/ressources/guides/choisir-agence-ia-pme",
@@ -998,7 +1004,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "faq-accordion": {
-    "count": 148,
+    "count": 149,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -1049,6 +1055,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/ai-act-pme-calendrier",
       "/ressources/guides/aides-financement-projet-ia",
       "/ressources/guides/audit-geo-pme",
+      "/ressources/guides/automatisation-factures-fournisseurs-pme",
       "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/chatbot-transparence-article-50",
       "/ressources/guides/choisir-agence-ia-pme",
@@ -1208,7 +1215,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "footer-cta-band": {
-    "count": 147,
+    "count": 148,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -1260,6 +1267,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/ai-act-pme-calendrier",
       "/ressources/guides/aides-financement-projet-ia",
       "/ressources/guides/audit-geo-pme",
+      "/ressources/guides/automatisation-factures-fournisseurs-pme",
       "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/chatbot-transparence-article-50",
       "/ressources/guides/choisir-agence-ia-pme",
@@ -1481,7 +1489,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "hero-split-media": {
-    "count": 104,
+    "count": 105,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
@@ -1526,6 +1534,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/ai-act-pme-calendrier",
       "/ressources/guides/aides-financement-projet-ia",
       "/ressources/guides/audit-geo-pme",
+      "/ressources/guides/automatisation-factures-fournisseurs-pme",
       "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/chatbot-transparence-article-50",
       "/ressources/guides/choisir-agence-ia-pme",
@@ -1658,7 +1667,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "lead-capture-band": {
-    "count": 39,
+    "count": 40,
     "pages": [
       "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
       "/ressources/comparatifs/formateur-ia-organisme-freelance-agence",
@@ -1666,6 +1675,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/accompagnement-ia-pme",
       "/ressources/guides/ai-act-pme-calendrier",
       "/ressources/guides/audit-geo-pme",
+      "/ressources/guides/automatisation-factures-fournisseurs-pme",
       "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/claude-code-entreprise",
       "/ressources/guides/claude-cowork",
@@ -1906,7 +1916,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "process-steps": {
-    "count": 55,
+    "count": 56,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/finance-comptabilite",
@@ -1927,6 +1937,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/agent-sav-architecture",
       "/ressources/guides/ai-act-pme-calendrier",
       "/ressources/guides/aides-financement-projet-ia",
+      "/ressources/guides/automatisation-factures-fournisseurs-pme",
       "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/choisir-agence-ia-pme",
       "/ressources/guides/claude-code-entreprise",
@@ -2050,7 +2061,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "related-cards-band": {
-    "count": 91,
+    "count": 92,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
@@ -2095,6 +2106,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/ai-act-pme-calendrier",
       "/ressources/guides/aides-financement-projet-ia",
       "/ressources/guides/audit-geo-pme",
+      "/ressources/guides/automatisation-factures-fournisseurs-pme",
       "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/chatbot-transparence-article-50",
       "/ressources/guides/choisir-agence-ia-pme",
@@ -2262,7 +2274,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "tech-when-dual": {
-    "count": 52,
+    "count": 53,
     "pages": [
       "/cas-usages/finance-comptabilite",
       "/cas-usages/rh",
@@ -2284,6 +2296,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/ai-act-pme-calendrier",
       "/ressources/guides/aides-financement-projet-ia",
       "/ressources/guides/audit-geo-pme",
+      "/ressources/guides/automatisation-factures-fournisseurs-pme",
       "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/chatbot-transparence-article-50",
       "/ressources/guides/claude-cowork",

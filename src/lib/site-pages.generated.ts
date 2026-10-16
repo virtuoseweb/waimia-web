@@ -6590,6 +6590,107 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/ressources/guides/automatisation-factures-fournisseurs-pme",
+    "title": "Automatisation des factures fournisseurs : ce qu'on délègue à l'IA, ce qu'on contrôle",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/automatisation-factures-fournisseurs-pme.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Automatisation des factures fournisseurs : ce qu'on délègue à l'IA, ce qu'on contrôle",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Quand recevoir, quand émettre, selon la taille de l'entreprise ?",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper"
+      },
+      {
+        "type": "process-steps",
+        "label": "Quel parcours en cinq étapes pour une facture fournisseur ?",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#8",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-callout",
+        "label": "#9",
+        "variant": "quote",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Logiciel du marché ou agent sur mesure : lequel choisir ?",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#11",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#12",
+        "background": "paper"
+      },
+      {
+        "type": "lead-capture-band",
+        "label": "Avant d'envoyer vos factures à un modèle : fixez les données autorisées avec la charte IA",
+        "background": "ink"
+      },
+      {
+        "type": "cta-final",
+        "label": "Faites passer vos factures par l'audit avant de choisir un outil",
+        "background": "ink"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Automatisation des factures fournisseurs : questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Un échantillon de vos factures, un tableau d'écarts, une décision.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/ressources/guides/cahier-des-charges-site-internet",
     "title": "Cahier des charges de site internet : contenu, exemple de brief et choix techniques",
     "group": "ressources",
@@ -10440,6 +10541,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/ia-reponse-appel-offres-pme",
+    "title": "IA et réponse à un appel d'offres : ce qu'une PME peut préparer, ce qu'elle garde",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/ia-reponse-appel-offres-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/landing-page-qui-convertit-methode-2026",
     "title": "Landing page qui convertit : la méthode 2026",
     "group": "blog",
@@ -10472,6 +10582,15 @@ export const SITE_PAGES: SitePage[] = [
     "group": "blog",
     "collection": "blog",
     "file": "blog/poc-ou-mvp-differences-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/relance-factures-impayees-automatique-pme",
+    "title": "Relancer les factures impayées automatiquement : la séquence et ce qui reste manuel",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/relance-factures-impayees-automatique-pme.json",
     "editable": false,
     "sections": []
   },
@@ -11496,6 +11615,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/guides/ai-act-pme-calendrier",
       "/ressources/guides/aides-financement-projet-ia",
       "/ressources/guides/audit-geo-pme",
+      "/ressources/guides/automatisation-factures-fournisseurs-pme",
       "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/chatbot-transparence-article-50",
       "/ressources/guides/choisir-agence-ia-pme",
@@ -11576,10 +11696,12 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/geo-local-recommande-par-les-ia",
       "/blog/ia-auto-hebergee-open-webui-pme",
       "/blog/ia-pme-guide-complet-2026",
+      "/blog/ia-reponse-appel-offres-pme",
       "/blog/landing-page-qui-convertit-methode-2026",
       "/blog/logiciel-seo-ia-pme",
       "/blog/n8n-c-est-quoi",
       "/blog/poc-ou-mvp-differences-pme",
+      "/blog/relance-factures-impayees-automatique-pme",
       "/blog/seo-geo-etre-cite-par-les-ia-generatives",
       "/blog/tableau-de-bord-pme-quelles-donnees-suivre",
       "/blog/trier-emails-entrant-claude-n8n",

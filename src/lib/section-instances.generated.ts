@@ -169,6 +169,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/automatisation-factures-fournisseurs-pme.json",
+      "slug": "automatisation-factures-fournisseurs-pme",
+      "route": "/ressources/guides/automatisation-factures-fournisseurs-pme",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/cahier-des-charges-site-internet.json",
       "slug": "cahier-des-charges-site-internet",
       "route": "/ressources/guides/cahier-des-charges-site-internet",
@@ -1709,6 +1718,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/agent-sav-architecture",
       "index": 14,
       "label": "Où en est votre entreprise avec l'IA ?",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/automatisation-factures-fournisseurs-pme.json",
+      "slug": "automatisation-factures-fournisseurs-pme",
+      "route": "/ressources/guides/automatisation-factures-fournisseurs-pme",
+      "index": 14,
+      "label": "Faites passer vos factures par l'audit avant de choisir un outil",
       "background": "ink"
     },
     {
@@ -4247,6 +4265,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/automatisation-factures-fournisseurs-pme.json",
+      "slug": "automatisation-factures-fournisseurs-pme",
+      "route": "/ressources/guides/automatisation-factures-fournisseurs-pme",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/cahier-des-charges-site-internet.json",
       "slug": "cahier-des-charges-site-internet",
       "route": "/ressources/guides/cahier-des-charges-site-internet",
@@ -4777,6 +4804,16 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "label": "#9",
       "variant": "quote",
       "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/automatisation-factures-fournisseurs-pme.json",
+      "slug": "automatisation-factures-fournisseurs-pme",
+      "route": "/ressources/guides/automatisation-factures-fournisseurs-pme",
+      "index": 9,
+      "label": "#9",
+      "variant": "quote",
+      "background": "paper-2"
     },
     {
       "collection": "guides",
@@ -5616,6 +5653,60 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 14,
       "label": "#14",
       "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/automatisation-factures-fournisseurs-pme.json",
+      "slug": "automatisation-factures-fournisseurs-pme",
+      "route": "/ressources/guides/automatisation-factures-fournisseurs-pme",
+      "index": 3,
+      "label": "#3",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/automatisation-factures-fournisseurs-pme.json",
+      "slug": "automatisation-factures-fournisseurs-pme",
+      "route": "/ressources/guides/automatisation-factures-fournisseurs-pme",
+      "index": 5,
+      "label": "#5",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/automatisation-factures-fournisseurs-pme.json",
+      "slug": "automatisation-factures-fournisseurs-pme",
+      "route": "/ressources/guides/automatisation-factures-fournisseurs-pme",
+      "index": 7,
+      "label": "#7",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/automatisation-factures-fournisseurs-pme.json",
+      "slug": "automatisation-factures-fournisseurs-pme",
+      "route": "/ressources/guides/automatisation-factures-fournisseurs-pme",
+      "index": 8,
+      "label": "#8",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/automatisation-factures-fournisseurs-pme.json",
+      "slug": "automatisation-factures-fournisseurs-pme",
+      "route": "/ressources/guides/automatisation-factures-fournisseurs-pme",
+      "index": 11,
+      "label": "#11",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/automatisation-factures-fournisseurs-pme.json",
+      "slug": "automatisation-factures-fournisseurs-pme",
+      "route": "/ressources/guides/automatisation-factures-fournisseurs-pme",
+      "index": 12,
+      "label": "#12",
+      "background": "paper"
     },
     {
       "collection": "guides",
@@ -7887,6 +7978,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/automatisation-factures-fournisseurs-pme.json",
+      "slug": "automatisation-factures-fournisseurs-pme",
+      "route": "/ressources/guides/automatisation-factures-fournisseurs-pme",
+      "index": 4,
+      "label": "Quand recevoir, quand émettre, selon la taille de l'entreprise ?",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/cahier-des-charges-site-internet.json",
       "slug": "cahier-des-charges-site-internet",
       "route": "/ressources/guides/cahier-des-charges-site-internet",
@@ -9910,6 +10010,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/automatisation-factures-fournisseurs-pme.json",
+      "slug": "automatisation-factures-fournisseurs-pme",
+      "route": "/ressources/guides/automatisation-factures-fournisseurs-pme",
+      "index": 16,
+      "label": "Automatisation des factures fournisseurs : questions fréquentes",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/cahier-des-charges-site-internet.json",
       "slug": "cahier-des-charges-site-internet",
       "route": "/ressources/guides/cahier-des-charges-site-internet",
@@ -11610,6 +11719,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/automatisation-factures-fournisseurs-pme.json",
+      "slug": "automatisation-factures-fournisseurs-pme",
+      "route": "/ressources/guides/automatisation-factures-fournisseurs-pme",
+      "index": 17,
+      "label": "Un échantillon de vos factures, un tableau d'écarts, une décision.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/cahier-des-charges-site-internet.json",
       "slug": "cahier-des-charges-site-internet",
       "route": "/ressources/guides/cahier-des-charges-site-internet",
@@ -13276,6 +13394,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/automatisation-factures-fournisseurs-pme.json",
+      "slug": "automatisation-factures-fournisseurs-pme",
+      "route": "/ressources/guides/automatisation-factures-fournisseurs-pme",
+      "index": 0,
+      "label": "Automatisation des factures fournisseurs : ce qu'on délègue à l'IA, ce qu'on contrôle",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/cahier-des-charges-site-internet.json",
       "slug": "cahier-des-charges-site-internet",
       "route": "/ressources/guides/cahier-des-charges-site-internet",
@@ -14265,6 +14392,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/audit-geo-pme",
       "index": 15,
       "label": "#15",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/automatisation-factures-fournisseurs-pme.json",
+      "slug": "automatisation-factures-fournisseurs-pme",
+      "route": "/ressources/guides/automatisation-factures-fournisseurs-pme",
+      "index": 13,
+      "label": "Avant d'envoyer vos factures à un modèle : fixez les données autorisées avec la charte IA",
       "background": "ink"
     },
     {
@@ -15766,6 +15902,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/automatisation-factures-fournisseurs-pme.json",
+      "slug": "automatisation-factures-fournisseurs-pme",
+      "route": "/ressources/guides/automatisation-factures-fournisseurs-pme",
+      "index": 6,
+      "label": "Quel parcours en cinq étapes pour une facture fournisseur ?",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/cahier-des-charges-site-internet.json",
       "slug": "cahier-des-charges-site-internet",
       "route": "/ressources/guides/cahier-des-charges-site-internet",
@@ -17046,6 +17191,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/automatisation-factures-fournisseurs-pme.json",
+      "slug": "automatisation-factures-fournisseurs-pme",
+      "route": "/ressources/guides/automatisation-factures-fournisseurs-pme",
+      "index": 15,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/cahier-des-charges-site-internet.json",
       "slug": "cahier-des-charges-site-internet",
       "route": "/ressources/guides/cahier-des-charges-site-internet",
@@ -17821,6 +17975,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/audit-geo-pme",
       "index": 13,
       "label": "Que demander à un audit GEO, et que refuser ?",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/automatisation-factures-fournisseurs-pme.json",
+      "slug": "automatisation-factures-fournisseurs-pme",
+      "route": "/ressources/guides/automatisation-factures-fournisseurs-pme",
+      "index": 10,
+      "label": "Logiciel du marché ou agent sur mesure : lequel choisir ?",
       "background": "paper"
     },
     {
