@@ -256,6 +256,9 @@ const PAGES: Record<string, PageDef> = {
   '/services/charte-graphique-brand-book': { label_fr: 'Charte graphique et brand book', label_en: 'Brand guidelines and brand book', kind: 'service', topics: ['acquisition'] },
   '/ressources/comparatifs/site-web-intelligent-vs-wordpress': { label_fr: 'Site web intelligent ou WordPress', label_en: 'Smart website or WordPress', kind: 'comparatif', topics: ['acquisition'] },
   '/blog/logiciel-seo-ia-pme': { label_fr: 'Logiciel SEO IA pour PME', label_en: 'AI SEO software for SMBs', kind: 'article', topics: ['acquisition'] },
+  '/ressources/guides/mesurer-visibilite-ia-chatgpt': { label_fr: 'Mesurer sa visibilité dans ChatGPT : le protocole', label_en: 'Measuring your ChatGPT visibility: the protocol', kind: 'guide', topics: ['acquisition'] },
+  '/blog/ai-mode-google-ai-overviews-pme': { label_fr: 'AI Mode et AI Overviews de Google : que faire en PME', label_en: 'Google AI Mode and AI Overviews: what a small business does', kind: 'article', topics: ['acquisition'] },
+  '/blog/geo-local-recommande-par-les-ia': { label_fr: 'GEO local : être recommandé par les IA', label_en: 'Local GEO: getting recommended by AIs', kind: 'article', topics: ['acquisition'] },
   '/cas-clients/desangles-peinture': { label_fr: 'Cas client : Desangles Peinture', label_en: 'Case: Desangles Peinture', kind: 'cas-client', topics: ['acquisition'] },
 
   // ── Secteurs (indexables depuis 2026-10-05) : cibles du maillage, sans bloc émis par
