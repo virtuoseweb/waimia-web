@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · moteur B · contre-jour · « l'agent tient la nuit, la décision attend le jour » :
+       le ciel est coupé en deux, nuit à gauche, matin à droite. Côté nuit, devant une grande
+       lune, une silhouette claire range des enveloppes sur une petite table ; sur le banc à
+       cheval sur la frontière, trois colis ficelés attendent ; côté jour, une femme arrive
+       et tend la main vers eux. Aucun texte. -->
+  <defs>
+    <!-- Silhouette homme années 60, pieds à y=0, hauteur 100, couleur héritée. -->
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5"/>
+      <path d="M-7.5 -93 Q0 -101 7.5 -93 L7 -90 Q0 -95 -7 -90 Z"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42"/>
+      <rect x="2" y="-44" width="9.5" height="42"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5"/>
+    </g>
+    <!-- Silhouette femme années 60 (chignon, jupe crayon), pieds à y=0. -->
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7"/>
+      <circle cx="4" cy="-96" r="5"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z"/>
+      <rect x="-6" y="-25" width="4" height="23"/>
+      <rect x="2" y="-25" width="4" height="23"/>
+      <path d="M-8 -3 L-1 -3 L-1 0 L-8 0 Z M1 -3 L8 -3 L8 0 L1 0 Z"/>
+    </g>
+    <clipPath id="night-sky"><rect width="742" height="472"/></clipPath>
+  </defs>
+
+  <!-- Matin : moitié droite claire, soleil bas -->
+  <rect width="1456" height="624" fill="{{light}}"/>
+  <circle cx="1200" cy="250" r="78" fill="{{soft}}"/>
+
+  <!-- Nuit : moitié gauche, grande lune posée sur l'horizon, quelques étoiles -->
+  <rect width="742" height="472" fill="{{field}}"/>
+  <circle cx="420" cy="472" r="215" fill="{{shape}}" clip-path="url(#night-sky)"/>
+  <g fill="{{detail}}">
+    <circle cx="90" cy="90" r="4"/><circle cx="210" cy="56" r="3"/><circle cx="640" cy="80" r="4"/>
+    <circle cx="560" cy="170" r="3"/><circle cx="130" cy="210" r="3"/><circle cx="690" cy="230" r="3"/>
+  </g>
+
+  <!-- Sol : sombre côté nuit, pâle côté jour, horizon franc -->
+  <rect y="472" width="742" height="152" fill="{{ground}}"/>
+  <rect x="742" y="472" width="714" height="152" fill="{{pale}}"/>
+
+  <!-- Petite table de tri, côté nuit -->
+  <g fill="{{detail}}">
+    <rect x="512" y="438" width="132" height="10"/>
+    <rect x="520" y="448" width="7" height="84"/>
+    <rect x="629" y="448" width="7" height="84"/>
+  </g>
+  <!-- Enveloppes rangées en deux piles nettes sur la table -->
+  <g fill="{{subject}}">
+    <rect x="530" y="426" width="40" height="12"/>
+    <rect x="533" y="414" width="40" height="11"/>
+    <rect x="584" y="426" width="44" height="12"/>
+  </g>
+
+  <!-- Le veilleur de nuit : silhouette claire devant la lune, bras vers la table -->
+  <use href="#man" fill="{{subject}}" transform="translate(452 532) scale(1.8)"/>
+  <path d="M470 392 L520 420" stroke="{{subject}}" stroke-width="9" stroke-linecap="round"/>
+
+  <!-- Banc à cheval sur la frontière : ce qui attend un humain -->
+  <g fill="{{deep}}">
+    <rect x="690" y="490" width="160" height="10"/>
+    <rect x="700" y="500" width="8" height="34"/>
+    <rect x="832" y="500" width="8" height="34"/>
+  </g>
+  <g>
+    <rect x="752" y="446" width="46" height="44" fill="{{mid}}"/>
+    <rect x="800" y="456" width="44" height="34" fill="{{deep}}"/>
+    <rect x="762" y="414" width="40" height="32" fill="{{deep}}"/>
+    <g fill="{{light}}">
+      <rect x="773" y="446" width="4" height="44"/><rect x="752" y="466" width="46" height="4"/>
+      <rect x="820" y="456" width="4" height="34"/>
+      <rect x="780" y="414" width="4" height="32"/><rect x="762" y="428" width="40" height="4"/>
+    </g>
+  </g>
+
+  <!-- Côté jour : une femme arrive et tend la main vers les colis -->
+  <use href="#woman" fill="{{shadow}}" transform="translate(1000 532) scale(1.8)"/>
+  <path d="M988 392 L938 424" stroke="{{shadow}}" stroke-width="8" stroke-linecap="round"/>
+  <!-- Ombre courte au sol, côté jour -->
+  <path d="M970 532 L1040 532 L1070 540 L990 540 Z" fill="{{soft}}"/>
+</svg>

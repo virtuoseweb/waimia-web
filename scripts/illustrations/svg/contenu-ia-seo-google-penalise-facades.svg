@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · moteur B · « contenu à grande échelle » : une rangée de façades de décor
+       identiques, étayées par derrière, aux fenêtres vides qui laissent voir la lune ;
+       à droite, une seule vraie maison, fenêtre allumée et cheminée qui fume, vers laquelle
+       marche une silhouette. Rôles remplacés par render-svg.mjs. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-89" r="8.5" fill="{{subject}}"/>
+      <path d="M-15 -73 Q-15 -80 -8 -81 L8 -81 Q15 -80 15 -73 L16 -40 L-16 -40 Z" fill="{{subject}}"/>
+      <rect x="-11" y="-42" width="9" height="39" fill="{{subject}}"/>
+      <rect x="2" y="-42" width="9" height="39" fill="{{subject}}"/>
+      <rect x="-13" y="-4" width="12" height="4" fill="{{subject}}"/>
+      <rect x="1" y="-4" width="12" height="4" fill="{{subject}}"/>
+    </g>
+    <g id="facade">
+      <!-- étai de bois, derrière le panneau -->
+      <path d="M130 -196 L142 -204 L206 0 L192 0 Z" fill="{{shape}}"/>
+      <rect x="184" y="-6" width="30" height="6" fill="{{shape}}"/>
+      <!-- panneau plat percé : porte et fenêtres vides -->
+      <path fill-rule="evenodd" fill="{{shape}}" d="M0 0 L0 -220 L75 -270 L150 -220 L150 0 Z
+        M55 0 L55 -82 L95 -82 L95 0 Z
+        M22 -192 h36 v46 h-36 Z M92 -192 h36 v46 h-36 Z
+        M22 -128 h36 v36 h-36 Z M92 -128 h36 v36 h-36 Z"/>
+    </g>
+    <clipPath id="sky"><rect width="1456" height="500"/></clipPath>
+  </defs>
+
+  <!-- Nuit -->
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <!-- Grande lune posée sur l'horizon, derrière le décor -->
+  <circle cx="500" cy="500" r="250" fill="{{detail}}" clip-path="url(#sky)"/>
+
+  <!-- Sol -->
+  <rect y="500" width="1456" height="124" fill="{{ground}}"/>
+
+  <!-- Quatre façades identiques, posées sur l'horizon -->
+  <use href="#facade" transform="translate(80 500)"/>
+  <use href="#facade" transform="translate(310 500)"/>
+  <use href="#facade" transform="translate(540 500)"/>
+  <use href="#facade" transform="translate(770 500)"/>
+
+  <!-- La vraie maison : volume, toit, cheminée qui fume, fenêtre allumée -->
+  <g>
+    <path d="M1256 500 L1256 362 L1318 330 L1318 500 Z" fill="{{shape}}"/>
+    <rect x="1112" y="362" width="144" height="138" fill="{{detail}}"/>
+    <path d="M1100 366 L1184 300 L1268 366 Z" fill="{{subject}}"/>
+    <path d="M1184 300 L1250 268 L1330 334 L1268 366 Z" fill="{{subject}}"/>
+    <rect x="1262" y="252" width="22" height="50" fill="{{subject}}"/>
+    <circle cx="1280" cy="228" r="13" fill="{{detail}}"/>
+    <circle cx="1298" cy="200" r="17" fill="{{detail}}"/>
+    <circle cx="1326" cy="168" r="22" fill="{{detail}}"/>
+    <rect x="1134" y="392" width="44" height="40" fill="{{subject}}"/>
+    <rect x="1198" y="430" width="36" height="70" fill="{{field}}"/>
+  </g>
+
+  <!-- Chemin vers la porte, et la silhouette qui y va -->
+  <path d="M1198 500 L1234 500 L1150 624 L1040 624 Z" fill="{{shape}}"/>
+  <use href="#man" transform="translate(1104 596) scale(1.8)"/>
+</svg>

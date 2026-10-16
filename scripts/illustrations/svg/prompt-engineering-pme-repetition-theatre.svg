@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · moteur B · « une consigne en cinq éléments » : une répétition de théâtre ; une
+       metteuse en scène assise dans la salle vide, texte en main, désigne la scène où une
+       comédienne se tient sous un grand disque de lumière, entre une chaise et un cadre de
+       porte ; cinq feux de rampe au bord de la scène. Rôles remplacés par render-svg.mjs. -->
+  <defs>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{subject}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{subject}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/>
+    </g>
+    <g id="seat">
+      <rect x="-50" y="0" width="100" height="70" rx="14" fill="{{deep}}"/>
+      <rect x="-50" y="0" width="100" height="10" rx="5" fill="{{mid}}"/>
+    </g>
+  </defs>
+
+  <!-- Salle dans le noir -->
+  <rect width="1456" height="624" fill="{{field}}"/>
+
+  <!-- Grand disque de lumière sur le fond de scène -->
+  <circle cx="760" cy="270" r="200" fill="{{shape}}"/>
+
+  <!-- Rideaux et lambrequin -->
+  <g fill="{{deep}}">
+    <path d="M0 0 L150 0 Q120 200 160 440 L0 440 Z"/>
+    <path d="M1456 0 L1306 0 Q1336 200 1296 440 L1456 440 Z"/>
+    <rect width="1456" height="44"/>
+  </g>
+  <g fill="{{shadow}}">
+    <rect x="40" y="44" width="10" height="396"/><rect x="92" y="44" width="10" height="396"/>
+    <rect x="1354" y="44" width="10" height="396"/><rect x="1406" y="44" width="10" height="396"/>
+    <rect y="44" width="1456" height="8"/>
+  </g>
+
+  <!-- Plateau -->
+  <rect y="440" width="1456" height="76" fill="{{ground}}"/>
+  <ellipse cx="760" cy="462" rx="130" ry="16" fill="{{shape}}"/>
+  <!-- Cinq feux de rampe au bord du plateau -->
+  <g fill="{{detail}}">
+    <path d="M386 516 Q420 472 454 516 Z"/>
+    <path d="M556 516 Q590 472 624 516 Z"/>
+    <path d="M726 516 Q760 472 794 516 Z"/>
+    <path d="M896 516 Q930 472 964 516 Z"/>
+    <path d="M1066 516 Q1100 472 1134 516 Z"/>
+  </g>
+
+  <!-- Le décor : un fauteuil et une porte entrebâillée -->
+  <g fill="{{detail}}">
+    <rect x="566" y="392" width="78" height="44" rx="16"/>
+    <rect x="556" y="412" width="22" height="40" rx="9"/><rect x="632" y="412" width="22" height="40" rx="9"/>
+    <rect x="570" y="426" width="70" height="20" rx="6"/>
+    <rect x="570" y="446" width="8" height="10"/><rect x="632" y="446" width="8" height="10"/>
+  </g>
+  <rect x="580" y="430" width="50" height="6" fill="{{ground}}"/>
+  <rect x="952" y="292" width="108" height="164" fill="{{detail}}"/>
+  <rect x="970" y="308" width="72" height="148" fill="{{field}}"/>
+  <path d="M970 308 L1012 320 L1012 446 L970 456 Z" fill="{{detail}}"/>
+  <circle cx="1002" cy="384" r="5" fill="{{field}}"/>
+
+  <!-- La comédienne, dans la lumière -->
+  <use href="#woman" transform="translate(760 458) scale(1.7)"/>
+
+  <!-- Fauteuils vides de la salle, à droite -->
+  <use href="#seat" transform="translate(1010 566)"/>
+  <use href="#seat" transform="translate(1130 566)"/>
+  <use href="#seat" transform="translate(1250 566)"/>
+  <use href="#seat" transform="translate(1370 566)"/>
+
+  <!-- La metteuse en scène, assise de profil, texte sur les genoux, bras tendu vers la scène -->
+  <g transform="translate(250 624) scale(2)">
+    <rect x="-28" y="-40" width="44" height="40" fill="{{deep}}"/>
+    <circle cx="0" cy="-62" r="7" fill="{{subject}}"/>
+    <circle cx="-5" cy="-68" r="5" fill="{{subject}}"/>
+    <path d="M-10 -53 Q0 -57 10 -53 L11 -20 L-11 -20 Z" fill="{{subject}}"/>
+    <rect x="-11" y="-22" width="28" height="8" fill="{{subject}}"/>
+    <rect x="11" y="-22" width="7" height="22" fill="{{subject}}"/>
+    <rect x="-2" y="-30" width="22" height="7" fill="{{mid}}"/>
+    <rect x="-2" y="-78" width="5" height="34" rx="2.5" fill="{{subject}}" transform="rotate(58 0 -50)"/>
+  </g>
+</svg>

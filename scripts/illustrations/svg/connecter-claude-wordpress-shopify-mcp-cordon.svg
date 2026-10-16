@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · moteur B · « connecter Claude au site : lecture seule d'abord » :
+       une grande toile accrochée au mur d'une galerie représente une boutique ; devant,
+       un cordon tendu entre trois poteaux ; deux visiteurs regardent sans toucher.
+       Le cordon est l'élément à remarquer (rôle detail). -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-89" r="8.5" fill="{{subject}}"/>
+      <path d="M-15 -73 Q-15 -80 -8 -81 L8 -81 Q15 -80 15 -73 L16 -40 L-16 -40 Z" fill="{{subject}}"/>
+      <rect x="-11" y="-42" width="9" height="39" fill="{{subject}}"/>
+      <rect x="2" y="-42" width="9" height="39" fill="{{subject}}"/>
+      <rect x="-13" y="-4" width="12" height="4" fill="{{subject}}"/>
+      <rect x="1" y="-4" width="12" height="4" fill="{{subject}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <circle cx="0" cy="-99" r="5.5" fill="{{subject}}"/>
+      <path d="M-9 -81 Q0 -85 9 -81 L10 -52 L-10 -52 Z" fill="{{subject}}"/>
+      <path d="M-11 -53 L11 -53 L9 -22 L-9 -22 Z" fill="{{subject}}"/>
+      <rect x="-6.5" y="-23" width="4.5" height="20" fill="{{subject}}"/>
+      <rect x="2" y="-23" width="4.5" height="20" fill="{{subject}}"/>
+      <path d="M-8 -4 L-1 -4 L-1 0 L-8 0 Z M1 -4 L8 -4 L8 0 L1 0 Z" fill="{{subject}}"/>
+    </g>
+    <g id="post">
+      <ellipse cx="0" cy="0" rx="20" ry="6" fill="{{subject}}"/>
+      <rect x="-5" y="-104" width="10" height="104" fill="{{subject}}"/>
+      <circle cx="0" cy="-108" r="9" fill="{{subject}}"/>
+    </g>
+  </defs>
+
+  <!-- Mur de la galerie -->
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <!-- Sol : bande claire, plinthe -->
+  <rect y="486" width="1456" height="138" fill="{{ground}}"/>
+  <rect y="478" width="1456" height="10" fill="{{deep}}"/>
+
+  <!-- La grande toile : une boutique sous un ciel, cadre sombre -->
+  <rect x="420" y="58" width="616" height="356" fill="{{subject}}"/>
+  <rect x="440" y="78" width="576" height="316" fill="{{shape}}"/>
+  <rect x="440" y="318" width="576" height="76" fill="{{pale}}"/>
+  <circle cx="950" cy="138" r="38" fill="{{light}}"/>
+  <!-- boutique : façade, store rayé, vitrine, porte -->
+  <rect x="560" y="200" width="300" height="136" fill="{{light}}"/>
+  <path d="M546 206 L874 206 L860 164 L560 164 Z" fill="{{deep}}"/>
+  <g fill="{{light}}">
+    <path d="M587 206 L628 206 L626 164 L597 164 Z"/>
+    <path d="M669 206 L710 206 L706 164 L677 164 Z"/>
+    <path d="M751 206 L792 206 L786 164 L757 164 Z"/>
+    <path d="M833 206 L874 206 L860 164 L837 164 Z"/>
+  </g>
+  <g fill="{{deep}}">
+    <circle cx="566" cy="206" r="10"/><circle cx="648" cy="206" r="10"/>
+    <circle cx="730" cy="206" r="10"/><circle cx="812" cy="206" r="10"/>
+  </g>
+  <g fill="{{light}}">
+    <circle cx="607" cy="206" r="10"/><circle cx="689" cy="206" r="10"/>
+    <circle cx="771" cy="206" r="10"/><circle cx="853" cy="206" r="10"/>
+  </g>
+  <rect x="586" y="236" width="150" height="72" fill="{{mid}}"/>
+  <rect x="770" y="236" width="56" height="100" fill="{{deep}}"/>
+  <rect x="560" y="334" width="300" height="6" fill="{{deep}}"/>
+
+  <!-- Cordon : trois poteaux, deux boucles -->
+  <path d="M374 452 Q 552 540 728 452" fill="none" stroke="{{detail}}" stroke-width="17" stroke-linecap="round"/>
+  <path d="M728 452 Q 904 540 1082 452" fill="none" stroke="{{detail}}" stroke-width="17" stroke-linecap="round"/>
+  <use href="#post" transform="translate(374 560)"/>
+  <use href="#post" transform="translate(728 560)"/>
+  <use href="#post" transform="translate(1082 560)"/>
+
+  <!-- Deux visiteurs, de dos, en deçà du cordon -->
+  <use href="#man" transform="translate(600 614) scale(1.85)"/>
+  <use href="#woman" transform="translate(860 614) scale(1.8)"/>
+  <!-- carnet tenu bas par la visiteuse, côté droit -->
+  <path d="M874 516 L896 538" stroke="{{subject}}" stroke-width="8" stroke-linecap="round"/>
+  <rect x="890" y="532" width="20" height="26" fill="{{light}}"/>
+</svg>
