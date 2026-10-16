@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · moteur B · touche-bleue · « l'aperçu composé à partir de plusieurs jardins » :
+       un bouquet géant dans un grand vase posé sur la plaine ; ses fleurs viennent de petits
+       massifs à droite. Deux fleurs du bouquet sont bleues, comme celles du massif d'où arrive
+       une petite silhouette, une fleur bleue à la main. Seules ces fleurs portent {{detail}}. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5"/>
+      <path d="M-7.5 -93 Q0 -101 7.5 -93 L7 -90 Q0 -95 -7 -90 Z"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42"/>
+      <rect x="2" y="-44" width="9.5" height="42"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5"/>
+    </g>
+    <!-- Fleur simple : disque de pétales + cœur, centrée en 0,0, rayon 1 → scale. -->
+    <g id="bloom">
+      <circle cx="0" cy="-0.62" r="0.48"/><circle cx="0.59" cy="-0.19" r="0.48"/>
+      <circle cx="0.36" cy="0.5" r="0.48"/><circle cx="-0.36" cy="0.5" r="0.48"/>
+      <circle cx="-0.59" cy="-0.19" r="0.48"/>
+    </g>
+    <clipPath id="above"><rect width="1456" height="470"/></clipPath>
+  </defs>
+
+  <!-- Fond uni, horizon bas -->
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <rect y="470" width="1456" height="154" fill="{{ground}}"/>
+
+  <!-- Tiges et feuilles du bouquet -->
+  <g fill="none" stroke="{{subject}}" stroke-width="7" stroke-linecap="round">
+    <path d="M640 330 Q600 230 520 170"/>
+    <path d="M648 330 Q636 220 610 110"/>
+    <path d="M656 330 Q680 210 720 96"/>
+    <path d="M664 330 Q720 230 800 160"/>
+    <path d="M652 330 Q660 260 664 210"/>
+    <path d="M644 330 Q590 280 548 268"/>
+    <path d="M668 330 Q740 290 780 262"/>
+  </g>
+  <g fill="{{subject}}">
+    <path d="M590 238 Q560 206 572 186 Q606 204 590 238 Z"/>
+    <path d="M700 226 Q732 196 752 206 Q734 240 700 226 Z"/>
+    <path d="M626 268 Q600 250 606 232 Q632 244 626 268 Z"/>
+  </g>
+
+  <!-- Fleurs : chaudes, sauf deux bleues -->
+  <use href="#bloom" fill="{{light}}" transform="translate(520 166) scale(48)"/>
+  <circle cx="520" cy="166" r="14" fill="{{subject}}"/>
+  <use href="#bloom" fill="{{pale}}" transform="translate(608 104) scale(44)"/>
+  <circle cx="608" cy="104" r="13" fill="{{subject}}"/>
+  <use href="#bloom" fill="{{detail}}" transform="translate(722 92) scale(50)"/>
+  <circle cx="722" cy="92" r="14" fill="{{subject}}"/>
+  <use href="#bloom" fill="{{light}}" transform="translate(802 156) scale(46)"/>
+  <circle cx="802" cy="156" r="13" fill="{{subject}}"/>
+  <use href="#bloom" fill="{{detail}}" transform="translate(664 206) scale(40)"/>
+  <circle cx="664" cy="206" r="12" fill="{{subject}}"/>
+  <use href="#bloom" fill="{{pale}}" transform="translate(546 268) scale(34)"/>
+  <circle cx="546" cy="268" r="10" fill="{{subject}}"/>
+  <use href="#bloom" fill="{{light}}" transform="translate(782 260) scale(34)"/>
+  <circle cx="782" cy="260" r="10" fill="{{subject}}"/>
+
+  <!-- Grand vase -->
+  <path d="M600 318 L712 318 L700 344 Q770 380 760 430 Q750 482 712 498 L600 498 Q562 482 552 430 Q542 380 612 344 Z" fill="{{shape}}"/>
+  <rect x="592" y="310" width="128" height="14" fill="{{subject}}"/>
+  <path d="M600 498 L712 498 L716 508 L596 508 Z" fill="{{subject}}"/>
+  <rect x="566" y="418" width="180" height="10" fill="{{deep}}"/>
+
+  <!-- Massifs à droite, au loin : trois rangées, une seule bleue -->
+  <g>
+    <rect x="980" y="520" width="140" height="20" fill="{{deep}}"/>
+    <rect x="1150" y="520" width="140" height="20" fill="{{deep}}"/>
+    <rect x="1080" y="560" width="160" height="22" fill="{{deep}}"/>
+    <g fill="{{light}}">
+      <circle cx="1000" cy="514" r="11"/><circle cx="1036" cy="512" r="11"/><circle cx="1072" cy="514" r="11"/><circle cx="1104" cy="512" r="11"/>
+      <circle cx="1100" cy="554" r="12"/><circle cx="1140" cy="552" r="12"/><circle cx="1180" cy="554" r="12"/><circle cx="1220" cy="552" r="12"/>
+    </g>
+    <g fill="{{detail}}">
+      <circle cx="1170" cy="514" r="11"/><circle cx="1206" cy="512" r="11"/><circle cx="1242" cy="514" r="11"/><circle cx="1274" cy="512" r="11"/>
+    </g>
+  </g>
+
+  <!-- Petite silhouette qui revient du massif bleu, une fleur bleue levée -->
+  <use href="#man" fill="{{subject}}" transform="translate(900 560) scale(1.5)"/>
+  <path d="M886 446 L862 390" stroke="{{subject}}" stroke-width="7" stroke-linecap="round"/>
+  <path d="M862 392 L856 350" stroke="{{subject}}" stroke-width="4" stroke-linecap="round"/>
+  <use href="#bloom" fill="{{detail}}" transform="translate(855 340) scale(18)"/>
+  <circle cx="855" cy="340" r="5" fill="{{subject}}"/>
+</svg>

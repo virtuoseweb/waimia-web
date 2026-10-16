@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · moteur B · degrade-aube · « changer de casquette » : un portemanteau géant se
+       dresse devant un soleil bas ; à ses cinq patères pendent cinq chapeaux différents
+       (haut-de-forme, melon, casque de chantier, casquette, chapeau à large bord), un par
+       fonction. Deux petites silhouettes les regardent. Aucun texte. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5"/>
+      <path d="M-7.5 -93 Q0 -101 7.5 -93 L7 -90 Q0 -95 -7 -90 Z"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42"/>
+      <rect x="2" y="-44" width="9.5" height="42"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7"/>
+      <circle cx="-4" cy="-96" r="5"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z"/>
+      <rect x="-6" y="-25" width="4" height="23"/>
+      <rect x="2" y="-25" width="4" height="23"/>
+      <path d="M-8 -3 L-1 -3 L-1 0 L-8 0 Z M1 -3 L8 -3 L8 0 L1 0 Z"/>
+    </g>
+    <clipPath id="above"><rect width="1456" height="500"/></clipPath>
+  </defs>
+
+  <!-- Ciel en bandes, grand soleil bas posé sur l'horizon -->
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <circle cx="728" cy="500" r="330" fill="{{shape}}" clip-path="url(#above)"/>
+
+  <!-- Sol -->
+  <rect y="500" width="1456" height="124" fill="{{ground}}"/>
+
+  <!-- Portemanteau : pied à trois branches, mât, quatre patères en quinconce -->
+  <g fill="{{subject}}">
+    <path d="M720 500 L660 540 L668 546 L728 512 L788 546 L796 540 L736 500 Z"/>
+    <rect x="720" y="104" width="16" height="408"/>
+  </g>
+  <g fill="none" stroke="{{subject}}" stroke-width="9" stroke-linecap="round">
+    <path d="M724 180 Q684 182 670 156"/>
+    <path d="M732 240 Q772 242 786 216"/>
+    <path d="M724 300 Q684 302 670 276"/>
+    <path d="M732 360 Q772 362 786 336"/>
+  </g>
+
+  <!-- 1. Haut-de-forme posé au sommet du mât -->
+  <g>
+    <rect x="686" y="26" width="84" height="72" fill="{{shadow}}"/>
+    <rect x="686" y="78" width="84" height="11" fill="{{detail}}"/>
+    <rect x="664" y="94" width="128" height="13" rx="6.5" fill="{{shadow}}"/>
+  </g>
+
+  <!-- 2. Chapeau melon, patère haute gauche -->
+  <g>
+    <path d="M598 160 Q598 104 648 104 Q698 104 698 160 Z" fill="{{deep}}"/>
+    <rect x="580" y="156" width="136" height="13" rx="6.5" fill="{{deep}}"/>
+    <rect x="600" y="144" width="96" height="9" fill="{{detail}}"/>
+  </g>
+
+  <!-- 3. Casque de chantier, patère droite -->
+  <g>
+    <path d="M760 220 Q760 164 812 164 Q864 164 864 220 Z" fill="{{soft}}"/>
+    <rect x="805" y="164" width="14" height="56" fill="{{shadow}}"/>
+    <rect x="744" y="216" width="138" height="13" rx="6.5" fill="{{shadow}}"/>
+  </g>
+
+  <!-- 4. Casquette à visière, patère basse gauche -->
+  <g>
+    <path d="M604 280 Q604 236 648 236 Q692 236 692 280 Z" fill="{{shadow}}"/>
+    <path d="M606 272 L548 284 Q550 293 564 293 L608 286 Z" fill="{{shadow}}"/>
+    <circle cx="648" cy="236" r="7" fill="{{deep}}"/>
+  </g>
+
+  <!-- 5. Chapeau à large bord, patère basse droite -->
+  <g>
+    <path d="M780 340 L787 298 Q814 284 841 298 L848 340 Z" fill="{{deep}}"/>
+    <rect x="780" y="322" width="68" height="10" fill="{{shadow}}"/>
+    <ellipse cx="814" cy="342" rx="78" ry="10" fill="{{deep}}"/>
+  </g>
+
+  <!-- Deux silhouettes au pied, de profil, qui regardent les chapeaux -->
+  <use href="#man" fill="{{subject}}" transform="translate(500 560) scale(1.35)"/>
+  <use href="#woman" fill="{{subject}}" transform="translate(960 566) scale(1.35)"/>
+  <!-- Bras de l'homme levé vers les chapeaux -->
+  <path d="M514 455 L540 418" stroke="{{subject}}" stroke-width="8" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · moteur B · « former une équipe marketing » : sur une crête, une formatrice
+       tient le fil d'un grand cerf-volant ; trois collègues en rangée font monter chacun
+       le leur, plus petit, de forme différente : un même message décliné par canal, chaque
+       fil tenu en main. Rôles remplacés par render-svg.mjs. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-89" r="8.5" fill="{{subject}}"/>
+      <path d="M-15 -73 Q-15 -80 -8 -81 L8 -81 Q15 -80 15 -73 L16 -40 L-16 -40 Z" fill="{{subject}}"/>
+      <rect x="-11" y="-42" width="9" height="39" fill="{{subject}}"/>
+      <rect x="2" y="-42" width="9" height="39" fill="{{subject}}"/>
+      <rect x="-13" y="-4" width="12" height="4" fill="{{subject}}"/>
+      <rect x="1" y="-4" width="12" height="4" fill="{{subject}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <circle cx="0" cy="-99" r="5.5" fill="{{subject}}"/>
+      <path d="M-9 -81 Q0 -85 9 -81 L10 -52 L-10 -52 Z" fill="{{subject}}"/>
+      <path d="M-11 -53 L11 -53 L9 -22 L-9 -22 Z" fill="{{subject}}"/>
+      <rect x="-6.5" y="-23" width="4.5" height="20" fill="{{subject}}"/>
+      <rect x="2" y="-23" width="4.5" height="20" fill="{{subject}}"/>
+      <path d="M-8 -4 L-1 -4 L-1 0 L-8 0 Z M1 -4 L8 -4 L8 0 L1 0 Z" fill="{{subject}}"/>
+    </g>
+    <!-- cerf-volant losange : voile, croisillon, queue à nœuds -->
+    <g id="kite">
+      <path d="M0 -100 L66 -18 L0 100 L-66 -18 Z" fill="{{detail}}"/>
+      <path d="M0 -100 L0 100 M-66 -18 L66 -18" stroke="{{subject}}" stroke-width="5"/>
+      <path d="M0 100 C 24 140, -24 170, 6 214" fill="none" stroke="{{subject}}" stroke-width="4"/>
+      <path d="M8 132 L22 124 L20 142 Z M-10 162 L-24 154 L-20 172 Z M4 194 L18 186 L16 204 Z" fill="{{subject}}"/>
+    </g>
+  </defs>
+
+  <!-- Ciel en bandes (dégradé d'aube) -->
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <!-- Sol : crête sombre, horizon bas -->
+  <path d="M0 520 Q 400 498 760 506 T 1456 512 L1456 624 L0 624 Z" fill="{{ground}}"/>
+
+  <!-- Fils, des mains aux cerfs-volants (dessinés avant les voiles) -->
+  <g fill="none" stroke="{{subject}}" stroke-width="3.5">
+    <path d="M352 318 C 420 250, 490 190, 555 148"/>
+    <path d="M782 336 C 810 260, 840 170, 862 109"/>
+    <path d="M950 334 C 980 280, 1010 230, 1039 200"/>
+    <path d="M1136 338 C 1170 270, 1205 200, 1230 150"/>
+  </g>
+
+  <!-- Le grand cerf-volant de la formatrice -->
+  <use href="#kite" transform="translate(560 170) rotate(-12) scale(1.25)"/>
+  <!-- Trois cerfs-volants plus petits, chacun le sien -->
+  <use href="#kite" transform="translate(860 120) rotate(10) scale(0.62)"/>
+  <use href="#kite" transform="translate(1040 210) rotate(-6) scale(0.56)"/>
+  <!-- le troisième : forme triangulaire (delta), autre canal -->
+  <g transform="translate(1230 150) rotate(8)">
+    <path d="M0 -50 L62 34 L-62 34 Z" fill="{{detail}}"/>
+    <path d="M0 -50 L0 34" stroke="{{subject}}" stroke-width="4"/>
+    <path d="M0 34 C 14 60, -14 80, 4 108" fill="none" stroke="{{subject}}" stroke-width="3"/>
+  </g>
+
+  <!-- La formatrice, à gauche, bras levé vers le grand fil -->
+  <use href="#woman" transform="translate(300 518) scale(1.9)"/>
+  <!-- L'équipe en rangée, chacun tient son fil -->
+  <use href="#man" transform="translate(730 512) scale(1.7)"/>
+  <use href="#woman" transform="translate(910 512) scale(1.7)"/>
+  <use href="#man" transform="translate(1086 514) scale(1.7)"/>
+  <!-- Bras levés, écartés de la tête, main au fil -->
+  <g stroke="{{subject}}" stroke-linecap="round">
+    <path d="M314 372 L352 318" stroke-width="9"/>
+    <path d="M752 380 L782 336" stroke-width="8"/>
+    <path d="M922 378 L950 334" stroke-width="7"/>
+    <path d="M1108 382 L1136 338" stroke-width="8"/>
+  </g>
+</svg>

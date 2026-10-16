@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- duotone creme-aere · trois façons de monter le même haut mur : un escalier de pierre
+       maçonné (le cadre), une échelle de corde (une personne seule), un échafaudage (une équipe
+       qui construit). Au premier plan, une silhouette vérifie une feuille avant de choisir. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-7.5 -93 Q0 -101 7.5 -93 L7 -90 Q0 -95 -7 -90 Z" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{subject}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{subject}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <path d="M-8 -3 L-1 -3 L-1 0 L-8 0 Z M1 -3 L8 -3 L8 0 L1 0 Z" fill="{{subject}}"/>
+    </g>
+  </defs>
+
+  <!-- Fond papier, demi-soleil qui se lève derrière le mur -->
+  <rect width="1456" height="624" fill="{{field}}"/>
+
+  <!-- Sol -->
+  <rect y="440" width="1456" height="184" fill="{{ground}}"/>
+
+  <g transform="translate(730 440) scale(0.68) translate(-785 -500)">
+  <circle cx="985" cy="232" r="122" fill="{{detail}}"/>
+  <!-- Le haut mur, chaperon en haut -->
+  <rect x="330" y="232" width="910" height="268" fill="{{shape}}"/>
+  <rect x="318" y="220" width="934" height="14" fill="{{subject}}"/>
+  <path d="M1240 500 L1252 500 L1252 234 L1240 234 Z" fill="{{deep}}"/>
+
+  <!-- 1. Escalier de pierre maçonné contre le mur -->
+  <path d="M370 500 L370 470 L400 470 L400 440 L430 440 L430 410 L460 410 L460 380 L490 380 L490 350 L520 350 L520 320 L550 320 L550 290 L580 290 L580 260 L610 260 L610 234 L640 234 L640 500 Z" fill="{{deep}}"/>
+  <g fill="{{soft}}">
+    <rect x="470" y="420" width="40" height="5"/><rect x="540" y="380" width="60" height="5"/>
+    <rect x="420" y="476" width="70" height="5"/><rect x="560" y="450" width="50" height="5"/>
+    <rect x="590" y="320" width="34" height="5"/>
+  </g>
+  <use href="#man" transform="translate(505 350) scale(0.8)"/>
+
+  <!-- 2. Échelle de corde accrochée au chaperon -->
+  <g fill="{{subject}}">
+    <rect x="786" y="226" width="5" height="274"/>
+    <rect x="832" y="226" width="5" height="274"/>
+    <rect x="780" y="218" width="16" height="12"/><rect x="826" y="218" width="16" height="12"/>
+    <rect x="788" y="262" width="47" height="5"/><rect x="788" y="298" width="47" height="5"/>
+    <rect x="788" y="334" width="47" height="5"/><rect x="788" y="370" width="47" height="5"/>
+    <rect x="788" y="406" width="47" height="5"/><rect x="788" y="442" width="47" height="5"/>
+    <rect x="788" y="478" width="47" height="5"/>
+  </g>
+  <use href="#woman" transform="translate(811 404) scale(0.8)"/>
+
+  <!-- 3. Échafaudage monté par une équipe -->
+  <g fill="{{subject}}">
+    <rect x="1082" y="226" width="7" height="274"/>
+    <rect x="1132" y="226" width="7" height="274"/>
+    <rect x="1182" y="226" width="7" height="274"/>
+    <path d="M1089 300 L1095 300 L1139 368 L1133 368 Z"/>
+    <path d="M1182 368 L1188 368 L1144 436 L1138 436 Z"/>
+    <path d="M1089 436 L1095 436 L1139 500 L1133 500 Z"/>
+  </g>
+  <g fill="{{detail}}">
+    <rect x="1074" y="294" width="124" height="9"/>
+    <rect x="1074" y="362" width="124" height="9"/>
+    <rect x="1074" y="430" width="124" height="9"/>
+  </g>
+  <use href="#man" transform="translate(1110 362) scale(0.8)"/>
+  <use href="#man" transform="translate(1162 294) scale(0.8)"/>
+
+  <!-- En haut du mur, une silhouette arrivée regarde au loin -->
+  <use href="#man" transform="translate(700 220) scale(0.76)"/>
+
+  <!-- Premier plan : une silhouette lit une feuille avant de choisir -->
+  <use href="#woman" transform="translate(940 524) scale(0.92)"/>
+  <path d="M946 450 L962 460 L960 465 L944 456 Z" fill="{{subject}}"/>
+  <rect x="954" y="448" width="24" height="31" fill="{{light}}"/>
+  </g>
+</svg>

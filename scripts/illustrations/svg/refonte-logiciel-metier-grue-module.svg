@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · moteur B · « refonte de logiciel métier, module par module » : un immeuble fait de
+       grands modules empilés ; une grue en retire un seul, usé, pendant qu'un module neuf attend
+       au sol ; un homme tient le plan, une femme guide. Rôles remplacés par render-svg.mjs. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{subject}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{subject}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/>
+    </g>
+    <g id="module">
+      <rect x="0" y="0" width="120" height="90" fill="{{shape}}"/>
+      <rect x="0" y="80" width="120" height="10" fill="{{deep}}"/>
+      <rect x="16" y="18" width="38" height="44" fill="{{pale}}"/>
+      <rect x="66" y="18" width="38" height="44" fill="{{pale}}"/>
+    </g>
+  </defs>
+
+  <!-- Ciel en bandes -->
+  <rect width="1456" height="624" fill="{{field}}"/>
+
+  <!-- Sol -->
+  <rect y="480" width="1456" height="144" fill="{{ground}}"/>
+  <g fill="{{shadow}}">
+    <rect x="90" y="520" width="150" height="5"/><rect x="420" y="560" width="210" height="5"/>
+    <rect x="860" y="532" width="120" height="5"/><rect x="1240" y="575" width="150" height="5"/>
+  </g>
+
+  <!-- Immeuble de modules : 4 colonnes × 3 rangées, joints sombres, un vide en haut -->
+  <rect x="324" y="192" width="510" height="288" fill="{{subject}}"/>
+  <g>
+    <use href="#module" transform="translate(330 390)"/><use href="#module" transform="translate(456 390)"/>
+    <use href="#module" transform="translate(582 390)"/><use href="#module" transform="translate(708 390)"/>
+    <use href="#module" transform="translate(330 294)"/><use href="#module" transform="translate(456 294)"/>
+    <use href="#module" transform="translate(582 294)"/><use href="#module" transform="translate(708 294)"/>
+    <use href="#module" transform="translate(330 198)"/><use href="#module" transform="translate(456 198)"/>
+    <use href="#module" transform="translate(708 198)"/>
+  </g>
+  <!-- Le vide laissé par le module retiré -->
+  <rect x="582" y="198" width="120" height="90" fill="{{shadow}}"/>
+
+  <!-- Grue à tour -->
+  <g fill="{{subject}}">
+    <rect x="1000" y="52" width="26" height="428"/>
+    <rect x="560" y="40" width="640" height="14"/>
+    <rect x="1150" y="54" width="60" height="44"/>
+    <rect x="990" y="54" width="46" height="34"/>
+    <path d="M1003 40 L1013 0 L1023 40 Z"/>
+    <rect x="980" y="470" width="66" height="14"/>
+  </g>
+  <g fill="{{light}}">
+    <rect x="1004" y="120" width="18" height="6"/><rect x="1004" y="190" width="18" height="6"/>
+    <rect x="1004" y="260" width="18" height="6"/><rect x="1004" y="330" width="18" height="6"/>
+    <rect x="1004" y="400" width="18" height="6"/>
+  </g>
+  <!-- Chariot, câble, crochet -->
+  <rect x="630" y="54" width="24" height="10" fill="{{subject}}"/>
+  <rect x="640" y="64" width="5" height="20" fill="{{subject}}"/>
+  <path d="M634 84 L650 84 L648 94 L636 94 Z" fill="{{subject}}"/>
+
+  <!-- Module usé, soulevé hors de l'immeuble : élingues puis caisse plus sombre et fendue -->
+  <g transform="rotate(-3 642 140)">
+    <path d="M640 92 L590 104 L594 108 L642 98 Z" fill="{{subject}}"/>
+    <path d="M644 92 L694 104 L690 108 L642 98 Z" fill="{{subject}}"/>
+    <rect x="582" y="104" width="120" height="80" fill="{{deep}}"/>
+    <rect x="582" y="174" width="120" height="10" fill="{{shadow}}"/>
+    <rect x="598" y="118" width="38" height="40" fill="{{mid}}"/>
+    <rect x="648" y="118" width="38" height="40" fill="{{mid}}"/>
+    <path d="M660 104 L668 128 L656 142 L664 174 L658 174 L650 142 L662 128 L654 104 Z" fill="{{shadow}}"/>
+  </g>
+
+  <!-- Module neuf posé au sol, prêt à monter -->
+  <rect x="1068" y="396" width="120" height="84" fill="{{shape}}"/>
+  <rect x="1068" y="470" width="120" height="10" fill="{{subject}}"/>
+  <rect x="1084" y="412" width="38" height="42" fill="{{pale}}"/>
+  <rect x="1134" y="412" width="38" height="42" fill="{{pale}}"/>
+
+  <!-- Un homme lit le plan au pied de l'immeuble -->
+  <use href="#man" transform="translate(250 480) scale(1.35)"/>
+  <rect x="216" y="372" width="34" height="24" fill="{{detail}}"/>
+  <rect x="216" y="372" width="34" height="4" fill="{{subject}}"/>
+  <!-- Une femme guide le module neuf, bras levé -->
+  <use href="#woman" transform="translate(1236 480) scale(1.35)"/>
+  <rect x="1229" y="338" width="8" height="52" rx="4" fill="{{subject}}" transform="rotate(-32 1236 372)"/>
+</svg>
