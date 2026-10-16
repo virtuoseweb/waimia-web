@@ -37,6 +37,13 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### Contenu W46, 16 octobre 2026 (PR #115)
+
+- **Pourquoi ces deux billets** : les requêtes « agence » (n8n, IA PME) sont classées sur la bonne page, sans cannibalisation, mais en position 40 à 50 ; la page n8n compte déjà 4 552 mots : ce qui manque est l'autorité (liens entrants, action extérieure à Simon), pas le contenu. Le levier disponible tout de suite est le volume à faible difficulté : « claude max » (1 600, KD 20) et « claude pro vs team » visaient le guide des prix Claude.
+- **Articles** : `claude-max-pme` et `claude-pro-vs-team`, satellites du guide `claude-fonctionnalites-pme` (prix relus sur claude.com/pricing le 16 octobre). Le guide renvoie vers les deux dans son corps. Illustrés (`camion-carton`, `canot-yole`), au maillage, cibles basculées dans `keywords.json`.
+- **Calendrier** : les satellites factures passent de W49 et W50 à W43 et W47 (réception obligatoire depuis le 1er septembre) ; 6 semaines d'avance.
+- **Preuves** : build 0, portes à la référence, 2 pages mesurées à 1366×768 et 390×844 (image chargée, opacity 1, 0 erreur console), balayage de 210 pages sans débordement, E2E 83 passés.
+
 ### Demandes d'indexation, 16 octobre 2026 (Search Console, inspection d'URL)
 
 - **Dix demandes confirmées** (« Indexation demandée » lu à l'écran pour chacune) : `/implantations/bordeaux`, `/ressources/guides/automatisation-factures-fournisseurs-pme`, `/blog/relance-factures-impayees-automatique-pme`, `/blog/ia-reponse-appel-offres-pme`, `/blog/claude-cowork-windows`, `/blog/application-metier-exemples-pme`, `/blog/formation-ia-rh-pme`, `/blog/chatbot-rh-pme`, `/blog/audit-site-internet-pme`, `/ressources/outils/grille-audit-site-internet`. Quota quotidien atteint.

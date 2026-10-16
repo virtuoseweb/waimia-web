@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · « Claude Max : pour qui, et quand Pro suffit » : un homme porte un seul carton
+       entre une petite camionnette et un très grand camion à semi-remorque. Le volume à
+       transporter décide du véhicule. Rôles remplacés par render-svg.mjs
+       (shape = le grand camion, detail = vitres et liserés). -->
+
+  <!-- Grand ciel uni -->
+  <rect width="1456" height="624" fill="{{field}}"/>
+
+  <!-- Soleil bas, à gauche -->
+  <circle cx="190" cy="170" r="62" fill="{{detail}}"/>
+
+  <!-- Sol -->
+  <rect y="470" width="1456" height="154" fill="{{ground}}"/>
+
+  <!-- Ombres -->
+  <rect x="232" y="482" width="230" height="9" rx="4" fill="{{soft}}"/>
+  <rect x="640" y="482" width="660" height="10" rx="5" fill="{{soft}}"/>
+
+  <!-- Petite camionnette, à gauche -->
+  <path d="M240 456 L240 382 Q240 366 256 366 L376 366 L410 406 Q440 410 444 430 L444 456 Z" fill="{{deep}}"/>
+  <path d="M378 376 L402 406 L378 406 Z" fill="{{detail}}"/>
+  <rect x="260" y="384" width="96" height="30" rx="6" fill="{{detail}}"/>
+  <circle cx="290" cy="460" r="20" fill="{{subject}}"/>
+  <circle cx="290" cy="460" r="7" fill="{{detail}}"/>
+  <circle cx="404" cy="460" r="20" fill="{{subject}}"/>
+  <circle cx="404" cy="460" r="7" fill="{{detail}}"/>
+
+  <!-- Grand camion : remorque -->
+  <rect x="650" y="196" width="470" height="250" rx="6" fill="{{shape}}"/>
+  <rect x="650" y="232" width="470" height="10" fill="{{detail}}"/>
+  <rect x="650" y="404" width="470" height="10" fill="{{detail}}"/>
+  <!-- Portes arrière ouvertes : on voit le vide -->
+  <rect x="650" y="252" width="16" height="146" fill="{{deep}}"/>
+  <!-- Châssis -->
+  <rect x="650" y="444" width="650" height="12" fill="{{subject}}"/>
+  <!-- Cabine -->
+  <path d="M1132 446 L1132 300 Q1132 286 1146 286 L1238 286 Q1262 288 1272 322 L1296 392 L1296 446 Z" fill="{{deep}}"/>
+  <path d="M1196 302 L1240 302 Q1254 304 1260 324 L1276 372 L1196 372 Z" fill="{{detail}}"/>
+  <!-- Roues -->
+  <g fill="{{subject}}">
+    <circle cx="720" cy="462" r="28"/>
+    <circle cx="784" cy="462" r="28"/>
+    <circle cx="1040" cy="462" r="28"/>
+    <circle cx="1240" cy="462" r="28"/>
+  </g>
+  <g fill="{{detail}}">
+    <circle cx="720" cy="462" r="9"/>
+    <circle cx="784" cy="462" r="9"/>
+    <circle cx="1040" cy="462" r="9"/>
+    <circle cx="1240" cy="462" r="9"/>
+  </g>
+
+  <!-- L'homme qui porte un seul carton, de profil, marche vers la camionnette -->
+  <g transform="translate(548 500) scale(1.6)">
+    <g fill="{{subject}}">
+      <circle cx="0" cy="-90" r="7.5"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z"/>
+      <path d="M-11.5 -44 L-2 -44 L-6 -2 L-16 -2 Z"/>
+      <path d="M2 -44 L11.5 -44 L14 -2 L5 -2 Z"/>
+      <rect x="-19" y="-3" width="13" height="3" rx="1.5"/>
+      <rect x="4" y="-3" width="13" height="3" rx="1.5"/>
+    </g>
+    <!-- Le carton, tenu devant lui -->
+    <rect x="-44" y="-82" width="36" height="30" fill="{{pale}}"/>
+    <rect x="-44" y="-70" width="36" height="4" fill="{{soft}}"/>
+    <g fill="none" stroke="{{subject}}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-6 -78 L-16 -66 L-26 -66"/>
+      <path d="M6 -78 L-2 -60 L-10 -58"/>
+    </g>
+  </g>
+</svg>

@@ -10442,11 +10442,29 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/claude-max-pme",
+    "title": "Claude Max en PME : pour qui, et quand Pro suffit",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/claude-max-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/claude-microsoft-copilot-pme",
     "title": "Claude Copilot : ce que ça change en PME",
     "group": "blog",
     "collection": "blog",
     "file": "blog/claude-microsoft-copilot-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/claude-pro-vs-team",
+    "title": "Claude Pro vs Team : lequel choisir pour une petite équipe",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/claude-pro-vs-team.json",
     "editable": false,
     "sections": []
   },
@@ -11703,7 +11721,9 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/chatbot-rh-pme",
       "/blog/chatgpt-shopping-e-commerce",
       "/blog/claude-cowork-windows",
+      "/blog/claude-max-pme",
       "/blog/claude-microsoft-copilot-pme",
+      "/blog/claude-pro-vs-team",
       "/blog/connecter-claude-wordpress-shopify-mcp",
       "/blog/contenu-ia-seo-google-penalise",
       "/blog/creer-agent-ia-claude",
