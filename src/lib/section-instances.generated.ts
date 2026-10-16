@@ -1489,7 +1489,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
-      "index": 2,
+      "index": 3,
       "label": "Claude vs ChatGPT : prix, données, outils",
       "background": "paper"
     },
@@ -2087,7 +2087,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
-      "index": 12,
+      "index": 13,
       "label": "Vous penchez pour Claude ? Recevez le guide d'achat pour PME (PDF, 14 pages)",
       "background": "paper"
     },
@@ -2226,7 +2226,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
-      "index": 13,
+      "index": 14,
       "label": "Choisir selon votre situation",
       "background": "paper-2"
     },
@@ -2406,7 +2406,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
-      "index": 20,
+      "index": 21,
       "label": "Six cas où vous n'avez pas besoin de Waimia",
       "background": "paper"
     },
@@ -4740,8 +4740,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
-      "index": 4,
-      "label": "#4",
+      "index": 5,
+      "label": "#5",
       "variant": "quote",
       "background": "paper"
     },
@@ -4750,8 +4750,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
-      "index": 6,
-      "label": "#6",
+      "index": 7,
+      "label": "#7",
       "variant": "warn",
       "background": "paper"
     },
@@ -4760,8 +4760,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
-      "index": 8,
-      "label": "#8",
+      "index": 9,
+      "label": "#9",
       "variant": "quote",
       "background": "paper"
     },
@@ -5182,8 +5182,17 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
-      "index": 3,
-      "label": "#3",
+      "index": 2,
+      "label": "#2",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/claude-vs-chatgpt-pme.json",
+      "slug": "claude-vs-chatgpt-pme",
+      "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
+      "index": 4,
+      "label": "#4",
       "background": "paper-2"
     },
     {
@@ -5191,8 +5200,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
-      "index": 5,
-      "label": "#5",
+      "index": 6,
+      "label": "#6",
       "background": "paper-2"
     },
     {
@@ -5200,8 +5209,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
-      "index": 7,
-      "label": "#7",
+      "index": 8,
+      "label": "#8",
       "background": "paper-2"
     },
     {
@@ -5209,8 +5218,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
-      "index": 9,
-      "label": "#9",
+      "index": 10,
+      "label": "#10",
       "background": "paper-2"
     },
     {
@@ -5218,8 +5227,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
-      "index": 11,
-      "label": "#11",
+      "index": 12,
+      "label": "#12",
       "background": "paper-2"
     },
     {
@@ -6217,8 +6226,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
-      "index": 6,
-      "label": "#6",
+      "index": 3,
+      "label": "#3",
       "background": "paper"
     },
     {
@@ -6226,8 +6235,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
-      "index": 8,
-      "label": "#8",
+      "index": 7,
+      "label": "#7",
       "background": "paper"
     },
     {
@@ -6235,18 +6244,18 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
-      "index": 12,
-      "label": "#12",
+      "index": 9,
+      "label": "#9",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-pme.json",
+      "slug": "claude-pme",
+      "route": "/ressources/guides/claude-pme",
+      "index": 13,
+      "label": "#13",
       "background": "paper-3"
-    },
-    {
-      "collection": "guides",
-      "file": "guides/claude-pme.json",
-      "slug": "claude-pme",
-      "route": "/ressources/guides/claude-pme",
-      "index": 15,
-      "label": "#15",
-      "background": "paper"
     },
     {
       "collection": "guides",
@@ -6255,6 +6264,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/claude-pme",
       "index": 16,
       "label": "#16",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-pme.json",
+      "slug": "claude-pme",
+      "route": "/ressources/guides/claude-pme",
+      "index": 17,
+      "label": "#17",
       "background": "paper-3"
     },
     {
@@ -6262,8 +6280,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
-      "index": 18,
-      "label": "#18",
+      "index": 19,
+      "label": "#19",
       "background": "paper"
     },
     {
@@ -7762,7 +7780,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
-      "index": 10,
+      "index": 11,
       "label": "Ce qui a bougé chez Claude et ChatGPT, et ce que ça change",
       "variant": "editorial",
       "background": "paper"
@@ -8271,7 +8289,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
-      "index": 10,
+      "index": 11,
       "label": "Cinq usages qui se mesurent vite",
       "background": "paper"
     },
@@ -8280,7 +8298,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
-      "index": 19,
+      "index": 20,
       "label": "Ce que chaque option demande, et ce qu'elle coûte",
       "background": "paper-2"
     },
@@ -9842,7 +9860,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
-      "index": 16,
+      "index": 17,
       "label": "Claude vs ChatGPT : vos questions",
       "background": "paper"
     },
@@ -10139,7 +10157,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
-      "index": 24,
+      "index": 25,
       "label": "Déployer Claude en PME : les questions des acheteurs",
       "background": "paper"
     },
@@ -11189,7 +11207,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
-      "index": 7,
+      "index": 8,
       "label": "Par où commencer selon votre profil",
       "background": "paper-2"
     },
@@ -11551,7 +11569,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
-      "index": 17,
+      "index": 18,
       "label": "L'outil compte moins que le cadre.",
       "background": "ink"
     },
@@ -11848,7 +11866,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
-      "index": 25,
+      "index": 26,
       "label": "Vous savez par où commencer. Cadrons votre premier cas.",
       "background": "ink"
     },
@@ -14215,7 +14233,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
-      "index": 5,
+      "index": 6,
       "label": "Un plan, pas une promesse",
       "variant": "accent"
     },
@@ -14507,7 +14525,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
-      "index": 4,
+      "index": 5,
       "label": "Le guide d'achat Claude pour PME : plan, coût, configuration",
       "background": "paper-2"
     },
@@ -14516,7 +14534,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
-      "index": 11,
+      "index": 12,
       "label": "Recevez le pack de 8 skills Claude pour PME",
       "background": "paper-2"
     },
@@ -14525,7 +14543,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
-      "index": 14,
+      "index": 15,
       "label": "Le plan des 90 jours, case par case",
       "background": "paper-2"
     },
@@ -14534,7 +14552,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
-      "index": 17,
+      "index": 18,
       "label": "Recevez le kit conformité et administration de Claude",
       "background": "ink"
     },
@@ -14995,7 +15013,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
-      "index": 23,
+      "index": 24,
       "label": "Claude change chaque mois. Recevez seulement ce qui touche une PME.",
       "background": "ink"
     },
@@ -15806,7 +15824,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
-      "index": 14,
+      "index": 15,
       "label": "Comment trancher en deux semaines, sur vos documents",
       "background": "paper"
     },
@@ -16013,7 +16031,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
-      "index": 13,
+      "index": 14,
       "label": "Trois phases de 30 jours, du test à l'usage d'équipe",
       "background": "paper"
     },
@@ -16022,7 +16040,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
-      "index": 21,
+      "index": 22,
       "label": "Du premier rendez-vous à l'équipe autonome",
       "background": "paper-3"
     },
@@ -17032,7 +17050,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
-      "index": 15,
+      "index": 16,
       "label": "Pour aller plus loin",
       "background": "paper-2"
     },
@@ -17320,7 +17338,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
-      "index": 22,
+      "index": 23,
       "label": "Pour aller plus loin",
       "background": "paper-2"
     },
@@ -17648,7 +17666,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
-      "index": 3,
+      "index": 4,
       "label": "Sept guides détaillés, une question d'acheteur chacun",
       "background": "paper"
     },
@@ -17657,7 +17675,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-pme.json",
       "slug": "claude-pme",
       "route": "/ressources/guides/claude-pme",
-      "index": 9,
+      "index": 10,
       "label": "Quatre outils pour poser les prérequis",
       "background": "paper-2"
     }

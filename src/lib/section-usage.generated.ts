@@ -718,7 +718,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "editorial-prose": {
-    "count": 308,
+    "count": 310,
     "pages": [
       "/audit-ia-pme",
       "/cas-usages/centraliser-donnees",
