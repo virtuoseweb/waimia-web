@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · « Skills dans Claude Code, partagées en équipe » : un grand panneau perforé
+       d'atelier où chaque outil a sa place dessinée. Un homme raccroche une clé à sa
+       silhouette, une femme décroche un marteau. Rôles remplacés par render-svg.mjs
+       (shape = le panneau, detail = les silhouettes d'outils). -->
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <rect y="486" width="1456" height="138" fill="{{ground}}"/>
+
+  <!-- Le panneau perforé -->
+  <rect x="380" y="90" width="700" height="360" rx="8" fill="{{shape}}"/>
+  <g fill="{{deep}}">
+    <rect x="380" y="450" width="700" height="12"/>
+    <rect x="420" y="462" width="14" height="30"/>
+    <rect x="1026" y="462" width="14" height="30"/>
+  </g>
+  <!-- Perforations -->
+  <g fill="{{soft}}">
+    <circle cx="420" cy="120" r="4"/><circle cx="480" cy="120" r="4"/><circle cx="540" cy="120" r="4"/><circle cx="600" cy="120" r="4"/><circle cx="660" cy="120" r="4"/><circle cx="720" cy="120" r="4"/><circle cx="780" cy="120" r="4"/><circle cx="840" cy="120" r="4"/><circle cx="900" cy="120" r="4"/><circle cx="960" cy="120" r="4"/><circle cx="1020" cy="120" r="4"/>
+    <circle cx="420" cy="420" r="4"/><circle cx="480" cy="420" r="4"/><circle cx="540" cy="420" r="4"/><circle cx="600" cy="420" r="4"/><circle cx="660" cy="420" r="4"/><circle cx="720" cy="420" r="4"/><circle cx="780" cy="420" r="4"/><circle cx="840" cy="420" r="4"/><circle cx="900" cy="420" r="4"/><circle cx="960" cy="420" r="4"/><circle cx="1020" cy="420" r="4"/>
+  </g>
+  <!-- Silhouettes peintes des outils (places) -->
+  <g fill="{{detail}}">
+    <!-- clé (place vide) -->
+    <rect x="456" y="170" width="16" height="170" rx="6"/>
+    <circle cx="464" cy="168" r="26"/>
+    <!-- marteau (place vide) -->
+    <rect x="938" y="200" width="16" height="170" rx="6"/>
+    <rect x="904" y="170" width="84" height="40" rx="6"/>
+  </g>
+  <!-- Outils accrochés -->
+  <g fill="{{deep}}">
+    <!-- tournevis -->
+    <rect x="566" y="160" width="26" height="70" rx="10"/>
+    <rect x="574" y="230" width="10" height="120"/>
+    <!-- scie -->
+    <path d="M640 170 L700 170 L700 214 L840 214 L840 250 L700 260 L700 300 L640 300 Z"/>
+    <!-- équerre -->
+    <path d="M720 400 L860 300 L860 400 Z"/>
+    <path d="M752 390 L846 322 L846 390 Z" fill="{{shape}}"/>
+  </g>
+  <!-- Clé que l'homme raccroche -->
+  <g transform="translate(470 250) rotate(-20)">
+    <rect x="-8" y="-6" width="16" height="150" rx="6" fill="{{subject}}"/>
+    <circle cx="0" cy="-8" r="22" fill="{{subject}}"/>
+    <circle cx="0" cy="-14" r="9" fill="{{shape}}"/>
+  </g>
+
+  <!-- L'homme, de dos, bras levé vers le panneau -->
+  <g transform="translate(330 506) scale(1.7)">
+    <g fill="{{subject}}">
+      <circle cx="0" cy="-90" r="7.5"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42"/>
+      <rect x="2" y="-44" width="9.5" height="42"/>
+      <rect x="-13" y="-3" width="12" height="3" rx="1.5"/>
+      <rect x="2" y="-3" width="13" height="3" rx="1.5"/>
+    </g>
+    <g fill="none" stroke="{{subject}}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8 -78 L28 -98 L44 -110"/>
+      <path d="M-8 -78 L-12 -56"/>
+    </g>
+  </g>
+
+  <!-- La femme qui emporte le marteau -->
+  <g transform="translate(1160 506) scale(1.7)">
+    <g fill="{{subject}}">
+      <circle cx="0" cy="-90" r="7"/>
+      <circle cx="1" cy="-99" r="5"/>
+      <path d="M-10 -80 Q0 -84 10 -80 L11 -56 L-11 -56 Z"/>
+      <path d="M-12 -57 L12 -57 L10 -22 L-10 -22 Z"/>
+      <rect x="-7" y="-23" width="5" height="21"/>
+      <rect x="2" y="-23" width="5" height="21"/>
+      <rect x="-9" y="-3" width="8" height="3" rx="1.5"/>
+      <rect x="1" y="-3" width="8" height="3" rx="1.5"/>
+      <!-- marteau tenu -->
+      <rect x="18" y="-78" width="5" height="44" rx="2"/>
+      <rect x="10" y="-84" width="22" height="10" rx="2"/>
+    </g>
+    <g fill="none" stroke="{{subject}}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8 -78 L14 -62 L20 -56"/>
+      <path d="M-8 -78 L-11 -58"/>
+    </g>
+  </g>
+</svg>
