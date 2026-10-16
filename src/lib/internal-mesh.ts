@@ -277,6 +277,9 @@ const PAGES: Record<string, PageDef> = {
   '/blog/audit-site-internet-pme': { label_fr: 'Audit de site internet : la grille avant refonte', label_en: 'Website audit: the grid before a redesign', kind: 'article', topics: ['web'] },
   '/blog/formation-ia-rh-pme': { label_fr: 'Formation IA pour une équipe RH', label_en: 'AI training for HR teams', kind: 'article', topics: ['formation', 'conformite'] },
   '/blog/chatbot-rh-pme': { label_fr: "Chatbot RH en PME : ce qu'il traite, ce qu'il laisse aux RH", label_en: 'HR chatbot for SMBs: what it handles, what stays with HR', kind: 'article', topics: ['agents', 'conformite'] },
+  '/blog/relance-factures-impayees-automatique-pme': { label_fr: 'Relancer les factures impayées automatiquement', label_en: 'Automate unpaid invoice reminders', kind: 'article', topics: ['automatisation', 'commercial'] },
+  '/ressources/guides/automatisation-factures-fournisseurs-pme': { label_fr: 'Automatisation des factures fournisseurs : déléguer et contrôler', label_en: 'Supplier invoice automation: what to delegate and check', kind: 'guide', topics: ['agents', 'automatisation'] },
+  '/blog/ia-reponse-appel-offres-pme': { label_fr: "IA et appel d'offres : ce que la PME prépare et garde", label_en: 'AI and tenders: what a small business prepares and keeps', kind: 'article', topics: ['agents', 'automatisation'] },
   '/cas-clients/desangles-peinture': { label_fr: 'Cas client : Desangles Peinture', label_en: 'Case: Desangles Peinture', kind: 'cas-client', topics: ['acquisition'] },
 
   // ── Secteurs (indexables depuis 2026-10-05) : cibles du maillage, sans bloc émis par

@@ -37,6 +37,12 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### Contenu W44, 16 octobre 2026 (PR #PRNUM)
+
+- **Guide pilier** `automatisation-factures-fournisseurs-pme` (sources DGFiP : réception obligatoire au 1er septembre 2026, émission des PME au 1er septembre 2027) et deux articles : `relance-factures-impayees-automatique-pme` (Code de commerce L441-10 et D441-5) et `ia-reponse-appel-offres-pme` (fiches Service-Public sur les marchés publics). Illustrés, déclarés au maillage, cibles basculées dans `keywords.json`.
+- **Règle de Simon appliquée** : un sujet large reste un guide, entouré de 2 à 3 articles satellites qui le citent dans le corps. Le billet relance des impayés renvoie au guide ; deux satellites planifiés (réception de la facture électronique, saisie automatique des factures).
+- **À mesurer** : volumes non mesurés par Semrush pour ces cinq requêtes (à mesurer au brief) ; impressions deux collectes après la mise en production ; alertes de lead par page d'arrivée.
+
 ### Contenu W43, 16 octobre 2026 (PR #109)
 
 - **Articles** : `formation-ia-rh-pme`, `chatbot-rh-pme`, `audit-site-internet-pme` (requêtes de 390, 320 et 1 300 recherches mensuelles, cibles basculées dans `keywords.json`), illustrés et déclarés au maillage. Trois créations planifiées en remplacement (application métier, automatisation des processus métiers, formation IA générative).

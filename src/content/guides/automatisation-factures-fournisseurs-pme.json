@@ -1,0 +1,477 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "Automatisation des factures fournisseurs : ce qu'on délègue à l'IA, ce qu'on contrôle",
+  "title_en": "Supplier invoice automation: what you delegate to AI, what you check",
+  "seoTitle_fr": "Automatisation des factures fournisseurs : étapes, contrôles",
+  "seoTitle_en": "Supplier invoice automation: steps and controls",
+  "description_fr": "Ce qu'une IA fait sur une facture fournisseur : lecture, rapprochement, imputation, les contrôles à garder et le test avant devis. Relevé le 16 octobre 2026.",
+  "description_en": "Receipt, reading, matching, allocation: what an AI does on a supplier invoice, the controls to keep and the test before a quote. Checked on 16 October 2026.",
+  "slug": "automatisation-factures-fournisseurs-pme",
+  "publishedAt": "2026-10-16",
+  "updatedAt": "2026-10-16",
+  "category": "agents",
+  "tags": [
+    "factures-fournisseurs",
+    "automatisation-factures",
+    "facture-electronique",
+    "traitement-documents",
+    "agent-ia",
+    "rapprochement",
+    "guide-pme"
+  ],
+  "sources": [
+    {
+      "name": "Direction générale des Finances publiques, fiche 1 « Que va-t-il se passer pour mon entreprise en matière de facturation ? » (mise à jour juin 2026), lue le 16 octobre 2026",
+      "url": "https://www.impots.gouv.fr/sites/default/files/media/1_metier/2_professionnel/EV/2_gestion/290_facturation_electronique/fiche-1_que-va-t-il-se-passer-pour-mon-entreprise.pdf",
+      "type": "state"
+    },
+    {
+      "name": "Lido, Automatisation des factures fournisseurs : guide complet 2026 (publié le 19 mai 2026), lu le 16 octobre 2026",
+      "url": "https://www.lido.app/fr/automatisation-factures-fournisseurs",
+      "type": "enterprise"
+    },
+    {
+      "name": "Spendesk, Automatisation comptable en PME (Maxime Reding, mis à jour le 7 août 2026), lu le 16 octobre 2026",
+      "url": "https://www.spendesk.com/fr/blog/automatisation-comptable-pme/",
+      "type": "enterprise"
+    }
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "À partir de quand une PME doit-elle recevoir et émettre des factures électroniques ?",
+      "a": "D'après la fiche 1 de la DGFiP (mise à jour juin 2026, lue le 16 octobre 2026), toute entreprise doit pouvoir recevoir des factures électroniques depuis le 1er septembre 2026. Les grandes entreprises et les ETI doivent en émettre depuis cette date ; les PME et les microentreprises, au plus tard le 1er septembre 2027. Les factures transitent par une plateforme agréée, dont la liste est publiée sur impots.gouv.fr."
+    },
+    {
+      "q": "Que peut automatiser une IA dans le traitement d'une facture fournisseur ?",
+      "a": "La collecte, la lecture des champs (fournisseur, numéro, dates, montants, TVA, référence de commande), le rapprochement avec la commande et le bon de réception, le signalement des doublons et des écarts, et une proposition d'imputation. L'approbation et le paiement restent à une personne."
+    },
+    {
+      "q": "Faut-il valider chaque facture à la main ?",
+      "a": "Non, mais deux seuils se règlent. Un seuil de confiance : sous lui, la facture part en relecture. Un seuil de montant : au-dessus, une seconde personne approuve. Le paiement reste approuvé par une personne dans tous les cas. Ces seuils se fixent à partir d'une mesure sur vos propres factures, pas d'un chiffre d'éditeur."
+    },
+    {
+      "q": "Logiciel du marché ou agent IA sur mesure ?",
+      "a": "Dans la plupart des cas, d'abord un logiciel spécialisé. Passez le même échantillon de vos factures dans l'outil et comptez les exceptions qui restent manuelles : si elles sont rares, le logiciel suffit. Un agent sur mesure se discute quand le temps perdu tient à une règle qui vous est propre, par exemple une imputation liée à votre logiciel métier. Waimia le dit à l'audit, même quand la réponse est « prenez un outil existant »."
+    },
+    {
+      "q": "Quelle fiabilité de lecture attendre ?",
+      "a": "Elle dépend de vos factures : un PDF numérique propre se lit mieux qu'un scan de travers. Aucun taux sérieux ne se donne avant mesure. Le test consiste à passer un échantillon de vos factures, à compter les écarts champ par champ et à fixer les seuils à partir de ce compte."
+    },
+    {
+      "q": "Combien coûte l'automatisation des factures fournisseurs ?",
+      "a": "Nous n'avons pas relevé de prix de marché sourcé : les éditeurs donnent leurs tarifs sur leurs sites. Chez Waimia, un agent de traitement de documents démarre par un sprint de cadrage de 10 heures à {{prix.sprint}} € HT, puis {{prix.horaire}} € HT par heure ; la mise en production relève du pilote, dès {{prix.pilote}} € HT. L'usage du modèle, facturé au volume, s'ajoute. Relevé le 16 octobre 2026."
+    },
+    {
+      "q": "Les factures PDF vont-elles disparaître ?",
+      "a": "La fiche de la DGFiP indique qu'un PDF ordinaire n'est plus conforme à la réglementation, et que les PME n'ont l'obligation d'émettre des factures électroniques qu'au 1er septembre 2027. Je n'ai pas relu de source sur le traitement des PDF reçus pendant la transition : prévoyez un parcours qui lise les deux formes."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "From when must an SMB receive and issue electronic invoices?",
+      "a": "According to the DGFiP factsheet 1 (updated June 2026, read on 16 October 2026), every company must be able to receive electronic invoices since 1 September 2026. Large companies and mid-caps must issue them from that date; SMBs and micro-enterprises by 1 September 2027 at the latest. Invoices go through an approved platform, whose list is published on impots.gouv.fr."
+    },
+    {
+      "q": "What can an AI automate when processing a supplier invoice?",
+      "a": "Collection, reading the fields (supplier, number, dates, amounts, VAT, order reference), matching with the order and the goods receipt, flagging duplicates and gaps, and proposing an allocation. Approval and payment stay with a person."
+    },
+    {
+      "q": "Must every invoice be approved by hand?",
+      "a": "No, but two thresholds are set. A confidence threshold: below it, the invoice goes to review. An amount threshold: above it, a second person approves. Payment stays approved by a person in all cases. These thresholds are set from a measurement on your own invoices, not from a vendor figure."
+    },
+    {
+      "q": "Off-the-shelf software or a custom AI agent?",
+      "a": "In most cases, a specialised tool first. Run the same sample of your invoices through the tool and count the exceptions left manual: if they are rare, the software is enough. A custom agent is worth discussing when the lost time comes from a rule that is yours alone, for example an allocation tied to your business software. Waimia says so at the audit, even when the answer is \"take an existing tool\"."
+    },
+    {
+      "q": "What reading reliability should I expect?",
+      "a": "It depends on your invoices: a clean digital PDF reads better than a crooked scan. No serious rate can be given before measuring. The test is to run a sample of your invoices, count errors field by field and set the thresholds from that count."
+    },
+    {
+      "q": "How much does supplier invoice automation cost?",
+      "a": "We found no sourced market price: vendors list their prices on their sites. At Waimia, a document processing agent starts with a 10-hour scoping sprint at €{{prix.sprint.en}} excl. VAT, then €{{prix.horaire}} excl. VAT per hour; going into production is part of the pilot, from €{{prix.pilote.en}} excl. VAT. Model usage, billed by volume, comes on top. Checked on 16 October 2026."
+    },
+    {
+      "q": "Will PDF invoices disappear?",
+      "a": "The DGFiP factsheet states that an ordinary PDF is no longer compliant, and that SMBs are only required to issue electronic invoices on 1 September 2027. I did not reread a source on handling PDFs received during the transition: plan a flow that reads both forms."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "illustration": {
+        "src": "/images/illustrations/ds/automatisation-factures-fournisseurs-pme-calque-paper.webp",
+        "alt_fr": "Une facture posée sur un bon de commande, une ligne décalée surlignée, un double mis à l'écart ; une personne montre l'écart",
+        "alt_en": "An invoice laid over a purchase order, one shifted line highlighted, a duplicate set aside; a person points at the gap",
+        "side": "right"
+      },
+      "background": "paper",
+      "kicker_fr": "§ Guide · automatisation",
+      "kicker_en": "§ Guide · automation",
+      "h1_fr": "<i class=\"acc\">Automatisation des factures fournisseurs</i> : ce qu'on délègue à l'IA, ce qu'on contrôle",
+      "h1_en": "<i class=\"acc\">Supplier invoice automation</i>: what you delegate to AI, what you check",
+      "lede_fr": "Une IA peut lire une facture fournisseur, la rapprocher de la commande et proposer son imputation. Elle n'approuve ni ne paie. Ce guide donne le parcours en cinq étapes, les contrôles à garder, le test à faire sur vos factures et le critère logiciel ou sur mesure.",
+      "lede_en": "An AI can read a supplier invoice, match it to the order and propose its allocation. It neither approves nor pays. This guide gives the five-step flow, the controls to keep, the test to run on your invoices and the software-or-custom criterion.",
+      "badges": [
+        {
+          "label_fr": "Calendrier relu sur la fiche DGFiP",
+          "label_en": "Timeline reread on the DGFiP factsheet"
+        },
+        {
+          "label_fr": "Sources relevées le 16 octobre 2026",
+          "label_en": "Sources checked on 16 October 2026"
+        },
+        {
+          "label_fr": "Aucun gain chiffré repris d'un éditeur",
+          "label_en": "No gain figure taken from a vendor"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver l'audit gratuit",
+        "label_en": "Book the free audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Voir le service",
+        "label_en": "See the service",
+        "href": "/services/agent-traitement-documents",
+        "variant": "ghost"
+      }
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "16 octobre 2026",
+      "updatedDate": "16 octobre 2026"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "Comment automatiser le traitement des factures fournisseurs avec l'IA ?",
+      "question_en": "How do you automate supplier invoice processing with AI?",
+      "term_fr": "Réponse courte",
+      "term_en": "Short answer",
+      "answer_fr": "Cinq étapes : réception, extraction des champs, rapprochement avec la commande, imputation, validation. L'outil lit, compare et propose ; une personne approuve et paie. Depuis le 1er septembre 2026, toute entreprise doit pouvoir recevoir des factures électroniques (DGFiP) ; les PME doivent en émettre au plus tard le 1er septembre 2027. Avant tout devis, testez sur un échantillon de vos propres factures. Un logiciel du marché suffit si vos exceptions sont rares. Relevé le 16 octobre 2026.",
+      "answer_en": "Five steps: receipt, field extraction, matching with the order, allocation, approval. The tool reads, compares and proposes; a person approves and pays. Since 1 September 2026, every company must be able to receive electronic invoices (DGFiP); SMBs must issue them by 1 September 2027 at the latest. Before any quote, test on a sample of your own invoices. Off-the-shelf software is enough if your exceptions are rare. Checked on 16 October 2026."
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Que dit le calendrier de la facture électronique pour la réception ?</h2>\n<p>Les pages d'éditeurs ne racontent pas la même chose. Le guide de <a href=\"https://www.lido.app/fr/automatisation-factures-fournisseurs\" rel=\"noopener noreferrer\" target=\"_blank\">Lido</a> (publié le 19 mai 2026) écrit que la réforme « entre dans sa phase opérationnelle à partir de septembre 2026 pour les grandes entreprises et les ETI ». L'article de <a href=\"https://www.spendesk.com/fr/blog/automatisation-comptable-pme/\" rel=\"noopener noreferrer\" target=\"_blank\">Spendesk</a> (mis à jour le 7 août 2026) écrit « les grandes entreprises et ETI dès septembre 2026, les PME dès septembre 2027 ». Ni l'une ni l'autre de ces phrases ne dit qu'une PME doit déjà pouvoir recevoir ces factures.</p>\n<p>La <a href=\"https://www.impots.gouv.fr/sites/default/files/media/1_metier/2_professionnel/EV/2_gestion/290_facturation_electronique/fiche-1_que-va-t-il-se-passer-pour-mon-entreprise.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">fiche 1 de la DGFiP</a> (mise à jour juin 2026, lue le 16 octobre 2026) distingue deux obligations. Le tableau ci-dessous la reprend.</p>",
+      "html_en": "<h2>What does the e-invoicing timeline say about receiving?</h2>\n<p>Vendor pages do not tell the same story. The <a href=\"https://www.lido.app/fr/automatisation-factures-fournisseurs\" rel=\"noopener noreferrer\" target=\"_blank\">Lido</a> guide (published 19 May 2026) writes that the reform \"enters its operational phase from September 2026 for large companies and mid-caps\". The <a href=\"https://www.spendesk.com/fr/blog/automatisation-comptable-pme/\" rel=\"noopener noreferrer\" target=\"_blank\">Spendesk</a> article (updated 7 August 2026) writes \"large companies and mid-caps from September 2026, SMBs from September 2027\". Neither sentence says that an SMB must already be able to receive these invoices.</p>\n<p>The <a href=\"https://www.impots.gouv.fr/sites/default/files/media/1_metier/2_professionnel/EV/2_gestion/290_facturation_electronique/fiche-1_que-va-t-il-se-passer-pour-mon-entreprise.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">DGFiP factsheet 1</a> (French tax administration, updated June 2026, read on 16 October 2026) distinguishes two obligations. The table below reproduces it.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper",
+      "kicker_fr": "§ Le calendrier",
+      "kicker_en": "§ The timeline",
+      "heading_fr": "Quand recevoir, quand émettre, selon la taille de l'entreprise ?",
+      "heading_en": "When to receive, when to issue, by company size?",
+      "caption_fr": "Source : fiche 1 de la DGFiP, mise à jour juin 2026, lue le 16 octobre 2026. PME : de 10 à moins de 250 salariés, avec un chiffre d'affaires sous 50 M€ ou un total de bilan sous 43 M€ ; microentreprise : moins de 10 salariés et moins de 2 M€.",
+      "caption_en": "Source: DGFiP factsheet 1, updated June 2026, read on 16 October 2026. SMB: 10 to fewer than 250 employees, with turnover under €50m or a balance sheet total under €43m; micro-enterprise: fewer than 10 employees and under €2m.",
+      "columns_fr": [
+        "Entreprise",
+        "Recevoir des factures électroniques",
+        "Émettre des factures électroniques"
+      ],
+      "columns_en": [
+        "Company",
+        "Receive electronic invoices",
+        "Issue electronic invoices"
+      ],
+      "rows_fr": [
+        [
+          "Grande entreprise ou ETI",
+          "1er septembre 2026",
+          "1er septembre 2026"
+        ],
+        [
+          "PME ou microentreprise",
+          "1er septembre 2026",
+          "1er septembre 2027"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Large company or mid-cap",
+          "1 September 2026",
+          "1 September 2026"
+        ],
+        [
+          "SMB or micro-enterprise",
+          "1 September 2026",
+          "1 September 2027"
+        ]
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<p>La fiche précise qu'une facture électronique respecte une forme normée, porte certaines mentions sous un format donné et transite par une plateforme agréée, dont la liste est publiée sur impots.gouv.fr. Un PDF ordinaire, un scan papier ou un document généré par le logiciel puis envoyé par e-mail n'est plus conforme. La fiche avance aussi, pour la facturation électronique, une économie de 50 % à 75 % par rapport au papier : c'est une estimation de l'administration, pas une mesure de votre entreprise.</p>\n<p><strong>Ce que j'en conclus</strong>, sans source qui le dise en toutes lettres : pour une PME, la réception est déjà dans le champ d'application, et l'émission ne l'est qu'en 2027. Tant que vos fournisseurs PME n'émettent pas obligatoirement, vous pouvez continuer à recevoir des PDF. Il faut donc un parcours qui lise les deux formes.</p>",
+      "html_en": "<p>The factsheet states that an electronic invoice follows a standard form, carries certain mentions in a given format and goes through an approved platform, whose list is published on impots.gouv.fr. An ordinary PDF, a paper scan or a document generated by the software and sent by email is no longer compliant. The factsheet also puts forward, for e-invoicing, a saving of 50% to 75% compared with paper: that is an estimate by the administration, not a measurement of your company.</p>\n<p><strong>What I conclude</strong>, with no source saying it in so many words: for an SMB, receiving is already in scope and issuing only comes in 2027. While your SMB suppliers are not yet required to issue, you can keep receiving PDFs. You therefore need a flow that reads both forms.</p>"
+    },
+    {
+      "type": "process-steps",
+      "background": "paper-2",
+      "kicker_fr": "§ Le parcours",
+      "kicker_en": "§ The flow",
+      "h2_fr": "Quel parcours en cinq étapes pour une facture fournisseur ?",
+      "h2_en": "What five-step flow for a supplier invoice?",
+      "intro_fr": "Ces cinq étapes sont ma synthèse, pas un standard. Lido et Spendesk décrivent le rapprochement à trois voies ; Spendesk décrit un codage proposé d'après les écritures passées. Le reste vient de la pratique de Waimia.",
+      "intro_en": "These five steps are my synthesis, not a standard. Lido and Spendesk describe the three-way match; Spendesk describes a coding proposed from past entries. The rest comes from Waimia's practice.",
+      "steps": [
+        {
+          "title_fr": "1. Réception : d'où viennent les factures",
+          "title_en": "1. Receipt: where invoices come from",
+          "body_fr": "Délégué : collecter les factures qui arrivent par la plateforme agréée et par une adresse e-mail dédiée. Gardé : savoir qui a le droit d'envoyer une facture, et traiter à part un fournisseur inconnu.",
+          "body_en": "Delegated: collect invoices arriving through the approved platform and a dedicated email address. Kept: knowing who may send an invoice, and handling an unknown supplier separately.",
+          "meta_fr": "Décision : quels canaux ?",
+          "meta_en": "Decision: which channels?"
+        },
+        {
+          "title_fr": "2. Extraction : lire les champs",
+          "title_en": "2. Extraction: reading the fields",
+          "body_fr": "Délégué : lire fournisseur, numéro, date, échéance, montants hors taxes et toutes taxes comprises, TVA, référence de commande, coordonnées bancaires. Gardé : relire les champs douteux et contrôler un échantillon chaque mois.",
+          "body_en": "Delegated: read supplier, number, date, due date, amounts excluding and including tax, VAT, order reference, bank details. Kept: review doubtful fields and check a sample every month.",
+          "meta_fr": "Décision : seuil de confiance",
+          "meta_en": "Decision: confidence threshold"
+        },
+        {
+          "title_fr": "3. Rapprochement : comparer à la commande",
+          "title_en": "3. Matching: comparing with the order",
+          "body_fr": "Délégué : comparer la facture à la commande et au bon de réception (le rapprochement « à trois voies » que décrivent Lido et Spendesk), signaler un écart de prix ou de quantité, un doublon. Gardé : trancher l'écart et parler au fournisseur en cas de litige.",
+          "body_en": "Delegated: compare the invoice with the order and the goods receipt (the \"three-way match\" that Lido and Spendesk describe), flag a price or quantity gap, a duplicate. Kept: settling the gap and talking to the supplier in a dispute.",
+          "meta_fr": "Décision : quelle tolérance d'écart ?",
+          "meta_en": "Decision: what gap tolerance?"
+        },
+        {
+          "title_fr": "4. Imputation : proposer le compte",
+          "title_en": "4. Allocation: proposing the account",
+          "body_fr": "Délégué : proposer le compte de charge, le taux de TVA et le centre de coûts d'après les écritures précédentes du même fournisseur (Spendesk décrit ce codage). Gardé : valider les règles, traiter à la main un nouveau fournisseur ou une charge inhabituelle.",
+          "body_en": "Delegated: propose the expense account, VAT rate and cost centre from the same supplier's previous entries (Spendesk describes this coding). Kept: approving the rules, handling a new supplier or an unusual expense by hand.",
+          "meta_fr": "Décision : quelles règles validez-vous ?",
+          "meta_en": "Decision: which rules do you approve?"
+        },
+        {
+          "title_fr": "5. Validation et paiement",
+          "title_en": "5. Approval and payment",
+          "body_fr": "Délégué : préparer la liste des factures prêtes avec leurs anomalies, envoyer les relances d'approbation. Gardé : approuver et payer. Au-dessus d'un seuil de montant, une seconde personne valide.",
+          "body_en": "Delegated: prepare the list of ready invoices with their anomalies, send approval reminders. Kept: approving and paying. Above an amount threshold, a second person approves.",
+          "meta_fr": "Décision : seuil de montant",
+          "meta_en": "Decision: amount threshold"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Quels sont les deux seuils à ne pas confondre ?</h2>\n<p>Les pages d'éditeurs parlent d'un « seuil » sans toujours dire lequel. Il y en a deux, et ils ne répondent pas à la même question.</p>\n<ul>\n<li><strong>Le seuil de confiance</strong> concerne la lecture. Sous ce seuil, la facture part en relecture avec le champ douteux surligné : une personne corrige en quelques secondes, puis l'écriture se crée. Il se règle à partir d'une mesure sur vos factures.</li>\n<li><strong>Le seuil de montant</strong> concerne l'approbation. Au-dessus d'un certain montant, une deuxième personne valide. Lido cite l'exemple d'une double approbation au-delà de 5 000 €, mais c'est une règle de gestion qui dépend de votre organisation, pas un seuil légal.</li>\n</ul>\n<p>Une facture lue avec une confiance parfaite peut dépasser le seuil de montant ; une petite facture mal lue passe sous ce seuil. Ce sont deux contrôles, il faut les deux.</p>\n<h2>Quels contrôles garder, quel que soit l'outil ?</h2>\n<p>Ce sont des recommandations de Waimia, fondées sur la pratique de contrôle courante, pas sur une mesure.</p>\n<ul>\n<li><strong>Trois rôles, trois personnes ou trois étapes.</strong> Celui qui saisit, celui qui approuve et celui qui paie ne sont pas la même entité, y compris quand l'une d'elles est une IA.</li>\n<li><strong>Changement de coordonnées bancaires.</strong> Toute modification d'IBAN se vérifie par un rappel au fournisseur, sur un numéro déjà dans votre fichier, pas celui du message.</li>\n<li><strong>Doublons.</strong> Même fournisseur et même numéro de facture, ou même montant à des dates proches : l'outil signale, une personne tranche.</li>\n<li><strong>Droits limités au départ.</strong> Commencer par des brouillons d'écriture. Aucun droit de paiement pour l'outil, et aucun droit d'écriture comptable tant que la mesure n'est pas faite.</li>\n<li><strong>Échantillon relu chaque mois.</strong> Un échantillon tiré au sort, relu champ par champ, avec le compte des écarts écrit.</li>\n<li><strong>Données personnelles.</strong> Les factures d'indépendants contiennent un nom, une adresse, parfois un IBAN. Limitez ce qui est envoyé au modèle et fixez une durée de conservation : voir la <a href=\"/ressources/guides/rgpd-agents-ia-checklist\">liste de contrôle RGPD pour agents IA</a>.</li>\n</ul>\n<p>L'outil ne remplace ni votre logiciel comptable ni votre expert-comptable : il alimente la saisie, il ne la certifie pas. Même position que dans le <a href=\"/ressources/guides/claude-finance-pme\">guide sur Claude pour la finance d'une PME</a>.</p>",
+      "html_en": "<h2>What are the two thresholds not to confuse?</h2>\n<p>Vendor pages talk about a \"threshold\" without always saying which one. There are two, and they answer different questions.</p>\n<ul>\n<li><strong>The confidence threshold</strong> concerns reading. Below it, the invoice goes to review with the doubtful field highlighted: a person corrects it in seconds, then the entry is created. It is set from a measurement on your invoices.</li>\n<li><strong>The amount threshold</strong> concerns approval. Above a certain amount, a second person approves. Lido gives the example of a double approval above €5,000, but that is a management rule that depends on your organisation, not a legal threshold.</li>\n</ul>\n<p>An invoice read with perfect confidence can exceed the amount threshold; a small, badly read invoice passes under it. These are two controls, and you need both.</p>\n<h2>Which controls should you keep, whatever the tool?</h2>\n<p>These are Waimia's recommendations, based on common control practice, not on a measurement.</p>\n<ul>\n<li><strong>Three roles, three people or three steps.</strong> Whoever enters, whoever approves and whoever pays are not the same entity, even when one of them is an AI.</li>\n<li><strong>Change of bank details.</strong> Any IBAN change is checked by calling the supplier back on a number already in your file, not the one in the message.</li>\n<li><strong>Duplicates.</strong> Same supplier and same invoice number, or same amount on nearby dates: the tool flags, a person decides.</li>\n<li><strong>Limited rights at first.</strong> Start with draft entries. No payment right for the tool, and no accounting write right until the measurement is done.</li>\n<li><strong>Sample reviewed every month.</strong> A random sample, reviewed field by field, with the count of errors written down.</li>\n<li><strong>Personal data.</strong> Invoices from sole traders contain a name, an address, sometimes an IBAN. Limit what is sent to the model and set a retention period: see the <a href=\"/ressources/guides/rgpd-agents-ia-checklist\">GDPR checklist for AI agents</a>.</li>\n</ul>\n<p>The tool replaces neither your accounting software nor your accountant: it feeds entry, it does not certify it. Same position as in the <a href=\"/ressources/guides/claude-finance-pme\">guide to Claude for an SMB's finance function</a>.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Quel test faire sur vos factures avant tout devis ?</h2>\n<p>La qualité de lecture d'un modèle sur vos factures ne se déduit pas d'une démonstration générale. Un échantillon de vos factures réelles, passé dans l'outil avant tout engagement, est la mesure qui compte. Le protocole :</p>\n<ol>\n<li><strong>Réunir l'échantillon.</strong> Des factures telles qu'elles arrivent : PDF d'e-mail, scans, avoirs, factures à plusieurs lignes, et surtout les fournisseurs qui vous posent déjà problème. La taille est un choix : je prends 30 factures pour l'exemple, aucune source n'en fixe une. Mieux vaut un lot varié qu'un lot long.</li>\n<li><strong>Établir la vérité.</strong> La personne qui saisit aujourd'hui note les bonnes valeurs (montant toutes taxes comprises, TVA, échéance, imputation) et chronomètre sa saisie.</li>\n<li><strong>Passer le lot dans l'outil</strong> sans l'avoir réglé à l'avance sur ces factures.</li>\n<li><strong>Compter les écarts champ par champ.</strong> Un taux global masque tout : une erreur sur l'IBAN et une erreur sur un libellé n'ont pas le même poids. Relevez surtout les écarts qui seraient passés sans relecture.</li>\n<li><strong>Décider.</strong> Quels champs sont toujours relus, où se place le seuil de confiance, ce qui reste manuel.</li>\n</ol>\n<p>Ce tableau d'écarts est ce que vous pouvez demander à un prestataire avant de signer. Chez Waimia, c'est l'objet du cadrage : on passe un échantillon de vos documents, on compare à la saisie humaine et on fixe les seuils à partir de cette mesure.</p>",
+      "html_en": "<h2>What test should you run on your invoices before any quote?</h2>\n<p>How well a model reads your invoices cannot be deduced from a general demo. A sample of your real invoices, run through the tool before any commitment, is the measurement that counts. The protocol:</p>\n<ol>\n<li><strong>Gather the sample.</strong> Invoices as they arrive: email PDFs, scans, credit notes, multi-line invoices, and above all the suppliers that already give you trouble. The size is a choice: I take 30 invoices for the example, no source sets one. A varied batch beats a long one.</li>\n<li><strong>Establish the truth.</strong> The person who enters invoices today notes the right values (amount including tax, VAT, due date, allocation) and times their entry.</li>\n<li><strong>Run the batch through the tool</strong> without having tuned it in advance on these invoices.</li>\n<li><strong>Count errors field by field.</strong> An overall rate hides everything: an error on the IBAN and an error on a label do not weigh the same. Above all, note the errors that would have gone through without review.</li>\n<li><strong>Decide.</strong> Which fields are always reviewed, where the confidence threshold sits, what stays manual.</li>\n</ol>\n<p>This table of errors is what you can ask a provider for before signing. At Waimia, it is the point of scoping: we run a sample of your documents, compare with human entry and set the thresholds from that measurement.</p>"
+    },
+    {
+      "type": "editorial-callout",
+      "background": "paper-2",
+      "variant": "quote",
+      "size": "md",
+      "body_fr": "Scénario illustratif, pas un cas client. Sur un lot de 30 factures, l'outil lit sans écart les factures des fournisseurs habituels, mais se trompe sur les avoirs et sur deux scans de travers. La décision n'est pas « l'IA ne marche pas » : les avoirs et les scans passent en relecture systématique, le reste suit le seuil. Aucune mesure n'est attachée à cet exemple.",
+      "body_en": "Illustrative scenario, not a client case. On a batch of 30 invoices, the tool reads the usual suppliers' invoices without error, but gets credit notes and two crooked scans wrong. The decision is not \"AI does not work\": credit notes and scans go to review every time, the rest follows the threshold. No measurement is attached to this example."
+    },
+    {
+      "type": "tech-when-dual",
+      "background": "paper",
+      "kicker_fr": "§ Le critère",
+      "kicker_en": "§ The criterion",
+      "title_fr": "Logiciel du marché ou agent sur mesure : lequel choisir ?",
+      "title_en": "Off-the-shelf software or custom agent: which one?",
+      "aside_fr": "Position publiée par Waimia sur le cas d'usage comptabilité : d'abord un logiciel spécialisé, parce que la lecture des factures est un problème déjà résolu par des éditeurs. Le critère est mon interprétation.",
+      "aside_en": "Waimia's published position on the accounting use case: a specialised tool first, because reading invoices is a problem vendors have already solved. The criterion is my interpretation.",
+      "use_title_fr": "Un logiciel du marché suffit si",
+      "use_title_en": "Off-the-shelf software is enough if",
+      "use_items_fr": [
+        "Sur votre échantillon, les exceptions restées manuelles sont rares ou dispersées",
+        "L'outil se branche à votre comptabilité",
+        "Vos factures ont peu de formes différentes et l'imputation suit des règles simples"
+      ],
+      "use_items_en": [
+        "On your sample, the exceptions left manual are rare or scattered",
+        "The tool connects to your accounting",
+        "Your invoices have few different layouts and allocation follows simple rules"
+      ],
+      "avoid_title_fr": "Un agent sur mesure se discute si",
+      "avoid_title_en": "A custom agent is worth discussing if",
+      "avoid_items_fr": [
+        "L'essentiel du temps perdu tient à une règle qui vous est propre",
+        "L'imputation dépend de votre logiciel métier",
+        "Un contrôle doit se faire contre des commandes que le logiciel ne lit pas",
+        "Les pièces à traiter ne sont pas toutes des factures"
+      ],
+      "avoid_items_en": [
+        "Most of the lost time comes from a rule that is yours alone",
+        "Allocation depends on your business software",
+        "A check must be made against orders the software cannot read",
+        "The documents to process are not all invoices"
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<p>Si vous traitez quelques dizaines de factures par mois ou si elles ont toutes le même gabarit, aucun des deux : saisir ou configurer une règle coûte moins cher. C'est la liste « quand ne pas le faire » de la page du <a href=\"/services/agent-traitement-documents\">service de traitement de documents</a>. Pour choisir entre règle, connecteur et agent, voir <a href=\"/ressources/guides/rpa-ou-agent-ia\">RPA, API ou agent IA</a> ; pour acheter ou développer, <a href=\"/blog/applications-internes-build-vs-buy-pme\">développer ou acheter son outil interne</a>.</p>",
+      "html_en": "<p>If you process a few dozen invoices a month or if they all share the same template, neither: keying them or configuring a rule costs less. That is the \"when not to do it\" list on the <a href=\"/services/agent-traitement-documents\">document processing service</a> page. To choose between a rule, a connector and an agent, see <a href=\"/ressources/guides/rpa-ou-agent-ia\">RPA, API or AI agent</a>; to buy or build, <a href=\"/blog/applications-internes-build-vs-buy-pme\">build or buy your internal tool</a>.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Que coûte l'automatisation, et ce que ce guide ne sait pas</h2>\n<p>Côté prix, un agent de traitement de documents démarre chez Waimia par un sprint de cadrage de 10 heures à {{prix.sprint}} € HT, puis {{prix.horaire}} € HT par heure selon le nombre de types de documents et d'outils à connecter. S'ajoute l'usage du modèle, facturé au volume par son éditeur. Je n'ai pas relevé les tarifs des éditeurs : ils changent et se demandent sur leurs sites. Détail sur la page des <a href=\"/tarifs\">tarifs</a> et dans le guide <a href=\"/ressources/guides/combien-coute-un-agent-ia-pme\">combien coûte un agent IA en PME</a>.</p>\n<p>Ce que ce guide ne sait pas :</p>\n<ul>\n<li>Je n'ai lu aucune mesure indépendante de gain de temps ou de taux d'erreur. Les chiffres des éditeurs sont des estimations ou des scénarios ; je n'en reprends aucun.</li>\n<li>La fiche de la DGFiP parle des factures échangées entre professionnels en France. Je n'ai pas lu la règle qui s'applique à un fournisseur établi à l'étranger : prévoyez de lire des PDF.</li>\n<li>Je n'ai pas relu les règles de conservation et d'archivage des factures et je n'en affirme rien ici. Voyez votre expert-comptable.</li>\n<li>Je n'ai pas relu de source sur le traitement des PDF reçus pendant la transition ; ma lecture du calendrier est une interprétation.</li>\n<li>Les premiers résultats ont été lus le 16 octobre 2026 par une synthèse de recherche web, pas sur la page de résultats de Google France.</li>\n<li>Le scénario de l'échantillon est illustratif, sans mesure.</li>\n</ul>",
+      "html_en": "<h2>What does automation cost, and what this guide does not know</h2>\n<p>On price, a document processing agent starts at Waimia with a 10-hour scoping sprint at €{{prix.sprint.en}} excl. VAT, then €{{prix.horaire}} excl. VAT per hour depending on the number of document types and tools to connect. Model usage, billed by volume by its vendor, comes on top. I did not collect vendor prices: they change and are requested on their sites. Details on the <a href=\"/tarifs\">pricing page</a> and in the guide <a href=\"/ressources/guides/combien-coute-un-agent-ia-pme\">how much an AI agent costs an SMB</a>.</p>\n<p>What this guide does not know:</p>\n<ul>\n<li>I read no independent measurement of time saved or error rate. Vendor figures are estimates or scenarios; I take none.</li>\n<li>The DGFiP factsheet covers invoices exchanged between professionals in France. I did not read the rule that applies to a supplier established abroad: plan to read PDFs.</li>\n<li>I did not reread the rules on retaining and archiving invoices and I assert nothing about them here. Ask your accountant.</li>\n<li>I did not reread a source on how to handle PDFs received during the transition; my reading of the timeline is an interpretation.</li>\n<li>The first results were read on 16 October 2026 through a web search summary, not on the Google France results page.</li>\n<li>The sample scenario is illustrative, with no measurement.</li>\n</ul>"
+    },
+    {
+      "type": "lead-capture-band",
+      "lead_magnet": "charte-ia-entreprise",
+      "background": "ink",
+      "anchor_id": "recevoir-charte-ia-factures",
+      "kicker_fr": "§ Charte IA · PDF gratuit",
+      "kicker_en": "§ AI charter · free PDF",
+      "h2_fr": "Avant d'envoyer vos factures à un modèle : fixez les données autorisées avec la charte IA",
+      "h2_en": "Before sending your invoices to a model: set the permitted data with the AI charter"
+    },
+    {
+      "type": "cta-final",
+      "background": "ink",
+      "h2_fr": "Faites passer vos factures par l'audit avant de choisir un outil",
+      "h2_en": "Run your invoices through the audit before choosing a tool",
+      "body_fr": "L'audit gratuit dure 45 minutes. On regarde vos documents entrants, le volume, vos exceptions et vos outils, et on vous dit si un logiciel du marché suffit, même quand la réponse est « prenez un outil existant ».",
+      "body_en": "The free audit lasts 45 minutes. We look at your incoming documents, the volume, your exceptions and your tools, and tell you whether off-the-shelf software is enough, even when the answer is \"take an existing tool\".",
+      "cta_primary": {
+        "label_fr": "Réserver l'audit gratuit →",
+        "label_en": "Book the free audit →",
+        "href": "/audit-ia-pme",
+        "variant": "primary"
+      }
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper-2",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Further reading",
+      "cards": [
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Agent IA de traitement de documents",
+          "title_en": "AI document processing agent",
+          "lead_fr": "Factures, devis, contrats : extraction, contrôles et file de relecture humaine.",
+          "lead_en": "Invoices, quotes, contracts: extraction, checks and a human review queue.",
+          "href": "/services/agent-traitement-documents"
+        },
+        {
+          "kicker_fr": "Cas d'usage",
+          "kicker_en": "Use case",
+          "title_fr": "IA et automatisation de la comptabilité",
+          "title_en": "AI and accounting automation",
+          "lead_fr": "Ce que l'IA prend en charge dans un cabinet comptable et ce qui reste à l'expert-comptable.",
+          "lead_en": "What AI handles in an accounting firm and what stays with the accountant.",
+          "href": "/cas-usages/finance-comptabilite"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Claude pour la finance d'une PME",
+          "title_en": "Claude for an SMB's finance function",
+          "lead_fr": "Factures, clôture, trésorerie : qui prépare, qui valide.",
+          "lead_en": "Invoices, closing, cash: who prepares, who approves.",
+          "href": "/ressources/guides/claude-finance-pme"
+        }
+      ]
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "h2_fr": "Automatisation des factures fournisseurs : questions fréquentes",
+      "h2_en": "Supplier invoice automation: frequently asked questions",
+      "items": [
+        {
+          "q_fr": "À partir de quand une PME doit-elle recevoir et émettre des factures électroniques ?",
+          "q_en": "From when must an SMB receive and issue electronic invoices?",
+          "a_fr": "D'après la fiche 1 de la DGFiP (mise à jour juin 2026, lue le 16 octobre 2026), toute entreprise doit pouvoir recevoir des factures électroniques depuis le 1er septembre 2026. Les grandes entreprises et les ETI doivent en émettre depuis cette date ; les PME et les microentreprises, au plus tard le 1er septembre 2027. Les factures transitent par une plateforme agréée, dont la liste est publiée sur impots.gouv.fr.",
+          "a_en": "According to the DGFiP factsheet 1 (updated June 2026, read on 16 October 2026), every company must be able to receive electronic invoices since 1 September 2026. Large companies and mid-caps must issue them from that date; SMBs and micro-enterprises by 1 September 2027 at the latest. Invoices go through an approved platform, whose list is published on impots.gouv.fr."
+        },
+        {
+          "q_fr": "Que peut automatiser une IA dans le traitement d'une facture fournisseur ?",
+          "q_en": "What can an AI automate when processing a supplier invoice?",
+          "a_fr": "La collecte, la lecture des champs (fournisseur, numéro, dates, montants, TVA, référence de commande), le rapprochement avec la commande et le bon de réception, le signalement des doublons et des écarts, et une proposition d'imputation. L'approbation et le paiement restent à une personne.",
+          "a_en": "Collection, reading the fields (supplier, number, dates, amounts, VAT, order reference), matching with the order and the goods receipt, flagging duplicates and gaps, and proposing an allocation. Approval and payment stay with a person."
+        },
+        {
+          "q_fr": "Faut-il valider chaque facture à la main ?",
+          "q_en": "Must every invoice be approved by hand?",
+          "a_fr": "Non, mais deux seuils se règlent. Un seuil de confiance : sous lui, la facture part en relecture. Un seuil de montant : au-dessus, une seconde personne approuve. Le paiement reste approuvé par une personne dans tous les cas. Ces seuils se fixent à partir d'une mesure sur vos propres factures, pas d'un chiffre d'éditeur.",
+          "a_en": "No, but two thresholds are set. A confidence threshold: below it, the invoice goes to review. An amount threshold: above it, a second person approves. Payment stays approved by a person in all cases. These thresholds are set from a measurement on your own invoices, not from a vendor figure."
+        },
+        {
+          "q_fr": "Logiciel du marché ou agent IA sur mesure ?",
+          "q_en": "Off-the-shelf software or a custom AI agent?",
+          "a_fr": "Dans la plupart des cas, d'abord un logiciel spécialisé. Passez le même échantillon de vos factures dans l'outil et comptez les exceptions qui restent manuelles : si elles sont rares, le logiciel suffit. Un agent sur mesure se discute quand le temps perdu tient à une règle qui vous est propre, par exemple une imputation liée à votre logiciel métier. Waimia le dit à l'audit, même quand la réponse est « prenez un outil existant ».",
+          "a_en": "In most cases, a specialised tool first. Run the same sample of your invoices through the tool and count the exceptions left manual: if they are rare, the software is enough. A custom agent is worth discussing when the lost time comes from a rule that is yours alone, for example an allocation tied to your business software. Waimia says so at the audit, even when the answer is \"take an existing tool\"."
+        },
+        {
+          "q_fr": "Quelle fiabilité de lecture attendre ?",
+          "q_en": "What reading reliability should I expect?",
+          "a_fr": "Elle dépend de vos factures : un PDF numérique propre se lit mieux qu'un scan de travers. Aucun taux sérieux ne se donne avant mesure. Le test consiste à passer un échantillon de vos factures, à compter les écarts champ par champ et à fixer les seuils à partir de ce compte.",
+          "a_en": "It depends on your invoices: a clean digital PDF reads better than a crooked scan. No serious rate can be given before measuring. The test is to run a sample of your invoices, count errors field by field and set the thresholds from that count."
+        },
+        {
+          "q_fr": "Combien coûte l'automatisation des factures fournisseurs ?",
+          "q_en": "How much does supplier invoice automation cost?",
+          "a_fr": "Nous n'avons pas relevé de prix de marché sourcé : les éditeurs donnent leurs tarifs sur leurs sites. Chez Waimia, un agent de traitement de documents démarre par un sprint de cadrage de 10 heures à {{prix.sprint}} € HT, puis {{prix.horaire}} € HT par heure ; la mise en production relève du pilote, dès {{prix.pilote}} € HT. L'usage du modèle, facturé au volume, s'ajoute. Relevé le 16 octobre 2026.",
+          "a_en": "We found no sourced market price: vendors list their prices on their sites. At Waimia, a document processing agent starts with a 10-hour scoping sprint at €{{prix.sprint.en}} excl. VAT, then €{{prix.horaire}} excl. VAT per hour; going into production is part of the pilot, from €{{prix.pilote.en}} excl. VAT. Model usage, billed by volume, comes on top. Checked on 16 October 2026."
+        },
+        {
+          "q_fr": "Les factures PDF vont-elles disparaître ?",
+          "q_en": "Will PDF invoices disappear?",
+          "a_fr": "La fiche de la DGFiP indique qu'un PDF ordinaire n'est plus conforme à la réglementation, et que les PME n'ont l'obligation d'émettre des factures électroniques qu'au 1er septembre 2027. Je n'ai pas relu de source sur le traitement des PDF reçus pendant la transition : prévoyez un parcours qui lise les deux formes.",
+          "a_en": "The DGFiP factsheet states that an ordinary PDF is no longer compliant, and that SMBs are only required to issue electronic invoices on 1 September 2027. I did not reread a source on handling PDFs received during the transition: plan a flow that reads both forms."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Avant de commander un outil",
+      "kicker_en": "§ Before ordering a tool",
+      "h2_fr": "Un échantillon de vos factures, un tableau d'écarts, une décision.",
+      "h2_en": "A sample of your invoices, a table of errors, a decision.",
+      "subtitle_fr": "Quarante-cinq minutes en visio, gratuites et sans engagement. Le sprint de cadrage de 10 heures à {{prix.sprint}} € HT passe ensuite un échantillon de vos documents dans un prototype et fixe les seuils à partir de la mesure.",
+      "subtitle_en": "Forty-five minutes on a call, free and with no commitment. The 10-hour scoping sprint at €{{prix.sprint.en}} excl. VAT then runs a sample of your documents through a prototype and sets the thresholds from the measurement.",
+      "buttons": [
+        {
+          "label_fr": "Réserver l'audit gratuit",
+          "label_en": "Book the free audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Voir le service",
+          "label_en": "See the service",
+          "href": "/services/agent-traitement-documents",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

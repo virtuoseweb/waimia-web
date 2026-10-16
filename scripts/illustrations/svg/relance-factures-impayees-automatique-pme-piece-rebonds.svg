@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · relance de factures impayées automatique : une pièce rebondit en arcs réguliers
+       sur un long sol (la séquence calée sur l'échéance) et retombe dans un grand bassin où elle
+       s'arrête (l'encaissement) ; à côté, une femme y dépose une autre pièce à la main (les cas
+       délicats). Rôles remplacés par render-svg.mjs. -->
+  <defs>
+    <clipPath id="sky"><rect width="1456" height="470"/></clipPath>
+  </defs>
+
+  <!-- Grand fond uni, sol bas, disque posé sur l'horizon derrière le bassin -->
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <circle cx="1090" cy="470" r="215" fill="{{shape}}" clip-path="url(#sky)"/>
+  <rect y="470" width="1456" height="154" fill="{{ground}}"/>
+  <g fill="{{detail}}">
+    <rect x="70" y="560" width="150" height="3"/><rect x="420" y="590" width="210" height="3"/>
+    <rect x="760" y="556" width="130" height="3"/><rect x="1180" y="584" width="190" height="3"/>
+  </g>
+
+  <!-- Trajectoire : une entrée puis trois arcs égaux, le dernier plonge dans le bassin -->
+  <g fill="none" stroke="{{detail}}" stroke-width="7" stroke-linecap="round" stroke-dasharray="2 20">
+    <path d="M40 250 Q210 230 330 500"/>
+    <path d="M330 500 Q435 240 540 500"/>
+    <path d="M540 500 Q645 240 750 500"/>
+    <path d="M750 500 Q880 150 1030 360"/>
+  </g>
+  <!-- Marques des rebonds sur le sol -->
+  <g fill="{{detail}}">
+    <ellipse cx="330" cy="503" rx="30" ry="5"/>
+    <ellipse cx="540" cy="503" rx="30" ry="5"/>
+    <ellipse cx="750" cy="503" rx="30" ry="5"/>
+  </g>
+
+  <!-- La pièce, en images successives de plus en plus nettes -->
+  <g>
+    <circle cx="435" cy="370" r="30" fill="{{soft}}"/>
+    <circle cx="435" cy="370" r="19" fill="none" stroke="{{pale}}" stroke-width="4"/>
+    <circle cx="645" cy="370" r="30" fill="{{mid}}"/>
+    <circle cx="645" cy="370" r="19" fill="none" stroke="{{soft}}" stroke-width="4"/>
+    <circle cx="1026" cy="360" r="32" fill="{{subject}}"/>
+    <circle cx="1026" cy="360" r="20" fill="none" stroke="{{light}}" stroke-width="4"/>
+  </g>
+
+  <!-- Le bassin, large et bas, posé sur le sol -->
+  <ellipse cx="1090" cy="506" rx="185" ry="11" fill="{{soft}}"/>
+  <path d="M928 404 Q934 500 1090 504 Q1246 500 1252 404 Z" fill="{{subject}}"/>
+  <ellipse cx="1090" cy="404" rx="162" ry="20" fill="{{subject}}"/>
+  <ellipse cx="1090" cy="406" rx="146" ry="13" fill="{{deep}}"/>
+  <g fill="{{pale}}">
+    <ellipse cx="1050" cy="409" rx="20" ry="4"/>
+    <ellipse cx="1118" cy="407" rx="20" ry="4"/>
+    <ellipse cx="1160" cy="411" rx="16" ry="3"/>
+  </g>
+  <path d="M948 430 Q1090 446 1232 430" fill="none" stroke="{{deep}}" stroke-width="5"/>
+
+  <!-- La femme, de profil vers le bassin, tend une pièce au-dessus du bord -->
+  <g transform="translate(1336 506) scale(1.75)" fill="{{subject}}">
+    <circle cx="0" cy="-90" r="7.5"/>
+    <circle cx="6" cy="-96" r="5"/>
+    <path d="M-10 -80 Q0 -84 10 -80 L11 -56 L-11 -56 Z"/>
+    <path d="M-12 -57 L12 -57 L10 -22 L-10 -22 Z"/>
+    <rect x="-7" y="-23" width="5" height="21"/>
+    <rect x="2" y="-23" width="5" height="21"/>
+    <rect x="-11" y="-3" width="9" height="3" rx="1.5"/>
+    <rect x="0" y="-3" width="9" height="3" rx="1.5"/>
+    <path d="M-6 -82 L-2 -74 L-40 -86 L-43 -93 Z"/>
+    <circle cx="-43" cy="-90" r="3.5"/>
+    <path d="M6 -79 L11 -76 L12 -54 L7 -54 Z"/>
+  </g>
+  <circle cx="1246" cy="340" r="16" fill="{{light}}" stroke="{{subject}}" stroke-width="4"/>
+</svg>
