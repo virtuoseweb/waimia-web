@@ -6585,6 +6585,117 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/ressources/guides/cahier-des-charges-site-internet",
+    "title": "Cahier des charges de site internet : contenu, exemple de brief et choix techniques",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/cahier-des-charges-site-internet.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Cahier des charges site internet : contenu, exemple de brief et choix techniques",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Quelles rubriques écrire, et qu'en laisser à l'agence ?",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#4",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-callout",
+        "label": "#5",
+        "variant": "quote",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Un brief complet à copier et à remplir, pour une PME de services",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Comment comparer les devis reçus avec votre cahier des charges ?",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#9",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Quand choisir quoi : statique, hybride, serveur, CMS, WordPress, Webflow, Lovable",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Que figer dans le cahier des charges, et que laisser ouvert ?",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#12",
+        "background": "paper-2"
+      },
+      {
+        "type": "process-steps",
+        "label": "Comment Waimia prépare un site avant la première ligne de code ?",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Quels packs d'heures pour un site, et avec quelle option SEO et GEO ?",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#15",
+        "background": "paper"
+      },
+      {
+        "type": "cta-final",
+        "label": "Faites relire votre brouillon de cahier des charges avant les devis",
+        "background": "ink"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Cahier des charges de site internet : questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Un brief précis, des devis que vous pouvez comparer.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/ressources/guides/chatbot-transparence-article-50",
     "title": "Chatbot et AI Act : l'obligation de transparence de l'article 50",
     "group": "ressources",
@@ -10260,6 +10371,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/ia-auto-hebergee-open-webui-pme",
+    "title": "Open WebUI : héberger son IA en PME, bonne idée ?",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/ia-auto-hebergee-open-webui-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/ia-pme-guide-complet-2026",
     "title": "IA pour PME en 2026 : le guide complet",
     "group": "blog",
@@ -11325,6 +11445,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/guides/ai-act-pme-calendrier",
       "/ressources/guides/aides-financement-projet-ia",
       "/ressources/guides/audit-geo-pme",
+      "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/chatbot-transparence-article-50",
       "/ressources/guides/choisir-agence-ia-pme",
       "/ressources/guides/claude-code-entreprise",
@@ -11398,6 +11519,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/formation-ia-marketing-pme",
       "/blog/forward-deployed-engineer",
       "/blog/geo-local-recommande-par-les-ia",
+      "/blog/ia-auto-hebergee-open-webui-pme",
       "/blog/ia-pme-guide-complet-2026",
       "/blog/landing-page-qui-convertit-methode-2026",
       "/blog/logiciel-seo-ia-pme",

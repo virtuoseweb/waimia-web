@@ -169,6 +169,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/cahier-des-charges-site-internet.json",
+      "slug": "cahier-des-charges-site-internet",
+      "route": "/ressources/guides/cahier-des-charges-site-internet",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/chatbot-transparence-article-50.json",
       "slug": "chatbot-transparence-article-50",
       "route": "/ressources/guides/chatbot-transparence-article-50",
@@ -1700,6 +1709,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/agent-sav-architecture",
       "index": 14,
       "label": "Où en est votre entreprise avec l'IA ?",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/cahier-des-charges-site-internet.json",
+      "slug": "cahier-des-charges-site-internet",
+      "route": "/ressources/guides/cahier-des-charges-site-internet",
+      "index": 16,
+      "label": "Faites relire votre brouillon de cahier des charges avant les devis",
       "background": "ink"
     },
     {
@@ -4229,6 +4247,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/cahier-des-charges-site-internet.json",
+      "slug": "cahier-des-charges-site-internet",
+      "route": "/ressources/guides/cahier-des-charges-site-internet",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/chatbot-transparence-article-50.json",
       "slug": "chatbot-transparence-article-50",
       "route": "/ressources/guides/chatbot-transparence-article-50",
@@ -4748,6 +4775,16 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/audit-geo-pme",
       "index": 9,
       "label": "#9",
+      "variant": "quote",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/cahier-des-charges-site-internet.json",
+      "slug": "cahier-des-charges-site-internet",
+      "route": "/ressources/guides/cahier-des-charges-site-internet",
+      "index": 5,
+      "label": "#5",
       "variant": "quote",
       "background": "paper"
     },
@@ -5579,6 +5616,51 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 14,
       "label": "#14",
       "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/cahier-des-charges-site-internet.json",
+      "slug": "cahier-des-charges-site-internet",
+      "route": "/ressources/guides/cahier-des-charges-site-internet",
+      "index": 4,
+      "label": "#4",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/cahier-des-charges-site-internet.json",
+      "slug": "cahier-des-charges-site-internet",
+      "route": "/ressources/guides/cahier-des-charges-site-internet",
+      "index": 7,
+      "label": "#7",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/cahier-des-charges-site-internet.json",
+      "slug": "cahier-des-charges-site-internet",
+      "route": "/ressources/guides/cahier-des-charges-site-internet",
+      "index": 9,
+      "label": "#9",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/cahier-des-charges-site-internet.json",
+      "slug": "cahier-des-charges-site-internet",
+      "route": "/ressources/guides/cahier-des-charges-site-internet",
+      "index": 12,
+      "label": "#12",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/cahier-des-charges-site-internet.json",
+      "slug": "cahier-des-charges-site-internet",
+      "route": "/ressources/guides/cahier-des-charges-site-internet",
+      "index": 15,
+      "label": "#15",
+      "background": "paper"
     },
     {
       "collection": "guides",
@@ -7805,6 +7887,51 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/cahier-des-charges-site-internet.json",
+      "slug": "cahier-des-charges-site-internet",
+      "route": "/ressources/guides/cahier-des-charges-site-internet",
+      "index": 3,
+      "label": "Quelles rubriques écrire, et qu'en laisser à l'agence ?",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/cahier-des-charges-site-internet.json",
+      "slug": "cahier-des-charges-site-internet",
+      "route": "/ressources/guides/cahier-des-charges-site-internet",
+      "index": 6,
+      "label": "Un brief complet à copier et à remplir, pour une PME de services",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/cahier-des-charges-site-internet.json",
+      "slug": "cahier-des-charges-site-internet",
+      "route": "/ressources/guides/cahier-des-charges-site-internet",
+      "index": 8,
+      "label": "Comment comparer les devis reçus avec votre cahier des charges ?",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/cahier-des-charges-site-internet.json",
+      "slug": "cahier-des-charges-site-internet",
+      "route": "/ressources/guides/cahier-des-charges-site-internet",
+      "index": 10,
+      "label": "Quand choisir quoi : statique, hybride, serveur, CMS, WordPress, Webflow, Lovable",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/cahier-des-charges-site-internet.json",
+      "slug": "cahier-des-charges-site-internet",
+      "route": "/ressources/guides/cahier-des-charges-site-internet",
+      "index": 14,
+      "label": "Quels packs d'heures pour un site, et avec quelle option SEO et GEO ?",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/chatbot-transparence-article-50.json",
       "slug": "chatbot-transparence-article-50",
       "route": "/ressources/guides/chatbot-transparence-article-50",
@@ -9783,6 +9910,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/cahier-des-charges-site-internet.json",
+      "slug": "cahier-des-charges-site-internet",
+      "route": "/ressources/guides/cahier-des-charges-site-internet",
+      "index": 18,
+      "label": "Cahier des charges de site internet : questions fréquentes",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/chatbot-transparence-article-50.json",
       "slug": "chatbot-transparence-article-50",
       "route": "/ressources/guides/chatbot-transparence-article-50",
@@ -11474,6 +11610,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/cahier-des-charges-site-internet.json",
+      "slug": "cahier-des-charges-site-internet",
+      "route": "/ressources/guides/cahier-des-charges-site-internet",
+      "index": 19,
+      "label": "Un brief précis, des devis que vous pouvez comparer.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/chatbot-transparence-article-50.json",
       "slug": "chatbot-transparence-article-50",
       "route": "/ressources/guides/chatbot-transparence-article-50",
@@ -13127,6 +13272,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/audit-geo-pme",
       "index": 0,
       "label": "Audit GEO : les contrôles à faire avant d'en commander un",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/cahier-des-charges-site-internet.json",
+      "slug": "cahier-des-charges-site-internet",
+      "route": "/ressources/guides/cahier-des-charges-site-internet",
+      "index": 0,
+      "label": "Cahier des charges site internet : contenu, exemple de brief et choix techniques",
       "background": "paper"
     },
     {
@@ -15585,6 +15739,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/cahier-des-charges-site-internet.json",
+      "slug": "cahier-des-charges-site-internet",
+      "route": "/ressources/guides/cahier-des-charges-site-internet",
+      "index": 13,
+      "label": "Comment Waimia prépare un site avant la première ligne de code ?",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/choisir-agence-ia-pme.json",
       "slug": "choisir-agence-ia-pme",
       "route": "/ressources/guides/choisir-agence-ia-pme",
@@ -16856,6 +17019,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/cahier-des-charges-site-internet.json",
+      "slug": "cahier-des-charges-site-internet",
+      "route": "/ressources/guides/cahier-des-charges-site-internet",
+      "index": 17,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/chatbot-transparence-article-50.json",
       "slug": "chatbot-transparence-article-50",
       "route": "/ressources/guides/chatbot-transparence-article-50",
@@ -17622,6 +17794,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/audit-geo-pme",
       "index": 13,
       "label": "Que demander à un audit GEO, et que refuser ?",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/cahier-des-charges-site-internet.json",
+      "slug": "cahier-des-charges-site-internet",
+      "route": "/ressources/guides/cahier-des-charges-site-internet",
+      "index": 11,
+      "label": "Que figer dans le cahier des charges, et que laisser ouvert ?",
       "background": "paper"
     },
     {
