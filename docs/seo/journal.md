@@ -37,6 +37,18 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### Contenu W43, 16 octobre 2026 (PR #109)
+
+- **Articles** : `formation-ia-rh-pme`, `chatbot-rh-pme`, `audit-site-internet-pme` (requêtes de 390, 320 et 1 300 recherches mensuelles, cibles basculées dans `keywords.json`), illustrés et déclarés au maillage. Trois créations planifiées en remplacement (application métier, automatisation des processus métiers, formation IA générative).
+- **Aimant** `grille-audit-site-internet` (demande de Simon) : PDF de 10 pages par e-mail, page outil, bandes de capture sur le guide cahier des charges, le guide refonte et `/services/site-web-ia`.
+- **À mesurer** : alertes de lead dont la page d'arrivée est l'une de ces pages ; impressions des trois requêtes deux collectes après la mise en production.
+
+### Illustrations en production, 16 octobre 2026 (PR #107, `0de8e586`)
+
+- **Demande de Simon** : plusieurs pages créées n'avaient pas d'image. 20 illustrations dessinées avec le skill `waimia-illustration` (moteur B, SVG, aucune API payante) : 9 héros (6 guides, 3 comparatifs) et 11 billets récents.
+- **Défaut trouvé** : le gabarit des billets (`essay`) ignore `body_sections[0].figures` ; les billets affichaient l'illustration par catégorie. Les 11 billets portent l'image en `heroIllustration`. Deux anciens billets (`automatiser-relance-devis-n8n`, `trier-emails-entrant-claude-n8n`) ont encore des `figures` non rendues : tâche séparée.
+- **Preuves** : build 0, `astro check` 8 erreurs (référence), portes à la référence, 20 pages mesurées à 1366×768 et 390×844 (image chargée, opacity 1, 0 débordement, 0 erreur console, bas des CTA des héros ≤ 725 px à 390×844), E2E 77 passés, preview 20 sur 20, production 20 sur 20.
+
 ### Vague 14 en production, 16 octobre 2026 (PR #105, `3d884315`)
 
 - **Mesure** : Vercel Web Analytics activé et posé (composant Astro, injecté seulement lors d'un build Vercel). Première page vue comptée en production le 16 octobre. Une mesure maison (Neon, PR #104) a été construite puis fermée sur décision de Simon : Web Analytics est inclus dans le plan. Limite : les événements personnalisés (conversions) ne sont pas suivis ; l'e-mail interne de chaque lead porte déjà la page d'origine.

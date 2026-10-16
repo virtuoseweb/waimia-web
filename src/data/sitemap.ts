@@ -268,6 +268,7 @@ export const MM_RESOURCES: MegaMenu = {
         { href: '/ressources/guides/claude-plugins-entreprise', label: { en: 'Claude plugins and connectors', fr: 'Plugins et connecteurs Claude' } },
         { href: '/ressources/guides/claude-design', label: { en: 'Claude Design for SMBs', fr: 'Claude Design en PME' } },
         { href: '/ressources/outils/guide-achat-claude-pme', label: { en: "Claude buyer's guide for SMBs (PDF)", fr: "Guide d'achat Claude pour PME (PDF)" } },
+        { href: '/ressources/outils/grille-audit-site-internet', label: { en: 'Website audit grid (PDF)', fr: "Grille d'audit de site internet (PDF)" } },
         { href: '/ressources/guides/mcp-claude', label: { en: 'MCP guide: connecting Claude to your tools', fr: 'Guide MCP : brancher Claude à vos outils' } },
         { href: '/ressources/guides/ai-act-pme-calendrier', label: { en: 'AI Act: the timeline for an SME', fr: 'AI Act : le calendrier pour une PME' } },
         { href: '/ressources/guides/roi-automatisation', label: { en: 'Guide: computing automation ROI', fr: "Guide : calculer le ROI d'une automatisation" } },

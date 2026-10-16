@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · moteur B · « il répond à ce qui est écrit, il passe la main pour le reste »
+       (chatbot RH) : des salariés lisent au pied d'un livre ouvert immense, posé debout dans
+       la plaine ; l'un d'eux s'en éloigne, une enveloppe à la main, sur un chemin qui mène à
+       une petite maison dont la porte éclairée laisse voir une personne qui l'attend.
+       Le chemin et l'enveloppe portent {{detail}} (touche bleue : le passage à un humain).
+       Rôles remplacés par render-svg.mjs. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <!-- Même silhouette vue de dos (sans col) : les lecteurs font face au livre -->
+    <g id="man-back">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{subject}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{subject}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/>
+    </g>
+    <!-- Marcheur, bras tendu vers l'avant : il porte l'enveloppe devant lui, à hauteur de taille -->
+    <g id="walker">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <path d="M6 -79 L13 -78 L31 -58 L25 -53 Z" fill="{{subject}}"/>
+      <rect x="-5" y="-46" width="9.5" height="45" fill="{{subject}}" transform="rotate(16 0 -44)"/>
+      <rect x="-4.5" y="-46" width="9.5" height="45" fill="{{subject}}" transform="rotate(-16 0 -44)"/>
+      <rect x="-21" y="-3" width="12" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="10" y="-3" width="12" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="24" y="-68" width="26" height="18" fill="{{detail}}"/>
+    </g>
+  </defs>
+
+  <!-- Grand fond uni -->
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <!-- Sol -->
+  <rect y="500" width="1456" height="124" fill="{{ground}}"/>
+
+  <!-- Ombre du livre au sol -->
+  <ellipse cx="520" cy="508" rx="360" ry="12" fill="{{deep}}" opacity="0.35"/>
+
+  <!-- LE LIVRE OUVERT, debout dans la plaine (grande forme) -->
+  <g>
+    <!-- Couverture, qui déborde derrière les pages -->
+    <path d="M178 196 Q350 140 520 182 Q690 140 862 196 L874 506 L166 506 Z" fill="{{shape}}"/>
+    <!-- Tranche du bloc de pages, en bas -->
+    <path d="M196 494 Q360 468 520 492 Q680 468 844 494 L846 506 L194 506 Z" fill="{{pale}}"/>
+    <path d="M200 500 Q360 475 520 499 Q680 475 840 500" fill="none" stroke="{{soft}}" stroke-width="2"/>
+    <!-- Page de gauche -->
+    <path d="M206 204 Q360 156 520 198 L520 490 Q360 466 200 490 Z" fill="{{light}}"/>
+    <!-- Page de droite -->
+    <path d="M520 198 Q680 156 834 204 L840 490 Q680 466 520 490 Z" fill="{{light}}"/>
+    <!-- Ombre douce de part et d'autre du dos -->
+    <path d="M492 192 Q506 194 520 198 L520 490 Q506 488 490 487 Z" fill="{{pale}}"/>
+    <path d="M520 198 Q534 194 548 192 L550 487 Q534 488 520 490 Z" fill="{{pale}}"/>
+    <rect x="518" y="196" width="4" height="296" fill="{{deep}}"/>
+    <!-- Une page qui se tourne, dressée au-dessus de la page de droite -->
+    <path d="M520 198 Q600 140 702 128 Q676 300 668 470 Q596 474 520 490 Z" fill="{{pale}}"/>
+    <path d="M702 128 Q676 300 668 470" fill="none" stroke="{{soft}}" stroke-width="3"/>
+  </g>
+
+  <!-- Les salariés qui lisent, de dos, au pied du livre -->
+  <use href="#man-back" transform="translate(318 540) scale(1.15)"/>
+  <use href="#woman" transform="translate(392 538) scale(1.1)"/>
+  <use href="#man-back" transform="translate(626 542) scale(1.2)"/>
+
+  <!-- Petite maison à droite : la personne qui reprend la question -->
+  <g>
+    <!-- Lumière de la porte répandue au sol -->
+    <path d="M1150 505 L1196 505 L1236 566 L1112 566 Z" fill="{{light}}" opacity="0.85"/>
+    <rect x="1108" y="384" width="186" height="122" fill="{{deep}}"/>
+    <path d="M1090 390 L1201 300 L1312 390 Z" fill="{{subject}}"/>
+    <rect x="1252" y="318" width="20" height="44" fill="{{subject}}"/>
+    <rect x="1150" y="420" width="46" height="86" fill="{{light}}"/>
+    <rect x="1224" y="414" width="40" height="34" fill="{{light}}"/>
+    <rect x="1220" y="448" width="48" height="5" fill="{{subject}}"/>
+  </g>
+
+  <!-- Le chemin qui part du livre et mène à la porte, plus large au premier plan -->
+  <path d="M700 546 C860 598 1050 590 1164 510 L1182 512 C1062 616 860 624 700 554 Z" fill="{{detail}}"/>
+
+  <!-- La personne qui attend dans l'embrasure -->
+  <use href="#woman" transform="translate(1173 505) scale(0.78)"/>
+
+  <!-- Le salarié qui s'éloigne du livre, l'enveloppe à la main, vers la porte -->
+  <use href="#walker" transform="translate(944 584) scale(1.05)"/>
+</svg>

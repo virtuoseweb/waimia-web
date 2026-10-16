@@ -245,8 +245,8 @@ test('registre réel : le PDF de la checklist expédié est lisible et envoyé t
   assert.equal(r.status, 200);
   const att = received.find((x) => x.body.to?.[0] === 'visiteur@example.com').body.attachments[0];
   assert.deepEqual(Buffer.from(att.content, 'base64'), readFileSync(real));
-  // les 5 slugs du cluster sont enregistrés avec les bons noms de fichiers
-  for (const slug of ['checklist-90-jours-claude', 'charte-ia-entreprise', 'guide-achat-claude-pme', 'pack-skills-claude-pme', 'kit-conformite-claude-entreprise']) {
+  // les slugs du cluster sont enregistrés avec les bons noms de fichiers
+  for (const slug of ['checklist-90-jours-claude', 'charte-ia-entreprise', 'guide-achat-claude-pme', 'grille-audit-site-internet', 'pack-skills-claude-pme', 'kit-conformite-claude-entreprise']) {
     assert.ok(LEAD_MAGNETS[slug]?.attachments?.length, slug);
   }
   assert.deepEqual(LEAD_MAGNETS['pack-skills-claude-pme'].attachments.map((a) => a.filename), ['pack-skills-claude-pme.pdf', 'pack-skills-claude-pme.zip']);

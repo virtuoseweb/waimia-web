@@ -1639,8 +1639,8 @@
         "src/content/cas-usages/rh.json (à lier, sections à ne pas répéter)"
       ],
       "semainePrevue": "2026-W43",
-      "statut": "planifié",
-      "pr": null,
+      "statut": "publié",
+      "pr": 109,
       "mesureAttendue": "Page indexée et premières impressions sur la requête cible, à lire deux collectes après la mise en production. Mesure de départ : impressions de la requête sur sa page cible actuelle (/formations), à relever dans la collecte de la semaine de mise en production. Demandes : alertes de lead dont la page d'arrivée est cette page (provenance mesurée, décision 2 du 14 octobre 2026).",
       "resultat": null,
       "origine": "docs/seo/keywords.json:156 : « formation ia rh », volume 390, KD 46, CPC 4,82 (Semrush France, octobre 2026). Cible actuelle : /formations, page générique ; aucun contenu du dépôt ne traite la requête (grep « formation ia rh » dans src/content et src/pages : 0 fichier, le 16 octobre 2026). Gabarit éprouvé par les articles formation IA finance et marketing."
@@ -1682,8 +1682,8 @@
         "src/content/cas-usages/rh.json et src/content/services/base-de-connaissance-ia.json (à lier)"
       ],
       "semainePrevue": "2026-W45",
-      "statut": "planifié",
-      "pr": null,
+      "statut": "publié",
+      "pr": 109,
       "mesureAttendue": "Page indexée et premières impressions sur la requête cible, à lire deux collectes après la mise en production. Mesure de départ : impressions de la requête sur sa page cible actuelle (/cas-usages/rh), à relever dans la collecte de la semaine de mise en production. Demandes : alertes de lead dont la page d'arrivée est cette page (provenance mesurée, décision 2 du 14 octobre 2026).",
       "resultat": null,
       "origine": "docs/seo/keywords.json:86 : « chatbot rh », volume 320, KD 28 (Semrush France, octobre 2026). Cible actuelle : /cas-usages/rh, page thématique qui ne mentionne la requête qu'en passant (grep « chatbot rh » : 2 fichiers de src/content, le 16 octobre 2026). Le changement de cible dans keywords.json se fait à la publication."
@@ -1745,11 +1745,71 @@
         "Méthode de Simon du 16 octobre 2026 (mémoire web-site-process-and-packs)"
       ],
       "semainePrevue": "2026-W48",
-      "statut": "planifié",
-      "pr": null,
+      "statut": "publié",
+      "pr": 109,
       "mesureAttendue": "Page indexée et premières impressions sur « audit site internet » (1 300 recherches mensuelles), sans cannibaliser /services/audit-seo-technique. À juger deux collectes après la mise en production.",
       "resultat": null,
       "origine": "docs/seo/keywords.json : requête à 1 300 recherches ciblée par une page service ; demande de Simon du 16 octobre 2026 de publier plus d'articles que de guides."
+    },
+    {
+      "id": "w43-article-application-metier-exemples",
+      "type": "article",
+      "titreProvisoire": "Application métier : exemples concrets par service dans une PME",
+      "requeteCible": "application métier",
+      "intention": "Comprendre ce qu'est une application métier, voir des exemples par service et savoir quand la faire sur mesure plutôt que d'acheter un logiciel.",
+      "urlCible": "/blog/application-metier-exemples-pme",
+      "angle": "Hypothèse à vérifier en lisant la SERP le jour de la rédaction : intention mixte (définition, exemples, éditeurs). Apporté : exemples par service (devis, planning, suivi de chantier, stocks, RH), critères pour acheter ou faire sur mesure, et ce qu'un sprint de cadrage livre. Renvoie à /services/applications-internes (cible commerciale à ne pas cannibaliser : le billet reste informationnel) et à /blog/applications-internes-build-vs-buy-pme (ne pas répéter).",
+      "sourcesALire": [
+        "Premiers résultats de « application métier »",
+        "src/content/services/applications-internes.json",
+        "src/content/blog/applications-internes-build-vs-buy-pme.json"
+      ],
+      "semainePrevue": "2026-W43",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Page indexée et premières impressions sur la requête cible, à lire deux collectes après la mise en production, sans cannibaliser /services/applications-internes. Demandes : alertes de lead dont la page d'arrivée est cette page (provenance mesurée, décision 2 du 14 octobre 2026).",
+      "resultat": null,
+      "origine": "docs/seo/keywords.json : « application métier », volume 1300, KD 17 (Semrush France, octobre 2026), cible actuelle /services/applications-internes (page commerciale). Planifié le 16 octobre 2026 pour garder 6 semaines d'avance après la publication anticipée de trois articles ; orientation de Simon : plus d'articles que de guides."
+    },
+    {
+      "id": "w45-article-automatisation-processus-metiers",
+      "type": "article",
+      "titreProvisoire": "Automatisation des processus métiers : par où commencer en PME",
+      "requeteCible": "automatisation des processus métiers",
+      "intention": "Savoir quels processus automatiser en premier dans une PME, avec quels outils et quelles limites.",
+      "urlCible": "/blog/automatisation-processus-metiers-pme",
+      "angle": "Hypothèse à vérifier par la SERP : résultats d'éditeurs (BPM, RPA) et définitions générales. Apporté : la méthode de choix (fréquence, règles stables, coût de l'erreur), trois exemples types annoncés comme illustratifs, outils (n8n, Make, agents IA) et ce qui reste humain. Renvoie à /services/automatisations (à ne pas cannibaliser) et à l'outil grille des tâches à automatiser.",
+      "sourcesALire": [
+        "Premiers résultats de « automatisation des processus métiers »",
+        "src/content/services/automatisations.json",
+        "src/content/blog (billets n8n existants, à lier)"
+      ],
+      "semainePrevue": "2026-W45",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Page indexée et premières impressions sur la requête cible, à lire deux collectes après la mise en production, sans cannibaliser /services/automatisations. Demandes : alertes de lead dont la page d'arrivée est cette page (provenance mesurée, décision 2 du 14 octobre 2026).",
+      "resultat": null,
+      "origine": "docs/seo/keywords.json : « automatisation des processus métiers », volume 590, KD 36 (Semrush France, octobre 2026), cible actuelle /services/automatisations (page commerciale). Planifié le 16 octobre 2026 pour garder 6 semaines d'avance après la publication anticipée de trois articles ; orientation de Simon : plus d'articles que de guides."
+    },
+    {
+      "id": "w48-article-formation-ia-generative",
+      "type": "article",
+      "titreProvisoire": "Formation IA générative : le programme utile pour une équipe de PME",
+      "requeteCible": "formation ia générative",
+      "intention": "Savoir ce qu'une formation à l'IA générative doit couvrir pour une équipe, combien de temps et comment la financer.",
+      "urlCible": "/blog/formation-ia-generative-pme",
+      "angle": "Même gabarit que les articles formation IA finance, marketing et RH (sans copier) : ce que l'IA générative fait bien au bureau, ce qu'elle ne doit pas décider, le programme à exiger, le financement (guide OPCO). Renvoie à /formations (cible commerciale à ne pas cannibaliser), /formations/claude et /formations/chatgpt.",
+      "sourcesALire": [
+        "Premiers résultats de « formation ia générative »",
+        "src/content/blog/formation-ia-rh-pme.json et formation-ia-marketing-pme.json (gabarit)",
+        "src/content/guides/financement-formation-ia-opco.json"
+      ],
+      "semainePrevue": "2026-W48",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Page indexée et premières impressions sur la requête cible, à lire deux collectes après la mise en production, sans cannibaliser /formations. Demandes : alertes de lead dont la page d'arrivée est cette page (provenance mesurée, décision 2 du 14 octobre 2026).",
+      "resultat": null,
+      "origine": "docs/seo/keywords.json : « formation ia générative », volume 880, KD 45 (Semrush France, octobre 2026), cible actuelle /formations (page commerciale). Planifié le 16 octobre 2026 pour garder 6 semaines d'avance après la publication anticipée de trois articles ; orientation de Simon : plus d'articles que de guides."
     }
   ]
 }
