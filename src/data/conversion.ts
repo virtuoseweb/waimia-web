@@ -66,6 +66,7 @@ export const CHARTE_HREF = '/ressources/outils/charte-ia-entreprise';
 export const GRILLE_HREF = '/ressources/outils/grille-taches-a-automatiser';
 export const CHECKLIST_HREF = '/ressources/outils/checklist-90-jours-claude';
 export const GUIDE_ACHAT_CLAUDE_HREF = '/ressources/outils/guide-achat-claude-pme';
+export const GRILLE_AUDIT_SITE_HREF = '/ressources/outils/grille-audit-site-internet';
 export const PACK_SKILLS_CLAUDE_HREF = '/ressources/outils/pack-skills-claude-pme';
 export const KIT_CONFORMITE_CLAUDE_HREF = '/ressources/outils/kit-conformite-claude-entreprise';
 
@@ -128,6 +129,13 @@ export const LEAD_MAGNETS = {
     path: GUIDE_ACHAT_CLAUDE_HREF,
     attachments: [
       { file: 'private/telechargements/guide-achat-claude-pme.pdf', filename: 'guide-achat-claude-pme.pdf' },
+    ],
+  },
+  'grille-audit-site-internet': {
+    title: "Grille d'audit de site internet : corriger ou refaire",
+    path: GRILLE_AUDIT_SITE_HREF,
+    attachments: [
+      { file: 'private/telechargements/grille-audit-site-internet.pdf', filename: 'grille-audit-site-internet.pdf' },
     ],
   },
   'pack-skills-claude-pme': {
@@ -423,6 +431,35 @@ export const LEAD_CAPTURE_COPY: Record<LeadMagnetSlug, LeadCaptureCopy> = {
       ],
       submit: 'Get the guide',
       cover: { kicker: 'PDF guide · A4', title: "Claude buyer's guide for SMBs", meta: 'Plan, cost, setup · 14 pages' },
+    },
+  },
+  'grille-audit-site-internet': {
+    mode: 'required',
+    fr: {
+      kicker: 'PDF · 10 pages · envoyé par e-mail',
+      h2: "Recevez la grille d'audit de site internet dans votre boîte mail",
+      body: "La grille part uniquement par e-mail, en pièce jointe : il n'existe pas de lien de téléchargement public.",
+      benefits: [
+        'Huit axes à cocher, du formulaire de contact à la citabilité par les IA',
+        'Pour chaque point, le geste ou l\'outil gratuit pour le vérifier',
+        'Les signaux d\'alerte, et ce qui se corrige sans refonte',
+        'Une règle de décision : corriger ou refaire',
+      ],
+      submit: 'Recevoir la grille',
+      cover: { kicker: 'Grille PDF · A4', title: "Grille d'audit de site internet", meta: 'Huit axes · corriger ou refaire · 10 pages' },
+    },
+    en: {
+      kicker: 'PDF · 10 pages · sent by email',
+      h2: 'Get the website audit grid in your inbox',
+      body: 'The grid is sent by email only, as an attachment: there is no public download link.',
+      benefits: [
+        'Eight axes to tick, from the contact form to AI citability',
+        'For each point, the gesture or free tool to check it',
+        'The warning signs, and what can be fixed without a rebuild',
+        'A decision rule: fix it or rebuild it',
+      ],
+      submit: 'Get the grid',
+      cover: { kicker: 'PDF grid · A4', title: 'Website audit grid', meta: 'Eight axes · fix or rebuild · 10 pages' },
     },
   },
   'pack-skills-claude-pme': {

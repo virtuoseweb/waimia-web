@@ -146,6 +146,7 @@ const PAGES: Record<string, PageDef> = {
   '/ressources/guides/claude-finance-pme': { label_fr: "Claude pour la finance d'une PME : factures, clôture, trésorerie", label_en: "Claude for an SMB's finance function: invoices, closing, cash", kind: 'guide', topics: ['claude', 'automatisation'] },
   '/ressources/guides/claude-gratuit': { label_fr: "Claude gratuit : ce que permet l'offre Free", label_en: 'Free Claude: what the Free plan allows', kind: 'guide', topics: ['claude', 'conformite'] },
   '/ressources/outils/guide-achat-claude-pme': { label_fr: "Guide d'achat Claude pour PME (PDF)", label_en: "Claude buyer's guide for SMBs (PDF)", kind: 'guide', topics: ['claude', 'conseil'] },
+  '/ressources/outils/grille-audit-site-internet': { label_fr: "Grille d'audit de site internet (PDF)", label_en: 'Website audit grid (PDF)', kind: 'guide', topics: ['web', 'conseil'] },
   '/ressources/guides/claude-skills': { label_fr: 'Guide : skills Claude en entreprise', label_en: 'Guide: Claude skills in business', kind: 'guide', topics: ['claude', 'agents'] },
   '/ressources/outils/pack-skills-claude-pme': { label_fr: 'Pack de 8 skills Claude pour PME', label_en: 'Pack of 8 Claude skills for SMBs', kind: 'guide', topics: ['claude', 'conseil'] },
   '/ressources/guides/claude-plugins-entreprise': { label_fr: 'Guide des plugins Claude en entreprise', label_en: 'Claude plugins for business guide', kind: 'guide', topics: ['claude', 'conseil'] },
@@ -273,6 +274,9 @@ const PAGES: Record<string, PageDef> = {
   '/blog/agent-ia-24-7-pme': { label_fr: 'Agent IA 24/7 en PME : ce qui reste humain', label_en: '24/7 AI agent for SMBs: what stays human', kind: 'article', topics: ['agents', 'automatisation'] },
   '/ressources/guides/cahier-des-charges-site-internet': { label_fr: 'Cahier des charges de site internet : le guide', label_en: 'Website specification: the guide', kind: 'guide', topics: ['web'] },
   '/blog/ia-auto-hebergee-open-webui-pme': { label_fr: 'IA auto-hébergée avec Open WebUI : pour quelle PME', label_en: 'Self-hosted AI with Open WebUI: for which SMB', kind: 'article', topics: ['conformite', 'claude'] },
+  '/blog/audit-site-internet-pme': { label_fr: 'Audit de site internet : la grille avant refonte', label_en: 'Website audit: the grid before a redesign', kind: 'article', topics: ['web'] },
+  '/blog/formation-ia-rh-pme': { label_fr: 'Formation IA pour une équipe RH', label_en: 'AI training for HR teams', kind: 'article', topics: ['formation', 'conformite'] },
+  '/blog/chatbot-rh-pme': { label_fr: "Chatbot RH en PME : ce qu'il traite, ce qu'il laisse aux RH", label_en: 'HR chatbot for SMBs: what it handles, what stays with HR', kind: 'article', topics: ['agents', 'conformite'] },
   '/cas-clients/desangles-peinture': { label_fr: 'Cas client : Desangles Peinture', label_en: 'Case: Desangles Peinture', kind: 'cas-client', topics: ['acquisition'] },
 
   // ── Secteurs (indexables depuis 2026-10-05) : cibles du maillage, sans bloc émis par

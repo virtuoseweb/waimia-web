@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Grille d'audit de site internet · Waimia</title>
+<style>
+  @font-face { font-family: "Instrument Serif"; src: url("../../../public/fonts/instrument-serif-regular.woff2") format("woff2"); font-style: normal; }
+  @font-face { font-family: "Instrument Serif"; src: url("../../../public/fonts/instrument-serif-italic.woff2") format("woff2"); font-style: italic; }
+  @font-face { font-family: "Inter Tight"; src: url("../../../public/fonts/inter-tight-regular.woff2") format("woff2"); font-style: normal; font-weight: 100 900; }
+  @font-face { font-family: "Inter Tight"; src: url("../../../public/fonts/inter-tight-italic.woff2") format("woff2"); font-style: italic; font-weight: 100 900; }
+  @font-face { font-family: "JetBrains Mono"; src: url("../../../public/fonts/jetbrains-mono-regular.woff2") format("woff2"); }
+
+  :root {
+    --paper: #F6F1E8; --paper-2: #EFE9DD; --paper-3: #E6E0D0;
+    --ink: #0C0B09; --ink-2: #1A1814; --muted: #6B6560;
+    --accent: #C94F2E; --accent-sur-clair: #A83D20;
+    --rule: rgba(12, 11, 9, 0.14);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { margin: 0; font-family: "Inter Tight", system-ui, sans-serif; font-size: 10pt; line-height: 1.48; color: var(--ink); background: #fff; hyphens: auto; }
+  h1, h2, h3 { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; line-height: 1.1; margin: 0; hyphens: none; }
+  h1 { font-size: 42pt; letter-spacing: -0.01em; }
+  h2 { font-size: 24pt; margin-bottom: 8pt; break-after: avoid; }
+  h3 { font-size: 14pt; margin: 12pt 0 4pt; break-after: avoid; }
+  h1 i, h2 i { color: var(--accent); }
+  p { margin: 0 0 6.5pt; }
+  ul, ol { margin: 0 0 8pt; padding-left: 15pt; }
+  li { margin-bottom: 2.5pt; }
+  strong { font-weight: 600; }
+  .mono { font-family: "JetBrains Mono", Menlo, monospace; font-size: 8.4pt; }
+  .kicker { font-family: "JetBrains Mono", Menlo, monospace; font-size: 7.8pt; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-sur-clair); margin-bottom: 5pt; }
+  .page { break-before: page; }
+  .lede { font-size: 11pt; color: var(--ink-2); }
+  .muted { color: var(--muted); }
+  .small { font-size: 8.6pt; }
+  figure { margin: 6pt 0 10pt; }
+  figure img { width: 100%; display: block; border-radius: 3pt; }
+  figure.slim { width: 74%; margin: 4pt auto 0; }
+  th, td:first-child, h1, h2, h3 { hyphens: manual; }
+  .box { background: var(--paper); border-left: 3pt solid var(--accent); padding: 7pt 10pt; margin: 7pt 0 9pt; break-inside: avoid; }
+  .box p:last-child, .box ul:last-child, .box ol:last-child { margin-bottom: 0; }
+  .warn { background: var(--paper-2); border-left-color: var(--ink); }
+  table { width: 100%; border-collapse: collapse; margin: 5pt 0 9pt; font-size: 8.8pt; line-height: 1.38; }
+  tr { break-inside: avoid; }
+  th { text-align: left; font-weight: 600; background: var(--paper-2); }
+  th, td { padding: 4.5pt 6pt; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  td.num, th.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 14pt; }
+  .keep { break-inside: avoid; }
+
+  /* Formules */
+  .calc { font-family: "JetBrains Mono", Menlo, monospace; font-size: 8.4pt; line-height: 1.6; background: var(--ink); color: var(--paper); padding: 8pt 11pt; border-radius: 4pt; margin: 5pt 0 8pt; break-inside: avoid; }
+  .calc b { color: #D96A47; font-weight: 400; }
+  .scenario { border-top: 2px solid var(--ink); padding-top: 7pt; margin-top: 12pt; break-inside: avoid; }
+  .scenario h3 { margin-top: 0; }
+  .tag { display: inline-block; font-family: "JetBrains Mono", Menlo, monospace; font-size: 7.2pt; letter-spacing: 0.06em; text-transform: uppercase; background: var(--paper-2); padding: 1.5pt 5pt; border-radius: 2pt; margin-right: 4pt; }
+
+  /* Listes numérotées et cases */
+  .steps { list-style: none; padding: 0; counter-reset: s; }
+  .steps > li { counter-increment: s; position: relative; padding: 5pt 0 5pt 26pt; border-bottom: 1px solid var(--rule); break-inside: avoid; margin: 0; }
+  .steps > li::before { content: counter(s, decimal-leading-zero); position: absolute; left: 0; top: 5pt; font-family: "JetBrains Mono", Menlo, monospace; font-size: 8.4pt; color: var(--accent-sur-clair); }
+  .check { list-style: none; padding-left: 0; }
+  .check li { padding-left: 14pt; position: relative; break-inside: avoid; }
+  .check li::before { content: "\2610"; position: absolute; left: 0; color: var(--accent); }
+  .pitfall { break-inside: avoid; padding: 5pt 0 5pt 0; border-bottom: 1px solid var(--rule); }
+  .pitfall b { display: block; font-weight: 600; }
+
+  /* Couverture */
+  .cover { height: 258mm; display: flex; flex-direction: column; justify-content: space-between; }
+  .cover .brand { font-family: "JetBrains Mono", Menlo, monospace; font-size: 9pt; letter-spacing: 0.1em; text-transform: uppercase; }
+  .cover .sub { font-size: 13pt; color: var(--ink-2); max-width: 150mm; margin-top: 12pt; }
+  .cover .meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10pt; font-size: 9pt; border-top: 1px solid var(--ink); padding-top: 8pt; }
+  .cover .meta b { display: block; font-family: "JetBrains Mono", Menlo, monospace; font-size: 7.5pt; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-sur-clair); font-weight: 400; }
+  .toc { list-style: none; padding: 0; margin-top: 8pt; }
+  .toc li { display: flex; justify-content: space-between; gap: 10pt; border-bottom: 1px dotted var(--rule); padding: 5pt 0; font-size: 10.6pt; margin: 0; }
+  .toc li span:last-child { font-family: "JetBrains Mono", Menlo, monospace; font-size: 8.6pt; color: var(--muted); }
+  .end { background: var(--ink); color: var(--paper); padding: 14pt 16pt; border-radius: 4pt; break-inside: avoid; }
+  .end h2 { color: var(--paper); }
+  .end a { color: #D96A47; }
+  .end, .end p { hyphens: manual; }
+  a { color: var(--accent-sur-clair); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<!-- 1. Couverture -->
+<section class="cover">
+  <div>
+    <div class="brand">Waimia · Grille d'audit · Octobre 2026</div>
+  </div>
+  <div>
+    <div class="kicker">Pour dirigeants et responsables de PME</div>
+    <h1>Grille d'audit de <i>site internet</i></h1>
+    <p class="sub">Huit axes à cocher, avec le geste ou l'outil gratuit pour vérifier chaque point et le signal d'alerte à repérer. À la fin, une décision&nbsp;: corriger le site, ou le refaire.</p>
+  </div>
+  <figure><img src="img/cahier-des-charges-site-internet-gabarit-paper.webp" alt=""></figure>
+  <div class="meta">
+    <div><b>Sources</b>Documentation Google et web.dev, aide Search Console, OpenAI, Service-Public, CNIL. Toutes lues le 16 octobre 2026</div>
+    <div><b>Prix</b>Ceux de Waimia, relevés dans notre grille tarifaire le 14 octobre 2026, en euros hors taxes</div>
+    <div><b>Auteur</b>Simon Beros, Waimia, studio IA pour PME · waimia.com</div>
+  </div>
+</section>
+
+<!-- 2. Sommaire et mode d'emploi -->
+<section class="page">
+  <div class="kicker">Sommaire</div>
+  <h2>Ce que contient cette grille</h2>
+  <ol class="toc">
+    <li><span>1. Comment utiliser la grille</span><span>p. 2</span></li>
+    <li><span>2. La grille, axe par axe</span><span>p. 3</span></li>
+    <li><span>3. Noter le résultat&nbsp;: corriger ou refaire</span><span>p. 7</span></li>
+    <li><span>4. Choisir la solution technique</span><span>p. 8</span></li>
+    <li><span>5. La méthode Waimia</span><span>p. 9</span></li>
+    <li><span>Sources et audit gratuit</span><span>p. 10</span></li>
+  </ol>
+
+  <div class="kicker" style="margin-top:14pt">Chapitre 1</div>
+  <h2>Comment utiliser la grille</h2>
+  <p class="lede">La question n'est pas «&nbsp;mon site a-t-il des défauts&nbsp;?&nbsp;». Il en a. La question est&nbsp;: ces défauts se corrigent-ils, ou viennent-ils de la plateforme&nbsp;?</p>
+  <ol>
+    <li><strong>Prévoyez 45 minutes</strong>, votre site ouvert sur un ordinateur et sur un téléphone. C'est le temps que prend l'audit gratuit de Waimia avec cette même grille.</li>
+    <li><strong>Passez les huit axes dans l'ordre.</strong> Pour chaque point, faites le geste de la colonne du milieu, puis cochez la case si le signal d'alerte de la colonne de droite est absent.</li>
+    <li><strong>Notez chaque axe</strong> à la fin (chapitre 3)&nbsp;: en ordre, à corriger, ou bloqué par la plateforme.</li>
+    <li><strong>Corrigez d'abord ce qui se corrige, puis remesurez.</strong> Seulement ensuite, jugez la plateforme.</li>
+  </ol>
+  <div class="box warn">
+    <p><strong>Deux étiquettes dans les tableaux.</strong></p>
+    <ul>
+      <li><span class="tag">Source</span> le point s'appuie sur une documentation datée, citée dans la liste des sources en fin de document.</li>
+      <li><span class="tag">Pratique</span> le point est la pratique de Waimia. Nous ne l'avons pas mesuré&nbsp;: aucune source lue ne chiffre l'effet d'une correction sur le nombre de demandes reçues.</li>
+    </ul>
+  </div>
+  <h3>Ce que cette grille ne fait pas</h3>
+  <ul>
+    <li>Elle ne remplace pas l'exploration page par page d'un audit SEO technique, qui livre un rapport écrit avec des actions classées.</li>
+    <li>Elle ne couvre ni la sécurité en profondeur, ni l'accessibilité, ni la conformité légale du site. L'axe 7 donne des repères de bon sens, pas une mesure.</li>
+    <li>Elle ne garantit aucune position dans Google ni aucune citation par un assistant IA. Les éditeurs décrivent des conditions d'accès, pas un résultat.</li>
+  </ul>
+</section>
+
+<!-- 3. La grille -->
+<section class="page">
+  <div class="kicker">Chapitre 2</div>
+  <h2>La grille, axe par axe</h2>
+  <p class="lede">Huit axes. Sous chaque tableau, le critère de lecture de Waimia&nbsp;: ce qui se corrige sans refonte, et ce qui pèse vers la refonte.</p>
+
+  <h3>Axe 1 · Conversion</h3>
+  <table>
+    <thead><tr><th style="width:34%">Point à contrôler</th><th style="width:33%">Comment le vérifier</th><th style="width:33%">Signal d'alerte</th></tr></thead>
+    <tbody>
+      <tr><td>☐ Le bouton principal est visible sur mobile sans défiler <span class="tag">Pratique</span></td><td>Ouvrez la page d'accueil sur un téléphone. Ne faites pas défiler.</td><td>Il faut défiler pour trouver comment vous contacter, ou le bouton n'existe pas.</td></tr>
+      <tr><td>☐ Le chemin de l'accueil à la demande de contact est lisible <span class="tag">Pratique</span></td><td>Partez de l'accueil et allez jusqu'au formulaire en comptant les clics.</td><td>Vous hésitez sur le chemin. Un visiteur hésitera aussi.</td></tr>
+      <tr><td>☐ Une demande envoyée en test arrive, chez la bonne personne <span class="tag">Pratique</span></td><td>Remplissez le formulaire avec un e-mail à vous. Notez le délai et qui reçoit.</td><td>Rien n'arrive, ou la demande tombe dans une boîte que personne ne lit.</td></tr>
+      <tr><td>☐ Une preuve réelle se trouve près du bouton <span class="tag">Pratique</span></td><td>Cherchez un cas client, un avis ou une certification. Vérifiez qu'ils sont réels et datés.</td><td>Aucune preuve, ou une preuve sans nom, sans date, ou que vous ne pourriez pas justifier.</td></tr>
+    </tbody>
+  </table>
+  <p class="small"><strong>Se corrige sans refonte&nbsp;:</strong> déplacer ou renommer un bouton, raccourcir un formulaire, réparer l'envoi, ajouter la mesure des demandes. <strong>Pèse vers la refonte&nbsp;:</strong> le gabarit impose un parcours qu'on ne peut pas changer, ou le formulaire ne se branche pas sur votre outil de suivi.</p>
+
+  <h3>Axe 2 · Vitesse et Core Web Vitals</h3>
+  <table>
+    <thead><tr><th style="width:34%">Point à contrôler</th><th style="width:33%">Comment le vérifier</th><th style="width:33%">Signal d'alerte</th></tr></thead>
+    <tbody>
+      <tr><td>☐ Le plus grand élément s'affiche en 2,5 secondes au plus (LCP) <span class="tag">Source</span></td><td>Mesurez la page d'accueil sur mobile avec un outil gratuit de mesure de la vitesse (PageSpeed Insights, d'usage courant&nbsp;; sa documentation n'a pas été relue pour cette grille).</td><td>Le LCP dépasse 2,5 secondes au 75e centile des chargements.</td></tr>
+      <tr><td>☐ La réactivité reste à 200 millisecondes ou moins (INP) <span class="tag">Source</span></td><td>Même outil. Testez aussi un menu et un formulaire au doigt.</td><td>Un clic met un temps visible à réagir.</td></tr>
+      <tr><td>☐ Le décalage visuel reste à 0,1 ou moins (CLS) <span class="tag">Source</span></td><td>Même outil. Regardez la page se charger&nbsp;: rien ne doit sauter.</td><td>Un texte ou un bouton se décale pendant le chargement.</td></tr>
+      <tr><td>☐ Les images sont compressées, les scripts tiers justifiés <span class="tag">Pratique</span></td><td>Listez les outils chargés par le site (mesure d'audience, chat, widgets) et la taille des plus grosses images.</td><td>Des photos de plusieurs mégaoctets, des scripts dont personne ne sait à quoi ils servent.</td></tr>
+    </tbody>
+  </table>
+  <p class="small">Selon web.dev (page mise à jour le 31 octobre 2024), le seuil se mesure au 75e centile des chargements, séparément sur mobile et sur ordinateur. <strong>Se corrige sans refonte&nbsp;:</strong> compresser les images, retirer scripts et extensions inutiles. <strong>Pèse vers la refonte&nbsp;:</strong> une lenteur qui résiste au nettoyage.</p>
+</section>
+
+<section class="page">
+  <h3 style="margin-top:0">Axe 3 · Mobile</h3>
+  <table>
+    <thead><tr><th style="width:34%">Point à contrôler</th><th style="width:33%">Comment le vérifier</th><th style="width:33%">Signal d'alerte</th></tr></thead>
+    <tbody>
+      <tr><td>☐ Le mobile est la version qui compte pour Google <span class="tag">Source</span></td><td>Gardez en tête que Google indexe et classe à partir de la version mobile d'un site (documentation Google, mise à jour le 10 décembre 2025). Regardez donc le mobile d'abord.</td><td>Vous n'avez jamais ouvert votre site sur un téléphone.</td></tr>
+      <tr><td>☐ Le contenu important figure aussi sur la version mobile <span class="tag">Pratique</span></td><td>Comparez, page par page, ordinateur et téléphone&nbsp;: textes, formulaire, bouton de contact.</td><td>Un texte, une preuve ou un bouton disparaît sur téléphone.</td></tr>
+      <tr><td>☐ Le site se lit et se manie sans zoom <span class="tag">Pratique</span></td><td>Lisez un paragraphe et remplissez le formulaire avec un seul doigt.</td><td>Vous pincez l'écran pour lire, ou vous touchez le mauvais lien.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Axe 4 · Indexation et Search Console</h3>
+  <table>
+    <thead><tr><th style="width:34%">Point à contrôler</th><th style="width:33%">Comment le vérifier</th><th style="width:33%">Signal d'alerte</th></tr></thead>
+    <tbody>
+      <tr><td>☐ Vous avez accès à la Search Console du site <span class="tag">Pratique</span></td><td>Connectez-vous à la Search Console (outil gratuit de Google) avec un compte à votre nom.</td><td>Personne ne sait qui détient l'accès, ou il est au nom d'un ancien prestataire.</td></tr>
+      <tr><td>☐ Les pages qui comptent sont indexées <span class="tag">Source</span></td><td>Ouvrez le rapport «&nbsp;Indexation des pages&nbsp;». Il indique quelles URL Google a explorées et indexées, et pourquoi les autres ne le sont pas.</td><td>Une page importante figure parmi les non indexées.</td></tr>
+      <tr><td>☐ Chaque raison de non-indexation est comprise <span class="tag">Source</span></td><td>Lisez la raison donnée par adresse&nbsp;: balise noindex, blocage par robots.txt, redirection, doublon, page introuvable.</td><td>Un noindex oublié, un blocage involontaire. Une page non indexée n'est pas forcément un problème, précise Google&nbsp;: lisez la raison avant de conclure.</td></tr>
+      <tr><td>☐ Le fichier robots.txt ne bloque rien d'utile <span class="tag">Pratique</span></td><td>Ouvrez votresite.fr/robots.txt dans le navigateur et lisez les lignes «&nbsp;Disallow&nbsp;».</td><td>Un dossier ou le site entier est interdit aux robots.</td></tr>
+      <tr><td>☐ Un sitemap à jour est envoyé <span class="tag">Pratique</span></td><td>Cherchez la section sitemaps de la Search Console.</td><td>Aucun sitemap, ou une liste qui contient des pages supprimées.</td></tr>
+    </tbody>
+  </table>
+  <p class="small"><strong>Se corrige sans refonte&nbsp;:</strong> lever un noindex oublié, corriger une redirection, retirer un blocage, envoyer un sitemap à jour. <strong>Pèse vers la refonte&nbsp;:</strong> des adresses ou des balises que la plateforme ne laisse pas modifier.</p>
+
+  <h3>Axe 5 · Contenus et intentions</h3>
+  <table>
+    <thead><tr><th style="width:34%">Point à contrôler</th><th style="width:33%">Comment le vérifier</th><th style="width:33%">Signal d'alerte</th></tr></thead>
+    <tbody>
+      <tr><td>☐ Chaque page a un objet et répond à une question précise <span class="tag">Pratique</span></td><td>Pour chaque page, écrivez en une phrase la question à laquelle elle répond.</td><td>Vous ne trouvez pas la phrase, ou deux pages répondent à la même question et se disputent la requête.</td></tr>
+      <tr><td>☐ Aucune page n'est périmée ou sans objet <span class="tag">Pratique</span></td><td>Parcourez le sitemap et repérez les offres, tarifs, équipes ou actualités qui ne sont plus vrais.</td><td>Une page annonce ce qui n'existe plus.</td></tr>
+      <tr><td>☐ Quelqu'un sait modifier chaque page sans développeur <span class="tag">Pratique</span></td><td>Demandez à la personne en charge du contenu de changer une phrase devant vous.</td><td>La réponse est «&nbsp;il faut appeler le développeur&nbsp;».</td></tr>
+    </tbody>
+  </table>
+  <p class="small"><strong>Se corrige sans refonte&nbsp;:</strong> réécrire, fusionner, supprimer avec une redirection. <strong>Pèse vers la refonte&nbsp;:</strong> une équipe qui dépend d'un développeur pour changer une page.</p>
+</section>
+
+<section class="page">
+  <h3 style="margin-top:0">Axe 6 · Citabilité par les IA</h3>
+  <table>
+    <thead><tr><th style="width:34%">Point à contrôler</th><th style="width:33%">Comment le vérifier</th><th style="width:33%">Signal d'alerte</th></tr></thead>
+    <tbody>
+      <tr><td>☐ Les pages importantes sont indexées et peuvent s'afficher avec un extrait <span class="tag">Source</span></td><td>Reprenez l'axe 4. Pour Google, il n'existe pas d'exigence supplémentaire pour apparaître dans les AI Overviews et l'AI Mode (documentation Google, mise à jour le 10 décembre 2025).</td><td>La page n'est pas indexée&nbsp;: elle ne peut pas être citée.</td></tr>
+      <tr><td>☐ Le contenu important existe sous forme de texte <span class="tag">Source</span></td><td>Sélectionnez le texte à la souris. S'il ne se sélectionne pas, c'est une image.</td><td>Un tarif, une offre ou une preuve ne figure que dans une image ou un PDF.</td></tr>
+      <tr><td>☐ Le robots.txt traite chaque robot IA voulu <span class="tag">Source</span></td><td>Ouvrez le robots.txt. OpenAI documente OAI-SearchBot et GPTBot comme deux réglages séparés&nbsp;: on peut autoriser le premier, pour apparaître dans les résultats de recherche, et refuser le second, pour l'entraînement des modèles.</td><td>Un robot est bloqué sans que personne l'ait décidé. Un changement peut prendre environ 24 heures à être pris en compte (OpenAI).</td></tr>
+      <tr><td>☐ La réponse à la question principale est dans les premières lignes, en texte <span class="tag">Pratique</span></td><td>Lisez le début de chaque page clé&nbsp;: la réponse y est-elle, sans introduction&nbsp;?</td><td>Trois paragraphes d'introduction avant la première réponse.</td></tr>
+      <tr><td>☐ Les données structurées, s'il y en a, décrivent ce qui est visible <span class="tag">Pratique</span></td><td>Passez les pages clés dans un validateur gratuit de données structurées et comparez au contenu affiché.</td><td>Des données qui annoncent ce que la page ne montre pas.</td></tr>
+    </tbody>
+  </table>
+  <p class="small">Google ajoute que remplir ces conditions ne garantit ni l'exploration ni l'affichage. Aucune source lue ne garantit la citation par un assistant. <strong>Se corrige sans refonte&nbsp;:</strong> autoriser le bon robot, remettre en texte ce qui est dans une image. <strong>Pèse vers la refonte&nbsp;:</strong> un contenu que la plateforme ne permet pas d'exposer en texte.</p>
+
+  <h3>Axe 7 · Technique et sécurité</h3>
+  <div class="box warn">
+    <p>Cet axe n'est pas couvert par l'audit gratuit de 45 minutes, qui ne mesure ni la sécurité, ni l'accessibilité, ni la conformité légale. Les points ci-dessous sont des repères à vue, pas un audit de sécurité.</p>
+  </div>
+  <table>
+    <thead><tr><th style="width:34%">Point à contrôler</th><th style="width:33%">Comment le vérifier</th><th style="width:33%">Signal d'alerte</th></tr></thead>
+    <tbody>
+      <tr><td>☐ Le site s'ouvre sans avertissement du navigateur <span class="tag">Pratique</span></td><td>Ouvrez la page d'accueil et une page de formulaire dans un navigateur à jour.</td><td>Un avertissement s'affiche, ou le navigateur signale la page comme non sécurisée.</td></tr>
+      <tr><td>☐ Les mises à jour de la plateforme et des extensions sont faites, et quelqu'un en répond <span class="tag">Pratique</span></td><td>Demandez qui fait les mises à jour, à quelle fréquence, et quand a eu lieu la dernière.</td><td>Personne ne sait. Des mises à jour qui cassent le site sont un critère de refonte.</td></tr>
+      <tr><td>☐ Domaine, hébergement et comptes sont à votre nom <span class="tag">Source</span></td><td>Vérifiez le titulaire du nom de domaine, de l'hébergement et du CMS. Le guide du cahier des charges de Waimia demande que le code, le domaine et les comptes soient à votre nom.</td><td>Ils sont au nom d'un prestataire ou d'un ancien salarié.</td></tr>
+      <tr><td>☐ Une sauvegarde récente existe et a déjà été restaurée <span class="tag">Pratique</span></td><td>Demandez la date de la dernière sauvegarde et si on a déjà testé sa restauration.</td><td>Aucune sauvegarde, ou une sauvegarde jamais testée.</td></tr>
+      <tr><td>☐ Les mentions légales sont présentes <span class="tag">Source</span></td><td>Cherchez le lien en pied de page. Selon Service-Public Entreprendre (fiche vérifiée le 31 juillet 2023), tous les sites professionnels doivent afficher des mentions obligatoires, dont l'identité de l'entreprise et celle de l'hébergeur.</td><td>Le lien manque ou la page est incomplète. L'absence de ces informations est sanctionnée, précise la fiche. Ce n'est pas un avis juridique.</td></tr>
+      <tr><td>☐ Le consentement aux traceurs est valide <span class="tag">Source</span></td><td>Ouvrez le site dans une fenêtre privée. Un bandeau doit demander un choix. Pour la CNIL (questions-réponses du 29 avril 2026), la simple poursuite de la navigation ne peut plus être un consentement valide.</td><td>Des traceurs se chargent sans avoir demandé. Ce n'est pas un avis juridique.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="page">
+  <h3 style="margin-top:0">Axe 8 · Mesure</h3>
+  <table>
+    <thead><tr><th style="width:34%">Point à contrôler</th><th style="width:33%">Comment le vérifier</th><th style="width:33%">Signal d'alerte</th></tr></thead>
+    <tbody>
+      <tr><td>☐ Les demandes reçues sont comptées <span class="tag">Pratique</span></td><td>Demandez combien de demandes le site a produit le mois dernier, et où ce chiffre est écrit.</td><td>Personne ne connaît le chiffre. Sans mesure, on ne sait pas si une correction a servi.</td></tr>
+      <tr><td>☐ Un point de départ est relevé avant tout changement <span class="tag">Pratique</span></td><td>Notez aujourd'hui, avec la date&nbsp;: demandes par mois, pages indexées, vitesse mobile.</td><td>Aucun chiffre de départ&nbsp;: l'objectif d'une refonte ne peut pas être chiffré.</td></tr>
+      <tr><td>☐ La source de chaque demande est connue <span class="tag">Pratique</span></td><td>Regardez si la fiche d'une demande indique la page d'origine.</td><td>Vous ne savez pas quelle page produit des demandes, donc laquelle protéger en cas de refonte.</td></tr>
+    </tbody>
+  </table>
+  <p class="small">Aucune source lue pour cette grille ne mesure l'effet d'une correction sur le nombre de demandes. Les axes conversion et contenus relèvent de la pratique de Waimia.</p>
+
+  <div class="kicker" style="margin-top:14pt">Chapitre 3</div>
+  <h2>Noter le résultat&nbsp;: corriger ou refaire</h2>
+  <p class="lede">Reportez chaque axe dans le tableau ci-dessous. Une seule lettre par axe.</p>
+  <table>
+    <thead><tr><th style="width:30%">Axe</th><th style="width:20%">Note</th><th style="width:50%">Ce que la note veut dire</th></tr></thead>
+    <tbody>
+      <tr><td>1 · Conversion</td><td class="mono">O&nbsp;/ C&nbsp;/ B</td><td rowspan="8"><strong>O, en ordre.</strong> Tous les points sont cochés.<br><br><strong>C, à corriger.</strong> Un défaut existe et se règle dans le site actuel&nbsp;: image lourde, noindex oublié, formulaire cassé.<br><br><strong>B, bloqué par la plateforme.</strong> Le défaut vient de la plateforme et non de son réglage, et il résiste après correction.</td></tr>
+      <tr><td>2 · Vitesse</td><td class="mono">O&nbsp;/ C&nbsp;/ B</td></tr>
+      <tr><td>3 · Mobile</td><td class="mono">O&nbsp;/ C&nbsp;/ B</td></tr>
+      <tr><td>4 · Indexation</td><td class="mono">O&nbsp;/ C&nbsp;/ B</td></tr>
+      <tr><td>5 · Contenus</td><td class="mono">O&nbsp;/ C&nbsp;/ B</td></tr>
+      <tr><td>6 · Citabilité IA</td><td class="mono">O&nbsp;/ C&nbsp;/ B</td></tr>
+      <tr><td>7 · Technique</td><td class="mono">O&nbsp;/ C&nbsp;/ B</td></tr>
+      <tr><td>8 · Mesure</td><td class="mono">O&nbsp;/ C&nbsp;/ B</td></tr>
+    </tbody>
+  </table>
+  <div class="two">
+    <div class="box keep">
+      <p><strong>Corriger sans refonte.</strong></p>
+      <p>Aucun axe en B. Faites les corrections des axes en C, puis remesurez avec les mêmes gestes. Le défaut a disparu&nbsp;: la plateforme n'était pas en cause.</p>
+    </div>
+    <div class="box warn keep">
+      <p><strong>La refonte se justifie.</strong></p>
+      <p>Un axe reste en B après correction. Les trois critères de Waimia&nbsp;: une lenteur qui résiste au nettoyage, des mises à jour qui cassent le site, une équipe qui dépend d'un développeur pour changer une page.</p>
+    </div>
+  </div>
+  <p class="small">La règle est notre lecture de praticiens, pas une règle sourcée&nbsp;: corriger d'abord ce qui se corrige, remesurer, puis juger la plateforme. Si la réponse est «&nbsp;refaire&nbsp;», Google conseille de ne modifier qu'une seule chose à la fois et de garder les redirections aussi longtemps que possible, en général au moins un an (documentation Google sur les migrations de site, mise à jour le 11 septembre 2026).</p>
+</section>
+
+<!-- 4. Solution technique -->
+<section class="page">
+  <div class="kicker">Chapitre 4</div>
+  <h2>Choisir la solution technique</h2>
+  <p class="lede">Corriger ou refaire ne dit pas encore avec quoi. Deux choix distincts&nbsp;: le mode de rendu, puis la plateforme. Notre critère&nbsp;: on tranche selon qui fera vivre le site.</p>
+
+  <h3>Le mode de rendu</h3>
+  <p class="small muted">D'après web.dev, «&nbsp;Rendering on the Web&nbsp;» (page mise à jour le 5 janvier 2026, lue le 16 octobre 2026).</p>
+  <table>
+    <thead><tr><th style="width:22%">Mode</th><th style="width:40%">Ce que c'est</th><th style="width:38%">Limite à connaître</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Site statique</strong></td><td>Une page HTML par adresse, produite à l'avance.</td><td>Rapide à afficher, mais difficile avec un très grand nombre de pages, des adresses imprévisibles ou des pages personnalisées.</td></tr>
+      <tr><td><strong>Rendu serveur</strong></td><td>Le serveur produit le HTML à chaque demande.</td><td>Le premier octet peut arriver plus tard et le calcul coûte plus cher.</td></tr>
+      <tr><td><strong>Hybride</strong></td><td>Le HTML arrive du serveur, puis des scripts rendent la page interactive.</td><td>La page peut sembler prête avant de l'être, ce qui pénalise la réactivité (INP).</td></tr>
+    </tbody>
+  </table>
+  <p>Pour un site de PME de quelques dizaines de pages, la question est rarement le volume. Lecture de Waimia&nbsp;: elle porte sur ce que le site doit relier (formulaires, outil de suivi, contenu qui change souvent).</p>
+
+  <h3>La plateforme</h3>
+  <p class="small muted">Lecture de Waimia pour un site de PME, non mesurée, reprise de notre guide du cahier des charges de site internet (16 octobre 2026). La colonne «&nbsp;Limite&nbsp;» n'est pas un jugement sur l'outil&nbsp;: c'est ce que le devis doit prévoir.</p>
+  <table>
+    <thead><tr><th style="width:20%">Solution</th><th style="width:44%">À choisir quand</th><th style="width:36%">Limite à connaître</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Site statique codé</strong></td><td>Site de services dont les pages changent à la publication, avec la vitesse et le référencement en priorité.</td><td>Chaque modification est publiée&nbsp;; l'équipe a besoin d'un outil d'édition.</td></tr>
+      <tr><td><strong>CMS headless</strong></td><td>Votre équipe édite les contenus dans une interface, le site est codé séparément.</td><td>Deux briques à maintenir&nbsp;; l'abonnement du CMS s'ajoute au coût.</td></tr>
+      <tr><td><strong>WordPress</strong></td><td>Une équipe qui le connaît déjà, un besoin d'extensions spécialisées, un site existant à entretenir.</td><td>Mises à jour et extensions à surveiller&nbsp;; la vitesse est à tenir dans le temps.</td></tr>
+      <tr><td><strong>Webflow</strong></td><td>Un design soigné, un site de quelques dizaines de pages, édité par votre équipe, avec peu d'intégrations.</td><td>L'export ne reprend pas le CMS&nbsp;: le compte doit être à votre nom.</td></tr>
+      <tr><td><strong>Lovable</strong></td><td>Obtenir vite une maquette fonctionnelle pour tester une idée ou montrer une direction.</td><td>Un prototype généré se reprend en code relu avant la mise en production.</td></tr>
+      <tr><td><strong>Développement assisté par IA («&nbsp;vibe coding&nbsp;»)</strong></td><td>Le code est écrit avec un assistant IA à partir d'une description en langage courant&nbsp;: utile pour avancer vite.</td><td>Sans relecture ni tests, c'est un prototype. Chez Waimia, le code est relu, testé et remis.</td></tr>
+    </tbody>
+  </table>
+  <p class="small">Pour décider, demandez à l'agence qui fera vivre le site, puis ce que le site doit relier. Imposez le résultat, laissez le moyen ouvert.</p>
+</section>
+
+<!-- 5. Méthode Waimia -->
+<section class="page">
+  <div class="kicker">Chapitre 5</div>
+  <h2>La méthode Waimia</h2>
+  <p class="lede">Du premier rendez-vous à la maquette validée. Le développement ne démarre qu'ensuite.</p>
+  <ol class="steps">
+    <li><strong>Premier rendez-vous.</strong> On comprend votre activité et ce que le site doit rapporter.</li>
+    <li><strong>Audit gratuit de 45 minutes.</strong> En visio, avec vous, sur votre site actuel. On passe cette grille, puis on s'accorde sur la solution et le mode de rendu.</li>
+    <li><strong>Style et conversion.</strong> Vos préférences de style, des pistes inspirées de sites présentés sur Awwwards (annuaire où l'on trouve de l'inspiration) et les bonnes pratiques de conversion.</li>
+    <li><strong>Récupération des pièces.</strong> Logo, images, book, charte graphique. Si vous prenez l'offre de branding, la charte est refondue au lieu d'être reprise telle quelle.</li>
+    <li><strong>Maquette validée, puis développement.</strong> Le développement ne démarre qu'après validation d'une maquette ou d'une direction.</li>
+  </ol>
+
+  <h3>Les deux packs d'heures</h3>
+  <table>
+    <thead><tr><th style="width:22%">Pack</th><th style="width:24%">Prix HT</th><th style="width:54%">Ce que c'est</th></tr></thead>
+    <tbody>
+      <tr><td><strong>10 heures</strong></td><td class="num">999&nbsp;€ HT</td><td>Le sprint de cadrage, au prix fixe publié par Waimia.</td></tr>
+      <tr><td><strong>20 heures</strong></td><td class="num">1&#8239;980&nbsp;€ HT</td><td>20 heures au taux horaire de 99&nbsp;€ HT, soit 20 × 99.</td></tr>
+      <tr><td><strong>SEO et GEO</strong></td><td class="num">en option</td><td>Sur 10 heures ou en suivi mensuel. Le montant n'est pas repris ici.</td></tr>
+    </tbody>
+  </table>
+  <div class="box">
+    <p><strong>Relevé des prix&nbsp;: le 14 octobre 2026.</strong> Sprint de cadrage de 999&nbsp;€ HT pour 10 heures et taux horaire de 99&nbsp;€ HT, lus dans la grille tarifaire de Waimia à cette date. Le total de 1&#8239;980&nbsp;€ HT est un calcul de ce document. Montants hors taxes&nbsp;; la grille en vigueur est celle de waimia.com/tarifs.</p>
+  </div>
+  <p>Le périmètre est fixé par écrit avant de démarrer. Pour écrire votre besoin avant de demander des devis, utilisez le cahier des charges de site internet de Waimia, publié sur waimia.com. Si vous voulez la mesure complète de l'indexation et de la structure, page par page, c'est l'audit SEO technique, un autre travail.</p>
+</section>
+
+<!-- 6. Sources et fin -->
+<section class="page">
+  <div class="kicker">Sources et contact</div>
+  <h2>Sources, lues le 16 octobre 2026</h2>
+  <ul class="small">
+    <li>web.dev, Web Vitals (mise à jour le 31 octobre 2024)&nbsp;: web.dev/articles/vitals</li>
+    <li>Google Search Central, Mobile site and mobile-first indexing (mise à jour le 10 décembre 2025)&nbsp;: developers.google.com/search/docs/crawling-indexing/mobile/mobile-sites-mobile-first-indexing</li>
+    <li>Aide Search Console, rapport Indexation des pages&nbsp;: support.google.com/webmasters/answer/7440203</li>
+    <li>Google Search Central, AI features and your website (mise à jour le 10 décembre 2025)&nbsp;: developers.google.com/search/docs/appearance/ai-features</li>
+    <li>OpenAI, Overview of OpenAI Crawlers&nbsp;: developers.openai.com/api/docs/bots</li>
+    <li>Google Search Central, Migrations de sites (mise à jour le 11 septembre 2026)&nbsp;: developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes</li>
+    <li>web.dev, Rendering on the Web (mise à jour le 5 janvier 2026)&nbsp;: web.dev/articles/rendering-on-the-web</li>
+    <li>Service-Public Entreprendre, mentions obligatoires sur le site internet d'un entrepreneur individuel (fiche vérifiée le 31 juillet 2023)&nbsp;: entreprendre.service-public.fr/vosdroits/F31228</li>
+    <li>CNIL, questions-réponses cookies et autres traceurs (29 avril 2026)&nbsp;: cnil.fr/fr/cookies-et-autres-traceurs/regles/cookies/FAQ</li>
+    <li>Awwwards, page d'accueil&nbsp;: awwwards.com</li>
+    <li>Waimia, billet «&nbsp;Audit de site internet&nbsp;: la grille avant de décider d'une refonte&nbsp;» et guides du cahier des charges et de la refonte de site internet&nbsp;: waimia.com</li>
+  </ul>
+  <p class="small muted">Les lignes marquées «&nbsp;Pratique&nbsp;» et la règle de notation sont la lecture de Waimia, non mesurée. Les seuils de vitesse sont ceux de web.dev, relevés tels quels&nbsp;: les respecter ne garantit aucune position. Les résultats de recherche sur les requêtes «&nbsp;audit site internet&nbsp;» ont été lus avec un outil, pas depuis Google.fr. Ce document ne constitue ni un avis juridique ni un audit de sécurité.</p>
+
+  <div class="end" style="margin-top:16pt">
+    <div class="kicker" style="color:#D96A47">Waimia · studio IA pour PME</div>
+    <h2>Savoir si votre site se corrige ou se refait.</h2>
+    <p>L'audit de 45 minutes est gratuit et sans engagement. On passe cette grille ensemble sur votre site actuel, en visio. Vous repartez avec une décision&nbsp;: corriger, ou refaire, et avec quelle solution.</p>
+    <p>Ensuite, si vous voulez de l'aide&nbsp;: un pack de 10 heures à 999&nbsp;€ HT, ou 20 heures au taux horaire de 99&nbsp;€ HT (prix relevés le 14 octobre 2026).</p>
+    <p><strong>Réserver l'audit gratuit&nbsp;:</strong> <a href="https://waimia.com/audit-ia-pme">waimia.com/audit-ia-pme</a></p>
+  </div>
+</section>
+
+</body>
+</html>

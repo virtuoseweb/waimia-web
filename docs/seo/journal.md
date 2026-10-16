@@ -37,6 +37,12 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### Illustrations en production, 16 octobre 2026 (PR #107, `0de8e586`)
+
+- **Demande de Simon** : plusieurs pages créées n'avaient pas d'image. 20 illustrations dessinées avec le skill `waimia-illustration` (moteur B, SVG, aucune API payante) : 9 héros (6 guides, 3 comparatifs) et 11 billets récents.
+- **Défaut trouvé** : le gabarit des billets (`essay`) ignore `body_sections[0].figures` ; les billets affichaient l'illustration par catégorie. Les 11 billets portent l'image en `heroIllustration`. Deux anciens billets (`automatiser-relance-devis-n8n`, `trier-emails-entrant-claude-n8n`) ont encore des `figures` non rendues : tâche séparée.
+- **Preuves** : build 0, `astro check` 8 erreurs (référence), portes à la référence, 20 pages mesurées à 1366×768 et 390×844 (image chargée, opacity 1, 0 débordement, 0 erreur console, bas des CTA des héros ≤ 725 px à 390×844), E2E 77 passés, preview 20 sur 20, production 20 sur 20.
+
 ### Vague 14 en production, 16 octobre 2026 (PR #105, `3d884315`)
 
 - **Mesure** : Vercel Web Analytics activé et posé (composant Astro, injecté seulement lors d'un build Vercel). Première page vue comptée en production le 16 octobre. Une mesure maison (Neon, PR #104) a été construite puis fermée sur décision de Simon : Web Analytics est inclus dans le plan. Limite : les événements personnalisés (conversions) ne sont pas suivis ; l'e-mail interne de chaque lead porte déjà la page d'origine.
