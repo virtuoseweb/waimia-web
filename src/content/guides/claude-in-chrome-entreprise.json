@@ -1,0 +1,546 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "Claude in Chrome en entreprise : installer, régler, encadrer l'extension",
+  "title_en": "Claude in Chrome for business: install, configure, govern the extension",
+  "seoTitle_fr": "Extension Claude in Chrome en entreprise : guide d'équipe",
+  "seoTitle_en": "Claude in Chrome extension for business: team guide",
+  "description_fr": "Extension Claude in Chrome en équipe : installer, régler les autorisations et les sites autorisés, fermer les risques d'injection. Relevé le 16 octobre 2026.",
+  "description_en": "Claude in Chrome extension for business: install, permissions, allowed sites and prompt injection risks to close before rollout. Checked on 16 October 2026.",
+  "slug": "claude-in-chrome-entreprise",
+  "publishedAt": "2026-10-16",
+  "updatedAt": "2026-10-16",
+  "category": "claude",
+  "cluster": "claude",
+  "tags": [
+    "claude",
+    "claude-in-chrome",
+    "extension-chrome",
+    "navigateur",
+    "autorisations",
+    "securite",
+    "guide-pme"
+  ],
+  "sources": [
+    {
+      "name": "Centre d'aide Claude, Claude in Chrome admin controls (activation, listes de sites, déploiement, pilote, réseau), lu le 16 octobre 2026",
+      "url": "https://support.claude.com/en/articles/13065128-claude-in-chrome-admin-controls",
+      "type": "enterprise"
+    },
+    {
+      "name": "Centre d'aide Claude, Get started with Claude in Chrome (installation, autorisations demandées au navigateur, panneau latéral), lu le 16 octobre 2026",
+      "url": "https://support.claude.com/en/articles/12012173-get-started-with-claude-in-chrome",
+      "type": "enterprise"
+    },
+    {
+      "name": "Centre d'aide Claude, Use Claude in Chrome safely (injection de consignes, test interne inférieur à 0,08 %, données réglementées, responsabilité), lu le 16 octobre 2026",
+      "url": "https://support.claude.com/en/articles/12902428-use-claude-in-chrome-safely",
+      "type": "enterprise"
+    },
+    {
+      "name": "Centre d'aide Claude, Claude in Chrome permissions guide (modes d'approbation, actions protégées et interdites), lu le 16 octobre 2026",
+      "url": "https://support.claude.com/en/articles/12902446-claude-in-chrome-permissions-guide",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, page produit Claude in Chrome, lue le 16 octobre 2026",
+      "url": "https://claude.com/claude-in-chrome",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, page tarifs de Claude (Claude in Chrome selon l'offre), lue le 16 octobre 2026",
+      "url": "https://claude.com/pricing",
+      "type": "enterprise"
+    },
+    {
+      "name": "Documentation Claude Desktop pour déploiements tiers (Chrome ou Edge), lue le 16 octobre 2026",
+      "url": "https://claude.com/docs/third-party/claude-desktop/browser",
+      "type": "enterprise"
+    },
+    {
+      "name": "Documentation Claude Code, Use Claude Code with Chrome (navigateurs pris en charge), lue le 16 octobre 2026",
+      "url": "https://code.claude.com/docs/en/chrome",
+      "type": "enterprise"
+    },
+    {
+      "name": "Chrome Web Store, fiche de l'extension Claude, lue le 16 octobre 2026",
+      "url": "https://chromewebstore.google.com/detail/claude/fcoeoabgfenejglbffodgkkbkcdhcgfn",
+      "type": "enterprise"
+    }
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "Qu'est-ce que Claude in Chrome ?",
+      "a": "Une extension de navigateur qui permet à Claude de lire, cliquer et naviguer sur des sites pour le compte de l'utilisateur. Elle s'utilise depuis le panneau latéral de Chrome, depuis Claude Cowork ou depuis Claude Code. Anthropic indique que le panneau latéral de Chrome est en bêta. Relevé le 16 octobre 2026."
+    },
+    {
+      "q": "Claude in Chrome est-il gratuit ?",
+      "a": "Non. L'extension est incluse dans les offres payantes Pro, Max, Team et Enterprise, et pas dans l'offre Free (page tarifs d'Anthropic). Pour une équipe, le contrat pertinent est Team ou Enterprise : voir le guide sur les abonnements Claude pour une TPE. Relevé le 16 octobre 2026."
+    },
+    {
+      "q": "Comment déployer l'extension pour toute une équipe ?",
+      "a": "Un propriétaire de l'organisation vérifie l'interrupteur dans Organization settings > Claude in Chrome (activé par défaut sur Team). Les utilisateurs installent ensuite l'extension depuis le Chrome Web Store, ou vous la déployez vers des groupes ciblés avec la console d'administration Google Workspace ou un outil de gestion des appareils. Relevé le 16 octobre 2026."
+    },
+    {
+      "q": "Comment limiter les sites auxquels Claude peut accéder ?",
+      "a": "Avec une liste de sites autorisés, qui restreint Claude aux seuls sites ajoutés, et une liste de sites bloqués, qui interdit des sites quels que soient les autres réglages. Anthropic recommande de commencer par une liste autorisée restrictive, puis de l'élargir. Ces listes sont réservées aux offres Team et Enterprise. Relevé le 16 octobre 2026."
+    },
+    {
+      "q": "Une page web peut-elle piéger Claude in Chrome ?",
+      "a": "Oui, c'est le risque principal que décrit Anthropic : des consignes cachées dans une page, un e-mail ou un document peuvent être prises pour des demandes de l'utilisateur. Anthropic filtre les contenus et contrôle chaque action, mesure moins de 0,08 % d'attaques réussies dans ses tests internes, et écrit que le risque n'est pas nul. Relevé le 16 octobre 2026."
+    },
+    {
+      "q": "Peut-on l'utiliser avec des données personnelles ou réglementées ?",
+      "a": "Anthropic le déconseille sur des pages contenant des données réglementées. Dans une organisation HIPAA, l'extension est désactivée par défaut et n'est pas couverte par l'accord BAA, et la conservation zéro des données n'est pas prise en charge. Pour le RGPD, traitez-la comme tout traitement de données personnelles. Ce n'est pas un avis juridique. Relevé le 16 octobre 2026."
+    },
+    {
+      "q": "Fonctionne-t-elle sur Edge, Brave ou sur mobile ?",
+      "a": "Le centre d'aide d'Anthropic indique que Claude in Chrome n'est pas pris en charge sur les autres navigateurs basés sur Chromium ni sur mobile. D'autres pages d'Anthropic sont moins strictes (Edge pour Claude Desktop, d'autres navigateurs pour Claude Code) : pour un déploiement d'équipe, retenez Chrome sur ordinateur. Relevé le 16 octobre 2026."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "What is Claude in Chrome?",
+      "a": "A browser extension that lets Claude read, click and navigate websites on the user's behalf. It is used from the Chrome side panel, from Claude Cowork or from Claude Code. Anthropic states that the Chrome side panel is in beta. Checked on 16 October 2026."
+    },
+    {
+      "q": "Is Claude in Chrome free?",
+      "a": "No. The extension is included in the paid Pro, Max, Team and Enterprise plans, not in the Free plan (Anthropic's pricing page). For a team, the relevant contract is Team or Enterprise: see the guide on Claude plans for a very small business. Checked on 16 October 2026."
+    },
+    {
+      "q": "How do you roll the extension out to a whole team?",
+      "a": "An organization owner checks the switch in Organization settings > Claude in Chrome (on by default for Team). Users then install the extension from the Chrome Web Store, or you deploy it to targeted groups with the Google Workspace admin console or a device-management tool. Checked on 16 October 2026."
+    },
+    {
+      "q": "How do you limit which sites Claude can reach?",
+      "a": "With an allowlist, which restricts Claude to the sites you add, and a blocklist, which forbids sites whatever the other settings. Anthropic recommends starting with a restrictive allowlist, then widening it. These lists are for the Team and Enterprise plans. Checked on 16 October 2026."
+    },
+    {
+      "q": "Can a web page trick Claude in Chrome?",
+      "a": "Yes, it is the main risk Anthropic describes: instructions hidden in a page, an email or a document can be mistaken for the user's requests. Anthropic filters content and checks every action, measures under 0.08% successful attacks in its internal tests, and writes that the risk is not zero. Checked on 16 October 2026."
+    },
+    {
+      "q": "Can it be used with personal or regulated data?",
+      "a": "Anthropic advises against it on pages containing regulated data. In a HIPAA organization the extension is off by default and is not covered by the BAA, and zero data retention is not supported. For GDPR, treat it like any processing of personal data. This is not legal advice. Checked on 16 October 2026."
+    },
+    {
+      "q": "Does it work on Edge, Brave or mobile?",
+      "a": "Anthropic's help centre states that Claude in Chrome is not supported on other Chromium-based browsers or on mobile. Other Anthropic pages are less strict (Edge for Claude Desktop, other browsers for Claude Code): for a team rollout, stick to Chrome on desktop. Checked on 16 October 2026."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "kicker_fr": "§ Guide",
+      "kicker_en": "§ Guide",
+      "h1_fr": "Extension Claude in <i class=\"acc\">Chrome</i> en entreprise : installer, régler, encadrer",
+      "h1_en": "Claude in <i class=\"acc\">Chrome</i> extension for business: install, configure, govern",
+      "lede_fr": "Claude in Chrome est une extension qui lit, clique et navigue sur les sites à la place de l'utilisateur. Pour une équipe, quatre réglages suffisent au départ : une liste courte de sites autorisés, l'approbation manuelle des actions, un groupe pilote, aucun site à données sensibles. Le risque principal est la consigne cachée dans une page : Anthropic le dit non nul. Relevé le 16 octobre 2026.",
+      "lede_en": "Claude in Chrome is an extension that reads, clicks and navigates websites in place of the user. For a team, four settings are enough to start: a short allowlist of sites, manual approval of actions, a pilot group, no site holding sensitive data. The main risk is instructions hidden in a page: Anthropic says it is not zero. Checked on 16 October 2026.",
+      "badges": [
+        {
+          "label_fr": "Sources Anthropic relevées le 16 octobre 2026",
+          "label_en": "Anthropic sources checked on 16 October 2026"
+        },
+        {
+          "label_fr": "Panneau Chrome en bêta chez Anthropic",
+          "label_en": "Chrome panel in beta at Anthropic"
+        },
+        {
+          "label_fr": "Pas un avis juridique",
+          "label_en": "Not legal advice"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver l'audit gratuit",
+        "label_en": "Book the free audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Voir Claude Cowork et ses contrôles",
+        "label_en": "See Claude Cowork and its controls",
+        "href": "/ressources/guides/claude-cowork",
+        "variant": "ghost"
+      }
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "16 octobre 2026",
+      "updatedDate": "16 octobre 2026"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "Comment encadrer Claude in Chrome dans une équipe ?",
+      "question_en": "How do you govern Claude in Chrome in a team?",
+      "term_fr": "Réponse courte",
+      "term_en": "Short answer",
+      "answer_fr": "Décidez avant l'installation, pas après. Sur Team, l'extension est activée par défaut : un propriétaire peut la couper dans Organization settings > Claude in Chrome, puis choisir un groupe pilote, limiter Claude à quelques sites autorisés et garder l'approbation manuelle des actions. Écrivez ensuite une règle d'une page : quels sites, quelles données, qui relit. Anthropic recommande une liste restrictive au départ, à élargir ensuite. Relevé le 16 octobre 2026.",
+      "answer_en": "Decide before installing, not after. On Team, the extension is on by default: an owner can switch it off in Organization settings > Claude in Chrome, then choose a pilot group, limit Claude to a few allowed sites and keep manual approval of actions. Then write a one-page rule: which sites, which data, who reviews. Anthropic recommends a restrictive list at the start, widened afterwards. Checked on 16 October 2026."
+    },
+    {
+      "type": "key-metric-grid",
+      "background": "paper",
+      "variant": "accent",
+      "columns": 4,
+      "eyebrow_fr": "§ Les repères",
+      "eyebrow_en": "§ Key figures",
+      "title_fr": "Quels chiffres et réglages retenir avant de déployer ?",
+      "title_en": "Which figures and settings should you remember before rolling out?",
+      "metrics": [
+        {
+          "value": "3 modes",
+          "label_fr": "d'approbation dans l'extension : Manually approve, Automatically approve et Skip all approvals ; le troisième supprime tout contrôle automatique (Anthropic)",
+          "label_en": "of approval in the extension: Manually approve, Automatically approve and Skip all approvals; the third removes every automatic check (Anthropic)"
+        },
+        {
+          "value": "< 0,08 %",
+          "label_fr": "d'attaques par consigne cachée réussies dans les tests internes d'Anthropic, avec sa configuration actuelle ; l'éditeur écrit que le risque n'est pas nul",
+          "label_en": "of hidden-instruction attacks succeeded in Anthropic's internal tests, with its current configuration; the vendor writes that the risk is not zero"
+        },
+        {
+          "value": "Activée",
+          "label_fr": "par défaut sur Team ; sur Enterprise aussi, sauf désactivation préalable : à décider avant d'annoncer l'outil à l'équipe",
+          "label_en": "by default on Team; on Enterprise too unless previously disabled: decide before announcing the tool to the team"
+        },
+        {
+          "value": "Pas de ZDR",
+          "label_fr": "la conservation zéro des données n'est pas prise en charge par Claude in Chrome (article d'administration d'Anthropic)",
+          "label_en": "zero data retention is not supported by Claude in Chrome (Anthropic's admin article)"
+        }
+      ]
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Les réglages",
+      "kicker_en": "§ The settings",
+      "heading_fr": "Quels réglages d'administration, et quelle valeur de départ ?",
+      "heading_en": "Which admin settings, and which starting value?",
+      "caption_fr": "Sources : article d'administration de Claude in Chrome et pages d'aide associées, lus le 16 octobre 2026. Les contrôles d'administration concernent les offres Team et Enterprise. La colonne « Valeur de départ » est une lecture de Waimia, pas une consigne d'Anthropic.",
+      "caption_en": "Sources: the Claude in Chrome admin article and related help pages, read on 16 October 2026. Admin controls apply to the Team and Enterprise plans. The \"Starting value\" column is Waimia's reading, not an Anthropic instruction.",
+      "columns_fr": [
+        "Réglage",
+        "Ce que dit Anthropic",
+        "Valeur de départ"
+      ],
+      "columns_en": [
+        "Setting",
+        "What Anthropic says",
+        "Starting value"
+      ],
+      "rows_fr": [
+        [
+          "Activation pour l'organisation",
+          "Interrupteur « Enable for your team » dans Organization settings > Claude in Chrome. Team : activé par défaut. Enterprise : activé sauf désactivation préalable ; avec HIPAA, désactivé jusqu'à ce qu'un propriétaire l'active.",
+          "Décider avant l'annonce. Pour un pilote : activé, installation limitée à quelques postes."
+        ],
+        [
+          "Liste de sites autorisés",
+          "Restreint Claude aux sites ajoutés. Anthropic recommande de commencer par une liste restrictive puis de l'élargir. La même liste gouverne le navigateur intégré de Cowork.",
+          "Les outils métier sur lesquels l'équipe travaille déjà, et rien d'autre."
+        ],
+        [
+          "Liste de sites bloqués",
+          "Interdit des sites quels que soient les autres réglages, en plus des catégories bloquées par défaut.",
+          "Webmail et réseaux personnels, banques, sites de paie ou de santé."
+        ],
+        [
+          "Déploiement de l'extension",
+          "Installation libre depuis le Chrome Web Store, ou déploiement par vos outils de gestion de Chrome (console d'administration Google Workspace, gestion des appareils) vers des utilisateurs ou groupes ciblés. La politique Chrome forceLoginOrgUUID limite l'extension à une organisation.",
+          "Déploiement ciblé sur le groupe pilote ; politique forceLoginOrgUUID."
+        ],
+        [
+          "Permission par rôle (Enterprise)",
+          "Claude in Chrome a sa propre permission, distincte de Cowork, accordée par rôle personnalisé. Elle n'hérite pas de l'accès à Cowork.",
+          "Réserver aux rôles du pilote."
+        ],
+        [
+          "Réseau",
+          "Le trafic passe par claude.ai, api.anthropic.com et platform.claude.com ; l'extension se connecte aussi à wss://bridge.claudeusercontent.com.",
+          "Ouvrir ces connexions si le pare-feu est strict."
+        ],
+        [
+          "Mots de passe",
+          "1Password for Claude : désactivé par défaut pour l'organisation. Claude ne voit ni le mot de passe ni le code à usage unique (bêta, macOS).",
+          "Laisser désactivé tant que le pilote n'est pas mesuré."
+        ]
+      ],
+      "rows_en": [
+        [
+          "Activation for the organization",
+          "\"Enable for your team\" switch in Organization settings > Claude in Chrome. Team: on by default. Enterprise: on unless previously disabled; with HIPAA, off until an owner turns it on.",
+          "Decide before the announcement. For a pilot: on, installation limited to a few machines."
+        ],
+        [
+          "Allowlist",
+          "Restricts Claude to the added sites. Anthropic recommends starting with a restrictive list then widening it. The same list governs Cowork's built-in browser.",
+          "The business tools the team already works in, and nothing else."
+        ],
+        [
+          "Blocklist",
+          "Forbids sites whatever the other settings, on top of the categories blocked by default.",
+          "Webmail and personal networks, banks, payroll or health sites."
+        ],
+        [
+          "Extension deployment",
+          "Open installation from the Chrome Web Store, or deployment through your Chrome management tools (Google Workspace admin console, device management) to targeted users or groups. The forceLoginOrgUUID Chrome policy limits the extension to one organization.",
+          "Targeted deployment to the pilot group; forceLoginOrgUUID policy."
+        ],
+        [
+          "Per-role permission (Enterprise)",
+          "Claude in Chrome has its own permission, separate from Cowork, granted through custom roles. It does not inherit Cowork access.",
+          "Reserve it for the pilot roles."
+        ],
+        [
+          "Network",
+          "Traffic goes through claude.ai, api.anthropic.com and platform.claude.com; the extension also connects to wss://bridge.claudeusercontent.com.",
+          "Open these connections if the firewall is strict."
+        ],
+        [
+          "Passwords",
+          "1Password for Claude: off by default for the organization. Claude sees neither the password nor the one-time code (beta, macOS).",
+          "Leave it off until the pilot is measured."
+        ]
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Comment installer Claude in Chrome ?</h2>\n<p>L'extension est disponible sur les offres payantes (Pro, Max, Team et Enterprise), pas sur Free (<a href=\"https://claude.com/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">page tarifs d'Anthropic</a>). Elle s'installe dans Google Chrome depuis le Chrome Web Store : « Add to Chrome », connexion avec le compte Claude, épinglage de l'icône, puis acceptation des autorisations demandées au navigateur. Le <a href=\"https://support.claude.com/en/articles/12012173-get-started-with-claude-in-chrome\" rel=\"noopener noreferrer\" target=\"_blank\">centre d'aide</a> précise qu'elle n'est pas prise en charge sur les autres navigateurs basés sur Chromium ni sur mobile.</p>\n<p>D'autres pages d'Anthropic sont moins strictes : la documentation de Claude Desktop pour les déploiements tiers cite Chrome et Edge, celle de Claude Code cite d'autres navigateurs Chromium. Pour une équipe, retenez la règle du centre d'aide : Chrome, sur ordinateur.</p>\n<h3>Ce que l'installation autorise</h3>\n<p>Le navigateur demande plusieurs autorisations, dont quatre pèsent dans une décision d'équipe :</p>\n<ul>\n<li><strong>debugger</strong> : c'est ce qui permet à Claude de cliquer, de saisir du texte et de prendre des captures d'écran.</li>\n<li><strong>scripting</strong> : lire le texte des pages.</li>\n<li><strong>downloads</strong> : télécharger des fichiers depuis des sites et les ouvrir.</li>\n<li><strong>nativeMessaging</strong> : dialoguer avec Claude Desktop et Claude Code installés sur le poste.</li>\n</ul>\n<p>Ces autorisations sont larges. Lecture de Waimia : c'est une raison de piloter avant de généraliser, pas de s'en passer.</p>\n<h3>Panneau latéral, Cowork et Enterprise</h3>\n<p>Sur Team et Max, le panneau latéral de Chrome fonctionne comme une session Claude Cowork : l'historique est conservé, le mode « Automatically approve » est le mode par défaut, et les compétences, extensions et connecteurs de l'utilisateur sont disponibles. Sur Enterprise, il faut que l'administrateur active Cowork dans le cloud et Claude in Chrome pour l'organisation ; sinon les utilisateurs gardent le panneau classique. Le réglage de Cowork est traité dans le guide <a href=\"/ressources/guides/claude-cowork\">Claude Cowork</a>.</p>",
+      "html_en": "<h2>How do you install Claude in Chrome?</h2>\n<p>The extension is available on the paid plans (Pro, Max, Team and Enterprise), not on Free (<a href=\"https://claude.com/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic's pricing page</a>). It installs in Google Chrome from the Chrome Web Store: \"Add to Chrome\", sign in with the Claude account, pin the icon, then accept the permissions the browser asks for. The <a href=\"https://support.claude.com/en/articles/12012173-get-started-with-claude-in-chrome\" rel=\"noopener noreferrer\" target=\"_blank\">help centre</a> states that it is not supported on other Chromium-based browsers or on mobile.</p>\n<p>Other Anthropic pages are less strict: the Claude Desktop documentation for third-party deployments mentions Chrome and Edge, and the Claude Code one mentions other Chromium browsers. For a team, keep the help centre's rule: Chrome, on desktop.</p>\n<h3>What the installation allows</h3>\n<p>The browser asks for several permissions, four of which matter in a team decision:</p>\n<ul>\n<li><strong>debugger</strong>: this is what lets Claude click, type and take screenshots.</li>\n<li><strong>scripting</strong>: read the text of pages.</li>\n<li><strong>downloads</strong>: download files from websites and open them.</li>\n<li><strong>nativeMessaging</strong>: talk to Claude Desktop and Claude Code installed on the machine.</li>\n</ul>\n<p>Waimia's reading: these permissions are broad, which is a reason to pilot before rolling out widely, not to go without.</p>\n<h3>Side panel, Cowork and Enterprise</h3>\n<p>On Team and Max, the Chrome side panel runs as a Claude Cowork session: history is kept, \"Automatically approve\" is the default mode, and the user's skills, extensions and connectors are available. On Enterprise, the administrator has to enable Cowork in the cloud and Claude in Chrome for the organization; otherwise users keep the classic panel. Cowork settings are covered in the <a href=\"/ressources/guides/claude-cowork\">Claude Cowork</a> guide.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Quelles autorisations régler, et quel mode d'approbation choisir ?</h2>\n<p>Dans le panneau, un menu au-dessus de la zone de saisie propose trois modes (<a href=\"https://support.claude.com/en/articles/12902446-claude-in-chrome-permissions-guide\" rel=\"noopener noreferrer\" target=\"_blank\">guide des autorisations d'Anthropic</a>) :</p>\n<ul>\n<li><strong>Manually approve</strong> : Claude demande l'accord avant chaque action. L'utilisateur choisit « Allow all for this website », « Allow this time only » ou « Deny ».</li>\n<li><strong>Automatically approve</strong> : Claude continue seul, contrôle chaque action (fuite de données, injection) et bloque ce qu'il juge dangereux, ou s'arrête pour demander. C'est le mode par défaut du panneau Cowork. Anthropic précise qu'il consomme plus de la limite d'usage que les autres modes.</li>\n<li><strong>Skip all approvals</strong> : Claude ne s'arrête plus et aucun contrôle automatique ne vérifie ses actions. Anthropic le réserve aux tâches où vous faites entièrement confiance à chaque action, connecteur, fichier et application.</li>\n</ul>\n<p>Quel que soit le mode, trois actions exigent un accord explicite : modifier les réglages d'autorisation, accorder des autorisations, saisir des informations potentiellement sensibles. Même avec « Always allow actions on this site », Claude redemande avant de télécharger un fichier. Certaines actions lui sont interdites dans tous les cas : achats et transactions financières, création de comptes, suppression définitive, instructions trouvées dans des e-mails ou du contenu web.</p>\n<p><strong>Notre lecture.</strong> Pendant le pilote, laissez « Manually approve ». « Automatically approve » se discute ensuite, sur les seuls sites de la liste autorisée. « Skip all approvals » reste hors règle d'usage : l'article d'administration d'Anthropic ne décrit aucun réglage pour l'interdire (lu le 16 octobre 2026), donc l'interdiction se pose par écrit. « Always allow actions on this site » est à réserver aux sites que l'équipe maîtrise entièrement.</p>",
+      "html_en": "<h2>Which permissions should you set, and which approval mode?</h2>\n<p>In the panel, a menu above the input box offers three modes (<a href=\"https://support.claude.com/en/articles/12902446-claude-in-chrome-permissions-guide\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic's permissions guide</a>):</p>\n<ul>\n<li><strong>Manually approve</strong>: Claude asks for approval before each action. The user chooses \"Allow all for this website\", \"Allow this time only\" or \"Deny\".</li>\n<li><strong>Automatically approve</strong>: Claude keeps working, checks each action (data leaks, injection) and blocks what it judges dangerous, or stops to ask. It is the default mode of the Cowork panel. Anthropic notes that it uses more of the usage limit than the other modes.</li>\n<li><strong>Skip all approvals</strong>: Claude no longer stops and nothing checks its actions automatically. Anthropic reserves it for tasks where you fully trust every action, connector, file and app.</li>\n</ul>\n<p>Whatever the mode, three actions require explicit approval: changing permission settings, granting authorizations, entering potentially sensitive information. Even with \"Always allow actions on this site\", Claude asks again before downloading a file. Some actions are forbidden in every case: purchases and financial transactions, creating accounts, permanent deletion, instructions found in emails or web content.</p>\n<p><strong>Our reading.</strong> During the pilot, keep \"Manually approve\". \"Automatically approve\" can be discussed afterwards, on the allowlisted sites only. \"Skip all approvals\" stays outside the usage rule: Anthropic's admin article describes no setting to forbid it (read on 16 October 2026), so the ban is put in writing. \"Always allow actions on this site\" is for sites the team fully controls.</p>"
+    },
+    {
+      "type": "editorial-callout",
+      "background": "paper",
+      "variant": "quote",
+      "size": "md",
+      "body_fr": "Claude voit ce qui est affiché. Les captures d'écran de ses onglets entrent dans la conversation, et il ne sait pas écarter un contenu sensible : la liste de sites autorisés vaut mieux qu'une consigne de prudence.",
+      "body_en": "Claude sees what is displayed. Screenshots of its tabs enter the conversation, and it cannot filter out sensitive content: an allowlist is worth more than a call for caution."
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Quels risques fermer avant le déploiement ?</h2>\n<p>Six points, dans l'ordre où nous les traitons avec une équipe. Les faits viennent de l'article <a href=\"https://support.claude.com/en/articles/12902428-use-claude-in-chrome-safely\" rel=\"noopener noreferrer\" target=\"_blank\">Use Claude in Chrome safely</a> d'Anthropic, lu le 16 octobre 2026.</p>\n<ol>\n<li><strong>Les consignes cachées.</strong> Des instructions dissimulées dans une page, un e-mail ou un document peuvent être prises pour une demande de l'utilisateur. Exemple d'Anthropic : un texte invisible demandant de récupérer des relevés bancaires et de les partager dans un document. Anthropic filtre le contenu entrant, contrôle chaque action avant son exécution, et mesure moins de 0,08 % d'attaques réussies dans ses tests internes avec sa configuration actuelle. Il écrit que le risque n'est pas nul et qu'une attaque réussie pourrait mener à une fuite de données. À fermer : liste de sites autorisés, pas de sites alimentés par des inconnus, arrêt immédiat si Claude change de sujet, ouvre un site inattendu ou réclame une information sensible.</li>\n<li><strong>Ce qui est visible à l'écran.</strong> Claude prend des captures d'écran des onglets sur lesquels il travaille ; tout ce qui y figure entre dans la conversation, sans filtre. Les sessions du panneau sont enregistrées dans l'historique et suivent l'utilisateur d'un appareil à l'autre. À fermer : un profil de navigateur séparé, sans accès aux comptes sensibles, et pas d'ouverture du panneau sur une page confidentielle.</li>\n<li><strong>Les données réglementées et la conservation.</strong> Anthropic déconseille l'extension sur les pages contenant des données réglementées. Dans une organisation HIPAA, elle est désactivée par défaut et n'entre pas dans l'accord BAA. La conservation zéro des données n'est pas prise en charge. À fermer : lister les sites à données réglementées dans la liste de blocage. Pour le RGPD, voir <a href=\"/ressources/guides/claude-rgpd-pme\">Claude et RGPD en PME</a>.</li>\n<li><strong>Les sites financiers.</strong> Les pages d'Anthropic ne disent pas la même chose : l'une écrit que Claude demande l'autorisation avant d'accéder aux sites financiers, une autre les range parmi les catégories bloquées par défaut. Ne vous reposez pas sur le blocage : inscrivez vos banques et sites de paiement en liste de blocage.</li>\n<li><strong>La responsabilité.</strong> L'utilisateur reste responsable de tout ce que Claude fait en son nom : contenus publiés, messages envoyés, achats, données modifiées, et respect des conditions des sites tiers sur l'accès automatisé. À fermer : une règle d'usage qui dit qui relit avant un envoi.</li>\n<li><strong>Les comptes personnels.</strong> Les contrôles d'administration s'appliquent à l'organisation Team ou Enterprise. Lecture de Waimia : un salarié connecté avec son propre compte Pro ou Max n'y est pas soumis, et ces offres relèvent des conditions grand public, détaillées dans <a href=\"/ressources/guides/claude-gratuit\">Claude gratuit</a>. À fermer : la politique Chrome « forceLoginOrgUUID », qui limite l'extension à votre organisation.</li>\n</ol>\n<p>Pour les mots de passe, Anthropic propose 1Password for Claude (bêta, macOS) : 1Password remplit l'identifiant sans que Claude voie le mot de passe ni le code à usage unique. Le réglage est désactivé par défaut pour l'organisation.</p>",
+      "html_en": "<h2>Which risks should you close before rollout?</h2>\n<p>Six points, in the order we handle them with a team. The facts come from Anthropic's <a href=\"https://support.claude.com/en/articles/12902428-use-claude-in-chrome-safely\" rel=\"noopener noreferrer\" target=\"_blank\">Use Claude in Chrome safely</a> article, read on 16 October 2026.</p>\n<ol>\n<li><strong>Hidden instructions.</strong> Instructions concealed in a page, an email or a document can be mistaken for a user request. Anthropic's example: invisible text asking to retrieve bank statements and share them in a document. Anthropic filters incoming content, checks each action before it runs, and measures under 0.08% successful attacks in its internal tests with its current configuration. It writes that the risk is not zero and that a successful attack could lead to data exfiltration. To close: an allowlist, no sites fed by strangers, stop at once if Claude changes subject, opens an unexpected site or asks for sensitive information.</li>\n<li><strong>What is visible on screen.</strong> Claude takes screenshots of the tabs it works in; everything shown enters the conversation, unfiltered. Panel sessions are saved in the history and follow the user from one device to another. To close: a separate browser profile with no access to sensitive accounts, and no opening the panel on a confidential page.</li>\n<li><strong>Regulated data and retention.</strong> Anthropic advises against the extension on pages containing regulated data. In a HIPAA organization it is off by default and outside the BAA. Zero data retention is not supported. To close: list regulated-data sites in the blocklist. For GDPR, see <a href=\"/ressources/guides/claude-rgpd-pme\">Claude and GDPR for SMBs</a>.</li>\n<li><strong>Financial sites.</strong> Anthropic's pages do not say the same thing: one writes that Claude asks for permission before accessing financial sites, another lists them among the categories blocked by default. Do not rely on the block: put your banks and payment sites in the blocklist.</li>\n<li><strong>Responsibility.</strong> The user remains responsible for everything Claude does on their behalf: content published, messages sent, purchases, data changed, and compliance with third-party sites' terms on automated access. To close: a usage rule that says who reviews before anything is sent.</li>\n<li><strong>Personal accounts.</strong> The admin controls apply to the Team or Enterprise organization. Waimia's reading: an employee signed in with their own Pro or Max account is not subject to them, and those plans fall under consumer terms, detailed in <a href=\"/ressources/guides/claude-gratuit\">Free Claude</a>. To close: the Chrome policy \"forceLoginOrgUUID\", which limits the extension to your organization.</li>\n</ol>\n<p>For passwords, Anthropic offers 1Password for Claude (beta, macOS): 1Password fills in the login without Claude seeing the password or the one-time code. The setting is off by default for the organization.</p>"
+    },
+    {
+      "type": "tech-when-dual",
+      "background": "paper",
+      "kicker_fr": "§ Périmètre",
+      "kicker_en": "§ Scope",
+      "title_fr": "Que confier à Claude in Chrome, et que garder hors du navigateur ?",
+      "title_en": "What should you hand to Claude in Chrome, and what should stay out of the browser?",
+      "aside_fr": "Anthropic conseille de commencer par des tâches simples, comme la recherche ou le remplissage de formulaires, avant les enchaînements complexes. Claude propose, une personne décide.",
+      "aside_en": "Anthropic advises starting with simple tasks, such as research or form-filling, before complex multi-step workflows. Claude proposes, a person decides.",
+      "use_title_fr": "À confier, sur des sites autorisés",
+      "use_title_en": "To hand over, on allowed sites",
+      "use_items_fr": [
+        "Extraire des informations de pages sans export, vers un tableau que vous relisez",
+        "Remplir un formulaire interne ou un portail fournisseur dont vous maîtrisez le compte",
+        "Comparer ou résumer le contenu de plusieurs onglets d'outils de l'entreprise",
+        "Tester votre propre site, en liaison avec Claude Code"
+      ],
+      "use_items_en": [
+        "Extract information from pages that have no export, into a spreadsheet you review",
+        "Fill in an internal form or a supplier portal whose account you control",
+        "Compare or summarise the content of several tabs of company tools",
+        "Test your own website, together with Claude Code"
+      ],
+      "avoid_title_fr": "À garder hors du navigateur de Claude",
+      "avoid_title_en": "To keep out of Claude's browser",
+      "avoid_items_fr": [
+        "Les comptes financiers et les investissements (déconseillé par Anthropic)",
+        "Les contrats et documents juridiques",
+        "Les informations médicales ou de santé",
+        "Les comptes de travail qui contiennent des données sensibles de l'entreprise",
+        "Les sites qui contiennent des données personnelles de tiers",
+        "Tout envoi, publication ou achat sans relecture humaine : l'utilisateur en reste responsable"
+      ],
+      "avoid_items_en": [
+        "Financial accounts and investments (advised against by Anthropic)",
+        "Contracts and legal documents",
+        "Medical or health information",
+        "Work accounts holding sensitive company data",
+        "Sites holding other people's personal data",
+        "Any sending, publishing or purchase without human review: the user remains responsible"
+      ]
+    },
+    {
+      "type": "process-steps",
+      "background": "paper-2",
+      "kicker_fr": "§ Le pilote",
+      "kicker_en": "§ The pilot",
+      "h2_fr": "Comment mener un pilote en quatre temps ?",
+      "h2_en": "How do you run a pilot in four stages?",
+      "intro_fr": "Anthropic décrit lui-même un pilote : activer l'extension, restreindre les sites, limiter les installations, partager le guide de sécurité, recueillir les retours, élargir. Notre version ajoute une mesure et une décision à chaque étape.",
+      "intro_en": "Anthropic describes a pilot itself: enable the extension, restrict sites, limit installations, share the safety guide, gather feedback, widen access. Our version adds a measurement and a decision to each stage.",
+      "steps": [
+        {
+          "title_fr": "Avant : décider et écrire",
+          "title_en": "Before: decide and write",
+          "body_fr": "L'interrupteur d'organisation, la liste de sites autorisés, la liste de blocage et la règle d'une page, avec le nom de la personne qui relit.",
+          "body_en": "The organization switch, the allowlist, the blocklist and the one-page rule, with the name of the person who reviews.",
+          "meta_fr": "Décision : on pilote ?",
+          "meta_en": "Decision: do we pilot?"
+        },
+        {
+          "title_fr": "Semaine 1 : installer chez deux ou trois personnes",
+          "title_en": "Week 1: install for two or three people",
+          "body_fr": "Déploiement ciblé par vos outils de gestion de Chrome, mode « Manually approve », profil de navigateur séparé, lecture du guide de sécurité d'Anthropic.",
+          "body_en": "Targeted deployment through your Chrome management tools, \"Manually approve\" mode, a separate browser profile, reading of Anthropic's safety guide.",
+          "meta_fr": "Décision : les accès sont-ils les bons ?",
+          "meta_en": "Decision: are the accesses right?"
+        },
+        {
+          "title_fr": "Semaines 2 et 3 : un seul usage, mesuré",
+          "title_en": "Weeks 2 and 3: a single use, measured",
+          "body_fr": "Une tâche répétée sur un site autorisé. On note le temps avec et sans Claude, les interventions nécessaires et tout comportement inattendu, signalé à Anthropic par le retour intégré.",
+          "body_en": "One repeated task on an allowed site. We note the time with and without Claude, the interventions needed and any unexpected behaviour, reported to Anthropic through the built-in feedback.",
+          "meta_fr": "Décision : le gain est-il réel ?",
+          "meta_en": "Decision: is the gain real?"
+        },
+        {
+          "title_fr": "Semaine 4 : élargir, ajuster ou couper",
+          "title_en": "Week 4: widen, adjust or switch off",
+          "body_fr": "Ajouter un site à la liste, discuter « Automatically approve » sur les sites autorisés, ou couper l'interrupteur. Une tâche qui touche plusieurs logiciels relève d'un workflow, pas d'une extension.",
+          "body_en": "Add a site to the list, discuss \"Automatically approve\" on allowed sites, or switch the extension off. A task that touches several tools calls for a workflow, not an extension.",
+          "meta_fr": "Décision : on poursuit ?",
+          "meta_en": "Decision: carry on?"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Quand faut-il se faire accompagner ?</h2>\n<p>Pour une équipe qui veut gagner du temps sur quelques portails, ce guide et le centre d'aide d'Anthropic suffisent. L'accompagnement se justifie quand la tâche est répétée, traverse plusieurs logiciels ou touche des données sensibles. Lecture de Waimia : un agent qui clique dans un navigateur est le moyen le moins prévisible d'automatiser, et un connecteur ou une automatisation branchée par API se contrôle mieux (voir le <a href=\"/ressources/guides/mcp-claude\">guide MCP</a>). Chez Waimia : un audit gratuit de 45 minutes, puis un sprint de cadrage de 10 heures à {{prix.sprint}} € HT, à prix fixe, qui livre un premier prototype testé. La mise en production relève du pilote, dès {{prix.pilote}} € HT, comme sur la page <a href=\"/tarifs\">Tarifs</a>.</p>",
+      "html_en": "<h2>When should you get support?</h2>\n<p>For a team that wants to save time on a few portals, this guide and Anthropic's help centre are enough. Support is justified when the task is repeated, crosses several tools or touches sensitive data. Waimia's reading: an agent that clicks in a browser is the least predictable way to automate, and a connector or an automation wired through an API is easier to control (see the <a href=\"/ressources/guides/mcp-claude\">MCP guide</a>). At Waimia: a free 45-minute audit, then a 10-hour scoping sprint at €{{prix.sprint.en}} excl. VAT, fixed price, which delivers a first tested prototype. Going live is the pilot, from €{{prix.pilote.en}} excl. VAT, as on the <a href=\"/tarifs\">Pricing</a> page.</p>"
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper-2",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Further reading",
+      "cards": [
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Claude Cowork est désormais Claude",
+          "title_en": "Claude Cowork is now Claude",
+          "lead_fr": "Le panneau de Chrome fonctionne comme une session Cowork : réglages, navigateur intégré, contrôles d'administration.",
+          "lead_en": "The Chrome panel runs as a Cowork session: settings, built-in browser, admin controls.",
+          "href": "/ressources/guides/claude-cowork"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Claude et RGPD en PME",
+          "title_en": "Claude and GDPR for SMBs",
+          "lead_fr": "Comptes, entraînement, stockage, accord de traitement des données : ce qui change selon l'offre.",
+          "lead_en": "Accounts, training, storage, data processing agreement: what changes by plan.",
+          "href": "/ressources/guides/claude-rgpd-pme"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Guide MCP : brancher Claude à vos outils",
+          "title_en": "MCP guide: connecting Claude to your tools",
+          "lead_fr": "Quand un connecteur vaut mieux qu'un agent qui clique dans un navigateur.",
+          "lead_en": "When a connector beats an agent that clicks in a browser.",
+          "href": "/ressources/guides/mcp-claude"
+        }
+      ]
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "h2_fr": "Claude in Chrome en entreprise : questions fréquentes",
+      "h2_en": "Claude in Chrome for business: frequently asked questions",
+      "items": [
+        {
+          "q_fr": "Qu'est-ce que Claude in Chrome ?",
+          "a_fr": "Une extension de navigateur qui permet à Claude de lire, cliquer et naviguer sur des sites pour le compte de l'utilisateur. Elle s'utilise depuis le panneau latéral de Chrome, depuis Claude Cowork ou depuis Claude Code. Anthropic indique que le panneau latéral de Chrome est en bêta. Relevé le 16 octobre 2026.",
+          "q_en": "What is Claude in Chrome?",
+          "a_en": "A browser extension that lets Claude read, click and navigate websites on the user's behalf. It is used from the Chrome side panel, from Claude Cowork or from Claude Code. Anthropic states that the Chrome side panel is in beta. Checked on 16 October 2026."
+        },
+        {
+          "q_fr": "Claude in Chrome est-il gratuit ?",
+          "a_fr": "Non. L'extension est incluse dans les offres payantes Pro, Max, Team et Enterprise, et pas dans l'offre Free (page tarifs d'Anthropic). Pour une équipe, le contrat pertinent est Team ou Enterprise : voir le guide sur les abonnements Claude pour une TPE. Relevé le 16 octobre 2026.",
+          "q_en": "Is Claude in Chrome free?",
+          "a_en": "No. The extension is included in the paid Pro, Max, Team and Enterprise plans, not in the Free plan (Anthropic's pricing page). For a team, the relevant contract is Team or Enterprise: see the guide on Claude plans for a very small business. Checked on 16 October 2026."
+        },
+        {
+          "q_fr": "Comment déployer l'extension pour toute une équipe ?",
+          "a_fr": "Un propriétaire de l'organisation vérifie l'interrupteur dans Organization settings > Claude in Chrome (activé par défaut sur Team). Les utilisateurs installent ensuite l'extension depuis le Chrome Web Store, ou vous la déployez vers des groupes ciblés avec la console d'administration Google Workspace ou un outil de gestion des appareils. Relevé le 16 octobre 2026.",
+          "q_en": "How do you roll the extension out to a whole team?",
+          "a_en": "An organization owner checks the switch in Organization settings > Claude in Chrome (on by default for Team). Users then install the extension from the Chrome Web Store, or you deploy it to targeted groups with the Google Workspace admin console or a device-management tool. Checked on 16 October 2026."
+        },
+        {
+          "q_fr": "Comment limiter les sites auxquels Claude peut accéder ?",
+          "a_fr": "Avec une liste de sites autorisés, qui restreint Claude aux seuls sites ajoutés, et une liste de sites bloqués, qui interdit des sites quels que soient les autres réglages. Anthropic recommande de commencer par une liste autorisée restrictive, puis de l'élargir. Ces listes sont réservées aux offres Team et Enterprise. Relevé le 16 octobre 2026.",
+          "q_en": "How do you limit which sites Claude can reach?",
+          "a_en": "With an allowlist, which restricts Claude to the sites you add, and a blocklist, which forbids sites whatever the other settings. Anthropic recommends starting with a restrictive allowlist, then widening it. These lists are for the Team and Enterprise plans. Checked on 16 October 2026."
+        },
+        {
+          "q_fr": "Une page web peut-elle piéger Claude in Chrome ?",
+          "a_fr": "Oui, c'est le risque principal que décrit Anthropic : des consignes cachées dans une page, un e-mail ou un document peuvent être prises pour des demandes de l'utilisateur. Anthropic filtre les contenus et contrôle chaque action, mesure moins de 0,08 % d'attaques réussies dans ses tests internes, et écrit que le risque n'est pas nul. Relevé le 16 octobre 2026.",
+          "q_en": "Can a web page trick Claude in Chrome?",
+          "a_en": "Yes, it is the main risk Anthropic describes: instructions hidden in a page, an email or a document can be mistaken for the user's requests. Anthropic filters content and checks every action, measures under 0.08% successful attacks in its internal tests, and writes that the risk is not zero. Checked on 16 October 2026."
+        },
+        {
+          "q_fr": "Peut-on l'utiliser avec des données personnelles ou réglementées ?",
+          "a_fr": "Anthropic le déconseille sur des pages contenant des données réglementées. Dans une organisation HIPAA, l'extension est désactivée par défaut et n'est pas couverte par l'accord BAA, et la conservation zéro des données n'est pas prise en charge. Pour le RGPD, traitez-la comme tout traitement de données personnelles. Ce n'est pas un avis juridique. Relevé le 16 octobre 2026.",
+          "q_en": "Can it be used with personal or regulated data?",
+          "a_en": "Anthropic advises against it on pages containing regulated data. In a HIPAA organization the extension is off by default and is not covered by the BAA, and zero data retention is not supported. For GDPR, treat it like any processing of personal data. This is not legal advice. Checked on 16 October 2026."
+        },
+        {
+          "q_fr": "Fonctionne-t-elle sur Edge, Brave ou sur mobile ?",
+          "a_fr": "Le centre d'aide d'Anthropic indique que Claude in Chrome n'est pas pris en charge sur les autres navigateurs basés sur Chromium ni sur mobile. D'autres pages d'Anthropic sont moins strictes (Edge pour Claude Desktop, d'autres navigateurs pour Claude Code) : pour un déploiement d'équipe, retenez Chrome sur ordinateur. Relevé le 16 octobre 2026.",
+          "q_en": "Does it work on Edge, Brave or mobile?",
+          "a_en": "Anthropic's help centre states that Claude in Chrome is not supported on other Chromium-based browsers or on mobile. Other Anthropic pages are less strict (Edge for Claude Desktop, other browsers for Claude Code): for a team rollout, stick to Chrome on desktop. Checked on 16 October 2026."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Déployer proprement",
+      "kicker_en": "§ Roll out properly",
+      "h2_fr": "Une liste de sites, une règle d'une page, un groupe pilote : avant l'installation.",
+      "h2_en": "A list of sites, a one-page rule, a pilot group: before the installation.",
+      "subtitle_fr": "L'audit de 45 minutes est gratuit. On regarde les tâches que vous voulez confier au navigateur, les sites concernés et vos données, et on vous dit si une liste de sites autorisés suffit ou si une tâche mérite un workflow.",
+      "subtitle_en": "The 45-minute audit is free. We look at the tasks you want to hand to the browser, the sites involved and your data, and tell you whether an allowlist is enough or whether a task deserves a workflow.",
+      "buttons": [
+        {
+          "label_fr": "Réserver l'audit gratuit",
+          "label_en": "Book the free audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Voir le guide Claude Cowork",
+          "label_en": "See the Claude Cowork guide",
+          "href": "/ressources/guides/claude-cowork",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}
