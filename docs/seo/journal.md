@@ -37,6 +37,15 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### Vague 13 en production, 16 octobre 2026 (PR #102, `bfd8bdb1`)
+
+- **Conversion d'abord** : mesure sur le build, avant la vague, 23 pages du sitemap sur 193 portaient une bande de capture, et 12 des 15 pages à impressions n'en avaient aucune. Ajouts : 9 bandes `lead-capture-band` (aimants à pièce jointe : guide d'achat Claude, kit conformité, charte) et 50 appels vers les outils (diagnostic de maturité, grille des tâches, calculateur ROI), car les aimants-outils exigent un résultat calculé (`lead-magnet-delivery.ts` renvoie 400 sans lui). Après : 37 pages sur 200 avec bande, les 15 pages à impressions ont toutes une capture (777 impressions sur 777 de la collecte du 8 octobre).
+- **Sept créations** planifiées en W43 à W47, publiées : guides `audit-geo-pme`, `accompagnement-ia-pme`, `refonte-logiciel-metier` (SERP vérifiée : refonte applicative, pas de site), comparatif `formateur-ia-organisme-freelance-agence`, billets `etre-cite-par-perplexity`, `formation-ia-marketing-pme`, `agent-ia-24-7-pme`. Déclarées au maillage.
+- **Révisions** : cas d'usage `finance-comptabilite` (cadre CNOEC, secret professionnel, facture électronique) et `rh` (DPAE, CNIL, article 22) ; titre de `/tarifs` aligné sur « tarif agence IA » (révision abandonnée selon sa condition : page déjà indexée) ; promesse de l'audit gratuit alignée sur `/audit-ia-pme` dans `referencement-ia` et `mesurer-visibilite-ia-chatgpt` (décision du 14 octobre).
+- **Calendrier** : 6 créations planifiées de W43 à W48 (formation IA RH, factures fournisseurs, chatbot RH, réponse aux appels d'offres, relance des impayés, cahier des charges site internet), 6 semaines d'avance, 0 avertissement.
+- **Preuves** : build 0, `astro check` 8 erreurs (référence), portes à la référence, balayage des 200 pages à deux tailles (400 rendus, 0 défaut), E2E 77 passés (5 nouveaux sur les captures, sans soumission), `lead-magnet-delivery` 18 sur 18, preview vérifiée sur le SHA, production vérifiée (8 URL en 200, sitemap 200, title de `/tarifs` servi).
+- **Non fait** : mesure du CTR et des conversions (Search Console et CI bloquées par la facturation GitHub) ; secteurs sans bande (gabarit à `body_sections`) ; bande automatique de fin de billet (changement de gabarit, tâche dédiée).
+
 ### Vague 12 en production, 16 octobre 2026 (PR #101, `d315b66c`)
 
 - **Cinq créations planifiées, publiées en avance** : comparatif `lovable-vs-developpement-sur-mesure`, billets `poc-ou-mvp-differences-pme`, `contenu-ia-seo-google-penalise`, `connecter-claude-wordpress-shopify-mcp`, `chatgpt-shopping-e-commerce` (disponibilité en France présentée comme non confirmée).
