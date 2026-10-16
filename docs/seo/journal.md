@@ -37,6 +37,13 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### Demandes d'indexation, 16 octobre 2026 (Search Console, inspection d'URL)
+
+- **Dix demandes confirmées** (« Indexation demandée » lu à l'écran pour chacune) : `/implantations/bordeaux`, `/ressources/guides/automatisation-factures-fournisseurs-pme`, `/blog/relance-factures-impayees-automatique-pme`, `/blog/ia-reponse-appel-offres-pme`, `/blog/claude-cowork-windows`, `/blog/application-metier-exemples-pme`, `/blog/formation-ia-rh-pme`, `/blog/chatbot-rh-pme`, `/blog/audit-site-internet-pme`, `/ressources/outils/grille-audit-site-internet`. Quota quotidien atteint.
+- **État à l'inspection** : les neuf pages publiées du 14 au 16 octobre étaient « Google ne reconnaît pas cette URL » (aucune découverte encore, sitemap non relu depuis). `/implantations/bordeaux` avait été explorée le 23 septembre avec un `noindex`, retiré depuis.
+- **Déjà indexées, aucune demande** : `/services/audit-seo-technique`, `/ressources/guides/ai-act-pme-calendrier`.
+- **Relecture** : avec celle du 27 octobre, inspecter ces dix URL ; une page toujours inconnue après dix jours signale un problème de découverte (sitemap, maillage), pas de contenu.
+
 ### Mesure de référence, 16 octobre 2026 (Search Console lue dans la console, Web Analytics)
 
 - **Search Console, 28 jours (16 septembre au 13 octobre)** : 8 clics, 1 540 impressions, CTR 0,5 %, position moyenne 29,9. Les requêtes à impressions (« agence n8n », « agence ia pme », villes) sont en position 36 à 89 : le levier est la position, pas le titre.
