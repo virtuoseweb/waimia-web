@@ -145,3 +145,35 @@ test("checklist 90 jours : cases cochables et conservées, PDF verrouillé (e-ma
   const old = await request.get("/telechargements/checklist-90-jours-claude-pme-waimia.pdf", { maxRedirects: 0 });
   expect(old.status()).not.toBe(200);
 });
+
+// Vague 13 (16 octobre 2026) · captures ajoutées aux pages de contenu. Les aimants à pièce
+// jointe ont une bande (un seul formulaire, vers /api/lead-magnet, champ vide) ; les aimants-
+// outils, qui exigent un résultat calculé, ont un appel vers l'outil. Aucune soumission.
+const PAGES_A_BANDE = [
+  "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
+  "/ressources/guides/claude-in-chrome-entreprise",
+  "/services/integration-mistral-ai",
+];
+for (const path of PAGES_A_BANDE) {
+  test(`bande de capture : ${path}`, async ({ page }) => {
+    await page.goto(path);
+    const band = page.locator("main [data-lcb]");
+    await expect(band).toHaveCount(1);
+    await band.scrollIntoViewIfNeeded();
+    await expect(band).toBeVisible();
+    await expect(band.locator("form[data-lead-form]")).toHaveAttribute("action", "/api/lead-magnet");
+    await expect(band.locator('input[name="email"][type="email"]')).toHaveValue("");
+  });
+}
+const PAGES_VERS_OUTIL: Array<[string, string]> = [
+  ["/implantations/montpellier", "/ressources/diagnostics/maturite-ia"],
+  ["/services/crm-scoring-routing", "/ressources/outils/calculateur-roi-ia"],
+];
+for (const [path, outil] of PAGES_VERS_OUTIL) {
+  test(`appel vers l'outil : ${path}`, async ({ page }) => {
+    await page.goto(path);
+    const link = page.locator(`main a[href="${outil}"]`).first();
+    await link.scrollIntoViewIfNeeded();
+    await expect(link).toBeVisible();
+  });
+}

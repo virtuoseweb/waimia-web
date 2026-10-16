@@ -1,12 +1,14 @@
 {
   "$schema": "../../schemas/generated/cas-usages.page.schema.json",
   "title_fr": "IA expert-comptable et automatisation de la comptabilité",
+  "seoTitle_fr": "IA pour expert-comptable : cas d’usage, limites, règles",
   "title_en": "AI for accountants and accounting automation · Waimia",
-  "description_fr": "IA pour expert-comptable et automatisation de la comptabilité en PME : tâches à traiter d'abord, pilote, garde-fous, et études de cas du marché sourcées.",
-  "description_en": "AI for accountants and accounting automation for SMBs: which tasks first, the pilot, the safeguards, and sourced market case studies.",
+  "seoTitle_en": "AI for accountants: use cases, limits and rules",
+  "description_fr": "Ce que l’IA prend en charge dans un cabinet comptable, ce qui reste à l’expert-comptable, le secret professionnel et les étapes pour démarrer.",
+  "description_en": "What AI handles in an accounting firm, what stays with the chartered accountant, professional secrecy, and the steps to start.",
   "slug": "finance-comptabilite",
   "publishedAt": "2026-10-05T00:00:00.000Z",
-  "updatedAt": "2026-10-05T00:00:00.000Z",
+  "updatedAt": "2026-10-16T00:00:00.000Z",
   "category": "automatisation",
   "tags": [
     "finance-comptabilite",
@@ -14,32 +16,67 @@
     "expert-comptable",
     "automatisation"
   ],
+  "sources": [
+    {
+      "name": "Direction générale des Finances publiques, fiche 1 « Que va-t-il se passer pour mon entreprise en matière de facturation ? » (mise à jour juin 2026), lue le 16 octobre 2026",
+      "url": "https://www.impots.gouv.fr/sites/default/files/media/1_metier/2_professionnel/EV/2_gestion/290_facturation_electronique/fiche-1_que-va-t-il-se-passer-pour-mon-entreprise.pdf",
+      "type": "state"
+    },
+    {
+      "name": "Conseil national de l'Ordre des experts-comptables, notice « Comment utiliser ChatGPT ? » (sans date de publication affichée), lue le 16 octobre 2026",
+      "url": "https://www.experts-comptables.fr/sites/default/files/assets/files/COMMENT%20UTILISER%20CHATGPT%20-%20A4_p%C3%A0p.pdf",
+      "type": "state"
+    },
+    {
+      "name": "Conseil national de l'Ordre des experts-comptables, page « Travaux Data et IA », lue le 16 octobre 2026",
+      "url": "https://www.experts-comptables.fr/travaux-data-et-ia",
+      "type": "state"
+    },
+    {
+      "name": "Assemblée nationale, question écrite n° 76008 (question du 6 avril 2010, réponse publiée le 5 octobre 2010), lue le 16 octobre 2026",
+      "url": "https://www.assemblee-nationale.fr/dyn/13/questions/QANR5L13QE76008",
+      "type": "state",
+      "publishedAt": "2010-10-05"
+    }
+  ],
   "seo": {
     "noindex": false
   },
   "faq_fr": [
     {
-      "q": "L'IA peut-elle remplacer un comptable ou un expert-comptable ?",
+      "q": "L'IA peut-elle remplacer un comptable ou un expert-comptable ?",
       "a": "Non. Elle prend la collecte des pièces, la lecture des factures, la pré-saisie et les relances. La validation des écritures, les traitements inhabituels, les déclarations et le conseil restent le travail d'une personne qui en porte la responsabilité. Les cas publiés par les éditeurs décrivent d'ailleurs du temps de saisie libéré pour le conseil, pas des postes supprimés."
     },
     {
-      "q": "Faut-il un agent IA ou un logiciel de précomptabilité ?",
+      "q": "Faut-il un agent IA ou un logiciel de précomptabilité ?",
       "a": "Dans la plupart des cas, d'abord un logiciel spécialisé : la lecture des factures et le rapprochement bancaire sont des problèmes déjà résolus par des éditeurs. Un développement sur mesure se justifie pour ce que ces outils ne couvrent pas : relier la comptabilité à votre logiciel métier, automatiser les relances selon vos règles, produire une situation commentée. Nous vous le disons à l'audit, même quand la réponse est « prenez un outil existant »."
     },
     {
-      "q": "Que peut automatiser un cabinet d'expertise comptable ?",
+      "q": "Que peut automatiser un cabinet d'expertise comptable ?",
       "a": "La collecte des pièces auprès des clients et les relances de pièces manquantes, la pré-saisie, la préparation des dossiers de révision, la génération des lettres de mission, et les réponses aux questions récurrentes des clients à partir de leur dossier. Ce qui touche à l'avis du professionnel et à la signature ne s'automatise pas."
     },
     {
-      "q": "La facture électronique change-t-elle la donne ?",
-      "a": "Elle déplace le travail plus qu'elle ne le supprime : quand les factures arrivent dans un format structuré, la lecture automatique compte moins et le contrôle compte davantage (cohérence avec la commande, imputation, validation). Le calendrier et les obligations sont publiés par l'administration fiscale ; vérifiez-les à la source avant de choisir un outil, nous ne les résumons pas ici."
+      "q": "La facture électronique change-t-elle la donne ?",
+      "a": "Elle déplace le travail plus qu’elle ne le supprime : quand les factures arrivent dans un format structuré, la lecture automatique compte moins et le contrôle compte davantage (cohérence avec la commande, imputation, validation). Les dates et la source officielle sont dans la question suivante."
     },
     {
-      "q": "Les données comptables peuvent-elles être envoyées à un modèle d'IA ?",
+      "q": "À partir de quand une PME doit-elle recevoir et émettre des factures électroniques ?",
+      "a": "D’après la fiche de la DGFiP (mise à jour juin 2026, lue le 16 octobre 2026), toutes les entreprises doivent pouvoir recevoir des factures électroniques depuis le 1er septembre 2026. Les grandes entreprises et les ETI doivent en émettre depuis cette date ; les PME et les microentreprises, au plus tard le 1er septembre 2027. Les factures transitent par une plateforme agréée, dont la liste est publiée sur impots.gouv.fr."
+    },
+    {
+      "q": "Les données comptables peuvent-elles être envoyées à un modèle d'IA ?",
       "a": "Cela se décide donnée par donnée. Une facture fournisseur contient peu de données personnelles ; un bulletin de paie ou un relevé bancaire de dirigeant en contient beaucoup. On liste ce qui est envoyé, on vérifie les conditions de l'éditeur du modèle (conservation, réutilisation, lieu de traitement) et on écarte du périmètre ce qui n'a pas besoin d'y être. Pour un cabinet, le secret professionnel s'ajoute au RGPD."
     },
     {
-      "q": "Par quelle tâche commencer ?",
+      "q": "Un expert-comptable peut-il utiliser ChatGPT avec les données de ses clients ?",
+      "a": "Pas avec des données non anonymisées sur un site que le cabinet ne maîtrise pas : la notice du CNOEC cite les mails clients, les FEC et les DSN. Restent possibles la rédaction, l’analyse de données anonymes, ou un outil dont le cabinet a vérifié les conditions (conservation, réutilisation, lieu de traitement). Chaque réponse est vérifiée avant d’être partagée."
+    },
+    {
+      "q": "Existe-t-il une charte d’usage de l’IA pour un cabinet comptable ?",
+      "a": "Le CNOEC propose un modèle de charte en cinq points : utilisation responsable, exactitude, biais, sécurité et confidentialité des données, surveillance. La notice reproduit ce modèle, téléchargeable dans la partie privée du site de l’Ordre. Notre modèle de charte IA pour entreprise, en neuf articles (outils autorisés, données interdites, validation humaine), peut servir de base."
+    },
+    {
+      "q": "Par quelle tâche commencer ?",
       "a": "Par la collecte et la relance des pièces manquantes. C'est fréquent, les règles sont simples, une erreur se corrige sans conséquence comptable, et c'est ce qui débloque tout le reste : aucune automatisation de la saisie ne fonctionne sans les pièces."
     }
   ],
@@ -58,11 +95,23 @@
     },
     {
       "q": "Does e-invoicing change things?",
-      "a": "It shifts the work more than it removes it: when invoices arrive in a structured format, automatic reading matters less and control matters more (consistency with the order, allocation, approval). The schedule and obligations are published by the tax administration; check them at the source before choosing a tool, we do not summarise them here."
+      "a": "It shifts the work more than it removes it: when invoices arrive in a structured format, automatic reading matters less and control matters more (consistency with the order, allocation, approval). Dates and the official source are in the next question."
+    },
+    {
+      "q": "From when must an SMB receive and issue electronic invoices?",
+      "a": "According to the DGFiP (French tax administration) factsheet (updated June 2026, read on 16 October 2026), all companies must be able to receive electronic invoices since 1 September 2026. Large companies and mid-caps must issue them from that date; SMBs and micro-enterprises by 1 September 2027 at the latest. Invoices go through an approved platform, whose list is published on impots.gouv.fr."
     },
     {
       "q": "Can accounting data be sent to an AI model?",
       "a": "It is decided data item by data item. A supplier invoice holds little personal data; a payslip or an owner's bank statement holds a lot. What is sent is listed, the model vendor's terms are checked (retention, reuse, processing location) and whatever does not need to be in scope is left out. For a firm, professional secrecy comes on top of GDPR."
+    },
+    {
+      "q": "Can an accountant use ChatGPT with client data?",
+      "a": "Not with non-anonymised data on a site the firm does not control: the CNOEC notice names client emails, FEC files and DSN files. Drafting, analysing anonymous data, or using a tool whose terms the firm has checked (retention, reuse, processing location) remain possible. Every answer is checked before being shared."
+    },
+    {
+      "q": "Is there an AI usage charter for an accounting firm?",
+      "a": "The CNOEC offers a model charter in five points: responsible use, accuracy, bias, data security and confidentiality, monitoring. The notice reproduces this model, downloadable from the private area of the Order's website. Our AI charter template for companies, in nine articles (authorised tools, forbidden data, human approval), can serve as a base."
     },
     {
       "q": "Which task to start with?",
@@ -75,12 +124,12 @@
       "background": "paper",
       "kicker_fr": "§ Cas d'usage · finance et comptabilité",
       "kicker_en": "§ Use case · finance and accounting",
-      "h1_fr": "IA et automatisation de la comptabilité",
-      "h1_en": "AI and accounting automation",
+      "h1_fr": "IA et expert-comptable : ce qui s’automatise, ce qui reste humain",
+      "h1_en": "AI and the accountant: what gets automated, what stays human",
       "definition_kicker_fr": "En une phrase",
       "definition_kicker_en": "In one sentence",
-      "lede_fr": "Automatiser la comptabilité, c'est confier à des outils la collecte des pièces, la lecture des factures, la pré-saisie, le rapprochement et les relances, et garder pour les personnes la validation et le jugement. Cette page s'adresse aux PME dont l'équipe administrative et financière ressaisit encore, et aux experts-comptables et à leurs cabinets, qui passent leur temps à courir après les pièces.",
-      "lede_en": "Automating accounting means handing tools the document collection, invoice reading, pre-entry, reconciliation and reminders, and keeping approval and judgement for people. This page is for SMBs whose finance and admin team still retypes, and for accountants and accounting firms that spend their time chasing documents.",
+      "lede_fr": "L’IA prend en charge la collecte des pièces, la lecture des factures, la pré-saisie, le rapprochement et les relances. L’expert-comptable garde la validation, le conseil et le secret professionnel. Cette page s’adresse aux experts-comptables et à leurs cabinets, et aux PME dont l’équipe administrative et financière ressaisit encore.",
+      "lede_en": "AI takes over document collection, invoice reading, pre-entry, reconciliation and reminders. The accountant keeps approval, advice and professional secrecy. This page is for chartered accountants and their firms, and for SMBs whose admin and finance team still retypes.",
       "badges": [
         {
           "label_fr": "Pièces et factures",
@@ -120,12 +169,12 @@
     {
       "type": "direct-answer",
       "background": "paper-2",
-      "question_fr": "Que peut-on automatiser en comptabilité, et par où commencer ?",
-      "question_en": "What can be automated in accounting, and where to start?",
+      "question_fr": "Que fait l’IA pour un expert-comptable, et par où commencer ?",
+      "question_en": "What does AI do for an accountant, and where to start?",
       "term_fr": "La réponse courte",
       "term_en": "The short answer",
-      "answer_fr": "On automatise ce qui précède et ce qui suit l'écriture comptable : collecter les pièces, les lire, proposer une imputation, rapprocher avec la banque, relancer les factures impayées, préparer la clôture. On commence par la collecte et la relance des pièces manquantes, parce que rien d'autre ne fonctionne sans elles. La validation des écritures, les déclarations et le conseil ne s'automatisent pas. Et avant tout développement sur mesure, on regarde si un logiciel spécialisé ne fait pas déjà le travail.",
-      "answer_en": "You automate what comes before and after the accounting entry: collecting documents, reading them, proposing an allocation, reconciling with the bank, chasing unpaid invoices, preparing the close. Start with collecting and chasing missing documents, because nothing else works without them. Approving entries, filings and advice are not automated. And before any custom work, check whether a specialised tool already does the job."
+      "answer_fr": "L’IA prend la collecte des pièces, la lecture des factures, la proposition d’imputation, le rapprochement bancaire, les relances et le premier jet des commentaires. L’expert-comptable garde la validation des écritures, les déclarations, le conseil et le secret professionnel. On commence par la collecte et la relance des pièces manquantes, après avoir vérifié si un logiciel spécialisé ne fait pas déjà le travail.",
+      "answer_en": "AI takes document collection, invoice reading, allocation proposals, bank reconciliation, reminders and the first draft of commentary. The accountant keeps approval of entries, filings, advice and professional secrecy. Start with collecting and chasing missing documents, after checking whether a specialised tool already does the job."
     },
     {
       "type": "editorial-table-block",
@@ -181,6 +230,18 @@
           "Après les étapes précédentes : il faut des données propres."
         ],
         [
+          "Rédiger un premier jet de situation ou de commentaire de bilan",
+          "Moyenne : le gain est dans la rédaction, pas dans l’analyse",
+          "Moyen : un chiffre faux dans un texte bien écrit passe inaperçu",
+          "Le modèle rédige à partir de la balance, l’expert-comptable relit chaque chiffre et signe."
+        ],
+        [
+          "Suivre la veille réglementaire et chercher dans la documentation du cabinet",
+          "Moyenne",
+          "Moyen : la réponse doit citer sa source",
+          "Assistant limité aux sources officielles et aux documents du cabinet, avec renvoi à la source. On vérifie avant d’agir."
+        ],
+        [
           "Valider les écritures, déclarer, payer",
           "Faible",
           "Élevé : responsabilité, argent, délais légaux",
@@ -217,6 +278,18 @@
           "Medium: a few days a month",
           "Low if the figures are reviewed",
           "After the previous steps: clean data is needed."
+        ],
+        [
+          "Draft a first version of a statement or balance sheet commentary",
+          "Medium: the gain is in drafting, not in analysis",
+          "Medium: a wrong figure in a well-written text goes unnoticed",
+          "The model drafts from the trial balance, the accountant rechecks every figure and signs."
+        ],
+        [
+          "Follow regulatory news and search the firm's documentation",
+          "Medium",
+          "Medium: the answer must cite its source",
+          "Assistant limited to official sources and the firm's documents, with a link to the source. Check before acting."
         ],
         [
           "Approve entries, file, pay",
@@ -336,6 +409,13 @@
       ]
     },
     {
+      "type": "editorial-prose",
+      "background": "paper-3",
+      "maxWidth": "prose",
+      "html_fr": "<h2>Cabinet d’expertise comptable : le cadre posé par l’Ordre et par le droit</h2>\n<p>Le Conseil national de l’Ordre des experts-comptables (CNOEC) a publié une notice sur l’IA générative en cabinet, sans date de publication affichée. Sa position : utiliser ces outils en veillant au respect de la réglementation, dont le RGPD et le secret professionnel. Elle se lit pour ses principes plus que pour sa liste d’outils.</p>\n<p>Sa précaution centrale, mot pour mot : « Ne chargez pas de données personnelles, sensibles et/ou confidentielles : pas de mails clients, de FEC, de DSN… non anonymisés dans des sites non maîtrisés ». La notice demande aussi de toujours vérifier les réponses, car l’IA peut se tromper ou inventer. Parmi les usages possibles, elle cite l’analyse de données anonymes.</p>\n<p>Elle propose un modèle de charte d’usage en cinq points : utilisation responsable (l’IA ne remplace pas la décision humaine), exactitude (réponses vérifiées et validées avant d’être partagées), biais, sécurité et confidentialité des données, surveillance. La notice reproduit ce modèle ; sa version téléchargeable se trouve dans la partie privée du site de l’Ordre. Pour fixer vos propres règles, notre <a href=\"/ressources/outils/charte-ia-entreprise\">modèle de charte IA</a> est un point de départ.</p>\n<p>Le secret professionnel de l’expert-comptable découle de l’article 21 de l’ordonnance n° 45-2138 du 19 septembre 1945, qui renvoie à l’article 226-13 du code pénal. Nous ne citons que le rappel d’une réponse ministérielle publiée à l’Assemblée nationale le 5 octobre 2010 ; le texte en vigueur est à relire sur Légifrance. Notre lecture : envoyer des données d’un dossier client à un service d’IA est une sortie de données du cabinet, à arbitrer avant le choix de l’outil.</p>\n<p>Côté RGPD, la <a href=\"/ressources/guides/rgpd-agents-ia-checklist\">checklist en 12 points</a> et la page <a href=\"/conformite-ia\">conformité IA</a> détaillent base légale, registre, sous-traitants et durée de conservation.</p>\n<p>Sources, lues le 16 octobre 2026 : CNOEC, notice « Comment utiliser ChatGPT ? » (<a href=\"https://www.experts-comptables.fr/sites/default/files/assets/files/COMMENT%20UTILISER%20CHATGPT%20-%20A4_p%C3%A0p.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">PDF</a>) et page « <a href=\"https://www.experts-comptables.fr/travaux-data-et-ia\" rel=\"noopener noreferrer\" target=\"_blank\">Travaux Data et IA</a> » ; Assemblée nationale, <a href=\"https://www.assemblee-nationale.fr/dyn/13/questions/QANR5L13QE76008\" rel=\"noopener noreferrer\" target=\"_blank\">question écrite n° 76008</a>. Ce résumé n’est ni un avis juridique ni un avis déontologique.</p>",
+      "html_en": "<h2>Accounting firms: the framework set by the Order and by law</h2>\n<p>The French national council of chartered accountants (CNOEC) published a notice on generative AI in firms, with no publication date shown. Its position: use these tools while respecting regulation, including GDPR and professional secrecy. Read it for its principles more than for its list of tools.</p>\n<p>Its central precaution, in its words: 'Do not upload personal, sensitive and/or confidential data: no client emails, FEC (accounting entries file), DSN (payroll filing) files… that are not anonymised on sites you do not control'. It also asks to always check answers, since AI can be wrong or invent. Among possible uses, it lists analysing anonymous data.</p>\n<p>It offers a model usage charter in five points: responsible use (AI does not replace human decision), accuracy (answers checked and validated before being shared), bias, data security and confidentiality, monitoring. The notice reproduces this model; its downloadable version is in the private area of the Order's website. To set your own rules, our <a href=\"/ressources/outils/charte-ia-entreprise\">AI charter template</a> is a starting point.</p>\n<p>A chartered accountant's professional secrecy stems from article 21 of ordinance no. 45-2138 of 19 September 1945, which refers to article 226-13 of the criminal code. We only cite the reminder in a ministerial answer published in the National Assembly on 5 October 2010; the text in force should be read on Légifrance. Our reading: sending a client file's data to an AI service is data leaving the firm, to be decided before choosing the tool.</p>\n<p>On GDPR, the <a href=\"/ressources/guides/rgpd-agents-ia-checklist\">12-point checklist</a> and the <a href=\"/conformite-ia\">AI compliance</a> page cover legal basis, register, processors and retention.</p>\n<p>Sources, read on 16 October 2026: CNOEC, notice 'Comment utiliser ChatGPT ?' (<a href=\"https://www.experts-comptables.fr/sites/default/files/assets/files/COMMENT%20UTILISER%20CHATGPT%20-%20A4_p%C3%A0p.pdf\" rel=\"noopener noreferrer\" target=\"_blank\">PDF</a>) and page '<a href=\"https://www.experts-comptables.fr/travaux-data-et-ia\" rel=\"noopener noreferrer\" target=\"_blank\">Travaux Data et IA</a>'; National Assembly, <a href=\"https://www.assemblee-nationale.fr/dyn/13/questions/QANR5L13QE76008\" rel=\"noopener noreferrer\" target=\"_blank\">written question no. 76008</a>. This summary is neither legal nor ethics advice.</p>"
+    },
+    {
       "type": "branded-callout",
       "background": "paper",
       "bodyHtml": true,
@@ -345,8 +425,8 @@
       "h2_en": "No Waimia project on this function yet",
       "body1_fr": "Nous n'avons pas livré de projet de comptabilité à ce jour, et nous préférons l'écrire. Ce que nous savons faire tient à des briques que nous maîtrisons sur d'autres fonctions : relier des outils, lire des documents, router une validation, tenir un tableau de bord.",
       "body1_en": "We have not delivered an accounting project to date, and we prefer to say so. What we can do rests on building blocks we master on other functions: linking tools, reading documents, routing an approval, maintaining a dashboard.",
-      "body2_fr": "Ce que nous ferions, dans cet ordre : <strong>1.</strong> cartographier le flux et vérifier l'ouverture de votre logiciel comptable ; <strong>2.</strong> vous dire si un logiciel spécialisé suffit, et lequel évaluer ; <strong>3.</strong> automatiser la collecte et les relances de pièces avec <a href=\"/services/automatisation-n8n\">n8n</a> ou <a href=\"/services/automatisation-make\">Make</a> ; <strong>4.</strong> relier la comptabilité à vos outils métier ; <strong>5.</strong> seulement ensuite, un <a href=\"/services/agents-ia\">agent IA</a> pour préparer les situations ou répondre aux questions sur un dossier. Pour ce que Claude y ajoute, tâche par tâche, voir le guide <a href=\"/ressources/guides/claude-finance-pme\">Claude pour la finance d'une PME</a>. Les exemples chiffrés ci-dessous ne sont pas les nôtres.",
-      "body2_en": "What we would do, in this order: <strong>1.</strong> map the flow and check how open your accounting software is; <strong>2.</strong> tell you whether a specialised tool is enough, and which to evaluate; <strong>3.</strong> automate document collection and reminders with <a href=\"/services/automatisation-n8n\">n8n</a> or <a href=\"/services/automatisation-make\">Make</a>; <strong>4.</strong> link accounting to your business tools; <strong>5.</strong> only then, an <a href=\"/services/agents-ia\">AI agent</a> to prepare statements or answer questions on a file. For what Claude adds, task by task, see the guide <a href=\"/ressources/guides/claude-finance-pme\">Claude for an SMB's finance function</a>. The figures below are not ours."
+      "body2_fr": "Ce que nous ferions, dans cet ordre : <strong>1.</strong> cartographier le flux et vérifier l'ouverture de votre logiciel comptable ; <strong>2.</strong> dire si un logiciel spécialisé suffit ; <strong>3.</strong> automatiser la collecte et les relances de pièces avec <a href=\"/services/automatisation-n8n\">n8n</a> ou <a href=\"/services/automatisation-make\">Make</a> ; <strong>4.</strong> relier la comptabilité à vos outils métier ; <strong>5.</strong> seulement ensuite, un <a href=\"/services/agents-ia\">agent IA</a> pour préparer les situations. Ce que Claude ajoute, tâche par tâche : le guide <a href=\"/ressources/guides/claude-finance-pme\">Claude pour la finance d'une PME</a>. Les exemples chiffrés ci-dessous ne sont pas les nôtres.",
+      "body2_en": "What we would do, in this order: <strong>1.</strong> map the flow and check how open your accounting software is; <strong>2.</strong> say whether a specialised tool is enough; <strong>3.</strong> automate document collection and reminders with <a href=\"/services/automatisation-n8n\">n8n</a> or <a href=\"/services/automatisation-make\">Make</a>; <strong>4.</strong> link accounting to your business tools; <strong>5.</strong> only then, an <a href=\"/services/agents-ia\">AI agent</a> to prepare statements. What Claude adds, task by task: the guide <a href=\"/ressources/guides/claude-finance-pme\">Claude for an SMB's finance function</a>. The figures below are not ours."
     },
     {
       "type": "market-cases",
@@ -374,7 +454,21 @@
       "role_en": "Founder of Waimia · AI and automation engineer",
       "profileHref": "/equipe/simon-beros",
       "publishedDate": "5 octobre 2026",
-      "updatedDate": "5 octobre 2026"
+      "updatedDate": "16 octobre 2026"
+    },
+    {
+      "type": "cta-final",
+      "background": "ink",
+      "h2_fr": "Classez vos tâches avant de choisir le premier cas",
+      "h2_en": "Classez vos tâches avant de choisir le premier cas",
+      "body_fr": "Dix minutes, un classement par priorité en heures par mois : la grille vous le donne tout de suite, sans inscription. Vous pouvez ensuite la recevoir par e-mail pour la garder.",
+      "body_en": "Dix minutes, un classement par priorité en heures par mois : la grille vous le donne tout de suite, sans inscription. Vous pouvez ensuite la recevoir par e-mail pour la garder.",
+      "cta_primary": {
+        "label_fr": "Classer mes tâches",
+        "label_en": "Classer mes tâches",
+        "href": "/ressources/outils/grille-taches-a-automatiser",
+        "variant": "primary"
+      }
     },
     {
       "type": "related-cards-band",
@@ -439,15 +533,33 @@
         },
         {
           "q_fr": "La facture électronique change-t-elle la donne ?",
-          "a_fr": "Elle déplace le travail plus qu'elle ne le supprime : quand les factures arrivent dans un format structuré, la lecture automatique compte moins et le contrôle compte davantage (cohérence avec la commande, imputation, validation). Le calendrier et les obligations sont publiés par l'administration fiscale ; vérifiez-les à la source avant de choisir un outil, nous ne les résumons pas ici.",
+          "a_fr": "Elle déplace le travail plus qu’elle ne le supprime : quand les factures arrivent dans un format structuré, la lecture automatique compte moins et le contrôle compte davantage (cohérence avec la commande, imputation, validation). Les dates et la source officielle sont dans la question suivante.",
           "q_en": "Does e-invoicing change things?",
-          "a_en": "It shifts the work more than it removes it: when invoices arrive in a structured format, automatic reading matters less and control matters more (consistency with the order, allocation, approval). The schedule and obligations are published by the tax administration; check them at the source before choosing a tool, we do not summarise them here."
+          "a_en": "It shifts the work more than it removes it: when invoices arrive in a structured format, automatic reading matters less and control matters more (consistency with the order, allocation, approval). Dates and the official source are in the next question."
+        },
+        {
+          "q_fr": "À partir de quand une PME doit-elle recevoir et émettre des factures électroniques ?",
+          "a_fr": "D’après la fiche de la DGFiP (mise à jour juin 2026, lue le 16 octobre 2026), toutes les entreprises doivent pouvoir recevoir des factures électroniques depuis le 1er septembre 2026. Les grandes entreprises et les ETI doivent en émettre depuis cette date ; les PME et les microentreprises, au plus tard le 1er septembre 2027. Les factures transitent par une plateforme agréée, dont la liste est publiée sur impots.gouv.fr.",
+          "q_en": "From when must an SMB receive and issue electronic invoices?",
+          "a_en": "According to the DGFiP (French tax administration) factsheet (updated June 2026, read on 16 October 2026), all companies must be able to receive electronic invoices since 1 September 2026. Large companies and mid-caps must issue them from that date; SMBs and micro-enterprises by 1 September 2027 at the latest. Invoices go through an approved platform, whose list is published on impots.gouv.fr."
         },
         {
           "q_fr": "Les données comptables peuvent-elles être envoyées à un modèle d'IA ?",
           "a_fr": "Cela se décide donnée par donnée. Une facture fournisseur contient peu de données personnelles ; un bulletin de paie ou un relevé bancaire de dirigeant en contient beaucoup. On liste ce qui est envoyé, on vérifie les conditions de l'éditeur du modèle (conservation, réutilisation, lieu de traitement) et on écarte du périmètre ce qui n'a pas besoin d'y être. Pour un cabinet, le secret professionnel s'ajoute au RGPD.",
           "q_en": "Can accounting data be sent to an AI model?",
           "a_en": "It is decided data item by data item. A supplier invoice holds little personal data; a payslip or an owner's bank statement holds a lot. What is sent is listed, the model vendor's terms are checked (retention, reuse, processing location) and whatever does not need to be in scope is left out. For a firm, professional secrecy comes on top of GDPR."
+        },
+        {
+          "q_fr": "Un expert-comptable peut-il utiliser ChatGPT avec les données de ses clients ?",
+          "a_fr": "Pas avec des données non anonymisées sur un site que le cabinet ne maîtrise pas : la notice du CNOEC cite les mails clients, les FEC et les DSN. Restent possibles la rédaction, l’analyse de données anonymes, ou un outil dont le cabinet a vérifié les conditions (conservation, réutilisation, lieu de traitement). Chaque réponse est vérifiée avant d’être partagée.",
+          "q_en": "Can an accountant use ChatGPT with client data?",
+          "a_en": "Not with non-anonymised data on a site the firm does not control: the CNOEC notice names client emails, FEC files and DSN files. Drafting, analysing anonymous data, or using a tool whose terms the firm has checked (retention, reuse, processing location) remain possible. Every answer is checked before being shared."
+        },
+        {
+          "q_fr": "Existe-t-il une charte d’usage de l’IA pour un cabinet comptable ?",
+          "a_fr": "Le CNOEC propose un modèle de charte en cinq points : utilisation responsable, exactitude, biais, sécurité et confidentialité des données, surveillance. La notice reproduit ce modèle, téléchargeable dans la partie privée du site de l’Ordre. Notre modèle de charte IA pour entreprise, en neuf articles (outils autorisés, données interdites, validation humaine), peut servir de base.",
+          "q_en": "Is there an AI usage charter for an accounting firm?",
+          "a_en": "The CNOEC offers a model charter in five points: responsible use, accuracy, bias, data security and confidentiality, monitoring. The notice reproduces this model, downloadable from the private area of the Order's website. Our AI charter template for companies, in nine articles (authorised tools, forbidden data, human approval), can serve as a base."
         },
         {
           "q_fr": "Par quelle tâche commencer ?",

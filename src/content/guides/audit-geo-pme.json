@@ -1,0 +1,570 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "Audit GEO : les contrôles à faire seul avant d'en commander un",
+  "title_en": "GEO audit: the checks to run yourself before ordering one",
+  "seoTitle_fr": "Audit GEO : les contrôles à faire avant d'en payer un",
+  "seoTitle_en": "GEO audit: the checks to run before paying for one",
+  "description_fr": "Audit GEO pour PME : trois blocs de contrôles à faire seul (robots, contenu, réponses des IA) et ce qu'un audit payant ajoute. Relevé le 16 octobre 2026.",
+  "description_en": "GEO audit for SMBs: three blocks of checks to run yourself (crawler access, content, AI answers) and what a paid audit adds. Checked on 16 October 2026.",
+  "slug": "audit-geo-pme",
+  "publishedAt": "2026-10-16",
+  "updatedAt": "2026-10-16",
+  "category": "acquisition",
+  "tags": [
+    "geo",
+    "audit-geo",
+    "visibilite-ia",
+    "robots-txt",
+    "assistants-ia",
+    "guide-pme"
+  ],
+  "sources": [
+    {
+      "name": "Google Search Central, AI features and your website (mis à jour le 10 décembre 2025), lu le 16 octobre 2026",
+      "url": "https://developers.google.com/search/docs/appearance/ai-features",
+      "type": "enterprise"
+    },
+    {
+      "name": "Google Search Central, Optimizing your website for generative AI features on Google Search (mis à jour le 10 juillet 2026), lu le 16 octobre 2026",
+      "url": "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide",
+      "type": "enterprise"
+    },
+    {
+      "name": "OpenAI, Overview of OpenAI crawlers (OAI-SearchBot, GPTBot, ChatGPT-User, délai d'environ 24 heures), lu le 16 octobre 2026",
+      "url": "https://developers.openai.com/api/docs/bots",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, Does Anthropic crawl data from the web, and how can site owners block the crawler? (ClaudeBot, Claude-User, Claude-SearchBot), lu le 16 octobre 2026",
+      "url": "https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler",
+      "type": "enterprise"
+    },
+    {
+      "name": "Perplexity, Perplexity Crawlers (PerplexityBot, Perplexity-User, plages d'adresses, pare-feu), lu le 16 octobre 2026",
+      "url": "https://docs.perplexity.ai/guides/bots",
+      "type": "enterprise"
+    },
+    {
+      "name": "Cloudflare, Block AI Bots (préréglages Search, Agent, Training ; nouveaux réglages par défaut annoncés pour le 15 septembre 2026), lu le 16 octobre 2026",
+      "url": "https://developers.cloudflare.com/bots/additional-configurations/block-ai-bots/",
+      "type": "enterprise"
+    },
+    {
+      "name": "Cloudflare, AI Crawl Control with Cloudflare WAF (règles de sécurité placées avant le réglage d'un robot), lu le 16 octobre 2026",
+      "url": "https://developers.cloudflare.com/ai-crawl-control/configuration/ai-crawl-control-with-waf/",
+      "type": "enterprise"
+    },
+    {
+      "name": "ClickForest, Audit GEO (exemple de périmètre d'un audit payant : six points de contrôle), lu le 16 octobre 2026",
+      "url": "https://www.clickforest.com/fr/audits/audit-geo",
+      "type": "enterprise"
+    }
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "Qu'est-ce qu'un audit GEO ?",
+      "a": "Un état des lieux de la façon dont les assistants IA (ChatGPT, Claude, Perplexity, le Mode IA de Google) lisent et citent votre entreprise : accès des robots, contenu des pages, réponses réelles à vos questions de marché. GEO signifie Generative Engine Optimization. Google range ce travail dans le SEO. Relevé le 16 octobre 2026."
+    },
+    {
+      "q": "Quelle différence entre un audit GEO et un audit SEO ?",
+      "a": "Google écrit que viser ses réponses IA reste du SEO, et que la condition de base est celle du SEO : une page indexée et éligible à un extrait. Ce que l'audit GEO ajoute en pratique : d'autres robots à autoriser (OpenAI, Anthropic, Perplexity) et la lecture des réponses des assistants, qui ne sont pas une page de résultats classés."
+    },
+    {
+      "q": "Peut-on faire un audit GEO soi-même ?",
+      "a": "Oui pour l'état des lieux de départ : les trois blocs de ce guide, sans outil payant. Le suivi mois après mois suit le protocole du guide de mesure. Un prestataire devient utile quand les questions dépassent ce que vous relevez à la main, ou quand il faut reprendre des pages."
+    },
+    {
+      "q": "Faut-il un fichier llms.txt ?",
+      "a": "Google écrit que Google Search ne l'utilise pas : en créer un ne nuit ni ne sert à votre classement, et vous pouvez en maintenir un pour d'autres services. Les pages de robots d'OpenAI, d'Anthropic et de Perplexity lues le 16 octobre 2026 ne le demandent pas aux propriétaires de sites."
+    },
+    {
+      "q": "Combien de temps avant de voir un effet ?",
+      "a": "Aucun délai de citation n'est publié. Les seuls délais documentés concernent les robots : environ 24 heures pour qu'OpenAI prenne en compte un changement de robots.txt, jusqu'à 24 heures chez Perplexity. Google indique que la ré-exploration d'une page peut prendre de quelques jours à plusieurs mois."
+    },
+    {
+      "q": "Un audit GEO garantit-il d'être cité ?",
+      "a": "Non, et un prestataire qui le promet est à écarter. Google écrit qu'aucun outil tiers n'a accès à ses systèmes internes de classement ou d'IA, et conseille de se méfier de ceux qui promettent un classement. Un audit établit un état des lieux et classe des chantiers, rien de plus."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "What is a GEO audit?",
+      "a": "A snapshot of how AI assistants (ChatGPT, Claude, Perplexity, Google's AI Mode) read and cite your business: crawler access, page content, real answers to your market questions. GEO stands for Generative Engine Optimization. Google files this work under SEO. Checked on 16 October 2026."
+    },
+    {
+      "q": "What is the difference between a GEO audit and an SEO audit?",
+      "a": "Google writes that aiming at its AI answers is still SEO, and that the basic condition is the SEO one: an indexed page eligible for a snippet. What a GEO audit adds in practice: other crawlers to allow (OpenAI, Anthropic, Perplexity) and a reading of the assistants' answers, which are not a ranked results page."
+    },
+    {
+      "q": "Can you run a GEO audit yourself?",
+      "a": "Yes for the starting snapshot: the three blocks of this guide, with no paid tool. Month-by-month tracking follows the protocol in the measurement guide. A provider becomes useful when the questions exceed what you can record by hand, or when pages must be reworked."
+    },
+    {
+      "q": "Do you need an llms.txt file?",
+      "a": "Google writes that Google Search does not use it: creating one neither harms nor helps your ranking, and you may maintain one for other services. The OpenAI, Anthropic and Perplexity crawler pages read on 16 October 2026 do not ask site owners for it."
+    },
+    {
+      "q": "How long before you see an effect?",
+      "a": "No citation delay is published. The only documented delays concern crawlers: about 24 hours for OpenAI to pick up a robots.txt change, up to 24 hours at Perplexity. Google states that recrawling a page can take from several days to several months."
+    },
+    {
+      "q": "Does a GEO audit guarantee being cited?",
+      "a": "No, and a provider who promises it should be ruled out. Google writes that no third-party tool has access to its internal ranking or AI systems, and advises caution towards anyone promising rankings. An audit establishes a snapshot and ranks projects, nothing more."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "kicker_fr": "§ Guide",
+      "kicker_en": "§ Guide",
+      "h1_fr": "<i class=\"acc\">Audit GEO</i> : les contrôles à faire avant d'en commander un",
+      "h1_en": "<i class=\"acc\">GEO audit</i>: the checks to run before ordering one",
+      "lede_fr": "Un audit GEO vérifie trois choses : que les robots des assistants peuvent lire vos pages, que ces pages répondent en toutes lettres aux questions de vos clients, et ce que les assistants répondent aujourd'hui sur votre marché. Les trois se déroulent seul en une demi-journée (estimation de Waimia). Un audit payant ajoute du temps, de la comparaison et un classement des chantiers, pas un accès secret. Sources relevées le 16 octobre 2026.",
+      "lede_en": "A GEO audit checks three things: that assistants' crawlers can read your pages, that those pages answer your customers' questions in plain words, and what assistants answer today on your market. You can run all three yourself in half a day (Waimia estimate). A paid audit adds time, comparison and a ranking of projects, not secret access. Sources checked on 16 October 2026.",
+      "badges": [
+        {
+          "label_fr": "Sources Google, OpenAI, Anthropic et Perplexity relevées le 16 octobre 2026",
+          "label_en": "Google, OpenAI, Anthropic and Perplexity sources checked on 16 October 2026"
+        },
+        {
+          "label_fr": "Aucun outil payant requis",
+          "label_en": "No paid tool required"
+        },
+        {
+          "label_fr": "Grille de Waimia, pas une norme",
+          "label_en": "Waimia's grid, not a standard"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Voir l'offre référencement IA",
+        "label_en": "See the AI search optimisation offer",
+        "href": "/services/referencement-ia",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Mesurer dans la durée",
+        "label_en": "Measure over time",
+        "href": "/ressources/guides/mesurer-visibilite-ia-chatgpt",
+        "variant": "ghost"
+      }
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "16 octobre 2026",
+      "updatedDate": "16 octobre 2026"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "Que contrôle-t-on dans un audit GEO ?",
+      "question_en": "What does a GEO audit check?",
+      "term_fr": "Réponse courte",
+      "term_en": "Short answer",
+      "answer_fr": "Trois blocs, dans cet ordre. L'accès : robots.txt, pare-feu et indexation laissent-ils passer Googlebot, OAI-SearchBot, Claude-SearchBot et PerplexityBot ? Le contenu : vos pages clés répondent-elles dès les premiers mots, datées et signées ? Les réponses : que disent ChatGPT, Claude, Perplexity et Google à dix questions de votre marché ? Google écrit que viser ses réponses IA reste du SEO. Relevé le 16 octobre 2026.",
+      "answer_en": "Three blocks, in this order. Access: do robots.txt, firewall and indexing let Googlebot, OAI-SearchBot, Claude-SearchBot and PerplexityBot through? Content: do your key pages answer from the first words, dated and signed? Answers: what do ChatGPT, Claude, Perplexity and Google say to ten questions from your market? Google writes that aiming at its AI answers is still SEO. Checked on 16 October 2026."
+    },
+    {
+      "type": "key-metric-grid",
+      "background": "paper",
+      "variant": "accent",
+      "columns": 3,
+      "eyebrow_fr": "§ Les repères",
+      "eyebrow_en": "§ Key figures",
+      "title_fr": "Quels repères retenir avant de commencer ?",
+      "title_en": "Which figures should you keep in mind before starting?",
+      "metrics": [
+        {
+          "value": "Aucune",
+          "label_fr": "exigence technique supplémentaire pour apparaître dans les Aperçus IA et le Mode IA de Google : la page doit être indexée et éligible à un extrait (documentation Google, mise à jour le 10 décembre 2025).",
+          "label_en": "additional technical requirement to appear in Google's AI Overviews and AI Mode: the page must be indexed and eligible for a snippet (Google documentation, updated 10 December 2025)."
+        },
+        {
+          "value": "24 h",
+          "label_fr": "environ, le délai qu'OpenAI et Perplexity annoncent pour prendre en compte un changement de robots.txt. Un contrôle de robots se refait donc le lendemain.",
+          "label_en": "about, the delay OpenAI and Perplexity state for picking up a robots.txt change. A crawler check is therefore redone the next day."
+        },
+        {
+          "value": "3 blocs",
+          "label_fr": "de contrôles : accès des robots, contenu des pages, réponses réelles des assistants. Une demi-journée en tout (estimation de Waimia).",
+          "label_en": "of checks: crawler access, page content, real answers from assistants. Half a day in all (Waimia estimate)."
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Comment dérouler un audit GEO sans outil payant ?</h2>\n<p>Trois blocs, dans l'ordre. L'accès d'abord : si un robot ne peut pas lire une page, rien d'autre ne compte. Le contenu ensuite. Les réponses réelles des assistants en dernier, parce qu'elles servent à interpréter les deux premiers blocs.</p>\n<p>Ce guide décrit l'état des lieux de départ. Le suivi mois après mois relève du <a href=\"/ressources/guides/mesurer-visibilite-ia-chatgpt\">guide de mesure</a>. Le détail du rôle de chaque robot est dans le <a href=\"/blog/seo-geo-etre-cite-par-les-ia-generatives\">billet sur les mécaniques du GEO</a>, et celui de Perplexity dans <a href=\"/blog/etre-cite-par-perplexity\">être cité par Perplexity</a>.</p>",
+      "html_en": "<h2>How do you run a GEO audit without a paid tool?</h2>\n<p>Three blocks, in order. Access first: if a crawler cannot read a page, nothing else matters. Content next. The assistants' real answers last, because they help interpret the first two blocks.</p>\n<p>This guide describes the starting snapshot. Month-by-month tracking belongs to the <a href=\"/ressources/guides/mesurer-visibilite-ia-chatgpt\">measurement guide</a>. The role of each crawler is detailed in the <a href=\"/blog/seo-geo-etre-cite-par-les-ia-generatives\">post on the mechanics of GEO</a>, and Perplexity's in <a href=\"/blog/etre-cite-par-perplexity\">getting cited by Perplexity</a>.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper",
+      "kicker_fr": "§ Bloc 1 · l'accès",
+      "kicker_en": "§ Block 1 · access",
+      "heading_fr": "Bloc 1 : les robots peuvent-ils lire vos pages ?",
+      "heading_en": "Block 1: can crawlers read your pages?",
+      "caption_fr": "Sources : documentation de Google, d'OpenAI, d'Anthropic, de Perplexity et de Cloudflare, lue le 16 octobre 2026. La colonne « Où regarder » décrit la méthode de Waimia.",
+      "caption_en": "Sources: Google, OpenAI, Anthropic, Perplexity and Cloudflare documentation, read on 16 October 2026. The \"Where to look\" column describes Waimia's method.",
+      "columns_fr": [
+        "Contrôle",
+        "Où regarder",
+        "Ce que vous devez trouver"
+      ],
+      "columns_en": [
+        "Check",
+        "Where to look",
+        "What you should find"
+      ],
+      "rows_fr": [
+        [
+          "robots.txt",
+          "Ouvrez votre-domaine/robots.txt. Cherchez Googlebot, OAI-SearchBot, Claude-SearchBot et PerplexityBot, puis toute règle générale « User-agent: * » suivie de « Disallow: / ».",
+          "Aucun de ces quatre robots de recherche n'est bloqué. Bloquer GPTBot ou ClaudeBot, qu'OpenAI et Anthropic décrivent comme des robots d'entraînement, est un autre choix, réglé séparément."
+        ],
+        [
+          "Pare-feu et CDN",
+          "Les règles de sécurité de votre hébergeur, de votre CDN ou de Cloudflare qui visent des robots ou des agents utilisateur.",
+          "OpenAI et Perplexity recommandent d'autoriser leurs plages d'adresses publiées. Cloudflare prévient qu'un robot réglé sur « autorisé » peut rester bloqué par une règle de sécurité placée avant."
+        ],
+        [
+          "Journaux d'accès",
+          "Les journaux de votre hébergeur : cherchez OAI-SearchBot, Claude-SearchBot et PerplexityBot.",
+          "Des passages datés. Aucun passage pendant des semaines : un signal à creuser, pas une preuve de blocage. Un passage prouve l'accès, pas la citation."
+        ],
+        [
+          "Indexation dans Google",
+          "Search Console, outil d'inspection d'URL, sur trois pages clés.",
+          "Page indexée, exploration autorisée, aucun nosnippet, max-snippet ou noindex qui retire l'extrait. Google : pour être lien d'appui dans les Aperçus IA ou le Mode IA, une page doit être indexée et éligible à un extrait."
+        ],
+        [
+          "Texte dans le HTML",
+          "Affichez le code source (pas l'inspecteur) d'une page clé.",
+          "La réponse que vous voulez voir citée y figure en toutes lettres. Les pages de robots d'OpenAI, d'Anthropic et de Perplexity lues ne décrivent pas leur rendu du JavaScript : servir le texte dans le HTML est la précaution la moins chère."
+        ]
+      ],
+      "rows_en": [
+        [
+          "robots.txt",
+          "Open your-domain/robots.txt. Look for Googlebot, OAI-SearchBot, Claude-SearchBot and PerplexityBot, then for any general rule \"User-agent: *\" followed by \"Disallow: /\".",
+          "None of these four search crawlers is blocked. Blocking GPTBot or ClaudeBot, which OpenAI and Anthropic describe as training crawlers, is a different choice, set separately."
+        ],
+        [
+          "Firewall and CDN",
+          "The security rules of your host, your CDN or Cloudflare that target crawlers or user agents.",
+          "OpenAI and Perplexity recommend allowing their published IP ranges. Cloudflare warns that a crawler set to \"allowed\" can still be blocked by a security rule placed before it."
+        ],
+        [
+          "Access logs",
+          "Your host's logs: look for OAI-SearchBot, Claude-SearchBot and PerplexityBot.",
+          "Dated visits. No visit for weeks is a signal to dig into, not proof of a block. A visit proves access, not citation."
+        ],
+        [
+          "Google indexing",
+          "Search Console, URL inspection tool, on three key pages.",
+          "Page indexed, crawling allowed, no nosnippet, max-snippet or noindex removing the snippet. Google: to be a supporting link in AI Overviews or AI Mode, a page must be indexed and eligible to be shown with a snippet."
+        ],
+        [
+          "Text in the HTML",
+          "Display the source code (not the inspector) of a key page.",
+          "The answer you want cited appears there in plain words. The OpenAI, Anthropic and Perplexity crawler pages read do not describe how they render JavaScript: serving the text in the HTML is the cheapest precaution."
+        ]
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Que faire des écarts trouvés au bloc 1 ?</h2>\n<p>Bloquer un robot de recherche a un coût que chaque éditeur décrit à sa façon :</p>\n<ul>\n<li><strong>OpenAI.</strong> Les sites qui se retirent d'OAI-SearchBot ne sont pas affichés dans les réponses de la recherche de ChatGPT, même s'ils peuvent rester en lien de navigation.</li>\n<li><strong>Anthropic.</strong> Désactiver Claude-SearchBot peut réduire la visibilité et la précision du site dans les résultats de recherche de ses utilisateurs.</li>\n<li><strong>Perplexity.</strong> Pour apparaître dans les résultats, l'entreprise recommande d'autoriser PerplexityBot et de laisser passer ses plages d'adresses publiées. Une page bloquée peut garder son domaine, son titre et un bref résumé factuel dans l'index.</li>\n</ul>\n<p>ChatGPT-User et Perplexity-User agissent à la demande d'un utilisateur. OpenAI écrit que les règles du robots.txt peuvent ne pas s'appliquer à ChatGPT-User, et Perplexity que son équivalent ignore généralement le robots.txt. Lecture de Waimia : pour ces deux agents, le levier est le pare-feu, pas le robots.txt.</p>\n<p>Après un changement de robots.txt, laissez passer environ 24 heures avant de refaire le contrôle : OpenAI indique environ 24 heures, Perplexity jusqu'à 24 heures.</p>\n<p>Si votre site passe par Cloudflare, vérifiez vos réglages au lieu de les supposer. La page « Block AI Bots » de Cloudflare annonce, pour les nouveaux domaines, de nouveaux réglages par défaut au 15 septembre 2026 : les robots classés « Training » ou « Agent » bloqués sur les pages qui affichent de la publicité, la catégorie « Search » restant autorisée.</p>",
+      "html_en": "<h2>What should you do about the gaps found in block 1?</h2>\n<p>Blocking a search crawler has a cost that each vendor describes in its own way:</p>\n<ul>\n<li><strong>OpenAI.</strong> Sites that opt out of OAI-SearchBot are not shown in ChatGPT search answers, though they can still appear as navigational links.</li>\n<li><strong>Anthropic.</strong> Disabling Claude-SearchBot may reduce the site's visibility and accuracy in its users' search results.</li>\n<li><strong>Perplexity.</strong> To appear in results, the company recommends allowing PerplexityBot and letting its published IP ranges through. A blocked page can keep its domain, headline and a brief factual summary in the index.</li>\n</ul>\n<p>ChatGPT-User and Perplexity-User act at a user's request. OpenAI writes that robots.txt rules may not apply to ChatGPT-User, and Perplexity that its equivalent generally ignores robots.txt. Waimia's reading: for these two agents, the lever is the firewall, not robots.txt.</p>\n<p>After a robots.txt change, wait about 24 hours before redoing the check: OpenAI states about 24 hours, Perplexity up to 24 hours.</p>\n<p>If your site runs behind Cloudflare, check your settings instead of assuming. Cloudflare's \"Block AI Bots\" page announces, for new domains, new defaults on 15 September 2026: crawlers classed \"Training\" or \"Agent\" blocked on pages that display ads, with the \"Search\" category still allowed.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Bloc 2 : vos pages répondent-elles en toutes lettres ?</h2>\n<p>Choisissez cinq pages : l'offre principale, la page de tarifs ou de prix si vous en avez une, deux pages de service et une page de preuve. Pour chacune, six questions, à répondre par oui ou par non. Chaque « non » est un chantier.</p>",
+      "html_en": "<h2>Block 2: do your pages answer in plain words?</h2>\n<p>Pick five pages: the main offer, the pricing page if you have one, two service pages and one proof page. For each, six questions, answered yes or no. Every \"no\" is a project.</p>"
+    },
+    {
+      "type": "decision-list",
+      "background": "paper-2",
+      "kicker_fr": "§ Bloc 2 · le contenu",
+      "kicker_en": "§ Block 2 · content",
+      "heading_fr": "Six questions à poser à chacune de vos cinq pages",
+      "heading_en": "Six questions to ask about each of your five pages",
+      "items": [
+        {
+          "label_fr": "La question d'un client est posée en titre, et la réponse tient dans les 80 premiers mots, sans introduction.",
+          "label_en": "A customer's question is the heading, and the answer fits in the first 80 words, with no introduction."
+        },
+        {
+          "label_fr": "Le nom de l'entreprise, celui du service et la zone servie sont écrits en toutes lettres, pas « nous » ni « notre solution ».",
+          "label_en": "The company name, the service name and the area served are written out, not \"we\" or \"our solution\"."
+        },
+        {
+          "label_fr": "Chaque chiffre a une date et une source. Un chiffre sans source est difficile à reprendre comme à vérifier.",
+          "label_en": "Every figure has a date and a source. A figure without a source is hard to reuse and hard to check."
+        },
+        {
+          "label_fr": "Un auteur identifiable et une date de mise à jour sont affichés.",
+          "label_en": "An identifiable author and an update date are shown."
+        },
+        {
+          "label_fr": "Le passage tient seul : il se comprend sorti de la page, sans « comme vu plus haut ».",
+          "label_en": "The passage stands alone: it makes sense taken out of the page, with no \"as seen above\"."
+        },
+        {
+          "label_fr": "La page dit quelque chose que d'autres ne disent pas : un point de vue, une méthode, un chiffre à vous. Google demande un contenu « non banal ».",
+          "label_en": "The page says something others do not: a view, a method, a figure of your own. Google asks for \"non-commodity\" content."
+        }
+      ]
+    },
+    {
+      "type": "editorial-callout",
+      "background": "paper",
+      "variant": "quote",
+      "size": "md",
+      "body_fr": "« Optimiser pour la recherche générative, c'est optimiser pour l'expérience de recherche, donc toujours du SEO. » Google Search Central, guide d'optimisation pour les fonctions d'IA générative, mis à jour le 10 juillet 2026 (traduction de Waimia). Ces six questions sont une grille de Waimia : Google précise qu'aucune optimisation spéciale n'est requise.",
+      "body_en": "\"Optimizing for generative AI search is optimizing for the search experience, and thus still SEO.\" Google Search Central, guide to optimizing for generative AI features, updated 10 July 2026. These six questions are a Waimia grid: Google states that no special optimization is required."
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Bloc 3 : que répondent les assistants à vos questions ?</h2>\n<p>C'est le seul bloc qui donne la vue du client. Comptez environ deux heures : dix questions, quatre assistants, trois passages, à une minute par passage, d'après le guide de mesure (estimation de Waimia).</p>\n<ol>\n<li><strong>Écrire dix questions</strong> comme vos clients les posent : trois sur le choix d'un prestataire, deux de définition, deux de comparaison, une de proximité si vous servez une zone, deux sur votre marque.</li>\n<li><strong>Les poser</strong> à ChatGPT, Claude, Perplexity et Google en Mode IA, dans une session sans historique.</li>\n<li><strong>Noter, pour chaque réponse :</strong> votre marque est-elle citée, votre site figure-t-il en source, quels concurrents sont nommés, quels domaines sont cités, l'information vous concernant est-elle exacte.</li>\n<li><strong>Recommencer deux fois.</strong> Une réponse isolée ne prouve rien : le <a href=\"/ressources/guides/mesurer-visibilite-ia-chatgpt\">guide de mesure</a> expose l'étude de SparkToro et le protocole à trois passages.</li>\n</ol>\n<p>Le tableau suivant sert à lire ce que vous avez noté. Sa deuxième colonne est une lecture de Waimia, à confronter à vos relevés.</p>",
+      "html_en": "<h2>Block 3: what do assistants answer to your questions?</h2>\n<p>This is the only block that shows the customer's view. Allow about two hours: ten questions, four assistants, three passes, at one minute per pass, as in the measurement guide (Waimia estimate).</p>\n<ol>\n<li><strong>Write ten questions</strong> the way your customers ask them: three on choosing a provider, two definitions, two comparisons, one about proximity if you serve an area, two about your brand.</li>\n<li><strong>Ask them</strong> to ChatGPT, Claude, Perplexity and Google in AI Mode, in a session with no history.</li>\n<li><strong>Note, for each answer:</strong> is your brand cited, does your site appear as a source, which competitors are named, which domains are cited, is the information about you accurate.</li>\n<li><strong>Repeat twice.</strong> A single answer proves nothing: the <a href=\"/ressources/guides/mesurer-visibilite-ia-chatgpt\">measurement guide</a> sets out the SparkToro study and the three-pass protocol.</li>\n</ol>\n<p>The next table helps read what you noted. Its second column is Waimia's reading, to be tested against your records.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper",
+      "kicker_fr": "§ Bloc 3 · les réponses",
+      "kicker_en": "§ Block 3 · answers",
+      "heading_fr": "Que faire de ce que vous avez relevé ?",
+      "heading_en": "What should you do with what you recorded?",
+      "caption_fr": "Colonne « Ce que ça suggère » : lecture de Waimia, pas un résultat publié. Elle se vérifie en lisant la page citée à la place de la vôtre.",
+      "caption_en": "\"What it suggests\" column: Waimia's reading, not a published result. It is checked by reading the page cited in place of yours.",
+      "columns_fr": [
+        "Ce que vous observez",
+        "Ce que ça suggère",
+        "Premier geste"
+      ],
+      "columns_en": [
+        "What you observe",
+        "What it suggests",
+        "First move"
+      ],
+      "rows_fr": [
+        [
+          "Un concurrent est cité, pas vous",
+          "Sa page répond plus clairement, ou il figure sur des sources tierces que le moteur lit.",
+          "Lire la page citée en source, la comparer à la vôtre, puis reprendre le bloc 2 sur votre page équivalente."
+        ],
+        [
+          "Votre marque est nommée avec une information fausse",
+          "Une source périmée ou ambiguë circule, sur votre site ou ailleurs.",
+          "Retrouver la source citée, corriger la page ou la fiche en cause, y afficher la date de mise à jour."
+        ],
+        [
+          "Un annuaire ou un comparatif vous cite, pas votre site",
+          "Le moteur s'appuie sur des pages tierces pour répondre.",
+          "Vérifier que la fiche tierce est exacte et complète. Ne pas la recopier sur votre site."
+        ],
+        [
+          "Vous apparaissez sur certaines questions seulement",
+          "Il existe une page qui répond à celles-là, et pas aux autres.",
+          "Écrire ou reprendre une page par question manquante, en commençant par celle qui porte du chiffre d'affaires."
+        ]
+      ],
+      "rows_en": [
+        [
+          "A competitor is cited, not you",
+          "Its page answers more clearly, or it appears on third-party sources the engine reads.",
+          "Read the page cited as a source, compare it with yours, then redo block 2 on your equivalent page."
+        ],
+        [
+          "Your brand is named with wrong information",
+          "An outdated or ambiguous source is circulating, on your site or elsewhere.",
+          "Find the cited source, fix the page or listing at fault, and show the update date on it."
+        ],
+        [
+          "A directory or comparison cites you, not your site",
+          "The engine relies on third-party pages to answer.",
+          "Check that the third-party listing is accurate and complete. Do not copy it onto your site."
+        ],
+        [
+          "You appear on some questions only",
+          "A page exists that answers those, and not the others.",
+          "Write or rework one page per missing question, starting with the one that carries revenue."
+        ]
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Que fait un audit GEO payant que vous ne ferez pas seul ?</h2>\n<p>Rien de secret. Google écrit qu'aucun outil tiers n'a accès à ses systèmes internes de classement ou d'IA, et il invite à lire son guide d'évaluation des conseils SEO tiers avant de s'offrir un service « GEO ».</p>\n<p>Ce qu'un audit apporte réellement tient en quatre points :</p>\n<ul>\n<li>du temps : relever chaque mois plusieurs assistants à la main prend des heures ;</li>\n<li>la comparaison avec vos concurrents sur les mêmes questions ;</li>\n<li>le classement des pages à reprendre, par ordre de chiffre d'affaires en jeu ;</li>\n<li>un regard extérieur sur vos pages, que vous ne lisez plus.</li>\n</ul>\n<p>Un exemple de périmètre : un prestataire belge décrit six points de contrôle (ancrage des entités, balisage schema.org, citabilité des paragraphes, présence dans les Aperçus IA et le Mode IA, comparaison aux concurrents, aspects techniques) et une feuille de route à 90 jours. Remarque : Google écrit que les données structurées ne sont pas requises pour la recherche générative. Un audit qui en fait un critère central doit dire pour quel moteur.</p>",
+      "html_en": "<h2>What does a paid GEO audit do that you cannot do alone?</h2>\n<p>Nothing secret. Google writes that no third-party tool has access to its internal ranking or AI systems, and it invites you to read its guidance on evaluating third-party SEO advice before buying a \"GEO\" service.</p>\n<p>What an audit really brings comes down to four points:</p>\n<ul>\n<li>time: recording several assistants by hand every month takes hours;</li>\n<li>comparison with your competitors on the same questions;</li>\n<li>a ranking of the pages to rework, by the revenue at stake;</li>\n<li>an outside eye on your pages, which you no longer read.</li>\n</ul>\n<p>An example of scope: a Belgian provider describes six checkpoints (entity anchoring, schema.org markup, citability of paragraphs, presence in AI Overviews and AI Mode, comparison with competitors, technical aspects) and a 90-day roadmap. Note: Google writes that structured data is not required for generative AI search. An audit that makes it a central criterion should say for which engine.</p>"
+    },
+    {
+      "type": "tech-when-dual",
+      "background": "paper",
+      "kicker_fr": "§ Cahier des charges",
+      "kicker_en": "§ Scope of work",
+      "title_fr": "Que demander à un audit GEO, et que refuser ?",
+      "title_en": "What should you ask of a GEO audit, and what should you refuse?",
+      "aside_fr": "Grille valable pour Waimia comme pour un concurrent. Une seule réponse insatisfaisante suffit à creuser.",
+      "aside_en": "A grid that applies to Waimia as it does to a competitor. A single unsatisfactory answer is enough to dig deeper.",
+      "use_title_fr": "À exiger",
+      "use_title_en": "To require",
+      "use_items_fr": [
+        "Les questions posées, les dates, les modèles utilisés et les réponses brutes en annexe",
+        "Les pages à modifier, une par une, avec la raison de chaque changement",
+        "Ce qui est mesuré séparé de ce qui est une hypothèse",
+        "Un relevé que vous pouvez refaire vous-même, avec la même méthode",
+        "Vos accès et vos données restitués à la fin"
+      ],
+      "use_items_en": [
+        "The questions asked, the dates, the models used and the raw answers in an appendix",
+        "The pages to change, one by one, with the reason for each change",
+        "What is measured kept apart from what is a hypothesis",
+        "A record you can redo yourself, with the same method",
+        "Your access and your data handed back at the end"
+      ],
+      "avoid_title_fr": "À refuser",
+      "avoid_title_en": "To refuse",
+      "avoid_items_fr": [
+        "Une promesse de citation ou de position",
+        "Un score sans les réponses qui l'ont produit",
+        "Un fichier llms.txt ou un balisage présentés comme indispensables à Google, qui dit ne pas les utiliser",
+        "Des recommandations qui ne disent pas quelle plateforme (Google, ChatGPT, Perplexity) les justifie"
+      ],
+      "avoid_items_en": [
+        "A promise of citation or position",
+        "A score without the answers that produced it",
+        "An llms.txt file or markup presented as essential to Google, which says it does not use them",
+        "Recommendations that do not say which platform (Google, ChatGPT, Perplexity) justifies them"
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Chez Waimia : quel point d'entrée pour le GEO ?</h2>\n<p>Le point d'entrée est un sprint de cadrage de 10 heures à {{prix.sprint}} € HT, à prix fixe : relevé de départ, audit de citabilité, mise au format citable des pages prioritaires et balisage de base, comme décrit sur la page de l'<a href=\"/services/referencement-ia\">offre de référencement IA</a>. La suite se chiffre en heures, à {{prix.horaire}} € HT, sur un temps estimé avec vous et validé avant exécution. Aucune promesse de citation.</p>\n<p>L'audit IA gratuit de 45 minutes ne remplace pas ce relevé : au 16 octobre 2026, la <a href=\"/audit-ia-pme\">page de l'audit</a> décrit une cartographie de tâches à automatiser et un volet site web et logiciel, sans volet GEO. Pour la rédaction des pages elles-mêmes, voir <a href=\"/services/seo-geo-contenu\">SEO, GEO et contenu</a>.</p>",
+      "html_en": "<h2>At Waimia: what is the entry point for GEO?</h2>\n<p>The entry point is a 10-hour scoping sprint at €{{prix.sprint.en}} excl. VAT, at a fixed price: starting reading, citability audit, putting priority pages into citable form and basic markup, as described on the <a href=\"/services/referencement-ia\">AI search optimisation offer</a> page. What follows is quoted in hours, at €{{prix.horaire}} excl. VAT, on a time estimated with you and validated before execution. No promise of citation.</p>\n<p>The free 45-minute AI audit does not replace this reading: as of 16 October 2026, the <a href=\"/audit-ia-pme\">audit page</a> describes a map of tasks to automate and a website and software part, with no GEO part. For writing the pages themselves, see <a href=\"/services/seo-geo-contenu\">SEO, GEO and content</a>.</p>"
+    },
+    {
+      "type": "lead-capture-band",
+      "lead_magnet": "diagnostic-maturite-ia",
+      "background": "ink",
+      "anchor_id": "diagnostic-maturite"
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Further reading",
+      "cards": [
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Mesurer sa visibilité IA, sans abonnement",
+          "title_en": "Measuring your AI visibility, no subscription",
+          "lead_fr": "Le protocole mensuel : panel de questions, trois passages, trafic des assistants, journal des changements.",
+          "lead_en": "The monthly protocol: question panel, three passes, assistant traffic, change log.",
+          "href": "/ressources/guides/mesurer-visibilite-ia-chatgpt"
+        },
+        {
+          "kicker_fr": "Billet",
+          "kicker_en": "Post",
+          "title_fr": "Être cité par les IA : les mécaniques du GEO",
+          "title_en": "Getting cited by AIs: the mechanics of GEO",
+          "lead_fr": "Ce que Google écrit, ce que l'étude GEO suggère pour les autres assistants, ce que vous vérifiez seul.",
+          "lead_en": "What Google writes, what the GEO study suggests for other assistants, what you can check yourself.",
+          "href": "/blog/seo-geo-etre-cite-par-les-ia-generatives"
+        },
+        {
+          "kicker_fr": "Comparatif",
+          "kicker_en": "Comparison",
+          "title_fr": "GEO vs SEO : où mettre le budget, par critère et par cas",
+          "title_en": "GEO vs SEO: where to put the budget, by criterion and by case",
+          "lead_fr": "Un tableau de critères et un verdict par cas, avec ce que Google écrit d'une prestation GEO vendue à part.",
+          "lead_en": "A criteria table and a verdict by case, with what Google writes about a GEO service sold separately.",
+          "href": "/ressources/comparatifs/geo-vs-seo"
+        }
+      ]
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper-2",
+      "h2_fr": "Audit GEO : questions fréquentes",
+      "h2_en": "GEO audit: frequently asked questions",
+      "items": [
+        {
+          "q_fr": "Qu'est-ce qu'un audit GEO ?",
+          "a_fr": "Un état des lieux de la façon dont les assistants IA (ChatGPT, Claude, Perplexity, le Mode IA de Google) lisent et citent votre entreprise : accès des robots, contenu des pages, réponses réelles à vos questions de marché. GEO signifie Generative Engine Optimization. Google range ce travail dans le SEO. Relevé le 16 octobre 2026.",
+          "q_en": "What is a GEO audit?",
+          "a_en": "A snapshot of how AI assistants (ChatGPT, Claude, Perplexity, Google's AI Mode) read and cite your business: crawler access, page content, real answers to your market questions. GEO stands for Generative Engine Optimization. Google files this work under SEO. Checked on 16 October 2026."
+        },
+        {
+          "q_fr": "Quelle différence entre un audit GEO et un audit SEO ?",
+          "a_fr": "Google écrit que viser ses réponses IA reste du SEO, et que la condition de base est celle du SEO : une page indexée et éligible à un extrait. Ce que l'audit GEO ajoute en pratique : d'autres robots à autoriser (OpenAI, Anthropic, Perplexity) et la lecture des réponses des assistants, qui ne sont pas une page de résultats classés.",
+          "q_en": "What is the difference between a GEO audit and an SEO audit?",
+          "a_en": "Google writes that aiming at its AI answers is still SEO, and that the basic condition is the SEO one: an indexed page eligible for a snippet. What a GEO audit adds in practice: other crawlers to allow (OpenAI, Anthropic, Perplexity) and a reading of the assistants' answers, which are not a ranked results page."
+        },
+        {
+          "q_fr": "Peut-on faire un audit GEO soi-même ?",
+          "a_fr": "Oui pour l'état des lieux de départ : les trois blocs de ce guide, sans outil payant. Le suivi mois après mois suit le protocole du guide de mesure. Un prestataire devient utile quand les questions dépassent ce que vous relevez à la main, ou quand il faut reprendre des pages.",
+          "q_en": "Can you run a GEO audit yourself?",
+          "a_en": "Yes for the starting snapshot: the three blocks of this guide, with no paid tool. Month-by-month tracking follows the protocol in the measurement guide. A provider becomes useful when the questions exceed what you can record by hand, or when pages must be reworked."
+        },
+        {
+          "q_fr": "Faut-il un fichier llms.txt ?",
+          "a_fr": "Google écrit que Google Search ne l'utilise pas : en créer un ne nuit ni ne sert à votre classement, et vous pouvez en maintenir un pour d'autres services. Les pages de robots d'OpenAI, d'Anthropic et de Perplexity lues le 16 octobre 2026 ne le demandent pas aux propriétaires de sites.",
+          "q_en": "Do you need an llms.txt file?",
+          "a_en": "Google writes that Google Search does not use it: creating one neither harms nor helps your ranking, and you may maintain one for other services. The OpenAI, Anthropic and Perplexity crawler pages read on 16 October 2026 do not ask site owners for it."
+        },
+        {
+          "q_fr": "Combien de temps avant de voir un effet ?",
+          "a_fr": "Aucun délai de citation n'est publié. Les seuls délais documentés concernent les robots : environ 24 heures pour qu'OpenAI prenne en compte un changement de robots.txt, jusqu'à 24 heures chez Perplexity. Google indique que la ré-exploration d'une page peut prendre de quelques jours à plusieurs mois.",
+          "q_en": "How long before you see an effect?",
+          "a_en": "No citation delay is published. The only documented delays concern crawlers: about 24 hours for OpenAI to pick up a robots.txt change, up to 24 hours at Perplexity. Google states that recrawling a page can take from several days to several months."
+        },
+        {
+          "q_fr": "Un audit GEO garantit-il d'être cité ?",
+          "a_fr": "Non, et un prestataire qui le promet est à écarter. Google écrit qu'aucun outil tiers n'a accès à ses systèmes internes de classement ou d'IA, et conseille de se méfier de ceux qui promettent un classement. Un audit établit un état des lieux et classe des chantiers, rien de plus.",
+          "q_en": "Does a GEO audit guarantee being cited?",
+          "a_en": "No, and a provider who promises it should be ruled out. Google writes that no third-party tool has access to its internal ranking or AI systems, and advises caution towards anyone promising rankings. An audit establishes a snapshot and ranks projects, nothing more."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Passer à l'action",
+      "kicker_en": "§ Take action",
+      "h2_fr": "Un relevé de départ avant de changer quoi que ce soit.",
+      "h2_en": "A starting reading before changing anything.",
+      "subtitle_fr": "Le sprint de cadrage de 10 heures à {{prix.sprint}} € HT pose ce relevé sur vos sujets clés et audite la citabilité de vos pages prioritaires. Aucune promesse de citation. La suite se chiffre en heures à {{prix.horaire}} € HT, validées par vous avant exécution.",
+      "subtitle_en": "The 10-hour scoping sprint at €{{prix.sprint.en}} excl. VAT sets that reading on your key topics and audits the citability of your priority pages. No promise of citation. What follows is quoted in hours at €{{prix.horaire}} excl. VAT, validated by you before execution.",
+      "buttons": [
+        {
+          "label_fr": "Demander un sprint de cadrage",
+          "label_en": "Request a scoping sprint",
+          "href": "/contact?offer=referencement-ia&intent=suite",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Voir l'offre référencement IA",
+          "label_en": "See the AI search optimisation offer",
+          "href": "/services/referencement-ia",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

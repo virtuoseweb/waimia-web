@@ -37,6 +37,15 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### Vague 12 en production, 16 octobre 2026 (PR #101, `d315b66c`)
+
+- **Cinq créations planifiées, publiées en avance** : comparatif `lovable-vs-developpement-sur-mesure`, billets `poc-ou-mvp-differences-pme`, `contenu-ia-seo-google-penalise`, `connecter-claude-wordpress-shopify-mcp`, `chatgpt-shopping-e-commerce` (disponibilité en France présentée comme non confirmée).
+- **Sept révisions** : billet GEO aligné sur le guide de Google du 15 mai 2026 (viser l'IA générative reste du SEO) et sur le rapport Search Console IA générative ; `geo-vs-seo` recentré sur la décision de budget ; `ai-act-pme-calendrier` revérifié dans les articles 111 et 113 (délai du 2 décembre 2026 pour le marquage) ; `avis-n8n-vs-zapier-2026` (calcul des tâches Zapier corrigé), `n8n-vs-make`, `/services/automatisations`, `/services/sequences-de-suivi`. Frise de `/conformite-ia` complétée du 2 décembre 2026.
+- **Revue Opus bloquante, corrigée avant fusion** : quatre affirmations contredites par leur source primaire (crédits Lovable : le site publié reste en ligne ; dépassement Zapier plafonné à 3 fois le quota de tâches ; dépassement n8n décrit seulement pour Business et Enterprise, corrigé aussi dans `n8n-prix` déjà en production ; délai AI Act du marquage) et trois réserves.
+- **Calendrier et suivi** : sept créations planifiées de W43 à W47 (audit GEO, formateur IA, refonte de logiciel métier, formation IA marketing, agent IA 24/7, accompagnement IA, être cité par Perplexity), 6 semaines d'avance ; 14 requêtes ajoutées à `keywords.json` (pages des vagues 11 et 12, cibles à créer à `null`).
+- **Preuves** : portes 37 sur 39, `astro check` 8 erreurs, balayage des 193 pages à deux tailles après corrections (386 rendus, 0 défaut), E2E 72 passés, preview vérifiée sur le SHA, production vérifiée (5 URL en 200, sitemap 193).
+- **Mesure Lighthouse mobile en production (16 octobre)** : pages de contenu 88 à 98, SEO 100, accessibilité 96 à 97, CLS 0 ; accueil 75 à 95 selon le passage (1 761 éléments, 1,4 s de styles et mise en page).
+
 ### Vague 11 en production, 16 octobre 2026 (PR #100, `03af0de9`)
 
 - **Six créations** sur des requêtes où les concurrents se classent sans page Waimia (analyse des exports Semrush du dossier `waimia seo` : noiise, kayro, ia4ops, lucasfonseque, bulk formation) : guides `claude-in-chrome-entreprise`, `prompt-engineering-pme`, `mesurer-visibilite-ia-chatgpt`, comparatif `chatgpt-claude-gemini-perplexity-pme`, billets `ai-mode-google-ai-overviews-pme` et `geo-local-recommande-par-les-ia`. Six autres sujets planifiés de W43 à W48 (Lovable ou sur mesure, POC ou MVP, contenu IA et Google, Claude avec WordPress et Shopify, ChatGPT Shopping, IA auto-hébergée) : la porte du calendrier passe de 0 à 6 semaines d'avance.

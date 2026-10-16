@@ -3,11 +3,11 @@
   "title_fr": "Automatisation RH par l'IA : ce qu’on automatise · Waimia",
   "seoTitle_fr": "Automatisation RH par l'IA : quoi automatiser, quoi éviter",
   "title_en": "HR automation with AI: what to automate · Waimia",
-  "description_fr": "Automatisation RH et IA en PME : l'administratif et l'onboarding d'abord, le recrutement classé à haut risque par l'AI Act, et des cas du marché sourcés.",
-  "description_en": "HR automation and AI for SMBs: admin and onboarding first, recruitment classed high-risk by the AI Act, and sourced market cases.",
+  "description_fr": "Automatisation RH en PME : arrivées, départs, rappels, paie, congés. Ce qui s’automatise, ce que le RGPD et l’AI Act encadrent, et par où commencer.",
+  "description_en": "HR automation in SMBs: arrivals, departures, reminders, payroll, leave. What can be automated, what GDPR and the AI Act govern, and where to start.",
   "slug": "rh",
   "publishedAt": "2026-10-05T00:00:00.000Z",
-  "updatedAt": "2026-10-14T00:00:00.000Z",
+  "updatedAt": "2026-10-16T00:00:00.000Z",
   "category": "automatisation",
   "tags": [
     "rh",
@@ -16,43 +16,104 @@
     "ai-act",
     "automatisation"
   ],
+  "sources": [
+    {
+      "name": "Commission européenne, AI Act : cadre réglementaire de l'IA (mise à jour le 3 août 2026), relue le 16 octobre 2026",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+      "type": "state",
+      "publishedAt": "2026-08-03"
+    },
+    {
+      "name": "CNIL, Les règles pour la gestion du personnel (17 août 2023), lue le 16 octobre 2026",
+      "url": "https://www.cnil.fr/fr/les-regles-pour-la-gestion-du-personnel",
+      "type": "state",
+      "publishedAt": "2023-08-17"
+    },
+    {
+      "name": "CNIL, Gestion des ressources humaines : référentiel de durées de conservation (2 avril 2026), lu le 16 octobre 2026",
+      "url": "https://www.cnil.fr/fr/referentiel-durees-conservation-donnees-rh",
+      "type": "state",
+      "publishedAt": "2026-04-02"
+    },
+    {
+      "name": "CNIL, Le contrôle de l'activité des personnes employées (9 juillet 2026), lu le 16 octobre 2026",
+      "url": "https://www.cnil.fr/fr/controle-de-lactivite-des-personnes-employees",
+      "type": "state",
+      "publishedAt": "2026-07-09"
+    },
+    {
+      "name": "CNIL, règlement général sur la protection des données, chapitre III, article 22, lu le 16 octobre 2026",
+      "url": "https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre3",
+      "type": "state"
+    },
+    {
+      "name": "Urssaf, DPAE - Réaliser la déclaration préalable à l'embauche (mise à jour le 15 juillet 2026), lue le 16 octobre 2026",
+      "url": "https://www.urssaf.fr/accueil/employeur/embaucher-gerer-salaries/embaucher/declaration-prealable-embauche.html",
+      "type": "state",
+      "publishedAt": "2026-07-15"
+    }
+  ],
   "seo": {
     "noindex": false
   },
   "faq_fr": [
     {
-      "q": "Peut-on utiliser l'IA pour trier des CV ?",
-      "a": "Ce n'est pas interdit, mais c'est un usage que la Commission européenne classe à haut risque : elle cite en exemple les logiciels de tri de CV pour le recrutement. Les obligations propres à ces systèmes s'appliquent à partir du 2 décembre 2027 (page de la Commission mise à jour le 3 août 2026, consultée le 5 octobre 2026). Waimia ne met pas en place de tri automatisé de candidats sans un cadre renforcé, décrit sur cette page."
+      "q": "Qu’est-ce que l’automatisation RH ?",
+      "a": "C’est l’usage d’outils pour exécuter sans ressaisie les tâches administratives répétitives des ressources humaines : arrivées et départs, rappels d’échéances, collecte des éléments de paie, congés, réponses aux questions courantes. Elle prépare et transmet, elle ne décide rien sur une personne. L’IA ajoute la lecture de documents et les réponses en langage naturel, avec les garde-fous décrits sur cette page."
     },
     {
-      "q": "Que peut-on automatiser en RH sans risque particulier ?",
+      "q": "Peut-on utiliser l'IA pour trier des CV ?",
+      "a": "Ce n’est pas interdit, mais la Commission européenne classe cet usage à haut risque : elle cite en exemple les logiciels de tri de CV pour le recrutement. Les obligations propres à ces systèmes s’appliquent à partir du 2 décembre 2027 (page mise à jour le 3 août 2026, consultée le 5 octobre et relue le 16 octobre 2026). Waimia ne met pas en place de tri automatisé de candidats sans cadre renforcé, décrit sur cette page."
+    },
+    {
+      "q": "Que peut-on automatiser en RH sans risque particulier ?",
       "a": "L'administratif qui ne décide rien sur une personne : préparer l'arrivée d'un salarié (comptes, matériel, documents à signer), rappeler les échéances (fin de période d'essai, visites médicales, formations obligatoires), collecter les éléments variables de paie, répondre aux questions sur les règles internes à partir des documents de l'entreprise. Ce sont des tâches fréquentes, aux règles stables."
     },
     {
-      "q": "Un assistant IA peut-il répondre aux questions des salariés ?",
+      "q": "Que faut-il déclarer à l’embauche, et peut-on l’automatiser ?",
+      "a": "La déclaration préalable à l’embauche (DPAE) est obligatoire pour chaque salarié recruté. L’Urssaf indique qu’elle est adressée avant la prise de fonction ou le début de la période d’essai, au plus tôt dans les 8 jours précédant l’embauche (page mise à jour le 15 juillet 2026, lue le 16 octobre 2026). On peut préparer les champs et rappeler l’échéance ; une personne valide et dépose."
+    },
+    {
+      "q": "Un assistant IA peut-il répondre aux questions des salariés ?",
       "a": "Oui, sur les règles générales : congés, mutuelle, notes de frais, télétravail, à partir de vos documents à jour et en citant sa source. Il ne doit pas répondre sur une situation individuelle (un arrêt, un litige, une rémunération) : il transmet alors à la personne des RH. Et les salariés savent qu'ils interrogent un système automatisé."
     },
     {
-      "q": "Faut-il consulter le CSE avant de déployer un outil d'IA en RH ?",
-      "a": "L'introduction d'un outil qui modifie les conditions de travail ou permet un contrôle de l'activité des salariés relève en France du dialogue avec les représentants du personnel. Nous ne sommes pas juristes : la question se pose à votre conseil en droit social avant le pilote, pas après. Nous fournissons la description technique dont il a besoin pour trancher."
+      "q": "Faut-il consulter le CSE avant de déployer un outil d'IA en RH ?",
+      "a": "L’introduction d’un outil qui modifie les conditions de travail ou contrôle l’activité des salariés relève en France du dialogue avec les représentants du personnel. Pour un contrôle d’activité, la CNIL rappelle trois conditions cumulatives, dont la soumission aux instances représentatives (page du 9 juillet 2026, lue le 16 octobre 2026). Nous ne sommes pas juristes : posez la question à votre conseil en droit social avant le pilote ; nous fournissons la description technique."
     },
     {
-      "q": "L'IA peut-elle évaluer la performance d'un salarié ?",
+      "q": "L'IA peut-elle évaluer la performance d'un salarié ?",
       "a": "Nous ne le faisons pas. La gestion des travailleurs figure dans les usages à haut risque listés par la Commission européenne, et la reconnaissance des émotions sur le lieu de travail fait partie des pratiques interdites, en vigueur depuis février 2025 selon la même page. On peut en revanche automatiser la logistique des entretiens : convocations, trames, relances, compte rendu rédigé par le manager."
     },
     {
-      "q": "SIRH ou automatisation sur mesure ?",
+      "q": "Une décision RH peut-elle être prise par un automate ?",
+      "a": "Le RGPD (article 22) donne à chacun le droit de ne pas faire l’objet d’une décision fondée exclusivement sur un traitement automatisé produisant des effets juridiques ou l’affectant de manière significative. Pour les exceptions du contrat et du consentement explicite, le responsable garantit au moins le droit d’obtenir une intervention humaine. Chez Waimia, aucune décision concernant une personne n’est prise par un automate : les automatisations préparent et transmettent."
+    },
+    {
+      "q": "Quelles données de salariés peut-on envoyer à un modèle d’IA ?",
+      "a": "Le moins possible : ce qui est nécessaire à la tâche, sans données de santé ni situation familiale. La CNIL rappelle que seules les personnes chargées de la gestion du personnel peuvent consulter les informations des salariés : un outil automatisé ne doit pas élargir ce cercle. On vérifie les conditions de l’éditeur du modèle (conservation, réutilisation, lieu de traitement) et on inscrit le traitement au registre."
+    },
+    {
+      "q": "SIRH ou automatisation sur mesure ?",
       "a": "Si vous gérez encore les congés et les dossiers dans des tableurs, un SIRH du marché est la première étape, et les cas publiés ci-dessus le montrent. L'automatisation sur mesure vient ensuite, pour relier le SIRH à la paie, à l'informatique et aux outils métier, ou pour un assistant qui répond à partir de vos documents."
     }
   ],
   "faq_en": [
     {
+      "q": "What is HR automation?",
+      "a": "It is the use of tools to run repetitive HR admin tasks without retyping: arrivals and departures, deadline reminders, collecting pay items, leave, answers to common questions. It prepares and passes on; it decides nothing about a person. AI adds document reading and natural-language answers, with the safeguards described on this page."
+    },
+    {
       "q": "Can AI be used to screen CVs?",
-      "a": "It is not banned, but the European Commission classes it as high-risk: it gives CV-sorting software for recruitment as an example. The obligations specific to these systems apply from 2 December 2027 (Commission page updated on 3 August 2026, read on 5 October 2026). Waimia does not set up automated candidate screening without a reinforced framework, described on this page."
+      "a": "It is not banned, but the European Commission classes this use as high-risk: it gives CV-sorting software for recruitment as an example. The obligations specific to these systems apply from 2 December 2027 (Commission page updated on 3 August 2026, read on 5 October and rechecked on 16 October 2026). Waimia does not set up automated candidate screening without a reinforced framework, described on this page."
     },
     {
       "q": "What can be automated in HR without particular risk?",
       "a": "Admin work that decides nothing about a person: preparing a new hire's arrival (accounts, equipment, documents to sign), reminding deadlines (end of probation, medical visits, mandatory training), collecting variable pay items, answering questions about internal rules from company documents. These are frequent tasks with stable rules."
+    },
+    {
+      "q": "What must be declared at hiring, and can it be automated?",
+      "a": "The pre-hire declaration (DPAE) is compulsory for every employee recruited. The Urssaf states it is sent before the start of work or of the probation period, at the earliest within the 8 days before the hire (page updated on 15 July 2026, read on 16 October 2026). The fields can be prepared and the deadline reminded; a person approves and files."
     },
     {
       "q": "Can an AI assistant answer employees’ questions?",
@@ -60,11 +121,19 @@
     },
     {
       "q": "Must the works council be consulted before deploying an HR AI tool?",
-      "a": "Introducing a tool that changes working conditions or enables monitoring of employee activity falls, in France, under dialogue with staff representatives. We are not lawyers: put the question to your employment law adviser before the pilot, not after. We provide the technical description they need to decide."
+      "a": "Introducing a tool that changes working conditions or monitors employees' activity falls, in France, under dialogue with staff representatives. For activity monitoring, the CNIL recalls three cumulative conditions, including submission to the staff representative bodies (page of 9 July 2026, read on 16 October 2026). We are not lawyers: put the question to your employment law adviser before the pilot; we provide the technical description."
     },
     {
       "q": "Can AI assess an employee’s performance?",
       "a": "We do not do it. Management of workers is among the high-risk uses listed by the European Commission, and emotion recognition in the workplace is among the prohibited practices, effective since February 2025 according to the same page. What can be automated is the logistics of reviews: invitations, templates, reminders, with the write-up done by the manager."
+    },
+    {
+      "q": "Can an HR decision be made by an automated system?",
+      "a": "The GDPR (article 22) gives everyone the right not to be subject to a decision based solely on automated processing that produces legal effects or similarly significantly affects them. For the contract and explicit-consent exceptions, the controller must at least guarantee the right to obtain human intervention. At Waimia, no decision about a person is made by an automated system: automations prepare and pass on."
+    },
+    {
+      "q": "Which employee data can be sent to an AI model?",
+      "a": "As little as possible: what the task needs, with no health data or family situation. The CNIL recalls that only people in charge of personnel management may consult employees' information: an automated tool must not widen that circle. The model vendor's terms are checked (retention, reuse, processing location) and the processing is entered in the register."
     },
     {
       "q": "HRIS or custom automation?",
@@ -77,8 +146,8 @@
       "background": "paper",
       "kicker_fr": "§ Cas d'usage · ressources humaines",
       "kicker_en": "§ Use case · human resources",
-      "h1_fr": "IA et automatisation des ressources humaines",
-      "h1_en": "AI and human resources automation",
+      "h1_fr": "Automatisation RH et IA : ce qu’on automatise en PME, ce qu’on évite",
+      "h1_en": "HR automation and AI: what SMBs can automate, and what to avoid",
       "definition_kicker_fr": "En une phrase",
       "definition_kicker_en": "In one sentence",
       "lede_fr": "L'automatisation RH, c'est retirer aux équipes l'administratif répétitif : préparer une arrivée, rappeler une échéance, collecter les éléments de paie, répondre dix fois à la même question sur les congés. Ce n'est pas faire trier des candidats ou noter des salariés par une machine, deux usages que l'AI Act classe à haut risque. Cette page s'adresse aux PME et ETI dont la fonction RH tient sur une à quelques personnes.",
@@ -126,15 +195,15 @@
       "question_en": "What can be automated in human resources, and where to start?",
       "term_fr": "La réponse courte",
       "term_en": "The short answer",
-      "answer_fr": "On automatise l'administratif qui ne décide rien sur une personne : l'accueil d'un salarié, les rappels d'échéances, la collecte des éléments variables de paie, les réponses aux questions sur les règles internes. On commence par l'arrivée d'un salarié, parce que le processus est le même à chaque fois et qu'un oubli se voit dès le premier jour. On n'automatise pas le tri des candidats ni l'évaluation des salariés sans un cadre renforcé : le recrutement et la gestion du personnel figurent parmi les usages que la Commission européenne classe à haut risque au titre de l'AI Act.",
-      "answer_en": "You automate admin work that decides nothing about a person: onboarding, deadline reminders, collecting variable pay items, answering questions about internal rules. Start with a new hire's arrival, because the process is the same every time and an omission shows on day one. Candidate screening and employee assessment are not automated without a reinforced framework: recruitment and workforce management are among the uses the European Commission classes as high-risk under the AI Act."
+      "answer_fr": "On automatise l’administratif qui ne décide rien sur une personne : l’accueil d’un salarié, les rappels d’échéances, la collecte des éléments variables de paie, les réponses aux questions sur les règles internes. On commence par l’arrivée, un processus identique à chaque fois. Le tri de candidats et l’évaluation de salariés sont des usages à haut risque selon l’AI Act, et la reconnaissance des émotions au travail est interdite.",
+      "answer_en": "You automate admin work that decides nothing about a person: onboarding, deadline reminders, collecting variable pay items, answering questions about internal rules. Start with arrivals, a process that is identical every time. Candidate screening and employee assessment are high-risk uses under the AI Act, and emotion recognition at work is prohibited."
     },
     {
       "type": "editorial-prose",
       "background": "paper",
       "maxWidth": "prose",
-      "html_fr": "<h2>AI Act : le recrutement et la gestion du personnel sont classés à haut risque</h2>\n<p>C'est le point à connaître avant tout projet d'IA en ressources humaines. Dans sa présentation de l'AI Act, la <a href=\"https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai\" rel=\"noopener noreferrer\" target=\"_blank\">Commission européenne</a> range parmi les usages à haut risque les outils d'IA pour l'emploi, la gestion des travailleurs et l'accès au travail indépendant, et donne pour exemple les logiciels de tri de CV pour le recrutement. Formulation d'origine : « AI tools for employment, management of workers and access to self-employment (e.g. CV-sorting software for recruitment) ».</p>\n<p><strong>Calendrier en vigueur.</strong> Selon la même page, les règles applicables aux systèmes à haut risque de ces domaines, dont l'emploi, s'appliquent à partir du 2 décembre 2027. Cette date résulte du règlement de simplification dit « AI Omnibus », entré en vigueur le 27 juillet 2026. Les obligations prévues : évaluation et réduction des risques, qualité des données pour limiter les résultats discriminatoires, journalisation, documentation, information de l'utilisateur, supervision humaine, robustesse.</p>\n<p><strong>Déjà applicable.</strong> La reconnaissance des émotions sur le lieu de travail figure parmi les pratiques interdites, en vigueur depuis février 2025. Les obligations de formation des personnes qui utilisent l'IA s'appliquent depuis le 2 février 2025.</p>\n<p>Source : Commission européenne, page « AI Act », mise à jour le 3 août 2026, consultée le 5 octobre 2026. Ce résumé n'est pas un avis juridique : la qualification d'un système se fait au cas par cas, avec votre conseil. Notre démarche d'ensemble est sur la page <a href=\"/conformite-ia\">conformité IA</a>.</p>",
-      "html_en": "<h2>AI Act: recruitment and workforce management are classed as high-risk</h2>\n<p>This is the point to know before any HR AI project. In its AI Act overview, the <a href=\"https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai\" rel=\"noopener noreferrer\" target=\"_blank\">European Commission</a> lists among high-risk uses 'AI tools for employment, management of workers and access to self-employment (e.g. CV-sorting software for recruitment)'.</p>\n<p><strong>Current timeline.</strong> According to the same page, the rules for high-risk systems in these areas, including employment, apply from 2 December 2027. This date results from the simplification regulation known as the 'AI Omnibus', which entered into force on 27 July 2026. The obligations: risk assessment and mitigation, dataset quality to minimise discriminatory outcomes, logging, documentation, information to the deployer, human oversight, robustness.</p>\n<p><strong>Already applicable.</strong> Emotion recognition in workplaces is among the prohibited practices, effective since February 2025. AI literacy obligations have applied since 2 February 2025.</p>\n<p>Source: European Commission, 'AI Act' page, last updated 3 August 2026, read on 5 October 2026. This summary is not legal advice: a system is qualified case by case, with your adviser. Our overall approach is on the <a href=\"/conformite-ia\">AI compliance</a> page.</p>",
+      "html_fr": "<h2>AI Act : le recrutement et la gestion du personnel sont classés à haut risque</h2>\n<p>C'est le point à connaître avant tout projet d'IA en ressources humaines. Dans sa présentation de l'AI Act, la <a href=\"https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai\" rel=\"noopener noreferrer\" target=\"_blank\">Commission européenne</a> range parmi les usages à haut risque les outils d'IA pour l'emploi, la gestion des travailleurs et l'accès au travail indépendant, et donne pour exemple les logiciels de tri de CV pour le recrutement. Formulation d'origine : « AI tools for employment, management of workers and access to self-employment (e.g. CV-sorting software for recruitment) ».</p>\n<p><strong>Calendrier en vigueur.</strong> Selon la même page, les règles applicables aux systèmes à haut risque de ces domaines, dont l'emploi, s'appliquent à partir du 2 décembre 2027. Cette date résulte du règlement de simplification dit « AI Omnibus », entré en vigueur le 27 juillet 2026.</p>\n<p><strong>Obligations prévues.</strong> Évaluation et réduction des risques, qualité des données pour limiter les résultats discriminatoires, journalisation, documentation, information de l'utilisateur, supervision humaine, robustesse.</p>\n<p><strong>Déjà applicable.</strong> La reconnaissance des émotions sur le lieu de travail figure parmi les pratiques interdites, en vigueur depuis février 2025. Les obligations de formation des personnes qui utilisent l'IA s'appliquent depuis le 2 février 2025.</p>\n<p>Source : Commission européenne, page « AI Act », mise à jour le 3 août 2026, consultée le 5 octobre 2026 et relue le 16 octobre 2026. Ce résumé n'est pas un avis juridique : la qualification d'un système se fait au cas par cas, avec votre conseil. Notre démarche d'ensemble est sur la page <a href=\"/conformite-ia\">conformité IA</a>.</p>",
+      "html_en": "<h2>AI Act: recruitment and workforce management are classed as high-risk</h2>\n<p>This is the point to know before any HR AI project. In its AI Act overview, the <a href=\"https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai\" rel=\"noopener noreferrer\" target=\"_blank\">European Commission</a> lists among high-risk uses 'AI tools for employment, management of workers and access to self-employment (e.g. CV-sorting software for recruitment)'.</p>\n<p><strong>Current timeline.</strong> According to the same page, the rules for high-risk systems in these areas, including employment, apply from 2 December 2027. This date results from the simplification regulation known as the 'AI Omnibus', which entered into force on 27 July 2026.</p>\n<p><strong>Planned obligations.</strong> Risk assessment and mitigation, dataset quality to minimise discriminatory outcomes, logging, documentation, information to the deployer, human oversight, robustness.</p>\n<p><strong>Already applicable.</strong> Emotion recognition in workplaces is among the prohibited practices, effective since February 2025. AI literacy obligations have applied since 2 February 2025.</p>\n<p>Source: European Commission, 'AI Act' page, last updated 3 August 2026, read on 5 October 2026 and rechecked on 16 October 2026. This summary is not legal advice: a system is qualified case by case, with your adviser. Our overall approach is on the <a href=\"/conformite-ia\">AI compliance</a> page.</p>",
       "figures": [
         {
           "src": "/images/illustrations/ds/rh-v3-entonnoir-paper.webp",
@@ -174,16 +243,34 @@
           "Premier chantier : un formulaire déclenche toutes les tâches."
         ],
         [
+          "Déclarer l’embauche (DPAE)",
+          "Moyenne : tâche récurrente à délai fixe",
+          "Moyen : obligation légale avec délai",
+          "On prépare les champs et on rappelle l’échéance ; une personne valide et dépose."
+        ],
+        [
           "Rappeler les échéances (période d’essai, visites, formations)",
           "Moyenne, mais un oubli coûte cher",
           "Faible",
           "Simple à mettre en place, à faire tôt."
         ],
         [
+          "Préparer un départ (accès à couper, matériel, documents de fin de contrat)",
+          "Moyenne : rare, mais un accès oublié est un risque de sécurité",
+          "Moyen : les documents de fin de contrat sont à valider",
+          "Même schéma que l’arrivée. La coupure des accès est déclenchée, les documents sont validés par les RH."
+        ],
+        [
           "Collecter les éléments variables de paie",
           "Forte chaque mois",
           "Moyen : une erreur touche le salaire",
           "Collecte et contrôle automatisés ; la paie reste validée par une personne."
+        ],
+        [
+          "Suivre congés et absences (demandes, validation, décompte)",
+          "Forte si tout passe encore par un tableur",
+          "Moyen : le décompte alimente la paie",
+          "SIRH d’abord. On automatise seulement le lien avec la paie et les rappels."
         ],
         [
           "Répondre aux questions sur les règles internes",
@@ -218,16 +305,34 @@
           "First project: one form triggers all the tasks."
         ],
         [
+          "Declare the hire (DPAE, the pre-hire declaration)",
+          "Medium: recurring task with a fixed deadline",
+          "Medium: legal obligation with a deadline",
+          "Fields are prepared and the deadline is reminded; a person approves and files."
+        ],
+        [
           "Remind deadlines (probation, medical visits, training)",
           "Medium, but an omission is costly",
           "Low",
           "Simple to set up, do it early."
         ],
         [
+          "Prepare a departure (access to cut, equipment, end-of-contract documents)",
+          "Medium: rare, but a forgotten access is a security risk",
+          "Medium: end-of-contract documents must be approved",
+          "Same pattern as an arrival. Access removal is triggered, documents are approved by HR."
+        ],
+        [
           "Collect variable pay items",
           "High every month",
           "Medium: an error affects pay",
           "Automated collection and checks; payroll stays approved by a person."
+        ],
+        [
+          "Track leave and absences (requests, approval, balance)",
+          "High if everything still goes through a spreadsheet",
+          "Medium: the balance feeds payroll",
+          "HRIS first. Only the link to payroll and the reminders are automated."
         ],
         [
           "Answer questions about internal rules",
@@ -254,6 +359,13 @@
           "We do not do it."
         ]
       ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-3",
+      "maxWidth": "prose",
+      "html_fr": "<h2>Une arrivée de salarié, étape par étape</h2>\n<p>L’arrivée est le meilleur premier chantier : des tâches simples, dans le même ordre, avec des délais. Voici le déroulé type et la part de chaque étape qui reste à une personne.</p>\n<ol>\n<li><strong>Contrat et pièces.</strong> Le contrat est généré depuis un modèle, relu et signé par une personne. L’automatisation relance les pièces manquantes, limitées à ce qui sert la gestion administrative.</li>\n<li><strong>Déclaration préalable à l’embauche (DPAE).</strong> L’Urssaf indique qu’elle doit être adressée avant la prise de fonction ou le début de la période d’essai, au plus tôt dans les 8 jours précédant la date de l’embauche. L’automatisation prépare les champs et rappelle l’échéance ; une personne valide.</li>\n<li><strong>Comptes et matériel.</strong> Une demande par outil part au service informatique, avec suivi des accusés de réception.</li>\n<li><strong>Accueil.</strong> Planning de la première semaine, rappel au manager, message de bienvenue. Le contenu reste écrit par des personnes.</li>\n<li><strong>Période d’essai.</strong> Les rappels d’échéance partent au manager. Renouveler ou rompre reste une décision humaine.</li>\n</ol>\n<p>Le même schéma sert au départ : couper les accès le dernier jour, récupérer le matériel, préparer les documents que les RH valident.</p>\n<p>Source : Urssaf, <a href=\"https://www.urssaf.fr/accueil/employeur/embaucher-gerer-salaries/embaucher/declaration-prealable-embauche.html\" rel=\"noopener noreferrer\" target=\"_blank\">« DPAE - Réaliser la déclaration préalable à l’embauche »</a>, page mise à jour le 15 juillet 2026, lue le 16 octobre 2026.</p>",
+      "html_en": "<h2>A new hire's arrival, step by step</h2>\n<p>An arrival is the best first project: simple tasks, in the same order, with deadlines. Here is the typical sequence and the part of each step that stays with a person.</p>\n<ol>\n<li><strong>Contract and documents.</strong> The contract is generated from a template, reviewed and signed by a person. Automation chases missing documents, limited to what administrative management needs.</li>\n<li><strong>Pre-hire declaration (DPAE).</strong> The Urssaf states it must be sent before the start of work or of the probation period, at the earliest within the 8 days before the hire date. Automation prepares the fields and reminds the deadline; a person approves.</li>\n<li><strong>Accounts and equipment.</strong> One request per tool goes to IT, with acknowledgement tracking.</li>\n<li><strong>Welcome.</strong> First-week schedule, reminder to the manager, welcome message. The content is still written by people.</li>\n<li><strong>Probation.</strong> Deadline reminders go to the manager. Renewing or ending remains a human decision.</li>\n</ol>\n<p>The same pattern serves departures: cut access on the last day, collect equipment, prepare the documents HR approves.</p>\n<p>Source: Urssaf, <a href=\"https://www.urssaf.fr/accueil/employeur/embaucher-gerer-salaries/embaucher/declaration-prealable-embauche.html\" rel=\"noopener noreferrer\" target=\"_blank\">'DPAE - Réaliser la déclaration préalable à l'embauche'</a>, page updated on 15 July 2026, read on 16 October 2026.</p>"
     },
     {
       "type": "process-steps",
@@ -353,8 +465,8 @@
       "type": "editorial-prose",
       "background": "paper-2",
       "maxWidth": "prose",
-      "html_fr": "<h2>Chatbot RH : les questions du personnel, pas les décisions</h2>\n<p>Un chatbot RH est un chatbot interne d'entreprise : il répond aux questions récurrentes du personnel (congés, documents, onboarding) à partir des documents internes validés, et renvoie vers les RH dès qu'une question touche une décision.</p>\n<h2>Les garde-fous que nous posons</h2>\n<h3>Validation humaine</h3>\n<p>Aucune décision concernant une personne n'est prise par un automate. Les automatisations préparent, rappellent et transmettent. La paie, un contrat ou un courrier individuel sont relus et validés par une personne des RH avant de partir.</p>\n<h3>Données personnelles et RGPD</h3>\n<p>Un dossier de salarié contient des données sensibles. On limite ce qui circule dans les automatisations au strict nécessaire, on garde les données de santé et la situation familiale en dehors, on fixe les durées de conservation et on inscrit les traitements au registre. Quand un modèle d'IA est utilisé, on vérifie les conditions de l'éditeur avant d'y envoyer la moindre donnée de salarié.</p>\n<h3>Transparence envers les salariés</h3>\n<p>Les salariés savent ce qui est automatisé, sur quelles données, et qui contacter pour une question individuelle. Un assistant interne s'annonce comme tel et renvoie vers une personne dès que la question porte sur une situation particulière.</p>\n<h3>Accès</h3>\n<p>Les automatisations tournent avec des comptes de service aux droits limités. Un manager ne voit pas, par le biais d'un outil automatisé, ce qu'il ne verrait pas dans le SIRH.</p>",
-      "html_en": "<h2>HR chatbot: staff questions, not decisions</h2>\n<p>An HR chatbot is an internal company chatbot: it answers recurring staff questions (leave, documents, onboarding) from validated internal documents, and hands over to HR as soon as a question touches a decision.</p>\n<h2>The safeguards we set</h2>\n<h3>Human approval</h3>\n<p>No decision about a person is made by a bot. Automations prepare, remind and hand over. Payroll, a contract or an individual letter are reviewed and approved by an HR person before going out.</p>\n<h3>Personal data and GDPR</h3>\n<p>An employee file holds sensitive data. What flows through automations is limited to the strict minimum, health data and family situation stay outside, retention periods are set and processing is entered in the register. When an AI model is used, the vendor's terms are checked before any employee data is sent.</p>\n<h3>Transparency towards employees</h3>\n<p>Employees know what is automated, on which data, and whom to contact for an individual question. An internal assistant announces itself as such and refers to a person as soon as the question concerns a particular situation.</p>\n<h3>Access</h3>\n<p>Automations run with service accounts with limited rights. A manager does not see, through an automated tool, what they would not see in the HRIS.</p>",
+      "html_fr": "<h2>Chatbot RH : les questions du personnel, pas les décisions</h2>\n<p>Un chatbot RH est un chatbot interne d'entreprise : il répond aux questions récurrentes du personnel (congés, documents, onboarding) à partir des documents internes validés, et renvoie vers les RH dès qu'une question touche une décision.</p>\n<h2>Les garde-fous que nous posons</h2>\n<h3>Validation humaine</h3>\n<p>Aucune décision concernant une personne n'est prise par un automate. Les automatisations préparent, rappellent et transmettent. La paie, un contrat ou un courrier individuel sont relus et validés par une personne des RH avant de partir.</p>\n<h3>Données personnelles et RGPD</h3>\n<p>Un dossier de salarié contient des données sensibles. On limite ce qui circule dans les automatisations au strict nécessaire, on garde les données de santé et la situation familiale en dehors, on fixe les durées de conservation et on inscrit les traitements au registre. Quand un modèle d'IA est utilisé, on vérifie les conditions de l'éditeur avant d'y envoyer la moindre donnée de salarié.</p>\n<h3>Transparence envers les salariés</h3>\n<p>Les salariés savent ce qui est automatisé, sur quelles données, et qui contacter pour une question individuelle. Un assistant interne s'annonce comme tel et renvoie vers une personne dès que la question porte sur une situation particulière. Pour un chatbot, l’AI Act pose cette obligation d’information : le guide <a href=\"/ressources/guides/chatbot-transparence-article-50\">article 50</a> détaille qui est visé et quoi afficher.</p>\n<h3>Accès</h3>\n<p>Les automatisations tournent avec des comptes de service aux droits limités. Un manager ne voit pas, par le biais d'un outil automatisé, ce qu'il ne verrait pas dans le SIRH.</p>",
+      "html_en": "<h2>HR chatbot: staff questions, not decisions</h2>\n<p>An HR chatbot is an internal company chatbot: it answers recurring staff questions (leave, documents, onboarding) from validated internal documents, and hands over to HR as soon as a question touches a decision.</p>\n<h2>The safeguards we set</h2>\n<h3>Human approval</h3>\n<p>No decision about a person is made by a bot. Automations prepare, remind and hand over. Payroll, a contract or an individual letter are reviewed and approved by an HR person before going out.</p>\n<h3>Personal data and GDPR</h3>\n<p>An employee file holds sensitive data. What flows through automations is limited to the strict minimum, health data and family situation stay outside, retention periods are set and processing is entered in the register. When an AI model is used, the vendor's terms are checked before any employee data is sent.</p>\n<h3>Transparency towards employees</h3>\n<p>Employees know what is automated, on which data, and whom to contact for an individual question. An internal assistant announces itself as such and refers to a person as soon as the question concerns a particular situation. For a chatbot, the AI Act sets this information duty: the <a href=\"/ressources/guides/chatbot-transparence-article-50\">article 50 guide</a> explains who is concerned and what to display.</p>\n<h3>Access</h3>\n<p>Automations run with service accounts with limited rights. A manager does not see, through an automated tool, what they would not see in the HRIS.</p>",
       "figures": [
         {
           "src": "/images/illustrations/ds/rh-v3-boite-lettres-paper.webp",
@@ -363,6 +475,13 @@
           "side": "left"
         }
       ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-3",
+      "maxWidth": "prose",
+      "html_fr": "<h2>Le cadre à respecter, avec les sources de la CNIL</h2>\n<h3>Informer les salariés et leurs représentants</h3>\n<p>La CNIL indique que l’employeur doit informer les instances représentatives du personnel avant d’utiliser des fichiers de gestion du personnel. Les salariés doivent connaître le responsable du fichier, l’objectif, la base légale, les destinataires, la durée de conservation et les conditions d’exercice de leurs droits. Aucune information ne peut être collectée par un dispositif qui n’a pas été porté à leur connaissance.</p>\n<h3>Limiter l’accès et tracer</h3>\n<p>Selon la CNIL, seules les personnes chargées de la gestion du personnel peuvent consulter les informations des salariés ; les supérieurs hiérarchiques accèdent à celles nécessaires à leurs fonctions. Les actions des personnes habilitées doivent être enregistrées. Une automatisation ne doit donc pas élargir le cercle des lecteurs, et elle doit laisser une trace.</p>\n<h3>Fixer les durées de conservation</h3>\n<p>Le 2 avril 2026, la CNIL a publié un référentiel de durées de conservation pour la gestion du personnel : recrutement, gestion administrative, rémunérations, relations collectives de travail, accidents du travail, contentieux, alertes professionnelles, entre autres. Il relève du droit souple : son respect n’est pas obligatoire.</p>\n<h3>Ne pas surveiller l’activité individuelle sans conditions</h3>\n<p>Pour être licite, un dispositif de contrôle de l’activité du personnel doit cumulativement satisfaire aux tests de justification et de proportionnalité, être soumis aux instances représentatives du personnel selon les règles en vigueur et être porté à la connaissance des salariés (CNIL, 9 juillet 2026). Nous ne mettons pas en place de surveillance de l’activité individuelle sans cadre renforcé.</p>\n<h3>Aucune décision uniquement automatique</h3>\n<p>L’article 22 du RGPD donne à la personne le droit de ne pas faire l’objet d’une décision fondée exclusivement sur un traitement automatisé, y compris le profilage, produisant des effets juridiques la concernant ou l’affectant de manière significative de façon similaire. Il prévoit des exceptions ; pour celles du contrat et du consentement explicite, le responsable doit au moins garantir le droit d’obtenir une intervention humaine. C’est une des raisons pour lesquelles chaque décision RH reste prise par une personne.</p>\n<p>Sources, lues le 16 octobre 2026 : CNIL, <a href=\"https://www.cnil.fr/fr/les-regles-pour-la-gestion-du-personnel\" rel=\"noopener noreferrer\" target=\"_blank\">« Les règles pour la gestion du personnel »</a> (17 août 2023) ; CNIL, <a href=\"https://www.cnil.fr/fr/referentiel-durees-conservation-donnees-rh\" rel=\"noopener noreferrer\" target=\"_blank\">référentiel de durées de conservation</a> (2 avril 2026) ; CNIL, <a href=\"https://www.cnil.fr/fr/controle-de-lactivite-des-personnes-employees\" rel=\"noopener noreferrer\" target=\"_blank\">« Le contrôle de l’activité des personnes employées »</a> (9 juillet 2026) ; règlement (UE) 2016/679, article 22, <a href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre3\" rel=\"noopener noreferrer\" target=\"_blank\">texte publié par la CNIL</a>. Ce résumé n’est pas un avis juridique.</p>",
+      "html_en": "<h2>The framework to respect, with CNIL sources</h2>\n<h3>Inform employees and their representatives</h3>\n<p>The CNIL (French data protection authority) states that the employer must inform staff representative bodies before using personnel management files. Employees must know who is responsible for the file, the purpose, the legal basis, the recipients, the retention period and how to exercise their rights. No information may be collected by a system they have not been told about.</p>\n<h3>Limit access and keep a trace</h3>\n<p>According to the CNIL, only people in charge of personnel management may consult employees' information; line managers access what their duties require. The actions of authorised people must be logged. An automation must therefore not widen the circle of readers, and it must leave a trace.</p>\n<h3>Set retention periods</h3>\n<p>On 2 April 2026 the CNIL published a retention-period reference for personnel management: recruitment, administrative management, pay, collective labour relations, workplace accidents, disputes, whistleblowing, among others. It is soft law: following it is not mandatory.</p>\n<h3>No individual activity monitoring without conditions</h3>\n<p>To be lawful, a system monitoring staff activity must cumulatively pass the justification and proportionality tests, be submitted to staff representative bodies under the rules in force, and be made known to employees (CNIL, 9 July 2026). We do not set up individual activity monitoring without a reinforced framework.</p>\n<h3>No solely automated decision</h3>\n<p>Article 22 of the GDPR gives a person the right not to be subject to a decision based solely on automated processing, including profiling, which produces legal effects concerning them or similarly significantly affects them. It provides exceptions; for those of contract and explicit consent, the controller must at least guarantee the right to obtain human intervention. That is one reason every HR decision stays with a person.</p>\n<p>Sources, read on 16 October 2026: CNIL, <a href=\"https://www.cnil.fr/fr/les-regles-pour-la-gestion-du-personnel\" rel=\"noopener noreferrer\" target=\"_blank\">'Les règles pour la gestion du personnel'</a> (17 August 2023); CNIL, <a href=\"https://www.cnil.fr/fr/referentiel-durees-conservation-donnees-rh\" rel=\"noopener noreferrer\" target=\"_blank\">retention-period reference</a> (2 April 2026); CNIL, <a href=\"https://www.cnil.fr/fr/controle-de-lactivite-des-personnes-employees\" rel=\"noopener noreferrer\" target=\"_blank\">'Le contrôle de l'activité des personnes employées'</a> (9 July 2026); Regulation (EU) 2016/679, article 22, <a href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre3\" rel=\"noopener noreferrer\" target=\"_blank\">text published by the CNIL</a>. This summary is not legal advice.</p>"
     },
     {
       "type": "branded-callout",
@@ -403,7 +522,21 @@
       "role_en": "Founder of Waimia · AI and automation engineer",
       "profileHref": "/equipe/simon-beros",
       "publishedDate": "5 octobre 2026",
-      "updatedDate": "5 octobre 2026"
+      "updatedDate": "16 octobre 2026"
+    },
+    {
+      "type": "cta-final",
+      "background": "ink",
+      "h2_fr": "Classez vos tâches avant de choisir le premier cas",
+      "h2_en": "Classez vos tâches avant de choisir le premier cas",
+      "body_fr": "Dix minutes, un classement par priorité en heures par mois : la grille vous le donne tout de suite, sans inscription. Vous pouvez ensuite la recevoir par e-mail pour la garder.",
+      "body_en": "Dix minutes, un classement par priorité en heures par mois : la grille vous le donne tout de suite, sans inscription. Vous pouvez ensuite la recevoir par e-mail pour la garder.",
+      "cta_primary": {
+        "label_fr": "Classer mes tâches",
+        "label_en": "Classer mes tâches",
+        "href": "/ressources/outils/grille-taches-a-automatiser",
+        "variant": "primary"
+      }
     },
     {
       "type": "related-cards-band",
@@ -449,16 +582,28 @@
       "h2_en": "AI and human resources: your questions",
       "items": [
         {
+          "q_fr": "Qu’est-ce que l’automatisation RH ?",
+          "a_fr": "C’est l’usage d’outils pour exécuter sans ressaisie les tâches administratives répétitives des ressources humaines : arrivées et départs, rappels d’échéances, collecte des éléments de paie, congés, réponses aux questions courantes. Elle prépare et transmet, elle ne décide rien sur une personne. L’IA ajoute la lecture de documents et les réponses en langage naturel, avec les garde-fous décrits sur cette page.",
+          "q_en": "What is HR automation?",
+          "a_en": "It is the use of tools to run repetitive HR admin tasks without retyping: arrivals and departures, deadline reminders, collecting pay items, leave, answers to common questions. It prepares and passes on; it decides nothing about a person. AI adds document reading and natural-language answers, with the safeguards described on this page."
+        },
+        {
           "q_fr": "Peut-on utiliser l'IA pour trier des CV ?",
-          "a_fr": "Ce n'est pas interdit, mais c'est un usage que la Commission européenne classe à haut risque : elle cite en exemple les logiciels de tri de CV pour le recrutement. Les obligations propres à ces systèmes s'appliquent à partir du 2 décembre 2027 (page de la Commission mise à jour le 3 août 2026, consultée le 5 octobre 2026). Waimia ne met pas en place de tri automatisé de candidats sans un cadre renforcé, décrit sur cette page.",
+          "a_fr": "Ce n’est pas interdit, mais la Commission européenne classe cet usage à haut risque : elle cite en exemple les logiciels de tri de CV pour le recrutement. Les obligations propres à ces systèmes s’appliquent à partir du 2 décembre 2027 (page mise à jour le 3 août 2026, consultée le 5 octobre et relue le 16 octobre 2026). Waimia ne met pas en place de tri automatisé de candidats sans cadre renforcé, décrit sur cette page.",
           "q_en": "Can AI be used to screen CVs?",
-          "a_en": "It is not banned, but the European Commission classes it as high-risk: it gives CV-sorting software for recruitment as an example. The obligations specific to these systems apply from 2 December 2027 (Commission page updated on 3 August 2026, read on 5 October 2026). Waimia does not set up automated candidate screening without a reinforced framework, described on this page."
+          "a_en": "It is not banned, but the European Commission classes this use as high-risk: it gives CV-sorting software for recruitment as an example. The obligations specific to these systems apply from 2 December 2027 (Commission page updated on 3 August 2026, read on 5 October and rechecked on 16 October 2026). Waimia does not set up automated candidate screening without a reinforced framework, described on this page."
         },
         {
           "q_fr": "Que peut-on automatiser en RH sans risque particulier ?",
           "a_fr": "L'administratif qui ne décide rien sur une personne : préparer l'arrivée d'un salarié (comptes, matériel, documents à signer), rappeler les échéances (fin de période d'essai, visites médicales, formations obligatoires), collecter les éléments variables de paie, répondre aux questions sur les règles internes à partir des documents de l'entreprise. Ce sont des tâches fréquentes, aux règles stables.",
           "q_en": "What can be automated in HR without particular risk?",
           "a_en": "Admin work that decides nothing about a person: preparing a new hire's arrival (accounts, equipment, documents to sign), reminding deadlines (end of probation, medical visits, mandatory training), collecting variable pay items, answering questions about internal rules from company documents. These are frequent tasks with stable rules."
+        },
+        {
+          "q_fr": "Que faut-il déclarer à l’embauche, et peut-on l’automatiser ?",
+          "a_fr": "La déclaration préalable à l’embauche (DPAE) est obligatoire pour chaque salarié recruté. L’Urssaf indique qu’elle est adressée avant la prise de fonction ou le début de la période d’essai, au plus tôt dans les 8 jours précédant l’embauche (page mise à jour le 15 juillet 2026, lue le 16 octobre 2026). On peut préparer les champs et rappeler l’échéance ; une personne valide et dépose.",
+          "q_en": "What must be declared at hiring, and can it be automated?",
+          "a_en": "The pre-hire declaration (DPAE) is compulsory for every employee recruited. The Urssaf states it is sent before the start of work or of the probation period, at the earliest within the 8 days before the hire (page updated on 15 July 2026, read on 16 October 2026). The fields can be prepared and the deadline reminded; a person approves and files."
         },
         {
           "q_fr": "Un assistant IA peut-il répondre aux questions des salariés ?",
@@ -468,15 +613,27 @@
         },
         {
           "q_fr": "Faut-il consulter le CSE avant de déployer un outil d'IA en RH ?",
-          "a_fr": "L'introduction d'un outil qui modifie les conditions de travail ou permet un contrôle de l'activité des salariés relève en France du dialogue avec les représentants du personnel. Nous ne sommes pas juristes : la question se pose à votre conseil en droit social avant le pilote, pas après. Nous fournissons la description technique dont il a besoin pour trancher.",
+          "a_fr": "L’introduction d’un outil qui modifie les conditions de travail ou contrôle l’activité des salariés relève en France du dialogue avec les représentants du personnel. Pour un contrôle d’activité, la CNIL rappelle trois conditions cumulatives, dont la soumission aux instances représentatives (page du 9 juillet 2026, lue le 16 octobre 2026). Nous ne sommes pas juristes : posez la question à votre conseil en droit social avant le pilote ; nous fournissons la description technique.",
           "q_en": "Must the works council be consulted before deploying an HR AI tool?",
-          "a_en": "Introducing a tool that changes working conditions or enables monitoring of employee activity falls, in France, under dialogue with staff representatives. We are not lawyers: put the question to your employment law adviser before the pilot, not after. We provide the technical description they need to decide."
+          "a_en": "Introducing a tool that changes working conditions or monitors employees' activity falls, in France, under dialogue with staff representatives. For activity monitoring, the CNIL recalls three cumulative conditions, including submission to the staff representative bodies (page of 9 July 2026, read on 16 October 2026). We are not lawyers: put the question to your employment law adviser before the pilot; we provide the technical description."
         },
         {
           "q_fr": "L'IA peut-elle évaluer la performance d'un salarié ?",
           "a_fr": "Nous ne le faisons pas. La gestion des travailleurs figure dans les usages à haut risque listés par la Commission européenne, et la reconnaissance des émotions sur le lieu de travail fait partie des pratiques interdites, en vigueur depuis février 2025 selon la même page. On peut en revanche automatiser la logistique des entretiens : convocations, trames, relances, compte rendu rédigé par le manager.",
           "q_en": "Can AI assess an employee’s performance?",
           "a_en": "We do not do it. Management of workers is among the high-risk uses listed by the European Commission, and emotion recognition in the workplace is among the prohibited practices, effective since February 2025 according to the same page. What can be automated is the logistics of reviews: invitations, templates, reminders, with the write-up done by the manager."
+        },
+        {
+          "q_fr": "Une décision RH peut-elle être prise par un automate ?",
+          "a_fr": "Le RGPD (article 22) donne à chacun le droit de ne pas faire l’objet d’une décision fondée exclusivement sur un traitement automatisé produisant des effets juridiques ou l’affectant de manière significative. Pour les exceptions du contrat et du consentement explicite, le responsable garantit au moins le droit d’obtenir une intervention humaine. Chez Waimia, aucune décision concernant une personne n’est prise par un automate : les automatisations préparent et transmettent.",
+          "q_en": "Can an HR decision be made by an automated system?",
+          "a_en": "The GDPR (article 22) gives everyone the right not to be subject to a decision based solely on automated processing that produces legal effects or similarly significantly affects them. For the contract and explicit-consent exceptions, the controller must at least guarantee the right to obtain human intervention. At Waimia, no decision about a person is made by an automated system: automations prepare and pass on."
+        },
+        {
+          "q_fr": "Quelles données de salariés peut-on envoyer à un modèle d’IA ?",
+          "a_fr": "Le moins possible : ce qui est nécessaire à la tâche, sans données de santé ni situation familiale. La CNIL rappelle que seules les personnes chargées de la gestion du personnel peuvent consulter les informations des salariés : un outil automatisé ne doit pas élargir ce cercle. On vérifie les conditions de l’éditeur du modèle (conservation, réutilisation, lieu de traitement) et on inscrit le traitement au registre.",
+          "q_en": "Which employee data can be sent to an AI model?",
+          "a_en": "As little as possible: what the task needs, with no health data or family situation. The CNIL recalls that only people in charge of personnel management may consult employees' information: an automated tool must not widen that circle. The model vendor's terms are checked (retention, reuse, processing location) and the processing is entered in the register."
         },
         {
           "q_fr": "SIRH ou automatisation sur mesure ?",
