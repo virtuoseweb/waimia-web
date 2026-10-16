@@ -10,6 +10,7 @@ import { z } from "zod";
 import { LeadSourceSchema, leadSourceLog, refererPath } from "../../lib/lead-source";
 import { isBotSubmission } from "../../lib/honeypot";
 import { SITE } from "../../site.config";
+import { trackLead } from "../../lib/analytics/store";
 
 export const prerender = false;
 
@@ -129,6 +130,7 @@ export const ALL: APIRoute = async ({ request }) => {
     await upsertSubscriber({ email, name: firstName, groups: ["114701253078942792"] });
     const maskedEmail = email.replace(/(?<=.{3}).(?=.*@)/g, "*");
     console.log(JSON.stringify({ ts: new Date().toISOString(), action: "newsletter_signup", ...leadSourceLog(source, refererPath(request)), ip, email: maskedEmail }));
+    await trackLead("newsletter", undefined, refererPath(request));
     return Response.json({
       ok: true,
       redirect: lang === "en" ? "/en/bienvenue/newsletter" : "/bienvenue/newsletter",

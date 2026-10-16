@@ -299,6 +299,46 @@ if (meshDelegated && meshHandoff) meshHandoff.mesh = autoMesh;
       })();
     </script>
 
+    {/* Mesure d'audience maison (src/lib/analytics, politique de confidentialité v1.2) : une page vue
+        par chargement et par navigation View Transitions, un clic vers le rendez-vous. Sans cookie ni
+        stockage ; n'agit que sur waimia.com et les previews Vercel (zéro requête en local, E2E, balayage). */}
+    <script is:inline>
+      (() => {
+        const h = location.hostname;
+        if (typeof window === 'undefined' || window.wmStats) return;
+        if (!(h === 'waimia.com' || h === 'www.waimia.com' || h.endsWith('.vercel.app'))) return;
+        window.wmStats = true;
+        const send = (data) => {
+          try {
+            data.webdriver = navigator.webdriver === true;
+            navigator.sendBeacon('/api/collect', JSON.stringify(data));
+          } catch (_) { /* la mesure ne gêne jamais la page */ }
+        };
+        let referrer = document.referrer;
+        document.addEventListener('astro:page-load', () => {
+          const q = new URLSearchParams(location.search);
+          const w = window.innerWidth;
+          send({
+            type: 'pageview',
+            path: location.pathname,
+            referrer,
+            utm_source: q.get('utm_source') || undefined,
+            utm_medium: q.get('utm_medium') || undefined,
+            utm_campaign: q.get('utm_campaign') || undefined,
+            device: w < 768 ? 'mobile' : w < 1024 ? 'tablette' : 'ordinateur',
+          });
+          referrer = location.origin + location.pathname;
+        });
+        document.addEventListener('click', (e) => {
+          const a = e.target instanceof Element ? e.target.closest('a[href]') : null;
+          const href = a ? a.getAttribute('href') || '' : '';
+          if (href.includes('intent=audit') || href.includes('/contact?offer=') || href.includes('cal.com')) {
+            send({ type: 'rdv_click', path: location.pathname });
+          }
+        }, true);
+      })();
+    </script>
+
     {/* Magnetic hover sur [data-mag] · réexécuté après View Transitions */}
     <script is:inline>
       (() => {

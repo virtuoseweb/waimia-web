@@ -10,6 +10,8 @@ import InternalLeadAlert, { internalLeadSubject } from "../../lib/emails/Interna
 import { z } from "zod";
 import { isBotSubmission } from "../../lib/honeypot";
 import { SITE } from "../../site.config";
+import { refererPath } from "../../lib/lead-source";
+import { trackLead } from "../../lib/analytics/store";
 
 export const prerender = false;
 
@@ -165,6 +167,7 @@ export const ALL: APIRoute = async ({ request }) => {
     await upsertSubscriber({ email, groups: ["114701210983859842"] });
     const maskedEmail = email.replace(/(?<=.{3}).(?=.*@)/g, "*");
     console.log(JSON.stringify({ ts: new Date().toISOString(), action: "devis_submitted", ip, email: maskedEmail }));
+    await trackLead("devis", slug, refererPath(request));
     return Response.json({ ok: true, reference, redirect: "/bienvenue/devis" }, { status: 200, headers: CORS_HEADERS });
   } catch (err) {
     console.error("[api/devis] error", err);

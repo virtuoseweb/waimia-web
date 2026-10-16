@@ -11,6 +11,7 @@ import { z } from "zod";
 import { isBotSubmission } from "../../lib/honeypot";
 import { SITE } from "../../site.config";
 import { LeadSourceSchema, leadSourceLog, leadSourceRows, refererPath } from "../../lib/lead-source";
+import { trackLead } from "../../lib/analytics/store";
 
 export const prerender = false;
 
@@ -181,6 +182,7 @@ export const ALL: APIRoute = async ({ request }) => {
     });
     const maskedEmail = email.replace(/(?<=.{3}).(?=.*@)/g, "*");
     console.log(JSON.stringify({ ts: new Date().toISOString(), action: "contact_submitted", ...leadSourceLog(source, page), ip, email: maskedEmail }));
+    await trackLead("contact", offer || subject, page);
     return Response.json({ ok: true, redirect: "/bienvenue/contact" }, { status: 200, headers: CORS_HEADERS });
   } catch (err) {
     console.error("[api/contact] error", err);

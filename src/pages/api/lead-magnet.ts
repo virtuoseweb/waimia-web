@@ -12,6 +12,7 @@ import type { APIRoute } from "astro";
 import { SITE } from "../../site.config";
 import { msg, processLeadMagnet } from "../../lib/lead-magnet-delivery";
 import { refererPath } from "../../lib/lead-source";
+import { trackLead } from "../../lib/analytics/store";
 
 export const prerender = false;
 
@@ -54,6 +55,11 @@ export const ALL: APIRoute = async ({ request }) => {
     return Response.json({ ok: false, code: "invalid_body", error: msg("invalid_body") }, { status: 400, headers: CORS_HEADERS });
   }
 
-  const { status, body } = await processLeadMagnet(rawPayload, { ip, page: refererPath(request) });
+  const page = refererPath(request);
+  const { status, body } = await processLeadMagnet(rawPayload, { ip, page });
+  // Conversion mesurée seulement si la ressource est réellement partie (le honeypot ne renvoie pas `delivered`).
+  if (status === 200 && body.delivered === true) {
+    await trackLead("lead-magnet", String(body.slug), page);
+  }
   return Response.json(body, { status, headers: CORS_HEADERS });
 };
