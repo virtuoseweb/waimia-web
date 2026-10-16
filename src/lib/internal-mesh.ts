@@ -133,6 +133,7 @@ const PAGES: Record<string, PageDef> = {
   '/ressources/guides/tutoriel-make-tri-emails-claude': { label_fr: 'Tutoriel Make : trier ses e-mails avec Claude', label_en: 'Make tutorial: sort emails with Claude', kind: 'guide', topics: ['automatisation', 'claude'] },
   '/blog/creer-agent-ia-claude': { label_fr: 'Agent IA Claude : quatre façons de le construire', label_en: 'Claude AI agent: four ways to build one', kind: 'article', topics: ['agents', 'claude'] },
   '/blog/claude-microsoft-copilot-pme': { label_fr: 'Claude dans Microsoft Copilot', label_en: 'Claude in Microsoft Copilot', kind: 'article', topics: ['claude', 'conformite'] },
+  '/blog/connecter-claude-wordpress-shopify-mcp': { label_fr: 'Connecter Claude à WordPress et Shopify', label_en: 'Connecting Claude to WordPress and Shopify', kind: 'article', topics: ['claude', 'web'] },
   '/ressources/guides/claude-for-small-business': { label_fr: 'Claude for Small Business en France', label_en: 'Claude for Small Business in France', kind: 'guide', topics: ['claude', 'conseil'] },
   '/ressources/guides/claude-cowork': { label_fr: 'Claude Cowork est désormais Claude', label_en: 'Claude Cowork is now Claude', kind: 'guide', topics: ['claude', 'conformite'] },
   '/ressources/guides/mcp-claude': { label_fr: 'Guide MCP : brancher Claude à vos outils', label_en: 'MCP guide: connecting Claude to your tools', kind: 'guide', topics: ['claude', 'agents'] },
@@ -262,6 +263,7 @@ const PAGES: Record<string, PageDef> = {
   '/ressources/guides/mesurer-visibilite-ia-chatgpt': { label_fr: 'Mesurer sa visibilité dans ChatGPT : le protocole', label_en: 'Measuring your ChatGPT visibility: the protocol', kind: 'guide', topics: ['acquisition'] },
   '/blog/ai-mode-google-ai-overviews-pme': { label_fr: 'AI Mode et AI Overviews de Google : que faire en PME', label_en: 'Google AI Mode and AI Overviews: what a small business does', kind: 'article', topics: ['acquisition'] },
   '/blog/geo-local-recommande-par-les-ia': { label_fr: 'GEO local : être recommandé par les IA', label_en: 'Local GEO: getting recommended by AIs', kind: 'article', topics: ['acquisition'] },
+  '/blog/chatgpt-shopping-e-commerce': { label_fr: 'ChatGPT Shopping : que corriger dans sa boutique', label_en: 'ChatGPT Shopping: what to fix in your shop', kind: 'article', topics: ['acquisition', 'web'] },
   '/cas-clients/desangles-peinture': { label_fr: 'Cas client : Desangles Peinture', label_en: 'Case: Desangles Peinture', kind: 'cas-client', topics: ['acquisition'] },
 
   // ── Secteurs (indexables depuis 2026-10-05) : cibles du maillage, sans bloc émis par
