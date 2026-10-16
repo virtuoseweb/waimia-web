@@ -115,6 +115,11 @@ export const SITE_PAGES: SitePage[] = [
         "variant": "media"
       },
       {
+        "type": "cta-final",
+        "label": "Où en est votre entreprise avec l'IA ?",
+        "background": "paper"
+      },
+      {
         "type": "faq-accordion",
         "label": "Agents IA : vos questions",
         "background": "paper-2"
@@ -183,6 +188,11 @@ export const SITE_PAGES: SitePage[] = [
         "type": "eeat-panel",
         "label": "#9",
         "variant": "media"
+      },
+      {
+        "type": "cta-final",
+        "label": "Où en est votre entreprise avec l'IA ?",
+        "background": "paper"
       },
       {
         "type": "faq-accordion",
@@ -270,6 +280,11 @@ export const SITE_PAGES: SitePage[] = [
         "variant": "media"
       },
       {
+        "type": "cta-final",
+        "label": "Où en est votre entreprise avec l'IA ?",
+        "background": "paper"
+      },
+      {
         "type": "faq-accordion",
         "label": "Chatbot et agent de service client : vos questions",
         "background": "paper-2"
@@ -338,6 +353,11 @@ export const SITE_PAGES: SitePage[] = [
         "type": "eeat-panel",
         "label": "#9",
         "variant": "media"
+      },
+      {
+        "type": "cta-final",
+        "label": "Où en est votre entreprise avec l'IA ?",
+        "background": "paper"
       },
       {
         "type": "faq-accordion",
@@ -725,6 +745,11 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
+        "type": "cta-final",
+        "label": "Classez vos tâches avant de choisir le premier cas",
+        "background": "ink"
+      },
+      {
         "type": "related-cards-band",
         "label": "Pour aller plus loin",
         "background": "paper-2"
@@ -803,6 +828,11 @@ export const SITE_PAGES: SitePage[] = [
         "type": "eeat-panel",
         "label": "#10",
         "variant": "media"
+      },
+      {
+        "type": "cta-final",
+        "label": "Classez vos tâches avant de choisir le premier cas",
+        "background": "paper"
       },
       {
         "type": "faq-accordion",
@@ -887,6 +917,11 @@ export const SITE_PAGES: SitePage[] = [
         "variant": "media"
       },
       {
+        "type": "cta-final",
+        "label": "Classez vos tâches avant de choisir le premier cas",
+        "background": "paper"
+      },
+      {
         "type": "faq-accordion",
         "label": "Agence n8n : vos questions",
         "background": "paper-2"
@@ -950,6 +985,11 @@ export const SITE_PAGES: SitePage[] = [
         "type": "case-card-grid",
         "label": "Deux réalisations avec une base de connaissance",
         "background": "ink"
+      },
+      {
+        "type": "cta-final",
+        "label": "Où en est votre entreprise avec l'IA ?",
+        "background": "paper"
       },
       {
         "type": "related-cards-band",
@@ -1498,6 +1538,11 @@ export const SITE_PAGES: SitePage[] = [
         "variant": "media"
       },
       {
+        "type": "cta-final",
+        "label": "Chiffrez le gain avant de vous engager",
+        "background": "paper"
+      },
+      {
         "type": "faq-accordion",
         "label": "Automatisation CRM : vos questions",
         "background": "paper-2"
@@ -1561,6 +1606,11 @@ export const SITE_PAGES: SitePage[] = [
         "type": "eeat-panel",
         "label": "#8",
         "variant": "media"
+      },
+      {
+        "type": "cta-final",
+        "label": "Chiffrez le gain avant de vous engager",
+        "background": "paper"
       },
       {
         "type": "faq-accordion",
@@ -1643,6 +1693,11 @@ export const SITE_PAGES: SitePage[] = [
         "variant": "media"
       },
       {
+        "type": "cta-final",
+        "label": "Chiffrez le gain avant de vous engager",
+        "background": "paper"
+      },
+      {
         "type": "faq-accordion",
         "label": "Centralisation des données : vos questions",
         "background": "paper-2"
@@ -1718,6 +1773,11 @@ export const SITE_PAGES: SitePage[] = [
         "variant": "media"
       },
       {
+        "type": "cta-final",
+        "label": "Chiffrez le gain avant de vous engager",
+        "background": "paper"
+      },
+      {
         "type": "faq-accordion",
         "label": "Reporting automatisé : vos questions",
         "background": "paper-2"
@@ -1791,6 +1851,11 @@ export const SITE_PAGES: SitePage[] = [
         "type": "eeat-panel",
         "label": "#10",
         "variant": "media"
+      },
+      {
+        "type": "cta-final",
+        "label": "Chiffrez le gain avant de vous engager",
+        "background": "paper"
       },
       {
         "type": "faq-accordion",
@@ -1975,6 +2040,11 @@ export const SITE_PAGES: SitePage[] = [
         "variant": "media"
       },
       {
+        "type": "lead-capture-band",
+        "label": "Avant d'intégrer un modèle d'IA : fixez les règles d'usage avec le modèle de charte IA en PDF",
+        "background": "paper"
+      },
+      {
         "type": "faq-accordion",
         "label": "Intégration de ChatGPT et d'OpenAI : vos questions",
         "background": "paper-2"
@@ -2049,6 +2119,11 @@ export const SITE_PAGES: SitePage[] = [
         "type": "eeat-panel",
         "label": "#10",
         "variant": "media"
+      },
+      {
+        "type": "lead-capture-band",
+        "label": "Avant d'intégrer un modèle d'IA : fixez les règles d'usage avec le modèle de charte IA en PDF",
+        "background": "paper"
       },
       {
         "type": "faq-accordion",
@@ -2181,6 +2256,11 @@ export const SITE_PAGES: SitePage[] = [
         "variant": "media"
       },
       {
+        "type": "cta-final",
+        "label": "Classez vos tâches avant de choisir le premier cas",
+        "background": "paper"
+      },
+      {
         "type": "faq-accordion",
         "label": "Prospection automatisée : vos questions",
         "background": "paper-2"
@@ -2259,6 +2339,11 @@ export const SITE_PAGES: SitePage[] = [
         "type": "eeat-panel",
         "label": "#11",
         "variant": "media"
+      },
+      {
+        "type": "cta-final",
+        "label": "Classez vos tâches avant de choisir le premier cas",
+        "background": "paper"
       },
       {
         "type": "faq-accordion",
@@ -2341,6 +2426,11 @@ export const SITE_PAGES: SitePage[] = [
         "variant": "media"
       },
       {
+        "type": "cta-final",
+        "label": "Chiffrez le gain avant de vous engager",
+        "background": "paper"
+      },
+      {
         "type": "faq-accordion",
         "label": "Ce que vous nous demandez",
         "background": "paper-2"
@@ -2421,6 +2511,11 @@ export const SITE_PAGES: SitePage[] = [
         "variant": "media"
       },
       {
+        "type": "cta-final",
+        "label": "Chiffrez le gain avant de vous engager",
+        "background": "paper"
+      },
+      {
         "type": "faq-accordion",
         "label": "Ce que vous nous demandez",
         "background": "paper-2"
@@ -2499,6 +2594,11 @@ export const SITE_PAGES: SitePage[] = [
         "type": "eeat-panel",
         "label": "#11",
         "variant": "media"
+      },
+      {
+        "type": "cta-final",
+        "label": "Chiffrez le gain avant de vous engager",
+        "background": "paper"
       },
       {
         "type": "faq-accordion",
@@ -2963,6 +3063,11 @@ export const SITE_PAGES: SitePage[] = [
         "variant": "media"
       },
       {
+        "type": "cta-final",
+        "label": "Classez vos tâches avant de choisir le premier cas",
+        "background": "paper"
+      },
+      {
         "type": "faq-accordion",
         "label": "Relance automatisée : vos questions",
         "background": "paper-2"
@@ -3398,6 +3503,11 @@ export const SITE_PAGES: SitePage[] = [
         "variant": "media"
       },
       {
+        "type": "cta-final",
+        "label": "Chiffrez le gain avant de vous engager",
+        "background": "paper"
+      },
+      {
         "type": "faq-accordion",
         "label": "Visibilité web : vos questions",
         "background": "paper-2"
@@ -3468,6 +3578,11 @@ export const SITE_PAGES: SitePage[] = [
         "variant": "media"
       },
       {
+        "type": "cta-final",
+        "label": "Chiffrez le gain avant de vous engager",
+        "background": "paper"
+      },
+      {
         "type": "faq-accordion",
         "label": "Développement commercial : vos questions",
         "background": "paper-2"
@@ -3526,6 +3641,11 @@ export const SITE_PAGES: SitePage[] = [
         "type": "eeat-panel",
         "label": "#7",
         "variant": "media"
+      },
+      {
+        "type": "cta-final",
+        "label": "Classez vos tâches avant de choisir le premier cas",
+        "background": "paper"
       },
       {
         "type": "faq-accordion",
@@ -4124,6 +4244,11 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
+        "type": "cta-final",
+        "label": "Chiffrez le gain avant de vous engager",
+        "background": "ink"
+      },
+      {
         "type": "related-cards-band",
         "label": "Pour aller plus loin",
         "background": "paper-2"
@@ -4150,7 +4275,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-split-media",
-        "label": "IA et automatisation de la comptabilité",
+        "label": "IA et expert-comptable : ce qui s’automatise, ce qui reste humain",
         "background": "paper"
       },
       {
@@ -4180,6 +4305,11 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-2"
       },
       {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper-3"
+      },
+      {
         "type": "branded-callout",
         "label": "Pas encore de réalisation Waimia sur cette fonction",
         "background": "paper"
@@ -4194,6 +4324,11 @@ export const SITE_PAGES: SitePage[] = [
         "type": "author-byline",
         "label": "Simon Beros",
         "background": "paper"
+      },
+      {
+        "type": "cta-final",
+        "label": "Classez vos tâches avant de choisir le premier cas",
+        "background": "ink"
       },
       {
         "type": "related-cards-band",
@@ -4239,6 +4374,11 @@ export const SITE_PAGES: SitePage[] = [
         "type": "author-byline",
         "label": "Simon Beros",
         "background": "paper"
+      },
+      {
+        "type": "cta-final",
+        "label": "Chiffrez le gain avant de vous engager",
+        "background": "ink"
       },
       {
         "type": "related-cards-band",
@@ -4377,7 +4517,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-split-media",
-        "label": "IA et automatisation des ressources humaines",
+        "label": "Automatisation RH et IA : ce qu’on automatise en PME, ce qu’on évite",
         "background": "paper"
       },
       {
@@ -4397,6 +4537,11 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
+        "type": "editorial-prose",
+        "label": "#4",
+        "background": "paper-3"
+      },
+      {
         "type": "process-steps",
         "label": "Comment se déroule un pilote RH",
         "background": "paper-2"
@@ -4408,8 +4553,13 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-prose",
-        "label": "#6",
+        "label": "#7",
         "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#8",
+        "background": "paper-3"
       },
       {
         "type": "branded-callout",
@@ -4426,6 +4576,11 @@ export const SITE_PAGES: SitePage[] = [
         "type": "author-byline",
         "label": "Simon Beros",
         "background": "paper"
+      },
+      {
+        "type": "cta-final",
+        "label": "Classez vos tâches avant de choisir le premier cas",
+        "background": "ink"
       },
       {
         "type": "related-cards-band",
@@ -4471,6 +4626,11 @@ export const SITE_PAGES: SitePage[] = [
         "type": "author-byline",
         "label": "Simon Beros",
         "background": "paper"
+      },
+      {
+        "type": "cta-final",
+        "label": "Classez vos tâches avant de choisir le premier cas",
+        "background": "ink"
       },
       {
         "type": "related-cards-band",
@@ -4543,6 +4703,11 @@ export const SITE_PAGES: SitePage[] = [
         "type": "author-byline",
         "label": "Simon Beros",
         "background": "paper"
+      },
+      {
+        "type": "cta-final",
+        "label": "Classez vos tâches avant de choisir le premier cas",
+        "background": "ink"
       },
       {
         "type": "related-cards-band",
@@ -4790,6 +4955,11 @@ export const SITE_PAGES: SitePage[] = [
         "type": "editorial-prose",
         "label": "#10",
         "background": "paper"
+      },
+      {
+        "type": "lead-capture-band",
+        "label": "Claude est dans votre sélection ? Recevez le guide d'achat avec trois budgets calculés",
+        "background": "ink"
       },
       {
         "type": "related-cards-band",
@@ -5097,6 +5267,11 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
+        "type": "cta-final",
+        "label": "Chiffrez le gain avant de vous engager",
+        "background": "ink"
+      },
+      {
         "type": "related-cards-band",
         "label": "Pour aller plus loin",
         "background": "paper-2"
@@ -5109,6 +5284,78 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "footer-cta-band",
         "label": "Le bon CRM se choisit sur votre processus, pas sur une démo.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/ressources/comparatifs/formateur-ia-organisme-freelance-agence",
+    "title": "Formateur IA : organisme, indépendant ou agence, qui choisir · Waimia",
+    "group": "ressources",
+    "collection": "comparatifs",
+    "file": "comparatifs/formateur-ia-organisme-freelance-agence.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Formateur IA : organisme, formateur indépendant ou agence, qui choisir ?",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#1",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Organisme, indépendant, agence : cinq critères pour comparer",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#4",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-callout",
+        "label": "#5",
+        "variant": "quote",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Quand choisir Waimia pour former, et quand choisir ailleurs",
+        "background": "paper-2"
+      },
+      {
+        "type": "decision-list",
+        "label": "Six questions à écrire dans votre demande de devis",
+        "background": "paper"
+      },
+      {
+        "type": "lead-capture-band",
+        "label": "Avant la formation : la charte d'usage que l'équipe appliquera ensuite",
+        "background": "ink"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Formateur IA : questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Le programme se monte sur vos tâches, pas sur un catalogue.",
         "background": "ink"
       }
     ]
@@ -5309,6 +5556,11 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-3"
       },
       {
+        "type": "lead-capture-band",
+        "label": "Claude est dans la balance ? Recevez le kit conformité : réglages, RGPD, douze questions au fournisseur",
+        "background": "ink"
+      },
+      {
         "type": "related-cards-band",
         "label": "Pour aller plus loin",
         "background": "paper"
@@ -5363,6 +5615,11 @@ export const SITE_PAGES: SitePage[] = [
         "type": "editorial-prose",
         "label": "#5",
         "background": "paper"
+      },
+      {
+        "type": "cta-final",
+        "label": "Classez vos tâches avant de choisir le premier cas",
+        "background": "ink"
       },
       {
         "type": "related-cards-band",
@@ -5428,6 +5685,11 @@ export const SITE_PAGES: SitePage[] = [
         "type": "editorial-prose",
         "label": "#7",
         "background": "paper-2"
+      },
+      {
+        "type": "cta-final",
+        "label": "Classez vos tâches avant de choisir le premier cas",
+        "background": "ink"
       },
       {
         "type": "related-cards-band",
@@ -5744,6 +6006,92 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/ressources/guides/accompagnement-ia-pme",
+    "title": "Accompagnement IA en PME : les formes, comment choisir, ce que vous gardez en main",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/accompagnement-ia-pme.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Accompagnement IA en PME : quelle forme choisir, et où s'arrêter",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "key-metric-grid",
+        "label": "Quels repères retenir avant de demander un devis ?",
+        "variant": "accent",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Quelles formes d'accompagnement IA existe-t-il, et où s'arrêter ?",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper"
+      },
+      {
+        "type": "decision-list",
+        "label": "Six questions pour choisir la forme d'accompagnement",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Que confier à un prestataire, et que garder chez vous ?",
+        "background": "paper"
+      },
+      {
+        "type": "process-steps",
+        "label": "Comment se déroule un parcours, étape par étape ?",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#9",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#10",
+        "background": "paper-2"
+      },
+      {
+        "type": "lead-capture-band",
+        "label": "#11",
+        "background": "ink"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Accompagnement IA en PME : questions fréquentes",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Savoir quelle forme vous convient, avant de signer quoi que ce soit.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/ressources/guides/agent-ia-definition",
     "title": "Agent IA : c'est quoi ? Définition, coût et limites",
     "group": "ressources",
@@ -5924,6 +6272,11 @@ export const SITE_PAGES: SitePage[] = [
         "type": "editorial-prose",
         "label": "#13",
         "background": "paper"
+      },
+      {
+        "type": "cta-final",
+        "label": "Où en est votre entreprise avec l'IA ?",
+        "background": "ink"
       },
       {
         "type": "related-cards-band",
@@ -6120,6 +6473,113 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "footer-cta-band",
         "label": "Un projet écrit et chiffré avant de déposer un dossier. L'audit est gratuit.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/ressources/guides/audit-geo-pme",
+    "title": "Audit GEO : les contrôles à faire seul avant d'en commander un",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/audit-geo-pme.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Audit GEO : les contrôles à faire avant d'en commander un",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "key-metric-grid",
+        "label": "Quels repères retenir avant de commencer ?",
+        "variant": "accent",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#4",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Bloc 1 : les robots peuvent-ils lire vos pages ?",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper"
+      },
+      {
+        "type": "decision-list",
+        "label": "Six questions à poser à chacune de vos cinq pages",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-callout",
+        "label": "#9",
+        "variant": "quote",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#10",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Que faire de ce que vous avez relevé ?",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#12",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Que demander à un audit GEO, et que refuser ?",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#14",
+        "background": "paper-2"
+      },
+      {
+        "type": "lead-capture-band",
+        "label": "#15",
+        "background": "ink"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Audit GEO : questions fréquentes",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Un relevé de départ avant de changer quoi que ce soit.",
         "background": "ink"
       }
     ]
@@ -6698,6 +7158,11 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
+        "type": "lead-capture-band",
+        "label": "Des données financières dans Claude ? Recevez le kit conformité : réglages, RGPD, registre des usages",
+        "background": "ink"
+      },
+      {
         "type": "related-cards-band",
         "label": "Pour aller plus loin",
         "background": "paper-2"
@@ -7068,6 +7533,11 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
+        "type": "lead-capture-band",
+        "label": "Avant de déployer à l'équipe : recevez le kit conformité et administration de Claude",
+        "background": "ink"
+      },
+      {
         "type": "related-cards-band",
         "label": "Pour aller plus loin",
         "background": "paper-2"
@@ -7157,6 +7627,11 @@ export const SITE_PAGES: SitePage[] = [
         "type": "process-steps",
         "label": "Comment Waimia choisit entre un workflow, le SDK et Managed Agents ?",
         "background": "paper-3"
+      },
+      {
+        "type": "lead-capture-band",
+        "label": "Avant de confier des tâches à un agent : recevez le kit conformité et administration de Claude",
+        "background": "ink"
       },
       {
         "type": "related-cards-band",
@@ -7706,6 +8181,11 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
+        "type": "lead-capture-band",
+        "label": "Claude pour une petite équipe : recevez le guide d'achat, budgets calculés pour 5, 15 et 40 personnes",
+        "background": "ink"
+      },
+      {
         "type": "related-cards-band",
         "label": "Pour aller plus loin",
         "background": "paper-2"
@@ -7984,6 +8464,11 @@ export const SITE_PAGES: SitePage[] = [
         "type": "decision-list",
         "label": "Qu'est-ce qui fait monter ou baisser la facture ?",
         "background": "paper"
+      },
+      {
+        "type": "cta-final",
+        "label": "Chiffrez le gain avant de vous engager",
+        "background": "ink"
       },
       {
         "type": "related-cards-band",
@@ -8499,13 +8984,18 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
+        "type": "cta-final",
+        "label": "Classez vos tâches avant de choisir le premier cas",
+        "background": "paper-2"
+      },
+      {
         "type": "related-cards-band",
         "label": "Pour aller plus loin",
         "background": "paper"
       },
       {
         "type": "editorial-prose",
-        "label": "#10",
+        "label": "#11",
         "background": "paper-2"
       },
       {
@@ -8808,6 +9298,94 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/ressources/guides/refonte-logiciel-metier",
+    "title": "Refonte de logiciel métier : garder, réécrire ou remplacer · Waimia",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/refonte-logiciel-metier.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Refonte de logiciel métier : garder, réécrire ou remplacer ?",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Garder, réécrire par morceaux, remplacer : ce que chaque voie suppose",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#4",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Que faire de chaque module : valeur métier et état du code",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-callout",
+        "label": "#7",
+        "variant": "quote",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#8",
+        "background": "paper"
+      },
+      {
+        "type": "process-steps",
+        "label": "Une refonte en six étapes",
+        "background": "paper-3"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Quand nous confier la refonte, et quand acheter ou attendre",
+        "background": "paper-2"
+      },
+      {
+        "type": "lead-capture-band",
+        "label": "Si l'IA touche au code ou aux données de la refonte : écrivez les règles avant",
+        "background": "ink"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Refonte de logiciel métier : questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Garder, réécrire ou remplacer : on le décide sur votre outil.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/ressources/guides/refonte-site-internet",
     "title": "Refonte de site internet : étapes, coût et SEO à garder",
     "group": "ressources",
@@ -8943,13 +9521,18 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
+        "type": "lead-capture-band",
+        "label": "Outils autorisés, données interdites, validation humaine : recevez le modèle de charte IA en PDF",
+        "background": "ink"
+      },
+      {
         "type": "related-cards-band",
         "label": "Pour aller plus loin",
         "background": "paper"
       },
       {
         "type": "editorial-prose",
-        "label": "#10",
+        "label": "#11",
         "background": "paper-2"
       },
       {
@@ -9378,6 +9961,11 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-2"
       },
       {
+        "type": "cta-final",
+        "label": "Classez vos tâches avant de choisir le premier cas",
+        "background": "ink"
+      },
+      {
         "type": "related-cards-band",
         "label": "Pour aller plus loin",
         "background": "paper"
@@ -9470,6 +10058,15 @@ export const SITE_PAGES: SitePage[] = [
     "title": "Blog",
     "group": "blog",
     "collection": "bespoke",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/agent-ia-24-7-pme",
+    "title": "Agent IA 24/7 pour une PME : ce qu'il tient seul",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/agent-ia-24-7-pme.json",
     "editable": false,
     "sections": []
   },
@@ -9609,6 +10206,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/etre-cite-par-perplexity",
+    "title": "Être cité par Perplexity : ce que le moteur lit, ce que vous contrôlez",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/etre-cite-par-perplexity.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/formation-ia-cpf-qualiopi",
     "title": "Formation IA CPF : ce qu'il faut vérifier",
     "group": "blog",
@@ -9623,6 +10229,15 @@ export const SITE_PAGES: SitePage[] = [
     "group": "blog",
     "collection": "blog",
     "file": "blog/formation-ia-finance-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/formation-ia-marketing-pme",
+    "title": "Formation IA marketing : le programme à exiger en PME",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/formation-ia-marketing-pme.json",
     "editable": false,
     "sections": []
   },
@@ -10043,6 +10658,11 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-2"
       },
       {
+        "type": "cta-final",
+        "label": "Où en est votre entreprise avec l'IA ?",
+        "background": "ink"
+      },
+      {
         "type": "related-cards-band",
         "label": "Pour aller plus loin",
         "background": "paper"
@@ -10086,6 +10706,11 @@ export const SITE_PAGES: SitePage[] = [
         "type": "editorial-prose",
         "label": "#3",
         "background": "paper-2"
+      },
+      {
+        "type": "cta-final",
+        "label": "Où en est votre entreprise avec l'IA ?",
+        "background": "ink"
       },
       {
         "type": "related-cards-band",
@@ -10133,6 +10758,11 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-2"
       },
       {
+        "type": "cta-final",
+        "label": "Où en est votre entreprise avec l'IA ?",
+        "background": "ink"
+      },
+      {
         "type": "related-cards-band",
         "label": "Pour aller plus loin",
         "background": "paper"
@@ -10178,6 +10808,11 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-2"
       },
       {
+        "type": "cta-final",
+        "label": "Où en est votre entreprise avec l'IA ?",
+        "background": "ink"
+      },
+      {
         "type": "related-cards-band",
         "label": "Pour aller plus loin",
         "background": "paper"
@@ -10221,6 +10856,11 @@ export const SITE_PAGES: SitePage[] = [
         "type": "editorial-prose",
         "label": "#3",
         "background": "paper-2"
+      },
+      {
+        "type": "cta-final",
+        "label": "Où en est votre entreprise avec l'IA ?",
+        "background": "ink"
       },
       {
         "type": "related-cards-band",
@@ -10273,6 +10913,11 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
+        "type": "cta-final",
+        "label": "Où en est votre entreprise avec l'IA ?",
+        "background": "ink"
+      },
+      {
         "type": "related-cards-band",
         "label": "Pour aller plus loin",
         "background": "paper-2"
@@ -10316,6 +10961,11 @@ export const SITE_PAGES: SitePage[] = [
         "type": "editorial-prose",
         "label": "#3",
         "background": "paper-2"
+      },
+      {
+        "type": "cta-final",
+        "label": "Où en est votre entreprise avec l'IA ?",
+        "background": "ink"
       },
       {
         "type": "related-cards-band",
@@ -10363,6 +11013,11 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-2"
       },
       {
+        "type": "cta-final",
+        "label": "Où en est votre entreprise avec l'IA ?",
+        "background": "ink"
+      },
+      {
         "type": "related-cards-band",
         "label": "Pour aller plus loin",
         "background": "paper"
@@ -10408,6 +11063,11 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-2"
       },
       {
+        "type": "cta-final",
+        "label": "Où en est votre entreprise avec l'IA ?",
+        "background": "ink"
+      },
+      {
         "type": "related-cards-band",
         "label": "Pour aller plus loin",
         "background": "paper"
@@ -10451,6 +11111,11 @@ export const SITE_PAGES: SitePage[] = [
         "type": "editorial-prose",
         "label": "#3",
         "background": "paper-2"
+      },
+      {
+        "type": "cta-final",
+        "label": "Où en est votre entreprise avec l'IA ?",
+        "background": "ink"
       },
       {
         "type": "related-cards-band",
@@ -10641,6 +11306,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/comparatifs/claude-platform-vs-openai-platform",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche",
+      "/ressources/comparatifs/formateur-ia-organisme-freelance-agence",
       "/ressources/comparatifs/geo-vs-seo",
       "/ressources/comparatifs/lovable-vs-developpement-sur-mesure",
       "/ressources/comparatifs/mistral-vs-claude-pme",
@@ -10653,10 +11319,12 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/diagnostics/referent-ia",
       "/ressources/diagnostics/site-web-intelligent",
       "/ressources/guides",
+      "/ressources/guides/accompagnement-ia-pme",
       "/ressources/guides/agent-ia-definition",
       "/ressources/guides/agent-sav-architecture",
       "/ressources/guides/ai-act-pme-calendrier",
       "/ressources/guides/aides-financement-projet-ia",
+      "/ressources/guides/audit-geo-pme",
       "/ressources/guides/chatbot-transparence-article-50",
       "/ressources/guides/choisir-agence-ia-pme",
       "/ressources/guides/claude-code-entreprise",
@@ -10685,6 +11353,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/guides/n8n-prix",
       "/ressources/guides/prompt-engineering-pme",
       "/ressources/guides/quel-modele-claude-choisir",
+      "/ressources/guides/refonte-logiciel-metier",
       "/ressources/guides/refonte-site-internet",
       "/ressources/guides/rgpd-agents-ia-checklist",
       "/ressources/guides/roi-automatisation",
@@ -10707,6 +11376,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
     "label_fr": "Blog",
     "routes": [
       "/blog",
+      "/blog/agent-ia-24-7-pme",
       "/blog/agent-ia-entreprise-exemples",
       "/blog/agent-ia-vs-automatisation-classique-2026",
       "/blog/ai-mode-google-ai-overviews-pme",
@@ -10722,8 +11392,10 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/connecter-claude-wordpress-shopify-mcp",
       "/blog/contenu-ia-seo-google-penalise",
       "/blog/creer-agent-ia-claude",
+      "/blog/etre-cite-par-perplexity",
       "/blog/formation-ia-cpf-qualiopi",
       "/blog/formation-ia-finance-pme",
+      "/blog/formation-ia-marketing-pme",
       "/blog/forward-deployed-engineer",
       "/blog/geo-local-recommande-par-les-ia",
       "/blog/ia-pme-guide-complet-2026",
