@@ -271,6 +271,8 @@ const PAGES: Record<string, PageDef> = {
   '/ressources/guides/refonte-logiciel-metier': { label_fr: 'Refonte d\'un logiciel métier : garder, refondre, remplacer', label_en: 'Business software overhaul: keep, rebuild, replace', kind: 'guide', topics: ['applications'] },
   '/blog/formation-ia-marketing-pme': { label_fr: 'Formation IA marketing en PME', label_en: 'AI marketing training for SMBs', kind: 'article', topics: ['formation', 'acquisition'] },
   '/blog/agent-ia-24-7-pme': { label_fr: 'Agent IA 24/7 en PME : ce qui reste humain', label_en: '24/7 AI agent for SMBs: what stays human', kind: 'article', topics: ['agents', 'automatisation'] },
+  '/ressources/guides/cahier-des-charges-site-internet': { label_fr: 'Cahier des charges de site internet : le guide', label_en: 'Website specification: the guide', kind: 'guide', topics: ['web'] },
+  '/blog/ia-auto-hebergee-open-webui-pme': { label_fr: 'IA auto-hébergée avec Open WebUI : pour quelle PME', label_en: 'Self-hosted AI with Open WebUI: for which SMB', kind: 'article', topics: ['conformite', 'claude'] },
   '/cas-clients/desangles-peinture': { label_fr: 'Cas client : Desangles Peinture', label_en: 'Case: Desangles Peinture', kind: 'cas-client', topics: ['acquisition'] },
 
   // ── Secteurs (indexables depuis 2026-10-05) : cibles du maillage, sans bloc émis par

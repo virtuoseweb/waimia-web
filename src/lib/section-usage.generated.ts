@@ -23,7 +23,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "author-byline": {
-    "count": 48,
+    "count": 49,
     "pages": [
       "/cas-usages/centraliser-donnees",
       "/cas-usages/finance-comptabilite",
@@ -40,6 +40,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/ai-act-pme-calendrier",
       "/ressources/guides/aides-financement-projet-ia",
       "/ressources/guides/audit-geo-pme",
+      "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/chatbot-transparence-article-50",
       "/ressources/guides/choisir-agence-ia-pme",
       "/ressources/guides/claude-finance-pme",
@@ -263,7 +264,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "cta-final": {
-    "count": 62,
+    "count": 63,
     "pages": [
       "/cas-usages/centraliser-donnees",
       "/cas-usages/finance-comptabilite",
@@ -286,6 +287,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/comparatifs/n8n-vs-make-vs-zapier",
       "/ressources/guides/agent-ia-definition",
       "/ressources/guides/agent-sav-architecture",
+      "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/cout-projet-ia-pme",
       "/ressources/guides/devis-automatise",
       "/ressources/guides/financement-formation-ia-opco",
@@ -586,7 +588,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "direct-answer": {
-    "count": 86,
+    "count": 87,
     "pages": [
       "/cas-usages/finance-comptabilite",
       "/cas-usages/rh",
@@ -626,6 +628,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/ai-act-pme-calendrier",
       "/ressources/guides/aides-financement-projet-ia",
       "/ressources/guides/audit-geo-pme",
+      "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/chatbot-transparence-article-50",
       "/ressources/guides/choisir-agence-ia-pme",
       "/ressources/guides/claude-code-entreprise",
@@ -677,7 +680,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "editorial-callout": {
-    "count": 17,
+    "count": 18,
     "pages": [
       "/conformite-ia",
       "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
@@ -686,6 +689,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/comparatifs/lovable-vs-developpement-sur-mesure",
       "/ressources/comparatifs/mistral-vs-claude-pme",
       "/ressources/guides/audit-geo-pme",
+      "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/claude-in-chrome-entreprise",
       "/ressources/guides/refonte-logiciel-metier",
       "src/content/formations/automatisation.json",
@@ -710,7 +714,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "editorial-prose": {
-    "count": 297,
+    "count": 302,
     "pages": [
       "/audit-ia-pme",
       "/cas-usages/centraliser-donnees",
@@ -745,6 +749,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/ai-act-pme-calendrier",
       "/ressources/guides/aides-financement-projet-ia",
       "/ressources/guides/audit-geo-pme",
+      "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/chatbot-transparence-article-50",
       "/ressources/guides/choisir-agence-ia-pme",
       "/ressources/guides/claude-code-entreprise",
@@ -842,7 +847,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "editorial-table-block": {
-    "count": 130,
+    "count": 135,
     "pages": [
       "/cas-usages/finance-comptabilite",
       "/cas-usages/rh",
@@ -863,6 +868,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/ai-act-pme-calendrier",
       "/ressources/guides/aides-financement-projet-ia",
       "/ressources/guides/audit-geo-pme",
+      "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/chatbot-transparence-article-50",
       "/ressources/guides/choisir-agence-ia-pme",
       "/ressources/guides/claude-code-entreprise",
@@ -992,7 +998,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "faq-accordion": {
-    "count": 147,
+    "count": 148,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -1043,6 +1049,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/ai-act-pme-calendrier",
       "/ressources/guides/aides-financement-projet-ia",
       "/ressources/guides/audit-geo-pme",
+      "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/chatbot-transparence-article-50",
       "/ressources/guides/choisir-agence-ia-pme",
       "/ressources/guides/claude-code-entreprise",
@@ -1201,7 +1208,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "footer-cta-band": {
-    "count": 146,
+    "count": 147,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -1253,6 +1260,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/ai-act-pme-calendrier",
       "/ressources/guides/aides-financement-projet-ia",
       "/ressources/guides/audit-geo-pme",
+      "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/chatbot-transparence-article-50",
       "/ressources/guides/choisir-agence-ia-pme",
       "/ressources/guides/claude-code-entreprise",
@@ -1473,7 +1481,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "hero-split-media": {
-    "count": 103,
+    "count": 104,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
@@ -1518,6 +1526,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/ai-act-pme-calendrier",
       "/ressources/guides/aides-financement-projet-ia",
       "/ressources/guides/audit-geo-pme",
+      "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/chatbot-transparence-article-50",
       "/ressources/guides/choisir-agence-ia-pme",
       "/ressources/guides/claude-code-entreprise",
@@ -1894,7 +1903,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "process-steps": {
-    "count": 54,
+    "count": 55,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/finance-comptabilite",
@@ -1915,6 +1924,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/agent-sav-architecture",
       "/ressources/guides/ai-act-pme-calendrier",
       "/ressources/guides/aides-financement-projet-ia",
+      "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/choisir-agence-ia-pme",
       "/ressources/guides/claude-code-entreprise",
       "/ressources/guides/claude-cowork",
@@ -2037,7 +2047,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "related-cards-band": {
-    "count": 90,
+    "count": 91,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
@@ -2082,6 +2092,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/ai-act-pme-calendrier",
       "/ressources/guides/aides-financement-projet-ia",
       "/ressources/guides/audit-geo-pme",
+      "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/chatbot-transparence-article-50",
       "/ressources/guides/choisir-agence-ia-pme",
       "/ressources/guides/claude-code-entreprise",
@@ -2248,7 +2259,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "tech-when-dual": {
-    "count": 51,
+    "count": 52,
     "pages": [
       "/cas-usages/finance-comptabilite",
       "/cas-usages/rh",
@@ -2270,6 +2281,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/ai-act-pme-calendrier",
       "/ressources/guides/aides-financement-projet-ia",
       "/ressources/guides/audit-geo-pme",
+      "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/chatbot-transparence-article-50",
       "/ressources/guides/claude-cowork",
       "/ressources/guides/claude-design",

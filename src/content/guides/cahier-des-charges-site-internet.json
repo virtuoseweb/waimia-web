@@ -1,0 +1,1028 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "Cahier des charges de site internet : contenu, exemple de brief et choix techniques",
+  "title_en": "Website specification: contents, example brief and technical choices",
+  "seoTitle_fr": "Cahier des charges site internet : contenu et exemple",
+  "seoTitle_en": "Website specification: contents and example brief",
+  "description_fr": "Cahier des charges de site internet : les dix rubriques, un exemple de brief à remplir, les choix techniques et la grille pour comparer vos devis.",
+  "description_en": "Website specification: the ten sections, an example brief to fill in, the technical choices and a grid to compare your quotes. Checked on 16 October 2026.",
+  "slug": "cahier-des-charges-site-internet",
+  "publishedAt": "2026-10-16",
+  "updatedAt": "2026-10-16",
+  "category": "web",
+  "tags": [
+    "cahier-des-charges",
+    "site-web",
+    "refonte",
+    "brief",
+    "seo",
+    "guide-pme"
+  ],
+  "sources": [
+    {
+      "name": "web.dev, « Rendering on the Web » (rendu statique, rendu serveur, hybride), lu le 16 octobre 2026",
+      "url": "https://web.dev/articles/rendering-on-the-web",
+      "type": "enterprise"
+    },
+    {
+      "name": "Service-Public Entreprendre, « Mentions obligatoires sur le site internet d'un entrepreneur individuel » (fiche vérifiée le 31 juillet 2023), lue le 16 octobre 2026",
+      "url": "https://entreprendre.service-public.fr/vosdroits/F31228",
+      "type": "state"
+    },
+    {
+      "name": "CNIL, questions-réponses sur les lignes directrices et la recommandation « cookies et autres traceurs » (29 avril 2026), lues le 16 octobre 2026",
+      "url": "https://www.cnil.fr/fr/cookies-et-autres-traceurs/regles/cookies/FAQ",
+      "type": "state"
+    },
+    {
+      "name": "La Fabrique du Net, modèle de cahier des charges de site internet (6 rubriques), lu le 16 octobre 2026 : rubriques recoupées, aucun contenu repris",
+      "url": "https://www.lafabriquedunet.fr/agences/tendances/exemple-cahier-des-charges-site-internet/",
+      "type": "enterprise"
+    },
+    {
+      "name": "Digitiz, « Faire un cahier des charges pour son site internet » (10 septembre 2025), lu le 16 octobre 2026 : rubriques recoupées, aucun contenu repris",
+      "url": "https://digitiz.fr/cahier-des-charges-site-internet/",
+      "type": "enterprise"
+    }
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "Qu'est-ce qu'un cahier des charges de site internet ?",
+      "a": "Le document qui décrit ce que le site doit faire avant de consulter des agences : objectifs, cibles, pages, contenus, fonctionnalités, contraintes techniques, référencement, budget, planning et critères de recette. Il décrit le besoin et laisse la solution technique à l'agence."
+    },
+    {
+      "q": "Quelle différence entre un cahier des charges et un brief ?",
+      "a": "Le brief tient sur une ou deux pages et pose le projet : objectif, cible, budget, délai. Le cahier des charges le prolonge : pages, fonctionnalités, contraintes, critères de recette. Le modèle de ce guide peut servir de brief, puis s'étoffer au fil des rendez-vous."
+    },
+    {
+      "q": "Faut-il un cahier des charges pour une refonte de site ?",
+      "a": "Oui, avec en plus l'inventaire de l'existant : pages qui reçoivent des visites, adresses, accès, formulaires. Exigez aussi une table de redirections 301 livrée et testée. Le détail des étapes est dans le guide de refonte de site internet."
+    },
+    {
+      "q": "Faut-il choisir la plateforme avant de consulter les agences ?",
+      "a": "Non, sauf contrainte réelle (équipe déjà formée à un outil, abonnement en cours). Décrivez ce que l'équipe doit pouvoir faire seule et ce que le site doit relier. L'agence propose la plateforme et le mode de rendu après avoir examiné votre existant."
+    },
+    {
+      "q": "Que mettre dans la rubrique SEO et GEO ?",
+      "a": "Les requêtes visées, les pages à conserver avec leur adresse actuelle, les pages qui produisent des demandes, la table de redirections attendue et la personne qui suit les résultats. Le balisage et la structure des titres sont du ressort de l'agence."
+    },
+    {
+      "q": "Combien coûte un site chez Waimia ?",
+      "a": "Deux packs d'heures : 10 heures à {{prix.sprint}} € HT, et 20 heures au taux horaire de {{prix.horaire}} € HT. La composante SEO et GEO est en option. Les paliers de prix d'un site sont publiés sur la page création et refonte de site, et le périmètre exact est fixé par écrit avant de démarrer."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "What is a website specification?",
+      "a": "The document that describes what the site must do before consulting agencies: goals, audiences, pages, content, features, technical constraints, search visibility, budget, schedule and acceptance criteria. It describes the need and leaves the technical solution to the agency."
+    },
+    {
+      "q": "What is the difference between a specification and a brief?",
+      "a": "A brief fits on one or two pages and sets out the project: goal, audience, budget, deadline. The specification extends it: pages, features, constraints, acceptance criteria. This guide's template can serve as a brief, then grow over the meetings."
+    },
+    {
+      "q": "Do you need a specification for a website redesign?",
+      "a": "Yes, with the inventory of what exists on top: pages that receive visits, addresses, access, forms. Also require a 301 redirect table that is delivered and tested. The steps are detailed in the website redesign guide."
+    },
+    {
+      "q": "Should you choose the platform before consulting agencies?",
+      "a": "No, unless there is a real constraint (a team already trained on a tool, a running subscription). Describe what the team must be able to do alone and what the site must connect to. The agency proposes the platform and rendering mode after examining what you have."
+    },
+    {
+      "q": "What goes into the SEO and GEO section?",
+      "a": "The target queries, the pages to keep with their current address, the pages that produce requests, the expected redirect table and the person who follows the results. Markup and heading structure are the agency's business."
+    },
+    {
+      "q": "How much does a site cost at Waimia?",
+      "a": "Two hour packs: 10 hours at €{{prix.sprint.en}} excl. VAT, and 20 hours at the hourly rate of €{{prix.horaire}} excl. VAT. The SEO and GEO component is optional. The price tiers for a site are published on the website creation and redesign page, and the exact scope is set in writing before starting."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "kicker_fr": "§ Guide · site web",
+      "kicker_en": "§ Guide · website",
+      "h1_fr": "Cahier des charges <i class=\"acc\">site internet</i> : contenu, exemple de brief et choix techniques",
+      "h1_en": "Website <i class=\"acc\">specification</i>: contents, example brief and technical choices",
+      "lede_fr": "Un cahier des charges de site internet dit ce que le site doit faire avant de demander des devis : objectifs, cibles, pages, contenus, fonctionnalités, contraintes, référencement, budget, planning, recette. Vous écrivez le besoin, l'agence propose la solution. Ce guide donne un exemple de brief à remplir, une grille pour comparer les devis et les choix techniques.",
+      "lede_en": "A website specification says what the site must do before you ask for quotes: goals, audiences, pages, content, features, constraints, search visibility, budget, schedule, acceptance. You write the need, the agency proposes the solution. This guide gives an example brief to fill in, a grid to compare quotes and the technical choices.",
+      "badges": [
+        {
+          "label_fr": "Exemple de brief à remplir",
+          "label_en": "Example brief to fill in"
+        },
+        {
+          "label_fr": "Sources relevées le 16 octobre 2026",
+          "label_en": "Sources checked on 16 October 2026"
+        },
+        {
+          "label_fr": "Estimations d'heures : celles de Waimia",
+          "label_en": "Hour estimates: Waimia's own"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver l'audit gratuit",
+        "label_en": "Book the free audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Lire le guide de refonte",
+        "label_en": "Read the redesign guide",
+        "href": "/ressources/guides/refonte-site-internet",
+        "variant": "ghost"
+      }
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "16 octobre 2026",
+      "updatedDate": "16 octobre 2026"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "Que contient un cahier des charges de site internet ?",
+      "question_en": "What does a website specification contain?",
+      "term_fr": "Réponse courte",
+      "term_en": "Short answer",
+      "answer_fr": "Dix rubriques : objectifs, cibles, arborescence, contenus, fonctionnalités, contraintes techniques, référencement Google et moteurs IA, budget, planning et critères de recette. Vous décidez de ce que le site doit faire et de ce que vous fournissez. L'agence décide du comment technique : plateforme, mode de rendu, outils. Écrit ainsi, le document rend les devis comparables et sert de base à la recette. Relevé le 16 octobre 2026.",
+      "answer_en": "Ten sections: goals, audiences, page tree, content, features, technical constraints, search visibility on Google and AI engines, budget, schedule and acceptance criteria. You decide what the site must do and what you supply. The agency decides the technical how: platform, rendering mode, tools. Written this way, the document makes quotes comparable and becomes the basis for acceptance. Checked on 16 October 2026."
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper",
+      "kicker_fr": "§ Les dix rubriques",
+      "kicker_en": "§ The ten sections",
+      "heading_fr": "Quelles rubriques écrire, et qu'en laisser à l'agence ?",
+      "heading_en": "Which sections should you write, and what should you leave to the agency?",
+      "caption_fr": "Rubriques recoupées avec deux modèles publiés en ligne (voir Sources), complétées par la pratique de Waimia. La colonne de droite est notre lecture : ce qui reste ouvert pour que l'agence puisse proposer mieux que votre première idée.",
+      "caption_en": "Sections cross-checked against two templates published online (see Sources), completed with Waimia's practice. The right-hand column is our reading: what stays open so that the agency can propose something better than your first idea.",
+      "columns_fr": [
+        "Rubrique",
+        "Ce que vous écrivez",
+        "Ce que vous laissez à l'agence"
+      ],
+      "columns_en": [
+        "Section",
+        "What you write",
+        "What you leave to the agency"
+      ],
+      "rows_fr": [
+        [
+          "Objectifs",
+          "L'action attendue du site et un indicateur : demandes de devis, rendez-vous, inscriptions, avec le point de départ actuel.",
+          "Les moyens d'y arriver : structure des pages, parcours, mise en avant des preuves."
+        ],
+        [
+          "Cibles",
+          "Qui visite le site, avec quelle question, venu d'où : recherche, annonce, recommandation.",
+          "La traduction en messages et en pages, que vous validez."
+        ],
+        [
+          "Arborescence",
+          "Les pages que vous savez nécessaires, avec le rôle de chacune.",
+          "Le découpage fin, les modèles de pages, la navigation."
+        ],
+        [
+          "Contenus",
+          "Qui écrit, qui fournit les images, quels textes existent déjà, à quelle date.",
+          "Le format, la structure éditoriale, la reprise technique des contenus."
+        ],
+        [
+          "Fonctionnalités",
+          "Des scénarios d'usage, classés « cœur » ou « plus tard » : « un visiteur prend rendez-vous en trois clics sur mobile ».",
+          "Comment les construire : code, extension, outil du marché."
+        ],
+        [
+          "Contraintes techniques",
+          "Ce qui existe déjà (domaine, hébergement, CRM, outil de mailing), langues, accessibilité, données personnelles.",
+          "La plateforme, le mode de rendu, l'hébergement, s'ils ne sont pas imposés."
+        ],
+        [
+          "SEO et GEO",
+          "Les requêtes visées, les pages à conserver avec leur adresse actuelle, les pages qui produisent des demandes.",
+          "Le balisage, la structure des titres, les redirections, les données structurées."
+        ],
+        [
+          "Budget",
+          "Une enveloppe ou une fourchette, et ce qui est hors périmètre.",
+          "Le chiffrage en heures ou en forfait, lot par lot."
+        ],
+        [
+          "Planning",
+          "La date qui compte (lancement, salon, saison) et vos délais de validation.",
+          "L'enchaînement des étapes et des livraisons intermédiaires."
+        ],
+        [
+          "Critères de recette",
+          "Comment vous déciderez que c'est livré : parcours à tester, appareils, formulaires qui arrivent au bon endroit.",
+          "Les tests, les corrections, la procédure de mise en ligne."
+        ]
+      ],
+      "rows_en": [
+        [
+          "Goals",
+          "The action expected from the site and an indicator: quote requests, meetings, sign-ups, with today's starting point.",
+          "The means to get there: page structure, journeys, how proof is shown."
+        ],
+        [
+          "Audiences",
+          "Who visits the site, with which question, coming from where: search, ad, recommendation.",
+          "The translation into messages and pages, which you approve."
+        ],
+        [
+          "Page tree",
+          "The pages you know are needed, with the role of each.",
+          "The fine breakdown, the page templates, the navigation."
+        ],
+        [
+          "Content",
+          "Who writes, who supplies images, which texts already exist, by which date.",
+          "The format, the editorial structure, the technical carry-over of content."
+        ],
+        [
+          "Features",
+          "Usage scenarios, ranked \"core\" or \"later\": \"a visitor books a meeting in three taps on mobile\".",
+          "How to build them: code, extension, off-the-shelf tool."
+        ],
+        [
+          "Technical constraints",
+          "What already exists (domain, hosting, CRM, mailing tool), languages, accessibility, personal data.",
+          "The platform, the rendering mode, the hosting, if they are not imposed."
+        ],
+        [
+          "SEO and GEO",
+          "The target queries, the pages to keep with their current address, the pages that produce requests.",
+          "The markup, the heading structure, the redirects, the structured data."
+        ],
+        [
+          "Budget",
+          "An envelope or a range, and what is out of scope.",
+          "The estimate in hours or as a fixed price, work package by work package."
+        ],
+        [
+          "Schedule",
+          "The date that matters (launch, trade show, season) and your approval lead times.",
+          "The sequence of steps and of interim deliveries."
+        ],
+        [
+          "Acceptance criteria",
+          "How you will decide it is delivered: journeys to test, devices, forms that reach the right place.",
+          "The tests, the fixes, the go-live procedure."
+        ]
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Pourquoi écrire le cahier des charges avant de consulter des agences</h2>\n<p>Sans document commun, chaque agence chiffre sa propre lecture de votre besoin : nombre de pages, reprise des contenus, intégrations, référencement. Les devis ne se comparent plus, puisqu'ils ne portent pas sur la même chose. Avec un cahier des charges, vous posez les mêmes hypothèses à tous.</p>\n<p>Il sert aussi après la signature. Les critères de recette y sont écrits : on les rejoue à la livraison, et personne ne discute de ce qui était prévu.</p>\n<p>Repère de Waimia : pour une PME de services, deux à quatre pages précises valent mieux qu'un document de trente pages. Chaque ligne doit pouvoir être vérifiée à la livraison.</p>\n<h2>Cahier des charges de site web, de refonte : ce qui s'ajoute</h2>\n<p>Pour un site à créer, les dix rubriques suffisent. Pour un cahier des charges de refonte de site internet, il faut y joindre ce que l'ancien site a acquis : la liste des pages qui reçoivent des visites et des liens, leurs adresses, les accès (domaine, hébergement, Search Console) et le sort de chaque formulaire.</p>\n<p>Les redirections 301, qui évitent de perdre le référencement, ont leur guide : <a href=\"/ressources/guides/refonte-site-internet\">refonte de site internet : étapes, coût, redirections</a>. Ici, on s'arrête à ce que le cahier des charges doit en dire : qu'une table de redirections est exigée, livrée et testée.</p>",
+      "html_en": "<h2>Why write the specification before consulting agencies</h2>\n<p>Without a shared document, each agency prices its own reading of your need: number of pages, content carry-over, integrations, search visibility. Quotes can no longer be compared, because they are not about the same thing. With a specification, you give everyone the same assumptions.</p>\n<p>It also serves after signing. The acceptance criteria are written in it: they are replayed at delivery, and nobody argues about what was planned.</p>\n<p>Waimia's rule of thumb: for a services SME, two to four precise pages beat a thirty-page document. Every line must be checkable at delivery.</p>\n<h2>Website specification versus redesign specification: what gets added</h2>\n<p>For a new site, the ten sections are enough. For a website redesign specification, you must attach what the old site has earned: the list of pages that get visits and links, their addresses, the access (domain, hosting, Search Console) and what happens to each form.</p>\n<p>The 301 redirects, which prevent losing search rankings, have their own guide: <a href=\"/ressources/guides/refonte-site-internet\">website redesign: steps, cost, redirects</a>. Here we stop at what the specification must say about them: that a redirect table is required, delivered and tested.</p>"
+    },
+    {
+      "type": "editorial-callout",
+      "background": "paper",
+      "variant": "quote",
+      "size": "md",
+      "body_fr": "Décrivez le résultat, pas l'outil. « Je veux WordPress » est une solution ; « mon équipe publie un article sans développeur » est un besoin. Le second laisse l'agence proposer.",
+      "body_en": "Describe the result, not the tool. \"I want WordPress\" is a solution; \"my team publishes an article without a developer\" is a need. The second leaves room for the agency to propose."
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Exemple de brief · scénario illustratif",
+      "kicker_en": "§ Example brief · illustrative scenario",
+      "heading_fr": "Un brief complet à copier et à remplir, pour une PME de services",
+      "heading_en": "A complete brief to copy and fill in, for a services SME",
+      "caption_fr": "Scénario illustratif : l'entreprise et les personnes sont fictives, ce n'est pas un cas client de Waimia. La colonne centrale montre le niveau de précision attendu ; la colonne de droite est la question à vous poser. Copiez le tableau et remplacez le centre par vos réponses. Aucun chiffre n'y est avancé : relevez les vôtres.",
+      "caption_en": "Illustrative scenario: the company and the people are fictional, this is not a Waimia client case. The middle column shows the level of precision expected; the right-hand column is the question to ask yourself. Copy the table and replace the middle with your answers. No figure is given: gather your own.",
+      "columns_fr": [
+        "Rubrique",
+        "Exemple (cabinet de conseil fictif)",
+        "Votre réponse : la question à vous poser"
+      ],
+      "columns_en": [
+        "Section",
+        "Example (fictional consulting firm)",
+        "Your answer: the question to ask yourself"
+      ],
+      "rows_fr": [
+        [
+          "Entreprise et projet",
+          "Cabinet de conseil en organisation, une agence, équipe de [nombre] personnes. Refonte du site actuel, en place depuis [nombre] ans.",
+          "Qui êtes-vous, pour qui travaillez-vous, et s'agit-il d'une création ou d'une refonte ?"
+        ],
+        [
+          "Le projet en une phrase",
+          "Le site doit amener des dirigeants de PME à demander un diagnostic, pour remplir l'agenda de rendez-vous avant [date].",
+          "Le site doit amener [qui] à [faire quoi], pour que [résultat] avant [date]."
+        ],
+        [
+          "Objectifs mesurables",
+          "1. Plus de demandes de diagnostic par le formulaire. 2. Une page par offre, trouvable sur Google. Indicateur : demandes par mois, relevées dans le CRM ; point de départ à relever avant la refonte.",
+          "Quel indicateur, quel point de départ aujourd'hui, quelle cible ? Sans point de départ, pas d'objectif chiffré."
+        ],
+        [
+          "Cibles",
+          "Dirigeants de PME de la région ; assistantes de direction qui préparent la demande ; candidats au recrutement (secondaire).",
+          "Qui visite, avec quelle question, par quel canal ?"
+        ],
+        [
+          "Existant",
+          "Site de dix pages sous WordPress, formulaire qui envoie un e-mail, Search Console accessible, nom de domaine chez [registraire].",
+          "Plateforme actuelle, accès (domaine, hébergement, Search Console), pages qui reçoivent des visites."
+        ],
+        [
+          "Arborescence",
+          "Accueil ; trois pages d'offre ; méthode ; études de cas ; blog ; à propos ; contact.",
+          "Une ligne par page : son rôle et l'action attendue du visiteur."
+        ],
+        [
+          "Contenus",
+          "Textes d'offre à réécrire par le cabinet ; études de cas fournies en PDF ; photos de l'équipe à refaire. Responsable : l'associée en charge du marketing, relecture sous [délai].",
+          "Qui écrit, qui valide, sous quel délai ? Quelles images existent ?"
+        ],
+        [
+          "Fonctionnalités cœur",
+          "Formulaire de demande de diagnostic relié au CRM ; prise de rendez-vous en ligne ; téléchargement d'une ressource gratuite contre une adresse e-mail.",
+          "Les trois à cinq scénarios sans lesquels le site échoue, chacun écrit comme un parcours."
+        ],
+        [
+          "Fonctionnalités « plus tard »",
+          "Espace client ; version en anglais.",
+          "Ce qui peut attendre une seconde version."
+        ],
+        [
+          "Identité visuelle",
+          "Logo et charte existants, à reprendre ; deux sites appréciés et un site détesté, avec la raison de chaque choix.",
+          "Charte à reprendre ou à refaire ? Quelles inspirations, lesquelles à éviter ?"
+        ],
+        [
+          "Contraintes techniques",
+          "L'équipe modifie les pages sans développeur ; données hébergées en Europe ; mesure d'audience et consentement aux traceurs conformes aux règles de la CNIL ; accessibilité de base (contrastes, navigation au clavier).",
+          "Qui modifiera le site après la livraison ? Où sont les données ? Quelles obligations vous concernent ?"
+        ],
+        [
+          "SEO et GEO",
+          "Conserver les pages qui reçoivent des visites, listées avec leur adresse ; trois requêtes visées par page d'offre ; table de redirections 301 exigée et testée.",
+          "Requêtes visées, pages à conserver, redirections attendues, qui suit les résultats après la mise en ligne ?"
+        ],
+        [
+          "Intégrations",
+          "CRM existant, outil d'envoi d'e-mails, agenda en ligne.",
+          "Quels outils relier, et que doit déclencher chaque demande ?"
+        ],
+        [
+          "Budget",
+          "Enveloppe maximale indiquée ; options chiffrées à part (version anglaise, SEO et GEO).",
+          "Enveloppe ou fourchette ? Qu'est-ce qui est optionnel ?"
+        ],
+        [
+          "Planning",
+          "Mise en ligne avant la reprise de [mois] ; validation de la maquette sous [délai] ; contenus livrés à [date].",
+          "Date butoir, jalons, disponibilité de ceux qui valident."
+        ],
+        [
+          "Critères de recette",
+          "Le formulaire crée une fiche dans le CRM avec la page d'origine ; chaque ancienne adresse redirige ; les pages se lisent sur mobile ; une page se modifie sans développeur.",
+          "Votre liste de vérifications avant de dire « livré »."
+        ],
+        [
+          "Après la livraison",
+          "Une session de prise en main ; maintenance à décider.",
+          "Qui héberge, qui met à jour, qui dépanne, à quel coût ?"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Company and project",
+          "Organisation consulting firm, one office, team of [number] people. Redesign of the current site, in place for [number] years.",
+          "Who are you, who do you work for, and is it a new site or a redesign?"
+        ],
+        [
+          "The project in one sentence",
+          "The site must get SME managers to request a diagnostic, to fill the meetings calendar before [date].",
+          "The site must get [who] to [do what], so that [result] before [date]."
+        ],
+        [
+          "Measurable goals",
+          "1. More diagnostic requests through the form. 2. One page per offer, findable on Google. Indicator: requests per month, read in the CRM; starting point to be recorded before the redesign.",
+          "Which indicator, which starting point today, which target? Without a starting point, no numeric goal."
+        ],
+        [
+          "Audiences",
+          "SME managers in the region; executive assistants who prepare the request; recruitment candidates (secondary).",
+          "Who visits, with which question, through which channel?"
+        ],
+        [
+          "Existing site",
+          "Ten-page WordPress site, form that sends an e-mail, Search Console accessible, domain name at [registrar].",
+          "Current platform, access (domain, hosting, Search Console), pages that receive visits."
+        ],
+        [
+          "Page tree",
+          "Home; three offer pages; method; case studies; blog; about; contact.",
+          "One line per page: its role and the action expected from the visitor."
+        ],
+        [
+          "Content",
+          "Offer texts to be rewritten by the firm; case studies supplied as PDF; team photos to redo. Owner: the partner in charge of marketing, review within [lead time].",
+          "Who writes, who approves, within what lead time? Which images exist?"
+        ],
+        [
+          "Core features",
+          "Diagnostic request form linked to the CRM; online booking; download of a free resource in exchange for an e-mail address.",
+          "The three to five scenarios without which the site fails, each written as a journey."
+        ],
+        [
+          "\"Later\" features",
+          "Client area; English version.",
+          "What can wait for a second version."
+        ],
+        [
+          "Visual identity",
+          "Existing logo and brand guidelines, to be reused; two sites liked and one disliked, with the reason for each choice.",
+          "Guidelines to reuse or to redo? Which inspirations, which to avoid?"
+        ],
+        [
+          "Technical constraints",
+          "The team edits pages without a developer; data hosted in Europe; audience measurement and consent to trackers compliant with CNIL rules; basic accessibility (contrast, keyboard navigation).",
+          "Who will edit the site after delivery? Where is the data? Which obligations apply to you?"
+        ],
+        [
+          "SEO and GEO",
+          "Keep the pages that receive visits, listed with their address; three target queries per offer page; 301 redirect table required and tested.",
+          "Target queries, pages to keep, expected redirects, who follows the results after go-live?"
+        ],
+        [
+          "Integrations",
+          "Existing CRM, e-mail sending tool, online calendar.",
+          "Which tools to connect, and what must each request trigger?"
+        ],
+        [
+          "Budget",
+          "Maximum envelope stated; options priced separately (English version, SEO and GEO).",
+          "Envelope or range? What is optional?"
+        ],
+        [
+          "Schedule",
+          "Go-live before the [month] restart; mockup approval within [lead time]; content delivered by [date].",
+          "Deadline, milestones, availability of the people who approve."
+        ],
+        [
+          "Acceptance criteria",
+          "The form creates a CRM record with the originating page; every old address redirects; pages read well on mobile; a page can be edited without a developer.",
+          "Your checklist before saying \"delivered\"."
+        ],
+        [
+          "After delivery",
+          "One hands-on session; maintenance to be decided.",
+          "Who hosts, who updates, who fixes, at what cost?"
+        ]
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Les obligations à nommer dans la rubrique contraintes</h2>\n<p>Deux points se retrouvent dans presque tous les projets et s'écrivent dès le cahier des charges, pour que le devis les chiffre.</p>\n<p><strong>Les mentions légales.</strong> Selon <a href=\"https://entreprendre.service-public.fr/vosdroits/F31228\" rel=\"noopener noreferrer\" target=\"_blank\">Service-Public Entreprendre</a> (fiche vérifiée le 31 juillet 2023, lue le 16 octobre 2026), tous les sites professionnels doivent afficher des mentions obligatoires, dont l'identité de l'entreprise et celle de l'hébergeur. La fiche précise que l'absence de ces informations est sanctionnée. Demandez qui les rédige.</p>\n<p><strong>Les traceurs.</strong> La <a href=\"https://www.cnil.fr/fr/cookies-et-autres-traceurs/regles/cookies/FAQ\" rel=\"noopener noreferrer\" target=\"_blank\">CNIL</a> indique, dans sa foire aux questions du 29 avril 2026, que la simple poursuite de la navigation ne peut plus être considérée comme un consentement valide à des traceurs. Écrivez si vous voulez une mesure d'audience, quels outils tiers le site charge, et qui règle le bandeau. Ce n'est pas un avis juridique.</p>",
+      "html_en": "<h2>The obligations to name in the constraints section</h2>\n<p>Two points appear in almost every project and are written into the specification, so that the quote prices them.</p>\n<p><strong>Legal notices.</strong> According to <a href=\"https://entreprendre.service-public.fr/vosdroits/F31228\" rel=\"noopener noreferrer\" target=\"_blank\">Service-Public Entreprendre</a> (page verified on 31 July 2023, read on 16 October 2026), every professional website must display mandatory notices, including the identity of the company and of the host. The page states that the absence of this information is penalised. Ask who writes them.</p>\n<p><strong>Trackers.</strong> The <a href=\"https://www.cnil.fr/fr/cookies-et-autres-traceurs/regles/cookies/FAQ\" rel=\"noopener noreferrer\" target=\"_blank\">CNIL</a> states, in its FAQ of 29 April 2026, that simply continuing to browse can no longer be considered valid consent to trackers. Write down whether you want audience measurement, which third-party tools the site loads, and who sets up the banner. This is not legal advice.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Lire les devis",
+      "kicker_en": "§ Reading the quotes",
+      "heading_fr": "Comment comparer les devis reçus avec votre cahier des charges ?",
+      "heading_en": "How do you compare the quotes you receive against your specification?",
+      "caption_fr": "Grille de Waimia. Un devis qui ne répond pas à une ligne n'est pas moins cher : il est incomplet. Posez la question écrite, et gardez la réponse.",
+      "caption_en": "Waimia's grid. A quote that does not answer a line is not cheaper: it is incomplete. Ask the question in writing, and keep the answer.",
+      "columns_fr": [
+        "Ce que le devis doit dire",
+        "Pourquoi cela décide",
+        "La question à poser"
+      ],
+      "columns_en": [
+        "What the quote must say",
+        "Why it matters",
+        "The question to ask"
+      ],
+      "rows_fr": [
+        [
+          "Le périmètre en modèles de pages",
+          "Le travail suit le nombre de modèles à concevoir plus que le nombre de pages.",
+          "Combien de modèles de pages, combien de pages au total ?"
+        ],
+        [
+          "La reprise des contenus",
+          "Copier, réécrire ou migrer depuis une autre plateforme ne demande pas le même travail.",
+          "Qui reprend quoi, images et PDF compris ?"
+        ],
+        [
+          "Les redirections 301",
+          "Sans elles, les anciennes adresses tombent en erreur et le référencement acquis se perd.",
+          "La table URL par URL est-elle livrée et testée ?"
+        ],
+        [
+          "Le SEO et le GEO",
+          "Balisage, titres, plan de site : inclus, en option ou absents.",
+          "Quel travail précis, livré sous quelle forme ?"
+        ],
+        [
+          "Les intégrations",
+          "Un formulaire relié au CRM est un lot en soi.",
+          "Quels outils sont reliés, et qui paie leurs abonnements ?"
+        ],
+        [
+          "La propriété",
+          "Le code, le nom de domaine et les comptes doivent être à votre nom.",
+          "À qui appartiennent le code, le domaine, l'hébergement et les comptes ?"
+        ],
+        [
+          "La recette",
+          "Sans critères écrits, la fin du projet se négocie.",
+          "Combien de tours de corrections, sur quels critères ?"
+        ],
+        [
+          "La maintenance",
+          "Un site demande des mises à jour, des sauvegardes et un dépannage.",
+          "Est-elle comprise, optionnelle, à quel tarif ?"
+        ],
+        [
+          "Le mode de facturation",
+          "Forfait fermé et heures estimées ne protègent pas des mêmes risques.",
+          "Forfait par lot ou heures estimées, et que se passe-t-il en cas de dépassement ?"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Scope in page templates",
+          "The work follows the number of templates to design more than the number of pages.",
+          "How many page templates, how many pages in total?"
+        ],
+        [
+          "Content carry-over",
+          "Copying, rewriting or migrating from another platform do not take the same work.",
+          "Who carries over what, images and PDFs included?"
+        ],
+        [
+          "301 redirects",
+          "Without them, old addresses fall into errors and the search ranking you earned is lost.",
+          "Is the URL-by-URL table delivered and tested?"
+        ],
+        [
+          "SEO and GEO",
+          "Markup, headings, sitemap: included, optional or absent.",
+          "Which precise work, delivered in what form?"
+        ],
+        [
+          "Integrations",
+          "A form connected to a CRM is a work package in itself.",
+          "Which tools are connected, and who pays their subscriptions?"
+        ],
+        [
+          "Ownership",
+          "The code, the domain name and the accounts must be in your name.",
+          "Who owns the code, the domain, the hosting and the accounts?"
+        ],
+        [
+          "Acceptance",
+          "Without written criteria, the end of the project gets negotiated.",
+          "How many rounds of fixes, on which criteria?"
+        ],
+        [
+          "Maintenance",
+          "A site needs updates, backups and troubleshooting.",
+          "Is it included, optional, at what rate?"
+        ],
+        [
+          "Billing mode",
+          "A fixed price and estimated hours do not protect against the same risks.",
+          "Fixed price per work package or estimated hours, and what happens in case of overrun?"
+        ]
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Site statique, hybride ou serveur : ce qu'on demande à l'agence</h2>\n<p>Ce choix concerne la façon dont les pages sont fabriquées. Vous n'avez pas à le trancher dans le cahier des charges, mais vous devez comprendre la réponse de l'agence. Selon <a href=\"https://web.dev/articles/rendering-on-the-web\" rel=\"noopener noreferrer\" target=\"_blank\">web.dev</a> (lu le 16 octobre 2026), le rendu statique produit les pages à l'avance, au moment de la construction du site, avec un fichier par adresse.</p>\n<p>Le même article note deux effets : un premier octet toujours rapide, puisque la page n'est pas calculée à chaque visite, et des pages qui se déposent sur un réseau de diffusion. Sa limite : il faut pouvoir produire d'avance chaque adresse, ce qui devient lourd quand les pages sont très nombreuses.</p>\n<p>Le rendu serveur (en anglais, server-side rendering) fabrique la page à chaque demande. web.dev note qu'il peut allonger le délai du premier octet, et qu'on peut le réserver à certaines pages seulement : c'est le mode hybride. Les comptes clients et les contenus personnalisés relèvent du serveur ; une page de service relève du statique.</p>\n<h2>Quelle solution pour quel besoin</h2>\n<p>Le tableau reprend les options que vous croiserez dans les devis. Pour les plateformes, il suit les positions déjà publiées sur les pages <a href=\"/services/wordpress\">WordPress</a>, <a href=\"/services/webflow\">Webflow</a> et <a href=\"/services/sur-mesure-headless\">site sur mesure</a>, et dans le comparatif <a href=\"/ressources/comparatifs/lovable-vs-developpement-sur-mesure\">Lovable ou développement sur mesure</a>.</p>",
+      "html_en": "<h2>Static, hybrid or server rendering: what you ask the agency</h2>\n<p>This choice concerns how pages are produced. You do not have to settle it in the specification, but you must understand the agency's answer. According to <a href=\"https://web.dev/articles/rendering-on-the-web\" rel=\"noopener noreferrer\" target=\"_blank\">web.dev</a> (read on 16 October 2026), static rendering produces pages in advance, when the site is built, with one file per address.</p>\n<p>The same article notes two effects: a consistently fast first byte, since the page is not computed on every visit, and pages that can be deployed to a content delivery network. Its limit: every address must be producible in advance, which becomes heavy when pages are very numerous.</p>\n<p>Server-side rendering builds the page on each request. web.dev notes that it can lengthen the time to first byte, and that it can be reserved for some pages only: that is hybrid mode. Customer accounts and personalised content belong on the server; a service page belongs on static.</p>\n<h2>Which solution for which need</h2>\n<p>The table lists the options you will meet in quotes. For platforms, it follows the positions already published on the <a href=\"/services/wordpress\">WordPress</a>, <a href=\"/services/webflow\">Webflow</a> and <a href=\"/services/sur-mesure-headless\">custom site</a> pages, and in the <a href=\"/ressources/comparatifs/lovable-vs-developpement-sur-mesure\">Lovable or custom development</a> comparison.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Choix techniques",
+      "kicker_en": "§ Technical choices",
+      "heading_fr": "Quand choisir quoi : statique, hybride, serveur, CMS, WordPress, Webflow, Lovable",
+      "heading_en": "When to choose what: static, hybrid, server, CMS, WordPress, Webflow, Lovable",
+      "caption_fr": "Lecture de Waimia pour un site de PME. La colonne « Limite » n'est pas un jugement sur l'outil : c'est ce que le devis doit prévoir.",
+      "caption_en": "Waimia's reading for an SME site. The \"Limit\" column is not a judgement on the tool: it is what the quote must provide for.",
+      "columns_fr": [
+        "Solution",
+        "À choisir quand",
+        "Limite à connaître"
+      ],
+      "columns_en": [
+        "Solution",
+        "Choose it when",
+        "Limit to know"
+      ],
+      "rows_fr": [
+        [
+          "Site statique codé",
+          "Site de services dont les pages changent à la publication, avec la vitesse et le référencement en priorité.",
+          "Chaque modification est publiée ; l'équipe a besoin d'un outil d'édition (voir CMS headless)."
+        ],
+        [
+          "Hybride",
+          "Un site vitrine avec quelques pages dynamiques : espace réservé, formulaire évolué, contenu qui dépend du visiteur.",
+          "Plus de pièces à héberger, à surveiller et à tester."
+        ],
+        [
+          "Serveur",
+          "Comptes clients, contenus personnalisés ou très changeants.",
+          "Le temps de réponse dépend du serveur ; plus d'exploitation."
+        ],
+        [
+          "CMS headless",
+          "Votre équipe édite les contenus dans une interface, le site est codé séparément.",
+          "Deux briques à maintenir ; l'abonnement du CMS s'ajoute au coût."
+        ],
+        [
+          "WordPress",
+          "Une équipe qui le connaît déjà, un besoin d'extensions spécialisées, un site existant à entretenir.",
+          "Mises à jour et extensions à surveiller ; la vitesse est à tenir dans le temps."
+        ],
+        [
+          "Webflow",
+          "Un design soigné, un site de quelques dizaines de pages, édité par votre équipe, avec peu d'intégrations.",
+          "L'export ne reprend pas le CMS : le compte doit être à votre nom."
+        ],
+        [
+          "Lovable",
+          "Obtenir vite une maquette fonctionnelle pour tester une idée ou montrer une direction.",
+          "Un prototype généré se reprend en code relu avant la mise en production."
+        ],
+        [
+          "Développement assisté par IA (« vibe coding »)",
+          "Le code est écrit avec un assistant IA à partir d'une description en langage courant : utile pour avancer vite.",
+          "Sans relecture ni tests, c'est un prototype. Chez Waimia, le code est relu, testé et remis."
+        ]
+      ],
+      "rows_en": [
+        [
+          "Coded static site",
+          "A services site whose pages change on publication, with speed and search visibility as priorities.",
+          "Each change is published; the team needs an editing tool (see headless CMS)."
+        ],
+        [
+          "Hybrid",
+          "A showcase site with a few dynamic pages: private area, advanced form, content that depends on the visitor.",
+          "More parts to host, monitor and test."
+        ],
+        [
+          "Server",
+          "Customer accounts, personalised or fast-changing content.",
+          "Response time depends on the server; more operations."
+        ],
+        [
+          "Headless CMS",
+          "Your team edits content in an interface, the site is coded separately.",
+          "Two parts to maintain; the CMS subscription adds to the cost."
+        ],
+        [
+          "WordPress",
+          "A team that already knows it, a need for specialised extensions, an existing site to maintain.",
+          "Updates and extensions to monitor; speed has to be kept over time."
+        ],
+        [
+          "Webflow",
+          "A polished design, a site of a few dozen pages, edited by your team, with few integrations.",
+          "The export does not include the CMS: the account must be in your name."
+        ],
+        [
+          "Lovable",
+          "Quickly getting a working mockup to test an idea or show a direction.",
+          "A generated prototype is taken over in reviewed code before going to production."
+        ],
+        [
+          "AI-assisted development (\"vibe coding\")",
+          "The code is written with an AI assistant from a plain-language description: useful to move fast.",
+          "Without review and tests, it is a prototype. At Waimia, the code is reviewed, tested and handed over."
+        ]
+      ]
+    },
+    {
+      "type": "tech-when-dual",
+      "background": "paper",
+      "kicker_fr": "§ Répartition",
+      "kicker_en": "§ Split of roles",
+      "title_fr": "Que figer dans le cahier des charges, et que laisser ouvert ?",
+      "title_en": "What should you fix in the specification, and what should stay open?",
+      "aside_fr": "Repère de Waimia : imposer une solution avant l'audit réduit la liste des propositions comparables. Imposez le résultat, ouvrez le moyen.",
+      "aside_en": "Waimia's rule of thumb: imposing a solution before the audit shrinks the list of comparable proposals. Impose the result, leave the means open.",
+      "use_title_fr": "À figer : c'est votre décision",
+      "use_title_en": "To fix: it is your decision",
+      "use_items_fr": [
+        "L'objectif du site et l'indicateur qui le mesure",
+        "Les pages indispensables et le rôle de chacune",
+        "Qui écrit les contenus et qui valide, avec les délais",
+        "Le budget et la date butoir",
+        "La propriété du code, du domaine et des comptes",
+        "Les critères de recette"
+      ],
+      "use_items_en": [
+        "The goal of the site and the indicator that measures it",
+        "The essential pages and the role of each",
+        "Who writes the content and who approves, with lead times",
+        "The budget and the deadline",
+        "Ownership of the code, the domain and the accounts",
+        "The acceptance criteria"
+      ],
+      "avoid_title_fr": "À laisser ouvert à l'agence",
+      "avoid_title_en": "To leave open to the agency",
+      "avoid_items_fr": [
+        "La plateforme et le mode de rendu, après examen de votre existant",
+        "Le découpage fin en modèles de pages",
+        "Le choix des extensions ou des bibliothèques de code",
+        "La structure technique du référencement",
+        "L'ordre de construction et les livraisons intermédiaires"
+      ],
+      "avoid_items_en": [
+        "The platform and the rendering mode, after examining what you have",
+        "The fine breakdown into page templates",
+        "The choice of extensions or code libraries",
+        "The technical structure of search visibility",
+        "The build order and interim deliveries"
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Ce que l'IA change au temps de production d'un site</h2>\n<p>Estimation de Waimia, pas une mesure de marché ni un engagement. Les assistants de code accélèrent la fabrication : modèles de pages, intégration d'une maquette, table de redirections, balisage. Ils n'accélèrent pas ce qui dépend de vous : fournir les contenus, trancher une direction de style, valider, tester sur de vrais appareils.</p>\n<p>Pour un site vitrine de quelques pages, avec des contenus prêts et une direction validée, l'ordre de grandeur de Waimia se situe entre 10 et 20 heures de travail : c'est le volume des deux packs ci-dessous. Cette fourchette n'est pas un prix : le périmètre exact est fixé par écrit avant de commencer.</p>\n<p>Ce qui la fait déborder : des contenus à écrire, des intégrations (CRM, agenda, paiement), une version en plusieurs langues, un grand nombre de modèles de pages, une table de redirections longue, des tours de corrections répétés. Si un devis annonce nettement plus d'heures pour le même périmètre, demandez ce que contiennent ces heures.</p>",
+      "html_en": "<h2>What AI changes in the production time of a site</h2>\n<p>Waimia's estimate, not a market measurement or a commitment. Code assistants speed up building: page templates, integrating a mockup, the redirect table, markup. They do not speed up what depends on you: supplying content, deciding a style direction, approving, testing on real devices.</p>\n<p>For a showcase site of a few pages, with content ready and a direction approved, Waimia's order of magnitude is between 10 and 20 hours of work: that is the volume of the two packs below. This range is not a price: the exact scope is set in writing before starting.</p>\n<p>What pushes it over: content to write, integrations (CRM, calendar, payment), several languages, a large number of page templates, a long redirect table, repeated rounds of fixes. If a quote announces clearly more hours for the same scope, ask what those hours contain.</p>"
+    },
+    {
+      "type": "process-steps",
+      "background": "paper",
+      "kicker_fr": "§ La méthode Waimia",
+      "kicker_en": "§ The Waimia method",
+      "h2_fr": "Comment Waimia prépare un site avant la première ligne de code ?",
+      "h2_en": "How does Waimia prepare a site before the first line of code?",
+      "intro_fr": "Le cahier des charges se construit en rendez-vous, pas dans le vide. Voici l'ordre suivi, de l'audit gratuit au développement. Rien n'est développé avant qu'une maquette ou une direction ne soit validée.",
+      "intro_en": "The specification is built in meetings, not in a vacuum. Here is the order followed, from the free audit to development. Nothing is developed until a mockup or a direction is approved.",
+      "steps": [
+        {
+          "title_fr": "Le premier rendez-vous et l'audit gratuit",
+          "title_en": "The first meeting and the free audit",
+          "body_fr": "On comprend votre activité, vos offres et ce qui rapporte. L'audit sert à élucider les problèmes de l'ancien site et à convenir de la solution : rendu statique, hybride ou serveur, CMS headless, WordPress, Webflow, Lovable, code assisté par IA.",
+          "body_en": "We understand your business, your offers and what pays. The audit is used to pin down the problems of the old site and agree on the solution: static, hybrid or server rendering, headless CMS, WordPress, Webflow, Lovable, AI-assisted code.",
+          "meta_fr": "Décision : quelle solution ?",
+          "meta_en": "Decision: which solution?"
+        },
+        {
+          "title_fr": "Les questions de style",
+          "title_en": "The style questions",
+          "body_fr": "Sites que vous aimez, sites que vous refusez, ton de la marque, couleurs à garder ou à éviter. Ces réponses évitent les allers-retours de maquette.",
+          "body_en": "Sites you like, sites you reject, the brand tone, colours to keep or to avoid. These answers prevent mockup back-and-forth.",
+          "meta_fr": "Livré : vos préférences, écrites",
+          "meta_en": "Delivered: your preferences, written down"
+        },
+        {
+          "title_fr": "Les inspirations et les pistes visuelles",
+          "title_en": "Inspirations and visual directions",
+          "body_fr": "On puise dans des références (Awwwards, par exemple) et on vous montre des pistes visuelles avant de dessiner la maquette. Vous choisissez une direction.",
+          "body_en": "We draw on references (Awwwards, for example) and show you visual directions before drawing the mockup. You choose a direction.",
+          "meta_fr": "Décision : quelle direction ?",
+          "meta_en": "Decision: which direction?"
+        },
+        {
+          "title_fr": "Les bonnes pratiques de conversion",
+          "title_en": "Conversion best practices",
+          "body_fr": "Une action principale par page, un formulaire court, des preuves visibles, un parcours qui tient sur mobile. Elles sont appliquées dès la maquette, pas ajoutées après.",
+          "body_en": "One main action per page, a short form, visible proof, a journey that holds on mobile. They are applied from the mockup, not added afterwards.",
+          "meta_fr": "Livré : parcours de conversion",
+          "meta_en": "Delivered: conversion journey"
+        },
+        {
+          "title_fr": "La récupération des pièces utiles",
+          "title_en": "Gathering the useful assets",
+          "body_fr": "Logo, images, book d'entreprise, charte graphique. La charte est reprise telle quelle, ou refaite si vous prenez aussi l'offre branding.",
+          "body_en": "Logo, images, company book, brand guidelines. The guidelines are reused as they are, or redone if you also take the branding offer.",
+          "meta_fr": "Livré : dossier de pièces",
+          "meta_en": "Delivered: asset folder"
+        },
+        {
+          "title_fr": "La maquette ou la direction validée",
+          "title_en": "The approved mockup or direction",
+          "body_fr": "Vous validez par écrit. Le développement ne démarre qu'à ce moment, avec les critères de recette du cahier des charges.",
+          "body_en": "You approve in writing. Development starts only at that point, with the acceptance criteria of the specification.",
+          "meta_fr": "Décision : on développe",
+          "meta_en": "Decision: we build"
+        },
+        {
+          "title_fr": "Le développement et la recette",
+          "title_en": "Development and acceptance",
+          "body_fr": "Construction, branchement au CRM, redirections, puis recette ligne par ligne sur le cahier des charges. Le code et les accès vous sont remis.",
+          "body_en": "Build, CRM connection, redirects, then acceptance line by line against the specification. The code and the access are handed over to you.",
+          "meta_fr": "Livré : site recetté",
+          "meta_en": "Delivered: accepted site"
+        }
+      ]
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Les packs",
+      "kicker_en": "§ The packs",
+      "heading_fr": "Quels packs d'heures pour un site, et avec quelle option SEO et GEO ?",
+      "heading_en": "Which hour packs for a site, and with which SEO and GEO option?",
+      "caption_fr": "Les packs sont des volumes d'heures facturés au taux horaire. La colonne de droite est une estimation de Waimia, pas un engagement : le périmètre exact, et ce qui est mis en ligne, sont fixés par écrit avant de démarrer.",
+      "caption_en": "The packs are volumes of hours billed at the hourly rate. The right-hand column is a Waimia estimate, not a commitment: the exact scope, and what goes live, are set in writing before starting.",
+      "columns_fr": [
+        "Pack",
+        "Volume",
+        "Tarif",
+        "Ce qu'il couvre (estimation)"
+      ],
+      "columns_en": [
+        "Pack",
+        "Volume",
+        "Rate",
+        "What it covers (estimate)"
+      ],
+      "rows_fr": [
+        [
+          "Pack de 10 heures",
+          "10 heures",
+          "{{prix.sprint}} € HT",
+          "Cadrer le besoin, choisir la solution, valider une direction ou une maquette, produire un premier livrable : prototype testé ou landing page."
+        ],
+        [
+          "Pack de 20 heures",
+          "20 heures",
+          "20 heures au taux horaire de {{prix.horaire}} € HT",
+          "Un site vitrine de quelques pages, contenus fournis, jusqu'à la recette, si le périmètre tient dans le volume."
+        ],
+        [
+          "Option SEO et GEO",
+          "10 heures, ou une récurrence mensuelle",
+          "10 heures au taux horaire de {{prix.horaire}} € HT ; récurrence chiffrée au cadrage",
+          "Balisage, structure des titres, redirections, pages cibles pour Google et pour les moteurs IA."
+        ]
+      ],
+      "rows_en": [
+        [
+          "10-hour pack",
+          "10 hours",
+          "€{{prix.sprint.en}} excl. VAT",
+          "Scope the need, choose the solution, approve a direction or a mockup, produce a first deliverable: tested prototype or landing page."
+        ],
+        [
+          "20-hour pack",
+          "20 hours",
+          "20 hours at the hourly rate of €{{prix.horaire}} excl. VAT",
+          "A showcase site of a few pages, content supplied, through to acceptance, if the scope fits in the volume."
+        ],
+        [
+          "SEO and GEO option",
+          "10 hours, or a monthly retainer",
+          "10 hours at the hourly rate of €{{prix.horaire}} excl. VAT; retainer priced at scoping",
+          "Markup, heading structure, redirects, target pages for Google and for AI engines."
+        ]
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<p>Au-delà d'un pack, la suite est estimée en heures puis facturée {{prix.horaire}} € HT de l'heure. Les paliers de prix d'un site sont publiés sur la page <a href=\"/services/site-web-ia\">création et refonte de site</a>, et la grille complète sur la page <a href=\"/tarifs\">tarifs</a>.</p>\n<h2>Un site s'intègre dans un système, il ne vit pas à côté</h2>\n<p>Un cahier des charges qui s'arrête aux pages oublie ce qui se passe après le clic. Le site est l'entrée d'un système : le CMS où l'équipe publie, le CRM qui reçoit chaque demande, les e-mails qui relancent, la ressource gratuite contre un contact, la landing page d'une offre, la publicité qui y envoie du trafic, le branding, les réseaux sociaux.</p>\n<ul><li><strong>Site et CMS</strong> : <a href=\"/services/site-web-ia\">création et refonte de site</a>, avec <a href=\"/services/wordpress\">WordPress</a>, <a href=\"/services/webflow\">Webflow</a> ou <a href=\"/services/sur-mesure-headless\">un site sur mesure</a>.</li><li><strong>CRM</strong> : <a href=\"/services/crm-scoring-routing\">CRM, scoring et routage</a>, pour que chaque formulaire crée une fiche.</li><li><strong>E-mails de suite</strong> : <a href=\"/services/sequences-de-suivi\">séquences de suivi</a>.</li><li><strong>Ressource gratuite contre un contact</strong> : les <a href=\"/ressources/outils\">ressources et outils de Waimia</a> montrent le principe.</li><li><strong>Landing page et tunnel</strong> : <a href=\"/services/landing-pages-tunnels\">landing pages et tunnels</a>. Waimia ne gère pas les campagnes publicitaires : elle construit la page vers laquelle elles pointent.</li><li><strong>Branding</strong> : <a href=\"/services/branding\">branding</a>, dont <a href=\"/services/identite-de-marque\">l'identité de marque</a> et <a href=\"/services/charte-graphique-brand-book\">la charte graphique</a>.</li><li><strong>Référencement</strong> : <a href=\"/services/seo-geo-contenu\">SEO, GEO et contenu</a>.</li><li><strong>Réseaux sociaux</strong> : <a href=\"/services/automatisation-reseaux-sociaux\">automatisation des réseaux sociaux</a>.</li></ul>\n<p>Les automatisations IA ne s'ajoutent que là où elles font gagner du temps : tri des demandes, relances, reporting, avec <a href=\"/services/automatisations\">les automatisations</a>. Ajoutez à votre brief une rubrique « ce qui se passe après le clic ». C'est elle qui évite le site refait dont les demandes attendent toujours autant.</p>",
+      "html_en": "<p>Beyond a pack, the rest is estimated in hours then billed at €{{prix.horaire}} excl. VAT per hour. The price tiers for a site are published on the <a href=\"/services/site-web-ia\">website creation and redesign</a> page, and the full grid on the <a href=\"/tarifs\">pricing</a> page.</p>\n<h2>A site fits into a system, it does not live on the side</h2>\n<p>A specification that stops at the pages forgets what happens after the click. The site is the entry point of a system: the CMS where the team publishes, the CRM that receives each request, the e-mails that follow up, the free resource in exchange for a contact, the landing page of an offer, the advertising that sends traffic to it, the branding, the social networks.</p>\n<ul><li><strong>Site and CMS</strong>: <a href=\"/services/site-web-ia\">website creation and redesign</a>, with <a href=\"/services/wordpress\">WordPress</a>, <a href=\"/services/webflow\">Webflow</a> or <a href=\"/services/sur-mesure-headless\">a custom site</a>.</li><li><strong>CRM</strong>: <a href=\"/services/crm-scoring-routing\">CRM, scoring and routing</a>, so that each form creates a record.</li><li><strong>Follow-up e-mails</strong>: <a href=\"/services/sequences-de-suivi\">follow-up sequences</a>.</li><li><strong>Free resource in exchange for a contact</strong>: Waimia's <a href=\"/ressources/outils\">resources and tools</a> show the principle.</li><li><strong>Landing page and funnel</strong>: <a href=\"/services/landing-pages-tunnels\">landing pages and funnels</a>. Waimia does not run advertising campaigns: it builds the page they point to.</li><li><strong>Branding</strong>: <a href=\"/services/branding\">branding</a>, including <a href=\"/services/identite-de-marque\">brand identity</a> and <a href=\"/services/charte-graphique-brand-book\">brand guidelines</a>.</li><li><strong>Search visibility</strong>: <a href=\"/services/seo-geo-contenu\">SEO, GEO and content</a>.</li><li><strong>Social networks</strong>: <a href=\"/services/automatisation-reseaux-sociaux\">social network automation</a>.</li></ul>\n<p>AI automations are added only where they save time: sorting requests, follow-ups, reporting, with <a href=\"/services/automatisations\">automations</a>. Add an \"what happens after the click\" section to your brief. It is what prevents the rebuilt site whose requests still wait as long as before.</p>"
+    },
+    {
+      "type": "cta-final",
+      "background": "ink",
+      "h2_fr": "Faites relire votre brouillon de cahier des charges avant les devis",
+      "h2_en": "Have your draft specification reviewed before the quotes",
+      "body_fr": "L'audit gratuit dure 45 minutes. Apportez votre brouillon : on regarde votre site actuel, ses pages qui comptent et ses formulaires, on s'accorde sur la solution, et vous repartez avec un ou deux chantiers classés.",
+      "body_en": "The free audit lasts 45 minutes. Bring your draft: we look at your current site, the pages that matter and its forms, agree on the solution, and you leave with one or two ranked projects.",
+      "cta_primary": {
+        "label_fr": "Réserver l'audit gratuit →",
+        "label_en": "Book the free audit →",
+        "href": "/audit-ia-pme",
+        "variant": "primary"
+      }
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper-2",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Further reading",
+      "cards": [
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Refonte de site internet : étapes, coût et SEO à garder",
+          "title_en": "Website redesign: steps, cost and the SEO to keep",
+          "lead_fr": "L'inventaire des pages, les redirections 301 et ce qui fait varier le coût.",
+          "lead_en": "The page inventory, the 301 redirects and what makes the cost vary.",
+          "href": "/ressources/guides/refonte-site-internet"
+        },
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Création et refonte de site",
+          "title_en": "Website creation and redesign",
+          "lead_fr": "Les paliers de prix, les plateformes et ce qui est livré.",
+          "lead_en": "The price tiers, the platforms and what is delivered.",
+          "href": "/services/site-web-ia"
+        },
+        {
+          "kicker_fr": "Comparatif",
+          "kicker_en": "Comparison",
+          "title_fr": "Lovable ou développement sur mesure",
+          "title_en": "Lovable or custom development",
+          "lead_fr": "Quand un prototype généré doit être repris en code relu et remis.",
+          "lead_en": "When a generated prototype must be taken over in reviewed, handed-over code.",
+          "href": "/ressources/comparatifs/lovable-vs-developpement-sur-mesure"
+        }
+      ]
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "h2_fr": "Cahier des charges de site internet : questions fréquentes",
+      "h2_en": "Website specification: frequently asked questions",
+      "items": [
+        {
+          "q_fr": "Qu'est-ce qu'un cahier des charges de site internet ?",
+          "a_fr": "Le document qui décrit ce que le site doit faire avant de consulter des agences : objectifs, cibles, pages, contenus, fonctionnalités, contraintes techniques, référencement, budget, planning et critères de recette. Il décrit le besoin et laisse la solution technique à l'agence.",
+          "q_en": "What is a website specification?",
+          "a_en": "The document that describes what the site must do before consulting agencies: goals, audiences, pages, content, features, technical constraints, search visibility, budget, schedule and acceptance criteria. It describes the need and leaves the technical solution to the agency."
+        },
+        {
+          "q_fr": "Quelle différence entre un cahier des charges et un brief ?",
+          "a_fr": "Le brief tient sur une ou deux pages et pose le projet : objectif, cible, budget, délai. Le cahier des charges le prolonge : pages, fonctionnalités, contraintes, critères de recette. Le modèle de ce guide peut servir de brief, puis s'étoffer au fil des rendez-vous.",
+          "q_en": "What is the difference between a specification and a brief?",
+          "a_en": "A brief fits on one or two pages and sets out the project: goal, audience, budget, deadline. The specification extends it: pages, features, constraints, acceptance criteria. This guide's template can serve as a brief, then grow over the meetings."
+        },
+        {
+          "q_fr": "Faut-il un cahier des charges pour une refonte de site ?",
+          "a_fr": "Oui, avec en plus l'inventaire de l'existant : pages qui reçoivent des visites, adresses, accès, formulaires. Exigez aussi une table de redirections 301 livrée et testée. Le détail des étapes est dans le guide de refonte de site internet.",
+          "q_en": "Do you need a specification for a website redesign?",
+          "a_en": "Yes, with the inventory of what exists on top: pages that receive visits, addresses, access, forms. Also require a 301 redirect table that is delivered and tested. The steps are detailed in the website redesign guide."
+        },
+        {
+          "q_fr": "Faut-il choisir la plateforme avant de consulter les agences ?",
+          "a_fr": "Non, sauf contrainte réelle (équipe déjà formée à un outil, abonnement en cours). Décrivez ce que l'équipe doit pouvoir faire seule et ce que le site doit relier. L'agence propose la plateforme et le mode de rendu après avoir examiné votre existant.",
+          "q_en": "Should you choose the platform before consulting agencies?",
+          "a_en": "No, unless there is a real constraint (a team already trained on a tool, a running subscription). Describe what the team must be able to do alone and what the site must connect to. The agency proposes the platform and rendering mode after examining what you have."
+        },
+        {
+          "q_fr": "Que mettre dans la rubrique SEO et GEO ?",
+          "a_fr": "Les requêtes visées, les pages à conserver avec leur adresse actuelle, les pages qui produisent des demandes, la table de redirections attendue et la personne qui suit les résultats. Le balisage et la structure des titres sont du ressort de l'agence.",
+          "q_en": "What goes into the SEO and GEO section?",
+          "a_en": "The target queries, the pages to keep with their current address, the pages that produce requests, the expected redirect table and the person who follows the results. Markup and heading structure are the agency's business."
+        },
+        {
+          "q_fr": "Combien coûte un site chez Waimia ?",
+          "a_fr": "Deux packs d'heures : 10 heures à {{prix.sprint}} € HT, et 20 heures au taux horaire de {{prix.horaire}} € HT. La composante SEO et GEO est en option. Les paliers de prix d'un site sont publiés sur la page création et refonte de site, et le périmètre exact est fixé par écrit avant de démarrer.",
+          "q_en": "How much does a site cost at Waimia?",
+          "a_en": "Two hour packs: 10 hours at €{{prix.sprint.en}} excl. VAT, and 20 hours at the hourly rate of €{{prix.horaire}} excl. VAT. The SEO and GEO component is optional. The price tiers for a site are published on the website creation and redesign page, and the exact scope is set in writing before starting."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Avant les devis",
+      "kicker_en": "§ Before the quotes",
+      "h2_fr": "Un brief précis, des devis que vous pouvez comparer.",
+      "h2_en": "A precise brief, quotes you can compare.",
+      "subtitle_fr": "Quarante-cinq minutes en visio, gratuites et sans engagement. On regarde votre site actuel, on s'accorde sur la solution, et on vous dit ce que votre cahier des charges doit encore préciser. Si rien ne vaut le coup, on vous le dit.",
+      "subtitle_en": "Forty-five minutes on a call, free and with no commitment. We look at your current site, agree on the solution, and tell you what your specification still has to spell out. If nothing is worth it, we tell you.",
+      "buttons": [
+        {
+          "label_fr": "Réserver l'audit gratuit",
+          "label_en": "Book the free audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Lire le guide de refonte",
+          "label_en": "Read the redesign guide",
+          "href": "/ressources/guides/refonte-site-internet",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

@@ -1249,8 +1249,8 @@
         "src/content/guides/refonte-site-internet.json (à lier, ne pas dupliquer)"
       ],
       "semainePrevue": "2026-W48",
-      "statut": "planifié",
-      "pr": null,
+      "statut": "publié",
+      "pr": 105,
       "mesureAttendue": "Page indexée et premières impressions sur « cahier des charges site internet » et ses trois variantes suivies (« site web », « pour site internet », « refonte »), à lire deux collectes après la mise en production. Aucune mesure de départ : requêtes suivies sans page cible. Demandes : alertes de lead dont la page d'arrivée est cette page (provenance mesurée, décision 2 du 14 octobre 2026).",
       "resultat": null,
       "origine": "docs/seo/keywords.json : quatre requêtes « cahier des charges » ajoutées le 14 octobre 2026 sans page cible (« cahier des charges site internet » 1 000, KD 26). Création conditionnelle décidée dans la stratégie SEO de la vague 2, section 2.2. Planifiée en W48 le 16 octobre 2026 par la mission de planification : de toutes les créations candidates, c'est la seule avec un volume mesuré (1 000, KD 26, et 480, 320 et 260 sur les trois variantes, keywords.json:218-221)."
@@ -1466,19 +1466,19 @@
     },
     {
       "id": "w48-guide-ia-auto-hebergee",
-      "type": "guide",
+      "type": "article",
       "titreProvisoire": "IA auto-hébergée en PME : Open WebUI et Ollama",
       "requeteCible": "open webui",
       "intention": "Savoir quand héberger un modèle chez soi.",
-      "urlCible": "/ressources/guides/ia-auto-hebergee-open-webui-pme",
+      "urlCible": "/blog/ia-auto-hebergee-open-webui-pme",
       "angle": "Quand l'auto-hébergement se justifie, coût de maintenance, alternative européenne ; à confirmer par Simon (waimia déploie Claude).",
       "sourcesALire": [
         "Premiers résultats de « open webui »",
         "scratchpad v11/gaps.md, analyse des exports Semrush du dossier « waimia seo » (4 au 9 octobre 2026)"
       ],
       "semainePrevue": "2026-W48",
-      "statut": "planifié",
-      "pr": null,
+      "statut": "publié",
+      "pr": 105,
       "mesureAttendue": "Page indexée et premières impressions sur la requête cible, à lire deux collectes après la mise en production. Aucune mesure de départ : requête sans page waimia.",
       "resultat": null,
       "origine": "scratchpad v11/gaps.md, analyse des exports Semrush du dossier « waimia seo » (4 au 9 octobre 2026)"
@@ -1729,6 +1729,27 @@
       "mesureAttendue": "Page indexée et premières impressions sur la requête cible, à lire deux collectes après la mise en production. Aucune mesure de départ : requête sans page waimia. Demandes : alertes de lead dont la page d'arrivée est cette page (provenance mesurée, décision 2 du 14 octobre 2026).",
       "resultat": null,
       "origine": "docs/seo/data/latest.json (collecte 2026-W41, générée le 11 octobre 2026) : claudin.tech publie /blog/relance-client-impaye-ia-pme (nouvelle URL). L'offre existe : src/content/services/sequences-de-suivi.json, « Relance automatisée des devis et des factures », alors que seul le devis a un contenu dédié (blog automatiser-relance-devis-n8n). Aucune page waimia sur les factures impayées (grep « impay » : 10 fichiers, en passant). Volume non mesuré par Semrush : requête ajoutée à keywords.json le 16 octobre 2026 avec volume null."
+    },
+    {
+      "id": "w48-article-audit-site-internet",
+      "type": "article",
+      "titreProvisoire": "Audit de site internet : les points à vérifier avant une refonte",
+      "requeteCible": "audit site internet",
+      "intention": "Savoir ce qui ne va pas sur son site actuel et s'il faut le corriger ou le refaire.",
+      "urlCible": "/blog/audit-site-internet-pme",
+      "angle": "Hypothèse à vérifier par la lecture de la SERP : résultats tenus par des outils automatiques et des agences SEO. Apporté : la grille que Waimia passe en audit gratuit sur l'ancien site (conversion, vitesse, indexation, contenus, citabilité par les IA), ce qui se corrige sans refonte et ce qui la justifie, puis le choix de la solution (statique, hybride, CMS headless, WordPress, Webflow). Renvoie vers le guide cahier des charges et vers /audit-ia-pme.",
+      "sourcesALire": [
+        "Premiers résultats de « audit site internet » et « audit de site web »",
+        "src/content/services/audit-seo-technique.json (cible actuelle de la requête)",
+        "src/content/guides/cahier-des-charges-site-internet.json et refonte-site-internet.json",
+        "Méthode de Simon du 16 octobre 2026 (mémoire web-site-process-and-packs)"
+      ],
+      "semainePrevue": "2026-W48",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Page indexée et premières impressions sur « audit site internet » (1 300 recherches mensuelles), sans cannibaliser /services/audit-seo-technique. À juger deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "docs/seo/keywords.json : requête à 1 300 recherches ciblée par une page service ; demande de Simon du 16 octobre 2026 de publier plus d'articles que de guides."
     }
   ]
 }

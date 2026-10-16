@@ -21,6 +21,9 @@ import { lastmodFor } from '../lib/seo/lastmod.mjs';
 import { SITE } from '../site.config';
 import { langFromPath, HREFLANG } from '../lib/i18n';
 import { ClientRouter } from 'astro:transitions';
+import Analytics from '@vercel/analytics/astro';
+// Le script /_vercel/insights n'existe que sur Vercel : hors Vercel (build local, E2E), rien n'est injecté.
+const onVercel = Boolean(process.env.VERCEL);
 import { isInternalPath } from '../lib/seo/internal-tools.mjs';
 
 interface Props {
@@ -328,6 +331,8 @@ if (meshDelegated && meshHandoff) meshHandoff.mesh = autoMesh;
         document.addEventListener('astro:page-load', initMagnetic);
       })();
     </script>
+    {/* Vercel Web Analytics (inclus dans le plan Hobby, sans cookie) : pages vues, référents, pays. */}
+    {onVercel && <Analytics />}
   </body>
 </html>
 
