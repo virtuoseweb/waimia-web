@@ -37,7 +37,7 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
-### Contenu W45, 16 octobre 2026 (PR #PRNUM)
+### Contenu W45, 16 octobre 2026 (PR #112)
 
 - **Articles** : `application-metier-exemples-pme` (satellite de `/services/applications-internes`, qui garde « application métier », 1 300 recherches mensuelles, et du guide refonte de logiciel métier) et `claude-cowork-windows` (satellite du guide Claude Cowork ; « claude cowork windows », 590 recherches mensuelles, basculée sur le billet). Illustrés, au maillage.
 - **Correction** : le guide Claude Cowork affirmait qu'aucune fonction n'était réservée à un système ; Anthropic ne décrit l'utilisation de l'ordinateur en arrière-plan que pour macOS 15 ou plus. Phrase nuancée, lien vers le billet Windows.
