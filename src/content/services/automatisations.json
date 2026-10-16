@@ -1,13 +1,13 @@
 {
   "$schema": "../../schemas/generated/services.page.schema.json",
   "title_fr": "Automatisation des processus métier pour PME · Waimia",
-  "seoTitle_fr": "Automatisation des processus : workflow en 2 à 6 semaines",
+  "seoTitle_fr": "Automatisation des processus : workflow testé, n8n ou Make",
   "title_en": "AI business process automation · Waimia",
-  "description_fr": "Automatisation des processus métier : workflows n8n ou Make branchés à vos outils, journalisés, supervisés. Cadrage {{prix.sprint}} € HT, audit gratuit de 45 min.",
-  "description_en": "Business process automation for SMBs: n8n or Make workflows wired to your tools, logged and supervised. Scoping €{{prix.sprint.en}} excl. VAT, free 45-min audit.",
+  "description_fr": "Automatiser un processus, c'est confier à un workflow une tâche répétée à la main. n8n ou Make, journalisé. Cadrage {{prix.sprint}} € HT, audit gratuit de 45 min.",
+  "description_en": "Automating a process means handing a repeated manual task to a workflow. n8n or Make, logged. Scoping €{{prix.sprint.en}} excl. VAT, free 45-minute audit.",
   "slug": "automatisations",
   "publishedAt": "2026-07-13T00:00:00.000Z",
-  "updatedAt": "2026-10-04T00:00:00.000Z",
+  "updatedAt": "2026-10-16T00:00:00.000Z",
   "category": "automatisation",
   "tags": [
     "automatisation-processus",
@@ -25,15 +25,15 @@
   "faq_fr": [
     {
       "q": "Combien coûte l'automatisation d'un processus en PME ?",
-      "a": "Le premier process se traite en sprint de cadrage à {{prix.sprint}} € HT pour 10 heures : cadrage et un premier workflow prototypé et testé. Les suivants sont estimés en heures, validés par vous, puis facturés {{prix.horaire}} € HT de l'heure. Les abonnements n8n ou Make sont à votre nom et à votre charge."
+      "a": "Le premier process se traite en sprint de cadrage à {{prix.sprint}} € HT pour 10 heures : cadrage et un premier workflow prototypé et testé. La mise en production relève du pilote, dès {{prix.pilote}} € HT. Les suivants sont estimés en heures, validés par vous, puis facturés {{prix.horaire}} € HT de l'heure. Les abonnements n8n ou Make sont à votre nom et à votre charge."
     },
     {
       "q": "Faut-il du code pour automatiser un processus ?",
-      "a": "Pas dans la plupart des cas. Les workflows se construisent dans n8n ou Make, installés sur vos comptes et lisibles par votre équipe. Du code n'est écrit que pour un cas que ces outils ne couvrent pas, ou quand le besoin devient une application interne."
+      "a": "Dans la plupart des cas, un workflow n8n ou Make suffit : il est installé sur vos comptes et lisible par votre équipe. Du code n'est écrit que pour un cas que ces outils ne couvrent pas, ou quand le besoin devient une application interne ; il est remis avec le workflow et relu avant la livraison."
     },
     {
       "q": "Combien de temps faut-il pour automatiser un processus ?",
-      "a": "Habituellement 2 à 6 semaines pour un premier workflow en production. Le délai dépend surtout de l'obtention des accès à vos outils et de la disponibilité de la personne qui connaît la tâche, pas de la construction elle-même."
+      "a": "Habituellement 2 à 6 semaines pour un premier workflow prototypé et testé, ce qui est le contenu du sprint de cadrage. La mise en production relève du pilote. Le délai dépend surtout de l'obtention des accès à vos outils et de la disponibilité de la personne qui connaît la tâche, pas de la construction elle-même."
     },
     {
       "q": "Quelle différence entre automatisation et agent IA ?",
@@ -54,20 +54,24 @@
     {
       "q": "Automatisation IA : en quoi diffère-t-elle d'une automatisation classique ?",
       "a": "Une automatisation classique suit des règles fixes : si ceci, alors cela. L'automatisation IA ajoute une étape où un modèle de langage lit un texte libre, classe une demande ou rédige un brouillon, puis rend la main au workflow. Le reste ne change pas : même déclencheur, même journal, alerte en cas d'échec. On ajoute l'IA seulement là où une règle fixe ne suffit pas."
+    },
+    {
+      "q": "Automatisation des processus ou agence d'automatisation IA : laquelle choisir ?",
+      "a": "Choisissez le service d'automatisation des processus si la règle s'écrit en « si, alors » et qu'un seul événement la déclenche : un workflow suffit. Choisissez l'offre d'agence d'automatisation IA si la tâche demande de comprendre un message, de trancher entre des cas flous, ou d'articuler plusieurs modules (agents, Claude, application interne, reporting). Elle commence souvent par un workflow."
     }
   ],
   "faq_en": [
     {
       "q": "How much does it cost to automate a process in an SMB?",
-      "a": "The first process is handled in a scoping sprint at €{{prix.sprint.en}} excl. VAT for 10 hours: scoping and a first workflow prototyped and tested. The next ones are estimated in hours, approved by you, then billed €{{prix.horaire}} per hour excl. VAT. n8n or Make subscriptions are in your name and at your expense."
+      "a": "The first process is handled in a scoping sprint at €{{prix.sprint.en}} excl. VAT for 10 hours: scoping and a first workflow prototyped and tested. Going into production is the pilot, from €{{prix.pilote.en}} excl. VAT. The next ones are estimated in hours, approved by you, then billed €{{prix.horaire}} per hour excl. VAT. n8n or Make subscriptions are in your name and at your expense."
     },
     {
       "q": "Do you need code to automate a process?",
-      "a": "Not in most cases. Workflows are built in n8n or Make, installed on your accounts and readable by your team. Code is written only for a case those tools do not cover, or when the need becomes an internal application."
+      "a": "In most cases an n8n or Make workflow is enough: it is installed on your accounts and readable by your team. Code is written only for a case those tools do not cover, or when the need becomes an internal application; it is handed over with the workflow and reviewed before delivery."
     },
     {
       "q": "How long does it take to automate a process?",
-      "a": "Usually 2 to 6 weeks for a first workflow in production. The delay depends mostly on getting access to your tools and on the availability of the person who knows the task, not on the build itself."
+      "a": "Usually 2 to 6 weeks for a first workflow prototyped and tested, which is the content of the scoping sprint. Going into production is the pilot. The delay depends mostly on getting access to your tools and on the availability of the person who knows the task, not on the build itself."
     },
     {
       "q": "What is the difference between automation and an AI agent?",
@@ -88,6 +92,10 @@
     {
       "q": "AI automation: how does it differ from classic automation?",
       "a": "Classic automation follows fixed rules: if this, then that. AI automation adds a step where a language model reads free text, classifies a request or drafts a reply, then hands back to the workflow. Everything else stays the same: same trigger, same log, an alert on failure. We add AI only where a fixed rule is not enough."
+    },
+    {
+      "q": "Process automation or AI automation agency: which to choose?",
+      "a": "Choose the process automation service if the rule can be written as \"if, then\" and a single event triggers it: a workflow is enough. Choose the AI automation agency offer if the task requires understanding a message, choosing between fuzzy cases, or articulating several modules (agents, Claude, internal application, reporting). It often starts with a workflow."
     }
   ],
   "sections": [
@@ -98,8 +106,8 @@
       "kicker_en": "§ Process automation",
       "h1_fr": "Automatisation de vos <i class=\"acc\">processus métier</i>",
       "h1_en": "Automating your <i class=\"acc\">business processes</i>",
-      "lede_fr": "L'automatisation des processus, ou automatisation IA quand un modèle de langage s'y ajoute, confie à un workflow une tâche faite à la main. Waimia la livre en production aux PME et ETI de 10 à 250 personnes.",
-      "lede_en": "Process automation, or AI automation when a language model is added, hands a task done by hand to a workflow. Waimia delivers it in production for SMBs and mid-size companies of 10 to 250 people.",
+      "lede_fr": "Automatiser un processus, c'est confier à un workflow une tâche répétitive faite à la main : même déclencheur, mêmes étapes, chaque exécution journalisée. Waimia le construit dans n8n ou Make pour les PME et ETI de 10 à 250 personnes, avec un premier workflow testé en 2 à 6 semaines.",
+      "lede_en": "Automating a process means handing a repetitive manual task to a workflow: same trigger, same steps, every run logged. Waimia builds it in n8n or Make for SMBs and mid-size companies of 10 to 250 people, with a first tested workflow in 2 to 6 weeks.",
       "badges": [
         {
           "label_fr": "n8n ou Make",
@@ -214,18 +222,25 @@
     },
     {
       "type": "editorial-prose",
+      "background": "paper",
+      "maxWidth": "prose",
+      "html_fr": "<h2>Un processus, ou plusieurs modules : où s'arrête cette page</h2>\n<p><strong>Cette page</strong> couvre un processus dont la règle s'écrit en « si, alors » : une ressaisie entre deux logiciels, un devis à créer, une relance à envoyer. Un workflow, un outil (n8n ou Make), un prototype testé en sprint de cadrage à {{prix.sprint}} € HT, puis le pilote pour la mise en production, dès {{prix.pilote}} € HT.</p>\n<p><strong>L'<a href=\"/services/systemes-operationnels-ia\">agence d'automatisation IA</a></strong> couvre l'ensemble : des workflows, mais aussi des <a href=\"/services/agents-ia\">agents IA</a> qui lisent du texte libre, <a href=\"/services/integration-claude\">Claude branché à vos outils</a>, des <a href=\"/services/applications-internes\">applications internes</a> et du reporting, articulés sur une même base. Elle commence souvent par un workflow comme ceux de cette page.</p>\n<p>Le test est simple : si vous pouvez écrire la règle sur une feuille et qu'un seul événement la déclenche, restez ici. Si la tâche demande de comprendre un message, de trancher entre des cas flous, ou si elle a besoin d'un écran et de droits d'accès, passez à l'offre complète.</p>",
+      "html_en": "<h2>One process, or several modules: where this page stops</h2>\n<p><strong>This page</strong> covers a process whose rule can be written as \"if, then\": re-entry between two tools, a quote to create, a follow-up to send. One workflow, one tool (n8n or Make), a prototype tested in a scoping sprint at €{{prix.sprint.en}} excl. VAT, then the pilot to go into production, from €{{prix.pilote.en}} excl. VAT.</p>\n<p><strong>The <a href=\"/services/systemes-operationnels-ia\">AI automation agency</a></strong> covers the whole: workflows, but also <a href=\"/services/agents-ia\">AI agents</a> that read free text, <a href=\"/services/integration-claude\">Claude wired to your tools</a>, <a href=\"/services/applications-internes\">internal applications</a> and reporting, articulated on a single base. It often starts with a workflow like the ones on this page.</p>\n<p>The test is simple: if you can write the rule on one sheet and a single event triggers it, stay here. If the task requires understanding a message, choosing between fuzzy cases, or needs a screen and access rights, move to the full offer.</p>"
+    },
+    {
+      "type": "editorial-prose",
       "background": "paper-2",
       "maxWidth": "prose",
-      "html_fr": "<h2>Ce qu'on automatise, concrètement</h2>\n<p>Les demandes qui reviennent le plus souvent en PME : la ressaisie d'une commande ou d'un contact d'un outil à l'autre, la création d'un devis ou d'un compte rendu à partir d'un modèle, les relances de factures et de devis, le tri des emails entrants, la mise à jour du CRM après un rendez-vous, l'envoi d'un récapitulatif hebdomadaire. Le bon candidat a trois caractéristiques : il revient chaque semaine, ses règles s'expliquent en quelques phrases, et l'erreur de recopie coûte quelque chose.</p>\n<p>Quand la tâche demande de lire un texte libre ou de trancher entre plusieurs cas flous, on ajoute une étape IA dans le workflow, ou on passe à un <a href=\"/services/agents-ia\">agent IA</a>. La différence est détaillée dans l'article <a href=\"/blog/agent-ia-vs-automatisation-classique-2026\">agent IA ou automatisation</a>. Si le logiciel à relier n'a pas d'API, voir <a href=\"/ressources/guides/rpa-ou-agent-ia\">RPA, API ou agent IA</a>.</p>\n<h2>Avec quels outils d'automatisation</h2>\n<p>On travaille avec n8n et Make, branchés à vos logiciels par leurs API : CRM, messagerie, tableur, facturation, e-commerce, outil métier. n8n est notre choix par défaut quand la logique se ramifie ou que les données doivent rester sur votre infrastructure : voir la page <a href=\"/services/automatisation-n8n\">agence n8n</a>. Make convient à des scénarios visuels entre applications SaaS : voir la page <a href=\"/services/automatisation-make\">agence Make</a> et le comparatif <a href=\"/ressources/comparatifs/n8n-vs-make\">n8n vs Make</a>. On ne remplace pas vos logiciels, on les relie.</p>\n<h2>Combien de temps, et qui fait quoi</h2>\n<p>Un premier workflow est habituellement en production en 2 à 6 semaines. L'essentiel du délai n'est pas technique : il tient à l'obtention des accès et à la disponibilité de la personne qui connaît le process. Comptez de votre côté deux à trois heures pour décrire la tâche, puis une heure de recette. Un seul interlocuteur conçoit et livre : Simon Beros, fondateur. La démarche complète est décrite dans <a href=\"/agence/methode\">la méthode</a>.</p>\n<h2>Ce qui peut mal tourner</h2>\n<p>Trois causes d'échec reviennent. Un logiciel sans API, ou dont l'API est payante : on le vérifie avant de chiffrer. Un process que personne ne sait décrire de la même façon : on le formalise d'abord, comme dans le cas d'usage <a href=\"/cas-usages/standardiser-processus\">standardiser ses processus</a>. Un workflow sans propriétaire, qui casse à la première mise à jour d'un outil et que personne ne regarde : d'où le journal, les alertes et un référent nommé chez vous.</p>\n<h2>Du code seulement là où l'outil ne suffit pas</h2>\n<p>La plupart des automatisations de PME se construisent dans <a href=\"/services/automatisation-n8n\">n8n</a> ou <a href=\"/services/automatisation-make\">Make</a> : les blocs se branchent à vos outils sans développement lourd, et un référent de votre équipe peut les lire. Du code n'est ajouté que pour une règle métier ou une intégration que ces outils ne couvrent pas. Quand le besoin dépasse le workflow (un écran, des droits, une base de données), il devient une <a href=\"/services/applications-internes\">application interne</a>.</p>\n<p>Si vous ne savez pas par quel process commencer, la <a href=\"/ressources/outils/grille-taches-a-automatiser\">grille des tâches à automatiser</a> classe vos tâches répétitives par heures perdues, et le <a href=\"/ressources/outils/calculateur-roi-ia\">calculateur de ROI</a> donne un ordre de grandeur du temps récupérable. L'<a href=\"/audit-ia-pme\">audit IA gratuit</a> sert ensuite à trancher.</p>",
-      "html_en": "<h2>What we automate, concretely</h2>\n<p>The most frequent requests in SMBs: retyping an order or a contact from one tool to another, creating a quote or a report from a template, chasing invoices and quotes, sorting incoming emails, updating the CRM after a meeting, sending a weekly summary. A good candidate has three traits: it comes back every week, its rules fit in a few sentences, and a copy error costs something.</p>\n<p>When the task requires reading free text or deciding between fuzzy cases, we add an AI step to the workflow, or move to an <a href=\"/services/agents-ia\">AI agent</a>. The difference is covered in <a href=\"/blog/agent-ia-vs-automatisation-classique-2026\">AI agent or automation</a>. If the software to connect has no API, see <a href=\"/ressources/guides/rpa-ou-agent-ia\">RPA, API or AI agent</a>.</p>\n<h2>With which automation tools</h2>\n<p>We work with n8n and Make, wired to your software through their APIs: CRM, mail, spreadsheet, invoicing, e-commerce, business tool. n8n is our default when the logic branches out or the data must stay on your infrastructure: see the <a href=\"/services/automatisation-n8n\">n8n agency</a> page. Make suits visual scenarios between SaaS apps. We do not replace your software, we connect it.</p>\n<h2>How long, and who does what</h2>\n<p>A first workflow is usually in production within 2 to 6 weeks. Most of the delay is not technical: it comes from getting access and from the availability of the person who knows the process. Plan two to three hours on your side to describe the task, then one hour of acceptance testing. One person designs and delivers: Simon Beros, founder. The full approach is described in <a href=\"/agence/methode\">the method</a>.</p>\n<h2>What can go wrong</h2>\n<p>Three causes of failure come back. Software with no API, or a paid one: we check before quoting. A process nobody describes the same way: we formalise it first, as in the use case <a href=\"/cas-usages/standardiser-processus\">standardising processes</a>. A workflow with no owner, which breaks at the first tool update with nobody watching: hence the log, the alerts and a named owner on your side.</p>\n<p>If you do not know which process to start with, the <a href=\"/audit-ia-pme\">free AI audit</a> is made for that.</p>\n<h2>Code only where the tool falls short</h2>\n<p>Most SMB automations are built in <a href=\"/services/automatisation-n8n\">n8n</a> or <a href=\"/services/automatisation-make\">Make</a>: blocks connect to your tools without heavy development, and someone on your team can read them. Code is added only for a business rule or an integration those tools do not cover. When the need goes beyond a workflow (a screen, permissions, a database), it becomes an <a href=\"/services/applications-internes\">internal application</a>.</p>\n"
+      "html_fr": "<h2>Ce qu'on automatise, concrètement</h2>\n<p>Les demandes qui reviennent le plus souvent en PME : la ressaisie d'une commande ou d'un contact d'un outil à l'autre, la création d'un devis ou d'un compte rendu à partir d'un modèle, les <a href=\"/services/sequences-de-suivi\">relances de factures et de devis</a>, le tri des emails entrants, la mise à jour du CRM après un rendez-vous, l'envoi d'un récapitulatif hebdomadaire. Le bon candidat a trois caractéristiques : il revient chaque semaine, ses règles s'expliquent en quelques phrases, et l'erreur de recopie coûte quelque chose.</p>\n<p>Quand la tâche demande de lire un texte libre ou de trancher entre plusieurs cas flous, on ajoute une étape IA dans le workflow, ou on passe à un <a href=\"/services/agents-ia\">agent IA</a>. La différence est détaillée dans l'article <a href=\"/blog/agent-ia-vs-automatisation-classique-2026\">agent IA ou automatisation</a>. Si le logiciel à relier n'a pas d'API, voir <a href=\"/ressources/guides/rpa-ou-agent-ia\">RPA, API ou agent IA</a>. Si le processus est un suivi du CRM, la page <a href=\"/services/crm-scoring-routing\">CRM automatisé</a> traite le routage et la qualification.</p>\n<h2>Avec quels outils d'automatisation</h2>\n<p>On travaille avec n8n et Make, branchés à vos logiciels par leurs API : CRM, messagerie, tableur, facturation, e-commerce, outil métier. n8n est notre choix par défaut quand la logique se ramifie ou que les données doivent rester sur votre infrastructure : voir la page <a href=\"/services/automatisation-n8n\">agence n8n</a> et le <a href=\"/ressources/guides/n8n-prix\">guide des prix n8n</a>. Make convient à des scénarios visuels entre applications SaaS : voir la page <a href=\"/services/automatisation-make\">agence Make</a> et le comparatif <a href=\"/ressources/comparatifs/n8n-vs-make\">n8n vs Make</a>. Zapier est le troisième nom que vous croiserez : notre avis est dans <a href=\"/blog/avis-n8n-vs-zapier-2026\">n8n ou Zapier</a>. On ne remplace pas vos logiciels, on les relie.</p>\n<h2>Combien de temps, et qui fait quoi</h2>\n<p>Un premier workflow prototypé et testé prend habituellement 2 à 6 semaines : c'est le contenu du sprint de cadrage. Sa mise en production relève du pilote, dès {{prix.pilote}} € HT. L'essentiel du délai n'est pas technique : il tient à l'obtention des accès et à la disponibilité de la personne qui connaît le process. Comptez de votre côté deux à trois heures pour décrire la tâche, puis une heure de recette. Un seul interlocuteur conçoit et livre : Simon Beros, fondateur. La démarche complète est décrite dans <a href=\"/agence/methode\">la méthode</a>.</p>\n<h2>Ce qui peut mal tourner</h2>\n<p>Trois causes d'échec reviennent. Un logiciel sans API, ou dont l'API est payante : on le vérifie avant de chiffrer. Un process que personne ne sait décrire de la même façon : on le formalise d'abord, comme dans le cas d'usage <a href=\"/cas-usages/standardiser-processus\">standardiser ses processus</a>. Un workflow sans propriétaire, qui casse à la première mise à jour d'un outil et que personne ne regarde : d'où le journal, les alertes et un référent nommé chez vous.</p>\n<h2>Du code seulement là où l'outil ne suffit pas</h2>\n<p>La plupart des automatisations de PME se construisent dans <a href=\"/services/automatisation-n8n\">n8n</a> ou <a href=\"/services/automatisation-make\">Make</a> : les blocs se branchent à vos outils et un référent de votre équipe peut les lire. Du code n'est ajouté que pour une règle métier ou une intégration que ces outils ne couvrent pas ; il est remis avec le workflow et relu avant la livraison. Quand le besoin dépasse le workflow (un écran, des droits, une base de données), il devient une <a href=\"/services/applications-internes\">application interne</a>.</p>\n<p>Si vous ne savez pas par quel process commencer, la <a href=\"/ressources/outils/grille-taches-a-automatiser\">grille des tâches à automatiser</a> classe vos tâches répétitives par heures perdues, et le <a href=\"/ressources/outils/calculateur-roi-ia\">calculateur de ROI</a> donne un ordre de grandeur du temps récupérable. L'<a href=\"/audit-ia-pme\">audit IA gratuit</a> sert ensuite à trancher.</p>",
+      "html_en": "<h2>What we automate, concretely</h2>\n<p>The most frequent requests in SMBs: retyping an order or a contact from one tool to another, creating a quote or a report from a template, <a href=\"/services/sequences-de-suivi\">chasing invoices and quotes</a>, sorting incoming emails, updating the CRM after a meeting, sending a weekly summary. A good candidate has three traits: it comes back every week, its rules fit in a few sentences, and a copy error costs something.</p>\n<p>When the task requires reading free text or deciding between fuzzy cases, we add an AI step to the workflow, or move to an <a href=\"/services/agents-ia\">AI agent</a>. The difference is covered in <a href=\"/blog/agent-ia-vs-automatisation-classique-2026\">AI agent or automation</a>. If the software to connect has no API, see <a href=\"/ressources/guides/rpa-ou-agent-ia\">RPA, API or AI agent</a>. If the process is CRM follow-up, the <a href=\"/services/crm-scoring-routing\">automated CRM</a> page covers routing and qualification.</p>\n<h2>With which automation tools</h2>\n<p>We work with n8n and Make, wired to your software through their APIs: CRM, mail, spreadsheet, invoicing, e-commerce, business tool. n8n is our default when the logic branches out or the data must stay on your infrastructure: see the <a href=\"/services/automatisation-n8n\">n8n agency</a> page and the <a href=\"/ressources/guides/n8n-prix\">n8n pricing guide</a>. Make suits visual scenarios between SaaS apps: see the <a href=\"/services/automatisation-make\">Make agency</a> page and the <a href=\"/ressources/comparatifs/n8n-vs-make\">n8n vs Make</a> comparison. Zapier is the third name you will meet: our take is in <a href=\"/blog/avis-n8n-vs-zapier-2026\">n8n vs Zapier</a>. We do not replace your software, we connect it.</p>\n<h2>How long, and who does what</h2>\n<p>A first workflow prototyped and tested usually takes 2 to 6 weeks: that is the content of the scoping sprint. Putting it into production is the pilot, from €{{prix.pilote.en}} excl. VAT. Most of the delay is not technical: it comes from getting access and from the availability of the person who knows the process. Plan two to three hours on your side to describe the task, then one hour of acceptance testing. One person designs and delivers: Simon Beros, founder. The full approach is described in <a href=\"/agence/methode\">the method</a>.</p>\n<h2>What can go wrong</h2>\n<p>Three causes of failure come back. Software with no API, or a paid one: we check before quoting. A process nobody describes the same way: we formalise it first, as in the use case <a href=\"/cas-usages/standardiser-processus\">standardising processes</a>. A workflow with no owner, which breaks at the first tool update with nobody watching: hence the log, the alerts and a named owner on your side.</p>\n<h2>Code only where the tool falls short</h2>\n<p>Most SMB automations are built in <a href=\"/services/automatisation-n8n\">n8n</a> or <a href=\"/services/automatisation-make\">Make</a>: blocks connect to your tools and someone on your team can read them. Code is added only for a business rule or an integration those tools do not cover; it is handed over with the workflow and reviewed before delivery. When the need goes beyond a workflow (a screen, permissions, a database), it becomes an <a href=\"/services/applications-internes\">internal application</a>.</p>\n<p>If you do not know which process to start with, the <a href=\"/ressources/outils/grille-taches-a-automatiser\">task grid</a> ranks your repetitive tasks by hours lost, and the <a href=\"/ressources/outils/calculateur-roi-ia\">ROI calculator</a> gives an order of magnitude of the time you can recover. The <a href=\"/audit-ia-pme\">free AI audit</a> then helps you decide.</p>"
     },
     {
       "type": "comparison-duo",
       "background": "paper",
-      "kicker_fr": "§ Exemple type · pas un cas client",
-      "kicker_en": "§ Typical example · not a client case",
-      "h2_fr": "Exemple type : la demande de devis reçue par formulaire",
-      "h2_en": "Typical example: a quote request received by form",
+      "kicker_fr": "§ Scénario illustratif · pas un cas client",
+      "kicker_en": "§ Illustrative scenario · not a client case",
+      "h2_fr": "Scénario illustratif : la demande de devis reçue par formulaire",
+      "h2_en": "Illustrative scenario: a quote request received by form",
       "without_label_fr": "Avant",
       "without_label_en": "Before",
       "without_title_fr": "Six gestes manuels",
@@ -407,8 +422,8 @@
       "kicker_en": "§ Two ways to engage",
       "h2_fr": "Combien coûte l'automatisation d'un processus",
       "h2_en": "How much process automation costs",
-      "lede_fr": "On démarre par un sprint de cadrage à prix fixe : cadrage de la tâche prioritaire et un premier workflow prototypé et testé. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints en régie. Vous gardez vos workflows, vos accès et la documentation.",
-      "lede_en": "We start with a fixed-price scoping sprint: scoping of the priority task and a first workflow prototyped and tested. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the time and materials frame. You keep your workflows, your access and the documentation.",
+      "lede_fr": "On démarre par un sprint de cadrage à prix fixe : cadrage de la tâche prioritaire et un premier workflow prototypé et testé. La mise en production relève du pilote, dès {{prix.pilote}} € HT. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints en régie. Vous gardez vos workflows, vos accès et la documentation.",
+      "lede_en": "We start with a fixed-price scoping sprint: scoping of the priority task and a first workflow prototyped and tested. Production is the pilot, from €{{prix.pilote.en}} excl. VAT. What follows is quoted: we estimate the time needed together, you approve it, then it is run in time-and-materials sprints. You keep your workflows, access and documentation.",
       "tiers": [
         {
           "name_fr": "Sprint de cadrage",
@@ -418,15 +433,15 @@
           "period_en": "10 h · ex VAT",
           "features_fr": [
             "Cadrage de la tâche prioritaire à automatiser",
-            "Un premier workflow conçu, branché et en production",
-            "Supervision, alertes et heures gagnées mesurées",
-            "Un premier livrable qui tourne, pas une maquette"
+            "Un premier workflow prototypé et testé sur vos outils",
+            "Journal d'exécutions et alertes posés sur le prototype",
+            "Un prototype testé, pas une maquette"
           ],
           "features_en": [
             "Scoping of the priority task to automate",
-            "A first workflow designed, wired and in production",
-            "Supervision, alerts and hours saved measured",
-            "A first deliverable that runs, not a mockup"
+            "A first workflow prototyped and tested on your tools",
+            "Execution log and alerts set up on the prototype",
+            "A tested prototype, not a mockup"
           ],
           "cta": {
             "label_fr": "Réserver l'audit gratuit →",
@@ -444,13 +459,13 @@
           "period_en": "estimated with you · ex VAT",
           "features_fr": [
             "Temps nécessaire estimé ensemble, puis validé",
-            "Exécuté en sprints, facturés en régie",
+            "Mise en production par le pilote, dès {{prix.pilote}} € HT",
             "Nouveaux workflows ajoutés et supervisés",
             "Vous gardez workflows, accès et documentation"
           ],
           "features_en": [
             "Time needed estimated together, then validated",
-            "Run in sprints, time and materials frame",
+            "Production through the pilot, from €{{prix.pilote.en}} excl. VAT",
             "New workflows added and supervised",
             "You keep the workflows, access and documentation"
           ],
@@ -478,21 +493,21 @@
       "items": [
         {
           "q_fr": "Combien coûte l'automatisation d'un processus en PME ?",
-          "a_fr": "Le premier process se traite en sprint de cadrage à {{prix.sprint}} € HT pour 10 heures : cadrage et un premier workflow prototypé et testé. Les suivants sont estimés en heures, validés par vous, puis facturés {{prix.horaire}} € HT de l'heure. Les abonnements n8n ou Make sont à votre nom et à votre charge.",
+          "a_fr": "Le premier process se traite en sprint de cadrage à {{prix.sprint}} € HT pour 10 heures : cadrage et un premier workflow prototypé et testé. La mise en production relève du pilote, dès {{prix.pilote}} € HT. Les suivants sont estimés en heures, validés par vous, puis facturés {{prix.horaire}} € HT de l'heure. Les abonnements n8n ou Make sont à votre nom et à votre charge.",
           "q_en": "How much does it cost to automate a process in an SMB?",
-          "a_en": "The first process is handled in a scoping sprint at €{{prix.sprint.en}} excl. VAT for 10 hours: scoping and a first workflow prototyped and tested. The next ones are estimated in hours, approved by you, then billed €{{prix.horaire}} per hour excl. VAT. n8n or Make subscriptions are in your name and at your expense."
+          "a_en": "The first process is handled in a scoping sprint at €{{prix.sprint.en}} excl. VAT for 10 hours: scoping and a first workflow prototyped and tested. Going into production is the pilot, from €{{prix.pilote.en}} excl. VAT. The next ones are estimated in hours, approved by you, then billed €{{prix.horaire}} per hour excl. VAT. n8n or Make subscriptions are in your name and at your expense."
         },
         {
           "q_fr": "Faut-il du code pour automatiser un processus ?",
-          "a_fr": "Pas dans la plupart des cas. Les workflows se construisent dans n8n ou Make, installés sur vos comptes et lisibles par votre équipe. Du code n'est écrit que pour un cas que ces outils ne couvrent pas, ou quand le besoin devient une application interne.",
+          "a_fr": "Dans la plupart des cas, un workflow n8n ou Make suffit : il est installé sur vos comptes et lisible par votre équipe. Du code n'est écrit que pour un cas que ces outils ne couvrent pas, ou quand le besoin devient une application interne ; il est remis avec le workflow et relu avant la livraison.",
           "q_en": "Do you need code to automate a process?",
-          "a_en": "Not in most cases. Workflows are built in n8n or Make, installed on your accounts and readable by your team. Code is written only for a case those tools do not cover, or when the need becomes an internal application."
+          "a_en": "In most cases an n8n or Make workflow is enough: it is installed on your accounts and readable by your team. Code is written only for a case those tools do not cover, or when the need becomes an internal application; it is handed over with the workflow and reviewed before delivery."
         },
         {
           "q_fr": "Combien de temps faut-il pour automatiser un processus ?",
-          "a_fr": "Habituellement 2 à 6 semaines pour un premier workflow en production. Le délai dépend surtout de l'obtention des accès à vos outils et de la disponibilité de la personne qui connaît la tâche, pas de la construction elle-même.",
+          "a_fr": "Habituellement 2 à 6 semaines pour un premier workflow prototypé et testé, ce qui est le contenu du sprint de cadrage. La mise en production relève du pilote. Le délai dépend surtout de l'obtention des accès à vos outils et de la disponibilité de la personne qui connaît la tâche, pas de la construction elle-même.",
           "q_en": "How long does it take to automate a process?",
-          "a_en": "Usually 2 to 6 weeks for a first workflow in production. The delay depends mostly on getting access to your tools and on the availability of the person who knows the task, not on the build itself."
+          "a_en": "Usually 2 to 6 weeks for a first workflow prototyped and tested, which is the content of the scoping sprint. Going into production is the pilot. The delay depends mostly on getting access to your tools and on the availability of the person who knows the task, not on the build itself."
         },
         {
           "q_fr": "Quelle différence entre automatisation et agent IA ?",
@@ -523,6 +538,12 @@
           "a_fr": "Une automatisation classique suit des règles fixes : si ceci, alors cela. L'automatisation IA ajoute une étape où un modèle de langage lit un texte libre, classe une demande ou rédige un brouillon, puis rend la main au workflow. Le reste ne change pas : même déclencheur, même journal, alerte en cas d'échec. On ajoute l'IA seulement là où une règle fixe ne suffit pas.",
           "q_en": "AI automation: how does it differ from classic automation?",
           "a_en": "Classic automation follows fixed rules: if this, then that. AI automation adds a step where a language model reads free text, classifies a request or drafts a reply, then hands back to the workflow. Everything else stays the same: same trigger, same log, an alert on failure. We add AI only where a fixed rule is not enough."
+        },
+        {
+          "q_fr": "Automatisation des processus ou agence d'automatisation IA : laquelle choisir ?",
+          "a_fr": "Choisissez le service d'automatisation des processus si la règle s'écrit en « si, alors » et qu'un seul événement la déclenche : un workflow suffit. Choisissez l'offre d'agence d'automatisation IA si la tâche demande de comprendre un message, de trancher entre des cas flous, ou d'articuler plusieurs modules (agents, Claude, application interne, reporting). Elle commence souvent par un workflow.",
+          "q_en": "Process automation or AI automation agency: which to choose?",
+          "a_en": "Choose the process automation service if the rule can be written as \"if, then\" and a single event triggers it: a workflow is enough. Choose the AI automation agency offer if the task requires understanding a message, choosing between fuzzy cases, or articulating several modules (agents, Claude, internal application, reporting). It often starts with a workflow."
         }
       ]
     },

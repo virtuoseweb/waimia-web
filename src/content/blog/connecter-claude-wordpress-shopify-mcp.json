@@ -1,0 +1,186 @@
+{
+  "title_fr": "Connecter Claude à WordPress et à Shopify : API, MCP ou connecteur",
+  "title_en": "Connecting Claude to WordPress and Shopify: API, MCP or connector",
+  "seoTitle_fr": "Connecter Claude à WordPress ou Shopify : 3 façons",
+  "seoTitle_en": "Connect Claude to WordPress or Shopify: 3 ways",
+  "h1_fr": "Connecter Claude à WordPress ou à Shopify : API, serveur MCP ou connecteur",
+  "description_fr": "Claude et WordPress, Claude et Shopify : API, serveur MCP ou connecteur ? Ce que chaque voie permet, et les garde-fous avant de toucher au site.",
+  "description_en": "Claude and WordPress, Claude and Shopify: API, MCP server or connector? What each route allows, and the safeguards before touching the site.",
+  "excerpt_fr": "Trois façons de relier Claude à un site WordPress ou Shopify : l'API, un serveur MCP, un connecteur. Ce que chacune permet, les droits à limiter, l'environnement de test et la sauvegarde. Sources lues le 16 octobre 2026.",
+  "excerpt_en": "Three ways to connect Claude to a WordPress or Shopify site: the API, an MCP server, a connector. What each allows, rights to limit, the test environment and the backup. Sources read on 16 October 2026.",
+  "publishedAt": "2026-10-16",
+  "editorialType": "Note",
+  "type": "post",
+  "author": "simon-beros",
+  "category": "claude",
+  "tags": [
+    "claude",
+    "mcp",
+    "wordpress",
+    "shopify",
+    "connecteurs",
+    "securite"
+  ],
+  "readingTime": 9,
+  "updatedAt": "2026-10-16",
+  "sources": [
+    {
+      "name": "Anthropic, Get started with custom connectors using remote MCP (réseau, sécurité, approbation des outils), lu le 16 octobre 2026",
+      "url": "https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp",
+      "type": "enterprise"
+    },
+    {
+      "name": "Claude Docs, Build an MCP server for Claude (un serveur MCP apparaît comme un connecteur), lu le 16 octobre 2026",
+      "url": "https://claude.com/docs/connectors/building",
+      "type": "enterprise"
+    },
+    {
+      "name": "WordPress Developer Blog, From Abilities to AI Agents: Introducing the WordPress MCP Adapter (4 février 2026), lu le 16 octobre 2026",
+      "url": "https://developer.wordpress.org/news/2026/02/from-abilities-to-ai-agents-introducing-the-wordpress-mcp-adapter/",
+      "type": "enterprise"
+    },
+    {
+      "name": "WordPress Developer Resources, REST API Handbook (dernière modification le 14 octobre 2026), lu le 16 octobre 2026",
+      "url": "https://developer.wordpress.org/rest-api/",
+      "type": "enterprise"
+    },
+    {
+      "name": "WordPress Developer Resources, REST API Authentication (mots de passe d'application), lu le 16 octobre 2026",
+      "url": "https://developer.wordpress.org/rest-api/using-the-rest-api/authentication/",
+      "type": "enterprise"
+    },
+    {
+      "name": "WordPress.com Support, Edit your site with Claude (revu le 13 octobre 2026), lu le 16 octobre 2026",
+      "url": "https://wordpress.com/support/mcp/connect-claude/",
+      "type": "enterprise"
+    },
+    {
+      "name": "WordPress.com Developer Docs, WordPress.com MCP Server (Jetpack, OAuth 2.1), lu le 16 octobre 2026",
+      "url": "https://developer.wordpress.com/docs/mcp/",
+      "type": "enterprise"
+    },
+    {
+      "name": "WordPress.org Documentation, Backups (modifié le 4 juin 2026), lu le 16 octobre 2026",
+      "url": "https://wordpress.org/documentation/article/wordpress-backups/",
+      "type": "enterprise"
+    },
+    {
+      "name": "Shopify Help Center, Shopify connector for Claude, lu le 16 octobre 2026",
+      "url": "https://help.shopify.com/en/manual/ai-powered-tools/connecting-ai-tools/shopify-connector-for-claude",
+      "type": "enterprise"
+    },
+    {
+      "name": "Shopify.dev, Shopify AI Toolkit (Dev MCP, store management), lu le 16 octobre 2026",
+      "url": "https://shopify.dev/docs/apps/build/ai-toolkit",
+      "type": "enterprise"
+    },
+    {
+      "name": "Shopify.dev, Shopify CLI store execute (mutations désactivées par défaut), lu le 16 octobre 2026",
+      "url": "https://shopify.dev/docs/api/shopify-cli/store/store-execute",
+      "type": "enterprise"
+    },
+    {
+      "name": "Shopify.dev, Dev stores, lu le 16 octobre 2026",
+      "url": "https://shopify.dev/docs/api/development-stores",
+      "type": "enterprise"
+    },
+    {
+      "name": "Shopify Help Center, Duplicating themes, lu le 16 octobre 2026",
+      "url": "https://help.shopify.com/en/manual/online-store/themes/managing-themes/duplicating-themes",
+      "type": "enterprise"
+    }
+  ],
+  "relatedPosts": [
+    "creer-agent-ia-claude",
+    "claude-microsoft-copilot-pme",
+    "webflow-vs-wordpress-vs-site-code-ia-2026"
+  ],
+  "slug": "connecter-claude-wordpress-shopify-mcp",
+  "faq_fr": [
+    {
+      "q": "Peut-on connecter Claude à WordPress sans développeur ?",
+      "a": "Oui pour un site WordPress.com, ou un site auto-hébergé relié à Jetpack avec une offre Jetpack AI ou Jetpack Complete : le connecteur officiel de l'annuaire de Claude s'active en quelques clics, en lecture seule ou en accès complet. Pour un site auto-hébergé sans Jetpack, la documentation lue décrit le MCP Adapter, qui s'adresse à un développeur."
+    },
+    {
+      "q": "Claude peut-il modifier ma boutique Shopify en direct ?",
+      "a": "Avec le connecteur de Shopify, seulement si vous approuvez l'écriture. Shopify indique qu'il ne peut ni modifier votre thème en ligne, ni publier ou supprimer un thème, mais que certaines actions agissent en direct : une collection créée est publiée et un produit peut être passé actif. Dupliquez le thème et testez sur la copie."
+    },
+    {
+      "q": "Faut-il une sauvegarde avant de connecter Claude à son site ?",
+      "a": "Oui, avant toute écriture. WordPress recommande de sauvegarder la base de données et les fichiers avant une mise à jour, et Shopify de dupliquer un thème avant de le personnaliser. Un thème téléchargé n'inclut pas les produits, collections ni pages : exportez-les à part."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Can Claude be connected to WordPress without a developer?",
+      "a": "Yes for a WordPress.com site, or a self-hosted site linked to Jetpack with a Jetpack AI or Jetpack Complete plan: the official connector in Claude's directory takes a few clicks, read-only or full access. For a self-hosted site without Jetpack, the documentation read describes the MCP Adapter, which is for a developer."
+    },
+    {
+      "q": "Can Claude change my Shopify shop live?",
+      "a": "With Shopify's connector, only if you approve writing. Shopify says it cannot edit your live theme or publish or delete a theme, but some actions go live: a created collection is published and a product can be set active. Duplicate the theme and test on the copy."
+    },
+    {
+      "q": "Do I need a backup before connecting Claude to my site?",
+      "a": "Yes, before any write. WordPress recommends backing up the database and files before an upgrade, and Shopify advises duplicating a theme before customising it. A downloaded theme does not include products, collections or pages: export them separately."
+    }
+  ],
+  "headings": [
+    {
+      "depth": 2,
+      "slug": "en-bref",
+      "text": "En bref"
+    },
+    {
+      "depth": 2,
+      "slug": "ce-que-connecter-veut-dire",
+      "text": "Ce que « connecter Claude à un site » veut dire"
+    },
+    {
+      "depth": 2,
+      "slug": "voie-api",
+      "text": "Voie 1 : l'API du site, pour un développeur"
+    },
+    {
+      "depth": 2,
+      "slug": "voie-mcp",
+      "text": "Voie 2 : un serveur MCP, pour brancher Claude à l'outil"
+    },
+    {
+      "depth": 2,
+      "slug": "voie-connecteur",
+      "text": "Voie 3 : un connecteur prêt à l'emploi dans Claude"
+    },
+    {
+      "depth": 2,
+      "slug": "tableau",
+      "text": "Les trois voies côte à côte"
+    },
+    {
+      "depth": 2,
+      "slug": "garde-fous",
+      "text": "Quatre garde-fous avant de laisser Claude écrire"
+    },
+    {
+      "depth": 2,
+      "slug": "que-choisir",
+      "text": "Que choisir, pour une PME"
+    },
+    {
+      "depth": 2,
+      "slug": "limites",
+      "text": "Ce que ce billet ne sait pas"
+    },
+    {
+      "depth": 2,
+      "slug": "et-apres",
+      "text": "Et après ?"
+    }
+  ],
+  "body_sections": [
+    {
+      "type": "editorial-prose",
+      "html_fr": "<h2 id=\"en-bref\">En bref</h2>\n<ul>\n<li>Trois façons de relier Claude à un site WordPress ou Shopify : appeler l'<strong>API</strong> du site, passer par un <strong>serveur MCP</strong>, ou activer un <strong>connecteur</strong> prêt à l'emploi dans Claude. Elles se recoupent (un connecteur est un serveur MCP hébergé par un tiers) ; ce qui les distingue, c'est qui les installe et ce que Claude a le droit de faire ensuite.</li>\n<li>Le vrai sujet n'est pas la technique mais les droits : lire seulement, écrire sur une copie, ou modifier le site en ligne. Ordre sûr : lecture seule, environnement de test, sauvegarde, puis écriture validée à la main.</li>\n<li>Pour une PME sans développeur, le connecteur officiel, en lecture seule d'abord. Pour un site ou une boutique à enjeu, un environnement de test et quelqu'un qui relit chaque modification.</li>\n</ul>\n<p>Sources lues le 16 octobre 2026 : Anthropic, WordPress, WordPress.com, Shopify. Je n'ai pas testé ces connexions sur un site client : ce billet rapporte ce que la documentation établit, et marque d'un « ce que j'en conclus » ce qui relève de mon interprétation.</p>\n<h2 id=\"ce-que-connecter-veut-dire\">Ce que « connecter Claude à un site » veut dire</h2>\n<p>Claude ne « voit » pas votre site tant qu'on ne lui donne pas un canal d'accès, et ce canal passe par un compte : tout ce que ce compte peut faire, Claude peut le faire. Le protocole MCP (Model Context Protocol), un standard ouvert créé par Anthropic, décrit à Claude ce qu'un outil permet de lire et de faire. Le principe est expliqué dans le <a href=\"/ressources/guides/mcp-claude\">guide MCP pour dirigeants</a>.</p>\n<p>Deux points de l'aide d'Anthropic (lue le 16 octobre 2026) changent le choix du montage :</p>\n<ul>\n<li>un connecteur personnalisé (serveur MCP distant) est joint depuis l'infrastructure d'Anthropic, pas depuis votre ordinateur. Un serveur sur un réseau privé, derrière un VPN ou un pare-feu ne se connecte pas, sauf à autoriser les adresses IP d'Anthropic. Un site de test installé sur votre poste n'est donc pas joignable de cette façon ;</li>\n<li>les serveurs MCP locaux déclarés dans Claude Desktop (fichier <code>claude_desktop_config.json</code>) sont un mécanisme à part, qui passe par le réseau de votre ordinateur.</li>\n</ul>\n<p>Anthropic rappelle aussi qu'un connecteur personnalisé relie Claude à un service qu'elle n'a pas vérifié, qu'un serveur malveillant peut glisser des consignes cachées (injection de consignes), et qu'il faut lire chaque demande d'approbation d'outil avant de cliquer sur « Allow always » (toujours autoriser). Sur Team et Enterprise, l'ajout d'un connecteur à l'organisation est réservé aux propriétaires ou à un rôle autorisé, et un identifiant partagé donne à tous les mêmes accès.</p>\n<h2 id=\"voie-api\">Voie 1 : l'API du site, pour un développeur</h2>\n<p><strong>WordPress.</strong> L'API REST de WordPress permet à une application d'envoyer et de recevoir du JSON pour lire, créer et modifier articles, pages et autres contenus. Le manuel officiel précise que ce qui est public sur le site l'est aussi par l'API, alors que les contenus privés, les utilisateurs internes ou les métadonnées exigent une authentification. Pour une application externe, il présente les <strong>mots de passe d'application</strong> (livrés avec WordPress depuis la version 5.6), créés depuis la page de modification d'un utilisateur et transmis en authentification Basic sur une connexion HTTPS.</p>\n<p><strong>Shopify.</strong> L'équivalent est l'API Admin GraphQL. La commande <code>shopify store execute</code> de Shopify CLI l'appelle sur une boutique, et la documentation indique que les mutations (les écritures) sont désactivées par défaut : il faut ajouter <code>--allow-mutations</code> pour modifier des données.</p>\n<p><strong>Ce que j'en conclus</strong> (interprétation de Waimia). Dans cette voie, Claude ne touche à rien seul : un développeur lui fait écrire le script ou la commande, la relit, puis l'exécute. Avantage : contrôle complet, aucun tiers. Limite : tout est à construire, y compris les garde-fous.</p>\n<h2 id=\"voie-mcp\">Voie 2 : un serveur MCP, pour brancher Claude à l'outil</h2>\n<p><strong>WordPress.</strong> WordPress publie un composant officiel, le <strong>MCP Adapter</strong>, qui s'appuie sur l'Abilities API arrivée avec WordPress 6.9 : les fonctions du site (« abilities ») sont déclarées, typées, puis exposées à un assistant comme outils MCP. D'après le blog des développeurs WordPress (4 février 2026) :</p>\n<ul>\n<li>l'adaptateur s'installe comme extension depuis la page des versions de son dépôt GitHub et crée un serveur par défaut ;</li>\n<li>une fonction n'est visible par défaut que si elle est marquée publique pour MCP ;</li>\n<li>en local, la liaison passe par WP-CLI (STDIO) ; pour un site public, par HTTP avec un mot de passe d'application ou une authentification OAuth sur mesure, via un relais qui demande Node.js ;</li>\n<li>les clients MCP agissent comme des utilisateurs WordPress connectés. L'article recommande un utilisateur dédié aux droits limités, surtout en production, de ne pas exposer de fonctions puissantes à des clients non audités, de privilégier la lecture seule sur un point d'accès HTTP public, et de journaliser l'usage.</li>\n</ul>\n<p><strong>Shopify.</strong> Shopify propose un serveur <strong>Dev MCP</strong>. Il tourne en local, sans authentification, et donne à l'assistant la documentation Shopify, les schémas d'API et la validation de code : il sert à écrire du code correct, pas à gérer une boutique. Le <strong>Shopify AI Toolkit</strong>, qui s'installe notamment dans Claude Code, ajoute des tâches de gestion de boutique par l'identité authentifiée de Shopify CLI, « avec vous qui choisissez quand les exécuter », selon la documentation.</p>\n<p><strong>Ce que j'en conclus.</strong> Cette voie convient à un développeur ou à un prestataire. Pour le propriétaire du site, la règle utile est celle de WordPress : n'exposer que ce qui est nécessaire, en lecture d'abord.</p>\n<h2 id=\"voie-connecteur\">Voie 3 : un connecteur prêt à l'emploi dans Claude</h2>\n<p><strong>WordPress.com</strong> est partenaire officiel de l'annuaire des connecteurs de Claude. Il faut d'abord activer l'accès MCP dans le compte : c'est disponible sur les offres payantes, et pour un site WordPress auto-hébergé via Jetpack avec une offre Jetpack AI ou Jetpack Complete. À l'autorisation, WordPress.com propose « Full access » (lecture et écriture) ou « Read only » (lecture seule). Ce choix s'applique à tout le compte, donc aussi à tout autre agent IA déjà connecté. Les opérations d'écriture, suppression comprise, demandent votre confirmation avant exécution, et les articles et pages supprimés restent récupérables 30 jours dans la corbeille. La documentation lue ne décrit pas d'autre cas pour un site auto-hébergé sans Jetpack : il relève alors de la voie 2.</p>\n<p><strong>Shopify</strong> propose un connecteur pour Claude. Il ne figure pas dans la boutique d'applications Shopify : on l'installe depuis Claude, puis on approuve l'accès dans l'administration Shopify. Ce qu'il peut faire dépend de l'accès approuvé et des droits du compte du personnel utilisé. L'aide de Shopify liste elle-même ses limites :</p>\n<ul>\n<li>l'outil lit mais ne modifie pas, tant que vous n'approuvez pas l'écriture ;</li>\n<li>il peut modifier un thème non publié, mais ni votre thème en ligne, ni publier ou supprimer un thème. Shopify conseille de dupliquer le thème, de laisser l'outil modifier la copie, puis de publier la copie vous-même ;</li>\n<li>il ne change ni le forfait, ni les paiements, les taxes ou les domaines, et ne rembourse, n'annule ni ne capture de commande, même avec l'écriture approuvée ;</li>\n<li>certaines actions agissent en direct : une collection créée est publiée sur la boutique en ligne, et un produit peut être passé à l'état actif ;</li>\n<li>les changements en masse se font un élément à la fois et un lot peut s'arrêter en route. Pour les pages, menus et métachamps, le connecteur demande confirmation, avec des résultats plus variables que pour les actions nommées.</li>\n</ul>\n<h2 id=\"tableau\">Les trois voies côte à côte</h2>\n<table><thead><tr><th>Voie</th><th>Qui la monte</th><th>Ce que Claude peut faire</th><th>Limite principale</th></tr></thead><tbody><tr><td>1. API (WordPress REST, Shopify Admin)</td><td>Un développeur</td><td>Rien seul : il exécute le script prévu</td><td>Tout est à construire, garde-fous compris</td></tr><tr><td>2. Serveur MCP (MCP Adapter, Dev MCP)</td><td>Un développeur ou un prestataire</td><td>Appeler les fonctions que vous exposez</td><td>N'exposer que le nécessaire ; le Dev MCP ne gère pas la boutique</td></tr><tr><td>3. Connecteur (WordPress.com, Shopify)</td><td>Le propriétaire du site, en quelques clics</td><td>Lire, et écrire si vous l'autorisez</td><td>Les droits viennent du compte : vérifier le périmètre accordé</td></tr></tbody></table>\n<h2 id=\"garde-fous\">Quatre garde-fous avant de laisser Claude écrire</h2>\n<ol>\n<li><strong>Des droits au plus juste.</strong> Un compte dédié, pas le compte administrateur. WordPress le recommande pour MCP ; WordPress.com offre le mode « Read only » ; côté Shopify, l'accès suit les droits du compte du personnel utilisé. Dans Claude, le menu « Search and tools » permet de désactiver les outils inutiles à la conversation.</li>\n<li><strong>Un environnement de test.</strong> Pour WordPress, un site local relié en STDIO, que le blog des développeurs présente comme le montage le plus direct en local. Pour Shopify, une boutique de développement : un environnement de test que vous contrôlez, sans effet sur une boutique en ligne, qui ne traite pas de vrais paiements et ne peut ni devenir une boutique de production ni être transférée à un client. Ce que j'en conclus : elle part vide, il faut la remplir d'un échantillon de produits pour que l'essai soit représentatif.</li>\n<li><strong>Une sauvegarde qui se restaure.</strong> WordPress demande de sauvegarder la base de données et les fichiers (il faut les deux pour restaurer un site) et de le faire avant toute mise à jour. Shopify conseille de dupliquer un thème avant de le personnaliser ; un thème téléchargé n'inclut ni produits, ni collections, ni pages, qui s'exportent à part.</li>\n<li><strong>Une validation humaine et une trace.</strong> Lire chaque demande d'approbation, ne laisser « toujours autoriser » qu'à un outil de confiance, noter ce qui a été modifié. WordPress.com impose déjà la confirmation des écritures ; sur la voie 2, la journalisation est à mettre en place.</li>\n</ol>\n<h2 id=\"que-choisir\">Que choisir, pour une PME</h2>\n<p><strong>Ce que j'en conclus</strong> (interprétation de Waimia, pas un fait établi). Une seule recommandation : commencez par le connecteur officiel en <strong>lecture seule</strong>, sur le site que vous connaissez. Demandez à Claude de lister les pages sans description, les produits sans image, les articles anciens : vous mesurez l'utilité sans rien risquer. N'ouvrez l'écriture qu'après une sauvegarde, sur un site de test ou un thème dupliqué, et passez par un développeur dès que le site est auto-hébergé sans Jetpack ou que la boutique réalise l'essentiel de votre chiffre d'affaires.</p>\n<h2 id=\"limites\">Ce que ce billet ne sait pas</h2>\n<ul>\n<li>Je n'ai pas testé ces connecteurs sur un site client, et je ne publie aucune mesure de temps gagné.</li>\n<li>Le prix des offres Jetpack AI et Jetpack Complete n'a pas été relevé.</li>\n<li>Je n'ai pas relevé les niveaux d'accès que Shopify propose au moment de l'autorisation : la page du connecteur dit seulement que l'accès approuvé et les droits du compte limitent ce qu'il peut faire.</li>\n<li>Ces outils évoluent vite (le MCP Adapter, le Shopify AI Toolkit, les connecteurs) : la documentation citée date d'octobre 2026.</li>\n<li>Aucune source lue ne traite de WooCommerce en particulier.</li>\n</ul>\n<h2 id=\"et-apres\">Et après ?</h2>\n<p>Brancher Claude à vos outils, avec les bons droits et un essai hors production, est l'objet de l'<a href=\"/services/integration-claude\">intégration de Claude en entreprise</a>. Elle commence par un sprint de cadrage de 10 heures à {{prix.sprint}} € HT, qui livre un prototype testé : on y décide quels outils brancher, avec quels droits, et on l'éprouve sur un environnement de test. La mise en production relève du pilote, dès {{prix.pilote}} € HT. Si votre site lui-même est à refaire ou à maintenir, voyez nos pages <a href=\"/services/wordpress\">WordPress</a> et <a href=\"/services/shopify\">Shopify</a>. Pour démarrer sans engagement : <a href=\"/contact?offer=audit-ia-pme&amp;intent=audit\">l'audit IA gratuit</a> (<a href=\"/audit-ia-pme\">comment se passe l'audit de 45 minutes</a>).</p>",
+      "html_en": "<h2 id=\"in-short\">In short</h2>\n<ul>\n<li>Three ways to connect Claude to a WordPress or Shopify site: call the site's <strong>API</strong>, go through an <strong>MCP server</strong>, or switch on a ready-made <strong>connector</strong> in Claude. They overlap (a connector is an MCP server hosted by a third party); what sets them apart is who installs them and what Claude may do afterwards.</li>\n<li>The real subject is rights, not technology: read only, write to a copy, or change the live site. Safe order: read-only, test environment, backup, then hand-checked writes.</li>\n<li>For a small business without a developer, the official connector, read-only first. For a site or shop that matters, a test environment and someone who reviews each change.</li>\n</ul>\n<p>Sources read on 16 October 2026: Anthropic, WordPress, WordPress.com, Shopify. I have not tested these connections on a client site: this post reports what the documentation establishes, and marks my own reading as \"what I conclude\".</p>\n<h2 id=\"what-connecting-means\">What \"connecting Claude to a site\" means</h2>\n<p>Claude does not \"see\" your site until it is given a channel, and that channel runs through an account: whatever the account can do, Claude can do. MCP (Model Context Protocol), an open standard created by Anthropic, tells Claude what a tool lets it read and do. See the <a href=\"/ressources/guides/mcp-claude\">MCP guide for business owners</a>.</p>\n<p>Two points from Anthropic's help (read on 16 October 2026) shape the setup. A custom connector (remote MCP server) is reached from Anthropic's infrastructure, not from your computer, so a server on a private network or behind a VPN or firewall will not connect unless Anthropic's IP addresses are allowed. A test site on your own machine is therefore out of reach this way. Local MCP servers declared in Claude Desktop are a separate mechanism that uses your computer's network. Anthropic also warns that custom connectors link Claude to services it has not verified, that a malicious server can hide instructions, and that you should read each tool approval request before clicking \"Allow always\".</p>\n<h2 id=\"route-api\">Route 1: the site's API, for a developer</h2>\n<p><strong>WordPress.</strong> The REST API lets an application send and receive JSON to read, create and edit content. The handbook says public content is public through the API, while private content, internal users and metadata need authentication. For external applications it presents application passwords (shipped since WordPress 5.6), sent as Basic authentication over HTTPS. <strong>Shopify.</strong> The equivalent is the Admin GraphQL API: <code>shopify store execute</code> calls it, and mutations are disabled by default until you add <code>--allow-mutations</code>.</p>\n<p><strong>What I conclude</strong> (Waimia's reading). Claude touches nothing alone here: a developer has it write the script, reviews it, then runs it. Full control, no third party, but every safeguard has to be built.</p>\n<h2 id=\"route-mcp\">Route 2: an MCP server, to plug Claude into the tool</h2>\n<p><strong>WordPress</strong> publishes an official <strong>MCP Adapter</strong>, built on the Abilities API introduced in WordPress 6.9. Per the WordPress developer blog (4 February 2026): it installs as a plugin from the GitHub releases page; an ability is visible by default only if marked public for MCP; locally it connects through WP-CLI (STDIO), and for a public site over HTTP with an application password or custom OAuth; MCP clients act as logged-in WordPress users, so use a dedicated low-privilege user in production, avoid exposing powerful abilities to unaudited clients, prefer read-only on public HTTP endpoints, and log usage.</p>\n<p><strong>Shopify</strong> offers a <strong>Dev MCP</strong> server that runs locally without authentication and gives the assistant Shopify documentation, API schemas and code validation: it helps write correct code, not run a shop. The <strong>Shopify AI Toolkit</strong> adds store-management tasks through Shopify CLI, \"with you choosing when to execute them\".</p>\n<p><strong>What I conclude.</strong> This route suits a developer or a provider. For the site owner, the useful rule is WordPress's: expose only what is needed, read first.</p>\n<h2 id=\"route-connector\">Route 3: a ready-made connector in Claude</h2>\n<p><strong>WordPress.com</strong> is an official partner in Claude's connectors directory. MCP access must first be enabled in the account (paid plans, or self-hosted sites through Jetpack with a Jetpack AI or Jetpack Complete plan). On authorisation you choose \"Full access\" or \"Read only\"; the choice applies to the whole account, including any other AI agent already connected. Write operations, deletions included, need your confirmation, and deleted posts and pages stay recoverable from the trash for 30 days.</p>\n<p><strong>Shopify</strong> offers a connector for Claude, installed from Claude rather than the Shopify App Store, with access approved in the Shopify admin. Shopify's own help lists its limits: read-only until you approve writing; it can edit an unpublished theme but not your live theme, nor publish or delete a theme (duplicate the theme, let the tool edit the copy, publish it yourself); it cannot change plan, payments, taxes or domains, nor refund, cancel or capture orders; some actions go live (a created collection is published, a product can be set active); bulk changes run one item at a time and a batch can stop partway.</p>\n<h2 id=\"table\">The three routes side by side</h2>\n<table><thead><tr><th>Route</th><th>Who builds it</th><th>What Claude can do</th><th>Main limit</th></tr></thead><tbody><tr><td>1. API (WordPress REST, Shopify Admin)</td><td>A developer</td><td>Nothing alone: runs the planned script</td><td>Everything to build, safeguards included</td></tr><tr><td>2. MCP server (MCP Adapter, Dev MCP)</td><td>A developer or provider</td><td>Call the abilities you expose</td><td>Expose only what is needed; Dev MCP does not run the shop</td></tr><tr><td>3. Connector (WordPress.com, Shopify)</td><td>The site owner, in a few clicks</td><td>Read, and write if you allow it</td><td>Rights come from the account: check the scope granted</td></tr></tbody></table>\n<h2 id=\"safeguards\">Four safeguards before letting Claude write</h2>\n<ol>\n<li><strong>Least rights.</strong> A dedicated account, not the administrator. WordPress recommends it for MCP, WordPress.com has \"Read only\", and on Shopify access follows the staff account's permissions.</li>\n<li><strong>A test environment.</strong> A local WordPress site over STDIO; for Shopify, a development store (a test environment with no effect on a live shop, no real payments, not convertible to production). What I conclude: it starts empty, so fill it with sample products.</li>\n<li><strong>A backup you can restore.</strong> WordPress asks for both database and files, always before an upgrade. Shopify advises duplicating a theme before customising it; a downloaded theme does not include products, collections or pages.</li>\n<li><strong>Human approval and a trail.</strong> Read each approval request, keep \"always allow\" for trusted tools only, note what changed.</li>\n</ol>\n<h2 id=\"which\">Which one for a small business</h2>\n<p><strong>What I conclude</strong> (Waimia's reading, not an established fact). One recommendation: start with the official connector in <strong>read-only</strong> mode on the site you know. Ask Claude to list pages without a description, products without an image, old articles: you measure usefulness at no risk. Open writing only after a backup, on a test site or a duplicated theme, and bring in a developer when the site is self-hosted without Jetpack or the shop makes most of your revenue.</p>\n<h2 id=\"limits\">What this post does not know</h2>\n<ul>\n<li>I have not tested these connectors on a client site and publish no time-saved figure.</li>\n<li>Jetpack AI and Jetpack Complete prices were not read.</li>\n<li>I did not record the access levels Shopify offers at authorisation: the connector page only says that the approved access and the account's permissions limit what it can do.</li>\n<li>These tools change fast: the documentation cited dates from October 2026.</li>\n<li>No source read covers WooCommerce specifically.</li>\n</ul>\n<h2 id=\"next\">What next?</h2>\n<p>Plugging Claude into your tools with the right rights and a trial outside production is the purpose of <a href=\"/services/integration-claude\">Claude integration for business</a>. It starts with a 10-hour scoping sprint at {{prix.sprint.en}} € excl. VAT that delivers a tested prototype; going live is the pilot, from {{prix.pilote.en}} € excl. VAT. If the site itself needs rebuilding or upkeep, see our <a href=\"/services/wordpress\">WordPress</a> and <a href=\"/services/shopify\">Shopify</a> pages. Or book <a href=\"/contact?offer=audit-ia-pme&amp;intent=audit\">a free AI audit</a>.</p>"
+    }
+  ]
+}
