@@ -178,4 +178,14 @@ const html = lang === 'en' ? data.html_en : data.html_fr;
   .editorial-prose[data-bg='ink'] .editorial-prose__col :global(:is(h2, h3, p, li)) {
     color: var(--paper);
   }
+  /* Tableau large ou code long dans la prose : défilement dans la colonne, jamais
+     de débordement de page (guide mesurer-visibilite-ia-chatgpt : +144 px à 390). */
+  .editorial-prose__col :global(table) {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  .editorial-prose__col :global(code) {
+    overflow-wrap: anywhere;
+  }
 </style>
