@@ -37,6 +37,15 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### Vague 11 en production, 16 octobre 2026 (PR #100, `03af0de9`)
+
+- **Six créations** sur des requêtes où les concurrents se classent sans page Waimia (analyse des exports Semrush du dossier `waimia seo` : noiise, kayro, ia4ops, lucasfonseque, bulk formation) : guides `claude-in-chrome-entreprise`, `prompt-engineering-pme`, `mesurer-visibilite-ia-chatgpt`, comparatif `chatgpt-claude-gemini-perplexity-pme`, billets `ai-mode-google-ai-overviews-pme` et `geo-local-recommande-par-les-ia`. Six autres sujets planifiés de W43 à W48 (Lovable ou sur mesure, POC ou MVP, contenu IA et Google, Claude avec WordPress et Shopify, ChatGPT Shopping, IA auto-hébergée) : la porte du calendrier passe de 0 à 6 semaines d'avance.
+- **Révisions des pages à impressions sans clic** (collecte GSC du 8 octobre) : `automatisation-n8n`, `calculateur-roi-ia` (FAQ servie en accordéon, FAQPage), `consultant-ia-claude`. Secteurs `batiment`, `e-commerce`, `startup-logiciel` réécrits pour l'IA ; `startup-logiciel` entre dans l'index (décision du 5 octobre). Une page secteur qui déclare ses cas n'affiche plus qu'eux (`src/lib/sector-cases.ts`).
+- **Design** : bandes de prose pleine largeur (110 contenus ; colonne de lecture inchangée à 656 px), tableaux et code de prose sans débordement, fonds alternés du comparatif Claude vs ChatGPT, héros de Montpellier, hub ressources, note de prix bornée.
+- **Revue Opus** : ok avec réserves, corrigées avant fusion (cartes de cas hors sujet sur `startup-logiciel`, durée du sprint n8n, sources Studeria et SparkToro). Prix ChatGPT Business et Gemini Enterprise relus sur les pages officielles ; montant en euros de Workspace non relu (page servie en dollars).
+- **Preuves** : portes 37 sur 39 (rouges connues), `astro check` 8 erreurs, balayage des 188 pages à deux tailles après corrections (376 rendus, 0 défaut), E2E 72 passés, preview vérifiée sur le SHA (9 pages, un H1, FAQPage, index), production vérifiée (7 URL en 200, sitemap 188, title n8n servi).
+- **Non fait** : données Search Console à rafraîchir (identifiants seulement dans la CI, bloquée par la facturation) ; porte `semantic` (13 écarts de jetons DS, tâche DS dédiée).
+
 ### Vague 10 en production, 16 octobre 2026 (PR #99, `eb73dba7`)
 
 - **Contenu** : guides `claude-tpe` (dirigeant seul et conditions grand public, comptes Team) et `claude-finance-pme` (factures, PDF, Excel, facturation électronique DGFiP 2026-2027), billet `agent-ia-entreprise-exemples`, section « Agence, freelance ou cabinet de conseil » dans `choisir-agence-ia-pme` (tarifs Freeland sourcés), pages services `agent-support-client` (chatbot à règles ou agent, article 50) et `applications-internes` (application métier ou logiciel du marché). Six entrées du calendrier publiées.
