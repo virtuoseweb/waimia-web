@@ -1716,7 +1716,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/cahier-des-charges-site-internet.json",
       "slug": "cahier-des-charges-site-internet",
       "route": "/ressources/guides/cahier-des-charges-site-internet",
-      "index": 16,
+      "index": 17,
       "label": "Faites relire votre brouillon de cahier des charges avant les devis",
       "background": "ink"
     },
@@ -9344,8 +9344,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/site-web-ia.json",
       "slug": "site-web-ia",
       "route": "/services/site-web-ia",
-      "index": 9,
-      "label": "#9",
+      "index": 10,
+      "label": "#10",
       "variant": "media"
     },
     {
@@ -9913,7 +9913,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/cahier-des-charges-site-internet.json",
       "slug": "cahier-des-charges-site-internet",
       "route": "/ressources/guides/cahier-des-charges-site-internet",
-      "index": 18,
+      "index": 19,
       "label": "Cahier des charges de site internet : questions fréquentes",
       "background": "paper"
     },
@@ -10183,7 +10183,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/refonte-site-internet.json",
       "slug": "refonte-site-internet",
       "route": "/ressources/guides/refonte-site-internet",
-      "index": 12,
+      "index": 13,
       "label": "Refonte de site internet : questions fréquentes",
       "background": "paper"
     },
@@ -10579,7 +10579,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/site-web-ia.json",
       "slug": "site-web-ia",
       "route": "/services/site-web-ia",
-      "index": 10,
+      "index": 11,
       "label": "Création de site internet : vos questions",
       "background": "paper-2"
     },
@@ -11613,7 +11613,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/cahier-des-charges-site-internet.json",
       "slug": "cahier-des-charges-site-internet",
       "route": "/ressources/guides/cahier-des-charges-site-internet",
-      "index": 19,
+      "index": 20,
       "label": "Un brief précis, des devis que vous pouvez comparer.",
       "background": "ink"
     },
@@ -11883,7 +11883,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/refonte-site-internet.json",
       "slug": "refonte-site-internet",
       "route": "/ressources/guides/refonte-site-internet",
-      "index": 13,
+      "index": 14,
       "label": "Savoir s'il faut corriger votre site ou le refaire.",
       "background": "ink"
     },
@@ -12279,7 +12279,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/site-web-ia.json",
       "slug": "site-web-ia",
       "route": "/services/site-web-ia",
-      "index": 11,
+      "index": 12,
       "label": "Votre site est-il à corriger, à refaire ou à reprendre ?",
       "background": "ink"
     },
@@ -14269,6 +14269,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/cahier-des-charges-site-internet.json",
+      "slug": "cahier-des-charges-site-internet",
+      "route": "/ressources/guides/cahier-des-charges-site-internet",
+      "index": 16,
+      "label": "Avant d'écrire le cahier des charges : auditez votre site actuel avec la grille",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-code-entreprise.json",
       "slug": "claude-code-entreprise",
       "route": "/ressources/guides/claude-code-entreprise",
@@ -14458,6 +14467,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/refonte-site-internet.json",
+      "slug": "refonte-site-internet",
+      "route": "/ressources/guides/refonte-site-internet",
+      "index": 11,
+      "label": "Corriger ou refaire ? Passez votre site à la grille d'audit",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/rgpd-agents-ia-checklist.json",
       "slug": "rgpd-agents-ia-checklist",
       "route": "/ressources/guides/rgpd-agents-ia-checklist",
@@ -14482,6 +14500,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 11,
       "label": "Avant d'intégrer un modèle d'IA : fixez les règles d'usage avec le modèle de charte IA en PDF",
       "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia.json",
+      "slug": "site-web-ia",
+      "route": "/services/site-web-ia",
+      "index": 9,
+      "label": "Pas encore prêt pour un devis ? Auditez d'abord votre site actuel",
+      "background": "ink"
     }
   ],
   "market-cases": [
@@ -17022,7 +17049,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/cahier-des-charges-site-internet.json",
       "slug": "cahier-des-charges-site-internet",
       "route": "/ressources/guides/cahier-des-charges-site-internet",
-      "index": 17,
+      "index": 18,
       "label": "Pour aller plus loin",
       "background": "paper-2"
     },
@@ -17292,7 +17319,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/refonte-site-internet.json",
       "slug": "refonte-site-internet",
       "route": "/ressources/guides/refonte-site-internet",
-      "index": 11,
+      "index": 12,
       "label": "Pour aller plus loin",
       "background": "paper-2"
     },

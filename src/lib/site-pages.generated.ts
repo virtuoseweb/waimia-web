@@ -3133,8 +3133,13 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
+        "type": "lead-capture-band",
+        "label": "Pas encore prêt pour un devis ? Auditez d'abord votre site actuel",
+        "background": "ink"
+      },
+      {
         "type": "eeat-panel",
-        "label": "#9",
+        "label": "#10",
         "variant": "media"
       },
       {
@@ -6674,6 +6679,11 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
+        "type": "lead-capture-band",
+        "label": "Avant d'écrire le cahier des charges : auditez votre site actuel avec la grille",
+        "background": "ink"
+      },
+      {
         "type": "cta-final",
         "label": "Faites relire votre brouillon de cahier des charges avant les devis",
         "background": "ink"
@@ -9561,6 +9571,11 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
+        "type": "lead-capture-band",
+        "label": "Corriger ou refaire ? Passez votre site à la grille d'audit",
+        "background": "ink"
+      },
+      {
         "type": "related-cards-band",
         "label": "Pour aller plus loin",
         "background": "paper-2"
@@ -10129,6 +10144,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/ressources/outils/grille-audit-site-internet",
+    "title": "Grille d'audit de site internet : corriger ou refaire",
+    "group": "ressources",
+    "collection": "outils",
+    "file": "outils/grille-audit-site-internet.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/ressources/outils/grille-taches-a-automatiser",
     "title": "Grille des tâches à automatiser : modèle à remplir",
     "group": "ressources",
@@ -10227,6 +10251,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/audit-site-internet-pme",
+    "title": "Audit de site internet : la grille avant de décider d'une refonte",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/audit-site-internet-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/automatiser-relance-devis-n8n",
     "title": "Automatiser la relance de devis avec n8n, pas à pas",
     "group": "blog",
@@ -10268,6 +10301,15 @@ export const SITE_PAGES: SitePage[] = [
     "group": "blog",
     "collection": "blog",
     "file": "blog/cabler-son-crm-en-10-jours.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/chatbot-rh-pme",
+    "title": "Chatbot RH en PME : ce qu'il répond bien et ce qu'il ne doit jamais trancher",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/chatbot-rh-pme.json",
     "editable": false,
     "sections": []
   },
@@ -10349,6 +10391,15 @@ export const SITE_PAGES: SitePage[] = [
     "group": "blog",
     "collection": "blog",
     "file": "blog/formation-ia-marketing-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/formation-ia-rh-pme",
+    "title": "Formation IA RH : le programme à exiger en PME",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/formation-ia-rh-pme.json",
     "editable": false,
     "sections": []
   },
@@ -11486,6 +11537,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/outils/calculateur-roi-ia",
       "/ressources/outils/charte-ia-entreprise",
       "/ressources/outils/checklist-90-jours-claude",
+      "/ressources/outils/grille-audit-site-internet",
       "/ressources/outils/grille-taches-a-automatiser",
       "/ressources/outils/guide-achat-claude-pme",
       "/ressources/outils/kit-conformite-claude-entreprise",
@@ -11503,11 +11555,13 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/ai-mode-google-ai-overviews-pme",
       "/blog/applications-internes-build-vs-buy-pme",
       "/blog/architecte-ia-role-pme",
+      "/blog/audit-site-internet-pme",
       "/blog/automatiser-relance-devis-n8n",
       "/blog/automatiser-relances-b2b-sans-sdr-guide-cabinet-conseil",
       "/blog/avis-n8n-vs-zapier-2026",
       "/blog/brain-circuit",
       "/blog/cabler-son-crm-en-10-jours",
+      "/blog/chatbot-rh-pme",
       "/blog/chatgpt-shopping-e-commerce",
       "/blog/claude-microsoft-copilot-pme",
       "/blog/connecter-claude-wordpress-shopify-mcp",
@@ -11517,6 +11571,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/formation-ia-cpf-qualiopi",
       "/blog/formation-ia-finance-pme",
       "/blog/formation-ia-marketing-pme",
+      "/blog/formation-ia-rh-pme",
       "/blog/forward-deployed-engineer",
       "/blog/geo-local-recommande-par-les-ia",
       "/blog/ia-auto-hebergee-open-webui-pme",

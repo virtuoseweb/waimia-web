@@ -1658,7 +1658,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "lead-capture-band": {
-    "count": 36,
+    "count": 39,
     "pages": [
       "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
       "/ressources/comparatifs/formateur-ia-organisme-freelance-agence",
@@ -1666,6 +1666,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/accompagnement-ia-pme",
       "/ressources/guides/ai-act-pme-calendrier",
       "/ressources/guides/audit-geo-pme",
+      "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/claude-code-entreprise",
       "/ressources/guides/claude-cowork",
       "/ressources/guides/claude-design",
@@ -1684,9 +1685,11 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/mcp-claude",
       "/ressources/guides/quel-modele-claude-choisir",
       "/ressources/guides/refonte-logiciel-metier",
+      "/ressources/guides/refonte-site-internet",
       "/ressources/guides/rgpd-agents-ia-checklist",
       "/services/integration-chatgpt-openai",
       "/services/integration-mistral-ai",
+      "/services/site-web-ia",
       "src/components/templates/LeadMagnetLanding.astro",
       "src/components/ui/organisms/conversion/MaturityDiagnostic.astro",
       "src/pages/ressources/outils/[...slug].astro",
