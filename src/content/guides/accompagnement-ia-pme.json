@@ -1,0 +1,543 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "Accompagnement IA en PME : les formes, comment choisir, ce que vous gardez en main",
+  "title_en": "AI support for SMBs: the forms it takes, how to choose, what you keep in hand",
+  "seoTitle_fr": "Accompagnement IA en PME : formes, choix et financement",
+  "seoTitle_en": "AI support for SMBs: forms, choice and funding",
+  "description_fr": "Accompagnement IA en PME : audit, sprint de cadrage, formation ou régie. Comment choisir la forme, quelles aides, où s'arrêter. Relevé le 16 octobre 2026.",
+  "description_en": "AI support for an SMB: audit, scoping sprint, training or time-and-materials. How to choose, which aid exists, where to stop. Checked on 16 October 2026.",
+  "slug": "accompagnement-ia-pme",
+  "publishedAt": "2026-10-16",
+  "updatedAt": "2026-10-16",
+  "category": "conseil",
+  "cluster": "conseil",
+  "tags": [
+    "accompagnement-ia",
+    "audit-ia",
+    "sprint-de-cadrage",
+    "formation-ia",
+    "regie",
+    "aides-publiques",
+    "guide-pme"
+  ],
+  "sources": [
+    {
+      "name": "Bpifrance, Diag Data IA (8 jours d'expert agréé, devis de 10 000 € HT au plus, subvention de 40 %, conditions), lu le 16 octobre 2026",
+      "url": "https://www.bpifrance.fr/catalogue-offres/diag-data-ia",
+      "type": "enterprise"
+    },
+    {
+      "name": "Kayro, Accompagnement IA (étapes décrites par un prestataire bien classé sur la requête, fourchette de prix annoncée), lu le 16 octobre 2026",
+      "url": "https://kayro.ai/accompagnement-ia",
+      "type": "enterprise"
+    }
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "Qu'est-ce qu'un accompagnement IA ?",
+      "a": "Une aide extérieure à une entreprise qui veut utiliser l'IA : elle aide à décider (audit, conseil), à construire (sprint de cadrage, pilote), à former les équipes ou à faire évoluer ce qui tourne (régie, maintenance). Le mot recouvre plusieurs prestations qui ne livrent pas la même chose : demandez toujours le livrable. Relevé le 16 octobre 2026."
+    },
+    {
+      "q": "Combien coûte un accompagnement IA en PME ?",
+      "a": "Cela dépend de la forme. Chez Waimia, les prix sont publics : audit gratuit, sprint de cadrage de 10 heures à {{prix.sprint}} € HT, pilote dès {{prix.pilote}} € HT, régie à {{prix.horaire}} € HT de l'heure. Un autre prestataire annonce des forfaits PME « autour de quelques dizaines de milliers d'euros » pour un diagnostic plus un déploiement initial : comparez le nombre d'heures, le livrable et le plafond, pas l'étiquette."
+    },
+    {
+      "q": "Quelle différence entre conseil et accompagnement ?",
+      "a": "Le conseil s'arrête à la décision : état des lieux, feuille de route, règles d'usage. L'accompagnement va plus loin : pilotage des chantiers retenus avec des comités réguliers, conduite du changement et montée en compétence des équipes. Il est estimé en heures, validé par vous, puis facturé en régie ; la mise en œuvre technique relève de l'intégration."
+    },
+    {
+      "q": "Un accompagnement IA peut-il être financé ?",
+      "a": "Une partie, selon votre situation. Bpifrance subventionne à 40 % un diagnostic de 8 jours d'expert agréé (Diag Data IA), avec un reste à charge de 6 000 € HT sur un devis de 10 000 € HT, pour les PME et ETI indépendantes de 10 à 2 000 ETP qui réalisent au moins 1 000 000 € de chiffre d'affaires. Une formation peut être prise en charge par un OPCO. Le guide des aides détaille le reste."
+    },
+    {
+      "q": "Faut-il former les équipes ?",
+      "a": "Si elles doivent utiliser le système au quotidien, oui : un système que personne ne sait faire évoluer reste chez le prestataire. La formation est une prestation distincte de l'audit, décrite sur la page formations. Elle se construit sur vos propres processus, et une prise en charge est possible selon votre situation."
+    },
+    {
+      "q": "Comment savoir quand arrêter ?",
+      "a": "À chaque étape, une décision écrite à l'avance. Après l'audit : y a-t-il un chantier et est-ce le moment ? Après le sprint : le prototype tient-il ? Après le pilote : le gain est-il réel, mesuré avant et après ? En régie et en maintenance, vous arrêtez quand vous voulez, sans engagement de durée."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "What is AI support?",
+      "a": "Outside help for a company that wants to use AI: it helps to decide (audit, advice), to build (scoping sprint, pilot), to train teams or to evolve what is running (time-and-materials, maintenance). The word covers several services that do not deliver the same thing: always ask for the deliverable. Checked on 16 October 2026."
+    },
+    {
+      "q": "How much does AI support cost for an SMB?",
+      "a": "It depends on the form. At Waimia, prices are public: free audit, 10-hour scoping sprint at €{{prix.sprint.en}} excl. VAT, pilot from €{{prix.pilote.en}} excl. VAT, time-and-materials at €{{prix.horaire}} excl. VAT an hour. Another provider announces SMB packages \"around a few tens of thousands of euros\" for a diagnostic plus an initial rollout: compare the number of hours, the deliverable and the cap, not the label."
+    },
+    {
+      "q": "What is the difference between advice and support?",
+      "a": "Advice stops at the decision: snapshot, roadmap, usage rules. Support goes further: steering the chosen projects with regular committees, change management and upskilling of teams. It is estimated in hours, validated by you, then billed on a time-and-materials basis; technical implementation falls under integration."
+    },
+    {
+      "q": "Can AI support be funded?",
+      "a": "Partly, depending on your situation. Bpifrance subsidises 40% of an 8-day diagnostic by an approved expert (Diag Data IA), leaving 6,000 euros excl. VAT to pay on a 10,000 euro quote, for independent SMEs and mid-caps of 10 to 2,000 FTEs with at least 1,000,000 euros in revenue. Training may be covered by an OPCO. The aid guide details the rest."
+    },
+    {
+      "q": "Do you need to train your teams?",
+      "a": "If they must use the system every day, yes: a system nobody knows how to evolve stays with the provider. Training is a service distinct from the audit, described on the training page. It is built on your own processes, and funding may be available depending on your situation."
+    },
+    {
+      "q": "How do you know when to stop?",
+      "a": "At each stage, a decision written in advance. After the audit: is there a project and is it the right time? After the sprint: does the prototype hold? After the pilot: is the gain real, measured before and after? On time-and-materials and maintenance, you stop whenever you want, with no commitment period."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "kicker_fr": "§ Guide",
+      "kicker_en": "§ Guide",
+      "h1_fr": "<i class=\"acc\">Accompagnement IA</i> en PME : quelle forme choisir, et où s'arrêter",
+      "h1_en": "<i class=\"acc\">AI support</i> for SMBs: which form to choose, and where to stop",
+      "lede_fr": "Un accompagnement IA est une aide extérieure pour décider (audit), construire (sprint de cadrage, puis pilote), former les équipes ou faire évoluer ce qui tourne (régie, maintenance). Choisissez selon ce qui vous manque, commencez par la forme la plus courte, et fixez où vous vous arrêtez avant de signer. Sources relevées le 16 octobre 2026.",
+      "lede_en": "AI support is outside help to decide (audit), build (scoping sprint, then pilot), train teams or evolve what is running (time-and-materials, maintenance). Choose according to what you lack, start with the shortest form, and set where you stop before signing. Sources checked on 16 October 2026.",
+      "badges": [
+        {
+          "label_fr": "Prix Waimia publics, page Tarifs",
+          "label_en": "Waimia prices are public, Pricing page"
+        },
+        {
+          "label_fr": "Aides : voir le guide dédié",
+          "label_en": "Funding: see the dedicated guide"
+        },
+        {
+          "label_fr": "Sources relevées le 16 octobre 2026",
+          "label_en": "Sources checked on 16 October 2026"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver l'audit gratuit",
+        "label_en": "Book the free audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Voir comment se passe l'audit",
+        "label_en": "See how the audit works",
+        "href": "/audit-ia-pme",
+        "variant": "ghost"
+      }
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "16 octobre 2026",
+      "updatedDate": "16 octobre 2026"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "Quelle forme d'accompagnement IA choisir pour une PME ?",
+      "question_en": "Which form of AI support should an SMB choose?",
+      "term_fr": "Réponse courte",
+      "term_en": "Short answer",
+      "answer_fr": "Cela dépend de ce qui vous manque. Une décision : un audit, puis du conseil si besoin. Un système qui tourne : un sprint de cadrage, puis un pilote. Une équipe capable : une formation. Un système à faire évoluer : une régie. Chez Waimia, l'audit de 45 minutes est gratuit, le sprint de 10 heures coûte {{prix.sprint}} € HT, le pilote démarre à {{prix.pilote}} € HT, la régie est à {{prix.horaire}} € HT de l'heure.",
+      "answer_en": "It depends on what you lack. A decision: an audit, then advice if needed. A working system: a scoping sprint, then a pilot. A capable team: training. A system to evolve: time-and-materials. At Waimia, the 45-minute audit is free, the 10-hour sprint costs €{{prix.sprint.en}} excl. VAT, the pilot starts at €{{prix.pilote.en}} excl. VAT, time-and-materials is €{{prix.horaire}} excl. VAT an hour."
+    },
+    {
+      "type": "key-metric-grid",
+      "background": "paper",
+      "variant": "accent",
+      "columns": 4,
+      "eyebrow_fr": "§ Les repères",
+      "eyebrow_en": "§ Key figures",
+      "title_fr": "Quels repères retenir avant de demander un devis ?",
+      "title_en": "Which figures should you keep in mind before asking for a quote?",
+      "metrics": [
+        {
+          "value": "0 €",
+          "label_fr": "l'audit IA de 45 minutes, en visio : une cartographie écrite, un ou deux chantiers classés et un avis net sur la suite, que l'on travaille ensemble ou non.",
+          "label_en": "the 45-minute AI audit, by video: a written map, one or two ranked projects and a clear opinion on what next, whether or not we work together."
+        },
+        {
+          "value": "10 h",
+          "label_fr": "le sprint de cadrage, {{prix.sprint}} € HT à prix fixe : il livre un prototype testé, pas une mise en production.",
+          "label_en": "the scoping sprint, €{{prix.sprint.en}} excl. VAT at a fixed price: it delivers a tested prototype, not a go-live."
+        },
+        {
+          "value": "dès {{prix.pilote}} €",
+          "label_fr": "HT, le pilote : un premier système en production sur un périmètre réduit, avec une mesure avant et après.",
+          "label_en": "excl. VAT, the pilot: a first system in production on a reduced scope, with a before-and-after measurement."
+        },
+        {
+          "value": "{{prix.horaire}} €/h",
+          "label_fr": "HT en régie, non dégressif, sur un temps estimé avec vous et validé avant exécution.",
+          "label_en": "excl. VAT on time-and-materials, not degressive, on a time estimated with you and validated before execution."
+        }
+      ]
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Les formes",
+      "kicker_en": "§ The forms",
+      "heading_fr": "Quelles formes d'accompagnement IA existe-t-il, et où s'arrêter ?",
+      "heading_en": "Which forms of AI support exist, and where should you stop?",
+      "caption_fr": "Barème et livrables : pages Tarifs, audit IA et consultant IA de Waimia, relues le 16 octobre 2026. Le mot « accompagnement » recouvre ces sept prestations : demandez toujours le livrable.",
+      "caption_en": "Prices and deliverables: Waimia's Pricing, AI audit and AI consultant pages, reread on 16 October 2026. The word \"support\" covers these seven services: always ask for the deliverable.",
+      "columns_fr": [
+        "Forme",
+        "Ce que vous recevez",
+        "Quand la choisir",
+        "Où vous arrêter"
+      ],
+      "columns_en": [
+        "Form",
+        "What you receive",
+        "When to choose it",
+        "Where to stop"
+      ],
+      "rows_fr": [
+        [
+          "Audit (gratuit, 45 minutes)",
+          "Une cartographie écrite envoyée par e-mail et un ou deux chantiers classés, avec ce qui est écarté.",
+          "Vous avez plusieurs idées d'usage de l'IA et vous ne savez pas laquelle traiter en premier.",
+          "Si rien ne mérite d'être automatisé, ou si ce n'est pas le moment, l'audit le dit et s'arrête là."
+        ],
+        [
+          "Conseil (consultant IA)",
+          "État des lieux par équipe, cas d'usage chiffrés, feuille de route de trois chantiers au plus, règles d'usage.",
+          "La question est une décision à défendre, sur plusieurs services.",
+          "Le conseil s'arrête à la décision : la construction est chiffrée à part."
+        ],
+        [
+          "Sprint de cadrage (10 heures)",
+          "Périmètre, données, outils à brancher, risques, et un prototype testé. Prix fixe : {{prix.sprint}} € HT.",
+          "Le périmètre n'est pas clair, ou vous voulez voir un prototype avant de financer la suite.",
+          "À la fin du sprint : le prototype tient ou non. Rien n'est mis en production."
+        ],
+        [
+          "Pilote",
+          "Un premier système en production sur un périmètre réduit, une mesure avant et après, puis le code et la documentation remis à vos équipes. Dès {{prix.pilote}} € HT.",
+          "Le prototype a fait ses preuves.",
+          "Après la mesure, avant de passer au chantier suivant."
+        ],
+        [
+          "Accompagnement en régie",
+          "Pilotage des chantiers retenus avec des comités réguliers, conduite du changement, montée en compétence. Heures estimées avec vous, validées avant exécution, à {{prix.horaire}} € HT.",
+          "Plusieurs chantiers à tenir ensemble, avec des équipes à embarquer.",
+          "Quand vous le décidez : les heures sont estimées et validées avant exécution."
+        ],
+        [
+          "Formation",
+          "Vos équipes formées à l'IA et à l'automatisation à partir de vos propres processus (page formations).",
+          "Les équipes doivent s'en servir et le faire évoluer. Elle ne fait pas partie de l'audit.",
+          "Quand le référent sait faire évoluer le système. Prise en charge possible selon votre situation."
+        ],
+        [
+          "Maintenance",
+          "Un forfait mensuel pour garder en état de marche un système en production (trois paliers sur la page Tarifs).",
+          "Un système tourne et doit être surveillé.",
+          "Sans engagement de durée : vous arrêtez quand vous voulez."
+        ]
+      ],
+      "rows_en": [
+        [
+          "Audit (free, 45 minutes)",
+          "A written map sent by email and one or two ranked projects, with what is set aside.",
+          "You have several ideas for using AI and do not know which to handle first.",
+          "If nothing deserves automating, or it is not the right time, the audit says so and stops there."
+        ],
+        [
+          "Advice (AI consultant)",
+          "A snapshot by team, costed use cases, a roadmap of three projects at most, usage rules.",
+          "The question is a decision to defend, across several departments.",
+          "Advice stops at the decision: the build is quoted separately."
+        ],
+        [
+          "Scoping sprint (10 hours)",
+          "Scope, data, tools to connect, risks, and a tested prototype. Fixed price: €{{prix.sprint.en}} excl. VAT.",
+          "The scope is unclear, or you want to see a prototype before funding what follows.",
+          "At the end of the sprint: the prototype holds or it does not. Nothing goes live."
+        ],
+        [
+          "Pilot",
+          "A first system in production on a reduced scope, a before-and-after measurement, then the code and documentation handed to your teams. From €{{prix.pilote.en}} excl. VAT.",
+          "The prototype has proved itself.",
+          "After the measurement, before moving on to the next project."
+        ],
+        [
+          "Support on time-and-materials",
+          "Steering of the chosen projects with regular committees, change management, upskilling. Hours estimated with you, validated before execution, at €{{prix.horaire}} excl. VAT.",
+          "Several projects to hold together, with teams to bring on board.",
+          "Whenever you decide: hours are estimated and validated before execution."
+        ],
+        [
+          "Training",
+          "Your teams trained in AI and automation on your own processes (training page).",
+          "Teams must use it and evolve it. It is not part of the audit.",
+          "When the lead person can evolve the system. Funding may be available depending on your situation."
+        ],
+        [
+          "Maintenance",
+          "A monthly fee to keep a system in production in working order (three tiers on the Pricing page).",
+          "A system is running and must be watched.",
+          "No commitment period: you stop whenever you want."
+        ]
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Comment choisir la forme qui vous convient ?</h2>\n<p>Posez d'abord la question de fond : qu'achetez-vous ? Il n'existe que trois achats : une décision, un système qui tourne, une équipe capable. Ils ne demandent pas le même accompagnement. Écrivez votre besoin en une phrase avant d'appeler qui que ce soit. Si vous n'y arrivez pas, c'est le signal que vous avez besoin du premier, une décision.</p>\n<p>Ce guide traite du choix de la forme. Le choix du prestataire, avec une grille de huit critères dont trois éliminatoires, est dans <a href=\"/ressources/guides/choisir-agence-ia-pme\">choisir une agence IA en PME</a>. Le détail du budget est dans <a href=\"/ressources/guides/cout-projet-ia-pme\">le coût d'un projet IA</a>.</p>",
+      "html_en": "<h2>How do you choose the form that suits you?</h2>\n<p>Start with the underlying question: what are you buying? There are only three purchases: a decision, a working system, a capable team. They do not call for the same support. Write your need in one sentence before calling anyone. If you cannot, that is the sign you need the first one, a decision.</p>\n<p>This guide deals with choosing the form. Choosing the provider, with a grid of eight criteria of which three are eliminatory, is in <a href=\"/ressources/guides/choisir-agence-ia-pme\">choosing an AI agency for an SMB</a>. The budget detail is in <a href=\"/ressources/guides/cout-projet-ia-pme\">the cost of an AI project</a>.</p>"
+    },
+    {
+      "type": "decision-list",
+      "background": "paper-2",
+      "kicker_fr": "§ Les critères",
+      "kicker_en": "§ The criteria",
+      "heading_fr": "Six questions pour choisir la forme d'accompagnement",
+      "heading_en": "Six questions to choose the form of support",
+      "items": [
+        {
+          "label_fr": "Que vous manque-t-il : une décision, un système qui tourne ou une équipe capable ? Une seule réponse.",
+          "label_en": "What are you missing: a decision, a working system or a capable team? One answer only."
+        },
+        {
+          "label_fr": "Y a-t-il un outil à connecter et des données clients ? Si oui, comptez un sprint puis un pilote. Sinon, un audit ou une formation peut suffire.",
+          "label_en": "Is there a tool to connect and customer data? If so, count on a sprint then a pilot. If not, an audit or training may be enough."
+        },
+        {
+          "label_fr": "Qui sera le référent chez vous, par chantier ? Sans responsable ni date, une feuille de route reste dans un tiroir.",
+          "label_en": "Who will be the lead person on your side, for each project? Without an owner or a date, a roadmap stays in a drawer."
+        },
+        {
+          "label_fr": "Combien de chantiers ? Trois au plus, les autres écartés par écrit avec leur raison.",
+          "label_en": "How many projects? Three at most, the others set aside in writing with the reason."
+        },
+        {
+          "label_fr": "Le livrable est-il utilisable sans le prestataire ? La cartographie de l'audit est écrite pour être confiée à votre équipe ou à un autre prestataire.",
+          "label_en": "Can the deliverable be used without the provider? The audit's map is written to be handed to your team or to another provider."
+        },
+        {
+          "label_fr": "Que coûte le premier pas, et que livre-t-il ? Comparez le nombre d'heures, le livrable et le plafond, pas l'étiquette.",
+          "label_en": "What does the first step cost, and what does it deliver? Compare the number of hours, the deliverable and the cap, not the label."
+        }
+      ]
+    },
+    {
+      "type": "tech-when-dual",
+      "background": "paper",
+      "kicker_fr": "§ Qui fait quoi",
+      "kicker_en": "§ Who does what",
+      "title_fr": "Que confier à un prestataire, et que garder chez vous ?",
+      "title_en": "What should you hand to a provider, and what should you keep in-house?",
+      "aside_fr": "Quelle que soit la forme choisie, la propriété ne se sous-traite pas : comptes, accès, règles et procédures écrites restent à votre nom.",
+      "aside_en": "Whatever form you choose, ownership is not outsourced: accounts, access, rules and written procedures stay in your name.",
+      "use_title_fr": "À confier à un prestataire",
+      "use_title_en": "To hand to a provider",
+      "use_items_fr": [
+        "Le cadrage : périmètre, données, outils à brancher, risques",
+        "Les connecteurs vers vos logiciels et le premier agent ou la première automatisation",
+        "La documentation, et le code remis à vos équipes à la fin",
+        "Un travail ponctuel qu'une équipe interne mettrait longtemps à apprendre pour ne s'en servir qu'une fois"
+      ],
+      "use_items_en": [
+        "Scoping: scope, data, tools to connect, risks",
+        "Connectors to your software and the first agent or automation",
+        "Documentation, and the code handed to your teams at the end",
+        "One-off work that an in-house team would take long to learn only to use it once"
+      ],
+      "avoid_title_fr": "À garder chez vous",
+      "avoid_title_en": "To keep in-house",
+      "avoid_items_fr": [
+        "Les comptes, les accès et les règles écrites, à votre nom",
+        "Un référent par chantier, qui apprend à faire évoluer le système",
+        "La relecture des résultats : ce qui change tous les jours et touche vos données",
+        "La décision de passer à l'étape suivante, prise sur une mesure"
+      ],
+      "avoid_items_en": [
+        "Accounts, access and written rules, in your name",
+        "A lead person per project, who learns to evolve the system",
+        "Reviewing the results: what changes every day and touches your data",
+        "The decision to move to the next stage, taken on a measurement"
+      ]
+    },
+    {
+      "type": "process-steps",
+      "background": "paper-2",
+      "kicker_fr": "§ Le parcours",
+      "kicker_en": "§ The path",
+      "h2_fr": "Comment se déroule un parcours, étape par étape ?",
+      "h2_en": "How does a path unfold, step by step?",
+      "intro_fr": "Méthode publiée sur la page de l'audit : audit, puis, si un chantier se dégage, un devis, un pilote mis en production sur un périmètre réduit, une mesure avant et après, et le transfert du code et de la documentation. La formation se place où vos équipes en ont besoin. À chaque étape, une décision.",
+      "intro_en": "Method published on the audit page: audit, then, if a project emerges, a quote, a pilot put into production on a reduced scope, a before-and-after measurement, and the handover of code and documentation. Training goes where your teams need it. At each stage, a decision.",
+      "steps": [
+        {
+          "title_fr": "Audit de 45 minutes",
+          "title_en": "45-minute audit",
+          "body_fr": "Contexte et outils (10 minutes), deux ou trois process déroulés tâche par tâche (20 minutes), le tri (10 minutes), le premier chantier et la suite (5 minutes).",
+          "body_en": "Context and tools (10 minutes), two or three processes walked through task by task (20 minutes), the sorting (10 minutes), the first project and what next (5 minutes).",
+          "meta_fr": "Décision : y a-t-il un chantier, et est-ce le moment ?",
+          "meta_en": "Decision: is there a project, and is it the right time?"
+        },
+        {
+          "title_fr": "Cadrage : sprint de 10 heures",
+          "title_en": "Scoping: 10-hour sprint",
+          "body_fr": "Périmètre, données, outils à brancher, risques, et un prototype testé. Prix fixe de {{prix.sprint}} € HT. Rien n'est mis en production.",
+          "body_en": "Scope, data, tools to connect, risks, and a tested prototype. Fixed price of €{{prix.sprint.en}} excl. VAT. Nothing goes live.",
+          "meta_fr": "Décision : le prototype tient-il ?",
+          "meta_en": "Decision: does the prototype hold?"
+        },
+        {
+          "title_fr": "Pilote en production",
+          "title_en": "Pilot in production",
+          "body_fr": "Un premier système en production sur un périmètre réduit, branché à vos outils, avec une mesure avant et après. Dès {{prix.pilote}} € HT.",
+          "body_en": "A first system in production on a reduced scope, connected to your tools, with a before-and-after measurement. From €{{prix.pilote.en}} excl. VAT.",
+          "meta_fr": "Décision : le gain est-il réel ?",
+          "meta_en": "Decision: is the gain real?"
+        },
+        {
+          "title_fr": "Transfert",
+          "title_en": "Handover",
+          "body_fr": "Le code et la documentation remis à vos équipes, un référent qui apprend à faire évoluer le système.",
+          "body_en": "The code and documentation handed to your teams, a lead person who learns to evolve the system.",
+          "meta_fr": "Décision : qui fait évoluer, vous ou nous ?",
+          "meta_en": "Decision: who evolves it, you or us?"
+        },
+        {
+          "title_fr": "Régie ou maintenance, si vous le voulez",
+          "title_en": "Time-and-materials or maintenance, if you want it",
+          "body_fr": "Des heures estimées avec vous et validées avant exécution, à {{prix.horaire}} € HT, ou un forfait mensuel de maintenance. Sans engagement de durée.",
+          "body_en": "Hours estimated with you and validated before execution, at €{{prix.horaire}} excl. VAT, or a monthly maintenance fee. No commitment period.",
+          "meta_fr": "Décision : on continue ce mois-ci ?",
+          "meta_en": "Decision: do we continue this month?"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Quand vaut-il mieux ne pas se faire accompagner ?</h2>\n<p>Trois cas où le mieux est de faire seul ou d'attendre :</p>\n<ul>\n<li><strong>Le besoin est simple.</strong> Moins de dix personnes, de la rédaction et de la synthèse, aucune donnée sensible, aucun connecteur métier : le <a href=\"/ressources/guides/claude-pme\">guide Claude en PME</a> et la checklist des 90 jours suffisent.</li>\n<li><strong>Rien n'est encore répétitif.</strong> Sous cinq personnes, sans tâche qui revienne, il n'y a pas assez de volume pour qu'une automatisation se justifie.</li>\n<li><strong>Le cahier des charges est déjà écrit.</strong> Envoyez-le directement : on gagne une étape.</li>\n</ul>\n<p>L'audit n'est pas non plus un audit de conformité RGPD ou AI Act, ni de sécurité. Pour comparer les voies (faire seul, se faire accompagner, faire faire), le guide Claude en PME les détaille.</p>",
+      "html_en": "<h2>When is it better not to get support?</h2>\n<p>Three cases where the best move is to do it alone or wait:</p>\n<ul>\n<li><strong>The need is simple.</strong> Fewer than ten people, writing and summarising, no sensitive data, no business connector: the <a href=\"/ressources/guides/claude-pme\">Claude for SMBs guide</a> and the 90-day checklist are enough.</li>\n<li><strong>Nothing is repetitive yet.</strong> Under five people, with no recurring task, there is not enough volume to justify automation.</li>\n<li><strong>The specification is already written.</strong> Send it directly: it saves a step.</li>\n</ul>\n<p>The audit is also not a GDPR or AI Act compliance audit, nor a security audit. To compare the routes (do it alone, get support, have it done), the Claude for SMBs guide details them.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Quelles aides, et que penser des fourchettes de prix ?</h2>\n<p>Les prix de Waimia sont publics sur la page <a href=\"/tarifs\">Tarifs</a>. Pour les aides, le guide <a href=\"/ressources/guides/aides-financement-projet-ia\">aides et financements d'un projet IA</a> détaille ce qui existe. La plus proche d'un accompagnement est le Diag Data IA de Bpifrance, que la page de l'organisme décrit ainsi : 8 jours d'intervention d'un expert en data science et IA agréé par Bpifrance, répartis sur 3 mois au plus, pour un état des lieux, des cas d'usage priorisés et une feuille de route.</p>\n<p>Le devis est plafonné à 10 000 € HT, avec 40 % de subvention : 6 000 € HT à votre charge. Conditions lues sur la page : PME ou ETI indépendante de 10 à 2 000 ETP, au moins 1 000 000 € de chiffre d'affaires sur un bilan de 12 mois, plus d'un an d'existence. L'expert est choisi parmi les experts agréés : ce n'est pas forcément le prestataire qui construira ensuite. Une formation peut, elle, se financer par un OPCO : voir le <a href=\"/ressources/guides/financement-formation-ia-opco\">guide OPCO</a>.</p>\n<p>Un prestataire bien classé sur cette requête écrit que, pour une PME, les forfaits démarrent « généralement autour de quelques dizaines de milliers d'euros » pour un diagnostic et un déploiement initial (page lue le 16 octobre 2026). Ce n'est ni un tarif vérifié ni une norme. Ce qui compte est votre périmètre : combien d'heures, quel livrable, quel plafond.</p>",
+      "html_en": "<h2>Which aid exists, and what to make of price ranges?</h2>\n<p>Waimia's prices are public on the <a href=\"/tarifs\">Pricing</a> page. For aid, the <a href=\"/ressources/guides/aides-financement-projet-ia\">aid and funding for an AI project</a> guide details what exists. The closest to support is Bpifrance's Diag Data IA, which the organisation's page describes as follows: 8 days of work by a data science and AI expert approved by Bpifrance, spread over 3 months at most, for a snapshot, prioritised use cases and a roadmap.</p>\n<p>The quote is capped at 10,000 euros excl. VAT, with a 40% subsidy: 6,000 euros excl. VAT left to you. Conditions read on the page: an independent SME or mid-cap of 10 to 2,000 FTEs, at least 1,000,000 euros in revenue over a 12-month balance sheet, more than one year of existence.</p>\n<p>The expert is chosen among approved experts: not necessarily the provider who will build afterwards. Training, for its part, can be funded by an OPCO: see the <a href=\"/ressources/guides/financement-formation-ia-opco\">OPCO guide</a>.</p>\n<p>A provider well ranked on this query writes that, for an SMB, packages \"generally start around a few tens of thousands of euros\" for a diagnostic and an initial rollout (page read on 16 October 2026). This is neither a verified price nor a standard. What matters is your scope: how many hours, what deliverable, what cap.</p>"
+    },
+    {
+      "type": "lead-capture-band",
+      "lead_magnet": "diagnostic-maturite-ia",
+      "background": "ink",
+      "anchor_id": "diagnostic-maturite"
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Further reading",
+      "cards": [
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Choisir une agence IA en PME : le guide honnête",
+          "title_en": "Choosing an AI agency for an SMB: the honest guide",
+          "lead_fr": "La grille de huit critères pour choisir le prestataire, une fois la forme d'accompagnement décidée.",
+          "lead_en": "The grid of eight criteria for choosing the provider, once the form of support is decided.",
+          "href": "/ressources/guides/choisir-agence-ia-pme"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Aides et financements d'un projet IA en PME",
+          "title_en": "Aid and funding for an AI project in an SMB",
+          "lead_fr": "Diag Data IA, Prêt Boost IA, aides régionales et limites du crédit d'impôt innovation.",
+          "lead_en": "Diag Data IA, Prêt Boost IA, regional aid and the limits of the innovation tax credit.",
+          "href": "/ressources/guides/aides-financement-projet-ia"
+        },
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Consultant IA indépendant pour PME",
+          "title_en": "Independent AI consultant for SMBs",
+          "lead_fr": "État des lieux, cas d'usage chiffrés, feuille de route et règles d'usage, avant toute construction.",
+          "lead_en": "Snapshot, costed use cases, roadmap and usage rules, before any build.",
+          "href": "/services/consultant-ia-claude"
+        }
+      ]
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper-2",
+      "h2_fr": "Accompagnement IA en PME : questions fréquentes",
+      "h2_en": "AI support for SMBs: frequently asked questions",
+      "items": [
+        {
+          "q_fr": "Qu'est-ce qu'un accompagnement IA ?",
+          "a_fr": "Une aide extérieure à une entreprise qui veut utiliser l'IA : elle aide à décider (audit, conseil), à construire (sprint de cadrage, pilote), à former les équipes ou à faire évoluer ce qui tourne (régie, maintenance). Le mot recouvre plusieurs prestations qui ne livrent pas la même chose : demandez toujours le livrable. Relevé le 16 octobre 2026.",
+          "q_en": "What is AI support?",
+          "a_en": "Outside help for a company that wants to use AI: it helps to decide (audit, advice), to build (scoping sprint, pilot), to train teams or to evolve what is running (time-and-materials, maintenance). The word covers several services that do not deliver the same thing: always ask for the deliverable. Checked on 16 October 2026."
+        },
+        {
+          "q_fr": "Combien coûte un accompagnement IA en PME ?",
+          "a_fr": "Cela dépend de la forme. Chez Waimia, les prix sont publics : audit gratuit, sprint de cadrage de 10 heures à {{prix.sprint}} € HT, pilote dès {{prix.pilote}} € HT, régie à {{prix.horaire}} € HT de l'heure. Un autre prestataire annonce des forfaits PME « autour de quelques dizaines de milliers d'euros » pour un diagnostic plus un déploiement initial : comparez le nombre d'heures, le livrable et le plafond, pas l'étiquette.",
+          "q_en": "How much does AI support cost for an SMB?",
+          "a_en": "It depends on the form. At Waimia, prices are public: free audit, 10-hour scoping sprint at €{{prix.sprint.en}} excl. VAT, pilot from €{{prix.pilote.en}} excl. VAT, time-and-materials at €{{prix.horaire}} excl. VAT an hour. Another provider announces SMB packages \"around a few tens of thousands of euros\" for a diagnostic plus an initial rollout: compare the number of hours, the deliverable and the cap, not the label."
+        },
+        {
+          "q_fr": "Quelle différence entre conseil et accompagnement ?",
+          "a_fr": "Le conseil s'arrête à la décision : état des lieux, feuille de route, règles d'usage. L'accompagnement va plus loin : pilotage des chantiers retenus avec des comités réguliers, conduite du changement et montée en compétence des équipes. Il est estimé en heures, validé par vous, puis facturé en régie ; la mise en œuvre technique relève de l'intégration.",
+          "q_en": "What is the difference between advice and support?",
+          "a_en": "Advice stops at the decision: snapshot, roadmap, usage rules. Support goes further: steering the chosen projects with regular committees, change management and upskilling of teams. It is estimated in hours, validated by you, then billed on a time-and-materials basis; technical implementation falls under integration."
+        },
+        {
+          "q_fr": "Un accompagnement IA peut-il être financé ?",
+          "a_fr": "Une partie, selon votre situation. Bpifrance subventionne à 40 % un diagnostic de 8 jours d'expert agréé (Diag Data IA), avec un reste à charge de 6 000 € HT sur un devis de 10 000 € HT, pour les PME et ETI indépendantes de 10 à 2 000 ETP qui réalisent au moins 1 000 000 € de chiffre d'affaires. Une formation peut être prise en charge par un OPCO. Le guide des aides détaille le reste.",
+          "q_en": "Can AI support be funded?",
+          "a_en": "Partly, depending on your situation. Bpifrance subsidises 40% of an 8-day diagnostic by an approved expert (Diag Data IA), leaving 6,000 euros excl. VAT to pay on a 10,000 euro quote, for independent SMEs and mid-caps of 10 to 2,000 FTEs with at least 1,000,000 euros in revenue. Training may be covered by an OPCO. The aid guide details the rest."
+        },
+        {
+          "q_fr": "Faut-il former les équipes ?",
+          "a_fr": "Si elles doivent utiliser le système au quotidien, oui : un système que personne ne sait faire évoluer reste chez le prestataire. La formation est une prestation distincte de l'audit, décrite sur la page formations. Elle se construit sur vos propres processus, et une prise en charge est possible selon votre situation.",
+          "q_en": "Do you need to train your teams?",
+          "a_en": "If they must use the system every day, yes: a system nobody knows how to evolve stays with the provider. Training is a service distinct from the audit, described on the training page. It is built on your own processes, and funding may be available depending on your situation."
+        },
+        {
+          "q_fr": "Comment savoir quand arrêter ?",
+          "a_fr": "À chaque étape, une décision écrite à l'avance. Après l'audit : y a-t-il un chantier et est-ce le moment ? Après le sprint : le prototype tient-il ? Après le pilote : le gain est-il réel, mesuré avant et après ? En régie et en maintenance, vous arrêtez quand vous voulez, sans engagement de durée.",
+          "q_en": "How do you know when to stop?",
+          "a_en": "At each stage, a decision written in advance. After the audit: is there a project and is it the right time? After the sprint: does the prototype hold? After the pilot: is the gain real, measured before and after? On time-and-materials and maintenance, you stop whenever you want, with no commitment period."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Premier pas",
+      "kicker_en": "§ First step",
+      "h2_fr": "Savoir quelle forme vous convient, avant de signer quoi que ce soit.",
+      "h2_en": "Know which form suits you, before signing anything.",
+      "subtitle_fr": "L'audit de 45 minutes est gratuit, en visio. Vous repartez avec une cartographie écrite, un ou deux chantiers classés et un avis net sur la suite, que vous travailliez avec Waimia ou non. Si rien ne mérite d'être automatisé aujourd'hui, on vous le dit.",
+      "subtitle_en": "The 45-minute audit is free, by video. You leave with a written map, one or two ranked projects and a clear opinion on what next, whether or not you work with Waimia. If nothing deserves automating today, we tell you.",
+      "buttons": [
+        {
+          "label_fr": "Réserver l'audit gratuit",
+          "label_en": "Book the free audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Voir le consultant IA",
+          "label_en": "See the AI consultant",
+          "href": "/services/consultant-ia-claude",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}
