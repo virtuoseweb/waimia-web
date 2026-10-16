@@ -48,7 +48,6 @@ test.describe("contact · paramètres d'URL", () => {
 
   test("soumission vide : erreurs par champ, aucun appel réseau", async ({ page }) => {
     let apiCalls = 0;
-    page.on("request", (r) => { if (r.url().includes("/api/contact")) apiCalls++; });
     await page.goto(AUDIT_BOOKING);
     await page.locator("[data-contact-submit]").click();
     await expect(page.locator('form[name="contact"] [aria-invalid="true"]')).toHaveCount(3);
@@ -175,5 +174,60 @@ for (const [path, outil] of PAGES_VERS_OUTIL) {
     const link = page.locator(`main a[href="${outil}"]`).first();
     await link.scrollIntoViewIfNeeded();
     await expect(link).toBeVisible();
+  });
+}
+
+// Envoi unique (16 octobre 2026). Les scripts des formulaires se rejouent à chaque navigation
+// ClientRouter ; un gestionnaire attaché deux fois envoyait la même demande plusieurs fois.
+// Contrat : au chargement direct (boot + premier astro:page-load) comme après deux allers-retours,
+// un triple clic ne fait partir qu'UN seul POST.
+// L'API est interceptée : aucun e-mail réel.
+const FORMULAIRES: Array<[string, string, string]> = [
+  ["/contact", "form[data-contact-form]", "/api/contact"],
+  ["/ressources/outils/grille-audit-site-internet", "main [data-lcb] form[data-lead-form]", "/api/lead-magnet"],
+  ["/conformite-ia", "footer form[data-nl-form]", "/api/newsletter"],
+];
+for (const [path, selector, endpoint] of FORMULAIRES) for (const allersRetours of [0, 2]) {
+  test(`envoi unique (${allersRetours} aller-retour) : ${path}`, async ({ page }) => {
+    test.setTimeout(60_000);
+    const posts: string[] = [];
+    const origin = new URL(page.url() === "about:blank" ? process.env.PLAYWRIGHT_BASE_URL ?? "http://localhost:4321" : page.url()).origin;
+    await page.route((url) => url.origin === origin && url.pathname.startsWith("/api/"), (route) => {
+      if (route.request().method() === "POST") posts.push(new URL(route.request().url()).pathname);
+      return route.fulfill({ status: 200, contentType: "application/json", body: '{"ok":true}' });
+    });
+    await page.goto(path);
+    const refuser = page.getByRole("button", { name: /refuser/i });
+    if (await refuser.isVisible()) await refuser.click();
+    // Attendre la fin de chaque échange de page (ClientRouter), pas seulement le changement d'URL.
+    const pageLoad = () =>
+      page.evaluate(() => new Promise<void>((resolve) => document.addEventListener("astro:page-load", () => resolve(), { once: true })));
+    for (let i = 0; i < allersRetours; i++) {
+      let loaded = pageLoad();
+      await page.locator('header a[href="/"]').first().click();
+      await loaded;
+      loaded = pageLoad();
+      await page.goBack();
+      await loaded;
+    }
+    expect(new URL(page.url()).pathname).toBe(path);
+    const form = page.locator(selector).first();
+    await form.scrollIntoViewIfNeeded();
+    for (const field of await form.locator("input:visible:not([name=website]), textarea:visible, select:visible").all()) {
+      const type = (await field.getAttribute("type")) ?? (await field.evaluate((e) => e.tagName.toLowerCase()));
+      if (type === "email") await field.fill("test@example.com");
+      else if (type === "checkbox" || type === "radio") await field.check({ force: true }).catch(() => {});
+      else if (type === "select") {
+        const value = await field.locator("option").nth(1).getAttribute("value");
+        if (value !== null) await field.selectOption(value);
+      } else if (type === "textarea") await field.fill("Message de test automatisé.");
+      else if (!["hidden", "submit"].includes(type)) await field.fill(type === "tel" ? "0600000000" : "Test");
+    }
+    const submit = form.locator('button[type="submit"], button:not([type])').last();
+    await submit.dblclick();
+    await submit.click({ timeout: 1_000 }).catch(() => {});
+    await expect.poll(() => posts.length).toBeGreaterThan(0);
+    await page.waitForTimeout(1000);
+    expect(posts).toEqual([endpoint]);
   });
 }
