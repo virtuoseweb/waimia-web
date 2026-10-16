@@ -37,6 +37,14 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### Mesure de référence, 16 octobre 2026 (Search Console lue dans la console, Web Analytics)
+
+- **Search Console, 28 jours (16 septembre au 13 octobre)** : 8 clics, 1 540 impressions, CTR 0,5 %, position moyenne 29,9. Les requêtes à impressions (« agence n8n », « agence ia pme », villes) sont en position 36 à 89 : le levier est la position, pas le titre.
+- **En page 1 ou 2 sans clic** (cibles CTR) : « roi ia » 6,6 (`/ressources/outils/calculateur-roi-ia`), « diagnostic claude pme » 8,6 (`/ressources/guides/claude-pme`), « cabinet conseil ia pme » 6,2 et « prix consultant ia » 1,0 (`/services/consultant-ia-claude`), « chatgpt vs claude » 8,0 (`/ressources/comparatifs/claude-vs-chatgpt-pme`). Leurs titles ont été réécrits du 13 au 16 octobre, après la fenêtre mesurée : **ne pas les retoucher avant la relecture**.
+- **Relecture** : à partir du 27 octobre (deux semaines de données sur les nouveaux titles), même lecture : CTR de ces quatre pages, clics totaux, position moyenne. Décision alors : garder ou réécrire.
+- **Web Analytics, 16 octobre** : 5 visiteurs, 24 pages vues, sans référent ; 4 visiteurs ont vu une 404. Aucune URL connue de Search Console ne renvoie 404 (83 contrôlées, anciennes URL en 301) : origine non identifiée, à suivre.
+- **Limite** : la collecte automatique Search Console est arrêtée (clé dans les secrets GitHub, Actions bloquées par la facturation).
+
 ### Contenu W45, 16 octobre 2026 (PR #112)
 
 - **Articles** : `application-metier-exemples-pme` (satellite de `/services/applications-internes`, qui garde « application métier », 1 300 recherches mensuelles, et du guide refonte de logiciel métier) et `claude-cowork-windows` (satellite du guide Claude Cowork ; « claude cowork windows », 590 recherches mensuelles, basculée sur le billet). Illustrés, au maillage.
