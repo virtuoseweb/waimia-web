@@ -1,13 +1,13 @@
 {
   "$schema": "../../schemas/generated/services.page.schema.json",
-  "title_fr": "Devis automatisé et relances clients · Waimia",
-  "seoTitle_fr": "Devis automatisé, relances : 1re séquence en 2 à 4 semaines",
-  "title_en": "Automated quotes and customer follow-ups · Waimia",
-  "description_fr": "Devis automatisé et relances clients pour PME : devis pré-rempli depuis le CRM, relances déclenchées à date, un suivi pour chaque devis envoyé. Dès {{prix.sprint}} € HT.",
-  "description_en": "Automated quotes and client follow-ups for SMBs: quote pre-filled from the CRM, follow-ups on schedule, every quote followed. From €{{prix.sprint.en}} excl. VAT.",
+  "title_fr": "Relance automatisée des devis et des factures · Waimia",
+  "seoTitle_fr": "Relance automatisée de devis et factures : étapes et pièges",
+  "title_en": "Automated follow-ups for quotes and invoices · Waimia",
+  "description_fr": "Relance automatisée des devis et des factures : l'ordre des vérifications avant chaque envoi, ce qui casse, un scénario illustratif. Dès {{prix.sprint}} € HT.",
+  "description_en": "Automated follow-ups for quotes and invoices: the order of checks before each send, what breaks, an illustrative scenario. From €{{prix.sprint.en}} excl. VAT.",
   "slug": "sequences-de-suivi",
   "publishedAt": "2026-07-13T00:00:00.000Z",
-  "updatedAt": "2026-10-06T00:00:00.000Z",
+  "updatedAt": "2026-10-16T00:00:00.000Z",
   "category": "commercial",
   "tags": [
     "sequences-de-suivi",
@@ -18,14 +18,14 @@
   ],
   "seo": {
     "noindex": false,
-    "serviceType": "Devis automatisé, relances de devis et de factures impayées",
+    "serviceType": "Relance automatisée de devis et de factures impayées",
     "priceRange": "dès {{prix.sprint}} €",
     "priceMin": 999
   },
   "faq_fr": [
     {
       "q": "Combien coûte l'automatisation des devis et des relances ?",
-      "a": "Le sprint de cadrage est à {{prix.sprint}} € HT pour 10 heures : une première séquence de relance en service sur vos devis en attente. La génération automatique des devis et les séquences suivantes sont estimées en heures, puis facturées {{prix.horaire}} € HT de l'heure."
+      "a": "Le sprint de cadrage est à {{prix.sprint}} € HT pour 10 heures : une première séquence de relance prototypée et testée sur vos devis en attente. La mise en production relève du pilote, dès {{prix.pilote}} € HT. La génération automatique des devis et les séquences suivantes sont estimées en heures, puis facturées {{prix.horaire}} € HT de l'heure."
     },
     {
       "q": "Comment relancer un devis sans réponse ?",
@@ -37,7 +37,7 @@
     },
     {
       "q": "Combien de temps pour mettre en place des relances automatiques ?",
-      "a": "Habituellement 2 à 4 semaines pour une première séquence. La génération automatique du devis prend plus de temps si votre grille tarifaire comporte beaucoup de cas particuliers."
+      "a": "Habituellement 2 à 4 semaines pour une première séquence prototypée et testée. La mise en production relève du pilote. La génération automatique du devis prend plus de temps si votre grille tarifaire comporte beaucoup de cas particuliers."
     },
     {
       "q": "Relances automatiques et RGPD : est-ce autorisé ?",
@@ -46,12 +46,20 @@
     {
       "q": "Peut-on aussi relancer les factures impayées ?",
       "a": "Oui, c'est le même mécanisme : une séquence déclenchée par la date d'échéance, arrêtée dès l'encaissement, avec un ton qui se durcit par étapes et une alerte à la comptabilité au dernier palier. Entre professionnels, chaque facture payée en retard ouvre droit à une indemnité forfaitaire de 40 € pour frais de recouvrement (article D441-5 du Code de commerce) : la dernière relance peut la rappeler."
+    },
+    {
+      "q": "Dans quel ordre mettre en place une relance automatisée ?",
+      "a": "Un statut fiable par devis d'abord, puis les conditions d'arrêt et les exclusions, puis les messages, un test à blanc et enfin l'ouverture sur quelques devis avec validation avant chaque envoi. Commencer par les messages est l'erreur courante : ce que le système vérifie avant d'envoyer compte plus que le texte."
+    },
+    {
+      "q": "Que se passe-t-il si le client répond par téléphone ?",
+      "a": "La séquence ne le sait pas, sauf si quelqu'un le lui dit. Le commercial change le statut du devis dans le CRM ou coupe la séquence d'un clic ; la vérification suivante le voit et n'envoie rien. C'est pourquoi le statut doit se mettre à jour là où le commercial travaille déjà."
     }
   ],
   "faq_en": [
     {
       "q": "How much does it cost to automate quotes and follow-ups?",
-      "a": "The scoping sprint is €{{prix.sprint.en}} excl. VAT for 10 hours: a first follow-up sequence live on your pending quotes. Automatic quote generation and further sequences are estimated in hours, then billed €{{prix.horaire}} per hour excl. VAT."
+      "a": "The scoping sprint is €{{prix.sprint.en}} excl. VAT for 10 hours: a first follow-up sequence prototyped and tested on your pending quotes. Going into production is the pilot, from €{{prix.pilote.en}} excl. VAT. Automatic quote generation and further sequences are estimated in hours, then billed €{{prix.horaire}} per hour excl. VAT."
     },
     {
       "q": "How do you follow up on an unanswered quote?",
@@ -63,7 +71,7 @@
     },
     {
       "q": "How long does it take to set up automatic follow-ups?",
-      "a": "Usually 2 to 4 weeks for a first sequence. Automatic quote generation takes longer if your price grid has many special cases."
+      "a": "Usually 2 to 4 weeks for a first sequence prototyped and tested. Going into production is the pilot. Automatic quote generation takes longer if your price grid has many special cases."
     },
     {
       "q": "Automatic follow-ups and GDPR: is it allowed?",
@@ -72,6 +80,14 @@
     {
       "q": "Can unpaid invoices be chased too?",
       "a": "Yes, it is the same mechanism: a sequence triggered by the due date, stopped on payment, with a tone that firms up in stages and an alert to accounting at the last step. Between businesses in France, each invoice paid late entitles you to a flat €40 recovery fee (Commercial Code, article D441-5): the last reminder can mention it."
+    },
+    {
+      "q": "In what order should an automated follow-up be set up?",
+      "a": "A reliable status on each quote first, then the stop conditions and exclusions, then the messages, a dry run and finally opening on a few quotes with approval before each send. Starting with the messages is the common mistake: what the system checks before sending matters more than the text."
+    },
+    {
+      "q": "What happens if the client replies by phone?",
+      "a": "The sequence does not know, unless someone tells it. The salesperson changes the quote status in the CRM or cuts the sequence in one click; the next check sees it and sends nothing. That is why the status must be updated where the salesperson already works."
     }
   ],
   "sections": [
@@ -84,27 +100,27 @@
         "alt_en": "Illustration: next to a large clock, a person slips a letter into a tall mailbox",
         "side": "right"
       },
-      "kicker_fr": "§ Devis automatisé et relances",
-      "kicker_en": "§ Automated quotes and follow-ups",
-      "h1_fr": "<i class=\"acc\">Devis automatisés</i> et relances sans oubli",
-      "h1_en": "<i class=\"acc\">Automated quotes</i> and follow-ups, nothing forgotten",
-      "lede_fr": "Un devis automatisé est généré depuis les informations déjà saisies dans votre CRM, puis suivi de relances à date fixe jusqu'à la réponse du client. Le commercial valide chaque envoi, pour les PME qui envoient des devis chaque semaine.",
-      "lede_en": "An automated quote is generated from the information already entered in your CRM, then followed by reminders on a schedule until the client replies. The salesperson approves every send, for SMBs that send quotes every week.",
+      "kicker_fr": "§ Relance automatisée",
+      "kicker_en": "§ Automated follow-ups",
+      "h1_fr": "<i class=\"acc\">Relance automatisée</i> des devis et des factures",
+      "h1_en": "<i class=\"acc\">Automated follow-ups</i> for quotes and invoices",
+      "lede_fr": "Une relance automatisée envoie un message à une date fixée tant que le client n'a pas répondu, signé ou payé, et s'arrête dès que l'un des trois arrive. Ce qui la rend fiable n'est pas le texte, c'est l'ordre des vérifications avant chaque envoi. Waimia la branche sur votre CRM et votre facturation, et le commercial valide l'envoi.",
+      "lede_en": "An automated follow-up sends a message on a set date as long as the client has not replied, signed or paid, and stops as soon as one of the three happens. What makes it reliable is not the text, it is the order of checks before each send. Waimia wires it to your CRM and invoicing, and the salesperson approves the send.",
       "badges": [
         {
-          "label_fr": "Devis pré-rempli",
-          "label_en": "Pre-filled quote"
+          "label_fr": "Vérifiée avant chaque envoi",
+          "label_en": "Checked before each send"
         },
         {
-          "label_fr": "Relances à date",
-          "label_en": "Scheduled follow-ups"
+          "label_fr": "Arrêt à la réponse",
+          "label_en": "Stops on reply"
         },
         {
           "label_fr": "Validation avant envoi",
           "label_en": "Approval before sending"
         },
         {
-          "label_fr": "Branché au CRM",
+          "label_fr": "Branchée au CRM",
           "label_en": "Wired to the CRM"
         }
       ],
@@ -135,8 +151,8 @@
         },
         {
           "value": "2 à 4 semaines",
-          "label_fr": "délai habituel pour une première séquence de relance en service",
-          "label_en": "usual lead time for a first follow-up sequence to go live",
+          "label_fr": "délai habituel pour une première séquence prototypée et testée",
+          "label_en": "usual lead time for a first follow-up sequence prototyped and tested",
           "emphasis": false
         },
         {
@@ -198,6 +214,276 @@
       ]
     },
     {
+      "type": "process-steps",
+      "background": "paper",
+      "kicker_fr": "§ Ordre de mise en service",
+      "kicker_en": "§ Order of rollout",
+      "h2_fr": "Dans quel ordre mettre une relance en service",
+      "h2_en": "In what order to roll out a follow-up",
+      "intro_fr": "L'erreur courante est de commencer par rédiger les messages. Le texte compte moins que ce que le système vérifie avant de l'envoyer : on le pose en dernier.",
+      "intro_en": "The common mistake is to start by writing the messages. The text matters less than what the system checks before sending it: it comes last.",
+      "steps": [
+        {
+          "title_fr": "Un statut fiable par devis ou facture",
+          "title_en": "A reliable status on each quote or invoice",
+          "body_fr": "Envoyé, en négociation, signé, refusé, payé. Un seul endroit où il se met à jour, celui où travaille le commercial.",
+          "body_en": "Sent, in negotiation, signed, declined, paid. One place where it is updated, the one where the salesperson works.",
+          "meta_fr": "Avant tout message",
+          "meta_en": "Before any message"
+        },
+        {
+          "title_fr": "Les conditions d'arrêt, écrites d'abord",
+          "title_en": "The stop conditions, written first",
+          "body_fr": "Réponse, signature, paiement, refus, litige, demande d'arrêt du client. Chacune coupe la séquence, de n'importe quelle adresse et par n'importe quel canal.",
+          "body_en": "Reply, signature, payment, refusal, dispute, client request to stop. Each one cuts the sequence, from any address and through any channel.",
+          "meta_fr": "Ce qui arrête",
+          "meta_en": "What stops it"
+        },
+        {
+          "title_fr": "Les exclusions",
+          "title_en": "The exclusions",
+          "body_fr": "Dossier repris par une personne, promesse de paiement, client avec plusieurs devis ouverts, contact en congés. Dans ces cas, la relance ne part pas.",
+          "body_en": "File taken over by a person, payment promise, client with several open quotes, contact on leave. In those cases the follow-up does not go out.",
+          "meta_fr": "Ce qui empêche",
+          "meta_en": "What prevents it"
+        },
+        {
+          "title_fr": "Les messages et leurs délais",
+          "title_en": "The messages and their timing",
+          "body_fr": "Trois messages au plus, chacun avec un contenu nouveau, rédigés dans votre ton. Le rythme de départ est proposé dans le guide du devis automatisé.",
+          "body_en": "Three messages at most, each with new content, written in your tone. The starting rhythm is proposed in the automated quote guide.",
+          "meta_fr": "Le texte vient ici",
+          "meta_en": "The text comes here"
+        },
+        {
+          "title_fr": "Un test à blanc",
+          "title_en": "A dry run",
+          "body_fr": "D'abord sur des contacts internes, puis sur quelques devis réels avec validation du commercial avant chaque envoi.",
+          "body_en": "First on internal contacts, then on a few real quotes with the salesperson's approval before each send.",
+          "meta_fr": "Rien ne part seul",
+          "meta_en": "Nothing goes out alone"
+        },
+        {
+          "title_fr": "L'ouverture et le journal",
+          "title_en": "Opening and the log",
+          "body_fr": "Chaque envoi, chaque arrêt et chaque exception sont journalisés. La validation avant envoi peut être levée pour les relances ; elle ne l'est jamais pour le devis lui-même.",
+          "body_en": "Every send, stop and exception is logged. Approval before sending can be lifted for follow-ups; it is never lifted for the quote itself.",
+          "meta_fr": "Puis on desserre",
+          "meta_en": "Then we loosen"
+        }
+      ]
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Ce qui casse",
+      "kicker_en": "§ What breaks",
+      "heading_fr": "Huit pannes probables d'une relance automatisée, et la parade",
+      "heading_en": "Eight likely failures of an automated follow-up, and the safeguard",
+      "caption_fr": "Pannes déduites du fonctionnement d'une relance branchée sur un CRM et une facturation, pas incidents relevés chez des clients.",
+      "caption_en": "Failures inferred from how a follow-up wired to a CRM and invoicing works, not incidents recorded at clients.",
+      "columns_fr": [
+        "Ce qui casse",
+        "Ce que le client reçoit",
+        "La parade"
+      ],
+      "columns_en": [
+        "What breaks",
+        "What the client gets",
+        "The safeguard"
+      ],
+      "rows_fr": [
+        [
+          "Le client répond par téléphone ou en main propre",
+          "Une relance après son accord",
+          "Le commercial change le statut ou coupe la séquence d'un clic ; la vérification suivante le voit et n'envoie rien."
+        ],
+        [
+          "Il répond d'une autre adresse ou transfère le message",
+          "La séquence continue : elle ne reconnaît pas la réponse",
+          "Rapprocher par fil de discussion et par société, pas seulement par adresse ; en cas de doute, une tâche pour une personne."
+        ],
+        [
+          "Un message d'absence arrive en réponse",
+          "Rien, et personne ne reprend : la séquence s'est arrêtée",
+          "Distinguer réponse automatique et réponse humaine ; décaler la relance à la date de retour."
+        ],
+        [
+          "Le paiement est reçu mais pas encore rapproché",
+          "Une relance de facture après paiement",
+          "Vérifier le règlement juste avant chaque envoi, pas à la création de la séquence."
+        ],
+        [
+          "Deux séquences tournent sur un même contact",
+          "Trois relances le même jour pour trois devis",
+          "Un plafond par client, une relance regroupée par semaine."
+        ],
+        [
+          "Le devis est modifié après l'envoi",
+          "Des relances sur l'ancienne version",
+          "La nouvelle version remplace l'ancienne dans la séquence, qui repart de zéro."
+        ],
+        [
+          "Un accès expire (messagerie, clé d'API)",
+          "Rien : le flux s'arrête sans bruit",
+          "Alerte sur échec, et un contrôle hebdomadaire : zéro relance partie dans la semaine déclenche une alerte."
+        ],
+        [
+          "Une reprise après erreur renvoie le message",
+          "Le même message deux fois",
+          "Marquer chaque envoi dans le CRM avant de l'envoyer et vérifier la marque au redémarrage."
+        ]
+      ],
+      "rows_en": [
+        [
+          "The client replies by phone or in person",
+          "A follow-up after their agreement",
+          "The salesperson changes the status or cuts the sequence in one click; the next check sees it and sends nothing."
+        ],
+        [
+          "They reply from another address or forward the message",
+          "The sequence carries on: it does not recognise the reply",
+          "Match by thread and by company, not only by address; when in doubt, a task for a person."
+        ],
+        [
+          "An out-of-office message comes back as a reply",
+          "Nothing, and nobody picks up: the sequence has stopped",
+          "Tell automatic replies from human ones; push the follow-up to the return date."
+        ],
+        [
+          "Payment is received but not yet reconciled",
+          "An invoice reminder after payment",
+          "Check the payment just before each send, not when the sequence is created."
+        ],
+        [
+          "Two sequences run on the same contact",
+          "Three follow-ups on the same day for three quotes",
+          "A per-client cap, one grouped follow-up a week."
+        ],
+        [
+          "The quote is changed after sending",
+          "Follow-ups on the old version",
+          "The new version replaces the old one in the sequence, which restarts from zero."
+        ],
+        [
+          "An access expires (mailbox, API key)",
+          "Nothing: the flow stops silently",
+          "Alert on failure, and a weekly check: zero follow-ups sent in the week triggers an alert."
+        ],
+        [
+          "A retry after an error resends the message",
+          "The same message twice",
+          "Mark each send in the CRM before sending and check the mark on restart."
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper",
+      "kicker_fr": "§ Scénario illustratif · pas un cas client",
+      "kicker_en": "§ Illustrative scenario · not a client case",
+      "heading_fr": "Scénario illustratif : un devis suivi sur un mois",
+      "heading_en": "Illustrative scenario: one quote followed over a month",
+      "caption_fr": "Scénario illustratif d'une entreprise de services, pas un cas client. Les délais sont des exemples, à fixer avec vous.",
+      "caption_en": "Illustrative scenario for a services company, not a client case. The timings are examples, to be set with you.",
+      "columns_fr": [
+        "Jour",
+        "Ce que fait le système",
+        "Ce que fait la personne"
+      ],
+      "columns_en": [
+        "Day",
+        "What the system does",
+        "What the person does"
+      ],
+      "rows_fr": [
+        [
+          "J0",
+          "Le CRM passe le devis à « envoyé » et planifie trois vérifications.",
+          "Le commercial relit le devis et l'envoie."
+        ],
+        [
+          "J+3",
+          "Il vérifie : devis encore ouvert, aucune réponse sur aucun fil, pas d'autre devis ouvert chez ce client. Il prépare un rappel court.",
+          "Le commercial valide l'envoi, ou le modifie."
+        ],
+        [
+          "J+4",
+          "Le statut passe à « en négociation » : la séquence se met en pause.",
+          "Le client appelle pour demander une variante ; le commercial le note dans le CRM."
+        ],
+        [
+          "J+7",
+          "La vérification voit la pause et n'envoie rien. Elle crée une tâche : mettre le devis à jour.",
+          "Le commercial prépare la nouvelle version."
+        ],
+        [
+          "J+10",
+          "L'ancienne version passe à « remplacé », la nouvelle séquence repart de zéro.",
+          "Le commercial envoie la nouvelle version."
+        ],
+        [
+          "J+13",
+          "Aucune réponse : il prépare un rappel court sur la nouvelle version.",
+          "Le commercial valide."
+        ],
+        [
+          "J+17",
+          "Toujours aucune réponse : il prépare un message qui apporte une information utile, un délai ou une référence.",
+          "Le commercial valide."
+        ],
+        [
+          "J+24",
+          "Dernier message avant la fin de validité. Sans réponse, le devis passe à « sans suite » et sort du tableau des devis en cours.",
+          "Le commercial décide d'appeler ou de classer."
+        ]
+      ],
+      "rows_en": [
+        [
+          "Day 0",
+          "The CRM sets the quote to “sent” and schedules three checks.",
+          "The salesperson reviews the quote and sends it."
+        ],
+        [
+          "Day 3",
+          "It checks: quote still open, no reply on any thread, no other open quote for this client. It prepares a short reminder.",
+          "The salesperson approves the send, or edits it."
+        ],
+        [
+          "Day 4",
+          "The status moves to “in negotiation”: the sequence pauses.",
+          "The client calls to ask for a variant; the salesperson notes it in the CRM."
+        ],
+        [
+          "Day 7",
+          "The check sees the pause and sends nothing. It creates a task: update the quote.",
+          "The salesperson prepares the new version."
+        ],
+        [
+          "Day 10",
+          "The old version is set to “replaced”, the new sequence restarts from zero.",
+          "The salesperson sends the new version."
+        ],
+        [
+          "Day 13",
+          "No reply: it prepares a short reminder on the new version.",
+          "The salesperson approves."
+        ],
+        [
+          "Day 17",
+          "Still no reply: it prepares a message that brings useful information, a lead time or a reference.",
+          "The salesperson approves."
+        ],
+        [
+          "Day 24",
+          "Last message before the validity date. With no reply, the quote moves to “no follow-up” and leaves the open quotes dashboard.",
+          "The salesperson decides to call or to close."
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
       "type": "editorial-prose",
       "background": "paper-2",
       "maxWidth": "prose",
@@ -209,64 +495,8 @@
           "side": "right"
         }
       ],
-      "html_fr": "<h2>Deux moitiés : produire le devis, puis le suivre</h2>\n<p>Première moitié, la production. Les informations existent déjà : le client les a données dans un formulaire ou le commercial les a saisies dans le CRM. Le système les reprend, remplit le modèle de devis, calcule les lignes selon votre grille, et soumet le document au commercial. Il relit, ajuste et envoie. Pour les devis complexes (métré, visite technique), l'automatisation prépare le dossier ; le chiffrage reste humain.</p>\n<p>Seconde moitié, le suivi. Une fois le devis envoyé, une séquence démarre : un rappel après quelques jours, un second avec une information utile, un dernier avant l'échéance de validité. Chaque message est rédigé dans votre ton et s'arrête dès que le client répond ou signe.</p>\n<h2>Avec quels outils</h2>\n<p>Votre CRM pour l'état de chaque devis, votre outil de devis ou de facturation s'il a une API, n8n ou Make pour l'enchaînement, et un modèle d'IA pour adapter le texte des relances au contexte. La base est un <a href=\"/services/crm-scoring-routing\">CRM automatisé</a> : sans statut fiable sur chaque devis, aucune relance ne peut se déclencher au bon moment. L'ensemble forme le <a href=\"/services/systeme-commercial\">système commercial</a>, alimenté en amont par la <a href=\"/services/prospection-automatisee\">prospection automatisée</a>.</p>\n<h2>Combien de temps pour mettre en place des relances automatiques</h2>\n<p>Une première séquence de relance est habituellement en service en 2 à 4 semaines. La génération du devis demande plus de travail quand votre grille tarifaire comporte beaucoup d'exceptions : on commence par les devis les plus standards.</p>\n<h2>Ce qui peut mal tourner</h2>\n<p>La relance qui part chez un client qui a déjà dit oui au téléphone : le commercial doit pouvoir arrêter la séquence d'un clic, et le CRM doit être tenu à jour. Le ton trop insistant : trois messages espacés, pas dix. Le devis faux envoyé sans relecture : aucun devis ne part sans validation humaine.</p>\n<p>La démarche est détaillée dans <a href=\"/blog/automatiser-relances-b2b-sans-sdr-guide-cabinet-conseil\">automatiser les relances B2B</a>, le <a href=\"/ressources/guides/devis-automatise\">guide du devis automatisé</a> et le tutoriel <a href=\"/blog/automatiser-relance-devis-n8n\">relance de devis avec n8n</a>. Pour regarder votre cas, réservez l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>.</p>",
-      "html_en": "<h2>Two halves: produce the quote, then follow it</h2>\n<p>First half, production. The information already exists: the client gave it in a form or the salesperson entered it in the CRM. The system takes it, fills in the quote template, computes the lines from your price grid, and submits the document to the salesperson. They review, adjust and send. For complex quotes (measurements, site visit), automation prepares the file; pricing stays human.</p>\n<p>Second half, follow-up. Once the quote is sent, a sequence starts: a reminder after a few days, a second with useful information, a last one before the validity date. Each message is written in your tone and stops as soon as the client replies or signs.</p>\n<h2>With which tools</h2>\n<p>Your CRM for each quote's status, your quoting or invoicing tool if it has an API, n8n or Make for the chain, and an AI model to adapt follow-up text to context. The foundation is an <a href=\"/services/crm-scoring-routing\">automated CRM</a>: without a reliable status on each quote, no follow-up can fire at the right time. Together they form the <a href=\"/services/systeme-commercial\">sales system</a>, fed upstream by <a href=\"/services/prospection-automatisee\">automated prospecting</a>.</p>\n<h2>How long it takes to set up automatic follow-ups</h2>\n<p>A first follow-up sequence is usually live within 2 to 4 weeks. Quote generation takes more work when your price grid has many exceptions: we start with the most standard quotes.</p>\n<h2>What can go wrong</h2>\n<p>A reminder sent to a client who already replied by phone: the salesperson must be able to stop the sequence in one click, and the CRM must be kept up to date. Too pushy a tone: three spaced messages, not ten. A wrong quote sent unreviewed: no quote goes out without human approval.</p>\n<p>The approach is detailed in <a href=\"/blog/automatiser-relances-b2b-sans-sdr-guide-cabinet-conseil\">automating B2B follow-ups</a>, the <a href=\"/ressources/guides/devis-automatise\">automated quote guide</a> and the <a href=\"/blog/automatiser-relance-devis-n8n\">n8n quote follow-up tutorial</a>. To look at your case, book the <a href=\"/audit-ia-pme\">free AI audit</a>.</p>"
-    },
-    {
-      "type": "comparison-duo",
-      "background": "paper",
-      "kicker_fr": "§ Exemple type · pas un cas client",
-      "kicker_en": "§ Typical example · not a client case",
-      "h2_fr": "Exemple type : les devis d'une entreprise du bâtiment",
-      "h2_en": "Typical example: quotes at a construction company",
-      "without_label_fr": "Avant",
-      "without_label_en": "Before",
-      "without_title_fr": "Des devis envoyés, puis oubliés",
-      "without_title_en": "Quotes sent, then forgotten",
-      "without_items": [
-        {
-          "text_fr": "Le conducteur de travaux rédige le devis le soir, à partir d'un ancien fichier.",
-          "text_en": "The site manager writes the quote in the evening, from an old file."
-        },
-        {
-          "text_fr": "Le devis part par email, sans trace dans un outil commun.",
-          "text_en": "The quote goes out by email, with no trace in a shared tool."
-        },
-        {
-          "text_fr": "Personne ne sait quels devis sont en attente.",
-          "text_en": "Nobody knows which quotes are pending."
-        },
-        {
-          "text_fr": "La relance se fait quand on y pense, souvent trop tard.",
-          "text_en": "Follow-up happens when someone thinks of it, often too late."
-        }
-      ],
-      "with_label_fr": "Après",
-      "with_label_en": "After",
-      "with_title_fr": "Chaque devis a un statut et une suite",
-      "with_title_en": "Every quote has a status and a next step",
-      "with_items": [
-        {
-          "text_fr": "La demande du formulaire pré-remplit le devis avec les prestations standard.",
-          "text_en": "The form request pre-fills the quote with standard services."
-        },
-        {
-          "text_fr": "Le conducteur de travaux ajuste les quantités et valide l'envoi.",
-          "text_en": "The site manager adjusts quantities and approves sending."
-        },
-        {
-          "text_fr": "À J+5 sans réponse, une relance est proposée et envoyée après validation.",
-          "text_en": "At day 5 with no reply, a follow-up is proposed and sent after approval."
-        },
-        {
-          "text_fr": "La signature en ligne arrête la séquence et prévient l'équipe.",
-          "text_en": "Online signature stops the sequence and notifies the team."
-        },
-        {
-          "text_fr": "Un tableau liste les devis en cours, par ancienneté et par montant.",
-          "text_en": "A dashboard lists open quotes, by age and amount."
-        }
-      ]
+      "html_fr": "<h2>Deux moitiés : produire le devis, puis le suivre</h2>\n<p>Première moitié, la production : le système reprend les informations déjà saisies dans le CRM, remplit le modèle de devis et le soumet au commercial, qui relit et envoie. Cette moitié a son propre mode d'emploi, dans le <a href=\"/ressources/guides/devis-automatise\">guide du devis automatisé</a>. Cette page traite la seconde : le suivi, une fois le devis ou la facture parti.</p>\n<p>Le suivi s'applique à ce qui attend une réponse : un devis envoyé, une facture échue, un contact resté sans suite. Chaque message est rédigé dans votre ton et la séquence s'arrête dès que le client répond, signe ou paie.</p>\n<h2>Avec quels outils</h2>\n<p>Votre CRM pour l'état de chaque devis, votre outil de devis ou de facturation s'il a une API, n8n ou Make pour l'enchaînement, et un modèle d'IA pour adapter le texte des relances au contexte. La base est un <a href=\"/services/crm-scoring-routing\">CRM automatisé</a> : sans statut fiable sur chaque devis, aucune relance ne peut se déclencher au bon moment. L'ensemble forme le <a href=\"/services/systeme-commercial\">système commercial</a>, alimenté en amont par la <a href=\"/services/prospection-automatisee\">prospection automatisée</a>. Le principe est celui de <a href=\"/services/automatisations\">l'automatisation des processus</a>, appliqué au suivi commercial.</p>\n<h2>Combien de temps pour mettre en place des relances automatiques</h2>\n<p>Une première séquence prototypée et testée prend habituellement 2 à 4 semaines : c'est le contenu du sprint de cadrage. Sa mise en production relève du pilote, dès {{prix.pilote}} € HT. La génération du devis demande plus de travail quand votre grille tarifaire comporte beaucoup d'exceptions : on commence par les devis les plus standards.</p>\n<p>Ce que disent les autres pages, pour ne pas le répéter ici : les trois séquences d'un cabinet et la règle de passage de main sont dans <a href=\"/blog/automatiser-relances-b2b-sans-sdr-guide-cabinet-conseil\">automatiser les relances B2B</a>, le rythme de départ dans le <a href=\"/ressources/guides/devis-automatise\">guide du devis automatisé</a>, la construction nœud par nœud dans <a href=\"/blog/automatiser-relance-devis-n8n\">relance de devis avec n8n</a>. Pour regarder votre cas, réservez l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>.</p>",
+      "html_en": "<h2>Two halves: produce the quote, then follow it</h2>\n<p>First half, production: the system takes the information already entered in the CRM, fills in the quote template and submits it to the salesperson, who reviews and sends. That half has its own manual in the <a href=\"/ressources/guides/devis-automatise\">automated quote guide</a>. This page covers the second: follow-up, once the quote or invoice is out.</p>\n<p>Follow-up applies to whatever is waiting for an answer: a quote sent, an invoice past due, a contact left without a next step. Each message is written in your tone and the sequence stops as soon as the client replies, signs or pays.</p>\n<h2>With which tools</h2>\n<p>Your CRM for each quote's status, your quoting or invoicing tool if it has an API, n8n or Make for the chain, and an AI model to adapt follow-up text to context. The foundation is an <a href=\"/services/crm-scoring-routing\">automated CRM</a>: without a reliable status on each quote, no follow-up can fire at the right time. Together they form the <a href=\"/services/systeme-commercial\">sales system</a>, fed upstream by <a href=\"/services/prospection-automatisee\">automated prospecting</a>. The principle is that of <a href=\"/services/automatisations\">process automation</a>, applied to sales follow-up.</p>\n<h2>How long it takes to set up automatic follow-ups</h2>\n<p>A first sequence prototyped and tested usually takes 2 to 4 weeks: that is the content of the scoping sprint. Putting it into production is the pilot, from €{{prix.pilote.en}} excl. VAT. Quote generation takes more work when your price grid has many exceptions: we start with the most standard quotes.</p>\n<p>What the other pages say, so it is not repeated here: a consulting firm's three sequences and the hand-over rule are in <a href=\"/blog/automatiser-relances-b2b-sans-sdr-guide-cabinet-conseil\">automating B2B follow-ups</a>, the starting rhythm in the <a href=\"/ressources/guides/devis-automatise\">automated quote guide</a>, the node-by-node build in the <a href=\"/blog/automatiser-relance-devis-n8n\">n8n quote follow-up tutorial</a>. To look at your case, book the <a href=\"/audit-ia-pme\">free AI audit</a>.</p>"
     },
     {
       "type": "deliverables-grid",
@@ -347,8 +577,8 @@
       "kicker_en": "§ Two ways to engage",
       "h2_fr": "Prix d'un dispositif de devis et de relances",
       "h2_en": "Price of a quote and follow-up setup",
-      "lede_fr": "On démarre par un sprint de cadrage à prix fixe : l'inventaire de vos devis en attente et une première séquence de relance en service. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints en régie. Vous gardez les modèles, les séquences et les règles.",
-      "lede_en": "We start with a fixed-price scoping sprint: an inventory of your pending quotes and a first follow-up sequence live. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the time and materials frame. You keep the templates, the sequences and the rules.",
+      "lede_fr": "On démarre par un sprint de cadrage à prix fixe : l'inventaire de vos devis en attente et une première séquence de relance prototypée et testée. La mise en production relève du pilote, dès {{prix.pilote}} € HT. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints en régie. Vous gardez les modèles, les séquences et les règles.",
+      "lede_en": "We start with a fixed-price scoping sprint: an inventory of your pending quotes and a first follow-up sequence prototyped and tested. Production is the pilot, from €{{prix.pilote.en}} excl. VAT. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the time and materials frame. You keep the templates, the sequences and the rules.",
       "tiers": [
         {
           "name_fr": "Sprint de cadrage",
@@ -358,14 +588,14 @@
           "period_en": "10 h · ex VAT",
           "features_fr": [
             "Inventaire des devis en attente et de leurs statuts",
-            "Une première séquence de relance sur ces devis",
-            "Déclencheurs posés dans le CRM (envoi, J+5, fin de validité)",
+            "Une première séquence de relance prototypée et testée sur ces devis",
+            "Conditions d'arrêt et exclusions écrites (réponse, signature, paiement)",
             "Les messages, leur calendrier et leurs conditions d'arrêt remis"
           ],
           "features_en": [
             "Inventory of pending quotes and their statuses",
-            "A first follow-up sequence on those quotes",
-            "Triggers set in the CRM (sent, day 5, validity date)",
+            "A first follow-up sequence prototyped and tested on those quotes",
+            "Stop conditions and exclusions written (reply, signature, payment)",
             "The messages, their schedule and stop conditions handed over"
           ],
           "cta": {
@@ -384,13 +614,13 @@
           "period_en": "estimated with you · ex VAT",
           "features_fr": [
             "Temps nécessaire estimé ensemble, puis validé",
-            "Exécuté en sprints, facturés en régie",
+            "Mise en production par le pilote, dès {{prix.pilote}} € HT",
             "Devis générés depuis le CRM, séquences supplémentaires",
             "Vous gardez les modèles, les séquences et les règles"
           ],
           "features_en": [
             "Time needed estimated together, then validated",
-            "Run in sprints, time and materials frame",
+            "Production through the pilot, from €{{prix.pilote.en}} excl. VAT",
             "Quotes generated from the CRM, more sequences",
             "You keep the templates, the sequences and the rules"
           ],
@@ -415,14 +645,14 @@
       "background": "paper-2",
       "kicker_fr": "§ Questions fréquentes",
       "kicker_en": "§ Frequently asked questions",
-      "h2_fr": "Devis automatisé et relances : vos questions",
-      "h2_en": "Automated quotes and follow-ups: your questions",
+      "h2_fr": "Relance automatisée : vos questions",
+      "h2_en": "Automated follow-ups: your questions",
       "items": [
         {
           "q_fr": "Combien coûte l'automatisation des devis et des relances ?",
-          "a_fr": "Le sprint de cadrage est à {{prix.sprint}} € HT pour 10 heures : une première séquence de relance en service sur vos devis en attente. La génération automatique des devis et les séquences suivantes sont estimées en heures, puis facturées {{prix.horaire}} € HT de l'heure.",
+          "a_fr": "Le sprint de cadrage est à {{prix.sprint}} € HT pour 10 heures : une première séquence de relance prototypée et testée sur vos devis en attente. La mise en production relève du pilote, dès {{prix.pilote}} € HT. La génération automatique des devis et les séquences suivantes sont estimées en heures, puis facturées {{prix.horaire}} € HT de l'heure.",
           "q_en": "How much does it cost to automate quotes and follow-ups?",
-          "a_en": "The scoping sprint is €{{prix.sprint.en}} excl. VAT for 10 hours: a first follow-up sequence live on your pending quotes. Automatic quote generation and further sequences are estimated in hours, then billed €{{prix.horaire}} per hour excl. VAT."
+          "a_en": "The scoping sprint is €{{prix.sprint.en}} excl. VAT for 10 hours: a first follow-up sequence prototyped and tested on your pending quotes. Going into production is the pilot, from €{{prix.pilote.en}} excl. VAT. Automatic quote generation and further sequences are estimated in hours, then billed €{{prix.horaire}} per hour excl. VAT."
         },
         {
           "q_fr": "Comment relancer un devis sans réponse ?",
@@ -438,9 +668,9 @@
         },
         {
           "q_fr": "Combien de temps pour mettre en place des relances automatiques ?",
-          "a_fr": "Habituellement 2 à 4 semaines pour une première séquence. La génération automatique du devis prend plus de temps si votre grille tarifaire comporte beaucoup de cas particuliers.",
+          "a_fr": "Habituellement 2 à 4 semaines pour une première séquence prototypée et testée. La mise en production relève du pilote. La génération automatique du devis prend plus de temps si votre grille tarifaire comporte beaucoup de cas particuliers.",
           "q_en": "How long does it take to set up automatic follow-ups?",
-          "a_en": "Usually 2 to 4 weeks for a first sequence. Automatic quote generation takes longer if your price grid has many special cases."
+          "a_en": "Usually 2 to 4 weeks for a first sequence prototyped and tested. Going into production is the pilot. Automatic quote generation takes longer if your price grid has many special cases."
         },
         {
           "q_fr": "Relances automatiques et RGPD : est-ce autorisé ?",
@@ -453,6 +683,18 @@
           "a_fr": "Oui, c'est le même mécanisme : une séquence déclenchée par la date d'échéance, arrêtée dès l'encaissement, avec un ton qui se durcit par étapes et une alerte à la comptabilité au dernier palier. Entre professionnels, chaque facture payée en retard ouvre droit à une indemnité forfaitaire de 40 € pour frais de recouvrement (article D441-5 du Code de commerce) : la dernière relance peut la rappeler.",
           "q_en": "Can unpaid invoices be chased too?",
           "a_en": "Yes, it is the same mechanism: a sequence triggered by the due date, stopped on payment, with a tone that firms up in stages and an alert to accounting at the last step. Between businesses in France, each invoice paid late entitles you to a flat €40 recovery fee (Commercial Code, article D441-5): the last reminder can mention it."
+        },
+        {
+          "q_fr": "Dans quel ordre mettre en place une relance automatisée ?",
+          "a_fr": "Un statut fiable par devis d'abord, puis les conditions d'arrêt et les exclusions, puis les messages, un test à blanc et enfin l'ouverture sur quelques devis avec validation avant chaque envoi. Commencer par les messages est l'erreur courante : ce que le système vérifie avant d'envoyer compte plus que le texte.",
+          "q_en": "In what order should an automated follow-up be set up?",
+          "a_en": "A reliable status on each quote first, then the stop conditions and exclusions, then the messages, a dry run and finally opening on a few quotes with approval before each send. Starting with the messages is the common mistake: what the system checks before sending matters more than the text."
+        },
+        {
+          "q_fr": "Que se passe-t-il si le client répond par téléphone ?",
+          "a_fr": "La séquence ne le sait pas, sauf si quelqu'un le lui dit. Le commercial change le statut du devis dans le CRM ou coupe la séquence d'un clic ; la vérification suivante le voit et n'envoie rien. C'est pourquoi le statut doit se mettre à jour là où le commercial travaille déjà.",
+          "q_en": "What happens if the client replies by phone?",
+          "a_en": "The sequence does not know, unless someone tells it. The salesperson changes the quote status in the CRM or cuts the sequence in one click; the next check sees it and sends nothing. That is why the status must be updated where the salesperson already works."
         }
       ]
     },
@@ -487,13 +729,13 @@
   ],
   "sources": [
     {
-      "name": "Service-public.gouv.fr (Entreprendre), Délais de paiement entre professionnels et pénalités de retard (vérifiée le 7 août 2026, lue le 6 octobre 2026)",
+      "name": "Service-public.gouv.fr (Entreprendre), Délais de paiement entre professionnels et pénalités de retard (vérifiée le 7 août 2026, lue le 16 octobre 2026)",
       "url": "https://entreprendre.service-public.gouv.fr/vosdroits/F23211",
       "type": "state",
       "publishedAt": "2026-08-07"
     },
     {
-      "name": "CNIL, La prospection commerciale par courrier électronique (mise à jour le 10 juin 2026, lue le 6 octobre 2026)",
+      "name": "CNIL, La prospection commerciale par courrier électronique (page datée du 10 juin 2026, lue le 16 octobre 2026)",
       "url": "https://www.cnil.fr/fr/la-prospection-commerciale-par-courrier-electronique",
       "type": "state",
       "publishedAt": "2026-06-10"
