@@ -147,7 +147,7 @@ export default defineConfig({
       expiration: 3600, // TTL par défaut 1h pour les futures routes SSR cachables
       bypassToken: process.env.ISR_BYPASS_TOKEN, // secret Vercel env var (preview bypass)
       // API routes exclues de l'ISR : données live, webhooks, forms — toujours fresh
-      exclude: ['/api/contact', '/api/newsletter', '/api/academy', '/api/devis', '/api/lead-magnet', '/api/healthcheck'],
+      exclude: ['/api/contact', '/api/newsletter', '/api/academy', '/api/devis', '/api/lead-magnet', '/api/healthcheck', '/api/collect', '/api/stats'],
     },
   }),
   // Refonte C 2026-10 · préchargement au survol/toucher, plus à l'entrée dans le viewport :
