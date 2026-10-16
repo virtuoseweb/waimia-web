@@ -280,6 +280,8 @@ const PAGES: Record<string, PageDef> = {
   '/blog/relance-factures-impayees-automatique-pme': { label_fr: 'Relancer les factures impayées automatiquement', label_en: 'Automate unpaid invoice reminders', kind: 'article', topics: ['automatisation', 'commercial'] },
   '/ressources/guides/automatisation-factures-fournisseurs-pme': { label_fr: 'Automatisation des factures fournisseurs : déléguer et contrôler', label_en: 'Supplier invoice automation: what to delegate and check', kind: 'guide', topics: ['agents', 'automatisation'] },
   '/blog/ia-reponse-appel-offres-pme': { label_fr: "IA et appel d'offres : ce que la PME prépare et garde", label_en: 'AI and tenders: what a small business prepares and keeps', kind: 'article', topics: ['agents', 'automatisation'] },
+  '/blog/claude-cowork-windows': { label_fr: 'Claude Cowork sur Windows : installation et limites', label_en: 'Claude Cowork on Windows: installation and limits', kind: 'article', topics: ['claude', 'conformite'] },
+  '/blog/application-metier-exemples-pme': { label_fr: 'Application métier : exemples par service en PME', label_en: 'Business application: examples by department', kind: 'article', topics: ['applications'] },
   '/cas-clients/desangles-peinture': { label_fr: 'Cas client : Desangles Peinture', label_en: 'Case: Desangles Peinture', kind: 'cas-client', topics: ['acquisition'] },
 
   // ── Secteurs (indexables depuis 2026-10-05) : cibles du maillage, sans bloc émis par

@@ -37,6 +37,13 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### Contenu W45, 16 octobre 2026 (PR #112)
+
+- **Articles** : `application-metier-exemples-pme` (satellite de `/services/applications-internes`, qui garde « application métier », 1 300 recherches mensuelles, et du guide refonte de logiciel métier) et `claude-cowork-windows` (satellite du guide Claude Cowork ; « claude cowork windows », 590 recherches mensuelles, basculée sur le billet). Illustrés, au maillage.
+- **Correction** : le guide Claude Cowork affirmait qu'aucune fonction n'était réservée à un système ; Anthropic ne décrit l'utilisation de l'ordinateur en arrière-plan que pour macOS 15 ou plus. Phrase nuancée, lien vers le billet Windows.
+- **Formulaires** (demande de Simon, PR #111) : un seul envoi par soumission vérifié sur tous les formulaires, au chargement direct et après navigation ; garde E2E permanente, falsifiée.
+- **Calendrier** : deux satellites planifiés (Claude Max, AI Act côté PME utilisatrice).
+
 ### Contenu W44, 16 octobre 2026 (PR #110)
 
 - **Guide pilier** `automatisation-factures-fournisseurs-pme` (sources DGFiP : réception obligatoire au 1er septembre 2026, émission des PME au 1er septembre 2027) et deux articles : `relance-factures-impayees-automatique-pme` (Code de commerce L441-10 et D441-5) et `ia-reponse-appel-offres-pme` (fiches Service-Public sur les marchés publics). Illustrés, déclarés au maillage, cibles basculées dans `keywords.json`.

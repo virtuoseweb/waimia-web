@@ -10334,6 +10334,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/application-metier-exemples-pme",
+    "title": "Application métier : définition et exemples par service en PME",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/application-metier-exemples-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/applications-internes-build-vs-buy-pme",
     "title": "Application interne : développer ou acheter ?",
     "group": "blog",
@@ -10420,6 +10429,15 @@ export const SITE_PAGES: SitePage[] = [
     "group": "blog",
     "collection": "blog",
     "file": "blog/chatgpt-shopping-e-commerce.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/claude-cowork-windows",
+    "title": "Claude Cowork sur Windows : oui, mais l'installation dépend de l'offre",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/claude-cowork-windows.json",
     "editable": false,
     "sections": []
   },
@@ -11673,6 +11691,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/agent-ia-entreprise-exemples",
       "/blog/agent-ia-vs-automatisation-classique-2026",
       "/blog/ai-mode-google-ai-overviews-pme",
+      "/blog/application-metier-exemples-pme",
       "/blog/applications-internes-build-vs-buy-pme",
       "/blog/architecte-ia-role-pme",
       "/blog/audit-site-internet-pme",
@@ -11683,6 +11702,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/cabler-son-crm-en-10-jours",
       "/blog/chatbot-rh-pme",
       "/blog/chatgpt-shopping-e-commerce",
+      "/blog/claude-cowork-windows",
       "/blog/claude-microsoft-copilot-pme",
       "/blog/connecter-claude-wordpress-shopify-mcp",
       "/blog/contenu-ia-seo-google-penalise",
