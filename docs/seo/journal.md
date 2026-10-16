@@ -37,6 +37,14 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### Base de conversions, 16 octobre 2026 (alertes internes, Cal.com, Web Analytics)
+
+**Mesure.** Les formulaires (`/api/contact`, `/api/devis`, `/api/lead-magnet`) envoient à la boîte interne une alerte dont le sujet commence par `[Lead]`. Du 1er août au 16 octobre : 11 alertes, dont 8 tests internes (adresses de Simon, `contact@`, `resend.dev`), 1 démarchage SEO, et **1 lead réel** (7 octobre, une personne, diagnostic de maturité IA puis calculateur de ROI). Aucune demande de contact ni de devis réelle. Cal.com : aucun e-mail de réservation, seulement des lettres d'information (limite : une confirmation envoyée à une autre adresse échapperait à ce compte). Web Analytics : 36 visiteurs et 117 pages vues la semaine du 12 octobre, rien avant (activation récente) ; aucun événement personnalisé, le plan Hobby ne les enregistre pas et le code n'appelle pas `track()`.
+
+**Lecture.** Les seuls leads réels viennent des outils à résultat calculé (diagnostic, calculateur), pas des téléchargements. Le calculateur est aussi la page outil la mieux placée (position 6,6 sur « roi ia », 14 impressions sur 28 jours).
+
+**À mesurer le 27 octobre.** Recompter les alertes `[Lead]` réelles depuis le 17 octobre (requête Gmail `subject:"[Lead]" from:noreply@virtuoseweb.fr after:2026/10/17`, tests exclus) et les réservations Cal.com, à côté des clics Search Console.
+
 ### Première mesure avant/après, 16 octobre 2026 (collecte Actions 2026-W42)
 
 - **GitHub Actions rétabli** : dépôt passé en public par Simon le 16 octobre ; CI de `main` verte (build, E2E, SEO), routine SEO relancée à la main et commitée (`chore(seo-data): collecte 2026-W42`).
