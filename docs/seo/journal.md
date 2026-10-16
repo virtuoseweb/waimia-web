@@ -37,6 +37,13 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### Contenu W48, 16 octobre 2026 (PR #119)
+
+- **Articles** : `claude-code-skills` (« claude code skill », 480, KD 12 ; satellite du guide Claude Skills, documentation Claude Code relue le 16 octobre, exemple validé par `claude plugin validate`) et `cahier-des-charges-refonte-site` (« cahier des charges refonte site internet », 320, KD 21 ; satellite du guide cahier des charges ; aimant grille d'audit). Illustrés (`panneau-outils`, `maison-echafaudage`), au maillage, cibles basculées, liens retour depuis les deux guides en FR et EN.
+- **Correction de rendu** : le tableau de redirections (6 colonnes) débordait de 133 px à 390 px ; points de coupure dans les chemins et colonne « Code » fusionnée dans « Décision ». Balayage : 214 pages, 0 débordement.
+- **Calendrier** : deux satellites planifiés (W43 « apparaître dans chatgpt », guide visibilité IA ; W44 « claude extension chrome », guide Claude in Chrome) ; 6 semaines d'avance.
+- **À reprendre (guide Claude Skills)** : il réserve la diffusion par plugin à Team ou Enterprise, alors que la documentation du 16 octobre décrit une marketplace Git sans offre requise ; il écrit « environ toutes les 10 minutes » pour la synchronisation, la documentation dit 10 minutes en activité et environ 40 au repos. À relire sur la source avant correction.
+
 ### IndexNow relancé, 16 octobre 2026
 
 - **Constat** : dernier envoi IndexNow le 11 octobre ; la routine hebdomadaire tourne dans GitHub Actions, bloqué par la facturation. Aucune page publiée depuis n'avait été signalée à Bing (qui alimente aussi la recherche de ChatGPT).

@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · « Cahier des charges d'une refonte » : une maison déjà habitée, prise dans un
+       échafaudage ; au premier plan, une architecte tient un grand plan déplié et le compare
+       à la façade. On rénove sur l'existant, on ne repart pas d'un terrain vide.
+       Rôles remplacés par render-svg.mjs (shape = la maison, detail = fenêtres et plan). -->
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <circle cx="230" cy="140" r="54" fill="{{pale}}"/>
+  <rect y="478" width="1456" height="146" fill="{{ground}}"/>
+
+  <!-- La maison -->
+  <rect x="700" y="236" width="440" height="244" fill="{{shape}}"/>
+  <path d="M676 240 L920 110 L1164 240 Z" fill="{{deep}}"/>
+  <rect x="1060" y="130" width="34" height="80" fill="{{deep}}"/>
+  <!-- Fenêtres et porte -->
+  <g fill="{{detail}}">
+    <rect x="740" y="280" width="70" height="60"/>
+    <rect x="884" y="280" width="70" height="60"/>
+    <rect x="1030" y="280" width="70" height="60"/>
+    <rect x="740" y="380" width="70" height="60"/>
+    <rect x="1030" y="380" width="70" height="60"/>
+  </g>
+  <rect x="890" y="380" width="60" height="100" fill="{{deep}}"/>
+
+  <!-- Échafaudage -->
+  <g fill="{{subject}}">
+    <rect x="680" y="200" width="8" height="280"/>
+    <rect x="1150" y="200" width="8" height="280"/>
+    <rect x="910" y="200" width="8" height="80"/>
+    <rect x="672" y="356" width="494" height="10"/>
+    <rect x="672" y="256" width="494" height="10"/>
+  </g>
+  <g stroke="{{subject}}" stroke-width="5">
+    <path d="M688 266 L910 356"/>
+    <path d="M918 266 L1150 356"/>
+  </g>
+
+  <!-- L'architecte et son plan -->
+  <g transform="translate(470 500) scale(1.7)">
+    <g fill="{{subject}}">
+      <circle cx="0" cy="-90" r="7"/>
+      <circle cx="1" cy="-99" r="5"/>
+      <path d="M-10 -80 Q0 -84 10 -80 L11 -56 L-11 -56 Z"/>
+      <path d="M-12 -57 L12 -57 L10 -22 L-10 -22 Z"/>
+      <rect x="-7" y="-23" width="5" height="21"/>
+      <rect x="2" y="-23" width="5" height="21"/>
+      <rect x="-9" y="-3" width="8" height="3" rx="1.5"/>
+      <rect x="1" y="-3" width="8" height="3" rx="1.5"/>
+    </g>
+    <!-- Plan déplié -->
+    <rect x="14" y="-98" width="58" height="40" fill="{{detail}}"/>
+    <g fill="none" stroke="{{subject}}" stroke-width="2.5">
+      <rect x="22" y="-90" width="26" height="24"/>
+      <path d="M48 -78 L64 -78"/>
+      <path d="M22 -78 L48 -78"/>
+    </g>
+    <g fill="none" stroke="{{subject}}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8 -78 L16 -70"/>
+      <path d="M-7 -78 L-4 -66 L14 -60"/>
+    </g>
+  </g>
+</svg>

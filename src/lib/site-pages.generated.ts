@@ -10424,6 +10424,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/cahier-des-charges-refonte-site",
+    "title": "Cahier des charges d'une refonte de site internet : cinq annexes à ajouter",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/cahier-des-charges-refonte-site.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/chatbot-rh-pme",
     "title": "Chatbot RH en PME : ce qu'il répond bien et ce qu'il ne doit jamais trancher",
     "group": "blog",
@@ -10438,6 +10447,15 @@ export const SITE_PAGES: SitePage[] = [
     "group": "blog",
     "collection": "blog",
     "file": "blog/chatgpt-shopping-e-commerce.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/claude-code-skills",
+    "title": "Skill Claude Code : créer et partager une compétence en équipe",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/claude-code-skills.json",
     "editable": false,
     "sections": []
   },
@@ -11737,8 +11755,10 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/avis-n8n-vs-zapier-2026",
       "/blog/brain-circuit",
       "/blog/cabler-son-crm-en-10-jours",
+      "/blog/cahier-des-charges-refonte-site",
       "/blog/chatbot-rh-pme",
       "/blog/chatgpt-shopping-e-commerce",
+      "/blog/claude-code-skills",
       "/blog/claude-cowork-windows",
       "/blog/claude-max-pme",
       "/blog/claude-microsoft-copilot-pme",

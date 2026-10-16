@@ -285,6 +285,8 @@ const PAGES: Record<string, PageDef> = {
   '/blog/claude-pro-vs-team': { label_fr: 'Claude Pro ou Team : lequel choisir', label_en: 'Claude Pro vs Team: which to choose', kind: 'article', topics: ['claude', 'conseil'] },
   '/blog/facture-electronique-reception-pme': { label_fr: 'Facture électronique : ce que change la réception en PME', label_en: 'E-invoicing: what receiving changes for a small business', kind: 'article', topics: ['automatisation', 'conformite'] },
   '/blog/ai-act-pme-utilisatrice-ia': { label_fr: "AI Act : les obligations d'une PME qui utilise ChatGPT ou Claude", label_en: 'AI Act: what a small business using ChatGPT or Claude must do', kind: 'article', topics: ['conformite', 'conseil'] },
+  '/blog/claude-code-skills': { label_fr: 'Skills Claude Code : créer et partager en équipe', label_en: 'Claude Code skills: create and share as a team', kind: 'article', topics: ['claude', 'applications'] },
+  '/blog/cahier-des-charges-refonte-site': { label_fr: 'Cahier des charges de refonte : les cinq annexes', label_en: 'Redesign specification: the five appendices', kind: 'article', topics: ['web'] },
   '/blog/application-metier-exemples-pme': { label_fr: 'Application métier : exemples par service en PME', label_en: 'Business application: examples by department', kind: 'article', topics: ['applications'] },
   '/cas-clients/desangles-peinture': { label_fr: 'Cas client : Desangles Peinture', label_en: 'Case: Desangles Peinture', kind: 'cas-client', topics: ['acquisition'] },
 
