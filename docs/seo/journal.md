@@ -37,6 +37,14 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### Première mesure avant/après, 16 octobre 2026 (collecte Actions 2026-W42)
+
+- **GitHub Actions rétabli** : dépôt passé en public par Simon le 16 octobre ; CI de `main` verte (build, E2E, SEO), routine SEO relancée à la main et commitée (`chore(seo-data): collecte 2026-W42`).
+- **Search Console, données finales arrêtées au 13 octobre** : 7 jours (7 au 13 octobre) contre les 7 précédents : clics 1 → 5, impressions 477 → 901 (+89 %), CTR 0,21 % → 0,55 %, position 27,4 → 32,3 (plus de requêtes, plus profondes). 28 jours au 13 octobre contre les 28 précédents : clics 5 → 8, impressions 80 → 1 536.
+- **Pages qui reçoivent les clics** : `/formations/claude` (3 clics, 30 impressions) et `/ressources/guides/claude-rgpd-pme` (2 clics, 22 impressions) sur les 7 derniers jours ; la semaine d'avant, le seul clic allait à l'accueil.
+- **Limite** : cette hausse mesure les vagues publiées avant le 13 octobre. Les titles réécrits du 13 au 16 octobre et les dix billets du 14 au 16 octobre ne sont pas encore dans les données (délai de Search Console) : relecture le 27 octobre.
+- **Leads** : aucune mesure de conversion dans cette collecte ; l'alerte interne de chaque lead porte la page d'origine.
+
 ### Guide Claude Skills corrigé, 16 octobre 2026 (PR #121)
 
 - **Synchronisation claude.ai vers Claude Code** : la documentation du 16 octobre dit environ 10 minutes en activité et environ 40 minutes au repos ; le guide disait « environ toutes les 10 minutes ». Corrigé en FR et EN, vérifié en production, envoyé à IndexNow.
