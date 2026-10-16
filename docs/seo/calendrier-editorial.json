@@ -267,10 +267,10 @@
         "Premiers résultats de la requête retenue et pages de prix des concurrents de competitors.json"
       ],
       "semainePrevue": "2026-W45",
-      "statut": "planifié",
-      "pr": null,
+      "statut": "abandonné",
+      "pr": 102,
       "mesureAttendue": "« Explorée, actuellement non indexée » à la collecte du 4 octobre 2026 (exploration de juillet, avant la refonte). Attendu : page indexée. À juger deux collectes après la mise en production. Si la page est indexée avant W45, abandonner.",
-      "resultat": null,
+      "resultat": "Abandonné le 16 octobre 2026 selon la condition prévue : /tarifs est « Envoyée et indexée » (inspection du 11 octobre, gsc-index.json). Seul le titre a été aligné sur « tarif agence IA » (PR 102).",
       "origine": "docs/seo/journal.md, entrée 2026-W41, « Non retenu cette semaine » (4 pages « explorée, non indexée »)."
     },
     {
@@ -366,8 +366,8 @@
         "docs/seo/data/<semaine>/gsc-performance.json (premières requêtes de la page, publiée début octobre 2026)"
       ],
       "semainePrevue": "2026-W47",
-      "statut": "planifié",
-      "pr": null,
+      "statut": "publié",
+      "pr": 102,
       "mesureAttendue": "Page publiée début octobre 2026, absente de la collecte du 4 octobre 2026. Attendu : page indexée et impressions sur « ia expert comptable ». À juger deux collectes après la mise en production.",
       "resultat": null,
       "origine": "docs/seo/journal.md, entrée 2026-W41, « Non retenu cette semaine » : la page existe désormais et peut porter la requête ; keywords.json la vise."
@@ -386,8 +386,8 @@
         "docs/seo/data/<semaine>/gsc-performance.json (premières requêtes de la page)"
       ],
       "semainePrevue": "2026-W47",
-      "statut": "planifié",
-      "pr": null,
+      "statut": "publié",
+      "pr": 102,
       "mesureAttendue": "Page publiée début octobre 2026, absente de la collecte du 4 octobre 2026. Attendu : page indexée et impressions sur « automatisation rh ». À juger deux collectes après la mise en production.",
       "resultat": null,
       "origine": "docs/seo/journal.md, entrée 2026-W41, « Non retenu cette semaine » : la page existe désormais et peut porter la requête ; keywords.json la vise."
@@ -1239,20 +1239,21 @@
       "type": "guide",
       "titreProvisoire": "Cahier des charges de site internet : modèle commenté",
       "requeteCible": "cahier des charges site internet",
-      "intention": "Rédiger le cahier des charges d'un site avant de consulter des agences.",
+      "intention": "Rédiger le cahier des charges d'un site avant de consulter des agences, et savoir le lire à travers les devis reçus.",
       "urlCible": "/ressources/guides/cahier-des-charges-site-internet",
-      "angle": "Idée conditionnelle, à ne pas planifier tant que les deux conditions ne sont pas réunies : (1) le guide de refonte reçoit des impressions dans les six semaines qui suivent sa mise en production ; (2) Simon fournit un exemple de brief réel, sans quoi le texte serait générique. Le modèle s'écrit dans un tableau éditorial du gabarit guide, pas dans une page outil.",
+      "angle": "Les premiers résultats sont des modèles à télécharger (La Fabrique du Net, Digitiz) qui découpent le document en quatre à six rubriques ; ils ne disent pas comment s'en servir pour comparer des devis ni quoi laisser ouvert à l'agence. Le modèle s'écrit dans un tableau éditorial du gabarit guide, pas dans une page outil : ce que le client décide (objectifs, contenus, contraintes), ce qu'il laisse à l'agence (solutions techniques), une grille pour comparer les devis, et le lien vers le guide de refonte pour l'inventaire et les redirections 301 sans le dupliquer. Réserve héritée de l'idée : sans exemple de brief réel fourni par Simon, le texte serait générique. Si cet exemple n'est pas disponible au lancement de la rédaction (W47 au plus tard), la session remplace l'entrée par un autre candidat de keywords.withoutTarget ou la repasse en idée. Le critère « le guide de refonte reçoit des impressions dans les six semaines » se lit dans la collecte de W47. Lecture de la SERP du 16 octobre 2026 par WebSearch (synthèse de résultats, pas la SERP Google France).",
       "sourcesALire": [
         "Premiers résultats de « cahier des charges site internet » et « cahier des charges site web »",
+        "https://www.lafabriquedunet.fr/agences/tendances/exemple-cahier-des-charges-site-internet/ et https://digitiz.fr/cahier-des-charges-site-internet/ (modèles lus le 16 octobre 2026 par synthèse, à relire en entier et à ne pas reprendre)",
         "Un brief de site réel fourni par Simon",
         "src/content/guides/refonte-site-internet.json (à lier, ne pas dupliquer)"
       ],
-      "semainePrevue": null,
-      "statut": "idée",
+      "semainePrevue": "2026-W48",
+      "statut": "planifié",
       "pr": null,
-      "mesureAttendue": "Page indexée et premières impressions sur « cahier des charges site internet ». Aucune mesure de départ : requête suivie sans page cible.",
+      "mesureAttendue": "Page indexée et premières impressions sur « cahier des charges site internet » et ses trois variantes suivies (« site web », « pour site internet », « refonte »), à lire deux collectes après la mise en production. Aucune mesure de départ : requêtes suivies sans page cible. Demandes : alertes de lead dont la page d'arrivée est cette page (provenance mesurée, décision 2 du 14 octobre 2026).",
       "resultat": null,
-      "origine": "docs/seo/keywords.json : quatre requêtes « cahier des charges » ajoutées le 14 octobre 2026 sans page cible (« cahier des charges site internet » 1 000, KD 26). Création conditionnelle décidée dans la stratégie SEO de la vague 2, section 2.2."
+      "origine": "docs/seo/keywords.json : quatre requêtes « cahier des charges » ajoutées le 14 octobre 2026 sans page cible (« cahier des charges site internet » 1 000, KD 26). Création conditionnelle décidée dans la stratégie SEO de la vague 2, section 2.2. Planifiée en W48 le 16 octobre 2026 par la mission de planification : de toutes les créations candidates, c'est la seule avec un volume mesuré (1 000, KD 26, et 480, 320 et 260 sur les trois variantes, keywords.json:218-221)."
     },
     {
       "id": "w42-guide-claude-in-chrome-entreprise",
@@ -1496,8 +1497,8 @@
         "src/content/guides/mesurer-visibilite-ia-chatgpt.json (protocole à ne pas répéter)"
       ],
       "semainePrevue": "2026-W43",
-      "statut": "planifié",
-      "pr": null,
+      "statut": "publié",
+      "pr": 102,
       "mesureAttendue": "Page indexée et premières impressions sur la requête cible, à lire deux collectes après la mise en production. Aucune mesure de départ : requête sans page waimia. Demandes : alertes de lead dont la page d'arrivée est cette page (provenance mesurée, décision 2 du 14 octobre 2026).",
       "resultat": null,
       "origine": "Semrush France, noiise.com-organic.Positions-fr-20261008-2026-10-09T14_40_50Z.xlsx, ligne 6353 : « audit geo », volume 320, KD 13, position 42 de noiise.com (/geo/). Variante déjà suivie : docs/seo/keywords.json:147, « audit geo ia », 90, KD 5, cible /services/referencement-ia (le guide l'alimente)."
@@ -1516,8 +1517,8 @@
         "src/content/blog/formation-ia-cpf-qualiopi.json et src/content/formations/index.json (offre et prix à citer par jeton)"
       ],
       "semainePrevue": "2026-W43",
-      "statut": "planifié",
-      "pr": null,
+      "statut": "publié",
+      "pr": 102,
       "mesureAttendue": "Page indexée et premières impressions sur la requête cible, à lire deux collectes après la mise en production. Aucune mesure de départ : requête sans page waimia. Demandes : alertes de lead dont la page d'arrivée est cette page (provenance mesurée, décision 2 du 14 octobre 2026).",
       "resultat": null,
       "origine": "Semrush France, formation-ia_formation-chatgpt_bulk_fr_2026-10-04_15-00-05.xlsx, ligne 12 : « formateur ia », volume 390, KD 10, intention commerciale. Cible actuelle de la requête : docs/seo/keywords.json:97 (/formations), que le comparatif alimente."
@@ -1536,8 +1537,8 @@
         "Documentation officielle de Claude Code (Anthropic), à relire à la source le jour de la rédaction"
       ],
       "semainePrevue": "2026-W44",
-      "statut": "planifié",
-      "pr": null,
+      "statut": "publié",
+      "pr": 102,
       "mesureAttendue": "Page indexée et premières impressions sur la requête cible, à lire deux collectes après la mise en production. Aucune mesure de départ : requête sans page waimia. Demandes : alertes de lead dont la page d'arrivée est cette page (provenance mesurée, décision 2 du 14 octobre 2026).",
       "resultat": null,
       "origine": "Semrush France, noiise.com-organic.Positions-fr-20261008-2026-10-09T14_40_50Z.xlsx, ligne 2370 : « refonte logiciel », volume 480, KD 10, position 89 de noiise.com sur l'article /ressources/creation-site-internet/en-quoi-consiste-une-refonte-de-site-web/. Variante ligne 12785 : « refonte d'une application », 110, KD 8."
@@ -1556,8 +1557,8 @@
         "src/content/guides/financement-formation-ia-opco.json (sources de financement déjà relues)"
       ],
       "semainePrevue": "2026-W45",
-      "statut": "planifié",
-      "pr": null,
+      "statut": "publié",
+      "pr": 102,
       "mesureAttendue": "Page indexée et premières impressions sur la requête cible, à lire deux collectes après la mise en production. Aucune mesure de départ : requête sans page waimia. Demandes : alertes de lead dont la page d'arrivée est cette page (provenance mesurée, décision 2 du 14 octobre 2026).",
       "resultat": null,
       "origine": "docs/seo/keywords.json:155 : « formation ia marketing », volume 480, KD 23, CPC 5,32 (Semrush France, relevé du 6 octobre 2026, trace dans docs/seo/semrush/2026-10-06-recherche-semrush.md:43). Cible actuelle : /formations."
@@ -1576,8 +1577,8 @@
         "src/content/guides/combien-coute-un-agent-ia-pme.json et src/content/guides/agent-sav-architecture.json (coût et escalade déjà traités, à lier)"
       ],
       "semainePrevue": "2026-W45",
-      "statut": "planifié",
-      "pr": null,
+      "statut": "publié",
+      "pr": 102,
       "mesureAttendue": "Page indexée et premières impressions sur la requête cible, à lire deux collectes après la mise en production. Aucune mesure de départ : requête sans page waimia. Demandes : alertes de lead dont la page d'arrivée est cette page (provenance mesurée, décision 2 du 14 octobre 2026).",
       "resultat": null,
       "origine": "Semrush France, ia4ops.com_fr.xlsx, ligne 77 : « agent ia 24/7 pour pme », volume 260, KD 6, intention informationnelle, position 64 de ia4ops.com. Cible actuelle : docs/seo/keywords.json:80 (/services/agents-ia), que l'article alimente."
@@ -1596,8 +1597,8 @@
         "src/content/services/consultant-ia-claude.json (seule page qui cite l'accompagnement IA) et /audit-ia-pme"
       ],
       "semainePrevue": "2026-W46",
-      "statut": "planifié",
-      "pr": null,
+      "statut": "publié",
+      "pr": 102,
       "mesureAttendue": "Page indexée et premières impressions sur la requête cible, à lire deux collectes après la mise en production. Aucune mesure de départ : requête sans page waimia. Demandes : alertes de lead dont la page d'arrivée est cette page (provenance mesurée, décision 2 du 14 octobre 2026).",
       "resultat": null,
       "origine": "Semrush France, kayro.ai_fr.xlsx, ligne 98 : « accompagnement ia », volume 170, KD 19, position 2 de kayro.ai (/accompagnement-ia). Cible actuelle : docs/seo/keywords.json:189 (/services/consultant-ia-claude)."
@@ -1616,11 +1617,118 @@
         "src/content/guides/mesurer-visibilite-ia-chatgpt.json et src/content/blog/seo-geo-etre-cite-par-les-ia-generatives.json (sections à ne pas répéter)"
       ],
       "semainePrevue": "2026-W47",
+      "statut": "publié",
+      "pr": 102,
+      "mesureAttendue": "Page indexée et premières impressions sur la requête cible, à lire deux collectes après la mise en production. Aucune mesure de départ : requête sans page waimia. Demandes : alertes de lead dont la page d'arrivée est cette page (provenance mesurée, décision 2 du 14 octobre 2026).",
+      "resultat": null,
+      "origine": "Semrush France, noiise.com-organic.Positions-fr-20261008-2026-10-09T14_40_50Z.xlsx, ligne 7877 : « comment être référencé sur perplexity », volume 170, KD 6, position 22 de noiise.com (/ressources/geo/guide-visibilite-perplexity-ia/). Variantes lignes 2270 (« référencement perplexity ai », 140, KD 8) et 1497 (« comment etre visible dans perplexity », 90, KD 15)."
+    },
+    {
+      "id": "w43-article-formation-ia-rh",
+      "type": "article",
+      "titreProvisoire": "Formation IA RH : le programme à exiger pour une équipe de PME",
+      "requeteCible": "formation ia rh",
+      "intention": "Savoir ce qu'une formation IA doit couvrir pour une équipe RH, ce qu'elle ne doit pas déléguer à l'IA et comment la financer.",
+      "urlCible": "/blog/formation-ia-rh-pme",
+      "angle": "Les premiers résultats sont des fiches de catalogue d'organismes (Walter Learning, Lefebvre Dalloz Compétences, CCI Pays de la Loire) : durée, programme, financement, mais rien sur ce qu'une équipe RH ne doit pas confier à l'IA. Même gabarit que les articles formation IA finance et marketing : où l'IA aide une équipe RH (offres d'emploi, FAQ salariés, synthèses de documents), ce qu'elle ne décide pas (tri de candidats, évaluation d'une personne : cadre de l'AI Act à relire sur la source avant d'écrire), le programme à exiger d'un formateur, puis le financement par le guide OPCO. Alimente /formations (cible actuelle de la requête), renvoie à la formation Claude ou ChatGPT selon l'outil de l'équipe et à /cas-usages/rh. SERP lue le 16 octobre 2026 par WebSearch (synthèse de résultats, pas la SERP Google France : à reconfirmer sur les premiers résultats le jour de la rédaction).",
+      "sourcesALire": [
+        "Premiers résultats de « formation ia rh »",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-4 et l'annexe III du règlement (UE) 2024/1689 sur les systèmes à haut risque en matière d'emploi (à relire le jour de la rédaction, aucune affirmation juridique sans la source)",
+        "src/content/blog/formation-ia-finance-pme.json et src/content/blog/formation-ia-marketing-pme.json (gabarit, sections à ne pas copier mot pour mot)",
+        "src/content/guides/financement-formation-ia-opco.json (sources de financement déjà relues)",
+        "src/content/cas-usages/rh.json (à lier, sections à ne pas répéter)"
+      ],
+      "semainePrevue": "2026-W43",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Page indexée et premières impressions sur la requête cible, à lire deux collectes après la mise en production. Mesure de départ : impressions de la requête sur sa page cible actuelle (/formations), à relever dans la collecte de la semaine de mise en production. Demandes : alertes de lead dont la page d'arrivée est cette page (provenance mesurée, décision 2 du 14 octobre 2026).",
+      "resultat": null,
+      "origine": "docs/seo/keywords.json:156 : « formation ia rh », volume 390, KD 46, CPC 4,82 (Semrush France, octobre 2026). Cible actuelle : /formations, page générique ; aucun contenu du dépôt ne traite la requête (grep « formation ia rh » dans src/content et src/pages : 0 fichier, le 16 octobre 2026). Gabarit éprouvé par les articles formation IA finance et marketing."
+    },
+    {
+      "id": "w44-guide-automatisation-factures-fournisseurs",
+      "type": "guide",
+      "titreProvisoire": "Automatiser les factures fournisseurs avec l'IA : ce qu'on délègue, ce qu'on contrôle",
+      "requeteCible": "automatisation factures fournisseurs",
+      "intention": "Savoir ce qu'une IA lit, impute et rapproche dans une facture fournisseur, quels contrôles garder et quand un logiciel du marché suffit avant de commander un agent sur mesure.",
+      "urlCible": "/ressources/guides/automatisation-factures-fournisseurs-pme",
+      "angle": "Les premiers résultats sont des éditeurs (Lido, Spendesk, Klippa) et des intégrateurs : ils décrivent leur outil de lecture de factures, et leurs sources divergent sur le calendrier de la facturation électronique. La page apporte le parcours en cinq étapes (réception, extraction, rapprochement avec la commande, imputation, validation humaine sous un seuil), les contrôles à garder, le test à faire sur un échantillon de ses propres factures avant tout devis, et le critère qui départage un logiciel du marché d'un agent sur mesure. Calendrier de la facturation électronique : lire la source officielle le jour de la rédaction, ne pas recopier un éditeur. Mène à /services/agent-traitement-documents. SERP lue le 16 octobre 2026 par WebSearch (synthèse de résultats, pas la SERP Google France : à reconfirmer sur les premiers résultats le jour de la rédaction).",
+      "sourcesALire": [
+        "Premiers résultats de « automatisation factures fournisseurs »",
+        "https://www.lido.app/fr/automatisation-factures-fournisseurs et https://www.spendesk.com/fr/blog/automatisation-comptable-pme/ (lus le 16 octobre 2026 par synthèse, à relire en entier le jour de la rédaction)",
+        "https://www.claudin.tech/blog/traitement-factures-fournisseurs-ia (page concurrente, à lire avant d'écrire, à ne pas reprendre)",
+        "Calendrier officiel de la facturation électronique (impots.gouv.fr, page à retrouver et relire le jour de la rédaction)",
+        "src/content/services/agents-ia/agent-traitement-documents.json et src/content/cas-usages/finance-comptabilite.json (à lier, sections à ne pas répéter)"
+      ],
+      "semainePrevue": "2026-W44",
       "statut": "planifié",
       "pr": null,
       "mesureAttendue": "Page indexée et premières impressions sur la requête cible, à lire deux collectes après la mise en production. Aucune mesure de départ : requête sans page waimia. Demandes : alertes de lead dont la page d'arrivée est cette page (provenance mesurée, décision 2 du 14 octobre 2026).",
       "resultat": null,
-      "origine": "Semrush France, noiise.com-organic.Positions-fr-20261008-2026-10-09T14_40_50Z.xlsx, ligne 7877 : « comment être référencé sur perplexity », volume 170, KD 6, position 22 de noiise.com (/ressources/geo/guide-visibilite-perplexity-ia/). Variantes lignes 2270 (« référencement perplexity ai », 140, KD 8) et 1497 (« comment etre visible dans perplexity », 90, KD 15)."
+      "origine": "docs/seo/data/latest.json (collecte 2026-W41, générée le 11 octobre 2026), competitors.rows : claudin.tech publie /blog/traitement-factures-fournisseurs-ia (nouvelle URL) ; docs/seo/data/state/competitors.json : sparkyflow.com/facture-automatique-automatisation-architecte. Aucune page waimia dédiée : « factures fournisseur » n'apparaît qu'en passant dans 13 fichiers de src/content (grep du 16 octobre 2026). Volume non mesuré par Semrush : requête ajoutée à keywords.json le 16 octobre 2026 avec volume null. L'offre existe : agent de traitement de documents (factures, devis, contrats)."
+    },
+    {
+      "id": "w45-article-chatbot-rh-pme",
+      "type": "article",
+      "titreProvisoire": "Chatbot RH en PME : ce qu'il répond bien et ce qu'il ne doit jamais trancher",
+      "requeteCible": "chatbot rh",
+      "intention": "Savoir quelles questions des salariés un chatbot RH peut traiter dans une PME, avec quels documents, quelles limites et quelles obligations d'information.",
+      "urlCible": "/blog/chatbot-rh-pme",
+      "angle": "Les premiers résultats sont des éditeurs de SIRH et de paie (PayFit, Factorial), un outil de support (eesel) et le JDN : le chatbot RH y est un produit, les exemples cités sont des grands groupes. La page décrit le cas d'une PME avec une ou deux personnes RH : les questions à réponse documentée (règlement intérieur, congés, mutuelle, procédures) qu'un assistant branché sur ses propres documents traite, ce qu'il ne tranche jamais (paie individuelle, litige, évaluation d'une personne, tri de candidats), l'escalade vers un humain, l'information de l'utilisateur qu'il parle à une IA et le RGPD sur des données de salariés (liens vers le guide de transparence et la liste de contrôle RGPD). Mène à /services/base-de-connaissance-ia. SERP lue le 16 octobre 2026 par WebSearch (synthèse de résultats, pas la SERP Google France : à reconfirmer sur les premiers résultats le jour de la rédaction).",
+      "sourcesALire": [
+        "Premiers résultats de « chatbot rh »",
+        "https://payfit.com/fr/fiches-pratiques/chatbot-rh/ et https://www.eesel.ai/fr/blog/chatbot-ressources-humaines (lus le 16 octobre 2026 par synthèse, à relire en entier le jour de la rédaction)",
+        "src/content/guides/chatbot-transparence-article-50.json et src/content/guides/rgpd-agents-ia-checklist.json (à lier, sections à ne pas répéter)",
+        "src/content/cas-usages/rh.json et src/content/services/base-de-connaissance-ia.json (à lier)"
+      ],
+      "semainePrevue": "2026-W45",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Page indexée et premières impressions sur la requête cible, à lire deux collectes après la mise en production. Mesure de départ : impressions de la requête sur sa page cible actuelle (/cas-usages/rh), à relever dans la collecte de la semaine de mise en production. Demandes : alertes de lead dont la page d'arrivée est cette page (provenance mesurée, décision 2 du 14 octobre 2026).",
+      "resultat": null,
+      "origine": "docs/seo/keywords.json:86 : « chatbot rh », volume 320, KD 28 (Semrush France, octobre 2026). Cible actuelle : /cas-usages/rh, page thématique qui ne mentionne la requête qu'en passant (grep « chatbot rh » : 2 fichiers de src/content, le 16 octobre 2026). Le changement de cible dans keywords.json se fait à la publication."
+    },
+    {
+      "id": "w46-article-ia-reponse-appel-offres-pme",
+      "type": "article",
+      "titreProvisoire": "IA et réponse aux appels d'offres : ce qu'une PME peut préparer, ce qu'elle garde",
+      "requeteCible": "ia réponse appel d'offres",
+      "intention": "Savoir ce qu'une IA fait dans une réponse à appel d'offres (lecture du dossier, tableau des exigences, trame du mémoire) et ce qui reste à l'équipe, avant de lancer un projet.",
+      "urlCible": "/blog/ia-reponse-appel-offres-pme",
+      "angle": "Les premiers résultats mêlent éditeurs de logiciels, intégrateurs BTP et blogs d'agences (Tensoria, ClaudIn) ; ils promettent un gain de temps et décrivent leur propre outil. La page apporte la chaîne en quatre étapes avec traçabilité (exigence, document source, page, responsable), ce que l'équipe garde (prix, engagements, validation du mémoire), le test à faire sur un ancien dossier avant d'investir, la confidentialité des pièces envoyées à un modèle, et les secteurs où le cas est fréquent (ESN, bâtiment, industrie, liens vers les pages secteur). Aucun gain chiffré repris d'un éditeur. Mène à /services/agent-traitement-documents, avec /services/base-de-connaissance-ia pour réutiliser les anciens mémoires. SERP lue le 16 octobre 2026 par WebSearch (synthèse de résultats, pas la SERP Google France : à reconfirmer sur les premiers résultats le jour de la rédaction).",
+      "sourcesALire": [
+        "Premiers résultats de « ia réponse appel d'offres »",
+        "https://tensoria.fr/blog/automatiser-reponses-appels-offres-ia (premier résultat lu le 16 octobre 2026, à relire en entier et à ne pas reprendre)",
+        "https://www.claudin.tech/blog/ia-reponse-appel-offres-pme et https://www.kayro.ai/project/reponse-automatisee-aux-appels-doffres (pages concurrentes, à lire avant d'écrire)",
+        "src/content/services/agents-ia/agent-traitement-documents.json, src/content/services/base-de-connaissance-ia.json, src/content/secteurs/esn.json et src/content/secteurs/industrie.json (à lier, sections à ne pas répéter)"
+      ],
+      "semainePrevue": "2026-W46",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Page indexée et premières impressions sur la requête cible, à lire deux collectes après la mise en production. Aucune mesure de départ : requête sans page waimia. Demandes : alertes de lead dont la page d'arrivée est cette page (provenance mesurée, décision 2 du 14 octobre 2026).",
+      "resultat": null,
+      "origine": "Sujet publié par trois concurrents suivis : docs/seo/data/latest.json (collecte 2026-W41, générée le 11 octobre 2026) claudin.tech/blog/ia-reponse-appel-offres-pme ; docs/seo/data/state/competitors.json kayro.ai/project/reponse-automatisee-aux-appels-doffres et sparkyflow.com/article/solution/ia-reponse-appels-offres-guide. Aucune page waimia dédiée (« appels d'offres » n'apparaît qu'en passant dans 6 fichiers de src/content, grep du 16 octobre 2026). Volume non mesuré par Semrush : requête ajoutée à keywords.json le 16 octobre 2026 avec volume null."
+    },
+    {
+      "id": "w47-article-relance-factures-impayees-automatique",
+      "type": "article",
+      "titreProvisoire": "Relancer les factures impayées automatiquement : la séquence, et ce qui reste manuel",
+      "requeteCible": "relance factures impayées automatique",
+      "intention": "Savoir comment automatiser les relances de factures clients sans abîmer la relation, ce que l'IA ajoute à des règles simples et ce qui reste à un humain.",
+      "urlCible": "/blog/relance-factures-impayees-automatique-pme",
+      "angle": "Les premiers résultats sont des éditeurs de facturation et de trésorerie (HighRadius, Agicap, Sellsy, Appvizer) et un article de Tensoria pour le bâtiment ; l'un d'eux rappelle qu'un logiciel de facturation avec scénarios suffit souvent pour démarrer. La page dit où s'arrête la règle simple et où l'IA aide (adapter le ton, ordonner les relances selon l'historique du client), la séquence type (avant échéance, rappel de courtoisie, relance appuyée, escalade), les cas qui restent manuels (litige, gros compte), et le cadre légal des pénalités de retard à lire sur Légifrance (Code de commerce, article L441-10) avant d'écrire. Prolonge l'article sur la relance de devis et mène à /services/sequences-de-suivi. SERP lue le 16 octobre 2026 par WebSearch (synthèse de résultats, pas la SERP Google France : à reconfirmer sur les premiers résultats le jour de la rédaction).",
+      "sourcesALire": [
+        "Premiers résultats de « relance factures impayées automatique »",
+        "https://tensoria.fr/blog/impayes-artisan-relance-ia et https://www.claudin.tech/blog/relance-client-impaye-ia-pme (pages concurrentes, à lire avant d'écrire, à ne pas reprendre)",
+        "Code de commerce, article L441-10, sur Légifrance (à relire le jour de la rédaction ; ne pas reprendre le chiffre d'un éditeur)",
+        "src/content/blog/automatiser-relance-devis-n8n.json et src/content/services/sequences-de-suivi.json (à lier, sections à ne pas répéter)"
+      ],
+      "semainePrevue": "2026-W47",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Page indexée et premières impressions sur la requête cible, à lire deux collectes après la mise en production. Aucune mesure de départ : requête sans page waimia. Demandes : alertes de lead dont la page d'arrivée est cette page (provenance mesurée, décision 2 du 14 octobre 2026).",
+      "resultat": null,
+      "origine": "docs/seo/data/latest.json (collecte 2026-W41, générée le 11 octobre 2026) : claudin.tech publie /blog/relance-client-impaye-ia-pme (nouvelle URL). L'offre existe : src/content/services/sequences-de-suivi.json, « Relance automatisée des devis et des factures », alors que seul le devis a un contenu dédié (blog automatiser-relance-devis-n8n). Aucune page waimia sur les factures impayées (grep « impay » : 10 fichiers, en passant). Volume non mesuré par Semrush : requête ajoutée à keywords.json le 16 octobre 2026 avec volume null."
     }
   ]
 }
