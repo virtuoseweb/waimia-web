@@ -37,6 +37,12 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### Contenu W43, 16 octobre 2026 (PR #109)
+
+- **Articles** : `formation-ia-rh-pme`, `chatbot-rh-pme`, `audit-site-internet-pme` (requêtes de 390, 320 et 1 300 recherches mensuelles, cibles basculées dans `keywords.json`), illustrés et déclarés au maillage. Trois créations planifiées en remplacement (application métier, automatisation des processus métiers, formation IA générative).
+- **Aimant** `grille-audit-site-internet` (demande de Simon) : PDF de 10 pages par e-mail, page outil, bandes de capture sur le guide cahier des charges, le guide refonte et `/services/site-web-ia`.
+- **À mesurer** : alertes de lead dont la page d'arrivée est l'une de ces pages ; impressions des trois requêtes deux collectes après la mise en production.
+
 ### Illustrations en production, 16 octobre 2026 (PR #107, `0de8e586`)
 
 - **Demande de Simon** : plusieurs pages créées n'avaient pas d'image. 20 illustrations dessinées avec le skill `waimia-illustration` (moteur B, SVG, aucune API payante) : 9 héros (6 guides, 3 comparatifs) et 11 billets récents.
