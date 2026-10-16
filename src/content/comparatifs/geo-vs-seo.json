@@ -1,13 +1,13 @@
 {
   "$schema": "../../schemas/generated/comparatifs.page.schema.json",
-  "title_fr": "GEO vs SEO · être cité par les IA ou trouvé sur Google",
-  "title_en": "GEO vs SEO · cited by AIs or found on Google",
-  "seoTitle_fr": "GEO vs SEO : être cité par les IA ou trouvé sur Google",
-  "description_fr": "Comparatif GEO vs SEO : ce qui change quand l'audience passe des résultats Google aux réponses d'IA, ce qui reste vrai, et comment combiner les deux.",
-  "description_en": "GEO vs SEO compared: what changes when your audience shifts from Google results to AI answers, what stays true, and how to combine both.",
+  "title_fr": "GEO vs SEO · où mettre le budget, par critère et par cas",
+  "title_en": "GEO vs SEO · where to put the budget, criteria and verdict by case",
+  "seoTitle_fr": "GEO vs SEO : où investir en PME, critères et verdict",
+  "description_fr": "GEO vs SEO pour décider d'un budget : tableau de critères, verdict par cas, et ce que Google écrit d'une prestation GEO vendue à part.",
+  "description_en": "GEO vs SEO to decide a budget: criteria table, verdict by case, and what Google writes about a GEO service sold separately.",
   "slug": "geo-vs-seo",
   "publishedAt": "2026-06-29T00:00:00.000Z",
-  "updatedAt": "2026-10-14T00:00:00.000Z",
+  "updatedAt": "2026-10-16T00:00:00.000Z",
   "category": "acquisition",
   "tags": [
     "geo",
@@ -22,73 +22,79 @@
   },
   "faq_fr": [
     {
-      "q": "Le GEO remplace-t-il le SEO ?",
-      "a": "Non, il le prolonge. Le SEO reste le socle : sans pages indexables, rapides et structurées, aucune IA ne peut s'appuyer sur votre contenu. Google l'écrit pour ses AI Overviews : aucune optimisation spéciale n'est requise, il faut une page indexée et éligible à un extrait. Le GEO ajoute une couche pensée pour que les modèles génératifs citent votre marque dans leurs réponses. On ne choisit pas l'un contre l'autre, on construit le second sur le premier."
+      "q": "Faut-il un budget GEO séparé du SEO ?",
+      "a": "Pas pour Google : son guide écrit qu'optimiser pour la recherche générative, c'est du SEO, sans fichier ni balisage spécial. Une ligne GEO distincte ne se justifie que pour les autres assistants (ChatGPT, Claude, Perplexity), et après un premier relevé de ce qu'ils répondent sur votre marché. Sur un site mal indexé, le SEO passe avant."
     },
     {
       "q": "Qu'est-ce que le GEO concrètement ?",
-      "a": "Generative Engine Optimization, un terme issu d'une étude de chercheurs de Princeton présentée à KDD 2024 : l'art d'être cité par les moteurs de réponse comme ChatGPT, Perplexity, Claude ou les AI Overviews de Google. Là où le SEO vise une position dans une liste de liens, le GEO vise une mention dans une réponse rédigée. Cela passe par des contenus clairs, sourcés, faciles à extraire et à attribuer."
+      "a": "Generative Engine Optimization, un terme issu d'une étude de chercheurs de Princeton présentée à KDD 2024 : le travail pour être cité par les moteurs de réponse. Là où le SEO vise une position dans une liste de liens, le GEO vise une mention dans une réponse rédigée."
     },
     {
       "q": "Pourquoi mon site bien référencé n'est jamais cité par les IA ?",
-      "a": "Parce qu'être premier sur Google et être cité par une IA sont deux mécaniques différentes. Un modèle génératif privilégie les passages qui répondent directement à une question, avec une définition nette et une source identifiable. Un contenu optimisé pour les clics, long et promotionnel, se classe bien mais s'extrait mal. Le GEO corrige précisément ce décalage."
+      "a": "Parce que les deux mesures diffèrent : Google classe des pages, un assistant compose une réponse à partir d'extraits. Une page longue et promotionnelle peut bien se classer et offrir peu d'extrait net. Aucun éditeur ne documente de critère de citation que je puisse vous donner : le relevé dira ce qui se passe chez vous."
     },
     {
       "q": "Comment savoir si une IA cite ma marque ?",
-      "a": "Il n'existe pas de tableau de bord officiel : Search Console compte le trafic des AI Overviews dans le type « Web », sans le séparer. Pour le reste, on pose les questions de votre marché à ChatGPT, Perplexity, Claude et Google AI Overviews, et on regarde qui est cité, dans quel contexte, avec quelle source. C'est la base d'un audit GEO : une cartographie des réponses sur vos requêtes clés, avant et après travaux, pour mesurer la progression au lieu de la deviner."
+      "a": "Pour Google, la Search Console a un rapport « IA générative », étendu à tous les sites le 31 août 2026 : il donne les impressions de vos pages dans les Aperçus IA et le Mode IA, par page, pays, appareil et date. Pour ChatGPT, Claude et Perplexity, je n'ai pas trouvé d'équivalent dans la documentation des éditeurs : on pose les questions de votre marché, on note qui est cité, avec quelle source, et on recommence après travaux."
     },
     {
-      "q": "Les bonnes pratiques SEO servent-elles encore pour le GEO ?",
-      "a": "La plupart oui. Un contenu structuré, un balisage propre, une vitesse de chargement correcte et une autorité crédible profitent aux deux. Ce qui change, c'est l'intention : on écrit pour répondre, pas seulement pour ranker. Dans l'étude GEO, citer ses sources, ajouter des citations et des statistiques augmentait la visibilité dans les réponses de 30 à 40 %."
+      "q": "Que dit Google d'une prestation « GEO » ou « AEO » ?",
+      "a": "Son guide de mai 2026 écrit que, de son point de vue, optimiser pour la recherche générative, c'est du SEO, et invite à confronter les conseils « GEO » de tiers à sa documentation. Il dit aussi qu'aucun outil tiers n'a accès à ses systèmes internes de classement ou d'IA. Il liste ce qu'on peut ignorer côté Google : fichiers llms.txt, découpage en petits morceaux, réécriture pour l'IA, mentions artificielles."
     },
     {
       "q": "Faut-il deux stratégies de contenu séparées ?",
-      "a": "Non, une seule conçue pour les deux. Chaque page sert d'abord une vraie question, avec une réponse nette en ouverture pour les IA et un développement riche pour Google et le lecteur. C'est ce que nous bâtissons dans le Site Web Intelligent : un contenu qui se classe et se fait citer, sans dupliquer l'effort éditorial."
+      "a": "Non, une seule conçue pour les deux. Chaque page sert d'abord une vraie question, avec une réponse nette en ouverture et un développement riche pour le lecteur. C'est ce que nous bâtissons dans le Site Web Intelligent, sans dupliquer l'effort éditorial."
     },
     {
-      "q": "Combien de temps avant de voir des résultats en GEO ?",
-      "a": "Aucune étude publique ne mesure ce délai de façon fiable, je ne vous en promettrai donc pas. Côté Google, une page doit d'abord être indexée : le calendrier du SEO s'applique. Côté ChatGPT ou Perplexity, cela dépend de ce que chaque moteur va chercher. La régularité reste reine : une marque citée est une marque qui publie des réponses fiables sur la durée, pas un coup ponctuel. D'où un relevé avant travaux, un relevé après, et une décision sur pièces."
+      "q": "Quand juger si la dépense a marché ?",
+      "a": "Aucune étude publique ne mesure ce délai de façon fiable, et Google ne garantit ni l'indexation ni l'affichage. D'où un relevé avant travaux, un relevé après sur les mêmes questions, et une décision sur pièces. Une ligne budgétaire sans relevé de départ ne se juge pas."
     },
     {
       "q": "Waimia fait-il du GEO et du SEO ensemble ?",
-      "a": "Oui, avec deux offres : une agence SEO (audit technique, rédaction, SEO local) et une agence GEO (audit de citabilité, passages citables, relevé des citations). Un audit de départ mesure les deux. L'objectif : capter l'audience là où elle cherche vraiment, moteur classique comme moteur de réponse."
+      "a": "Oui, avec deux offres : une agence SEO (audit technique, rédaction, SEO local) et une agence GEO (audit de citabilité, passages citables, relevé des citations). L'offre de référencement IA commence par un sprint de cadrage de 10 heures à {{prix.sprint}} € HT, sans promesse de citation."
     }
   ],
   "faq_en": [
     {
-      "q": "Does GEO replace SEO?",
-      "a": "No, it extends it. SEO stays the foundation: without indexable, fast, structured pages, no AI can rely on your content. Google states it for its AI Overviews: no special optimization is required, you need an indexed page eligible for a snippet. GEO adds a layer designed so generative models cite your brand in their answers. You don't pick one over the other, you build the second on top of the first."
+      "q": "Do I need a GEO budget separate from SEO?",
+      "a": "Not for Google: its guide writes that optimising for generative search is SEO, with no special file or markup. A separate GEO line is only justified for the other assistants (ChatGPT, Claude, Perplexity), and after a first record of what they answer on your market. On a poorly indexed site, SEO comes first."
     },
     {
       "q": "What is GEO in practice?",
-      "a": "Generative Engine Optimization, a term coined in a Princeton researchers' study presented at KDD 2024: the craft of being cited by answer engines like ChatGPT, Perplexity, Claude or Google's AI Overviews. Where SEO aims for a position in a list of links, GEO aims for a mention inside a written answer. It relies on clear, sourced content that is easy to extract and attribute."
+      "a": "Generative Engine Optimization, a term coined in a Princeton researchers' study presented at KDD 2024: the work of being cited by answer engines. Where SEO aims for a position in a list of links, GEO aims for a mention inside a written answer."
     },
     {
       "q": "Why is my well-ranked site never cited by AIs?",
-      "a": "Because ranking first on Google and being cited by an AI are two different mechanics. A generative model favours passages that answer a question directly, with a crisp definition and an identifiable source. Content optimised for clicks, long and promotional, ranks well but extracts poorly. GEO fixes exactly that gap."
+      "a": "Because the two measures differ: Google ranks pages, an assistant composes an answer from extracts. A long, promotional page can rank well and offer few clean extracts. No publisher documents a citation criterion I can give you: the record will tell you what happens in your case."
     },
     {
       "q": "How do I know if an AI cites my brand?",
-      "a": "There's no official dashboard: Search Console counts AI Overviews traffic in the \"Web\" search type, without separating it. For the rest, we ask your market's questions to ChatGPT, Perplexity, Claude and Google AI Overviews, and look at who is cited, in what context, with which source. That's the basis of a GEO audit: a map of the answers on your key queries, before and after work, to measure progress instead of guessing it."
+      "a": "For Google, Search Console has a “generative AI” report, extended to all sites on 31 August 2026: it gives the impressions of your pages in AI Overviews and AI Mode, by page, country, device and date. For ChatGPT, Claude and Perplexity, I found no equivalent in the publishers' documentation: we ask your market's questions, note who is cited, with which source, and repeat after the work."
     },
     {
-      "q": "Do SEO best practices still serve GEO?",
-      "a": "Most do. Structured content, clean markup, decent load speed and credible authority benefit both. What changes is intent: you write to answer, not just to rank. In the GEO study, citing sources, adding quotations and statistics raised visibility in answers by 30 to 40%."
+      "q": "What does Google say about a “GEO” or “AEO” service?",
+      "a": "Its May 2026 guide writes that, from its point of view, optimising for generative search is SEO, and invites you to check third-party “GEO” advice against its documentation. It also says no third-party tool has access to its internal ranking or AI systems. It lists what you can ignore on Google's side: llms.txt files, chunking, rewriting for AI, inauthentic mentions."
     },
     {
       "q": "Do I need two separate content strategies?",
-      "a": "No, a single one designed for both. Each page first serves a real question, with a crisp answer up top for AIs and a rich development for Google and the reader. That's what we build in the Intelligent Website: content that ranks and gets cited, without duplicating the editorial effort."
+      "a": "No, a single one designed for both. Each page first serves a real question, with a crisp answer up top and a rich development for the reader. That's what we build in the Intelligent Website, without duplicating the editorial effort."
     },
     {
-      "q": "How long before GEO shows results?",
-      "a": "No public study measures that delay reliably, so I won't promise you one. On Google, a page must first be indexed: the SEO calendar applies. On ChatGPT or Perplexity, it depends on what each engine goes and fetches. Consistency rules: a cited brand is one that publishes reliable answers over time, not a one-off hit. Hence a baseline before the work, a reading after, and a decision on evidence."
+      "q": "When can I judge whether the spending worked?",
+      "a": "No public study measures that delay reliably, and Google guarantees neither indexing nor display. Hence a record before the work, a record after on the same questions, and a decision on evidence. A budget line with no starting record cannot be judged."
     },
     {
       "q": "Does Waimia do GEO and SEO together?",
-      "a": "Yes, with two offers: an SEO agency (technical audit, writing, local SEO) and a GEO agency (citability audit, citable passages, citation tracking). A starting audit measures both. The goal: capture your audience where it truly searches, classic engine and answer engine alike."
+      "a": "Yes, with two offers: an SEO agency (technical audit, writing, local SEO) and a GEO agency (citability audit, citable passages, citation tracking). The AI search offer starts with a 10-hour scoping sprint at €{{prix.sprint.en}} excl. VAT, with no promise of citation."
     }
   ],
   "sources": [
+    {
+      "name": "Google Search Central, Optimizing your website for generative AI features on Google Search (annoncé le 15 mai 2026, mis à jour le 10 juillet 2026)",
+      "url": "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide",
+      "type": "enterprise",
+      "publishedAt": "2026-05-15"
+    },
     {
       "name": "Google Search Central, AI features and your website",
       "url": "https://developers.google.com/search/docs/appearance/ai-features",
@@ -96,8 +102,8 @@
       "publishedAt": "2025-12-10"
     },
     {
-      "name": "Google Search Central, politiques relatives au spam (bourrage de mots-clés)",
-      "url": "https://developers.google.com/search/docs/essentials/spam-policies",
+      "name": "Aide Search Console, Generative AI performance report (Search)",
+      "url": "https://support.google.com/webmasters/answer/16984139",
       "type": "enterprise"
     },
     {
@@ -117,16 +123,16 @@
       "h1_en": "GEO vs <i class=\"acc\">SEO</i>.",
       "definition_kicker_fr": "De quoi parle-t-on ?",
       "definition_kicker_en": "What are we comparing?",
-      "lede_fr": "Le SEO vous fait trouver dans les résultats de Google. Le GEO vous fait <i>citer</i> dans les réponses des IA. Deux mécaniques voisines, deux intentions distinctes. Ce comparatif pose ce qui change, ce qui reste vrai, et comment combiner les deux dans une seule stratégie de contenu.",
-      "lede_en": "SEO gets you found in Google's results. GEO gets you <i>cited</i> in AI answers. Two neighbouring mechanics, two distinct intents. This comparison lays out what changes, what stays true, and how to combine both in a single content strategy.",
+      "lede_fr": "Le SEO vous fait trouver dans les résultats de Google. Le GEO vise la <i>citation</i> dans les réponses des assistants. Ce comparatif sert à décider d'un budget : quoi financer d'abord, quoi mesurer avant de payer, quoi refuser.",
+      "lede_en": "SEO gets you found in Google's results. GEO aims at being <i>cited</i> in assistants' answers. This comparison is for deciding a budget: what to fund first, what to measure before paying, what to refuse.",
       "badges": [
         {
-          "label_fr": "Position Google · citation IA",
-          "label_en": "Google position · AI citation"
+          "label_fr": "Tableau de critères · verdict par cas",
+          "label_en": "Criteria table · verdict by case"
         },
         {
-          "label_fr": "Un seul contenu, deux cibles",
-          "label_en": "One content, two targets"
+          "label_fr": "Sources de Google lues le 16 octobre 2026",
+          "label_en": "Google sources read on 16 October 2026"
         },
         {
           "label_fr": "Le SEO reste le socle",
@@ -155,222 +161,299 @@
     {
       "type": "direct-answer",
       "background": "paper-2",
-      "question_fr": "Quelle différence entre GEO et SEO ?",
-      "question_en": "What's the difference between GEO and SEO?",
+      "question_fr": "Quelle différence entre GEO et SEO, et lequel financer d'abord ?",
+      "question_en": "What's the difference between GEO and SEO, and which to fund first?",
       "term_fr": "GEO vs SEO",
       "term_en": "GEO vs SEO",
-      "answer_fr": "Le SEO (Search Engine Optimization) optimise un site pour qu'il apparaisse haut dans la liste de liens d'un moteur comme Google. Le GEO (Generative Engine Optimization) optimise un contenu pour qu'il soit cité dans la réponse rédigée d'une IA comme ChatGPT, Perplexity, Claude ou les AI Overviews de Google. La différence tient à la cible : le SEO vise une position cliquable, le GEO vise une mention dans une phrase générée. Les fondations sont communes, et Google l'écrit : aucune optimisation spéciale n'est requise pour ses AI Overviews. Mais le GEO ajoute une exigence de clarté immédiate et de source identifiable, parce qu'un modèle cite ce qu'il peut extraire et attribuer sans ambiguïté.",
-      "answer_en": "SEO (Search Engine Optimization) optimises a site to appear high in a search engine's list of links, like Google. GEO (Generative Engine Optimization) optimises content to be cited in the written answer of an AI like ChatGPT, Perplexity, Claude or Google's AI Overviews. The difference is the target: SEO aims for a clickable position, GEO aims for a mention inside a generated sentence. The foundations are shared, and Google says so: no special optimization is required for its AI Overviews. But GEO adds a demand for immediate clarity and an identifiable source, because a model cites what it can extract and attribute without ambiguity."
+      "answer_fr": "Le SEO vise une position dans les résultats de Google, le GEO une citation dans la réponse rédigée d'un assistant comme ChatGPT, Claude ou Perplexity. Pour Google, viser ses réponses IA relève du SEO : son guide du 15 mai 2026 le dit. Financez d'abord des pages indexées et utiles. Une ligne GEO à part ne se justifie que pour les autres assistants, et se décide après un premier relevé. C'est une lecture de Waimia.",
+      "answer_en": "SEO aims at a position in Google's results, GEO at a citation in the written answer of an assistant such as ChatGPT, Claude or Perplexity. For Google, aiming at its AI answers is SEO: its 15 May 2026 guide says so. Fund indexed, useful pages first. A separate GEO line is only justified for the other assistants, and is decided after a first measurement. This is Waimia's reading."
     },
     {
-      "type": "comparison-table",
+      "type": "editorial-table-block",
       "anchor": "comparatif",
       "background": "paper",
-      "h2_fr": "GEO et SEO, ligne à ligne",
-      "h2_en": "GEO and SEO, line by line",
-      "column_headers_fr": [
+      "kicker_fr": "§ Critères de décision",
+      "kicker_en": "§ Decision criteria",
+      "heading_fr": "GEO et SEO, critère par critère",
+      "heading_en": "GEO and SEO, criterion by criterion",
+      "caption_fr": "Lecture de Waimia à partir du guide de Google du 15 mai 2026 (mis à jour le 10 juillet 2026), de l'aide de la Search Console et de l'étude Aggarwal et al. (KDD 2024), relus le 16 octobre 2026. Aucun coût de marché n'est avancé : il dépend du périmètre.",
+      "caption_en": "Waimia's reading of Google's 15 May 2026 guide (updated 10 July 2026), the Search Console help and the Aggarwal et al. study (KDD 2024), reread on 16 October 2026. No market cost is given: it depends on scope.",
+      "columns_fr": [
         "Critère",
-        "SEO classique",
-        "GEO"
+        "SEO",
+        "GEO (autres assistants)"
       ],
-      "column_headers_en": [
+      "columns_en": [
         "Criterion",
-        "Classic SEO",
-        "GEO"
+        "SEO",
+        "GEO (other assistants)"
       ],
-      "rows": [
-        {
-          "feature_fr": "Surface visée",
-          "feature_en": "Target surface",
-          "values": [
-            "Liste de liens Google",
-            "Réponse d'IA citée"
-          ]
-        },
-        {
-          "feature_fr": "Unité de succès",
-          "feature_en": "Unit of success",
-          "values": [
-            "Position et clic",
-            "Mention et attribution"
-          ]
-        },
-        {
-          "feature_fr": "Format gagnant",
-          "feature_en": "Winning format",
-          "values": [
-            "Page complète",
-            "Passage autonome, sourcé"
-          ]
-        },
-        {
-          "feature_fr": "Données structurées",
-          "feature_en": "Structured data",
-          "values": [
-            true,
-            true
-          ]
-        },
-        {
-          "feature_fr": "Vitesse et balisage",
-          "feature_en": "Speed and markup",
-          "values": [
-            true,
-            true
-          ]
-        },
-        {
-          "feature_fr": "Source citable explicite",
-          "feature_en": "Explicit citable source",
-          "values": [
-            false,
-            true
-          ]
-        },
-        {
-          "feature_fr": "Mesure de la visibilité",
-          "feature_en": "Visibility measurement",
-          "values": [
-            "Search Console",
-            "Relevés de réponses"
-          ]
-        },
-        {
-          "feature_fr": "Bourrage de mots-clés",
-          "feature_en": "Keyword stuffing",
-          "values": [
-            "Pénalisé",
-            "-10 % sur Perplexity"
-          ]
-        }
-      ]
+      "rows_fr": [
+        [
+          "Ce que vous payez",
+          "Pages indexables, utiles, maillées, et leur rédaction",
+          "Passages sourcés, relevé des réponses des assistants, suivi"
+        ],
+        [
+          "Ce que dit Google",
+          "Le socle, y compris pour ses Aperçus IA et son Mode IA",
+          "Pour Google, c'est du SEO : aucun fichier ni balisage spécial, pas d'optimisation à part"
+        ],
+        [
+          "Condition préalable",
+          "Aucune : c'est le point de départ",
+          "Pages déjà indexées et explorables ; sinon, le SEO d'abord"
+        ],
+        [
+          "Mesure",
+          "Search Console : clics, positions, et un rapport IA générative (impressions)",
+          "Relevé répété à la main sur un panel de questions : un taux de présence, pas un rang"
+        ],
+        [
+          "Délai",
+          "Dépend de l'exploration et de l'indexation, que Google ne garantit pas",
+          "Aucune étude publique fiable : un relevé avant, un relevé après"
+        ],
+        [
+          "Preuve de résultat",
+          "Position, clics et impressions dans la Search Console",
+          "Écart entre deux relevés sur les mêmes questions"
+        ],
+        [
+          "Risque principal",
+          "Produire une page par variante de requête (politique de Google contre le contenu à grande échelle)",
+          "Payer une « optimisation » dont Google dit qu'elle est inutile pour lui"
+        ],
+        [
+          "Promesse à refuser",
+          "« Première position garantie »",
+          "« Citation garantie »"
+        ]
+      ],
+      "rows_en": [
+        [
+          "What you pay for",
+          "Indexable, useful, linked pages, and their writing",
+          "Sourced passages, a record of assistants' answers, tracking"
+        ],
+        [
+          "What Google says",
+          "The foundation, including for its AI Overviews and AI Mode",
+          "For Google it is SEO: no special file or markup, no separate optimisation"
+        ],
+        [
+          "Prerequisite",
+          "None: it is the starting point",
+          "Pages already indexed and crawlable; otherwise, SEO first"
+        ],
+        [
+          "Measurement",
+          "Search Console: clicks, positions, and a generative AI report (impressions)",
+          "Hand-made, repeated record on a question panel: a presence rate, not a rank"
+        ],
+        [
+          "Lead time",
+          "Depends on crawling and indexing, which Google does not guarantee",
+          "No reliable public study: one record before, one after"
+        ],
+        [
+          "Proof of result",
+          "Position, clicks and impressions in Search Console",
+          "Gap between two records on the same questions"
+        ],
+        [
+          "Main risk",
+          "Producing a page per query variation (Google's policy against scaled content)",
+          "Paying for an “optimisation” that Google says is useless for it"
+        ],
+        [
+          "Promise to refuse",
+          "“Guaranteed first position”",
+          "“Guaranteed citation”"
+        ]
+      ],
+      "variant": "editorial"
     },
     {
       "type": "feature-zigzag",
       "background": "paper-2",
-      "kicker_fr": "§ Ce qui change vraiment",
-      "kicker_en": "§ What truly changes",
-      "h2_fr": "Trois bascules entre trouver et <i>citer</i>",
-      "h2_en": "Three shifts between found and <i>cited</i>",
-      "lede_fr": "Le passage du SEO au GEO ne jette rien : il déplace l'intention. On n'écrit plus seulement pour grimper dans une liste, on écrit pour qu'une machine puisse reprendre votre phrase et l'attribuer.",
-      "lede_en": "Moving from SEO to GEO throws nothing away: it shifts the intent. You no longer write only to climb a list, you write so a machine can lift your sentence and attribute it.",
+      "kicker_fr": "§ Ce que cela change pour le budget",
+      "kicker_en": "§ What it changes for the budget",
+      "h2_fr": "Trois conséquences pour un <i>budget</i>",
+      "h2_en": "Three consequences for a <i>budget</i>",
+      "lede_fr": "Le choix n'est pas « GEO ou SEO » mais l'ordre des dépenses : ce qui sert les deux d'abord, ce qui ne vise que les autres assistants ensuite, et rien avant une mesure.",
+      "lede_en": "The choice is not “GEO or SEO” but the order of spending: what serves both first, what only targets the other assistants next, and nothing before a measurement.",
       "rows": [
         {
-          "kicker_fr": "Bascule 01",
-          "kicker_en": "Shift 01",
-          "h3_fr": "De la position à la citation",
-          "h3_en": "From position to citation",
-          "body_fr": "En SEO, le gain est une place dans une liste cliquable. En GEO, c'est une mention dans une réponse rédigée que l'utilisateur lit souvent sans cliquer. La marque citée gagne en autorité même sans visite, ce qui change la façon de mesurer le retour.",
-          "body_en": "In SEO, the gain is a slot in a clickable list. In GEO, it's a mention inside a written answer the user reads often without clicking. The cited brand gains authority even without a visit, which changes how you measure return.",
+          "kicker_fr": "Conséquence 01",
+          "kicker_en": "Consequence 01",
+          "h3_fr": "Le socle se paie d'abord",
+          "h3_en": "The foundation is paid for first",
+          "body_fr": "Pour apparaître dans les Aperçus IA et le Mode IA, Google demande une page indexée et éligible à un extrait, sur un site que le contrôle de la Search Console n'exclut pas. Il n'y a pas d'autre exigence technique. Une dépense GEO sur un site mal indexé finance le mauvais problème.",
+          "body_en": "To appear in AI Overviews and AI Mode, Google asks for an indexed page eligible for a snippet, on a site that the Search Console control does not exclude. There is no other technical requirement. GEO spending on a poorly indexed site funds the wrong problem.",
           "points": [
             {
-              "label_fr": "Mention plutôt que rang",
-              "label_en": "Mention rather than rank"
+              "label_fr": "Indexation et extrait d'abord",
+              "label_en": "Indexing and snippet first"
             },
             {
-              "label_fr": "Autorité sans clic",
-              "label_en": "Authority without a click"
+              "label_fr": "Contrôle d'inclusion à vérifier une fois",
+              "label_en": "Inclusion control to check once"
             },
             {
-              "label_fr": "Nouveau KPI : présence en réponse",
-              "label_en": "New KPI: presence in the answer"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/geo-vs-seo-v3-projecteur-paper.webp",
-          "media_alt_fr": "Une rangée de socles vides dans l'ombre, un projecteur n'éclaire qu'une personne debout sur l'un d'eux",
-          "media_alt_en": "A row of empty plinths in the dark, a spotlight lighting only one person standing on one"
-        },
-        {
-          "kicker_fr": "Bascule 02",
-          "kicker_en": "Shift 02",
-          "h3_fr": "Du contenu long au passage extractible",
-          "h3_en": "From long content to extractable passage",
-          "body_fr": "Un modèle cite ce qu'il peut isoler proprement : une définition nette, une réponse directe, un fait sourcé. Dans l'étude GEO de Princeton (KDD 2024), citer ses sources, ajouter des citations et des statistiques augmentait la visibilité dans les réponses de 30 à 40 %. Les pages promotionnelles et noyées se classent encore, mais s'extraient mal. Le GEO impose une réponse claire en tête, puis le développement.",
-          "body_en": "A model cites what it can isolate cleanly: a crisp definition, a direct answer, a sourced fact. In Princeton's GEO study (KDD 2024), citing sources, adding quotations and statistics raised visibility in answers by 30 to 40%. Promotional, buried pages still rank, but extract poorly. GEO demands a clear answer up top, then the development.",
-          "points": [
-            {
-              "label_fr": "Réponse directe en ouverture",
-              "label_en": "Direct answer up front"
-            },
-            {
-              "label_fr": "Sources et chiffres : +30 à 40 %",
-              "label_en": "Sources and figures: +30 to 40%"
-            },
-            {
-              "label_fr": "Source attribuable sans ambiguïté",
-              "label_en": "Source attributable without ambiguity"
-            }
-          ],
-          "media_src": "/images/illustrations/ds/geo-vs-seo-v3-planche-paper.webp",
-          "media_alt_fr": "Un énorme tronc couché sur des chevalets, une silhouette s'éloigne avec une seule planche nette",
-          "media_alt_en": "A huge log on trestles, a figure walking away with a single clean plank",
-          "link_label_fr": "Notre agence GEO",
-          "link_label_en": "Our GEO agency",
-          "link_href": "/services/referencement-ia"
-        },
-        {
-          "kicker_fr": "Bascule 03",
-          "kicker_en": "Shift 03",
-          "h3_fr": "Du socle technique partagé",
-          "h3_en": "On the shared technical base",
-          "body_fr": "Ce qui ne change pas mérite d'être dit : contenu structuré, balisage propre, vitesse correcte et autorité crédible servent les deux. Google le confirme pour ses AI Overviews : une page indexée et éligible à un extrait suffit, sans optimisation spéciale. Le GEO ne remplace pas le SEO, il s'y greffe. Un site lent et confus échoue aux deux, quoi qu'on ajoute par-dessus.",
-          "body_en": "What doesn't change deserves stating: structured content, clean markup, decent speed and credible authority serve both. Google confirms it for its AI Overviews: an indexed page eligible for a snippet is enough, with no special optimization. GEO doesn't replace SEO, it grafts onto it. A slow, confusing site fails at both, whatever you bolt on top.",
-          "points": [
-            {
-              "label_fr": "Structure et balisage communs",
-              "label_en": "Shared structure and markup"
-            },
-            {
-              "label_fr": "Vitesse, le socle des deux",
-              "label_en": "Speed, the base of both"
-            },
-            {
-              "label_fr": "Autorité crédible, indispensable",
-              "label_en": "Credible authority, essential"
+              "label_fr": "Aucun balisage spécial requis",
+              "label_en": "No special markup required"
             }
           ],
           "media_src": "/images/illustrations/ds/geo-vs-seo-v3-socle-paper.webp",
           "media_alt_fr": "Deux maisons de styles différents posées sur une même dalle de fondation, deux silhouettes",
           "media_alt_en": "Two houses of different styles standing on one shared foundation slab, two figures",
-          "link_label_fr": "Le guide : être cité par les IA génératives",
-          "link_label_en": "The guide: getting cited by generative AI",
+          "link_label_fr": "Ce que fait Google en France",
+          "link_label_en": "What Google does in France",
+          "link_href": "/blog/ai-mode-google-ai-overviews-pme"
+        },
+        {
+          "kicker_fr": "Conséquence 02",
+          "kicker_en": "Consequence 02",
+          "h3_fr": "Une ligne GEO à part ne vise que les autres assistants",
+          "h3_en": "A separate GEO line only targets the other assistants",
+          "body_fr": "Pour Google, optimiser pour la recherche générative, c'est du SEO, et son guide invite à confronter tout conseil « GEO » de tiers à sa documentation. Une ligne distincte se justifie pour ChatGPT, Claude et Perplexity, qui ont leurs propres robots de recherche, sans guide d'optimisation comparable que j'aie trouvé.",
+          "body_en": "For Google, optimising for generative search is SEO, and its guide invites you to check any third-party “GEO” advice against its documentation. A separate line is justified for ChatGPT, Claude and Perplexity, which have their own search crawlers, with no comparable optimisation guide that I could find.",
+          "points": [
+            {
+              "label_fr": "Robots de recherche à autoriser",
+              "label_en": "Search crawlers to allow"
+            },
+            {
+              "label_fr": "Passages sourcés, datés, signés",
+              "label_en": "Sourced, dated, signed passages"
+            },
+            {
+              "label_fr": "Jamais de promesse de citation",
+              "label_en": "Never a promise of citation"
+            }
+          ],
+          "media_src": "/images/illustrations/ds/geo-vs-seo-v3-projecteur-paper.webp",
+          "media_alt_fr": "Une rangée de socles vides dans l'ombre, un projecteur n'éclaire qu'une personne debout sur l'un d'eux",
+          "media_alt_en": "A row of empty plinths in the dark, a spotlight lighting only one person standing on one",
+          "link_label_fr": "Les mécaniques, et ce que vous vérifiez seul",
+          "link_label_en": "The mechanics, and what you check yourself",
           "link_href": "/blog/seo-geo-etre-cite-par-les-ia-generatives"
+        },
+        {
+          "kicker_fr": "Conséquence 03",
+          "kicker_en": "Consequence 03",
+          "h3_fr": "Mesurer avant de payer",
+          "h3_en": "Measure before paying",
+          "body_fr": "La Search Console donne les impressions de vos pages dans les fonctions d'IA de Google, pour tous les sites depuis le 31 août 2026. Pour les autres assistants, il faut un relevé répété à la main. Chiffrez le budget après un premier relevé, pas avant.",
+          "body_en": "Search Console gives the impressions of your pages in Google's AI features, for all sites since 31 August 2026. For the other assistants, you need a repeated hand-made record. Size the budget after a first record, not before.",
+          "points": [
+            {
+              "label_fr": "Rapport IA générative de la Search Console",
+              "label_en": "Search Console generative AI report"
+            },
+            {
+              "label_fr": "Panel de 10 à 20 questions",
+              "label_en": "Panel of 10 to 20 questions"
+            },
+            {
+              "label_fr": "Relevé avant, relevé après",
+              "label_en": "One record before, one after"
+            }
+          ],
+          "media_src": "/images/illustrations/ds/geo-vs-seo-v3-planche-paper.webp",
+          "media_alt_fr": "Un énorme tronc couché sur des chevalets, une silhouette s'éloigne avec une seule planche nette",
+          "media_alt_en": "A huge log on trestles, a figure walking away with a single clean plank",
+          "link_label_fr": "Le protocole de relevé",
+          "link_label_en": "The recording protocol",
+          "link_href": "/ressources/guides/mesurer-visibilite-ia-chatgpt"
         }
       ]
     },
     {
-      "type": "decision-list",
+      "type": "editorial-table-block",
       "background": "paper",
-      "kicker_fr": "§ Quand prioriser quoi",
-      "kicker_en": "§ When to prioritise what",
-      "heading_fr": "Six repères pour doser GEO et SEO",
-      "heading_en": "Six markers to balance GEO and SEO",
-      "items": [
-        {
-          "label_fr": "Votre audience pose des questions précises à une IA avant d'acheter ? Le GEO devient prioritaire.",
-          "label_en": "Does your audience ask an AI precise questions before buying? GEO becomes a priority."
-        },
-        {
-          "label_fr": "Votre marché cherche encore surtout sur Google par mots-clés ? Le SEO reste le premier levier.",
-          "label_en": "Does your market still search mostly on Google by keyword? SEO stays the first lever."
-        },
-        {
-          "label_fr": "Vous êtes bien classé mais jamais cité par les IA ? C'est un signal GEO, pas un problème de rang.",
-          "label_en": "Are you well-ranked but never cited by AIs? That's a GEO signal, not a ranking problem."
-        },
-        {
-          "label_fr": "Vos pages répondent-elles à une vraie question dès la première phrase, ou seulement plus bas ?",
-          "label_en": "Do your pages answer a real question from the first sentence, or only further down?"
-        },
-        {
-          "label_fr": "Vos contenus sont-ils sourcés et factuels, donc faciles à attribuer par un modèle ?",
-          "label_en": "Is your content sourced and factual, so it's easy for a model to attribute?"
-        },
-        {
-          "label_fr": "Votre site est-il rapide et structuré, condition partagée pour réussir aux deux à la fois ?",
-          "label_en": "Is your site fast and structured, the shared condition to succeed at both at once?"
-        }
-      ]
+      "kicker_fr": "§ Verdict par cas",
+      "kicker_en": "§ Verdict by case",
+      "heading_fr": "Six situations, six verdicts",
+      "heading_en": "Six situations, six verdicts",
+      "caption_fr": "Lecture de Waimia, pas des mesures : chaque verdict découle des sources ci-dessus et change si votre propre relevé dit autre chose.",
+      "caption_en": "Waimia's reading, not measurements: each verdict follows from the sources above and changes if your own record says otherwise.",
+      "columns_fr": [
+        "Votre situation",
+        "Verdict",
+        "Premier geste"
+      ],
+      "columns_en": [
+        "Your situation",
+        "Verdict",
+        "First move"
+      ],
+      "rows_fr": [
+        [
+          "Site récent, ou pages utiles pas encore indexées",
+          "SEO d'abord, rien à dépenser en GEO",
+          "Inspecter les URL, corriger l'indexation, une page par vraie question"
+        ],
+        [
+          "Bien classé sur Google, jamais cité par les assistants",
+          "Petit chantier GEO ciblé",
+          "Relever 10 à 20 questions, réécrire les pages qui répondent trop bas"
+        ],
+        [
+          "Clientèle locale",
+          "SEO local d'abord",
+          "Fiche d'établissement à jour, pages de service, avis (Google cite les fiches d'établissement parmi ce qui aide)"
+        ],
+        [
+          "Vente B2B où vos prospects vous disent interroger ChatGPT avant d'appeler",
+          "Relevé GEO d'abord, contenu ensuite",
+          "Mesurer votre présence avant de produire quoi que ce soit"
+        ],
+        [
+          "Un seul chantier possible cette année",
+          "Un contenu pensé pour les deux, financé comme du SEO",
+          "Réponse nette en ouverture, sources citées, date, auteur"
+        ],
+        [
+          "On vous vend une « optimisation AI Mode » à part",
+          "Refuser tant que la preuve manque",
+          "Demander ce qui est fait de plus que le SEO, et l'écart mesuré entre deux relevés"
+        ]
+      ],
+      "rows_en": [
+        [
+          "New site, or useful pages not yet indexed",
+          "SEO first, nothing to spend on GEO",
+          "Inspect the URLs, fix indexing, one page per real question"
+        ],
+        [
+          "Well ranked on Google, never cited by the assistants",
+          "A small, targeted GEO project",
+          "Record 10 to 20 questions, rewrite the pages that answer too low down"
+        ],
+        [
+          "Local customers",
+          "Local SEO first",
+          "Up-to-date business listing, service pages, reviews (Google cites business listings among what helps)"
+        ],
+        [
+          "B2B sales where your prospects tell you they ask ChatGPT before calling",
+          "GEO record first, content next",
+          "Measure your presence before producing anything"
+        ],
+        [
+          "Only one project possible this year",
+          "One piece of content designed for both, funded as SEO",
+          "Crisp answer up front, cited sources, date, author"
+        ],
+        [
+          "You are sold a separate “AI Mode optimisation”",
+          "Refuse until the proof is there",
+          "Ask what is done beyond SEO, and the measured gap between two records"
+        ]
+      ],
+      "variant": "editorial"
     },
     {
       "type": "related-cards-band",
@@ -401,8 +484,8 @@
           "kicker_en": "Guide",
           "title_fr": "Être cité par les IA génératives",
           "title_en": "Getting cited by generative AI",
-          "lead_fr": "La méthode pas à pas : réponse directe, sources, données structurées, et comment relever vos citations requête par requête.",
-          "lead_en": "The step-by-step method: direct answer, sources, structured data, and how to track your citations query by query.",
+          "lead_fr": "Les mécaniques de rédaction et les cinq vérifications à faire seul. Ce comparatif, lui, sert à décider du budget.",
+          "lead_en": "The writing mechanics and the five checks to do on your own. This comparison is for deciding the budget.",
           "href": "/blog/seo-geo-etre-cite-par-les-ia-generatives"
         }
       ]
@@ -416,52 +499,52 @@
       "h2_en": "What you ask us",
       "items": [
         {
-          "q_fr": "Le GEO remplace-t-il le SEO ?",
-          "q_en": "Does GEO replace SEO?",
-          "a_fr": "Non, il le prolonge. Le SEO reste le socle : sans pages indexables, rapides et structurées, aucune IA ne peut s'appuyer sur votre contenu. Google l'écrit pour ses AI Overviews : aucune optimisation spéciale n'est requise, il faut une page indexée et éligible à un extrait. Le GEO ajoute une couche pensée pour que les modèles génératifs citent votre marque dans leurs réponses. On ne choisit pas l'un contre l'autre, on construit le second sur le premier.",
-          "a_en": "No, it extends it. SEO stays the foundation: without indexable, fast, structured pages, no AI can rely on your content. Google states it for its AI Overviews: no special optimization is required, you need an indexed page eligible for a snippet. GEO adds a layer designed so generative models cite your brand in their answers. You don't pick one over the other, you build the second on top of the first."
+          "q_fr": "Faut-il un budget GEO séparé du SEO ?",
+          "q_en": "Do I need a GEO budget separate from SEO?",
+          "a_fr": "Pas pour Google : son guide écrit qu'optimiser pour la recherche générative, c'est du SEO, sans fichier ni balisage spécial. Une ligne GEO distincte ne se justifie que pour les autres assistants (ChatGPT, Claude, Perplexity), et après un premier relevé de ce qu'ils répondent sur votre marché. Sur un site mal indexé, le SEO passe avant.",
+          "a_en": "Not for Google: its guide writes that optimising for generative search is SEO, with no special file or markup. A separate GEO line is only justified for the other assistants (ChatGPT, Claude, Perplexity), and after a first record of what they answer on your market. On a poorly indexed site, SEO comes first."
         },
         {
           "q_fr": "Qu'est-ce que le GEO concrètement ?",
           "q_en": "What is GEO in practice?",
-          "a_fr": "Generative Engine Optimization, un terme issu d'une étude de chercheurs de Princeton présentée à KDD 2024 : l'art d'être cité par les moteurs de réponse comme ChatGPT, Perplexity, Claude ou les AI Overviews de Google. Là où le SEO vise une position dans une liste de liens, le GEO vise une mention dans une réponse rédigée. Cela passe par des contenus clairs, sourcés, faciles à extraire et à attribuer.",
-          "a_en": "Generative Engine Optimization, a term coined in a Princeton researchers' study presented at KDD 2024: the craft of being cited by answer engines like ChatGPT, Perplexity, Claude or Google's AI Overviews. Where SEO aims for a position in a list of links, GEO aims for a mention inside a written answer. It relies on clear, sourced content that is easy to extract and attribute."
+          "a_fr": "Generative Engine Optimization, un terme issu d'une étude de chercheurs de Princeton présentée à KDD 2024 : le travail pour être cité par les moteurs de réponse. Là où le SEO vise une position dans une liste de liens, le GEO vise une mention dans une réponse rédigée.",
+          "a_en": "Generative Engine Optimization, a term coined in a Princeton researchers' study presented at KDD 2024: the work of being cited by answer engines. Where SEO aims for a position in a list of links, GEO aims for a mention inside a written answer."
         },
         {
           "q_fr": "Pourquoi mon site bien référencé n'est jamais cité par les IA ?",
           "q_en": "Why is my well-ranked site never cited by AIs?",
-          "a_fr": "Parce qu'être premier sur Google et être cité par une IA sont deux mécaniques différentes. Un modèle génératif privilégie les passages qui répondent directement à une question, avec une définition nette et une source identifiable. Un contenu optimisé pour les clics, long et promotionnel, se classe bien mais s'extrait mal. Le GEO corrige précisément ce décalage.",
-          "a_en": "Because ranking first on Google and being cited by an AI are two different mechanics. A generative model favours passages that answer a question directly, with a crisp definition and an identifiable source. Content optimised for clicks, long and promotional, ranks well but extracts poorly. GEO fixes exactly that gap."
+          "a_fr": "Parce que les deux mesures diffèrent : Google classe des pages, un assistant compose une réponse à partir d'extraits. Une page longue et promotionnelle peut bien se classer et offrir peu d'extrait net. Aucun éditeur ne documente de critère de citation que je puisse vous donner : le relevé dira ce qui se passe chez vous.",
+          "a_en": "Because the two measures differ: Google ranks pages, an assistant composes an answer from extracts. A long, promotional page can rank well and offer few clean extracts. No publisher documents a citation criterion I can give you: the record will tell you what happens in your case."
         },
         {
           "q_fr": "Comment savoir si une IA cite ma marque ?",
           "q_en": "How do I know if an AI cites my brand?",
-          "a_fr": "Il n'existe pas de tableau de bord officiel : Search Console compte le trafic des AI Overviews dans le type « Web », sans le séparer. Pour le reste, on pose les questions de votre marché à ChatGPT, Perplexity, Claude et Google AI Overviews, et on regarde qui est cité, dans quel contexte, avec quelle source. C'est la base d'un audit GEO : une cartographie des réponses sur vos requêtes clés, avant et après travaux, pour mesurer la progression au lieu de la deviner.",
-          "a_en": "There's no official dashboard: Search Console counts AI Overviews traffic in the \"Web\" search type, without separating it. For the rest, we ask your market's questions to ChatGPT, Perplexity, Claude and Google AI Overviews, and look at who is cited, in what context, with which source. That's the basis of a GEO audit: a map of the answers on your key queries, before and after work, to measure progress instead of guessing it."
+          "a_fr": "Pour Google, la Search Console a un rapport « IA générative », étendu à tous les sites le 31 août 2026 : il donne les impressions de vos pages dans les Aperçus IA et le Mode IA, par page, pays, appareil et date. Pour ChatGPT, Claude et Perplexity, je n'ai pas trouvé d'équivalent dans la documentation des éditeurs : on pose les questions de votre marché, on note qui est cité, avec quelle source, et on recommence après travaux.",
+          "a_en": "For Google, Search Console has a “generative AI” report, extended to all sites on 31 August 2026: it gives the impressions of your pages in AI Overviews and AI Mode, by page, country, device and date. For ChatGPT, Claude and Perplexity, I found no equivalent in the publishers' documentation: we ask your market's questions, note who is cited, with which source, and repeat after the work."
         },
         {
-          "q_fr": "Les bonnes pratiques SEO servent-elles encore pour le GEO ?",
-          "q_en": "Do SEO best practices still serve GEO?",
-          "a_fr": "La plupart oui. Un contenu structuré, un balisage propre, une vitesse de chargement correcte et une autorité crédible profitent aux deux. Ce qui change, c'est l'intention : on écrit pour répondre, pas seulement pour ranker. Dans l'étude GEO, citer ses sources, ajouter des citations et des statistiques augmentait la visibilité dans les réponses de 30 à 40 %.",
-          "a_en": "Most do. Structured content, clean markup, decent load speed and credible authority benefit both. What changes is intent: you write to answer, not just to rank. In the GEO study, citing sources, adding quotations and statistics raised visibility in answers by 30 to 40%."
+          "q_fr": "Que dit Google d'une prestation « GEO » ou « AEO » ?",
+          "q_en": "What does Google say about a “GEO” or “AEO” service?",
+          "a_fr": "Son guide de mai 2026 écrit que, de son point de vue, optimiser pour la recherche générative, c'est du SEO, et invite à confronter les conseils « GEO » de tiers à sa documentation. Il dit aussi qu'aucun outil tiers n'a accès à ses systèmes internes de classement ou d'IA. Il liste ce qu'on peut ignorer côté Google : fichiers llms.txt, découpage en petits morceaux, réécriture pour l'IA, mentions artificielles.",
+          "a_en": "Its May 2026 guide writes that, from its point of view, optimising for generative search is SEO, and invites you to check third-party “GEO” advice against its documentation. It also says no third-party tool has access to its internal ranking or AI systems. It lists what you can ignore on Google's side: llms.txt files, chunking, rewriting for AI, inauthentic mentions."
         },
         {
           "q_fr": "Faut-il deux stratégies de contenu séparées ?",
           "q_en": "Do I need two separate content strategies?",
-          "a_fr": "Non, une seule conçue pour les deux. Chaque page sert d'abord une vraie question, avec une réponse nette en ouverture pour les IA et un développement riche pour Google et le lecteur. C'est ce que nous bâtissons dans le Site Web Intelligent : un contenu qui se classe et se fait citer, sans dupliquer l'effort éditorial.",
-          "a_en": "No, a single one designed for both. Each page first serves a real question, with a crisp answer up top for AIs and a rich development for Google and the reader. That's what we build in the Intelligent Website: content that ranks and gets cited, without duplicating the editorial effort."
+          "a_fr": "Non, une seule conçue pour les deux. Chaque page sert d'abord une vraie question, avec une réponse nette en ouverture et un développement riche pour le lecteur. C'est ce que nous bâtissons dans le Site Web Intelligent, sans dupliquer l'effort éditorial.",
+          "a_en": "No, a single one designed for both. Each page first serves a real question, with a crisp answer up top and a rich development for the reader. That's what we build in the Intelligent Website, without duplicating the editorial effort."
         },
         {
-          "q_fr": "Combien de temps avant de voir des résultats en GEO ?",
-          "q_en": "How long before GEO shows results?",
-          "a_fr": "Aucune étude publique ne mesure ce délai de façon fiable, je ne vous en promettrai donc pas. Côté Google, une page doit d'abord être indexée : le calendrier du SEO s'applique. Côté ChatGPT ou Perplexity, cela dépend de ce que chaque moteur va chercher. La régularité reste reine : une marque citée est une marque qui publie des réponses fiables sur la durée, pas un coup ponctuel. D'où un relevé avant travaux, un relevé après, et une décision sur pièces.",
-          "a_en": "No public study measures that delay reliably, so I won't promise you one. On Google, a page must first be indexed: the SEO calendar applies. On ChatGPT or Perplexity, it depends on what each engine goes and fetches. Consistency rules: a cited brand is one that publishes reliable answers over time, not a one-off hit. Hence a baseline before the work, a reading after, and a decision on evidence."
+          "q_fr": "Quand juger si la dépense a marché ?",
+          "q_en": "When can I judge whether the spending worked?",
+          "a_fr": "Aucune étude publique ne mesure ce délai de façon fiable, et Google ne garantit ni l'indexation ni l'affichage. D'où un relevé avant travaux, un relevé après sur les mêmes questions, et une décision sur pièces. Une ligne budgétaire sans relevé de départ ne se juge pas.",
+          "a_en": "No public study measures that delay reliably, and Google guarantees neither indexing nor display. Hence a record before the work, a record after on the same questions, and a decision on evidence. A budget line with no starting record cannot be judged."
         },
         {
           "q_fr": "Waimia fait-il du GEO et du SEO ensemble ?",
           "q_en": "Does Waimia do GEO and SEO together?",
-          "a_fr": "Oui, avec deux offres : une agence SEO (audit technique, rédaction, SEO local) et une agence GEO (audit de citabilité, passages citables, relevé des citations). Un audit de départ mesure les deux. L'objectif : capter l'audience là où elle cherche vraiment, moteur classique comme moteur de réponse.",
-          "a_en": "Yes, with two offers: an SEO agency (technical audit, writing, local SEO) and a GEO agency (citability audit, citable passages, citation tracking). A starting audit measures both. The goal: capture your audience where it truly searches, classic engine and answer engine alike."
+          "a_fr": "Oui, avec deux offres : une agence SEO (audit technique, rédaction, SEO local) et une agence GEO (audit de citabilité, passages citables, relevé des citations). L'offre de référencement IA commence par un sprint de cadrage de 10 heures à {{prix.sprint}} € HT, sans promesse de citation.",
+          "a_en": "Yes, with two offers: an SEO agency (technical audit, writing, local SEO) and a GEO agency (citability audit, citable passages, citation tracking). The AI search offer starts with a 10-hour scoping sprint at €{{prix.sprint.en}} excl. VAT, with no promise of citation."
         }
       ]
     },
