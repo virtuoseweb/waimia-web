@@ -5133,46 +5133,51 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-2"
       },
       {
+        "type": "editorial-prose",
+        "label": "#2",
+        "background": "paper"
+      },
+      {
         "type": "comparison-table",
         "label": "Claude vs ChatGPT : prix, données, outils",
         "background": "paper"
       },
       {
         "type": "editorial-prose",
-        "label": "#3",
+        "label": "#4",
         "background": "paper-2"
       },
       {
         "type": "editorial-callout",
-        "label": "#4",
+        "label": "#5",
         "variant": "quote",
         "background": "paper"
       },
       {
         "type": "editorial-prose",
-        "label": "#5",
+        "label": "#6",
         "background": "paper-2"
       },
       {
         "type": "editorial-callout",
-        "label": "#6",
+        "label": "#7",
         "variant": "warn",
         "background": "paper"
       },
       {
         "type": "editorial-prose",
-        "label": "#7",
+        "label": "#8",
         "background": "paper-2"
       },
       {
         "type": "editorial-callout",
-        "label": "#8",
+        "label": "#9",
         "variant": "quote",
         "background": "paper"
       },
       {
         "type": "editorial-prose",
-        "label": "#9",
+        "label": "#10",
         "background": "paper-2"
       },
       {
@@ -5183,7 +5188,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-prose",
-        "label": "#11",
+        "label": "#12",
         "background": "paper-2"
       },
       {
@@ -7997,6 +8002,11 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-2"
       },
       {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper"
+      },
+      {
         "type": "resource-card-grid",
         "label": "Sept guides détaillés, une question d'acheteur chacun",
         "background": "paper"
@@ -8013,7 +8023,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-prose",
-        "label": "#6",
+        "label": "#7",
         "background": "paper"
       },
       {
@@ -8023,7 +8033,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-prose",
-        "label": "#8",
+        "label": "#9",
         "background": "paper"
       },
       {
@@ -8043,7 +8053,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-prose",
-        "label": "#12",
+        "label": "#13",
         "background": "paper-3"
       },
       {
@@ -8058,12 +8068,12 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-prose",
-        "label": "#15",
+        "label": "#16",
         "background": "paper"
       },
       {
         "type": "editorial-prose",
-        "label": "#16",
+        "label": "#17",
         "background": "paper-3"
       },
       {
@@ -8073,7 +8083,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-prose",
-        "label": "#18",
+        "label": "#19",
         "background": "paper"
       },
       {
