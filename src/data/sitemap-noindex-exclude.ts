@@ -54,10 +54,9 @@ export const NOINDEX_SITEMAP_PATHS: ReadonlySet<string> = new Set([
   // réel, cf strategy/14 §4) détectés par le gate check-seo noindex-not-in-sitemap.
   // 2026-07-16 (post-audit #50) : batiment (caseRef desangles-peinture) et therapeutes (caseRef
   // isabelle-diaz-naturopathe) repassés index ⟹ retirés de cette liste pour entrer au sitemap.
-  // F1 hygiène d'index 2026-07-17 (post-audit c-preuve §1a) : startup-logiciel repassé
-  // noindex (seo.noindex:true frontmatter) → caseRef amploi hors-ICP SaaS. Réindexable
-  // dès qu'un vrai cas éditeur/SaaS remplace le caseRef.
-  "/secteurs/startup-logiciel",
+  // F1 hygiène d'index 2026-07-17 : startup-logiciel était noindex (caseRef amploi hors-ICP SaaS).
+  // 2026-10-16 · page réécrite (Amploi et Inbound Value, deux projets logiciels livrés, décision de
+  // Simon du 2026-10-05), seo.noindex:false ⟹ retirée de cette liste pour entrer au sitemap.
   // Hubs /ressources/comparatifs et /ressources/guides : indexation calculée depuis le
   // 5 octobre 2026 (src/lib/seo/hub-index.ts), donc retirés de cette liste.
   // Hub diagnostics (V7-FOLD Phase C) : noindex tant que < 3-5 enfants réels (2 pour l'instant :
