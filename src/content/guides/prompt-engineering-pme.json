@@ -1,0 +1,641 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "Prompt engineering en PME : méthode de consignes et gabarits par fonction",
+  "title_en": "Prompt engineering for SMBs: an instruction method and templates by function",
+  "seoTitle_fr": "Prompt engineering en PME : méthode et gabarits par métier",
+  "seoTitle_en": "Prompt engineering for SMBs: method and templates by role",
+  "description_fr": "Prompt engineering en PME : cinq éléments d'une bonne consigne et gabarits par fonction, d'après les guides d'Anthropic et d'OpenAI. Relevé le 16 octobre 2026.",
+  "description_en": "Prompt engineering for SMBs: five elements of a good instruction and templates by function, from Anthropic and OpenAI guides. Checked on 16 October 2026.",
+  "slug": "prompt-engineering-pme",
+  "publishedAt": "2026-10-16",
+  "updatedAt": "2026-10-16",
+  "category": "formation",
+  "cluster": "formation",
+  "tags": [
+    "prompt-engineering",
+    "prompt-optimizer",
+    "consignes",
+    "gabarits",
+    "formation-ia",
+    "guide-pme"
+  ],
+  "sources": [
+    {
+      "name": "Anthropic, Prompting best practices (clarté, contexte, exemples, balises, rôle, documents longs), lu le 16 octobre 2026",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, Prompt engineering overview (critères de réussite, tests, recette metaprompt), lu le 16 octobre 2026",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview",
+      "type": "enterprise"
+    },
+    {
+      "name": "OpenAI, Prompt engineering (rôles, sections d'un message, exemples, versions de modèle, tests), lu le 16 octobre 2026",
+      "url": "https://developers.openai.com/api/docs/guides/prompt-engineering",
+      "type": "enterprise"
+    },
+    {
+      "name": "OpenAI, Prompt optimizer (fonctionnement, relecture, calendrier d'abandon de la plateforme Evals), lu le 16 octobre 2026",
+      "url": "https://developers.openai.com/api/docs/guides/prompt-optimizer",
+      "type": "enterprise"
+    },
+    {
+      "name": "OpenAI Cookbook, GPT-5 Prompt Migration and Improvement Using the New Optimizer (ce que l'optimiseur corrige), lu le 16 octobre 2026",
+      "url": "https://developers.openai.com/cookbook/examples/gpt-5/prompt-optimization-cookbook",
+      "type": "enterprise"
+    },
+    {
+      "name": "OpenAI Cookbook, ChatGPT Enterprise : Practical prompt engineering for everyday work (structure, vérification, test sur 5 à 10 questions), lu le 16 octobre 2026",
+      "url": "https://developers.openai.com/cookbook/examples/chatgpt/chatgpt_prompt_guide/chatgpt_prompt_guide",
+      "type": "enterprise"
+    }
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "Qu'est-ce que le prompt engineering ?",
+      "a": "OpenAI le définit comme l'écriture d'instructions efficaces pour qu'un modèle produise de façon régulière un contenu conforme à ce que vous attendez. Pour une PME, cela revient à écrire des consignes réutilisables et à les tester sur ses propres cas. Relevé le 16 octobre 2026."
+    },
+    {
+      "q": "Un prompt optimizer remplace-t-il la méthode ?",
+      "a": "Non. Un optimiseur réécrit une consigne selon des bonnes pratiques et corrige contradictions, format absent et désaccords avec les exemples. OpenAI demande pourtant d'évaluer et de relire la consigne optimisée, qui peut faire moins bien sur certaines entrées. Relevé le 16 octobre 2026."
+    },
+    {
+      "q": "OpenAI arrête-t-il son prompt optimizer ?",
+      "a": "En partie. L'optimiseur adossé à des jeux de données relève de la plateforme Evals : lecture seule le 31 octobre 2026, fermeture prévue le 30 novembre 2026. La page décrit aussi une interface de conversation d'optimisation dans le tableau de bord, sans date de retrait. Relevé le 16 octobre 2026."
+    },
+    {
+      "q": "Combien d'exemples mettre dans une consigne ?",
+      "a": "Anthropic recommande de trois à cinq exemples pertinents, variés et balisés pour de meilleurs résultats. OpenAI demande une gamme variée d'entrées avec la sortie voulue. En PME, deux ou trois dossiers réels anonymisés, dont un cas limite, suffisent pour commencer. Relevé le 16 octobre 2026."
+    },
+    {
+      "q": "Une bonne consigne marche-t-elle avec tous les modèles ?",
+      "a": "Pas forcément. OpenAI écrit que des types de modèles et même des versions d'une même famille peuvent donner des résultats différents, et conseille des suites de tests. Anthropic demande de revérifier sur vos propres tests une technique mesurée sur un autre modèle. Rejouez vos cas quand le modèle change. Relevé le 16 octobre 2026."
+    },
+    {
+      "q": "Quelle formation au prompt engineering pour une équipe ?",
+      "a": "Celle de l'outil que l'équipe utilise. Le niveau 1 des formations ChatGPT et Claude de Waimia travaille la rédaction de consignes sur des tâches réelles des participants, avec des consignes réutilisables en livrable. Le choix du niveau se fait après l'audit gratuit de 45 minutes."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "What is prompt engineering?",
+      "a": "OpenAI defines it as writing effective instructions so that a model consistently generates content that meets your requirements. For an SMB, it comes down to writing reusable instructions and testing them on its own cases. Checked on 16 October 2026."
+    },
+    {
+      "q": "Does a prompt optimizer replace the method?",
+      "a": "No. An optimizer rewrites an instruction according to best practices and fixes contradictions, a missing format and mismatches with the examples. OpenAI still asks you to evaluate and review the optimized instruction, which can do worse on some inputs. Checked on 16 October 2026."
+    },
+    {
+      "q": "Is OpenAI shutting down its prompt optimizer?",
+      "a": "In part. The dataset-backed optimizer belongs to the Evals platform: read-only on 31 October 2026, shutdown scheduled for 30 November 2026. The page also describes an optimization chat interface in the dashboard, with no withdrawal date. Checked on 16 October 2026."
+    },
+    {
+      "q": "How many examples should an instruction include?",
+      "a": "Anthropic recommends three to five relevant, varied, tagged examples for best results. OpenAI asks for a varied range of inputs with the desired output. For an SMB, two or three anonymised real cases, one of them an edge case, are enough to start. Checked on 16 October 2026."
+    },
+    {
+      "q": "Does a good instruction work with every model?",
+      "a": "Not necessarily. OpenAI writes that model types and even snapshots within a family can give different results, and advises test suites. Anthropic asks you to recheck on your own tests a technique measured on another model. Replay your cases when the model changes. Checked on 16 October 2026."
+    },
+    {
+      "q": "Which prompt engineering training for a team?",
+      "a": "The one for the tool the team uses. Level 1 of Waimia's ChatGPT and Claude trainings works on writing instructions for participants' real tasks, with reusable instructions as a deliverable. The level is chosen after the free 45-minute audit."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "kicker_fr": "§ Guide",
+      "kicker_en": "§ Guide",
+      "h1_fr": "Prompt engineering en PME : une méthode de <i class=\"acc\">consignes</i> en cinq éléments",
+      "h1_en": "Prompt engineering for SMBs: an <i class=\"acc\">instruction</i> method in five elements",
+      "lede_fr": "Une bonne consigne tient en cinq éléments : un rôle, le contexte, la tâche avec son format de sortie, un ou deux exemples, une vérification. Anthropic et OpenAI décrivent des structures voisines et demandent le même réflexe : tester sur vos cas réels. Un « prompt optimizer » aide à rédiger, il ne remplace pas ce test. Relevé le 16 octobre 2026.",
+      "lede_en": "A good instruction comes down to five elements: a role, the context, the task with its output format, one or two examples, a check. Anthropic and OpenAI describe similar structures and ask for the same reflex: test on your real cases. A \"prompt optimizer\" helps with drafting, it does not replace that test. Checked on 16 October 2026.",
+      "badges": [
+        {
+          "label_fr": "Guides officiels d'Anthropic et d'OpenAI",
+          "label_en": "Official Anthropic and OpenAI guides"
+        },
+        {
+          "label_fr": "Relevé le 16 octobre 2026",
+          "label_en": "Read on 16 October 2026"
+        },
+        {
+          "label_fr": "Gabarits par fonction",
+          "label_en": "Templates by function"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver l'audit gratuit",
+        "label_en": "Book the free audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Voir la formation Claude",
+        "label_en": "See the Claude training",
+        "href": "/formations/claude",
+        "variant": "ghost"
+      }
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "16 octobre 2026",
+      "updatedDate": "16 octobre 2026"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "Comment écrire une bonne consigne pour une IA ?",
+      "question_en": "How do you write a good instruction for an AI?",
+      "term_fr": "Réponse courte",
+      "term_en": "Short answer",
+      "answer_fr": "Donnez un rôle, le contexte, la tâche et le format de sortie attendu, un ou deux exemples réels, puis une règle de vérification. Anthropic compare l'IA à un employé brillant qui ignore vos usages ; OpenAI recommande de séparer identité, instructions, exemples et contexte. Écrivez une consigne par livrable, testez-la sur cinq à dix cas dont vous connaissez la réponse, puis corrigez ce qui a échoué. Relevé le 16 octobre 2026.",
+      "answer_en": "Give a role, the context, the task and the expected output format, one or two real examples, then a check rule. Anthropic compares the AI to a brilliant employee who does not know your ways; OpenAI recommends separating identity, instructions, examples and context. Write one instruction per deliverable, test it on five to ten cases whose answer you know, then fix what failed. Checked on 16 October 2026."
+    },
+    {
+      "type": "key-metric-grid",
+      "background": "paper",
+      "variant": "accent",
+      "columns": 4,
+      "eyebrow_fr": "§ Les repères",
+      "eyebrow_en": "§ Key figures",
+      "title_fr": "Quels repères retenir avant d'écrire vos consignes ?",
+      "title_en": "Which benchmarks should you keep in mind before writing your instructions?",
+      "metrics": [
+        {
+          "value": "5 éléments",
+          "label_fr": "dans la méthode de Waimia : rôle, contexte, tâche et format, exemples, vérification ; elle s'appuie sur les guides d'Anthropic et d'OpenAI",
+          "label_en": "in Waimia's method: role, context, task and format, examples, check; it builds on the Anthropic and OpenAI guides"
+        },
+        {
+          "value": "3 à 5",
+          "label_fr": "exemples recommandés par Anthropic pour de meilleurs résultats ; OpenAI demande des exemples variés",
+          "label_en": "examples recommended by Anthropic for best results; OpenAI asks for varied examples"
+        },
+        {
+          "value": "5 à 10",
+          "label_fr": "questions dont vous connaissez la réponse, pour tester une consigne (guide de ChatGPT Enterprise d'OpenAI)",
+          "label_en": "questions whose answer you know, to test an instruction (OpenAI's ChatGPT Enterprise guide)"
+        },
+        {
+          "value": "30 nov. 2026",
+          "label_fr": "date de fermeture prévue par OpenAI de la plateforme Evals, qui porte l'optimiseur adossé à des jeux de données ; lecture seule dès le 31 octobre",
+          "label_en": "scheduled shutdown date of OpenAI's Evals platform, which carries the dataset-backed optimizer; read-only from 31 October"
+        }
+      ]
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Les guides officiels",
+      "kicker_en": "§ The official guides",
+      "heading_fr": "Ce que disent Anthropic et OpenAI, élément par élément",
+      "heading_en": "What Anthropic and OpenAI say, element by element",
+      "caption_fr": "Sources : guides de prompting d'Anthropic (Claude) et d'OpenAI (API et ChatGPT Enterprise), lus le 16 octobre 2026. La colonne « Ce que nous en retenons » est la lecture de Waimia, pas une consigne des éditeurs.",
+      "caption_en": "Sources: prompting guides from Anthropic (Claude) and OpenAI (API and ChatGPT Enterprise), read on 16 October 2026. The \"What we take from it\" column is Waimia's reading, not a vendor instruction.",
+      "columns_fr": [
+        "Élément",
+        "Anthropic (Claude)",
+        "OpenAI (ChatGPT et API)",
+        "Ce que nous en retenons"
+      ],
+      "columns_en": [
+        "Element",
+        "Anthropic (Claude)",
+        "OpenAI (ChatGPT and API)",
+        "What we take from it"
+      ],
+      "rows_fr": [
+        [
+          "Rôle",
+          "Une phrase de rôle dans le message système focalise le comportement et le ton",
+          "Section « Identity » : but, style de communication, objectifs de l'assistant",
+          "Une phrase : qui répond, pour qui, avec quelle exigence"
+        ],
+        [
+          "Contexte",
+          "Expliquer la raison d'une règle aide à généraliser ; documents longs en tête, question à la fin (jusqu'à 30 % de qualité en plus dans leurs tests)",
+          "Section « Context » : données propres à l'entreprise, plutôt vers la fin du prompt",
+          "Donnez le pourquoi et collez les documents avant la question"
+        ],
+        [
+          "Tâche et format",
+          "Être précis sur le résultat et les contraintes ; étapes numérotées quand l'ordre compte",
+          "Section « Instructions » : ce qu'il faut faire et ne jamais faire ; guide ChatGPT : Context, Instructions, Additional information",
+          "Une consigne, un livrable, avec longueur et format écrits"
+        ],
+        [
+          "Exemples",
+          "Trois à cinq exemples pertinents, variés, balisés",
+          "Quelques entrées avec la sortie voulue, sur une gamme variée",
+          "Deux ou trois dossiers réels anonymisés, dont un cas limite"
+        ],
+        [
+          "Vérification",
+          "Définir des critères de réussite et un moyen de les tester avant de réécrire",
+          "Suites de tests, versions de modèle fixées ; ChatGPT : demander les sources, marquer l'incertitude, lister les hypothèses",
+          "Cinq à dix cas dont vous connaissez la réponse, puis relecture humaine"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Role",
+          "A role sentence in the system prompt focuses behaviour and tone",
+          "\"Identity\" section: purpose, communication style, goals of the assistant",
+          "One sentence: who answers, for whom, with what rigour"
+        ],
+        [
+          "Context",
+          "Explaining the reason for a rule helps generalise; long documents first, question last (up to 30% better quality in their tests)",
+          "\"Context\" section: company-specific data, usually towards the end of the prompt",
+          "Give the why and paste the documents before the question"
+        ],
+        [
+          "Task and format",
+          "Be specific about the result and the constraints; numbered steps when order matters",
+          "\"Instructions\" section: what to do and never do; ChatGPT guide: Context, Instructions, Additional information",
+          "One instruction, one deliverable, with length and format written down"
+        ],
+        [
+          "Examples",
+          "Three to five relevant, varied, tagged examples",
+          "A few inputs with the desired output, over a varied range",
+          "Two or three real anonymised cases, one of them an edge case"
+        ],
+        [
+          "Check",
+          "Define success criteria and a way to test them before rewriting",
+          "Test suites, pinned model versions; ChatGPT: ask for sources, mark uncertainty, list assumptions",
+          "Five to ten cases whose answer you know, then human review"
+        ]
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Quelle méthode pour écrire une consigne en cinq éléments ?</h2>\n<p>Anthropic compare Claude à un employé brillant mais nouveau, qui ignore vos usages : plus vous précisez ce que vous voulez, meilleur est le résultat. Sa règle d'or : montrer la consigne à un collègue qui ne connaît pas la tâche. S'il hésite, le modèle hésitera aussi (<a href=\"https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices\" rel=\"noopener noreferrer\" target=\"_blank\">guide d'Anthropic</a>). Les cinq éléments ci-dessous sont la méthode de Waimia, construite à partir de ce guide et de ceux d'OpenAI ; ce n'est pas une norme des éditeurs.</p>\n<h3>1. Le rôle</h3>\n<p>Une phrase suffit : qui répond, pour qui, avec quelle exigence. Anthropic note qu'une seule phrase de rôle dans le message système change le comportement et le ton ; OpenAI ouvre un message par une section « Identity ». Exemple : « Tu es l'assistant administratif d'un cabinet de [métier] ; tu écris pour des clients qui ne connaissent pas le jargon. »</p>\n<h3>2. Le contexte</h3>\n<p>Ce qu'un nouvel employé devrait savoir : l'entreprise, le client, l'historique, les contraintes, et la raison d'être du texte. Anthropic montre qu'expliquer pourquoi une règle existe (« le texte sera lu à voix haute, donc pas de points de suspension ») aide Claude à généraliser. Collez les documents avant la question : pour des entrées longues (plus de 20 000 tokens), Anthropic indique que placer la question à la fin améliore la qualité jusqu'à 30 % dans ses tests, surtout avec plusieurs documents. Retirez les données personnelles inutiles ; ce qu'on peut coller se fixe dans la <a href=\"/ressources/outils/charte-ia-entreprise\">charte IA</a> et se précise dans le guide <a href=\"/ressources/guides/claude-rgpd-pme\">Claude et RGPD en PME</a>.</p>\n<h3>3. La tâche et le format</h3>\n<p>Un verbe, un livrable, un format. « Rédige une relance de 100 mots, objet compris, en trois phrases » vaut mieux que « aide-moi pour cette relance ». Quand l'ordre compte, numérotez les étapes (Anthropic). Une consigne, un livrable : le guide d'OpenAI pour ChatGPT Enterprise recommande de cadrer avant d'écrire, pour éviter les consignes longues qui s'éparpillent.</p>\n<h3>4. Les exemples</h3>\n<p>Un exemple vaut plusieurs adjectifs. Anthropic recommande de trois à cinq exemples pertinents, variés et balisés pour ne pas les confondre avec les instructions ; OpenAI demande une gamme variée d'entrées avec la sortie voulue. En PME, prenez deux ou trois vrais dossiers anonymisés, dont un cas limite. Vérifiez qu'ils respectent vos propres règles : le cookbook d'OpenAI relève que des exemples en désaccord avec la consigne poussent le modèle à imiter les exemples plutôt qu'à suivre la règle.</p>\n<h3>5. La vérification</h3>\n<p>Dites comment contrôler la réponse, puis contrôlez. Le guide de ChatGPT Enterprise propose de demander les sources ou des citations du document fourni, de marquer ce qui est incertain, d'ajouter une liste de contrôle et de faire lister les hypothèses. Pour tester une consigne, il suggère cinq à dix questions dont vous connaissez la réponse. Anthropic demande de définir des critères de réussite et un moyen de les tester avant de réécrire. Toute décision visant une personne, tout envoi et tout paiement gardent une relecture humaine.</p>",
+      "html_en": "<h2>Which method for writing an instruction in five elements?</h2>\n<p>Anthropic compares Claude to a brilliant but new employee who does not know your ways: the more precisely you say what you want, the better the result. Its golden rule: show the instruction to a colleague who does not know the task. If they would be confused, the model will be too (<a href=\"https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic's guide</a>). The five elements below are Waimia's method, built from this guide and OpenAI's; it is not a vendor standard.</p>\n<h3>1. The role</h3>\n<p>One sentence is enough: who answers, for whom, with what level of rigour. Anthropic notes that a single role sentence in the system prompt changes behaviour and tone; OpenAI opens a message with an \"Identity\" section. Example: \"You are the administrative assistant of a [trade] firm; you write for clients who do not know the jargon.\"</p>\n<h3>2. The context</h3>\n<p>What a new employee should know: the company, the client, the history, the constraints, and why the text exists. Anthropic shows that explaining why a rule exists (\"the text will be read aloud, so no ellipses\") helps Claude generalise. Paste the documents before the question: for long inputs (over 20,000 tokens), Anthropic states that putting the question at the end improves quality by up to 30% in its tests, especially with several documents. Remove unnecessary personal data; what can be pasted is set in the <a href=\"/ressources/outils/charte-ia-entreprise\">AI charter</a> and detailed in the <a href=\"/ressources/guides/claude-rgpd-pme\">Claude and GDPR for SMBs</a> guide.</p>\n<h3>3. The task and the format</h3>\n<p>One verb, one deliverable, one format. \"Write a 100-word follow-up, subject line included, in three sentences\" beats \"help me with this follow-up\". When order matters, number the steps (Anthropic). One instruction, one deliverable: OpenAI's guide for ChatGPT Enterprise recommends scoping before writing, to avoid long instructions that scatter.</p>\n<h3>4. The examples</h3>\n<p>An example is worth several adjectives. Anthropic recommends three to five relevant, varied, tagged examples so they are not confused with the instructions; OpenAI asks for a varied range of inputs with the desired output. In an SMB, take two or three real, anonymised cases, one of them an edge case. Check that they follow your own rules: OpenAI's cookbook notes that examples that disagree with the instruction push the model to imitate the examples rather than follow the rule.</p>\n<h3>5. The check</h3>\n<p>Say how to check the answer, then check it. The ChatGPT Enterprise guide suggests asking for sources or quotes from the provided document, marking what is uncertain, adding a checklist and having assumptions listed. To test an instruction, it suggests five to ten questions whose answer you know. Anthropic asks you to define success criteria and a way to test them before rewriting. Any decision about a person, any sending and any payment keeps a human review.</p>"
+    },
+    {
+      "type": "code-showcase",
+      "background": "paper-2",
+      "tone": "ink",
+      "kicker_fr": "§ Gabarit",
+      "kicker_en": "§ Template",
+      "h2_fr": "Un gabarit de consigne en cinq blocs, à adapter à chaque tâche",
+      "h2_en": "A five-block instruction template, to adapt to each task",
+      "intro_fr": "Exemple illustratif construit par Waimia à partir des guides d'Anthropic et d'OpenAI, pas un texte d'éditeur. Les crochets sont à remplacer ; les balises XML séparent les blocs, comme le recommande Anthropic. Le texte reste en français : écrivez-le dans la langue de votre équipe.",
+      "intro_en": "Illustrative example built by Waimia from the Anthropic and OpenAI guides, not a vendor text. Replace the brackets; XML tags separate the blocks, as Anthropic recommends. The text stays in French: write it in your team's language.",
+      "label": "gabarit-de-consigne.txt",
+      "lang_label": "Texte",
+      "show_line_numbers": true,
+      "lines": [
+        {
+          "text": "# 1. Rôle",
+          "comment_fr": "une phrase",
+          "comment_en": "one sentence"
+        },
+        {
+          "text": "Tu es [fonction] chez [entreprise], tu écris pour [destinataire]."
+        },
+        {
+          "text": "# 2. Contexte",
+          "comment_fr": "le pourquoi, puis les documents",
+          "comment_en": "the why, then the documents"
+        },
+        {
+          "text": "[Situation, historique, contraintes, raison d'être du texte.]"
+        },
+        {
+          "text": "<documents>"
+        },
+        {
+          "text": "  [Coller ici les documents, sans donnée personnelle inutile.]"
+        },
+        {
+          "text": "</documents>"
+        },
+        {
+          "text": "# 3. Tâche et format",
+          "comment_fr": "un livrable, un format",
+          "comment_en": "one deliverable, one format"
+        },
+        {
+          "text": "Rédige [livrable] en [langue], [longueur], sur un ton [ton]."
+        },
+        {
+          "text": "Structure : [liste, tableau, paragraphes] avec [champs requis]."
+        },
+        {
+          "text": "# 4. Exemple",
+          "comment_fr": "réel, anonymisé",
+          "comment_en": "real, anonymised"
+        },
+        {
+          "text": "<exemple>"
+        },
+        {
+          "text": "  Entrée : [un vrai cas]"
+        },
+        {
+          "text": "  Sortie attendue : [la réponse idéale]"
+        },
+        {
+          "text": "</exemple>"
+        },
+        {
+          "text": "# 5. Vérification",
+          "comment_fr": "avant de rendre la réponse",
+          "comment_en": "before returning the answer"
+        },
+        {
+          "text": "Cite le passage du document qui appuie chaque chiffre."
+        },
+        {
+          "text": "Marque (à vérifier) tout ce dont tu n'es pas sûr."
+        },
+        {
+          "text": "Termine par la liste des hypothèses que tu as faites."
+        },
+        {
+          "text": "# Question",
+          "comment_fr": "à la fin, après les documents",
+          "comment_en": "last, after the documents"
+        },
+        {
+          "text": "[La demande précise du jour.]"
+        }
+      ]
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper",
+      "kicker_fr": "§ Exemple illustratif · pas un cas client",
+      "kicker_en": "§ Illustrative example · not a client case",
+      "heading_fr": "Un gabarit par fonction de l'entreprise",
+      "heading_en": "A template for each function of the company",
+      "caption_fr": "Pistes de départ rédigées par Waimia, non mesurées sur des cas clients. Chaque ligne se remplit avec le gabarit ci-dessus puis se teste sur cinq à dix dossiers réels. Retirez les données personnelles inutiles avant de coller un document.",
+      "caption_en": "Starting points written by Waimia, not measured on client cases. Each row is filled in with the template above, then tested on five to ten real files. Remove unnecessary personal data before pasting a document.",
+      "columns_fr": [
+        "Fonction",
+        "Rôle et contexte à fournir",
+        "Livrable et format",
+        "Vérification"
+      ],
+      "columns_en": [
+        "Function",
+        "Role and context to provide",
+        "Deliverable and format",
+        "Check"
+      ],
+      "rows_fr": [
+        [
+          "Commercial",
+          "Assistant commercial de [entreprise] ; offre, tarifs publics, ton de la maison ; historique de l'échange collé",
+          "Brouillon de réponse ou de relance de 120 mots au plus, objet compris, terminé par une question",
+          "Prix et dates recoupés avec le devis ; une personne envoie"
+        ],
+        [
+          "Administration et finance",
+          "Assistant administratif ; champs attendus ; facture ou relevé collé sans donnée personnelle inutile",
+          "Tableau : date, tiers, montant, motif, écart ; anomalies listées à part",
+          "Totaux recalculés hors IA ; aucun montant repris sans contrôle"
+        ],
+        [
+          "Service client",
+          "Agent de première ligne ; politique de retour et conditions ; message du client",
+          "Réponse courte en trois parties : reconnaissance, réponse, prochaine étape",
+          "Aucune promesse hors de la politique écrite ; cas sensibles transmis à une personne"
+        ],
+        [
+          "Ressources humaines",
+          "Assistant RH ; description et critères du poste ; aucune donnée de candidat",
+          "Annonce de poste, trame de questions d'entretien",
+          "Aucune décision sur une personne : tri, évaluation et refus restent humains"
+        ],
+        [
+          "Marketing et contenu",
+          "Rédacteur ; public visé, offre, textes de référence, mots à éviter",
+          "Plan, puis premier jet ; longueur et ton fixés, une idée par paragraphe",
+          "Chiffres et citations sourcés ; relecture de la voix de la marque"
+        ],
+        [
+          "Direction",
+          "Analyste ; question de décision ; documents collés en tête",
+          "Synthèse en cinq points, risques, questions ouvertes",
+          "Chaque chiffre cité avec son passage source ; hypothèses listées"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Sales",
+          "Sales assistant for [company]; offer, public prices, house tone; pasted history of the exchange",
+          "Draft reply or follow-up of 120 words at most, subject line included, ending with a question",
+          "Prices and dates cross-checked against the quote; a person sends"
+        ],
+        [
+          "Administration and finance",
+          "Administrative assistant; expected fields; invoice or statement pasted without unnecessary personal data",
+          "Table: date, third party, amount, reason, gap; anomalies listed separately",
+          "Totals recalculated outside the AI; no amount reused unchecked"
+        ],
+        [
+          "Customer service",
+          "First-line agent; returns policy and terms; the customer's message",
+          "Short reply in three parts: acknowledgement, answer, next step",
+          "No promise outside the written policy; sensitive cases passed to a person"
+        ],
+        [
+          "Human resources",
+          "HR assistant; job description and criteria; no candidate data",
+          "Job advert, interview question outline",
+          "No decision about a person: screening, appraisal and refusal stay human"
+        ],
+        [
+          "Marketing and content",
+          "Writer; target audience, offer, reference texts, words to avoid",
+          "Outline, then first draft; length and tone fixed, one idea per paragraph",
+          "Figures and quotes sourced; review of the brand voice"
+        ],
+        [
+          "Management",
+          "Analyst; decision question; documents pasted first",
+          "Five-point summary, risks, open questions",
+          "Every figure quoted with its source passage; assumptions listed"
+        ]
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Un prompt optimizer, pour quoi faire ?</h2>\n<p>Un optimiseur réécrit une consigne selon des bonnes pratiques. Chez OpenAI, c'est une interface de conversation du tableau de bord : vous y entrez une consigne, elle vous la renvoie optimisée (<a href=\"https://developers.openai.com/api/docs/guides/prompt-optimizer\" rel=\"noopener noreferrer\" target=\"_blank\">page « Prompt optimizer »</a>, lue le 16 octobre 2026). Le <a href=\"https://developers.openai.com/cookbook/examples/gpt-5/prompt-optimization-cookbook\" rel=\"noopener noreferrer\" target=\"_blank\">cookbook d'OpenAI</a> liste ce qu'il corrige : les contradictions entre instructions, un format de sortie absent ou flou, les désaccords entre la consigne et les exemples.</p>\n<p><strong>Deux limites.</strong> OpenAI écrit d'évaluer et de relire à la main une consigne optimisée avant la production, parce qu'elle peut faire moins bien que l'originale sur certaines entrées. Et la variante qui s'appuie sur des jeux de données, rattachée à la plateforme Evals, est en cours d'abandon : Evals passe en lecture seule le 31 octobre 2026 et la plateforme doit fermer le 30 novembre 2026.</p>\n<p><strong>Les équivalents côté assistants.</strong> Le guide de ChatGPT Enterprise décrit la méthode sans outil : coller vos notes dans ChatGPT, lui demander de vous poser des questions, puis de rédiger la consigne en trois sections (Context, Instructions, Additional information). Pour partir de zéro, la page d'Anthropic renvoie à la recette « metaprompt » de son Claude Cookbook. Dans les deux cas, la consigne produite est un brouillon.</p>\n<p><strong>Notre lecture.</strong> Un optimiseur fait gagner du temps à la rédaction ; il ne sait pas ce que vaut la réponse sur vos dossiers. Gardez la boucle : consigne, cinq à dix cas, correction. Ces outils changent de nom et de périmètre : vérifiez qu'ils existent encore le jour où vous en avez besoin.</p>",
+      "html_en": "<h2>What is a prompt optimizer for?</h2>\n<p>An optimizer rewrites an instruction according to best practices. At OpenAI it is a chat interface in the dashboard: you enter an instruction and it sends it back optimized (<a href=\"https://developers.openai.com/api/docs/guides/prompt-optimizer\" rel=\"noopener noreferrer\" target=\"_blank\">\"Prompt optimizer\" page</a>, read on 16 October 2026). <a href=\"https://developers.openai.com/cookbook/examples/gpt-5/prompt-optimization-cookbook\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI's cookbook</a> lists what it fixes: contradictions between instructions, a missing or vague output format, mismatches between the instruction and the examples.</p>\n<p><strong>Two limits.</strong> OpenAI writes to evaluate and manually review an optimized instruction before production, because it can do worse than the original on some inputs. And the variant that relies on datasets, tied to the Evals platform, is being phased out: Evals becomes read-only on 31 October 2026 and the platform is due to shut down on 30 November 2026.</p>\n<p><strong>The assistant-side equivalents.</strong> The ChatGPT Enterprise guide describes the method without a tool: paste your notes into ChatGPT, ask it to put questions to you, then to write the instruction in three sections (Context, Instructions, Additional information). To start from scratch, Anthropic's page points to the \"metaprompt\" recipe in its Claude Cookbook. In both cases, the instruction produced is a draft.</p>\n<p><strong>Our reading.</strong> An optimizer saves drafting time; it does not know what the answer is worth on your files. Keep the loop: instruction, five to ten cases, correction. These tools change name and scope: check they still exist the day you need them.</p>"
+    },
+    {
+      "type": "process-steps",
+      "background": "paper",
+      "kicker_fr": "§ Dans l'équipe",
+      "kicker_en": "§ In the team",
+      "h2_fr": "Comment faire entrer la méthode dans l'équipe ?",
+      "h2_en": "How do you bring the method into the team?",
+      "intro_fr": "Pas de bibliothèque de trois cents consignes : trois tâches, une consigne chacune, un test. Chaque étape se ferme sur une décision.",
+      "intro_en": "No library of three hundred instructions: three tasks, one instruction each, one test. Each stage ends on a decision.",
+      "steps": [
+        {
+          "title_fr": "Semaine 1 : choisir trois tâches répétées",
+          "title_en": "Week 1: choose three repeated tasks",
+          "body_fr": "Trois tâches que l'équipe fait chaque semaine, avec trois vrais dossiers anonymisés par tâche. Une personne est responsable de chaque consigne.",
+          "body_en": "Three tasks the team does every week, with three real anonymised files per task. One person owns each instruction.",
+          "meta_fr": "Décision : quelles tâches ?",
+          "meta_en": "Decision: which tasks?"
+        },
+        {
+          "title_fr": "Semaine 2 : écrire et tester",
+          "title_en": "Week 2: write and test",
+          "body_fr": "Chaque consigne suit le gabarit en cinq blocs. On la teste sur cinq à dix cas dont on connaît la réponse, on note ce qui échoue, on corrige une chose à la fois.",
+          "body_en": "Each instruction follows the five-block template. It is tested on five to ten cases whose answer is known, failures are noted, one thing is fixed at a time.",
+          "meta_fr": "Décision : la consigne est-elle utilisable ?",
+          "meta_en": "Decision: is the instruction usable?"
+        },
+        {
+          "title_fr": "Semaine 3 : partager",
+          "title_en": "Week 3: share",
+          "body_fr": "La consigne qui passe le test est publiée dans un projet partagé de l'assistant de l'équipe, avec son responsable, sa date et son jeu de test.",
+          "body_en": "The instruction that passes the test is published in a shared project of the team's assistant, with its owner, its date and its test set.",
+          "meta_fr": "Décision : qui la maintient ?",
+          "meta_en": "Decision: who maintains it?"
+        },
+        {
+          "title_fr": "Ensuite : rejouer quand le modèle change",
+          "title_en": "Then: replay when the model changes",
+          "body_fr": "OpenAI écrit que des versions d'une même famille de modèles peuvent donner des résultats différents. On rejoue le jeu de test à chaque changement de modèle et on corrige.",
+          "body_en": "OpenAI writes that snapshots within the same model family can give different results. The test set is replayed at each model change and the instruction fixed.",
+          "meta_fr": "Décision : on garde ou on corrige ?",
+          "meta_en": "Decision: keep or fix?"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Quelle formation au prompt engineering pour une équipe ?</h2>\n<p>Un guide transmet la méthode, une formation la fait pratiquer sur vos tâches. Le niveau 1 de la <a href=\"/formations/chatgpt\">formation ChatGPT</a> et celui de la <a href=\"/formations/claude\">formation Claude</a> consacrent un module à l'écriture de la consigne : contexte, exemple, format attendu, puis correction en quelques échanges, sur une tâche que le participant fait déjà. Les livrables prévus sont des consignes réutilisables (ChatGPT) ou une bibliothèque de consignes et un projet configuré (Claude), avec une fiche de règles d'usage. Choisissez celle de l'outil que votre entreprise utilise : selon ces pages, les principes se transposent de l'un à l'autre. Les prix par session sont sur chaque page de formation.</p>\n<p>Si les consignes doivent alimenter un workflow (devis, tri d'e-mails), l'étape suivante est un audit gratuit de 45 minutes, puis un sprint de cadrage de 10 heures à {{prix.sprint}} € HT, à prix fixe, qui livre un prototype testé. La mise en production relève du pilote, dès {{prix.pilote}} € HT, comme sur la page <a href=\"/tarifs\">Tarifs</a>.</p>",
+      "html_en": "<h2>Which prompt engineering training for a team?</h2>\n<p>A guide passes on the method; a training has people practise it on your tasks. Level 1 of the <a href=\"/formations/chatgpt\">ChatGPT training</a> and of the <a href=\"/formations/claude\">Claude training</a> devote a module to writing the instruction: context, example, expected format, then correction over a few exchanges, on a task the participant already does. The planned deliverables are reusable instructions (ChatGPT) or an instruction library and a configured project (Claude), with a usage-rules sheet. Choose the one for the tool your company uses: according to these pages, the principles carry over from one to the other. Prices per session are on each training page.</p>\n<p>If the instructions must feed a workflow (quotes, email sorting), the next step is a free 45-minute audit, then a 10-hour scoping sprint at €{{prix.sprint.en}} excl. VAT, fixed price, which delivers a tested prototype. Going live is the pilot, from €{{prix.pilote.en}} excl. VAT, as on the <a href=\"/tarifs\">Pricing</a> page.</p>"
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Further reading",
+      "cards": [
+        {
+          "kicker_fr": "Formation",
+          "kicker_en": "Training",
+          "title_fr": "Formation ChatGPT en entreprise",
+          "title_en": "ChatGPT training for business",
+          "lead_fr": "Trois niveaux : méthode commune, GPT personnalisés, puis API OpenAI et Codex.",
+          "lead_en": "Three levels: shared method, custom GPTs, then the OpenAI API and Codex.",
+          "href": "/formations/chatgpt"
+        },
+        {
+          "kicker_fr": "Formation",
+          "kicker_en": "Training",
+          "title_fr": "Formation Claude et agents IA",
+          "title_en": "Claude and AI agents training",
+          "lead_fr": "Trois niveaux : de l'application à Claude Platform et Claude Code, sur vos projets.",
+          "lead_en": "Three levels: from the app to Claude Platform and Claude Code, on your projects.",
+          "href": "/formations/claude"
+        },
+        {
+          "kicker_fr": "Outil",
+          "kicker_en": "Tool",
+          "title_fr": "Modèle de charte IA pour PME",
+          "title_en": "AI charter template for SMBs",
+          "lead_fr": "Ce qu'on peut coller dans un assistant, ce qu'on garde, qui relit.",
+          "lead_en": "What can be pasted into an assistant, what is kept out, who reviews.",
+          "href": "/ressources/outils/charte-ia-entreprise"
+        }
+      ]
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper-2",
+      "h2_fr": "Prompt engineering en PME : questions fréquentes",
+      "h2_en": "Prompt engineering for SMBs: frequently asked questions",
+      "items": [
+        {
+          "q_fr": "Qu'est-ce que le prompt engineering ?",
+          "a_fr": "OpenAI le définit comme l'écriture d'instructions efficaces pour qu'un modèle produise de façon régulière un contenu conforme à ce que vous attendez. Pour une PME, cela revient à écrire des consignes réutilisables et à les tester sur ses propres cas. Relevé le 16 octobre 2026.",
+          "q_en": "What is prompt engineering?",
+          "a_en": "OpenAI defines it as writing effective instructions so that a model consistently generates content that meets your requirements. For an SMB, it comes down to writing reusable instructions and testing them on its own cases. Checked on 16 October 2026."
+        },
+        {
+          "q_fr": "Un prompt optimizer remplace-t-il la méthode ?",
+          "a_fr": "Non. Un optimiseur réécrit une consigne selon des bonnes pratiques et corrige contradictions, format absent et désaccords avec les exemples. OpenAI demande pourtant d'évaluer et de relire la consigne optimisée, qui peut faire moins bien sur certaines entrées. Relevé le 16 octobre 2026.",
+          "q_en": "Does a prompt optimizer replace the method?",
+          "a_en": "No. An optimizer rewrites an instruction according to best practices and fixes contradictions, a missing format and mismatches with the examples. OpenAI still asks you to evaluate and review the optimized instruction, which can do worse on some inputs. Checked on 16 October 2026."
+        },
+        {
+          "q_fr": "OpenAI arrête-t-il son prompt optimizer ?",
+          "a_fr": "En partie. L'optimiseur adossé à des jeux de données relève de la plateforme Evals : lecture seule le 31 octobre 2026, fermeture prévue le 30 novembre 2026. La page décrit aussi une interface de conversation d'optimisation dans le tableau de bord, sans date de retrait. Relevé le 16 octobre 2026.",
+          "q_en": "Is OpenAI shutting down its prompt optimizer?",
+          "a_en": "In part. The dataset-backed optimizer belongs to the Evals platform: read-only on 31 October 2026, shutdown scheduled for 30 November 2026. The page also describes an optimization chat interface in the dashboard, with no withdrawal date. Checked on 16 October 2026."
+        },
+        {
+          "q_fr": "Combien d'exemples mettre dans une consigne ?",
+          "a_fr": "Anthropic recommande de trois à cinq exemples pertinents, variés et balisés pour de meilleurs résultats. OpenAI demande une gamme variée d'entrées avec la sortie voulue. En PME, deux ou trois dossiers réels anonymisés, dont un cas limite, suffisent pour commencer. Relevé le 16 octobre 2026.",
+          "q_en": "How many examples should an instruction include?",
+          "a_en": "Anthropic recommends three to five relevant, varied, tagged examples for best results. OpenAI asks for a varied range of inputs with the desired output. For an SMB, two or three anonymised real cases, one of them an edge case, are enough to start. Checked on 16 October 2026."
+        },
+        {
+          "q_fr": "Une bonne consigne marche-t-elle avec tous les modèles ?",
+          "a_fr": "Pas forcément. OpenAI écrit que des types de modèles et même des versions d'une même famille peuvent donner des résultats différents, et conseille des suites de tests. Anthropic demande de revérifier sur vos propres tests une technique mesurée sur un autre modèle. Rejouez vos cas quand le modèle change. Relevé le 16 octobre 2026.",
+          "q_en": "Does a good instruction work with every model?",
+          "a_en": "Not necessarily. OpenAI writes that model types and even snapshots within a family can give different results, and advises test suites. Anthropic asks you to recheck on your own tests a technique measured on another model. Replay your cases when the model changes. Checked on 16 October 2026."
+        },
+        {
+          "q_fr": "Quelle formation au prompt engineering pour une équipe ?",
+          "a_fr": "Celle de l'outil que l'équipe utilise. Le niveau 1 des formations ChatGPT et Claude de Waimia travaille la rédaction de consignes sur des tâches réelles des participants, avec des consignes réutilisables en livrable. Le choix du niveau se fait après l'audit gratuit de 45 minutes.",
+          "q_en": "Which prompt engineering training for a team?",
+          "a_en": "The one for the tool the team uses. Level 1 of Waimia's ChatGPT and Claude trainings works on writing instructions for participants' real tasks, with reusable instructions as a deliverable. The level is chosen after the free 45-minute audit."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Former l'équipe",
+      "kicker_en": "§ Train the team",
+      "h2_fr": "Des consignes écrites sur vos tâches, testées sur vos dossiers.",
+      "h2_en": "Instructions written on your tasks, tested on your files.",
+      "subtitle_fr": "L'audit de 45 minutes est gratuit. On regarde les tâches que vos équipes répètent, les outils qu'elles utilisent déjà, et on vous dit si un guide suffit, si une formation s'impose ou si une tâche mérite un workflow.",
+      "subtitle_en": "The 45-minute audit is free. We look at the tasks your teams repeat and the tools they already use, and tell you whether a guide is enough, whether training is needed or whether a task deserves a workflow.",
+      "buttons": [
+        {
+          "label_fr": "Réserver l'audit gratuit",
+          "label_en": "Book the free audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Voir la formation ChatGPT",
+          "label_en": "See the ChatGPT training",
+          "href": "/formations/chatgpt",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}
