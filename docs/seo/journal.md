@@ -37,6 +37,13 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### IndexNow relancé, 16 octobre 2026
+
+- **Constat** : dernier envoi IndexNow le 11 octobre ; la routine hebdomadaire tourne dans GitHub Actions, bloqué par la facturation. Aucune page publiée depuis n'avait été signalée à Bing (qui alimente aussi la recherche de ChatGPT).
+- **Fait** : `node scripts/seo-routine/indexnow.mjs` lancé en local, réponse HTTP 200 : 214 URL du sitemap envoyées (97 nouvelles, 117 à `lastmod` changé). État dans `docs/seo/data/state/indexnow.json`.
+- **Search Console** : nouvelle demande d'indexation refusée (« Quota dépassé ») ; `claude-max-pme`, `claude-pro-vs-team`, `facture-electronique-reception-pme` et `ai-act-pme-utilisatrice-ia` sont à demander le 17 octobre.
+- **Tant qu'Actions est bloqué** : relancer IndexNow à la main après chaque mise en production.
+
 ### Contenu W47, 16 octobre 2026 (PR #116)
 
 - **Articles** : `facture-electronique-reception-pme` (satellite du guide factures fournisseurs ; sources DGFiP, impots.gouv.fr, economie.gouv.fr, Service-Public, lues le 16 octobre ; montant de l'amende non cité, non relu sur Légifrance) et `ai-act-pme-utilisatrice-ia` (satellite du guide AI Act ; articles 3, 4, 26, 50 et 113 relus, dates identiques au guide). Illustrés (`boite-unique`, `conductrice`), au maillage ; les deux guides renvoient vers leur satellite en FR et EN.
