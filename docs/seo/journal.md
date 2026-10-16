@@ -37,6 +37,11 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### Guide Claude Skills corrigé, 16 octobre 2026 (PR #121)
+
+- **Synchronisation claude.ai vers Claude Code** : la documentation du 16 octobre dit environ 10 minutes en activité et environ 40 minutes au repos ; le guide disait « environ toutes les 10 minutes ». Corrigé en FR et EN, vérifié en production, envoyé à IndexNow.
+- **Diffusion par plugin** : laissé tel quel. La phrase du guide vise le partage à l'organisation sur claude.ai (Team ou Enterprise) ; la documentation lue ne dit rien d'autre sur les offres requises.
+
 ### Contenu W48, 16 octobre 2026 (PR #119)
 
 - **Articles** : `claude-code-skills` (« claude code skill », 480, KD 12 ; satellite du guide Claude Skills, documentation Claude Code relue le 16 octobre, exemple validé par `claude plugin validate`) et `cahier-des-charges-refonte-site` (« cahier des charges refonte site internet », 320, KD 21 ; satellite du guide cahier des charges ; aimant grille d'audit). Illustrés (`panneau-outils`, `maison-echafaudage`), au maillage, cibles basculées, liens retour depuis les deux guides en FR et EN.
