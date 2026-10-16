@@ -619,7 +619,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisations.json",
       "slug": "automatisations",
       "route": "/services/automatisations",
-      "index": 7,
+      "index": 8,
       "label": "Deux projets où la saisie manuelle a disparu",
       "background": "ink"
     },
@@ -1118,8 +1118,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisations.json",
       "slug": "automatisations",
       "route": "/services/automatisations",
-      "index": 4,
-      "label": "Exemple type : la demande de devis reçue par formulaire",
+      "index": 5,
+      "label": "Scénario illustratif : la demande de devis reçue par formulaire",
       "background": "paper"
     },
     {
@@ -1304,15 +1304,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/sequences-de-suivi.json",
-      "slug": "sequences-de-suivi",
-      "route": "/services/sequences-de-suivi",
-      "index": 4,
-      "label": "Exemple type : les devis d'une entreprise du bâtiment",
-      "background": "paper"
-    },
-    {
-      "collection": "services",
       "file": "services/site-web-ia/shopify.json",
       "slug": "shopify",
       "route": "/services/shopify",
@@ -1455,15 +1446,6 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "index": 2,
       "label": "Claude vs ChatGPT : prix, données, outils",
-      "background": "paper"
-    },
-    {
-      "collection": "comparatifs",
-      "file": "comparatifs/geo-vs-seo.json",
-      "slug": "geo-vs-seo",
-      "route": "/ressources/comparatifs/geo-vs-seo",
-      "index": 2,
-      "label": "GEO et SEO, ligne à ligne",
       "background": "paper"
     },
     {
@@ -1746,20 +1728,11 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
-      "file": "comparatifs/geo-vs-seo.json",
-      "slug": "geo-vs-seo",
-      "route": "/ressources/comparatifs/geo-vs-seo",
-      "index": 4,
-      "label": "Six repères pour doser GEO et SEO",
-      "background": "paper"
-    },
-    {
-      "collection": "comparatifs",
       "file": "comparatifs/n8n-vs-make.json",
       "slug": "n8n-vs-make",
       "route": "/ressources/comparatifs/n8n-vs-make",
       "index": 4,
-      "label": "Notre verdict, situation par situation",
+      "label": "Notre verdict, cas par cas",
       "background": "paper"
     },
     {
@@ -1830,7 +1803,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/ai-act-pme-calendrier.json",
       "slug": "ai-act-pme-calendrier",
       "route": "/ressources/guides/ai-act-pme-calendrier",
-      "index": 7,
+      "index": 8,
       "label": "Si vous déployez un système à haut risque : ce que l'article 26 demandera au 2 décembre 2027",
       "background": "paper-2"
     },
@@ -2091,7 +2064,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisations.json",
       "slug": "automatisations",
       "route": "/services/automatisations",
-      "index": 6,
+      "index": 7,
       "label": "N'automatisez pas si",
       "background": "paper"
     },
@@ -2298,7 +2271,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/sequences-de-suivi.json",
       "slug": "sequences-de-suivi",
       "route": "/services/sequences-de-suivi",
-      "index": 6,
+      "index": 8,
       "label": "N'automatisez pas vos devis si",
       "background": "paper"
     },
@@ -3004,7 +2977,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisations.json",
       "slug": "automatisations",
       "route": "/services/automatisations",
-      "index": 5,
+      "index": 6,
       "label": "Ce qui vous reste à la fin",
       "background": "paper-3"
     },
@@ -3229,7 +3202,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/sequences-de-suivi.json",
       "slug": "sequences-de-suivi",
       "route": "/services/sequences-de-suivi",
-      "index": 5,
+      "index": 7,
       "label": "Ce qui vous reste à la fin",
       "background": "paper-3"
     },
@@ -3602,6 +3575,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/geo-vs-seo.json",
       "slug": "geo-vs-seo",
       "route": "/ressources/comparatifs/geo-vs-seo",
+      "index": 1,
+      "label": "#1",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/lovable-vs-developpement-sur-mesure.json",
+      "slug": "lovable-vs-developpement-sur-mesure",
+      "route": "/ressources/comparatifs/lovable-vs-developpement-sur-mesure",
       "index": 1,
       "label": "#1",
       "background": "paper-2"
@@ -4191,6 +4173,16 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/lovable-vs-developpement-sur-mesure.json",
+      "slug": "lovable-vs-developpement-sur-mesure",
+      "route": "/ressources/comparatifs/lovable-vs-developpement-sur-mesure",
+      "index": 5,
+      "label": "#5",
+      "variant": "quote",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/mistral-vs-claude-pme.json",
       "slug": "mistral-vs-claude-pme",
       "route": "/ressources/comparatifs/mistral-vs-claude-pme",
@@ -4606,6 +4598,33 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/lovable-vs-developpement-sur-mesure.json",
+      "slug": "lovable-vs-developpement-sur-mesure",
+      "route": "/ressources/comparatifs/lovable-vs-developpement-sur-mesure",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/lovable-vs-developpement-sur-mesure.json",
+      "slug": "lovable-vs-developpement-sur-mesure",
+      "route": "/ressources/comparatifs/lovable-vs-developpement-sur-mesure",
+      "index": 6,
+      "label": "#6",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/lovable-vs-developpement-sur-mesure.json",
+      "slug": "lovable-vs-developpement-sur-mesure",
+      "route": "/ressources/comparatifs/lovable-vs-developpement-sur-mesure",
+      "index": 8,
+      "label": "#8",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/mistral-vs-claude-pme.json",
       "slug": "mistral-vs-claude-pme",
       "route": "/ressources/comparatifs/mistral-vs-claude-pme",
@@ -4798,8 +4817,17 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/ai-act-pme-calendrier.json",
       "slug": "ai-act-pme-calendrier",
       "route": "/ressources/guides/ai-act-pme-calendrier",
-      "index": 9,
-      "label": "#9",
+      "index": 7,
+      "label": "#7",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/ai-act-pme-calendrier.json",
+      "slug": "ai-act-pme-calendrier",
+      "route": "/ressources/guides/ai-act-pme-calendrier",
+      "index": 10,
+      "label": "#10",
       "background": "paper-2"
     },
     {
@@ -4807,8 +4835,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/ai-act-pme-calendrier.json",
       "slug": "ai-act-pme-calendrier",
       "route": "/ressources/guides/ai-act-pme-calendrier",
-      "index": 11,
-      "label": "#11",
+      "index": 12,
+      "label": "#12",
       "background": "paper"
     },
     {
@@ -6240,6 +6268,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/services/automatisations",
       "index": 3,
       "label": "#3",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/automatisations.json",
+      "slug": "automatisations",
+      "route": "/services/automatisations",
+      "index": 4,
+      "label": "#4",
       "background": "paper-2"
     },
     {
@@ -6517,8 +6554,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/sequences-de-suivi.json",
       "slug": "sequences-de-suivi",
       "route": "/services/sequences-de-suivi",
-      "index": 3,
-      "label": "#3",
+      "index": 6,
+      "label": "#6",
       "background": "paper-2"
     },
     {
@@ -6845,6 +6882,44 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/geo-vs-seo.json",
+      "slug": "geo-vs-seo",
+      "route": "/ressources/comparatifs/geo-vs-seo",
+      "index": 2,
+      "label": "GEO et SEO, critère par critère",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/geo-vs-seo.json",
+      "slug": "geo-vs-seo",
+      "route": "/ressources/comparatifs/geo-vs-seo",
+      "index": 4,
+      "label": "Six situations, six verdicts",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/lovable-vs-developpement-sur-mesure.json",
+      "slug": "lovable-vs-developpement-sur-mesure",
+      "route": "/ressources/comparatifs/lovable-vs-developpement-sur-mesure",
+      "index": 2,
+      "label": "Les prix de Lovable, tels que l'éditeur les publie",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/lovable-vs-developpement-sur-mesure.json",
+      "slug": "lovable-vs-developpement-sur-mesure",
+      "route": "/ressources/comparatifs/lovable-vs-developpement-sur-mesure",
+      "index": 4,
+      "label": "Propriété, accès, sécurité, base de données, évolutions : ce que chaque voie documente",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/mistral-vs-claude-pme.json",
       "slug": "mistral-vs-claude-pme",
       "route": "/ressources/comparatifs/mistral-vs-claude-pme",
@@ -6946,7 +7021,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "ai-act-pme-calendrier",
       "route": "/ressources/guides/ai-act-pme-calendrier",
       "index": 5,
-      "label": "Le calendrier de l'AI Act au 6 octobre 2026",
+      "label": "Le calendrier de l'AI Act au 16 octobre 2026",
       "variant": "editorial",
       "background": "paper-2"
     },
@@ -7735,6 +7810,26 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "background": "paper"
     },
     {
+      "collection": "services",
+      "file": "services/sequences-de-suivi.json",
+      "slug": "sequences-de-suivi",
+      "route": "/services/sequences-de-suivi",
+      "index": 4,
+      "label": "Huit pannes probables d'une relance automatisée, et la parade",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/sequences-de-suivi.json",
+      "slug": "sequences-de-suivi",
+      "route": "/services/sequences-de-suivi",
+      "index": 5,
+      "label": "Scénario illustratif : un devis suivi sur un mois",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
       "collection": "formations",
       "file": "formations/automatisation.json",
       "slug": "automatisation",
@@ -8099,8 +8194,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisations.json",
       "slug": "automatisations",
       "route": "/services/automatisations",
-      "index": 9,
-      "label": "#9",
+      "index": 10,
+      "label": "#10",
       "variant": "media"
     },
     {
@@ -8324,8 +8419,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/sequences-de-suivi.json",
       "slug": "sequences-de-suivi",
       "route": "/services/sequences-de-suivi",
-      "index": 8,
-      "label": "#8",
+      "index": 10,
+      "label": "#10",
       "variant": "media"
     },
     {
@@ -8764,6 +8859,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/lovable-vs-developpement-sur-mesure.json",
+      "slug": "lovable-vs-developpement-sur-mesure",
+      "route": "/ressources/comparatifs/lovable-vs-developpement-sur-mesure",
+      "index": 10,
+      "label": "Lovable ou sur mesure : vos questions",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/mistral-vs-claude-pme.json",
       "slug": "mistral-vs-claude-pme",
       "route": "/ressources/comparatifs/mistral-vs-claude-pme",
@@ -8857,7 +8961,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/ai-act-pme-calendrier.json",
       "slug": "ai-act-pme-calendrier",
       "route": "/ressources/guides/ai-act-pme-calendrier",
-      "index": 13,
+      "index": 14,
       "label": "Questions fréquentes",
       "background": "paper"
     },
@@ -9271,7 +9375,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisations.json",
       "slug": "automatisations",
       "route": "/services/automatisations",
-      "index": 10,
+      "index": 11,
       "label": "Automatisation des processus : vos questions",
       "background": "paper-2"
     },
@@ -9505,8 +9609,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/sequences-de-suivi.json",
       "slug": "sequences-de-suivi",
       "route": "/services/sequences-de-suivi",
-      "index": 9,
-      "label": "Devis automatisé et relances : vos questions",
+      "index": 11,
+      "label": "Relance automatisée : vos questions",
       "background": "paper-2"
     },
     {
@@ -9935,7 +10039,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "geo-vs-seo",
       "route": "/ressources/comparatifs/geo-vs-seo",
       "index": 3,
-      "label": "Trois bascules entre trouver et citer",
+      "label": "Trois conséquences pour un budget",
       "background": "paper-2"
     },
     {
@@ -10410,6 +10514,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/lovable-vs-developpement-sur-mesure.json",
+      "slug": "lovable-vs-developpement-sur-mesure",
+      "route": "/ressources/comparatifs/lovable-vs-developpement-sur-mesure",
+      "index": 11,
+      "label": "Un prototype à regarder avant d'aller plus loin ?",
+      "background": "ink"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/mistral-vs-claude-pme.json",
       "slug": "mistral-vs-claude-pme",
       "route": "/ressources/comparatifs/mistral-vs-claude-pme",
@@ -10503,7 +10616,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/ai-act-pme-calendrier.json",
       "slug": "ai-act-pme-calendrier",
       "route": "/ressources/guides/ai-act-pme-calendrier",
-      "index": 14,
+      "index": 15,
       "label": "Savoir lesquels de vos usages d'IA demandent une attention, et lesquels n'en demandent aucune.",
       "background": "ink"
     },
@@ -10917,7 +11030,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisations.json",
       "slug": "automatisations",
       "route": "/services/automatisations",
-      "index": 11,
+      "index": 12,
       "label": "Quel process vous coûte le plus d'heures chaque semaine ?",
       "background": "ink"
     },
@@ -11151,7 +11264,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/sequences-de-suivi.json",
       "slug": "sequences-de-suivi",
       "route": "/services/sequences-de-suivi",
-      "index": 10,
+      "index": 12,
       "label": "Combien de devis attendent une relance chez vous ?",
       "background": "ink"
     },
@@ -12031,6 +12144,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/lovable-vs-developpement-sur-mesure.json",
+      "slug": "lovable-vs-developpement-sur-mesure",
+      "route": "/ressources/comparatifs/lovable-vs-developpement-sur-mesure",
+      "index": 0,
+      "label": "Lovable ou développement sur mesure : quand reprendre le code ?",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/mistral-vs-claude-pme.json",
       "slug": "mistral-vs-claude-pme",
       "route": "/ressources/comparatifs/mistral-vs-claude-pme",
@@ -12575,7 +12697,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "sequences-de-suivi",
       "route": "/services/sequences-de-suivi",
       "index": 0,
-      "label": "Devis automatisés et relances sans oubli",
+      "label": "Relance automatisée des devis et des factures",
       "background": "paper"
     },
     {
@@ -13868,7 +13990,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisations.json",
       "slug": "automatisations",
       "route": "/services/automatisations",
-      "index": 8,
+      "index": 9,
       "label": "Combien coûte l'automatisation d'un processus",
       "background": "paper"
     },
@@ -14093,7 +14215,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/sequences-de-suivi.json",
       "slug": "sequences-de-suivi",
       "route": "/services/sequences-de-suivi",
-      "index": 7,
+      "index": 9,
       "label": "Prix d'un dispositif de devis et de relances",
       "background": "paper"
     },
@@ -14348,6 +14470,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/lovable-vs-developpement-sur-mesure.json",
+      "slug": "lovable-vs-developpement-sur-mesure",
+      "route": "/ressources/comparatifs/lovable-vs-developpement-sur-mesure",
+      "index": 7,
+      "label": "Comment décider en quatre étapes",
+      "background": "paper-3"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/mistral-vs-claude-pme.json",
       "slug": "mistral-vs-claude-pme",
       "route": "/ressources/comparatifs/mistral-vs-claude-pme",
@@ -14405,7 +14536,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/ai-act-pme-calendrier.json",
       "slug": "ai-act-pme-calendrier",
       "route": "/ressources/guides/ai-act-pme-calendrier",
-      "index": 10,
+      "index": 11,
       "label": "Quoi faire, échéance par échéance",
       "background": "paper-3"
     },
@@ -14695,6 +14826,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/services/integration-mistral-ai",
       "index": 8,
       "label": "Du choix du modèle à l'outil branché",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/sequences-de-suivi.json",
+      "slug": "sequences-de-suivi",
+      "route": "/services/sequences-de-suivi",
+      "index": 3,
+      "label": "Dans quel ordre mettre une relance en service",
       "background": "paper"
     },
     {
@@ -15538,6 +15678,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/lovable-vs-developpement-sur-mesure.json",
+      "slug": "lovable-vs-developpement-sur-mesure",
+      "route": "/ressources/comparatifs/lovable-vs-developpement-sur-mesure",
+      "index": 9,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/mistral-vs-claude-pme.json",
       "slug": "mistral-vs-claude-pme",
       "route": "/ressources/comparatifs/mistral-vs-claude-pme",
@@ -15622,7 +15771,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/ai-act-pme-calendrier.json",
       "slug": "ai-act-pme-calendrier",
       "route": "/ressources/guides/ai-act-pme-calendrier",
-      "index": 12,
+      "index": 13,
       "label": "Pour aller plus loin",
       "background": "paper-2"
     },
@@ -16356,7 +16505,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/ai-act-pme-calendrier.json",
       "slug": "ai-act-pme-calendrier",
       "route": "/ressources/guides/ai-act-pme-calendrier",
-      "index": 8,
+      "index": 9,
       "label": "Ce qui vous concerne, ce qui ne vous concerne pas",
       "background": "paper"
     },

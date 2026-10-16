@@ -767,11 +767,16 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "editorial-prose",
         "label": "#3",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#4",
         "background": "paper-2"
       },
       {
         "type": "comparison-duo",
-        "label": "Exemple type : la demande de devis reçue par formulaire",
+        "label": "Scénario illustratif : la demande de devis reçue par formulaire",
         "background": "paper"
       },
       {
@@ -796,7 +801,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "eeat-panel",
-        "label": "#9",
+        "label": "#10",
         "variant": "media"
       },
       {
@@ -2894,7 +2899,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/services/sequences-de-suivi",
-    "title": "Devis automatisé et relances clients · Waimia",
+    "title": "Relance automatisée des devis et des factures · Waimia",
     "group": "offres",
     "collection": "services",
     "file": "services/sequences-de-suivi.json",
@@ -2902,7 +2907,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-split-media",
-        "label": "Devis automatisés et relances sans oubli",
+        "label": "Relance automatisée des devis et des factures",
         "background": "paper"
       },
       {
@@ -2916,14 +2921,26 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
-        "type": "editorial-prose",
-        "label": "#3",
+        "type": "process-steps",
+        "label": "Dans quel ordre mettre une relance en service",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Huit pannes probables d'une relance automatisée, et la parade",
+        "variant": "editorial",
         "background": "paper-2"
       },
       {
-        "type": "comparison-duo",
-        "label": "Exemple type : les devis d'une entreprise du bâtiment",
+        "type": "editorial-table-block",
+        "label": "Scénario illustratif : un devis suivi sur un mois",
+        "variant": "editorial",
         "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper-2"
       },
       {
         "type": "deliverables-grid",
@@ -2942,12 +2959,12 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "eeat-panel",
-        "label": "#8",
+        "label": "#10",
         "variant": "media"
       },
       {
         "type": "faq-accordion",
-        "label": "Devis automatisé et relances : vos questions",
+        "label": "Relance automatisée : vos questions",
         "background": "paper-2"
       },
       {
@@ -5098,7 +5115,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/ressources/comparatifs/geo-vs-seo",
-    "title": "GEO vs SEO · être cité par les IA ou trouvé sur Google",
+    "title": "GEO vs SEO · où mettre le budget, par critère et par cas",
     "group": "ressources",
     "collection": "comparatifs",
     "file": "comparatifs/geo-vs-seo.json",
@@ -5115,18 +5132,20 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-2"
       },
       {
-        "type": "comparison-table",
-        "label": "GEO et SEO, ligne à ligne",
+        "type": "editorial-table-block",
+        "label": "GEO et SEO, critère par critère",
+        "variant": "editorial",
         "background": "paper"
       },
       {
         "type": "feature-zigzag",
-        "label": "Trois bascules entre trouver et citer",
+        "label": "Trois conséquences pour un budget",
         "background": "paper-2"
       },
       {
-        "type": "decision-list",
-        "label": "Six repères pour doser GEO et SEO",
+        "type": "editorial-table-block",
+        "label": "Six situations, six verdicts",
+        "variant": "editorial",
         "background": "paper"
       },
       {
@@ -5142,6 +5161,77 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "footer-cta-band",
         "label": "Vu sur Google, repris par les IA. Faisons les deux.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/ressources/comparatifs/lovable-vs-developpement-sur-mesure",
+    "title": "Lovable ou développement sur mesure : prix et reprise du code · Waimia",
+    "group": "ressources",
+    "collection": "comparatifs",
+    "file": "comparatifs/lovable-vs-developpement-sur-mesure.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Lovable ou développement sur mesure : quand reprendre le code ?",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#1",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Les prix de Lovable, tels que l'éditeur les publie",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Propriété, accès, sécurité, base de données, évolutions : ce que chaque voie documente",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-callout",
+        "label": "#5",
+        "variant": "quote",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper"
+      },
+      {
+        "type": "process-steps",
+        "label": "Comment décider en quatre étapes",
+        "background": "paper-3"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#8",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Lovable ou sur mesure : vos questions",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Un prototype à regarder avant d'aller plus loin ?",
         "background": "ink"
       }
     ]
@@ -5266,7 +5356,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "decision-list",
-        "label": "Notre verdict, situation par situation",
+        "label": "Notre verdict, cas par cas",
         "background": "paper"
       },
       {
@@ -5854,7 +5944,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/ressources/guides/ai-act-pme-calendrier",
-    "title": "AI Act pour PME : le calendrier à jour (octobre 2026)",
+    "title": "AI Act pour PME : le calendrier vérifié le 16 octobre 2026",
     "group": "ressources",
     "collection": "guides",
     "file": "guides/ai-act-pme-calendrier.json",
@@ -5887,13 +5977,18 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-table-block",
-        "label": "Le calendrier de l'AI Act au 6 octobre 2026",
+        "label": "Le calendrier de l'AI Act au 16 octobre 2026",
         "variant": "editorial",
         "background": "paper-2"
       },
       {
         "type": "editorial-prose",
         "label": "#6",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
         "background": "paper"
       },
       {
@@ -5908,7 +6003,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-prose",
-        "label": "#9",
+        "label": "#10",
         "background": "paper-2"
       },
       {
@@ -5918,7 +6013,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-prose",
-        "label": "#11",
+        "label": "#12",
         "background": "paper"
       },
       {
@@ -9443,7 +9538,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/blog/avis-n8n-vs-zapier-2026",
-    "title": "n8n vs Zapier en 2026 : notre verdict",
+    "title": "n8n vs Zapier en 2026 : notre verdict par cas d'usage",
     "group": "blog",
     "collection": "blog",
     "file": "blog/avis-n8n-vs-zapier-2026.json",
@@ -9469,11 +9564,38 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/chatgpt-shopping-e-commerce",
+    "title": "ChatGPT Shopping : ce que lit ChatGPT pour recommander un produit",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/chatgpt-shopping-e-commerce.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/claude-microsoft-copilot-pme",
     "title": "Claude Copilot : ce que ça change en PME",
     "group": "blog",
     "collection": "blog",
     "file": "blog/claude-microsoft-copilot-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/connecter-claude-wordpress-shopify-mcp",
+    "title": "Connecter Claude à WordPress et à Shopify : API, MCP ou connecteur",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/connecter-claude-wordpress-shopify-mcp.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/contenu-ia-seo-google-penalise",
+    "title": "Contenu IA et SEO : ce que Google pénalise vraiment",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/contenu-ia-seo-google-penalise.json",
     "editable": false,
     "sections": []
   },
@@ -9559,8 +9681,17 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/poc-ou-mvp-differences-pme",
+    "title": "POC ou MVP : quelle différence pour une PME",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/poc-ou-mvp-differences-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/seo-geo-etre-cite-par-les-ia-generatives",
-    "title": "Être cité par les IA : les mécaniques du GEO",
+    "title": "Être cité par les IA : ce qui a changé, ce que vous vérifiez",
     "group": "blog",
     "collection": "blog",
     "file": "blog/seo-geo-etre-cite-par-les-ia-generatives.json",
@@ -10511,6 +10642,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche",
       "/ressources/comparatifs/geo-vs-seo",
+      "/ressources/comparatifs/lovable-vs-developpement-sur-mesure",
       "/ressources/comparatifs/mistral-vs-claude-pme",
       "/ressources/comparatifs/n8n-vs-make",
       "/ressources/comparatifs/n8n-vs-make-vs-zapier",
@@ -10585,7 +10717,10 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/avis-n8n-vs-zapier-2026",
       "/blog/brain-circuit",
       "/blog/cabler-son-crm-en-10-jours",
+      "/blog/chatgpt-shopping-e-commerce",
       "/blog/claude-microsoft-copilot-pme",
+      "/blog/connecter-claude-wordpress-shopify-mcp",
+      "/blog/contenu-ia-seo-google-penalise",
       "/blog/creer-agent-ia-claude",
       "/blog/formation-ia-cpf-qualiopi",
       "/blog/formation-ia-finance-pme",
@@ -10595,6 +10730,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/landing-page-qui-convertit-methode-2026",
       "/blog/logiciel-seo-ia-pme",
       "/blog/n8n-c-est-quoi",
+      "/blog/poc-ou-mvp-differences-pme",
       "/blog/seo-geo-etre-cite-par-les-ia-generatives",
       "/blog/tableau-de-bord-pme-quelles-donnees-suivre",
       "/blog/trier-emails-entrant-claude-n8n",
