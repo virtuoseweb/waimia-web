@@ -813,7 +813,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/services/automatisations/automatisation-n8n",
-    "title": "Agence n8n : expert en automatisation n8n pour PME · Waimia",
+    "title": "Agence n8n pour PME : workflows, prix et délais · Waimia",
     "group": "offres",
     "collection": "services",
     "file": "services/automatisations/automatisation-n8n.json",
@@ -845,8 +845,19 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
+        "type": "editorial-table-block",
+        "label": "Cinq workflows n8n qu'une PME demande souvent",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
         "type": "deliverables-grid",
         "label": "Ce qui vous reste à la fin",
+        "background": "paper-3"
+      },
+      {
+        "type": "process-steps",
+        "label": "Comment se passe une mission n8n, du premier appel à la maintenance",
         "background": "paper-3"
       },
       {
@@ -860,8 +871,14 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
+        "type": "editorial-table-block",
+        "label": "Cinq questions à poser à une agence n8n avant de signer",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
         "type": "eeat-panel",
-        "label": "#8",
+        "label": "#11",
         "variant": "media"
       },
       {
@@ -871,7 +888,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "footer-cta-band",
-        "label": "Un premier workflow n8n en production, sur votre serveur.",
+        "label": "Un premier workflow n8n testé en quelques semaines, sur votre serveur.",
         "background": "ink"
       }
     ]
@@ -1340,8 +1357,13 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
-        "type": "editorial-prose",
+        "type": "direct-answer",
         "label": "#3",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#4",
         "background": "paper-2"
       },
       {
@@ -1350,20 +1372,10 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
-        "type": "editorial-prose",
-        "label": "#5",
-        "background": "paper-2"
-      },
-      {
         "type": "editorial-table-block",
         "label": "Six questions à poser à un consultant IA avant de signer",
         "variant": "editorial",
         "background": "paper"
-      },
-      {
-        "type": "cta-form-inline",
-        "label": "Recevez le kit conformité et administration de Claude (PDF, 11 pages)",
-        "background": "paper-2"
       },
       {
         "type": "comparison-duo",
@@ -1374,6 +1386,16 @@ export const SITE_PAGES: SitePage[] = [
         "type": "deliverables-grid",
         "label": "Ce qui vous reste à la fin",
         "background": "paper-3"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#9",
+        "background": "paper-2"
+      },
+      {
+        "type": "cta-form-inline",
+        "label": "Recevez le kit conformité et administration de Claude (PDF, 11 pages)",
+        "background": "paper-2"
       },
       {
         "type": "decision-list",
@@ -1392,7 +1414,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "eeat-panel",
-        "label": "#13",
+        "label": "#14",
         "variant": "media"
       },
       {
@@ -3461,7 +3483,7 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "definition-extract",
         "label": "Définition",
-        "background": "paper"
+        "background": "paper-2"
       },
       {
         "type": "hover-reveal-list",
@@ -3844,7 +3866,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/secteurs/batiment",
-    "title": "IA et automatisation pour le bâtiment : demandes triées, devis le jour même",
+    "title": "IA pour le bâtiment : ce qu'un artisan ou une TPE peut automatiser",
     "group": "secteurs",
     "collection": "secteurs",
     "file": "secteurs/batiment.json",
@@ -3871,7 +3893,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/secteurs/e-commerce",
-    "title": "IA et automatisation pour l'e-commerce : commandes, support et catalogue",
+    "title": "IA pour l'e-commerce : support client, commandes et catalogue",
     "group": "secteurs",
     "collection": "secteurs",
     "file": "secteurs/e-commerce.json",
@@ -3925,7 +3947,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/secteurs/startup-logiciel",
-    "title": "IA et automatisation pour éditeurs de logiciel : demandes routées, support outillé",
+    "title": "IA pour startups et éditeurs de logiciel : produit, support et ventes",
     "group": "secteurs",
     "collection": "secteurs",
     "file": "secteurs/startup-logiciel.json",
@@ -4689,6 +4711,87 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
+    "title": "ChatGPT, Claude, Gemini ou Perplexity : quelle IA choisir en 2026 pour une PME · Waimia",
+    "group": "ressources",
+    "collection": "comparatifs",
+    "file": "comparatifs/chatgpt-claude-gemini-perplexity-pme.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "ChatGPT, Claude, Gemini ou Perplexity : quelle IA choisir en 2026 ?",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#1",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Rédiger, rechercher, analyser un fichier, connecter ses outils : ce que chaque offre d'équipe documente",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Combien coûte une offre d'équipe chez chaque éditeur ?",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Le même effectif de dix personnes, cinq offres",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Entraînement et conservation : ce que chaque éditeur écrit",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-callout",
+        "label": "#7",
+        "variant": "quote",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Quel outil dans quel cas ?",
+        "background": "paper"
+      },
+      {
+        "type": "process-steps",
+        "label": "Comment trancher en quatre étapes",
+        "background": "paper-3"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#10",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Quelle IA choisir : vos questions",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "L'outil compte moins que le cadre : tâches, données, test.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/ressources/comparatifs/claude-code-vs-cursor",
     "title": "Claude Code vs Cursor : lequel choisir en 2026 ?",
     "group": "ressources",
@@ -4899,12 +5002,12 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "decision-list",
         "label": "Choisir selon votre situation",
-        "background": "paper"
+        "background": "paper-2"
       },
       {
         "type": "process-steps",
         "label": "Comment trancher en deux semaines, sur vos documents",
-        "background": "paper-2"
+        "background": "paper"
       },
       {
         "type": "related-cards-band",
@@ -6800,6 +6903,93 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/ressources/guides/claude-in-chrome-entreprise",
+    "title": "Claude in Chrome en entreprise : installer, régler, encadrer l'extension",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/claude-in-chrome-entreprise.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Extension Claude in Chrome en entreprise : installer, régler, encadrer",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "key-metric-grid",
+        "label": "Quels chiffres et réglages retenir avant de déployer ?",
+        "variant": "accent",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Quels réglages d'administration, et quelle valeur de départ ?",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-callout",
+        "label": "#7",
+        "variant": "quote",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#8",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Que confier à Claude in Chrome, et que garder hors du navigateur ?",
+        "background": "paper"
+      },
+      {
+        "type": "process-steps",
+        "label": "Comment mener un pilote en quatre temps ?",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#11",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Claude in Chrome en entreprise : questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Une liste de sites, une règle d'une page, un groupe pilote : avant l'installation.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/ressources/guides/claude-managed-agents",
     "title": "Claude Managed Agents : prix, limites, données et usages en PME",
     "group": "ressources",
@@ -8074,6 +8264,92 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/ressources/guides/mesurer-visibilite-ia-chatgpt",
+    "title": "Mesurer sa visibilité dans ChatGPT et les moteurs IA : un protocole mensuel, sans abonnement",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/mesurer-visibilite-ia-chatgpt.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Mesurer sa visibilité IA : un protocole mensuel, sans abonnement",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "key-metric-grid",
+        "label": "Quels repères retenir avant de commencer ?",
+        "variant": "accent",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#4",
+        "background": "paper-2"
+      },
+      {
+        "type": "process-steps",
+        "label": "Le protocole en cinq étapes",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Quel relevé mesure quoi, et que ne dit-il pas ?",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#8",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#9",
+        "background": "paper"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Que peut-on conclure du relevé, et que faut-il s'interdire ?",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#11",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Mesurer sa visibilité dans ChatGPT : questions fréquentes",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Savoir où vous en êtes avant de changer quoi que ce soit.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/ressources/guides/n8n-auto-heberge-rgpd",
     "title": "n8n auto-hébergé ou cloud : que change le RGPD ?",
     "group": "ressources",
@@ -8250,6 +8526,87 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "footer-cta-band",
         "label": "n8n Cloud ou auto-hébergé : décidez avant le premier workflow.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/ressources/guides/prompt-engineering-pme",
+    "title": "Prompt engineering en PME : méthode de consignes et gabarits par fonction",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/prompt-engineering-pme.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Prompt engineering en PME : une méthode de consignes en cinq éléments",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "key-metric-grid",
+        "label": "Quels repères retenir avant d'écrire vos consignes ?",
+        "variant": "accent",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Ce que disent Anthropic et OpenAI, élément par élément",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper"
+      },
+      {
+        "type": "code-showcase",
+        "label": "Un gabarit de consigne en cinq blocs, à adapter à chaque tâche",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Un gabarit par fonction de l'entreprise",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#8",
+        "background": "paper-2"
+      },
+      {
+        "type": "process-steps",
+        "label": "Comment faire entrer la méthode dans l'équipe ?",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#10",
+        "background": "paper-2"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Prompt engineering en PME : questions fréquentes",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Des consignes écrites sur vos tâches, testées sur vos dossiers.",
         "background": "ink"
       }
     ]
@@ -9040,6 +9397,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/ai-mode-google-ai-overviews-pme",
+    "title": "AI Mode (Mode IA) et AI Overviews de Google : ce que fait une PME",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/ai-mode-google-ai-overviews-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/applications-internes-build-vs-buy-pme",
     "title": "Application interne : développer ou acheter ?",
     "group": "blog",
@@ -9144,6 +9510,15 @@ export const SITE_PAGES: SitePage[] = [
     "group": "blog",
     "collection": "blog",
     "file": "blog/forward-deployed-engineer.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/geo-local-recommande-par-les-ia",
+    "title": "GEO local : être recommandé par les IA près de chez soi",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/geo-local-recommande-par-les-ia.json",
     "editable": false,
     "sections": []
   },
@@ -10130,6 +10505,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/demonstrations/site-web-intelligent",
       "/ressources",
       "/ressources/comparatifs",
+      "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-platform-vs-openai-platform",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
@@ -10158,6 +10534,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/guides/claude-fonctionnalites-pme",
       "/ressources/guides/claude-for-small-business",
       "/ressources/guides/claude-gratuit",
+      "/ressources/guides/claude-in-chrome-entreprise",
       "/ressources/guides/claude-managed-agents",
       "/ressources/guides/claude-plugins-entreprise",
       "/ressources/guides/claude-pme",
@@ -10171,8 +10548,10 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/guides/financement-formation-ia-opco",
       "/ressources/guides/llm-rag-dirigeant",
       "/ressources/guides/mcp-claude",
+      "/ressources/guides/mesurer-visibilite-ia-chatgpt",
       "/ressources/guides/n8n-auto-heberge-rgpd",
       "/ressources/guides/n8n-prix",
+      "/ressources/guides/prompt-engineering-pme",
       "/ressources/guides/quel-modele-claude-choisir",
       "/ressources/guides/refonte-site-internet",
       "/ressources/guides/rgpd-agents-ia-checklist",
@@ -10198,6 +10577,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog",
       "/blog/agent-ia-entreprise-exemples",
       "/blog/agent-ia-vs-automatisation-classique-2026",
+      "/blog/ai-mode-google-ai-overviews-pme",
       "/blog/applications-internes-build-vs-buy-pme",
       "/blog/architecte-ia-role-pme",
       "/blog/automatiser-relance-devis-n8n",
@@ -10210,6 +10590,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/formation-ia-cpf-qualiopi",
       "/blog/formation-ia-finance-pme",
       "/blog/forward-deployed-engineer",
+      "/blog/geo-local-recommande-par-les-ia",
       "/blog/ia-pme-guide-complet-2026",
       "/blog/landing-page-qui-convertit-methode-2026",
       "/blog/logiciel-seo-ia-pme",
