@@ -232,6 +232,8 @@ function buildWebSite(lang: Lang = 'fr'): JsonLdObject {
     '@id': SCHEMA_IDS.website,
     url: `${SITE_URL}/`,
     name: SITE.name,
+    // Nom alternatif proposé à Google pour le nom de site (recommandation « site names »).
+    alternateName: 'waimia.com',
     description: ORGANIZATION_DESCRIPTION,
     inLanguage: lang === 'en' ? 'en-US' : 'fr-FR',
     publisher: { '@id': SCHEMA_IDS.organization },
