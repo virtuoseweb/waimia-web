@@ -37,6 +37,23 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### Demandes d'indexation, 17 octobre 2026
+
+**Méthode.** Search Console, propriété `sc-domain:waimia.com`, champ « Inspecter n'importe quelle URL ». Pour chaque URL : inspection, contrôle que l'URL affichée est la bonne, clic sur « Demander une indexation », lecture de la confirmation. Pas de « Quota dépassé » rencontré.
+
+**Résultat lu à l'écran.** Les six demandes ont affiché « Indexation demandée » (« Cette URL a été ajoutée à une file d'attente d'exploration prioritaire »).
+
+| URL | État d'inspection avant la demande | Résultat |
+| --- | --- | --- |
+| `/blog/claude-max-pme` | connue : « Cette URL est sur Google », la page est indexée | Indexation demandée |
+| `/blog/claude-pro-vs-team` | connue : « Cette URL est sur Google », la page est indexée | Indexation demandée |
+| `/blog/facture-electronique-reception-pme` | connue : « Cette URL est sur Google », la page est indexée | Indexation demandée |
+| `/blog/ai-act-pme-utilisatrice-ia` | inconnue : « Cette URL n'a pas été indexée par Google », « Google ne reconnaît pas cette URL » (aucun sitemap référent, aucune page d'origine) | Indexation demandée |
+| `/blog/claude-code-skills` | connue : « Cette URL est sur Google », la page est indexée | Indexation demandée |
+| `/blog/cahier-des-charges-refonte-site` | connue : « Cette URL est sur Google », la page est indexée | Indexation demandée |
+
+**À noter.** Cinq URL sur six étaient déjà indexées : la demande vaut re-exploration, pas première indexation. `ai-act-pme-utilisatrice-ia` est la seule inconnue de Google ; elle n'est référencée par aucun sitemap lu par Search Console. À contrôler à la prochaine collecte : son entrée dans le sitemap soumis et son état d'indexation.
+
 ### Anciennes URL de l'export « backlinks pages », 16 octobre 2026
 
 **Source.** Export Semrush `waimia.com-backlinks_pages.csv` (1 077 lignes) : ce sont les anciennes URL de nos propres domaines, pas des liens entrants. Elles viennent de l'ancien WordPress multisite (boutique, formations, démos de modèles sur demo.waimia.com), supprimé et refondu depuis en une seule entité sur waimia.com, sans sous-domaine. Aucune ne porte de backlink ni de domaine référent.
