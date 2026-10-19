@@ -37,6 +37,25 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### Diagnostic indexation et baisse de `claude-pme`, 19 octobre 2026
+
+**Signal reçu (Simon, captures Search Console).** Recommandation « `/ressources/guides/claude-pme` -62 % » ; raisons de non-indexation : redirection 13, noindex 10, canonique 1 (`/contact?offer=wordpress&intent=premium`), explorée non indexée 7, détectée non indexée 35.
+
+**Baisse de `claude-pme` : non imputable aux changements du 16/10.** Les données Search Console de la collecte W42 s'arrêtent au 15/10 ; la baisse compare le 9 au 15/10 à la semaine précédente, donc avant l'ajout du bloc `editorial-prose` (PR #126). Impressions 117 → 62, réparties uniformément sur les 19 à 20 requêtes de longue traîne (environ une par jour chacune), position 32,3 → 30,3, 0 clic avant comme après. Lecture probable : un outil de suivi de positions qui a cessé d'interroger ces requêtes, pas une perte de visibilité réelle. Aucune action corrective.
+
+**Audit technique des URL listées (production, robots, canonique, sitemap, liens internes dans `dist`).** Aucun défaut.
+- Redirection : 4 redirections volontaires (`google-ads-vs-meta…`, `landing-page-google-ads`, `relance-devis`, `integration-crm`) ; 4 répondent 200 aujourd'hui (`referencement-ia`, `sur-mesure-headless`, `cold-email-b2b`, `wordpress`), le rapport date d'explorations antérieures.
+- noindex : rapport périmé, les pages concernées sont passées en index depuis ; restent normaux `/plan-du-site` (noindex voulu), `/demonstrations` (301), `/library` (404).
+- Explorée, non indexée : `seo-local` et trois billets (qualité ou autorité, à retravailler plus tard) ; trois redirections normales.
+- Détectée, non indexée (35) : toutes en 200, indexables, dans le sitemap et liées. Il manque l'exploration par Google, pas un correctif. Sitemap `sitemap-index.xml` : « Opération effectuée », lu le 18/10, 217 pages découvertes.
+
+**Inspections et demandes du 19/10 (même méthode que le 17/10).**
+- Déjà indexées : `/implantations/bordeaux`, `/services/wordpress`, `/services/sur-mesure-headless`, `/ressources/guides/ai-act-pme-calendrier`.
+- « Indexation demandée » lue à l'écran (11) : `/services/referencement-ia` (exploration du 12/10 avec canonique vers seo-geo-contenu), `/cas-clients`, `/agence`, `/services/cold-email-b2b` (exploration du 7/10 en redirection), `/ressources/comparatifs/claude-code-vs-cursor` (exploration du 7/10 en noindex), `/secteurs/batiment`, `/ressources/guides/devis-automatise`, `/cas-clients/desangles-peinture`, `/services/automatisations`, `/services/systeme-acquisition`, `/agence/methode`.
+- Pas de « Quota dépassé » rencontré ; arrêt volontaire à onze.
+
+**À mesurer.** Au 27/10 (tâche programmée) : statut d'inspection de ces onze URL, total « Détectée, non indexée », impressions et clics de `claude-pme` sur données postérieures au 16/10.
+
 ### Demandes d'indexation, 17 octobre 2026
 
 **Méthode.** Search Console, propriété `sc-domain:waimia.com`, champ « Inspecter n'importe quelle URL ». Pour chaque URL : inspection, contrôle que l'URL affichée est la bonne, clic sur « Demander une indexation », lecture de la confirmation. Pas de « Quota dépassé » rencontré.
