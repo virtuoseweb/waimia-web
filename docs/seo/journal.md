@@ -57,7 +57,7 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 - Restent « trop tôt », selon leur ligne « À mesurer » : `claude-vs-chatgpt-pme` (à juger en W44 ; page 211 impressions en position 31,8, « claude vs chatgpt » en position 19), `claude-code-entreprise` (à 4 semaines), `n8n-c-est-quoi`, les guides du lot 2 et les billets du maillage (à juger en W45), toutes les vagues publiées du 13 au 17 octobre.
 - Titles réécrits du 13 au 16 octobre (`calculateur-roi-ia`, `claude-pme`, `consultant-ia-claude`, `claude-vs-chatgpt-pme`) : non retouchés, relecture prévue à partir du 27 octobre.
 
-**Actions de la semaine** (PR #PR_NUMERO) : une création, deux révisions.
+**Actions de la semaine** (PR #130) : une création, deux révisions.
 
 1. Création de `/blog/apparaitre-dans-chatgpt-pme` (entrée `w43-article-apparaitre-dans-chatgpt-pme`, planifiée en 2026-W43).
    - Pourquoi : entrée du calendrier, satellite du guide `mesurer-visibilite-ia-chatgpt` (lien contextuel ajouté dans le guide, FR et EN, sans changer sa date).
