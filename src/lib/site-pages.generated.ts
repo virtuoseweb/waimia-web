@@ -10353,6 +10353,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/apparaitre-dans-chatgpt-pme",
+    "title": "Apparaître dans ChatGPT : ce qu'une PME contrôle, et ce qu'elle ne contrôle pas",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/apparaitre-dans-chatgpt-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/application-metier-exemples-pme",
     "title": "Application métier : définition et exemples par service en PME",
     "group": "blog",
@@ -11756,6 +11765,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/agent-ia-vs-automatisation-classique-2026",
       "/blog/ai-act-pme-utilisatrice-ia",
       "/blog/ai-mode-google-ai-overviews-pme",
+      "/blog/apparaitre-dans-chatgpt-pme",
       "/blog/application-metier-exemples-pme",
       "/blog/applications-internes-build-vs-buy-pme",
       "/blog/architecte-ia-role-pme",
