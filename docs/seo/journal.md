@@ -37,6 +37,28 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### Demandes d'indexation, 20 octobre 2026
+
+**Résultat : quota quotidien Search Console dépassé dès la première demande.** Propriété `sc-domain:waimia.com`, champ « Inspecter n'importe quelle URL ». Deux URL sur onze inspectées, une seule demande tentée, refusée avec « Quota dépassé » (« Désolé, nous n'avons pas pu traiter cette demande, car vous avez dépassé votre quota quotidien. Veuillez réessayer de l'envoyer demain. »). Arrêt conformément à la consigne : les neuf autres URL n'ont pas été inspectées.
+
+| URL | État d'inspection | Dernière exploration | Résultat lu à l'écran |
+| --- | --- | --- | --- |
+| `/services/seo-local` | « Cette URL est sur Google », page indexée (découverte par `sitemap-index.xml`, origine `/services/seo-geo-contenu` et `/services/automatisations`) | 13 oct. 2026, 18:16:24 | Aucune demande, comme prévu pour une URL déjà sur Google. Exploration antérieure à la réécriture des 15-16/10. |
+| `/blog/seo-geo-etre-cite-par-les-ia-generatives` | « Cette URL n'a pas été indexée par Google », « Explorée, actuellement non indexée » | 29 juil. 2026, 04:15:08 | Demande tentée : « Quota dépassé ». Non demandée. |
+| `/blog/agent-ia-vs-automatisation-classique-2026` | non inspectée | non lue | Non traitée (quota) |
+| `/blog/tableau-de-bord-pme-quelles-donnees-suivre` | non inspectée | non lue | Non traitée (quota) |
+| `/cas-clients/amploi` | non inspectée | non lue | Non traitée (quota) |
+| `/ressources/comparatifs/n8n-vs-make` | non inspectée | non lue | Non traitée (quota) |
+| `/ressources/comparatifs/geo-vs-seo` | non inspectée | non lue | Non traitée (quota) |
+| `/cas-usages/finance-comptabilite` | non inspectée | non lue | Non traitée (quota) |
+| `/ressources/outils/grille-taches-a-automatiser` | non inspectée | non lue | Non traitée (quota) |
+| `/secteurs/e-commerce` | non inspectée | non lue | Non traitée (quota) |
+| `/equipe/simon-beros` | non inspectée | non lue | Non traitée (quota) |
+
+**Constats.** `seo-local` est déjà indexée : le statut « Explorée, actuellement non indexée » relevé le 19/10 ne s'applique plus ; la dernière exploration (13/10) précède pourtant la réécriture, donc Google n'a pas encore relu la version du 15-16/10. Les demandes d'indexation d'hier (19/10) ont probablement consommé le quota du jour (non mesuré : le quota exact n'est pas affiché).
+
+**Pour Simon.** Reprendre demain (21/10) avec la même liste, en commençant par `/blog/seo-geo-etre-cite-par-les-ia-generatives` (priorité 1), puis les deux autres billets, puis la priorité 2. Aucun correctif de code n'est en cause.
+
 ### Diagnostic indexation et baisse de `claude-pme`, 19 octobre 2026
 
 **Signal reçu (Simon, captures Search Console).** Recommandation « `/ressources/guides/claude-pme` -62 % » ; raisons de non-indexation : redirection 13, noindex 10, canonique 1 (`/contact?offer=wordpress&intent=premium`), explorée non indexée 7, détectée non indexée 35.
