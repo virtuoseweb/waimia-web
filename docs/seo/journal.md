@@ -37,6 +37,19 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### Mesure intermédiaire, 21 octobre 2026 (Search Console lue dans la console, données au 18/10)
+
+**Source.** Rapport Performances, 28 derniers jours, ventilation par jour, lu le 21/10. Les données s'arrêtent au 18/10.
+
+| Période | Jours | Clics | Impressions | Clics/jour | Impressions/jour | Position |
+| --- | --- | --- | --- | --- | --- | --- |
+| Avant : 9 au 15/10 | 7 | 4 | 941 | 0,57 | 134 | 28 à 44 |
+| Après : 16 au 18/10 | 3 | 4 | 1 060 | 1,33 | 353 | 37,2 à 39,7 |
+
+Détail après : 16/10 1 clic, 303 impressions ; 17/10 1 clic, 367 impressions ; 18/10 2 clics, 390 impressions. Sur 28 jours : 13 clics, 2 990 impressions.
+
+**Lecture.** Hausse mesurée par jour : impressions x 2,6, clics x 2,3. Limites : 4 clics en tout, trois jours seulement, aucune ventilation par page faite ici, donc pas d'imputation à une action précise. La position moyenne baisse (plus de requêtes lointaines). À confirmer au 27/10 sur une semaine complète.
+
 ### Demandes d'indexation, 20 octobre 2026
 
 **Résultat : quota quotidien Search Console dépassé dès la première demande.** Propriété `sc-domain:waimia.com`, champ « Inspecter n'importe quelle URL ». Deux URL sur onze inspectées, une seule demande tentée, refusée avec « Quota dépassé » (« Désolé, nous n'avons pas pu traiter cette demande, car vous avez dépassé votre quota quotidien. Veuillez réessayer de l'envoyer demain. »). Arrêt conformément à la consigne : les neuf autres URL n'ont pas été inspectées.
