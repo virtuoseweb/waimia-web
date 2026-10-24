@@ -329,6 +329,34 @@ function collectLinks(node, acc) {
   return acc;
 }
 
+// Bandes de capture e-mail posées sur un OUTIL interactif (diagnostic, calculateur) : le serveur
+// (src/lib/lead-magnet-delivery.ts) refuse l'envoi sans le résultat de l'outil (400 `invalid_result`).
+// Hors de la page de l'outil, le visiteur verrait « Vos réponses n'ont pas pu être prises en compte ».
+// Une page de contenu renvoie vers l'outil par une section `cta-final` (voir TOOL_ENTRY_COPY dans
+// src/data/conversion.ts), ou propose une ressource avec pièce jointe. Les slugs d'outil sont lus à la
+// source (TOOL_SLUGS) pour ne pas tenir une seconde liste.
+const TOOL_SLUGS_SRC = read('src/lib/lead-magnet-delivery.ts').match(/const TOOL_SLUGS = \[([^\]]*)\]/);
+if (!TOOL_SLUGS_SRC) {
+  console.error('✗ FATAL : TOOL_SLUGS introuvable dans src/lib/lead-magnet-delivery.ts');
+  process.exit(2);
+}
+const TOOL_SLUGS = new Set([...TOOL_SLUGS_SRC[1].matchAll(/"([a-z0-9-]+)"/g)].map((m) => m[1]));
+if (TOOL_SLUGS.size === 0) {
+  console.error('✗ FATAL : TOOL_SLUGS vide (parse de src/lib/lead-magnet-delivery.ts)');
+  process.exit(2);
+}
+const CAPTURE_TYPES = new Set(['lead-capture-band', 'cta-form-inline', 'hero-lead-magnet']);
+function collectToolCaptures(node, acc) {
+  if (Array.isArray(node)) {
+    for (const v of node) collectToolCaptures(v, acc);
+  } else if (node && typeof node === 'object') {
+    if (CAPTURE_TYPES.has(node.type) && TOOL_SLUGS.has(node.lead_magnet)) acc.push(`${node.type} · ${node.lead_magnet}`);
+    for (const v of Object.values(node)) collectToolCaptures(v, acc);
+  }
+  return acc;
+}
+let toolCaptureCount = 0;
+
 let refCount = 0;
 for (const file of walkJson(join(ROOT, 'src/content'))) {
   const rel = file.slice(ROOT.length + 1);
@@ -344,6 +372,10 @@ for (const file of walkJson(join(ROOT, 'src/content'))) {
   for (const [key, val] of collectLinks(parsed, [])) {
     if (!/^(\/|#|https?:\/\/|mailto:|tel:)/.test(val)) fail(`${rel} : ${key} n'est pas une adresse → « ${val} »`);
   }
+  for (const hit of collectToolCaptures(parsed, [])) {
+    toolCaptureCount++;
+    fail(`${rel} : ${hit} : l'envoi d'une capture e-mail sur un outil exige son résultat (400 invalid_result). Remplacer par une section cta-final vers l'outil (TOOL_ENTRY_COPY, src/data/conversion.ts) ou une ressource avec pièce jointe`);
+  }
   for (const ref of collectRefs(parsed, [])) {
     refCount++;
     const slash = ref.indexOf('/');
@@ -357,10 +389,11 @@ for (const file of walkJson(join(ROOT, 'src/content'))) {
   }
 }
 console.log(`  ${refCount} pointeur(s) {ref} scanné(s) · sources câblées : ${[...WIRED_REF_SOURCES].join(', ')}`);
+console.log(`  captures e-mail sur un outil (${[...TOOL_SLUGS].join(', ')}) : ${toolCaptureCount}`);
 
 // ── Verdict ──
 if (errors > 0) {
   console.error(`\nFAIL — ${errors} référence(s) cassée(s)`);
   process.exit(1);
 }
-console.log('\nPASS — référentiels, need, facets, maillage related* et refs {ref} intègres');
+console.log('\nPASS — référentiels, need, facets, maillage related*, refs {ref} et captures e-mail intègres');
