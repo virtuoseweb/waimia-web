@@ -62,3 +62,11 @@ Aucune page neuve. Volume et KD : export cité.
 - Tensoria, concurrent n° 1 [A5] : aucun export.
 - Diag Data IA : conditions lues sur sites secondaires.
 - Capture Amploi : site client, aucune donnée SEO ; l'audit du 9 précède les pages du 12.
+
+## 6. Mise à jour du 24 octobre 2026 (décision de Simon)
+
+**Ce qui change.** La section 3 (« Quinze contenus. Aucune page neuve ») reste vraie pour ses quinze lignes, mais n'est plus la règle pour le thème agents IA toujours actifs et moteurs ouverts : 22 pages sont créées (4 guides, 2 comparatifs, 3 pages de service dont deux sous-services, 13 billets), détail et cible de chacune dans `docs/seo/journal.md` (entrée du 24 octobre 2026) et `docs/seo/calendrier-editorial.json` (entrées `w43-*`).
+
+**Chiffres recomptés.** Sitemap : 217 URL le 18 octobre, 239 le 24 octobre (+22). Indexées par Google à la dernière lecture : 143 sur 217 inspectées (65,9 %), 74 non indexées, 22 jamais inspectées ; le nombre d'URL indexées n'est pas remesuré (pas d'accès à Search Console depuis la session). Le risque 4 de ce document (« chaque page ajoutée dilue ») s'applique : suivi à la collecte W44, règle de repli proposée dans le journal.
+
+**Menu.** L'offre « Agents IA open source » entre au menu Solutions (colonne Automatisation et agents IA), au pied de page et au plan du site ; Hermes Agent et OpenClaw sont des déclinaisons du méga-menu, liées depuis la page parente.

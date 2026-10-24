@@ -1,0 +1,735 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "Claude Duet : l'agent proactif d'Anthropic, prix, accès, limites",
+  "title_en": "Claude Duet: Anthropic's proactive agent, price, access, limits",
+  "seoTitle_fr": "Claude Duet : prix, disponibilité en France et limites",
+  "seoTitle_en": "Claude Duet: price, availability in France and limits",
+  "description_fr": "Claude Duet, l'agent proactif d'Anthropic lancé le 21 octobre 2026 : fonctions, prix, accès depuis la France, sécurité et usages en PME.",
+  "description_en": "Claude Duet, Anthropic's proactive agent launched on 21 October 2026: features, price, access from France, security and SMB uses.",
+  "slug": "claude-duet",
+  "publishedAt": "2026-10-24T00:00:00.000Z",
+  "updatedAt": "2026-10-24",
+  "category": "claude",
+  "tags": [
+    "claude-duet",
+    "claude",
+    "anthropic",
+    "agents-ia",
+    "agent-proactif",
+    "rgpd",
+    "guide-pme"
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "sources": [
+    {
+      "name": "Anthropic, Claude Duet (article en français), lu le 24 octobre 2026",
+      "url": "https://claude.com/fr/resources/articles/claude-duet",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, Cowork is now Claude (16 septembre 2026), relu le 5 octobre 2026 pour notre guide Claude Cowork",
+      "url": "https://claude.com/blog/cowork-is-now-claude",
+      "type": "enterprise",
+      "publishedAt": "2026-09-16"
+    },
+    {
+      "name": "Anthropic, page tarifs de Claude, relevée le 5 octobre 2026 (prix Pro et Max)",
+      "url": "https://claude.com/pricing",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, Claude Managed Agents : vue d'ensemble, lue le 15 octobre 2026",
+      "url": "https://platform.claude.com/docs/en/managed-agents/overview",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, nouveautés de Claude Managed Agents : déploiements planifiés et coffres (9 juin 2026), lues le 15 octobre 2026",
+      "url": "https://claude.com/blog/whats-new-in-claude-managed-agents",
+      "type": "enterprise",
+      "publishedAt": "2026-06-09"
+    },
+    {
+      "name": "Anthropic, centre de confidentialité : localisation des données des applications Claude, lu le 5 octobre 2026",
+      "url": "https://privacy.claude.com/en/articles/7996890",
+      "type": "enterprise"
+    },
+    {
+      "name": "CNIL, questions-réponses sur l'utilisation d'un système d'IA générative (18 juillet 2024), relevé le 15 octobre 2026",
+      "url": "https://www.cnil.fr/fr/les-questions-reponses-de-la-cnil-sur-lutilisation-dun-systeme-dia-generative",
+      "type": "state",
+      "publishedAt": "2024-07-18"
+    },
+    {
+      "name": "CNIL, analyse d'impact relative à la protection des données (AIPD), lue le 6 octobre 2026",
+      "url": "https://www.cnil.fr/fr/RGPD-analyse-impact-protection-des-donnees-aipd",
+      "type": "state"
+    },
+    {
+      "name": "Commission européenne, cadre réglementaire de l'IA (AI Act)",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+      "type": "state"
+    }
+  ],
+  "faq_fr": [
+    {
+      "q": "Qu'est-ce que Claude Duet ?",
+      "a": "Claude Duet est une application d'Anthropic dans laquelle Claude joue le rôle d'un agent proactif : il signale ce qui demande votre attention, exécute les tâches que vous lui confiez, continue quand vous vous éloignez et demande votre accord avant d'agir en votre nom. Lancé le 21 octobre 2026 en aperçu de recherche, il vise les professionnels et les petits entrepreneurs qui ont trop de sujets à suivre (article d'Anthropic lu le 24 octobre 2026)."
+    },
+    {
+      "q": "Combien coûte Claude Duet ?",
+      "a": "Duet n'est pas vendu à part : l'article d'Anthropic l'annonce inclus dans les abonnements Pro et Max, avec les mêmes limites d'usage que le reste de Claude. Sur la page tarifs d'Anthropic relevée le 5 octobre 2026, Pro coûtait 20 $ par mois (17 $ en annuel) et Max à partir de 100 $ par mois, hors TVA. Les vérifications de fond et les grosses tâches consomment davantage de quota. Prix à revérifier avant achat."
+    },
+    {
+      "q": "Claude Duet est-il disponible en France ?",
+      "a": "L'article d'Anthropic annonce un accès par liste d'attente, d'abord pour les abonnés Pro et Max aux États-Unis. Il ne dit rien de la France ni de l'Europe. Au 24 octobre 2026, on ne peut donc ni promettre un accès à un abonné français, ni affirmer qu'il est exclu. Surveillez la page d'Anthropic, et préparez dès maintenant vos règles d'usage pour un agent qui agit en votre nom."
+    },
+    {
+      "q": "Claude Duet est-il disponible sur Team ou Enterprise ?",
+      "a": "Pas à ce stade. L'article d'Anthropic réserve l'accès aux abonnements individuels Pro et Max, et des sources tierces confirment que Team et Enterprise ne sont pas concernés pour l'instant. Une équipe qui veut un agent partagé, administré et journalisé passe aujourd'hui par Claude et ses tâches planifiées, par Claude Managed Agents ou par un agent construit sur mesure."
+    },
+    {
+      "q": "Quelle différence entre Claude Duet et Claude Cowork ?",
+      "a": "Cowork, aujourd'hui fondu dans Claude, exécute une tâche que vous lui donnez, dans vos fichiers et vos outils. Duet prend l'initiative : il surveille vos applications au fil de la journée, vous écrit seulement quand c'est utile et travaille sur sa propre machine virtuelle, même ordinateur et téléphone éteints. C'est aussi une application séparée de l'application Claude principale, réservée pour l'instant à Pro et Max."
+    },
+    {
+      "q": "Claude Duet peut-il envoyer un e-mail ou payer sans mon accord ?",
+      "a": "Non, d'après Anthropic. Avant tout envoi de message, paiement, signature ou suppression, Duet montre l'action et attend votre accord. Certaines actions restent interdites même avec votre accord, comme la négociation de titres ou le transfert d'argent entre comptes. Les numéros de carte bancaire et les pièces d'identité sont refusés, et vous pouvez déconnecter une application à tout moment."
+    },
+    {
+      "q": "Claude Duet est-il compatible avec le RGPD ?",
+      "a": "On ne peut pas le dire aujourd'hui. L'article d'Anthropic décrit la sécurité de Duet, mais ne dit rien de la localisation des données, d'un accord de traitement propre à Duet ni de l'Europe. Un agent qui lit votre messagerie et votre CRM traite des données personnelles de clients et de salariés : registre, base légale, durée de conservation et éventuelle analyse d'impact sont à poser avant de le brancher."
+    },
+    {
+      "q": "Claude Duet : que valent les premiers avis ?",
+      "a": "Au 24 octobre 2026, les retours publiés sont surtout ceux de l'article d'Anthropic : des membres de l'équipe et trois petits entrepreneurs, dont l'une raconte avoir été alertée d'un conflit entre un appel et un vol. Ce sont des témoignages de l'éditeur, pas des mesures. Waimia n'a pas eu accès à Duet : jugez sur un essai cadré de 30 jours, avec un journal des actions."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "What is Claude Duet?",
+      "a": "Claude Duet is an Anthropic app in which Claude acts as a proactive agent: it flags what needs your attention, carries out the tasks you hand over, keeps going when you step away and asks for your approval before acting on your behalf. Launched on 21 October 2026 as a research preview, it targets professionals and small business owners with too many things to follow (Anthropic article read on 24 October 2026)."
+    },
+    {
+      "q": "How much does Claude Duet cost?",
+      "a": "Duet is not sold separately: Anthropic's article says it is included in the Pro and Max plans, with the same usage limits as the rest of Claude. On Anthropic's pricing page checked on 5 October 2026, Pro cost $20 a month ($17 billed annually) and Max from $100 a month, excluding VAT. Background checks and large tasks use more quota. Check prices again before buying."
+    },
+    {
+      "q": "Is Claude Duet available in France?",
+      "a": "Anthropic's article announces access through a waitlist, first for Pro and Max subscribers in the United States. It says nothing about France or Europe. As of 24 October 2026, you can neither promise access to a French subscriber nor state that it is excluded. Watch Anthropic's page, and prepare your usage rules now for an agent that acts on your behalf."
+    },
+    {
+      "q": "Is Claude Duet available on Team or Enterprise?",
+      "a": "Not at this stage. Anthropic's article limits access to the individual Pro and Max plans, and third-party sources confirm that Team and Enterprise are not covered for now. A team that wants a shared, administered and logged agent goes today through Claude and its scheduled tasks, through Claude Managed Agents or through a custom-built agent."
+    },
+    {
+      "q": "What is the difference between Claude Duet and Claude Cowork?",
+      "a": "Cowork, now folded into Claude, carries out a task you give it, in your files and tools. Duet takes the initiative: it watches your apps through the day, messages you only when useful and works on its own virtual machine, even with your computer and phone off. It is also a separate app from the main Claude app, limited for now to Pro and Max."
+    },
+    {
+      "q": "Can Claude Duet send an email or pay without my approval?",
+      "a": "No, according to Anthropic. Before sending a message, paying, signing or deleting anything, Duet shows the action and waits for your approval. Some actions stay forbidden even with your approval, such as trading securities or moving money between accounts. Card numbers and identity documents are refused, and you can disconnect an app at any time."
+    },
+    {
+      "q": "Is Claude Duet GDPR-compliant?",
+      "a": "It cannot be said today. Anthropic's article describes Duet's security, but says nothing about data location, a Duet-specific data processing agreement or Europe. An agent that reads your mailbox and CRM processes personal data about customers and staff: record of processing, legal basis, retention period and any impact assessment need to be settled before connecting it."
+    },
+    {
+      "q": "Claude Duet: what are the first reviews worth?",
+      "a": "As of 24 October 2026, the published feedback comes mostly from Anthropic's article: team members and three small business owners, one of whom says she was alerted to a clash between a call and a flight. These are the publisher's testimonials, not measurements. Waimia has not had access to Duet: judge it on a framed 30-day trial, with a log of actions."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "kicker_fr": "§ Guide · Claude Duet",
+      "kicker_en": "§ Guide · Claude Duet",
+      "h1_fr": "Claude Duet : <i class=\"acc\">l'agent proactif</i> d'Anthropic",
+      "h1_en": "Claude Duet: <i class=\"acc\">Anthropic's proactive agent</i>",
+      "lede_fr": "Claude Duet est la nouvelle application d'Anthropic où Claude ne se contente plus de répondre : il surveille vos outils, vous prévient quand un sujet compte, avance seul sur les tâches confiées et demande votre accord avant d'agir en votre nom. Lancé le 21 octobre 2026, il est réservé pour l'instant à une liste d'attente aux États-Unis. Ce guide dit ce qu'il fait, ce qu'il coûte, ce qu'on ignore encore et quoi faire en attendant.",
+      "lede_en": "Claude Duet is Anthropic's new app in which Claude no longer just answers: it watches your tools, tells you when something matters, moves forward on its own with the tasks you hand over and asks for your approval before acting on your behalf. Launched on 21 October 2026, it is for now limited to a waitlist in the United States. This guide covers what it does, what it costs, what is still unknown and what to do in the meantime.",
+      "badges": [
+        {
+          "label_fr": "Mis à jour le 24 octobre 2026",
+          "label_en": "Updated on 24 October 2026"
+        },
+        {
+          "label_fr": "Source Anthropic lue à la source",
+          "label_en": "Anthropic source read first-hand"
+        },
+        {
+          "label_fr": "Recommandations PME",
+          "label_en": "SMB recommendations"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver l'audit gratuit",
+        "label_en": "Book the free audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Recevoir le kit conformité",
+        "label_en": "Get the compliance kit",
+        "href": "#kit-conformite-duet",
+        "variant": "ghost"
+      },
+      "illustration": {
+        "src": "/images/illustrations/ds/agents-ia-v3-vigie-paper.webp",
+        "alt_fr": "Une vigie au sommet d'une haute tour de guet, bras levé devant un grand disque clair, surveille des voiliers sur la mer",
+        "alt_en": "A lookout at the top of a tall watchtower, arm raised before a large pale disc, keeps watch over sailboats at sea",
+        "side": "right"
+      }
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "24 octobre 2026",
+      "updatedDate": "24 octobre 2026"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "Qu'est-ce que Claude Duet ?",
+      "question_en": "What is Claude Duet?",
+      "term_fr": "Réponse courte",
+      "term_en": "Short answer",
+      "answer_fr": "Claude Duet est une application d'Anthropic, lancée le 21 octobre 2026 en aperçu de recherche, où Claude agit comme un agent proactif : récapitulatif quotidien, surveillance de vos applications, tâches menées sur sa propre machine virtuelle. Il demande votre accord avant d'envoyer, payer, signer ou supprimer. Accès par liste d'attente, d'abord pour Pro et Max aux États-Unis.",
+      "answer_en": "Claude Duet is an Anthropic app, launched on 21 October 2026 as a research preview, in which Claude acts as a proactive agent: daily recap, monitoring of your apps, tasks run on its own virtual machine. It asks for your approval before sending, paying, signing or deleting. Access is through a waitlist, first for Pro and Max in the United States."
+    },
+    {
+      "type": "key-metric-grid",
+      "background": "paper",
+      "variant": "accent",
+      "columns": 3,
+      "eyebrow_fr": "§ Claude Duet au 24 octobre 2026",
+      "eyebrow_en": "§ Claude Duet on 24 October 2026",
+      "title_fr": "Six repères avant de vous inscrire",
+      "title_en": "Six markers before you sign up",
+      "metrics": [
+        {
+          "value": "21/10/2026",
+          "label_fr": "Lancement de Duet, en aperçu de recherche",
+          "label_en": "Duet launch, as a research preview"
+        },
+        {
+          "value": "Pro, Max",
+          "label_fr": "Abonnements qui incluent Duet, sans supplément annoncé",
+          "label_en": "Plans that include Duet, with no announced extra charge"
+        },
+        {
+          "value": "États-Unis",
+          "label_fr": "Premier marché ouvert, par liste d'attente",
+          "label_en": "First market opened, through a waitlist"
+        },
+        {
+          "value": "Opus 5.5",
+          "label_fr": "Modèle Claude sur lequel Duet est construit",
+          "label_en": "Claude model Duet is built on"
+        },
+        {
+          "value": "6 000+",
+          "label_fr": "Connecteurs et plug-ins disponibles, selon l'article d'Anthropic",
+          "label_en": "Connectors and plug-ins available, per Anthropic's article"
+        },
+        {
+          "value": "Non",
+          "label_fr": "Disponibilité sur Team et Enterprise à ce stade",
+          "label_en": "Availability on Team and Enterprise at this stage"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/claude-fonctionnalites-veille-paper.webp",
+          "alt_fr": "La nuit, une grande horloge marque quatre heures ; une seule fenêtre reste allumée dans un immeuble de bureaux, un employé s'en va, mallette à la main",
+          "alt_en": "At night, a large clock shows four o'clock; a single window is still lit in an office block as a worker leaves, briefcase in hand",
+          "side": "right"
+        }
+      ],
+      "html_fr": "<h2>Ce que Claude Duet fait au quotidien</h2><p>Un agent IA est un programme qui enchaîne lui-même des étapes et utilise des outils pour atteindre un but, au lieu de répondre à une seule question. Duet pousse l'idée un cran plus loin : il n'attend pas votre demande pour regarder ce qui se passe. D'après l'<a href=\"https://claude.com/fr/resources/articles/claude-duet\" rel=\"noopener noreferrer\" target=\"_blank\">article d'Anthropic</a> lu le 24 octobre 2026, ses fonctions sont les suivantes.</p><ul><li><strong>Un récapitulatif quotidien.</strong> Chaque jour, un bref point tiré de vos applications connectées : ce qui est arrivé, ce qui attend une réponse, ce qui approche.</li><li><strong>Une surveillance au fil de la journée.</strong> Duet garde un œil sur vos applications et ne vous écrit que si c'est nécessaire. Vous choisissez les sujets et la fréquence des notifications, envoyées à la fin d'une tâche ou quand une revue est nécessaire.</li><li><strong>Des tâches menées jusqu'au bout.</strong> Anthropic cite la planification de réunions, des tableaux de bord, des prévisions financières ou de ventes, et le prototypage puis la création d'applications web.</li><li><strong>Une machine virtuelle à lui.</strong> Duet travaille sur un ordinateur distant, avec son propre navigateur, qui continue de tourner quand votre ordinateur et votre téléphone sont éteints. C'est ce qui lui permet d'avancer pendant que vous êtes en rendez-vous ou en déplacement.</li><li><strong>Une seule conversation, écrite ou vocale.</strong> Pas de fil à retrouver : vous parlez ou écrivez au même endroit, depuis l'application iOS ou Android, ou sur claude.ai.</li><li><strong>Votre contexte Claude repris.</strong> La mémoire, les skills (des consignes métier réutilisables, voir le guide <a href=\"/ressources/guides/claude-skills\">skills Claude</a>) et les applications connectées de votre compte Claude sont repris par Duet.</li></ul><h3>Les applications qu'il peut toucher</h3><p>Un connecteur est le pont qui donne à Claude un accès à un outil tiers, en lecture ou en écriture. L'article annonce plus de 6 000 connecteurs et plug-ins, et cite Gmail, Slack, QuickBooks, Stripe, Gusto, LinkedIn, Docusign, HubSpot, Canva et Shopify. Pour les achats, Duet passe par Link, le portefeuille de Stripe, avec une carte virtuelle, ou par Shop Pay. La connexion par le gestionnaire de mots de passe 1Password est annoncée « bientôt disponible ». Le principe des connecteurs, et les précautions qu'ils demandent, sont détaillés dans le guide <a href=\"/ressources/guides/mcp-claude\">MCP pour un dirigeant</a>.</p><p>Concrètement, pour une PME : un point du matin qui croise la boîte de réception, l'agenda et les relances clients ; une alerte quand une facture Stripe échoue ou qu'un prospect HubSpot répond ; un tableau des ventes de la semaine préparé avant le comité du lundi. Le même besoin, « un agent qui tient la permanence », est traité du point de vue de l'organisation dans l'article <a href=\"/blog/agent-ia-24-7-pme\">agent IA 24/7 pour une PME</a>.</p>",
+      "html_en": "<h2>What Claude Duet does day to day</h2><p>An AI agent is a program that chains its own steps and uses tools to reach a goal, instead of answering a single question. Duet takes the idea one step further: it does not wait for your request to look at what is happening. According to <a href=\"https://claude.com/fr/resources/articles/claude-duet\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic's article</a> read on 24 October 2026, its features are as follows.</p><ul><li><strong>A daily recap.</strong> Every day, a short update drawn from your connected apps: what came in, what is waiting for a reply, what is coming up.</li><li><strong>Monitoring through the day.</strong> Duet keeps an eye on your apps and only messages you when needed. You choose the topics and frequency of notifications, sent when a task ends or when a review is needed.</li><li><strong>Tasks carried through.</strong> Anthropic mentions scheduling meetings, dashboards, financial or sales forecasts, and prototyping then building web apps.</li><li><strong>A virtual machine of its own.</strong> Duet works on a remote computer, with its own browser, which keeps running when your computer and phone are off. That is what lets it move forward while you are in a meeting or travelling.</li><li><strong>One conversation, written or spoken.</strong> No thread to look for: you talk or write in the same place, from the iOS or Android app, or on claude.ai.</li><li><strong>Your Claude context carried over.</strong> The memory, skills (reusable business instructions, see our <a href=\"/ressources/guides/claude-skills\">Claude skills</a> guide) and connected apps of your Claude account are carried over into Duet.</li></ul><h3>The apps it can reach</h3><p>A connector is the bridge that gives Claude access to a third-party tool, to read or to write. The article announces more than 6,000 connectors and plug-ins, and names Gmail, Slack, QuickBooks, Stripe, Gusto, LinkedIn, Docusign, HubSpot, Canva and Shopify. For purchases, Duet goes through Link, Stripe's wallet, with a virtual card, or through Shop Pay. Sign-in through the 1Password password manager is announced as \"coming soon\". How connectors work, and the precautions they call for, are covered in our guide <a href=\"/ressources/guides/mcp-claude\">MCP for a business owner</a>.</p><p>In practice, for an SMB: a morning update that cross-checks the inbox, the calendar and customer follow-ups; an alert when a Stripe invoice fails or a HubSpot prospect replies; a weekly sales table prepared before the Monday meeting. The same need, \"an agent that stays on duty\", is covered from an organisational angle in the article <a href=\"/blog/agent-ia-24-7-pme\">24/7 AI agent for an SMB</a>.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper",
+      "kicker_fr": "§ La gamme Claude",
+      "kicker_en": "§ The Claude range",
+      "heading_fr": "Duet, Claude, Cowork, Managed Agents : qui fait quoi",
+      "heading_en": "Duet, Claude, Cowork, Managed Agents: who does what",
+      "caption_fr": "Lecture de Waimia au 24 octobre 2026, à partir de l'article d'Anthropic sur Duet (lu le 24 octobre), de nos guides Claude Cowork (sources relues le 5 octobre) et Claude Managed Agents (sources lues le 15 octobre). La gamme d'Anthropic bouge vite : Cowork a fusionné dans Claude en septembre 2026, Duet a moins d'une semaine. Revérifiez avant de choisir.",
+      "caption_en": "Waimia's reading as of 24 October 2026, based on Anthropic's article on Duet (read on 24 October), our Claude Cowork guide (sources reread on 5 October) and our Claude Managed Agents guide (sources read on 15 October). Anthropic's range moves fast: Cowork merged into Claude in September 2026, Duet is less than a week old. Check again before choosing.",
+      "columns_fr": [
+        "Produit",
+        "Ce que c'est",
+        "Qui déclenche le travail",
+        "Où il travaille",
+        "Pour qui, au 24 octobre 2026"
+      ],
+      "columns_en": [
+        "Product",
+        "What it is",
+        "Who starts the work",
+        "Where it works",
+        "For whom, as of 24 October 2026"
+      ],
+      "rows_fr": [
+        [
+          "Claude Duet",
+          "Application séparée où Claude agit comme agent proactif",
+          "Duet lui-même, en surveillant vos applications, et vous",
+          "Sa propre machine virtuelle avec navigateur, appareils éteints possible",
+          "Pro et Max, liste d'attente, d'abord aux États-Unis"
+        ],
+        [
+          "Claude (conversation et tâches)",
+          "L'assistant, qui répond ou prend une tâche selon la demande",
+          "Vous, par une demande ou une tâche planifiée",
+          "Vos fichiers, vos outils connectés, le cloud pour les tâches planifiées",
+          "Toutes les offres, avec des fonctions qui varient selon l'offre"
+        ],
+        [
+          "Cowork",
+          "L'ancien mode « tâches » de Claude, fusionné dans Claude depuis le 16 septembre 2026 sur Pro et Max",
+          "Vous",
+          "Dossiers de confiance de Claude Desktop, outils connectés",
+          "Encore séparé sur Team et Enterprise, avec des réglages d'administration"
+        ],
+        [
+          "Claude Managed Agents",
+          "Service d'API en bêta qui héberge la boucle d'agent et un bac à sable",
+          "Votre application, par API, ou un calendrier",
+          "Bac à sable hébergé par Anthropic ou chez vous",
+          "Entreprises avec un développeur ; facturé aux jetons et à l'heure de session"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Claude Duet",
+          "Separate app in which Claude acts as a proactive agent",
+          "Duet itself, by monitoring your apps, and you",
+          "Its own virtual machine with a browser, devices can be off",
+          "Pro and Max, waitlist, United States first"
+        ],
+        [
+          "Claude (chat and tasks)",
+          "The assistant, which answers or takes on a task depending on the request",
+          "You, through a request or a scheduled task",
+          "Your files, your connected tools, the cloud for scheduled tasks",
+          "Every plan, with features that vary by plan"
+        ],
+        [
+          "Cowork",
+          "Claude's former \"tasks\" mode, merged into Claude since 16 September 2026 on Pro and Max",
+          "You",
+          "Claude Desktop trusted folders, connected tools",
+          "Still separate on Team and Enterprise, with admin settings"
+        ],
+        [
+          "Claude Managed Agents",
+          "Beta API service that hosts the agent loop and a sandbox",
+          "Your application, through the API, or a schedule",
+          "Sandbox hosted by Anthropic or on your side",
+          "Companies with a developer; billed per token and per session hour"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Comment lire ce tableau</h2><p>La vraie nouveauté de Duet est l'initiative. Avec Claude et ses tâches, c'est vous qui demandez, même quand la tâche est planifiée ; le détail est dans notre guide <a href=\"/ressources/guides/claude-cowork\">Claude Cowork, désormais intégré à Claude</a>. Avec Duet, l'agent décide lui-même qu'un sujet mérite votre attention. Il emprunte aussi une brique à <a href=\"/ressources/guides/claude-managed-agents\">Claude Managed Agents</a> : la gestion des identifiants, qui permet à l'agent d'utiliser un accès sans jamais voir le mot de passe ni le jeton.</p><p>Deux conséquences pratiques. D'abord, Duet est un outil individuel : il vit dans l'abonnement d'une personne, pas dans une organisation administrée. Ensuite, un produit en aperçu de recherche peut changer de périmètre, de nom ou de prix sans préavis. Ne construisez pas un processus d'entreprise sur Duet tant qu'Anthropic ne l'a pas ouvert aux offres Team et Enterprise, avec leurs réglages d'administration.</p><p>Pour voir Duet face à son concurrent direct chez OpenAI, lisez le <a href=\"/ressources/comparatifs/claude-duet-vs-chatgpt-dots\">comparatif Claude Duet et ChatGPT dots</a>.</p>",
+      "html_en": "<h2>How to read this table</h2><p>Duet's real novelty is initiative. With Claude and its tasks, you ask, even when the task is scheduled; details are in our guide <a href=\"/ressources/guides/claude-cowork\">Claude Cowork, now part of Claude</a>. With Duet, the agent decides on its own that something deserves your attention. It also borrows a building block from <a href=\"/ressources/guides/claude-managed-agents\">Claude Managed Agents</a>: credential management, which lets the agent use an access without ever seeing the password or token.</p><p>Two practical consequences. First, Duet is an individual tool: it lives in one person's subscription, not in an administered organisation. Second, a research preview can change scope, name or price without notice. Do not build a company process on Duet until Anthropic opens it to the Team and Enterprise plans, with their admin settings.</p><p>To see Duet against its direct competitor at OpenAI, read the <a href=\"/ressources/comparatifs/claude-duet-vs-chatgpt-dots\">Claude Duet vs ChatGPT dots comparison</a>.</p>"
+    },
+    {
+      "type": "editorial-callout",
+      "background": "paper",
+      "variant": "info",
+      "size": "md",
+      "body_fr": "<strong>Encadré daté du 24 octobre 2026 : disponibilité, prix, limites d'usage.</strong> Accès : liste d'attente, d'abord pour les abonnés Pro et Max aux États-Unis ; application autonome iOS et Android, et accès sur claude.ai. Prix : inclus dans Pro et Max, sans supplément annoncé ; sur la page tarifs d'Anthropic relevée le 5 octobre 2026, Pro coûtait 20 $ par mois (17 $ en annuel) et Max à partir de 100 $ par mois, hors TVA. Limites d'usage : les mêmes que le reste de Claude, partagées avec vos conversations ; les vérifications de fond et les grosses tâches (modèle financier, présentation) consomment davantage. Team et Enterprise : pas d'accès à ce stade. France et Europe : l'article ne dit rien. Tout ceci est à revérifier chez Anthropic avant achat.",
+      "body_en": "<strong>Box dated 24 October 2026: availability, price, usage limits.</strong> Access: waitlist, first for Pro and Max subscribers in the United States; standalone iOS and Android app, and access on claude.ai. Price: included in Pro and Max, with no announced extra charge; on Anthropic's pricing page checked on 5 October 2026, Pro cost $20 a month ($17 billed annually) and Max from $100 a month, excluding VAT. Usage limits: the same as the rest of Claude, shared with your conversations; background checks and large tasks (financial model, presentation) use more. Team and Enterprise: no access at this stage. France and Europe: the article says nothing. All of this should be checked again with Anthropic before buying."
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/claude-plugins-poste-garde-paper.webp",
+          "alt_fr": "Devant une porte voûtée percée dans un long mur de briques, un gardien éclairé par une lanterne lève le bras ; à côté, un chariot chargé de caisses attend",
+          "alt_en": "In front of an arched gate in a long brick wall, a guard lit by a lantern raises his arm; beside him, a cart loaded with crates waits",
+          "side": "left"
+        }
+      ],
+      "html_fr": "<h2>Sécurité et approbations : ce que dit Anthropic</h2><p>Un agent qui lit vos e-mails et peut payer en votre nom concentre les risques. L'<a href=\"https://claude.com/fr/resources/articles/claude-duet\" rel=\"noopener noreferrer\" target=\"_blank\">article d'Anthropic</a> décrit plusieurs protections :</p><ul><li><strong>Votre accord avant chaque action engageante.</strong> Avant tout envoi de message, paiement, signature ou suppression, Duet montre l'action et attend votre accord.</li><li><strong>Des interdits absolus.</strong> Certaines actions restent refusées même avec votre accord : la négociation de titres et le transfert d'argent entre comptes.</li><li><strong>Des identifiants que l'agent ne voit pas.</strong> Duet s'appuie sur la gestion des identifiants de Claude Managed Agents : il ne voit jamais directement vos mots de passe ni vos jetons d'accès.</li><li><strong>Un contrôle automatique des actions.</strong> Un classificateur de mode automatique valide les actions ; un autre classificateur, associé au prompt système, vise à empêcher la fuite d'informations sensibles.</li><li><strong>Des défenses contre l'injection de prompt</strong>, c'est-à-dire des instructions cachées dans un e-mail ou une page web pour détourner l'agent.</li><li><strong>Des données refusées.</strong> Les numéros de carte bancaire et les pièces d'identité sont refusés ; vos données de santé ou financières personnelles ne sont partagées que sur ordre explicite.</li><li><strong>Des tests.</strong> Tests adverses, équipe rouge (red team), test d'intrusion externe et programme public de récompense des failles (bug bounty).</li><li><strong>Une sortie à tout moment.</strong> Vous pouvez déconnecter une application quand vous voulez.</li></ul><h3>Ce que l'article ne dit pas</h3><ul><li><strong>La localisation des données.</strong> Rien sur l'endroit où sont stockés l'historique, la mémoire et ce que la machine virtuelle télécharge. Pour les applications Claude en général, notre guide <a href=\"/ressources/guides/claude-rgpd-pme\">Claude et RGPD en PME</a> relevait le 5 octobre 2026 un stockage aux États-Unis par défaut. Rien n'indique que Duet fasse exception, rien ne le confirme non plus.</li><li><strong>La conservation.</strong> Pas de durée de conservation des récapitulatifs, des captures du navigateur ou des journaux d'actions.</li><li><strong>Un journal consultable.</strong> L'article ne décrit pas de journal des actions exportable, utile pour vérifier après coup ce que l'agent a fait.</li><li><strong>L'Europe et les offres d'entreprise.</strong> Pas un mot sur l'Union européenne, ni sur un accord de traitement des données propre à Duet, ni sur un calendrier pour Team et Enterprise.</li></ul><p>Ces silences ne veulent pas dire que les garanties manquent. Ils veulent dire qu'on ne peut pas encore les écrire dans votre registre des traitements.</p>",
+      "html_en": "<h2>Security and approvals: what Anthropic says</h2><p>An agent that reads your emails and can pay on your behalf concentrates the risks. <a href=\"https://claude.com/fr/resources/articles/claude-duet\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic's article</a> describes several safeguards:</p><ul><li><strong>Your approval before any binding action.</strong> Before sending a message, paying, signing or deleting anything, Duet shows the action and waits for your approval.</li><li><strong>Absolute no-gos.</strong> Some actions stay refused even with your approval: trading securities and moving money between accounts.</li><li><strong>Credentials the agent does not see.</strong> Duet relies on Claude Managed Agents' credential management: it never directly sees your passwords or access tokens.</li><li><strong>Automatic checks on actions.</strong> An auto-mode classifier validates actions; another classifier, combined with the system prompt, aims to prevent leaks of sensitive information.</li><li><strong>Defences against prompt injection</strong>, meaning instructions hidden in an email or a web page to divert the agent.</li><li><strong>Refused data.</strong> Card numbers and identity documents are refused; your personal health or financial data is only shared on explicit instruction.</li><li><strong>Testing.</strong> Adversarial testing, red team, external penetration testing and a public bug bounty programme.</li><li><strong>An exit at any time.</strong> You can disconnect an app whenever you want.</li></ul><h3>What the article does not say</h3><ul><li><strong>Data location.</strong> Nothing on where the history, memory and whatever the virtual machine downloads are stored. For Claude apps in general, our guide <a href=\"/ressources/guides/claude-rgpd-pme\">Claude and GDPR for SMBs</a> noted US storage by default on 5 October 2026. Nothing suggests Duet is an exception, nothing confirms it either.</li><li><strong>Retention.</strong> No retention period for recaps, browser captures or action logs.</li><li><strong>A searchable log.</strong> The article does not describe an exportable action log, useful to check afterwards what the agent did.</li><li><strong>Europe and business plans.</strong> Not a word on the European Union, on a Duet-specific data processing agreement or on a timeline for Team and Enterprise.</li></ul><p>These gaps do not mean the safeguards are missing. They mean you cannot yet write them into your record of processing activities.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Les limites annoncées par Anthropic</h2><p>L'article a le mérite de lister ce que Duet fait mal. C'est la partie à lire avant de lui confier quoi que ce soit.</p><ul><li><strong>Il peut se tromper sur l'importance.</strong> Duet peut mal interpréter une conversation ou mal évaluer l'urgence d'un sujet. Une alerte manquée ou une fausse alerte restent possibles : il ne remplace pas votre propre tri des sujets critiques.</li><li><strong>Il est moins bon pour les tâches personnelles</strong>, comme réserver des billets.</li><li><strong>Il ne montre pas encore son navigateur.</strong> Vous voyez le résultat et les demandes d'accord, pas l'écran sur lequel l'agent travaille.</li><li><strong>C'est une application séparée</strong> de l'application Claude principale : un outil de plus à installer et à suivre.</li><li><strong>Il puise dans votre quota.</strong> Duet partage les limites d'usage de votre forfait ; la surveillance de fond et les grosses tâches (un modèle financier, une présentation) en consomment davantage. Une journée chargée peut épuiser le quota dont vous aviez besoin pour autre chose.</li></ul><h2>Claude Duet avis : ce qu'on peut en dire aujourd'hui</h2><p>Les seuls retours publiés au 24 octobre 2026 sont ceux de l'article d'Anthropic : des membres de l'équipe (Boris Cherny, Chelsea Larsson, Karan Ahuja) et trois petits entrepreneurs (Jess Provencher, Amin Ebrahimi, Mya Dalton), dont l'une a été alertée d'un conflit entre un appel et un vol. Ce sont des témoignages choisis par l'éditeur, pas des mesures. Waimia n'a pas eu accès à Duet et ne publie donc pas d'avis d'usage. Un avis utile, pour vous, viendra d'un essai cadré : quelques semaines, un périmètre étroit, et un journal de ce que l'agent a proposé, fait et raté (méthode plus bas).</p>",
+      "html_en": "<h2>The limits Anthropic announces</h2><p>The article has the merit of listing what Duet does badly. This is the part to read before handing it anything.</p><ul><li><strong>It can misjudge what matters.</strong> Duet may misread a conversation or misjudge how urgent something is. A missed alert or a false alarm remains possible: it does not replace your own triage of critical matters.</li><li><strong>It is weaker at personal tasks</strong>, such as booking tickets.</li><li><strong>It cannot show its browser yet.</strong> You see the result and the approval requests, not the screen the agent works on.</li><li><strong>It is a separate app</strong> from the main Claude app: one more tool to install and follow.</li><li><strong>It draws on your quota.</strong> Duet shares your plan's usage limits; background monitoring and large tasks (a financial model, a presentation) use more. A busy day can use up the quota you needed for something else.</li></ul><h2>Claude Duet reviews: what can be said today</h2><p>The only feedback published as of 24 October 2026 comes from Anthropic's article: team members (Boris Cherny, Chelsea Larsson, Karan Ahuja) and three small business owners (Jess Provencher, Amin Ebrahimi, Mya Dalton), one of whom was alerted to a clash between a call and a flight. These are testimonials chosen by the publisher, not measurements. Waimia has not had access to Duet and therefore publishes no hands-on review. A useful review, for you, will come from a framed trial: a few weeks, a narrow scope, and a log of what the agent suggested, did and missed (method below).</p>"
+    },
+    {
+      "type": "tech-when-dual",
+      "background": "paper-2",
+      "kicker_fr": "§ Recommandations Waimia",
+      "kicker_en": "§ Waimia recommendations",
+      "title_fr": "Cas d'usage en PME : à confier à un agent proactif, ou pas",
+      "title_en": "SMB use cases: what to hand to a proactive agent, and what not",
+      "aside_fr": "Recommandations de Waimia, pas d'Anthropic, et pas des résultats mesurés : Waimia n'a pas utilisé Duet. Elles valent pour tout agent qui surveille et agit seul.",
+      "aside_en": "Waimia's recommendations, not Anthropic's, and not measured results: Waimia has not used Duet. They apply to any agent that monitors and acts on its own.",
+      "use_title_fr": "À confier",
+      "use_title_en": "Hand over",
+      "use_items_fr": [
+        "Le récapitulatif du matin : e-mails en attente, rendez-vous du jour, relances qui approchent",
+        "La veille sur une boîte partagée ou un canal Slack, avec alerte seulement sur des sujets définis",
+        "La préparation d'un brouillon de réponse, que vous relisez avant l'envoi",
+        "La proposition de créneaux de réunion, validée par vous avant l'invitation",
+        "Le tableau des ventes ou de trésorerie de la semaine, préparé avant une réunion",
+        "Le prototype d'un petit outil web interne, relu avant tout usage réel"
+      ],
+      "use_items_en": [
+        "The morning recap: pending emails, today's meetings, follow-ups coming due",
+        "Watching a shared mailbox or a Slack channel, with alerts only on defined topics",
+        "Drafting a reply that you review before it is sent",
+        "Proposing meeting slots, approved by you before the invitation goes out",
+        "The weekly sales or cash table, prepared before a meeting",
+        "A prototype of a small internal web tool, reviewed before any real use"
+      ],
+      "avoid_title_fr": "À ne pas confier sans cadre",
+      "avoid_title_en": "Do not hand over without a frame",
+      "avoid_items_fr": [
+        "Tout paiement, toute signature et toute suppression : validation à chaque fois, jamais d'accord global",
+        "L'accès à la boîte du dirigeant ou au compte bancaire principal dès le premier jour",
+        "Les données de santé, de paie ou disciplinaires des salariés",
+        "Un échange avec un client mécontent ou un litige : l'agent prépare, une personne répond",
+        "Une décision qui engage l'entreprise, un devis ou un contrat",
+        "Un processus d'équipe qui doit tourner à l'identique chaque jour : c'est le rôle d'un workflow"
+      ],
+      "avoid_items_en": [
+        "Any payment, signature or deletion: approval every time, never blanket consent",
+        "Access to the owner's mailbox or the main bank account from day one",
+        "Staff health, payroll or disciplinary data",
+        "Exchanges with an unhappy customer or a dispute: the agent prepares, a person replies",
+        "A decision that binds the company, a quote or a contract",
+        "A team process that must run identically every day: that is a workflow's job"
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Claude Duet en France : ce qu'on sait, ce qu'on ignore</h2><p><strong>Ce qu'on sait.</strong> L'article d'Anthropic annonce un accès d'abord aux États-Unis, par liste d'attente, pour les abonnés Pro et Max. Il ne dit rien de la France. On ne peut donc pas écrire que Duet est « indisponible en France » comme un fait de l'éditeur : on peut seulement dire qu'aucune date n'est annoncée.</p><p><strong>Ce qu'on ignore.</strong> La date d'ouverture en Europe, la localisation des données, l'existence d'un accord de traitement propre à Duet, et l'arrivée dans les offres Team et Enterprise, qui portent les réglages d'administration dont une entreprise a besoin.</p><h3>RGPD : les questions à vous poser avant de brancher un agent proactif</h3><p>Nous ne faisons pas ici d'analyse juridique, et Waimia n'est pas un cabinet d'avocats. Mais un agent qui lit votre messagerie, votre agenda et votre CRM traite des données personnelles de tiers : clients, prospects, salariés, fournisseurs. Les questions classiques s'appliquent : qui est responsable du traitement, sur quelle base légale, combien de temps les données sont conservées, où elles vont, et si une analyse d'impact (AIPD) est nécessaire. La CNIL publie des questions-réponses sur l'usage d'un système d'IA générative et une page sur l'AIPD (voir les sources en bas de page). Pour la mise en pratique, voir <a href=\"/ressources/guides/claude-rgpd-pme\">Claude et RGPD en PME</a> et la <a href=\"/ressources/guides/rgpd-agents-ia-checklist\">checklist RGPD des agents IA</a>.</p><h3>AI Act : où se situe un usage comme Duet</h3><p>Le règlement européen sur l'IA fixe des obligations par niveau de risque et par rôle (fournisseur, déployeur). Pour une PME qui utilise un assistant comme Duet, le calendrier et les obligations qui la concernent vraiment sont détaillés dans notre guide <a href=\"/ressources/guides/ai-act-pme-calendrier\">AI Act pour les PME : le calendrier</a>. Nous n'en tirons ici aucune conclusion propre à Duet : le produit n'est pas encore proposé en Europe.</p>",
+      "html_en": "<h2>Claude Duet in France: what we know, what we do not</h2><p><strong>What we know.</strong> Anthropic's article announces access first in the United States, through a waitlist, for Pro and Max subscribers. It says nothing about France. So you cannot write that Duet is \"unavailable in France\" as a publisher fact: you can only say that no date has been announced.</p><p><strong>What we do not know.</strong> The opening date in Europe, the data location, whether a Duet-specific data processing agreement exists, and when it reaches the Team and Enterprise plans, which carry the admin settings a company needs.</p><h3>GDPR: the questions to ask before connecting a proactive agent</h3><p>This is not a legal analysis, and Waimia is not a law firm. But an agent that reads your mailbox, calendar and CRM processes personal data about third parties: customers, prospects, staff, suppliers. The usual questions apply: who is the controller, on what legal basis, how long data is kept, where it goes, and whether a data protection impact assessment (DPIA) is needed. The CNIL publishes Q&As on using a generative AI system and a page on DPIAs (see the sources at the bottom of the page). For the practical side, see <a href=\"/ressources/guides/claude-rgpd-pme\">Claude and GDPR for SMBs</a> and the <a href=\"/ressources/guides/rgpd-agents-ia-checklist\">GDPR checklist for AI agents</a>.</p><h3>AI Act: where a use like Duet fits</h3><p>The EU AI Act sets obligations by risk level and by role (provider, deployer). For an SMB using an assistant like Duet, the timeline and the obligations that really apply are covered in our guide <a href=\"/ressources/guides/ai-act-pme-calendrier\">AI Act for SMBs: the timeline</a>. We draw no Duet-specific conclusion here: the product is not yet offered in Europe.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ En attendant l'accès",
+      "kicker_en": "§ While waiting for access",
+      "heading_fr": "Que faire en attendant l'accès : quatre voies",
+      "heading_en": "What to do while waiting for access: four routes",
+      "caption_fr": "Lecture de Waimia au 24 octobre 2026. Les faits sur Claude, Cowork et Managed Agents viennent de nos guides dédiés et de leurs sources Anthropic ; la ligne « agent sur mesure » décrit l'offre de Waimia, pas un résultat client.",
+      "caption_en": "Waimia's reading as of 24 October 2026. Facts on Claude, Cowork and Managed Agents come from our dedicated guides and their Anthropic sources; the \"custom agent\" row describes Waimia's offer, not a client result.",
+      "columns_fr": [
+        "Voie",
+        "Ce que vous obtenez",
+        "Ce qu'il faut",
+        "Limite à connaître"
+      ],
+      "columns_en": [
+        "Route",
+        "What you get",
+        "What it takes",
+        "Limit to know"
+      ],
+      "rows_fr": [
+        [
+          "1. La liste d'attente de Duet",
+          "Duet lui-même, le jour où votre compte est ouvert",
+          "Un abonnement Pro ou Max",
+          "Ouverture d'abord aux États-Unis ; rien d'annoncé pour la France"
+        ],
+        [
+          "2. Claude avec connecteurs et tâches (ex-Cowork)",
+          "Des tâches dans vos fichiers et vos outils, planifiables dans le cloud",
+          "Une offre payante de Claude, des connecteurs choisis un par un",
+          "C'est vous qui déclenchez : pas de surveillance proactive"
+        ],
+        [
+          "3. Claude Managed Agents",
+          "Un agent hébergé par Anthropic, appelé par API ou selon un calendrier",
+          "Un développeur, une intégration en bêta",
+          "Stockage documenté aux États-Unis seulement, pas de rétention zéro"
+        ],
+        [
+          "4. Un agent sur mesure",
+          "Un agent par mission, branché à vos outils, avec validation humaine et journal",
+          "Un cadrage, puis une construction en régie",
+          "Un projet à piloter, pas un abonnement à activer"
+        ]
+      ],
+      "rows_en": [
+        [
+          "1. The Duet waitlist",
+          "Duet itself, the day your account is opened",
+          "A Pro or Max subscription",
+          "United States first; nothing announced for France"
+        ],
+        [
+          "2. Claude with connectors and tasks (ex-Cowork)",
+          "Tasks in your files and tools, schedulable in the cloud",
+          "A paid Claude plan, connectors chosen one by one",
+          "You trigger the work: no proactive monitoring"
+        ],
+        [
+          "3. Claude Managed Agents",
+          "An agent hosted by Anthropic, called through the API or on a schedule",
+          "A developer, a beta integration",
+          "Storage documented in the United States only, no zero data retention"
+        ],
+        [
+          "4. A custom agent",
+          "One agent per mission, wired to your tools, with human approval and a log",
+          "Scoping, then time-and-materials build",
+          "A project to steer, not a subscription to switch on"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Choisir entre les quatre voies</h2><p><strong>Voie 1, la liste d'attente.</strong> Si vous avez déjà Pro ou Max, inscrivez-vous : cela ne coûte rien de plus et vous saurez quand l'accès s'ouvre. Mais ne bloquez pas un projet en attendant une date que personne n'a donnée.</p><p><strong>Voie 2, Claude avec ses connecteurs et ses tâches.</strong> C'est la voie la plus simple pour une personne ou une petite équipe : un rapport du lundi planifié, une première lecture d'un lot de documents, une synthèse de réunion. Vous gardez la main sur le déclenchement, ce qui est aussi une protection. Le détail est dans le guide <a href=\"/ressources/guides/claude-cowork\">Claude Cowork</a> ; pour un déploiement réglé côté administration, voir le service <a href=\"/services/integration-claude\">Claude en entreprise</a>.</p><p><strong>Voie 3, Claude Managed Agents.</strong> Pour une tâche longue ou récurrente intégrée à un processus métier, quand un développeur peut maintenir une intégration en bêta. Le guide <a href=\"/ressources/guides/claude-managed-agents\">Claude Managed Agents</a> détaille prix, limites et données.</p><p><strong>Voie 4, un agent sur mesure.</strong> C'est ce que Waimia construit : un agent par mission (tri des demandes, relances, reporting), branché à vos outils par API, par MCP ou par un workflow n8n, avec une validation humaine sur tout ce qui engage l'entreprise et un journal de chaque action. Le modèle est choisi selon la tâche : Claude par défaut, OpenAI ou Mistral quand ils conviennent mieux. Vos agents, vos accès et la documentation restent à vous. Le détail est sur la page <a href=\"/services/agents-ia\">agents IA pour entreprise</a>.</p><p>Cette voie peut aussi reposer sur un moteur ouvert, installé chez vous ou sur un serveur que vous contrôlez : <a href=\"/ressources/guides/hermes-agent\">Hermes Agent</a> ou <a href=\"/ressources/guides/openclaw\">OpenClaw</a>. Aucun des deux n'est clé en main pour une PME : bac à sable, secrets, droits, journal et mises à jour sont un vrai travail d'exploitation. C'est l'objet de notre offre <a href=\"/services/agents-ia#agents-open-source\">agents IA sur des outils ouverts</a> : choix du moteur, déploiement durci, connexion à vos outils, suivi. Le billet <a href=\"/blog/agents-ia-toujours-actifs-pme\">agents IA toujours actifs : propriétaire ou open source</a> pose le choix en une page.</p><p>Si vous ne savez pas quelle voie convient, l'<a href=\"/audit-ia-pme\">audit IA gratuit</a> sert à cela : 45 minutes en visio, sans engagement. Vous repartez avec une cartographie écrite et un ou deux chantiers classés.</p>",
+      "html_en": "<h2>Choosing between the four routes</h2><p><strong>Route 1, the waitlist.</strong> If you already have Pro or Max, sign up: it costs nothing more and you will know when access opens. But do not hold up a project waiting for a date nobody has given.</p><p><strong>Route 2, Claude with its connectors and tasks.</strong> This is the simplest route for one person or a small team: a scheduled Monday report, a first read of a batch of documents, a meeting summary. You stay in control of triggering, which is also a safeguard. Details are in our <a href=\"/ressources/guides/claude-cowork\">Claude Cowork</a> guide; for a deployment set up on the admin side, see the <a href=\"/services/integration-claude\">Claude for business</a> service.</p><p><strong>Route 3, Claude Managed Agents.</strong> For a long or recurring task built into a business process, when a developer can maintain a beta integration. Our <a href=\"/ressources/guides/claude-managed-agents\">Claude Managed Agents</a> guide covers pricing, limits and data.</p><p><strong>Route 4, a custom agent.</strong> This is what Waimia builds: one agent per mission (request triage, follow-ups, reporting), wired to your tools through APIs, MCP or an n8n workflow, with human approval on anything that binds the company and a log of every action. The model is chosen per task: Claude by default, OpenAI or Mistral when they fit better. Your agents, your access and the documentation stay yours. Details are on the <a href=\"/services/agents-ia\">AI agents for business</a> page.</p><p>This route can also run on an open engine, installed on your side or on a server you control: <a href=\"/ressources/guides/hermes-agent\">Hermes Agent</a> or <a href=\"/ressources/guides/openclaw\">OpenClaw</a>. Neither is turnkey for an SMB: sandbox, secrets, permissions, logging and updates are real operations work. That is the purpose of our <a href=\"/services/agents-ia#agents-open-source\">AI agents on open tools</a> offer: engine choice, hardened deployment, connection to your tools, follow-up. The post <a href=\"/blog/agents-ia-toujours-actifs-pme\">always-on AI agents: proprietary or open source</a> sets out the choice in one page.</p><p>If you do not know which route fits, the <a href=\"/audit-ia-pme\">free AI audit</a> is there for that: 45 minutes by video, no commitment. You leave with a written map and one or two ranked projects.</p>"
+    },
+    {
+      "type": "process-steps",
+      "background": "paper-3",
+      "kicker_fr": "§ Méthode Waimia",
+      "kicker_en": "§ Waimia method",
+      "h2_fr": "Tester un agent proactif sans risque, en quatre étapes",
+      "h2_en": "Testing a proactive agent safely, in four steps",
+      "intro_fr": "Recommandations de Waimia, valables pour Duet le jour où vous y avez accès comme pour tout agent qui agit seul. Pour un accompagnement : audit gratuit de 45 minutes, puis sprint de cadrage à {{prix.sprint}} € HT pour 10 heures et {{prix.horaire}} € HT de l'heure ensuite.",
+      "intro_en": "Waimia's recommendations, valid for Duet the day you get access as for any agent that acts on its own. For support: a free 45-minute audit, then a scoping sprint at €{{prix.sprint.en}} excl. VAT for 10 hours and €{{prix.horaire}} excl. VAT per hour afterwards.",
+      "steps": [
+        {
+          "title_fr": "Un compte dédié",
+          "title_en": "A dedicated account",
+          "body_fr": "Commencez avec un compte ou une boîte de test, pas avec la messagerie du dirigeant. Les erreurs du début restent ainsi sans conséquence pour vos clients.",
+          "body_en": "Start with a test account or mailbox, not the owner's inbox. Early mistakes then have no consequence for your customers."
+        },
+        {
+          "title_fr": "Des droits minimaux",
+          "title_en": "Minimal permissions",
+          "body_fr": "Connectez une ou deux applications, en lecture seule quand c'est possible. Ajoutez un accès seulement quand une tâche précise l'exige, et retirez-le si elle disparaît.",
+          "body_en": "Connect one or two apps, read-only where possible. Add an access only when a specific task needs it, and remove it if the task goes away."
+        },
+        {
+          "title_fr": "Une validation à chaque action engageante",
+          "title_en": "Approval on every binding action",
+          "body_fr": "Chaque envoi, paiement, signature ou suppression est validé par une personne, à chaque fois. Duet le prévoit par défaut ; écrivez-le aussi dans votre règle interne.",
+          "body_en": "Every send, payment, signature or deletion is approved by a person, every time. Duet does this by default; write it into your internal rule too."
+        },
+        {
+          "title_fr": "Un journal et un bilan à 30 jours",
+          "title_en": "A log and a 30-day review",
+          "body_fr": "Notez ce que l'agent a proposé, fait, raté, et le quota consommé. Au bout de 30 jours, gardez, élargissez ou arrêtez, sur la base de ce journal.",
+          "body_en": "Note what the agent suggested, did and missed, and the quota used. After 30 days, keep, widen or stop, based on that log."
+        }
+      ]
+    },
+    {
+      "type": "lead-capture-band",
+      "lead_magnet": "kit-conformite-claude-entreprise",
+      "background": "ink",
+      "anchor_id": "kit-conformite-duet",
+      "kicker_fr": "§ Ressource gratuite · PDF de 11 pages",
+      "kicker_en": "§ Free resource · 11-page PDF",
+      "h2_fr": "Avant de laisser un agent agir en votre nom : le kit conformité et administration de Claude",
+      "h2_en": "Before letting an agent act on your behalf: the Claude compliance and administration kit",
+      "body_fr": "Le kit est envoyé uniquement par e-mail, en pièce jointe. Il ne porte pas sur Duet en particulier, mais sur les décisions à prendre avant de brancher Claude à vos outils : réglages d'administration avec la valeur par défaut et notre recommandation, points RGPD et mini trame d'analyse d'impact, registre des usages, modèle de politique d'usage d'une page, et douze questions à poser au fournisseur avant de signer.",
+      "body_en": "The kit is sent by email only, as an attachment. It is not about Duet specifically, but about the decisions to take before connecting Claude to your tools: admin settings with the default value and our recommendation, GDPR points and a short impact assessment frame, a usage register, a one-page usage policy template, and twelve questions to ask the vendor before signing."
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "figures": [],
+      "html_fr": "<h2 id=\"articles-lies\">Articles pour aller plus loin</h2>\n<ul><li><a href=\"/blog/claude-duet-lancement-21-octobre-2026\">Le lancement du 21 octobre 2026 : ce qu'Anthropic a annoncé</a></li><li><a href=\"/blog/claude-duet-ou-claude-cowork\">Claude Duet ou Claude Cowork : la différence</a></li><li><a href=\"/blog/claude-duet-france-acces-rgpd\">Claude Duet en France : accès, RGPD et huit questions à poser</a></li><li><a href=\"/blog/agent-ia-toujours-actif-missions-pme\">Sept missions pour un agent toujours actif</a></li><li><a href=\"/blog/cout-agent-ia-toujours-actif\">Combien coûte un agent toujours actif</a></li></ul>",
+      "html_en": "<h2 id=\"articles-lies\">Articles to go further</h2>\n<ul><li><a href=\"/blog/claude-duet-lancement-21-octobre-2026\">The 21 October 2026 launch: what Anthropic announced</a></li><li><a href=\"/blog/claude-duet-ou-claude-cowork\">Claude Duet or Claude Cowork: the difference</a></li><li><a href=\"/blog/claude-duet-france-acces-rgpd\">Claude Duet in France: access, GDPR and eight questions to ask</a></li><li><a href=\"/blog/agent-ia-toujours-actif-missions-pme\">Seven missions for an always-on agent</a></li><li><a href=\"/blog/cout-agent-ia-toujours-actif\">What an always-on agent really costs</a></li></ul>"
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper",
+      "kicker_fr": "§ Les services",
+      "kicker_en": "§ Services",
+      "cards": [
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Agents IA pour entreprise",
+          "title_en": "AI agents for business",
+          "lead_fr": "Un agent par mission, branché à vos outils, validation humaine et journal.",
+          "lead_en": "One agent per mission, wired to your tools, human approval and a log.",
+          "href": "/services/agents-ia"
+        },
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Agents IA sur des outils ouverts",
+          "title_en": "AI agents on open tools",
+          "lead_fr": "Hermes Agent ou OpenClaw, déployés avec bac à sable, droits minimaux et suivi.",
+          "lead_en": "Hermes Agent or OpenClaw, deployed with a sandbox, minimal permissions and follow-up.",
+          "href": "/services/agents-ia#agents-open-source"
+        },
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Claude en entreprise",
+          "title_en": "Claude for business",
+          "lead_fr": "Choix de l'offre, réglages d'administration, connecteurs, règles d'usage.",
+          "lead_en": "Plan choice, admin settings, connectors, usage rules.",
+          "href": "/services/integration-claude"
+        }
+      ]
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper-2",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Further reading",
+      "cards": [
+        {
+          "kicker_fr": "Comparatif",
+          "kicker_en": "Comparison",
+          "title_fr": "Claude Duet ou ChatGPT dots",
+          "title_en": "Claude Duet or ChatGPT dots",
+          "lead_fr": "Les deux agents toujours actifs, point par point, et ce qu'ils valent pour une PME française.",
+          "lead_en": "The two always-on agents, point by point, and what they are worth for a French SMB.",
+          "href": "/ressources/comparatifs/claude-duet-vs-chatgpt-dots"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "ChatGPT dots",
+          "title_en": "ChatGPT dots",
+          "lead_fr": "Les agents persistants d'OpenAI : fonctionnement, accès en Europe, règles d'approbation.",
+          "lead_en": "OpenAI's persistent agents: how they work, access in Europe, approval rules.",
+          "href": "/ressources/guides/chatgpt-dots"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Claude Managed Agents",
+          "title_en": "Claude Managed Agents",
+          "lead_fr": "L'agent hébergé par Anthropic : prix, limites, données.",
+          "lead_en": "The agent hosted by Anthropic: pricing, limits, data.",
+          "href": "/ressources/guides/claude-managed-agents"
+        }
+      ]
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "h2_fr": "Questions fréquentes sur Claude Duet",
+      "h2_en": "Claude Duet FAQ",
+      "items": [
+        {
+          "q_fr": "Qu'est-ce que Claude Duet ?",
+          "q_en": "What is Claude Duet?",
+          "a_fr": "Claude Duet est une application d'Anthropic dans laquelle Claude joue le rôle d'un agent proactif : il signale ce qui demande votre attention, exécute les tâches que vous lui confiez, continue quand vous vous éloignez et demande votre accord avant d'agir en votre nom. Lancé le 21 octobre 2026 en aperçu de recherche, il vise les professionnels et les petits entrepreneurs qui ont trop de sujets à suivre (article d'Anthropic lu le 24 octobre 2026).",
+          "a_en": "Claude Duet is an Anthropic app in which Claude acts as a proactive agent: it flags what needs your attention, carries out the tasks you hand over, keeps going when you step away and asks for your approval before acting on your behalf. Launched on 21 October 2026 as a research preview, it targets professionals and small business owners with too many things to follow (Anthropic article read on 24 October 2026)."
+        },
+        {
+          "q_fr": "Combien coûte Claude Duet ?",
+          "q_en": "How much does Claude Duet cost?",
+          "a_fr": "Duet n'est pas vendu à part : l'article d'Anthropic l'annonce inclus dans les abonnements Pro et Max, avec les mêmes limites d'usage que le reste de Claude. Sur la page tarifs d'Anthropic relevée le 5 octobre 2026, Pro coûtait 20 $ par mois (17 $ en annuel) et Max à partir de 100 $ par mois, hors TVA. Les vérifications de fond et les grosses tâches consomment davantage de quota. Prix à revérifier avant achat.",
+          "a_en": "Duet is not sold separately: Anthropic's article says it is included in the Pro and Max plans, with the same usage limits as the rest of Claude. On Anthropic's pricing page checked on 5 October 2026, Pro cost $20 a month ($17 billed annually) and Max from $100 a month, excluding VAT. Background checks and large tasks use more quota. Check prices again before buying."
+        },
+        {
+          "q_fr": "Claude Duet est-il disponible en France ?",
+          "q_en": "Is Claude Duet available in France?",
+          "a_fr": "L'article d'Anthropic annonce un accès par liste d'attente, d'abord pour les abonnés Pro et Max aux États-Unis. Il ne dit rien de la France ni de l'Europe. Au 24 octobre 2026, on ne peut donc ni promettre un accès à un abonné français, ni affirmer qu'il est exclu. Surveillez la page d'Anthropic, et préparez dès maintenant vos règles d'usage pour un agent qui agit en votre nom.",
+          "a_en": "Anthropic's article announces access through a waitlist, first for Pro and Max subscribers in the United States. It says nothing about France or Europe. As of 24 October 2026, you can neither promise access to a French subscriber nor state that it is excluded. Watch Anthropic's page, and prepare your usage rules now for an agent that acts on your behalf."
+        },
+        {
+          "q_fr": "Claude Duet est-il disponible sur Team ou Enterprise ?",
+          "q_en": "Is Claude Duet available on Team or Enterprise?",
+          "a_fr": "Pas à ce stade. L'article d'Anthropic réserve l'accès aux abonnements individuels Pro et Max, et des sources tierces confirment que Team et Enterprise ne sont pas concernés pour l'instant. Une équipe qui veut un agent partagé, administré et journalisé passe aujourd'hui par Claude et ses tâches planifiées, par Claude Managed Agents ou par un agent construit sur mesure.",
+          "a_en": "Not at this stage. Anthropic's article limits access to the individual Pro and Max plans, and third-party sources confirm that Team and Enterprise are not covered for now. A team that wants a shared, administered and logged agent goes today through Claude and its scheduled tasks, through Claude Managed Agents or through a custom-built agent."
+        },
+        {
+          "q_fr": "Quelle différence entre Claude Duet et Claude Cowork ?",
+          "q_en": "What is the difference between Claude Duet and Claude Cowork?",
+          "a_fr": "Cowork, aujourd'hui fondu dans Claude, exécute une tâche que vous lui donnez, dans vos fichiers et vos outils. Duet prend l'initiative : il surveille vos applications au fil de la journée, vous écrit seulement quand c'est utile et travaille sur sa propre machine virtuelle, même ordinateur et téléphone éteints. C'est aussi une application séparée de l'application Claude principale, réservée pour l'instant à Pro et Max.",
+          "a_en": "Cowork, now folded into Claude, carries out a task you give it, in your files and tools. Duet takes the initiative: it watches your apps through the day, messages you only when useful and works on its own virtual machine, even with your computer and phone off. It is also a separate app from the main Claude app, limited for now to Pro and Max."
+        },
+        {
+          "q_fr": "Claude Duet peut-il envoyer un e-mail ou payer sans mon accord ?",
+          "q_en": "Can Claude Duet send an email or pay without my approval?",
+          "a_fr": "Non, d'après Anthropic. Avant tout envoi de message, paiement, signature ou suppression, Duet montre l'action et attend votre accord. Certaines actions restent interdites même avec votre accord, comme la négociation de titres ou le transfert d'argent entre comptes. Les numéros de carte bancaire et les pièces d'identité sont refusés, et vous pouvez déconnecter une application à tout moment.",
+          "a_en": "No, according to Anthropic. Before sending a message, paying, signing or deleting anything, Duet shows the action and waits for your approval. Some actions stay forbidden even with your approval, such as trading securities or moving money between accounts. Card numbers and identity documents are refused, and you can disconnect an app at any time."
+        },
+        {
+          "q_fr": "Claude Duet est-il compatible avec le RGPD ?",
+          "q_en": "Is Claude Duet GDPR-compliant?",
+          "a_fr": "On ne peut pas le dire aujourd'hui. L'article d'Anthropic décrit la sécurité de Duet, mais ne dit rien de la localisation des données, d'un accord de traitement propre à Duet ni de l'Europe. Un agent qui lit votre messagerie et votre CRM traite des données personnelles de clients et de salariés : registre, base légale, durée de conservation et éventuelle analyse d'impact sont à poser avant de le brancher.",
+          "a_en": "It cannot be said today. Anthropic's article describes Duet's security, but says nothing about data location, a Duet-specific data processing agreement or Europe. An agent that reads your mailbox and CRM processes personal data about customers and staff: record of processing, legal basis, retention period and any impact assessment need to be settled before connecting it."
+        },
+        {
+          "q_fr": "Claude Duet : que valent les premiers avis ?",
+          "q_en": "Claude Duet: what are the first reviews worth?",
+          "a_fr": "Au 24 octobre 2026, les retours publiés sont surtout ceux de l'article d'Anthropic : des membres de l'équipe et trois petits entrepreneurs, dont l'une raconte avoir été alertée d'un conflit entre un appel et un vol. Ce sont des témoignages de l'éditeur, pas des mesures. Waimia n'a pas eu accès à Duet : jugez sur un essai cadré de 30 jours, avec un journal des actions.",
+          "a_en": "As of 24 October 2026, the published feedback comes mostly from Anthropic's article: team members and three small business owners, one of whom says she was alerted to a clash between a call and a flight. These are the publisher's testimonials, not measurements. Waimia has not had access to Duet: judge it on a framed 30-day trial, with a log of actions."
+        }
+      ]
+    },
+    {
+      "type": "newsletter-signup-section",
+      "background": "paper-3",
+      "kicker_fr": "§ La lettre Waimia",
+      "kicker_en": "§ The Waimia letter",
+      "h2_fr": "Duet arrivera-t-il en France ? Soyez prévenu quand ça change.",
+      "h2_en": "Will Duet come to France? Hear about it when that changes.",
+      "body_fr": "Une lettre courte quand un changement compte vraiment pour une PME : ouverture d'un agent en Europe, arrivée dans les offres Team et Enterprise, nouvelles règles de données.",
+      "body_en": "A short letter when a change really matters for an SMB: an agent opening in Europe, arrival on Team and Enterprise plans, new data rules.",
+      "hint_fr": "Désinscription en un clic.",
+      "hint_en": "Unsubscribe in one click."
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Agents IA en PME",
+      "kicker_en": "§ AI agents for SMBs",
+      "h2_fr": "Un agent qui travaille pour vous, sans attendre une liste d'attente.",
+      "h2_en": "An agent that works for you, without waiting on a waitlist.",
+      "subtitle_fr": "Audit gratuit de 45 minutes en visio. Vous repartez avec une cartographie écrite et un ou deux chantiers classés.",
+      "subtitle_en": "Free 45-minute video audit. You leave with a written map and one or two ranked projects.",
+      "buttons": [
+        {
+          "label_fr": "Réserver l'audit gratuit",
+          "label_en": "Book the free audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Voir le service agents IA",
+          "label_en": "See the AI agents service",
+          "href": "/services/agents-ia",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

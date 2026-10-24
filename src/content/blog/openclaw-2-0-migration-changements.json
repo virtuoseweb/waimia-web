@@ -1,0 +1,199 @@
+{
+  "title_fr": "OpenClaw 2.0 : changements, migration et mise à jour sans casse",
+  "title_en": "OpenClaw 2.0: changes, migration and updating without breakage",
+  "seoTitle_fr": "OpenClaw 2.0 : migration et mise à jour sans casse",
+  "seoTitle_en": "OpenClaw 2.0: migration and updates without breakage",
+  "h1_fr": "OpenClaw 2.0 : migrer sans casser",
+  "h1_en": "OpenClaw 2.0: migrating without breaking things",
+  "description_fr": "OpenClaw 2.0 (2026.8.1) : ce qui change, OpenProse retiré, openclaw doctor --fix, Node 24.22.1+ exigé, version stable 2026.10.7 et checklist de migration.",
+  "description_en": "OpenClaw 2.0 (2026.8.1): what changes, OpenProse removed, openclaw doctor --fix, Node 24.22.1+ required, stable 2026.10.7 and a migration checklist.",
+  "excerpt_fr": "Ce que la version 2026.8.1, dite OpenClaw 2.0, a changé, les deux changements incompatibles, le Node exigé depuis la 2026.10.6, et une checklist de migration en douze étapes. Sources lues le 24 octobre 2026.",
+  "excerpt_en": "What version 2026.8.1, known as OpenClaw 2.0, changed, the two breaking changes, the Node version required since 2026.10.6, and a twelve-step migration checklist. Sources read on 24 October 2026.",
+  "publishedAt": "2026-10-24",
+  "updatedAt": "2026-10-24",
+  "editorialType": "Tutorial",
+  "type": "post",
+  "author": "simon-beros",
+  "category": "agents",
+  "tags": [
+    "openclaw",
+    "openclaw-2",
+    "migration",
+    "mise-a-jour",
+    "agent-ia-open-source",
+    "securite"
+  ],
+  "readingTime": 7,
+  "heroIllustration": {
+    "src": "/images/illustrations/ds/centralisation-donnees-ecluse-paper.webp",
+    "alt_fr": "Une écluse sépare deux biefs d'eau bleue à des niveaux différents ; une barque chargée de caisses attend dans le bief bas, une silhouette se tient près d'une roue de manœuvre, un disque pâle dans le ciel",
+    "alt_en": "A lock separates two stretches of blue water at different levels; a boat loaded with crates waits in the lower one, a figure stands by a control wheel, a pale disc in the sky",
+    "side": "right"
+  },
+  "sources": [
+    {
+      "name": "OpenClaw 2026.8.1, dite « OpenClaw 2.0 » (31 août 2026)",
+      "url": "https://github.com/openclaw/openclaw/releases/tag/v2026.8.1",
+      "type": "enterprise",
+      "publishedAt": "2026-08-31"
+    },
+    {
+      "name": "OpenClaw 2026.10.6, runtime Node corrigé (22 octobre 2026)",
+      "url": "https://github.com/openclaw/openclaw/releases/tag/v2026.10.6",
+      "type": "enterprise",
+      "publishedAt": "2026-10-22"
+    },
+    {
+      "name": "OpenClaw 2026.10.7, version stable (24 octobre 2026)",
+      "url": "https://github.com/openclaw/openclaw/releases/tag/v2026.10.7",
+      "type": "enterprise",
+      "publishedAt": "2026-10-24"
+    },
+    {
+      "name": "OpenClaw, page des versions, lue le 24 octobre 2026",
+      "url": "https://github.com/openclaw/openclaw/releases",
+      "type": "enterprise"
+    },
+    {
+      "name": "OpenClaw, dépôt GitHub (README), lu le 24 octobre 2026",
+      "url": "https://github.com/openclaw/openclaw",
+      "type": "enterprise"
+    },
+    {
+      "name": "OpenClaw, issue n° 7827, posture de sécurité par défaut (3 février au 7 mars 2026)",
+      "url": "https://github.com/openclaw/openclaw/issues/7827",
+      "type": "enterprise",
+      "publishedAt": "2026-02-03"
+    },
+    {
+      "name": "Nous Research, Hermes Agent v0.22.5 (migration depuis OpenClaw, notes du 22 octobre 2026)",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v0.22.5",
+      "type": "enterprise",
+      "publishedAt": "2026-10-22"
+    }
+  ],
+  "relatedCases": [],
+  "relatedPosts": [
+    "agents-ia-toujours-actifs-pme",
+    "agent-ia-24-7-pme",
+    "agent-ia-vs-automatisation-classique-2026"
+  ],
+  "slug": "openclaw-2-0-migration-changements",
+  "faq_fr": [
+    {
+      "q": "Qu'est-ce qu'OpenClaw 2.0 ?",
+      "a": "C'est le nom donné à la version 2026.8.1 d'OpenClaw, publiée le 31 août 2026 ; le projet numérote ses versions par date. Elle a apporté les demandes d'identifiants masquées, l'option --force pour les plugins de source quelconque, un accès aux fichiers ancré à l'espace de travail et des sessions déplaçables, ainsi que deux changements incompatibles : la suppression d'OpenProse et la migration de certaines références de modèles."
+    },
+    {
+      "q": "Comment migrer vers OpenClaw 2.0 ?",
+      "a": "Sur une copie de test d'abord. Lisez les notes de chaque version entre la vôtre et la 2026.10.7, sauvegardez l'installation, mettez Node à jour (24.22.1 ou plus, ou 26.12.1 ou plus), installez la version stable, lancez openclaw doctor --fix, réécrivez les usages de /prose, revoyez les plugins, puis vérifiez avec openclaw gateway status et openclaw security audit. Rejouez ensuite la séquence sur l'installation qui travaille."
+    },
+    {
+      "q": "À quoi sert openclaw doctor --fix ?",
+      "a": "D'après la page de version de la 2026.8.1, c'est la commande prévue pour migrer les références de modèles codex/* et openai-codex/*, devenues incompatibles avec la 2.0. Les sources lues ne détaillent pas ses autres effets : lancez-la sur une copie de test, relisez ce qu'elle a modifié dans la configuration, puis appliquez-la à l'installation de production. Pour le reste de son comportement, voir la documentation du projet."
+    },
+    {
+      "q": "Quelle version de Node faut-il pour OpenClaw ?",
+      "a": "Depuis la version 2026.10.6 du 22 octobre 2026, OpenClaw exige un runtime Node corrigé : Node 24.22.1 ou plus, ou Node 26.12.1 ou plus. Le README indiquait encore 24.16 ou 26.1 à la même date : retenez l'exigence la plus récente. La commande node --version affiche la version installée ; mettez Node à jour avant OpenClaw."
+    },
+    {
+      "q": "OpenClaw 2.0 est-elle la dernière version ?",
+      "a": "Non. La 2.0 correspond à la 2026.8.1 du 31 août 2026. Au 24 octobre 2026, la version stable est la 2026.10.7, publiée le jour même, après la 2026.10.6 du 22 octobre qui a relevé l'exigence Node. Des versions bêta circulent aussi : ne les installez pas sur un agent qui travaille, et relisez la page des versions avant chaque mise à jour."
+    },
+    {
+      "q": "Peut-on quitter OpenClaw pour Hermes Agent ?",
+      "a": "Le passage est prévu côté Hermes. Les notes de Hermes Agent v0.22.5, datées du 22 octobre 2026, annoncent une migration depuis OpenClaw et une commande hermes import-agent. Les sources lues ne disent pas ce qui est repris : faites l'essai sur une copie, gardez une sauvegarde complète de l'agent OpenClaw, et refaites comptes de service, droits et règles de validation, qui se migrent mal d'un moteur à l'autre."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "What is OpenClaw 2.0?",
+      "a": "It is the name given to OpenClaw version 2026.8.1, released on 31 August 2026; the project numbers its versions by date. It brought masked credential requests, the --force option for arbitrary-source plugins, file access anchored to the workspace and movable sessions, plus two breaking changes: the removal of OpenProse and the migration of some model references."
+    },
+    {
+      "q": "How do I migrate to OpenClaw 2.0?",
+      "a": "On a test copy first. Read the notes of every version between yours and 2026.10.7, back up the installation, update Node (24.22.1 or later, or 26.12.1 or later), install the stable version, run openclaw doctor --fix, rewrite uses of /prose, review plugins, then check with openclaw gateway status and openclaw security audit. Then replay the sequence on the working installation."
+    },
+    {
+      "q": "What does openclaw doctor --fix do?",
+      "a": "According to the 2026.8.1 release page, it is the intended command to migrate codex/* and openai-codex/* model references, which became incompatible with 2.0. The sources we read do not detail its other effects: run it on a test copy, review what it changed in the configuration, then apply it to the production installation. For the rest of its behaviour, see the project's documentation."
+    },
+    {
+      "q": "Which Node version does OpenClaw need?",
+      "a": "Since version 2026.10.6 of 22 October 2026, OpenClaw requires a patched Node runtime: Node 24.22.1 or later, or Node 26.12.1 or later. The README still said 24.16 or 26.1 on the same date: go with the most recent requirement. The node --version command shows the installed version; update Node before OpenClaw."
+    },
+    {
+      "q": "Is OpenClaw 2.0 the latest version?",
+      "a": "No. 2.0 is 2026.8.1 of 31 August 2026. As of 24 October 2026, the stable version is 2026.10.7, released that day, after 2026.10.6 of 22 October raised the Node requirement. Beta versions are also around: do not install them on a working agent, and check the releases page before every update."
+    },
+    {
+      "q": "Can we leave OpenClaw for Hermes Agent?",
+      "a": "The move is planned on the Hermes side. The Hermes Agent v0.22.5 notes, dated 22 October 2026, announce a migration from OpenClaw and a hermes import-agent command. The sources we read do not say what is carried over: try it on a copy, keep a full backup of the OpenClaw agent, and redo service accounts, permissions and approval rules, which migrate poorly from one engine to another."
+    }
+  ],
+  "headings": [
+    {
+      "depth": 2,
+      "slug": "en-bref",
+      "text": "En bref"
+    },
+    {
+      "depth": 2,
+      "slug": "quelle-version",
+      "text": "OpenClaw 2.0, c'est quelle version ?"
+    },
+    {
+      "depth": 2,
+      "slug": "ce-qui-change",
+      "text": "Ce que la 2.0 a changé"
+    },
+    {
+      "depth": 2,
+      "slug": "incompatibles",
+      "text": "Les deux changements incompatibles"
+    },
+    {
+      "depth": 2,
+      "slug": "node",
+      "text": "Le Node exigé depuis la 2026.10.6"
+    },
+    {
+      "depth": 2,
+      "slug": "avant-de-migrer",
+      "text": "Avant de migrer : trois préparatifs"
+    },
+    {
+      "depth": 2,
+      "slug": "checklist",
+      "text": "Checklist de migration, étape par étape"
+    },
+    {
+      "depth": 2,
+      "slug": "premiere-semaine",
+      "text": "La première semaine après la migration"
+    },
+    {
+      "depth": 2,
+      "slug": "angles-morts",
+      "text": "Ce que les sources lues ne disent pas"
+    },
+    {
+      "depth": 2,
+      "slug": "changer-de-moteur",
+      "text": "Et si vous changiez de moteur ?"
+    },
+    {
+      "depth": 2,
+      "slug": "et-apres",
+      "text": "Et après ?"
+    }
+  ],
+  "body_sections": [
+    {
+      "type": "editorial-prose",
+      "html_fr": "<h2 id=\"en-bref\">En bref</h2>\n<ul>\n<li>« OpenClaw 2.0 » désigne la version 2026.8.1, publiée le 31 août 2026. Ce n'est plus la dernière : au 24 octobre 2026, la version stable est la 2026.10.7.</li>\n<li>Deux changements incompatibles sont à traiter en passant à la 2.0 ou au-delà : le plugin OpenProse et la commande <code>/prose</code> sont supprimés, et les références de modèles <code>codex/*</code> et <code>openai-codex/*</code> se migrent avec <code>openclaw doctor --fix</code>.</li>\n<li>Depuis la 2026.10.6 (22 octobre), OpenClaw exige un Node corrigé : 24.22.1 ou plus, ou 26.12.1 ou plus. C'est la première chose à vérifier avant toute mise à jour.</li>\n</ul>\n<p>Billet rédigé le 24 octobre 2026 à partir du README et des pages de version du dépôt openclaw/openclaw. Ce qu'est OpenClaw, son architecture et son modèle de sécurité sont décrits dans le <a href=\"/ressources/guides/openclaw\">guide OpenClaw</a> ; ce billet traite de la mise à jour vers la 2.0 et ses suites, avec une checklist de migration. Waimia n'a pas effectué cette migration : les étapes viennent des notes de version, et nos recommandations sont signalées comme telles. Quand une procédure n'est pas décrite dans les sources lues, nous écrivons « voir la documentation du projet ».</p>\n<h2 id=\"quelle-version\">OpenClaw 2.0, c'est quelle version ?</h2>\n<p>OpenClaw numérote ses versions par date (CalVer : année, mois, numéro d'ordre). « OpenClaw 2.0 » est le nom donné à la version <strong>2026.8.1</strong>, publiée le 31 août 2026 ; la presse l'a annoncée dès le 30. Le projet a continué à publier depuis.</p>\n<table><thead><tr><th>Version</th><th>Date</th><th>Ce qu'il faut en retenir</th></tr></thead><tbody><tr><td>2026.8.1, dite « 2.0 »</td><td>31 août 2026</td><td>Identifiants masqués, plugins de source quelconque avec <code>--force</code>, fichiers ancrés à l'espace de travail, sessions déplaçables, deux changements incompatibles</td></tr><tr><td>2026.10.6</td><td>22 octobre 2026</td><td>Runtime Node corrigé exigé : 24.22.1 ou plus, ou 26.12.1 ou plus</td></tr><tr><td>2026.10.7</td><td>24 octobre 2026</td><td>Version stable à la date de ce billet</td></tr></tbody></table>\n<p>Conséquence pratique : « passer à OpenClaw 2.0 » aujourd'hui, c'est passer à la dernière version stable, en traversant les changements de la 2.0 puis l'exigence Node de la 2026.10.6. Des versions bêta circulent aussi : pas en production.</p>\n<h2 id=\"ce-qui-change\">Ce que la 2.0 a changé</h2>\n<p>D'après la page de version de la 2026.8.1, lue le 24 octobre 2026 :</p>\n<ul>\n<li><strong>Des demandes d'identifiants masquées.</strong> L'agent peut demander un mot de passe ou une clé sans que la valeur passe dans la conversation ni dans le contexte du modèle. Après la migration, c'est la voie à privilégier pour tout secret (recommandation Waimia).</li>\n<li><strong>Les plugins de source quelconque exigent <code>--force</code>.</strong> Installer un plugin exécutable depuis une source arbitraire demande désormais cette option ; les sources de confiance (ClawHub, plugins intégrés, catalogue officiel) gardent la demande de consentement aux capacités du plugin. Un script d'installation interne qui ajoutait un tel plugin sans option est donc à revoir.</li>\n<li><strong>Un accès aux fichiers ancré à l'espace de travail.</strong> En accès restreint, l'agent reste dans l'espace de travail de la session. Lecture Waimia : un usage qui allait chercher des fichiers ailleurs peut cesser de fonctionner, et c'est voulu.</li>\n<li><strong>Des sessions déplaçables.</strong> Une session peut passer sur un appareil appairé ou sur un worker cloud, avec son espace de travail. Les données de cet espace quittent alors la machine hôte.</li>\n</ul>\n<p>Selon la presse (infoq.com, therundown.ai, decrypt.co, cybersecuritynews.com), la 2.0 apporte aussi un installateur qui détecte un accès ChatGPT ou Claude existant, une application navigateur refaite et des sessions cloud partagées pour que des collègues suivent et reprennent un travail ; le projet revendique 933 contributeurs et plus de 16 000 demandes de fusion. Un article signale que la session partagée n'a ni frontière réseau ni frontière de fichiers. Ces points ne figurent pas dans les sources primaires que nous avons lues : à vérifier auprès du projet avant de s'y fier.</p>\n<h2 id=\"incompatibles\">Les deux changements incompatibles</h2>\n<h3>OpenProse et /prose supprimés</h3>\n<p>Le plugin OpenProse et la commande <code>/prose</code> n'existent plus. Avant de migrer, cherchez où vous les utilisez : consignes, habitudes de l'équipe, documentation interne, tâches récurrentes. Nous n'avons pas trouvé de remplaçant décrit dans les sources lues : voir la documentation du projet, et prévoyez de réécrire ces usages.</p>\n<h3>Références de modèles codex/* et openai-codex/*</h3>\n<p>Les références de modèles qui commencent par <code>codex/</code> ou <code>openai-codex/</code> doivent être migrées. La commande prévue est <code>openclaw doctor --fix</code>. Recommandation Waimia : lancez-la d'abord sur une copie de test, relisez ce qu'elle a modifié, puis rejouez-la sur l'installation qui travaille.</p>\n<h2 id=\"node\">Le Node exigé depuis la 2026.10.6</h2>\n<p>OpenClaw tourne sur Node.js. Depuis la 2026.10.6 du 22 octobre 2026, il exige un runtime corrigé : <strong>Node 24.22.1 ou plus, ou Node 26.12.1 ou plus</strong>. Le README indiquait encore 24.16 ou 26.1 à la même date : retenez l'exigence la plus récente, celle de la page de version. La commande standard <code>node --version</code> affiche la version installée sur la machine. Mettez Node à jour avant OpenClaw, pas après.</p>\n<h2 id=\"avant-de-migrer\">Avant de migrer : trois préparatifs</h2>\n<p>Recommandations Waimia.</p>\n<ul>\n<li><strong>Une copie de test.</strong> Une seconde machine, ou une machine virtuelle, qui reproduit l'installation : même version, même configuration, sans les vrais comptes de messagerie. Toute la checklist se joue d'abord là.</li>\n<li><strong>Une sauvegarde complète.</strong> D'après le README, l'état, la mémoire et les identifiants restent sur votre matériel : c'est donc à vous de les sauvegarder. Où ils se trouvent exactement et comment les restaurer : voir la documentation du projet.</li>\n<li><strong>Un inventaire.</strong> Les canaux ouverts, les plugins installés et leur provenance, les modèles référencés, les usages de <code>/prose</code>. Sans cet inventaire, impossible de savoir ce que la migration a cassé.</li>\n</ul>\n<h2 id=\"checklist\">Checklist de migration, étape par étape</h2>\n<p>Ordre recommandé par Waimia. Chaque commande citée vient du README ou des pages de version ; quand la source ne donne pas la procédure, nous le disons.</p>\n<ol>\n<li><strong>Lire les notes</strong> de chaque version entre la vôtre et la 2026.10.7, sur la page des versions du dépôt, et relever tout ce qui est marqué comme incompatible.</li>\n<li><strong>Sauvegarder</strong> l'installation qui travaille : état, mémoire, identifiants, configuration.</li>\n<li><strong>Mettre Node à jour</strong> sur la copie de test : 24.22.1 ou plus, ou 26.12.1 ou plus.</li>\n<li><strong>Installer la version stable</strong> 2026.10.7 sur la copie, jamais une bêta. La commande de mise à jour d'une installation existante : voir la documentation du projet. Pour une installation neuve, le README donne <code>openclaw onboard --install-daemon</code>.</li>\n<li><strong>Lancer <code>openclaw doctor --fix</code></strong> et relire ce qui a changé dans les références de modèles.</li>\n<li><strong>Réécrire les usages de <code>/prose</code></strong> repérés dans l'inventaire.</li>\n<li><strong>Revoir les plugins.</strong> Ceux qui demandent désormais <code>--force</code> viennent d'une source hors du circuit de confiance : relisez-les ou retirez-les avant de forcer quoi que ce soit.</li>\n<li><strong>Passer les secrets en saisie masquée</strong> là où c'est possible, plutôt que de les coller dans la conversation.</li>\n<li><strong>Vérifier le service</strong> avec <code>openclaw gateway status</code>, puis ouvrir le tableau de bord avec <code>openclaw dashboard</code>.</li>\n<li><strong>Lancer <code>openclaw security audit</code></strong> et traiter chaque alerte avant d'aller plus loin.</li>\n<li><strong>Laisser de côté les sessions déplaçables et partagées</strong> tant que leurs frontières ne sont pas vérifiées pour votre usage.</li>\n<li><strong>Rejouer la séquence sur l'installation qui travaille</strong>, en gardant la sauvegarde de l'étape 2 jusqu'à ce que l'agent ait tourné normalement quelques jours.</li>\n</ol>\n<p>Le durcissement complet, au-delà de la migration (bac à sable, appairage, Gateway), fait l'objet d'un billet à part : <a href=\"/blog/securiser-openclaw-checklist\">sécuriser OpenClaw en 12 contrôles</a>.</p>\n<h2 id=\"premiere-semaine\">La première semaine après la migration</h2>\n<p>Recommandations Waimia. Une migration réussie le jour J peut montrer ses effets plus tard. Pendant la première semaine, relisez chaque jour ce que l'agent a fait (messages envoyés, tâches lancées) : une tâche récurrente qui s'appuyait sur <code>/prose</code> ou sur un fichier hors de l'espace de travail échouera à sa prochaine exécution, pas pendant le test. Vérifiez que les expéditeurs appairés sont toujours ceux que vous attendez. Relancez <code>openclaw security audit</code> en fin de semaine. Enfin, notez la version en place et la date de la prochaine relecture des notes : au rythme d'octobre (2026.10.6 puis 2026.10.7 à deux jours d'écart), la suivante ne tardera pas.</p>\n<h2 id=\"angles-morts\">Ce que les sources lues ne disent pas</h2>\n<p>Trois questions restent ouvertes après lecture du README et des pages de version : la procédure de retour arrière si une mise à jour échoue, le remplaçant éventuel d'OpenProse, et l'emplacement exact des données à sauvegarder. Sur ces points, voir la documentation du projet, et ne supposez rien : une migration se prépare sur ce qui est écrit, pas sur ce qui semble logique.</p>\n<h2 id=\"changer-de-moteur\">Et si vous changiez de moteur ?</h2>\n<p>Une migration lourde est aussi le moment de reposer la question du moteur. Hermes Agent, de Nous Research, annonce depuis sa v0.22.5 (notes du 22 octobre 2026) une migration depuis OpenClaw et une commande <code>hermes import-agent</code> ; les sources lues ne disent pas ce qui est repris. Les deux moteurs sont comparés critère par critère dans <a href=\"/ressources/comparatifs/hermes-agent-vs-openclaw\">Hermes Agent ou OpenClaw</a>, et le tutoriel <a href=\"/blog/installer-hermes-agent-premier-agent\">installer Hermes Agent pas à pas</a> montre ce qu'un premier essai demande. Pour la question plus large (agent ouvert, agent d'éditeur ou agent sur mesure), voir <a href=\"/blog/agents-ia-toujours-actifs-pme\">agent IA toujours actif : propriétaire ou open source</a>.</p>\n<h2 id=\"et-apres\">Et après ?</h2>\n<ul>\n<li><strong>Revoir les bases</strong> : le <a href=\"/ressources/guides/openclaw\">guide OpenClaw</a>, avec le modèle de confiance, le coût et le RGPD.</li>\n<li><strong>Confier la migration</strong> : notre <a href=\"/services/integration-openclaw\">intégration d'OpenClaw</a> prend en charge la copie de test, la mise à jour, <code>openclaw doctor --fix</code> et l'audit de sécurité, dans le cadre de nos <a href=\"/services/agents-ia-open-source\">agents IA open source</a> : un sprint de cadrage de 10 heures à {{prix.sprint}} € HT, puis {{prix.horaire}} € HT de l'heure.</li>\n<li><strong>En parler</strong> : <a href=\"/contact?offer=audit-ia-pme&amp;intent=audit\">réserver l'audit gratuit</a>. Audit gratuit de 45 minutes en visio. Vous repartez avec une cartographie écrite et un ou deux chantiers classés (<a href=\"/audit-ia-pme\">déroulé de l'audit</a>).</li>\n</ul>",
+      "html_en": "<h2 id=\"in-short\">In short</h2>\n<ul>\n<li>\"OpenClaw 2.0\" refers to version 2026.8.1, released on 31 August 2026. It is no longer the latest: as of 24 October 2026, the stable version is 2026.10.7.</li>\n<li>Two breaking changes need handling when moving to 2.0 or later: the OpenProse plugin and the <code>/prose</code> command are removed, and <code>codex/*</code> and <code>openai-codex/*</code> model references are migrated with <code>openclaw doctor --fix</code>.</li>\n<li>Since 2026.10.6 (22 October), OpenClaw requires a patched Node: 24.22.1 or later, or 26.12.1 or later. It is the first thing to check before any update.</li>\n</ul>\n<p>Post written on 24 October 2026 from the README and release pages of the openclaw/openclaw repository. What OpenClaw is, its architecture and its security model are described in the <a href=\"/ressources/guides/openclaw\">OpenClaw guide</a>; this post covers updating to 2.0 and beyond, with a migration checklist. Waimia has not performed this migration: the steps come from the release notes, and our recommendations are flagged as such. When a procedure is not described in the sources we read, we write \"see the project's documentation\".</p>\n<h2 id=\"which-version\">OpenClaw 2.0: which version is it?</h2>\n<p>OpenClaw numbers its versions by date (CalVer: year, month, sequence number). \"OpenClaw 2.0\" is the name given to version <strong>2026.8.1</strong>, released on 31 August 2026; the press announced it on the 30th. The project has kept releasing since.</p>\n<table><thead><tr><th>Version</th><th>Date</th><th>What to remember</th></tr></thead><tbody><tr><td>2026.8.1, known as \"2.0\"</td><td>31 August 2026</td><td>Masked credentials, arbitrary-source plugins with <code>--force</code>, files anchored to the workspace, movable sessions, two breaking changes</td></tr><tr><td>2026.10.6</td><td>22 October 2026</td><td>Patched Node runtime required: 24.22.1 or later, or 26.12.1 or later</td></tr><tr><td>2026.10.7</td><td>24 October 2026</td><td>Stable version at the date of this post</td></tr></tbody></table>\n<p>In practice, \"moving to OpenClaw 2.0\" today means moving to the latest stable version, going through the 2.0 changes and then the 2026.10.6 Node requirement. Beta versions are also around: not for production.</p>\n<h2 id=\"what-changed\">What 2.0 changed</h2>\n<p>According to the 2026.8.1 release page, read on 24 October 2026:</p>\n<ul>\n<li><strong>Masked credential requests.</strong> The agent can ask for a password or key without the value passing through the conversation or the model's context. After migrating, it is the preferred route for any secret (Waimia recommendation).</li>\n<li><strong>Arbitrary-source plugins require <code>--force</code>.</strong> Installing an executable plugin from an arbitrary source now needs this option; trusted sources (ClawHub, built-in plugins, the official catalogue) keep the capability consent prompt. An internal install script that added such a plugin without the option needs reviewing.</li>\n<li><strong>File access anchored to the workspace.</strong> With restricted access, the agent stays in the session's workspace. Waimia's reading: a use that fetched files elsewhere may stop working, and that is intended.</li>\n<li><strong>Movable sessions.</strong> A session can move to a paired device or a cloud worker, with its workspace. That workspace's data then leaves the host machine.</li>\n</ul>\n<p>According to the press (infoq.com, therundown.ai, decrypt.co, cybersecuritynews.com), 2.0 also brings an installer that detects existing ChatGPT or Claude access, a rebuilt browser app and shared cloud sessions so colleagues can follow and take over work; the project claims 933 contributors and more than 16,000 pull requests. One article reports that the shared session has no network or file boundary. These points are not in the primary sources we read: check them with the project before relying on them.</p>\n<h2 id=\"breaking\">The two breaking changes</h2>\n<h3>OpenProse and /prose removed</h3>\n<p>The OpenProse plugin and the <code>/prose</code> command no longer exist. Before migrating, find where you use them: instructions, team habits, internal documentation, recurring tasks. We found no replacement described in the sources we read: see the project's documentation, and plan to rewrite these uses.</p>\n<h3>codex/* and openai-codex/* model references</h3>\n<p>Model references starting with <code>codex/</code> or <code>openai-codex/</code> must be migrated. The intended command is <code>openclaw doctor --fix</code>. Waimia recommendation: run it on a test copy first, review what it changed, then run it again on the working installation.</p>\n<h2 id=\"node\">The Node version required since 2026.10.6</h2>\n<p>OpenClaw runs on Node.js. Since 2026.10.6 of 22 October 2026, it requires a patched runtime: <strong>Node 24.22.1 or later, or Node 26.12.1 or later</strong>. The README still said 24.16 or 26.1 on the same date: go with the most recent requirement, the one on the release page. The standard <code>node --version</code> command shows the version installed on the machine. Update Node before OpenClaw, not after.</p>\n<h2 id=\"before\">Before migrating: three preparations</h2>\n<p>Waimia recommendations.</p>\n<ul>\n<li><strong>A test copy.</strong> A second machine, or a virtual machine, that reproduces the installation: same version, same configuration, without the real messaging accounts. The whole checklist runs there first.</li>\n<li><strong>A full backup.</strong> According to the README, state, memory and credentials stay on your hardware: backing them up is therefore your job. Where exactly they are and how to restore them: see the project's documentation.</li>\n<li><strong>An inventory.</strong> Open channels, installed plugins and where they come from, referenced models, uses of <code>/prose</code>. Without this inventory, you cannot tell what the migration broke.</li>\n</ul>\n<h2 id=\"checklist\">Migration checklist, step by step</h2>\n<p>Order recommended by Waimia. Every command cited comes from the README or the release pages; when the source does not give the procedure, we say so.</p>\n<ol>\n<li><strong>Read the notes</strong> of every version between yours and 2026.10.7 on the repository's releases page, and list everything marked as breaking.</li>\n<li><strong>Back up</strong> the working installation: state, memory, credentials, configuration.</li>\n<li><strong>Update Node</strong> on the test copy: 24.22.1 or later, or 26.12.1 or later.</li>\n<li><strong>Install the stable version</strong> 2026.10.7 on the copy, never a beta. The command to update an existing installation: see the project's documentation. For a fresh installation, the README gives <code>openclaw onboard --install-daemon</code>.</li>\n<li><strong>Run <code>openclaw doctor --fix</code></strong> and review what changed in model references.</li>\n<li><strong>Rewrite the uses of <code>/prose</code></strong> found in the inventory.</li>\n<li><strong>Review plugins.</strong> Those that now require <code>--force</code> come from outside the trusted circuit: review or remove them before forcing anything.</li>\n<li><strong>Move secrets to masked input</strong> wherever possible, rather than pasting them into the conversation.</li>\n<li><strong>Check the service</strong> with <code>openclaw gateway status</code>, then open the dashboard with <code>openclaw dashboard</code>.</li>\n<li><strong>Run <code>openclaw security audit</code></strong> and deal with every alert before going further.</li>\n<li><strong>Leave movable and shared sessions aside</strong> until their boundaries are checked for your use.</li>\n<li><strong>Replay the sequence on the working installation</strong>, keeping the step 2 backup until the agent has run normally for a few days.</li>\n</ol>\n<p>Full hardening beyond the migration (sandbox, pairing, Gateway) has its own post: <a href=\"/blog/securiser-openclaw-checklist\">securing OpenClaw in 12 checks</a>.</p>\n<h2 id=\"first-week\">The first week after migrating</h2>\n<p>Waimia recommendations. A migration that succeeds on the day can show its effects later. During the first week, review every day what the agent did (messages sent, tasks started): a recurring task that relied on <code>/prose</code> or on a file outside the workspace will fail at its next run, not during the test. Check that paired senders are still the ones you expect. Run <code>openclaw security audit</code> again at the end of the week. Finally, write down the version in place and the date of the next read of the notes: at October's pace (2026.10.6 then 2026.10.7 two days apart), the next one will not be long.</p>\n<h2 id=\"blind-spots\">What the sources we read do not say</h2>\n<p>Three questions remain open after reading the README and release pages: the rollback procedure if an update fails, any replacement for OpenProse, and the exact location of the data to back up. On these points, see the project's documentation, and assume nothing: a migration is prepared on what is written, not on what seems logical.</p>\n<h2 id=\"switch-engine\">What if you switched engines?</h2>\n<p>A heavy migration is also the time to ask the engine question again. Hermes Agent, from Nous Research, has announced since its v0.22.5 (notes dated 22 October 2026) a migration from OpenClaw and a <code>hermes import-agent</code> command; the sources we read do not say what is carried over. Both engines are compared criterion by criterion in <a href=\"/ressources/comparatifs/hermes-agent-vs-openclaw\">Hermes Agent or OpenClaw</a>, and the tutorial <a href=\"/blog/installer-hermes-agent-premier-agent\">installing Hermes Agent step by step</a> shows what a first trial takes. For the wider question (open agent, vendor agent or custom agent), see <a href=\"/blog/agents-ia-toujours-actifs-pme\">always-on AI agent: proprietary or open source</a>.</p>\n<h2 id=\"next\">What next?</h2>\n<ul>\n<li><strong>Revisit the basics</strong>: the <a href=\"/ressources/guides/openclaw\">OpenClaw guide</a>, with the trust model, cost and GDPR.</li>\n<li><strong>Hand over the migration</strong>: our <a href=\"/services/integration-openclaw\">OpenClaw integration</a> handles the test copy, the update, <code>openclaw doctor --fix</code> and the security audit, as part of our <a href=\"/services/agents-ia-open-source\">open source AI agents</a>: a 10-hour scoping sprint at {{prix.sprint.en}} € excl. VAT, then {{prix.horaire}} € excl. VAT per hour.</li>\n<li><strong>Talk it through</strong>: <a href=\"/contact?offer=audit-ia-pme&amp;intent=audit\">book the free audit</a>. A free 45-minute video audit. You leave with a written map and one or two ranked projects (<a href=\"/audit-ia-pme\">how the audit works</a>).</li>\n</ul>"
+    }
+  ],
+  "lead_magnet": "charte-ia-entreprise"
+}

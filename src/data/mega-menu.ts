@@ -379,6 +379,20 @@ const SOLUTIONS: MegaMenuSection = {
               ],
             },
             {
+              label: { fr: 'Agents IA open source', en: 'Open source AI agents' },
+              href: '/services/agents-ia-open-source',
+              description: { fr: 'Hermes Agent ou OpenClaw, déployés, isolés et exploités pour votre entreprise.', en: 'Hermes Agent or OpenClaw, deployed, isolated and operated for your company.' },
+              detail: [
+                {
+                  label: { fr: 'Déclinaisons', en: 'Editions' },
+                  links: [
+                    { label: { fr: 'Intégration Hermes Agent', en: 'Hermes Agent integration' }, href: '/services/integration-hermes-agent' },
+                    { label: { fr: 'Intégration OpenClaw', en: 'OpenClaw integration' }, href: '/services/integration-openclaw' },
+                  ],
+                },
+              ],
+            },
+            {
               label: { fr: 'Intégration Claude', en: 'Claude integration' },
               href: '/services/integration-claude',
               description: { fr: 'Claude, ChatGPT ou Mistral branchés à vos outils métier, en production.', en: 'Claude, ChatGPT or Mistral connected to your business tools, in production.' },

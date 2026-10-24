@@ -37,6 +37,43 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### Changement de stratégie, 24 octobre 2026 : création de pages assumée sur les agents IA toujours actifs, recomptage des pages (PR #135)
+
+**Décision (Simon, 24 octobre 2026).** Pour le thème « agents IA toujours actifs et moteurs ouverts », la ligne du 13 octobre « renforcer sans créer, aucune page neuve » (`docs/audits/2026-10-13-strategie-seo-geo.md`, section 3) est remplacée par une création assumée. Raisons : produits lancés ou en forte demande (Claude Duet le 21 octobre, ChatGPT dots le 29 septembre, Hermes Agent, OpenClaw 2.0), Claude comme lance SEO/GEO (`strategy/10`), et une offre commerciale à construire autour des moteurs ouverts. Une requête = une page cible (`keywords.json`).
+
+**Livré (22 pages).**
+
+| Type | Pages | Cible principale |
+| --- | --- | --- |
+| Guides (4) | claude-duet, chatgpt-dots, hermes-agent, openclaw | requêtes de marque des produits |
+| Comparatifs (2) | claude-duet-vs-chatgpt-dots, hermes-agent-vs-openclaw | « X vs Y » |
+| Pages de service (3) | `/services/agents-ia-open-source` et deux sous-services `/services/integration-hermes-agent`, `/services/integration-openclaw` | « agence agent ia open source », « openclaw entreprise », « hermes agent entreprise » |
+| Billets (13) | un billet de synthèse et douze billets d'appui (trois sur Claude Duet, trois sur ChatGPT dots, quatre sur Hermes Agent et OpenClaw, deux transversaux : missions et coût) | longue traîne précise de chaque guide |
+
+Le parent de l'offre entre au menu Solutions (colonne Agents IA) et au pied de page ; les deux sous-services sont des déclinaisons du méga-menu et du plan du site. Plus de trente pages existantes renvoient vers ces contenus (liens et passages informatifs : fonctionnalités Claude, TPE, modèles, connecteurs, skills, plugins, RGPD, n8n auto-hébergé, second cerveau, services d'agents).
+
+**Recomptage.**
+
+| Mesure | Valeur | Source |
+| --- | --- | --- |
+| URL du sitemap, collecte W42 (18 octobre) | 217 | `docs/seo/data/2026-W42/summary.json` |
+| URL du sitemap, build du 24 octobre | **239** (+22) | `dist/client/sitemap-0.xml` (blog 57, services 50, guides 49, comparatifs 14) |
+| Inspectées par Google à la dernière lecture (18 octobre) | 217 des 239 | `docs/seo/data/state/gsc-index.json` |
+| Indexées parmi elles | **143**, soit 65,9 % des inspectées et 59,8 % des 239 | idem |
+| Non indexées parmi elles | 74 : 50 « détectée, non indexée », 10 inconnues de Google, 6 « noindex », 4 « explorée, non indexée », 4 redirections | idem |
+| Jamais inspectées (les 22 nouvelles) | 22 | écart sitemap moins état |
+| Maillage interne | 233 pages sur 233 au seuil de 3 liens entrants, 0 orpheline | `node scripts/check-internal-mesh.mjs` |
+
+**Limites du recomptage.** Aucun accès à Search Console depuis cette session : le nombre de pages indexées n'est PAS remesuré, c'est celui du 18 octobre ; il se relit à la collecte 2026-W44. Certains états (noindex, redirection) peuvent précéder des correctifs. Une URL inspectée (`/blog/essai-pillar-ia-pme-2026`) n'est plus au sitemap.
+
+**Écart à la règle de cadence.** `scripts/seo-routine/check-calendar.mjs` plafonne à 2 créations par semaine ; ce lot en compte 22 dans la semaine 2026-W43. Exception décidée par Simon, consignée dans `calendrier-editorial.json` (22 entrées « publié », PR 135). Les semaines suivantes reviennent à la cadence.
+
+**Risque et suivi.** Chaque page ajoutée dilue la file d'exploration : 74 URL attendent déjà. Le quota de demandes manuelles est dépassé dès la première demande (entrée du 20 octobre), donc on compte sur le sitemap, l'Indexing API et IndexNow de la routine. Priorité de lecture à la collecte W44 : les 3 pages de service, les 4 guides, les 2 comparatifs. Aucune page n'est mise en `noindex` par précaution. Proposition à trancher par Simon si, à la collecte W45, moins de la moitié de ces neuf pages est explorée : revoir le maillage depuis les pages déjà indexées et regrouper les billets d'appui les plus faibles, sans les retirer sans 301.
+
+**À mesurer.** Indexation des 22 pages ; impressions sur « claude duet », « chatgpt dots », « hermes agent », « openclaw », « claude duet vs chatgpt dots », « agent ia open source » ; demandes de contact dont la page d'arrivée est une des trois pages de service (`offer=agents-ia-open-source`).
+
+**Pour Simon.** (1) Relire `chatgpt-dots` chez OpenAI : palier Pro, prix du siège Premium, régions Business Premium (écrits « à vérifier »). (2) Les billets sur ChatGPT dots sont à réviser après la fin du premier mois d'usage étendu (conditions d'usage à publier par OpenAI). (3) Aucune illustration nouvelle : les pages réutilisent des visuels existants.
+
 ### Mesure intermédiaire, 21 octobre 2026 (Search Console lue dans la console, données au 18/10)
 
 **Source.** Rapport Performances, 28 derniers jours, ventilation par jour, lu le 21/10. Les données s'arrêtent au 18/10.

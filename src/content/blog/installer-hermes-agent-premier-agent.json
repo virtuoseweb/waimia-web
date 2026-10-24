@@ -1,0 +1,208 @@
+{
+  "title_fr": "Installer Hermes Agent : un premier agent, pas à pas et prudemment",
+  "title_en": "Installing Hermes Agent: a first agent, step by step and carefully",
+  "seoTitle_fr": "Installer Hermes Agent : tutoriel prudent (v0.22.5)",
+  "seoTitle_en": "Install Hermes Agent: a careful tutorial (v0.22.5)",
+  "h1_fr": "Installer Hermes Agent : un premier agent prudent",
+  "h1_en": "Installing Hermes Agent: a careful first agent",
+  "description_fr": "Installer Hermes Agent pas à pas : précautions, script, hermes setup, modèle, backend isolé, passerelle, mises à jour. D'après le README lu le 24 octobre 2026.",
+  "description_en": "Install Hermes Agent step by step: precautions, script, hermes setup, model, isolated backend, gateway and updates. Based on the README read on 24 October 2026.",
+  "excerpt_fr": "Le tutoriel d'installation de Hermes Agent, dans l'ordre prudent : backend isolé, aucune donnée client, canal stable, puis le script, hermes setup, le modèle et un seul canal. D'après le README et les notes de version lus le 24 octobre 2026.",
+  "excerpt_en": "The Hermes Agent installation tutorial, in the careful order: isolated backend, no client data, stable channel, then the script, hermes setup, the model and a single channel. Based on the README and release notes read on 24 October 2026.",
+  "publishedAt": "2026-10-24",
+  "updatedAt": "2026-10-24",
+  "editorialType": "Tutorial",
+  "type": "post",
+  "author": "simon-beros",
+  "category": "agents",
+  "tags": [
+    "hermes-agent",
+    "installer-hermes-agent",
+    "agent-ia-open-source",
+    "tutoriel",
+    "securite",
+    "auto-hebergement"
+  ],
+  "readingTime": 9,
+  "heroIllustration": {
+    "src": "/images/illustrations/ds/claude-code-entreprise-chantier-paper.webp",
+    "alt_fr": "Un immeuble blanc pris dans un échafaudage rouge, des ouvriers à chaque étage ; au premier plan, une silhouette tient un plan roulé, un grand disque pâle dans le ciel",
+    "alt_en": "A white building wrapped in red scaffolding, workers on every floor; in the foreground a figure holds a rolled-up plan, a large pale disc in the sky",
+    "side": "right"
+  },
+  "sources": [
+    {
+      "name": "Nous Research, dépôt GitHub hermes-agent (README), lu le 24 octobre 2026",
+      "url": "https://github.com/NousResearch/hermes-agent",
+      "type": "enterprise"
+    },
+    {
+      "name": "Nous Research, hermes-agent, page des versions, lue le 24 octobre 2026",
+      "url": "https://github.com/NousResearch/hermes-agent/releases",
+      "type": "enterprise"
+    },
+    {
+      "name": "Nous Research, Hermes Agent v0.22.0, The Threshold Release (13 octobre 2026)",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v0.22.0",
+      "type": "enterprise",
+      "publishedAt": "2026-10-13"
+    },
+    {
+      "name": "Nous Research, Hermes Agent v0.22.4 (21 octobre 2026)",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v0.22.4",
+      "type": "enterprise",
+      "publishedAt": "2026-10-21"
+    },
+    {
+      "name": "Nous Research, Hermes Agent v0.22.5 (notes du 22 octobre 2026)",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v0.22.5",
+      "type": "enterprise",
+      "publishedAt": "2026-10-22"
+    },
+    {
+      "name": "Nous Research, Hermes Agent v0.21.6 (8 octobre 2026)",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v0.21.6",
+      "type": "enterprise",
+      "publishedAt": "2026-10-08"
+    },
+    {
+      "name": "Agent Skills, standard ouvert des skills (agentskills.io)",
+      "url": "https://agentskills.io",
+      "type": "research"
+    }
+  ],
+  "relatedCases": [],
+  "relatedPosts": [
+    "agents-ia-toujours-actifs-pme",
+    "creer-agent-ia-claude",
+    "ia-auto-hebergee-open-webui-pme"
+  ],
+  "slug": "installer-hermes-agent-premier-agent",
+  "faq_fr": [
+    {
+      "q": "Comment installer Hermes Agent ?",
+      "a": "Par un script d'installation : avec curl sous Linux, macOS et WSL2, en PowerShell sous Windows, par un dépôt APT sous Termux. La commande hermes ouvre ensuite l'interface en terminal, et hermes setup lance l'assistant de configuration ; depuis la v0.22.0, un assistant de premier lancement aide aussi. Prenez la commande exacte dans le README du dépôt NousResearch/hermes-agent, pas dans un billet, et lisez le script avant de l'exécuter."
+    },
+    {
+      "q": "Faut-il Docker pour installer Hermes Agent ?",
+      "a": "Non, mais nous le recommandons pour un premier agent. Hermes Agent propose six backends intégrés : local, Docker, SSH, Modal, Daytona et Vercel Sandbox. En backend local, l'agent exécute ses commandes sur la machine qui l'héberge. Docker isole cette exécution dans un conteneur sur la même machine ; depuis la v0.22.0, le navigateur et l'utilisation de l'ordinateur y tournent aussi plutôt que sur l'hôte."
+    },
+    {
+      "q": "Hermes Agent fonctionne-t-il sous Windows ?",
+      "a": "Oui. D'après le README lu le 24 octobre 2026, il s'installe sous Windows par un script PowerShell, ou par le script curl dans WSL2. L'application de bureau, apparue avec les paquets signés de la v0.22.0, n'existe sous Windows qu'en MSIX, pour Windows 11 22H2 ou plus récent. Pour un agent qui doit tourner en continu, nous recommandons plutôt une machine ou un serveur dédié."
+    },
+    {
+      "q": "Peut-on faire tourner Hermes Agent avec un modèle local ?",
+      "a": "Oui, depuis la v0.22.0 du 13 octobre 2026. Hermes télécharge et lance des modèles locaux en un clic via llama.cpp, et son catalogue indique lesquels tiennent sur votre carte graphique et votre mémoire. Les notes citent Qwen3.8 27B, Qwen3.6 35B-A3B, DeepSeek V4 Flash et tout modèle GGUF de Hugging Face. La qualité sur vos tâches reste à tester avant tout usage de travail."
+    },
+    {
+      "q": "Comment mettre à jour Hermes Agent sans risque ?",
+      "a": "Restez sur le canal stable, numéroté en SemVer depuis la v0.22.0, et n'utilisez pas hermes update --set-channel main, qui ramène à la branche de développement. Avant chaque mise à jour, lisez les notes de version : la v0.22.5 a déplacé hermes mcp serve et le backend Singularity vers des plugins. Testez sur une copie, puis mettez à jour l'agent qui travaille. Le détail de la procédure figure dans la documentation du projet."
+    },
+    {
+      "q": "Hermes Agent supprime-t-il les anciennes conversations ?",
+      "a": "Oui, par défaut. Le réglage sessions.auto_prune, actif dès l'installation, supprime les sessions terminées depuis plus de 90 jours. C'est utile pour limiter les données conservées, mais gênant si vous devez garder une trace des actions de l'agent. Décidez de la durée avant le premier vrai usage et, si nécessaire, exportez le journal hors de la machine. La façon de modifier ce réglage est décrite dans la documentation du projet."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "How do I install Hermes Agent?",
+      "a": "With an installation script: using curl on Linux, macOS and WSL2, PowerShell on Windows, an APT repository on Termux. The hermes command then opens the terminal interface, and hermes setup starts the configuration wizard; since v0.22.0, a first-run wizard also helps. Take the exact command from the NousResearch/hermes-agent README, not from a blog post, and read the script before running it."
+    },
+    {
+      "q": "Do I need Docker to install Hermes Agent?",
+      "a": "No, but we recommend it for a first agent. Hermes Agent offers six built-in backends: local, Docker, SSH, Modal, Daytona and Vercel Sandbox. With the local backend, the agent runs its commands on the machine that hosts it. Docker isolates that execution in a container on the same machine; since v0.22.0, the browser and computer use also run there rather than on the host."
+    },
+    {
+      "q": "Does Hermes Agent run on Windows?",
+      "a": "Yes. According to the README read on 24 October 2026, it installs on Windows with a PowerShell script, or with the curl script inside WSL2. The desktop app, introduced with the signed packages of v0.22.0, is only available on Windows as MSIX, for Windows 11 22H2 or later. For an agent that must run continuously, we recommend a dedicated machine or server instead."
+    },
+    {
+      "q": "Can Hermes Agent run with a local model?",
+      "a": "Yes, since v0.22.0 of 13 October 2026. Hermes downloads and launches local models in one click through llama.cpp, and its catalogue shows which ones fit your graphics card and memory. The notes cite Qwen3.8 27B, Qwen3.6 35B-A3B, DeepSeek V4 Flash and any GGUF model from Hugging Face. Quality on your tasks still needs testing before any work use."
+    },
+    {
+      "q": "How do I update Hermes Agent safely?",
+      "a": "Stay on the stable channel, numbered with SemVer since v0.22.0, and do not use hermes update --set-channel main, which takes you back to the development branch. Before each update, read the release notes: v0.22.5 moved hermes mcp serve and the Singularity backend into plugins. Test on a copy, then update the working agent. The detailed procedure is in the project's documentation."
+    },
+    {
+      "q": "Does Hermes Agent delete old conversations?",
+      "a": "Yes, by default. The sessions.auto_prune setting, on from installation, deletes sessions that ended more than 90 days ago. It helps limit the data kept, but gets in the way if you need a record of the agent's actions. Decide the retention period before the first real use and, if needed, export the log off the machine. How to change this setting is described in the project's documentation."
+    }
+  ],
+  "headings": [
+    {
+      "depth": 2,
+      "slug": "en-bref",
+      "text": "En bref"
+    },
+    {
+      "depth": 2,
+      "slug": "perimetre",
+      "text": "Ce que couvre ce tutoriel"
+    },
+    {
+      "depth": 2,
+      "slug": "precautions",
+      "text": "Trois précautions avant la première commande"
+    },
+    {
+      "depth": 2,
+      "slug": "etape-1-installation",
+      "text": "Étape 1 : lancer le script d'installation"
+    },
+    {
+      "depth": 2,
+      "slug": "etape-2-hermes-setup",
+      "text": "Étape 2 : ouvrir hermes, puis hermes setup"
+    },
+    {
+      "depth": 2,
+      "slug": "etape-3-modele",
+      "text": "Étape 3 : choisir le modèle avec hermes model"
+    },
+    {
+      "depth": 2,
+      "slug": "etape-4-backend",
+      "text": "Étape 4 : isoler l'exécution avec un backend"
+    },
+    {
+      "depth": 2,
+      "slug": "etape-5-passerelle",
+      "text": "Étape 5 : ouvrir un seul canal de messagerie"
+    },
+    {
+      "depth": 2,
+      "slug": "etape-6-premiere-tache",
+      "text": "Étape 6 : confier une première tâche sans enjeu"
+    },
+    {
+      "depth": 2,
+      "slug": "mises-a-jour",
+      "text": "Mettre à jour sans casser"
+    },
+    {
+      "depth": 2,
+      "slug": "conservation",
+      "text": "Ce que l'agent garde, et combien de temps"
+    },
+    {
+      "depth": 2,
+      "slug": "verification",
+      "text": "Avant d'aller plus loin : huit points à cocher"
+    },
+    {
+      "depth": 2,
+      "slug": "et-apres",
+      "text": "Et après ?"
+    }
+  ],
+  "body_sections": [
+    {
+      "type": "editorial-prose",
+      "html_fr": "<h2 id=\"en-bref\">En bref</h2>\n<ul>\n<li>Installer Hermes Agent tient en quelques commandes : un script d'installation, puis <code>hermes</code> et l'assistant <code>hermes setup</code>. Le vrai travail est ailleurs : choisir où l'agent exécute ses commandes, avec quel modèle et sur quel canal.</li>\n<li>Trois précautions passent avant la première commande : un backend isolé, aucune donnée client, le canal de mises à jour stable.</li>\n<li>Ce tutoriel suit uniquement le README et les notes de version du dépôt NousResearch/hermes-agent, lus le 24 octobre 2026 (version stable : v0.22.5). Quand un détail n'y figure pas, nous renvoyons à la documentation du projet.</li>\n</ul>\n<p>Hermes Agent est l'agent IA open source de Nous Research, publié sous licence MIT. Son fonctionnement, sa sécurité et son coût sont décrits dans notre <a href=\"/ressources/guides/hermes-agent\">guide Hermes Agent</a> ; ce billet se limite à l'installation d'un premier agent, dans l'ordre où nous recommandons de la faire. Waimia n'a ni chronométré ni mesuré ces étapes : elles sont tirées de la documentation, et les passages marqués « Recommandation Waimia » sont des conseils, pas des résultats.</p>\n<h2 id=\"perimetre\">Ce que couvre ce tutoriel</h2>\n<p>Un premier agent, pour une personne, sur une machine dédiée, avec une tâche sans conséquence. Pas un déploiement d'entreprise : ouvrir l'agent à une équipe, le brancher en écriture sur vos outils ou le faire répondre à des clients demande un cadre que ce billet ne pose pas. La question du multi-utilisateur est traitée dans le comparatif <a href=\"/ressources/comparatifs/hermes-agent-vs-openclaw\">Hermes Agent ou OpenClaw</a>.</p>\n<p>Deux sources seulement : le README du dépôt GitHub NousResearch/hermes-agent et les notes de version de la v0.21.6 à la v0.22.5, lus le 24 octobre 2026. Nous ne recopions ni commande d'installation complète ni adresse de script. Le projet publie plusieurs versions par semaine, et une commande copiée depuis un billet vieillit vite : prenez-la toujours dans le README, à la source.</p>\n<h2 id=\"precautions\">Trois précautions avant la première commande</h2>\n<p>Recommandations Waimia, à appliquer avant l'installation plutôt qu'après.</p>\n<ol>\n<li><strong>Un backend isolé d'abord.</strong> Un agent exécute des commandes. Hermes Agent peut les lancer directement sur la machine qui l'héberge (backend local) ou dans un environnement séparé : un conteneur Docker, une autre machine jointe par SSH, un service distant. Pour un premier essai, installez-le sur une machine dédiée (un ancien portable, une machine virtuelle, un petit serveur) et choisissez un backend isolé. Jamais le backend local sur le poste qui contient vos fichiers de travail.</li>\n<li><strong>Aucune donnée client.</strong> Le premier agent lit des documents publics ou des notes sans enjeu. L'agent garde une mémoire et l'historique de ses sessions : ce que vous lui montrez pendant l'essai y reste, jusqu'à sa suppression. Les données personnelles attendent que les flux soient écrits ; la <a href=\"/ressources/guides/rgpd-agents-ia-checklist\">checklist RGPD des agents IA</a> donne les points à fixer.</li>\n<li><strong>Une version stable, et des mises à jour testées.</strong> Restez sur le canal stable proposé depuis la v0.22.0, notez la version installée et lisez les notes avant chaque mise à jour. Le projet n'a pas atteint la v1.0 : une version peut encore déplacer une fonction vers un plugin, comme l'a fait la v0.22.5.</li>\n</ol>\n<p>Deux réflexes complètent la liste : un compte dédié chez le fournisseur du modèle, avec un plafond de dépense, et un compte de messagerie dédié pour parler à l'agent. Le projet ne les impose pas ; ils limitent ce qu'un essai raté peut coûter.</p>\n<h2 id=\"etape-1-installation\">Étape 1 : lancer le script d'installation</h2>\n<p>D'après le README lu le 24 octobre 2026, Hermes Agent s'installe de trois façons selon le système.</p>\n<table><thead><tr><th>Système</th><th>Méthode documentée</th><th>À savoir</th></tr></thead><tbody><tr><td>Linux, macOS, Windows avec WSL2</td><td>Script d'installation lancé avec curl</td><td>La voie la plus directe pour un serveur dédié sous Linux (avis Waimia)</td></tr><tr><td>Windows</td><td>Script PowerShell</td><td>L'application de bureau n'existe qu'en MSIX, pour Windows 11 22H2 ou plus récent</td></tr><tr><td>Android avec Termux</td><td>Dépôt APT</td><td>Un usage d'essai plutôt qu'un agent qui tourne en continu (avis Waimia)</td></tr></tbody></table>\n<p>La v0.22.0 a aussi apporté des paquets de bureau signés, dont une version sur le Microsoft Store. La commande exacte, l'adresse du script et les prérequis éventuels : voir la documentation du projet, dans le README du dépôt. Recommandation Waimia : avant d'exécuter un script téléchargé, ouvrez-le et lisez-le, ou faites-le relire. C'est une habitude de base pour tout outil qui s'installe en une ligne.</p>\n<h2 id=\"etape-2-hermes-setup\">Étape 2 : ouvrir hermes, puis hermes setup</h2>\n<p>Une fois l'installation faite, la commande <code>hermes</code> ouvre l'interface en terminal : c'est là que vous parlez à l'agent au début. La commande <code>hermes setup</code> lance l'assistant de configuration. Depuis la v0.22.0 (13 octobre 2026), un assistant de premier lancement guide aussi les débuts.</p>\n<p>Les sources lues ne détaillent pas chaque question posée par l'assistant : voir la documentation du projet. Ce que nous recommandons de décider avant de l'ouvrir, pour répondre sans improviser :</p>\n<ul>\n<li>le modèle et le compte qui le paie (étape 3) ;</li>\n<li>le backend d'exécution (étape 4) ;</li>\n<li>le seul canal de messagerie que vous ouvrirez (étape 5), ou aucun : le terminal suffit à un premier essai.</li>\n</ul>\n<h2 id=\"etape-3-modele\">Étape 3 : choisir le modèle avec hermes model</h2>\n<p>Hermes Agent n'impose pas de modèle. Le README cite quatre branchements : Nous Portal, OpenRouter, OpenAI, ou un point d'accès personnalisé. La commande <code>hermes model</code> change de modèle sans changer d'agent.</p>\n<p>Depuis la v0.22.0, une autre voie existe : les <strong>modèles locaux</strong>, téléchargés et lancés en un clic grâce à llama.cpp. Le catalogue évalue chaque modèle selon votre carte graphique (GPU) et votre mémoire vive. Les notes citent Qwen3.8 27B, Qwen3.6 35B-A3B, DeepSeek V4 Flash, et tout modèle au format GGUF publié sur Hugging Face.</p>\n<p><strong>Recommandation Waimia pour un premier agent.</strong> Une API sous contrat, avec un plafond de dépense posé chez le fournisseur, pour juger l'agent sans dépendre de votre matériel. Un modèle local si vos données ne doivent pas sortir de vos machines, en sachant que sa qualité sur vos tâches reste à vérifier : nous n'avons pas de mesure à vous donner. Pour un modèle hébergé chez vous, voir aussi le billet <a href=\"/blog/ia-auto-hebergee-open-webui-pme\">IA auto-hébergée en PME</a>. Le détail des nouveautés de la v0.22 est dans <a href=\"/blog/hermes-agent-v0-22-modeles-locaux-connecteurs\">Hermes Agent v0.22 : ce qui change</a>.</p>\n<h2 id=\"etape-4-backend\">Étape 4 : isoler l'exécution avec un backend</h2>\n<p>Le <em>backend</em> est l'endroit où l'agent exécute ses commandes. C'est le réglage qui compte le plus pour la sécurité. Le README liste six backends intégrés, et d'autres arrivent par plugins.</p>\n<table><thead><tr><th>Backend</th><th>Où tournent les commandes</th><th>Pour un premier agent (avis Waimia)</th></tr></thead><tbody><tr><td>Local</td><td>Sur la machine qui héberge l'agent</td><td>À éviter, sauf sur une machine vide et dédiée</td></tr><tr><td>Docker</td><td>Dans un conteneur, sur la même machine</td><td>Le choix que nous recommandons pour commencer</td></tr><tr><td>SSH</td><td>Sur une autre machine, jointe par SSH</td><td>Adapté si vous disposez d'une machine séparée sans données</td></tr><tr><td>Modal, Daytona, Vercel Sandbox</td><td>Chez un service d'exécution distant</td><td>Les données transitent chez ce tiers, sous ses conditions</td></tr><tr><td>bubblewrap, Singularity</td><td>Par plugins : bubblewrap sous Linux depuis la v0.22.4, Singularity passé en plugin en v0.22.5</td><td>Pour les équipes qui connaissent déjà ces outils</td></tr></tbody></table>\n<p>La v0.22.0 a rendu le bac à sable plus présent : l'image <code>hermes-sandbox:desktop</code> est utilisée par défaut, et avec Docker, SSH ou Singularity, l'écran du bot, l'utilisation de l'ordinateur et le navigateur tournent dans ce bac à sable plutôt que sur la machine hôte. La syntaxe pour choisir ou changer de backend : voir la documentation du projet.</p>\n<p>Une vérification simple, recommandée par Waimia : une fois le backend choisi, demandez à l'agent de lister un dossier de la machine hôte. S'il y parvient, l'isolation n'est pas celle que vous croyez.</p>\n<h2 id=\"etape-5-passerelle\">Étape 5 : ouvrir un seul canal de messagerie</h2>\n<p>La passerelle (gateway) relie l'agent à Telegram, Discord, Slack, WhatsApp, Signal et à la ligne de commande. Elle permet de lui écrire depuis votre téléphone et de recevoir le résultat des tâches planifiées.</p>\n<p>Le README cite deux protections à garder actives : l'<strong>appairage par message privé</strong>, qui filtre qui peut parler à l'agent, et l'<strong>approbation des commandes</strong>, qui demande votre accord avant d'exécuter. Les étapes de connexion propres à chaque messagerie : voir la documentation du projet.</p>\n<p>Recommandation Waimia : un seul canal pour commencer, un compte dédié, et personne d'autre que vous dans la conversation. Chaque message lu par l'agent peut contenir des instructions cachées (on parle d'injection de consignes) ; moins il y a d'expéditeurs, moins il y a de portes d'entrée. La même logique, appliquée à l'autre moteur ouvert, est détaillée dans <a href=\"/blog/securiser-openclaw-checklist\">sécuriser OpenClaw en 12 contrôles</a>.</p>\n<h2 id=\"etape-6-premiere-tache\">Étape 6 : confier une première tâche sans enjeu</h2>\n<p>Le premier agent doit pouvoir se tromper sans conséquence. Trois exemples de tâches à faible risque, proposés par Waimia :</p>\n<ul>\n<li>résumer chaque lundi une page publique que vous suivez (un texte réglementaire, une liste d'appels d'offres) avec le planificateur de Hermes, qui envoie le résultat sur la plateforme choisie ;</li>\n<li>préparer une synthèse à partir de documents déjà publics ;</li>\n<li>rédiger un brouillon que vous relisez, sans envoi automatique.</li>\n</ul>\n<p>Observez deux choses pendant les premières semaines. La <strong>mémoire</strong> : l'agent décide lui-même de ce qu'il retient et cherche dans ses sessions passées (recherche plein texte FTS5). Les <strong>skills</strong> : après une tâche complexe, Hermes peut écrire une fiche de méthode réutilisable, compatible avec le standard agentskills.io. Relisez ces skills comme la procédure d'un nouveau collègue, avant qu'elles servent sur une tâche qui compte. Pour choisir les tâches suivantes, la grille gratuite proposée en fin de billet aide à les classer.</p>\n<h2 id=\"mises-a-jour\">Mettre à jour sans casser</h2>\n<p>Depuis la v0.22.0, les mises à jour suivent un canal stable, numéroté selon la convention SemVer. Revenir à la branche de développement demande une commande explicite : <code>hermes update --set-channel main</code>. Pour un agent qui travaille pour vous, ne le faites pas : la branche <code>main</code> reçoit les changements avant qu'ils soient stabilisés.</p>\n<p>Le rythme est soutenu : de la v0.22.0 (13 octobre 2026) à la v0.22.5 (notes datées du 22 octobre, publiées le 23), avec des fonctions déplacées vers des plugins en route (<code>hermes mcp serve</code> et le backend Singularity en v0.22.5). Notre méthode tient en quatre gestes : lire les notes de la version visée ; vérifier si une fonction que vous utilisez change de place ; tester la mise à jour sur une copie ; puis seulement mettre à jour l'agent qui travaille. La procédure de mise à jour pas à pas : voir la documentation du projet.</p>\n<h2 id=\"conservation\">Ce que l'agent garde, et combien de temps</h2>\n<p>Un réglage mérite d'être connu dès l'installation : <code>sessions.auto_prune</code>, actif par défaut, supprime automatiquement les sessions terminées depuis plus de 90 jours. C'est utile pour ne pas accumuler d'historique, gênant si vous devez garder une trace de ce que l'agent a fait. Décidez de la durée qui vous convient avant le premier vrai usage et, si une trace est nécessaire, exportez le journal ailleurs (recommandation Waimia ; pour modifier ce réglage, voir la documentation du projet).</p>\n<p>Les notes des versions v0.21.6 et v0.22 apportent aussi des protections qui jouent sans réglage : la télémétrie partagée est désactivée par défaut, les fichiers de l'agent sont réservés à leur propriétaire, les processus enfants n'héritent plus des secrets des adaptateurs, et les clés Anthropic et OpenAI ne sont jamais envoyées à des hôtes tiers.</p>\n<h2 id=\"verification\">Avant d'aller plus loin : huit points à cocher</h2>\n<p>Recommandations Waimia, à cocher avant de confier d'autres tâches à l'agent :</p>\n<ul>\n<li>La machine est dédiée à l'agent et ne contient aucune donnée de l'entreprise.</li>\n<li>Le backend est isolé, et le test du dossier hôte échoue bien.</li>\n<li>La version installée est notée, sur le canal stable.</li>\n<li>Le compte du modèle a un plafond de dépense.</li>\n<li>Un seul canal est ouvert, appairé, avec l'approbation des commandes active.</li>\n<li>Aucune donnée client n'a été montrée à l'agent.</li>\n<li>La durée de conservation des sessions est décidée, face aux 90 jours par défaut.</li>\n<li>Une personne est nommée pour lire les notes de version et faire les mises à jour.</li>\n</ul>\n<p>Si l'un de ces points coince, l'agent n'est pas prêt pour un usage de travail. Le billet <a href=\"/blog/agents-ia-toujours-actifs-pme\">agent IA toujours actif : propriétaire ou open source</a> aide aussi à vérifier qu'un moteur ouvert est le bon choix, plutôt qu'un agent d'éditeur ou un agent sur mesure.</p>\n<h2 id=\"et-apres\">Et après ?</h2>\n<ul>\n<li><strong>Comprendre le moteur en entier</strong> : le <a href=\"/ressources/guides/hermes-agent\">guide Hermes Agent</a> couvre le fonctionnement, la sécurité, le coût et le RGPD.</li>\n<li><strong>Passer de l'essai au service</strong> : notre <a href=\"/services/integration-hermes-agent\">intégration de Hermes Agent</a> installe l'agent sur une machine dédiée, isole l'exécution, range les secrets et assure les mises à jour. Elle fait partie de nos <a href=\"/services/agents-ia-open-source\">agents IA open source</a> : un sprint de cadrage de 10 heures à {{prix.sprint}} € HT, puis {{prix.horaire}} € HT de l'heure.</li>\n<li><strong>En parler d'abord</strong> : <a href=\"/contact?offer=audit-ia-pme&amp;intent=audit\">réserver l'audit gratuit</a>. Audit gratuit de 45 minutes en visio. Vous repartez avec une cartographie écrite et un ou deux chantiers classés. Le déroulé est décrit sur la page <a href=\"/audit-ia-pme\">audit IA pour PME</a>.</li>\n</ul>",
+      "html_en": "<h2 id=\"in-short\">In short</h2>\n<ul>\n<li>Installing Hermes Agent takes a few commands: an installation script, then <code>hermes</code> and the <code>hermes setup</code> wizard. The real work lies elsewhere: choosing where the agent runs its commands, with which model and on which channel.</li>\n<li>Three precautions come before the first command: an isolated backend, no client data, the stable update channel.</li>\n<li>This tutorial follows only the README and release notes of the NousResearch/hermes-agent repository, read on 24 October 2026 (stable version: v0.22.5). When a detail is not there, we point to the project's documentation.</li>\n</ul>\n<p>Hermes Agent is Nous Research's open source AI agent, released under the MIT licence. How it works, its security and its cost are covered in our <a href=\"/ressources/guides/hermes-agent\">Hermes Agent guide</a>; this post is limited to installing a first agent, in the order we recommend. Waimia has neither timed nor measured these steps: they come from the documentation, and passages marked \"Waimia recommendation\" are advice, not results.</p>\n<h2 id=\"scope\">What this tutorial covers</h2>\n<p>A first agent, for one person, on a dedicated machine, with a task that has no consequences. Not a company deployment: opening the agent to a team, giving it write access to your tools or letting it answer clients requires a framework this post does not set out. The multi-user question is covered in the comparison <a href=\"/ressources/comparatifs/hermes-agent-vs-openclaw\">Hermes Agent or OpenClaw</a>.</p>\n<p>Two sources only: the README of the NousResearch/hermes-agent GitHub repository and the release notes from v0.21.6 to v0.22.5, read on 24 October 2026. We do not copy a full installation command or a script address. The project ships several versions a week, and a command copied from a blog post ages fast: always take it from the README, at the source.</p>\n<h2 id=\"precautions\">Three precautions before the first command</h2>\n<p>Waimia recommendations, to apply before installing rather than after.</p>\n<ol>\n<li><strong>An isolated backend first.</strong> An agent runs commands. Hermes Agent can run them directly on the machine that hosts it (local backend) or in a separate environment: a Docker container, another machine reached over SSH, a remote service. For a first trial, install it on a dedicated machine (an old laptop, a virtual machine, a small server) and choose an isolated backend. Never the local backend on the computer that holds your work files.</li>\n<li><strong>No client data.</strong> The first agent reads public documents or notes with nothing at stake. The agent keeps a memory and the history of its sessions: whatever you show it during the trial stays there until it is deleted. Personal data waits until the flows are written down; the <a href=\"/ressources/guides/rgpd-agents-ia-checklist\">GDPR checklist for AI agents</a> lists the points to settle.</li>\n<li><strong>A stable version, and tested updates.</strong> Stay on the stable channel offered since v0.22.0, note the installed version and read the notes before each update. The project has not reached v1.0: a release can still move a feature into a plugin, as v0.22.5 did.</li>\n</ol>\n<p>Two habits complete the list: a dedicated account with the model provider, with a spending cap, and a dedicated messaging account to talk to the agent. The project does not require them; they limit what a failed trial can cost.</p>\n<h2 id=\"step-1-install\">Step 1: run the installation script</h2>\n<p>According to the README read on 24 October 2026, Hermes Agent installs in three ways depending on the system.</p>\n<table><thead><tr><th>System</th><th>Documented method</th><th>Good to know</th></tr></thead><tbody><tr><td>Linux, macOS, Windows with WSL2</td><td>Installation script run with curl</td><td>The most direct route for a dedicated Linux server (Waimia view)</td></tr><tr><td>Windows</td><td>PowerShell script</td><td>The desktop app is only available as MSIX, for Windows 11 22H2 or later</td></tr><tr><td>Android with Termux</td><td>APT repository</td><td>A trial use rather than an agent that runs continuously (Waimia view)</td></tr></tbody></table>\n<p>v0.22.0 also brought signed desktop packages, including a Microsoft Store version. The exact command, the script address and any prerequisites: see the project's documentation, in the repository README. Waimia recommendation: before running a downloaded script, open it and read it, or have it reviewed. It is a basic habit for any tool that installs in one line.</p>\n<h2 id=\"step-2-setup\">Step 2: open hermes, then hermes setup</h2>\n<p>Once installed, the <code>hermes</code> command opens the terminal interface: that is where you talk to the agent at first. The <code>hermes setup</code> command starts the configuration wizard. Since v0.22.0 (13 October 2026), a first-run wizard also guides the first steps.</p>\n<p>The sources we read do not detail every question the wizard asks: see the project's documentation. What we recommend deciding before opening it, so you can answer without improvising:</p>\n<ul>\n<li>the model and the account that pays for it (step 3);</li>\n<li>the execution backend (step 4);</li>\n<li>the single messaging channel you will open (step 5), or none: the terminal is enough for a first trial.</li>\n</ul>\n<h2 id=\"step-3-model\">Step 3: choose the model with hermes model</h2>\n<p>Hermes Agent does not impose a model. The README lists four connections: Nous Portal, OpenRouter, OpenAI, or a custom endpoint. The <code>hermes model</code> command switches models without switching agents.</p>\n<p>Since v0.22.0 there is another route: <strong>local models</strong>, downloaded and launched in one click through llama.cpp. The catalogue rates each model against your graphics card (GPU) and RAM. The notes cite Qwen3.8 27B, Qwen3.6 35B-A3B, DeepSeek V4 Flash, and any GGUF model published on Hugging Face.</p>\n<p><strong>Waimia recommendation for a first agent.</strong> An API under contract, with a spending cap set at the provider, to judge the agent without depending on your hardware. A local model if your data must not leave your machines, knowing that its quality on your tasks remains to be checked: we have no measurement to give you. For a model hosted on your own premises, see also the post <a href=\"/blog/ia-auto-hebergee-open-webui-pme\">self-hosted AI for SMBs</a>. What is new in v0.22 is covered in <a href=\"/blog/hermes-agent-v0-22-modeles-locaux-connecteurs\">Hermes Agent v0.22: what changes</a>.</p>\n<h2 id=\"step-4-backend\">Step 4: isolate execution with a backend</h2>\n<p>The <em>backend</em> is where the agent runs its commands. It is the setting that matters most for security. The README lists six built-in backends, and others come as plugins.</p>\n<table><thead><tr><th>Backend</th><th>Where commands run</th><th>For a first agent (Waimia view)</th></tr></thead><tbody><tr><td>Local</td><td>On the machine that hosts the agent</td><td>Avoid, except on an empty, dedicated machine</td></tr><tr><td>Docker</td><td>In a container, on the same machine</td><td>The choice we recommend to start with</td></tr><tr><td>SSH</td><td>On another machine, reached over SSH</td><td>Suitable if you have a separate machine with no data</td></tr><tr><td>Modal, Daytona, Vercel Sandbox</td><td>At a remote execution service</td><td>Data passes through that third party, under its terms</td></tr><tr><td>bubblewrap, Singularity</td><td>As plugins: bubblewrap on Linux since v0.22.4, Singularity moved to a plugin in v0.22.5</td><td>For teams already familiar with these tools</td></tr></tbody></table>\n<p>v0.22.0 made the sandbox more prominent: the <code>hermes-sandbox:desktop</code> image is used by default, and with Docker, SSH or Singularity the bot's screen, computer use and the browser run inside that sandbox rather than on the host machine. The syntax for choosing or changing a backend: see the project's documentation.</p>\n<p>A simple check, recommended by Waimia: once the backend is chosen, ask the agent to list a folder on the host machine. If it succeeds, the isolation is not what you think.</p>\n<h2 id=\"step-5-gateway\">Step 5: open a single messaging channel</h2>\n<p>The gateway connects the agent to Telegram, Discord, Slack, WhatsApp, Signal and the command line. It lets you write to it from your phone and receive the results of scheduled tasks.</p>\n<p>The README cites two protections to keep on: <strong>direct-message pairing</strong>, which filters who can talk to the agent, and <strong>command approval</strong>, which asks for your consent before running anything. The connection steps for each messaging app: see the project's documentation.</p>\n<p>Waimia recommendation: one channel to start, a dedicated account, and nobody but you in the conversation. Every message the agent reads may contain hidden instructions (known as prompt injection); fewer senders mean fewer ways in. The same logic, applied to the other open engine, is detailed in <a href=\"/blog/securiser-openclaw-checklist\">securing OpenClaw in 12 checks</a>.</p>\n<h2 id=\"step-6-first-task\">Step 6: give it a first, harmless task</h2>\n<p>The first agent must be able to get things wrong without consequences. Three examples of low-risk tasks, suggested by Waimia:</p>\n<ul>\n<li>summarise every Monday a public page you follow (a regulatory text, a list of tenders) with the Hermes scheduler, which sends the result to the platform you choose;</li>\n<li>prepare a summary from documents that are already public;</li>\n<li>draft something you review, with no automatic sending.</li>\n</ul>\n<p>Watch two things during the first weeks. <strong>Memory</strong>: the agent decides for itself what it keeps and searches its past sessions (FTS5 full-text search). <strong>Skills</strong>: after a complex task, Hermes can write a reusable method sheet, compatible with the agentskills.io standard. Review these skills like a new colleague's procedure, before they are used on a task that matters. To choose the next tasks, the free grid offered at the end of this post helps you rank them.</p>\n<h2 id=\"updates\">Update without breaking things</h2>\n<p>Since v0.22.0, updates follow a stable channel numbered according to the SemVer convention. Going back to the development branch takes an explicit command: <code>hermes update --set-channel main</code>. For an agent that works for you, do not do it: the <code>main</code> branch gets changes before they are stabilised.</p>\n<p>The pace is brisk: from v0.22.0 (13 October 2026) to v0.22.5 (notes dated 22 October, published on the 23rd), with features moved into plugins along the way (<code>hermes mcp serve</code> and the Singularity backend in v0.22.5). Our method takes four moves: read the notes of the target version; check whether a feature you use is moving; test the update on a copy; only then update the working agent. The step-by-step update procedure: see the project's documentation.</p>\n<h2 id=\"retention\">What the agent keeps, and for how long</h2>\n<p>One setting is worth knowing from day one: <code>sessions.auto_prune</code>, on by default, automatically deletes sessions that ended more than 90 days ago. It helps avoid piling up history, and gets in the way if you need to keep a record of what the agent did. Decide the retention period that suits you before the first real use and, if a record is needed, export the log elsewhere (Waimia recommendation; to change this setting, see the project's documentation).</p>\n<p>The v0.21.6 and v0.22 release notes also bring protections that work without any setting: shared telemetry is off by default, the agent's files are restricted to their owner, child processes no longer inherit adapter secrets, and Anthropic and OpenAI keys are never sent to third-party hosts.</p>\n<h2 id=\"checklist\">Before going further: eight points to tick</h2>\n<p>Waimia recommendations, to tick before giving the agent other tasks:</p>\n<ul>\n<li>The machine is dedicated to the agent and holds no company data.</li>\n<li>The backend is isolated, and the host-folder test does fail.</li>\n<li>The installed version is written down, on the stable channel.</li>\n<li>The model account has a spending cap.</li>\n<li>Only one channel is open, paired, with command approval on.</li>\n<li>No client data has been shown to the agent.</li>\n<li>The session retention period is decided, against the 90-day default.</li>\n<li>Someone is named to read release notes and apply updates.</li>\n</ul>\n<p>If any of these points fails, the agent is not ready for work. The post <a href=\"/blog/agents-ia-toujours-actifs-pme\">always-on AI agent: proprietary or open source</a> also helps you check that an open engine is the right choice, rather than a vendor agent or a custom agent.</p>\n<h2 id=\"next\">What next?</h2>\n<ul>\n<li><strong>Understand the whole engine</strong>: the <a href=\"/ressources/guides/hermes-agent\">Hermes Agent guide</a> covers how it works, security, cost and GDPR.</li>\n<li><strong>Move from trial to service</strong>: our <a href=\"/services/integration-hermes-agent\">Hermes Agent integration</a> installs the agent on a dedicated machine, isolates execution, stores secrets properly and handles updates. It is part of our <a href=\"/services/agents-ia-open-source\">open source AI agents</a>: a 10-hour scoping sprint at {{prix.sprint.en}} € excl. VAT, then {{prix.horaire}} € excl. VAT per hour.</li>\n<li><strong>Talk first</strong>: <a href=\"/contact?offer=audit-ia-pme&amp;intent=audit\">book the free audit</a>. A free 45-minute video audit. You leave with a written map and one or two ranked projects. How it works is described on the <a href=\"/audit-ia-pme\">AI audit for SMBs</a> page.</li>\n</ul>"
+    }
+  ],
+  "lead_magnet": "grille-taches-a-automatiser"
+}
