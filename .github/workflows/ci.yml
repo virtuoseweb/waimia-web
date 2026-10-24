@@ -147,6 +147,11 @@ jobs:
       - name: Gate sitemap (sitemap / robots / noindex cohérents)
         run: node scripts/check-sitemap.mjs
 
+      # Actualités : dates à la minute, NewsArticle seul sur elles, image ≥ 1 200 px, auteur,
+      # flux RSS texte complet, sitemap news déclaré dans robots.txt.
+      - name: Gate actualités (NewsArticle, flux, sitemap news)
+        run: node scripts/check-news.mjs
+
       # Config Vercel générée : un seul saut, cible 200, ni chaîne ni boucle, slash final.
       - name: Gate redirections (config Vercel générée)
         run: node scripts/check-redirects.mjs

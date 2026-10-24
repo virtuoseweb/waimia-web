@@ -70,6 +70,8 @@ interface Props {
   datePublished?: string;
   /** Date de mise à jour ISO optionnelle. */
   dateModified?: string;
+  /** Actualité : dates à la minute (ISO avec fuseau), JSON-LD NewsArticle, heure dans la signature. */
+  news?: boolean;
   /** Canonical absolue optionnelle. */
   canonical?: string;
   /** Libellé du silo (JSON-LD articleSection). */
@@ -124,6 +126,7 @@ const {
   image,
   datePublished,
   dateModified,
+  news = false,
   canonical,
   category,
   silo,
@@ -211,10 +214,14 @@ const ctaData = {
 } satisfies SectionByType<'cta-band'>;
 
 // JSON-LD Article schema · GEO/AIO indexable par crawlers LLM
+// Une actualité porte l'illustration du hero (≥ 1 200 px, vérifiée par check:news) en plus de
+// l'image Open Graph : Google choisit la mieux adaptée à chaque surface.
+const newsImages = news && illustration?.src ? [`${siteUrl}${illustration.src}`, absoluteImage] : undefined;
 const articleLd = buildArticle({
+  type: news ? 'NewsArticle' : 'Article',
   headline: title,
   description,
-  image: absoluteImage,
+  image: newsImages ?? absoluteImage,
   datePublished: datePublished ?? date,
   dateModified: dateModified ?? datePublished ?? date,
   author: {
@@ -257,7 +264,7 @@ const articleLd = buildArticle({
           </aside>
         )}
         <div class="essay-prose reveal">
-          <AuthorByline authorSlug={bylineAuthorSlug} date={publishedAt} updatedAt={dateModified} readingTime={readingTime} />
+          <AuthorByline authorSlug={bylineAuthorSlug} date={publishedAt} updatedAt={dateModified} readingTime={readingTime} showTime={news} />
           <Fragment set:html={bodyIntroHtml} />
           {midCtaData && (
             <div class="essay-mid-cta">

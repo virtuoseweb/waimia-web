@@ -12116,6 +12116,14 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/actualites",
+    "title": "Actualites",
+    "group": "autres",
+    "collection": "bespoke",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/cgv",
     "title": "Cgv",
     "group": "autres",
@@ -12998,6 +13006,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
     "routes": [
       "/_audit-site-web-intelligent",
       "/_expertise-claude",
+      "/actualites",
       "/cgv",
       "/demonstrations/_index",
       "/equipe/_index",

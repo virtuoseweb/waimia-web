@@ -36,6 +36,7 @@ import type { CollectionEntry } from 'astro:content';
 import { defineTemplate, type TemplateContext } from '@waimia/ds-kernel/templates';
 import type { SectionByType } from '@waimia/ds-kernel';
 import { localizeHref } from '../i18n';
+import { parisIso } from '../news';
 import { siloCtaText, siloLabel } from '../../data/taxonomies';
 
 /** Frontmatter typé d'un article (source de vérité = schéma `blog` de content.config.ts). */
@@ -137,7 +138,7 @@ export function resolveEssayLead(slug: string, articleId: string): EssayLeadSect
 
 /** Kicker éditorial « § Blog · <libellé du silo> ». */
 function essayKicker(data: EssayData): string {
-  return `§ Blog · ${siloLabel(data.category)}`;
+  return `§ ${data.type === 'actualite' ? 'Actualité' : 'Blog'} · ${siloLabel(data.category)}`;
 }
 
 /**
@@ -243,8 +244,15 @@ export const essayTemplate = defineTemplate<EssayContext>({
  */
 export function buildEssayProps(ctx: EssayContext) {
   const { data, lang, articleId, authorSlug, authorLabel, dateStr, readingTimeMin, headings, heroIllustration, relatedCards, relatedCasesData, relatedOffresData } = ctx;
-  const publishedISO = new Date(data.publishedAt).toISOString().slice(0, 10);
-  const modifiedISO = data.updatedAt ? new Date(data.updatedAt).toISOString().slice(0, 10) : publishedISO;
+  const news = data.type === 'actualite';
+  // Actualité : dates à la minute (ISO avec fuseau de Paris), jamais tronquées au jour.
+  const modifiedAt = data.updatedAt && data.updatedAt > data.publishedAt ? data.updatedAt : data.publishedAt;
+  const publishedISO = news ? parisIso(data.publishedAt) : new Date(data.publishedAt).toISOString().slice(0, 10);
+  const modifiedISO = news
+    ? parisIso(modifiedAt)
+    : data.updatedAt
+      ? new Date(data.updatedAt).toISOString().slice(0, 10)
+      : publishedISO;
   return {
     title: `${data.title_fr} · Waimia`,
     description: data.description_fr,
@@ -254,6 +262,7 @@ export function buildEssayProps(ctx: EssayContext) {
     date: dateStr,
     datePublished: publishedISO,
     dateModified: modifiedISO,
+    news,
     author: authorLabel,
     readingTime: `${readingTimeMin} min de lecture`,
     relatedCards,
@@ -262,7 +271,7 @@ export function buildEssayProps(ctx: EssayContext) {
     lang,
     breadcrumbItems: [
       { label: 'Accueil', href: '/' },
-      { label: 'Blog', href: '/blog' },
+      news ? { label: 'Actualités', href: '/actualites' } : { label: 'Blog', href: '/blog' },
       { label: data.title_fr },
     ],
     relatedCasesData,

@@ -49,6 +49,8 @@ interface BuildOfferInput {
 }
 
 interface BuildArticleInput {
+  /** `NewsArticle` pour les actualités datées à la minute ; `Article` par défaut. */
+  type?: 'Article' | 'NewsArticle';
   headline: string;
   description: string;
   image?: string | string[];
@@ -770,7 +772,7 @@ function buildArticle(
         : input.author;
 
   return withContext({
-    '@type': 'Article',
+    '@type': input.type ?? 'Article',
     headline: input.headline,
     description: input.description,
     ...(input.image ? { image: Array.isArray(input.image) ? input.image : [input.image] } : {}),

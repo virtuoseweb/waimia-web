@@ -7,6 +7,9 @@
 // JS pur, sans import : l'appelant fournit l'identité du site dans `site`.
 
 const ARTICLE_TYPES = new Set(['Article', 'BlogPosting', 'NewsArticle', 'TechArticle']);
+
+/** Date ISO 8601 qui porte une heure (« 2026-10-24T15:42:00+02:00 »), pas seulement un jour. */
+const hasTime = (v) => typeof v === 'string' && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}/.test(v);
 const DEAD_IMAGE = /\/og\/default\.png$/;
 
 export function typesOf(node) {
@@ -91,9 +94,16 @@ export function normalizeNode(node, ctx, site) {
     if (!out.inLanguage) out.inLanguage = ctx.lang === 'en' ? 'en-US' : 'fr-FR';
     // dateModified : la plus récente entre la donnée de la page et la date réelle du contenu.
     const day = (v) => (typeof v === 'string' && /^\d{4}-\d{2}-\d{2}/.test(v) ? v.slice(0, 10) : undefined);
-    const best = [day(out.dateModified), day(ctx.lastmod), day(out.datePublished)].filter(Boolean).sort().pop();
-    if (best) out.dateModified = best;
-    if (!out.datePublished && best) out.datePublished = best;
+    if (types.includes('NewsArticle') && hasTime(out.datePublished)) {
+      // Actualité : les dates portent l'heure et le fuseau, on ne les tronque pas au jour.
+      // dateModified = le plus récent des deux instants (jamais antérieur à la publication).
+      const t = (v) => (hasTime(v) ? new Date(v).getTime() : NaN);
+      if (!hasTime(out.dateModified) || t(out.dateModified) < t(out.datePublished)) out.dateModified = out.datePublished;
+    } else {
+      const best = [day(out.dateModified), day(ctx.lastmod), day(out.datePublished)].filter(Boolean).sort().pop();
+      if (best) out.dateModified = best;
+      if (!out.datePublished && best) out.datePublished = best;
+    }
   }
 
   if (types.includes('Course') || types.includes('WebApplication') || types.includes('SoftwareApplication')) {
