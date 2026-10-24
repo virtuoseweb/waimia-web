@@ -14961,7 +14961,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "agents-ia-open-source",
       "route": "/services/agents-ia-open-source",
       "index": 0,
-      "label": "Agents IA open source : déployés et exploités pour votre entreprise",
+      "label": "Agents IA open source pour entreprise",
       "background": "paper"
     },
     {
@@ -15051,7 +15051,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "integration-hermes-agent",
       "route": "/services/integration-hermes-agent",
       "index": 0,
-      "label": "Intégration Hermes Agent en entreprise : déploiement et exploitation",
+      "label": "Hermes Agent en entreprise",
       "background": "paper"
     },
     {
@@ -15069,7 +15069,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "integration-openclaw",
       "route": "/services/integration-openclaw",
       "index": 0,
-      "label": "Intégration OpenClaw en entreprise : sécurisation et exploitation",
+      "label": "OpenClaw en entreprise",
       "background": "paper"
     },
     {

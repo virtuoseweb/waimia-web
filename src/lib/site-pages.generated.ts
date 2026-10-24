@@ -411,7 +411,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-split-media",
-        "label": "Agents IA open source : déployés et exploités pour votre entreprise",
+        "label": "Agents IA open source pour entreprise",
         "background": "paper"
       },
       {
@@ -501,7 +501,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-split-media",
-        "label": "Intégration Hermes Agent en entreprise : déploiement et exploitation",
+        "label": "Hermes Agent en entreprise",
         "background": "paper"
       },
       {
@@ -586,7 +586,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-split-media",
-        "label": "Intégration OpenClaw en entreprise : sécurisation et exploitation",
+        "label": "OpenClaw en entreprise",
         "background": "paper"
       },
       {
