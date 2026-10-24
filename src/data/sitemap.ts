@@ -263,6 +263,7 @@ export const MM_RESOURCES: MegaMenu = {
       label: { en: 'Reading', fr: 'Lire' },
       items: [
         { href: '/blog', label: { en: 'Blog', fr: 'Blog' }, featured: true },
+        { href: '/actualites', label: { en: 'News', fr: 'Actualités' } },
         { href: '/ressources/guides/claude-pme', label: { en: 'Guide: deploying Claude in an SME', fr: 'Guide : déployer Claude en PME' } },
         { href: '/ressources/guides/claude-cowork', label: { en: 'Claude Cowork is now Claude', fr: 'Claude Cowork est désormais Claude' } },
         { href: '/ressources/guides/claude-fonctionnalites-pme', label: { en: 'Claude: features, plans and pricing', fr: 'Claude : fonctionnalités, offres et prix' } },
@@ -423,6 +424,7 @@ export const FOOTER_COLS: FooterCol[] = [
       { href: '/conformite-ia', label: { en: 'AI compliance', fr: 'Conformité IA' } },
       { href: '/cas-clients', label: { en: 'Work', fr: 'Réalisations' } },
       { href: '/blog', label: { en: 'Blog', fr: 'Blog' } },
+      { href: '/actualites', label: { en: 'News', fr: 'Actualités' } },
       { href: '/ressources', label: { en: 'Resources', fr: 'Ressources' } },
       { href: '/implantations/bordeaux', label: { en: 'Bordeaux', fr: 'Bordeaux' } },
       { href: '/implantations/montpellier', label: { en: 'Montpellier', fr: 'Montpellier' } },
@@ -489,6 +491,7 @@ export const FOOTER_LEAN: FooterCol[] = [
       footerItem('/cas-clients'),
       footerItem('/ressources'),
       footerItem('/blog'),
+      footerItem('/actualites'),
       { href: '/implantations', label: { en: 'Locations', fr: 'Implantations' } },
       footerItem('/implantations/bordeaux'),
       footerItem('/implantations/lyon'),

@@ -530,3 +530,35 @@ La référence d'avant refonte couvre 92 jours et le bilan 28 : donne les deux c
 5. Les liens entrants, une fois par mois, sans nouveau script. L'API Search Console (quatre services : Search Analytics, Sitemaps, Sites, URL Inspection, d'après https://developers.google.com/webmaster-tools/v1/api_reference_index, lu le 15 octobre 2026) n'expose ni le rapport « Liens » ni les « Actions manuelles » : la session ne les mesure pas et n'ouvre pas la console. Écris une ligne « Liens entrants » dans le bilan avec trois valeurs relevées par Simon dans Search Console (rapport Liens ; Sécurité et actions manuelles) : le nombre de domaines référents, les nouvelles ancres de spam (vente de backlinks, casino, adulte) et l'état des actions manuelles. Une valeur que Simon n'a pas fournie s'écrit `non relevé`, avec la raison, jamais estimée. Compare au relevé du mois précédent. Ne désavoue rien : `docs/seo/disavow-candidats-2026-10-13.txt` ne part à Google que sur une action manuelle constatée (`docs/audits/2026-10-13-strategie-seo-geo.md`, action 3), et cette décision revient à Simon.
 
 Si une collecte du mois manque, dis laquelle et fais le bilan sur les semaines disponibles. Aucun chiffre estimé.
+
+## 14. Actualités : publier, diffuser, suivre
+
+Depuis le 24 octobre 2026, un billet qui répond à un événement précis est une **actualité** : `type: "actualite"` dans `src/content/blog/<slug>.json`. Les autres billets restent des articles de fond.
+
+### 14.1 Publier une actualité
+
+- `publishedAt` et `updatedAt` portent l'heure et le fuseau (`2026-10-24T15:36:10+02:00`). `publishedAt` est l'instant réel de mise en ligne (heure de fusion de la PR), jamais une heure choisie. `updatedAt` change seulement quand le texte change réellement, et n'est jamais antérieur à `publishedAt` ni dans le futur.
+- Titre de 110 caractères au plus. Auteur identifié (`author`, avec sa page `/equipe/<auteur>`). Illustration `heroIllustration` d'au moins 1 200 px de large.
+- Le billet garde son URL `/blog/<slug>`. Il apparaît sur `/actualites`, dans `/actualites/rss.xml` (texte complet), dans `/sitemap-news.xml` pendant 48 heures, et porte un `NewsArticle` (jamais un `Article` en plus). Aucun autre billet n'émet de `NewsArticle`.
+- Garde-fou : `node scripts/check-news.mjs` (étape de la CI, sur le build).
+
+### 14.2 Ce qui est diffusé, et par quoi
+
+| Canal | Déclencheur | Ce qu'il fait | Limite |
+| --- | --- | --- | --- |
+| IndexNow | `.github/workflows/indexnow-deploy.yml`, après chaque déploiement de production | envoie les URL nouvelles ou au lastmod modifié (Bing, Yandex, Seznam, Naver) | Google n'y participe pas ; lastmod au jour près |
+| Sitemap news | servi à la demande, `src/pages/sitemap-news.xml.ts` | 48 dernières heures, au plus 1 000 URL | Google ne le lit que pour un site inscrit à Google Actualités (Publisher Center) |
+| Flux RSS | `/rss.xml`, `/blog/rss.xml`, `/actualites/rss.xml` | texte complet (`content:encoded`), auteur, thèmes | un flux n'est lu que par ceux qui s'y abonnent |
+| Routine hebdomadaire | dimanche soir | filet de sécurité : renvoie ce qui n'est pas parti | n'envoie rien de plus que le workflow de déploiement |
+
+### 14.3 Ce que Simon doit faire lui-même (aucune API)
+
+1. Inscrire le site dans le **Publisher Center de Google Actualités** (news.google.com/publisher-center) et y déclarer le flux `/actualites/rss.xml` : c'est la seule voie vers l'application et la page Google Actualités. Google ne garantit aucune inclusion.
+2. Dans Search Console, vérifier que les trois rapports existent (Performances : Recherche, Discover, Google Actualités). Discover n'apparaît qu'après les premières impressions.
+3. Soumettre `/sitemap-news.xml` dans Search Console (Sitemaps). La routine ne soumet que `sitemap-index.xml`.
+
+### 14.4 Suivre
+
+- `scripts/seo-routine/gsc-news.mjs` (étape `gsc-news` de la routine) relève sur 28 jours, contre les 28 précédents, les impressions et clics de `discover`, `googleNews` et `news`, par page. « Aucune donnée » est un résultat normal tant que Google ne montre pas le site : ne pas le lire comme une panne.
+- L'apparence **« À la une »** (Top stories) n'a pas de valeur dans l'API. Elle se suit à la main dans l'interface Search Console, filtre « Apparence dans les résultats de recherche » quand la propriété le propose. Ne pas inventer de chiffre à partir de l'API.
+- Lecture : une actualité qui n'a aucune impression au bout de sept jours n'est pas un échec de la technique (les trois rapports ne se remplissent que si Google la montre) ; regarder d'abord si la page est indexée (`gsc-index`), puis la position sur la requête de l'événement.

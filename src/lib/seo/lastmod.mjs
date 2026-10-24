@@ -122,6 +122,8 @@ export function loadLastmodMap(root = process.cwd()) {
     try {
       const data = JSON.parse(readFileSync(file, 'utf8'));
       bump(route, toDay(data.updatedAt) || toDay(data.publishedAt));
+      // La section /actualites change quand l'une de ses actualités change.
+      if (data.type === 'actualite') bump('/actualites', toDay(data.updatedAt) || toDay(data.publishedAt));
     } catch {
       /* JSON invalide : le build de contenu le signalera, pas ce module. */
     }

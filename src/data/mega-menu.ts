@@ -260,6 +260,14 @@ const RESSOURCES: MegaMenuSection = {
             en: 'Field notes on AI and automation.',
           },
         },
+        {
+          label: { fr: 'Actualités', en: 'News' },
+          href: '/actualites',
+          description: {
+            fr: 'Ce qui est annoncé en IA, et ce que ça change pour une PME.',
+            en: 'What is announced in AI, and what it changes for an SMB.',
+          },
+        },
       ],
       card: {
         title: { fr: 'Diagnostic de maturité IA', en: 'AI maturity diagnostic' },

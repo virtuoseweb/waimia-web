@@ -21,6 +21,10 @@ if (!s) {
     lines.push(`Search Console, 28 jours : ${k.clicks.current} clics (${k.clicks.delta >= 0 ? '+' : ''}${k.clicks.delta}), ${k.impressions.current} impressions (${k.impressions.delta >= 0 ? '+' : ''}${k.impressions.delta}), position moyenne ${k.position.current ?? 'n.d.'}.`);
   }
   if (s.indexation) lines.push(`Indexation : ${s.indexation.indexed} indexées sur ${s.indexation.inspected} inspectées, ${s.indexation.notIndexedCount} non indexées.`);
+  if (s.news) {
+    const parts = Object.entries(s.news.comparison).map(([type, c]) => `${type} ${c.hasData ? `${c.impressions.current} impressions, ${c.clicks.current} clics` : 'aucune donnée'}`);
+    lines.push(`Actualités (28 jours) : ${parts.join(' ; ')}.`);
+  }
   if (s.indexnow) lines.push(`IndexNow : ${s.indexnow.status} (${s.indexnow.sent} URL envoyées).`);
   if (s.indexingApi) {
     const i = s.indexingApi;
