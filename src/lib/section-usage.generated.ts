@@ -180,7 +180,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "comparison-duo": {
-    "count": 63,
+    "count": 66,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
@@ -206,6 +206,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/agent-support-client",
       "/services/agent-traitement-documents",
       "/services/agents-ia",
+      "/services/agents-ia-open-source",
       "/services/applications-internes",
       "/services/audit-seo-technique",
       "/services/automatisation-make",
@@ -219,7 +220,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/identite-de-marque",
       "/services/integration-chatgpt-openai",
       "/services/integration-claude",
+      "/services/integration-hermes-agent",
       "/services/integration-mistral-ai",
+      "/services/integration-openclaw",
       "/services/landing-pages-tunnels",
       "/services/naming-et-positionnement",
       "/services/portail-client",
@@ -269,7 +272,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "cta-final": {
-    "count": 64,
+    "count": 69,
     "pages": [
       "/cas-usages/centraliser-donnees",
       "/cas-usages/finance-comptabilite",
@@ -290,8 +293,10 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche",
       "/ressources/comparatifs/n8n-vs-make",
       "/ressources/comparatifs/n8n-vs-make-vs-zapier",
+      "/ressources/guides/accompagnement-ia-pme",
       "/ressources/guides/agent-ia-definition",
       "/ressources/guides/agent-sav-architecture",
+      "/ressources/guides/audit-geo-pme",
       "/ressources/guides/automatisation-factures-fournisseurs-pme",
       "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/cout-projet-ia-pme",
@@ -308,6 +313,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/agent-support-client",
       "/services/agent-traitement-documents",
       "/services/agents-ia",
+      "/services/agents-ia-open-source",
       "/services/automatisation-make",
       "/services/automatisation-n8n",
       "/services/automatisation-reseaux-sociaux",
@@ -317,6 +323,8 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/cold-email-b2b",
       "/services/crm-scoring-routing",
       "/services/donnees-reporting",
+      "/services/integration-hermes-agent",
+      "/services/integration-openclaw",
       "/services/prospection-automatisee",
       "/services/prospection-linkedin",
       "/services/reporting-automatise",
@@ -365,7 +373,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "decision-list": {
-    "count": 89,
+    "count": 92,
     "pages": [
       "/demonstrations/avant-apres",
       "/demonstrations/site-web-intelligent",
@@ -411,6 +419,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/agent-support-client",
       "/services/agent-traitement-documents",
       "/services/agents-ia",
+      "/services/agents-ia-open-source",
       "/services/applications-internes",
       "/services/audit-seo-technique",
       "/services/automatisation-make",
@@ -427,6 +436,8 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/donnees-reporting",
       "/services/identite-de-marque",
       "/services/integration-claude",
+      "/services/integration-hermes-agent",
+      "/services/integration-openclaw",
       "/services/landing-pages-tunnels",
       "/services/mvp-saas",
       "/services/naming-et-positionnement",
@@ -453,12 +464,13 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "definition-extract": {
-    "count": 48,
+    "count": 51,
     "pages": [
       "/services/agent-qualification-leads",
       "/services/agent-support-client",
       "/services/agent-traitement-documents",
       "/services/agents-ia",
+      "/services/agents-ia-open-source",
       "/services/applications-internes",
       "/services/audit-seo-technique",
       "/services/automatisation-reseaux-sociaux",
@@ -474,7 +486,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/identite-de-marque",
       "/services/integration-chatgpt-openai",
       "/services/integration-claude",
+      "/services/integration-hermes-agent",
       "/services/integration-mistral-ai",
+      "/services/integration-openclaw",
       "/services/landing-pages-tunnels",
       "/services/mvp-saas",
       "/services/naming-et-positionnement",
@@ -506,7 +520,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "deliverables-grid": {
-    "count": 55,
+    "count": 58,
     "pages": [
       "/audit-site-web-intelligent",
       "/conformite-ia",
@@ -518,6 +532,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/agent-support-client",
       "/services/agent-traitement-documents",
       "/services/agents-ia",
+      "/services/agents-ia-open-source",
       "/services/applications-internes",
       "/services/audit-seo-technique",
       "/services/automatisation-make",
@@ -535,7 +550,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/identite-de-marque",
       "/services/integration-chatgpt-openai",
       "/services/integration-claude",
+      "/services/integration-hermes-agent",
       "/services/integration-mistral-ai",
+      "/services/integration-openclaw",
       "/services/landing-pages-tunnels",
       "/services/mvp-saas",
       "/services/naming-et-positionnement",
@@ -737,7 +754,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "editorial-prose": {
-    "count": 351,
+    "count": 367,
     "pages": [
       "/audit-ia-pme",
       "/cas-usages/centraliser-donnees",
@@ -820,6 +837,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/agent-support-client",
       "/services/agent-traitement-documents",
       "/services/agents-ia",
+      "/services/agents-ia-open-source",
       "/services/applications-internes",
       "/services/audit-seo-technique",
       "/services/automatisation-make",
@@ -838,7 +856,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/identite-de-marque",
       "/services/integration-chatgpt-openai",
       "/services/integration-claude",
+      "/services/integration-hermes-agent",
       "/services/integration-mistral-ai",
+      "/services/integration-openclaw",
       "/services/landing-pages-tunnels",
       "/services/mvp-saas",
       "/services/naming-et-positionnement",
@@ -972,13 +992,14 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "eeat-panel": {
-    "count": 52,
+    "count": 55,
     "pages": [
       "/audit-ia-pme",
       "/services/agent-qualification-leads",
       "/services/agent-support-client",
       "/services/agent-traitement-documents",
       "/services/agents-ia",
+      "/services/agents-ia-open-source",
       "/services/applications-internes",
       "/services/audit-seo-technique",
       "/services/automatisation-make",
@@ -996,7 +1017,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/identite-de-marque",
       "/services/integration-chatgpt-openai",
       "/services/integration-claude",
+      "/services/integration-hermes-agent",
       "/services/integration-mistral-ai",
+      "/services/integration-openclaw",
       "/services/landing-pages-tunnels",
       "/services/mvp-saas",
       "/services/naming-et-positionnement",
@@ -1035,7 +1058,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "faq-accordion": {
-    "count": 155,
+    "count": 158,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -1134,6 +1157,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/agent-support-client",
       "/services/agent-traitement-documents",
       "/services/agents-ia",
+      "/services/agents-ia-open-source",
       "/services/applications-internes",
       "/services/audit-seo-technique",
       "/services/automatisation-make",
@@ -1152,7 +1176,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/identite-de-marque",
       "/services/integration-chatgpt-openai",
       "/services/integration-claude",
+      "/services/integration-hermes-agent",
       "/services/integration-mistral-ai",
+      "/services/integration-openclaw",
       "/services/landing-pages-tunnels",
       "/services/mvp-saas",
       "/services/naming-et-positionnement",
@@ -1252,7 +1278,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "footer-cta-band": {
-    "count": 154,
+    "count": 157,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -1352,6 +1378,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/agent-support-client",
       "/services/agent-traitement-documents",
       "/services/agents-ia",
+      "/services/agents-ia-open-source",
       "/services/applications-internes",
       "/services/audit-seo-technique",
       "/services/automatisation-make",
@@ -1370,7 +1397,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/identite-de-marque",
       "/services/integration-chatgpt-openai",
       "/services/integration-claude",
+      "/services/integration-hermes-agent",
       "/services/integration-mistral-ai",
+      "/services/integration-openclaw",
       "/services/landing-pages-tunnels",
       "/services/mvp-saas",
       "/services/naming-et-positionnement",
@@ -1532,7 +1561,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "hero-split-media": {
-    "count": 111,
+    "count": 114,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
@@ -1622,6 +1651,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/taches-a-automatiser-pme",
       "/ressources/guides/tutoriel-make-tri-emails-claude",
       "/services/agents-ia",
+      "/services/agents-ia-open-source",
       "/services/applications-internes",
       "/services/automatisation-make",
       "/services/automatisation-reseaux-sociaux",
@@ -1631,7 +1661,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/donnees-reporting",
       "/services/integration-chatgpt-openai",
       "/services/integration-claude",
+      "/services/integration-hermes-agent",
       "/services/integration-mistral-ai",
+      "/services/integration-openclaw",
       "/services/landing-pages-tunnels",
       "/services/prospection-automatisee",
       "/services/prospection-linkedin",
@@ -1720,16 +1752,14 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "lead-capture-band": {
-    "count": 46,
+    "count": 44,
     "pages": [
       "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
       "/ressources/comparatifs/claude-duet-vs-chatgpt-dots",
       "/ressources/comparatifs/formateur-ia-organisme-freelance-agence",
       "/ressources/comparatifs/hermes-agent-vs-openclaw",
       "/ressources/comparatifs/mistral-vs-claude-pme",
-      "/ressources/guides/accompagnement-ia-pme",
       "/ressources/guides/ai-act-pme-calendrier",
-      "/ressources/guides/audit-geo-pme",
       "/ressources/guides/automatisation-factures-fournisseurs-pme",
       "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/chatgpt-dots",
@@ -1907,7 +1937,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "pricing-cards": {
-    "count": 55,
+    "count": 58,
     "pages": [
       "/lp/site-web-intelligent",
       "/lp/systeme-acquisition",
@@ -1917,6 +1947,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/agent-support-client",
       "/services/agent-traitement-documents",
       "/services/agents-ia",
+      "/services/agents-ia-open-source",
       "/services/applications-internes",
       "/services/audit-seo-technique",
       "/services/automatisation-make",
@@ -1934,7 +1965,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/identite-de-marque",
       "/services/integration-chatgpt-openai",
       "/services/integration-claude",
+      "/services/integration-hermes-agent",
       "/services/integration-mistral-ai",
+      "/services/integration-openclaw",
       "/services/landing-pages-tunnels",
       "/services/mvp-saas",
       "/services/naming-et-positionnement",
@@ -1979,7 +2012,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "process-steps": {
-    "count": 63,
+    "count": 66,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/finance-comptabilite",
@@ -2035,18 +2068,21 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/taches-a-automatiser-pme",
       "/ressources/guides/tutoriel-make-tri-emails-claude",
       "/services/agents-ia",
+      "/services/agents-ia-open-source",
       "/services/automatisation-n8n",
       "/services/consultant-ia-claude",
       "/services/integration-chatgpt-openai",
       "/services/integration-claude",
+      "/services/integration-hermes-agent",
       "/services/integration-mistral-ai",
+      "/services/integration-openclaw",
       "/services/sequences-de-suivi",
       "src/content/demonstrations/integration-claude.json",
       "src/content/formations/index.json"
     ]
   },
   "proof-bar": {
-    "count": 58,
+    "count": 61,
     "pages": [
       "/lp/hub",
       "/lp/site-web-intelligent",
@@ -2057,6 +2093,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/agent-support-client",
       "/services/agent-traitement-documents",
       "/services/agents-ia",
+      "/services/agents-ia-open-source",
       "/services/applications-internes",
       "/services/audit-seo-technique",
       "/services/automatisation-make",
@@ -2075,7 +2112,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/identite-de-marque",
       "/services/integration-chatgpt-openai",
       "/services/integration-claude",
+      "/services/integration-hermes-agent",
       "/services/integration-mistral-ai",
+      "/services/integration-openclaw",
       "/services/landing-pages-tunnels",
       "/services/mvp-saas",
       "/services/naming-et-positionnement",
@@ -2131,7 +2170,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "related-cards-band": {
-    "count": 105,
+    "count": 110,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
@@ -2221,10 +2260,14 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/taches-a-automatiser-pme",
       "/ressources/guides/tutoriel-make-tri-emails-claude",
       "/services/agents-ia",
+      "/services/agents-ia-open-source",
       "/services/automatisation-make",
       "/services/base-de-connaissance-ia",
       "/services/consultant-ia-claude",
       "/services/integration-claude",
+      "/services/integration-hermes-agent",
+      "/services/integration-openclaw",
+      "/services/systemes-operationnels-ia",
       "src/content/demonstrations/integration-claude.json",
       "src/content/formations/automatisation.json",
       "src/content/formations/chatgpt.json",
