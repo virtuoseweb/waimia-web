@@ -49,7 +49,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - name: Checkout (main : l'état IndexNow le plus récent)
+      - name: "Checkout (main, pour l'état IndexNow le plus récent)"
         uses: actions/checkout@v4
         with:
           ref: main
