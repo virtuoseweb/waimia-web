@@ -112,6 +112,18 @@ const PAGES: Record<string, PageDef> = {
   '/ressources/guides/openclaw': { label_fr: 'OpenClaw 2.0 : fonctions, sécurité et usage en entreprise', label_en: 'OpenClaw 2.0: features, security and business use', kind: 'guide', topics: ['agents', 'automatisation'] },
   '/ressources/comparatifs/hermes-agent-vs-openclaw': { label_fr: 'Hermes Agent ou OpenClaw', label_en: 'Hermes Agent or OpenClaw', kind: 'comparatif', topics: ['agents', 'automatisation'] },
   '/blog/agents-ia-toujours-actifs-pme': { label_fr: 'Agent IA toujours actif : propriétaire ou open source', label_en: 'Always-on AI agents: proprietary or open source', kind: 'article', topics: ['agents', 'claude'] },
+  '/blog/claude-duet-lancement-21-octobre-2026': { label_fr: "Claude Duet est lancé : ce qu'Anthropic a annoncé", label_en: "Claude Duet is launched: what Anthropic announced", kind: 'article', topics: ['claude', 'agents'] },
+  '/blog/claude-duet-ou-claude-cowork': { label_fr: "Claude Duet ou Claude Cowork : la différence", label_en: "Claude Duet or Claude Cowork: the difference", kind: 'article', topics: ['claude', 'agents'] },
+  '/blog/claude-duet-france-acces-rgpd': { label_fr: "Claude Duet en France : accès et RGPD", label_en: "Claude Duet in France: access and GDPR", kind: 'article', topics: ['claude', 'conformite'] },
+  '/blog/chatgpt-dots-europe-disponibilite': { label_fr: "ChatGPT dots en Europe : disponibilité", label_en: "ChatGPT dots in Europe: availability", kind: 'article', topics: ['agents', 'claude'] },
+  '/blog/chatgpt-dots-regles-personnalisees-approbations': { label_fr: "ChatGPT dots : règles et approbations", label_en: "ChatGPT dots: rules and approvals", kind: 'article', topics: ['agents', 'conformite'] },
+  '/blog/chatgpt-dots-depuis-le-lancement': { label_fr: "ChatGPT dots depuis le lancement : ce qui a changé", label_en: "ChatGPT dots since launch: what has changed", kind: 'article', topics: ['agents', 'claude'] },
+  '/blog/installer-hermes-agent-premier-agent': { label_fr: "Installer Hermes Agent : un premier agent prudent", label_en: "Installing Hermes Agent: a careful first agent", kind: 'article', topics: ['agents', 'automatisation'] },
+  '/blog/hermes-agent-v0-22-modeles-locaux-connecteurs': { label_fr: "Hermes Agent v0.22 : modèles locaux et connecteurs", label_en: "Hermes Agent v0.22: local models and connectors", kind: 'article', topics: ['agents', 'automatisation'] },
+  '/blog/openclaw-2-0-migration-changements': { label_fr: "OpenClaw 2.0 : changements et migration", label_en: "OpenClaw 2.0: changes and migration", kind: 'article', topics: ['agents', 'automatisation'] },
+  '/blog/securiser-openclaw-checklist': { label_fr: "Sécuriser OpenClaw : checklist avant production", label_en: "Securing OpenClaw: pre-production checklist", kind: 'article', topics: ['agents', 'conformite'] },
+  '/blog/agent-ia-toujours-actif-missions-pme': { label_fr: "Agent IA toujours actif : sept missions pour une PME", label_en: "Always-on AI agent: seven missions for an SMB", kind: 'article', topics: ['agents', 'automatisation'] },
+  '/blog/cout-agent-ia-toujours-actif': { label_fr: "Coût d'un agent IA toujours actif", label_en: "Cost of an always-on AI agent", kind: 'article', topics: ['agents', 'conseil'] },
 
   // ── Agents IA et Claude ──
   '/services/agents-ia': { label_fr: 'Agents IA pour entreprise', label_en: 'AI agents for business', kind: 'service', topics: ['agents', 'claude'] },
