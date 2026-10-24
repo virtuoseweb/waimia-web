@@ -1,0 +1,743 @@
+{
+  "$schema": "../../../schemas/generated/services.page.schema.json",
+  "title_fr": "Agents IA open source pour entreprise : Hermes Agent, OpenClaw · Waimia",
+  "seoTitle_fr": "Agence agents IA open source : Hermes Agent, OpenClaw",
+  "title_en": "Open source AI agents for business: Hermes Agent, OpenClaw · Waimia",
+  "seoTitle_en": "Open source AI agent agency: Hermes Agent, OpenClaw",
+  "description_fr": "Agents IA open source : Waimia choisit Hermes Agent ou OpenClaw, le déploie isolé, le branche à vos outils et l'exploite. Cadrage {{prix.sprint}} € HT.",
+  "description_en": "Open source AI agents: Waimia picks Hermes Agent or OpenClaw, deploys it isolated, wires it to your tools and runs it. Scoping €{{prix.sprint.en}} excl. VAT.",
+  "slug": "agents-ia-open-source",
+  "publishedAt": "2026-10-24T00:00:00.000Z",
+  "updatedAt": "2026-10-24",
+  "category": "agents",
+  "tags": [
+    "agents-ia-open-source",
+    "hermes-agent",
+    "openclaw",
+    "agent-ia-auto-heberge",
+    "deploiement-agent-ia",
+    "agent-ia-entreprise"
+  ],
+  "sources": [
+    {
+      "name": "Nous Research, Hermes Agent : dépôt GitHub et README (lus le 24 octobre 2026)",
+      "url": "https://github.com/NousResearch/hermes-agent",
+      "type": "enterprise"
+    },
+    {
+      "name": "Nous Research, Hermes Agent : notes de version v0.21.6 à v0.22.5 (lues le 24 octobre 2026)",
+      "url": "https://github.com/NousResearch/hermes-agent/releases",
+      "type": "enterprise",
+      "publishedAt": "2026-10-22"
+    },
+    {
+      "name": "OpenClaw Foundation, OpenClaw : dépôt GitHub et README (lus le 24 octobre 2026)",
+      "url": "https://github.com/openclaw/openclaw",
+      "type": "enterprise"
+    },
+    {
+      "name": "OpenClaw : notes de version 2026.8.1 à 2026.10.7 (lues le 24 octobre 2026)",
+      "url": "https://github.com/openclaw/openclaw/releases",
+      "type": "enterprise",
+      "publishedAt": "2026-10-24"
+    },
+    {
+      "name": "OpenClaw : issue n° 7827, modèle de confiance et bac à sable (3 février au 7 mars 2026)",
+      "url": "https://github.com/openclaw/openclaw/issues/7827",
+      "type": "enterprise",
+      "publishedAt": "2026-02-03"
+    }
+  ],
+  "seo": {
+    "noindex": false,
+    "serviceType": "Déploiement et exploitation d'agents IA open source (Hermes Agent, OpenClaw) pour PME",
+    "priceRange": "dès {{prix.sprint}} €",
+    "priceMin": 999
+  },
+  "faq_fr": [
+    {
+      "q": "Agent IA open source : c'est quoi ?",
+      "a": "Un agent IA construit sur un moteur dont le code est public et réutilisable, comme Hermes Agent (Nous Research) ou OpenClaw (OpenClaw Foundation), tous deux sous licence MIT. Le moteur s'installe sur une machine que vous contrôlez, appelle le modèle de votre choix et agit dans vos outils. Le logiciel est gratuit ; l'isolation, les droits, le journal et les mises à jour restent à organiser, et c'est ce que nous prenons en charge."
+    },
+    {
+      "q": "Hermes Agent ou OpenClaw : lequel choisir pour une entreprise ?",
+      "a": "Cela dépend de vos canaux, du nombre d'utilisateurs et du besoin d'apprentissage. OpenClaw couvre plus de messageries, dont Teams et iMessage, mais son bac à sable est désactivé par défaut et il suppose un seul opérateur de confiance. Hermes Agent mise sur la mémoire et les skills, et isole son exécution par défaut depuis sa v0.22.0. Nous tranchons au cadrage, et parfois la réponse est : aucun des deux."
+    },
+    {
+      "q": "Combien coûte un agent IA open source déployé par Waimia ?",
+      "a": "Le logiciel est gratuit. La conception démarre par un sprint de cadrage à {{prix.sprint}} € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure en régie pour le déploiement et l'exploitation. S'ajoutent le modèle (à l'usage par API, ou le matériel pour un modèle local), la machine ou l'hébergement et les services connectés, facturés par leurs fournisseurs. Nous estimons ces postes avant le lancement."
+    },
+    {
+      "q": "Un agent IA auto-hébergé protège-t-il mieux nos données ?",
+      "a": "Il vous laisse choisir par où elles passent, ce qui n'est pas la même chose. OpenClaw garde son état, sa mémoire et ses identifiants sur votre matériel ; Hermes Agent peut faire tourner un modèle local. Mais avec un modèle par API, le texte des demandes part chez le fournisseur, et chaque messagerie connectée a ses propres règles. Nous cartographions ces flux avant le déploiement, pour votre registre RGPD."
+    },
+    {
+      "q": "Peut-on ouvrir un agent open source à nos clients ou à toute l'équipe ?",
+      "a": "Pas tel quel. Les mainteneurs d'OpenClaw décrivent un assistant personnel avec un seul opérateur de confiance, sans isolation entre utilisateurs, et les sources lues sur Hermes Agent ne décrivent pas d'usage multi-utilisateur. Nous déployons donc un agent par personne ou par mission, avec des accès séparés. Pour répondre à vos clients, un agent sur mesure dédié à cette seule mission est plus sûr."
+    },
+    {
+      "q": "Qui s'occupe des mises à jour et de la sécurité ?",
+      "a": "Nous, en régie, ou votre équipe si vous préférez reprendre la main : la documentation remise est faite pour cela. Ces projets publient vite : Hermes Agent est passé de la v0.22.0 à la v0.22.5 entre le 13 et le 22 octobre 2026, OpenClaw a publié deux versions en deux jours. Chaque mois, nous relisons les notes de version, testons la mise à jour hors production, puis l'appliquons."
+    },
+    {
+      "q": "Combien de temps pour mettre un agent open source en production ?",
+      "a": "Comptez le sprint de cadrage, puis quelques semaines selon le nombre d'outils à connecter et le niveau d'isolation exigé. Le premier agent est volontairement étroit : une mission, un canal, des outils en lecture seule. On élargit ensuite, une fois le journal relu et les corrections humaines mesurées sur vos vrais cas."
+    },
+    {
+      "q": "Peut-on changer de moteur ou de modèle plus tard ?",
+      "a": "Oui, c'est l'un des intérêts d'un moteur ouvert. Hermes Agent change de modèle avec la commande hermes model, et OpenClaw traite les modèles comme des plugins interchangeables. Côté moteur, Hermes Agent annonce depuis sa v0.22.5 une migration depuis OpenClaw. Comptes de service, droits et règles de validation restent à refaire : nous les documentons hors de l'agent pour que le changement reste un chantier borné."
+    },
+    {
+      "q": "Avez-vous déjà déployé Hermes Agent ou OpenClaw chez un client ?",
+      "a": "Nous n'avons pas de cas client à citer sur ces deux moteurs, et cette page ne présente aucun résultat mesuré. Ce que nous apportons, c'est la méthode de nos autres agents : un agent par mission, validation humaine, journal, documentation remise. Les recommandations de cette page s'appuient sur la documentation et les notes de version des deux projets, lues le 24 octobre 2026."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Open source AI agent: what is it?",
+      "a": "An AI agent built on an engine whose code is public and reusable, such as Hermes Agent (Nous Research) or OpenClaw (OpenClaw Foundation), both under the MIT licence. The engine is installed on a machine you control, calls the model of your choice and acts in your tools. The software is free; isolation, rights, the log and updates still have to be organised, and that is what we take on."
+    },
+    {
+      "q": "Hermes Agent or OpenClaw: which one for a company?",
+      "a": "It depends on your channels, the number of users and the need for learning. OpenClaw covers more messaging apps, including Teams and iMessage, but its sandbox is off by default and it assumes a single trusted operator. Hermes Agent bets on memory and skills, and isolates its execution by default since v0.22.0. We decide at scoping, and sometimes the answer is: neither."
+    },
+    {
+      "q": "How much does an open source AI agent deployed by Waimia cost?",
+      "a": "The software is free. Design starts with a scoping sprint at €{{prix.sprint.en}} excl. VAT for 10 hours, then €{{prix.horaire}} per hour excl. VAT on a time and materials basis for deployment and operations. Add the model (pay-as-you-go through an API, or hardware for a local model), the machine or hosting and connected services, billed by their providers. We estimate these items before launch."
+    },
+    {
+      "q": "Does a self-hosted AI agent protect our data better?",
+      "a": "It lets you choose where the data goes, which is not the same thing. OpenClaw keeps its state, memory and credentials on your hardware; Hermes Agent can run a local model. But with a model through an API, the text of each request goes to the provider, and every connected messaging app has its own rules. We map these flows before deployment, for your GDPR register."
+    },
+    {
+      "q": "Can an open source agent be opened to our customers or the whole team?",
+      "a": "Not as is. OpenClaw's maintainers describe a personal assistant with a single trusted operator, with no isolation between users, and the sources read on Hermes Agent do not describe multi-user use. So we deploy one agent per person or per mission, with separate access. To answer your customers, a custom agent dedicated to that single mission is safer."
+    },
+    {
+      "q": "Who handles updates and security?",
+      "a": "We do, on a time and materials basis, or your team if you prefer to take over: the documentation we hand over is made for that. These projects ship fast: Hermes Agent went from v0.22.0 to v0.22.5 between 13 and 22 October 2026, and OpenClaw published two versions in two days. Every month we read the release notes, test the update outside production, then apply it."
+    },
+    {
+      "q": "How long does it take to put an open source agent into production?",
+      "a": "Allow for the scoping sprint, then a few weeks depending on the number of tools to connect and the level of isolation required. The first agent is deliberately narrow: one mission, one channel, read-only tools. We widen afterwards, once the log has been reviewed and human corrections measured on your real cases."
+    },
+    {
+      "q": "Can we change engine or model later?",
+      "a": "Yes, that is one of the benefits of an open engine. Hermes Agent switches model with the hermes model command, and OpenClaw treats models as interchangeable plugins. On the engine side, Hermes Agent has announced a migration from OpenClaw since v0.22.5. Service accounts, rights and approval rules still have to be redone: we document them outside the agent so the change stays a bounded project."
+    },
+    {
+      "q": "Have you already deployed Hermes Agent or OpenClaw for a client?",
+      "a": "We have no client case to cite on these two engines, and this page presents no measured result. What we bring is the method of our other agents: one agent per mission, human approval, a log, documentation handed over. The recommendations on this page rest on the documentation and release notes of both projects, read on 24 October 2026."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "illustration": {
+        "src": "/images/illustrations/ds/paris-v3-machines-paper.webp",
+        "alt_fr": "Illustration : une rangée de machines bâchées ; une seule, découverte, fume et tourne pendant qu'une personne actionne sa roue",
+        "alt_en": "Illustration: a row of covered machines; only one is uncovered, smoking and running while a person turns its wheel",
+        "side": "right"
+      },
+      "kicker_fr": "§ Agents IA open source",
+      "kicker_en": "§ Open source AI agents",
+      "h1_fr": "Agents IA open source : <i class=\"acc\">déployés et exploités</i> pour votre entreprise",
+      "h1_en": "Open source AI agents: <i class=\"acc\">deployed and run</i> for your business",
+      "lede_fr": "Hermes Agent et OpenClaw sont des moteurs d'agent IA open source, gratuits et sous licence MIT, mais pas des produits clés en main. Waimia choisit le moteur avec vous, le déploie isolé sur une machine que vous contrôlez, le branche à vos outils avec des droits minimaux, puis l'exploite : validation humaine, journal, mises à jour testées.",
+      "lede_en": "Hermes Agent and OpenClaw are open source AI agent engines, free and MIT-licensed, but not turnkey products. Waimia chooses the engine with you, deploys it isolated on a machine you control, wires it to your tools with minimal rights, then runs it: human approval, a log, tested updates.",
+      "badges": [
+        {
+          "label_fr": "Hermes Agent ou OpenClaw",
+          "label_en": "Hermes Agent or OpenClaw"
+        },
+        {
+          "label_fr": "Bac à sable et droits minimaux",
+          "label_en": "Sandbox and minimal rights"
+        },
+        {
+          "label_fr": "Validation humaine",
+          "label_en": "Human approval"
+        },
+        {
+          "label_fr": "Faits lus le 24 octobre 2026",
+          "label_en": "Facts read on 24 October 2026"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver l'audit gratuit →",
+        "label_en": "Book the free audit →",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Moteur nu ou déployé : la différence",
+        "label_en": "Bare or deployed engine: the difference",
+        "href": "#moteur-nu-ou-deploye",
+        "variant": "ghost"
+      }
+    },
+    {
+      "type": "proof-bar",
+      "background": "paper",
+      "kicker_fr": "§ En bref",
+      "kicker_en": "§ In short",
+      "metrics": [
+        {
+          "value": "{{prix.sprint}} € HT",
+          "label_fr": "sprint de cadrage de 10 h, puis {{prix.horaire}} € HT de l'heure",
+          "label_en": "10-hour scoping sprint, then €{{prix.horaire}} per hour excl. VAT",
+          "emphasis": true
+        },
+        {
+          "value": "Hermes Agent · OpenClaw",
+          "label_fr": "les deux moteurs ouverts, choisis selon vos canaux, vos utilisateurs et vos données",
+          "label_en": "the two open engines, chosen for your channels, users and data",
+          "emphasis": false
+        },
+        {
+          "value": "MIT",
+          "label_fr": "licence des deux moteurs : logiciel gratuit, exploitation à prévoir",
+          "label_en": "licence of both engines: free software, operations to plan for",
+          "emphasis": false
+        },
+        {
+          "value": "À vous",
+          "label_fr": "agents, accès et documentation, sur vos comptes",
+          "label_en": "agents, access and documentation, on your accounts",
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "type": "definition-extract",
+      "background": "paper",
+      "kicker_fr": "§ Définition",
+      "kicker_en": "§ Definition",
+      "statement_fr": "Un <i class=\"acc\">agent IA open source</i> est un agent construit sur un moteur dont le code est public, comme Hermes Agent ou OpenClaw. Waimia l'installe sur une infrastructure que vous contrôlez, l'isole dans un bac à sable, le relie à vos outils avec des droits limités à sa mission et l'exploite dans la durée, journal et validation humaine compris.",
+      "statement_en": "An <i class=\"acc\">open source AI agent</i> is an agent built on an engine whose code is public, such as Hermes Agent or OpenClaw. Waimia installs it on infrastructure you control, isolates it in a sandbox, connects it to your tools with rights limited to its mission and runs it over time, log and human approval included.",
+      "pills": [
+        {
+          "label_fr": "Moteur ouvert, licence MIT",
+          "label_en": "Open engine, MIT licence"
+        },
+        {
+          "label_fr": "Machine que vous contrôlez",
+          "label_en": "Machine you control"
+        },
+        {
+          "label_fr": "Bac à sable activé",
+          "label_en": "Sandbox switched on"
+        },
+        {
+          "label_fr": "Validation humaine",
+          "label_en": "Human approval"
+        },
+        {
+          "label_fr": "Journal des actions",
+          "label_en": "Action log"
+        }
+      ],
+      "specs": [
+        {
+          "label_fr": "Hermes Agent (Nous Research)",
+          "label_en": "Hermes Agent (Nous Research)"
+        },
+        {
+          "label_fr": "OpenClaw (OpenClaw Foundation)",
+          "label_en": "OpenClaw (OpenClaw Foundation)"
+        },
+        {
+          "label_fr": "Claude, OpenAI, Mistral ou modèle local",
+          "label_en": "Claude, OpenAI, Mistral or local model"
+        },
+        {
+          "label_fr": "Connecteurs MCP, API, n8n",
+          "label_en": "MCP connectors, APIs, n8n"
+        },
+        {
+          "label_fr": "Docker ou autre backend isolé",
+          "label_en": "Docker or another isolated backend"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "figures": [],
+      "html_fr": "<h2>Pourquoi un moteur ouvert, et quand ne pas en prendre</h2>\n<p>Un <strong>moteur d'agent</strong> est le logiciel qui fait tourner l'agent : il reçoit une demande, appelle un modèle de langage, choisit un outil, exécute et garde la trace. Avec un moteur ouvert, ce logiciel s'installe chez vous et son code se lit. Avec un agent d'éditeur, il tourne chez l'éditeur. Trois raisons justifient le premier choix en entreprise.</p>\n<ul>\n<li><strong>Les données restent sur une infrastructure que vous maîtrisez.</strong> OpenClaw garde son état, sa mémoire et ses identifiants sur votre matériel, et sa télémétrie se limite à une vérification quotidienne de version, sauf accord explicite. Hermes Agent fait tourner un modèle local via llama.cpp depuis sa v0.22.0 (13 octobre 2026) : les demandes ne partent alors chez aucun fournisseur de modèle.</li>\n<li><strong>Le modèle se change sans changer d'agent.</strong> Hermes Agent se branche sur Nous Portal, OpenRouter, OpenAI ou un point d'accès personnalisé, et la commande <code>hermes model</code> passe de l'un à l'autre. Chez OpenClaw, les modèles sont des plugins interchangeables. Vos consignes, vos connecteurs et votre journal survivent au changement. Quand Claude est le modèle retenu, nous nous appuyons sur notre <a href=\"/services/integration-claude\">intégration de Claude en entreprise</a>.</li>\n<li><strong>Pas d'abonnement d'éditeur.</strong> Les deux moteurs sont sous licence MIT. OpenClaw est gouverné par l'OpenClaw Foundation, une association indépendante qui ne vend rien. Pour Hermes Agent, Nous Research propose une option hébergée payante selon des sources tierces : vérifiez-la chez l'éditeur avant tout achat.</li>\n</ul>\n<p>Deux mauvaises raisons reviennent aussi. « C'est gratuit » : le logiciel l'est, l'agent non. Vous payez le modèle (à l'usage par API, ou le matériel pour un modèle local), la machine ou l'hébergement, les services connectés et surtout le temps d'exploitation, le poste le plus souvent oublié. Le guide <a href=\"/ressources/guides/combien-coute-un-agent-ia-pme\">combien coûte un agent IA pour une PME</a> détaille ces postes, et le billet <a href=\"/blog/ia-auto-hebergee-open-webui-pme\">IA auto-hébergée en PME</a> traite l'autre bout de la chaîne, le modèle qui tourne chez vous. « Tout le monde en parle » : un moteur qui publie plusieurs versions par semaine n'est pas un choix de mode, c'est un logiciel à suivre.</p>\n<p>Les situations où un moteur ouvert n'est pas la bonne réponse sont listées plus bas. Les autres voies ont leur page : une <a href=\"/services/automatisation-n8n\">automatisation n8n</a> quand la règle est fixe, les agents d'éditeur dans le <a href=\"/ressources/comparatifs/claude-duet-vs-chatgpt-dots\">comparatif Claude Duet et ChatGPT dots</a>, un <a href=\"/services/agents-ia\">agent IA sur mesure</a> quand la mission est étroite. Le billet <a href=\"/blog/agents-ia-toujours-actifs-pme\">agent IA toujours actif : propriétaire ou open source</a> pose le choix d'ensemble.</p>",
+      "html_en": "<h2>Why an open engine, and when not to take one</h2>\n<p>An <strong>agent engine</strong> is the software that runs the agent: it receives a request, calls a language model, picks a tool, executes and keeps a trace. With an open engine, that software is installed on your side and its code can be read. With a vendor agent, it runs at the vendor's. Three reasons justify the first choice in a company.</p>\n<ul>\n<li><strong>Data stays on infrastructure you control.</strong> OpenClaw keeps its state, memory and credentials on your hardware, and its telemetry is limited to a daily version check unless you explicitly opt in. Hermes Agent runs a local model through llama.cpp since v0.22.0 (13 October 2026): requests then go to no model provider at all.</li>\n<li><strong>You change model without changing agent.</strong> Hermes Agent plugs into Nous Portal, OpenRouter, OpenAI or a custom endpoint, and the <code>hermes model</code> command switches between them. In OpenClaw, models are interchangeable plugins. Your instructions, connectors and log survive the change. When Claude is the chosen model, we build on our <a href=\"/services/integration-claude\">Claude integration for companies</a>.</li>\n<li><strong>No vendor subscription.</strong> Both engines are MIT-licensed. OpenClaw is governed by the OpenClaw Foundation, an independent non-profit that sells nothing. For Hermes Agent, Nous Research offers a paid hosted option according to third-party sources: check it with the vendor before buying.</li>\n</ul>\n<p>Two bad reasons also come up. \"It's free\": the software is, the agent is not. You pay for the model (pay-as-you-go through an API, or hardware for a local model), the machine or hosting, connected services and above all operations time, the most often forgotten item. The guide <a href=\"/ressources/guides/combien-coute-un-agent-ia-pme\">how much an AI agent costs an SMB</a> details these items, and the article <a href=\"/blog/ia-auto-hebergee-open-webui-pme\">self-hosted AI in SMBs</a> covers the other end of the chain, the model running on your side. \"Everyone is talking about it\": an engine that ships several versions a week is not a fashion choice, it is software to keep up with.</p>\n<p>The situations where an open engine is not the right answer are listed below. The other routes have their own page: an <a href=\"/services/automatisation-n8n\">n8n automation</a> when the rule is fixed, vendor agents in the <a href=\"/ressources/comparatifs/claude-duet-vs-chatgpt-dots\">Claude Duet vs ChatGPT dots comparison</a>, a <a href=\"/services/agents-ia\">custom AI agent</a> when the mission is narrow. The article <a href=\"/blog/agents-ia-toujours-actifs-pme\">always-on AI agents: proprietary or open source</a> sets out the overall choice.</p>"
+    },
+    {
+      "type": "comparison-duo",
+      "anchor": "moteur-nu-ou-deploye",
+      "background": "paper",
+      "kicker_fr": "§ Moteur nu ou moteur déployé",
+      "kicker_en": "§ Bare engine or deployed engine",
+      "h2_fr": "Le même moteur ouvert, installé tel quel ou déployé par Waimia",
+      "h2_en": "The same open engine, installed as is or deployed by Waimia",
+      "without_label_fr": "Moteur nu",
+      "without_label_en": "Bare engine",
+      "without_title_fr": "Installé tel quel, réglages par défaut",
+      "without_title_en": "Installed as is, default settings",
+      "without_items": [
+        {
+          "text_fr": "OpenClaw : bac à sable désactivé par défaut, les outils de la session principale tournent sur la machine hôte.",
+          "text_en": "OpenClaw: sandbox off by default, the main session's tools run on the host machine."
+        },
+        {
+          "text_fr": "OpenClaw : un modèle de confiance à un seul opérateur, sans isolation entre utilisateurs (issue n° 7827).",
+          "text_en": "OpenClaw: a single-trusted-operator model, with no isolation between users (issue no. 7827)."
+        },
+        {
+          "text_fr": "Hermes Agent : v0.22.5 au 24 octobre 2026, pas encore de version 1.0, un logiciel jeune.",
+          "text_en": "Hermes Agent: v0.22.5 on 24 October 2026, no version 1.0 yet, young software."
+        },
+        {
+          "text_fr": "Des versions rapprochées : 2026.10.6 puis 2026.10.7 en deux jours chez OpenClaw, la 2026.10.6 exigeant un runtime Node corrigé.",
+          "text_en": "Closely spaced releases: 2026.10.6 then 2026.10.7 two days apart at OpenClaw, 2026.10.6 requiring a patched Node runtime."
+        },
+        {
+          "text_fr": "Hermes Agent supprime par défaut les sessions terminées depuis plus de 90 jours (sessions.auto_prune).",
+          "text_en": "Hermes Agent deletes sessions ended more than 90 days ago by default (sessions.auto_prune)."
+        },
+        {
+          "text_fr": "Personne de nommé pour les mises à jour, aucune procédure écrite pour arrêter l'agent.",
+          "text_en": "Nobody named for updates, no written procedure to stop the agent."
+        }
+      ],
+      "with_label_fr": "Déployé par Waimia",
+      "with_label_en": "Deployed by Waimia",
+      "with_title_fr": "Isolé, encadré, exploité",
+      "with_title_en": "Isolated, controlled, operated",
+      "with_items": [
+        {
+          "text_fr": "Machine dédiée, bac à sable ou conteneur activé puis vérifié par une commande de test.",
+          "text_en": "Dedicated machine, sandbox or container switched on, then checked with a test command."
+        },
+        {
+          "text_fr": "Un compte de service par outil, des droits limités à la mission, les secrets dans un coffre.",
+          "text_en": "One service account per tool, rights limited to the mission, secrets in a vault."
+        },
+        {
+          "text_fr": "Validation humaine avant tout envoi, paiement, signature ou suppression.",
+          "text_en": "Human approval before any sending, payment, signature or deletion."
+        },
+        {
+          "text_fr": "Journal de chaque action conservé hors de l'agent, durée de conservation décidée par vous.",
+          "text_en": "A log of every action kept outside the agent, retention period decided by you."
+        },
+        {
+          "text_fr": "Plafond de dépense posé chez le fournisseur du modèle.",
+          "text_en": "A spending cap set with the model provider."
+        },
+        {
+          "text_fr": "Notes de version relues chaque mois, mises à jour testées hors production avant d'être appliquées.",
+          "text_en": "Release notes read every month, updates tested outside production before being applied."
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "figures": [],
+      "html_fr": "<h2>Hermes Agent ou OpenClaw : comment on choisit</h2>\n<p>Au cadrage, nous ne partons pas du moteur mais de la mission. Quatre questions départagent ensuite les deux moteurs. Les faits cités viennent de leurs dépôts GitHub et de leurs notes de version, lus le 24 octobre 2026 : vérifiez-les avant toute installation, ces projets changent chaque semaine.</p>\n<h3>1. Sur quels canaux l'agent doit-il répondre ?</h3>\n<p>OpenClaw passe par Discord, iMessage, Slack, Teams, Telegram, WhatsApp et plus de vingt autres messageries, avec des applications natives sur macOS, iOS, Android, Windows et Linux. La passerelle de Hermes Agent couvre Telegram, Discord, Slack, WhatsApp, Signal et la ligne de commande. Si vos équipes travaillent dans Teams ou iMessage, seul OpenClaw les liste.</p>\n<h3>2. Combien de personnes lui parleront ?</h3>\n<p>Les mainteneurs d'OpenClaw décrivent un modèle de confiance à un seul opérateur, sans isolation entre utilisateurs (issue n° 7827, fermée le 7 mars 2026). Les sources lues sur Hermes Agent ne décrivent pas de modèle multi-utilisateur. Dans les deux cas, nous déployons un agent par personne ou par mission, chacun avec ses accès, jamais un agent commun à toute l'équipe.</p>\n<h3>3. L'agent doit-il apprendre d'une fois sur l'autre ?</h3>\n<p>C'est le point fort de Hermes Agent : il crée des <em>skills</em> (des fiches de méthode réutilisables) après les tâches complexes, garde une mémoire et cherche dans ses sessions passées. Utile pour une veille ou un compte rendu récurrent. La contrepartie : ce qu'il apprend doit être relu, et les sessions terminées depuis plus de 90 jours sont supprimées par défaut.</p>\n<h3>4. Quel niveau d'isolation au départ ?</h3>\n<p>Depuis sa v0.22.0, Hermes Agent utilise par défaut l'image <code>hermes-sandbox:desktop</code> : avec Docker, SSH ou Singularity, le navigateur et l'utilisation de l'ordinateur tournent dans le bac à sable, pas sur la machine hôte. Chez OpenClaw, le bac à sable est à activer soi-même, et la Gateway, le service central, reste sur l'hôte même une fois l'isolation en place. Les deux se durcissent ; OpenClaw demande plus de réglages au départ.</p>\n<p>Le choix n'est pas définitif. Les notes de la v0.22.5 de Hermes Agent (22 octobre 2026) annoncent une migration depuis OpenClaw, avec la commande <code>hermes import-agent</code>. Ce qui ne migre pas seul, ce sont les branchements : comptes de service, droits, secrets, règles de validation. Nous les documentons hors de l'agent, pour qu'un changement de moteur reste un chantier borné.</p>\n<p>Chaque moteur a sa page de service : l'<a href=\"/services/integration-hermes-agent\">intégration de Hermes Agent</a> et l'<a href=\"/services/integration-openclaw\">intégration d'OpenClaw</a>. Les faits détaillés, version par version, sont dans les guides <a href=\"/ressources/guides/hermes-agent\">Hermes Agent</a> et <a href=\"/ressources/guides/openclaw\">OpenClaw</a>, et le face-à-face critère par critère dans le comparatif <a href=\"/ressources/comparatifs/hermes-agent-vs-openclaw\">Hermes Agent ou OpenClaw</a>. Pour savoir si l'un des deux a sa place chez vous, commencez par l'<a href=\"/audit-ia-pme\">audit IA gratuit</a> : 45 minutes en visio, sans engagement.</p>",
+      "html_en": "<h2>Hermes Agent or OpenClaw: how we choose</h2>\n<p>At scoping, we start from the mission, not the engine. Four questions then separate the two engines. The facts cited come from their GitHub repositories and release notes, read on 24 October 2026: check them before any installation, these projects change every week.</p>\n<h3>1. On which channels must the agent answer?</h3>\n<p>OpenClaw works through Discord, iMessage, Slack, Teams, Telegram, WhatsApp and more than twenty other messaging apps, with native apps on macOS, iOS, Android, Windows and Linux. Hermes Agent's gateway covers Telegram, Discord, Slack, WhatsApp, Signal and the command line. If your teams work in Teams or iMessage, only OpenClaw lists them.</p>\n<h3>2. How many people will talk to it?</h3>\n<p>OpenClaw's maintainers describe a single-trusted-operator trust model, with no isolation between users (issue no. 7827, closed on 7 March 2026). The sources read on Hermes Agent do not describe a multi-user model. In both cases, we deploy one agent per person or per mission, each with its own access, never one agent shared by the whole team.</p>\n<h3>3. Must the agent learn from one time to the next?</h3>\n<p>That is Hermes Agent's strength: it creates <em>skills</em> (reusable method sheets) after complex tasks, keeps a memory and searches its past sessions. Useful for recurring monitoring or a recurring report. The trade-off: what it learns must be reviewed, and sessions ended more than 90 days ago are deleted by default.</p>\n<h3>4. What level of isolation from the start?</h3>\n<p>Since v0.22.0, Hermes Agent uses the <code>hermes-sandbox:desktop</code> image by default: with Docker, SSH or Singularity, the browser and computer use run inside the sandbox, not on the host machine. In OpenClaw, you switch the sandbox on yourself, and the Gateway, the central service, stays on the host even once isolation is in place. Both can be hardened; OpenClaw needs more settings at the start.</p>\n<p>The choice is not final. The Hermes Agent v0.22.5 notes (22 October 2026) announce a migration from OpenClaw, with the <code>hermes import-agent</code> command. What does not migrate on its own is the wiring: service accounts, rights, secrets, approval rules. We document them outside the agent, so a change of engine stays a bounded project.</p>\n<p>Each engine has its own service page: <a href=\"/services/integration-hermes-agent\">Hermes Agent integration</a> and <a href=\"/services/integration-openclaw\">OpenClaw integration</a>. The detailed facts, version by version, are in the <a href=\"/ressources/guides/hermes-agent\">Hermes Agent</a> and <a href=\"/ressources/guides/openclaw\">OpenClaw</a> guides, and the criterion-by-criterion head-to-head in the <a href=\"/ressources/comparatifs/hermes-agent-vs-openclaw\">Hermes Agent vs OpenClaw</a> comparison. To find out whether either belongs in your company, start with the <a href=\"/audit-ia-pme\">free AI audit</a>: 45 minutes by video call, no commitment.</p>"
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper",
+      "kicker_fr": "§ Un service par moteur",
+      "kicker_en": "§ One service per engine",
+      "cards": [
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Intégration Hermes Agent",
+          "title_en": "Hermes Agent integration",
+          "lead_fr": "L'agent qui apprend, déployé dans un backend isolé et branché à vos outils.",
+          "lead_en": "The agent that learns, deployed in an isolated backend and wired to your tools.",
+          "href": "/services/integration-hermes-agent"
+        },
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Intégration OpenClaw",
+          "title_en": "OpenClaw integration",
+          "lead_fr": "L'assistant présent sur vos messageries, durci avant toute mise en service.",
+          "lead_en": "The assistant present in your messaging apps, hardened before going live.",
+          "href": "/services/integration-openclaw"
+        }
+      ]
+    },
+    {
+      "type": "process-steps",
+      "background": "paper-2",
+      "kicker_fr": "§ Méthode Waimia",
+      "kicker_en": "§ Waimia method",
+      "h2_fr": "Déployer un agent IA open source en cinq étapes",
+      "h2_en": "Deploying an open source AI agent in five steps",
+      "intro_fr": "Notre méthode, tirée de la documentation et des notes de version des deux moteurs lues le 24 octobre 2026. Ce sont des recommandations, pas des résultats mesurés. Le cadrage est un sprint à prix fixe ; la suite se chiffre avec vous.",
+      "intro_en": "Our method, drawn from the documentation and release notes of both engines read on 24 October 2026. These are recommendations, not measured results. Scoping is a fixed-price sprint; what follows is quoted with you.",
+      "steps": [
+        {
+          "title_fr": "Cadrer la mission et choisir le moteur",
+          "title_en": "Scope the mission and choose the engine",
+          "meta_fr": "Sprint de cadrage",
+          "meta_en": "Scoping sprint",
+          "body_fr": "Une mission écrite : ce que l'agent fait seul, ce qu'il vous soumet, ce qu'il ne touche jamais. Puis le moteur, d'après vos canaux, le nombre d'utilisateurs et la sensibilité des données : Hermes Agent, OpenClaw, ou aucun des deux si une autre voie est plus simple.",
+          "body_en": "A written mission: what the agent does alone, what it submits to you, what it never touches. Then the engine, based on your channels, the number of users and data sensitivity: Hermes Agent, OpenClaw, or neither if another route is simpler."
+        },
+        {
+          "title_fr": "Isoler l'agent",
+          "title_en": "Isolate the agent",
+          "meta_fr": "Mise en place",
+          "meta_en": "Set-up",
+          "body_fr": "Une machine ou un serveur dédié, jamais le poste d'un salarié. Bac à sable activé puis vérifié, version stable épinglée, un seul canal appairé au départ. Sur OpenClaw, openclaw security audit sans alerte avant la mise en route.",
+          "body_en": "A dedicated machine or server, never an employee's workstation. Sandbox switched on then checked, stable version pinned, a single paired channel to start. On OpenClaw, openclaw security audit with no warning before start-up."
+        },
+        {
+          "title_fr": "Brancher vos outils",
+          "title_en": "Connect your tools",
+          "meta_fr": "Connexions",
+          "meta_en": "Connections",
+          "body_fr": "Un connecteur à la fois, en lecture seule d'abord, par MCP, API ou un workflow n8n placé entre l'agent et vos logiciels, selon ce que la version installée accepte. Un compte de service par outil. Les identifiants restent dans un coffre, jamais dans le texte de l'agent.",
+          "body_en": "One connector at a time, read-only first, through MCP, an API or an n8n workflow placed between the agent and your software, depending on what the installed version accepts. One service account per tool. Credentials stay in a vault, never in the agent's text."
+        },
+        {
+          "title_fr": "Encadrer les actions",
+          "title_en": "Control the actions",
+          "meta_fr": "Garde-fous",
+          "meta_en": "Safeguards",
+          "body_fr": "Envoyer, payer, signer, supprimer : l'agent prépare, une personne valide. Journal de chaque action conservé hors de la machine, plafond de dépense posé chez le fournisseur du modèle, procédure d'arrêt écrite et testée.",
+          "body_en": "Send, pay, sign, delete: the agent prepares, a person approves. A log of every action kept off the machine, a spending cap set with the model provider, a written and tested stop procedure."
+        },
+        {
+          "title_fr": "Exploiter et mettre à jour",
+          "title_en": "Run and update",
+          "meta_fr": "Exploitation en régie",
+          "meta_en": "Operations",
+          "body_fr": "Notes de version relues chaque mois, mises à jour testées hors production, relecture des skills et de la mémoire, bilan des corrections humaines. Vous gardez agents, accès et documentation, et pouvez reprendre l'exploitation à tout moment.",
+          "body_en": "Release notes read every month, updates tested outside production, review of skills and memory, assessment of human corrections. You keep the agents, access and documentation, and can take operations back at any time."
+        }
+      ]
+    },
+    {
+      "type": "deliverables-grid",
+      "background": "paper-3",
+      "kicker_fr": "§ Ce que vous gardez",
+      "kicker_en": "§ What you keep",
+      "title_fr": "Ce qui vous est remis",
+      "title_en": "What is handed over to you",
+      "lead_fr": "Un agent sur moteur ouvert, c'est un logiciel, une configuration et des accès. Tout est créé sur vos comptes, tout vous est remis.",
+      "lead_en": "An agent on an open engine is software, a configuration and access rights. Everything is created on your accounts, everything is handed over.",
+      "items": [
+        {
+          "title_fr": "Les consignes de l'agent",
+          "title_en": "The agent's instructions",
+          "body_fr": "Mission, périmètre, règles d'escalade et actions interdites, rédigées et versionnées.",
+          "body_en": "Mission, scope, escalation rules and forbidden actions, written and versioned.",
+          "format_fr": "CONSIGNES",
+          "format_en": "INSTRUCTIONS"
+        },
+        {
+          "title_fr": "La configuration du moteur",
+          "title_en": "The engine configuration",
+          "body_fr": "Version épinglée, canal de mises à jour, modèle, canaux appairés et réglages de sécurité, exportés et commentés.",
+          "body_en": "Pinned version, update channel, model, paired channels and security settings, exported and annotated.",
+          "format_fr": "CONFIGURATION",
+          "format_en": "CONFIGURATION"
+        },
+        {
+          "title_fr": "Les connecteurs",
+          "title_en": "The connectors",
+          "body_fr": "Les accès à vos outils, créés sur vos comptes, un compte de service par outil, droits limités à la mission.",
+          "body_en": "Access to your tools, created on your accounts, one service account per tool, rights limited to the mission.",
+          "format_fr": "CONNECTEURS",
+          "format_en": "CONNECTORS"
+        },
+        {
+          "title_fr": "Le schéma d'isolation",
+          "title_en": "The isolation diagram",
+          "body_fr": "La machine, le bac à sable et les flux de données vers le modèle et les messageries, sur une page.",
+          "body_en": "The machine, the sandbox and the data flows to the model and messaging apps, on one page.",
+          "format_fr": "SCHÉMA",
+          "format_en": "DIAGRAM"
+        },
+        {
+          "title_fr": "Le journal et les mesures",
+          "title_en": "The log and metrics",
+          "body_fr": "L'historique des actions conservé hors de l'agent, le volume traité, le taux de corrections humaines, la dépense du modèle.",
+          "body_en": "The action history kept outside the agent, the volume handled, the rate of human corrections, model spending.",
+          "format_fr": "SUIVI",
+          "format_en": "TRACKING"
+        },
+        {
+          "title_fr": "La procédure d'arrêt",
+          "title_en": "The stop procedure",
+          "body_fr": "Comment couper l'agent, révoquer ses accès et reprendre la main, testée avant la mise en service.",
+          "body_en": "How to shut the agent down, revoke its access and take back control, tested before going live.",
+          "format_fr": "ARRÊT",
+          "format_en": "STOP"
+        },
+        {
+          "title_fr": "La documentation",
+          "title_en": "The documentation",
+          "body_fr": "Comment modifier une consigne, ajouter un outil, mettre à jour le moteur ou en changer.",
+          "body_en": "How to change an instruction, add a tool, update the engine or replace it.",
+          "format_fr": "DOC",
+          "format_en": "DOC"
+        }
+      ]
+    },
+    {
+      "type": "decision-list",
+      "background": "paper",
+      "kicker_fr": "§ Quand ne pas le faire",
+      "kicker_en": "§ When not to do it",
+      "heading_fr": "Un agent IA open source n'est pas la bonne réponse si",
+      "heading_en": "An open source AI agent is not the right answer if",
+      "items": [
+        {
+          "label_fr": "La règle est fixe et le volume élevé : une automatisation n8n ou Make est moins chère et plus prévisible.",
+          "label_en": "The rule is fixed and the volume high: an n8n or Make automation is cheaper and more predictable."
+        },
+        {
+          "label_fr": "Vous voulez un assistant personnel, pour une personne, dans ses propres comptes : un agent d'éditeur comme Claude Duet ou ChatGPT dots, quand il est ouvert à votre pays et à votre offre.",
+          "label_en": "You want a personal assistant, for one person, in their own accounts: a vendor agent such as Claude Duet or ChatGPT dots, once it is open to your country and plan."
+        },
+        {
+          "label_fr": "Personne ne peut suivre les mises à jour et vous ne voulez pas confier l'exploitation : pas de moteur ouvert. Prenez une offre gérée.",
+          "label_en": "Nobody can follow the updates and you do not want to hand over operations: no open engine. Take a managed offer."
+        },
+        {
+          "label_fr": "L'agent doit répondre à vos clients ou au public : c'est hors du modèle de confiance d'OpenClaw, et Hermes Agent n'est pas en version 1.0. Un agent sur mesure dédié à cette mission est plus sûr.",
+          "label_en": "The agent must answer your customers or the public: that is outside OpenClaw's trust model, and Hermes Agent is not at version 1.0. A custom agent dedicated to that mission is safer."
+        },
+        {
+          "label_fr": "Toute une équipe doit partager le même agent : ni l'un ni l'autre tel quel. Un agent par personne ou par mission, avec des accès séparés.",
+          "label_en": "A whole team must share the same agent: neither engine as is. One agent per person or per mission, with separate access."
+        },
+        {
+          "label_fr": "Le volume est de quelques cas par mois : le temps de mise en place et d'exploitation ne sera pas amorti.",
+          "label_en": "The volume is a few cases a month: the set-up and operations time will not pay off."
+        }
+      ]
+    },
+    {
+      "type": "pricing-cards",
+      "background": "paper-2",
+      "layout": "grid-asym",
+      "colRatio": "2-3",
+      "kicker_fr": "§ Deux façons d'engager",
+      "kicker_en": "§ Two ways to engage",
+      "h2_fr": "Combien coûte un agent IA open source",
+      "h2_en": "How much an open source AI agent costs",
+      "lede_fr": "On démarre par un sprint de cadrage à prix fixe : la mission écrite, le moteur choisi et un premier agent prototypé dans un bac à sable, testé sur vos cas. La suite se fait sur devis : on estime ensemble le temps nécessaire, vous validez, on l'exécute en sprints en régie. Vos agents, vos accès et la documentation restent à vous.",
+      "lede_en": "We start with a fixed-price scoping sprint: the written mission, the chosen engine and a first agent prototyped in a sandbox, tested on your cases. What follows is quoted: we estimate the time together, you approve it, we deliver it in time-and-materials sprints. Your agents, your access and the documentation stay yours.",
+      "tiers": [
+        {
+          "name_fr": "Sprint de cadrage",
+          "name_en": "Scoping sprint",
+          "price": "{{prix.sprint}} €",
+          "period_fr": "10 h · HT",
+          "period_en": "10 h · ex VAT",
+          "features_fr": [
+            "Mission écrite : ce que l'agent fait seul, soumet ou ne touche jamais",
+            "Choix argumenté du moteur : Hermes Agent, OpenClaw ou une autre voie",
+            "Un premier agent prototypé dans un bac à sable, testé sur vos cas",
+            "Coût du modèle et de l'hébergement estimé avant le lancement"
+          ],
+          "features_en": [
+            "Written mission: what the agent does alone, submits or never touches",
+            "Reasoned choice of engine: Hermes Agent, OpenClaw or another route",
+            "A first agent prototyped in a sandbox, tested on your cases",
+            "Model and hosting cost estimated before launch"
+          ],
+          "cta": {
+            "label_fr": "Réserver l'audit gratuit →",
+            "label_en": "Book the free audit →",
+            "href": "/contact?offer=audit-ia-pme&intent=audit",
+            "variant": "primary"
+          },
+          "featured": true
+        },
+        {
+          "name_fr": "Suite sur devis",
+          "name_en": "Next steps on quote",
+          "price": "Sur devis",
+          "period_fr": "estimé avec vous · HT",
+          "period_en": "estimated with you · ex VAT",
+          "features_fr": [
+            "Temps nécessaire estimé ensemble, puis validé",
+            "Exécuté en sprints, facturés en régie",
+            "Déploiement durci, connecteurs, mises à jour suivies",
+            "Vous gardez agents, accès et documentation"
+          ],
+          "features_en": [
+            "Time needed estimated together, then validated",
+            "Run in sprints, time and materials frame",
+            "Hardened deployment, connectors, updates followed",
+            "You keep the agents, access and documentation"
+          ],
+          "cta": {
+            "label_fr": "Cadrer la suite →",
+            "label_en": "Scope what follows →",
+            "href": "/contact?offer=agents-ia-open-source&intent=suite",
+            "variant": "ghost"
+          }
+        }
+      ],
+      "footnote_fr": "La suite est facturée en régie, à {{prix.horaire}} € HT de l'heure, sans dégressivité. Le modèle (API ou matériel), l'hébergement et les services connectés sont facturés par leurs fournisseurs, estimés avant le lancement. Pas d'abonnement, pas de captivité : vos agents, vos accès et la documentation restent à vous.",
+      "footnote_en": "What follows is billed on a time and materials basis, at {{prix.horaire}} € ex VAT an hour, with no volume discount. The model (API or hardware), hosting and connected services are billed by their providers and estimated before launch. No subscription, no lock-in: your agents, your access and the documentation stay yours."
+    },
+    {
+      "type": "eeat-panel",
+      "variant": "media",
+      "silo": "ops"
+    },
+    {
+      "type": "cta-final",
+      "background": "paper",
+      "h2_fr": "Où en est votre entreprise avec l'IA ?",
+      "h2_en": "Where does your company stand with AI?",
+      "body_fr": "Le diagnostic de maturité prend quelques minutes et donne un niveau et une première piste. Le résultat s'affiche tout de suite ; vous pouvez le recevoir par e-mail.",
+      "body_en": "The maturity diagnostic takes a few minutes and gives a level and a first lead. The result shows right away; you can receive it by email.",
+      "cta_primary": {
+        "label_fr": "Faire le diagnostic",
+        "label_en": "Take the diagnostic",
+        "href": "/ressources/diagnostics/maturite-ia",
+        "variant": "primary"
+      }
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper-2",
+      "kicker_fr": "§ Questions fréquentes",
+      "kicker_en": "§ Frequently asked questions",
+      "h2_fr": "Agents IA open source : vos questions",
+      "h2_en": "Open source AI agents: your questions",
+      "items": [
+        {
+          "q_fr": "Agent IA open source : c'est quoi ?",
+          "a_fr": "Un agent IA construit sur un moteur dont le code est public et réutilisable, comme Hermes Agent (Nous Research) ou OpenClaw (OpenClaw Foundation), tous deux sous licence MIT. Le moteur s'installe sur une machine que vous contrôlez, appelle le modèle de votre choix et agit dans vos outils. Le logiciel est gratuit ; l'isolation, les droits, le journal et les mises à jour restent à organiser, et c'est ce que nous prenons en charge.",
+          "q_en": "Open source AI agent: what is it?",
+          "a_en": "An AI agent built on an engine whose code is public and reusable, such as Hermes Agent (Nous Research) or OpenClaw (OpenClaw Foundation), both under the MIT licence. The engine is installed on a machine you control, calls the model of your choice and acts in your tools. The software is free; isolation, rights, the log and updates still have to be organised, and that is what we take on."
+        },
+        {
+          "q_fr": "Hermes Agent ou OpenClaw : lequel choisir pour une entreprise ?",
+          "a_fr": "Cela dépend de vos canaux, du nombre d'utilisateurs et du besoin d'apprentissage. OpenClaw couvre plus de messageries, dont Teams et iMessage, mais son bac à sable est désactivé par défaut et il suppose un seul opérateur de confiance. Hermes Agent mise sur la mémoire et les skills, et isole son exécution par défaut depuis sa v0.22.0. Nous tranchons au cadrage, et parfois la réponse est : aucun des deux.",
+          "q_en": "Hermes Agent or OpenClaw: which one for a company?",
+          "a_en": "It depends on your channels, the number of users and the need for learning. OpenClaw covers more messaging apps, including Teams and iMessage, but its sandbox is off by default and it assumes a single trusted operator. Hermes Agent bets on memory and skills, and isolates its execution by default since v0.22.0. We decide at scoping, and sometimes the answer is: neither."
+        },
+        {
+          "q_fr": "Combien coûte un agent IA open source déployé par Waimia ?",
+          "a_fr": "Le logiciel est gratuit. La conception démarre par un sprint de cadrage à {{prix.sprint}} € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure en régie pour le déploiement et l'exploitation. S'ajoutent le modèle (à l'usage par API, ou le matériel pour un modèle local), la machine ou l'hébergement et les services connectés, facturés par leurs fournisseurs. Nous estimons ces postes avant le lancement.",
+          "q_en": "How much does an open source AI agent deployed by Waimia cost?",
+          "a_en": "The software is free. Design starts with a scoping sprint at €{{prix.sprint.en}} excl. VAT for 10 hours, then €{{prix.horaire}} per hour excl. VAT on a time and materials basis for deployment and operations. Add the model (pay-as-you-go through an API, or hardware for a local model), the machine or hosting and connected services, billed by their providers. We estimate these items before launch."
+        },
+        {
+          "q_fr": "Un agent IA auto-hébergé protège-t-il mieux nos données ?",
+          "a_fr": "Il vous laisse choisir par où elles passent, ce qui n'est pas la même chose. OpenClaw garde son état, sa mémoire et ses identifiants sur votre matériel ; Hermes Agent peut faire tourner un modèle local. Mais avec un modèle par API, le texte des demandes part chez le fournisseur, et chaque messagerie connectée a ses propres règles. Nous cartographions ces flux avant le déploiement, pour votre registre RGPD.",
+          "q_en": "Does a self-hosted AI agent protect our data better?",
+          "a_en": "It lets you choose where the data goes, which is not the same thing. OpenClaw keeps its state, memory and credentials on your hardware; Hermes Agent can run a local model. But with a model through an API, the text of each request goes to the provider, and every connected messaging app has its own rules. We map these flows before deployment, for your GDPR register."
+        },
+        {
+          "q_fr": "Peut-on ouvrir un agent open source à nos clients ou à toute l'équipe ?",
+          "a_fr": "Pas tel quel. Les mainteneurs d'OpenClaw décrivent un assistant personnel avec un seul opérateur de confiance, sans isolation entre utilisateurs, et les sources lues sur Hermes Agent ne décrivent pas d'usage multi-utilisateur. Nous déployons donc un agent par personne ou par mission, avec des accès séparés. Pour répondre à vos clients, un agent sur mesure dédié à cette seule mission est plus sûr.",
+          "q_en": "Can an open source agent be opened to our customers or the whole team?",
+          "a_en": "Not as is. OpenClaw's maintainers describe a personal assistant with a single trusted operator, with no isolation between users, and the sources read on Hermes Agent do not describe multi-user use. So we deploy one agent per person or per mission, with separate access. To answer your customers, a custom agent dedicated to that single mission is safer."
+        },
+        {
+          "q_fr": "Qui s'occupe des mises à jour et de la sécurité ?",
+          "a_fr": "Nous, en régie, ou votre équipe si vous préférez reprendre la main : la documentation remise est faite pour cela. Ces projets publient vite : Hermes Agent est passé de la v0.22.0 à la v0.22.5 entre le 13 et le 22 octobre 2026, OpenClaw a publié deux versions en deux jours. Chaque mois, nous relisons les notes de version, testons la mise à jour hors production, puis l'appliquons.",
+          "q_en": "Who handles updates and security?",
+          "a_en": "We do, on a time and materials basis, or your team if you prefer to take over: the documentation we hand over is made for that. These projects ship fast: Hermes Agent went from v0.22.0 to v0.22.5 between 13 and 22 October 2026, and OpenClaw published two versions in two days. Every month we read the release notes, test the update outside production, then apply it."
+        },
+        {
+          "q_fr": "Combien de temps pour mettre un agent open source en production ?",
+          "a_fr": "Comptez le sprint de cadrage, puis quelques semaines selon le nombre d'outils à connecter et le niveau d'isolation exigé. Le premier agent est volontairement étroit : une mission, un canal, des outils en lecture seule. On élargit ensuite, une fois le journal relu et les corrections humaines mesurées sur vos vrais cas.",
+          "q_en": "How long does it take to put an open source agent into production?",
+          "a_en": "Allow for the scoping sprint, then a few weeks depending on the number of tools to connect and the level of isolation required. The first agent is deliberately narrow: one mission, one channel, read-only tools. We widen afterwards, once the log has been reviewed and human corrections measured on your real cases."
+        },
+        {
+          "q_fr": "Peut-on changer de moteur ou de modèle plus tard ?",
+          "a_fr": "Oui, c'est l'un des intérêts d'un moteur ouvert. Hermes Agent change de modèle avec la commande hermes model, et OpenClaw traite les modèles comme des plugins interchangeables. Côté moteur, Hermes Agent annonce depuis sa v0.22.5 une migration depuis OpenClaw. Comptes de service, droits et règles de validation restent à refaire : nous les documentons hors de l'agent pour que le changement reste un chantier borné.",
+          "q_en": "Can we change engine or model later?",
+          "a_en": "Yes, that is one of the benefits of an open engine. Hermes Agent switches model with the hermes model command, and OpenClaw treats models as interchangeable plugins. On the engine side, Hermes Agent has announced a migration from OpenClaw since v0.22.5. Service accounts, rights and approval rules still have to be redone: we document them outside the agent so the change stays a bounded project."
+        },
+        {
+          "q_fr": "Avez-vous déjà déployé Hermes Agent ou OpenClaw chez un client ?",
+          "a_fr": "Nous n'avons pas de cas client à citer sur ces deux moteurs, et cette page ne présente aucun résultat mesuré. Ce que nous apportons, c'est la méthode de nos autres agents : un agent par mission, validation humaine, journal, documentation remise. Les recommandations de cette page s'appuient sur la documentation et les notes de version des deux projets, lues le 24 octobre 2026.",
+          "q_en": "Have you already deployed Hermes Agent or OpenClaw for a client?",
+          "a_en": "We have no client case to cite on these two engines, and this page presents no measured result. What we bring is the method of our other agents: one agent per mission, human approval, a log, documentation handed over. The recommendations on this page rest on the documentation and release notes of both projects, read on 24 October 2026."
+        }
+      ]
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper",
+      "kicker_fr": "§ Comprendre les deux moteurs",
+      "kicker_en": "§ Understanding the two engines",
+      "cards": [
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Hermes Agent",
+          "title_en": "Hermes Agent",
+          "lead_fr": "L'agent open source qui apprend : installation, sécurité, coût réel.",
+          "lead_en": "The open source agent that learns: installation, security, real cost.",
+          "href": "/ressources/guides/hermes-agent"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "OpenClaw",
+          "title_en": "OpenClaw",
+          "lead_fr": "OpenClaw 2.0 et ses suites : ce qui a changé, et le durcissement à prévoir.",
+          "lead_en": "OpenClaw 2.0 and after: what changed, and the hardening to plan.",
+          "href": "/ressources/guides/openclaw"
+        },
+        {
+          "kicker_fr": "Comparatif",
+          "kicker_en": "Comparison",
+          "title_fr": "Hermes Agent ou OpenClaw",
+          "title_en": "Hermes Agent or OpenClaw",
+          "lead_fr": "Canaux, mémoire, bac à sable, gouvernance : le face-à-face critère par critère.",
+          "lead_en": "Channels, memory, sandbox, governance: the criterion-by-criterion head-to-head.",
+          "href": "/ressources/comparatifs/hermes-agent-vs-openclaw"
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "layout": "stacked",
+      "contentAlign": "center",
+      "actionsAlign": "center",
+      "rounded": true,
+      "kicker_fr": "§ Audit IA gratuit",
+      "kicker_en": "§ Free AI audit",
+      "h2_fr": "Un moteur ouvert a-t-il sa place chez vous ?",
+      "h2_en": "Does an open engine belong in your company?",
+      "subtitle_fr": "Audit gratuit de 45 minutes en visio. Vous repartez avec une cartographie écrite et un ou deux chantiers classés.",
+      "subtitle_en": "Free 45-minute audit by video call. You leave with a written map and one or two ranked projects.",
+      "buttons": [
+        {
+          "label_fr": "Réserver l'audit gratuit →",
+          "label_en": "Book the free audit →",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Agents IA pour entreprise",
+          "label_en": "AI agents for business",
+          "href": "/services/agents-ia",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

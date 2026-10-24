@@ -115,6 +115,9 @@ const PAGES: Record<string, PageDef> = {
 
   // ── Agents IA et Claude ──
   '/services/agents-ia': { label_fr: 'Agents IA pour entreprise', label_en: 'AI agents for business', kind: 'service', topics: ['agents', 'claude'] },
+  '/services/agents-ia-open-source': { label_fr: 'Agents IA open source : déploiement et exploitation', label_en: 'Open source AI agents: deployment and operations', kind: 'service', topics: ['agents', 'automatisation'] },
+  '/services/integration-hermes-agent': { label_fr: 'Intégration Hermes Agent en entreprise', label_en: 'Hermes Agent integration for business', kind: 'service', topics: ['agents', 'automatisation'] },
+  '/services/integration-openclaw': { label_fr: 'Intégration OpenClaw en entreprise', label_en: 'OpenClaw integration for business', kind: 'service', topics: ['agents', 'automatisation'] },
   '/services/agent-support-client': { label_fr: 'Agence chatbot et agent de service client', label_en: 'Chatbot and customer service agent', kind: 'service', topics: ['agents'] },
   '/services/agent-qualification-leads': { label_fr: 'Agent IA de qualification de leads', label_en: 'AI lead qualification agent', kind: 'service', topics: ['agents', 'commercial'] },
   '/services/agent-traitement-documents': { label_fr: 'Agent IA de traitement de documents', label_en: 'AI document processing agent', kind: 'service', topics: ['agents', 'automatisation'] },
