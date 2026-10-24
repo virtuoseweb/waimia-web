@@ -1,0 +1,137 @@
+---
+// Page · /actualites · section Actualités : billets datés à la minute, signés, du plus récent au plus ancien.
+// Les actualités gardent leur URL /blog/<slug> ; cette page les liste, avec leur flux RSS texte complet.
+export const prerender = true;
+
+import { AUDIT_BOOKING_HREF, AUDIT_BOOKING_LABEL } from '../../data/conversion';
+import { getLiveCollection } from '../../lib/live-collection';
+import Base from '../../layouts/Base.astro';
+import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
+import type { SectionByType, SectionData } from '@waimia/ds-kernel';
+import { langFromPath } from '../../lib/i18n';
+import { blogEntryHref } from '../../lib/blog-routing';
+import { getResourceItems } from '../../lib/resources-hub';
+import { buildCollectionPage } from '../../lib/seo/schema-builder';
+import { formatNewsShort, sortNews } from '../../lib/news';
+import { SITE } from '../../site.config';
+import { getEntry } from 'astro:content';
+
+const lang = langFromPath(Astro.url.pathname);
+
+const news = sortNews(await getLiveCollection('blog'));
+// article-grid : 2 à 12 cartes. Au-delà, les plus anciennes restent dans le flux RSS et le blog.
+const shown = news.slice(0, 12);
+
+const collectionLd = buildCollectionPage(
+  'Actualités IA pour PME : agents, Claude, ChatGPT, open source',
+  "Actualités de l'IA vues par une PME : ce qui est annoncé, ce qui est confirmé, ce que ça change. Billets datés à la minute, signés Simon Beros, sources citées.",
+  shown.map((entry) => `${SITE.url}${blogEntryHref(entry)}`),
+);
+
+const hubVisuals = new Map(
+  (await getResourceItems()).filter((i) => i.kind === 'articles').map((i) => [i.href, i]),
+);
+
+// Auteur de chaque carte : titre de la fiche `authors` (nom complet), pas le slug.
+const authorNames = new Map<string, string>();
+for (const entry of shown) {
+  const id = (entry.data.author as { id?: string }).id;
+  if (id && !authorNames.has(id)) authorNames.set(id, (await getEntry('authors', id))?.data.title_fr ?? id);
+}
+
+const articles = shown.map((entry) => {
+  const d = entry.data;
+  const href = blogEntryHref(entry);
+  const visual = hubVisuals.get(href);
+  const readTime = d.readingTime ? `${d.readingTime} min` : undefined;
+  return {
+    image: visual?.image,
+    tint: visual?.tint,
+    tag_fr: 'ACTUALITÉ',
+    tag_en: 'NEWS',
+    title_fr: d.title_fr,
+    title_en: d.title_en,
+    excerpt_fr: d.excerpt_fr ?? d.description_fr,
+    excerpt_en: d.excerpt_en ?? d.description_en,
+    date: formatNewsShort(d.publishedAt),
+    read_time_fr: readTime,
+    read_time_en: readTime,
+    author: authorNames.get((d.author as { id?: string }).id ?? ''),
+    href,
+    silo: d.category,
+  };
+});
+
+const gridSection: SectionData | null = articles.length >= 2
+  ? ({ type: 'article-grid', background: 'paper', columns: '3', articles } satisfies SectionByType<'article-grid'>)
+  : null;
+
+const mastheadSection = {
+  type: 'hero-hub-listing',
+  kicker_fr: '§ Actualités',
+  kicker_en: '§ News',
+  h1_fr: 'Actualités <i>IA</i> pour PME.',
+  h1_en: 'AI <i>news</i> for SMBs.',
+  lede_fr:
+    "Ce qui est annoncé, ce qui est confirmé, ce que ça change pour une PME. Chaque billet porte sa date et son heure, son auteur et ses sources. <a href=\"/actualites/rss.xml\" class=\"news-rss\">Flux RSS texte complet →</a>",
+  lede_en:
+    'What is announced, what is confirmed, what it changes for an SMB. Every post carries its date and time, its author and its sources. <a href="/actualites/rss.xml" class="news-rss">Full-text RSS feed →</a>',
+  decoration: false,
+  top_pad: '140px',
+  lede_reveal: false,
+  list_border: true,
+} satisfies SectionByType<'hero-hub-listing'>;
+
+const ctaSection = {
+  type: 'cta-band',
+  text_fr: "Une actualité touche votre activité ? L'audit gratuit de 45 minutes part de vos processus réels.",
+  text_en: 'Does a news item affect your business? The free 45-minute audit starts from your real processes.',
+  cta: {
+    label_fr: `${AUDIT_BOOKING_LABEL.fr} →`,
+    label_en: `${AUDIT_BOOKING_LABEL.en} →`,
+    href: AUDIT_BOOKING_HREF,
+    variant: 'primary',
+  },
+  background: 'paper-2',
+} satisfies SectionByType<'cta-band'>;
+---
+<Base
+  title="Actualités IA pour PME : agents, Claude, ChatGPT"
+  description="Actualités de l'IA vues par une PME : annonces, ce qui est confirmé, ce que ça change. Billets datés à la minute, signés, sources citées."
+  jsonLd={collectionLd}
+>
+  <link slot="head" rel="alternate" type="application/rss+xml" title="Waimia · Actualités" href="/actualites/rss.xml" />
+  <SectionsRenderer sections={[mastheadSection]} lang={lang} />
+
+  <section class="list-body">
+    <div class="wrap-wide">
+      {gridSection ? (
+        <div class="news-grid">
+          <SectionsRenderer sections={[gridSection]} lang={lang} />
+        </div>
+      ) : (
+        <p class="news-empty">Aucune actualité publiée pour le moment. Les analyses de fond sont sur <a href="/blog">le blog</a>.</p>
+      )}
+    </div>
+  </section>
+
+  <SectionsRenderer sections={[ctaSection]} lang={lang} />
+</Base>
+
+<style>
+  .list-body { padding: var(--section-base) var(--space-6); }
+  .news-grid :global(.article-grid) { padding-block-start: 0; }
+  .news-grid { margin-top: calc(-1 * var(--space-7)); }
+  .news-empty { color: var(--muted); }
+  :global(.news-rss) {
+    color: var(--accent-text);
+    font-weight: var(--fw-medium);
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    white-space: nowrap;
+  }
+  :global(.news-rss:hover) { opacity: 0.72; }
+  @media (max-width: 768px) {
+    .news-grid { margin-top: calc(-1 * var(--space-5)); }
+  }
+</style>

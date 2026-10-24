@@ -29,6 +29,7 @@ import { fetchSitemapUrls } from './lib/sitemap.mjs';
 import { buildSummary } from './lib/summary.mjs';
 import { collectPerformance } from './gsc-performance.mjs';
 import { collectIndex } from './gsc-index.mjs';
+import { collectNews } from './gsc-news.mjs';
 import { submitSitemap } from './gsc-sitemap.mjs';
 import { runIndexNow } from './indexnow.mjs';
 import { runIndexingApi } from './indexing-api.mjs';
@@ -49,6 +50,8 @@ const weekDir = join(DATA_DIR, week);
 const STEPS = [
   { name: 'gsc-performance', run: () => collectPerformance({ today: now }) },
   { name: 'gsc-index', run: () => collectIndex({ today: now }) },
+  // Discover, Google Actualités, onglet Actualités : vides tant que Google n'y montre pas le site.
+  { name: 'gsc-news', run: () => collectNews({ today: now }) },
   { name: 'gsc-sitemap', run: () => submitSitemap({ dryRun }) },
   { name: 'indexnow', run: () => runIndexNow({ dryRun, persist: !dryRun }) },
   // Après gsc-index : les URL relevées non indexées pendant ce run passent en premier.
@@ -100,6 +103,7 @@ const summary = buildSummary({
   steps,
   perf: outputs['gsc-performance'],
   index: outputs['gsc-index'],
+  news: outputs['gsc-news'],
   sitemap: outputs['gsc-sitemap'],
   indexnow: outputs.indexnow,
   indexingApi: outputs['indexing-api'],

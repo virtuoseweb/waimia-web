@@ -11,6 +11,7 @@
 import { getEntry } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import { langFromPath } from '../../../lib/i18n';
+import { formatNewsDateTime, parisIso } from '../../../lib/news';
 
 interface Props {
   authorSlug?: string;
@@ -18,9 +19,11 @@ interface Props {
   readingTime?: string;
   /** Date de mise à jour : affichée seulement si postérieure à `date`. */
   updatedAt?: Date | string;
+  /** Actualité : date ET heure (Paris) ; « Mis à jour » dès une minute d'écart. */
+  showTime?: boolean;
 }
 
-const { authorSlug, date, readingTime, updatedAt } = Astro.props;
+const { authorSlug, date, readingTime, updatedAt, showTime = false } = Astro.props;
 const lang = langFromPath(Astro.url.pathname);
 
 let author: CollectionEntry<'authors'> | undefined;
@@ -36,10 +39,13 @@ const toDate = (v?: Date | string) => (v ? new Date(v) : null);
 const published = toDate(date);
 const modified = toDate(updatedAt);
 const fmt = (d: Date) =>
-  d.toLocaleDateString(lang === 'fr' ? 'fr-FR' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
-const iso = (d: Date) => (Number.isNaN(d.getTime()) ? '' : d.toISOString().slice(0, 10));
+  showTime ? formatNewsDateTime(d, lang === 'fr' ? 'fr' : 'en') : d.toLocaleDateString(lang === 'fr' ? 'fr-FR' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+const iso = (d: Date) => (Number.isNaN(d.getTime()) ? '' : showTime ? parisIso(d) : d.toISOString().slice(0, 10));
 const dateFormatted = published ? fmt(published) : null;
-const showUpdated = Boolean(published && modified && !Number.isNaN(modified.getTime()) && iso(modified) > iso(published));
+const showUpdated = Boolean(
+  published && modified && !Number.isNaN(modified.getTime()) &&
+    (showTime ? modified.getTime() - published.getTime() >= 60_000 : iso(modified) > iso(published)),
+);
 const updatedLabel = lang === 'fr' ? 'Mis à jour le' : 'Updated';
 ---
 

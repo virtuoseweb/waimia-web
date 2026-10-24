@@ -15,7 +15,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 /**
- * @param {{ userAgents: string[], allow: string[], disallow: string[], sitemap: string, llms?: string }} options
+ * @param {{ userAgents: string[], allow: string[], disallow: string[], sitemap: string | string[], llms?: string }} options
  */
 export function renderRobots({ userAgents, allow, disallow, sitemap, llms }) {
   const lines = [
@@ -26,7 +26,7 @@ export function renderRobots({ userAgents, allow, disallow, sitemap, llms }) {
     ...disallow.map((rule) => `Disallow: ${rule}`),
     ...allow.map((rule) => `Allow: ${rule}`),
     '',
-    `Sitemap: ${sitemap}`,
+    ...[].concat(sitemap).map((url) => `Sitemap: ${url}`),
   ];
   if (llms) lines.push('', `# Index pour moteurs génératifs (llms.txt) : ${llms}`);
   return lines.join('\n') + '\n';

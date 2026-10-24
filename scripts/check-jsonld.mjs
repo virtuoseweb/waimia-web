@@ -60,6 +60,7 @@ const REQUIRED = {
   Article: ['headline', 'author', 'datePublished', 'dateModified', 'publisher', 'image'],
   BlogPosting: ['headline', 'author', 'datePublished', 'dateModified', 'publisher', 'image'],
   TechArticle: ['headline', 'author', 'datePublished', 'dateModified', 'publisher', 'image'],
+  NewsArticle: ['headline', 'author', 'datePublished', 'dateModified', 'publisher', 'image'],
   ScholarlyArticle: ['name'],
   BreadcrumbList: ['itemListElement'],
   FAQPage: ['mainEntity'],
@@ -76,10 +77,15 @@ const REQUIRED = {
   Event: ['name', 'startDate', 'location'],
 };
 const ARTICLE_TYPES = ['Article', 'BlogPosting', 'TechArticle'];
-// Types et propriétés interdits : le site n'a ni avis vérifiable, ni produit, ni actualité à
-// chaud, ni vidéo, ni recherche interne. Les baliser serait une donnée structurée trompeuse.
+// Un billet de blog daté à la minute (type « actualite ») porte un NewsArticle à la place.
+const BLOG_ARTICLE_TYPES = [...ARTICLE_TYPES, 'NewsArticle'];
+// Types et propriétés interdits : le site n'a ni avis vérifiable, ni produit, ni vidéo, ni
+// recherche interne. NewsArticle : réservé aux billets /blog/ `type: "actualite"` (voir
+// NEWS_ALLOWED_PATH ; check-news.mjs garantit qu'aucun autre billet n'en émet). Les baliser serait une donnée structurée trompeuse.
 // WebApplication et SoftwareApplication : Google exige une note ou des avis, que le site n'a pas.
 const FORBIDDEN_TYPES = new Set(['Review', 'AggregateRating', 'Rating', 'Product', 'NewsArticle', 'VideoObject', 'SearchAction', 'WebApplication', 'SoftwareApplication']);
+/** Seules les pages /blog/<slug> peuvent émettre un NewsArticle. */
+const NEWS_ALLOWED_PATH = /^\/blog\/[^/]+$/;
 const FORBIDDEN_PROPS = new Set(['review', 'aggregateRating', 'reviewRating', 'video', 'potentialAction']);
 const ORG_ID = `${SITE_ORIGIN}/#organization`;
 const HQ_ID = `${SITE_ORIGIN}/#localbusiness`;
@@ -101,7 +107,7 @@ const COVERAGE = [
   [(p) => p === '/', [['ProfessionalService']], 'accueil'],
   [(p) => /^\/services\/.+/.test(p), [['Service']], 'page service'],
   [(p) => /^\/formations\/.+/.test(p), [['Course']], 'page formation'],
-  [(p) => /^\/blog\/.+/.test(p), [ARTICLE_TYPES], 'article de blog'],
+  [(p) => /^\/blog\/.+/.test(p), [BLOG_ARTICLE_TYPES], 'article de blog'],
   [(p) => /^\/ressources\/(guides|comparatifs|diagnostics)\/.+/.test(p), [ARTICLE_TYPES], 'ressource éditoriale'],
   // Ressources verrouillées (fichier livré par e-mail, aucune application en ligne) : Article, pas WebApplication.
   [(p) => /^\/ressources\/outils\/.+/.test(p) && GATED_RESOURCES.has(p.split('/').pop()), [ARTICLE_TYPES], 'ressource à télécharger'],
@@ -218,7 +224,7 @@ function checkPage(page) {
       }
 
       for (const t of nt) {
-        if (FORBIDDEN_TYPES.has(t)) {
+        if (FORBIDDEN_TYPES.has(t) && !(t === 'NewsArticle' && NEWS_ALLOWED_PATH.test(page.pathname))) {
           err('interdits', `${where} : type « ${t} » interdit sur ce site`);
           continue;
         }
