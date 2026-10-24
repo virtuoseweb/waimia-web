@@ -1,0 +1,165 @@
+{
+  "title_fr": "Hermes Agent v0.22 : modèles locaux, connecteurs et bac à sable par défaut",
+  "title_en": "Hermes Agent v0.22: local models, connectors and a default sandbox",
+  "seoTitle_fr": "Hermes Agent v0.22 : ce qui change pour une PME",
+  "seoTitle_en": "Hermes Agent v0.22: what changes for an SMB",
+  "h1_fr": "Hermes Agent v0.22 : ce qui change",
+  "h1_en": "Hermes Agent v0.22: what changes",
+  "description_fr": "Hermes Agent v0.22.0 (13 octobre 2026) à v0.22.5 : modèles locaux, page Connectors, canal stable, bac à sable par défaut, migration depuis OpenClaw.",
+  "description_en": "Hermes Agent v0.22.0 (13 October 2026) to v0.22.5: local models, Connectors page, stable channel, default sandbox, migration from OpenClaw.",
+  "excerpt_fr": "La v0.22.0 « The Threshold Release » et ses correctifs jusqu'à la v0.22.5 : ce qui change, ce que ça change pour une PME, et ce qui reste jeune. Notes de version lues le 24 octobre 2026.",
+  "excerpt_en": "v0.22.0 \"The Threshold Release\" and its fixes up to v0.22.5: what changes, what it means for an SMB, and what is still young. Release notes read on 24 October 2026.",
+  "publishedAt": "2026-10-24",
+  "updatedAt": "2026-10-24",
+  "editorialType": "Note",
+  "type": "post",
+  "author": "simon-beros",
+  "category": "agents",
+  "tags": [
+    "hermes-agent",
+    "hermes-agent-v0-22",
+    "modeles-locaux",
+    "agent-ia-open-source",
+    "securite",
+    "actualite-ia"
+  ],
+  "readingTime": 5,
+  "heroIllustration": {
+    "src": "/images/illustrations/ds/claude-pme-hub-premiere-marche-paper.webp",
+    "alt_fr": "Un grand escalier blanc monte vers un drapeau rouge planté sur la plus haute marche, un disque pâle dans le ciel ; deux silhouettes attendent au pied de la première marche",
+    "alt_en": "A large white staircase climbs to a red flag planted on the top step, a pale disc in the sky; two figures wait at the foot of the first step",
+    "side": "right"
+  },
+  "sources": [
+    {
+      "name": "Nous Research, Hermes Agent v0.22.0, The Threshold Release (13 octobre 2026)",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v0.22.0",
+      "type": "enterprise",
+      "publishedAt": "2026-10-13"
+    },
+    {
+      "name": "Nous Research, Hermes Agent v0.22.4 (21 octobre 2026)",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v0.22.4",
+      "type": "enterprise",
+      "publishedAt": "2026-10-21"
+    },
+    {
+      "name": "Nous Research, Hermes Agent v0.22.5 (notes du 22 octobre 2026)",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v0.22.5",
+      "type": "enterprise",
+      "publishedAt": "2026-10-22"
+    },
+    {
+      "name": "Nous Research, Hermes Agent v0.21.6 (8 octobre 2026)",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v0.21.6",
+      "type": "enterprise",
+      "publishedAt": "2026-10-08"
+    },
+    {
+      "name": "Nous Research, hermes-agent, page des versions, lue le 24 octobre 2026",
+      "url": "https://github.com/NousResearch/hermes-agent/releases",
+      "type": "enterprise"
+    },
+    {
+      "name": "Nous Research, dépôt GitHub hermes-agent (README), lu le 24 octobre 2026",
+      "url": "https://github.com/NousResearch/hermes-agent",
+      "type": "enterprise"
+    }
+  ],
+  "relatedCases": [],
+  "relatedPosts": [
+    "agents-ia-toujours-actifs-pme",
+    "ia-auto-hebergee-open-webui-pme",
+    "agent-ia-24-7-pme"
+  ],
+  "slug": "hermes-agent-v0-22-modeles-locaux-connecteurs",
+  "faq_fr": [
+    {
+      "q": "Quelle est la dernière version de Hermes Agent ?",
+      "a": "Au 24 octobre 2026, la version stable est la v0.22.5, dont les notes sont datées du 22 octobre et l'en-tête du 23. Elle suit la v0.22.0, « The Threshold Release », publiée le 13 octobre. Le projet publie plusieurs versions par semaine : relisez la page des versions du dépôt NousResearch/hermes-agent avant toute installation ou mise à jour."
+    },
+    {
+      "q": "Qu'apporte Hermes Agent v0.22.0 ?",
+      "a": "D'après ses notes, la v0.22.0 du 13 octobre 2026 apporte un assistant de premier lancement, des modèles locaux en un clic via llama.cpp, une page Connectors (Linear, Notion), un canal de mises à jour stable en SemVer, l'image hermes-sandbox:desktop par défaut, des applications de bureau signées et un catalogue de plus de 600 plugins. Elle ne change pas la nature de l'agent : elle le rend plus simple à installer et plus prudent par défaut."
+    },
+    {
+      "q": "Hermes Agent peut-il fonctionner avec un modèle local ?",
+      "a": "Oui, depuis la v0.22.0. Hermes télécharge et lance le modèle sur votre machine grâce à llama.cpp, et son catalogue indique quels modèles tiennent sur votre carte graphique et votre mémoire. Les notes citent Qwen3.8 27B, Qwen3.6 35B-A3B et DeepSeek V4 Flash. Le calcul reste alors chez vous ; la qualité sur vos tâches et le coût du matériel restent à évaluer avant d'en faire un outil de travail."
+    },
+    {
+      "q": "Faut-il passer à la v0.22.5 tout de suite ?",
+      "a": "Pas sans lire les notes. La v0.22.5 refond la connexion Nous et déplace hermes mcp serve et le backend Singularity vers des plugins : si vous les utilisez, vérifiez d'abord comment les retrouver. Notre recommandation : tester la mise à jour sur une copie de l'agent, sur le canal stable, puis l'appliquer à l'agent qui travaille. Les correctifs de sécurité, eux, justifient de ne pas rester en arrière trop longtemps."
+    },
+    {
+      "q": "Hermes Agent est-il en version 1.0 ?",
+      "a": "Non. Au 24 octobre 2026, le projet est en v0.22.5 et les sources lues n'annoncent pas de v1.0. C'est un logiciel jeune, qui déplace encore des fonctions d'une version à l'autre. Il se prête à des usages internes et encadrés, avec une version épinglée et des mises à jour testées, plutôt qu'à un agent ouvert à vos clients."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "What is the latest version of Hermes Agent?",
+      "a": "As of 24 October 2026, the stable version is v0.22.5, whose notes are dated 22 October and its header 23 October. It follows v0.22.0, \"The Threshold Release\", published on 13 October. The project ships several versions a week: check the releases page of the NousResearch/hermes-agent repository before any installation or update."
+    },
+    {
+      "q": "What does Hermes Agent v0.22.0 bring?",
+      "a": "According to its notes, v0.22.0 of 13 October 2026 brings a first-run wizard, one-click local models through llama.cpp, a Connectors page (Linear, Notion), a stable SemVer update channel, the hermes-sandbox:desktop image by default, signed desktop apps and a catalogue of more than 600 plugins. It does not change what the agent is: it makes it easier to install and more careful by default."
+    },
+    {
+      "q": "Can Hermes Agent run with a local model?",
+      "a": "Yes, since v0.22.0. Hermes downloads and runs the model on your machine through llama.cpp, and its catalogue shows which models fit your graphics card and memory. The notes cite Qwen3.8 27B, Qwen3.6 35B-A3B and DeepSeek V4 Flash. Computation then stays with you; quality on your tasks and hardware cost still need assessing before making it a work tool."
+    },
+    {
+      "q": "Should I move to v0.22.5 right away?",
+      "a": "Not without reading the notes. v0.22.5 reworks the Nous login and moves hermes mcp serve and the Singularity backend into plugins: if you use them, check first how to get them back. Our recommendation: test the update on a copy of the agent, on the stable channel, then apply it to the working agent. Security fixes, on the other hand, are a reason not to stay behind for long."
+    },
+    {
+      "q": "Is Hermes Agent at version 1.0?",
+      "a": "No. As of 24 October 2026, the project is at v0.22.5 and the sources we read do not announce a v1.0. It is young software that still moves features from one version to the next. It suits internal, supervised uses, with a pinned version and tested updates, rather than an agent open to your clients."
+    }
+  ],
+  "headings": [
+    {
+      "depth": 2,
+      "slug": "en-bref",
+      "text": "En bref"
+    },
+    {
+      "depth": 2,
+      "slug": "calendrier",
+      "text": "Ce qui est sorti, et quand"
+    },
+    {
+      "depth": 2,
+      "slug": "changements",
+      "text": "Ce que la v0.22 change, point par point"
+    },
+    {
+      "depth": 2,
+      "slug": "pour-une-pme",
+      "text": "Ce que ça change pour une PME"
+    },
+    {
+      "depth": 2,
+      "slug": "encore-jeune",
+      "text": "Ce qui reste jeune"
+    },
+    {
+      "depth": 2,
+      "slug": "a-surveiller",
+      "text": "Ce que nous vérifierons d'ici la prochaine version"
+    },
+    {
+      "depth": 2,
+      "slug": "et-apres",
+      "text": "Et après ?"
+    }
+  ],
+  "body_sections": [
+    {
+      "type": "editorial-prose",
+      "html_fr": "<h2 id=\"en-bref\">En bref</h2>\n<ul>\n<li>Le 13 octobre 2026, Nous Research a publié Hermes Agent v0.22.0, « The Threshold Release » : assistant de premier lancement, modèles locaux en un clic, page Connectors, canal stable, bac à sable par défaut.</li>\n<li>Les correctifs se sont enchaînés jusqu'à la v0.22.5 (notes datées du 22 octobre, publiées le 23), qui ajoute une migration depuis OpenClaw et déplace deux fonctions vers des plugins.</li>\n<li>Pour une PME, l'agent devient plus simple à essayer et plus prudent par défaut. Il reste jeune : pas de v1.0, et des changements de structure d'une version à l'autre.</li>\n</ul>\n<p>Note d'actualité rédigée le 24 octobre 2026 à partir des notes de version du dépôt NousResearch/hermes-agent. Le fonctionnement complet de l'agent est décrit dans le <a href=\"/ressources/guides/hermes-agent\">guide Hermes Agent</a> ; ce billet ne traite que de ce qui a changé en octobre. Waimia n'a pas testé ces versions : tout ce qui suit est tiré des notes, et nos lectures sont signalées comme telles.</p>\n<h2 id=\"calendrier\">Ce qui est sorti, et quand</h2>\n<table><thead><tr><th>Version</th><th>Date</th><th>Ce qui compte</th></tr></thead><tbody><tr><td>v0.21.6</td><td>8 octobre 2026</td><td>Une partie des durcissements de sécurité listés plus bas (les notes les répartissent entre v0.21.6 et v0.22)</td></tr><tr><td>v0.22.0, « The Threshold Release »</td><td>13 octobre 2026</td><td>La version majeure du mois, détaillée ci-dessous</td></tr><tr><td>v0.22.4</td><td>21 octobre 2026</td><td>Un backend d'exécution bubblewrap (<code>bwrap</code>, Linux) rejoint le catalogue de plugins</td></tr><tr><td>v0.22.5</td><td>Notes du 22 octobre, publiées le 23</td><td>Connexion Nous refaite, commande <code>hermes import-agent</code>, migration depuis OpenClaw ; <code>hermes mcp serve</code> et le backend Singularity passent en plugins</td></tr></tbody></table>\n<p>Les versions intermédiaires v0.22.1 à v0.22.3 ne sont pas détaillées ici : voir la page des versions du projet. Au 24 octobre 2026, la version stable est la v0.22.5.</p>\n<h2 id=\"changements\">Ce que la v0.22 change, point par point</h2>\n<ul>\n<li><strong>Un assistant de premier lancement.</strong> Les notes l'annoncent sans en détailler le déroulé ; le README décrit par ailleurs l'assistant de configuration <code>hermes setup</code>.</li>\n<li><strong>Des modèles locaux en un clic.</strong> Hermes télécharge et lance un modèle sur votre machine grâce à llama.cpp. Le catalogue évalue chaque modèle selon la carte graphique (GPU) et la mémoire vive disponibles. Les notes citent Qwen3.8 27B, Qwen3.6 35B-A3B, DeepSeek V4 Flash et tout modèle GGUF publié sur Hugging Face.</li>\n<li><strong>Une page Connectors.</strong> Elle relie l'agent à des outils comme Linear ou Notion, via la passerelle d'outils de Nous. Le catalogue compte plus de 600 plugins.</li>\n<li><strong>Un canal stable.</strong> Les mises à jour suivent un canal stable numéroté en SemVer. Revenir à la branche de développement demande <code>hermes update --set-channel main</code>.</li>\n<li><strong>Le bac à sable par défaut.</strong> Un bac à sable (sandbox) est un environnement isolé. L'image <code>hermes-sandbox:desktop</code> devient celle par défaut ; avec Docker, SSH ou Singularity, l'écran du bot, l'utilisation de l'ordinateur et le navigateur tournent dans le bac à sable et non sur l'hôte.</li>\n<li><strong>Des durcissements de sécurité (v0.21.6 et v0.22).</strong> Connexion au tableau de bord durcie ; processus enfants privés des secrets des adaptateurs ; clés Anthropic et OpenAI jamais envoyées à des hôtes tiers ; caviardage renforcé ; fichiers réservés au propriétaire ; approbation requise pour accéder aux métadonnées du cloud ; télémétrie partagée désactivée par défaut.</li>\n<li><strong>Des applications de bureau signées.</strong> Dont une version sur le Microsoft Store. Sous Windows, le bureau n'existe qu'en MSIX, pour Windows 11 22H2 ou plus récent.</li>\n</ul>\n<p>Les notes signalent aussi un point d'attention : les sessions terminées depuis plus de 90 jours sont supprimées automatiquement (<code>sessions.auto_prune</code>, actif par défaut). Selon ses notes, la v0.22.0 regroupe environ 24 200 commits, 6 080 demandes de fusion et 2 520 contributeurs depuis la v0.21.0, et ramène le code d'environ 1,06 million à 698 000 lignes : chiffres déclarés par le projet.</p>\n<h2 id=\"pour-une-pme\">Ce que ça change pour une PME</h2>\n<p>Lecture de Waimia, à partir des notes, pas de mesures.</p>\n<ul>\n<li><strong>Essayer demande moins d'effort.</strong> Assistant de premier lancement et paquets de bureau signés rendent le premier essai accessible sans développeur. Les choix qui comptent (backend, modèle, canal) restent à faire : notre tutoriel <a href=\"/blog/installer-hermes-agent-premier-agent\">installer Hermes Agent pas à pas</a> les remet dans l'ordre prudent.</li>\n<li><strong>Les données peuvent rester chez vous.</strong> Avec un modèle local, les demandes ne partent plus chez un fournisseur de modèle. C'est l'argument le plus fort pour une PME qui manipule des données sensibles. En contrepartie : du matériel à acheter ou à louer, et une qualité à tester sur vos propres tâches.</li>\n<li><strong>Un agent trompé fait moins de dégâts par défaut.</strong> Le bac à sable par défaut et les secrets mieux cloisonnés réduisent ce qu'un agent égaré peut toucher. Ils ne règlent pas l'injection de consignes cachées dans un message lu par l'agent : les droits minimaux et la validation humaine restent nécessaires.</li>\n<li><strong>Les mises à jour deviennent planifiables.</strong> Un canal stable permet d'épingler une version et de tester avant de passer à la suivante.</li>\n<li><strong>Le choix du moteur devient réversible.</strong> La migration depuis OpenClaw signifie que commencer sur l'autre moteur ouvert n'est pas un cul-de-sac. Les sources lues ne mentionnent pas le sens inverse. Les deux moteurs sont comparés dans <a href=\"/ressources/comparatifs/hermes-agent-vs-openclaw\">Hermes Agent ou OpenClaw</a>.</li>\n</ul>\n<h2 id=\"encore-jeune\">Ce qui reste jeune</h2>\n<p>Le projet n'a pas de v1.0, et les sources lues n'en annoncent pas. Huit jours seulement séparent la v0.22.0 (13 octobre) de la v0.22.4 (21 octobre), et une version de correctifs, la v0.22.5, a déplacé <code>hermes mcp serve</code> et le backend Singularity vers des plugins : une équipe qui s'en servait doit vérifier comment les retrouver avant de mettre à jour. Les offres hébergées de Nous Research (Nous Portal, Hermes Cloud) ne sont décrites, à notre connaissance, que par des sources tierces : leurs prix sont à demander à l'éditeur. Enfin, ni la qualité des modèles locaux cités ni la migration depuis OpenClaw n'ont été mesurées par Waimia.</p>\n<h2 id=\"a-surveiller\">Ce que nous vérifierons d'ici la prochaine version</h2>\n<ul>\n<li>Ce que la migration depuis OpenClaw reprend vraiment (configuration, mémoire, skills, canaux) : les notes lues ne le détaillent pas.</li>\n<li>Si d'autres fonctions passent en plugins, et avec quel préavis dans les notes.</li>\n<li>L'annonce éventuelle d'une v1.0, et ce qu'elle garantirait en stabilité.</li>\n<li>Les conditions des offres hébergées, à lire à la source.</li>\n</ul>\n<p>Le même mois, l'autre moteur ouvert a lui aussi changé ses exigences : voir <a href=\"/blog/openclaw-2-0-migration-changements\">OpenClaw 2.0 : migrer sans casser</a>. Et pour situer ces deux moteurs face aux agents de Claude et ChatGPT, le billet <a href=\"/blog/agents-ia-toujours-actifs-pme\">agent IA toujours actif : propriétaire ou open source</a> pose le choix d'ensemble.</p>\n<h2 id=\"et-apres\">Et après ?</h2>\n<ul>\n<li><strong>Tout comprendre du moteur</strong> : le <a href=\"/ressources/guides/hermes-agent\">guide Hermes Agent</a>, avec la sécurité, le coût et le RGPD.</li>\n<li><strong>Mettre la v0.22 en service chez vous</strong> : notre <a href=\"/services/integration-hermes-agent\">intégration de Hermes Agent</a> épingle la version, isole l'exécution et teste chaque mise à jour, dans le cadre de nos <a href=\"/services/agents-ia-open-source\">agents IA open source</a>.</li>\n<li><strong>En parler</strong> : <a href=\"/contact?offer=audit-ia-pme&amp;intent=audit\">réserver l'audit gratuit</a>. Audit gratuit de 45 minutes en visio. Vous repartez avec une cartographie écrite et un ou deux chantiers classés (<a href=\"/audit-ia-pme\">comment se passe l'audit</a>).</li>\n</ul>",
+      "html_en": "<h2 id=\"in-short\">In short</h2>\n<ul>\n<li>On 13 October 2026, Nous Research released Hermes Agent v0.22.0, \"The Threshold Release\": a first-run wizard, one-click local models, a Connectors page, a stable channel, a default sandbox.</li>\n<li>Fixes followed up to v0.22.5 (notes dated 22 October, published on the 23rd), which adds a migration from OpenClaw and moves two features into plugins.</li>\n<li>For an SMB, the agent becomes easier to try and more careful by default. It is still young: no v1.0, and structural changes from one version to the next.</li>\n</ul>\n<p>News note written on 24 October 2026 from the release notes of the NousResearch/hermes-agent repository. How the agent works as a whole is described in the <a href=\"/ressources/guides/hermes-agent\">Hermes Agent guide</a>; this post only covers what changed in October. Waimia has not tested these versions: everything below comes from the notes, and our own reading is flagged as such.</p>\n<h2 id=\"timeline\">What shipped, and when</h2>\n<table><thead><tr><th>Version</th><th>Date</th><th>What matters</th></tr></thead><tbody><tr><td>v0.21.6</td><td>8 October 2026</td><td>Part of the security hardening listed below (the notes split it between v0.21.6 and v0.22)</td></tr><tr><td>v0.22.0, \"The Threshold Release\"</td><td>13 October 2026</td><td>The month's major version, detailed below</td></tr><tr><td>v0.22.4</td><td>21 October 2026</td><td>A bubblewrap execution backend (<code>bwrap</code>, Linux) joins the plugin catalogue</td></tr><tr><td>v0.22.5</td><td>Notes dated 22 October, published on the 23rd</td><td>Reworked Nous login, <code>hermes import-agent</code> command, migration from OpenClaw; <code>hermes mcp serve</code> and the Singularity backend move into plugins</td></tr></tbody></table>\n<p>Intermediate versions v0.22.1 to v0.22.3 are not detailed here: see the project's releases page. As of 24 October 2026, the stable version is v0.22.5.</p>\n<h2 id=\"changes\">What v0.22 changes, point by point</h2>\n<ul>\n<li><strong>A first-run wizard.</strong> The notes announce it without detailing its steps; the README separately describes the <code>hermes setup</code> configuration wizard.</li>\n<li><strong>One-click local models.</strong> Hermes downloads and runs a model on your machine through llama.cpp. The catalogue rates each model against the available graphics card (GPU) and RAM. The notes cite Qwen3.8 27B, Qwen3.6 35B-A3B, DeepSeek V4 Flash and any GGUF model published on Hugging Face.</li>\n<li><strong>A Connectors page.</strong> It connects the agent to tools such as Linear or Notion, through the Nous tool gateway. The catalogue holds more than 600 plugins.</li>\n<li><strong>A stable channel.</strong> Updates follow a stable channel numbered with SemVer. Going back to the development branch takes <code>hermes update --set-channel main</code>.</li>\n<li><strong>The sandbox by default.</strong> A sandbox is an isolated environment. The <code>hermes-sandbox:desktop</code> image becomes the default; with Docker, SSH or Singularity, the bot's screen, computer use and the browser run in the sandbox rather than on the host.</li>\n<li><strong>Security hardening (v0.21.6 and v0.22).</strong> Hardened dashboard login; child processes no longer get adapter secrets; Anthropic and OpenAI keys never sent to third-party hosts; stronger redaction; files restricted to their owner; approval required to reach cloud metadata; shared telemetry off by default.</li>\n<li><strong>Signed desktop apps.</strong> Including a Microsoft Store version. On Windows, the desktop app is only available as MSIX, for Windows 11 22H2 or later.</li>\n</ul>\n<p>The notes also flag a point of attention: sessions that ended more than 90 days ago are deleted automatically (<code>sessions.auto_prune</code>, on by default). According to its notes, v0.22.0 gathers about 24,200 commits, 6,080 merged pull requests and 2,520 contributors since v0.21.0, and shrinks the code from about 1.06 million to 698,000 lines: figures declared by the project.</p>\n<h2 id=\"for-an-smb\">What it changes for an SMB</h2>\n<p>Waimia's reading, based on the notes, not on measurements.</p>\n<ul>\n<li><strong>Trying it takes less effort.</strong> The first-run wizard and signed desktop packages make a first trial possible without a developer. The choices that matter (backend, model, channel) still have to be made: our tutorial <a href=\"/blog/installer-hermes-agent-premier-agent\">installing Hermes Agent step by step</a> puts them in the careful order.</li>\n<li><strong>Data can stay with you.</strong> With a local model, requests no longer go to a model provider. It is the strongest argument for an SMB handling sensitive data. The trade-off: hardware to buy or rent, and quality to test on your own tasks.</li>\n<li><strong>A misled agent does less damage by default.</strong> The default sandbox and better-isolated secrets reduce what a misled agent can touch. They do not solve hidden instructions in a message the agent reads: least privilege and human approval are still needed.</li>\n<li><strong>Updates become plannable.</strong> A stable channel lets you pin a version and test before moving to the next.</li>\n<li><strong>The engine choice becomes reversible.</strong> The migration from OpenClaw means that starting on the other open engine is not a dead end. The sources we read do not mention the reverse. Both engines are compared in <a href=\"/ressources/comparatifs/hermes-agent-vs-openclaw\">Hermes Agent or OpenClaw</a>.</li>\n</ul>\n<h2 id=\"still-young\">What is still young</h2>\n<p>The project has no v1.0, and the sources we read do not announce one. Only eight days separate v0.22.0 (13 October) from v0.22.4 (21 October), and a fix release, v0.22.5, moved <code>hermes mcp serve</code> and the Singularity backend into plugins: a team that relied on them must check how to get them back before updating. Nous Research's hosted offers (Nous Portal, Hermes Cloud) are, to our knowledge, only described by third-party sources: ask the vendor for their prices. Finally, neither the quality of the local models cited nor the migration from OpenClaw has been measured by Waimia.</p>\n<h2 id=\"to-watch\">What we will check before the next version</h2>\n<ul>\n<li>What the migration from OpenClaw actually carries over (configuration, memory, skills, channels): the notes we read do not detail it.</li>\n<li>Whether more features move into plugins, and with how much notice in the notes.</li>\n<li>Any announcement of a v1.0, and what stability it would guarantee.</li>\n<li>The terms of the hosted offers, read at the source.</li>\n</ul>\n<p>The same month, the other open engine also changed its requirements: see <a href=\"/blog/openclaw-2-0-migration-changements\">OpenClaw 2.0: migrating without breaking things</a>. And to place both engines against the Claude and ChatGPT agents, the post <a href=\"/blog/agents-ia-toujours-actifs-pme\">always-on AI agent: proprietary or open source</a> sets out the overall choice.</p>\n<h2 id=\"next\">What next?</h2>\n<ul>\n<li><strong>Understand the whole engine</strong>: the <a href=\"/ressources/guides/hermes-agent\">Hermes Agent guide</a>, with security, cost and GDPR.</li>\n<li><strong>Put v0.22 into service</strong>: our <a href=\"/services/integration-hermes-agent\">Hermes Agent integration</a> pins the version, isolates execution and tests every update, as part of our <a href=\"/services/agents-ia-open-source\">open source AI agents</a>.</li>\n<li><strong>Talk it through</strong>: <a href=\"/contact?offer=audit-ia-pme&amp;intent=audit\">book the free audit</a>. A free 45-minute video audit. You leave with a written map and one or two ranked projects (<a href=\"/audit-ia-pme\">how the audit works</a>).</li>\n</ul>"
+    }
+  ],
+  "lead_magnet": "charte-ia-entreprise"
+}
