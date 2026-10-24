@@ -1,0 +1,667 @@
+{
+  "$schema": "../../schemas/generated/comparatifs.page.schema.json",
+  "title_fr": "Hermes Agent vs OpenClaw : lequel pour une entreprise · Waimia",
+  "title_en": "Hermes Agent vs OpenClaw: which one for a business · Waimia",
+  "seoTitle_fr": "Hermes Agent vs OpenClaw : quel agent IA open source ?",
+  "seoTitle_en": "Hermes Agent vs OpenClaw: which open source AI agent?",
+  "description_fr": "Hermes Agent vs OpenClaw : installation, canaux, mémoire, bac à sable, sécurité et coût, lus à la source le 24 octobre 2026, puis lequel choisir.",
+  "description_en": "Hermes Agent vs OpenClaw: installation, channels, memory, sandbox, security and cost, read at the source on 24 October 2026, then which one to pick.",
+  "slug": "hermes-agent-vs-openclaw",
+  "publishedAt": "2026-10-24T00:00:00.000Z",
+  "updatedAt": "2026-10-24",
+  "category": "agents",
+  "tags": [
+    "hermes-agent-vs-openclaw",
+    "hermes-agent",
+    "openclaw",
+    "agent-ia-open-source",
+    "agents-ia",
+    "securite-agents",
+    "comparatif-ia"
+  ],
+  "sources": [
+    {
+      "name": "Nous Research, Hermes Agent : dépôt GitHub et README (lu le 24 octobre 2026)",
+      "url": "https://github.com/NousResearch/hermes-agent",
+      "type": "enterprise"
+    },
+    {
+      "name": "Nous Research, Hermes Agent : notes de version v0.21.6 à v0.22.5 (lues le 24 octobre 2026)",
+      "url": "https://github.com/NousResearch/hermes-agent/releases",
+      "type": "enterprise",
+      "publishedAt": "2026-10-22"
+    },
+    {
+      "name": "Agent Skills, standard ouvert des skills (agentskills.io)",
+      "url": "https://agentskills.io",
+      "type": "enterprise"
+    },
+    {
+      "name": "OpenClaw : dépôt GitHub et README (lu le 24 octobre 2026)",
+      "url": "https://github.com/openclaw/openclaw",
+      "type": "enterprise"
+    },
+    {
+      "name": "OpenClaw : notes de version 2026.8.1 à 2026.10.7 (lues le 24 octobre 2026)",
+      "url": "https://github.com/openclaw/openclaw/releases",
+      "type": "enterprise",
+      "publishedAt": "2026-10-24"
+    },
+    {
+      "name": "OpenClaw : issue #7827, modèle de confiance et bac à sable (3 février au 7 mars 2026)",
+      "url": "https://github.com/openclaw/openclaw/issues/7827",
+      "type": "enterprise",
+      "publishedAt": "2026-02-03"
+    }
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "Hermes Agent ou OpenClaw : lequel choisir en entreprise ?",
+      "a": "Cela dépend de vos canaux, du nombre d'utilisateurs et du durcissement exigé. OpenClaw couvre plus de messageries, dont Teams et iMessage, mais son bac à sable est désactivé par défaut. Hermes Agent mise sur la mémoire et les skills, et met son bac à sable en avant. Aucun des deux n'est clé en main : droits, journal et mises à jour restent à organiser."
+    },
+    {
+      "q": "Hermes Agent et OpenClaw sont-ils gratuits ?",
+      "a": "Oui, le logiciel est gratuit : les deux sont sous licence MIT. Vous payez le modèle (API à l'usage, ou matériel pour un modèle local), l'hébergement et les services connectés. Selon des sources tierces, Nous Research propose une option hébergée payante pour Hermes ; la fondation OpenClaw n'a pas d'offre payante. Le poste souvent oublié : le temps d'exploitation."
+    },
+    {
+      "q": "Quel est le meilleur agent IA open source ?",
+      "a": "Il n'y a pas de meilleur dans l'absolu, et cette page ne mesure aucune performance : elle compare des documentations et des notes de version lues le 24 octobre 2026. Hermes Agent convient à un agent qui apprend sur des tâches récurrentes, OpenClaw à un assistant joignable sur beaucoup de messageries. Le bon choix est celui que vous saurez exploiter et sécuriser."
+    },
+    {
+      "q": "OpenClaw est-il sûr pour une entreprise ?",
+      "a": "Il peut l'être, une fois durci. Par défaut, les outils de la session principale tournent sur la machine hôte, car le bac à sable est désactivé. Les mainteneurs décrivent un modèle à un seul opérateur de confiance et recommandent un durcissement pour les usages partagés. Activez le bac à sable, lancez openclaw security audit et appairez les expéditeurs avant d'exposer la Gateway."
+    },
+    {
+      "q": "Hermes Agent est-il prêt pour la production ?",
+      "a": "Il est jeune : v0.22.5 au 24 octobre 2026, sans v1.0, avec des versions très rapprochées. Il apporte des protections utiles, dont un bac à sable par défaut et des secrets mieux cloisonnés depuis v0.21.6. En production, gardez un périmètre étroit, une validation humaine sur les actions sensibles, et lisez chaque note de version avant de mettre à jour."
+    },
+    {
+      "q": "Peut-on migrer d'OpenClaw vers Hermes Agent ?",
+      "a": "Oui. Depuis v0.22.5, Hermes Agent propose la commande hermes import-agent et une migration depuis OpenClaw, selon ses notes de version ; les sources lues ne mentionnent pas le sens inverse. Comptes de service, droits, secrets et règles de validation restent à refaire et à retester : documentez-les hors de l'agent pour que le changement reste un chantier borné."
+    },
+    {
+      "q": "Plusieurs salariés peuvent-ils partager le même agent ?",
+      "a": "Pas tel quel, d'après les sources lues. OpenClaw se décrit comme un assistant personnel avec un opérateur de confiance, sans isolation entre utilisateurs. Les sources lues sur Hermes ne décrivent pas de modèle multi-utilisateur. Nous recommandons un agent par personne ou par mission, chacun avec ses propres accès, plutôt qu'un agent commun à toute l'équipe."
+    },
+    {
+      "q": "Que fait Waimia avec Hermes Agent ou OpenClaw ?",
+      "a": "Nous choisissons le moteur pendant un sprint de cadrage de 10 heures, puis nous le déployons durci : bac à sable, droits minimaux, secrets hors de l'agent, journal, validation humaine. Nous le connectons à vos outils par MCP, API ou n8n et assurons les mises à jour en régie. Vos agents, vos accès et la documentation restent à vous."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Hermes Agent or OpenClaw: which one for a business?",
+      "a": "It depends on your channels, the number of users and the hardening you need. OpenClaw covers more messaging apps, Teams and iMessage included, but its sandbox is off by default. Hermes Agent bets on memory and skills, and puts its sandbox forward. Neither is turnkey: permissions, logging and updates still have to be organised."
+    },
+    {
+      "q": "Are Hermes Agent and OpenClaw free?",
+      "a": "Yes, the software is free: both are under the MIT licence. You pay for the model (a pay-as-you-go API, or hardware for a local model), hosting and connected services. According to third-party sources, Nous Research offers a paid hosted option for Hermes; the OpenClaw foundation has no paid offer. The cost often forgotten: operating time."
+    },
+    {
+      "q": "What is the best open source AI agent?",
+      "a": "There is no best one in absolute terms, and this page measures no performance: it compares documentation and release notes read on 24 October 2026. Hermes Agent suits an agent that learns on recurring tasks, OpenClaw an assistant reachable on many messaging apps. The right choice is the one you can run and secure."
+    },
+    {
+      "q": "Is OpenClaw safe for a business?",
+      "a": "It can be, once hardened. By default, main-session tools run on the host machine, because the sandbox is off. The maintainers describe a model with a single trusted operator and recommend hardening for shared use. Turn on the sandbox, run openclaw security audit and pair senders before exposing the Gateway."
+    },
+    {
+      "q": "Is Hermes Agent production-ready?",
+      "a": "It is young: v0.22.5 on 24 October 2026, no v1.0, with releases in close succession. It brings useful protections, including a default sandbox and better-isolated secrets since v0.21.6. In production, keep a narrow scope, human approval on sensitive actions, and read every release note before updating."
+    },
+    {
+      "q": "Can you migrate from OpenClaw to Hermes Agent?",
+      "a": "Yes. Since v0.22.5, Hermes Agent offers the hermes import-agent command and a migration from OpenClaw, according to its release notes; the sources read do not mention the reverse. Service accounts, permissions, secrets and approval rules must still be redone and retested: document them outside the agent so the switch stays a bounded project."
+    },
+    {
+      "q": "Can several employees share the same agent?",
+      "a": "Not as is, according to the sources read. OpenClaw describes itself as a personal assistant with one trusted operator, with no isolation between users. The sources read on Hermes do not describe a multi-user model. We recommend one agent per person or per mission, each with its own access, rather than one agent shared by the whole team."
+    },
+    {
+      "q": "What does Waimia do with Hermes Agent or OpenClaw?",
+      "a": "We choose the engine during a 10-hour scoping sprint, then deploy it hardened: sandbox, least privilege, secrets outside the agent, a log, human approval. We connect it to your tools through MCP, APIs or n8n and handle updates on a time-and-materials basis. Your agents, your access and the documentation stay yours."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "kicker_fr": "§ Comparatif agents IA open source",
+      "kicker_en": "§ Open source AI agents comparison",
+      "h1_fr": "Hermes Agent vs OpenClaw : <i class=\"acc\">lequel pour une entreprise</i> ?",
+      "h1_en": "Hermes Agent vs OpenClaw: <i class=\"acc\">which one for a business</i>?",
+      "definition_kicker_fr": "En une phrase",
+      "definition_kicker_en": "In one sentence",
+      "lede_fr": "Hermes Agent vs OpenClaw : deux agents IA open source sous licence MIT, à installer sur votre machine ou votre serveur et à piloter depuis une messagerie. Ce comparatif s'appuie sur leurs dépôts GitHub et leurs notes de version, lus le 24 octobre 2026 : ce sont des lectures de documentation, pas des mesures de performance.",
+      "lede_en": "Hermes Agent vs OpenClaw: two open source AI agents under the MIT licence, installed on your machine or server and driven from a messaging app. This comparison relies on their GitHub repositories and release notes, read on 24 October 2026: these are readings of documentation, not performance measurements.",
+      "badges": [
+        {
+          "label_fr": "Mis à jour le 24 octobre 2026",
+          "label_en": "Updated 24 October 2026"
+        },
+        {
+          "label_fr": "Sources lues à la source",
+          "label_en": "Read at the source"
+        },
+        {
+          "label_fr": "Recommandations PME",
+          "label_en": "SMB recommendations"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver l'audit gratuit →",
+        "label_en": "Book the free audit →",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Recevoir la charte IA gratuite",
+        "label_en": "Get the free AI policy",
+        "href": "#charte-agents-open-source",
+        "variant": "ghost"
+      },
+      "illustration": {
+        "src": "/images/illustrations/ds/chatgpt-claude-gemini-perplexity-pme-chaussures-paper.webp",
+        "alt_fr": "Illustration : quatre chaussures géantes alignées sur une plaine sous le soleil, une botte, un escarpin, un mocassin et une bottine, avec de petits personnages debout entre elles",
+        "alt_en": "Illustration: four giant shoes lined up on a plain under the sun, a boot, a high heel, a loafer and an ankle boot, with small figures standing between them",
+        "side": "right"
+      }
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "Hermes Agent ou OpenClaw : lequel choisir pour une entreprise ?",
+      "question_en": "Hermes Agent or OpenClaw: which one should a business choose?",
+      "term_fr": "La réponse courte",
+      "term_en": "The short answer",
+      "answer_fr": "Aucun des deux n'est un produit clé en main. Hermes Agent mise sur l'apprentissage (skills créées seules, mémoire consultable) et met son bac à sable en avant. OpenClaw mise sur l'étendue des canaux et de l'écosystème, avec un bac à sable à activer vous-même. Le choix dépend du nombre d'utilisateurs, des canaux et du niveau de durcissement exigé.",
+      "answer_en": "Neither is a turnkey product. Hermes Agent bets on learning (skills it writes itself, searchable memory) and puts its sandbox forward. OpenClaw bets on the breadth of its channels and ecosystem, with a sandbox you turn on yourself. The choice depends on the number of users, the channels and the level of hardening you need."
+    },
+    {
+      "type": "comparison-table",
+      "background": "paper",
+      "h2_fr": "Hermes Agent vs OpenClaw, critère par critère (lu le 24 octobre 2026)",
+      "h2_en": "Hermes Agent vs OpenClaw, criterion by criterion (read on 24 October 2026)",
+      "column_headers_fr": [
+        "Critère",
+        "Hermes Agent",
+        "OpenClaw"
+      ],
+      "column_headers_en": [
+        "Criterion",
+        "Hermes Agent",
+        "OpenClaw"
+      ],
+      "rows": [
+        {
+          "feature_fr": "Éditeur et gouvernance",
+          "feature_en": "Publisher and governance",
+          "values": [
+            "Nous Research",
+            "OpenClaw Foundation, association indépendante 501(c)(3)"
+          ]
+        },
+        {
+          "feature_fr": "Licence",
+          "feature_en": "Licence",
+          "values": [
+            "MIT",
+            "MIT"
+          ]
+        },
+        {
+          "feature_fr": "Première sortie",
+          "feature_en": "First release",
+          "values": [
+            "Février 2026, selon Wikipédia (à vérifier)",
+            "Non relevée ; issue #7827 déjà ouverte le 3 février 2026"
+          ]
+        },
+        {
+          "feature_fr": "Version stable au 24 octobre 2026",
+          "feature_en": "Stable version on 24 October 2026",
+          "values": [
+            "v0.22.5 (notes du 22 octobre), pas encore de v1.0",
+            "2026.10.7 (24 octobre) ; « 2.0 » désigne 2026.8.1 du 31 août"
+          ]
+        },
+        {
+          "feature_fr": "Rythme de publication",
+          "feature_en": "Release pace",
+          "values": [
+            "SemVer ; de v0.22.0 (13 octobre) à v0.22.5 (22 octobre)",
+            "CalVer ; 2026.10.6 le 22 octobre, 2026.10.7 le 24"
+          ]
+        },
+        {
+          "feature_fr": "Installation",
+          "feature_en": "Installation",
+          "values": [
+            "Script curl (Linux, macOS, WSL2), PowerShell (Windows), APT (Termux), puis hermes setup",
+            "openclaw onboard --install-daemon ; Node 24.22.1+ ou 26.12.1+ exigé depuis 2026.10.6"
+          ]
+        },
+        {
+          "feature_fr": "Canaux de messagerie",
+          "feature_en": "Messaging channels",
+          "values": [
+            "Telegram, Discord, Slack, WhatsApp, Signal, ligne de commande",
+            "Discord, iMessage, Slack, Teams, Telegram, WhatsApp et plus de 20 autres ; applications natives"
+          ]
+        },
+        {
+          "feature_fr": "Mémoire",
+          "feature_en": "Memory",
+          "values": [
+            "Gérée par l'agent, recherche dans les sessions passées, profil via Honcho ; sessions de plus de 90 jours supprimées par défaut",
+            "Gardée sur votre matériel, avec l'état et les identifiants"
+          ]
+        },
+        {
+          "feature_fr": "Skills, plugins et marketplace",
+          "feature_en": "Skills, plugins and marketplace",
+          "values": [
+            "Skills créées seules après une tâche complexe (standard agentskills.io) ; catalogue de plus de 600 plugins",
+            "Plugins interchangeables ; marketplace ClawHub"
+          ]
+        },
+        {
+          "feature_fr": "Modèles",
+          "feature_en": "Models",
+          "values": [
+            "Nous Portal, OpenRouter, OpenAI ou point d'accès personnalisé ; modèles locaux via llama.cpp",
+            "Modèles branchés en plugins interchangeables"
+          ]
+        },
+        {
+          "feature_fr": "Exécution et bac à sable par défaut",
+          "feature_en": "Execution and default sandbox",
+          "values": [
+            "Image hermes-sandbox:desktop par défaut ; navigateur et ordinateur isolés avec Docker, SSH ou Singularity",
+            "Outils de la session principale sur l'hôte ; bac à sable désactivé par défaut, Gateway toujours sur l'hôte"
+          ]
+        },
+        {
+          "feature_fr": "Sécurité des messages entrants",
+          "feature_en": "Inbound message security",
+          "values": [
+            "Appairage par message privé, approbation des commandes",
+            "Messages entrants traités comme non fiables ; expéditeurs inconnus appairés par défaut"
+          ]
+        },
+        {
+          "feature_fr": "Gestion des identifiants",
+          "feature_en": "Credential handling",
+          "values": [
+            "Secrets non hérités par les processus enfants, clés jamais envoyées à des tiers, caviardage",
+            "Identifiants gardés sur votre matériel ; demandes d'identifiants masquées depuis 2026.8.1"
+          ]
+        },
+        {
+          "feature_fr": "Usage multi-utilisateur",
+          "feature_en": "Multi-user use",
+          "values": [
+            "Non décrit dans les sources lues",
+            "Modèle de confiance à un opérateur, pas d'isolation entre locataires"
+          ]
+        },
+        {
+          "feature_fr": "Option hébergée",
+          "feature_en": "Hosted option",
+          "values": [
+            "Nous Portal et Hermes Cloud, payants, selon des sources tierces",
+            "Aucune offre payante de la fondation ; sessions déplaçables vers des workers cloud"
+          ]
+        },
+        {
+          "feature_fr": "Migration",
+          "feature_en": "Migration",
+          "values": [
+            "Import depuis OpenClaw (hermes import-agent, v0.22.5)",
+            "Pas d'import depuis Hermes dans les sources lues"
+          ]
+        },
+        {
+          "feature_fr": "Coût du logiciel",
+          "feature_en": "Software cost",
+          "values": [
+            "Gratuit ; vous payez modèle, hébergement, services",
+            "Gratuit ; vous payez modèle, matériel ou hébergement, services"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "html_fr": "<h2>Comment ce comparatif a été fait</h2>\n<p>Tout ce qui suit vient des dépôts GitHub des deux projets (README, notes de version, une issue de suivi), lus le 24 octobre 2026. Un fait tiré de la presse ou d'un guide tiers est signalé par « selon » : vérifiez-le chez le projet avant de vous engager. Ce sont des lectures de documentation et de notes de version, pas des mesures de performance : aucun des deux agents n'a été chronométré ni noté, et aucun chiffre d'étoiles GitHub ni classement n'est repris.</p>\n<p>Trois mots de vocabulaire. Un <strong>agent</strong> est un programme qui reçoit un objectif, choisit des actions et les exécute avec des outils (voir <a href=\"/ressources/guides/agent-ia-definition\">ce qu'est un agent IA</a>). Une <strong>skill</strong> est une procédure écrite que l'agent recharge quand la tâche s'y prête. Un <strong>bac à sable</strong> (sandbox) est un environnement isolé où l'agent exécute ses commandes sans toucher à la machine qui l'héberge.</p>\n<h2>Deux philosophies : l'agent qui apprend, l'assistant présent partout</h2>\n<p>Hermes Agent, publié par Nous Research, se présente comme un agent qui apprend de l'expérience : il crée et améliore ses propres skills, retient des informations et cherche dans ses conversations passées (README lu le 24 octobre 2026). Son centre de gravité est la durée : plus l'agent travaille pour vous, plus il est censé accumuler de savoir-faire réutilisable.</p>\n<p>OpenClaw se présente comme un assistant IA open source qui tourne sur votre propre ordinateur et passe par les messageries que vous utilisez déjà : Discord, iMessage, Slack, Teams, Telegram, WhatsApp et plus de 20 autres, avec des applications natives pour macOS, iOS, Android, Windows et Linux. Son centre de gravité est la présence : l'assistant est joignable partout où vous écrivez.</p>\n<p>Cette différence de départ explique la plupart des écarts du tableau : Hermes investit dans la mémoire, les skills et l'isolation de l'exécution ; OpenClaw dans les canaux, les applications et les plugins. La vraie question n'est pas lequel est « meilleur », mais lequel colle à votre usage, et ce qu'il faut ajouter autour.</p>\n<h2>Installation et exploitation : le démarrage n'est que le début</h2>\n<p><strong>Hermes Agent</strong> s'installe par un script curl sur Linux, macOS et WSL2, par PowerShell sous Windows, et par un dépôt APT sur Termux. On lance ensuite la commande <code>hermes</code> et l'assistant <code>hermes setup</code>. Depuis v0.22.0 (13 octobre 2026), un assistant de premier lancement guide la configuration, et des paquets Desktop signés existent, dont une version sur le Microsoft Store. Sous Windows, le bureau n'est disponible qu'en MSIX, sur Windows 11 22H2 ou plus récent.</p>\n<p><strong>OpenClaw</strong> démarre par <code>openclaw onboard --install-daemon</code>, puis <code>openclaw gateway status</code> et <code>openclaw dashboard</code>. Son architecture repose sur une Gateway locale qui gère les sessions, les outils et les connexions aux canaux ; l'interface de contrôle (Control UI), la ligne de commande et l'interface terminal s'y connectent. Depuis 2026.10.6, un runtime Node corrigé est exigé (voir l'encadré daté plus bas).</p>\n<p>Dans les deux cas, l'installation n'est que le début. Un agent qui tourne en continu demande des mises à jour suivies (les deux projets ont publié plusieurs versions en octobre 2026), une surveillance, des sauvegardes et une personne qui sait l'arrêter. Les postes de coût sont détaillés dans <a href=\"/ressources/guides/combien-coute-un-agent-ia-pme\">combien coûte un agent IA pour une PME</a>.</p>",
+      "html_en": "<h2>How this comparison was made</h2>\n<p>Everything below comes from the two projects' GitHub repositories (README, release notes, one tracking issue), read on 24 October 2026. A fact taken from the press or a third-party guide is flagged with \"according to\": check it with the project before committing. These are readings of documentation and release notes, not performance measurements: neither agent was timed or scored, and no GitHub star count or ranking is used.</p>\n<p>Three words of vocabulary. An <strong>agent</strong> is a program that receives a goal, chooses actions and carries them out with tools (see <a href=\"/ressources/guides/agent-ia-definition\">what an AI agent is</a>). A <strong>skill</strong> is a written procedure the agent reloads when the task calls for it. A <strong>sandbox</strong> is an isolated environment where the agent runs its commands without touching the machine that hosts it.</p>\n<h2>Two philosophies: the agent that learns, the assistant that is everywhere</h2>\n<p>Hermes Agent, published by Nous Research, presents itself as an agent that learns from experience: it creates and improves its own skills, remembers information and searches its past conversations (README read on 24 October 2026). Its centre of gravity is time: the longer the agent works for you, the more reusable know-how it is meant to build up.</p>\n<p>OpenClaw presents itself as an open source AI assistant that runs on your own computer and works through the messaging apps you already use: Discord, iMessage, Slack, Teams, Telegram, WhatsApp and more than 20 others, with native apps for macOS, iOS, Android, Windows and Linux. Its centre of gravity is presence: the assistant can be reached wherever you write.</p>\n<p>This difference in starting point explains most of the gaps in the table: Hermes invests in memory, skills and execution isolation; OpenClaw in channels, apps and plugins. The real question is not which one is \"better\", but which one fits your use, and what must be added around it.</p>\n<h2>Installation and operation: getting started is only the beginning</h2>\n<p><strong>Hermes Agent</strong> installs with a curl script on Linux, macOS and WSL2, with PowerShell on Windows, and through an APT repository on Termux. You then run the <code>hermes</code> command and the <code>hermes setup</code> wizard. Since v0.22.0 (13 October 2026), a first-run wizard guides configuration, and signed Desktop packages exist, including one on the Microsoft Store. On Windows, the desktop app is only available as MSIX, on Windows 11 22H2 or later.</p>\n<p><strong>OpenClaw</strong> starts with <code>openclaw onboard --install-daemon</code>, then <code>openclaw gateway status</code> and <code>openclaw dashboard</code>. Its architecture rests on a local Gateway that manages sessions, tools and channel connections; the Control UI, the command line and the terminal interface connect to it. Since 2026.10.6, a patched Node runtime is required (see the dated box below).</p>\n<p>In both cases, installation is only the beginning. An agent that runs continuously needs tracked updates (both projects shipped several releases in October 2026), monitoring, backups and someone who knows how to stop it. The cost items are detailed in <a href=\"/ressources/guides/combien-coute-un-agent-ia-pme\">how much an AI agent costs an SMB</a>.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "maxWidth": "prose",
+      "html_fr": "<h2>Mémoire et skills : là où Hermes se distingue</h2>\n<p>Hermes gère lui-même sa mémoire. Il cherche dans ses sessions passées avec une recherche plein texte (FTS5) et construit une modélisation de l'utilisateur via Honcho. Après une tâche complexe, il peut créer automatiquement une skill, compatible avec le standard ouvert agentskills.io, puis l'améliorer à l'usage. S'y ajoutent un planificateur (cron) qui envoie ses résultats sur la plateforme choisie et des sous-agents en parallèle.</p>\n<p>Deux conséquences pour une entreprise. D'abord, une skill créée par l'agent est une procédure que personne n'a relue : prévoyez une revue avant qu'elle serve à une tâche qui engage l'entreprise. Ensuite, la mémoire a une durée de vie : par défaut, les sessions terminées depuis plus de 90 jours sont supprimées automatiquement (réglage <code>sessions.auto_prune</code>, actif par défaut). Pour garder une trace plus longue, changez ce réglage ou exportez les sessions, et écrivez-le dans votre politique de conservation.</p>\n<p>OpenClaw garde son état, sa mémoire et ses identifiants sur votre matériel. Les sources lues décrivent moins en détail son mécanisme d'apprentissage ; son extensibilité passe d'abord par les plugins et par la marketplace ClawHub. Si vous utilisez déjà des skills chez Claude, le principe vous est familier : une procédure écrite que l'agent recharge (voir <a href=\"/ressources/guides/claude-skills\">notre guide des skills Claude</a>).</p>\n<h2>Canaux : là où OpenClaw prend l'avantage</h2>\n<p>La passerelle de Hermes couvre Telegram, Discord, Slack, WhatsApp, Signal et la ligne de commande. OpenClaw couvre Discord, iMessage, Slack, Teams, Telegram, WhatsApp et plus de 20 autres messageries, avec des applications natives sur les cinq grands systèmes. Si vos équipes vivent dans Microsoft Teams ou dans iMessage, les listes lues le 24 octobre 2026 ne les mentionnent que chez OpenClaw.</p>\n<p>Côté outils métier, Hermes a ajouté en v0.22.0 une page Connectors (Linear et Notion, via la passerelle d'outils de Nous), et OpenClaw s'étend par plugins. Pour le reste de vos logiciels, il faudra un connecteur : plugin, API ou serveur MCP selon ce que le moteur accepte, à vérifier dans sa documentation au moment du projet. Le protocole lui-même est expliqué dans <a href=\"/ressources/guides/mcp-claude\">notre guide MCP</a>. Et chaque canal de plus est une porte d'entrée de plus pour des messages non fiables.</p>",
+      "html_en": "<h2>Memory and skills: where Hermes stands out</h2>\n<p>Hermes manages its own memory. It searches its past sessions with full-text search (FTS5) and builds a model of the user through Honcho. After a complex task, it can create a skill automatically, compatible with the open agentskills.io standard, then improve it with use. On top of that come a scheduler (cron) that delivers results to the platform of your choice and sub-agents that work in parallel.</p>\n<p>Two consequences for a business. First, a skill created by the agent is a procedure nobody has reviewed: plan a review before it is used on a task that commits the company. Second, memory has a lifespan: by default, sessions ended more than 90 days ago are deleted automatically (the <code>sessions.auto_prune</code> setting, on by default). To keep a longer record, change that setting or export the sessions, and write it into your retention policy.</p>\n<p>OpenClaw keeps its state, memory and credentials on your hardware. The sources read describe its learning mechanism in less detail; its extensibility goes first through plugins and the ClawHub marketplace. If you already use skills with Claude, the principle will feel familiar: a written procedure the agent reloads (see <a href=\"/ressources/guides/claude-skills\">our guide to Claude skills</a>).</p>\n<h2>Channels: where OpenClaw takes the lead</h2>\n<p>The Hermes gateway covers Telegram, Discord, Slack, WhatsApp, Signal and the command line. OpenClaw covers Discord, iMessage, Slack, Teams, Telegram, WhatsApp and more than 20 other messaging apps, with native apps on the five main systems. If your teams live in Microsoft Teams or iMessage, the lists read on 24 October 2026 mention them only for OpenClaw.</p>\n<p>On the business-tool side, Hermes added a Connectors page in v0.22.0 (Linear and Notion, through the Nous tool gateway), and OpenClaw extends through plugins. For the rest of your software, you will need a connector: a plugin, an API or an MCP server depending on what the engine accepts, to check in its documentation at project time. The protocol itself is explained in <a href=\"/ressources/guides/mcp-claude\">our MCP guide</a>. And every extra channel is one more entry point for untrusted messages.</p>"
+    },
+    {
+      "type": "editorial-callout",
+      "background": "paper-2",
+      "variant": "warn",
+      "size": "md",
+      "body_fr": "OpenClaw le dit lui-même : les messages entrants sont non fiables, et sans configuration, ses outils tournent sur la machine hôte. Lisez son guide de sécurité avant d'exposer la Gateway.",
+      "body_en": "OpenClaw says it itself: inbound messages are untrusted, and without configuration, its tools run on the host machine. Read its security guide before exposing the Gateway.",
+      "density": "compact"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "maxWidth": "prose",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/claude-code-entreprise-sas-paper.webp",
+          "alt_fr": "Illustration : un sas ouvert dans un long mur, un gardien y contrôle une personne et sa mallette, une autre personne attend dehors",
+          "alt_en": "Illustration: an open airlock in a long wall, a guard checks a person and their briefcase inside it, another person waits outside",
+          "side": "right"
+        }
+      ],
+      "html_fr": "<h2>Sécurité et bac à sable : la différence qui compte le plus</h2>\n<p><strong>Chez OpenClaw, le bac à sable est à activer vous-même.</strong> Les outils de la session principale tournent sur l'hôte tant que le sandboxing n'est pas configuré, et il est désactivé par défaut. Même activé, la Gateway reste sur l'hôte : seule l'exécution des outils passe dans le bac à sable. Les mainteneurs l'assument. Dans l'issue #7827 (ouverte le 3 février 2026, fermée le 7 mars 2026), ils décrivent le modèle de confiance comme celui d'un assistant personnel avec un opérateur de confiance, pas une isolation entre plusieurs locataires, et recommandent un durcissement pour les déploiements partagés ou publics. La commande <code>openclaw security audit</code> signale les alertes de configuration.</p>\n<p>Côté messages, OpenClaw traite les messages entrants comme non fiables. Sur les canaux à messages privés, un expéditeur inconnu doit être appairé par défaut (<code>openclaw pairing approve &lt;canal&gt; &lt;code&gt;</code>), et l'onboarding local règle <code>dmScope</code> sur <code>per-channel-peer</code> si rien n'est configuré. La version 2026.8.1 (« OpenClaw 2.0 », 31 août 2026) a ajouté des demandes d'identifiants masquées : l'agent demande un identifiant sans que sa valeur passe dans le chat ni dans le contexte du modèle. Elle ancre aussi l'accès aux fichiers sur l'espace de travail et réserve l'installation de plugins exécutables de source arbitraire à l'option <code>--force</code>, les sources de confiance (ClawHub, catalogue officiel) gardant une demande de consentement.</p>\n<p><strong>Chez Hermes, le bac à sable est mis en avant.</strong> Depuis v0.22.0, l'image <code>hermes-sandbox:desktop</code> est utilisée par défaut ; avec les backends Docker, SSH ou Singularity, l'écran du bot, l'utilisation de l'ordinateur et le navigateur tournent dans le bac à sable et non sur l'hôte. Le README cite aussi l'approbation des commandes, l'appairage par message privé et l'isolation par conteneur. Les versions v0.21.6 et v0.22 ont durci la connexion au tableau de bord, coupé l'héritage des secrets par les processus enfants, interdit l'envoi des clés Anthropic et OpenAI à des hôtes tiers, renforcé le caviardage et soumis à approbation l'accès aux métadonnées du cloud. La v0.22.4 a ajouté au catalogue de plugins un backend bubblewrap (<code>bwrap</code>, sous Linux).</p>\n<p>« Bac à sable par défaut » ne veut pas dire « sûr par défaut ». Un agent qui lit vos e-mails ou vos messages reste exposé aux instructions cachées dans ces contenus, quel que soit le moteur. Ce qui protège vraiment : des droits minimaux sur chaque outil, un compte de service dédié, une validation humaine avant tout envoi, paiement ou suppression, et un journal relu. La <a href=\"/ressources/guides/rgpd-agents-ia-checklist\">checklist RGPD pour agents IA</a> donne les points à vérifier avant la mise en service.</p>\n<p>Selon des guides tiers, des extensions malveillantes ont été publiées sur ClawHub avant un durcissement, et certaines protections d'OpenClaw sont livrées désactivées. Non confirmé par le projet dans les sources lues : raison de plus pour vérifier la provenance de chaque extension, des deux côtés.</p>",
+      "html_en": "<h2>Security and sandbox: the difference that matters most</h2>\n<p><strong>With OpenClaw, you turn the sandbox on yourself.</strong> Main-session tools run on the host until sandboxing is configured, and it is off by default. Even when it is on, the Gateway stays on the host: only tool execution moves into the sandbox. The maintainers own this. In issue #7827 (opened on 3 February 2026, closed on 7 March 2026), they describe the trust model as that of a personal assistant with one trusted operator, not isolation between several tenants, and recommend hardening for shared or public deployments. The <code>openclaw security audit</code> command flags configuration warnings.</p>\n<p>On messages, OpenClaw treats inbound messages as untrusted. On direct-message channels, an unknown sender must be paired by default (<code>openclaw pairing approve &lt;channel&gt; &lt;code&gt;</code>), and local onboarding sets <code>dmScope</code> to <code>per-channel-peer</code> if nothing is configured. Version 2026.8.1 (\"OpenClaw 2.0\", 31 August 2026) added masked credential requests: the agent asks for a credential without its value going through the chat or the model's context. It also anchors file access to the workspace and limits installing executable plugins from arbitrary sources to the <code>--force</code> option, trusted sources (ClawHub, official catalogue) keeping a consent prompt.</p>\n<p><strong>With Hermes, the sandbox is put forward.</strong> Since v0.22.0, the <code>hermes-sandbox:desktop</code> image is used by default; with the Docker, SSH or Singularity backends, the bot's screen, computer use and the browser run in the sandbox, not on the host. The README also lists command approval, direct-message pairing and container isolation. Versions v0.21.6 and v0.22 hardened the dashboard login, stopped child processes inheriting secrets, barred Anthropic and OpenAI keys from third-party hosts, strengthened redaction and put access to cloud metadata behind approval. v0.22.4 added a bubblewrap backend (<code>bwrap</code>, on Linux) to the plugin catalogue.</p>\n<p>\"Sandbox by default\" does not mean \"safe by default\". An agent that reads your email or messages stays exposed to instructions hidden in that content, whatever the engine. What really protects you: least privilege on every tool, a dedicated service account, human approval before any send, payment or deletion, and a log someone reads. The <a href=\"/ressources/guides/rgpd-agents-ia-checklist\">GDPR checklist for AI agents</a> lists the points to check before going live.</p>\n<p>According to third-party guides, malicious extensions were published on ClawHub before it was hardened, and some OpenClaw protections ship disabled. Not confirmed by the project in the sources read: all the more reason to check the provenance of every extension, on both sides.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "html_fr": "<h2>Modèles, coûts et données</h2>\n<p>Hermes se branche sur Nous Portal, OpenRouter, OpenAI ou un point d'accès personnalisé, et l'on change de modèle avec <code>hermes model</code>. Depuis v0.22.0, il installe des modèles locaux en un clic via llama.cpp : le catalogue évalue chaque modèle selon votre carte graphique et votre mémoire vive, et accepte tout fichier GGUF de Hugging Face. Chez OpenClaw, les modèles et les « agent harnesses » (les moteurs d'exécution de l'agent) sont des plugins interchangeables ; selon la presse, l'installateur de la 2.0 détecte un accès ChatGPT ou Claude existant.</p>\n<p>Le logiciel est gratuit des deux côtés. Ce que vous payez : le modèle (à l'usage par API, ou le matériel s'il tourne en local), la machine ou l'hébergement, et les services connectés. Pour Hermes, une option hébergée payante existe (Nous Portal, Hermes Cloud) selon des sources tierces : vérifiez l'offre et le prix chez Nous Research. La fondation OpenClaw n'a pas d'offre payante.</p>\n<p>Sur les données, les deux projets gardent l'essentiel chez vous. OpenClaw garde état, mémoire et identifiants sur votre matériel, avec une télémétrie limitée à une vérification quotidienne de version sauf accord explicite ; Hermes désactive par défaut la télémétrie partagée. Mais avec un modèle par API, vos contenus partent chez son fournisseur : pour des données sensibles, le vrai choix est celui du modèle et de son contrat (voir <a href=\"/ressources/comparatifs/mistral-vs-claude-pme\">Mistral ou Claude pour une PME</a> et <a href=\"/ressources/guides/claude-rgpd-pme\">Claude et le RGPD</a>). Pour une IA entièrement hébergée chez vous, le billet <a href=\"/blog/ia-auto-hebergee-open-webui-pme\">IA auto-hébergée avec Open WebUI</a> décrit l'autre bout de la chaîne.</p>\n<h2>Gouvernance et maturité</h2>\n<p>OpenClaw est gouverné par l'OpenClaw Foundation, une association indépendante au statut 501(c)(3). Hermes Agent est publié par Nous Research. La gouvernance dit qui décide de la feuille de route et qui répond en cas de faille. Une fondation sans offre payante ne vend rien ; un éditeur doté d'une option hébergée a un intérêt commercial à faire vivre le projet. Aucun des deux n'offre de contrat de support par défaut.</p>\n<p>Côté maturité, les signaux se lisent dans les numéros de version. Hermes est en v0.22.5 au 24 octobre 2026, sans v1.0 : c'est un logiciel jeune, et sa numérotation le dit. Depuis v0.22.0, un canal stable suit SemVer (retour au canal <code>main</code> par <code>hermes update --set-channel main</code>). OpenClaw publie en CalVer depuis sa 2.0, et celle-ci a cassé des usages : suppression du plugin OpenProse et de <code>/prose</code>, migration des références de modèles <code>codex/*</code> et <code>openai-codex/*</code> par <code>openclaw doctor --fix</code>. Dans les deux cas, une mise à jour peut demander une action de votre part : lisez les notes avant de mettre à jour, jamais après.</p>",
+      "html_en": "<h2>Models, costs and data</h2>\n<p>Hermes connects to Nous Portal, OpenRouter, OpenAI or a custom endpoint, and you switch models with <code>hermes model</code>. Since v0.22.0, it installs local models in one click through llama.cpp: the catalogue rates each model against your graphics card and memory, and accepts any GGUF file from Hugging Face. In OpenClaw, models and \"agent harnesses\" (the agent's execution engines) are interchangeable plugins; according to the press, the 2.0 installer detects existing ChatGPT or Claude access.</p>\n<p>The software is free on both sides. What you pay for: the model (pay-as-you-go through an API, or the hardware if it runs locally), the machine or hosting, and the connected services. For Hermes, a paid hosted option exists (Nous Portal, Hermes Cloud) according to third-party sources: check the offer and price with Nous Research. The OpenClaw foundation has no paid offer.</p>\n<p>On data, both projects keep the essentials with you. OpenClaw keeps state, memory and credentials on your hardware, with telemetry limited to a daily version check unless you opt in; Hermes turns shared telemetry off by default. But with a model through an API, your content goes to its provider: for sensitive data, the real choice is the model and its contract (see <a href=\"/ressources/comparatifs/mistral-vs-claude-pme\">Mistral or Claude for an SMB</a> and <a href=\"/ressources/guides/claude-rgpd-pme\">Claude and the GDPR</a>). For an AI fully hosted on your side, the post on <a href=\"/blog/ia-auto-hebergee-open-webui-pme\">self-hosted AI with Open WebUI</a> covers the other end of the chain.</p>\n<h2>Governance and maturity</h2>\n<p>OpenClaw is governed by the OpenClaw Foundation, an independent 501(c)(3) organisation. Hermes Agent is published by Nous Research. Governance tells you who decides the roadmap and who answers when a flaw appears. A foundation with no paid offer sells nothing; a publisher with a hosted option has a commercial interest in keeping the project alive. Neither offers a support contract by default.</p>\n<p>On maturity, the signals are in the version numbers. Hermes is at v0.22.5 on 24 October 2026, with no v1.0: it is young software, and its numbering says so. Since v0.22.0, a stable channel follows SemVer (back to the <code>main</code> channel with <code>hermes update --set-channel main</code>). OpenClaw has used CalVer since its 2.0, and that release broke some uses: removal of the OpenProse plugin and <code>/prose</code>, migration of <code>codex/*</code> and <code>openai-codex/*</code> model references with <code>openclaw doctor --fix</code>. In both cases, an update may require action on your side: read the notes before updating, never after.</p>"
+    },
+    {
+      "type": "editorial-callout",
+      "background": "paper",
+      "variant": "note",
+      "size": "md",
+      "body_fr": "Ce qui change vite, relevé le 24 octobre 2026. Hermes Agent : version stable v0.22.5 (notes datées du 22 octobre, en-tête du 23) ; elle refond la connexion Nous, ajoute hermes import-agent et la migration depuis OpenClaw, et déplace hermes mcp serve et le backend Singularity vers des plugins. OpenClaw : version stable 2026.10.7 du 24 octobre ; depuis 2026.10.6 (22 octobre), Node 24.22.1+ ou 26.12.1+ est exigé, alors que le README indique 24.16+ ou 26.1+. « OpenClaw 2.0 » désigne 2026.8.1 du 31 août, pas la dernière version. Relisez les pages de version avant toute installation.",
+      "body_en": "What changes fast, as read on 24 October 2026. Hermes Agent: stable version v0.22.5 (notes dated 22 October, header 23 October); it reworks the Nous login, adds hermes import-agent and migration from OpenClaw, and moves hermes mcp serve and the Singularity backend to plugins. OpenClaw: stable version 2026.10.7 of 24 October; since 2026.10.6 (22 October), Node 24.22.1+ or 26.12.1+ is required, while the README says 24.16+ or 26.1+. \"OpenClaw 2.0\" means 2026.8.1 of 31 August, not the latest version. Re-read the release pages before any installation.",
+      "density": "compact"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "html_fr": "<h2>Équipe et multi-utilisateur : le critère qui élimine souvent</h2>\n<p>Un projet commence souvent par un agent pour une personne, puis vient la demande : « et si toute l'équipe pouvait lui écrire ? ».</p>\n<p>OpenClaw est explicite : son modèle de confiance est celui d'un assistant personnel avec un opérateur de confiance, pas une isolation entre utilisateurs. Selon la presse, la 2.0 a ajouté des sessions cloud partagées pour que des collègues suivent et reprennent un travail ; un article signale que cette fonction n'a ni frontière réseau ni frontière de fichiers. Ouvrir un même OpenClaw à dix salariés revient donc à donner à chacun les droits de l'opérateur.</p>\n<p>Les sources lues sur Hermes ne décrivent pas de modèle multi-utilisateur. L'appairage et l'approbation des commandes filtrent qui parle à l'agent et ce qu'il exécute, sans séparer les données entre personnes. Faites valider ce point avant tout usage partagé.</p>\n<p>Notre recommandation, dans les deux cas : un agent par personne ou par mission, chacun avec ses propres accès, plutôt qu'un agent commun à toute l'équipe. C'est le principe des <a href=\"/services/agents-ia\">agents IA que nous concevons</a> : un agent par mission, des droits minimaux, une validation humaine sur ce qui engage l'entreprise.</p>\n<h2>Passer de l'un à l'autre</h2>\n<p>Le choix n'est pas un cul-de-sac. Hermes v0.22.5 ajoute la commande <code>hermes import-agent</code> et une migration depuis OpenClaw ; les sources lues ne mentionnent pas d'import dans l'autre sens. Ce qui se migre mal, ce sont les branchements : comptes de service, droits, secrets et règles de validation. Documentez-les hors de l'agent, dans un inventaire qui vous appartient, et un changement de moteur devient un chantier borné.</p>",
+      "html_en": "<h2>Team and multi-user: the criterion that often rules one out</h2>\n<p>A project often starts with one agent for one person, then comes the request: \"what if the whole team could write to it?\".</p>\n<p>OpenClaw is explicit: its trust model is that of a personal assistant with one trusted operator, not isolation between users. According to the press, 2.0 added shared cloud sessions so colleagues can follow and take over a piece of work; one article notes that this feature has neither a network boundary nor a file boundary. Opening a single OpenClaw to ten employees therefore amounts to giving each of them the operator's rights.</p>\n<p>The sources read on Hermes do not describe a multi-user model. Pairing and command approval filter who talks to the agent and what it runs, without separating data between people. Have this point confirmed before any shared use.</p>\n<p>Our recommendation, in both cases: one agent per person or per mission, each with its own access, rather than one agent shared by the whole team. It is the principle behind the <a href=\"/services/agents-ia\">AI agents we design</a>: one agent per mission, least privilege, human approval on what commits the company.</p>\n<h2>Switching from one to the other</h2>\n<p>The choice is not a dead end. Hermes v0.22.5 adds the <code>hermes import-agent</code> command and a migration from OpenClaw; the sources read mention no import in the other direction. What migrates badly is the wiring: service accounts, permissions, secrets and approval rules. Document them outside the agent, in an inventory you own, and switching engines becomes a bounded project.</p>"
+    },
+    {
+      "type": "decision-list",
+      "background": "paper",
+      "kicker_fr": "§ Quand choisir quoi",
+      "kicker_en": "§ When to choose which",
+      "heading_fr": "Choisir selon <i>votre situation</i>",
+      "heading_en": "Choosing by <i>your situation</i>",
+      "items": [
+        {
+          "label_fr": "Un assistant joignable sur Teams, iMessage ou une messagerie moins courante : OpenClaw, en activant vous-même le bac à sable.",
+          "label_en": "An assistant reachable on Teams, iMessage or a less common messaging app: OpenClaw, with the sandbox turned on by you."
+        },
+        {
+          "label_fr": "Vous voulez un agent qui capitalise sur des tâches récurrentes et garde une mémoire consultable : Hermes Agent, avec une revue des skills qu'il crée.",
+          "label_en": "You want an agent that builds on recurring tasks and keeps a searchable memory: Hermes Agent, with a review of the skills it creates."
+        },
+        {
+          "label_fr": "L'agent exécutera des commandes ou naviguera sur le web : le moteur dont l'exécution est isolée par défaut (Hermes), ou OpenClaw avec un bac à sable configuré et vérifié avant la mise en service.",
+          "label_en": "The agent will run commands or browse the web: the engine whose execution is isolated by default (Hermes), or OpenClaw with a sandbox configured and checked before going live."
+        },
+        {
+          "label_fr": "Plusieurs salariés doivent utiliser l'agent : ni l'un ni l'autre tel quel. Un agent par personne ou par mission, avec des accès séparés.",
+          "label_en": "Several employees must use the agent: neither as is. One agent per person or per mission, with separate access."
+        },
+        {
+          "label_fr": "Vos données ne doivent pas quitter vos murs : Hermes avec un modèle local via llama.cpp ; chez OpenClaw, vérifiez qu'un plugin de modèle local convient.",
+          "label_en": "Your data must not leave your premises: Hermes with a local model through llama.cpp; with OpenClaw, check that a local model plugin fits."
+        },
+        {
+          "label_fr": "Personne en interne ne peut suivre les mises à jour chaque mois : ni l'un ni l'autre sans exploitation confiée à quelqu'un ; regardez plutôt un agent d'éditeur ou un agent sur mesure.",
+          "label_en": "Nobody in-house can follow updates every month: neither, unless someone is in charge of operating it; look at a vendor agent or a custom agent instead."
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "html_fr": "<h2>La troisième voie : un agent d'éditeur ou un agent sur mesure</h2>\n<p>Sans logiciel à exploiter, les éditeurs de modèles proposent désormais leurs propres agents toujours actifs. Anthropic a lancé Claude Duet le 21 octobre 2026, en aperçu de recherche, d'abord sur liste d'attente pour les abonnés Pro et Max aux États-Unis ; l'article d'Anthropic ne dit rien de la France. OpenAI a présenté ChatGPT dots au DevDay du 29 septembre 2026, selon la presse, avec un accès Pro qui exclut l'Espace économique européen d'après ces mêmes sources. Le comparatif <a href=\"/ressources/comparatifs/claude-duet-vs-chatgpt-dots\">Claude Duet ou ChatGPT dots</a> détaille ces sources. Rien à installer ni à mettre à jour, en échange d'un abonnement, des règles de l'éditeur et d'une disponibilité encore incertaine en France.</p>\n<p>Dernière option : un agent sur mesure, conçu pour une seule mission (trier des demandes, relancer des devis, préparer un rapport), sur l'API d'un modèle avec <a href=\"/ressources/guides/claude-managed-agents\">Claude Managed Agents</a> ou orchestré dans n8n. Il fait une chose, avec des droits taillés pour elle. Les quatre façons d'en construire un sont dans <a href=\"/blog/creer-agent-ia-claude\">créer un agent IA avec Claude</a>, et le billet <a href=\"/blog/agents-ia-toujours-actifs-pme\">agents IA toujours actifs : propriétaire ou open source</a> pose le choix d'ensemble.</p>\n<h2>Ce que Waimia met en place</h2>\n<p>Nous construisons des agents IA autour d'outils ouverts comme Hermes Agent et OpenClaw, pas des installations par défaut livrées telles quelles. Ce que nous mettons en place :</p>\n<ul><li><strong>Le choix du moteur sur un cadrage.</strong> Vos canaux, vos utilisateurs, vos données et le niveau de risque décident entre Hermes, OpenClaw, un agent d'éditeur ou un agent sur mesure. Le sprint de cadrage dure 10 heures, à prix fixe : {{prix.sprint}} € HT.</li><li><strong>Un déploiement durci.</strong> Bac à sable activé et vérifié, droits minimaux, secrets hors de l'agent, comptes de service dédiés, journal de chaque action, validation humaine avant tout envoi, paiement ou suppression.</li><li><strong>La connexion à vos outils.</strong> Par MCP, par API ou par <a href=\"/services/automatisation-n8n\">des workflows n8n</a>, en commençant en lecture seule. Le modèle se choisit selon la tâche : Claude par défaut, OpenAI ou Mistral selon le besoin (voir <a href=\"/services/integration-claude\">l'intégration de Claude en entreprise</a>).</li><li><strong>L'exploitation.</strong> Lecture des notes de version, mises à jour testées avant d'être appliquées, revue des skills créées par l'agent, en régie à {{prix.horaire}} € HT de l'heure.</li></ul>\n<p>Ce sont des recommandations et une offre, pas des résultats mesurés. Vos agents, vos accès et la documentation restent à vous : vous pouvez reprendre l'exploitation en interne à tout moment. Le détail de l'offre est sur la page <a href=\"/services/agents-ia#agents-open-source\">agents IA open source</a>. Pour savoir si un agent vaut le coup chez vous, l'<a href=\"/audit-ia-pme\">audit IA gratuit</a> dure 45 minutes en visio, sans engagement : vous repartez avec une cartographie écrite et un ou deux chantiers classés.</p>",
+      "html_en": "<h2>The third way: a vendor agent or a custom agent</h2>\n<p>Without software to run, model vendors now offer their own always-on agents. Anthropic launched Claude Duet on 21 October 2026, as a research preview, first on a waitlist for Pro and Max subscribers in the United States; Anthropic's article says nothing about France. OpenAI presented ChatGPT dots at DevDay on 29 September 2026, according to the press, with Pro access that excludes the European Economic Area according to the same sources. The comparison <a href=\"/ressources/comparatifs/claude-duet-vs-chatgpt-dots\">Claude Duet or ChatGPT dots</a> details those sources. Nothing to install or update, in exchange for a subscription, the vendor's rules and availability that is still uncertain in France.</p>\n<p>Last option: a custom agent, designed for a single mission (sorting requests, following up quotes, preparing a report), on a model's API with <a href=\"/ressources/guides/claude-managed-agents\">Claude Managed Agents</a> or orchestrated in n8n. It does one thing, with permissions cut for it. The four ways to build one are in <a href=\"/blog/creer-agent-ia-claude\">building an AI agent with Claude</a>, and the post <a href=\"/blog/agents-ia-toujours-actifs-pme\">always-on AI agents: proprietary or open source</a> sets out the overall choice.</p>\n<h2>What Waimia sets up</h2>\n<p>We build AI agents around open tools such as Hermes Agent and OpenClaw, not default installs handed over as is. What we set up:</p>\n<ul><li><strong>The engine choice, on a scoping sprint.</strong> Your channels, your users, your data and the level of risk decide between Hermes, OpenClaw, a vendor agent or a custom agent. The scoping sprint lasts 10 hours, at a fixed price: {{prix.sprint.en}} € ex VAT.</li><li><strong>A hardened deployment.</strong> Sandbox turned on and checked, least privilege, secrets outside the agent, dedicated service accounts, a log of every action, human approval before any send, payment or deletion.</li><li><strong>Connection to your tools.</strong> Through MCP, APIs or <a href=\"/services/automatisation-n8n\">n8n workflows</a>, starting read-only. The model is chosen per task: Claude by default, OpenAI or Mistral as needed (see <a href=\"/services/integration-claude\">integrating Claude in a business</a>).</li><li><strong>Operation.</strong> Reading release notes, updates tested before they are applied, review of the skills the agent creates, on a time-and-materials basis at {{prix.horaire}} € ex VAT an hour.</li></ul>\n<p>These are recommendations and an offer, not measured results. Your agents, your access and the documentation stay yours: you can take operation back in-house at any time. The offer is detailed on the <a href=\"/services/agents-ia#agents-open-source\">open source AI agents</a> page. To find out whether an agent is worth it for you, the <a href=\"/audit-ia-pme\">free AI audit</a> lasts 45 minutes by video call, with no commitment: you leave with a written map and one or two ranked projects.</p>"
+    },
+    {
+      "type": "process-steps",
+      "background": "paper",
+      "kicker_fr": "§ Trancher sur pièces",
+      "kicker_en": "§ Decide on evidence",
+      "h2_fr": "Choisir et valider en deux semaines",
+      "h2_en": "Choose and validate in two weeks",
+      "intro_fr": "Le protocole que nous recommandons avant toute mise en service, quel que soit le moteur.",
+      "intro_en": "The protocol we recommend before going live, whichever engine you pick.",
+      "steps": [
+        {
+          "title_fr": "Choisir une mission",
+          "title_en": "Pick one mission",
+          "meta_fr": "Jour 1",
+          "meta_en": "Day 1",
+          "body_fr": "Une seule tâche récurrente, un responsable nommé et un critère de réussite écrit. Pas « un assistant pour tout ».",
+          "body_en": "A single recurring task, a named owner and a written success criterion. Not \"an assistant for everything\"."
+        },
+        {
+          "title_fr": "Préparer une machine isolée",
+          "title_en": "Prepare an isolated machine",
+          "meta_fr": "Jours 2 et 3",
+          "meta_en": "Days 2 and 3",
+          "body_fr": "Une machine ou un serveur dédié, des comptes de test, aucun accès en écriture à vos outils de production. Le bac à sable est activé et vérifié.",
+          "body_en": "A dedicated machine or server, test accounts, no write access to your production tools. The sandbox is turned on and checked."
+        },
+        {
+          "title_fr": "Installer les deux moteurs",
+          "title_en": "Install both engines",
+          "meta_fr": "Semaine 1",
+          "meta_en": "Week 1",
+          "body_fr": "Même modèle, même tâche, mêmes données de test. Notez ce qui a cassé et le temps passé.",
+          "body_en": "Same model, same task, same test data. Write down what broke and the time spent."
+        },
+        {
+          "title_fr": "Éprouver les canaux et la sécurité",
+          "title_en": "Test channels and security",
+          "meta_fr": "Semaine 2",
+          "meta_en": "Week 2",
+          "body_fr": "Le canal réellement utilisé par l'équipe, l'appairage des expéditeurs, une instruction cachée glissée dans un message de test, la lecture du journal.",
+          "body_en": "The channel the team really uses, sender pairing, a hidden instruction slipped into a test message, reading the log."
+        },
+        {
+          "title_fr": "Décider et écrire les règles",
+          "title_en": "Decide and write the rules",
+          "meta_fr": "Fin de semaine 2",
+          "meta_en": "End of week 2",
+          "body_fr": "Un moteur, ou aucun. Les droits, les validations humaines et le responsable des mises à jour sont écrits avant la mise en service.",
+          "body_en": "One engine, or none. Permissions, human approvals and the person in charge of updates are written down before going live."
+        }
+      ]
+    },
+    {
+      "type": "lead-capture-band",
+      "lead_magnet": "charte-ia-entreprise",
+      "background": "ink",
+      "anchor_id": "charte-agents-open-source",
+      "kicker_fr": "§ Charte IA · PDF gratuit",
+      "kicker_en": "§ AI policy · free PDF",
+      "h2_fr": "Avant d'installer un agent : la charte qui dit ce qu'il a le droit de faire",
+      "h2_en": "Before installing an agent: the policy that says what it may do",
+      "body_fr": "Neuf articles, cinq pages. L'article « Agents et automatisations » pose un responsable nommé, une validation humaine des actions sensibles, un journal consultable et des accès limités à la tâche. Le PDF part uniquement par e-mail, en pièce jointe.",
+      "body_en": "Nine articles, five pages. The \"Agents and automations\" article sets a named owner, human approval of sensitive actions, a log that can be consulted and access limited to the task. The PDF is sent by email only, as an attachment.",
+      "benefits_fr": [
+        "Le modèle complet en neuf articles, mis en page pour être imprimé et signé",
+        "Les notes d'adaptation pour l'ajuster à votre entreprise",
+        "Un seul e-mail, sans inscription à une liste"
+      ],
+      "benefits_en": [
+        "The full template in nine articles, laid out to print and sign",
+        "Adaptation notes to fit it to your company",
+        "A single email, no mailing list"
+      ]
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper",
+      "kicker_fr": "§ Les deux guides en détail",
+      "kicker_en": "§ Both guides in detail",
+      "cards": [
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Hermes Agent en entreprise",
+          "title_en": "Hermes Agent in business",
+          "lead_fr": "Installation, mémoire, skills, bac à sable et limites, version par version.",
+          "lead_en": "Installation, memory, skills, sandbox and limits, release by release.",
+          "href": "/ressources/guides/hermes-agent"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "OpenClaw en entreprise",
+          "title_en": "OpenClaw in business",
+          "lead_fr": "Gateway, canaux, plugins, modèle de confiance et durcissement.",
+          "lead_en": "Gateway, channels, plugins, trust model and hardening.",
+          "href": "/ressources/guides/openclaw"
+        },
+        {
+          "kicker_fr": "Article",
+          "kicker_en": "Article",
+          "title_fr": "Agents IA toujours actifs : propriétaire ou open source",
+          "title_en": "Always-on AI agents: proprietary or open source",
+          "lead_fr": "Duet, dots, Hermes, OpenClaw : le choix d'ensemble pour une PME.",
+          "lead_en": "Duet, dots, Hermes, OpenClaw: the overall choice for an SMB.",
+          "href": "/blog/agents-ia-toujours-actifs-pme"
+        }
+      ]
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper-2",
+      "kicker_fr": "§ Nos services",
+      "kicker_en": "§ Our services",
+      "cards": [
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Agents IA open source",
+          "title_en": "Open source AI agents",
+          "lead_fr": "Choix du moteur, déploiement durci, connexion à vos outils, exploitation.",
+          "lead_en": "Engine choice, hardened deployment, connection to your tools, operation.",
+          "href": "/services/agents-ia#agents-open-source"
+        },
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Automatisation n8n",
+          "title_en": "n8n automation",
+          "lead_fr": "Les workflows qui relient l'agent à vos logiciels, documentés et supervisés.",
+          "lead_en": "The workflows that link the agent to your software, documented and monitored.",
+          "href": "/services/automatisation-n8n"
+        },
+        {
+          "kicker_fr": "Comparatif",
+          "kicker_en": "Comparison",
+          "title_fr": "Claude Duet ou ChatGPT dots",
+          "title_en": "Claude Duet or ChatGPT dots",
+          "lead_fr": "Les agents d'éditeur, si vous ne voulez rien installer.",
+          "lead_en": "Vendor agents, if you want nothing to install.",
+          "href": "/ressources/comparatifs/claude-duet-vs-chatgpt-dots"
+        }
+      ]
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "kicker_fr": "§ Questions fréquentes",
+      "kicker_en": "§ Frequently asked",
+      "h2_fr": "Hermes Agent vs OpenClaw : vos questions",
+      "h2_en": "Hermes Agent vs OpenClaw: your questions",
+      "items": [
+        {
+          "q_fr": "Hermes Agent ou OpenClaw : lequel choisir en entreprise ?",
+          "a_fr": "Cela dépend de vos canaux, du nombre d'utilisateurs et du durcissement exigé. OpenClaw couvre plus de messageries, dont Teams et iMessage, mais son bac à sable est désactivé par défaut. Hermes Agent mise sur la mémoire et les skills, et met son bac à sable en avant. Aucun des deux n'est clé en main : droits, journal et mises à jour restent à organiser.",
+          "q_en": "Hermes Agent or OpenClaw: which one for a business?",
+          "a_en": "It depends on your channels, the number of users and the hardening you need. OpenClaw covers more messaging apps, Teams and iMessage included, but its sandbox is off by default. Hermes Agent bets on memory and skills, and puts its sandbox forward. Neither is turnkey: permissions, logging and updates still have to be organised."
+        },
+        {
+          "q_fr": "Hermes Agent et OpenClaw sont-ils gratuits ?",
+          "a_fr": "Oui, le logiciel est gratuit : les deux sont sous licence MIT. Vous payez le modèle (API à l'usage, ou matériel pour un modèle local), l'hébergement et les services connectés. Selon des sources tierces, Nous Research propose une option hébergée payante pour Hermes ; la fondation OpenClaw n'a pas d'offre payante. Le poste souvent oublié : le temps d'exploitation.",
+          "q_en": "Are Hermes Agent and OpenClaw free?",
+          "a_en": "Yes, the software is free: both are under the MIT licence. You pay for the model (a pay-as-you-go API, or hardware for a local model), hosting and connected services. According to third-party sources, Nous Research offers a paid hosted option for Hermes; the OpenClaw foundation has no paid offer. The cost often forgotten: operating time."
+        },
+        {
+          "q_fr": "Quel est le meilleur agent IA open source ?",
+          "a_fr": "Il n'y a pas de meilleur dans l'absolu, et cette page ne mesure aucune performance : elle compare des documentations et des notes de version lues le 24 octobre 2026. Hermes Agent convient à un agent qui apprend sur des tâches récurrentes, OpenClaw à un assistant joignable sur beaucoup de messageries. Le bon choix est celui que vous saurez exploiter et sécuriser.",
+          "q_en": "What is the best open source AI agent?",
+          "a_en": "There is no best one in absolute terms, and this page measures no performance: it compares documentation and release notes read on 24 October 2026. Hermes Agent suits an agent that learns on recurring tasks, OpenClaw an assistant reachable on many messaging apps. The right choice is the one you can run and secure."
+        },
+        {
+          "q_fr": "OpenClaw est-il sûr pour une entreprise ?",
+          "a_fr": "Il peut l'être, une fois durci. Par défaut, les outils de la session principale tournent sur la machine hôte, car le bac à sable est désactivé. Les mainteneurs décrivent un modèle à un seul opérateur de confiance et recommandent un durcissement pour les usages partagés. Activez le bac à sable, lancez openclaw security audit et appairez les expéditeurs avant d'exposer la Gateway.",
+          "q_en": "Is OpenClaw safe for a business?",
+          "a_en": "It can be, once hardened. By default, main-session tools run on the host machine, because the sandbox is off. The maintainers describe a model with a single trusted operator and recommend hardening for shared use. Turn on the sandbox, run openclaw security audit and pair senders before exposing the Gateway."
+        },
+        {
+          "q_fr": "Hermes Agent est-il prêt pour la production ?",
+          "a_fr": "Il est jeune : v0.22.5 au 24 octobre 2026, sans v1.0, avec des versions très rapprochées. Il apporte des protections utiles, dont un bac à sable par défaut et des secrets mieux cloisonnés depuis v0.21.6. En production, gardez un périmètre étroit, une validation humaine sur les actions sensibles, et lisez chaque note de version avant de mettre à jour.",
+          "q_en": "Is Hermes Agent production-ready?",
+          "a_en": "It is young: v0.22.5 on 24 October 2026, no v1.0, with releases in close succession. It brings useful protections, including a default sandbox and better-isolated secrets since v0.21.6. In production, keep a narrow scope, human approval on sensitive actions, and read every release note before updating."
+        },
+        {
+          "q_fr": "Peut-on migrer d'OpenClaw vers Hermes Agent ?",
+          "a_fr": "Oui. Depuis v0.22.5, Hermes Agent propose la commande hermes import-agent et une migration depuis OpenClaw, selon ses notes de version ; les sources lues ne mentionnent pas le sens inverse. Comptes de service, droits, secrets et règles de validation restent à refaire et à retester : documentez-les hors de l'agent pour que le changement reste un chantier borné.",
+          "q_en": "Can you migrate from OpenClaw to Hermes Agent?",
+          "a_en": "Yes. Since v0.22.5, Hermes Agent offers the hermes import-agent command and a migration from OpenClaw, according to its release notes; the sources read do not mention the reverse. Service accounts, permissions, secrets and approval rules must still be redone and retested: document them outside the agent so the switch stays a bounded project."
+        },
+        {
+          "q_fr": "Plusieurs salariés peuvent-ils partager le même agent ?",
+          "a_fr": "Pas tel quel, d'après les sources lues. OpenClaw se décrit comme un assistant personnel avec un opérateur de confiance, sans isolation entre utilisateurs. Les sources lues sur Hermes ne décrivent pas de modèle multi-utilisateur. Nous recommandons un agent par personne ou par mission, chacun avec ses propres accès, plutôt qu'un agent commun à toute l'équipe.",
+          "q_en": "Can several employees share the same agent?",
+          "a_en": "Not as is, according to the sources read. OpenClaw describes itself as a personal assistant with one trusted operator, with no isolation between users. The sources read on Hermes do not describe a multi-user model. We recommend one agent per person or per mission, each with its own access, rather than one agent shared by the whole team."
+        },
+        {
+          "q_fr": "Que fait Waimia avec Hermes Agent ou OpenClaw ?",
+          "a_fr": "Nous choisissons le moteur pendant un sprint de cadrage de 10 heures, puis nous le déployons durci : bac à sable, droits minimaux, secrets hors de l'agent, journal, validation humaine. Nous le connectons à vos outils par MCP, API ou n8n et assurons les mises à jour en régie. Vos agents, vos accès et la documentation restent à vous.",
+          "q_en": "What does Waimia do with Hermes Agent or OpenClaw?",
+          "a_en": "We choose the engine during a 10-hour scoping sprint, then deploy it hardened: sandbox, least privilege, secrets outside the agent, a log, human approval. We connect it to your tools through MCP, APIs or n8n and handle updates on a time-and-materials basis. Your agents, your access and the documentation stay yours."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Agents IA open source",
+      "kicker_en": "§ Open source AI agents",
+      "h2_fr": "Le moteur compte moins que la façon de l'exploiter.",
+      "h2_en": "The engine matters less than the way you run it.",
+      "subtitle_fr": "Audit gratuit de 45 minutes en visio. Vous repartez avec une cartographie écrite et un ou deux chantiers classés.",
+      "subtitle_en": "Free 45-minute audit by video call. You leave with a written map and one or two ranked projects.",
+      "buttons": [
+        {
+          "label_fr": "Réserver l'audit gratuit →",
+          "label_en": "Book the free audit →",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Agents IA open source",
+          "label_en": "Open source AI agents",
+          "href": "/services/agents-ia#agents-open-source",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

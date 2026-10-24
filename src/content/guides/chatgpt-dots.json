@@ -1,0 +1,767 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "ChatGPT dots : les agents toujours actifs d'OpenAI, accès, prix, limites",
+  "title_en": "ChatGPT dots: OpenAI's always-on agents, access, price, limits",
+  "seoTitle_fr": "ChatGPT dots : prix, Europe et limites des agents OpenAI",
+  "seoTitle_en": "ChatGPT dots: price, Europe and limits of OpenAI agents",
+  "description_fr": "ChatGPT dots, les agents toujours actifs d'OpenAI : fonctionnement, prix relayés, accès en Europe, règles d'approbation et usages en PME.",
+  "description_en": "ChatGPT dots, OpenAI's always-on agents: how they work, reported prices, access in Europe, approval rules and SMB uses.",
+  "slug": "chatgpt-dots",
+  "publishedAt": "2026-10-24T00:00:00.000Z",
+  "updatedAt": "2026-10-24",
+  "category": "agents",
+  "tags": [
+    "chatgpt-dots",
+    "openai",
+    "chatgpt",
+    "agents-ia",
+    "agent-proactif",
+    "rgpd",
+    "guide-pme"
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "sources": [
+    {
+      "name": "BetaNews, OpenAI dots agents in ChatGPT, lu le 24 octobre 2026 (résumé de recherche)",
+      "url": "https://betanews.com/article/openai-dots-agents-chatgpt/",
+      "type": "journal"
+    },
+    {
+      "name": "DataCamp, OpenAI dots, lu le 24 octobre 2026 (résumé de recherche)",
+      "url": "https://datacamp.com/blog/openai-dots",
+      "type": "journal"
+    },
+    {
+      "name": "Tom's Guide, OpenAI gave ChatGPT a virtual computer to run errands for you, lu le 24 octobre 2026 (résumé de recherche)",
+      "url": "https://tomsguide.com/ai/openai-gave-chatgpt-a-virtual-computer-to-run-errands-for-you",
+      "type": "journal"
+    },
+    {
+      "name": "Technology.org, OpenAI dots, always-on agents in ChatGPT (30 septembre 2026), lu le 24 octobre 2026 (résumé de recherche)",
+      "url": "https://technology.org/2026/09/30/openai-dots-always-on-agents-chatgpt/",
+      "type": "journal",
+      "publishedAt": "2026-09-30"
+    },
+    {
+      "name": "eesel AI, OpenAI dots, lu le 24 octobre 2026 (résumé de recherche)",
+      "url": "https://eesel.ai/blog/openai-dots",
+      "type": "journal"
+    },
+    {
+      "name": "AI Catchup, OpenAI ChatGPT dots always-on agents, lu le 24 octobre 2026 (résumé de recherche)",
+      "url": "https://aicatchup.com/news/openai-chatgpt-dots-always-on-agents",
+      "type": "journal"
+    },
+    {
+      "name": "NeuralTrust, ChatGPT agent security, lu le 24 octobre 2026 (résumé de recherche)",
+      "url": "https://neuraltrust.ai/blog/chatgpt-agent-security",
+      "type": "journal"
+    },
+    {
+      "name": "Composio, A guide to ChatGPT dots: how OpenAI's always-on agents work, lu le 24 octobre 2026 (résumé de recherche)",
+      "url": "https://composio.dev/content/a-guide-to-chatgpt-dots-how-openai-s-always-on-agents-work",
+      "type": "journal"
+    },
+    {
+      "name": "MindStudio, ChatGPT dots explained, lu le 24 octobre 2026 (résumé de recherche)",
+      "url": "https://mindstudio.ai/blog/chatgpt-dots-explained",
+      "type": "journal"
+    },
+    {
+      "name": "CNIL, questions-réponses sur l'utilisation d'un système d'IA générative (18 juillet 2024), relevé le 15 octobre 2026",
+      "url": "https://www.cnil.fr/fr/les-questions-reponses-de-la-cnil-sur-lutilisation-dun-systeme-dia-generative",
+      "type": "state",
+      "publishedAt": "2024-07-18"
+    }
+  ],
+  "faq_fr": [
+    {
+      "q": "Qu'est-ce que ChatGPT dots ?",
+      "a": "Selon la presse spécialisée, les dots sont des agents persistants, « toujours actifs », présentés par OpenAI à son DevDay fin septembre 2026. Chaque dot dispose de son propre ordinateur dans le cloud et de son navigateur, poursuit un objectif entre vos conversations, garde des identifiants et continue après la fermeture de l'application. Aucune page d'OpenAI n'a pu être lue par Waimia : à vérifier chez l'éditeur."
+    },
+    {
+      "q": "Combien coûte ChatGPT dots ?",
+      "a": "Selon les sources lues, le premier dot est inclus sans surcoût dans ChatGPT Pro ou Business Premium. Des comparatifs tiers (benchlm.ai, digitalapplied.com) relaient Pro à 100 $ par mois et Business Premium à 125 $ par utilisateur et par mois, 100 $ en annuel, avec deux sièges minimum. Ces montants ne viennent pas d'une page d'OpenAI lue par Waimia : vérifiez-les sur la page tarifs d'OpenAI avant tout achat."
+    },
+    {
+      "q": "ChatGPT dots est-il disponible en France et en Europe ?",
+      "a": "Pas sur l'offre Pro, selon les sources lues : son déploiement exclut l'Espace économique européen, la Suisse et le Royaume-Uni. Une source décrit Business Premium comme mondial, ce qui en ferait la porte d'entrée possible pour une entreprise française. Enterprise, Edu et Santé auraient une bêta désactivée par défaut, à activer par un administrateur. Les sources divergent : vérifiez chez OpenAI avec votre compte."
+    },
+    {
+      "q": "Quelle différence entre un dot et une conversation ChatGPT ?",
+      "a": "Une conversation s'arrête quand vous partez ; un dot continue. D'après la presse, il travaille sur un objectif entre les conversations, sur son propre ordinateur dans le cloud, et apprend vos préférences par vos retours. Côté quota, les conversations avec un dot ne compteraient pas dans les limites de ChatGPT, mais son travail de fond puise dans une allocation distincte, et les tâches lancées dans Codex ou ChatGPT Work comptent."
+    },
+    {
+      "q": "Un dot peut-il agir sans mon accord ?",
+      "a": "Selon les sources lues, cela dépend des règles. Des règles intégrées disent quand agir seul et quand demander ; des « Custom Rules » permettent d'autoriser une action, d'exiger une approbation ou de la bloquer. Changer un mot de passe ou déplacer de l'argent exige l'utilisateur, et une suppression définitive ou une installation de logiciel peut exiger une approbation à chaque fois. Approuver un message ne vaut pas permission durable."
+    },
+    {
+      "q": "Les dots sont-ils protégés contre l'injection de prompt ?",
+      "a": "En partie seulement. Une analyse de neuraltrust.ai rapporte qu'OpenAI indique que ses protections réduisent l'injection de prompt sans l'éliminer. L'injection de prompt, ce sont des instructions cachées dans un e-mail, un document ou une page web pour détourner l'agent. Conséquence pratique : un dot qui lit des contenus extérieurs ne doit pas pouvoir payer, envoyer ou supprimer sans validation humaine."
+    },
+    {
+      "q": "ChatGPT dots ou Claude Duet : lequel choisir ?",
+      "a": "Pour une PME française, la question est d'abord l'accès : selon les sources lues au 24 octobre 2026, Duet ouvre d'abord aux États-Unis et dots Pro exclut l'Europe, Business Premium restant la piste à vérifier. Sur le fond, Duet attend toujours votre accord avant d'envoyer, payer, signer ou supprimer, alors que dots fonctionne par règles réglables action par action. Le détail est dans notre comparatif."
+    },
+    {
+      "q": "ChatGPT dots : que valent les premiers avis ?",
+      "a": "Au 24 octobre 2026, ce qui circule vient surtout de la presse et de blogs qui résument l'annonce d'OpenAI, avec des écarts sur la date et sur les offres concernées. Ce ne sont pas des retours d'usage mesurés en entreprise. Waimia n'a pas utilisé dots et ne publie pas d'avis d'usage. Le meilleur avis sera le vôtre, sur un essai de 30 jours avec un périmètre étroit et un journal des actions."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "What is ChatGPT dots?",
+      "a": "According to the specialist press, dots are persistent, \"always-on\" agents that OpenAI introduced at its DevDay in late September 2026. Each dot has its own cloud computer and browser, pursues a goal between your conversations, keeps credentials and carries on after the app is closed. Waimia could not read any OpenAI page: to be checked with the publisher."
+    },
+    {
+      "q": "How much does ChatGPT dots cost?",
+      "a": "According to the sources read, the first dot is included at no extra cost in ChatGPT Pro or Business Premium. Third-party comparisons (benchlm.ai, digitalapplied.com) report Pro at $100 a month and Business Premium at $125 per user per month, $100 billed annually, with a two-seat minimum. These amounts do not come from an OpenAI page read by Waimia: check them on OpenAI's pricing page before buying."
+    },
+    {
+      "q": "Is ChatGPT dots available in France and Europe?",
+      "a": "Not on the Pro plan, according to the sources read: its rollout excludes the European Economic Area, Switzerland and the UK. One source describes Business Premium as worldwide, which would make it the possible way in for a French company. Enterprise, Edu and Health would have a beta switched off by default, to be enabled by an admin. Sources diverge: check with OpenAI using your account."
+    },
+    {
+      "q": "What is the difference between a dot and a ChatGPT conversation?",
+      "a": "A conversation stops when you leave; a dot carries on. According to the press, it works on a goal between conversations, on its own cloud computer, and learns your preferences from your feedback. On quota, conversations with a dot reportedly do not count towards ChatGPT limits, but its background work draws on a separate allowance, and tasks started in Codex or ChatGPT Work do count."
+    },
+    {
+      "q": "Can a dot act without my approval?",
+      "a": "According to the sources read, it depends on the rules. Built-in rules say when to act alone and when to ask; \"Custom Rules\" let you allow an action, require approval or block it. Changing a password or moving money requires the user, and a permanent deletion or a software install can require approval every time. Approving one message is not lasting permission."
+    },
+    {
+      "q": "Are dots protected against prompt injection?",
+      "a": "Only partly. An analysis by neuraltrust.ai reports that OpenAI says its protections reduce prompt injection without eliminating it. Prompt injection means instructions hidden in an email, a document or a web page to divert the agent. Practical consequence: a dot that reads outside content should not be able to pay, send or delete without human approval."
+    },
+    {
+      "q": "ChatGPT dots or Claude Duet: which to choose?",
+      "a": "For a French SMB, the first question is access: according to the sources read as of 24 October 2026, Duet opens first in the United States and dots Pro excludes Europe, with Business Premium the lead to check. On substance, Duet always waits for your approval before sending, paying, signing or deleting, whereas dots works through rules set action by action. Details are in our comparison."
+    },
+    {
+      "q": "ChatGPT dots: what are the first reviews worth?",
+      "a": "As of 24 October 2026, what circulates comes mostly from the press and blogs summarising OpenAI's announcement, with differences on the date and on the plans covered. These are not measured business usage reports. Waimia has not used dots and publishes no hands-on review. The best review will be yours, from a 30-day trial with a narrow scope and a log of actions."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "kicker_fr": "§ Guide · ChatGPT dots",
+      "kicker_en": "§ Guide · ChatGPT dots",
+      "h1_fr": "ChatGPT dots : <i class=\"acc\">les agents toujours actifs d'OpenAI</i>, ce qu'ils changent pour une PME",
+      "h1_en": "ChatGPT dots: <i class=\"acc\">OpenAI's always-on agents</i>, what they change for an SMB",
+      "lede_fr": "ChatGPT dots, ce sont les agents persistants qu'OpenAI a présentés à son DevDay fin septembre 2026 : chacun a son propre ordinateur dans le cloud, poursuit un objectif entre vos conversations et continue quand vous fermez l'application. Ce guide s'appuie sur la couverture de la presse spécialisée, faute de page d'OpenAI lisible depuis notre environnement : il dit ce que rapportent les sources, où elles divergent, et ce qu'une PME française peut en faire.",
+      "lede_en": "ChatGPT dots are the persistent agents OpenAI introduced at its DevDay in late September 2026: each one has its own cloud computer, pursues a goal between your conversations and keeps going when you close the app. This guide relies on specialist press coverage, as no OpenAI page could be read from our environment: it sets out what the sources report, where they diverge, and what a French SMB can do with it.",
+      "badges": [
+        {
+          "label_fr": "Mis à jour le 24 octobre 2026",
+          "label_en": "Updated on 24 October 2026"
+        },
+        {
+          "label_fr": "Sources tierces, à vérifier chez OpenAI",
+          "label_en": "Third-party sources, to check with OpenAI"
+        },
+        {
+          "label_fr": "Recommandations PME",
+          "label_en": "SMB recommendations"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver l'audit gratuit",
+        "label_en": "Book the free audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Recevoir la charte IA en PDF",
+        "label_en": "Get the AI policy template",
+        "href": "#charte-chatgpt-dots",
+        "variant": "ghost"
+      },
+      "illustration": {
+        "src": "/images/illustrations/ds/agent-ia-24-7-pme-jour-nuit-paper.webp",
+        "alt_fr": "Image coupée en deux : côté nuit, une silhouette range des piles de papiers sur une table sous les étoiles ; côté jour, une femme montre des cartons empilés sur une autre table",
+        "alt_en": "Image split in two: on the night side, a figure sorts stacks of paper on a table under the stars; on the day side, a woman points at boxes stacked on another table",
+        "side": "right"
+      }
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "24 octobre 2026",
+      "updatedDate": "24 octobre 2026"
+    },
+    {
+      "type": "editorial-callout",
+      "background": "paper-2",
+      "variant": "warn",
+      "size": "md",
+      "body_fr": "<strong>À lire avant le reste : une page fondée sur des sources tierces.</strong> Le 24 octobre 2026, aucune page d'OpenAI sur les dots n'a pu être ouverte depuis notre environnement. Tout ce qui suit vient de la presse spécialisée et de blogs (BetaNews, DataCamp, Tom's Guide, Technology.org, eesel AI, AI Catchup, NeuralTrust, Composio, MindStudio), lus sous forme de résumés de recherche. Ces sources divergent sur des points concrets : la date de présentation (29 ou 30 septembre selon les articles) et le périmètre exact des offres concernées. Chaque fait est donc attribué (« selon … ») et doit être vérifié chez OpenAI avant tout achat ou toute décision.",
+      "body_en": "<strong>Read this first: a page based on third-party sources.</strong> On 24 October 2026, no OpenAI page about dots could be opened from our environment. Everything below comes from the specialist press and blogs (BetaNews, DataCamp, Tom's Guide, Technology.org, eesel AI, AI Catchup, NeuralTrust, Composio, MindStudio), read as research summaries. These sources diverge on concrete points: the announcement date (29 or 30 September depending on the article) and the exact scope of the plans covered. Each fact is therefore attributed (\"according to …\") and must be checked with OpenAI before any purchase or decision."
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper",
+      "question_fr": "Qu'est-ce que ChatGPT dots ?",
+      "question_en": "What is ChatGPT dots?",
+      "term_fr": "Réponse courte",
+      "term_en": "Short answer",
+      "answer_fr": "Selon la presse spécialisée, ChatGPT dots désigne des agents persistants d'OpenAI, présentés au DevDay fin septembre 2026. Chaque dot a son ordinateur et son navigateur dans le cloud, poursuit un objectif entre les conversations et continue après la fermeture de l'application. Accès annoncé pour Pro et Business Premium, avec une offre Pro qui exclut l'Europe.",
+      "answer_en": "According to the specialist press, ChatGPT dots are OpenAI's persistent agents, introduced at DevDay in late September 2026. Each dot has its own cloud computer and browser, pursues a goal between conversations and carries on after the app is closed. Access is reported for Pro and Business Premium, with the Pro plan excluding Europe."
+    },
+    {
+      "type": "key-metric-grid",
+      "background": "paper-2",
+      "variant": "accent",
+      "columns": 3,
+      "eyebrow_fr": "§ ChatGPT dots selon les sources, au 24 octobre 2026",
+      "eyebrow_en": "§ ChatGPT dots according to the sources, 24 October 2026",
+      "title_fr": "Six repères, tous à vérifier chez OpenAI",
+      "title_en": "Six markers, all to check with OpenAI",
+      "metrics": [
+        {
+          "value": "29/09/2026",
+          "label_fr": "Présentation au DevDay d'OpenAI (le 30 selon certaines sources)",
+          "label_en": "Introduced at OpenAI DevDay (the 30th according to some sources)"
+        },
+        {
+          "value": "Pro, Business Premium",
+          "label_fr": "Offres ChatGPT concernées dans les marchés éligibles",
+          "label_en": "ChatGPT plans covered in eligible markets"
+        },
+        {
+          "value": "Hors EEE",
+          "label_fr": "Le déploiement Pro exclut l'EEE, la Suisse et le Royaume-Uni",
+          "label_en": "The Pro rollout excludes the EEA, Switzerland and the UK"
+        },
+        {
+          "value": "1 dot inclus",
+          "label_fr": "Premier dot sans surcoût dans Pro ou Business Premium",
+          "label_en": "First dot at no extra cost in Pro or Business Premium"
+        },
+        {
+          "value": "4 000+",
+          "label_fr": "Applications connectables via les plugins d'OpenAI",
+          "label_en": "Apps connectable through OpenAI plugins"
+        },
+        {
+          "value": "0",
+          "label_fr": "Page d'OpenAI lue par Waimia sur les dots",
+          "label_en": "OpenAI pages on dots read by Waimia"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/tri-emails-coffre-cle-paper.webp",
+          "alt_fr": "Un grand coffre fermé par une serrure ; des enveloppes s'en échappent par le haut, et une silhouette en costume, clé à la main, se tient à côté",
+          "alt_en": "A large chest closed with a lock; envelopes fly out of the top, and a figure in a suit stands beside it, key in hand",
+          "side": "right"
+        }
+      ],
+      "html_fr": "<h2>Comment fonctionne un dot</h2><p>Un agent IA est un programme qui enchaîne lui-même des étapes et utilise des outils pour atteindre un but. Ce qui distingue un dot d'une conversation ChatGPT, d'après les sources lues le 24 octobre 2026, c'est la durée : il ne s'arrête pas quand vous partez.</p><ul><li><strong>Un ordinateur à lui.</strong> Selon les sources lues, dont <a href=\"https://tomsguide.com/ai/openai-gave-chatgpt-a-virtual-computer-to-run-errands-for-you\" rel=\"noopener noreferrer\" target=\"_blank\">Tom's Guide</a>, chaque dot dispose de son propre ordinateur dans le cloud, avec un navigateur, sur lequel il fait ses démarches.</li><li><strong>Un objectif, pas une question.</strong> Le dot travaille sur un objectif entre les conversations et continue après la fermeture de l'application.</li><li><strong>Des identifiants conservés.</strong> Il garde les accès dont il a besoin pour reprendre son travail sans vous les redemander.</li><li><strong>Des préférences apprises.</strong> Il apprend vos préférences par vos retours et mène, selon les sources, des recherches de fond de sa propre initiative.</li><li><strong>Là où vous travaillez déjà.</strong> Les dots seraient accessibles dans ChatGPT, dans Slack et dans Microsoft Teams, et connectables à plus de 4 000 applications par le système de plugins d'OpenAI.</li></ul><p>Le modèle cité par plusieurs sources est GPT-6 Astra : à prendre avec prudence tant qu'OpenAI ne l'a pas confirmé dans une page lisible. Deux annonces sont présentées comme « pour plus tard », pas encore livrées : des équipes de dots qui se répartissent le travail, et des dots spécialisés par métier.</p><h3>L'ordinateur du dot : voir et reprendre la main</h3><p>Selon un seul comparatif tiers parmi les sources lues, vous pouvez ouvrir l'ordinateur du dot, prendre la main, puis la lui rendre. Les autres sources ne le détaillent pas. Si c'est confirmé, c'est un vrai avantage pour comprendre ce que l'agent fait. L'accès à votre propre machine locale, lui, serait optionnel et désactivé par défaut : le dot travaille sur son ordinateur distant, pas sur le vôtre, sauf si vous l'autorisez.</p><p>Le même besoin, un agent qui tient la permanence, est traité du point de vue de l'organisation dans l'article <a href=\"/blog/agent-ia-24-7-pme\">agent IA 24/7 pour une PME</a>.</p>",
+      "html_en": "<h2>How a dot works</h2><p>An AI agent is a program that chains its own steps and uses tools to reach a goal. What sets a dot apart from a ChatGPT conversation, according to the sources read on 24 October 2026, is duration: it does not stop when you leave.</p><ul><li><strong>A computer of its own.</strong> According to the sources read, including <a href=\"https://tomsguide.com/ai/openai-gave-chatgpt-a-virtual-computer-to-run-errands-for-you\" rel=\"noopener noreferrer\" target=\"_blank\">Tom's Guide</a>, each dot has its own cloud computer, with a browser, on which it runs its errands.</li><li><strong>A goal, not a question.</strong> The dot works on a goal between conversations and keeps going after the app is closed.</li><li><strong>Credentials kept.</strong> It keeps the access it needs to resume its work without asking you again.</li><li><strong>Learned preferences.</strong> It learns your preferences from your feedback and, according to the sources, runs background research on its own initiative.</li><li><strong>Where you already work.</strong> Dots are reportedly available in ChatGPT, Slack and Microsoft Teams, and connectable to more than 4,000 apps through OpenAI's plugin system.</li></ul><p>The model named by several sources is GPT-6 Astra: treat this with caution until OpenAI confirms it on a readable page. Two announcements are presented as \"for later\", not yet delivered: teams of dots that split work between them, and dots specialised by role.</p><h3>The dot's computer: seeing and taking over</h3><p>According to a single third-party comparison among the sources read, you can open the dot's computer, take control, then hand it back. The other sources do not detail it. If confirmed, it is a real advantage for understanding what the agent does. Access to your own local machine, by contrast, is reportedly optional and off by default: the dot works on its remote computer, not on yours, unless you allow it.</p><p>The same need, an agent that stays on duty, is covered from an organisational angle in the article <a href=\"/blog/agent-ia-24-7-pme\">24/7 AI agent for an SMB</a>.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Encadré daté",
+      "kicker_en": "§ Dated box",
+      "heading_fr": "Disponibilité, prix, limites d'usage : ce que disent les sources au 24 octobre 2026",
+      "heading_en": "Availability, price, usage limits: what the sources say as of 24 October 2026",
+      "caption_fr": "Toutes les lignes viennent de sources tierces lues le 24 octobre 2026, aucune d'une page d'OpenAI. Les prix sont relayés par deux comparatifs tiers (benchlm.ai, digitalapplied.com), en dollars, hors taxes et hors taux de change. À vérifier chez OpenAI avant achat.",
+      "caption_en": "Every row comes from third-party sources read on 24 October 2026, none from an OpenAI page. Prices are reported by two third-party comparisons (benchlm.ai, digitalapplied.com), in dollars, excluding tax and exchange rates. Check with OpenAI before buying.",
+      "columns_fr": [
+        "Point",
+        "Ce que rapportent les sources",
+        "Degré de confiance"
+      ],
+      "columns_en": [
+        "Point",
+        "What the sources report",
+        "Confidence"
+      ],
+      "rows_fr": [
+        [
+          "Date de présentation",
+          "DevDay, 29 septembre 2026 ; 30 septembre selon certaines sources",
+          "Sources divergentes"
+        ],
+        [
+          "Offres concernées",
+          "ChatGPT Pro et Business Premium, dans les marchés éligibles",
+          "Plusieurs sources concordantes"
+        ],
+        [
+          "Europe sur Pro",
+          "Déploiement Pro hors EEE, Suisse et Royaume-Uni",
+          "Plusieurs sources"
+        ],
+        [
+          "Business Premium",
+          "Mondial selon une source",
+          "Une seule source"
+        ],
+        [
+          "Enterprise, Edu, Santé",
+          "Bêta désactivée par défaut, à activer par un administrateur",
+          "Sources lues, détails variables"
+        ],
+        [
+          "Prix Pro",
+          "100 $ par mois, premier dot inclus",
+          "Relayé par des comparatifs tiers"
+        ],
+        [
+          "Prix Business Premium",
+          "125 $ par utilisateur et par mois, 100 $ en annuel, deux sièges minimum, premier dot inclus",
+          "Relayé par des comparatifs tiers"
+        ],
+        [
+          "Limites d'usage",
+          "Conversations avec un dot hors limites ChatGPT ; travail de fond sur une allocation distincte ; tâches lancées dans Codex ou ChatGPT Work décomptées ; limites étendues le premier mois seulement",
+          "Sources lues, à confirmer"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Announcement date",
+          "DevDay, 29 September 2026; 30 September according to some sources",
+          "Sources diverge"
+        ],
+        [
+          "Plans covered",
+          "ChatGPT Pro and Business Premium, in eligible markets",
+          "Several sources agree"
+        ],
+        [
+          "Europe on Pro",
+          "Pro rollout excludes the EEA, Switzerland and the UK",
+          "Several sources"
+        ],
+        [
+          "Business Premium",
+          "Worldwide according to one source",
+          "Single source"
+        ],
+        [
+          "Enterprise, Edu, Health",
+          "Beta off by default, to be enabled by an admin",
+          "Sources read, details vary"
+        ],
+        [
+          "Pro price",
+          "$100 a month, first dot included",
+          "Reported by third-party comparisons"
+        ],
+        [
+          "Business Premium price",
+          "$125 per user per month, $100 billed annually, two-seat minimum, first dot included",
+          "Reported by third-party comparisons"
+        ],
+        [
+          "Usage limits",
+          "Conversations with a dot outside ChatGPT limits; background work on a separate allowance; tasks started in Codex or ChatGPT Work counted; extended limits for the first month only",
+          "Sources read, to be confirmed"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Dots en Europe : ce que disent les sources</h2><p>Pour une entreprise française, c'est la première question, et la réponse est en deux temps.</p><p><strong>Sur l'offre Pro, non.</strong> Selon les sources lues, le déploiement de dots sur ChatGPT Pro exclut l'Espace économique européen, la Suisse et le Royaume-Uni. Un abonné Pro installé en France ne devrait donc pas y avoir accès à ce stade.</p><p><strong>Sur Business Premium, peut-être.</strong> Une source décrit l'offre Business Premium comme ouverte dans le monde entier. Si c'est exact, ce serait la porte d'entrée européenne pour une PME : une offre d'équipe, facturée par siège, avec deux sièges minimum selon les comparatifs tiers. Une seule source l'affirme : c'est une piste à vérifier avec OpenAI, pas une garantie.</p><p><strong>Sur Enterprise, Edu et Santé</strong>, la bêta serait désactivée par défaut et à activer par un administrateur.</p><h3>Ce que les sources ne disent pas</h3><p>Aucune des sources lues ne précise où sont stockées les données d'un dot, combien de temps son ordinateur garde les fichiers téléchargés, ni comment sont conservés les identifiants. Pour une PME soumise au RGPD, ces trois points comptent plus que la date d'ouverture : un dot qui lit vos e-mails traite des données personnelles de clients et de salariés. Nous ne faisons pas ici d'analyse juridique ; les questions à poser (base légale, durée de conservation, transfert hors de l'Union, analyse d'impact) sont dans la <a href=\"/ressources/guides/rgpd-agents-ia-checklist\">checklist RGPD des agents IA</a>, et le calendrier de l'AI Act dans le guide <a href=\"/ressources/guides/ai-act-pme-calendrier\">AI Act pour les PME</a>.</p><p>Côté Anthropic, la situation est comparable : <a href=\"/ressources/guides/claude-duet\">Claude Duet</a> ouvre d'abord aux États-Unis, et son article de lancement ne dit rien de la France. Le <a href=\"/ressources/comparatifs/claude-duet-vs-chatgpt-dots\">comparatif Claude Duet et ChatGPT dots</a> met les deux côte à côte.</p>",
+      "html_en": "<h2>Dots in Europe: what the sources say</h2><p>For a French company, this is the first question, and the answer comes in two parts.</p><p><strong>On the Pro plan, no.</strong> According to the sources read, the dots rollout on ChatGPT Pro excludes the European Economic Area, Switzerland and the UK. A Pro subscriber based in France should therefore not have access at this stage.</p><p><strong>On Business Premium, perhaps.</strong> One source describes the Business Premium plan as open worldwide. If accurate, this would be the European way in for an SMB: a team plan, billed per seat, with a two-seat minimum according to third-party comparisons. Only one source says so: it is a lead to check with OpenAI, not a guarantee.</p><p><strong>On Enterprise, Edu and Health</strong>, the beta is reportedly off by default and must be enabled by an admin.</p><h3>What the sources do not say</h3><p>None of the sources read specifies where a dot's data is stored, how long its computer keeps downloaded files, or how credentials are kept. For an SMB subject to the GDPR, these three points matter more than the opening date: a dot that reads your emails processes personal data about customers and staff. This is not a legal analysis; the questions to ask (legal basis, retention period, transfer outside the Union, impact assessment) are in the <a href=\"/ressources/guides/rgpd-agents-ia-checklist\">GDPR checklist for AI agents</a>, and the AI Act timeline in our guide <a href=\"/ressources/guides/ai-act-pme-calendrier\">AI Act for SMBs</a>.</p><p>On Anthropic's side, the situation is similar: <a href=\"/ressources/guides/claude-duet\">Claude Duet</a> opens first in the United States, and its launch article says nothing about France. The <a href=\"/ressources/comparatifs/claude-duet-vs-chatgpt-dots\">Claude Duet vs ChatGPT dots comparison</a> puts the two side by side.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/agent-ia-definition-v3-cadran-paper.webp",
+          "alt_fr": "Un grand cadran bleu en demi-cercle, aiguille vers la gauche, encadré par deux petits drapeaux ; deux silhouettes de part et d'autre lèvent le bras",
+          "alt_en": "A large blue semicircular dial, needle to the left, framed by two small flags; two figures on either side raise an arm",
+          "side": "left"
+        }
+      ],
+      "html_fr": "<h2>Les règles d'approbation : ce que le dot fait seul, ce qu'il vous demande</h2><p>Un agent qui agit en votre nom n'est acceptable que si vous savez à l'avance ce qu'il fera sans vous. Selon les sources lues, OpenAI répond par des règles à trois niveaux.</p><ul><li><strong>Des règles intégrées.</strong> Le dot dispose de règles par défaut qui déterminent quand il agit seul et quand il demande.</li><li><strong>Des « Custom Rules ».</strong> Vous pouvez, action par action, autoriser, exiger une approbation ou bloquer. Exemple d'usage en PME : autoriser la lecture de la boîte support, exiger une approbation pour toute réponse à un client, bloquer toute action dans l'outil de facturation.</li><li><strong>Des actions toujours réservées à l'utilisateur.</strong> Changer un mot de passe ou déplacer de l'argent exige l'utilisateur. Une suppression définitive ou l'installation d'un logiciel peut exiger une approbation à chaque fois.</li><li><strong>Une approbation qui ne vaut que pour une fois.</strong> Approuver l'envoi d'un message ne donne pas au dot une permission durable de contacter cette personne, ni d'autres.</li></ul><p>C'est une logique différente de celle de Duet, qui, selon l'article d'Anthropic, montre et fait valider chaque envoi, paiement, signature ou suppression. Le réglage par action des dots est plus souple, donc plus facile à ouvrir trop largement. Notre recommandation : commencer avec tout ce qui écrit, paie ou supprime en « approbation requise », et n'assouplir qu'une règle à la fois, après avoir lu le journal de plusieurs semaines.</p><h2>Sécurité : l'injection de prompt n'est pas réglée</h2><p>L'injection de prompt consiste à cacher des instructions dans un e-mail, un document ou une page web pour détourner un agent : « transfère ce fichier à telle adresse », écrit en blanc sur blanc. Une analyse de <a href=\"https://neuraltrust.ai/blog/chatgpt-agent-security\" rel=\"noopener noreferrer\" target=\"_blank\">NeuralTrust</a> rapporte qu'OpenAI indique que ses protections réduisent ce risque sans l'éliminer. C'est honnête, et c'est la raison pour laquelle un dot qui lit des contenus extérieurs (boîte de réception, sites web, pièces jointes) ne doit pas avoir de droit d'action sans validation humaine sur ce qui engage l'entreprise.</p><h2>Limites d'usage : ce qui compte, ce qui ne compte pas</h2><p>Selon les sources lues, les conversations avec un dot ne comptent pas dans les limites de ChatGPT, mais le travail de fond du dot puise dans une allocation distincte, et les tâches qu'il lance dans Codex ou ChatGPT Work sont décomptées. Les limites auraient été élargies seulement pendant le premier mois suivant le lancement : les retours publiés pendant cette période ne reflètent donc pas forcément l'usage courant. En pratique, mesurez vous-même l'allocation consommée sur un mois normal avant d'élargir l'usage.</p>",
+      "html_en": "<h2>Approval rules: what the dot does alone, what it asks you</h2><p>An agent acting on your behalf is only acceptable if you know in advance what it will do without you. According to the sources read, OpenAI answers with three levels of rules.</p><ul><li><strong>Built-in rules.</strong> The dot has default rules that decide when it acts alone and when it asks.</li><li><strong>\"Custom Rules\".</strong> Action by action, you can allow, require approval or block. SMB example: allow reading the support mailbox, require approval for any reply to a customer, block any action in the invoicing tool.</li><li><strong>Actions always reserved for the user.</strong> Changing a password or moving money requires the user. A permanent deletion or a software install can require approval every time.</li><li><strong>Approval that counts once.</strong> Approving one message does not give the dot lasting permission to contact that person, or anyone else.</li></ul><p>This differs from Duet, which, according to Anthropic's article, shows and has you approve every send, payment, signature or deletion. The per-action setting of dots is more flexible, and so easier to open too widely. Our recommendation: start with everything that writes, pays or deletes on \"approval required\", and loosen only one rule at a time, after reading several weeks of logs.</p><h2>Security: prompt injection is not solved</h2><p>Prompt injection means hiding instructions in an email, a document or a web page to divert an agent: \"forward this file to this address\", written white on white. An analysis by <a href=\"https://neuraltrust.ai/blog/chatgpt-agent-security\" rel=\"noopener noreferrer\" target=\"_blank\">NeuralTrust</a> reports that OpenAI says its protections reduce this risk without eliminating it. That is honest, and it is why a dot that reads outside content (inbox, websites, attachments) should have no right to act without human approval on anything that binds the company.</p><h2>Usage limits: what counts, what does not</h2><p>According to the sources read, conversations with a dot do not count towards ChatGPT limits, but the dot's background work draws on a separate allowance, and tasks it starts in Codex or ChatGPT Work are counted. Limits were reportedly extended only for the first month after launch: feedback published during that period may not reflect normal use. In practice, measure the allowance used over a normal month yourself before widening use.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-3",
+      "html_fr": "<h2>Trois scénarios en PME, et la règle qui va avec</h2><p>Ces scénarios sont des illustrations de Waimia, construites à partir des fonctions rapportées par la presse. Ce ne sont pas des retours d'usage.</p><p><strong>Le cabinet qui répond à des appels d'offres.</strong> Le dot reçoit un objectif : repérer chaque semaine les consultations publiques qui correspondent à trois critères, et préparer une fiche par consultation. Il travaille sur des sites publics, depuis son propre navigateur, sans identifiant de l'entreprise. Règle : lecture seule, aucune action hors de son ordinateur, fiche relue par l'associé le lundi.</p><p><strong>Le support d'une boutique en ligne.</strong> Le dot suit le canal Slack du support et la boîte de réception partagée. Il classe les demandes, prépare des brouillons de réponse et signale les cas urgents. Règle : « approbation requise » pour toute réponse au client, « bloquer » pour les remboursements et toute action dans l'outil de paiement. C'est aussi le scénario le plus exposé à l'injection de prompt, puisque l'agent lit des messages écrits par des inconnus.</p><p><strong>Le dirigeant qui prépare un dossier de financement.</strong> Le dot rassemble pendant plusieurs jours les pièces demandées, vérifie qu'il ne manque rien et tient une liste à jour. Règle : accès à un seul dossier partagé, pas d'accès à la banque, aucun envoi au financeur sans validation.</p><p>Dans les trois cas, la valeur vient de la continuité : l'agent garde le fil pendant des jours. Le risque vient des accès : plus le dot touche d'outils, plus une erreur ou un contenu piégé a de portée.</p>",
+      "html_en": "<h2>Three SMB scenarios, and the rule that goes with each</h2><p>These scenarios are Waimia illustrations, built from the features reported by the press. They are not usage reports.</p><p><strong>The firm that answers tenders.</strong> The dot gets a goal: spot every week the public tenders that match three criteria, and prepare a sheet for each one. It works on public websites, from its own browser, with no company credentials. Rule: read-only, no action outside its computer, sheet reviewed by the partner on Monday.</p><p><strong>An online shop's support.</strong> The dot follows the support Slack channel and the shared inbox. It sorts requests, prepares reply drafts and flags urgent cases. Rule: \"approval required\" for any reply to a customer, \"block\" for refunds and any action in the payment tool. This is also the scenario most exposed to prompt injection, since the agent reads messages written by strangers.</p><p><strong>The owner preparing a funding application.</strong> Over several days, the dot gathers the requested documents, checks nothing is missing and keeps an up-to-date list. Rule: access to a single shared folder, no bank access, nothing sent to the funder without approval.</p><p>In all three cases, the value comes from continuity: the agent keeps the thread for days. The risk comes from access: the more tools the dot touches, the further a mistake or a booby-trapped content can reach.</p>"
+    },
+    {
+      "type": "tech-when-dual",
+      "background": "paper",
+      "kicker_fr": "§ Recommandations Waimia",
+      "kicker_en": "§ Waimia recommendations",
+      "title_fr": "Cas d'usage en PME : à confier à un dot, ou pas",
+      "title_en": "SMB use cases: what to hand to a dot, and what not",
+      "aside_fr": "Recommandations de Waimia, pas d'OpenAI, et pas des résultats mesurés : Waimia n'a pas utilisé dots. Elles valent pour tout agent qui travaille en continu.",
+      "aside_en": "Waimia's recommendations, not OpenAI's, and not measured results: Waimia has not used dots. They apply to any agent that works continuously.",
+      "use_title_fr": "À confier",
+      "use_title_en": "Hand over",
+      "use_items_fr": [
+        "Une veille de fond sur un marché, des concurrents ou des appels d'offres, avec un point hebdomadaire",
+        "Le suivi d'un objectif précis sur plusieurs jours, comme rassembler les pièces d'un dossier",
+        "Le tri d'un canal Slack ou Teams, avec alerte sur des sujets définis",
+        "La préparation de brouillons de réponse, relus avant tout envoi",
+        "La collecte d'informations publiques sur des sites web, sans connexion à vos comptes"
+      ],
+      "use_items_en": [
+        "Background monitoring of a market, competitors or tenders, with a weekly update",
+        "Pursuing a specific goal over several days, such as gathering the documents for a file",
+        "Triaging a Slack or Teams channel, with alerts on defined topics",
+        "Preparing reply drafts, reviewed before anything is sent",
+        "Collecting public information from websites, without logging into your accounts"
+      ],
+      "avoid_title_fr": "À ne pas confier sans cadre",
+      "avoid_title_en": "Do not hand over without a frame",
+      "avoid_items_fr": [
+        "Tout paiement, toute suppression et tout envoi à un client : règle « approbation requise »",
+        "L'accès à votre ordinateur local : laissez-le désactivé, comme par défaut",
+        "Des identifiants à privilèges (administration, banque) confiés dès le premier jour",
+        "Les données de santé, de paie ou disciplinaires des salariés",
+        "Un processus qui doit tourner à l'identique chaque jour : c'est le rôle d'un workflow"
+      ],
+      "avoid_items_en": [
+        "Any payment, deletion or message to a customer: \"approval required\" rule",
+        "Access to your local computer: leave it off, as by default",
+        "Privileged credentials (admin, bank) handed over on day one",
+        "Staff health, payroll or disciplinary data",
+        "A process that must run identically every day: that is a workflow's job"
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-3",
+      "html_fr": "<h2>Les questions à poser à OpenAI avant d'activer un dot</h2><p>Puisque cette page repose sur des sources tierces, la première étape est de faire confirmer par OpenAI, par écrit, ce qui vous concerne. Voici les questions que nous recommandons de poser au commercial ou au support, ou de vérifier dans la documentation officielle quand elle est accessible :</p><ol><li>Notre offre et notre pays donnent-ils accès aux dots, et à quelle date ?</li><li>Où sont stockés l'historique d'un dot, les fichiers de son ordinateur et ses identifiants, et pendant combien de temps ?</li><li>Les données traitées par un dot servent-elles à entraîner des modèles, et comment le désactiver ?</li><li>Quel accord de traitement des données couvre les dots, et quels sous-traitants interviennent ?</li><li>Quelles actions restent impossibles, même avec une règle « autoriser » ?</li><li>Existe-t-il un journal des actions exportable, et un administrateur peut-il le consulter ?</li><li>Comment révoquer en une fois tous les accès d'un dot ?</li><li>Que se passe-t-il quand l'allocation de travail de fond est épuisée en cours de tâche ?</li></ol><p>Les réponses à ces questions alimentent directement votre registre des traitements et votre charte d'usage. Le modèle de <a href=\"/ressources/outils/charte-ia-entreprise\">charte IA d'entreprise</a> donne un cadre pour les écrire.</p>",
+      "html_en": "<h2>The questions to ask OpenAI before switching on a dot</h2><p>Since this page relies on third-party sources, the first step is to have OpenAI confirm in writing what applies to you. Here are the questions we recommend asking sales or support, or checking in the official documentation when it is accessible:</p><ol><li>Do our plan and our country give access to dots, and from when?</li><li>Where are a dot's history, the files on its computer and its credentials stored, and for how long?</li><li>Is data processed by a dot used to train models, and how is that switched off?</li><li>Which data processing agreement covers dots, and which sub-processors are involved?</li><li>Which actions remain impossible, even with an \"allow\" rule?</li><li>Is there an exportable action log, and can an admin consult it?</li><li>How do you revoke all of a dot's access at once?</li><li>What happens when the background work allowance runs out mid-task?</li></ol><p>The answers feed straight into your record of processing activities and your usage policy. The <a href=\"/ressources/outils/charte-ia-entreprise\">company AI policy</a> template gives a frame to write them down.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Comparer les voies",
+      "kicker_en": "§ Comparing the routes",
+      "heading_fr": "Dots, Duet, agent sur mesure ou moteur ouvert : qui fait quoi",
+      "heading_en": "Dots, Duet, custom agent or open engine: who does what",
+      "caption_fr": "Lecture de Waimia au 24 octobre 2026. Dots : sources tierces. Duet : article d'Anthropic lu le 24 octobre 2026. Agent sur mesure : offre de Waimia. Moteurs ouverts : dépôts GitHub de Hermes Agent et d'OpenClaw, lus le 24 octobre 2026 pour nos guides dédiés.",
+      "caption_en": "Waimia's reading as of 24 October 2026. Dots: third-party sources. Duet: Anthropic article read on 24 October 2026. Custom agent: Waimia's offer. Open engines: Hermes Agent and OpenClaw GitHub repositories, read on 24 October 2026 for our dedicated guides.",
+      "columns_fr": [
+        "Voie",
+        "Où tourne l'agent",
+        "Contrôle des actions",
+        "Accès depuis la France",
+        "Pour qui"
+      ],
+      "columns_en": [
+        "Route",
+        "Where the agent runs",
+        "Action control",
+        "Access from France",
+        "For whom"
+      ],
+      "rows_fr": [
+        [
+          "ChatGPT dots",
+          "Ordinateur cloud d'OpenAI, avec navigateur",
+          "Règles par action : autoriser, approuver, bloquer",
+          "Pas sur Pro ; Business Premium à vérifier",
+          "Utilisateurs de ChatGPT, Slack ou Teams"
+        ],
+        [
+          "Claude Duet",
+          "Machine virtuelle d'Anthropic, avec navigateur",
+          "Accord avant chaque envoi, paiement, signature ou suppression",
+          "D'abord aux États-Unis ; rien d'annoncé pour la France",
+          "Abonnés Claude Pro et Max"
+        ],
+        [
+          "Agent sur mesure",
+          "Vos outils, par API, MCP ou workflow n8n",
+          "Validation humaine sur ce qui engage l'entreprise, journal de chaque action",
+          "Oui, selon le modèle et l'hébergement choisis",
+          "Une PME avec une mission précise"
+        ],
+        [
+          "Moteur ouvert (Hermes Agent, OpenClaw)",
+          "Votre machine ou votre serveur",
+          "Approbations, bac à sable et droits à configurer soi-même",
+          "Oui : logiciel installé chez vous",
+          "Une équipe prête à l'exploiter, ou un prestataire"
+        ]
+      ],
+      "rows_en": [
+        [
+          "ChatGPT dots",
+          "OpenAI cloud computer, with a browser",
+          "Per-action rules: allow, approve, block",
+          "Not on Pro; Business Premium to check",
+          "ChatGPT, Slack or Teams users"
+        ],
+        [
+          "Claude Duet",
+          "Anthropic virtual machine, with a browser",
+          "Approval before every send, payment, signature or deletion",
+          "United States first; nothing announced for France",
+          "Claude Pro and Max subscribers"
+        ],
+        [
+          "Custom agent",
+          "Your tools, through APIs, MCP or an n8n workflow",
+          "Human approval on anything that binds the company, log of every action",
+          "Yes, depending on the chosen model and hosting",
+          "An SMB with a specific mission"
+        ],
+        [
+          "Open engine (Hermes Agent, OpenClaw)",
+          "Your machine or your server",
+          "Approvals, sandbox and permissions to configure yourself",
+          "Yes: software installed on your side",
+          "A team ready to run it, or a provider"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Construire un équivalent sur vos outils</h2><p>Si dots n'est pas ouvert à votre offre, ou si vous ne voulez pas confier vos accès à un agent dont les règles de données ne sont pas documentées, l'idée reste valable : un agent qui suit un objectif dans la durée, branché à vos outils, qui vous sollicite au bon moment. Elle se construit autrement.</p><p><strong>Sur les modèles d'OpenAI, par API.</strong> Le service <a href=\"/services/integration-chatgpt-openai\">intégration ChatGPT et OpenAI aux outils métier</a> branche les modèles d'OpenAI à vos outils, avec des règles que vous écrivez : ce que l'agent lit, ce qu'il prépare, ce qu'il soumet à validation. Pour situer l'API d'OpenAI face à celle d'Anthropic, voir le comparatif <a href=\"/ressources/comparatifs/claude-platform-vs-openai-platform\">Claude Platform ou OpenAI Platform</a>.</p><p><strong>Un agent par mission.</strong> C'est ce que Waimia construit sur la page <a href=\"/services/agents-ia\">agents IA pour entreprise</a> : tri des demandes, relances, reporting, chacun avec une validation humaine sur ce qui engage l'entreprise et un journal de chaque action. Le modèle est choisi selon la tâche (Claude par défaut, OpenAI ou Mistral), l'orchestration peut passer par n8n, les connexions par MCP. Vos agents, vos accès et la documentation restent à vous.</p><p><strong>Sur un moteur ouvert.</strong> Pour garder l'agent chez vous, deux logiciels libres sous licence MIT reviennent souvent : <a href=\"/ressources/guides/hermes-agent\">Hermes Agent</a>, de Nous Research, et <a href=\"/ressources/guides/openclaw\">OpenClaw</a>. Aucun des deux n'est clé en main : bac à sable, secrets, droits, journal et mises à jour sont à prendre en charge. C'est l'objet de notre offre <a href=\"/services/agents-ia#agents-open-source\">agents IA sur des outils ouverts</a>. Le billet <a href=\"/blog/agents-ia-toujours-actifs-pme\">agents IA toujours actifs : propriétaire ou open source</a> aide à trancher.</p><p>Ne savez-vous pas par où commencer ? L'<a href=\"/audit-ia-pme\">audit IA gratuit</a> dure 45 minutes, en visio, sans engagement. Vous repartez avec une cartographie écrite et un ou deux chantiers classés.</p>",
+      "html_en": "<h2>Building an equivalent on your tools</h2><p>If dots is not open to your plan, or if you do not want to hand your access to an agent whose data rules are not documented, the idea still holds: an agent that pursues a goal over time, wired to your tools, that asks for you at the right moment. It can be built another way.</p><p><strong>On OpenAI models, through the API.</strong> The <a href=\"/services/integration-chatgpt-openai\">ChatGPT and OpenAI integration for business tools</a> service connects OpenAI models to your tools, with rules you write: what the agent reads, what it prepares, what it submits for approval. To place OpenAI's API against Anthropic's, see the <a href=\"/ressources/comparatifs/claude-platform-vs-openai-platform\">Claude Platform or OpenAI Platform</a> comparison.</p><p><strong>One agent per mission.</strong> This is what Waimia builds, as described on the <a href=\"/services/agents-ia\">AI agents for business</a> page: request triage, follow-ups, reporting, each with human approval on anything that binds the company and a log of every action. The model is chosen per task (Claude by default, OpenAI or Mistral), orchestration can go through n8n, connections through MCP. Your agents, your access and the documentation stay yours.</p><p><strong>On an open engine.</strong> To keep the agent on your side, two free MIT-licensed programs come up often: <a href=\"/ressources/guides/hermes-agent\">Hermes Agent</a>, by Nous Research, and <a href=\"/ressources/guides/openclaw\">OpenClaw</a>. Neither is turnkey: sandbox, secrets, permissions, logging and updates have to be handled. That is the purpose of our <a href=\"/services/agents-ia#agents-open-source\">AI agents on open tools</a> offer. The post <a href=\"/blog/agents-ia-toujours-actifs-pme\">always-on AI agents: proprietary or open source</a> helps decide.</p><p>Not sure where to start? The <a href=\"/audit-ia-pme\">free AI audit</a> lasts 45 minutes, by video, with no commitment. You leave with a written map and one or two ranked projects.</p>"
+    },
+    {
+      "type": "lead-capture-band",
+      "lead_magnet": "charte-ia-entreprise",
+      "background": "ink",
+      "anchor_id": "charte-chatgpt-dots",
+      "kicker_fr": "§ Charte IA · modèle PDF gratuit",
+      "kicker_en": "§ AI policy · free PDF template",
+      "h2_fr": "Avant de confier une mission à un agent toujours actif : écrivez ce qu'il peut faire seul. Recevez le modèle de charte IA en PDF",
+      "h2_en": "Before handing a mission to an always-on agent: write what it may do alone. Get the AI policy template as a PDF",
+      "body_fr": "Un modèle de charte en neuf articles, à adapter : outils autorisés, données interdites, validation humaine. Le PDF part uniquement par e-mail, en pièce jointe.",
+      "body_en": "A nine-article policy template to adapt: approved tools, banned data, human approval. The PDF is sent by email only, as an attachment.",
+      "benefits_fr": [
+        "Le modèle complet en neuf articles, mis en page pour être imprimé et signé",
+        "Les notes d'adaptation pour l'ajuster à votre entreprise",
+        "Un seul e-mail, sans inscription à une liste"
+      ],
+      "benefits_en": [
+        "The full template in nine articles, laid out to print and sign",
+        "Adaptation notes to fit it to your company",
+        "A single email, no mailing list"
+      ]
+    },
+    {
+      "type": "process-steps",
+      "background": "paper-3",
+      "kicker_fr": "§ Méthode Waimia",
+      "kicker_en": "§ Waimia method",
+      "h2_fr": "Tester un agent toujours actif sans risque, en quatre étapes",
+      "h2_en": "Testing an always-on agent safely, in four steps",
+      "intro_fr": "Recommandations de Waimia, valables pour un dot comme pour tout agent qui travaille en continu. Pour un accompagnement : audit gratuit de 45 minutes, puis sprint de cadrage à {{prix.sprint}} € HT pour 10 heures et {{prix.horaire}} € HT de l'heure ensuite.",
+      "intro_en": "Waimia's recommendations, valid for a dot as for any agent that works continuously. For support: a free 45-minute audit, then a scoping sprint at €{{prix.sprint.en}} excl. VAT for 10 hours and €{{prix.horaire}} excl. VAT per hour afterwards.",
+      "steps": [
+        {
+          "title_fr": "Un compte dédié",
+          "title_en": "A dedicated account",
+          "body_fr": "Un siège ou un espace de test, distinct de vos comptes principaux. Les erreurs du début restent sans conséquence pour vos clients.",
+          "body_en": "A test seat or workspace, separate from your main accounts. Early mistakes have no consequence for your customers."
+        },
+        {
+          "title_fr": "Des droits minimaux",
+          "title_en": "Minimal permissions",
+          "body_fr": "Une ou deux applications connectées, en lecture seule quand c'est possible ; accès à l'ordinateur local laissé désactivé.",
+          "body_en": "One or two connected apps, read-only where possible; local computer access left off."
+        },
+        {
+          "title_fr": "Approbation sur chaque action engageante",
+          "title_en": "Approval on every binding action",
+          "body_fr": "Custom Rules réglées sur « approbation requise » pour tout envoi, paiement, signature ou suppression, et « bloquer » pour l'outil de facturation et la banque.",
+          "body_en": "Custom Rules set to \"approval required\" for every send, payment, signature or deletion, and \"block\" for the invoicing tool and the bank."
+        },
+        {
+          "title_fr": "Un journal et un bilan à 30 jours",
+          "title_en": "A log and a 30-day review",
+          "body_fr": "Notez ce que le dot a proposé, fait, raté, et l'allocation consommée. Au bout de 30 jours, gardez, élargissez ou arrêtez, sur la base de ce journal.",
+          "body_en": "Note what the dot suggested, did and missed, and the allowance used. After 30 days, keep, widen or stop, based on that log."
+        }
+      ]
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper",
+      "kicker_fr": "§ Les services",
+      "kicker_en": "§ Services",
+      "cards": [
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Agents IA pour entreprise",
+          "title_en": "AI agents for business",
+          "lead_fr": "Un agent par mission, branché à vos outils, validation humaine et journal.",
+          "lead_en": "One agent per mission, wired to your tools, human approval and a log.",
+          "href": "/services/agents-ia"
+        },
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Intégration ChatGPT et OpenAI",
+          "title_en": "ChatGPT and OpenAI integration",
+          "lead_fr": "Les modèles d'OpenAI branchés à vos outils métier, avec vos règles.",
+          "lead_en": "OpenAI models connected to your business tools, with your rules.",
+          "href": "/services/integration-chatgpt-openai"
+        },
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Agents IA sur des outils ouverts",
+          "title_en": "AI agents on open tools",
+          "lead_fr": "Hermes Agent ou OpenClaw, déployés avec bac à sable, droits minimaux et suivi.",
+          "lead_en": "Hermes Agent or OpenClaw, deployed with a sandbox, minimal permissions and follow-up.",
+          "href": "/services/agents-ia#agents-open-source"
+        }
+      ]
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper-2",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Further reading",
+      "cards": [
+        {
+          "kicker_fr": "Comparatif",
+          "kicker_en": "Comparison",
+          "title_fr": "Claude Duet ou ChatGPT dots",
+          "title_en": "Claude Duet or ChatGPT dots",
+          "lead_fr": "Les deux agents toujours actifs, point par point, et ce qu'ils valent pour une PME française.",
+          "lead_en": "The two always-on agents, point by point, and what they are worth for a French SMB.",
+          "href": "/ressources/comparatifs/claude-duet-vs-chatgpt-dots"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Claude Duet",
+          "title_en": "Claude Duet",
+          "lead_fr": "L'agent proactif d'Anthropic : fonctions, sécurité, accès, limites.",
+          "lead_en": "Anthropic's proactive agent: features, security, access, limits.",
+          "href": "/ressources/guides/claude-duet"
+        },
+        {
+          "kicker_fr": "Article",
+          "kicker_en": "Article",
+          "title_fr": "Agents IA toujours actifs : propriétaire ou open source",
+          "title_en": "Always-on AI agents: proprietary or open source",
+          "lead_fr": "Le choix en une page pour une PME.",
+          "lead_en": "The choice in one page for an SMB.",
+          "href": "/blog/agents-ia-toujours-actifs-pme"
+        }
+      ]
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "h2_fr": "Questions fréquentes sur ChatGPT dots",
+      "h2_en": "ChatGPT dots FAQ",
+      "items": [
+        {
+          "q_fr": "Qu'est-ce que ChatGPT dots ?",
+          "q_en": "What is ChatGPT dots?",
+          "a_fr": "Selon la presse spécialisée, les dots sont des agents persistants, « toujours actifs », présentés par OpenAI à son DevDay fin septembre 2026. Chaque dot dispose de son propre ordinateur dans le cloud et de son navigateur, poursuit un objectif entre vos conversations, garde des identifiants et continue après la fermeture de l'application. Aucune page d'OpenAI n'a pu être lue par Waimia : à vérifier chez l'éditeur.",
+          "a_en": "According to the specialist press, dots are persistent, \"always-on\" agents that OpenAI introduced at its DevDay in late September 2026. Each dot has its own cloud computer and browser, pursues a goal between your conversations, keeps credentials and carries on after the app is closed. Waimia could not read any OpenAI page: to be checked with the publisher."
+        },
+        {
+          "q_fr": "Combien coûte ChatGPT dots ?",
+          "q_en": "How much does ChatGPT dots cost?",
+          "a_fr": "Selon les sources lues, le premier dot est inclus sans surcoût dans ChatGPT Pro ou Business Premium. Des comparatifs tiers (benchlm.ai, digitalapplied.com) relaient Pro à 100 $ par mois et Business Premium à 125 $ par utilisateur et par mois, 100 $ en annuel, avec deux sièges minimum. Ces montants ne viennent pas d'une page d'OpenAI lue par Waimia : vérifiez-les sur la page tarifs d'OpenAI avant tout achat.",
+          "a_en": "According to the sources read, the first dot is included at no extra cost in ChatGPT Pro or Business Premium. Third-party comparisons (benchlm.ai, digitalapplied.com) report Pro at $100 a month and Business Premium at $125 per user per month, $100 billed annually, with a two-seat minimum. These amounts do not come from an OpenAI page read by Waimia: check them on OpenAI's pricing page before buying."
+        },
+        {
+          "q_fr": "ChatGPT dots est-il disponible en France et en Europe ?",
+          "q_en": "Is ChatGPT dots available in France and Europe?",
+          "a_fr": "Pas sur l'offre Pro, selon les sources lues : son déploiement exclut l'Espace économique européen, la Suisse et le Royaume-Uni. Une source décrit Business Premium comme mondial, ce qui en ferait la porte d'entrée possible pour une entreprise française. Enterprise, Edu et Santé auraient une bêta désactivée par défaut, à activer par un administrateur. Les sources divergent : vérifiez chez OpenAI avec votre compte.",
+          "a_en": "Not on the Pro plan, according to the sources read: its rollout excludes the European Economic Area, Switzerland and the UK. One source describes Business Premium as worldwide, which would make it the possible way in for a French company. Enterprise, Edu and Health would have a beta switched off by default, to be enabled by an admin. Sources diverge: check with OpenAI using your account."
+        },
+        {
+          "q_fr": "Quelle différence entre un dot et une conversation ChatGPT ?",
+          "q_en": "What is the difference between a dot and a ChatGPT conversation?",
+          "a_fr": "Une conversation s'arrête quand vous partez ; un dot continue. D'après la presse, il travaille sur un objectif entre les conversations, sur son propre ordinateur dans le cloud, et apprend vos préférences par vos retours. Côté quota, les conversations avec un dot ne compteraient pas dans les limites de ChatGPT, mais son travail de fond puise dans une allocation distincte, et les tâches lancées dans Codex ou ChatGPT Work comptent.",
+          "a_en": "A conversation stops when you leave; a dot carries on. According to the press, it works on a goal between conversations, on its own cloud computer, and learns your preferences from your feedback. On quota, conversations with a dot reportedly do not count towards ChatGPT limits, but its background work draws on a separate allowance, and tasks started in Codex or ChatGPT Work do count."
+        },
+        {
+          "q_fr": "Un dot peut-il agir sans mon accord ?",
+          "q_en": "Can a dot act without my approval?",
+          "a_fr": "Selon les sources lues, cela dépend des règles. Des règles intégrées disent quand agir seul et quand demander ; des « Custom Rules » permettent d'autoriser une action, d'exiger une approbation ou de la bloquer. Changer un mot de passe ou déplacer de l'argent exige l'utilisateur, et une suppression définitive ou une installation de logiciel peut exiger une approbation à chaque fois. Approuver un message ne vaut pas permission durable.",
+          "a_en": "According to the sources read, it depends on the rules. Built-in rules say when to act alone and when to ask; \"Custom Rules\" let you allow an action, require approval or block it. Changing a password or moving money requires the user, and a permanent deletion or a software install can require approval every time. Approving one message is not lasting permission."
+        },
+        {
+          "q_fr": "Les dots sont-ils protégés contre l'injection de prompt ?",
+          "q_en": "Are dots protected against prompt injection?",
+          "a_fr": "En partie seulement. Une analyse de neuraltrust.ai rapporte qu'OpenAI indique que ses protections réduisent l'injection de prompt sans l'éliminer. L'injection de prompt, ce sont des instructions cachées dans un e-mail, un document ou une page web pour détourner l'agent. Conséquence pratique : un dot qui lit des contenus extérieurs ne doit pas pouvoir payer, envoyer ou supprimer sans validation humaine.",
+          "a_en": "Only partly. An analysis by neuraltrust.ai reports that OpenAI says its protections reduce prompt injection without eliminating it. Prompt injection means instructions hidden in an email, a document or a web page to divert the agent. Practical consequence: a dot that reads outside content should not be able to pay, send or delete without human approval."
+        },
+        {
+          "q_fr": "ChatGPT dots ou Claude Duet : lequel choisir ?",
+          "q_en": "ChatGPT dots or Claude Duet: which to choose?",
+          "a_fr": "Pour une PME française, la question est d'abord l'accès : selon les sources lues au 24 octobre 2026, Duet ouvre d'abord aux États-Unis et dots Pro exclut l'Europe, Business Premium restant la piste à vérifier. Sur le fond, Duet attend toujours votre accord avant d'envoyer, payer, signer ou supprimer, alors que dots fonctionne par règles réglables action par action. Le détail est dans notre comparatif.",
+          "a_en": "For a French SMB, the first question is access: according to the sources read as of 24 October 2026, Duet opens first in the United States and dots Pro excludes Europe, with Business Premium the lead to check. On substance, Duet always waits for your approval before sending, paying, signing or deleting, whereas dots works through rules set action by action. Details are in our comparison."
+        },
+        {
+          "q_fr": "ChatGPT dots : que valent les premiers avis ?",
+          "q_en": "ChatGPT dots: what are the first reviews worth?",
+          "a_fr": "Au 24 octobre 2026, ce qui circule vient surtout de la presse et de blogs qui résument l'annonce d'OpenAI, avec des écarts sur la date et sur les offres concernées. Ce ne sont pas des retours d'usage mesurés en entreprise. Waimia n'a pas utilisé dots et ne publie pas d'avis d'usage. Le meilleur avis sera le vôtre, sur un essai de 30 jours avec un périmètre étroit et un journal des actions.",
+          "a_en": "As of 24 October 2026, what circulates comes mostly from the press and blogs summarising OpenAI's announcement, with differences on the date and on the plans covered. These are not measured business usage reports. Waimia has not used dots and publishes no hands-on review. The best review will be yours, from a 30-day trial with a narrow scope and a log of actions."
+        }
+      ]
+    },
+    {
+      "type": "newsletter-signup-section",
+      "background": "paper-3",
+      "kicker_fr": "§ La lettre Waimia",
+      "kicker_en": "§ The Waimia letter",
+      "h2_fr": "Dots arrivera-t-il sur votre offre ? Soyez prévenu quand ça change.",
+      "h2_en": "Will dots reach your plan? Hear about it when that changes.",
+      "body_fr": "Une lettre courte quand un changement compte vraiment pour une PME : ouverture d'un agent en Europe, page officielle publiée, nouvelles règles de données ou de prix.",
+      "body_en": "A short letter when a change really matters for an SMB: an agent opening in Europe, an official page published, new data or pricing rules.",
+      "hint_fr": "Désinscription en un clic.",
+      "hint_en": "Unsubscribe in one click."
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Agents IA en PME",
+      "kicker_en": "§ AI agents for SMBs",
+      "h2_fr": "Un agent qui suit vos dossiers, avec des règles que vous écrivez.",
+      "h2_en": "An agent that follows your files, with rules you write.",
+      "subtitle_fr": "Audit gratuit de 45 minutes en visio. Vous repartez avec une cartographie écrite et un ou deux chantiers classés.",
+      "subtitle_en": "Free 45-minute video audit. You leave with a written map and one or two ranked projects.",
+      "buttons": [
+        {
+          "label_fr": "Réserver l'audit gratuit",
+          "label_en": "Book the free audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Voir le service agents IA",
+          "label_en": "See the AI agents service",
+          "href": "/services/agents-ia",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

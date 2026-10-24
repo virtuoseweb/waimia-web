@@ -1,0 +1,751 @@
+{
+  "$schema": "../../schemas/generated/comparatifs.page.schema.json",
+  "title_fr": "Claude Duet vs ChatGPT dots : lequel choisir pour une PME · Waimia",
+  "title_en": "Claude Duet vs ChatGPT dots: which one for an SMB · Waimia",
+  "seoTitle_fr": "Claude Duet vs ChatGPT dots : comparatif pour une PME",
+  "seoTitle_en": "Claude Duet vs ChatGPT dots: comparison for SMBs",
+  "description_fr": "Claude Duet vs ChatGPT dots : accès, prix relayés, approbations, connecteurs et sécurité de deux agents toujours actifs. Sources lues le 24 octobre 2026.",
+  "description_en": "Claude Duet vs ChatGPT dots: access, reported prices, approvals, connectors and security of two always-on agents. Sources read on 24 October 2026.",
+  "slug": "claude-duet-vs-chatgpt-dots",
+  "publishedAt": "2026-10-24T00:00:00.000Z",
+  "updatedAt": "2026-10-24",
+  "category": "agents",
+  "tags": [
+    "claude-duet",
+    "chatgpt-dots",
+    "agent-ia-proactif",
+    "comparatif-ia",
+    "agent-ia",
+    "securite-donnees",
+    "outils-ia-pme"
+  ],
+  "sources": [
+    {
+      "name": "Anthropic, « Claude Duet » (article de lancement, lu le 24 octobre 2026)",
+      "url": "https://claude.com/fr/resources/articles/claude-duet",
+      "type": "enterprise",
+      "publishedAt": "2026-10-21"
+    },
+    {
+      "name": "Technology.org, OpenAI dots, agents toujours actifs dans ChatGPT (lu le 24 octobre 2026)",
+      "url": "https://technology.org/2026/09/30/openai-dots-always-on-agents-chatgpt/",
+      "type": "journal",
+      "publishedAt": "2026-09-30"
+    },
+    {
+      "name": "Tom's Guide, ChatGPT reçoit un ordinateur virtuel (lu le 24 octobre 2026)",
+      "url": "https://tomsguide.com/ai/openai-gave-chatgpt-a-virtual-computer-to-run-errands-for-you",
+      "type": "journal"
+    },
+    {
+      "name": "BetaNews, OpenAI dots (lu le 24 octobre 2026)",
+      "url": "https://betanews.com/article/openai-dots-agents-chatgpt/",
+      "type": "journal"
+    },
+    {
+      "name": "DataCamp, OpenAI dots (lu le 24 octobre 2026)",
+      "url": "https://datacamp.com/blog/openai-dots",
+      "type": "enterprise"
+    },
+    {
+      "name": "eesel, OpenAI dots (lu le 24 octobre 2026)",
+      "url": "https://eesel.ai/blog/openai-dots",
+      "type": "enterprise"
+    },
+    {
+      "name": "AI Catchup, ChatGPT dots (lu le 24 octobre 2026)",
+      "url": "https://aicatchup.com/news/openai-chatgpt-dots-always-on-agents",
+      "type": "journal"
+    },
+    {
+      "name": "Composio, guide de ChatGPT dots (lu le 24 octobre 2026)",
+      "url": "https://composio.dev/content/a-guide-to-chatgpt-dots-how-openai-s-always-on-agents-work",
+      "type": "enterprise"
+    },
+    {
+      "name": "MindStudio, ChatGPT dots expliqué (lu le 24 octobre 2026)",
+      "url": "https://mindstudio.ai/blog/chatgpt-dots-explained",
+      "type": "enterprise"
+    },
+    {
+      "name": "NeuralTrust, sécurité des agents ChatGPT (lu le 24 octobre 2026)",
+      "url": "https://neuraltrust.ai/blog/chatgpt-agent-security",
+      "type": "enterprise"
+    }
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "Claude Duet ou ChatGPT dots : lequel choisir pour une PME ?",
+      "a": "Celui qui est réellement ouvert sur votre compte, puis celui dont vous contrôlez le mieux les actions. Selon les sources lues le 24 octobre 2026, Duet s'ouvre d'abord aux abonnés Pro et Max aux États-Unis et l'offre Pro de dots exclut l'Espace économique européen. Si aucun n'est accessible, regardez un agent sur mesure ou un moteur ouvert."
+    },
+    {
+      "q": "Claude Duet est-il disponible en France ?",
+      "a": "Pas annoncé. L'article d'Anthropic, lu le 24 octobre 2026, prévoit un accès par liste d'attente, d'abord pour les abonnés Pro et Max aux États-Unis, et ne dit rien de la France ni de l'Europe. Vérifiez sur la page de Duet et depuis votre propre compte avant de prévoir un usage."
+    },
+    {
+      "q": "ChatGPT dots est-il disponible en France ?",
+      "a": "Pas sur l'offre Pro, selon la presse lue le 24 octobre 2026 : son déploiement exclurait l'Espace économique européen, la Suisse et le Royaume-Uni. Une source décrit Business Premium comme mondial, ce qui en ferait la porte possible pour une entreprise française. Aucune page d'OpenAI n'a pu être lue : vérifiez avant de souscrire."
+    },
+    {
+      "q": "Combien coûtent Claude Duet et ChatGPT dots ?",
+      "a": "Duet est inclus dans Claude Pro et Max, selon Anthropic ; un comparatif tiers relaie 20 $ par mois pour Pro. Le premier dot serait inclus sans surcoût ; des comparatifs tiers relaient 100 $ par mois pour Pro et 125 $ par utilisateur et par mois pour Business Premium (100 $ en annuel, deux sièges minimum). Montants à vérifier."
+    },
+    {
+      "q": "Lequel demande votre accord avant d'agir ?",
+      "a": "Les deux, différemment. Selon Anthropic, Duet attend votre accord avant tout envoi de message, paiement, signature ou suppression, et refuse certaines actions même approuvées. Selon la presse, dots applique des règles intégrées que vous complétez par des « Custom Rules » : autoriser, exiger une approbation ou bloquer, action par action."
+    },
+    {
+      "q": "Peut-on les utiliser en équipe ?",
+      "a": "Pas Duet pour l'instant : il n'est pas proposé sur Claude Team ni Enterprise. Pour dots, Business Premium vise les équipes, deux sièges minimum, et une bêta Enterprise serait à activer par un administrateur. Les équipes de dots sont annoncées pour plus tard, selon la presse lue le 24 octobre 2026."
+    },
+    {
+      "q": "Sont-ils protégés contre l'injection de prompt ?",
+      "a": "En partie. L'injection de prompt, ce sont des consignes cachées dans un e-mail ou une page que l'agent risque d'exécuter. Anthropic décrit pour Duet des défenses dédiées, des tests adverses et un bug bounty. Selon NeuralTrust, OpenAI indique que ses protections réduisent ce risque sans l'éliminer. Gardez une validation humaine sur ce qui engage."
+    },
+    {
+      "q": "Que faire si aucun des deux n'est accessible ?",
+      "a": "Ne passez pas par un compte personnel ouvert ailleurs. Deux voies restent : un moteur ouvert comme Hermes Agent ou OpenClaw, installé chez vous et durci, ou un agent sur mesure sur le modèle de votre choix, avec validation humaine et journal. L'audit gratuit de 45 minutes aide à choisir."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Claude Duet or ChatGPT dots: which one should an SMB choose?",
+      "a": "The one actually open on your account, then the one whose actions you control best. According to the sources read on 24 October 2026, Duet opens first to Pro and Max subscribers in the United States and the dots Pro plan excludes the European Economic Area. If neither is available, look at a custom agent or an open engine."
+    },
+    {
+      "q": "Is Claude Duet available in France?",
+      "a": "Not announced. Anthropic's article, read on 24 October 2026, provides waitlist access, first for Pro and Max subscribers in the United States, and says nothing about France or Europe. Check the Duet page and your own account before planning any use."
+    },
+    {
+      "q": "Is ChatGPT dots available in France?",
+      "a": "Not on the Pro plan, according to press coverage read on 24 October 2026: its rollout reportedly excludes the European Economic Area, Switzerland and the United Kingdom. One source describes Business Premium as worldwide, which would make it the possible door for a French company. No OpenAI page could be read: check before subscribing."
+    },
+    {
+      "q": "How much do Claude Duet and ChatGPT dots cost?",
+      "a": "Duet is included in Claude Pro and Max, according to Anthropic; a third-party comparison reports $20 a month for Pro. The first dot is reportedly included at no extra cost; third-party comparisons report $100 a month for Pro and $125 per user per month for Business Premium ($100 annual, two seats minimum). Amounts to be checked."
+    },
+    {
+      "q": "Which one asks for your approval before acting?",
+      "a": "Both, differently. According to Anthropic, Duet waits for your approval before any message, payment, signature or deletion, and refuses some actions even when approved. According to the press, dots applies built-in rules that you complete with Custom Rules: allow, require approval or block, action by action."
+    },
+    {
+      "q": "Can teams use them?",
+      "a": "Not Duet for now: it is not offered on Claude Team or Enterprise. For dots, Business Premium targets teams, two seats minimum, and an Enterprise beta reportedly has to be enabled by an administrator. Teams of dots are announced for later, according to press coverage read on 24 October 2026."
+    },
+    {
+      "q": "Are they protected against prompt injection?",
+      "a": "Partly. Prompt injection means instructions hidden in an email or a page that the agent may carry out. Anthropic describes dedicated defences, adversarial testing and a bug bounty for Duet. According to NeuralTrust, OpenAI states that its protections reduce this risk without removing it. Keep human approval on anything that commits you."
+    },
+    {
+      "q": "What if neither is available?",
+      "a": "Do not use a personal account opened elsewhere. Two routes remain: an open engine such as Hermes Agent or OpenClaw, installed on your side and hardened, or a custom agent on the model of your choice, with human approval and a log. The free 45-minute audit helps you choose."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "kicker_fr": "§ Comparatif Claude Duet vs ChatGPT dots",
+      "kicker_en": "§ Claude Duet vs ChatGPT dots comparison",
+      "h1_fr": "Claude Duet vs ChatGPT dots : <i class=\"acc\">lequel pour une PME</i> ?",
+      "h1_en": "Claude Duet vs ChatGPT dots: <i class=\"acc\">which one for an SMB</i>?",
+      "definition_kicker_fr": "En une phrase",
+      "definition_kicker_en": "In one sentence",
+      "lede_fr": "Claude Duet (Anthropic) et ChatGPT dots (OpenAI) sont deux agents IA toujours actifs : chacun travaille sur son propre ordinateur virtuel, continue quand vous fermez l'application et vous demande de valider ce qui engage. Pour une PME française, la vraie question n'est pas lequel est le plus doué, mais lequel vous est ouvert et ce qu'il peut faire sans vous.",
+      "lede_en": "Claude Duet (Anthropic) and ChatGPT dots (OpenAI) are two always-on AI agents: each works on its own virtual computer, carries on when you close the app and asks you to approve what commits you. For a French SMB, the real question is not which one is smarter, but which one is open to you and what it can do without you.",
+      "badges": [
+        {
+          "label_fr": "Mis à jour le 24 octobre 2026",
+          "label_en": "Updated 24 October 2026"
+        },
+        {
+          "label_fr": "Niveau de preuve indiqué",
+          "label_en": "Level of evidence shown"
+        },
+        {
+          "label_fr": "Recommandations PME",
+          "label_en": "SMB recommendations"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver l'audit gratuit →",
+        "label_en": "Book the free audit →",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Recevoir le modèle de charte IA",
+        "label_en": "Get the AI policy template",
+        "href": "#recevoir-claude-duet-vs-chatgpt-dots",
+        "variant": "ghost"
+      },
+      "illustration": {
+        "src": "/images/illustrations/ds/claude-copilot-deux-portes-paper.webp",
+        "alt_fr": "Illustration : deux portes dans un même mur, l'une fermée, l'autre ouverte sur un panneau bleu, et une personne debout entre les deux",
+        "alt_en": "Illustration: two doors in the same wall, one closed, the other open onto a blue panel, and a person standing between them",
+        "side": "right"
+      }
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "Claude Duet ou ChatGPT dots : lequel choisir pour une PME ?",
+      "question_en": "Claude Duet or ChatGPT dots: which one should an SMB choose?",
+      "term_fr": "Claude Duet vs ChatGPT dots",
+      "term_en": "Claude Duet vs ChatGPT dots",
+      "answer_fr": "Selon les sources lues le 24 octobre 2026, aucun des deux n'est simplement ouvert à une PME française : Duet s'ouvre d'abord aux abonnés Pro et Max aux États-Unis, et l'offre Pro de dots exclut l'Espace économique européen. Le critère décisif est donc l'accès réel sur votre compte, puis le contrôle des actions faites en votre nom.",
+      "answer_en": "According to the sources read on 24 October 2026, neither is simply open to a French SMB: Duet opens first to Pro and Max subscribers in the United States, and the dots Pro plan excludes the European Economic Area. The deciding criterion is therefore real access on your account, then control over the actions taken on your behalf."
+    },
+    {
+      "type": "comparison-table",
+      "background": "paper",
+      "h2_fr": "Claude Duet vs ChatGPT dots : 16 critères, avec le niveau de preuve",
+      "h2_en": "Claude Duet vs ChatGPT dots: 16 criteria, with the level of evidence",
+      "column_headers_fr": [
+        "Critère",
+        "Claude Duet",
+        "ChatGPT dots",
+        "Source et niveau de preuve"
+      ],
+      "column_headers_en": [
+        "Criterion",
+        "Claude Duet",
+        "ChatGPT dots",
+        "Source and level of evidence"
+      ],
+      "rows": [
+        {
+          "feature_fr": "Éditeur",
+          "feature_en": "Vendor",
+          "values": [
+            "Anthropic",
+            "OpenAI",
+            "Éditeurs"
+          ]
+        },
+        {
+          "feature_fr": "Lancement",
+          "feature_en": "Launch",
+          "values": [
+            "21 octobre 2026",
+            "DevDay, 29 septembre 2026 (le 30 selon certaines sources)",
+            "Duet [P] ; dots [S]"
+          ]
+        },
+        {
+          "feature_fr": "État du produit",
+          "feature_en": "Product status",
+          "values": [
+            "Aperçu de recherche, sur liste d'attente",
+            "Déploiement aux abonnés éligibles ; bêta désactivée par défaut sur Enterprise, Edu et Santé",
+            "Duet [P] ; dots [S]"
+          ]
+        },
+        {
+          "feature_fr": "Accès et région",
+          "feature_en": "Access and region",
+          "values": [
+            "D'abord Pro et Max aux États-Unis ; rien sur la France",
+            "Pro hors EEE, Suisse et Royaume-Uni ; Business Premium mondial selon une source",
+            "Duet [P] ; dots [S], sources divergentes"
+          ]
+        },
+        {
+          "feature_fr": "Prix relayé",
+          "feature_en": "Reported price",
+          "values": [
+            "Inclus dans Pro et Max ; Pro à 20 $ par mois selon un comparatif tiers",
+            "Premier dot inclus ; Pro à 100 $ par mois, Business Premium à 125 $ par utilisateur et par mois (100 $ en annuel)",
+            "Inclusion Duet [P] ; montants [S]"
+          ]
+        },
+        {
+          "feature_fr": "Modèle",
+          "feature_en": "Model",
+          "values": [
+            "Claude Opus 5.5",
+            "GPT-6 Astra, selon plusieurs sources",
+            "Duet [P] ; dots [S]"
+          ]
+        },
+        {
+          "feature_fr": "Ordinateur et navigateur de l'agent",
+          "feature_en": "Agent's computer and browser",
+          "values": [
+            "Machine virtuelle avec son navigateur, active téléphone et ordinateur éteints",
+            "Ordinateur cloud et navigateur propres à chaque dot ; accès à votre machine locale optionnel, désactivé par défaut",
+            "Duet [P] ; dots [S]"
+          ]
+        },
+        {
+          "feature_fr": "Connecteurs annoncés",
+          "feature_en": "Announced connectors",
+          "values": [
+            "Plus de 6 000 connecteurs et plug-ins, dont Gmail, Slack, QuickBooks, HubSpot, Shopify",
+            "Plus de 4 000 applications via les plugins d'OpenAI",
+            "Chiffres annoncés, non comparables entre eux"
+          ]
+        },
+        {
+          "feature_fr": "Canaux d'usage",
+          "feature_en": "Where you use it",
+          "values": [
+            "Application iOS et Android, et claude.ai ; une seule conversation, écrite ou vocale",
+            "ChatGPT, Slack, Microsoft Teams",
+            "Duet [P] ; dots [S]"
+          ]
+        },
+        {
+          "feature_fr": "Règles d'approbation",
+          "feature_en": "Approval rules",
+          "values": [
+            "Accord exigé avant envoi, paiement, signature ou suppression ; certaines actions interdites même avec accord",
+            "Règles intégrées et « Custom Rules » par action : autoriser, exiger une approbation, bloquer",
+            "Duet [P] ; dots [S]"
+          ]
+        },
+        {
+          "feature_fr": "Visibilité de l'ordinateur",
+          "feature_en": "Seeing the computer",
+          "values": [
+            "Ne peut pas encore montrer son navigateur",
+            "Ordinateur consultable, prise en main possible",
+            "Duet [P] ; dots [S], une seule source"
+          ]
+        },
+        {
+          "feature_fr": "Limites d'usage",
+          "feature_en": "Usage limits",
+          "values": [
+            "Celles du forfait ; les grosses tâches consomment davantage",
+            "Conversations hors limites ChatGPT ; allocation distincte pour le travail de fond ; limites étendues le premier mois seulement",
+            "Duet [P] ; dots [S]"
+          ]
+        },
+        {
+          "feature_fr": "Offres d'équipe",
+          "feature_en": "Team plans",
+          "values": [
+            "Pas sur Team ni Enterprise à ce stade",
+            "Business Premium, deux sièges minimum ; Enterprise en bêta à activer",
+            "Duet [P] et [S] ; dots [S]"
+          ]
+        },
+        {
+          "feature_fr": "Sécurité déclarée",
+          "feature_en": "Stated security",
+          "values": [
+            "Identifiants jamais vus directement, classificateur d'actions, défenses contre l'injection, red team, bug bounty",
+            "Protections qui réduisent l'injection de prompt sans l'éliminer",
+            "Duet [P] ; dots [S], analyse NeuralTrust"
+          ]
+        },
+        {
+          "feature_fr": "Limites déclarées",
+          "feature_en": "Stated limits",
+          "values": [
+            "Peut mal interpréter ou mal juger l'urgence ; moins bon sur les tâches personnelles ; application séparée",
+            "Équipes de dots et dots spécialisés annoncés, pas encore livrés",
+            "Duet [P] ; dots [S]"
+          ]
+        },
+        {
+          "feature_fr": "Essayé par Waimia",
+          "feature_en": "Tried by Waimia",
+          "values": [
+            "Non",
+            "Non",
+            "Aucune mesure Waimia sur cette page"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "html_fr": "<h2>Comment lire ce comparatif</h2>\n<p>Les deux produits n'ont pas le même niveau de preuve, et ce comparatif le dit ligne par ligne. Pour <a href=\"/ressources/guides/claude-duet\">Claude Duet</a>, nous avons lu l'<a href=\"https://claude.com/fr/resources/articles/claude-duet\" rel=\"noopener\" target=\"_blank\">article de présentation d'Anthropic</a> le 24 octobre 2026 : c'est une source primaire, marquée [P] dans le tableau. Pour <a href=\"/ressources/guides/chatgpt-dots\">ChatGPT dots</a>, aucune page d'OpenAI n'était joignable depuis notre environnement ce jour-là. Les faits viennent donc de la presse et de comparatifs tiers, listés dans les sources en bas de page : ils sont marqués [S], écrits avec « selon », et à vérifier chez OpenAI avant tout achat. Quand ces sources se contredisent, nous le signalons au lieu de choisir.</p>\n<p>Deuxième précaution : Waimia n'a essayé ni Duet ni dots. Rien ici ne vient d'un essai, d'une mesure ou d'un client. Les passages marqués « recommandation » disent ce que nous conseillons à une PME à partir de ce que les éditeurs et la presse décrivent, pas ce que nous avons observé.</p>\n<p>Un agent « toujours actif », ou proactif, est un agent IA qui garde un objectif entre deux conversations, surveille vos applications et vient vers vous quand une décision est nécessaire. C'est la promesse commune de Duet et de dots. La définition complète est dans le guide <a href=\"/ressources/guides/agent-ia-definition\">agent IA : définition, coût et limites</a>.</p>",
+      "html_en": "<h2>How to read this comparison</h2>\n<p>The two products do not have the same level of evidence, and this comparison says so line by line. For <a href=\"/ressources/guides/claude-duet\">Claude Duet</a>, we read <a href=\"https://claude.com/fr/resources/articles/claude-duet\" rel=\"noopener\" target=\"_blank\">Anthropic's launch article</a> on 24 October 2026: it is a primary source, marked [P] in the table. For <a href=\"/ressources/guides/chatgpt-dots\">ChatGPT dots</a>, no OpenAI page could be reached from our environment that day. The facts therefore come from the press and third-party comparisons, listed in the sources at the bottom of the page: they are marked [S], written with \"according to\", and must be checked with OpenAI before any purchase. When these sources contradict each other, we say so instead of picking one.</p>\n<p>Second caveat: Waimia has tried neither Duet nor dots. Nothing here comes from a trial, a measurement or a client. Passages marked \"recommendation\" say what we advise an SMB based on what the vendors and the press describe, not what we observed.</p>\n<p>An \"always-on\", or proactive, agent is an AI agent that keeps a goal between two conversations, watches your apps and comes to you when a decision is needed. That is the shared promise of Duet and dots. The full definition is in the guide <a href=\"/ressources/guides/agent-ia-definition\">AI agent: definition, cost and limits</a>.</p>",
+      "figures": []
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "maxWidth": "prose",
+      "html_fr": "<h2>Accès et prix : la question qui tranche avant les fonctions</h2>\n<p><strong>Claude Duet.</strong> Anthropic a lancé Duet le 21 octobre 2026, en aperçu de recherche (research preview, c'est-à-dire une version d'essai encore en évolution). L'accès passe par une liste d'attente, ouverte d'abord aux abonnés Pro et Max aux États-Unis. Duet est une application autonome sur iOS et Android, aussi accessible sur claude.ai, incluse dans Pro et Max avec les mêmes limites d'usage que le reste de Claude (article d'Anthropic lu le 24 octobre 2026). Il n'est pas proposé sur les offres Team et Enterprise à ce stade. Un comparatif tiers relaie un prix de 20 $ par mois pour l'abonnement Pro. L'article d'Anthropic annonce un accès d'abord aux États-Unis ; il ne dit rien de la France.</p>\n<p><strong>ChatGPT dots.</strong> Selon la presse, OpenAI a présenté dots à son DevDay du 29 septembre 2026 (certaines sources datent l'annonce du 30). Les dots seraient ouverts aux abonnés ChatGPT Pro et Business Premium dans les marchés éligibles. Le déploiement de l'offre Pro exclurait l'Espace économique européen, la Suisse et le Royaume-Uni. Une source décrit Business Premium comme mondial. Sur Enterprise, Edu et Santé, une bêta serait désactivée par défaut et à activer par un administrateur. Le premier dot serait inclus dans Pro ou Business Premium sans surcoût. Des comparatifs tiers (BenchLM, Digital Applied) relaient les prix : 100 $ par mois pour Pro ; 125 $ par utilisateur et par mois pour Business Premium, ou 100 $ en facturation annuelle, avec deux sièges minimum. Les sources divergent sur plusieurs détails de ce déploiement.</p>\n<p><strong>Exemple de calcul, illustratif.</strong> Avec les prix relayés, une équipe de deux personnes sur Business Premium en annuel paierait 2 × 100 × 12 = 2 400 $ par an. Un abonnement Claude Pro relayé à 20 $ par mois ferait 240 $ par an, mais Duet n'y est pas encore ouvert pour un abonné français selon la source lue. Montants en dollars, hors taxes, non confirmés par les éditeurs : relisez les pages tarifs officielles avant tout budget.</p>\n<p><strong>Pour une PME française</strong>, la porte possible est donc Business Premium pour dots, à vérifier au moment de souscrire ; pour Duet, la source primaire ne donne aucune date pour l'Europe. C'est l'état des sources à une date donnée, pas une garantie.</p>\n<p><strong>Recommandation.</strong> Ne contournez pas la restriction en faisant travailler un agent sur la messagerie ou la comptabilité de l'entreprise depuis un compte personnel ouvert ailleurs. Avant même la technique, cela pose une question de contrat, de données personnelles et de responsabilité. Les repères RGPD propres aux agents sont dans la <a href=\"/ressources/guides/rgpd-agents-ia-checklist\">checklist RGPD des agents IA</a>, et ceux de Claude dans <a href=\"/ressources/guides/claude-rgpd-pme\">Claude et le RGPD en PME</a>.</p>",
+      "html_en": "<h2>Access and price: the question that decides before features</h2>\n<p><strong>Claude Duet.</strong> Anthropic launched Duet on 21 October 2026, as a research preview (a trial version that is still changing). Access goes through a waitlist, open first to Pro and Max subscribers in the United States. Duet is a standalone app on iOS and Android, also available on claude.ai, included in Pro and Max with the same usage limits as the rest of Claude (Anthropic article read on 24 October 2026). It is not offered on the Team and Enterprise plans at this stage. A third-party comparison reports a price of $20 a month for the Pro subscription. Anthropic's article announces access in the United States first; it says nothing about France.</p>\n<p><strong>ChatGPT dots.</strong> According to the press, OpenAI presented dots at its DevDay on 29 September 2026 (some sources date the announcement to the 30th). Dots are reportedly open to ChatGPT Pro and Business Premium subscribers in eligible markets. The Pro rollout reportedly excludes the European Economic Area, Switzerland and the United Kingdom. One source describes Business Premium as worldwide. On Enterprise, Edu and Healthcare, a beta is reportedly off by default and must be enabled by an administrator. The first dot is reportedly included in Pro or Business Premium at no extra cost. Third-party comparisons (BenchLM, Digital Applied) report the prices: $100 a month for Pro; $125 per user per month for Business Premium, or $100 on annual billing, with two seats minimum. Sources differ on several details of this rollout.</p>\n<p><strong>Worked example, illustrative.</strong> With the reported prices, a two-person team on Business Premium billed annually would pay 2 × 100 × 12 = $2,400 a year. A Claude Pro subscription reported at $20 a month would come to $240 a year, but Duet is not yet open to a French subscriber according to the source read. Amounts in dollars, excluding tax, not confirmed by the vendors: re-read the official pricing pages before any budget.</p>\n<p><strong>For a French SMB</strong>, the possible door is therefore Business Premium for dots, to be checked when you subscribe; for Duet, the primary source gives no date for Europe. This is the state of the sources on a given date, not a guarantee.</p>\n<p><strong>Recommendation.</strong> Do not work around the restriction by having an agent work on the company's mail or accounts from a personal account opened elsewhere. Before any technical point, it raises questions of contract, personal data and liability. GDPR pointers specific to agents are in the <a href=\"/ressources/guides/rgpd-agents-ia-checklist\">GDPR checklist for AI agents</a>, and Claude's in <a href=\"/ressources/guides/claude-rgpd-pme\">Claude and GDPR in an SMB</a>.</p>",
+      "figures": []
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "html_fr": "<h2>Contrôle et approbations : une règle fixe contre des règles à régler</h2>\n<p><strong>Duet applique une règle fixe.</strong> Selon Anthropic, avant tout envoi de message, paiement, signature ou suppression, Duet montre l'action prévue et attend votre accord. Certaines actions restent interdites même si vous les approuvez, comme la négociation de titres ou le transfert d'argent entre comptes. Un classificateur de mode automatique, c'est-à-dire un second modèle qui juge chaque action, valide ce que Duet fait seul. Vous pouvez déconnecter une application à tout moment. Pour les achats, Duet passe par Link, le portefeuille de Stripe, avec une carte virtuelle, ou par Shop Pay.</p>\n<p><strong>Dots se règle action par action.</strong> Selon la presse, OpenAI fournit des règles intégrées qui décident quand le dot agit seul et quand il demande. Vous les complétez par des « Custom Rules » : autoriser une action, exiger une approbation ou la bloquer. Les actions sensibles, comme changer un mot de passe ou déplacer de l'argent, exigeraient l'utilisateur. Une suppression définitive ou l'installation d'un logiciel pourrait demander une approbation à chaque fois. L'accès à votre machine locale est optionnel et désactivé par défaut. Et approuver un message ne vaut pas permission durable de contacter des personnes.</p>\n<p><strong>Lecture Waimia.</strong> La règle fixe de Duet est simple à expliquer, mais peu réglable. Les règles de dots sont plus fines, mais quelqu'un doit les écrire et les tenir à jour : une règle mal posée (« autoriser l'envoi d'e-mails ») ouvre plus que prévu.</p>\n<p><strong>Voir ce que fait l'agent.</strong> Anthropic indique que Duet ne peut pas encore montrer son navigateur. Pour dots, un comparatif tiers rapporte que l'utilisateur peut ouvrir l'ordinateur du dot, prendre la main et la rendre ; une seule source le décrit, à vérifier. Pour une PME, pouvoir constater ce que l'agent a fait compte autant que pouvoir l'arrêter.</p>\n<p><strong>Recommandation.</strong> Méfiez-vous de la fatigue d'approbation. Un agent qui demande votre accord quarante fois par jour finit par être approuvé sans lecture. Choisissez des tâches où les demandes d'accord sont rares et lisibles, et tenez à côté un journal simple : quelle action, quand, validée par qui. C'est le principe que nous appliquons sur les <a href=\"/services/agents-ia\">agents IA que nous construisons</a> : validation humaine sur ce qui engage l'entreprise, journal de chaque action.</p>",
+      "html_en": "<h2>Control and approvals: a fixed rule against rules to set</h2>\n<p><strong>Duet applies a fixed rule.</strong> According to Anthropic, before any message, payment, signature or deletion, Duet shows the planned action and waits for your approval. Some actions remain banned even if you approve them, such as trading securities or moving money between accounts. An auto-mode classifier, meaning a second model that judges each action, validates what Duet does on its own. You can disconnect an app at any time. For purchases, Duet goes through Link, Stripe's wallet, with a virtual card, or through Shop Pay.</p>\n<p><strong>Dots is set action by action.</strong> According to the press, OpenAI provides built-in rules that decide when the dot acts alone and when it asks. You complete them with Custom Rules: allow an action, require approval or block it. Sensitive actions, such as changing a password or moving money, reportedly require the user. A permanent deletion or a software installation may require approval every time. Access to your local machine is optional and off by default. And approving a message is not lasting permission to contact people.</p>\n<p><strong>Waimia's reading.</strong> Duet's fixed rule is easy to explain, but not very adjustable. Dots rules are finer, but someone has to write them and keep them up to date: a badly set rule (\"allow sending emails\") opens more than intended.</p>\n<p><strong>Seeing what the agent does.</strong> Anthropic states that Duet cannot show its browser yet. For dots, a third-party comparison reports that the user can open the dot's computer, take over and hand back; a single source describes it, to be checked. For an SMB, being able to see what the agent did matters as much as being able to stop it.</p>\n<p><strong>Recommendation.</strong> Beware of approval fatigue. An agent that asks for your approval forty times a day ends up approved without reading. Pick tasks where approval requests are rare and readable, and keep a simple log alongside: which action, when, approved by whom. That is the principle we apply to the <a href=\"/services/agents-ia\">AI agents we build</a>: human approval on anything that commits the company, a log of every action.</p>",
+      "figures": []
+    },
+    {
+      "type": "editorial-callout",
+      "background": "paper",
+      "variant": "quote",
+      "size": "md",
+      "body_fr": "Un agent qui demande votre accord quarante fois par jour finit par être approuvé sans lecture.",
+      "body_en": "An agent that asks for your approval forty times a day ends up approved without reading.",
+      "density": "compact"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "html_fr": "<h2>Connecteurs et écosystème : des chiffres qui ne se comparent pas</h2>\n<p>Selon l'article d'Anthropic, Duet s'appuie sur plus de 6 000 connecteurs et plug-ins, dont Gmail, Slack, QuickBooks, Stripe, Gusto, LinkedIn, Docusign, HubSpot, Canva et Shopify. Il reprend la mémoire, les skills (des procédures écrites que Claude réutilise) et les applications déjà connectées de votre compte Claude. Une connexion par 1Password est annoncée « bientôt disponible ». Côté dots, la presse parle de plus de 4 000 applications via le système de plugins d'OpenAI, et d'un usage dans ChatGPT, Slack et Microsoft Teams.</p>\n<p>Ces deux nombres ne se comparent pas : l'un vient de l'éditeur, l'autre de la presse, et aucune source lue ne dit comment « connecteur », « plug-in » ou « application » sont comptés. Un catalogue de 6 000 entrées ne sert à rien si votre logiciel de facturation n'y est pas.</p>\n<p><strong>Recommandation.</strong> Listez les cinq outils que l'agent devrait toucher (messagerie, agenda, CRM, facturation, stockage de fichiers) et cherchez-les un par un dans chaque catalogue. Aucune des sources lues ne donne de liste par pays : vérifiez en particulier vos logiciels français. Pour chaque outil trouvé, notez les droits demandés : lecture seule, écriture, suppression. Commencez en lecture seule avec un compte dédié. Si l'outil manque, un connecteur sur mesure par le protocole MCP (le standard ouvert qui relie un assistant à un logiciel) est souvent possible : le <a href=\"/ressources/guides/mcp-claude\">guide MCP</a> explique le principe, et l'<a href=\"/services/integration-claude\">intégration de Claude en entreprise</a> ou l'<a href=\"/services/integration-chatgpt-openai\">intégration ChatGPT et OpenAI</a> s'en chargent selon l'outil retenu.</p>",
+      "html_en": "<h2>Connectors and ecosystem: figures that do not compare</h2>\n<p>According to Anthropic's article, Duet relies on more than 6,000 connectors and plug-ins, including Gmail, Slack, QuickBooks, Stripe, Gusto, LinkedIn, Docusign, HubSpot, Canva and Shopify. It reuses the memory, skills (written procedures Claude reuses) and apps already connected to your Claude account. A 1Password connection is announced as \"coming soon\". On the dots side, the press mentions more than 4,000 apps through OpenAI's plugin system, and use in ChatGPT, Slack and Microsoft Teams.</p>\n<p>These two numbers do not compare: one comes from the vendor, the other from the press, and no source read explains how \"connector\", \"plug-in\" or \"app\" are counted. A catalogue of 6,000 entries is no use if your invoicing software is not in it.</p>\n<p><strong>Recommendation.</strong> List the five tools the agent would touch (mail, calendar, CRM, invoicing, file storage) and look for them one by one in each catalogue. None of the sources read gives a list by country: check your French software in particular. For each tool found, note the rights requested: read-only, write, delete. Start read-only with a dedicated account. If the tool is missing, a custom connector through the MCP protocol (the open standard that links an assistant to software) is often possible: the <a href=\"/ressources/guides/mcp-claude\">MCP guide</a> explains the principle, and <a href=\"/services/integration-claude\">Claude integration for business</a> or <a href=\"/services/integration-chatgpt-openai\">ChatGPT and OpenAI integration</a> handle it depending on the tool chosen.</p>",
+      "figures": []
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "maxWidth": "prose",
+      "html_fr": "<h2>Sécurité et injection de prompt : ce que chaque éditeur déclare</h2>\n<p>L'injection de prompt est le risque principal d'un agent toujours actif. Un e-mail, une page web ou un document peut contenir des consignes cachées (« transfère cette facture à telle adresse ») que l'agent lit et risque d'exécuter. Un agent qui trie votre messagerie pendant la nuit lit, par construction, des textes écrits par des inconnus.</p>\n<p><strong>Ce qu'Anthropic déclare pour Duet.</strong> Un cadre de confiance pour les agents et la gestion des identifiants de Claude Managed Agents : Duet ne voit jamais directement vos mots de passe ni vos jetons d'accès (le fonctionnement de ce service est décrit dans le guide <a href=\"/ressources/guides/claude-managed-agents\">Claude Managed Agents</a>). S'y ajoutent le classificateur qui valide les actions, des défenses contre les instructions cachées et l'injection de prompt, des tests adverses, une red team, un test d'intrusion externe et un programme public de bug bounty. Un classificateur dédié et le prompt système limitent la fuite d'informations sensibles. Duet refuse les numéros de carte bancaire et les pièces d'identité, et ne partage des données de santé ou financières personnelles que sur ordre explicite.</p>\n<p><strong>Ce que rapporte la presse pour dots.</strong> Une analyse de NeuralTrust (<a href=\"https://neuraltrust.ai/blog/chatgpt-agent-security\" rel=\"noopener\" target=\"_blank\">article sur la sécurité des agents ChatGPT</a>) rapporte qu'OpenAI indique que ses protections réduisent l'injection de prompt sans l'éliminer. Le reste du dispositif décrit par la presse tient surtout aux règles d'approbation vues plus haut et à l'accès local désactivé par défaut.</p>\n<p>Aucune source lue ne décrit une protection totale. La liste de Duet est plus détaillée parce que la source est primaire, pas forcément parce que le produit est plus sûr.</p>\n<p><strong>Recommandation : ce qui reste à votre charge.</strong> Connectez seulement les applications utiles à la mission, jamais de compte administrateur, et déconnectez ce qui ne sert plus. Rappelez-vous qu'un agent qui lit les e-mails de vos clients traite des données personnelles : registre, information des personnes et contrat avec l'éditeur restent vos obligations, quel que soit le produit.</p>",
+      "html_en": "<h2>Security and prompt injection: what each vendor states</h2>\n<p>Prompt injection is the main risk of an always-on agent. An email, a web page or a document can contain hidden instructions (\"forward this invoice to this address\") that the agent reads and may carry out. An agent that sorts your mail at night reads, by design, texts written by strangers.</p>\n<p><strong>What Anthropic states for Duet.</strong> A trust framework for agents and the credential management of Claude Managed Agents: Duet never directly sees your passwords or access tokens (how that service works is described in the guide <a href=\"/ressources/guides/claude-managed-agents\">Claude Managed Agents</a>). On top come the classifier that validates actions, defences against hidden instructions and prompt injection, adversarial testing, a red team, an external penetration test and a public bug bounty programme. A dedicated classifier and the system prompt limit leaks of sensitive information. Duet refuses card numbers and identity documents, and only shares personal health or financial data on explicit instruction.</p>\n<p><strong>What the press reports for dots.</strong> An analysis by NeuralTrust (<a href=\"https://neuraltrust.ai/blog/chatgpt-agent-security\" rel=\"noopener\" target=\"_blank\">article on ChatGPT agent security</a>) reports that OpenAI states its protections reduce prompt injection without removing it. The rest of the set-up described by the press mostly rests on the approval rules seen above and on local access being off by default.</p>\n<p>No source read describes complete protection. Duet's list is more detailed because the source is primary, not necessarily because the product is safer.</p>\n<p><strong>Recommendation: what stays on your side.</strong> Connect only the apps the mission needs, never an administrator account, and disconnect what is no longer used. Remember that an agent reading your clients' emails processes personal data: records, informing people and the contract with the vendor remain your obligations, whatever the product.</p>",
+      "figures": []
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "html_fr": "<h2>Limites d'usage et coût réel : le quota compte plus que le prix</h2>\n<p><strong>Duet partage les limites de votre forfait.</strong> Selon Anthropic, Duet utilise les mêmes limites d'usage que le reste de Claude, et les vérifications de fond comme les grosses tâches (un modèle financier, une présentation) consomment davantage. Un agent qui surveille vos applications toute la journée prend donc sur le quota que vous utilisez aussi pour discuter avec Claude.</p>\n<p><strong>Dots a son propre compteur, au moins au début.</strong> Selon la presse, les conversations avec un dot ne comptent pas dans les limites de ChatGPT, mais les tâches lancées dans Codex ou dans ChatGPT Work comptent. Une allocation distincte couvre le travail de fond du dot. Les limites étendues ne vaudraient que le premier mois après le lancement : ce que vous observez en octobre ne dit pas ce que vous aurez ensuite.</p>\n<p><strong>Le coût réel</strong> ajoute à l'abonnement la configuration, la lecture des demandes d'accord et la vérification des résultats. Une tâche qui fait gagner une heure mais demande quarante minutes de relecture rapporte peu.</p>\n<p><strong>Recommandation.</strong> Pendant deux semaines d'essai, comptez trois choses : le nombre de demandes d'accord par jour, le temps de relecture, et la part du quota consommée. Les postes de coût d'un agent, abonnement ou sur mesure, sont détaillés dans le guide <a href=\"/ressources/guides/combien-coute-un-agent-ia-pme\">combien coûte un agent IA en PME</a>.</p>",
+      "html_en": "<h2>Usage limits and real cost: the quota matters more than the price</h2>\n<p><strong>Duet shares your plan's limits.</strong> According to Anthropic, Duet uses the same usage limits as the rest of Claude, and background checks as well as large tasks (a financial model, a presentation) use more. An agent that watches your apps all day therefore draws on the quota you also use to chat with Claude.</p>\n<p><strong>Dots has its own meter, at least at first.</strong> According to the press, conversations with a dot do not count towards ChatGPT limits, but tasks launched in Codex or ChatGPT Work do. A separate allocation covers the dot's deep work. Extended limits reportedly apply only in the first month after launch: what you see in October does not tell you what you will get afterwards.</p>\n<p><strong>The real cost</strong> adds set-up, reading approval requests and checking results to the subscription. A task that saves an hour but needs forty minutes of review brings little.</p>\n<p><strong>Recommendation.</strong> During a two-week trial, count three things: approval requests per day, review time, and the share of quota used. The cost items of an agent, subscription or custom, are detailed in the guide <a href=\"/ressources/guides/combien-coute-un-agent-ia-pme\">how much an AI agent costs an SMB</a>.</p>",
+      "figures": []
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "maxWidth": "prose",
+      "html_fr": "<h2>Travail d'équipe : deux produits pensés d'abord pour une personne</h2>\n<p>Duet vise, selon Anthropic, les professionnels et les petits entrepreneurs qui ont trop de sujets à suivre. Il fonctionne comme une conversation unique, écrite ou vocale, avec un bref récapitulatif quotidien tiré de vos applications et des notifications à la fin d'une tâche ou quand une revue est nécessaire. Il n'est pas disponible sur Claude Team ni Enterprise à ce stade : pas d'administration centrale, pas de partage d'un agent entre collègues dans la source lue.</p>\n<p>Dots a un pied dans l'équipe, sur le papier. Business Premium s'achète par sièges, deux au minimum, et dots est utilisable dans Slack et Microsoft Teams selon la presse. Sur Enterprise, Edu et Santé, c'est l'administrateur qui active la bêta. En revanche, les équipes de dots et les dots spécialisés sont annoncés pour plus tard et ne sont pas encore livrés.</p>\n<p><strong>Recommandation.</strong> Un agent personnel branché sur les outils de l'entreprise pose des questions que l'abonnement ne règle pas : qui le paie, qui le coupe au départ d'un salarié, où sont ses journaux. Avant d'en autoriser un, écrivez-le dans votre charte d'usage. Le <a href=\"/ressources/outils/charte-ia-entreprise\">modèle gratuit de charte IA</a> prévoit les outils autorisés et la validation humaine.</p>",
+      "html_en": "<h2>Teamwork: two products designed first for one person</h2>\n<p>Duet targets, according to Anthropic, professionals and small business owners with too many things to follow. It works as a single conversation, typed or spoken, with a short daily summary drawn from your apps and notifications when a task ends or a review is needed. It is not available on Claude Team or Enterprise at this stage: no central administration, no sharing of an agent between colleagues in the source read.</p>\n<p>Dots has one foot in the team, on paper. Business Premium is bought by seat, two minimum, and dots can be used in Slack and Microsoft Teams according to the press. On Enterprise, Edu and Healthcare, the administrator turns the beta on. On the other hand, teams of dots and specialised dots are announced for later and not yet shipped.</p>\n<p><strong>Recommendation.</strong> A personal agent plugged into company tools raises questions the subscription does not settle: who pays for it, who turns it off when an employee leaves, where its logs are. Before allowing one, write it into your usage policy. The <a href=\"/ressources/outils/charte-ia-entreprise\">free AI policy template</a> covers approved tools and human approval.</p>",
+      "figures": []
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Encadré daté, relevé le 24 octobre 2026",
+      "kicker_en": "§ Dated box, read on 24 October 2026",
+      "heading_fr": "Ce qui peut changer vite",
+      "heading_en": "What can change fast",
+      "caption_fr": "Deux produits lancés il y a moins d'un mois. Duet : article d'Anthropic lu le 24 octobre 2026. Dots : presse et comparatifs tiers lus le même jour, aucune page d'OpenAI joignable. Relisez chaque ligne avant d'acheter.",
+      "caption_en": "Two products launched less than a month ago. Duet: Anthropic article read on 24 October 2026. Dots: press and third-party comparisons read the same day, no OpenAI page reachable. Re-read each line before buying.",
+      "columns_fr": [
+        "Point",
+        "État au 24 octobre 2026",
+        "Ce que vous vérifiez avant d'acheter"
+      ],
+      "columns_en": [
+        "Point",
+        "State on 24 October 2026",
+        "What you check before buying"
+      ],
+      "rows_fr": [
+        [
+          "Accès à Duet depuis la France",
+          "D'abord Pro et Max aux États-Unis, sur liste d'attente ; rien sur la France",
+          "La page Duet d'Anthropic, puis votre propre compte"
+        ],
+        [
+          "Accès à dots depuis la France",
+          "Pro hors EEE, Suisse et Royaume-Uni ; Business Premium mondial selon une source",
+          "La page d'offres d'OpenAI au moment de souscrire"
+        ],
+        [
+          "Prix",
+          "Duet inclus dans Pro et Max ; montants de dots relayés par des comparatifs tiers",
+          "Les pages tarifs officielles, montant en euros et taxes"
+        ],
+        [
+          "Offres d'équipe",
+          "Duet : ni Team ni Enterprise ; dots : Business Premium, bêta Enterprise à activer",
+          "Les conditions de l'offre et le contrat de traitement des données"
+        ],
+        [
+          "Limites d'usage",
+          "Dots : limites étendues le premier mois seulement",
+          "Le compteur de votre compte après un mois d'usage"
+        ],
+        [
+          "Fonctions annoncées",
+          "Duet : 1Password « bientôt », navigateur pas encore visible ; dots : équipes de dots plus tard",
+          "Les notes de version de chaque éditeur"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Access to Duet from France",
+          "Pro and Max in the United States first, on a waitlist; nothing on France",
+          "Anthropic's Duet page, then your own account"
+        ],
+        [
+          "Access to dots from France",
+          "Pro outside the EEA, Switzerland and the UK; Business Premium worldwide per one source",
+          "OpenAI's plans page when you subscribe"
+        ],
+        [
+          "Price",
+          "Duet included in Pro and Max; dots amounts reported by third-party comparisons",
+          "Official pricing pages, amount in euros and taxes"
+        ],
+        [
+          "Team plans",
+          "Duet: neither Team nor Enterprise; dots: Business Premium, Enterprise beta to enable",
+          "The plan's terms and the data processing agreement"
+        ],
+        [
+          "Usage limits",
+          "Dots: extended limits in the first month only",
+          "Your account's meter after a month of use"
+        ],
+        [
+          "Announced features",
+          "Duet: 1Password \"soon\", browser not yet visible; dots: teams of dots later",
+          "Each vendor's release notes"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "maxWidth": "prose",
+      "html_fr": "<h2>La troisième voie : un moteur ouvert ou un agent sur mesure</h2>\n<p>Si aucun des deux n'est ouvert sur votre compte, ou si vous voulez décider où tournent les données et ce que l'agent a le droit de faire, deux options existent hors des abonnements.</p>\n<p><strong>Un moteur ouvert, installé chez vous.</strong> Hermes Agent, de Nous Research, et OpenClaw, gouverné par une fondation, sont deux agents open source sous licence MIT. Ils tournent sur votre matériel, se pilotent depuis une messagerie et utilisent le modèle de votre choix. Le logiciel est gratuit ; vous payez le modèle, l'hébergement et l'exploitation : chez OpenClaw, le bac à sable (sandbox, un espace isolé de votre système) est désactivé par défaut, et Hermes Agent n'a pas atteint de version 1.0 au 24 octobre 2026. Les différences entre les deux sont dans le comparatif <a href=\"/ressources/comparatifs/hermes-agent-vs-openclaw\">Hermes Agent vs OpenClaw</a>, et chaque moteur a son guide : <a href=\"/ressources/guides/hermes-agent\">Hermes Agent</a>, <a href=\"/ressources/guides/openclaw\">OpenClaw</a>.</p>\n<p><strong>Un agent sur mesure, construit pour une mission.</strong> C'est ce que nous faisons : un agent par mission, branché à vos outils par MCP, par API ou par <a href=\"/services/automatisation-n8n\">n8n</a>, sur le modèle adapté à la tâche (Claude par défaut, OpenAI ou Mistral). La validation humaine porte sur ce qui engage l'entreprise, chaque action est journalisée, et vos agents, vos accès et la documentation restent à vous. Nous construisons aussi des agents autour d'outils ouverts comme Hermes Agent et OpenClaw : choix du moteur selon le besoin, déploiement durci (bac à sable, droits minimaux, secrets, journal, validation humaine), connexion à vos outils, exploitation et mises à jour. Le détail est sur la page <a href=\"/services/agents-ia#agents-open-source\">agents IA open source</a>.</p>\n<p>Le cadrage se fait en sprint de 10 heures à {{prix.sprint}} € HT, puis la construction au temps passé, à {{prix.horaire}} € HT de l'heure. Plus de mise en place qu'un abonnement : cette voie se justifie pour un processus de l'entreprise, partagé et répété. Pour voir le panorama complet, lisez le billet <a href=\"/blog/agents-ia-toujours-actifs-pme\">agent IA toujours actif : que choisir en PME</a>.</p>",
+      "html_en": "<h2>The third way: an open engine or a custom agent</h2>\n<p>If neither is open on your account, or if you want to decide where data runs and what the agent may do, two options exist outside subscriptions.</p>\n<p><strong>An open engine, installed on your side.</strong> Hermes Agent, from Nous Research, and OpenClaw, governed by a foundation, are two open-source agents under the MIT licence. They run on your hardware, are driven from a messaging app and use the model of your choice. The software is free; you pay for the model, hosting and operations: with OpenClaw, the sandbox (an area isolated from your system) is off by default, and Hermes Agent has not reached version 1.0 on 24 October 2026. The differences between the two are in the comparison <a href=\"/ressources/comparatifs/hermes-agent-vs-openclaw\">Hermes Agent vs OpenClaw</a>, and each engine has its guide: <a href=\"/ressources/guides/hermes-agent\">Hermes Agent</a>, <a href=\"/ressources/guides/openclaw\">OpenClaw</a>.</p>\n<p><strong>A custom agent, built for one mission.</strong> This is what we do: one agent per mission, connected to your tools through MCP, an API or <a href=\"/services/automatisation-n8n\">n8n</a>, on the model suited to the task (Claude by default, OpenAI or Mistral). Human approval covers anything that commits the company, every action is logged, and your agents, your access and the documentation stay yours. We also build agents around open tools such as Hermes Agent and OpenClaw: engine chosen for the need, hardened deployment (sandbox, least privilege, secrets, log, human approval), connection to your tools, operations and updates. Details are on the <a href=\"/services/agents-ia#agents-open-source\">open-source AI agents</a> page.</p>\n<p>Scoping is a 10-hour sprint at {{prix.sprint.en}} € excl. VAT, then build time at {{prix.horaire}} € excl. VAT per hour. More set-up than a subscription: this route makes sense for a company process, shared and repeated. For the full picture, read the post <a href=\"/blog/agents-ia-toujours-actifs-pme\">always-on AI agent: what to choose for an SMB</a>.</p>",
+      "figures": []
+    },
+    {
+      "type": "decision-list",
+      "background": "paper-2",
+      "kicker_fr": "§ Quand choisir quoi",
+      "kicker_en": "§ When to choose which",
+      "heading_fr": "Choisir selon <i>votre situation</i>",
+      "heading_en": "Choosing by <i>your situation</i>",
+      "items": [
+        {
+          "label_fr": "Vous avez déjà Claude Pro ou Max et Duet s'ouvre sur votre compte : essayez-le d'abord sur votre propre organisation (agenda, récapitulatif du matin), sans connecter la comptabilité.",
+          "label_en": "You already have Claude Pro or Max and Duet opens on your account: try it first on your own organisation (calendar, morning summary), without connecting the accounts."
+        },
+        {
+          "label_fr": "Votre entreprise travaille déjà dans ChatGPT et veut un agent pour une équipe : regardez Business Premium, après avoir vérifié chez OpenAI qu'il est ouvert en France pour votre compte.",
+          "label_en": "Your company already works in ChatGPT and wants an agent for a team: look at Business Premium, after checking with OpenAI that it is open in France for your account."
+        },
+        {
+          "label_fr": "Aucun des deux n'est ouvert sur votre compte : ne contournez pas par un compte personnel ouvert ailleurs ; attendez, ou passez par la troisième voie.",
+          "label_en": "Neither is open on your account: do not work around it with a personal account opened elsewhere; wait, or take the third way."
+        },
+        {
+          "label_fr": "L'agent toucherait des paiements, des contrats ou des données clients : exigez un accord à chaque action qui engage. Duet l'impose ; avec dots, écrivez-le dans les règles.",
+          "label_en": "The agent would touch payments, contracts or client data: require approval for every action that commits. Duet enforces it; with dots, write it into the rules."
+        },
+        {
+          "label_fr": "Vous voulez que les données restent sur votre matériel ou chez votre hébergeur : moteur ouvert (Hermes Agent, OpenClaw) durci, ou agent sur mesure.",
+          "label_en": "You want data to stay on your hardware or with your host: a hardened open engine (Hermes Agent, OpenClaw), or a custom agent."
+        },
+        {
+          "label_fr": "La tâche suit toujours les mêmes étapes : pas besoin d'agent, une automatisation classique sera plus fiable et moins chère.",
+          "label_en": "The task always follows the same steps: no agent needed, a classic automation will be more reliable and cheaper."
+        }
+      ]
+    },
+    {
+      "type": "process-steps",
+      "background": "paper",
+      "kicker_fr": "§ Trancher sur pièces",
+      "kicker_en": "§ Decide on evidence",
+      "h2_fr": "Trancher en deux semaines, sur une vraie tâche",
+      "h2_en": "Decide in two weeks, on a real task",
+      "intro_fr": "Le protocole que nous recommandons dès qu'un des deux agents s'ouvre sur votre compte.",
+      "intro_en": "The protocol we recommend as soon as one of the two agents opens on your account.",
+      "steps": [
+        {
+          "title_fr": "Vérifier l'accès réel",
+          "title_en": "Check real access",
+          "meta_fr": "Jour 1",
+          "meta_en": "Day 1",
+          "body_fr": "Depuis votre compte, ouvrez la page de chaque offre. Notez la date, l'offre proposée et le pays. Si rien n'est ouvert, la décision est prise pour l'instant.",
+          "body_en": "From your account, open each plan's page. Note the date, the plan offered and the country. If nothing is open, the decision is made for now."
+        },
+        {
+          "title_fr": "Choisir une tâche et ses interdits",
+          "title_en": "Pick a task and its bans",
+          "meta_fr": "Jour 2",
+          "meta_en": "Day 2",
+          "body_fr": "Une tâche récurrente, les applications strictement nécessaires, et la liste écrite des actions que l'agent ne fera jamais seul.",
+          "body_en": "One recurring task, the strictly necessary apps, and the written list of actions the agent will never take alone."
+        },
+        {
+          "title_fr": "Préparer un terrain d'essai",
+          "title_en": "Prepare a test ground",
+          "meta_fr": "Jours 3 et 4",
+          "meta_en": "Days 3 and 4",
+          "body_fr": "Comptes dédiés, boîte de réception de test, données fictives ou non sensibles, droits en lecture seule partout où c'est possible.",
+          "body_en": "Dedicated accounts, a test inbox, dummy or non-sensitive data, read-only rights wherever possible."
+        },
+        {
+          "title_fr": "Faire tourner et compter",
+          "title_en": "Run and count",
+          "meta_fr": "Semaines 1 et 2",
+          "meta_en": "Weeks 1 and 2",
+          "body_fr": "Demandes d'accord par jour, erreurs repérées, temps de relecture, part du quota consommée. Une personne tient le relevé.",
+          "body_en": "Approval requests per day, errors spotted, review time, share of quota used. One person keeps the record."
+        },
+        {
+          "title_fr": "Décider par écrit",
+          "title_en": "Decide in writing",
+          "meta_fr": "Fin de semaine 2",
+          "meta_en": "End of week 2",
+          "body_fr": "Garder, élargir à une deuxième tâche, ou passer à la troisième voie. Mettez la charte d'usage à jour dans tous les cas.",
+          "body_en": "Keep, extend to a second task, or take the third way. Update the usage policy in every case."
+        }
+      ]
+    },
+    {
+      "type": "lead-capture-band",
+      "lead_magnet": "charte-ia-entreprise",
+      "background": "ink",
+      "anchor_id": "recevoir-claude-duet-vs-chatgpt-dots",
+      "kicker_fr": "§ Charte IA · modèle PDF",
+      "kicker_en": "§ AI policy · PDF template",
+      "h2_fr": "Avant de laisser un agent agir en votre nom, écrivez la règle : recevez le modèle de charte IA en PDF",
+      "h2_en": "Before letting an agent act on your behalf, write the rule: get the AI policy template as a PDF",
+      "body_fr": "Un modèle de charte en neuf articles pour PME : outils autorisés, données interdites, validation humaine. Le texte se lit en ligne sur la page de la charte ; le PDF part uniquement par e-mail, en pièce jointe.",
+      "body_en": "A nine-article policy template for SMBs: approved tools, banned data, human approval. The text can be read online on the policy page; the PDF is sent by email only, as an attachment.",
+      "benefits_fr": [
+        "Le modèle complet en neuf articles, mis en page pour être imprimé et signé",
+        "Les notes d'adaptation pour l'ajuster à votre entreprise",
+        "Un seul e-mail, sans inscription à une liste"
+      ],
+      "benefits_en": [
+        "The full template in nine articles, laid out to print and sign",
+        "Adaptation notes to fit it to your company",
+        "A single email, no mailing list"
+      ]
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper-2",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Go further",
+      "cards": [
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Claude Duet",
+          "title_en": "Claude Duet",
+          "lead_fr": "Ce que fait l'agent d'Anthropic, ses garde-fous déclarés et ses limites.",
+          "lead_en": "What Anthropic's agent does, its stated safeguards and its limits.",
+          "href": "/ressources/guides/claude-duet"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "ChatGPT dots",
+          "title_en": "ChatGPT dots",
+          "lead_fr": "Les agents toujours actifs d'OpenAI, d'après les sources tierces lues.",
+          "lead_en": "OpenAI's always-on agents, from the third-party sources read.",
+          "href": "/ressources/guides/chatgpt-dots"
+        },
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Agents IA pour entreprise",
+          "title_en": "AI agents for business",
+          "lead_fr": "Un agent par mission, validation humaine, journal, moteur propriétaire ou ouvert.",
+          "lead_en": "One agent per mission, human approval, a log, proprietary or open engine.",
+          "href": "/services/agents-ia"
+        }
+      ]
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "kicker_fr": "§ Questions fréquentes",
+      "kicker_en": "§ Frequently asked",
+      "h2_fr": "Claude Duet vs ChatGPT dots : vos questions",
+      "h2_en": "Claude Duet vs ChatGPT dots: your questions",
+      "items": [
+        {
+          "q_fr": "Claude Duet ou ChatGPT dots : lequel choisir pour une PME ?",
+          "a_fr": "Celui qui est réellement ouvert sur votre compte, puis celui dont vous contrôlez le mieux les actions. Selon les sources lues le 24 octobre 2026, Duet s'ouvre d'abord aux abonnés Pro et Max aux États-Unis et l'offre Pro de dots exclut l'Espace économique européen. Si aucun n'est accessible, regardez un agent sur mesure ou un moteur ouvert.",
+          "q_en": "Claude Duet or ChatGPT dots: which one should an SMB choose?",
+          "a_en": "The one actually open on your account, then the one whose actions you control best. According to the sources read on 24 October 2026, Duet opens first to Pro and Max subscribers in the United States and the dots Pro plan excludes the European Economic Area. If neither is available, look at a custom agent or an open engine."
+        },
+        {
+          "q_fr": "Claude Duet est-il disponible en France ?",
+          "a_fr": "Pas annoncé. L'article d'Anthropic, lu le 24 octobre 2026, prévoit un accès par liste d'attente, d'abord pour les abonnés Pro et Max aux États-Unis, et ne dit rien de la France ni de l'Europe. Vérifiez sur la page de Duet et depuis votre propre compte avant de prévoir un usage.",
+          "q_en": "Is Claude Duet available in France?",
+          "a_en": "Not announced. Anthropic's article, read on 24 October 2026, provides waitlist access, first for Pro and Max subscribers in the United States, and says nothing about France or Europe. Check the Duet page and your own account before planning any use."
+        },
+        {
+          "q_fr": "ChatGPT dots est-il disponible en France ?",
+          "a_fr": "Pas sur l'offre Pro, selon la presse lue le 24 octobre 2026 : son déploiement exclurait l'Espace économique européen, la Suisse et le Royaume-Uni. Une source décrit Business Premium comme mondial, ce qui en ferait la porte possible pour une entreprise française. Aucune page d'OpenAI n'a pu être lue : vérifiez avant de souscrire.",
+          "q_en": "Is ChatGPT dots available in France?",
+          "a_en": "Not on the Pro plan, according to press coverage read on 24 October 2026: its rollout reportedly excludes the European Economic Area, Switzerland and the United Kingdom. One source describes Business Premium as worldwide, which would make it the possible door for a French company. No OpenAI page could be read: check before subscribing."
+        },
+        {
+          "q_fr": "Combien coûtent Claude Duet et ChatGPT dots ?",
+          "a_fr": "Duet est inclus dans Claude Pro et Max, selon Anthropic ; un comparatif tiers relaie 20 $ par mois pour Pro. Le premier dot serait inclus sans surcoût ; des comparatifs tiers relaient 100 $ par mois pour Pro et 125 $ par utilisateur et par mois pour Business Premium (100 $ en annuel, deux sièges minimum). Montants à vérifier.",
+          "q_en": "How much do Claude Duet and ChatGPT dots cost?",
+          "a_en": "Duet is included in Claude Pro and Max, according to Anthropic; a third-party comparison reports $20 a month for Pro. The first dot is reportedly included at no extra cost; third-party comparisons report $100 a month for Pro and $125 per user per month for Business Premium ($100 annual, two seats minimum). Amounts to be checked."
+        },
+        {
+          "q_fr": "Lequel demande votre accord avant d'agir ?",
+          "a_fr": "Les deux, différemment. Selon Anthropic, Duet attend votre accord avant tout envoi de message, paiement, signature ou suppression, et refuse certaines actions même approuvées. Selon la presse, dots applique des règles intégrées que vous complétez par des « Custom Rules » : autoriser, exiger une approbation ou bloquer, action par action.",
+          "q_en": "Which one asks for your approval before acting?",
+          "a_en": "Both, differently. According to Anthropic, Duet waits for your approval before any message, payment, signature or deletion, and refuses some actions even when approved. According to the press, dots applies built-in rules that you complete with Custom Rules: allow, require approval or block, action by action."
+        },
+        {
+          "q_fr": "Peut-on les utiliser en équipe ?",
+          "a_fr": "Pas Duet pour l'instant : il n'est pas proposé sur Claude Team ni Enterprise. Pour dots, Business Premium vise les équipes, deux sièges minimum, et une bêta Enterprise serait à activer par un administrateur. Les équipes de dots sont annoncées pour plus tard, selon la presse lue le 24 octobre 2026.",
+          "q_en": "Can teams use them?",
+          "a_en": "Not Duet for now: it is not offered on Claude Team or Enterprise. For dots, Business Premium targets teams, two seats minimum, and an Enterprise beta reportedly has to be enabled by an administrator. Teams of dots are announced for later, according to press coverage read on 24 October 2026."
+        },
+        {
+          "q_fr": "Sont-ils protégés contre l'injection de prompt ?",
+          "a_fr": "En partie. L'injection de prompt, ce sont des consignes cachées dans un e-mail ou une page que l'agent risque d'exécuter. Anthropic décrit pour Duet des défenses dédiées, des tests adverses et un bug bounty. Selon NeuralTrust, OpenAI indique que ses protections réduisent ce risque sans l'éliminer. Gardez une validation humaine sur ce qui engage.",
+          "q_en": "Are they protected against prompt injection?",
+          "a_en": "Partly. Prompt injection means instructions hidden in an email or a page that the agent may carry out. Anthropic describes dedicated defences, adversarial testing and a bug bounty for Duet. According to NeuralTrust, OpenAI states that its protections reduce this risk without removing it. Keep human approval on anything that commits you."
+        },
+        {
+          "q_fr": "Que faire si aucun des deux n'est accessible ?",
+          "a_fr": "Ne passez pas par un compte personnel ouvert ailleurs. Deux voies restent : un moteur ouvert comme Hermes Agent ou OpenClaw, installé chez vous et durci, ou un agent sur mesure sur le modèle de votre choix, avec validation humaine et journal. L'audit gratuit de 45 minutes aide à choisir.",
+          "q_en": "What if neither is available?",
+          "a_en": "Do not use a personal account opened elsewhere. Two routes remain: an open engine such as Hermes Agent or OpenClaw, installed on your side and hardened, or a custom agent on the model of your choice, with human approval and a log. The free 45-minute audit helps you choose."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Audit IA gratuit",
+      "kicker_en": "§ Free AI audit",
+      "h2_fr": "L'agent compte moins que ce qu'il a le droit de faire.",
+      "h2_en": "The agent matters less than what it is allowed to do.",
+      "subtitle_fr": "Audit gratuit de 45 minutes en visio, sans engagement : on regarde les tâches que vous voudriez confier à un agent et les accès qu'elles demandent. Vous repartez avec une cartographie écrite et un ou deux chantiers classés.",
+      "subtitle_en": "A free 45-minute video audit, no commitment: we look at the tasks you would like to hand to an agent and the access they need. You leave with a written map and one or two ranked projects.",
+      "buttons": [
+        {
+          "label_fr": "Réserver l'audit gratuit →",
+          "label_en": "Book the free audit →",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Agents IA pour entreprise",
+          "label_en": "AI agents for business",
+          "href": "/services/agents-ia",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

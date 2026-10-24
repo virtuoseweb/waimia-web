@@ -105,6 +105,13 @@ const PAGES: Record<string, PageDef> = {
   '/ressources/guides/llm-rag-dirigeant': { label_fr: 'LLM et RAG : définitions pour dirigeants', label_en: 'LLM and RAG: definitions for business owners', kind: 'guide', topics: ['agents', 'claude'] },
   '/blog/workflow-ia-exemples-pme': { label_fr: 'Workflow IA : cinq exemples concrets', label_en: 'AI workflow: five concrete examples', kind: 'article', topics: ['automatisation', 'agents'] },
   '/blog/agent-ia-entreprise-exemples': { label_fr: 'Agent IA en entreprise : exemples par fonction', label_en: 'AI agents in business: examples by function', kind: 'article', topics: ['agents', 'automatisation'] },
+  '/ressources/guides/claude-duet': { label_fr: "Claude Duet : l'agent proactif d'Anthropic", label_en: "Claude Duet: Anthropic's proactive agent", kind: 'guide', topics: ['claude', 'agents'] },
+  '/ressources/guides/chatgpt-dots': { label_fr: 'ChatGPT dots : les agents toujours actifs d\'OpenAI', label_en: "ChatGPT dots: OpenAI's always-on agents", kind: 'guide', topics: ['agents', 'claude'] },
+  '/ressources/comparatifs/claude-duet-vs-chatgpt-dots': { label_fr: 'Claude Duet ou ChatGPT dots', label_en: 'Claude Duet or ChatGPT dots', kind: 'comparatif', topics: ['agents', 'claude'] },
+  '/ressources/guides/hermes-agent': { label_fr: "Hermes Agent : l'agent open source qui apprend", label_en: 'Hermes Agent: the open source agent that learns', kind: 'guide', topics: ['agents', 'automatisation'] },
+  '/ressources/guides/openclaw': { label_fr: 'OpenClaw 2.0 : fonctions, sécurité et usage en entreprise', label_en: 'OpenClaw 2.0: features, security and business use', kind: 'guide', topics: ['agents', 'automatisation'] },
+  '/ressources/comparatifs/hermes-agent-vs-openclaw': { label_fr: 'Hermes Agent ou OpenClaw', label_en: 'Hermes Agent or OpenClaw', kind: 'comparatif', topics: ['agents', 'automatisation'] },
+  '/blog/agents-ia-toujours-actifs-pme': { label_fr: 'Agent IA toujours actif : propriétaire ou open source', label_en: 'Always-on AI agents: proprietary or open source', kind: 'article', topics: ['agents', 'claude'] },
 
   // ── Agents IA et Claude ──
   '/services/agents-ia': { label_fr: 'Agents IA pour entreprise', label_en: 'AI agents for business', kind: 'service', topics: ['agents', 'claude'] },
@@ -834,6 +841,7 @@ export function meshForBlogHub(_lang: Lang = 'fr'): RelatedLinksData {
       '/ressources/guides/taches-a-automatiser-pme',
       '/ressources/guides/roi-automatisation',
       '/ressources/comparatifs/claude-vs-chatgpt-pme',
+      '/ressources/comparatifs/claude-duet-vs-chatgpt-dots',
       '/ressources/comparatifs/claude-platform-vs-openai-platform',
       '/ressources/outils/calculateur-roi-ia',
       '/cas-clients/amploi',
