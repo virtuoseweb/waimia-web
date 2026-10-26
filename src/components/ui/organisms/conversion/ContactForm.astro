@@ -56,11 +56,18 @@ const id = (k: string) => `${idPrefix}-${k}`;
   </div>
 
   <div class="cv-field">
+    <label class="cv-label" for={id('phone')}>Téléphone</label>
+    <input class="cv-input" id={id('phone')} name="phone" type="tel" required autocomplete="tel" inputmode="tel" aria-describedby={`${id('phone-hint')} ${id('phone-err')}`} />
+    <p class="cv-note" id={id('phone-hint')}>Pour vous rappeler et caler l'échange.</p>
+    <p class="cv-error" id={id('phone-err')} data-error-for="phone" hidden>Numéro invalide. Exemple : 06 12 34 56 78</p>
+  </div>
+
+  <div class="cv-field">
     <label class="cv-label" for={id('company')}>Entreprise <span class="cv-opt">(facultatif)</span></label>
     <input class="cv-input" id={id('company')} name="company" type="text" autocomplete="organization" />
   </div>
 
-  <div class="cv-field">
+  <div class="cv-field cf-full">
     <label class="cv-label" for={id('role')}>Fonction <span class="cv-opt">(facultatif)</span></label>
     <input class="cv-input" id={id('role')} name="role" type="text" autocomplete="organization-title" />
   </div>
@@ -83,6 +90,8 @@ const id = (k: string) => `${idPrefix}-${k}`;
 <script is:inline define:vars={{ fallbackEmail: SITE.email }}>
 (function () {
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  // Même règle que src/lib/phone.ts : caractères usuels, 9 à 15 chiffres.
+  function validPhone(v) { return /^\+?[\d\s().-]+$/.test(v) && v.replace(/\D/g, '').length >= 9 && v.replace(/\D/g, '').length <= 15; }
 
   function bind(form) {
     if (form.dataset.bound) return;
@@ -113,12 +122,13 @@ const id = (k: string) => `${idPrefix}-${k}`;
       var bad = [];
       if (!v('name')) bad.push('name');
       if (!EMAIL_RE.test(v('email'))) bad.push('email');
+      if (!validPhone(v('phone'))) bad.push('phone');
       if (!v('brief')) bad.push('brief');
-      ['name', 'email', 'brief'].forEach(function (n) { setError(n, bad.indexOf(n) !== -1); });
+      ['name', 'email', 'phone', 'brief'].forEach(function (n) { setError(n, bad.indexOf(n) !== -1); });
       return bad;
     }
 
-    ['name', 'email', 'brief'].forEach(function (n) {
+    ['name', 'email', 'phone', 'brief'].forEach(function (n) {
       var f = form.elements[n];
       if (f) f.addEventListener('input', function () {
         if (f.getAttribute('aria-invalid') === 'true') setError(n, false);

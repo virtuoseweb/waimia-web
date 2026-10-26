@@ -287,7 +287,7 @@ test('endpoint contact : la provenance et la page du formulaire arrivent dans l�
   reset();
   const { ALL } = await import(srcUrl('pages/api/contact.ts'));
   const req = post('/api/contact', {
-    email: 'prospect@example.com', name: 'Prospect Test', brief: 'Un besoin réel.',
+    email: 'prospect@example.com', name: 'Prospect Test', brief: 'Un besoin réel.', phone: '06 12 34 56 78',
     source: { landing: '/ressources/guides/claude-pme', entry: 'google.com', prev: '/services/agents-ia' },
   });
   req.headers.set('referer', 'http://localhost/contact?offer=audit-ia-pme');
@@ -300,6 +300,26 @@ test('endpoint contact : la provenance et la page du formulaire arrivent dans l�
   }
   const toProspect = received.find((x) => x.body.to?.[0] === 'prospect@example.com');
   assert.ok(!toProspect.body.html.includes('google.com'), 'la provenance ne part jamais chez le prospect');
+});
+
+test('endpoint contact : le téléphone est obligatoire et arrive dans l’alerte interne', async () => {
+  const { ALL } = await import(srcUrl('pages/api/contact.ts'));
+  const base = { email: 'prospect@example.com', name: 'Prospect Test', brief: 'Un besoin réel.' };
+  for (const phone of [undefined, '', 'abc', '12345', '0612345678901234567']) {
+    reset();
+    const res = await ALL({ request: post('/api/contact', phone === undefined ? base : { ...base, phone }) });
+    assert.equal(res.status, 400, `phone=${JSON.stringify(phone)} doit être refusé`);
+    const body = await res.json();
+    assert.deepEqual(body.fields, ['phone'], 'seul le champ téléphone est signalé');
+    assert.equal(received.length, 0, 'aucun e-mail si le téléphone est invalide');
+  }
+  reset();
+  const ok = await ALL({ request: post('/api/contact', { ...base, phone: '+33 6 12 34 56 78' }) });
+  assert.equal(ok.status, 200);
+  const internal = received.find((x) => x.body.to?.[0] !== 'prospect@example.com');
+  assert.ok(internal.body.html.includes('+33 6 12 34 56 78'), 'alerte interne sans le téléphone');
+  const toProspect = received.find((x) => x.body.to?.[0] === 'prospect@example.com');
+  assert.ok(!toProspect.body.html.includes('+33 6 12 34 56 78'), 'le téléphone ne revient pas dans la confirmation');
 });
 
 test('endpoint lead-magnet (route Astro) : honeypot et slug inconnu', async () => {
