@@ -19,6 +19,7 @@ const KIND_TERMS: Record<ResourceItem['kind'], string> = {
   comparatifs: 'comparatif comparatifs comparaison comparison vs versus',
   outils: 'outil outils tool tools gratuit free',
   articles: 'article articles blog',
+  actualites: 'actualite actualites news veille annonce',
 };
 
 const TOOL_TERMS: Record<NonNullable<ResourceItem['toolType']>, string> = {

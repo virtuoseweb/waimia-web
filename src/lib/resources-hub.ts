@@ -7,6 +7,7 @@
 import { getCollection, getEntry } from 'astro:content';
 import { getLiveCollection } from './live-collection';
 import { blogEntryHref } from './blog-routing';
+import { isNewsEntry, formatNewsShort } from './news';
 import { isIndexableEntry } from './seo/hub-index';
 import { COMPARATIFS_CURATION } from '../data/comparatifs-curation';
 import { outilHeroOverride } from './hero-illustrations';
@@ -36,6 +37,10 @@ export type ResourceItem = {
   /** Libellé de carte plus précis que celui du type (ex. « OUTIL · CALCULATEUR », « ACTUALITÉ »). */
   tag_fr?: string;
   tag_en?: string;
+  /** Date déjà formatée (actualités : jour et heure de Paris). Défaut : date de publication. */
+  dateLabel?: string;
+  /** Auteur affiché sur la carte (articles et actualités). */
+  author?: string;
 };
 
 // Sous-types d'outil et d'article : le tag de la carte dit de quoi il s'agit, pas seulement « OUTIL ».
@@ -46,7 +51,6 @@ const TOOL_TAG: Record<NonNullable<ResourceItem['toolType']>, { fr: string; en: 
   audit: { fr: 'OUTIL · DIAGNOSTIC', en: 'TOOL · DIAGNOSTIC' },
 };
 const ARTICLE_TAG: Record<string, { fr: string; en: string }> = {
-  actualite: { fr: 'ACTUALITÉ', en: 'NEWS' },
   'veille-ia': { fr: 'ACTUALITÉ', en: 'NEWS' },
   essai: { fr: 'ESSAI', en: 'ESSAY' },
   avis: { fr: 'AVIS', en: 'REVIEW' },
@@ -67,6 +71,11 @@ async function build(): Promise<ResourceItem[]> {
     getLiveCollection('blog'),
     getEntry('diagnostics', 'maturite-ia'),
   ]);
+
+  // Auteur des cartes d'articles et d'actualités : titre de la fiche `authors`, sinon le slug.
+  const authorIds = [...new Set(blog.map((e) => (e.data.author as { id?: string } | undefined)?.id).filter((x): x is string => Boolean(x)))];
+  const authorNames = new Map<string, string>();
+  for (const id of authorIds) authorNames.set(id, (await getEntry('authors', id))?.data.title_fr ?? id);
 
   const items: ResourceItem[] = [
     ...guides.filter(isIndexableEntry).map((e) => ({
@@ -126,8 +135,9 @@ async function build(): Promise<ResourceItem[]> {
         }]
       : []),
     // Articles : même périmètre que /blog (les articles en noindex ne sont pas listés).
+    // Les actualités (type `actualite`, cf news.ts) forment leur propre type : /actualites.
     ...blog.filter((e) => !e.data.seo?.noindex).map((e) => ({
-      kind: 'articles' as const,
+      kind: (isNewsEntry(e) ? 'actualites' : 'articles') as 'actualites' | 'articles',
       title_fr: e.data.title_fr,
       title_en: e.data.title_en,
       excerpt_fr: e.data.excerpt_fr ?? e.data.description_fr,
@@ -140,6 +150,8 @@ async function build(): Promise<ResourceItem[]> {
       tags: e.data.tags,
       tag_fr: e.data.type ? ARTICLE_TAG[e.data.type]?.fr : undefined,
       tag_en: e.data.type ? ARTICLE_TAG[e.data.type]?.en : undefined,
+      dateLabel: isNewsEntry(e) ? formatNewsShort(e.data.publishedAt) : undefined,
+      author: authorNames.get((e.data.author as { id?: string } | undefined)?.id ?? ''),
     })),
   ];
   const sorted = items.sort(

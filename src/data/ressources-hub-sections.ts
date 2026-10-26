@@ -28,7 +28,7 @@ export const indexHeadData = {
 // /ressources/guides sont rendues par le MÊME composant (ResourcesHub.astro) ; chaque vue a sa propre URL, son
 // title/description. Les trois vues (guides, comparatifs, outils) ont leur tête éditoriale (H1 +
 // introduction) ; sans `h1_fr`, une vue reprendrait la tête de /ressources. ──
-export type ResourceView = 'all' | 'outils' | 'comparatifs' | 'guides';
+export type ResourceView = 'all' | 'outils' | 'comparatifs' | 'guides' | 'articles' | 'actualites';
 
 export const RESOURCE_VIEWS: Record<ResourceView, {
   href: string;
@@ -109,12 +109,48 @@ export const RESOURCE_VIEWS: Record<ResourceView, {
     collection_desc_fr: "Guides pratiques pour comprendre, chiffrer et déployer l'IA en PME : Claude, agents, automatisation, conformité.",
     collection_desc_en: 'Practical guides to understand, cost and deploy AI in SMEs: Claude, agents, automation, compliance.',
   },
+  // /blog et /actualites : mêmes données qu'avant la bascule sur ResourcesHub (title, description,
+  // H1, introduction), les URL /blog/<slug> des contenus ne changent pas.
+  articles: {
+    href: '/blog',
+    title_fr: 'Blog IA et automatisation pour PME : notes de terrain',
+    title_en: 'AI and automation blog for SMEs: field notes · Waimia',
+    description_fr: "Notes de terrain de Simon Beros sur l'IA et l'automatisation en PME : agents IA, n8n, Claude, CRM, pilotage. Méthodes, comparatifs, coûts datés et sourcés.",
+    description_en: "Field notes from Simon Beros on AI and automation in SMEs: AI agents, n8n, Claude, CRM, steering. Methods, comparisons, dated and sourced costs.",
+    label_fr: 'Blog',
+    label_en: 'Blog',
+    h1_fr: 'Blog <i>IA</i> et automatisation en PME.',
+    h1_en: 'Notes <i>slowly</i> from the field.',
+    lede_fr: 'Une newsletter mensuelle, jamais de promotion. Tout ce qu\'on aurait voulu lire avant de commencer un chantier. <a href="/ressources#newsletter" class="hub-inline-cta">S\'abonner à la newsletter →</a> <a href="/actualites" class="hub-inline-cta">Actualités →</a>',
+    lede_en: 'A monthly newsletter, never any promotion. Everything we wished we had read before starting a project. <a href="/ressources#newsletter" class="hub-inline-cta">Subscribe to the newsletter →</a>',
+    collection_name_fr: 'Blog IA et automatisation pour PME : notes de terrain',
+    collection_name_en: 'AI and automation blog for SMEs: field notes',
+    collection_desc_fr: "Notes de terrain de Simon Beros sur l'IA et l'automatisation en PME : agents IA, n8n, Claude, CRM, pilotage. Méthodes, comparatifs, coûts datés et sourcés.",
+    collection_desc_en: 'Field notes on AI and automation in SMEs: AI agents, n8n, Claude, CRM, steering.',
+  },
+  actualites: {
+    href: '/actualites',
+    title_fr: 'Actualités IA pour PME : agents, Claude, ChatGPT',
+    title_en: 'AI news for SMBs: agents, Claude, ChatGPT · Waimia',
+    description_fr: "Actualités de l'IA vues par une PME : annonces, ce qui est confirmé, ce que ça change. Billets datés à la minute, signés, sources citées.",
+    description_en: 'AI news seen by an SMB: announcements, what is confirmed, what it changes. Posts dated to the minute, signed, sources cited.',
+    label_fr: 'Actualités',
+    label_en: 'News',
+    h1_fr: 'Actualités <i>IA</i> pour PME.',
+    h1_en: 'AI <i>news</i> for SMBs.',
+    lede_fr: "Ce qui est annoncé, ce qui est confirmé, ce que ça change pour une PME. Chaque billet porte sa date et son heure, son auteur et ses sources. <a href=\"/actualites/rss.xml\" class=\"hub-inline-cta\">Flux RSS texte complet →</a>",
+    lede_en: 'What is announced, what is confirmed, what it changes for an SMB. Every post carries its date and time, its author and its sources. <a href="/actualites/rss.xml" class="hub-inline-cta">Full-text RSS feed →</a>',
+    collection_name_fr: 'Actualités IA pour PME : agents, Claude, ChatGPT, open source',
+    collection_name_en: 'AI news for SMBs: agents, Claude, ChatGPT, open source',
+    collection_desc_fr: "Actualités de l'IA vues par une PME : ce qui est annoncé, ce qui est confirmé, ce que ça change. Billets datés à la minute, signés Simon Beros, sources citées.",
+    collection_desc_en: 'AI news seen by an SMB: what is announced, what is confirmed, what it changes. Posts dated to the minute, signed, sources cited.',
+  },
 };
 
 // ── FILTRES PAR TYPE · ordre d'affichage. `prefixes` = débuts d'URL qui définissent le type
 // (le filtre CSS de la page s'appuie sur l'attribut href des cartes). Le type « articles »
 // regroupe tout ce qui n'est pas sous les trois autres préfixes (blog et notes de terrain). ──
-export type ResourceKind = 'guides' | 'comparatifs' | 'outils' | 'articles';
+export type ResourceKind = 'guides' | 'comparatifs' | 'outils' | 'articles' | 'actualites';
 
 export const RESOURCE_KINDS: ReadonlyArray<{
   key: ResourceKind;
@@ -128,6 +164,7 @@ export const RESOURCE_KINDS: ReadonlyArray<{
   { key: 'comparatifs', label_fr: 'Comparatifs', label_en: 'Comparisons', tag_fr: 'COMPARATIF', tag_en: 'COMPARISON', prefixes: ['/ressources/comparatifs/'] },
   { key: 'outils', label_fr: 'Outils', label_en: 'Tools', tag_fr: 'OUTIL', tag_en: 'TOOL', prefixes: ['/ressources/outils/', '/ressources/diagnostics/'] },
   { key: 'articles', label_fr: 'Articles', label_en: 'Articles', tag_fr: 'ARTICLE', tag_en: 'ARTICLE', prefixes: [] },
+  { key: 'actualites', label_fr: 'Actualités', label_en: 'News', tag_fr: 'ACTUALITÉ', tag_en: 'NEWS', prefixes: [] },
 ];
 
 // ── MANIFESTO · manifesto-statement (ink, statique) · conservé du hub guides supprimé ;

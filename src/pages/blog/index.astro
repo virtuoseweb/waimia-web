@@ -1,225 +1,49 @@
 ---
-// Page · /blog · Index notes & essais
+// Route · /blog · vue « articles » du hub Ressources (ResourcesHub), 2026-10-26.
+//
+// Même composant que /ressources (recherche, filtres par type et par thème, cartes) : la page
+// ne porte plus que ce qui lui est propre, à savoir son title, sa description, son JSON-LD
+// CollectionPage et le maillage interne du blog (money pages et preuve). Les articles gardent
+// leur URL /blog/<slug>. Les actualités ont leur propre vue : /actualites.
 export const prerender = true;
 
-import { AUDIT_BOOKING_HREF, AUDIT_BOOKING_LABEL } from '../../data/conversion';
-import { getLiveCollection } from '../../lib/live-collection';
 import Base from '../../layouts/Base.astro';
+import ResourcesHub from '../../components/ui/organisms/ResourcesHub.astro';
 import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
-import type { SectionByType, SectionData } from '@waimia/ds-kernel';
+import type { SectionData } from '@waimia/ds-kernel';
+import { SITE } from '../../site.config';
 import { langFromPath } from '../../lib/i18n';
-import { blogEntryHref, fieldNoteTagLabel } from '../../lib/blog-routing';
 import { getResourceItems } from '../../lib/resources-hub';
 import { buildCollectionPage } from '../../lib/seo/schema-builder';
+import { hubNoindex } from '../../lib/seo/hub-index';
 import { meshForBlogHub } from '../../lib/internal-mesh';
-import { SITE } from '../../site.config';
-import SiloFilter from '../../components/ui/molecules/SiloFilter.astro';
-import { manifestoData } from '../../data/ressources-hub-sections';
+import { RESOURCE_VIEWS } from '../../data/ressources-hub-sections';
 
 const lang = langFromPath(Astro.url.pathname);
+const isFr = lang === 'fr';
+const v = RESOURCE_VIEWS.articles;
+const items = await getResourceItems();
+const shown = items.filter((i) => i.kind === 'articles');
 
-// Les articles en noindex (hors positionnement) restent en ligne mais ne sont plus listés ici.
-const allBlog = (await getLiveCollection('blog')).filter((entry) => !entry.data.seo?.noindex);
-const sortedBlog = [...allBlog].sort(
-  (a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime(),
-);
-
-const blogItems = sortedBlog.map((entry) => `${SITE.url}${blogEntryHref(entry)}`);
 const collectionLd = buildCollectionPage(
-  'Blog IA et automatisation pour PME : notes de terrain',
-  'Notes de terrain de Simon Beros sur l\'IA et l\'automatisation en PME : agents IA, n8n, Claude, CRM, pilotage. Méthodes, comparatifs, coûts datés et sourcés.',
-  blogItems,
+  isFr ? v.collection_name_fr : v.collection_name_en,
+  isFr ? v.collection_desc_fr : v.collection_desc_en,
+  shown.map((i) => `${SITE.url}${i.href}`),
 );
-
-// Image de carte : résolue une seule fois pour tout le hub (src/lib/card-visual.ts), donc
-// identique à /ressources et sans doublon de dessin sur cette page.
-const hubVisuals = new Map(
-  (await getResourceItems()).filter((i) => i.kind === 'articles').map((i) => [i.href, i]),
-);
-
-const formatDate = (d: Date) => {
-  const dd = String(d.getDate()).padStart(2, '0');
-  const mm = String(d.getMonth() + 1).padStart(2, '0');
-  return `${dd}.${mm}`;
-};
-
-// Label de type court (ESSAI, NOTE, CAS, RECETTE…) dérivé de editorialType, sinon `type`.
-const tagLabel = (data: (typeof sortedBlog)[number]['data']): string =>
-  data.editorialType
-    ? fieldNoteTagLabel(data.editorialType, lang).toUpperCase()
-    : (data.type ?? 'NOTE').toUpperCase();
-
-// Label auteur court pour la carte (référence `authors` ou chaîne kebab-case).
-const authorLabel = (author: unknown): string | undefined => {
-  if (!author) return undefined;
-  const slug = typeof author === 'string'
-    ? author
-    : (author as { id?: string }).id;
-  if (!slug) return undefined;
-  return slug.split('-').map((p) => p.charAt(0).toUpperCase() + p.slice(1)).join(' ');
-};
-
-// Mapping entrée blog → item article-grid (illustration teintée par taxonomie).
-const articles = sortedBlog.map((entry) => {
-  const d = entry.data;
-  const href = blogEntryHref(entry);
-  const visual = hubVisuals.get(href);
-  const tag = tagLabel(d);
-  const readTime = d.readingTime ? `${d.readingTime} min` : undefined;
-  return {
-    image: visual?.image,
-    tint: visual?.tint,
-    tag_fr: tag,
-    tag_en: tag,
-    title_fr: d.title_fr,
-    title_en: d.title_en,
-    excerpt_fr: d.excerpt_fr ?? d.description_fr,
-    excerpt_en: d.excerpt_en ?? d.description_en,
-    date: formatDate(d.publishedAt),
-    read_time_fr: readTime,
-    read_time_en: readTime,
-    author: authorLabel(d.author),
-    href,
-    silo: d.category,
-  };
-});
-
-const gridData = {
-  type: 'article-grid',
-  background: 'paper',
-  columns: '3',
-  articles,
-} satisfies SectionByType<'article-grid'>;
-
-// ── Liste éditoriale · variante cataloguée swappable (décision 0012) ──────────
-// La liste est rendue par DEUX types catalogués distincts, sélectionnables ici sans
-// toucher au reste de la page. Le renderer (registry) dispatche selon `type` : c'est
-// le mécanisme de swap.
-//   • 'cards'      → `article-grid`         (rendu prod actuel, DÉFAUT · 0 changement visuel)
-//   • 'write-rows' → `editorial-write-feed` (anciennes lignes éditoriales EditorialWriteRow)
-const listVariant = 'cards' as 'cards' | 'write-rows';
-
-// Mapping entrée blog → item editorial-write-feed (date · tag · titre · lien).
-// Contrat catalogué : `items` borné à 10 → slice(0, 10) (la variante cards montre tout).
-const writeItems = sortedBlog.slice(0, 10).map((entry) => {
-  const d = entry.data;
-  const tag = tagLabel(d);
-  return {
-    date: formatDate(d.publishedAt),
-    tag_fr: tag,
-    tag_en: tag,
-    text_fr: d.title_fr,
-    text_en: d.title_en,
-    href: blogEntryHref(entry),
-  };
-});
-
-// Section liste effective, choisie par `listVariant` puis passée au renderer composable.
-const feedSection: SectionData = listVariant === 'write-rows'
-  ? ({
-      type: 'editorial-write-feed',
-      kicker_fr: 'Notes de terrain',
-      kicker_en: 'Field notes',
-      tone: 'paper',
-      items: writeItems,
-    } satisfies SectionByType<'editorial-write-feed'>)
-  : gridData;
 
 // Maillage interne dérivé (source unique internal-mesh, routes réelles, 0 self-link) :
 // hub blog → money pages (services ciblés par les billets) + preuve (hub cas clients).
 const meshSection = { ...meshForBlogHub(lang), background: 'paper-3' as const } as unknown as SectionData;
-
-// ── Masthead composable (ex-UtilityTemplate list variant) ────────────────────
-// Le masthead vit désormais dans le tableau `sections:` (data-driven). Les champs
-// top_pad / lede_reveal / list_border rétro-compat reproduisent à l'identique les
-// props que le template posait à la main (140px / pas de reveal lede / hairline).
-const mastheadSection = {
-  type: 'hero-hub-listing',
-  kicker_fr: '§ Notes & essais · monthly',
-  kicker_en: '§ Notes & essais · monthly',
-  h1_fr: 'Blog <i>IA</i> et automatisation en PME.',
-  h1_en: 'Notes <i>lentes</i> du terrain.',
-  lede_fr: 'Une newsletter mensuelle, jamais de promotion. Tout ce qu\'on aurait voulu lire avant de commencer un chantier. <a href="/ressources#newsletter" class="blog-nl-cta">S\'abonner à la newsletter →</a> <a href="/actualites" class="blog-nl-cta">Actualités →</a>',
-  lede_en: 'Une newsletter mensuelle, jamais de promotion. Tout ce qu\'on aurait voulu lire avant de commencer un chantier. <a href="/ressources#newsletter" class="blog-nl-cta">S\'abonner à la newsletter →</a>',
-  decoration: false,
-  top_pad: '140px',
-  lede_reveal: false,
-  list_border: true,
-} satisfies SectionByType<'hero-hub-listing'>;
-
-// ── CTA de fin composable (ex-CtaBandSection du template) ─────────────────────
-const ctaSection = {
-  type: 'cta-band',
-  text_fr: "Un sujet du blog ressemble à votre situation ? L'audit gratuit de 45 minutes part de vos processus réels.",
-  text_en: 'Does a topic from the blog look like your situation? The free 45-minute audit starts from your real processes.',
-  cta: {
-    label_fr: `${AUDIT_BOOKING_LABEL.fr} →`,
-    label_en: `${AUDIT_BOOKING_LABEL.en} →`,
-    href: AUDIT_BOOKING_HREF,
-    variant: 'primary',
-  },
-  background: 'paper-2',
-} satisfies SectionByType<'cta-band'>;
 ---
 <Base
-  title="Blog IA et automatisation pour PME : notes de terrain"
-  description="Notes de terrain de Simon Beros sur l'IA et l'automatisation en PME : agents IA, n8n, Claude, CRM, pilotage. Méthodes, comparatifs, coûts datés et sourcés."
+  title={isFr ? v.title_fr : v.title_en}
+  description={isFr ? v.description_fr : v.description_en}
   jsonLd={collectionLd}
+  noindex={hubNoindex(shown.length)}
 >
-  <SectionsRenderer sections={[mastheadSection]} lang={lang} />
-
-  <section class="list-body">
-    <div class="wrap-wide">
-      <SiloFilter silos={sortedBlog.map((e) => e.data.category)} lang={lang} class="blog-silos" />
-      <div class="blog-grid">
-        <SectionsRenderer sections={[feedSection]} lang={lang} />
-      </div>
-      <div class="blog-mesh">
-        <SectionsRenderer sections={[meshSection]} lang={lang} />
-      </div>
-    </div>
-  </section>
-
-  {/* « La promesse » : même section que le hub Ressources (source unique en donnée) */}
-  <SectionsRenderer sections={[manifestoData]} lang={lang} />
-
-  <SectionsRenderer sections={[ctaSection]} lang={lang} />
+  <ResourcesHub items={items} activeKind="articles">
+    <Fragment slot="after-list">
+      <SectionsRenderer sections={[meshSection]} lang={lang} />
+    </Fragment>
+  </ResourcesHub>
 </Base>
-
-<style>
-  /* Corps de liste (ex-UtilityTemplate `.list-body`) : markup repris verbatim depuis
-     le template pour préserver le padding et la largeur `wrap-wide` autour de la liste. */
-  .list-body { padding: var(--section-base) var(--space-6); }
-  /* Resserrage micro-rythme du blanc hero→grille (cf masthead `hero-hub-listing`
-     bottom clamp + `.list-body` top clamp du template partagé) : on remonte la grille
-     d'un cran depuis la page (override local, template intact). La section ArticleGrid
-     porte son propre padding-block (--section-base) : on le neutralise en tête pour
-     éviter une double bande. */
-  .blog-grid :global(.article-grid) {
-    padding-block-start: 0;
-  }
-  .blog-grid {
-    margin-top: calc(-1 * var(--space-7));
-  }
-  /* Puces de silo (composant enfant → :global) : posées avant la grille, dont la marge
-     négative les recouvrirait ; la marge basse compense ce rattrapage. Sans JS, la nav reste
-     invisible mais garde sa place (aucun décalage à l'activation). */
-  :global(.list-body .silo-filter.blog-silos) { margin-bottom: calc(var(--space-7) + var(--space-5)); }
-  /* CTA newsletter inline dans le lede hero : lien accent, tokens DS existants,
-     0 nouveau token (rule 60). */
-  /* `:global` requis : le lede est rendu par le composant masthead via set:html →
-     le lien perd le scope Astro de cette page (parité avec le rendu template précédent). */
-  :global(.blog-nl-cta) {
-    color: var(--accent-text);
-    font-weight: var(--fw-medium);
-    text-decoration: none;
-    border-bottom: 1px solid currentColor;
-    white-space: nowrap;
-  }
-  :global(.blog-nl-cta:hover) {
-    opacity: 0.72;
-  }
-  @media (max-width: 768px) {
-    .blog-grid { margin-top: calc(-1 * var(--space-5)); }
-  }
-</style>
