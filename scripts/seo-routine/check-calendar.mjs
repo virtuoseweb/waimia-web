@@ -5,7 +5,7 @@
  *   - `urlCible` unique parmi les entrées actives (idée, planifié, en cours) ;
  *   - une révision ou une fusion vise une page qui existe ; une entrée publiée ou mesurée porte sa PR,
  *     une entrée mesurée porte son résultat, une entrée abandonnée dit pourquoi ;
- *   - avertissements (ne font pas échouer) : moins de 6 semaines d'avance couvertes par une
+ *   - avertissements (ne font pas échouer) : stock de moins de 14 créations, moins de 2 semaines d'avance couvertes par une
  *     création planifiée, entrée planifiée dont la semaine est passée, création dont la page existe
  *     déjà, semaine au-delà du plafond de créations ou de révisions.
  * Sort en code 1 s'il y a au moins une erreur. Usage : node scripts/seo-routine/check-calendar.mjs
@@ -26,8 +26,11 @@ export const FIELDS = ['id', 'type', 'titreProvisoire', 'requeteCible', 'intenti
 const TEXT_FIELDS = ['titreProvisoire', 'requeteCible', 'intention', 'angle', 'mesureAttendue', 'origine'];
 
 /** Cadence de la session (docs/seo/ROUTINE.md, section 4). */
-export const MIN_WEEKS_AHEAD = 6;
-export const MAX_CREATIONS_PER_WEEK = 2;
+export const MIN_WEEKS_AHEAD = 2;
+/** 2 créations par jour, 7 jours sur 7. */
+export const MAX_CREATIONS_PER_WEEK = 14;
+/** Stock minimal de créations restant à faire (idées, planifiées, en cours) : une semaine de cadence. */
+export const MIN_CREATIONS_STOCK = 14;
 export const MAX_REVISIONS_PER_WEEK = 3;
 
 const isText = (v) => typeof v === 'string' && v.trim().length > 0;
@@ -116,11 +119,14 @@ export function validateCalendar(calendar, { now = new Date(), targetExists = ()
     if (slot.revisions > MAX_REVISIONS_PER_WEEK) warnings.push(`${w} : ${slot.revisions} révisions planifiées, plafond ${MAX_REVISIONS_PER_WEEK}`);
   }
 
+  const stock = entries.filter((e) => e && typeof e === 'object' && isCreation(e) && ACTIVE_STATUTS.includes(e.statut)).length;
+  if (stock < MIN_CREATIONS_STOCK) warnings.push(`${stock} création(s) en stock (idées, planifiées, en cours), ${MIN_CREATIONS_STOCK} attendues : alimenter le calendrier`);
+
   const ahead = weeksAhead(entries.filter((e) => e && typeof e === 'object'), week);
   if (ahead < MIN_WEEKS_AHEAD) warnings.push(`${ahead} semaine(s) d'avance avec une création planifiée après ${week} (${MIN_WEEKS_AHEAD} attendues) : replanifier`);
 
   const count = (statut) => entries.filter((e) => e?.statut === statut).length;
-  return { errors, warnings, stats: { week, total: entries.length, weeksAhead: ahead, byStatut: Object.fromEntries(STATUTS.map((s) => [s, count(s)])) } };
+  return { errors, warnings, stats: { week, total: entries.length, weeksAhead: ahead, creationsStock: stock, byStatut: Object.fromEntries(STATUTS.map((s) => [s, count(s)])) } };
 }
 
 if (isMain(import.meta.url)) {
