@@ -9,6 +9,7 @@ import ContactConfirmation from "../../lib/emails/ContactConfirmation";
 import InternalLeadAlert, { internalLeadSubject } from "../../lib/emails/InternalLeadAlert";
 import { z } from "zod";
 import { isBotSubmission } from "../../lib/honeypot";
+import { isValidPhone } from "../../lib/phone";
 import { SITE } from "../../site.config";
 import { LeadSourceSchema, leadSourceLog, leadSourceRows, refererPath } from "../../lib/lead-source";
 
@@ -64,6 +65,8 @@ const ContactSchema = z.object({
   email: z.string().email(),
   name: z.string().min(1).max(100),
   brief: z.string().min(1).max(5000),
+  /** Téléphone obligatoire : sert à rappeler le prospect (9 à 15 chiffres, cf lib/phone.ts). */
+  phone: z.string().trim().max(30).refine(isValidPhone),
   company: z.string().max(100).optional(),
   role: z.string().max(100).optional(),
   /** Objet choisi dans le formulaire (audit, projet, formation, autre). */
@@ -120,13 +123,14 @@ export const ALL: APIRoute = async ({ request }) => {
       { status: 400, headers: CORS_HEADERS },
     );
   }
-  const { email, lang, name, brief, company, role, website, subject, offer, intent, source } = parsed.data;
+  const { email, lang, name, brief, phone, company, role, website, subject, offer, intent, source } = parsed.data;
   const page = refererPath(request);
   const details = [
     ...(subject ? [{ label: "Objet", value: subject }] : []),
     ...(offer ? [{ label: "Offre (URL)", value: offer }] : []),
     ...(intent ? [{ label: "Intention (URL)", value: intent }] : []),
     ...(name ? [{ label: "Nom", value: name }] : []),
+    { label: "Téléphone", value: phone, emphasis: true },
     ...leadSourceRows(source, page),
   ];
   // Honeypot : un bot a rempli le champ caché → faux succès silencieux

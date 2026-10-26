@@ -50,7 +50,25 @@ test.describe("contact · paramètres d'URL", () => {
     let apiCalls = 0;
     await page.goto(AUDIT_BOOKING);
     await page.locator("[data-contact-submit]").click();
-    await expect(page.locator('form[name="contact"] [aria-invalid="true"]')).toHaveCount(3);
+    await expect(page.locator('form[name="contact"] [aria-invalid="true"]')).toHaveCount(4);
+    expect(apiCalls).toBe(0);
+  });
+
+  test("téléphone obligatoire : absent ou invalide, erreur sur ce seul champ, aucun appel réseau", async ({ page }) => {
+    let apiCalls = 0;
+    await page.route("**/api/contact", (route) => { apiCalls++; route.abort(); });
+    await page.goto(AUDIT_BOOKING);
+    const form = page.locator('form[name="contact"]');
+    await form.locator('[name="name"]').fill("Prospect Test");
+    await form.locator('[name="email"]').fill("prospect@example.com");
+    await form.locator('[name="brief"]').fill("Un besoin réel.");
+    await expect(form.locator('[name="phone"]')).toHaveAttribute("required", "");
+    for (const bad of ["", "abc", "12345"]) {
+      await form.locator('[name="phone"]').fill(bad);
+      await page.locator("[data-contact-submit]").click();
+      await expect(form.locator('[aria-invalid="true"]')).toHaveCount(1);
+      await expect(form.locator('[name="phone"]')).toHaveAttribute("aria-invalid", "true");
+    }
     expect(apiCalls).toBe(0);
   });
 });

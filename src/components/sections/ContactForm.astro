@@ -18,6 +18,7 @@ const body = isFr ? data.body_fr : data.body_en;
 const nameLabel = (isFr ? data.name_label_fr : data.name_label_en) ?? (isFr ? 'Nom' : 'Name');
 const emailLabel = (isFr ? data.email_label_fr : data.email_label_en) ?? 'Email';
 const messageLabel = (isFr ? data.message_label_fr : data.message_label_en) ?? (isFr ? 'Message' : 'Message');
+const phoneLabel = isFr ? 'Téléphone' : 'Phone';
 const submit = isFr ? data.submit_label_fr : data.submit_label_en;
 const hint = isFr ? data.hint_fr : data.hint_en;
 const action = data.form_action ?? '/api/contact';
@@ -53,6 +54,10 @@ const details = data.details ?? [];
       <div class="contact-form__field">
         <label for="cf-email">{emailLabel}</label>
         <input id="cf-email" name="email" type="email" autocomplete="email" required class="contact-form__input" aria-describedby="cf-error" />
+      </div>
+      <div class="contact-form__field">
+        <label for="cf-phone">{phoneLabel}</label>
+        <input id="cf-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required class="contact-form__input" aria-describedby="cf-error" />
       </div>
       <div class="contact-form__field">
         <label for="cf-message">{messageLabel}</label>
@@ -197,6 +202,8 @@ const details = data.details ?? [];
   if (window.__wmContactFormInit) return;
   window.__wmContactFormInit = true;
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  // Même règle que src/lib/phone.ts : caractères usuels, 9 à 15 chiffres.
+  function validPhone(v) { var d = v.replace(/\D/g, '').length; return /^\+?[\d\s().-]+$/.test(v) && d >= 9 && d <= 15; }
   function bind(form) {
     if (form.dataset.cfBound) return;
     form.dataset.cfBound = '1';
@@ -204,6 +211,7 @@ const details = data.details ?? [];
     var lang = section ? section.dataset.cfLang : 'fr';
     var name = form.querySelector('input[name="name"]');
     var email = form.querySelector('input[name="email"]');
+    var phone = form.querySelector('input[name="phone"]');
     var brief = form.querySelector('textarea[name="brief"]');
     var honeypot = form.querySelector('input[name="website"]');
     var errorEl = form.querySelector('[data-cf-error]');
@@ -218,20 +226,22 @@ const details = data.details ?? [];
       if (!errorEl) return;
       errorEl.setAttribute('hidden', '');
       errorEl.textContent = '';
-      [name, email, brief].forEach(function (f) { if (f) f.classList.remove('contact-form__input--error'); });
+      [name, email, phone, brief].forEach(function (f) { if (f) f.classList.remove('contact-form__input--error'); });
     }
-    [name, email, brief].forEach(function (f) { if (f) { f.addEventListener('input', clearError); } });
+    [name, email, phone, brief].forEach(function (f) { if (f) { f.addEventListener('input', clearError); } });
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
       clearError();
       var nameVal = name ? name.value.trim() : '';
       var emailVal = email ? email.value.trim() : '';
+      var phoneVal = phone ? phone.value.trim() : '';
       var briefVal = brief ? brief.value.trim() : '';
       if (!nameVal) { showError(lang === 'fr' ? 'Indiquez votre nom.' : 'Enter your name.', name); if (name) name.focus(); return; }
       if (!emailVal || !EMAIL_RE.test(emailVal)) { showError(lang === 'fr' ? 'Adresse email invalide.' : 'Invalid email address.', email); if (email) email.focus(); return; }
+      if (!validPhone(phoneVal)) { showError(lang === 'fr' ? 'Indiquez un numéro de téléphone valide.' : 'Enter a valid phone number.', phone); if (phone) phone.focus(); return; }
       if (!briefVal) { showError(lang === 'fr' ? 'Écrivez un message.' : 'Write a message.', brief); if (brief) brief.focus(); return; }
       if (btn) btn.disabled = true;
-      var payload = { name: nameVal, email: emailVal, brief: briefVal, lang: lang, website: honeypot ? honeypot.value : '', _t: (form.querySelector('input[name="_t"]') || {}).value || '', source: window.wmLeadSource ? window.wmLeadSource() : undefined };
+      var payload = { name: nameVal, email: emailVal, phone: phoneVal, brief: briefVal, lang: lang, website: honeypot ? honeypot.value : '', _t: (form.querySelector('input[name="_t"]') || {}).value || '', source: window.wmLeadSource ? window.wmLeadSource() : undefined };
       try {
         var res = await fetch(form.getAttribute('action') || '/api/contact', {
           method: 'POST',
