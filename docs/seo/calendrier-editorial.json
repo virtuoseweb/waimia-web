@@ -1979,18 +1979,63 @@
       "requeteCible": "claude extension chrome",
       "intention": "Installer l’extension Claude pour Chrome et savoir quoi autoriser dans une PME.",
       "urlCible": "/blog/claude-extension-chrome",
-      "angle": "Satellite du guide /ressources/guides/claude-in-chrome-entreprise (lien contextuel obligatoire dans le corps ; le guide garde « claude extension », 1 000 recherches mensuelles). Hypothèse à vérifier par la SERP du jour. Apporté : l’installation pas à pas, les permissions par site, ce qu’un administrateur Team ou Enterprise peut régler, les risques. Faits relus dans l’aide Anthropic du jour.",
+      "angle": "Recherche du 26 octobre 2026 : l'angle tient. Les premiers résultats (aide Anthropic, DataCamp d'octobre 2025, The AI Maker de janvier 2026, travis.media, UT Dallas) n'ont ni tableau de dépannage ni correspondance entre anciens et nouveaux noms des modes, et plusieurs sont périmés (Max seulement, liste d'attente, modèle imposé). Apporté : installation pas à pas sur un poste, choix du mode d'approbation, liaison avec Claude Desktop, raccourcis et tâches planifiées, tableau symptôme-cause-solution, ce que les tutoriels disent à tort, « ne l'installez pas si ». Le guide /ressources/guides/claude-in-chrome-entreprise garde le déploiement d'équipe et « claude extension » ; lien contextuel ajouté dans le guide (FR et EN).",
       "sourcesALire": [
-        "Aide Anthropic sur Claude in Chrome, version du jour",
-        "Premiers résultats de « claude extension chrome »",
-        "src/content/guides/claude-in-chrome-entreprise.json"
+        "https://support.claude.com/en/articles/12012173-get-started-with-claude-in-chrome (lu le 26 octobre 2026)",
+        "https://support.claude.com/en/articles/12902446-claude-in-chrome-permissions-guide (lu le 26 octobre 2026)",
+        "https://support.claude.com/fr/articles/12902405-depannage-de-claude-dans-chrome (lu le 26 octobre 2026)",
+        "https://claude.com/chrome (lu le 26 octobre 2026)",
+        "https://www.datacamp.com/tutorial/claude-for-chrome-ai-powered-browser-assistance-automation (lu le 26 octobre 2026)",
+        "https://aimaker.substack.com/p/claude-chrome-extension-browser-automation-guide (lu le 26 octobre 2026)",
+        "https://travis.media/blog/claude-for-chrome-explained/ (lu le 26 octobre 2026)",
+        "https://atlas.utdallas.edu/TDClient/30/Portal/KB/Article/1599/Claude-for-Chrome (lu le 26 octobre 2026)"
       ],
       "semainePrevue": "2026-W44",
-      "statut": "planifié",
+      "statut": "en cours",
       "pr": null,
-      "mesureAttendue": "Page indexée et premières impressions sur la requête cible, à lire deux collectes après la mise en production ; clics transmis au guide /ressources/guides/claude-in-chrome-entreprise. Demandes : alertes de lead dont la page d’arrivée est cette page.",
+      "mesureAttendue": "/blog/claude-extension-chrome, requête « claude extension chrome » : page absente du sitemap au 25 octobre 2026. Attendu : page indexée et premières impressions sur la requête, classées sur le billet et non sur le guide, deux collectes après la mise en production (à juger à partir de 2026-W47).",
       "resultat": null,
       "origine": "Satellite planifié le 16 octobre 2026 (règle guides piliers et satellites de Simon) ; volume non mesuré (la requête parente « claude extension » : 1 000, KD 27)."
+    },
+    {
+      "id": "w44-revision-ai-act-norme-en-18286",
+      "type": "révision",
+      "titreProvisoire": "AI Act : calendrier relu au 26 octobre 2026, première norme harmonisée EN 18286",
+      "requeteCible": "ai act calendrier",
+      "intention": "Savoir quelles obligations de l'AI Act s'appliquent à une PME, et quand.",
+      "urlCible": "/ressources/guides/ai-act-pme-calendrier",
+      "angle": "Règle 4.1-4. Dates relues dans l'article 113 (texte consolidé au 27 juillet 2026) : aucune ne change ; « un an de répit » (Journal du Net, 15 octobre) renvoie au report de l'omnibus déjà dans le guide. Ajout : décision d'exécution (UE) 2026/2274 du 12 octobre 2026 et norme EN 18286 (ActuIA du 22 octobre), absentes des premiers résultats lus (donneespersonnelles.fr, hayot-expertise.fr, opsiocloud.com, studeria.fr, anthemcreation.com), avec ce qu'elle change pour une PME : rien de direct.",
+      "sourcesALire": [
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-113 (lu le 26 octobre 2026)",
+        "https://eur-lex.europa.eu/eli/dec_impl/2026/2274/oj (lu le 26 octobre 2026)",
+        "https://www.cencenelec.eu/news-events/news/2026/en-in-the-spotlight/2026-10-15-en-18286-2026-published-in-ojeu/ (lu le 26 octobre 2026)"
+      ],
+      "semainePrevue": "2026-W44",
+      "statut": "en cours",
+      "pr": null,
+      "mesureAttendue": "Guide exact au jour de la relecture (article 113 relu le 26 octobre 2026). /ressources/guides/ai-act-pme-calendrier : indexation et impressions sur 28 jours à la collecte du 25 octobre 2026 à relever en W46 ; attendu : page indexée.",
+      "resultat": null,
+      "origine": "docs/seo/data/latest.json du 25 octobre 2026, feeds.entries : ActuIA du 22 octobre 2026 (« AI Act : la première norme harmonisée ne couvre que le système qualité ») ; entrées Journal du Net et ActuIA du 15 octobre 2026 (collecte du 18 octobre) sur le calendrier."
+    },
+    {
+      "id": "w44-revision-application-metier-cible",
+      "type": "révision",
+      "titreProvisoire": "Application métier : le billet porte la requête, la page service porte le sur mesure",
+      "requeteCible": "application métier",
+      "intention": "Comprendre ce qu'est une application métier et quel type choisir.",
+      "urlCible": "/blog/application-metier-exemples-pme",
+      "angle": "Règle 4.1-5 (onTarget false, cannibalisation) et 4.1-2 (lowCtrPages). Recherche du 26 octobre 2026 : page de résultats dominée par des définitions (appvizer, appmaster, académie de Nancy-Metz) et un article d'agence (agence-scroll) ; aucune ne compare SaaS, ERP, sans code et sur mesure. Fait : tableau des quatre types, deux FAQ, description ; cible de « application métier » basculée sur le billet dans keywords.json ; page service : title et définition recentrés sur « sur mesure », lien vers le billet.",
+      "sourcesALire": [
+        "https://www.appvizer.fr/magazine/services-informatiques/apaas/application-metier (relu le 26 octobre 2026)",
+        "https://agence-scroll.com/blog/application-metier-sur-mesure-exemples-et-avantages (lu le 26 octobre 2026)",
+        "https://appmaster.io/fr/glossary/application-commerciale-sans-code (lu le 26 octobre 2026)"
+      ],
+      "semainePrevue": "2026-W44",
+      "statut": "en cours",
+      "pr": null,
+      "mesureAttendue": "/blog/application-metier-exemples-pme, requête « application métier » : position 29,5, 144 impressions sur 28 jours ; page 454 impressions, position 28,8, 0 clic (collecte du 25 octobre 2026). Attendu : position sous 20 et au moins un clic ; « application métier sur mesure » classée sur /services/applications-internes. À juger à partir de 2026-W47.",
+      "resultat": null,
+      "origine": "docs/seo/data/latest.json du 25 octobre 2026 : keywords.rows « application métier » (priorité 1) classée sur le billet, onTarget false, cannibalisation ; performance.lowCtrPages (454 impressions, 0 clic)."
     },
     {
       "id": "w44-article-cahier-des-charges-refonte-site",
@@ -2443,6 +2488,46 @@
       "mesureAttendue": "Page inconnue de Google à la mise en ligne (jamais inspectée) : à lire à la collecte 2026-W44 (indexée oui ou non, impressions sur la requête cible) puis à celle d'après ; clics transmis aux pages de service et à l'audit gratuit.",
       "resultat": null,
       "origine": "Décision de Simon du 24 octobre 2026 (création assumée sur le thème agents IA toujours actifs et moteurs ouverts ; remplace « renforcer sans créer » de docs/audits/2026-10-13-strategie-seo-geo.md pour ce thème). Billet transversal."
+    },
+    {
+      "id": "w50-comparatif-navigateur-cowork-vs-claude-in-chrome",
+      "type": "comparatif",
+      "titreProvisoire": "Navigateur intégré de Cowork ou extension Claude in Chrome : lequel utiliser",
+      "requeteCible": "claude cowork navigateur",
+      "intention": "Choisir entre le navigateur intégré à Claude Cowork et l'extension Claude in Chrome pour une tâche web.",
+      "urlCible": "/ressources/comparatifs/navigateur-cowork-vs-claude-in-chrome",
+      "angle": "Hypothèse à vérifier par la SERP du jour. Critères : où tourne le navigateur, sessions et comptes connectés, réglages d'administration, risques. Verdict par cas d'usage. Ne pas cannibaliser le guide Claude in Chrome ni le billet d'installation.",
+      "sourcesALire": [
+        "Aide Anthropic sur le navigateur intégré de Cowork, version du jour",
+        "https://claude.com/fr/blog/cowork-built-in-browser",
+        "Premiers résultats de « claude cowork navigateur », « cowork built-in browser »"
+      ],
+      "semainePrevue": "2026-W50",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Page indexée et premières impressions sur la requête cible, deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "Recherche du 26 octobre 2026 : la page d'aide « Get started with Claude in Chrome » annonce le navigateur intégré de Cowork « rolling out gradually this week » ; résultat de recherche claude.com/fr/blog/cowork-built-in-browser ; nouvelle URL concurrente claudin.tech/blog/claude-cowork-navigateur-integre-securite relevée dans son sitemap le 26 octobre 2026 (non lue : lecture refusée par l'outil)."
+    },
+    {
+      "id": "w49-article-acces-agent-ia-identifiants",
+      "type": "article",
+      "titreProvisoire": "Donner accès à un agent IA : identifiants, droits, ce qu'il ne doit jamais toucher",
+      "requeteCible": "agent ia accès identifiants entreprise",
+      "intention": "Savoir comment ouvrir des comptes et des accès à un agent IA sans exposer l'entreprise.",
+      "urlCible": "/blog/acces-agent-ia-identifiants-pme",
+      "angle": "Hypothèse à vérifier par la SERP du jour (la requête peut appeler un autre libellé). Apporté : comptes dédiés, droits minimum, coffre de mots de passe, ce que les éditeurs bloquent déjà (achats, suppressions), journal des actions, et « ne le faites pas si ». Relier aux pages agents IA et à la charte IA.",
+      "sourcesALire": [
+        "Le Monde Informatique, 23 octobre 2026, 1Password et les identifiants des agents IA (puis la source primaire de 1Password)",
+        "Guide des permissions de Claude in Chrome",
+        "Premiers résultats de la requête cible et de deux variantes"
+      ],
+      "semainePrevue": "2026-W49",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Page indexée et premières impressions sur la requête cible, deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "docs/seo/data/latest.json du 25 octobre 2026, feeds.entries, sujet commun à quatre sources : Le Monde Informatique (23 octobre, 1Password et identifiants des agents IA), Journal du Net (21 octobre, « Jusqu'où peut-on déléguer notre pouvoir aux agents IA ? » ; 22 octobre, « Laisser une IA toucher à sa comptabilité : où placer la limite »), Blog du Modérateur (20 octobre, « Agents IA en entreprise : jusqu'où leur déléguer »)."
     }
   ]
 }
