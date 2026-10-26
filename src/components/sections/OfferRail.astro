@@ -465,9 +465,25 @@ const families = data.families;
   }
   @media (max-width: 760px) {
     .he-rail { display: none; }
+    /* Sans dorsale, l'intro des services n'a plus de respiration au-dessus : elle collait à
+       la carte d'offre. Phrase en sans (lisible sur 2 lignes), plus de mono espacé. */
+    .he-services__intro {
+      margin: var(--space-7) 0 var(--space-4);
+      font-family: var(--font-sans);
+      font-size: var(--text-body);
+      letter-spacing: var(--tracking-body);
+      line-height: var(--leading-relaxed);
+      text-wrap: pretty;
+    }
   }
   @media (max-width: 560px) {
     .he-services { grid-template-columns: 1fr; }
+    /* Cartes services compactes : 6 cartes pleines mangeaient ~930 px d'écran. */
+    .he-svc { gap: var(--space-1); padding: var(--space-4); }
+    .he-svc__sub {
+      margin-top: var(--space-1);
+      letter-spacing: var(--tracking-body);
+    }
   }
 </style>
 

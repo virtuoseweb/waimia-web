@@ -75,6 +75,21 @@ const chips = SILO_KEYS.map((key) => ({
   .silo-chip-n { font-family: var(--font-mono); color: var(--muted); }
   .silo-chip[aria-pressed='true'] { background: var(--ink); border-color: var(--ink); color: var(--paper); }
   .silo-chip[aria-pressed='true'] .silo-chip-n { color: inherit; }
+  /* Mobile : une seule rangée défilable au lieu d'un nuage de puces empilées (le hub Ressources
+     garde son propre panneau « Filtrer », classe .res-silos). */
+  @media (max-width: 767px) {
+    .silo-filter:not(.res-silos) {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: var(--space-2);
+      margin-inline: calc(var(--gut) * -1);
+      padding-inline: var(--gut);
+      scrollbar-width: none;
+      scroll-snap-type: x proximity;
+    }
+    .silo-filter:not(.res-silos)::-webkit-scrollbar { display: none; }
+    .silo-filter:not(.res-silos) .silo-chip { flex: none; white-space: nowrap; scroll-snap-align: start; }
+  }
   /* Les cartes (display:flex côté section) ignorent l'attribut hidden : on le fait respecter. */
   :global([data-silo][hidden]) { display: none !important; }
 </style>

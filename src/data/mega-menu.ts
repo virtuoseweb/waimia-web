@@ -232,12 +232,11 @@ function mapLegacyFeatured(featured: LegacyFeaturedCard, image?: string): MegaMe
 // Prise de rendez-vous : AUDIT_BOOKING_HREF (source unique : sitemap.ts). `/audit-ia-pme`
 // PRÉSENTE l'audit (liens « Audit IA PME ») ; les « Réserver un audit » mènent au contact.
 
-// ─── RESSOURCES · allégé (2026-10-06, demande Simon : « un hub, quelques liens importants,
-// Tout voir »). Vues filtrées guides, comparatifs et outils, blog, plus le guide pilier en bloc
-// mis en avant ; deux cartes illustrées (diagnostic, calculateur) occupent le bas des colonnes.
-// Chaque colonne reste à 4 liens au plus (Décider : guides, comparatifs, outils). Le détail (tous les guides, comparatifs,
-// outils et articles, filtrables par type) vit sur l'index unifié /ressources, lié par
-// « Tout voir ». Les hubs sont indexables dès 3 pages filles (règle calculée, hub-index.ts).
+// ─── RESSOURCES · allégé (2026-10-06), recentré sur le hub (2026-10-26) : une colonne « Parcourir
+// par type » (guides, comparatifs, outils, articles et actualités) et une colonne « Passer à
+// l'action » (diagnostic, calculateur, guide pilier). Deux cartes illustrées de même niveau :
+// le hub /ressources (filtres et recherche) et le diagnostic. Le détail vit sur l'index unifié
+// /ressources, lié par « Tout voir ». Les hubs sont indexables dès 3 pages filles (hub-index.ts).
 const RESSOURCES: MegaMenuSection = {
   parent: 'ressources',
   label: MM_RESOURCES.label,
@@ -249,23 +248,80 @@ const RESSOURCES: MegaMenuSection = {
   },
   columns: [
     {
-      kicker: { fr: 'APPRENDRE', en: 'LEARN' },
-      title: { fr: 'Apprendre', en: 'Learn' },
+      kicker: { fr: 'PARCOURIR', en: 'BROWSE' },
+      title: { fr: 'Parcourir par type', en: 'Browse by type' },
       links: [
         {
-          label: { fr: 'Blog', en: 'Blog' },
-          href: '/blog',
+          label: { fr: 'Guides', en: 'Guides' },
+          href: '/ressources/guides',
           description: {
-            fr: 'Notes de terrain sur l\'IA et l\'automatisation.',
-            en: 'Field notes on AI and automation.',
+            fr: 'Les guides pratiques, du cadrage au déploiement.',
+            en: 'Practical guides, from scoping to rollout.',
           },
         },
         {
-          label: { fr: 'Actualités', en: 'News' },
-          href: '/actualites',
+          label: { fr: 'Comparatifs', en: 'Comparisons' },
+          href: '/ressources/comparatifs',
           description: {
-            fr: 'Ce qui est annoncé en IA, et ce que ça change pour une PME.',
-            en: 'What is announced in AI, and what it changes for an SMB.',
+            fr: 'Deux outils face à face, l\'arbitrage tranché.',
+            en: 'Two tools side by side, the call made plainly.',
+          },
+        },
+        {
+          label: { fr: 'Outils gratuits', en: 'Free tools' },
+          href: '/ressources/outils',
+          description: {
+            fr: 'Calculateurs, grilles et modèles, sans inscription.',
+            en: 'Calculators, grids and templates, no sign-up.',
+          },
+        },
+        {
+          label: { fr: 'Articles et actualités', en: 'Articles and news' },
+          href: '/blog',
+          description: {
+            fr: 'Notes de terrain et veille IA pour une PME.',
+            en: 'Field notes and AI news for an SME.',
+          },
+        },
+      ],
+      // Carte au même niveau que celle du diagnostic : elle mène au hub (filtres et recherche).
+      card: {
+        title: { fr: 'Toutes les ressources', en: 'All resources' },
+        body: {
+          fr: 'Guides, comparatifs, outils et articles au même endroit, avec recherche et filtres.',
+          en: 'Guides, comparisons, tools and articles in one place, with search and filters.',
+        },
+        cta: { fr: 'Explorer les ressources →', en: 'Explore the resources →' },
+        href: '/ressources',
+        image: '/images/illustrations/ds/ressources-fichier-tiroirs-paper.webp',
+      },
+    },
+    {
+      kicker: { fr: 'PASSER À L\'ACTION', en: 'TAKE ACTION' },
+      title: { fr: 'Passer à l\'action', en: 'Take action' },
+      links: [
+        {
+          label: { fr: 'Diagnostic de maturité IA', en: 'AI maturity diagnostic' },
+          href: '/ressources/diagnostics/maturite-ia',
+          description: {
+            fr: 'Dix questions, un niveau de 1 à 5.',
+            en: 'Ten questions, a level from 1 to 5.',
+          },
+        },
+        {
+          label: { fr: 'Calculateur ROI IA', en: 'AI ROI calculator' },
+          href: '/ressources/outils/calculateur-roi-ia',
+          description: {
+            fr: 'Le temps récupérable, chiffré en deux minutes.',
+            en: 'The recoverable time, priced in two minutes.',
+          },
+        },
+        {
+          label: { fr: 'Guide : déployer Claude en PME', en: 'Guide: deploying Claude in an SME' },
+          href: '/ressources/guides/claude-pme',
+          description: {
+            fr: 'Quel produit, quel coût, quel ordre de déploiement.',
+            en: 'Which product, what cost, which rollout order.',
           },
         },
       ],
@@ -280,59 +336,7 @@ const RESSOURCES: MegaMenuSection = {
         image: '/images/illustrations/ds/outil-diagnostic-maturite-ia-paper.webp',
       },
     },
-    {
-      kicker: { fr: 'DÉCIDER', en: 'DECIDE' },
-      title: { fr: 'Décider', en: 'Decide' },
-      links: [
-        {
-          label: { fr: 'Comparatifs', en: 'Comparisons' },
-          href: '/ressources/comparatifs',
-          description: {
-            fr: 'Deux outils face à face, l\'arbitrage tranché.',
-            en: 'Two tools side by side, the call made plainly.',
-          },
-        },
-        {
-          label: { fr: 'Guides', en: 'Guides' },
-          href: '/ressources/guides',
-          description: {
-            fr: 'Les guides pratiques, du cadrage au déploiement.',
-            en: 'Practical guides, from scoping to rollout.',
-          },
-        },
-        {
-          label: { fr: 'Outils gratuits', en: 'Free tools' },
-          href: '/ressources/outils',
-          description: {
-            fr: 'Calculateurs, grilles et modèles, sans inscription.',
-            en: 'Calculators, grids and templates, no sign-up.',
-          },
-        },
-      ],
-      card: {
-        title: { fr: 'Calculateur ROI IA', en: 'AI ROI calculator' },
-        body: {
-          fr: 'Vos heures et votre coût horaire : le temps récupérable, chiffré en deux minutes.',
-          en: 'Your hours and hourly cost: the recoverable time, priced in two minutes.',
-        },
-        cta: { fr: 'Calculer mon ROI →', en: 'Calculate my ROI →' },
-        href: '/ressources/outils/calculateur-roi-ia',
-        image: '/images/illustrations/ds/outil-calculateur-roi-ia-paper.webp',
-      },
-    },
   ],
-  featured: {
-    kicker: { fr: 'GUIDE COMPLET', en: 'COMPLETE GUIDE' },
-    label: { fr: 'Déployer Claude en PME', en: 'Deploying Claude in an SME' },
-    body: {
-      fr: 'Quel produit pour quel besoin, ce que ça coûte, les risques et l\'ordre de déploiement.',
-      en: 'Which product for which need, what it costs, the risks and the rollout order.',
-    },
-    cta: { fr: 'Lire le guide →', en: 'Read the guide →' },
-    href: '/ressources/guides/claude-pme',
-    image: '/images/illustrations/ds/claude-pme-hub-carrefour-paper.webp',
-    imageSize: [1456, 624],
-  },
 };
 
 const SOLUTIONS: MegaMenuSection = {
@@ -591,13 +595,19 @@ const SOLUTIONS: MegaMenuSection = {
               description: { fr: 'IA et automatisation, pour que vos équipes reprennent la main.', en: 'AI and automation, so your teams take over.' },
               detail: [
                 {
-                  label: { fr: 'Programmes', en: 'Programmes' },
+                  label: { fr: 'IA et agents', en: 'AI and agents' },
                   links: [
-                    { label: { fr: 'Formation n8n', en: 'n8n training' }, href: '/formations/n8n' },
-                    { label: { fr: 'Formation Make', en: 'Make training' }, href: '/formations/make' },
                     { label: { fr: 'Formation Claude', en: 'Claude training' }, href: '/formations/claude' },
                     { label: { fr: 'Formation Claude Code', en: 'Claude Code training' }, href: '/formations/claude-code' },
                     { label: { fr: 'Formation ChatGPT', en: 'ChatGPT training' }, href: '/formations/chatgpt' },
+                  ],
+                },
+                {
+                  label: { fr: 'Automatisation', en: 'Automation' },
+                  links: [
+                    { label: { fr: 'Formation automatisation', en: 'Automation training' }, href: '/formations/automatisation' },
+                    { label: { fr: 'Formation n8n', en: 'n8n training' }, href: '/formations/n8n' },
+                    { label: { fr: 'Formation Make', en: 'Make training' }, href: '/formations/make' },
                   ],
                 },
               ],
@@ -736,52 +746,6 @@ const CAS_USAGES: MegaMenuSection = {
   },
 };
 
-// ─── FORMATIONS · entrée de premier niveau après « Cas d'usage » (stratégie v7, section Menu).
-// Hub /formations + les six programmes ; mêmes deux rubriques que les pages : IA (Claude,
-// Claude Code, ChatGPT) et automatisation (n8n, Make, parcours général). Aucun prix dans le
-// menu : ils vivent sur les pages (jetons prix.formation.*).
-const FORMATIONS: MegaMenuSection = {
-  parent: 'formations',
-  label: { fr: 'Formations', en: 'Training' },
-  parentHref: '/formations',
-  matchPrefixes: ['/formations'],
-  lead: {
-    fr: 'Former les équipes sur leurs cas réels, pour qu\'elles reprennent la main.',
-    en: 'Train teams on their real use cases, so they take over.',
-  },
-  columns: [
-    {
-      kicker: { fr: 'IA ET AGENTS', en: 'AI AND AGENTS' },
-      title: { fr: 'IA et agents', en: 'AI and agents' },
-      links: [
-        { label: { fr: 'Formation Claude', en: 'Claude training' }, href: '/formations/claude', description: { fr: 'De l\'application à Claude Platform.', en: 'From the app to Claude Platform.' } },
-        { label: { fr: 'Formation Claude Code', en: 'Claude Code training' }, href: '/formations/claude-code', description: { fr: 'Développer son projet avec l\'IA.', en: 'Develop your project with AI.' } },
-        { label: { fr: 'Formation ChatGPT', en: 'ChatGPT training' }, href: '/formations/chatgpt', description: { fr: 'Méthode commune, GPT personnalisés, API.', en: 'Shared method, custom GPTs, API.' } },
-      ],
-    },
-    {
-      kicker: { fr: 'AUTOMATISATION', en: 'AUTOMATION' },
-      title: { fr: 'Automatisation', en: 'Automation' },
-      links: [
-        { label: { fr: 'Formation automatisation', en: 'Automation training' }, href: '/formations/automatisation', description: { fr: 'Repérer les tâches, choisir l\'outil, un premier flux.', en: 'Spot the tasks, pick the tool, build a first flow.' } },
-        { label: { fr: 'Formation n8n', en: 'n8n training' }, href: '/formations/n8n', description: { fr: 'Workflows fiables, cloud ou auto-hébergés.', en: 'Reliable workflows, cloud or self-hosted.' } },
-        { label: { fr: 'Formation Make', en: 'Make training' }, href: '/formations/make', description: { fr: 'Scénarios fiables, erreurs gérées.', en: 'Reliable scenarios, handled errors.' } },
-      ],
-    },
-  ],
-  featured: {
-    kicker: { fr: 'FORMATIONS', en: 'TRAINING' },
-    label: { fr: 'IA et automatisation pour vos équipes', en: 'AI and automation for your teams' },
-    body: {
-      fr: 'Des sessions construites sur vos cas réels. Pas sûr du programme ? L\'audit gratuit sert aussi à le choisir.',
-      en: 'Sessions built on your real use cases. Unsure which programme? The free audit helps pick it.',
-    },
-    cta: { fr: 'Voir les formations →', en: 'See the training →' },
-    href: '/formations',
-    image: '/images/besoins/besoin-operer.webp',
-  },
-};
-
 // ─── RÉALISATIONS · ex « Cas clients » (libellé seul : les URL /cas-clients ne changent pas).
 // Mêmes deux rubriques que le hub : réalisations clients (deux colonnes, par nature du
 // travail) et projets internes (vague 2, 2026-10-05). Les /secteurs/* (noindex) sortent du menu.
@@ -917,11 +881,11 @@ const AGENCE: MegaMenuSection = {
 };
 
 // Premier niveau (refonte positionnement 2026-10) :
-// Solutions · Cas d'usage · Formations · Réalisations · Ressources · Le studio.
+// Solutions · Cas d'usage · Réalisations · Ressources · Le studio. Les formations vivent dans
+// Solutions › Conseil et formation (le hub /formations reste lié depuis ce module et le pied de page).
 export const MEGA_MENU: MegaMenuSection[] = [
   SOLUTIONS,
   CAS_USAGES,
-  FORMATIONS,
   CAS,
   RESSOURCES,
   AGENCE,

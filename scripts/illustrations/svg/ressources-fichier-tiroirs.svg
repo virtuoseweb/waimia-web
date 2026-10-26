@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · moteur B · tritone · « toutes les ressources au même endroit » : un fichier à
+       tiroirs géant ; un petit homme sur une échelle en tire un tiroir. Rôles remplacés par
+       render-svg.mjs. -->
+  <defs>
+    <g id="drawer">
+      <rect x="4" y="4" width="92" height="76" fill="{{shape}}"/>
+      <rect x="4" y="4" width="92" height="76" fill="none" stroke="{{shadow}}" stroke-width="2"/>
+      <rect x="30" y="18" width="40" height="18" fill="{{light}}"/>
+      <rect x="40" y="48" width="20" height="6" fill="{{shadow}}"/>
+    </g>
+    <g id="man">
+      <circle cx="0" cy="-88" r="8" fill="{{subject}}"/>
+      <path d="M-11 -78 Q0 -83 11 -78 L12 -40 L-12 -40 Z" fill="{{subject}}"/>
+      <rect x="-9" y="-41" width="7" height="40" fill="{{subject}}"/>
+      <rect x="2" y="-41" width="7" height="40" fill="{{subject}}"/>
+      <path d="M-11 -2 L-1 -2 L-1 2 L-11 2 Z M1 -2 L11 -2 L11 2 L1 2 Z" fill="{{subject}}"/>
+    </g>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <!-- Nuages crème -->
+  <path d="M1040 150 q20 -36 64 -28 q22 -34 66 -18 q36 -20 68 12 q44 -4 52 36 q26 8 18 36 L1024 188 q-8 -26 16 -38 Z" fill="{{light}}"/>
+  <path d="M90 120 q16 -28 52 -22 q18 -26 54 -14 q30 -14 54 10 L330 130 L74 140 q-6 -14 16 -20 Z" fill="{{light}}"/>
+
+  <!-- Sol -->
+  <rect y="532" width="1456" height="92" fill="{{ground}}"/>
+  <rect y="526" width="1456" height="8" fill="{{deep}}"/>
+
+  <!-- Le fichier géant : caisson et grille de tiroirs -->
+  <rect x="284" y="84" width="632" height="442" fill="{{deep}}"/>
+  <rect x="916" y="84" width="22" height="442" fill="{{shadow}}"/>
+  <rect x="274" y="72" width="664" height="16" fill="{{shadow}}"/>
+  <g>
+    <use href="#drawer" x="300" y="100"/>
+    <use href="#drawer" x="400" y="100"/>
+    <use href="#drawer" x="500" y="100"/>
+    <use href="#drawer" x="600" y="100"/>
+    <use href="#drawer" x="700" y="100"/>
+    <use href="#drawer" x="800" y="100"/>
+    <use href="#drawer" x="300" y="184"/>
+    <use href="#drawer" x="400" y="184"/>
+    <use href="#drawer" x="600" y="184"/>
+    <use href="#drawer" x="700" y="184"/>
+    <use href="#drawer" x="800" y="184"/>
+    <use href="#drawer" x="300" y="268"/>
+    <use href="#drawer" x="400" y="268"/>
+    <use href="#drawer" x="500" y="268"/>
+    <use href="#drawer" x="600" y="268"/>
+    <use href="#drawer" x="700" y="268"/>
+    <use href="#drawer" x="800" y="268"/>
+    <use href="#drawer" x="300" y="352"/>
+    <use href="#drawer" x="400" y="352"/>
+    <use href="#drawer" x="500" y="352"/>
+    <use href="#drawer" x="600" y="352"/>
+    <use href="#drawer" x="700" y="352"/>
+    <use href="#drawer" x="800" y="352"/>
+    <use href="#drawer" x="300" y="436"/>
+    <use href="#drawer" x="400" y="436"/>
+    <use href="#drawer" x="500" y="436"/>
+    <use href="#drawer" x="600" y="436"/>
+    <use href="#drawer" x="700" y="436"/>
+    <use href="#drawer" x="800" y="436"/>
+  </g>
+  <!-- Tiroir tiré (3e colonne, 2e rangée) : cavité sombre et tiroir qui avance -->
+  <rect x="504" y="188" width="92" height="76" fill="{{shadow}}"/>
+  <path d="M500 192 L600 192 L640 232 L640 272 L540 272 L500 232 Z" fill="{{shape}}"/>
+  <path d="M500 192 L600 192 L640 232 L540 232 Z" fill="{{light}}"/>
+  <path d="M500 192 L600 192 L640 232 L540 232 Z" fill="none" stroke="{{shadow}}" stroke-width="2"/>
+  <rect x="540" y="232" width="100" height="40" fill="{{shape}}"/>
+  <rect x="540" y="232" width="100" height="40" fill="none" stroke="{{shadow}}" stroke-width="2"/>
+  <rect x="570" y="246" width="40" height="8" fill="{{shadow}}"/>
+  <!-- Fiches qui s'envolent du tiroir -->
+  <g fill="{{light}}" stroke="{{shadow}}" stroke-width="1.5">
+    <path d="M620 150 L650 140 L660 168 L630 178 Z"/>
+    <path d="M668 110 L698 104 L704 132 L674 138 Z"/>
+    <path d="M714 70 L740 68 L742 94 L716 96 Z"/>
+  </g>
+
+  <!-- Échelle appuyée contre le fichier, à droite -->
+  <g stroke="{{detail}}" stroke-width="7" stroke-linecap="round" fill="none">
+    <path d="M1000 526 L930 110"/>
+    <path d="M1040 526 L970 110"/>
+  </g>
+  <g stroke="{{detail}}" stroke-width="5" stroke-linecap="round">
+    <path d="M992 480 L1032 480"/><path d="M985 430 L1025 430"/><path d="M978 380 L1018 380"/>
+    <path d="M971 330 L1011 330"/><path d="M964 280 L1004 280"/><path d="M957 230 L997 230"/>
+  </g>
+  <!-- Le petit homme, sur l'échelle, bras tendu vers le tiroir -->
+  <use href="#man" transform="translate(982 430) scale(1.0)"/>
+  <path d="M974 368 L 922 352" stroke="{{subject}}" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- Deuxième silhouette, au sol, au loin -->
+  <use href="#man" transform="translate(1250 526) scale(0.8)"/>
+</svg>

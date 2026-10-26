@@ -27,6 +27,8 @@ const entry = (over = {}) => ({
 });
 /** Six semaines de créations planifiées après W41, pour ne pas déclencher l'avertissement d'avance. */
 const sixWeeks = () => [42, 43, 44, 45, 46, 47].map((w) => entry({ id: `creation-w${w}`, urlCible: `/ressources/guides/sujet-${w}`, semainePrevue: `2026-W${w}` }));
+/** Stock d'idées pour atteindre le minimum de créations en réserve. */
+const stock = () => Array.from({ length: 14 }, (_, i) => entry({ id: `idee-${i}`, statut: 'idée', semainePrevue: null, urlCible: `/blog/idee-${i}` }));
 const run = (entries, opts = {}) => validateCalendar({ entries }, { now: NOW, targetExists: () => false, ...opts });
 
 test('semaines ISO : lundi d\'une semaine, décalage, semaine inexistante', () => {
@@ -39,11 +41,12 @@ test('semaines ISO : lundi d\'une semaine, décalage, semaine inexistante', () =
 });
 
 test('calendrier : une entrée conforme passe sans erreur', () => {
-  const res = run(sixWeeks());
+  const res = run([...sixWeeks(), ...stock()]);
   assert.deepEqual(res.errors, []);
   assert.deepEqual(res.warnings, []);
   assert.equal(res.stats.weeksAhead, 6);
   assert.equal(res.stats.byStatut['planifié'], 6);
+  assert.equal(res.stats.creationsStock, 20);
 });
 
 test('calendrier : champ manquant, champ inconnu, liste vide', () => {
@@ -108,11 +111,13 @@ test('calendrier : publié exige la PR et la page, mesuré et abandonné exigent
   assert.ok(run([entry({ statut: 'abandonné' })]).errors.some((m) => m.includes('sans `resultat`')));
 });
 
-test('calendrier : moins de six semaines d\'avance avertit sans faire échouer', () => {
-  const res = run(sixWeeks().slice(0, 4));
+test('calendrier : moins de deux semaines d\'avance avertit sans faire échouer', () => {
+  const res = run([...sixWeeks().slice(0, 1), ...stock()]);
   assert.deepEqual(res.errors, []);
-  assert.equal(res.stats.weeksAhead, 4);
-  assert.ok(res.warnings.some((m) => m.includes('4 semaine(s) d\'avance')));
+  assert.equal(res.stats.weeksAhead, 1);
+  assert.ok(res.warnings.some((m) => m.includes('1 semaine(s) d\'avance')));
+  // Stock trop mince : avertissement.
+  assert.ok(run(sixWeeks()).warnings.some((m) => m.includes('6 création(s) en stock')));
   // Un trou dans la suite arrête le compte : W42, W43, puis W45.
   const gap = sixWeeks().filter((e) => e.semainePrevue !== '2026-W44');
   assert.equal(weeksAhead(gap, '2026-W41'), 2);
@@ -125,8 +130,9 @@ test('calendrier : entrée planifiée en retard et semaine au-delà du plafond a
   const late = run([...sixWeeks(), entry({ id: 'retard', urlCible: '/blog/retard', semainePrevue: '2026-W40' })]);
   assert.deepEqual(late.errors, []);
   assert.ok(late.warnings.some((m) => m.includes('semaine passée')));
-  const crowded = run([...sixWeeks(), entry({ id: 'c2', urlCible: '/blog/c2' }), entry({ id: 'c3', urlCible: '/blog/c3' })]);
-  assert.ok(crowded.warnings.some((m) => m.includes('2026-W42 : 3 créations planifiées, plafond 2')));
+  const extra = Array.from({ length: 14 }, (_, i) => entry({ id: `c${i}`, urlCible: `/blog/c${i}` }));
+  const crowded = run([...sixWeeks(), ...extra]);
+  assert.ok(crowded.warnings.some((m) => m.includes('2026-W42 : 15 créations planifiées, plafond 14')));
 });
 
 test('calendrier : le fichier du repo est valide et ne vise que des pages réelles pour ses révisions', async () => {
