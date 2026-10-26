@@ -185,7 +185,9 @@ jobs:
   # formulaires. La suite est verte localement (45 passed / 9 skipped légitimes).
   e2e:
     name: E2E (Playwright · build servi)
-    runs-on: ubuntu-latest
+    # Épinglé : `ubuntu-latest` est passé sur Ubuntu 26.04, que Playwright 1.60 ne gère pas
+    # (« does not support chromium on ubuntu26.04-x64 »). Revenir à latest quand Playwright le gère.
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
       - name: Checkout
