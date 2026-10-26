@@ -52,7 +52,8 @@ const methodStory = {
 } as SectionData;
 
 // 04 · Réalisations · base c.json case-card-grid (cas réels, source unique), fond paper.
-const casesHome = { ...cByType('case-card-grid'), background: 'paper' } as SectionData;
+// density 'base' : c.json porte 'ample' (--space-12, 99 px en mobile) ; la home garde le cran --section-base des autres sections.
+const casesHome = { ...cByType('case-card-grid'), background: 'paper', density: 'base' } as SectionData;
 
 // 07 · FAQ · questions ET réponses de c.json (source unique), sélection par `faqConfig.idx`.
 const faqAll = cByType('faq-accordion').items as any[];
