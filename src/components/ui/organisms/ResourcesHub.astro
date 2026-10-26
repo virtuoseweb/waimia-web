@@ -29,9 +29,8 @@ import { auditCtaBand } from '../../../data/conversion';
 //   • `items` = liste complète (src/lib/resources-hub.ts) : même source pour les trois pages.
 //   • `activeKind` absent = index de tous les types ; sinon vue filtrée côté serveur (seules
 //     les cartes du type sont dans le HTML). Les pastilles sont de vrais liens.
-//   • Outils et comparatifs ne sont que des filtres (décision Simon du 15/10/2026) : leur vue
-//     garde la tête de /ressources. Seule une vue dotée de son propre H1 dans RESOURCE_VIEWS
-//     (guides) a sa tête éditoriale et son fil d'Ariane (MastheadBar).
+//   • Les vues guides, comparatifs et outils ont chacune leur tête éditoriale (H1, introduction)
+//     et leur fil d'Ariane (MastheadBar), dès que RESOURCE_VIEWS leur donne un H1 (2026-10-26).
 interface Props {
   items: ResourceItem[];
   activeKind?: Extract<ResourceKind, 'outils' | 'comparatifs' | 'guides'>;
@@ -76,8 +75,8 @@ for (let i = 0; i < shown.length; i += GRID_MAX) {
     background: 'paper',
     columns: '3',
     articles: shown.slice(i, i + GRID_MAX).map((it) => ({
-      tag_fr: kindOf(it.kind).tag_fr,
-      tag_en: kindOf(it.kind).tag_en,
+      tag_fr: it.tag_fr ?? kindOf(it.kind).tag_fr,
+      tag_en: it.tag_en ?? kindOf(it.kind).tag_en,
       title_fr: it.title_fr,
       title_en: it.title_en,
       excerpt_fr: it.excerpt_fr,

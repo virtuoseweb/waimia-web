@@ -33,6 +33,25 @@ export type ResourceItem = {
   tags?: string[];
   /** Type d'outil (calculateur, checklist, modèle, audit) : mots-clés de la recherche. */
   toolType?: 'calculator' | 'checklist' | 'template' | 'audit';
+  /** Libellé de carte plus précis que celui du type (ex. « OUTIL · CALCULATEUR », « ACTUALITÉ »). */
+  tag_fr?: string;
+  tag_en?: string;
+};
+
+// Sous-types d'outil et d'article : le tag de la carte dit de quoi il s'agit, pas seulement « OUTIL ».
+const TOOL_TAG: Record<NonNullable<ResourceItem['toolType']>, { fr: string; en: string }> = {
+  calculator: { fr: 'OUTIL · CALCULATEUR', en: 'TOOL · CALCULATOR' },
+  checklist: { fr: 'OUTIL · CHECKLIST', en: 'TOOL · CHECKLIST' },
+  template: { fr: 'OUTIL · MODÈLE', en: 'TOOL · TEMPLATE' },
+  audit: { fr: 'OUTIL · DIAGNOSTIC', en: 'TOOL · DIAGNOSTIC' },
+};
+const ARTICLE_TAG: Record<string, { fr: string; en: string }> = {
+  actualite: { fr: 'ACTUALITÉ', en: 'NEWS' },
+  'veille-ia': { fr: 'ACTUALITÉ', en: 'NEWS' },
+  essai: { fr: 'ESSAI', en: 'ESSAY' },
+  avis: { fr: 'AVIS', en: 'REVIEW' },
+  notes: { fr: 'NOTE DE TERRAIN', en: 'FIELD NOTE' },
+  'field-note': { fr: 'NOTE DE TERRAIN', en: 'FIELD NOTE' },
 };
 
 // Titre court : la partie avant « · ».
@@ -88,6 +107,8 @@ async function build(): Promise<ResourceItem[]> {
       href: `/ressources/outils/${e.id}`,
       heroSrc: e.data.heroIllustration?.src ?? outilHeroOverride(e.id)?.src,
       toolType: e.data.type,
+      tag_fr: TOOL_TAG[e.data.type].fr,
+      tag_en: TOOL_TAG[e.data.type].en,
     })),
     ...(maturite
       ? [{
@@ -100,6 +121,8 @@ async function build(): Promise<ResourceItem[]> {
           href: '/ressources/diagnostics/maturite-ia',
           tags: maturite.data.tags,
           toolType: 'audit' as const,
+          tag_fr: TOOL_TAG.audit.fr,
+          tag_en: TOOL_TAG.audit.en,
         }]
       : []),
     // Articles : même périmètre que /blog (les articles en noindex ne sont pas listés).
@@ -115,6 +138,8 @@ async function build(): Promise<ResourceItem[]> {
       silo: e.data.category,
       heroSrc: e.data.heroIllustration?.src ?? e.data.heroImage ?? undefined,
       tags: e.data.tags,
+      tag_fr: e.data.type ? ARTICLE_TAG[e.data.type]?.fr : undefined,
+      tag_en: e.data.type ? ARTICLE_TAG[e.data.type]?.en : undefined,
     })),
   ];
   const sorted = items.sort(

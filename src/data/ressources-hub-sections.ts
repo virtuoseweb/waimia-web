@@ -26,8 +26,8 @@ export const indexHeadData = {
 
 // ── VUES DU HUB · /ressources (toutes), /ressources/outils, /ressources/comparatifs et
 // /ressources/guides sont rendues par le MÊME composant (ResourcesHub.astro) ; chaque vue a sa propre URL, son
-// title/description. Outils et comparatifs sont des filtres de /ressources (décision Simon du
-// 15/10/2026) : sans `h1_fr`, leur vue garde la tête de /ressources. Guides a sa tête éditoriale. ──
+// title/description. Les trois vues (guides, comparatifs, outils) ont leur tête éditoriale (H1 +
+// introduction) ; sans `h1_fr`, une vue reprendrait la tête de /ressources. ──
 export type ResourceView = 'all' | 'outils' | 'comparatifs' | 'guides';
 
 export const RESOURCE_VIEWS: Record<ResourceView, {
@@ -66,6 +66,10 @@ export const RESOURCE_VIEWS: Record<ResourceView, {
     description_en: 'ROI calculator, AI maturity diagnostic, task automation grid, checklists and charter: free tools for B2B SMEs, no sign-up.',
     label_fr: 'Outils',
     label_en: 'Tools',
+    h1_fr: 'Outils <i>IA</i> gratuits pour PME.',
+    h1_en: 'Free <i>AI tools</i> for SMEs.',
+    lede_fr: 'Calculateur ROI, diagnostic de maturité IA, grilles, checklists et modèles : des outils pour chiffrer un gain, situer votre entreprise ou cadrer un projet.',
+    lede_en: 'ROI calculator, AI maturity diagnostic, grids, checklists and templates: tools to size a gain, place your company or scope a project.',
     collection_name_fr: 'Outils IA gratuits pour PME · Waimia',
     collection_name_en: 'Free AI tools for SMEs · Waimia',
     collection_desc_fr: "Calculateur ROI, score de maturité IA, grille de priorisation, charte et checklists : des outils gratuits pour PME B2B, pensés pour passer à l'action.",
@@ -79,6 +83,10 @@ export const RESOURCE_VIEWS: Record<ResourceView, {
     description_en: 'AI tool comparisons for SMEs: Claude vs ChatGPT, n8n vs Make, Zapier. Criteria set, gaps documented, the call made so you can decide.',
     label_fr: 'Comparatifs',
     label_en: 'Comparisons',
+    h1_fr: 'Comparatifs <i>IA</i> pour PME.',
+    h1_en: 'AI <i>comparisons</i> for SMEs.',
+    lede_fr: 'Deux outils face à face, les critères posés et l\'arbitrage tranché : Claude ou ChatGPT, n8n ou Make, sur mesure ou logiciel du marché.',
+    lede_en: 'Two tools side by side, the criteria set and the call made plainly: Claude or ChatGPT, n8n or Make, custom or off-the-shelf.',
     collection_name_fr: 'Comparatifs IA · Waimia',
     collection_name_en: 'AI comparisons · Waimia',
     collection_desc_fr: 'Comparatifs objectifs pour trancher entre outils, approches et fournisseurs IA.',
