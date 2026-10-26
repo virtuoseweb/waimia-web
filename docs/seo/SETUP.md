@@ -108,7 +108,7 @@ La collecte tourne le dimanche à 19:17 UTC (21 h 17 à Paris en été, 20 h 17 
 
 Deux tâches planifiées suivent, le lundi matin. Le texte exact de chacune est versionné : c'est lui qu'on recopie dans la tâche, et qu'on met à jour ici quand la tâche change.
 
-- la session Claude hebdomadaire de contenu (7 h 42 à Paris) : `docs/seo/prompts/routine-hebdo.md`. Elle lit les mesures dans le repo, fait sa recherche en ligne avec les outils web de la session, et n'utilise jamais le navigateur de Simon ;
+- la session Claude quotidienne de contenu (7 h 42 à Paris) : `docs/seo/prompts/routine-quotidienne.md`. Elle lit les mesures dans le repo, fait sa recherche en ligne avec les outils web de la session, et n'utilise jamais le navigateur de Simon ;
 - la tâche « Soumission Brave hebdomadaire Waimia » (8 h 21 à Paris) : `docs/seo/prompts/brave.md`. Elle calcule sa file elle-même depuis le sitemap de production (`node scripts/seo-routine/brave-queue.mjs --from-sitemap --days=8`, ou à la main), y ajoute `latest.json > brave.toSubmit` s'il existe, et la soumet au formulaire de Brave Search par le navigateur de Simon. Elle exige son ordinateur allumé. Procédure : `docs/seo/ROUTINE.md`, section 12.
 
 Si un créneau planifié ne part pas (c'est arrivé le 5 octobre 2026 : aucun run `schedule`), rien n'est bloqué : la session produit son contenu sans la collecte, la tâche Brave ne lit que le sitemap, et le workflow se lance à la main depuis l'onglet « Actions ».
@@ -172,7 +172,7 @@ Le repo est privé sur un plan GitHub gratuit : la protection de branche n'y est
 | `node --test "scripts/seo-routine/tests/*.test.mjs"` | Tests unitaires. |
 | `node scripts/seo-routine/gsc-auth.mjs` | Vérifie le compte de service. |
 
-Fichiers à tenir à jour à la main : `docs/seo/keywords.json` (mots-clés suivis et pages cibles), `docs/seo/feeds.json` (flux, et éditeurs sans flux dans `noFeed`), `docs/seo/competitors.json`. Le calendrier éditorial `docs/seo/calendrier-editorial.json` est tenu par la session hebdomadaire ; Simon peut y ajouter une idée ou en abandonner une à tout moment.
+Fichiers à tenir à jour à la main : `docs/seo/keywords.json` (mots-clés suivis et pages cibles), `docs/seo/feeds.json` (flux, et éditeurs sans flux dans `noFeed`), `docs/seo/competitors.json`. Le calendrier éditorial `docs/seo/calendrier-editorial.json` est tenu par la session quotidienne ; Simon peut y ajouter une idée ou en abandonner une à tout moment.
 
 Quotas de l'API d'inspection d'URL : 2 000 requêtes par jour et 600 par minute pour une propriété. Le script plafonne à 1 800 par exécution et à 300 par minute ; le sitemap compte moins de 100 URL.
 
