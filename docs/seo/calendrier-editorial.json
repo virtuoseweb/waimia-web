@@ -1988,7 +1988,13 @@
         "https://www.datacamp.com/tutorial/claude-for-chrome-ai-powered-browser-assistance-automation (lu le 26 octobre 2026)",
         "https://aimaker.substack.com/p/claude-chrome-extension-browser-automation-guide (lu le 26 octobre 2026)",
         "https://travis.media/blog/claude-for-chrome-explained/ (lu le 26 octobre 2026)",
-        "https://atlas.utdallas.edu/TDClient/30/Portal/KB/Article/1599/Claude-for-Chrome (lu le 26 octobre 2026)"
+        "https://atlas.utdallas.edu/TDClient/30/Portal/KB/Article/1599/Claude-for-Chrome (lu le 26 octobre 2026)",
+        "https://claude.com/blog/claude-in-chrome-generally-available (lu le 26 octobre 2026)",
+        "https://claude.com/fr/blog/cowork-built-in-browser (lu le 26 octobre 2026)",
+        "https://findskill.ai/blog/claude-in-chrome-is-it-safe-2026/ (lu le 26 octobre 2026)",
+        "https://gigazine.net/gsc_news/en/20260827-claude-chrome-available/ (lu le 26 octobre 2026)",
+        "https://www.claudin.tech/blog/claude-cowork-chrome-sans-connecteur (lu le 26 octobre 2026)",
+        "https://www.claudin.tech/blog/claude-cowork-navigateur-integre-securite (lu le 26 octobre 2026)"
       ],
       "semainePrevue": "2026-W44",
       "statut": "publié",
@@ -2008,7 +2014,16 @@
       "sourcesALire": [
         "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-113 (lu le 26 octobre 2026)",
         "https://eur-lex.europa.eu/eli/dec_impl/2026/2274/oj (lu le 26 octobre 2026)",
-        "https://www.cencenelec.eu/news-events/news/2026/en-in-the-spotlight/2026-10-15-en-18286-2026-published-in-ojeu/ (lu le 26 octobre 2026)"
+        "https://www.cencenelec.eu/news-events/news/2026/en-in-the-spotlight/2026-10-15-en-18286-2026-published-in-ojeu/ (lu le 26 octobre 2026)",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-111 (lu le 26 octobre 2026)",
+        "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai (lu le 26 octobre 2026)",
+        "https://digital-strategy.ec.europa.eu/en/news/ai-omnibus-enters-force (lu le 26 octobre 2026)",
+        "https://www.cnil.fr/fr/entree-en-vigueur-du-reglement-europeen-sur-lia-les-premieres-questions-reponses-de-la-cnil (lu le 26 octobre 2026)",
+        "https://www.entreprises.gouv.fr/espace-presse/la-dge-et-la-dgccrf-publient-le-projet-de-designation-des-autorites-nationales-en (lu le 26 octobre 2026)",
+        "https://www.senat.fr/enseance/2025-2026/348/Amdt_442.html (lu le 26 octobre 2026)",
+        "https://www.assemblee-nationale.fr/17/projets/pl2518.asp (lu le 26 octobre 2026)",
+        "https://www.claudin.tech/blog/ai-act-controles-effectifs-entreprises (lu le 26 octobre 2026)",
+        "https://www.claudin.tech/blog/ia-ressources-humaines-grille (lu le 26 octobre 2026)"
       ],
       "semainePrevue": "2026-W44",
       "statut": "publié",
@@ -2503,10 +2518,10 @@
         "Premiers résultats de « claude cowork navigateur », « cowork built-in browser »"
       ],
       "semainePrevue": "2026-W50",
-      "statut": "planifié",
+      "statut": "abandonné",
       "pr": null,
       "mesureAttendue": "Page indexée et premières impressions sur la requête cible, deux collectes après la mise en production.",
-      "resultat": null,
+      "resultat": "Abandonnée le 26 octobre 2026 avant écriture : le sujet est couvert par une section du billet /blog/claude-extension-chrome (PR 139) et par claudin.tech/blog/claude-cowork-navigateur-integre-securite (28 août 2026, lu le 26 octobre 2026). Le navigateur intégré date de la fin août 2026 (billet d'Anthropic), pas d'octobre : l'origine était fausse.",
       "origine": "Recherche du 26 octobre 2026 : la page d'aide « Get started with Claude in Chrome » annonce le navigateur intégré de Cowork « rolling out gradually this week » ; résultat de recherche claude.com/fr/blog/cowork-built-in-browser ; nouvelle URL concurrente claudin.tech/blog/claude-cowork-navigateur-integre-securite relevée dans son sitemap le 26 octobre 2026 (non lue : lecture refusée par l'outil)."
     },
     {
@@ -2528,6 +2543,27 @@
       "mesureAttendue": "Page indexée et premières impressions sur la requête cible, deux collectes après la mise en production.",
       "resultat": null,
       "origine": "docs/seo/data/latest.json du 25 octobre 2026, feeds.entries, sujet commun à quatre sources : Le Monde Informatique (23 octobre, 1Password et identifiants des agents IA), Journal du Net (21 octobre, « Jusqu'où peut-on déléguer notre pouvoir aux agents IA ? » ; 22 octobre, « Laisser une IA toucher à sa comptabilité : où placer la limite »), Blog du Modérateur (20 octobre, « Agents IA en entreprise : jusqu'où leur déléguer »)."
+    },
+    {
+      "id": "w50-article-veille-reglementaire-automatisee",
+      "type": "article",
+      "titreProvisoire": "Automatiser sa veille réglementaire : flux, tri par IA, décision humaine",
+      "requeteCible": "veille réglementaire automatisée",
+      "intention": "Mettre en place une veille réglementaire qui collecte et trie seule, sans laisser l'IA décider de l'impact.",
+      "urlCible": "/blog/veille-reglementaire-automatisee-pme",
+      "angle": "Hypothèse à vérifier par la SERP du jour. Concurrent lu : claudin.tech (22 octobre 2026) propose un kit Claude Cowork (registre de sources, consigne de tâche planifiée, fiche d'impact) sans exemple rempli ni mode de défaillance. Apporté : retour d'expérience de la chaîne que Waimia fait tourner pour son propre site (flux RSS de feeds.json, collecte hebdomadaire, tri, journal), ce qui casse (flux en 403, doublons, sources sans flux), une fiche d'impact remplie en exemple illustratif, et ce que l'IA ne doit pas décider.",
+      "sourcesALire": [
+        "https://www.claudin.tech/blog/veille-reglementaire-ia-modele (lu le 26 octobre 2026)",
+        "docs/seo/feeds.json et docs/seo/ROUTINE.md (chaîne de veille de Waimia)",
+        "Pages d'aide d'Anthropic sur les tâches planifiées de Cowork, version du jour",
+        "Premiers résultats de la requête cible et de deux variantes, y compris en anglais (« automated regulatory monitoring »)"
+      ],
+      "semainePrevue": "2026-W50",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Page indexée et premières impressions sur la requête cible, deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "Nouvelle URL concurrente claudin.tech/blog/veille-reglementaire-ia-modele (collecte du 25 octobre 2026, competitors.rows), lue le 26 octobre 2026 ; flux du 22 octobre 2026 (Journal du Net, « Laisser une IA toucher à sa comptabilité : où placer la limite ») sur la limite de délégation à l'IA."
     }
   ]
 }
