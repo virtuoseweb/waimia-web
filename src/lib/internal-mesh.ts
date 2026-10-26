@@ -302,6 +302,7 @@ const PAGES: Record<string, PageDef> = {
   '/blog/relance-factures-impayees-automatique-pme': { label_fr: 'Relancer les factures impayées automatiquement', label_en: 'Automate unpaid invoice reminders', kind: 'article', topics: ['automatisation', 'commercial'] },
   '/ressources/guides/automatisation-factures-fournisseurs-pme': { label_fr: 'Automatisation des factures fournisseurs : déléguer et contrôler', label_en: 'Supplier invoice automation: what to delegate and check', kind: 'guide', topics: ['agents', 'automatisation'] },
   '/blog/ia-reponse-appel-offres-pme': { label_fr: "IA et appel d'offres : ce que la PME prépare et garde", label_en: 'AI and tenders: what a small business prepares and keeps', kind: 'article', topics: ['agents', 'automatisation'] },
+  '/blog/claude-extension-chrome': { label_fr: 'Extension Claude pour Chrome : installer et dépanner', label_en: 'Claude extension for Chrome: install and troubleshoot', kind: 'article', topics: ['claude', 'conformite'] },
   '/blog/claude-cowork-windows': { label_fr: 'Claude Cowork sur Windows : installation et limites', label_en: 'Claude Cowork on Windows: installation and limits', kind: 'article', topics: ['claude', 'conformite'] },
   '/blog/claude-max-pme': { label_fr: 'Claude Max en PME : pour qui, et quand Pro suffit', label_en: 'Claude Max for an SMB: who it is for', kind: 'article', topics: ['claude', 'conseil'] },
   '/blog/claude-pro-vs-team': { label_fr: 'Claude Pro ou Team : lequel choisir', label_en: 'Claude Pro vs Team: which to choose', kind: 'article', topics: ['claude', 'conseil'] },
@@ -309,7 +310,7 @@ const PAGES: Record<string, PageDef> = {
   '/blog/ai-act-pme-utilisatrice-ia': { label_fr: "AI Act : les obligations d'une PME qui utilise ChatGPT ou Claude", label_en: 'AI Act: what a small business using ChatGPT or Claude must do', kind: 'article', topics: ['conformite', 'conseil'] },
   '/blog/claude-code-skills': { label_fr: 'Skills Claude Code : créer et partager en équipe', label_en: 'Claude Code skills: create and share as a team', kind: 'article', topics: ['claude', 'applications'] },
   '/blog/cahier-des-charges-refonte-site': { label_fr: 'Cahier des charges de refonte : les cinq annexes', label_en: 'Redesign specification: the five appendices', kind: 'article', topics: ['web'] },
-  '/blog/application-metier-exemples-pme': { label_fr: 'Application métier : exemples par service en PME', label_en: 'Business application: examples by department', kind: 'article', topics: ['applications'] },
+  '/blog/application-metier-exemples-pme': { label_fr: 'Application métier : définition, types et exemples', label_en: 'Business application: definition, types and examples', kind: 'article', topics: ['applications'] },
   '/cas-clients/desangles-peinture': { label_fr: 'Cas client : Desangles Peinture', label_en: 'Case: Desangles Peinture', kind: 'cas-client', topics: ['acquisition'] },
 
   // ── Secteurs (indexables depuis 2026-10-05) : cibles du maillage, sans bloc émis par

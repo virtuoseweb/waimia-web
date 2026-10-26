@@ -8826,7 +8826,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "ai-act-pme-calendrier",
       "route": "/ressources/guides/ai-act-pme-calendrier",
       "index": 5,
-      "label": "Le calendrier de l'AI Act au 16 octobre 2026",
+      "label": "Le calendrier de l'AI Act au 26 octobre 2026",
       "variant": "editorial",
       "background": "paper-2"
     },

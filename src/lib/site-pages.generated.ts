@@ -6821,7 +6821,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/ressources/guides/ai-act-pme-calendrier",
-    "title": "AI Act pour PME : le calendrier vérifié le 16 octobre 2026",
+    "title": "AI Act pour PME : le calendrier vérifié le 26 octobre 2026",
     "group": "ressources",
     "collection": "guides",
     "file": "guides/ai-act-pme-calendrier.json",
@@ -6854,7 +6854,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-table-block",
-        "label": "Le calendrier de l'AI Act au 16 octobre 2026",
+        "label": "Le calendrier de l'AI Act au 26 octobre 2026",
         "variant": "editorial",
         "background": "paper-2"
       },
@@ -11580,6 +11580,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/claude-extension-chrome",
+    "title": "Extension Claude pour Chrome : installer, régler, dépanner",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/claude-extension-chrome.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/claude-max-pme",
     "title": "Claude Max en PME : pour qui, et quand Pro suffit",
     "group": "blog",
@@ -12941,6 +12950,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/claude-duet-france-acces-rgpd",
       "/blog/claude-duet-lancement-21-octobre-2026",
       "/blog/claude-duet-ou-claude-cowork",
+      "/blog/claude-extension-chrome",
       "/blog/claude-max-pme",
       "/blog/claude-microsoft-copilot-pme",
       "/blog/claude-pro-vs-team",
