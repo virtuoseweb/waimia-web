@@ -53,7 +53,7 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 - Titles réécrits du 13 au 16 octobre, relecture prévue à partir du 27 octobre : trop tôt (une seule semaine de données après réécriture). 7 jours au 22 octobre contre les 7 précédents : `claude-pme` 121 impressions (position 34,5) contre 68 (30,3) ; `claude-vs-chatgpt-pme` 85 (34,0) contre 61 (31,4) ; `consultant-ia-claude` 4 (26,5) contre 1 (18,0) ; `calculateur-roi-ia` 5 (40,8) contre aucune. 0 clic sur les quatre. Non retouchés.
 - Demandes d'indexation du 19 octobre (11 URL) : 9 indexées à la collecte du 25 octobre (`referencement-ia`, `cas-clients`, `agence`, `agence/methode`, `cold-email-b2b`, `claude-code-vs-cursor`, `secteurs/batiment`, `devis-automatise`, `desangles-peinture`) ; 2 toujours « détectées, non indexées » depuis le 4 octobre (`/services/automatisations`, `/services/systeme-acquisition`).
 
-**Actions de la semaine** (PR de la semaine 2026-W44) : une création, deux révisions.
+**Actions de la semaine** (PR #139) : une création, deux révisions.
 
 1. Création de `/blog/claude-extension-chrome` (entrée `w44-article-claude-extension-chrome`, planifiée en 2026-W44).
    - Pourquoi : entrée du calendrier, satellite du guide `/ressources/guides/claude-in-chrome-entreprise` (qui garde « claude extension » et le déploiement d'équipe ; ce guide est « détecté, non indexé » depuis une collecte : le billet lui ajoute un lien entrant, et le guide renvoie au billet en FR et EN, sans changer sa date).
