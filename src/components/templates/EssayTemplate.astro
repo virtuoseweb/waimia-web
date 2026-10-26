@@ -32,6 +32,7 @@ import type { SectionByType } from '@waimia/ds-kernel';
 import { localizeHref } from '../../lib/i18n';
 import AuthorByline from '../ui/molecules/AuthorByline.astro';
 import { splitLocaleHtml, filterHeadingsForHtml } from '../../lib/blog-locale-split';
+import { labelTableCells } from '../../lib/table-labels';
 import { SITE } from '../../site.config';
 import { siloCtaText } from '../../data/taxonomies';
 
@@ -157,7 +158,7 @@ const ledeHtml = (await Astro.slots.render('lede')).trim();
 // premier <hr> racine, EN après) et on retire le séparateur. Sommaire + a11y
 // filtrés sur les seuls headings présents dans la moitié retenue.
 const rawBodyHtml = await Astro.slots.render('body');
-const localizedBodyHtml = splitLocaleHtml(rawBodyHtml, lang);
+const localizedBodyHtml = labelTableCells(splitLocaleHtml(rawBodyHtml, lang));
 // CTA de milieu (billets, audit v5 point 4) : le corps est coupé avant le premier H2 qui suit
 // un paragraphe, donc après l'introduction (un « En bref » en liste ouvre souvent le corps,
 // le premier paragraphe vient ensuite). Sans paragraphe suivi d'un H2, pas de bande.

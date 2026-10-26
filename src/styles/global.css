@@ -466,6 +466,100 @@ a:not([class]):hover,
   padding: 0;
   font-size: var(--text-small);
 }
+
+/* Tableaux du corps riche. Les billets et guides arrivent en HTML nu (`<table>` sans classe) :
+   sans règle, les colonnes se touchent et le texte se lit d'un seul tenant. Un seul jeu de
+   règles pour tous les conteneurs de prose (.prose, .essay-prose des articles, colonne d'
+   EditorialProse). `display: block` + défilement horizontal : un tableau large ne fait jamais
+   déborder la page ; en dessous de 641 px chaque colonne garde une largeur minimale lisible. */
+:is(.prose, .essay-prose, .editorial-prose__col) table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  margin: var(--space-6) 0;
+  border-collapse: collapse;
+  font-size: var(--text-small);
+  line-height: var(--leading-relaxed);
+  color: var(--ink);
+}
+:is(.prose, .essay-prose, .editorial-prose__col) :is(th, td) {
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--hairline);
+}
+:is(.prose, .essay-prose, .editorial-prose__col) th {
+  font-weight: var(--fw-semibold);
+  color: var(--ink);
+  background: var(--paper-2);
+  border-bottom: 1px solid var(--hairline-strong);
+  white-space: nowrap;
+}
+:is(.prose, .essay-prose, .editorial-prose__col) td:first-child {
+  font-weight: var(--fw-medium);
+}
+:is(.prose, .essay-prose, .editorial-prose__col) tbody tr:last-child td {
+  border-bottom-color: var(--hairline-strong);
+}
+:is(.prose, .essay-prose, .editorial-prose__col) :is(td, th) p {
+  margin: 0;
+  font-size: inherit;
+}
+@media (max-width: 640px) {
+  :is(.prose, .essay-prose, .editorial-prose__col) :is(th, td) {
+    min-width: 11rem;
+    padding: var(--space-3);
+  }
+  :is(.prose, .essay-prose, .editorial-prose__col) th { white-space: normal; }
+
+  /* Tableau libellé (data-label, lib/table-labels.ts) : chaque ligne devient une fiche, le
+     libellé de colonne passe devant sa valeur, l'en-tête reste dans le DOM pour les lecteurs
+     d'écran. Un tableau sans libellés garde le défilement horizontal ci-dessus. */
+  :is(.prose, .essay-prose, .editorial-prose__col) table:has(td[data-label]) {
+    overflow-x: visible;
+  }
+  :is(.prose, .essay-prose, .editorial-prose__col) table:has(td[data-label]) thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  :is(.prose, .essay-prose, .editorial-prose__col) table:has(td[data-label]) :is(tbody, tr, td) {
+    display: block;
+    min-width: 0;
+  }
+  :is(.prose, .essay-prose, .editorial-prose__col) table:has(td[data-label]) tr {
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid var(--hairline-strong);
+  }
+  :is(.prose, .essay-prose, .editorial-prose__col) table:has(td[data-label]) tr:first-child {
+    border-top: 1px solid var(--hairline-strong);
+  }
+  :is(.prose, .essay-prose, .editorial-prose__col) table:has(td[data-label]) td {
+    padding: var(--space-1) 0;
+    border: 0;
+  }
+  :is(.prose, .essay-prose, .editorial-prose__col) table:has(td[data-label]) td:first-child {
+    padding-bottom: var(--space-2);
+    font-size: var(--text-body);
+    font-weight: var(--fw-semibold);
+  }
+  :is(.prose, .essay-prose, .editorial-prose__col) table:has(td[data-label]) td:first-child::before {
+    display: none;
+  }
+  :is(.prose, .essay-prose, .editorial-prose__col) table:has(td[data-label]) td::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: var(--space-1);
+    font-family: var(--font-mono);
+    font-size: var(--text-kicker);
+    font-weight: var(--fw-regular);
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+}
 .prose hr {
   margin: var(--space-7) 0;
   border: 0;
@@ -477,6 +571,9 @@ a:not([class]):hover,
 [data-bg='ink'] .prose ul,
 [data-bg='ink'] .prose ol { color: rgba(var(--paper-rgb), 0.78); }
 [data-bg='ink'] .prose :is(h2, h3, strong) { color: var(--paper); }
+[data-bg='ink'] :is(.prose, .editorial-prose__col) table { color: var(--paper); }
+[data-bg='ink'] :is(.prose, .editorial-prose__col) th { color: var(--paper); background: rgba(var(--paper-rgb), 0.08); }
+[data-bg='ink'] :is(.prose, .editorial-prose__col) :is(th, td) { border-bottom-color: rgba(var(--paper-rgb), 0.18); }
 [data-bg='ink'] .prose code {
   background: rgba(var(--paper-rgb), 0.08);
   border-color: rgba(var(--paper-rgb), 0.16);
