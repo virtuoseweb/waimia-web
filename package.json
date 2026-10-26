@@ -85,7 +85,8 @@
     "board:regen": "node scripts/sync-board.mjs --regen",
     "ds:apply": "node scripts/apply-ds-export.mjs",
     "check:jargon": "node scripts/check-jargon.mjs",
-    "test:claude-hooks": "node --test \"scripts/claude/tests/*.test.mjs\""
+    "test:claude-hooks": "node --test \"scripts/claude/tests/*.test.mjs\"",
+    "test:table-labels": "node --test scripts/tests/table-labels.test.mjs"
   },
   "dependencies": {
     "@waimia/atelier-ui": "workspace:*",
