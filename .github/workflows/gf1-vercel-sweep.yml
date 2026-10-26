@@ -38,7 +38,8 @@ jobs:
       (github.event.deployment_status.state == 'success' &&
        contains(github.event.deployment_status.environment, 'Preview') &&
        github.event.deployment_status.environment_url != '')
-    runs-on: ubuntu-latest
+    # Épinglé : Playwright 1.60 ne gère pas Ubuntu 26.04 (`ubuntu-latest`), cf ci.yml job e2e.
+    runs-on: ubuntu-24.04
     steps:
       # Le gate ne s'enforce que si le secret de bypass est configuré : sans lui, les previews
       # Vercel protégées renvoient 401/403 et le sweep serait rouge pour une raison de config,
