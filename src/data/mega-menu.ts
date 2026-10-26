@@ -293,7 +293,7 @@ const RESSOURCES: MegaMenuSection = {
         },
         cta: { fr: 'Explorer les ressources →', en: 'Explore the resources →' },
         href: '/ressources',
-        image: '/images/illustrations/ds/claude-pme-hub-carrefour-paper.webp',
+        image: '/images/illustrations/ds/ressources-fichier-tiroirs-paper.webp',
       },
     },
     {
