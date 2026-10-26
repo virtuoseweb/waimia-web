@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['2-col', 'media-right', 'split'],
     tags: ['contact', 'form', 'name', 'email', 'message', 'lead'],
     status: 'stable',
-    description_fr: 'Section contact avec formulaire (nom, email, message) et colonne coordonnées, action vers /api/contact, bilingue.',
-    description_en: 'Contact section with a form (name, email, message) and a details column, posting to /api/contact, bilingual.',
+    description_fr: 'Section contact avec formulaire (nom, email, téléphone, message) et colonne coordonnées, action vers /api/contact, bilingue.',
+    description_en: 'Contact section with a form (name, email, phone, message) and a details column, posting to /api/contact, bilingual.',
   
 };
