@@ -37,6 +37,56 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### Mesure avant/après, 27 octobre 2026 (collecte Actions 2026-W44, Search Console, Web Analytics, leads)
+
+**Sources.** Collecte `chore(seo-data): collecte 2026-W44` relancée à la main (`generatedAt` 2026-10-27T08:30 UTC, données finales au 24/10, neuf étapes « ok »). Search Console lue dans la console le 27/10 (données au 25/10) pour le 14 jours par page et l'inspection d'URL. Web Analytics par l'API Vercel. Alertes `[Lead]` dans Gmail.
+
+**Search Console, collecte W44 (source principale).**
+
+| Période | Clics | Impressions | CTR | Position |
+| --- | --- | --- | --- | --- |
+| 7 jours, 18 au 24/10 | 9 | 2 803 | 0,32 % | 31,6 |
+| 7 jours précédents, 11 au 17/10 | 5 | 1 392 | 0,36 % | 37,8 |
+| 28 jours, 27/09 au 24/10 | 19 | 5 311 | 0,36 % | 32,7 |
+| 28 jours précédents, 30/08 au 26/09 | 3 | 142 | 2,11 % | 25,7 |
+
+Console (au 25/10), pour recoupement : 28 jours (28/09 au 25/10) 21 clics, 5,71 k impressions, CTR 0,4 %, position 32,7, contre 3 clics, 156 impressions, 1,9 %, 26,3 ; 7 jours (19 au 25/10) 9 clics, 2,83 k impressions, 0,3 %, 30,9, contre 6 clics, 1,7 k, 0,4 %, 38 ; 14 jours (12 au 25/10) 15 clics, 4,52 k impressions, 0,3 %, 33,5, contre 6 clics, 1,18 k, 0,5 %, 29,3.
+
+**Lecture.** Hausse mesurée : sur 7 jours, impressions x 2,0 et clics x 1,8 ; sur 28 jours, 19 clics contre 3. Le CTR global baisse parce que les impressions montent plus vite que les clics (requêtes nouvelles, souvent au-delà de la page 3). Contre la référence du 16/10 (8 clics, 1 540 impressions du 16/09 au 13/10), le 28 jours actuel monte à 19 clics et 5 311 impressions, mais les deux fenêtres partagent 17 jours (27/09 au 13/10). Les clics de la semaine vont à `/blog/claude-pro-vs-team` (3, position 10,8), `/blog/claude-code-skills` (2, position 10,2), `/implantations/montpellier` (2), puis un clic chacune pour `/blog/claude-microsoft-copilot-pme` et `/politique-confidentialite`. La hausse du 21/10 (impressions x 2,6 par jour sur trois jours) est confirmée sur une semaine complète.
+
+**Les 4 pages cibles CTR, 14 jours (12 au 25/10) contre les 14 précédents (28/09 au 11/10), console filtrée par page.**
+
+| Page | Clics | Impressions | CTR | Position | Requête cible (collecte, 28 jours au 24/10) |
+| --- | --- | --- | --- | --- | --- |
+| `/ressources/outils/calculateur-roi-ia` | 0 / 0 | 6 / 10 | 0 % / 0 % | 39,3 / 7,2 | « roi ia » : 10 impressions, position 7,4, 0 clic ; 0 impression sur 7 jours |
+| `/ressources/guides/claude-pme` | 0 / 0 | 242 / 152 | 0 % / 0 % | 33 / 31,5 | « diagnostic claude pme » : 26 impressions, position 9,3 ; 7 sur 7 jours à 10,4 |
+| `/services/consultant-ia-claude` | 0 / 0 | 4 / 26 | 0 % / 0 % | 26,5 / 11,5 | « cabinet conseil ia pme » 5 impressions à 6,2 ; « prix consultant ia » 2 à 1,0 ; aucune sur 7 jours |
+| `/ressources/comparatifs/claude-vs-chatgpt-pme` | 0 / 0 | 169 / 149 | 0 % / 0 % | 34,8 / 32,9 | « chatgpt vs claude » : 4 impressions, position 11,5 ; 2 sur 7 jours à 14,5 |
+
+**Verdict.** Le CTR n'a monté sur aucune des quatre pages : 0 clic avant comme après. Le test de title n'est pas concluant, faute d'impressions en haut de page. Ce qui est mesuré, c'est la position :
+- Calculateur : positions de 6 à 12 du 28/09 au 7/10 (1,0 le 3/10), aucune impression du 8 au 15/10, puis 28,5 le 16/10, 31 le 17/10, 85 le 19/10, 32 le 25/10. La page a perdu ses impressions sur « roi ia » entre le 7 et le 16/10, période où le title est passé de « Calculateur ROI IA : temps récupérable et budget maximal » (avant le 14/10) à « ROI IA : calculateur gratuit… » (14/10) puis « ROI IA : formule de calcul et calculateur gratuit » (16/10). Corrélation, pas preuve : la page a aussi changé de contenu le 16/10 (FAQ, formule).
+- Consultant : positions de 2 à 18 du 28/09 au 9/10 (deux jours à 30,7 et 44), puis 27,5 le 16/10, 50 le 19/10, 1,0 le 21/10. Quatre impressions en 14 jours : trop peu pour conclure.
+- `claude-pme` : son title n'a pas été réécrit du 13 au 16/10 (seule la description a changé le 14/10). Impressions en hausse, position stable, « diagnostic claude pme » stable vers 10.
+- Comparatif : impressions en légère hausse, position stable, 4 impressions sur la requête cible en 28 jours.
+
+**Décisions (propositions, aucun fichier de contenu modifié par cette entrée).**
+1. Calculateur : revenir au title en ligne pendant la fenêtre de référence, en retirant `seoTitle_fr` pour que le title soit « Calculateur ROI IA : temps récupérable et budget maximal » (56 caractères), et reprendre la description d'avant le 16/10 : « Calculateur ROI IA gratuit : vos heures, votre coût horaire et vos hypothèses donnent le temps récupérable par an et le budget à ne pas dépasser. » (145 caractères). À faire dans une PR dédiée, puis relire « roi ia » trois semaines après.
+2. Consultant : revenir au title d'avant le 13/10, « Consultant IA pour PME : conseil et mise en œuvre » (49 caractères), et à une description proche de celle d'alors : « Consultant IA pour PME : état des lieux, cas d'usage chiffrés, feuille de route, puis mise en œuvre par la même personne. Audit gratuit. » (136 caractères). Même PR, même relecture.
+3. `claude-pme` : garder le title ; la hausse d'impressions ne justifie pas de toucher une page dont le title n'a pas changé. Si aucun clic au prochain relevé avec « diagnostic claude pme » toujours vers 10 : tester « Claude en PME : diagnostic, coût et plan sur 90 jours » (53 caractères, termes repris de la description actuelle).
+4. Comparatif : garder ; 4 impressions sur la requête cible en 28 jours ne permettent pas de juger un title.
+
+**Inspection d'URL (console, 27/10).** Les treize URL publiées du 14 au 16/10 sont toutes « Cette URL est sur Google », « La page est indexée » : `/blog/claude-max-pme`, `/blog/claude-pro-vs-team`, `/blog/facture-electronique-reception-pme`, `/blog/ai-act-pme-utilisatrice-ia` (inconnue de Google le 17/10), `/blog/claude-code-skills`, `/blog/cahier-des-charges-refonte-site`, `/blog/application-metier-exemples-pme`, `/blog/formation-ia-rh-pme`, `/blog/chatbot-rh-pme`, `/blog/audit-site-internet-pme`, `/blog/claude-cowork-windows`, `/ressources/outils/grille-audit-site-internet`, `/ressources/guides/automatisation-factures-fournisseurs-pme`. Aucun problème de découverte sur ce lot. Aucune demande d'indexation faite ce jour.
+
+**Suivi des demandes du 19/10 (collecte W44, inspection API).** Neuf sur onze indexées (`/agence`, `/agence/methode`, `/cas-clients`, `/cas-clients/desangles-peinture`, `/ressources/comparatifs/claude-code-vs-cursor`, `/ressources/guides/devis-automatise`, `/secteurs/batiment`, `/services/cold-email-b2b`, `/services/referencement-ia`). `/services/systeme-acquisition` : « Détectée, actuellement non indexée ». `/services/automatisations` : « Google ne reconnaît pas cette URL » (aucun sitemap ni page d'origine détectés, confirmé dans la console le 27/10) alors qu'elle répond 200, figure dans `sitemap-0.xml` et est liée depuis l'accueil (deux liens) : retard de découverte, pas de défaut technique trouvé. Sitemap resoumis par la collecte (240 URL soumises, dernier téléchargement par Google le 25/10).
+
+**Indexation globale.** Inspection API des 241 URL du sitemap : 173 indexées, 68 non indexées (47 « Détectée, actuellement non indexée », 11 « Google ne reconnaît pas cette URL », 5 noindex, 4 « Explorée, actuellement non indexée », 1 redirection). Le rapport Pages de la console affiche 159 indexées et 81 non indexées : les deux instruments ne comptent pas la même chose, pas de tendance à en tirer. Nouvellement indexées depuis le 25/10 : cinq pages, dont `/ressources/guides/claude-tpe` et `/services/webflow`.
+
+**Web Analytics (13 au 26/10).** 203 visiteurs, 606 pages vues. Les 13, 14 et 15/10 valent 0 : 11 jours de données sur 14, pas de période « avant » comparable. Le 16/10 se lit aujourd'hui 42 visiteurs et 141 pages vues, et non 5 et 24 comme relevé le 16/10 en cours de journée : la base du 16/10 ne sert pas de point de comparaison. Référents : aucun pour 171 visiteurs, google.com 31, search.brave.com 3, bing.com 1, search.google.com 1, LinkedIn 1 ; ChatGPT 0. Pages les plus vues : `/` (44 visiteurs), `/404` (27), `/contact` (18), `/blog` (9), `/bienvenue/contact` (8), `/blog/claude-code-skills` (8), `/blog/claude-pro-vs-team` (8), `/ressources/diagnostics/maturite-ia` (7), `/tarifs` (7). Pages d'arrivée depuis un moteur ou LinkedIn : `/` 8, `/blog/claude-code-skills` 5, `/blog/claude-pro-vs-team` 5, `/blog/chatgpt-dots-europe-disponibilite` 4.
+
+**Leads (alertes `[Lead]` depuis le 17/10).** 8 alertes : 6 tests de Simon (19/10, lead magnets et calculateur), 2 demandes de contact (23 et 26/10) qui sont du démarchage, l'une une offre de partenariat de marque non sollicitée, l'autre une prospection avec lien externe de réservation. **0 lead réel**, 0 demande de contact réelle. Cal.com : aucune réservation depuis le 17/10 (la recherche remonte bien les e-mails `cal.com` antérieurs, dont le dernier le 15/09). Limite : `/bienvenue/contact`, page servie après un envoi réussi de `/api/contact`, compte 8 vues (21/10 : 2, 23/10 : 1, 25/10 : 2, 26/10 : 3) pour 2 alertes ; les vues du 21 et du 25/10 n'ont pas d'alerte correspondante (visite directe, rechargement ou alerte manquante, non tranché).
+
+**À mesurer ensuite.** Après la PR des titles calculateur et consultant : « roi ia » et « cabinet conseil ia pme » trois semaines après le déploiement. `/services/automatisations` et `/services/systeme-acquisition` à la prochaine collecte. L'écart entre vues de `/bienvenue/contact` et alertes `[Lead]`.
+
 ### 2026-W44 (session du 26 octobre 2026, collecte du 25 octobre 2026)
 
 **Données** : collecte du 25 octobre 2026 à 21:48 UTC (`generatedAt`), fraîche oui (`freshness.mjs` : « FRAÎCHE · collecte complète de 8.9 h ») · Search Console configuré oui · étapes en erreur : aucune (9 étapes `ok`). Données de performance du 25 septembre au 22 octobre 2026 (28 jours) et du 16 au 22 octobre (7 jours). Flux : 128 entrées, 1 flux en erreur (`commission-europeenne-numerique`, HTTP 403). Concurrents : 10 URL nouvelles (kayro.ai 3, claudin.tech 7).
