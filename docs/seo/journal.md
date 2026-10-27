@@ -43,7 +43,7 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 **PR de la semaine précédente encore ouverte** : PR #130 (2026-W43). Son entrée `w43-article-apparaitre-dans-chatgpt-pme` reste en retard sur `main` (avertissement de `check-calendar`) ; elle n'est ni refaite ni replanifiée ici.
 
-**Actions du jour** (PR du 27 octobre 2026, branche `feat/seo-2026-10-27`) : deux créations de la série « IA par métier », aucune révision (aucune règle de 4.1 ne l'impose un mardi).
+**Actions du jour** (PR #149, branche `feat/seo-2026-10-27`) : deux créations de la série « IA par métier », aucune révision (aucune règle de 4.1 ne l'impose un mardi).
 
 1. Création de `/blog/ia-cabinet-comptable` (entrée `idee-ia-metier-comptabilite`, prise en 2026-W44).
    - Pourquoi : série « IA par métier » prioritaire (décision de Simon du 26 octobre 2026) ; aucune entrée planifiée en W44 ne restait à livrer.
