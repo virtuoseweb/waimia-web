@@ -43,7 +43,7 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 **PR encore ouvertes** : PR #149 (27 octobre 2026) et PR #130 (2026-W43). Leurs entrées ne sont ni refaites ni replanifiées ; cette PR part de `main` et touchera les mêmes fichiers (calendrier, journal, `keywords.json`, `internal-mesh.ts`) : mise à jour à prévoir après la fusion de la première.
 
-**Actions du jour** (PR #PR, branche `feat/seo-2026-10-28`) : deux créations de la série « IA par métier », aucune révision (aucune règle de 4.1 ne l'impose un mercredi).
+**Actions du jour** (PR #151, branche `feat/seo-2026-10-28`) : deux créations de la série « IA par métier », aucune révision (aucune règle de 4.1 ne l'impose un mercredi).
 
 1. Création de `/blog/ia-pme-industrielle` (entrée `idee-ia-metier-industrie`, prise en 2026-W44).
    - Pourquoi : série « IA par métier » prioritaire (décision de Simon du 26 octobre 2026) ; aucune entrée planifiée en W44 ne restait à livrer sur `main` hors PR ouvertes ; `/secteurs/industrie` publiée.
