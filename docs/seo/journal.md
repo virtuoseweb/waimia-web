@@ -43,7 +43,7 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 **PR encore ouvertes** : PR #151 (28 octobre 2026), PR #149 (27 octobre 2026) et PR #130 (2026-W43). Leurs entrées ne sont ni refaites ni replanifiées (dont `w43-article-apparaitre-dans-chatgpt-pme`, livrée par #130 et toujours « planifié » sur `main`, d'où l'avertissement de `check-calendar.mjs`). Cette PR part de `main` et touche les mêmes fichiers (calendrier, journal, `keywords.json`, `internal-mesh.ts`) : mise à jour à prévoir après la fusion des précédentes.
 
-**Actions du jour** (PR #PR, branche `feat/seo-2026-10-29`) : deux créations de la série « IA par métier », aucune révision (aucune règle de 4.1 ne l'impose un jeudi).
+**Actions du jour** (PR #152, branche `feat/seo-2026-10-29`) : deux créations de la série « IA par métier », aucune révision (aucune règle de 4.1 ne l'impose un jeudi).
 
 1. Création de `/blog/ia-e-commercant` (entrée `idee-ia-metier-e-commerce`, prise en 2026-W44).
    - Pourquoi : série « IA par métier » prioritaire (décision de Simon du 26 octobre 2026) ; satellite de `/secteurs/e-commerce`, qui garde la requête « ia e-commerce ».
