@@ -289,6 +289,7 @@ const PAGES: Record<string, PageDef> = {
   '/blog/chatgpt-shopping-e-commerce': { label_fr: 'ChatGPT Shopping : que corriger dans sa boutique', label_en: 'ChatGPT Shopping: what to fix in your shop', kind: 'article', topics: ['acquisition', 'web'] },
   '/ressources/guides/audit-geo-pme': { label_fr: 'Audit GEO : ce qu\'il vérifie, comment le mener', label_en: 'GEO audit: what it checks, how to run it', kind: 'guide', topics: ['acquisition'] },
   '/blog/etre-cite-par-perplexity': { label_fr: 'Être cité par Perplexity', label_en: 'Getting cited by Perplexity', kind: 'article', topics: ['acquisition'] },
+  '/blog/apparaitre-dans-chatgpt-pme': { label_fr: 'Apparaître dans ChatGPT : ce qu\'une PME contrôle', label_en: 'Appearing in ChatGPT: what an SMB controls', kind: 'article', topics: ['acquisition'] },
   '/ressources/guides/accompagnement-ia-pme': { label_fr: 'Accompagnement IA en PME : les formes et les critères', label_en: 'AI support for SMBs: formats and criteria', kind: 'guide', topics: ['conseil', 'formation'] },
   '/ressources/comparatifs/formateur-ia-organisme-freelance-agence': { label_fr: 'Formateur IA : organisme, indépendant ou agence', label_en: 'AI trainer: training body, freelancer or agency', kind: 'comparatif', topics: ['formation', 'conseil'] },
   '/ressources/guides/refonte-logiciel-metier': { label_fr: 'Refonte d\'un logiciel métier : garder, refondre, remplacer', label_en: 'Business software overhaul: keep, rebuild, replace', kind: 'guide', topics: ['applications'] },
