@@ -1,0 +1,124 @@
+name: IndexNow · envoi à chaque déploiement de production
+
+# Après chaque déploiement de production réussi, envoie à IndexNow (Bing, Yandex, Seznam, Naver et
+# moteurs partenaires ; Google n'y participe pas) les URL du sitemap qui sont nouvelles ou dont le
+# lastmod a changé depuis le dernier envoi. Même script et même état que la routine hebdomadaire
+# (scripts/seo-routine/indexnow.mjs, docs/seo/data/state/indexnow.json) : l'envoi hebdomadaire
+# reste le filet de sécurité, il ne renverra rien de ce que ce workflow a déjà envoyé.
+#
+# Activation : le trigger `deployment_status` lit TOUJOURS le fichier workflow de la branche par
+# défaut. Il ne se déclenche donc qu'une fois ce fichier fusionné sur main. D'ici là, le lancer à
+# la main (workflow_dispatch, avec « dry_run » pour une simulation).
+#
+# Garde-fous :
+#   - production seulement (environnement « Production »), état « success » ;
+#   - on attend que la production serve bien le commit déployé (/api/healthcheck) avant de lire
+#     le sitemap : sinon le sitemap lu serait celui de l'ancienne version et rien ne partirait ;
+#   - le seul fichier commité est l'état IndexNow (docs/seo/data/state/indexnow.json). vercel.json >
+#     ignoreCommand saute le déploiement d'un commit qui ne touche que docs/seo/data/, donc pas de
+#     boucle ;
+#   - la clé IndexNow est publique par conception (public/<clé>.txt) : aucun secret n'est requis.
+#
+# Limite : lastmod a la précision du jour. Deux modifications d'une même page le même jour ne
+# donnent qu'un envoi. La publication d'une URL nouvelle, elle, part immédiatement.
+
+on:
+  deployment_status:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Simulation : rien n'est envoyé, l'état n'est pas modifié"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write # commit de l'état IndexNow
+
+# Un seul envoi à la fois, et jamais en même temps que la routine hebdomadaire (même état).
+concurrency:
+  group: indexnow-state
+  cancel-in-progress: false
+
+jobs:
+  indexnow:
+    name: IndexNow après déploiement
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.deployment_status.state == 'success' &&
+       github.event.deployment_status.environment == 'Production')
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: "Checkout (main, pour l'état IndexNow le plus récent)"
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      # Le déploiement est « success » avant que le domaine serve toujours la nouvelle version :
+      # on attend que /api/healthcheck rende le SHA court du commit déployé (10 minutes au plus).
+      - name: Attendre que la production serve le commit déployé
+        if: github.event_name == 'deployment_status'
+        env:
+          SHA: ${{ github.event.deployment.sha }}
+        run: |
+          SHORT="${SHA:0:7}"
+          for i in $(seq 1 40); do
+            BODY=$(curl -fsS --max-time 15 https://waimia.com/api/healthcheck || true)
+            if echo "$BODY" | grep -q "\"version\":\"$SHORT\""; then
+              echo "Production sur $SHORT après $i essai(s)."
+              exit 0
+            fi
+            sleep 15
+          done
+          echo "::error::La production ne sert pas $SHORT après 10 minutes (dernière réponse : $BODY)."
+          exit 1
+
+      - name: Envoi IndexNow
+        env:
+          DRY: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && '--dry-run' || '' }}
+        run: |
+          set -euo pipefail
+          node scripts/seo-routine/indexnow.mjs $DRY | tee indexnow-result.json
+          {
+            echo "## IndexNow · déploiement"
+            echo
+            node -e "const r=JSON.parse(require('fs').readFileSync('indexnow-result.json','utf8'));console.log('Statut : '+r.status+' · '+r.sent+' URL envoyées ('+r.added.length+' nouvelles, '+r.modified.length+' modifiées).'+(r.note?' '+r.note:''))"
+          } >> "$GITHUB_STEP_SUMMARY"
+          rm indexnow-result.json
+
+      - name: Commit de l'état IndexNow
+        if: ${{ !(github.event_name == 'workflow_dispatch' && inputs.dry_run) }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Garde-fou : seul l'état IndexNow peut avoir changé.
+          OUTSIDE=$(git status --porcelain --untracked-files=all | awk '{print $NF}' | grep -v '^docs/seo/data/state/indexnow.json$' || true)
+          if [ -n "$OUTSIDE" ]; then
+            echo "::error::Fichiers modifiés hors de l'état IndexNow : $OUTSIDE"
+            exit 1
+          fi
+
+          git add docs/seo/data/state/indexnow.json
+          if git diff --cached --quiet; then
+            echo "Aucun changement d'état : rien à commiter."
+            exit 0
+          fi
+          git commit -m "chore(seo-data): état IndexNow après déploiement"
+          for attempt in 1 2 3; do
+            if git push origin HEAD:main; then
+              echo "État poussé sur main." >> "$GITHUB_STEP_SUMMARY"
+              exit 0
+            fi
+            echo "Push refusé (tentative $attempt), rebase puis nouvel essai."
+            git pull --rebase origin main || break
+          done
+          # main protégée : on ne force rien. L'envoi a eu lieu ; sans état commité, la routine
+          # hebdomadaire renverra les mêmes URL (IndexNow l'accepte), puis conservera l'état.
+          echo "::warning::État IndexNow non poussé sur main (branche protégée ?)."

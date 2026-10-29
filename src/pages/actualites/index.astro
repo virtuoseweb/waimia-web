@@ -1,0 +1,38 @@
+---
+// Route · /actualites · vue « actualités » du hub Ressources (ResourcesHub), 2026-10-26.
+//
+// Même composant que /ressources. Les actualités (billets `type: actualite`, cf lib/news.ts)
+// gardent leur URL /blog/<slug>, leur date et heure de Paris sur la carte, leur flux RSS
+// (/actualites/rss.xml, annoncé dans <head> et dans l'introduction) et leur sitemap news.
+export const prerender = true;
+
+import Base from '../../layouts/Base.astro';
+import ResourcesHub from '../../components/ui/organisms/ResourcesHub.astro';
+import { SITE } from '../../site.config';
+import { langFromPath } from '../../lib/i18n';
+import { getResourceItems } from '../../lib/resources-hub';
+import { buildCollectionPage } from '../../lib/seo/schema-builder';
+import { hubNoindex } from '../../lib/seo/hub-index';
+import { RESOURCE_VIEWS } from '../../data/ressources-hub-sections';
+
+const lang = langFromPath(Astro.url.pathname);
+const isFr = lang === 'fr';
+const v = RESOURCE_VIEWS.actualites;
+const items = await getResourceItems();
+const shown = items.filter((i) => i.kind === 'actualites');
+
+const collectionLd = buildCollectionPage(
+  isFr ? v.collection_name_fr : v.collection_name_en,
+  isFr ? v.collection_desc_fr : v.collection_desc_en,
+  shown.map((i) => `${SITE.url}${i.href}`),
+);
+---
+<Base
+  title={isFr ? v.title_fr : v.title_en}
+  description={isFr ? v.description_fr : v.description_en}
+  jsonLd={collectionLd}
+  noindex={hubNoindex(shown.length)}
+>
+  <link slot="head" rel="alternate" type="application/rss+xml" title="Waimia · Actualités" href="/actualites/rss.xml" />
+  <ResourcesHub items={items} activeKind="actualites" />
+</Base>

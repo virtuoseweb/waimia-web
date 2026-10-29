@@ -85,6 +85,26 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-2"
       },
       {
+        "type": "editorial-prose",
+        "label": "#4",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper-2"
+      },
+      {
+        "type": "process-steps",
+        "label": "Construire un agent autour d'un moteur ouvert, en cinq étapes",
+        "background": "paper"
+      },
+      {
+        "type": "decision-list",
+        "label": "Moteur ouvert, agent d'éditeur ou automatisation : le bon choix",
+        "background": "paper-2"
+      },
+      {
         "type": "comparison-duo",
         "label": "Exemple type : la boîte contact@ d'une PME de services",
         "background": "paper"
@@ -111,13 +131,23 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "eeat-panel",
-        "label": "#9",
+        "label": "#13",
         "variant": "media"
       },
       {
         "type": "cta-final",
         "label": "Où en est votre entreprise avec l'IA ?",
         "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Agents d'éditeur : Anthropic et OpenAI",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Agents open source : Hermes Agent et OpenClaw",
+        "background": "paper-2"
       },
       {
         "type": "faq-accordion",
@@ -367,6 +397,266 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "footer-cta-band",
         "label": "Combien de pièces ressaisissez-vous chaque semaine ?",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/services/agents-ia/agents-ia-open-source",
+    "title": "Agents IA open source pour entreprise : Hermes Agent, OpenClaw · Waimia",
+    "group": "offres",
+    "collection": "services",
+    "file": "services/agents-ia/agents-ia-open-source.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Agents IA open source pour entreprise",
+        "background": "paper"
+      },
+      {
+        "type": "proof-bar",
+        "label": "En bref",
+        "background": "paper"
+      },
+      {
+        "type": "definition-extract",
+        "label": "Définition",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "comparison-duo",
+        "label": "Le même moteur ouvert, installé tel quel ou déployé par Waimia",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper-2"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Un service par moteur",
+        "background": "paper"
+      },
+      {
+        "type": "process-steps",
+        "label": "Déployer un agent IA open source en cinq étapes",
+        "background": "paper-2"
+      },
+      {
+        "type": "deliverables-grid",
+        "label": "Ce qui vous est remis",
+        "background": "paper-3"
+      },
+      {
+        "type": "decision-list",
+        "label": "Un agent IA open source n'est pas la bonne réponse si",
+        "background": "paper"
+      },
+      {
+        "type": "pricing-cards",
+        "label": "Combien coûte un agent IA open source",
+        "background": "paper-2"
+      },
+      {
+        "type": "eeat-panel",
+        "label": "#11",
+        "variant": "media"
+      },
+      {
+        "type": "cta-final",
+        "label": "Où en est votre entreprise avec l'IA ?",
+        "background": "paper"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Agents IA open source : vos questions",
+        "background": "paper-2"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Comprendre les deux moteurs",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Un moteur ouvert a-t-il sa place chez vous ?",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/services/agents-ia/agents-ia-open-source/integration-hermes-agent",
+    "title": "Intégration Hermes Agent en entreprise · Waimia",
+    "group": "offres",
+    "collection": "services",
+    "file": "services/agents-ia/agents-ia-open-source/integration-hermes-agent.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Hermes Agent en entreprise",
+        "background": "paper"
+      },
+      {
+        "type": "proof-bar",
+        "label": "En bref",
+        "background": "paper"
+      },
+      {
+        "type": "definition-extract",
+        "label": "Définition",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "comparison-duo",
+        "label": "Hermes Agent installé par défaut, ou déployé avec méthode",
+        "background": "paper"
+      },
+      {
+        "type": "process-steps",
+        "label": "Déployer Hermes Agent en cinq étapes",
+        "background": "paper-2"
+      },
+      {
+        "type": "deliverables-grid",
+        "label": "Ce qui vous reste à la fin",
+        "background": "paper-3"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper"
+      },
+      {
+        "type": "decision-list",
+        "label": "Hermes Agent n'est pas le bon moteur si",
+        "background": "paper-2"
+      },
+      {
+        "type": "pricing-cards",
+        "label": "Prix de l'intégration de Hermes Agent",
+        "background": "paper"
+      },
+      {
+        "type": "eeat-panel",
+        "label": "#10",
+        "variant": "media"
+      },
+      {
+        "type": "cta-final",
+        "label": "Où en est votre entreprise avec l'IA ?",
+        "background": "paper"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Intégration de Hermes Agent : vos questions",
+        "background": "paper-2"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Hermes Agent a-t-il sa place chez vous, et à quelles conditions ?",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/services/agents-ia/agents-ia-open-source/integration-openclaw",
+    "title": "Intégration OpenClaw en entreprise · Waimia",
+    "group": "offres",
+    "collection": "services",
+    "file": "services/agents-ia/agents-ia-open-source/integration-openclaw.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "OpenClaw en entreprise",
+        "background": "paper"
+      },
+      {
+        "type": "proof-bar",
+        "label": "En bref",
+        "background": "paper"
+      },
+      {
+        "type": "definition-extract",
+        "label": "Définition",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "comparison-duo",
+        "label": "OpenClaw installé par défaut, ou déployé avec méthode",
+        "background": "paper"
+      },
+      {
+        "type": "process-steps",
+        "label": "Sécuriser et déployer OpenClaw en cinq étapes",
+        "background": "paper-2"
+      },
+      {
+        "type": "deliverables-grid",
+        "label": "Ce qui vous reste à la fin",
+        "background": "paper-3"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper"
+      },
+      {
+        "type": "decision-list",
+        "label": "OpenClaw n'est pas le bon moteur si",
+        "background": "paper-2"
+      },
+      {
+        "type": "pricing-cards",
+        "label": "Prix de l'intégration d'OpenClaw",
+        "background": "paper"
+      },
+      {
+        "type": "eeat-panel",
+        "label": "#10",
+        "variant": "media"
+      },
+      {
+        "type": "cta-final",
+        "label": "Avant de brancher un agent sur vos messageries, écrivez les règles",
+        "background": "paper"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Intégration d'OpenClaw : vos questions",
+        "background": "paper-2"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "OpenClaw convient-il à votre usage, et que faut-il durcir avant ?",
         "background": "ink"
       }
     ]
@@ -3633,6 +3923,11 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-2"
       },
       {
+        "type": "related-cards-band",
+        "label": "Agents sur moteur ouvert",
+        "background": "paper"
+      },
+      {
         "type": "case-card-grid",
         "label": "Des missions réelles, documentées",
         "background": "ink"
@@ -3644,7 +3939,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "eeat-panel",
-        "label": "#7",
+        "label": "#8",
         "variant": "media"
       },
       {
@@ -5034,6 +5329,118 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/ressources/comparatifs/claude-duet-vs-chatgpt-dots",
+    "title": "Claude Duet vs ChatGPT dots : lequel choisir pour une PME · Waimia",
+    "group": "ressources",
+    "collection": "comparatifs",
+    "file": "comparatifs/claude-duet-vs-chatgpt-dots.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Claude Duet vs ChatGPT dots : lequel pour une PME ?",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#1",
+        "background": "paper-2"
+      },
+      {
+        "type": "comparison-table",
+        "label": "Claude Duet vs ChatGPT dots : 16 critères, avec le niveau de preuve",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#4",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-callout",
+        "label": "#6",
+        "variant": "quote",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#8",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#9",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#10",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Ce qui peut changer vite",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#12",
+        "background": "paper"
+      },
+      {
+        "type": "decision-list",
+        "label": "Choisir selon votre situation",
+        "background": "paper-2"
+      },
+      {
+        "type": "process-steps",
+        "label": "Trancher en deux semaines, sur une vraie tâche",
+        "background": "paper"
+      },
+      {
+        "type": "lead-capture-band",
+        "label": "Avant de laisser un agent agir en votre nom, écrivez la règle : recevez le modèle de charte IA en PDF",
+        "background": "ink"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#16",
+        "background": "paper-2"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Claude Duet vs ChatGPT dots : vos questions",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "L'agent compte moins que ce qu'il a le droit de faire.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
     "title": "Claude Platform ou OpenAI Platform pour une PME · Waimia",
     "group": "ressources",
@@ -5418,6 +5825,113 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "footer-cta-band",
         "label": "Vu sur Google, repris par les IA. Faisons les deux.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/ressources/comparatifs/hermes-agent-vs-openclaw",
+    "title": "Hermes Agent vs OpenClaw : lequel pour une entreprise · Waimia",
+    "group": "ressources",
+    "collection": "comparatifs",
+    "file": "comparatifs/hermes-agent-vs-openclaw.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Hermes Agent vs OpenClaw : lequel pour une entreprise ?",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#1",
+        "background": "paper-2"
+      },
+      {
+        "type": "comparison-table",
+        "label": "Hermes Agent vs OpenClaw, critère par critère (lu le 24 octobre 2026)",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#4",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-callout",
+        "label": "#5",
+        "variant": "warn",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-callout",
+        "label": "#8",
+        "variant": "note",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#9",
+        "background": "paper-2"
+      },
+      {
+        "type": "decision-list",
+        "label": "Choisir selon votre situation",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#11",
+        "background": "paper-2"
+      },
+      {
+        "type": "process-steps",
+        "label": "Choisir et valider en deux semaines",
+        "background": "paper"
+      },
+      {
+        "type": "lead-capture-band",
+        "label": "Avant d'installer un agent : la charte qui dit ce qu'il a le droit de faire",
+        "background": "ink"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#14",
+        "background": "paper-2"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Les deux guides en détail",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Nos services",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Hermes Agent vs OpenClaw : vos questions",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Le moteur compte moins que la façon de l'exploiter.",
         "background": "ink"
       }
     ]
@@ -6080,8 +6594,8 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-2"
       },
       {
-        "type": "lead-capture-band",
-        "label": "#11",
+        "type": "cta-final",
+        "label": "Où en est votre entreprise avec l'IA ?",
         "background": "ink"
       },
       {
@@ -6307,7 +6821,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/ressources/guides/ai-act-pme-calendrier",
-    "title": "AI Act pour PME : le calendrier vérifié le 16 octobre 2026",
+    "title": "AI Act pour PME : le calendrier vérifié le 26 octobre 2026",
     "group": "ressources",
     "collection": "guides",
     "file": "guides/ai-act-pme-calendrier.json",
@@ -6340,7 +6854,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-table-block",
-        "label": "Le calendrier de l'AI Act au 16 octobre 2026",
+        "label": "Le calendrier de l'AI Act au 26 octobre 2026",
         "variant": "editorial",
         "background": "paper-2"
       },
@@ -6573,8 +7087,8 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-2"
       },
       {
-        "type": "lead-capture-band",
-        "label": "#15",
+        "type": "cta-final",
+        "label": "Où en est votre entreprise avec l'IA ?",
         "background": "ink"
       },
       {
@@ -6895,6 +7409,130 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "footer-cta-band",
         "label": "Savoir lequel de vos agents doit afficher « IA », et le faire proprement.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/ressources/guides/chatgpt-dots",
+    "title": "ChatGPT dots : les agents toujours actifs d'OpenAI, accès, prix, limites",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/chatgpt-dots.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "ChatGPT dots : les agents toujours actifs d'OpenAI",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-callout",
+        "label": "#2",
+        "variant": "warn",
+        "background": "paper-2"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#3",
+        "background": "paper"
+      },
+      {
+        "type": "key-metric-grid",
+        "label": "Six repères relevés dans les pages d'OpenAI",
+        "variant": "accent",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Disponibilité, prix, limites d'usage : ce que disent les pages d'OpenAI au 24 octobre 2026",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#8",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#9",
+        "background": "paper-3"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Cas d'usage en PME : à confier à un dot, ou pas",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#11",
+        "background": "paper-3"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Dots, Duet, agent sur mesure ou moteur ouvert : qui fait quoi",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#13",
+        "background": "paper"
+      },
+      {
+        "type": "lead-capture-band",
+        "label": "Avant de confier une mission à un agent toujours actif : écrivez ce qu'il peut faire seul. Recevez le modèle de charte IA en PDF",
+        "background": "ink"
+      },
+      {
+        "type": "process-steps",
+        "label": "Tester un agent toujours actif sans risque, en quatre étapes",
+        "background": "paper-3"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#16",
+        "background": "paper-2"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Les services",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Questions fréquentes sur ChatGPT dots",
+        "background": "paper"
+      },
+      {
+        "type": "newsletter-signup-section",
+        "label": "Dots arrivera-t-il sur votre offre ? Soyez prévenu quand ça change.",
+        "background": "paper-3"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Un agent qui suit vos dossiers, avec des règles que vous écrivez.",
         "background": "ink"
       }
     ]
@@ -7316,6 +7954,130 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/ressources/guides/claude-duet",
+    "title": "Claude Duet : l'agent proactif d'Anthropic, prix, accès, limites",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/claude-duet.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Claude Duet : l'agent proactif d'Anthropic",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "key-metric-grid",
+        "label": "Six repères avant de vous inscrire",
+        "variant": "accent",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#4",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Duet, Claude, Cowork, Managed Agents : qui fait quoi",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-callout",
+        "label": "#7",
+        "variant": "info",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#8",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#9",
+        "background": "paper"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Cas d'usage en PME : à confier à un agent proactif, ou pas",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#11",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Que faire en attendant l'accès : quatre voies",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#13",
+        "background": "paper"
+      },
+      {
+        "type": "process-steps",
+        "label": "Tester un agent proactif sans risque, en quatre étapes",
+        "background": "paper-3"
+      },
+      {
+        "type": "lead-capture-band",
+        "label": "Avant de laisser un agent agir en votre nom : le kit conformité et administration de Claude",
+        "background": "ink"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#16",
+        "background": "paper-2"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Les services",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Questions fréquentes sur Claude Duet",
+        "background": "paper"
+      },
+      {
+        "type": "newsletter-signup-section",
+        "label": "Duet arrivera-t-il en France ? Soyez prévenu quand ça change.",
+        "background": "paper-3"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Un agent qui travaille pour vous, sans attendre une liste d'attente.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/ressources/guides/claude-finance-pme",
     "title": "Claude pour la finance d'une PME : factures fournisseurs, clôture, trésorerie",
     "group": "ressources",
@@ -7570,6 +8332,11 @@ export const SITE_PAGES: SitePage[] = [
         "type": "editorial-prose",
         "label": "#10",
         "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#11",
+        "background": "paper"
       },
       {
         "type": "lead-capture-band",
@@ -8400,6 +9167,11 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "editorial-prose",
         "label": "#8",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#9",
         "background": "paper"
       },
       {
@@ -8409,7 +9181,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-prose",
-        "label": "#10",
+        "label": "#11",
         "background": "paper"
       },
       {
@@ -8895,6 +9667,135 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/ressources/guides/hermes-agent",
+    "title": "Hermes Agent : l'agent open source de Nous Research en entreprise",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/hermes-agent.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Hermes Agent : l'agent open source qui apprend",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#1",
+        "background": "paper-2"
+      },
+      {
+        "type": "key-metric-grid",
+        "label": "Six repères avant d'installer quoi que ce soit",
+        "variant": "accent",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Ce qu'il faut pour faire tourner Hermes Agent",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-timeline",
+        "label": "Hermes Agent en quatre dates",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-callout",
+        "label": "#7",
+        "variant": "warn",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#8",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#9",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Les postes de coût de Hermes Agent, un par un",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#11",
+        "background": "paper"
+      },
+      {
+        "type": "lead-capture-band",
+        "label": "Avant de choisir un moteur d'agent : écrivez les règles. Recevez le modèle de charte IA en PDF",
+        "background": "ink"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Hermes Agent en PME : à confier, à ne pas confier",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#14",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#15",
+        "background": "paper"
+      },
+      {
+        "type": "process-steps",
+        "label": "Démarrer avec Hermes Agent en quatre étapes",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#17",
+        "background": "paper-2"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Agents open source",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Services et repères",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Questions fréquentes sur Hermes Agent",
+        "background": "paper"
+      },
+      {
+        "type": "newsletter-signup-section",
+        "label": "Hermes Agent publie vite. Soyez prévenu des versions qui comptent.",
+        "background": "paper-3"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Savoir si Hermes Agent a sa place chez vous, et à quelles conditions.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/ressources/guides/llm-rag-dirigeant",
     "title": "LLM et RAG : les définitions utiles à un dirigeant de PME · Waimia",
     "group": "ressources",
@@ -9348,6 +10249,124 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/ressources/guides/openclaw",
+    "title": "OpenClaw : version 2.0, sécurité et usage en entreprise",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/openclaw.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "OpenClaw 2.0 : l'agent open source à durcir",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#1",
+        "background": "paper-2"
+      },
+      {
+        "type": "key-metric-grid",
+        "label": "Six repères avant d'installer OpenClaw",
+        "variant": "accent",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Ce qu'il faut pour faire tourner OpenClaw",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-callout",
+        "label": "#6",
+        "variant": "warn",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper"
+      },
+      {
+        "type": "decision-list",
+        "label": "Liste de contrôle de durcissement avant la mise en production",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#9",
+        "background": "paper"
+      },
+      {
+        "type": "lead-capture-band",
+        "label": "Avant de brancher un agent sur vos messageries : écrivez les règles. Recevez le modèle de charte IA en PDF",
+        "background": "ink"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "OpenClaw en PME : à confier, à ne pas confier",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#12",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#13",
+        "background": "paper-2"
+      },
+      {
+        "type": "process-steps",
+        "label": "Mettre OpenClaw en service en quatre étapes",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#15",
+        "background": "paper-2"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Agents open source",
+        "background": "paper-2"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Services et repères",
+        "background": "paper"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Questions fréquentes sur OpenClaw",
+        "background": "paper-2"
+      },
+      {
+        "type": "newsletter-signup-section",
+        "label": "OpenClaw change chaque semaine. Soyez prévenu de ce qui compte.",
+        "background": "paper-3"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Savoir si OpenClaw convient à votre usage, et ce qu'il faut durcir avant.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/ressources/guides/prompt-engineering-pme",
     "title": "Prompt engineering en PME : méthode de consignes et gabarits par fonction",
     "group": "ressources",
@@ -9748,6 +10767,11 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper-3"
+      },
+      {
         "type": "tech-when-dual",
         "label": "Avancer seul, ou faire appel à un DPO ou à un juriste",
         "background": "paper-2"
@@ -9769,7 +10793,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-prose",
-        "label": "#11",
+        "label": "#12",
         "background": "paper-2"
       },
       {
@@ -10010,13 +11034,18 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
+        "type": "editorial-prose",
+        "label": "#10",
+        "background": "paper-2"
+      },
+      {
         "type": "process-steps",
         "label": "Comment décider en une semaine ?",
         "background": "paper-3"
       },
       {
         "type": "editorial-prose",
-        "label": "#11",
+        "label": "#12",
         "background": "paper-2"
       },
       {
@@ -10326,11 +11355,29 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/agent-ia-toujours-actif-missions-pme",
+    "title": "Agent IA toujours actif : sept missions concrètes pour une PME",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/agent-ia-toujours-actif-missions-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/agent-ia-vs-automatisation-classique-2026",
     "title": "Agent IA vs automatisation : la frontière en 2026",
     "group": "blog",
     "collection": "blog",
     "file": "blog/agent-ia-vs-automatisation-classique-2026.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/agents-ia-toujours-actifs-pme",
+    "title": "Agent IA toujours actif : Duet, dots, Hermes, OpenClaw, que choisir en PME",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/agents-ia-toujours-actifs-pme.json",
     "editable": false,
     "sections": []
   },
@@ -10461,6 +11508,33 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/chatgpt-dots-depuis-le-lancement",
+    "title": "ChatGPT dots depuis le lancement : ce qui a changé en octobre 2026",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/chatgpt-dots-depuis-le-lancement.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/chatgpt-dots-europe-disponibilite",
+    "title": "ChatGPT dots en Europe et en France : qui y a accès ?",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/chatgpt-dots-europe-disponibilite.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/chatgpt-dots-regles-personnalisees-approbations",
+    "title": "ChatGPT dots : règles personnalisées et approbations, mode d'emploi",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/chatgpt-dots-regles-personnalisees-approbations.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/chatgpt-shopping-e-commerce",
     "title": "ChatGPT Shopping : ce que lit ChatGPT pour recommander un produit",
     "group": "blog",
@@ -10484,6 +11558,42 @@ export const SITE_PAGES: SitePage[] = [
     "group": "blog",
     "collection": "blog",
     "file": "blog/claude-cowork-windows.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/claude-duet-france-acces-rgpd",
+    "title": "Claude Duet en France : accès, RGPD et questions à poser",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/claude-duet-france-acces-rgpd.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/claude-duet-lancement-21-octobre-2026",
+    "title": "Claude Duet : ce qu'Anthropic a lancé le 21 octobre 2026",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/claude-duet-lancement-21-octobre-2026.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/claude-duet-ou-claude-cowork",
+    "title": "Claude Duet ou Claude Cowork : lequel pour quelle tâche",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/claude-duet-ou-claude-cowork.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/claude-extension-chrome",
+    "title": "Extension Claude pour Chrome : installer, régler, dépanner",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/claude-extension-chrome.json",
     "editable": false,
     "sections": []
   },
@@ -10529,6 +11639,15 @@ export const SITE_PAGES: SitePage[] = [
     "group": "blog",
     "collection": "blog",
     "file": "blog/contenu-ia-seo-google-penalise.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/cout-agent-ia-toujours-actif",
+    "title": "Coût d'un agent IA toujours actif : Duet, dots, open source ou sur mesure",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/cout-agent-ia-toujours-actif.json",
     "editable": false,
     "sections": []
   },
@@ -10614,6 +11733,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/hermes-agent-v0-22-modeles-locaux-connecteurs",
+    "title": "Hermes Agent v0.22 : modèles locaux, connecteurs et bac à sable par défaut",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/hermes-agent-v0-22-modeles-locaux-connecteurs.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/ia-auto-hebergee-open-webui-pme",
     "title": "Open WebUI : héberger son IA en PME, bonne idée ?",
     "group": "blog",
@@ -10637,6 +11765,15 @@ export const SITE_PAGES: SitePage[] = [
     "group": "blog",
     "collection": "blog",
     "file": "blog/ia-reponse-appel-offres-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/installer-hermes-agent-premier-agent",
+    "title": "Installer Hermes Agent : un premier agent, pas à pas et prudemment",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/installer-hermes-agent-premier-agent.json",
     "editable": false,
     "sections": []
   },
@@ -10668,6 +11805,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/openclaw-2-0-migration-changements",
+    "title": "OpenClaw 2.0 : changements, migration et mise à jour sans casse",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/openclaw-2-0-migration-changements.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/poc-ou-mvp-differences-pme",
     "title": "POC ou MVP : quelle différence pour une PME",
     "group": "blog",
@@ -10682,6 +11828,15 @@ export const SITE_PAGES: SitePage[] = [
     "group": "blog",
     "collection": "blog",
     "file": "blog/relance-factures-impayees-automatique-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/securiser-openclaw-checklist",
+    "title": "Sécuriser OpenClaw : 12 contrôles avant de le brancher à vos messageries",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/securiser-openclaw-checklist.json",
     "editable": false,
     "sections": []
   },
@@ -10973,6 +12128,14 @@ export const SITE_PAGES: SitePage[] = [
   {
     "route": "/_expertise-claude",
     "title": "_expertise claude",
+    "group": "autres",
+    "collection": "bespoke",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/actualites",
+    "title": "Actualites",
     "group": "autres",
     "collection": "bespoke",
     "editable": false,
@@ -11566,6 +12729,9 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/services/agents-ia/agent-qualification-leads",
       "/services/agents-ia/agent-support-client",
       "/services/agents-ia/agent-traitement-documents",
+      "/services/agents-ia/agents-ia-open-source",
+      "/services/agents-ia/agents-ia-open-source/integration-hermes-agent",
+      "/services/agents-ia/agents-ia-open-source/integration-openclaw",
       "/services/applications-internes",
       "/services/applications-internes/back-office-sur-mesure",
       "/services/applications-internes/mvp-saas",
@@ -11684,11 +12850,13 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/comparatifs",
       "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
       "/ressources/comparatifs/claude-code-vs-cursor",
+      "/ressources/comparatifs/claude-duet-vs-chatgpt-dots",
       "/ressources/comparatifs/claude-platform-vs-openai-platform",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche",
       "/ressources/comparatifs/formateur-ia-organisme-freelance-agence",
       "/ressources/comparatifs/geo-vs-seo",
+      "/ressources/comparatifs/hermes-agent-vs-openclaw",
       "/ressources/comparatifs/lovable-vs-developpement-sur-mesure",
       "/ressources/comparatifs/mistral-vs-claude-pme",
       "/ressources/comparatifs/n8n-vs-make",
@@ -11709,10 +12877,12 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/guides/automatisation-factures-fournisseurs-pme",
       "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/chatbot-transparence-article-50",
+      "/ressources/guides/chatgpt-dots",
       "/ressources/guides/choisir-agence-ia-pme",
       "/ressources/guides/claude-code-entreprise",
       "/ressources/guides/claude-cowork",
       "/ressources/guides/claude-design",
+      "/ressources/guides/claude-duet",
       "/ressources/guides/claude-finance-pme",
       "/ressources/guides/claude-fonctionnalites-pme",
       "/ressources/guides/claude-for-small-business",
@@ -11729,11 +12899,13 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/guides/cout-projet-ia-pme",
       "/ressources/guides/devis-automatise",
       "/ressources/guides/financement-formation-ia-opco",
+      "/ressources/guides/hermes-agent",
       "/ressources/guides/llm-rag-dirigeant",
       "/ressources/guides/mcp-claude",
       "/ressources/guides/mesurer-visibilite-ia-chatgpt",
       "/ressources/guides/n8n-auto-heberge-rgpd",
       "/ressources/guides/n8n-prix",
+      "/ressources/guides/openclaw",
       "/ressources/guides/prompt-engineering-pme",
       "/ressources/guides/quel-modele-claude-choisir",
       "/ressources/guides/refonte-logiciel-metier",
@@ -11762,7 +12934,9 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog",
       "/blog/agent-ia-24-7-pme",
       "/blog/agent-ia-entreprise-exemples",
+      "/blog/agent-ia-toujours-actif-missions-pme",
       "/blog/agent-ia-vs-automatisation-classique-2026",
+      "/blog/agents-ia-toujours-actifs-pme",
       "/blog/ai-act-pme-utilisatrice-ia",
       "/blog/ai-mode-google-ai-overviews-pme",
       "/blog/apparaitre-dans-chatgpt-pme",
@@ -11777,14 +12951,22 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/cabler-son-crm-en-10-jours",
       "/blog/cahier-des-charges-refonte-site",
       "/blog/chatbot-rh-pme",
+      "/blog/chatgpt-dots-depuis-le-lancement",
+      "/blog/chatgpt-dots-europe-disponibilite",
+      "/blog/chatgpt-dots-regles-personnalisees-approbations",
       "/blog/chatgpt-shopping-e-commerce",
       "/blog/claude-code-skills",
       "/blog/claude-cowork-windows",
+      "/blog/claude-duet-france-acces-rgpd",
+      "/blog/claude-duet-lancement-21-octobre-2026",
+      "/blog/claude-duet-ou-claude-cowork",
+      "/blog/claude-extension-chrome",
       "/blog/claude-max-pme",
       "/blog/claude-microsoft-copilot-pme",
       "/blog/claude-pro-vs-team",
       "/blog/connecter-claude-wordpress-shopify-mcp",
       "/blog/contenu-ia-seo-google-penalise",
+      "/blog/cout-agent-ia-toujours-actif",
       "/blog/creer-agent-ia-claude",
       "/blog/etre-cite-par-perplexity",
       "/blog/facture-electronique-reception-pme",
@@ -11794,14 +12976,18 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/formation-ia-rh-pme",
       "/blog/forward-deployed-engineer",
       "/blog/geo-local-recommande-par-les-ia",
+      "/blog/hermes-agent-v0-22-modeles-locaux-connecteurs",
       "/blog/ia-auto-hebergee-open-webui-pme",
       "/blog/ia-pme-guide-complet-2026",
       "/blog/ia-reponse-appel-offres-pme",
+      "/blog/installer-hermes-agent-premier-agent",
       "/blog/landing-page-qui-convertit-methode-2026",
       "/blog/logiciel-seo-ia-pme",
       "/blog/n8n-c-est-quoi",
+      "/blog/openclaw-2-0-migration-changements",
       "/blog/poc-ou-mvp-differences-pme",
       "/blog/relance-factures-impayees-automatique-pme",
+      "/blog/securiser-openclaw-checklist",
       "/blog/seo-geo-etre-cite-par-les-ia-generatives",
       "/blog/tableau-de-bord-pme-quelles-donnees-suivre",
       "/blog/trier-emails-entrant-claude-n8n",
@@ -11840,6 +13026,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
     "routes": [
       "/_audit-site-web-intelligent",
       "/_expertise-claude",
+      "/actualites",
       "/cgv",
       "/demonstrations/_index",
       "/equipe/_index",

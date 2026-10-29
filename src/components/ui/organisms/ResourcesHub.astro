@@ -29,12 +29,11 @@ import { auditCtaBand } from '../../../data/conversion';
 //   • `items` = liste complète (src/lib/resources-hub.ts) : même source pour les trois pages.
 //   • `activeKind` absent = index de tous les types ; sinon vue filtrée côté serveur (seules
 //     les cartes du type sont dans le HTML). Les pastilles sont de vrais liens.
-//   • Outils et comparatifs ne sont que des filtres (décision Simon du 15/10/2026) : leur vue
-//     garde la tête de /ressources. Seule une vue dotée de son propre H1 dans RESOURCE_VIEWS
-//     (guides) a sa tête éditoriale et son fil d'Ariane (MastheadBar).
+//   • Les vues guides, comparatifs et outils ont chacune leur tête éditoriale (H1, introduction)
+//     et leur fil d'Ariane (MastheadBar), dès que RESOURCE_VIEWS leur donne un H1 (2026-10-26).
 interface Props {
   items: ResourceItem[];
-  activeKind?: Extract<ResourceKind, 'outils' | 'comparatifs' | 'guides'>;
+  activeKind?: ResourceKind;
 }
 const { items, activeKind } = Astro.props as Props;
 const lang = langFromPath(Astro.url.pathname);
@@ -76,13 +75,14 @@ for (let i = 0; i < shown.length; i += GRID_MAX) {
     background: 'paper',
     columns: '3',
     articles: shown.slice(i, i + GRID_MAX).map((it) => ({
-      tag_fr: kindOf(it.kind).tag_fr,
-      tag_en: kindOf(it.kind).tag_en,
+      tag_fr: it.tag_fr ?? kindOf(it.kind).tag_fr,
+      tag_en: it.tag_en ?? kindOf(it.kind).tag_en,
       title_fr: it.title_fr,
       title_en: it.title_en,
       excerpt_fr: it.excerpt_fr,
       excerpt_en: it.excerpt_en,
-      date: fmtDate(it.date),
+      date: it.dateLabel ?? fmtDate(it.date),
+      author: it.author,
       read_time_fr: it.read_time,
       read_time_en: it.read_time,
       href: it.href,
@@ -99,7 +99,8 @@ const chips = [
   { key: 'comparatifs', label: isFr ? 'Comparatifs' : 'Comparisons', n: count('comparatifs'), href: '/ressources/comparatifs', current: activeKind === 'comparatifs' },
   { key: 'outils', label: isFr ? 'Outils' : 'Tools', n: count('outils'), href: '/ressources/outils', current: activeKind === 'outils' },
   { key: 'guides', label: isFr ? 'Guides' : 'Guides', n: count('guides'), href: '/ressources/guides', current: activeKind === 'guides' },
-  { key: 'articles', label: isFr ? 'Articles' : 'Articles', n: count('articles'), href: '/blog', current: false },
+  { key: 'articles', label: isFr ? 'Articles' : 'Articles', n: count('articles'), href: '/blog', current: activeKind === 'articles' },
+  { key: 'actualites', label: isFr ? 'Actualités' : 'News', n: count('actualites'), href: '/actualites', current: activeKind === 'actualites' },
 ].filter((c) => c.n > 0);
 
 const crumbs = [
@@ -229,6 +230,9 @@ const listTitle = activeKind
   </ListIndexSection>
 </div>
 
+  {/* Contenu propre à la page hôte (ex. maillage interne du blog), avant la promesse. */}
+  <slot name="after-list" />
+
   {/* MANIFESTO · « La promesse », conservé du hub guides (ink, source unique en donnée) */}
   <ManifestoStatement data={manifestoData} lang={lang} />
 
@@ -272,6 +276,16 @@ const listTitle = activeKind
   .res-index :global(.list-body) { padding-inline: 0; }
   /* Vue filtrée : le fil d'Ariane (MastheadBar) occupe déjà le haut sous l'en-tête fixe. */
   .res-index--view :global(.list-hd) { padding-top: var(--space-9); }
+  /* Lien d'appel dans l'introduction d'une vue (newsletter, flux RSS, actualités) : le lede est
+     rendu par ListIndexSection via set:html, donc hors du scope de ce composant. */
+  :global(.hub-inline-cta) {
+    color: var(--accent-text);
+    font-weight: var(--fw-medium);
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    white-space: nowrap;
+  }
+  :global(.hub-inline-cta:hover) { opacity: 0.72; }
 
   /* Pastilles de type puis pastilles de thème : EMPILÉES (le conteneur .list-filters de
      ListIndexSection est une rangée flex qui les mettait côte à côte). */
@@ -849,8 +863,8 @@ const listTitle = activeKind
     + 'son sa ses vos votre nos notre est qui que quoi comment quel quelle quels quelles '
     + 'the of and or to for in on an is with how what').split(' ').forEach(function (w) { STOP[w] = 1; });
   var TAGS = {
-    fr: { guides: 'Guide', comparatifs: 'Comparatif', outils: 'Outil', articles: 'Article' },
-    en: { guides: 'Guide', comparatifs: 'Comparison', outils: 'Tool', articles: 'Article' },
+    fr: { guides: 'Guide', comparatifs: 'Comparatif', outils: 'Outil', articles: 'Article', actualites: 'Actualité' },
+    en: { guides: 'Guide', comparatifs: 'Comparison', outils: 'Tool', articles: 'Article', actualites: 'News' },
   };
   var T = {
     fr: {

@@ -147,6 +147,11 @@ jobs:
       - name: Gate sitemap (sitemap / robots / noindex cohérents)
         run: node scripts/check-sitemap.mjs
 
+      # Actualités : dates à la minute, NewsArticle seul sur elles, image ≥ 1 200 px, auteur,
+      # flux RSS texte complet, sitemap news déclaré dans robots.txt.
+      - name: Gate actualités (NewsArticle, flux, sitemap news)
+        run: node scripts/check-news.mjs
+
       # Config Vercel générée : un seul saut, cible 200, ni chaîne ni boucle, slash final.
       - name: Gate redirections (config Vercel générée)
         run: node scripts/check-redirects.mjs
@@ -180,7 +185,9 @@ jobs:
   # formulaires. La suite est verte localement (45 passed / 9 skipped légitimes).
   e2e:
     name: E2E (Playwright · build servi)
-    runs-on: ubuntu-latest
+    # Épinglé : `ubuntu-latest` est passé sur Ubuntu 26.04, que Playwright 1.60 ne gère pas
+    # (« does not support chromium on ubuntu26.04-x64 »). Revenir à latest quand Playwright le gère.
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
       - name: Checkout

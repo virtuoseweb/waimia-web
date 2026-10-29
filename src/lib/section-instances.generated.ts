@@ -196,9 +196,27 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/chatgpt-dots.json",
+      "slug": "chatgpt-dots",
+      "route": "/ressources/guides/chatgpt-dots",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/choisir-agence-ia-pme.json",
       "slug": "choisir-agence-ia-pme",
       "route": "/ressources/guides/choisir-agence-ia-pme",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-duet.json",
+      "slug": "claude-duet",
+      "route": "/ressources/guides/claude-duet",
       "index": 1,
       "label": "Simon Beros",
       "background": "paper"
@@ -637,7 +655,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia.json",
       "slug": "agents-ia",
       "route": "/services/agents-ia",
-      "index": 7,
+      "index": 11,
       "label": "Trois réalisations avec des agents",
       "background": "ink"
     },
@@ -817,7 +835,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/systemes-operationnels-ia.json",
       "slug": "systemes-operationnels-ia",
       "route": "/services/systemes-operationnels-ia",
-      "index": 5,
+      "index": 6,
       "label": "Des missions réelles, documentées",
       "background": "ink"
     },
@@ -1118,8 +1136,17 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia.json",
       "slug": "agents-ia",
       "route": "/services/agents-ia",
-      "index": 4,
+      "index": 8,
       "label": "Exemple type : la boîte contact@ d'une PME de services",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source.json",
+      "slug": "agents-ia-open-source",
+      "route": "/services/agents-ia-open-source",
+      "index": 4,
+      "label": "Le même moteur ouvert, installé tel quel ou déployé par Waimia",
       "background": "paper"
     },
     {
@@ -1241,11 +1268,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source/integration-hermes-agent.json",
+      "slug": "integration-hermes-agent",
+      "route": "/services/integration-hermes-agent",
+      "index": 4,
+      "label": "Hermes Agent installé par défaut, ou déployé avec méthode",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/integration-claude/integration-mistral-ai.json",
       "slug": "integration-mistral-ai",
       "route": "/services/integration-mistral-ai",
       "index": 6,
       "label": "Exemple type : un cabinet qui traite des dossiers confidentiels",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source/integration-openclaw.json",
+      "slug": "integration-openclaw",
+      "route": "/services/integration-openclaw",
+      "index": 4,
+      "label": "OpenClaw installé par défaut, ou déployé avec méthode",
       "background": "paper"
     },
     {
@@ -1486,11 +1531,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/claude-duet-vs-chatgpt-dots.json",
+      "slug": "claude-duet-vs-chatgpt-dots",
+      "route": "/ressources/comparatifs/claude-duet-vs-chatgpt-dots",
+      "index": 2,
+      "label": "Claude Duet vs ChatGPT dots : 16 critères, avec le niveau de preuve",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "index": 3,
       "label": "Claude vs ChatGPT : prix, données, outils",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/hermes-agent-vs-openclaw.json",
+      "slug": "hermes-agent-vs-openclaw",
+      "route": "/ressources/comparatifs/hermes-agent-vs-openclaw",
+      "index": 2,
+      "label": "Hermes Agent vs OpenClaw, critère par critère (lu le 24 octobre 2026)",
       "background": "paper"
     },
     {
@@ -1704,6 +1767,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/accompagnement-ia-pme.json",
+      "slug": "accompagnement-ia-pme",
+      "route": "/ressources/guides/accompagnement-ia-pme",
+      "index": 11,
+      "label": "Où en est votre entreprise avec l'IA ?",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/agent-ia-definition.json",
       "slug": "agent-ia-definition",
       "route": "/ressources/guides/agent-ia-definition",
@@ -1717,6 +1789,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "agent-sav-architecture",
       "route": "/ressources/guides/agent-sav-architecture",
       "index": 14,
+      "label": "Où en est votre entreprise avec l'IA ?",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/audit-geo-pme.json",
+      "slug": "audit-geo-pme",
+      "route": "/ressources/guides/audit-geo-pme",
+      "index": 15,
       "label": "Où en est votre entreprise avec l'IA ?",
       "background": "ink"
     },
@@ -1860,7 +1941,16 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia.json",
       "slug": "agents-ia",
       "route": "/services/agents-ia",
-      "index": 10,
+      "index": 14,
+      "label": "Où en est votre entreprise avec l'IA ?",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source.json",
+      "slug": "agents-ia-open-source",
+      "route": "/services/agents-ia-open-source",
+      "index": 12,
       "label": "Où en est votre entreprise avec l'IA ?",
       "background": "paper"
     },
@@ -1947,6 +2037,24 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source/integration-hermes-agent.json",
+      "slug": "integration-hermes-agent",
+      "route": "/services/integration-hermes-agent",
+      "index": 11,
+      "label": "Où en est votre entreprise avec l'IA ?",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source/integration-openclaw.json",
+      "slug": "integration-openclaw",
+      "route": "/services/integration-openclaw",
+      "index": 11,
+      "label": "Avant de brancher un agent sur vos messageries, écrivez les règles",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/prospection-automatisee.json",
       "slug": "prospection-automatisee",
       "route": "/services/prospection-automatisee",
@@ -2013,7 +2121,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/systemes-operationnels-ia.json",
       "slug": "systemes-operationnels-ia",
       "route": "/services/systemes-operationnels-ia",
-      "index": 8,
+      "index": 9,
       "label": "Classez vos tâches avant de choisir le premier cas",
       "background": "paper"
     },
@@ -2214,6 +2322,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/claude-duet-vs-chatgpt-dots.json",
+      "slug": "claude-duet-vs-chatgpt-dots",
+      "route": "/ressources/comparatifs/claude-duet-vs-chatgpt-dots",
+      "index": 13,
+      "label": "Choisir selon votre situation",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/claude-platform-vs-openai-platform.json",
       "slug": "claude-platform-vs-openai-platform",
       "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
@@ -2246,6 +2363,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/comparatifs/formateur-ia-organisme-freelance-agence",
       "index": 7,
       "label": "Six questions à écrire dans votre demande de devis",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/hermes-agent-vs-openclaw.json",
+      "slug": "hermes-agent-vs-openclaw",
+      "route": "/ressources/comparatifs/hermes-agent-vs-openclaw",
+      "index": 10,
+      "label": "Choisir selon votre situation",
       "background": "paper"
     },
     {
@@ -2466,6 +2592,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/openclaw.json",
+      "slug": "openclaw",
+      "route": "/ressources/guides/openclaw",
+      "index": 8,
+      "label": "Liste de contrôle de durcissement avant la mise en production",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/quel-modele-claude-choisir.json",
       "slug": "quel-modele-claude-choisir",
       "route": "/ressources/guides/quel-modele-claude-choisir",
@@ -2487,7 +2622,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/rgpd-agents-ia-checklist.json",
       "slug": "rgpd-agents-ia-checklist",
       "route": "/ressources/guides/rgpd-agents-ia-checklist",
-      "index": 8,
+      "index": 9,
       "label": "12 points à cocher avant de déployer un agent IA",
       "background": "paper"
     },
@@ -2550,8 +2685,26 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia.json",
       "slug": "agents-ia",
       "route": "/services/agents-ia",
-      "index": 6,
+      "index": 7,
+      "label": "Moteur ouvert, agent d'éditeur ou automatisation : le bon choix",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia.json",
+      "slug": "agents-ia",
+      "route": "/services/agents-ia",
+      "index": 10,
       "label": "Un agent IA n'est pas la bonne réponse si",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source.json",
+      "slug": "agents-ia-open-source",
+      "route": "/services/agents-ia-open-source",
+      "index": 9,
+      "label": "Un agent IA open source n'est pas la bonne réponse si",
       "background": "paper"
     },
     {
@@ -2697,6 +2850,24 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 11,
       "label": "Ne déployez pas Claude si",
       "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source/integration-hermes-agent.json",
+      "slug": "integration-hermes-agent",
+      "route": "/services/integration-hermes-agent",
+      "index": 8,
+      "label": "Hermes Agent n'est pas le bon moteur si",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source/integration-openclaw.json",
+      "slug": "integration-openclaw",
+      "route": "/services/integration-openclaw",
+      "index": 8,
+      "label": "OpenClaw n'est pas le bon moteur si",
+      "background": "paper-2"
     },
     {
       "collection": "services",
@@ -2981,6 +3152,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source.json",
+      "slug": "agents-ia-open-source",
+      "route": "/services/agents-ia-open-source",
+      "index": 2,
+      "label": "Définition",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/applications-internes.json",
       "slug": "applications-internes",
       "route": "/services/applications-internes",
@@ -3116,9 +3296,27 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source/integration-hermes-agent.json",
+      "slug": "integration-hermes-agent",
+      "route": "/services/integration-hermes-agent",
+      "index": 2,
+      "label": "Définition",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/integration-claude/integration-mistral-ai.json",
       "slug": "integration-mistral-ai",
       "route": "/services/integration-mistral-ai",
+      "index": 2,
+      "label": "Définition",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source/integration-openclaw.json",
+      "slug": "integration-openclaw",
+      "route": "/services/integration-openclaw",
       "index": 2,
       "label": "Définition",
       "background": "paper"
@@ -3463,8 +3661,17 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia.json",
       "slug": "agents-ia",
       "route": "/services/agents-ia",
-      "index": 5,
+      "index": 9,
       "label": "Ce qui vous reste à la fin",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source.json",
+      "slug": "agents-ia-open-source",
+      "route": "/services/agents-ia-open-source",
+      "index": 8,
+      "label": "Ce qui vous est remis",
       "background": "paper-3"
     },
     {
@@ -3622,10 +3829,28 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source/integration-hermes-agent.json",
+      "slug": "integration-hermes-agent",
+      "route": "/services/integration-hermes-agent",
+      "index": 6,
+      "label": "Ce qui vous reste à la fin",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
       "file": "services/integration-claude/integration-mistral-ai.json",
       "slug": "integration-mistral-ai",
       "route": "/services/integration-mistral-ai",
       "index": 7,
+      "label": "Ce qui vous reste à la fin",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source/integration-openclaw.json",
+      "slug": "integration-openclaw",
+      "route": "/services/integration-openclaw",
+      "index": 6,
       "label": "Ce qui vous reste à la fin",
       "background": "paper-3"
     },
@@ -4085,6 +4310,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/claude-duet-vs-chatgpt-dots.json",
+      "slug": "claude-duet-vs-chatgpt-dots",
+      "route": "/ressources/comparatifs/claude-duet-vs-chatgpt-dots",
+      "index": 1,
+      "label": "#1",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/claude-platform-vs-openai-platform.json",
       "slug": "claude-platform-vs-openai-platform",
       "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
@@ -4124,6 +4358,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "comparatifs/geo-vs-seo.json",
       "slug": "geo-vs-seo",
       "route": "/ressources/comparatifs/geo-vs-seo",
+      "index": 1,
+      "label": "#1",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/hermes-agent-vs-openclaw.json",
+      "slug": "hermes-agent-vs-openclaw",
+      "route": "/ressources/comparatifs/hermes-agent-vs-openclaw",
       "index": 1,
       "label": "#1",
       "background": "paper-2"
@@ -4292,6 +4535,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/chatgpt-dots.json",
+      "slug": "chatgpt-dots",
+      "route": "/ressources/guides/chatgpt-dots",
+      "index": 3,
+      "label": "#3",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/choisir-agence-ia-pme.json",
       "slug": "choisir-agence-ia-pme",
       "route": "/ressources/guides/choisir-agence-ia-pme",
@@ -4324,6 +4576,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/claude-design",
       "index": 1,
       "label": "#1",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-duet.json",
+      "slug": "claude-duet",
+      "route": "/ressources/guides/claude-duet",
+      "index": 2,
+      "label": "#2",
       "background": "paper-2"
     },
     {
@@ -4472,6 +4733,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/hermes-agent.json",
+      "slug": "hermes-agent",
+      "route": "/ressources/guides/hermes-agent",
+      "index": 1,
+      "label": "#1",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/llm-rag-dirigeant.json",
       "slug": "llm-rag-dirigeant",
       "route": "/ressources/guides/llm-rag-dirigeant",
@@ -4513,6 +4783,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/n8n-prix",
       "index": 2,
       "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/openclaw.json",
+      "slug": "openclaw",
+      "route": "/ressources/guides/openclaw",
+      "index": 1,
+      "label": "#1",
       "background": "paper-2"
     },
     {
@@ -4737,6 +5016,16 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/claude-duet-vs-chatgpt-dots.json",
+      "slug": "claude-duet-vs-chatgpt-dots",
+      "route": "/ressources/comparatifs/claude-duet-vs-chatgpt-dots",
+      "index": 6,
+      "label": "#6",
+      "variant": "quote",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
@@ -4774,6 +5063,26 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "label": "#5",
       "variant": "quote",
       "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/hermes-agent-vs-openclaw.json",
+      "slug": "hermes-agent-vs-openclaw",
+      "route": "/ressources/comparatifs/hermes-agent-vs-openclaw",
+      "index": 5,
+      "label": "#5",
+      "variant": "warn",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/hermes-agent-vs-openclaw.json",
+      "slug": "hermes-agent-vs-openclaw",
+      "route": "/ressources/comparatifs/hermes-agent-vs-openclaw",
+      "index": 8,
+      "label": "#8",
+      "variant": "note",
+      "background": "paper"
     },
     {
       "collection": "comparatifs",
@@ -4827,6 +5136,26 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/chatgpt-dots.json",
+      "slug": "chatgpt-dots",
+      "route": "/ressources/guides/chatgpt-dots",
+      "index": 2,
+      "label": "#2",
+      "variant": "warn",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-duet.json",
+      "slug": "claude-duet",
+      "route": "/ressources/guides/claude-duet",
+      "index": 7,
+      "label": "#7",
+      "variant": "info",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-in-chrome-entreprise.json",
       "slug": "claude-in-chrome-entreprise",
       "route": "/ressources/guides/claude-in-chrome-entreprise",
@@ -4834,6 +5163,26 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "label": "#7",
       "variant": "quote",
       "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/hermes-agent.json",
+      "slug": "hermes-agent",
+      "route": "/ressources/guides/hermes-agent",
+      "index": 7,
+      "label": "#7",
+      "variant": "warn",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/openclaw.json",
+      "slug": "openclaw",
+      "route": "/ressources/guides/openclaw",
+      "index": 6,
+      "label": "#6",
+      "variant": "warn",
+      "background": "paper-2"
     },
     {
       "collection": "guides",
@@ -5143,6 +5492,87 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/claude-duet-vs-chatgpt-dots.json",
+      "slug": "claude-duet-vs-chatgpt-dots",
+      "route": "/ressources/comparatifs/claude-duet-vs-chatgpt-dots",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/claude-duet-vs-chatgpt-dots.json",
+      "slug": "claude-duet-vs-chatgpt-dots",
+      "route": "/ressources/comparatifs/claude-duet-vs-chatgpt-dots",
+      "index": 4,
+      "label": "#4",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/claude-duet-vs-chatgpt-dots.json",
+      "slug": "claude-duet-vs-chatgpt-dots",
+      "route": "/ressources/comparatifs/claude-duet-vs-chatgpt-dots",
+      "index": 5,
+      "label": "#5",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/claude-duet-vs-chatgpt-dots.json",
+      "slug": "claude-duet-vs-chatgpt-dots",
+      "route": "/ressources/comparatifs/claude-duet-vs-chatgpt-dots",
+      "index": 7,
+      "label": "#7",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/claude-duet-vs-chatgpt-dots.json",
+      "slug": "claude-duet-vs-chatgpt-dots",
+      "route": "/ressources/comparatifs/claude-duet-vs-chatgpt-dots",
+      "index": 8,
+      "label": "#8",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/claude-duet-vs-chatgpt-dots.json",
+      "slug": "claude-duet-vs-chatgpt-dots",
+      "route": "/ressources/comparatifs/claude-duet-vs-chatgpt-dots",
+      "index": 9,
+      "label": "#9",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/claude-duet-vs-chatgpt-dots.json",
+      "slug": "claude-duet-vs-chatgpt-dots",
+      "route": "/ressources/comparatifs/claude-duet-vs-chatgpt-dots",
+      "index": 10,
+      "label": "#10",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/claude-duet-vs-chatgpt-dots.json",
+      "slug": "claude-duet-vs-chatgpt-dots",
+      "route": "/ressources/comparatifs/claude-duet-vs-chatgpt-dots",
+      "index": 12,
+      "label": "#12",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/claude-duet-vs-chatgpt-dots.json",
+      "slug": "claude-duet-vs-chatgpt-dots",
+      "route": "/ressources/comparatifs/claude-duet-vs-chatgpt-dots",
+      "index": 16,
+      "label": "#16",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/claude-platform-vs-openai-platform.json",
       "slug": "claude-platform-vs-openai-platform",
       "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
@@ -5293,6 +5723,69 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 4,
       "label": "#4",
       "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/hermes-agent-vs-openclaw.json",
+      "slug": "hermes-agent-vs-openclaw",
+      "route": "/ressources/comparatifs/hermes-agent-vs-openclaw",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/hermes-agent-vs-openclaw.json",
+      "slug": "hermes-agent-vs-openclaw",
+      "route": "/ressources/comparatifs/hermes-agent-vs-openclaw",
+      "index": 4,
+      "label": "#4",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/hermes-agent-vs-openclaw.json",
+      "slug": "hermes-agent-vs-openclaw",
+      "route": "/ressources/comparatifs/hermes-agent-vs-openclaw",
+      "index": 6,
+      "label": "#6",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/hermes-agent-vs-openclaw.json",
+      "slug": "hermes-agent-vs-openclaw",
+      "route": "/ressources/comparatifs/hermes-agent-vs-openclaw",
+      "index": 7,
+      "label": "#7",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/hermes-agent-vs-openclaw.json",
+      "slug": "hermes-agent-vs-openclaw",
+      "route": "/ressources/comparatifs/hermes-agent-vs-openclaw",
+      "index": 9,
+      "label": "#9",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/hermes-agent-vs-openclaw.json",
+      "slug": "hermes-agent-vs-openclaw",
+      "route": "/ressources/comparatifs/hermes-agent-vs-openclaw",
+      "index": 11,
+      "label": "#11",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/hermes-agent-vs-openclaw.json",
+      "slug": "hermes-agent-vs-openclaw",
+      "route": "/ressources/comparatifs/hermes-agent-vs-openclaw",
+      "index": 14,
+      "label": "#14",
+      "background": "paper-2"
     },
     {
       "collection": "comparatifs",
@@ -5800,6 +6293,69 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/chatgpt-dots.json",
+      "slug": "chatgpt-dots",
+      "route": "/ressources/guides/chatgpt-dots",
+      "index": 5,
+      "label": "#5",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/chatgpt-dots.json",
+      "slug": "chatgpt-dots",
+      "route": "/ressources/guides/chatgpt-dots",
+      "index": 7,
+      "label": "#7",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/chatgpt-dots.json",
+      "slug": "chatgpt-dots",
+      "route": "/ressources/guides/chatgpt-dots",
+      "index": 8,
+      "label": "#8",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/chatgpt-dots.json",
+      "slug": "chatgpt-dots",
+      "route": "/ressources/guides/chatgpt-dots",
+      "index": 9,
+      "label": "#9",
+      "background": "paper-3"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/chatgpt-dots.json",
+      "slug": "chatgpt-dots",
+      "route": "/ressources/guides/chatgpt-dots",
+      "index": 11,
+      "label": "#11",
+      "background": "paper-3"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/chatgpt-dots.json",
+      "slug": "chatgpt-dots",
+      "route": "/ressources/guides/chatgpt-dots",
+      "index": 13,
+      "label": "#13",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/chatgpt-dots.json",
+      "slug": "chatgpt-dots",
+      "route": "/ressources/guides/chatgpt-dots",
+      "index": 16,
+      "label": "#16",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/choisir-agence-ia-pme.json",
       "slug": "choisir-agence-ia-pme",
       "route": "/ressources/guides/choisir-agence-ia-pme",
@@ -5971,6 +6527,69 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-duet.json",
+      "slug": "claude-duet",
+      "route": "/ressources/guides/claude-duet",
+      "index": 4,
+      "label": "#4",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-duet.json",
+      "slug": "claude-duet",
+      "route": "/ressources/guides/claude-duet",
+      "index": 6,
+      "label": "#6",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-duet.json",
+      "slug": "claude-duet",
+      "route": "/ressources/guides/claude-duet",
+      "index": 8,
+      "label": "#8",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-duet.json",
+      "slug": "claude-duet",
+      "route": "/ressources/guides/claude-duet",
+      "index": 9,
+      "label": "#9",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-duet.json",
+      "slug": "claude-duet",
+      "route": "/ressources/guides/claude-duet",
+      "index": 11,
+      "label": "#11",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-duet.json",
+      "slug": "claude-duet",
+      "route": "/ressources/guides/claude-duet",
+      "index": 13,
+      "label": "#13",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-duet.json",
+      "slug": "claude-duet",
+      "route": "/ressources/guides/claude-duet",
+      "index": 16,
+      "label": "#16",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-finance-pme.json",
       "slug": "claude-finance-pme",
       "route": "/ressources/guides/claude-finance-pme",
@@ -6085,6 +6704,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 10,
       "label": "#10",
       "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-for-small-business.json",
+      "slug": "claude-for-small-business",
+      "route": "/ressources/guides/claude-for-small-business",
+      "index": 11,
+      "label": "#11",
+      "background": "paper"
     },
     {
       "collection": "guides",
@@ -6399,6 +7027,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/claude-tpe",
       "index": 8,
       "label": "#8",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-tpe.json",
+      "slug": "claude-tpe",
+      "route": "/ressources/guides/claude-tpe",
+      "index": 9,
+      "label": "#9",
       "background": "paper"
     },
     {
@@ -6406,8 +7043,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-tpe.json",
       "slug": "claude-tpe",
       "route": "/ressources/guides/claude-tpe",
-      "index": 10,
-      "label": "#10",
+      "index": 11,
+      "label": "#11",
       "background": "paper"
     },
     {
@@ -6562,6 +7199,78 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 10,
       "label": "#10",
       "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/hermes-agent.json",
+      "slug": "hermes-agent",
+      "route": "/ressources/guides/hermes-agent",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/hermes-agent.json",
+      "slug": "hermes-agent",
+      "route": "/ressources/guides/hermes-agent",
+      "index": 6,
+      "label": "#6",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/hermes-agent.json",
+      "slug": "hermes-agent",
+      "route": "/ressources/guides/hermes-agent",
+      "index": 8,
+      "label": "#8",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/hermes-agent.json",
+      "slug": "hermes-agent",
+      "route": "/ressources/guides/hermes-agent",
+      "index": 9,
+      "label": "#9",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/hermes-agent.json",
+      "slug": "hermes-agent",
+      "route": "/ressources/guides/hermes-agent",
+      "index": 11,
+      "label": "#11",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/hermes-agent.json",
+      "slug": "hermes-agent",
+      "route": "/ressources/guides/hermes-agent",
+      "index": 14,
+      "label": "#14",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/hermes-agent.json",
+      "slug": "hermes-agent",
+      "route": "/ressources/guides/hermes-agent",
+      "index": 15,
+      "label": "#15",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/hermes-agent.json",
+      "slug": "hermes-agent",
+      "route": "/ressources/guides/hermes-agent",
+      "index": 17,
+      "label": "#17",
+      "background": "paper-2"
     },
     {
       "collection": "guides",
@@ -6736,6 +7445,69 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/openclaw.json",
+      "slug": "openclaw",
+      "route": "/ressources/guides/openclaw",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/openclaw.json",
+      "slug": "openclaw",
+      "route": "/ressources/guides/openclaw",
+      "index": 5,
+      "label": "#5",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/openclaw.json",
+      "slug": "openclaw",
+      "route": "/ressources/guides/openclaw",
+      "index": 7,
+      "label": "#7",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/openclaw.json",
+      "slug": "openclaw",
+      "route": "/ressources/guides/openclaw",
+      "index": 9,
+      "label": "#9",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/openclaw.json",
+      "slug": "openclaw",
+      "route": "/ressources/guides/openclaw",
+      "index": 12,
+      "label": "#12",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/openclaw.json",
+      "slug": "openclaw",
+      "route": "/ressources/guides/openclaw",
+      "index": 13,
+      "label": "#13",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/openclaw.json",
+      "slug": "openclaw",
+      "route": "/ressources/guides/openclaw",
+      "index": 15,
+      "label": "#15",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/prompt-engineering-pme.json",
       "slug": "prompt-engineering-pme",
       "route": "/ressources/guides/prompt-engineering-pme",
@@ -6883,8 +7655,17 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/rgpd-agents-ia-checklist.json",
       "slug": "rgpd-agents-ia-checklist",
       "route": "/ressources/guides/rgpd-agents-ia-checklist",
-      "index": 11,
-      "label": "#11",
+      "index": 7,
+      "label": "#7",
+      "background": "paper-3"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/rgpd-agents-ia-checklist.json",
+      "slug": "rgpd-agents-ia-checklist",
+      "route": "/ressources/guides/rgpd-agents-ia-checklist",
+      "index": 12,
+      "label": "#12",
       "background": "paper-2"
     },
     {
@@ -6982,8 +7763,17 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/second-cerveau-entreprise.json",
       "slug": "second-cerveau-entreprise",
       "route": "/ressources/guides/second-cerveau-entreprise",
-      "index": 11,
-      "label": "#11",
+      "index": 10,
+      "label": "#10",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/second-cerveau-entreprise.json",
+      "slug": "second-cerveau-entreprise",
+      "route": "/ressources/guides/second-cerveau-entreprise",
+      "index": 12,
+      "label": "#12",
       "background": "paper-2"
     },
     {
@@ -7110,6 +7900,42 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/services/agents-ia",
       "index": 3,
       "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia.json",
+      "slug": "agents-ia",
+      "route": "/services/agents-ia",
+      "index": 4,
+      "label": "#4",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia.json",
+      "slug": "agents-ia",
+      "route": "/services/agents-ia",
+      "index": 5,
+      "label": "#5",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source.json",
+      "slug": "agents-ia-open-source",
+      "route": "/services/agents-ia-open-source",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source.json",
+      "slug": "agents-ia-open-source",
+      "route": "/services/agents-ia-open-source",
+      "index": 5,
+      "label": "#5",
       "background": "paper-2"
     },
     {
@@ -7330,12 +8156,48 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source/integration-hermes-agent.json",
+      "slug": "integration-hermes-agent",
+      "route": "/services/integration-hermes-agent",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source/integration-hermes-agent.json",
+      "slug": "integration-hermes-agent",
+      "route": "/services/integration-hermes-agent",
+      "index": 7,
+      "label": "#7",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/integration-claude/integration-mistral-ai.json",
       "slug": "integration-mistral-ai",
       "route": "/services/integration-mistral-ai",
       "index": 3,
       "label": "#3",
       "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source/integration-openclaw.json",
+      "slug": "integration-openclaw",
+      "route": "/services/integration-openclaw",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source/integration-openclaw.json",
+      "slug": "integration-openclaw",
+      "route": "/services/integration-openclaw",
+      "index": 7,
+      "label": "#7",
+      "background": "paper"
     },
     {
       "collection": "services",
@@ -7767,6 +8629,16 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/claude-duet-vs-chatgpt-dots.json",
+      "slug": "claude-duet-vs-chatgpt-dots",
+      "route": "/ressources/comparatifs/claude-duet-vs-chatgpt-dots",
+      "index": 11,
+      "label": "Ce qui peut changer vite",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/claude-platform-vs-openai-platform.json",
       "slug": "claude-platform-vs-openai-platform",
       "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
@@ -7954,7 +8826,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "ai-act-pme-calendrier",
       "route": "/ressources/guides/ai-act-pme-calendrier",
       "index": 5,
-      "label": "Le calendrier de l'AI Act au 16 octobre 2026",
+      "label": "Le calendrier de l'AI Act au 26 octobre 2026",
       "variant": "editorial",
       "background": "paper-2"
     },
@@ -8080,6 +8952,26 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/chatgpt-dots.json",
+      "slug": "chatgpt-dots",
+      "route": "/ressources/guides/chatgpt-dots",
+      "index": 6,
+      "label": "Disponibilité, prix, limites d'usage : ce que disent les pages d'OpenAI au 24 octobre 2026",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/chatgpt-dots.json",
+      "slug": "chatgpt-dots",
+      "route": "/ressources/guides/chatgpt-dots",
+      "index": 12,
+      "label": "Dots, Duet, agent sur mesure ou moteur ouvert : qui fait quoi",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/choisir-agence-ia-pme.json",
       "slug": "choisir-agence-ia-pme",
       "route": "/ressources/guides/choisir-agence-ia-pme",
@@ -8182,6 +9074,26 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/claude-design",
       "index": 9,
       "label": "Quatre usages concrets en PME, et ce qui reste à faire",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-duet.json",
+      "slug": "claude-duet",
+      "route": "/ressources/guides/claude-duet",
+      "index": 5,
+      "label": "Duet, Claude, Cowork, Managed Agents : qui fait quoi",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-duet.json",
+      "slug": "claude-duet",
+      "route": "/ressources/guides/claude-duet",
+      "index": 12,
+      "label": "Que faire en attendant l'accès : quatre voies",
       "variant": "editorial",
       "background": "paper-2"
     },
@@ -8456,6 +9368,26 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/hermes-agent.json",
+      "slug": "hermes-agent",
+      "route": "/ressources/guides/hermes-agent",
+      "index": 4,
+      "label": "Ce qu'il faut pour faire tourner Hermes Agent",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/hermes-agent.json",
+      "slug": "hermes-agent",
+      "route": "/ressources/guides/hermes-agent",
+      "index": 10,
+      "label": "Les postes de coût de Hermes Agent, un par un",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/llm-rag-dirigeant.json",
       "slug": "llm-rag-dirigeant",
       "route": "/ressources/guides/llm-rag-dirigeant",
@@ -8560,6 +9492,16 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/n8n-prix",
       "index": 10,
       "label": "Trois budgets mensuels de fonctionnement, hypothèses écrites",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/openclaw.json",
+      "slug": "openclaw",
+      "route": "/ressources/guides/openclaw",
+      "index": 4,
+      "label": "Ce qu'il faut pour faire tourner OpenClaw",
       "variant": "editorial",
       "background": "paper"
     },
@@ -9015,6 +9957,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "background": "paper"
     },
     {
+      "collection": "guides",
+      "file": "guides/hermes-agent.json",
+      "slug": "hermes-agent",
+      "route": "/ressources/guides/hermes-agent",
+      "index": 5,
+      "label": "Hermes Agent en quatre dates",
+      "background": "paper-2"
+    },
+    {
       "collection": "services",
       "file": "services/automatisation-make.json",
       "slug": "automatisation-make",
@@ -9165,8 +10116,17 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia.json",
       "slug": "agents-ia",
       "route": "/services/agents-ia",
-      "index": 9,
-      "label": "#9",
+      "index": 13,
+      "label": "#13",
+      "variant": "media"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source.json",
+      "slug": "agents-ia-open-source",
+      "route": "/services/agents-ia-open-source",
+      "index": 11,
+      "label": "#11",
       "variant": "media"
     },
     {
@@ -9324,9 +10284,27 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source/integration-hermes-agent.json",
+      "slug": "integration-hermes-agent",
+      "route": "/services/integration-hermes-agent",
+      "index": 10,
+      "label": "#10",
+      "variant": "media"
+    },
+    {
+      "collection": "services",
       "file": "services/integration-claude/integration-mistral-ai.json",
       "slug": "integration-mistral-ai",
       "route": "/services/integration-mistral-ai",
+      "index": 10,
+      "label": "#10",
+      "variant": "media"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source/integration-openclaw.json",
+      "slug": "integration-openclaw",
+      "route": "/services/integration-openclaw",
       "index": 10,
       "label": "#10",
       "variant": "media"
@@ -9507,8 +10485,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/systemes-operationnels-ia.json",
       "slug": "systemes-operationnels-ia",
       "route": "/services/systemes-operationnels-ia",
-      "index": 7,
-      "label": "#7",
+      "index": 8,
+      "label": "#8",
       "variant": "media"
     },
     {
@@ -9848,6 +10826,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/claude-duet-vs-chatgpt-dots.json",
+      "slug": "claude-duet-vs-chatgpt-dots",
+      "route": "/ressources/comparatifs/claude-duet-vs-chatgpt-dots",
+      "index": 18,
+      "label": "Claude Duet vs ChatGPT dots : vos questions",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/claude-platform-vs-openai-platform.json",
       "slug": "claude-platform-vs-openai-platform",
       "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
@@ -9889,6 +10876,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/comparatifs/geo-vs-seo",
       "index": 6,
       "label": "Ce que vous nous demandez",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/hermes-agent-vs-openclaw.json",
+      "slug": "hermes-agent-vs-openclaw",
+      "route": "/ressources/comparatifs/hermes-agent-vs-openclaw",
+      "index": 17,
+      "label": "Hermes Agent vs OpenClaw : vos questions",
       "background": "paper"
     },
     {
@@ -10055,6 +11051,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/chatgpt-dots.json",
+      "slug": "chatgpt-dots",
+      "route": "/ressources/guides/chatgpt-dots",
+      "index": 19,
+      "label": "Questions fréquentes sur ChatGPT dots",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/choisir-agence-ia-pme.json",
       "slug": "choisir-agence-ia-pme",
       "route": "/ressources/guides/choisir-agence-ia-pme",
@@ -10091,6 +11096,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-duet.json",
+      "slug": "claude-duet",
+      "route": "/ressources/guides/claude-duet",
+      "index": 19,
+      "label": "Questions fréquentes sur Claude Duet",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-finance-pme.json",
       "slug": "claude-finance-pme",
       "route": "/ressources/guides/claude-finance-pme",
@@ -10112,7 +11126,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-for-small-business.json",
       "slug": "claude-for-small-business",
       "route": "/ressources/guides/claude-for-small-business",
-      "index": 16,
+      "index": 17,
       "label": "Questions fréquentes sur Claude for Small Business",
       "background": "paper"
     },
@@ -10184,7 +11198,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-tpe.json",
       "slug": "claude-tpe",
       "route": "/ressources/guides/claude-tpe",
-      "index": 13,
+      "index": 14,
       "label": "Claude pour une TPE : questions fréquentes",
       "background": "paper"
     },
@@ -10235,6 +11249,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/hermes-agent.json",
+      "slug": "hermes-agent",
+      "route": "/ressources/guides/hermes-agent",
+      "index": 20,
+      "label": "Questions fréquentes sur Hermes Agent",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/llm-rag-dirigeant.json",
       "slug": "llm-rag-dirigeant",
       "route": "/ressources/guides/llm-rag-dirigeant",
@@ -10280,6 +11303,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/openclaw.json",
+      "slug": "openclaw",
+      "route": "/ressources/guides/openclaw",
+      "index": 18,
+      "label": "Questions fréquentes sur OpenClaw",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/prompt-engineering-pme.json",
       "slug": "prompt-engineering-pme",
       "route": "/ressources/guides/prompt-engineering-pme",
@@ -10319,7 +11351,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/rgpd-agents-ia-checklist.json",
       "slug": "rgpd-agents-ia-checklist",
       "route": "/ressources/guides/rgpd-agents-ia-checklist",
-      "index": 12,
+      "index": 13,
       "label": "RGPD et agents IA : questions fréquentes",
       "background": "paper"
     },
@@ -10346,7 +11378,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/second-cerveau-entreprise.json",
       "slug": "second-cerveau-entreprise",
       "route": "/ressources/guides/second-cerveau-entreprise",
-      "index": 13,
+      "index": 14,
       "label": "Second cerveau en entreprise : questions fréquentes",
       "background": "paper-2"
     },
@@ -10400,8 +11432,17 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia.json",
       "slug": "agents-ia",
       "route": "/services/agents-ia",
-      "index": 11,
+      "index": 17,
       "label": "Agents IA : vos questions",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source.json",
+      "slug": "agents-ia-open-source",
+      "route": "/services/agents-ia-open-source",
+      "index": 13,
+      "label": "Agents IA open source : vos questions",
       "background": "paper-2"
     },
     {
@@ -10568,11 +11609,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source/integration-hermes-agent.json",
+      "slug": "integration-hermes-agent",
+      "route": "/services/integration-hermes-agent",
+      "index": 12,
+      "label": "Intégration de Hermes Agent : vos questions",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
       "file": "services/integration-claude/integration-mistral-ai.json",
       "slug": "integration-mistral-ai",
       "route": "/services/integration-mistral-ai",
       "index": 12,
       "label": "Intégration de Mistral AI : vos questions",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source/integration-openclaw.json",
+      "slug": "integration-openclaw",
+      "route": "/services/integration-openclaw",
+      "index": 12,
+      "label": "Intégration d'OpenClaw : vos questions",
       "background": "paper-2"
     },
     {
@@ -10751,7 +11810,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/systemes-operationnels-ia.json",
       "slug": "systemes-operationnels-ia",
       "route": "/services/systemes-operationnels-ia",
-      "index": 9,
+      "index": 10,
       "label": "Automatisation IA : vos questions",
       "background": "paper-2"
     },
@@ -11557,6 +12616,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/claude-duet-vs-chatgpt-dots.json",
+      "slug": "claude-duet-vs-chatgpt-dots",
+      "route": "/ressources/comparatifs/claude-duet-vs-chatgpt-dots",
+      "index": 19,
+      "label": "L'agent compte moins que ce qu'il a le droit de faire.",
+      "background": "ink"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/claude-platform-vs-openai-platform.json",
       "slug": "claude-platform-vs-openai-platform",
       "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
@@ -11598,6 +12666,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/comparatifs/geo-vs-seo",
       "index": 7,
       "label": "Vu sur Google, repris par les IA. Faisons les deux.",
+      "background": "ink"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/hermes-agent-vs-openclaw.json",
+      "slug": "hermes-agent-vs-openclaw",
+      "route": "/ressources/comparatifs/hermes-agent-vs-openclaw",
+      "index": 18,
+      "label": "Le moteur compte moins que la façon de l'exploiter.",
       "background": "ink"
     },
     {
@@ -11764,6 +12841,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/chatgpt-dots.json",
+      "slug": "chatgpt-dots",
+      "route": "/ressources/guides/chatgpt-dots",
+      "index": 21,
+      "label": "Un agent qui suit vos dossiers, avec des règles que vous écrivez.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/choisir-agence-ia-pme.json",
       "slug": "choisir-agence-ia-pme",
       "route": "/ressources/guides/choisir-agence-ia-pme",
@@ -11800,6 +12886,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-duet.json",
+      "slug": "claude-duet",
+      "route": "/ressources/guides/claude-duet",
+      "index": 21,
+      "label": "Un agent qui travaille pour vous, sans attendre une liste d'attente.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-finance-pme.json",
       "slug": "claude-finance-pme",
       "route": "/ressources/guides/claude-finance-pme",
@@ -11821,7 +12916,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-for-small-business.json",
       "slug": "claude-for-small-business",
       "route": "/ressources/guides/claude-for-small-business",
-      "index": 17,
+      "index": 18,
       "label": "Le plugin est américain. Votre compta ne l'est pas.",
       "background": "ink"
     },
@@ -11893,7 +12988,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-tpe.json",
       "slug": "claude-tpe",
       "route": "/ressources/guides/claude-tpe",
-      "index": 14,
+      "index": 15,
       "label": "Le bon compte et un premier usage, choisis avant la première facture.",
       "background": "ink"
     },
@@ -11944,6 +13039,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/hermes-agent.json",
+      "slug": "hermes-agent",
+      "route": "/ressources/guides/hermes-agent",
+      "index": 22,
+      "label": "Savoir si Hermes Agent a sa place chez vous, et à quelles conditions.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/llm-rag-dirigeant.json",
       "slug": "llm-rag-dirigeant",
       "route": "/ressources/guides/llm-rag-dirigeant",
@@ -11989,6 +13093,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/openclaw.json",
+      "slug": "openclaw",
+      "route": "/ressources/guides/openclaw",
+      "index": 20,
+      "label": "Savoir si OpenClaw convient à votre usage, et ce qu'il faut durcir avant.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/prompt-engineering-pme.json",
       "slug": "prompt-engineering-pme",
       "route": "/ressources/guides/prompt-engineering-pme",
@@ -12028,7 +13141,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/rgpd-agents-ia-checklist.json",
       "slug": "rgpd-agents-ia-checklist",
       "route": "/ressources/guides/rgpd-agents-ia-checklist",
-      "index": 13,
+      "index": 14,
       "label": "Passer vos agents IA au crible du RGPD avant la mise en production.",
       "background": "ink"
     },
@@ -12055,7 +13168,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/second-cerveau-entreprise.json",
       "slug": "second-cerveau-entreprise",
       "route": "/ressources/guides/second-cerveau-entreprise",
-      "index": 14,
+      "index": 15,
       "label": "Vérifions d'abord si un projet Claude suffit, avant de construire une base.",
       "background": "ink"
     },
@@ -12109,8 +13222,17 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia.json",
       "slug": "agents-ia",
       "route": "/services/agents-ia",
-      "index": 12,
+      "index": 18,
       "label": "Quelle tâche confieriez-vous à un agent ?",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source.json",
+      "slug": "agents-ia-open-source",
+      "route": "/services/agents-ia-open-source",
+      "index": 15,
+      "label": "Un moteur ouvert a-t-il sa place chez vous ?",
       "background": "ink"
     },
     {
@@ -12277,11 +13399,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source/integration-hermes-agent.json",
+      "slug": "integration-hermes-agent",
+      "route": "/services/integration-hermes-agent",
+      "index": 14,
+      "label": "Hermes Agent a-t-il sa place chez vous, et à quelles conditions ?",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
       "file": "services/integration-claude/integration-mistral-ai.json",
       "slug": "integration-mistral-ai",
       "route": "/services/integration-mistral-ai",
       "index": 13,
       "label": "Quelle exigence de données pèse sur votre choix de modèle ?",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source/integration-openclaw.json",
+      "slug": "integration-openclaw",
+      "route": "/services/integration-openclaw",
+      "index": 14,
+      "label": "OpenClaw convient-il à votre usage, et que faut-il durcir avant ?",
       "background": "ink"
     },
     {
@@ -12460,7 +13600,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/systemes-operationnels-ia.json",
       "slug": "systemes-operationnels-ia",
       "route": "/services/systemes-operationnels-ia",
-      "index": 10,
+      "index": 11,
       "label": "Quarante-cinq minutes pour savoir quoi automatiser.",
       "background": "ink"
     },
@@ -13241,6 +14381,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/claude-duet-vs-chatgpt-dots.json",
+      "slug": "claude-duet-vs-chatgpt-dots",
+      "route": "/ressources/comparatifs/claude-duet-vs-chatgpt-dots",
+      "index": 0,
+      "label": "Claude Duet vs ChatGPT dots : lequel pour une PME ?",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/claude-platform-vs-openai-platform.json",
       "slug": "claude-platform-vs-openai-platform",
       "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
@@ -13282,6 +14431,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/comparatifs/geo-vs-seo",
       "index": 0,
       "label": "GEO vs SEO.",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/hermes-agent-vs-openclaw.json",
+      "slug": "hermes-agent-vs-openclaw",
+      "route": "/ressources/comparatifs/hermes-agent-vs-openclaw",
+      "index": 0,
+      "label": "Hermes Agent vs OpenClaw : lequel pour une entreprise ?",
       "background": "paper"
     },
     {
@@ -13439,6 +14597,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/chatgpt-dots.json",
+      "slug": "chatgpt-dots",
+      "route": "/ressources/guides/chatgpt-dots",
+      "index": 0,
+      "label": "ChatGPT dots : les agents toujours actifs d'OpenAI",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/choisir-agence-ia-pme.json",
       "slug": "choisir-agence-ia-pme",
       "route": "/ressources/guides/choisir-agence-ia-pme",
@@ -13471,6 +14638,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/claude-design",
       "index": 0,
       "label": "Claude Design : usages en PME, limites et alternatives",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-duet.json",
+      "slug": "claude-duet",
+      "route": "/ressources/guides/claude-duet",
+      "index": 0,
+      "label": "Claude Duet : l'agent proactif d'Anthropic",
       "background": "paper"
     },
     {
@@ -13619,6 +14795,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/hermes-agent.json",
+      "slug": "hermes-agent",
+      "route": "/ressources/guides/hermes-agent",
+      "index": 0,
+      "label": "Hermes Agent : l'agent open source qui apprend",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/llm-rag-dirigeant.json",
       "slug": "llm-rag-dirigeant",
       "route": "/ressources/guides/llm-rag-dirigeant",
@@ -13660,6 +14845,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/n8n-prix",
       "index": 0,
       "label": "n8n prix : tarifs 2026 et coût complet pour une PME",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/openclaw.json",
+      "slug": "openclaw",
+      "route": "/ressources/guides/openclaw",
+      "index": 0,
+      "label": "OpenClaw 2.0 : l'agent open source à durcir",
       "background": "paper"
     },
     {
@@ -13763,6 +14957,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source.json",
+      "slug": "agents-ia-open-source",
+      "route": "/services/agents-ia-open-source",
+      "index": 0,
+      "label": "Agents IA open source pour entreprise",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/applications-internes.json",
       "slug": "applications-internes",
       "route": "/services/applications-internes",
@@ -13844,11 +15047,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source/integration-hermes-agent.json",
+      "slug": "integration-hermes-agent",
+      "route": "/services/integration-hermes-agent",
+      "index": 0,
+      "label": "Hermes Agent en entreprise",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/integration-claude/integration-mistral-ai.json",
       "slug": "integration-mistral-ai",
       "route": "/services/integration-mistral-ai",
       "index": 0,
       "label": "Intégrer Mistral AI à vos outils métier",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source/integration-openclaw.json",
+      "slug": "integration-openclaw",
+      "route": "/services/integration-openclaw",
+      "index": 0,
+      "label": "OpenClaw en entreprise",
       "background": "paper"
     },
     {
@@ -14130,6 +15351,16 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/chatgpt-dots.json",
+      "slug": "chatgpt-dots",
+      "route": "/ressources/guides/chatgpt-dots",
+      "index": 4,
+      "label": "Six repères relevés dans les pages d'OpenAI",
+      "variant": "accent",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-code-entreprise.json",
       "slug": "claude-code-entreprise",
       "route": "/ressources/guides/claude-code-entreprise",
@@ -14155,6 +15386,16 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/claude-design",
       "index": 2,
       "label": "Quatre faits à connaître avant d'ouvrir l'outil",
+      "variant": "accent",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-duet.json",
+      "slug": "claude-duet",
+      "route": "/ressources/guides/claude-duet",
+      "index": 3,
+      "label": "Six repères avant de vous inscrire",
       "variant": "accent",
       "background": "paper"
     },
@@ -14308,6 +15549,16 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/hermes-agent.json",
+      "slug": "hermes-agent",
+      "route": "/ressources/guides/hermes-agent",
+      "index": 2,
+      "label": "Six repères avant d'installer quoi que ce soit",
+      "variant": "accent",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/mesurer-visibilite-ia-chatgpt.json",
       "slug": "mesurer-visibilite-ia-chatgpt",
       "route": "/ressources/guides/mesurer-visibilite-ia-chatgpt",
@@ -14323,6 +15574,16 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/n8n-prix",
       "index": 3,
       "label": "Prix mensuels, facturation annuelle, hors taxes",
+      "variant": "accent",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/openclaw.json",
+      "slug": "openclaw",
+      "route": "/ressources/guides/openclaw",
+      "index": 2,
+      "label": "Six repères avant d'installer OpenClaw",
       "variant": "accent",
       "background": "paper"
     },
@@ -14369,11 +15630,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/claude-duet-vs-chatgpt-dots.json",
+      "slug": "claude-duet-vs-chatgpt-dots",
+      "route": "/ressources/comparatifs/claude-duet-vs-chatgpt-dots",
+      "index": 15,
+      "label": "Avant de laisser un agent agir en votre nom, écrivez la règle : recevez le modèle de charte IA en PDF",
+      "background": "ink"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/formateur-ia-organisme-freelance-agence.json",
       "slug": "formateur-ia-organisme-freelance-agence",
       "route": "/ressources/comparatifs/formateur-ia-organisme-freelance-agence",
       "index": 8,
       "label": "Avant la formation : la charte d'usage que l'équipe appliquera ensuite",
+      "background": "ink"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/hermes-agent-vs-openclaw.json",
+      "slug": "hermes-agent-vs-openclaw",
+      "route": "/ressources/comparatifs/hermes-agent-vs-openclaw",
+      "index": 13,
+      "label": "Avant d'installer un agent : la charte qui dit ce qu'il a le droit de faire",
       "background": "ink"
     },
     {
@@ -14387,29 +15666,11 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
-      "file": "guides/accompagnement-ia-pme.json",
-      "slug": "accompagnement-ia-pme",
-      "route": "/ressources/guides/accompagnement-ia-pme",
-      "index": 11,
-      "label": "#11",
-      "background": "ink"
-    },
-    {
-      "collection": "guides",
       "file": "guides/ai-act-pme-calendrier.json",
       "slug": "ai-act-pme-calendrier",
       "route": "/ressources/guides/ai-act-pme-calendrier",
       "index": 4,
       "label": "#4",
-      "background": "ink"
-    },
-    {
-      "collection": "guides",
-      "file": "guides/audit-geo-pme.json",
-      "slug": "audit-geo-pme",
-      "route": "/ressources/guides/audit-geo-pme",
-      "index": 15,
-      "label": "#15",
       "background": "ink"
     },
     {
@@ -14428,6 +15689,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/cahier-des-charges-site-internet",
       "index": 16,
       "label": "Avant d'écrire le cahier des charges : auditez votre site actuel avec la grille",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/chatgpt-dots.json",
+      "slug": "chatgpt-dots",
+      "route": "/ressources/guides/chatgpt-dots",
+      "index": 14,
+      "label": "Avant de confier une mission à un agent toujours actif : écrivez ce qu'il peut faire seul. Recevez le modèle de charte IA en PDF",
       "background": "ink"
     },
     {
@@ -14459,6 +15729,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-duet.json",
+      "slug": "claude-duet",
+      "route": "/ressources/guides/claude-duet",
+      "index": 15,
+      "label": "Avant de laisser un agent agir en votre nom : le kit conformité et administration de Claude",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-finance-pme.json",
       "slug": "claude-finance-pme",
       "route": "/ressources/guides/claude-finance-pme",
@@ -14480,7 +15759,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-for-small-business.json",
       "slug": "claude-for-small-business",
       "route": "/ressources/guides/claude-for-small-business",
-      "index": 11,
+      "index": 12,
       "label": "Recevez le guide d'achat Claude pour PME (PDF, 14 pages)",
       "background": "ink"
     },
@@ -14579,7 +15858,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-tpe.json",
       "slug": "claude-tpe",
       "route": "/ressources/guides/claude-tpe",
-      "index": 11,
+      "index": 12,
       "label": "Claude pour une petite équipe : recevez le guide d'achat, budgets calculés pour 5, 15 et 40 personnes",
       "background": "ink"
     },
@@ -14594,11 +15873,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/hermes-agent.json",
+      "slug": "hermes-agent",
+      "route": "/ressources/guides/hermes-agent",
+      "index": 12,
+      "label": "Avant de choisir un moteur d'agent : écrivez les règles. Recevez le modèle de charte IA en PDF",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/mcp-claude.json",
       "slug": "mcp-claude",
       "route": "/ressources/guides/mcp-claude",
       "index": 9,
       "label": "Avant de brancher un connecteur : recevez le kit conformité Claude (PDF, 11 pages)",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/openclaw.json",
+      "slug": "openclaw",
+      "route": "/ressources/guides/openclaw",
+      "index": 10,
+      "label": "Avant de brancher un agent sur vos messageries : écrivez les règles. Recevez le modèle de charte IA en PDF",
       "background": "ink"
     },
     {
@@ -14633,7 +15930,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/rgpd-agents-ia-checklist.json",
       "slug": "rgpd-agents-ia-checklist",
       "route": "/ressources/guides/rgpd-agents-ia-checklist",
-      "index": 9,
+      "index": 10,
       "label": "Outils autorisés, données interdites, validation humaine : recevez le modèle de charte IA en PDF",
       "background": "ink"
     },
@@ -14947,6 +16244,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
   "newsletter-signup-section": [
     {
       "collection": "guides",
+      "file": "guides/chatgpt-dots.json",
+      "slug": "chatgpt-dots",
+      "route": "/ressources/guides/chatgpt-dots",
+      "index": 20,
+      "label": "Dots arrivera-t-il sur votre offre ? Soyez prévenu quand ça change.",
+      "background": "paper-3"
+    },
+    {
+      "collection": "guides",
       "file": "guides/choisir-agence-ia-pme.json",
       "slug": "choisir-agence-ia-pme",
       "route": "/ressources/guides/choisir-agence-ia-pme",
@@ -14983,6 +16289,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-duet.json",
+      "slug": "claude-duet",
+      "route": "/ressources/guides/claude-duet",
+      "index": 20,
+      "label": "Duet arrivera-t-il en France ? Soyez prévenu quand ça change.",
+      "background": "paper-3"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-fonctionnalites-pme.json",
       "slug": "claude-fonctionnalites-pme",
       "route": "/ressources/guides/claude-fonctionnalites-pme",
@@ -14995,7 +16310,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-for-small-business.json",
       "slug": "claude-for-small-business",
       "route": "/ressources/guides/claude-for-small-business",
-      "index": 15,
+      "index": 16,
       "label": "Les nouveaux connecteurs français à Claude, quand ils sortent",
       "background": "ink"
     },
@@ -15043,6 +16358,24 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 15,
       "label": "Quand les prix de Claude bougent, vous le savez avant votre prochain devis",
       "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/hermes-agent.json",
+      "slug": "hermes-agent",
+      "route": "/ressources/guides/hermes-agent",
+      "index": 21,
+      "label": "Hermes Agent publie vite. Soyez prévenu des versions qui comptent.",
+      "background": "paper-3"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/openclaw.json",
+      "slug": "openclaw",
+      "route": "/ressources/guides/openclaw",
+      "index": 19,
+      "label": "OpenClaw change chaque semaine. Soyez prévenu de ce qui compte.",
+      "background": "paper-3"
     }
   ],
   "pain-severity-list": [
@@ -15296,9 +16629,18 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia.json",
       "slug": "agents-ia",
       "route": "/services/agents-ia",
-      "index": 8,
+      "index": 12,
       "label": "Combien coûte un agent IA",
       "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source.json",
+      "slug": "agents-ia-open-source",
+      "route": "/services/agents-ia-open-source",
+      "index": 10,
+      "label": "Combien coûte un agent IA open source",
+      "background": "paper-2"
     },
     {
       "collection": "services",
@@ -15455,11 +16797,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source/integration-hermes-agent.json",
+      "slug": "integration-hermes-agent",
+      "route": "/services/integration-hermes-agent",
+      "index": 9,
+      "label": "Prix de l'intégration de Hermes Agent",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/integration-claude/integration-mistral-ai.json",
       "slug": "integration-mistral-ai",
       "route": "/services/integration-mistral-ai",
       "index": 9,
       "label": "Prix d'une intégration de Mistral AI",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source/integration-openclaw.json",
+      "slug": "integration-openclaw",
+      "route": "/services/integration-openclaw",
+      "index": 9,
+      "label": "Prix de l'intégration d'OpenClaw",
       "background": "paper"
     },
     {
@@ -15638,7 +16998,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/systemes-operationnels-ia.json",
       "slug": "systemes-operationnels-ia",
       "route": "/services/systemes-operationnels-ia",
-      "index": 6,
+      "index": 7,
       "label": "Quatre socles pour câbler votre système",
       "background": "paper"
     },
@@ -15821,11 +17181,29 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/claude-duet-vs-chatgpt-dots.json",
+      "slug": "claude-duet-vs-chatgpt-dots",
+      "route": "/ressources/comparatifs/claude-duet-vs-chatgpt-dots",
+      "index": 14,
+      "label": "Trancher en deux semaines, sur une vraie tâche",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/claude-vs-chatgpt-pme.json",
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "index": 15,
       "label": "Comment trancher en deux semaines, sur vos documents",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/hermes-agent-vs-openclaw.json",
+      "slug": "hermes-agent-vs-openclaw",
+      "route": "/ressources/comparatifs/hermes-agent-vs-openclaw",
+      "index": 12,
+      "label": "Choisir et valider en deux semaines",
       "background": "paper"
     },
     {
@@ -15938,6 +17316,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/chatgpt-dots.json",
+      "slug": "chatgpt-dots",
+      "route": "/ressources/guides/chatgpt-dots",
+      "index": 15,
+      "label": "Tester un agent toujours actif sans risque, en quatre étapes",
+      "background": "paper-3"
+    },
+    {
+      "collection": "guides",
       "file": "guides/choisir-agence-ia-pme.json",
       "slug": "choisir-agence-ia-pme",
       "route": "/ressources/guides/choisir-agence-ia-pme",
@@ -15974,6 +17361,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-duet.json",
+      "slug": "claude-duet",
+      "route": "/ressources/guides/claude-duet",
+      "index": 14,
+      "label": "Tester un agent proactif sans risque, en quatre étapes",
+      "background": "paper-3"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-fonctionnalites-pme.json",
       "slug": "claude-fonctionnalites-pme",
       "route": "/ressources/guides/claude-fonctionnalites-pme",
@@ -15986,7 +17382,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-for-small-business.json",
       "slug": "claude-for-small-business",
       "route": "/ressources/guides/claude-for-small-business",
-      "index": 13,
+      "index": 14,
       "label": "Comment Waimia adapte le plugin à une PME française",
       "background": "paper-2"
     },
@@ -16067,7 +17463,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-tpe.json",
       "slug": "claude-tpe",
       "route": "/ressources/guides/claude-tpe",
-      "index": 9,
+      "index": 10,
       "label": "Que faire la première semaine, puis le premier mois ?",
       "background": "paper-2"
     },
@@ -16100,6 +17496,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/hermes-agent.json",
+      "slug": "hermes-agent",
+      "route": "/ressources/guides/hermes-agent",
+      "index": 16,
+      "label": "Démarrer avec Hermes Agent en quatre étapes",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/mesurer-visibilite-ia-chatgpt.json",
       "slug": "mesurer-visibilite-ia-chatgpt",
       "route": "/ressources/guides/mesurer-visibilite-ia-chatgpt",
@@ -16115,6 +17520,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 13,
       "label": "Chiffrer votre cas en cinq étapes",
       "background": "paper-3"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/openclaw.json",
+      "slug": "openclaw",
+      "route": "/ressources/guides/openclaw",
+      "index": 14,
+      "label": "Mettre OpenClaw en service en quatre étapes",
+      "background": "paper"
     },
     {
       "collection": "guides",
@@ -16157,7 +17571,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/second-cerveau-entreprise.json",
       "slug": "second-cerveau-entreprise",
       "route": "/ressources/guides/second-cerveau-entreprise",
-      "index": 10,
+      "index": 11,
       "label": "Comment décider en une semaine ?",
       "background": "paper-3"
     },
@@ -16178,6 +17592,24 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 4,
       "label": "Le scénario, module par module",
       "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia.json",
+      "slug": "agents-ia",
+      "route": "/services/agents-ia",
+      "index": 6,
+      "label": "Construire un agent autour d'un moteur ouvert, en cinq étapes",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source.json",
+      "slug": "agents-ia-open-source",
+      "route": "/services/agents-ia-open-source",
+      "index": 7,
+      "label": "Déployer un agent IA open source en cinq étapes",
+      "background": "paper-2"
     },
     {
       "collection": "services",
@@ -16217,12 +17649,30 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source/integration-hermes-agent.json",
+      "slug": "integration-hermes-agent",
+      "route": "/services/integration-hermes-agent",
+      "index": 5,
+      "label": "Déployer Hermes Agent en cinq étapes",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
       "file": "services/integration-claude/integration-mistral-ai.json",
       "slug": "integration-mistral-ai",
       "route": "/services/integration-mistral-ai",
       "index": 8,
       "label": "Du choix du modèle à l'outil branché",
       "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source/integration-openclaw.json",
+      "slug": "integration-openclaw",
+      "route": "/services/integration-openclaw",
+      "index": 5,
+      "label": "Sécuriser et déployer OpenClaw en cinq étapes",
+      "background": "paper-2"
     },
     {
       "collection": "services",
@@ -16330,6 +17780,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/agents-ia.json",
       "slug": "agents-ia",
       "route": "/services/agents-ia",
+      "index": 1,
+      "label": "En bref",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source.json",
+      "slug": "agents-ia-open-source",
+      "route": "/services/agents-ia-open-source",
       "index": 1,
       "label": "En bref",
       "background": "paper"
@@ -16498,9 +17957,27 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source/integration-hermes-agent.json",
+      "slug": "integration-hermes-agent",
+      "route": "/services/integration-hermes-agent",
+      "index": 1,
+      "label": "En bref",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/integration-claude/integration-mistral-ai.json",
       "slug": "integration-mistral-ai",
       "route": "/services/integration-mistral-ai",
+      "index": 1,
+      "label": "En bref",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source/integration-openclaw.json",
+      "slug": "integration-openclaw",
+      "route": "/services/integration-openclaw",
       "index": 1,
       "label": "En bref",
       "background": "paper"
@@ -17038,6 +18515,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/claude-duet-vs-chatgpt-dots.json",
+      "slug": "claude-duet-vs-chatgpt-dots",
+      "route": "/ressources/comparatifs/claude-duet-vs-chatgpt-dots",
+      "index": 17,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/claude-platform-vs-openai-platform.json",
       "slug": "claude-platform-vs-openai-platform",
       "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
@@ -17079,6 +18565,24 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/comparatifs/geo-vs-seo",
       "index": 5,
       "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/hermes-agent-vs-openclaw.json",
+      "slug": "hermes-agent-vs-openclaw",
+      "route": "/ressources/comparatifs/hermes-agent-vs-openclaw",
+      "index": 15,
+      "label": "Les deux guides en détail",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/hermes-agent-vs-openclaw.json",
+      "slug": "hermes-agent-vs-openclaw",
+      "route": "/ressources/comparatifs/hermes-agent-vs-openclaw",
+      "index": 16,
+      "label": "Nos services",
       "background": "paper-2"
     },
     {
@@ -17236,6 +18740,24 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/chatgpt-dots.json",
+      "slug": "chatgpt-dots",
+      "route": "/ressources/guides/chatgpt-dots",
+      "index": 17,
+      "label": "Les services",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/chatgpt-dots.json",
+      "slug": "chatgpt-dots",
+      "route": "/ressources/guides/chatgpt-dots",
+      "index": 18,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/choisir-agence-ia-pme.json",
       "slug": "choisir-agence-ia-pme",
       "route": "/ressources/guides/choisir-agence-ia-pme",
@@ -17272,6 +18794,24 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-duet.json",
+      "slug": "claude-duet",
+      "route": "/ressources/guides/claude-duet",
+      "index": 17,
+      "label": "Les services",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-duet.json",
+      "slug": "claude-duet",
+      "route": "/ressources/guides/claude-duet",
+      "index": 18,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-finance-pme.json",
       "slug": "claude-finance-pme",
       "route": "/ressources/guides/claude-finance-pme",
@@ -17293,7 +18833,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-for-small-business.json",
       "slug": "claude-for-small-business",
       "route": "/ressources/guides/claude-for-small-business",
-      "index": 14,
+      "index": 15,
       "label": "Pour aller plus loin",
       "background": "paper"
     },
@@ -17365,7 +18905,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-tpe.json",
       "slug": "claude-tpe",
       "route": "/ressources/guides/claude-tpe",
-      "index": 12,
+      "index": 13,
       "label": "Pour aller plus loin",
       "background": "paper-2"
     },
@@ -17416,6 +18956,24 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/hermes-agent.json",
+      "slug": "hermes-agent",
+      "route": "/ressources/guides/hermes-agent",
+      "index": 18,
+      "label": "Agents open source",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/hermes-agent.json",
+      "slug": "hermes-agent",
+      "route": "/ressources/guides/hermes-agent",
+      "index": 19,
+      "label": "Services et repères",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/llm-rag-dirigeant.json",
       "slug": "llm-rag-dirigeant",
       "route": "/ressources/guides/llm-rag-dirigeant",
@@ -17461,6 +19019,24 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/openclaw.json",
+      "slug": "openclaw",
+      "route": "/ressources/guides/openclaw",
+      "index": 16,
+      "label": "Agents open source",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/openclaw.json",
+      "slug": "openclaw",
+      "route": "/ressources/guides/openclaw",
+      "index": 17,
+      "label": "Services et repères",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/prompt-engineering-pme.json",
       "slug": "prompt-engineering-pme",
       "route": "/ressources/guides/prompt-engineering-pme",
@@ -17500,7 +19076,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/rgpd-agents-ia-checklist.json",
       "slug": "rgpd-agents-ia-checklist",
       "route": "/ressources/guides/rgpd-agents-ia-checklist",
-      "index": 10,
+      "index": 11,
       "label": "Pour aller plus loin",
       "background": "paper"
     },
@@ -17527,7 +19103,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/second-cerveau-entreprise.json",
       "slug": "second-cerveau-entreprise",
       "route": "/ressources/guides/second-cerveau-entreprise",
-      "index": 12,
+      "index": 13,
       "label": "Pour aller plus loin",
       "background": "paper"
     },
@@ -17547,6 +19123,42 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/tutoriel-make-tri-emails-claude",
       "index": 14,
       "label": "Pour aller plus loin",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia.json",
+      "slug": "agents-ia",
+      "route": "/services/agents-ia",
+      "index": 15,
+      "label": "Agents d'éditeur : Anthropic et OpenAI",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia.json",
+      "slug": "agents-ia",
+      "route": "/services/agents-ia",
+      "index": 16,
+      "label": "Agents open source : Hermes Agent et OpenClaw",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source.json",
+      "slug": "agents-ia-open-source",
+      "route": "/services/agents-ia-open-source",
+      "index": 6,
+      "label": "Un service par moteur",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source.json",
+      "slug": "agents-ia-open-source",
+      "route": "/services/agents-ia-open-source",
+      "index": 14,
+      "label": "Comprendre les deux moteurs",
       "background": "paper"
     },
     {
@@ -17584,6 +19196,33 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 17,
       "label": "Pour aller plus loin",
       "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source/integration-hermes-agent.json",
+      "slug": "integration-hermes-agent",
+      "route": "/services/integration-hermes-agent",
+      "index": 13,
+      "label": "Pour aller plus loin",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/agents-ia/agents-ia-open-source/integration-openclaw.json",
+      "slug": "integration-openclaw",
+      "route": "/services/integration-openclaw",
+      "index": 13,
+      "label": "Pour aller plus loin",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/systemes-operationnels-ia.json",
+      "slug": "systemes-operationnels-ia",
+      "route": "/services/systemes-operationnels-ia",
+      "index": 5,
+      "label": "Agents sur moteur ouvert",
+      "background": "paper"
     },
     {
       "collection": "demonstrations",
@@ -18024,6 +19663,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/chatgpt-dots.json",
+      "slug": "chatgpt-dots",
+      "route": "/ressources/guides/chatgpt-dots",
+      "index": 10,
+      "label": "Cas d'usage en PME : à confier à un dot, ou pas",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
@@ -18042,10 +19690,19 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-duet.json",
+      "slug": "claude-duet",
+      "route": "/ressources/guides/claude-duet",
+      "index": 10,
+      "label": "Cas d'usage en PME : à confier à un agent proactif, ou pas",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-for-small-business.json",
       "slug": "claude-for-small-business",
       "route": "/ressources/guides/claude-for-small-business",
-      "index": 12,
+      "index": 13,
       "label": "Quand le plugin suffit, quand faire développer des connecteurs",
       "background": "paper"
     },
@@ -18123,6 +19780,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/hermes-agent.json",
+      "slug": "hermes-agent",
+      "route": "/ressources/guides/hermes-agent",
+      "index": 13,
+      "label": "Hermes Agent en PME : à confier, à ne pas confier",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/llm-rag-dirigeant.json",
       "slug": "llm-rag-dirigeant",
       "route": "/ressources/guides/llm-rag-dirigeant",
@@ -18168,6 +19834,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/openclaw.json",
+      "slug": "openclaw",
+      "route": "/ressources/guides/openclaw",
+      "index": 11,
+      "label": "OpenClaw en PME : à confier, à ne pas confier",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/refonte-logiciel-metier.json",
       "slug": "refonte-logiciel-metier",
       "route": "/ressources/guides/refonte-logiciel-metier",
@@ -18189,7 +19864,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/rgpd-agents-ia-checklist.json",
       "slug": "rgpd-agents-ia-checklist",
       "route": "/ressources/guides/rgpd-agents-ia-checklist",
-      "index": 7,
+      "index": 8,
       "label": "Avancer seul, ou faire appel à un DPO ou à un juriste",
       "background": "paper-2"
     },

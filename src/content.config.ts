@@ -478,7 +478,7 @@ const blog = defineCollection({
       .enum(['Field Note', 'Case', 'Essay', 'Cookbook', 'Tutorial', 'Note', 'Review'])
       .optional(),
     // V2 type discriminator (décision Simon 2026-05-15) — optionnel pour rétrocompat V1
-    type: z.enum(['formation', 'essai', 'notes', 'avis', 'post', 'field-note', 'veille-ia']).optional(),
+    type: z.enum(['formation', 'essai', 'notes', 'avis', 'post', 'field-note', 'veille-ia', 'actualite']).optional(),
     author: reference('authors'),
     contributors: z.array(reference('authors')).default([]),
     readingTime: z.number().optional(),

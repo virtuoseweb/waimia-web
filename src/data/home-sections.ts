@@ -207,7 +207,7 @@ export const offerRail = {
 export const maturityStages: SectionData = {
   type: 'diagnostic-stages',
   background: 'paper-2',
-  density: 'compact',
+  density: 'base',
   kicker_fr: '§ Où en êtes-vous ?',
   kicker_en: '§ Where do you stand?',
   h2_fr: 'Cinq stades, du <i class="acc">tout-manuel</i> au système qui tourne.',

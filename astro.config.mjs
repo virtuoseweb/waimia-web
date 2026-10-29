@@ -397,7 +397,8 @@ export default defineConfig({
       userAgents: AI_USER_AGENTS,
       allow: ROBOTS_ALLOW,
       disallow: ROBOTS_DISALLOW,
-      sitemap: `${SITE.url}/sitemap-index.xml`,
+      // Le sitemap news est servi à la demande (48 dernières heures) : src/pages/sitemap-news.xml.ts.
+      sitemap: [`${SITE.url}/sitemap-index.xml`, `${SITE.url}/sitemap-news.xml`],
       llms: `${SITE.url}/llms.txt`,
     }),
     // GEO · sorties pour moteurs génératifs, limitées aux pages publiques indexables :

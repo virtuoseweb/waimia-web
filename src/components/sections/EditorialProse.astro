@@ -6,6 +6,7 @@
 // data-bg partagé (modèle BentoGrid). Typographie reprise du DS (mêmes tokens que
 // l'ancien .sector-body de SecteurHubTemplate → parité de rendu).
 import type { SectionByType } from '@waimia/ds-kernel';
+import { labelTableCells } from '../../lib/table-labels';
 
 interface Props {
   data: SectionByType<'editorial-prose'>;
@@ -14,7 +15,8 @@ interface Props {
 const { data, lang } = Astro.props;
 const width = data.maxWidth ?? 'prose';
 const figures = data.figures ?? [];
-const html = lang === 'en' ? data.html_en : data.html_fr;
+const rawHtml = lang === 'en' ? data.html_en : data.html_fr;
+const html = rawHtml ? labelTableCells(rawHtml) : rawHtml;
 ---
 <section class="editorial-prose sec-prose-band" data-bg={data.background} data-width={width}>
   <div class="editorial-prose__col">

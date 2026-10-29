@@ -1,10 +1,10 @@
-# Routine SEO/GEO hebdomadaire : runbook de la session Claude
+# Routine SEO/GEO : runbook de la session Claude (quotidienne)
 
-Ce document est exécuté chaque semaine par une session Claude planifiée, sans Simon. Il est autoportant : suis-le dans l'ordre. Lis aussi `CLAUDE.md` à la racine (règles du repo, garde-fous GF-1 à GF-6) avant de modifier quoi que ce soit.
+Ce document est exécuté chaque jour par une session Claude planifiée, sans Simon. **Le lundi**, la session est complète (toutes les sections, révisions et analyse des données comprises). **Du mardi au dimanche**, c'est une session de production : elle livre ses 2 créations du jour (lecture de la collecte, 4.2, sections 5 à 9 et 11) et ne refait pas l'analyse hebdomadaire des données ; elle ne fait une révision que si une règle de 4.1 l'impose. Il est autoportant : suis-le dans l'ordre. Lis aussi `CLAUDE.md` à la racine (règles du repo, garde-fous GF-1 à GF-6) avant de modifier quoi que ce soit.
 
 **Ton rôle : rédacteur en chef SEO/GEO de waimia.com.** Tu tiens un calendrier éditorial, tu fais la recherche en ligne, tu écris, tu révises, tu mesures. La collecte de données t'informe ; elle ne décide pas à ta place, et son absence ne t'arrête pas.
 
-**Ce que la session produit**, chaque semaine : une PR qui contient au moins une création issue du calendrier éditorial et une à deux révisions de pages existantes (section 4) ; le calendrier `docs/seo/calendrier-editorial.json` tenu à jour ; un brouillon de post LinkedIn par création ; une entrée dans `docs/seo/journal.md` ; un compte rendu court à Simon. **Ce qu'elle ne fait jamais** : merger, pousser sur `main`, créer un secret ou un compte, inventer un chiffre, soumettre une URL à un moteur, publier ou envoyer quoi que ce soit à l'extérieur (réseau social, e-mail, formulaire).
+**Ce que la session produit**, chaque jour : une PR qui contient **2 créations** issues du calendrier éditorial (14 par semaine) et, le lundi, une à deux révisions de pages existantes (section 4) ; le calendrier `docs/seo/calendrier-editorial.json` tenu à jour ; un brouillon de post LinkedIn par création ; une entrée dans `docs/seo/journal.md` ; un compte rendu court à Simon. **Ce qu'elle ne fait jamais** : merger, pousser sur `main`, créer un secret ou un compte, inventer un chiffre, soumettre une URL à un moteur, publier ou envoyer quoi que ce soit à l'extérieur (réseau social, e-mail, formulaire).
 
 **Deux usages du web, à ne pas confondre.**
 
@@ -19,9 +19,9 @@ Ce document est exécuté chaque semaine par une session Claude planifiée, sans
 | Collecte des données : Search Console, inspection d'indexation, flux, concurrents | Dimanche 19:17 UTC ; rattrapage le lundi 03:17 UTC si la collecte du dimanche manque ou est incomplète | Workflow GitHub Actions `seo-routine.yml` (API) |
 | Soumission à Google (sitemap, Indexing API) et à Bing et partenaires (IndexNow) | Dans la collecte | Le même workflow (API) |
 | File Brave de la collecte (`latest.json > brave.toSubmit`) | Dans la collecte | Le même workflow (`brave-queue.mjs`, ne soumet rien) |
-| Recherche en ligne, création et révisions du calendrier, PR, calendrier, brouillon LinkedIn, journal, compte rendu | Lundi matin (7 h 42 à Paris) | Session Claude hebdomadaire (ce runbook, sections 1 à 11). Texte de la tâche : `docs/seo/prompts/routine-hebdo.md` |
+| Recherche en ligne, créations (et révisions le lundi), PR, calendrier, brouillon LinkedIn, journal, compte rendu | Tous les jours, 7 h 42 à Paris | Session Claude quotidienne (ce runbook ; sections 1 à 11 le lundi, version de production les autres jours). Texte de la tâche : `docs/seo/prompts/routine-quotidienne.md` |
 | Soumission à Brave Search, file calculée par la tâche elle-même | Lundi matin (8 h 21 à Paris) | Tâche planifiée « Soumission Brave hebdomadaire Waimia », dans le navigateur de Simon, ordinateur allumé (section 12). Texte de la tâche : `docs/seo/prompts/brave.md` |
-| Bilan mensuel | Premier lundi du mois | La session hebdomadaire, en plus du reste (section 13) |
+| Bilan mensuel | Premier lundi du mois | La session du lundi, en plus du reste (section 13) |
 | Relevé des liens entrants : domaines référents, ancres de spam, actions manuelles | Premier lundi du mois | Simon dans Search Console (l'API ne l'expose pas) ; la session reporte son relevé dans le bilan (section 13, point 5) |
 | Fusion de la PR, publication du post LinkedIn, « Demander l'indexation » dans Search Console, décisions | Quand Simon le décide | Simon |
 
@@ -78,13 +78,13 @@ Conséquences pour toi :
 
 ```bash
 git fetch origin main
-git switch -c feat/seo-AAAA-Www origin/main   # semaine ISO du jour, ex. feat/seo-2026-W41
+git switch -c feat/seo-AAAA-MM-JJ origin/main   # date du jour, ex. feat/seo-2026-10-27
 npx -y pnpm@9.15.0 install --frozen-lockfile
 ```
 
-`AAAA-Www` est la semaine ISO **du jour de la session**, pas celle de `latest.json` (section 0).
+`AAAA-MM-JJ` est la date **du jour de la session**. La semaine ISO du calendrier (`semainePrevue`) reste celle du jour, pas celle de `latest.json` (section 0).
 
-Si la branche `feat/seo-AAAA-Www` existe déjà sur le dépôt distant, une session a déjà tourné cette semaine : reprends-la au lieu d'en créer une autre, et n'ouvre pas de seconde PR.
+Si la branche `feat/seo-AAAA-MM-JJ` existe déjà sur le dépôt distant, une session a déjà tourné aujourd'hui : reprends-la au lieu d'en créer une autre, et n'ouvre pas de seconde PR.
 
 Regarde aussi si la PR de la semaine précédente est encore ouverte (`gh api "repos/virtuoseweb/waimia-web/pulls?state=open&per_page=30"`). Si oui, ses entrées du calendrier sont toujours « planifié » sur `main`, avec une semaine passée : ne les refais pas et ne les replanifie pas, dis-le en tête du compte rendu, et livre les entrées de ta semaine. Les deux PR toucheront le calendrier et le journal : préviens Simon que la seconde demandera une mise à jour après la fusion de la première.
 
@@ -142,14 +142,16 @@ Le premier lundi du mois, ajoute le bilan mensuel (section 13).
 
 ## 4. Décider : le travail de la semaine
 
-**Cadence.** Chaque semaine, la PR contient :
+**Cadence.** Chaque jour, une PR (branche `feat/seo-AAAA-MM-JJ`, date du jour de la session) contient :
 
-- **au moins une création** issue du calendrier éditorial (4.2), deux au plus ;
-- **une à deux révisions** de pages existantes (4.1), trois au plus.
+- **2 créations** issues du calendrier éditorial (4.2), 14 par semaine au plus ; la priorité va à la série « IA par métier » (ci-dessous) ;
+- **le lundi seulement, une à deux révisions** de pages existantes (4.1), trois par semaine au plus ; un autre jour, une révision n'est faite que si une règle de 4.1 l'impose (page qui perd, contenu rendu faux).
 
-Le plafond (2 créations et 3 révisions) protège la qualité : chaque contenu passe toute la section 5, recherche en ligne comprise. Mieux vaut une création et une révision solides que cinq contenus moyens. Ne rien créer est l'exception, à justifier par écrit (4.4).
+Le plafond protège la qualité : chaque contenu passe toute la section 5, recherche en ligne comprise, même à deux par jour. Si la recherche ne permet pas de tenir 2 contenus solides, livre-en un seul et dis pourquoi dans le journal (4.4) : un billet moyen ou inventé coûte plus qu'il ne rapporte. Ne rien créer est l'exception, à justifier par écrit (4.4).
 
-**Ordre de travail.** D'abord ce que le calendrier prévoit pour la semaine (`semainePrevue` = ta semaine, statut « planifié »), puis les entrées en retard. Avant d'écrire, confronte chaque entrée aux données de la semaine : une règle de 4.1 plus urgente (page qui perd, contenu rendu faux par une actualité) prend la place d'une révision planifiée, qui se replanifie. Une création planifiée ne se remplace que par une autre création.
+**Série « IA par métier ».** Billets du type « Claude, ChatGPT ou Mistral pour <métier> : quel outil pour quelle tâche », satellites d'une page de `src/content/secteurs/` ou `src/content/cas-usages/`. Règles : une tâche réelle du métier par section, une consigne à copier, trois outils comparés sur les seules fonctions que chaque éditeur documente (page officielle lue le jour même, date indiquée), limites et données à ne pas saisir, lien vers la page secteur et vers l'audit gratuit. Aucun résultat de test, aucun gain, aucun témoignage inventé : seuls les essais réellement faits pendant la session sont décrits, comme tels. Ne pas écrire de recommandation juridique ou médicale ; renvoyer à la source officielle. Les volumes de requête ne sont pas mesurés : les demander à Simon (Semrush) dans le compte rendu, sans bloquer la rédaction.
+
+**Ordre de travail.** D'abord ce que le calendrier prévoit pour la semaine (`semainePrevue` = ta semaine, statut « planifié »), puis les entrées en retard, puis les idées de la série « IA par métier » (une idée prise passe à « en cours » puis « publié » avec sa PR et sa `semainePrevue`). Avant d'écrire, confronte chaque entrée aux données de la semaine : une règle de 4.1 plus urgente (page qui perd, contenu rendu faux par une actualité) prend la place d'une révision planifiée, qui se replanifie. Une création planifiée ne se remplace que par une autre création.
 
 ### 4.1 Réviser une page existante quand
 
@@ -228,7 +230,7 @@ Chaque semaine, dans cet ordre :
    - une page nouvelle chez un concurrent (`competitors.rows[].newUrls`) sur une requête suivie, lue pendant la session ;
    - une requête de `keywords.withoutTarget`, ou une requête suivie dont la page cible porte plusieurs intentions ;
    - une question qui revient dans les résultats lus pendant la recherche en ligne.
-4. **Replanifié** : il doit rester **au moins 6 semaines d'avance**, chacune avec une création planifiée. `node scripts/seo-routine/check-calendar.mjs` le mesure et avertit en dessous. Les entrées en retard (semaine passée, encore « planifié ») se livrent, se replanifient ou s'abandonnent : aucune ne reste en l'état.
+4. **Replanifié** : il doit rester **au moins 2 semaines d'avance**, chacune avec une création planifiée, et **au moins 14 créations en stock** (idées, planifiées, en cours). Le stock se reconstitue avec de nouvelles idées de la série « IA par métier » (un métier de `secteurs/` ou `cas-usages/` pas encore couvert, une tâche précise) et les sujets de 4.2. `node scripts/seo-routine/check-calendar.mjs` le mesure et avertit en dessous. Les entrées en retard (semaine passée, encore « planifié ») se livrent, se replanifient ou s'abandonnent : aucune ne reste en l'état.
 5. **Vérifié** : `node scripts/seo-routine/check-calendar.mjs` passe (schéma, statuts, semaines, `urlCible` unique parmi les entrées actives, pages des révisions existantes). Ses avertissements se lisent : chacun se corrige ou se justifie dans le journal.
 
 Règles de tenue :
@@ -310,7 +312,7 @@ Un moteur IA cite un passage qui se comprend seul, qui nomme ce dont il parle et
 
 ### 5.7 Dérivé : un brouillon de post LinkedIn par création
 
-Pour chaque création, écris un brouillon de post LinkedIn dans `docs/seo/posts/AAAA-Www.md` (la semaine de la session ; un fichier par semaine, une section `## <titre de la page>` par création).
+Pour chaque création, écris un brouillon de post LinkedIn dans `docs/seo/posts/AAAA-MM-JJ.md` (le jour de la session ; un fichier par jour, une section `## <titre de la page>` par création).
 
 - **Voix de Simon, première personne** (« j'ai », « je vois chez mes clients »), comme il parlerait à un dirigeant de PME. Pas de « nous », pas de jargon, pas de mot d'agence.
 - Une accroche d'une ligne, puis trois à huit paragraphes courts, aérés. Une idée que le lecteur peut appliquer sans cliquer.
@@ -369,11 +371,11 @@ Preuve visuelle (GF-1) pour toute page créée ou dont la structure a changé : 
 0. Tu ne soumets aucune URL aux moteurs. Une fois la PR fusionnée par Simon et la production déployée, la collecte suivante envoie les pages créées ou modifiées à IndexNow et à l'Indexing API (section 0), et la tâche Brave du lundi suivant les prend dans le sitemap (section 12).
 1. Restaure le board régénéré par le hook de commit : `git checkout docs/state/00-BOARD.md` avant chaque commit. Ne le commite jamais.
 2. Ajoute les fichiers un par un (`git add <chemin>`), jamais `git add -A`.
-3. Dans la même branche : le journal `docs/seo/journal.md` (section 9), le calendrier `docs/seo/calendrier-editorial.json` (section 4.5) et le brouillon `docs/seo/posts/AAAA-Www.md` (section 5.7).
+3. Dans la même branche : le journal `docs/seo/journal.md` (section 9), le calendrier `docs/seo/calendrier-editorial.json` (section 4.5) et le brouillon `docs/seo/posts/AAAA-MM-JJ.md` (section 5.7).
 4. Commits en français. Push :
-   `git -c credential.helper= -c credential.helper='!gh auth git-credential' push origin feat/seo-AAAA-Www`
+   `git -c credential.helper= -c credential.helper='!gh auth git-credential' push origin feat/seo-AAAA-MM-JJ`
 5. Une seule PR par semaine, vers `main` :
-   `gh api -X POST repos/virtuoseweb/waimia-web/pulls -f title="SEO AAAA-Www : <actions>" -f head=feat/seo-AAAA-Www -f base=main -f body=...`
+   `gh api -X POST repos/virtuoseweb/waimia-web/pulls -f title="SEO AAAA-MM-JJ : <actions>" -f head=feat/seo-AAAA-MM-JJ -f base=main -f body=...`
    (`gh pr create` peut renvoyer 403 dans cet environnement.)
 6. Corps de la PR : l'entrée du calendrier et la donnée qui motivent chaque action, ce qui a changé page par page, la recherche en ligne (requêtes cherchées, pages lues avec lien et date, ce qui manquait), les sources primaires lues avec lien et date, le retour du relecteur sceptique et ce que tu en as fait, la sortie des vérifications de la section 7, le lien vers le brouillon LinkedIn, ce qui n'a pas été vérifié.
 7. Une fois la PR ouverte, son numéro est connu : écris-le dans le champ `pr` des entrées livrées, passe-les à « publié », relance `node scripts/seo-routine/check-calendar.mjs`, commite et pousse sur la même branche.
@@ -383,7 +385,7 @@ Si, par exception, la semaine ne contient aucune création (section 4.4), la PR 
 
 ## 9. Tenir le journal
 
-Ajoute une entrée en haut de `docs/seo/journal.md`, en suivant le modèle qui s'y trouve. Une entrée par semaine, même sans action. Elle contient : les KPI de la semaine, le bilan chiffré des actions précédentes, ce qui a été fait et pourquoi (l'entrée du calendrier, la règle de la section 4 et la donnée), la recherche en ligne de chaque contenu (requêtes cherchées, pages lues avec la date), pour chaque action ce qu'il faudra mesurer, sur quelle page, quelle requête, à partir de quelle semaine, l'état du calendrier (livré, prévu la semaine suivante, entrées ajoutées ou abandonnées et pourquoi, semaines d'avance), le lien vers le brouillon LinkedIn, la file Brave (section 11) et, le premier lundi du mois, le bilan mensuel (section 13). Si aucune création n'a été livrée, l'entrée dit laquelle des raisons de la section 4.4 s'applique.
+Ajoute une entrée en haut de `docs/seo/journal.md`, en suivant le modèle qui s'y trouve. Une entrée par jour de session, même sans action (version courte du mardi au dimanche : créations, recherche lue avec dates, calendrier, limites ; les KPI et le bilan des actions ne se refont que le lundi). Elle contient : les KPI de la semaine, le bilan chiffré des actions précédentes, ce qui a été fait et pourquoi (l'entrée du calendrier, la règle de la section 4 et la donnée), la recherche en ligne de chaque contenu (requêtes cherchées, pages lues avec la date), pour chaque action ce qu'il faudra mesurer, sur quelle page, quelle requête, à partir de quelle semaine, l'état du calendrier (livré, prévu la semaine suivante, entrées ajoutées ou abandonnées et pourquoi, semaines d'avance), le lien vers le brouillon LinkedIn, la file Brave (section 11) et, le premier lundi du mois, le bilan mensuel (section 13). Si aucune création n'a été livrée, l'entrée dit laquelle des raisons de la section 4.4 s'applique.
 
 La ligne « À mesurer » doit être vérifiable par la session suivante sans interprétation. Exemple : « `/services/automatisation-n8n`, requête "agence n8n" : position 11,4 et 120 impressions sur 28 jours au 5 octobre. Attendu : position sous 10. À juger à partir de 2026-W43. »
 
@@ -421,11 +423,11 @@ La ligne « À mesurer » doit être vérifiable par la session suivante sans in
 
 ## 11. Compte rendu final à Simon
 
-Court, en français, sans jargon inutile. Cinq blocs, dans cet ordre (six le premier lundi du mois : le bilan mensuel de la section 13 se place après le bloc 2) :
+Court, en français, sans jargon inutile. Du mardi au dimanche, seuls les blocs 3, 4, 5 et 6 sont attendus (les chiffres et le verdict hebdomadaires sont ceux du lundi). Cinq blocs, dans cet ordre (six le premier lundi du mois : le bilan mensuel de la section 13 se place après le bloc 2) :
 
 1. **KPI** : clics, impressions, CTR, position sur 7 et 28 jours avec la variation ; nombre de pages indexées sur le total ; nombre d'URL notifiées à Google par l'Indexing API (`indexingApi.submitted`), présenté comme des notifications envoyées, pas comme des pages indexées ; date de la collecte lue (`generatedAt`) et verdict de fraîcheur. File Brave : le nombre d'URL que donne `node scripts/seo-routine/brave-queue.mjs --from-sitemap` au moment de la session, présenté comme « à soumettre par la tâche Brave », jamais comme soumis. Si une mesure manque, dis-le au lieu de l'omettre.
 2. **Ce qui a bougé** : les deux ou trois faits marquants (une requête qui entre dans les dix premiers, une page désindexée, un concurrent qui publie sur une requête suivie, une annonce qui touche une page), et le verdict des actions précédentes.
-3. **Ce que propose la PR** : le lien, la ou les créations et les révisions (une ligne chacune : l'entrée du calendrier, la donnée qui la motive, ce que la recherche en ligne a montré), l'état de la CI, et le lien vers le brouillon LinkedIn (`docs/seo/posts/AAAA-Www.md` dans la PR), que Simon relit et publie lui-même s'il le veut.
+3. **Ce que propose la PR** : le lien, la ou les créations et les révisions (une ligne chacune : l'entrée du calendrier, la donnée qui la motive, ce que la recherche en ligne a montré), l'état de la CI, et le lien vers le brouillon LinkedIn (`docs/seo/posts/AAAA-MM-JJ.md` dans la PR), que Simon relit et publie lui-même s'il le veut.
 4. **État du calendrier** : ce qui a été livré cette semaine ; ce qui est prévu la semaine suivante ; les entrées ajoutées, avec la donnée qui les justifie ; les entrées abandonnées ou replanifiées, et pourquoi ; le nombre de semaines d'avance (`check-calendar.mjs`). Si aucune création n'a été livrée, la raison (section 4.4) vient ici, en première ligne.
 5. **Ce qui demande ta décision** : idée du calendrier qui suppose une offre, un prix ou une présence que le site n'affiche pas (section 4.2), fusion ou redirection proposée, page non indexée depuis plus de trois collectes que tu n'as pas pu traiter (4.1, règle 3), changements proposés au bilan mensuel, page à « demander l'indexation » à la main dans Search Console, section du catalogue manquante, flux à remplacer, panne de collecte, PR de la semaine précédente encore ouverte, erreur de l'Indexing API (compte de service non propriétaire, API non activée).
 
@@ -530,3 +532,35 @@ La référence d'avant refonte couvre 92 jours et le bilan 28 : donne les deux c
 5. Les liens entrants, une fois par mois, sans nouveau script. L'API Search Console (quatre services : Search Analytics, Sitemaps, Sites, URL Inspection, d'après https://developers.google.com/webmaster-tools/v1/api_reference_index, lu le 15 octobre 2026) n'expose ni le rapport « Liens » ni les « Actions manuelles » : la session ne les mesure pas et n'ouvre pas la console. Écris une ligne « Liens entrants » dans le bilan avec trois valeurs relevées par Simon dans Search Console (rapport Liens ; Sécurité et actions manuelles) : le nombre de domaines référents, les nouvelles ancres de spam (vente de backlinks, casino, adulte) et l'état des actions manuelles. Une valeur que Simon n'a pas fournie s'écrit `non relevé`, avec la raison, jamais estimée. Compare au relevé du mois précédent. Ne désavoue rien : `docs/seo/disavow-candidats-2026-10-13.txt` ne part à Google que sur une action manuelle constatée (`docs/audits/2026-10-13-strategie-seo-geo.md`, action 3), et cette décision revient à Simon.
 
 Si une collecte du mois manque, dis laquelle et fais le bilan sur les semaines disponibles. Aucun chiffre estimé.
+
+## 14. Actualités : publier, diffuser, suivre
+
+Depuis le 24 octobre 2026, un billet qui répond à un événement précis est une **actualité** : `type: "actualite"` dans `src/content/blog/<slug>.json`. Les autres billets restent des articles de fond.
+
+### 14.1 Publier une actualité
+
+- `publishedAt` et `updatedAt` portent l'heure et le fuseau (`2026-10-24T15:36:10+02:00`). `publishedAt` est l'instant réel de mise en ligne (heure de fusion de la PR), jamais une heure choisie. `updatedAt` change seulement quand le texte change réellement, et n'est jamais antérieur à `publishedAt` ni dans le futur.
+- Titre de 110 caractères au plus. Auteur identifié (`author`, avec sa page `/equipe/<auteur>`). Illustration `heroIllustration` d'au moins 1 200 px de large.
+- Le billet garde son URL `/blog/<slug>`. Il apparaît sur `/actualites`, dans `/actualites/rss.xml` (texte complet), dans `/sitemap-news.xml` pendant 48 heures, et porte un `NewsArticle` (jamais un `Article` en plus). Aucun autre billet n'émet de `NewsArticle`.
+- Garde-fou : `node scripts/check-news.mjs` (étape de la CI, sur le build).
+
+### 14.2 Ce qui est diffusé, et par quoi
+
+| Canal | Déclencheur | Ce qu'il fait | Limite |
+| --- | --- | --- | --- |
+| IndexNow | `.github/workflows/indexnow-deploy.yml`, après chaque déploiement de production | envoie les URL nouvelles ou au lastmod modifié (Bing, Yandex, Seznam, Naver) | Google n'y participe pas ; lastmod au jour près |
+| Sitemap news | servi à la demande, `src/pages/sitemap-news.xml.ts` | 48 dernières heures, au plus 1 000 URL | Google ne le lit que pour un site inscrit à Google Actualités (Publisher Center) |
+| Flux RSS | `/rss.xml`, `/blog/rss.xml`, `/actualites/rss.xml` | texte complet (`content:encoded`), auteur, thèmes | un flux n'est lu que par ceux qui s'y abonnent |
+| Routine hebdomadaire | dimanche soir | filet de sécurité : renvoie ce qui n'est pas parti | n'envoie rien de plus que le workflow de déploiement |
+
+### 14.3 Ce que Simon doit faire lui-même (aucune API)
+
+1. Inscrire le site dans le **Publisher Center de Google Actualités** (news.google.com/publisher-center) et y déclarer le flux `/actualites/rss.xml` : c'est la seule voie vers l'application et la page Google Actualités. Google ne garantit aucune inclusion.
+2. Dans Search Console, vérifier que les trois rapports existent (Performances : Recherche, Discover, Google Actualités). Discover n'apparaît qu'après les premières impressions.
+3. Soumettre `/sitemap-news.xml` dans Search Console (Sitemaps). La routine ne soumet que `sitemap-index.xml`.
+
+### 14.4 Suivre
+
+- `scripts/seo-routine/gsc-news.mjs` (étape `gsc-news` de la routine) relève sur 28 jours, contre les 28 précédents, les impressions et clics de `discover`, `googleNews` et `news`, par page. « Aucune donnée » est un résultat normal tant que Google ne montre pas le site : ne pas le lire comme une panne.
+- L'apparence **« À la une »** (Top stories) n'a pas de valeur dans l'API. Elle se suit à la main dans l'interface Search Console, filtre « Apparence dans les résultats de recherche » quand la propriété le propose. Ne pas inventer de chiffre à partir de l'API.
+- Lecture : une actualité qui n'a aucune impression au bout de sept jours n'est pas un échec de la technique (les trois rapports ne se remplissent que si Google la montre) ; regarder d'abord si la page est indexée (`gsc-index`), puis la position sur la requête de l'événement.

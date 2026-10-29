@@ -37,6 +37,194 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### Mesure avant/après, 27 octobre 2026 (collecte Actions 2026-W44, Search Console, Web Analytics, leads)
+
+**Sources.** Collecte `chore(seo-data): collecte 2026-W44` relancée à la main (`generatedAt` 2026-10-27T08:30 UTC, données finales au 24/10, neuf étapes « ok »). Search Console lue dans la console le 27/10 (données au 25/10) pour le 14 jours par page et l'inspection d'URL. Web Analytics par l'API Vercel. Alertes `[Lead]` dans Gmail.
+
+**Search Console, collecte W44 (source principale).**
+
+| Période | Clics | Impressions | CTR | Position |
+| --- | --- | --- | --- | --- |
+| 7 jours, 18 au 24/10 | 9 | 2 803 | 0,32 % | 31,6 |
+| 7 jours précédents, 11 au 17/10 | 5 | 1 392 | 0,36 % | 37,8 |
+| 28 jours, 27/09 au 24/10 | 19 | 5 311 | 0,36 % | 32,7 |
+| 28 jours précédents, 30/08 au 26/09 | 3 | 142 | 2,11 % | 25,7 |
+
+Console (au 25/10), pour recoupement : 28 jours (28/09 au 25/10) 21 clics, 5,71 k impressions, CTR 0,4 %, position 32,7, contre 3 clics, 156 impressions, 1,9 %, 26,3 ; 7 jours (19 au 25/10) 9 clics, 2,83 k impressions, 0,3 %, 30,9, contre 6 clics, 1,7 k, 0,4 %, 38 ; 14 jours (12 au 25/10) 15 clics, 4,52 k impressions, 0,3 %, 33,5, contre 6 clics, 1,18 k, 0,5 %, 29,3.
+
+**Lecture.** Hausse mesurée : sur 7 jours, impressions x 2,0 et clics x 1,8 ; sur 28 jours, 19 clics contre 3. Le CTR global baisse parce que les impressions montent plus vite que les clics (requêtes nouvelles, souvent au-delà de la page 3). Contre la référence du 16/10 (8 clics, 1 540 impressions du 16/09 au 13/10), le 28 jours actuel monte à 19 clics et 5 311 impressions, mais les deux fenêtres partagent 17 jours (27/09 au 13/10). Les clics de la semaine vont à `/blog/claude-pro-vs-team` (3, position 10,8), `/blog/claude-code-skills` (2, position 10,2), `/implantations/montpellier` (2), puis un clic chacune pour `/blog/claude-microsoft-copilot-pme` et `/politique-confidentialite`. La hausse du 21/10 (impressions x 2,6 par jour sur trois jours) est confirmée sur une semaine complète.
+
+**Les 4 pages cibles CTR, 14 jours (12 au 25/10) contre les 14 précédents (28/09 au 11/10), console filtrée par page.**
+
+| Page | Clics | Impressions | CTR | Position | Requête cible (collecte, 28 jours au 24/10) |
+| --- | --- | --- | --- | --- | --- |
+| `/ressources/outils/calculateur-roi-ia` | 0 / 0 | 6 / 10 | 0 % / 0 % | 39,3 / 7,2 | « roi ia » : 10 impressions, position 7,4, 0 clic ; 0 impression sur 7 jours |
+| `/ressources/guides/claude-pme` | 0 / 0 | 242 / 152 | 0 % / 0 % | 33 / 31,5 | « diagnostic claude pme » : 26 impressions, position 9,3 ; 7 sur 7 jours à 10,4 |
+| `/services/consultant-ia-claude` | 0 / 0 | 4 / 26 | 0 % / 0 % | 26,5 / 11,5 | « cabinet conseil ia pme » 5 impressions à 6,2 ; « prix consultant ia » 2 à 1,0 ; aucune sur 7 jours |
+| `/ressources/comparatifs/claude-vs-chatgpt-pme` | 0 / 0 | 169 / 149 | 0 % / 0 % | 34,8 / 32,9 | « chatgpt vs claude » : 4 impressions, position 11,5 ; 2 sur 7 jours à 14,5 |
+
+**Verdict.** Le CTR n'a monté sur aucune des quatre pages : 0 clic avant comme après. Le test de title n'est pas concluant, faute d'impressions en haut de page. Ce qui est mesuré, c'est la position :
+- Calculateur : positions de 6 à 12 du 28/09 au 7/10 (1,0 le 3/10), aucune impression du 8 au 15/10, puis 28,5 le 16/10, 31 le 17/10, 85 le 19/10, 32 le 25/10. La page a perdu ses impressions sur « roi ia » entre le 7 et le 16/10, période où le title est passé de « Calculateur ROI IA : temps récupérable et budget maximal » (avant le 14/10) à « ROI IA : calculateur gratuit… » (14/10) puis « ROI IA : formule de calcul et calculateur gratuit » (16/10). Corrélation, pas preuve : la page a aussi changé de contenu le 16/10 (FAQ, formule).
+- Consultant : positions de 2 à 18 du 28/09 au 9/10 (deux jours à 30,7 et 44), puis 27,5 le 16/10, 50 le 19/10, 1,0 le 21/10. Quatre impressions en 14 jours : trop peu pour conclure.
+- `claude-pme` : son title n'a pas été réécrit du 13 au 16/10 (seule la description a changé le 14/10). Impressions en hausse, position stable, « diagnostic claude pme » stable vers 10.
+- Comparatif : impressions en légère hausse, position stable, 4 impressions sur la requête cible en 28 jours.
+
+**Décisions (propositions, aucun fichier de contenu modifié par cette entrée).**
+1. Calculateur : revenir au title en ligne pendant la fenêtre de référence, en retirant `seoTitle_fr` pour que le title soit « Calculateur ROI IA : temps récupérable et budget maximal » (56 caractères), et reprendre la description d'avant le 16/10 : « Calculateur ROI IA gratuit : vos heures, votre coût horaire et vos hypothèses donnent le temps récupérable par an et le budget à ne pas dépasser. » (145 caractères). À faire dans une PR dédiée, puis relire « roi ia » trois semaines après.
+2. Consultant : revenir au title d'avant le 13/10, « Consultant IA pour PME : conseil et mise en œuvre » (49 caractères), et à une description proche de celle d'alors : « Consultant IA pour PME : état des lieux, cas d'usage chiffrés, feuille de route, puis mise en œuvre par la même personne. Audit gratuit. » (136 caractères). Même PR, même relecture.
+3. `claude-pme` : garder le title ; la hausse d'impressions ne justifie pas de toucher une page dont le title n'a pas changé. Si aucun clic au prochain relevé avec « diagnostic claude pme » toujours vers 10 : tester « Claude en PME : diagnostic, coût et plan sur 90 jours » (53 caractères, termes repris de la description actuelle).
+4. Comparatif : garder ; 4 impressions sur la requête cible en 28 jours ne permettent pas de juger un title.
+
+**Inspection d'URL (console, 27/10).** Les treize URL publiées du 14 au 16/10 sont toutes « Cette URL est sur Google », « La page est indexée » : `/blog/claude-max-pme`, `/blog/claude-pro-vs-team`, `/blog/facture-electronique-reception-pme`, `/blog/ai-act-pme-utilisatrice-ia` (inconnue de Google le 17/10), `/blog/claude-code-skills`, `/blog/cahier-des-charges-refonte-site`, `/blog/application-metier-exemples-pme`, `/blog/formation-ia-rh-pme`, `/blog/chatbot-rh-pme`, `/blog/audit-site-internet-pme`, `/blog/claude-cowork-windows`, `/ressources/outils/grille-audit-site-internet`, `/ressources/guides/automatisation-factures-fournisseurs-pme`. Aucun problème de découverte sur ce lot. Aucune demande d'indexation faite ce jour.
+
+**Suivi des demandes du 19/10 (collecte W44, inspection API).** Neuf sur onze indexées (`/agence`, `/agence/methode`, `/cas-clients`, `/cas-clients/desangles-peinture`, `/ressources/comparatifs/claude-code-vs-cursor`, `/ressources/guides/devis-automatise`, `/secteurs/batiment`, `/services/cold-email-b2b`, `/services/referencement-ia`). `/services/systeme-acquisition` : « Détectée, actuellement non indexée ». `/services/automatisations` : « Google ne reconnaît pas cette URL » (aucun sitemap ni page d'origine détectés, confirmé dans la console le 27/10) alors qu'elle répond 200, figure dans `sitemap-0.xml` et est liée depuis l'accueil (deux liens) : retard de découverte, pas de défaut technique trouvé. Sitemap resoumis par la collecte (240 URL soumises, dernier téléchargement par Google le 25/10).
+
+**Indexation globale.** Inspection API des 241 URL du sitemap : 173 indexées, 68 non indexées (47 « Détectée, actuellement non indexée », 11 « Google ne reconnaît pas cette URL », 5 noindex, 4 « Explorée, actuellement non indexée », 1 redirection). Le rapport Pages de la console affiche 159 indexées et 81 non indexées : les deux instruments ne comptent pas la même chose, pas de tendance à en tirer. Nouvellement indexées depuis le 25/10 : cinq pages, dont `/ressources/guides/claude-tpe` et `/services/webflow`.
+
+**Web Analytics (13 au 26/10).** 203 visiteurs, 606 pages vues. Les 13, 14 et 15/10 valent 0 : 11 jours de données sur 14, pas de période « avant » comparable. Le 16/10 se lit aujourd'hui 42 visiteurs et 141 pages vues, et non 5 et 24 comme relevé le 16/10 en cours de journée : la base du 16/10 ne sert pas de point de comparaison. Référents : aucun pour 171 visiteurs, google.com 31, search.brave.com 3, bing.com 1, search.google.com 1, LinkedIn 1 ; ChatGPT 0. Pages les plus vues : `/` (44 visiteurs), `/404` (27), `/contact` (18), `/blog` (9), `/bienvenue/contact` (8), `/blog/claude-code-skills` (8), `/blog/claude-pro-vs-team` (8), `/ressources/diagnostics/maturite-ia` (7), `/tarifs` (7). Pages d'arrivée depuis un moteur ou LinkedIn : `/` 8, `/blog/claude-code-skills` 5, `/blog/claude-pro-vs-team` 5, `/blog/chatgpt-dots-europe-disponibilite` 4.
+
+**Leads (alertes `[Lead]` depuis le 17/10).** 8 alertes : 6 tests de Simon (19/10, lead magnets et calculateur), 2 demandes de contact (23 et 26/10) qui sont du démarchage, l'une une offre de partenariat de marque non sollicitée, l'autre une prospection avec lien externe de réservation. **0 lead réel**, 0 demande de contact réelle. Cal.com : aucune réservation depuis le 17/10 (la recherche remonte bien les e-mails `cal.com` antérieurs, dont le dernier le 15/09). Limite : `/bienvenue/contact`, page servie après un envoi réussi de `/api/contact`, compte 8 vues (21/10 : 2, 23/10 : 1, 25/10 : 2, 26/10 : 3) pour 2 alertes ; les vues du 21 et du 25/10 n'ont pas d'alerte correspondante (visite directe, rechargement ou alerte manquante, non tranché).
+
+**À mesurer ensuite.** Après la PR des titles calculateur et consultant : « roi ia » et « cabinet conseil ia pme » trois semaines après le déploiement. `/services/automatisations` et `/services/systeme-acquisition` à la prochaine collecte. L'écart entre vues de `/bienvenue/contact` et alertes `[Lead]`.
+
+### 2026-W44 (session du 26 octobre 2026, collecte du 25 octobre 2026)
+
+**Données** : collecte du 25 octobre 2026 à 21:48 UTC (`generatedAt`), fraîche oui (`freshness.mjs` : « FRAÎCHE · collecte complète de 8.9 h ») · Search Console configuré oui · étapes en erreur : aucune (9 étapes `ok`). Données de performance du 25 septembre au 22 octobre 2026 (28 jours) et du 16 au 22 octobre (7 jours). Flux : 128 entrées, 1 flux en erreur (`commission-europeenne-numerique`, HTTP 403). Concurrents : 10 URL nouvelles (kayro.ai 3, claudin.tech 7).
+
+**PR de la semaine précédente encore ouverte** : PR #130 (2026-W43 : billet « apparaître dans ChatGPT », révisions n8n et Claude Skills, bilan des actions du 5 et 6 octobre). Ses entrées ne sont pas refaites ici. Les deux PR touchent le calendrier, le journal et `keywords.json` : la seconde fusionnée demandera une mise à jour. L'entrée `w44-revision-ai-act-calendrier-repit` ajoutée par la PR #130 est livrée ici sous l'identifiant `w44-revision-ai-act-norme-en-18286` (même page) : à passer à « abandonné » (« livrée par w44-revision-ai-act-norme-en-18286 ») au moment de résoudre le conflit.
+
+**KPI** (28 jours au 22 octobre 2026, contre les 28 précédents) : clics 17 (+15) · impressions 4 652 (+4 554) · CTR 0,37 % (-1,67 point) · position 32,9 (+8,0, perte) · pages indexées 168 sur 240 inspectées. Sur 7 jours : clics 8 (+4) · impressions 2 768 (+1 827) · CTR 0,29 % · position 33,3 (-2,5, gain). Indexation : 10 pages nouvellement indexées, 0 nouvellement non indexée ; 52 « détectées, non indexées », 10 inconnues de Google, 4 « explorées, non indexées », 5 en noindex, 1 redirection. Sur les 23 URL vues pour la première fois (lot du 24 octobre, PR #135), 15 sont déjà indexées, 7 détectées non indexées, 1 inconnue. Indexing API : 61 notifications envoyées le 25 octobre (23 ajoutées, 38 modifiées, 0 erreur, quota 61 sur 200), des notifications et pas des pages indexées. IndexNow : « rien à envoyer ».
+
+**Brave** : 61 URL dans la file du 26 octobre 2026 à 07:22 UTC (`brave-queue.mjs --from-sitemap --days=8`), 40 à soumettre par la tâche Brave, 21 à reprendre (`--offset=40`). Rien n'a été soumis par cette session.
+
+**Bilan des actions précédentes**
+- Les verdicts des actions du 5 et 6 octobre sont dans la PR #130, non fusionnée : non refaits ici.
+- 2026-W41, `/ressources/comparatifs/claude-vs-chatgpt-pme`, « claude vs chatgpt » (à juger en W44) : trop tôt. Requête : position 16,9, 9 impressions sur 28 jours, sous le seuil de 30. Page : 284 impressions en position 33,0 sur 28 jours contre 12 en position 18,3 les 28 précédents ; 0 clic. Indexée.
+- Titles réécrits du 13 au 16 octobre, relecture prévue à partir du 27 octobre : trop tôt (une seule semaine de données après réécriture). 7 jours au 22 octobre contre les 7 précédents : `claude-pme` 121 impressions (position 34,5) contre 68 (30,3) ; `claude-vs-chatgpt-pme` 85 (34,0) contre 61 (31,4) ; `consultant-ia-claude` 4 (26,5) contre 1 (18,0) ; `calculateur-roi-ia` 5 (40,8) contre aucune. 0 clic sur les quatre. Non retouchés.
+- Demandes d'indexation du 19 octobre (11 URL) : 9 indexées à la collecte du 25 octobre (`referencement-ia`, `cas-clients`, `agence`, `agence/methode`, `cold-email-b2b`, `claude-code-vs-cursor`, `secteurs/batiment`, `devis-automatise`, `desangles-peinture`) ; 2 toujours « détectées, non indexées » depuis le 4 octobre (`/services/automatisations`, `/services/systeme-acquisition`).
+
+**Actions de la semaine** (PR #139) : une création, deux révisions.
+
+1. Création de `/blog/claude-extension-chrome` (entrée `w44-article-claude-extension-chrome`, planifiée en 2026-W44).
+   - Pourquoi : entrée du calendrier, satellite du guide `/ressources/guides/claude-in-chrome-entreprise` (qui garde « claude extension » et le déploiement d'équipe ; ce guide est « détecté, non indexé » depuis une collecte : le billet lui ajoute un lien entrant, et le guide renvoie au billet en FR et EN, sans changer sa date).
+   - Recherche en ligne : « claude extension chrome », « installer extension Claude Chrome tutoriel », « Claude in Chrome extension ne fonctionne pas connexion ». L'outil de recherche donne des résultats américains : ce sont eux qui ont été lus, ce qui donne des sources récentes ; le contenu français s'en inspire sans les reprendre. Pages lues le 26 octobre 2026 : <https://support.claude.com/en/articles/12012173-get-started-with-claude-in-chrome>, <https://www.datacamp.com/tutorial/claude-for-chrome-ai-powered-browser-assistance-automation>, <https://travis.media/blog/claude-for-chrome-explained/>, <https://aimaker.substack.com/p/claude-chrome-extension-browser-automation-guide>, <https://atlas.utdallas.edu/TDClient/30/Portal/KB/Article/1599/Claude-for-Chrome>. Concurrents suivis, lus le 26 octobre 2026 : <https://www.claudin.tech/blog/claude-cowork-chrome-sans-connecteur> (15 août 2026 : session Cowork dans Chrome, injection, secteurs réglementés ; ni installation, ni modes, ni dépannage) et <https://www.claudin.tech/blog/claude-cowork-navigateur-integre-securite> (28 août 2026 : navigateur intégré contre extension, chiffres d'injection d'Anthropic, pilote de 5 à 10 personnes). Résultats américains récents lus le même jour : <https://claude.com/blog/claude-in-chrome-generally-available>, <https://findskill.ai/blog/claude-in-chrome-is-it-safe-2026/>, <https://gigazine.net/gsc_news/en/20260827-claude-chrome-available/>. Ce qu'ils ont changé : l'extension est généralement disponible sur toutes les offres payantes depuis le 26 août 2026 (le premier jet disait « bêta », d'après la page produit et la page de dépannage, qui le disent encore) ; « Automatically approve » est le mode par défaut depuis cette date, avec un classificateur qui compare chaque action à la demande. Ce qu'elles couvrent : installation, cas d'usage, risques d'injection. Ce qui manque : aucun tableau de dépannage, aucune correspondance entre anciens et nouveaux noms des modes. Ce qui est périmé : « réservée à Max » et liste d'attente (DataCamp, octobre 2025), « Haiku 4.5 sans choix » (The AI Maker, janvier 2026), « Sonnet 4.5 » (DataCamp), modes « Ask before acting » et « Act without asking », conseils de sécurité qui supposent les confirmations activées par défaut (travis.media, juillet 2026).
+   - Ce que la page apporte : réponse directe et définition, installation en cinq étapes, tableau des trois modes (nom actuel, ancien nom, conseil), liste des actions et catégories de sites refusées, liaison avec Claude Desktop, raccourcis et tâches planifiées, tableau symptôme-cause-solution, autorisations Chrome expliquées, ce que les tutoriels disent à tort, « ne l'installez pas si », FAQ de six questions. Category `claude`, au maillage, cible ajoutée dans `keywords.json`.
+   - Sources primaires : <https://support.claude.com/en/articles/12012173-get-started-with-claude-in-chrome>, <https://support.claude.com/en/articles/12902446-claude-in-chrome-permissions-guide>, <https://support.claude.com/fr/articles/12902405-depannage-de-claude-dans-chrome>, <https://claude.com/chrome> (vérifiées le 26 octobre 2026).
+   - À mesurer : `/blog/claude-extension-chrome`, requête « claude extension chrome » : page hors sitemap au 25 octobre 2026. Attendu : page indexée et premières impressions classées sur le billet, pas sur le guide. À juger à partir de 2026-W47.
+
+2. Révision de `/ressources/guides/ai-act-pme-calendrier` (entrée `w44-revision-ai-act-norme-en-18286`, prévue en W44 par la PR #130 sous un autre identifiant).
+   - Pourquoi : règle 4.1-4. Flux du 22 octobre 2026 (ActuIA, « AI Act : la première norme harmonisée ne couvre que le système qualité ») ; flux du 15 octobre (Journal du Net, ActuIA) sur un « répit ».
+   - Recherche en ligne : « ai act calendrier application dates PME », « AI Act un an de répit sanctions PME octobre 2026 », « AI Act digital omnibus adopted high-risk obligations postponed 2027 », « EN 18286 harmonised standard ». Pages lues le 26 octobre 2026 : <https://www.donneespersonnelles.fr/ai-act-calendrier>, <https://hayot-expertise.fr/blog/ai-act-eu-2026-obligations-entreprises-pme>, <https://opsiocloud.com/fr/knowledge-base/ai-act-calendrier-dates-cles/>, <https://www.studeria.fr/articles-de-blog/ai-act-2026-obligations-tpe-pme>, <https://anthemcreation.com/intelligence-artificielle/digital-omnibus-ai-act-7-changements-pme-2026/>, <https://fpf.org/blog/the-ai-act-implementation-timeline-what-changes-under-the-ai-omnibus>, <https://lne-gmed.com/news/ai-act-a-first-harmonized-standard-published-in-the-ojeu>. Ce qu'elles couvrent : dates de l'omnibus. Ce qui manque à toutes : la norme EN 18286. Erreurs relevées : statut de l'omnibus encore « à confirmer » (hayot, anthemcreation, studeria), dates du haut risque floues (studeria).
+   - Ce qui a changé : dates relues dans l'article 113 (aucune ne change) ; paragraphe sur la décision d'exécution (UE) 2026/2274 et la norme EN 18286, avec ce qu'elle change pour une PME (rien de direct, sauf mise sur le marché ou article 25) et une lecture Waimia (la demander au fournisseur d'un système à haut risque) ; ligne du 14 octobre 2026 au tableau ; une FAQ ; sources ; dates de relecture distinguées (26 octobre pour l'article 113 et la norme, 16 octobre pour le reste) ; `updatedAt` au 26 octobre.
+   - Sources primaires : <https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-113>, <https://eur-lex.europa.eu/eli/dec_impl/2026/2274/oj>, <https://www.cencenelec.eu/news-events/news/2026/en-in-the-spotlight/2026-10-15-en-18286-2026-published-in-ojeu/> (vérifiées le 26 octobre 2026). Relues aussi le 26 octobre 2026, à la demande de Simon : <https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-111>, <https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai> (même calendrier, plus de date de mise à jour affichée), <https://digital-strategy.ec.europa.eu/en/news/ai-omnibus-enters-force>, <https://www.cnil.fr/fr/entree-en-vigueur-du-reglement-europeen-sur-lia-les-premieres-questions-reponses-de-la-cnil> (mise à jour du 17 août 2026, mêmes dates), <https://www.entreprises.gouv.fr/espace-presse/la-dge-et-la-dgccrf-publient-le-projet-de-designation-des-autorites-nationales-en> (le schéma « doit être soumis au Parlement par le biais d'un projet de loi » : formulation du guide corrigée), <https://www.senat.fr/enseance/2025-2026/348/Amdt_442.html>, <https://www.assemblee-nationale.fr/17/projets/pl2518.asp> (seul le dépôt du 20 février 2026 apparaît). Concurrents lus : <https://www.claudin.tech/blog/ai-act-controles-effectifs-entreprises> (15 septembre 2026, mis à jour le 12 octobre ; pas de date reportée détaillée, pas d'EN 18286) et <https://www.claudin.tech/blog/ia-ressources-humaines-grille> (25 octobre 2026 ; dates de l'annexe III conformes au guide). Non confirmées le 26 octobre, gardées à leur date du 16 octobre dans le guide : la page de la Commission sur le code de bonnes pratiques (la version servie ne montre ni version finale, ni signataires) et celle des lignes directrices sur l'article 50 (affiche le 29 juillet 2026, le guide disait 6 août).
+   - À mesurer : `/ressources/guides/ai-act-pme-calendrier` : 2 impressions en position 8,5 sur 28 jours au 22 octobre 2026, indexée. Attendu : guide exact à la prochaine échéance (2 décembre 2026) ; impressions sur « ai act calendrier » à relire à partir de 2026-W47.
+
+3. Révision de `/blog/application-metier-exemples-pme` et de `/services/applications-internes` (entrée `w44-revision-application-metier-cible`, ajoutée cette semaine).
+   - Pourquoi : règle 4.1-5, « application métier » (priorité 1) classée sur le billet et non sur la page cible (`onTarget: false`, cannibalisation) ; règle 4.1-2, billet dans `lowCtrPages` (454 impressions, position 28,8, 0 clic, toutes dans les 7 derniers jours).
+   - Recherche en ligne : « application métier », « application métier définition exemples », « développement application métier sur mesure PME prix ». Pages lues le 26 octobre 2026 : <https://www.appvizer.fr/magazine/services-informatiques/apaas/application-metier>, <https://agence-scroll.com/blog/application-metier-sur-mesure-exemples-et-avantages>, <https://appmaster.io/fr/glossary/application-commerciale-sans-code>. Non lue (erreur du site) : la page de l'académie de Nancy-Metz, gardée à sa date du 16 octobre. Ce que montre la page de résultats : définitions et glossaires en tête, une page d'agence ; l'intention est informationnelle. Ce qui manque : aucune ne compare SaaS, ERP, sans code et sur mesure ; agence-scroll annonce sept exemples et en développe quatre, sans prix.
+   - Ce qui a changé : billet : tableau des quatre types (présenté comme un classement de Waimia), deux FAQ, description, une source, `updatedAt` au 26 octobre ; page service : `seoTitle_fr` « Application métier sur mesure pour PME : code remis », définition recentrée sur « sur mesure », lien vers le billet (date inchangée, pas de changement de fond) ; `keywords.json` : cible de « application métier » basculée sur le billet, la page service garde « application métier sur mesure ».
+   - À mesurer : `/blog/application-metier-exemples-pme`, requête « application métier » : position 29,5, 144 impressions sur 28 jours au 22 octobre 2026 ; page 454 impressions, 0 clic. Attendu : position sous 20 et au moins un clic ; « application métier sur mesure » classée sur `/services/applications-internes`. À juger à partir de 2026-W47.
+
+**Relecture sceptique** : un sous-agent a relu les trois contenus avec la grille de la section 6. Verdicts : extension Chrome oui (correspondance des modes, liste datée des erreurs des tutoriels, tableau de dépannage) ; AI Act oui, mince (EN 18286 absente chez les autres, conclusion « rien à faire ») ; application métier non, ou à peine. Corrigé : Chrome, « une dizaine de minutes » retiré (aucune source), paragraphe sur le panneau Cowork réécrit, « consignes des e-mails » présenté comme une défense et non une garantie, colonne « cause » déclarée comme notre lecture, contradiction sur la consommation levée, source en doublon retirée ; AI Act, phrase « aucun texte adopté » contradictoire retirée, annexe I et article 25 ajoutés, dates de la décision clarifiées (adoptée le 12, en vigueur le 14 octobre), statut « Publiée, d'application volontaire » dans le tableau, usage concret pour une PME ajouté ; application métier, classement présenté comme celui de Waimia avec recoupements, exemple mal rangé corrigé, FAQ rendue actionnable. Non corrigé : pas de prix ni de délai par type d'application (aucune source lue n'en donne ; prix Waimia déjà dans le billet), pas de date de prix de la norme EN 18286 (non lue). Le billet application métier reste une révision de ciblage plus qu'un apport : la mesure de W47 dira si elle suffit.
+
+**Vérifications** : build de production « Complete! » ; `check-head`, `check-jsonld`, `check-sitemap` (241 URL), `check-redirects`, `check-public-surface --prod`, `check-seo`, `check-static-quality` (0 violation bloquante), `check-internal-mesh` (235/235 au seuil, 0 orpheline), `check-silos`, `check-no-emdash`, `check-internal-links`, `check-content-refs`, `check-touchpoints`, `check-section-modules`, `check-news`, `check-config`, `check-calendar` : OK ; `astro check` : 8 erreurs (référence de `main`). Preuve visuelle sur le build servi : 5 pages à 1440 et 390 px, H1 visible (opacity 1), 0 erreur console ; un tableau à cinq colonnes débordait de 53 px à 390 px, ramené à quatre colonnes ; balayage des 241 pages du sitemap aux deux tailles : 0 débordement horizontal.
+
+**Calendrier** : livré cette semaine : `w44-article-claude-extension-chrome` (création), `w44-revision-ai-act-norme-en-18286` et `w44-revision-application-metier-cible` (révisions). Mesuré : aucune entrée (les entrées « publié » d'octobre attendent la fusion de la PR #130, qui porte leurs verdicts). Ajoutées : `w49-article-acces-agent-ia-identifiants` (origine : quatre entrées de flux du 20 au 23 octobre 2026 sur la délégation aux agents IA et leurs identifiants : Le Monde Informatique, Journal du Net deux fois, Blog du Modérateur) et `w50-comparatif-navigateur-cowork-vs-claude-in-chrome` (origine : navigateur intégré de Cowork annoncé en déploiement sur la page d'aide lue le 26 octobre, nouvelle URL claudin.tech sur ce sujet). Prévu la semaine suivante (2026-W45) : création `w45-article-automatisation-processus-metiers`. 6 semaines d'avance (`check-calendar.mjs`), de 2026-W45 à 2026-W50. Abandonnée : `w50-comparatif-navigateur-cowork-vs-claude-in-chrome` (sujet couvert par une section du billet Chrome et par claudin.tech le 28 août 2026 ; son origine, un navigateur « en déploiement cette semaine », était fausse : il date de fin août). Remplacée par `w50-article-veille-reglementaire-automatisee` (origine : nouvelle page claudin.tech du 22 octobre 2026, lue ; angle : la chaîne de veille que Waimia fait tourner pour son propre site). Avertissements lus : `w43-article-apparaitre-dans-chatgpt-pme` en retard sur `main` (livrée par la PR #130, non fusionnée) ; `w44-article-claude-extension-chrome` « semble déjà exister » (c'est la page créée par cette PR, avant le passage à « publié »).
+
+**Compléments du 26 octobre 2026, à la demande de Simon** (vérifications manquantes et lecture des nouvelles pages concurrentes)
+- Nouvelles URL concurrentes de la collecte, toutes lues le 26 octobre 2026. kayro.ai : `agence-claude-code`, `agence-machine-learning`, `agence-automatisation-ia-geneve` (pages service nommées comme la requête, sans prix, chiffres non sourcés comme « 100 % de projets réussis », marqueur de relecture « [[À VÉRIFIER avec Kayro]] » laissé en ligne sur la page Claude Code). claudin.tech : `claude-enterprise-vs-chatgpt-enterprise` (24 octobre, prix par siège et résidence des données), `ia-ressources-humaines-grille` (25 octobre), `formation-claude-gratuite-ou-payante` (20 octobre), `veille-reglementaire-ia-modele` (22 octobre), `preparer-codir-ia` (21 octobre), `revue-nda-ia-grille-tri` (19 octobre), `ia-cgp-rapport-ecrit` (23 octobre). claudin publie un billet par jour sur des usages de Claude par métier, avec des estimations de gain présentées comme hypothèses et un même cas client (Voodoo) partout.
+- Corrigé dans le billet Chrome après lecture : disponibilité générale au 26 août 2026 (au lieu de « bêta »), mode par défaut et classificateur, nouvelle section sur les pages piégées (chiffres d'Anthropic, présentés comme ses propres tests), nouvelle section « extension ou navigateur intégré de Cowork », deux FAQ, deux sources primaires.
+- Build complet (avec outils internes) : « Complete! » (en local, il faut `NODE_OPTIONS=--max-old-space-size=6144`, sinon manque de mémoire ; la CI le passe). E2E contre le build servi : 83 passés, 38 ignorés (en local, avec le navigateur préinstallé : la version de Playwright du dépôt en attend une autre). CI de la PR : `gf1-sweep` vert sur fb51fee.
+
+**Brouillon LinkedIn** : `docs/seo/posts/2026-W44.md` (une section, à relire et à publier par Simon ; un emplacement d'anecdote à remplir).
+
+**Non retenu cette semaine**
+- `claude-pme` et `claude-vs-chatgpt-pme` en `strikingDistance` et `lowCtrPages` : titles réécrits du 13 au 16 octobre, relecture prévue à partir du 27 octobre.
+- `/ressources/outils/charte-ia-entreprise` (« charte ia pme » position 19,8, « charte gemini pme » 18,4) : plafond de révisions, à traiter une prochaine semaine.
+- `/implantations/montpellier` (« agence ia hérault » 15,7), pages villes en `lowCtrPages` : pages locales, hors cadence.
+- Publicité ChatGPT étendue à 26 pays (OpenAI, 21 octobre) : sujet publicitaire, hors positionnement.
+- Article 88 bis du RGPD approuvé par le Conseil le 23 octobre (relevé dans un article tiers, non lu à la source) : à vérifier avant tout usage.
+
+**Pour Simon**
+- PR #130 encore ouverte : fusionner l'une puis mettre l'autre à jour (calendrier, journal, `keywords.json`).
+- 18 pages sont non indexées depuis trois collectes (depuis le 4 octobre) : elles passeront la règle 4.1-3 en W45 si rien ne bouge. Les plus utiles à demander à la main dans Search Console : `/services/automatisations`, `/services/systeme-acquisition`, `/ressources/comparatifs/n8n-vs-make`, `/ressources/comparatifs/geo-vs-seo`.
+- Bascule de cible « application métier » vers le billet : décision proposée dans la PR, à refuser si la page service doit rester la cible.
+- Flux de la Commission européenne (`digital-strategy.ec.europa.eu/en/rss.xml`) en HTTP 403 cette semaine : à surveiller, retrait au bout de trois semaines.
+- Écart à vérifier : la page de la Commission sur le code de bonnes pratiques, servie le 26 octobre, ne montre plus la version finale du 10 juin 2026 ni les signataires que le guide AI Act cite (lus le 16 octobre). Laissé tel quel, daté du 16 octobre.
+- Le billet n'a pas d'illustration dédiée (illustration du silo Claude). À 1440 px, le H1 long du gabarit des billets chevauche l'illustration, comme sur `claude-cowork-windows` : comportement du gabarit, non modifié.
+
+### Changement de stratégie, 24 octobre 2026 : création de pages assumée sur les agents IA toujours actifs, recomptage des pages (PR #135)
+
+**Décision (Simon, 24 octobre 2026).** Pour le thème « agents IA toujours actifs et moteurs ouverts », la ligne du 13 octobre « renforcer sans créer, aucune page neuve » (`docs/audits/2026-10-13-strategie-seo-geo.md`, section 3) est remplacée par une création assumée. Raisons : produits lancés ou en forte demande (Claude Duet le 21 octobre, ChatGPT dots le 29 septembre, Hermes Agent, OpenClaw 2.0), Claude comme lance SEO/GEO (`strategy/10`), et une offre commerciale à construire autour des moteurs ouverts. Une requête = une page cible (`keywords.json`).
+
+**Livré (22 pages).**
+
+| Type | Pages | Cible principale |
+| --- | --- | --- |
+| Guides (4) | claude-duet, chatgpt-dots, hermes-agent, openclaw | requêtes de marque des produits |
+| Comparatifs (2) | claude-duet-vs-chatgpt-dots, hermes-agent-vs-openclaw | « X vs Y » |
+| Pages de service (3) | `/services/agents-ia-open-source` et deux sous-services `/services/integration-hermes-agent`, `/services/integration-openclaw` | « agence agent ia open source », « openclaw entreprise », « hermes agent entreprise » |
+| Billets (13) | un billet de synthèse et douze billets d'appui (trois sur Claude Duet, trois sur ChatGPT dots, quatre sur Hermes Agent et OpenClaw, deux transversaux : missions et coût) | longue traîne précise de chaque guide |
+
+Le parent de l'offre entre au menu Solutions (colonne Agents IA) et au pied de page ; les deux sous-services sont des déclinaisons du méga-menu et du plan du site. Plus de trente pages existantes renvoient vers ces contenus (liens et passages informatifs : fonctionnalités Claude, TPE, modèles, connecteurs, skills, plugins, RGPD, n8n auto-hébergé, second cerveau, services d'agents).
+
+**Recomptage.**
+
+| Mesure | Valeur | Source |
+| --- | --- | --- |
+| URL du sitemap, collecte W42 (18 octobre) | 217 | `docs/seo/data/2026-W42/summary.json` |
+| URL du sitemap, build du 24 octobre | **239** (+22) | `dist/client/sitemap-0.xml` (blog 57, services 50, guides 49, comparatifs 14) |
+| Inspectées par Google à la dernière lecture (18 octobre) | 217 des 239 | `docs/seo/data/state/gsc-index.json` |
+| Indexées parmi elles | **143**, soit 65,9 % des inspectées et 59,8 % des 239 | idem |
+| Non indexées parmi elles | 74 : 50 « détectée, non indexée », 10 inconnues de Google, 6 « noindex », 4 « explorée, non indexée », 4 redirections | idem |
+| Jamais inspectées (les 22 nouvelles) | 22 | écart sitemap moins état |
+| Maillage interne | 233 pages sur 233 au seuil de 3 liens entrants, 0 orpheline | `node scripts/check-internal-mesh.mjs` |
+
+**Limites du recomptage.** Aucun accès à Search Console depuis cette session : le nombre de pages indexées n'est PAS remesuré, c'est celui du 18 octobre ; il se relit à la collecte 2026-W44. Certains états (noindex, redirection) peuvent précéder des correctifs. Une URL inspectée (`/blog/essai-pillar-ia-pme-2026`) n'est plus au sitemap.
+
+**Écart à la règle de cadence.** `scripts/seo-routine/check-calendar.mjs` plafonne à 2 créations par semaine ; ce lot en compte 22 dans la semaine 2026-W43. Exception décidée par Simon, consignée dans `calendrier-editorial.json` (22 entrées « publié », PR 135). Les semaines suivantes reviennent à la cadence.
+
+**Risque et suivi.** Chaque page ajoutée dilue la file d'exploration : 74 URL attendent déjà. Le quota de demandes manuelles est dépassé dès la première demande (entrée du 20 octobre), donc on compte sur le sitemap, l'Indexing API et IndexNow de la routine. Priorité de lecture à la collecte W44 : les 3 pages de service, les 4 guides, les 2 comparatifs. Aucune page n'est mise en `noindex` par précaution. Proposition à trancher par Simon si, à la collecte W45, moins de la moitié de ces neuf pages est explorée : revoir le maillage depuis les pages déjà indexées et regrouper les billets d'appui les plus faibles, sans les retirer sans 301.
+
+**À mesurer.** Indexation des 22 pages ; impressions sur « claude duet », « chatgpt dots », « hermes agent », « openclaw », « claude duet vs chatgpt dots », « agent ia open source » ; demandes de contact dont la page d'arrivée est une des trois pages de service (`offer=agents-ia-open-source`).
+
+**Pour Simon.** (1) Relire `chatgpt-dots` chez OpenAI : palier Pro, prix du siège Premium, régions Business Premium (écrits « à vérifier »). (2) Les billets sur ChatGPT dots sont à réviser après la fin du premier mois d'usage étendu (conditions d'usage à publier par OpenAI). (3) Aucune illustration nouvelle : les pages réutilisent des visuels existants.
+
+### Mesure intermédiaire, 21 octobre 2026 (Search Console lue dans la console, données au 18/10)
+
+**Source.** Rapport Performances, 28 derniers jours, ventilation par jour, lu le 21/10. Les données s'arrêtent au 18/10.
+
+| Période | Jours | Clics | Impressions | Clics/jour | Impressions/jour | Position |
+| --- | --- | --- | --- | --- | --- | --- |
+| Avant : 9 au 15/10 | 7 | 4 | 941 | 0,57 | 134 | 28 à 44 |
+| Après : 16 au 18/10 | 3 | 4 | 1 060 | 1,33 | 353 | 37,2 à 39,7 |
+
+Détail après : 16/10 1 clic, 303 impressions ; 17/10 1 clic, 367 impressions ; 18/10 2 clics, 390 impressions. Sur 28 jours : 13 clics, 2 990 impressions.
+
+**Lecture.** Hausse mesurée par jour : impressions x 2,6, clics x 2,3. Limites : 4 clics en tout, trois jours seulement, aucune ventilation par page faite ici, donc pas d'imputation à une action précise. La position moyenne baisse (plus de requêtes lointaines). À confirmer au 27/10 sur une semaine complète.
+
+### Demandes d'indexation, 20 octobre 2026
+
+**Résultat : quota quotidien Search Console dépassé dès la première demande.** Propriété `sc-domain:waimia.com`, champ « Inspecter n'importe quelle URL ». Deux URL sur onze inspectées, une seule demande tentée, refusée avec « Quota dépassé » (« Désolé, nous n'avons pas pu traiter cette demande, car vous avez dépassé votre quota quotidien. Veuillez réessayer de l'envoyer demain. »). Arrêt conformément à la consigne : les neuf autres URL n'ont pas été inspectées.
+
+| URL | État d'inspection | Dernière exploration | Résultat lu à l'écran |
+| --- | --- | --- | --- |
+| `/services/seo-local` | « Cette URL est sur Google », page indexée (découverte par `sitemap-index.xml`, origine `/services/seo-geo-contenu` et `/services/automatisations`) | 13 oct. 2026, 18:16:24 | Aucune demande, comme prévu pour une URL déjà sur Google. Exploration antérieure à la réécriture des 15-16/10. |
+| `/blog/seo-geo-etre-cite-par-les-ia-generatives` | « Cette URL n'a pas été indexée par Google », « Explorée, actuellement non indexée » | 29 juil. 2026, 04:15:08 | Demande tentée : « Quota dépassé ». Non demandée. |
+| `/blog/agent-ia-vs-automatisation-classique-2026` | non inspectée | non lue | Non traitée (quota) |
+| `/blog/tableau-de-bord-pme-quelles-donnees-suivre` | non inspectée | non lue | Non traitée (quota) |
+| `/cas-clients/amploi` | non inspectée | non lue | Non traitée (quota) |
+| `/ressources/comparatifs/n8n-vs-make` | non inspectée | non lue | Non traitée (quota) |
+| `/ressources/comparatifs/geo-vs-seo` | non inspectée | non lue | Non traitée (quota) |
+| `/cas-usages/finance-comptabilite` | non inspectée | non lue | Non traitée (quota) |
+| `/ressources/outils/grille-taches-a-automatiser` | non inspectée | non lue | Non traitée (quota) |
+| `/secteurs/e-commerce` | non inspectée | non lue | Non traitée (quota) |
+| `/equipe/simon-beros` | non inspectée | non lue | Non traitée (quota) |
+
+**Constats.** `seo-local` est déjà indexée : le statut « Explorée, actuellement non indexée » relevé le 19/10 ne s'applique plus ; la dernière exploration (13/10) précède pourtant la réécriture, donc Google n'a pas encore relu la version du 15-16/10. Les demandes d'indexation d'hier (19/10) ont probablement consommé le quota du jour (non mesuré : le quota exact n'est pas affiché).
+
+**Pour Simon.** Reprendre demain (21/10) avec la même liste, en commençant par `/blog/seo-geo-etre-cite-par-les-ia-generatives` (priorité 1), puis les deux autres billets, puis la priorité 2. Aucun correctif de code n'est en cause.
+
 ### 2026-W43 (session du 19 octobre 2026, collecte du 18 octobre 2026)
 
 **Données** : collecte du 18 octobre 2026 à 21:31 UTC (`generatedAt`), fraîche oui (`freshness.mjs` : « FRAÎCHE · collecte complète de 8.2 h ») · Search Console configuré oui · étapes en erreur : aucune (8 étapes `ok`). Données de performance arrêtées au 15 octobre 2026. Flux : 0 en erreur, 119 entrées. Concurrents : 2 URL nouvelles, chez claudin.tech (prix d'un agent IA, écarts budgétaires).
@@ -96,6 +284,25 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 - Deux articles de veille (Search Engine Journal du 17 octobre, Search Engine Roundtable du 16 octobre) signalent un changement de la documentation de l'Indexing API (procédure d'approbation retirée, quotas mis à jour). Non lu à la source cette semaine ; le runbook (section 0) cite cette page au 4 octobre. À relire avant de compter sur l'étape `indexing-api`.
 - 22 pages sont non indexées depuis deux collectes ; elles passeront la règle 4.1-3 (plus de trois) en W45 si rien ne bouge. Décision par page à prévoir.
 - Le billet ChatGPT n'a pas d'illustration dédiée : il prend celle du silo acquisition.
+
+### Diagnostic indexation et baisse de `claude-pme`, 19 octobre 2026
+
+**Signal reçu (Simon, captures Search Console).** Recommandation « `/ressources/guides/claude-pme` -62 % » ; raisons de non-indexation : redirection 13, noindex 10, canonique 1 (`/contact?offer=wordpress&intent=premium`), explorée non indexée 7, détectée non indexée 35.
+
+**Baisse de `claude-pme` : non imputable aux changements du 16/10.** Les données Search Console de la collecte W42 s'arrêtent au 15/10 ; la baisse compare le 9 au 15/10 à la semaine précédente, donc avant l'ajout du bloc `editorial-prose` (PR #126). Impressions 117 → 62, réparties uniformément sur les 19 à 20 requêtes de longue traîne (environ une par jour chacune), position 32,3 → 30,3, 0 clic avant comme après. Lecture probable : un outil de suivi de positions qui a cessé d'interroger ces requêtes, pas une perte de visibilité réelle. Aucune action corrective.
+
+**Audit technique des URL listées (production, robots, canonique, sitemap, liens internes dans `dist`).** Aucun défaut.
+- Redirection : 4 redirections volontaires (`google-ads-vs-meta…`, `landing-page-google-ads`, `relance-devis`, `integration-crm`) ; 4 répondent 200 aujourd'hui (`referencement-ia`, `sur-mesure-headless`, `cold-email-b2b`, `wordpress`), le rapport date d'explorations antérieures.
+- noindex : rapport périmé, les pages concernées sont passées en index depuis ; restent normaux `/plan-du-site` (noindex voulu), `/demonstrations` (301), `/library` (404).
+- Explorée, non indexée : `seo-local` et trois billets (qualité ou autorité, à retravailler plus tard) ; trois redirections normales.
+- Détectée, non indexée (35) : toutes en 200, indexables, dans le sitemap et liées. Il manque l'exploration par Google, pas un correctif. Sitemap `sitemap-index.xml` : « Opération effectuée », lu le 18/10, 217 pages découvertes.
+
+**Inspections et demandes du 19/10 (même méthode que le 17/10).**
+- Déjà indexées : `/implantations/bordeaux`, `/services/wordpress`, `/services/sur-mesure-headless`, `/ressources/guides/ai-act-pme-calendrier`.
+- « Indexation demandée » lue à l'écran (11) : `/services/referencement-ia` (exploration du 12/10 avec canonique vers seo-geo-contenu), `/cas-clients`, `/agence`, `/services/cold-email-b2b` (exploration du 7/10 en redirection), `/ressources/comparatifs/claude-code-vs-cursor` (exploration du 7/10 en noindex), `/secteurs/batiment`, `/ressources/guides/devis-automatise`, `/cas-clients/desangles-peinture`, `/services/automatisations`, `/services/systeme-acquisition`, `/agence/methode`.
+- Pas de « Quota dépassé » rencontré ; arrêt volontaire à onze.
+
+**À mesurer.** Au 27/10 (tâche programmée) : statut d'inspection de ces onze URL, total « Détectée, non indexée », impressions et clics de `claude-pme` sur données postérieures au 16/10.
 
 ### Demandes d'indexation, 17 octobre 2026
 

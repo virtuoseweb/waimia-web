@@ -11,7 +11,7 @@
 // Fidélité : mêmes données, mêmes valeurs, mêmes conditions (`when`) que l'ancien
 // template. Deux sections ont besoin de props d'INSTANCE que les wrappers de module
 // (data+lang pass-through) n'acheminent pas → la route les rend en direct via ces
-// props (`hero-case-study` : topPad/h1Gap/VT ids ; `tech-stack-band` : reveal + style).
+// props (`hero-case-study` : h1Gap/VT ids ; le dégagement haut vient du composant ; `tech-stack-band` : reveal + style).
 
 import { AUDIT_BOOKING_HREF, AUDIT_BOOKING_LABEL, AUDIT_PAGE_HREF, AUDIT_PAGE_LABEL, auditCtaBand } from '../../data/conversion';
 import type { CollectionEntry } from 'astro:content';
@@ -72,7 +72,7 @@ export const caseStudyTemplate = defineTemplate<CaseStudyContext>({
       } satisfies SectionByType<'masthead-bar'>),
     },
 
-    // ── HERO masthead + spec bar → hero-case-study (props d'instance topPad/h1Gap/VT) ─
+    // ── HERO masthead + spec bar → hero-case-study (props d'instance h1Gap/VT) ─
     {
       id: 'hero',
       build: ({ data, caseNum, transitionId }) => ({
@@ -102,7 +102,6 @@ export const caseStudyTemplate = defineTemplate<CaseStudyContext>({
           ],
         } satisfies SectionByType<'hero-case-study'>,
         props: {
-          topPad: 'clamp(80px, 10vw, 120px)',
           h1Gap: '48px',
           transitionId,
           cardTransitionId: transitionId,

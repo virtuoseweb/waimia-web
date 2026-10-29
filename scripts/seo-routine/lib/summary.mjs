@@ -38,7 +38,7 @@ export function summarizeKeywordsWithoutGsc(keywords) {
   return keywords.map((k) => ({ query: k.query, cluster: k.cluster, priority: k.priority, volume: k.volume, difficulty: k.difficulty, target: k.target, visible: null, position: null, rankedPage: null }));
 }
 
-export function buildSummary({ week, generatedAt, steps, perf, index, sitemap, indexnow, indexingApi, brave, feeds, competitors, keywords = [], sitemapPaths = null }) {
+export function buildSummary({ week, generatedAt, steps, perf, index, news, sitemap, indexnow, indexingApi, brave, feeds, competitors, keywords = [], sitemapPaths = null }) {
   const gsc = summarizePerformance(perf, keywords);
   const targets = [...new Set(keywords.map((k) => k.target).filter(Boolean))];
   return {
@@ -67,6 +67,8 @@ export function buildSummary({ week, generatedAt, steps, perf, index, sitemap, i
       notIndexed: index.notIndexed.map((n) => ({ path: pathOf(n.url), coverageState: n.coverageState, lastCrawlTime: n.lastCrawlTime, notIndexedSince: n.notIndexedSince, weeksNotIndexed: n.weeksNotIndexed })),
       inspectionErrors: index.errors.length,
     },
+    // Discover / Google Actualités / onglet Actualités (gsc-news.mjs) : 28 jours contre 28 jours.
+    news: !news ? null : { comparison: news.comparison, limits: news.limits },
     sitemap: !sitemap ? null : { submitted: sitemap.submitted, submitError: sitemap.submitError, ...sitemap.status },
     indexnow: !indexnow ? null : { status: indexnow.status, sent: indexnow.sent, added: indexnow.added.length, modified: indexnow.modified.length, lastSubmission: indexnow.lastSubmission, note: indexnow.note ?? null },
     indexingApi: !indexingApi ? null : {
