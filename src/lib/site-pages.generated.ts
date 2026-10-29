@@ -11778,6 +11778,24 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/ia-e-commercant",
+    "title": "IA pour e-commerçant : Claude, ChatGPT ou Mistral, quel outil pour quelle tâche",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/ia-e-commercant.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/ia-organisme-de-formation",
+    "title": "IA pour organisme de formation : Claude, ChatGPT ou Mistral, quel outil pour quelle tâche",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/ia-organisme-de-formation.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/ia-pme-guide-complet-2026",
     "title": "IA pour PME en 2026 : le guide complet",
     "group": "blog",
@@ -13017,6 +13035,8 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/ia-auto-hebergee-open-webui-pme",
       "/blog/ia-cabinet-comptable",
       "/blog/ia-cabinet-conseil",
+      "/blog/ia-e-commercant",
+      "/blog/ia-organisme-de-formation",
       "/blog/ia-pme-guide-complet-2026",
       "/blog/ia-pme-industrielle",
       "/blog/ia-reponse-appel-offres-pme",
