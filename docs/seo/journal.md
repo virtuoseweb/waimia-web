@@ -72,6 +72,56 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 - Trois idées de la série visent des pages secteur dépubliées (formation, services B2B, libéral) : les rattacher à une autre page, ou republier ces pages.
 - PR #130 toujours ouverte : conflits attendus sur le calendrier, le journal et `keywords.json`.
 
+### Mesure avant/après, 27 octobre 2026 (collecte Actions 2026-W44, Search Console, Web Analytics, leads)
+
+**Sources.** Collecte `chore(seo-data): collecte 2026-W44` relancée à la main (`generatedAt` 2026-10-27T08:30 UTC, données finales au 24/10, neuf étapes « ok »). Search Console lue dans la console le 27/10 (données au 25/10) pour le 14 jours par page et l'inspection d'URL. Web Analytics par l'API Vercel. Alertes `[Lead]` dans Gmail.
+
+**Search Console, collecte W44 (source principale).**
+
+| Période | Clics | Impressions | CTR | Position |
+| --- | --- | --- | --- | --- |
+| 7 jours, 18 au 24/10 | 9 | 2 803 | 0,32 % | 31,6 |
+| 7 jours précédents, 11 au 17/10 | 5 | 1 392 | 0,36 % | 37,8 |
+| 28 jours, 27/09 au 24/10 | 19 | 5 311 | 0,36 % | 32,7 |
+| 28 jours précédents, 30/08 au 26/09 | 3 | 142 | 2,11 % | 25,7 |
+
+Console (au 25/10), pour recoupement : 28 jours (28/09 au 25/10) 21 clics, 5,71 k impressions, CTR 0,4 %, position 32,7, contre 3 clics, 156 impressions, 1,9 %, 26,3 ; 7 jours (19 au 25/10) 9 clics, 2,83 k impressions, 0,3 %, 30,9, contre 6 clics, 1,7 k, 0,4 %, 38 ; 14 jours (12 au 25/10) 15 clics, 4,52 k impressions, 0,3 %, 33,5, contre 6 clics, 1,18 k, 0,5 %, 29,3.
+
+**Lecture.** Hausse mesurée : sur 7 jours, impressions x 2,0 et clics x 1,8 ; sur 28 jours, 19 clics contre 3. Le CTR global baisse parce que les impressions montent plus vite que les clics (requêtes nouvelles, souvent au-delà de la page 3). Contre la référence du 16/10 (8 clics, 1 540 impressions du 16/09 au 13/10), le 28 jours actuel monte à 19 clics et 5 311 impressions, mais les deux fenêtres partagent 17 jours (27/09 au 13/10). Les clics de la semaine vont à `/blog/claude-pro-vs-team` (3, position 10,8), `/blog/claude-code-skills` (2, position 10,2), `/implantations/montpellier` (2), puis un clic chacune pour `/blog/claude-microsoft-copilot-pme` et `/politique-confidentialite`. La hausse du 21/10 (impressions x 2,6 par jour sur trois jours) est confirmée sur une semaine complète.
+
+**Les 4 pages cibles CTR, 14 jours (12 au 25/10) contre les 14 précédents (28/09 au 11/10), console filtrée par page.**
+
+| Page | Clics | Impressions | CTR | Position | Requête cible (collecte, 28 jours au 24/10) |
+| --- | --- | --- | --- | --- | --- |
+| `/ressources/outils/calculateur-roi-ia` | 0 / 0 | 6 / 10 | 0 % / 0 % | 39,3 / 7,2 | « roi ia » : 10 impressions, position 7,4, 0 clic ; 0 impression sur 7 jours |
+| `/ressources/guides/claude-pme` | 0 / 0 | 242 / 152 | 0 % / 0 % | 33 / 31,5 | « diagnostic claude pme » : 26 impressions, position 9,3 ; 7 sur 7 jours à 10,4 |
+| `/services/consultant-ia-claude` | 0 / 0 | 4 / 26 | 0 % / 0 % | 26,5 / 11,5 | « cabinet conseil ia pme » 5 impressions à 6,2 ; « prix consultant ia » 2 à 1,0 ; aucune sur 7 jours |
+| `/ressources/comparatifs/claude-vs-chatgpt-pme` | 0 / 0 | 169 / 149 | 0 % / 0 % | 34,8 / 32,9 | « chatgpt vs claude » : 4 impressions, position 11,5 ; 2 sur 7 jours à 14,5 |
+
+**Verdict.** Le CTR n'a monté sur aucune des quatre pages : 0 clic avant comme après. Le test de title n'est pas concluant, faute d'impressions en haut de page. Ce qui est mesuré, c'est la position :
+- Calculateur : positions de 6 à 12 du 28/09 au 7/10 (1,0 le 3/10), aucune impression du 8 au 15/10, puis 28,5 le 16/10, 31 le 17/10, 85 le 19/10, 32 le 25/10. La page a perdu ses impressions sur « roi ia » entre le 7 et le 16/10, période où le title est passé de « Calculateur ROI IA : temps récupérable et budget maximal » (avant le 14/10) à « ROI IA : calculateur gratuit… » (14/10) puis « ROI IA : formule de calcul et calculateur gratuit » (16/10). Corrélation, pas preuve : la page a aussi changé de contenu le 16/10 (FAQ, formule).
+- Consultant : positions de 2 à 18 du 28/09 au 9/10 (deux jours à 30,7 et 44), puis 27,5 le 16/10, 50 le 19/10, 1,0 le 21/10. Quatre impressions en 14 jours : trop peu pour conclure.
+- `claude-pme` : son title n'a pas été réécrit du 13 au 16/10 (seule la description a changé le 14/10). Impressions en hausse, position stable, « diagnostic claude pme » stable vers 10.
+- Comparatif : impressions en légère hausse, position stable, 4 impressions sur la requête cible en 28 jours.
+
+**Décisions (propositions, aucun fichier de contenu modifié par cette entrée).**
+1. Calculateur : revenir au title en ligne pendant la fenêtre de référence, en retirant `seoTitle_fr` pour que le title soit « Calculateur ROI IA : temps récupérable et budget maximal » (56 caractères), et reprendre la description d'avant le 16/10 : « Calculateur ROI IA gratuit : vos heures, votre coût horaire et vos hypothèses donnent le temps récupérable par an et le budget à ne pas dépasser. » (145 caractères). À faire dans une PR dédiée, puis relire « roi ia » trois semaines après.
+2. Consultant : revenir au title d'avant le 13/10, « Consultant IA pour PME : conseil et mise en œuvre » (49 caractères), et à une description proche de celle d'alors : « Consultant IA pour PME : état des lieux, cas d'usage chiffrés, feuille de route, puis mise en œuvre par la même personne. Audit gratuit. » (136 caractères). Même PR, même relecture.
+3. `claude-pme` : garder le title ; la hausse d'impressions ne justifie pas de toucher une page dont le title n'a pas changé. Si aucun clic au prochain relevé avec « diagnostic claude pme » toujours vers 10 : tester « Claude en PME : diagnostic, coût et plan sur 90 jours » (53 caractères, termes repris de la description actuelle).
+4. Comparatif : garder ; 4 impressions sur la requête cible en 28 jours ne permettent pas de juger un title.
+
+**Inspection d'URL (console, 27/10).** Les treize URL publiées du 14 au 16/10 sont toutes « Cette URL est sur Google », « La page est indexée » : `/blog/claude-max-pme`, `/blog/claude-pro-vs-team`, `/blog/facture-electronique-reception-pme`, `/blog/ai-act-pme-utilisatrice-ia` (inconnue de Google le 17/10), `/blog/claude-code-skills`, `/blog/cahier-des-charges-refonte-site`, `/blog/application-metier-exemples-pme`, `/blog/formation-ia-rh-pme`, `/blog/chatbot-rh-pme`, `/blog/audit-site-internet-pme`, `/blog/claude-cowork-windows`, `/ressources/outils/grille-audit-site-internet`, `/ressources/guides/automatisation-factures-fournisseurs-pme`. Aucun problème de découverte sur ce lot. Aucune demande d'indexation faite ce jour.
+
+**Suivi des demandes du 19/10 (collecte W44, inspection API).** Neuf sur onze indexées (`/agence`, `/agence/methode`, `/cas-clients`, `/cas-clients/desangles-peinture`, `/ressources/comparatifs/claude-code-vs-cursor`, `/ressources/guides/devis-automatise`, `/secteurs/batiment`, `/services/cold-email-b2b`, `/services/referencement-ia`). `/services/systeme-acquisition` : « Détectée, actuellement non indexée ». `/services/automatisations` : « Google ne reconnaît pas cette URL » (aucun sitemap ni page d'origine détectés, confirmé dans la console le 27/10) alors qu'elle répond 200, figure dans `sitemap-0.xml` et est liée depuis l'accueil (deux liens) : retard de découverte, pas de défaut technique trouvé. Sitemap resoumis par la collecte (240 URL soumises, dernier téléchargement par Google le 25/10).
+
+**Indexation globale.** Inspection API des 241 URL du sitemap : 173 indexées, 68 non indexées (47 « Détectée, actuellement non indexée », 11 « Google ne reconnaît pas cette URL », 5 noindex, 4 « Explorée, actuellement non indexée », 1 redirection). Le rapport Pages de la console affiche 159 indexées et 81 non indexées : les deux instruments ne comptent pas la même chose, pas de tendance à en tirer. Nouvellement indexées depuis le 25/10 : cinq pages, dont `/ressources/guides/claude-tpe` et `/services/webflow`.
+
+**Web Analytics (13 au 26/10).** 203 visiteurs, 606 pages vues. Les 13, 14 et 15/10 valent 0 : 11 jours de données sur 14, pas de période « avant » comparable. Le 16/10 se lit aujourd'hui 42 visiteurs et 141 pages vues, et non 5 et 24 comme relevé le 16/10 en cours de journée : la base du 16/10 ne sert pas de point de comparaison. Référents : aucun pour 171 visiteurs, google.com 31, search.brave.com 3, bing.com 1, search.google.com 1, LinkedIn 1 ; ChatGPT 0. Pages les plus vues : `/` (44 visiteurs), `/404` (27), `/contact` (18), `/blog` (9), `/bienvenue/contact` (8), `/blog/claude-code-skills` (8), `/blog/claude-pro-vs-team` (8), `/ressources/diagnostics/maturite-ia` (7), `/tarifs` (7). Pages d'arrivée depuis un moteur ou LinkedIn : `/` 8, `/blog/claude-code-skills` 5, `/blog/claude-pro-vs-team` 5, `/blog/chatgpt-dots-europe-disponibilite` 4.
+
+**Leads (alertes `[Lead]` depuis le 17/10).** 8 alertes : 6 tests de Simon (19/10, lead magnets et calculateur), 2 demandes de contact (23 et 26/10) qui sont du démarchage, l'une une offre de partenariat de marque non sollicitée, l'autre une prospection avec lien externe de réservation. **0 lead réel**, 0 demande de contact réelle. Cal.com : aucune réservation depuis le 17/10 (la recherche remonte bien les e-mails `cal.com` antérieurs, dont le dernier le 15/09). Limite : `/bienvenue/contact`, page servie après un envoi réussi de `/api/contact`, compte 8 vues (21/10 : 2, 23/10 : 1, 25/10 : 2, 26/10 : 3) pour 2 alertes ; les vues du 21 et du 25/10 n'ont pas d'alerte correspondante (visite directe, rechargement ou alerte manquante, non tranché).
+
+**À mesurer ensuite.** Après la PR des titles calculateur et consultant : « roi ia » et « cabinet conseil ia pme » trois semaines après le déploiement. `/services/automatisations` et `/services/systeme-acquisition` à la prochaine collecte. L'écart entre vues de `/bienvenue/contact` et alertes `[Lead]`.
+
 ### 2026-W44 (session du 26 octobre 2026, collecte du 25 octobre 2026)
 
 **Données** : collecte du 25 octobre 2026 à 21:48 UTC (`generatedAt`), fraîche oui (`freshness.mjs` : « FRAÎCHE · collecte complète de 8.9 h ») · Search Console configuré oui · étapes en erreur : aucune (9 étapes `ok`). Données de performance du 25 septembre au 22 octobre 2026 (28 jours) et du 16 au 22 octobre (7 jours). Flux : 128 entrées, 1 flux en erreur (`commission-europeenne-numerique`, HTTP 403). Concurrents : 10 URL nouvelles (kayro.ai 3, claudin.tech 7).
@@ -209,6 +259,66 @@ Détail après : 16/10 1 clic, 303 impressions ; 17/10 1 clic, 367 impressions ;
 **Constats.** `seo-local` est déjà indexée : le statut « Explorée, actuellement non indexée » relevé le 19/10 ne s'applique plus ; la dernière exploration (13/10) précède pourtant la réécriture, donc Google n'a pas encore relu la version du 15-16/10. Les demandes d'indexation d'hier (19/10) ont probablement consommé le quota du jour (non mesuré : le quota exact n'est pas affiché).
 
 **Pour Simon.** Reprendre demain (21/10) avec la même liste, en commençant par `/blog/seo-geo-etre-cite-par-les-ia-generatives` (priorité 1), puis les deux autres billets, puis la priorité 2. Aucun correctif de code n'est en cause.
+
+### 2026-W43 (session du 19 octobre 2026, collecte du 18 octobre 2026)
+
+**Données** : collecte du 18 octobre 2026 à 21:31 UTC (`generatedAt`), fraîche oui (`freshness.mjs` : « FRAÎCHE · collecte complète de 8.2 h ») · Search Console configuré oui · étapes en erreur : aucune (8 étapes `ok`). Données de performance arrêtées au 15 octobre 2026. Flux : 0 en erreur, 119 entrées. Concurrents : 2 URL nouvelles, chez claudin.tech (prix d'un agent IA, écarts budgétaires).
+
+**KPI** (28 jours, du 18 septembre au 15 octobre 2026, contre les 28 précédents) : clics 9 (+5) · impressions 1 932 (+1 858) · CTR 0,47 % · position 31,9 (-2,7, gain) · pages indexées 143 sur 217 inspectées. Sur 7 jours : clics 4 (+1) · impressions 941 (+176) · position 35,8 (+6,2, perte). Indexation : 18 pages nouvellement indexées depuis la collecte du 16 octobre, 0 nouvellement non indexée ; 50 « détectées, actuellement non indexées », 10 inconnues de Google, 4 « explorées, actuellement non indexées ». Aucune page n'atteint `weeksNotIndexed` > 3 (maximum : 2, 22 pages) : la règle 4.1-3 ne se déclenche pas cette semaine. Indexing API : 16 notifications envoyées le 18 octobre (16 modifiées, 0 erreur, quota 16 sur 200), des notifications et pas des pages indexées. IndexNow : « rien à envoyer » (dernier envoi le 16 octobre).
+
+**Brave** : 216 URL dans la file du 19 octobre 2026 à 06:17 UTC (`brave-queue.mjs --from-sitemap --days=8`), 40 à soumettre par la tâche Brave, 176 à reprendre (`--offset=40`). Rien n'a été soumis par cette session.
+
+**Bilan des actions précédentes** (entrées publiées les 5 et 6 octobre 2026, deux collectes complètes depuis, les 11 et 18 octobre ; comparaison : collecte du 18 octobre, données au 15 octobre, contre celle du 4 octobre)
+- 2026-W41, `/ressources/guides/n8n-prix`, « n8n prix » : gagné. Avant : aucune impression. Maintenant : 1 impression en position 9,0 ; page 8 impressions (position 9,9). Indexée. Volume faible.
+- 2026-W41, `/ressources/guides/devis-automatise`, « devis automatisé » : stable. 0 puis 0 impression. Non indexée (« détectée », `weeksNotIndexed` 1).
+- 2026-W41, `/ressources/guides/claude-pme`, « guide claude pme » : gagné. Avant : requête classée sur `/services/consultant-ia-claude` (3 impressions, position 8,3). Maintenant : guide 9 impressions en position 12,2, page service 5 impressions en position 8,6.
+- 2026-W41, `/ressources/guides/claude-cowork`, « claude cowork prix » : stable. 0 puis 0 impression ; la page passe d'inconnue à indexée (34 impressions, position 20,9).
+- 2026-W41, `/ressources/guides/agent-ia-definition`, « agents ia c'est quoi » : stable. 0 puis 0 ; page indexée, 27 impressions en position 80,5.
+- 2026-W41, `/blog/workflow-ia-exemples-pme`, « workflow ia » : stable. 0 puis 0 ; non indexée (« détectée »).
+- 2026-W41, `/blog/architecte-ia-role-pme`, « architecte ia » : stable. 0 puis 0 ; page indexée, 3 impressions en position 9,3.
+- 2026-W41, guides Claude (PR #76) : `claude-skills`, « skills claude » : gagné (0 puis 1 impression, position 7,0 ; page 30 impressions, position 9,4). `claude-design`, « claude design » : gagné (0 puis 1, position 8,0). `claude-fonctionnalites-pme` (« claude prix ») et `claude-plugins-entreprise` (« claude plugins ») : stables, 0 puis 0, pages indexées. Volumes faibles : ces « gagné » disent que la page sort sur sa requête, pas qu'elle y est installée.
+- Restent « trop tôt », selon leur ligne « À mesurer » : `claude-vs-chatgpt-pme` (à juger en W44 ; page 211 impressions en position 31,8, « claude vs chatgpt » en position 19), `claude-code-entreprise` (à 4 semaines), `n8n-c-est-quoi`, les guides du lot 2 et les billets du maillage (à juger en W45), toutes les vagues publiées du 13 au 17 octobre.
+- Titles réécrits du 13 au 16 octobre (`calculateur-roi-ia`, `claude-pme`, `consultant-ia-claude`, `claude-vs-chatgpt-pme`) : non retouchés, relecture prévue à partir du 27 octobre.
+
+**Actions de la semaine** (PR #130) : une création, deux révisions.
+
+1. Création de `/blog/apparaitre-dans-chatgpt-pme` (entrée `w43-article-apparaitre-dans-chatgpt-pme`, planifiée en 2026-W43).
+   - Pourquoi : entrée du calendrier, satellite du guide `mesurer-visibilite-ia-chatgpt` (lien contextuel ajouté dans le guide, FR et EN, sans changer sa date).
+   - Recherche en ligne : « apparaître dans chatgpt entreprise », « comment apparaître dans les réponses de chatgpt pme », « être cité par chatgpt référencement site oai-searchbot ». Pages lues le 19 octobre 2026 : <https://www.clickforest.com/fr/blog/etre-recommande-par-chatgpt>, <https://www.lafabriquedunet.fr/agences/tendances/comment-faire-apparaitre-votre-entreprise-dans-chatgpt>, <https://seocrawl.ai/fr/blog/comment-apparaitre-dans-chatgpt>, <https://ainora.lt/fr/blog/comment-apparaitre-dans-les-reponses-de-chatgpt>, <https://www.ranktracker.com/fr/blog/openai-gpt-optimization-chatgpt-mentions/>. Concurrents suivis : aucune page sur la requête (sitemaps relevés). Ce qu'elles couvrent : contenu structuré, mentions tierces, schema, llms.txt, études de tiers. Ce qui manque ou est faux : ainora conseille d'autoriser GPTBot et ChatGPT-User pour être cité, contre la documentation d'OpenAI ; aucune ne traite des annonces ChatGPT ouvertes en France et de leur absence d'effet sur les réponses ; peu disent qui, dans une PME, fait les contrôles. Questions récurrentes : délai, paiement, GPTBot, llms.txt, mesure.
+   - Ce que la page apporte : les quatre robots d'OpenAI dans un tableau (rôle, effet d'un blocage, effet sur la recherche), deux erreurs corrigées par la source primaire, six contrôles avec qui les fait, ce qu'OpenAI ne documente pas, FAQ de six questions. Category `acquisition`, au maillage, cible ajoutée dans `keywords.json`.
+   - Sources primaires : <https://developers.openai.com/docs/bots>, <https://help.openai.com/en/articles/12627856-publishers-and-developers-faq>, <https://help.openai.com/en/articles/20001047>, <https://help.openai.com/en/articles/20001245-chatgpt-ads-availability>, <https://openai.com/index/chatgpt-ads-expands-across-europe/> (vérifiées le 19 octobre 2026).
+   - À mesurer : `/blog/apparaitre-dans-chatgpt-pme`, requête « apparaître dans chatgpt » : page hors sitemap au 18 octobre 2026. Attendu : page indexée et premières impressions. À juger à partir de 2026-W46.
+
+2. Révision de `/blog/n8n-c-est-quoi` (entrée `w43-revision-n8n-c-est-quoi`, ajoutée cette semaine).
+   - Pourquoi : règle 4.1-1, « n8n » en position 14,3 (9 impressions) sur le billet ; règle 4.1-5, « c'est quoi n8n » classée sur `/services/automatisation-n8n` (position 71). Le lien de la page service vers le billet existe déjà (PR #100) : le travail porte sur le billet.
+   - Recherche en ligne : « n8n c'est quoi », « qu'est-ce que n8n automatisation définition », « n8n gratuit open source licence prix 2026 ». Pages lues le 19 octobre 2026 : <https://www.hostinger.com/fr/tutoriels/?p=40061>, <https://www.it-connect.fr/n8n-cest-quoi-cet-outil-automatisation/>, <https://www.ovhcloud.com/fr/learn/what-is-n8n/>, <https://www.jedha.co/formation-ia/n8n-guide-comparatif-prix-avis-outil-automatisation>, <https://m8d.io/fr/n8n-c-est-quoi/>. Ce qu'elles couvrent : définition, nœuds, cas d'usage, prix. Ce qui manque : la licence expliquée (« gratuit » ou « open source » sans conditions), ce qui casse en production, des prix datés (it-connect : « à partir de 24 € » sans date ; nombres d'intégrations de 500 à 1 500 selon les pages).
+   - Ce qui a changé : tableau « n8n en un tableau » (licence, facturation, prix cloud, offre Business réservée à l'auto-hébergement et aux entreprises de moins de 100 salariés), paragraphe sur les prestations permises par la licence, section « Ce qui casse en pratique » placée après le tableau (tirée des tutoriels et de la page de mise en place du site), prix dans « Ce que ça coûte », deux questions de FAQ (open source, Cloud ou auto-hébergé), `updatedAt` au 19 octobre.
+   - Sources primaires : <https://n8n.io/pricing/>, <https://docs.n8n.io/n8n-community-license/community-license/license-faq>, <https://n8n.io/> (vérifiées le 19 octobre 2026). Non relues, gardées à leur date du 6 octobre : les quatre pages de documentation (workflows, nœuds, modes, Community Edition).
+   - À mesurer : `/blog/n8n-c-est-quoi`, requête « n8n » : position 14,3, 9 impressions sur 28 jours au 15 octobre 2026. Attendu : position sous 10, ou premières impressions sur « n8n c'est quoi » classées sur le billet. À juger à partir de 2026-W46.
+
+3. Révision de `/ressources/guides/claude-skills` (entrée `w43-revision-claude-skills-titre`, ajoutée cette semaine).
+   - Pourquoi : règle 4.1-2, page dans `lowCtrPages` (30 impressions, position 9,4, 0 clic) ; « claude skills », priorité 1, sans impression.
+   - Recherche en ligne : « claude skills », « claude skills c'est quoi créer un skill entreprise ». Pages lues le 19 octobre 2026 : <https://support.claude.com/fr/articles/12512176-qu-est-ce-que-les-competences>, <https://claude.com/fr/skills>, <https://www.blogdumoderateur.com/claude-skills-outil-creer-dossiers-instructions-personnalisees/>, <https://www.contextstudios.ai/fr/blog/competences-claude-2025-guide-des-agents-ia-en-entreprise>, <https://www.getmaxim.ai/articles/claude-skills-how-anthropics-agent-skills-work/>. Non lues (erreur de lecture) : bleap.finance, tecnoloblog.com. Ce qui manque au guide : le mot « compétences », celui du centre d'aide d'Anthropic en français, absent du guide.
+   - Ce qui a changé : `seoTitle_fr` (« Claude Skills (compétences) : créer, partager, déployer »), `description_fr`, terme de la définition, une question de FAQ (« Skills ou compétences Claude »), une source, `updatedAt` au 19 octobre. Corps inchangé.
+   - Sources primaires : <https://support.claude.com/fr/articles/12512176-qu-est-ce-que-les-competences> (vérifiée le 19 octobre 2026 ; confirme aussi les offres Free, Pro, Max, Team et Enterprise déjà écrites dans le guide).
+   - À mesurer : `/ressources/guides/claude-skills` : 30 impressions, position 9,4, 0 clic sur 28 jours au 15 octobre 2026. Attendu : au moins un clic, et des impressions sur « claude skills » ou « compétences claude ». À juger à partir de 2026-W46.
+
+**Relecture sceptique** : un sous-agent a relu les trois contenus avec la grille de la section 6. Verdicts : ChatGPT oui (la doc d'OpenAI contredit le conseil GPTBot et ChatGPT-User ; annonces ouvertes en France sans effet sur les réponses ; llms.txt absent de la doc) ; n8n oui, de peu (licence citée, prix datés) ; Claude Skills non pour la FAQ ajoutée, qui relie deux noms déjà donnés par Anthropic (gardée : la révision porte sur le title et la meta, que la règle 4.1-2 vise). Corrigé : adversaire « on ne peut pas payer » remplacé par la phrase réellement lue (guide de mai 2026), « souvent » et « seul signal » retirés, « en une heure » retiré, qui fait quels contrôles ajouté ; n8n : « Ce qui casse » remonté après le tableau, extrait mis à jour, « pas la plus lourde » retiré ; Skills : meta « qui peut les partager », phrase redondante retirée. Non corrigé : pas de cas client chiffré sur n8n ni sur ChatGPT (aucun dans `src/content/cases/` sur ces sujets), prix des annonces ChatGPT (non publié dans les pages lues).
+
+**Calendrier** : livré cette semaine : `w43-article-apparaitre-dans-chatgpt-pme` (création), `w43-revision-n8n-c-est-quoi` et `w43-revision-claude-skills-titre` (révisions). Mesurées : 11 entrées publiées les 5 et 6 octobre (verdicts ci-dessus). Ajoutées : `w44-revision-ai-act-calendrier-repit` (origine : Journal du Net et ActuIA du 15 octobre sur le calendrier de l'AI Act, à vérifier sur EUR-Lex avant toute correction) et `w49-article-risques-claude-pme` (origine : « dangers claude pme » et « risques claude pme » répartis entre le guide Claude PME et le comparatif Claude vs ChatGPT, positions 14,7 à 63,6). Prévu la semaine suivante (2026-W44) : création `w44-article-claude-extension-chrome`, révision `w44-revision-ai-act-calendrier-repit`. 6 semaines d'avance (`check-calendar.mjs`), de 2026-W44 à 2026-W49. Aucune entrée abandonnée.
+
+**Brouillon LinkedIn** : `docs/seo/posts/2026-W43.md` (une section, à relire et à publier par Simon).
+
+**Non retenu cette semaine**
+- Gemini 4 Argon (13 octobre) : le comparatif `chatgpt-claude-gemini-perplexity-pme`, mis à jour le 16 octobre, ne cite aucun modèle Gemini, seulement des offres : rien de faux.
+- PAPIA (France Num, 15 octobre) : aide réservée à des projets IA de la mode (relevé par recherche, fiche France Num non lue) : hors des pages du site.
+- `/implantations/montpellier` (« agence ia hérault », position 15,8) : page locale, hors cadence.
+- `claude-pme` et `claude-vs-chatgpt-pme` en `strikingDistance` : titles réécrits du 13 au 16 octobre, relecture le 27 octobre.
+
+**Pour Simon**
+- Deux articles de veille (Search Engine Journal du 17 octobre, Search Engine Roundtable du 16 octobre) signalent un changement de la documentation de l'Indexing API (procédure d'approbation retirée, quotas mis à jour). Non lu à la source cette semaine ; le runbook (section 0) cite cette page au 4 octobre. À relire avant de compter sur l'étape `indexing-api`.
+- 22 pages sont non indexées depuis deux collectes ; elles passeront la règle 4.1-3 (plus de trois) en W45 si rien ne bouge. Décision par page à prévoir.
+- Le billet ChatGPT n'a pas d'illustration dédiée : il prend celle du silo acquisition.
 
 ### Diagnostic indexation et baisse de `claude-pme`, 19 octobre 2026
 
