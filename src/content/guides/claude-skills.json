@@ -2,8 +2,8 @@
   "$schema": "../../schemas/generated/guides.page.schema.json",
   "title_fr": "Skills Claude : créer, partager et déployer en entreprise",
   "title_en": "Claude Skills: build, share and deploy them in a business",
-  "seoTitle_fr": "Claude Skills : créer, partager et déployer en entreprise",
-  "description_fr": "Claude Skills : fonctionnement, structure SKILL.md, limites de partage, sécurité, 6 exemples pour PME et coût en temps. Le faire soi-même ou le faire faire.",
+  "seoTitle_fr": "Claude Skills (compétences) : créer, partager, déployer",
+  "description_fr": "Claude Skills, appelés compétences dans l'aide d'Anthropic : le dossier SKILL.md, qui peut les partager selon l'offre, 6 exemples PME, sécurité.",
   "description_en": "Claude Skills: how they work, SKILL.md structure, sharing limits, security, 6 SMB examples and cost in time. Do it yourself or have it done.",
   "slug": "claude-skills",
   "publishedAt": "2026-10-05T00:00:00.000Z",
@@ -66,6 +66,12 @@
       "url": "https://claude.com/resources/tutorials/how-to-create-a-skill-with-claude-through-conversation",
       "type": "enterprise",
       "publishedAt": "2026-10-13"
+    },
+    {
+      "name": "Anthropic, Qu'est-ce que les compétences ? (centre d'aide en français : terme « compétences », offres Free, Pro, Max, Team et Enterprise, exécution de code activée), lu le 19 octobre 2026",
+      "url": "https://support.claude.com/fr/articles/12512176-qu-est-ce-que-les-competences",
+      "type": "enterprise",
+      "publishedAt": "2026-10-19"
     }
   ],
   "seo": {
@@ -75,6 +81,10 @@
     {
       "q": "Qu'est-ce qu'un skill Claude ?",
       "a": "Un skill est un dossier qui contient un fichier SKILL.md (une procédure écrite en texte) et, si besoin, des modèles, des listes ou des scripts. Claude lit seulement le nom et la description en permanence, puis charge la procédure quand votre demande y correspond. Il sert à fixer une façon de faire une tâche répétée : devis, compte rendu, relance."
+    },
+    {
+      "q": "Skills ou compétences Claude : est-ce la même chose ?",
+      "a": "Oui. Le centre d'aide d'Anthropic en français titre « Qu'est-ce que les compétences ? » et les définit comme « des dossiers contenant des instructions, des scripts et des ressources » que Claude charge selon la tâche. La page produit claude.com/fr/skills garde le mot Skills. Relu le 19 octobre 2026."
     },
     {
       "q": "Combien coûte un skill Claude ?",
@@ -109,6 +119,10 @@
     {
       "q": "What is a Claude skill?",
       "a": "A skill is a folder that holds a SKILL.md file (a written procedure in plain text) and, if needed, templates, lists or scripts. Claude always reads only the name and description, then loads the procedure when your request matches it. It fixes the way a repeated task is done: quotes, meeting minutes, payment reminders."
+    },
+    {
+      "q": "Skills or \"compétences\": is it the same thing?",
+      "a": "Yes. Anthropic's French help centre is titled \"Qu'est-ce que les compétences ?\" and defines them as folders containing instructions, scripts and resources that Claude loads for the task. The product page claude.com/fr/skills keeps the word Skills. Reread on 19 October 2026."
     },
     {
       "q": "How much does a Claude skill cost?",
@@ -198,7 +212,7 @@
       "background": "paper",
       "question_fr": "Qu'est-ce qu'un skill Claude, en une phrase ?",
       "question_en": "What is a Claude skill, in one sentence?",
-      "term_fr": "Skill Claude (Agent Skill)",
+      "term_fr": "Skill Claude (Agent Skill, « compétence » dans l'aide française d'Anthropic)",
       "term_en": "Claude Skill (Agent Skill)",
       "answer_fr": "Un skill Claude est un dossier qui contient une procédure écrite (le fichier SKILL.md) et, si besoin, des modèles ou des scripts. Claude garde en tête son nom et sa description, puis charge la procédure seulement quand une demande y correspond. Il fonctionne sur claude.ai, dans Claude Code et par l'API ; seuls claude.ai et Claude Code se synchronisent entre eux.",
       "answer_en": "A Claude skill is a folder holding a written procedure (the SKILL.md file) and, if needed, templates or scripts. Claude keeps its name and description in mind, then loads the procedure only when a request matches it. It works on claude.ai, in Claude Code and through the API; only claude.ai and Claude Code sync with each other."
@@ -835,6 +849,12 @@
           "q_en": "What is a Claude skill?",
           "a_fr": "Un skill est un dossier qui contient un fichier SKILL.md (une procédure écrite en texte) et, si besoin, des modèles, des listes ou des scripts. Claude lit seulement le nom et la description en permanence, puis charge la procédure quand votre demande y correspond. Il sert à fixer une façon de faire une tâche répétée : devis, compte rendu, relance.",
           "a_en": "A skill is a folder that holds a SKILL.md file (a written procedure in plain text) and, if needed, templates, lists or scripts. Claude always reads only the name and description, then loads the procedure when your request matches it. It fixes the way a repeated task is done: quotes, meeting minutes, payment reminders."
+        },
+        {
+          "q_fr": "Skills ou compétences Claude : est-ce la même chose ?",
+          "q_en": "Skills or \"compétences\": is it the same thing?",
+          "a_fr": "Oui. Le centre d'aide d'Anthropic en français titre « Qu'est-ce que les compétences ? » et les définit comme « des dossiers contenant des instructions, des scripts et des ressources » que Claude charge selon la tâche. La page produit claude.com/fr/skills garde le mot Skills. Relu le 19 octobre 2026.",
+          "a_en": "Yes. Anthropic's French help centre is titled \"Qu'est-ce que les compétences ?\" and defines them as folders containing instructions, scripts and resources that Claude loads for the task. The product page claude.com/fr/skills keeps the word Skills. Reread on 19 October 2026."
         },
         {
           "q_fr": "Combien coûte un skill Claude ?",
