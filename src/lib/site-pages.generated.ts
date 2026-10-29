@@ -11400,6 +11400,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/apparaitre-dans-chatgpt-pme",
+    "title": "Apparaître dans ChatGPT : ce qu'une PME contrôle, et ce qu'elle ne contrôle pas",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/apparaitre-dans-chatgpt-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/application-metier-exemples-pme",
     "title": "Application métier : définition et exemples par service en PME",
     "group": "blog",
@@ -11733,11 +11742,29 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/ia-artisan-batiment",
+    "title": "IA pour artisan du bâtiment : Claude, ChatGPT ou Mistral pour devis, compte-rendu et relance",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/ia-artisan-batiment.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/ia-auto-hebergee-open-webui-pme",
     "title": "Open WebUI : héberger son IA en PME, bonne idée ?",
     "group": "blog",
     "collection": "blog",
     "file": "blog/ia-auto-hebergee-open-webui-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/ia-cabinet-comptable",
+    "title": "IA pour cabinet comptable : Claude, ChatGPT ou Mistral, quel outil pour quelle tâche",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/ia-cabinet-comptable.json",
     "editable": false,
     "sections": []
   },
@@ -12948,6 +12975,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/agents-ia-toujours-actifs-pme",
       "/blog/ai-act-pme-utilisatrice-ia",
       "/blog/ai-mode-google-ai-overviews-pme",
+      "/blog/apparaitre-dans-chatgpt-pme",
       "/blog/application-metier-exemples-pme",
       "/blog/applications-internes-build-vs-buy-pme",
       "/blog/architecte-ia-role-pme",
@@ -12985,7 +13013,9 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/forward-deployed-engineer",
       "/blog/geo-local-recommande-par-les-ia",
       "/blog/hermes-agent-v0-22-modeles-locaux-connecteurs",
+      "/blog/ia-artisan-batiment",
       "/blog/ia-auto-hebergee-open-webui-pme",
+      "/blog/ia-cabinet-comptable",
       "/blog/ia-cabinet-conseil",
       "/blog/ia-pme-guide-complet-2026",
       "/blog/ia-pme-industrielle",
