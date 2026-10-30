@@ -43,7 +43,7 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 **PR encore ouvertes** : aucune avant celle-ci (#130, #149, #151, #152 fusionnées).
 
-**Actions du jour** (PR #PR_NUMBER, branche `feat/seo-2026-10-30`) : deux créations de la série « IA par métier », aucune révision (aucune règle de 4.1 ne l'impose un vendredi).
+**Actions du jour** (PR #153, branche `feat/seo-2026-10-30`) : deux créations de la série « IA par métier », aucune révision (aucune règle de 4.1 ne l'impose un vendredi).
 
 1. Création de `/blog/ia-rh-pme` (entrée `idee-ia-metier-rh`, prise en 2026-W44).
    - Pourquoi : série « IA par métier » prioritaire (décision de Simon du 26 octobre 2026) ; satellite de `/cas-usages/rh`, qui garde « automatisation rh » ; `/blog/chatbot-rh-pme` garde « chatbot rh » et `/blog/formation-ia-rh-pme` « formation ia rh ». URL alignée sur la requête au lieu de `/blog/ia-par-metier-rh`.
