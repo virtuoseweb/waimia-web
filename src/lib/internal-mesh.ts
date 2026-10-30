@@ -312,6 +312,8 @@ const PAGES: Record<string, PageDef> = {
   '/blog/claude-max-pme': { label_fr: 'Claude Max en PME : pour qui, et quand Pro suffit', label_en: 'Claude Max for an SMB: who it is for', kind: 'article', topics: ['claude', 'conseil'] },
   '/blog/ia-e-commercant': { label_fr: 'IA pour e-commerçant : Claude, ChatGPT ou Mistral', label_en: 'AI for online shops: Claude, ChatGPT or Mistral', kind: 'article', topics: ['conseil', 'commercial'] },
   '/blog/ia-organisme-de-formation': { label_fr: 'IA pour organisme de formation : Claude, ChatGPT ou Mistral', label_en: 'AI for training providers: Claude, ChatGPT or Mistral', kind: 'article', topics: ['conseil', 'conformite'] },
+  '/blog/ia-rh-pme': { label_fr: 'IA pour les RH en PME : Claude, ChatGPT ou Mistral', label_en: 'AI for SMB HR teams: Claude, ChatGPT or Mistral', kind: 'article', topics: ['conseil', 'conformite'] },
+  '/blog/ia-sav-pme': { label_fr: 'IA pour le SAV en PME : Claude, ChatGPT ou Mistral', label_en: 'AI for SMB support teams: Claude, ChatGPT or Mistral', kind: 'article', topics: ['conseil', 'agents'] },
   '/blog/claude-pro-vs-team': { label_fr: 'Claude Pro ou Team : lequel choisir', label_en: 'Claude Pro vs Team: which to choose', kind: 'article', topics: ['claude', 'conseil'] },
   '/blog/facture-electronique-reception-pme': { label_fr: 'Facture électronique : ce que change la réception en PME', label_en: 'E-invoicing: what receiving changes for a small business', kind: 'article', topics: ['automatisation', 'conformite'] },
   '/blog/ai-act-pme-utilisatrice-ia': { label_fr: "AI Act : les obligations d'une PME qui utilise ChatGPT ou Claude", label_en: 'AI Act: what a small business using ChatGPT or Claude must do', kind: 'article', topics: ['conformite', 'conseil'] },
