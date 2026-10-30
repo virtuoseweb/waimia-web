@@ -11823,6 +11823,24 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/ia-rh-pme",
+    "title": "IA pour les RH en PME : Claude, ChatGPT ou Mistral, quel outil pour quelle tâche",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/ia-rh-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/ia-sav-pme",
+    "title": "IA pour le SAV en PME : Claude, ChatGPT ou Mistral pour l'équipe support",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/ia-sav-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/installer-hermes-agent-premier-agent",
     "title": "Installer Hermes Agent : un premier agent, pas à pas et prudemment",
     "group": "blog",
@@ -13040,6 +13058,8 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/ia-pme-guide-complet-2026",
       "/blog/ia-pme-industrielle",
       "/blog/ia-reponse-appel-offres-pme",
+      "/blog/ia-rh-pme",
+      "/blog/ia-sav-pme",
       "/blog/installer-hermes-agent-premier-agent",
       "/blog/landing-page-qui-convertit-methode-2026",
       "/blog/logiciel-seo-ia-pme",
