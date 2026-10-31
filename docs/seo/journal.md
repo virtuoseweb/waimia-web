@@ -43,7 +43,7 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 **PR encore ouverte** : #153 (session du 30 octobre, RH et SAV). Ses entrées ne sont pas refaites ici. Les deux PR touchent le calendrier, le journal, `keywords.json`, `internal-mesh.ts` et `site-pages.generated.ts` : celle fusionnée en second demandera une mise à jour depuis `main`.
 
-**Actions du jour** (PR #PR_NUM, branche `feat/seo-2026-10-31`) : deux créations de la série « IA par métier », aucune révision (aucune règle de 4.1 ne l'impose un samedi). Créations de la semaine 2026-W44 avec celles-ci : 11 (1 le lundi, 2 par jour du mardi au samedi), sous le plafond de 14.
+**Actions du jour** (PR #154, branche `feat/seo-2026-10-31`) : deux créations de la série « IA par métier », aucune révision (aucune règle de 4.1 ne l'impose un samedi). Créations de la semaine 2026-W44 avec celles-ci : 11 (1 le lundi, 2 par jour du mardi au samedi), sous le plafond de 14.
 
 1. Création de `/blog/ia-equipe-commerciale` (entrée `idee-ia-metier-commercial`, prise en 2026-W44).
    - Pourquoi : série « IA par métier » prioritaire (décision de Simon du 26 octobre 2026) ; satellite de `/cas-usages/generer-plus-de-leads`. Les requêtes « prospection ia » et « prospection automatisée » restent à `/services/prospection-automatisee`, vers laquelle la page renvoie. Category `commercial`, au maillage (thèmes commercial, conseil).
