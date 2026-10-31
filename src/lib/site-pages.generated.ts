@@ -11742,6 +11742,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/ia-agence-communication",
+    "title": "IA pour agence de communication : Claude, ChatGPT ou Mistral, quel outil pour quelle tâche",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/ia-agence-communication.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/ia-artisan-batiment",
     "title": "IA pour artisan du bâtiment : Claude, ChatGPT ou Mistral pour devis, compte-rendu et relance",
     "group": "blog",
@@ -11783,6 +11792,15 @@ export const SITE_PAGES: SitePage[] = [
     "group": "blog",
     "collection": "blog",
     "file": "blog/ia-e-commercant.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/ia-equipe-commerciale",
+    "title": "IA pour une équipe commerciale de PME : Claude, ChatGPT ou Mistral, quel outil pour quelle tâche",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/ia-equipe-commerciale.json",
     "editable": false,
     "sections": []
   },
@@ -13031,11 +13049,13 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/forward-deployed-engineer",
       "/blog/geo-local-recommande-par-les-ia",
       "/blog/hermes-agent-v0-22-modeles-locaux-connecteurs",
+      "/blog/ia-agence-communication",
       "/blog/ia-artisan-batiment",
       "/blog/ia-auto-hebergee-open-webui-pme",
       "/blog/ia-cabinet-comptable",
       "/blog/ia-cabinet-conseil",
       "/blog/ia-e-commercant",
+      "/blog/ia-equipe-commerciale",
       "/blog/ia-organisme-de-formation",
       "/blog/ia-pme-guide-complet-2026",
       "/blog/ia-pme-industrielle",

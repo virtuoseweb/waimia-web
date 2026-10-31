@@ -2147,10 +2147,10 @@
         "Pages AI Act de la Commission européenne, version du jour"
       ],
       "semainePrevue": "2026-W44",
-      "statut": "planifié",
+      "statut": "abandonné",
       "pr": null,
       "mesureAttendue": "Guide exact au jour de la relecture (dates relues sur la source primaire, citées avec la date).",
-      "resultat": null,
+      "resultat": "Livrée par w44-revision-ai-act-norme-en-18286 (même page, PR #139), comme l'indique l'entrée de journal 2026-W44 du 26 octobre 2026. Abandon posé le 31 octobre 2026 pour ne pas laisser l'entrée en retard.",
       "origine": "docs/seo/data/latest.json du 18 octobre 2026, feeds.entries : Journal du Net et ActuIA du 15 octobre 2026 sur le calendrier de l'AI Act."
     },
     {
@@ -2932,19 +2932,26 @@
     {
       "id": "idee-ia-metier-commercial",
       "type": "article",
-      "titreProvisoire": "Claude, ChatGPT ou Mistral pour une équipe commerciale de PME : quel outil pour quelle tâche",
+      "titreProvisoire": "IA pour une équipe commerciale de PME : Claude, ChatGPT ou Mistral, quel outil pour quelle tâche",
       "requeteCible": "ia équipe commerciale",
       "intention": "Choisir l'outil d'IA le plus adapté à chaque tâche du métier, avec des consignes à copier.",
       "urlCible": "/blog/ia-equipe-commerciale",
-      "angle": "Une tâche réelle du métier, trois outils comparés sur les fonctions que chaque éditeur documente (à lire le jour de la rédaction), consigne prête à coller, limites et données à ne pas saisir. Aucun résultat de test inventé. Satellite de /cas-usages/generer-plus-de-leads.",
+      "angle": "Recherche du 31 octobre 2026 : les pages lues (Claap, Ethanolle, HubSpot France, Comparateur-IA, The Intelligence Academy) traitent surtout ChatGPT, sans RGPD ni CNIL, avec des gains chiffrés sans source. La page apporte : tableau des trois offres d'équipe (prix, entraînement, connecteur HubSpot, droits d'écriture, hébergement), cinq consignes, règles CNIL de la prospection B2B par e-mail, fiche CNIL du 16 octobre 2026 sur les e-mails devinés, données à retirer, « ne le faites pas si ». Satellite de /cas-usages/generer-plus-de-leads.",
       "sourcesALire": [
-        "Pages officielles Anthropic, OpenAI et Mistral AI (fonctions, offres, données), lues le jour de la rédaction",
-        "Premiers résultats de la requête, lus en entier"
+        "https://www.claap.io/fr/blog/chatgpt-pour-commerciaux (lu le 31 octobre 2026)",
+        "https://ethanolle.com/ia-pour-les-commerciaux/ (lu le 31 octobre 2026)",
+        "https://blog.hubspot.fr/sales/prompts-ia-commerciaux (lu le 31 octobre 2026)",
+        "https://comparateur-ia.com/?p=9745 (lu le 31 octobre 2026)",
+        "https://www.the-intelligence-academy.com/blog/ia-prospection-commerciale (lu le 31 octobre 2026)",
+        "https://hubspot.com/ai-tools/claude-connector (lu le 31 octobre 2026)",
+        "https://knowledge.hubspot.com/integrations/connect-your-hubspot-account-to-chatgpt (lu le 31 octobre 2026)",
+        "https://cnil.fr/fr/node/169044 (lu le 31 octobre 2026)",
+        "https://cnil.fr/fr/les-regles-dor-de-la-prospection-par-courrier-electronique-0 (lu le 31 octobre 2026)"
       ],
-      "semainePrevue": null,
-      "statut": "idée",
-      "pr": null,
-      "mesureAttendue": "Page indexée à la collecte suivante ; impressions sur la requête cible ; clics vers /cas-usages/generer-plus-de-leads et l'audit gratuit.",
+      "semainePrevue": "2026-W44",
+      "statut": "publié",
+      "pr": 154,
+      "mesureAttendue": "/blog/ia-equipe-commerciale, requête « ia équipe commerciale » : page hors sitemap au 31 octobre 2026. Attendu : page indexée et premières impressions sur la requête. À juger à partir de 2026-W47.",
       "resultat": null,
       "origine": "Stock de la série « IA par métier » (décision de Simon du 26 octobre 2026), reconstitué le 28 octobre 2026 : /cas-usages/generer-plus-de-leads est publiée et pas encore couverte par la série. Volume non mesuré : à demander à Simon dans Semrush."
     },
@@ -2991,22 +2998,64 @@
     {
       "id": "idee-ia-metier-agence",
       "type": "article",
-      "titreProvisoire": "Claude, ChatGPT ou Mistral pour les agences : quel outil pour quelle tâche",
+      "titreProvisoire": "IA pour agence de communication : Claude, ChatGPT ou Mistral, quel outil pour quelle tâche",
       "requeteCible": "ia pour agences de communication",
       "intention": "Choisir l'outil d'IA le plus adapté à chaque tâche du métier, avec des consignes à copier.",
-      "urlCible": "/blog/ia-par-metier-agence",
-      "angle": "Une tâche réelle du métier, trois outils comparés sur les fonctions que chaque éditeur documente (à lire le jour de la rédaction), consigne prête à coller, limites et données à ne pas saisir. Aucun résultat de test inventé : seuls les essais réellement faits sont décrits. Satellite de la page /secteurs/agence.",
+      "urlCible": "/blog/ia-agence-communication",
+      "angle": "Recherche du 31 octobre 2026 : les pages lues (Metricool, Swello, The Intelligence Academy) décrivent les usages sans prix daté, sans droit d'auteur ni AI Act ; seules une tribune d'avocat et l'article sur le manifeste de l'AACC parlent de droit d'auteur. La page apporte : tableau des trois offres (prix, entraînement, génération d'images, connecteur Canva, propriété des contenus selon l'éditeur, hébergement), cinq consignes, article 50 paragraphe 4 (deep fakes, applicable depuis le 2 août 2026), distinction propriété contractuelle et droit d'auteur, données à retirer. URL alignée sur la requête au lieu de /blog/ia-par-metier-agence. Satellite de /secteurs/agence.",
       "sourcesALire": [
-        "src/content/secteurs/agence.json",
-        "Pages officielles Anthropic, OpenAI et Mistral AI (fonctions, offres, données), lues le jour de la rédaction",
-        "Billets de la concurrence FR et US récents sur l'usage par métier, lus en entier"
+        "https://metricool.com/fr/claude-vs-chatgpt/ (lu le 31 octobre 2026)",
+        "https://swello.com/fr/blog/ia-et-communication/ (lu le 31 octobre 2026)",
+        "https://www.the-intelligence-academy.com/blog/7-meilleurs-outils-ia-communication-entreprise (lu le 31 octobre 2026)",
+        "https://fr.themedialeader.com/?p=219503 (lu le 31 octobre 2026)",
+        "https://consultation.avocat.fr/blog/etienne-bucher/article-2976425-agences-creatives-et-annonceurs-l-illusion-des-droits-d-auteur-sur-les-creations-generees-par-ia.html (lu le 31 octobre 2026)",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-50 (lu le 31 octobre 2026)",
+        "https://www.canva.dev/docs/connect/canva-mcp-server-setup (lu le 31 octobre 2026)"
       ],
+      "semainePrevue": "2026-W44",
+      "statut": "publié",
+      "pr": 154,
+      "mesureAttendue": "/blog/ia-agence-communication, requête « ia pour agences de communication » : page hors sitemap au 31 octobre 2026. Attendu : page indexée et premières impressions sur la requête. À juger à partir de 2026-W47.",
+      "resultat": null,
+      "origine": "Stock de la série « IA par métier » (décision de Simon du 26 octobre 2026), reconstitué le 27 octobre 2026 : /secteurs/agence est publiée (présente dans dist/client au build du 27 octobre 2026) et pas encore couverte par la série. Volume non mesuré : à demander à Simon dans Semrush."
+    },
+    {
+      "type": "article",
+      "intention": "Comprendre une règle récente et décider quoi faire lundi.",
       "semainePrevue": null,
       "statut": "idée",
       "pr": null,
-      "mesureAttendue": "Page indexée à la collecte suivante ; impressions sur la requête cible ; clics vers /secteurs/agence et l'audit gratuit.",
       "resultat": null,
-      "origine": "Stock de la série « IA par métier » (décision de Simon du 26 octobre 2026), reconstitué le 27 octobre 2026 : /secteurs/agence est publiée (présente dans dist/client au build du 27 octobre 2026) et pas encore couverte par la série. Volume non mesuré : à demander à Simon dans Semrush."
+      "id": "idee-cnil-emails-devines-prospection",
+      "titreProvisoire": "E-mails professionnels devinés : ce que la CNIL autorise en prospection B2B",
+      "requeteCible": "reconstitution adresse email professionnelle cnil",
+      "urlCible": "/blog/cnil-email-professionnel-devine-prospection",
+      "angle": "Procédure pas à pas pour une PME qui prospecte : origine des contacts, test des attentes raisonnables, opposition, durée de conservation, ce que l'outil d'enrichissement doit prouver. À confirmer par la recherche en ligne le jour de la rédaction.",
+      "sourcesALire": [
+        "https://cnil.fr/fr/node/169044",
+        "https://cnil.fr/fr/node/169047"
+      ],
+      "mesureAttendue": "Page indexée à la collecte suivante ; impressions sur la requête cible ; clics vers /services/prospection-automatisee.",
+      "origine": "Fiche CNIL du 16 octobre 2026 (cnil.fr/fr/node/169044, lue le 31 octobre 2026) reprise par au moins quatre sources différentes relevées le 31 octobre 2026 (Siècle Digital 20 octobre 2026, Leptidigital, Leto, LexisVeille) ; aucune page du site ne la traite ; liée à /services/prospection-automatisee."
+    },
+    {
+      "type": "article",
+      "intention": "Comprendre une règle récente et décider quoi faire lundi.",
+      "semainePrevue": null,
+      "statut": "idée",
+      "pr": null,
+      "resultat": null,
+      "id": "idee-ai-act-article-50-images-publicitaires",
+      "titreProvisoire": "Images publicitaires générées par IA : quand faut-il les signaler (AI Act, article 50)",
+      "requeteCible": "ai act article 50 deepfake publicité",
+      "urlCible": "/blog/ai-act-article-50-images-publicitaires",
+      "angle": "Lire les lignes directrices de la Commission du 20 juillet 2026 en entier (non lues le 31 octobre 2026) et en tirer une grille par type de visuel, avec exemples, pour une PME qui fait sa communication ou travaille avec une agence.",
+      "sourcesALire": [
+        "https://digital-strategy.ec.europa.eu/en/news/commission-publishes-guidelines-transparency-obligations-providers-and-deployers-certain-ai-systems",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-50"
+      ],
+      "mesureAttendue": "Page indexée à la collecte suivante ; impressions sur la requête cible ; clics vers /blog/ai-act-pme-utilisatrice-ia.",
+      "origine": "Recherche du 31 octobre 2026 pour /blog/ia-agence-communication : aucune des pages lues sur l'IA en agence ne parle de l'article 50 ; plusieurs analyses de cabinets en résultats (Davis+Gilbert, Stibbe, Stephenson Harwood, William Fry) sur les lignes directrices du 20 juillet 2026."
     }
   ]
 }
