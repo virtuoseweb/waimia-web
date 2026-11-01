@@ -41,7 +41,7 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 **Pourquoi** : question de Simon du 1er novembre 2026 sur des titres et une structure identiques. Mesure du même jour sur les 12 billets de la série (`main` plus #153, #154, #155) : 10 titres sur 12 finissaient par « Claude, ChatGPT ou Mistral, quel outil pour quelle tâche » ; 6 intertitres communs aux 12 ; 13 % de suites de 5 mots partagées en moyenne entre deux billets (29 % au plus). Règle de Google lue le 1er novembre 2026 : <https://developers.google.com/search/docs/essentials/spam-policies> (mise à jour le 28 août 2026), « scaled content abuse » = pages produites en série pour manipuler le classement sans aider les lecteurs.
 
-**Ce qui a changé** (branche `feat/seo-serie-ia-par-metier`, qui intègre #153, #154 et #155 par des commits de fusion) :
+**Ce qui a changé** (PR #156, branche `feat/seo-serie-ia-par-metier`, qui intègre #153, #154 et #155 par des commits de fusion) :
 1. Titres, H1, `seoTitle` et titres anglais des 12 billets réécrits à partir des tâches du métier ; libellés du maillage alignés. `updatedAt` au 1er novembre 2026 (révision de fond).
 2. Création de `/blog/claude-chatgpt-mistral-offres-equipe` (entrée `w44-article-offres-equipe-claude-chatgpt-mistral`), page pivot : prix, entraînement, hébergement, agent de code, contrôle des connecteurs, SSO des trois offres d'équipe, sources lues le 1er novembre 2026, liste des 12 billets. Création n° 14 de la semaine 2026-W44, au plafond.
 3. Lignes communes (prix, entraînement, hébergement) retirées des tableaux de 9 billets, remplacées par un renvoi à la page pivot ; tableaux de 3 billets inchangés (moins de deux lignes propres au métier).
