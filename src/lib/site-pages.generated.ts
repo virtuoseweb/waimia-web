@@ -11796,11 +11796,29 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/ia-editeur-saas",
+    "title": "IA pour un éditeur SaaS : Claude, ChatGPT ou Mistral, quel outil pour quelle tâche",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/ia-editeur-saas.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/ia-equipe-commerciale",
     "title": "IA pour une équipe commerciale de PME : Claude, ChatGPT ou Mistral, quel outil pour quelle tâche",
     "group": "blog",
     "collection": "blog",
     "file": "blog/ia-equipe-commerciale.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/ia-esn",
+    "title": "IA pour une ESN : Claude, ChatGPT ou Mistral, quel outil pour quelle tâche",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/ia-esn.json",
     "editable": false,
     "sections": []
   },
@@ -13073,7 +13091,9 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/ia-cabinet-comptable",
       "/blog/ia-cabinet-conseil",
       "/blog/ia-e-commercant",
+      "/blog/ia-editeur-saas",
       "/blog/ia-equipe-commerciale",
+      "/blog/ia-esn",
       "/blog/ia-organisme-de-formation",
       "/blog/ia-pme-guide-complet-2026",
       "/blog/ia-pme-industrielle",
