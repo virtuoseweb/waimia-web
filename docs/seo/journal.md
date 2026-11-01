@@ -37,6 +37,26 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### 2026-11-01 (suite, à la demande de Simon : série « IA par métier » différenciée et intégration des PR #153, #154 et #155)
+
+**Pourquoi** : question de Simon du 1er novembre 2026 sur des titres et une structure identiques. Mesure du même jour sur les 12 billets de la série (`main` plus #153, #154, #155) : 10 titres sur 12 finissaient par « Claude, ChatGPT ou Mistral, quel outil pour quelle tâche » ; 6 intertitres communs aux 12 ; 13 % de suites de 5 mots partagées en moyenne entre deux billets (29 % au plus). Règle de Google lue le 1er novembre 2026 : <https://developers.google.com/search/docs/essentials/spam-policies> (mise à jour le 28 août 2026), « scaled content abuse » = pages produites en série pour manipuler le classement sans aider les lecteurs.
+
+**Ce qui a changé** (branche `feat/seo-serie-ia-par-metier`, qui intègre #153, #154 et #155 par des commits de fusion) :
+1. Titres, H1, `seoTitle` et titres anglais des 12 billets réécrits à partir des tâches du métier ; libellés du maillage alignés. `updatedAt` au 1er novembre 2026 (révision de fond).
+2. Création de `/blog/claude-chatgpt-mistral-offres-equipe` (entrée `w44-article-offres-equipe-claude-chatgpt-mistral`), page pivot : prix, entraînement, hébergement, agent de code, contrôle des connecteurs, SSO des trois offres d'équipe, sources lues le 1er novembre 2026, liste des 12 billets. Création n° 14 de la semaine 2026-W44, au plafond.
+3. Lignes communes (prix, entraînement, hébergement) retirées des tableaux de 9 billets, remplacées par un renvoi à la page pivot ; tableaux de 3 billets inchangés (moins de deux lignes propres au métier).
+4. Intertitres propres au métier (« Quand ne pas équiper votre ESN », « Ce qui ne sort pas de votre cabinet », « Par où commencer dans votre boutique »).
+5. Phrases devenues fausses par rapport à la page pivot corrigées dans 6 billets (« les pages lues ne disent pas où Anthropic et OpenAI hébergent », « Hébergement : non précisé »), avec les sources d'Anthropic et d'OpenAI ajoutées.
+6. Runbook : garde-fous de la série (titre par tâches, tableau commun dans la page pivot, intertitres propres, cadence conditionnée à un angle propre et à l'indexation des billets déjà publiés).
+
+**Après correction** : 3 intertitres communs aux 12 (« En bref », le tableau, « Ce que cet article ne sait pas ») ; recouvrement du texte quasi inchangé (12,9 % en moyenne, 27,6 % au plus), il était déjà faible ; l'essentiel de la différence porte sur les titres, coupés dans les résultats de recherche.
+
+**Relecture sceptique de la page pivot** (sous-agent) : « non, en grande partie » (les prix sont sur les sites des éditeurs). Corrigé : l'En bref ne met plus Mistral au même niveau pour l'entraînement ; origine des données de ChatGPT Business dite avant le tableau ; fréquence de facturation de Mistral signalée ; budget pour 40 personnes ; section « Ce qu'il faut faire lundi » ; affirmations comparatives limitées aux pages lues. Gardé : la page sert de référence unique à la série, son apport est la comparaison des trois offres d'équipe avec l'hébergement et l'agent de code, datée et sourcée.
+
+**Vérifications** : build de production « Complete! » ; `check-head`, `check-jsonld`, `check-sitemap` (255 URL), `check-redirects`, `check-public-surface --prod`, `check-seo`, `check-static-quality`, `check-internal-mesh` (249/249), `check-silos`, `check-no-emdash`, `check-internal-links`, `check-content-refs`, `check-touchpoints`, `check-section-modules`, `check-news`, `check-config`, `check-calendar` : OK ; `astro check` : 8 erreurs (référence de `main`). Rendu sur le build servi à 1440 et 390 px (page pivot, comptable, RH, ESN, `/ressources`) : 200, H1 visible, 0 erreur console, 0 débordement ; balayage des 255 URL aux deux tailles : 0 débordement.
+
+**À mesurer** : indexation des 12 billets et de la page pivot (`indexation` de `latest.json`) à partir de 2026-W47 ; si plus de la moitié restent non indexés, suspendre la série (runbook).
+
 ### 2026-11-01 (session de production du dimanche, collecte du 27 octobre 2026)
 
 **Données** : collecte du 27 octobre 2026 à 08:30 UTC, **pas fraîche** (`freshness.mjs` à 06:43 UTC : « PAS FRAÎCHE · collecte vieille de 118.2 h (limite : 48 h) ») ; la collecte hebdomadaire est attendue ce dimanche à 19:17 UTC. Relance locale en simulation (`run.mjs --dry-run --only=feeds,competitors`, hors `docs/seo/data/`) : flux et concurrents `ok`, 125 entrées de flux, 0 flux en erreur, aucune URL nouvelle chez les 5 concurrents. KPI et bilan non refaits (session du dimanche). **Brave** : 12 URL dans la file du 1er novembre 2026 (`brave-queue.mjs --from-sitemap --days=8`), à soumettre par la tâche Brave ; rien soumis par cette session.

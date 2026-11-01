@@ -11544,6 +11544,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/claude-chatgpt-mistral-offres-equipe",
+    "title": "Claude Team, ChatGPT Business ou Mistral Vibe Team : le comparatif des offres d'équipe",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/claude-chatgpt-mistral-offres-equipe.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/claude-code-skills",
     "title": "Skill Claude Code : créer et partager une compétence en équipe",
     "group": "blog",
@@ -11743,7 +11752,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/blog/ia-agence-communication",
-    "title": "IA pour agence de communication : Claude, ChatGPT ou Mistral, quel outil pour quelle tâche",
+    "title": "IA pour agences de communication : briefs, déclinaisons, visuels et article 50 de l'AI Act",
     "group": "blog",
     "collection": "blog",
     "file": "blog/ia-agence-communication.json",
@@ -11752,7 +11761,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/blog/ia-artisan-batiment",
-    "title": "IA pour artisan du bâtiment : Claude, ChatGPT ou Mistral pour devis, compte-rendu et relance",
+    "title": "IA pour artisan du bâtiment : devis, comptes rendus de chantier et relances",
     "group": "blog",
     "collection": "blog",
     "file": "blog/ia-artisan-batiment.json",
@@ -11770,7 +11779,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/blog/ia-cabinet-comptable",
-    "title": "IA pour cabinet comptable : Claude, ChatGPT ou Mistral, quel outil pour quelle tâche",
+    "title": "IA pour cabinet comptable : revue de balance, pièces manquantes et rendez-vous bilan",
     "group": "blog",
     "collection": "blog",
     "file": "blog/ia-cabinet-comptable.json",
@@ -11779,7 +11788,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/blog/ia-cabinet-conseil",
-    "title": "IA pour cabinet de conseil : Claude, ChatGPT ou Mistral, quel outil pour quelle tâche",
+    "title": "IA pour cabinet de conseil : propositions, synthèses d'entretiens et slides",
     "group": "blog",
     "collection": "blog",
     "file": "blog/ia-cabinet-conseil.json",
@@ -11788,7 +11797,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/blog/ia-e-commercant",
-    "title": "IA pour e-commerçant : Claude, ChatGPT ou Mistral, quel outil pour quelle tâche",
+    "title": "IA pour e-commerçant : fiches produits, service client, avis et visuels",
     "group": "blog",
     "collection": "blog",
     "file": "blog/ia-e-commercant.json",
@@ -11797,7 +11806,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/blog/ia-editeur-saas",
-    "title": "IA pour un éditeur SaaS : Claude, ChatGPT ou Mistral, quel outil pour quelle tâche",
+    "title": "IA pour un éditeur SaaS : agents de code, support, notes de version et sécurité",
     "group": "blog",
     "collection": "blog",
     "file": "blog/ia-editeur-saas.json",
@@ -11806,7 +11815,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/blog/ia-equipe-commerciale",
-    "title": "IA pour une équipe commerciale de PME : Claude, ChatGPT ou Mistral, quel outil pour quelle tâche",
+    "title": "IA pour équipe commerciale : préparer les rendez-vous, prospecter dans les règles, tenir le CRM",
     "group": "blog",
     "collection": "blog",
     "file": "blog/ia-equipe-commerciale.json",
@@ -11815,7 +11824,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/blog/ia-esn",
-    "title": "IA pour une ESN : Claude, ChatGPT ou Mistral, quel outil pour quelle tâche",
+    "title": "IA pour ESN : appels d'offres, dossiers de compétences, staffing et code client",
     "group": "blog",
     "collection": "blog",
     "file": "blog/ia-esn.json",
@@ -11824,7 +11833,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/blog/ia-organisme-de-formation",
-    "title": "IA pour organisme de formation : Claude, ChatGPT ou Mistral, quel outil pour quelle tâche",
+    "title": "IA pour organisme de formation : programmes, slides, quiz et la limite de l'AI Act",
     "group": "blog",
     "collection": "blog",
     "file": "blog/ia-organisme-de-formation.json",
@@ -11842,7 +11851,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/blog/ia-pme-industrielle",
-    "title": "IA pour PME industrielle : Claude, ChatGPT ou Mistral, quel outil pour quelle tâche",
+    "title": "IA pour PME industrielle : non-conformités, modes opératoires et maintenance",
     "group": "blog",
     "collection": "blog",
     "file": "blog/ia-pme-industrielle.json",
@@ -11860,7 +11869,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/blog/ia-rh-pme",
-    "title": "IA pour les RH en PME : Claude, ChatGPT ou Mistral, quel outil pour quelle tâche",
+    "title": "IA pour les RH en PME : offres d'emploi, entretiens annuels et intégration",
     "group": "blog",
     "collection": "blog",
     "file": "blog/ia-rh-pme.json",
@@ -11869,7 +11878,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/blog/ia-sav-pme",
-    "title": "IA pour le SAV en PME : Claude, ChatGPT ou Mistral pour l'équipe support",
+    "title": "IA pour le SAV en PME : réponses types, clients mécontents et base de connaissance",
     "group": "blog",
     "collection": "blog",
     "file": "blog/ia-sav-pme.json",
@@ -13063,6 +13072,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/chatgpt-dots-europe-disponibilite",
       "/blog/chatgpt-dots-regles-personnalisees-approbations",
       "/blog/chatgpt-shopping-e-commerce",
+      "/blog/claude-chatgpt-mistral-offres-equipe",
       "/blog/claude-code-skills",
       "/blog/claude-cowork-windows",
       "/blog/claude-duet-france-acces-rgpd",
