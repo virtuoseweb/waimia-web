@@ -43,7 +43,7 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 **PR encore ouvertes** : #153 (30 octobre, RH et SAV) et #154 (31 octobre, équipe commerciale et agence). Leurs entrées ne sont pas refaites ici. Les trois PR touchent le calendrier, le journal, `keywords.json`, `internal-mesh.ts` et `site-pages.generated.ts` : chacune fusionnée après la première demandera une mise à jour depuis `main`.
 
-**Actions du jour** (PR #PRNUM, branche `feat/seo-2026-11-01`) : deux créations de la série « IA par métier », aucune révision (aucune règle de 4.1 ne l'impose un dimanche). Créations de la semaine 2026-W44 avec celles-ci : 13, sous le plafond de 14.
+**Actions du jour** (PR #155, branche `feat/seo-2026-11-01`) : deux créations de la série « IA par métier », aucune révision (aucune règle de 4.1 ne l'impose un dimanche). Créations de la semaine 2026-W44 avec celles-ci : 13, sous le plafond de 14.
 
 1. Création de `/blog/ia-editeur-saas` (entrée `idee-ia-metier-startup-logiciel`, prise en 2026-W44, URL et requête changées).
    - Pourquoi : série « IA par métier » prioritaire (décision de Simon du 26 octobre 2026) ; satellite de `/secteurs/startup-logiciel`. Category `claude`, au maillage (thèmes claude, applications).
