@@ -37,6 +37,17 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### 2026-11-02 (suite, à la demande de Simon : décisions du bilan)
+
+**Décisions de Simon du 2 novembre 2026** et ce qui a été fait dans la PR #157 :
+1. Cible de « automatisation des processus métiers » sur `/blog/automatisation-processus-metiers-pme` : gardée.
+2. Règle 4.1-3, maillage : `src/lib/internal-mesh.ts` relève le seuil de liens entrants de 3 à 6 (`REINFORCED_PAGES`, `REINFORCED_INBOUND`) pour les 13 pages du registre « détectée » ou « inconnue » depuis 4 collectes ; liens pris d'abord sur des pages du même thème, puis hors de cette liste. Mesuré sur le registre après build : 6 liens entrants pour chacune (8 pour `isabelle-diaz-naturopathe`). `/sources-methodologie` et `/cgv` ne sont pas au registre : non traitées. À retirer de la liste dès qu'une collecte les montre indexées. À mesurer : indexation de ces 13 pages à partir de 2026-W47.
+3. Fusions conditionnelles planifiées en 2026-W47 : `w47-fusion-agent-ia-vs-automatisation` (vers `/ressources/guides/rpa-ou-agent-ia`) et `w47-fusion-seo-geo-etre-cite` (cible à choisir ce jour-là), seulement si la collecte de 2026-W47 les montre encore « explorées, non indexées ».
+4. `competitors.json` : tensoria.fr ajouté (sitemap `https://tensoria.fr/sitemap.xml`, déclaré dans son robots.txt ; lu sans erreur par `run.mjs --dry-run --only=competitors`, 812 URL).
+5. Non faits par cette session, faute d'accès au navigateur de Simon (aucun navigateur ni ordinateur relié à cette session cloud) : « Demander l'indexation » de `/services/automatisations` dans Search Console, relevé des liens entrants, volumes Semrush de « reconstitution adresse email professionnelle cnil » et « connecter claude à shopify ».
+
+**Vérifications** : build de production « Complete! » ; `check-internal-mesh` (251/251 au seuil), `check-internal-links`, `check-head`, `check-jsonld`, `check-sitemap`, `check-seo`, `check-static-quality`, `check-silos`, `check-content-refs`, `check-config` (6 concurrents), `check-calendar` : OK ; `astro check` : 8 erreurs (référence de `main`).
+
 ### 2026-W45 (session complète du lundi 2 novembre 2026, collecte du 1er novembre 2026, premier bilan mensuel)
 
 **Données** : collecte du 1er novembre 2026 à 22:50 UTC (`generatedAt`), fraîche oui (`freshness.mjs` à 06:43 UTC : « FRAÎCHE · collecte complète de 7.9 h ») · Search Console configuré oui · 9 étapes `ok`, aucune en erreur. Performance : 28 jours du 2 au 29 octobre 2026. Flux : 125 entrées, 0 flux en erreur. Concurrents : 16 URL nouvelles (kayro.ai 8, claudin.tech 8). Indexing API : 16 notifications envoyées, 0 erreur (des notifications, pas des pages indexées). **PR encore ouvertes** : aucune (#149 à #156 fusionnées).
