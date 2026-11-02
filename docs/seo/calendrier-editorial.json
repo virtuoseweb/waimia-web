@@ -227,10 +227,10 @@
         "https://www.hubspot.com/pricing/sales/starter (source primaire, lue le 12 octobre 2026)"
       ],
       "semainePrevue": "2026-W42",
-      "statut": "publié",
+      "statut": "mesuré",
       "pr": 84,
       "mesureAttendue": "Requête « crm sur mesure » : aucune impression sur 28 jours à la collecte du 11 octobre 2026 (aucune page du site classée). Attendu : page indexée, premières impressions et onTarget vrai. À juger à partir de 2026-W45.",
-      "resultat": null,
+      "resultat": "gagné : requête « crm sur mesure » 0 impression (collecte du 11 octobre 2026) puis 54 impressions en position 45,7, onTarget vrai ; page 59 impressions, 0 clic, indexée. collecte du 1er novembre 2026 (données du 2 au 29 octobre 2026). Position encore hors des 20 premiers.",
       "origine": "docs/seo/keywords.json : « crm sur mesure » et « automatisation crm » visent la même page, /services/crm-scoring-routing, pour deux intentions différentes."
     },
     {
@@ -1020,10 +1020,10 @@
         "https://www.koino.fr/articles/employes-ia-pme-comparatif-limova-delos-alternatives-2026 (lu le 12 octobre 2026)"
       ],
       "semainePrevue": "2026-W42",
-      "statut": "publié",
+      "statut": "mesuré",
       "pr": 84,
       "mesureAttendue": "Page absente de performance.byPage sur 28 jours à la collecte du 11 octobre 2026, indexée à cette collecte (première inspection). Attendu : premières impressions sur « combien coûte un agent ia ». À juger à partir de 2026-W45.",
-      "resultat": null,
+      "resultat": "stable : page absente de byPage (collecte du 11 octobre 2026) puis 1 impression en position 1,0 ; 0 impression sur « combien coûte un agent ia » ; page indexée. collecte du 1er novembre 2026 (données du 2 au 29 octobre 2026).",
       "origine": "docs/seo/data/latest.json, collecte du 11 octobre 2026, feeds.entries : « Anthropic lance Claude Haiku 5.5 » (Le Monde Informatique, 9 octobre 2026), « Anthropic lance Claude Haiku 5.5, son modèle le plus rapide » (Blog du Modérateur, 8 octobre 2026), « App update: Claude Haiku 5.5 is available in Make » (Make Community, 10 octobre 2026). Annonce lue le 12 octobre 2026."
     },
     {
@@ -1045,10 +1045,10 @@
         "https://redresscompliance.com/anthropic-claude-pricing-2026.html (lu le 12 octobre 2026)"
       ],
       "semainePrevue": "2026-W42",
-      "statut": "publié",
+      "statut": "mesuré",
       "pr": 84,
       "mesureAttendue": "Page : 6 impressions, position 22,5 sur 28 jours à la collecte du 11 octobre 2026, indexée depuis cette collecte. Attendu : plus de 30 impressions sur 28 jours. À juger à partir de 2026-W45.",
-      "resultat": null,
+      "resultat": "stable : 6 impressions en position 22,5 (collecte du 11 octobre 2026) puis 14 impressions en position 14,0, sous l'objectif de 30 ; 0 clic ; indexée. collecte du 1er novembre 2026 (données du 2 au 29 octobre 2026).",
       "origine": "Même origine que w42-revision-cout-agent-ia-haiku-5-5 (trois entrées de flux de sources différentes sur Claude Haiku 5.5, collecte du 11 octobre 2026), et « ChatGPT passe à GPT-6 » (Blog du Modérateur, 8 octobre 2026). Page de prix d'OpenAI relue le 12 octobre 2026 : GPT-6 Luna inchangé à 0,10 $ / 0,50 $."
     },
     {
@@ -1778,16 +1778,27 @@
       "requeteCible": "automatisation des processus métiers",
       "intention": "Savoir quels processus automatiser en premier dans une PME, avec quels outils et quelles limites.",
       "urlCible": "/blog/automatisation-processus-metiers-pme",
-      "angle": "Hypothèse à vérifier par la SERP : résultats d'éditeurs (BPM, RPA) et définitions générales. Apporté : la méthode de choix (fréquence, règles stables, coût de l'erreur), trois exemples types annoncés comme illustratifs, outils (n8n, Make, agents IA) et ce qui reste humain. Renvoie à /services/automatisations (à ne pas cannibaliser) et à l'outil grille des tâches à automatiser.",
+      "angle": "Recherche du 2 novembre 2026 : la SERP est faite de pages d'éditeurs (JDN signé Zoho 2024, Asana, Atlassian, Automation Anywhere, FlowHunt, Latenode, PDF Red Hat 2016) aux chiffres souvent non sourcés ; Kayro (16 août 2026) et Lynakor (8 octobre 2026) ont déjà une grille de choix, Claudin (29 octobre 2026) l'angle RPA, workflow ou agent. Apporté : grille de France Num sourcée et complétée (données accessibles, propriétaire du flux), chiffres Insee 2120 par taille, exemple illustratif à trois processus, outil par étape, ce qui reste humain avec deux cas réels (Amploi, Brow.X), coût de maintenance daté (n8n 3.0 du 27 octobre 2026). Cible de « automatisation des processus métiers » déplacée de /services/automatisations vers le billet (intention informationnelle), la page service garde « automatisation des processus ».",
       "sourcesALire": [
-        "Premiers résultats de « automatisation des processus métiers »",
-        "src/content/services/automatisations.json",
-        "src/content/blog (billets n8n existants, à lier)"
+        "https://www.journaldunet.com/solutions/dsi/1531245-maitriser-l-automatisation-des-processus-metiers/ (lu le 2 novembre 2026)",
+        "https://asana.com/fr/resources/business-process-automation (lu le 2 novembre 2026)",
+        "https://www.atlassian.com/fr/work-management/project-management/business-process-automation (lu le 2 novembre 2026)",
+        "https://www.automationanywhere.com/fr/rpa/business-automation (lu le 2 novembre 2026)",
+        "https://www.flowhunt.io/fr/blog/business-process-automation/ (lu le 2 novembre 2026)",
+        "https://latenode.com/fr/blog/automatisation-des-processus-metier-ce-que-cest-reellement-et-par-ou-commencer (lu le 2 novembre 2026)",
+        "https://www.kayro.ai/blog-kayro/automatisation-des-processus (concurrent, lu le 2 novembre 2026)",
+        "https://www.kayro.ai/blog-kayro/workflow (concurrent, lu le 2 novembre 2026)",
+        "https://www.claudin.tech/blog/automatisation-processus-ia (concurrent, lu le 2 novembre 2026)",
+        "https://www.ibm.com/think/topics/business-process-automation (source primaire, lue le 2 novembre 2026)",
+        "https://www.gartner.com/en/information-technology/glossary/bpa-business-process-automation (source primaire, lue le 2 novembre 2026)",
+        "https://www.insee.fr/fr/statistiques/9025878 (source primaire, lue le 2 novembre 2026)",
+        "https://www.francenum.gouv.fr/guides-et-conseils/pilotage-de-lentreprise/numerisation-des-processus/lautomatisation-une-solution (source primaire, lue le 2 novembre 2026)",
+        "https://blog.n8n.io/introducing-n8n-v3 (source primaire, lue le 2 novembre 2026)"
       ],
       "semainePrevue": "2026-W45",
-      "statut": "planifié",
-      "pr": null,
-      "mesureAttendue": "Page indexée et premières impressions sur la requête cible, à lire deux collectes après la mise en production, sans cannibaliser /services/automatisations. Demandes : alertes de lead dont la page d'arrivée est cette page (provenance mesurée, décision 2 du 14 octobre 2026).",
+      "statut": "publié",
+      "pr": 157,
+      "mesureAttendue": "/blog/automatisation-processus-metiers-pme, requête « automatisation des processus métiers » : aucune page du site classée sur la requête à la collecte du 1er novembre 2026 (page hors sitemap). Attendu : page indexée et premières impressions sur la requête, sans classement de /services/automatisations sur la même requête (sinon règle 4.1-5). À juger à partir de 2026-W48.",
       "resultat": null,
       "origine": "docs/seo/keywords.json : « automatisation des processus métiers », volume 590, KD 36 (Semrush France, octobre 2026), cible actuelle /services/automatisations (page commerciale). Planifié le 16 octobre 2026 pour garder 6 semaines d'avance après la publication anticipée de trois articles ; orientation de Simon : plus d'articles que de guides."
     },
@@ -2773,14 +2784,24 @@
       "requeteCible": "connecter claude à shopify",
       "intention": "Savoir comment relier Claude à sa boutique Shopify et ce que l'outil peut ou ne peut pas modifier.",
       "urlCible": "/blog/connecter-claude-wordpress-shopify-mcp",
-      "angle": "Hypothèse à vérifier par la SERP du jour : reprendre la page d'aide de Shopify sur le connecteur pour Claude (installation depuis Claude, accès en écriture à approuver, confirmations, ce qu'il ne fait pas : thème publié, remboursements, annulations), en tête de la section Shopify, avec une FAQ formulée sur les requêtes réelles.",
+      "angle": "Recherche du 2 novembre 2026 : hypothèse confirmée. Les guides lus (eesel, Copyfy, ClickRoad, Boostecom, GemPages, Ringly, Shopify Community, Learn AI Repeat) parlent souvent de « trois confirmations » (Shopify : deux étapes), présentent le connecteur comme lecture seule ou Storefront MCP comme voie active ; aucun ne relève que la page de Shopify se contredit sur la publication du thème. Ajouté : section pas à pas (installation, coût, tableau fait et ne fait pas, thème, limiter, une boutique, déconnexion, données, voie développeur), libellé de menu Claude mis à jour, consigne de Shopify contre les jetons d'API maison, quatre FAQ, cinq sources.",
       "sourcesALire": [
-        "https://help.shopify.com/en/manual/ai-powered-tools/connecting-ai-tools/shopify-connector-for-claude (lu le 29 octobre 2026, à relire le jour de la révision)",
-        "https://help.shopify.com/en/manual/apps/connecting-ai-tools (lu le 29 octobre 2026)"
+        "https://help.shopify.com/en/manual/ai-powered-tools/connecting-ai-tools/shopify-connector-for-claude (source primaire, lue le 2 novembre 2026)",
+        "https://help.shopify.com/en/manual/ai-powered-tools/connecting-ai-tools/authorizing-access (source primaire, lue le 2 novembre 2026)",
+        "https://help.shopify.com/en/manual/ai-powered-tools/connecting-ai-tools/considerations (source primaire, lue le 2 novembre 2026)",
+        "https://help.shopify.com/en/manual/ai-powered-tools/shopify-cli-connector (source primaire, lue le 2 novembre 2026)",
+        "https://shopify.dev/docs/apps/build/ai-toolkit (source primaire, lue le 2 novembre 2026)",
+        "https://shopify.dev/docs/apps/build/storefront-mcp (source primaire, lue le 2 novembre 2026)",
+        "https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities (source primaire, lue le 2 novembre 2026)",
+        "https://www.eesel.ai/fr/blog/claude-pour-shopify (lu le 2 novembre 2026)",
+        "https://www.copyfy.io/blog/connecter-claude-shopify (lu le 2 novembre 2026)",
+        "https://clickroad.fr/claude-shopify/ (lu le 2 novembre 2026)",
+        "https://www.ringly.io/blog/claude-shopify (lu le 2 novembre 2026)",
+        "https://gempages.net/blogs/shopify/connect-shopify-to-claude (lu le 2 novembre 2026)"
       ],
       "semainePrevue": "2026-W45",
-      "statut": "planifié",
-      "pr": null,
+      "statut": "publié",
+      "pr": 157,
       "mesureAttendue": "/blog/connecter-claude-wordpress-shopify-mcp, requêtes « claude connect shopify », « comment connecter claude a shopify », « connecter shopify a claude » : positions 7, 10 et 9 sur 28 jours à la collecte du 27 octobre 2026, 1 à 2 impressions chacune. Attendu : impressions en hausse et position sous 8. À juger à partir de 2026-W48.",
       "resultat": null,
       "origine": "docs/seo/data/2026-W44/gsc-performance.json (collecte du 27 octobre 2026), byQuery : « claude connect shopify » (position 7), « comment connecter claude a shopify » (10), « connecter shopify a claude » (9). Page d'aide Shopify sur le connecteur pour Claude lue le 29 octobre 2026 pendant la recherche de /blog/ia-e-commercant."
@@ -3087,20 +3108,30 @@
     {
       "type": "article",
       "intention": "Comprendre une règle récente et décider quoi faire lundi.",
-      "semainePrevue": null,
-      "statut": "idée",
-      "pr": null,
+      "semainePrevue": "2026-W45",
+      "statut": "publié",
+      "pr": 157,
       "resultat": null,
       "id": "idee-cnil-emails-devines-prospection",
       "titreProvisoire": "E-mails professionnels devinés : ce que la CNIL autorise en prospection B2B",
       "requeteCible": "reconstitution adresse email professionnelle cnil",
       "urlCible": "/blog/cnil-email-professionnel-devine-prospection",
-      "angle": "Procédure pas à pas pour une PME qui prospecte : origine des contacts, test des attentes raisonnables, opposition, durée de conservation, ce que l'outil d'enrichissement doit prouver. À confirmer par la recherche en ligne le jour de la rédaction.",
+      "angle": "Recherche du 2 novembre 2026 : sept pages traitent la fiche du 16 octobre 2026 (Siècle Digital, Leptidigital, Leto, Selectra, LexisVeille payant, Tensoria, Overloop antérieur) ; Tensoria (studio IA pour PME) est le concurrent direct, aucun autre concurrent suivi n'a de page. Manques communs : renvoi aux recommandations « réutilisateurs » de 2024 (information sous un mois, sources nommées, conditions d'utilisation du site source), page CNIL de 2009 encore en ligne, modèle de mention du premier e-mail, questions à poser à l'outil d'enrichissement. Raccourcis relevés : « délai après un premier échange », « conditions cumulatives », lien avec l'IA, outil « fully compliant ». Choisie comme seconde création du jour : idées restantes de la série « IA par métier » sans page d'ancrage (secteurs dépubliés).",
       "sourcesALire": [
-        "https://cnil.fr/fr/node/169044",
-        "https://cnil.fr/fr/node/169047"
+        "https://cnil.fr/fr/node/169044 (source primaire, lue le 2 novembre 2026)",
+        "https://cnil.fr/fr/node/169047 (source primaire, lue le 2 novembre 2026)",
+        "https://www.cnil.fr/fr/la-prospection-commerciale-par-courrier-electronique-sms-mms-et-automate-dappel (source primaire, lue le 2 novembre 2026)",
+        "https://www.cnil.fr/fr/recommandations-reutilisateurs-donnees-internet (source primaire, lue le 2 novembre 2026)",
+        "https://cnil.fr/fr/les-regles-dor-de-la-prospection-par-courrier-electronique-0 (source primaire, lue le 2 novembre 2026)",
+        "https://siecledigital.fr/2026/10/20/peut-on-deviner-ladresse-e-mail-professionnelle-dun-prospect-pour-le-contacter-la-cnil-clarifie-les-regles/ (lu le 2 novembre 2026)",
+        "https://www.leptidigital.fr/growth-hacking/appels-a-froid-e-mails-pro-devines-cnil-encadre-deux-pratiques-courantes-prospection-commerciale-92263/ (lu le 2 novembre 2026)",
+        "https://www.leto.legal/news/cnil-reconstitution-adresses-electroniques-professionnelles-interet-legitime-2026 (lu le 2 novembre 2026)",
+        "https://selectra.info/telecom/actualites/marche/cnil-adresse-mail-pro-devinee-prospection (lu le 2 novembre 2026)",
+        "https://tensoria.fr/blog/cnil-reconstitution-email-professionnel-prospection-b2b (concurrent, lu le 2 novembre 2026)",
+        "https://overloop.com/fr/blog/b2b-cold-email-france-cnil-rgpd (lu le 2 novembre 2026)",
+        "https://www.dropcontact.com/help/discover-dropcontact (lu le 2 novembre 2026)"
       ],
-      "mesureAttendue": "Page indexée à la collecte suivante ; impressions sur la requête cible ; clics vers /services/prospection-automatisee.",
+      "mesureAttendue": "/blog/cnil-email-professionnel-devine-prospection, requête « reconstitution adresse email professionnelle cnil » : aucune page du site classée à la collecte du 1er novembre 2026 (page hors sitemap). Attendu : page indexée et premières impressions sur la requête ou ses variantes. À juger à partir de 2026-W48.",
       "origine": "Fiche CNIL du 16 octobre 2026 (cnil.fr/fr/node/169044, lue le 31 octobre 2026) reprise par au moins quatre sources différentes relevées le 31 octobre 2026 (Siècle Digital 20 octobre 2026, Leptidigital, Leto, LexisVeille) ; aucune page du site ne la traite ; liée à /services/prospection-automatisee."
     },
     {
@@ -3201,6 +3232,100 @@
       "mesureAttendue": "Page indexée deux collectes après la mise en production ; les douze billets de la série indexés (indexation de latest.json) à partir de 2026-W47.",
       "resultat": null,
       "origine": "Question de Simon du 1er novembre 2026 sur les titres et la structure identiques de la série ; mesure du même jour : 10 titres sur 12 finissent par la même formule, 6 intertitres communs aux 12 billets, 13 % de suites de 5 mots partagées en moyenne (29 % au plus)."
+    },
+    {
+      "id": "w45-revision-offres-equipe-credits-api",
+      "type": "révision",
+      "titreProvisoire": "Claude Team, ChatGPT Business ou Mistral Vibe Team : ajouter le siège Premium et les crédits API de ChatGPT Business",
+      "requeteCible": "claude team vs chatgpt business",
+      "intention": "Comparer les offres d'équipe des trois assistants avant d'en choisir une.",
+      "urlCible": "/blog/claude-chatgpt-mistral-offres-equipe",
+      "angle": "Règle 4.1-4 (contenu incomplet, pas faux) : l'aide d'OpenAI lue le 2 novembre 2026 confirme le siège Business Premium (100 $ en annuel, 125 $ en mensuel) et des crédits API inclus (20 $ par siège Standard, 100 $ par siège Premium, plafond de 500 $ par mois) ; la page pivot ne donne que le siège Standard. Les mentions « palier Pro à confirmer » de quatre pages sur les agents toujours actifs sont aussi dépassées.",
+      "sourcesALire": [
+        "https://help.openai.com/en/articles/20001626-api-credits-benefit-for-eligible-chatgpt-subscriptions (source primaire, « Updated: 3 days ago », lue le 2 novembre 2026)",
+        "https://support.claude.com/en/articles/17154008-monthly-api-credits-for-max-and-team-plans"
+      ],
+      "semainePrevue": "2026-W46",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Page pivot exacte sur les prix et crédits des trois offres à la date de relecture ; indexation de la page (« Google ne reconnaît pas cette URL » à la collecte du 1er novembre 2026). À juger à partir de 2026-W48.",
+      "resultat": null,
+      "origine": "Flux du 29 octobre 2026 (Simon Willison, « API credits benefit for eligible ChatGPT subscriptions ») et du 30 octobre 2026 (ActuIA, prix de ChatGPT Pro), sources primaires d'OpenAI lues le 2 novembre 2026."
+    },
+    {
+      "id": "idee-signal-commun-entrainement-ia",
+      "type": "article",
+      "titreProvisoire": "Refuser l'entraînement des IA sans disparaître des réponses : le signal commun de Google, OpenAI et Bing",
+      "requeteCible": "bloquer entraînement ia robots.txt",
+      "intention": "Décider s'il faut refuser l'entraînement des modèles sur son site, et avec quelle conséquence sur la visibilité dans les moteurs IA.",
+      "urlCible": "/blog/signal-commun-entrainement-ia-robots-txt",
+      "angle": "Signal annoncé le 30 octobre 2026 (syntaxe User-Agent __usage_ai-training, Disallow: /) qui ne bloque que l'entraînement, pas l'indexation ; chez Google il vaut refus de Google-Extended, qui coupe aussi le grounding des Gemini Apps ; rien d'actif avant début 2027 (Google), février 2027 (Bing). Angle : quoi faire aujourd'hui pour une PME qui veut être citée par les IA, sans recopier les annonces. À vérifier par la SERP le jour de la rédaction.",
+      "sourcesALire": [
+        "Google Search Central Blog, Supporting a shared AI training control for websites (30 octobre 2026)",
+        "OpenAI, Making it easier for websites to express AI training preferences (30 octobre 2026)",
+        "Annonce de Bing sur les contrôles d'entraînement (30 octobre 2026)"
+      ],
+      "semainePrevue": "2026-W47",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Page indexée et premières impressions sur la requête cible ; pages apparaitre-dans-chatgpt-pme et visibilite-google-ia mises en cohérence quand le signal sera actif.",
+      "resultat": null,
+      "origine": "Cinq entrées de flux de sources différentes du 30 au 1er novembre 2026 : Google Search Central Blog, OpenAI News, Search Engine Roundtable (deux), Search Engine Journal ; annonces primaires de Google et d'OpenAI lues le 2 novembre 2026. Lié à l'offre de référencement IA (/services/referencement-ia)."
+    },
+    {
+      "id": "w46-revision-base-de-connaissance-ia",
+      "type": "révision",
+      "titreProvisoire": "Base de connaissance IA : faire porter la requête par la page service",
+      "requeteCible": "base de connaissance ia",
+      "intention": "Comprendre ce qu'est une base de connaissance interrogée par IA et ce que coûte sa mise en place.",
+      "urlCible": "/services/base-de-connaissance-ia",
+      "angle": "Règle 4.1-1 : « base de connaissance ia » (14 impressions, position 15,9) et « base de connaissance ia entreprise » (11, position 15,5) classées sur la page service, en position 8 à 20. Angle à décider après lecture de la SERP.",
+      "sourcesALire": [
+        "Premiers résultats de « base de connaissance ia » et « base de connaissance ia entreprise »"
+      ],
+      "semainePrevue": "2026-W46",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "/services/base-de-connaissance-ia, requête « base de connaissance ia » : position 15,9 et 14 impressions sur 28 jours à la collecte du 1er novembre 2026. Attendu : position sous 10. À juger à partir de 2026-W49.",
+      "resultat": null,
+      "origine": "docs/seo/data/latest.json, collecte du 1er novembre 2026, performance.strikingDistance."
+    },
+    {
+      "type": "fusion",
+      "semainePrevue": "2026-W47",
+      "statut": "planifié",
+      "pr": null,
+      "resultat": null,
+      "id": "w47-fusion-agent-ia-vs-automatisation",
+      "titreProvisoire": "Fusionner « agent IA ou automatisation classique » dans le guide RPA, API ou agent IA, si la page reste non indexée",
+      "requeteCible": "agent ia vs automatisation",
+      "intention": "Choisir entre un agent IA et une automatisation à règles.",
+      "urlCible": "/blog/agent-ia-vs-automatisation-classique-2026",
+      "angle": "Règle 4.1-3 et 4.3 : « Explorée, actuellement non indexée » depuis le 4 octobre 2026 (4 collectes au 1er novembre), malgré la révision de la PR #85. Décision de Simon du 2 novembre 2026 : si la collecte de 2026-W47 la montre encore non indexée, reprendre ses passages utiles dans /ressources/guides/rpa-ou-agent-ia (même sujet) et rediriger en 301 (fichier conservé, src/data/depublished.ts, astro.config.mjs). Si elle est indexée d'ici là, passer l'entrée à « abandonné ».",
+      "sourcesALire": [
+        "docs/seo/data/latest.json > indexation (collecte de 2026-W47)",
+        "src/content/guides/rpa-ou-agent-ia.json"
+      ],
+      "mesureAttendue": "Une seule page porte la requête, indexée ; la redirection passe check-redirects. À juger deux collectes après la fusion.",
+      "origine": "docs/seo/data/latest.json, collecte du 1er novembre 2026 : indexation.notIndexed, coverageState « Explorée, actuellement non indexée », weeksNotIndexed 4."
+    },
+    {
+      "type": "fusion",
+      "semainePrevue": "2026-W47",
+      "statut": "planifié",
+      "pr": null,
+      "resultat": null,
+      "id": "w47-fusion-seo-geo-etre-cite",
+      "titreProvisoire": "Fusionner « SEO et GEO : être cité par les IA génératives » dans une page indexée du silo acquisition, si elle reste non indexée",
+      "requeteCible": "être cité par les ia génératives",
+      "intention": "Savoir comment être cité par ChatGPT, Perplexity ou Google AI.",
+      "urlCible": "/blog/seo-geo-etre-cite-par-les-ia-generatives",
+      "angle": "Règle 4.1-3 et 4.3 : « Explorée, actuellement non indexée » depuis le 4 octobre 2026 (4 collectes au 1er novembre), malgré la révision de la PR #101. Décision de Simon du 2 novembre 2026 : si la collecte de 2026-W47 la montre encore non indexée, fusionner dans la page indexée la plus proche (à choisir ce jour-là entre /blog/apparaitre-dans-chatgpt-pme et /services/referencement-ia, selon leur indexation et leurs requêtes) et rediriger en 301. Si elle est indexée d'ici là, passer l'entrée à « abandonné ».",
+      "sourcesALire": [
+        "docs/seo/data/latest.json > indexation (collecte de 2026-W47)"
+      ],
+      "mesureAttendue": "Une seule page porte la requête, indexée ; la redirection passe check-redirects. À juger deux collectes après la fusion.",
+      "origine": "docs/seo/data/latest.json, collecte du 1er novembre 2026 : indexation.notIndexed, coverageState « Explorée, actuellement non indexée », weeksNotIndexed 4."
     }
   ]
 }
