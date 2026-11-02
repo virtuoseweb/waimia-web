@@ -87,6 +87,7 @@ interface PageDef {
 
 const PAGES: Record<string, PageDef> = {
   // ── Automatisation ──
+  '/blog/automatisation-processus-metiers-pme': { label_fr: 'Automatisation des processus métiers : par où commencer', label_en: 'Business process automation: where to start', kind: 'article', topics: ['automatisation', 'conseil'] },
   '/services/systemes-operationnels-ia': { label_fr: "Agence d'automatisation IA", label_en: 'AI automation agency', kind: 'service', topics: ['automatisation', 'agents'] },
   '/services/automatisations': { label_fr: 'Automatisation des processus', label_en: 'Process automation', kind: 'service', topics: ['automatisation'] },
   '/services/automatisation-n8n': { label_fr: 'Agence n8n', label_en: 'n8n agency', kind: 'service', topics: ['automatisation'] },
@@ -203,6 +204,7 @@ const PAGES: Record<string, PageDef> = {
   '/cas-usages/centraliser-donnees': { label_fr: 'Centraliser données et reporting', label_en: 'Centralise your data', kind: 'cas-usage', topics: ['donnees'] },
 
   // ── Commercial : prospection, CRM, suivi ──
+  '/blog/cnil-email-professionnel-devine-prospection': { label_fr: "E-mail pro deviné : ce que la CNIL autorise", label_en: 'Guessed work emails: what the CNIL allows', kind: 'article', topics: ['commercial', 'conformite'] },
   '/services/systeme-commercial': { label_fr: 'Système commercial', label_en: 'Sales system', kind: 'service', topics: ['commercial'] },
   '/services/prospection-automatisee': { label_fr: 'Prospection automatisée', label_en: 'Automated prospecting', kind: 'service', topics: ['commercial'] },
   '/services/prospection-linkedin': { label_fr: 'Prospection LinkedIn B2B', label_en: 'B2B LinkedIn prospecting', kind: 'service', topics: ['commercial'] },
