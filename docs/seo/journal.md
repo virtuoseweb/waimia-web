@@ -43,7 +43,7 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 **Brave** : 21 URL dans la file du 3 novembre 2026 (`brave-queue.mjs --from-sitemap --days=8` : 14 au lastmod de moins de 8 jours, 21 dans la file de la collecte), à soumettre par la tâche Brave. Rien soumis par cette session.
 
-**Actions du jour** (PR à venir, branche `feat/seo-2026-11-03`) : deux créations, aucune révision (aucune règle de 4.1 ne l'impose aujourd'hui).
+**Actions du jour** (PR #158, branche `feat/seo-2026-11-03`) : deux créations, aucune révision (aucune règle de 4.1 ne l'impose aujourd'hui).
 
 1. Création de `/blog/refonte-site-seo-sans-perdre-trafic` (entrée `w46-article-refonte-site-seo`, avancée de 2026-W46 : les créations planifiées en 2026-W45 sont toutes dans la PR #157).
    - Pourquoi : entrée du calendrier ; « refonte seo » (880, KD 15, Semrush) visait le guide refonte-site-internet sans impression (`keywords.rows`, visible false au 1er novembre 2026). Category `web`, premier thème au maillage.
