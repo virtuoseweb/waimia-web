@@ -251,8 +251,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "comparison-table": {
-    "count": 8,
+    "count": 9,
     "pages": [
+      "/ressources/comparatifs/claude-code-vs-codex-vs-vibe",
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-duet-vs-chatgpt-dots",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
@@ -373,11 +374,12 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "decision-list": {
-    "count": 92,
+    "count": 93,
     "pages": [
       "/demonstrations/avant-apres",
       "/demonstrations/site-web-intelligent",
       "/implantations/montpellier",
+      "/ressources/comparatifs/claude-code-vs-codex-vs-vibe",
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-duet-vs-chatgpt-dots",
       "/ressources/comparatifs/claude-platform-vs-openai-platform",
@@ -614,7 +616,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "direct-answer": {
-    "count": 94,
+    "count": 95,
     "pages": [
       "/cas-usages/finance-comptabilite",
       "/cas-usages/rh",
@@ -633,6 +635,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/implantations/strasbourg",
       "/implantations/toulouse",
       "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
+      "/ressources/comparatifs/claude-code-vs-codex-vs-vibe",
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-duet-vs-chatgpt-dots",
       "/ressources/comparatifs/claude-platform-vs-openai-platform",
@@ -754,7 +757,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "editorial-prose": {
-    "count": 367,
+    "count": 371,
     "pages": [
       "/audit-ia-pme",
       "/cas-usages/centraliser-donnees",
@@ -775,6 +778,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/implantations/strasbourg",
       "/implantations/toulouse",
       "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
+      "/ressources/comparatifs/claude-code-vs-codex-vs-vibe",
       "/ressources/comparatifs/claude-duet-vs-chatgpt-dots",
       "/ressources/comparatifs/claude-platform-vs-openai-platform",
       "/ressources/comparatifs/claude-vs-chatgpt-pme",
@@ -1058,7 +1062,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "faq-accordion": {
-    "count": 158,
+    "count": 159,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -1088,6 +1092,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/lp/systeme-ia-marketing",
       "/lp/visibilite-google-ia",
       "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
+      "/ressources/comparatifs/claude-code-vs-codex-vs-vibe",
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-duet-vs-chatgpt-dots",
       "/ressources/comparatifs/claude-platform-vs-openai-platform",
@@ -1278,7 +1283,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "footer-cta-band": {
-    "count": 157,
+    "count": 158,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -1309,6 +1314,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/lp/systeme-ia-marketing",
       "/lp/visibilite-google-ia",
       "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
+      "/ressources/comparatifs/claude-code-vs-codex-vs-vibe",
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-duet-vs-chatgpt-dots",
       "/ressources/comparatifs/claude-platform-vs-openai-platform",
@@ -1561,7 +1567,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "hero-split-media": {
-    "count": 114,
+    "count": 115,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
@@ -1586,6 +1592,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/implantations/strasbourg",
       "/implantations/toulouse",
       "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
+      "/ressources/comparatifs/claude-code-vs-codex-vs-vibe",
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-duet-vs-chatgpt-dots",
       "/ressources/comparatifs/claude-platform-vs-openai-platform",
@@ -2170,7 +2177,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "related-cards-band": {
-    "count": 110,
+    "count": 111,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
@@ -2195,6 +2202,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/implantations/strasbourg",
       "/implantations/toulouse",
       "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
+      "/ressources/comparatifs/claude-code-vs-codex-vs-vibe",
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-duet-vs-chatgpt-dots",
       "/ressources/comparatifs/claude-platform-vs-openai-platform",

@@ -1878,16 +1878,18 @@
       "requeteCible": "refonte seo",
       "intention": "Refondre son site sans perdre ses positions Google : redirections, contenus, suivi.",
       "urlCible": "/blog/refonte-site-seo-sans-perdre-trafic",
-      "angle": "Satellite du guide /ressources/guides/refonte-site-internet (lien contextuel obligatoire vers le guide dans le corps, sans le cannibaliser). Hypothèse à vérifier par la SERP du jour. Apporté : la liste de contrôle avant, pendant et après la mise en ligne (inventaire des URL, plan de redirections 301, balises, suivi Search Console), les erreurs types annoncées comme illustratives. Renvoie à l'aimant grille-audit-site-internet.",
+      "angle": "SERP lue le 3 novembre 2026 (« refonte site SEO ne pas perdre trafic checklist », « refonte seo migration site redirections 301 étapes », « refonte site internet perte de trafic que faire après ») : listes de contrôle d'agences (highfive.fr, lucasfonseque.fr, jxi.fr, webtrafic.fr, helloseo.fr), chiffres de perte et délais de récupération sans source, rien sur le lastmod, IndexNow ni les moteurs IA, aucune refonte mesurée. Apporté : liste de contrôle avec une vérification par ligne, documentation de Google lue le jour même, la refonte de waimia.com mesurée sur quatre collectes (indexation, clics, impressions, position) avec ce qui n'a pas marché, tableau de lecture des états d'indexation, ordre de diagnostic. Satellite du guide refonte-site-internet et de l'article cahier-des-charges-refonte-site, liés dans le corps.",
       "sourcesALire": [
-        "Documentation Google Search Central sur les migrations de site, version du jour",
-        "Premiers résultats de « refonte seo »",
-        "src/content/guides/refonte-site-internet.json"
+        "https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes (lu le 3 novembre 2026)",
+        "https://developers.google.com/search/docs/crawling-indexing/301-redirects (lu le 3 novembre 2026)",
+        "https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap (lu le 3 novembre 2026)",
+        "https://www.indexnow.org/faq (lu le 3 novembre 2026)",
+        "docs/seo/data/2026-W40 à 2026-W44/summary.json"
       ],
-      "semainePrevue": "2026-W46",
-      "statut": "planifié",
+      "semainePrevue": "2026-W45",
+      "statut": "en cours",
       "pr": null,
-      "mesureAttendue": "Page indexée et premières impressions sur la requête cible, à lire deux collectes après la mise en production ; clics transmis au guide /ressources/guides/refonte-site-internet. Demandes : alertes de lead dont la page d'arrivée est cette page.",
+      "mesureAttendue": "/blog/refonte-site-seo-sans-perdre-trafic, requête « refonte seo » : aucune impression du site sur la requête au 1er novembre 2026 (keywords.rows, visible false). Attendu : page indexée et premières impressions sur « refonte seo » ou ses variantes, sans que le guide refonte-site-internet perde les siennes. À juger à partir de 2026-W48.",
       "resultat": null,
       "origine": "docs/seo/keywords.json : « refonte seo », volume 880 (Semrush France), cible actuelle le guide refonte-site-internet. Satellite planifié le 16 octobre 2026 (règle guides piliers et satellites de Simon)."
     },
@@ -3134,8 +3136,8 @@
         "Premiers résultats de la requête, lus en entier",
         "Pages officielles des assistants sur les connecteurs de documents, lues le jour de la rédaction"
       ],
-      "semainePrevue": null,
-      "statut": "idée",
+      "semainePrevue": "2026-W46",
+      "statut": "planifié",
       "pr": null,
       "mesureAttendue": "Page indexée et premières impressions sur la requête, deux collectes après la mise en production.",
       "resultat": null,
@@ -3168,15 +3170,23 @@
       "requeteCible": "claude code vs codex",
       "intention": "Choisir un agent de code pour une petite équipe de développement.",
       "urlCible": "/ressources/comparatifs/claude-code-vs-codex-vs-vibe",
-      "angle": "Hypothèse à vérifier par la SERP : critères explicites (offre, prix, GitHub, exécution dans le cloud, hébergement, secrets), verdict par cas d'usage, sans résultat de test inventé. Distinct de /ressources/comparatifs/claude-code-vs-cursor, à lier.",
+      "angle": "SERP lue le 3 novembre 2026 (« Claude Code vs Codex vs Mistral Vibe comparatif », « Claude Code ou Codex quel agent de code choisir entreprise », « Mistral Vibe agent de code prix ») : comparatifs en anglais (lobsterone.ai, findskill.ai, getunblocked.com) et en français (datacamp.com/fr, ethanolle.com) centrés sur la qualité de code et les bancs d'essai ; aucun ne traite l'entraînement sur le code, la résidence des données, les secrets ni les droits GitHub, et Mistral Vibe est absent des pages françaises. Apporté : 12 critères d'achat sourcés le jour même, les trois pièges du premier jour (accès GitHub de Claude Code réglé sur GitHub, variable d'environnement lisible chez Codex, entraînement actif par défaut sur Vibe Team), verdict par situation, aucun résultat de test.",
       "sourcesALire": [
-        "Premiers résultats de « claude code vs codex »",
-        "Pages officielles d'Anthropic, d'OpenAI et de Mistral lues le jour de la rédaction"
+        "https://claude.com/pricing",
+        "https://code.claude.com/docs/en/claude-code-on-the-web",
+        "https://code.claude.com/docs/en/cloud-environments",
+        "https://learn.chatgpt.com/docs/pricing",
+        "https://learn.chatgpt.com/docs/environments/cloud-environment",
+        "https://help.openai.com/articles/11487671",
+        "https://openai.com/business-data/",
+        "https://mistral.ai/en/pricing",
+        "https://help.mistral.ai/en/articles/455207-can-i-opt-out-of-my-input-or-output-data-being-used-for-training",
+        "https://github.com/mistralai/mistral-vibe (tous lus le 3 novembre 2026)"
       ],
-      "semainePrevue": null,
-      "statut": "idée",
+      "semainePrevue": "2026-W45",
+      "statut": "en cours",
       "pr": null,
-      "mesureAttendue": "Page indexée et premières impressions sur la requête, deux collectes après la mise en production, sans cannibaliser /ressources/comparatifs/claude-code-vs-cursor.",
+      "mesureAttendue": "/ressources/comparatifs/claude-code-vs-codex-vs-vibe, requête « claude code vs codex » : page hors sitemap au 1er novembre 2026, requête sans impression. Attendu : page indexée et premières impressions, sans que /ressources/comparatifs/claude-code-vs-cursor perde les siennes. À juger à partir de 2026-W48.",
       "resultat": null,
       "origine": "Recherche en ligne du 1er novembre 2026 : la SERP de « ia éditeur de logiciel » renvoie des listes d'outils de code par IA (Clubic, Codeur, Blog du Modérateur), et les trois offres d'équipe lues le même jour incluent chacune un agent de code. Volume non mesuré : à demander à Simon (Semrush)."
     },
@@ -3201,6 +3211,44 @@
       "mesureAttendue": "Page indexée deux collectes après la mise en production ; les douze billets de la série indexés (indexation de latest.json) à partir de 2026-W47.",
       "resultat": null,
       "origine": "Question de Simon du 1er novembre 2026 sur les titres et la structure identiques de la série ; mesure du même jour : 10 titres sur 12 finissent par la même formule, 6 intertitres communs aux 12 billets, 13 % de suites de 5 mots partagées en moyenne (29 % au plus)."
+    },
+    {
+      "type": "article",
+      "pr": null,
+      "resultat": null,
+      "statut": "idée",
+      "semainePrevue": null,
+      "id": "idee-changement-nom-de-domaine-seo",
+      "titreProvisoire": "Changer de nom de domaine sans perdre son référencement : la procédure",
+      "requeteCible": "changement nom de domaine seo",
+      "intention": "Changer de domaine (rachat, nouvelle marque) sans perdre ses positions.",
+      "urlCible": "/blog/changement-nom-de-domaine-seo",
+      "angle": "Hypothèse à vérifier par la SERP : l'outil de changement d'adresse de Search Console, les redirections domaine par domaine, la durée de conservation de l'ancien domaine, les liens entrants à faire mettre à jour. Satellite du guide refonte-site-internet, distinct de /blog/refonte-site-seo-sans-perdre-trafic (refonte à domaine constant).",
+      "sourcesALire": [
+        "Google Search Central, Site moves and migrations, et aide de l'outil de changement d'adresse, version du jour",
+        "Premiers résultats de « changement nom de domaine seo »"
+      ],
+      "mesureAttendue": "Page indexée et premières impressions sur la requête, deux collectes après la mise en production, sans cannibaliser le guide refonte-site-internet.",
+      "origine": "Recherche en ligne du 3 novembre 2026 pour /blog/refonte-site-seo-sans-perdre-trafic : la question revient dans trois pages lues (FAQ de highfive.fr « Peut-on changer de domaine et de CMS en même temps ? », FAQ de helloseo.fr « Le changement de domaine est-il risqué ? », section « Cas particuliers : changement de domaine » de webtrafic.fr). Volume non mesuré : à demander à Simon (Semrush)."
+    },
+    {
+      "type": "article",
+      "pr": null,
+      "resultat": null,
+      "statut": "idée",
+      "semainePrevue": null,
+      "id": "idee-agent-de-code-ci-github-actions",
+      "titreProvisoire": "Un agent de code dans la CI : Claude Code ou Codex sur GitHub Actions, avec une clé d'API",
+      "requeteCible": "claude code github actions",
+      "intention": "Automatiser revues et corrections dans la chaîne d'intégration continue sans exposer de secrets.",
+      "urlCible": "/blog/agent-de-code-ci-github-actions",
+      "angle": "Hypothèse à vérifier par la SERP : procédure pas à pas (clé d'API dédiée, droits minimum du jeton GitHub, protection de branche, plafond de dépense), ce que chaque mode clé d'API perd par rapport à l'abonnement (OpenAI : pas de fonctions cloud), quand ne pas le faire. Aucun résultat de test inventé.",
+      "sourcesALire": [
+        "Documentation Claude Code (GitHub Actions) et Codex (clé d'API) du jour",
+        "Premiers résultats de « claude code github actions »"
+      ],
+      "mesureAttendue": "Page indexée et premières impressions sur la requête, deux collectes après la mise en production.",
+      "origine": "Recherche en ligne du 3 novembre 2026 pour /ressources/comparatifs/claude-code-vs-codex-vs-vibe : la page de tarifs de Codex lue ce jour présente la clé d'API comme « great for automation in shared environments like CI », sans fonctions cloud ; datacamp.com/fr (lu le même jour) cite Claude Code par GitHub Actions sans procédure ni gestion des secrets. Volume non mesuré : à demander à Simon (Semrush)."
     }
   ]
 }

@@ -1522,6 +1522,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
   "comparison-table": [
     {
       "collection": "comparatifs",
+      "file": "comparatifs/claude-code-vs-codex-vs-vibe.json",
+      "slug": "claude-code-vs-codex-vs-vibe",
+      "route": "/ressources/comparatifs/claude-code-vs-codex-vs-vibe",
+      "index": 2,
+      "label": "Claude Code, Codex et Mistral Vibe : 12 critères (3 novembre 2026)",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/claude-code-vs-cursor.json",
       "slug": "claude-code-vs-cursor",
       "route": "/ressources/comparatifs/claude-code-vs-cursor",
@@ -2310,6 +2319,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 3,
       "label": "Trois situations, trois premiers pas",
       "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/claude-code-vs-codex-vs-vibe.json",
+      "slug": "claude-code-vs-codex-vs-vibe",
+      "route": "/ressources/comparatifs/claude-code-vs-codex-vs-vibe",
+      "index": 6,
+      "label": "Le bon agent selon votre situation",
+      "background": "paper"
     },
     {
       "collection": "comparatifs",
@@ -4301,6 +4319,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/claude-code-vs-codex-vs-vibe.json",
+      "slug": "claude-code-vs-codex-vs-vibe",
+      "route": "/ressources/comparatifs/claude-code-vs-codex-vs-vibe",
+      "index": 1,
+      "label": "#1",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/claude-code-vs-cursor.json",
       "slug": "claude-code-vs-cursor",
       "route": "/ressources/comparatifs/claude-code-vs-cursor",
@@ -5489,6 +5516,42 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 10,
       "label": "#10",
       "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/claude-code-vs-codex-vs-vibe.json",
+      "slug": "claude-code-vs-codex-vs-vibe",
+      "route": "/ressources/comparatifs/claude-code-vs-codex-vs-vibe",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/claude-code-vs-codex-vs-vibe.json",
+      "slug": "claude-code-vs-codex-vs-vibe",
+      "route": "/ressources/comparatifs/claude-code-vs-codex-vs-vibe",
+      "index": 4,
+      "label": "#4",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/claude-code-vs-codex-vs-vibe.json",
+      "slug": "claude-code-vs-codex-vs-vibe",
+      "route": "/ressources/comparatifs/claude-code-vs-codex-vs-vibe",
+      "index": 5,
+      "label": "#5",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/claude-code-vs-codex-vs-vibe.json",
+      "slug": "claude-code-vs-codex-vs-vibe",
+      "route": "/ressources/comparatifs/claude-code-vs-codex-vs-vibe",
+      "index": 7,
+      "label": "#7",
+      "background": "paper-2"
     },
     {
       "collection": "comparatifs",
@@ -10817,6 +10880,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/claude-code-vs-codex-vs-vibe.json",
+      "slug": "claude-code-vs-codex-vs-vibe",
+      "route": "/ressources/comparatifs/claude-code-vs-codex-vs-vibe",
+      "index": 9,
+      "label": "Claude Code, Codex ou Mistral Vibe : vos questions",
+      "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/claude-code-vs-cursor.json",
       "slug": "claude-code-vs-cursor",
       "route": "/ressources/comparatifs/claude-code-vs-cursor",
@@ -12607,6 +12679,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "comparatifs",
+      "file": "comparatifs/claude-code-vs-codex-vs-vibe.json",
+      "slug": "claude-code-vs-codex-vs-vibe",
+      "route": "/ressources/comparatifs/claude-code-vs-codex-vs-vibe",
+      "index": 10,
+      "label": "Choisir l'agent, puis régler ce qu'il a le droit de faire.",
+      "background": "ink"
+    },
+    {
+      "collection": "comparatifs",
       "file": "comparatifs/claude-code-vs-cursor.json",
       "slug": "claude-code-vs-cursor",
       "route": "/ressources/comparatifs/claude-code-vs-cursor",
@@ -14368,6 +14449,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
       "index": 0,
       "label": "ChatGPT, Claude, Gemini ou Perplexity : quelle IA choisir en 2026 ?",
+      "background": "paper"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/claude-code-vs-codex-vs-vibe.json",
+      "slug": "claude-code-vs-codex-vs-vibe",
+      "route": "/ressources/comparatifs/claude-code-vs-codex-vs-vibe",
+      "index": 0,
+      "label": "Claude Code, Codex ou Mistral Vibe : quel agent de code pour une PME ?",
       "background": "paper"
     },
     {
@@ -18503,6 +18593,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 12,
       "label": "Pour aller plus loin",
       "background": "paper-2"
+    },
+    {
+      "collection": "comparatifs",
+      "file": "comparatifs/claude-code-vs-codex-vs-vibe.json",
+      "slug": "claude-code-vs-codex-vs-vibe",
+      "route": "/ressources/comparatifs/claude-code-vs-codex-vs-vibe",
+      "index": 8,
+      "label": "Pour aller plus loin",
+      "background": "paper"
     },
     {
       "collection": "comparatifs",
