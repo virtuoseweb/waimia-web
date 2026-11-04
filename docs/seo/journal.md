@@ -43,7 +43,7 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 **Brave** : 21 URL dans la file du 4 novembre 2026 (`brave-queue.mjs --from-sitemap --days=8` : 14 au lastmod de moins de 8 jours, 21 dans la file de la collecte), à soumettre par la tâche Brave. Rien soumis par cette session.
 
-**Actions du jour** (PR #PR_NUM, branche `feat/seo-2026-11-04`) : deux créations, aucune révision (aucune règle de 4.1 ne l'impose aujourd'hui).
+**Actions du jour** (PR #159, branche `feat/seo-2026-11-04`) : deux créations, aucune révision (aucune règle de 4.1 ne l'impose aujourd'hui).
 
 1. Création de `/blog/acces-agent-ia-identifiants-pme` (entrée `w49-article-acces-agent-ia-identifiants`, avancée de 2026-W49 : les créations de W45 et W46 sont dans #157 et #158).
    - Pourquoi : entrée du calendrier (sujet commun à quatre sources de flux d'octobre). Category `agents`, premier thème au maillage (agents, conformite).
