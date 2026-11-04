@@ -11337,6 +11337,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/acces-agent-ia-identifiants-pme",
+    "title": "Donner accès à un agent IA : identifiants, droits et ce qu'il ne doit jamais toucher",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/acces-agent-ia-identifiants-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/agent-ia-24-7-pme",
     "title": "Agent IA 24/7 pour une PME : ce qu'il tient seul",
     "group": "blog",
@@ -11981,6 +11990,15 @@ export const SITE_PAGES: SitePage[] = [
     "group": "blog",
     "collection": "blog",
     "file": "blog/trier-emails-entrant-claude-n8n.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/veille-reglementaire-automatisee-pme",
+    "title": "Veille réglementaire automatisée : flux, tri par IA, décision humaine",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/veille-reglementaire-automatisee-pme.json",
     "editable": false,
     "sections": []
   },
@@ -13049,6 +13067,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
     "label_fr": "Blog",
     "routes": [
       "/blog",
+      "/blog/acces-agent-ia-identifiants-pme",
       "/blog/agent-ia-24-7-pme",
       "/blog/agent-ia-entreprise-exemples",
       "/blog/agent-ia-toujours-actif-missions-pme",
@@ -13121,6 +13140,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/seo-geo-etre-cite-par-les-ia-generatives",
       "/blog/tableau-de-bord-pme-quelles-donnees-suivre",
       "/blog/trier-emails-entrant-claude-n8n",
+      "/blog/veille-reglementaire-automatisee-pme",
       "/blog/webflow-vs-wordpress-vs-site-code-ia-2026",
       "/blog/workflow-ia-exemples-pme"
     ]
