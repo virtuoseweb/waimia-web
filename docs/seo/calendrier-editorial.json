@@ -1838,7 +1838,7 @@
       "requeteCible": "saisie automatique factures",
       "intention": "Savoir si un outil peut saisir seul les factures fournisseurs et quelles erreurs il fait.",
       "urlCible": "/blog/saisie-automatique-factures-pme",
-      "angle": "Satellite du guide /ressources/guides/automatisation-factures-fournisseurs-pme (lien contextuel obligatoire vers le guide dans le corps). Hypothèse à vérifier par la SERP : éditeurs OCR et logiciels comptables. Apporté : la différence entre lecture (OCR), compréhension (modèle de langage) et validation, les erreurs types annoncées comme illustratives (montant, TVA, doublon, fournisseur homonyme), les contrôles à garder. Aucun taux de réussite d'éditeur repris sans source vérifiable.",
+      "angle": "Satellite du guide /ressources/guides/automatisation-factures-fournisseurs-pme (lien contextuel obligatoire vers le guide dans le corps). Hypothèse à vérifier par la SERP : éditeurs OCR et logiciels comptables. Apporté : la différence entre lecture (OCR), compréhension (modèle de langage) et validation, les erreurs types annoncées comme illustratives (montant, TVA, doublon, fournisseur homonyme), les contrôles à garder. Aucun taux de réussite d'éditeur repris sans source vérifiable. Constat du 4 novembre 2026 (recherche du jour, entrée non livrée) : les premiers résultats (Sage, Cegid, Pennylane, Quadient, kolonell.com) et nos propres pages couvrent déjà lecture, contrôles, test sur échantillon et seuils (guide factures fournisseurs, billet réception). Angle à revoir avant écriture, piste : lire les données Factur-X d'une facture reçue en PDF sans passer par l'OCR, avec la spécification officielle relue.",
       "sourcesALire": [
         "Premiers résultats de « saisie automatique factures »",
         "src/content/services/agents-ia/agent-traitement-documents.json",
@@ -2611,16 +2611,25 @@
       "requeteCible": "agent ia accès identifiants entreprise",
       "intention": "Savoir comment ouvrir des comptes et des accès à un agent IA sans exposer l'entreprise.",
       "urlCible": "/blog/acces-agent-ia-identifiants-pme",
-      "angle": "Hypothèse à vérifier par la SERP du jour (la requête peut appeler un autre libellé). Apporté : comptes dédiés, droits minimum, coffre de mots de passe, ce que les éditeurs bloquent déjà (achats, suppressions), journal des actions, et « ne le faites pas si ». Relier aux pages agents IA et à la charte IA.",
+      "angle": "Avancée de 2026-W49 au 4 novembre 2026 (les créations planifiées de 2026-W45 et W46 sont dans les PR #157 et #158, encore ouvertes). Recherche du 4 novembre 2026 : les premiers résultats sont des articles de presse sur 1Password for Agents (Le Monde Informatique, eSecurityPlanet, IT-Connect) et des blogs d'éditeurs d'identité (Okta, IT-Connect sur le PAM) ; aucun ne compare les garde-fous de Claude in Chrome et du navigateur cloud de ChatGPT ni ne donne une procédure pour une PME. Apporté : les trois voies d'accès (connecteur, session, clé d'API) avec leur garde-fou, le tableau des garde-fous des éditeurs relu le jour même, les mesures du bulletin CERT-FR CERTFR-2026-ACT-016, une procédure en huit étapes, cinq zones fermées et « quand ne pas donner d'accès ».",
       "sourcesALire": [
-        "Le Monde Informatique, 23 octobre 2026, 1Password et les identifiants des agents IA (puis la source primaire de 1Password)",
-        "Guide des permissions de Claude in Chrome",
-        "Premiers résultats de la requête cible et de deux variantes"
+        "https://cert.ssi.gouv.fr/actualite/CERTFR-2026-ACT-016/ (lu le 4 novembre 2026)",
+        "https://support.claude.com/en/articles/12902428-using-claude-in-chrome-safely (lu le 4 novembre 2026)",
+        "https://support.claude.com/en/articles/12902446-claude-in-chrome-permissions-guide (lu le 4 novembre 2026)",
+        "https://support.claude.com/en/articles/13065128-claude-in-chrome-admin-controls (lu le 4 novembre 2026)",
+        "https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt (lu le 4 novembre 2026)",
+        "https://help.openai.com/en/articles/11752874 (lu le 4 novembre 2026)",
+        "https://1password.com/blog/1password-for-ai-agents (lu le 4 novembre 2026)",
+        "https://www.lemondeinformatique.fr/actualites/lire-agents-ia-1password-encadre-l-utilisation-des-identifiants-100869.html (lu le 4 novembre 2026)",
+        "https://www.okta.com/fr-fr/blog/ai/ai-agent-not-a-service-account/ (lu le 4 novembre 2026)",
+        "https://www.it-connect.fr/le-pam-face-au-defi-des-identites-non-humaines/ (lu le 4 novembre 2026)",
+        "https://www.esecurityplanet.com/fr/artificial-intelligence/1password-permet-aux-agents-ia-de-se-connecter-sans-voir-vos-mots-de-passe/ (lu le 4 novembre 2026)",
+        "https://www.it-connect.fr/1password-for-claude-connexion-sans-mot-de-passe/ (lu le 4 novembre 2026)"
       ],
-      "semainePrevue": "2026-W49",
-      "statut": "planifié",
-      "pr": null,
-      "mesureAttendue": "Page indexée et premières impressions sur la requête cible, deux collectes après la mise en production.",
+      "semainePrevue": "2026-W45",
+      "statut": "publié",
+      "pr": 159,
+      "mesureAttendue": "/blog/acces-agent-ia-identifiants-pme, requête « agent ia accès identifiants entreprise » : page hors sitemap au 1er novembre 2026. Attendu : page indexée et premières impressions sur la requête ou ses variantes (« agent ia mot de passe », « agent ia droits d'accès »), deux collectes après la mise en production. À juger à partir de 2026-W48.",
       "resultat": null,
       "origine": "docs/seo/data/latest.json du 25 octobre 2026, feeds.entries, sujet commun à quatre sources : Le Monde Informatique (23 octobre, 1Password et identifiants des agents IA), Journal du Net (21 octobre, « Jusqu'où peut-on déléguer notre pouvoir aux agents IA ? » ; 22 octobre, « Laisser une IA toucher à sa comptabilité : où placer la limite »), Blog du Modérateur (20 octobre, « Agents IA en entreprise : jusqu'où leur déléguer »)."
     },
@@ -2631,17 +2640,24 @@
       "requeteCible": "veille réglementaire automatisée",
       "intention": "Mettre en place une veille réglementaire qui collecte et trie seule, sans laisser l'IA décider de l'impact.",
       "urlCible": "/blog/veille-reglementaire-automatisee-pme",
-      "angle": "Hypothèse à vérifier par la SERP du jour. Concurrent lu : claudin.tech (22 octobre 2026) propose un kit Claude Cowork (registre de sources, consigne de tâche planifiée, fiche d'impact) sans exemple rempli ni mode de défaillance. Apporté : retour d'expérience de la chaîne que Waimia fait tourner pour son propre site (flux RSS de feeds.json, collecte hebdomadaire, tri, journal), ce qui casse (flux en 403, doublons, sources sans flux), une fiche d'impact remplie en exemple illustratif, et ce que l'IA ne doit pas décider.",
+      "angle": "Avancée de 2026-W50 au 4 novembre 2026. Recherche du 4 novembre 2026 : les premiers résultats (Tensoria, Swim, donneespersonnelles.fr, ClaudIn, Ecomundo) donnent des sources et des registres, aucun ne décrit les pannes d'une chaîne en service ni une fiche remplie sur un texte réel. Apporté : la chaîne en quatre étapes, les sources officielles branchables sans scraping (CNIL, EUR-Lex, API Légifrance) relues le jour même, six pannes relevées dans le dépôt sur la veille de Waimia (403 de la Commission le 25 octobre, faux positif « numérique », 5 entrées réglementaires sur 129, sources sans flux, créneau manqué du 5 octobre, entrées sans date), une fiche d'impact remplie sur le communiqué CNIL du 29 octobre 2026.",
       "sourcesALire": [
-        "https://www.claudin.tech/blog/veille-reglementaire-ia-modele (lu le 26 octobre 2026)",
-        "docs/seo/feeds.json et docs/seo/ROUTINE.md (chaîne de veille de Waimia)",
-        "Pages d'aide d'Anthropic sur les tâches planifiées de Cowork, version du jour",
-        "Premiers résultats de la requête cible et de deux variantes, y compris en anglais (« automated regulatory monitoring »)"
+        "https://tensoria.fr/blog/veille-reglementaire-assistant-ia (lu le 4 novembre 2026)",
+        "https://donneespersonnelles.fr/veille-reglementaire-rgpd (lu le 4 novembre 2026)",
+        "https://ecomundo.eu/logiciels/veille-reglementaire (lu le 4 novembre 2026)",
+        "https://www.swim.legal/blog/comment-faire-veille-juridique (lu le 4 novembre 2026)",
+        "https://www.claudin.tech/blog/veille-reglementaire-ia-modele (lu le 4 novembre 2026)",
+        "https://eur-lex.europa.eu/content/help/my-eurlex/my-rss-feeds.html?locale=fr (lu le 4 novembre 2026)",
+        "https://www.data.gouv.fr/dataservices/legifrance/discussions (lu le 4 novembre 2026)",
+        "https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork (lu le 4 novembre 2026)",
+        "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations (lu le 4 novembre 2026)",
+        "https://www.cnil.fr/fr/sanction-cookies-app-fnac (lu le 4 novembre 2026)",
+        "docs/seo/feeds.json, scripts/seo-routine/feeds.mjs, docs/seo/data/2026-W43/summary.json (chaîne de veille de Waimia)"
       ],
-      "semainePrevue": "2026-W50",
-      "statut": "planifié",
-      "pr": null,
-      "mesureAttendue": "Page indexée et premières impressions sur la requête cible, deux collectes après la mise en production.",
+      "semainePrevue": "2026-W45",
+      "statut": "publié",
+      "pr": 159,
+      "mesureAttendue": "/blog/veille-reglementaire-automatisee-pme, requête « veille réglementaire automatisée » : page hors sitemap au 1er novembre 2026. Attendu : page indexée et premières impressions sur la requête ou ses variantes, deux collectes après la mise en production. À juger à partir de 2026-W48.",
       "resultat": null,
       "origine": "Nouvelle URL concurrente claudin.tech/blog/veille-reglementaire-ia-modele (collecte du 25 octobre 2026, competitors.rows), lue le 26 octobre 2026 ; flux du 22 octobre 2026 (Journal du Net, « Laisser une IA toucher à sa comptabilité : où placer la limite ») sur la limite de délégation à l'IA."
     },
@@ -3201,6 +3217,46 @@
       "mesureAttendue": "Page indexée deux collectes après la mise en production ; les douze billets de la série indexés (indexation de latest.json) à partir de 2026-W47.",
       "resultat": null,
       "origine": "Question de Simon du 1er novembre 2026 sur les titres et la structure identiques de la série ; mesure du même jour : 10 titres sur 12 finissent par la même formule, 6 intertitres communs aux 12 billets, 13 % de suites de 5 mots partagées en moyenne (29 % au plus)."
+    },
+    {
+      "id": "idee-cles-api-automatisations-secrets",
+      "type": "guide",
+      "titreProvisoire": "Clés d'API dans une automatisation : où les ranger, quels droits, quand les renouveler",
+      "requeteCible": "clé api sécurité automatisation",
+      "intention": "Savoir comment ranger et limiter les clés d'API utilisées par n8n, Make ou un script sans exposer l'entreprise.",
+      "urlCible": "/blog/cles-api-automatisation-securite-pme",
+      "angle": "Hypothèse à vérifier par la SERP. Apporté : une clé par usage, droits minimum, gestionnaire de secrets de l'outil, rotation, révocation, avec les pages officielles de n8n et Make relues le jour même ; ce qui casse quand une clé expire en production.",
+      "sourcesALire": [
+        "Documentation officielle des identifiants (credentials) de n8n et des connexions de Make, version du jour",
+        "https://www.okta.com/fr-fr/blog/ai/ai-agent-not-a-service-account/ (lu le 4 novembre 2026)",
+        "Premiers résultats de la requête cible et de deux variantes"
+      ],
+      "semainePrevue": null,
+      "statut": "idée",
+      "pr": null,
+      "mesureAttendue": "Page indexée et premières impressions sur la requête cible, deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "Question qui revient dans les pages lues le 4 novembre 2026 pour /blog/acces-agent-ia-identifiants-pme : Okta (2 juin 2026, clé d'API partagée dans une variable d'environnement), IT-Connect (30 octobre 2026, secrets codés en dur et rotation) et bulletin CERT-FR CERTFR-2026-ACT-016 (partage des secrets d'authentification). Aucune des pages lues ne traite le cas d'un outil d'automatisation de PME."
+    },
+    {
+      "id": "idee-chatgpt-navigateur-cloud-entreprise",
+      "type": "guide",
+      "titreProvisoire": "Navigateur cloud de ChatGPT en entreprise : réglages, sessions, ce qu'il garde",
+      "requeteCible": "chatgpt navigateur cloud",
+      "intention": "Savoir comment régler et encadrer le navigateur cloud de ChatGPT Work dans une équipe.",
+      "urlCible": "/ressources/guides/chatgpt-navigateur-cloud-entreprise",
+      "angle": "Pendant du guide Claude in Chrome en entreprise. Hypothèse à vérifier par la SERP. Apporté : réglages d'accès aux sites, sessions qui persistent, confirmations, effacement des données, réglages d'espace de travail, d'après l'aide d'OpenAI du jour.",
+      "sourcesALire": [
+        "https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt (lu le 4 novembre 2026)",
+        "Pages d'administration de ChatGPT Business et Enterprise, version du jour",
+        "Premiers résultats de la requête cible"
+      ],
+      "semainePrevue": null,
+      "statut": "idée",
+      "pr": null,
+      "mesureAttendue": "Page indexée et premières impressions sur la requête cible, deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "Aide OpenAI « Using cloud browser in ChatGPT », mise à jour fin octobre 2026, lue le 4 novembre 2026 : sessions qui persistent jusqu'à expiration, trois réglages d'accès aux sites. Le site a un guide Claude in Chrome en entreprise mais rien sur l'équivalent d'OpenAI."
     }
   ]
 }
