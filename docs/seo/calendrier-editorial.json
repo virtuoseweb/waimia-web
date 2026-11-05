@@ -1795,19 +1795,21 @@
       "id": "w48-article-formation-ia-generative",
       "type": "article",
       "titreProvisoire": "Formation IA générative : le programme utile pour une équipe de PME",
-      "requeteCible": "formation ia générative",
+      "requeteCible": "formation ia générative pme",
       "intention": "Savoir ce qu'une formation à l'IA générative doit couvrir pour une équipe, combien de temps et comment la financer.",
       "urlCible": "/blog/formation-ia-generative-pme",
-      "angle": "Même gabarit que les articles formation IA finance, marketing et RH (sans copier) : ce que l'IA générative fait bien au bureau, ce qu'elle ne doit pas décider, le programme à exiger, le financement (guide OPCO). Renvoie à /formations (cible commerciale à ne pas cannibaliser), /formations/claude et /formations/chatgpt.",
+      "angle": "Recherche du 5 novembre 2026 : SERP d'organismes de formation (Pilot'in, IAPRO, Intelligence Academy, IT Systèmes, Yes We Prompt, Auratech, Pedagora, Makia Labs, CCI Nièvre) ; tous citent l'article 4 de l'AI Act, aucun ne dit qu'il a été réécrit par l'omnibus (règlement 2026/1744, en vigueur le 27 juillet 2026) ; IAPRO vend une « formation obligatoire » et un « certificat opposable ». Apporté : tableau de l'article 4 en vigueur avec les réponses de la Commission (pas de certificat, registre interne, pas de format imposé), programme en six points, cinq offres relevées avec prix, six questions avant de signer. Ne cible pas « formation ia générative » (laissée à /formations) mais « formation ia générative pme » et « formation ia obligatoire ».",
       "sourcesALire": [
-        "Premiers résultats de « formation ia générative »",
-        "src/content/blog/formation-ia-rh-pme.json et formation-ia-marketing-pme.json (gabarit)",
-        "src/content/guides/financement-formation-ia-opco.json"
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-4 (lu le 5 novembre 2026)",
+        "https://eur-lex.europa.eu/eli/reg/2026/1744/oj/eng (lu le 5 novembre 2026)",
+        "https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers (lu le 5 novembre 2026)",
+        "https://digital-strategy.ec.europa.eu/en/policies/ai-talent-skills-and-literacy (lu le 5 novembre 2026)",
+        "https://iapro.fr/formations/formation-ia-entreprise, https://www.itsystemes.fr/articles/formation-ia-generative-en-entreprise-le-guide-complet-pour-pme-en-2026, https://auratech-conseil.fr/blog/formation-ia-generative-entreprise-pme/, https://www.pilot-in.com/formations/formation-ia-et-chatgpt-3-jours/, https://makialabs.com/formation-ia-generative-entreprise (lus le 5 novembre 2026)"
       ],
-      "semainePrevue": "2026-W48",
-      "statut": "planifié",
-      "pr": null,
-      "mesureAttendue": "Page indexée et premières impressions sur la requête cible, à lire deux collectes après la mise en production, sans cannibaliser /formations. Demandes : alertes de lead dont la page d'arrivée est cette page (provenance mesurée, décision 2 du 14 octobre 2026).",
+      "semainePrevue": "2026-W45",
+      "statut": "publié",
+      "pr": 160,
+      "mesureAttendue": "/blog/formation-ia-generative-pme, requêtes « formation ia générative pme » et « formation ia obligatoire » : page hors sitemap au 5 novembre 2026. Attendu : page indexée deux collectes après la mise en production ; /formations reste la page classée sur « formation ia générative » (onTarget).",
       "resultat": null,
       "origine": "docs/seo/keywords.json : « formation ia générative », volume 880, KD 45 (Semrush France, octobre 2026), cible actuelle /formations (page commerciale). Planifié le 16 octobre 2026 pour garder 6 semaines d'avance après la publication anticipée de trois articles ; orientation de Simon : plus d'articles que de guides."
     },
@@ -1838,17 +1840,19 @@
       "requeteCible": "saisie automatique factures",
       "intention": "Savoir si un outil peut saisir seul les factures fournisseurs et quelles erreurs il fait.",
       "urlCible": "/blog/saisie-automatique-factures-pme",
-      "angle": "Satellite du guide /ressources/guides/automatisation-factures-fournisseurs-pme (lien contextuel obligatoire vers le guide dans le corps). Hypothèse à vérifier par la SERP : éditeurs OCR et logiciels comptables. Apporté : la différence entre lecture (OCR), compréhension (modèle de langage) et validation, les erreurs types annoncées comme illustratives (montant, TVA, doublon, fournisseur homonyme), les contrôles à garder. Aucun taux de réussite d'éditeur repris sans source vérifiable.",
+      "angle": "Recherche du 5 novembre 2026 : la SERP est faite de pages d'éditeurs (Oriette, Yolah, Rocket IA, KudTax, TriFact365, Provea, iPaidThat) qui annoncent des taux de précision sans méthode (98 %, 95 %) et traitent la saisie comme une seule technique ; Rocket IA ne cite que l'émission (2026 et 2027), pas la réception. Apporté : trois pièces (facture électronique, PDF numérique, scan) et leurs erreurs illustratives, ce que la FAQ de la DGFiP du 1er septembre 2026 change pour la saisie (PDF simple non conforme, quatre nouvelles mentions comme contrôles, refus et statuts sur la plateforme), quatre contrôles sans IA, une consigne d'extraction à copier. Satellite du guide /ressources/guides/automatisation-factures-fournisseurs-pme, sans reprendre son protocole de test (lien).",
       "sourcesALire": [
-        "Premiers résultats de « saisie automatique factures »",
-        "src/content/services/agents-ia/agent-traitement-documents.json",
-        "src/content/guides/automatisation-factures-fournisseurs-pme.json"
+        "https://www.impots.gouv.fr/sites/default/files/media/1_metier/2_professionnel/EV/2_gestion/290_facturation_electronique/faq---fe_je-decouvre-la-facturation-electronique.pdf (lu le 5 novembre 2026)",
+        "https://www.impots.gouv.fr/specifications-externes-b2b (lu le 5 novembre 2026)",
+        "https://platform.claude.com/docs/en/build-with-claude/pdf-support (lu le 5 novembre 2026)",
+        "https://oriette.fr/saisie-automatique, https://yolah.fr/accounting/ocr-factures-logiciel/, https://rocket-ia.fr/blog/ocr-ia-factures-fournisseurs-automatisation/, https://kud.tax/fr/fonctionnalites/comptabilisation-automatique-factures, https://www.trifact365.com/fr/reconnaissance-de-factures/ (lus le 5 novembre 2026)",
+        "Concurrents lus le 5 novembre 2026 : https://www.claudin.tech/blog/traitement-factures-fournisseurs-ia, https://www.kayro.ai/blog-kayro/automatisation-facturation, https://limova.fr/aide/agent-ia-cabinet-comptable"
       ],
-      "semainePrevue": "2026-W47",
-      "statut": "planifié",
-      "pr": null,
+      "semainePrevue": "2026-W45",
+      "statut": "publié",
+      "pr": 160,
       "resultat": null,
-      "mesureAttendue": "Page indexée et premières impressions sur la requête cible, à lire deux collectes après la mise en production ; clics transmis au guide /ressources/guides/automatisation-factures-fournisseurs-pme. Demandes : alertes de lead dont la page d'arrivée est cette page.",
+      "mesureAttendue": "/blog/saisie-automatique-factures-pme, requête « saisie automatique factures » : page hors sitemap au 5 novembre 2026. Attendu : page indexée et premières impressions sur la requête deux collectes après la mise en production ; clics vers le guide factures fournisseurs.",
       "origine": "Règle guides piliers et articles satellites (Simon, 16 octobre 2026) : second satellite du guide factures fournisseurs (le premier est le billet relance des impayés, côté clients). Volume non mesuré par Semrush, à mesurer au brief."
     },
     {
@@ -2155,18 +2159,18 @@
     },
     {
       "id": "w49-article-risques-claude-pme",
-      "type": "article",
-      "titreProvisoire": "Risques de Claude en PME : ce qui peut mal tourner, et comment l'encadrer",
+      "type": "révision",
+      "titreProvisoire": "Guide Claude en PME : faire porter « risques claude pme » par la section risques",
       "requeteCible": "risques claude pme",
       "intention": "Savoir ce qui peut mal tourner quand une équipe utilise Claude, avant de l'autoriser.",
-      "urlCible": "/blog/risques-claude-pme",
-      "angle": "Hypothèse à vérifier par la SERP du jour. Satellite du guide /ressources/guides/claude-pme (lien contextuel obligatoire dans le corps, sans le cannibaliser) et renvoi vers la charte /ressources/outils/charte-ia-entreprise. Si la SERP montre que le guide porte déjà la requête, transformer l'entrée en révision du guide.",
+      "urlCible": "/ressources/guides/claude-pme",
+      "angle": "Hypothèse à vérifier par la SERP du jour. Satellite du guide /ressources/guides/claude-pme (lien contextuel obligatoire dans le corps, sans le cannibaliser) et renvoi vers la charte /ressources/outils/charte-ia-entreprise. Si la SERP montre que le guide porte déjà la requête, transformer l'entrée en révision du guide. Recherche du 5 novembre 2026 : la requête est déjà servie par cinq pages dédiées (hapiagency.fr/risques-claude-pme-charte-bonnes-pratiques du 26 octobre 2026, ai-first.fr, chartia.fr/outils/claude, itsystemes.fr, mankova-consulting.com) et le guide /ressources/guides/claude-pme a une section « Les risques à cadrer » (position 14,7 sur la requête au 15 octobre 2026) : entrée transformée en révision du guide (runbook 4.2), pour un lundi. Manque relevé chez les cinq : un tableau risque par fonction de Claude (connecteurs, Claude in Chrome, Claude Code, partage, incognito) avec le réglage d'administration documenté par Anthropic ; ClaudIn cite encore 32 Mo par requête pour les PDF, la documentation d'Anthropic lue le même jour dit 128 Mo.",
       "sourcesALire": [
         "Premiers résultats de « risques claude pme », « dangers claude entreprise »",
         "Pages d'Anthropic sur la confidentialité et la conservation des données, version du jour",
         "src/content/guides/claude-pme.json"
       ],
-      "semainePrevue": "2026-W49",
+      "semainePrevue": "2026-W47",
       "statut": "planifié",
       "pr": null,
       "mesureAttendue": "Page indexée et impressions sur « risques claude pme » ou « dangers claude pme » classées sur le billet, deux collectes après la mise en production.",
@@ -3056,8 +3060,8 @@
         "https://help.openai.com/en/articles/20001512-using-zendesk-in-chatgpt-and-codex",
         "https://claude.com/connectors/intercom"
       ],
-      "semainePrevue": null,
-      "statut": "idée",
+      "semainePrevue": "2026-W48",
+      "statut": "planifié",
       "pr": null,
       "mesureAttendue": "Page indexée à la collecte suivante ; impressions sur la requête cible.",
       "resultat": null,
@@ -3201,6 +3205,46 @@
       "mesureAttendue": "Page indexée deux collectes après la mise en production ; les douze billets de la série indexés (indexation de latest.json) à partir de 2026-W47.",
       "resultat": null,
       "origine": "Question de Simon du 1er novembre 2026 sur les titres et la structure identiques de la série ; mesure du même jour : 10 titres sur 12 finissent par la même formule, 6 intertitres communs aux 12 billets, 13 % de suites de 5 mots partagées en moyenne (29 % au plus)."
+    },
+    {
+      "id": "idee-registre-maitrise-ia-article-4",
+      "type": "article",
+      "titreProvisoire": "Registre de maîtrise de l'IA : ce qu'une PME note pour l'article 4, modèle à copier",
+      "requeteCible": "article 4 ai act preuve formation",
+      "intention": "Savoir quoi garder comme trace des mesures de maîtrise de l'IA, sans certificat.",
+      "urlCible": "/blog/registre-maitrise-ia-article-4",
+      "angle": "La Commission (questions-réponses lues le 5 novembre 2026) écrit qu'aucun certificat n'est nécessaire et qu'un registre interne suffit, sans en donner de modèle. Apporté : les colonnes d'un registre, un exemple illustratif pour 20 personnes, le lien avec la charte. Satellite de /blog/formation-ia-generative-pme. Pas d'avis juridique.",
+      "sourcesALire": [
+        "https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers",
+        "Dépôt vivant des pratiques de maîtrise de l'IA de l'AI Office",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-4"
+      ],
+      "semainePrevue": "2026-W46",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Page indexée deux collectes après la mise en production ; impressions sur la requête cible.",
+      "resultat": null,
+      "origine": "Recherche du 5 novembre 2026 pour /blog/formation-ia-generative-pme : IAPRO vend un « certificat nominatif opposable au titre de l'article 4 », la Commission dit qu'aucun certificat n'est nécessaire ; aucune page lue ne montre un registre. Volume non mesuré : à demander à Simon."
+    },
+    {
+      "id": "idee-comptes-ia-personnels-depart-salarie",
+      "type": "article",
+      "titreProvisoire": "Départ d'un salarié : que faire de ses comptes d'IA personnels et de ce qu'il y a confié",
+      "requeteCible": "shadow ai départ salarié",
+      "intention": "Savoir quoi faire, au départ d'un salarié, des conversations professionnelles restées dans un compte d'IA personnel.",
+      "urlCible": "/blog/comptes-ia-personnels-depart-salarie",
+      "angle": "La chronique du Journal du Net du 4 novembre 2026 pose la question sans procédure. Apporté : la ligne à ajouter à la procédure de départ, ce que permettent les offres d'équipe (export, suppression, propriété des conversations) d'après les pages des éditeurs lues le jour de la rédaction, ce que l'entreprise ne peut pas exiger. Pas d'avis juridique sur le droit du travail.",
+      "sourcesALire": [
+        "https://www.journaldunet.com/cybersecurite/1557567-quand-les-donnees-de-l-entreprise-restent-dans-les-comptes-personnels-d-ia/",
+        "Synthèse du CERT-FR de février 2026 sur l'IA générative face aux attaques",
+        "Pages d'aide d'Anthropic, OpenAI et Mistral sur l'export et la suppression des conversations"
+      ],
+      "semainePrevue": "2026-W47",
+      "statut": "planifié",
+      "pr": null,
+      "mesureAttendue": "Page indexée deux collectes après la mise en production ; impressions sur la requête cible.",
+      "resultat": null,
+      "origine": "Recherche du 5 novembre 2026 pour « risques claude pme » : le shadow AI revient dans quatre pages lues le même jour de sources différentes (hapiagency.fr, itsystemes.fr, mankova-consulting.com, journaldunet.com du 4 novembre 2026) ; aucune ne donne la procédure de départ. Volume non mesuré."
     }
   ]
 }
