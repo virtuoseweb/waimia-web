@@ -11706,6 +11706,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/formation-ia-generative-pme",
+    "title": "Formation IA générative : le programme à exiger pour une équipe de PME",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/formation-ia-generative-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/formation-ia-marketing-pme",
     "title": "Formation IA marketing : le programme à exiger en PME",
     "group": "blog",
@@ -11945,6 +11954,15 @@ export const SITE_PAGES: SitePage[] = [
     "group": "blog",
     "collection": "blog",
     "file": "blog/relance-factures-impayees-automatique-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/saisie-automatique-factures-pme",
+    "title": "Saisie automatique des factures : OCR, IA, et ce qu'il faut encore vérifier",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/saisie-automatique-factures-pme.json",
     "editable": false,
     "sections": []
   },
@@ -13090,6 +13108,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/facture-electronique-reception-pme",
       "/blog/formation-ia-cpf-qualiopi",
       "/blog/formation-ia-finance-pme",
+      "/blog/formation-ia-generative-pme",
       "/blog/formation-ia-marketing-pme",
       "/blog/formation-ia-rh-pme",
       "/blog/forward-deployed-engineer",
@@ -13117,6 +13136,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/openclaw-2-0-migration-changements",
       "/blog/poc-ou-mvp-differences-pme",
       "/blog/relance-factures-impayees-automatique-pme",
+      "/blog/saisie-automatique-factures-pme",
       "/blog/securiser-openclaw-checklist",
       "/blog/seo-geo-etre-cite-par-les-ia-generatives",
       "/blog/tableau-de-bord-pme-quelles-donnees-suivre",
