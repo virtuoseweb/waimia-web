@@ -83,10 +83,13 @@ function listPreviewTypes() {
   if (!existsSync(DIST_PREVIEW)) {
     throw new Error(`dist/preview introuvable (${DIST_PREVIEW}) — lancer \`pnpm build\` d'abord.`);
   }
-  return readdirSync(DIST_PREVIEW, { withFileTypes: true })
+  const types = readdirSync(DIST_PREVIEW, { withFileTypes: true })
     .filter((e) => e.isDirectory())
     .map((e) => e.name)
     .sort();
+  // Aucun type = rien de vérifié : un 0/0 PASS serait un faux vert (build sans surfaces internes).
+  if (types.length === 0) throw new Error(`aucun type sous ${DIST_PREVIEW} : rien à balayer.`);
+  return types;
 }
 
 await fs.mkdir(OUT, { recursive: true });

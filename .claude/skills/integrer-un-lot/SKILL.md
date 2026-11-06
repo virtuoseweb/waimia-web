@@ -1,6 +1,6 @@
 ---
 name: integrer-un-lot
-description: Intégrer le travail d'un worker dans waimia-web : patch du worktree, régénérations, un seul build, portes check:*, astro check, board, commit, push, PR et preview Vercel.
+description: Intégrer le travail d'un worker dans waimia-web : patch du worktree, régénérations, un seul build, portes check:*, astro check, board, commit, push, PR, CI et contrôle de la production après merge.
 ---
 
 # Intégrer un lot
@@ -17,9 +17,8 @@ Le parent intègre seul. Un worker ne builde pas, ne commite pas.
 5. Portes (npm run, après build) : `check:seo`, `check:schema`, `check:jsonld`, `check:head`, `check:sitemap`, `check:internal-links`, `check:internal-mesh`, `check:silos`, `check:no-emdash`, `check:jargon`, `check:content-refs`, `check:redirects`, `check:static-quality`. Puis `npx -y pnpm@9.15.0 exec astro check`, complet après tout merge multi-branches.
 6. Si `docs/state` est touché : `node scripts/sync-board.mjs --regen` puis `npm run check:board`.
 7. Un commit par lot, pas de `git add -A` global ; message avec la preuve.
-8. Push rare (chaque push = un build Vercel facturé) :
-   `git -c credential.helper= -c credential.helper='!gh auth git-credential' push origin <branche>`
-9. PR vers `main`, jamais d'auto-merge. Preview Vercel prouvée (parcours réel, skill `prouver-une-page`) avant merge ; une preuve locale ne la remplace pas. Secrets de bypass masqués.
+8. Push : `git -c credential.helper= -c credential.helper='!gh auth git-credential' push origin <branche>`. Une branche ordinaire ne déclenche aucun build Vercel, seulement la CI GitHub ; une branche `preview/<sujet>` en déclenche un, à réserver au besoin réel d'une preview en ligne (`/api`, variables d'env, atelier).
+9. PR vers `main`, jamais d'auto-merge. Avant merge : CI verte (build, build de production, e2e et GF-1 sur build servi) et preuve locale sur le build de production servi (skill `prouver-une-page`). Après merge : contrôler waimia.com (marqueur du commit, parcours touché). Secrets de bypass masqués.
 
 ## Pièges
 

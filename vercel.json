@@ -5,6 +5,9 @@
   "ignoreCommand": "bash scripts/seo-routine/vercel-ignore-build.sh",
   "git": {
     "deploymentEnabled": {
+      "**": false,
+      "main": true,
+      "preview/**": true,
       "seo-data/*": false
     }
   },

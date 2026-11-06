@@ -44,8 +44,13 @@ Distinct du produit Waimia OS. Ne pas modifier l'agrégateur `waimia-v2`.
 - UI : parcours, capture au-dessus de la ligne de flottaison, styles calculés
   opacity/transform et revue du rendu. Backend : assertions réelles, écriture/lecture
   DB, cas limite, E2E si full-stack. Annoncer abstentions et limites des mesures locales.
-- `main` sert la production : preview Vercel prouvée avant merge, auto-merge désactivé.
-  Une preuve locale ne remplace pas implicitement cette preview. Secrets de bypass masqués.
+- `main` sert la production. Vercel ne construit que `main` et les branches `preview/<sujet>`
+  (preview demandée exprès : `/api`, variables d'env, atelier en ligne), jamais une PR ordinaire.
+  Avant merge : CI verte (build complet, build de production, e2e et GF-1 sur build servi) et
+  preuve locale sur le build de production servi. Après merge : contrôler waimia.com (marqueur
+  du commit, parcours touché) ; régression = revert par PR, ou rollback Vercel décidé par Simon.
+  Un changement limité à `docs/`, `tasks/`, outillage ou Markdown racine ne redéploie pas
+  (`ignoreCommand`). Auto-merge désactivé, secrets de bypass masqués.
 - Une branche par scope, pas de `git add -A` global. Push autorisé :
   `git -c credential.helper= -c credential.helper='!gh auth git-credential' push origin <branche>`.
 - Délégation si gain réel ; deux writers = worktrees/artefacts isolés, intégration
@@ -106,3 +111,4 @@ Workers et git
 - Workers écrivains en parallèle : worktrees distincts, chemins absolus préfixés `.worktrees/<slug>`, briefs sans git ni re-délégation, 3 au plus, un build à la fois ; au retour : `git status` du dépôt principal et `ps aux | grep 'claude -p'`.
 - Git d'orchestration : `git -C <chemin absolu>`, jamais `cd &&` ; résultat git « impossible » : vérifier `pwd`. Après tout merge multi-branches : `astro check` complet avant push.
 - Déployer par `git push` seulement, jamais `vercel deploy` ni l'API . Marqueur de poll absent de la prod courante, `exit 1` au timeout.
+- Modifier un fichier : le lire sur `origin/main` (worktree frais), pas sur le checkout principal ; celui-ci avait 73 commits de retard le 6 novembre 2026 et la réécriture de l'`ignoreCommand` a failli effacer son repli par l'API GitHub.
