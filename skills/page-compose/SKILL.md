@@ -131,8 +131,9 @@ npm run check:internal-links        # attendu : OK, aucun lien interne casse
 ```
 
 Preuve VISUELLE de la nouvelle page (obligatoire avant "fini") : Playwright
-screenshot above-fold de `/services/<slug>` (preview Vercel ou `scripts/serve-dist.mjs`
-en local) + `getComputedStyle` sur H1/CTA (opacity != 0, transform neutre).
+screenshot above-fold de `/services/<slug>` (build servi en local par `scripts/serve-dist.mjs` ;
+preview Vercel seulement sur une branche `preview/<sujet>`) + `getComputedStyle` sur H1/CTA
+(opacity != 0, transform neutre).
 "ca build" seul ne suffit pas.
 
 ## Definition de fait

@@ -111,3 +111,4 @@ Workers et git
 - Workers écrivains en parallèle : worktrees distincts, chemins absolus préfixés `.worktrees/<slug>`, briefs sans git ni re-délégation, 3 au plus, un build à la fois ; au retour : `git status` du dépôt principal et `ps aux | grep 'claude -p'`.
 - Git d'orchestration : `git -C <chemin absolu>`, jamais `cd &&` ; résultat git « impossible » : vérifier `pwd`. Après tout merge multi-branches : `astro check` complet avant push.
 - Déployer par `git push` seulement, jamais `vercel deploy` ni l'API . Marqueur de poll absent de la prod courante, `exit 1` au timeout.
+- Modifier un fichier : le lire sur `origin/main` (worktree frais), pas sur le checkout principal ; celui-ci avait 73 commits de retard le 6 novembre 2026 et la réécriture de l'`ignoreCommand` a failli effacer son repli par l'API GitHub.
