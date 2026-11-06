@@ -44,8 +44,13 @@ Distinct du produit Waimia OS. Ne pas modifier l'agrégateur `waimia-v2`.
 - UI : parcours, capture au-dessus de la ligne de flottaison, styles calculés
   opacity/transform et revue du rendu. Backend : assertions réelles, écriture/lecture
   DB, cas limite, E2E si full-stack. Annoncer abstentions et limites des mesures locales.
-- `main` sert la production : preview Vercel prouvée avant merge, auto-merge désactivé.
-  Une preuve locale ne remplace pas implicitement cette preview. Secrets de bypass masqués.
+- `main` sert la production. Vercel ne construit que `main` et les branches `preview/<sujet>`
+  (preview demandée exprès : `/api`, variables d'env, atelier en ligne), jamais une PR ordinaire.
+  Avant merge : CI verte (build complet, build de production, e2e et GF-1 sur build servi) et
+  preuve locale sur le build de production servi. Après merge : contrôler waimia.com (marqueur
+  du commit, parcours touché) ; régression = revert par PR, ou rollback Vercel décidé par Simon.
+  Un changement limité à `docs/`, `tasks/`, outillage ou Markdown racine ne redéploie pas
+  (`ignoreCommand`). Auto-merge désactivé, secrets de bypass masqués.
 - Une branche par scope, pas de `git add -A` global. Push autorisé :
   `git -c credential.helper= -c credential.helper='!gh auth git-credential' push origin <branche>`.
 - Délégation si gain réel ; deux writers = worktrees/artefacts isolés, intégration

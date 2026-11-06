@@ -5,6 +5,10 @@ name: GF-1 · Vercel preview visual sweep
 # PAS faire (egress proxy bloque *.vercel.app : « Host not in allowlist »). Le runner CI a
 # le réseau ouvert. Cf docs/21-GF1-CLOUD-SWEEP.md.
 #
+# Depuis le 6 novembre 2026, Vercel ne construit plus de preview par PR (vercel.json >
+# git.deploymentEnabled) : ce workflow ne se déclenche que pour une branche `preview/<sujet>` ou
+# à la main. Le même balayage tourne sur chaque PR dans ci.yml (job e2e), contre le build servi.
+#
 # ⚠️ Activation : le trigger `deployment_status` utilise TOUJOURS le fichier workflow de la
 # branche par défaut (main) — il ne se déclenchera donc pour les PR qu'une fois ce fichier
 # mergé sur `main`. Avant merge, lancer à la demande via `workflow_dispatch` (input preview_url).

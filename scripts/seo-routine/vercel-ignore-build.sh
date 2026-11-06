@@ -2,12 +2,15 @@
 # « Ignored Build Step » de Vercel (vercel.json > ignoreCommand).
 # Code de sortie 0 = Vercel saute le déploiement ; 1 ou plus = Vercel déploie.
 #
-# But : la collecte SEO hebdomadaire commite des fichiers sous docs/seo/data/ sur main. Ces
-# fichiers ne changent rien au site : inutile de redéployer la production pour eux.
+# But : ne payer que les builds utiles (décision de Simon du 6 novembre 2026).
 #
-# Règle : on ne saute le déploiement que s'il est PROUVÉ que tous les fichiers modifiés depuis
-# le dernier déploiement réussi de la branche sont sous docs/seo/data/. Au moindre doute
-# (pas de déploiement précédent, liste des fichiers introuvable, erreur), on déploie.
+# 1. Pas de preview par défaut. vercel.json > git.deploymentEnabled ne déploie que `main` et les
+#    branches `preview/**` (preview demandée exprès). Ce script en est la ceinture : il saute tout
+#    déploiement hors production dont la branche ne commence pas par `preview/`.
+# 2. Pas de build pour un changement sans effet sur le site. On ne saute le déploiement que s'il
+#    est PROUVÉ que tous les fichiers modifiés depuis le dernier déploiement réussi de la branche
+#    sont sous un chemin que le build ne lit pas (SANS_EFFET). Au moindre doute (pas de
+#    déploiement précédent, liste des fichiers introuvable, erreur), on déploie.
 #
 # Le clone de Vercel est superficiel : le commit du dernier déploiement n'y figure presque jamais
 # (mesuré le 25 octobre 2026 : « commit 7f1301a… absent du clone » sur le commit d'état IndexNow, qui a
@@ -16,9 +19,20 @@
 # pas, répond autre chose que 200, ou tronque sa liste, on déploie : jamais l'inverse.
 set -u
 
+# Chemins que le build ne lit pas, vérifié le 6 novembre 2026 : aucun import, glob ni loader de
+# src/content.config.ts, astro.config.mjs, src/ ou packages/ n'y pointe. N'ajouter un chemin
+# qu'après la même vérification. scripts/, public/, private/ et les JSON racine en sont exclus :
+# le build les lit.
+SANS_EFFET='^(docs/|tasks/|\.claude/|\.agents/|\.github/|tests/|scripts/tests/|[^/]+\.md$|[^/]+\.(png|jpe?g)$)'
+
 deploy() {
   echo "vercel-ignore-build : déploiement ($1)"
   exit 1
+}
+
+skip() {
+  echo "vercel-ignore-build : déploiement sauté, $1"
+  exit 0
 }
 
 # Fichiers modifiés entre $1 et $2 d'après l'API GitHub, un par ligne. Échoue (code non nul) si la
@@ -44,6 +58,13 @@ github_changed_files() {
   '
 }
 
+if [ -n "${VERCEL_ENV:-}" ] && [ "$VERCEL_ENV" != "production" ]; then
+  case "${VERCEL_GIT_COMMIT_REF:-}" in
+    preview/*) ;;
+    *) skip "pas de preview pour la branche « ${VERCEL_GIT_COMMIT_REF:-} » (la nommer preview/<sujet> pour en obtenir une)" ;;
+  esac
+fi
+
 prev="${VERCEL_GIT_PREVIOUS_SHA:-}"
 [ -n "$prev" ] || deploy "aucun déploiement réussi précédent connu pour cette branche"
 
@@ -56,9 +77,6 @@ else
 fi
 [ -n "$changed" ] || deploy "aucun fichier modifié détecté"
 
-other="$(printf '%s\n' "$changed" | grep -v '^docs/seo/data/' || true)"
-if [ -z "$other" ]; then
-  echo "vercel-ignore-build : déploiement sauté, seuls des fichiers sous docs/seo/data/ ont changé depuis ${prev}"
-  exit 0
-fi
-deploy "des fichiers hors docs/seo/data/ ont changé"
+other="$(printf '%s\n' "$changed" | grep -Ev "$SANS_EFFET" || true)"
+[ -n "$other" ] || skip "seuls des fichiers sans effet sur le site ont changé depuis ${prev}"
+deploy "des fichiers lus par le build ont changé, dont $(printf '%s\n' "$other" | head -n 1)"

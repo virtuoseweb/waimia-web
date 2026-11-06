@@ -7,8 +7,8 @@
 //
 // Règle de build :
 //   · production Vercel (VERCEL_ENV=production)  → surfaces internes NON générées.
-//   · preview Vercel, CI, build local, astro dev → surfaces internes générées (le sweep
-//     GF-1, les e2e et l'atelier en dépendent).
+//   · preview Vercel (branches preview/** seulement), CI, build local, astro dev
+//     → surfaces internes générées (le sweep GF-1, les e2e et l'atelier en dépendent).
 //   · WAIMIA_INTERNAL_TOOLS=0 | 1 force l'un ou l'autre (ex. reproduire la prod en local :
 //     `WAIMIA_INTERNAL_TOOLS=0 pnpm build`).
 

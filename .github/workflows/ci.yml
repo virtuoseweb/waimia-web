@@ -94,6 +94,11 @@ jobs:
       - name: Test · livraison lead magnet (faux Resend)
         run: node --test scripts/tests/lead-magnet-delivery.test.mjs
 
+      # Règle de build Vercel (ignoreCommand) : pas de preview hors `preview/**`, pas de build pour
+      # un changement que le build ne lit pas. Un faux `curl` y simule l'API GitHub.
+      - name: Test · règle de build Vercel (ignoreCommand)
+        run: node --test scripts/seo-routine/tests/vercel-ignore-build.test.mjs
+
       # Gate gutter canonique : le gutter horizontal du site est UNIQUE = var(--gut) (tokens.css,
       # responsive 32→20→16px). Interdit tout override de padding horizontal sur .wrap/.wrap-wide/
       # .wrap-tight (ex. padding: 0 var(--space-8)) et tout usage du token fantôme var(--space-page-x).
@@ -225,6 +230,19 @@ jobs:
           kill $SERVE_PID 2>/dev/null || true
           exit $STATUS
 
+      # GF-1 visuel des types du catalogue (/preview/<type>) contre le build complet servi. Il
+      # tournait sur la preview Vercel (gf1-vercel-sweep.yml) ; depuis le 6 novembre 2026, Vercel
+      # ne construit plus de preview par PR (économie de builds) : il tourne donc ici.
+      - name: GF-1 · balayage visuel du catalogue (build servi)
+        run: |
+          node scripts/serve-dist.mjs --port 4331 --root dist/client &
+          SERVE_PID=$!
+          for i in $(seq 1 30); do curl -sf http://localhost:4331/ >/dev/null 2>&1 && break; sleep 1; done
+          node scripts/gf1-cloud-sweep.mjs --base http://localhost:4331 --dist-preview dist/client/preview --out gf1-artifacts
+          STATUS=$?
+          kill $SERVE_PID 2>/dev/null || true
+          exit $STATUS
+
       - name: Upload traces/screenshots (si échec)
         if: failure()
         uses: actions/upload-artifact@v4
@@ -232,3 +250,13 @@ jobs:
           name: playwright-traces
           path: test-results/
           retention-days: 7
+
+      # Uniquement en cas d'échec : les captures d'un balayage vert n'apportent rien au débogage
+      # et épuisent le quota de stockage Actions (incident du 21 juillet 2026).
+      - name: Upload captures GF-1 (si échec)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gf1-sweep
+          path: gf1-artifacts/
+          retention-days: 3
