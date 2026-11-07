@@ -11643,6 +11643,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/consultation-cse-ia",
+    "title": "Consultation du CSE et IA : quand consulter avant de déployer ChatGPT ou Copilot",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/consultation-cse-ia.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/contenu-ia-seo-google-penalise",
     "title": "Contenu IA et SEO : ce que Google pénalise vraiment",
     "group": "blog",
@@ -11684,6 +11693,15 @@ export const SITE_PAGES: SitePage[] = [
     "group": "blog",
     "collection": "blog",
     "file": "blog/facture-electronique-reception-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/faux-avis-ia",
+    "title": "Faux avis et IA : ce qu'une entreprise peut faire avec ses avis clients",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/faux-avis-ia.json",
     "editable": false,
     "sections": []
   },
@@ -13083,11 +13101,13 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/claude-microsoft-copilot-pme",
       "/blog/claude-pro-vs-team",
       "/blog/connecter-claude-wordpress-shopify-mcp",
+      "/blog/consultation-cse-ia",
       "/blog/contenu-ia-seo-google-penalise",
       "/blog/cout-agent-ia-toujours-actif",
       "/blog/creer-agent-ia-claude",
       "/blog/etre-cite-par-perplexity",
       "/blog/facture-electronique-reception-pme",
+      "/blog/faux-avis-ia",
       "/blog/formation-ia-cpf-qualiopi",
       "/blog/formation-ia-finance-pme",
       "/blog/formation-ia-marketing-pme",
