@@ -43,7 +43,7 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 **PR encore ouvertes** : #157 à #161 (2 au 6 novembre). Leurs entrées ne sont pas refaites ici. Créations de la semaine 2026-W45 avec celles-ci : 13 (11 + 2), sous le plafond de 14. Toutes touchent le calendrier, le journal, `keywords.json` et `internal-mesh.ts` : chaque PR fusionnée après la première demandera une mise à jour depuis `main`.
 
-**Actions du jour** (PR #PRNUM, branche `feat/seo-2026-11-07`) : deux créations hors série « IA par métier », aucune révision (aucune règle de 4.1 ne l'impose un samedi). Les deux entrées « IA par métier » restantes sur `main` s'ancrent sur des pages secteur dépubliées (constat du 6 novembre) : non prises.
+**Actions du jour** (PR #163, branche `feat/seo-2026-11-07`) : deux créations hors série « IA par métier », aucune révision (aucune règle de 4.1 ne l'impose un samedi). Les deux entrées « IA par métier » restantes sur `main` s'ancrent sur des pages secteur dépubliées (constat du 6 novembre) : non prises.
 
 1. Création de `/blog/risques-claude-pme` (entrée `w49-article-risques-claude-pme`, avancée de 2026-W49).
    - Pourquoi : entrée du calendrier, origine `docs/seo/data/2026-W42/gsc-performance.json` (« dangers claude pme » et « risques claude pme » réparties entre le guide Claude PME et le comparatif, positions 14,7 à 63,6). Category `claude`, au maillage (thèmes claude, conformite). Le guide `/ressources/guides/claude-pme` garde son résumé des risques en cinq points ; le billet y renvoie.
