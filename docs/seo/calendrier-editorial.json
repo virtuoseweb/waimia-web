@@ -2156,19 +2156,22 @@
     {
       "id": "w49-article-risques-claude-pme",
       "type": "article",
-      "titreProvisoire": "Risques de Claude en PME : ce qui peut mal tourner, et comment l'encadrer",
+      "titreProvisoire": "Risques de Claude en PME : ce qui peut mal tourner, et le réglage qui l'évite",
       "requeteCible": "risques claude pme",
       "intention": "Savoir ce qui peut mal tourner quand une équipe utilise Claude, avant de l'autoriser.",
       "urlCible": "/blog/risques-claude-pme",
-      "angle": "Hypothèse à vérifier par la SERP du jour. Satellite du guide /ressources/guides/claude-pme (lien contextuel obligatoire dans le corps, sans le cannibaliser) et renvoi vers la charte /ressources/outils/charte-ia-entreprise. Si la SERP montre que le guide porte déjà la requête, transformer l'entrée en révision du guide.",
+      "angle": "SERP du 7 novembre 2026 : « risques claude pme » ne renvoie aucune page sur Claude (pages génériques de gestion des risques) ; les pages lues sur « dangers claude entreprise » (Mimecast, Tensoria, learnaifast, donneespersonnelles.fr) ne donnent ni les durées de conservation sourcées, ni l'injection de consignes, ni les Covered Models du 1er septembre 2026. Angle : tableau de huit risques, réglage et responsable, sources d'Anthropic lues le jour même. Le guide /ressources/guides/claude-pme garde son résumé en cinq points et reçoit le lien depuis le billet.",
       "sourcesALire": [
-        "Premiers résultats de « risques claude pme », « dangers claude entreprise »",
-        "Pages d'Anthropic sur la confidentialité et la conservation des données, version du jour",
-        "src/content/guides/claude-pme.json"
+        "https://www.mimecast.com/fr/content/claude-security-risks/ (lu le 7 novembre 2026)",
+        "https://tensoria.fr/blog/charte-usage-claude-entreprise (lu le 7 novembre 2026)",
+        "https://learnaifast.io/fr/blog/securite-et-confidentialite-avec-claude-comment-utiliser-lia-sans-risquer-vos-do (lu le 7 novembre 2026)",
+        "https://www.donneespersonnelles.fr/claude-ia-rgpd (lu le 7 novembre 2026)",
+        "https://www.the-intelligence-academy.com/blog/risques-chatgpt-pme-maitriser (lu le 7 novembre 2026)",
+        "Pages d'Anthropic citées dans le billet (lues le 7 novembre 2026)"
       ],
-      "semainePrevue": "2026-W49",
-      "statut": "planifié",
-      "pr": null,
+      "semainePrevue": "2026-W45",
+      "statut": "publié",
+      "pr": 163,
       "mesureAttendue": "Page indexée et impressions sur « risques claude pme » ou « dangers claude pme » classées sur le billet, deux collectes après la mise en production.",
       "resultat": null,
       "origine": "docs/seo/data/2026-W42/gsc-performance.json (28 jours au 15 octobre 2026) : « dangers claude pme » 13 impressions sur /ressources/guides/claude-pme (position 40,2) et 11 sur le comparatif Claude vs ChatGPT (38,1) ; « risques claude pme » position 14,7 sur le guide et 63,6 sur le comparatif : intention répartie sur deux pages qui ne la portent pas."
@@ -3129,14 +3132,19 @@
       "requeteCible": "questionnaire de sécurité fournisseur ia",
       "intention": "Préparer les réponses d'un questionnaire de sécurité d'un grand compte avec un assistant IA, à partir de ses propres documents.",
       "urlCible": "/blog/questionnaire-securite-ia",
-      "angle": "Hypothèse à vérifier par la SERP : méthode pas à pas (documents sources, consigne, relecture, ce qui ne se délègue pas), sans certification ni hébergement inventés.",
+      "angle": "SERP du 7 novembre 2026 : toutes les pages lues sont des éditeurs qui vendent leur outil (Tensoria, Leto, Orbiq, Secureframe, Vera) ; aucune ne donne une méthode faisable avec un assistant d'équipe, ni ne parle de la confidentialité du questionnaire du client, ni de l'état de la transposition de NIS 2. Angle : méthode en six étapes, consigne à copier, tableau de ce qui ne se délègue pas, référentiels CAIQ et SIG sourcés.",
       "sourcesALire": [
-        "Premiers résultats de la requête, lus en entier",
-        "Pages officielles des assistants sur les connecteurs de documents, lues le jour de la rédaction"
+        "https://tensoria.fr/cas-usage/repondre-questionnaires-securite-ia (lu le 7 novembre 2026)",
+        "https://tensoria.fr/blog/repondre-questionnaires-clients-securite-ia (lu le 7 novembre 2026)",
+        "https://www.leto.legal/guides/questionnaire-securite-automatise-comment-utiliser-un-llm-pour-le-faire (lu le 7 novembre 2026)",
+        "https://www.leto.legal/guides/6-astuces-pour-repondre-questionnaires-de-securite (lu le 7 novembre 2026)",
+        "https://www.orbiqhq.com/fr/glossaire/questionnaire-securite (lu le 7 novembre 2026)",
+        "https://secureframe.com/fr-fr/blog/trust-ai-for-questionnaire-automation (lu le 7 novembre 2026)",
+        "https://www.getvera.ai/blog/chatgpt-vs-ai-security-questionnaire-tools (lu le 7 novembre 2026)"
       ],
-      "semainePrevue": null,
-      "statut": "idée",
-      "pr": null,
+      "semainePrevue": "2026-W45",
+      "statut": "publié",
+      "pr": 163,
       "mesureAttendue": "Page indexée et premières impressions sur la requête, deux collectes après la mise en production.",
       "resultat": null,
       "origine": "Recherche en ligne du 1er novembre 2026 : Tandem (https://www.wearetandem.ai/fr/secteurs/editeurs-logiciels) cite les réponses aux questionnaires de sécurité parmi les usages des éditeurs SaaS ; aucune des cinq pages lues ne donne de méthode. Volume non mesuré : à demander à Simon (Semrush)."
@@ -3201,6 +3209,62 @@
       "mesureAttendue": "Page indexée deux collectes après la mise en production ; les douze billets de la série indexés (indexation de latest.json) à partir de 2026-W47.",
       "resultat": null,
       "origine": "Question de Simon du 1er novembre 2026 sur les titres et la structure identiques de la série ; mesure du même jour : 10 titres sur 12 finissent par la même formule, 6 intertitres communs aux 12 billets, 13 % de suites de 5 mots partagées en moyenne (29 % au plus)."
+    },
+    {
+      "type": "article",
+      "semainePrevue": null,
+      "statut": "idée",
+      "pr": null,
+      "resultat": null,
+      "id": "idee-portail-achat-questionnaire-securite",
+      "titreProvisoire": "Questionnaire de sécurité dans un portail d'achat : préparer ses réponses hors du portail",
+      "requeteCible": "questionnaire sécurité portail fournisseur",
+      "intention": "Savoir comment répondre quand le questionnaire du client vit dans un portail d'achat.",
+      "urlCible": "/blog/questionnaire-securite-portail-achat",
+      "angle": "Hypothèse à vérifier par la SERP : aucune des pages lues le 7 novembre 2026 ne traite le cas du portail ; méthode d export, de bibliothèque de réponses et de recollage, sans accès d'un agent au portail.",
+      "sourcesALire": [
+        "Premiers résultats de « questionnaire sécurité portail fournisseur »",
+        "Documentation publique des portails cités par les clients"
+      ],
+      "mesureAttendue": "Page indexée et premières impressions sur la requête, deux collectes après la mise en production.",
+      "origine": "Recherche du 7 novembre 2026 pour /blog/questionnaire-securite-ia : la question « peut-on remplir directement un portail acheteur ? » revient, aucune page lue n'y répond ; relevé par le relecteur sceptique."
+    },
+    {
+      "type": "article",
+      "semainePrevue": null,
+      "statut": "idée",
+      "pr": null,
+      "resultat": null,
+      "id": "idee-ai-caiq-questionnaire-ia",
+      "titreProvisoire": "AI-CAIQ : les questions de sécurité sur l'IA que vos clients vont poser",
+      "requeteCible": "questionnaire sécurité ia fournisseur ai-caiq",
+      "intention": "Préparer les réponses aux questions sur l'usage de l'IA dans un questionnaire fournisseur.",
+      "urlCible": "/blog/ai-caiq-questionnaire-ia",
+      "angle": "Hypothèse à vérifier : lire l'AI-CAIQ de la Cloud Security Alliance (publié le 16 octobre 2025, non lu en entier le 7 novembre 2026) et en tirer les questions qu'une PME qui utilise Claude ou ChatGPT doit savoir traiter.",
+      "sourcesALire": [
+        "https://cloudsecurityalliance.org/artifacts/ai-consensus-assessments-initiative-questionnaire-ai-caiq"
+      ],
+      "mesureAttendue": "Page indexée et premières impressions sur la requête, deux collectes après la mise en production.",
+      "origine": "Recherche du 7 novembre 2026 pour /blog/questionnaire-securite-ia : AI-CAIQ repéré sur le site de la CSA, aucune page française lue n'en parle."
+    },
+    {
+      "type": "article",
+      "semainePrevue": null,
+      "statut": "idée",
+      "pr": null,
+      "resultat": null,
+      "id": "idee-claude-in-chrome-regles-entreprise",
+      "titreProvisoire": "Claude in Chrome en entreprise : liste de sites autorisés et règles d'usage",
+      "requeteCible": "claude in chrome entreprise sécurité",
+      "intention": "Décider si et comment ouvrir l'extension de navigateur de Claude à une équipe.",
+      "urlCible": "/blog/claude-in-chrome-regles-entreprise",
+      "angle": "Hypothèse à vérifier : vérifier d'abord si le guide /ressources/guides/claude-in-chrome-entreprise porte déjà la requête ; sinon le réviser plutôt que créer (liste de sites autorisés, profil séparé, faille ClaudeBleed corrigée en mai 2026 à vérifier sur une source primaire).",
+      "sourcesALire": [
+        "https://support.claude.com/en/articles/12902428-using-claude-in-chrome-safely",
+        "src/content/guides/claude-in-chrome-entreprise.json"
+      ],
+      "mesureAttendue": "Page indexée et impressions sur la requête, deux collectes après la mise en production.",
+      "origine": "Recherche du 7 novembre 2026 pour /blog/risques-claude-pme : question « l'extension Chrome est-elle sûre ? » récurrente ; article it-connect du 11 mai 2026 sur la faille ClaudeBleed (source secondaire)."
     }
   ]
 }
