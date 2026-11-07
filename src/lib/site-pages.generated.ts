@@ -11940,11 +11940,29 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/questionnaire-securite-ia",
+    "title": "Questionnaire de sécurité client : y répondre avec l'IA sans rien inventer",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/questionnaire-securite-ia.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/relance-factures-impayees-automatique-pme",
     "title": "Relancer les factures impayées automatiquement : la séquence et ce qui reste manuel",
     "group": "blog",
     "collection": "blog",
     "file": "blog/relance-factures-impayees-automatique-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/risques-claude-pme",
+    "title": "Risques de Claude en PME : ce qui peut mal tourner, et le réglage qui l'évite",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/risques-claude-pme.json",
     "editable": false,
     "sections": []
   },
@@ -13116,7 +13134,9 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/n8n-c-est-quoi",
       "/blog/openclaw-2-0-migration-changements",
       "/blog/poc-ou-mvp-differences-pme",
+      "/blog/questionnaire-securite-ia",
       "/blog/relance-factures-impayees-automatique-pme",
+      "/blog/risques-claude-pme",
       "/blog/securiser-openclaw-checklist",
       "/blog/seo-geo-etre-cite-par-les-ia-generatives",
       "/blog/tableau-de-bord-pme-quelles-donnees-suivre",
