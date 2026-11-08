@@ -11634,6 +11634,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/cles-api-automatisation-securite-pme",
+    "title": "Clés API dans vos automatisations : sécuriser n8n, Make, Claude et OpenAI",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/cles-api-automatisation-securite-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/connecter-claude-wordpress-shopify-mcp",
     "title": "Connecter Claude à WordPress et à Shopify : API, MCP ou connecteur",
     "group": "blog",
@@ -13082,6 +13091,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/claude-max-pme",
       "/blog/claude-microsoft-copilot-pme",
       "/blog/claude-pro-vs-team",
+      "/blog/cles-api-automatisation-securite-pme",
       "/blog/connecter-claude-wordpress-shopify-mcp",
       "/blog/contenu-ia-seo-google-penalise",
       "/blog/cout-agent-ia-toujours-actif",

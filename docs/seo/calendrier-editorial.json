@@ -3201,6 +3201,50 @@
       "mesureAttendue": "Page indexée deux collectes après la mise en production ; les douze billets de la série indexés (indexation de latest.json) à partir de 2026-W47.",
       "resultat": null,
       "origine": "Question de Simon du 1er novembre 2026 sur les titres et la structure identiques de la série ; mesure du même jour : 10 titres sur 12 finissent par la même formule, 6 intertitres communs aux 12 billets, 13 % de suites de 5 mots partagées en moyenne (29 % au plus)."
+    },
+    {
+      "id": "idee-cles-api-automatisations-secrets",
+      "type": "guide",
+      "titreProvisoire": "Clés API dans vos automatisations : sécuriser n8n, Make, Claude et OpenAI",
+      "requeteCible": "clé api sécurité automatisation",
+      "intention": "Savoir comment ranger et limiter les clés d'API utilisées par n8n, Make ou un script sans exposer l'entreprise.",
+      "urlCible": "/blog/cles-api-automatisation-securite-pme",
+      "angle": "Recherche du 8 novembre 2026 : les pages lues sont génériques (Netwrix, Elephorm, Automation Atlas), propres à n8n (nordflux.de, Infisical, GitGuardian) ou vendent un outil ; aucune ne compare le partage dans n8n et Make, ni le plafond de dépense réel d’Anthropic (par espace de travail) au budget d alerte d’OpenAI. Apporté : tableau des quatre outils sur leur documentation lue le jour même, procédure en neuf étapes, trois réglages de n8n auto-hébergé, ordre des gestes après une fuite (GitHub), inventaire illustratif.",
+      "sourcesALire": [
+        "https://nordflux.de/fr/guides/gerer-les-identifiants-en-toute-securite-chiffrement-partage-external-secrets (lu le 8 novembre 2026)",
+        "https://www.elephorm.com/formation/apprendre-n8n-pour-automatiser-vos-workflows/comprendre-la-securite-des-cles-api (lu le 8 novembre 2026)",
+        "https://automationatlas.io/guides/automation-security-best-practices/ (lu le 8 novembre 2026)",
+        "https://blog.gitguardian.com/n8n-security-encryption-key-compromise/ (lu le 8 novembre 2026)",
+        "https://infisical.com/blog/n8n-secrets-management (lu le 8 novembre 2026)",
+        "https://netwrix.com/fr/resources/blog/api-key-management/ (lu le 8 novembre 2026)",
+        "Documentation n8n, Make, Anthropic, OpenAI et GitHub lue le 8 novembre 2026 (liste dans la page)"
+      ],
+      "semainePrevue": "2026-W45",
+      "statut": "en cours",
+      "pr": null,
+      "mesureAttendue": "/blog/cles-api-automatisation-securite-pme, requête « clé api sécurité automatisation » : page hors sitemap au 8 novembre 2026. Attendu : page indexée et premières impressions, à juger à partir de 2026-W48.",
+      "resultat": null,
+      "origine": "Question qui revient dans les pages lues le 4 novembre 2026 pour /blog/acces-agent-ia-identifiants-pme : Okta (2 juin 2026, clé d'API partagée dans une variable d'environnement), IT-Connect (30 octobre 2026, secrets codés en dur et rotation) et bulletin CERT-FR CERTFR-2026-ACT-016 (partage des secrets d'authentification). Aucune des pages lues ne traite le cas d'un outil d'automatisation de PME."
+    },
+    {
+      "id": "idee-plafond-depense-api-ia",
+      "type": "article",
+      "titreProvisoire": "Plafonner la dépense d’une API d’IA : Anthropic, OpenAI et Mistral",
+      "requeteCible": "plafond dépense api openai",
+      "intention": "Savoir comment empêcher une clé d’API d’IA de consommer sans limite, fournisseur par fournisseur.",
+      "urlCible": "/blog/plafond-depense-api-ia",
+      "angle": "Hypothèse à vérifier par la SERP : le budget d’un projet OpenAI ne bloque pas la dépense (aide OpenAI lue le 8 novembre 2026), Anthropic propose un plafond mensuel par espace de travail ; Mistral à lire le jour de la rédaction. Tableau par fournisseur, ce qui se passe au dépassement, réglage conseillé par usage.",
+      "sourcesALire": [
+        "https://help-lb.openai.com/en/articles/9186755-managing-projects-in-the-api-platform (lu le 8 novembre 2026)",
+        "https://platform.claude.com/docs/en/manage-claude/workspaces (lu le 8 novembre 2026)",
+        "Documentation de facturation de Mistral AI, version du jour"
+      ],
+      "semainePrevue": null,
+      "statut": "idée",
+      "pr": null,
+      "mesureAttendue": "Page indexée et premières impressions sur la requête cible, deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "Recherche du 8 novembre 2026 pour /blog/cles-api-automatisation-securite-pme : la différence entre plafond (Anthropic) et seuil d’alerte (OpenAI) n’apparaît dans aucune des six pages lues ce jour. Volume non mesuré : à demander à Simon."
     }
   ]
 }
