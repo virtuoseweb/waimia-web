@@ -43,7 +43,7 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 **PR encore ouvertes** : #157 à #161 et #163 (2 au 7 novembre). Leurs entrées ne sont pas refaites ici. Créations de la semaine 2026-W45 : 13 avant cette session (3 le lundi, 2 par jour du mardi au samedi) ; **une seule création aujourd'hui**, la quatorzième, pour tenir le plafond de 14.
 
-**Actions du jour** (PR #NUMPR, branche `feat/seo-2026-11-08`) : une création, aucune révision (aucune règle de 4.1 ne l'impose un dimanche). Série « IA par métier » non prise : ses deux idées restantes s'ancrent sur des pages secteur dépubliées (`src/data/depublished.ts`, constat du 6 novembre).
+**Actions du jour** (PR #164, branche `feat/seo-2026-11-08`) : une création, aucune révision (aucune règle de 4.1 ne l'impose un dimanche). Série « IA par métier » non prise : ses deux idées restantes s'ancrent sur des pages secteur dépubliées (`src/data/depublished.ts`, constat du 6 novembre).
 
 1. Création de `/blog/cles-api-automatisation-securite-pme` (entrée `idee-cles-api-automatisations-secrets`, idée née dans la PR #159, encore ouverte : l'entrée est recopiée ici avec son origine).
    - Pourquoi : idée du calendrier (origine : question récurrente des pages lues le 4 novembre 2026 pour `/blog/acces-agent-ia-identifiants-pme`). Category `automatisation`, au maillage (thèmes automatisation, conformite).
