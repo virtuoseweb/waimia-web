@@ -56,7 +56,7 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 - Faits marquants : « claude rgpd » passe de la position 17 à 1 (`/ressources/guides/claude-rgpd-pme`) ; 13 requêtes suivies dans les dix premiers ; `/implantations/toulouse` (740 impressions, position 45,3) et `/implantations/lyon` (516, position 52,2) en forte hausse d'impressions.
 - Série « IA par métier » : à la collecte du 1er novembre 2026, les 12 billets et la page pivot étaient « Google ne reconnaît pas cette URL » (mis en ligne le 1er novembre). Pas de mesure le 8 novembre : la règle de suspension (plus de la moitié non indexés deux collectes après) ne peut pas être appliquée cette semaine. Aucune création de la série aujourd'hui.
 
-**Actions du jour** (PR #PR, branche `feat/seo-2026-11-09`) : deux créations, une révision.
+**Actions du jour** (PR #165, branche `feat/seo-2026-11-09`) : deux créations, une révision.
 
 1. Création de `/blog/registre-maitrise-ia-article-4` (entrée `idee-registre-maitrise-ia-article-4`, planifiée en 2026-W46 par #160).
    - Pourquoi : entrée du calendrier ; origine : recherche du 5 novembre 2026 (aucune page lue ne montrait un registre). Category `conformite`, au maillage (thèmes conformite, formation).
