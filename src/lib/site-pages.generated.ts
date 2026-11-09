@@ -11382,6 +11382,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/ai-act-article-50-images-publicitaires",
+    "title": "Images publicitaires générées par IA : quand les signaler (AI Act, article 50)",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/ai-act-article-50-images-publicitaires.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/ai-act-pme-utilisatrice-ia",
     "title": "AI Act : les obligations d'une PME qui utilise ChatGPT ou Claude",
     "group": "blog",
@@ -11936,6 +11945,15 @@ export const SITE_PAGES: SitePage[] = [
     "group": "blog",
     "collection": "blog",
     "file": "blog/poc-ou-mvp-differences-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/registre-maitrise-ia-article-4",
+    "title": "Registre de maîtrise de l'IA : la trace de l'article 4 de l'AI Act, modèle à copier",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/registre-maitrise-ia-article-4.json",
     "editable": false,
     "sections": []
   },
@@ -13054,6 +13072,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/agent-ia-toujours-actif-missions-pme",
       "/blog/agent-ia-vs-automatisation-classique-2026",
       "/blog/agents-ia-toujours-actifs-pme",
+      "/blog/ai-act-article-50-images-publicitaires",
       "/blog/ai-act-pme-utilisatrice-ia",
       "/blog/ai-mode-google-ai-overviews-pme",
       "/blog/apparaitre-dans-chatgpt-pme",
@@ -13116,6 +13135,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/n8n-c-est-quoi",
       "/blog/openclaw-2-0-migration-changements",
       "/blog/poc-ou-mvp-differences-pme",
+      "/blog/registre-maitrise-ia-article-4",
       "/blog/relance-factures-impayees-automatique-pme",
       "/blog/securiser-openclaw-checklist",
       "/blog/seo-geo-etre-cite-par-les-ia-generatives",
