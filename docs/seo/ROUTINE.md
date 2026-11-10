@@ -1,10 +1,10 @@
 # Routine SEO/GEO : runbook de la session Claude (quotidienne)
 
-Ce document est exécuté chaque jour par une session Claude planifiée, sans Simon. **Le lundi**, la session est complète (toutes les sections, révisions et analyse des données comprises). **Du mardi au dimanche**, c'est une session de production : elle livre ses 2 créations du jour (lecture de la collecte, 4.2, sections 5 à 9 et 11) et ne refait pas l'analyse hebdomadaire des données ; elle ne fait une révision que si une règle de 4.1 l'impose. Il est autoportant : suis-le dans l'ordre. Lis aussi `CLAUDE.md` à la racine (règles du repo, garde-fous GF-1 à GF-6) avant de modifier quoi que ce soit.
+Ce document est exécuté chaque jour par une session Claude planifiée, sans Simon. **Le lundi**, la session est complète (toutes les sections, révisions et analyse des données comprises). **Du mardi au dimanche**, c'est une session de production : elle livre sa création du jour (lecture de la collecte, 4.2, sections 5 à 9 et 11) et ne refait pas l'analyse hebdomadaire des données ; elle ne fait une révision que si une règle de 4.1 l'impose. Il est autoportant : suis-le dans l'ordre. Lis aussi `CLAUDE.md` à la racine (règles du repo, garde-fous GF-1 à GF-6) avant de modifier quoi que ce soit.
 
 **Ton rôle : rédacteur en chef SEO/GEO de waimia.com.** Tu tiens un calendrier éditorial, tu fais la recherche en ligne, tu écris, tu révises, tu mesures. La collecte de données t'informe ; elle ne décide pas à ta place, et son absence ne t'arrête pas.
 
-**Ce que la session produit**, chaque jour : une PR qui contient **2 créations** issues du calendrier éditorial (14 par semaine) et, le lundi, une à deux révisions de pages existantes (section 4) ; le calendrier `docs/seo/calendrier-editorial.json` tenu à jour ; un brouillon de post LinkedIn par création ; une entrée dans `docs/seo/journal.md` ; un compte rendu court à Simon. **Ce qu'elle ne fait jamais** : pousser sur `main` (elle fusionne sa propre PR du jour après CI verte, section 8), utiliser `vercel deploy`, l'API Vercel ou l'auto-merge, créer un secret ou un compte, inventer un chiffre, soumettre une URL à un moteur, publier ou envoyer quoi que ce soit à l'extérieur (réseau social, e-mail, formulaire).
+**Ce que la session produit**, chaque jour : une PR qui contient **1 création** issue du calendrier éditorial (7 par semaine depuis le 10/11/2026, tant que l'indexation n'est pas remesurée : `docs/seo/strategie-2026-11-10.md`, action 11) et, le lundi, une à deux révisions de pages existantes (section 4) ; le calendrier `docs/seo/calendrier-editorial.json` tenu à jour ; un brouillon de post LinkedIn par création ; une entrée dans `docs/seo/journal.md` ; un compte rendu court à Simon. **Ce qu'elle ne fait jamais** : pousser sur `main` (elle fusionne sa propre PR du jour après CI verte, section 8), utiliser `vercel deploy`, l'API Vercel ou l'auto-merge, créer un secret ou un compte, inventer un chiffre, soumettre une URL à un moteur, publier ou envoyer quoi que ce soit à l'extérieur (réseau social, e-mail, formulaire).
 
 **Deux usages du web, à ne pas confondre.**
 
@@ -145,7 +145,7 @@ Le premier lundi du mois, ajoute le bilan mensuel (section 13).
 
 **Cadence.** Chaque jour, une PR (branche `feat/seo-AAAA-MM-JJ`, date du jour de la session) contient :
 
-- **2 créations** issues du calendrier éditorial (4.2), 14 par semaine au plus ; la priorité va à la série « IA par métier » (ci-dessous) ;
+- **1 création** issue du calendrier éditorial (4.2), 7 par semaine au plus ; la priorité va à la série « IA par métier » (ci-dessous) ;
 - **le lundi seulement, une à deux révisions** de pages existantes (4.1), trois par semaine au plus ; un autre jour, une révision n'est faite que si une règle de 4.1 l'impose (page qui perd, contenu rendu faux).
 
 Le plafond protège la qualité : chaque contenu passe toute la section 5, recherche en ligne comprise, même à deux par jour. Si la recherche ne permet pas de tenir 2 contenus solides, livre-en un seul et dis pourquoi dans le journal (4.4) : un billet moyen ou inventé coûte plus qu'il ne rapporte. Ne rien créer est l'exception, à justifier par écrit (4.4).
