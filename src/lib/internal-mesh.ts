@@ -357,6 +357,8 @@ const PAGES: Record<string, PageDef> = {
   '/blog/consultation-cse-ia': { label_fr: "Consultation du CSE et IA : quand consulter", label_en: 'Works council consultation before deploying AI', kind: 'article', topics: ['conformite', 'conseil'] },
   '/blog/faux-avis-ia': { label_fr: 'Faux avis et IA : ce qui est permis, ce qui est interdit', label_en: 'Fake reviews and AI: what is allowed', kind: 'article', topics: ['conformite', 'acquisition'] },
   '/blog/ai-act-pme-utilisatrice-ia': { label_fr: "AI Act : les obligations d'une PME qui utilise ChatGPT ou Claude", label_en: 'AI Act: what a small business using ChatGPT or Claude must do', kind: 'article', topics: ['conformite', 'conseil'] },
+  '/blog/registre-maitrise-ia-article-4': { label_fr: "Registre de maîtrise de l'IA (article 4) : modèle", label_en: 'AI literacy record (Article 4): template', kind: 'article', topics: ['conformite', 'formation'] },
+  '/blog/ai-act-article-50-images-publicitaires': { label_fr: 'Images publicitaires IA : quand les signaler', label_en: 'AI ad images: when to label them', kind: 'article', topics: ['conformite', 'acquisition'] },
   '/blog/claude-code-skills': { label_fr: 'Skills Claude Code : créer et partager en équipe', label_en: 'Claude Code skills: create and share as a team', kind: 'article', topics: ['claude', 'applications'] },
   '/blog/refonte-site-seo-sans-perdre-trafic': { label_fr: 'Refonte SEO : la liste de contrôle et le suivi mesuré', label_en: 'Redesign SEO: checklist and measured follow-up', kind: 'article', topics: ['web'] },
   '/blog/cahier-des-charges-refonte-site': { label_fr: 'Cahier des charges de refonte : les cinq annexes', label_en: 'Redesign specification: the five appendices', kind: 'article', topics: ['web'] },

@@ -11382,6 +11382,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/ai-act-article-50-images-publicitaires",
+    "title": "Images publicitaires générées par IA : quand les signaler (AI Act, article 50)",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/ai-act-article-50-images-publicitaires.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/ai-act-pme-utilisatrice-ia",
     "title": "AI Act : les obligations d'une PME qui utilise ChatGPT ou Claude",
     "group": "blog",
@@ -11630,15 +11639,6 @@ export const SITE_PAGES: SitePage[] = [
     "group": "blog",
     "collection": "blog",
     "file": "blog/claude-pro-vs-team.json",
-    "editable": false,
-    "sections": []
-  },
-  {
-    "route": "/blog/cles-api-automatisation-securite-pme",
-    "title": "Clés API dans vos automatisations : sécuriser n8n, Make, Claude et OpenAI",
-    "group": "blog",
-    "collection": "blog",
-    "file": "blog/cles-api-automatisation-securite-pme.json",
     "editable": false,
     "sections": []
   },
@@ -11949,11 +11949,11 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
-    "route": "/blog/questionnaire-securite-ia",
-    "title": "Questionnaire de sécurité client : y répondre avec l'IA sans rien inventer",
+    "route": "/blog/registre-maitrise-ia-article-4",
+    "title": "Registre de maîtrise de l'IA : la trace de l'article 4 de l'AI Act, modèle à copier",
     "group": "blog",
     "collection": "blog",
-    "file": "blog/questionnaire-securite-ia.json",
+    "file": "blog/registre-maitrise-ia-article-4.json",
     "editable": false,
     "sections": []
   },
@@ -11963,15 +11963,6 @@ export const SITE_PAGES: SitePage[] = [
     "group": "blog",
     "collection": "blog",
     "file": "blog/relance-factures-impayees-automatique-pme.json",
-    "editable": false,
-    "sections": []
-  },
-  {
-    "route": "/blog/risques-claude-pme",
-    "title": "Risques de Claude en PME : ce qui peut mal tourner, et le réglage qui l'évite",
-    "group": "blog",
-    "collection": "blog",
-    "file": "blog/risques-claude-pme.json",
     "editable": false,
     "sections": []
   },
@@ -13081,6 +13072,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/agent-ia-toujours-actif-missions-pme",
       "/blog/agent-ia-vs-automatisation-classique-2026",
       "/blog/agents-ia-toujours-actifs-pme",
+      "/blog/ai-act-article-50-images-publicitaires",
       "/blog/ai-act-pme-utilisatrice-ia",
       "/blog/ai-mode-google-ai-overviews-pme",
       "/blog/apparaitre-dans-chatgpt-pme",
@@ -13109,7 +13101,6 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/claude-max-pme",
       "/blog/claude-microsoft-copilot-pme",
       "/blog/claude-pro-vs-team",
-      "/blog/cles-api-automatisation-securite-pme",
       "/blog/connecter-claude-wordpress-shopify-mcp",
       "/blog/contenu-ia-seo-google-penalise",
       "/blog/cout-agent-ia-toujours-actif",
@@ -13144,9 +13135,8 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/n8n-c-est-quoi",
       "/blog/openclaw-2-0-migration-changements",
       "/blog/poc-ou-mvp-differences-pme",
-      "/blog/questionnaire-securite-ia",
+      "/blog/registre-maitrise-ia-article-4",
       "/blog/relance-factures-impayees-automatique-pme",
-      "/blog/risques-claude-pme",
       "/blog/securiser-openclaw-checklist",
       "/blog/seo-geo-etre-cite-par-les-ia-generatives",
       "/blog/tableau-de-bord-pme-quelles-donnees-suivre",
