@@ -5279,6 +5279,71 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/ressources/comparatifs/claude-code-vs-codex-vs-vibe",
+    "title": "Claude Code, Codex ou Mistral Vibe : quel agent de code pour une PME",
+    "group": "ressources",
+    "collection": "comparatifs",
+    "file": "comparatifs/claude-code-vs-codex-vs-vibe.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Claude Code, Codex ou Mistral Vibe : quel agent de code pour une PME ?",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#1",
+        "background": "paper-2"
+      },
+      {
+        "type": "comparison-table",
+        "label": "Claude Code, Codex et Mistral Vibe : 12 critères (3 novembre 2026)",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#4",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper-2"
+      },
+      {
+        "type": "decision-list",
+        "label": "Le bon agent selon votre situation",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper-2"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Claude Code, Codex ou Mistral Vibe : vos questions",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Choisir l'agent, puis régler ce qu'il a le droit de faire.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/ressources/comparatifs/claude-code-vs-cursor",
     "title": "Claude Code vs Cursor : lequel choisir en 2026 ?",
     "group": "ressources",
@@ -11958,6 +12023,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/refonte-site-seo-sans-perdre-trafic",
+    "title": "Refonte de site et SEO : ne pas perdre son trafic, la liste de contrôle et le suivi mesuré",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/refonte-site-seo-sans-perdre-trafic.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/relance-factures-impayees-automatique-pme",
     "title": "Relancer les factures impayées automatiquement : la séquence et ce qui reste manuel",
     "group": "blog",
@@ -12984,6 +13058,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources",
       "/ressources/comparatifs",
       "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
+      "/ressources/comparatifs/claude-code-vs-codex-vs-vibe",
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-duet-vs-chatgpt-dots",
       "/ressources/comparatifs/claude-platform-vs-openai-platform",
@@ -13136,6 +13211,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/n8n-c-est-quoi",
       "/blog/openclaw-2-0-migration-changements",
       "/blog/poc-ou-mvp-differences-pme",
+      "/blog/refonte-site-seo-sans-perdre-trafic",
       "/blog/relance-factures-impayees-automatique-pme",
       "/blog/securiser-openclaw-checklist",
       "/blog/seo-geo-etre-cite-par-les-ia-generatives",

@@ -205,6 +205,7 @@ const PAGES: Record<string, PageDef> = {
   '/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme': { label_fr: 'ChatGPT, Claude, Gemini ou Perplexity : quelle IA choisir', label_en: 'ChatGPT, Claude, Gemini or Perplexity: which AI to choose', kind: 'comparatif', topics: ['claude', 'conseil'] },
   '/ressources/comparatifs/claude-platform-vs-openai-platform': { label_fr: 'Claude Platform ou OpenAI Platform', label_en: 'Claude Platform or OpenAI Platform', kind: 'comparatif', topics: ['claude', 'agents'] },
   '/cas-clients/isabelle-diaz-naturopathe': { label_fr: 'Cas client : Isabelle Diaz', label_en: 'Case: Isabelle Diaz', kind: 'cas-client', topics: ['agents', 'acquisition'] },
+  '/ressources/comparatifs/claude-code-vs-codex-vs-vibe': { label_fr: 'Claude Code, Codex ou Mistral Vibe', label_en: 'Claude Code, Codex or Mistral Vibe', kind: 'comparatif', topics: ['claude', 'applications'] },
   '/ressources/comparatifs/claude-code-vs-cursor': { label_fr: 'Claude Code ou Cursor', label_en: 'Claude Code or Cursor', kind: 'comparatif', topics: ['claude', 'applications'] },
 
   // ── Applications métier et données ──
@@ -348,6 +349,7 @@ const PAGES: Record<string, PageDef> = {
   '/blog/facture-electronique-reception-pme': { label_fr: 'Facture électronique : ce que change la réception en PME', label_en: 'E-invoicing: what receiving changes for a small business', kind: 'article', topics: ['automatisation', 'conformite'] },
   '/blog/ai-act-pme-utilisatrice-ia': { label_fr: "AI Act : les obligations d'une PME qui utilise ChatGPT ou Claude", label_en: 'AI Act: what a small business using ChatGPT or Claude must do', kind: 'article', topics: ['conformite', 'conseil'] },
   '/blog/claude-code-skills': { label_fr: 'Skills Claude Code : créer et partager en équipe', label_en: 'Claude Code skills: create and share as a team', kind: 'article', topics: ['claude', 'applications'] },
+  '/blog/refonte-site-seo-sans-perdre-trafic': { label_fr: 'Refonte SEO : la liste de contrôle et le suivi mesuré', label_en: 'Redesign SEO: checklist and measured follow-up', kind: 'article', topics: ['web'] },
   '/blog/cahier-des-charges-refonte-site': { label_fr: 'Cahier des charges de refonte : les cinq annexes', label_en: 'Redesign specification: the five appendices', kind: 'article', topics: ['web'] },
   '/blog/application-metier-exemples-pme': { label_fr: 'Application métier : définition, types et exemples', label_en: 'Business application: definition, types and examples', kind: 'article', topics: ['applications'] },
   '/cas-clients/desangles-peinture': { label_fr: 'Cas client : Desangles Peinture', label_en: 'Case: Desangles Peinture', kind: 'cas-client', topics: ['acquisition'] },
