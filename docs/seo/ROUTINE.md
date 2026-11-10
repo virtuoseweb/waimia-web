@@ -387,6 +387,8 @@ Preuve visuelle (GF-1) pour toute page créée ou dont la structure a changé : 
 7. Une fois la PR ouverte, son numéro est connu : écris-le dans le champ `pr` des entrées livrées, passe-les à « publié », relance `node scripts/seo-routine/check-calendar.mjs`, commite et pousse sur la même branche.
 8. Attends la CI et corrige jusqu'au vert. Ne merge pas, ne pousse rien sur `main`, n'active pas l'auto-merge.
 
+Intégration côté Simon : les PR quotidiennes ne se fusionnent pas une par une (un build de production à chaque fusion). Elles s'intègrent par lot avec `node scripts/seo-routine/integrer-prs.mjs` (procédure dans le skill `integrer-un-lot`, section « Plusieurs PR de la routine SEO en attente ») : calendrier fusionné entrée par entrée par `id`, journal, mots-clés et maillage sans perte, un seul build.
+
 Si, par exception, la semaine ne contient aucune création (section 4.4), la PR porte quand même les révisions, le calendrier replanifié et l'entrée de journal qui dit pourquoi.
 
 ## 9. Tenir le journal
