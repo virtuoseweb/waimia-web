@@ -37,6 +37,16 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### 2026-11-10 · décisions de la stratégie du 10 novembre (hors routine)
+
+**Source.** `docs/seo/strategie-2026-11-10.md`, croisée avec la collecte du 9/11 : sur 28 jours, 78,0 % des impressions viennent de pages au-delà de la position 20, et 37 des 52 clics de pages classées 10 ou mieux (recalcul sur `2026-W46/gsc-performance.json`, `byPage`). Le goulot est la position et l'autorité, pas le volume de contenu.
+
+**Décision 1 · cadence.** Plafond ramené de 14 à 7 créations par semaine, soit 1 par jour (`check-calendar.mjs`, `ROUTINE.md`, `prompts/routine-quotidienne.md`). Motif : la part indexée doit être remesurée avant d'ajouter des URL que Google ne connaît pas encore. À rouvrir quand la collecte montre la part indexée en hausse.
+
+**Décision 2 · villes et secteurs du 12 et 13/10.** Le point de contrôle du 11/11 (décision 5 du 14/10) ne déclenche pas de noindex en bloc. Au 1/11, Google voyait ces pages « détectée, non indexée » ou « exclue par noindex », alors que le HTML servi est `index, follow`. Zéro impression mesure donc l'absence d'indexation, pas l'absence de demande. Règle appliquée : une page indexée à l'inspection du 15/11 et toujours sans impression sur les 28 jours suivants passe en `seo.noindex` ; une page encore non indexée reçoit une dernière mesure le 7/12.
+
+**À mesurer.** Part indexée et clics sur 7 et 28 jours aux collectes W47 (vers le 16/11) et W49.
+
 ### 2026-11-10 (session de production du mardi, 2026-W46, collecte du 9 novembre 2026)
 
 **Panne de production toujours en cours** : waimia.com répond **HTTP 503 `DEPLOYMENT_PAUSED`** (accueil et `sitemap-index.xml`, relevé à 06:44 UTC le 10 novembre 2026), comme la veille. Constaté, non expliqué ; rien n'a été modifié côté Vercel.

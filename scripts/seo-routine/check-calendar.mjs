@@ -27,8 +27,9 @@ const TEXT_FIELDS = ['titreProvisoire', 'requeteCible', 'intention', 'angle', 'm
 
 /** Cadence de la session (docs/seo/ROUTINE.md, section 4). */
 export const MIN_WEEKS_AHEAD = 2;
-/** 2 créations par jour, 7 jours sur 7. */
-export const MAX_CREATIONS_PER_WEEK = 14;
+/** 1 création par jour, 7 jours sur 7 : ramené de 14 à 7 le 10/11/2026 tant que l'indexation
+ * n'est pas remesurée (docs/seo/strategie-2026-11-10.md, action 11). */
+export const MAX_CREATIONS_PER_WEEK = 7;
 /** Stock minimal de créations restant à faire (idées, planifiées, en cours) : une semaine de cadence. */
 export const MIN_CREATIONS_STOCK = 14;
 export const MAX_REVISIONS_PER_WEEK = 3;

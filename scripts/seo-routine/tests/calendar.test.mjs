@@ -130,9 +130,9 @@ test('calendrier : entrée planifiée en retard et semaine au-delà du plafond a
   const late = run([...sixWeeks(), entry({ id: 'retard', urlCible: '/blog/retard', semainePrevue: '2026-W40' })]);
   assert.deepEqual(late.errors, []);
   assert.ok(late.warnings.some((m) => m.includes('semaine passée')));
-  const extra = Array.from({ length: 14 }, (_, i) => entry({ id: `c${i}`, urlCible: `/blog/c${i}` }));
+  const extra = Array.from({ length: 7 }, (_, i) => entry({ id: `c${i}`, urlCible: `/blog/c${i}` }));
   const crowded = run([...sixWeeks(), ...extra]);
-  assert.ok(crowded.warnings.some((m) => m.includes('2026-W42 : 15 créations planifiées, plafond 14')));
+  assert.ok(crowded.warnings.some((m) => m.includes('2026-W42 : 8 créations planifiées, plafond 7')));
 });
 
 test('calendrier : le fichier du repo est valide et ne vise que des pages réelles pour ses révisions', async () => {
