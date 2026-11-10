@@ -94,7 +94,7 @@ jobs:
       - name: Test · livraison lead magnet (faux Resend)
         run: node --test scripts/tests/lead-magnet-delivery.test.mjs
 
-      # Règle de build Vercel (ignoreCommand) : pas de preview hors `preview/**`, pas de build pour
+      # Règle de build Vercel (ignoreCommand) : aucune preview, pas de build pour
       # un changement que le build ne lit pas. Un faux `curl` y simule l'API GitHub.
       - name: Test · règle de build Vercel (ignoreCommand)
         run: node --test scripts/seo-routine/tests/vercel-ignore-build.test.mjs
@@ -168,6 +168,11 @@ jobs:
 
       - name: Gate SEO historique (meta-length + noindex<->sitemap) sur le build de production
         run: node scripts/check-seo.mjs
+
+      # Chaque contenu publié dans un hub a son illustration de hero, unique, dont le fichier
+      # existe ; la carte du hub reprend cette image. Baseline de transition : ne peut que diminuer.
+      - name: Gate illustrations de hero (une par contenu, uniques)
+        run: node scripts/check-hero-illustrations.mjs --baseline scripts/check-hero-illustrations.baseline.json
 
       - name: Gate qualité statique sur le build de production (liens internes, titres, alt)
         run: node scripts/check-static-quality.mjs

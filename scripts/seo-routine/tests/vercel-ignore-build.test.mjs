@@ -81,10 +81,9 @@ test("preview d'une branche ordinaire : sautée, même quand le site change", ()
   assert.match(r.out, /pas de preview pour la branche « feat\/seo-2026-11-06 »/);
 });
 
-test('preview demandée (branche preview/…) : la règle de contenu s’applique comme en production', () => {
+test('branche preview/… : sautée aussi, seule la production se construit (10 novembre 2026)', () => {
   const env = { VERCEL_ENV: 'preview', VERCEL_GIT_COMMIT_REF: 'preview/atelier' };
-  assert.equal(run(sandbox(files('src/content/blog/x.json')), env).code, 1);
-  assert.equal(run(sandbox(files('docs/a.md')), env).code, 0);
+  assert.equal(run(sandbox(files('src/content/blog/x.json')), env).code, 0);
 });
 
 test('dernier déploiement présent dans le clone : la liste vient de git diff', () => {

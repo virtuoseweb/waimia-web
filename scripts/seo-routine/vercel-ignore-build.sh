@@ -4,9 +4,9 @@
 #
 # But : ne payer que les builds utiles (décision de Simon du 6 novembre 2026).
 #
-# 1. Pas de preview par défaut. vercel.json > git.deploymentEnabled ne déploie que `main` et les
-#    branches `preview/**` (preview demandée exprès). Ce script en est la ceinture : il saute tout
-#    déploiement hors production dont la branche ne commence pas par `preview/`.
+# 1. Aucune preview (décision de Simon du 10 novembre 2026 : on ne construit que la production).
+#    vercel.json > git.deploymentEnabled ne déploie que `main`. Ce script en est la ceinture : il
+#    saute tout déploiement hors production, quelle que soit la branche.
 # 2. Pas de build pour un changement sans effet sur le site. On ne saute le déploiement que s'il
 #    est PROUVÉ que tous les fichiers modifiés depuis le dernier déploiement réussi de la branche
 #    sont sous un chemin que le build ne lit pas (SANS_EFFET). Au moindre doute (pas de
@@ -59,10 +59,7 @@ github_changed_files() {
 }
 
 if [ -n "${VERCEL_ENV:-}" ] && [ "$VERCEL_ENV" != "production" ]; then
-  case "${VERCEL_GIT_COMMIT_REF:-}" in
-    preview/*) ;;
-    *) skip "pas de preview pour la branche « ${VERCEL_GIT_COMMIT_REF:-} » (la nommer preview/<sujet> pour en obtenir une)" ;;
-  esac
+  skip "pas de preview pour la branche « ${VERCEL_GIT_COMMIT_REF:-} » : seule la production se construit"
 fi
 
 prev="${VERCEL_GIT_PREVIOUS_SHA:-}"

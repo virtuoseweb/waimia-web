@@ -11,7 +11,8 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import { getLiveCollection } from '../../lib/live-collection';
 import EssayTemplate from '../../components/templates/EssayTemplate.astro';
 import { computeReadingTime } from '../../lib/seo/reading-time';
-import { isLegacyRoutedType } from '../../lib/blog-routing';
+import { blogEntryHref, isLegacyRoutedType } from '../../lib/blog-routing';
+import { getResourceItems } from '../../lib/resources-hub';
 import { blogHeroIllustration } from '../../lib/hero-illustrations';
 import { buildEssayProps, type EssayContext } from '../../lib/templates/essay';
 import { siloLabel } from '../../data/taxonomies';
@@ -89,8 +90,15 @@ const relatedCasesData = (d.relatedCases ?? [])
 // Collection `offres` retirée (refonte v7) : la bande related-offres est vide.
 const relatedOffresData: { id: string; title: string; href: string }[] = [];
 
-// Habillage editorial : illustration hero (override frontmatter sinon mapping par catégorie).
-const heroIllustration = d.heroIllustration ?? blogHeroIllustration((d as { category?: string }).category);
+// Habillage editorial : illustration hero du frontmatter. Sans elle (transition, cf. baseline de
+// check-hero-illustrations), le hero reprend l'image de la CARTE du hub, source unique
+// (card-visual.ts), pour que carte et page montrent le même fichier. Billet hors hub (noindex) :
+// repli sur le motif par catégorie.
+const hubCard = d.heroIllustration ? undefined : (await getResourceItems()).find((it) => it.href === blogEntryHref(entry));
+const heroIllustration = d.heroIllustration
+  ?? (hubCard?.image
+    ? { src: hubCard.image, alt_fr: `Illustration : ${d.title_fr}`, alt_en: `Illustration: ${d.title_en}`, side: 'right' as const }
+    : blogHeroIllustration((d as { category?: string }).category));
 
 const relatedCards = d.relatedPosts.length > 0
   ? d.relatedPosts

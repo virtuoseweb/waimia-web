@@ -8,7 +8,9 @@
  * Sans image de hero explicite : le visuel de sa catégorie (BLOG_TAXO_VISUALS, teinté),
  * puis un choix par tags dans la bibliothèque (illustration-pick.ts).
  *
- * Unicité PAR PAGE : deux cartes d'un même lot n'affichent jamais le même DESSIN (clé
+ * Hero explicite : toujours repris, même si son dessin est déjà pris (la porte
+ * check-hero-illustrations interdit les doublons). Unicité des REPLIS : deux cartes sans hero
+ * d'un même lot n'affichent jamais le même DESSIN (clé
  * `drawing`, donc deux variantes de couleur d'un dessin comptent pour un doublon). Le lot est
  * résolu une seule fois pour tout le hub : les vues filtrées et /blog en lisent un
  * sous-ensemble, donc restent uniques et cohérentes entre elles. Déterministe, 0 Math.random.
@@ -83,12 +85,13 @@ export function resolveCardVisuals(inputs: CardVisualInput[]): CardVisual[] {
   const out: (CardVisual | undefined)[] = inputs.map(() => undefined);
   const used = new Set<string>();
 
-  // 1. Heros explicites : réservés avant tout fallback, dans l'ordre du lot.
+  // 1. Heros explicites : repris tels quels, toujours (la carte montre l'image de sa page).
+  //    L'unicité des dessins entre contenus est garantie en amont par la porte
+  //    scripts/check-hero-illustrations.mjs, pas par une retombée silencieuse ici. Leurs dessins
+  //    sont réservés avant tout fallback pour que les contenus sans hero ne les reprennent pas.
   inputs.forEach((it, i) => {
     if (!it.heroSrc) return;
-    const key = drawingKeyOfSrc(it.heroSrc);
-    if (used.has(key)) return; // même dessin déjà pris : cette carte retombe sur les fallbacks
-    used.add(key);
+    used.add(drawingKeyOfSrc(it.heroSrc));
     out[i] = { image: it.heroSrc, source: 'hero' };
   });
 
