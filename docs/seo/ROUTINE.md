@@ -4,7 +4,7 @@ Ce document est exécuté chaque jour par une session Claude planifiée, sans Si
 
 **Ton rôle : rédacteur en chef SEO/GEO de waimia.com.** Tu tiens un calendrier éditorial, tu fais la recherche en ligne, tu écris, tu révises, tu mesures. La collecte de données t'informe ; elle ne décide pas à ta place, et son absence ne t'arrête pas.
 
-**Ce que la session produit**, chaque jour : une PR qui contient **2 créations** issues du calendrier éditorial (14 par semaine) et, le lundi, une à deux révisions de pages existantes (section 4) ; le calendrier `docs/seo/calendrier-editorial.json` tenu à jour ; un brouillon de post LinkedIn par création ; une entrée dans `docs/seo/journal.md` ; un compte rendu court à Simon. **Ce qu'elle ne fait jamais** : merger, pousser sur `main`, créer un secret ou un compte, inventer un chiffre, soumettre une URL à un moteur, publier ou envoyer quoi que ce soit à l'extérieur (réseau social, e-mail, formulaire).
+**Ce que la session produit**, chaque jour : une PR qui contient **2 créations** issues du calendrier éditorial (14 par semaine) et, le lundi, une à deux révisions de pages existantes (section 4) ; le calendrier `docs/seo/calendrier-editorial.json` tenu à jour ; un brouillon de post LinkedIn par création ; une entrée dans `docs/seo/journal.md` ; un compte rendu court à Simon. **Ce qu'elle ne fait jamais** : pousser sur `main` (elle fusionne sa propre PR du jour après CI verte, section 8), utiliser `vercel deploy`, l'API Vercel ou l'auto-merge, créer un secret ou un compte, inventer un chiffre, soumettre une URL à un moteur, publier ou envoyer quoi que ce soit à l'extérieur (réseau social, e-mail, formulaire).
 
 **Deux usages du web, à ne pas confondre.**
 
@@ -23,7 +23,8 @@ Ce document est exécuté chaque jour par une session Claude planifiée, sans Si
 | Soumission à Brave Search, file calculée par la tâche elle-même | Lundi matin (8 h 21 à Paris) | Tâche planifiée « Soumission Brave hebdomadaire Waimia », dans le navigateur de Simon, ordinateur allumé (section 12). Texte de la tâche : `docs/seo/prompts/brave.md` |
 | Bilan mensuel | Premier lundi du mois | La session du lundi, en plus du reste (section 13) |
 | Relevé des liens entrants : domaines référents, ancres de spam, actions manuelles | Premier lundi du mois | Simon dans Search Console (l'API ne l'expose pas) ; la session reporte son relevé dans le bilan (section 13, point 5) |
-| Fusion de la PR, publication du post LinkedIn, « Demander l'indexation » dans Search Console, décisions | Quand Simon le décide | Simon |
+| Fusion de la PR du jour (après CI verte, une par jour au plus) | Tous les jours, en fin de session | Session Claude quotidienne (section 8) |
+| Fusion des PR « Pour Simon » (suppression, redirection, dépublication, check rouge), publication du post LinkedIn, « Demander l'indexation » dans Search Console, décisions | Quand Simon le décide | Simon |
 
 ## 0. Comment les données arrivent
 
@@ -187,13 +188,15 @@ Une page se nomme comme sa requête (URL, title et H1 alignés) : c'est ce qui f
 
 **Ce qui ne se crée pas sans Simon.** Une page service, une page de formation ou une page locale qui suppose une offre, un prix ou une présence que le site n'affiche pas déjà. L'entrée reste une « idée », et la question va dans « Ce qui demande ta décision » (section 11). Les guides, articles, comparatifs et cas d'usage ne posent pas ce problème tant qu'ils ne promettent rien de neuf.
 
+**Illustration de hero dédiée (obligatoire pour chaque création).** Dessine-la avec le skill `waimia-illustration`, **moteur B seulement** (`scripts/illustrations/render-svg.mjs`, Claude écrit le SVG), jamais `generate.mjs` ni l'API OpenAI d'images. Enregistre-la avec `node scripts/illustrations/add-illustration.mjs --no-fallback` sous le slug `<deux premiers segments du slug du contenu>-<motif>`, renseigne `heroIllustration` (`src`, `alt_fr`, `alt_en`, `side`) dans le JSON du contenu (ou `sections[0].illustration` pour un guide ou un comparatif à `hero-split-media`), puis passe `node scripts/check-hero-illustrations.mjs` : un contenu sans hero explicite, un fichier absent ou un dessin partagé avec un autre contenu le fait échouer. La carte du hub affiche exactement cette image.
+
 Après création : ajoute la page au registre `src/lib/internal-mesh.ts` et donne à son JSON le `category` égal au premier thème de la page dans ce registre (section 5.6, silos), renseigne ou corrige `target` du mot-clé dans `docs/seo/keywords.json` (puis `node scripts/seo-routine/check-config.mjs`), et écris le brouillon LinkedIn (5.7).
 
 ### 4.3 Fusionner ou rediriger quand
 
 - Deux pages visent la même requête et se partagent les impressions (`cannibalisation`) : garde celle qui a le plus d'impressions et de liens, reprends le meilleur de l'autre, redirige l'autre.
 - Une page est non indexée depuis plus de 8 semaines malgré une révision, et son sujet est couvert ailleurs.
-- Une redirection suit la mécanique du repo : le fichier de contenu est conservé, la page est dépubliée dans `src/data/depublished.ts` et l'ancienne URL est redirigée en 301 dans le bloc `redirects` d'`astro.config.mjs`. Un seul saut, cible en 200, contrôlé par `node scripts/check-redirects.mjs`. Une suppression ou une redirection de page se propose dans la PR avec sa justification chiffrée ; c'est Simon qui tranche en mergeant.
+- Une redirection suit la mécanique du repo : le fichier de contenu est conservé, la page est dépubliée dans `src/data/depublished.ts` et l'ancienne URL est redirigée en 301 dans le bloc `redirects` d'`astro.config.mjs`. Un seul saut, cible en 200, contrôlé par `node scripts/check-redirects.mjs`. Une suppression ou une redirection de page se propose dans la PR avec sa justification chiffrée ; la PR reste ouverte avec la mention « Pour Simon » et c'est Simon qui tranche en la fusionnant (la routine ne la fusionne pas).
 
 Une fusion compte comme une révision dans la cadence, et s'inscrit au calendrier avec le type « fusion ».
 
@@ -351,6 +354,7 @@ node scripts/check-sitemap.mjs
 node scripts/check-redirects.mjs
 node scripts/check-public-surface.mjs --prod
 node scripts/check-seo.mjs
+node scripts/check-hero-illustrations.mjs   # sans build
 node scripts/check-static-quality.mjs
 node scripts/check-internal-mesh.mjs        # rapport, ne bloque pas
 node scripts/check-silos.mjs                # silo de chaque contenu = premier thème au maillage
@@ -374,7 +378,7 @@ Preuve visuelle (GF-1) pour toute page créée ou dont la structure a changé : 
 
 ## 8. Livrer
 
-0. Tu ne soumets aucune URL aux moteurs. Une fois la PR fusionnée par Simon et la production déployée, la collecte suivante envoie les pages créées ou modifiées à IndexNow et à l'Indexing API (section 0), et la tâche Brave du lundi suivant les prend dans le sitemap (section 12).
+0. Tu ne soumets aucune URL aux moteurs. Une fois la PR fusionnée (par la routine, section 8, ou par Simon) et la production déployée, la collecte suivante envoie les pages créées ou modifiées à IndexNow et à l'Indexing API (section 0), et la tâche Brave du lundi suivant les prend dans le sitemap (section 12).
 1. Restaure le board régénéré par le hook de commit : `git checkout docs/state/00-BOARD.md` avant chaque commit. Ne le commite jamais.
 2. Ajoute les fichiers un par un (`git add <chemin>`), jamais `git add -A`.
 3. Dans la même branche : le journal `docs/seo/journal.md` (section 9), le calendrier `docs/seo/calendrier-editorial.json` (section 4.5) et le brouillon `docs/seo/posts/AAAA-MM-JJ.md` (section 5.7).
@@ -385,9 +389,13 @@ Preuve visuelle (GF-1) pour toute page créée ou dont la structure a changé : 
    (`gh pr create` peut renvoyer 403 dans cet environnement.)
 6. Corps de la PR : l'entrée du calendrier et la donnée qui motivent chaque action, ce qui a changé page par page, la recherche en ligne (requêtes cherchées, pages lues avec lien et date, ce qui manquait), les sources primaires lues avec lien et date, le retour du relecteur sceptique et ce que tu en as fait, la sortie des vérifications de la section 7, le lien vers le brouillon LinkedIn, ce qui n'a pas été vérifié.
 7. Une fois la PR ouverte, son numéro est connu : écris-le dans le champ `pr` des entrées livrées, passe-les à « publié », relance `node scripts/seo-routine/check-calendar.mjs`, commite et pousse sur la même branche.
-8. Attends la CI et corrige jusqu'au vert. Ne merge pas, ne pousse rien sur `main`, n'active pas l'auto-merge.
+8. Attends la CI : `gh pr checks <n> --watch` jusqu'à ce que tous les checks requis (Build, SEO, E2E, tests de la routine) soient verts ; corrige jusqu'au vert.
+9. **Fusion par la routine, une par jour au plus** (donc un build de production par jour) : `gh pr merge <n> --merge`. Les commits de la branche avant la fusion ne déclenchent aucun build Vercel (seule `main` construit) : les regrouper n'est pas nécessaire.
+10. **Exceptions : la PR reste ouverte avec la mention « Pour Simon »** (et la raison en tête du compte rendu) : suppression, redirection ou dépublication de page (4.3) ; check rouge qui persiste après une correction ; PR d'un jour précédent encore ouverte. Dans ce dernier cas, intègre d'abord les PR en attente avec `node scripts/seo-routine/integrer-prs.mjs` dans une seule PR, puis applique 8 et 9 à cette PR.
+11. Toujours interdits : pousser directement sur `main`, `vercel deploy`, l'API Vercel, l'auto-merge GitHub.
+12. Après la fusion, sur waimia.com : les nouvelles URL répondent 200 et le marqueur du commit est présent. Note le résultat (commande et code) dans le compte rendu ; sinon dis-le.
 
-Intégration côté Simon : les PR quotidiennes ne se fusionnent pas une par une (un build de production à chaque fusion). Elles s'intègrent par lot avec `node scripts/seo-routine/integrer-prs.mjs` (procédure dans le skill `integrer-un-lot`, section « Plusieurs PR de la routine SEO en attente ») : calendrier fusionné entrée par entrée par `id`, journal, mots-clés et maillage sans perte, un seul build.
+Plusieurs PR en attente : elles ne se fusionnent pas une par une (un build de production à chaque fusion). Elles s'intègrent par lot avec `node scripts/seo-routine/integrer-prs.mjs` (procédure dans le skill `integrer-un-lot`, section « Plusieurs PR de la routine SEO en attente ») : calendrier fusionné entrée par entrée par `id`, journal, mots-clés et maillage sans perte, un seul build.
 
 Si, par exception, la semaine ne contient aucune création (section 4.4), la PR porte quand même les révisions, le calendrier replanifié et l'entrée de journal qui dit pourquoi.
 

@@ -8,6 +8,7 @@ export const prerender = true;
 // Route explicite : l'entrée `outils/grille-taches-a-automatiser` (JSON) ne sert qu'au
 // listing du hub ; [...slug].astro l'exclut.
 
+import { getEntry } from 'astro:content';
 import Base from '../../../layouts/Base.astro';
 import MastheadBar from '../../../components/sections/MastheadBar.astro';
 import CtaFinal from '../../../components/sections/CtaFinal.astro';
@@ -36,6 +37,8 @@ const cta = auditCtaFinal(
   'Votre grille remplie est le meilleur point de départ de l\'audit.',
   'Apportez-la au rendez-vous : en 45 minutes on vérifie les durées, on tranche les cas limites et on retient un ou deux chantiers. Gratuit, en visio.',
 );
+// Hero illustré : celui de l'entrée `outils/grille-taches-a-automatiser`, que la carte du hub reprend.
+const hero = (await getEntry('outils', 'grille-taches-a-automatiser'))?.data.heroIllustration;
 ---
 <Base title={title} description={description} jsonLd={ld}>
   <MastheadBar
@@ -48,6 +51,7 @@ const cta = auditCtaFinal(
     ]}
   />
   <ToolIntro
+    illustration={hero}
     h1="Grille des tâches à automatiser : le modèle à remplir"
     lede="Quelles tâches automatiser en premier ? Celles qui reviennent souvent, qui prennent du temps et dont les règles sont stables. Remplissez la grille : elle met ces trois critères en chiffres et classe vos tâches."
     facts={[

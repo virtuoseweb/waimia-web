@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · « Charte IA entreprise » : un bassin de natation à lignes d'eau. Des couloirs
+       pour nager (les outils autorisés), un coin fermé par une ligne de bouées (les données
+       interdites), une maître-nageuse sur sa chaise haute (la validation humaine).
+       Hero (multiply sur paper) : fond crème, aucun aplat ne touche les bords, sujet entre
+       x 460 et 1240. Rôles : subject = l'eau, shape = margelle ; silhouettes en {{shadow}}. -->
+  <defs>
+    <g id="woman"><circle cx="0" cy="-90" r="7" fill="{{shadow}}"/><circle cx="-5" cy="-96" r="5" fill="{{shadow}}"/><path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{shadow}}"/><path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{shadow}}"/><rect x="-6" y="-25" width="4" height="23" fill="{{shadow}}"/><rect x="2" y="-25" width="4" height="23" fill="{{shadow}}"/><path d="M-8 -3 L-1 -3 L-1 0 L-8 0 Z M1 -3 L10 -3 L10 0 L1 0 Z" fill="{{shadow}}"/></g>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+
+  <!-- Plage du bassin -->
+  <ellipse cx="860" cy="488" rx="420" ry="40" fill="{{ground}}"/>
+
+  <!-- Bassin en légère plongée : margelle puis eau -->
+  <path d="M548 362 L1132 362 L1210 476 L470 476 Z" fill="{{shape}}"/>
+  <path d="M566 372 L1116 372 L1186 466 L494 466 Z" fill="{{subject}}"/>
+  <!-- Lignes d'eau (points crème) -->
+  <g fill="none" stroke="{{light}}" stroke-width="7" stroke-linecap="round" stroke-dasharray="0.1 16">
+    <path d="M704 374 L667 464"/>
+    <path d="M842 374 L840 464"/>
+    <path d="M980 374 L1013 464"/>
+  </g>
+  <!-- Le coin fermé : une ligne de bouées sombres en travers du dernier couloir -->
+  <g fill="{{deep}}">
+    <circle cx="1008" cy="420" r="7"/><circle cx="1030" cy="420" r="7"/><circle cx="1052" cy="420" r="7"/><circle cx="1074" cy="420" r="7"/><circle cx="1096" cy="420" r="7"/><circle cx="1118" cy="420" r="7"/><circle cx="1140" cy="420" r="7"/>
+  </g>
+  <!-- Un nageur dans le deuxième couloir -->
+  <circle cx="760" cy="420" r="8" fill="{{shadow}}"/>
+  <path d="M770 416 Q786 400 800 414" fill="none" stroke="{{shadow}}" stroke-width="5" stroke-linecap="round"/>
+  <path d="M736 424 L746 424 M724 430 L740 430" stroke="{{light}}" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Chaise haute de la maître-nageuse, vue de profil -->
+  <g fill="{{deep}}">
+    <rect x="1236" y="300" width="9" height="196"/>
+    <path d="M1180 494 L1190 494 L1226 316 L1216 316 Z"/>
+    <rect x="1206" y="306" width="46" height="9"/>
+    <rect x="1244" y="252" width="8" height="58"/>
+    <rect x="1194" y="440" width="44" height="5"/>
+    <rect x="1203" y="396" width="36" height="5"/>
+    <rect x="1212" y="352" width="27" height="5"/>
+  </g>
+  <!-- Elle, assise, regarde le bassin -->
+  <g transform="translate(1226 306) scale(1.9)">
+    <g fill="{{shadow}}">
+      <circle cx="0" cy="-37" r="7"/>
+      <circle cx="5" cy="-43" r="5"/>
+      <path d="M-8 -28 Q0 -32 8 -28 L8 0 L-8 0 Z"/>
+      <rect x="-20" y="-6" width="16" height="6"/>
+      <rect x="-21" y="-6" width="5" height="22"/>
+    </g>
+    <path d="M-6 -24 L-14 -12 L-22 -14" fill="none" stroke="{{shadow}}" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Une nageuse attend son tour sur la margelle, à gauche -->
+  <use href="#woman" transform="translate(520 470) scale(1.9)"/>
+</svg>

@@ -9,6 +9,7 @@ export const prerender = true;
 // Route explicite : l'entrée `outils/charte-ia-entreprise` (JSON) ne sert qu'au listing
 // du hub ; [...slug].astro l'exclut.
 
+import { getEntry } from 'astro:content';
 import Base from '../../../layouts/Base.astro';
 import MastheadBar from '../../../components/sections/MastheadBar.astro';
 import CtaFinal from '../../../components/sections/CtaFinal.astro';
@@ -34,6 +35,8 @@ const cta = auditCtaFinal(
   'Une charte dit ce qui est permis. L\'audit dit par quelle tâche commencer.',
   '45 minutes en visio, gratuit : vos process passés en revue tâche par tâche, et une cartographie écrite à la fin.',
 );
+// Hero illustré : celui de l'entrée `outils/charte-ia-entreprise`, que la carte du hub reprend.
+const hero = (await getEntry('outils', 'charte-ia-entreprise'))?.data.heroIllustration;
 ---
 <Base title={title} description={description} jsonLd={ld} ogType="article">
   <MastheadBar
@@ -46,6 +49,7 @@ const cta = auditCtaFinal(
     ]}
   />
   <ToolIntro
+    illustration={hero}
     h1="Charte IA entreprise : un modèle pour PME, à adapter"
     lede={`Une charte IA fixe quels outils d'IA vos équipes peuvent utiliser, avec quelles données, et qui relit et valide ce qui en sort. Ce modèle tient en ${charterArticles.length} articles courts, en entier ci-dessous.`}
     facts={[

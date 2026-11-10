@@ -9,6 +9,7 @@ export const prerender = true;
 // Route explicite : l'entrée `outils/checklist-90-jours-claude` (JSON) ne sert qu'au
 // listing du hub ; [...slug].astro l'exclut.
 
+import { getEntry } from 'astro:content';
 import Base from '../../../layouts/Base.astro';
 import MastheadBar from '../../../components/sections/MastheadBar.astro';
 import CtaFinal from '../../../components/sections/CtaFinal.astro';
@@ -35,6 +36,8 @@ const cta = auditCtaFinal(
   'La checklist donne l\'ordre des actions. L\'audit choisit votre cas pilote.',
   '45 minutes en visio, gratuit : vos process passés en revue tâche par tâche, et un ou deux chantiers classés, écrits noir sur blanc.',
 );
+// Hero illustré : celui de l'entrée `outils/checklist-90-jours-claude`, que la carte du hub reprend.
+const hero = (await getEntry('outils', 'checklist-90-jours-claude'))?.data.heroIllustration;
 ---
 <Base title={title} description={description} jsonLd={ld} ogType="article">
   <MastheadBar
@@ -47,6 +50,7 @@ const cta = auditCtaFinal(
     ]}
   />
   <ToolIntro
+    illustration={hero}
     h1="Checklist 90 jours : déployer Claude dans votre PME"
     lede={`Le plan du guide « Déployer Claude dans votre PME », rendu actionnable : ${prerequisites.length} prérequis, ${phases.length} phases de 30 jours, une case par action et un livrable par semaine. Cochez en ligne ou imprimez-la pour votre réunion de lancement.`}
     facts={[

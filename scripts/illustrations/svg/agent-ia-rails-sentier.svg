@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · « Agent IA vs automatisation » : un wagonnet chargé de caisses identiques file sur des rails droits jusqu'au butoir ; au-delà, une personne continue à pied sur des pierres irrégulières qui montent une colline.
+       Hero de billet (multiply sur fond paper) : fond crème, aucun aplat ne touche les bords,
+       sol en ellipse, sujet entre x 300 et 1250. Distribution creme-aere ; silhouettes en {{shadow}}. -->
+  <defs><g id="walk"><circle cx="1" cy="-90" r="7.5"/><path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z"/><rect x="-5" y="-46" width="9.5" height="45" transform="rotate(16 0 -44)"/><rect x="-4.5" y="-46" width="9.5" height="45" transform="rotate(-16 0 -44)"/><rect x="-21" y="-3" width="12" height="3" rx="1.5"/><rect x="10" y="-3" width="13" height="3" rx="1.5"/></g></defs>
+  <rect width="1456" height="624" fill="{{field}}"/>
+
+  <ellipse cx="740" cy="506" rx="440" ry="22" fill="{{ground}}"/>
+  <path d="M800 504 Q980 360 1170 504 Z" fill="{{ground}}"/>
+  <!-- traverses et rail -->
+  <g fill="{{soft}}">
+    <rect x="316" y="482" width="24" height="12"/><rect x="366" y="482" width="24" height="12"/><rect x="416" y="482" width="24" height="12"/>
+    <rect x="466" y="482" width="24" height="12"/><rect x="516" y="482" width="24" height="12"/><rect x="566" y="482" width="24" height="12"/>
+    <rect x="616" y="482" width="24" height="12"/><rect x="666" y="482" width="24" height="12"/><rect x="716" y="482" width="24" height="12"/>
+  </g>
+  <rect x="306" y="474" width="452" height="8" fill="{{detail}}"/>
+  <!-- butoir -->
+  <rect x="758" y="430" width="34" height="52" fill="{{subject}}"/>
+  <rect x="748" y="440" width="10" height="26" fill="{{detail}}"/>
+  <!-- wagonnet et caisses identiques -->
+  <path d="M430 398 L604 398 L592 456 L442 456 Z" fill="{{subject}}"/>
+  <circle cx="470" cy="462" r="12" fill="{{detail}}"/><circle cx="566" cy="462" r="12" fill="{{detail}}"/>
+  <g fill="{{shape}}"><rect x="446" y="356" width="44" height="42"/><rect x="496" y="356" width="44" height="42"/><rect x="546" y="356" width="44" height="42"/></g>
+  <g fill="{{detail}}"><rect x="446" y="372" width="44" height="5"/><rect x="496" y="372" width="44" height="5"/><rect x="546" y="372" width="44" height="5"/></g>
+  <!-- pierres irrégulières sur la colline -->
+  <g fill="{{shape}}">
+    <ellipse cx="838" cy="488" rx="26" ry="8"/><ellipse cx="884" cy="462" rx="18" ry="7"/><ellipse cx="938" cy="446" rx="30" ry="8"/>
+    <ellipse cx="1000" cy="436" rx="20" ry="7"/><ellipse cx="1056" cy="444" rx="26" ry="8"/><ellipse cx="1104" cy="466" rx="16" ry="6"/>
+  </g>
+  <!-- la personne continue à pied, bâton en main -->
+  <use href="#walk" fill="{{shadow}}" transform="translate(940 444) scale(1.9)"/>
+  <path d="M955 299 L968 324 L978 326" fill="none" stroke="{{shadow}}" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M980 300 L992 446" stroke="{{detail}}" stroke-width="5" stroke-linecap="round"/>
+
+</svg>

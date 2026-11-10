@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · « Forward deployed engineer » : depuis sa petite vedette, un pilote grimpe à l'échelle de corde le long d'un grand navire pour le guider de l'intérieur.
+       Hero de billet (multiply sur fond paper) : fond crème, aucun aplat ne touche les bords,
+       sol en ellipse, sujet entre x 300 et 1250. Distribution objet-bleu ; silhouettes en {{shadow}}. -->
+  <defs><g id="man"><circle cx="1" cy="-90" r="7.5"/><path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z"/><rect x="-11.5" y="-44" width="9.5" height="42"/><rect x="2" y="-44" width="9.5" height="42"/><rect x="-12" y="-3" width="11" height="3" rx="1.5"/><rect x="2" y="-3" width="13" height="3" rx="1.5"/></g></defs>
+  <rect width="1456" height="624" fill="{{field}}"/>
+
+  <!-- navire -->
+  <path d="M470 236 L1070 236 L1030 436 L530 436 Z" fill="{{shape}}"/>
+  <rect x="464" y="226" width="612" height="14" fill="{{deep}}"/>
+  <rect x="506" y="392" width="540" height="10" fill="{{mid}}"/>
+  <rect x="850" y="146" width="160" height="80" fill="{{pale}}"/>
+  <g fill="{{deep}}"><rect x="868" y="166" width="26" height="18"/><rect x="910" y="166" width="26" height="18"/><rect x="952" y="166" width="26" height="18"/></g>
+  <rect x="900" y="96" width="44" height="52" fill="{{deep}}"/><rect x="900" y="112" width="44" height="10" fill="{{pale}}"/>
+  <!-- échelle de corde -->
+  <path d="M588 240 L584 426 M618 240 L614 426" stroke="{{deep}}" stroke-width="4"/>
+  <g fill="{{deep}}"><rect x="586" y="262" width="32" height="5"/><rect x="586" y="288" width="32" height="5"/><rect x="586" y="314" width="32" height="5"/><rect x="585" y="340" width="32" height="5"/><rect x="585" y="366" width="31" height="5"/><rect x="584" y="392" width="31" height="5"/><rect x="584" y="418" width="31" height="5"/></g>
+  <!-- mer (bleue) -->
+  <path d="M300 456 Q300 420 350 420 L1080 420 Q1130 420 1130 452 Q1130 490 1070 500 L360 500 Q300 494 300 456 Z" fill="{{subject}}"/>
+  <g fill="{{light}}"><rect x="640" y="452" width="90" height="5" rx="2.5"/><rect x="820" y="440" width="120" height="5" rx="2.5"/><rect x="980" y="470" width="80" height="5" rx="2.5"/><rect x="420" y="476" width="100" height="5" rx="2.5"/></g>
+  <!-- vedette du pilote -->
+  <rect x="392" y="372" width="66" height="40" fill="{{deep}}"/>
+  <rect x="404" y="382" width="22" height="14" fill="{{light}}"/>
+  <path d="M350 410 L540 410 L516 442 L372 442 Z" fill="{{shadow}}"/>
+  <!-- le pilote qui grimpe -->
+  <use href="#man" fill="{{shadow}}" transform="translate(601 392) scale(1.4)"/>
+  <path d="M612 282 L616 262 L615 240 M590 282 L587 266 L588 250" fill="none" stroke="{{shadow}}" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+
+</svg>

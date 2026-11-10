@@ -3,13 +3,16 @@
 // Volontairement basse : l'outil lui-même doit apparaître au-dessus de la ligne de
 // flottaison. Titre, une phrase, et les faits utiles avant de commencer (durée, e-mail
 // requis ou non, format). Slot `actions` facultatif (boutons de téléchargement, ancre).
+// `illustration` : le hero illustré du contenu (`heroIllustration` de son JSON), le même
+// dessin que la carte du hub (card-visual.ts) ; affiché au-dessus des faits.
 interface Fact { label: string; value: string }
 interface Props {
   h1: string;
   lede: string;
   facts?: Fact[];
+  illustration?: { src: string; alt_fr: string };
 }
-const { h1, lede, facts = [] } = Astro.props as Props;
+const { h1, lede, facts = [], illustration } = Astro.props as Props;
 ---
 <header class="ti">
   <div class="wrap-wide ti-in">
@@ -18,12 +21,19 @@ const { h1, lede, facts = [] } = Astro.props as Props;
       <p class="ti-lede">{lede}</p>
       {Astro.slots.has('actions') && <div class="ti-actions"><slot name="actions" /></div>}
     </div>
-    {facts.length > 0 && (
-      <dl class="ti-facts">
-        {facts.map((f) => (
-          <div><dt>{f.label}</dt><dd>{f.value}</dd></div>
-        ))}
-      </dl>
+    {(illustration || facts.length > 0) && (
+      <div class="ti-side">
+        {illustration && (
+          <img class="ti-illu" src={illustration.src} alt={illustration.alt_fr} width="1456" height="624" fetchpriority="high" decoding="async" />
+        )}
+        {facts.length > 0 && (
+          <dl class="ti-facts">
+            {facts.map((f) => (
+              <div><dt>{f.label}</dt><dd>{f.value}</dd></div>
+            ))}
+          </dl>
+        )}
+      </div>
     )}
   </div>
 </header>
@@ -43,6 +53,8 @@ const { h1, lede, facts = [] } = Astro.props as Props;
   }
   .ti-lede { font-size: var(--text-h3); line-height: 1.42; color: var(--ink-3); margin: 0; max-width: 62ch; }
   .ti-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-5); }
+  .ti-side { display: grid; gap: var(--space-5); min-width: 0; }
+  .ti-illu { width: 100%; height: auto; display: block; }
   .ti-facts { margin: 0; border-top: 1px solid var(--ink); }
   .ti-facts div { display: grid; grid-template-columns: 7rem 1fr; gap: var(--space-3); padding: var(--space-2) 0; border-bottom: 1px solid var(--hairline-strong); font-size: var(--text-small); line-height: var(--leading-body); }
   .ti-facts dt { color: var(--muted); }

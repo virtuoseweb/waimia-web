@@ -18,7 +18,8 @@ Partir d'une requête mesurée, pas d'une intuition.
 7. FAQ : seulement des questions réellement posées, jamais en masse.
 8. Aucun fait, chiffre, client, avis ou adresse inventé ; chaque fait local vérifié à sa source. Pas de tiret cadratin (`node scripts/check-no-emdash.mjs`), jargon contrôlé (`check-jargon.mjs`).
 9. Contenu JSON sous `src/content/`, prose en `html_fr`/`html_en`. Contenu réutilisé par ID, pas de copie.
-10. Attente réaliste : un `title` seul ne bouge rien au-delà de la position 20 ; ne pas le promettre.
+10. Contenu créé : illustration de hero dédiée et unique, dessinée avec `waimia-illustration` (moteur B seulement : `render-svg.mjs`, jamais `generate.mjs` ni l'API OpenAI), enregistrée par `add-illustration.mjs --no-fallback` sous `<deux premiers segments du slug>-<motif>`, renseignée en `heroIllustration` ; puis `npm run check:hero-illustrations`.
+11. Attente réaliste : un `title` seul ne bouge rien au-delà de la position 20 ; ne pas le promettre.
 
 ## Preuve
 

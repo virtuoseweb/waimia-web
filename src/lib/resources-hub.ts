@@ -128,6 +128,7 @@ async function build(): Promise<ResourceItem[]> {
           excerpt_en: maturite.data.description_en,
           date: new Date(maturite.data.publishedAt),
           href: '/ressources/diagnostics/maturite-ia',
+          heroSrc: maturite.data.heroIllustration?.src,
           tags: maturite.data.tags,
           toolType: 'audit' as const,
           tag_fr: TOOL_TAG.audit.fr,

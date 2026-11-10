@@ -31,6 +31,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { DEPUBLISHED_SERVICE_IDS, DEPUBLISHED_DEMONSTRATION_IDS, isRedirectedPath } from '../data/depublished';
 import { NOINDEX_SITEMAP_PATHS } from '../data/sitemap-noindex-exclude';
+import { SILOS } from '../data/taxonomies';
 import { listRouteSources } from './seo/lastmod.mjs';
 import { SERVICE_HUB_PATHS, hubChildren } from './seo/service-catalog';
 
@@ -63,6 +64,18 @@ export const REINFORCED_PAGES: ReadonlySet<string> = new Set([
 const minInbound = (route: string) => (REINFORCED_PAGES.has(route) ? REINFORCED_INBOUND : MIN_INBOUND);
 /** Liens émis par thème depuis une page. */
 const LINKS_PER_TOPIC = 3;
+
+/**
+ * Page de service (money page) de chaque silo : tout article, guide, comparatif ou diagnostic
+ * la lie, quel que soit son rang dans l'anneau. Dérivée du `pillar` de SILOS
+ * (src/data/taxonomies.ts), sauf `claude` dont le pilier est un guide : la page de service
+ * est alors l'intégration Claude. Une page absente ou noindex est ignorée (filtre `live`).
+ */
+const MONEY_PAGE: Record<Topic, string> = Object.fromEntries(
+  Object.entries(SILOS).map(([silo, def]) => [silo, silo === 'claude' ? '/services/integration-claude' : def.pillar]),
+) as Record<Topic, string>;
+/** Natures de page qui portent le lien vers la page de service de leur silo. */
+const LINKS_TO_MONEY_PAGE: ReadonlySet<Kind> = new Set<Kind>(['article', 'guide', 'comparatif', 'diagnostic']);
 
 type Topic =
   | 'automatisation'
@@ -125,7 +138,7 @@ const PAGES: Record<string, PageDef> = {
   '/cas-usages/finance-comptabilite': { label_fr: 'IA et automatisation de la comptabilité', label_en: 'AI and accounting automation', kind: 'cas-usage', topics: ['automatisation', 'donnees'] },
   '/cas-usages/rh': { label_fr: 'IA et automatisation des ressources humaines', label_en: 'AI and HR automation', kind: 'cas-usage', topics: ['automatisation', 'conformite'] },
   '/ressources/guides/taches-a-automatiser-pme': { label_fr: "Guide : quelles tâches automatiser d'abord", label_en: 'Guide: which tasks to automate first', kind: 'guide', topics: ['automatisation', 'conseil'] },
-  '/blog/agent-ia-vs-automatisation-classique-2026': { label_fr: 'Agent IA ou automatisation classique', label_en: 'AI agent or classic automation', kind: 'article', topics: ['agents', 'automatisation'] },
+  '/blog/agent-ia-vs-automatisation-classique-2026': { label_fr: 'Agent IA ou automatisation : choisir étape par étape', label_en: 'AI agent or automation: choosing step by step', kind: 'article', topics: ['agents', 'automatisation'] },
   '/ressources/guides/agent-ia-definition': { label_fr: 'Agent IA : définition et limites', label_en: 'AI agent: definition and limits', kind: 'guide', topics: ['agents', 'automatisation'] },
   '/ressources/guides/llm-rag-dirigeant': { label_fr: 'LLM et RAG : définitions pour dirigeants', label_en: 'LLM and RAG: definitions for business owners', kind: 'guide', topics: ['agents', 'claude'] },
   '/blog/workflow-ia-exemples-pme': { label_fr: 'Workflow IA : cinq exemples concrets', label_en: 'AI workflow: five concrete examples', kind: 'article', topics: ['automatisation', 'agents'] },
@@ -300,7 +313,7 @@ const PAGES: Record<string, PageDef> = {
   '/services/audit-seo-technique': { label_fr: 'Audit SEO technique', label_en: 'Technical SEO audit', kind: 'service', topics: ['acquisition'] },
   '/services/seo-geo-contenu': { label_fr: 'Agence SEO et référencement naturel', label_en: 'SEO and organic search agency', kind: 'service', topics: ['acquisition'] },
   '/ressources/comparatifs/geo-vs-seo': { label_fr: 'GEO ou SEO', label_en: 'GEO or SEO', kind: 'comparatif', topics: ['acquisition'] },
-  '/blog/seo-geo-etre-cite-par-les-ia-generatives': { label_fr: 'Être cité par les IA génératives', label_en: 'Get cited by generative AI', kind: 'article', topics: ['acquisition'] },
+  '/blog/seo-geo-etre-cite-par-les-ia-generatives': { label_fr: 'GEO : ce que Google documente, ce qui reste à prouver', label_en: 'GEO: what Google documents, what remains to be proven', kind: 'article', topics: ['acquisition'] },
   '/services/referencement-ia': { label_fr: 'Agence GEO : être cité par les IA', label_en: 'GEO agency: get cited by AI', kind: 'service', topics: ['acquisition'] },
   '/services/redaction-seo-contenu': { label_fr: 'Rédaction SEO et contenu', label_en: 'SEO writing and content', kind: 'service', topics: ['acquisition'] },
   '/blog/contenu-ia-seo-google-penalise': { label_fr: 'Contenu IA et SEO : ce que Google pénalise', label_en: 'AI content and SEO: what Google penalises', kind: 'article', topics: ['acquisition'] },
@@ -352,6 +365,8 @@ const PAGES: Record<string, PageDef> = {
   '/blog/ia-esn': { label_fr: "IA pour ESN : appels d'offres, dossiers, staffing", label_en: 'AI for IT services firms: tenders, staffing', kind: 'article', topics: ['conseil', 'conformite'] },
   '/blog/claude-chatgpt-mistral-offres-equipe': { label_fr: 'Claude Team, ChatGPT Business ou Mistral Vibe Team : comparatif', label_en: 'Claude Team, ChatGPT Business or Mistral Vibe Team compared', kind: 'article', topics: ['claude', 'conseil'] },
   '/blog/claude-pro-vs-team': { label_fr: 'Claude Pro ou Team : lequel choisir', label_en: 'Claude Pro vs Team: which to choose', kind: 'article', topics: ['claude', 'conseil'] },
+  '/blog/claude-max-ou-team-petite-equipe': { label_fr: 'Claude Max, Ultra ou Team : coût pour 3 à 10 personnes', label_en: 'Claude Max, Ultra or Team: cost for 3 to 10 people', kind: 'article', topics: ['claude', 'conseil'] },
+  '/blog/chatgpt-pro-ou-business-petite-equipe': { label_fr: 'ChatGPT Pro ou Business : coût pour 3 à 10 personnes', label_en: 'ChatGPT Pro or Business: cost for 3 to 10 people', kind: 'article', topics: ['conseil', 'claude'] },
   '/blog/risques-claude-pme': { label_fr: 'Risques de Claude en PME : 8 risques et leurs réglages', label_en: 'Risks of Claude in a small business', kind: 'article', topics: ['claude', 'conformite'] },
   '/blog/questionnaire-securite-ia': { label_fr: "Questionnaire de sécurité client : répondre avec l'IA", label_en: 'Customer security questionnaires with AI', kind: 'article', topics: ['conformite', 'claude'] },
   '/blog/facture-electronique-reception-pme': { label_fr: 'Facture électronique : ce que change la réception en PME', label_en: 'E-invoicing: what receiving changes for a small business', kind: 'article', topics: ['automatisation', 'conformite'] },
@@ -444,7 +459,10 @@ function computeLiveRoutes(root: string): Set<string> {
   } catch {
     return live; // pas d'accès disque (rendu serverless) : aucun lien émis plutôt qu'un lien faux
   }
-  for (const { route, file } of sources) {
+  for (const { route: sourceRoute, file } of sources) {
+    // Le hub des formations (content/formations/index.json) porte `slug: formations` : le calcul
+    // de route de lastmod.mjs en tire /formations/formations. La page servie est /formations.
+    const route = sourceRoute === '/formations/formations' ? '/formations' : sourceRoute;
     if (!(route in PAGES) || NOINDEX_SITEMAP_PATHS.has(route) || isRedirectedPath(route)) continue;
     const id = route.split('/').pop() ?? '';
     if (route.startsWith('/services/') && (DEPUBLISHED_SERVICE_IDS.has(id) || id === 'template-service-ref')) continue;
@@ -536,6 +554,20 @@ function buildGraph(root: string): Graph {
       if (candidates.length === 0) break;
       out.get(candidates[0])!.push(target);
       inbound.set(target, (inbound.get(target) ?? 0) + 1);
+    }
+  }
+
+  // 3. Page de service du silo (premier thème de la page), en tête des liens émis. Posée APRÈS
+  //    l'équilibrage : elle s'ajoute aux liens calculés sans changer le choix des émettrices
+  //    d'appoint. Un silo sans page de service vivante n'ajoute rien.
+  for (const route of emitters) {
+    const def = PAGES[route];
+    if (!LINKS_TO_MONEY_PAGE.has(def.kind)) continue;
+    const money = MONEY_PAGE[def.topics[0]];
+    const links = out.get(route)!;
+    if (money && money !== route && live.has(money) && !links.includes(money) && allowed(route, money)) {
+      links.unshift(money);
+      inbound.set(money, (inbound.get(money) ?? 0) + 1);
     }
   }
 

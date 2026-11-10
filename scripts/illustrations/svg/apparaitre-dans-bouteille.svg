@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · « Apparaître dans ChatGPT » : depuis la grève, une personne lance une bouteille à la mer ; une autre bouteille dérive déjà au loin, portée par le courant, sous un grand soleil.
+       Hero de billet (multiply sur fond paper) : fond crème, aucun aplat ne touche les bords,
+       sol en ellipse, sujet entre x 300 et 1250. Distribution creme-aere ; silhouettes en {{shadow}}. -->
+  <defs><g id="man"><circle cx="1" cy="-90" r="7.5"/><path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z"/><rect x="-11.5" y="-44" width="9.5" height="42"/><rect x="2" y="-44" width="9.5" height="42"/><rect x="-12" y="-3" width="11" height="3" rx="1.5"/><rect x="2" y="-3" width="13" height="3" rx="1.5"/></g></defs>
+  <rect width="1456" height="624" fill="{{field}}"/>
+
+  <path d="M840 420 A170 170 0 0 1 1180 420 Z" fill="{{pale}}"/>
+  <path d="M560 444 Q560 420 620 420 L1220 420 Q1280 420 1280 452 Q1280 486 1214 500 L650 500 Q560 492 560 444 Z" fill="{{shape}}"/>
+  <g fill="{{light}}"><rect x="690" y="444" width="90" height="5" rx="2.5"/><rect x="860" y="436" width="120" height="5" rx="2.5"/><rect x="1100" y="452" width="80" height="5" rx="2.5"/><rect x="760" y="474" width="110" height="5" rx="2.5"/><rect x="980" y="480" width="140" height="5" rx="2.5"/></g>
+  <!-- courant -->
+  <path d="M820 462 Q900 452 960 458 Q1010 462 1050 448" fill="none" stroke="{{detail}}" stroke-width="5" stroke-linecap="round"/>
+  <!-- grève -->
+  <path d="M300 506 Q330 470 420 466 Q560 462 660 506 Z" fill="{{ground}}"/>
+  <ellipse cx="480" cy="506" rx="190" ry="14" fill="{{ground}}"/>
+  <!-- la personne qui lance -->
+  <use href="#man" fill="{{shadow}}" transform="translate(470 486) scale(2.1)"/>
+  <path d="M487 324 L506 296 L522 270" fill="none" stroke="{{shadow}}" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- trajectoire et bouteille en l'air -->
+  <g fill="{{detail}}"><circle cx="560" cy="246" r="4"/><circle cx="600" cy="236" r="4"/><circle cx="640" cy="236" r="4"/></g>
+  <g transform="rotate(38 690 250)"><rect x="676" y="226" width="28" height="56" rx="9" fill="{{shadow}}"/><rect x="684" y="208" width="12" height="22" fill="{{shadow}}"/><rect x="683" y="202" width="14" height="8" fill="{{detail}}"/></g>
+  <!-- bouteille qui dérive au loin -->
+  <g transform="rotate(-70 1080 438)"><rect x="1068" y="420" width="24" height="46" rx="8" fill="{{shadow}}"/><rect x="1075" y="406" width="10" height="18" fill="{{shadow}}"/></g>
+
+</svg>

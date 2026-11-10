@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · « IA pour PME industrielle » : une machine d'atelier et son grand volant (shape = bleu),
+       reliés par une courroie ; le technicien en casquette graisse le palier, burette en main.
+       Hero de billet (multiply sur fond paper) : fond crème fixe (ton light, jamais le rôle field),
+       aucun aplat ne touche les bords, sujet entre x 300 et 1250, sol en ellipse.
+       Silhouettes en ton shadow quelle que soit la distribution. -->
+  <defs>
+    <g id="man" fill="{{shadow}}"><circle cx="0" cy="-91" r="7.5"/><path d="M-11 -81 Q0 -85 11 -81 L12 -44 L-12 -44 Z"/><rect x="-10" y="-46" width="8.5" height="44"/><rect x="1.5" y="-46" width="8.5" height="44"/><rect x="-11" y="-3" width="11" height="3" rx="1.5"/><rect x="1" y="-3" width="13" height="3" rx="1.5"/></g>
+    <g id="woman" fill="{{shadow}}"><circle cx="0" cy="-90" r="7"/><circle cx="-5" cy="-96" r="5"/><path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z"/><path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z"/><rect x="-6" y="-25" width="4" height="23"/><rect x="2" y="-25" width="4" height="23"/><path d="M-8 -3 L-1 -3 L-1 0 L-8 0 Z M1 -3 L10 -3 L10 0 L1 0 Z"/></g>
+    <g id="sit" fill="{{shadow}}"><circle cx="4" cy="-78" r="7"/><path d="M-6 -68 Q4 -72 13 -68 L12 -30 L-7 -30 Z"/><rect x="-7" y="-34" width="32" height="10" rx="3"/><rect x="17" y="-30" width="8" height="28"/><rect x="17" y="-3" width="14" height="3" rx="1.5"/></g>
+    <g id="sitw" fill="{{shadow}}"><circle cx="4" cy="-78" r="7"/><circle cx="-1" cy="-84" r="5"/><path d="M-5 -68 Q4 -72 12 -68 L11 -42 L-6 -42 Z"/><path d="M-8 -43 L13 -43 L14 -30 L-8 -30 Z"/><rect x="-7" y="-34" width="32" height="10" rx="3"/><rect x="17" y="-30" width="6" height="28"/><rect x="17" y="-3" width="13" height="3" rx="1.5"/></g>
+  </defs>
+  <rect width="1456" height="624" fill="{{light}}"/>
+  <ellipse cx="860" cy="506" rx="390" ry="22" fill="{{ground}}"/>
+  <ellipse cx="1030" cy="502" rx="140" ry="7" fill="{{soft}}"/>
+  <!-- Corps de la machine, poulie -->
+  <rect x="900" y="232" width="262" height="268" fill="{{pale}}"/>
+  <rect x="900" y="232" width="262" height="22" fill="{{mid}}"/>
+  <rect x="940" y="368" width="180" height="90" fill="{{soft}}"/>
+  <rect x="1060" y="268" width="70" height="70" fill="{{soft}}"/>
+  <circle cx="1010" cy="290" r="34" fill="{{deep}}"/>
+  <!-- Bâti du volant -->
+  <path d="M728 300 L792 300 L824 500 L696 500 Z" fill="{{deep}}"/>
+  <!-- Le volant -->
+  <circle cx="760" cy="296" r="150" fill="{{shape}}"/>
+  <circle cx="760" cy="296" r="120" fill="{{light}}"/>
+  <rect x="751" y="172" width="18" height="124" fill="{{shape}}" transform="rotate(15 760 296)"/><rect x="751" y="172" width="18" height="124" fill="{{shape}}" transform="rotate(75 760 296)"/><rect x="751" y="172" width="18" height="124" fill="{{shape}}" transform="rotate(135 760 296)"/><rect x="751" y="172" width="18" height="124" fill="{{shape}}" transform="rotate(195 760 296)"/><rect x="751" y="172" width="18" height="124" fill="{{shape}}" transform="rotate(255 760 296)"/><rect x="751" y="172" width="18" height="124" fill="{{shape}}" transform="rotate(315 760 296)"/>
+  <path d="M624 296 A136 136 0 0 1 760 160" fill="none" stroke="{{detail}}" stroke-width="5"/>
+  <circle cx="760" cy="296" r="32" fill="{{shape}}"/>
+  <circle cx="760" cy="296" r="11" fill="{{deep}}"/>
+  <!-- Courroie -->
+  <path d="M760 146 L1010 256" fill="none" stroke="{{shadow}}" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M780 445 L1010 324" fill="none" stroke="{{shadow}}" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Le technicien et sa burette -->
+  <use href="#man" transform="translate(560 500) scale(2 2)"/>
+  <rect x="544" y="300" width="33" height="12" rx="5" fill="{{shadow}}"/>
+  <rect x="566" y="307" width="20" height="5" rx="2" fill="{{shadow}}"/>
+  <path d="M576 344 L600 372 L624 366" fill="none" stroke="{{shadow}}" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M616 352 L648 352 L652 382 L612 382 Z" fill="{{soft}}"/>
+  <path d="M648 360 L700 330" fill="none" stroke="{{soft}}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

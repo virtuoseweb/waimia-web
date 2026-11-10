@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · « Score de maturité IA en 3 questions » : un grand tabouret à trois pieds
+       (outils, données, équipes). L'un des pieds est trop court : l'assise penche. Une femme
+       mesure l'écart avec une règle dressée sous le pied qui ne touche pas le sol.
+       Hero (multiply sur paper) : fond crème, aucun aplat ne touche les bords, sujet entre
+       x 680 et 1220. Rôles : subject = l'assise ; silhouette en {{shadow}}. -->
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <ellipse cx="910" cy="506" rx="360" ry="22" fill="{{ground}}"/>
+  <ellipse cx="760" cy="502" rx="44" ry="7" fill="{{shape}}"/>
+  <ellipse cx="906" cy="474" rx="34" ry="5" fill="{{shape}}"/>
+  <ellipse cx="1079" cy="502" rx="30" ry="6" fill="{{shape}}"/>
+  <ellipse cx="1170" cy="502" rx="36" ry="6" fill="{{shape}}"/>
+  <!-- Pied arrière, puis pieds avant ; celui de droite s'arrête avant le sol -->
+  <path d="M894 278 L918 278 L914 472 L898 472 Z" fill="{{shadow}}"/>
+  <path d="M784 270 L812 280 L774 500 L752 498 Z" fill="{{deep}}"/>
+  <path d="M1006 286 L1034 280 L1092 424 L1074 430 Z" fill="{{deep}}"/>
+  <!-- Assise inclinée -->
+  <g transform="rotate(7 900 270)">
+    <ellipse cx="900" cy="284" rx="176" ry="34" fill="{{deep}}"/>
+    <rect x="724" y="262" width="352" height="22" fill="{{deep}}"/>
+    <ellipse cx="900" cy="262" rx="176" ry="34" fill="{{subject}}"/>
+  </g>
+  <!-- La règle dressée sous le pied court -->
+  <rect x="1070" y="436" width="18" height="66" fill="{{light}}" stroke="{{deep}}" stroke-width="3"/>
+  
+  <rect x="1080" y="446" width="8" height="2.4" fill="{{shadow}}"/><rect x="1080" y="456" width="5" height="2.4" fill="{{shadow}}"/><rect x="1080" y="466" width="8" height="2.4" fill="{{shadow}}"/><rect x="1080" y="476" width="5" height="2.4" fill="{{shadow}}"/><rect x="1080" y="486" width="8" height="2.4" fill="{{shadow}}"/><rect x="1080" y="496" width="5" height="2.4" fill="{{shadow}}"/>
+  <!-- La femme tient la règle et regarde l'écart -->
+  <g transform="translate(1170 500) scale(2.1)">
+    <g fill="{{shadow}}">
+      <circle cx="0" cy="-90" r="7"/><circle cx="5" cy="-96" r="5"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z"/>
+      <rect x="-6" y="-25" width="4" height="23"/><rect x="2" y="-25" width="4" height="23"/>
+      <path d="M-10 -3 L-1 -3 L-1 0 L-10 0 Z M1 -3 L8 -3 L8 0 L1 0 Z"/>
+    </g>
+    <path d="M-6 -78 L-15 -64 L-26 -58" fill="none" stroke="{{shadow}}" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

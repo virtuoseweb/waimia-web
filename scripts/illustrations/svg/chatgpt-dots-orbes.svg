@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · « ChatGPT dots » : des points qui tournent sans relâche sur une orbite autour
+       d'un bureau, chacun portant un pli. L'un a quitté sa ronde et attend devant la femme
+       assise, qui lève la main : rien ne part sans son accord.
+       Hero (multiply sur paper) : fond crème, aucun aplat ne touche les bords, sujet entre
+       x 580 et 1220. Rôles : subject = les points ; silhouette en {{shadow}}. -->
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <ellipse cx="900" cy="506" rx="380" ry="22" fill="{{ground}}"/>
+  <ellipse cx="920" cy="502" rx="170" ry="8" fill="{{shape}}"/>
+  <!-- Orbite pointillée -->
+  <ellipse cx="900" cy="330" rx="300" ry="140" fill="none" stroke="{{soft}}" stroke-width="5" stroke-linecap="round" stroke-dasharray="0.1 18"/>
+  <!-- Bureau et chaise -->
+  <g fill="{{deep}}">
+    <rect x="890" y="398" width="170" height="12"/>
+    <rect x="900" y="410" width="10" height="92"/>
+    <rect x="1040" y="410" width="10" height="92"/>
+    <rect x="790" y="424" width="62" height="9"/>
+    <rect x="792" y="433" width="8" height="69"/>
+    <rect x="842" y="433" width="8" height="69"/>
+    <rect x="790" y="352" width="8" height="74"/>
+  </g>
+  <!-- Une pile de plis sur le bureau -->
+  <rect x="990" y="384" width="44" height="14" fill="{{light}}" stroke="{{soft}}" stroke-width="2"/>
+  <rect x="994" y="372" width="40" height="12" fill="{{light}}" stroke="{{soft}}" stroke-width="2"/>
+  <!-- La femme assise, main levée vers le point qui attend -->
+  <g transform="translate(822 424) scale(1.9)">
+    <g fill="{{shadow}}">
+      <circle cx="2" cy="-46" r="7"/><circle cx="-3" cy="-52" r="5"/>
+      <path d="M-6 -37 Q2 -41 10 -37 L10 0 L-6 0 Z"/>
+      <rect x="0" y="-6" width="26" height="7"/>
+      <rect x="20" y="-6" width="6" height="40"/>
+      <rect x="20" y="33" width="10" height="3" rx="1.5"/>
+    </g>
+    <path d="M8 -34 L18 -24 L26 -40" fill="none" stroke="{{shadow}}" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <circle cx="618" cy="282" r="20" fill="{{subject}}"/><circle cx="858" cy="191" r="22" fill="{{subject}}"/><circle cx="1130" cy="240" r="20" fill="{{subject}}"/><circle cx="1165" cy="396" r="21" fill="{{subject}}"/><circle cx="640" cy="400" r="18" fill="{{subject}}"/>
+  <circle cx="606" cy="303" r="9" fill="{{soft}}"/><circle cx="601" cy="318" r="6" fill="{{soft}}"/><circle cx="812" cy="196" r="9" fill="{{soft}}"/><circle cx="783" cy="201" r="6" fill="{{soft}}"/><circle cx="1097" cy="224" r="9" fill="{{soft}}"/><circle cx="1072" cy="215" r="6" fill="{{soft}}"/><circle cx="1184" cy="376" r="9" fill="{{soft}}"/><circle cx="1192" cy="361" r="6" fill="{{soft}}"/><circle cx="667" cy="418" r="9" fill="{{soft}}"/><circle cx="688" cy="429" r="6" fill="{{soft}}"/>
+  <!-- Le point sorti de la ronde, qui attend l'accord -->
+  <circle cx="930" cy="318" r="24" fill="{{subject}}"/>
+  
+</svg>

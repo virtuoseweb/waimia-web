@@ -63,11 +63,6 @@ export const data: LeadMagnetPage = {
     "<li><strong>Every action has an owner and a due date.</strong> If either is missing, write 'owner to confirm' or 'due date to confirm', and list it at the end.</li>" +
     '<li><strong>Short sentences.</strong> No mood adjectives.</li>' +
     '</ul>',
-  illustration: {
-    src: '/images/illustrations/ds/pack-skills-boite-paper.webp',
-    alt_fr: 'Une grande boîte à outils bleue ouverte, huit objets dans ses compartiments, une échelle et une petite silhouette',
-    alt_en: 'A large open blue toolbox, eight objects in its compartments, a ladder and a small figure',
-  },
   faq_fr: [
     {
       q: 'Sur quelles offres Claude ces skills fonctionnent-ils ?',
