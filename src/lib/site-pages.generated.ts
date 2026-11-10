@@ -5279,6 +5279,71 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/ressources/comparatifs/claude-code-vs-codex-vs-vibe",
+    "title": "Claude Code, Codex ou Mistral Vibe : quel agent de code pour une PME",
+    "group": "ressources",
+    "collection": "comparatifs",
+    "file": "comparatifs/claude-code-vs-codex-vs-vibe.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Claude Code, Codex ou Mistral Vibe : quel agent de code pour une PME ?",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#1",
+        "background": "paper-2"
+      },
+      {
+        "type": "comparison-table",
+        "label": "Claude Code, Codex et Mistral Vibe : 12 critères (3 novembre 2026)",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#4",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper-2"
+      },
+      {
+        "type": "decision-list",
+        "label": "Le bon agent selon votre situation",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper-2"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Claude Code, Codex ou Mistral Vibe : vos questions",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Choisir l'agent, puis régler ce qu'il a le droit de faire.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/ressources/comparatifs/claude-code-vs-cursor",
     "title": "Claude Code vs Cursor : lequel choisir en 2026 ?",
     "group": "ressources",
@@ -11337,6 +11402,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/acces-agent-ia-identifiants-pme",
+    "title": "Donner accès à un agent IA : identifiants, droits et ce qu'il ne doit jamais toucher",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/acces-agent-ia-identifiants-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/agent-ia-24-7-pme",
     "title": "Agent IA 24/7 pour une PME : ce qu'il tient seul",
     "group": "blog",
@@ -11450,6 +11524,15 @@ export const SITE_PAGES: SitePage[] = [
     "group": "blog",
     "collection": "blog",
     "file": "blog/audit-site-internet-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/automatisation-processus-metiers-pme",
+    "title": "Automatisation des processus métiers : par où commencer en PME",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/automatisation-processus-metiers-pme.json",
     "editable": false,
     "sections": []
   },
@@ -11652,6 +11735,24 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/cles-api-automatisation-securite-pme",
+    "title": "Clés API dans vos automatisations : sécuriser n8n, Make, Claude et OpenAI",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/cles-api-automatisation-securite-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/cnil-email-professionnel-devine-prospection",
+    "title": "Deviner l'e-mail pro d'un prospect : ce que la CNIL autorise",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/cnil-email-professionnel-devine-prospection.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/comptes-ia-personnels-depart-salarie",
     "title": "Départ d'un salarié : que faire de ses comptes d'IA personnels",
     "group": "blog",
@@ -11666,6 +11767,15 @@ export const SITE_PAGES: SitePage[] = [
     "group": "blog",
     "collection": "blog",
     "file": "blog/connecter-claude-wordpress-shopify-mcp.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/consultation-cse-ia",
+    "title": "Consultation du CSE et IA : quand consulter avant de déployer ChatGPT ou Copilot",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/consultation-cse-ia.json",
     "editable": false,
     "sections": []
   },
@@ -11715,6 +11825,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/faux-avis-ia",
+    "title": "Faux avis et IA : ce qu'une entreprise peut faire avec ses avis clients",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/faux-avis-ia.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/formation-ia-cpf-qualiopi",
     "title": "Formation IA CPF : ce qu'il faut vérifier",
     "group": "blog",
@@ -11729,6 +11848,15 @@ export const SITE_PAGES: SitePage[] = [
     "group": "blog",
     "collection": "blog",
     "file": "blog/formation-ia-finance-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/formation-ia-generative-pme",
+    "title": "Formation IA générative : le programme à exiger pour une équipe de PME",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/formation-ia-generative-pme.json",
     "editable": false,
     "sections": []
   },
@@ -11967,6 +12095,24 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/questionnaire-securite-ia",
+    "title": "Questionnaire de sécurité client : y répondre avec l'IA sans rien inventer",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/questionnaire-securite-ia.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/refonte-site-seo-sans-perdre-trafic",
+    "title": "Refonte de site et SEO : ne pas perdre son trafic, la liste de contrôle et le suivi mesuré",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/refonte-site-seo-sans-perdre-trafic.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/registre-maitrise-ia-article-4",
     "title": "Registre de maîtrise de l'IA : la trace de l'article 4 de l'AI Act, modèle à copier",
     "group": "blog",
@@ -11981,6 +12127,24 @@ export const SITE_PAGES: SitePage[] = [
     "group": "blog",
     "collection": "blog",
     "file": "blog/relance-factures-impayees-automatique-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/risques-claude-pme",
+    "title": "Risques de Claude en PME : ce qui peut mal tourner, et le réglage qui l'évite",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/risques-claude-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/saisie-automatique-factures-pme",
+    "title": "Saisie automatique des factures : OCR, IA, et ce qu'il faut encore vérifier",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/saisie-automatique-factures-pme.json",
     "editable": false,
     "sections": []
   },
@@ -12017,6 +12181,15 @@ export const SITE_PAGES: SitePage[] = [
     "group": "blog",
     "collection": "blog",
     "file": "blog/trier-emails-entrant-claude-n8n.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/veille-reglementaire-automatisee-pme",
+    "title": "Veille réglementaire automatisée : flux, tri par IA, décision humaine",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/veille-reglementaire-automatisee-pme.json",
     "editable": false,
     "sections": []
   },
@@ -13002,6 +13175,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources",
       "/ressources/comparatifs",
       "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
+      "/ressources/comparatifs/claude-code-vs-codex-vs-vibe",
       "/ressources/comparatifs/claude-code-vs-cursor",
       "/ressources/comparatifs/claude-duet-vs-chatgpt-dots",
       "/ressources/comparatifs/claude-platform-vs-openai-platform",
@@ -13085,6 +13259,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
     "label_fr": "Blog",
     "routes": [
       "/blog",
+      "/blog/acces-agent-ia-identifiants-pme",
       "/blog/agent-ia-24-7-pme",
       "/blog/agent-ia-entreprise-exemples",
       "/blog/agent-ia-toujours-actif-missions-pme",
@@ -13098,6 +13273,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/applications-internes-build-vs-buy-pme",
       "/blog/architecte-ia-role-pme",
       "/blog/audit-site-internet-pme",
+      "/blog/automatisation-processus-metiers-pme",
       "/blog/automatiser-relance-devis-n8n",
       "/blog/automatiser-relances-b2b-sans-sdr-guide-cabinet-conseil",
       "/blog/avis-n8n-vs-zapier-2026",
@@ -13120,15 +13296,20 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/claude-max-pme",
       "/blog/claude-microsoft-copilot-pme",
       "/blog/claude-pro-vs-team",
+      "/blog/cles-api-automatisation-securite-pme",
+      "/blog/cnil-email-professionnel-devine-prospection",
       "/blog/comptes-ia-personnels-depart-salarie",
       "/blog/connecter-claude-wordpress-shopify-mcp",
+      "/blog/consultation-cse-ia",
       "/blog/contenu-ia-seo-google-penalise",
       "/blog/cout-agent-ia-toujours-actif",
       "/blog/creer-agent-ia-claude",
       "/blog/etre-cite-par-perplexity",
       "/blog/facture-electronique-reception-pme",
+      "/blog/faux-avis-ia",
       "/blog/formation-ia-cpf-qualiopi",
       "/blog/formation-ia-finance-pme",
+      "/blog/formation-ia-generative-pme",
       "/blog/formation-ia-marketing-pme",
       "/blog/formation-ia-rh-pme",
       "/blog/forward-deployed-engineer",
@@ -13155,12 +13336,17 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/n8n-c-est-quoi",
       "/blog/openclaw-2-0-migration-changements",
       "/blog/poc-ou-mvp-differences-pme",
+      "/blog/questionnaire-securite-ia",
+      "/blog/refonte-site-seo-sans-perdre-trafic",
       "/blog/registre-maitrise-ia-article-4",
       "/blog/relance-factures-impayees-automatique-pme",
+      "/blog/risques-claude-pme",
+      "/blog/saisie-automatique-factures-pme",
       "/blog/securiser-openclaw-checklist",
       "/blog/seo-geo-etre-cite-par-les-ia-generatives",
       "/blog/tableau-de-bord-pme-quelles-donnees-suivre",
       "/blog/trier-emails-entrant-claude-n8n",
+      "/blog/veille-reglementaire-automatisee-pme",
       "/blog/webflow-vs-wordpress-vs-site-code-ia-2026",
       "/blog/workflow-ia-exemples-pme"
     ]
