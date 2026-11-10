@@ -75,8 +75,8 @@ Non retenu : titles de `/services/automatisation-n8n` (title du 16/10, classé 
 - **Parcours.** CTA unique « Réserver l'audit gratuit » vers `/contact?offer=audit-ia-pme&intent=audit` (`conversion.ts`:13), page `/audit-ia-pme` (44 impressions, position 33,8). Les deux billets les plus cliqués portent un lien d'audit et une ressource (`claude-pro-vs-team` : guide d'achat ; `claude-code-skills` : pack de skills).
 - **Lead magnets.** Neuf ressources (`LEAD_MAGNETS`, `conversion.ts`:100) : six PDF livrés par e-mail, trois outils interactifs ; contenus dans `src/data/lead-magnets/` (quatre fichiers). 37 pages sur 200 ont une bande de capture le 16/10 (`rapport-nuit`:226). Prix : audit gratuit, sprint 999 € HT, pilote dès 2 000 € HT (`pricing.ts`).
 - **Mesure en place.** Alertes `[Lead]` avec page d'arrivée, page précédente et source ; mêmes champs dans les journaux Vercel (`lead-source.ts`) ; Vercel Web Analytics sans événement personnalisé (`Base.astro`:24, `jr`:918).
-- **En cours, non livré.** Le canal (`deriveCanal`) et `docs/mesure-des-leads.md` n'existent que dans des modifications non commitées du checkout principal.
-- **Ce qui manque.** (1) Canal par lead : livrer ce travail. (2) Taux vue puis envoi par page : aucun événement. (3) Enregistrement des `metadata` par Cal : non vérifié (`rapport-nuit`:119). (4) Écart entre vues de `/bienvenue/contact` et alertes (`jr`:670). (5) Tableau mensuel : aucun, le comptage Gmail est manuel et date du 27/10.
+- **Livré le 10/11 (PR #170 et suivante).** Canal, UTM et parcours sur chaque demande ; événements de conversion vers Vercel Web Analytics et Umami ; objectifs et entonnoirs Umami décrits dans `docs/mesure-des-leads.md`.
+- **Ce qui manque.** (1) Canal par lead : livré. (2) Taux vue puis envoi par page : entonnoirs Umami en place, données à partir du 10/11. (3) Enregistrement des `metadata` par Cal : non vérifié (`rapport-nuit`:119). (4) Écart entre vues de `/bienvenue/contact` et alertes (`jr`:670). (5) Tableau mensuel : aucun, le comptage Gmail est manuel et date du 27/10.
 
 ## 5. Autorité : dix annuaires à faire par Simon
 
