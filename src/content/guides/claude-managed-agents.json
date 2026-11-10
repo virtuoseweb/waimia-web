@@ -2,13 +2,13 @@
   "$schema": "../../schemas/generated/guides.page.schema.json",
   "title_fr": "Claude Managed Agents : prix, limites, données et usages en PME",
   "title_en": "Claude Managed Agents: pricing, limits, data and uses for SMBs",
-  "seoTitle_fr": "Claude Managed Agents : prix, limites et RGPD en PME",
-  "seoTitle_en": "Claude Managed Agents: pricing, limits and GDPR for SMBs",
-  "description_fr": "Claude Managed Agents, agent hébergé par Anthropic : définition, prix (0,08 $ l'heure plus les jetons), limites, RGPD. Relevé le 15 octobre 2026.",
-  "description_en": "Claude Managed Agents, the agent hosted by Anthropic: definition, pricing ($0.08 per session hour plus tokens), limits and GDPR. Checked on 15 October 2026.",
+  "seoTitle_fr": "Claude Managed Agents : c’est quoi, prix, limites, RGPD",
+  "seoTitle_en": "Claude Managed Agents: what it is, pricing, limits, GDPR",
+  "description_fr": "Claude Managed Agents, l’agent hébergé par Anthropic : ce que c’est, 0,08 $ l’heure plus les jetons, bêta, pas de rétention zéro. Relevé le 15 octobre 2026.",
+  "description_en": "Claude Managed Agents, the agent hosted by Anthropic: what it is, $0.08 per hour plus tokens, beta, no zero data retention. Checked on 15 October 2026.",
   "slug": "claude-managed-agents",
   "publishedAt": "2026-10-15",
-  "updatedAt": "2026-10-24",
+  "updatedAt": "2026-11-10",
   "category": "claude",
   "cluster": "claude",
   "tags": [
@@ -121,11 +121,11 @@
     },
     {
       "q": "Quelle différence avec Claude Code ?",
-      "a": "Claude Code est un outil de programmation piloté par un agent IA, qui se lance dans un terminal, un éditeur, une application de bureau ou un navigateur : il sert à un développeur qui travaille chaque jour avec Claude. Managed Agents est une API pour intégrer votre propre agent à une application ou à un processus métier, avec un hébergement par Anthropic. Anthropic les range dans des produits distincts, comme l'Agent SDK, une bibliothèque qui fait tourner la boucle dans votre propre application."
+      "a": "Claude Code est un outil de programmation piloté par un agent IA, pour un développeur qui travaille chaque jour avec Claude. Managed Agents est une API pour intégrer votre propre agent à un processus métier, avec un hébergement par Anthropic. Anthropic les range dans des produits distincts, comme l’Agent SDK."
     },
     {
       "q": "Managed Agents ou un agent construit sur n8n ?",
-      "a": "Notre lecture : n8n quand les étapes sont connues d'avance et qu'une équipe sans développeur doit pouvoir les modifier ; Managed Agents quand la tâche est ouverte, longue ou demande d'exécuter du code, et qu'un développeur peut maintenir une intégration en bêta. Les deux se combinent : un workflow n8n peut déclencher une session. Pour les coûts et les données côté n8n, voir nos guides n8n."
+      "a": "Notre lecture : n8n quand les étapes sont connues d’avance et qu’une équipe sans développeur les maintient ; Managed Agents quand la tâche est ouverte, longue ou exécute du code. Les deux se combinent : un workflow n8n peut déclencher une session. Le comparatif complet est dans l’article « Agent IA Claude : quatre façons d’en construire un »."
     },
     {
       "q": "Combien coûte Claude Managed Agents ?",
@@ -155,11 +155,11 @@
     },
     {
       "q": "What is the difference from Claude Code?",
-      "a": "Claude Code is an agentic coding tool that runs in a terminal, an editor, a desktop app or a browser: it serves a developer who works with Claude every day. Managed Agents is an API for building your own agent into an application or a business process, hosted by Anthropic. Anthropic lists them as separate products, like the Agent SDK, a library that runs the loop inside your own application."
+      "a": "Claude Code is an agentic coding tool for a developer who works with Claude every day. Managed Agents is an API for building your own agent into a business process, hosted by Anthropic. Anthropic lists them as separate products, like the Agent SDK."
     },
     {
       "q": "Managed Agents or an agent built on n8n?",
-      "a": "Our reading: n8n when the steps are known in advance and a team without developers must be able to change them; Managed Agents when the task is open-ended, long or needs to run code, and a developer can maintain a beta integration. The two combine: an n8n workflow can start a session. For n8n costs and data, see our n8n guides."
+      "a": "Our reading: n8n when the steps are known in advance and a team without developers maintains them; Managed Agents when the task is open-ended, long or runs code. The two combine: an n8n workflow can start a session. The full comparison is in the article “Claude AI agent: four ways to build one”."
     },
     {
       "q": "How much does Claude Managed Agents cost?",
@@ -190,10 +190,10 @@
       },
       "kicker_fr": "§ Guide",
       "kicker_en": "§ Guide",
-      "h1_fr": "Claude <i class=\"acc\">Managed Agents</i> : l'agent hébergé par Anthropic, expliqué à un dirigeant",
-      "h1_en": "Claude <i class=\"acc\">Managed Agents</i>: the agent hosted by Anthropic, explained to a business owner",
-      "lede_fr": "Claude Managed Agents est un service d'Anthropic, en bêta, qui fait tourner un agent Claude dans un bac à sable hébergé par Anthropic : vous l'appelez par API, Anthropic fournit la boucle d'agent et l'exécution. Il se paie aux jetons plus 0,08 $ par heure de session active, sans rétention zéro des données ni option de stockage européenne documentée.",
-      "lede_en": "Claude Managed Agents is an Anthropic service, in beta, that runs a Claude agent in a sandbox hosted by Anthropic: you call it through the API, and it provides the agent loop and the execution. It is billed per token plus $0.08 per hour of active session, with no zero data retention and no documented European storage option.",
+      "h1_fr": "Claude <i class=\"acc\">Managed Agents</i> : prix, limites et données de l’agent hébergé par Anthropic",
+      "h1_en": "Claude <i class=\"acc\">Managed Agents</i>: pricing, limits and data of the agent hosted by Anthropic",
+      "lede_fr": "Claude Managed Agents est un service d’Anthropic, en bêta, qui fait tourner un agent Claude dans un bac à sable hébergé par Anthropic. Cette fiche de référence dit ce qu’il coûte (jetons plus 0,08 $ par heure de session active), ce qu’il ne garantit pas (pas de rétention zéro, pas d’option de stockage européenne documentée) et dans quels cas il vaut le détour en PME.",
+      "lede_en": "Claude Managed Agents is an Anthropic service, in beta, that runs a Claude agent in a sandbox hosted by Anthropic. This reference sheet says what it costs (tokens plus $0.08 per hour of active session), what it does not guarantee (no zero data retention, no documented European storage option) and when it is worth a look for an SMB.",
       "badges": [
         {
           "label_fr": "Bêta publique depuis le 8 avril 2026",
@@ -215,8 +215,8 @@
         "variant": "primary"
       },
       "cta_secondary": {
-        "label_fr": "Comparer les quatre voies pour un agent Claude",
-        "label_en": "Compare the four routes for a Claude agent",
+        "label_fr": "Choisir entre les quatre voies pour un agent Claude",
+        "label_en": "Choose among the four routes for a Claude agent",
         "href": "/blog/creer-agent-ia-claude",
         "variant": "ghost"
       }
@@ -230,7 +230,7 @@
       "role_en": "Founder of Waimia · AI and automation engineer",
       "profileHref": "/equipe/simon-beros",
       "publishedDate": "15 octobre 2026",
-      "updatedDate": "15 octobre 2026"
+      "updatedDate": "10 novembre 2026"
     },
     {
       "type": "direct-answer",
@@ -277,18 +277,18 @@
     {
       "type": "editorial-prose",
       "background": "paper-2",
-      "html_fr": "<h2>Qu'est-ce que Claude Managed Agents ?</h2>\n<p>Un agent est un programme qui enchaîne lui-même ses étapes et appelle des outils jusqu'à atteindre un but. Claude en est le modèle ; il faut encore une « boucle » qui exécute les outils, garde l'historique et gère les erreurs. Avec Managed Agents, Anthropic fournit cette boucle et l'infrastructure qui la fait tourner : sa <a href=\"https://platform.claude.com/docs/en/managed-agents/overview\" rel=\"noopener noreferrer\" target=\"_blank\">documentation</a> parle d'un « agent harness » préconstruit, qui s'exécute sur une infrastructure gérée. Le service est ouvert en bêta publique depuis le <a href=\"https://claude.com/blog/claude-managed-agents\" rel=\"noopener noreferrer\" target=\"_blank\">8 avril 2026</a>.</p>\n<h3>Les quatre notions à connaître</h3>\n<ul>\n<li><strong>L'agent</strong> : le modèle, les consignes, les outils, les serveurs MCP et les skills. On le crée une fois, puis on le réutilise par son identifiant.</li>\n<li><strong>L'environnement</strong> : l'endroit où tournent les sessions. Soit un bac à sable dans le cloud d'Anthropic, soit un bac à sable hébergé chez vous.</li>\n<li><strong>La session</strong> : une exécution de l'agent pour une tâche précise.</li>\n<li><strong>Les événements</strong> : les messages échangés entre votre application et l'agent (consignes, résultats d'outils, statuts). Vous pouvez orienter l'agent en cours de route, ou l'interrompre.</li>\n</ul>\n<h3>Ce que l'agent sait faire dans son bac à sable</h3>\n<p>Il lance des commandes, lit, écrit, modifie et cherche des fichiers, cherche sur le web et lit des pages (avec une liste de domaines autorisés ou bloqués), et se connecte à des serveurs MCP. Le bac à sable du cloud est un conteneur Linux isolé, avec Python, Node.js, des bibliothèques de traitement de tableurs, de documents Word et de PDF, LibreOffice en mode sans écran et un navigateur piloté par Playwright (<a href=\"https://platform.claude.com/docs/en/managed-agents/cloud-sandboxes-reference\" rel=\"noopener noreferrer\" target=\"_blank\">liste complète</a>).</p>\n<h3>Ce qui s'est ajouté depuis le lancement</h3>\n<p>Le <a href=\"https://claude.com/blog/whats-new-in-claude-managed-agents\" rel=\"noopener noreferrer\" target=\"_blank\">9 juin 2026</a>, Anthropic a ouvert en bêta publique les déploiements planifiés (un agent qui démarre une session selon un calendrier, sans planificateur à héberger) et les coffres, qui stockent des identifiants que l'agent utilise sans les voir. Pour comparer cette voie aux trois autres, voir l'article <a href=\"/blog/creer-agent-ia-claude\">Agent IA Claude : quatre façons d'en construire un</a>.</p>\n<p>Cette brique sert aussi de socle à d'autres produits d'Anthropic. Selon l'article d'Anthropic lu le 24 octobre 2026, <a href=\"/ressources/guides/claude-duet\">Claude Duet</a>, lancé le 21 octobre, s'appuie sur la gestion des identifiants de Claude Managed Agents : l'agent ne voit jamais directement vos mots de passe ni vos jetons de connexion.</p>",
-      "html_en": "<h2>What is Claude Managed Agents?</h2>\n<p>An agent is a program that chains its own steps and calls tools until it reaches a goal. Claude is the model; you still need a \"loop\" that runs the tools, keeps the history and handles errors. With Managed Agents, Anthropic provides that loop and the infrastructure that runs it: its <a href=\"https://platform.claude.com/docs/en/managed-agents/overview\" rel=\"noopener noreferrer\" target=\"_blank\">documentation</a> describes a pre-built \"agent harness\" that runs in managed infrastructure. The service has been in public beta since <a href=\"https://claude.com/blog/claude-managed-agents\" rel=\"noopener noreferrer\" target=\"_blank\">8 April 2026</a>.</p>\n<h3>The four notions to know</h3>\n<ul>\n<li><strong>The agent</strong>: the model, instructions, tools, MCP servers and skills. You create it once, then reuse it by its identifier.</li>\n<li><strong>The environment</strong>: where sessions run. Either a sandbox in Anthropic's cloud, or a sandbox hosted on your side.</li>\n<li><strong>The session</strong>: one run of the agent for a specific task.</li>\n<li><strong>The events</strong>: the messages exchanged between your application and the agent (instructions, tool results, statuses). You can steer the agent mid-run, or interrupt it.</li>\n</ul>\n<h3>What the agent can do inside its sandbox</h3>\n<p>It runs commands, reads, writes, edits and searches files, searches the web and reads pages (with an allowlist or blocklist of domains), and connects to MCP servers. The cloud sandbox is an isolated Linux container with Python, Node.js, libraries for spreadsheets, Word documents and PDFs, headless LibreOffice and a browser driven by Playwright (<a href=\"https://platform.claude.com/docs/en/managed-agents/cloud-sandboxes-reference\" rel=\"noopener noreferrer\" target=\"_blank\">full list</a>).</p>\n<h3>What was added after launch</h3>\n<p>On <a href=\"https://claude.com/blog/whats-new-in-claude-managed-agents\" rel=\"noopener noreferrer\" target=\"_blank\">9 June 2026</a>, Anthropic opened scheduled deployments (an agent that starts a session on a calendar, with no scheduler to host) and vaults, which store credentials the agent uses without seeing them, in public beta. To compare this route with the other three, see the article <a href=\"/blog/creer-agent-ia-claude\">Claude AI agent: four ways to build one</a>.</p>\n<p>This building block also underpins other Anthropic products. According to the Anthropic article read on 24 October 2026, <a href=\"/ressources/guides/claude-duet\">Claude Duet</a>, launched on 21 October, relies on the credential management of Claude Managed Agents: the agent never sees your passwords or sign-in tokens directly.</p>"
+      "html_fr": "<h2>Qu'est-ce que Claude Managed Agents ?</h2>\n<p>Un agent est un programme qui enchaîne lui-même ses étapes et appelle des outils jusqu'à atteindre un but. Claude en est le modèle ; il faut encore une « boucle » qui exécute les outils, garde l'historique et gère les erreurs. Avec Managed Agents, Anthropic fournit cette boucle et l'infrastructure qui la fait tourner : sa <a href=\"https://platform.claude.com/docs/en/managed-agents/overview\" rel=\"noopener noreferrer\" target=\"_blank\">documentation</a> parle d'un « agent harness » préconstruit, qui s'exécute sur une infrastructure gérée. Le service est ouvert en bêta publique depuis le <a href=\"https://claude.com/blog/claude-managed-agents\" rel=\"noopener noreferrer\" target=\"_blank\">8 avril 2026</a>.</p>\n<h3>Les quatre notions à connaître</h3>\n<ul>\n<li><strong>L'agent</strong> : le modèle, les consignes, les outils, les serveurs MCP et les skills. On le crée une fois, puis on le réutilise par son identifiant.</li>\n<li><strong>L'environnement</strong> : l'endroit où tournent les sessions. Soit un bac à sable dans le cloud d'Anthropic, soit un bac à sable hébergé chez vous.</li>\n<li><strong>La session</strong> : une exécution de l'agent pour une tâche précise.</li>\n<li><strong>Les événements</strong> : les messages échangés entre votre application et l'agent (consignes, résultats d'outils, statuts). Vous pouvez orienter l'agent en cours de route, ou l'interrompre.</li>\n</ul>\n<h3>Ce que l'agent sait faire dans son bac à sable</h3>\n<p>Il lance des commandes, lit, écrit, modifie et cherche des fichiers, cherche sur le web et lit des pages (avec une liste de domaines autorisés ou bloqués), et se connecte à des serveurs MCP. Le bac à sable du cloud est un conteneur Linux isolé, avec Python, Node.js, des bibliothèques de traitement de tableurs, de documents Word et de PDF, LibreOffice en mode sans écran et un navigateur piloté par Playwright (<a href=\"https://platform.claude.com/docs/en/managed-agents/cloud-sandboxes-reference\" rel=\"noopener noreferrer\" target=\"_blank\">liste complète</a>).</p>\n<h3>Ce qui s'est ajouté depuis le lancement</h3>\n<p>Le <a href=\"https://claude.com/blog/whats-new-in-claude-managed-agents\" rel=\"noopener noreferrer\" target=\"_blank\">9 juin 2026</a>, Anthropic a ouvert en bêta publique les déploiements planifiés (un agent qui démarre une session selon un calendrier, sans planificateur à héberger) et les coffres, qui stockent des identifiants que l'agent utilise sans les voir. Le choix entre les quatre façons de construire un agent Claude (n8n, Claude lui-même, Agent SDK, Managed Agents) est traité dans l’article <a href=\"/blog/creer-agent-ia-claude\">Agent IA Claude : quatre façons d’en construire un</a> ; ce guide s’en tient au service d’Anthropic : prix, limites, données.</p>\n<p>Cette brique sert aussi de socle à d'autres produits d'Anthropic. Selon l'article d'Anthropic lu le 24 octobre 2026, <a href=\"/ressources/guides/claude-duet\">Claude Duet</a>, lancé le 21 octobre, s'appuie sur la gestion des identifiants de Claude Managed Agents : l'agent ne voit jamais directement vos mots de passe ni vos jetons de connexion.</p>",
+      "html_en": "<h2>What is Claude Managed Agents?</h2>\n<p>An agent is a program that chains its own steps and calls tools until it reaches a goal. Claude is the model; you still need a \"loop\" that runs the tools, keeps the history and handles errors. With Managed Agents, Anthropic provides that loop and the infrastructure that runs it: its <a href=\"https://platform.claude.com/docs/en/managed-agents/overview\" rel=\"noopener noreferrer\" target=\"_blank\">documentation</a> describes a pre-built \"agent harness\" that runs in managed infrastructure. The service has been in public beta since <a href=\"https://claude.com/blog/claude-managed-agents\" rel=\"noopener noreferrer\" target=\"_blank\">8 April 2026</a>.</p>\n<h3>The four notions to know</h3>\n<ul>\n<li><strong>The agent</strong>: the model, instructions, tools, MCP servers and skills. You create it once, then reuse it by its identifier.</li>\n<li><strong>The environment</strong>: where sessions run. Either a sandbox in Anthropic's cloud, or a sandbox hosted on your side.</li>\n<li><strong>The session</strong>: one run of the agent for a specific task.</li>\n<li><strong>The events</strong>: the messages exchanged between your application and the agent (instructions, tool results, statuses). You can steer the agent mid-run, or interrupt it.</li>\n</ul>\n<h3>What the agent can do inside its sandbox</h3>\n<p>It runs commands, reads, writes, edits and searches files, searches the web and reads pages (with an allowlist or blocklist of domains), and connects to MCP servers. The cloud sandbox is an isolated Linux container with Python, Node.js, libraries for spreadsheets, Word documents and PDFs, headless LibreOffice and a browser driven by Playwright (<a href=\"https://platform.claude.com/docs/en/managed-agents/cloud-sandboxes-reference\" rel=\"noopener noreferrer\" target=\"_blank\">full list</a>).</p>\n<h3>What was added after launch</h3>\n<p>On <a href=\"https://claude.com/blog/whats-new-in-claude-managed-agents\" rel=\"noopener noreferrer\" target=\"_blank\">9 June 2026</a>, Anthropic opened scheduled deployments (an agent that starts a session on a calendar, with no scheduler to host) and vaults, which store credentials the agent uses without seeing them, in public beta. The choice between the four ways to build a Claude agent (n8n, Claude itself, Agent SDK, Managed Agents) is covered in the article <a href=\"/blog/creer-agent-ia-claude\">Claude AI agent: four ways to build one</a>; this guide sticks to the Anthropic service: pricing, limits, data.</p>\n<p>This building block also underpins other Anthropic products. According to the Anthropic article read on 24 October 2026, <a href=\"/ressources/guides/claude-duet\">Claude Duet</a>, launched on 21 October, relies on the credential management of Claude Managed Agents: the agent never sees your passwords or sign-in tokens directly.</p>"
     },
     {
       "type": "editorial-table-block",
       "background": "paper",
-      "kicker_fr": "§ Comparer les voies",
-      "kicker_en": "§ Comparing the routes",
-      "heading_fr": "Managed Agents, API Messages, Agent SDK, Claude Code ou n8n : lequel choisir ?",
-      "heading_en": "Managed Agents, Messages API, Agent SDK, Claude Code or n8n: which one?",
-      "caption_fr": "Sources : Anthropic, vue d'ensemble de Managed Agents, vue d'ensemble de l'Agent SDK (tableau de comparaison des outils Claude) et vue d'ensemble de Claude Code, lues le 15 octobre 2026. Les limites de Claude Code et la ligne n8n sont notre lecture, pas une source d'Anthropic.",
-      "caption_en": "Sources: Anthropic, Managed Agents overview, Agent SDK overview (Claude tools comparison table) and Claude Code overview, read on 15 October 2026. The Claude Code limits and the n8n row are our reading, not an Anthropic source.",
+      "kicker_fr": "§ Managed Agents ou l’API",
+      "kicker_en": "§ Managed Agents or the API",
+      "heading_fr": "Managed Agents, API Messages ou Agent SDK : quelle différence ?",
+      "heading_en": "Managed Agents, Messages API or Agent SDK: what is the difference?",
+      "caption_fr": "Sources : Anthropic, vue d’ensemble de Managed Agents et vue d’ensemble de l’Agent SDK (tableau de comparaison des outils Claude), lues le 15 octobre 2026. Claude Code et n8n, absents de ce tableau, sont comparés dans l’article « Agent IA Claude : quatre façons d’en construire un ».",
+      "caption_en": "Sources: Anthropic, Managed Agents overview and Agent SDK overview (Claude tools comparison table), read on 15 October 2026. Claude Code and n8n, left out of this table, are compared in the article “Claude AI agent: four ways to build one”.",
       "columns_fr": [
         "Voie",
         "Ce que c'est",
@@ -324,20 +324,6 @@
           "Votre application",
           "Un agent intégré à votre logiciel, avec un contrôle complet",
           "Il faut un développeur, et l'hébergement est à votre charge"
-        ],
-        [
-          "Claude Code",
-          "Outil de programmation piloté par un agent IA : terminal, éditeur, application de bureau, navigateur",
-          "Le développeur qui l'utilise, dans son terminal, son éditeur, une application ou un navigateur",
-          "Des développeurs qui codent chaque jour avec Claude",
-          "C'est un outil de travail, pas une API pour intégrer un agent à votre processus métier"
-        ],
-        [
-          "Agent sur n8n (notre lecture)",
-          "Un workflow visuel dont certaines étapes appellent Claude",
-          "n8n, en nuage ou auto-hébergé",
-          "Un processus aux étapes connues, maintenu par une équipe sans développeur",
-          "Les étapes sont fixées d'avance : une tâche ouverte et longue s'y prête mal"
         ]
       ],
       "rows_en": [
@@ -361,28 +347,14 @@
           "Your application",
           "An agent built into your software, with full control",
           "It needs a developer, and hosting is on you"
-        ],
-        [
-          "Claude Code",
-          "Agentic coding tool: terminal, editor, desktop app, browser",
-          "The developer using it, in a terminal, an editor, an app or a browser",
-          "Developers who code with Claude every day",
-          "A working tool, not an API to build an agent into your business process"
-        ],
-        [
-          "Agent on n8n (our reading)",
-          "A visual workflow where some steps call Claude",
-          "n8n, cloud or self-hosted",
-          "A process with known steps, maintained by a team without developers",
-          "Steps are fixed in advance: an open-ended, long task fits poorly"
         ]
       ]
     },
     {
       "type": "editorial-prose",
       "background": "paper",
-      "html_fr": "<h2>Dans quels cas Managed Agents est-il pertinent pour une PME ?</h2>\n<p>Anthropic le recommande pour six types de charges : l'exécution longue (des minutes ou des heures, avec plusieurs appels d'outils), l'infrastructure cloud avec bac à sable, l'exécution sur une infrastructure que vous contrôlez, le besoin de bâtir peu d'infrastructure, les sessions avec état (fichiers et historique conservés) et l'exécution planifiée. Pour une PME, cela donne trois situations.</p>\n<ul>\n<li><strong>Un travail récurrent qui produit un fichier.</strong> Anthropic cite une synchronisation de données nocturne, un contrôle de conformité hebdomadaire ou un digest quotidien. L'agent démarre selon un calendrier et dépose son résultat.</li>\n<li><strong>Une tâche qui demande d'exécuter du code ou de manipuler des fichiers</strong> : convertir des documents, remplir un tableur, extraire des tableaux de PDF.</li>\n<li><strong>Un agent qui prépare, une personne qui valide.</strong> L'agent travaille en arrière-plan, la personne relit avant tout envoi ou toute écriture dans un outil.</li>\n</ul>\n<p>Waimia construit actuellement un agent de service après-vente de ce type sur Claude Managed Agents, pour un site e-commerce : le projet est en cours, aucun résultat n'est publié (fiche <a href=\"/cas-clients/brow-x-professionnel\">Brow.X Professionnel</a>). Si vos étapes sont toujours les mêmes, un workflow est plus fiable et moins cher : voir <a href=\"/ressources/guides/rpa-ou-agent-ia\">RPA ou agent IA</a>, la <a href=\"/ressources/guides/agent-ia-definition\">définition d'un agent IA</a> et, pour les données d'un workflow, le guide <a href=\"/ressources/guides/n8n-auto-heberge-rgpd\">n8n auto-hébergé ou cloud</a>.</p>\n<p>Deux précisions. Un développeur qui veut Claude à son poste de travail cherche Claude Code, pas Managed Agents : voir le guide <a href=\"/ressources/guides/claude-code-entreprise\">Claude Code en entreprise</a>. Et les outils internes se branchent à l'agent par MCP, le standard expliqué dans le guide <a href=\"/ressources/guides/mcp-claude\">MCP pour un dirigeant</a>.</p>",
-      "html_en": "<h2>When is Managed Agents relevant for an SMB?</h2>\n<p>Anthropic recommends it for six kinds of workload: long-running execution (minutes or hours, with several tool calls), cloud infrastructure with a sandbox, execution on infrastructure you control, little infrastructure to build, stateful sessions (files and history kept) and scheduled execution. For an SMB, that gives three situations.</p>\n<ul>\n<li><strong>Recurring work that produces a file.</strong> Anthropic mentions a nightly data sync, a weekly compliance scan or a daily digest. The agent starts on a calendar and drops its result.</li>\n<li><strong>A task that needs to run code or handle files</strong>: converting documents, filling a spreadsheet, extracting tables from PDFs.</li>\n<li><strong>An agent that prepares, a person who approves.</strong> The agent works in the background, the person reviews before anything is sent or written into a tool.</li>\n</ul>\n<p>Waimia is currently building an after-sales agent of this kind on Claude Managed Agents, for an e-commerce site: the project is in progress, no result is published (see the <a href=\"/cas-clients/brow-x-professionnel\">Brow.X Professionnel</a> case). If your steps are always the same, a workflow is more reliable and cheaper: see <a href=\"/ressources/guides/rpa-ou-agent-ia\">RPA or AI agent</a>, the <a href=\"/ressources/guides/agent-ia-definition\">AI agent definition</a> and, for a workflow's data, the guide <a href=\"/ressources/guides/n8n-auto-heberge-rgpd\">self-hosted or cloud n8n</a>.</p>\n<p>Two clarifications. A developer who wants Claude at their workstation is looking for Claude Code, not Managed Agents: see the guide <a href=\"/ressources/guides/claude-code-entreprise\">Claude Code in business</a>. And internal tools connect to the agent through MCP, the standard explained in the guide <a href=\"/ressources/guides/mcp-claude\">MCP for a business owner</a>.</p>"
+      "html_fr": "<h2>Dans quels cas Managed Agents est-il pertinent pour une PME ?</h2>\n<p>Anthropic le recommande pour six types de charges : l'exécution longue (des minutes ou des heures, avec plusieurs appels d'outils), l'infrastructure cloud avec bac à sable, l'exécution sur une infrastructure que vous contrôlez, le besoin de bâtir peu d'infrastructure, les sessions avec état (fichiers et historique conservés) et l'exécution planifiée. Pour une PME, cela donne trois situations.</p>\n<ul>\n<li><strong>Un travail récurrent qui produit un fichier.</strong> Anthropic cite une synchronisation de données nocturne, un contrôle de conformité hebdomadaire ou un digest quotidien. L'agent démarre selon un calendrier et dépose son résultat.</li>\n<li><strong>Une tâche qui demande d'exécuter du code ou de manipuler des fichiers</strong> : convertir des documents, remplir un tableur, extraire des tableaux de PDF.</li>\n<li><strong>Un agent qui prépare, une personne qui valide.</strong> L'agent travaille en arrière-plan, la personne relit avant tout envoi ou toute écriture dans un outil.</li>\n</ul>\n<p>Waimia construit actuellement un agent de service après-vente de ce type sur Claude Managed Agents, pour un site e-commerce : le projet est en cours, aucun résultat n'est publié (fiche <a href=\"/cas-clients/brow-x-professionnel\">Brow.X Professionnel</a>). Si vos étapes sont toujours les mêmes, un workflow est plus fiable et moins cher : voir <a href=\"/ressources/guides/rpa-ou-agent-ia\">RPA ou agent IA</a>, la <a href=\"/ressources/guides/agent-ia-definition\">définition d'un agent IA</a> et, pour les données d'un workflow, le guide <a href=\"/ressources/guides/n8n-auto-heberge-rgpd\">n8n auto-hébergé ou cloud</a>.</p>\n<p>Deux précisions. Un développeur qui veut Claude à son poste de travail cherche Claude Code, pas Managed Agents : voir le guide <a href=\"/ressources/guides/claude-code-entreprise\">Claude Code en entreprise</a>. Et les outils internes se branchent à l'agent par MCP, le standard expliqué dans le guide <a href=\"/ressources/guides/mcp-claude\">MCP pour un dirigeant</a>.</p>\n<h2>Un premier pilote en cinq étapes</h2>\n<p>Une bêta se teste sous la surveillance d’un développeur, sur une tâche dont on peut rattraper une erreur. Voici la séquence, à partir des notions et des réglages décrits plus haut.</p>\n<ol>\n<li><strong>Choisir la tâche.</strong> Longue ou récurrente, elle produit un fichier, et une personne le relit avant tout envoi.</li>\n<li><strong>Créer l’agent.</strong> Le modèle, les consignes, les outils et les serveurs MCP, écrits une fois et réutilisés par leur identifiant.</li>\n<li><strong>Créer l’environnement.</strong> Réseau limité à une liste de domaines, confirmation demandée pour les outils sensibles, secrets placés dans un coffre et non dans le bac à sable.</li>\n<li><strong>Lancer des sessions de test.</strong> Sur vos vrais cas, en relevant pour chacune le coût (jetons plus durée de session) et en relisant l’historique des événements.</li>\n<li><strong>Nettoyer, puis décider.</strong> Supprimer les sessions terminées, puis choisir entre la production avec validation humaine et le repli sur un workflow.</li>\n</ol>",
+      "html_en": "<h2>When is Managed Agents relevant for an SMB?</h2>\n<p>Anthropic recommends it for six kinds of workload: long-running execution (minutes or hours, with several tool calls), cloud infrastructure with a sandbox, execution on infrastructure you control, little infrastructure to build, stateful sessions (files and history kept) and scheduled execution. For an SMB, that gives three situations.</p>\n<ul>\n<li><strong>Recurring work that produces a file.</strong> Anthropic mentions a nightly data sync, a weekly compliance scan or a daily digest. The agent starts on a calendar and drops its result.</li>\n<li><strong>A task that needs to run code or handle files</strong>: converting documents, filling a spreadsheet, extracting tables from PDFs.</li>\n<li><strong>An agent that prepares, a person who approves.</strong> The agent works in the background, the person reviews before anything is sent or written into a tool.</li>\n</ul>\n<p>Waimia is currently building an after-sales agent of this kind on Claude Managed Agents, for an e-commerce site: the project is in progress, no result is published (see the <a href=\"/cas-clients/brow-x-professionnel\">Brow.X Professionnel</a> case). If your steps are always the same, a workflow is more reliable and cheaper: see <a href=\"/ressources/guides/rpa-ou-agent-ia\">RPA or AI agent</a>, the <a href=\"/ressources/guides/agent-ia-definition\">AI agent definition</a> and, for a workflow's data, the guide <a href=\"/ressources/guides/n8n-auto-heberge-rgpd\">self-hosted or cloud n8n</a>.</p>\n<p>Two clarifications. A developer who wants Claude at their workstation is looking for Claude Code, not Managed Agents: see the guide <a href=\"/ressources/guides/claude-code-entreprise\">Claude Code in business</a>. And internal tools connect to the agent through MCP, the standard explained in the guide <a href=\"/ressources/guides/mcp-claude\">MCP for a business owner</a>.</p>\n<h2>A first pilot in five steps</h2>\n<p>A beta is tested under a developer’s watch, on a task where a mistake can be recovered. Here is the sequence, based on the notions and settings described above.</p>\n<ol>\n<li><strong>Pick the task.</strong> Long or recurring, it produces a file, and a person reviews it before anything is sent.</li>\n<li><strong>Create the agent.</strong> The model, instructions, tools and MCP servers, written once and reused by their identifier.</li>\n<li><strong>Create the environment.</strong> Network limited to a list of domains, confirmation required for sensitive tools, secrets kept in a vault rather than in the sandbox.</li>\n<li><strong>Run test sessions.</strong> On your real cases, noting the cost of each (tokens plus session time) and reading back the event history.</li>\n<li><strong>Clean up, then decide.</strong> Delete finished sessions, then choose between production with human approval and falling back to a workflow.</li>\n</ol>"
     },
     {
       "type": "decision-list",
@@ -511,10 +483,10 @@
       "background": "paper-3",
       "kicker_fr": "§ Méthode Waimia",
       "kicker_en": "§ Waimia's method",
-      "h2_fr": "Comment Waimia choisit entre un workflow, le SDK et Managed Agents ?",
-      "h2_en": "How does Waimia choose between a workflow, the SDK and Managed Agents?",
-      "intro_fr": "Par la tâche et la donnée, pas par la technologie. Le détail des services est sur la page agents IA.",
-      "intro_en": "By the task and the data, not by the technology. Service details are on the AI agents page.",
+      "h2_fr": "Comment Waimia cadre un pilote Managed Agents ?",
+      "h2_en": "How does Waimia frame a Managed Agents pilot?",
+      "intro_fr": "Par la tâche et la donnée, avant la technologie : le choix de la voie est traité dans l’article sur les quatre façons de construire un agent Claude, le détail des services sur la page agents IA.",
+      "intro_en": "By the task and the data, before the technology: the choice of route is covered in the article on the four ways to build a Claude agent, the service details on the AI agents page.",
       "steps": [
         {
           "title_fr": "Audit gratuit",
@@ -607,15 +579,15 @@
         },
         {
           "q_fr": "Quelle différence avec Claude Code ?",
-          "a_fr": "Claude Code est un outil de programmation piloté par un agent IA, qui se lance dans un terminal, un éditeur, une application de bureau ou un navigateur : il sert à un développeur qui travaille chaque jour avec Claude. Managed Agents est une API pour intégrer votre propre agent à une application ou à un processus métier, avec un hébergement par Anthropic. Anthropic les range dans des produits distincts, comme l'Agent SDK, une bibliothèque qui fait tourner la boucle dans votre propre application.",
+          "a_fr": "Claude Code est un outil de programmation piloté par un agent IA, pour un développeur qui travaille chaque jour avec Claude. Managed Agents est une API pour intégrer votre propre agent à un processus métier, avec un hébergement par Anthropic. Anthropic les range dans des produits distincts, comme l’Agent SDK.",
           "q_en": "What is the difference from Claude Code?",
-          "a_en": "Claude Code is an agentic coding tool that runs in a terminal, an editor, a desktop app or a browser: it serves a developer who works with Claude every day. Managed Agents is an API for building your own agent into an application or a business process, hosted by Anthropic. Anthropic lists them as separate products, like the Agent SDK, a library that runs the loop inside your own application."
+          "a_en": "Claude Code is an agentic coding tool for a developer who works with Claude every day. Managed Agents is an API for building your own agent into a business process, hosted by Anthropic. Anthropic lists them as separate products, like the Agent SDK."
         },
         {
           "q_fr": "Managed Agents ou un agent construit sur n8n ?",
-          "a_fr": "Notre lecture : n8n quand les étapes sont connues d'avance et qu'une équipe sans développeur doit pouvoir les modifier ; Managed Agents quand la tâche est ouverte, longue ou demande d'exécuter du code, et qu'un développeur peut maintenir une intégration en bêta. Les deux se combinent : un workflow n8n peut déclencher une session. Pour les coûts et les données côté n8n, voir nos guides n8n.",
+          "a_fr": "Notre lecture : n8n quand les étapes sont connues d’avance et qu’une équipe sans développeur les maintient ; Managed Agents quand la tâche est ouverte, longue ou exécute du code. Les deux se combinent : un workflow n8n peut déclencher une session. Le comparatif complet est dans l’article « Agent IA Claude : quatre façons d’en construire un ».",
           "q_en": "Managed Agents or an agent built on n8n?",
-          "a_en": "Our reading: n8n when the steps are known in advance and a team without developers must be able to change them; Managed Agents when the task is open-ended, long or needs to run code, and a developer can maintain a beta integration. The two combine: an n8n workflow can start a session. For n8n costs and data, see our n8n guides."
+          "a_en": "Our reading: n8n when the steps are known in advance and a team without developers maintains them; Managed Agents when the task is open-ended, long or runs code. The two combine: an n8n workflow can start a session. The full comparison is in the article “Claude AI agent: four ways to build one”."
         },
         {
           "q_fr": "Combien coûte Claude Managed Agents ?",
