@@ -37,6 +37,47 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### 2026-11-10 · action 4 de la stratégie : `/services/base-de-connaissance-ia`
+
+**Requête et départ** : « base de connaissance ia » (20 impressions, position 16,6) ; « base de connaissance ia entreprise » (33, 14,3) ; le pluriel « base de connaissances ia » (47, 24,0). Page : 226 impressions, 0 clic, position 22,7 (`2026-W46/gsc-performance.json`, last28, `byPageQuery`).
+
+**Règle des trois semaines** : appliquée, title libre. Le `seoTitle_fr` date du 15/10/2026 (`1d4ae365`), soit 26 jours.
+
+**Ce qui a changé** (`src/content/services/base-de-connaissance-ia.json`, PR à ouvrir par le parent) :
+- `seoTitle_fr` : « Base de connaissance IA : vos documents, réponses sourcées » devient « Base de connaissance IA pour entreprise : réponses sourcées » (59 caractères). `description_fr` (157) : audit de 45 minutes, sources, droits d'accès.
+- Définition en tête (`direct-answer`, 58 mots) : cite le pluriel « base de connaissances d'entreprise ».
+- Deux H2 ajoutés avant « Les limites » : « Une base de connaissances interne sur mesure : ce qui se décide avec vous » (requête « base de connaissances interne sur mesure », 29 impressions, 39,7) et « Base de connaissances pour agents IA » (23, 25,4).
+- Liens ajoutés : `/services/integration-claude`, `/audit-ia-pme`, `/services/agents-ia`, `/ressources/guides/agent-ia-definition`. Aucun fait nouveau : tout vient du reste de la page. `updatedAt` au 2026-11-10 ; miroirs anglais mis à jour.
+
+**À mesurer** : 7 jours après la mise en ligne, au plus tôt le 17/11/2026 ; jugement prévu le 30/11 (stratégie, action 4). Position de « base de connaissance ia » sous 10 ; sinon trop tôt. Un title seul ne fait rien bouger au-delà de la position 20.
+
+### 2026-11-10 · action 6 de la stratégie : `/implantations/montpellier`
+
+**Requête et départ** : « agence ia montpellier » (73 impressions, position 15,9) ; « agence ia hérault » (12, 17,0). Page : 231 impressions, 2 clics, position 34,2 (même source).
+
+**Règle des trois semaines** : appliquée, title libre. Le `seoTitle_fr` date du 15/10/2026 (`1d4ae365`), soit 26 jours.
+
+**Ce qui a changé** (`src/content/implantations/montpellier.json`) :
+- `seoTitle_fr` : « Agence IA à Montpellier : née ici, audit gratuit en visio » devient « Agence IA à Montpellier et dans l'Hérault : audit gratuit » (57). « née ici » contredisait le texte (fondateur à Bordeaux). `description_fr` (154) : requête en tête, « née à Montpellier, basée à Bordeaux » conservé.
+- H1 : « Agence IA à Montpellier : automatisation et agents IA » (la requête exacte en tête). Réponse directe reformulée (54 mots), zone desservie nommée.
+- H2 « Automatiser ses processus à Montpellier » devient « Agence d'automatisation à Montpellier : automatiser ses processus » (« agence automatisation montpellier », 7 impressions, 25,7). H2 ajouté : « Agence IA dans l'Hérault, hors de Montpellier ».
+- Liens ajoutés : `/ressources/guides/choisir-agence-ia-pme`, `/ressources/outils/charte-ia-entreprise` (lien entrant pour l'action 6 suivante), `/agence/methode`.
+- Inchangé volontairement : « y garde son siège » (RCS de Montpellier, décision du 15/10), aucune adresse locale, rien sur Airtable ni no code (offres écartées).
+
+**À mesurer** : 7 jours après la mise en ligne, au plus tôt le 17/11/2026 ; jugement le 7/12 (stratégie, action 6). Position de « agence ia montpellier » sous 10.
+
+### 2026-11-10 · action 6 de la stratégie : `/ressources/outils/charte-ia-entreprise` (patch proposé, non appliqué)
+
+**Requête et départ** : « charte ia pme » (15 impressions, position 19,6) ; « charte intelligence artificielle pme » (26, 38,5) ; « charte ia tpe » (15, 42,6). Page : 129 impressions, 1 clic, position 28,4.
+
+**Règle des trois semaines** : appliquée, title libre. Le `title` servi est dans `src/pages/ressources/outils/charte-ia-entreprise.astro`, inchangé depuis le 04/10/2026 (`git log -S"const title"`) ; le JSON ne change que la carte du hub (commit du jour : illustration seulement).
+
+**Ce qui n'a PAS été fait** : le title, la description, le H1 et le chapô ne sont pas dans le JSON, seulement dans le fichier `.astro` de la page. La mission interdisait de toucher autre chose que le JSON. Aucune modification appliquée. Le patch complet (`.astro` et JSON, libellés identiques) est prêt : `/private/tmp/claude-501/-Users-simonberos-waimia-web/84fd6e3e-23d9-46d5-a48d-8023dc6ffdf6/scratchpad/charte-ia-entreprise.patch` (`git apply -p1`, vérifié par `git apply --check`).
+
+**Contenu du patch** : title « Charte IA pour PME et TPE : modèle gratuit (PDF et Word) » (56) ; description (153) ; H1 « Charte IA pour PME : un modèle à adapter » ; chapô de 46 mots avec la définition et les outils couverts (Claude, ChatGPT, Gemini, couverts par l'article 1). « TPE » est un choix d'intitulé, non un fait : le texte est un modèle à adapter.
+
+**À mesurer** : après application et mise en ligne, 7 jours plus tard. Aucune date tant que le patch n'est pas appliqué.
+
 ### 2026-11-10 · décisions de la stratégie du 10 novembre (hors routine)
 
 **Source.** `docs/seo/strategie-2026-11-10.md`, croisée avec la collecte du 9/11 : sur 28 jours, 78,0 % des impressions viennent de pages au-delà de la position 20, et 37 des 52 clics de pages classées 10 ou mieux (recalcul sur `2026-W46/gsc-performance.json`, `byPage`). Le goulot est la position et l'autorité, pas le volume de contenu.
