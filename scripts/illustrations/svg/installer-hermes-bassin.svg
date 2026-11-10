@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · « Installer Hermes Agent : un premier agent prudent » : un premier essai dans
+       un bassin fermé. Une femme, au bord d'une vasque de pierre, met à l'eau un petit voilier
+       qu'elle retient par une ficelle : il navigue, mais pas plus loin que le bord.
+       Hero (multiply sur paper) : fond crème, aucun aplat ne touche les bords, sujet entre
+       x 560 et 1180. Rôles : subject = l'eau du bassin ; silhouette en {{shadow}}. -->
+  <rect width="1456" height="624" fill="{{field}}"/>
+
+  <!-- Sol local -->
+  <ellipse cx="880" cy="508" rx="400" ry="22" fill="{{ground}}"/>
+
+  <!-- La vasque : paroi, margelle, eau -->
+  <path d="M660 404 L660 474 Q910 528 1160 474 L1160 404 Z" fill="{{deep}}"/>
+  <ellipse cx="910" cy="404" rx="262" ry="50" fill="{{shape}}"/>
+  <ellipse cx="910" cy="406" rx="236" ry="38" fill="{{subject}}"/>
+  <g fill="none" stroke="{{light}}" stroke-width="3" stroke-linecap="round">
+    <path d="M760 410 L792 410"/>
+    <path d="M1040 400 L1076 400"/>
+    <path d="M960 420 L1004 420"/>
+  </g>
+
+  <!-- Le petit voilier -->
+  <path d="M926 398 L1004 398 L992 412 L936 412 Z" fill="{{shadow}}"/>
+  <rect x="962" y="318" width="4" height="80" fill="{{shadow}}"/>
+  <path d="M968 322 L1004 392 L968 392 Z" fill="{{light}}"/>
+  <path d="M960 330 L930 390 L960 390 Z" fill="{{pale}}"/>
+
+  <!-- La ficelle, de la main à la proue -->
+  <path d="M651 360 Q790 410 926 402" fill="none" stroke="{{shadow}}" stroke-width="2.4"/>
+
+  <!-- La femme, au bord, retient la ficelle -->
+  <g transform="translate(604 500) scale(2.1)">
+    <g fill="{{shadow}}">
+      <circle cx="0" cy="-90" r="7"/><circle cx="-5" cy="-96" r="5"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z"/>
+      <rect x="-6" y="-25" width="4" height="23"/><rect x="2" y="-25" width="4" height="23"/>
+      <path d="M-8 -3 L-1 -3 L-1 0 L-8 0 Z M1 -3 L10 -3 L10 0 L1 0 Z"/>
+    </g>
+    <path d="M6 -78 L15 -68 L22 -66" fill="none" stroke="{{shadow}}" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="22.5" cy="-66" r="2.4" fill="{{shadow}}"/>
+  </g>
+</svg>

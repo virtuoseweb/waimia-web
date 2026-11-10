@@ -8623,7 +8623,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-split-media",
-        "label": "Claude Managed Agents : l'agent hébergé par Anthropic, expliqué à un dirigeant",
+        "label": "Claude Managed Agents : prix, limites et données de l’agent hébergé par Anthropic",
         "background": "paper"
       },
       {
@@ -8649,7 +8649,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-table-block",
-        "label": "Managed Agents, API Messages, Agent SDK, Claude Code ou n8n : lequel choisir ?",
+        "label": "Managed Agents, API Messages ou Agent SDK : quelle différence ?",
         "background": "paper"
       },
       {
@@ -8684,7 +8684,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "process-steps",
-        "label": "Comment Waimia choisit entre un workflow, le SDK et Managed Agents ?",
+        "label": "Comment Waimia cadre un pilote Managed Agents ?",
         "background": "paper-3"
       },
       {
@@ -11439,7 +11439,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/blog/agent-ia-vs-automatisation-classique-2026",
-    "title": "Agent IA vs automatisation : la frontière en 2026",
+    "title": "Agent IA vs automatisation : choisir étape par étape",
     "group": "blog",
     "collection": "blog",
     "file": "blog/agent-ia-vs-automatisation-classique-2026.json",
@@ -11636,6 +11636,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/chatgpt-pro-ou-business-petite-equipe",
+    "title": "ChatGPT Pro ou Business pour une petite équipe : quand Pro coûte moins cher",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/chatgpt-pro-ou-business-petite-equipe.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/chatgpt-shopping-e-commerce",
     "title": "ChatGPT Shopping : ce que lit ChatGPT pour recommander un produit",
     "group": "blog",
@@ -11704,6 +11713,15 @@ export const SITE_PAGES: SitePage[] = [
     "group": "blog",
     "collection": "blog",
     "file": "blog/claude-extension-chrome.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/claude-max-ou-team-petite-equipe",
+    "title": "Claude Max ou Ultra pour une petite équipe : moins cher que Team ?",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/claude-max-ou-team-petite-equipe.json",
     "editable": false,
     "sections": []
   },
@@ -12159,7 +12177,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/blog/seo-geo-etre-cite-par-les-ia-generatives",
-    "title": "Être cité par les IA : ce qui a changé, ce que vous vérifiez",
+    "title": "GEO : ce que Google documente, ce que l’étude suggère, ce qui n’est pas prouvé",
     "group": "blog",
     "collection": "blog",
     "file": "blog/seo-geo-etre-cite-par-les-ia-generatives.json",
@@ -12168,7 +12186,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/blog/tableau-de-bord-pme-quelles-donnees-suivre",
-    "title": "Tableau de bord PME : les données qui comptent",
+    "title": "Tableau de bord PME : quels indicateurs suivre, et comment les définir",
     "group": "blog",
     "collection": "blog",
     "file": "blog/tableau-de-bord-pme-quelles-donnees-suivre.json",
@@ -13285,6 +13303,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/chatgpt-dots-depuis-le-lancement",
       "/blog/chatgpt-dots-europe-disponibilite",
       "/blog/chatgpt-dots-regles-personnalisees-approbations",
+      "/blog/chatgpt-pro-ou-business-petite-equipe",
       "/blog/chatgpt-shopping-e-commerce",
       "/blog/claude-chatgpt-mistral-offres-equipe",
       "/blog/claude-code-skills",
@@ -13293,6 +13312,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/claude-duet-lancement-21-octobre-2026",
       "/blog/claude-duet-ou-claude-cowork",
       "/blog/claude-extension-chrome",
+      "/blog/claude-max-ou-team-petite-equipe",
       "/blog/claude-max-pme",
       "/blog/claude-microsoft-copilot-pme",
       "/blog/claude-pro-vs-team",

@@ -172,7 +172,7 @@ jobs:
       # Chaque contenu publié dans un hub a son illustration de hero, unique, dont le fichier
       # existe ; la carte du hub reprend cette image. Baseline de transition : ne peut que diminuer.
       - name: Gate illustrations de hero (une par contenu, uniques)
-        run: node scripts/check-hero-illustrations.mjs --baseline scripts/check-hero-illustrations.baseline.json
+        run: node scripts/check-hero-illustrations.mjs
 
       - name: Gate qualité statique sur le build de production (liens internes, titres, alt)
         run: node scripts/check-static-quality.mjs

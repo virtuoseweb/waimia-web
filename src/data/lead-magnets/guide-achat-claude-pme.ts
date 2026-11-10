@@ -67,11 +67,6 @@ export const data: LeadMagnetPage = {
     '<li><strong>Total budget</strong>: subscription, plus credits beyond the quota, plus setup.</li>' +
     '</ul>' +
     "<p>Anthropic prices as of 5 October 2026, in dollars, excluding VAT and exchange rates.</p>",
-  illustration: {
-    src: '/images/illustrations/ds/guide-achat-claude-pme-balance-paper.webp',
-    alt_fr: "Une immense balance : le plateau chargé d'une pile de cartons descend, une femme regarde",
-    alt_en: 'A huge balance scale: the pan holding a stack of boxes goes down, a woman looks on',
-  },
   faq_fr: [
     {
       q: 'Le guide donne-t-il des prix en euros ?',

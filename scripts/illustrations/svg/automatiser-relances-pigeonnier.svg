@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · « Automatiser les relances B2B » : d'un pigeonnier rond, des pigeons partent l'un après l'autre à intervalle régulier, chacun une lettre au bec, vers une petite maison.
+       Hero de billet (multiply sur fond paper) : fond crème, aucun aplat ne touche les bords,
+       sol en ellipse, sujet entre x 300 et 1250. Distribution objet-bleu ; silhouettes en {{shadow}}. -->
+  <defs><g id="woman"><circle cx="1" cy="-90" r="7"/><circle cx="-5" cy="-95" r="5"/><path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z"/><path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z"/><rect x="-6" y="-25" width="4" height="23"/><rect x="2" y="-25" width="4" height="23"/><path d="M-8 -3 L-1 -3 L-1 0 L-8 0 Z M1 -3 L10 -3 L10 0 L1 0 Z"/></g><g id="pigeon"><ellipse cx="0" cy="0" rx="30" ry="12"/><circle cx="25" cy="-9" r="9.5"/><path d="M-24 -3 L-48 -13 L-48 9 Z"/><path d="M8 -8 Q-6 -46 -40 -58 Q-24 -36 -16 -6 Z"/><path d="M4 -6 Q14 -34 34 -44 Q24 -26 14 -4 Z"/></g></defs>
+  <rect width="1456" height="624" fill="{{field}}"/>
+
+  <ellipse cx="820" cy="506" rx="430" ry="22" fill="{{ground}}"/>
+  <!-- pigeonnier : tour ronde et toit conique -->
+  <rect x="470" y="236" width="150" height="264" fill="{{soft}}"/>
+  <path d="M452 240 L545 150 L638 240 Z" fill="{{deep}}"/>
+  <rect x="532" y="126" width="26" height="30" fill="{{deep}}"/>
+  <g fill="{{mid}}"><path d="M494 300 L494 286 Q506 272 518 286 L518 300 Z"/><path d="M572 300 L572 286 Q584 272 596 286 L596 300 Z"/><path d="M533 360 L533 346 Q545 332 557 346 L557 360 Z"/></g>
+  <rect x="470" y="404" width="150" height="10" fill="{{mid}}"/>
+  <!-- la personne qui lâche le pigeon -->
+  <use href="#woman" fill="{{shadow}}" transform="translate(680 500) scale(2.05)"/>
+  <path d="M693 342 L708 318 L722 296" fill="none" stroke="{{shadow}}" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- pigeons à intervalle régulier, lettre au bec -->
+  <g fill="{{subject}}">
+    <use href="#pigeon" transform="translate(760 262)"/>
+    <use href="#pigeon" transform="translate(880 220)"/>
+    <use href="#pigeon" transform="translate(1000 186)"/>
+    <use href="#pigeon" transform="translate(1120 160) scale(0.9)"/>
+  </g>
+  <g fill="{{light}}" stroke="{{detail}}" stroke-width="3"><rect x="796" y="252" width="22" height="15"/><rect x="916" y="210" width="22" height="15"/><rect x="1036" y="176" width="22" height="15"/><rect x="1150" y="150" width="20" height="14"/></g>
+  <!-- la maison qui reçoit -->
+  <rect x="1120" y="404" width="110" height="96" fill="{{soft}}"/>
+  <path d="M1106 408 L1175 352 L1244 408 Z" fill="{{deep}}"/>
+  <rect x="1150" y="430" width="30" height="30" fill="{{light}}"/>
+
+</svg>

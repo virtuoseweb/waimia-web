@@ -35,7 +35,6 @@ export interface LeadMagnetPage {
   /** Extrait court en HTML (10 % du contenu au plus ; jamais le contenu complet). */
   extract_fr: string;
   extract_en: string;
-  illustration?: { src: string; alt_fr: string; alt_en: string };
   faq_fr: LeadMagnetFaq[];
   faq_en: LeadMagnetFaq[];
   /** Chemins de pages liées (JSON-LD `relatedLink`) ; le bloc visible vient du maillage calculé (internal-mesh). */

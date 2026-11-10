@@ -404,6 +404,10 @@ const diagnostics = defineCollection({
     ...baseFields,
     ...taxonomyFields,
     sections: sectionsArraySchema.optional(),
+    // Hero illustré de la page (ToolIntro), repris par la carte du hub (resources-hub.ts).
+    heroIllustration: z
+      .object({ src: z.string(), alt_fr: z.string(), alt_en: z.string(), side: z.enum(['left', 'right']).optional() })
+      .optional(),
   }),
 });
 

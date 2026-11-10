@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · « Faux avis et IA » : devant un étal, une rangée de clients en carton tenus par des étais acclament le marchand ; un vrai client arrive et les regarde.
+       Hero de billet (multiply sur fond paper) : fond crème, aucun aplat ne touche les bords,
+       sol en ellipse, sujet entre x 300 et 1250. Distribution objet-bleu ; silhouettes en {{shadow}}. -->
+  <defs><g id="man"><circle cx="1" cy="-90" r="7.5"/><path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z"/><rect x="-11.5" y="-44" width="9.5" height="42"/><rect x="2" y="-44" width="9.5" height="42"/><rect x="-12" y="-3" width="11" height="3" rx="1.5"/><rect x="2" y="-3" width="13" height="3" rx="1.5"/></g><g id="woman"><circle cx="1" cy="-90" r="7"/><circle cx="-5" cy="-95" r="5"/><path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z"/><path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z"/><rect x="-6" y="-25" width="4" height="23"/><rect x="2" y="-25" width="4" height="23"/><path d="M-8 -3 L-1 -3 L-1 0 L-8 0 Z M1 -3 L10 -3 L10 0 L1 0 Z"/></g></defs>
+  <rect width="1456" height="624" fill="{{field}}"/>
+
+  <ellipse cx="660" cy="506" rx="390" ry="22" fill="{{ground}}"/>
+  <!-- étal -->
+  <use href="#man" fill="{{shadow}}" transform="translate(420 470) scale(2)"/>
+  <rect x="322" y="260" width="8" height="120" fill="{{deep}}"/><rect x="510" y="260" width="8" height="120" fill="{{deep}}"/>
+  <g fill="{{mid}}"><rect x="310" y="226" width="22" height="34"/><rect x="354" y="226" width="22" height="34"/><rect x="398" y="226" width="22" height="34"/><rect x="442" y="226" width="22" height="34"/><rect x="486" y="226" width="22" height="34"/></g>
+  <g fill="{{pale}}"><rect x="332" y="226" width="22" height="34"/><rect x="376" y="226" width="22" height="34"/><rect x="420" y="226" width="22" height="34"/><rect x="464" y="226" width="22" height="34"/><rect x="508" y="226" width="22" height="34"/></g>
+  <rect x="302" y="372" width="236" height="12" fill="{{mid}}"/>
+  <rect x="310" y="384" width="220" height="116" fill="{{soft}}"/>
+  <!-- figurants en carton (bleus) -->
+  <polygon points="610 396 617 396 652 500 644 500" fill="{{deep}}"/><use href="#man" fill="{{subject}}" transform="translate(604 496) scale(-1.9 1.9)"/><path d="M596 352 L584 328 L582 304" fill="none" stroke="{{subject}}" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><rect x="586" y="494" width="36" height="7" fill="{{deep}}"/><polygon points="686 396 693 396 728 500 720 500" fill="{{deep}}"/><use href="#woman" fill="{{subject}}" transform="translate(680 496) scale(-1.9 1.9)"/><rect x="662" y="494" width="36" height="7" fill="{{deep}}"/><polygon points="762 396 769 396 804 500 796 500" fill="{{deep}}"/><use href="#man" fill="{{subject}}" transform="translate(756 496) scale(-1.9 1.9)"/><path d="M748 352 L736 328 L734 304" fill="none" stroke="{{subject}}" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><rect x="738" y="494" width="36" height="7" fill="{{deep}}"/><polygon points="838 396 845 396 880 500 872 500" fill="{{deep}}"/><use href="#man" fill="{{subject}}" transform="translate(832 496) scale(-1.9 1.9)"/><rect x="814" y="494" width="36" height="7" fill="{{deep}}"/>
+  <!-- le vrai client -->
+  <use href="#man" fill="{{shadow}}" transform="translate(992 500) scale(-2 2)"/>
+
+</svg>

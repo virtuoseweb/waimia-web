@@ -9229,7 +9229,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-managed-agents",
       "route": "/ressources/guides/claude-managed-agents",
       "index": 5,
-      "label": "Managed Agents, API Messages, Agent SDK, Claude Code ou n8n : lequel choisir ?",
+      "label": "Managed Agents, API Messages ou Agent SDK : quelle différence ?",
       "background": "paper"
     },
     {
@@ -14790,7 +14790,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-managed-agents",
       "route": "/ressources/guides/claude-managed-agents",
       "index": 0,
-      "label": "Claude Managed Agents : l'agent hébergé par Anthropic, expliqué à un dirigeant",
+      "label": "Claude Managed Agents : prix, limites et données de l’agent hébergé par Anthropic",
       "background": "paper"
     },
     {
@@ -17500,7 +17500,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-managed-agents",
       "route": "/ressources/guides/claude-managed-agents",
       "index": 12,
-      "label": "Comment Waimia choisit entre un workflow, le SDK et Managed Agents ?",
+      "label": "Comment Waimia cadre un pilote Managed Agents ?",
       "background": "paper-3"
     },
     {

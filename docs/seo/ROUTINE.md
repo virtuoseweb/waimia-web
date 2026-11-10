@@ -188,7 +188,7 @@ Une page se nomme comme sa requête (URL, title et H1 alignés) : c'est ce qui f
 
 **Ce qui ne se crée pas sans Simon.** Une page service, une page de formation ou une page locale qui suppose une offre, un prix ou une présence que le site n'affiche pas déjà. L'entrée reste une « idée », et la question va dans « Ce qui demande ta décision » (section 11). Les guides, articles, comparatifs et cas d'usage ne posent pas ce problème tant qu'ils ne promettent rien de neuf.
 
-**Illustration de hero dédiée (obligatoire pour chaque création).** Dessine-la avec le skill `waimia-illustration`, **moteur B seulement** (`scripts/illustrations/render-svg.mjs`, Claude écrit le SVG), jamais `generate.mjs` ni l'API OpenAI d'images. Enregistre-la avec `node scripts/illustrations/add-illustration.mjs --no-fallback` sous le slug `<deux premiers segments du slug du contenu>-<motif>`, renseigne `heroIllustration` (`src`, `alt_fr`, `alt_en`, `side`) dans le JSON du contenu, puis passe `node scripts/check-hero-illustrations.mjs --baseline scripts/check-hero-illustrations.baseline.json` : un contenu sans hero explicite, un fichier absent ou un dessin partagé avec un autre contenu le fait échouer. La carte du hub affiche exactement cette image.
+**Illustration de hero dédiée (obligatoire pour chaque création).** Dessine-la avec le skill `waimia-illustration`, **moteur B seulement** (`scripts/illustrations/render-svg.mjs`, Claude écrit le SVG), jamais `generate.mjs` ni l'API OpenAI d'images. Enregistre-la avec `node scripts/illustrations/add-illustration.mjs --no-fallback` sous le slug `<deux premiers segments du slug du contenu>-<motif>`, renseigne `heroIllustration` (`src`, `alt_fr`, `alt_en`, `side`) dans le JSON du contenu (ou `sections[0].illustration` pour un guide ou un comparatif à `hero-split-media`), puis passe `node scripts/check-hero-illustrations.mjs` : un contenu sans hero explicite, un fichier absent ou un dessin partagé avec un autre contenu le fait échouer. La carte du hub affiche exactement cette image.
 
 Après création : ajoute la page au registre `src/lib/internal-mesh.ts` et donne à son JSON le `category` égal au premier thème de la page dans ce registre (section 5.6, silos), renseigne ou corrige `target` du mot-clé dans `docs/seo/keywords.json` (puis `node scripts/seo-routine/check-config.mjs`), et écris le brouillon LinkedIn (5.7).
 
@@ -354,7 +354,7 @@ node scripts/check-sitemap.mjs
 node scripts/check-redirects.mjs
 node scripts/check-public-surface.mjs --prod
 node scripts/check-seo.mjs
-node scripts/check-hero-illustrations.mjs --baseline scripts/check-hero-illustrations.baseline.json   # sans build
+node scripts/check-hero-illustrations.mjs   # sans build
 node scripts/check-static-quality.mjs
 node scripts/check-internal-mesh.mjs        # rapport, ne bloque pas
 node scripts/check-silos.mjs                # silo de chaque contenu = premier thème au maillage

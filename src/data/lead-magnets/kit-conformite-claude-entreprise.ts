@@ -62,11 +62,6 @@ export const data: LeadMagnetPage = {
     '<li><strong>Connectors\' "Always allow"</strong>: off by default. Keep it that way until the actions concerned are listed.</li>' +
     '<li><strong>Local Cowork session history</strong>: not subject to the standard retention policy, and neither manageable nor deletable centrally by the admin. Write it into the usage policy.</li>' +
     '</ul>',
-  illustration: {
-    src: '/images/illustrations/ds/claude-plugins-poste-garde-paper.webp',
-    alt_fr: 'Un garde à lanterne inspecte une caisse qui arrive à la porte d\'un haut mur',
-    alt_en: 'A guard with a lantern inspects a crate arriving at the gate of a tall wall',
-  },
   faq_fr: [
     {
       q: 'Ce kit est-il un avis juridique ?',

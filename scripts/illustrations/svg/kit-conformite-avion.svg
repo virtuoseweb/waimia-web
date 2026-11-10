@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · « Kit conformité et administration de Claude » : la visite avant vol. Un petit
+       avion à hélice attend sur ses cales ; un homme, planchette en main, fait le tour de
+       l'appareil et vérifie chaque point avant le départ.
+       Hero (multiply sur paper) : fond crème, aucun aplat ne touche les bords, sujet entre
+       x 520 et 1200. Rôles : subject = l'avion ; silhouette en {{shadow}}. -->
+  <rect width="1456" height="624" fill="{{field}}"/>
+
+  <!-- Sol local -->
+  <ellipse cx="870" cy="506" rx="420" ry="22" fill="{{ground}}"/>
+  <ellipse cx="900" cy="502" rx="300" ry="8" fill="{{shape}}"/>
+
+  <!-- Dérive, empennage, fuselage -->
+  <path d="M560 372 L528 250 L586 250 L664 360 Z" fill="{{subject}}"/>
+  <path d="M560 372 L600 354 L1080 292 Q1176 300 1182 356 Q1176 414 1080 424 L600 400 Z" fill="{{subject}}"/>
+  <ellipse cx="592" cy="378" rx="62" ry="8" fill="{{deep}}"/>
+  <!-- Aile haute et ses haubans -->
+  <rect x="890" y="272" width="280" height="20" rx="8" fill="{{deep}}"/>
+  <path d="M950 292 L1006 414 M1120 292 L1092 416" stroke="{{deep}}" stroke-width="6"/>
+  <!-- Vitres de la cabine -->
+  <rect x="1032" y="310" width="48" height="34" rx="4" fill="{{light}}"/>
+  <path d="M1094 310 L1126 310 Q1150 322 1156 344 L1094 344 Z" fill="{{light}}"/>
+  <!-- Hélice -->
+  <rect x="1188" y="290" width="10" height="132" rx="5" fill="{{deep}}"/>
+  <circle cx="1188" cy="356" r="11" fill="{{deep}}"/>
+  <!-- Train d'atterrissage, cales -->
+  <path d="M1030 418 L1040 470" stroke="{{deep}}" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="1040" cy="476" r="25" fill="{{shadow}}"/>
+  <circle cx="1040" cy="476" r="8" fill="{{shape}}"/>
+  <path d="M1004 502 L1012 486 L1012 502 Z M1076 502 L1068 486 L1068 502 Z" fill="{{deep}}"/>
+  <path d="M606 398 L602 484" stroke="{{deep}}" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="602" cy="491" r="10" fill="{{shadow}}"/>
+
+  <!-- L'homme fait la visite, planchette en main, tourné vers l'avion -->
+  <g transform="translate(800 500) scale(2)">
+    <g fill="{{shadow}}">
+      <rect x="-9" y="-44" width="8" height="42"/>
+      <rect x="1" y="-44" width="8" height="42"/>
+      <rect x="-10" y="-3" width="10" height="3" rx="1.5"/>
+      <rect x="1" y="-3" width="12" height="3" rx="1.5"/>
+      <path d="M-12 -82 Q0 -86 12 -82 L14 -42 L-14 -42 Z"/>
+      <circle cx="1" cy="-92" r="7.5"/>
+      <path d="M-6 -97 Q2 -103 9 -96 L8 -93 L-6 -94 Z"/>
+    </g>
+    <path d="M9 -78 L15 -66 L22 -66" fill="none" stroke="{{shadow}}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="20" y="-78" width="14" height="19" fill="{{light}}"/>
+    <rect x="24" y="-80" width="6" height="4" rx="1" fill="{{deep}}"/>
+  </g>
+</svg>

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · « Grille d'audit de site internet : corriger ou refaire » : une maison qui
+       penche légèrement ; un homme tend une perche d'où pend un fil à plomb, le long du
+       mur. L'écart entre le fil et le mur dit s'il faut redresser ou reconstruire.
+       Hero (multiply sur paper) : fond crème, aucun aplat ne touche les bords, sujet entre
+       x 560 et 1110. Rôles : subject = la maison, shape = fenêtres et toit ; silhouette en {{shadow}}. -->
+  <rect width="1456" height="624" fill="{{field}}"/>
+
+  <!-- Sol local -->
+  <ellipse cx="860" cy="506" rx="380" ry="22" fill="{{ground}}"/>
+  <ellipse cx="930" cy="502" rx="220" ry="8" fill="{{shape}}"/>
+  <ellipse cx="600" cy="502" rx="36" ry="6" fill="{{shape}}"/>
+
+  <!-- La maison, inclinée de quelques degrés sur sa base -->
+  <g transform="rotate(5 930 500)">
+    <path d="M770 250 L930 140 L1090 250 Z" fill="{{shape}}"/>
+    <rect x="1010" y="160" width="30" height="60" fill="{{deep}}"/>
+    <rect x="790" y="250" width="280" height="252" fill="{{subject}}"/>
+    <g fill="{{shape}}">
+      <rect x="816" y="276" width="40" height="52"/>
+      <rect x="878" y="276" width="40" height="52"/>
+      <rect x="942" y="276" width="40" height="52"/>
+      <rect x="1004" y="276" width="40" height="52"/>
+      <rect x="816" y="360" width="40" height="52"/>
+      <rect x="878" y="360" width="40" height="52"/>
+      <rect x="1004" y="360" width="40" height="52"/>
+    </g>
+    <rect x="940" y="400" width="44" height="102" fill="{{light}}"/>
+    <rect x="1004" y="360" width="40" height="52" fill="{{light}}"/>
+  </g>
+  <!-- Socle qui reste droit -->
+  <rect x="780" y="496" width="300" height="10" fill="{{deep}}"/>
+
+  <!-- Fil à plomb : perche tenue par l'homme, fil, plomb -->
+  <path d="M640 330 L778 212" stroke="{{deep}}" stroke-width="8" stroke-linecap="round"/>
+  <path d="M778 212 L778 432" stroke="{{shadow}}" stroke-width="2.4"/>
+  <rect x="774" y="430" width="8" height="6" fill="{{shadow}}"/>
+  <path d="M766 438 L790 438 Q796 452 778 468 Q760 452 766 438 Z" fill="{{shadow}}"/>
+
+  <!-- L'homme, de profil, perche en main -->
+  <g transform="translate(600 500) scale(2.1)">
+    <g fill="{{shadow}}">
+      <rect x="-9" y="-44" width="8" height="42"/>
+      <rect x="1" y="-44" width="8" height="42"/>
+      <rect x="-10" y="-3" width="10" height="3" rx="1.5"/>
+      <rect x="1" y="-3" width="12" height="3" rx="1.5"/>
+      <path d="M-12 -82 Q0 -86 12 -82 L14 -42 L-14 -42 Z"/>
+      <circle cx="1" cy="-92" r="7.5"/>
+      <path d="M-6 -97 Q2 -103 9 -96 L8 -93 L-6 -94 Z"/>
+    </g>
+    <path d="M9 -78 L15 -68 L20 -80" fill="none" stroke="{{shadow}}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Planchette de relevé sous l'autre bras -->
+    <rect x="-17" y="-70" width="6" height="22" fill="{{deep}}"/>
+  </g>
+</svg>

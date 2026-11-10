@@ -60,11 +60,6 @@ export const data: LeadMagnetPage = {
     '<li><strong>Layout shift (CLS)</strong>: 0.1 at most.</li>' +
     '</ul>' +
     '<p>The threshold is measured at the 75th percentile of page loads, separately on mobile and desktop. Meeting these thresholds guarantees no ranking.</p>',
-  illustration: {
-    src: '/images/illustrations/ds/cahier-des-charges-site-internet-gabarit-paper.webp',
-    alt_fr: "Un grand gabarit de papier découpé en forme de maison, à côté d'une charpente montée à la même forme",
-    alt_en: 'A large paper template cut out in the shape of a house, next to a timber frame built to the same shape',
-  },
   faq_fr: [
     {
       q: "La grille remplace-t-elle un audit SEO technique ?",

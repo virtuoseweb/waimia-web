@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · « Formation IA générative pour une équipe de PME » : une formatrice tient la selle d'un vélo pendant qu'un collègue apprend à rouler ; deux autres attendent leur tour.
+       Hero de billet (multiply sur fond paper) : fond crème, aucun aplat ne touche les bords,
+       sol en ellipse, sujet entre x 300 et 1250. Distribution creme-aere ; silhouettes en {{shadow}}. -->
+  <defs><g id="man"><circle cx="1" cy="-90" r="7.5"/><path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z"/><rect x="-11.5" y="-44" width="9.5" height="42"/><rect x="2" y="-44" width="9.5" height="42"/><rect x="-12" y="-3" width="11" height="3" rx="1.5"/><rect x="2" y="-3" width="13" height="3" rx="1.5"/></g><g id="woman"><circle cx="1" cy="-90" r="7"/><circle cx="-5" cy="-95" r="5"/><path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z"/><path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z"/><rect x="-6" y="-25" width="4" height="23"/><rect x="2" y="-25" width="4" height="23"/><path d="M-8 -3 L-1 -3 L-1 0 L-8 0 Z M1 -3 L10 -3 L10 0 L1 0 Z"/></g></defs>
+  <rect width="1456" height="624" fill="{{field}}"/>
+
+  <ellipse cx="900" cy="506" rx="390" ry="22" fill="{{ground}}"/>
+  <!-- vélo -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="830" cy="456" r="42" stroke="{{subject}}" stroke-width="8"/>
+    <circle cx="984" cy="456" r="42" stroke="{{subject}}" stroke-width="8"/>
+    <path d="M830 456 L880 394 L952 394 L984 456 M880 394 L902 456 L830 456 M902 456 L952 394" stroke="{{detail}}" stroke-width="8"/>
+    <path d="M880 394 L874 372 M952 394 L960 360 L982 356" stroke="{{subject}}" stroke-width="7"/>
+  </g>
+  <rect x="856" y="364" width="34" height="9" rx="3" fill="{{subject}}"/>
+  <!-- l'apprenant -->
+  <path d="M862 366 L890 366 L912 298 L886 290 Z" fill="{{shadow}}"/>
+  <circle cx="906" cy="276" r="15" fill="{{shadow}}"/>
+  <path d="M904 304 L940 336 L962 356" fill="none" stroke="{{shadow}}" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M878 366 L916 404 L904 450" fill="none" stroke="{{shadow}}" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- la formatrice tient la selle -->
+  <use href="#woman" fill="{{shadow}}" transform="translate(776 500) scale(2.05)"/>
+  <path d="M788 342 L812 366 L852 370" fill="none" stroke="{{shadow}}" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- ceux qui attendent -->
+  <use href="#man" fill="{{shadow}}" transform="translate(1124 500) scale(-1.85 1.85)"/>
+  <use href="#woman" fill="{{shadow}}" transform="translate(1180 500) scale(-1.85 1.85)"/>
+
+</svg>
