@@ -31,6 +31,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { DEPUBLISHED_SERVICE_IDS, DEPUBLISHED_DEMONSTRATION_IDS, isRedirectedPath } from '../data/depublished';
 import { NOINDEX_SITEMAP_PATHS } from '../data/sitemap-noindex-exclude';
+import { SILOS } from '../data/taxonomies';
 import { listRouteSources } from './seo/lastmod.mjs';
 import { SERVICE_HUB_PATHS, hubChildren } from './seo/service-catalog';
 
@@ -63,6 +64,18 @@ export const REINFORCED_PAGES: ReadonlySet<string> = new Set([
 const minInbound = (route: string) => (REINFORCED_PAGES.has(route) ? REINFORCED_INBOUND : MIN_INBOUND);
 /** Liens émis par thème depuis une page. */
 const LINKS_PER_TOPIC = 3;
+
+/**
+ * Page de service (money page) de chaque silo : tout article, guide, comparatif ou diagnostic
+ * la lie, quel que soit son rang dans l'anneau. Dérivée du `pillar` de SILOS
+ * (src/data/taxonomies.ts), sauf `claude` dont le pilier est un guide : la page de service
+ * est alors l'intégration Claude. Une page absente ou noindex est ignorée (filtre `live`).
+ */
+const MONEY_PAGE: Record<Topic, string> = Object.fromEntries(
+  Object.entries(SILOS).map(([silo, def]) => [silo, silo === 'claude' ? '/services/integration-claude' : def.pillar]),
+) as Record<Topic, string>;
+/** Natures de page qui portent le lien vers la page de service de leur silo. */
+const LINKS_TO_MONEY_PAGE: ReadonlySet<Kind> = new Set<Kind>(['article', 'guide', 'comparatif', 'diagnostic']);
 
 type Topic =
   | 'automatisation'
@@ -446,7 +459,10 @@ function computeLiveRoutes(root: string): Set<string> {
   } catch {
     return live; // pas d'accès disque (rendu serverless) : aucun lien émis plutôt qu'un lien faux
   }
-  for (const { route, file } of sources) {
+  for (const { route: sourceRoute, file } of sources) {
+    // Le hub des formations (content/formations/index.json) porte `slug: formations` : le calcul
+    // de route de lastmod.mjs en tire /formations/formations. La page servie est /formations.
+    const route = sourceRoute === '/formations/formations' ? '/formations' : sourceRoute;
     if (!(route in PAGES) || NOINDEX_SITEMAP_PATHS.has(route) || isRedirectedPath(route)) continue;
     const id = route.split('/').pop() ?? '';
     if (route.startsWith('/services/') && (DEPUBLISHED_SERVICE_IDS.has(id) || id === 'template-service-ref')) continue;
@@ -538,6 +554,20 @@ function buildGraph(root: string): Graph {
       if (candidates.length === 0) break;
       out.get(candidates[0])!.push(target);
       inbound.set(target, (inbound.get(target) ?? 0) + 1);
+    }
+  }
+
+  // 3. Page de service du silo (premier thème de la page), en tête des liens émis. Posée APRÈS
+  //    l'équilibrage : elle s'ajoute aux liens calculés sans changer le choix des émettrices
+  //    d'appoint. Un silo sans page de service vivante n'ajoute rien.
+  for (const route of emitters) {
+    const def = PAGES[route];
+    if (!LINKS_TO_MONEY_PAGE.has(def.kind)) continue;
+    const money = MONEY_PAGE[def.topics[0]];
+    const links = out.get(route)!;
+    if (money && money !== route && live.has(money) && !links.includes(money) && allowed(route, money)) {
+      links.unshift(money);
+      inbound.set(money, (inbound.get(money) ?? 0) + 1);
     }
   }
 
