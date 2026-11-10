@@ -11481,6 +11481,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/bloquer-entrainement-ia-robots-txt",
+    "title": "Bloquer l'entraînement des IA dans robots.txt sans disparaître des réponses",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/bloquer-entrainement-ia-robots-txt.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/brain-circuit",
     "title": "Cerveau-circuit : l'iconographie IA, un théâtre",
     "group": "blog",
@@ -11639,6 +11648,15 @@ export const SITE_PAGES: SitePage[] = [
     "group": "blog",
     "collection": "blog",
     "file": "blog/claude-pro-vs-team.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/comptes-ia-personnels-depart-salarie",
+    "title": "Départ d'un salarié : que faire de ses comptes d'IA personnels",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/comptes-ia-personnels-depart-salarie.json",
     "editable": false,
     "sections": []
   },
@@ -13083,6 +13101,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/automatiser-relance-devis-n8n",
       "/blog/automatiser-relances-b2b-sans-sdr-guide-cabinet-conseil",
       "/blog/avis-n8n-vs-zapier-2026",
+      "/blog/bloquer-entrainement-ia-robots-txt",
       "/blog/brain-circuit",
       "/blog/cabler-son-crm-en-10-jours",
       "/blog/cahier-des-charges-refonte-site",
@@ -13101,6 +13120,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/claude-max-pme",
       "/blog/claude-microsoft-copilot-pme",
       "/blog/claude-pro-vs-team",
+      "/blog/comptes-ia-personnels-depart-salarie",
       "/blog/connecter-claude-wordpress-shopify-mcp",
       "/blog/contenu-ia-seo-google-penalise",
       "/blog/cout-agent-ia-toujours-actif",

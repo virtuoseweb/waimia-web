@@ -3304,20 +3304,24 @@
     {
       "id": "idee-signal-commun-entrainement-ia",
       "type": "article",
-      "titreProvisoire": "Refuser l'entraînement des IA sans disparaître des réponses : le signal commun de Google, OpenAI et Bing",
+      "titreProvisoire": "Bloquer l'entraînement des IA dans robots.txt sans disparaître des réponses",
       "requeteCible": "bloquer entraînement ia robots.txt",
       "intention": "Décider s'il faut refuser l'entraînement des modèles sur son site, et avec quelle conséquence sur la visibilité dans les moteurs IA.",
-      "urlCible": "/blog/signal-commun-entrainement-ia-robots-txt",
-      "angle": "Signal annoncé le 30 octobre 2026 (syntaxe User-Agent __usage_ai-training, Disallow: /) qui ne bloque que l'entraînement, pas l'indexation ; chez Google il vaut refus de Google-Extended, qui coupe aussi le grounding des Gemini Apps ; rien d'actif avant début 2027 (Google), février 2027 (Bing). Angle : quoi faire aujourd'hui pour une PME qui veut être citée par les IA, sans recopier les annonces. À vérifier par la SERP le jour de la rédaction.",
+      "urlCible": "/blog/bloquer-entrainement-ia-robots-txt",
+      "angle": "Recherche du 10 novembre 2026 : huit pages françaises publiées du 31 octobre au 9 novembre (snazzy.fr, zefcomputers.com, origami.sa, studeria.fr, itdaily.fr, digga.fr, blog-nouvelles-technologies.fr) expliquent déjà le jeton, le calendrier, le groupe * ignoré et le piège Google-Extended. Apporté : la priorité des règles nommées (ClaudeBot, Google-Extended) sur le signal commun et l'erreur d'ajouter le jeton à un groupe Allow existant, avec le robots.txt de waimia.com comme cas réel ; tableau réglage par objectif ; exemple avant/après par chemin ; position « ne rien poser sauf sur ce que vous vendez ». URL renommée comme la requête (au lieu de /blog/signal-commun-entrainement-ia-robots-txt).",
       "sourcesALire": [
-        "Google Search Central Blog, Supporting a shared AI training control for websites (30 octobre 2026)",
-        "OpenAI, Making it easier for websites to express AI training preferences (30 octobre 2026)",
-        "Annonce de Bing sur les contrôles d'entraînement (30 octobre 2026)"
+        "https://datatracker.ietf.org/doc/draft-kelley-aipref-training-preference-signal/ (lu le 10 novembre 2026)",
+        "https://developers.google.com/search/blog/2026/10/ai-training-control (lu le 10 novembre 2026)",
+        "https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers (lu le 10 novembre 2026)",
+        "https://openai.com/index/helping-websites-express-ai-training-preferences/ (lu le 10 novembre 2026)",
+        "https://blogs.bing.com/search/2026/10/your-content-your-choice-clearer-preferences-for-training-and-grounding/ (lu le 10 novembre 2026)",
+        "https://privacy.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler (lu le 10 novembre 2026)",
+        "https://support.google.com/webmasters/answer/16908024?hl=fr (lu le 10 novembre 2026)"
       ],
-      "semainePrevue": "2026-W47",
-      "statut": "planifié",
-      "pr": null,
-      "mesureAttendue": "Page indexée et premières impressions sur la requête cible ; pages apparaitre-dans-chatgpt-pme et visibilite-google-ia mises en cohérence quand le signal sera actif.",
+      "semainePrevue": "2026-W46",
+      "statut": "publié",
+      "pr": 166,
+      "mesureAttendue": "/blog/bloquer-entrainement-ia-robots-txt, requête « bloquer entraînement ia robots.txt » : page hors sitemap au 10 novembre 2026. Attendu : page indexée et premières impressions. À juger à partir de 2026-W49.",
       "resultat": null,
       "origine": "Cinq entrées de flux de sources différentes du 30 au 1er novembre 2026 : Google Search Central Blog, OpenAI News, Search Engine Roundtable (deux), Search Engine Journal ; annonces primaires de Google et d'OpenAI lues le 2 novembre 2026. Lié à l'offre de référencement IA (/services/referencement-ia)."
     },
@@ -3485,20 +3489,23 @@
     {
       "id": "idee-comptes-ia-personnels-depart-salarie",
       "type": "article",
-      "titreProvisoire": "Départ d'un salarié : que faire de ses comptes d'IA personnels et de ce qu'il y a confié",
-      "requeteCible": "shadow ai départ salarié",
+      "titreProvisoire": "Départ d'un salarié : que faire de ses comptes d'IA personnels",
+      "requeteCible": "départ salarié compte ia personnel",
       "intention": "Savoir quoi faire, au départ d'un salarié, des conversations professionnelles restées dans un compte d'IA personnel.",
       "urlCible": "/blog/comptes-ia-personnels-depart-salarie",
-      "angle": "La chronique du Journal du Net du 4 novembre 2026 pose la question sans procédure. Apporté : la ligne à ajouter à la procédure de départ, ce que permettent les offres d'équipe (export, suppression, propriété des conversations) d'après les pages des éditeurs lues le jour de la rédaction, ce que l'entreprise ne peut pas exiger. Pas d'avis juridique sur le droit du travail.",
+      "angle": "Recherche du 10 novembre 2026 : la chronique du Journal du Net (4 novembre 2026) pose le problème sans procédure ; kohenavocats.com traite les comptes fournis par l'employeur ; deeploi.io, memx.app et itpro.com (en anglais) parlent outillage ou perte de savoir. Apporté : tableau outil par outil (ChatGPT, Claude, Mistral personnels, ChatGPT Business, Claude Team) d'après les aides des éditeurs lues le 10 novembre 2026, les quatre questions de la procédure de départ, ce qu'il faut faire avant de retirer un membre d'une offre d'équipe, exemple illustratif, sans avis juridique.",
       "sourcesALire": [
-        "https://www.journaldunet.com/cybersecurite/1557567-quand-les-donnees-de-l-entreprise-restent-dans-les-comptes-personnels-d-ia/",
-        "Synthèse du CERT-FR de février 2026 sur l'IA générative face aux attaques",
-        "Pages d'aide d'Anthropic, OpenAI et Mistral sur l'export et la suppression des conversations"
+        "https://www.journaldunet.com/cybersecurite/1557567-quand-les-donnees-de-l-entreprise-restent-dans-les-comptes-personnels-d-ia/ (lu le 10 novembre 2026)",
+        "https://www.cert.cyber.gouv.fr/cti/CERTFR-2026-CTI-001/ (lu le 10 novembre 2026)",
+        "https://help.openai.com/en/articles/8266418-data-retention-when-a-member-is-removed-from-a-workspace (lu le 10 novembre 2026)",
+        "https://support.claude.com/en/articles/12053672-what-happens-to-a-user-s-data-when-they-are-removed-from-a-team-or-enterprise-organization (lu le 10 novembre 2026)",
+        "https://privacy.claude.com/en/articles/10023548-how-long-do-you-store-my-data (lu le 10 novembre 2026)",
+        "https://help.mistral.ai/en/articles/347613-can-i-delete-a-chat-conversation (lu le 10 novembre 2026)"
       ],
-      "semainePrevue": "2026-W47",
-      "statut": "planifié",
-      "pr": null,
-      "mesureAttendue": "Page indexée deux collectes après la mise en production ; impressions sur la requête cible.",
+      "semainePrevue": "2026-W46",
+      "statut": "publié",
+      "pr": 166,
+      "mesureAttendue": "/blog/comptes-ia-personnels-depart-salarie, requête « départ salarié compte ia personnel » : page hors sitemap au 10 novembre 2026. Attendu : page indexée et premières impressions. À juger à partir de 2026-W49.",
       "resultat": null,
       "origine": "Recherche du 5 novembre 2026 pour « risques claude pme » : le shadow AI revient dans quatre pages lues le même jour de sources différentes (hapiagency.fr, itsystemes.fr, mankova-consulting.com, journaldunet.com du 4 novembre 2026) ; aucune ne donne la procédure de départ. Volume non mesuré."
     },
@@ -3798,6 +3805,44 @@
       "mesureAttendue": "Page indexée deux collectes après la mise en production ; premières impressions sur la requête cible.",
       "resultat": null,
       "origine": "Recherche du 9 novembre 2026 : obeevi.fr et siecledigital.fr confondent les contenus visés ; la FAQ de la Commission lue le même jour définit le contrôle éditorial. Volume non mesuré."
+    },
+    {
+      "id": "idee-bing-noarchive-preferences-ia",
+      "type": "article",
+      "titreProvisoire": "Bing remplace NoArchive et NoCache : ce qu'un site doit faire avant le 1er mars 2027",
+      "requeteCible": "bing noarchive ia",
+      "intention": "Savoir si son site utilise NoArchive ou NoCache et quoi publier pour garder ses préférences d'entraînement et d'ancrage chez Bing et Copilot.",
+      "urlCible": "/blog/bing-noarchive-preferences-ia",
+      "angle": "Hypothèse à vérifier par la SERP le jour de la rédaction : les pages lues le 10 novembre 2026 citent la date du 1er mars 2027 sans procédure. Apporté : comment savoir si son site porte ces balises (CMS, extensions SEO), la balise ai-grounding page par page, le réglage transitoire de Bing Webmaster Tools du 15 décembre 2026.",
+      "sourcesALire": [
+        "https://blogs.bing.com/search/2026/10/your-content-your-choice-clearer-preferences-for-training-and-grounding/ (lu le 10 novembre 2026)",
+        "https://www.bing.com/webmasters/help/new-ai-preferences-2t1cc16d (à lire)"
+      ],
+      "semainePrevue": null,
+      "statut": "idée",
+      "pr": null,
+      "mesureAttendue": "Page indexée deux collectes après la mise en production ; impressions sur la requête cible.",
+      "resultat": null,
+      "origine": "Annonce de Microsoft Bing du 30 octobre 2026, lue le 10 novembre 2026 pendant la recherche de /blog/bloquer-entrainement-ia-robots-txt : NoArchive et NoCache ne seront plus lus comme préférences d'IA après le 1er mars 2027 ; échéance datée qui touche les sites de PME. Volume non mesuré : à demander à Simon (Semrush)."
+    },
+    {
+      "id": "idee-migrer-chatgpt-personnel-business",
+      "type": "article",
+      "titreProvisoire": "Fusionner un ChatGPT personnel dans l'espace Business de l'entreprise : ce qui passe, ce qui se perd",
+      "requeteCible": "migrer compte chatgpt personnel vers business",
+      "intention": "Décider s'il faut proposer aux salariés de fusionner leur espace ChatGPT personnel dans l'espace Business, et ce qu'ils doivent savoir avant.",
+      "urlCible": "/blog/fusionner-chatgpt-personnel-business",
+      "angle": "Hypothèse : la fusion est définitive, ne permet pas de choisir les conversations et fait perdre l'accès au départ du salarié (aides d'OpenAI lues le 10 novembre 2026) ; une seule page lue en tête (netsysgroup.com, 17 octobre 2026, en anglais). Apporté : la décision côté dirigeant et la consigne à donner aux salariés. À confronter à la SERP française le jour de la rédaction.",
+      "sourcesALire": [
+        "https://help.openai.com/en/articles/10479654-onboarding-employees-with-existing-chatgpt-accounts (lu le 10 novembre 2026)",
+        "https://help.openai.com/en/articles/8542115-chatgpt-business-general-faq (lu le 10 novembre 2026)"
+      ],
+      "semainePrevue": null,
+      "statut": "idée",
+      "pr": null,
+      "mesureAttendue": "Page indexée deux collectes après la mise en production ; impressions sur la requête cible.",
+      "resultat": null,
+      "origine": "Question relevée pendant la recherche du 10 novembre 2026 pour /blog/comptes-ia-personnels-depart-salarie : l'aide d'OpenAI sur l'arrivée de salariés déjà équipés et l'article de netsysgroup.com en tête de « ChatGPT Business migration personal account ». Volume non mesuré : à demander à Simon (Semrush)."
     }
   ]
 }

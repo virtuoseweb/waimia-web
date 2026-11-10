@@ -1,0 +1,185 @@
+{
+  "title_fr": "Bloquer l'entraînement des IA dans robots.txt sans disparaître des réponses",
+  "title_en": "Opting out of AI training in robots.txt without vanishing from AI answers",
+  "seoTitle_fr": "Bloquer l'entraînement des IA dans robots.txt : le guide",
+  "seoTitle_en": "Opt out of AI training in robots.txt: the guide",
+  "h1_fr": "Bloquer l'entraînement des IA dans robots.txt sans disparaître des réponses",
+  "description_fr": "Le signal __usage_ai-training refuse l'entraînement chez Anthropic, OpenAI, Google et Bing. Dates, piège Gemini, règles qui l'annulent, réglage par objectif.",
+  "description_en": "The __usage_ai-training signal opts out of AI training at Anthropic, OpenAI, Google and Bing. Dates, the Gemini trap, rules that override it, settings by goal.",
+  "excerpt_fr": "Deux lignes dans robots.txt refusent l'entraînement des IA chez quatre éditeurs. Mais chez Google le refus coupe aussi Gemini, et vos règles par robot passent devant le signal commun.",
+  "excerpt_en": "Two robots.txt lines opt out of AI training at four providers. At Google the opt-out also cuts Gemini citations, and named crawler rules override the shared signal.",
+  "publishedAt": "2026-11-10",
+  "updatedAt": "2026-11-10",
+  "editorialType": "Tutorial",
+  "type": "post",
+  "author": "simon-beros",
+  "category": "acquisition",
+  "tags": [
+    "robots-txt",
+    "entrainement-ia",
+    "geo",
+    "google-extended",
+    "chatgpt",
+    "claude"
+  ],
+  "readingTime": 9,
+  "lead_magnet": "diagnostic-maturite-ia",
+  "relatedPosts": [
+    "apparaitre-dans-chatgpt-pme",
+    "ai-mode-google-ai-overviews-pme",
+    "seo-geo-etre-cite-par-les-ia-generatives"
+  ],
+  "slug": "bloquer-entrainement-ia-robots-txt",
+  "sources": [
+    {
+      "name": "IETF, Machine-Readable Training Preference Signal (draft-kelley-aipref-training-preference-signal-00), lu le 10 novembre 2026",
+      "url": "https://datatracker.ietf.org/doc/draft-kelley-aipref-training-preference-signal/",
+      "type": "enterprise"
+    },
+    {
+      "name": "Google Search Central, Supporting a shared AI training control for websites (30 octobre 2026), lu le 10 novembre 2026",
+      "url": "https://developers.google.com/search/blog/2026/10/ai-training-control",
+      "type": "enterprise"
+    },
+    {
+      "name": "Google, Google's common crawlers (Google-Extended), lu le 10 novembre 2026",
+      "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers",
+      "type": "enterprise"
+    },
+    {
+      "name": "Google, aide de la Search Console : contrôle de l'IA générative dans la Recherche, lu le 10 novembre 2026",
+      "url": "https://support.google.com/webmasters/answer/16908024?hl=fr",
+      "type": "enterprise"
+    },
+    {
+      "name": "OpenAI, Making it easier for websites to express AI training preferences (30 octobre 2026), lu le 10 novembre 2026",
+      "url": "https://openai.com/index/helping-websites-express-ai-training-preferences/",
+      "type": "enterprise"
+    },
+    {
+      "name": "OpenAI, Overview of OpenAI Crawlers, lu le 10 novembre 2026",
+      "url": "https://developers.openai.com/api/docs/bots",
+      "type": "enterprise"
+    },
+    {
+      "name": "Microsoft Bing, Your content, your choice: clearer preferences for training and grounding (30 octobre 2026), lu le 10 novembre 2026",
+      "url": "https://blogs.bing.com/search/2026/10/your-content-your-choice-clearer-preferences-for-training-and-grounding/",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, Does Anthropic crawl data from the web, and how can site owners block the crawler?, lu le 10 novembre 2026",
+      "url": "https://privacy.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, How long do you store my data?, lu le 10 novembre 2026",
+      "url": "https://privacy.claude.com/en/articles/10023548-how-long-do-you-store-my-data",
+      "type": "enterprise"
+    },
+    {
+      "name": "Cloudflare, Préservez votre référencement tout en refusant l'entraînement des IA (21 septembre 2026), lu le 10 novembre 2026",
+      "url": "https://blog.cloudflare.com/fr-fr/accountable-mixed-use-ai-crawlers/",
+      "type": "enterprise"
+    }
+  ],
+  "faq_fr": [
+    {
+      "q": "Comment bloquer l'entraînement des IA sur mon site ?",
+      "a": "Ajoutez à votre robots.txt un groupe séparé : User-Agent: __usage_ai-training, puis Disallow: /. Anthropic dit l'appliquer depuis le 30 octobre 2026 ; OpenAI annonce les prochains mois, Google début 2027 et Microsoft le 1er février 2027. Vérifiez aussi que votre fichier n'autorise pas ClaudeBot ou Google-Extended par leur nom, car ces règles l'emportent."
+    },
+    {
+      "q": "Bloquer l'entraînement des IA fait-il disparaître mon site de Google ?",
+      "a": "Non. Google écrit que Google-Extended n'a pas d'effet sur l'inclusion dans la Recherche ni sur le classement, et Microsoft que ses préférences ne changent pas l'éligibilité aux résultats de Bing. En revanche, chez Google, le refus coupe l'ancrage des réponses de l'application Gemini si Google-Extended n'est pas nommé."
+    },
+    {
+      "q": "Une règle User-agent: * avec Disallow: / suffit-elle à refuser l'entraînement ?",
+      "a": "Non, au sens du signal commun. Le brouillon de l'IETF interdit de lire le groupe de l'étoile comme une préférence d'entraînement. Il faut écrire la ligne User-Agent: __usage_ai-training dans son propre groupe. Le blocage par l'étoile empêche en revanche l'exploration par les robots qui respectent robots.txt."
+    },
+    {
+      "q": "Comment ne plus apparaître dans les Aperçus IA de Google ?",
+      "a": "Pas par robots.txt ni par le signal d'entraînement : Google renvoie au réglage « IA générative dans la Recherche » de la Search Console, ouvert à tous les sites depuis le 31 août 2026. Il exclut le site des Aperçus IA, du mode IA et des fonctions d'IA générative de Discover, avec perte des impressions et des clics qui en viennent."
+    },
+    {
+      "q": "Le signal commun retire-t-il mes pages des modèles déjà entraînés ?",
+      "a": "Non. Les annonces lues ne portent que sur les usages futurs. Anthropic précise, pour les conversations, que les données déjà incluses dans des modèles entraînés y restent. Le signal dit ce que vous refusez à partir du moment où il est lu."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "How do I opt my site out of AI training?",
+      "a": "Add a separate robots.txt group: User-Agent: __usage_ai-training, then Disallow: /. Also check that no rule explicitly allows ClaudeBot or Google-Extended, since named rules take precedence."
+    },
+    {
+      "q": "Does opting out of AI training remove my site from Google?",
+      "a": "No. Google-Extended does not affect inclusion or ranking in Google Search. It does, however, cover grounding in the Gemini app."
+    },
+    {
+      "q": "Does User-agent: * with Disallow: / count as an opt-out?",
+      "a": "No. The IETF draft says wildcard groups must not be read as a training preference."
+    }
+  ],
+  "headings": [
+    {
+      "depth": 2,
+      "slug": "en-bref",
+      "text": "En bref"
+    },
+    {
+      "depth": 2,
+      "slug": "definition",
+      "text": "Qu'est-ce que le signal commun d'entraînement ?"
+    },
+    {
+      "depth": 2,
+      "slug": "qui-quand",
+      "text": "Qui le lit, et à partir de quand"
+    },
+    {
+      "depth": 2,
+      "slug": "ce-quil-ne-fait-pas",
+      "text": "Ce que le signal ne fait pas"
+    },
+    {
+      "depth": 2,
+      "slug": "piege-google",
+      "text": "Le piège Google : entraînement et citations dans Gemini vont ensemble"
+    },
+    {
+      "depth": 2,
+      "slug": "regles-nommees",
+      "text": "Le second piège : vos règles par robot passent devant"
+    },
+    {
+      "depth": 2,
+      "slug": "decider",
+      "text": "Quel réglage pour quel objectif"
+    },
+    {
+      "depth": 2,
+      "slug": "procedure",
+      "text": "La procédure en six étapes"
+    },
+    {
+      "depth": 2,
+      "slug": "exemple",
+      "text": "Exemple illustratif : une PME qui vend des formations en ligne"
+    },
+    {
+      "depth": 2,
+      "slug": "position",
+      "text": "Notre position"
+    },
+    {
+      "depth": 2,
+      "slug": "limites",
+      "text": "Ce que ce billet ne sait pas"
+    }
+  ],
+  "body_sections": [
+    {
+      "type": "editorial-prose",
+      "html_fr": "<h2 id=\"en-bref\">En bref</h2>\n<ul>\n<li><strong>Pour refuser l'entraînement des IA sur tout votre site, deux lignes suffisent dans robots.txt, si votre fichier ne nomme encore aucun robot d'IA</strong> : <code>User-Agent: __usage_ai-training</code> puis <code>Disallow: /</code>. C'est le signal commun annoncé le 30 octobre 2026 par Anthropic, OpenAI, Google et Microsoft. Il exprime une préférence sur l'usage des contenus ; il ne bloque aucun robot et ne retire votre site d'aucun moteur.</li>\n<li><strong>Il n'est pas encore lu partout.</strong> Anthropic dit avoir commencé à l'appliquer le 30 octobre 2026. OpenAI annonce « les prochains mois », Google « début 2027 », Microsoft le 1er février 2027.</li>\n<li><strong>Chez Google, refuser l'entraînement coupera aussi les citations dans Gemini</strong>, si votre robots.txt ne nomme pas Google-Extended : à partir de début 2027, Google lira le signal comme un refus de Google-Extended, qui couvre l'entraînement et l'ancrage des réponses de l'application Gemini.</li>\n<li><strong>Vos règles existantes l'emportent sur le signal commun.</strong> Si votre robots.txt autorise déjà ClaudeBot ou Google-Extended par leur nom, ces règles restent appliquées : un site qui a ouvert ses portes aux robots d'IA pour être cité doit les reprendre avant de poser le signal.</li>\n<li><strong>Pour la plupart des PME qui vendent un service, le bon réglage est de ne rien ajouter.</strong> Le signal sert surtout aux contenus qui sont votre produit : formations payantes, documentation réservée, base de connaissances vendue.</li>\n</ul>\n\n<h2 id=\"definition\">Qu'est-ce que le signal commun d'entraînement ?</h2>\n<p>Le signal commun d'entraînement est un groupe ordinaire du fichier robots.txt dont la ligne <code>User-Agent</code> porte un nom réservé, <code>__usage_ai-training</code>, au lieu du nom d'un robot. Un chemin interdit (<code>Disallow</code>) dans ce groupe exprime une préférence contre l'entraînement de modèles d'IA générative sur ce chemin ; un chemin autorisé (<code>Allow</code>) exprime une préférence en sa faveur. Il est décrit dans un brouillon déposé à l'IETF le 30 octobre 2026 par Kevin Kelley, d'Anthropic, à partir des travaux du groupe AI Preferences (aipref).</p>\n<p>Le brouillon donne cet exemple : refus de l'entraînement partout, sauf pour l'espace presse.</p>\n<pre><code>User-Agent: __usage_ai-training\nDisallow: /\nAllow: /press-kit/</code></pre>\n<p>L'entraînement, au sens de ce texte, est l'usage d'un contenu pour modifier les paramètres d'un modèle d'IA générative. L'ancrage (<em>grounding</em>) est autre chose : c'est la lecture d'une page au moment où un assistant répond, pour s'appuyer dessus et souvent la citer avec un lien. C'est l'ancrage qui peut vous amener des visites ; c'est l'entraînement que le signal commun vise.</p>\n<p>Le texte reste un brouillon individuel : la page de l'IETF précise qu'il n'est pas endossé par l'IETF, n'a aucun statut formel et expire le 3 mai 2027 s'il n'est pas révisé (datatracker de l'IETF, lu le 10 novembre 2026).</p>\n\n<h2 id=\"qui-quand\">Qui le lit, et à partir de quand</h2>\n<table>\n<thead><tr><th>Éditeur</th><th>Ce qu'il annonce</th><th>Quand</th><th>Ce qui reste séparé</th></tr></thead>\n<tbody>\n<tr><td><strong>Anthropic</strong> (Claude)</td><td>A « commencé à reconnaître » le signal ; une règle qui nomme ClaudeBot l'emporte sur lui</td><td>Depuis le 30 octobre 2026, déploiement progressif</td><td>ClaudeBot (entraînement), Claude-SearchBot et Claude-User (recherche et visites à la demande)</td></tr>\n<tr><td><strong>OpenAI</strong> (ChatGPT)</td><td>Respectera le signal ; ses réglages par robot restent valables</td><td>« Dans les prochains mois », sans date</td><td>GPTBot (entraînement), OAI-SearchBot (réponses de recherche de ChatGPT)</td></tr>\n<tr><td><strong>Google</strong> (Gemini)</td><td>Lira un refus par le signal comme un refus de Google-Extended, sauf si Google-Extended est nommé</td><td>« Début 2027 » (documentation des robots de Google)</td><td>Googlebot (Recherche, Aperçus IA, mode IA) ; réglage de la Search Console pour l'IA générative dans la Recherche</td></tr>\n<tr><td><strong>Microsoft</strong> (Bing, Copilot)</td><td>Respectera le signal, page par page aussi ; ajoute une préférence d'ancrage distincte</td><td>À partir du 1er février 2027, au fil des passages du robot</td><td>Classement dans Bing inchangé ; ancrage réglé page par page (<code>ai-grounding</code>)</td></tr>\n</tbody>\n</table>\n<p>Sources : annonces d'OpenAI, de Google et de Microsoft du 30 octobre 2026, page d'Anthropic sur ses robots, documentation des robots de Google, toutes lues le 10 novembre 2026. Ces quatre annonces sont les seules que nous avons lues ; nous n'avons trouvé aucun engagement de Mistral, Meta, Apple ou Amazon à lire le signal.</p>\n\n<h2 id=\"ce-quil-ne-fait-pas\">Ce que le signal ne fait pas</h2>\n<ul>\n<li><strong>Il ne bloque pas l'exploration.</strong> Le brouillon le dit : le jeton n'est pas une directive d'exploration. Pour fermer la porte à un robot, il faut toujours une règle à son nom, ou un blocage côté serveur.</li>\n<li><strong>Une règle <code>User-agent: *</code> ne compte pas.</strong> Le brouillon interdit de lire le groupe de l'étoile comme une préférence d'entraînement. Un site qui n'écrit pas la ligne <code>__usage_ai-training</code> n'a exprimé aucun choix, même s'il bloque tout le reste.</li>\n<li><strong>Il ne touche pas la recherche classique.</strong> Google écrit que Google-Extended n'a pas d'effet sur l'inclusion dans la Recherche et n'est pas un critère de classement ; Microsoft écrit que ses préférences ne changent pas l'éligibilité aux résultats de Bing.</li>\n<li><strong>Il ne vous sort pas des Aperçus IA ni du mode IA de Google.</strong> Pour ces deux fonctions, Google renvoie à un réglage de la Search Console, « IA générative dans la Recherche », ouvert à tous les sites depuis le 31 août 2026. La même page précise que ce réglage n'a pas d'incidence sur l'entraînement, qui relève de Google-Extended.</li>\n<li><strong>Il ne retire rien du passé.</strong> Anthropic l'écrit pour les conversations : ce qui est déjà dans un modèle entraîné y reste. Les annonces lues ne parlent que des usages futurs.</li>\n<li><strong>Il ne rapporte rien.</strong> Microsoft le dit sans détour : ni l'autorisation ni le refus ne garantissent présence, trafic ou paiement.</li>\n</ul>\n\n<h2 id=\"piege-google\">Le piège Google : entraînement et citations dans Gemini vont ensemble</h2>\n<p>Google-Extended est un jeton sans robot dédié. Selon la documentation de Google, il décide à la fois si vos pages servent à entraîner les futurs modèles Gemini et si elles servent à l'ancrage des réponses de l'application Gemini et de « Grounding with Google Search » sur Vertex AI. Google a annoncé qu'un refus exprimé par le signal commun vaudra refus de Google-Extended quand votre fichier ne nomme pas Google-Extended.</p>\n<p>Conséquence pour une PME : chez Google, il n'existe pas aujourd'hui de réglage qui refuse l'entraînement tout en gardant les citations dans Gemini. Il faut choisir.</p>\n<ul>\n<li>Si vous écrivez le signal commun et ne nommez pas Google-Extended : refus de l'entraînement chez Google <em>et</em> sortie des réponses ancrées de Gemini.</li>\n<li>Si vous ajoutez <code>User-agent: Google-Extended</code> avec <code>Allow: /</code> : vous restez éligible aux citations de Gemini, mais Google peut entraîner ses modèles sur vos pages. Les autres éditeurs, eux, lisent toujours votre refus.</li>\n</ul>\n<p>Microsoft a fait l'inverse : chez Bing, l'entraînement se règle par le signal commun et l'ancrage par une préférence distincte, posée page par page (<code>&lt;meta name=\"Bingbot\" content=\"ai-grounding:disallow\"&gt;</code> ou l'en-tête HTTP équivalent). On peut donc refuser l'entraînement et rester cité dans Copilot.</p>\n\n<h2 id=\"regles-nommees\">Le second piège : vos règles par robot passent devant</h2>\n<p>C'est le point que les articles lus cette semaine ne développent pas, et celui qui fera le plus d'erreurs dans les PME. Une partie des sites, dont waimia.com, nomment les robots d'IA dans leur robots.txt pour les autoriser, afin d'être lus et cités. Ces règles nommées restent valables après l'arrivée du signal commun, et elles sont plus précises que lui.</p>\n<ul>\n<li><strong>Anthropic</strong> : « si votre robots.txt nomme ClaudeBot, nous suivons cette règle, même si votre réglage général dit autre chose » (page d'Anthropic sur ses robots, lue le 10 novembre 2026).</li>\n<li><strong>Google</strong> : le signal ne vaut refus de Google-Extended que si Google-Extended n'est pas nommé.</li>\n<li><strong>OpenAI</strong> : ses réglages par robot « continueront de s'appliquer » ; l'annonce ne dit pas encore comment ils se combineront avec le signal.</li>\n</ul>\n<p>Un cas réel : le robots.txt de waimia.com nomme quinze robots d'IA, dont GPTBot, ClaudeBot et Google-Extended, dans le même groupe que <code>User-agent: *</code>, avec <code>Allow: /</code>. C'est un choix assumé : nous voulons être lus. Si nous ajoutions demain le signal commun avec <code>Disallow: /</code>, ClaudeBot et Google-Extended resteraient autorisés par leur nom, et l'entraînement continuerait chez Anthropic et chez Google. Un refus cohérent demande de retirer ces robots du groupe partagé et de leur donner leur propre groupe.</p>\n<p>Deuxième erreur à éviter : ajouter la ligne <code>User-Agent: __usage_ai-training</code> à un groupe existant. Le brouillon permet de lier un même groupe à plusieurs noms ; si ce groupe contient <code>Allow: /</code>, vous venez d'exprimer une préférence <em>en faveur</em> de l'entraînement. Le signal doit vivre dans son propre groupe.</p>\n\n<h2 id=\"decider\">Quel réglage pour quel objectif</h2>\n<table>\n<thead><tr><th>Votre objectif</th><th>Dans robots.txt</th><th>Ce que vous perdez</th></tr></thead>\n<tbody>\n<tr><td>Être connu et cité partout (site vitrine, services B2B, la plupart des PME)</td><td>Rien à ajouter. L'absence de groupe <code>__usage_ai-training</code> n'exprime aucun refus.</td><td>Rien. Vos pages peuvent servir à l'entraînement.</td></tr>\n<tr><td>Protéger un espace qui est votre produit (formations payantes, documentation réservée)</td><td>Groupe <code>__usage_ai-training</code> avec <code>Disallow: /formations/</code> (le chemin concerné) ; mêmes chemins interdits dans les groupes GPTBot et ClaudeBot si vous les nommez</td><td>Chez Google, sans règle Google-Extended : plus de citations Gemini sur ce chemin seulement.</td></tr>\n<tr><td>Refuser l'entraînement partout, rester cité par ChatGPT, Claude et Copilot</td><td>Groupe <code>__usage_ai-training</code> avec <code>Disallow: /</code> ; GPTBot et ClaudeBot sortis du groupe partagé, avec <code>Disallow: /</code> ; OAI-SearchBot et Claude-SearchBot laissés autorisés</td><td>Les réponses ancrées de Gemini, sauf si vous autorisez Google-Extended (et donc l'entraînement chez Google).</td></tr>\n<tr><td>Ne plus apparaître dans les Aperçus IA et le mode IA de Google</td><td>Rien dans robots.txt : réglage « IA générative dans la Recherche » de la Search Console</td><td>Toute impression et tout clic venant de ces fonctions (page d'aide de Google).</td></tr>\n</tbody>\n</table>\n\n<h2 id=\"procedure\">La procédure en six étapes</h2>\n<ol>\n<li><strong>Lisez le robots.txt servi</strong>, pas celui que vous croyez avoir : ouvrez <code>https://votre-domaine/robots.txt</code>. Un CMS, un hébergeur ou un CDN peut le générer ou le modifier. Si votre site passe par Cloudflare, son réglage « Refuser l'entraînement des IA », annoncé le 21 septembre 2026, est un réglage de plus à vérifier (blog de Cloudflare, lu le 10 novembre 2026).</li>\n<li><strong>Listez les groupes</strong> et, pour chacun, les robots d'IA nommés : GPTBot, ClaudeBot, Google-Extended, Applebot-Extended, CCBot, et ce qu'ils ont le droit de lire.</li>\n<li><strong>Décidez par espace du site</strong>, avec le tableau ci-dessus : le site public, les contenus vendus, l'espace presse. Écrivez la décision, avec sa date.</li>\n<li><strong>Écrivez le signal dans son propre groupe</strong>, jamais ajouté à un groupe existant.</li>\n<li><strong>Alignez les règles nommées</strong> sur votre décision : un robot d'entraînement autorisé par son nom contredit votre refus chez Anthropic et chez Google.</li>\n<li><strong>Notez trois dates de contrôle</strong> : la mise en œuvre annoncée par OpenAI (sans date à ce jour), le 1er février 2027 pour Microsoft, début 2027 pour Google. À chaque étape, relisez la page de l'éditeur : le brouillon peut encore changer.</li>\n</ol>\n\n<h2 id=\"exemple\">Exemple illustratif : une PME qui vend des formations en ligne</h2>\n<p>Exemple illustratif, pas un client : une PME de 25 personnes publie des articles gratuits pour être trouvée, et vend des modules de formation sous <code>/formations/</code>. Elle veut être citée pour ses articles et refuser l'entraînement sur ses modules. Son robots.txt avant :</p>\n<pre><code>User-agent: *\nUser-agent: GPTBot\nUser-agent: ClaudeBot\nUser-agent: Google-Extended\nAllow: /\nDisallow: /admin/</code></pre>\n<p>Après :</p>\n<pre><code>User-agent: *\nUser-agent: OAI-SearchBot\nUser-agent: Claude-SearchBot\nAllow: /\nDisallow: /admin/\n\nUser-agent: GPTBot\nUser-agent: ClaudeBot\nUser-agent: Google-Extended\nAllow: /\nDisallow: /admin/\nDisallow: /formations/\n\nUser-Agent: __usage_ai-training\nDisallow: /formations/</code></pre>\n<p>Ce que fait ce fichier, ligne par ligne :</p>\n<ul>\n<li>Les robots de recherche et les visiteurs ordinaires gardent tout le site, sauf l'administration.</li>\n<li>Les trois robots ou jetons d'entraînement nommés (GPTBot, ClaudeBot, Google-Extended) gardent les articles et perdent <code>/formations/</code> : dans robots.txt, la règle dont le chemin est le plus long l'emporte, donc <code>Disallow: /formations/</code> passe devant <code>Allow: /</code>. Ce refus vaut dès aujourd'hui, sans attendre la mise en œuvre du signal commun.</li>\n<li>Google-Extended est nommé ici exprès. S'il ne l'était pas, il suivrait le groupe <code>*</code>, qui autorise tout, jusqu'à ce que Google applique le signal commun début 2027. Le prix du choix : les modules ne servent plus à l'ancrage de Gemini, ce qui est voulu ici.</li>\n<li>Le groupe <code>__usage_ai-training</code> porte le même refus pour les éditeurs qui ne sont pas nommés et qui liront le signal.</li>\n</ul>\n\n<h2 id=\"position\">Notre position</h2>\n<ul>\n<li><strong>Ne posez pas le signal par principe.</strong> Pour une PME dont le site sert à trouver des clients, être connu des modèles n'a pas de coût direct, et le refus peut coûter les citations de Gemini.</li>\n<li><strong>Posez-le sur ce que vous vendez.</strong> Un contenu qui est votre produit n'a rien à faire dans un corpus d'entraînement : refusez par chemin, pas sur tout le site.</li>\n<li><strong>Ne touchez pas au fichier sans l'avoir lu en entier.</strong> Les règles nommées écrites pour « ouvrir le site aux IA » contredisent le signal sans que rien ne vous prévienne.</li>\n<li><strong>Ne confondez pas entraînement et visibilité.</strong> Pour apparaître dans ChatGPT, c'est OAI-SearchBot qui compte ; pour les Aperçus IA, Googlebot et la Search Console. Voir <a href=\"/blog/apparaitre-dans-chatgpt-pme\">Apparaître dans ChatGPT : ce qu'une PME contrôle</a>.</li>\n</ul>\n<p>Waimia aide les PME et ETI à être citées par les moteurs IA ; la lecture du robots.txt fait partie de notre <a href=\"/services/referencement-ia\">accompagnement GEO</a>. Pour en parler, <a href=\"/audit-ia-pme\">l'audit gratuit de Waimia</a> dure 45 minutes : <a href=\"/contact?offer=audit-ia-pme&amp;intent=audit\">prendre rendez-vous</a>.</p>\n\n<h2 id=\"limites\">Ce que ce billet ne sait pas</h2>\n<ul>\n<li>Comment OpenAI combinera le signal avec ses règles par robot : son annonce renvoie à une mise à jour future.</li>\n<li>Si le signal commun aura un effet sur les Aperçus IA et le mode IA : l'annonce de Google n'en parle pas. Le seul réglage documenté pour ces fonctions est celui de la Search Console.</li>\n<li>La forme finale du standard : le brouillon peut être modifié ou remplacé, et expire le 3 mai 2027.</li>\n<li>Aucun essai n'a été fait pour ce billet : rien n'indique encore, côté éditeurs, comment vérifier qu'un refus a été pris en compte.</li>\n</ul>",
+      "html_en": "<h2 id=\"en-bref\">In short</h2>\n<p>To opt out of AI training across a whole site, two robots.txt lines are enough: <code>User-Agent: __usage_ai-training</code> then <code>Disallow: /</code>. This shared signal was announced on 30 October 2026 by Anthropic, OpenAI, Google and Microsoft. It states a preference about content use; it blocks no crawler and removes the site from no search engine. Anthropic says it began recognising it on 30 October 2026; OpenAI says \"in the coming months\", Google \"early 2027\", Microsoft from 1 February 2027.</p>\n<h2 id=\"pieges\">Two traps</h2>\n<p>At Google, an opt-out through the shared signal is read as disallowing Google-Extended when the file does not name it, and Google-Extended also covers grounding in the Gemini app: refusing training means losing Gemini citations. Second, rules that name a crawler win over the shared signal (Anthropic states this for ClaudeBot; Google for Google-Extended). Sites that explicitly allowed AI crawlers to be cited must rewrite those rules for an opt-out to hold. A <code>User-agent: *</code> group never counts as a training preference, and the token must sit in its own group.</p>\n<h2 id=\"position\">Our position</h2>\n<p>For most small businesses whose site exists to win clients, add nothing. Use the signal path by path on content that is your product (paid courses, gated documentation). Read the served robots.txt in full before changing it. To discuss your site, book <a href=\"/audit-ia-pme\">Waimia's free audit</a>.</p>"
+    }
+  ]
+}
