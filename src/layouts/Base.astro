@@ -278,14 +278,14 @@ if (meshDelegated && meshHandoff) meshHandoff.mesh = autoMesh;
       initScrollMorph();
     </script>
 
-    {/* Provenance des demandes (src/lib/lead-source.ts) : page d'arrivée, source d'entrée et page
-        précédente, tenues EN MÉMOIRE pendant la visite (ni cookie ni stockage). Les formulaires
+    {/* Provenance des demandes (src/lib/lead-source.ts) : page d'arrivée, source d'entrée, page
+        précédente et parcours de la visite, tenus EN MÉMOIRE pendant la visite (ni cookie ni stockage). Les formulaires
         lisent window.wmLeadSource() au moment de l'envoi ; l'embed Cal la reçoit à son affichage
         (politique de confidentialité v1.1). */}
     <script is:inline>
       (() => {
         if (typeof window === 'undefined' || window.wmLeadSource) return;
-        const state = { landing: location.pathname, entry: 'direct', prev: '', current: location.pathname };
+        const state = { landing: location.pathname, entry: 'direct', prev: '', current: location.pathname, path: [location.pathname] };
         try {
           if (document.referrer) {
             const u = new URL(document.referrer);
@@ -293,12 +293,38 @@ if (meshDelegated && meshHandoff) meshHandoff.mesh = autoMesh;
             else state.entry = u.hostname.replace(/^www\./, '');
           }
         } catch (_) { /* référent illisible : on garde « direct » */ }
+        // UTM de l'URL d'arrivée : première attribution conservée (le script ne tourne qu'une fois,
+        // la navigation Astro garde cet état). Chaîne simple de 80 caractères au plus, jamais interprétée.
+        try {
+          const q = new URLSearchParams(location.search);
+          ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'].forEach((k) => {
+            const v = (q.get(k) || '').trim().slice(0, 80);
+            if (/^[A-Za-z0-9][A-Za-z0-9 _.\-+]*$/.test(v)) state[k] = v;
+          });
+        } catch (_) { /* paramètres illisibles : on les ignore */ }
         document.addEventListener('astro:after-swap', () => {
           if (location.pathname === state.current) return;
           state.prev = state.current;
           state.current = location.pathname;
+          // Parcours de la visite, dans l'ordre : 20 pages au plus (les plus récentes).
+          state.path.push(location.pathname);
+          if (state.path.length > 20) state.path.shift();
         });
-        window.wmLeadSource = () => ({ landing: state.landing, entry: state.entry, prev: state.prev || undefined });
+        // Conversion vers Vercel Web Analytics (événement personnalisé, plan Pro) : page et canal
+        // UTM seulement, aucune donnée personnelle. Même file `va` que @vercel/analytics/track().
+        window.wmTrack = (name) => {
+          try {
+            window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+            const data = { page: location.pathname, landing: state.landing || '' };
+            if (state.utm_source) data.utm_source = state.utm_source;
+            window.va('event', { name, data });
+          } catch (_) { /* mesure seulement : ne bloque jamais l'envoi */ }
+        };
+        window.wmLeadSource = () => ({
+          landing: state.landing, entry: state.entry, prev: state.prev || undefined, path: state.path.slice(),
+          utm_source: state.utm_source, utm_medium: state.utm_medium,
+          utm_campaign: state.utm_campaign, utm_content: state.utm_content,
+        });
       })();
     </script>
 

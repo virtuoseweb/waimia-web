@@ -214,6 +214,7 @@ const lang = propLang ?? langFromPath(Astro.url.pathname);
         });
         var data = await res.json();
         if (data.ok) {
+          window.wmTrack && window.wmTrack('newsletter_signup');
           document.cookie = 'waimia_newsletter_signed=true; path=/; max-age=31536000; SameSite=Lax';
           form.style.display = 'none';
           var confirm = section && section.querySelector('[data-nl-confirm]');

@@ -11,7 +11,7 @@ import { z } from "zod";
 import { isBotSubmission } from "../../lib/honeypot";
 import { isValidPhone } from "../../lib/phone";
 import { SITE } from "../../site.config";
-import { LeadSourceSchema, leadSourceLog, leadSourceRows, refererPath } from "../../lib/lead-source";
+import { LeadSourceSchema, leadAttribution, leadCanalTag, leadSourceLog, leadSourceRows, refererPath } from "../../lib/lead-source";
 
 export const prerender = false;
 
@@ -162,9 +162,10 @@ export const ALL: APIRoute = async ({ request }) => {
         tags: [
           { name: "event", value: "contact_submitted" },
           { name: "kind", value: "internal" },
+          leadCanalTag(source),
         ],
       }),
-      emitEvent("contact_submitted", { email, firstName }),
+      emitEvent("contact_submitted", { email, firstName, ...leadAttribution(source) }),
     ]);
     // Pas de clé d'envoi : la demande n'a atteint personne. On le dit, pas de faux succès.
     if (internal.skipped) {

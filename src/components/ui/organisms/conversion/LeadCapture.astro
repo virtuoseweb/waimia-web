@@ -191,6 +191,7 @@ const descId = bare ? describedBy : `${fid}-desc`;
         });
         var data = await res.json().catch(function () { return {}; });
         if (res.ok && data.ok) {
+          window.wmTrack && window.wmTrack('lead_magnet_requested');
           form.hidden = true;
           if (detail.result) { showReport(email, data); return; }
           ok.textContent = root.dataset.required

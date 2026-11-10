@@ -7,7 +7,7 @@ import { sendEmail, emitEvent } from "../../lib/resend";
 import { upsertSubscriber } from "../../lib/mailerlite";
 import WelcomeNewsletter from "../../lib/emails/WelcomeNewsletter";
 import { z } from "zod";
-import { LeadSourceSchema, leadSourceLog, refererPath } from "../../lib/lead-source";
+import { LeadSourceSchema, leadAttribution, leadCanalTag, leadSourceLog, refererPath } from "../../lib/lead-source";
 import { isBotSubmission } from "../../lib/honeypot";
 import { SITE } from "../../site.config";
 
@@ -115,7 +115,7 @@ export const ALL: APIRoute = async ({ request }) => {
       to: email,
       subject: "Bienvenue · Waimia",
       html: WelcomeNewsletter({ firstName }),
-      tags: [{ name: "event", value: "newsletter_signup" }],
+      tags: [{ name: "event", value: "newsletter_signup" }, leadCanalTag(source)],
     });
     // Pas de clé d'envoi : rien n'est parti. Réponse honnête, pas de faux succès, pas d'inscription.
     if (welcome.skipped) {
@@ -125,7 +125,7 @@ export const ALL: APIRoute = async ({ request }) => {
         { status: 503, headers: CORS_HEADERS },
       );
     }
-    await emitEvent("contact_submitted", { email, firstName });
+    await emitEvent("contact_submitted", { email, firstName, ...leadAttribution(source) });
     await upsertSubscriber({ email, name: firstName, groups: ["114701253078942792"] });
     const maskedEmail = email.replace(/(?<=.{3}).(?=.*@)/g, "*");
     console.log(JSON.stringify({ ts: new Date().toISOString(), action: "newsletter_signup", ...leadSourceLog(source, refererPath(request)), ip, email: maskedEmail }));

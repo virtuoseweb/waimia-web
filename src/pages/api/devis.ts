@@ -10,6 +10,7 @@ import InternalLeadAlert, { internalLeadSubject } from "../../lib/emails/Interna
 import { z } from "zod";
 import { isBotSubmission } from "../../lib/honeypot";
 import { SITE } from "../../site.config";
+import { LeadSourceSchema, leadAttribution, leadCanalTag, leadSourceLog, leadSourceRows, refererPath } from "../../lib/lead-source";
 
 export const prerender = false;
 
@@ -66,6 +67,8 @@ const DevisSchema = z.object({
   budget: z.string().max(50).optional(),
   lang: z.enum(["fr", "en"]).optional().default("fr"),
   website: z.string().optional(),
+  /** Provenance tenue en mémoire par le navigateur (src/lib/lead-source.ts). */
+  source: LeadSourceSchema,
 });
 
 const OFFERS: Record<string, string> = {
@@ -116,7 +119,8 @@ export const ALL: APIRoute = async ({ request }) => {
       { status: 400, headers: CORS_HEADERS },
     );
   }
-  const { email, lang, slug, brief, company, firstName, website } = parsed.data;
+  const { email, lang, slug, brief, company, firstName, website, source } = parsed.data;
+  const page = refererPath(request);
   // Honeypot : un bot a rempli le champ caché → faux succès silencieux
   if (website) {
     return Response.json({ ok: true }, { status: 200, headers: CORS_HEADERS });
@@ -154,17 +158,19 @@ export const ALL: APIRoute = async ({ request }) => {
           company,
           brief,
           tags: [slug, budget],
+          details: leadSourceRows(source, page),
         }),
         tags: [
           { name: "event", value: "devis_submitted" },
           { name: "kind", value: "internal" },
+          leadCanalTag(source),
         ],
       }),
-      emitEvent("contact_submitted", { email, firstName, reference, slug }),
+      emitEvent("contact_submitted", { email, firstName, reference, slug, ...leadAttribution(source) }),
     ]);
     await upsertSubscriber({ email, groups: ["114701210983859842"] });
     const maskedEmail = email.replace(/(?<=.{3}).(?=.*@)/g, "*");
-    console.log(JSON.stringify({ ts: new Date().toISOString(), action: "devis_submitted", ip, email: maskedEmail }));
+    console.log(JSON.stringify({ ts: new Date().toISOString(), action: "devis_submitted", ...leadSourceLog(source, page), ip, email: maskedEmail }));
     return Response.json({ ok: true, reference, redirect: "/bienvenue/devis" }, { status: 200, headers: CORS_HEADERS });
   } catch (err) {
     console.error("[api/devis] error", err);
