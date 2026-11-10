@@ -250,6 +250,7 @@ const details = data.details ?? [];
         });
         var data = await res.json();
         if (data.ok) {
+          window.wmTrack && window.wmTrack('contact_submitted');
           form.querySelectorAll('input, textarea, button, label, .contact-form__hint').forEach(function (el) { el.style.display = 'none'; });
           var confirm = form.querySelector('[data-cf-confirm]');
           if (confirm) { confirm.style.display = ''; confirm.removeAttribute('hidden'); }

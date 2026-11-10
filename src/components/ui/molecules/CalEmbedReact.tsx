@@ -12,9 +12,14 @@
  */
 import Cal, { getCalApi } from '@calcom/embed-react';
 import { useEffect } from 'react';
+import { track } from '@vercel/analytics';
 import { SITE } from '../../../site.config';
 
-type LeadSource = { landing?: string; entry?: string; prev?: string };
+type LeadSource = {
+  landing?: string; entry?: string; prev?: string;
+  utm_source?: string; utm_medium?: string; utm_campaign?: string; utm_content?: string;
+  path?: string[];
+};
 
 /** Provenance tenue en mémoire par layouts/Base.astro (src/lib/lead-source.ts), passée à Cal
  *  en `metadata[...]` pour que la réservation dise d'où vient la personne. Elle part dans l'URL
@@ -26,6 +31,11 @@ function leadSourceMetadata(): Record<string, string> {
   if (src?.landing) out['metadata[landing]'] = src.landing;
   if (src?.entry) out['metadata[entry]'] = src.entry;
   if (src?.prev) out['metadata[prev]'] = src.prev;
+  for (const k of ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'] as const) {
+    if (src?.[k]) out[`metadata[${k}]`] = src[k] as string;
+  }
+  // Parcours de la visite avant la réservation (pages, dans l'ordre), tronqué pour l'URL Cal.
+  if (src?.path && src.path.length > 1) out['metadata[path]'] = src.path.join('>').slice(0, 480);
   return out;
 }
 
@@ -52,6 +62,15 @@ export default function CalEmbedReact({
         // le panneau Cal les répétait et repoussait les dates sous la ligne de flottaison.
         hideEventTypeDetails: true,
         layout: 'month_view',
+      });
+      // Réservation confirmée : conversion dans Vercel Web Analytics (page seulement).
+      cal('on', {
+        action: 'bookingSuccessful',
+        callback: () => {
+          const data = { page: window.location.pathname };
+          track('rdv_booked', data);
+          (window as unknown as { umami?: { track: (n: string, d: object) => void } }).umami?.track('rdv_booked', data);
+        },
       });
     })();
   }, [namespace, theme]);

@@ -39,7 +39,7 @@ import { SITE } from "../site.config";
 import { LEAD_MAGNETS, AUDIT_BOOKING_HREF, type LeadMagnetEntry } from "../data/conversion";
 import { computeLeadTool, type LeadToolPayload, type LeadToolResult } from "./lead-tools";
 import { LeadToolPayloadSchema } from "./lead-tools/schema";
-import { LeadSourceSchema, leadSourceLog, leadSourceRows } from "./lead-source";
+import { LeadSourceSchema, leadAttribution, leadCanalTag, leadSourceLog, leadSourceRows } from "./lead-source";
 import { digestLeadTool, gmailComposeUrl, replyDraft } from "./lead-tools/digest";
 import { AUDIT_RDV_URL } from "./lead-tools/links";
 import { renderLeadToolPdf } from "./pdf";
@@ -334,6 +334,7 @@ export async function processLeadMagnet(rawPayload: unknown, deps: DeliveryDeps 
         tags: [
           { name: "event", value: "lead_magnet_downloaded" },
           { name: "kind", value: "internal" },
+          leadCanalTag(source),
         ],
       });
     } catch (err) {
@@ -343,7 +344,7 @@ export async function processLeadMagnet(rawPayload: unknown, deps: DeliveryDeps 
     // 6. Audience et automatisations marketing : UNIQUEMENT si la case a été cochée.
     if (optIn) {
       await Promise.all([
-        emitEvent("lead_magnet_downloaded", { email, slug }),
+        emitEvent("lead_magnet_downloaded", { email, slug, ...leadAttribution(source) }),
         // Groupe MailerLite « newsletter » (le même que /api/newsletter) : le consentement porte sur la lettre.
         upsertSubscriber({ email, groups: ["114701253078942792"] }),
       ]);

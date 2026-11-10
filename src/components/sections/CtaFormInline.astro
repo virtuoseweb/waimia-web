@@ -209,6 +209,7 @@ const action = leadMagnet ? '/api/lead-magnet' : (data.form_action ?? '/api/news
         });
         var data = await res.json();
         if (data.ok) {
+          window.wmTrack && window.wmTrack('newsletter_signup');
           form.style.display = 'none';
           var confirm = section && section.querySelector('[data-nl-confirm]');
           if (confirm) confirm.removeAttribute('hidden');
