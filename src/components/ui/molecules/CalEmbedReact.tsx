@@ -66,7 +66,11 @@ export default function CalEmbedReact({
       // Réservation confirmée : conversion dans Vercel Web Analytics (page seulement).
       cal('on', {
         action: 'bookingSuccessful',
-        callback: () => track('rdv_booked', { page: window.location.pathname }),
+        callback: () => {
+          const data = { page: window.location.pathname };
+          track('rdv_booked', data);
+          (window as unknown as { umami?: { track: (n: string, d: object) => void } }).umami?.track('rdv_booked', data);
+        },
       });
     })();
   }, [namespace, theme]);
