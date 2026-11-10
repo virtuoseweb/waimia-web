@@ -47,7 +47,7 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 **PR encore ouvertes** : #157 à #165 (sauf #162), sessions du 2 au 9 novembre 2026. Leurs entrées ne sont pas refaites. Les deux entrées livrées aujourd'hui (`idee-signal-commun-entrainement-ia`, ajoutée par #157, et `idee-comptes-ia-personnels-depart-salarie`, ajoutée par #160) sont reprises avec le même `id` : à dédoublonner à la fusion.
 
-**Actions du jour** (PR #PR_NUM, branche `feat/seo-2026-11-10`) : deux créations, aucune révision (aucune règle de 4.1 ne l'impose, et aucune mesure fraîche).
+**Actions du jour** (PR #166, branche `feat/seo-2026-11-10`) : deux créations, aucune révision (aucune règle de 4.1 ne l'impose, et aucune mesure fraîche).
 
 1. Création de `/blog/bloquer-entrainement-ia-robots-txt` (entrée `idee-signal-commun-entrainement-ia`, planifiée en 2026-W47 par #157, avancée : plus aucune création planifiée en 2026-W46 hors PR ouvertes).
    - Pourquoi : entrée du calendrier ; origine : cinq entrées de flux du 30 octobre au 1er novembre 2026. Category `acquisition`, au maillage (thèmes acquisition, conformite). URL renommée comme la requête.
