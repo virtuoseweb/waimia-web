@@ -38,6 +38,29 @@ type Lang = 'fr' | 'en';
 
 /** Nombre minimal de liens entrants contextuels garanti à chaque page du registre. */
 export const MIN_INBOUND = 3;
+/**
+ * Pages non indexées par Google depuis plus de trois collectes (« détectée » ou « inconnue »,
+ * runbook SEO section 4.1, règle 3 ; décision du 2 novembre 2026, collecte du 1er novembre) :
+ * seuil de liens entrants relevé à REINFORCED_INBOUND, liens pris d'abord sur des pages du
+ * même thème, puis hors de cette liste. Retirer une page de la liste dès qu'une collecte la montre indexée.
+ */
+export const REINFORCED_INBOUND = 6;
+export const REINFORCED_PAGES: ReadonlySet<string> = new Set([
+  '/services/automatisations',
+  '/services/systeme-acquisition',
+  '/ressources/comparatifs/n8n-vs-make',
+  '/ressources/comparatifs/geo-vs-seo',
+  '/ressources/diagnostics/maturite-ia',
+  '/ressources/outils/grille-taches-a-automatiser',
+  '/formations/automatisation',
+  '/cas-usages/centraliser-donnees',
+  '/cas-clients/amploi',
+  '/cas-clients/isabelle-diaz-naturopathe',
+  '/cas-clients/les-carnets-de-montpellier',
+  '/equipe/simon-beros',
+  '/blog/forward-deployed-engineer',
+]);
+const minInbound = (route: string) => (REINFORCED_PAGES.has(route) ? REINFORCED_INBOUND : MIN_INBOUND);
 /** Liens émis par thème depuis une page. */
 const LINKS_PER_TOPIC = 3;
 
@@ -87,6 +110,7 @@ interface PageDef {
 
 const PAGES: Record<string, PageDef> = {
   // ── Automatisation ──
+  '/blog/automatisation-processus-metiers-pme': { label_fr: 'Automatisation des processus métiers : par où commencer', label_en: 'Business process automation: where to start', kind: 'article', topics: ['automatisation', 'conseil'] },
   '/services/systemes-operationnels-ia': { label_fr: "Agence d'automatisation IA", label_en: 'AI automation agency', kind: 'service', topics: ['automatisation', 'agents'] },
   '/services/automatisations': { label_fr: 'Automatisation des processus', label_en: 'Process automation', kind: 'service', topics: ['automatisation'] },
   '/services/automatisation-n8n': { label_fr: 'Agence n8n', label_en: 'n8n agency', kind: 'service', topics: ['automatisation'] },
@@ -96,6 +120,7 @@ const PAGES: Record<string, PageDef> = {
   '/ressources/guides/rpa-ou-agent-ia': { label_fr: 'RPA, API ou agent IA : comment choisir', label_en: 'RPA, API or AI agent: how to choose', kind: 'guide', topics: ['automatisation', 'agents'] },
   '/blog/n8n-c-est-quoi': { label_fr: "n8n, c'est quoi", label_en: 'What is n8n', kind: 'article', topics: ['automatisation'] },
   '/blog/avis-n8n-vs-zapier-2026': { label_fr: 'n8n ou Zapier : notre avis', label_en: 'n8n vs Zapier: our take', kind: 'article', topics: ['automatisation'] },
+  '/blog/cles-api-automatisation-securite-pme': { label_fr: 'Clés API dans n8n et Make : les sécuriser', label_en: 'Securing API keys in n8n and Make', kind: 'article', topics: ['automatisation', 'conformite'] },
   '/cas-usages/standardiser-processus': { label_fr: "Automatiser l'administratif", label_en: 'Standardise processes', kind: 'cas-usage', topics: ['automatisation'] },
   '/cas-usages/finance-comptabilite': { label_fr: 'IA et automatisation de la comptabilité', label_en: 'AI and accounting automation', kind: 'cas-usage', topics: ['automatisation', 'donnees'] },
   '/cas-usages/rh': { label_fr: 'IA et automatisation des ressources humaines', label_en: 'AI and HR automation', kind: 'cas-usage', topics: ['automatisation', 'conformite'] },
@@ -121,6 +146,7 @@ const PAGES: Record<string, PageDef> = {
   '/blog/installer-hermes-agent-premier-agent': { label_fr: "Installer Hermes Agent : un premier agent prudent", label_en: "Installing Hermes Agent: a careful first agent", kind: 'article', topics: ['agents', 'automatisation'] },
   '/blog/hermes-agent-v0-22-modeles-locaux-connecteurs': { label_fr: "Hermes Agent v0.22 : modèles locaux et connecteurs", label_en: "Hermes Agent v0.22: local models and connectors", kind: 'article', topics: ['agents', 'automatisation'] },
   '/blog/openclaw-2-0-migration-changements': { label_fr: "OpenClaw 2.0 : changements et migration", label_en: "OpenClaw 2.0: changes and migration", kind: 'article', topics: ['agents', 'automatisation'] },
+  '/blog/acces-agent-ia-identifiants-pme': { label_fr: "Donner accès à un agent IA : identifiants et droits", label_en: "Giving an AI agent access: credentials and rights", kind: 'article', topics: ['agents', 'conformite'] },
   '/blog/securiser-openclaw-checklist': { label_fr: "Sécuriser OpenClaw : checklist avant production", label_en: "Securing OpenClaw: pre-production checklist", kind: 'article', topics: ['agents', 'conformite'] },
   '/blog/agent-ia-toujours-actif-missions-pme': { label_fr: "Agent IA toujours actif : sept missions pour une PME", label_en: "Always-on AI agent: seven missions for an SMB", kind: 'article', topics: ['agents', 'automatisation'] },
   '/blog/cout-agent-ia-toujours-actif': { label_fr: "Coût d'un agent IA toujours actif", label_en: "Cost of an always-on AI agent", kind: 'article', topics: ['agents', 'conseil'] },
@@ -151,6 +177,7 @@ const PAGES: Record<string, PageDef> = {
   '/ressources/guides/agent-sav-architecture': { label_fr: "Agent IA de service client : architecture et mesure", label_en: 'AI customer service agent: architecture and measurement', kind: 'guide', topics: ['agents', 'automatisation'] },
   '/ressources/comparatifs/n8n-vs-make-vs-zapier': { label_fr: 'n8n, Make ou Zapier : le comparatif', label_en: 'n8n vs Make vs Zapier', kind: 'comparatif', topics: ['automatisation'] },
   '/blog/automatiser-relance-devis-n8n': { label_fr: 'Automatiser la relance de devis avec n8n', label_en: 'Automate quote follow-ups with n8n', kind: 'article', topics: ['automatisation', 'commercial'] },
+  '/blog/veille-reglementaire-automatisee-pme': { label_fr: 'Veille réglementaire automatisée : flux, tri, décision', label_en: 'Automated regulatory monitoring: feeds, sorting, decision', kind: 'article', topics: ['automatisation', 'conformite'] },
   '/blog/trier-emails-entrant-claude-n8n': { label_fr: 'Trier ses e-mails avec Claude et n8n', label_en: 'Sort emails with Claude and n8n', kind: 'article', topics: ['automatisation', 'claude', 'agents'] },
   '/ressources/guides/tutoriel-make-tri-emails-claude': { label_fr: 'Tutoriel Make : trier ses e-mails avec Claude', label_en: 'Make tutorial: sort emails with Claude', kind: 'guide', topics: ['automatisation', 'claude'] },
   '/blog/creer-agent-ia-claude': { label_fr: 'Agent IA Claude : quatre façons de le construire', label_en: 'Claude AI agent: four ways to build one', kind: 'article', topics: ['agents', 'claude'] },
@@ -181,6 +208,7 @@ const PAGES: Record<string, PageDef> = {
   '/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme': { label_fr: 'ChatGPT, Claude, Gemini ou Perplexity : quelle IA choisir', label_en: 'ChatGPT, Claude, Gemini or Perplexity: which AI to choose', kind: 'comparatif', topics: ['claude', 'conseil'] },
   '/ressources/comparatifs/claude-platform-vs-openai-platform': { label_fr: 'Claude Platform ou OpenAI Platform', label_en: 'Claude Platform or OpenAI Platform', kind: 'comparatif', topics: ['claude', 'agents'] },
   '/cas-clients/isabelle-diaz-naturopathe': { label_fr: 'Cas client : Isabelle Diaz', label_en: 'Case: Isabelle Diaz', kind: 'cas-client', topics: ['agents', 'acquisition'] },
+  '/ressources/comparatifs/claude-code-vs-codex-vs-vibe': { label_fr: 'Claude Code, Codex ou Mistral Vibe', label_en: 'Claude Code, Codex or Mistral Vibe', kind: 'comparatif', topics: ['claude', 'applications'] },
   '/ressources/comparatifs/claude-code-vs-cursor': { label_fr: 'Claude Code ou Cursor', label_en: 'Claude Code or Cursor', kind: 'comparatif', topics: ['claude', 'applications'] },
 
   // ── Applications métier et données ──
@@ -203,6 +231,7 @@ const PAGES: Record<string, PageDef> = {
   '/cas-usages/centraliser-donnees': { label_fr: 'Centraliser données et reporting', label_en: 'Centralise your data', kind: 'cas-usage', topics: ['donnees'] },
 
   // ── Commercial : prospection, CRM, suivi ──
+  '/blog/cnil-email-professionnel-devine-prospection': { label_fr: "E-mail pro deviné : ce que la CNIL autorise", label_en: 'Guessed work emails: what the CNIL allows', kind: 'article', topics: ['commercial', 'conformite'] },
   '/services/systeme-commercial': { label_fr: 'Système commercial', label_en: 'Sales system', kind: 'service', topics: ['commercial'] },
   '/services/prospection-automatisee': { label_fr: 'Prospection automatisée', label_en: 'Automated prospecting', kind: 'service', topics: ['commercial'] },
   '/services/prospection-linkedin': { label_fr: 'Prospection LinkedIn B2B', label_en: 'B2B LinkedIn prospecting', kind: 'service', topics: ['commercial'] },
@@ -289,6 +318,7 @@ const PAGES: Record<string, PageDef> = {
   '/blog/chatgpt-shopping-e-commerce': { label_fr: 'ChatGPT Shopping : que corriger dans sa boutique', label_en: 'ChatGPT Shopping: what to fix in your shop', kind: 'article', topics: ['acquisition', 'web'] },
   '/ressources/guides/audit-geo-pme': { label_fr: 'Audit GEO : ce qu\'il vérifie, comment le mener', label_en: 'GEO audit: what it checks, how to run it', kind: 'guide', topics: ['acquisition'] },
   '/blog/etre-cite-par-perplexity': { label_fr: 'Être cité par Perplexity', label_en: 'Getting cited by Perplexity', kind: 'article', topics: ['acquisition'] },
+  '/blog/bloquer-entrainement-ia-robots-txt': { label_fr: "Bloquer l'entraînement des IA dans robots.txt", label_en: 'Opting out of AI training in robots.txt', kind: 'article', topics: ['acquisition', 'conformite'] },
   '/blog/apparaitre-dans-chatgpt-pme': { label_fr: 'Apparaître dans ChatGPT : ce qu\'une PME contrôle', label_en: 'Appearing in ChatGPT: what an SMB controls', kind: 'article', topics: ['acquisition'] },
   '/ressources/guides/accompagnement-ia-pme': { label_fr: 'Accompagnement IA en PME : les formes et les critères', label_en: 'AI support for SMBs: formats and criteria', kind: 'guide', topics: ['conseil', 'formation'] },
   '/ressources/comparatifs/formateur-ia-organisme-freelance-agence': { label_fr: 'Formateur IA : organisme, indépendant ou agence', label_en: 'AI trainer: training body, freelancer or agency', kind: 'comparatif', topics: ['formation', 'conseil'] },
@@ -298,9 +328,11 @@ const PAGES: Record<string, PageDef> = {
   '/ressources/guides/cahier-des-charges-site-internet': { label_fr: 'Cahier des charges de site internet : le guide', label_en: 'Website specification: the guide', kind: 'guide', topics: ['web'] },
   '/blog/ia-auto-hebergee-open-webui-pme': { label_fr: 'IA auto-hébergée avec Open WebUI : pour quelle PME', label_en: 'Self-hosted AI with Open WebUI: for which SMB', kind: 'article', topics: ['conformite', 'claude'] },
   '/blog/audit-site-internet-pme': { label_fr: 'Audit de site internet : la grille avant refonte', label_en: 'Website audit: the grid before a redesign', kind: 'article', topics: ['web'] },
+  '/blog/formation-ia-generative-pme': { label_fr: 'Formation IA générative : le programme à exiger', label_en: 'Generative AI training: the programme to ask for', kind: 'article', topics: ['formation', 'conformite'] },
   '/blog/formation-ia-rh-pme': { label_fr: 'Formation IA pour une équipe RH', label_en: 'AI training for HR teams', kind: 'article', topics: ['formation', 'conformite'] },
   '/blog/chatbot-rh-pme': { label_fr: "Chatbot RH en PME : ce qu'il traite, ce qu'il laisse aux RH", label_en: 'HR chatbot for SMBs: what it handles, what stays with HR', kind: 'article', topics: ['agents', 'conformite'] },
   '/blog/relance-factures-impayees-automatique-pme': { label_fr: 'Relancer les factures impayées automatiquement', label_en: 'Automate unpaid invoice reminders', kind: 'article', topics: ['automatisation', 'commercial'] },
+  '/blog/saisie-automatique-factures-pme': { label_fr: 'Saisie automatique des factures : OCR, IA, contrôles', label_en: 'Automatic invoice entry: OCR, AI, checks', kind: 'article', topics: ['automatisation', 'agents'] },
   '/ressources/guides/automatisation-factures-fournisseurs-pme': { label_fr: 'Automatisation des factures fournisseurs : déléguer et contrôler', label_en: 'Supplier invoice automation: what to delegate and check', kind: 'guide', topics: ['agents', 'automatisation'] },
   '/blog/ia-reponse-appel-offres-pme': { label_fr: "IA et appel d'offres : ce que la PME prépare et garde", label_en: 'AI and tenders: what a small business prepares and keeps', kind: 'article', topics: ['agents', 'automatisation'] },
   '/blog/ia-pme-industrielle': { label_fr: 'IA en PME industrielle : qualité, modes opératoires', label_en: 'AI for industrial SMBs: quality, maintenance', kind: 'article', topics: ['conseil', 'conformite'] },
@@ -320,9 +352,17 @@ const PAGES: Record<string, PageDef> = {
   '/blog/ia-esn': { label_fr: "IA pour ESN : appels d'offres, dossiers, staffing", label_en: 'AI for IT services firms: tenders, staffing', kind: 'article', topics: ['conseil', 'conformite'] },
   '/blog/claude-chatgpt-mistral-offres-equipe': { label_fr: 'Claude Team, ChatGPT Business ou Mistral Vibe Team : comparatif', label_en: 'Claude Team, ChatGPT Business or Mistral Vibe Team compared', kind: 'article', topics: ['claude', 'conseil'] },
   '/blog/claude-pro-vs-team': { label_fr: 'Claude Pro ou Team : lequel choisir', label_en: 'Claude Pro vs Team: which to choose', kind: 'article', topics: ['claude', 'conseil'] },
+  '/blog/risques-claude-pme': { label_fr: 'Risques de Claude en PME : 8 risques et leurs réglages', label_en: 'Risks of Claude in a small business', kind: 'article', topics: ['claude', 'conformite'] },
+  '/blog/questionnaire-securite-ia': { label_fr: "Questionnaire de sécurité client : répondre avec l'IA", label_en: 'Customer security questionnaires with AI', kind: 'article', topics: ['conformite', 'claude'] },
   '/blog/facture-electronique-reception-pme': { label_fr: 'Facture électronique : ce que change la réception en PME', label_en: 'E-invoicing: what receiving changes for a small business', kind: 'article', topics: ['automatisation', 'conformite'] },
+  '/blog/consultation-cse-ia': { label_fr: "Consultation du CSE et IA : quand consulter", label_en: 'Works council consultation before deploying AI', kind: 'article', topics: ['conformite', 'conseil'] },
+  '/blog/faux-avis-ia': { label_fr: 'Faux avis et IA : ce qui est permis, ce qui est interdit', label_en: 'Fake reviews and AI: what is allowed', kind: 'article', topics: ['conformite', 'acquisition'] },
+  '/blog/comptes-ia-personnels-depart-salarie': { label_fr: "Départ d'un salarié : ses comptes d'IA personnels", label_en: 'Departing employees and personal AI accounts', kind: 'article', topics: ['conformite', 'claude'] },
   '/blog/ai-act-pme-utilisatrice-ia': { label_fr: "AI Act : les obligations d'une PME qui utilise ChatGPT ou Claude", label_en: 'AI Act: what a small business using ChatGPT or Claude must do', kind: 'article', topics: ['conformite', 'conseil'] },
+  '/blog/registre-maitrise-ia-article-4': { label_fr: "Registre de maîtrise de l'IA (article 4) : modèle", label_en: 'AI literacy record (Article 4): template', kind: 'article', topics: ['conformite', 'formation'] },
+  '/blog/ai-act-article-50-images-publicitaires': { label_fr: 'Images publicitaires IA : quand les signaler', label_en: 'AI ad images: when to label them', kind: 'article', topics: ['conformite', 'acquisition'] },
   '/blog/claude-code-skills': { label_fr: 'Skills Claude Code : créer et partager en équipe', label_en: 'Claude Code skills: create and share as a team', kind: 'article', topics: ['claude', 'applications'] },
+  '/blog/refonte-site-seo-sans-perdre-trafic': { label_fr: 'Refonte SEO : la liste de contrôle et le suivi mesuré', label_en: 'Redesign SEO: checklist and measured follow-up', kind: 'article', topics: ['web'] },
   '/blog/cahier-des-charges-refonte-site': { label_fr: 'Cahier des charges de refonte : les cinq annexes', label_en: 'Redesign specification: the five appendices', kind: 'article', topics: ['web'] },
   '/blog/application-metier-exemples-pme': { label_fr: 'Application métier : définition, types et exemples', label_en: 'Business application: definition, types and examples', kind: 'article', topics: ['applications'] },
   '/cas-clients/desangles-peinture': { label_fr: 'Cas client : Desangles Peinture', label_en: 'Case: Desangles Peinture', kind: 'cas-client', topics: ['acquisition'] },
@@ -483,12 +523,13 @@ function buildGraph(root: string): Graph {
   //    qui lient le moins (puis à n'importe quelle émettrice), jusqu'à atteindre le seuil.
   const shares = (a: string, b: string) => PAGES[a].topics.filter((t) => PAGES[b].topics.includes(t)).length;
   for (const target of order) {
-    while ((inbound.get(target) ?? 0) < MIN_INBOUND) {
+    while ((inbound.get(target) ?? 0) < minInbound(target)) {
       const candidates = emitters
         .filter((e) => e !== target && !out.get(e)!.includes(target) && allowed(e, target))
         .sort(
           (a, b) =>
             shares(b, target) - shares(a, target) ||
+            Number(REINFORCED_PAGES.has(a)) - Number(REINFORCED_PAGES.has(b)) ||
             out.get(a)!.length - out.get(b)!.length ||
             order.indexOf(a) - order.indexOf(b),
         );
