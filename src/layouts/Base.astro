@@ -326,6 +326,44 @@ if (meshDelegated && meshHandoff) meshHandoff.mesh = autoMesh;
             if (window.umami && typeof window.umami.track === 'function') window.umami.track(name, data);
           } catch (_) { /* mesure seulement : ne bloque jamais l'envoi */ }
         };
+        // Clics d'appel à l'action, étape intermédiaire des entonnoirs Umami (docs/mesure-des-leads.md).
+        // Un seul écouteur délégué : aucun attribut à poser dans les sections cataloguées.
+        // Envoyé à Umami seulement : page, zone et cible du lien, aucune donnée personnelle.
+        const ctaOf = (a) => {
+          const href = a.getAttribute('href') || '';
+          if (/^(mailto|tel):/.test(href)) return 'cta_direct';
+          if (/cal\.com\//.test(href)) return 'cta_rdv';
+          let u;
+          try { u = new URL(href, location.href); } catch (_) { return null; }
+          if (u.origin !== location.origin) return null;
+          if (u.pathname === '/audit-ia-pme' || (u.pathname === '/contact' && /[?&](offer|intent)=/.test(u.search))) return 'cta_audit';
+          if (u.pathname === '/contact') return 'cta_contact';
+          if (u.pathname.startsWith('/ressources/') && u.pathname !== location.pathname) return 'cta_ressource';
+          return null;
+        };
+        document.addEventListener('click', (e) => {
+          try {
+            const a = e.target instanceof Element ? e.target.closest('a[href]') : null;
+            if (!a || !window.umami || typeof window.umami.track !== 'function') return;
+            const name = ctaOf(a);
+            if (!name) return;
+            const zone = a.closest('header') ? 'header' : a.closest('footer') ? 'footer' : 'page';
+            window.umami.track(name, { page: location.pathname, zone, cible: (a.getAttribute('href') || '').slice(0, 120) });
+          } catch (_) { /* mesure seulement */ }
+        }, true);
+        // Profondeur de lecture des articles et ressources (50 % puis 90 %), une fois par page :
+        // dit si les lecteurs atteignent les CTA et la bande de capture placés bas dans la page.
+        let lu = {};
+        document.addEventListener('astro:after-swap', () => { lu = {}; });
+        window.addEventListener('scroll', () => {
+          if (!/^\/(blog|ressources)\//.test(location.pathname) || !window.umami || typeof window.umami.track !== 'function') return;
+          const h = document.documentElement.scrollHeight - innerHeight;
+          if (h <= 0) return;
+          const p = scrollY / h;
+          [50, 90].forEach((s) => {
+            if (p >= s / 100 && !lu[s]) { lu[s] = 1; try { window.umami.track('lecture_' + s, { page: location.pathname }); } catch (_) {} }
+          });
+        }, { passive: true });
         window.wmLeadSource = () => ({
           landing: state.landing, entry: state.entry, prev: state.prev || undefined, path: state.path.slice(),
           utm_source: state.utm_source, utm_medium: state.utm_medium,
