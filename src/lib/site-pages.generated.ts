@@ -11445,6 +11445,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/automatisation-processus-metiers-pme",
+    "title": "Automatisation des processus métiers : par où commencer en PME",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/automatisation-processus-metiers-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/automatiser-relance-devis-n8n",
     "title": "Automatiser la relance de devis avec n8n, pas à pas",
     "group": "blog",
@@ -11630,6 +11639,15 @@ export const SITE_PAGES: SitePage[] = [
     "group": "blog",
     "collection": "blog",
     "file": "blog/claude-pro-vs-team.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/cnil-email-professionnel-devine-prospection",
+    "title": "Deviner l'e-mail pro d'un prospect : ce que la CNIL autorise",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/cnil-email-professionnel-devine-prospection.json",
     "editable": false,
     "sections": []
   },
@@ -13061,6 +13079,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/applications-internes-build-vs-buy-pme",
       "/blog/architecte-ia-role-pme",
       "/blog/audit-site-internet-pme",
+      "/blog/automatisation-processus-metiers-pme",
       "/blog/automatiser-relance-devis-n8n",
       "/blog/automatiser-relances-b2b-sans-sdr-guide-cabinet-conseil",
       "/blog/avis-n8n-vs-zapier-2026",
@@ -13082,6 +13101,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/claude-max-pme",
       "/blog/claude-microsoft-copilot-pme",
       "/blog/claude-pro-vs-team",
+      "/blog/cnil-email-professionnel-devine-prospection",
       "/blog/connecter-claude-wordpress-shopify-mcp",
       "/blog/contenu-ia-seo-google-penalise",
       "/blog/cout-agent-ia-toujours-actif",

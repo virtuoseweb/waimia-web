@@ -38,6 +38,29 @@ type Lang = 'fr' | 'en';
 
 /** Nombre minimal de liens entrants contextuels garanti à chaque page du registre. */
 export const MIN_INBOUND = 3;
+/**
+ * Pages non indexées par Google depuis plus de trois collectes (« détectée » ou « inconnue »,
+ * runbook SEO section 4.1, règle 3 ; décision du 2 novembre 2026, collecte du 1er novembre) :
+ * seuil de liens entrants relevé à REINFORCED_INBOUND, liens pris d'abord sur des pages du
+ * même thème, puis hors de cette liste. Retirer une page de la liste dès qu'une collecte la montre indexée.
+ */
+export const REINFORCED_INBOUND = 6;
+export const REINFORCED_PAGES: ReadonlySet<string> = new Set([
+  '/services/automatisations',
+  '/services/systeme-acquisition',
+  '/ressources/comparatifs/n8n-vs-make',
+  '/ressources/comparatifs/geo-vs-seo',
+  '/ressources/diagnostics/maturite-ia',
+  '/ressources/outils/grille-taches-a-automatiser',
+  '/formations/automatisation',
+  '/cas-usages/centraliser-donnees',
+  '/cas-clients/amploi',
+  '/cas-clients/isabelle-diaz-naturopathe',
+  '/cas-clients/les-carnets-de-montpellier',
+  '/equipe/simon-beros',
+  '/blog/forward-deployed-engineer',
+]);
+const minInbound = (route: string) => (REINFORCED_PAGES.has(route) ? REINFORCED_INBOUND : MIN_INBOUND);
 /** Liens émis par thème depuis une page. */
 const LINKS_PER_TOPIC = 3;
 
@@ -87,6 +110,7 @@ interface PageDef {
 
 const PAGES: Record<string, PageDef> = {
   // ── Automatisation ──
+  '/blog/automatisation-processus-metiers-pme': { label_fr: 'Automatisation des processus métiers : par où commencer', label_en: 'Business process automation: where to start', kind: 'article', topics: ['automatisation', 'conseil'] },
   '/services/systemes-operationnels-ia': { label_fr: "Agence d'automatisation IA", label_en: 'AI automation agency', kind: 'service', topics: ['automatisation', 'agents'] },
   '/services/automatisations': { label_fr: 'Automatisation des processus', label_en: 'Process automation', kind: 'service', topics: ['automatisation'] },
   '/services/automatisation-n8n': { label_fr: 'Agence n8n', label_en: 'n8n agency', kind: 'service', topics: ['automatisation'] },
@@ -203,6 +227,7 @@ const PAGES: Record<string, PageDef> = {
   '/cas-usages/centraliser-donnees': { label_fr: 'Centraliser données et reporting', label_en: 'Centralise your data', kind: 'cas-usage', topics: ['donnees'] },
 
   // ── Commercial : prospection, CRM, suivi ──
+  '/blog/cnil-email-professionnel-devine-prospection': { label_fr: "E-mail pro deviné : ce que la CNIL autorise", label_en: 'Guessed work emails: what the CNIL allows', kind: 'article', topics: ['commercial', 'conformite'] },
   '/services/systeme-commercial': { label_fr: 'Système commercial', label_en: 'Sales system', kind: 'service', topics: ['commercial'] },
   '/services/prospection-automatisee': { label_fr: 'Prospection automatisée', label_en: 'Automated prospecting', kind: 'service', topics: ['commercial'] },
   '/services/prospection-linkedin': { label_fr: 'Prospection LinkedIn B2B', label_en: 'B2B LinkedIn prospecting', kind: 'service', topics: ['commercial'] },
@@ -483,12 +508,13 @@ function buildGraph(root: string): Graph {
   //    qui lient le moins (puis à n'importe quelle émettrice), jusqu'à atteindre le seuil.
   const shares = (a: string, b: string) => PAGES[a].topics.filter((t) => PAGES[b].topics.includes(t)).length;
   for (const target of order) {
-    while ((inbound.get(target) ?? 0) < MIN_INBOUND) {
+    while ((inbound.get(target) ?? 0) < minInbound(target)) {
       const candidates = emitters
         .filter((e) => e !== target && !out.get(e)!.includes(target) && allowed(e, target))
         .sort(
           (a, b) =>
             shares(b, target) - shares(a, target) ||
+            Number(REINFORCED_PAGES.has(a)) - Number(REINFORCED_PAGES.has(b)) ||
             out.get(a)!.length - out.get(b)!.length ||
             order.indexOf(a) - order.indexOf(b),
         );
