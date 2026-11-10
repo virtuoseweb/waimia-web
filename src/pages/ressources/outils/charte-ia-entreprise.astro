@@ -22,8 +22,8 @@ import { SITE } from '../../../site.config';
 import { CHARTE_HREF, auditCtaFinal } from '../../../data/conversion';
 import { charterArticles } from '../../../data/charte-ia-pme';
 
-const title = 'Charte IA entreprise : modèle gratuit pour PME (PDF et Word)';
-const description = "Modèle de charte IA pour PME en neuf articles : outils autorisés, données interdites, validation humaine. En ligne et Word sans e-mail ; le PDF par e-mail.";
+const title = 'Charte IA pour PME et TPE : modèle gratuit (PDF et Word)';
+const description = "Charte IA pour PME et TPE : modèle gratuit en neuf articles (outils autorisés, données interdites, validation humaine). Word sans e-mail, PDF par e-mail.";
 const ld = buildArticle({
   headline: title,
   description,
@@ -50,8 +50,8 @@ const hero = (await getEntry('outils', 'charte-ia-entreprise'))?.data.heroIllust
   />
   <ToolIntro
     illustration={hero}
-    h1="Charte IA entreprise : un modèle pour PME, à adapter"
-    lede={`Une charte IA fixe quels outils d'IA vos équipes peuvent utiliser, avec quelles données, et qui relit et valide ce qui en sort. Ce modèle tient en ${charterArticles.length} articles courts, en entier ci-dessous.`}
+    h1="Charte IA pour PME : un modèle à adapter"
+    lede={`Une charte IA est le document interne qui fixe quels outils d'IA vos équipes utilisent, avec quelles données, et qui relit ce qui en sort. Ce modèle tient en ${charterArticles.length} articles courts, en entier ci-dessous, pour Claude, ChatGPT, Gemini ou une IA intégrée à vos logiciels.`}
     facts={[
       { label: 'Format', value: 'En ligne, Word, PDF par e-mail' },
       { label: 'Longueur', value: `${charterArticles.length} articles, 8 min de lecture` },
