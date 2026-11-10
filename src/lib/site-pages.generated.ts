@@ -11332,7 +11332,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/ressources/outils/charte-ia-entreprise",
-    "title": "Charte IA entreprise : modèle gratuit pour PME",
+    "title": "Charte IA pour PME et TPE : modèle gratuit (PDF et Word)",
     "group": "ressources",
     "collection": "outils",
     "file": "outils/charte-ia-entreprise.json",
@@ -12519,7 +12519,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/implantations/bordeaux",
-    "title": "Agence IA à Bordeaux : automatisation et agents IA · Waimia",
+    "title": "Agence IA à Bordeaux, siège de Waimia · Waimia",
     "group": "autres",
     "collection": "implantations",
     "file": "implantations/bordeaux.json",
@@ -12527,7 +12527,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-split-media",
-        "label": "Agence IA et automatisation à Bordeaux",
+        "label": "Agence IA à Bordeaux, siège de Waimia",
         "background": "paper"
       },
       {
@@ -12777,7 +12777,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-split-media",
-        "label": "Agence IA et automatisation à Montpellier",
+        "label": "Agence IA à Montpellier : automatisation et agents IA",
         "background": "paper"
       },
       {

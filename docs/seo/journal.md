@@ -37,6 +37,25 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### 2026-11-10 · `/implantations/bordeaux` : page du siège
+
+**Requête et départ** (Search Console, 28 jours, collecte du 9 novembre 2026, `docs/seo/data/2026-W46/gsc-performance.json`) : « agence ia bordeaux » (15 impressions, position 37,0) ; « agence automatisation bordeaux » (4, 28,5) ; « audit ia bordeaux » (3, 27,3) et « audit ia entreprise bordeaux » (3, 25,7). Page : 112 impressions, 0 clic, position 54,1.
+
+**Raison** : le siège de Waimia est à Bordeaux (221 avenue de la République, 33200 Bordeaux, extrait URSSAF, formalité validée le 02/11/2026) ; la page ne portait ni l'adresse complète ni les identifiants légaux et citait des repères de quartier sans source.
+
+**Règle des trois semaines** : appliquée, title libre. Dernière modification de la page le 14/10/2026, soit 27 jours.
+
+**Ce qui a changé** (`src/content/implantations/bordeaux.json`) :
+- `seoTitle_fr` : « Agence IA à Bordeaux : automatisation et IA, audit gratuit » (58) devient « Agence IA à Bordeaux : automatisation et audit gratuit » (54). `description_fr` (154) : « siège de Waimia au 221 avenue de la République » ajouté. `seoTitle_en` créé (48).
+- H1 : « Agence IA et automatisation à Bordeaux » devient « Agence IA à Bordeaux, siège de Waimia ». Réponse directe (50 mots) : « Où se trouve l'agence IA Waimia à Bordeaux ? », adresse complète en tête.
+- H2 ajoutés : « Siège et coordonnées » (adresse, entreprise individuelle, SIREN, SIRET, APE, e-mail, téléphone), « Agence d'automatisation à Bordeaux », « Audit IA à Bordeaux ». FAQ : « Où est le siège de Waimia ? » ajoutée (reprise à l'identique dans l'accordéon).
+- Liens ajoutés : `/mentions-legales`, `/ressources/guides/choisir-agence-ia-pme`, `/ressources/guides/taches-a-automatiser-pme`, `/ressources/guides/roi-automatisation`, `/ressources/diagnostics/maturite-ia`.
+- Retiré : « secteur limitrophe de Mérignac et de Caudéran, à 200 m de la place Mondésir », sans source. Le quartier (Caudéran, commune ancienne selon la Base Adresse Nationale) est maintenant sourcé. Le 33200 n'est pas la Bastide.
+- Miroir anglais du CTA final, resté en français, traduit.
+- Inchangé volontairement : rien sur Airtable ni no code (offres écartées, comme pour Montpellier), aucun accueil ni horaire.
+
+**À mesurer** : 7 jours après la mise en ligne. Valeurs de départ : « agence ia bordeaux » position 37,0 ; page 112 impressions, position 54,1. Attendu : « agence ia bordeaux » sous 30 ; un title seul ne bouge rien au-delà de la position 20, le gain vient du contenu et du maillage. Jugement à partir de la collecte qui suit les 7 jours.
+
 ### 2026-11-10 · action 4 de la stratégie : `/services/base-de-connaissance-ia`
 
 **Requête et départ** : « base de connaissance ia » (20 impressions, position 16,6) ; « base de connaissance ia entreprise » (33, 14,3) ; le pluriel « base de connaissances ia » (47, 24,0). Page : 226 impressions, 0 clic, position 22,7 (`2026-W46/gsc-performance.json`, last28, `byPageQuery`).

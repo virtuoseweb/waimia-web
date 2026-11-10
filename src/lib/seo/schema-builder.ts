@@ -172,7 +172,7 @@ export function founderPerson(): JsonLdObject {
 /** Référence à l'Organization du site : un seul nœud complet par page, relié par `@id`. */
 export const ORGANIZATION_REF = { '@id': SCHEMA_IDS.organization } as const;
 
-/** Adresse d'activité (src/site.config.ts). Ne change pas avec la zone desservie. */
+/** Siège et établissement principal (src/site.config.ts). Ne change pas avec la zone desservie. */
 function postalAddress(): JsonLdObject {
   return {
     '@type': 'PostalAddress',
@@ -198,6 +198,7 @@ function buildOrganization(): JsonLdObject {
     telephone: SITE.tel,
     foundingDate: SITE.foundingDate,
     vatID: SITE.vatID,
+    identifier: { '@type': 'PropertyValue', propertyID: 'SIRET', value: SITE.siret },
     address: postalAddress(),
     areaServed: AREA_SERVED,
     founder: founderPerson(),

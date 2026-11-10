@@ -14358,7 +14358,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "bordeaux",
       "route": "/implantations/bordeaux",
       "index": 0,
-      "label": "Agence IA et automatisation à Bordeaux",
+      "label": "Agence IA à Bordeaux, siège de Waimia",
       "background": "paper"
     },
     {
@@ -14403,7 +14403,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "montpellier",
       "route": "/implantations/montpellier",
       "index": 0,
-      "label": "Agence IA et automatisation à Montpellier",
+      "label": "Agence IA à Montpellier : automatisation et agents IA",
       "background": "paper"
     },
     {
