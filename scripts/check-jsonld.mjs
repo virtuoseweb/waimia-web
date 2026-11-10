@@ -375,7 +375,7 @@ const KNOWN_NESTED = new Set([
   'PostalAddress', 'ImageObject', 'ListItem', 'Question', 'Answer', 'City', 'Country', 'AdministrativeArea', 'Place',
   'HowToStep', 'HowToSupply', 'PriceSpecification', 'UnitPriceSpecification', 'MonetaryAmount', 'CourseInstance',
   'Audience', 'ContactPoint', 'VirtualLocation', 'GeoCoordinates', 'OpeningHoursSpecification', 'EntryPoint',
-  'SearchAction', 'Thing', 'DefinedTerm', 'OfferCatalog', 'AggregateOffer', 'Brand', 'Language',
+  'SearchAction', 'Thing', 'DefinedTerm', 'OfferCatalog', 'AggregateOffer', 'Brand', 'Language', 'PropertyValue',
 ]);
 
 const { pages } = scanDist();

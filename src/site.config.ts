@@ -17,8 +17,8 @@ export const SITE = {
   url: 'https://waimia.com',
   /** Nom de marque public (H1, watermark OG, JSON-LD `name`). */
   name: 'Waimia',
-  /** Raison sociale légale (JSON-LD `legalName` / `alternateName`). */
-  legalName: 'VirtuoseWeb',
+  /** Dénomination légale (JSON-LD `legalName` / `alternateName`) : entrepreneur individuel, extrait URSSAF du 02/11/2026. */
+  legalName: 'Simon Beros',
   /** Email de contact public (JSON-LD Organization `email`). */
   email: 'bonjour@waimia.com',
   /** Expéditeur transactionnel par défaut (env `EMAIL_FROM` prime au runtime). */
@@ -31,13 +31,13 @@ export const SITE = {
   vatID: 'FR07890426307',
   /** Date de fondation ISO (JSON-LD `foundingDate`). */
   foundingDate: '2020-10-15',
+  /** SIRET de l'établissement principal (extrait URSSAF du 02/11/2026, formalité validée). */
+  siret: '89042630700058',
   /**
-   * Adresse d'ACTIVITÉ (JSON-LD PostalAddress, page /implantations/bordeaux, contact).
-   * Pas de numéro de rue communiqué : ne pas en inventer. Le siège légal affiché dans les
-   * mentions légales (src/content/legal/mentions-legales.json) est géré à part et ne change
-   * qu'à la confirmation du transfert administratif.
+   * Siège et établissement principal (JSON-LD PostalAddress, page /implantations/bordeaux,
+   * contact). Même adresse que les mentions légales (src/content/legal/mentions-legales.json).
    */
-  streetAddress: 'Avenue de la République',
+  streetAddress: '221 avenue de la République',
   postalCode: '33200',
   city: 'Bordeaux',
   region: 'Nouvelle-Aquitaine',
