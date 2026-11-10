@@ -1470,3 +1470,11 @@ Demande de Simon après la PR #84 : régénérer et actualiser avec Claude Haiku
 
 Les deux points correspondants de « Pour Simon » de l'entrée W41 sont clos.
 
+
+## 2026-11-10 · Base GEO Perplexity (premier relevé abouti)
+
+Le relevé du 2026-W44 (`citations-ia.json`) n'avait rien mesuré : Perplexity avait dépassé son délai, ChatGPT demandait une connexion. Relevé refait à la main dans un navigateur, sans compte : `docs/seo/data/2026-W46/citations-ia-perplexity.json`, les 8 requêtes du W44 plus les 3 pages optimisées ce jour (PR #172).
+
+- **Mesuré** : waimia est cité sur 1 requête sur 11, « guide claude pme » (puce `waimia` en premier, avec julien-breal, lemon-interactive, sociaty). Non cité sur « claude pme » (ia4ops, concurrent suivi, l'est), « diagnostic claude pme », « application métier », « sprinkable » (le cas client publié n'est pas repris), « agence ia montpellier » (juwa, foxpilot), « charte ia pme » (francenum, mtlconnecte), « base de connaissance ia ».
+- **Lecture prudente** : une exécution par requête, réponses variables ; indicatif.
+- **Prochaine mesure** : même protocole le 7/12 (fin du plan de quatre semaines), pour comparer les trois pages de la PR #172 et « claude pme ».
