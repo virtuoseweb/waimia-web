@@ -350,6 +350,8 @@ const PAGES: Record<string, PageDef> = {
   '/blog/ia-esn': { label_fr: "IA pour ESN : appels d'offres, dossiers, staffing", label_en: 'AI for IT services firms: tenders, staffing', kind: 'article', topics: ['conseil', 'conformite'] },
   '/blog/claude-chatgpt-mistral-offres-equipe': { label_fr: 'Claude Team, ChatGPT Business ou Mistral Vibe Team : comparatif', label_en: 'Claude Team, ChatGPT Business or Mistral Vibe Team compared', kind: 'article', topics: ['claude', 'conseil'] },
   '/blog/claude-pro-vs-team': { label_fr: 'Claude Pro ou Team : lequel choisir', label_en: 'Claude Pro vs Team: which to choose', kind: 'article', topics: ['claude', 'conseil'] },
+  '/blog/risques-claude-pme': { label_fr: 'Risques de Claude en PME : 8 risques et leurs réglages', label_en: 'Risks of Claude in a small business', kind: 'article', topics: ['claude', 'conformite'] },
+  '/blog/questionnaire-securite-ia': { label_fr: "Questionnaire de sécurité client : répondre avec l'IA", label_en: 'Customer security questionnaires with AI', kind: 'article', topics: ['conformite', 'claude'] },
   '/blog/facture-electronique-reception-pme': { label_fr: 'Facture électronique : ce que change la réception en PME', label_en: 'E-invoicing: what receiving changes for a small business', kind: 'article', topics: ['automatisation', 'conformite'] },
   '/blog/consultation-cse-ia': { label_fr: "Consultation du CSE et IA : quand consulter", label_en: 'Works council consultation before deploying AI', kind: 'article', topics: ['conformite', 'conseil'] },
   '/blog/faux-avis-ia': { label_fr: 'Faux avis et IA : ce qui est permis, ce qui est interdit', label_en: 'Fake reviews and AI: what is allowed', kind: 'article', topics: ['conformite', 'acquisition'] },
