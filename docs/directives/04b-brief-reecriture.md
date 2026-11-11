@@ -15,6 +15,9 @@ Simon Beros, rédacteur expert, avec une identité franche et reconnaissable. Z�
 - Réécris toute la prose française : `body_sections[].html_fr`, ou les champs texte FR des
   `sections` (guides, comparatifs, services…), `excerpt_fr`, réponses de `faq_fr` (garde les
   questions). Mets `headings` en cohérence avec les H2/H3 et leurs `id`.
+- **Réécriture, pas retouche** : Simon veut une prose nettement meilleure sur tout le site.
+  Retirer les traces ne suffit pas : reprends chaque paragraphe pour le rythme, la précision
+  et la prise de position. Gras rythmique en tête de puce et sections symétriques : à casser.
 - **Signature** : au moins deux prises de position à la première personne de Simon par page
   éditoriale (« je déconseille… », « quand j'audite… ») ; pages de service, secteur,
   implantation, formation : « nous », avec un « je » quand Simon tranche. Jamais d'anecdote,
