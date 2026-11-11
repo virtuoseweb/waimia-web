@@ -701,7 +701,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "comparison-duo",
-        "label": "Exemple type : le suivi d'interventions d'une entreprise de maintenance",
+        "label": "Exemple : le suivi d'interventions dans une entreprise de maintenance",
         "background": "paper"
       },
       {
@@ -1091,7 +1091,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "comparison-duo",
-        "label": "Scénario illustratif : la demande de devis reçue par formulaire",
+        "label": "Exemple : la demande de devis reçue par formulaire",
         "background": "paper"
       },
       {
@@ -2210,7 +2210,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "comparison-duo",
-        "label": "Exemple type : un bureau d'études de 40 personnes",
+        "label": "Exemple : un bureau d'études de 40 personnes",
         "background": "paper"
       },
       {
@@ -3317,13 +3317,13 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-table-block",
-        "label": "Huit pannes probables d'une relance automatisée, et la parade",
+        "label": "Huit pannes d'une relance automatisée, et la parade",
         "variant": "editorial",
         "background": "paper-2"
       },
       {
         "type": "editorial-table-block",
-        "label": "Scénario illustratif : un devis suivi sur un mois",
+        "label": "Exemple : un devis suivi sur un mois",
         "variant": "editorial",
         "background": "paper"
       },
@@ -3399,7 +3399,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "comparison-duo",
-        "label": "Exemple type : le site d'un cabinet de conseil",
+        "label": "Exemple : le site d'un cabinet de conseil",
         "background": "paper"
       },
       {
@@ -4610,7 +4610,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "comparison-duo",
-        "label": "Exemple type : le comité de direction mensuel d'une PME",
+        "label": "Exemple : le comité de direction mensuel d'une PME",
         "background": "paper"
       },
       {
@@ -4620,7 +4620,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "cta-final",
-        "label": "Chiffrez le gain avant de vous engager",
+        "label": "Combien d'heures votre rapport mensuel avale-t-il ?",
         "background": "ink"
       },
       {
@@ -4660,7 +4660,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-table-block",
-        "label": "Les tâches comptables, classées par rentabilité probable et par risque",
+        "label": "Où l’IA rapporte en comptabilité, et où elle expose",
         "variant": "editorial",
         "background": "paper"
       },
@@ -4686,7 +4686,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "branded-callout",
-        "label": "Pas encore de réalisation Waimia sur cette fonction",
+        "label": "Waimia n’a pas encore livré de projet de comptabilité",
         "background": "paper"
       },
       {
@@ -4702,7 +4702,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "cta-final",
-        "label": "Classez vos tâches avant de choisir le premier cas",
+        "label": "Quelle tâche comptable vous coûte le plus d’heures ?",
         "background": "ink"
       },
       {
@@ -4742,7 +4742,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "comparison-duo",
-        "label": "Exemple type : une PME de services aux entreprises",
+        "label": "Exemple : les demandes d'une PME de services aux entreprises",
         "background": "paper"
       },
       {
@@ -4752,7 +4752,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "cta-final",
-        "label": "Chiffrez le gain avant de vous engager",
+        "label": "Combien de devis dorment sans relance ?",
         "background": "ink"
       },
       {
@@ -4907,7 +4907,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-table-block",
-        "label": "Les tâches RH, classées par rentabilité probable et par risque",
+        "label": "Les tâches RH, de la plus sûre à la plus risquée",
         "variant": "editorial",
         "background": "paper"
       },
@@ -4938,7 +4938,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "branded-callout",
-        "label": "Pas encore de réalisation Waimia sur cette fonction",
+        "label": "Aucun projet RH livré à ce jour : notre plan d’arrivée",
         "background": "paper"
       },
       {
@@ -4954,7 +4954,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "cta-final",
-        "label": "Classez vos tâches avant de choisir le premier cas",
+        "label": "Quelle tâche RH répétez-vous le plus souvent ?",
         "background": "ink"
       },
       {
@@ -4994,7 +4994,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "comparison-duo",
-        "label": "Exemple type : l'ouverture d'un dossier client dans un cabinet",
+        "label": "Exemple : l'ouverture d'un dossier client dans un cabinet",
         "background": "paper"
       },
       {
@@ -5065,13 +5065,13 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "branded-callout",
-        "label": "Un projet en cours, pas encore de résultat publié",
+        "label": "Un agent SAV en construction pour une boutique Shopify",
         "background": "paper"
       },
       {
         "type": "market-cases",
         "label": "Études de cas du marché : service client",
-        "variant": "full",
+        "variant": "digest",
         "background": "paper-3"
       },
       {
@@ -12705,7 +12705,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "footer-cta-band",
-        "label": "Commençons par 45 minutes en visio.",
+        "label": "Quelle commande, quelle fiche, quel certificat vous prend du temps ?",
         "background": "ink"
       }
     ]
@@ -12960,7 +12960,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "footer-cta-band",
-        "label": "Commençons par 45 minutes en visio.",
+        "label": "Combien de temps prend un devis chez vous aujourd'hui ?",
         "background": "ink"
       }
     ]

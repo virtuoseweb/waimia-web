@@ -528,7 +528,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "finance-comptabilite",
       "route": "/cas-usages/finance-comptabilite",
       "index": 7,
-      "label": "Pas encore de réalisation Waimia sur cette fonction",
+      "label": "Waimia n’a pas encore livré de projet de comptabilité",
       "background": "paper"
     },
     {
@@ -537,7 +537,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "rh",
       "route": "/cas-usages/rh",
       "index": 9,
-      "label": "Pas encore de réalisation Waimia sur cette fonction",
+      "label": "Aucun projet RH livré à ce jour : notre plan d’arrivée",
       "background": "paper"
     },
     {
@@ -546,7 +546,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "support-sav",
       "route": "/cas-usages/support-sav",
       "index": 6,
-      "label": "Un projet en cours, pas encore de résultat publié",
+      "label": "Un agent SAV en construction pour une boutique Shopify",
       "background": "paper"
     },
     {
@@ -948,7 +948,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "centraliser-donnees",
       "route": "/cas-usages/centraliser-donnees",
       "index": 2,
-      "label": "Exemple type : le comité de direction mensuel d'une PME",
+      "label": "Exemple : le comité de direction mensuel d'une PME",
       "background": "paper"
     },
     {
@@ -957,7 +957,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "generer-plus-de-leads",
       "route": "/cas-usages/generer-plus-de-leads",
       "index": 2,
-      "label": "Exemple type : une PME de services aux entreprises",
+      "label": "Exemple : les demandes d'une PME de services aux entreprises",
       "background": "paper"
     },
     {
@@ -984,7 +984,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "standardiser-processus",
       "route": "/cas-usages/standardiser-processus",
       "index": 2,
-      "label": "Exemple type : l'ouverture d'un dossier client dans un cabinet",
+      "label": "Exemple : l'ouverture d'un dossier client dans un cabinet",
       "background": "paper"
     },
     {
@@ -1164,7 +1164,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "applications-internes",
       "route": "/services/applications-internes",
       "index": 6,
-      "label": "Exemple type : le suivi d'interventions d'une entreprise de maintenance",
+      "label": "Exemple : le suivi d'interventions dans une entreprise de maintenance",
       "background": "paper"
     },
     {
@@ -1200,7 +1200,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "automatisations",
       "route": "/services/automatisations",
       "index": 5,
-      "label": "Scénario illustratif : la demande de devis reçue par formulaire",
+      "label": "Exemple : la demande de devis reçue par formulaire",
       "background": "paper"
     },
     {
@@ -1272,7 +1272,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "integration-claude",
       "route": "/services/integration-claude",
       "index": 8,
-      "label": "Exemple type : un bureau d'études de 40 personnes",
+      "label": "Exemple : un bureau d'études de 40 personnes",
       "background": "paper"
     },
     {
@@ -1425,7 +1425,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "site-web-ia",
       "route": "/services/site-web-ia",
       "index": 4,
-      "label": "Exemple type : le site d'un cabinet de conseil",
+      "label": "Exemple : le site d'un cabinet de conseil",
       "background": "paper"
     },
     {
@@ -1627,7 +1627,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "centraliser-donnees",
       "route": "/cas-usages/centraliser-donnees",
       "index": 4,
-      "label": "Chiffrez le gain avant de vous engager",
+      "label": "Combien d'heures votre rapport mensuel avale-t-il ?",
       "background": "ink"
     },
     {
@@ -1636,7 +1636,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "finance-comptabilite",
       "route": "/cas-usages/finance-comptabilite",
       "index": 10,
-      "label": "Classez vos tâches avant de choisir le premier cas",
+      "label": "Quelle tâche comptable vous coûte le plus d’heures ?",
       "background": "ink"
     },
     {
@@ -1645,7 +1645,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "generer-plus-de-leads",
       "route": "/cas-usages/generer-plus-de-leads",
       "index": 4,
-      "label": "Chiffrez le gain avant de vous engager",
+      "label": "Combien de devis dorment sans relance ?",
       "background": "ink"
     },
     {
@@ -1654,7 +1654,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "rh",
       "route": "/cas-usages/rh",
       "index": 12,
-      "label": "Classez vos tâches avant de choisir le premier cas",
+      "label": "Quelle tâche RH répétez-vous le plus souvent ?",
       "background": "ink"
     },
     {
@@ -3064,7 +3064,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "automatisation",
       "route": "src/content/formations/automatisation.json",
       "index": 2,
-      "label": "À l'issue, vos équipes savent",
+      "label": "Ce que vos équipes savent faire le lundi suivant",
       "background": "paper"
     },
     {
@@ -3100,7 +3100,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-code",
       "route": "src/content/formations/claude-code.json",
       "index": 3,
-      "label": "Objectifs visés : développer avec l'IA et la piloter",
+      "label": "Ce que vous savez faire le lundi suivant",
       "background": "paper-2"
     },
     {
@@ -8666,7 +8666,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "finance-comptabilite",
       "route": "/cas-usages/finance-comptabilite",
       "index": 2,
-      "label": "Les tâches comptables, classées par rentabilité probable et par risque",
+      "label": "Où l’IA rapporte en comptabilité, et où elle expose",
       "variant": "editorial",
       "background": "paper"
     },
@@ -8676,7 +8676,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "rh",
       "route": "/cas-usages/rh",
       "index": 3,
-      "label": "Les tâches RH, classées par rentabilité probable et par risque",
+      "label": "Les tâches RH, de la plus sûre à la plus risquée",
       "variant": "editorial",
       "background": "paper"
     },
@@ -9890,7 +9890,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "sequences-de-suivi",
       "route": "/services/sequences-de-suivi",
       "index": 4,
-      "label": "Huit pannes probables d'une relance automatisée, et la parade",
+      "label": "Huit pannes d'une relance automatisée, et la parade",
       "variant": "editorial",
       "background": "paper-2"
     },
@@ -9900,7 +9900,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "sequences-de-suivi",
       "route": "/services/sequences-de-suivi",
       "index": 5,
-      "label": "Scénario illustratif : un devis suivi sur un mois",
+      "label": "Exemple : un devis suivi sur un mois",
       "variant": "editorial",
       "background": "paper"
     },
@@ -9960,7 +9960,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-code",
       "route": "src/content/formations/claude-code.json",
       "index": 4,
-      "label": "Les outils et plateformes couverts, relus le 12 octobre 2026",
+      "label": "Les outils et plateformes couverts",
       "variant": "editorial",
       "background": "paper"
     },
@@ -9990,7 +9990,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude",
       "route": "src/content/formations/claude.json",
       "index": 14,
-      "label": "Formation Waimia, ressources gratuites ou cursus long : comment choisir",
+      "label": "Formation Waimia, ressources gratuites ou session inter-entreprises : comment choisir",
       "variant": "editorial",
       "background": "paper"
     },
@@ -12611,7 +12611,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "dijon",
       "route": "/implantations/dijon",
       "index": 7,
-      "label": "Commençons par 45 minutes en visio.",
+      "label": "Quelle commande, quelle fiche, quel certificat vous prend du temps ?",
       "background": "ink"
     },
     {
@@ -12656,7 +12656,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "nantes",
       "route": "/implantations/nantes",
       "index": 7,
-      "label": "Commençons par 45 minutes en visio.",
+      "label": "Combien de temps prend un devis chez vous aujourd'hui ?",
       "background": "ink"
     },
     {
@@ -16170,7 +16170,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/cas-usages/support-sav",
       "index": 7,
       "label": "Études de cas du marché : service client",
-      "variant": "full",
+      "variant": "digest",
       "background": "paper-3"
     }
   ],
