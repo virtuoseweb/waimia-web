@@ -61,3 +61,6 @@ aucun envoi externe.
 ## Rapport (≤ 300 mots)
 Par fichier, une ligne : changements, lead_magnet, liens du tunnel. Codes de sortie.
 Ce que tu n'as pas pu faire.
+
+Note : une cible de lien doit aussi être absente de `src/data/depublished.ts` (page
+dépubliée = redirection, lien refusé par `check-static-quality`).
