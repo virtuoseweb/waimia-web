@@ -3445,6 +3445,81 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/services/site-web-ia/lovable",
+    "title": "Agence Lovable pour PME : du prototype à la production · Waimia",
+    "group": "offres",
+    "collection": "services",
+    "file": "services/site-web-ia/lovable.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-masthead-card",
+        "label": "Agence Lovable : un prototype qui devient un outil en production.",
+        "background": "paper"
+      },
+      {
+        "type": "proof-bar",
+        "label": "En bref",
+        "background": "paper"
+      },
+      {
+        "type": "definition-extract",
+        "label": "Définition",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Lovable, ou autre chose",
+        "background": "paper"
+      },
+      {
+        "type": "comparison-duo",
+        "label": "Exemple type : un outil de suivi de chantiers",
+        "background": "paper"
+      },
+      {
+        "type": "deliverables-grid",
+        "label": "Ce qui vous reste à la fin",
+        "background": "paper-3"
+      },
+      {
+        "type": "hover-reveal-list",
+        "label": "Lovable, ou une autre base",
+        "background": "paper-3"
+      },
+      {
+        "type": "case-card-grid",
+        "label": "Un serveur MCP réalisé sur Lovable, dans l'espace de notre client",
+        "background": "ink"
+      },
+      {
+        "type": "pricing-cards",
+        "label": "Combien coûte la reprise d'un projet Lovable",
+        "background": "paper"
+      },
+      {
+        "type": "eeat-panel",
+        "label": "#10",
+        "variant": "media"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Lovable : vos questions",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Votre prototype Lovable est-il prêt pour de vrais utilisateurs ?",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/services/site-web-ia/shopify",
     "title": "Agence Shopify pour PME : boutique, refonte et migration · Waimia",
     "group": "offres",
@@ -13129,6 +13204,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/services/seo-geo-contenu/seo-local",
       "/services/sequences-de-suivi",
       "/services/site-web-ia",
+      "/services/site-web-ia/lovable",
       "/services/site-web-ia/shopify",
       "/services/site-web-ia/sur-mesure",
       "/services/site-web-ia/webflow",

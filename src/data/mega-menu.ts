@@ -507,6 +507,7 @@ const SOLUTIONS: MegaMenuSection = {
                     { label: { fr: 'Agence Webflow', en: 'Webflow agency' }, href: '/services/webflow' },
                     { label: { fr: 'Agence WordPress', en: 'WordPress agency' }, href: '/services/wordpress' },
                     { label: { fr: 'Agence Shopify', en: 'Shopify agency' }, href: '/services/shopify' },
+                    { label: { fr: 'Agence Lovable', en: 'Lovable agency' }, href: '/services/lovable' },
                     { label: { fr: 'Site sur mesure', en: 'Custom website' }, href: '/services/sur-mesure-headless' },
                     { label: { fr: 'Landing pages et tunnels', en: 'Landing pages and funnels' }, href: '/services/landing-pages-tunnels' },
                   ],

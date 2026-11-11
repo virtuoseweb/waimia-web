@@ -733,6 +733,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/site-web-ia/lovable.json",
+      "slug": "lovable",
+      "route": "/services/lovable",
+      "index": 8,
+      "label": "Un serveur MCP réalisé sur Lovable, dans l'espace de notre client",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
       "file": "services/applications-internes/mvp-saas.json",
       "slug": "mvp-saas",
       "route": "/services/mvp-saas",
@@ -1300,6 +1309,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/services/landing-pages-tunnels",
       "index": 4,
       "label": "Exemple type : la page d'offre d'un organisme de formation",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/lovable.json",
+      "slug": "lovable",
+      "route": "/services/lovable",
+      "index": 5,
+      "label": "Exemple type : un outil de suivi de chantiers",
       "background": "paper"
     },
     {
@@ -3350,6 +3368,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/site-web-ia/lovable.json",
+      "slug": "lovable",
+      "route": "/services/lovable",
+      "index": 2,
+      "label": "Définition",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/applications-internes/mvp-saas.json",
       "slug": "mvp-saas",
       "route": "/services/mvp-saas",
@@ -3878,6 +3905,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "landing-pages-tunnels",
       "route": "/services/landing-pages-tunnels",
       "index": 5,
+      "label": "Ce qui vous reste à la fin",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/lovable.json",
+      "slug": "lovable",
+      "route": "/services/lovable",
+      "index": 6,
       "label": "Ce qui vous reste à la fin",
       "background": "paper-3"
     },
@@ -8273,6 +8309,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/site-web-ia/lovable.json",
+      "slug": "lovable",
+      "route": "/services/lovable",
+      "index": 3,
+      "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
       "file": "services/applications-internes/mvp-saas.json",
       "slug": "mvp-saas",
       "route": "/services/mvp-saas",
@@ -10383,6 +10428,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/site-web-ia/lovable.json",
+      "slug": "lovable",
+      "route": "/services/lovable",
+      "index": 10,
+      "label": "#10",
+      "variant": "media"
+    },
+    {
+      "collection": "services",
       "file": "services/applications-internes/mvp-saas.json",
       "slug": "mvp-saas",
       "route": "/services/mvp-saas",
@@ -11713,6 +11767,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/services/landing-pages-tunnels",
       "index": 9,
       "label": "Landing pages et tunnels : vos questions",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/lovable.json",
+      "slug": "lovable",
+      "route": "/services/lovable",
+      "index": 11,
+      "label": "Lovable : vos questions",
       "background": "paper-2"
     },
     {
@@ -13516,6 +13579,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/site-web-ia/lovable.json",
+      "slug": "lovable",
+      "route": "/services/lovable",
+      "index": 12,
+      "label": "Votre prototype Lovable est-il prêt pour de vrais utilisateurs ?",
+      "background": "ink"
+    },
+    {
+      "collection": "services",
       "file": "services/applications-internes/mvp-saas.json",
       "slug": "mvp-saas",
       "route": "/services/mvp-saas",
@@ -14033,6 +14105,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/services/identite-de-marque",
       "index": 0,
       "label": "Création d'identité de marque pour PME.",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/lovable.json",
+      "slug": "lovable",
+      "route": "/services/lovable",
+      "index": 0,
+      "label": "Agence Lovable : un prototype qui devient un outil en production.",
       "background": "paper"
     },
     {
@@ -15306,6 +15387,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/services/cold-email-b2b",
       "index": 9,
       "label": "Le cold email s'assemble aux autres canaux",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/lovable.json",
+      "slug": "lovable",
+      "route": "/services/lovable",
+      "index": 7,
+      "label": "Lovable, ou une autre base",
       "background": "paper-3"
     },
     {
@@ -16923,6 +17013,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/site-web-ia/lovable.json",
+      "slug": "lovable",
+      "route": "/services/lovable",
+      "index": 9,
+      "label": "Combien coûte la reprise d'un projet Lovable",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
       "file": "services/applications-internes/mvp-saas.json",
       "slug": "mvp-saas",
       "route": "/services/mvp-saas",
@@ -18077,6 +18176,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/landing-pages-tunnels.json",
       "slug": "landing-pages-tunnels",
       "route": "/services/landing-pages-tunnels",
+      "index": 1,
+      "label": "En bref",
+      "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/lovable.json",
+      "slug": "lovable",
+      "route": "/services/lovable",
       "index": 1,
       "label": "En bref",
       "background": "paper"
@@ -20029,6 +20137,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 5,
       "label": "Quand choisir Mistral AI, quand rester sur Claude",
       "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia/lovable.json",
+      "slug": "lovable",
+      "route": "/services/lovable",
+      "index": 4,
+      "label": "Lovable, ou autre chose",
+      "background": "paper"
     },
     {
       "collection": "services",
