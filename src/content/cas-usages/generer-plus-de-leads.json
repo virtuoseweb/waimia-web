@@ -3,11 +3,11 @@
   "title_fr": "Automatiser le suivi commercial d'une PME · Waimia",
   "seoTitle_fr": "Automatiser le suivi commercial : leads notés, relances",
   "title_en": "Automating an SMB's sales follow-up · Waimia",
-  "description_fr": "Automatiser le suivi commercial : aucune demande perdue, chaque lead noté et affecté, chaque devis relancé. Exemple type, outils et limites pour une PME.",
+  "description_fr": "Automatiser le suivi commercial : chaque demande devient une fiche, est affectée le jour même, et le devis est relancé à date. Exemple et outils pour une PME.",
   "description_en": "Automating sales follow-up: no request lost, every lead scored and assigned, every quote chased. Typical example, tools and limits for an SMB.",
   "slug": "generer-plus-de-leads",
   "publishedAt": "2026-06-26T00:00:00.000Z",
-  "updatedAt": "2026-10-04T00:00:00.000Z",
+  "updatedAt": "2026-11-11T00:00:00.000Z",
   "category": "commercial",
   "tags": [
     "generer-leads",
@@ -22,23 +22,23 @@
   "faq_fr": [
     {
       "q": "Comment ne plus perdre de demandes entrantes ?",
-      "a": "En supprimant les étapes manuelles entre la demande et le CRM : chaque formulaire, email ou appel crée une fiche avec sa source, attribuée à une personne avec une tâche datée. Ce qui n'est pas dans le CRM n'existe pas."
+      "a": "En supprimant les étapes manuelles entre la demande et le CRM. Formulaire, mail ou appel : chacun crée une fiche avec sa source, attribuée à une personne avec une tâche datée. Ce qui n'est pas dans le CRM n'existe pas."
     },
     {
       "q": "Faut-il plus de leads ou un meilleur suivi ?",
-      "a": "Un meilleur suivi d'abord, presque toujours. Tant que des demandes restent sans réponse et des devis sans relance, en ajouter augmente surtout les pertes."
+      "a": "Un meilleur suivi, presque toujours. Tant que des demandes restent sans réponse et des devis sans relance, en ajouter ne fait qu'agrandir la fuite."
     },
     {
       "q": "Quel CRM pour automatiser le suivi commercial ?",
-      "a": "Celui que vous avez, s'il a une API : HubSpot, Pipedrive et Salesforce conviennent. Changer d'outil ne règle pas un problème de saisie ou de règles."
+      "a": "Celui que vous avez, s'il a une API : HubSpot, Pipedrive et Salesforce conviennent. Changer d'outil ne corrige ni une saisie bâclée ni des règles floues."
     },
     {
       "q": "L'IA peut-elle répondre aux prospects à notre place ?",
-      "a": "Elle peut préparer la réponse et, sur des demandes simples et répétitives, l'envoyer si vous l'avez décidé. Pour un devis ou une négociation, elle prépare ; le commercial valide et envoie."
+      "a": "Elle prépare la réponse. Sur des demandes simples et répétitives, elle peut l'envoyer si vous l'avez décidé. Pour un devis ou une négociation, le commercial valide et envoie."
     },
     {
       "q": "Combien de temps pour mettre en place ce suivi ?",
-      "a": "Habituellement 2 à 4 semaines pour la capture, la notation et l'affectation ; autant pour les devis et les relances. On commence par le maillon où vous perdez le plus."
+      "a": "Quelques semaines pour la capture, la notation et l'affectation, puis autant pour les devis et les relances. On commence par le maillon où vous perdez le plus."
     }
   ],
   "faq_en": [
@@ -76,7 +76,7 @@
       "h1_en": "Automating <i class=\"acc\">sales follow-up</i>",
       "definition_kicker_fr": "En une phrase",
       "definition_kicker_en": "In one sentence",
-      "lede_fr": "Automatiser le suivi commercial, c'est s'assurer qu'une demande entrante devient une fiche dans le CRM, qu'elle est attribuée à quelqu'un le jour même et que le devis qui suit est relancé. Ce cas d'usage concerne les PME qui ont des demandes mais en perdent une partie entre le site, les boîtes mail et l'agenda des commerciaux.",
+      "lede_fr": "Un prospect remplit le formulaire un soir. Le mail tombe dans une boîte générique que personne n'ouvre avant deux jours. Automatiser le suivi commercial, c'est empêcher cela : chaque demande devient une fiche dans le CRM, elle est attribuée à quelqu'un le jour même, et le devis qui suit est relancé. Cela concerne les PME qui reçoivent des demandes et en perdent une partie entre le site, les boîtes mail et l'agenda des commerciaux.",
       "lede_en": "Automating sales follow-up means making sure an incoming request becomes a CRM record, is assigned to someone the same day and that the quote that follows is chased. This use case concerns SMBs that get requests but lose some between the site, mailboxes and salespeople's calendars.",
       "badges": [
         {
@@ -109,31 +109,31 @@
       "type": "editorial-prose",
       "background": "paper-2",
       "maxWidth": "prose",
-      "html_fr": "<h2>Où les demandes se perdent</h2>\n<p>Rarement faute de demandes. Le plus souvent, elles arrivent par trois canaux, sont notées à des endroits différents et traitées dans l'ordre où quelqu'un y pense. Un formulaire envoie un email à une adresse générique. Un appel est noté sur un carnet. Un devis part, et personne ne sait trois semaines plus tard s'il a été relancé. Avant de chercher plus de demandes, il faut traiter correctement celles qui existent.</p>\n<h2>La chaîne à mettre en place</h2>\n<p>Trois maillons. La capture : chaque demande, quel que soit le canal, crée une fiche dans le CRM avec sa source. La qualification et l'affectation : un score classe la demande et une règle l'attribue à un commercial avec une tâche datée, comme décrit sur la page <a href=\"/services/crm-scoring-routing\">automatisation CRM</a>. Le suivi : devis pré-rempli, relances déclenchées à date, voir <a href=\"/services/sequences-de-suivi\">devis automatisé et relances</a>.</p>\n<p>Si le volume de demandes est réellement insuffisant, la <a href=\"/services/prospection-automatisee\">prospection automatisée</a> alimente la chaîne en amont. L'ensemble est présenté sur la page <a href=\"/services/systeme-commercial\">système commercial</a>.</p>\n<h2>Ce que l'IA apporte, précisément</h2>\n<p>Elle lit une demande rédigée librement et en extrait le besoin, l'échéance et le budget quand ils sont mentionnés. Elle résume l'historique d'un compte avant un appel. Elle rédige un brouillon de relance dans votre ton. Elle ne décide ni du prix, ni de la priorité commerciale, ni de l'envoi.</p>\n<h2>Les limites</h2>\n<p>Un CRM que les commerciaux ne remplissent pas ne sera pas sauvé par l'automatisation : il faut d'abord réduire la saisie au minimum. Un cycle de vente fondé sur la relation directe et quelques comptes n'a pas besoin de cette mécanique. Et l'automatisation ne corrige pas une offre mal définie.</p>\n<p>Le projet <a href=\"/cas-clients/amploi\">Amploi</a> illustre le premier maillon : les demandes du site sont captées et routées dans HubSpot sans ressaisie. Pour suivre le trajet d'une demande chez vous, réservez l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>.</p>",
+      "html_fr": "<h2>Où les demandes se perdent</h2>\n<p>Rarement faute de demandes. Elles arrivent par trois canaux, se notent à trois endroits et se traitent dans l'ordre où quelqu'un y pense. Le formulaire du site envoie un mail à l'adresse générique de l'entreprise. Un appel finit dans un carnet. Un devis part, et trois semaines plus tard personne ne sait s'il a été relancé. Avant de chercher plus de demandes, traitez celles qui existent : notre guide <a href=\"/ressources/guides/devis-automatise\">devis automatisé</a> déroule la méthode pas à pas.</p>\n<h2>La chaîne qui ne laisse rien tomber</h2>\n<p>Chaque demande crée une fiche avec sa source, quel que soit le canal. Un score la classe, une règle l'attribue à un commercial avec une tâche datée : c'est le travail de l'<a href=\"/services/crm-scoring-routing\">automatisation CRM</a>. Le devis part pré-rempli et la relance se déclenche à date, avec les <a href=\"/services/sequences-de-suivi\">séquences de suivi</a>. L'ensemble forme notre <a href=\"/services/systeme-commercial\">système commercial</a>.</p>\n<p>Ce qui casse en premier, c'est l'appel téléphonique : rien ne le transforme en fiche si le commercial ne le note pas. Si les demandes manquent vraiment, la <a href=\"/services/prospection-automatisee\">prospection automatisée</a> alimente la chaîne en amont. Sinon, restez sur le suivi.</p>\n<h2>Ce que l'IA fait dans cette chaîne</h2>\n<p>Un prospect écrit trois lignes dans le formulaire : l'IA en tire le besoin, l'échéance et le budget quand ils y figurent. Avant un appel, elle résume l'historique du compte. Après un devis, elle rédige un brouillon de relance dans votre ton. Le prix, la priorité commerciale et l'envoi restent à vous.</p>\n<h2>Quand ne pas automatiser</h2>\n<p>Si vos commerciaux ne remplissent pas le CRM, l'automatisation ne le sauvera pas : réduisez d'abord la saisie au minimum. Une vente fondée sur la relation directe et quelques comptes n'a pas besoin de cette mécanique. Et aucun outil ne corrige une offre mal définie.</p>\n<p>Chez <a href=\"/cas-clients/amploi\">Amploi</a>, le premier maillon est en place : les demandes du site sont captées et routées dans HubSpot sans ressaisie. Pour suivre le trajet d'une demande chez vous, réservez l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>.</p>",
       "html_en": "<h2>Where requests get lost</h2>\n<p>Rarely for lack of requests. Most often they come through three channels, are noted in different places and handled in the order someone thinks of them. A form sends an email to a generic address. A call is noted in a notebook. A quote goes out, and three weeks later nobody knows whether it was chased. Before looking for more requests, handle the existing ones properly.</p>\n<h2>The chain to set up</h2>\n<p>Three links. Capture: every request, whatever the channel, creates a CRM record with its source. Qualification and assignment: a score ranks the request and a rule gives it to a salesperson with a dated task, as described on the <a href=\"/services/crm-scoring-routing\">CRM automation</a> page. Follow-up: pre-filled quote, reminders on schedule, see <a href=\"/services/sequences-de-suivi\">automated quotes and follow-ups</a>.</p>\n<p>If request volume is truly insufficient, <a href=\"/services/prospection-automatisee\">automated prospecting</a> feeds the chain upstream. The whole is presented on the <a href=\"/services/systeme-commercial\">sales system</a> page.</p>\n<h2>What AI brings, precisely</h2>\n<p>It reads a freely worded request and extracts the need, timing and budget when mentioned. It summarises an account's history before a call. It drafts a follow-up in your tone. It decides neither price, nor sales priority, nor sending.</p>\n<h2>The limits</h2>\n<p>A CRM salespeople do not fill in will not be saved by automation: first cut data entry to the minimum. A sales cycle built on direct relationships and a few accounts does not need this machinery. And automation does not fix a poorly defined offer.</p>\n<p>The <a href=\"/cas-clients/amploi\">Amploi</a> project illustrates the first link: site requests are captured and routed into HubSpot with no retyping. To follow a request's path in your company, book the <a href=\"/audit-ia-pme\">free AI audit</a>.</p>"
     },
     {
       "type": "comparison-duo",
       "background": "paper",
-      "kicker_fr": "§ Exemple type · pas un cas client",
+      "kicker_fr": "§ Exemple",
       "kicker_en": "§ Typical example · not a client case",
-      "h2_fr": "Exemple type : une PME de services aux entreprises",
+      "h2_fr": "Exemple : les demandes d'une PME de services aux entreprises",
       "h2_en": "Typical example: a business services SMB",
       "without_label_fr": "Avant",
       "without_label_en": "Before",
-      "without_title_fr": "Trois canaux, aucun suivi commun",
+      "without_title_fr": "Trois canaux, trois carnets",
       "without_title_en": "Three channels, no shared tracking",
       "without_items": [
         {
-          "text_fr": "Le formulaire du site envoie un email à contact@.",
+          "text_fr": "Le formulaire du site envoie un mail à l'adresse générique, ouverte quand quelqu'un y pense.",
           "text_en": "The site form sends an email to contact@."
         },
         {
-          "text_fr": "Les appels sont notés par la personne qui décroche.",
+          "text_fr": "Un appel est noté par la personne qui décroche, sur ce qu'elle a sous la main.",
           "text_en": "Calls are noted by whoever picks up."
         },
         {
-          "text_fr": "Chaque commercial tient sa propre liste de devis en cours.",
+          "text_fr": "Chaque commercial tient sa propre liste de devis en cours, et personne ne sait lesquels dorment.",
           "text_en": "Each salesperson keeps their own list of open quotes."
         },
         {
@@ -147,7 +147,7 @@
       "with_title_en": "One record per request, one dated action",
       "with_items": [
         {
-          "text_fr": "Formulaire, email et appel créent une fiche dans le CRM.",
+          "text_fr": "Formulaire, mail et appel créent la même fiche dans le CRM.",
           "text_en": "Form, email and call create a CRM record."
         },
         {
@@ -155,11 +155,11 @@
           "text_en": "The request is summarised, scored and assigned the same day."
         },
         {
-          "text_fr": "Le devis est préparé à partir de la fiche, validé par le commercial.",
+          "text_fr": "Le devis se prépare à partir de la fiche ; le commercial le valide.",
           "text_en": "The quote is prepared from the record, approved by the salesperson."
         },
         {
-          "text_fr": "Une relance est proposée à J+5 sans réponse.",
+          "text_fr": "Sans réponse au bout de cinq jours, une relance est proposée.",
           "text_en": "A follow-up is proposed at day 5 with no reply."
         },
         {
@@ -177,14 +177,14 @@
       "role_en": "Founder of Waimia · AI and automation engineer",
       "profileHref": "/equipe/simon-beros",
       "publishedDate": "26 juin 2026",
-      "updatedDate": "4 octobre 2026"
+      "updatedDate": "11 novembre 2026"
     },
     {
       "type": "cta-final",
       "background": "ink",
-      "h2_fr": "Chiffrez le gain avant de vous engager",
+      "h2_fr": "Combien de devis dorment sans relance ?",
       "h2_en": "Chiffrez le gain avant de vous engager",
-      "body_fr": "Entrez vos heures et vos coûts : le calculateur donne le temps récupérable tout de suite, sans inscription. Vous pouvez ensuite recevoir le détail par e-mail.",
+      "body_fr": "Entrez vos heures et vos coûts de suivi : le calculateur chiffre le temps récupérable tout de suite, sans inscription, avant que vous parliez à qui que ce soit.",
       "body_en": "Entrez vos heures et vos coûts : le calculateur donne le temps récupérable tout de suite, sans inscription. Vous pouvez ensuite recevoir le détail par e-mail.",
       "cta_primary": {
         "label_fr": "Calculer mon gain",
@@ -204,7 +204,7 @@
           "kicker_en": "Service",
           "title_fr": "Automatisation CRM",
           "title_en": "CRM automation",
-          "lead_fr": "Fiches sans ressaisie, notation et affectation des leads.",
+          "lead_fr": "Une fiche sans ressaisie, puis la notation et l'affectation des demandes.",
           "lead_en": "Records with no retyping, lead scoring and assignment.",
           "href": "/services/crm-scoring-routing"
         },
@@ -238,31 +238,31 @@
       "items": [
         {
           "q_fr": "Comment ne plus perdre de demandes entrantes ?",
-          "a_fr": "En supprimant les étapes manuelles entre la demande et le CRM : chaque formulaire, email ou appel crée une fiche avec sa source, attribuée à une personne avec une tâche datée. Ce qui n'est pas dans le CRM n'existe pas.",
+          "a_fr": "En supprimant les étapes manuelles entre la demande et le CRM. Formulaire, mail ou appel : chacun crée une fiche avec sa source, attribuée à une personne avec une tâche datée. Ce qui n'est pas dans le CRM n'existe pas.",
           "q_en": "How do you stop losing incoming requests?",
           "a_en": "By removing manual steps between the request and the CRM: every form, email or call creates a record with its source, assigned to a person with a dated task. What is not in the CRM does not exist."
         },
         {
           "q_fr": "Faut-il plus de leads ou un meilleur suivi ?",
-          "a_fr": "Un meilleur suivi d'abord, presque toujours. Tant que des demandes restent sans réponse et des devis sans relance, en ajouter augmente surtout les pertes.",
+          "a_fr": "Un meilleur suivi, presque toujours. Tant que des demandes restent sans réponse et des devis sans relance, en ajouter ne fait qu'agrandir la fuite.",
           "q_en": "Do you need more leads or better follow-up?",
           "a_en": "Better follow-up first, almost always. As long as requests go unanswered and quotes unchased, adding more mostly increases the losses."
         },
         {
           "q_fr": "Quel CRM pour automatiser le suivi commercial ?",
-          "a_fr": "Celui que vous avez, s'il a une API : HubSpot, Pipedrive et Salesforce conviennent. Changer d'outil ne règle pas un problème de saisie ou de règles.",
+          "a_fr": "Celui que vous avez, s'il a une API : HubSpot, Pipedrive et Salesforce conviennent. Changer d'outil ne corrige ni une saisie bâclée ni des règles floues.",
           "q_en": "Which CRM for automating sales follow-up?",
           "a_en": "The one you have, if it has an API: HubSpot, Pipedrive and Salesforce all work. Switching tools does not fix a data-entry or rules problem."
         },
         {
           "q_fr": "L'IA peut-elle répondre aux prospects à notre place ?",
-          "a_fr": "Elle peut préparer la réponse et, sur des demandes simples et répétitives, l'envoyer si vous l'avez décidé. Pour un devis ou une négociation, elle prépare ; le commercial valide et envoie.",
+          "a_fr": "Elle prépare la réponse. Sur des demandes simples et répétitives, elle peut l'envoyer si vous l'avez décidé. Pour un devis ou une négociation, le commercial valide et envoie.",
           "q_en": "Can AI reply to prospects for us?",
           "a_en": "It can prepare the reply and, on simple repetitive requests, send it if you have decided so. For a quote or a negotiation, it prepares; the salesperson approves and sends."
         },
         {
           "q_fr": "Combien de temps pour mettre en place ce suivi ?",
-          "a_fr": "Habituellement 2 à 4 semaines pour la capture, la notation et l'affectation ; autant pour les devis et les relances. On commence par le maillon où vous perdez le plus.",
+          "a_fr": "Quelques semaines pour la capture, la notation et l'affectation, puis autant pour les devis et les relances. On commence par le maillon où vous perdez le plus.",
           "q_en": "How long does it take to set up this follow-up?",
           "a_en": "Usually 2 to 4 weeks for capture, scoring and assignment; as much again for quotes and follow-ups. We start with the link where you lose the most."
         }
@@ -276,7 +276,7 @@
       "kicker_en": "§ Free AI audit",
       "h2_fr": "Où vos demandes attendent-elles ?",
       "h2_en": "Where do your requests wait?",
-      "subtitle_fr": "En 45 minutes, on suit une demande réelle du premier contact au devis et on repère chaque endroit où elle attend ou se perd.",
+      "subtitle_fr": "En 45 minutes, nous suivons une demande réelle du premier contact au devis et nous repérons chaque endroit où elle attend ou se perd.",
       "subtitle_en": "In 45 minutes, we follow a real request from first contact to quote and spot every place where it waits or gets lost.",
       "buttons": [
         {
