@@ -53,7 +53,7 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 - Le guide Claude ne contenait pas « Claude IA » (0 occurrence) et son title commençait par « Déployer » : il ne répondait ni à « guide claude » ni à « claude ia ».
 
 **Ce qui a changé** :
-- `/ressources/guides/claude-pme` : ajout de `seoTitle_fr` « Guide Claude IA pour PME : déploiement, coût, plan 90 jours » (59). Le title précédent datait du 6/10 : la règle des trois semaines est respectée. `description_fr` commence par « Guide Claude IA pour PME » (141). La réponse directe nomme « Claude IA, l'assistant d'Anthropic ». H1 inchangé.
+- `/ressources/guides/claude-pme` : ajout de `seoTitle_fr` « Guide Claude pour PME : déploiement, coût, plan 90 jours » (56). Le title précédent datait du 6/10 : la règle des trois semaines est respectée. `description_fr` commence par « Guide Claude pour PME ». « guide claude » et « claude ia » sont réservées à la future page généraliste `/ressources/guides/claude-ia` (une expression, une page). H1 inchangé.
 - Ancres descriptives vers la page Bordeaux : « agence IA à Bordeaux » depuis `/agence` (lede) et depuis `/ressources/guides/choisir-agence-ia-pme`. Ancre « guide Claude pour PME » depuis le comparatif Claude vs ChatGPT.
 - `/implantations/bordeaux` et `/agence` : title et meta inchangés. Bordeaux est figée jusqu'au 1/12, et `/agence` n'est pas la page à pousser sur la requête : deux URL sur la même requête locale se partageraient les signaux.
 
