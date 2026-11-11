@@ -47,7 +47,7 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 **PR ouvertes au début de la session** : aucune (#157 à #174 fusionnées).
 
-**Actions du jour** (PR à ouvrir, branche `feat/seo-2026-11-11`) : une création, aucune révision (aucune règle de 4.1 ne l'impose, aucune mesure fraîche).
+**Actions du jour** (PR #175, branche `feat/seo-2026-11-11`) : une création, aucune révision (aucune règle de 4.1 ne l'impose, aucune mesure fraîche).
 
 1. Création de `/blog/dossier-competences-ia-esn` (entrée `idee-dossier-competences-ia-esn`, avancée de 2026-W47 en 2026-W46 : plus aucune création planifiée en W46).
    - Pourquoi : entrée du calendrier ; origine : recherche du 1er novembre 2026 pour `/blog/ia-esn`, qui ne traitait ni le RGPD ni l'exactitude du dossier (sa section « limites » le dit).
