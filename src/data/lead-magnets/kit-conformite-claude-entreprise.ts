@@ -11,7 +11,7 @@ export const data: LeadMagnetPage = {
   kicker_fr: 'Kit PDF · Dirigeants et DSI',
   kicker_en: 'PDF kit · Owners and IT leads',
   promise_fr:
-    "Les réglages Team et Enterprise à vérifier avant le premier compte, les points RGPD qui comptent vraiment, et les documents à remplir pour décider usage par usage. Chaque fait sur Claude est sourcé et daté ; ce qui relève de votre contrat ou de votre conseil est signalé « à vérifier ».",
+    "Les réglages Team et Enterprise à vérifier avant d'ouvrir le premier compte, les points RGPD qui comptent, et les documents à remplir pour décider usage par usage. Chaque fait sur Claude est sourcé et daté ; ce qui dépend de votre contrat ou de votre conseil est marqué « à vérifier ».",
   promise_en:
     'The Team and Enterprise settings to check before the first account, the GDPR points that really matter, and the documents to fill in to decide use by use. Every fact about Claude is sourced and dated; what depends on your contract or your adviser is flagged "to check".',
   format_fr: 'PDF A4 · 11 pages',
@@ -49,7 +49,7 @@ export const data: LeadMagnetPage = {
     { title: 'The useful AI Act timeline', desc: 'The dates that affect an SMB using AI, with a link to the detailed guide.' },
   ],
   extract_fr:
-    "<p><strong>Extrait de la partie 1 : trois réglages parmi ceux du kit.</strong> Source : aide Claude sur les réglages Cowork pour Team et Enterprise, lue le 5 octobre 2026.</p>" +
+    "<p><strong>Extrait de la partie 1 : trois réglages parmi ceux du kit.</strong> Source : aide Claude sur les réglages Cowork pour Team et Enterprise.</p>" +
     "<ul>" +
     "<li><strong>Exécution de Cowork dans le cloud</strong> : activée par défaut en Team, désactivée par défaut en Enterprise. En Team, décidez-le explicitement : une tâche cloud tourne appareil éteint.</li>" +
     "<li><strong>« Always allow » des connecteurs</strong> : désactivé par défaut. Laissez-le ainsi tant que les actions concernées ne sont pas listées.</li>" +
@@ -65,7 +65,7 @@ export const data: LeadMagnetPage = {
   faq_fr: [
     {
       q: 'Ce kit est-il un avis juridique ?',
-      a: "Non. C'est un document de travail : il rassemble les faits publiés par Anthropic au 5 octobre 2026 et des trames à remplir. Les points qui dépendent de votre contrat, de vos traitements ou d'une interprétation du RGPD sont marqués « à vérifier » et se tranchent avec votre DPO ou votre conseil.",
+      a: "Non. C'est un document de travail : les faits publiés par Anthropic au 5 octobre 2026, plus des trames à remplir. Ce qui dépend de votre contrat, de vos traitements ou d'une interprétation du RGPD est marqué « à vérifier » et se tranche avec votre DPO ou votre conseil.",
     },
     {
       q: 'Sert-il pour Claude Team comme pour Claude Enterprise ?',
@@ -81,7 +81,7 @@ export const data: LeadMagnetPage = {
     },
     {
       q: 'Les informations seront-elles encore justes dans six mois ?',
-      a: "Pas toutes : les offres de Claude changent vite (la fusion de Cowork dans Claude est en cours). Chaque fait est daté et sourcé pour que vous puissiez le revérifier. Le <a href=\"/ressources/guides/claude-plugins-entreprise\">guide des plugins Claude en entreprise</a> est mis à jour en ligne.",
+      a: "Pas toutes : les offres de Claude changent vite, et la fusion de Cowork dans Claude est en cours. Chaque fait est daté et sourcé, vous pouvez donc le revérifier. Le <a href=\"/ressources/guides/claude-plugins-entreprise\">guide des plugins Claude en entreprise</a> est mis à jour en ligne.",
     },
   ],
   faq_en: [
@@ -121,5 +121,5 @@ export const data: LeadMagnetPage = {
   seoDescription_en:
     'PDF kit for owners and IT leads: Claude Team and Enterprise settings to check, GDPR points, impact assessment frame, usage policy and register.',
   publishedAt: '2026-10-05',
-  updatedAt: '2026-10-05',
+  updatedAt: '2026-11-11',
 };

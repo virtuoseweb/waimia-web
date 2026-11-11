@@ -7,7 +7,7 @@
   "description_en": "CRM automation: records with no retyping, leads scored and assigned to the right rep, follow-ups triggered. HubSpot, Pipedrive, Salesforce. Free audit.",
   "slug": "crm-scoring-routing",
   "publishedAt": "2026-07-13T00:00:00.000Z",
-  "updatedAt": "2026-10-06T00:00:00.000Z",
+  "updatedAt": "2026-11-11T00:00:00.000Z",
   "category": "commercial",
   "tags": [
     "crm-scoring-routing",
@@ -25,27 +25,27 @@
   "faq_fr": [
     {
       "q": "Combien coûte l'automatisation d'un CRM ?",
-      "a": "Le sprint de cadrage est à {{prix.sprint}} € HT pour 10 heures : audit du CRM, nettoyage, premières règles de notation et d'affectation. La suite est estimée en heures puis facturée {{prix.horaire}} € HT de l'heure. La licence du CRM reste à votre charge, auprès de son éditeur."
+      "a": "{{prix.sprint}} € HT pour le sprint de cadrage de 10 heures : audit du CRM, nettoyage, premières règles de notation et d'affectation. Ensuite, nous estimons les heures avec vous, vous validez avant que nous commencions, et la régie coûte {{prix.horaire}} € HT de l'heure. La licence du CRM reste à votre charge, auprès de son éditeur."
     },
     {
       "q": "Qu'est-ce que le lead scoring, en pratique ?",
-      "a": "Une note attribuée à chaque lead selon des critères écrits : correspondance avec votre cible, besoin exprimé, comportement (pages vues, réponse à un email). Elle sert à décider qui rappeler en premier. Elle doit rester explicable, sinon les commerciaux ne s'en servent pas. Chez HubSpot, l'outil natif demande une offre Professional ou Enterprise ; en dessous, on calcule le score dans n8n ou Make."
+      "a": "Une note attribuée à chaque lead d'après des critères écrits : proximité avec votre cible, besoin exprimé, comportement (pages vues, réponse à un e-mail). Elle dit qui rappeler en premier. Si elle ne s'explique pas en une phrase, vos commerciaux l'ignorent. HubSpot réserve son outil natif aux offres Professional et Enterprise ; en dessous, nous calculons le score dans n8n ou Make."
     },
     {
       "q": "CRM sur mesure ou CRM du marché : que choisir ?",
-      "a": "Un CRM du marché dans la grande majorité des cas : il est maintenu par son éditeur et se connecte à tout. Le sur-mesure se justifie quand votre cycle de vente est trop spécifique pour être configuré, et se traite comme une application métier."
+      "a": "Un CRM du marché, dans la grande majorité des cas : son éditeur le maintient et il se connecte à tout. Le sur-mesure se justifie quand votre cycle de vente est trop spécifique pour être configuré ; nous le traitons alors comme une application métier."
     },
     {
       "q": "Sur quels CRM travaillez-vous ?",
-      "a": "HubSpot, Pipedrive et Salesforce. On part de l'outil que vous avez. Si vous n'en avez pas, on vous aide à choisir selon la taille de l'équipe et la complexité du cycle de vente."
+      "a": "HubSpot, Pipedrive et Salesforce, en partant de l'outil que vous utilisez déjà. Sans CRM, nous vous aidons à choisir selon la taille de l'équipe et la complexité de votre cycle de vente."
     },
     {
       "q": "Combien de temps pour automatiser un CRM ?",
-      "a": "Habituellement 2 à 4 semaines pour la notation et l'affectation. Le nettoyage préalable des données peut allonger le délai si la base est ancienne."
+      "a": "Comptez 2 à 4 semaines pour la notation et l'affectation. Une base ancienne rallonge ce délai, parce que le nettoyage passe avant l'automatisation."
     },
     {
       "q": "L'IA décide-t-elle à la place du commercial ?",
-      "a": "Non. Elle classe et prépare : résumé de la demande, score, suggestion de prochaine action. Le commercial garde la décision et le contact avec le client."
+      "a": "Non. Elle prépare le terrain : résumé de la demande, score, prochaine action suggérée. Le commercial décide, et le contact avec le client reste le sien."
     }
   ],
   "faq_en": [
@@ -82,7 +82,7 @@
       "kicker_en": "§ CRM automation",
       "h1_fr": "Automatisation de votre <i class=\"acc\">CRM</i>",
       "h1_en": "Automating your <i class=\"acc\">CRM</i>",
-      "lede_fr": "L'automatisation CRM confie au CRM ce que vos commerciaux font à la main : créer la fiche, noter et affecter le lead. Waimia, intégrateur CRM, configure HubSpot, Pipedrive ou Salesforce pour les PME dont les demandes se perdent.",
+      "lede_fr": "Une demande qui arrive par le site, un e-mail ou le téléphone attend qu'on la recopie. Nous branchons votre CRM (HubSpot, Pipedrive ou Salesforce) pour qu'il crée la fiche, note le lead et l'affecte à un commercial. Sprint de cadrage de 10 h à {{prix.sprint}} € HT, audit gratuit.",
       "lede_en": "CRM automation hands to the CRM what your salespeople do by hand: create the record, score and assign the lead. Waimia, a CRM integrator, configures HubSpot, Pipedrive or Salesforce for SMBs whose requests get lost.",
       "badges": [
         {
@@ -157,7 +157,7 @@
       "background": "paper",
       "kicker_fr": "§ Définition",
       "kicker_en": "§ Definition",
-      "statement_fr": "L'<i class=\"acc\">automatisation CRM</i> regroupe trois mécanismes : la saisie automatique (chaque demande crée ou met à jour une fiche), la notation (un score classe les leads selon des critères écrits) et l'affectation (une règle attribue chaque lead à un commercial et lui crée une tâche). Le commercial décide toujours quoi faire du lead.",
+      "statement_fr": "L'<i class=\"acc\">automatisation CRM</i> tient en trois mécanismes. La saisie automatique : chaque demande crée ou met à jour une fiche. La notation : un score classe les leads selon des critères écrits. L'affectation : une règle attribue chaque lead à un commercial et lui crée une tâche. Le commercial garde la décision sur le lead.",
       "statement_en": "<i class=\"acc\">CRM automation</i> covers three mechanisms: automatic entry (each request creates or updates a record), scoring (a score ranks leads on written criteria) and assignment (a rule gives each lead to a rep and creates a task). The rep always decides what to do with the lead.",
       "pills": [
         {
@@ -200,13 +200,13 @@
       "type": "editorial-prose",
       "background": "paper-2",
       "maxWidth": "prose",
-      "html_fr": "<h2>Le problème n'est presque jamais l'outil</h2>\n<p>La plupart des PME qui nous consultent ont déjà un CRM. Il est rempli par une partie de l'équipe, avec des champs utilisés différemment par chacun et des doublons. Changer d'outil ne règle rien : on retrouve les mêmes fiches incomplètes ailleurs, avec une migration en plus. Le travail consiste à nettoyer les données, à réduire les champs à ceux qui servent, puis à automatiser tout ce qui peut l'être pour que la saisie ne repose plus sur la bonne volonté.</p>\n<h2>Ce qu'on automatise dans un CRM</h2>\n<p>La création des fiches depuis le formulaire du site, la boîte contact et les prises de rendez-vous. L'enrichissement à partir des données publiques de l'entreprise (SIREN, SIRET, code NAF), par exemple via l'API Recherche d'entreprises de l'État, en accès ouvert. La notation : un score fondé sur des critères que vous validez (taille, secteur, besoin exprimé, urgence), pas sur une formule opaque. L'affectation au bon commercial avec une tâche datée. Les rappels quand une affaire ne bouge plus. C'est le mécanisme attesté dans le projet <a href=\"/cas-clients/amploi\">Amploi</a> : les demandes du site sont captées et routées dans HubSpot sans ressaisie.</p>\n<p>Un point de coût à connaître avant de démarrer : chez HubSpot, l'outil de lead scoring natif n'est inclus que dans Marketing Hub ou Sales Hub en version Professional ou Enterprise (documentation HubSpot mise à jour le 2 septembre 2026). Si vous êtes en Starter, on tranche dès l'audit : montée d'offre, ou score calculé dans n8n ou Make puis écrit dans un champ de la fiche.</p>\n<p>Le CRM est le centre du <a href=\"/services/systeme-commercial\">système commercial</a> : la <a href=\"/services/prospection-automatisee\">prospection</a> l'alimente, les <a href=\"/services/sequences-de-suivi\">relances de devis</a> en partent. La méthode jour par jour est décrite dans <a href=\"/blog/cabler-son-crm-en-10-jours\">câbler son CRM en 10 jours</a>.</p>\n<h2>CRM sur mesure : rarement nécessaire</h2>\n<p>Un CRM sur mesure ne se justifie que si votre cycle de vente ne rentre dans aucun outil standard : affaires à plusieurs intervenants, tarification complexe, lien fort avec la production. Dans ce cas on développe une <a href=\"/services/applications-internes\">application métier</a>. Dans les autres cas, un CRM du marché bien configuré coûte moins cher et sera maintenu par son éditeur.</p>\n<h2>Combien de temps pour automatiser un CRM</h2>\n<p>La notation et l'affectation sont habituellement en service en 2 à 4 semaines. Le nettoyage des données prend le plus de temps, et il est proportionnel à l'âge de la base.</p>\n<h2>Ce qui peut mal tourner</h2>\n<p>Un score que les commerciaux ne comprennent pas et qu'ils ignorent : il doit pouvoir s'expliquer en une phrase par lead. Des règles d'affectation contestées : elles sont validées par le responsable commercial avant d'être activées. Et des automatisations empilées sans documentation : chacune a sa fiche.</p>\n<p>Pour faire le point sur votre CRM, réservez l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>.</p>",
+      "html_fr": "<h2>Le problème n'est presque jamais l'outil</h2>\n<p>La plupart des PME qui nous sollicitent ont déjà un CRM. Une partie de l'équipe le remplit, chacun utilise les champs à sa façon, les doublons s'accumulent. Changer d'outil n'y fait rien : vous retrouvez les mêmes fiches incomplètes ailleurs, avec une migration en plus. Je déconseille la migration tant que la donnée n'est pas propre. Le travail consiste à nettoyer, à réduire les champs à ceux qui servent, puis à automatiser tout ce qui peut l'être pour que la saisie ne repose plus sur la bonne volonté.</p>\n<h2>Ce que nous automatisons dans un CRM</h2>\n<p>La création des fiches depuis le formulaire du site, la boîte contact et les prises de rendez-vous. L'enrichissement à partir des données publiques de l'entreprise (SIREN, SIRET, code NAF), par exemple avec l'API Recherche d'entreprises de l'État, en accès ouvert. La notation, fondée sur des critères que vous validez (taille, secteur, besoin exprimé, urgence) et non sur une formule opaque. L'affectation au bon commercial, avec une tâche datée. Les rappels quand une affaire ne bouge plus. Le projet <a href=\"/cas-clients/amploi\">Amploi</a> en est l'exemple attesté : les demandes du site sont captées et routées dans HubSpot sans ressaisie.</p>\n<p>Le devis est l'autre endroit où vos commerciaux perdent des heures. Notre guide du <a href=\"/ressources/guides/devis-automatise\">devis automatisé</a> en donne la méthode pas à pas.</p>\n<p>Un point de coût avant de démarrer : selon la documentation de HubSpot, le lead scoring natif n'est inclus que dans Marketing Hub ou Sales Hub en version Professional ou Enterprise. En Starter, nous tranchons dès l'audit : monter d'offre, ou calculer le score dans n8n ou Make puis l'écrire dans un champ de la fiche.</p>\n<p>Le CRM est le centre du <a href=\"/services/systeme-commercial\">système commercial</a> : la <a href=\"/services/prospection-automatisee\">prospection</a> l'alimente, les <a href=\"/services/sequences-de-suivi\">relances de devis</a> en partent. La méthode jour par jour est dans l'article <a href=\"/blog/cabler-son-crm-en-10-jours\">câbler son CRM en 10 jours</a>.</p>\n<h2>CRM sur mesure : rarement nécessaire</h2>\n<p>Un CRM sur mesure ne se justifie que si votre cycle de vente ne rentre dans aucun outil standard : affaires à plusieurs intervenants, tarification complexe, lien fort avec la production. Nous développons alors une <a href=\"/services/applications-internes\">application métier</a>. Dans tous les autres cas, un CRM du marché bien configuré coûte moins cher et son éditeur le maintient. Le comparatif <a href=\"/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche\">CRM sur mesure ou CRM du marché</a> pose les critères de choix.</p>\n<h2>Combien de temps pour automatiser un CRM</h2>\n<p>La notation et l'affectation tournent habituellement en 2 à 4 semaines. Le nettoyage des données prend le plus de temps, en proportion de l'âge de la base.</p>\n<h2>Où ça casse en premier</h2>\n<p>Le score tombe en panne le premier : un commercial qui ne comprend pas une note finit par l'ignorer, donc chaque lead doit pouvoir s'expliquer en une phrase. Les règles d'affectation, elles, ne s'activent qu'après la validation du responsable commercial, sinon elles se contestent. Quant aux automatisations empilées, chacune reçoit sa fiche : sans elle, personne d'autre ne peut les reprendre.</p>\n<p>Pour savoir où votre CRM perd des demandes, réservez l'<a href=\"/audit-ia-pme\">audit IA gratuit</a> : 45 minutes, une cartographie écrite à la clé.</p>",
       "html_en": "<h2>The problem is almost never the tool</h2>\n<p>Most SMBs that come to us already have a CRM. Part of the team fills it in, with fields used differently by each person and duplicates. Switching tools fixes nothing: the same incomplete records show up elsewhere, with a migration on top. The work is to clean the data, cut fields down to the useful ones, then automate everything possible so data entry no longer relies on goodwill.</p>\n<h2>What we automate in a CRM</h2>\n<p>Record creation from the site form, the contact mailbox and meeting bookings. Enrichment from public company data (SIREN, SIRET, NAF code), for instance through the French government's open Recherche d'entreprises API. Scoring: a score based on criteria you approve (size, sector, stated need, urgency), not an opaque formula. Assignment to the right rep with a dated task. Reminders when a deal stops moving. This is the mechanism attested in the <a href=\"/cas-clients/amploi\">Amploi</a> project: site requests are captured and routed into HubSpot with no retyping.</p>\n<p>One cost point to know before starting: in HubSpot, the native lead scoring tool is only included in Marketing Hub or Sales Hub on a Professional or Enterprise plan (HubSpot documentation updated 2 September 2026). On Starter, we settle it at the audit: upgrade, or a score computed in n8n or Make and written to a record field.</p>\n<p>The CRM is the centre of the <a href=\"/services/systeme-commercial\">sales system</a>: <a href=\"/services/prospection-automatisee\">prospecting</a> feeds it, <a href=\"/services/sequences-de-suivi\">quote follow-ups</a> start from it. The day-by-day method is described in <a href=\"/blog/cabler-son-crm-en-10-jours\">wiring your CRM in 10 days</a>.</p>\n<h2>Custom CRM: rarely needed</h2>\n<p>A custom CRM is only justified if your sales cycle fits no standard tool: deals with several parties, complex pricing, a strong link to production. In that case we build a <a href=\"/services/applications-internes\">business application</a>. Otherwise, a well-configured off-the-shelf CRM costs less and is maintained by its vendor.</p>\n<h2>How long CRM automation takes</h2>\n<p>Scoring and assignment are usually live within 2 to 4 weeks. Data cleaning takes the longest, and it is proportional to the age of the base.</p>\n<h2>What can go wrong</h2>\n<p>A score salespeople do not understand and ignore: it must be explainable in one sentence per lead. Disputed assignment rules: they are approved by the sales manager before activation. And automations stacked without documentation: each has its sheet.</p>\n<p>To take stock of your CRM, book the <a href=\"/audit-ia-pme\">free AI audit</a>.</p>"
     },
     {
       "type": "comparison-duo",
       "background": "paper",
-      "kicker_fr": "§ Exemple type · pas un cas client",
+      "kicker_fr": "§ Exemple",
       "kicker_en": "§ Typical example · not a client case",
       "h2_fr": "Exemple type : les demandes entrantes d'une PME industrielle",
       "h2_en": "Typical example: incoming requests at an industrial SMB",
@@ -336,7 +336,7 @@
       "fig_num": "Fig. 05",
       "fig_title_fr": "Cas clients",
       "fig_title_en": "Client cases",
-      "spec_fr": "Cas clients · chiffres repris des fiches publiées",
+      "spec_fr": "Projets publiés",
       "spec_en": "Client cases · figures taken from the published case pages",
       "h2_fr": "Deux projets : demandes routées sans ressaisie, abonnements gérés automatiquement",
       "h2_en": "Two projects: requests routed without retyping, subscriptions managed automatically",
@@ -353,7 +353,7 @@
           "sector_en": "HR and occupational health",
           "duration": "6 sem.",
           "stack": "Astro · HubSpot Forms API · schema.org",
-          "impact_fr": "Volet site : site marketing éditable sans développeur. Volet données et IA : demandes captées par formulaire et routées dans HubSpot sans ressaisie, graphe schema.org et fichier llm.md pour la lecture par les moteurs IA. Aucun chiffre d'impact publié à ce jour.",
+          "impact_fr": "Un site marketing que l'équipe édite sans développeur, et des demandes captées par formulaire puis routées dans HubSpot sans ressaisie. Côté moteurs IA : un graphe schema.org et un fichier llm.md.",
           "impact_en": "Site side: a marketing site editable without a developer. Data and AI side: form requests captured and routed into HubSpot with no retyping, a schema.org graph and an llm.md file for AI engines. No impact figure published to date.",
           "href": "/cas-clients/amploi",
           "media_src": "/images/illustrations/ds/super-girl-ink.webp",
@@ -366,7 +366,7 @@
           "sector_en": "Heritage and local media",
           "duration": "6 sem.",
           "stack": "WordPress · Abonnements · Paiement récurrent",
-          "impact_fr": "Abonnements à trois niveaux, paiement récurrent et gestion des membres automatisée. Trois mois après le lancement : plus de 40 articles, 150 membres et 35 abonnés payants.",
+          "impact_fr": "Trois niveaux d'abonnement, paiement récurrent, gestion des membres automatisée. Résultat en trois mois : plus de 40 articles, plus de 150 membres, plus de 35 abonnés payants.",
           "impact_en": "Three subscription tiers, recurring payment and automated member management. Three months after launch: 40+ articles, 150+ members and 35+ paying subscribers.",
           "href": "/cas-clients/les-carnets-de-montpellier",
           "media_src": "/images/illustrations/ds/band-showing-tv-ink.webp",
@@ -387,7 +387,7 @@
       "kicker_en": "§ Two ways to engage",
       "h2_fr": "Prix d'une automatisation CRM",
       "h2_en": "Price of CRM automation",
-      "lede_fr": "On démarre par un sprint de cadrage à prix fixe : audit du CRM, nettoyage et premières règles de scoring et de routing en main. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints en régie. Vous gardez le CRM, les règles et la donnée.",
+      "lede_fr": "Nous démarrons par un sprint de cadrage à prix fixe : audit du CRM, nettoyage et premières règles de notation et d'affectation. La suite se règle sur devis : nous estimons ensemble le temps nécessaire, vous le validez, puis nous l'exécutons en sprints en régie. Vous gardez le CRM, les règles et la donnée.",
       "lede_en": "We start with a fixed-price scoping sprint: CRM audit, cleaning and the first scoring and routing rules in hand. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the time and materials frame. You keep the CRM, the rules and the data.",
       "tiers": [
         {
@@ -442,7 +442,7 @@
           }
         }
       ],
-      "footnote_fr": "La suite est facturée en régie, à {{prix.horaire}} € HT de l'heure, non dégressif. Sans engagement de durée ni abonnement : le CRM, les règles et la donnée restent à vous. La licence du CRM n'est pas comprise : elle se paie à l'éditeur.",
+      "footnote_fr": "Hors sprint, la régie coûte {{prix.horaire}} € HT de l'heure, non dégressif. Aucun engagement de durée, aucun abonnement : le CRM, les règles et la donnée restent à vous. Seule la licence du CRM se paie à part, à l'éditeur.",
       "footnote_en": "What follows is billed on a time and materials basis, at {{prix.horaire}} € ex VAT an hour, non-degressive. No duration commitment, no subscription: the CRM, the rules and the data stay yours. The CRM licence is not included: you pay it to the vendor."
     },
     {
@@ -455,7 +455,7 @@
       "background": "paper",
       "h2_fr": "Chiffrez le gain avant de vous engager",
       "h2_en": "Chiffrez le gain avant de vous engager",
-      "body_fr": "Entrez vos heures et vos coûts : le calculateur donne le temps récupérable tout de suite, sans inscription. Vous pouvez ensuite recevoir le détail par e-mail.",
+      "body_fr": "Entrez vos heures et vos coûts : le calculateur vous donne le temps récupérable sur-le-champ, sans inscription. Le détail par e-mail est facultatif.",
       "body_en": "Entrez vos heures et vos coûts : le calculateur donne le temps récupérable tout de suite, sans inscription. Vous pouvez ensuite recevoir le détail par e-mail.",
       "cta_primary": {
         "label_fr": "Calculer mon gain",
@@ -474,37 +474,37 @@
       "items": [
         {
           "q_fr": "Combien coûte l'automatisation d'un CRM ?",
-          "a_fr": "Le sprint de cadrage est à {{prix.sprint}} € HT pour 10 heures : audit du CRM, nettoyage, premières règles de notation et d'affectation. La suite est estimée en heures puis facturée {{prix.horaire}} € HT de l'heure. La licence du CRM reste à votre charge, auprès de son éditeur.",
+          "a_fr": "{{prix.sprint}} € HT pour le sprint de cadrage de 10 heures : audit du CRM, nettoyage, premières règles de notation et d'affectation. Ensuite, nous estimons les heures avec vous, vous validez avant que nous commencions, et la régie coûte {{prix.horaire}} € HT de l'heure. La licence du CRM reste à votre charge, auprès de son éditeur.",
           "q_en": "How much does CRM automation cost?",
           "a_en": "The scoping sprint is €{{prix.sprint.en}} excl. VAT for 10 hours: CRM audit, cleaning, first scoring and assignment rules. The rest is estimated in hours then billed €{{prix.horaire}} per hour excl. VAT. The CRM licence remains at your expense, with its vendor."
         },
         {
           "q_fr": "Qu'est-ce que le lead scoring, en pratique ?",
-          "a_fr": "Une note attribuée à chaque lead selon des critères écrits : correspondance avec votre cible, besoin exprimé, comportement (pages vues, réponse à un email). Elle sert à décider qui rappeler en premier. Elle doit rester explicable, sinon les commerciaux ne s'en servent pas. Chez HubSpot, l'outil natif demande une offre Professional ou Enterprise ; en dessous, on calcule le score dans n8n ou Make.",
+          "a_fr": "Une note attribuée à chaque lead d'après des critères écrits : proximité avec votre cible, besoin exprimé, comportement (pages vues, réponse à un e-mail). Elle dit qui rappeler en premier. Si elle ne s'explique pas en une phrase, vos commerciaux l'ignorent. HubSpot réserve son outil natif aux offres Professional et Enterprise ; en dessous, nous calculons le score dans n8n ou Make.",
           "q_en": "What is lead scoring, in practice?",
           "a_en": "A score given to each lead on written criteria: fit with your target, stated need, behaviour (pages viewed, email reply). It decides who to call first. It must stay explainable, otherwise salespeople do not use it. In HubSpot, the native tool requires a Professional or Enterprise plan; below that, we compute the score in n8n or Make."
         },
         {
           "q_fr": "CRM sur mesure ou CRM du marché : que choisir ?",
-          "a_fr": "Un CRM du marché dans la grande majorité des cas : il est maintenu par son éditeur et se connecte à tout. Le sur-mesure se justifie quand votre cycle de vente est trop spécifique pour être configuré, et se traite comme une application métier.",
+          "a_fr": "Un CRM du marché, dans la grande majorité des cas : son éditeur le maintient et il se connecte à tout. Le sur-mesure se justifie quand votre cycle de vente est trop spécifique pour être configuré ; nous le traitons alors comme une application métier.",
           "q_en": "Custom CRM or off-the-shelf CRM: which to choose?",
           "a_en": "An off-the-shelf CRM in the vast majority of cases: it is maintained by its vendor and connects to everything. Custom is justified when your sales cycle is too specific to configure, and is handled as a business application."
         },
         {
           "q_fr": "Sur quels CRM travaillez-vous ?",
-          "a_fr": "HubSpot, Pipedrive et Salesforce. On part de l'outil que vous avez. Si vous n'en avez pas, on vous aide à choisir selon la taille de l'équipe et la complexité du cycle de vente.",
+          "a_fr": "HubSpot, Pipedrive et Salesforce, en partant de l'outil que vous utilisez déjà. Sans CRM, nous vous aidons à choisir selon la taille de l'équipe et la complexité de votre cycle de vente.",
           "q_en": "Which CRMs do you work on?",
           "a_en": "HubSpot, Pipedrive and Salesforce. We start from the tool you have. If you have none, we help you choose based on team size and sales cycle complexity."
         },
         {
           "q_fr": "Combien de temps pour automatiser un CRM ?",
-          "a_fr": "Habituellement 2 à 4 semaines pour la notation et l'affectation. Le nettoyage préalable des données peut allonger le délai si la base est ancienne.",
+          "a_fr": "Comptez 2 à 4 semaines pour la notation et l'affectation. Une base ancienne rallonge ce délai, parce que le nettoyage passe avant l'automatisation.",
           "q_en": "How long does it take to automate a CRM?",
           "a_en": "Usually 2 to 4 weeks for scoring and assignment. Prior data cleaning can lengthen it if the base is old."
         },
         {
           "q_fr": "L'IA décide-t-elle à la place du commercial ?",
-          "a_fr": "Non. Elle classe et prépare : résumé de la demande, score, suggestion de prochaine action. Le commercial garde la décision et le contact avec le client.",
+          "a_fr": "Non. Elle prépare le terrain : résumé de la demande, score, prochaine action suggérée. Le commercial décide, et le contact avec le client reste le sien.",
           "q_en": "Does the AI decide in place of the salesperson?",
           "a_en": "No. It ranks and prepares: request summary, score, suggested next action. The salesperson keeps the decision and the customer contact."
         }
@@ -521,7 +521,7 @@
       "kicker_en": "§ Free AI audit",
       "h2_fr": "Combien de demandes se perdent avant d'atteindre un commercial ?",
       "h2_en": "How many requests get lost before reaching a salesperson?",
-      "subtitle_fr": "En 45 minutes, on suit le trajet d'une demande entrante chez vous et on repère où elle attend, où elle se perd, et ce qui s'automatise.",
+      "subtitle_fr": "Gratuit, 45 minutes : nous prenons une demande entrante et suivons son parcours chez vous, jusqu'à l'endroit où elle attend ou disparaît. Vous repartez avec la liste de ce qui s'automatise.",
       "subtitle_en": "In 45 minutes, we follow the path of an incoming request in your company and spot where it waits, where it gets lost, and what can be automated.",
       "buttons": [
         {

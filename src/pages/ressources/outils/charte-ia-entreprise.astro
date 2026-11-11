@@ -35,7 +35,7 @@ const ld = buildArticle({
 });
 const cta = auditCtaFinal(
   'Une charte dit ce qui est permis. L\'audit dit par quelle tâche commencer.',
-  '45 minutes en visio, gratuit : vos process passés en revue tâche par tâche, et une cartographie écrite à la fin.',
+  '45 minutes en visio, gratuit : nous passons vos process en revue tâche par tâche, et vous repartez avec une cartographie écrite.',
 );
 // Hero illustré : celui de l'entrée `outils/charte-ia-entreprise`, que la carte du hub reprend.
 const hero = (await getEntry('outils', 'charte-ia-entreprise'))?.data.heroIllustration;
@@ -54,7 +54,7 @@ const exit = toolExit('/ressources/outils/charte-ia-entreprise');
   <ToolIntro
     illustration={hero}
     h1="Charte IA pour PME : un modèle à adapter"
-    lede={`Une charte IA est le document interne qui fixe quels outils d'IA vos équipes utilisent, avec quelles données, et qui relit ce qui en sort. Ce modèle tient en ${charterArticles.length} articles courts, en entier ci-dessous, pour Claude, ChatGPT, Gemini ou une IA intégrée à vos logiciels.`}
+    lede={`Une charte IA est le document interne qui fixe quels outils d'IA vos équipes utilisent, avec quelles données, et qui relit ce qui en sort. Le modèle tient en ${charterArticles.length} articles courts, lisibles en entier ci-dessous, et vaut pour Claude, ChatGPT, Gemini ou une IA intégrée à vos logiciels. Adaptez-le à votre entreprise, exportez-le en Word.`}
     facts={[
       { label: 'Format', value: 'En ligne, Word, PDF par e-mail' },
       { label: 'Longueur', value: `${charterArticles.length} articles, 8 min de lecture` },

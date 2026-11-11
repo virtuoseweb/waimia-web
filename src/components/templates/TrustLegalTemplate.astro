@@ -49,8 +49,10 @@ interface Props {
   /** Override du footer légal (sinon fallback 'Document interne') */
   legalFooterFr?: string;
   legalFooterEn?: string;
+  /** Bandeau d'audit en pied de page (défaut : oui). Faux sur une page purement juridique. */
+  showCta?: boolean;
 }
-const { title, description, kickerFr, kickerEn, ctaSubjectFr, ctaSubjectEn, revisedAt, version, sections, legalFooterFr, legalFooterEn } = Astro.props as Props;
+const { title, description, kickerFr, kickerEn, ctaSubjectFr, ctaSubjectEn, revisedAt, version, sections, legalFooterFr, legalFooterEn, showCta = true } = Astro.props as Props;
 
 const webPageLd = {
   '@context': 'https://schema.org',
@@ -105,5 +107,5 @@ const ctaData = {
     <slot name="sections" slot="sections" />
   </TrustLegalSection>
 
-  <CtaBandSection data={ctaData} lang={lang} />
+  {showCta && <CtaBandSection data={ctaData} lang={lang} />}
 </Base>

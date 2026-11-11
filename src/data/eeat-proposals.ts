@@ -218,7 +218,7 @@ const art = (...ids: string[]): EeatLink[] => ids.map((id) => ARTICLE_LINKS[id])
 export const EEAT_PACK: EeatPack = {
   author: {
     name: 'Simon Beros',
-    role: 'Fondateur · Architecte de systèmes IA',
+    role: 'Fondateur de Waimia · ingénieur IA et automatisation',
     location: 'Bordeaux, France',
     profileHref: '/equipe/simon-beros',
     initials: 'SB',
@@ -233,8 +233,8 @@ export const EEAT_PACK: EeatPack = {
     'Process Intelligence',
   ],
   milestones: [
-    { year: '2024', label: 'Fondation de Waimia · Montpellier' },
     { year: 'Avant', label: 'VirtuoseWeb · systèmes web et IA pour PME B2B' },
+    { year: '2024', label: 'Fondation de Waimia' },
     { year: '2026', label: 'Claude, Claude Code et MCP en production' },
   ],
   // Pool historique (ordre préservé) : le composant n'affiche que les 3 premiers en mode
@@ -263,11 +263,11 @@ export const EEAT_PACK: EeatPack = {
   commitments: [
     // Détail = promesse canonique (AUDIT_PROMISE), résolue par silo dans eeatCommitments.
     { label: 'Avant tout engagement', detail: AUDIT_PROMISE.general.short.fr, audit: true },
-    { label: 'Prix fixe transparent', detail: 'Périmètre et budget connus avant de signer, pas de dérive.' },
+    { label: 'Prix connu avant de signer', detail: 'Le sprint de cadrage a un prix fixe ; la suite est chiffrée sur devis, avant tout engagement.' },
     { label: 'Formation incluse', detail: 'Documentation et passation : votre équipe est autonome à la livraison.' },
     { label: 'Zéro captivité', detail: 'Code, workflows et documentation transférés : vous gardez la main.' },
   ],
-  honestyNote: 'Studio solo : un ingénieur, chaque mission documentée sur sa propre fiche.',
+  honestyNote: 'Chaque mission est documentée sur sa propre fiche.',
   credentials: [
     // width/height = dimensions intrinsèques du fichier (PNG 500×455), réservent la place (CLS).
     { src: '/logos/badge-france-num-activateur.png', alt: 'Activateur France Num', href: 'https://www.francenum.gouv.fr/activateurs/beros-simon', width: 500, height: 455 },

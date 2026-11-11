@@ -106,7 +106,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "comparison-duo",
-        "label": "Exemple type : la boîte contact@ d'une PME de services",
+        "label": "Exemple : la boîte contact@ d'une PME de services",
         "background": "paper"
       },
       {
@@ -701,7 +701,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "comparison-duo",
-        "label": "Exemple type : le suivi d'interventions d'une entreprise de maintenance",
+        "label": "Exemple : le suivi d'interventions dans une entreprise de maintenance",
         "background": "paper"
       },
       {
@@ -1091,7 +1091,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "comparison-duo",
-        "label": "Scénario illustratif : la demande de devis reçue par formulaire",
+        "label": "Exemple : la demande de devis reçue par formulaire",
         "background": "paper"
       },
       {
@@ -2210,7 +2210,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "comparison-duo",
-        "label": "Exemple type : un bureau d'études de 40 personnes",
+        "label": "Exemple : un bureau d'études de 40 personnes",
         "background": "paper"
       },
       {
@@ -2932,7 +2932,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "comparison-duo",
-        "label": "Exemple type : la page service d'une PME de maintenance",
+        "label": "Exemple : la page service d'une PME de maintenance",
         "background": "paper"
       },
       {
@@ -3317,13 +3317,13 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-table-block",
-        "label": "Huit pannes probables d'une relance automatisée, et la parade",
+        "label": "Huit pannes d'une relance automatisée, et la parade",
         "variant": "editorial",
         "background": "paper-2"
       },
       {
         "type": "editorial-table-block",
-        "label": "Scénario illustratif : un devis suivi sur un mois",
+        "label": "Exemple : un devis suivi sur un mois",
         "variant": "editorial",
         "background": "paper"
       },
@@ -3399,7 +3399,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "comparison-duo",
-        "label": "Exemple type : le site d'un cabinet de conseil",
+        "label": "Exemple : le site d'un cabinet de conseil",
         "background": "paper"
       },
       {
@@ -3440,6 +3440,81 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "footer-cta-band",
         "label": "Votre site est-il à corriger, à refaire ou à reprendre ?",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/services/site-web-ia/lovable",
+    "title": "Agence Lovable pour PME : du prototype à la production · Waimia",
+    "group": "offres",
+    "collection": "services",
+    "file": "services/site-web-ia/lovable.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-masthead-card",
+        "label": "Agence Lovable : un prototype qui devient un outil en production.",
+        "background": "paper"
+      },
+      {
+        "type": "proof-bar",
+        "label": "En bref",
+        "background": "paper"
+      },
+      {
+        "type": "definition-extract",
+        "label": "Définition",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Lovable, ou autre chose",
+        "background": "paper"
+      },
+      {
+        "type": "comparison-duo",
+        "label": "Exemple type : un outil de suivi de chantiers",
+        "background": "paper"
+      },
+      {
+        "type": "deliverables-grid",
+        "label": "Ce qui vous reste à la fin",
+        "background": "paper-3"
+      },
+      {
+        "type": "hover-reveal-list",
+        "label": "Lovable, ou une autre base",
+        "background": "paper-3"
+      },
+      {
+        "type": "case-card-grid",
+        "label": "Un serveur MCP réalisé sur Lovable, dans l'espace de notre client",
+        "background": "ink"
+      },
+      {
+        "type": "pricing-cards",
+        "label": "Combien coûte la reprise d'un projet Lovable",
+        "background": "paper"
+      },
+      {
+        "type": "eeat-panel",
+        "label": "#10",
+        "variant": "media"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Lovable : vos questions",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Votre prototype Lovable est-il prêt pour de vrais utilisateurs ?",
         "background": "ink"
       }
     ]
@@ -4535,7 +4610,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "comparison-duo",
-        "label": "Exemple type : le comité de direction mensuel d'une PME",
+        "label": "Exemple : le comité de direction mensuel d'une PME",
         "background": "paper"
       },
       {
@@ -4545,7 +4620,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "cta-final",
-        "label": "Chiffrez le gain avant de vous engager",
+        "label": "Combien d'heures votre rapport mensuel avale-t-il ?",
         "background": "ink"
       },
       {
@@ -4585,7 +4660,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-table-block",
-        "label": "Les tâches comptables, classées par rentabilité probable et par risque",
+        "label": "Où l’IA rapporte en comptabilité, et où elle expose",
         "variant": "editorial",
         "background": "paper"
       },
@@ -4611,7 +4686,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "branded-callout",
-        "label": "Pas encore de réalisation Waimia sur cette fonction",
+        "label": "Waimia n’a pas encore livré de projet de comptabilité",
         "background": "paper"
       },
       {
@@ -4627,7 +4702,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "cta-final",
-        "label": "Classez vos tâches avant de choisir le premier cas",
+        "label": "Quelle tâche comptable vous coûte le plus d’heures ?",
         "background": "ink"
       },
       {
@@ -4667,7 +4742,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "comparison-duo",
-        "label": "Exemple type : une PME de services aux entreprises",
+        "label": "Exemple : les demandes d'une PME de services aux entreprises",
         "background": "paper"
       },
       {
@@ -4677,7 +4752,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "cta-final",
-        "label": "Chiffrez le gain avant de vous engager",
+        "label": "Combien de devis dorment sans relance ?",
         "background": "ink"
       },
       {
@@ -4832,7 +4907,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-table-block",
-        "label": "Les tâches RH, classées par rentabilité probable et par risque",
+        "label": "Les tâches RH, de la plus sûre à la plus risquée",
         "variant": "editorial",
         "background": "paper"
       },
@@ -4863,7 +4938,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "branded-callout",
-        "label": "Pas encore de réalisation Waimia sur cette fonction",
+        "label": "Aucun projet RH livré à ce jour : notre plan d’arrivée",
         "background": "paper"
       },
       {
@@ -4879,7 +4954,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "cta-final",
-        "label": "Classez vos tâches avant de choisir le premier cas",
+        "label": "Quelle tâche RH répétez-vous le plus souvent ?",
         "background": "ink"
       },
       {
@@ -4919,7 +4994,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "comparison-duo",
-        "label": "Exemple type : l'ouverture d'un dossier client dans un cabinet",
+        "label": "Exemple : l'ouverture d'un dossier client dans un cabinet",
         "background": "paper"
       },
       {
@@ -4990,13 +5065,13 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "branded-callout",
-        "label": "Un projet en cours, pas encore de résultat publié",
+        "label": "Un agent SAV en construction pour une boutique Shopify",
         "background": "paper"
       },
       {
         "type": "market-cases",
         "label": "Études de cas du marché : service client",
-        "variant": "full",
+        "variant": "digest",
         "background": "paper-3"
       },
       {
@@ -5298,7 +5373,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "comparison-table",
-        "label": "Claude Code, Codex et Mistral Vibe : 12 critères (3 novembre 2026)",
+        "label": "Claude Code, Codex et Mistral Vibe : 12 critères",
         "background": "paper"
       },
       {
@@ -5388,7 +5463,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "footer-cta-band",
-        "label": "Le bon outil dépend de votre travail. Cadrons-le ensemble.",
+        "label": "Le bon outil dépend du travail que vous voulez déléguer.",
         "background": "ink"
       }
     ]
@@ -5413,7 +5488,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "comparison-table",
-        "label": "Claude Duet vs ChatGPT dots : 16 critères, avec le niveau de preuve",
+        "label": "Claude Duet vs ChatGPT dots : 16 critères, avec la source de chaque ligne",
         "background": "paper"
       },
       {
@@ -5730,7 +5805,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "decision-list",
-        "label": "Le verdict de Waimia, situation par situation",
+        "label": "Mon verdict, situation par situation",
         "background": "paper-2"
       },
       {
@@ -5889,7 +5964,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "footer-cta-band",
-        "label": "Vu sur Google, repris par les IA. Faisons les deux.",
+        "label": "Avant de payer du GEO, mesurez où vous en êtes.",
         "background": "ink"
       }
     ]
@@ -5914,7 +5989,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "comparison-table",
-        "label": "Hermes Agent vs OpenClaw, critère par critère (lu le 24 octobre 2026)",
+        "label": "Hermes Agent vs OpenClaw, critère par critère",
         "background": "paper"
       },
       {
@@ -6146,7 +6221,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "lead-capture-band",
-        "label": "Claude est dans la balance ? Recevez le kit conformité : réglages, RGPD, douze questions au fournisseur",
+        "label": "Claude fait partie des candidats ? Le kit conformité réunit les réglages, le RGPD et douze questions à poser au fournisseur",
         "background": "ink"
       },
       {
@@ -6197,7 +6272,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "decision-list",
-        "label": "Notre verdict, cas par cas",
+        "label": "Mon verdict, cas par cas",
         "background": "paper"
       },
       {
@@ -6207,7 +6282,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "cta-final",
-        "label": "Classez vos tâches avant de choisir le premier cas",
+        "label": "Avant le premier cas : classez vos tâches",
         "background": "ink"
       },
       {
@@ -6262,7 +6337,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "decision-list",
-        "label": "Le verdict, situation par situation",
+        "label": "Mon verdict, situation par situation",
         "background": "paper-2"
       },
       {
@@ -6277,7 +6352,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "cta-final",
-        "label": "Classez vos tâches avant de choisir le premier cas",
+        "label": "Classez vos tâches avant de choisir l'outil",
         "background": "ink"
       },
       {
@@ -6292,7 +6367,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "footer-cta-band",
-        "label": "Le bon outil se choisit sur vos tâches, pas sur un tableau.",
+        "label": "Trois outils, un seul bon : celui qui colle à vos tâches, pas celui du tableau.",
         "background": "ink"
       }
     ]
@@ -6886,7 +6961,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/ressources/guides/ai-act-pme-calendrier",
-    "title": "AI Act pour PME : le calendrier vérifié le 26 octobre 2026",
+    "title": "AI Act pour PME : le calendrier et ce qui vous concerne",
     "group": "ressources",
     "collection": "guides",
     "file": "guides/ai-act-pme-calendrier.json",
@@ -6919,7 +6994,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-table-block",
-        "label": "Le calendrier de l'AI Act au 26 octobre 2026",
+        "label": "Le calendrier de l'AI Act, date par date",
         "variant": "editorial",
         "background": "paper-2"
       },
@@ -7509,7 +7584,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "key-metric-grid",
-        "label": "Six repères relevés dans les pages d'OpenAI",
+        "label": "Six repères sur ChatGPT dots",
         "variant": "accent",
         "background": "paper-2"
       },
@@ -7520,7 +7595,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-table-block",
-        "label": "Disponibilité, prix, limites d'usage : ce que disent les pages d'OpenAI au 24 octobre 2026",
+        "label": "Disponibilité, prix, limites d'usage : ce que disent les pages d'OpenAI",
         "variant": "editorial",
         "background": "paper-2"
       },
@@ -7562,7 +7637,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "lead-capture-band",
-        "label": "Avant de confier une mission à un agent toujours actif : écrivez ce qu'il peut faire seul. Recevez le modèle de charte IA en PDF",
+        "label": "Écrivez ce que l'agent peut faire seul avant de lui confier une mission : recevez le modèle de charte IA en PDF",
         "background": "ink"
       },
       {
@@ -7940,7 +8015,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-table-block",
-        "label": "Idées reçues sur Claude Design, corrigées au 15 octobre 2026",
+        "label": "Idées reçues sur Claude Design, corrigées",
         "variant": "editorial",
         "background": "paper-2"
       },
@@ -8359,7 +8434,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "key-metric-grid",
-        "label": "Le plugin en quatre chiffres, au 6 octobre 2026",
+        "label": "Le plugin en quatre chiffres",
         "variant": "accent",
         "background": "paper"
       },
@@ -8689,7 +8764,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "lead-capture-band",
-        "label": "Avant de confier des tâches à un agent : recevez le kit conformité et administration de Claude",
+        "label": "Un agent touche à vos données : prenez d'abord le kit conformité et administration de Claude",
         "background": "ink"
       },
       {
@@ -8704,7 +8779,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "footer-cta-band",
-        "label": "La bonne voie pour votre agent, choisie avant d'écrire une ligne de code.",
+        "label": "Choisissez la bonne voie pour votre agent avant d'écrire une ligne de code.",
         "background": "ink"
       }
     ]
@@ -8795,7 +8870,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "newsletter-signup-section",
-        "label": "Les changements de Claude qui comptent pour une PME, une fois par mois",
+        "label": "Un courriel par mois sur les nouveautés de Claude qui touchent une PME",
         "background": "ink"
       },
       {
@@ -8980,7 +9055,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "key-metric-grid",
-        "label": "Ce qu'Anthropic établit, au 5 octobre 2026",
+        "label": "Ce qu'Anthropic établit, début octobre 2026",
         "variant": "accent",
         "background": "paper"
       },
@@ -9058,7 +9133,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "footer-cta-band",
-        "label": "Savoir quelles données passent par Claude, avant que ce soit trop tard.",
+        "label": "Sachez quelles données passent par Claude avant qu'il soit trop tard.",
         "background": "ink"
       }
     ]
@@ -9088,7 +9163,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "key-metric-grid",
-        "label": "Ce qu'Anthropic fixe, au 5 octobre 2026",
+        "label": "Ce que la documentation d'Anthropic fixe",
         "background": "paper-2"
       },
       {
@@ -9251,7 +9326,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "lead-capture-band",
-        "label": "Claude pour une petite équipe : recevez le guide d'achat, budgets calculés pour 5, 15 et 40 personnes",
+        "label": "Claude pour une petite équipe : le guide d'achat, avec des budgets chiffrés pour 5, 15 et 40 personnes",
         "background": "ink"
       },
       {
@@ -9266,7 +9341,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "footer-cta-band",
-        "label": "Le bon compte et un premier usage, choisis avant la première facture.",
+        "label": "Choisissez le bon compte et un premier usage avant la première facture.",
         "background": "ink"
       }
     ]
@@ -9296,7 +9371,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "key-metric-grid",
-        "label": "Ce qui est sourcé, et ce qui ne l'est pas",
+        "label": "Ce qui est public, ce qui se chiffre en heures",
         "variant": "accent",
         "background": "paper"
       },
@@ -9359,7 +9434,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "footer-cta-band",
-        "label": "Savoir si un agent vaut son coût chez vous, avant la première heure facturée.",
+        "label": "Sachez si un agent vaut son coût chez vous, avant la première heure facturée.",
         "background": "ink"
       }
     ]
@@ -9415,7 +9490,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-table-block",
-        "label": "Les heures par poste : des exemples, pas un devis",
+        "label": "Les heures par poste, pour bâtir un premier budget",
         "background": "paper-2"
       },
       {
@@ -11283,7 +11358,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "decision-list",
-        "label": "Les limites et les pièges à connaître avant d'activer",
+        "label": "Les pièges à connaître avant d'activer",
         "background": "paper"
       },
       {
@@ -12630,7 +12705,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "footer-cta-band",
-        "label": "Commençons par 45 minutes en visio.",
+        "label": "Quelle commande, quelle fiche, quel certificat vous prend du temps ?",
         "background": "ink"
       }
     ]
@@ -12820,7 +12895,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "cta-final",
-        "label": "Où en est votre entreprise avec l'IA ?",
+        "label": "Quel niveau votre entreprise a-t-elle atteint avec l'IA ?",
         "background": "ink"
       },
       {
@@ -12885,7 +12960,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "footer-cta-band",
-        "label": "Commençons par 45 minutes en visio.",
+        "label": "Combien de temps prend un devis chez vous aujourd'hui ?",
         "background": "ink"
       }
     ]
@@ -13129,6 +13204,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/services/seo-geo-contenu/seo-local",
       "/services/sequences-de-suivi",
       "/services/site-web-ia",
+      "/services/site-web-ia/lovable",
       "/services/site-web-ia/shopify",
       "/services/site-web-ia/sur-mesure",
       "/services/site-web-ia/webflow",

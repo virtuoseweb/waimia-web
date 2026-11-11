@@ -7,7 +7,7 @@
   "description_en": "Centralising an SMB's data and automating reporting: one base, one definition per indicator, an up-to-date dashboard with no retyping.",
   "slug": "centraliser-donnees",
   "publishedAt": "2026-06-26T00:00:00.000Z",
-  "updatedAt": "2026-10-04T00:00:00.000Z",
+  "updatedAt": "2026-11-11T00:00:00.000Z",
   "category": "donnees",
   "tags": [
     "centraliser-donnees",
@@ -22,15 +22,15 @@
   "faq_fr": [
     {
       "q": "Comment centraliser les données d'une PME ?",
-      "a": "En trois temps : définir les indicateurs utiles, brancher chaque logiciel à une base unique par des connexions automatiques, puis construire les tableaux de bord sur cette base. On commence par deux ou trois sources, pas par toutes."
+      "a": "Dans cet ordre : définir les indicateurs utiles, brancher chaque logiciel à une base unique par des connexions automatiques, puis bâtir les tableaux de bord sur cette base. Deux ou trois sources pour démarrer, jamais toutes d'un coup."
     },
     {
       "q": "Comment réduire le temps passé sur le reporting ?",
-      "a": "En supprimant l'export et la recopie : les données arrivent seules dans une base et le tableau se met à jour. Le temps restant sert à vérifier et à analyser."
+      "a": "En supprimant l'export et la recopie. Les données arrivent seules dans la base, le tableau se met à jour, et le temps qui reste sert à vérifier les chiffres et à les lire."
     },
     {
       "q": "Faut-il un entrepôt de données pour une PME ?",
-      "a": "Rarement au sens des grands groupes. Une base de données simple, alimentée chaque nuit, suffit dans la plupart des PME. On dimensionne selon le volume et le nombre de sources."
+      "a": "Rarement. Une base de données simple, alimentée chaque nuit, suffit dans la plupart des PME ; nous la dimensionnons selon le volume et le nombre de sources."
     },
     {
       "q": "Peut-on interroger ses données en langage naturel ?",
@@ -38,7 +38,7 @@
     },
     {
       "q": "Combien coûte un projet de centralisation des données ?",
-      "a": "Le sprint de cadrage est à {{prix.sprint}} € HT pour 10 heures : indicateurs prioritaires, premières sources, premier tableau. La suite est estimée en heures puis facturée {{prix.horaire}} € HT de l'heure."
+      "a": "Le sprint de cadrage coûte {{prix.sprint}} € HT pour 10 heures : indicateurs prioritaires, premières sources, premier tableau. La suite est estimée en heures, puis facturée {{prix.horaire}} € HT de l'heure."
     }
   ],
   "faq_en": [
@@ -76,7 +76,7 @@
       "h1_en": "Centralising data and <i class=\"acc\">automating reporting</i>",
       "definition_kicker_fr": "En une phrase",
       "definition_kicker_en": "In one sentence",
-      "lede_fr": "Centraliser ses données, c'est faire en sorte que le CRM, la facturation et les tableurs alimentent une base unique, où chaque indicateur a une seule définition. Le reporting en découle : il se met à jour sans export ni recopie. Ce cas d'usage concerne les PME où le rapport mensuel occupe quelqu'un plusieurs jours.",
+      "lede_fr": "Pour sortir le chiffre du mois, quelqu'un exporte le CRM, colle la facturation dans un tableur, corrige à la main et recalcule. Centraliser ses données, c'est faire alimenter une base unique par le CRM, la facturation et les tableurs, avec une seule définition par indicateur. Le reporting se met alors à jour sans export ni recopie. Cela concerne les PME où le rapport mensuel occupe quelqu'un plusieurs jours.",
       "lede_en": "Centralising data means making the CRM, invoicing and spreadsheets feed a single base where each indicator has one definition. Reporting follows: it updates with no export or retyping. This use case concerns SMBs where the monthly report takes someone several days.",
       "badges": [
         {
@@ -109,35 +109,35 @@
       "type": "editorial-prose",
       "background": "paper-2",
       "maxWidth": "prose",
-      "html_fr": "<h2>Deux problèmes qui n'en font qu'un</h2>\n<p>« Nos outils ne se parlent pas » et « le reporting nous prend des jours » décrivent la même situation. Les données sont dans cinq logiciels. Pour produire un chiffre, quelqu'un exporte, colle, corrige et recalcule. Le rapport est exact le jour où il est fait, et faux dès le lendemain. Et deux personnes qui refont le calcul n'obtiennent pas le même résultat, parce que chacune a sa définition.</p>\n<h2>Ce qu'on met en place</h2>\n<p>D'abord un dictionnaire : la définition écrite de chaque indicateur, validée par la direction. Ensuite des connexions qui relèvent les données de chaque outil à intervalle régulier et les déposent dans une base unique, avec l'historique. Enfin des tableaux de bord qui lisent cette base. Le détail est sur la page <a href=\"/services/donnees-reporting\">tableau de bord et reporting automatisé</a> ; les connexions reposent en général sur <a href=\"/services/automatisation-n8n\">n8n</a>.</p>\n<p>Quand la source est un tableur devenu trop fragile, on le remplace par une <a href=\"/services/applications-internes\">application métier</a> : la saisie y est contrôlée, ce qui évite de corriger les données après coup.</p>\n<h2>Ce que l'IA change ici</h2>\n<p>Peu de chose sur la collecte, qui relève de l'automatisation classique. Davantage sur l'usage : poser une question en langage courant à sa base (« quels clients n'ont pas commandé depuis six mois ? ») et obtenir la liste, ou recevoir chaque semaine une synthèse des écarts. Ces usages n'ont de sens qu'une fois les données propres.</p>\n<h2>Les limites</h2>\n<p>Un tableau de bord ne corrige pas des données mal saisies : il les montre. Sans arbitre pour trancher les définitions, le projet s'enlise. Et si tout tient dans un seul logiciel doté d'un bon module de rapports, il n'y a rien à centraliser. L'article <a href=\"/blog/tableau-de-bord-pme-quelles-donnees-suivre\">tableau de bord PME : les données qui comptent</a> aide à limiter le nombre d'indicateurs.</p>\n<p>Pour lister vos sources et vos indicateurs, commencez par l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>.</p>",
+      "html_fr": "<h2>Deux plaintes, un seul défaut</h2>\n<p>« Nos outils ne se parlent pas » et « le reporting nous prend des jours » décrivent la même situation. Les données dorment dans cinq logiciels. Pour sortir un chiffre, quelqu'un exporte, colle, corrige, recalcule. Le rapport est juste le jour où on le fait, faux le lendemain. Et deux personnes qui refont le calcul ne trouvent pas le même résultat, parce que chacune a sa définition du « client actif ».</p>\n<h2>Ce que nous mettons en place</h2>\n<p>Le dictionnaire d'abord : la définition écrite de chaque indicateur, validée par la direction. Des connexions relèvent ensuite les données de chaque outil à intervalle régulier et les déposent dans une base unique, historique compris. Les tableaux de bord lisent cette base, et elle seule. Le détail est sur la page <a href=\"/services/donnees-reporting\">tableau de bord et reporting automatisé</a> ; les connexions reposent en général sur <a href=\"/services/automatisation-n8n\">n8n</a>. Pour chiffrer le temps perdu avant de commencer, notre guide <a href=\"/ressources/guides/roi-automatisation\">ROI de l'automatisation</a> donne la méthode de calcul.</p>\n<p>Quand la source est un tableur devenu trop fragile, nous le remplaçons par une <a href=\"/services/applications-internes\">application métier</a>. La saisie y est contrôlée, donc plus rien à corriger après coup.</p>\n<h2>Ce que l'IA change ici</h2>\n<p>Peu de chose sur la collecte, qui relève de l'automatisation classique. Davantage sur l'usage. Vous demandez à votre base, en langage courant, « quels clients n'ont pas commandé depuis six mois ? » et la liste arrive. Ou une synthèse des écarts vous parvient chaque semaine. Ces usages n'ont de sens qu'avec des données propres.</p>\n<h2>Quand ne pas le faire</h2>\n<p>Un tableau de bord ne corrige pas des données mal saisies, il les montre. Sans arbitre qui tranche les définitions, le projet s'enlise : je ne branche rien tant que la direction n'a pas validé le dictionnaire. Et si tout tient dans un seul logiciel doté d'un bon module de rapports, il n'y a rien à centraliser. Pour limiter le nombre d'indicateurs, l'article <a href=\"/blog/tableau-de-bord-pme-quelles-donnees-suivre\">tableau de bord PME : les données qui comptent</a> sert de garde-fou.</p>\n<p>Avant de brancher quoi que ce soit, listez vos sources : l'<a href=\"/audit-ia-pme\">audit IA gratuit</a> en fait un plan.</p>",
       "html_en": "<h2>Two problems that are one</h2>\n<p>\"Our tools do not talk to each other\" and \"reporting takes us days\" describe the same situation. The data sits in five tools. To produce a figure, someone exports, pastes, fixes and recalculates. The report is right the day it is made and wrong the next. And two people redoing the calculation get different results, because each has their own definition.</p>\n<h2>What we set up</h2>\n<p>First a dictionary: the written definition of each indicator, approved by management. Then connections that fetch data from each tool at regular intervals and store it in a single base, with history. Finally dashboards that read that base. Details are on the <a href=\"/services/donnees-reporting\">dashboard and automated reporting</a> page; connections usually rely on <a href=\"/services/automatisation-n8n\">n8n</a>.</p>\n<p>When the source is a spreadsheet grown too fragile, we replace it with a <a href=\"/services/applications-internes\">business application</a>: data entry is controlled there, which avoids fixing data afterwards.</p>\n<h2>What AI changes here</h2>\n<p>Little on collection, which is classic automation. More on use: asking your base a plain-language question (\"which customers have not ordered in six months?\") and getting the list, or receiving a weekly summary of deviations. These uses only make sense once the data is clean.</p>\n<h2>The limits</h2>\n<p>A dashboard does not fix badly entered data: it shows it. With no arbiter to settle definitions, the project stalls. And if everything sits in one tool with a good reporting module, there is nothing to centralise. The article <a href=\"/blog/tableau-de-bord-pme-quelles-donnees-suivre\">SMB dashboard: the data that matters</a> helps limit the number of indicators.</p>\n<p>To list your sources and indicators, start with the <a href=\"/audit-ia-pme\">free AI audit</a>.</p>"
     },
     {
       "type": "comparison-duo",
       "background": "paper",
-      "kicker_fr": "§ Exemple type · pas un cas client",
+      "kicker_fr": "§ Exemple",
       "kicker_en": "§ Typical example · not a client case",
-      "h2_fr": "Exemple type : le comité de direction mensuel d'une PME",
+      "h2_fr": "Exemple : le comité de direction mensuel d'une PME",
       "h2_en": "Typical example: an SMB's monthly management meeting",
       "without_label_fr": "Avant",
       "without_label_en": "Before",
-      "without_title_fr": "Trois exports, un tableur, des désaccords",
+      "without_title_fr": "Trois exports, un tableur, deux chiffres d'affaires",
       "without_title_en": "Three exports, a spreadsheet, disagreements",
       "without_items": [
         {
-          "text_fr": "Le CRM, la facturation et le suivi des temps sont exportés à la main.",
+          "text_fr": "Le CRM, la facturation et le suivi des temps sont exportés à la main, chacun de son côté.",
           "text_en": "The CRM, invoicing and time tracking are exported by hand."
         },
         {
-          "text_fr": "Les chiffres du commerce et de la finance ne concordent pas.",
+          "text_fr": "Le commerce annonce un chiffre d'affaires, la finance en annonce un autre.",
           "text_en": "Sales and finance figures do not match."
         },
         {
-          "text_fr": "La réunion commence par une discussion sur le bon chiffre.",
+          "text_fr": "La réunion démarre par une discussion sur le bon chiffre.",
           "text_en": "The meeting starts with a debate over the right figure."
         },
         {
-          "text_fr": "Le rapport a dix jours de retard sur la réalité.",
+          "text_fr": "Le rapport décrit un mois qui a déjà dix jours de retard.",
           "text_en": "The report is ten days behind reality."
         }
       ],
@@ -151,15 +151,15 @@
           "text_en": "The three sources feed the base every night."
         },
         {
-          "text_fr": "Chaque indicateur a une définition validée, consultable.",
+          "text_fr": "Chaque indicateur a sa définition écrite, consultable par tous.",
           "text_en": "Each indicator has an approved definition, available to all."
         },
         {
-          "text_fr": "Le tableau est ouvert en réunion, à jour du matin.",
+          "text_fr": "Le tableau s'ouvre en réunion, à jour du matin.",
           "text_en": "The dashboard is opened in the meeting, current as of that morning."
         },
         {
-          "text_fr": "La discussion porte sur les décisions, plus sur les chiffres.",
+          "text_fr": "On discute de ce qu'on décide, plus de ce qu'on a mesuré.",
           "text_en": "The discussion is about decisions, no longer about figures."
         }
       ]
@@ -173,14 +173,14 @@
       "role_en": "Founder of Waimia · AI and automation engineer",
       "profileHref": "/equipe/simon-beros",
       "publishedDate": "26 juin 2026",
-      "updatedDate": "4 octobre 2026"
+      "updatedDate": "11 novembre 2026"
     },
     {
       "type": "cta-final",
       "background": "ink",
-      "h2_fr": "Chiffrez le gain avant de vous engager",
+      "h2_fr": "Combien d'heures votre rapport mensuel avale-t-il ?",
       "h2_en": "Chiffrez le gain avant de vous engager",
-      "body_fr": "Entrez vos heures et vos coûts : le calculateur donne le temps récupérable tout de suite, sans inscription. Vous pouvez ensuite recevoir le détail par e-mail.",
+      "body_fr": "Le calculateur transforme vos heures d'export et de recopie en temps récupérable, sans inscription. Le détail peut ensuite vous parvenir par e-mail.",
       "body_en": "Entrez vos heures et vos coûts : le calculateur donne le temps récupérable tout de suite, sans inscription. Vous pouvez ensuite recevoir le détail par e-mail.",
       "cta_primary": {
         "label_fr": "Calculer mon gain",
@@ -200,7 +200,7 @@
           "kicker_en": "Service",
           "title_fr": "Tableau de bord et reporting automatisé",
           "title_en": "Dashboard and automated reporting",
-          "lead_fr": "Ce qui est livré, délais, prix et contre-indications.",
+          "lead_fr": "Ce qui est livré, les délais, le prix et les cas où il ne faut pas le faire.",
           "lead_en": "What is delivered, lead times, price and when not to do it.",
           "href": "/services/donnees-reporting"
         },
@@ -209,7 +209,7 @@
           "kicker_en": "Blog",
           "title_fr": "Les données qui comptent",
           "title_en": "The data that matters",
-          "lead_fr": "Quels indicateurs suivre dans une PME, et lesquels ignorer.",
+          "lead_fr": "Les indicateurs à suivre dans une PME, et ceux qu'on peut ignorer.",
           "lead_en": "Which indicators an SMB should track, and which to ignore.",
           "href": "/blog/tableau-de-bord-pme-quelles-donnees-suivre"
         },
@@ -234,19 +234,19 @@
       "items": [
         {
           "q_fr": "Comment centraliser les données d'une PME ?",
-          "a_fr": "En trois temps : définir les indicateurs utiles, brancher chaque logiciel à une base unique par des connexions automatiques, puis construire les tableaux de bord sur cette base. On commence par deux ou trois sources, pas par toutes.",
+          "a_fr": "Dans cet ordre : définir les indicateurs utiles, brancher chaque logiciel à une base unique par des connexions automatiques, puis bâtir les tableaux de bord sur cette base. Deux ou trois sources pour démarrer, jamais toutes d'un coup.",
           "q_en": "How do you centralise an SMB's data?",
           "a_en": "In three steps: define the useful indicators, connect each tool to a single base through automatic connections, then build dashboards on that base. Start with two or three sources, not all of them."
         },
         {
           "q_fr": "Comment réduire le temps passé sur le reporting ?",
-          "a_fr": "En supprimant l'export et la recopie : les données arrivent seules dans une base et le tableau se met à jour. Le temps restant sert à vérifier et à analyser.",
+          "a_fr": "En supprimant l'export et la recopie. Les données arrivent seules dans la base, le tableau se met à jour, et le temps qui reste sert à vérifier les chiffres et à les lire.",
           "q_en": "How do you cut time spent on reporting?",
           "a_en": "By removing export and retyping: data reaches a base on its own and the dashboard updates. The remaining time goes to checking and analysing."
         },
         {
           "q_fr": "Faut-il un entrepôt de données pour une PME ?",
-          "a_fr": "Rarement au sens des grands groupes. Une base de données simple, alimentée chaque nuit, suffit dans la plupart des PME. On dimensionne selon le volume et le nombre de sources.",
+          "a_fr": "Rarement. Une base de données simple, alimentée chaque nuit, suffit dans la plupart des PME ; nous la dimensionnons selon le volume et le nombre de sources.",
           "q_en": "Does an SMB need a data warehouse?",
           "a_en": "Rarely in the large-enterprise sense. A simple database, fed every night, is enough for most SMBs. We size it by volume and number of sources."
         },
@@ -258,7 +258,7 @@
         },
         {
           "q_fr": "Combien coûte un projet de centralisation des données ?",
-          "a_fr": "Le sprint de cadrage est à {{prix.sprint}} € HT pour 10 heures : indicateurs prioritaires, premières sources, premier tableau. La suite est estimée en heures puis facturée {{prix.horaire}} € HT de l'heure.",
+          "a_fr": "Le sprint de cadrage coûte {{prix.sprint}} € HT pour 10 heures : indicateurs prioritaires, premières sources, premier tableau. La suite est estimée en heures, puis facturée {{prix.horaire}} € HT de l'heure.",
           "q_en": "How much does a data centralisation project cost?",
           "a_en": "The scoping sprint is €{{prix.sprint.en}} excl. VAT for 10 hours: priority indicators, first sources, first dashboard. The rest is estimated in hours then billed €{{prix.horaire}} per hour excl. VAT."
         }
@@ -272,7 +272,7 @@
       "kicker_en": "§ Free AI audit",
       "h2_fr": "Combien de versions du même chiffre circulent chez vous ?",
       "h2_en": "How many versions of the same figure circulate in your company?",
-      "subtitle_fr": "En 45 minutes, on liste vos sources, vos indicateurs et les écarts entre outils, et on vous dit par où commencer.",
+      "subtitle_fr": "En 45 minutes, nous listons vos sources, vos indicateurs et les écarts entre outils, puis nous vous disons par où commencer.",
       "subtitle_en": "In 45 minutes, we list your sources, indicators and gaps between tools, and tell you where to start.",
       "buttons": [
         {

@@ -12,15 +12,15 @@ export const data: LeadMagnetPage = {
   kicker_fr: 'PDF · Dirigeants et responsables de PME',
   kicker_en: 'PDF · SMB owners and managers',
   promise_fr:
-    "Choisir la bonne offre Claude, chiffrer le budget de votre équipe et la configurer correctement dès le premier jour. Trois budgets calculés pour 5, 15 et 40 personnes, avec les formules et les hypothèses écrites, les pièges d'achat et les questions à poser avant de signer.",
+    "Quelle offre Claude prendre, pour quel budget, et comment la configurer dès le premier jour. Trois budgets calculés pour 5, 15 et 40 personnes, avec les formules et les hypothèses écrites, les pièges d'achat et les questions à poser avant de signer.",
   promise_en:
     "Choose the right Claude plan, cost your team's budget and set it up properly from day one. Three budgets worked out for 5, 15 and 40 people, with formulas and assumptions written out, buying traps and the questions to ask before signing.",
   format_fr: 'PDF A4 · 14 pages',
   format_en: 'A4 PDF · 14 pages',
   forWho_fr: [
-    "Le dirigeant de PME qui hésite entre des comptes Pro, Team ou Enterprise et veut un budget avant de payer.",
+    "Le dirigeant de PME qui hésite entre des comptes Pro, Team ou Enterprise et veut chiffrer avant de payer.",
     "Le responsable administratif ou financier qui doit justifier le nombre de sièges et le rythme de facturation.",
-    "Le référent informatique ou IA qui configure l'organisation et doit répondre aux questions de données et de conformité.",
+    "Le référent informatique ou IA qui configure l'organisation et répond aux questions de données et de conformité.",
   ],
   forWho_en: [
     'The SMB owner weighing Pro, Team or Enterprise accounts who wants a budget before paying.',
@@ -28,10 +28,10 @@ export const data: LeadMagnetPage = {
     'The IT or AI lead who sets up the organisation and must answer data and compliance questions.',
   ],
   inside_fr: [
-    { title: 'La grille Claude en une page', desc: "Les cinq offres, les deux types de siège Team, l'usage relatif, les conditions et ce qui compte pour une PME. Prix en dollars au 5 octobre 2026." },
+    { title: 'La grille Claude en une page', desc: "Les cinq offres, les deux types de siège Team, l'usage relatif, les conditions et ce qui compte pour une PME." },
     { title: 'Matrice de décision par profil', desc: 'Huit situations, de dirigeant seul à 40 personnes avec exigences de données : offre recommandée, raison et piège à éviter.' },
     { title: 'Estimer le coût : méthode et formules', desc: "Les formules Team et Enterprise, le classement des utilisateurs en trois groupes, l'usage au-delà du quota et la mise en place." },
-    { title: 'Trois budgets illustratifs : 5, 15 et 40 personnes', desc: "Calculs détaillés, mensuel contre annuel, seuil d'équilibre Team contre Enterprise, limites de chaque calcul." },
+    { title: 'Trois budgets illustratifs : 5, 15 et 40 personnes', desc: "Calculs détaillés, mensuel contre annuel, seuil d'équilibre Team contre Enterprise, et les limites de chaque calcul." },
     { title: "Les pièges d'achat", desc: "Douze erreurs fréquentes, des comptes Pro personnels aux plafonds de crédits oubliés, et ce qu'elles coûtent." },
     { title: 'Configuration du jour 1, pas à pas', desc: "Douze étapes pour une organisation Team, la liste à cocher avant d'inviter l'équipe et les réglages par défaut à connaître." },
     { title: 'Questions à poser avant de signer', desc: "Prix et contrat, données et conformité, produit et feuille de route, et les questions à vous poser à vous-même." },
@@ -70,11 +70,11 @@ export const data: LeadMagnetPage = {
   faq_fr: [
     {
       q: 'Le guide donne-t-il des prix en euros ?',
-      a: "Non. Anthropic publie sa grille en dollars, et la facture peut être en devise locale, TVA incluse ou ajoutée selon le pays. Le guide calcule en dollars hors TVA, avec les formules, pour que vous refassiez le calcul avec le montant affiché sur votre page de paiement.",
+      a: "Non. Anthropic publie ses prix en dollars, et la facture peut être en devise locale, TVA incluse ou ajoutée selon le pays. Le guide calcule en dollars hors TVA, formules à l'appui : refaites le calcul avec le montant affiché sur votre page de paiement.",
     },
     {
       q: 'Les trois budgets sont-ils des cas clients ?',
-      a: "Non. Ce sont des scénarios illustratifs construits à partir des prix publics du 5 octobre 2026. Les hypothèses sont écrites à côté de chaque calcul : remplacez-les par les vôtres.",
+      a: "Non, ce sont des exemples construits sur les prix publics du 5 octobre 2026. Les hypothèses sont écrites à côté de chaque calcul : remplacez-les par les vôtres.",
     },
     {
       q: 'Le guide est-il utile si nous avons déjà des comptes Claude ?',
@@ -116,5 +116,5 @@ export const data: LeadMagnetPage = {
   seoDescription_en:
     'Choose your Claude plan, cost the budget for 5, 15 or 40 people and set up Team from day one. A free 14-page PDF buyer\'s guide.',
   publishedAt: '2026-10-05',
-  updatedAt: '2026-10-05',
+  updatedAt: '2026-11-11',
 };

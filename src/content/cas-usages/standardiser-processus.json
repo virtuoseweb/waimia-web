@@ -6,7 +6,7 @@
   "description_en": "Standardizing then automating admin in an SMB: client files, invoices, onboarding, HR. First write the process, then automate it. Typical example and limits.",
   "slug": "standardiser-processus",
   "publishedAt": "2026-06-26T00:00:00.000Z",
-  "updatedAt": "2026-10-14T00:00:00.000Z",
+  "updatedAt": "2026-11-11T00:00:00.000Z",
   "category": "automatisation",
   "tags": [
     "standardiser-processus",
@@ -21,19 +21,19 @@
   "faq_fr": [
     {
       "q": "Quelles tâches administratives peut-on automatiser en PME ?",
-      "a": "Celles qui reviennent souvent, suivent des règles stables et coûtent cher quand on se trompe, comme l'ouverture d'un dossier ou la pré-saisie d'une facture."
+      "a": "Celles qui reviennent souvent, suivent des règles stables et coûtent cher quand on se trompe : l'ouverture d'un dossier, la pré-saisie d'une facture."
     },
     {
       "q": "Peut-on automatiser la comptabilité avec l'IA ?",
-      "a": "On automatise la collecte, la lecture et le classement des pièces, et la pré-saisie. La validation, les écritures complexes et la relation avec l'expert-comptable restent humaines. Tout dépend aussi de l'ouverture de votre logiciel comptable."
+      "a": "On automatise la collecte, la lecture et le classement des pièces, puis la pré-saisie. La validation, les écritures complexes et la relation avec l'expert-comptable restent humaines. Reste une condition : l'ouverture de votre logiciel comptable, qui décide de ce qu'on peut brancher."
     },
     {
       "q": "Que peut-on automatiser en ressources humaines ?",
-      "a": "L'accueil d'un salarié (comptes, matériel, documents), les rappels d'échéances (période d'essai, visites, formations obligatoires), la collecte des éléments variables. Les décisions concernant une personne ne sont pas automatisées."
+      "a": "L'accueil d'un salarié (comptes, matériel, documents), les rappels d'échéances (période d'essai, visites, formations obligatoires) et la collecte des éléments variables. Les décisions qui concernent une personne restent humaines."
     },
     {
       "q": "Faut-il documenter ses processus avant de les automatiser ?",
-      "a": "Oui, même sur une seule page : sans trace écrite, le workflow automatise les habitudes d'une seule personne."
+      "a": "Oui, même sur une seule page. Sans trace écrite, personne ne sait ce que le workflow reproduit, ni quoi corriger le jour où il se trompe."
     },
     {
       "q": "Combien coûte l'automatisation d'une tâche administrative ?",
@@ -75,7 +75,7 @@
       "h1_en": "Standardizing and automating <i class=\"acc\">administrative</i> tasks",
       "definition_kicker_fr": "En une phrase",
       "definition_kicker_en": "In one sentence",
-      "lede_fr": "Standardiser l'administratif, c'est écrire une fois pour toutes la façon dont un dossier est ouvert, une facture traitée ou un nouveau salarié accueilli. L'automatiser, c'est ensuite confier les étapes mécaniques à un workflow. Ce cas d'usage concerne les PME où ces procédures existent surtout dans la tête d'une ou deux personnes.",
+      "lede_fr": "Si l'ouverture d'un dossier client s'arrête quand une seule personne est absente, la procédure vit dans sa tête, pas dans l'entreprise. Standardiser, c'est l'écrire une fois : comment on ouvre un dossier, traite une facture, accueille un nouveau salarié. Automatiser vient ensuite et prend en charge les étapes mécaniques. Sont concernées les PME où ces procédures n'existent que chez une ou deux personnes.",
       "lede_en": "Standardizing admin means writing down once and for all how a file is opened, an invoice processed or a new hire onboarded. Automating it then means handing the mechanical steps to a workflow. This use case concerns SMBs where these procedures mostly live in one or two people's heads.",
       "badges": [
         {
@@ -108,15 +108,15 @@
       "type": "editorial-prose",
       "background": "paper-2",
       "maxWidth": "prose",
-      "html_fr": "<h2>Le problème, vu de l'intérieur</h2>\n<p>Dans une PME, l'administratif repose sur des habitudes. Dans l'exemple plus bas, l'ouverture d'un dossier client suit douze étapes que seule l'assistante de direction connaît dans l'ordre. Les factures fournisseurs sont saisies par la personne qui a toujours fait ainsi. Quand elle est absente, les tâches attendent ou sont faites autrement. Le coût n'apparaît nulle part : il se loge dans les oublis, les retards et le temps passé à redemander une information.</p>\n<h2>Ce qui s'automatise bien</h2>\n<p>Quatre familles de tâches. L'ouverture d'un dossier : création des dossiers, des accès, des documents types et des tâches à partir d'un seul formulaire. Les pièces entrantes : factures, bons de commande et justificatifs lus par une étape IA, classés et pré-saisis pour validation. L'accueil d'un salarié : comptes, matériel, documents à signer, rappels aux échéances. Les relances internes : notes de frais, feuilles de temps, pièces manquantes.</p>\n<p>Chacune se traite avec une <a href=\"/services/automatisations\">automatisation de processus</a>, le plus souvent sur <a href=\"/services/automatisation-n8n\">n8n</a>. Quand la tâche demande de lire et d'interpréter un document, on ajoute un <a href=\"/services/agents-ia\">agent IA</a>.</p>\n<h2>L'ordre compte : écrire avant d'automatiser</h2>\n<p>La première étape est d'écrire le process avec la personne qui le fait : les étapes réelles, les exceptions, les contournements. On en profite pour supprimer ce qui ne sert plus. La procédure écrite a de la valeur seule : elle permet à quelqu'un d'autre de prendre le relais.</p>\n<h2>Les limites</h2>\n<p>Ce qui relève d'un arbitrage reste humain : valider un paiement, accorder une exception, traiter un litige. Les logiciels comptables ou de paie fermés, sans API, limitent ce qu'on peut brancher : on le vérifie avant le devis. Et un process qui change tous les mois n'est pas un bon candidat.</p>\n<p>Pour classer vos tâches administratives par temps consommé, l'<a href=\"/audit-ia-pme\">audit IA gratuit</a> est le point de départ. Le <a href=\"/ressources/outils/calculateur-roi-ia\">calculateur de ROI</a> donne un ordre de grandeur à partir de vos propres données.</p>",
+      "html_fr": "<h2>Une procédure qui ne tient que sur une personne</h2>\n<p>Dans une PME, l'administratif repose sur des habitudes. Prenez l'exemple plus bas : un cabinet ouvre un dossier client en douze étapes, que seule l'assistante de direction connaît dans l'ordre. Les factures fournisseurs sont saisies par celle qui a toujours fait ainsi. Quand elle s'absente, les tâches attendent ou se font autrement. Le coût n'apparaît sur aucune ligne du budget : il se loge dans les oublis, les retards et les heures passées à redemander une information.</p>\n<h2>Ce qui s'automatise bien</h2>\n<p>Quatre tâches s'y prêtent. Un formulaire unique ouvre le dossier : répertoires, accès, documents types et tâches se créent d'un coup. Les pièces entrantes (factures, bons de commande, justificatifs) sont lues par une étape IA, classées et pré-saisies, et une personne valide. L'arrivée d'un salarié déclenche les comptes, le matériel, les documents à signer et les rappels d'échéance. Les relances internes, enfin : notes de frais, feuilles de temps, pièces manquantes.</p>\n<p>Chacune relève d'une <a href=\"/services/automatisations\">automatisation de processus</a>, le plus souvent sur <a href=\"/services/automatisation-n8n\">n8n</a>. Dès qu'il faut lire et interpréter un document, nous y ajoutons un <a href=\"/services/agents-ia\">agent IA</a>. Pour savoir par laquelle commencer, notre guide sur <a href=\"/ressources/guides/taches-a-automatiser-pme\">les tâches à automatiser en premier</a> donne l'ordre.</p>\n<h2>Écrire avant d'automatiser</h2>\n<p>Je commence toujours par écrire la procédure avec la personne qui la fait : les étapes réelles, les exceptions, les contournements. On supprime au passage ce qui ne sert plus. Écrite, la procédure vaut déjà quelque chose seule : quelqu'un d'autre peut reprendre le travail. Automatiser une procédure qu'on n'a pas écrite fige dans un workflow les habitudes d'une seule personne.</p>\n<h2>Ce qui reste entre des mains humaines</h2>\n<p>Je déconseille d'automatiser un arbitrage : valider un paiement, accorder une exception, trancher un litige restent des décisions de personne. Deux autres cas freinent le projet. Un logiciel comptable ou de paie fermé, sans API, limite ce qu'on peut brancher, et nous le vérifions avant le devis. Une procédure qui change tous les mois n'est pas non plus un bon candidat : stabilisez-la d'abord.</p>\n<p>Pour classer vos tâches administratives par temps consommé, démarrez par l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>. Le <a href=\"/ressources/outils/calculateur-roi-ia\">calculateur de ROI</a> donne ensuite un ordre de grandeur à partir de vos propres chiffres.</p>",
       "html_en": "<h2>The problem, from the inside</h2>\n<p>In an SMB, admin runs on habit. In the example below, opening a client file follows twelve steps only the executive assistant knows in order. Supplier invoices are entered by the person who has always done it that way. When she is away, tasks wait or are done differently. The cost shows nowhere: it sits in omissions, delays and time spent asking for information again.</p>\n<h2>What automates well</h2>\n<p>Four families of tasks. Opening a file: folders, access, template documents and tasks created from a single form. Incoming documents: invoices, purchase orders and receipts read by an AI step, filed and pre-entered for approval. Onboarding an employee: accounts, equipment, documents to sign, reminders at deadlines. Internal reminders: expense reports, timesheets, missing documents.</p>\n<p>Each is handled with <a href=\"/services/automatisations\">process automation</a>, most often on <a href=\"/services/automatisation-n8n\">n8n</a>. When the task requires reading and interpreting a document, we add an <a href=\"/services/agents-ia\">AI agent</a>.</p>\n<h2>Order matters: write before automating</h2>\n<p>The first step is to write the process with the person who does it: real steps, exceptions, workarounds. We take the chance to remove what no longer serves. The written procedure has value on its own: it lets someone else take over.</p>\n<h2>The limits</h2>\n<p>What requires a judgement call stays human: approving a payment, granting an exception, handling a dispute. Closed accounting or payroll software, with no API, limits what can be connected: we check before quoting. And a process that changes every month is not a good candidate.</p>\n<p>To rank your admin tasks by time consumed, the <a href=\"/audit-ia-pme\">free AI audit</a> is the starting point. The <a href=\"/ressources/outils/calculateur-roi-ia\">ROI calculator</a> gives an order of magnitude from your own data.</p>"
     },
     {
       "type": "comparison-duo",
       "background": "paper",
-      "kicker_fr": "§ Exemple type · pas un cas client",
+      "kicker_fr": "§ Exemple · l'ouverture d'un dossier",
       "kicker_en": "§ Typical example · not a client case",
-      "h2_fr": "Exemple type : l'ouverture d'un dossier client dans un cabinet",
+      "h2_fr": "Exemple : l'ouverture d'un dossier client dans un cabinet",
       "h2_en": "Typical example: opening a client file at a firm",
       "without_label_fr": "Avant",
       "without_label_en": "Before",
@@ -124,7 +124,7 @@
       "without_title_en": "Twelve steps, one person knows them",
       "without_items": [
         {
-          "text_fr": "Le dossier est créé à la main dans le drive, avec une arborescence variable.",
+          "text_fr": "Le dossier se crée à la main dans le drive, avec une arborescence qui varie.",
           "text_en": "The folder is created by hand in the drive, with a varying structure."
         },
         {
@@ -132,7 +132,7 @@
           "text_en": "The engagement letter is written from an old document."
         },
         {
-          "text_fr": "Les pièces sont réclamées au client par des emails successifs.",
+          "text_fr": "Les pièces sont réclamées au client par e-mails successifs.",
           "text_en": "Documents are requested from the client in successive emails."
         },
         {
@@ -150,7 +150,7 @@
           "text_en": "An opening form creates the folder, the CRM record and the tasks."
         },
         {
-          "text_fr": "La lettre de mission est générée depuis le modèle, à relire et signer.",
+          "text_fr": "La lettre de mission sort du modèle ; il reste à la relire et à la signer.",
           "text_en": "The engagement letter is generated from the template, to review and sign."
         },
         {
@@ -176,7 +176,7 @@
       "role_en": "Founder of Waimia · AI and automation engineer",
       "profileHref": "/equipe/simon-beros",
       "publishedDate": "26 juin 2026",
-      "updatedDate": "14 octobre 2026"
+      "updatedDate": "11 novembre 2026"
     },
     {
       "type": "cta-final",
@@ -208,13 +208,13 @@
           "href": "/services/automatisations"
         },
         {
-          "kicker_fr": "Cas client",
-          "kicker_en": "Client case",
-          "title_fr": "Amploi",
-          "title_en": "Amploi",
-          "lead_fr": "Les demandes du site captées et routées dans HubSpot sans ressaisie.",
-          "lead_en": "Site requests captured and routed into HubSpot with no retyping.",
-          "href": "/cas-clients/amploi"
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Les tâches à automatiser en premier",
+          "title_en": "Which tasks to automate first",
+          "lead_fr": "Les critères pour choisir, et les tâches à laisser à la main.",
+          "lead_en": "The criteria for choosing, and the tasks to leave manual.",
+          "href": "/ressources/guides/taches-a-automatiser-pme"
         },
         {
           "kicker_fr": "Autre fonction",
@@ -237,25 +237,25 @@
       "items": [
         {
           "q_fr": "Quelles tâches administratives peut-on automatiser en PME ?",
-          "a_fr": "Celles qui reviennent souvent, suivent des règles stables et coûtent cher quand on se trompe, comme l'ouverture d'un dossier ou la pré-saisie d'une facture.",
+          "a_fr": "Celles qui reviennent souvent, suivent des règles stables et coûtent cher quand on se trompe : l'ouverture d'un dossier, la pré-saisie d'une facture.",
           "q_en": "Which administrative tasks can an SMB automate?",
           "a_en": "Those that come back often, follow stable rules and are costly to get wrong, such as opening a client file or pre-entering an invoice."
         },
         {
           "q_fr": "Peut-on automatiser la comptabilité avec l'IA ?",
-          "a_fr": "On automatise la collecte, la lecture et le classement des pièces, et la pré-saisie. La validation, les écritures complexes et la relation avec l'expert-comptable restent humaines. Tout dépend aussi de l'ouverture de votre logiciel comptable.",
+          "a_fr": "On automatise la collecte, la lecture et le classement des pièces, puis la pré-saisie. La validation, les écritures complexes et la relation avec l'expert-comptable restent humaines. Reste une condition : l'ouverture de votre logiciel comptable, qui décide de ce qu'on peut brancher.",
           "q_en": "Can accounting be automated with AI?",
           "a_en": "We automate document collection, reading and filing, and pre-entry. Approval, complex entries and the relationship with the accountant stay human. It also depends on how open your accounting software is."
         },
         {
           "q_fr": "Que peut-on automatiser en ressources humaines ?",
-          "a_fr": "L'accueil d'un salarié (comptes, matériel, documents), les rappels d'échéances (période d'essai, visites, formations obligatoires), la collecte des éléments variables. Les décisions concernant une personne ne sont pas automatisées.",
+          "a_fr": "L'accueil d'un salarié (comptes, matériel, documents), les rappels d'échéances (période d'essai, visites, formations obligatoires) et la collecte des éléments variables. Les décisions qui concernent une personne restent humaines.",
           "q_en": "What can be automated in HR?",
           "a_en": "Onboarding (accounts, equipment, documents), deadline reminders (probation, medical visits, mandatory training), collecting variable pay items. Decisions about a person are not automated."
         },
         {
           "q_fr": "Faut-il documenter ses processus avant de les automatiser ?",
-          "a_fr": "Oui, même sur une seule page : sans trace écrite, le workflow automatise les habitudes d'une seule personne.",
+          "a_fr": "Oui, même sur une seule page. Sans trace écrite, personne ne sait ce que le workflow reproduit, ni quoi corriger le jour où il se trompe.",
           "q_en": "Should processes be documented before automating them?",
           "a_en": "Yes, even on a single page: without a written record, the workflow automates one person's habits."
         },

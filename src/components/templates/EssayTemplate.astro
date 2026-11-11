@@ -11,7 +11,7 @@
 // Décision : pas de spec bar (différencie d'un Case). Le squelette est plus simple
 // et laisse 100 % du body en slot pour le HTML rich text (h2, h3, p, blockquote, code).
 
-import { AUDIT_BOOKING_HREF, AUDIT_BOOKING_LABEL, auditCtaBand } from '../../data/conversion';
+import { AUDIT_BOOKING_HREF, AUDIT_BOOKING_LABEL, AUDIT_CTA_TEXT, auditCtaBand } from '../../data/conversion';
 import Base from '../../layouts/Base.astro';
 import Bi from '../ui/atoms/Bi.astro';
 import Kicker from '../ui/atoms/Kicker.astro';
@@ -168,9 +168,9 @@ const introEnd = h2AfterP > 0 ? firstP + h2AfterP : -1;
 const bodyIntroHtml = introEnd > 0 ? localizedBodyHtml.slice(0, introEnd) : localizedBodyHtml;
 const bodyRestHtml = introEnd > 0 ? localizedBodyHtml.slice(introEnd) : '';
 // Préréglage boîte `cta-inline` du composant catalogué cta-band (in-flow, colonne de lecture).
-// Accroche `tiny`, distincte de la bande finale (siloCtaText).
+// Accroche `top`, distincte de la bande finale (siloCtaText).
 const midCtaData = introEnd > 0
-  ? ({ ...auditCtaBand({ promise: 'tiny' }), type: 'cta-inline' } satisfies SectionByType<'cta-inline'>)
+  ? ({ ...auditCtaBand({ promise: 'top' }), type: 'cta-inline' } satisfies SectionByType<'cta-inline'>)
   : null;
 const localizedHeadings = filterHeadingsForHtml(headings, localizedBodyHtml);
 const tocCount = localizedHeadings.filter((h) => h.depth === 2 || h.depth === 3).length;
@@ -344,7 +344,7 @@ const articleLd = buildArticle({
         )}
         <div class="essay-footer-cta">
           <Kicker>§ Audit IA</Kicker>
-          <p class="essay-cta-text">Ce sujet vous concerne&nbsp;? 45 minutes pour en parler sur vos processus.</p>
+          <p class="essay-cta-text">{AUDIT_CTA_TEXT.middle[lang === 'en' ? 'en' : 'fr']}</p>
           <a href={AUDIT_BOOKING_HREF} class="essay-cta-link">{AUDIT_BOOKING_LABEL.fr} →</a>
         </div>
       </div>

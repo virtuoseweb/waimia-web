@@ -4,11 +4,11 @@
   "title_en": "Business software overhaul: keep, rewrite or replace · Waimia",
   "seoTitle_fr": "Refonte de logiciel : garder, réécrire ou remplacer",
   "seoTitle_en": "Software overhaul: keep, rewrite or replace",
-  "description_fr": "Refonte de logiciel métier : garder, réécrire par morceaux ou remplacer. Trois tests, étapes, risques et ce que l'IA change. Relevé le 16 octobre 2026.",
+  "description_fr": "Refonte de logiciel métier : garder, réécrire par morceaux ou remplacer. Trois tests, étapes, risques et ce que l'IA change.",
   "description_en": "Business software overhaul: keep, rewrite in pieces or replace. Three tests, steps, risks and what AI changes. Checked on 16 October 2026.",
   "slug": "refonte-logiciel-metier",
   "publishedAt": "2026-10-16",
-  "updatedAt": "2026-10-16",
+  "updatedAt": "2026-11-11",
   "category": "applications",
   "tags": [
     "refonte-logiciel",
@@ -64,7 +64,7 @@
   "faq_fr": [
     {
       "q": "Qu'est-ce qu'une refonte de logiciel ?",
-      "a": "L'Office québécois de la langue française la définit comme le processus qui consiste à revoir la conception d'un logiciel depuis ses fondements, à la lumière de l'état actuel des techniques et de la connaissance, de façon à l'améliorer. Pour un logiciel métier, cela recouvre trois voies : garder et nettoyer, réécrire par morceaux, ou remplacer par un produit du marché. Relevé le 16 octobre 2026."
+      "a": "L'Office québécois de la langue française la définit comme le processus qui consiste à revoir la conception d'un logiciel depuis ses fondements, à la lumière de l'état actuel des techniques et de la connaissance, de façon à l'améliorer. Pour un logiciel métier, cela recouvre trois voies : garder et nettoyer, réécrire par morceaux, ou remplacer par un produit du marché."
     },
     {
       "q": "Refonte de logiciel ou refonte de site : quelle différence ?",
@@ -72,19 +72,19 @@
     },
     {
       "q": "Faut-il tout réécrire d'un coup ?",
-      "a": "Non, d'après les trois sources lues. Martin Fowler constate que le plan de remplacement qui paraît simple échoue le plus souvent. Pulse.digital écrit que le big bang est l'anti-méthode. TechMind conseille de garder l'ancien système en service tant que le nouveau n'a pas prouvé, morceau par morceau, qu'il porte la charge. La migration se fait par incréments, avec coexistence."
+      "a": "Non. Martin Fowler constate que le plan de remplacement qui paraît simple échoue le plus souvent, Pulse.digital qualifie le big bang d'anti-méthode, et TechMind conseille de garder l'ancien système en service tant que le nouveau n'a pas prouvé, morceau par morceau, qu'il porte la charge. Je migre par incréments, avec une période de coexistence."
     },
     {
       "q": "Combien coûte la refonte d'un logiciel métier ?",
-      "a": "Cela dépend du périmètre, des dépendances et des données à reprendre. Nous ne reprenons aucune fourchette de prestataire. Chez Waimia, le sprint de cadrage dure 10 heures et coûte {{prix.sprint}} € HT ; il livre un prototype testé. La mise en production relève du pilote, dès {{prix.pilote}} € HT. Le périmètre de la première version est fixé au cadrage, par écrit, avant de construire."
+      "a": "Cela dépend du périmètre, des dépendances et des données à reprendre, et je me méfie de toute fourchette annoncée avant d'avoir vu le code. Chez Waimia, le sprint de cadrage dure 10 heures et coûte {{prix.sprint}} € HT ; il livre un prototype testé. La mise en production relève du pilote, dès {{prix.pilote}} € HT. Le périmètre de la première version est fixé au cadrage, par écrit, avant de construire."
     },
     {
       "q": "L'IA permet-elle de refondre un logiciel plus vite ?",
-      "a": "Elle accélère certains travaux : comprendre un code inconnu, écrire des tests, mettre à jour des dépendances, migrer des fichiers par lots, d'après la documentation de Claude Code. Elle ne décide ni ce qu'on garde, ni quelles données reprendre, ni quand éteindre l'ancien outil. Nous ne donnons aucun chiffre de gain : il dépend de votre code, de ses tests et de ses données. Relevé le 16 octobre 2026."
+      "a": "Elle accélère certains travaux : comprendre un code inconnu, écrire des tests, mettre à jour des dépendances, migrer des fichiers par lots, d'après la documentation de Claude Code. Elle ne décide ni ce qu'on garde, ni quelles données reprendre, ni quand éteindre l'ancien outil. Le gain dépend de votre code, de ses tests et de ses données."
     },
     {
       "q": "À qui appartient le code après la refonte ?",
-      "a": "À vous. Pour les applications métier que nous développons, le code source, la base de données et la documentation vous sont remis, et l'application tourne sur vos comptes d'hébergement. Un autre développeur peut donc reprendre le travail. Pour l'ancien logiciel, lisez le contrat d'origine : sans accès au code source, la réécriture à partir de l'existant est bloquée. Ce n'est pas un avis juridique."
+      "a": "À vous. Pour les applications métier que nous développons, le code source, la base de données et la documentation vous sont remis, et l'application tourne sur vos comptes d'hébergement. Un autre développeur peut donc reprendre le travail. Pour l'ancien logiciel, lisez le contrat d'origine : sans accès au code source, la réécriture à partir de l'existant est bloquée, et une clause floue mérite l'œil d'un juriste."
     },
     {
       "q": "Quand vaut-il mieux remplacer que réécrire ?",
@@ -131,19 +131,19 @@
       "h1_en": "Business software overhaul: <i class=\"acc\">keep, rewrite or replace</i>?",
       "definition_kicker_fr": "En une phrase",
       "definition_kicker_en": "In one sentence",
-      "lede_fr": "Refondre un logiciel métier, c'est choisir entre trois voies : le garder et le nettoyer, le réécrire par morceaux, ou le remplacer par un produit du marché. Le choix se fait module par module, après trois tests : qui détient le code, quelles dépendances ne sont plus maintenues, quelles données reprendre. L'IA accélère certains travaux, pas la décision. Relevé le 16 octobre 2026.",
+      "lede_fr": "Refondre un logiciel métier, c'est choisir entre trois voies : le garder et le nettoyer, le réécrire par morceaux, ou le remplacer par un produit du marché. Je tranche module par module, après trois tests : à qui appartient le code, quelles dépendances ne sont plus maintenues, quelles données reprendre. L'IA accélère certains travaux, pas la décision.",
       "lede_en": "Overhauling business software means choosing between three routes: keep and clean it up, rewrite it in pieces, or replace it with an off-the-shelf product. The choice is made module by module, after three tests: who owns the code, which dependencies are no longer maintained, which data to carry over. AI speeds up some tasks, not the decision. Checked on 16 October 2026.",
       "badges": [
         {
-          "label_fr": "Sources lues le 16 octobre 2026",
+          "label_fr": "Un choix par module, pas par logiciel",
           "label_en": "Sources read on 16 October 2026"
         },
         {
-          "label_fr": "Aucun prix de prestataire repris",
+          "label_fr": "Sources : Fowler, Pulse.digital, Anthropic",
           "label_en": "No provider price reproduced"
         },
         {
-          "label_fr": "Pas un avis juridique",
+          "label_fr": "Code et base remis à votre nom",
           "label_en": "Not legal advice"
         }
       ],
@@ -175,7 +175,7 @@
       "role_en": "Founder of Waimia · AI and automation engineer",
       "profileHref": "/equipe/simon-beros",
       "publishedDate": "16 octobre 2026",
-      "updatedDate": "16 octobre 2026"
+      "updatedDate": "11 novembre 2026"
     },
     {
       "type": "direct-answer",
@@ -184,7 +184,7 @@
       "question_en": "Should you keep, rewrite or replace business software?",
       "term_fr": "Réponse courte",
       "term_en": "Short answer",
-      "answer_fr": "Gardez ce qui fonctionne et que vous savez maintenir. Réécrivez, morceau par morceau, ce qui porte une règle propre à votre métier. Remplacez ce qu'un produit du marché fait sans contournement. Évitez la réécriture complète d'un coup : Martin Fowler constate que ce plan échoue le plus souvent. Avant de choisir, vérifiez qui détient le code, quelles dépendances ne sont plus maintenues et quelles données reprendre. Relevé le 16 octobre 2026.",
+      "answer_fr": "Gardez ce qui fonctionne et que vous savez maintenir. Réécrivez, morceau par morceau, ce qui porte une règle propre à votre métier. Remplacez ce qu'un produit du marché fait sans contournement. Je déconseille la réécriture complète d'un coup : Martin Fowler constate que ce plan échoue le plus souvent. Avant de choisir, regardez trois choses : qui détient le code, quelles dépendances ne sont plus maintenues, quelles données reprendre.",
       "answer_en": "Keep what works and what you can maintain. Rewrite, piece by piece, what carries a rule specific to your business. Replace what an off-the-shelf product does without workarounds. Avoid rewriting everything at once: Martin Fowler notes that this plan most often fails. Before choosing, check who owns the code, which dependencies are no longer maintained and which data to carry over. Checked on 16 October 2026."
     },
     {
@@ -194,7 +194,7 @@
       "kicker_en": "§ Three routes",
       "heading_fr": "Garder, réécrire par morceaux, remplacer : ce que chaque voie suppose",
       "heading_en": "Keep, rewrite in pieces, replace: what each route assumes",
-      "caption_fr": "Synthèse de Waimia à partir de deux guides de prestataires lus le 16 octobre 2026 (Pulse.digital et TechMind). Ils nomment les options différemment (refactor, replatform, rebuild, replace d'un côté ; moderniser, réécrire, remplacer de l'autre) et nous ne reprenons aucun de leurs prix.",
+      "caption_fr": "Synthèse à partir des guides de Pulse.digital et de TechMind, qui nomment les options autrement : refactor, replatform, rebuild, replace d'un côté ; moderniser, réécrire, remplacer de l'autre.",
       "caption_en": "Waimia's synthesis from two provider guides read on 16 October 2026 (Pulse.digital and TechMind). They name the options differently (refactor, replatform, rebuild, replace on one side; modernise, rewrite, replace on the other) and we reproduce none of their prices.",
       "columns_fr": [
         "Voie",
@@ -211,19 +211,19 @@
       "rows_fr": [
         [
           "Garder et nettoyer",
-          "Garder le code, restructurer ce qui est dégradé, mettre à jour les dépendances, éventuellement changer d'hébergement.",
-          "La logique métier est juste, le code est dégradé, et les fondations sont encore maintenues.",
-          "Rénover un socle qui n'est plus maintenu, et repousser le problème au lieu de le traiter."
+          "On garde le code, on restructure ce qui est dégradé, on met à jour les dépendances, parfois on change d'hébergement.",
+          "La logique métier est juste, le code est abîmé, les fondations sont encore maintenues.",
+          "Rénover un socle que plus personne ne maintient, et repousser le problème au lieu de le traiter."
         ],
         [
           "Réécrire par morceaux",
-          "Reconstruire sur des fondations modernes en reprenant les règles métier éprouvées, un module après l'autre, l'ancien outil restant en service.",
-          "Le module porte une règle propre à votre entreprise et son code est trop dégradé pour être sauvé.",
+          "On reconstruit sur des fondations modernes en reprenant les règles métier éprouvées, un module après l'autre, l'ancien outil restant en service.",
+          "Le module porte une règle propre à votre entreprise et son code est trop abîmé pour être sauvé.",
           "Le grand soir, ou recopier l'ancien outil écran par écran, défauts compris."
         ],
         [
           "Remplacer par un produit du marché",
-          "Adopter un logiciel existant et adapter vos process à ce qu'il fait.",
+          "On adopte un logiciel existant et on adapte ses process à ce qu'il fait.",
           "Le process n'a plus rien de spécifique et un produit du marché le couvre sans contournement.",
           "Plier le process aux cases de l'éditeur, ou sous-estimer la reprise des données."
         ]
@@ -253,7 +253,7 @@
     {
       "type": "editorial-prose",
       "background": "paper-2",
-      "html_fr": "<h2>Trois tests avant de choisir une voie</h2>\n<p>Ce guide traite d'un logiciel métier. Pour un site web, c'est un autre projet : voir le guide <a href=\"/ressources/guides/refonte-site-internet\">refonte de site internet</a>. L'Office québécois de la langue française définit la <a href=\"https://vitrinelinguistique.oqlf.gouv.qc.ca/fiche-gdt/fiche/26559223/reingenierie-logicielle\" rel=\"noopener noreferrer\" target=\"_blank\">refonte de logiciel</a> comme le processus qui consiste à revoir la conception d'un logiciel depuis ses fondements, de façon à l'améliorer.</p>\n<p><strong>Le code est-il à vous ?</strong> Lisez le contrat d'origine : détenez-vous le code source, avec le droit de le modifier ? Sans lui, une réécriture à partir de l'existant est bloquée, et il reste le remplacement ou la reconstruction à partir des écrans et des règles observées. Ce n'est pas un avis juridique.</p>\n<p><strong>Les dépendances sont-elles maintenues ?</strong> Langage, framework, base de données, bibliothèques, hébergement : si un composant n'est plus maintenu, rénover le reste ne règle pas le risque. <a href=\"https://pulse.digital/fr/blog/refonte-application-legacy-methodologie\" rel=\"noopener noreferrer\" target=\"_blank\">Pulse.digital</a> compte parmi les coûts d'un logiciel ancien ses dépendances non maintenues, donc une surface d'attaque plus large.</p>\n<p><strong>Quelles données reprendre ?</strong> Historique, formats incohérents, règles implicites : Pulse.digital note que les données historiques sont souvent sous-estimées. Décidez ce que vous migrez, ce que vous archivez et ce que vous abandonnez, puis rejouez la reprise sur une copie avant toute bascule.</p>",
+      "html_fr": "<h2>Trois tests avant de choisir une voie</h2>\n<p>Un logiciel métier ne se refond pas comme un site web : pour un site, c'est le guide <a href=\"/ressources/guides/refonte-site-internet\">refonte de site internet</a> qu'il vous faut. L'Office québécois de la langue française définit la <a href=\"https://vitrinelinguistique.oqlf.gouv.qc.ca/fiche-gdt/fiche/26559223/reingenierie-logicielle\" rel=\"noopener noreferrer\" target=\"_blank\">refonte de logiciel</a> comme le processus qui consiste à revoir la conception d'un logiciel depuis ses fondements, de façon à l'améliorer. Dans les faits, trois questions décident de la voie, et je les pose toujours dans cet ordre.</p>\n<p>Si l'outil à refondre est un suivi de chantiers, de dossiers ou de commandes qui vit dans des tableurs et des macros, notre <a href=\"/services/applications-internes\">service d'applications internes</a> le remplace par un outil branché à vos données, code remis. Avant de vous lancer, lisez aussi <a href=\"/blog/applications-internes-build-vs-buy-pme\">développer ou acheter un outil interne</a> : un produit du marché coûte parfois moins cher que la meilleure réécriture. Pour chiffrer en heures ce que votre outil actuel fait perdre, le <a href=\"/ressources/outils/calculateur-roi-ia\">calculateur de ROI</a> donne un premier ordre de grandeur, sans inscription.</p>\n<h3>Le code est-il à vous ?</h3>\n<p>Lisez le contrat d'origine. Détenez-vous le code source, avec le droit de le modifier ? Sans lui, la réécriture à partir de l'existant est bloquée. Il reste le remplacement, ou la reconstruction à partir des écrans et des règles observées. Si la clause est floue, faites-la relire par un juriste avant d'engager quoi que ce soit.</p>\n<h3>Les dépendances sont-elles maintenues ?</h3>\n<p>Langage, framework, base de données, bibliothèques, hébergement : si un seul composant n'est plus maintenu, rénover le reste ne règle pas le risque. <a href=\"https://pulse.digital/fr/blog/refonte-application-legacy-methodologie\" rel=\"noopener noreferrer\" target=\"_blank\">Pulse.digital</a> compte parmi les coûts d'un logiciel ancien ses dépendances sans mises à jour, donc une surface d'attaque plus large.</p>\n<h3>Quelles données reprendre ?</h3>\n<p>Historique, formats incohérents, règles implicites : Pulse.digital note que les données historiques sont souvent sous-estimées, et c'est ce qui fait déraper un planning. Décidez ce que vous migrez, ce que vous archivez et ce que vous abandonnez, puis rejouez la reprise sur une copie avant toute bascule.</p>",
       "html_en": "<h2>Three tests before choosing a route</h2>\n<p>This guide is about business software. For a website it is a different project: see the guide on <a href=\"/ressources/guides/refonte-site-internet\">website redesign</a>. The Office québécois de la langue française defines a <a href=\"https://vitrinelinguistique.oqlf.gouv.qc.ca/fiche-gdt/fiche/26559223/reingenierie-logicielle\" rel=\"noopener noreferrer\" target=\"_blank\">software overhaul</a> as the process of reviewing the design of a piece of software from its foundations, in order to improve it.</p>\n<p><strong>Is the code yours?</strong> Read the original contract: do you hold the source code, with the right to modify it? Without it, a rewrite from the existing system is blocked, leaving replacement or rebuilding from the observed screens and rules. This is not legal advice.</p>\n<p><strong>Are the dependencies maintained?</strong> Language, framework, database, libraries, hosting: if a component is no longer maintained, renovating the rest does not remove the risk. <a href=\"https://pulse.digital/fr/blog/refonte-application-legacy-methodologie\" rel=\"noopener noreferrer\" target=\"_blank\">Pulse.digital</a> counts among the costs of old software its unmaintained dependencies, hence a larger attack surface.</p>\n<p><strong>Which data to carry over?</strong> History, inconsistent formats, implicit rules: Pulse.digital notes that historical data is often underestimated. Decide what you migrate, what you archive and what you abandon, then replay the migration on a copy before any switch-over.</p>"
     },
     {
@@ -263,7 +263,7 @@
       "kicker_en": "§ Module by module",
       "heading_fr": "Que faire de chaque module : valeur métier et état du code",
       "heading_en": "What to do with each module: business value and state of the code",
-      "caption_fr": "Cadre de choix de Pulse.digital, lu le 16 octobre 2026, repris sous forme de tableau. Le choix se fait module par module, pas pour le logiciel entier.",
+      "caption_fr": "Cadre de choix de Pulse.digital, repris sous forme de tableau. Le choix se fait module par module, pas pour le logiciel entier.",
       "caption_en": "Pulse.digital's decision framework, read on 16 October 2026, reproduced as a table. The choice is made module by module, not for the whole software.",
       "columns_fr": [
         "Module",
@@ -276,19 +276,19 @@
       "rows_fr": [
         [
           "Forte valeur métier, code sain",
-          "Le protéger par des tests, n'y toucher que pour corriger."
+          "On le protège par des tests et on n'y touche que pour corriger."
         ],
         [
           "Forte valeur métier, code dégradé",
-          "Priorité de la refonte : restructurer, ou reconstruire par incréments."
+          "C'est la priorité de la refonte : restructurer, ou reconstruire par incréments."
         ],
         [
           "Faible valeur métier, code sain",
-          "Changer l'environnement (hébergement, base de données) sans investissement lourd."
+          "On change l'environnement (hébergement, base de données) sans investissement lourd."
         ],
         [
           "Faible valeur métier, code dégradé",
-          "Le remplacer par un produit du marché, ou le décommissionner."
+          "On le remplace par un produit du marché, ou on le décommissionne."
         ]
       ],
       "rows_en": [
@@ -314,7 +314,7 @@
     {
       "type": "editorial-prose",
       "background": "paper-2",
-      "html_fr": "<h2>Réécrire sans arrêter l'activité : le principe du figuier étrangleur</h2>\n<p>Dans son billet <a href=\"https://martinfowler.com/bliki/StranglerFigApplication.html\" rel=\"noopener noreferrer\" target=\"_blank\">StranglerFigApplication</a> (version du 22 août 2024), Martin Fowler constate que le plan de remplacement qui paraît simple échoue le plus souvent. Remplacer un système sérieux prend du temps, les utilisateurs n'attendent pas de nouvelles fonctions, et une partie des comportements reproduits n'était pas voulue. Il propose de commencer par de petits ajouts, puis de déplacer peu à peu les comportements de l'ancien système vers le nouveau.</p>\n<p>Concrètement, l'ancien outil reste en service jusqu'à ce que le nouveau ait prouvé, morceau par morceau, qu'il porte la charge : c'est la formulation de <a href=\"https://www.techmindb2b.com/logiciel-sur-mesure/refonte-logiciel/\" rel=\"noopener noreferrer\" target=\"_blank\">TechMind</a>. Chaque morceau migré se valide face à l'existant avec les utilisateurs clés avant la bascule, puis l'extinction de l'ancien se planifie, comme le décrit Pulse.digital.</p>\n<p>Les erreurs relevées dans ces guides se ressemblent : recopier l'ancien outil écran par écran, changer l'outil et les process en même temps, continuer à faire évoluer l'ancien pendant le chantier, négliger l'adhésion des utilisateurs.</p>",
+      "html_fr": "<h2>Réécrire sans arrêter l'activité : le figuier étrangleur</h2>\n<p>Dans son billet <a href=\"https://martinfowler.com/bliki/StranglerFigApplication.html\" rel=\"noopener noreferrer\" target=\"_blank\">StranglerFigApplication</a> (version du 22 août 2024), Martin Fowler constate que le plan de remplacement qui paraît simple échoue le plus souvent. Remplacer un système sérieux prend du temps, les utilisateurs n'attendent pas de nouvelles fonctions pendant ce temps, et une partie des comportements reproduits n'avait jamais été voulue. Il propose de commencer par de petits ajouts, puis de déplacer peu à peu les comportements de l'ancien système vers le nouveau.</p>\n<p>L'ancien outil reste donc en service jusqu'à ce que le nouveau ait prouvé, morceau par morceau, qu'il porte la charge : c'est la formulation de <a href=\"https://www.techmindb2b.com/logiciel-sur-mesure/refonte-logiciel/\" rel=\"noopener noreferrer\" target=\"_blank\">TechMind</a>. Chaque morceau migré se valide face à l'existant avec les utilisateurs clés avant la bascule, puis l'extinction de l'ancien se planifie, comme le décrit Pulse.digital.</p>\n<p>Les guides listent les mêmes erreurs : recopier l'ancien outil écran par écran, changer l'outil et les process en même temps, continuer à faire évoluer l'ancien pendant le chantier, négliger l'adhésion des utilisateurs. La deuxième est la plus traître, parce qu'elle rend tout diagnostic impossible : si l'outil et le process changent le même jour, personne ne sait lequel des deux pose problème.</p>\n<p>Le premier morceau se livre comme un prototype que les utilisateurs essaient, pas comme une version finale. La différence entre les deux est expliquée dans <a href=\"/blog/poc-ou-mvp-differences-pme\">POC ou MVP : les différences pour une PME</a>.</p>",
       "html_en": "<h2>Rewriting without stopping operations: the strangler fig principle</h2>\n<p>In his post <a href=\"https://martinfowler.com/bliki/StranglerFigApplication.html\" rel=\"noopener noreferrer\" target=\"_blank\">StranglerFigApplication</a> (version of 22 August 2024), Martin Fowler notes that the replacement plan that looks simple most often fails. Replacing a serious system takes time, users do not wait for new features, and part of the reproduced behaviour was never wanted. He proposes starting with small additions, then gradually moving behaviours from the old system to the new one.</p>\n<p>In practice, the old tool stays in service until the new one has proved, piece by piece, that it carries the load: that is <a href=\"https://www.techmindb2b.com/logiciel-sur-mesure/refonte-logiciel/\" rel=\"noopener noreferrer\" target=\"_blank\">TechMind</a>'s wording. Each migrated piece is validated against the existing system with key users before switch-over, then the shutdown of the old one is planned, as Pulse.digital describes.</p>\n<p>The mistakes noted in these guides look alike: copying the old tool screen by screen, changing the tool and the processes at the same time, continuing to evolve the old one during the project, neglecting user buy-in.</p>"
     },
     {
@@ -328,7 +328,7 @@
     {
       "type": "editorial-prose",
       "background": "paper",
-      "html_fr": "<h2>Ce que l'IA change à une réécriture, et ce qu'elle ne change pas</h2>\n<p>La <a href=\"https://code.claude.com/docs/en/overview\" rel=\"noopener noreferrer\" target=\"_blank\">documentation de Claude Code</a> décrit un assistant qui lit une base de code, modifie des fichiers et lance des commandes. Parmi les tâches qu'elle cite : écrire des tests pour du code qui n'en a pas, corriger des erreurs de lint sur tout un projet, résoudre des conflits de fusion, mettre à jour des dépendances. Ses bonnes pratiques recommandent aussi de lui poser, sur une base de code inconnue, les questions qu'on poserait à un autre ingénieur.</p>\n<p>Pour une réécriture, cela touche surtout quatre travaux : comprendre l'existant, poser des tests avant de modifier, mettre à jour les dépendances, migrer des fichiers par lots. La documentation donne en exemple une migration fichier par fichier de Python 2 vers Python 3. Ces travaux se vérifient : elle demande de donner à l'outil un test ou un build qu'il peut lancer, et conclut que ce que l'on ne peut pas vérifier ne se livre pas (<a href=\"https://code.claude.com/docs/en/best-practices\" rel=\"noopener noreferrer\" target=\"_blank\">bonnes pratiques</a>).</p>\n<p>Ce que l'IA ne change pas : décider ce que l'on garde, reprendre les données, obtenir l'adhésion des utilisateurs, relire. La <a href=\"https://code.claude.com/docs/en/security\" rel=\"noopener noreferrer\" target=\"_blank\">page sécurité d'Anthropic</a> indique que vous restez responsable de la relecture du code et des commandes proposés avant approbation. Ce guide ne donne aucun chiffre de gain de temps : il dépend de votre code, de ses tests et de ses données, et nous ne reprenons aucune promesse chiffrée.</p>\n<p>Un générateur d'application par IA convient surtout au prototype : voir le <a href=\"/ressources/comparatifs/lovable-vs-developpement-sur-mesure\">comparatif Lovable ou développement sur mesure</a>. Le raisonnement sur le coût d'un outil sur mesure est dans l'article <a href=\"/blog/applications-internes-build-vs-buy-pme\">développer ou acheter un outil interne</a>.</p>",
+      "html_fr": "<h2>Ce que l'IA change à une réécriture, et ce qu'elle laisse intact</h2>\n<p>La <a href=\"https://code.claude.com/docs/en/overview\" rel=\"noopener noreferrer\" target=\"_blank\">documentation de Claude Code</a> décrit un assistant qui lit une base de code, modifie des fichiers et lance des commandes. Parmi les tâches qu'elle cite : écrire des tests pour du code qui n'en a pas, corriger les erreurs de lint sur tout un projet, résoudre des conflits de fusion, mettre à jour des dépendances. Ses bonnes pratiques recommandent aussi de lui poser, sur une base de code inconnue, les questions qu'on poserait à un autre ingénieur.</p>\n<p>Pour une réécriture, quatre travaux en profitent : comprendre l'existant, poser des tests avant de modifier, mettre à jour les dépendances, migrer des fichiers par lots. La documentation donne en exemple une migration fichier par fichier de Python 2 vers Python 3. Tous ces travaux se vérifient, et c'est la condition : donnez à l'outil un test ou un build qu'il peut lancer, car ce qu'on ne peut pas vérifier ne se livre pas (<a href=\"https://code.claude.com/docs/en/best-practices\" rel=\"noopener noreferrer\" target=\"_blank\">bonnes pratiques</a>).</p>\n<p>Ce qu'elle laisse intact : décider de ce qu'on garde, reprendre les données, obtenir l'adhésion des utilisateurs, relire. La <a href=\"https://code.claude.com/docs/en/security\" rel=\"noopener noreferrer\" target=\"_blank\">page sécurité d'Anthropic</a> rappelle que vous restez responsable de la relecture du code et des commandes proposés avant approbation. Quant au gain de temps, il dépend de votre code, de ses tests et de ses données : je me méfie de toute promesse chiffrée faite avant d'avoir vu les trois.</p>\n<p>Un générateur d'application par IA convient surtout au prototype : voir le <a href=\"/ressources/comparatifs/lovable-vs-developpement-sur-mesure\">comparatif Lovable ou développement sur mesure</a>. Le raisonnement sur le coût d'un outil sur mesure est dans l'article <a href=\"/blog/applications-internes-build-vs-buy-pme\">développer ou acheter un outil interne</a>.</p>",
       "html_en": "<h2>What AI changes in a rewrite, and what it does not</h2>\n<p><a href=\"https://code.claude.com/docs/en/overview\" rel=\"noopener noreferrer\" target=\"_blank\">Claude Code's documentation</a> describes an assistant that reads a codebase, edits files and runs commands. Among the tasks it lists: writing tests for untested code, fixing lint errors across a project, resolving merge conflicts, updating dependencies. Its best practices also recommend asking it, on an unfamiliar codebase, the questions you would ask another engineer.</p>\n<p>For a rewrite, this mostly touches four jobs: understanding the existing system, adding tests before changing, updating dependencies, migrating files in batches. The documentation gives a file-by-file Python 2 to Python 3 migration as an example. These jobs can be checked: it asks you to give the tool a test or a build it can run, and concludes that what you cannot verify should not be shipped (<a href=\"https://code.claude.com/docs/en/best-practices\" rel=\"noopener noreferrer\" target=\"_blank\">best practices</a>).</p>\n<p>What AI does not change: deciding what you keep, carrying over the data, obtaining user buy-in, reviewing. <a href=\"https://code.claude.com/docs/en/security\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic's security page</a> states that you remain responsible for reviewing proposed code and commands before approval. This guide gives no time-saving figure: it depends on your code, its tests and your data, and we reproduce no figure-based promise.</p>\n<p>An AI app generator mostly suits the prototype: see the <a href=\"/ressources/comparatifs/lovable-vs-developpement-sur-mesure\">comparison of Lovable and custom development</a>. The reasoning on the cost of a custom tool is in the article <a href=\"/blog/applications-internes-build-vs-buy-pme\">build or buy an internal tool</a>.</p>"
     },
     {
@@ -338,7 +338,7 @@
       "kicker_en": "§ The method",
       "h2_fr": "Une refonte en six étapes",
       "h2_en": "An overhaul in six steps",
-      "intro_fr": "La trame que nous suivons pour un outil métier. Elle reprend les étapes des guides lus (audit, priorisation, migration par incréments, parité, extinction) et le cadre de Waimia.",
+      "intro_fr": "La trame que nous suivons pour un outil métier : audit, priorisation, migration par incréments, parité, extinction.",
       "intro_en": "The outline we follow for a business tool. It takes the steps of the guides read (audit, prioritisation, incremental migration, parity, shutdown) and Waimia's framework.",
       "steps": [
         {
@@ -360,7 +360,7 @@
         {
           "title_fr": "Reprendre les données sur une copie",
           "title_en": "Migrate the data on a copy",
-          "body_fr": "Extraire, nettoyer, rejouer la reprise et contrôler des cas connus avant toute bascule.",
+          "body_fr": "Extraire, nettoyer, rejouer la reprise, puis contrôler des cas connus avant toute bascule.",
           "body_en": "Extract, clean, replay the migration and check known cases before any switch-over.",
           "meta_fr": "Sur une copie",
           "meta_en": "On a copy"
@@ -368,7 +368,7 @@
         {
           "title_fr": "Livrer un premier morceau",
           "title_en": "Deliver a first piece",
-          "body_fr": "Un périmètre étroit, fixé par écrit. Chez Waimia : sprint de cadrage de 10 heures à {{prix.sprint}} € HT, qui livre un prototype testé.",
+          "body_fr": "Un périmètre étroit, fixé par écrit. Chez nous : sprint de cadrage de 10 heures à {{prix.sprint}} € HT, qui livre un prototype testé.",
           "body_en": "A narrow scope, set in writing. At Waimia: a 10-hour scoping sprint at {{prix.sprint.en}} € ex VAT, which delivers a tested prototype.",
           "meta_fr": "Périmètre étroit",
           "meta_en": "Narrow scope"
@@ -376,7 +376,7 @@
         {
           "title_fr": "Faire tourner l'ancien et le nouveau en parallèle",
           "title_en": "Run the old and the new in parallel",
-          "body_fr": "Basculer par groupe d'utilisateurs, valider la parité avec les utilisateurs clés. La mise en production relève du pilote, dès {{prix.pilote}} € HT.",
+          "body_fr": "On bascule par groupe d'utilisateurs et on valide la parité avec les utilisateurs clés. La mise en production relève du pilote, dès {{prix.pilote}} € HT.",
           "body_en": "Switch over by user group, validate parity with key users. Going into production is part of the pilot, from {{prix.pilote.en}} € ex VAT.",
           "meta_fr": "En parallèle",
           "meta_en": "In parallel"
@@ -384,7 +384,7 @@
         {
           "title_fr": "Éteindre l'ancien outil",
           "title_en": "Switch the old tool off",
-          "body_fr": "À une date écrite. Code, base de données et documentation de la nouvelle version vous sont remis.",
+          "body_fr": "À une date écrite. Le code, la base de données et la documentation de la nouvelle version vous sont remis.",
           "body_en": "On a written date. The code, database and documentation of the new version are handed over to you.",
           "meta_fr": "Extinction planifiée",
           "meta_en": "Planned shutdown"
@@ -398,7 +398,7 @@
       "kicker_en": "§ Waimia position",
       "title_fr": "Quand nous confier la refonte, et quand acheter ou attendre",
       "title_en": "When to entrust us with the overhaul, and when to buy or wait",
-      "aside_fr": "Recommandations de Waimia.",
+      "aside_fr": "Si un produit du marché fait le travail, achetez-le et gardez votre budget pour ce qui est propre à votre métier.",
       "aside_en": "Waimia's recommendations.",
       "use_title_fr": "Confiez-nous la refonte si",
       "use_title_en": "Entrust us with the overhaul if",
@@ -417,7 +417,7 @@
       "avoid_items_fr": [
         "Un produit du marché couvre déjà le besoin sans contournement : achetez-le, ce sera moins cher",
         "Le domaine est mûr : comptabilité, paie, signature électronique, messagerie",
-        "Personne ne sait écrire ce que le logiciel doit faire : commencez par un audit, pas par une réécriture"
+        "Personne ne sait écrire ce que le logiciel doit faire : un audit d'abord, pas une réécriture"
       ],
       "avoid_items_en": [
         "An off-the-shelf product already covers the need without workarounds: buy it, it will cost less",
@@ -434,7 +434,7 @@
       "kicker_en": "§ AI policy · free PDF",
       "h2_fr": "Si l'IA touche au code ou aux données de la refonte : écrivez les règles avant",
       "h2_en": "If AI touches the code or data of the overhaul: write the rules first",
-      "body_fr": "Le modèle de charte IA pour PME compte neuf articles et cinq pages, dont les données qui ne passent jamais par un outil d'IA, ce qui sort d'une IA comme brouillon à relire, et la propriété intellectuelle. Le PDF part uniquement par e-mail, en pièce jointe.",
+      "body_fr": "Le modèle de charte IA pour PME compte neuf articles et cinq pages : les données qui ne passent jamais par un outil d'IA, ce qui sort d'une IA comme brouillon à relire, la propriété intellectuelle. Vous recevez le PDF par e-mail.",
       "body_en": "The AI policy template for SMBs has nine articles and five pages, including the data that never goes through an AI tool, what comes out of an AI as a draft to review, and intellectual property. The PDF is sent by email only, as an attachment.",
       "benefits_fr": [
         "Le modèle complet en neuf articles, mis en page pour être imprimé et signé",
@@ -490,7 +490,7 @@
       "items": [
         {
           "q_fr": "Qu'est-ce qu'une refonte de logiciel ?",
-          "a_fr": "L'Office québécois de la langue française la définit comme le processus qui consiste à revoir la conception d'un logiciel depuis ses fondements, à la lumière de l'état actuel des techniques et de la connaissance, de façon à l'améliorer. Pour un logiciel métier, cela recouvre trois voies : garder et nettoyer, réécrire par morceaux, ou remplacer par un produit du marché. Relevé le 16 octobre 2026.",
+          "a_fr": "L'Office québécois de la langue française la définit comme le processus qui consiste à revoir la conception d'un logiciel depuis ses fondements, à la lumière de l'état actuel des techniques et de la connaissance, de façon à l'améliorer. Pour un logiciel métier, cela recouvre trois voies : garder et nettoyer, réécrire par morceaux, ou remplacer par un produit du marché.",
           "q_en": "What is a software overhaul?",
           "a_en": "The Office québécois de la langue française defines it as the process of reviewing the design of a piece of software from its foundations, in light of the current state of techniques and knowledge, in order to improve it. For business software, it covers three routes: keep and clean up, rewrite in pieces, or replace with an off-the-shelf product. Checked on 16 October 2026."
         },
@@ -502,25 +502,25 @@
         },
         {
           "q_fr": "Faut-il tout réécrire d'un coup ?",
-          "a_fr": "Non, d'après les trois sources lues. Martin Fowler constate que le plan de remplacement qui paraît simple échoue le plus souvent. Pulse.digital écrit que le big bang est l'anti-méthode. TechMind conseille de garder l'ancien système en service tant que le nouveau n'a pas prouvé, morceau par morceau, qu'il porte la charge. La migration se fait par incréments, avec coexistence.",
+          "a_fr": "Non. Martin Fowler constate que le plan de remplacement qui paraît simple échoue le plus souvent, Pulse.digital qualifie le big bang d'anti-méthode, et TechMind conseille de garder l'ancien système en service tant que le nouveau n'a pas prouvé, morceau par morceau, qu'il porte la charge. Je migre par incréments, avec une période de coexistence.",
           "q_en": "Should everything be rewritten at once?",
           "a_en": "No, according to the three sources read. Martin Fowler notes that the simple-looking replacement plan most often fails. Pulse.digital writes that the big bang is the anti-method. TechMind advises keeping the old system in service until the new one has proved, piece by piece, that it carries the load. Migration is done in increments, with coexistence."
         },
         {
           "q_fr": "Combien coûte la refonte d'un logiciel métier ?",
-          "a_fr": "Cela dépend du périmètre, des dépendances et des données à reprendre. Nous ne reprenons aucune fourchette de prestataire. Chez Waimia, le sprint de cadrage dure 10 heures et coûte {{prix.sprint}} € HT ; il livre un prototype testé. La mise en production relève du pilote, dès {{prix.pilote}} € HT. Le périmètre de la première version est fixé au cadrage, par écrit, avant de construire.",
+          "a_fr": "Cela dépend du périmètre, des dépendances et des données à reprendre, et je me méfie de toute fourchette annoncée avant d'avoir vu le code. Chez Waimia, le sprint de cadrage dure 10 heures et coûte {{prix.sprint}} € HT ; il livre un prototype testé. La mise en production relève du pilote, dès {{prix.pilote}} € HT. Le périmètre de la première version est fixé au cadrage, par écrit, avant de construire.",
           "q_en": "How much does it cost to overhaul business software?",
           "a_en": "It depends on the scope, the dependencies and the data to carry over. We do not reproduce any provider's price range. At Waimia, the scoping sprint lasts 10 hours and costs {{prix.sprint.en}} € ex VAT; it delivers a tested prototype. Going into production is part of the pilot, from {{prix.pilote.en}} € ex VAT. The scope of the first version is set at scoping, in writing, before building."
         },
         {
           "q_fr": "L'IA permet-elle de refondre un logiciel plus vite ?",
-          "a_fr": "Elle accélère certains travaux : comprendre un code inconnu, écrire des tests, mettre à jour des dépendances, migrer des fichiers par lots, d'après la documentation de Claude Code. Elle ne décide ni ce qu'on garde, ni quelles données reprendre, ni quand éteindre l'ancien outil. Nous ne donnons aucun chiffre de gain : il dépend de votre code, de ses tests et de ses données. Relevé le 16 octobre 2026.",
+          "a_fr": "Elle accélère certains travaux : comprendre un code inconnu, écrire des tests, mettre à jour des dépendances, migrer des fichiers par lots, d'après la documentation de Claude Code. Elle ne décide ni ce qu'on garde, ni quelles données reprendre, ni quand éteindre l'ancien outil. Le gain dépend de votre code, de ses tests et de ses données.",
           "q_en": "Does AI let you overhaul software faster?",
           "a_en": "It speeds up some tasks: understanding unfamiliar code, writing tests, updating dependencies, migrating files in batches, according to Claude Code's documentation. It does not decide what you keep, which data to carry over, or when to switch the old tool off. We give no gain figure: it depends on your code, its tests and your data. Checked on 16 October 2026."
         },
         {
           "q_fr": "À qui appartient le code après la refonte ?",
-          "a_fr": "À vous. Pour les applications métier que nous développons, le code source, la base de données et la documentation vous sont remis, et l'application tourne sur vos comptes d'hébergement. Un autre développeur peut donc reprendre le travail. Pour l'ancien logiciel, lisez le contrat d'origine : sans accès au code source, la réécriture à partir de l'existant est bloquée. Ce n'est pas un avis juridique.",
+          "a_fr": "À vous. Pour les applications métier que nous développons, le code source, la base de données et la documentation vous sont remis, et l'application tourne sur vos comptes d'hébergement. Un autre développeur peut donc reprendre le travail. Pour l'ancien logiciel, lisez le contrat d'origine : sans accès au code source, la réécriture à partir de l'existant est bloquée, et une clause floue mérite l'œil d'un juriste.",
           "q_en": "Who owns the code after the overhaul?",
           "a_en": "You do. For the business applications we build, the source code, the database and the documentation are handed over, and the application runs on your hosting accounts. Another developer can therefore take over. For the old software, read the original contract: without access to the source code, rewriting from the existing system is blocked. This is not legal advice."
         },

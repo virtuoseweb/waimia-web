@@ -317,6 +317,7 @@ const PAGES: Record<string, PageDef> = {
   '/services/webflow': { label_fr: 'Agence Webflow', label_en: 'Webflow agency', kind: 'service', topics: ['web'] },
   '/services/wordpress': { label_fr: 'Agence WordPress', label_en: 'WordPress agency', kind: 'service', topics: ['web'] },
   '/services/shopify': { label_fr: 'Agence Shopify', label_en: 'Shopify agency', kind: 'service', topics: ['web'] },
+  '/services/lovable': { label_fr: 'Agence Lovable', label_en: 'Lovable agency', kind: 'service', topics: ['web'] },
   '/services/sur-mesure-headless': { label_fr: 'Site sur mesure : Astro et CMS headless', label_en: 'Custom website: Astro and headless CMS', kind: 'service', topics: ['web'] },
   '/services/landing-pages-tunnels': { label_fr: 'Landing pages et tunnels', label_en: 'Landing pages and funnels', kind: 'service', topics: ['web'] },
   '/secteurs/agence': { label_fr: 'Site web et IA pour les agences', label_en: 'Website and AI for agencies', kind: 'secteur', topics: ['web'], emit: false },
@@ -524,7 +525,12 @@ function buildGraph(root: string): Graph {
 
   // Un cas client ne lie pas un autre cas client depuis ce bloc : le gabarit pose déjà la
   // bande « Autres cas » juste au-dessus (sinon les deux blocs listent les mêmes pages).
-  const allowed = (from: string, to: string) => !(PAGES[from].kind === 'cas-client' && PAGES[to].kind === 'cas-client');
+  // Un cas client n'est jamais proposé depuis une page d'implantation : elle ne
+  // partage avec lui qu'un thème très large (`acquisition`), d'où un cas de naturopathe sur
+  // la page de Lille ou de Dijon. Mieux vaut ne rien proposer qu'un cas hors sujet.
+  const allowed = (from: string, to: string) =>
+    !(PAGES[from].kind === 'cas-client' && PAGES[to].kind === 'cas-client') &&
+    !(PAGES[to].kind === 'cas-client' && PAGES[from].kind === 'implantation');
 
   // 1. Anneaux : chaque page émettrice lie les pages qui la suivent dans chacun de ses thèmes.
   const out = new Map<string, string[]>(emitters.map((r) => [r, []]));
@@ -637,6 +643,7 @@ const HUB_GROUPS: Record<string, Array<{ label_fr: string; label_en: string; hre
         '/services/webflow',
         '/services/wordpress',
         '/services/shopify',
+        '/services/lovable',
         '/services/sur-mesure-headless',
         '/services/landing-pages-tunnels',
       ],
