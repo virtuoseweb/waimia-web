@@ -6,7 +6,7 @@
   "slug": "virtuoseos",
   "kind": "interne",
   "publishedAt": "2026-10-05",
-  "updatedAt": "2026-10-05",
+  "updatedAt": "2026-11-11",
   "provenance": "first-party",
   "category": "applications",
   "tags": [
@@ -26,13 +26,13 @@
     "Moteur d'automatisation",
     "Pont vers un agent de code"
   ],
-  "impact_fr": "Prototype estimé à environ 80 % par son auteur, remplacé par Waimia OS. Tableau de bord Next.js sur SQLite, moteur d'automatisation, pont vers un agent de code. Aucun chiffre d'impact publié à ce jour.",
+  "impact_fr": "Prototype remplacé par Waimia OS. Tableau de bord Next.js sur SQLite, moteur d'automatisation, pont vers un agent de code. Aucun chiffre d'impact n'est publié.",
   "impact_en": "Prototype estimated at about 80% by its author, replaced by Waimia OS. A Next.js dashboard on SQLite, an automation engine, a bridge to a coding agent. No impact figure published to date.",
   "impactKicker_fr": "§ Où en est le projet",
   "impactKicker_en": "§ Where the project stands",
   "author": "simon-beros",
   "featured": false,
-  "contextStatement_fr": "VirtuoseOS, ou VirtuoseWeb OS, est le premier système d'exploitation à agents IA construit par Simon Beros, avant Waimia OS. Un tableau de bord Next.js posé sur une base SQLite locale, avec un pont vers un agent de code. L'orientation : rendre superflus des outils SaaS tiers pour l'entreprise qui l'utilise. Son auteur l'estime à environ 80 %.",
+  "contextStatement_fr": "VirtuoseOS, ou VirtuoseWeb OS, est l'ancienne version : le premier système d'exploitation à agents IA construit par Simon Beros, remplacé depuis par Waimia OS. Un tableau de bord Next.js posé sur une base SQLite locale, relié à un agent de code, avec une ambition : rendre superflus des outils SaaS tiers pour l'entreprise qui l'utilise.",
   "contextStatement_en": "VirtuoseOS, or VirtuoseWeb OS, is the first agentic operating system built by Simon Beros, before Waimia OS. A Next.js dashboard on a local SQLite database, with a bridge to a coding agent. The direction: make third-party SaaS tools unnecessary for the company using it. Its author estimates it at about 80%.",
   "contextStats": [
     {
@@ -58,7 +58,7 @@
       "kicker_en": "§ Tools",
       "title_fr": "Remplacer une pile de SaaS",
       "title_en": "Replacing a stack of SaaS tools",
-      "body_fr": "Pipeline commercial, facturation, prospection, publication de contenu : réunir ces fonctions dans un seul outil, pour rendre superflus des abonnements tiers.",
+      "body_fr": "Pipeline commercial, facturation, prospection, publication de contenu : tout dans un seul outil, pour rendre superflus des abonnements tiers.",
       "body_en": "Sales pipeline, invoicing, prospecting, content publishing: bring these functions into one tool, to make third-party subscriptions unnecessary."
     },
     {
@@ -67,7 +67,7 @@
       "kicker_en": "§ Local",
       "title_fr": "Tourner sur le poste",
       "title_en": "Running on the workstation",
-      "body_fr": "Une base SQLite locale et un moteur d'exécution local : le produit était pensé comme un cockpit installé, autour d'un moteur durable d'automatisations.",
+      "body_fr": "Une base SQLite locale et un moteur d'exécution local : un cockpit installé sur le poste, autour d'un moteur durable d'automatisations.",
       "body_en": "A local SQLite database and a local runtime: the product was designed as an installed cockpit, around a durable automation runtime."
     },
     {
@@ -172,7 +172,7 @@
   "stackLead_en": "Next.js and React for the interface, SQLite and Drizzle ORM for data, a local automation engine and a bridge to a coding agent.",
   "ctaHeading_fr": "Moins d’outils, <i>plus de boucles fermées</i>.",
   "ctaHeading_en": "Fewer tools, <i>more closed loops</i>.",
-  "ctaSubtitle_fr": "L'audit gratuit de 45 minutes sert à regarder vos outils, ce qui se traite à la main entre eux et ce qui vaut la peine d'être automatisé.",
+  "ctaSubtitle_fr": "Repartez de l'audit gratuit de 45 minutes avec la liste des tâches que vos outils vous laissent faire à la main, classées de la plus répétitive à la moins utile.",
   "ctaSubtitle_en": "The free 45-minute audit looks at your tools, what is handled by hand between them and what is worth automating.",
   "card": {
     "order": 2,
@@ -192,7 +192,7 @@
     },
     {
       "q": "Que restait-il à faire ?",
-      "a": "Selon Simon Beros, qui estime le projet à environ 80 % : les réponses en flux continu, le raccordement du moteur d'automatisation et le pont de messagerie."
+      "a": "Les réponses en flux continu, le raccordement du moteur d'automatisation et le pont de messagerie."
     }
   ],
   "faq_en": [
@@ -210,7 +210,7 @@
       "type": "editorial-prose",
       "background": "paper-2",
       "maxWidth": "prose",
-      "html_fr": "<h2>Ce que fait l'IA, ce que fait l'humain</h2>\n<ul>\n<li><strong>L'IA</strong>, un agent de code relié par un pont, génère et propose : contenus, pages, évaluation de prospects. Le mode autonome prévoit qu'elle exécute seule une tâche programmée.</li>\n<li><strong>La personne</strong> valide ce que l'IA propose en mode guidé, et peut tout faire à la main : chaque fonction garde son formulaire complet.</li>\n</ul>\n<h2>Construit avec des agents</h2>\n<p>Le dépôt contient aussi une procédure d'orchestration : un agent décompose le travail en missions parallèles, confiées à des agents de code dans des copies de travail isolées, puis relit et intègre le résultat.</p>\n<h2>État d'avancement</h2>\n<p>Simon Beros estime le projet à environ 80 %. Restaient à faire : les réponses en flux continu, le raccordement du moteur d'automatisation et le pont de messagerie. Le projet n'est plus développé : <a href=\"/cas-clients/waimia-os\">Waimia OS</a> le remplace.</p>\n<h2>Ce que Waimia OS en a repris</h2>\n<p>Aucun code. Les modèles de données, les contrats et les mécanismes ont été transposés. La leçon retenue : beaucoup d'écrans ne font pas un produit quand peu de boucles sont fermées de bout en bout.</p>\n<h2>Ce qui est mesuré</h2>\n<p>Aucun chiffre d'impact publié à ce jour. Les comptes cités (fichiers de page, tables) sont des relevés du dépôt au 5 octobre 2026, pas des résultats.</p>",
+      "html_fr": "<h2>Beaucoup d'écrans, peu de boucles fermées</h2>\n<p>VirtuoseOS est l'ancienne version : le prototype qui a précédé <a href=\"/cas-clients/waimia-os\">Waimia OS</a>, le produit actuel. Au 5 octobre 2026, son tableau de bord alignait 125 fichiers de page et 144 tables. La leçon que j'en tire, et que Waimia OS applique : beaucoup d'écrans ne font pas un produit quand peu de boucles sont fermées de bout en bout.</p>\n<h2>L'IA propose, la personne valide</h2>\n<p>Un agent de code, relié par un pont, génère et propose : contenus, pages, évaluation de prospects. En mode guidé, la personne valide ce qu'il propose. Elle peut aussi tout faire à la main, chaque fonction gardant son formulaire complet. Le mode autonome prévoit que l'agent exécute seul une tâche programmée.</p>\n<h2>Construit avec des agents</h2>\n<p>Le dépôt contient aussi une procédure d'orchestration : un agent décompose le travail en missions parallèles, confiées à des agents de code dans des copies de travail isolées, puis relit et intègre le résultat.</p>\n<h2>Où il s'est arrêté</h2>\n<p>J'estime le projet à environ 80 %. Restaient à faire : les réponses en flux continu, le raccordement du moteur d'automatisation et le pont de messagerie. Le projet n'est plus développé.</p>\n<h2>Ce que Waimia OS en a repris</h2>\n<p>Aucun code. Les modèles de données, les contrats et les mécanismes ont été transposés dans <a href=\"/cas-clients/waimia-os\">Waimia OS</a>.</p>",
       "html_en": "<h2>What the AI does, what people do</h2>\n<ul>\n<li><strong>The AI</strong>, a coding agent connected through a bridge, generates and proposes: content, pages, lead scoring. Autonomous mode is designed for it to run a scheduled task on its own.</li>\n<li><strong>The person</strong> validates what the AI proposes in guided mode, and can do everything by hand: every feature keeps its full form.</li>\n</ul>\n<h2>Built with agents</h2>\n<p>The repository also contains an orchestration procedure: one agent breaks the work into parallel missions, handed to coding agents in isolated working copies, then reviews and integrates the result.</p>\n<h2>Progress</h2>\n<p>Simon Beros estimates the project at about 80%. Left to do: streamed responses, wiring up the automation engine and the messaging bridge. The project is no longer developed: <a href=\"/cas-clients/waimia-os\">Waimia OS</a> replaces it.</p>\n<h2>What Waimia OS took from it</h2>\n<p>No code. The data models, contracts and mechanisms were transposed. The lesson kept: many screens do not make a product when few loops are closed end to end.</p>\n<h2>What is measured</h2>\n<p>No impact figure published to date. The counts quoted (page files, tables) were taken in the repository on 5 October 2026; they are not results.</p>"
     }
   ]
