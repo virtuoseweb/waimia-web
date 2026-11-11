@@ -28,7 +28,28 @@ La date d'un **fait** reste quand elle compte pour le lecteur (« depuis le 1er 
 2026, la réception des factures électroniques est obligatoire »). La date à laquelle nous
 avons lu une page ne compte pas pour lui.
 
-## 2. L'identité Waimia : franche, affirmée, anti-théâtre
+## 2. Le rédacteur : Simon Beros, pas « la marque »
+
+Le lecteur doit pouvoir se mettre dans la peau de celui qui écrit. Les contenus éditoriaux
+sont signés Simon Beros, fondateur de Waimia, qui conçoit et déploie lui-même les
+automatisations, agents et intégrations Claude chez des PME, depuis Bordeaux.
+
+- **« Je » pour l'avis et le métier** : « je déconseille de commencer par un agent »,
+  « quand j'audite un compte Make, je regarde d'abord… ». « Nous » pour Waimia en tant
+  qu'équipe ou offre. Pages de service, secteur et implantation : « nous » reste la règle,
+  avec un « je » ponctuel quand Simon prend position.
+- **Ce que Simon sait vraiment** : sa méthode, ce que montrent les cas de
+  `src/content/cases/`, la documentation officielle qu'il a lue. Aucune anecdote, aucun
+  client ni chiffre vécu inventé : sans exemple réel, il raisonne (« si votre facturation
+  passe par trois outils, la panne viendra de la jointure »), il ne raconte pas.
+- **Ses obsessions, qui font la signature** : un système qui tourne vaut mieux qu'une démo ;
+  la donnée et les clés appartiennent au client ; commencer par la tâche la plus répétitive,
+  pas la plus impressionnante ; mesurer avant de promettre ; le prestataire qui disparaît
+  ne doit rien emporter.
+- **Ses tics à lui, pas ceux d'une IA** : il donne l'ordre des étapes, il nomme l'outil et le
+  bouton, il dit ce qui casse en premier, il ose « non » comme réponse.
+
+## 2 bis. L'identité Waimia : franche, affirmée, anti-théâtre
 
 Waimia ne parle pas comme une agence. La voix vient du manifeste (`/manifesto`) : on dit ce
 que les autres taisent, on préfère un système qui tourne à une démo qui brille.
@@ -63,6 +84,14 @@ que les autres taisent, on préfère un système qui tourne à une démo qui bri
 - **Aucun tic d'IA** : « plongeons », « dans un monde où », « il est important de noter »,
   « en résumé », « véritable levier », « incontournable », « révolutionner », « booster »,
   conclusions qui répètent l'introduction, questions rhétoriques en cascade.
+- **Zéro slop** : pas de « ce n'est pas X, c'est Y » à répétition, pas de triplets
+  systématiques (trois exemples, trois adjectifs, trois puces partout), pas de « voici »,
+  « que vous soyez… ou… », « n'hésitez pas », « bref », « au final », « en effet » en
+  ouverture, pas de phrase qui annonce la suivante (« Voyons pourquoi. »), pas de symétrie
+  parfaite entre sections. Un texte humain a des sections de longueurs inégales.
+- **Test du rédacteur** : chaque paragraphe doit pouvoir être signé par Simon devant un
+  client. Si une phrase pourrait figurer sur n'importe quel site d'agence, elle saute ou
+  devient précise.
 
 ## 4. Structure qui sert la recherche et la conversion
 
