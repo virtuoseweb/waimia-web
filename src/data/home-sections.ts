@@ -284,6 +284,6 @@ export const methodOverrides = {
 // viennent de c.json, source unique). heading/intro de FaqAccordion inclus.
 export const faqConfig = {
   idx: [0, 1, 2, 3, 5, 6],
-  heading: 'Ce qu’on écrit par mail avant de se parler.',
-  intro: 'Six réponses nettes, sans jargon.',
+  heading: 'Ce qu’on nous demande avant un premier appel.',
+  intro: 'Prix, délais, outils en place, RGPD, reprise en interne : les réponses courtes.',
 } as const;
