@@ -37,6 +37,12 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### 2026-11-11 · points du dossier `waimia seo` revérifiés en production
+
+- **Export Semrush du 9/10, « H1 identique au title »** (3 pages) : soldé. Sur waimia.com le 11/11, `claude-fonctionnalites-pme`, `n8n-prix` et `calculateur-roi-ia` ont un H1 distinct du title.
+- **Export Semrush, autres alertes par page** (4xx, liens externes cassés, titles et descriptions dupliqués, H1 manquant ou multiple, peu de mots) : aucune ligne non nulle sur les 164 pages de l'export.
+- **« agence automatisation ia »** (29 % du trafic de Kayro, PDF Overview kayro) : requête possédée par `/services/systemes-operationnels-ia` (title « Agence automatisation IA : … »). Aucune impression mesurée sur 28 jours au 6/11 (`perf46`) ; les variantes locales vont aux pages villes, en position 26 à 71. Pas de second title sur l'expression (cannibalisation) ; le levier est l'autorité.
+
 ### 2026-11-11 · faits Mistral périmés corrigés (comparatif et billet auto-hébergement)
 
 **Pourquoi** : Mistral AI a déprécié Mistral Large 3 et Mistral Medium 3.5 le 31 octobre 2026 (retrait le 30 avril 2027, remplacement conseillé : Large 4) et rendu Large 4 disponible le 5 novembre, sans tarif promotionnel. Deux pages donnaient encore les faits du 15 et du 16 octobre. Sources relues le 11/11 : grille de l'API (Large 4 0,7 / 2,1 $, Small 4 0,15 / 0,6 $, Ministral 3 de 0,1 à 0,2 $, Large 3 et Medium 3.5 absents), liste des modèles (licences et dépréciations), page tarifs (Vibe Team 24,99 $ par utilisateur, inchangé).
