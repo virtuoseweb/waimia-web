@@ -209,6 +209,22 @@ export function auditCtaFinal(h2: string, body: string) {
 }
 
 /**
+ * Un billet porte trois emplacements d'audit : après l'introduction (`top`), dans le pied
+ * d'article (`middle`), puis la bande finale (`siloCtaText`, dans taxonomies.ts). Un texte
+ * distinct par emplacement : le même énoncé n'apparaît jamais deux fois sur la page.
+ */
+export const AUDIT_CTA_TEXT = {
+  top: {
+    fr: 'Vérifiez ce que ce sujet change chez vous : 45 minutes, gratuit, sans engagement.',
+    en: 'Check what this changes for you: 45 minutes, free, no commitment.',
+  },
+  middle: {
+    fr: 'Ce que vous emportez : une cartographie écrite de vos tâches, avec les chantiers à lancer en premier.',
+    en: 'What you take away: a written map of your tasks, with the projects to start first.',
+  },
+} as const;
+
+/**
  * Bande CTA de milieu de page (section catalogue `cta-band` ; dans une colonne de lecture,
  * `{ ...auditCtaBand(), type: 'cta-inline' }`, préréglage boîte du même composant). Source unique : libellé et lien de réservation, accroche
  * reprise d'AUDIT_PROMISE (`short` ou `tiny`), aucune phrase propre à la page.
@@ -217,10 +233,10 @@ export function auditCtaFinal(h2: string, body: string) {
  * et page auteur après la 2e section.
  */
 export function auditCtaBand(
-  options: { promise?: 'short' | 'tiny'; background?: 'paper-2' | 'paper-3' | 'ink' | 'accent' } = {},
+  options: { promise?: 'short' | 'tiny' | 'top'; background?: 'paper-2' | 'paper-3' | 'ink' | 'accent' } = {},
 ) {
   const { promise = 'short', background = 'paper-2' } = options;
-  const text = promise === 'tiny' ? AUDIT_PROMISE.general.tiny : AUDIT_PROMISE.general.short;
+  const text = promise === 'tiny' ? AUDIT_PROMISE.general.tiny : promise === 'top' ? AUDIT_CTA_TEXT.top : AUDIT_PROMISE.general.short;
   return {
     type: 'cta-band' as const,
     text_fr: text.fr,
@@ -351,7 +367,7 @@ export const LEAD_CAPTURE_COPY: Record<LeadMagnetSlug, LeadCaptureCopy> = {
     fr: {
       kicker: 'PDF · envoyé par e-mail',
       h2: 'Recevez la charte en PDF, prête à faire signer',
-      body: "Le texte est lisible en entier sur cette page. Le PDF, lui, part uniquement par e-mail, en pièce jointe : il n'existe pas de lien de téléchargement public.",
+      body: "Vous recevez le PDF par e-mail, prêt à imprimer.",
       benefits: [
         'Le modèle complet en neuf articles, mis en page pour être imprimé et signé',
         "Les notes d'adaptation pour l'ajuster à votre entreprise",
@@ -364,7 +380,7 @@ export const LEAD_CAPTURE_COPY: Record<LeadMagnetSlug, LeadCaptureCopy> = {
     en: {
       kicker: 'PDF · sent by email',
       h2: 'Get the policy as a PDF, ready to sign',
-      body: 'The full text is readable on this page. The PDF is sent by email only, as an attachment: there is no public download link.',
+      body: 'You receive the PDF by email, ready to print.',
       benefits: [
         'The full template in nine articles, laid out to print and sign',
         'Adaptation notes to fit it to your company',
@@ -380,7 +396,7 @@ export const LEAD_CAPTURE_COPY: Record<LeadMagnetSlug, LeadCaptureCopy> = {
     fr: {
       kicker: 'PDF · envoyé par e-mail',
       h2: 'Recevez la checklist en PDF pour votre réunion de lancement',
-      body: "La checklist se coche en ligne. Le PDF vierge part uniquement par e-mail, en pièce jointe : il n'existe pas de lien de téléchargement public.",
+      body: "Vous recevez la version vierge par e-mail, en PDF, prête à imprimer pour la réunion.",
       benefits: [
         'Les six prérequis et les douze semaines, une case par action',
         'Les indicateurs à suivre et les signaux d\'alerte',
@@ -393,7 +409,7 @@ export const LEAD_CAPTURE_COPY: Record<LeadMagnetSlug, LeadCaptureCopy> = {
     en: {
       kicker: 'PDF · sent by email',
       h2: 'Get the checklist as a PDF for your kick-off meeting',
-      body: 'The checklist can be ticked online. The blank PDF is sent by email only, as an attachment: there is no public download link.',
+      body: 'You receive the blank version by email, as a PDF, ready to print for the meeting.',
       benefits: [
         'The six prerequisites and twelve weeks, one box per action',
         'The indicators to track and the warning signs',
@@ -409,9 +425,9 @@ export const LEAD_CAPTURE_COPY: Record<LeadMagnetSlug, LeadCaptureCopy> = {
     fr: {
       kicker: 'PDF · 14 pages · envoyé par e-mail',
       h2: "Recevez le guide d'achat Claude dans votre boîte mail",
-      body: "Le guide part uniquement par e-mail, en pièce jointe : il n'existe pas de lien de téléchargement public.",
+      body: "Vous le recevez par e-mail, en PDF.",
       benefits: [
-        'La grille Claude en une page, prix en dollars au 5 octobre 2026',
+        'La grille Claude en une page, prix en dollars',
         'Trois budgets calculés pour 5, 15 et 40 personnes, formules comprises',
         "Douze pièges d'achat et ce qu'ils coûtent",
         'La configuration du jour 1, en douze étapes',
@@ -422,9 +438,9 @@ export const LEAD_CAPTURE_COPY: Record<LeadMagnetSlug, LeadCaptureCopy> = {
     en: {
       kicker: 'PDF · 14 pages · sent by email',
       h2: "Get the Claude buyer's guide in your inbox",
-      body: 'The guide is sent by email only, as an attachment: there is no public download link.',
+      body: 'You receive it by email, as a PDF.',
       benefits: [
-        'The Claude price list on one page, dollar prices as of 5 October 2026',
+        'The Claude price list on one page, dollar prices',
         'Three budgets worked out for 5, 15 and 40 people, formulas included',
         'Twelve buying traps and what they cost',
         'Day-one setup, in twelve steps',
@@ -438,7 +454,7 @@ export const LEAD_CAPTURE_COPY: Record<LeadMagnetSlug, LeadCaptureCopy> = {
     fr: {
       kicker: 'PDF · 10 pages · envoyé par e-mail',
       h2: "Recevez la grille d'audit de site internet dans votre boîte mail",
-      body: "La grille part uniquement par e-mail, en pièce jointe : il n'existe pas de lien de téléchargement public.",
+      body: "Vous la recevez par e-mail, en PDF.",
       benefits: [
         'Huit axes à cocher, du formulaire de contact à la citabilité par les IA',
         'Pour chaque point, le geste ou l\'outil gratuit pour le vérifier',
@@ -451,7 +467,7 @@ export const LEAD_CAPTURE_COPY: Record<LeadMagnetSlug, LeadCaptureCopy> = {
     en: {
       kicker: 'PDF · 10 pages · sent by email',
       h2: 'Get the website audit grid in your inbox',
-      body: 'The grid is sent by email only, as an attachment: there is no public download link.',
+      body: 'You receive it by email, as a PDF.',
       benefits: [
         'Eight axes to tick, from the contact form to AI citability',
         'For each point, the gesture or free tool to check it',
@@ -467,7 +483,7 @@ export const LEAD_CAPTURE_COPY: Record<LeadMagnetSlug, LeadCaptureCopy> = {
     fr: {
       kicker: 'ZIP et PDF · envoyés par e-mail',
       h2: 'Recevez les 8 skills Claude prêts à installer',
-      body: "Le pack part uniquement par e-mail, en deux pièces jointes : il n'existe pas de lien de téléchargement public.",
+      body: "Vous le recevez par e-mail : les skills en ZIP et le mode d'emploi en PDF.",
       benefits: [
         'Huit skills en ZIP : devis, compte rendu, relance de facture, fiche de poste, veille et trois autres',
         "Le mode d'emploi PDF de 11 pages : installer, adapter, tester",
@@ -480,7 +496,7 @@ export const LEAD_CAPTURE_COPY: Record<LeadMagnetSlug, LeadCaptureCopy> = {
     en: {
       kicker: 'ZIP and PDF · sent by email',
       h2: 'Get the 8 Claude skills, ready to install',
-      body: 'The pack is sent by email only, as two attachments: there is no public download link.',
+      body: 'You receive it by email: the skills as a ZIP and the guide as a PDF.',
       benefits: [
         'Eight skills in a ZIP: quotes, meeting notes, invoice reminders, job descriptions, monitoring and three more',
         'The 11-page PDF guide: install, adapt, test',
@@ -496,7 +512,7 @@ export const LEAD_CAPTURE_COPY: Record<LeadMagnetSlug, LeadCaptureCopy> = {
     fr: {
       kicker: 'PDF · 11 pages · envoyé par e-mail',
       h2: 'Recevez le kit conformité Claude pour votre administrateur',
-      body: "Le kit part uniquement par e-mail, en pièce jointe : il n'existe pas de lien de téléchargement public.",
+      body: "Vous le recevez par e-mail, en PDF.",
       benefits: [
         "Les réglages d'administration à vérifier, avec la valeur par défaut et notre recommandation",
         "Les points RGPD et une mini trame d'analyse d'impact",
@@ -509,7 +525,7 @@ export const LEAD_CAPTURE_COPY: Record<LeadMagnetSlug, LeadCaptureCopy> = {
     en: {
       kicker: 'PDF · 11 pages · sent by email',
       h2: 'Get the Claude compliance kit for your administrator',
-      body: 'The kit is sent by email only, as an attachment: there is no public download link.',
+      body: 'You receive it by email, as a PDF.',
       benefits: [
         'The admin settings to check, with the default value and our recommendation',
         'GDPR points and a short impact assessment frame',

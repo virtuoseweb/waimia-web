@@ -14,12 +14,18 @@ interface Props {
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 
-const provenanceLabel = (firstParty: boolean) =>
-  firstParty
+// Statut « En cours » (champ durée de la fiche) : l'étiquette ne dit pas « réalisé » d'un projet ouvert.
+const provenanceLabel = (firstParty: boolean, inProgress = false) =>
+  firstParty && inProgress && !data.first_party_label_fr
+    ? (isFr ? 'Projet en cours · Waimia' : 'Project in progress · Waimia')
+    : firstParty
     ? (isFr ? data.first_party_label_fr ?? 'Projet réalisé · Waimia' : data.first_party_label_en ?? 'Completed project · Waimia')
     : (isFr ? data.second_party_label_fr ?? 'Étude · sources tierces' : data.second_party_label_en ?? 'Study · third-party sources');
 
-const readLabel = isFr ? data.read_label_fr ?? 'Lire le cas →' : data.read_label_en ?? 'Read case →';
+// Le lien nomme son cas (« Lire le cas Balzeo → ») : onze liens identiques ne se distinguent pas
+// à la lecture d'une liste de liens, ni dans l'export Markdown.
+const readBase = (isFr ? data.read_label_fr ?? 'Lire le cas' : data.read_label_en ?? 'Read the case').replace(/\s*→\s*$/, '');
+const readLabel = (title: string) => `${readBase} ${title} →`;
 
 const items = data.cases.map((c, i) => ({
   slug: c.slug,
@@ -32,6 +38,7 @@ const items = data.cases.map((c, i) => ({
   cover: c.cover,
   coverAlt: isFr ? c.cover_alt_fr ?? '' : c.cover_alt_en ?? '',
   firstParty: c.provenance !== 'second-party',
+  inProgress: /^(en cours|in progress)$/i.test((isFr ? c.duration_fr : c.duration_en) ?? ''),
 }));
 
 const [featured, ...rest] = items;
@@ -55,7 +62,7 @@ const itemLabel = isFr ? data.item_label_fr ?? 'Cas' : data.item_label_en ?? 'Ca
     <div class="cas-grid reveal-stagger">
       <a href={featured.href} class="cas-card cas-card--featured">
         <Kicker tone="muted" letterSpacing=".08em" class="cas-card-kicker">{`§ ${itemLabel} ${featured.caseNum} · ${featured.sector}${featured.duration ? ` · ${featured.duration}` : ''}`}</Kicker>
-        <span class="cas-card-provenance">{provenanceLabel(featured.firstParty)}</span>
+        <span class="cas-card-provenance">{provenanceLabel(featured.firstParty, featured.inProgress)}</span>
         <CardTitle class="cas-card-title">{featured.title}</CardTitle>
         <p class="cas-card-headline">{featured.headline}</p>
         {featured.cover && (
@@ -69,7 +76,7 @@ const itemLabel = isFr ? data.item_label_fr ?? 'Cas' : data.item_label_en ?? 'Ca
             decoding="async"
           />
         )}
-        <span class="cas-card-cta">{readLabel}</span>
+        <span class="cas-card-cta">{readLabel(featured.title)}</span>
       </a>
       <div class="cas-secondary">
         {rest.map((c) => (
@@ -77,10 +84,10 @@ const itemLabel = isFr ? data.item_label_fr ?? 'Cas' : data.item_label_en ?? 'Ca
             <span class="cas-card-index" aria-hidden="true">{c.caseNum}</span>
             <div class="cas-card-body">
               <Kicker tone="muted" letterSpacing=".08em" class="cas-card-kicker">§ {c.sector}{c.duration ? ` · ${c.duration}` : ''}</Kicker>
-              <span class="cas-card-provenance">{provenanceLabel(c.firstParty)}</span>
+              <span class="cas-card-provenance">{provenanceLabel(c.firstParty, c.inProgress)}</span>
               <CardTitle class="cas-card-title">{c.title}</CardTitle>
               <p class="cas-card-headline">{c.headline}</p>
-              <span class="cas-card-cta">{readLabel}</span>
+              <span class="cas-card-cta">{readLabel(c.title)}</span>
             </div>
           </a>
         ))}

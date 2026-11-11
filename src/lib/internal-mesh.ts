@@ -525,7 +525,12 @@ function buildGraph(root: string): Graph {
 
   // Un cas client ne lie pas un autre cas client depuis ce bloc : le gabarit pose déjà la
   // bande « Autres cas » juste au-dessus (sinon les deux blocs listent les mêmes pages).
-  const allowed = (from: string, to: string) => !(PAGES[from].kind === 'cas-client' && PAGES[to].kind === 'cas-client');
+  // Un cas client n'est jamais proposé depuis une page d'implantation : elle ne
+  // partage avec lui qu'un thème très large (`acquisition`), d'où un cas de naturopathe sur
+  // la page de Lille ou de Dijon. Mieux vaut ne rien proposer qu'un cas hors sujet.
+  const allowed = (from: string, to: string) =>
+    !(PAGES[from].kind === 'cas-client' && PAGES[to].kind === 'cas-client') &&
+    !(PAGES[to].kind === 'cas-client' && PAGES[from].kind === 'implantation');
 
   // 1. Anneaux : chaque page émettrice lie les pages qui la suivent dans chacun de ses thèmes.
   const out = new Map<string, string[]>(emitters.map((r) => [r, []]));

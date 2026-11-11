@@ -28,7 +28,7 @@ export const data: LeadMagnetPage = {
     'The IT or AI lead who sets up the organisation and must answer data and compliance questions.',
   ],
   inside_fr: [
-    { title: 'La grille Claude en une page', desc: "Les cinq offres, les deux types de siège Team, l'usage relatif, les conditions et ce qui compte pour une PME. Prix en dollars au 5 octobre 2026." },
+    { title: 'La grille Claude en une page', desc: "Les cinq offres, les deux types de siège Team, l'usage relatif, les conditions et ce qui compte pour une PME." },
     { title: 'Matrice de décision par profil', desc: 'Huit situations, de dirigeant seul à 40 personnes avec exigences de données : offre recommandée, raison et piège à éviter.' },
     { title: 'Estimer le coût : méthode et formules', desc: "Les formules Team et Enterprise, le classement des utilisateurs en trois groupes, l'usage au-delà du quota et la mise en place." },
     { title: 'Trois budgets illustratifs : 5, 15 et 40 personnes', desc: "Calculs détaillés, mensuel contre annuel, seuil d'équilibre Team contre Enterprise, et les limites de chaque calcul." },
