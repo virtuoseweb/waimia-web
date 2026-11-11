@@ -9,8 +9,10 @@ import type { SectionByType } from '@waimia/ds-kernel';
 interface Props {
   data: SectionByType<'article-grid'>;
   lang: 'fr' | 'en';
+  /** Titre masqué du bloc : distinct par bloc quand une page en empile plusieurs. */
+  srTitle?: string;
 }
-const { data, lang } = Astro.props;
+const { data, lang, srTitle } = Astro.props;
 const isFr = lang === 'fr';
 const kicker = isFr ? data.kicker_fr : data.kicker_en;
 const h2 = isFr ? data.h2_fr : data.h2_en;
@@ -25,7 +27,7 @@ const intro = isFr ? data.intro_fr : data.intro_en;
         {intro && <p class="article-grid__intro u-body-muted">{intro}</p>}
       </div>
     )}
-    <h2 class="sr-only">{isFr ? 'Derniers articles' : 'Latest articles'}</h2>
+    <h2 class="sr-only">{srTitle ?? (isFr ? 'Derniers articles' : 'Latest articles')}</h2>
     <div class="article-grid__list" data-cols={data.columns}>
       {data.articles.map((a) => {
         const tag = isFr ? a.tag_fr : a.tag_en;

@@ -25,6 +25,7 @@ const d = entry.data;
   revisedAt={d.revisedAt!}
   version={d.version}
   sections={d.toc!}
+  showCta={false}
 >
   <Fragment slot="headline" set:html={d.headlineHtml} />
   <Fragment slot="lede" set:html={d.ledeHtml} />

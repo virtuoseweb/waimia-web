@@ -69,6 +69,13 @@ if (activeKind && ownHead) {
 // Grilles successives de 12 cartes (borne du schéma article-grid), ordre chronologique conservé.
 const GRID_MAX = 12;
 const grids: SectionByType<'article-grid'>[] = [];
+// Titre masqué de chaque grille : la plage de cartes qu'elle affiche (une seule grille : « Derniers articles »).
+const gridTitle = (i: number) => {
+  const from = i * GRID_MAX + 1;
+  const to = Math.min((i + 1) * GRID_MAX, shown.length);
+  if (shown.length <= GRID_MAX) return isFr ? 'Derniers articles' : 'Latest articles';
+  return isFr ? `Articles ${from} à ${to}` : `Articles ${from} to ${to}`;
+};
 for (let i = 0; i < shown.length; i += GRID_MAX) {
   grids.push({
     type: 'article-grid',
@@ -219,7 +226,7 @@ const listTitle = activeKind
             pleine largeur de la grille fondue, jamais comptée comme une carte. */}
         {grids.map((g, i) => (
           <Fragment>
-            <ArticleGrid data={g} lang={lang} />
+            <ArticleGrid data={g} lang={lang} srTitle={gridTitle(i)} />
             {i === 0 && grids.length > 1 && (
               <div class="res-list__cta"><CtaBandSection data={auditCtaBand()} lang={lang} /></div>
             )}

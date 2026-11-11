@@ -218,7 +218,7 @@ const art = (...ids: string[]): EeatLink[] => ids.map((id) => ARTICLE_LINKS[id])
 export const EEAT_PACK: EeatPack = {
   author: {
     name: 'Simon Beros',
-    role: 'Fondateur · Architecte de systèmes IA',
+    role: 'Fondateur de Waimia · ingénieur IA et automatisation',
     location: 'Bordeaux, France',
     profileHref: '/equipe/simon-beros',
     initials: 'SB',
@@ -267,7 +267,7 @@ export const EEAT_PACK: EeatPack = {
     { label: 'Formation incluse', detail: 'Documentation et passation : votre équipe est autonome à la livraison.' },
     { label: 'Zéro captivité', detail: 'Code, workflows et documentation transférés : vous gardez la main.' },
   ],
-  honestyNote: 'Studio solo : un ingénieur, chaque mission documentée sur sa propre fiche.',
+  honestyNote: 'Chaque mission est documentée sur sa propre fiche.',
   credentials: [
     // width/height = dimensions intrinsèques du fichier (PNG 500×455), réservent la place (CLS).
     { src: '/logos/badge-france-num-activateur.png', alt: 'Activateur France Num', href: 'https://www.francenum.gouv.fr/activateurs/beros-simon', width: 500, height: 455 },

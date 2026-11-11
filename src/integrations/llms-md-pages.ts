@@ -43,6 +43,10 @@ function htmlToMarkdown(html: string): string {
   // Remove unwanted tags entirely (content included)
   md = stripTags(md, 'script', 'style', 'noscript', 'svg', 'iframe', 'audio', 'video', 'form', 'button', 'nav', 'picture');
 
+  // États masqués (hidden, aria-hidden) : message de succès ou d'erreur d'un formulaire, jamais
+  // du contenu. Balises feuilles seulement : une regex ne sait pas fermer un <div> imbriqué.
+  md = md.replace(/<(p|span|li|small|label)\b[^>]*\s(?:hidden|aria-hidden="true")(?=[\s>=/])[^>]*>[\s\S]*?<\/\1>/gi, '');
+
   // Remove HTML comments
   md = md.replace(/<!--[\s\S]*?-->/g, '');
 
