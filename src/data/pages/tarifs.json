@@ -26,7 +26,7 @@
       "background": "paper",
       "h1_fr": "Tarifs automatisation et <i>intégration IA</i> pour PME",
       "h1_en": "AI automation and <i>integration</i> pricing for SMEs",
-      "lede_fr": "Audit IA gratuit de 45 min, sprint de cadrage de 10 h à {{prix.sprint}} € HT, pilote dès {{prix.pilote}} € HT, puis {{prix.horaire}} € HT de l'heure. Maintenance dès {{prix.maintenance.p1}} € HT par mois. Devis ferme après l'audit.",
+      "lede_fr": "L'audit IA est gratuit : 45 minutes en visio. Le sprint de cadrage, 10 h à {{prix.sprint}} € HT, est à prix fixe. Le pilote, un premier système en production, démarre à {{prix.pilote}} € HT et se chiffre sur devis. La maintenance démarre à {{prix.maintenance.p1}} € HT par mois, le travail en régie coûte {{prix.horaire}} € HT de l'heure. Le devis ferme vient après l'audit.",
       "lede_en": "Free 45-min AI audit, 10-hour scoping sprint at {{prix.sprint.en}} € ex VAT, pilot from {{prix.pilote.en}} € ex VAT, then {{prix.horaire}} € ex VAT an hour. Maintenance from {{prix.maintenance.p1}} € a month. Firm quote after the audit.",
       "rows": [
         {
@@ -34,7 +34,7 @@
           "step_en": "Step 1",
           "name_fr": "Audit IA",
           "name_en": "AI audit",
-          "body_fr": "Avec Simon Beros, qui réalisera la mission. On passe vos processus et vos outils en revue.",
+          "body_fr": "45 minutes en visio avec Simon Beros, qui réalisera lui-même la mission si vous la lancez. On déroule vos processus et vos outils, tâche par tâche.",
           "body_en": "With Simon Beros, who will do the work. We go through your processes and tools.",
           "includes_fr": [
             "Une cartographie écrite et un ou deux chantiers classés",
@@ -62,13 +62,12 @@
           "step_en": "Step 2",
           "name_fr": "Sprint de cadrage",
           "name_en": "Scoping sprint",
-          "body_fr": "Dix heures pour cadrer le premier chantier : périmètre, données, outils à brancher, risques. Vous repartez avec un premier livrable en main.",
+          "body_fr": "Dix heures pour fixer le premier chantier : périmètre, données, outils à brancher, risques. Vous repartez avec un livrable utilisable, et un temps estimé pour la suite.",
           "body_en": "Ten hours to scope the first project: perimeter, data, tools to connect, risks. You leave with a first deliverable in hand.",
           "includes_fr": [
             "Cartographie du processus visé",
-            "Premier livrable actionnable",
-            "Plan d'action et temps estimé pour la suite",
-            "Points RGPD et AI Act repérés"
+            "Un premier livrable actionnable",
+            "Les points RGPD et AI Act repérés"
           ],
           "includes_en": [
             "Map of the target process",
@@ -93,7 +92,7 @@
           "step_en": "Step 3",
           "name_fr": "Pilote",
           "name_en": "Pilot",
-          "body_fr": "Un premier système en production : une automatisation, un agent IA ou une application métier, branché à vos outils et mesuré sur vos données.",
+          "body_fr": "Une automatisation, un agent IA ou une application métier, branché à vos outils et mesuré sur vos données. Le prix monte avec le nombre d'outils à brancher et l'état de vos données.",
           "body_en": "A first system in production: an automation, an AI agent or a business application, connected to your tools and measured on your data.",
           "includes_fr": [
             "Le module qui rend le plus de temps, mis en production",
@@ -109,7 +108,7 @@
           ],
           "price_fr": "Dès 2 000 € HT",
           "price_en": "From 2,000 € ex VAT",
-          "price_note_fr": "4 000 € HT indicatif pour une application de 3 à 5 écrans avec un premier agent",
+          "price_note_fr": "Sur devis. 4 000 € HT indicatif pour une application de 3 à 5 écrans avec un premier agent",
           "price_note_en": "4,000 € ex VAT indicative for a 3-to-5-screen application with a first agent",
           "cta": {
             "label_fr": "Cadrer un pilote",
@@ -122,7 +121,7 @@
           "step_en": "Step 4",
           "name_fr": "Déploiement sur mesure",
           "name_en": "Custom rollout",
-          "body_fr": "Le pilote a fait ses preuves : on étend. Plusieurs automatisations, agents et applications sur une même base, reliés à vos logiciels.",
+          "body_fr": "Le pilote tient ses promesses : on étend. Automatisations, agents et applications partagent une même base et se branchent à vos logiciels.",
           "body_en": "The pilot has proven itself: we extend. Several automations, agents and applications on one base, connected to your software.",
           "includes_fr": [
             "Plusieurs modules sur un socle commun",
@@ -138,7 +137,7 @@
           ],
           "price_fr": "Dès 7 000 € HT",
           "price_en": "From 7,000 € ex VAT",
-          "price_note_fr": "10 000 € HT et plus pour un système complet. Devis ferme après audit.",
+          "price_note_fr": "Sur devis : 10 000 € HT et plus pour un système complet.",
           "price_note_en": "10,000 € ex VAT and up for a complete system. Firm quote after the audit.",
           "cta": {
             "label_fr": "Demander un devis",
@@ -151,13 +150,12 @@
           "step_en": "Step 5",
           "name_fr": "Accompagnement continu",
           "name_en": "Ongoing support",
-          "body_fr": "Un système en production se surveille et s'entretient. La maintenance se vend en trois paliers mensuels, du suivi seul à l'optimisation continue. Le contenu de chaque palier est détaillé dans la grille qui suit.",
+          "body_fr": "Un système en production se surveille et s'entretient : un modèle change, l'interface d'un outil bouge, et le workflow s'arrête. Trois paliers mensuels, du suivi seul à l'optimisation continue ; la grille qui suit détaille chacun.",
           "body_en": "A system in production needs watching and upkeep. Maintenance is sold in three monthly tiers, from monitoring alone to continuous optimisation. What each tier includes is detailed in the grid below.",
           "includes_fr": [
-            "{{prix.maintenance.p1.nom}} : {{prix.maintenance.p1}} € HT par mois",
-            "{{prix.maintenance.p2.nom}} : {{prix.maintenance.p2}} € HT par mois",
-            "{{prix.maintenance.p3.nom}} : {{prix.maintenance.p3}} € HT par mois",
-            "Interventions hors forfait : {{prix.horaire}} € HT de l'heure"
+            "Trois paliers : {{prix.maintenance.p1.nom}}, {{prix.maintenance.p2.nom}}, {{prix.maintenance.p3.nom}}",
+            "Facturation mensuelle, sans engagement de durée",
+            "Le détail de chaque palier dans la grille ci-dessous"
           ],
           "includes_en": [
             "{{prix.maintenance.p1.nom.en}}: {{prix.maintenance.p1}} € ex VAT a month",
@@ -165,11 +163,11 @@
             "{{prix.maintenance.p3.nom.en}}: {{prix.maintenance.p3}} € ex VAT a month",
             "Work outside the plan: {{prix.horaire}} € ex VAT an hour"
           ],
-          "duration_fr": "Trois paliers : {{prix.maintenance.p1}}, {{prix.maintenance.p2}} ou {{prix.maintenance.p3}} € HT par mois",
+          "duration_fr": "Au mois, résiliable quand vous voulez",
           "duration_en": "Three tiers: {{prix.maintenance.p1}}, {{prix.maintenance.p2}} or {{prix.maintenance.p3}} € ex VAT a month",
           "price_fr": "Dès {{prix.maintenance.p1}} € HT/mois",
           "price_en": "From {{prix.maintenance.p1}} € ex VAT/month",
-          "price_note_fr": "Hors forfait : {{prix.horaire}} € HT/h, sur un temps estimé et validé. Sans engagement de durée.",
+          "price_note_fr": "Hors forfait : {{prix.horaire}} € HT de l'heure, sur un temps estimé et validé.",
           "price_note_en": "Outside the plan: {{prix.horaire}} €/h ex VAT, on a time estimate you validate. No minimum term.",
           "cta": {
             "label_fr": "Comparer les trois paliers",
@@ -182,12 +180,12 @@
           "step_en": "Alongside",
           "name_fr": "Formation",
           "name_en": "Training",
-          "body_fr": "Former vos équipes à l'IA et à l'automatisation (n8n, Make, Claude) à partir de vos propres processus. Formations dispensées via Akigora, organisme certifié Qualiopi.",
+          "body_fr": "Vos équipes apprennent l'IA et l'automatisation (n8n, Make, Claude) sur vos propres processus, pas sur des cas d'école. Les formations passent par Akigora, organisme certifié Qualiopi.",
           "body_en": "Train your teams in AI and automation (n8n, Make, Claude) from your own processes. Training delivered through Akigora, a Qualiopi-certified body.",
           "includes_fr": [
             "Ateliers sur vos cas réels",
             "Programme défini après l'audit",
-            "Deux formats : {{prix.formation.f1.heures}} heures pour {{prix.formation.f1}} € HT {{prix.formation.base}}, {{prix.formation.f2.heures}} heures pour {{prix.formation.f2}} € HT {{prix.formation.base}}",
+            "Deux formats : {{prix.formation.f1.heures}} heures ou {{prix.formation.f2.heures}} heures",
             "Prise en charge possible selon votre situation"
           ],
           "includes_en": [
@@ -212,7 +210,7 @@
       "aside": {
         "title_fr": "Aussi au catalogue",
         "title_en": "Also available",
-        "body_fr": "Même règle que le parcours : audit d'abord, prix affichés.",
+        "body_fr": "Même règle : l'audit d'abord, les prix affichés.",
         "body_en": "Same rule as the path above: audit first, prices shown.",
         "items": [
           {
@@ -244,7 +242,7 @@
           }
         ]
       },
-      "footnote_fr": "Prix hors taxes. Les montants « dès » sont des planchers : le devis ferme est établi après l'audit gratuit, sur un temps estimé avec vous et validé avant exécution. Taux horaire unique de {{prix.horaire}} € HT, non dégressif. Prix en vigueur au {{prix.maj}}.",
+      "footnote_fr": "Prix hors taxes. Les montants « dès » sont des planchers : le devis ferme est établi après l'audit gratuit, sur un temps estimé avec vous et validé avant exécution. Taux horaire unique de {{prix.horaire}} € HT en régie, non dégressif ; les forfaits de maintenance incluent leurs propres heures. Prix en vigueur au {{prix.maj}}.",
       "footnote_en": "Prices exclude VAT. \"From\" amounts are floors: the firm quote is drawn up after the free audit, on a time estimate made with you and validated before work starts. Single hourly rate of {{prix.horaire}} € ex VAT, flat. Prices valid as of {{prix.maj.en}}."
     },
     {
@@ -256,7 +254,7 @@
       "kicker_en": "§ Ongoing support",
       "h2_fr": "Maintenance : les trois paliers, côte à côte",
       "h2_en": "Maintenance: the three tiers, side by side",
-      "lede_fr": "Trois forfaits mensuels pour les systèmes en production. Les interventions hors forfait sont facturées {{prix.horaire}} € HT de l'heure, sur un temps estimé et validé avant exécution. Sans engagement de durée.",
+      "lede_fr": "Trois forfaits mensuels pour les systèmes en production. Hors forfait, l'heure vaut {{prix.horaire}} € HT, sur un temps estimé et validé avant exécution. Vous arrêtez quand vous voulez.",
       "lede_en": "Three monthly plans for systems in production. Work outside the plan is billed {{prix.horaire}} € ex VAT an hour, on a time estimate validated before work starts. No duration commitment.",
       "tiers": [
         {
@@ -314,20 +312,20 @@
           "period_fr": "/ mois · HT",
           "period_en": "/ month · ex VAT",
           "features_fr": [
+            "{{prix.maintenance.p3.inclus.6}}",
+            "{{prix.maintenance.p3.inclus.5}}",
+            "{{prix.maintenance.p3.inclus.3}}",
             "{{prix.maintenance.p3.inclus.1}}",
             "{{prix.maintenance.p3.inclus.2}}",
-            "{{prix.maintenance.p3.inclus.3}}",
-            "{{prix.maintenance.p3.inclus.4}}",
-            "{{prix.maintenance.p3.inclus.5}}",
-            "{{prix.maintenance.p3.inclus.6}}"
+            "{{prix.maintenance.p3.inclus.4}}"
           ],
           "features_en": [
+            "{{prix.maintenance.p3.inclus.6.en}}",
+            "{{prix.maintenance.p3.inclus.5.en}}",
+            "{{prix.maintenance.p3.inclus.3.en}}",
             "{{prix.maintenance.p3.inclus.1.en}}",
             "{{prix.maintenance.p3.inclus.2.en}}",
-            "{{prix.maintenance.p3.inclus.3.en}}",
-            "{{prix.maintenance.p3.inclus.4.en}}",
-            "{{prix.maintenance.p3.inclus.5.en}}",
-            "{{prix.maintenance.p3.inclus.6.en}}"
+            "{{prix.maintenance.p3.inclus.4.en}}"
           ],
           "cta": {
             "label_fr": "Mettre en place ce palier →",
@@ -401,7 +399,7 @@
         {
           "q_fr": "Combien coûte une agence IA pour une PME ?",
           "q_en": "How much does an AI agency cost for an SME?",
-          "a_fr": "L'audit est gratuit. Le sprint de cadrage coûte {{prix.sprint}} € HT pour 10 heures, puis le travail est facturé en régie à {{prix.horaire}} € HT de l'heure.\n\nUn pilote, c'est-à-dire un premier système en production, démarre à 2 000 € HT. Comptez 4 000 € HT à titre indicatif pour une application de 3 à 5 écrans avec un premier agent. Une formation se chiffre à part : {{prix.formation.f1.heures}} heures pour {{prix.formation.f1}} € HT, ou {{prix.formation.f2.heures}} heures pour {{prix.formation.f2}} € HT.",
+          "a_fr": "L'audit est gratuit. Le sprint de cadrage coûte {{prix.sprint}} € HT pour 10 heures, puis le travail est facturé en régie à {{prix.horaire}} € HT de l'heure.\n\nUn pilote démarre à 2 000 € HT. Comptez 4 000 € HT à titre indicatif pour une application de 3 à 5 écrans avec un premier agent. Une formation se chiffre à part : {{prix.formation.f1.heures}} heures pour {{prix.formation.f1}} € HT, ou {{prix.formation.f2.heures}} heures pour {{prix.formation.f2}} € HT.",
           "a_en": "The audit is free. The scoping sprint costs {{prix.sprint.en}} € ex VAT for 10 hours, then the work is billed on a time-and-materials basis at {{prix.horaire}} € ex VAT an hour.\n\nA pilot, meaning a first system in production, starts at 2,000 € ex VAT. Count 4,000 € ex VAT as an indication for a 3-to-5-screen application with a first agent. Training is priced separately: {{prix.formation.f1.heures}} hours for {{prix.formation.f1.en}} € ex VAT, or {{prix.formation.f2.heures}} hours for {{prix.formation.f2.en}} € ex VAT."
         },
         {
@@ -431,7 +429,7 @@
         {
           "q_fr": "Et si j'ai seulement besoin d'un site web ou de prospection ?",
           "q_en": "What if I only need a website or prospecting?",
-          "a_fr": "Oui, Waimia développe aussi des sites web. Un site web IA démarre à 2 000 € HT, sa maintenance démarre à {{prix.maintenance.p1}} € HT par mois. La prospection automatisée est en abonnement, dès {{prix.commercial}} € HT par mois (formule Standard ; formule Pro à 1 650 € HT par mois). Point d'entrée : un essai gratuit de {{prix.commercial.essai}} leads, à 0 €.",
+          "a_fr": "Vous pouvez ne prendre qu'un site ou de la prospection : Waimia développe aussi des sites web. Un site web IA démarre à 2 000 € HT, sa maintenance démarre à {{prix.maintenance.p1}} € HT par mois. La prospection automatisée est en abonnement, dès {{prix.commercial}} € HT par mois (formule Standard ; formule Pro à 1 650 € HT par mois). Point d'entrée : un essai gratuit de {{prix.commercial.essai}} leads, à 0 €.",
           "a_en": "Yes, Waimia also builds websites. An AI website starts at 2,000 € ex VAT, its maintenance starts at {{prix.maintenance.p1}} € ex VAT a month. Automated prospecting is a subscription, from {{prix.commercial}} € ex VAT a month (Standard plan; Pro plan at 1,650 € ex VAT a month). Entry point: a free trial of {{prix.commercial.essai}} leads, at 0 €."
         }
       ]
@@ -447,7 +445,7 @@
       "kicker_en": "§ First step",
       "h2_fr": "Le devis ferme vient après un audit <i>gratuit</i>.",
       "h2_en": "The firm quote comes after a <i>free</i> audit.",
-      "subtitle_fr": "Quarante-cinq minutes en visio. Vous repartez avec une cartographie écrite, un ou deux chantiers classés et un avis net sur la suite, qu'on travaille ensemble ou non.",
+      "subtitle_fr": "Quarante-cinq minutes en visio, et un avis net sur la suite, qu'on travaille ensemble ou non.",
       "subtitle_en": "Forty-five minutes on a call. You leave with a written task map, one or two ranked projects and a clear opinion on what to do next, whether we work together or not.",
       "buttons": [
         {
@@ -457,7 +455,7 @@
           "variant": "primary"
         },
         {
-          "label_fr": "En savoir plus sur l'audit",
+          "label_fr": "Voir comment se passe l'audit",
           "label_en": "More about the audit",
           "href": "/audit-ia-pme",
           "variant": "ghost"
