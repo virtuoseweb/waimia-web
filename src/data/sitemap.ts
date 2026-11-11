@@ -103,6 +103,7 @@ export const MM_SOLUTIONS_NEW: MegaMenu = {
         { href: '/services/webflow', label: { en: 'Webflow agency', fr: 'Agence Webflow' } },
         { href: '/services/wordpress', label: { en: 'WordPress agency', fr: 'Agence WordPress' } },
         { href: '/services/shopify', label: { en: 'Shopify agency', fr: 'Agence Shopify' } },
+        { href: '/services/lovable', label: { en: 'Lovable agency', fr: 'Agence Lovable' } },
         { href: '/services/sur-mesure-headless', label: { en: 'Custom website', fr: 'Site sur mesure' } },
         { href: '/services/landing-pages-tunnels', label: { en: 'Landing pages and funnels', fr: 'Landing pages et tunnels' } },
         { href: '/services/seo-geo-contenu', label: { en: 'SEO and organic search agency', fr: 'Agence SEO et référencement naturel' } },

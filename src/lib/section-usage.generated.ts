@@ -103,7 +103,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "case-card-grid": {
-    "count": 43,
+    "count": 44,
     "pages": [
       "/audit-ia-pme",
       "/lp/hub",
@@ -123,6 +123,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/centralisation-donnees",
       "/services/crm-scoring-routing",
       "/services/integration-claude",
+      "/services/lovable",
       "/services/mvp-saas",
       "/services/portail-client",
       "/services/redaction-seo-contenu",
@@ -180,7 +181,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "comparison-duo": {
-    "count": 66,
+    "count": 67,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
@@ -224,6 +225,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/integration-mistral-ai",
       "/services/integration-openclaw",
       "/services/landing-pages-tunnels",
+      "/services/lovable",
       "/services/naming-et-positionnement",
       "/services/portail-client",
       "/services/prospection-automatisee",
@@ -466,7 +468,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "definition-extract": {
-    "count": 51,
+    "count": 52,
     "pages": [
       "/services/agent-qualification-leads",
       "/services/agent-support-client",
@@ -492,6 +494,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/integration-mistral-ai",
       "/services/integration-openclaw",
       "/services/landing-pages-tunnels",
+      "/services/lovable",
       "/services/mvp-saas",
       "/services/naming-et-positionnement",
       "/services/portail-client",
@@ -522,7 +525,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "deliverables-grid": {
-    "count": 58,
+    "count": 59,
     "pages": [
       "/audit-site-web-intelligent",
       "/conformite-ia",
@@ -556,6 +559,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/integration-mistral-ai",
       "/services/integration-openclaw",
       "/services/landing-pages-tunnels",
+      "/services/lovable",
       "/services/mvp-saas",
       "/services/naming-et-positionnement",
       "/services/portail-client",
@@ -757,7 +761,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "editorial-prose": {
-    "count": 371,
+    "count": 372,
     "pages": [
       "/audit-ia-pme",
       "/cas-usages/centraliser-donnees",
@@ -864,6 +868,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/integration-mistral-ai",
       "/services/integration-openclaw",
       "/services/landing-pages-tunnels",
+      "/services/lovable",
       "/services/mvp-saas",
       "/services/naming-et-positionnement",
       "/services/portail-client",
@@ -996,7 +1001,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "eeat-panel": {
-    "count": 55,
+    "count": 56,
     "pages": [
       "/audit-ia-pme",
       "/services/agent-qualification-leads",
@@ -1025,6 +1030,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/integration-mistral-ai",
       "/services/integration-openclaw",
       "/services/landing-pages-tunnels",
+      "/services/lovable",
       "/services/mvp-saas",
       "/services/naming-et-positionnement",
       "/services/portail-client",
@@ -1062,7 +1068,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "faq-accordion": {
-    "count": 159,
+    "count": 160,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -1185,6 +1191,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/integration-mistral-ai",
       "/services/integration-openclaw",
       "/services/landing-pages-tunnels",
+      "/services/lovable",
       "/services/mvp-saas",
       "/services/naming-et-positionnement",
       "/services/portail-client",
@@ -1283,7 +1290,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "footer-cta-band": {
-    "count": 158,
+    "count": 159,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -1407,6 +1414,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/integration-mistral-ai",
       "/services/integration-openclaw",
       "/services/landing-pages-tunnels",
+      "/services/lovable",
       "/services/mvp-saas",
       "/services/naming-et-positionnement",
       "/services/portail-client",
@@ -1527,7 +1535,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "hero-masthead-card": {
-    "count": 35,
+    "count": 36,
     "pages": [
       "/services/agent-qualification-leads",
       "/services/agent-support-client",
@@ -1541,6 +1549,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/charte-graphique-brand-book",
       "/services/crm-scoring-routing",
       "/services/identite-de-marque",
+      "/services/lovable",
       "/services/mvp-saas",
       "/services/naming-et-positionnement",
       "/services/portail-client",
@@ -1699,11 +1708,12 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "hover-reveal-list": {
-    "count": 14,
+    "count": 15,
     "pages": [
       "/services/automatisation-reseaux-sociaux",
       "/services/branding",
       "/services/cold-email-b2b",
+      "/services/lovable",
       "/services/prospection-linkedin",
       "/services/shopify",
       "/services/social-selling-ia",
@@ -1944,7 +1954,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "pricing-cards": {
-    "count": 58,
+    "count": 59,
     "pages": [
       "/lp/site-web-intelligent",
       "/lp/systeme-acquisition",
@@ -1976,6 +1986,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/integration-mistral-ai",
       "/services/integration-openclaw",
       "/services/landing-pages-tunnels",
+      "/services/lovable",
       "/services/mvp-saas",
       "/services/naming-et-positionnement",
       "/services/portail-client",
@@ -2089,7 +2100,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "proof-bar": {
-    "count": 61,
+    "count": 62,
     "pages": [
       "/lp/hub",
       "/lp/site-web-intelligent",
@@ -2123,6 +2134,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/integration-mistral-ai",
       "/services/integration-openclaw",
       "/services/landing-pages-tunnels",
+      "/services/lovable",
       "/services/mvp-saas",
       "/services/naming-et-positionnement",
       "/services/portail-client",
@@ -2402,7 +2414,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "tech-when-dual": {
-    "count": 57,
+    "count": 58,
     "pages": [
       "/cas-usages/finance-comptabilite",
       "/cas-usages/rh",
@@ -2457,6 +2469,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/integration-chatgpt-openai",
       "/services/integration-claude",
       "/services/integration-mistral-ai",
+      "/services/lovable",
       "/services/shopify",
       "/services/sur-mesure-headless",
       "/services/webflow",

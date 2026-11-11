@@ -1,0 +1,687 @@
+{
+  "$schema": "../../../schemas/generated/services.page.schema.json",
+  "title_fr": "Agence Lovable pour PME : du prototype à la production · Waimia",
+  "seoTitle_fr": "Agence Lovable : du prototype à un outil en production",
+  "title_en": "Lovable agency for SMEs: from prototype to production · Waimia",
+  "description_fr": "Agence Lovable pour PME : nous partons de votre prototype, reprenons le code, sécurisons la base et mettons en production. Dès {{prix.sprint}} € HT.",
+  "description_en": "Lovable agency for SMBs: we start from your prototype, take over the code, secure the database and go live. From €{{prix.sprint.en}} excl. VAT.",
+  "slug": "lovable",
+  "publishedAt": "2026-11-11T00:00:00.000Z",
+  "updatedAt": "2026-11-11T00:00:00.000Z",
+  "category": "web",
+  "tags": [
+    "lovable",
+    "agence-lovable",
+    "prototype-ia",
+    "reprise-de-code",
+    "supabase",
+    "site-web-intelligent"
+  ],
+  "sources": [
+    {
+      "name": "Lovable, documentation Welcome (ce que Lovable génère, synchronisation Git) (lu le 11 novembre 2026)",
+      "url": "https://docs.lovable.dev/introduction/welcome",
+      "type": "enterprise"
+    },
+    {
+      "name": "Lovable, documentation FAQ (React + Vite, TanStack Start, pas de choix de framework ni de base) (lu le 11 novembre 2026)",
+      "url": "https://docs.lovable.dev/introduction/faq",
+      "type": "enterprise"
+    },
+    {
+      "name": "Lovable, documentation Publish (hébergement, adresse lovable.app, visibilité, applications mobiles) (lu le 11 novembre 2026)",
+      "url": "https://docs.lovable.dev/features/publish",
+      "type": "enterprise"
+    },
+    {
+      "name": "Lovable, documentation Custom domain (domaine personnalisé, formules payantes) (lu le 11 novembre 2026)",
+      "url": "https://docs.lovable.dev/features/custom-domain",
+      "type": "enterprise"
+    },
+    {
+      "name": "Lovable, documentation Lovable Cloud (Supabase, export, suppression, région) (lu le 11 novembre 2026)",
+      "url": "https://docs.lovable.dev/features/cloud",
+      "type": "enterprise"
+    },
+    {
+      "name": "Lovable, documentation Supabase (projet Supabase externe, migrations, secrets, RLS) (lu le 11 novembre 2026)",
+      "url": "https://docs.lovable.dev/integrations/supabase",
+      "type": "enterprise"
+    },
+    {
+      "name": "Lovable, documentation GitHub (synchronisation, dépôt, limites) (lu le 11 novembre 2026)",
+      "url": "https://docs.lovable.dev/integrations/github",
+      "type": "enterprise"
+    },
+    {
+      "name": "Lovable, documentation Security (analyses rapide et approfondie, RLS, secrets) (lu le 11 novembre 2026)",
+      "url": "https://docs.lovable.dev/features/security",
+      "type": "enterprise"
+    },
+    {
+      "name": "Lovable, documentation SEO and AI search (rendu serveur, prérendu, limites) (lu le 11 novembre 2026)",
+      "url": "https://docs.lovable.dev/features/seo-aeo",
+      "type": "enterprise"
+    }
+  ],
+  "seo": {
+    "noindex": false,
+    "serviceType": "Agence Lovable : prototype, reprise de code, sécurisation et mise en production pour PME",
+    "priceRange": "dès {{prix.sprint}} €",
+    "priceMin": 999
+  },
+  "faq_fr": [
+    {
+      "q": "Qu'est-ce que Lovable, et que génère-t-il ?",
+      "a": "Lovable est une plateforme qui produit une application web à partir d'une description en langage naturel : interface, base de données, comptes utilisateurs et intégrations, avec un code modifiable. Les applications créées depuis le 13 mai 2026 utilisent TanStack Start ; les plus anciennes, React et Vite. Lovable ne laisse pas choisir le framework ni la base (documentation Lovable)."
+    },
+    {
+      "q": "Le code et les données nous appartiennent-ils ?",
+      "a": "Le code, oui : le projet se synchronise vers GitHub, et le dépôt reste en place si vous coupez la synchronisation. Les données dépendent du backend. Avec Lovable Cloud, la base est fondée sur Supabase mais n'est pas un projet Supabase à votre nom : la sortie passe par un export puis une restauration chez vous, et la suppression de Cloud efface définitivement les données. Nous réglons ce point avant la mise en production."
+    },
+    {
+      "q": "Un prototype Lovable est-il sécurisé ?",
+      "a": "Pas par défaut. Lovable lance une analyse rapide à chaque publication (tables sans règles d'accès, dépendances vulnérables) et propose une analyse approfondie du code, à lancer à la main. Son éditeur écrit lui-même que ces outils ne garantissent pas une sécurité complète et conseille une revue professionnelle quand l'application traite des données sensibles. C'est cette revue que nous faisons."
+    },
+    {
+      "q": "Peut-on reprendre un projet Lovable existant ?",
+      "a": "Oui. On commence par lire le dépôt GitHub, la base et les règles d'accès, puis on liste ce qui tient, ce qui se corrige et ce qui se reconstruit. Lovable ne sait pas se brancher sur un dépôt existant : la synchronisation crée toujours un nouveau dépôt, ce qui compte pour l'organisation du travail après la reprise."
+    },
+    {
+      "q": "Un site Lovable est-il bien référencé ?",
+      "a": "Cela dépend de l'âge du projet. Les applications récentes (TanStack Start) renvoient du HTML rendu côté serveur. Les anciennes applications React et Vite sont des pages à navigation dans le navigateur : Lovable ne les prérend que pour les robots d'indexation vérifiés, et le contenu chargé tardivement peut manquer. Lovable ne garantit aucun classement, et nous non plus. Pour un site dont le trafic de recherche compte, nous vérifions le rendu avant d'aller plus loin."
+    },
+    {
+      "q": "Lovable ou Webflow, WordPress, Shopify : lequel choisir ?",
+      "a": "Lovable pour une application : comptes, données, logique métier. Webflow ou WordPress pour un site de contenu que l'équipe marketing fait vivre ; Shopify pour une boutique. Si vous hésitez, l'audit gratuit tranche selon ce que le projet doit faire et qui le fera évoluer."
+    },
+    {
+      "q": "Combien ça coûte ?",
+      "a": "Le sprint de cadrage de 10 heures coûte {{prix.sprint}} € HT : nous lisons le prototype et fixons le périmètre. La mise en production relève du pilote, dès {{prix.pilote}} € HT, et la suite se facture {{prix.horaire}} € HT de l'heure. L'abonnement Lovable, le domaine et l'hébergement sont à votre nom et ne figurent pas dans ces prix."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "What is Lovable, and what does it generate?",
+      "a": "Lovable is a platform that produces a web application from a plain-language description: interface, database, user accounts and integrations, with editable code. Apps created since 13 May 2026 use TanStack Start; older ones use React and Vite. Lovable does not let you choose the framework or the database (Lovable documentation)."
+    },
+    {
+      "q": "Do we own the code and the data?",
+      "a": "The code, yes: the project syncs to GitHub, and the repository stays in place if you stop the sync. Data depends on the backend. With Lovable Cloud, the database is built on Supabase but is not a Supabase project in your name: leaving means an export then a restore on your side, and deleting Cloud permanently erases the data. We settle this before going live."
+    },
+    {
+      "q": "Is a Lovable prototype secure?",
+      "a": "Not by default. Lovable runs a quick scan on each publish (tables without access rules, vulnerable dependencies) and offers a deep code scan that you start by hand. Its publisher itself writes that these tools cannot guarantee complete security and advises a professional review when the app handles sensitive data. That review is what we do."
+    },
+    {
+      "q": "Can you take over an existing Lovable project?",
+      "a": "Yes. We start by reading the GitHub repository, the database and the access rules, then list what holds, what can be fixed and what must be rebuilt. Lovable cannot connect to an existing repository: syncing always creates a new one, which matters for how work is organised after the takeover."
+    },
+    {
+      "q": "Does a Lovable site rank well?",
+      "a": "It depends on the project's age. Recent apps (TanStack Start) return server-rendered HTML. Older React and Vite apps navigate in the browser: Lovable only prerenders them for verified crawlers, and late-loading content may be missing. Lovable guarantees no ranking, and neither do we. For a site where search traffic matters, we check the rendering before going further."
+    },
+    {
+      "q": "Lovable or Webflow, WordPress, Shopify: which one?",
+      "a": "Lovable for an application: accounts, data, business logic. Webflow or WordPress for a content site your marketing team runs; Shopify for a shop. If you hesitate, the free audit settles it based on what the project must do and who will evolve it."
+    },
+    {
+      "q": "How much does it cost?",
+      "a": "The 10-hour scoping sprint costs €{{prix.sprint.en}} excl. VAT: we read the prototype and set the scope. Going live is part of the pilot, from €{{prix.pilote.en}} excl. VAT, and anything beyond is billed at €{{prix.horaire}} excl. VAT per hour. The Lovable subscription, domain and hosting are in your name and not included in these prices."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-masthead-card",
+      "background": "paper",
+      "kicker_fr": "§ Agence Lovable · un outil du système",
+      "kicker_en": "§ Lovable agency · a tool in the system",
+      "h1_fr": "Agence <i class=\"acc\">Lovable</i> : un prototype qui devient un outil en production.",
+      "h1_en": "Lovable agency: a prototype that becomes a tool in <i class=\"acc\">production</i>.",
+      "lede_fr": "Lovable génère une application web à partir d'une description. Waimia part de votre prototype, reprend le code, sécurise la base, la branche à vos outils et la met en production ; on dit aussi quand Lovable n'est pas le bon choix.",
+      "lede_en": "Lovable generates a web application from a description. Waimia starts from your prototype, takes over the code, secures the database, connects it to your tools and takes it to production; we also say when Lovable is the wrong choice.",
+      "badges": [
+        {
+          "label_fr": "Prototype, MVP, landing",
+          "label_en": "Prototype, MVP, landing page"
+        },
+        {
+          "label_fr": "Reprise du code GitHub",
+          "label_en": "GitHub code takeover"
+        },
+        {
+          "label_fr": "Règles d'accès Supabase",
+          "label_en": "Supabase access rules"
+        },
+        {
+          "label_fr": "Mise en production",
+          "label_en": "Going live"
+        }
+      ],
+      "cta_sub_fr": "Audit gratuit de 45 minutes en visio : on regarde ce que votre prototype touche (données, comptes, paiement) et vous repartez avec un ou deux chantiers classés.",
+      "cta_sub_en": "Free 45-minute audit by video call: we look at what your prototype touches (data, accounts, payment) and you leave with one or two ranked projects.",
+      "cta_primary": {
+        "label_fr": "Réserver l'audit gratuit →",
+        "label_en": "Book the free audit →",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Comment se passe l'audit",
+        "label_en": "How the audit works",
+        "href": "/audit-ia-pme#site-web-logiciel",
+        "variant": "ghost"
+      },
+      "media_src": "/images/line-art/swi-livrable-site.svg",
+      "media_alt_fr": "Pictogramme : une fenêtre de navigateur avec des lignes de texte et un bloc plein",
+      "media_alt_en": "Icon: a browser window with lines of text and a solid block"
+    },
+    {
+      "type": "proof-bar",
+      "background": "paper",
+      "kicker_fr": "§ En bref",
+      "kicker_en": "§ In short",
+      "metrics": [
+        {
+          "value": "Dès {{prix.sprint}} € HT",
+          "label_fr": "sprint de cadrage de 10 heures : on lit le prototype et on fixe le périmètre",
+          "label_en": "10-hour scoping sprint: we read the prototype and set the scope",
+          "emphasis": true
+        },
+        {
+          "value": "Code sur GitHub",
+          "label_fr": "Lovable synchronise le projet vers un dépôt : nous reprenons à partir de là",
+          "label_en": "Lovable syncs the project to a repository: we take over from there",
+          "emphasis": false
+        },
+        {
+          "value": "Base sécurisée",
+          "label_fr": "règles d'accès relues table par table, secrets hors du navigateur",
+          "label_en": "access rules reviewed table by table, secrets kept out of the browser",
+          "emphasis": false
+        },
+        {
+          "value": "À votre nom",
+          "label_fr": "dépôt, base, domaine et hébergement sur vos comptes",
+          "label_en": "repository, database, domain and hosting on your accounts",
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "type": "definition-extract",
+      "background": "paper",
+      "kicker_fr": "§ Définition",
+      "kicker_en": "§ Definition",
+      "statement_fr": "Une <i class=\"acc\">agence Lovable</i> utilise Lovable, plateforme qui génère une application web complète (interface, base de données, comptes, intégrations) à partir d'une description, pour aller vite. Puis elle fait ce que l'outil ne fait pas seul : relire le code, sécuriser, brancher les données, mettre en production.",
+      "statement_en": "A <i class=\"acc\">Lovable agency</i> uses Lovable, a platform that generates a complete web application (interface, database, accounts, integrations) from a description, to move fast. Then it does what the tool does not do alone: read the code, secure it, connect the data, go live.",
+      "pills": [
+        {
+          "label_fr": "Prototype et MVP",
+          "label_en": "Prototype and MVP"
+        },
+        {
+          "label_fr": "Reprise de code",
+          "label_en": "Code takeover"
+        },
+        {
+          "label_fr": "Supabase et RLS",
+          "label_en": "Supabase and RLS"
+        },
+        {
+          "label_fr": "Mise en production",
+          "label_en": "Going live"
+        }
+      ],
+      "specs": [
+        {
+          "label_fr": "Synchronisation GitHub",
+          "label_en": "GitHub sync"
+        },
+        {
+          "label_fr": "Authentification",
+          "label_en": "Authentication"
+        },
+        {
+          "label_fr": "Secrets côté serveur",
+          "label_en": "Server-side secrets"
+        },
+        {
+          "label_fr": "n8n et webhooks",
+          "label_en": "n8n and webhooks"
+        },
+        {
+          "label_fr": "Domaine et HTTPS",
+          "label_en": "Domain and HTTPS"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "figures": [
+        {
+          "src": "/images/illustrations/ds/style-st-paper.webp",
+          "alt_fr": "Illustration : gros plan de deux mains qui tapent sur un clavier",
+          "alt_en": "Illustration: close-up of two hands typing on a keyboard",
+          "side": "right"
+        }
+      ],
+      "html_fr": "<h2>Ce que Lovable fait bien</h2>\n<p>Vous décrivez un écran ou une fonction, l'outil écrit l'interface, la base et les comptes. En quelques heures, vous avez quelque chose à cliquer. Pour montrer une idée à un client, tester un tunnel ou lancer un outil que trois collègues utiliseront, c'est exactement ce qu'il faut, et je ne vous conseillerai pas de commander un développement sur mesure à la place. Lovable <a href=\"https://docs.lovable.dev/introduction/faq\" rel=\"noopener\">héberge lui-même</a> l'application publiée, avec HTTPS, et un <a href=\"https://docs.lovable.dev/features/custom-domain\" rel=\"noopener\">domaine personnalisé</a> se branche sur les formules payantes.</p>\n<h2>Ce que nous faisons à partir de Lovable</h2>\n<p>Nous partons de Lovable pour aller vite, puis nous prenons le relais dans cet ordre. D'abord le code : le projet se <a href=\"https://docs.lovable.dev/integrations/github\" rel=\"noopener\">synchronise vers GitHub</a>, nous le relisons et l'organisons pour qu'on puisse le faire évoluer à plusieurs. Ensuite la sécurité : authentification, règles d'accès de la base (RLS) table par table, secrets hors du navigateur. Puis les données et les connexions : base à votre nom, CRM, scénarios n8n, relances. Enfin la mise en production, le référencement et la mesure. Le détail du moment où il faut reprendre un prototype est dans notre <a href=\"/ressources/comparatifs/lovable-vs-developpement-sur-mesure\">comparatif Lovable et développement sur mesure</a> ; pour poser ce que doit faire le projet avant de commencer, notre <a href=\"/ressources/guides/cahier-des-charges-site-internet\">guide du cahier des charges d'un site internet</a>.</p>\n<h2>Ce qui casse en premier</h2>\n<p>Les règles d'accès. L'éditeur le dit lui-même : des règles manquantes sont la façon la plus courante d'exposer les données d'une application. Viennent ensuite la base intégrée, qu'on ne bascule pas d'un clic vers votre propre projet Supabase, et la synchronisation GitHub, qui crée toujours un nouveau dépôt. Sans oublier les applications créées avant mai 2026, dont le contenu se charge dans le navigateur : on vérifie leur rendu avant de compter sur elles pour le référencement. Pour un logiciel destiné à vos clients, voyez plutôt le <a href=\"/services/mvp-saas\">développement de MVP SaaS</a> ; pour un outil d'équipe, les <a href=\"/services/applications-internes\">applications métier</a>.</p>\n<p>Pour regarder votre prototype réel, commencez par l'<a href=\"/audit-ia-pme#site-web-logiciel\">audit IA gratuit</a>.</p>",
+      "html_en": "<h2>What Lovable does well</h2>\n<p>You describe a screen or a function, the tool writes the interface, the database and the accounts. Within hours you have something to click. To show an idea to a client, test a funnel or launch a tool three colleagues will use, it is exactly what you need, and I will not tell you to commission custom development instead. Lovable <a href=\"https://docs.lovable.dev/introduction/faq\" rel=\"noopener\">hosts</a> the published app itself, with HTTPS, and a <a href=\"https://docs.lovable.dev/features/custom-domain\" rel=\"noopener\">custom domain</a> can be connected on paid plans.</p>\n<h2>What we do starting from Lovable</h2>\n<p>We start from Lovable to move fast, then take over in this order. First the code: the project <a href=\"https://docs.lovable.dev/integrations/github\" rel=\"noopener\">syncs to GitHub</a>, we read it and organise it so several people can evolve it. Then security: authentication, database access rules (RLS) table by table, secrets kept out of the browser. Then data and connections: a database in your name, CRM, n8n scenarios, follow-ups. Finally going live, search visibility and measurement. When a prototype should be taken over is detailed in our <a href=\"/ressources/comparatifs/lovable-vs-developpement-sur-mesure\">Lovable versus custom development comparison</a>; to set out what the project must do before starting, see our <a href=\"/ressources/guides/cahier-des-charges-site-internet\">website specification guide</a>.</p>\n<h2>What breaks first</h2>\n<p>Access rules. The publisher says so itself: missing rules are the most common way an app exposes its data. Next come the built-in database, which cannot be switched in one click to your own Supabase project, and the GitHub sync, which always creates a new repository. And apps created before May 2026, whose content loads in the browser: we check their rendering before counting on them for search. For software aimed at your customers, look at <a href=\"/services/mvp-saas\">SaaS MVP development</a> instead; for a team tool, <a href=\"/services/applications-internes\">custom business applications</a>.</p>\n<p>To look at your real prototype, start with the <a href=\"/audit-ia-pme#site-web-logiciel\">free AI audit</a>.</p>"
+    },
+    {
+      "type": "tech-when-dual",
+      "background": "paper",
+      "kicker_fr": "§ Décision",
+      "kicker_en": "§ Decision",
+      "title_fr": "Lovable, ou autre chose",
+      "title_en": "Lovable, or something else",
+      "aside_fr": "Un prototype se juge sur ce qu'il touche : des données, des comptes, de l'argent.",
+      "aside_en": "A prototype is judged by what it touches: data, accounts, money.",
+      "use_title_fr": "Choisissez Lovable quand",
+      "use_title_en": "Choose Lovable when",
+      "use_items_fr": [
+        "Vous voulez montrer une idée ou tester un tunnel en quelques jours.",
+        "L'outil sert à quelques personnes de l'équipe, avec des données peu sensibles.",
+        "Un MVP doit exister avant de décider d'investir davantage.",
+        "Vous acceptez de laisser l'outil choisir la pile technique.",
+        "Vous prévoyez de faire relire le code avant d'y mettre des clients."
+      ],
+      "use_items_en": [
+        "You want to show an idea or test a funnel within days.",
+        "The tool serves a few people on the team, with low-sensitivity data.",
+        "An MVP must exist before deciding to invest further.",
+        "You accept letting the tool pick the technical stack.",
+        "You plan to have the code reviewed before putting customers on it."
+      ],
+      "avoid_title_fr": "Évitez Lovable quand",
+      "avoid_title_en": "Avoid Lovable when",
+      "avoid_items_fr": [
+        "L'application garde des données de clients, de salariés ou de patients et personne ne relira les règles d'accès.",
+        "Vous voulez choisir le framework ou la base de données : Lovable n'en laisse pas le choix.",
+        "Il vous faut une application native sur les boutiques d'applications : Lovable propose une application web progressive ou un habillage Capacitor, pas de build natif.",
+        "Plusieurs développeurs doivent travailler en parallèle : Lovable n'édite qu'une branche à la fois.",
+        "Vous voulez un site de contenu que l'équipe marketing édite seule : Webflow ou WordPress sont plus adaptés."
+      ],
+      "avoid_items_en": [
+        "The app holds customer, employee or patient data and nobody will review the access rules.",
+        "You want to choose the framework or the database: Lovable gives no choice.",
+        "You need a native app in the app stores: Lovable offers a progressive web app or a Capacitor wrapper, not a native build.",
+        "Several developers must work in parallel: Lovable only edits one branch at a time.",
+        "You want a content site your marketing team edits alone: Webflow or WordPress fit better."
+      ]
+    },
+    {
+      "type": "comparison-duo",
+      "background": "paper",
+      "kicker_fr": "§ Exemple type · pas un cas client",
+      "kicker_en": "§ Typical example · not a client case",
+      "h2_fr": "Exemple type : un outil de suivi de chantiers",
+      "h2_en": "Typical example: a worksite tracking tool",
+      "without_label_fr": "Avant",
+      "without_label_en": "Before",
+      "without_title_fr": "Un prototype Lovable en usage réel, sans relecture",
+      "without_title_en": "A Lovable prototype in real use, with no review",
+      "without_items": [
+        {
+          "text_fr": "Les tables de la base n'ont pas de règles d'accès : chaque utilisateur peut potentiellement lire les données des autres.",
+          "text_en": "Database tables have no access rules: any user could potentially read other users' data."
+        },
+        {
+          "text_fr": "La clé de l'API du CRM est dans le code envoyé au navigateur.",
+          "text_en": "The CRM API key sits in the code sent to the browser."
+        },
+        {
+          "text_fr": "Une seule personne sait quelle demande a produit quelle page.",
+          "text_en": "Only one person knows which prompt produced which page."
+        },
+        {
+          "text_fr": "Rien n'est écrit sur la façon de récupérer les données si l'abonnement s'arrête.",
+          "text_en": "Nothing is written down on how to recover the data if the subscription stops."
+        }
+      ],
+      "with_label_fr": "Après",
+      "with_label_en": "After",
+      "with_title_fr": "Un outil repris, sécurisé et branché",
+      "with_title_en": "A tool taken over, secured and connected",
+      "with_items": [
+        {
+          "text_fr": "Chaque table a ses règles d'accès, testées avec deux comptes d'utilisateurs différents.",
+          "text_en": "Each table has its access rules, tested with two different user accounts."
+        },
+        {
+          "text_fr": "La clé du CRM vit dans les secrets côté serveur, jamais dans le navigateur.",
+          "text_en": "The CRM key lives in server-side secrets, never in the browser."
+        },
+        {
+          "text_fr": "Le dépôt GitHub est relu et documenté : une autre personne peut le reprendre.",
+          "text_en": "The GitHub repository is reviewed and documented: someone else can take it over."
+        },
+        {
+          "text_fr": "Un plan de sortie écrit explique où vivent les données et comment les exporter.",
+          "text_en": "A written exit plan explains where the data lives and how to export it."
+        }
+      ]
+    },
+    {
+      "type": "deliverables-grid",
+      "background": "paper-3",
+      "kicker_fr": "§ Ce que vous gardez",
+      "kicker_en": "§ What you keep",
+      "title_fr": "Ce qui vous reste à la fin",
+      "title_en": "What you keep at the end",
+      "lead_fr": "Le dépôt, la base, le domaine et les abonnements sont à votre nom. Nous n'imposons aucun abonnement.",
+      "lead_en": "The repository, database, domain and subscriptions are in your name. We impose no subscription.",
+      "items": [
+        {
+          "title_fr": "Le code repris",
+          "title_en": "The code taken over",
+          "body_fr": "Dépôt GitHub relu, organisé et documenté, prêt à être repris par une autre équipe.",
+          "body_en": "A GitHub repository reviewed, organised and documented, ready to be taken over by another team.",
+          "format_fr": "CODE",
+          "format_en": "CODE"
+        },
+        {
+          "title_fr": "La base sécurisée",
+          "title_en": "The secured database",
+          "body_fr": "Authentification, règles d'accès par table et secrets côté serveur, avec le relevé de ce qui a été corrigé.",
+          "body_en": "Authentication, per-table access rules and server-side secrets, with a record of what was fixed.",
+          "format_fr": "SÉCURITÉ",
+          "format_en": "SECURITY"
+        },
+        {
+          "title_fr": "Les connexions",
+          "title_en": "The connections",
+          "body_fr": "Webhooks ou scénarios n8n vers votre CRM et vos outils, décrits dans un document.",
+          "body_en": "Webhooks or n8n scenarios into your CRM and tools, described in a document.",
+          "format_fr": "CRM",
+          "format_en": "CRM"
+        },
+        {
+          "title_fr": "La mise en production",
+          "title_en": "Going live",
+          "body_fr": "Domaine, HTTPS, environnement de test et plan de sortie des données.",
+          "body_en": "Domain, HTTPS, test environment and data exit plan.",
+          "format_fr": "MISE EN LIGNE",
+          "format_en": "GO LIVE"
+        },
+        {
+          "title_fr": "Le référencement",
+          "title_en": "Search visibility",
+          "body_fr": "Contrôle du rendu pour les robots, balises, plan de site et balisage schema.org sur les pages clés.",
+          "body_en": "Rendering check for crawlers, tags, sitemap and schema.org markup on key pages.",
+          "format_fr": "SEO",
+          "format_en": "SEO"
+        },
+        {
+          "title_fr": "La prise en main",
+          "title_en": "The handover",
+          "body_fr": "Une session pour savoir quoi modifier dans Lovable, quoi toucher dans le code, et à qui s'adresser.",
+          "body_en": "One session on what to change in Lovable, what to touch in the code, and who to ask.",
+          "format_fr": "FORMATION",
+          "format_en": "TRAINING"
+        }
+      ]
+    },
+    {
+      "type": "hover-reveal-list",
+      "anchor": "autres-plateformes",
+      "background": "paper-3",
+      "reveal_mode": "cursor",
+      "kicker_fr": "§ Autres plateformes",
+      "kicker_en": "§ Other platforms",
+      "h2_fr": "Lovable, ou une autre <i>base</i>",
+      "h2_en": "Lovable, or another <i>base</i>",
+      "lede_fr": "Le bon choix dépend de ce que le projet doit faire et de la personne qui le fera vivre. Une plateforme par ligne : ouvrez sa page pour le détail.",
+      "lede_en": "The right choice depends on what the project must do and who will keep it running. One platform per line: open its page for details.",
+      "items": [
+        {
+          "label_fr": "Webflow",
+          "label_en": "Webflow",
+          "meta_fr": "Site de contenu que l'équipe édite seule, design précis",
+          "meta_en": "Content site your team edits alone, precise design",
+          "media_src": "/images/illustrations/ds/webflow-colleur-affiches-paper.webp",
+          "media_alt_fr": "Illustration : un colleur d'affiches pose de grandes feuilles sur un panneau, bloc après bloc, depuis une échelle",
+          "media_alt_en": "Illustration: a bill poster pastes large sheets onto a billboard, block by block, from a ladder",
+          "link_href": "/services/webflow"
+        },
+        {
+          "label_fr": "WordPress",
+          "label_en": "WordPress",
+          "meta_fr": "Écosystème d'extensions, équipes qui le connaissent, maintenance à prévoir",
+          "meta_en": "Extension ecosystem, teams that know it, maintenance to plan for",
+          "media_src": "/images/illustrations/ds/wordpress-coeur-et-extensions-paper.webp",
+          "media_alt_fr": "Illustration : une rotonde centrale reliée à ses annexes, comme un WordPress et ses extensions",
+          "media_alt_en": "Illustration: a central rotunda linked to its annexes, like WordPress and its extensions",
+          "link_href": "/services/wordpress"
+        },
+        {
+          "label_fr": "Shopify",
+          "label_en": "Shopify",
+          "meta_fr": "Boutique en ligne : catalogue, paiement, stocks, commandes",
+          "meta_en": "Online shop: catalogue, payment, stock, orders",
+          "media_src": "/images/illustrations/ds/shopify-boutique-en-coupe-paper.webp",
+          "media_alt_fr": "Illustration : une boutique en coupe, salle de vente et réserve",
+          "media_alt_en": "Illustration: a shop in cross-section, sales floor and stockroom",
+          "link_href": "/services/shopify"
+        },
+        {
+          "label_fr": "Site sur mesure",
+          "label_en": "Bespoke site",
+          "meta_fr": "Code à vous, intégrations métier, pages générées à l'avance",
+          "meta_en": "Code you own, business integrations, pages generated in advance",
+          "media_src": "/images/illustrations/ds/sur-mesure-headless-tailleur-mannequin-paper.webp",
+          "media_alt_fr": "Illustration : un tailleur épingle l'ourlet d'un immense buste de couturière",
+          "media_alt_en": "Illustration: a tailor pins the hem of a giant dress form",
+          "link_href": "/services/sur-mesure-headless"
+        },
+        {
+          "label_fr": "L'offre agence site web",
+          "label_en": "The web agency offer",
+          "meta_fr": "Toutes les plateformes, la grille de prix et la méthode",
+          "meta_en": "All platforms, the price grid and the method",
+          "media_src": "/images/illustrations/ds/man-and-woman-hi-paper.webp",
+          "media_alt_fr": "Illustration : deux personnes qui se saluent, l'offre agence site web dans son ensemble",
+          "media_alt_en": "Illustration: two people greeting each other, the web agency offer as a whole",
+          "link_href": "/services/site-web-ia"
+        }
+      ]
+    },
+    {
+      "type": "case-card-grid",
+      "background": "ink",
+      "fig_num": "Fig. 05",
+      "fig_title_fr": "Réalisations",
+      "fig_title_en": "Work",
+      "spec_fr": "Réalisations · données reprises de la fiche publiée",
+      "spec_en": "Work · data taken from the published page",
+      "h2_fr": "Un serveur MCP réalisé sur Lovable, dans l'espace de notre client",
+      "h2_en": "An MCP server built on Lovable, in our client's workspace",
+      "case_label_fr": "CAS",
+      "case_label_en": "CASE",
+      "sector_label_fr": "Secteur · Durée",
+      "sector_label_en": "Sector · Duration",
+      "impact_label_fr": "Ce que dit la fiche",
+      "impact_label_en": "What the page says",
+      "cases": [
+        {
+          "ref": "cases/inbound-value"
+        }
+      ],
+      "all_label_fr": "Voir toutes les réalisations →",
+      "all_label_en": "See all work →",
+      "all_href": "/cas-clients"
+    },
+    {
+      "type": "pricing-cards",
+      "background": "paper",
+      "kicker_fr": "§ La gamme",
+      "kicker_en": "§ The range",
+      "h2_fr": "Combien coûte la reprise d'un projet Lovable",
+      "h2_en": "How much taking over a Lovable project costs",
+      "lede_fr": "Trois étapes, la même grille que nos autres projets : le prix suit le périmètre, pas l'outil. Nous ne chiffrons pas une reprise avant d'avoir lu le dépôt et la base.",
+      "lede_en": "Three steps, the same grid as our other projects: price follows scope, not the tool. We do not price a takeover before reading the repository and the database.",
+      "tiers": [
+        {
+          "name_fr": "Sprint de cadrage",
+          "name_en": "Scoping sprint",
+          "price": "{{prix.sprint}} €",
+          "period_fr": "10 heures · HT",
+          "period_en": "10 hours · excl. VAT",
+          "features_fr": [
+            "Lecture du dépôt GitHub, de la base et des règles d'accès",
+            "Liste de ce qui tient, se corrige ou se reconstruit",
+            "Périmètre et plan de mise en production chiffrés",
+            "Plan de sortie des données"
+          ],
+          "features_en": [
+            "Reading of the GitHub repository, the database and the access rules",
+            "List of what holds, what can be fixed and what must be rebuilt",
+            "Scope and go-live plan priced",
+            "Data exit plan"
+          ],
+          "cta": {
+            "label_fr": "Réserver l'audit gratuit →",
+            "label_en": "Book the free audit →",
+            "href": "/contact?offer=audit-ia-pme&intent=audit",
+            "variant": "primary"
+          },
+          "featured": true
+        },
+        {
+          "name_fr": "Mise en production",
+          "name_en": "Going live",
+          "price": "{{prix.pilote}} €",
+          "period_fr": "à partir de · HT",
+          "period_en": "from · excl. VAT",
+          "features_fr": [
+            "Reprise du code et sécurisation de la base",
+            "Connexion au CRM et aux outils, par webhook ou n8n",
+            "Domaine, HTTPS et environnement de test",
+            "Une session de prise en main"
+          ],
+          "features_en": [
+            "Code takeover and database hardening",
+            "Connection to the CRM and tools, by webhook or n8n",
+            "Domain, HTTPS and test environment",
+            "One handover session"
+          ],
+          "cta": {
+            "label_fr": "Cadrer une reprise →",
+            "label_en": "Scope a takeover →",
+            "href": "/contact?offer=audit-ia-pme&intent=audit",
+            "variant": "ghost"
+          }
+        },
+        {
+          "name_fr": "La suite",
+          "name_en": "What follows",
+          "price": "{{prix.horaire}} €",
+          "period_fr": "de l'heure · HT",
+          "period_en": "per hour · excl. VAT",
+          "features_fr": [
+            "Évolutions et nouvelles fonctions, estimées en heures avant de démarrer",
+            "Référencement et mesure des pages clés",
+            "Intégrations supplémentaires",
+            "Entretien facultatif après livraison"
+          ],
+          "features_en": [
+            "Changes and new features, estimated in hours before starting",
+            "Search visibility and measurement of key pages",
+            "Additional integrations",
+            "Optional upkeep after delivery"
+          ],
+          "cta": {
+            "label_fr": "Réserver l'audit gratuit →",
+            "label_en": "Book the free audit →",
+            "href": "/contact?offer=audit-ia-pme&intent=audit",
+            "variant": "ghost"
+          }
+        }
+      ],
+      "footnote_fr": "L'abonnement Lovable, le domaine et l'hébergement sont souscrits à votre nom et payés directement : ils ne figurent pas dans ces prix. Aucun abonnement imposé chez nous.",
+      "footnote_en": "The Lovable subscription, domain and hosting are taken out in your name and paid directly: they are not in these prices. No subscription imposed by us."
+    },
+    {
+      "type": "eeat-panel",
+      "variant": "media",
+      "silo": "web"
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper-2",
+      "kicker_fr": "§ Questions fréquentes",
+      "kicker_en": "§ Frequently asked questions",
+      "h2_fr": "Lovable : vos questions",
+      "h2_en": "Lovable: your questions",
+      "items": [
+        {
+          "q_fr": "Qu'est-ce que Lovable, et que génère-t-il ?",
+          "a_fr": "Lovable est une plateforme qui produit une application web à partir d'une description en langage naturel : interface, base de données, comptes utilisateurs et intégrations, avec un code modifiable. Les applications créées depuis le 13 mai 2026 utilisent TanStack Start ; les plus anciennes, React et Vite. Lovable ne laisse pas choisir le framework ni la base (documentation Lovable).",
+          "q_en": "What is Lovable, and what does it generate?",
+          "a_en": "Lovable is a platform that produces a web application from a plain-language description: interface, database, user accounts and integrations, with editable code. Apps created since 13 May 2026 use TanStack Start; older ones use React and Vite. Lovable does not let you choose the framework or the database (Lovable documentation)."
+        },
+        {
+          "q_fr": "Le code et les données nous appartiennent-ils ?",
+          "a_fr": "Le code, oui : le projet se synchronise vers GitHub, et le dépôt reste en place si vous coupez la synchronisation. Les données dépendent du backend. Avec Lovable Cloud, la base est fondée sur Supabase mais n'est pas un projet Supabase à votre nom : la sortie passe par un export puis une restauration chez vous, et la suppression de Cloud efface définitivement les données. Nous réglons ce point avant la mise en production.",
+          "q_en": "Do we own the code and the data?",
+          "a_en": "The code, yes: the project syncs to GitHub, and the repository stays in place if you stop the sync. Data depends on the backend. With Lovable Cloud, the database is built on Supabase but is not a Supabase project in your name: leaving means an export then a restore on your side, and deleting Cloud permanently erases the data. We settle this before going live."
+        },
+        {
+          "q_fr": "Un prototype Lovable est-il sécurisé ?",
+          "a_fr": "Pas par défaut. Lovable lance une analyse rapide à chaque publication (tables sans règles d'accès, dépendances vulnérables) et propose une analyse approfondie du code, à lancer à la main. Son éditeur écrit lui-même que ces outils ne garantissent pas une sécurité complète et conseille une revue professionnelle quand l'application traite des données sensibles. C'est cette revue que nous faisons.",
+          "q_en": "Is a Lovable prototype secure?",
+          "a_en": "Not by default. Lovable runs a quick scan on each publish (tables without access rules, vulnerable dependencies) and offers a deep code scan that you start by hand. Its publisher itself writes that these tools cannot guarantee complete security and advises a professional review when the app handles sensitive data. That review is what we do."
+        },
+        {
+          "q_fr": "Peut-on reprendre un projet Lovable existant ?",
+          "a_fr": "Oui. On commence par lire le dépôt GitHub, la base et les règles d'accès, puis on liste ce qui tient, ce qui se corrige et ce qui se reconstruit. Lovable ne sait pas se brancher sur un dépôt existant : la synchronisation crée toujours un nouveau dépôt, ce qui compte pour l'organisation du travail après la reprise.",
+          "q_en": "Can you take over an existing Lovable project?",
+          "a_en": "Yes. We start by reading the GitHub repository, the database and the access rules, then list what holds, what can be fixed and what must be rebuilt. Lovable cannot connect to an existing repository: syncing always creates a new one, which matters for how work is organised after the takeover."
+        },
+        {
+          "q_fr": "Un site Lovable est-il bien référencé ?",
+          "a_fr": "Cela dépend de l'âge du projet. Les applications récentes (TanStack Start) renvoient du HTML rendu côté serveur. Les anciennes applications React et Vite sont des pages à navigation dans le navigateur : Lovable ne les prérend que pour les robots d'indexation vérifiés, et le contenu chargé tardivement peut manquer. Lovable ne garantit aucun classement, et nous non plus. Pour un site dont le trafic de recherche compte, nous vérifions le rendu avant d'aller plus loin.",
+          "q_en": "Does a Lovable site rank well?",
+          "a_en": "It depends on the project's age. Recent apps (TanStack Start) return server-rendered HTML. Older React and Vite apps navigate in the browser: Lovable only prerenders them for verified crawlers, and late-loading content may be missing. Lovable guarantees no ranking, and neither do we. For a site where search traffic matters, we check the rendering before going further."
+        },
+        {
+          "q_fr": "Lovable ou Webflow, WordPress, Shopify : lequel choisir ?",
+          "a_fr": "Lovable pour une application : comptes, données, logique métier. Webflow ou WordPress pour un site de contenu que l'équipe marketing fait vivre ; Shopify pour une boutique. Si vous hésitez, l'audit gratuit tranche selon ce que le projet doit faire et qui le fera évoluer.",
+          "q_en": "Lovable or Webflow, WordPress, Shopify: which one?",
+          "a_en": "Lovable for an application: accounts, data, business logic. Webflow or WordPress for a content site your marketing team runs; Shopify for a shop. If you hesitate, the free audit settles it based on what the project must do and who will evolve it."
+        },
+        {
+          "q_fr": "Combien ça coûte ?",
+          "a_fr": "Le sprint de cadrage de 10 heures coûte {{prix.sprint}} € HT : nous lisons le prototype et fixons le périmètre. La mise en production relève du pilote, dès {{prix.pilote}} € HT, et la suite se facture {{prix.horaire}} € HT de l'heure. L'abonnement Lovable, le domaine et l'hébergement sont à votre nom et ne figurent pas dans ces prix.",
+          "q_en": "How much does it cost?",
+          "a_en": "The 10-hour scoping sprint costs €{{prix.sprint.en}} excl. VAT: we read the prototype and set the scope. Going live is part of the pilot, from €{{prix.pilote.en}} excl. VAT, and anything beyond is billed at €{{prix.horaire}} excl. VAT per hour. The Lovable subscription, domain and hosting are in your name and not included in these prices."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "layout": "stacked",
+      "contentAlign": "center",
+      "actionsAlign": "center",
+      "rounded": true,
+      "kicker_fr": "§ Audit IA gratuit",
+      "kicker_en": "§ Free AI audit",
+      "h2_fr": "Votre prototype Lovable est-il prêt pour de vrais utilisateurs ?",
+      "h2_en": "Is your Lovable prototype ready for real users?",
+      "subtitle_fr": "En 45 minutes, on regarde ce que le prototype touche (données, comptes, paiement) et on vous dit s'il peut continuer tel quel, s'il faut le reprendre, ou changer d'outil.",
+      "subtitle_en": "In 45 minutes, we look at what the prototype touches (data, accounts, payment) and tell you whether it can carry on as it is, be taken over, or whether to change tool.",
+      "buttons": [
+        {
+          "label_fr": "Réserver l'audit gratuit →",
+          "label_en": "Book the free audit →",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        }
+      ]
+    }
+  ]
+}
