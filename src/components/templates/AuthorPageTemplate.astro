@@ -249,10 +249,10 @@ const whyData = {
 const pullquoteData = {
   type: 'bordered-pullquote',
   quote_html_fr:
-    'L&rsquo;intelligence artificielle n&rsquo;est pas un outil. C&rsquo;est une <i>nouvelle façon de travailler.</i>&nbsp;',
+    'Commencez par la tâche la plus <i>répétitive</i>, pas par la plus impressionnante.&nbsp;',
   quote_html_en:
     'Artificial intelligence is not a tool. It&rsquo;s <i>a new way of working.</i>&nbsp;',
-  cite_fr: 'Waimia',
+  cite_fr: 'Simon Beros',
   cite_en: 'Waimia',
 } satisfies BorderedPullquoteData;
 
@@ -279,33 +279,33 @@ const essaysData = essays.length > 0
 //    transcrit fidelement (ex-tableau `method` localise). ──
 const methodSteps = [
   {
-    title_fr: 'Cartographie',
+    title_fr: 'Audit',
     title_en: 'Mapping',
-    body_fr: 'On regarde le métier réel, les frictions, les outils, les dépendances et les décisions déjà prises hors système.',
+    body_fr: 'Je regarde le travail réel : les frictions, les outils, les dépendances et les décisions déjà prises hors système.',
     body_en: 'We inspect the real work, friction, tools, dependencies and decisions already made outside the system.',
   },
   {
     title_fr: 'Priorisation',
     title_en: 'Prioritisation',
-    body_fr: 'On classe les workflows par ROI, risque opérationnel, temps de retour et capacité interne à les maintenir.',
+    body_fr: 'Je classe les workflows par ROI, risque opérationnel, temps de retour et capacité interne à les maintenir. Le premier à traiter est rarement le plus spectaculaire.',
     body_en: 'We rank workflows by ROI, operational risk, payback time and internal ability to maintain them.',
   },
   {
-    title_fr: 'Câblage',
+    title_fr: 'Pilote',
     title_en: 'Wiring',
-    body_fr: "On connecte l'IA aux outils existants : CRM, inbox, tableurs, bases métier, reporting, sans théâtre technique.",
+    body_fr: "Je branche l'IA sur vos outils existants (CRM, boîte mail, tableurs, bases métier) et je mets un premier système en production, sans théâtre technique.",
     body_en: 'We connect AI to the existing tools: CRM, inbox, spreadsheets, business data and reporting, without technical theatre.',
   },
   {
     title_fr: 'Mesure',
     title_en: 'Measurement',
-    body_fr: 'Chaque workflow a sa métrique avant/après : temps gagné, pipeline reconnecté, coûts évités, qualité produite.',
+    body_fr: 'Chaque workflow a sa mesure avant et après : temps gagné, erreurs évitées, coûts. C’est elle qui décide de la suite.',
     body_en: 'Every workflow gets a before/after metric: time saved, pipeline reconnected, costs avoided, quality produced.',
   },
   {
-    title_fr: 'Passation',
+    title_fr: 'Transfert',
     title_en: 'Handover',
-    body_fr: 'Les équipes reprennent la main avec une documentation courte, des rituels de pilotage et une stack compréhensible.',
+    body_fr: 'Vos équipes reprennent la main avec une documentation courte, des rituels de pilotage et une stack qu’elles comprennent.',
     body_en: 'Teams take control with short documentation, management rituals and a stack they can understand.',
   },
 ];
@@ -393,7 +393,7 @@ const publicationsData = {
   title_fr: 'Articles, notes, manifestes',
   title_en: 'Articles, notes, manifestos',
   manifesto_html_fr:
-    'Pas une stack. Un système. Pas un agent isolé. Une équipe d’agents.<br />Pas une démo. Une mise en production.',
+    'Un système qui tourne vaut mieux qu’une démo qui brille.<br />Je mets en production, je mesure, puis je remets le code.',
   manifesto_html_en:
     'Not a stack. A system. Not a lone agent. A team of agents.<br />Not a demo. A production release.',
   ...(author.publications.length > 0
@@ -433,7 +433,7 @@ const ctaData = {
   type: 'closing-cta-band',
   kicker_fr: '§ Travailler ensemble',
   kicker_en: '§ Work together',
-  h2_html_fr: 'Le mardi on câble.<em> Le vendredi on mesure.</em>',
+  h2_html_fr: 'Quarante-cinq minutes pour <em>repérer ce qui vaut le coup.</em>',
   h2_html_en: 'On Tuesday we wire.<em> On Friday we measure.</em>',
   button_label_fr: `${AUDIT_BOOKING_LABEL.fr} →`,
   button_label_en: `${AUDIT_BOOKING_LABEL.en} →`,
