@@ -20,18 +20,14 @@ const isFr = lang === 'fr';
 type CaseItem = Extract<NonNullable<SectionByType<'case-card-grid'>['cases']>[number], { client: string }>;
 const resolvedCases = (data.cases ?? []) as CaseItem[];
 
-// GAP-B · état vide honnête : < 2 cas (ou 0) → encart « premiers cas en cours de
-// rédaction » au lieu d'une table famélique. Porté DANS le composant catalogué pour
-// se propager partout (pas en inline dans la route).
-const isEmpty = resolvedCases.length < 2;
+// État vide : 0 cas. Sans texte propre fourni par la donnée (`empty_body_*`), la section
+// n'est pas rendue (aucune promesse en attente). Un seul cas s'affiche en table, sans message.
+const isEmpty = resolvedCases.length === 0;
 const emptyKicker = isFr
   ? data.empty_kicker_fr ?? 'Cas de ce secteur'
   : data.empty_kicker_en ?? 'Cases for this industry';
-const emptyBody = isFr
-  ? data.empty_body_fr ??
-    "Nous publions un cas uniquement après mesure du résultat et accord du client. Les premiers cas de ce secteur arrivent. En attendant, parlons de votre projet : nous montrons concrètement comment nous travaillons."
-  : data.empty_body_en ??
-    'We only publish a case after the result is measured and the client has agreed. The first cases for this industry are coming. In the meantime, let us talk about your project: we show exactly how we work.';
+const emptyBody = isFr ? data.empty_body_fr : data.empty_body_en;
+const hidden = isEmpty && !emptyBody;
 
 // ── Couche atomique (Batch 2) · placement par région (header + body + actions=lien « tous »).
 // Résolution raccourci↔placement : valeur effective UNE fois, UN seul data-attr par région.
@@ -51,6 +47,7 @@ const colRatio = data.layout === 'grid-asym' ? (data.colRatio ?? 'equal') : unde
 const revealMode = data.reveal_mode;
 const hasReveal = Boolean(revealMode) && resolvedCases.some((c) => c.media_src);
 ---
+{!hidden && (
 <section
   id="act-4"
   class="sec"
@@ -131,6 +128,7 @@ const hasReveal = Boolean(revealMode) && resolvedCases.some((c) => c.media_src);
     </div>
   )}
 </section>
+)}
 
 <style>
   /* V6 densification · "1 viewport par section majeure" */

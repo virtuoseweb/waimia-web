@@ -85,26 +85,26 @@ const SECTOR_COPY: Record<string, {
   workflowBodies_fr: string[]; workflowBodies_en: string[];
 }> = {
   batiment: {
-    zigzagLede_fr: 'On outille la signature, pas la théorie : capter la demande, chiffrer vite, relancer, faire parler les chantiers finis. Branché sur vos outils, tenu par votre équipe.',
-    zigzagLede_en: 'We tool the signature, not the theory: capture the request, quote fast, follow up, let finished jobs speak. Wired to your tools, run by your team.',
-    ctaSubtitle_fr: 'On regarde vos demandes entrantes et vos devis en 45 minutes, et on vous dit vite ce qui s\'automatise. Sans promesse en l\'air.',
-    ctaSubtitle_en: 'We look at your inbound requests and quotes in 45 minutes, and tell you quickly what can be automated. No empty promises.',
+    zigzagLede_fr: 'On outille ce qui fait signer : capter la demande, chiffrer vite, relancer, faire parler les chantiers finis. Branché sur vos outils, tenu par votre équipe.',
+    zigzagLede_en: 'We tool what gets quotes signed: capture the request, quote fast, follow up, let finished jobs speak. Wired to your tools, run by your team.',
+    ctaSubtitle_fr: 'On regarde vos demandes entrantes et vos devis en 45 minutes, et on vous dit vite ce qui s\'automatise.',
+    ctaSubtitle_en: 'We look at your inbound requests and quotes in 45 minutes, and tell you quickly what can be automated.',
     workflowBodies_fr: [
       'Formulaire, email, message vocal transcrit : chaque demande arrive dans une liste unique, avec le type de travaux, la commune, le budget et l\'urgence. Vous rappelez d\'abord celles qui valent le déplacement.',
       'Les prestations courantes sont pré-chiffrées à partir de votre grille de prix. Vous ajustez, vous validez, le devis part le jour même depuis votre outil habituel. L\'IA prépare, vous décidez du prix.',
-      'Relance automatique à J+3 puis à J+10 tant que le client n\'a pas répondu, puis demande d\'avis Google une fois le chantier réceptionné. Sans y penser, sans y passer vos soirées.',
+      'Relance automatique à J+3 puis à J+10 tant que le client n\'a pas répondu, puis demande d\'avis Google une fois le chantier réceptionné. Vous n\'avez plus à y penser.',
     ],
     workflowBodies_en: [
       'Form, email, transcribed voicemail: every request lands in a single list, with type of work, town, budget and urgency. You call back first the ones worth the trip.',
       'Standard services are pre-priced from your price list. You adjust, you approve, the quote goes out the same day from your usual tool. AI prepares, you set the price.',
-      'Automatic follow-up on day 3 then day 10 while the client has not replied, then a Google review request once the job is handed over. Without thinking about it, without spending your evenings on it.',
+      'Automatic follow-up on day 3 then day 10 while the client has not replied, then a Google review request once the job is handed over. You no longer have to think about it.',
     ],
   },
   'e-commerce': {
     zigzagLede_fr: 'On automatise l\'arrière-boutique, pas la vitrine : commandes, support, catalogue. Branché sur votre boutique actuelle, sans migration imposée.',
     zigzagLede_en: 'We automate the back office, not the storefront: orders, support, catalogue. Wired to your current shop, no forced migration.',
-    ctaSubtitle_fr: 'On suit une commande et une question client chez vous en 45 minutes, et on vous dit vite ce qui s\'automatise. Sans promesse en l\'air.',
-    ctaSubtitle_en: 'We follow an order and a customer question in 45 minutes, and tell you quickly what can be automated. No empty promises.',
+    ctaSubtitle_fr: 'On suit une commande et une question client chez vous en 45 minutes, et on vous dit vite ce qui s\'automatise.',
+    ctaSubtitle_en: 'We follow an order and a customer question in 45 minutes, and tell you quickly what can be automated.',
     workflowBodies_fr: [
       'Chaque commande part de la boutique vers la facturation, le stock et le transporteur sans copier-coller. Si une étape échoue, une alerte arrive avant que le client ne s\'en aperçoive.',
       'Un agent prépare la réponse aux questions récurrentes depuis vos vraies sources : suivi de colis, conditions de retour, délais. Une personne la valide avant l\'envoi ; ce qu\'il ne sait pas traiter part à l\'équipe avec le contexte déjà rempli.',
@@ -119,8 +119,8 @@ const SECTOR_COPY: Record<string, {
   'liberal-independant': {
     zigzagLede_fr: 'On construit l\'autorité, pas la brochure : être trouvé sur vos requêtes métier, rassurer, ouvrir un contact simple. Un actif qui vous appartient, hors plateformes.',
     zigzagLede_en: 'We build authority, not a brochure: get found on your trade queries, reassure, open a simple contact. An asset you own, off-platform.',
-    ctaSubtitle_fr: 'On regarde votre visibilité et votre présence en ligne en 45 minutes, et on vous dit vite où vous perdez des contacts. Sans promesse en l\'air.',
-    ctaSubtitle_en: 'We look at your visibility and online presence in 45 minutes, and tell you quickly where you are losing contacts. No empty promises.',
+    ctaSubtitle_fr: 'On regarde votre visibilité et votre présence en ligne en 45 minutes, et on vous dit vite où vous perdez des contacts.',
+    ctaSubtitle_en: 'We look at your visibility and online presence in 45 minutes, and tell you quickly where you are losing contacts.',
     workflowBodies_fr: [
       'Un site qui prouve votre expertise plutôt qu\'une fiche d\'annuaire interchangeable : votre angle, vos publications, vos références. Il travaille pendant vos rendez-vous.',
       'Être trouvé sur vos requêtes métier sur Google, et cité dans les réponses des moteurs IA où une part croissante de vos clients cherche désormais un nom.',
@@ -135,8 +135,8 @@ const SECTOR_COPY: Record<string, {
   therapeutes: {
     zigzagLede_fr: 'On travaille la confiance et le créneau, pas le décor : expliquer votre approche, rassurer, rendre la prise de rendez-vous évidente. Sans dépendre d\'une plateforme.',
     zigzagLede_en: 'We work trust and the booking slot, not the decor: explain your approach, reassure, make booking obvious. Without depending on a platform.',
-    ctaSubtitle_fr: 'On regarde votre visibilité locale et votre prise de rendez-vous en 45 minutes, et on vous dit vite ce qui freine les demandes. Sans promesse en l\'air.',
-    ctaSubtitle_en: 'We look at your local visibility and booking flow in 45 minutes, and tell you quickly what is holding requests back. No empty promises.',
+    ctaSubtitle_fr: 'On regarde votre visibilité locale et votre prise de rendez-vous en 45 minutes, et on vous dit vite ce qui freine les demandes.',
+    ctaSubtitle_en: 'We look at your local visibility and booking flow in 45 minutes, and tell you quickly what is holding requests back.',
     workflowBodies_fr: [
       'Votre approche expliquée sans jargon, votre cadre, vos avis : le nouveau patient hésitant est rassuré avant le premier échange, là où la décision se prend.',
       'Des créneaux visibles et réservables en quelques clics. Fini le téléphone qui sonne dans le vide et les allers-retours par mail qui découragent.',
@@ -151,8 +151,8 @@ const SECTOR_COPY: Record<string, {
   'startup-logiciel': {
     zigzagLede_fr: 'On outille le trajet du revenu : la demande, le support, la prospection. Branché sur votre CRM et votre documentation, transféré à votre équipe.',
     zigzagLede_en: 'We tool the revenue path: the request, support, prospecting. Wired to your CRM and documentation, handed over to your team.',
-    ctaSubtitle_fr: 'On suit le trajet d\'une demande de démo chez vous en 45 minutes, et on vous dit vite où elle se perd. Sans promesse en l\'air.',
-    ctaSubtitle_en: 'We follow a demo request through your company in 45 minutes, and tell you quickly where it gets lost. No empty promises.',
+    ctaSubtitle_fr: 'On suit le trajet d\'une demande de démo chez vous en 45 minutes, et on vous dit vite où elle se perd.',
+    ctaSubtitle_en: 'We follow a demo request through your company in 45 minutes, and tell you quickly where it gets lost.',
     workflowBodies_fr: [
       'Chaque demande de démonstration crée une fiche dans le CRM, enrichie, notée et affectée au bon interlocuteur le jour même. Le prospect reçoit un créneau, pas un simple accusé de réception.',
       'Un agent répond aux questions de prise en main depuis votre documentation et ouvre un ticket propre pour le reste. L\'équipe produit ne voit plus que ce qui demande vraiment un humain.',
@@ -264,8 +264,8 @@ function workflowRowsFor(data: SectorData, slug: string) {
       kicker_en: String(i + 1).padStart(2, '0'),
       h3_fr: wf.charAt(0).toUpperCase() + wf.slice(1),
       h3_en: wf.charAt(0).toUpperCase() + wf.slice(1),
-      body_fr: sectorCopy?.workflowBodies_fr[i] ?? "On câble ce workflow sur vos outils existants, avec votre équipe. Tout reste lisible et modifiable : pas de boîte noire, vous gardez la main.",
-      body_en: sectorCopy?.workflowBodies_en[i] ?? 'We wire this workflow onto your existing tools, with your team. Everything stays readable and editable: no black box, you keep control.',
+      body_fr: sectorCopy?.workflowBodies_fr[i] ?? "On branche cette tâche sur vos outils actuels, avec votre équipe. Tout reste lisible et modifiable : vous gardez la main.",
+      body_en: sectorCopy?.workflowBodies_en[i] ?? 'We connect this task to your current tools, with your team. Everything stays readable and editable: you keep control.',
       media_src: img.src,
       media_alt_fr: img.alt_fr,
       media_alt_en: img.alt_en,
@@ -340,12 +340,12 @@ export const sectorTemplate = defineTemplate<SectorContext>({
         return {
           type: 'feature-zigzag',
           background: 'paper',
-          kicker_fr: '§ Ce qu\'on câble',
-          kicker_en: '§ What we wire',
-          h2_fr: 'Des workflows, pas des <i>slides</i>.',
-          h2_en: 'Workflows, not <i>slides</i>.',
-          lede_fr: sectorCopy?.zigzagLede_fr ?? 'On déploie ce qui compte pour votre métier, branché sur vos outils, transféré à votre équipe.',
-          lede_en: sectorCopy?.zigzagLede_en ?? 'We deploy what matters for your trade, wired to your tools, handed over to your team.',
+          kicker_fr: '§ Ce qu\'on met en place',
+          kicker_en: '§ What we set up',
+          h2_fr: 'Ce qui change <i>au quotidien</i>.',
+          h2_en: 'What changes <i>day to day</i>.',
+          lede_fr: sectorCopy?.zigzagLede_fr ?? 'On met en place ce qui compte pour votre métier, relié à vos outils actuels et repris ensuite par votre équipe.',
+          lede_en: sectorCopy?.zigzagLede_en ?? 'We set up what matters for your trade, connected to your current tools and then taken over by your team.',
           rows: workflowRowsFor(data, slug),
         } satisfies SectionByType<'feature-zigzag'>;
       },
@@ -373,8 +373,8 @@ export const sectorTemplate = defineTemplate<SectorContext>({
       build: ({ data }) => ({
         type: 'metric-callout-band',
         background: 'paper-2',
-        context_fr: 'Étude · sources tierces. Chiffres de marché reportés (détail et sources nommées plus bas), pas nos résultats client.',
-        context_en: 'Study · third-party sources. Reported market figures (details and named sources below), not our own client results.',
+        context_fr: 'Chiffres de marché issus de sources tierces, nommées plus bas. Ce ne sont pas des résultats de nos clients.',
+        context_en: 'Market figures from third-party sources, named below. These are not our clients\' results.',
         metrics: data.metricsHero.slice(0, 3).map((m) => ({
           value: m.value,
           label_fr: m.label_fr,
@@ -424,10 +424,10 @@ export const sectorTemplate = defineTemplate<SectorContext>({
       build: () => ({
         type: 'tech-stack-band',
         background: 'paper-3',
-        kicker_fr: '§ La stack',
-        kicker_en: '§ The stack',
-        lead_fr: 'Une stack courte et auditable : des modèles Claude branchés à vos outils existants par connecteurs. Pas de refonte quand un connecteur suffit.',
-        lead_en: 'A short, auditable stack: Claude models wired to your existing tools through connectors. No rebuild when a connector is enough.',
+        kicker_fr: '§ Les outils',
+        kicker_en: '§ The tools',
+        lead_fr: 'Des modèles Claude reliés à vos outils actuels par des connecteurs : pas de refonte quand un connecteur suffit.',
+        lead_en: 'Claude models connected to your current tools through connectors: no rebuild when a connector is enough. Your data stays in your own accounts, and every action is logged.',
         pills: defaultStackPills,
       } satisfies SectionByType<'tech-stack-band'>),
     },
@@ -487,12 +487,12 @@ export const sectorTemplate = defineTemplate<SectorContext>({
         return {
           type: 'footer-cta-band',
           background: 'ink',
-          kicker_fr: '§ Votre terrain',
-          kicker_en: '§ Your field',
-          h2_fr: `${data.icp_fr} : on cadre votre <i>terrain</i>.`,
-          h2_en: `${data.icp_en}: we frame your <i>field</i>.`,
-          subtitle_fr: sectorCopy?.ctaSubtitle_fr ?? "On regarde votre contexte en 45 minutes et on vous dit vite si le terrain est opérable, sans promesse en l'air.",
-          subtitle_en: sectorCopy?.ctaSubtitle_en ?? 'We look at your context in 45 minutes and tell you quickly whether the field is operationally viable, with no empty promises.',
+          kicker_fr: '§ Premier échange',
+          kicker_en: '§ First conversation',
+          h2_fr: `${data.icp_fr} : on regarde votre <i>quotidien</i>.`,
+          h2_en: `${data.icp_en}: we look at your <i>daily work</i>.`,
+          subtitle_fr: sectorCopy?.ctaSubtitle_fr ?? "On regarde votre contexte en 45 minutes et on vous dit ce qui peut s'automatiser.",
+          subtitle_en: sectorCopy?.ctaSubtitle_en ?? 'We look at your context in 45 minutes and tell you what can be automated.',
           buttons: [
             {
               label_fr: data.ctaPrimary_fr,
