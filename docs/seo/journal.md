@@ -67,6 +67,12 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 - `llms.txt` : la page figure dans le silo « Blog », ligne reprenant title et description.
 - GF-1 (build servi, `serve-dist.mjs`, Playwright) : 1440 px et 390 px, HTTP 200, H1 visible (opacité 1, transform identité, bas du H1 à 414 px et 357 px), débordement horizontal 0, illustration chargée, 0 erreur console. À 1440 px, le H1 passe sur l'illustration placée à gauche : c'est le gabarit des billets à `side: left` (même rendu constaté sur `/blog/apparaitre-dans-chatgpt-pme`), pas une régression de cette page.
 
+- Push sur `main` : `ba5256b..681b934` (fusion `9df54b9`, commit de contenu `7a5ce82`). La PR #175 est fermée par GitHub comme fusionnée (`merged_at` 2026-11-11T09:00:40Z).
+- CI sur `main` (run 42991565119) : `completed success` ; jobs « SEO (build de production) », « E2E (Playwright · build servi) », « Build (astro) » : success.
+- Production (curl, 11 novembre 2026 vers 09:10 UTC) : `/blog/dossier-competences-ia-esn` 200, H1 servi identique au build ; accueil 200 ; `/blog` 200 ; la page figure dans `sitemap-0.xml` et dans `llms.txt`. Aucune redirection dans ce lot. Aucun revert.
+- Collecte : relancée une fois (`POST .../actions/workflows/seo-routine.yml/dispatches`, run `workflow_dispatch` créé à 09:10:59 UTC ; `gh workflow run` refusé, GraphQL). Résultat lu par la session suivante. Derniers runs `schedule` : 8 novembre 22:53 UTC et 9 novembre 11:40 UTC, tous deux `success`, mais avec cinq étapes en erreur (panne de production du 9 et du 10 novembre).
+- Brave : 46 URL au `lastmod` de moins de 8 jours (`brave-queue.mjs --from-sitemap --days=8`, 09:11 UTC) : 40 à soumettre par la tâche Brave, 6 à reprendre (`--offset=40`).
+
 **Brouillon LinkedIn** : `docs/seo/posts/2026-11-11.md` (à relire et à publier par Simon).
 
 **Limites** : la page n'est pas un avis juridique ; fiches CNIL sur les logiciels de tri non lues en entier ; aucun essai de la consigne ; volumes de requête non mesurés (à demander à Simon, Semrush).
