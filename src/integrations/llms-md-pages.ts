@@ -175,7 +175,9 @@ function cleanInline(html: string): string {
   text = text.replace(/<code[^>]*>([\s\S]*?)<\/code>/gi, '`$1`');
   text = text.replace(/<br[^>]*\/?>/gi, '\n');
   text = text.replace(/<[^>]+>/g, '');
-  return decodeEntities(text);
+  // Pas de décodage ici : un « &lt; » décodé trop tôt serait pris pour une balise par le
+  // nettoyage final et emporterait le texte jusqu'au prochain « > ». htmlToMarkdown décode à la fin.
+  return text;
 }
 
 function decodeEntities(text: string): string {
