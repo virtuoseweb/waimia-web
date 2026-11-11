@@ -196,6 +196,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "/ressources/guides/chatgpt",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/chatgpt-dots.json",
       "slug": "chatgpt-dots",
       "route": "/ressources/guides/chatgpt-dots",
@@ -253,6 +262,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-gratuit.json",
       "slug": "claude-gratuit",
       "route": "/ressources/guides/claude-gratuit",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-ia.json",
+      "slug": "claude-ia",
+      "route": "/ressources/guides/claude-ia",
       "index": 1,
       "label": "Simon Beros",
       "background": "paper"
@@ -349,6 +367,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/deepseek.json",
+      "slug": "deepseek",
+      "route": "/ressources/guides/deepseek",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/devis-automatise.json",
       "slug": "devis-automatise",
       "route": "/ressources/guides/devis-automatise",
@@ -361,6 +388,24 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/financement-formation-ia-opco.json",
       "slug": "financement-formation-ia-opco",
       "route": "/ressources/guides/financement-formation-ia-opco",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/gemini.json",
+      "slug": "gemini",
+      "route": "/ressources/guides/gemini",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/grok.json",
+      "slug": "grok",
+      "route": "/ressources/guides/grok",
       "index": 1,
       "label": "Simon Beros",
       "background": "paper"
@@ -388,6 +433,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/mesurer-visibilite-ia-chatgpt.json",
       "slug": "mesurer-visibilite-ia-chatgpt",
       "route": "/ressources/guides/mesurer-visibilite-ia-chatgpt",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mistral-ai.json",
+      "slug": "mistral-ai",
+      "route": "/ressources/guides/mistral-ai",
       "index": 1,
       "label": "Simon Beros",
       "background": "paper"
@@ -1039,6 +1093,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/claude-fonctionnalites-pme",
       "index": 12,
       "label": "Quand acheter et configurer Claude seul, quand se faire accompagner",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-ia.json",
+      "slug": "claude-ia",
+      "route": "/ressources/guides/claude-ia",
+      "index": 8,
+      "label": "Deux consignes avant et après relecture",
       "background": "paper-2"
     },
     {
@@ -2538,6 +2601,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-ia.json",
+      "slug": "claude-ia",
+      "route": "/ressources/guides/claude-ia",
+      "index": 12,
+      "label": "Ce que je ne confie pas à Claude sans relecture",
+      "background": "paper-3"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-managed-agents.json",
       "slug": "claude-managed-agents",
       "route": "/ressources/guides/claude-managed-agents",
@@ -2571,6 +2643,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 11,
       "label": "Qu'est-ce qui fait monter ou baisser la facture ?",
       "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/deepseek.json",
+      "slug": "deepseek",
+      "route": "/ressources/guides/deepseek",
+      "index": 10,
+      "label": "Quand DeepSeek, quand pas",
+      "background": "paper-2"
     },
     {
       "collection": "guides",
@@ -4580,6 +4661,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "/ressources/guides/chatgpt",
+      "index": 2,
+      "label": "#2",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/chatgpt-dots.json",
       "slug": "chatgpt-dots",
       "route": "/ressources/guides/chatgpt-dots",
@@ -4664,6 +4754,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/claude-gratuit.json",
       "slug": "claude-gratuit",
       "route": "/ressources/guides/claude-gratuit",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-ia.json",
+      "slug": "claude-ia",
+      "route": "/ressources/guides/claude-ia",
       "index": 2,
       "label": "#2",
       "background": "paper-2"
@@ -4760,6 +4859,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/deepseek.json",
+      "slug": "deepseek",
+      "route": "/ressources/guides/deepseek",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/devis-automatise.json",
       "slug": "devis-automatise",
       "route": "/ressources/guides/devis-automatise",
@@ -4775,6 +4883,24 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 2,
       "label": "#2",
       "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/gemini.json",
+      "slug": "gemini",
+      "route": "/ressources/guides/gemini",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/grok.json",
+      "slug": "grok",
+      "route": "/ressources/guides/grok",
+      "index": 2,
+      "label": "#2",
+      "background": "paper"
     },
     {
       "collection": "guides",
@@ -4811,6 +4937,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 2,
       "label": "#2",
       "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mistral-ai.json",
+      "slug": "mistral-ai",
+      "route": "/ressources/guides/mistral-ai",
+      "index": 3,
+      "label": "#3",
+      "background": "paper"
     },
     {
       "collection": "guides",
@@ -5218,6 +5353,16 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "label": "#7",
       "variant": "warn",
       "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mistral-ai.json",
+      "slug": "mistral-ai",
+      "route": "/ressources/guides/mistral-ai",
+      "index": 2,
+      "label": "#2",
+      "variant": "info",
+      "background": "paper-2"
     },
     {
       "collection": "guides",
@@ -6374,6 +6519,87 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "/ressources/guides/chatgpt",
+      "index": 3,
+      "label": "#3",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "/ressources/guides/chatgpt",
+      "index": 4,
+      "label": "#4",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "/ressources/guides/chatgpt",
+      "index": 6,
+      "label": "#6",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "/ressources/guides/chatgpt",
+      "index": 7,
+      "label": "#7",
+      "background": "paper-3"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "/ressources/guides/chatgpt",
+      "index": 8,
+      "label": "#8",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "/ressources/guides/chatgpt",
+      "index": 9,
+      "label": "#9",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "/ressources/guides/chatgpt",
+      "index": 11,
+      "label": "#11",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "/ressources/guides/chatgpt",
+      "index": 13,
+      "label": "#13",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "/ressources/guides/chatgpt",
+      "index": 14,
+      "label": "#14",
+      "background": "paper-3"
+    },
+    {
+      "collection": "guides",
       "file": "guides/chatgpt-dots.json",
       "slug": "chatgpt-dots",
       "route": "/ressources/guides/chatgpt-dots",
@@ -6812,6 +7038,78 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 6,
       "label": "#6",
       "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-ia.json",
+      "slug": "claude-ia",
+      "route": "/ressources/guides/claude-ia",
+      "index": 3,
+      "label": "#3",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-ia.json",
+      "slug": "claude-ia",
+      "route": "/ressources/guides/claude-ia",
+      "index": 5,
+      "label": "#5",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-ia.json",
+      "slug": "claude-ia",
+      "route": "/ressources/guides/claude-ia",
+      "index": 7,
+      "label": "#7",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-ia.json",
+      "slug": "claude-ia",
+      "route": "/ressources/guides/claude-ia",
+      "index": 9,
+      "label": "#9",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-ia.json",
+      "slug": "claude-ia",
+      "route": "/ressources/guides/claude-ia",
+      "index": 10,
+      "label": "#10",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-ia.json",
+      "slug": "claude-ia",
+      "route": "/ressources/guides/claude-ia",
+      "index": 11,
+      "label": "#11",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-ia.json",
+      "slug": "claude-ia",
+      "route": "/ressources/guides/claude-ia",
+      "index": 13,
+      "label": "#13",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-ia.json",
+      "slug": "claude-ia",
+      "route": "/ressources/guides/claude-ia",
+      "index": 14,
+      "label": "#14",
+      "background": "paper-2"
     },
     {
       "collection": "guides",
@@ -7238,6 +7536,51 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/deepseek.json",
+      "slug": "deepseek",
+      "route": "/ressources/guides/deepseek",
+      "index": 3,
+      "label": "#3",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/deepseek.json",
+      "slug": "deepseek",
+      "route": "/ressources/guides/deepseek",
+      "index": 5,
+      "label": "#5",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/deepseek.json",
+      "slug": "deepseek",
+      "route": "/ressources/guides/deepseek",
+      "index": 6,
+      "label": "#6",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/deepseek.json",
+      "slug": "deepseek",
+      "route": "/ressources/guides/deepseek",
+      "index": 8,
+      "label": "#8",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/deepseek.json",
+      "slug": "deepseek",
+      "route": "/ressources/guides/deepseek",
+      "index": 9,
+      "label": "#9",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/devis-automatise.json",
       "slug": "devis-automatise",
       "route": "/ressources/guides/devis-automatise",
@@ -7280,6 +7623,114 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 10,
       "label": "#10",
       "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/gemini.json",
+      "slug": "gemini",
+      "route": "/ressources/guides/gemini",
+      "index": 3,
+      "label": "#3",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/gemini.json",
+      "slug": "gemini",
+      "route": "/ressources/guides/gemini",
+      "index": 5,
+      "label": "#5",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/gemini.json",
+      "slug": "gemini",
+      "route": "/ressources/guides/gemini",
+      "index": 6,
+      "label": "#6",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/gemini.json",
+      "slug": "gemini",
+      "route": "/ressources/guides/gemini",
+      "index": 8,
+      "label": "#8",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/gemini.json",
+      "slug": "gemini",
+      "route": "/ressources/guides/gemini",
+      "index": 9,
+      "label": "#9",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/grok.json",
+      "slug": "grok",
+      "route": "/ressources/guides/grok",
+      "index": 4,
+      "label": "#4",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/grok.json",
+      "slug": "grok",
+      "route": "/ressources/guides/grok",
+      "index": 5,
+      "label": "#5",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/grok.json",
+      "slug": "grok",
+      "route": "/ressources/guides/grok",
+      "index": 8,
+      "label": "#8",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/grok.json",
+      "slug": "grok",
+      "route": "/ressources/guides/grok",
+      "index": 9,
+      "label": "#9",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/grok.json",
+      "slug": "grok",
+      "route": "/ressources/guides/grok",
+      "index": 11,
+      "label": "#11",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/grok.json",
+      "slug": "grok",
+      "route": "/ressources/guides/grok",
+      "index": 12,
+      "label": "#12",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/grok.json",
+      "slug": "grok",
+      "route": "/ressources/guides/grok",
+      "index": 13,
+      "label": "#13",
+      "background": "paper-2"
     },
     {
       "collection": "guides",
@@ -7460,6 +7911,60 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 11,
       "label": "#11",
       "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mistral-ai.json",
+      "slug": "mistral-ai",
+      "route": "/ressources/guides/mistral-ai",
+      "index": 4,
+      "label": "#4",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mistral-ai.json",
+      "slug": "mistral-ai",
+      "route": "/ressources/guides/mistral-ai",
+      "index": 6,
+      "label": "#6",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mistral-ai.json",
+      "slug": "mistral-ai",
+      "route": "/ressources/guides/mistral-ai",
+      "index": 8,
+      "label": "#8",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mistral-ai.json",
+      "slug": "mistral-ai",
+      "route": "/ressources/guides/mistral-ai",
+      "index": 9,
+      "label": "#9",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mistral-ai.json",
+      "slug": "mistral-ai",
+      "route": "/ressources/guides/mistral-ai",
+      "index": 11,
+      "label": "#11",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mistral-ai.json",
+      "slug": "mistral-ai",
+      "route": "/ressources/guides/mistral-ai",
+      "index": 12,
+      "label": "#12",
+      "background": "paper-2"
     },
     {
       "collection": "guides",
@@ -9042,6 +9547,24 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "/ressources/guides/chatgpt",
+      "index": 5,
+      "label": "Les modèles de ChatGPT et l'endroit où ils servent",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "/ressources/guides/chatgpt",
+      "index": 10,
+      "label": "Entraînement des modèles : trois situations",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/chatgpt-dots.json",
       "slug": "chatgpt-dots",
       "route": "/ressources/guides/chatgpt-dots",
@@ -9243,6 +9766,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-ia.json",
+      "slug": "claude-ia",
+      "route": "/ressources/guides/claude-ia",
+      "index": 4,
+      "label": "Huit endroits où l'on croise Claude, du navigateur à Slack",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-in-chrome-entreprise.json",
       "slug": "claude-in-chrome-entreprise",
       "route": "/ressources/guides/claude-in-chrome-entreprise",
@@ -9438,6 +9970,26 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/deepseek.json",
+      "slug": "deepseek",
+      "route": "/ressources/guides/deepseek",
+      "index": 4,
+      "label": "Flash ou Pro : versions, contexte, prix et poids ouverts",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/deepseek.json",
+      "slug": "deepseek",
+      "route": "/ressources/guides/deepseek",
+      "index": 7,
+      "label": "Application, API, poids ouverts : où vos données se posent",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/devis-automatise.json",
       "slug": "devis-automatise",
       "route": "/ressources/guides/devis-automatise",
@@ -9455,6 +10007,56 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "label": "Chaque fait, sa source, sa date",
       "variant": "default",
       "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/gemini.json",
+      "slug": "gemini",
+      "route": "/ressources/guides/gemini",
+      "index": 4,
+      "label": "Sept façons d'obtenir Gemini, et ce que chacune contient",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/gemini.json",
+      "slug": "gemini",
+      "route": "/ressources/guides/gemini",
+      "index": 7,
+      "label": "Combien de temps Gemini garde vos échanges",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/grok.json",
+      "slug": "grok",
+      "route": "/ressources/guides/grok",
+      "index": 6,
+      "label": "Grok 4.7 d'abord, puis les modèles d'image, de vidéo et de voix",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/grok.json",
+      "slug": "grok",
+      "route": "/ressources/guides/grok",
+      "index": 7,
+      "label": "Offres et prix : de 0 à 200 $ par mois, puis les offres d'équipe",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/grok.json",
+      "slug": "grok",
+      "route": "/ressources/guides/grok",
+      "index": 10,
+      "label": "Où vont vos données : une réponse par porte d'entrée",
+      "variant": "editorial",
+      "background": "paper"
     },
     {
       "collection": "guides",
@@ -9543,6 +10145,26 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/mesurer-visibilite-ia-chatgpt",
       "index": 6,
       "label": "Quel relevé mesure quoi, et que ne dit-il pas ?",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mistral-ai.json",
+      "slug": "mistral-ai",
+      "route": "/ressources/guides/mistral-ai",
+      "index": 5,
+      "label": "Les modèles de Mistral AI : licence, prix et date de retrait",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mistral-ai.json",
+      "slug": "mistral-ai",
+      "route": "/ressources/guides/mistral-ai",
+      "index": 7,
+      "label": "Free, Pro, Team et Enterprise : ce que contient chaque abonnement",
+      "variant": "editorial",
       "background": "paper-2"
     },
     {
@@ -11159,6 +11781,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "/ressources/guides/chatgpt",
+      "index": 16,
+      "label": "Les questions qu'on pose sur ChatGPT",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/chatgpt-dots.json",
       "slug": "chatgpt-dots",
       "route": "/ressources/guides/chatgpt-dots",
@@ -11245,6 +11876,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/claude-gratuit",
       "index": 12,
       "label": "Claude gratuit : questions fréquentes",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-ia.json",
+      "slug": "claude-ia",
+      "route": "/ressources/guides/claude-ia",
+      "index": 17,
+      "label": "Claude IA : les questions qu'on se pose en l'ouvrant",
       "background": "paper"
     },
     {
@@ -11339,6 +11979,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/deepseek.json",
+      "slug": "deepseek",
+      "route": "/ressources/guides/deepseek",
+      "index": 13,
+      "label": "DeepSeek : les questions des dirigeants",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/devis-automatise.json",
       "slug": "devis-automatise",
       "route": "/ressources/guides/devis-automatise",
@@ -11354,6 +12003,24 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 13,
       "label": "Questions fréquentes",
       "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/gemini.json",
+      "slug": "gemini",
+      "route": "/ressources/guides/gemini",
+      "index": 15,
+      "label": "Questions fréquentes sur Gemini",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/grok.json",
+      "slug": "grok",
+      "route": "/ressources/guides/grok",
+      "index": 17,
+      "label": "Questions sur Grok",
+      "background": "paper-2"
     },
     {
       "collection": "guides",
@@ -11390,6 +12057,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 13,
       "label": "Mesurer sa visibilité dans ChatGPT : questions fréquentes",
       "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mistral-ai.json",
+      "slug": "mistral-ai",
+      "route": "/ressources/guides/mistral-ai",
+      "index": 15,
+      "label": "Mistral AI et Le Chat : les questions que les PME posent",
+      "background": "paper-2"
     },
     {
       "collection": "guides",
@@ -12967,6 +13643,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "/ressources/guides/chatgpt",
+      "index": 17,
+      "label": "Savoir ce que vos équipes font déjà avec ChatGPT, avant de généraliser.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/chatgpt-dots.json",
       "slug": "chatgpt-dots",
       "route": "/ressources/guides/chatgpt-dots",
@@ -13053,6 +13738,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/claude-gratuit",
       "index": 13,
       "label": "Savoir quels comptes Claude existent dans l'équipe, et lesquels doivent passer sous conditions commerciales.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-ia.json",
+      "slug": "claude-ia",
+      "route": "/ressources/guides/claude-ia",
+      "index": 18,
+      "label": "Vous savez ce que Claude fait. Reste à savoir ce qu'il ferait chez vous.",
       "background": "ink"
     },
     {
@@ -13147,6 +13841,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/deepseek.json",
+      "slug": "deepseek",
+      "route": "/ressources/guides/deepseek",
+      "index": 14,
+      "label": "Un salarié veut DeepSeek demain matin. Qu'est-ce que vous lui répondez ?",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/devis-automatise.json",
       "slug": "devis-automatise",
       "route": "/ressources/guides/devis-automatise",
@@ -13161,6 +13864,24 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/financement-formation-ia-opco",
       "index": 14,
       "label": "On vérifie la prise en charge avant de vous engager.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/gemini.json",
+      "slug": "gemini",
+      "route": "/ressources/guides/gemini",
+      "index": 16,
+      "label": "Gemini est peut-être déjà dans votre abonnement : faites le point en 45 minutes.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/grok.json",
+      "slug": "grok",
+      "route": "/ressources/guides/grok",
+      "index": 18,
+      "label": "Avant de choisir un assistant, faites cartographier ce qui y passe déjà.",
       "background": "ink"
     },
     {
@@ -13197,6 +13918,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/mesurer-visibilite-ia-chatgpt",
       "index": 14,
       "label": "Savoir où vous en êtes avant de changer quoi que ce soit.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mistral-ai.json",
+      "slug": "mistral-ai",
+      "route": "/ressources/guides/mistral-ai",
+      "index": 16,
+      "label": "Un assistant IA se choisit sur vos tâches, pas sur une fiche produit.",
       "background": "ink"
     },
     {
@@ -14556,7 +15286,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-vs-chatgpt-pme",
       "route": "/ressources/comparatifs/claude-vs-chatgpt-pme",
       "index": 0,
-      "label": "Claude vs ChatGPT pour une PME",
+      "label": "Claude ou ChatGPT : lequel choisir en entreprise ?",
       "background": "paper"
     },
     {
@@ -14750,6 +15480,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "/ressources/guides/chatgpt",
+      "index": 0,
+      "label": "ChatGPT : le guide complet",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/chatgpt-dots.json",
       "slug": "chatgpt-dots",
       "route": "/ressources/guides/chatgpt-dots",
@@ -14836,6 +15575,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/claude-gratuit",
       "index": 0,
       "label": "Claude gratuit : ce que permet l'offre Free",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-ia.json",
+      "slug": "claude-ia",
+      "route": "/ressources/guides/claude-ia",
+      "index": 0,
+      "label": "Claude IA : le guide complet pour bien l'utiliser",
       "background": "paper"
     },
     {
@@ -14930,6 +15678,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/deepseek.json",
+      "slug": "deepseek",
+      "route": "/ressources/guides/deepseek",
+      "index": 0,
+      "label": "DeepSeek : trois portes d'entrée, trois sorts pour vos données",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/devis-automatise.json",
       "slug": "devis-automatise",
       "route": "/ressources/guides/devis-automatise",
@@ -14944,6 +15701,24 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/financement-formation-ia-opco",
       "index": 0,
       "label": "Financement d'une formation IA en entreprise : OPCO, devis, convention",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/gemini.json",
+      "slug": "gemini",
+      "route": "/ressources/guides/gemini",
+      "index": 0,
+      "label": "Gemini : le guide complet de l'IA de Google",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/grok.json",
+      "slug": "grok",
+      "route": "/ressources/guides/grok",
+      "index": 0,
+      "label": "Grok : le guide complet (2026)",
       "background": "paper"
     },
     {
@@ -14980,6 +15755,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/mesurer-visibilite-ia-chatgpt",
       "index": 0,
       "label": "Mesurer sa visibilité IA : un protocole mensuel, sans abonnement",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mistral-ai.json",
+      "slug": "mistral-ai",
+      "route": "/ressources/guides/mistral-ai",
+      "index": 0,
+      "label": "Mistral AI et son assistant Le Chat",
       "background": "paper"
     },
     {
@@ -15711,6 +16495,16 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/grok.json",
+      "slug": "grok",
+      "route": "/ressources/guides/grok",
+      "index": 3,
+      "label": "Quatre chiffres à garder en tête avant d'ouvrir un compte",
+      "variant": "accent",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/hermes-agent.json",
       "slug": "hermes-agent",
       "route": "/ressources/guides/hermes-agent",
@@ -15855,6 +16649,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "/ressources/guides/chatgpt",
+      "index": 12,
+      "label": "Une page qui dit ce qu'on colle dans l'assistant, et ce qu'on n'y colle jamais",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/chatgpt-dots.json",
       "slug": "chatgpt-dots",
       "route": "/ressources/guides/chatgpt-dots",
@@ -15933,6 +16736,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 9,
       "label": "Recevez le kit de conformité Claude en entreprise",
       "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-ia.json",
+      "slug": "claude-ia",
+      "route": "/ressources/guides/claude-ia",
+      "index": 16,
+      "label": "#16",
+      "background": "paper-2"
     },
     {
       "collection": "guides",
@@ -16035,6 +16847,33 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/deepseek.json",
+      "slug": "deepseek",
+      "route": "/ressources/guides/deepseek",
+      "index": 11,
+      "label": "Mettez par écrit ce qui ne quitte jamais l'entreprise, avant que quelqu'un installe DeepSeek",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/gemini.json",
+      "slug": "gemini",
+      "route": "/ressources/guides/gemini",
+      "index": 12,
+      "label": "Gemini est ouvert à l'équipe : écrivez ce qu'on peut lui confier, recevez le modèle en PDF",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/grok.json",
+      "slug": "grok",
+      "route": "/ressources/guides/grok",
+      "index": 15,
+      "label": "Décidez par écrit ce qui entre dans un compte Grok : recevez le modèle de charte IA en PDF",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/hermes-agent.json",
       "slug": "hermes-agent",
       "route": "/ressources/guides/hermes-agent",
@@ -16049,6 +16888,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/mcp-claude",
       "index": 9,
       "label": "Avant de brancher un connecteur : recevez le kit conformité Claude (PDF, 11 pages)",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mistral-ai.json",
+      "slug": "mistral-ai",
+      "route": "/ressources/guides/mistral-ai",
+      "index": 13,
+      "label": "Avant d'ouvrir Vibe à l'équipe, fixez ce qui n'y entre jamais : recevez le modèle de charte IA en PDF",
       "background": "ink"
     },
     {
@@ -17568,6 +18416,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-ia.json",
+      "slug": "claude-ia",
+      "route": "/ressources/guides/claude-ia",
+      "index": 6,
+      "label": "Trente minutes pour juger Claude sur pièces",
+      "background": "paper-3"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-in-chrome-entreprise.json",
       "slug": "claude-in-chrome-entreprise",
       "route": "/ressources/guides/claude-in-chrome-entreprise",
@@ -17667,6 +18524,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/gemini.json",
+      "slug": "gemini",
+      "route": "/ressources/guides/gemini",
+      "index": 10,
+      "label": "Ouvrir Gemini à l'équipe : quatre réglages, dans cet ordre",
+      "background": "paper-3"
+    },
+    {
+      "collection": "guides",
       "file": "guides/hermes-agent.json",
       "slug": "hermes-agent",
       "route": "/ressources/guides/hermes-agent",
@@ -17682,6 +18548,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 5,
       "label": "Le protocole en cinq étapes",
       "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mistral-ai.json",
+      "slug": "mistral-ai",
+      "route": "/ressources/guides/mistral-ai",
+      "index": 10,
+      "label": "Quatre usages de Vibe à tester, dans l'ordre où je les ouvre",
+      "background": "paper-3"
     },
     {
       "collection": "guides",
@@ -18929,6 +19804,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/chatgpt.json",
+      "slug": "chatgpt",
+      "route": "/ressources/guides/chatgpt",
+      "index": 15,
+      "label": "Pour aller plus loin",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/chatgpt-dots.json",
       "slug": "chatgpt-dots",
       "route": "/ressources/guides/chatgpt-dots",
@@ -19127,6 +20011,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/deepseek.json",
+      "slug": "deepseek",
+      "route": "/ressources/guides/deepseek",
+      "index": 12,
+      "label": "Pour aller plus loin",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/devis-automatise.json",
       "slug": "devis-automatise",
       "route": "/ressources/guides/devis-automatise",
@@ -19142,6 +20035,33 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 12,
       "label": "Pour aller plus loin",
       "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/gemini.json",
+      "slug": "gemini",
+      "route": "/ressources/guides/gemini",
+      "index": 13,
+      "label": "Les services",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/gemini.json",
+      "slug": "gemini",
+      "route": "/ressources/guides/gemini",
+      "index": 14,
+      "label": "Pour aller plus loin",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/grok.json",
+      "slug": "grok",
+      "route": "/ressources/guides/grok",
+      "index": 16,
+      "label": "À lire ensuite",
+      "background": "paper"
     },
     {
       "collection": "guides",
@@ -19187,6 +20107,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 12,
       "label": "Pour aller plus loin",
       "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/mistral-ai.json",
+      "slug": "mistral-ai",
+      "route": "/ressources/guides/mistral-ai",
+      "index": 14,
+      "label": "Pour aller plus loin",
+      "background": "paper"
     },
     {
       "collection": "guides",
@@ -19489,6 +20418,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     }
   ],
   "resource-card-grid": [
+    {
+      "collection": "guides",
+      "file": "guides/claude-ia.json",
+      "slug": "claude-ia",
+      "route": "/ressources/guides/claude-ia",
+      "index": 15,
+      "label": "Un guide pour chaque porte que vous voudrez ouvrir",
+      "background": "paper"
+    },
     {
       "collection": "guides",
       "file": "guides/claude-pme.json",
@@ -19965,6 +20903,24 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/financement-formation-ia-opco",
       "index": 9,
       "label": "Quand compter sur un financement, quand ne pas le faire",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/gemini.json",
+      "slug": "gemini",
+      "route": "/ressources/guides/gemini",
+      "index": 11,
+      "label": "Gemini pour votre entreprise : le bon choix, ou pas",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/grok.json",
+      "slug": "grok",
+      "route": "/ressources/guides/grok",
+      "index": 14,
+      "label": "Pour une entreprise : quand choisir Grok",
       "background": "paper"
     },
     {

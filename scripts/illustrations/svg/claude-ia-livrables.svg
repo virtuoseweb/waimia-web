@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+<!-- Waimia · moteur B · une femme tend une petite note ; devant un grand disque se dressent, en grand, un rapport relié, un tableur et un chevalet de présentation -->
+<defs>
+<g id="woman"><circle cx="0" cy="-90" r="7" fill="{{shadow}}"/><circle cx="-5" cy="-96" r="5" fill="{{shadow}}"/><path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{shadow}}"/><path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{shadow}}"/><rect x="-6" y="-25" width="4" height="23" fill="{{shadow}}"/><rect x="2" y="-25" width="4" height="23" fill="{{shadow}}"/></g>
+<g id="man"><circle cx="0" cy="-90" r="7.5" fill="{{shadow}}"/><path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{shadow}}"/><rect x="-11.5" y="-44" width="9.5" height="42" fill="{{shadow}}"/><rect x="2" y="-44" width="9.5" height="42" fill="{{shadow}}"/><rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{shadow}}"/><rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{shadow}}"/></g>
+</defs>
+<rect width="1456" height="624" fill="{{field}}"/>
+<circle cx="800" cy="300" r="245" fill="{{shape}}"/>
+<rect x="0" y="520" width="1456" height="104" fill="{{ground}}"/>
+
+<g transform="translate(-30 0)">
+<!-- la femme et sa note -->
+<g transform="translate(470 520) scale(1.35)">
+  <use href="#woman"/>
+  <path d="M5 -79 L30 -98 L33 -94 L9 -74 Z" fill="{{shadow}}"/>
+  <g transform="rotate(-10 40 -110)"><rect x="30" y="-124" width="20" height="26" fill="{{soft}}"/><rect x="34" y="-117" width="12" height="2.5" fill="{{shadow}}"/><rect x="34" y="-111" width="9" height="2.5" fill="{{shadow}}"/></g>
+</g>
+
+<!-- rapport relié -->
+<rect x="606" y="336" width="10" height="184" fill="{{light}}"/>
+<rect x="590" y="328" width="120" height="192" fill="{{subject}}"/>
+<rect x="590" y="328" width="20" height="192" fill="{{shadow}}"/>
+<rect x="634" y="368" width="56" height="9" fill="{{light}}"/>
+<rect x="634" y="388" width="42" height="9" fill="{{light}}"/>
+<rect x="634" y="440" width="56" height="5" fill="{{light}}"/>
+<rect x="634" y="454" width="56" height="5" fill="{{light}}"/>
+<rect x="634" y="468" width="40" height="5" fill="{{light}}"/>
+
+<!-- tableur posé de biais -->
+<g transform="rotate(-7 830 440)">
+  <rect x="752" y="356" width="156" height="164" fill="{{subject}}"/>
+  <rect x="752" y="356" width="156" height="30" fill="{{shadow}}"/>
+  <g fill="{{light}}"><rect x="752" y="420" width="156" height="4"/><rect x="752" y="454" width="156" height="4"/><rect x="752" y="488" width="156" height="4"/><rect x="800" y="386" width="4" height="134"/><rect x="852" y="386" width="4" height="134"/></g>
+</g>
+
+<!-- chevalet de présentation -->
+<path d="M952 392 L962 392 L940 520 L928 520 Z" fill="{{shadow}}"/>
+<path d="M1040 392 L1050 392 L1072 520 L1060 520 Z" fill="{{shadow}}"/>
+<rect x="926" y="264" width="150" height="128" fill="{{subject}}"/>
+<rect x="918" y="388" width="166" height="10" fill="{{shadow}}"/>
+<g fill="{{light}}"><rect x="950" y="346" width="20" height="28"/><rect x="980" y="324" width="20" height="50"/><rect x="1010" y="302" width="20" height="72"/><rect x="1040" y="334" width="20" height="40"/></g>
+
+<!-- un collègue regarde le chevalet -->
+<use href="#man" transform="translate(1140 520) scale(1.2)"/>
+</g>
+</svg>

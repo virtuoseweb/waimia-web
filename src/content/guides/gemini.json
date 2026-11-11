@@ -1,0 +1,641 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "Gemini : le guide complet (2026)",
+  "title_en": "Gemini: the complete guide (2026)",
+  "seoTitle_fr": "Gemini : guide complet, offres Workspace, prix et données",
+  "seoTitle_en": "Gemini: complete guide, Workspace plans, price and data",
+  "description_fr": "Gemini, l'IA de Google : guide complet des modèles, des offres Workspace et Gemini Enterprise, des prix en France, des données et du RGPD pour une PME.",
+  "description_en": "Gemini, Google's AI: complete guide to models, Workspace and Gemini Enterprise plans, prices in France, data and GDPR for an SMB.",
+  "slug": "gemini",
+  "publishedAt": "2026-11-11T00:00:00.000Z",
+  "updatedAt": "2026-11-11T00:00:00.000Z",
+  "category": "claude",
+  "tags": [
+    "gemini",
+    "google-gemini",
+    "google-workspace",
+    "gemini-enterprise",
+    "assistant-ia",
+    "rgpd",
+    "guide-pme"
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "sources": [
+    {
+      "name": "Google Workspace, tarifs en euros (Starter, Standard, Plus, Enterprise, fonctionnalités Gemini par édition), lu le 11 novembre 2026",
+      "url": "https://workspace.google.com/intl/fr/pricing",
+      "type": "enterprise"
+    },
+    {
+      "name": "Google Cloud, Gemini Enterprise Business edition (connecteurs, agents, Workflow Builder, données), lu le 11 novembre 2026",
+      "url": "https://cloud.google.com/gemini-enterprise/business",
+      "type": "enterprise"
+    },
+    {
+      "name": "Gemini, abonnements en France (Google AI Plus, Pro, Ultra, Gemini Enterprise, AI Studio), lu le 11 novembre 2026",
+      "url": "https://gemini.google/subscriptions/",
+      "type": "enterprise"
+    },
+    {
+      "name": "Google Workspace Help, Generative AI in Google Workspace Privacy Hub (mis à jour le 6 octobre 2026), lu le 11 novembre 2026",
+      "url": "https://support.google.com/a/answer/15706919",
+      "type": "enterprise",
+      "publishedAt": "2026-10-06"
+    },
+    {
+      "name": "Gemini, présentation et fonctionnement (origine, usages, limites), lu le 11 novembre 2026",
+      "url": "https://gemini.google/overview/",
+      "type": "enterprise"
+    },
+    {
+      "name": "Google DeepMind, modèles Gemini (Gemini 4 Argon, Gemini 4 Carbon, modèles Flash), lu le 11 novembre 2026",
+      "url": "https://deepmind.google/models/gemini/",
+      "type": "enterprise"
+    },
+    {
+      "name": "Gemini Apps Help, Upload & analyze files in Gemini Apps (fichiers, contexte), lu le 11 novembre 2026",
+      "url": "https://support.google.com/gemini/answer/14903178",
+      "type": "enterprise"
+    }
+  ],
+  "faq_fr": [
+    {
+      "q": "Gemini est-il gratuit ?",
+      "a": "Oui, avec un compte Google personnel : l'application gratuite donne accès au modèle Flash-Lite, à Deep Research, à Gemini Live et à Canvas. Les modèles plus puissants et les limites d'usage plus larges passent par Google AI Plus, Pro ou Ultra. Pour une entreprise, ce n'est pas la bonne porte : la version qui compte est celle d'un abonnement Workspace, dont le contrat encadre vos données."
+    },
+    {
+      "q": "Gemini est-il inclus dans Google Workspace ?",
+      "a": "Oui, dans toutes les éditions Business de la page de tarifs, mais pas avec le même périmètre. Starter met Gemini dans Gmail et Vids, avec un chat Gemini ; Standard ajoute Docs, Sheets, Slides, Drive, Meet et Chat. Gemini Enterprise est un produit à part, vendu par licence."
+    },
+    {
+      "q": "Quelle différence entre Gemini dans Workspace et Gemini Enterprise ?",
+      "a": "Gemini dans Workspace est l'IA des applications Google : elle vous aide dans Gmail, Docs ou Meet. Gemini Enterprise est une application d'entreprise qui se connecte à Microsoft 365, Jira, HubSpot ou Slack, lance des agents comme Deep Research et en construit avec Workflow Builder. L'un se prend sans l'autre."
+    },
+    {
+      "q": "Google utilise-t-il mes e-mails et mes documents pour entraîner Gemini ?",
+      "a": "Pas sans votre permission, d'après Google. Pour les éditions Workspace éligibles, les invites, le contenu Workspace et les réponses ne sont ni relus par des humains ni utilisés pour entraîner ses modèles hors de votre domaine. Cette promesse vaut pour un compte professionnel : un abonnement personnel Google AI Pro n'entre pas dans le champ du document où Google l'écrit."
+    },
+    {
+      "q": "Gemini peut-il lire tout mon Drive ?",
+      "a": "Il ne lit que ce que l'utilisateur peut déjà ouvrir. Sans accès à un fichier, Gemini ne le récupère pas, et les restrictions de droits (téléchargement, copie et impression désactivés) le tiennent aussi à distance. Le risque est donc interne : un dossier partagé trop largement devient lisible par l'IA de quiconque y a accès."
+    },
+    {
+      "q": "Combien de temps Gemini garde-t-il les conversations ?",
+      "a": "Dans les applications Workspace, de 90 jours à une durée illimitée, au choix de l'administrateur. Dans l'application Gemini, jusqu'à 36 mois, avec 18 mois par défaut ; historique coupé, les échanges restent 72 heures. Gemini Notebook ne conserve pas les invites après la session."
+    },
+    {
+      "q": "Gemini Notebook convient-il à des documents clients ?",
+      "a": "Pas tant qu'aucune règle ne l'encadre. Les fichiers importés y sont copiés, hors des réglages de partage et de région de données de votre organisation ; Notebook n'est pas relié à la protection contre la perte de données, et Google écrit qu'il ne couvre pas encore ISO, SOC ni FedRAMP. Un administrateur peut le couper pour toute l'organisation, ou seulement pour une unité ou un groupe."
+    },
+    {
+      "q": "Gemini est-il conforme au RGPD ?",
+      "a": "Google répond que Gemini suit les mêmes principes de confidentialité que le reste de Workspace, sous son Cloud Data Processing Addendum, et publie un guide d'aide à l'analyse d'impact. C'est un cadre contractuel, pas une conformité livrée clé en main : base légale, durée de conservation et registre des traitements restent à votre charge."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Is Gemini free?",
+      "a": "Yes, with a personal Google account: the free app gives access to the Flash-Lite model, Deep Research, Gemini Live and Canvas. More powerful models and wider usage limits come with Google AI Plus, Pro or Ultra. For a company this is the wrong door: the version that matters is the one inside a Workspace subscription, whose contract governs your data."
+    },
+    {
+      "q": "Is Gemini included in Google Workspace?",
+      "a": "Yes, in every Business edition on the pricing page, though not with the same scope. Starter puts Gemini in Gmail and Vids, with a Gemini chat; Standard adds Docs, Sheets, Slides, Drive, Meet and Chat. Gemini Enterprise is a separate product, sold per licence."
+    },
+    {
+      "q": "What is the difference between Gemini in Workspace and Gemini Enterprise?",
+      "a": "Gemini in Workspace is the AI of Google's apps: it helps you in Gmail, Docs or Meet. Gemini Enterprise is a business app that connects to Microsoft 365, Jira, HubSpot or Slack, runs agents such as Deep Research and builds its own with Workflow Builder. You can take one without the other."
+    },
+    {
+      "q": "Does Google use my emails and documents to train Gemini?",
+      "a": "Not without your permission, according to Google. For eligible Workspace editions, prompts, Workspace content and responses are neither human-reviewed nor used to train its models outside your domain. That promise holds for a business account: a personal Google AI Pro subscription falls outside the document where Google writes it."
+    },
+    {
+      "q": "Can Gemini read my whole Drive?",
+      "a": "It only reads what the user can already open. Without access to a file, Gemini does not retrieve it, and rights restrictions (download, copy and print disabled) keep it out too. The risk is therefore internal: a folder shared too widely becomes readable by the AI of anyone who has access."
+    },
+    {
+      "q": "How long does Gemini keep conversations?",
+      "a": "In Workspace apps, from 90 days to indefinitely, as the admin decides. In the Gemini app, up to 36 months, with 18 months by default; with history off, chats stay for 72 hours. Gemini Notebook does not keep prompts after the session."
+    },
+    {
+      "q": "Is Gemini Notebook suitable for client documents?",
+      "a": "Not until a rule frames it. Imported files are copied into it, outside your organisation's sharing and data region settings; Notebook is not wired to data loss prevention, and Google writes that it does not yet cover ISO, SOC or FedRAMP. An admin can turn it off for the whole organisation, or only for a unit or group."
+    },
+    {
+      "q": "Is Gemini GDPR compliant?",
+      "a": "Google says Gemini follows the same privacy principles as the rest of Workspace, under its Cloud Data Processing Addendum, and publishes a guide to help with impact assessments. That is a contractual frame, not turnkey compliance: legal basis, retention period and record of processing stay your responsibility."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "illustration": {
+        "src": "/images/illustrations/ds/gemini-fil-bureau-paper.webp",
+        "alt_fr": "Sur un long bureau, un fil parti de l'employée traverse une enveloppe, des documents, un dossier et un écran",
+        "alt_en": "On a long desk, a thread from the seated employee runs through an envelope, papers, a folder and a screen",
+        "side": "right"
+      },
+      "kicker_fr": "§ Guide · Gemini",
+      "kicker_en": "§ Guide · Gemini",
+      "h1_fr": "Gemini : <i class=\"acc\">le guide complet</i> de l'IA de Google",
+      "h1_en": "Gemini: <i class=\"acc\">the complete guide</i> to Google's AI",
+      "lede_fr": "Gemini est l'IA de Google : une application, des modèles, et une couche installée dans Gmail, Docs, Drive et Meet. Si votre entreprise travaille déjà sous Google Workspace, vous l'avez peut-être payée sans jamais l'ouvrir. Ce guide dit ce qu'elle fait, ce que chaque abonnement contient, où vont vos données et quand la choisir.",
+      "lede_en": "Gemini is Google's AI: an app, models, and a layer built into Gmail, Docs, Drive and Meet. If your company already runs on Google Workspace, you may have paid for it without ever opening it. This guide says what it does, what each subscription contains, where your data goes and when to choose it.",
+      "badges": [
+        {
+          "label_fr": "Mis à jour le 11 novembre 2026",
+          "label_en": "Updated on 11 November 2026"
+        },
+        {
+          "label_fr": "Offres Workspace et Gemini Enterprise",
+          "label_en": "Workspace and Gemini Enterprise plans"
+        },
+        {
+          "label_fr": "Réglages d'administration",
+          "label_en": "Admin settings"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver l'audit gratuit",
+        "label_en": "Book the free audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Recevoir la charte IA en PDF",
+        "label_en": "Get the AI policy template",
+        "href": "#charte-gemini",
+        "variant": "ghost"
+      }
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "11 novembre 2026",
+      "updatedDate": "11 novembre 2026"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "Gemini, c'est quoi ?",
+      "question_en": "What is Gemini?",
+      "term_fr": "Réponse courte",
+      "term_en": "Short answer",
+      "answer_fr": "Gemini est l'assistant d'intelligence artificielle de Google, ancien Bard, propulsé par les modèles de Google DeepMind. Il existe sous trois formes : l'application Gemini, une couche d'IA dans Gmail, Docs, Drive et Meet avec Google Workspace, et Gemini Enterprise pour des agents reliés à vos outils. En entreprise, c'est le contrat Workspace qui fixe le sort de vos données.",
+      "answer_en": "Gemini is Google's AI assistant, formerly Bard, powered by Google DeepMind's models. It comes in three forms: the Gemini app, an AI layer inside Gmail, Docs, Drive and Meet with Google Workspace, and Gemini Enterprise for agents connected to your tools. In a company, the Workspace contract decides what happens to your data."
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Un nom, trois objets : modèle, application, couche Workspace</h2><p>Chez Google, « Gemini » désigne trois choses que les offres commerciales mélangent volontiers.</p><ul><li>Une famille de modèles, conçue par Google DeepMind. Sur sa <a href=\"https://deepmind.google/models/gemini/\" rel=\"noopener noreferrer\" target=\"_blank\">page des modèles</a>, Google met en avant Gemini 4 Argon (lancé à l'automne 2026) et Gemini 4 Carbon, annoncé disponible en novembre 2026, à côté de modèles Flash plus rapides comme Gemini 3.8 Flash.</li><li>Une application, sur le web et sur mobile. Google l'a lancée en mars 2023 sous le nom de Bard, comme il le rappelle dans sa <a href=\"https://gemini.google/overview/\" rel=\"noopener noreferrer\" target=\"_blank\">présentation de Gemini</a>. On y discute, on lance des recherches approfondies (Deep Research), on génère des images et des vidéos, on parle à voix haute avec Gemini Live, on bâtit ses propres assistants avec les Gems.</li><li>Une couche d'IA dans les produits Google : Gmail, Docs, Sheets, Slides, Drive, Meet, Chat, et Gemini Notebook, l'ancien NotebookLM, où l'on charge ses documents pour les interroger (le <a href=\"https://support.google.com/a/answer/15706919\" rel=\"noopener noreferrer\" target=\"_blank\">centre de confidentialité de Google Workspace</a> en fait la liste).</li></ul><p>Ce découpage change votre achat. Le modèle n'est pas ce que vous louez : vous louez l'accès, les limites d'usage et le contrat qui va avec. Dans Workspace, Google ne nomme d'ailleurs pas le modèle utilisé ; son centre de confidentialité parle d'« une collection de modèles ». Je ne signerais jamais sur un numéro de version : il change plus vite qu'un contrat.</p>",
+      "html_en": "<h2>One name, three objects: model, app, Workspace layer</h2><p>At Google, \"Gemini\" means three things that commercial offers like to blur together.</p><ul><li>A family of models, built by Google DeepMind. On its <a href=\"https://deepmind.google/models/gemini/\" rel=\"noopener noreferrer\" target=\"_blank\">models page</a>, Google features Gemini 4 Argon (launched in autumn 2026) and Gemini 4 Carbon, announced as available in November 2026, next to faster Flash models such as Gemini 3.8 Flash.</li><li>An app, on the web and on mobile. Google launched it in March 2023 under the name Bard, as it recalls in its <a href=\"https://gemini.google/overview/\" rel=\"noopener noreferrer\" target=\"_blank\">overview of Gemini</a>. You chat, run in-depth research (Deep Research), generate images and videos, talk out loud with Gemini Live, and build your own assistants with Gems.</li><li>An AI layer inside Google's products: Gmail, Docs, Sheets, Slides, Drive, Meet, Chat, and Gemini Notebook, the former NotebookLM, where you load your documents to query them (the <a href=\"https://support.google.com/a/answer/15706919\" rel=\"noopener noreferrer\" target=\"_blank\">Google Workspace Privacy Hub</a> lists them).</li></ul><p>This split changes what you buy. The model is not what you rent: you rent access, usage limits and the contract that comes with them. In Workspace, Google does not even name the model in use; its privacy hub speaks of \"a collection of models\". I would never sign on a version number: it changes faster than a contract.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Offres",
+      "kicker_en": "§ Plans",
+      "heading_fr": "Sept façons d'obtenir Gemini, et ce que chacune contient",
+      "heading_en": "Seven ways to get Gemini, and what each contains",
+      "caption_fr": "Source : pages de tarifs et d'abonnements de Google pour la France. Workspace en euros, hors taxes, par utilisateur et par mois ; Gemini Enterprise en dollars. Les remises de lancement ne sont pas retenues. Google modifie souvent ces pages : relisez-les avant d'acheter.",
+      "caption_en": "Source: Google's pricing and subscription pages for France. Workspace in euros, excluding tax, per user per month; Gemini Enterprise in dollars. Launch discounts are not counted. Google changes these pages often: reread them before buying.",
+      "columns_fr": [
+        "Formule",
+        "Compte",
+        "Ce que Gemini y fait",
+        "Prix affiché"
+      ],
+      "columns_en": [
+        "Plan",
+        "Account",
+        "What Gemini does there",
+        "Listed price"
+      ],
+      "rows_fr": [
+        [
+          "Gemini gratuit",
+          "Compte Google personnel",
+          "Application avec le modèle Flash-Lite, Deep Research, Gemini Live, Canvas, Gems et Gemini Notebook",
+          "0 €"
+        ],
+        [
+          "Google AI Plus, Pro et Ultra",
+          "Compte Google personnel que vous gérez vous-même, 18 ans et plus",
+          "Plus : modèle Flash, Gemini dans Gmail et Vids. Pro : Gemini 4 Argon et Gemini dans Docs. Ultra : accès maximal à Argon et à Carbon",
+          "4,99 €, 21,99 € et dès 99,99 € par mois"
+        ],
+        [
+          "Workspace Business Starter",
+          "Compte professionnel, 300 utilisateurs au plus",
+          "Gemini dans Gmail et Vids, chat Gemini, Gemini Notebook en accès de base",
+          "6,80 €"
+        ],
+        [
+          "Workspace Business Standard",
+          "Compte professionnel, 300 utilisateurs au plus",
+          "Tout Starter, plus Gemini dans Docs, Sheets, Slides, Drive, Meet et Chat, les modèles les plus performants et Gemini Notebook en accès étendu",
+          "13,60 €"
+        ],
+        [
+          "Workspace Business Plus et Enterprise",
+          "Plus : 300 utilisateurs au plus ; Enterprise : sans plafond",
+          "Même Gemini que Standard. Plus ajoute Vault et eDiscovery ; Enterprise ajoute les régions de données, la protection contre la perte de données et la classification par IA dans Drive",
+          "21,10 € ; Enterprise sur devis"
+        ],
+        [
+          "Gemini Enterprise, édition Business",
+          "Compte professionnel, 300 licences au plus",
+          "Connecteurs (Microsoft 365, Jira, HubSpot, Slack), agent Deep Research, Gemini Notebook et Workflow Builder sans code",
+          "Dès 21 $ par licence et par mois, essai de 30 jours"
+        ],
+        [
+          "Gemini Enterprise, éditions Standard et Plus",
+          "Licences illimitées, exigences de sécurité plus strictes",
+          "Limites d'usage plus hautes, agents tiers, clés de chiffrement gérées par le client, périmètres de données souverains",
+          "Dès 30 $ par licence et par mois, sur contact commercial"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Free Gemini",
+          "Personal Google account",
+          "App with the Flash-Lite model, Deep Research, Gemini Live, Canvas, Gems and Gemini Notebook",
+          "€0"
+        ],
+        [
+          "Google AI Plus, Pro and Ultra",
+          "Personal Google account you manage yourself, 18 and over",
+          "Plus: Flash model, Gemini in Gmail and Vids. Pro: Gemini 4 Argon and Gemini in Docs. Ultra: top access to Argon and Carbon",
+          "€4.99, €21.99 and from €99.99 a month"
+        ],
+        [
+          "Workspace Business Starter",
+          "Business account, up to 300 users",
+          "Gemini in Gmail and Vids, Gemini chat, Gemini Notebook with basic access",
+          "€6.80"
+        ],
+        [
+          "Workspace Business Standard",
+          "Business account, up to 300 users",
+          "Everything in Starter, plus Gemini in Docs, Sheets, Slides, Drive, Meet and Chat, the most capable models and Gemini Notebook with extended access",
+          "€13.60"
+        ],
+        [
+          "Workspace Business Plus and Enterprise",
+          "Plus: up to 300 users; Enterprise: no cap",
+          "Same Gemini as Standard. Plus adds Vault and eDiscovery; Enterprise adds data regions, data loss prevention and AI classification in Drive",
+          "€21.10; Enterprise on quote"
+        ],
+        [
+          "Gemini Enterprise, Business edition",
+          "Business account, up to 300 licences",
+          "Connectors (Microsoft 365, Jira, HubSpot, Slack), Deep Research agent, Gemini Notebook and no-code Workflow Builder",
+          "From $21 per licence a month, 30-day trial"
+        ],
+        [
+          "Gemini Enterprise, Standard and Plus editions",
+          "Unlimited licences, stricter security requirements",
+          "Higher usage limits, third-party agents, customer-managed encryption keys, sovereign data boundaries",
+          "From $30 per licence a month, through sales"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Gemini dans Google Workspace : ce que l'IA fait dans vos outils</h2><p>D'après la <a href=\"https://workspace.google.com/intl/fr/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">page de tarifs de Google Workspace</a>, Gemini y fait un travail précis dans chaque application : retrouver, résumer et rédiger des e-mails dans Gmail ; sortir de la page blanche ou peaufiner un brouillon dans Docs ; visualiser des données et en extraire des informations dans Sheets ; chercher, résumer et analyser des fichiers dans Drive ; résumer, traduire et prendre des notes pendant une réunion Meet ; chercher, résumer et traduire des discussions dans Chat. Workspace Studio ajoute des agents qui automatisent des tâches courantes.</p><p>Le détail qui compte pour un dirigeant : toutes les éditions n'ouvrent pas toutes ces portes. Starter n'ajoute Gemini que dans Gmail et Vids, avec un chat à part. Docs, Sheets, Slides, Drive, Meet et Chat commencent à Standard, comme l'accès aux modèles les plus performants de Google. Je déconseille Starter pour un déploiement d'équipe : l'IA n'y entre que par la messagerie, et le reste, vos collaborateurs risquent d'aller le chercher ailleurs, avec des comptes personnels.</p><p>Google applique des limites d'usage à Gemini dans Workspace et vend en option « AI Expanded Access » pour les repousser (plus d'automatisations Workspace Studio, génération d'images et de vidéos, traduction vocale en temps réel). Ne l'achetez pas avant d'avoir vu vos équipes buter sur une limite.</p><h3>Trois usages à tester la première semaine</h3><p>Je commence toujours par ce qui se répète : le compte rendu d'une réunion récurrente, le résumé d'un long fil d'e-mails, la recherche d'un document dans Drive. Trois usages que chacun mesure en une semaine, sans rien promettre à personne.</p><h3>Gemini ne crée pas de droits, il montre ceux que vous avez donnés</h3><p>Gemini ne récupère que les contenus que l'utilisateur a déjà le droit d'ouvrir, selon le centre de confidentialité de Google. C'est rassurant, et c'est aussi un test : un dossier de paie partagé « avec toute personne disposant du lien » devient une source de réponse pour n'importe qui. Nettoyez les partages Drive avant d'ouvrir Gemini à l'équipe, pas après.</p>",
+      "html_en": "<h2>Gemini in Google Workspace: what the AI does in your tools</h2><p>According to the <a href=\"https://workspace.google.com/intl/fr/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Google Workspace pricing page</a>, Gemini does a specific job in each app: find, summarise and draft emails in Gmail; get past the blank page or polish a draft in Docs; visualise data and extract insights in Sheets; search, summarise and analyse files in Drive; summarise, translate and take notes during a Meet call; search, summarise and translate conversations in Chat. Workspace Studio adds agents that automate everyday tasks.</p><p>The detail that matters to an owner: not every edition opens all these doors. Starter only adds Gemini in Gmail and Vids, with a separate chat. Docs, Sheets, Slides, Drive, Meet and Chat start at Standard, as does access to Google's most capable models. I advise against Starter for a team rollout: AI enters only through email, and your staff may well look for the rest elsewhere, with personal accounts.</p><p>Google applies usage limits to Gemini in Workspace and sells \"AI Expanded Access\" as an option to push them back (more Workspace Studio automations, image and video generation, real-time voice translation). Do not buy it before you have seen your teams hit a limit.</p><h3>Three uses to test in week one</h3><p>I always start with what repeats: the minutes of a recurring meeting, the summary of a long email thread, finding a document in Drive. Three uses that everyone can measure in a week, with nothing promised to anyone.</p><h3>Gemini does not create rights, it shows the ones you have given</h3><p>Gemini only retrieves content the user is already allowed to open, according to Google's privacy hub. That is reassuring, and it is also a test: a payroll folder shared with \"anyone with the link\" becomes an answer source for anyone. Clean up Drive sharing before opening Gemini to the team, not after.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Vos données : la promesse de Google, et l'endroit où elle s'arrête</h2><p>Pour les éditions Workspace éligibles, le <a href=\"https://support.google.com/a/answer/15706919\" rel=\"noopener noreferrer\" target=\"_blank\">centre de confidentialité de Google</a> énonce trois engagements. Vos échanges avec Gemini restent dans votre organisation. Les protections existantes de Workspace s'appliquent d'office. Votre contenu n'est ni relu par des humains ni utilisé pour entraîner l'IA générative hors de votre domaine sans votre permission. La clause d'interdiction d'entraînement figure dans les conditions spécifiques des services Workspace, et l'avenant de traitement des données (Cloud Data Processing Addendum) encadre vos invites comme des données client.</p><h3>Quatre endroits hors du cadre</h3><ul><li>Les comptes personnels. Ce document ne s'applique qu'avec une édition Workspace éligible. Un collaborateur qui paie Google AI Pro de sa poche pour travailler vite n'a pas le même contrat que vous.</li><li>Gemini Notebook. Il copie les fichiers importés dans son propre espace : vos réglages de partage et de région de données ne s'y appliquent pas, la protection contre la perte de données ne l'atteint pas, et Google précise qu'il ne couvre pas encore les certifications ISO, SOC ou FedRAMP.</li><li>Gemini dans Chrome. Même absence de couverture ISO et SOC ; il traite les adresses et le contenu des onglets que l'utilisateur partage avec lui.</li><li>L'API gratuite. Sur la <a href=\"https://gemini.google/subscriptions/\" rel=\"noopener noreferrer\" target=\"_blank\">page des abonnements</a>, l'offre gratuite de Google AI Studio indique que le contenu sert à améliorer les produits de Google. Un développeur qui y teste avec vos données sort du cadre Workspace.</li></ul><p>Je coupe Notebook et Gemini dans Chrome pour toute équipe qui manipule des dossiers clients ou RH, tant qu'aucune règle écrite ne dit ce qu'on peut y déposer. L'administrateur peut le faire par unité d'organisation ou par groupe, sans toucher au reste de Gemini.</p><h3>RGPD et règlement européen sur l'IA</h3><p>Google indique que Gemini suit les mêmes principes de confidentialité que le reste de Workspace, et dit signer le code de bonnes pratiques européen sur l'IA à usage général. Ça ne remplace ni votre registre des traitements ni votre analyse d'impact : les questions à poser sont dans la <a href=\"/ressources/guides/rgpd-agents-ia-checklist\">checklist RGPD des agents IA</a>, et les échéances dans le guide <a href=\"/ressources/guides/ai-act-pme-calendrier\">AI Act pour les PME</a>.</p><p>Ce que Gemini peut lire, ce que l'équipe a le droit de lui soumettre, qui relit une réponse avant qu'elle parte chez un client : cela s'écrit dans une charte avant le déploiement. Notre <a href=\"/ressources/outils/charte-ia-entreprise\">modèle de charte IA pour PME</a> donne la trame, à adapter à vos réglages Gemini.</p>",
+      "html_en": "<h2>Your data: Google's promise, and where it stops</h2><p>For eligible Workspace editions, the <a href=\"https://support.google.com/a/answer/15706919\" rel=\"noopener noreferrer\" target=\"_blank\">Google privacy hub</a> states three commitments. Your interactions with Gemini stay within your organisation. Your existing Workspace protections apply automatically. Your content is neither human-reviewed nor used to train generative AI outside your domain without your permission. The training restriction sits in the Workspace service-specific terms, and the Cloud Data Processing Addendum treats your prompts as customer data.</p><h3>Four places outside the frame</h3><ul><li>Personal accounts. That document only applies with an eligible Workspace edition. An employee who pays for Google AI Pro out of pocket to work faster does not have the same contract as you.</li><li>Gemini Notebook. It copies imported files into its own space: your sharing and data region settings do not apply there, data loss prevention does not reach it, and Google states it does not yet cover ISO, SOC or FedRAMP certifications.</li><li>Gemini in Chrome. The same lack of ISO and SOC coverage; it processes the addresses and content of the tabs the user shares with it.</li><li>The free API. On the <a href=\"https://gemini.google/subscriptions/\" rel=\"noopener noreferrer\" target=\"_blank\">subscriptions page</a>, the free Google AI Studio tier states that content is used to improve Google's products. A developer testing there with your data steps outside the Workspace frame.</li></ul><p>I turn off Notebook and Gemini in Chrome for any team that handles client or HR files, until a written rule says what may be put in. The admin can do it per organisational unit or group, without touching the rest of Gemini.</p><h3>GDPR and the European AI regulation</h3><p>Google says Gemini follows the same privacy principles as the rest of Workspace, and says it is signing the European code of practice for general-purpose AI. This replaces neither your record of processing nor your impact assessment: the questions to ask are in the <a href=\"/ressources/guides/rgpd-agents-ia-checklist\">GDPR checklist for AI agents</a>, and the deadlines in the <a href=\"/ressources/guides/ai-act-pme-calendrier\">AI Act for SMBs</a> guide.</p><p>What Gemini may read, what the team may submit to it, who reviews an answer before it goes to a client: that is written into a policy before rollout. Our <a href=\"/ressources/outils/charte-ia-entreprise\">company AI policy template</a> gives the frame, to adapt to your Gemini settings.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper",
+      "kicker_fr": "§ Conservation",
+      "kicker_en": "§ Retention",
+      "heading_fr": "Combien de temps Gemini garde vos échanges",
+      "heading_en": "How long Gemini keeps your exchanges",
+      "caption_fr": "Source : centre de confidentialité de Google Workspace (page mise à jour le 6 octobre 2026). Durées réglées par l'administrateur de votre domaine.",
+      "caption_en": "Source: Google Workspace privacy hub (page updated on 6 October 2026). Durations are set by your domain's admin.",
+      "columns_fr": [
+        "Produit",
+        "Ce qui est conservé",
+        "Durée"
+      ],
+      "columns_en": [
+        "Product",
+        "What is kept",
+        "Duration"
+      ],
+      "rows_fr": [
+        [
+          "Gemini dans les applications Workspace",
+          "Invites et réponses du panneau latéral, séparées par application",
+          "De 90 jours à une durée illimitée, selon l'administrateur ; l'utilisateur supprime ses conversations sauf interdiction"
+        ],
+        [
+          "Application Gemini",
+          "Invites et réponses",
+          "3, 18 ou 36 mois, 18 par défaut ; historique coupé : 72 heures"
+        ],
+        [
+          "Gemini Notebook",
+          "Invites et réponses",
+          "Non conservées après la session"
+        ],
+        [
+          "Gemini Notebook",
+          "Fichiers importés et notebooks",
+          "Règles de l'avenant de traitement des données ; suppression ou export par l'utilisateur"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Gemini in Workspace apps",
+          "Side-panel prompts and responses, separate for each app",
+          "From 90 days to indefinitely, as the admin decides; users delete their conversations unless barred"
+        ],
+        [
+          "Gemini app",
+          "Prompts and responses",
+          "3, 18 or 36 months, 18 by default; history off: 72 hours"
+        ],
+        [
+          "Gemini Notebook",
+          "Prompts and responses",
+          "Not kept after the session"
+        ],
+        [
+          "Gemini Notebook",
+          "Uploaded files and notebooks",
+          "Rules of the data processing addendum; deletion or export by the user"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2>Ce que Gemini accepte en entrée, et ce qu'il rate</h2><p>Dans l'application, d'après l'<a href=\"https://support.google.com/gemini/answer/14903178\" rel=\"noopener noreferrer\" target=\"_blank\">aide de Gemini</a>, une même requête reçoit jusqu'à 10 fichiers ; chaque fichier va jusqu'à 100 Mo et chaque vidéo jusqu'à 2 Go. Un dépôt de code ou un dossier de code peut compter jusqu'à 5 000 fichiers et 100 Mo. Avec une fenêtre de contexte d'un million de tokens, Gemini lit environ 1 500 pages de texte ou 30 000 lignes de code. Dans Gemini Enterprise Business, un notebook se construit à partir de 300 documents internes au plus.</p><p>Google range lui-même ses limites dans sa <a href=\"https://gemini.google/overview/\" rel=\"noopener noreferrer\" target=\"_blank\">présentation de Gemini</a> : exactitude, biais, faux refus, vulnérabilité aux instructions hostiles. Il écrit que Gemini peut produire des informations inexactes présentées avec assurance. Pour une PME, une seule consigne en découle : tout ce que Gemini rédige et qui part chez un client, un financeur ou une administration est relu par quelqu'un qui connaît le dossier.</p>",
+      "html_en": "<h2>What Gemini accepts as input, and what it gets wrong</h2><p>In the app, according to the <a href=\"https://support.google.com/gemini/answer/14903178\" rel=\"noopener noreferrer\" target=\"_blank\">Gemini help</a>, a single prompt takes up to 10 files; each file can be up to 100 MB and each video up to 2 GB. A code folder or repository can hold up to 5,000 files and 100 MB. With a one-million-token context window, Gemini reads about 1,500 pages of text or 30,000 lines of code. In Gemini Enterprise Business, a notebook is built from at most 300 internal documents.</p><p>Google lists its own limits in its <a href=\"https://gemini.google/overview/\" rel=\"noopener noreferrer\" target=\"_blank\">overview of Gemini</a>: accuracy, bias, false refusals, vulnerability to hostile prompts. It writes that Gemini can produce inaccurate information presented with confidence. For an SMB, one rule follows: anything Gemini drafts that goes to a client, a funder or an authority is reviewed by someone who knows the file.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2>Gemini Enterprise et Workspace Studio : les agents de Google, jusqu'où</h2><p>L'édition Business de Gemini Enterprise, décrite sur la <a href=\"https://cloud.google.com/gemini-enterprise/business\" rel=\"noopener noreferrer\" target=\"_blank\">page de Google Cloud</a>, vise les équipes de 300 personnes au plus, sans configuration informatique. Elle se connecte à Microsoft 365, Google Workspace, Jira, GitHub, HubSpot ou Slack, et l'administrateur choisit quels connecteurs sont ouverts : un utilisateur invité ne branche ses propres données que si l'administrateur a autorisé ce connecteur. Elle embarque l'agent Deep Research, qui produit un rapport cité plutôt qu'une réponse de chat, Canvas pour co-écrire des documents et des présentations, Gemini Notebook, et Workflow Builder pour créer des agents sans code, en langage naturel.</p><p>Pour un tri de messages ou une relance simple, Workflow Builder suffit à tester l'idée. Dès qu'un agent touche une facture, un paiement ou un fichier client, je veux une validation humaine à chaque étape sensible et un journal de chaque action. À ce stade, ce n'est plus un réglage de licence, c'est un projet. Si vous hésitez entre un agent livré par Google et un agent bâti sur vos outils, notre <a href=\"/ressources/guides/agent-ia-definition\">définition d'un agent IA</a> pose les mots, et la page <a href=\"/services/agents-ia\">agents IA pour entreprise</a> montre ce que nous construisons.</p><p>Les éditions Standard et Plus de Gemini Enterprise ajoutent des limites d'usage plus hautes, des agents tiers, des périmètres de données souverains pour la résidence des données, et des clés de chiffrement gérées par le client. Si votre dossier de conformité exige l'Europe pour le stockage ou le traitement, c'est cette porte qu'il faut ouvrir, pas l'édition Business.</p>",
+      "html_en": "<h2>Gemini Enterprise and Workspace Studio: Google's agents, and how far to go</h2><p>The Business edition of Gemini Enterprise, described on the <a href=\"https://cloud.google.com/gemini-enterprise/business\" rel=\"noopener noreferrer\" target=\"_blank\">Google Cloud page</a>, targets teams of up to 300 people, with no IT set-up. It connects to Microsoft 365, Google Workspace, Jira, GitHub, HubSpot or Slack, and the admin chooses which connectors are open: an invited user only connects their own data if the admin has allowed that connector. It ships the Deep Research agent, which produces a cited report rather than a chat answer, Canvas for co-writing documents and presentations, Gemini Notebook, and Workflow Builder to create agents with no code, in natural language.</p><p>For sorting messages or a simple follow-up, Workflow Builder is enough to test the idea. As soon as an agent touches an invoice, a payment or a client file, I want human approval at each sensitive step and a log of every action. At that point it is no longer a licence setting, it is a project. If you hesitate between an agent delivered by Google and one built on your tools, our <a href=\"/ressources/guides/agent-ia-definition\">definition of an AI agent</a> sets the vocabulary, and the <a href=\"/services/agents-ia\">AI agents for business</a> page shows what we build.</p><p>The Standard and Plus editions of Gemini Enterprise add higher usage limits, third-party agents, sovereign data boundaries for data residency, and customer-managed encryption keys. If your compliance file requires Europe for storage or processing, that is the door to open, not the Business edition.</p>"
+    },
+    {
+      "type": "process-steps",
+      "background": "paper-3",
+      "kicker_fr": "§ Mise en route",
+      "kicker_en": "§ Rollout",
+      "h2_fr": "Ouvrir Gemini à l'équipe : quatre réglages, dans cet ordre",
+      "h2_en": "Opening Gemini to the team: four settings, in this order",
+      "intro_fr": "Ces réglages se font dans la console d'administration de Google Workspace. Pour savoir quels usages ouvrir en premier, l'audit gratuit de 45 minutes classe vos chantiers.",
+      "intro_en": "These settings are made in the Google Workspace admin console. To know which uses to open first, the free 45-minute audit ranks your projects.",
+      "steps": [
+        {
+          "title_fr": "Choisir qui y accède",
+          "title_en": "Choose who gets access",
+          "body_fr": "L'application Gemini est un service de base, activé par défaut : l'administrateur peut la couper, ou limiter Gemini et son panneau latéral dans Gmail, Drive, Docs et d'autres services. Commencez par un groupe test.",
+          "body_en": "The Gemini app is a core service, on by default: the admin can turn it off, or limit Gemini and its side panel in Gmail, Drive, Docs and other services. Start with a test group."
+        },
+        {
+          "title_fr": "Régler la mémoire",
+          "title_en": "Set the memory",
+          "body_fr": "Fixez la durée de conservation des conversations : 3, 18 ou 36 mois pour l'application (18 par défaut), de 90 jours à illimité pour le panneau latéral.",
+          "body_en": "Set how long conversations are kept: 3, 18 or 36 months for the app (18 by default), from 90 days to indefinitely for the side panel."
+        },
+        {
+          "title_fr": "Nettoyer les partages Drive",
+          "title_en": "Clean up Drive sharing",
+          "body_fr": "Retirez les partages « avec le lien » sur les dossiers de paie, de RH et de clients. Un fichier dont le téléchargement, la copie et l'impression sont désactivés n'est pas récupéré par Gemini.",
+          "body_en": "Remove \"anyone with the link\" sharing on payroll, HR and client folders. A file with download, copy and print disabled is not retrieved by Gemini."
+        },
+        {
+          "title_fr": "Décider pour Notebook et Chrome",
+          "title_en": "Decide on Notebook and Chrome",
+          "body_fr": "Coupez Gemini Notebook et Gemini dans Chrome pour les équipes qui traitent des données de clients, jusqu'à la règle écrite. Réactivez par unité d'organisation ou par groupe.",
+          "body_en": "Turn off Gemini Notebook and Gemini in Chrome for teams handling client data, until the written rule exists. Turn back on per organisational unit or group."
+        }
+      ]
+    },
+    {
+      "type": "tech-when-dual",
+      "background": "paper",
+      "kicker_fr": "§ Pour une entreprise",
+      "kicker_en": "§ For a company",
+      "title_fr": "Gemini pour votre entreprise : le bon choix, ou pas",
+      "title_en": "Gemini for your company: the right choice, or not",
+      "aside_fr": "Mon avis, pas celui de Google. Il vaut pour une PME de 10 à 250 personnes.",
+      "aside_en": "My view, not Google's. It applies to an SMB of 10 to 250 people.",
+      "use_title_fr": "À choisir si",
+      "use_title_en": "Choose it if",
+      "use_items_fr": [
+        "Votre équipe vit déjà dans Gmail, Drive, Docs et Meet, et vous ne voulez pas gouverner un second outil",
+        "Les comptes rendus de réunion et les longs fils d'e-mails pèsent sur vos journées",
+        "Vous voulez des contrôles d'administrateur sur la conservation, les accès et les fonctions ouvertes",
+        "Vos documents de référence tiennent dans quelques notebooks, avec des données peu sensibles"
+      ],
+      "use_items_en": [
+        "Your team already lives in Gmail, Drive, Docs and Meet, and you do not want to govern a second tool",
+        "Meeting minutes and long email threads weigh on your days",
+        "You want admin controls over retention, access and enabled features",
+        "Your reference documents fit in a few notebooks, with low-sensitivity data"
+      ],
+      "avoid_title_fr": "À éviter si",
+      "avoid_title_en": "Avoid it if",
+      "avoid_items_fr": [
+        "Votre équipe travaille sous Microsoft 365 : Gemini Enterprise s'y connecte, mais vous payez et gouvernez un outil de plus",
+        "Vos collaborateurs utilisent Gemini avec leur compte Google personnel pour le travail",
+        "Des dossiers clients ou RH partent dans Notebook ou dans Gemini dans Chrome sans règle écrite",
+        "Un processus doit tourner à l'identique chaque jour : c'est le travail d'un workflow, pas d'un assistant",
+        "Une réponse part chez un client sans relecture humaine"
+      ],
+      "avoid_items_en": [
+        "Your team works on Microsoft 365: Gemini Enterprise connects to it, but you pay for and govern one more tool",
+        "Your staff use Gemini with their personal Google account for work",
+        "Client or HR files go into Notebook or Gemini in Chrome with no written rule",
+        "A process must run identically every day: that is a workflow's job, not an assistant's",
+        "An answer goes to a client without human review"
+      ]
+    },
+    {
+      "type": "lead-capture-band",
+      "lead_magnet": "charte-ia-entreprise",
+      "background": "ink",
+      "anchor_id": "charte-gemini",
+      "kicker_fr": "§ Charte IA · modèle PDF gratuit",
+      "kicker_en": "§ AI policy · free PDF template",
+      "h2_fr": "Gemini est ouvert à l'équipe : écrivez ce qu'on peut lui confier, recevez le modèle en PDF",
+      "h2_en": "Gemini is open to the team: write down what it may be given, get the template as a PDF",
+      "body_fr": "Un modèle de charte en neuf articles : outils autorisés, données interdites, relecture humaine. Vous le recevez par e-mail, prêt à adapter à vos réglages Workspace.",
+      "body_en": "A nine-article policy template: approved tools, banned data, human review. You get it by email, ready to adapt to your Workspace settings."
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper",
+      "kicker_fr": "§ Les services",
+      "kicker_en": "§ Services",
+      "cards": [
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Agents IA pour entreprise",
+          "title_en": "AI agents for business",
+          "lead_fr": "Un agent par mission, branché à vos outils, avec validation humaine et journal.",
+          "lead_en": "One agent per mission, wired to your tools, with human approval and a log.",
+          "href": "/services/agents-ia"
+        },
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Base de connaissance IA",
+          "title_en": "AI knowledge base",
+          "lead_fr": "Vos documents interrogeables par l'équipe, sur des règles d'accès que vous fixez.",
+          "lead_en": "Your documents queryable by the team, under access rules you set.",
+          "href": "/services/base-de-connaissance-ia"
+        },
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Automatisation des processus",
+          "title_en": "Process automation",
+          "lead_fr": "Les tâches qui se répètent chaque jour, confiées à un workflow plutôt qu'à un assistant.",
+          "lead_en": "Tasks that repeat every day, handed to a workflow rather than an assistant.",
+          "href": "/services/automatisations"
+        }
+      ]
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper-2",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Further reading",
+      "cards": [
+        {
+          "kicker_fr": "Comparatif",
+          "kicker_en": "Comparison",
+          "title_fr": "Quel assistant IA choisir pour une PME",
+          "title_en": "Which AI assistant to choose for an SMB",
+          "lead_fr": "Gemini mis à côté des autres assistants : prix d'équipe, limites, données.",
+          "lead_en": "Gemini set beside the other assistants: team prices, limits, data.",
+          "href": "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme"
+        },
+        {
+          "kicker_fr": "Outil",
+          "kicker_en": "Tool",
+          "title_fr": "Modèle de charte IA pour PME",
+          "title_en": "AI policy template for SMBs",
+          "lead_fr": "Les règles d'usage de l'IA à faire signer, en PDF et en Word.",
+          "lead_en": "AI usage rules to have signed, in PDF and Word.",
+          "href": "/ressources/outils/charte-ia-entreprise"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Checklist RGPD des agents IA",
+          "title_en": "GDPR checklist for AI agents",
+          "lead_fr": "Les questions à poser avant de brancher une IA sur vos données.",
+          "lead_en": "The questions to ask before wiring an AI to your data.",
+          "href": "/ressources/guides/rgpd-agents-ia-checklist"
+        }
+      ]
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "h2_fr": "Questions fréquentes sur Gemini",
+      "h2_en": "Gemini FAQ",
+      "items": [
+        {
+          "q_fr": "Gemini est-il gratuit ?",
+          "a_fr": "Oui, avec un compte Google personnel : l'application gratuite donne accès au modèle Flash-Lite, à Deep Research, à Gemini Live et à Canvas. Les modèles plus puissants et les limites d'usage plus larges passent par Google AI Plus, Pro ou Ultra. Pour une entreprise, ce n'est pas la bonne porte : la version qui compte est celle d'un abonnement Workspace, dont le contrat encadre vos données.",
+          "q_en": "Is Gemini free?",
+          "a_en": "Yes, with a personal Google account: the free app gives access to the Flash-Lite model, Deep Research, Gemini Live and Canvas. More powerful models and wider usage limits come with Google AI Plus, Pro or Ultra. For a company this is the wrong door: the version that matters is the one inside a Workspace subscription, whose contract governs your data."
+        },
+        {
+          "q_fr": "Gemini est-il inclus dans Google Workspace ?",
+          "a_fr": "Oui, dans toutes les éditions Business de la page de tarifs, mais pas avec le même périmètre. Starter met Gemini dans Gmail et Vids, avec un chat Gemini ; Standard ajoute Docs, Sheets, Slides, Drive, Meet et Chat. Gemini Enterprise est un produit à part, vendu par licence.",
+          "q_en": "Is Gemini included in Google Workspace?",
+          "a_en": "Yes, in every Business edition on the pricing page, though not with the same scope. Starter puts Gemini in Gmail and Vids, with a Gemini chat; Standard adds Docs, Sheets, Slides, Drive, Meet and Chat. Gemini Enterprise is a separate product, sold per licence."
+        },
+        {
+          "q_fr": "Quelle différence entre Gemini dans Workspace et Gemini Enterprise ?",
+          "a_fr": "Gemini dans Workspace est l'IA des applications Google : elle vous aide dans Gmail, Docs ou Meet. Gemini Enterprise est une application d'entreprise qui se connecte à Microsoft 365, Jira, HubSpot ou Slack, lance des agents comme Deep Research et en construit avec Workflow Builder. L'un se prend sans l'autre.",
+          "q_en": "What is the difference between Gemini in Workspace and Gemini Enterprise?",
+          "a_en": "Gemini in Workspace is the AI of Google's apps: it helps you in Gmail, Docs or Meet. Gemini Enterprise is a business app that connects to Microsoft 365, Jira, HubSpot or Slack, runs agents such as Deep Research and builds its own with Workflow Builder. You can take one without the other."
+        },
+        {
+          "q_fr": "Google utilise-t-il mes e-mails et mes documents pour entraîner Gemini ?",
+          "a_fr": "Pas sans votre permission, d'après Google. Pour les éditions Workspace éligibles, les invites, le contenu Workspace et les réponses ne sont ni relus par des humains ni utilisés pour entraîner ses modèles hors de votre domaine. Cette promesse vaut pour un compte professionnel : un abonnement personnel Google AI Pro n'entre pas dans le champ du document où Google l'écrit.",
+          "q_en": "Does Google use my emails and documents to train Gemini?",
+          "a_en": "Not without your permission, according to Google. For eligible Workspace editions, prompts, Workspace content and responses are neither human-reviewed nor used to train its models outside your domain. That promise holds for a business account: a personal Google AI Pro subscription falls outside the document where Google writes it."
+        },
+        {
+          "q_fr": "Gemini peut-il lire tout mon Drive ?",
+          "a_fr": "Il ne lit que ce que l'utilisateur peut déjà ouvrir. Sans accès à un fichier, Gemini ne le récupère pas, et les restrictions de droits (téléchargement, copie et impression désactivés) le tiennent aussi à distance. Le risque est donc interne : un dossier partagé trop largement devient lisible par l'IA de quiconque y a accès.",
+          "q_en": "Can Gemini read my whole Drive?",
+          "a_en": "It only reads what the user can already open. Without access to a file, Gemini does not retrieve it, and rights restrictions (download, copy and print disabled) keep it out too. The risk is therefore internal: a folder shared too widely becomes readable by the AI of anyone who has access."
+        },
+        {
+          "q_fr": "Combien de temps Gemini garde-t-il les conversations ?",
+          "a_fr": "Dans les applications Workspace, de 90 jours à une durée illimitée, au choix de l'administrateur. Dans l'application Gemini, jusqu'à 36 mois, avec 18 mois par défaut ; historique coupé, les échanges restent 72 heures. Gemini Notebook ne conserve pas les invites après la session.",
+          "q_en": "How long does Gemini keep conversations?",
+          "a_en": "In Workspace apps, from 90 days to indefinitely, as the admin decides. In the Gemini app, up to 36 months, with 18 months by default; with history off, chats stay for 72 hours. Gemini Notebook does not keep prompts after the session."
+        },
+        {
+          "q_fr": "Gemini Notebook convient-il à des documents clients ?",
+          "a_fr": "Pas tant qu'aucune règle ne l'encadre. Les fichiers importés y sont copiés, hors des réglages de partage et de région de données de votre organisation ; Notebook n'est pas relié à la protection contre la perte de données, et Google écrit qu'il ne couvre pas encore ISO, SOC ni FedRAMP. Un administrateur peut le couper pour toute l'organisation, ou seulement pour une unité ou un groupe.",
+          "q_en": "Is Gemini Notebook suitable for client documents?",
+          "a_en": "Not until a rule frames it. Imported files are copied into it, outside your organisation's sharing and data region settings; Notebook is not wired to data loss prevention, and Google writes that it does not yet cover ISO, SOC or FedRAMP. An admin can turn it off for the whole organisation, or only for a unit or group."
+        },
+        {
+          "q_fr": "Gemini est-il conforme au RGPD ?",
+          "a_fr": "Google répond que Gemini suit les mêmes principes de confidentialité que le reste de Workspace, sous son Cloud Data Processing Addendum, et publie un guide d'aide à l'analyse d'impact. C'est un cadre contractuel, pas une conformité livrée clé en main : base légale, durée de conservation et registre des traitements restent à votre charge.",
+          "q_en": "Is Gemini GDPR compliant?",
+          "a_en": "Google says Gemini follows the same privacy principles as the rest of Workspace, under its Cloud Data Processing Addendum, and publishes a guide to help with impact assessments. That is a contractual frame, not turnkey compliance: legal basis, retention period and record of processing stay your responsibility."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ IA en PME",
+      "kicker_en": "§ AI for SMBs",
+      "h2_fr": "Gemini est peut-être déjà dans votre abonnement : faites le point en 45 minutes.",
+      "h2_en": "Gemini may already be in your subscription: take stock in 45 minutes.",
+      "subtitle_fr": "Audit gratuit en visio, sans engagement : une cartographie écrite de vos usages de l'IA et un ou deux chantiers classés.",
+      "subtitle_en": "Free video audit, no commitment: a written map of your AI uses and one or two ranked projects.",
+      "buttons": [
+        {
+          "label_fr": "Réserver l'audit gratuit",
+          "label_en": "Book the free audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Voir le service agents IA",
+          "label_en": "See the AI agents service",
+          "href": "/services/agents-ia",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

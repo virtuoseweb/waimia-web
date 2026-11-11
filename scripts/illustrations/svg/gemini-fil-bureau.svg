@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+<!-- Waimia · moteur B · un long bureau : enveloppe, pile de documents, dossier et écran de réunion ; un seul fil, parti de la bobine de l'employée, les traverse tous -->
+<defs>
+<g id="seated"><circle cx="0" cy="-74" r="7.5" fill="{{subject}}"/><circle cx="-5" cy="-80" r="5" fill="{{subject}}"/><path d="M-11 -64 Q0 -68 11 -64 L12 -30 L-12 -30 Z" fill="{{subject}}"/><rect x="-12" y="-32" width="34" height="9" fill="{{subject}}"/><rect x="14" y="-32" width="8" height="32" fill="{{subject}}"/><rect x="-14" y="-30" width="5" height="30" fill="{{subject}}"/><path d="M6 -60 L30 -54 L29 -49 L4 -54 Z" fill="{{subject}}"/></g>
+<g id="tiny"><circle cx="0" cy="-20" r="4" fill="{{subject}}"/><path d="M-7 -14 Q0 -16 7 -14 L8 0 L-8 0 Z" fill="{{subject}}"/></g>
+</defs>
+<rect width="1456" height="624" fill="{{field}}"/>
+<circle cx="770" cy="290" r="232" fill="{{shape}}"/>
+<rect x="0" y="520" width="1456" height="104" fill="{{ground}}"/>
+
+<g transform="translate(770 520) scale(1.15) translate(-770 -520)">
+<!-- le bureau -->
+<rect x="520" y="424" width="530" height="13" fill="{{subject}}"/>
+<rect x="534" y="437" width="12" height="83" fill="{{subject}}"/>
+<rect x="1024" y="437" width="12" height="83" fill="{{subject}}"/>
+<use href="#seated" transform="translate(498 520) scale(1.4)"/>
+
+<!-- enveloppe et dossier (le fil passe dessus) -->
+<rect x="586" y="378" width="76" height="46" fill="{{light}}"/>
+<path d="M586 378 L624 404 L662 378" fill="none" stroke="{{subject}}" stroke-width="4"/>
+<path d="M776 372 L810 372 L818 362 L776 362 Z" fill="{{deep}}"/>
+<rect x="776" y="372" width="96" height="52" fill="{{deep}}"/>
+<rect x="782" y="380" width="84" height="44" fill="{{light}}"/>
+<rect x="776" y="392" width="96" height="32" fill="{{pale}}"/>
+
+<!-- le fil -->
+<rect x="552" y="396" width="16" height="28" rx="3" fill="{{detail}}"/>
+<path d="M560 394 C 572 320, 640 330, 648 372 S 690 440, 712 380 S 790 300, 830 360 S 900 420, 940 360 S 1000 318, 1040 286" fill="none" stroke="{{detail}}" stroke-width="9" stroke-linecap="round"/>
+
+<!-- pile de documents et écran (le fil passe derrière) -->
+<rect x="694" y="352" width="58" height="72" fill="{{pale}}"/>
+<rect x="688" y="360" width="58" height="64" fill="{{light}}"/>
+<g fill="{{subject}}"><rect x="698" y="374" width="38" height="4"/><rect x="698" y="386" width="30" height="4"/><rect x="698" y="398" width="38" height="4"/></g>
+<rect x="908" y="324" width="112" height="78" fill="{{subject}}"/>
+<rect x="916" y="332" width="96" height="62" fill="{{pale}}"/>
+<rect x="958" y="402" width="12" height="16" fill="{{subject}}"/>
+<rect x="940" y="418" width="48" height="6" fill="{{subject}}"/>
+<use href="#tiny" transform="translate(964 394) scale(1.8)"/>
+</g>
+</svg>

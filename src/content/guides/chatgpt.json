@@ -1,0 +1,572 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "ChatGPT : le guide complet (2026)",
+  "title_en": "ChatGPT: the complete guide (2026)",
+  "seoTitle_fr": "ChatGPT, c'est quoi ? Le guide complet pour l'utiliser",
+  "seoTitle_en": "ChatGPT: what it is and how to use it, complete guide",
+  "description_fr": "Guide ChatGPT : ce que c'est, les modèles, les offres et prix, comment l'utiliser, ses limites et où vont vos données (RGPD).",
+  "description_en": "ChatGPT guide: what it is, the models, plans and prices, how to use it, its limits and where your data goes (GDPR).",
+  "slug": "chatgpt",
+  "publishedAt": "2026-11-11T00:00:00.000Z",
+  "updatedAt": "2026-11-11T00:00:00.000Z",
+  "category": "claude",
+  "tags": [
+    "chatgpt",
+    "guide-chatgpt",
+    "openai",
+    "gpt-6",
+    "assistant-ia",
+    "rgpd",
+    "guide-pme"
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "sources": [
+    {
+      "name": "OpenAI, ChatGPT Work et Codex : tarifs (lu le 11 novembre 2026)",
+      "url": "https://learn.chatgpt.com/docs/pricing",
+      "type": "enterprise"
+    },
+    {
+      "name": "OpenAI, page de tarifs de ChatGPT : fonctions par offre (lue le 11 novembre 2026)",
+      "url": "https://chatgpt.com/pricing",
+      "type": "enterprise"
+    },
+    {
+      "name": "OpenAI, aide : GPT-6 and other models in ChatGPT (lue le 11 novembre 2026)",
+      "url": "https://help.openai.com/en/articles/20001354-gpt-6-and-other-models-in-chatgpt",
+      "type": "enterprise"
+    },
+    {
+      "name": "OpenAI, documentation : modèles de ChatGPT Work et Codex (lue le 11 novembre 2026)",
+      "url": "https://learn.chatgpt.com/docs/models",
+      "type": "enterprise"
+    },
+    {
+      "name": "OpenAI, documentation : Use ChatGPT, Chat, Work et Codex (lue le 11 novembre 2026)",
+      "url": "https://learn.chatgpt.com/docs/use-chatgpt",
+      "type": "enterprise"
+    },
+    {
+      "name": "OpenAI, Introducing ChatGPT (lu le 11 novembre 2026)",
+      "url": "https://openai.com/index/chatgpt/",
+      "type": "enterprise",
+      "publishedAt": "2022-11-30"
+    },
+    {
+      "name": "OpenAI, ChatGPT Work : annonce du 9 juillet 2026 (lue le 11 novembre 2026)",
+      "url": "https://openai.com/index/chatgpt-for-your-most-ambitious-work/",
+      "type": "enterprise",
+      "publishedAt": "2026-07-09"
+    },
+    {
+      "name": "OpenAI, politique de confidentialité pour l'Europe, mise à jour du 24 août 2026 (lue le 11 novembre 2026)",
+      "url": "https://openai.com/policies/eu-privacy-policy/",
+      "type": "enterprise",
+      "publishedAt": "2026-08-24"
+    },
+    {
+      "name": "OpenAI, aide : How your data is used to improve model performance (lue le 11 novembre 2026)",
+      "url": "https://help.openai.com/en/articles/5722486-how-your-data-is-used-to-improve-model-performance",
+      "type": "enterprise"
+    },
+    {
+      "name": "OpenAI, aide : Data controls in ChatGPT (lue le 11 novembre 2026)",
+      "url": "https://help.openai.com/en/articles/7730893-data-controls-faq",
+      "type": "enterprise"
+    },
+    {
+      "name": "OpenAI, aide : Chat and file retention in ChatGPT (lue le 11 novembre 2026)",
+      "url": "https://help.openai.com/en/articles/8983778-chat-and-file-retention-in-chatgpt",
+      "type": "enterprise"
+    },
+    {
+      "name": "OpenAI, confidentialité et conformité des offres professionnelles (lue le 11 novembre 2026)",
+      "url": "https://openai.com/business-data/",
+      "type": "enterprise"
+    },
+    {
+      "name": "OpenAI, aide : Data residency and inference residency for ChatGPT (lue le 11 novembre 2026)",
+      "url": "https://help.openai.com/en/articles/9903489-data-residency-and-inference-residency-for-chatgpt",
+      "type": "enterprise"
+    },
+    {
+      "name": "OpenAI, aide : Where your ChatGPT Business content is stored (lue le 11 novembre 2026)",
+      "url": "https://help.openai.com/en/articles/20001418-where-your-chatgpt-business-content-is-stored",
+      "type": "enterprise"
+    },
+    {
+      "name": "CNIL, questions-réponses sur l'utilisation d'un système d'IA générative, 18 juillet 2024 (lu le 11 novembre 2026)",
+      "url": "https://www.cnil.fr/fr/les-questions-reponses-de-la-cnil-sur-lutilisation-dun-systeme-dia-generative",
+      "type": "state",
+      "publishedAt": "2024-07-18"
+    }
+  ],
+  "faq_fr": [
+    {
+      "q": "ChatGPT et OpenAI, c'est la même chose ?",
+      "a": "Non. OpenAI est l'entreprise ; ChatGPT est son application, sur le web, le mobile et le bureau. L'API d'OpenAI, que les développeurs branchent à leurs outils, se facture à l'usage, séparément de l'abonnement. Certains abonnements, comme Pro et Business, incluent un crédit API mensuel, prévu pour construire ses propres applications."
+    },
+    {
+      "q": "ChatGPT gratuit ou Go : jusqu'où peut-on aller, et avec publicité ?",
+      "a": "Free suffit pour essayer sur des textes sans conséquence. Les deux offres tournent sur GPT-5.6 Luna par défaut, sans accès à GPT-5.6 Sol, et OpenAI y associe la publicité, avec des réglages de personnalisation dans les paramètres du compte. Rien de confidentiel là-dedans : pour un travail suivi, passez sur un espace avec administrateur."
+    },
+    {
+      "q": "Quelle différence entre Chat et Work, concrètement ?",
+      "a": "Chat sert à converser : vous posez, il répond, vous corrigez. Dans Work, vous décrivez un résultat, par exemple l'analyse d'un fichier ou une présentation, et ChatGPT enchaîne les étapes avant de vous rendre un livrable à relire. Work partage ses quotas avec Codex, l'outil des développeurs, et s'arrête pour demander votre accord avant une action importante. Commencez par Chat."
+    },
+    {
+      "q": "Comment empêcher ChatGPT d'apprendre de mes conversations ?",
+      "a": "Sur un compte personnel (Free, Plus, Pro), l'entraînement est activé par défaut. Ouvrez Paramètres, Contrôles des données, puis coupez « Improve the model for everyone », ou utilisez le portail de confidentialité d'OpenAI : l'un ou l'autre suffit. Cela ne supprime pas votre historique. Dans un espace Business, Enterprise ou Edu, OpenAI n'entraîne pas ses modèles sur vos contenus par défaut."
+    },
+    {
+      "q": "Le pouce levé ou baissé envoie-t-il ma conversation ?",
+      "a": "Oui. Sur un compte personnel, la conversation entière attachée à votre retour peut servir à entraîner les modèles, même si vous avez refusé l'entraînement. Sur Business, Enterprise et Edu, un retour n'autorise pas l'entraînement, et un administrateur peut désactiver le bouton pour tout l'espace."
+    },
+    {
+      "q": "Un chat temporaire est-il vraiment privé ?",
+      "a": "Il n'apparaît pas dans l'historique, ne crée pas de mémoire et n'entraîne pas les modèles tant qu'il reste temporaire. OpenAI peut toutefois en garder une copie jusqu'à 30 jours pour la sécurité. Et si vous l'enregistrez, il redevient une conversation ordinaire, soumise à vos réglages."
+    },
+    {
+      "q": "ChatGPT garde-t-il mes fichiers après la suppression d'une conversation ?",
+      "a": "Pas toujours. Un fichier enregistré dans la bibliothèque ou dans Space survit à la conversation qui l'a utilisé : supprimez-le à part. Les fichiers d'un GPT personnalisé restent jusqu'à la suppression du GPT, ceux d'un projet jusqu'à la suppression du projet ou du fichier. Après suppression, OpenAI programme l'effacement définitif sous 30 jours, sauf obligation de sécurité ou légale."
+    },
+    {
+      "q": "Mes salariés peuvent-ils utiliser leur compte personnel pour le travail ?",
+      "a": "Pour des usages non confidentiels seulement. La CNIL envisage un service grand public avec des adresses professionnelles dédiées et la réutilisation des données désactivée, sans compte créé sur une adresse personnelle. Dès qu'il y a un client, un salarié nommé ou un contrat, ouvrez un espace d'entreprise et écrivez la règle dans une charte."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Are ChatGPT and OpenAI the same thing?",
+      "a": "No. OpenAI is the company; ChatGPT is its app, on web, mobile and desktop. OpenAI's API, which developers wire into their tools, is billed by usage, separately from the subscription. Some subscriptions, such as Pro and Business, include a monthly API credit, meant for building your own applications."
+    },
+    {
+      "q": "Free or Go: how far can you go, and with ads?",
+      "a": "Free is enough to try things out on texts with no consequence. Both plans run on GPT-5.6 Luna by default, without GPT-5.6 Sol, and OpenAI ties advertising to them, with personalisation settings in the account settings. Nothing confidential in there: for regular work, move to a workspace with an administrator."
+    },
+    {
+      "q": "What is the difference between Chat and Work, in practice?",
+      "a": "Chat is for conversation: you ask, it answers, you correct. In Work, you describe an outcome, such as analysing a file or building a deck, and ChatGPT chains the steps before handing back a deliverable to review. Work shares its quotas with Codex, the developers' tool, and pauses for your approval before an important action. Start with Chat."
+    },
+    {
+      "q": "How do I stop ChatGPT learning from my conversations?",
+      "a": "On a personal account (Free, Plus, Pro), training is on by default. Open Settings, Data controls, then turn off \"Improve the model for everyone\", or use OpenAI's privacy portal: either is enough. It does not delete your history. In a Business, Enterprise or Edu workspace, OpenAI does not train its models on your content by default."
+    },
+    {
+      "q": "Does the thumbs up or down send my conversation?",
+      "a": "Yes. On a personal account, the whole conversation attached to your feedback may be used to train the models, even if you opted out of training. On Business, Enterprise and Edu, feedback does not permit training, and an administrator can turn the button off for the whole workspace."
+    },
+    {
+      "q": "Is a temporary chat really private?",
+      "a": "It does not appear in your history, creates no memory and does not train the models while it stays temporary. OpenAI may still keep a copy for up to 30 days for safety. And if you save it, it becomes an ordinary conversation, subject to your settings."
+    },
+    {
+      "q": "Does ChatGPT keep my files after I delete a conversation?",
+      "a": "Not always. A file saved to Library or Space outlives the conversation that used it: delete it separately. Files in a custom GPT stay until the GPT is deleted, files in a project until the project or file is deleted. After deletion, OpenAI schedules permanent erasure within 30 days, unless security or legal obligations apply."
+    },
+    {
+      "q": "Can employees use their personal account for work?",
+      "a": "Only for non-confidential uses. The CNIL considers a consumer service with dedicated professional addresses and data reuse switched off, without accounts created on a personal address. As soon as a client, a named employee or a contract is involved, open a company workspace and write the rule in a policy."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "illustration": {
+        "src": "/images/illustrations/ds/chatgpt-estrade-paper.webp",
+        "alt_fr": "Sur une seule estrade, deux personnes discutent à une table, un homme scrute au télescope, un autre pousse un chariot",
+        "alt_en": "On one stage, two people talk at a table, a man looks through a telescope and another pushes a loaded cart",
+        "side": "right"
+      },
+      "kicker_fr": "§ Guide · ChatGPT",
+      "kicker_en": "§ Guide · ChatGPT",
+      "h1_fr": "ChatGPT : <i class=\"acc\">le guide complet</i>",
+      "h1_en": "ChatGPT: <i class=\"acc\">the complete guide</i>",
+      "lede_fr": "Ce que ChatGPT sait faire aujourd'hui, ce que chaque offre change, comment bien démarrer et où partent vos messages, par un consultant qui conseille des PME sur les assistants IA.",
+      "lede_en": "What ChatGPT can do today, what each plan changes, how to start well and where your messages go, from a consultant who advises SMBs on AI assistants.",
+      "badges": [
+        {
+          "label_fr": "Mis à jour le 11 novembre 2026",
+          "label_en": "Updated on 11 November 2026"
+        },
+        {
+          "label_fr": "Offres et modèles relevés chez OpenAI",
+          "label_en": "Plans and models read from OpenAI"
+        },
+        {
+          "label_fr": "Données : les réglages à couper",
+          "label_en": "Data: the settings to turn off"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver l'audit gratuit",
+        "label_en": "Book the free audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Recevoir le modèle de charte IA",
+        "label_en": "Get the AI policy template",
+        "href": "#charte-assistant-ia",
+        "variant": "ghost"
+      }
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "11 novembre 2026",
+      "updatedDate": "11 novembre 2026"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper",
+      "question_fr": "ChatGPT, c'est quoi ?",
+      "question_en": "What is ChatGPT?",
+      "term_fr": "Réponse courte",
+      "term_en": "Short answer",
+      "answer_fr": "ChatGPT est l'assistant IA d'OpenAI, présenté le 30 novembre 2022. On lui écrit ou on lui parle ; il rédige, résume, cherche sur le web, lit vos fichiers et, en mode Work, mène une tâche jusqu'à un document ou un tableur à relire. Gratuit au départ, il se décline en Go, Plus et Pro pour les particuliers, puis Business et Enterprise pour les organisations.",
+      "answer_en": "ChatGPT is OpenAI's AI assistant, introduced on 30 November 2022. You write or speak to it; it drafts, summarises, searches the web, reads your files and, in Work mode, carries a task through to a document or spreadsheet to review. Free to start with, it comes as Go, Plus and Pro for individuals, then Business and Enterprise for organisations."
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2 id=\"trois-modes\">Un seul nom, trois façons de s'en servir</h2><p>Ouvrez l'application aujourd'hui : un sélecteur propose Chat, Work ou Codex. Ce n'est pas de la cosmétique, les trois ne rendent pas le même service, d'après <a href=\"https://learn.chatgpt.com/docs/use-chatgpt\" rel=\"noopener noreferrer\" target=\"_blank\">la documentation d'OpenAI</a>.</p><p>Chat, c'est la conversation : une question, un brouillon, une comparaison, une recherche sur le web, avec des allers-retours. Work est un agent. Vous décrivez un résultat (une présentation, l'analyse d'un fichier, un rapport, un plan de projet), il prépare les étapes, se sert de vos fichiers et de ses outils, puis rend un livrable que vous relisez. <a href=\"https://openai.com/index/chatgpt-for-your-most-ambitious-work/\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI l'a lancé le 9 juillet 2026</a>, et il partage ses quotas avec Codex, l'outil des développeurs, que vous pouvez ignorer si personne chez vous ne code.</p><p>Sur le web, Work tourne dans un environnement cloud d'OpenAI. Dans l'application de bureau, il peut aussi travailler en local sur vos fichiers, si votre compte ou votre espace l'autorise, et il s'arrête pour demander votre accord avant les actions qui comptent.</p><p>Je commence toujours par Chat. Tant que vous ne savez pas décrire à un collègue le résultat attendu, Work vous rendra vite un document propre, pas forcément juste. Les agents toujours actifs, eux, ont leur propre guide : <a href=\"/ressources/guides/chatgpt-dots\">ChatGPT dots</a>.</p>",
+      "html_en": "<h2 id=\"trois-modes\">One name, three ways to use it</h2><p>Open the app today and a switcher offers Chat, Work or Codex. It is not cosmetic: the three do not do the same job, according to <a href=\"https://learn.chatgpt.com/docs/use-chatgpt\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI's documentation</a>.</p><p>Chat is conversation: a question, a draft, a comparison, a web search, with back and forth. Work is an agent. You describe an outcome (a presentation, the analysis of a file, a report, a project plan), it prepares the steps, uses your files and its tools, then hands back a deliverable you review. OpenAI launched it on 9 July 2026, and it shares its quotas with Codex, the developers' tool, which you can ignore if nobody in your company codes.</p><p>On the web, Work runs in an OpenAI cloud environment. In the desktop app it can also work locally on your files, if your account or workspace allows it, and it pauses for your approval before consequential actions.</p><p>I always start with Chat. As long as you cannot describe the expected result to a colleague, Work will quickly hand you a clean document, not necessarily a correct one. The always-on agents have their own guide: <a href=\"/ressources/guides/chatgpt-dots\">ChatGPT dots</a>.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2 id=\"modeles\">Quel modèle répond derrière le curseur de réflexion</h2><p>Dans le menu de ChatGPT, GPT-6 a remplacé l'entrée « Latest » : un curseur règle l'effort de réflexion, d'Instant à Extra High, puis vient un niveau Pro. Les noms changent vite. GPT-5.6 a été déployé le 9 juillet 2026, GPT-6 est en déploiement progressif et peut ne pas encore figurer dans votre menu.</p><p>Ne choisissez pas par le nom. Gardez le réglage par défaut et montez le curseur quand une réponse manque de profondeur : OpenAI conseille de partir de l'effort par défaut, car un effort plus élevé demande plus de temps et plus de jetons.</p>",
+      "html_en": "<h2 id=\"modeles\">Which model answers behind the thinking slider</h2><p>In ChatGPT's menu, GPT-6 has replaced the \"Latest\" entry: a slider sets the thinking effort, from Instant to Extra High, then comes a Pro level. Names change fast. GPT-5.6 was rolled out on 9 July 2026, GPT-6 is rolling out gradually and may not yet be in your menu.</p><p>Do not choose by name. Keep the default setting and raise the slider when an answer lacks depth: OpenAI advises starting from the default effort, because a higher effort takes more time and more tokens.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Modèles",
+      "kicker_en": "§ Models",
+      "heading_fr": "Les modèles de ChatGPT et l'endroit où ils servent",
+      "heading_en": "ChatGPT's models and where they are used",
+      "caption_fr": "Source : aide d'OpenAI (« GPT-6 and other models in ChatGPT ») et documentation de ChatGPT Work et Codex. La disponibilité suit l'offre, la région et le déploiement.",
+      "caption_en": "Source: OpenAI help (\"GPT-6 and other models in ChatGPT\") and ChatGPT Work and Codex documentation. Availability follows the plan, the region and the rollout.",
+      "columns_fr": [
+        "Modèle",
+        "Où le trouver",
+        "À quoi OpenAI le destine"
+      ],
+      "columns_en": [
+        "Model",
+        "Where to find it",
+        "What OpenAI intends it for"
+      ],
+      "rows_fr": [
+        [
+          "GPT-6 (Instant, Medium, High, Extra High)",
+          "Chat. Plus : jusqu'à High ; Pro, Business et Enterprise : jusqu'à Extra High",
+          "Le réglage courant des offres payantes : GPT-6 Sol répond, le curseur règle l'effort"
+        ],
+        [
+          "GPT-6 Pro",
+          "Chat : Pro 100, Pro 200, Business et Enterprise",
+          "Les tâches difficiles et les travaux longs, propulsés par GPT-6 Astra ; usage limité, même sur Pro"
+        ],
+        [
+          "GPT-5.6 Luna",
+          "Chat : modèle par défaut de Free et Go, y compris pour « Think »",
+          "Les questions courantes ; ces deux offres n'ont pas accès à GPT-5.6 Sol"
+        ],
+        [
+          "GPT-6.1 Sol",
+          "Work et Codex, pas dans Chat",
+          "Le travail complexe et répété sur du code, des applications et des documents, à un coût inférieur à Astra"
+        ],
+        [
+          "GPT-6.1 Terra",
+          "Work et Codex, pas dans Chat",
+          "Rédaction claire, compréhension visuelle, usage d'une application : une proposition, un graphique à interpréter"
+        ],
+        [
+          "GPT-6 Luna",
+          "Work et Codex",
+          "Les tâches ciblées à fort volume : synthèse, extraction"
+        ]
+      ],
+      "rows_en": [
+        [
+          "GPT-6 (Instant, Medium, High, Extra High)",
+          "Chat. Plus: up to High; Pro, Business and Enterprise: up to Extra High",
+          "The usual setting on paid plans: GPT-6 Sol answers, the slider sets the effort"
+        ],
+        [
+          "GPT-6 Pro",
+          "Chat: Pro 100, Pro 200, Business and Enterprise",
+          "Hard tasks and long-running work, powered by GPT-6 Astra; usage is limited, even on Pro"
+        ],
+        [
+          "GPT-5.6 Luna",
+          "Chat: default model on Free and Go, including for \"Think\"",
+          "Everyday questions; these two plans have no access to GPT-5.6 Sol"
+        ],
+        [
+          "GPT-6.1 Sol",
+          "Work and Codex, not in Chat",
+          "Complex, repeated work across code, apps and documents, at a lower cost than Astra"
+        ],
+        [
+          "GPT-6.1 Terra",
+          "Work and Codex, not in Chat",
+          "Clear writing, visual understanding, using an app: a proposal, a chart to interpret"
+        ],
+        [
+          "GPT-6 Luna",
+          "Work and Codex",
+          "Focused, high-volume tasks: summarising, extraction"
+        ]
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2 id=\"marches\">De 0 à 500 dollars par mois : ce que vous achetez à chaque marche</h2><p>Prix publics en dollars, hors taxes, d'après <a href=\"https://learn.chatgpt.com/docs/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">la page de tarifs d'OpenAI</a> et <a href=\"https://chatgpt.com/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">celle de ChatGPT</a>.</p><ul><li>Free, 0 $. Conversations texte sans limite fixe, sous garde-fous anti-abus ; fichiers, images, voix et recherche approfondie limités.</li><li>Go, 8 $ par mois. Plus de messages avec outils, de fichiers et d'images, une mémoire plus longue. OpenAI prévient que l'offre peut afficher des publicités.</li><li>Plus, 20 $. Les modèles de raisonnement GPT-6, les projets, les tâches planifiées, les GPT personnalisés, et Work sur ordinateur, web et mobile.</li><li>Pro, à partir de 100 $ : trois paliers, à 100, 200 et 500 $, avec plus d'usage à chaque marche, GPT-6 Pro sur les paliers 100 et 200, et un crédit API mensuel pour construire ses propres applications. Les dots sont inclus, mais pas ouverts en Europe sur cette offre (voir <a href=\"/ressources/guides/chatgpt-dots\">le guide ChatGPT dots</a>).</li><li>Business Standard, 20 $ par siège et par mois en annuel, 25 $ en mensuel, à partir de deux sièges : un espace dédié, l'administration, l'authentification unique SAML et la double authentification, sans entraînement sur vos données par défaut.</li><li>Enterprise et Edu, sur devis : gestion des comptes (SCIM), rôles, journaux d'audit, durée de conservation et région de stockage.</li></ul><p>Je n'achèterais pas Go pour un usage professionnel, puisqu'il peut afficher de la publicité et n'a aucune administration. Un abonnement individuel non plus, dès que deux personnes se partagent des dossiers. Le calcul pour 3, 5 ou 10 personnes, avec les crédits et les seuils, est dans notre billet <a href=\"/blog/chatgpt-pro-ou-business-petite-equipe\">ChatGPT Pro ou Business en petite équipe</a>.</p>",
+      "html_en": "<h2 id=\"marches\">From $0 to $500 a month: what you buy at each step</h2><p>Public prices in dollars, excluding tax, from <a href=\"https://learn.chatgpt.com/docs/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI's pricing page</a> and <a href=\"https://chatgpt.com/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">ChatGPT's own</a>.</p><ul><li>Free, $0. Text chats with no fixed limit, subject to abuse safeguards; files, images, voice and deep research are limited.</li><li>Go, $8 a month. More messages with tools, more files and images, a longer memory. OpenAI warns the plan may show ads.</li><li>Plus, $20. The GPT-6 reasoning models, projects, scheduled tasks, custom GPTs, and Work on desktop, web and mobile.</li><li>Pro, from $100: three tiers, at $100, $200 and $500, with more usage at each step, GPT-6 Pro on the $100 and $200 tiers, and a monthly API credit for building your own applications. Dots are included but not open in Europe on this plan (see <a href=\"/ressources/guides/chatgpt-dots\">the ChatGPT dots guide</a>).</li><li>Business Standard, $20 per seat per month billed annually, $25 monthly, from two seats: a dedicated workspace, administration, SAML single sign-on and multi-factor authentication, no training on your data by default.</li><li>Enterprise and Edu, on quote: account management (SCIM), roles, audit logs, retention period and storage region.</li></ul><p>I would not buy Go for professional use, since it may show ads and has no administration. Neither does an individual subscription once two people share files. The calculation for 3, 5 or 10 people, with credits and thresholds, is in our post <a href=\"/blog/chatgpt-pro-ou-business-petite-equipe\">ChatGPT Pro or Business for a small team</a>.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-3",
+      "html_fr": "<h2 id=\"utiliser\">Utiliser ChatGPT sans être déçu</h2><p>OpenAI le dit dans sa <a href=\"https://learn.chatgpt.com/docs/use-chatgpt\" rel=\"noopener noreferrer\" target=\"_blank\">documentation</a> : écrivez comme à un collègue serviable. Dites ce que vous voulez obtenir, ajoutez les détails qui changent la réponse, précisez le format. Le premier message n'est qu'un point de départ, vous corrigez ensuite. Ce qui change vraiment la qualité, c'est de joindre le fichier plutôt que le résumer de mémoire, de ranger un dossier récurrent dans un projet pour que consignes et fichiers restent ensemble, et de demander la source puis de l'ouvrir. Pour structurer vos consignes, notre guide du <a href=\"/ressources/guides/prompt-engineering-pme\">prompt engineering en PME</a> va plus loin.</p><p>Mon ordre pour les premiers usages, du moins risqué au plus engageant :</p><ol><li>Reformuler un e-mail que vous avez déjà écrit, pour le raccourcir ou changer le ton.</li><li>Résumer un document long dont vous connaissez le contenu, donc que vous pouvez vérifier.</li><li>Préparer une réunion : questions à poser, objections probables, ordre du jour.</li><li>Analyser un export de tableur. Demandez la méthode avant le résultat, puis recalculez trois chiffres à la main.</li><li>Seulement ensuite, confier à Work une présentation ou un rapport construit sur vos propres fichiers.</li></ol><p>Je ne délègue jamais un chiffre, une référence juridique ou une citation qui sort sans que quelqu'un ait ouvert la source.</p>",
+      "html_en": "<h2 id=\"utiliser\">Using ChatGPT without being let down</h2><p>OpenAI says it in its <a href=\"https://learn.chatgpt.com/docs/use-chatgpt\" rel=\"noopener noreferrer\" target=\"_blank\">documentation</a>: write as to a helpful colleague. Say what you want, add the details that change the answer, specify the format. The first message is only a starting point; you correct afterwards. What really changes quality is attaching the file instead of summarising it from memory, keeping a recurring file in a project so instructions and files stay together, and asking for the source then opening it. To structure your instructions, our <a href=\"/ressources/guides/prompt-engineering-pme\">prompt engineering guide for SMBs</a> goes further.</p><p>My order for first uses, from least risky to most committing:</p><ol><li>Rephrase an email you have already written, to shorten it or change the tone.</li><li>Summarise a long document whose content you know, so you can check it.</li><li>Prepare a meeting: questions to ask, likely objections, agenda.</li><li>Analyse a spreadsheet export. Ask for the method before the result, then recompute three figures by hand.</li><li>Only then, give Work a presentation or a report built on your own files.</li></ol><p>I never delegate a figure, a legal reference or a quote that goes out without someone having opened the source.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2 id=\"limites\">Ce qu'il fait mal, et ce que ça coûte de l'oublier</h2><p>ChatGPT prédit les mots les plus probables, ce n'est pas une base de connaissances. <a href=\"https://openai.com/policies/eu-privacy-policy/\" rel=\"noopener noreferrer\" target=\"_blank\">La politique de confidentialité européenne d'OpenAI</a> prévient qu'il ne faut pas se fier à l'exactitude de ses réponses, et <a href=\"https://www.cnil.fr/fr/les-questions-reponses-de-la-cnil-sur-lutilisation-dun-systeme-dia-generative\" rel=\"noopener noreferrer\" target=\"_blank\">la CNIL</a> décrit le même risque : des résultats inexacts qui paraissent plausibles, puis une confiance excessive qui mène à de mauvaises décisions. L'erreur bien rédigée coûte plus cher que l'erreur visible.</p><p>D'autres limites passent inaperçues. Les plafonds ne sont pas des nombres de messages garantis. Quand vous atteignez une limite de réflexion, ChatGPT peut poursuivre avec un autre modèle, donc regardez lequel répond quand la qualité baisse. Les fonctions dépendent de l'offre, de la plateforme, de la région et du déploiement, si bien que celle d'une annonce peut manquer dans votre menu. Enfin la mémoire, quand elle est activée, retient des détails d'une conversation à l'autre ; je la coupe sur tout compte qui sert à des dossiers clients (Paramètres, Personnalisation).</p>",
+      "html_en": "<h2 id=\"limites\">What it does badly, and what forgetting that costs</h2><p>ChatGPT predicts the most likely words: it is not a knowledge base. <a href=\"https://openai.com/policies/eu-privacy-policy/\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI's European privacy policy</a> warns that its answers should not be relied on for factual accuracy, and <a href=\"https://www.cnil.fr/fr/les-questions-reponses-de-la-cnil-sur-lutilisation-dun-systeme-dia-generative\" rel=\"noopener noreferrer\" target=\"_blank\">the CNIL</a> describes the same risk: inaccurate results that look plausible, then excessive trust leading to bad decisions. A well-written error costs more than a visible one.</p><p>Other limits go unnoticed. Caps are not guaranteed message counts: when you hit a thinking limit, ChatGPT may continue with another model, so check which one answers when quality drops. Features depend on plan, platform, region and rollout: the one in an announcement may be missing from your menu. Finally, memory, when on, keeps details from one conversation to the next; I turn it off on any account used for client files (Settings, Personalization).</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2 id=\"donnees\">Où vont vos messages, et les réglages qui comptent</h2><p>La réponse dépend du compte, pas de l'application. Le même ChatGPT n'obéit pas aux mêmes règles selon que vous l'ouvrez avec une adresse personnelle ou dans un espace d'entreprise.</p>",
+      "html_en": "<h2 id=\"donnees\">Where your messages go, and the settings that matter</h2><p>The answer depends on the account, not the app. The same ChatGPT does not follow the same rules whether you open it with a personal address or inside a company workspace.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Données",
+      "kicker_en": "§ Data",
+      "heading_fr": "Entraînement des modèles : trois situations",
+      "heading_en": "Model training: three situations",
+      "caption_fr": "Source : aide d'OpenAI (« How your data is used to improve model performance », « Data controls in ChatGPT ») et page de confidentialité des offres professionnelles.",
+      "caption_en": "Source: OpenAI help (\"How your data is used to improve model performance\", \"Data controls in ChatGPT\") and the business privacy page.",
+      "columns_fr": [
+        "Compte",
+        "Entraînement par défaut",
+        "Ce que vous réglez"
+      ],
+      "columns_en": [
+        "Account",
+        "Training by default",
+        "What you set"
+      ],
+      "rows_fr": [
+        [
+          "Free, Plus, Pro (compte personnel)",
+          "Activé par défaut : OpenAI peut utiliser vos conversations",
+          "Paramètres, Contrôles des données, « Improve the model for everyone », ou le portail de confidentialité d'OpenAI"
+        ],
+        [
+          "Business",
+          "Non, par défaut ; un retour par pouce n'autorise pas l'entraînement",
+          "L'administrateur peut couper les retours dans la console, et choisir une région de stockage si elle est ouverte à votre compte"
+        ],
+        [
+          "Enterprise, Edu, API",
+          "Non, par défaut",
+          "Durée de conservation, région de stockage et, pour l'API, rétention nulle pour les organisations qui y ont droit"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Free, Plus, Pro (personal account)",
+          "On by default: OpenAI may use your conversations",
+          "Settings, Data controls, \"Improve the model for everyone\", or OpenAI's privacy portal"
+        ],
+        [
+          "Business",
+          "No, by default; thumbs feedback does not permit training",
+          "The administrator can turn feedback off in the console, and choose a storage region if it is open to your account"
+        ],
+        [
+          "Enterprise, Edu, API",
+          "No, by default",
+          "Retention period, storage region and, for the API, zero retention for organisations that qualify"
+        ]
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<p>Sur un compte personnel, le pouce levé ou baissé envoie la conversation entière, qu'OpenAI peut utiliser pour entraîner ses modèles même si vous avez refusé l'entraînement. Et couper l'entraînement ne supprime rien : l'historique reste jusqu'à ce que vous le supprimiez, après quoi OpenAI programme l'effacement sous 30 jours. Seul le chat temporaire sort de l'historique, de la mémoire et de l'entraînement.</p><p>En Europe, la politique de confidentialité applicable à l'Espace économique européen (mise à jour le 24 août 2026) désigne la Commission irlandaise de protection des données comme autorité chef de file, à côté de votre autorité locale, la CNIL en France. Côté ChatGPT, la région d'inférence en Europe, qui garde le calcul du modèle sur place, n'est ouverte qu'à Enterprise et Edu, avec le stockage en Europe. Si vos données doivent rester en Europe, ce critère décide de l'offre avant le prix.</p><p>Un point que les équipes ignorent : si un salarié crée un compte avec son adresse professionnelle, OpenAI peut signaler à l'employeur que ce compte existe ; et dès qu'il rejoint un espace d'entreprise, ses administrateurs peuvent accéder à son contenu. La CNIL envisage un service grand public pour des usages non confidentiels, avec des adresses professionnelles dédiées et la réutilisation désactivée. Ma règle va plus loin, rien de nominatif, ni client ni salarié, dans un compte personnel. Notre <a href=\"/ressources/outils/charte-ia-entreprise\">modèle de charte IA</a> l'écrit noir sur blanc, et les obligations de l'<a href=\"/blog/ai-act-pme-utilisatrice-ia\">AI Act pour une PME qui utilise ChatGPT ou Claude</a> se lisent à part.</p>",
+      "html_en": "<p>On a personal account, the thumbs up or down sends the whole conversation, which OpenAI may use to train its models even if you opted out of training. And turning training off deletes nothing: history stays until you delete it, after which OpenAI schedules erasure within 30 days. Only a temporary chat stays out of history, memory and training.</p><p>In Europe, the privacy policy that applies to the European Economic Area (updated 24 August 2026) names the Irish Data Protection Commission as lead supervisory authority, alongside your local authority, the CNIL in France. On the ChatGPT side, an inference region in Europe, which keeps the model's computing local, is open only to Enterprise and Edu, with storage in Europe. If your data must stay in Europe, this criterion decides the plan before the price.</p><p>One point teams overlook: if an employee creates an account with a work address, OpenAI may tell the employer that the account exists; and once they join a company workspace, its administrators can access their content. The CNIL considers a consumer service for non-confidential uses, with dedicated professional addresses and reuse switched off. My rule goes further, nothing identifying, no client, no employee, in a personal account. Our <a href=\"/ressources/outils/charte-ia-entreprise\">AI policy template</a> writes it down, and the obligations in the <a href=\"/blog/ai-act-pme-utilisatrice-ia\">AI Act post for an SMB that uses ChatGPT or Claude</a> are read separately.</p>"
+    },
+    {
+      "type": "lead-capture-band",
+      "lead_magnet": "charte-ia-entreprise",
+      "background": "ink",
+      "anchor_id": "charte-assistant-ia",
+      "kicker_fr": "§ Charte IA · modèle PDF gratuit",
+      "kicker_en": "§ AI policy · free PDF template",
+      "h2_fr": "Une page qui dit ce qu'on colle dans l'assistant, et ce qu'on n'y colle jamais",
+      "h2_en": "One page saying what goes into the assistant, and what never does",
+      "body_fr": "Un modèle à adapter à votre équipe : qui peut utiliser l'assistant, quelles données restent dehors, qui relit avant l'envoi. Le PDF arrive par e-mail.",
+      "body_en": "A template to adapt to your team: who may use the assistant, which data stays out, who reviews before sending. The PDF arrives by email.",
+      "benefits_fr": [
+        "Un modèle que chaque utilisateur peut signer",
+        "Les notes pour l'ajuster à vos outils et à vos données",
+        "Un seul envoi, sans inscription à une liste"
+      ],
+      "benefits_en": [
+        "A template each user can sign",
+        "Notes to fit it to your tools and your data",
+        "A single email, no mailing list"
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2 id=\"equipe\">Quand l'équipe s'y met, ce qui se décide avant l'achat</h2><p>Business laisse choisir une région de stockage pendant le paiement ; le déploiement est progressif et n'atteint pas tous les clients. Le choix ne couvre que le stockage, pas l'endroit où le modèle calcule. Une copie de chaque message et de chaque réponse reste aux États-Unis un temps limité pour la sécurité, et l'expérience <a href=\"/blog/chatgpt-shopping-e-commerce\">Shopping</a> n'est pas disponible dans un espace qui a une région choisie.</p><p>L'administrateur règle aussi les modèles que les membres peuvent utiliser. Posez ce réglage avant d'inviter l'équipe : un réglage du premier jour évite de reprendre ensuite des habitudes déjà prises.</p><p>Chez Waimia, nous déployons Claude par défaut, pour MCP et pour Claude Code. Si vos équipes travaillent déjà dans ChatGPT, je ne vous pousse pas à changer, j'encadre l'existant. Les critères de choix sont dans le comparatif <a href=\"/ressources/comparatifs/claude-vs-chatgpt-pme\">Claude vs ChatGPT</a>, et <a href=\"/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme\">celui à quatre assistants</a> élargit la comparaison.</p>",
+      "html_en": "<h2 id=\"equipe\">When the team joins in, what is decided before buying</h2><p>Business lets you choose a storage region during checkout; the rollout is gradual and does not reach every customer. The choice covers storage only, not where the model computes. A copy of every message and answer stays in the United States for a limited time for safety, and the <a href=\"/blog/chatgpt-shopping-e-commerce\">Shopping</a> experience is not available in a workspace with a chosen region.</p><p>The administrator also sets which models members can use. Set this before inviting the team: a first-day setting avoids undoing habits already formed.</p><p>At Waimia, we deploy Claude by default, for MCP and for Claude Code. If your teams already work in ChatGPT, I do not push you to switch, I put a framework around what exists. The criteria are in the comparison <a href=\"/ressources/comparatifs/claude-vs-chatgpt-pme\">Claude vs ChatGPT</a>, and <a href=\"/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme\">the four-assistant one</a> widens it.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-3",
+      "html_fr": "<h2 id=\"sujets-a-part\">Les sujets qui ont leur propre page</h2><ul><li>Un agent qui travaille en continu et vous sollicite au bon moment : <a href=\"/ressources/guides/chatgpt-dots\">le guide ChatGPT dots</a>.</li><li>Vendre via les recommandations de produits : <a href=\"/blog/chatgpt-shopping-e-commerce\">ce que ChatGPT lit pour recommander un produit</a>.</li><li>Être cité dans les réponses : <a href=\"/blog/apparaitre-dans-chatgpt-pme\">ce qu'une PME contrôle</a>, puis <a href=\"/ressources/guides/mesurer-visibilite-ia-chatgpt\">le protocole de mesure</a>.</li><li>Brancher les modèles d'OpenAI à vos outils : <a href=\"/services/integration-chatgpt-openai\">le service d'intégration</a>.</li></ul>",
+      "html_en": "<h2 id=\"sujets-a-part\">Topics with their own page</h2><ul><li>An agent that works continuously and asks for you at the right moment: <a href=\"/ressources/guides/chatgpt-dots\">the ChatGPT dots guide</a>.</li><li>Selling through product recommendations: <a href=\"/blog/chatgpt-shopping-e-commerce\">what ChatGPT reads to recommend a product</a>.</li><li>Being cited in answers: <a href=\"/blog/apparaitre-dans-chatgpt-pme\">what an SMB controls</a>, then <a href=\"/ressources/guides/mesurer-visibilite-ia-chatgpt\">the measurement protocol</a>.</li><li>Connecting OpenAI models to your tools: <a href=\"/services/integration-chatgpt-openai\">the integration service</a>.</li></ul>"
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Further reading",
+      "cards": [
+        {
+          "kicker_fr": "Comparatif",
+          "kicker_en": "Comparison",
+          "title_fr": "Le comparatif avec Claude",
+          "title_en": "The comparison with Claude",
+          "lead_fr": "Prix, données et connexion aux outils, point par point.",
+          "lead_en": "Price, data and tool connections, point by point.",
+          "href": "/ressources/comparatifs/claude-vs-chatgpt-pme"
+        },
+        {
+          "kicker_fr": "Formation",
+          "kicker_en": "Training",
+          "title_fr": "Former l'équipe à ChatGPT",
+          "title_en": "Training the team on ChatGPT",
+          "lead_fr": "Trois niveaux, de la méthode commune à l'API.",
+          "lead_en": "Three levels, from a shared method to the API.",
+          "href": "/formations/chatgpt"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Accompagnement IA en PME",
+          "title_en": "AI support for SMBs",
+          "lead_fr": "Audit, sprint, formation ou régie : choisir la forme.",
+          "lead_en": "Audit, sprint, training or time and materials: choosing the form.",
+          "href": "/ressources/guides/accompagnement-ia-pme"
+        }
+      ]
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper-2",
+      "kicker_fr": "§ Questions",
+      "kicker_en": "§ Questions",
+      "h2_fr": "Les questions qu'on pose sur ChatGPT",
+      "h2_en": "Questions people ask about ChatGPT",
+      "open_first": true,
+      "items": [
+        {
+          "q_fr": "ChatGPT et OpenAI, c'est la même chose ?",
+          "q_en": "Are ChatGPT and OpenAI the same thing?",
+          "a_fr": "Non. OpenAI est l'entreprise ; ChatGPT est son application, sur le web, le mobile et le bureau. L'API d'OpenAI, que les développeurs branchent à leurs outils, se facture à l'usage, séparément de l'abonnement. Certains abonnements, comme Pro et Business, incluent un crédit API mensuel, prévu pour construire ses propres applications.",
+          "a_en": "No. OpenAI is the company; ChatGPT is its app, on web, mobile and desktop. OpenAI's API, which developers wire into their tools, is billed by usage, separately from the subscription. Some subscriptions, such as Pro and Business, include a monthly API credit, meant for building your own applications."
+        },
+        {
+          "q_fr": "ChatGPT gratuit ou Go : jusqu'où peut-on aller, et avec publicité ?",
+          "q_en": "Free or Go: how far can you go, and with ads?",
+          "a_fr": "Free suffit pour essayer sur des textes sans conséquence. Les deux offres tournent sur GPT-5.6 Luna par défaut, sans accès à GPT-5.6 Sol, et OpenAI y associe la publicité, avec des réglages de personnalisation dans les paramètres du compte. Rien de confidentiel là-dedans : pour un travail suivi, passez sur un espace avec administrateur.",
+          "a_en": "Free is enough to try things out on texts with no consequence. Both plans run on GPT-5.6 Luna by default, without GPT-5.6 Sol, and OpenAI ties advertising to them, with personalisation settings in the account settings. Nothing confidential in there: for regular work, move to a workspace with an administrator."
+        },
+        {
+          "q_fr": "Quelle différence entre Chat et Work, concrètement ?",
+          "q_en": "What is the difference between Chat and Work, in practice?",
+          "a_fr": "Chat sert à converser : vous posez, il répond, vous corrigez. Dans Work, vous décrivez un résultat, par exemple l'analyse d'un fichier ou une présentation, et ChatGPT enchaîne les étapes avant de vous rendre un livrable à relire. Work partage ses quotas avec Codex, l'outil des développeurs, et s'arrête pour demander votre accord avant une action importante. Commencez par Chat.",
+          "a_en": "Chat is for conversation: you ask, it answers, you correct. In Work, you describe an outcome, such as analysing a file or building a deck, and ChatGPT chains the steps before handing back a deliverable to review. Work shares its quotas with Codex, the developers' tool, and pauses for your approval before an important action. Start with Chat."
+        },
+        {
+          "q_fr": "Comment empêcher ChatGPT d'apprendre de mes conversations ?",
+          "q_en": "How do I stop ChatGPT learning from my conversations?",
+          "a_fr": "Sur un compte personnel (Free, Plus, Pro), l'entraînement est activé par défaut. Ouvrez Paramètres, Contrôles des données, puis coupez « Improve the model for everyone », ou utilisez le portail de confidentialité d'OpenAI : l'un ou l'autre suffit. Cela ne supprime pas votre historique. Dans un espace Business, Enterprise ou Edu, OpenAI n'entraîne pas ses modèles sur vos contenus par défaut.",
+          "a_en": "On a personal account (Free, Plus, Pro), training is on by default. Open Settings, Data controls, then turn off \"Improve the model for everyone\", or use OpenAI's privacy portal: either is enough. It does not delete your history. In a Business, Enterprise or Edu workspace, OpenAI does not train its models on your content by default."
+        },
+        {
+          "q_fr": "Le pouce levé ou baissé envoie-t-il ma conversation ?",
+          "q_en": "Does the thumbs up or down send my conversation?",
+          "a_fr": "Oui. Sur un compte personnel, la conversation entière attachée à votre retour peut servir à entraîner les modèles, même si vous avez refusé l'entraînement. Sur Business, Enterprise et Edu, un retour n'autorise pas l'entraînement, et un administrateur peut désactiver le bouton pour tout l'espace.",
+          "a_en": "Yes. On a personal account, the whole conversation attached to your feedback may be used to train the models, even if you opted out of training. On Business, Enterprise and Edu, feedback does not permit training, and an administrator can turn the button off for the whole workspace."
+        },
+        {
+          "q_fr": "Un chat temporaire est-il vraiment privé ?",
+          "q_en": "Is a temporary chat really private?",
+          "a_fr": "Il n'apparaît pas dans l'historique, ne crée pas de mémoire et n'entraîne pas les modèles tant qu'il reste temporaire. OpenAI peut toutefois en garder une copie jusqu'à 30 jours pour la sécurité. Et si vous l'enregistrez, il redevient une conversation ordinaire, soumise à vos réglages.",
+          "a_en": "It does not appear in your history, creates no memory and does not train the models while it stays temporary. OpenAI may still keep a copy for up to 30 days for safety. And if you save it, it becomes an ordinary conversation, subject to your settings."
+        },
+        {
+          "q_fr": "ChatGPT garde-t-il mes fichiers après la suppression d'une conversation ?",
+          "q_en": "Does ChatGPT keep my files after I delete a conversation?",
+          "a_fr": "Pas toujours. Un fichier enregistré dans la bibliothèque ou dans Space survit à la conversation qui l'a utilisé : supprimez-le à part. Les fichiers d'un GPT personnalisé restent jusqu'à la suppression du GPT, ceux d'un projet jusqu'à la suppression du projet ou du fichier. Après suppression, OpenAI programme l'effacement définitif sous 30 jours, sauf obligation de sécurité ou légale.",
+          "a_en": "Not always. A file saved to Library or Space outlives the conversation that used it: delete it separately. Files in a custom GPT stay until the GPT is deleted, files in a project until the project or file is deleted. After deletion, OpenAI schedules permanent erasure within 30 days, unless security or legal obligations apply."
+        },
+        {
+          "q_fr": "Mes salariés peuvent-ils utiliser leur compte personnel pour le travail ?",
+          "q_en": "Can employees use their personal account for work?",
+          "a_fr": "Pour des usages non confidentiels seulement. La CNIL envisage un service grand public avec des adresses professionnelles dédiées et la réutilisation des données désactivée, sans compte créé sur une adresse personnelle. Dès qu'il y a un client, un salarié nommé ou un contrat, ouvrez un espace d'entreprise et écrivez la règle dans une charte.",
+          "a_en": "Only for non-confidential uses. The CNIL considers a consumer service with dedicated professional addresses and data reuse switched off, without accounts created on a personal address. As soon as a client, a named employee or a contract is involved, open a company workspace and write the rule in a policy."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Assistants IA en PME",
+      "kicker_en": "§ AI assistants for SMBs",
+      "h2_fr": "Savoir ce que vos équipes font déjà avec ChatGPT, avant de généraliser.",
+      "h2_en": "Find out what your teams already do with ChatGPT, before rolling it out.",
+      "subtitle_fr": "Un audit gratuit de 45 minutes, en visio, pour recenser les comptes ChatGPT déjà ouverts chez vous, les données qui y passent et les règles à poser.",
+      "subtitle_en": "A free 45-minute video audit to list the ChatGPT accounts already open in your company, the data going through them and the rules to set.",
+      "buttons": [
+        {
+          "label_fr": "Réserver l'audit gratuit",
+          "label_en": "Book the free audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Voir l'intégration ChatGPT et OpenAI",
+          "label_en": "See the ChatGPT and OpenAI integration",
+          "href": "/services/integration-chatgpt-openai",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

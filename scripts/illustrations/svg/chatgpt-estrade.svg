@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+<!-- Waimia · moteur B · une seule estrade devant un grand disque, trois scènes : deux personnes conversent à une table, un homme scrute au télescope, un autre pousse un chariot de caisses -->
+<defs>
+<g id="seated"><circle cx="0" cy="-74" r="7.5" fill="{{subject}}"/><path d="M-11 -64 Q0 -68 11 -64 L12 -30 L-12 -30 Z" fill="{{subject}}"/><rect x="-12" y="-32" width="34" height="9" fill="{{subject}}"/><rect x="14" y="-32" width="8" height="32" fill="{{subject}}"/><rect x="-14" y="-30" width="5" height="30" fill="{{subject}}"/><path d="M6 -60 L24 -44 L21 -40 L3 -54 Z" fill="{{subject}}"/></g>
+<g id="man"><circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/><path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/><rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/><rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/><rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/><rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/></g>
+<g id="pusher"><circle cx="2" cy="-90" r="7.5" fill="{{subject}}"/><path d="M-9 -80 Q2 -84 13 -80 L13 -42 L-11 -42 Z" fill="{{subject}}"/><path d="M-6 -44 L3 -44 L-10 -2 L-19 -2 Z" fill="{{subject}}"/><path d="M2 -44 L11 -44 L22 -2 L13 -2 Z" fill="{{subject}}"/><path d="M6 -78 L24 -56 L20 -52 L2 -72 Z" fill="{{subject}}"/></g>
+</defs>
+<rect width="1456" height="624" fill="{{field}}"/>
+<circle cx="740" cy="285" r="240" fill="{{shape}}"/>
+<rect x="0" y="520" width="1456" height="104" fill="{{ground}}"/>
+<g transform="translate(740 520) scale(1.12) translate(-740 -520)">
+<!-- l'estrade unique -->
+<rect x="410" y="476" width="660" height="44" fill="{{detail}}"/>
+<rect x="410" y="476" width="660" height="8" fill="{{deep}}"/>
+
+<!-- 1 · la conversation -->
+<rect x="503" y="428" width="54" height="7" fill="{{subject}}"/>
+<rect x="527" y="435" width="6" height="41" fill="{{subject}}"/>
+<rect x="514" y="471" width="32" height="5" fill="{{subject}}"/>
+<rect x="514" y="418" width="9" height="10" fill="{{subject}}"/>
+<rect x="538" y="418" width="9" height="10" fill="{{subject}}"/>
+<use href="#seated" transform="translate(470 476) scale(1.25)"/>
+<use href="#seated" transform="translate(590 476) scale(-1.25 1.25)"/>
+
+<!-- 2 · la recherche au télescope -->
+<path d="M748 360 L752 360 L724 476 L716 476 Z" fill="{{subject}}"/>
+<path d="M748 360 L752 360 L784 476 L776 476 Z" fill="{{subject}}"/>
+<path d="M716 372 L808 318 L818 334 L724 384 Z" fill="{{subject}}"/>
+<path d="M800 318 L832 300 L844 322 L812 340 Z" fill="{{subject}}"/>
+<use href="#man" transform="translate(700 476) scale(1.25)"/>
+<path d="M707 381 L722 372 L725 377 L710 386 Z" fill="{{subject}}"/>
+
+<!-- 3 · l'agent pousse un chariot de caisses -->
+<rect x="926" y="402" width="44" height="42" fill="{{deep}}"/>
+<rect x="926" y="420" width="44" height="5" fill="{{light}}"/>
+<rect x="972" y="414" width="38" height="30" fill="{{subject}}"/>
+<rect x="972" y="427" width="38" height="4" fill="{{light}}"/>
+<rect x="916" y="444" width="100" height="9" fill="{{subject}}"/>
+<circle cx="936" cy="464" r="12" fill="{{subject}}"/>
+<circle cx="996" cy="464" r="12" fill="{{subject}}"/>
+<path d="M914 450 L896 410 L901 408 L920 448 Z" fill="{{subject}}"/>
+<use href="#pusher" transform="translate(872 476) scale(1.25)"/>
+</g>
+</svg>

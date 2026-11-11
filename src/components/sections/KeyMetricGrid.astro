@@ -13,7 +13,11 @@ interface Props {
 }
 const { data, lang } = Astro.props;
 
-const size = data.size ?? 'lg';
+// Une valeur longue (« 0,10 $ / 0,50 $ », « 31 août 2026 ») ne tient pas dans une colonne
+// au corps demandé : toute la rangée passe en sm (--text-h2), lg et md étant presque égaux.
+const requestedSize = data.size ?? 'lg';
+const longestValue = Math.max(...data.metrics.map((m) => m.value.length));
+const size = longestValue > 10 && (data.columns ?? 4) >= 3 ? 'sm' : requestedSize;
 const align = data.align ?? 'left';
 // Sur fond ink, la valeur chiffrée (--ink par défaut) disparaît : dériver la variante
 // inverted de l'atome (existante) quand aucun variant explicite n'est fourni.

@@ -37,6 +37,65 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### 2026-11-11 · six guides généralistes : Claude IA, ChatGPT, Mistral AI, Gemini, DeepSeek, Grok (demande de Simon)
+
+**Pourquoi** : sur « guide claude », Google montre des guides généraux (Anthropic, nocodefactory, Blog du Modérateur) ; le site n'avait aucune page de ce type, pour aucun assistant. Les sujets voisins (offres, versions, comparatifs, dots, Cowork) ont déjà leur page.
+
+**Règles appliquées** : une expression = une page.
+- Claude IA : « guide claude », « claude ia ». `claude-pme` passe à « Guide Claude pour PME ».
+- ChatGPT : « chatgpt », « guide chatgpt ».
+- Mistral AI : « mistral ai », « le chat mistral ».
+- Gemini : « gemini », « guide gemini ».
+- DeepSeek : « deepseek », « deepseek données ».
+- Grok : « grok », « guide grok ».
+
+Les sujets propres à d'autres pages tiennent en deux ou trois phrases et un lien, jamais dans un H2. Aucun contenu dupliqué : au plus 6,2 % de texte commun avec une autre page du site, gabarit compris (6-grammes, build servi).
+
+**Faits** : lus à la source le 11 novembre 2026 et listés dans `sources` de chaque page (de 3 à 21 sources par page). Deux faits ont été vérifiés par l'orchestrateur : l'éditeur de Grok est SpaceX Super Intelligence (SpaceXSI), selon la politique de confidentialité de x.ai ; Le Chat est devenu Vibe le 28 mai 2026 (annonce de Mistral AI ; la page d'aide est datée du 12 août).
+
+**Maillage** : six entrées dans `internal-mesh.ts` (silo `claude`, « Claude et assistants IA »), lien depuis `claude-pme` vers `claude-ia`. Les six illustrations de hero sont dédiées (moteur SVG, sans API OpenAI), avec un fond clair sous l'italique du titre.
+
+**À mesurer** : indexation, puis positions sur les expressions ci-dessus à partir de la collecte qui suit le 25/11.
+
+**Signalé** : le comparatif `mistral-vs-claude-pme` cite Large 3 et Medium 3.5, dépréciés depuis le 31/10/2026 ; Large 4 est sorti le 5/11/2026 (signalé par le rédacteur du guide Mistral, à vérifier et corriger dans une prochaine vague).
+
+### 2026-11-11 · audit de cannibalisation et de contenu dupliqué (demande de Simon)
+
+**Cannibalisation** (Search Console, 28 jours, `2026-W46`). Règle : une requête est cannibalisée si la deuxième page reçoit au moins 20 % des impressions, sur au moins 10 impressions. 16 requêtes sont concernées, dont 12 dans la famille « claude pme / tpe » (guide PME, comparatif Claude vs ChatGPT, guide TPE, services Claude). Correctifs :
+- Comparatif : le H1 « Claude vs ChatGPT pour une PME » devient « Claude ou ChatGPT : lequel choisir en entreprise ? ». L'ancien H1 visait « claude pour pme », qui appartient au guide.
+- Guide PME : `seoTitle` « Guide Claude pour PME » (sans « IA », réservé au guide généraliste à venir). Lien « Claude pour une TPE » vers `claude-tpe`, propriétaire de « claude tpe », qu'aucun lien ne reliait depuis le pilier.
+- Blog AI Act : l'ancre vers `/conformite-ia` devient « conformité IA en PME » ; elle disait « IA conforme en PME ».
+- Non traités : « agence … make à toulouse » (requête longue, 41 impressions, la page Toulouse est la bonne propriétaire) et « charte gemini pme » (le guide Gemini à venir renverra vers la charte).
+
+**Contenu dupliqué** (build servi). Méthode : 6-grammes de mots du contenu principal, sur 277 pages indexables ; les passages présents sur plus de 15 pages (gabarit) sont exclus. Correctifs :
+- `/cas-usages` reprenait en entier les fiches d'études de cas (résultat, citation, limites, sources) des pages de fonction. Taux commun avec `support-sav` : 33 %, ramené à 19 %. La variante `digest` de `market-cases` n'affiche plus que l'entreprise, l'outil et le lien vers l'analyse.
+- Secteurs agence, conseil, ESN, industrie : le texte par défaut du gabarit (« On branche cette tâche sur vos outils actuels… », trois fois par page, plus le chapô et le sous-titre du CTA) est remplacé par un texte propre à chaque secteur (`SECTOR_COPY`). Agence/conseil : 29 % ramené à 24 %. Ce qui reste commun : l'échelle de maturité, la carte du cas Amploi et les listes de liens, c'est-à-dire des composants partagés.
+- Laissés en l'état : `/blog` et `/ressources` (94 %) sont des pages de liste, et `/ressources` affiche les mêmes cartes d'articles ; le choix « hubs ramenés à des filtres » est celui de Simon du 15/10. Hermes Agent et OpenClaw (17 %) partagent un bloc de prix et d'auteur.
+
+### 2026-11-11 · « agence ia bordeaux » et « guide claude » : diagnostic et correctifs (demande de Simon)
+
+**Départ** (Search Console, 28 jours, `2026-W46/gsc-performance.json`) : « agence ia bordeaux » position 37,0 (15 impressions) sur `/implantations/bordeaux` ; `/agence` absente de la requête (classée seulement sur « waimia »). « guide claude pme » position 15,6 (18 impressions) sur `/ressources/guides/claude-pme` ; « guide claude » : aucune impression. « claude pme » réparti sur sept pages (guide 16,7 ; comparatif Claude vs ChatGPT 33,2 ; `claude-cowork`, `claude-tpe`, `integration-claude`, `consultant-ia-claude`).
+
+**Page de résultats lue le 11 novembre 2026** (google.fr) :
+- « agence ia bordeaux » : un pack local (carte, fiches Cortex-iA et GENIAL), un annuaire (Sortlist), puis des pages dédiées `/agence-ia-bordeaux` (ia4ops, kayro, JUWA, GENIAL, ITChain).
+- « guide claude » : guides généraux (Anthropic, nocodefactory « Claude IA : guide complet », blogdumoderateur), aucun guide orienté PME.
+- « guide claude pme » : titres qui commencent par « Claude IA » ou « Guide », « pour PME » en tête.
+
+**Diagnostic** :
+- La page Bordeaux est déjà alignée (title, H1, adresse, ProfessionalService, FAQ). Dernière exploration Google : 10/11 à 14:19 UTC, avant la réécriture du 11/11 (lot 28) : la position 37 mesure l'ancienne version.
+- Les 288 liens vers `/implantations/bordeaux` portent tous l'ancre « Bordeaux » (pied de page) : aucune ancre descriptive.
+- Le reste se joue hors du site : la fiche Google, les avis, les annuaires avec la même adresse et le même téléphone, et l'autorité du domaine.
+- Le guide Claude ne contenait pas « Claude IA » (0 occurrence) et son title commençait par « Déployer » : il ne répondait ni à « guide claude » ni à « claude ia ».
+
+**Ce qui a changé** :
+- `/ressources/guides/claude-pme` : ajout de `seoTitle_fr` « Guide Claude pour PME : déploiement, coût, plan 90 jours » (56). Le title précédent datait du 6/10 : la règle des trois semaines est respectée. `description_fr` commence par « Guide Claude pour PME ». « guide claude » et « claude ia » sont réservées à la future page généraliste `/ressources/guides/claude-ia` (une expression, une page). H1 inchangé.
+- Ancres descriptives vers la page Bordeaux : « agence IA à Bordeaux » depuis `/agence` (lede) et depuis `/ressources/guides/choisir-agence-ia-pme`. Ancre « guide Claude pour PME » depuis le comparatif Claude vs ChatGPT.
+- `/implantations/bordeaux` et `/agence` : title et meta inchangés. Bordeaux est figée jusqu'au 1/12, et `/agence` n'est pas la page à pousser sur la requête : deux URL sur la même requête locale se partageraient les signaux.
+
+**Hors site, à faire par Simon** : la fiche Google (le `sameAs` cite un lien `share.google`), des avis de vrais clients, une fiche Sortlist et les annuaires locaux avec exactement la même adresse et le même téléphone. Ces actions restent bloquées par la décision sur la marque.
+
+**À mesurer** : collecte qui suit le 18/11. « agence ia bordeaux » (départ 37,0) ; « guide claude pme » (départ 15,6, attendu en première page) ; « guide claude » (départ : absent).
+
 ### 2026-11-11 (session de production du mercredi, 2026-W46, collecte du 9 novembre 2026)
 
 **Données** : collecte du 9 novembre 2026 à 11:41 UTC (`generatedAt`), **pas fraîche** (`freshness.mjs` : « collecte récente (43 h) mais incomplète : gsc-index (erreur), indexnow (erreur), indexing-api (erreur), brave-queue (erreur), sitemap-production (erreur) »), conséquence de la panne de production du 9 et du 10 novembre. waimia.com répond de nouveau 200 (`curl` sur l'accueil, 11 novembre 2026 vers 06:50 UTC). Relance locale des flux et concurrents non refaite : aucune décision du jour n'en dépendait (création planifiée). KPI et bilan des actions : non refaits (session de production, runbook section 9).

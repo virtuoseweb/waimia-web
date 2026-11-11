@@ -1,0 +1,660 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "Claude IA : le guide complet (2026)",
+  "title_en": "Claude AI: the complete guide (2026)",
+  "seoTitle_fr": "Claude IA : le guide complet pour bien l'utiliser (2026)",
+  "seoTitle_en": "Claude AI: the complete guide to using it well (2026)",
+  "description_fr": "Claude IA : ce que c'est, où l'ouvrir, comment lui parler, ce qu'il ne faut pas lui confier. Le guide complet pour bien s'en servir.",
+  "description_en": "Claude AI: what it is, where to open it, how to talk to it, what not to hand it. The complete guide to using Claude well.",
+  "slug": "claude-ia",
+  "publishedAt": "2026-11-11",
+  "updatedAt": "2026-11-11",
+  "category": "claude",
+  "cluster": "claude",
+  "tags": [
+    "claude-ia",
+    "guide-claude",
+    "claude-c-est-quoi",
+    "utiliser-claude",
+    "assistant-ia",
+    "anthropic"
+  ],
+  "sources": [
+    {
+      "name": "Anthropic, page produit de Claude (surfaces, fonctions), lue le 11 novembre 2026",
+      "url": "https://claude.com/product/overview",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, page tarifs de Claude, lue le 11 novembre 2026",
+      "url": "https://claude.com/pricing",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, Prompting best practices (documentation développeurs), lu le 11 novembre 2026",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, Introducing Claude Fable 5.2 and Claude Mythos 5.2",
+      "url": "https://www.anthropic.com/news/claude-fable-and-mythos-5-2",
+      "type": "enterprise",
+      "publishedAt": "2026-11-09"
+    },
+    {
+      "name": "Anthropic, vue d'ensemble des modèles Claude",
+      "url": "https://platform.claude.com/docs/en/models/overview",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, Cowork is now Claude",
+      "url": "https://claude.com/blog/cowork-is-now-claude",
+      "type": "enterprise",
+      "publishedAt": "2026-09-16"
+    },
+    {
+      "name": "Anthropic, page produit Claude Duet",
+      "url": "https://claude.com/product/claude-duet",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, mise à jour des conditions grand public",
+      "url": "https://www.anthropic.com/news/updates-to-our-consumer-terms",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, confidentialité : lieu de stockage des données",
+      "url": "https://privacy.claude.com/en/articles/7996890",
+      "type": "enterprise"
+    }
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "Faut-il installer l'application de bureau pour utiliser Claude ?",
+      "a": "Non. Claude tourne dans le navigateur et sur iOS et Android. L'application de bureau (macOS et Windows) ajoute l'accès aux dossiers et aux applications de votre ordinateur : installez-la si votre travail vit là, sinon le web suffit."
+    },
+    {
+      "q": "Pourquoi Claude m'annonce-t-il une limite alors que j'ai peu écrit ?",
+      "a": "Claude ne compte pas les messages. Il pèse la longueur de vos échanges, la version choisie et les fonctions lancées, sur un cycle de 5 heures qui glisse et sur la semaine. Ouvrez un fil par sujet et gardez Sonnet ou Haiku pour le courant : Opus et Fable vident la jauge plus vite."
+    },
+    {
+      "q": "Claude se souvient-il de ce que je lui ai dit hier ?",
+      "a": "La mémoire retient le contexte de vos conversations passées, et les projets rangent instructions et fichiers par sujet. Je ne laisse pas la mémoire porter une règle importante : une règle qui compte s'écrit dans les instructions d'un projet, où vous la relisez et la corrigez."
+    },
+    {
+      "q": "Claude peut-il agir sur mon ordinateur sans me demander ?",
+      "a": "Il ne touche que les dossiers et les outils que vous lui ouvrez, et Anthropic décrit des réglages de permission pour approuver ses plans. Pour les gestes irréversibles, envoyer, payer, supprimer, laissez l'approbation manuelle active : Claude Duet demande lui-même votre accord avant ceux-là."
+    },
+    {
+      "q": "Quelle différence entre Claude et Claude Code ?",
+      "a": "Claude est l'assistant où l'on écrit, où l'on dépose des documents et d'où sortent des fichiers. Claude Code se branche sur un projet de développement : il explore le code, le modifie et contrôle le résultat par les tests. Pour rédiger, analyser ou résumer, vous n'avez pas besoin du second."
+    },
+    {
+      "q": "Qui fabrique Claude, et faut-il l'héberger en Europe ?",
+      "a": "Claude est fabriqué par Anthropic PBC. L'application range vos données aux États-Unis et n'offre pas d'option européenne. Une exigence d'hébergement européen oblige à contourner l'application, par l'API de Bedrock ou de Vertex : le guide Claude et RGPD déroule les conséquences."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Do you need the desktop app to use Claude?",
+      "a": "No. Claude runs in the browser and on iOS and Android. The desktop app (macOS and Windows) adds access to the folders and applications on your computer: install it if your work lives there, otherwise the web is enough."
+    },
+    {
+      "q": "Why does Claude announce a limit when I have hardly written anything?",
+      "a": "Claude does not count messages. It weighs the length of your exchanges, the version chosen and the features launched, over a sliding 5-hour cycle and over the week. Open one thread per topic and keep Sonnet or Haiku for everyday work: Opus and Fable drain the gauge faster."
+    },
+    {
+      "q": "Does Claude remember what I told it yesterday?",
+      "a": "Memory retains the context of your past conversations, and projects store instructions and files by topic. I do not let memory carry an important rule: a rule that matters goes in a project's instructions, where you can reread and fix it."
+    },
+    {
+      "q": "Can Claude act on my computer without asking me?",
+      "a": "It only touches the folders and tools you open to it, and Anthropic describes permission settings to approve its plans. For irreversible actions, sending, paying, deleting, leave manual approval on: Claude Duet itself asks for your consent before those."
+    },
+    {
+      "q": "What is the difference between Claude and Claude Code?",
+      "a": "Claude is the assistant where you write, drop documents and get files back. Claude Code plugs into a development project: it explores the code, changes it and checks the result with tests. To write, analyse or summarise, you do not need the second."
+    },
+    {
+      "q": "Who makes Claude, and does it have to be hosted in Europe?",
+      "a": "Claude is made by Anthropic PBC. The app keeps your data in the United States and offers no European option. A European hosting requirement means going around the app, through the API of Bedrock or Vertex: the Claude and GDPR guide spells out the consequences."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "illustration": {
+        "src": "/images/illustrations/ds/claude-ia-livrables-paper.webp",
+        "alt_fr": "Une femme tend une petite note ; devant un grand disque se dressent un rapport relié, un tableur et un chevalet bleus",
+        "alt_en": "A woman holds up a small note; before a large disc stand a bound report, a spreadsheet and an easel, all in blue",
+        "side": "right"
+      },
+      "kicker_fr": "§ Guide · Claude IA",
+      "kicker_en": "§ Guide · Claude AI",
+      "h1_fr": "Claude IA : <i class=\"acc\">le guide complet</i> pour bien l'utiliser",
+      "h1_en": "Claude AI: <i class=\"acc\">the complete guide</i> to using it well",
+      "definition_kicker_fr": "Avant de commencer",
+      "definition_kicker_en": "Before you start",
+      "lede_fr": "Vous avez ouvert Claude, posé une question, reçu une réponse correcte et sans relief. L'écart entre cette réponse et un vrai gain de temps tient à trois habitudes : le contexte donné, le fichier déposé, la relecture. On les prend dans l'ordre, après la définition.",
+      "lede_en": "You opened Claude, asked a question and got an answer that was correct and flat. The gap between that answer and real time saved comes down to three habits: the context you give, the file you drop in, the review. We take them in order, after the definition.",
+      "badges": [
+        {
+          "label_fr": "Où l'ouvrir, comment lui parler",
+          "label_en": "Where to open it, how to talk to it"
+        },
+        {
+          "label_fr": "Ce qu'il ne faut pas lui confier",
+          "label_en": "What not to hand it"
+        },
+        {
+          "label_fr": "Un guide détaillé par sujet",
+          "label_en": "A detailed guide per topic"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver l'audit gratuit →",
+        "label_en": "Book the free audit →",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Aller à la méthode de prompt",
+        "label_en": "Jump to the prompt method",
+        "href": "#parler-a-claude",
+        "variant": "ghost"
+      }
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "11 novembre 2026",
+      "updatedDate": "11 novembre 2026"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "Claude IA, c'est quoi ?",
+      "question_en": "What is Claude AI?",
+      "term_fr": "Claude IA",
+      "term_en": "Claude AI",
+      "answer_fr": "Claude IA désigne Claude, l'assistant d'intelligence artificielle d'Anthropic. Vous lui écrivez, ou vous lui parlez à voix haute : il lit vos documents, rédige, analyse, produit des fichiers et, selon l'outil, agit sur votre ordinateur ou dans votre code. Il s'ouvre dans le navigateur, sur téléphone et sur ordinateur, avec une offre gratuite pour l'essayer.",
+      "answer_en": "Claude AI means Claude, the artificial intelligence assistant made by Anthropic. You write to it, or talk to it aloud: it reads your documents, drafts, analyses, produces files and, depending on the tool, acts on your computer or in your code. It opens in the browser, on your phone and on your computer, with a free plan to try it."
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "maxWidth": "prose",
+      "html_fr": "<h2 id=\"definition\">Ce que Claude vous rend : un document, un tableur, une présentation</h2>\n<p>Claude est fabriqué par Anthropic PBC. Sur sa <a href=\"https://claude.com/product/overview\" target=\"_blank\" rel=\"noopener noreferrer\">page produit</a>, Anthropic décrit Claude comme un assistant de travail qu'on charge de tâches en plusieurs étapes.</p>\n<p>Vous décrivez le résultat voulu et vous pointez les fichiers et les outils à utiliser ; Claude rend un document, un tableur ou une présentation que vous modifiez ensuite. Un moteur de recherche vous renvoie des pages. Claude vous renvoie du travail fait, à relire.</p>\n<p>Côté entreprise, ma position tient en une ligne : un assistant se déploie à partir d'une tâche, pas d'un abonnement. Comptes, règles d'usage, plan sur 90 jours : la méthode d'entreprise vit dans le <a href=\"/ressources/guides/claude-pme\">guide Claude pour PME</a>. Ici, on reste du côté de l'utilisateur.</p>",
+      "html_en": "<h2 id=\"definition\">What Claude hands back: a document, a spreadsheet, a presentation</h2>\n<p>Claude is made by Anthropic PBC. On its <a href=\"https://claude.com/product/overview\" target=\"_blank\" rel=\"noopener noreferrer\">product page</a>, Anthropic describes Claude as a work assistant you can task with multi-step jobs.</p>\n<p>You describe the result you want and point to the files and tools to use; Claude returns a document, a spreadsheet or a presentation that you then edit. A search engine returns pages. Claude returns finished work, to be reviewed.</p>\n<p>For a business, my position fits on one line: an assistant is rolled out from a task, not from a subscription. Accounts, usage rules, 90-day plan: the business method lives in the <a href=\"/ressources/guides/claude-pme\">guide to Claude for SMBs</a>. Here, we stay on the user's side.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Où l'ouvrir",
+      "kicker_en": "§ Where to open it",
+      "heading_fr": "Huit endroits où l'on croise Claude, du navigateur à Slack",
+      "heading_en": "Eight places you meet Claude, from the browser to Slack",
+      "caption_fr": "Source : page produit de Claude (claude.com/product/overview), page tarifs et aides d'Anthropic. Les accès évoluent vite : la page produit d'Anthropic fait foi.",
+      "caption_en": "Source: Claude's product page (claude.com/product/overview), pricing page and Anthropic help articles. Access changes fast: Anthropic's product page is the reference.",
+      "columns_fr": [
+        "Point d'entrée",
+        "Ce qu'on y fait",
+        "À savoir"
+      ],
+      "columns_en": [
+        "Entry point",
+        "What you do there",
+        "Worth knowing"
+      ],
+      "rows_fr": [
+        [
+          "Web (claude.ai)",
+          "Conversations, fichiers, projets, mémoire, recherche web, artefacts",
+          "Rien à installer. L'offre gratuite suffit pour essayer"
+        ],
+        [
+          "Application de bureau",
+          "Les mêmes conversations, avec l'accès aux dossiers et aux applications de votre ordinateur",
+          "macOS et Windows. Facultative, selon Anthropic"
+        ],
+        [
+          "iOS et Android",
+          "Claude sur téléphone",
+          "Même service que sur le web ; la voix permet de lui parler plutôt que de taper"
+        ],
+        [
+          "Claude Code",
+          "Agent de programmation : explore un projet, modifie le code, vérifie par les tests",
+          "Inclus de Pro à Enterprise, pas dans l'offre gratuite"
+        ],
+        [
+          "Claude in Chrome",
+          "Extension : Claude agit dans vos onglets",
+          "Pas dans l'offre gratuite. En équipe, un réglage d'administration à décider avant"
+        ],
+        [
+          "Microsoft 365 et Google Workspace",
+          "Claude branché sur vos suites bureautiques",
+          "Côté Microsoft : compte professionnel et accord d'un administrateur"
+        ],
+        [
+          "Claude Duet",
+          "Agent proactif : prépare un récapitulatif matinal et garde un œil sur vos applications",
+          "Ouvert en aperçu de recherche depuis le 21 octobre 2026, sur liste d'attente"
+        ],
+        [
+          "Claude Tag",
+          "Claude dans Slack : on le mentionne, il traite la demande",
+          "En bêta sur Team et Enterprise"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Web (claude.ai)",
+          "Conversations, files, projects, memory, web search, artifacts",
+          "Nothing to install. The free plan is enough to try it"
+        ],
+        [
+          "Desktop app",
+          "The same conversations, with access to the folders and applications on your computer",
+          "macOS and Windows. Optional, according to Anthropic"
+        ],
+        [
+          "iOS and Android",
+          "Claude on your phone",
+          "Same service as on the web; voice lets you talk to it instead of typing"
+        ],
+        [
+          "Claude Code",
+          "Coding agent: explores a project, edits the code, checks the result with tests",
+          "Included from Pro to Enterprise, not in the free plan"
+        ],
+        [
+          "Claude in Chrome",
+          "Extension: Claude acts in your tabs",
+          "Not in the free plan. For teams, an admin setting to decide beforehand"
+        ],
+        [
+          "Microsoft 365 and Google Workspace",
+          "Claude connected to your office suites",
+          "On the Microsoft side: a business account and an administrator's consent"
+        ],
+        [
+          "Claude Duet",
+          "Proactive agent: prepares a morning recap and keeps an eye on your applications",
+          "Open as a research preview since 21 October 2026, waitlist only"
+        ],
+        [
+          "Claude Tag",
+          "Claude in Slack: you mention it, it handles the request",
+          "In beta on Team and Enterprise"
+        ]
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "maxWidth": "prose",
+      "html_fr": "<p>Deux de ces portes méritent une phrase de plus. <a href=\"/ressources/guides/claude-cowork\">Cowork</a>, qui menait les tâches longues sur vos fichiers, n'existe plus comme mode à part depuis la fusion du 16 septembre 2026. <a href=\"/ressources/guides/claude-duet\">Duet</a> n'est pas encore ouvert à tout le monde, et je n'organise rien autour d'un outil sur liste d'attente.</p>",
+      "html_en": "<p>Two of these doors deserve one more sentence. <a href=\"/ressources/guides/claude-cowork\">Cowork</a>, which ran long tasks on your files, has not been a separate mode since the merger of 16 September 2026. <a href=\"/ressources/guides/claude-duet\">Duet</a> is not open to everyone yet, and I do not organise anything around a tool on a waitlist.</p>"
+    },
+    {
+      "type": "process-steps",
+      "background": "paper-3",
+      "kicker_fr": "§ Premiers pas",
+      "kicker_en": "§ First steps",
+      "h2_fr": "Trente minutes pour juger Claude sur pièces",
+      "h2_en": "Thirty minutes to judge Claude on the evidence",
+      "intro_fr": "Je commence toujours par un terrain que vous maîtrisez : vous jugerez la réponse, et c'est là que Claude se mesure.",
+      "intro_en": "I always start on ground you master: you can judge the answer, and that is where Claude is measured.",
+      "steps": [
+        {
+          "title_fr": "Ouvrez le compte gratuit",
+          "title_en": "Open the free account",
+          "body_fr": "Rendez-vous sur claude.ai et inscrivez-vous avec une adresse e-mail. Free suffit : Sonnet et Haiku y sont accessibles, dans la limite d'un usage mesuré par tranches de 5 heures.",
+          "body_en": "Go to claude.ai and sign up with an email address. Free is enough: Sonnet and Haiku are available, within usage measured in 5-hour slices."
+        },
+        {
+          "title_fr": "Créez un projet d'essai et déposez-y un document que vous connaissez par cœur",
+          "title_en": "Create a trial project and drop in a document you know by heart",
+          "body_fr": "Un devis, un compte rendu, un contrat type. Dans un projet, le document reste disponible pour toute la série de questions.",
+          "body_en": "A quote, meeting minutes, a standard contract. In a project, the document stays available for the whole series of questions."
+        },
+        {
+          "title_fr": "Posez une question dont vous avez la réponse",
+          "title_en": "Ask a question you already have the answer to",
+          "body_fr": "Puis demandez le passage du document qui la justifie. Notez où Claude se trompe ou invente : ces endroits dessinent ce que vous relirez toujours.",
+          "body_en": "Then ask for the passage of the document that backs it. Note where Claude gets it wrong or makes things up: those spots outline what you will always review."
+        },
+        {
+          "title_fr": "Corrigez-le comme un collègue",
+          "title_en": "Correct it like a colleague",
+          "body_fr": "Dites ce qui ne va pas, demandez une deuxième version, puis inscrivez le ton voulu dans les instructions du projet : il vaudra pour toutes les conversations suivantes.",
+          "body_en": "Say what is wrong, ask for a second version, then write the tone you want into the project instructions: it will apply to every later conversation."
+        },
+        {
+          "title_fr": "Demandez un fichier, pas un texte",
+          "title_en": "Ask for a file, not a text",
+          "body_fr": "Un tableau, un document, une présentation : Claude produit des fichiers que vous retouchez ensuite dans vos outils habituels.",
+          "body_en": "A table, a document, a presentation: Claude produces files that you then touch up in your usual tools."
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "maxWidth": "prose",
+      "html_fr": "<h2 id=\"parler-a-claude\">Relire sa consigne avec les yeux de quelqu'un qui découvre le dossier</h2>\n<p>Le critère d'Anthropic tient en une phrase, dans sa <a href=\\\"https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices\\\" target=\"_blank\" rel=\"noopener noreferrer\">documentation pour développeurs</a> : si un collègue sans contexte hésite devant votre consigne, Claude hésitera aussi. Il ne connaît ni vos clients, ni vos habitudes, ni ce que « bien » veut dire chez vous.</p>\n<p>Quand j'audite l'usage de Claude dans une équipe, je commence par relire les consignes à voix haute. La plupart échouent pour la même raison : elles supposent un contexte que Claude n'a pas. Dites pour qui est le texte, ce que son lecteur en fera, le ton voulu, et collez un exemple de ce que vous jugez réussi. Anthropic constate que quelques bons exemples améliorent la justesse et la régularité des réponses.</p>",
+      "html_en": "<h2 id=\"parler-a-claude\">Reread your prompt through the eyes of someone new to the file</h2>\n<p>Anthropic's test fits in one sentence, in its <a href=\\\"https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices\\\" target=\"_blank\" rel=\"noopener noreferrer\">developer documentation</a>: if a colleague with no context hesitates over your prompt, Claude will too. It knows neither your customers, nor your habits, nor what \"good\" means in your company.</p>\n<p>When I audit how a team uses Claude, I start by reading the prompts aloud. Most fail for the same reason: they assume context Claude does not have. Say who the text is for, what its reader will do with it, the tone you want, and paste an example of what you consider a success. Anthropic finds that a few good examples improve the accuracy and consistency of answers.</p>"
+    },
+    {
+      "type": "comparison-duo",
+      "background": "paper-2",
+      "kicker_fr": "§ Même demande, deux consignes",
+      "kicker_en": "§ Same request, two prompts",
+      "h2_fr": "Deux consignes avant et après relecture",
+      "h2_en": "Two prompts before and after rereading",
+      "without_label_fr": "Vague",
+      "without_label_en": "Vague",
+      "without_title_fr": "La consigne qui fait hésiter",
+      "without_title_en": "The prompt that makes a newcomer hesitate",
+      "without_items": [
+        {
+          "text_fr": "« Résume ce compte rendu. »",
+          "text_en": "\"Summarise these minutes.\""
+        },
+        {
+          "text_fr": "« Rédige une réponse à ce client. »",
+          "text_en": "\"Write a reply to this customer.\""
+        }
+      ],
+      "with_label_fr": "Précise",
+      "with_label_en": "Precise",
+      "with_title_fr": "La même demande, avec le contexte",
+      "with_title_en": "The same request, with context",
+      "with_items": [
+        {
+          "text_fr": "« Résume ce compte rendu en cinq lignes pour le dirigeant, qui ne l'a pas lu : décisions prises, points ouverts, responsables. »",
+          "text_en": "\"Summarise these minutes in five lines for the managing director, who has not read them: decisions made, open points, owners.\""
+        },
+        {
+          "text_fr": "« Réponds à ce client mécontent, ton ferme et courtois, sans promettre de remboursement. Deux de nos réponses habituelles sont jointes. »",
+          "text_en": "\"Reply to this unhappy customer, firm and courteous tone, without promising a refund. Two of our usual replies are attached.\""
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "maxWidth": "prose",
+      "html_fr": "<p>Pour une consigne longue qui mêle instructions, documents et exemples, Anthropic conseille d'enfermer chaque bloc dans sa propre balise, par exemple <code>&lt;instructions&gt;</code>, <code>&lt;context&gt;</code> et <code>&lt;input&gt;</code>. Claude ne confond alors plus la consigne et le texte à traiter. Les gabarits par métier sont dans <a href=\"/ressources/guides/prompt-engineering-pme\">le guide du prompt engineering en PME</a>.</p>\n<h2 id=\"memoire-projets\">Projets, mémoire, instructions : ne plus répéter le même contexte</h2>\n<p>Un projet garde ensemble le contexte, les instructions et les fichiers d'un sujet. La mémoire retient le contexte de vos conversations passées. Les instructions personnelles s'appliquent à toutes. Je range un projet par client ou par dossier, jamais un projet « divers » : un tiroir fourre-tout noie le contexte utile.</p>\n<p>Quand la même consigne revient à l'identique chaque semaine, elle devient un <a href=\"/ressources/guides/claude-skills\">skill</a>. Quand Claude doit lire un outil de l'entreprise, on passe par un connecteur ; le <a href=\"/ressources/guides/mcp-claude\">guide MCP</a> explique le protocole qui les relie. Notre <a href=\"/formations/claude\">formation Claude</a> fait prendre ces habitudes à toute une équipe.</p>",
+      "html_en": "<p>For a long prompt that mixes instructions, documents and examples, Anthropic advises putting each block in its own tag, for example <code>&lt;instructions&gt;</code>, <code>&lt;context&gt;</code> and <code>&lt;input&gt;</code>. Claude then stops confusing the instruction with the text to process. Templates by job are in <a href=\"/ressources/guides/prompt-engineering-pme\">the guide to prompt engineering for SMBs</a>.</p>\n<h2 id=\"memoire-projets\">Projects, memory, instructions: stop repeating the same context</h2>\n<p>A project keeps a topic's context, instructions and files together. Memory retains the context of your past conversations. Personal instructions apply to all of them. I set up one project per client or per file, never a catch-all \"misc\" project: a junk drawer drowns the useful context.</p>\n<p>When the same prompt comes back unchanged every week, it becomes a <a href=\"/ressources/guides/claude-skills\">skill</a>. When Claude has to read a company tool, you go through a connector; the <a href=\"/ressources/guides/mcp-claude\">MCP guide</a> explains the protocol that links them. Our <a href=\"/formations/claude\">Claude training</a> gets a whole team into these habits.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "html_fr": "<h2 id=\"noms-des-modeles\">Haiku, Sonnet, Opus, Fable : lire les noms de la liste déroulante</h2>\n<p>Quatre noms, quatre allures. Haiku file le plus vite, Sonnet abat le travail courant, Opus encaisse les dossiers longs et touffus, Fable est gardé pour les cas les plus durs. Au catalogue : Haiku 5.5, Sonnet 5.5, Opus 5.5 et Fable 5.2. Mythos 5.2 reste hors de portée d'une PME, réservé à des organisations vérifiées.</p>\n<p>Quelle version pour quelle tâche, et à quel tarif par l'API : une page entière y est consacrée, <a href=\"/ressources/guides/quel-modele-claude-choisir\">le guide des versions de Claude</a>.</p>",
+      "html_en": "<h2 id=\"noms-des-modeles\">Haiku, Sonnet, Opus, Fable: reading the names in the drop-down list</h2>\n<p>Four names, four paces. Haiku runs fastest, Sonnet gets the everyday work done, Opus handles long, tangled files, Fable is kept for the hardest cases. In the catalogue: Haiku 5.5, Sonnet 5.5, Opus 5.5 and Fable 5.2. Mythos 5.2 is out of reach for an SMB, reserved for vetted organisations.</p>\n<p>Which version for which task, and at what API rate: a whole page covers it, <a href=\"/ressources/guides/quel-modele-claude-choisir\">the guide to Claude versions</a>.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "maxWidth": "prose",
+      "html_fr": "<h2 id=\"du-gratuit-a-l-equipe\">Du compte gratuit à l'abonnement d'équipe : où poser la limite</h2>\n<p>Free sert à juger. Pro, première marche payante, coûte 20 $ par mois et ajoute Claude Code ; Max et Ultra visent celui qui y passe ses journées. Tous trois sont des comptes individuels. Dès que deux personnes y déposent des documents de l'entreprise, la bonne marche s'appelle Team, et Enterprise commence quand il faut tracer les accès.</p>\n<p>Pour la grille complète, le quota partagé et le coût par siège, lisez <a href=\"/ressources/guides/claude-fonctionnalites-pme\">le guide des offres et des prix de Claude</a>. Deux cas ont leur page : <a href=\"/ressources/guides/claude-gratuit\">ce que l'offre gratuite permet</a> et <a href=\"/ressources/guides/claude-tpe\">Claude dans une très petite structure</a>.</p>",
+      "html_en": "<h2 id=\"du-gratuit-a-l-equipe\">From the free account to the team plan: where to draw the line</h2>\n<p>Free is for judging. Pro, the first paid step, costs $20 a month and adds Claude Code; Max and Ultra aim at people who live in it. All three are individual accounts. As soon as two people put company documents in, the right step is called Team, and Enterprise starts when access has to be traced.</p>\n<p>For the full grid, the shared quota and the cost per seat, read the <a href=\"/ressources/guides/claude-fonctionnalites-pme\">guide to Claude plans and pricing</a>. Two cases have their own page: <a href=\"/ressources/guides/claude-gratuit\">what the free plan allows</a> and <a href=\"/ressources/guides/claude-tpe\">Claude in a very small business</a>.</p>"
+    },
+    {
+      "type": "decision-list",
+      "background": "paper-3",
+      "kicker_fr": "§ Garde-fous",
+      "kicker_en": "§ Safeguards",
+      "heading_fr": "Ce que je ne confie pas à Claude sans relecture",
+      "heading_en": "What I do not hand to Claude without review",
+      "items": [
+        {
+          "label_fr": "Un tableau ou une présentation que Claude produit : demandez-lui de citer le passage source de chaque chiffre, puis contrôlez ces passages avant d'envoyer le fichier.",
+          "label_en": "A table or presentation Claude produces: ask it to quote the source passage for each figure, then check those passages before sending the file."
+        },
+        {
+          "label_fr": "Un document client déposé sur un abonnement individuel (Free, Pro, Max) : les conditions commerciales d'un compte Team ne s'y appliquent pas.",
+          "label_en": "A customer document dropped into an individual plan (Free, Pro, Max): the commercial terms of a Team account do not apply."
+        },
+        {
+          "label_fr": "Un site visité avec l'extension Claude in Chrome : une page peut y cacher des consignes que Claude lira comme des ordres. Restreignez la liste des sites autorisés.",
+          "label_en": "A site visited with the Claude in Chrome extension: a page can hide instructions that Claude will read as orders. Restrict the list of allowed sites."
+        },
+        {
+          "label_fr": "L'option « Always allow » d'un connecteur : laissez-la éteinte tant que vous n'avez pas dressé la liste des actions que l'outil peut exécuter seul.",
+          "label_en": "A connector's \"Always allow\" option: leave it off until you have listed the actions the tool may run on its own."
+        },
+        {
+          "label_fr": "Un sujet que vous ne savez pas juger : si vous ne pouvez pas évaluer la réponse, vous ne pouvez pas la valider.",
+          "label_en": "A topic you cannot judge: if you cannot assess the answer, you cannot sign it off."
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "maxWidth": "prose",
+      "html_fr": "<h2 id=\"vos-conversations\">Free, Pro, Team : qui décide de l'entraînement sur vos échanges</h2>\n<p>Sur un abonnement individuel (Free, Pro, Max), le réglage vous revient : vos échanges peuvent ou non alimenter l'entraînement des modèles. Sur Team, Enterprise et l'API, il est éteint d'origine. Ce réglage seul justifie de ne pas mélanger documents personnels et documents clients dans le même compte.</p>\n<p>Avant de coller le moindre document client, je regarde dans quel compte je suis. Le cadre RGPD est dans le <a href=\\\"/ressources/guides/claude-rgpd-pme\\\">guide Claude et RGPD</a>, les huit risques et leurs réglages dans l'article <a href=\\\"/blog/risques-claude-pme\\\">risques de Claude en PME</a>.</p>",
+      "html_en": "<h2 id=\"vos-conversations\">Free, Pro, Team: who decides on training with your exchanges</h2>\n<p>On an individual plan (Free, Pro, Max), the setting is yours: your exchanges may or may not feed model training. On Team, Enterprise and the API, it is off from the start. That setting alone is reason enough not to mix personal and customer documents in one account.</p>\n<p>Before pasting any customer document, I check which account I am in. The GDPR framework is in the <a href=\\\"/ressources/guides/claude-rgpd-pme\\\">Claude and GDPR guide</a>, the eight risks and their settings in the article <a href=\\\"/blog/risques-claude-pme\\\">risks of Claude in an SMB</a>.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "html_fr": "<h2 id=\"autres-assistants\">Claude face aux autres assistants</h2>\n<p>Je ne prétends pas que Claude gagne partout. Le détail, avec les tarifs d'équipe et les règles de données, se lit dans <a href=\"/ressources/comparatifs/claude-vs-chatgpt-pme\">le comparatif Claude et ChatGPT</a> ; celui qui l'oppose à un éditeur européen se lit dans <a href=\"/ressources/comparatifs/mistral-vs-claude-pme\">le comparatif avec Mistral</a>.</p>",
+      "html_en": "<h2 id=\"autres-assistants\">Claude next to the other assistants</h2>\n<p>I do not claim Claude wins everywhere. The detail, with team pricing and data rules, is in <a href=\"/ressources/comparatifs/claude-vs-chatgpt-pme\">the Claude and ChatGPT comparison</a>; the one that pits it against a European publisher is in <a href=\"/ressources/comparatifs/mistral-vs-claude-pme\">the Mistral comparison</a>.</p>"
+    },
+    {
+      "type": "resource-card-grid",
+      "background": "paper",
+      "columns": "3",
+      "kicker_fr": "§ Aller plus loin",
+      "kicker_en": "§ Go further",
+      "h2_fr": "Un guide pour chaque porte que vous voudrez ouvrir",
+      "h2_en": "One guide for every door you may want to open",
+      "intro_fr": "Quand un sujet demande plus de dix lignes, il a sa propre page.",
+      "intro_en": "When a topic needs more than ten lines, it has its own page.",
+      "resources": [
+        {
+          "kind_fr": "Offres",
+          "kind_en": "Plans",
+          "title_fr": "Offres et prix de Claude",
+          "title_en": "Claude plans and pricing",
+          "desc_fr": "Ce que chaque abonnement débloque, le quota partagé, les données.",
+          "desc_en": "What each plan unlocks, the shared quota, your data.",
+          "format": "Guide",
+          "href": "/ressources/guides/claude-fonctionnalites-pme",
+          "cta_label_fr": "Lire le guide",
+          "cta_label_en": "Read the guide"
+        },
+        {
+          "kind_fr": "Versions",
+          "kind_en": "Versions",
+          "title_fr": "Quel modèle Claude choisir",
+          "title_en": "Which Claude model to choose",
+          "desc_fr": "Haiku, Sonnet, Opus ou Fable selon la tâche, avec les tarifs à l'API.",
+          "desc_en": "Haiku, Sonnet, Opus or Fable by task, and what it costs through the API.",
+          "format": "Guide",
+          "href": "/ressources/guides/quel-modele-claude-choisir",
+          "cta_label_fr": "Lire le guide",
+          "cta_label_en": "Read the guide"
+        },
+        {
+          "kind_fr": "Tâches longues",
+          "kind_en": "Long tasks",
+          "title_fr": "Claude Cowork",
+          "title_en": "Claude Cowork",
+          "desc_fr": "Où retrouver chaque fonction depuis la fusion, la version Windows, l'administration.",
+          "desc_en": "Where to find each feature since the merger, the Windows version, administration.",
+          "format": "Guide",
+          "href": "/ressources/guides/claude-cowork",
+          "cta_label_fr": "Lire le guide",
+          "cta_label_en": "Read the guide"
+        },
+        {
+          "kind_fr": "Procédures",
+          "kind_en": "Procedures",
+          "title_fr": "Skills Claude",
+          "title_en": "Claude skills",
+          "desc_fr": "Fixer une méthode de travail dans un dossier que toute l'équipe réutilise.",
+          "desc_en": "Fix a working method in a folder the whole team reuses.",
+          "format": "Guide",
+          "href": "/ressources/guides/claude-skills",
+          "cta_label_fr": "Lire le guide",
+          "cta_label_en": "Read the guide"
+        },
+        {
+          "kind_fr": "Code",
+          "kind_en": "Code",
+          "title_fr": "Claude Code en entreprise",
+          "title_en": "Claude Code for business",
+          "desc_fr": "Où l'installer, comment le cadrer, ce qu'un poste coûte.",
+          "desc_en": "Where to install it, how to frame it, what one seat costs.",
+          "format": "Guide",
+          "href": "/ressources/guides/claude-code-entreprise",
+          "cta_label_fr": "Lire le guide",
+          "cta_label_en": "Read the guide"
+        },
+        {
+          "kind_fr": "Connexions",
+          "kind_en": "Connections",
+          "title_fr": "MCP Claude",
+          "title_en": "Claude MCP",
+          "desc_fr": "Relier Claude à vos applications, et les droits à fixer avant.",
+          "desc_en": "Connecting Claude to your tools, and the rights to set first.",
+          "format": "Guide",
+          "href": "/ressources/guides/mcp-claude",
+          "cta_label_fr": "Lire le guide",
+          "cta_label_en": "Read the guide"
+        },
+        {
+          "kind_fr": "Navigateur",
+          "kind_en": "Browser",
+          "title_fr": "Claude in Chrome",
+          "title_en": "Claude in Chrome",
+          "desc_fr": "Installer l'extension, limiter les sites, garder la main.",
+          "desc_en": "Install the extension, limit the sites, stay in control.",
+          "format": "Guide",
+          "href": "/ressources/guides/claude-in-chrome-entreprise",
+          "cta_label_fr": "Lire le guide",
+          "cta_label_en": "Read the guide"
+        },
+        {
+          "kind_fr": "Agent proactif",
+          "kind_en": "Proactive agent",
+          "title_fr": "Claude Duet",
+          "title_en": "Claude Duet",
+          "desc_fr": "Ce qu'il fait seul, ce qui exige votre accord, et qui peut l'essayer.",
+          "desc_en": "What it does alone, what needs your consent, and who can try it.",
+          "format": "Guide",
+          "href": "/ressources/guides/claude-duet",
+          "cta_label_fr": "Lire le guide",
+          "cta_label_en": "Read the guide"
+        },
+        {
+          "kind_fr": "Données",
+          "kind_en": "Data",
+          "title_fr": "Claude et RGPD",
+          "title_en": "Claude and GDPR",
+          "desc_fr": "Compte professionnel, DPA, stockage, registre.",
+          "desc_en": "Business account, DPA, storage, register.",
+          "format": "Guide",
+          "href": "/ressources/guides/claude-rgpd-pme",
+          "cta_label_fr": "Lire le guide",
+          "cta_label_en": "Read the guide"
+        }
+      ]
+    },
+    {
+      "type": "lead-capture-band",
+      "lead_magnet": "guide-achat-claude-pme",
+      "background": "paper-2",
+      "anchor_id": "guide-achat"
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "kicker_fr": "§ Questions fréquentes",
+      "kicker_en": "§ FAQ",
+      "h2_fr": "Claude IA : les questions qu'on se pose en l'ouvrant",
+      "h2_en": "Claude AI: the questions you ask when you first open it",
+      "open_first": true,
+      "items": [
+        {
+          "q_fr": "Faut-il installer l'application de bureau pour utiliser Claude ?",
+          "q_en": "Do you need the desktop app to use Claude?",
+          "a_fr": "Non. Claude tourne dans le navigateur et sur iOS et Android. L'application de bureau (macOS et Windows) ajoute l'accès aux dossiers et aux applications de votre ordinateur : installez-la si votre travail vit là, sinon le web suffit.",
+          "a_en": "No. Claude runs in the browser and on iOS and Android. The desktop app (macOS and Windows) adds access to the folders and applications on your computer: install it if your work lives there, otherwise the web is enough."
+        },
+        {
+          "q_fr": "Pourquoi Claude m'annonce-t-il une limite alors que j'ai peu écrit ?",
+          "q_en": "Why does Claude announce a limit when I have hardly written anything?",
+          "a_fr": "Claude ne compte pas les messages. Il pèse la longueur de vos échanges, la version choisie et les fonctions lancées, sur un cycle de 5 heures qui glisse et sur la semaine. Ouvrez un fil par sujet et gardez Sonnet ou Haiku pour le courant : Opus et Fable vident la jauge plus vite.",
+          "a_en": "Claude does not count messages. It weighs the length of your exchanges, the version chosen and the features launched, over a sliding 5-hour cycle and over the week. Open one thread per topic and keep Sonnet or Haiku for everyday work: Opus and Fable drain the gauge faster."
+        },
+        {
+          "q_fr": "Claude se souvient-il de ce que je lui ai dit hier ?",
+          "q_en": "Does Claude remember what I told it yesterday?",
+          "a_fr": "La mémoire retient le contexte de vos conversations passées, et les projets rangent instructions et fichiers par sujet. Je ne laisse pas la mémoire porter une règle importante : une règle qui compte s'écrit dans les instructions d'un projet, où vous la relisez et la corrigez.",
+          "a_en": "Memory retains the context of your past conversations, and projects store instructions and files by topic. I do not let memory carry an important rule: a rule that matters goes in a project's instructions, where you can reread and fix it."
+        },
+        {
+          "q_fr": "Claude peut-il agir sur mon ordinateur sans me demander ?",
+          "q_en": "Can Claude act on my computer without asking me?",
+          "a_fr": "Il ne touche que les dossiers et les outils que vous lui ouvrez, et Anthropic décrit des réglages de permission pour approuver ses plans. Pour les gestes irréversibles, envoyer, payer, supprimer, laissez l'approbation manuelle active : Claude Duet demande lui-même votre accord avant ceux-là.",
+          "a_en": "It only touches the folders and tools you open to it, and Anthropic describes permission settings to approve its plans. For irreversible actions, sending, paying, deleting, leave manual approval on: Claude Duet itself asks for your consent before those."
+        },
+        {
+          "q_fr": "Quelle différence entre Claude et Claude Code ?",
+          "q_en": "What is the difference between Claude and Claude Code?",
+          "a_fr": "Claude est l'assistant où l'on écrit, où l'on dépose des documents et d'où sortent des fichiers. Claude Code se branche sur un projet de développement : il explore le code, le modifie et contrôle le résultat par les tests. Pour rédiger, analyser ou résumer, vous n'avez pas besoin du second.",
+          "a_en": "Claude is the assistant where you write, drop documents and get files back. Claude Code plugs into a development project: it explores the code, changes it and checks the result with tests. To write, analyse or summarise, you do not need the second."
+        },
+        {
+          "q_fr": "Qui fabrique Claude, et faut-il l'héberger en Europe ?",
+          "q_en": "Who makes Claude, and does it have to be hosted in Europe?",
+          "a_fr": "Claude est fabriqué par Anthropic PBC. L'application range vos données aux États-Unis et n'offre pas d'option européenne. Une exigence d'hébergement européen oblige à contourner l'application, par l'API de Bedrock ou de Vertex : le guide Claude et RGPD déroule les conséquences.",
+          "a_en": "Claude is made by Anthropic PBC. The app keeps your data in the United States and offers no European option. A European hosting requirement means going around the app, through the API of Bedrock or Vertex: the Claude and GDPR guide spells out the consequences."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ De la lecture à l'usage",
+      "kicker_en": "§ From reading to using",
+      "h2_fr": "Vous savez ce que Claude fait. Reste à savoir ce qu'il ferait chez vous.",
+      "h2_en": "You know what Claude does. What remains is what it would do for you.",
+      "subtitle_fr": "Quarante-cinq minutes, gratuites : nous parcourons une semaine type de votre équipe et marquons ce que Claude peut prendre en charge, et ce qu'il ne doit pas toucher.",
+      "subtitle_en": "Forty-five minutes, free: we walk through a typical week of your team and mark what Claude can take on, and what it should not touch.",
+      "buttons": [
+        {
+          "label_fr": "Réserver l'audit gratuit",
+          "label_en": "Book the free audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Faire déployer Claude par Waimia",
+          "label_en": "Have Waimia deploy Claude",
+          "href": "/services/integration-claude",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}
