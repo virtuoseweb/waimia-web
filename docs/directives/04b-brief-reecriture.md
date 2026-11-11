@@ -66,3 +66,4 @@ Note : une cible de lien doit aussi être absente de `src/data/depublished.ts` (
 dépubliée = redirection, lien refusé par `check-static-quality`).
 Note : pages métier ou secteur : ressource de conversion (`diagnostic-maturite-ia`,
 `calculateur-roi-ia` ou le magnet du silo), pas la charte, même si la page parle de données.
+Note : guides et comparatifs avec section lead-capture-band : le lead_magnet doit être une ressource PDF (pas diagnostic-maturite-ia ni calculateur-roi-ia) ; check-content-refs le refuse.
