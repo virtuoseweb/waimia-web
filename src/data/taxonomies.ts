@@ -11,6 +11,8 @@ export type BiText = Record<Lang, string>;
  * (garde `check:silos`). Chaque silo porte :
  *  - `label` : libellé affiché (kicker d'article, puces de filtre des hubs) ;
  *  - `pillar` : page pilier du silo (cible des liens « tout le silo ») ;
+ *  - `guide` : guide pilier du silo, que tout article, comparatif et outil du silo lie ;
+ *  - `magnet` : ressource gratuite par défaut du silo (clé de LEAD_MAGNETS, src/data/conversion.ts) ;
  *  - `question` : question injectée en tête du bandeau CTA des articles, écrite pour
  *    que la phrase garde un sens quel que soit l'article du silo.
  * Ajouter un silo = ajouter son thème au maillage ET une entrée ici (le schéma Zod
@@ -20,65 +22,89 @@ export const SILOS = {
   automatisation: {
     label: { fr: 'Automatisation', en: 'Automation' },
     pillar: '/services/automatisations',
+    guide: '/ressources/guides/taches-a-automatiser-pme',
+    magnet: 'grille-taches-a-automatiser',
     question: { fr: 'Quelles tâches automatiser en premier chez vous ?', en: 'Which tasks should you automate first?' },
   },
   agents: {
     label: { fr: 'Agents IA', en: 'AI agents' },
     pillar: '/services/agents-ia',
+    guide: '/ressources/guides/agent-ia-definition',
+    magnet: 'calculateur-roi-ia',
     question: { fr: 'Un agent IA aurait-il sa place dans votre équipe ?', en: 'Would an AI agent earn its place in your team?' },
   },
   claude: {
     label: { fr: 'Claude et assistants IA', en: 'Claude and AI assistants' },
     pillar: '/ressources/guides/claude-pme',
+    guide: '/ressources/guides/claude-pme',
+    magnet: 'guide-achat-claude-pme',
     question: { fr: "Comment Claude s'intégrerait-il à vos outils et à vos équipes ?", en: 'How would Claude fit your tools and your team?' },
   },
   // Cluster site web (décision Simon du 14 octobre 2026, point 3) : séparé de l'acquisition.
   web: {
     label: { fr: 'Site web et développement', en: 'Websites and development' },
     pillar: '/services/site-web-ia',
+    guide: '/ressources/guides/cahier-des-charges-site-internet',
+    magnet: 'grille-audit-site-internet',
     question: { fr: 'Votre site vous amène-t-il des demandes, ou seulement des visites ?', en: 'Does your website bring in enquiries, or only visits?' },
   },
   applications: {
     label: { fr: 'Applications métier', en: 'Business apps' },
     pillar: '/services/applications-internes',
+    guide: '/ressources/guides/refonte-logiciel-metier',
+    magnet: 'calculateur-roi-ia',
     question: { fr: 'Une application métier remplacerait-elle vos tableurs ?', en: 'Could a business app replace your spreadsheets?' },
   },
   commercial: {
     label: { fr: 'Prospection et CRM', en: 'Prospecting and CRM' },
     pillar: '/services/systeme-commercial',
+    guide: '/ressources/guides/devis-automatise',
+    magnet: 'calculateur-roi-ia',
     question: { fr: 'Combien de relances et de devis vous échappent chaque mois ?', en: 'How many follow-ups and quotes slip through each month?' },
   },
   acquisition: {
     label: { fr: 'Acquisition et visibilité', en: 'Acquisition and visibility' },
     pillar: '/services/systeme-acquisition',
+    guide: '/ressources/guides/audit-geo-pme',
+    magnet: 'grille-audit-site-internet',
     question: { fr: 'Google et les assistants IA vous citent-ils quand on cherche votre métier ?', en: 'Do Google and AI assistants cite you when people search for what you do?' },
   },
   donnees: {
     label: { fr: 'Données et pilotage', en: 'Data and reporting' },
     pillar: '/services/donnees-reporting',
+    guide: '/ressources/guides/roi-automatisation',
+    magnet: 'calculateur-roi-ia',
     question: { fr: 'Vos chiffres arrivent-ils à temps pour décider ?', en: 'Do your numbers arrive in time to decide?' },
   },
   conseil: {
     label: { fr: 'Stratégie IA', en: 'AI strategy' },
     pillar: '/services/consultant-ia-claude',
+    guide: '/ressources/guides/accompagnement-ia-pme',
+    magnet: 'diagnostic-maturite-ia',
     question: { fr: "Par où commencer avec l'IA dans votre entreprise ?", en: 'Where should your company start with AI?' },
   },
   conformite: {
     label: { fr: 'Conformité IA et RGPD', en: 'AI compliance and GDPR' },
     pillar: '/conformite-ia',
+    guide: '/ressources/guides/ai-act-pme-calendrier',
+    magnet: 'charte-ia-entreprise',
     question: { fr: "Vos usages de l'IA sont-ils en règle avec l'AI Act et le RGPD ?", en: 'Are your AI uses compliant with the AI Act and GDPR?' },
   },
   formation: {
     label: { fr: 'Formation IA', en: 'AI training' },
     pillar: '/formations',
+    guide: '/ressources/guides/financement-formation-ia-opco',
+    magnet: 'diagnostic-maturite-ia',
     question: { fr: "Vos équipes savent-elles se servir de l'IA au quotidien ?", en: 'Can your teams use AI day to day?' },
   },
   studio: {
     label: { fr: 'Le studio', en: 'The studio' },
     pillar: '/agence',
+    guide: undefined,
+    magnet: 'diagnostic-maturite-ia',
     question: { fr: 'Envie de voir comment nous travaillerions ensemble ?', en: 'Want to see how we would work together?' },
   },
-} as const satisfies Record<string, { label: BiText; pillar: string; question: BiText }>;
+} as const satisfies Record<string, { label: BiText; pillar: string; guide: string | undefined; magnet: string; question: BiText }>;
 
 export type Silo = keyof typeof SILOS;
 export const SILO_KEYS = Object.keys(SILOS) as [Silo, ...Silo[]];

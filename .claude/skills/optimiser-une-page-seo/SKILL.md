@@ -16,10 +16,11 @@ Partir d'une requête mesurée, pas d'une intuition.
 5. Page informationnelle : définition de 40 à 60 mots en tête, directe, extractible.
 6. Maillage : `src/lib/internal-mesh.ts` ; `category` = premier thème ; garde `node scripts/check-silos.mjs`. Étendre les maps, jamais de lien en dur orphelin.
 7. FAQ : seulement des questions réellement posées, jamais en masse.
-8. Aucun fait, chiffre, client, avis ou adresse inventé ; chaque fait local vérifié à sa source. Pas de tiret cadratin (`node scripts/check-no-emdash.mjs`), jargon contrôlé (`check-jargon.mjs`).
-9. Contenu JSON sous `src/content/`, prose en `html_fr`/`html_en`. Contenu réutilisé par ID, pas de copie.
-10. Contenu créé : illustration de hero dédiée et unique, dessinée avec `waimia-illustration` (moteur B seulement : `render-svg.mjs`, jamais `generate.mjs` ni l'API OpenAI), enregistrée par `add-illustration.mjs --no-fallback` sous `<deux premiers segments du slug>-<motif>`, renseignée en `heroIllustration` ; puis `npm run check:hero-illustrations`.
-11. Attente réaliste : un `title` seul ne bouge rien au-delà de la position 20 ; ne pas le promettre.
+8. Voix : `docs/directives/04-voix-redactionnelle.md` (expert humain, identité franche, aucune date de lecture ni aveu de source non lue dans la prose, tunnel guide pilier, service, ressource, audit) ; porte `node scripts/check-ai-tells.mjs`.
+9. Aucun fait, chiffre, client, avis ou adresse inventé ; chaque fait local vérifié à sa source. Pas de tiret cadratin (`node scripts/check-no-emdash.mjs`), jargon contrôlé (`check-jargon.mjs`).
+10. Contenu JSON sous `src/content/`, prose en `html_fr`/`html_en`. Contenu réutilisé par ID, pas de copie.
+11. Contenu créé : illustration de hero dédiée et unique, dessinée avec `waimia-illustration` (moteur B seulement : `render-svg.mjs`, jamais `generate.mjs` ni l'API OpenAI), enregistrée par `add-illustration.mjs --no-fallback` sous `<deux premiers segments du slug>-<motif>`, renseignée en `heroIllustration` ; puis `npm run check:hero-illustrations`.
+12. Attente réaliste : un `title` seul ne bouge rien au-delà de la position 20 ; ne pas le promettre.
 
 ## Preuve
 

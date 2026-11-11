@@ -39,6 +39,9 @@ jobs:
       - name: Gate silos (taxonomie = maillage)
         run: node scripts/check-silos.mjs
 
+      - name: Gate voix humaine (aucune nouvelle trace de texte IA)
+        run: node scripts/check-ai-tells.mjs
+
       - name: Type / content check (non-blocking)
         run: pnpm check
         continue-on-error: true
