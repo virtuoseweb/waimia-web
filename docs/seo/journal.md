@@ -37,6 +37,20 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### 2026-11-11 · faits Mistral périmés corrigés (comparatif et billet auto-hébergement)
+
+**Pourquoi** : Mistral AI a déprécié Mistral Large 3 et Mistral Medium 3.5 le 31 octobre 2026 (retrait le 30 avril 2027, remplacement conseillé : Large 4) et rendu Large 4 disponible le 5 novembre, sans tarif promotionnel. Deux pages donnaient encore les faits du 15 et du 16 octobre. Sources relues le 11/11 : grille de l'API (Large 4 0,7 / 2,1 $, Small 4 0,15 / 0,6 $, Ministral 3 de 0,1 à 0,2 $, Large 3 et Medium 3.5 absents), liste des modèles (licences et dépréciations), page tarifs (Vibe Team 24,99 $ par utilisateur, inchangé).
+
+**Ce qui a changé** (titles et descriptions inchangés)
+- `/ressources/comparatifs/mistral-vs-claude-pme` : tableau du scénario (Large 3 et Medium 3.5 retirés, Large 4 à 0,70 / 2,10 $, soit 1,47 $ pour le scénario), licences (Large 4 sous licence propre à Mistral AI, plus Apache), positionnement par tâche, ligne de retrait des modèles, FAQ, sources datées du 11/11.
+- `/blog/ia-auto-hebergee-open-webui-pme` : licences et prix de l'API (Large 4 à la place de Large 3) ; le calcul sur Ministral 3 14B ne change pas.
+
+**Cannibalisations examinées, laissées en l'état**
+- « charte gemini pme » : `/ressources/outils/charte-ia-entreprise` en 15,5 (15 impressions), le billet AI Act en 50,5 (17). La charte cite Gemini dans son chapô et le billet la lie cinq fois : Google a déjà choisi la bonne page ; title de la charte gelé jusqu'au 1/12.
+- « agence spécialisée en automatisation make à toulouse » : `/implantations/toulouse` en 36,7 (27), `/services/automatisation-make` en 62,1 (14). Requête locale, page locale devant, lien Toulouse vers le service déjà posé : hiérarchie correcte.
+
+**Preuves** : build de production, check-head, check-jsonld, check-sitemap, check-seo, check-static-quality, check-content-refs, check-internal-mesh, check-pricing, check-ai-tells, check-no-emdash, check:title-typo verts ; build servi à 390 et 1440 px : 0 débordement, 0 `.reveal` masqué, ligne Large 4 à 1,47 $ rendue.
+
 ### 2026-11-11 · six guides généralistes : Claude IA, ChatGPT, Mistral AI, Gemini, DeepSeek, Grok (demande de Simon)
 
 **Pourquoi** : sur « guide claude », Google montre des guides généraux (Anthropic, nocodefactory, Blog du Modérateur) ; le site n'avait aucune page de ce type, pour aucun assistant. Les sujets voisins (offres, versions, comparatifs, dots, Cowork) ont déjà leur page.
