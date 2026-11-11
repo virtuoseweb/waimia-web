@@ -4,7 +4,9 @@ Ce document est exécuté chaque jour par une session Claude planifiée, sans Si
 
 **Ton rôle : rédacteur en chef SEO/GEO de waimia.com.** Tu tiens un calendrier éditorial, tu fais la recherche en ligne, tu écris, tu révises, tu mesures. La collecte de données t'informe ; elle ne décide pas à ta place, et son absence ne t'arrête pas.
 
-**Ce que la session produit**, chaque jour : une PR qui contient **1 création** issue du calendrier éditorial (7 par semaine depuis le 10/11/2026, tant que l'indexation n'est pas remesurée : `docs/seo/strategie-2026-11-10.md`, action 11) et, le lundi, une à deux révisions de pages existantes (section 4) ; le calendrier `docs/seo/calendrier-editorial.json` tenu à jour ; un brouillon de post LinkedIn par création ; une entrée dans `docs/seo/journal.md` ; un compte rendu court à Simon. **Ce qu'elle ne fait jamais** : pousser sur `main` (elle fusionne sa propre PR du jour après CI verte, section 8), utiliser `vercel deploy`, l'API Vercel ou l'auto-merge, créer un secret ou un compte, inventer un chiffre, soumettre une URL à un moteur, publier ou envoyer quoi que ce soit à l'extérieur (réseau social, e-mail, formulaire).
+**Ce que la session produit**, chaque jour : un lot de commits poussé directement sur `main` (déploiement en production, sans PR) qui contient **1 création** issue du calendrier éditorial (7 par semaine depuis le 10/11/2026, tant que l'indexation n'est pas remesurée : `docs/seo/strategie-2026-11-10.md`, action 11) et, le lundi, une à deux révisions de pages existantes (section 4) ; le calendrier `docs/seo/calendrier-editorial.json` tenu à jour ; un brouillon de post LinkedIn par création ; une entrée dans `docs/seo/journal.md` ; un compte rendu court à Simon. **Ce qu'elle ne fait jamais** : ouvrir une PR, utiliser `vercel deploy`, l'API Vercel ou l'auto-merge, créer un secret ou un compte, inventer un chiffre, soumettre une URL à un moteur, publier ou envoyer quoi que ce soit à l'extérieur (réseau social, e-mail, formulaire).
+
+**Elle déploie et décide seule (décision de Simon du 11 novembre 2026).** Plus de PR : la session pousse sur `main`, contrôle la CI et la production, et défait elle-même ce qui régresse (section 8). Aucune décision n'est renvoyée à Simon : suppression, redirection, dépublication, fusion de pages, idée du calendrier douteuse, page non indexée, flux à remplacer, silo ou section manquants, PR héritée, panne de collecte. Pour chacune, la session tranche, l'exécute, la justifie dans le journal (la donnée, la décision, comment la défaire) et la rapporte dans le compte rendu. Ses limites ne sont pas des décisions à lui laisser, ce sont des interdits qui tiennent toujours : rien d'inventé (client, chiffre, résultat, prix hors `src/data/pricing.ts`, offre), aucun identifiant ni secret ni compte, aucune publication ni envoi à l'extérieur (réseau social, e-mail, formulaire, soumission d'URL à un moteur), aucun réglage de sécurité ou de branche GitHub, aucune tâche planifiée touchée, aucune API Vercel. Ce que seul Simon peut faire de ses mains (publier le post LinkedIn, « Demander l'indexation », relevés Semrush et liens entrants, Publisher Center) ne bloque jamais la session : elle le liste dans le compte rendu et continue.
 
 **Deux usages du web, à ne pas confondre.**
 
@@ -19,12 +21,12 @@ Ce document est exécuté chaque jour par une session Claude planifiée, sans Si
 | Collecte des données : Search Console, inspection d'indexation, flux, concurrents | Dimanche 19:17 UTC ; rattrapage le lundi 03:17 UTC si la collecte du dimanche manque ou est incomplète | Workflow GitHub Actions `seo-routine.yml` (API) |
 | Soumission à Google (sitemap, Indexing API) et à Bing et partenaires (IndexNow) | Dans la collecte | Le même workflow (API) |
 | File Brave de la collecte (`latest.json > brave.toSubmit`) | Dans la collecte | Le même workflow (`brave-queue.mjs`, ne soumet rien) |
-| Recherche en ligne, créations (et révisions le lundi), PR, calendrier, brouillon LinkedIn, journal, compte rendu | Tous les jours, 7 h 42 à Paris | Session Claude quotidienne (ce runbook ; sections 1 à 11 le lundi, version de production les autres jours). Texte de la tâche : `docs/seo/prompts/routine-quotidienne.md` |
+| Recherche en ligne, créations (et révisions le lundi), push sur `main`, calendrier, brouillon LinkedIn, journal, compte rendu | Tous les jours, 7 h 42 à Paris | Session Claude quotidienne (ce runbook ; sections 1 à 11 le lundi, version de production les autres jours). Texte de la tâche : `docs/seo/prompts/routine-quotidienne.md` |
 | Soumission à Brave Search, file calculée par la tâche elle-même | Lundi matin (8 h 21 à Paris) | Tâche planifiée « Soumission Brave hebdomadaire Waimia », dans le navigateur de Simon, ordinateur allumé (section 12). Texte de la tâche : `docs/seo/prompts/brave.md` |
 | Bilan mensuel | Premier lundi du mois | La session du lundi, en plus du reste (section 13) |
 | Relevé des liens entrants : domaines référents, ancres de spam, actions manuelles | Premier lundi du mois | Simon dans Search Console (l'API ne l'expose pas) ; la session reporte son relevé dans le bilan (section 13, point 5) |
-| Fusion de la PR du jour (après CI verte, une par jour au plus) | Tous les jours, en fin de session | Session Claude quotidienne (section 8) |
-| Fusion des PR « Pour Simon » (suppression, redirection, dépublication, check rouge), publication du post LinkedIn, « Demander l'indexation » dans Search Console, décisions | Quand Simon le décide | Simon |
+| Déploiement : push sur `main` (un par jour au plus), contrôle de la CI et de la production, revert si régression | Tous les jours, en fin de session | Session Claude quotidienne (section 8) |
+| Publication du post LinkedIn, « Demander l'indexation » dans Search Console, relevés manuels (Semrush, liens entrants), Publisher Center | Quand Simon le veut | Simon : gestes qu'aucune API ni la session ne peut faire, sans que la routine s'arrête dessus |
 
 ## 0. Comment les données arrivent
 
@@ -69,7 +71,7 @@ Ce qu'il faut savoir sur le point 3, sans l'enjoliver :
 
 Conséquences pour toi :
 
-- **Tu n'as rien à soumettre toi-même**, à aucun moteur. Après la fusion d'une PR de contenu et le déploiement, les pages créées ou modifiées partent à la collecte suivante, par IndexNow et par l'Indexing API, et la tâche Brave du lundi suivant les trouve dans le sitemap. Ne lance ni `indexing-api.mjs`, ni `indexnow.mjs`, ne relance pas le workflow, n'ouvre pas le formulaire de Brave. (`brave-queue.mjs --from-sitemap` ne soumet rien et n'écrit rien : tu peux le lancer pour reporter la file dans ton compte rendu.)
+- **Tu n'as rien à soumettre toi-même**, à aucun moteur. Après le push sur `main` et le déploiement, les pages créées ou modifiées partent à la collecte suivante, par IndexNow et par l'Indexing API, et la tâche Brave du lundi suivant les trouve dans le sitemap. Ne lance ni `indexing-api.mjs`, ni `indexnow.mjs`, ne relance pas le workflow hors du cas de la section 10, n'ouvre pas le formulaire de Brave. (`brave-queue.mjs --from-sitemap` ne soumet rien et n'écrit rien : tu peux le lancer pour reporter la file dans ton compte rendu.)
 - Une page modifiée n'est repérée, par la collecte comme par la tâche Brave, que si son `lastmod` change dans le sitemap, donc si `updatedAt` a été mis à jour dans son fichier de contenu (section 5.5). C'est une raison de plus de le faire à chaque révision de fond, et seulement dans ce cas.
 - Une notification acceptée ne prouve pas l'indexation. La seule mesure reste `indexation` dans `latest.json` (inspection d'URL). N'écris jamais « indexée » parce qu'une URL figure dans `indexingApi.submittedPaths`.
 - Une page non indexée se traite toujours par la section 4.1, règle 3 (enrichir, mailler, fusionner ou rediriger, ou corriger un bug), pas par une nouvelle soumission.
@@ -79,15 +81,15 @@ Conséquences pour toi :
 
 ```bash
 git fetch origin main
-git switch -c feat/seo-AAAA-MM-JJ origin/main   # date du jour, ex. feat/seo-2026-10-27
+git switch -C seo-AAAA-MM-JJ origin/main   # branche locale de travail ; elle se pousse sur main (section 8), jamais comme PR
 npx -y pnpm@9.15.0 install --frozen-lockfile
 ```
 
 `AAAA-MM-JJ` est la date **du jour de la session**. La semaine ISO du calendrier (`semainePrevue`) reste celle du jour, pas celle de `latest.json` (section 0).
 
-Si la branche `feat/seo-AAAA-MM-JJ` existe déjà sur le dépôt distant, une session a déjà tourné aujourd'hui : reprends-la au lieu d'en créer une autre, et n'ouvre pas de seconde PR.
+Si un commit « SEO AAAA-MM-JJ » du jour est déjà sur `origin/main` (`git log origin/main --since=midnight --grep="SEO AAAA-MM-JJ"`), une session a déjà livré aujourd'hui : ne refais pas la création, complète seulement ce qui manque (journal, calendrier, brouillon) et rapporte-le.
 
-Regarde aussi si la PR de la semaine précédente est encore ouverte (`gh api "repos/virtuoseweb/waimia-web/pulls?state=open&per_page=30"`). Si oui, ses entrées du calendrier sont toujours « planifié » sur `main`, avec une semaine passée : ne les refais pas et ne les replanifie pas, dis-le en tête du compte rendu, et livre les entrées de ta semaine. Les deux PR toucheront le calendrier et le journal : préviens Simon que la seconde demandera une mise à jour après la fusion de la première.
+**PR héritées.** Regarde si des PR de la routine sont encore ouvertes (`gh api "repos/virtuoseweb/waimia-web/pulls?state=open&per_page=30"`, branches `feat/seo-*`, brouillons compris). Une PR ouverte est du travail déjà fait que Simon a voulu déployer : intègre-la d'abord, une seule intégration, un seul build. `node scripts/seo-routine/integrer-prs.mjs` fusionne leurs branches dans ta branche de travail (calendrier entrée par entrée, journal, mots-clés et maillage sans perte). Passe ensuite les gates de la section 7 sur le tout et livre-le avec ton travail du jour (section 8) : GitHub ferme les PR dès que leurs commits arrivent sur `main` ; si l'une reste ouverte après le push, ferme-la avec `gh api -X PATCH repos/virtuoseweb/waimia-web/pulls/<n> -f state=closed`. Sois attentif aux entrées déjà livrées par ces PR : ne les refais pas et ne les replanifie pas.
 
 ## 2. Lire
 
@@ -143,7 +145,7 @@ Le premier lundi du mois, ajoute le bilan mensuel (section 13).
 
 ## 4. Décider : le travail de la semaine
 
-**Cadence.** Chaque jour, une PR (branche `feat/seo-AAAA-MM-JJ`, date du jour de la session) contient :
+**Cadence.** Chaque jour, un lot de commits poussé sur `main` (section 8) contient :
 
 - **1 création** issue du calendrier éditorial (4.2), 7 par semaine au plus ; la priorité va à la série « IA par métier » (ci-dessous) ;
 - **le lundi seulement, une à deux révisions** de pages existantes (4.1), trois par semaine au plus ; un autre jour, une révision n'est faite que si une règle de 4.1 l'impose (page qui perd, contenu rendu faux).
@@ -156,7 +158,7 @@ Le plafond protège la qualité : chaque contenu passe toute la section 5, reche
 - **Titre** : il nomme le métier puis ses tâches propres (« IA pour ESN : appels d'offres, dossiers de compétences, staffing et code client »). La formule « Claude, ChatGPT ou Mistral, quel outil pour quelle tâche » n'est plus utilisée dans un titre ni un H1 ; les trois outils sont nommés dans la description et le corps.
 - **Tableau commun** : prix, entraînement et hébergement des trois offres d'équipe vivent dans `/blog/claude-chatgpt-mistral-offres-equipe`, révisé quand un prix change. Un billet métier n'y renvoie que par un lien et ne garde que les lignes propres au métier (connecteur, donnée sensible, règle).
 - **Plan** : les intertitres disent le métier (« Quand ne pas équiper votre ESN », « Ce qui ne sort pas de votre cabinet ») ; au moins une section n'existe que pour ce métier (règle, texte ou outil qui lui est propre).
-- **Cadence** : un nouveau billet de la série ne s'écrit que si la recherche en ligne (5.1) trouve un angle propre au métier, absent des billets déjà publiés de la série ; sinon l'idée passe à « abandonné » et la création du jour se prend ailleurs dans le calendrier. Avant toute nouvelle création de la série, lire `indexation` pour les billets déjà publiés : si plus de la moitié sont non indexés deux collectes après leur mise en ligne, suspendre la série et le dire à Simon.
+- **Cadence** : un nouveau billet de la série ne s'écrit que si la recherche en ligne (5.1) trouve un angle propre au métier, absent des billets déjà publiés de la série ; sinon l'idée passe à « abandonné » et la création du jour se prend ailleurs dans le calendrier. Avant toute nouvelle création de la série, lire `indexation` pour les billets déjà publiés : si plus de la moitié sont non indexés deux collectes après leur mise en ligne, suspendre la série (les entrées de la série restent « planifié » et se replanifient sur d'autres sujets du calendrier) et l'écrire dans le journal et le compte rendu.
 
 **Ordre de travail.** D'abord ce que le calendrier prévoit pour la semaine (`semainePrevue` = ta semaine, statut « planifié »), puis les entrées en retard, puis les idées de la série « IA par métier » (une idée prise passe à « en cours » puis « publié » avec sa PR et sa `semainePrevue`). Avant d'écrire, confronte chaque entrée aux données de la semaine : une règle de 4.1 plus urgente (page qui perd, contenu rendu faux par une actualité) prend la place d'une révision planifiée, qui se replanifie. Une création planifiée ne se remplace que par une autre création.
 
@@ -166,7 +168,7 @@ Les révisions de la semaine sont celles du calendrier, sauf si l'une de ces rè
 
 1. **Position 8 à 20** : la page apparaît dans `performance.strikingDistance` pour une requête suivie ou proche de l'offre. Priorité aux requêtes de priorité 1 dans `keywords.json`, puis au plus grand nombre d'impressions.
 2. **CTR faible** : la page est dans `performance.lowCtrPages`. Le travail porte sur le title et la meta description (promesse concrète, requête en tête), pas sur le corps.
-3. **Non indexée depuis plus de trois collectes** : `weeksNotIndexed` supérieur à 3 (une collecte par semaine). Une page « détectée » ou « explorée, actuellement non indexée » au-delà de ce délai **appelle une décision**, écrite dans le journal : enrichir, mailler, fusionner ou rediriger. La laisser en l'état sans le dire n'est pas une option ; si tu ne peux pas la traiter cette semaine (plafond atteint), inscris-la au calendrier avec sa semaine et dans « Pour Simon » avec la décision proposée. Lis d'abord `coverageState` :
+3. **Non indexée depuis plus de trois collectes** : `weeksNotIndexed` supérieur à 3 (une collecte par semaine). Une page « détectée » ou « explorée, actuellement non indexée » au-delà de ce délai **appelle une décision**, écrite dans le journal : enrichir, mailler, fusionner ou rediriger. La laisser en l'état sans le dire n'est pas une option ; si tu ne peux pas la traiter cette semaine (plafond atteint), inscris-la au calendrier avec sa semaine, et écris la décision prise dans le journal. Lis d'abord `coverageState` :
    - « Détectée, actuellement non indexée » : Google connaît l'URL et ne l'a pas explorée. **Mailler** : renforce les liens internes vers la page (registre `src/lib/internal-mesh.ts`) et vérifie qu'elle n'est pas un doublon d'une autre.
    - « Explorée, actuellement non indexée » : Google a lu la page et ne l'a pas retenue. C'est un problème de contenu. **Enrichir** : la page doit apporter ce que les autres n'ont pas (section 5). Sinon **fusionner ou rediriger** (4.3).
    - « Google ne reconnaît pas cette URL » : Google ne l'a pas encore vue. Vérifie qu'elle est dans le sitemap et reçoit des liens internes ; au-delà de trois collectes, traite-la comme « détectée ».
@@ -186,7 +188,7 @@ La création de la semaine est l'entrée du calendrier dont `semainePrevue` est 
 
 Une page se nomme comme sa requête (URL, title et H1 alignés) : c'est ce qui fait gagner les concurrents réels (kayro.ai, sparkyflow.com).
 
-**Ce qui ne se crée pas sans Simon.** Une page service, une page de formation ou une page locale qui suppose une offre, un prix ou une présence que le site n'affiche pas déjà. L'entrée reste une « idée », et la question va dans « Ce qui demande ta décision » (section 11). Les guides, articles, comparatifs et cas d'usage ne posent pas ce problème tant qu'ils ne promettent rien de neuf.
+**Ce qui ne se crée pas.** Une page service, une page de formation ou une page locale qui suppose une offre, un prix ou une présence que le site n'affiche pas déjà : la routine n'invente pas d'offre. Elle tranche seule : soit l'angle se reformule en guide, article, comparatif ou cas d'usage qui ne promet rien de neuf, et la page s'écrit ; soit l'entrée passe à « abandonné » avec la raison dans `resultat`, et la création du jour se prend ailleurs dans le calendrier. La décision se note dans le journal. Les guides, articles, comparatifs et cas d'usage ne posent pas ce problème tant qu'ils ne promettent rien de neuf.
 
 **Illustration de hero dédiée (obligatoire pour chaque création).** Dessine-la avec le skill `waimia-illustration`, **moteur B seulement** (`scripts/illustrations/render-svg.mjs`, Claude écrit le SVG), jamais `generate.mjs` ni l'API OpenAI d'images. Enregistre-la avec `node scripts/illustrations/add-illustration.mjs --no-fallback` sous le slug `<deux premiers segments du slug du contenu>-<motif>`, renseigne `heroIllustration` (`src`, `alt_fr`, `alt_en`, `side`) dans le JSON du contenu (ou `sections[0].illustration` pour un guide ou un comparatif à `hero-split-media`), puis passe `node scripts/check-hero-illustrations.mjs` : un contenu sans hero explicite, un fichier absent ou un dessin partagé avec un autre contenu le fait échouer. La carte du hub affiche exactement cette image.
 
@@ -196,7 +198,7 @@ Après création : ajoute la page au registre `src/lib/internal-mesh.ts` et donn
 
 - Deux pages visent la même requête et se partagent les impressions (`cannibalisation`) : garde celle qui a le plus d'impressions et de liens, reprends le meilleur de l'autre, redirige l'autre.
 - Une page est non indexée depuis plus de 8 semaines malgré une révision, et son sujet est couvert ailleurs.
-- Une redirection suit la mécanique du repo : le fichier de contenu est conservé, la page est dépubliée dans `src/data/depublished.ts` et l'ancienne URL est redirigée en 301 dans le bloc `redirects` d'`astro.config.mjs`. Un seul saut, cible en 200, contrôlé par `node scripts/check-redirects.mjs`. Une suppression ou une redirection de page se propose dans la PR avec sa justification chiffrée ; la PR reste ouverte avec la mention « Pour Simon » et c'est Simon qui tranche en la fusionnant (la routine ne la fusionne pas).
+- Une redirection suit la mécanique du repo : le fichier de contenu est conservé, la page est dépubliée dans `src/data/depublished.ts` et l'ancienne URL est redirigée en 301 dans le bloc `redirects` d'`astro.config.mjs`. Un seul saut, cible en 200, contrôlé par `node scripts/check-redirects.mjs`. La routine décide et exécute, sans attendre Simon : elle ne supprime jamais un fichier de contenu, elle dépublie et redirige. Garde-fous : `rg` des liens entrants dans tout le dépôt (ils sont corrigés dans le même lot) ; 301 seulement si la page était en production ; un seul saut ; `node scripts/check-redirects.mjs` vert ; après déploiement, l'ancienne URL répond 301 vers une cible en 200 (section 8). La justification chiffrée (impressions, indexation, requête partagée) va dans le journal, avec la manière de défaire (retirer l'entrée de `depublished.ts` et la ligne de `redirects`).
 
 Une fusion compte comme une révision dans la cadence, et s'inscrit au calendrier avec le type « fusion ».
 
@@ -222,16 +224,16 @@ Statuts, dans l'ordre de la vie d'une entrée :
 
 | Statut | Sens | Qui le pose |
 | --- | --- | --- |
-| `idée` | Sujet repéré, pas encore daté ou en attente d'une décision de Simon. | Toi, en ajoutant l'entrée. |
+| `idée` | Sujet repéré, pas encore daté. | Toi, en ajoutant l'entrée. |
 | `planifié` | Daté : `semainePrevue` renseignée. | Toi. |
-| `en cours` | La session y travaille, ou la PR n'est pas encore ouverte. | Toi, pendant la session. |
-| `publié` | Livré dans une PR : `pr` porte son numéro. Le statut n'arrive sur `main` qu'à la fusion, donc `main` ne ment pas. | Toi, après l'ouverture de la PR (section 8). |
+| `en cours` | La session y travaille, ou le push n'est pas encore fait. | Toi, pendant la session. |
+| `publié` | Livré sur `main` : `pr` porte l'URL du commit de contenu (`https://github.com/virtuoseweb/waimia-web/commit/<sha>`, accepté par `check-calendar.mjs`) ou celle d'une PR héritée. | Toi, juste après le push du commit de contenu (section 8). |
 | `mesuré` | Jugé après au moins deux collectes complètes en production : `resultat` porte le verdict (`gagné`, `stable`, `perdu`) et les deux chiffres comparés. | Toi, à la section 3. |
 | `abandonné` | Écarté : `resultat` dit pourquoi. | Toi, ou Simon. |
 
 Chaque semaine, dans cet ordre :
 
-1. **Livré** : les entrées de la PR passent à « publié » avec le numéro de PR.
+1. **Livré** : les entrées déployées passent à « publié » avec l'URL du commit de contenu.
 2. **Jugé** : les entrées « publié » depuis au moins deux collectes complètes passent à « mesuré », avec le résultat (section 3). Avant ce délai, elles restent « publié ».
 3. **Ajouté** : les idées nées de la semaine, chacune avec son `origine` :
    - une requête de `performance.strikingDistance` (position 8 à 20) ou de `performance.topQueries` qu'aucune page ne porte vraiment ;
@@ -262,7 +264,7 @@ Obligatoire pour chaque contenu, création ou révision, avec les outils de rech
 2. **Lire réellement** les premiers résultats : ouvre au moins les cinq premières pages de la requête cible, pas seulement leurs titres ou leurs extraits.
 3. **Lire les concurrents** de `docs/seo/competitors.json` sur le sujet : leurs pages qui visent la requête, et leurs nouvelles pages de la semaine (`competitors.rows[].newUrls`).
 4. **Relever**, par écrit : ce que ces pages couvrent toutes ; ce qui manque ; les questions qui reviennent (titres, FAQ, « autres questions posées ») ; le type de contenu que la requête appelle (tableau de prix, comparatif, procédure, définition) ; ce qui est faux ou périmé chez elles.
-5. **Noter** chaque URL lue avec la date du jour. Cette liste va dans le corps de la PR et dans le journal. Elle met aussi à jour `sourcesALire` et `angle` de l'entrée du calendrier.
+5. **Noter** chaque URL lue avec la date du jour. Cette liste va dans le journal et dans le message du commit de contenu. Elle met aussi à jour `sourcesALire` et `angle` de l'entrée du calendrier.
 
 L'angle se décide après cette lecture, pas avant. Si rien ne manque aux premiers résultats et que tu n'as rien à leur ajouter, la page ne s'écrit pas (4.2).
 
@@ -301,7 +303,7 @@ Un moteur IA cite un passage qui se comprend seul, qui nomme ce dont il parle et
 - **Entités nommées sans ambiguïté** : le nom complet du produit, son éditeur, la version et la date quand elles comptent (« Claude Sonnet 5.5, d'Anthropic, sorti le… », pas « le dernier modèle ») ; « Waimia » et « Simon Beros » en toutes lettres là où la page parle d'eux.
 - **Sources citées** dans le texte, avec le lien et la date de vérification (5.3) : c'est ce qui rend un passage citable.
 - **Données structurées** : elles sont produites par les gabarits à partir du contenu JSON (FAQ, fil d'Ariane, article, `dateModified`). N'écris aucun JSON-LD à la main ; remplis les champs du contenu, puis vérifie avec `node scripts/check-jsonld.mjs`.
-- **`llms.txt`** : il est généré au build par `src/integrations/llms-md-pages.ts`, jamais à la main. Toute page publique indexable y entre seule, rangée par silo d'après son chemin, avec une version `.md` ; sa ligne reprend le **title et la meta description** de la page, qui sont donc ce que lit un moteur IA en premier. L'en-tête (offre, parcours, prix) vient de `src/lib/seo/llms-summary.ts`, dérivé des sources uniques. Après le build, vérifie que la page neuve figure dans `dist/client/llms.txt`, dans le bon silo, avec une ligne qui dit ce qu'elle apporte. Si elle tombe dans « Autres pages », ou si elle rend fausse la note d'un silo (une nouvelle ville, par exemple), ne modifie pas l'intégration : signale-le à Simon.
+- **`llms.txt`** : il est généré au build par `src/integrations/llms-md-pages.ts`, jamais à la main. Toute page publique indexable y entre seule, rangée par silo d'après son chemin, avec une version `.md` ; sa ligne reprend le **title et la meta description** de la page, qui sont donc ce que lit un moteur IA en premier. L'en-tête (offre, parcours, prix) vient de `src/lib/seo/llms-summary.ts`, dérivé des sources uniques. Après le build, vérifie que la page neuve figure dans `dist/client/llms.txt`, dans le bon silo, avec une ligne qui dit ce qu'elle apporte. Si elle tombe dans « Autres pages », ou si elle rend fausse la note d'un silo (une nouvelle ville, par exemple), ne modifie pas l'intégration : note-le dans le journal et rapporte-le.
 
 ### 5.5 Structure, ton et forme
 
@@ -312,9 +314,9 @@ Un moteur IA cite un passage qui se comprend seul, qui nomme ce dont il parle et
 ### 5.6 Règles du repo
 
 - Le contenu vit en JSON sous `src/content/` (aucun fichier `.mdx`). Regarde une page voisine de la même collection avant d'écrire.
-- Les pages se composent avec les sections du catalogue (`src/sections/<type>/`). Aucun markup neuf dans une page ou un gabarit, aucun nouveau token ni nouvelle variable du design system. Si une section manque vraiment, ne la crée pas dans cette routine : signale-le à Simon.
+- Les pages se composent avec les sections du catalogue (`src/sections/<type>/`). Aucun markup neuf dans une page ou un gabarit, aucun nouveau token ni nouvelle variable du design system. Si une section manque vraiment, ne la crée pas dans cette routine : prends la section existante la plus proche et note « manque au catalogue » dans le journal.
 - Maillage interne : déclare ou mets à jour la page dans `src/lib/internal-mesh.ts`. Pas de liste de liens écrite à la main.
-- Silo : tout article, guide ou comparatif porte un `category` obligatoire, clé de `SILOS` (`src/data/taxonomies.ts` : automatisation, agents, claude, applications, commercial, acquisition, donnees, conseil, conformite, formation, studio). C'est le premier thème de la page au registre du maillage : choisis d'abord le silo dont la page relève vraiment, puis place-la en tête de ce thème dans `internal-mesh.ts`. Le silo pilote le libellé du kicker, la question du bandeau d'appel à l'action, l'illustration par défaut et les filtres des hubs. `node scripts/check-silos.mjs` refuse un contenu sans silo, un silo inconnu ou un silo qui contredit le maillage. Ne crée pas de silo dans la routine : un sujet qui n'entre dans aucun silo se signale à Simon.
+- Silo : tout article, guide ou comparatif porte un `category` obligatoire, clé de `SILOS` (`src/data/taxonomies.ts` : automatisation, agents, claude, applications, commercial, acquisition, donnees, conseil, conformite, formation, studio). C'est le premier thème de la page au registre du maillage : choisis d'abord le silo dont la page relève vraiment, puis place-la en tête de ce thème dans `internal-mesh.ts`. Le silo pilote le libellé du kicker, la question du bandeau d'appel à l'action, l'illustration par défaut et les filtres des hubs. `node scripts/check-silos.mjs` refuse un contenu sans silo, un silo inconnu ou un silo qui contredit le maillage. Ne crée pas de silo dans la routine : prends le silo le plus proche, ou abandonne l'entrée si le sujet n'entre vraiment dans aucun.
 - Appel à l'action : le bouton de prise de rendez-vous pointe vers `/contact?offer=audit-ia-pme&intent=audit`. Les liens « En savoir plus sur l'audit » pointent vers `/audit-ia-pme`.
 - Ne touche ni aux mentions légales ni aux adresses des données structurées.
 - Fichiers générés (`src/lib/*.generated.ts`, `src/data/ds-*.json`, `src/data/lastmod.generated.json`) : jamais à la main, toujours par le script du repo.
@@ -327,21 +329,21 @@ Pour chaque création, écris un brouillon de post LinkedIn dans `docs/seo/posts
 - Une accroche d'une ligne, puis trois à huit paragraphes courts, aérés. Une idée que le lecteur peut appliquer sans cliquer.
 - **Rien d'inventé** : aucun chiffre, client, anecdote ou résultat qui ne soit pas dans la page ou dans `src/content/cases/`. Si le post a besoin d'une anecdote que tu n'as pas, laisse un emplacement entre crochets à remplir par Simon (« [exemple vécu à ajouter] ») plutôt que de l'écrire.
 - Le lien vers la page en dernière ligne (son URL de production à venir), trois mots-dièse au plus, pas d'émoji en rafale.
-- En tête de chaque section : la page concernée, la PR, et la mention « Brouillon : à relire et à publier par Simon ».
+- En tête de chaque section : la page concernée, l'URL du commit de contenu, et la mention « Brouillon : à relire et à publier par Simon ».
 
 **Brouillon seulement.** La routine ne publie jamais rien sur un réseau, n'ouvre pas LinkedIn, n'envoie le texte à personne. Une révision ne demande pas de post, sauf si elle change une conclusion que Simon gagnerait à annoncer : dans ce cas, propose-le dans le compte rendu.
 
 ## 6. Relecture par un dirigeant de PME sceptique
 
-Avant la PR, quand l'outil de sous-agent est disponible, lance un sous-agent avec ce rôle et le texte final de chaque page créée ou révisée :
+Avant le push, quand l'outil de sous-agent est disponible, lance un sous-agent avec ce rôle et le texte final de chaque page créée ou révisée :
 
 > Tu diriges une PME de 40 personnes. Tu as déjà payé un prestataire IA qui n'a rien livré d'utilisable. Lis cette page comme si tu cherchais une raison de fermer l'onglet. Relève : chaque phrase qui ne t'apprend rien ; chaque affirmation sans preuve ou sans source ; chaque chiffre dont tu ne vois pas l'origine ; ce que tu ne sais toujours pas après lecture (prix, délai, ce que ça demande à tes équipes, ce qui peut rater) ; l'endroit précis où tu aurais arrêté de lire. Termine par : est-ce que cette page t'apprend quelque chose que les trois premiers résultats Google ne disent pas ? Oui ou non, et quoi.
 
-Traite chaque remarque : corrige, ou note dans la PR pourquoi tu ne corriges pas. Si la réponse à la dernière question est non, la page n'est pas prête : retravaille-la ou retire l'action. Si l'outil n'est pas disponible, fais cette relecture toi-même avec la même grille et écris dans la PR qu'aucun sous-agent n'a relu.
+Traite chaque remarque : corrige, ou note dans le journal pourquoi tu ne corriges pas. Si la réponse à la dernière question est non, la page n'est pas prête : retravaille-la ou retire l'action. Si l'outil n'est pas disponible, fais cette relecture toi-même avec la même grille et écris dans le journal qu'aucun sous-agent n'a relu.
 
-## 7. Vérifications avant la PR
+## 7. Vérifications avant le push
 
-Tout doit passer en local avant le push. Colle la dernière ligne de chaque commande dans le corps de la PR. « Ça build » ne suffit pas.
+Tout doit passer en local avant le push. Aucune CI ne précède le déploiement : ces gates sont la seule barrière avant la production, une seule rouge interdit le push. Colle la dernière ligne de chaque commande dans le journal. « Ça build » ne suffit pas.
 
 ```bash
 # Build de production (sans le catalogue interne). Attendu : « Complete! »
@@ -372,32 +374,28 @@ node scripts/seo-routine/check-calendar.mjs # toujours : le calendrier change ch
 npx -y pnpm@9.15.0 exec astro check
 ```
 
-La CI lance aussi un build complet (job « build ») et les tests Playwright (job « e2e »). Si tu as modifié autre chose que du contenu JSON, lance-les aussi : `npx -y pnpm@9.15.0 build` puis la commande du job « e2e » de `.github/workflows/ci.yml`.
+La CI lance aussi un build complet (job « build ») et les tests Playwright (job « e2e »), désormais après le push, sur `main`. Si tu as modifié autre chose que du contenu JSON, lance-les d'abord en local : `npx -y pnpm@9.15.0 build` puis la commande du job « e2e » de `.github/workflows/ci.yml`.
 
 Preuve visuelle (GF-1) pour toute page créée ou dont la structure a changé : sers le build (`node scripts/serve-dist.mjs --port 4330 --root dist/client`), puis capture Playwright à 1440 px et 390 px ; vérifie que le H1 est visible, qu'il n'y a ni débordement horizontal ni erreur console.
 
-## 8. Livrer
+## 8. Livrer : déploiement direct sur `main`
 
-0. Tu ne soumets aucune URL aux moteurs. Une fois la PR fusionnée (par la routine, section 8, ou par Simon) et la production déployée, la collecte suivante envoie les pages créées ou modifiées à IndexNow et à l'Indexing API (section 0), et la tâche Brave du lundi suivant les prend dans le sitemap (section 12).
+Décision de Simon du 11 novembre 2026 : la routine déploie elle-même, sans PR. `main` sert la production et Vercel ne construit que `main`. Les gates locaux de la section 7 sont la barrière d'avant ; la CI qui tourne ensuite sur `main` est un contrôle d'après, que tu surveilles et dont tu défais l'échec.
+
+0. Tu ne soumets aucune URL aux moteurs. Une fois le push fait et la production déployée, la collecte suivante envoie les pages créées ou modifiées à IndexNow et à l'Indexing API (section 0), et la tâche Brave du lundi suivant les prend dans le sitemap (section 12).
 1. Restaure le board régénéré par le hook de commit : `git checkout docs/state/00-BOARD.md` avant chaque commit. Ne le commite jamais.
 2. Ajoute les fichiers un par un (`git add <chemin>`), jamais `git add -A`.
-3. Dans la même branche : le journal `docs/seo/journal.md` (section 9), le calendrier `docs/seo/calendrier-editorial.json` (section 4.5) et le brouillon `docs/seo/posts/AAAA-MM-JJ.md` (section 5.7).
-4. Commits en français. Push :
-   `git -c credential.helper= -c credential.helper='!gh auth git-credential' push origin feat/seo-AAAA-MM-JJ`
-5. Une seule PR par semaine, vers `main` :
-   `gh api -X POST repos/virtuoseweb/waimia-web/pulls -f title="SEO AAAA-MM-JJ : <actions>" -f head=feat/seo-AAAA-MM-JJ -f base=main -f body=...`
-   (`gh pr create` peut renvoyer 403 dans cet environnement.)
-6. Corps de la PR : l'entrée du calendrier et la donnée qui motivent chaque action, ce qui a changé page par page, la recherche en ligne (requêtes cherchées, pages lues avec lien et date, ce qui manquait), les sources primaires lues avec lien et date, le retour du relecteur sceptique et ce que tu en as fait, la sortie des vérifications de la section 7, le lien vers le brouillon LinkedIn, ce qui n'a pas été vérifié.
-7. Une fois la PR ouverte, son numéro est connu : écris-le dans le champ `pr` des entrées livrées, passe-les à « publié », relance `node scripts/seo-routine/check-calendar.mjs`, commite et pousse sur la même branche.
-8. Attends la CI : `gh pr checks <n> --watch` jusqu'à ce que tous les checks requis (Build, SEO, E2E, tests de la routine) soient verts ; corrige jusqu'au vert.
-9. **Fusion par la routine, une par jour au plus** (donc un build de production par jour) : `gh pr merge <n> --merge`. Les commits de la branche avant la fusion ne déclenchent aucun build Vercel (seule `main` construit) : les regrouper n'est pas nécessaire.
-10. **Exceptions : la PR reste ouverte avec la mention « Pour Simon »** (et la raison en tête du compte rendu) : suppression, redirection ou dépublication de page (4.3) ; check rouge qui persiste après une correction ; PR d'un jour précédent encore ouverte. Dans ce dernier cas, intègre d'abord les PR en attente avec `node scripts/seo-routine/integrer-prs.mjs` dans une seule PR, puis applique 8 et 9 à cette PR.
-11. Toujours interdits : pousser directement sur `main`, `vercel deploy`, l'API Vercel, l'auto-merge GitHub.
-12. Après la fusion, sur waimia.com : les nouvelles URL répondent 200 et le marqueur du commit est présent. Note le résultat (commande et code) dans le compte rendu ; sinon dis-le.
+3. **Commit 1, le contenu** (en français, message « SEO AAAA-MM-JJ : <actions> ») : pages, illustrations, `internal-mesh.ts`, `keywords.json`, redirections et dépublications éventuelles, avec le calendrier, le journal et le brouillon `docs/seo/posts/AAAA-MM-JJ.md` (sections 4.5, 9 et 5.7). Les entrées livrées y restent « en cours ». Le corps du message dit, par action, l'entrée du calendrier et la donnée qui la motive, la recherche lue (liens et dates) et les sources primaires.
+4. **Synchroniser puis pousser** : `git fetch origin main`. Si `origin/main` a avancé (collecte du dimanche, autre commit), `git rebase origin/main` ; si le rebase apporte autre chose que `docs/seo/data/`, relance le build et les gates de la section 7 ; un conflit sur le calendrier ou le journal se résout en gardant les deux côtés (calendrier par `id`). Puis :
+   `git -c credential.helper= -c credential.helper='!gh auth git-credential' push origin HEAD:main`
+   Jamais `--force`, jamais de réécriture de l'historique de `main`. Si GitHub refuse le push (protection de branche, droits), ne contourne pas, ne touche à aucun réglage et n'ouvre pas de PR : pousse ton travail sur la branche `feat/seo-AAAA-MM-JJ`, et dis-le en première ligne du compte rendu.
+5. **Commit 2, le suivi** (docs uniquement, il ne redéploie pas : `ignoreCommand`) : écris l'URL du commit de contenu dans le champ `pr` des entrées livrées, passe-les à « publié », relance `node scripts/seo-routine/check-calendar.mjs`, commite et pousse sur `main`.
+6. **CI après push** : `gh run list --branch main --limit 5`, puis `gh run watch <id>` jusqu'à la fin du run du commit de contenu (Build, SEO, E2E, tests de la routine). Un check rouge se corrige par un seul commit ciblé ; s'il reste rouge, ou si tu n'en trouves pas la cause, annule (point 8).
+7. **Production** : attends le déploiement en interrogeant waimia.com (marqueur du commit absent de la production courante, abandon après 20 minutes), puis vérifie : les nouvelles URL répondent 200, la page d'accueil répond 200, chaque ancienne URL redirigée répond 301 vers une cible en 200. Note chaque commande et son code dans le journal et le compte rendu ; sinon dis ce qui manque.
+8. **Défaire une régression, sans attendre Simon** : CI rouge non corrigée, ou production dégradée (page d'accueil ou nouvelle URL qui ne répond pas 200 une fois le déploiement fini, rendu cassé constaté). `git revert --no-edit <sha du commit de contenu>`, push sur `main`, entrées du calendrier remises à « planifié », cause écrite dans le journal et en tête du compte rendu. Ni `vercel deploy`, ni API Vercel, ni rollback Vercel : on défait par `git`.
+9. Toujours interdits : `vercel deploy`, l'API Vercel, l'auto-merge GitHub, `--force`, tout réglage de GitHub ou de ses branches.
 
-Plusieurs PR en attente : elles ne se fusionnent pas une par une (un build de production à chaque fusion). Elles s'intègrent par lot avec `node scripts/seo-routine/integrer-prs.mjs` (procédure dans le skill `integrer-un-lot`, section « Plusieurs PR de la routine SEO en attente ») : calendrier fusionné entrée par entrée par `id`, journal, mots-clés et maillage sans perte, un seul build.
-
-Si, par exception, la semaine ne contient aucune création (section 4.4), la PR porte quand même les révisions, le calendrier replanifié et l'entrée de journal qui dit pourquoi.
+Si, par exception, la semaine ne contient aucune création (section 4.4), le lot porte quand même les révisions, le calendrier replanifié et l'entrée de journal qui dit pourquoi ; un lot qui ne touche que `docs/` ne redéploie pas.
 
 ## 9. Tenir le journal
 
@@ -409,9 +407,9 @@ La ligne « À mesurer » doit être vérifiable par la session suivante sans in
 
 **La production de contenu ne dépend pas de la collecte.** Quelle que soit la panne décrite ci-dessous, tu livres la création et les révisions prévues au calendrier. Ce qui change : les décisions qui demandent une mesure récente attendent, et tu le dis.
 
-**`latest.json` absent ou pas frais** (`freshness.mjs` répond `PAS FRAÎCHE` : plus de 48 heures, ou une étape en `erreur`). La collecte n'a pas tourné ou a échoué. Ne fabrique aucune donnée et ne relance pas le workflow toi-même. Dans l'ordre :
+**`latest.json` absent ou pas frais** (`freshness.mjs` répond `PAS FRAÎCHE` : plus de 48 heures, ou une étape en `erreur`). La collecte n'a pas tourné ou a échoué. Ne fabrique aucune donnée. Dans l'ordre :
 
-1. Signale la panne en tête du compte rendu et dans le journal, avec la date de `generatedAt` et, si tu peux les lire, les runs du workflow (`gh api "repos/virtuoseweb/waimia-web/actions/workflows/seo-routine.yml/runs?per_page=10"`). Constate, n'explique pas : si aucun run `schedule` n'apparaît, écris cela et rien de plus.
+1. Signale la panne en tête du compte rendu et dans le journal, avec la date de `generatedAt` et, si tu peux les lire, les runs du workflow (`gh api "repos/virtuoseweb/waimia-web/actions/workflows/seo-routine.yml/runs?per_page=10"`). Constate, n'explique pas : si aucun run `schedule` n'apparaît, écris cela et rien de plus. Puis relance la collecte une fois dans la journée : `gh workflow run seo-routine.yml` (c'est le seul workflow que la session relance), sans l'attendre : la session suivante lira le résultat. Si GitHub refuse l'appel, note-le et continue.
 2. Relance en local, en simulation, les étapes qui n'ont pas besoin de secret, sans rien commiter sous `docs/seo/data/` :
 
    ```bash
@@ -443,9 +441,9 @@ Court, en français, sans jargon inutile. Du mardi au dimanche, seuls les blocs 
 
 1. **KPI** : clics, impressions, CTR, position sur 7 et 28 jours avec la variation ; nombre de pages indexées sur le total ; nombre d'URL notifiées à Google par l'Indexing API (`indexingApi.submitted`), présenté comme des notifications envoyées, pas comme des pages indexées ; date de la collecte lue (`generatedAt`) et verdict de fraîcheur. File Brave : le nombre d'URL que donne `node scripts/seo-routine/brave-queue.mjs --from-sitemap` au moment de la session, présenté comme « à soumettre par la tâche Brave », jamais comme soumis. Si une mesure manque, dis-le au lieu de l'omettre.
 2. **Ce qui a bougé** : les deux ou trois faits marquants (une requête qui entre dans les dix premiers, une page désindexée, un concurrent qui publie sur une requête suivie, une annonce qui touche une page), et le verdict des actions précédentes.
-3. **Ce que propose la PR** : le lien, la ou les créations et les révisions (une ligne chacune : l'entrée du calendrier, la donnée qui la motive, ce que la recherche en ligne a montré), l'état de la CI, et le lien vers le brouillon LinkedIn (`docs/seo/posts/AAAA-MM-JJ.md` dans la PR), que Simon relit et publie lui-même s'il le veut.
+3. **Ce qui a été déployé** : le lien du commit de contenu, la ou les créations et les révisions (une ligne chacune : l'entrée du calendrier, la donnée qui la motive, ce que la recherche en ligne a montré), l'état de la CI sur `main`, le contrôle de waimia.com après déploiement (URL en 200, marqueur du commit), un éventuel revert avec sa cause, et le lien vers le brouillon LinkedIn (`docs/seo/posts/AAAA-MM-JJ.md`), que Simon relit et publie lui-même s'il le veut.
 4. **État du calendrier** : ce qui a été livré cette semaine ; ce qui est prévu la semaine suivante ; les entrées ajoutées, avec la donnée qui les justifie ; les entrées abandonnées ou replanifiées, et pourquoi ; le nombre de semaines d'avance (`check-calendar.mjs`). Si aucune création n'a été livrée, la raison (section 4.4) vient ici, en première ligne.
-5. **Ce qui demande ta décision** : idée du calendrier qui suppose une offre, un prix ou une présence que le site n'affiche pas (section 4.2), fusion ou redirection proposée, page non indexée depuis plus de trois collectes que tu n'as pas pu traiter (4.1, règle 3), changements proposés au bilan mensuel, page à « demander l'indexation » à la main dans Search Console, section du catalogue manquante, flux à remplacer, panne de collecte, PR de la semaine précédente encore ouverte, erreur de l'Indexing API (compte de service non propriétaire, API non activée).
+5. **Décisions prises et gestes qui te restent** : d'abord les décisions que la session a tranchées seule (une ligne chacune : la décision, la donnée, comment la défaire) : idée reformulée ou abandonnée, fusion, redirection ou dépublication, page non indexée traitée, flux remplacé, silo ou section de repli, panne de collecte ; ensuite, sans attendre de réponse, les gestes que seul Simon peut faire de ses mains : page à « demander l'indexation » dans Search Console, volumes Semrush, relevé des liens entrants, erreur de l'Indexing API qui demande son compte (compte de service non propriétaire, API non activée), publication du post LinkedIn.
 
 N'écris jamais « validé » ou « terminé » sans la sortie de commande correspondante.
 
@@ -492,7 +490,7 @@ Sans le repo ni le script, la même file se calcule à la main : ouvrir `https:/
 
 **Ce que vaut `lastmod`, et ses limites.** Le `lastmod` du sitemap vient de `src/lib/seo/lastmod.mjs` : la plus récente de deux dates, le champ `updatedAt` (sinon `publishedAt`) du fichier de contenu, et la date du dernier commit qui a touché le fichier source de la page, lue dans l'instantané `src/data/lastmod.generated.json`. Une page hub prend la date de son enfant le plus récent. Conséquences :
 
-- la date est au jour près, et c'est celle du contenu, pas celle de la mise en ligne. Une PR fusionnée plus de 7 jours après la date `updatedAt` de ses pages sort de la fenêtre avant d'être en production : ces pages n'arrivent alors que par la file de la collecte (`brave.toSubmit`), ou en élargissant la fenêtre ;
+- la date est au jour près, et c'est celle du contenu, pas celle de la mise en ligne. Un push sur `main` plus de 7 jours après la date `updatedAt` de ses pages sort de la fenêtre avant d'être en production : ces pages n'arrivent alors que par la file de la collecte (`brave.toSubmit`), ou en élargissant la fenêtre ;
 - une page modifiée sans que `updatedAt` change, et sans que l'instantané soit régénéré, ne sort pas ;
 - un commit qui touche beaucoup de fichiers de contenu fait sortir toutes leurs pages : le 5 octobre 2026, après la refonte, 84 des 88 URL du sitemap avaient un `lastmod` de moins de 8 jours. Le plafond de 40 et l'ordre de la file (pages nouvelles d'abord) servent à cela ;
 - une page pas encore déployée n'est pas dans le sitemap : rien à soumettre avant la mise en production.
@@ -530,7 +528,7 @@ La référence d'avant refonte couvre 92 jours et le bilan 28 : donne les deux c
    - pages indexées sur le total, et répartition par motif (`indexation.byCoverageState`), comparées à la collecte d'il y a quatre semaines et à la référence du 4 octobre 2026 ;
    - position des mots-clés de priorité 1 de `keywords.json` (`keywords.rows`), semaine par semaine, avec ceux qui sont entrés ou sortis des dix et des vingt premiers.
 2. Ce qui a marché et ce qui n'a pas marché : les verdicts `gagné`, `stable` et `perdu` des actions du mois (section 3), avec leurs chiffres, et les pages restées non indexées malgré une action.
-3. Les changements proposés, faits dans la PR de la semaine avec leur justification chiffrée :
+3. Les changements décidés, faits dans le lot du jour avec leur justification chiffrée :
    - `docs/seo/keywords.json` : mots-clés à ajouter (requêtes réelles vues dans `topQueries`), à retirer (aucune impression sur le mois, hors de l'offre), cibles ou priorités à corriger ;
    - `docs/seo/feeds.json` : flux tombés ou sans entrée utile sur le mois, sources à ajouter ;
    - `docs/seo/competitors.json` : concurrents qui ne publient plus ou ne se classent sur aucune requête suivie, concurrents réels à ajouter ;
@@ -555,7 +553,7 @@ Depuis le 24 octobre 2026, un billet qui répond à un événement précis est u
 
 ### 14.1 Publier une actualité
 
-- `publishedAt` et `updatedAt` portent l'heure et le fuseau (`2026-10-24T15:36:10+02:00`). `publishedAt` est l'instant réel de mise en ligne (heure de fusion de la PR), jamais une heure choisie. `updatedAt` change seulement quand le texte change réellement, et n'est jamais antérieur à `publishedAt` ni dans le futur.
+- `publishedAt` et `updatedAt` portent l'heure et le fuseau (`2026-10-24T15:36:10+02:00`). `publishedAt` est l'instant réel de mise en ligne (heure du push sur `main`), jamais une heure choisie. `updatedAt` change seulement quand le texte change réellement, et n'est jamais antérieur à `publishedAt` ni dans le futur.
 - Titre de 110 caractères au plus. Auteur identifié (`author`, avec sa page `/equipe/<auteur>`). Illustration `heroIllustration` d'au moins 1 200 px de large.
 - Le billet garde son URL `/blog/<slug>`. Il apparaît sur `/actualites`, dans `/actualites/rss.xml` (texte complet), dans `/sitemap-news.xml` pendant 48 heures, et porte un `NewsArticle` (jamais un `Article` en plus). Aucun autre billet n'émet de `NewsArticle`.
 - Garde-fou : `node scripts/check-news.mjs` (étape de la CI, sur le build).

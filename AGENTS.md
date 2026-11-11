@@ -51,7 +51,7 @@ Distinct du produit Waimia OS. Ne pas modifier l'agrégateur `waimia-v2`.
   du commit, parcours touché) ; régression = revert par PR, ou rollback Vercel décidé par Simon.
   Un changement limité à `docs/`, `tasks/`, outillage ou Markdown racine ne redéploie pas
   (`ignoreCommand`). Auto-merge désactivé, secrets de bypass masqués.
-  La routine SEO fusionne sa propre PR après CI verte (une par jour) ; les autres PR restent fusionnées par Simon ou l'orchestrateur après preuve.
+  La routine SEO déploie sans PR (décision de Simon du 11 novembre 2026) : push direct sur `main` après ses gates locaux, CI et production contrôlées ensuite, revert par `git` si régression (`docs/seo/ROUTINE.md`, section 8) ; les autres PR restent fusionnées par Simon ou l'orchestrateur après preuve.
 - Une branche par scope, pas de `git add -A` global. Push autorisé :
   `git -c credential.helper= -c credential.helper='!gh auth git-credential' push origin <branche>`.
 - Délégation si gain réel ; deux writers = worktrees/artefacts isolés, intégration
