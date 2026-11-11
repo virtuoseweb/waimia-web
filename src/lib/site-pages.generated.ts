@@ -5478,7 +5478,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "comparison-table",
-        "label": "Claude Duet vs ChatGPT dots : 16 critères, avec la source de chaque ligne",
+        "label": "Claude Duet vs ChatGPT dots : 15 critères, avec la source de chaque ligne",
         "background": "paper"
       },
       {
