@@ -233,8 +233,8 @@ export const EEAT_PACK: EeatPack = {
     'Process Intelligence',
   ],
   milestones: [
-    { year: '2024', label: 'Fondation de Waimia · Montpellier' },
     { year: 'Avant', label: 'VirtuoseWeb · systèmes web et IA pour PME B2B' },
+    { year: '2024', label: 'Fondation de Waimia' },
     { year: '2026', label: 'Claude, Claude Code et MCP en production' },
   ],
   // Pool historique (ordre préservé) : le composant n'affiche que les 3 premiers en mode
