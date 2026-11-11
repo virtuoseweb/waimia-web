@@ -1137,7 +1137,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "agents-ia",
       "route": "/services/agents-ia",
       "index": 8,
-      "label": "Exemple type : la boîte contact@ d'une PME de services",
+      "label": "Exemple : la boîte contact@ d'une PME de services",
       "background": "paper"
     },
     {
@@ -1380,7 +1380,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "seo-geo-contenu",
       "route": "/services/seo-geo-contenu",
       "index": 4,
-      "label": "Exemple type : la page service d'une PME de maintenance",
+      "label": "Exemple : la page service d'une PME de maintenance",
       "background": "paper"
     },
     {
@@ -1526,7 +1526,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-code-vs-codex-vs-vibe",
       "route": "/ressources/comparatifs/claude-code-vs-codex-vs-vibe",
       "index": 2,
-      "label": "Claude Code, Codex et Mistral Vibe : 12 critères (3 novembre 2026)",
+      "label": "Claude Code, Codex et Mistral Vibe : 12 critères",
       "background": "paper"
     },
     {
@@ -1544,7 +1544,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-duet-vs-chatgpt-dots",
       "route": "/ressources/comparatifs/claude-duet-vs-chatgpt-dots",
       "index": 2,
-      "label": "Claude Duet vs ChatGPT dots : 16 critères, avec le niveau de preuve",
+      "label": "Claude Duet vs ChatGPT dots : 16 critères, avec la source de chaque ligne",
       "background": "paper"
     },
     {
@@ -1562,7 +1562,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "hermes-agent-vs-openclaw",
       "route": "/ressources/comparatifs/hermes-agent-vs-openclaw",
       "index": 2,
-      "label": "Hermes Agent vs OpenClaw, critère par critère (lu le 24 octobre 2026)",
+      "label": "Hermes Agent vs OpenClaw, critère par critère",
       "background": "paper"
     },
     {
@@ -1708,7 +1708,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "montpellier",
       "route": "/implantations/montpellier",
       "index": 5,
-      "label": "Où en est votre entreprise avec l'IA ?",
+      "label": "Quel niveau votre entreprise a-t-elle atteint avec l'IA ?",
       "background": "ink"
     },
     {
@@ -1762,7 +1762,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "n8n-vs-make",
       "route": "/ressources/comparatifs/n8n-vs-make",
       "index": 6,
-      "label": "Classez vos tâches avant de choisir le premier cas",
+      "label": "Avant le premier cas : classez vos tâches",
       "background": "ink"
     },
     {
@@ -1771,7 +1771,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "n8n-vs-make-vs-zapier",
       "route": "/ressources/comparatifs/n8n-vs-make-vs-zapier",
       "index": 8,
-      "label": "Classez vos tâches avant de choisir le premier cas",
+      "label": "Classez vos tâches avant de choisir l'outil",
       "background": "ink"
     },
     {
@@ -2371,7 +2371,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "crm-sur-mesure-vs-crm-du-marche",
       "route": "/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche",
       "index": 5,
-      "label": "Le verdict de Waimia, situation par situation",
+      "label": "Mon verdict, situation par situation",
       "background": "paper-2"
     },
     {
@@ -2398,7 +2398,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "n8n-vs-make",
       "route": "/ressources/comparatifs/n8n-vs-make",
       "index": 4,
-      "label": "Notre verdict, cas par cas",
+      "label": "Mon verdict, cas par cas",
       "background": "paper"
     },
     {
@@ -2407,7 +2407,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "n8n-vs-make-vs-zapier",
       "route": "/ressources/comparatifs/n8n-vs-make-vs-zapier",
       "index": 5,
-      "label": "Le verdict, situation par situation",
+      "label": "Mon verdict, situation par situation",
       "background": "paper-2"
     },
     {
@@ -2668,7 +2668,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "tutoriel-make-tri-emails-claude",
       "route": "/ressources/guides/tutoriel-make-tri-emails-claude",
       "index": 11,
-      "label": "Les limites et les pièges à connaître avant d'activer",
+      "label": "Les pièges à connaître avant d'activer",
       "background": "paper"
     },
     {
@@ -12692,7 +12692,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-code-vs-cursor",
       "route": "/ressources/comparatifs/claude-code-vs-cursor",
       "index": 7,
-      "label": "Le bon outil dépend de votre travail. Cadrons-le ensemble.",
+      "label": "Le bon outil dépend du travail que vous voulez déléguer.",
       "background": "ink"
     },
     {
@@ -12746,7 +12746,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "geo-vs-seo",
       "route": "/ressources/comparatifs/geo-vs-seo",
       "index": 7,
-      "label": "Vu sur Google, repris par les IA. Faisons les deux.",
+      "label": "Avant de payer du GEO, mesurez où vous en êtes.",
       "background": "ink"
     },
     {
@@ -12791,7 +12791,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "n8n-vs-make-vs-zapier",
       "route": "/ressources/comparatifs/n8n-vs-make-vs-zapier",
       "index": 11,
-      "label": "Le bon outil se choisit sur vos tâches, pas sur un tableau.",
+      "label": "Trois outils, un seul bon : celui qui colle à vos tâches, pas celui du tableau.",
       "background": "ink"
     },
     {
@@ -15751,7 +15751,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "mistral-vs-claude-pme",
       "route": "/ressources/comparatifs/mistral-vs-claude-pme",
       "index": 12,
-      "label": "Claude est dans la balance ? Recevez le kit conformité : réglages, RGPD, douze questions au fournisseur",
+      "label": "Claude fait partie des candidats ? Le kit conformité réunit les réglages, le RGPD et douze questions à poser au fournisseur",
       "background": "ink"
     },
     {
