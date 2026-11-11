@@ -60,9 +60,5 @@ export function caseCardGridData(
     all_label_en: 'See all cases →',
     // Canonique /cas-clients (l'ancien /ressources/cas n'est plus qu'un 301, cf astro.config.mjs:66)
     all_href: localizeHref('/cas-clients', lang),
-    empty_kicker_fr: 'PREMIERS CAS',
-    empty_kicker_en: 'FIRST CASES',
-    empty_body_fr: 'Les premiers dossiers clients sont en cours de rédaction. Parlons de votre projet en attendant.',
-    empty_body_en: 'The first client case studies are being written. Let’s talk about your project in the meantime.',
   };
 }
