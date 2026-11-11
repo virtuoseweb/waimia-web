@@ -263,7 +263,7 @@ export const EEAT_PACK: EeatPack = {
   commitments: [
     // Détail = promesse canonique (AUDIT_PROMISE), résolue par silo dans eeatCommitments.
     { label: 'Avant tout engagement', detail: AUDIT_PROMISE.general.short.fr, audit: true },
-    { label: 'Prix fixe transparent', detail: 'Périmètre et budget connus avant de signer, pas de dérive.' },
+    { label: 'Prix connu avant de signer', detail: 'Le sprint de cadrage a un prix fixe ; la suite est chiffrée sur devis, avant tout engagement.' },
     { label: 'Formation incluse', detail: 'Documentation et passation : votre équipe est autonome à la livraison.' },
     { label: 'Zéro captivité', detail: 'Code, workflows et documentation transférés : vous gardez la main.' },
   ],
