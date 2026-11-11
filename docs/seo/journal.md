@@ -37,6 +37,19 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### 2026-11-11 · audit de cannibalisation et de contenu dupliqué (demande de Simon)
+
+**Cannibalisation** (Search Console, 28 jours, `2026-W46`). Règle : une requête est cannibalisée si la deuxième page reçoit au moins 20 % des impressions, sur au moins 10 impressions. 16 requêtes sont concernées, dont 12 dans la famille « claude pme / tpe » (guide PME, comparatif Claude vs ChatGPT, guide TPE, services Claude). Correctifs :
+- Comparatif : le H1 « Claude vs ChatGPT pour une PME » devient « Claude ou ChatGPT : lequel choisir en entreprise ? ». L'ancien H1 visait « claude pour pme », qui appartient au guide.
+- Guide PME : `seoTitle` « Guide Claude pour PME » (sans « IA », réservé au guide généraliste à venir). Lien « Claude pour une TPE » vers `claude-tpe`, propriétaire de « claude tpe », qu'aucun lien ne reliait depuis le pilier.
+- Blog AI Act : l'ancre vers `/conformite-ia` devient « conformité IA en PME » ; elle disait « IA conforme en PME ».
+- Non traités : « agence … make à toulouse » (requête longue, 41 impressions, la page Toulouse est la bonne propriétaire) et « charte gemini pme » (le guide Gemini à venir renverra vers la charte).
+
+**Contenu dupliqué** (build servi). Méthode : 6-grammes de mots du contenu principal, sur 277 pages indexables ; les passages présents sur plus de 15 pages (gabarit) sont exclus. Correctifs :
+- `/cas-usages` reprenait en entier les fiches d'études de cas (résultat, citation, limites, sources) des pages de fonction. Taux commun avec `support-sav` : 33 %, ramené à 19 %. La variante `digest` de `market-cases` n'affiche plus que l'entreprise, l'outil et le lien vers l'analyse.
+- Secteurs agence, conseil, ESN, industrie : le texte par défaut du gabarit (« On branche cette tâche sur vos outils actuels… », trois fois par page, plus le chapô et le sous-titre du CTA) est remplacé par un texte propre à chaque secteur (`SECTOR_COPY`). Agence/conseil : 29 % ramené à 24 %. Ce qui reste commun : l'échelle de maturité, la carte du cas Amploi et les listes de liens, c'est-à-dire des composants partagés.
+- Laissés en l'état : `/blog` et `/ressources` (94 %) sont des pages de liste, et `/ressources` affiche les mêmes cartes d'articles ; le choix « hubs ramenés à des filtres » est celui de Simon du 15/10. Hermes Agent et OpenClaw (17 %) partagent un bloc de prix et d'auteur.
+
 ### 2026-11-11 · « agence ia bordeaux » et « guide claude » : diagnostic et correctifs (demande de Simon)
 
 **Départ** (Search Console, 28 jours, `2026-W46/gsc-performance.json`) : « agence ia bordeaux » position 37,0 (15 impressions) sur `/implantations/bordeaux` ; `/agence` absente de la requête (classée seulement sur « waimia »). « guide claude pme » position 15,6 (18 impressions) sur `/ressources/guides/claude-pme` ; « guide claude » : aucune impression. « claude pme » réparti sur sept pages (guide 16,7 ; comparatif Claude vs ChatGPT 33,2 ; `claude-cowork`, `claude-tpe`, `integration-claude`, `consultant-ia-claude`).

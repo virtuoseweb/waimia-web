@@ -123,6 +123,10 @@ const pick = (c: MarketCase) => ({
                     <dt>{t.tool}</dt>
                     <dd>{c.tool}</dd>
                   </div>
+                  {/* Digest (hub) : identité et outil seulement. Résultat, limites et sources
+                      vivent sur la page de la fonction, pour ne pas dupliquer son contenu. */}
+                  {variant === 'full' && (
+                    <>
                   <div class="mkt__fact">
                     <dt>{t.result}</dt>
                     <dd>
@@ -156,6 +160,8 @@ const pick = (c: MarketCase) => ({
                       </p>
                     </dd>
                   </div>
+                    </>
+                  )}
                 </dl>
               </li>
             );
