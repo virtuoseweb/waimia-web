@@ -73,3 +73,4 @@ pose l'enjeu du lecteur, rythme varié (phrases courtes et longues), images conc
 plutôt qu'abstractions, verbes forts (pas « permettre », « offrir », « proposer »), appel
 à l'action qui dit le bénéfice. Registre selon le sujet : technique, vente, pédagogie,
 éditorial ou scientifique, dosés selon l'intention de la page.
+Note offres (audit du 11/11) : « Pilote » = offre dès {{prix.pilote}} € HT (src/data/pricing.ts) ; le taux horaire ({{prix.horaire}} € HT) est une autre offre. Ne les confonds pas, et définis « pilote » en une phrase à sa première mention. Un même fait ou prix : une seule fois par page (hors FAQ si la question l'exige).
