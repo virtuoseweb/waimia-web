@@ -1546,3 +1546,21 @@ Source : `docs/seo/data/2026-W46/gsc-performance.json`, 28 jours au 6/11. Règle
 - `/blog/connecter-claude-wordpress-shopify-mcp` : 74 impressions, position 8,3, 0 clic ; requêtes « claude connect shopify », « comment connecter claude a shopify » (positions 7 à 10). Title qui commence par Shopify, méta qui commence par « Comment connecter Claude à Shopify » et cite le connecteur officiel.
 - Non retenus : comparatif quatre assistants (position 12,8, requêtes vues en position 55 et plus), `claude-code-skills` (requêtes en position 42 et plus), `claude-pro-vs-team` et `claude-max-pme` (title récent), Sprinkable (requêtes de marque).
 - **Mesure** : clics et CTR de ces deux pages sur la collecte du 23/11 (7 jours pleins après mise en ligne), contre 0 clic sur 28 jours.
+
+## 2026-11-11 · Recherche de la marque : « waimia » corrigé en « wamia »
+
+Relevé à la main sur google.com (hl=fr, gl=fr), sans compte, le 11/11 vers 14 h UTC. Signalé par Simon.
+
+| Requête | Corrigée par Google | waimia.com |
+| --- | --- | --- |
+| `waimia` | oui, vers « wamia » (marketplace tunisienne, applications, ~197 k abonnés Instagram) | absent de la première page |
+| `waimia` avec `nfpr=1` (« Essayez avec l'orthographe waimia ») | non | 1 |
+| `waimia agence ia`, `waimia bordeaux`, `waimia ia` | non | 1 à 3 |
+| `waimia.com` | non | 1 |
+| `waimia simon beros` | oui | 1 malgré tout |
+| `virtuoseweb`, `virtuose web`, `virtuoseweb ia`, `virtuose web bordeaux` | non | virtuoseweb.fr en 1 |
+
+- **Lecture** : l'entité Waimia est connue ; seul le mot seul est réécrit, faute de volume de recherche face à Wamia (Search Console : 1 impression sur « waimia » en 28 jours au 6/11).
+- **Décision en attente (Simon)** : garder la marque Waimia avec pont depuis virtuoseweb.fr (bandeau, puis 301), ou changer de nom. Ne pas créer la fiche Google ni les annuaires de la section 5 de la stratégie avant cette décision.
+- **En attendant** : toujours écrire et dire « waimia.com » ou « Waimia, agence IA ».
+- **Prochaine mesure** : même relevé le 11/12.
