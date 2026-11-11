@@ -67,3 +67,9 @@ dépubliée = redirection, lien refusé par `check-static-quality`).
 Note : pages métier ou secteur : ressource de conversion (`diagnostic-maturite-ia`,
 `calculateur-roi-ia` ou le magnet du silo), pas la charte, même si la page parle de données.
 Note : guides et comparatifs avec section lead-capture-band : le lead_magnet doit être une ressource PDF (pas diagnostic-maturite-ia ni calculateur-roi-ia) ; check-content-refs le refuse.
+
+Note style (Simon, 11/11) : le style doit donner envie de lire et d'agir. Accroche qui
+pose l'enjeu du lecteur, rythme varié (phrases courtes et longues), images concrètes
+plutôt qu'abstractions, verbes forts (pas « permettre », « offrir », « proposer »), appel
+à l'action qui dit le bénéfice. Registre selon le sujet : technique, vente, pédagogie,
+éditorial ou scientifique, dosés selon l'intention de la page.
