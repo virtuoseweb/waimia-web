@@ -26,10 +26,14 @@ const {
   align = 'left',
   variant = 'default'
 } = Astro.props;
+
+// Un chiffre long peut passer à la ligne : l'espace avant une unité reste insécable
+// pour ne jamais isoler « % », « $ » ou « € » sur sa propre ligne.
+const displayValue = value.replace(/ (?=[%€$])/g, '\u00a0');
 ---
 
 <div class:list={["key-metric", `key-metric-${size}`, `key-metric-${align}`, `key-metric-${variant}`, "reveal-zoom-in"]}>
-  <span class="key-metric-value">{value}</span>
+  <span class="key-metric-value">{displayValue}</span>
   <span class="key-metric-label">{label}</span>
   {delta && (
     <span class={`key-metric-delta key-metric-delta-${trend ?? 'flat'}`}>
@@ -44,6 +48,7 @@ const {
     grid-template-rows: auto auto auto;
     gap: var(--space-2, 8px);
     padding: var(--space-4, 16px) 0;
+    min-width: 0;
   }
   .key-metric-value {
     font-family: var(--font-display, 'Instrument Serif', serif);
@@ -52,7 +57,11 @@ const {
     color: var(--ink, #0C0B09);
     font-weight: var(--fw-regular);
     font-size: var(--text-h1);
-    white-space: nowrap;
+    /* Jamais de débordement sur la cellule voisine : une valeur longue passe à la ligne. */
+    max-width: 100%;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    text-wrap: balance;
   }
   .key-metric-sm .key-metric-value { font-size: var(--text-h2); }
   .key-metric-lg .key-metric-value { font-size: var(--text-stat); }
