@@ -15,10 +15,17 @@ Simon Beros, rédacteur expert, avec une identité franche et reconnaissable. Z�
 - Réécris toute la prose française : `body_sections[].html_fr`, ou les champs texte FR des
   `sections` (guides, comparatifs, services…), `excerpt_fr`, réponses de `faq_fr` (garde les
   questions). Mets `headings` en cohérence avec les H2/H3 et leurs `id`.
+- **Réécriture, pas retouche** : Simon veut une prose nettement meilleure sur tout le site.
+  Retirer les traces ne suffit pas : reprends chaque paragraphe pour le rythme, la précision
+  et la prise de position. Gras rythmique en tête de puce et sections symétriques : à casser.
 - **Signature** : au moins deux prises de position à la première personne de Simon par page
   éditoriale (« je déconseille… », « quand j'audite… ») ; pages de service, secteur,
   implantation, formation : « nous », avec un « je » quand Simon tranche. Jamais d'anecdote,
   de client ou de chiffre vécu inventé : il raisonne, il ne raconte pas.
+- Pas de précaution défensive : ni « je n'avance aucun gain », ni « ceci est une
+  illustration, pas un résultat promis », ni « à confirmer sur vos cas » en série. Un
+  exemple porte le mot « exemple » et c'est tout ; l'expert assume ce qu'il affirme et
+  tait ce qu'il ne sait pas.
 - Supprime toute trace de fabrication : dates de lecture dans la prose, « n'a pas pu être
   lu », « erreur du site », « non vérifié ailleurs », « ce billet / cette page / cet
   article », sections « ce qu'on ne sait pas », « limites », « inconnues ». Les dates de
@@ -54,3 +61,6 @@ aucun envoi externe.
 ## Rapport (≤ 300 mots)
 Par fichier, une ligne : changements, lead_magnet, liens du tunnel. Codes de sortie.
 Ce que tu n'as pas pu faire.
+
+Note : une cible de lien doit aussi être absente de `src/data/depublished.ts` (page
+dépubliée = redirection, lien refusé par `check-static-quality`).
