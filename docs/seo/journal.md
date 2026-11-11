@@ -37,6 +37,28 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### 2026-11-11 · six guides généralistes : Claude IA, ChatGPT, Mistral AI, Gemini, DeepSeek, Grok (demande de Simon)
+
+**Pourquoi** : sur « guide claude », Google montre des guides généraux (Anthropic, nocodefactory, Blog du Modérateur) ; le site n'avait aucune page de ce type, pour aucun assistant. Les sujets voisins (offres, versions, comparatifs, dots, Cowork) ont déjà leur page.
+
+**Règles appliquées** : une expression = une page.
+- Claude IA : « guide claude », « claude ia ». `claude-pme` passe à « Guide Claude pour PME ».
+- ChatGPT : « chatgpt », « guide chatgpt ».
+- Mistral AI : « mistral ai », « le chat mistral ».
+- Gemini : « gemini », « guide gemini ».
+- DeepSeek : « deepseek », « deepseek données ».
+- Grok : « grok », « guide grok ».
+
+Les sujets propres à d'autres pages tiennent en deux ou trois phrases et un lien, jamais dans un H2. Aucun contenu dupliqué : au plus 6,2 % de texte commun avec une autre page du site, gabarit compris (6-grammes, build servi).
+
+**Faits** : lus à la source le 11 novembre 2026 et listés dans `sources` de chaque page (de 3 à 21 sources par page). Deux faits ont été vérifiés par l'orchestrateur : l'éditeur de Grok est SpaceX Super Intelligence (SpaceXSI), selon la politique de confidentialité de x.ai ; Le Chat est devenu Vibe le 28 mai 2026 (annonce de Mistral AI ; la page d'aide est datée du 12 août).
+
+**Maillage** : six entrées dans `internal-mesh.ts` (silo `claude`, « Claude et assistants IA »), lien depuis `claude-pme` vers `claude-ia`. Les six illustrations de hero sont dédiées (moteur SVG, sans API OpenAI), avec un fond clair sous l'italique du titre.
+
+**À mesurer** : indexation, puis positions sur les expressions ci-dessus à partir de la collecte qui suit le 25/11.
+
+**Signalé** : le comparatif `mistral-vs-claude-pme` cite Large 3 et Medium 3.5, dépréciés depuis le 31/10/2026 ; Large 4 est sorti le 5/11/2026 (signalé par le rédacteur du guide Mistral, à vérifier et corriger dans une prochaine vague).
+
 ### 2026-11-11 · audit de cannibalisation et de contenu dupliqué (demande de Simon)
 
 **Cannibalisation** (Search Console, 28 jours, `2026-W46`). Règle : une requête est cannibalisée si la deuxième page reçoit au moins 20 % des impressions, sur au moins 10 impressions. 16 requêtes sont concernées, dont 12 dans la famille « claude pme / tpe » (guide PME, comparatif Claude vs ChatGPT, guide TPE, services Claude). Correctifs :

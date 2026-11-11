@@ -5661,7 +5661,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-split-media",
-        "label": "Claude vs ChatGPT pour une PME",
+        "label": "Claude ou ChatGPT : lequel choisir en entreprise ?",
         "background": "paper"
       },
       {
@@ -7544,6 +7544,106 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/ressources/guides/chatgpt",
+    "title": "ChatGPT : le guide complet (2026)",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/chatgpt.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "ChatGPT : le guide complet",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#4",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Les modèles de ChatGPT et l'endroit où ils servent",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper-3"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#8",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#9",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Entraînement des modèles : trois situations",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#11",
+        "background": "paper-2"
+      },
+      {
+        "type": "lead-capture-band",
+        "label": "Une page qui dit ce qu'on colle dans l'assistant, et ce qu'on n'y colle jamais",
+        "background": "ink"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#13",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#14",
+        "background": "paper-3"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Les questions qu'on pose sur ChatGPT",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Savoir ce que vos équipes font déjà avec ChatGPT, avant de généraliser.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/ressources/guides/chatgpt-dots",
     "title": "ChatGPT dots : les agents toujours actifs d'OpenAI, accès, prix, limites",
     "group": "ressources",
@@ -8587,6 +8687,111 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/ressources/guides/claude-ia",
+    "title": "Claude IA : le guide complet (2026)",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/claude-ia.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Claude IA : le guide complet pour bien l'utiliser",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Huit endroits où l'on croise Claude, du navigateur à Slack",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper"
+      },
+      {
+        "type": "process-steps",
+        "label": "Trente minutes pour juger Claude sur pièces",
+        "background": "paper-3"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#7",
+        "background": "paper"
+      },
+      {
+        "type": "comparison-duo",
+        "label": "Deux consignes avant et après relecture",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#9",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#10",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#11",
+        "background": "paper"
+      },
+      {
+        "type": "decision-list",
+        "label": "Ce que je ne confie pas à Claude sans relecture",
+        "background": "paper-3"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#13",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#14",
+        "background": "paper-2"
+      },
+      {
+        "type": "resource-card-grid",
+        "label": "Un guide pour chaque porte que vous voudrez ouvrir",
+        "background": "paper"
+      },
+      {
+        "type": "lead-capture-band",
+        "label": "#16",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Claude IA : les questions qu'on se pose en l'ouvrant",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Vous savez ce que Claude fait. Reste à savoir ce qu'il ferait chez vous.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/ressources/guides/claude-in-chrome-entreprise",
     "title": "Claude in Chrome en entreprise : installer, régler, encadrer l'extension",
     "group": "ressources",
@@ -9622,6 +9827,93 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/ressources/guides/deepseek",
+    "title": "DeepSeek : le guide complet (2026)",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/deepseek.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "DeepSeek : trois portes d'entrée, trois sorts pour vos données",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Flash ou Pro : versions, contexte, prix et poids ouverts",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Application, API, poids ouverts : où vos données se posent",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#8",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#9",
+        "background": "paper"
+      },
+      {
+        "type": "decision-list",
+        "label": "Quand DeepSeek, quand pas",
+        "background": "paper-2"
+      },
+      {
+        "type": "lead-capture-band",
+        "label": "Mettez par écrit ce qui ne quitte jamais l'entreprise, avant que quelqu'un installe DeepSeek",
+        "background": "ink"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "DeepSeek : les questions des dirigeants",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Un salarié veut DeepSeek demain matin. Qu'est-ce que vous lui répondez ?",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/ressources/guides/devis-automatise",
     "title": "Devis automatisé : la méthode pas à pas pour une PME",
     "group": "ressources",
@@ -9792,6 +10084,212 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "footer-cta-band",
         "label": "On vérifie la prise en charge avant de vous engager.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/ressources/guides/gemini",
+    "title": "Gemini : le guide complet (2026)",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/gemini.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Gemini : le guide complet de l'IA de Google",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Sept façons d'obtenir Gemini, et ce que chacune contient",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Combien de temps Gemini garde vos échanges",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#8",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#9",
+        "background": "paper"
+      },
+      {
+        "type": "process-steps",
+        "label": "Ouvrir Gemini à l'équipe : quatre réglages, dans cet ordre",
+        "background": "paper-3"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Gemini pour votre entreprise : le bon choix, ou pas",
+        "background": "paper"
+      },
+      {
+        "type": "lead-capture-band",
+        "label": "Gemini est ouvert à l'équipe : écrivez ce qu'on peut lui confier, recevez le modèle en PDF",
+        "background": "ink"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Les services",
+        "background": "paper"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Questions fréquentes sur Gemini",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Gemini est peut-être déjà dans votre abonnement : faites le point en 45 minutes.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/ressources/guides/grok",
+    "title": "Grok : le guide complet (2026)",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/grok.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Grok : le guide complet (2026)",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper"
+      },
+      {
+        "type": "key-metric-grid",
+        "label": "Quatre chiffres à garder en tête avant d'ouvrir un compte",
+        "variant": "accent",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#4",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Grok 4.7 d'abord, puis les modèles d'image, de vidéo et de voix",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Offres et prix : de 0 à 200 $ par mois, puis les offres d'équipe",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#8",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#9",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Où vont vos données : une réponse par porte d'entrée",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#11",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#12",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#13",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Pour une entreprise : quand choisir Grok",
+        "background": "paper"
+      },
+      {
+        "type": "lead-capture-band",
+        "label": "Décidez par écrit ce qui entre dans un compte Grok : recevez le modèle de charte IA en PDF",
+        "background": "ink"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "À lire ensuite",
+        "background": "paper"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Questions sur Grok",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Avant de choisir un assistant, faites cartographier ce qui y passe déjà.",
         "background": "ink"
       }
     ]
@@ -10188,6 +10686,104 @@ export const SITE_PAGES: SitePage[] = [
       {
         "type": "footer-cta-band",
         "label": "Savoir où vous en êtes avant de changer quoi que ce soit.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
+    "route": "/ressources/guides/mistral-ai",
+    "title": "Mistral AI (Le Chat) : le guide complet (2026)",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/mistral-ai.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Mistral AI et son assistant Le Chat",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-callout",
+        "label": "#2",
+        "variant": "info",
+        "background": "paper-2"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#3",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#4",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Les modèles de Mistral AI : licence, prix et date de retrait",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Free, Pro, Team et Enterprise : ce que contient chaque abonnement",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#8",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#9",
+        "background": "paper"
+      },
+      {
+        "type": "process-steps",
+        "label": "Quatre usages de Vibe à tester, dans l'ordre où je les ouvre",
+        "background": "paper-3"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#11",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#12",
+        "background": "paper-2"
+      },
+      {
+        "type": "lead-capture-band",
+        "label": "Avant d'ouvrir Vibe à l'équipe, fixez ce qui n'y entre jamais : recevez le modèle de charte IA en PDF",
+        "background": "ink"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Mistral AI et Le Chat : les questions que les PME posent",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Un assistant IA se choisit sur vos tâches, pas sur une fiche produit.",
         "background": "ink"
       }
     ]
@@ -13306,6 +13902,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/guides/automatisation-factures-fournisseurs-pme",
       "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/chatbot-transparence-article-50",
+      "/ressources/guides/chatgpt",
       "/ressources/guides/chatgpt-dots",
       "/ressources/guides/choisir-agence-ia-pme",
       "/ressources/guides/claude-code-entreprise",
@@ -13316,6 +13913,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/guides/claude-fonctionnalites-pme",
       "/ressources/guides/claude-for-small-business",
       "/ressources/guides/claude-gratuit",
+      "/ressources/guides/claude-ia",
       "/ressources/guides/claude-in-chrome-entreprise",
       "/ressources/guides/claude-managed-agents",
       "/ressources/guides/claude-plugins-entreprise",
@@ -13326,12 +13924,16 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/guides/combien-coute-un-agent-ia-pme",
       "/ressources/guides/cout-integration-claude-pme",
       "/ressources/guides/cout-projet-ia-pme",
+      "/ressources/guides/deepseek",
       "/ressources/guides/devis-automatise",
       "/ressources/guides/financement-formation-ia-opco",
+      "/ressources/guides/gemini",
+      "/ressources/guides/grok",
       "/ressources/guides/hermes-agent",
       "/ressources/guides/llm-rag-dirigeant",
       "/ressources/guides/mcp-claude",
       "/ressources/guides/mesurer-visibilite-ia-chatgpt",
+      "/ressources/guides/mistral-ai",
       "/ressources/guides/n8n-auto-heberge-rgpd",
       "/ressources/guides/n8n-prix",
       "/ressources/guides/openclaw",

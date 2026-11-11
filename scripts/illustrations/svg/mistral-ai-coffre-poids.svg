@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+<!-- Waimia · moteur B · un coffre grand ouvert devant un soleil levant ; une femme y puise des poids de balance, un homme en repart avec une charrette chargée, un autre arrive -->
+<defs>
+<g id="weight"><path d="M-20 0 L20 0 L14 -30 L-14 -30 Z" fill="{{subject}}"/><rect x="-6" y="-38" width="12" height="9" rx="3" fill="{{subject}}"/></g>
+<g id="walker"><path d="M-9 -80 Q2 -84 13 -80 L13 -42 L-11 -42 Z" fill="{{subject}}"/><path d="M-6 -44 L3 -44 L-10 -2 L-19 -2 Z" fill="{{subject}}"/><path d="M2 -44 L11 -44 L22 -2 L13 -2 Z" fill="{{subject}}"/><circle cx="2" cy="-90" r="7.5" fill="{{subject}}"/><path d="M-6 -99 L12 -99 L10 -94 L-6 -94 Z" fill="{{subject}}"/><path d="M8 -78 L18 -50 L13 -48 L4 -74 Z" fill="{{subject}}"/></g>
+<g id="puller"><path d="M-9 -80 Q2 -84 13 -80 L13 -42 L-11 -42 Z" fill="{{subject}}"/><path d="M-6 -44 L3 -44 L-10 -2 L-19 -2 Z" fill="{{subject}}"/><path d="M2 -44 L11 -44 L22 -2 L13 -2 Z" fill="{{subject}}"/><circle cx="2" cy="-90" r="7.5" fill="{{subject}}"/><path d="M-6 -99 L12 -99 L10 -94 L-6 -94 Z" fill="{{subject}}"/><path d="M-4 -78 L-26 -52 L-22 -48 L0 -72 Z" fill="{{subject}}"/><path d="M-25 -51 L-44 -16 L-40 -14 L-21 -49 Z" fill="{{subject}}"/><rect x="-116" y="-20" width="78" height="7" fill="{{subject}}"/><circle cx="-54" cy="-9" r="9" fill="{{subject}}"/><circle cx="-100" cy="-9" r="9" fill="{{subject}}"/><use href="#weight" transform="translate(-62 -20) scale(0.75)"/><use href="#weight" transform="translate(-96 -20) scale(0.55)"/></g>
+<g id="woman"><circle cx="0" cy="-90" r="7" fill="{{subject}}"/><circle cx="-5" cy="-96" r="5" fill="{{subject}}"/><path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/><path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/><rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/><rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/></g>
+</defs>
+<rect width="1456" height="624" fill="{{field}}"/>
+<g transform="translate(740 500) scale(1.15) translate(-740 -500)">
+<circle cx="740" cy="500" r="244" fill="{{soft}}"/>
+<circle cx="740" cy="500" r="230" fill="{{shape}}"/>
+</g>
+<rect x="0" y="500" width="1456" height="124" fill="{{ground}}"/>
+<g transform="translate(740 500) scale(1.15) translate(-740 -500)">
+
+<!-- le coffre ouvert -->
+<path d="M676 424 L804 424 L818 340 L662 340 Z" fill="{{soft}}"/>
+<path d="M670 340 L810 340 L806 350 L674 350 Z" fill="{{subject}}"/>
+<use href="#weight" transform="translate(712 424) scale(0.8)"/>
+<use href="#weight" transform="translate(758 424) scale(1.05)"/>
+<rect x="666" y="420" width="148" height="80" fill="{{subject}}"/>
+<rect x="666" y="420" width="148" height="9" fill="{{deep}}"/>
+<rect x="690" y="429" width="10" height="71" fill="{{deep}}"/>
+<rect x="780" y="429" width="10" height="71" fill="{{deep}}"/>
+
+<!-- poids déjà sortis -->
+<use href="#weight" transform="translate(894 500) scale(1.2)"/>
+<use href="#weight" transform="translate(936 500) scale(0.7)"/>
+
+<!-- l'un repart avec sa charrette de poids, l'autre arrive -->
+<use href="#puller" transform="translate(500 500) scale(-1.3 1.3)"/>
+<use href="#walker" transform="translate(1010 500) scale(-1.3 1.3)"/>
+<g transform="translate(842 500) scale(1.3)">
+  <use href="#woman"/>
+  <path d="M-6 -79 L-30 -50 L-26 -46 L-2 -74 Z" fill="{{subject}}"/>
+</g>
+</g>
+</svg>
