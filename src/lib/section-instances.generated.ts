@@ -8889,7 +8889,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "ai-act-pme-calendrier",
       "route": "/ressources/guides/ai-act-pme-calendrier",
       "index": 5,
-      "label": "Le calendrier de l'AI Act au 26 octobre 2026",
+      "label": "Le calendrier de l'AI Act, date par date",
       "variant": "editorial",
       "background": "paper-2"
     },
@@ -9019,7 +9019,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "chatgpt-dots",
       "route": "/ressources/guides/chatgpt-dots",
       "index": 6,
-      "label": "Disponibilité, prix, limites d'usage : ce que disent les pages d'OpenAI au 24 octobre 2026",
+      "label": "Disponibilité, prix, limites d'usage : ce que disent les pages d'OpenAI",
       "variant": "editorial",
       "background": "paper-2"
     },
@@ -9116,7 +9116,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-design",
       "route": "/ressources/guides/claude-design",
       "index": 3,
-      "label": "Idées reçues sur Claude Design, corrigées au 15 octobre 2026",
+      "label": "Idées reçues sur Claude Design, corrigées",
       "variant": "editorial",
       "background": "paper-2"
     },
@@ -9361,7 +9361,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "cout-integration-claude-pme",
       "route": "/ressources/guides/cout-integration-claude-pme",
       "index": 8,
-      "label": "Les heures par poste : des exemples, pas un devis",
+      "label": "Les heures par poste, pour bâtir un premier budget",
       "background": "paper-2"
     },
     {
@@ -13025,7 +13025,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-managed-agents",
       "route": "/ressources/guides/claude-managed-agents",
       "index": 16,
-      "label": "La bonne voie pour votre agent, choisie avant d'écrire une ligne de code.",
+      "label": "Choisissez la bonne voie pour votre agent avant d'écrire une ligne de code.",
       "background": "ink"
     },
     {
@@ -13052,7 +13052,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-rgpd-pme",
       "route": "/ressources/guides/claude-rgpd-pme",
       "index": 18,
-      "label": "Savoir quelles données passent par Claude, avant que ce soit trop tard.",
+      "label": "Sachez quelles données passent par Claude avant qu'il soit trop tard.",
       "background": "ink"
     },
     {
@@ -13070,7 +13070,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-tpe",
       "route": "/ressources/guides/claude-tpe",
       "index": 15,
-      "label": "Le bon compte et un premier usage, choisis avant la première facture.",
+      "label": "Choisissez le bon compte et un premier usage avant la première facture.",
       "background": "ink"
     },
     {
@@ -13079,7 +13079,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "combien-coute-un-agent-ia-pme",
       "route": "/ressources/guides/combien-coute-un-agent-ia-pme",
       "index": 15,
-      "label": "Savoir si un agent vaut son coût chez vous, avant la première heure facturée.",
+      "label": "Sachez si un agent vaut son coût chez vous, avant la première heure facturée.",
       "background": "ink"
     },
     {
@@ -15445,7 +15445,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "chatgpt-dots",
       "route": "/ressources/guides/chatgpt-dots",
       "index": 4,
-      "label": "Six repères relevés dans les pages d'OpenAI",
+      "label": "Six repères sur ChatGPT dots",
       "variant": "accent",
       "background": "paper-2"
     },
@@ -15515,7 +15515,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-for-small-business",
       "route": "/ressources/guides/claude-for-small-business",
       "index": 3,
-      "label": "Le plugin en quatre chiffres, au 6 octobre 2026",
+      "label": "Le plugin en quatre chiffres",
       "variant": "accent",
       "background": "paper"
     },
@@ -15574,7 +15574,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-rgpd-pme",
       "route": "/ressources/guides/claude-rgpd-pme",
       "index": 3,
-      "label": "Ce qu'Anthropic établit, au 5 octobre 2026",
+      "label": "Ce qu'Anthropic établit, début octobre 2026",
       "variant": "accent",
       "background": "paper"
     },
@@ -15584,7 +15584,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-skills",
       "route": "/ressources/guides/claude-skills",
       "index": 3,
-      "label": "Ce qu'Anthropic fixe, au 5 octobre 2026",
+      "label": "Ce que la documentation d'Anthropic fixe",
       "background": "paper-2"
     },
     {
@@ -15603,7 +15603,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "combien-coute-un-agent-ia-pme",
       "route": "/ressources/guides/combien-coute-un-agent-ia-pme",
       "index": 3,
-      "label": "Ce qui est sourcé, et ce qui ne l'est pas",
+      "label": "Ce qui est public, ce qui se chiffre en heures",
       "variant": "accent",
       "background": "paper"
     },
@@ -15787,7 +15787,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "chatgpt-dots",
       "route": "/ressources/guides/chatgpt-dots",
       "index": 14,
-      "label": "Avant de confier une mission à un agent toujours actif : écrivez ce qu'il peut faire seul. Recevez le modèle de charte IA en PDF",
+      "label": "Écrivez ce que l'agent peut faire seul avant de lui confier une mission : recevez le modèle de charte IA en PDF",
       "background": "ink"
     },
     {
@@ -15877,7 +15877,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-managed-agents",
       "route": "/ressources/guides/claude-managed-agents",
       "index": 13,
-      "label": "Avant de confier des tâches à un agent : recevez le kit conformité et administration de Claude",
+      "label": "Un agent touche à vos données : prenez d'abord le kit conformité et administration de Claude",
       "background": "ink"
     },
     {
@@ -15949,7 +15949,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-tpe",
       "route": "/ressources/guides/claude-tpe",
       "index": 12,
-      "label": "Claude pour une petite équipe : recevez le guide d'achat, budgets calculés pour 5, 15 et 40 personnes",
+      "label": "Claude pour une petite équipe : le guide d'achat, avec des budgets chiffrés pour 5, 15 et 40 personnes",
       "background": "ink"
     },
     {
@@ -16410,7 +16410,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-plugins-entreprise",
       "route": "/ressources/guides/claude-plugins-entreprise",
       "index": 15,
-      "label": "Les changements de Claude qui comptent pour une PME, une fois par mois",
+      "label": "Un courriel par mois sur les nouveautés de Claude qui touchent une PME",
       "background": "ink"
     },
     {
