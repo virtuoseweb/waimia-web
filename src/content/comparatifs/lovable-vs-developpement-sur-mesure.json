@@ -4,11 +4,11 @@
   "title_en": "Lovable or custom development: pricing and taking over the code · Waimia",
   "seoTitle_fr": "Lovable : prix et quand passer au code sur mesure",
   "seoTitle_en": "Lovable pricing and when to move to custom code",
-  "description_fr": "Prix de Lovable relevés à la source et critères pour décider quand un prototype généré doit être repris en code remis et relu. Relevé le 16 octobre 2026.",
+  "description_fr": "Prix de Lovable et critères pour décider quand un prototype généré doit être repris en code remis et relu.",
   "description_en": "Lovable prices read at the source and criteria to decide when a generated prototype should be taken over as delivered, reviewed code. Read on 16 October 2026.",
   "slug": "lovable-vs-developpement-sur-mesure",
   "publishedAt": "2026-10-16T00:00:00.000Z",
-  "updatedAt": "2026-10-16",
+  "updatedAt": "2026-11-11",
   "category": "applications",
   "tags": [
     "lovable",
@@ -67,27 +67,27 @@
   "faq_fr": [
     {
       "q": "Combien coûte Lovable ?",
-      "a": "D'après la documentation de l'éditeur, relevée le 16 octobre 2026 : l'offre Free est gratuite, avec 5 crédits de construction par jour (30 par mois au plus). Pro démarre à 25 $ par mois pour 100 crédits (250 $ par an), Business à 50 $ par mois (500 $ par an), jusqu'à 10 000 crédits par mois. Enterprise est sur devis. Les prix sont en dollars et les crédits servent aussi à l'hébergement."
+      "a": "D'après la documentation de l'éditeur : l'offre Free est gratuite, avec 5 crédits de construction par jour (30 par mois au plus). Pro démarre à 25 $ par mois pour 100 crédits (250 $ par an), Business à 50 $ par mois (500 $ par an), jusqu'à 10 000 crédits par mois. Enterprise est sur devis. Les prix sont en dollars et les crédits servent aussi à l'hébergement : relisez la grille le jour de la commande."
     },
     {
       "q": "Le code d'une application Lovable m'appartient-il ?",
-      "a": "Oui, d'après Lovable : la page tarifs écrit « You own your code », sorties de l'IA comprises, sous réserve des droits de tiers sur les modèles. Les conditions précisent que vous restez seul responsable de la relecture et de la validation de ces sorties. Relevé le 16 octobre 2026."
+      "a": "Oui, d'après Lovable : sa page tarifs écrit « You own your code », sorties de l'IA comprises, sous réserve des droits de tiers sur les modèles. Les conditions précisent que vous restez seul responsable de la relecture et de la validation de ces sorties."
     },
     {
       "q": "Peut-on faire reprendre une application Lovable par un développeur ?",
-      "a": "Le code, oui : la synchronisation avec GitHub, GitLab ou Bitbucket est incluse sur toutes les offres, et le dépôt reste si vous coupez la synchronisation. La base de données est moins simple : il n'existe pas de migration en un clic de Lovable Cloud vers votre propre projet Supabase. Un audit du dépôt et de la base dit ce que la reprise coûte."
+      "a": "Le code, oui : GitHub, GitLab et Bitbucket se synchronisent sur toutes les offres, et le dépôt reste en place si vous coupez la synchronisation. La base de données demande plus de travail : Lovable Cloud ne se migre pas en un clic vers votre propre projet Supabase. Un audit du dépôt et de la base dit ce que la reprise coûte."
     },
     {
       "q": "À partir de quand quitter Lovable pour du code sur mesure ?",
-      "a": "Quand le prototype porte des données de personnes, des comptes avec des droits différents, un paiement ou des connexions à vos logiciels, ou quand plusieurs personnes le font évoluer. C'est une lecture de Waimia, pas une mesure : nous n'avons chiffré la reprise d'aucun projet."
+      "a": "Quand le prototype porte des données de personnes, des comptes avec des droits différents, un paiement ou des connexions à vos logiciels, ou quand plusieurs personnes le font évoluer. C'est le seuil que je retiens."
     },
     {
       "q": "Lovable est-il sûr pour une application d'entreprise ?",
-      "a": "L'éditeur propose deux analyses de sécurité et une liste de contrôle avant publication, et écrit qu'elles ne remplacent pas une revue de sécurité approfondie : le propriétaire de l'application reste responsable. Nous n'avons audité aucun projet Lovable ; la réponse dépend de ce que l'application manipule."
+      "a": "L'éditeur propose deux analyses de sécurité et une liste de contrôle avant publication, et écrit qu'elles ne remplacent pas une revue de sécurité approfondie : le propriétaire de l'application reste responsable. Tout dépend de ce que l'application manipule ; avec des données de clients ou un paiement, faites relire le code par un développeur avant de publier."
     },
     {
       "q": "Waimia revend-il Lovable ou vend-il un générateur d'application ?",
-      "a": "Non. Waimia ne vend pas de générateur d'application : il livre du code remis et relu, avec dépôt, base de données et hébergement à votre nom, et des automatisations sur des outils comme n8n ou Make. Quand un client a choisi Lovable, nous pouvons travailler dans son espace, comme pour le serveur MCP d'Inbound Value."
+      "a": "Non. Waimia ne vend pas de générateur d'application : il livre du code remis et relu, avec dépôt, base de données et hébergement à votre nom, et des automatisations sur des outils comme n8n ou Make. Quand un client a choisi Lovable, nous travaillons dans son espace, comme pour le serveur MCP d'Inbound Value."
     }
   ],
   "faq_en": [
@@ -126,15 +126,15 @@
       "h1_en": "Lovable or custom development: <i class=\"acc\">when to take over</i> the code?",
       "definition_kicker_fr": "En une phrase",
       "definition_kicker_en": "In one sentence",
-      "lede_fr": "Lovable convient pour montrer une idée vite. Le prototype devient coûteux à garder quand il porte des données réelles, des comptes clients ou un paiement : la reprise en code remis et relu se justifie alors. Prix relevés le 16 octobre 2026 : 25 $ par mois pour Pro (100 crédits), 50 $ pour Business. Le moment du basculement est notre lecture, pas une mesure.",
+      "lede_fr": "Lovable est un bon outil pour montrer une idée vite. Le prototype devient coûteux à garder dès qu'il porte des données réelles, des comptes clients ou un paiement : c'est là que je recommande de le reprendre en code remis et relu. Prix d'octobre 2026 : 25 $ par mois pour Pro (100 crédits), 50 $ pour Business.",
       "lede_en": "Lovable is a good way to show an idea fast. The prototype becomes costly to keep once it carries real data, customer accounts or a payment: taking it over as delivered, reviewed code is then justified. Prices read on 16 October 2026: $25 a month for Pro (100 credits), $50 for Business. The tipping point is our reading, not a measurement.",
       "badges": [
         {
-          "label_fr": "Prix relevés à la source",
+          "label_fr": "Prix publiés par l'éditeur",
           "label_en": "Prices read at the source"
         },
         {
-          "label_fr": "Relevé le 16 octobre 2026",
+          "label_fr": "Prix d'octobre 2026",
           "label_en": "Read on 16 October 2026"
         },
         {
@@ -168,7 +168,7 @@
       "question_en": "When should a Lovable prototype be taken over as delivered code?",
       "term_fr": "Réponse courte",
       "term_en": "Short answer",
-      "answer_fr": "Dès que l'application sort du cercle de test : des données de clients ou de salariés, des comptes avec des droits différents, un paiement, des connexions à vos logiciels, ou plusieurs personnes qui la font évoluer. Avant, Lovable suffit. Après, le prix de l'abonnement compte moins que la question de savoir qui relit le code, la base de données et les droits d'accès. Ce seuil est une lecture de Waimia fondée sur les documents de l'éditeur : nous n'avons chiffré la reprise d'aucun projet. Relevé le 16 octobre 2026.",
+      "answer_fr": "Dès que l'application sort du cercle de test : données de clients ou de salariés, comptes avec des droits différents, paiement, connexions à vos logiciels, ou plusieurs personnes qui la font évoluer. Avant, Lovable suffit. Après, le prix de l'abonnement compte moins que la question de savoir qui relit le code, la base de données et les droits d'accès. C'est le seuil que je retiens.",
       "answer_en": "As soon as the application leaves the test circle: customer or employee data, accounts with different rights, a payment, connections to your software, or several people changing it. Before that, Lovable is enough. After that, the subscription price matters less than who reviews the code, the database and the access rights. This threshold is Waimia's reading of the vendor's documents: we have not priced the takeover of any project. Checked on 16 October 2026."
     },
     {
@@ -178,7 +178,7 @@
       "kicker_en": "§ Lovable pricing",
       "heading_fr": "Les prix de Lovable, tels que l'éditeur les publie",
       "heading_en": "Lovable prices, as the vendor publishes them",
-      "caption_fr": "Montants en dollars américains, relevés le 16 octobre 2026 dans la page « Subscription plans » de la documentation de Lovable (onze paliers de 100 à 10 000 crédits par mois ; trois paliers montrés ici). Les cartes de prix de lovable.dev/pricing ne s'affichent pas dans le texte de la page lue : nous ne les avons pas relues sur cette page et nous ne convertissons rien en euros. L'éditeur écrit que la facturation annuelle offre deux mois par rapport au mensuel.",
+      "caption_fr": "Montants en dollars américains, tirés de la page « Subscription plans » de la documentation de Lovable (onze paliers de 100 à 10 000 crédits par mois, trois montrés ici), sans conversion en euros. En facturation annuelle, l'éditeur écrit que deux mois sont offerts par rapport au mensuel.",
       "caption_en": "Amounts in US dollars, read on 16 October 2026 on the \"Subscription plans\" page of Lovable's documentation (eleven tiers from 100 to 10,000 credits a month; three tiers shown here). The price cards on lovable.dev/pricing do not appear in the text of the page we read: we did not re-read them on that page and we convert nothing into euros. The vendor writes that annual billing gives two months compared with monthly.",
       "columns_fr": [
         "Offre",
@@ -296,7 +296,7 @@
     {
       "type": "editorial-prose",
       "background": "paper-2",
-      "html_fr": "<h2>Ce que l'abonnement ne couvre pas seul</h2>\n<p>Le prix de l'abonnement n'est qu'une partie du coût d'usage. D'après la <a href=\"https://docs.lovable.dev/introduction/credits-and-usage\" rel=\"noopener noreferrer\" target=\"_blank\">documentation « Credits and usage »</a> :</p>\n<ul>\n<li>une recharge de 50 crédits coûte 15 $ sur Pro et 30 $ sur Business ;</li>\n<li>les crédits mensuels expirent deux mois après leur émission, ceux d'une recharge au bout de douze mois ;</li>\n<li>l'hébergement de l'application et son backend Cloud puisent dans le même solde, d'abord dans une dotation mensuelle, puis dans les crédits ; si l'espace de travail n'a plus aucun crédit, le site publié reste en ligne, mais les fonctions IA des applications déployées s'arrêtent et le backend Cloud peut se mettre en pause.</li>\n</ul>\n<p>La <a href=\"https://lovable.dev/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">page tarifs</a> nuance : pour une application petite ou récente, l'hébergement ne coûte en général rien, couvert par la dotation incluse. Elle ajoute que les applications qui reçoivent beaucoup de visiteurs peuvent dépasser cette dotation. Un message à l'agent coûte de 0,50 crédit (« Make the button gray ») à 1,70 crédit (une page d'accueil avec trois images) dans les exemples de l'éditeur.</p>\n<p><strong>Ce que j'en conclus</strong> (interprétation de Waimia). Pour un prototype, ces montants sont faibles et la souplesse est réelle. Le coût qui compte apparaît plus tard, quand l'outil devient celui de l'équipe : c'est le temps de relecture, pas l'abonnement.</p>",
+      "html_fr": "<h2>Ce que l'abonnement ne couvre pas seul</h2>\n<p>Le prix de l'abonnement n'est qu'une partie du coût d'usage. La <a href=\"https://docs.lovable.dev/introduction/credits-and-usage\" rel=\"noopener noreferrer\" target=\"_blank\">documentation « Credits and usage »</a> ajoute trois choses :</p>\n<ul>\n<li>une recharge de 50 crédits coûte 15 $ sur Pro et 30 $ sur Business ;</li>\n<li>les crédits mensuels expirent deux mois après leur émission, ceux d'une recharge au bout de douze mois ;</li>\n<li>l'hébergement de l'application et son backend Cloud puisent dans le même solde, d'abord dans une dotation mensuelle, puis dans les crédits ; si l'espace de travail n'a plus aucun crédit, le site publié reste en ligne, mais les fonctions IA des applications déployées s'arrêtent et le backend Cloud peut se mettre en pause.</li>\n</ul>\n<p>La <a href=\"https://lovable.dev/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">page tarifs</a> nuance : pour une application petite ou récente, l'hébergement ne coûte en général rien, couvert par la dotation incluse, mais les applications qui reçoivent beaucoup de visiteurs peuvent la dépasser. Un message à l'agent coûte de 0,50 crédit (« Make the button gray ») à 1,70 crédit (une page d'accueil avec trois images) dans les exemples de l'éditeur.</p>\n<p>Pour un prototype, ces montants sont faibles et la souplesse est réelle. Le coût qui compte arrive plus tard, quand l'outil devient celui de l'équipe : c'est le temps de relecture, pas l'abonnement. Si l'enjeu est un logiciel métier qui doit durer, notre guide sur la <a href=\"/ressources/guides/refonte-logiciel-metier\">refonte d'un logiciel métier</a> donne l'ordre des étapes.</p>",
       "html_en": "<h2>What the subscription does not cover on its own</h2>\n<p>The subscription price is only part of the cost of use. According to the <a href=\"https://docs.lovable.dev/introduction/credits-and-usage\" rel=\"noopener noreferrer\" target=\"_blank\">\"Credits and usage\" documentation</a>:</p>\n<ul>\n<li>a 50-credit top-up costs $15 on Pro and $30 on Business;</li>\n<li>monthly credits expire two months after they are issued, top-up credits after twelve months;</li>\n<li>hosting the application and its Cloud backend draw from the same balance, first from a monthly grant, then from credits; if the workspace has no credits left at all, the published site stays live, but the AI features of deployed apps stop working and the Cloud backend can pause.</li>\n</ul>\n<p>The <a href=\"https://lovable.dev/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">pricing page</a> adds a nuance: for a small or new application, hosting generally costs nothing, covered by the included grant. It adds that applications with heavy traffic may exceed that grant. A message to the agent costs from 0.50 credit (\"Make the button gray\") to 1.70 credits (a landing page with three images) in the vendor's examples.</p>\n<p><strong>What I conclude</strong> (Waimia's interpretation). For a prototype, these amounts are small and the flexibility is real. The cost that matters comes later, when the tool becomes the team's tool: it is review time, not the subscription.</p>"
     },
     {
@@ -306,7 +306,7 @@
       "kicker_en": "§ Eight criteria",
       "heading_fr": "Propriété, accès, sécurité, base de données, évolutions : ce que chaque voie documente",
       "heading_en": "Ownership, access, security, database, changes: what each route documents",
-      "caption_fr": "Colonne Lovable : ce que l'éditeur écrit sur ses pages publiques, lues le 16 octobre 2026 (page tarifs, documentation, conditions d'utilisation mises à jour le 28 août 2026). Colonne Waimia : nos engagements publiés sur les pages MVP SaaS et application métier. Aucune colonne ne dit laquelle produit le meilleur code : nous n'avons pas testé la qualité du code de Lovable.",
+      "caption_fr": "Colonne Lovable : ce que l'éditeur écrit sur ses pages publiques (page tarifs, documentation, conditions d'utilisation mises à jour le 28 août 2026). Colonne Waimia : nos engagements publiés sur les pages MVP SaaS et application métier. Le tableau compare des garanties et des responsabilités, pas la qualité du code.",
       "caption_en": "Lovable column: what the vendor writes on its public pages, read on 16 October 2026 (pricing page, documentation, terms of use updated on 28 August 2026). Waimia column: our commitments published on the SaaS MVP and business application pages. Neither column says which produces the better code: we did not test the quality of Lovable's code.",
       "columns_fr": [
         "Critère",
@@ -408,13 +408,13 @@
       "background": "paper-2",
       "variant": "quote",
       "size": "md",
-      "body_fr": "Le prix de l'abonnement ne décide presque jamais. Ce qui décide : qui relit le code, la base de données et les droits d'accès quand l'outil devient celui de l'équipe.",
+      "body_fr": "L'abonnement ne décide presque jamais. Ce qui décide, c'est qui relit le code, la base de données et les droits d'accès le jour où l'outil devient celui de l'équipe.",
       "body_en": "The subscription price almost never decides. What does: who reviews the code, the database and the access rights once the tool becomes the team's tool."
     },
     {
       "type": "editorial-prose",
       "background": "paper",
-      "html_fr": "<h2>Quand un prototype Lovable doit-il être repris en code remis ?</h2>\n<p><strong>Interprétation de Waimia, pas une mesure.</strong> Nous n'avons chiffré la reprise d'aucun projet Lovable. Les six signaux ci-dessous viennent des documents de l'éditeur et de notre pratique du code remis. Plus il y en a, plus la reprise coûte peu face au risque de rester.</p>\n<ol>\n<li><strong>Des données de personnes réelles.</strong> Clients, salariés, patients : vous restez responsable du traitement. Dans ses <a href=\"https://lovable.dev/terms\" rel=\"noopener noreferrer\" target=\"_blank\">conditions d'utilisation</a> (mises à jour le 28 août 2026), Lovable écrit que vous êtes seul responsable de la relecture, de la validation et de l'usage de la sortie de l'IA, et qu'il ne garantit pas que le service soit sécurisé ni sans erreur (traduction de Waimia).</li>\n<li><strong>Des comptes avec des droits différents.</strong> D'après la <a href=\"https://docs.lovable.dev/features/security\" rel=\"noopener noreferrer\" target=\"_blank\">documentation de sécurité</a>, des règles d'accès mal réglées (row-level security) sont une cause fréquente de fuites de données ; l'éditeur demande de les relire avant publication et après tout changement d'authentification ou de structure de la base.</li>\n<li><strong>Un paiement ou une facturation.</strong> Un paiement refusé, un abonnement qui ne s'annule pas, un compte supprimé : ce sont des cas limites qu'on teste, qu'on ne suppose pas.</li>\n<li><strong>Des connexions à vos logiciels.</strong> Clés, jetons, appels vers votre CRM ou votre comptabilité. La <a href=\"https://docs.lovable.dev/tips-tricks/security-best-practices\" rel=\"noopener noreferrer\" target=\"_blank\">liste de contrôle de l'éditeur</a> demande qu'aucun secret ne figure dans le code côté navigateur et que les appels externes passent côté serveur.</li>\n<li><strong>Plus d'une personne qui fait évoluer l'outil.</strong> Si seule la personne qui a écrit les messages sait comment l'outil a été construit, il dépend d'elle, même si le code vous appartient.</li>\n<li><strong>Une base de données qui doit durer.</strong> D'après la <a href=\"https://docs.lovable.dev/features/cloud\" rel=\"noopener noreferrer\" target=\"_blank\">documentation de Lovable Cloud</a>, il n'existe pas de migration en un clic vers votre propre projet Supabase, la suppression de Cloud est définitive et la région ne se change pas. Si la base porte des données qu'on ne peut pas perdre, l'hébergement se choisit avant, pas après.</li>\n</ol>\n<p>Si aucun de ces six signaux ne s'applique (démonstration, test auprès de quelques clients, outil jetable), rester sur Lovable est un choix raisonnable. Nous n'avons aucune raison de vous en dissuader.</p>\n<h2>Que coûte la reprise ?</h2>\n<p>Trois postes : relire (le dépôt, la base, les règles d'accès), corriger (sécurité, cas limites testés), puis reconstruire ce qui ne tient pas. Le poste dominant dépend de la qualité du prototype, que nous ne pouvons pas juger sans le lire. C'est pourquoi l'audit gratuit de 45 minutes commence par ce qui existe déjà ; le sprint de cadrage de 10 heures, à {{prix.sprint}} € HT, fixe ensuite le périmètre. La mise en production du code repris relève du pilote, dès {{prix.pilote}} € HT, et la suite se facture {{prix.horaire}} € HT de l'heure.</p>\n<p>Pour un logiciel destiné à vos clients, voir le <a href=\"/services/mvp-saas\">développement de MVP SaaS</a> ; pour un outil réservé à votre équipe, les <a href=\"/services/applications-internes\">applications métier sur mesure</a>. Dans les deux cas, le code, la base de données et l'hébergement sont à votre nom.</p>",
+      "html_fr": "<h2>Quand un prototype Lovable doit-il être repris en code remis ?</h2>\n<p>Je regarde six signaux. Ils viennent des documents de l'éditeur et de notre pratique du code remis : plus il y en a, moins la reprise coûte cher face au risque de rester.</p>\n<ol>\n<li>Des données de personnes réelles, clients, salariés ou patients : vous restez responsable du traitement. Dans ses <a href=\"https://lovable.dev/terms\" rel=\"noopener noreferrer\" target=\"_blank\">conditions d'utilisation</a> (mises à jour le 28 août 2026), Lovable écrit que vous êtes seul responsable de la relecture, de la validation et de l'usage de la sortie de l'IA, et qu'il ne garantit pas que le service soit sécurisé ni sans erreur.</li>\n<li>Des comptes avec des droits différents. D'après la <a href=\"https://docs.lovable.dev/features/security\" rel=\"noopener noreferrer\" target=\"_blank\">documentation de sécurité</a>, des règles d'accès mal réglées (row-level security) sont une cause fréquente de fuites de données ; l'éditeur demande de les relire avant publication et après tout changement d'authentification ou de structure de la base.</li>\n<li>Un paiement ou une facturation. Un paiement refusé, un abonnement qui ne s'annule pas, un compte supprimé : ce sont des cas limites qu'on teste, qu'on ne suppose pas.</li>\n<li>Des connexions à vos logiciels : clés, jetons, appels vers votre CRM ou votre comptabilité. La <a href=\"https://docs.lovable.dev/tips-tricks/security-best-practices\" rel=\"noopener noreferrer\" target=\"_blank\">liste de contrôle de l'éditeur</a> demande qu'aucun secret ne figure dans le code côté navigateur et que les appels externes passent côté serveur.</li>\n<li>Plusieurs personnes qui font évoluer l'outil. Si seule celle qui a écrit les messages sait comment il a été construit, il dépend d'elle, même si le code vous appartient.</li>\n<li>Une base de données qui doit durer. D'après la <a href=\"https://docs.lovable.dev/features/cloud\" rel=\"noopener noreferrer\" target=\"_blank\">documentation de Lovable Cloud</a>, il n'existe pas de migration en un clic vers votre propre projet Supabase, la suppression de Cloud est définitive et la région ne se change pas. Si la base porte des données qu'on ne peut pas perdre, choisissez l'hébergement avant, pas après.</li>\n</ol>\n<p>Si aucun de ces six signaux ne s'applique (démonstration, test auprès de quelques clients, outil jetable), restez sur Lovable. Je n'ai aucune raison de vous en dissuader.</p>\n<h2>Que coûte la reprise ?</h2>\n<p>Trois postes : relire (le dépôt, la base, les règles d'accès), corriger (sécurité, cas limites testés), puis reconstruire ce qui ne tient pas. Le poste dominant dépend de la qualité du prototype, et je ne peux pas la juger sans lire le code. C'est pourquoi l'audit gratuit de 45 minutes commence par ce qui existe déjà ; le sprint de cadrage de 10 heures, à {{prix.sprint}} € HT, fixe ensuite le périmètre. La mise en production du code repris relève du pilote, dès {{prix.pilote}} € HT, et la suite se facture {{prix.horaire}} € HT de l'heure.</p>\n<p>Pour un logiciel destiné à vos clients, voir le <a href=\"/services/mvp-saas\">développement de MVP SaaS</a> ; pour un outil réservé à votre équipe, les <a href=\"/services/applications-internes\">applications métier sur mesure</a>. Dans les deux cas, le code, la base de données et l'hébergement sont à votre nom.</p>",
       "html_en": "<h2>When should a Lovable prototype be taken over as delivered code?</h2>\n<p><strong>Waimia's interpretation, not a measurement.</strong> We have not priced the takeover of any Lovable project. The six signals below come from the vendor's documents and from our practice of delivered code. The more of them apply, the less the takeover costs against the risk of staying.</p>\n<ol>\n<li><strong>Data about real people.</strong> Customers, employees, patients: you remain responsible for the processing. In its <a href=\"https://lovable.dev/terms\" rel=\"noopener noreferrer\" target=\"_blank\">terms of use</a> (updated on 28 August 2026), Lovable writes that you are solely responsible for reviewing, validating and using the AI output, and that it does not guarantee that the service is secure or error-free.</li>\n<li><strong>Accounts with different rights.</strong> According to the <a href=\"https://docs.lovable.dev/features/security\" rel=\"noopener noreferrer\" target=\"_blank\">security documentation</a>, misconfigured access rules (row-level security) are a common cause of data leaks; the vendor asks you to review them before publishing and after any change to authentication or database structure.</li>\n<li><strong>A payment or billing.</strong> A declined payment, a subscription that will not cancel, a deleted account: these are edge cases you test, not assume.</li>\n<li><strong>Connections to your software.</strong> Keys, tokens, calls to your CRM or accounting. The <a href=\"https://docs.lovable.dev/tips-tricks/security-best-practices\" rel=\"noopener noreferrer\" target=\"_blank\">vendor's checklist</a> asks that no secret appears in browser-side code and that external calls happen server-side.</li>\n<li><strong>More than one person changing the tool.</strong> If only the person who wrote the messages knows how the tool was built, it depends on them, even if the code belongs to you.</li>\n<li><strong>A database that has to last.</strong> According to the <a href=\"https://docs.lovable.dev/features/cloud\" rel=\"noopener noreferrer\" target=\"_blank\">Lovable Cloud documentation</a>, there is no one-click migration to your own Supabase project, removing Cloud is permanent and the region cannot be changed. If the database holds data you cannot lose, the hosting is chosen before, not after.</li>\n</ol>\n<p>If none of these six signals applies (demonstration, test with a few customers, disposable tool), staying on Lovable is a reasonable choice. We have no reason to talk you out of it.</p>\n<h2>What does the takeover cost?</h2>\n<p>Three items: reviewing (the repository, the database, the access rules), fixing (security, tested edge cases), then rebuilding what does not hold. The dominant item depends on the quality of the prototype, which we cannot judge without reading it. That is why the free 45-minute audit starts with what already exists; the 10-hour scoping sprint, at {{prix.sprint.en}} € excl. VAT, then fixes the scope. Putting the taken-over code into production is part of the pilot, from {{prix.pilote.en}} € excl. VAT, and what follows is billed at {{prix.horaire}} € excl. VAT per hour.</p>\n<p>For software meant for your customers, see <a href=\"/services/mvp-saas\">SaaS MVP development</a>; for a tool reserved for your team, <a href=\"/services/applications-internes\">custom business applications</a>. In both cases, the code, the database and the hosting are in your name.</p>"
     },
     {
@@ -424,13 +424,13 @@
       "kicker_en": "§ Decide on evidence",
       "h2_fr": "Comment décider en quatre étapes",
       "h2_en": "How to decide in four steps",
-      "intro_fr": "La méthode que nous proposons quand un dirigeant hésite entre garder un prototype Lovable et le faire reprendre. Elle coûte quelques jours, pas une étude.",
+      "intro_fr": "La méthode que nous proposons quand un dirigeant hésite entre garder un prototype Lovable et le faire reprendre. Quelques jours, pas une étude.",
       "intro_en": "The method we suggest when an owner hesitates between keeping a Lovable prototype and having it taken over. It costs a few days, not a study.",
       "steps": [
         {
           "title_fr": "Lister ce que le prototype touche",
           "title_en": "List what the prototype touches",
-          "body_fr": "Données de personnes, comptes et droits, paiement, connexions à vos logiciels : les six signaux ci-dessus, cochés un par un.",
+          "body_fr": "Passez les six signaux ci-dessus en revue, un par un : données de personnes, comptes et droits, paiement, connexions à vos logiciels, personnes qui font évoluer l'outil, durée de vie de la base.",
           "body_en": "Data about people, accounts and rights, payment, connections to your software: the six signals above, ticked one by one.",
           "meta_fr": "Jour 1",
           "meta_en": "Day 1"
@@ -438,7 +438,7 @@
         {
           "title_fr": "Exporter le code et lancer les analyses",
           "title_en": "Export the code and run the scans",
-          "body_fr": "Activez la synchronisation Git, lancez l'analyse approfondie de Lovable et gardez le rapport. C'est une base de discussion, pas un verdict : l'éditeur écrit qu'elle ne remplace pas une revue de sécurité approfondie.",
+          "body_fr": "Activez la synchronisation Git, lancez l'analyse approfondie de Lovable et gardez le rapport. Il sert de base de discussion : l'éditeur écrit lui-même qu'elle ne remplace pas une revue de sécurité approfondie.",
           "body_en": "Turn on Git sync, run Lovable's deep scan and keep the report. It is a basis for discussion, not a verdict: the vendor writes that it does not replace a thorough security review.",
           "meta_fr": "Jours 1 et 2",
           "meta_en": "Days 1 and 2"
@@ -446,7 +446,7 @@
         {
           "title_fr": "Chiffrer deux scénarios sur douze mois",
           "title_en": "Price two scenarios over twelve months",
-          "body_fr": "Rester : abonnement, crédits, temps de relecture d'une personne nommée. Reprendre : heures de relecture, de correction et de reconstruction. Notez ce qui ferait changer le résultat.",
+          "body_fr": "Pour rester : abonnement, crédits, temps de relecture d'une personne nommée. Pour reprendre : heures de relecture, de correction et de reconstruction. Notez ce qui ferait changer le résultat.",
           "body_en": "Stay: subscription, credits, review time of a named person. Take over: hours of review, fixing and rebuilding. Note what would change the result.",
           "meta_fr": "Une semaine",
           "meta_en": "One week"
@@ -454,7 +454,7 @@
         {
           "title_fr": "Décider par écrit",
           "title_en": "Decide in writing",
-          "body_fr": "Un des deux scénarios, avec le signal qui déclenchera le basculement si vous restez sur Lovable. La décision tient sur une page.",
+          "body_fr": "Un seul scénario retenu, avec le signal qui déclenchera le basculement si vous restez sur Lovable. La décision tient sur une page.",
           "body_en": "One of the two scenarios, with the signal that will trigger the switch if you stay on Lovable. The decision fits on one page.",
           "meta_fr": "Décision écrite",
           "meta_en": "Written decision"
@@ -464,7 +464,7 @@
     {
       "type": "editorial-prose",
       "background": "paper",
-      "html_fr": "<h2>Un cas réel, et ce qu'il ne prouve pas</h2>\n<p>Pour Inbound Value, agence partenaire, Waimia a créé un serveur MCP, réalisé sur Lovable dans l'espace d'Inbound Value et non dans celui de Waimia, qui génère des sites de preuve sociale. La <a href=\"/cas-clients/inbound-value\">fiche du cas</a> ne publie aucun chiffre d'impact. Nous le citons seulement pour dire que nous travaillons aussi dans l'outil du client quand c'est son choix. Il ne prouve ni que Lovable suffit, ni qu'il ne suffit pas.</p>\n<h2>Que ne mesure pas ce comparatif ?</h2>\n<p><strong>La qualité du code produit par Lovable.</strong> Nous ne l'avons pas testée et nous ne reprenons aucun classement. <strong>Le coût d'une reprise.</strong> Nous n'avons chiffré la reprise d'aucun projet : le seuil proposé est une lecture, pas un résultat. <strong>Les prix à jour.</strong> Ils sont relevés le 16 octobre 2026 dans la documentation de l'éditeur, en dollars, et peuvent changer ; les cartes de lovable.dev/pricing ne se sont pas affichées dans le texte lu. <strong>Les offres régionales.</strong> La page tarifs signale que certaines offres régionales plafonnent les crédits quotidiens ; nous ne les avons pas relevées.</p>\n<p>Pour comparer développer et acheter un outil métier, voir <a href=\"/blog/applications-internes-build-vs-buy-pme\">développer ou acheter son outil interne</a>.</p>",
+      "html_fr": "<h2>Un cas réel : le serveur MCP d'Inbound Value</h2>\n<p>Pour Inbound Value, agence partenaire, Waimia a créé un serveur MCP qui génère des sites de preuve sociale. Il a été réalisé sur Lovable, dans l'espace d'Inbound Value et non dans celui de Waimia, parce que tel était le choix du client. La <a href=\"/cas-clients/inbound-value\">fiche du cas</a> ne publie aucun chiffre d'impact : je la cite pour dire que nous travaillons dans l'outil du client quand c'est son choix, pas pour démontrer que Lovable suffit.</p>\n<h2>Relire les prix et le code avant de décider</h2>\n<p>Lovable fait bouger ses grilles : relisez la page tarifs le jour de la décision. Les offres régionales, dont certaines plafonnent les crédits quotidiens, peuvent différer de ce tableau. Quant au code lui-même, aucun comparatif ne dit s'il est bon : pour une application qui compte, faites relire le dépôt par un développeur, c'est ce qu'on regarde en premier à l'audit.</p>\n<p>Pour comparer développer et acheter un outil métier, voir <a href=\"/blog/applications-internes-build-vs-buy-pme\">développer ou acheter son outil interne</a>.</p>",
       "html_en": "<h2>A real case, and what it does not prove</h2>\n<p>For Inbound Value, a partner agency, Waimia created an MCP server, built on Lovable in Inbound Value's workspace and not in Waimia's, that generates social proof sites. The <a href=\"/cas-clients/inbound-value\">case page</a> publishes no impact figure. We cite it only to say that we also work in the client's tool when that is their choice. It proves neither that Lovable is enough nor that it is not.</p>\n<h2>What does this comparison not measure?</h2>\n<p><strong>The quality of the code Lovable produces.</strong> We did not test it and we reuse no ranking. <strong>The cost of a takeover.</strong> We have not priced the takeover of any project: the proposed threshold is a reading, not a result. <strong>Up-to-date prices.</strong> They were read on 16 October 2026 in the vendor's documentation, in dollars, and may change; the cards on lovable.dev/pricing did not appear in the text we read. <strong>Regional plans.</strong> The pricing page notes that some regional plans cap daily credits; we did not read them.</p>\n<p>To compare building and buying a business tool, see <a href=\"/blog/applications-internes-build-vs-buy-pme\">build or buy your internal tool</a>.</p>"
     },
     {
@@ -510,37 +510,37 @@
       "items": [
         {
           "q_fr": "Combien coûte Lovable ?",
-          "a_fr": "D'après la documentation de l'éditeur, relevée le 16 octobre 2026 : l'offre Free est gratuite, avec 5 crédits de construction par jour (30 par mois au plus). Pro démarre à 25 $ par mois pour 100 crédits (250 $ par an), Business à 50 $ par mois (500 $ par an), jusqu'à 10 000 crédits par mois. Enterprise est sur devis. Les prix sont en dollars et les crédits servent aussi à l'hébergement.",
+          "a_fr": "D'après la documentation de l'éditeur : l'offre Free est gratuite, avec 5 crédits de construction par jour (30 par mois au plus). Pro démarre à 25 $ par mois pour 100 crédits (250 $ par an), Business à 50 $ par mois (500 $ par an), jusqu'à 10 000 crédits par mois. Enterprise est sur devis. Les prix sont en dollars et les crédits servent aussi à l'hébergement : relisez la grille le jour de la commande.",
           "q_en": "How much does Lovable cost?",
           "a_en": "According to the vendor's documentation, read on 16 October 2026: the Free plan is free, with 5 build credits a day (30 a month at most). Pro starts at $25 a month for 100 credits ($250 a year), Business at $50 a month ($500 a year), up to 10,000 credits a month. Enterprise is on quote. Prices are in dollars and credits also pay for hosting."
         },
         {
           "q_fr": "Le code d'une application Lovable m'appartient-il ?",
-          "a_fr": "Oui, d'après Lovable : la page tarifs écrit « You own your code », sorties de l'IA comprises, sous réserve des droits de tiers sur les modèles. Les conditions précisent que vous restez seul responsable de la relecture et de la validation de ces sorties. Relevé le 16 octobre 2026.",
+          "a_fr": "Oui, d'après Lovable : sa page tarifs écrit « You own your code », sorties de l'IA comprises, sous réserve des droits de tiers sur les modèles. Les conditions précisent que vous restez seul responsable de la relecture et de la validation de ces sorties.",
           "q_en": "Do I own the code of a Lovable application?",
           "a_en": "Yes, according to Lovable: the pricing page writes \"You own your code\", AI output included, subject to third-party rights in the models. The terms specify that you remain solely responsible for reviewing and validating that output. Checked on 16 October 2026."
         },
         {
           "q_fr": "Peut-on faire reprendre une application Lovable par un développeur ?",
-          "a_fr": "Le code, oui : la synchronisation avec GitHub, GitLab ou Bitbucket est incluse sur toutes les offres, et le dépôt reste si vous coupez la synchronisation. La base de données est moins simple : il n'existe pas de migration en un clic de Lovable Cloud vers votre propre projet Supabase. Un audit du dépôt et de la base dit ce que la reprise coûte.",
+          "a_fr": "Le code, oui : GitHub, GitLab et Bitbucket se synchronisent sur toutes les offres, et le dépôt reste en place si vous coupez la synchronisation. La base de données demande plus de travail : Lovable Cloud ne se migre pas en un clic vers votre propre projet Supabase. Un audit du dépôt et de la base dit ce que la reprise coûte.",
           "q_en": "Can a developer take over a Lovable application?",
           "a_en": "The code, yes: sync with GitHub, GitLab or Bitbucket is included on every plan, and the repository stays if you stop syncing. The database is less simple: there is no one-click migration from Lovable Cloud to your own Supabase project. An audit of the repository and the database says what the takeover costs."
         },
         {
           "q_fr": "À partir de quand quitter Lovable pour du code sur mesure ?",
-          "a_fr": "Quand le prototype porte des données de personnes, des comptes avec des droits différents, un paiement ou des connexions à vos logiciels, ou quand plusieurs personnes le font évoluer. C'est une lecture de Waimia, pas une mesure : nous n'avons chiffré la reprise d'aucun projet.",
+          "a_fr": "Quand le prototype porte des données de personnes, des comptes avec des droits différents, un paiement ou des connexions à vos logiciels, ou quand plusieurs personnes le font évoluer. C'est le seuil que je retiens.",
           "q_en": "When should you leave Lovable for custom code?",
           "a_en": "When the prototype carries data about people, accounts with different rights, a payment or connections to your software, or when several people change it. This is Waimia's reading, not a measurement: we have not priced the takeover of any project."
         },
         {
           "q_fr": "Lovable est-il sûr pour une application d'entreprise ?",
-          "a_fr": "L'éditeur propose deux analyses de sécurité et une liste de contrôle avant publication, et écrit qu'elles ne remplacent pas une revue de sécurité approfondie : le propriétaire de l'application reste responsable. Nous n'avons audité aucun projet Lovable ; la réponse dépend de ce que l'application manipule.",
+          "a_fr": "L'éditeur propose deux analyses de sécurité et une liste de contrôle avant publication, et écrit qu'elles ne remplacent pas une revue de sécurité approfondie : le propriétaire de l'application reste responsable. Tout dépend de ce que l'application manipule ; avec des données de clients ou un paiement, faites relire le code par un développeur avant de publier.",
           "q_en": "Is Lovable safe for a business application?",
           "a_en": "The vendor offers two security scans and a pre-publish checklist, and writes that they do not replace a thorough security review: the application owner remains responsible. We have not audited any Lovable project; the answer depends on what the application handles."
         },
         {
           "q_fr": "Waimia revend-il Lovable ou vend-il un générateur d'application ?",
-          "a_fr": "Non. Waimia ne vend pas de générateur d'application : il livre du code remis et relu, avec dépôt, base de données et hébergement à votre nom, et des automatisations sur des outils comme n8n ou Make. Quand un client a choisi Lovable, nous pouvons travailler dans son espace, comme pour le serveur MCP d'Inbound Value.",
+          "a_fr": "Non. Waimia ne vend pas de générateur d'application : il livre du code remis et relu, avec dépôt, base de données et hébergement à votre nom, et des automatisations sur des outils comme n8n ou Make. Quand un client a choisi Lovable, nous travaillons dans son espace, comme pour le serveur MCP d'Inbound Value.",
           "q_en": "Does Waimia resell Lovable or sell an application generator?",
           "a_en": "No. Waimia does not sell an application generator: it delivers reviewed code, with the repository, database and hosting in your name, and automations built on tools such as n8n or Make. When a client has chosen Lovable, we can work in their workspace, as for Inbound Value's MCP server."
         }
@@ -554,7 +554,7 @@
       "kicker_en": "§ Free AI audit",
       "h2_fr": "Un prototype à regarder avant d'aller plus loin ?",
       "h2_en": "A prototype to look at before going further?",
-      "subtitle_fr": "En 45 minutes, on regarde ce que le prototype touche (données, comptes, paiement) et on dit s'il peut continuer tel quel ou s'il vaut mieux le reprendre.",
+      "subtitle_fr": "Un audit de 45 minutes regarde ce que le prototype touche (données, comptes, paiement) et dit s'il peut continuer tel quel ou s'il vaut mieux le reprendre.",
       "subtitle_en": "In 45 minutes, we look at what the prototype touches (data, accounts, payment) and say whether it can carry on as it is or is better taken over.",
       "buttons": [
         {
