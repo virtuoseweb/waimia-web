@@ -37,6 +37,30 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### 2026-11-11 · « agence ia bordeaux » et « guide claude » : diagnostic et correctifs (demande de Simon)
+
+**Départ** (Search Console, 28 jours, `2026-W46/gsc-performance.json`) : « agence ia bordeaux » position 37,0 (15 impressions) sur `/implantations/bordeaux` ; `/agence` absente de la requête (classée seulement sur « waimia »). « guide claude pme » position 15,6 (18 impressions) sur `/ressources/guides/claude-pme` ; « guide claude » : aucune impression. « claude pme » réparti sur sept pages (guide 16,7 ; comparatif Claude vs ChatGPT 33,2 ; `claude-cowork`, `claude-tpe`, `integration-claude`, `consultant-ia-claude`).
+
+**Page de résultats lue le 11 novembre 2026** (google.fr) :
+- « agence ia bordeaux » : un pack local (carte, fiches Cortex-iA et GENIAL), un annuaire (Sortlist), puis des pages dédiées `/agence-ia-bordeaux` (ia4ops, kayro, JUWA, GENIAL, ITChain).
+- « guide claude » : guides généraux (Anthropic, nocodefactory « Claude IA : guide complet », blogdumoderateur), aucun guide orienté PME.
+- « guide claude pme » : titres qui commencent par « Claude IA » ou « Guide », « pour PME » en tête.
+
+**Diagnostic** :
+- La page Bordeaux est déjà alignée (title, H1, adresse, ProfessionalService, FAQ). Dernière exploration Google : 10/11 à 14:19 UTC, avant la réécriture du 11/11 (lot 28) : la position 37 mesure l'ancienne version.
+- Les 288 liens vers `/implantations/bordeaux` portent tous l'ancre « Bordeaux » (pied de page) : aucune ancre descriptive.
+- Le reste se joue hors du site : la fiche Google, les avis, les annuaires avec la même adresse et le même téléphone, et l'autorité du domaine.
+- Le guide Claude ne contenait pas « Claude IA » (0 occurrence) et son title commençait par « Déployer » : il ne répondait ni à « guide claude » ni à « claude ia ».
+
+**Ce qui a changé** :
+- `/ressources/guides/claude-pme` : ajout de `seoTitle_fr` « Guide Claude IA pour PME : déploiement, coût, plan 90 jours » (59). Le title précédent datait du 6/10 : la règle des trois semaines est respectée. `description_fr` commence par « Guide Claude IA pour PME » (141). La réponse directe nomme « Claude IA, l'assistant d'Anthropic ». H1 inchangé.
+- Ancres descriptives vers la page Bordeaux : « agence IA à Bordeaux » depuis `/agence` (lede) et depuis `/ressources/guides/choisir-agence-ia-pme`. Ancre « guide Claude pour PME » depuis le comparatif Claude vs ChatGPT.
+- `/implantations/bordeaux` et `/agence` : title et meta inchangés. Bordeaux est figée jusqu'au 1/12, et `/agence` n'est pas la page à pousser sur la requête : deux URL sur la même requête locale se partageraient les signaux.
+
+**Hors site, à faire par Simon** : la fiche Google (le `sameAs` cite un lien `share.google`), des avis de vrais clients, une fiche Sortlist et les annuaires locaux avec exactement la même adresse et le même téléphone. Ces actions restent bloquées par la décision sur la marque.
+
+**À mesurer** : collecte qui suit le 18/11. « agence ia bordeaux » (départ 37,0) ; « guide claude pme » (départ 15,6, attendu en première page) ; « guide claude » (départ : absent).
+
 ### 2026-11-11 (session de production du mercredi, 2026-W46, collecte du 9 novembre 2026)
 
 **Données** : collecte du 9 novembre 2026 à 11:41 UTC (`generatedAt`), **pas fraîche** (`freshness.mjs` : « collecte récente (43 h) mais incomplète : gsc-index (erreur), indexnow (erreur), indexing-api (erreur), brave-queue (erreur), sitemap-production (erreur) »), conséquence de la panne de production du 9 et du 10 novembre. waimia.com répond de nouveau 200 (`curl` sur l'accueil, 11 novembre 2026 vers 06:50 UTC). Relance locale des flux et concurrents non refaite : aucune décision du jour n'en dépendait (création planifiée). KPI et bilan des actions : non refaits (session de production, runbook section 9).
