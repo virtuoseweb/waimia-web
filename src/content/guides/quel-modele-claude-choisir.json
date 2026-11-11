@@ -3,11 +3,11 @@
   "title_fr": "Quel modèle Claude choisir : Opus, Sonnet ou Haiku ?",
   "title_en": "Which Claude model to choose: Opus, Sonnet or Haiku?",
   "seoTitle_fr": "Claude Opus, Sonnet, Haiku : quel modèle choisir ?",
-  "description_fr": "Opus 5.5, Sonnet 5.5, Haiku 5.5 ou Fable 5.1 : quel modèle Claude pour une PME, à quel prix par million de jetons ? Relevé le 15 octobre 2026.",
-  "description_en": "Opus 5.5, Sonnet 5.5, Haiku 5.5 or Fable 5.1: which Claude model for your SMB, at what price per million tokens, on which plan. Checked on 15 October 2026.",
+  "description_fr": "Opus 5.5, Sonnet 5.5, Haiku 5.5 ou Fable 5.2 : quel modèle Claude pour une PME, à quel prix par million de jetons, dans quelle offre ?",
+  "description_en": "Opus 5.5, Sonnet 5.5, Haiku 5.5 or Fable 5.2: which Claude model for your SMB, at what price per million tokens, on which plan?",
   "slug": "quel-modele-claude-choisir",
   "publishedAt": "2026-10-15",
-  "updatedAt": "2026-10-24",
+  "updatedAt": "2026-11-11",
   "category": "claude",
   "cluster": "claude",
   "tags": [
@@ -21,23 +21,34 @@
   ],
   "sources": [
     {
-      "name": "Anthropic, vue d'ensemble des modèles Claude, lue le 15 octobre 2026",
+      "name": "Anthropic, « Introducing Claude Fable 5.2 and Claude Mythos 5.2 » (9 novembre 2026), lu le 11 novembre 2026",
+      "url": "https://www.anthropic.com/news/claude-fable-and-mythos-5-2",
+      "type": "enterprise",
+      "publishedAt": "2026-11-09"
+    },
+    {
+      "name": "Anthropic, vue d'ensemble des modèles Claude, lue le 11 novembre 2026",
       "url": "https://platform.claude.com/docs/en/models/overview",
       "type": "enterprise"
     },
     {
-      "name": "Anthropic, tarification de l'API Claude, lue le 15 octobre 2026",
+      "name": "Anthropic, tarification de l'API Claude, lue le 11 novembre 2026",
       "url": "https://platform.claude.com/docs/en/about-claude/pricing",
       "type": "enterprise"
     },
     {
-      "name": "Anthropic, choisir le bon modèle, documentation pour développeurs, lue le 15 octobre 2026",
+      "name": "Anthropic, choisir le bon modèle, documentation pour développeurs, lue le 11 novembre 2026",
       "url": "https://platform.claude.com/docs/en/about-claude/models/choosing-a-model",
       "type": "enterprise"
     },
     {
       "name": "Anthropic, dépréciation et retrait des modèles, lue le 15 octobre 2026",
       "url": "https://platform.claude.com/docs/en/about-claude/model-deprecations",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, offres de lancement de Claude Fable 5.2 (centre d'aide), lues le 11 novembre 2026",
+      "url": "https://support.claude.com/en/articles/17506494",
       "type": "enterprise"
     },
     {
@@ -56,7 +67,7 @@
       "type": "enterprise"
     },
     {
-      "name": "Anthropic, page tarifs de Claude (modèles par offre), relue le 15 octobre 2026",
+      "name": "Anthropic, page tarifs de Claude (modèles par offre), relue le 11 novembre 2026",
       "url": "https://claude.com/pricing",
       "type": "enterprise"
     },
@@ -72,7 +83,7 @@
   "faq_fr": [
     {
       "q": "Quel est le dernier modèle Claude ?",
-      "a": "Au 15 octobre 2026, la gamme actuelle d'Anthropic compte quatre modèles : Claude Fable 5.1, Claude Opus 5.5, Claude Sonnet 5.5 et Claude Haiku 5.5. Anthropic présente Fable 5.1 comme son modèle le plus capable ouvert à tous les clients. Les numéros changent vite : relisez la vue d'ensemble des modèles d'Anthropic avant de figer un choix."
+      "a": "Au 11 novembre 2026, la gamme actuelle d'Anthropic compte quatre modèles : Claude Fable 5.2, Claude Opus 5.5, Claude Sonnet 5.5 et Claude Haiku 5.5. Fable 5.2, sorti le 9 novembre 2026, est le modèle le plus capable ouvert à tous les clients, d'après Anthropic ; Claude Mythos 5.2, le même modèle, avec des garde-fous allégés sur la cybersécurité et la biologie, est réservé aux organisations vérifiées. Les numéros changent vite : relisez la vue d'ensemble des modèles d'Anthropic avant de figer un choix."
     },
     {
       "q": "Claude Opus ou Claude Sonnet : lequel pour une PME ?",
@@ -84,11 +95,11 @@
     },
     {
       "q": "Combien coûtent Opus, Sonnet et Haiku par million de jetons ?",
-      "a": "Prix de l'API d'Anthropic au 15 octobre 2026, en entrée puis en sortie : Haiku 5.5 à partir de 0,10 $ et 0,50 $, Sonnet 5.5 2 $ et 10 $, Opus 5.5 4 $ et 20 $, Fable 5.1 10 $ et 50 $. Le traitement par lots (Batch) retire 50 %. Prix en dollars, hors taxes. L'abonnement, lui, se paie au siège : voir le guide des offres."
+      "a": "Prix de l'API d'Anthropic, en entrée puis en sortie : Haiku 5.5 à partir de 0,10 $ et 0,50 $, Sonnet 5.5 2 $ et 10 $, Opus 5.5 4 $ et 20 $, Fable 5.2 8 $ et 40 $. Le traitement par lots (Batch) retire 50 %. Prix en dollars, hors taxes. L'abonnement, lui, se paie au siège : voir le guide des offres."
     },
     {
       "q": "Quel modèle est inclus dans Claude Pro, Max et Team ?",
-      "a": "Sonnet et Haiku sont dans toutes les offres, Free comprise. Opus est inclus dès Pro. Fable est accessible via des crédits d'usage sur Pro, jusqu'à 50 % de la limite hebdomadaire sur Max, et sur les sièges Premium de Team jusqu'à 50 % de la limite de chaque membre. Relevé sur la page tarifs d'Anthropic le 15 octobre 2026, par famille de modèles."
+      "a": "Sonnet et Haiku sont dans toutes les offres, Free comprise. Opus est inclus dès Pro. Fable est accessible via des crédits d'usage sur Pro, jusqu'à 50 % de la limite hebdomadaire sur Max, et sur les sièges Premium de Team jusqu'à 50 % de la limite de chaque membre. D'après la page tarifs d'Anthropic, par famille de modèles."
     },
     {
       "q": "Claude Opus 4.7 et Sonnet 4.6 existent-ils encore ?",
@@ -102,7 +113,7 @@
   "faq_en": [
     {
       "q": "What is the latest Claude model?",
-      "a": "As of 15 October 2026, Anthropic's current lineup has four models: Claude Fable 5.1, Claude Opus 5.5, Claude Sonnet 5.5 and Claude Haiku 5.5. Anthropic presents Fable 5.1 as its most capable model open to all customers. Version numbers change fast: reread Anthropic's models overview before locking in a choice."
+      "a": "As of 11 November 2026, Anthropic's current lineup has four models: Claude Fable 5.2, Claude Opus 5.5, Claude Sonnet 5.5 and Claude Haiku 5.5. Fable 5.2, released on 9 November 2026, is the most capable model open to all customers, according to Anthropic; Claude Mythos 5.2, the same model with lighter safeguards on cybersecurity and biology, is reserved for verified organisations. Version numbers change fast: reread Anthropic's models overview before locking in a choice."
     },
     {
       "q": "Claude Opus or Claude Sonnet: which one for an SMB?",
@@ -114,11 +125,11 @@
     },
     {
       "q": "How much do Opus, Sonnet and Haiku cost per million tokens?",
-      "a": "Anthropic API prices on 15 October 2026, input then output: Haiku 5.5 from $0.10 and $0.50, Sonnet 5.5 $2 and $10, Opus 5.5 $4 and $20, Fable 5.1 $10 and $50. Batch processing takes 50% off. Prices in dollars, excluding tax. A subscription is paid per seat: see the plans guide."
+      "a": "Anthropic API prices, input then output: Haiku 5.5 from $0.10 and $0.50, Sonnet 5.5 $2 and $10, Opus 5.5 $4 and $20, Fable 5.2 $8 and $40. Batch processing takes 50% off. Prices in dollars, excluding tax. A subscription is paid per seat: see the plans guide."
     },
     {
       "q": "Which model is included in Claude Pro, Max and Team?",
-      "a": "Sonnet and Haiku are on every plan, Free included. Opus is included from Pro. Fable is reachable through usage credits on Pro, up to 50% of the weekly limit on Max, and on Team Premium seats up to 50% of each member's limit. Taken from Anthropic's pricing page on 15 October 2026, by model family."
+      "a": "Sonnet and Haiku are on every plan, Free included. Opus is included from Pro. Fable is reachable through usage credits on Pro, up to 50% of the weekly limit on Max, and on Team Premium seats up to 50% of each member's limit. Taken from Anthropic's pricing page, by model family."
     },
     {
       "q": "Do Claude Opus 4.7 and Sonnet 4.6 still exist?",
@@ -143,12 +154,12 @@
       "kicker_en": "§ Guide",
       "h1_fr": "Quel modèle <i class=\"acc\">Claude</i> choisir : Opus, Sonnet ou Haiku ?",
       "h1_en": "Which <i class=\"acc\">Claude</i> model to choose: Opus, Sonnet or Haiku?",
-      "lede_fr": "En PME, partez de Claude Sonnet 5.5, le modèle que la formation officielle d'Anthropic recommande par défaut. Descendez sur Haiku 5.5 pour les tâches simples en volume. Montez sur Opus 5.5, ou sur Fable 5.1, quand Sonnet bute sur un problème. Gamme et prix relevés le 15 octobre 2026 sur les pages d'Anthropic.",
-      "lede_en": "In an SMB, start with Claude Sonnet 5.5, the model Anthropic's own training recommends by default. Step down to Haiku 5.5 for simple high-volume tasks. Step up to Opus 5.5, or Fable 5.1, when Sonnet struggles. Lineup and prices rechecked on Anthropic's pages on 15 October 2026.",
+      "lede_fr": "En PME, partez de Claude Sonnet 5.5, le modèle que la formation officielle d'Anthropic recommande par défaut. Descendez sur Haiku 5.5 pour les tâches simples en volume. Montez sur Opus 5.5, ou sur Fable 5.2, quand Sonnet bute sur un problème. Gamme et prix d'après les pages d'Anthropic, à jour de la sortie de Fable 5.2.",
+      "lede_en": "In an SMB, start with Claude Sonnet 5.5, the model Anthropic's own training recommends by default. Step down to Haiku 5.5 for simple high-volume tasks. Step up to Opus 5.5, or Fable 5.2, when Sonnet struggles. Lineup and prices from Anthropic's pages, updated for the Fable 5.2 release.",
       "badges": [
         {
-          "label_fr": "Gamme relevée le 15 octobre 2026",
-          "label_en": "Lineup rechecked on 15 October 2026"
+          "label_fr": "Gamme à jour de Fable 5.2",
+          "label_en": "Lineup updated for Fable 5.2"
         },
         {
           "label_fr": "Prix par million de jetons, en dollars",
@@ -181,7 +192,7 @@
       "role_en": "Founder of Waimia · AI and automation engineer",
       "profileHref": "/equipe/simon-beros",
       "publishedDate": "15 octobre 2026",
-      "updatedDate": "15 octobre 2026"
+      "updatedDate": "11 novembre 2026"
     },
     {
       "type": "direct-answer",
@@ -190,8 +201,8 @@
       "question_en": "Which Claude model should an SMB choose?",
       "term_fr": "Réponse courte",
       "term_en": "Short answer",
-      "answer_fr": "Claude Sonnet 5.5 pour la rédaction, l'analyse et la plupart des tâches de bureau ; Claude Haiku 5.5 pour trier, classer et extraire en volume ; Claude Opus 5.5 pour les tâches longues ou complexes ; Claude Fable 5.1 pour les plus exigeantes. Par million de jetons, en entrée et en sortie : Haiku à partir de 0,10 $ et 0,50 $, Sonnet 2 $ et 10 $, Opus 4 $ et 20 $, Fable 10 $ et 50 $. Relevé le 15 octobre 2026.",
-      "answer_en": "Claude Sonnet 5.5 for writing, analysis and most office tasks; Claude Haiku 5.5 to sort, classify and extract at volume; Claude Opus 5.5 for long or complex tasks; Claude Fable 5.1 for the most demanding ones. Per million tokens, input and output: Haiku from $0.10 and $0.50, Sonnet $2 and $10, Opus $4 and $20, Fable $10 and $50. Rechecked on 15 October 2026."
+      "answer_fr": "Claude Sonnet 5.5 pour la rédaction, l'analyse et la plupart des tâches de bureau ; Claude Haiku 5.5 pour trier, classer et extraire en volume ; Claude Opus 5.5 pour les tâches longues ou complexes ; Claude Fable 5.2 pour les plus exigeantes. Par million de jetons, en entrée et en sortie : Haiku à partir de 0,10 $ et 0,50 $, Sonnet 2 $ et 10 $, Opus 4 $ et 20 $, Fable 8 $ et 40 $.",
+      "answer_en": "Claude Sonnet 5.5 for writing, analysis and most office tasks; Claude Haiku 5.5 to sort, classify and extract at volume; Claude Opus 5.5 for long or complex tasks; Claude Fable 5.2 for the most demanding ones. Per million tokens, input and output: Haiku from $0.10 and $0.50, Sonnet $2 and $10, Opus $4 and $20, Fable $8 and $40."
     },
     {
       "type": "key-metric-grid",
@@ -219,9 +230,9 @@
           "label_en": "Opus 5.5, for long or complex tasks"
         },
         {
-          "value": "10 $ / 50 $",
-          "label_fr": "Fable 5.1, le modèle le plus capable ouvert à tous",
-          "label_en": "Fable 5.1, the most capable model open to all"
+          "value": "8 $ / 40 $",
+          "label_fr": "Fable 5.2, pour les tâches les plus exigeantes",
+          "label_en": "Fable 5.2, for the most demanding tasks"
         }
       ]
     },
@@ -232,8 +243,8 @@
       "kicker_en": "§ The current lineup",
       "heading_fr": "Quels sont les modèles Claude actuels ?",
       "heading_en": "What are the current Claude models?",
-      "caption_fr": "Source : Anthropic, vue d'ensemble des modèles, tarifs et page des retraits, relevés le 15 octobre 2026. Prix de l'API en dollars, hors taxes, par million de jetons. Haiku 5.5 passe à 0,50 $ en entrée et 2,50 $ en sortie au-delà de 100 000 jetons par requête. Les quatre modèles ont une fenêtre de 1 million de jetons, 128 000 jetons de sortie et des connaissances fiables jusqu'à juin 2026. Retrait : engagement d'Anthropic sur ses propres plateformes, « pas avant » cette date ; Amazon Bedrock et Google Cloud fixent leurs dates.",
-      "caption_en": "Source: Anthropic, models overview, pricing and deprecations pages, rechecked on 15 October 2026. API prices in dollars, excluding tax, per million tokens. Haiku 5.5 moves to $0.50 input and $2.50 output above 100,000 tokens per request. All four models have a 1-million-token window, 128,000 output tokens and reliable knowledge through June 2026. Retirement: Anthropic's commitment on its own platforms, \"not sooner than\" that date; Amazon Bedrock and Google Cloud set their own dates.",
+      "caption_fr": "Source : Anthropic, vue d'ensemble des modèles et tarifs. Prix de l'API en dollars, hors taxes, par million de jetons. Haiku 5.5 passe à 0,50 $ en entrée et 2,50 $ en sortie au-delà de 100 000 jetons par requête. Les quatre modèles ont une fenêtre de 1 million de jetons, 128 000 jetons de sortie et des connaissances fiables jusqu'à juin 2026. Retrait : engagement d'Anthropic sur ses propres plateformes, « pas avant » cette date ; Amazon Bedrock et Google Cloud fixent leurs dates. Fable 5.1, à 10 $ et 50 $, reste disponible mais Anthropic le classe parmi les modèles « legacy ».",
+      "caption_en": "Source: Anthropic, models overview and pricing pages. API prices in dollars, excluding tax, per million tokens. Haiku 5.5 moves to $0.50 input and $2.50 output above 100,000 tokens per request. All four models have a 1-million-token window, 128,000 output tokens and reliable knowledge through June 2026. Retirement: Anthropic's commitment on its own platforms, \"not sooner than\" that date; Amazon Bedrock and Google Cloud set their own dates. Fable 5.1, at $10 and $50, remains available but Anthropic classes it among its \"legacy\" models.",
       "columns_fr": [
         "Modèle",
         "Prix par million de jetons (entrée / sortie)",
@@ -271,11 +282,11 @@
           "22 septembre 2027"
         ],
         [
-          "Claude Fable 5.1",
-          "10 $ / 50 $",
-          "La plus lente",
+          "Claude Fable 5.2",
+          "8 $ / 40 $",
+          "Moyenne",
           "Raisonnement exigeant et agents sur de longues durées",
-          "1er septembre 2027"
+          "9 novembre 2027"
         ]
       ],
       "rows_en": [
@@ -301,19 +312,19 @@
           "22 September 2027"
         ],
         [
-          "Claude Fable 5.1",
-          "$10 / $50",
-          "Slowest",
+          "Claude Fable 5.2",
+          "$8 / $40",
+          "Moderate",
           "Demanding reasoning and long-horizon agentic work",
-          "1 September 2027"
+          "9 November 2027"
         ]
       ]
     },
     {
       "type": "editorial-prose",
       "background": "paper",
-      "html_fr": "<h2>Quel modèle Claude choisir pour une PME ?</h2>\n<p>La réponse dépend d'où vous utilisez Claude. Dans l'application, vous payez un abonnement et chaque modèle puise dans votre limite d'usage. Par l'API, vous payez chaque jeton, et le prix du modèle compte directement. Les deux conseils d'Anthropic diffèrent, et c'est normal.</p>\n<h3>Dans les applications Claude (abonnement)</h3>\n<p>La <a href=\"https://academy.claude.com/tutorials/choosing-the-right-claude-model\" rel=\"noopener noreferrer\" target=\"_blank\">formation officielle d'Anthropic</a> dit : « si vous ne savez pas quel modèle choisir, commencez ici », en parlant de Sonnet, son modèle polyvalent par défaut pour le code, la rédaction, l'analyse et les tâches en plusieurs étapes. Haiku est le plus rapide et le plus économe de votre limite d'usage. Opus consomme beaucoup de cette limite : Anthropic conseille de le réserver aux tâches qui le justifient, par exemple une recherche approfondie sur laquelle vous reviendrez, ou un problème que Sonnet n'a pas résolu. Fable est le plus lent et le plus gourmand, pour les tâches longues où l'exactitude prime.</p>\n<h3>Par l'API (automatisations, agents)</h3>\n<p>La <a href=\"https://platform.claude.com/docs/en/about-claude/models/choosing-a-model\" rel=\"noopener noreferrer\" target=\"_blank\">documentation pour développeurs</a> écrit que la plupart des charges de travail démarrent sur Opus 5.5, et propose deux méthodes de départ : l'efficacité d'abord, avec Haiku 5.5, ou la capacité d'abord, avec Opus 5.5, puis on optimise. Elle précise que régler l'effort de réflexion est souvent un meilleur levier que changer de modèle. Fable 5.1 intervient quand vos tests, à effort élevé, restent insuffisants.</p>\n<p><strong>Notre lecture pour une PME.</strong> Pour une automatisation, testez d'abord Haiku sur les tâches simples en volume et Sonnet sur les tâches en plusieurs étapes, puis montez d'un cran seulement là où vos propres cas échouent. Ce n'est pas une règle d'Anthropic : c'est la façon la moins chère de découvrir où le modèle suffit. Claude Mythos 5.1, lui, n'est proposé qu'aux organisations vérifiées par les programmes d'Anthropic : il n'entre pas dans le choix d'une PME. Pour savoir si Claude lui-même est le bon assistant, voir le comparatif <a href=\"/ressources/comparatifs/claude-vs-chatgpt-pme\">Claude ou ChatGPT en PME</a> ; pour tester le choix de modèle sur vos tâches, l'<a href=\"/audit-ia-pme\">audit IA gratuit</a> est le point de départ.</p>",
-      "html_en": "<h2>Which Claude model should an SMB choose?</h2>\n<p>The answer depends on where you use Claude. In the app, you pay a subscription and every model draws on your usage limit. Through the API, you pay for each token, and the model's price matters directly. Anthropic's two pieces of advice differ, and that is normal.</p>\n<h3>In the Claude apps (subscription)</h3>\n<p><a href=\"https://academy.claude.com/tutorials/choosing-the-right-claude-model\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic's official training</a> says \"if you're not sure which model to pick, start here\", about Sonnet, its versatile default for coding, writing, analysis and multi-step workflows. Haiku is the fastest and the most economical with your usage limit. Opus draws heavily on that limit: Anthropic advises reserving it for tasks that really need it, such as deep research you will iterate on, or a problem Sonnet has not solved. Fable is the slowest and heaviest, for long tasks where accuracy comes first.</p>\n<h3>Through the API (automations, agents)</h3>\n<p>The <a href=\"https://platform.claude.com/docs/en/about-claude/models/choosing-a-model\" rel=\"noopener noreferrer\" target=\"_blank\">developer documentation</a> says most workloads start with Opus 5.5, and offers two starting methods: efficiency first, with Haiku 5.5, or capability first, with Opus 5.5, then optimise. It adds that tuning the reasoning effort is often a better lever than switching models. Fable 5.1 comes in when your tests, at high effort, still fall short.</p>\n<p><strong>Our reading for an SMB.</strong> For an automation, test Haiku first on simple high-volume tasks and Sonnet on multi-step tasks, then move up a notch only where your own cases fail. This is not an Anthropic rule: it is the cheapest way to find where the model is enough. Claude Mythos 5.1, for its part, is offered only to organisations verified through Anthropic's programmes: it is not part of an SMB's choice. To decide whether Claude itself is the right assistant, see the <a href=\"/ressources/comparatifs/claude-vs-chatgpt-pme\">Claude or ChatGPT for an SMB</a> comparison; to test the model choice on your tasks, the free <a href=\"/audit-ia-pme\">AI audit</a> is the starting point.</p>"
+      "html_fr": "<h2>Quel modèle Claude choisir pour une PME ?</h2>\n<p>La réponse dépend d'où vous utilisez Claude. Dans l'application, vous payez un abonnement et chaque modèle puise dans votre limite d'usage. Par l'API, vous payez chaque jeton, et le prix du modèle compte directement. Les deux conseils d'Anthropic diffèrent, et c'est normal.</p>\n<h3>Dans les applications Claude (abonnement)</h3>\n<p>La <a href=\"https://academy.claude.com/tutorials/choosing-the-right-claude-model\" rel=\"noopener noreferrer\" target=\"_blank\">formation officielle d'Anthropic</a> dit : « si vous ne savez pas quel modèle choisir, commencez ici », en parlant de Sonnet, son modèle polyvalent par défaut pour le code, la rédaction, l'analyse et les tâches en plusieurs étapes. Haiku est le plus rapide et le plus économe de votre limite d'usage. Opus consomme beaucoup de cette limite : Anthropic conseille de le réserver aux tâches qui le justifient, par exemple une recherche approfondie sur laquelle vous reviendrez, ou un problème que Sonnet n'a pas résolu. Fable consomme votre limite plus vite que les autres modèles, <a href=\"https://support.claude.com/en/articles/17506494\" rel=\"noopener noreferrer\" target=\"_blank\">d'après l'aide d'Anthropic</a> : réservez-le aux tâches longues où l'exactitude prime.</p>\n<h3>Par l'API (automatisations, agents)</h3>\n<p>La <a href=\"https://platform.claude.com/docs/en/about-claude/models/choosing-a-model\" rel=\"noopener noreferrer\" target=\"_blank\">documentation pour développeurs</a> écrit que la plupart des charges de travail démarrent sur Opus 5.5, et propose deux méthodes de départ : l'efficacité d'abord, avec Haiku 5.5, ou la capacité d'abord, avec Opus 5.5, puis on optimise. Elle précise que régler l'effort de réflexion est souvent un meilleur levier que changer de modèle. Fable 5.2 intervient quand vos tests sur Opus 5.5, à effort <code>xhigh</code> ou <code>max</code>, restent insuffisants.</p>\n<p><strong>Notre lecture pour une PME.</strong> Pour une automatisation, testez d'abord Haiku sur les tâches simples en volume et Sonnet sur les tâches en plusieurs étapes, puis montez d'un cran seulement là où vos propres cas échouent. Ce n'est pas une règle d'Anthropic : c'est la façon la moins chère de découvrir où le modèle suffit. Claude Mythos 5.2, lui, n'est proposé qu'aux organisations vérifiées par les programmes d'Anthropic : il n'entre pas dans le choix d'une PME. Fable 5.2 et Mythos 5.2 imposent en plus 30 jours de conservation des données chez Anthropic, sans rétention zéro ; le détail et ce qui casse dans une intégration existante sont dans <a href=\"/blog/claude-fable-5-2-mythos-5-2\">l'analyse de leur sortie du 9 novembre 2026</a>. Pour savoir si Claude lui-même est le bon assistant, voir le comparatif <a href=\"/ressources/comparatifs/claude-vs-chatgpt-pme\">Claude ou ChatGPT en PME</a> ; pour tester le choix de modèle sur vos tâches, l'<a href=\"/audit-ia-pme\">audit IA gratuit</a> est le point de départ.</p>",
+      "html_en": "<h2>Which Claude model should an SMB choose?</h2>\n<p>The answer depends on where you use Claude. In the app, you pay a subscription and every model draws on your usage limit. Through the API, you pay for each token, and the model's price matters directly. Anthropic's two pieces of advice differ, and that is normal.</p>\n<h3>In the Claude apps (subscription)</h3>\n<p><a href=\"https://academy.claude.com/tutorials/choosing-the-right-claude-model\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic's official training</a> says \"if you're not sure which model to pick, start here\", about Sonnet, its versatile default for coding, writing, analysis and multi-step workflows. Haiku is the fastest and the most economical with your usage limit. Opus draws heavily on that limit: Anthropic advises reserving it for tasks that really need it, such as deep research you will iterate on, or a problem Sonnet has not solved. Fable uses up your limit faster than the other models, <a href=\"https://support.claude.com/en/articles/17506494\" rel=\"noopener noreferrer\" target=\"_blank\">according to Anthropic's help page</a>: keep it for long tasks where accuracy comes first.</p>\n<h3>Through the API (automations, agents)</h3>\n<p>The <a href=\"https://platform.claude.com/docs/en/about-claude/models/choosing-a-model\" rel=\"noopener noreferrer\" target=\"_blank\">developer documentation</a> says most workloads start with Opus 5.5, and offers two starting methods: efficiency first, with Haiku 5.5, or capability first, with Opus 5.5, then optimise. It adds that tuning the reasoning effort is often a better lever than switching models. Fable 5.2 comes in when your tests on Opus 5.5, at <code>xhigh</code> or <code>max</code> effort, still fall short.</p>\n<p><strong>Our reading for an SMB.</strong> For an automation, test Haiku first on simple high-volume tasks and Sonnet on multi-step tasks, then move up a notch only where your own cases fail. This is not an Anthropic rule: it is the cheapest way to find where the model is enough. Claude Mythos 5.2, for its part, is offered only to organisations verified through Anthropic's programmes: it is not part of an SMB's choice. Fable 5.2 and Mythos 5.2 also require 30-day data retention at Anthropic, with no zero retention; the detail and what breaks in an existing integration are in <a href=\"/blog/claude-fable-5-2-mythos-5-2\">the analysis of their 9 November 2026 release</a>. To decide whether Claude itself is the right assistant, see the <a href=\"/ressources/comparatifs/claude-vs-chatgpt-pme\">Claude or ChatGPT for an SMB</a> comparison; to test the model choice on your tasks, the free <a href=\"/audit-ia-pme\">AI audit</a> is the starting point.</p>"
     },
     {
       "type": "editorial-table-block",
@@ -352,7 +363,7 @@
         [
           "Analyse de documents et de tableaux",
           "Sonnet 5.5, qu'Anthropic cite pour l'analyse de données",
-          "Gros dossiers à croiser, ou analyse menée jusqu'au livrable fini : Opus 5.5, puis Fable 5.1",
+          "Gros dossiers à croiser, ou analyse menée jusqu'au livrable fini : Opus 5.5, puis Fable 5.2",
           "Extraire des champs précis d'un document : Haiku 5.5"
         ],
         [
@@ -364,7 +375,7 @@
         [
           "Agent ou automatisation en plusieurs étapes",
           "Sonnet 5.5, cité pour l'usage d'outils par un agent",
-          "Sessions de plusieurs heures, résultat exigé juste du premier coup : Opus 5.5, puis Fable 5.1",
+          "Sessions de plusieurs heures, résultat exigé juste du premier coup : Opus 5.5, puis Fable 5.2",
           "Étape de routage ou de classement dans le flux : Haiku 5.5"
         ],
         [
@@ -390,7 +401,7 @@
         [
           "Analysing documents and spreadsheets",
           "Sonnet 5.5, which Anthropic cites for data analysis",
-          "Large files to cross-check, or analysis carried through to a finished deliverable: Opus 5.5, then Fable 5.1",
+          "Large files to cross-check, or analysis carried through to a finished deliverable: Opus 5.5, then Fable 5.2",
           "Extracting precise fields from a document: Haiku 5.5"
         ],
         [
@@ -402,7 +413,7 @@
         [
           "Multi-step agent or automation",
           "Sonnet 5.5, cited for agentic tool use",
-          "Multi-hour sessions, result required right the first time: Opus 5.5, then Fable 5.1",
+          "Multi-hour sessions, result required right the first time: Opus 5.5, then Fable 5.2",
           "Routing or classification step in the flow: Haiku 5.5"
         ],
         [
@@ -416,8 +427,8 @@
     {
       "type": "editorial-prose",
       "background": "paper",
-      "html_fr": "<h2>Combien coûtent Opus, Sonnet et Haiku par million de jetons ?</h2>\n<p>Un jeton est un morceau de texte, souvent un mot ou un fragment de mot. Un million de jetons représente environ 555 000 mots sur le découpage actuel d'Anthropic. L'API facture séparément ce que vous envoyez (l'entrée) et ce que Claude écrit (la sortie), et la sortie coûte cinq fois l'entrée sur les quatre modèles.</p>\n<p>Les écarts sont grands. Sonnet 5.5 coûte 20 fois Haiku 5.5, en entrée comme en sortie. Opus 5.5 coûte deux fois Sonnet. Fable 5.1 coûte 100 fois Haiku. Ce sont des calculs de Waimia à partir des tarifs d'Anthropic au 15 octobre 2026.</p>\n<p>Deux remises existent. Le traitement par lots (Batch) retire 50 % sur l'entrée et la sortie, pour les travaux qui n'ont pas besoin de réponse immédiate. La relecture d'un contexte déjà mis en cache coûte 10 % du prix d'entrée de base, 5 % sur Opus 5.5 et Sonnet 5.5, 2,5 % sur Fable 5.1. Voir la page de <a href=\"https://platform.claude.com/docs/en/about-claude/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">tarification d'Anthropic</a>.</p>\n<p>Le tableau suivant applique ces prix à un même travail : classer 1 000 e-mails. Pour lire des factures fournisseurs, voir <a href=\"/ressources/guides/claude-finance-pme\">Claude pour la finance d'une PME</a>.</p>",
-      "html_en": "<h2>How much do Opus, Sonnet and Haiku cost per million tokens?</h2>\n<p>A token is a piece of text, often a word or part of a word. One million tokens is about 555,000 words on Anthropic's current tokenizer. The API bills what you send (input) and what Claude writes (output) separately, and output costs five times input on all four models.</p>\n<p>The gaps are wide. Sonnet 5.5 costs 20 times Haiku 5.5, on input and output alike. Opus 5.5 costs twice Sonnet. Fable 5.1 costs 100 times Haiku. These are Waimia's calculations from Anthropic's prices on 15 October 2026.</p>\n<p>Two discounts exist. Batch processing takes 50% off input and output, for jobs that do not need an immediate answer. Re-reading an already cached context costs 10% of the base input price, 5% on Opus 5.5 and Sonnet 5.5, 2.5% on Fable 5.1. See <a href=\"https://platform.claude.com/docs/en/about-claude/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic's pricing page</a>.</p>\n<p>The next table applies those prices to the same job: classifying 1,000 emails. For reading supplier invoices, see <a href=\"/ressources/guides/claude-finance-pme\">Claude for an SMB's finance function</a>.</p>"
+      "html_fr": "<h2>Combien coûtent Opus, Sonnet et Haiku par million de jetons ?</h2>\n<p>Un jeton est un morceau de texte, souvent un mot ou un fragment de mot. Un million de jetons représente environ 555 000 mots sur le découpage actuel d'Anthropic. L'API facture séparément ce que vous envoyez (l'entrée) et ce que Claude écrit (la sortie), et la sortie coûte cinq fois l'entrée sur les quatre modèles.</p>\n<p>Les écarts sont grands. Sonnet 5.5 coûte 20 fois Haiku 5.5, en entrée comme en sortie. Opus 5.5 coûte deux fois Sonnet. Fable 5.2 coûte 80 fois Haiku. Ce sont des calculs de Waimia à partir des tarifs d'Anthropic.</p>\n<p>Deux remises existent. Le traitement par lots (Batch) retire 50 % sur l'entrée et la sortie, pour les travaux qui n'ont pas besoin de réponse immédiate. La relecture d'un contexte déjà mis en cache coûte 10 % du prix d'entrée de base, 5 % sur Opus 5.5 et Sonnet 5.5, 2,5 % sur Fable 5.2. Voir la page de <a href=\"https://platform.claude.com/docs/en/about-claude/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">tarification d'Anthropic</a>.</p>\n<p>Le tableau suivant applique ces prix à un même travail : classer 1 000 e-mails. Pour lire des factures fournisseurs, voir <a href=\"/ressources/guides/claude-finance-pme\">Claude pour la finance d'une PME</a>.</p>",
+      "html_en": "<h2>How much do Opus, Sonnet and Haiku cost per million tokens?</h2>\n<p>A token is a piece of text, often a word or part of a word. One million tokens is about 555,000 words on Anthropic's current tokenizer. The API bills what you send (input) and what Claude writes (output) separately, and output costs five times input on all four models.</p>\n<p>The gaps are wide. Sonnet 5.5 costs 20 times Haiku 5.5, on input and output alike. Opus 5.5 costs twice Sonnet. Fable 5.2 costs 80 times Haiku. These are Waimia's calculations from Anthropic's prices.</p>\n<p>Two discounts exist. Batch processing takes 50% off input and output, for jobs that do not need an immediate answer. Re-reading an already cached context costs 10% of the base input price, 5% on Opus 5.5 and Sonnet 5.5, 2.5% on Fable 5.2. See <a href=\"https://platform.claude.com/docs/en/about-claude/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic's pricing page</a>.</p>\n<p>The next table applies those prices to the same job: classifying 1,000 emails. For reading supplier invoices, see <a href=\"/ressources/guides/claude-finance-pme\">Claude for an SMB's finance function</a>.</p>"
     },
     {
       "type": "editorial-table-block",
@@ -426,8 +437,8 @@
       "kicker_en": "§ The same job",
       "heading_fr": "Que coûte le classement de 1 000 e-mails selon le modèle ?",
       "heading_en": "What does classifying 1,000 emails cost, by model?",
-      "caption_fr": "Calcul de Waimia, hypothèses illustratives : 1 000 e-mails de 2 000 jetons en entrée et 500 en sortie, soit 2 millions de jetons en entrée et 0,5 million en sortie. Prix de l'API d'Anthropic au 15 octobre 2026, sans remise Batch ni cache ; Haiku au tarif des requêtes de moins de 100 000 jetons. Pour un même texte, Haiku 5.5 compte environ 30 % de jetons en plus que Haiku 4.5, d'après Anthropic, mais son tarif d'entrée est dix fois plus bas (0,10 $ contre 1 $).",
-      "caption_en": "Waimia calculation, illustrative assumptions: 1,000 emails of 2,000 input tokens and 500 output tokens, i.e. 2 million input tokens and 0.5 million output tokens. Anthropic API prices on 15 October 2026, with no Batch or cache discount; Haiku at the rate for requests under 100,000 tokens. For the same text, Haiku 5.5 counts about 30% more tokens than Haiku 4.5, per Anthropic, but its input rate is ten times lower ($0.10 against $1).",
+      "caption_fr": "Calcul de Waimia, hypothèses illustratives : 1 000 e-mails de 2 000 jetons en entrée et 500 en sortie, soit 2 millions de jetons en entrée et 0,5 million en sortie. Prix de l'API d'Anthropic, sans remise Batch ni cache (avec Fable 5.1, le même travail coûterait 45 $) ; Haiku au tarif des requêtes de moins de 100 000 jetons. Pour un même texte, Haiku 5.5 compte environ 30 % de jetons en plus que Haiku 4.5, d'après Anthropic, mais son tarif d'entrée est dix fois plus bas (0,10 $ contre 1 $).",
+      "caption_en": "Waimia calculation, illustrative assumptions: 1,000 emails of 2,000 input tokens and 500 output tokens, i.e. 2 million input tokens and 0.5 million output tokens. Anthropic API prices, with no Batch or cache discount (with Fable 5.1, the same job would cost $45); Haiku at the rate for requests under 100,000 tokens. For the same text, Haiku 5.5 counts about 30% more tokens than Haiku 4.5, per Anthropic, but its input rate is ten times lower ($0.10 against $1).",
       "columns_fr": [
         "Modèle",
         "Entrée (2 millions de jetons)",
@@ -460,10 +471,10 @@
           "18,00 $"
         ],
         [
-          "Claude Fable 5.1",
+          "Claude Fable 5.2",
+          "16,00 $",
           "20,00 $",
-          "25,00 $",
-          "45,00 $"
+          "36,00 $"
         ]
       ],
       "rows_en": [
@@ -486,10 +497,10 @@
           "$18.00"
         ],
         [
-          "Claude Fable 5.1",
+          "Claude Fable 5.2",
+          "$16.00",
           "$20.00",
-          "$25.00",
-          "$45.00"
+          "$36.00"
         ]
       ]
     },
@@ -506,8 +517,8 @@
       "kicker_en": "§ Models by plan",
       "heading_fr": "Quels modèles Claude sont accessibles dans chaque offre ?",
       "heading_en": "Which Claude models are available on each plan?",
-      "caption_fr": "Source : page tarifs de Claude (claude.com/pricing), relue le 15 octobre 2026. Ce relevé porte sur les familles de modèles, pas sur le numéro de version affiché dans chaque offre : vérifiez-le dans le sélecteur de votre compte. Sur Max et sur les sièges Premium de Team, Fable est inclus dans la limite de 50 % de la limite hebdomadaire de l'utilisateur, d'après l'aide de la page tarifs.",
-      "caption_en": "Source: Claude pricing page (claude.com/pricing), rechecked on 15 October 2026. This list covers model families, not the version number shown on each plan: check it in your account's model selector. On Max and on Team Premium seats, Fable is included up to 50% of the user's weekly limit, per the pricing page's help text.",
+      "caption_fr": "Source : page tarifs de Claude (claude.com/pricing). Ce relevé porte sur les familles de modèles, pas sur le numéro de version affiché dans chaque offre : vérifiez-le dans le sélecteur de votre compte. Sur Max et sur les sièges Premium de Team, Fable est inclus dans la limite de 50 % de la limite hebdomadaire de l'utilisateur, d'après l'aide de la page tarifs. L'offre Ultra, qui n'a pas sa colonne ici, l'inclut dans les mêmes 50 %.",
+      "caption_en": "Source: Claude pricing page (claude.com/pricing). This list covers model families, not the version number shown on each plan: check it in your account's model selector. On Max and on Team Premium seats, Fable is included up to 50% of the user's weekly limit, per the pricing page's help text. The Ultra plan, which has no column here, includes it within the same 50%.",
       "columns_fr": [
         "Modèle",
         "Free",
@@ -554,7 +565,7 @@
           "Non",
           "Avec des crédits d'usage",
           "Oui, jusqu'à 50 % de la limite hebdomadaire",
-          "Sièges Premium : jusqu'à 50 % de la limite de chaque membre ; Standard : non précisé par la page tarifs",
+          "Sièges Premium : jusqu'à 50 % de la limite de chaque membre ; Standard : crédits d'usage, d'après l'aide d'Anthropic",
           "Oui"
         ]
       ],
@@ -588,7 +599,7 @@
           "No",
           "With usage credits",
           "Yes, up to 50% of the weekly limit",
-          "Premium seats: up to 50% of each member's limit; Standard: not stated on the pricing page",
+          "Premium seats: up to 50% of each member's limit; Standard: usage credits, per Anthropic's help",
           "Yes"
         ]
       ]
@@ -614,8 +625,8 @@
           "label_en": "An automation handles hundreds of simple requests a day: test Haiku 5.5 on twenty real cases before paying for Sonnet."
         },
         {
-          "label_fr": "Un agent travaille des heures et doit être juste du premier coup : Opus 5.5, puis Fable 5.1 si le résultat reste insuffisant à effort élevé.",
-          "label_en": "An agent works for hours and must be right first time: Opus 5.5, then Fable 5.1 if the result still falls short at high effort."
+          "label_fr": "Un agent travaille des heures et doit être juste du premier coup : Opus 5.5, puis Fable 5.2 si le résultat reste insuffisant à effort xhigh ou max.",
+          "label_en": "An agent works for hours and must be right first time: Opus 5.5, then Fable 5.2 if the result still falls short at xhigh or max effort."
         },
         {
           "label_fr": "Avant de changer de modèle, essayez le réglage d'effort : Anthropic le présente comme un meilleur levier que le changement de modèle, dans bien des cas.",
@@ -736,9 +747,9 @@
       "items": [
         {
           "q_fr": "Quel est le dernier modèle Claude ?",
-          "a_fr": "Au 15 octobre 2026, la gamme actuelle d'Anthropic compte quatre modèles : Claude Fable 5.1, Claude Opus 5.5, Claude Sonnet 5.5 et Claude Haiku 5.5. Anthropic présente Fable 5.1 comme son modèle le plus capable ouvert à tous les clients. Les numéros changent vite : relisez la vue d'ensemble des modèles d'Anthropic avant de figer un choix.",
+          "a_fr": "Au 11 novembre 2026, la gamme actuelle d'Anthropic compte quatre modèles : Claude Fable 5.2, Claude Opus 5.5, Claude Sonnet 5.5 et Claude Haiku 5.5. Fable 5.2, sorti le 9 novembre 2026, est le modèle le plus capable ouvert à tous les clients, d'après Anthropic ; Claude Mythos 5.2, le même modèle, avec des garde-fous allégés sur la cybersécurité et la biologie, est réservé aux organisations vérifiées. Les numéros changent vite : relisez la vue d'ensemble des modèles d'Anthropic avant de figer un choix.",
           "q_en": "What is the latest Claude model?",
-          "a_en": "As of 15 October 2026, Anthropic's current lineup has four models: Claude Fable 5.1, Claude Opus 5.5, Claude Sonnet 5.5 and Claude Haiku 5.5. Anthropic presents Fable 5.1 as its most capable model open to all customers. Version numbers change fast: reread Anthropic's models overview before locking in a choice."
+          "a_en": "As of 11 November 2026, Anthropic's current lineup has four models: Claude Fable 5.2, Claude Opus 5.5, Claude Sonnet 5.5 and Claude Haiku 5.5. Fable 5.2, released on 9 November 2026, is the most capable model open to all customers, according to Anthropic; Claude Mythos 5.2, the same model with lighter safeguards on cybersecurity and biology, is reserved for verified organisations. Version numbers change fast: reread Anthropic's models overview before locking in a choice."
         },
         {
           "q_fr": "Claude Opus ou Claude Sonnet : lequel pour une PME ?",
@@ -754,15 +765,15 @@
         },
         {
           "q_fr": "Combien coûtent Opus, Sonnet et Haiku par million de jetons ?",
-          "a_fr": "Prix de l'API d'Anthropic au 15 octobre 2026, en entrée puis en sortie : Haiku 5.5 à partir de 0,10 $ et 0,50 $, Sonnet 5.5 2 $ et 10 $, Opus 5.5 4 $ et 20 $, Fable 5.1 10 $ et 50 $. Le traitement par lots (Batch) retire 50 %. Prix en dollars, hors taxes. L'abonnement, lui, se paie au siège : voir le guide des offres.",
+          "a_fr": "Prix de l'API d'Anthropic, en entrée puis en sortie : Haiku 5.5 à partir de 0,10 $ et 0,50 $, Sonnet 5.5 2 $ et 10 $, Opus 5.5 4 $ et 20 $, Fable 5.2 8 $ et 40 $. Le traitement par lots (Batch) retire 50 %. Prix en dollars, hors taxes. L'abonnement, lui, se paie au siège : voir le guide des offres.",
           "q_en": "How much do Opus, Sonnet and Haiku cost per million tokens?",
-          "a_en": "Anthropic API prices on 15 October 2026, input then output: Haiku 5.5 from $0.10 and $0.50, Sonnet 5.5 $2 and $10, Opus 5.5 $4 and $20, Fable 5.1 $10 and $50. Batch processing takes 50% off. Prices in dollars, excluding tax. A subscription is paid per seat: see the plans guide."
+          "a_en": "Anthropic API prices, input then output: Haiku 5.5 from $0.10 and $0.50, Sonnet 5.5 $2 and $10, Opus 5.5 $4 and $20, Fable 5.2 $8 and $40. Batch processing takes 50% off. Prices in dollars, excluding tax. A subscription is paid per seat: see the plans guide."
         },
         {
           "q_fr": "Quel modèle est inclus dans Claude Pro, Max et Team ?",
-          "a_fr": "Sonnet et Haiku sont dans toutes les offres, Free comprise. Opus est inclus dès Pro. Fable est accessible via des crédits d'usage sur Pro, jusqu'à 50 % de la limite hebdomadaire sur Max, et sur les sièges Premium de Team jusqu'à 50 % de la limite de chaque membre. Relevé sur la page tarifs d'Anthropic le 15 octobre 2026, par famille de modèles.",
+          "a_fr": "Sonnet et Haiku sont dans toutes les offres, Free comprise. Opus est inclus dès Pro. Fable est accessible via des crédits d'usage sur Pro, jusqu'à 50 % de la limite hebdomadaire sur Max, et sur les sièges Premium de Team jusqu'à 50 % de la limite de chaque membre. D'après la page tarifs d'Anthropic, par famille de modèles.",
           "q_en": "Which model is included in Claude Pro, Max and Team?",
-          "a_en": "Sonnet and Haiku are on every plan, Free included. Opus is included from Pro. Fable is reachable through usage credits on Pro, up to 50% of the weekly limit on Max, and on Team Premium seats up to 50% of each member's limit. Taken from Anthropic's pricing page on 15 October 2026, by model family."
+          "a_en": "Sonnet and Haiku are on every plan, Free included. Opus is included from Pro. Fable is reachable through usage credits on Pro, up to 50% of the weekly limit on Max, and on Team Premium seats up to 50% of each member's limit. Taken from Anthropic's pricing page, by model family."
         },
         {
           "q_fr": "Claude Opus 4.7 et Sonnet 4.6 existent-ils encore ?",

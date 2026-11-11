@@ -215,6 +215,7 @@ const PAGES: Record<string, PageDef> = {
   '/ressources/guides/claude-cowork': { label_fr: 'Claude Cowork est désormais Claude', label_en: 'Claude Cowork is now Claude', kind: 'guide', topics: ['claude', 'conformite'] },
   '/ressources/guides/mcp-claude': { label_fr: 'Guide MCP : brancher Claude à vos outils', label_en: 'MCP guide: connecting Claude to your tools', kind: 'guide', topics: ['claude', 'agents'] },
   '/ressources/guides/claude-fonctionnalites-pme': { label_fr: 'Guide : fonctionnalités, offres et prix de Claude', label_en: 'Guide: Claude features, plans and pricing', kind: 'guide', topics: ['claude', 'conseil'] },
+  '/blog/claude-fable-5-2-mythos-5-2': { label_fr: 'Claude Fable 5.2 et Mythos 5.2 : ce qui change en PME', label_en: 'Claude Fable 5.2 and Mythos 5.2: what changes for an SMB', kind: 'article', topics: ['claude', 'conseil'] },
   '/ressources/guides/quel-modele-claude-choisir': { label_fr: 'Quel modèle Claude choisir : Opus, Sonnet ou Haiku', label_en: 'Which Claude model to choose: Opus, Sonnet or Haiku', kind: 'guide', topics: ['claude', 'conseil'] },
   '/ressources/guides/claude-managed-agents': { label_fr: 'Claude Managed Agents : prix, limites et données', label_en: 'Claude Managed Agents: pricing, limits and data', kind: 'guide', topics: ['claude', 'agents'] },
   '/ressources/guides/claude-tpe': { label_fr: 'Claude pour une TPE : abonnement et premiers usages', label_en: 'Claude for a very small business: plan and first uses', kind: 'guide', topics: ['claude', 'conseil'] },
