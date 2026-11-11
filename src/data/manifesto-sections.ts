@@ -132,7 +132,7 @@ export function manifestoSections(lang: Lang) {
     pinned: false,
   } satisfies SectionByType<'manifesto-statement'>;
 
-  // ── 6. ACTE III · VirtuoseOS · plateforme (CTA final ink, centre)
+  // ── 6. ACTE III · Waimia OS · plateforme (CTA final ink, centre)
   const acteIIIData = {
     type: 'footer-cta-band',
     background: 'ink',
@@ -145,7 +145,7 @@ export function manifestoSections(lang: Lang) {
     kicker_html_en: '<span style="color:var(--accent-text)">III.</span> Under the hood',
     texture: 'signature-grid',
     h2_fr: 'Notre outil <i class="accent">interne</i>.<br />Le cadre de travail du studio.',
-    h2_en: 'Virtuose<i class="accent">OS</i>.<br />The studio’s working framework.',
+    h2_en: 'Waimia <i class="accent">OS</i>.<br />The studio’s working framework.',
     subtitle_fr: 'Il enregistre chaque action des agents et les coordonne, et sert de base de travail aux missions. Ce qui est construit pour vous reste chez vous.',
     subtitle_en: 'The studio’s internal tool: it records every agent action and coordinates the agents. It serves as the working base for engagements. What is built for you stays with you.',
     buttons: [
