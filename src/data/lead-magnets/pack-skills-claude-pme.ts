@@ -12,7 +12,7 @@ export const data: LeadMagnetPage = {
   kicker_fr: 'ZIP + PDF · Dirigeants et équipes',
   kicker_en: 'ZIP + PDF · Owners and teams',
   promise_fr:
-    "Huit skills prêts à adapter à votre entreprise, du devis au rapport mensuel, avec leurs fichiers à compléter et un zip par skill pour claude.ai. Plus un mode d'emploi pour les installer, les régler sur vos prix et vos procédures, les tester et éviter les erreurs fréquentes.",
+    "Huit skills Claude à adapter à votre entreprise, du devis au rapport mensuel, avec les fichiers à compléter et un zip par skill pour claude.ai. Le mode d'emploi couvre l'installation, le réglage sur vos prix et vos procédures, le test et les erreurs fréquentes.",
   promise_en:
     'Eight skills ready to adapt to your business, from quotes to the monthly report, with their fill-in files and one zip per skill for claude.ai. Plus a guide to install them, tune them to your prices and procedures, test them and avoid common mistakes.',
   format_fr: 'ZIP (8 skills) · PDF A4 de 11 pages',
@@ -66,7 +66,7 @@ export const data: LeadMagnetPage = {
   faq_fr: [
     {
       q: 'Sur quelles offres Claude ces skills fonctionnent-ils ?',
-      a: "Sur claude.ai, les skills personnalisés demandent l'exécution de code activée ; la documentation développeurs d'Anthropic les cite sur Pro, Max, Team et Enterprise, et le centre d'aide les annonce aussi sur l'offre gratuite. Dans Claude Code, il suffit de copier le dossier dans .claude/skills. Vérifié le 5 octobre 2026.",
+      a: "Sur claude.ai, les skills personnalisés demandent l'exécution de code activée. La documentation développeurs d'Anthropic les cite sur Pro, Max, Team et Enterprise, le centre d'aide ajoute l'offre gratuite. Dans Claude Code, il suffit de copier le dossier dans .claude/skills.",
     },
     {
       q: 'Faut-il savoir coder pour les installer ou les modifier ?',
@@ -117,9 +117,9 @@ export const data: LeadMagnetPage = {
   seoTitle_fr: 'Pack de 8 skills Claude pour PME (ZIP + PDF)',
   seoTitle_en: 'Pack of 8 Claude skills for SMBs (ZIP + PDF)',
   seoDescription_fr:
-    "8 skills Claude prêts à adapter pour une PME : devis, compte rendu, relance d'impayés, fiche de poste, veille, rapport mensuel. Avec mode d'emploi PDF.",
+    "Huit skills Claude à adapter pour une PME : devis, compte rendu, relance d'impayés, fiche de poste, veille, rapport mensuel. ZIP et mode d'emploi PDF.",
   seoDescription_en:
     '8 Claude skills ready to adapt for an SMB: quotes, minutes, unpaid invoices, job descriptions, competitive watch, monthly report. With a PDF guide.',
   publishedAt: '2026-10-05',
-  updatedAt: '2026-10-05',
+  updatedAt: '2026-11-11',
 };

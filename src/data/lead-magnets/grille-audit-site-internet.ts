@@ -13,15 +13,15 @@ export const data: LeadMagnetPage = {
   kicker_fr: 'PDF · Dirigeants et responsables de PME',
   kicker_en: 'PDF · SMB owners and managers',
   promise_fr:
-    "Auditez votre site en 45 minutes avec la grille que Waimia passe en rendez-vous. Huit axes à cocher, le geste ou l'outil gratuit pour vérifier chaque point, le signal d'alerte à repérer, puis une décision : corriger le site actuel ou le refaire.",
+    "Corriger votre site ou le refaire : la grille que je passe en rendez-vous vous le fait trancher en 45 minutes. Huit axes à cocher, pour chacun le geste ou l'outil gratuit qui vérifie le point et le signal d'alerte à repérer, puis une règle de décision.",
   promise_en:
     "Audit your site in 45 minutes with the grid Waimia uses in meetings. Eight axes to tick, the gesture or free tool to check each point, the warning sign to look for, then a decision: fix the current site or rebuild it.",
   format_fr: 'PDF A4 · 10 pages',
   format_en: 'A4 PDF · 10 pages',
   forWho_fr: [
-    "Le dirigeant de PME dont le site date et qui se demande s'il faut le corriger ou le refaire avant de demander des devis.",
-    "Le responsable marketing ou commercial qui veut savoir pourquoi le site produit peu de demandes.",
-    "Le référent web qui doit préparer un cahier des charges et justifier une refonte, ou l'écarter.",
+    "Le dirigeant de PME dont le site date, et qui veut savoir s'il faut le corriger ou le refaire avant de demander des devis.",
+    "Le responsable marketing ou commercial qui se demande pourquoi le site produit si peu de demandes.",
+    "Le référent web qui doit monter un cahier des charges, et justifier une refonte ou l'écarter.",
   ],
   forWho_en: [
     'The SMB owner whose site is ageing and who wonders whether to fix it or rebuild it before asking for quotes.',
@@ -30,10 +30,10 @@ export const data: LeadMagnetPage = {
   ],
   inside_fr: [
     { title: 'Comment utiliser la grille', desc: "Le déroulé en 45 minutes, la règle « corriger d'abord, remesurer ensuite » et ce que la grille ne couvre pas." },
-    { title: 'Huit axes à cocher', desc: "Conversion, vitesse et Core Web Vitals, mobile, indexation et Search Console, contenus, citabilité par les IA, technique et sécurité, mesure. Pour chaque point : comment le vérifier, signal d'alerte." },
-    { title: 'Ce qui se corrige, ce qui pèse vers la refonte', desc: 'Pour chaque axe, les défauts qui se règlent sans refonte et ceux qui viennent de la plateforme.' },
+    { title: 'Huit axes à cocher', desc: "Conversion, vitesse et Core Web Vitals, mobile, indexation et Search Console, contenus, citabilité par les IA, technique et sécurité, mesure. Pour chaque point, comment le vérifier et quel signal d'alerte repérer." },
+    { title: 'Ce qui se corrige, ce qui pèse vers la refonte', desc: "Par axe, les défauts qui se règlent sans refonte et ceux qui tiennent à la plateforme." },
     { title: 'Une notation simple', desc: 'Une lettre par axe, une règle de décision et les trois critères de refonte, avec les conseils de Google pour une migration.' },
-    { title: 'Choisir la solution technique', desc: 'Site statique, rendu serveur, hybride, puis WordPress, Webflow, CMS headless, Lovable ou site sur mesure : quand choisir quoi, quelle limite connaître.' },
+    { title: 'Choisir la solution technique', desc: 'Site statique, rendu serveur, hybride, puis WordPress, Webflow, CMS headless, Lovable ou site sur mesure : quand choisir chacun, et la limite à connaître.' },
     { title: 'La méthode Waimia', desc: "Premier rendez-vous, audit gratuit de 45 minutes, style, pièces à réunir, maquette validée avant développement, et les deux packs d'heures." },
   ],
   inside_en: [
@@ -45,7 +45,7 @@ export const data: LeadMagnetPage = {
     { title: 'The Waimia method', desc: 'First meeting, free 45-minute audit, style, materials to gather, mockup approved before development, and the two hour packs.' },
   ],
   extract_fr:
-    "<p><strong>Extrait de l'axe 2 : vitesse.</strong> Trois seuils à relever sur mobile, d'après web.dev (page lue le 16 octobre 2026) :</p>" +
+    "<p><strong>Extrait de l'axe 2 : vitesse.</strong> Trois seuils à relever sur mobile, selon web.dev :</p>" +
     '<ul>' +
     '<li><strong>Chargement du plus grand élément (LCP)</strong> : 2,5 secondes au plus.</li>' +
     '<li><strong>Réactivité (INP)</strong> : 200 millisecondes au plus.</li>' +
@@ -71,7 +71,7 @@ export const data: LeadMagnetPage = {
     },
     {
       q: 'La grille dit-elle combien coûte une refonte ?',
-      a: "Non. Elle sert à décider s'il faut refaire. Le dernier chapitre rappelle les deux packs d'heures de Waimia, avec les prix relevés à la date indiquée dans le PDF. Aucun prix de marché n'y figure.",
+      a: "Non. Elle sert à décider s'il faut refaire. Le dernier chapitre présente les deux packs d'heures de Waimia avec leurs prix ; aucun prix de marché n'y figure.",
     },
     {
       q: 'Que devient mon adresse e-mail ?',
@@ -109,5 +109,5 @@ export const data: LeadMagnetPage = {
   seoDescription_en:
     'Website audit grid as a free PDF: eight axes to tick, how to check each point and criteria to choose between fixing and rebuilding your site.',
   publishedAt: '2026-10-16',
-  updatedAt: '2026-10-16',
+  updatedAt: '2026-11-11',
 };

@@ -35,8 +35,8 @@ const ld = buildArticle({
   mainEntityOfPage: `${SITE.url}${CHECKLIST_HREF}`,
 });
 const cta = auditCtaFinal(
-  'La checklist donne l\'ordre des actions. L\'audit choisit votre cas pilote.',
-  '45 minutes en visio, gratuit : vos process passés en revue tâche par tâche, et un ou deux chantiers classés, écrits noir sur blanc.',
+  'La checklist suppose un cas pilote. L\'audit vous aide à le choisir.',
+  '45 minutes en visio, gratuit : nous passons vos process en revue tâche par tâche, et un ou deux chantiers ressortent classés, par écrit.',
 );
 // Hero illustré : celui de l'entrée `outils/checklist-90-jours-claude`, que la carte du hub reprend.
 const hero = (await getEntry('outils', 'checklist-90-jours-claude'))?.data.heroIllustration;
@@ -55,9 +55,9 @@ const exit = toolExit('/ressources/outils/checklist-90-jours-claude');
   <ToolIntro
     illustration={hero}
     h1="Checklist 90 jours : déployer Claude dans votre PME"
-    lede={`Le plan du guide « Déployer Claude dans votre PME », rendu actionnable : ${prerequisites.length} prérequis, ${phases.length} phases de 30 jours, une case par action et un livrable par semaine. Cochez en ligne ou imprimez-la pour votre réunion de lancement.`}
+    lede={`Le plan de notre guide pour déployer Claude en PME, mis en cases : ${prerequisites.length} prérequis à lever d'abord, puis ${phases.length} phases de 30 jours, une case par action et un livrable à rendre chaque semaine. Cochez en ligne, ou imprimez-la pour la réunion de lancement.`}
     facts={[
-      { label: 'Format', value: 'En ligne, PDF par e-mail' },
+      { label: 'Format', value: 'À cocher en ligne, PDF par e-mail' },
       { label: 'Longueur', value: `${prerequisites.length} prérequis, ${nWeeks} semaines` },
       { label: 'E-mail', value: 'Requis pour le PDF seulement' },
     ]}
