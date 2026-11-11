@@ -94,7 +94,7 @@ const hero: SectionByType<'hero-hub-masthead'> = {
   kicker_en: '§ Use cases · what AI unblocks concretely',
   h1_fr: '<span>Cas d\'usage <i>IA</i> en PME :</span><br/><span>le gain réel, pas une démo.</span>',
   h1_en: '<span><i>AI</i> use cases:</span><br/><span>real gain, not a demo.</span>',
-  lede_fr: "Par problème (administratif, données, suivi commercial) et par fonction (support, comptabilité, RH). Chaque page dit ce qu'on automatise, dans quel ordre et où sont les limites. Les réalisations Waimia et les études de cas du marché (cas réalisés par d'autres, sourcés) sont deux rubriques distinctes.",
+  lede_fr: "Partez de votre blocage : administratif, données éparpillées, suivi commercial qui s'oublie. Ou de votre fonction : support, comptabilité, RH. Chaque page dit ce qu'on automatise en premier, dans quel ordre et où s'arrêter. Plus bas, nos réalisations, puis des cas menés par d'autres entreprises, sourcés et rangés à part.",
   lede_en: 'By problem (admin, data, sales follow-up) and by function (support, accounting, HR). Each page says what to automate, in what order and where the limits are. Waimia work and market case studies (delivered by others, sourced) are two separate sections.',
 };
 
@@ -112,7 +112,7 @@ const ctaFinal: SectionByType<'cta-final'> = {
     variant: 'primary',
   },
   cta_secondary: {
-    label_fr: 'Voir les services →',
+    label_fr: 'Voir l’intégration de Claude →',
     label_en: 'See the services →',
     href: '/services/integration-claude',
     variant: 'ghost',
@@ -147,7 +147,7 @@ const marketCases: SectionByType<'market-cases'> = {
   kicker_en: '§ Market case studies',
   h2_fr: 'Études de cas du marché',
   h2_en: 'Market case studies',
-  intro_fr: "Des déploiements réels, menés par d'autres entreprises et publiés par elles ou par les éditeurs de leurs outils. Nous avons lu chaque source ; le résultat est rapporté tel qu'elle le formule. Le détail de ce qui a été automatisé et la citation exacte sont sur la page de chaque fonction.",
+  intro_fr: "Des déploiements réels, publiés par les entreprises elles-mêmes ou par les éditeurs de leurs outils, rangés par fonction : support, finance, RH. Le détail de ce qui a été automatisé et la citation exacte sont sur la page de chaque fonction.",
   intro_en: 'Real rollouts, run by other companies and published by them or by their tool vendors. We read each source; the result is reported as the source words it. What was automated in detail and the exact quote are on each function page.',
   groups: (Object.entries(MARKET_CASE_FUNCTION_LABEL) as Array<[string, (typeof MARKET_CASE_FUNCTION_LABEL)[keyof typeof MARKET_CASE_FUNCTION_LABEL]]>).map(
     ([fn, l]) => ({ function: fn, title_fr: l.fr, title_en: l.en, href: `${l.href}#etudes-de-cas-du-marche` }),
