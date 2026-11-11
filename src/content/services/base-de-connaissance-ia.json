@@ -7,7 +7,7 @@
   "description_en": "An AI knowledge base answers from your documents, cites its sources and respects access rights. The free 45-minute audit tells whether it is worth the cost.",
   "slug": "base-de-connaissance-ia",
   "publishedAt": "2026-10-04T00:00:00.000Z",
-  "updatedAt": "2026-11-10",
+  "updatedAt": "2026-11-11",
   "category": "agents",
   "tags": [
     "base-de-connaissance-ia",
@@ -22,27 +22,27 @@
   "faq_fr": [
     {
       "q": "Quelle différence entre une base de connaissance IA et un chatbot ?",
-      "a": "Le chatbot est l'interface ; la base de connaissance est ce qu'il y a derrière : vos documents indexés, avec leurs droits d'accès. Sans elle, il répond avec ce que le modèle sait en général ; avec elle, il répond à partir de vos documents et cite ses sources."
+      "a": "Le chatbot est l'interface ; la base de connaissance est ce qu'il y a derrière : vos documents indexés, avec leurs droits d'accès. Sans elle, il répond avec ce que le modèle sait en général. Avec elle, il répond à partir de vos documents et cite ses sources."
     },
     {
       "q": "Faut-il forcément du RAG ?",
-      "a": "Non. Anthropic indique que si votre base fait moins de 200 000 tokens, soit environ 500 pages, on peut la placer entièrement dans le contexte du modèle, sans RAG. Pour quelques procédures et un catalogue, un projet Claude avec les bons documents suffit souvent. Le RAG se justifie quand le volume dépasse ce seuil, quand les documents changent souvent ou quand les droits d'accès diffèrent selon les personnes."
+      "a": "Non. Anthropic indique qu'une base de moins de 200 000 tokens, soit environ 500 pages, peut tenir entière dans le contexte du modèle, sans RAG. Pour quelques procédures et un catalogue, un projet Claude avec les bons documents suffit souvent. Le RAG se justifie au-delà de ce volume, quand les documents changent souvent ou quand les droits d'accès diffèrent selon les personnes."
     },
     {
       "q": "Nos documents sont mal rangés. Est-ce bloquant ?",
-      "a": "C'est le cas normal, et c'est le vrai chantier. Une base de connaissance ne répare pas des documents contradictoires : elle les expose. On commence donc par un périmètre réduit, on choisit pour chaque sujet le document qui fait foi, on écarte les versions périmées. La qualité des réponses suit celle de ces documents."
+      "a": "C'est le cas normal, et c'est le vrai chantier. Une base de connaissance ne répare pas des documents contradictoires : elle les expose. Nous partons donc d'un périmètre réduit, nous choisissons pour chaque sujet le document qui fait foi et nous écartons les versions périmées. La qualité des réponses suit celle de ces documents."
     },
     {
       "q": "Un salarié peut-il voir des documents auxquels il n'a pas droit ?",
-      "a": "Pas si les droits sont appliqués au moment de la recherche, ce qui est notre règle : la base ne remonte à une personne que les passages des documents qu'elle peut déjà ouvrir. Les données RH, les contrats et les données clients sensibles sont exclus par défaut et ajoutés seulement après une décision explicite."
+      "a": "Non, parce que nous appliquons les droits au moment de la recherche : la base ne remonte à une personne que les passages de documents qu'elle peut déjà ouvrir. Les données RH, les contrats et les données clients sensibles sont exclus par défaut, et ajoutés seulement sur décision explicite."
     },
     {
       "q": "L'IA peut-elle encore se tromper ?",
-      "a": "Oui. Une base de connaissance réduit les réponses inventées, elle ne les supprime pas. C'est pour cela que chaque réponse cite ses sources et que l'assistant doit dire qu'il ne sait pas quand rien ne correspond. On mesure la qualité sur une liste de questions réelles avant de l'ouvrir à l'équipe."
+      "a": "Oui. Une base de connaissance réduit les réponses inventées, elle ne les supprime pas. D'où les sources citées à chaque réponse, et un assistant qui doit dire qu'il ne sait pas quand rien ne correspond. Nous mesurons la qualité sur une liste de questions réelles avant d'ouvrir l'outil à l'équipe."
     },
     {
       "q": "Combien ça coûte ?",
-      "a": "Sur devis après l'audit gratuit. Le coût dépend surtout du volume de documents, du nombre de sources à brancher et de la finesse des droits d'accès. L'audit sert à vérifier d'abord si une solution simple, sans développement, répond au besoin."
+      "a": "Après l'audit gratuit, le cadrage se fait par un sprint de 10 heures à {{prix.sprint}} € HT, comme sur la page tarifs. Le reste se chiffre sur devis : le prix dépend du volume de documents, du nombre de sources à brancher et de la finesse des droits d'accès. L'audit vérifie d'abord qu'une solution simple, sans développement, ne répond pas déjà au besoin."
     }
   ],
   "faq_en": [
@@ -85,7 +85,7 @@
       "kicker_en": "§ AI knowledge base",
       "h1_fr": "Base de connaissance IA : vos documents, chaque réponse avec sa source",
       "h1_en": "AI knowledge base: your documents, every answer with its source",
-      "lede_fr": "Vos procédures, offres, comptes rendus et réponses types existent déjà, mais restent introuvables au moment où on en a besoin. Une base de connaissance IA répond en français aux questions de votre équipe, depuis vos documents, avec la source.",
+      "lede_fr": "Vos procédures, offres et comptes rendus existent déjà, mais restent introuvables quand on en a besoin. Nous branchons sur ces documents un assistant qui répond en français aux questions de votre équipe, avec la source. Audit gratuit de 45 minutes, cadrage de 10 heures à {{prix.sprint}} € HT, puis un pilote sur un seul service ; le reste se chiffre selon le volume de documents.",
       "lede_en": "Your procedures, offers, meeting notes and standard replies already exist, but cannot be found when needed. An AI knowledge base answers your team's questions in plain language, drawn from your documents, with the source.",
       "badges": [
         {
@@ -122,13 +122,13 @@
       "metrics": [
         {
           "value": "0 €",
-          "label_fr": "audit de 45 minutes : on vérifie d'abord si une solution simple suffit",
+          "label_fr": "audit de 45 minutes, qui vérifie d'abord si une solution simple suffit",
           "label_en": "45-minute audit: we first check whether a simple solution is enough",
           "emphasis": false
         },
         {
           "value": "Sur devis",
-          "label_fr": "selon le volume de documents, les sources à brancher et les droits d'accès",
+          "label_fr": "le volume de documents, les sources à brancher et les droits d'accès font le prix",
           "label_en": "depending on document volume, sources to connect and access rights",
           "emphasis": true
         },
@@ -140,7 +140,7 @@
         },
         {
           "value": "Droits d'accès",
-          "label_fr": "chacun ne voit que ce qu'il a le droit de voir",
+          "label_fr": "chacun ne voit que ce qu'il peut déjà ouvrir",
           "label_en": "each person only sees what they are allowed to see",
           "emphasis": false
         }
@@ -153,7 +153,7 @@
       "question_en": "What is an AI knowledge base?",
       "term_fr": "Base de connaissance IA",
       "term_en": "AI knowledge base",
-      "answer_fr": "Une base de connaissance IA (ou base de connaissances d'entreprise) est un assistant interne branché sur vos documents. Il répond avec ce que votre entreprise a écrit, pas avec ce qu'un modèle sait en général : procédures, contrats types, fiches produit, tickets. Chaque réponse renvoie au document d'origine, et chacun ne voit que ce qu'il peut déjà ouvrir.",
+      "answer_fr": "Une base de connaissance IA, ou base de connaissances d'entreprise, est un assistant interne branché sur vos documents : procédures, contrats types, fiches produit, tickets. Il répond avec ce que votre entreprise a écrit, pas avec ce qu'un modèle sait en général, renvoie au document d'origine et ne montre à chacun que ce qu'il peut déjà ouvrir.",
       "answer_en": "An AI knowledge base (or company knowledge base) is an internal assistant connected to your documents. It answers with what your company has written, not with what a model knows in general: procedures, contract templates, product sheets, tickets. Every answer points to the original document, and each person only sees what they can already open."
     },
     {
@@ -166,10 +166,10 @@
       "use_title_fr": "Ça vaut le coût quand",
       "use_title_en": "Worth it when",
       "use_items_fr": [
-        "Les mêmes questions reviennent chaque semaine vers les deux ou trois mêmes personnes",
-        "L'intégration d'un nouveau collaborateur repose sur la mémoire des anciens",
-        "Le support ou les commerciaux cherchent la bonne réponse dans plusieurs outils avant de répondre",
-        "Le savoir est écrit, mais dispersé entre un drive, une messagerie et un outil métier"
+        "Les mêmes questions remontent chaque semaine vers les deux ou trois mêmes personnes",
+        "L'arrivée d'un nouveau repose sur la mémoire des anciens",
+        "Le support ou les commerciaux fouillent plusieurs outils avant de répondre",
+        "Le savoir est écrit, mais éparpillé entre un drive, une messagerie et un outil métier"
       ],
       "use_items_en": [
         "The same questions come back every week to the same two or three people",
@@ -182,7 +182,7 @@
       "avoid_items_fr": [
         "Le savoir n'est écrit nulle part : il faut d'abord le documenter",
         "Quelques dizaines de pages suffisent : un projet Claude avec ces documents fait le travail, sans développement",
-        "Personne ne sera responsable de tenir les documents à jour",
+        "Personne ne sera chargé de tenir les documents à jour",
         "Le vrai problème est un outil mal utilisé, pas un savoir introuvable"
       ],
       "avoid_items_en": [
@@ -203,7 +203,7 @@
           "side": "right"
         }
       ],
-      "html_fr": "<h2>RAG : ce que c'est, en mots simples</h2>\n<p>RAG signifie « génération augmentée par la recherche ». Anthropic le définit ainsi : une méthode qui retrouve les informations pertinentes dans une base de connaissance et les ajoute à la question posée au modèle. Le modèle ne répond plus de mémoire. Il répond avec les bons passages sous les yeux.</p>\n<p>En pratique, quatre étapes :</p>\n<ol>\n<li><strong>Découper.</strong> Vos documents sont découpés en passages.</li>\n<li><strong>Indexer.</strong> Chaque passage est rangé dans un index qui permet de le retrouver par le sens, pas seulement par mot-clé.</li>\n<li><strong>Retrouver.</strong> À chaque question, le système cherche les passages les plus proches, parmi ceux que la personne a le droit de lire.</li>\n<li><strong>Répondre.</strong> Le modèle rédige la réponse à partir de ces passages et cite les documents d'origine.</li>\n</ol>\n<p>Le RAG n'est pas toujours nécessaire. Anthropic écrivait en septembre 2024 qu'une base de moins de 200 000 tokens (environ 500 pages) peut être donnée en entier au modèle, et ses modèles actuels acceptent jusqu'à 1 million de tokens. C'est la première chose que l'on vérifie : si vos procédures tiennent dans la requête, la solution est plus simple et moins chère. Les définitions de LLM, de contexte et de RAG sont dans le guide <a href=\"/ressources/guides/llm-rag-dirigeant\">LLM et RAG pour dirigeants</a>. Pour décider si le projet vaut son coût, voir le guide <a href=\"/ressources/guides/second-cerveau-entreprise\">second cerveau en entreprise : quand il vaut le coût</a>.</p>",
+      "html_fr": "<h2>RAG : ce que c'est, en mots simples</h2>\n<p>RAG veut dire « génération augmentée par la recherche ». <a href=\"https://www.anthropic.com/news/contextual-retrieval\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic</a> le décrit comme une méthode qui retrouve les informations utiles dans une base de connaissance et les ajoute à la question posée au modèle. Le modèle ne répond plus de mémoire : il a les bons passages sous les yeux.</p>\n<p>Cela se passe en quatre temps. Vos documents sont d'abord découpés en passages, puis chaque passage est rangé dans un index qui le retrouve par le sens, pas seulement par mot-clé. À chaque question, le système cherche les passages les plus proches parmi ceux que la personne a le droit de lire. Le modèle rédige alors sa réponse à partir d'eux et cite les documents d'origine.</p>\n<p>Avant de monter tout cela, je vérifie si le RAG est nécessaire, et c'est souvent non. Anthropic écrivait en septembre 2024 qu'une base de moins de 200 000 tokens, environ 500 pages, peut être donnée en entier au modèle, et ses modèles actuels acceptent jusqu'à 1 million de tokens. Si vos procédures tiennent dans la requête, la solution est plus simple et moins chère. Les définitions de LLM, de contexte et de RAG sont dans le guide <a href=\"/ressources/guides/llm-rag-dirigeant\">LLM et RAG pour dirigeants</a> ; pour décider si le projet vaut son coût, lisez <a href=\"/ressources/guides/second-cerveau-entreprise\">second cerveau en entreprise : quand il vaut le coût</a>.</p>\n<p>La base de connaissance est aussi la première brique d'un agent qui doit répondre juste : notre guide <a href=\"/ressources/guides/agent-ia-definition\">Agent IA : c'est quoi ? Définition, coût et limites</a> explique pourquoi.</p>",
       "html_en": "<h2>RAG: what it is, in plain words</h2>\n<p>RAG stands for retrieval-augmented generation. Anthropic defines it as a method that retrieves relevant information from a knowledge base and appends it to the user's prompt. The model no longer answers from memory. It answers with the right passages in front of it.</p>\n<p>In practice, four steps:</p>\n<ol>\n<li><strong>Split.</strong> Your documents are split into passages.</li>\n<li><strong>Index.</strong> Each passage is stored in an index that finds it by meaning, not only by keyword.</li>\n<li><strong>Retrieve.</strong> For each question, the system looks for the closest passages, among those the person is allowed to read.</li>\n<li><strong>Answer.</strong> The model writes the answer from those passages and cites the original documents.</li>\n</ol>\n<p>RAG is not always needed. Also according to Anthropic, a knowledge base under 200,000 tokens (about 500 pages) can be given to the model in full. That is the first thing we check: if your procedures fit in that volume, the solution is simpler and cheaper. The definitions of LLM, context and RAG are in the <a href=\"/ressources/guides/llm-rag-dirigeant\">LLM and RAG guide for business owners</a>. To decide whether the project is worth its cost, see the guide <a href=\"/ressources/guides/second-cerveau-entreprise\">company second brain: when it is worth the cost</a>.</p>"
     },
     {
@@ -214,31 +214,31 @@
       "kicker_en": "§ Architecture",
       "title_fr": "L'architecture en mots simples",
       "title_en": "The architecture in plain words",
-      "lead_fr": "Quatre couches, de vos documents jusqu'à la réponse affichée.",
+      "lead_fr": "Quatre couches, de vos documents à la réponse affichée.",
       "lead_en": "Four layers, from your documents to the answer on screen.",
       "items": [
         {
           "title_fr": "Les sources",
           "title_en": "The sources",
-          "body_fr": "Ce que l'assistant a le droit de lire. Un périmètre choisi, quelques dossiers d'abord et pas tout le drive. Pour chaque sujet, un document qui fait foi. Données RH, contrats et données clients sensibles exclus par défaut.",
+          "body_fr": "Ce que l'assistant a le droit de lire : un périmètre choisi, quelques dossiers d'abord et pas tout le drive, et pour chaque sujet un document qui fait foi. Données RH, contrats et données clients sensibles sont exclus par défaut.",
           "body_en": "What the assistant is allowed to read. A chosen scope, a few folders first and not the whole drive. For each topic, one authoritative document. HR data, contracts and sensitive customer data excluded by default."
         },
         {
           "title_fr": "L'index",
           "title_en": "The index",
-          "body_fr": "Ce qui permet de retrouver le bon passage. Les documents sont découpés et indexés par le sens, et l'index se met à jour quand un document change. L'hébergement est décidé avec vous, selon la sensibilité des données.",
+          "body_fr": "De quoi retrouver le bon passage. Les documents sont découpés et indexés par le sens, et l'index se met à jour quand un document change. Nous décidons avec vous de l'hébergement, selon la sensibilité des données.",
           "body_en": "What makes the right passage findable. Documents are split and indexed by meaning, and the index updates when a document changes. Hosting is decided with you, according to data sensitivity."
         },
         {
           "title_fr": "Les droits",
           "title_en": "The rights",
-          "body_fr": "Qui peut voir quoi. Les droits d'accès de vos outils sont repris, pas réinventés. Le filtre s'applique au moment de la recherche, avant que le modèle ne lise quoi que ce soit.",
+          "body_fr": "Qui voit quoi. Nous reprenons les droits d'accès de vos outils au lieu d'en inventer d'autres, et le filtre s'applique à la recherche, avant que le modèle ne lise quoi que ce soit.",
           "body_en": "Who can see what. Access rights from your tools are reused, not reinvented. The filter applies at search time, before the model reads anything."
         },
         {
           "title_fr": "La réponse",
           "title_en": "The answer",
-          "body_fr": "Ce que voit la personne : une réponse rédigée avec les documents sources en lien, « je ne sais pas » quand rien ne correspond, et un journal des questions posées pour repérer ce qui manque dans la documentation.",
+          "body_fr": "Ce que voit la personne : une réponse rédigée, les documents sources en lien, un « je ne sais pas » quand rien ne correspond, et un journal des questions posées qui montre ce qui manque dans la documentation.",
           "body_en": "What the person sees: a written answer with links to source documents, \"I do not know\" when nothing matches, and a log of questions asked to spot what is missing in the documentation."
         }
       ]
@@ -254,7 +254,7 @@
           "side": "left"
         }
       ],
-      "html_fr": "<h2>Une base de connaissances interne sur mesure : ce qui se décide avec vous</h2>\n<p>« Sur mesure » veut dire quatre choix qui vous appartiennent : le périmètre des documents (quelques dossiers d'abord, pas tout le drive), le document qui fait foi pour chaque sujet, les droits d'accès repris de vos outils, et l'hébergement des données. Ils sont détaillés dans l'architecture ci-dessus. Si quelques dizaines de pages suffisent, un <a href=\"/services/integration-claude\">projet Claude</a> avec ces documents fait le travail sans développement : c'est la première chose que vérifie l'<a href=\"/audit-ia-pme\">audit gratuit</a>.</p>\n<h2>Base de connaissances pour agents IA</h2>\n<p>Un agent IA qui agit dans vos outils (répondre à un client, mettre à jour une fiche) a besoin d'une source fiable sur ce que l'entreprise a décidé. La base de connaissance joue ce rôle : l'agent y retrouve la procédure ou la réponse type, avec son document d'origine, au lieu de deviner. Une base mal tenue donne des actions mal fondées, donc la règle de mise à jour compte autant que pour un assistant qui se contente de répondre. Pour la suite, voir les <a href=\"/services/agents-ia\">agents IA</a> et le guide <a href=\"/ressources/guides/agent-ia-definition\">Agent IA : c'est quoi ? Définition, coût et limites</a>.</p>\n<h2>Les limites à connaître avant de se lancer</h2>\n<ul>\n<li><strong>La qualité des réponses suit celle des documents.</strong> Deux procédures contradictoires donnent une réponse hésitante. Le tri documentaire fait partie de la mission.</li>\n<li><strong>Un document périmé reste une source.</strong> Sans règle de mise à jour, la base vieillit. On désigne un responsable par famille de documents.</li>\n<li><strong>Les tableaux, plans et scans se lisent mal.</strong> Certains formats demandent une préparation spécifique, parfois une ressaisie.</li>\n<li><strong>Une réponse citée n'est pas une réponse vérifiée.</strong> Pour une décision qui engage (juridique, sécurité, paie), la personne ouvre le document source.</li>\n</ul>\n<h2>Sources, vérifiées le 4 octobre 2026</h2><ul><li><a href=\"https://www.anthropic.com/news/contextual-retrieval\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, « Introducing Contextual Retrieval » (définition du RAG, seuil de 200 000 tokens), 19 septembre 2024</a></li></ul>",
+      "html_fr": "<h2>Une base de connaissances interne sur mesure : ce qui se décide avec vous</h2>\n<p>« Sur mesure » recouvre quatre décisions qui vous appartiennent : le périmètre des documents, le document qui fait foi pour chaque sujet, les droits d'accès repris de vos outils et l'hébergement des données. Si quelques dizaines de pages suffisent, un <a href=\"/services/integration-claude\">projet Claude</a> alimenté par ces documents fait le travail sans développement, et c'est la première chose que vérifie l'<a href=\"/audit-ia-pme\">audit gratuit</a>. Je préfère vous le dire avant de vous facturer quoi que ce soit.</p>\n<h2>Base de connaissances pour agents IA</h2>\n<p>Un agent qui agit dans vos outils, en répondant à un client ou en mettant à jour une fiche, a besoin d'une source fiable sur ce que l'entreprise a décidé. La base de connaissance la lui donne : il retrouve la procédure ou la réponse type avec son document d'origine, au lieu de deviner. Une base mal tenue produit des actions mal fondées, donc la règle de mise à jour pèse plus que pour un assistant qui se contente de répondre. La suite est sur la page <a href=\"/services/agents-ia\">agents IA</a>.</p>\n<h2>Ce qui fait échouer une base de connaissance</h2>\n<p>Les réponses valent ce que valent les documents : deux procédures contradictoires donnent une réponse hésitante, c'est pourquoi le tri documentaire fait partie de la mission. Un document périmé reste une source, et sans règle de mise à jour la base vieillit ; nous désignons donc un responsable par famille de documents. Les tableaux, plans et scans se lisent mal, certains formats demandent une préparation, parfois une ressaisie.</p>\n<p>Enfin, une réponse citée n'est pas une réponse vérifiée. Pour une décision qui engage, en droit, en sécurité ou en paie, la personne ouvre le document source.</p>",
       "html_en": "<h2>A custom internal knowledge base: what is decided with you</h2>\n<p>\"Custom\" means four choices that belong to you: the document scope (a few folders first, not the whole drive), the document that is authoritative for each topic, the access rights taken over from your tools, and where the data is hosted. They are detailed in the architecture above. If a few dozen pages are enough, a <a href=\"/services/integration-claude\">Claude project</a> with those documents does the job without development: it is the first thing the <a href=\"/audit-ia-pme\">free audit</a> checks.</p>\n<h2>A knowledge base for AI agents</h2>\n<p>An AI agent that acts in your tools (answering a customer, updating a record) needs a reliable source for what the company has decided. The knowledge base plays that role: the agent finds the procedure or standard reply there, with its original document, instead of guessing. A poorly maintained base leads to poorly grounded actions, so the update rule matters as much as for an assistant that only answers. Next, see <a href=\"/services/agents-ia\">AI agents</a> and the guide <a href=\"/ressources/guides/agent-ia-definition\">What is an AI agent? Definition, cost and limits</a>.</p>\n<h2>Limits to know before starting</h2>\n<ul>\n<li><strong>Answer quality follows document quality.</strong> Two contradictory procedures give a hesitant answer. Sorting documents is part of the engagement.</li>\n<li><strong>An outdated document is still a source.</strong> Without an update rule, the base ages. We name an owner per document family.</li>\n<li><strong>Tables, drawings and scans read poorly.</strong> Some formats need specific preparation, sometimes re-keying.</li>\n<li><strong>A cited answer is not a verified answer.</strong> For a binding decision (legal, safety, payroll), the person opens the source document.</li>\n</ul>\n<h2>Sources, checked on 4 October 2026</h2><ul><li><a href=\"https://www.anthropic.com/news/contextual-retrieval\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, \"Introducing Contextual Retrieval\" (RAG definition, 200,000-token threshold), 19 September 2024</a></li></ul>"
     },
     {
@@ -273,35 +273,35 @@
           "title_en": "Free audit",
           "meta_fr": "45 minutes",
           "meta_en": "45 minutes",
-          "body_fr": "On vérifie que le besoin est bien un problème de savoir introuvable, et si une solution sans développement suffit.",
+          "body_fr": "Nous vérifions que votre besoin est bien un savoir introuvable, et qu'aucune solution sans développement ne suffit.",
           "body_en": "We check the need really is unfindable knowledge, and whether a no-development solution is enough."
         },
         {
           "num": "02",
           "title_fr": "Périmètre et tri",
           "title_en": "Scope and sorting",
-          "body_fr": "Un service, une famille de documents, une liste de vraies questions posées par l'équipe.",
+          "body_fr": "Un service, une famille de documents et une liste de vraies questions posées par l'équipe.",
           "body_en": "One department, one document family, a list of real questions asked by the team."
         },
         {
           "num": "03",
           "title_fr": "Pilote",
           "title_en": "Pilot",
-          "body_fr": "L'assistant répond sur ce périmètre. On note chaque réponse fausse ou incomplète et on corrige la source ou le réglage.",
+          "body_fr": "L'assistant répond sur ce périmètre. Chaque réponse fausse ou incomplète est notée, puis nous corrigeons la source ou le réglage.",
           "body_en": "The assistant answers on that scope. We log each wrong or incomplete answer and fix the source or the setting."
         },
         {
           "num": "04",
           "title_fr": "Mesure",
           "title_en": "Measurement",
-          "body_fr": "Part des questions correctement répondues sur la liste de test, et retours des utilisateurs.",
+          "body_fr": "Part des questions bien traitées sur la liste de test, et retours des utilisateurs.",
           "body_en": "Share of test questions answered correctly, and user feedback."
         },
         {
           "num": "05",
           "title_fr": "Extension et passation",
           "title_en": "Extension and handover",
-          "body_fr": "Nouveaux périmètres, règles de mise à jour, code et documentation transmis.",
+          "body_fr": "De nouveaux périmètres, des règles de mise à jour, le code et la documentation transmis.",
           "body_en": "New scopes, update rules, code and documentation handed over."
         }
       ]
@@ -339,7 +339,7 @@
       "background": "paper",
       "h2_fr": "Où en est votre entreprise avec l'IA ?",
       "h2_en": "Où en est votre entreprise avec l'IA ?",
-      "body_fr": "Le diagnostic de maturité prend quelques minutes et donne un niveau et une première piste. Le résultat s'affiche tout de suite ; vous pouvez le recevoir par e-mail.",
+      "body_fr": "Le diagnostic de maturité prend quelques minutes. Il donne un niveau et une première piste, affichés tout de suite ; vous pouvez aussi les recevoir par e-mail.",
       "body_en": "Le diagnostic de maturité prend quelques minutes et donne un niveau et une première piste. Le résultat s'affiche tout de suite ; vous pouvez le recevoir par e-mail.",
       "cta_primary": {
         "label_fr": "Faire le diagnostic",
@@ -392,37 +392,37 @@
         {
           "q_fr": "Quelle différence entre une base de connaissance IA et un chatbot ?",
           "q_en": "What is the difference between an AI knowledge base and a chatbot?",
-          "a_fr": "Le chatbot est l'interface ; la base de connaissance est ce qu'il y a derrière : vos documents indexés, avec leurs droits d'accès. Sans elle, il répond avec ce que le modèle sait en général ; avec elle, il répond à partir de vos documents et cite ses sources.",
+          "a_fr": "Le chatbot est l'interface ; la base de connaissance est ce qu'il y a derrière : vos documents indexés, avec leurs droits d'accès. Sans elle, il répond avec ce que le modèle sait en général. Avec elle, il répond à partir de vos documents et cite ses sources.",
           "a_en": "The chatbot is the interface; the knowledge base is what sits behind it: your indexed documents, with their access rights. Without it, the chatbot answers from what the model knows in general; with it, the chatbot answers from your documents and cites its sources."
         },
         {
           "q_fr": "Faut-il forcément du RAG ?",
           "q_en": "Is RAG always required?",
-          "a_fr": "Non. Anthropic indique que si votre base fait moins de 200 000 tokens, soit environ 500 pages, on peut la placer entièrement dans le contexte du modèle, sans RAG. Pour quelques procédures et un catalogue, un projet Claude avec les bons documents suffit souvent. Le RAG se justifie quand le volume dépasse ce seuil, quand les documents changent souvent ou quand les droits d'accès diffèrent selon les personnes.",
+          "a_fr": "Non. Anthropic indique qu'une base de moins de 200 000 tokens, soit environ 500 pages, peut tenir entière dans le contexte du modèle, sans RAG. Pour quelques procédures et un catalogue, un projet Claude avec les bons documents suffit souvent. Le RAG se justifie au-delà de ce volume, quand les documents changent souvent ou quand les droits d'accès diffèrent selon les personnes.",
           "a_en": "No. Anthropic states that if your knowledge base is under 200,000 tokens, about 500 pages, you can put it entirely in the model's context, with no RAG. For a few procedures and a catalogue, a Claude project with the right documents is often enough. RAG is justified when volume exceeds that threshold, when documents change often or when access rights differ between people."
         },
         {
           "q_fr": "Nos documents sont mal rangés. Est-ce bloquant ?",
           "q_en": "Our documents are a mess. Is that a blocker?",
-          "a_fr": "C'est le cas normal, et c'est le vrai chantier. Une base de connaissance ne répare pas des documents contradictoires : elle les expose. On commence donc par un périmètre réduit, on choisit pour chaque sujet le document qui fait foi, on écarte les versions périmées. La qualité des réponses suit celle de ces documents.",
+          "a_fr": "C'est le cas normal, et c'est le vrai chantier. Une base de connaissance ne répare pas des documents contradictoires : elle les expose. Nous partons donc d'un périmètre réduit, nous choisissons pour chaque sujet le document qui fait foi et nous écartons les versions périmées. La qualité des réponses suit celle de ces documents.",
           "a_en": "That is the normal case, and it is the real work. A knowledge base does not fix contradictory documents: it exposes them. So we start with a narrow scope, pick the authoritative document for each topic, and set aside outdated versions. The quality of answers follows the quality of these documents."
         },
         {
           "q_fr": "Un salarié peut-il voir des documents auxquels il n'a pas droit ?",
           "q_en": "Can an employee see documents they are not allowed to?",
-          "a_fr": "Pas si les droits sont appliqués au moment de la recherche, ce qui est notre règle : la base ne remonte à une personne que les passages des documents qu'elle peut déjà ouvrir. Les données RH, les contrats et les données clients sensibles sont exclus par défaut et ajoutés seulement après une décision explicite.",
+          "a_fr": "Non, parce que nous appliquons les droits au moment de la recherche : la base ne remonte à une personne que les passages de documents qu'elle peut déjà ouvrir. Les données RH, les contrats et les données clients sensibles sont exclus par défaut, et ajoutés seulement sur décision explicite.",
           "a_en": "Not if rights are enforced at search time, which is our rule: the base only returns to a person passages from documents they can already open. HR data, contracts and sensitive customer data are excluded by default and only added after an explicit decision."
         },
         {
           "q_fr": "L'IA peut-elle encore se tromper ?",
           "q_en": "Can the AI still get it wrong?",
-          "a_fr": "Oui. Une base de connaissance réduit les réponses inventées, elle ne les supprime pas. C'est pour cela que chaque réponse cite ses sources et que l'assistant doit dire qu'il ne sait pas quand rien ne correspond. On mesure la qualité sur une liste de questions réelles avant de l'ouvrir à l'équipe.",
+          "a_fr": "Oui. Une base de connaissance réduit les réponses inventées, elle ne les supprime pas. D'où les sources citées à chaque réponse, et un assistant qui doit dire qu'il ne sait pas quand rien ne correspond. Nous mesurons la qualité sur une liste de questions réelles avant d'ouvrir l'outil à l'équipe.",
           "a_en": "Yes. A knowledge base reduces made-up answers, it does not remove them. That is why each answer cites its sources and the assistant must say it does not know when nothing matches. We measure quality on a list of real questions before opening it to the team."
         },
         {
           "q_fr": "Combien ça coûte ?",
           "q_en": "How much does it cost?",
-          "a_fr": "Sur devis après l'audit gratuit. Le coût dépend surtout du volume de documents, du nombre de sources à brancher et de la finesse des droits d'accès. L'audit sert à vérifier d'abord si une solution simple, sans développement, répond au besoin.",
+          "a_fr": "Après l'audit gratuit, le cadrage se fait par un sprint de 10 heures à {{prix.sprint}} € HT, comme sur la page tarifs. Le reste se chiffre sur devis : le prix dépend du volume de documents, du nombre de sources à brancher et de la finesse des droits d'accès. L'audit vérifie d'abord qu'une solution simple, sans développement, ne répond pas déjà au besoin.",
           "a_en": "Quoted after the free audit. Cost depends mostly on document volume, the number of sources to connect and how fine-grained access rights are. The audit first checks whether a simple, no-development solution meets the need."
         }
       ]
@@ -435,7 +435,7 @@
       "kicker_en": "§ AI knowledge base",
       "h2_fr": "Vérifions d'abord si vous en avez besoin.",
       "h2_en": "Let us first check whether you need one.",
-      "subtitle_fr": "L'audit de 45 minutes est gratuit. On regarde où votre équipe perd du temps à chercher, et quelle est la solution la plus simple qui règle le problème.",
+      "subtitle_fr": "L'audit de 45 minutes est gratuit. Nous regardons où votre équipe perd du temps à chercher, et quelle solution, la plus simple possible, règle le problème.",
       "subtitle_en": "The 45-minute audit is free. We look at where your team loses time searching, and what the simplest solution is that fixes the problem.",
       "buttons": [
         {
