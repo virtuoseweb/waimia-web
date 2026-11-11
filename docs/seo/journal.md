@@ -1537,3 +1537,12 @@ Le relevé du 2026-W44 (`citations-ia.json`) n'avait rien mesuré : Perplexity a
 - **Mesuré** : waimia est cité sur 1 requête sur 11, « guide claude pme » (puce `waimia` en premier, avec julien-breal, lemon-interactive, sociaty). Non cité sur « claude pme » (ia4ops, concurrent suivi, l'est), « diagnostic claude pme », « application métier », « sprinkable » (le cas client publié n'est pas repris), « agence ia montpellier » (juwa, foxpilot), « charte ia pme » (francenum, mtlconnecte), « base de connaissance ia ».
 - **Lecture prudente** : une exécution par requête, réponses variables ; indicatif.
 - **Prochaine mesure** : même protocole le 7/12 (fin du plan de quatre semaines), pour comparer les trois pages de la PR #172 et « claude pme ».
+
+## 2026-11-11 · Titles et métas de deux pages en première page sans clic
+
+Source : `docs/seo/data/2026-W46/gsc-performance.json`, 28 jours au 6/11. Règle des trois semaines respectée (titles inchangés depuis les 15 et 16/10).
+
+- `/blog/creer-agent-ia-claude` : 164 impressions, position 6,5, 0 clic ; requêtes anonymisées. Title « Créer un agent IA avec Claude, avec ou sans développeur », méta qui nomme les quatre voies, le coût et le choix en PME (tout présent dans la page).
+- `/blog/connecter-claude-wordpress-shopify-mcp` : 74 impressions, position 8,3, 0 clic ; requêtes « claude connect shopify », « comment connecter claude a shopify » (positions 7 à 10). Title qui commence par Shopify, méta qui commence par « Comment connecter Claude à Shopify » et cite le connecteur officiel.
+- Non retenus : comparatif quatre assistants (position 12,8, requêtes vues en position 55 et plus), `claude-code-skills` (requêtes en position 42 et plus), `claude-pro-vs-team` et `claude-max-pme` (title récent), Sprinkable (requêtes de marque).
+- **Mesure** : clics et CTR de ces deux pages sur la collecte du 23/11 (7 jours pleins après mise en ligne), contre 0 clic sur 28 jours.
