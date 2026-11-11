@@ -84,6 +84,76 @@ const SECTOR_COPY: Record<string, {
   ctaSubtitle_fr: string; ctaSubtitle_en: string;
   workflowBodies_fr: string[]; workflowBodies_en: string[];
 }> = {
+  agence: {
+    zigzagLede_fr: "Une agence vend sa façon de penser : on outille ce qui la montre, ce qui accélère la production et ce qui nourrit les briefs. Vos créatifs gardent la main sur le rendu.",
+    zigzagLede_en: 'An agency sells how it thinks: we tool what shows it, what speeds up production and what feeds the briefs. Your creatives keep control of the output.',
+    ctaSubtitle_fr: "On regarde votre production et vos briefs en 45 minutes, et on vous dit quelles étapes répétitives peuvent sortir de vos journées.",
+    ctaSubtitle_en: 'We look at your production and briefs in 45 minutes, and tell you which repetitive steps can leave your days.',
+    workflowBodies_fr: [
+      "Vos cas, votre méthode et vos démonstrations sur un site que l'équipe met à jour sans développeur. Un prospect voit ce que vous faites avant de vous appeler.",
+      "Déclinaisons, adaptations de formats, premières versions : l'IA prépare à partir de votre charte et de vos exemples validés, vos créatifs reprennent et signent.",
+      "Un agent suit les sources de vos clients (actualité, concurrents, publications) et prépare une note avant chaque brief. Vous arrivez en réunion avec le contexte déjà lu.",
+    ],
+    workflowBodies_en: [
+      'Your cases, method and demos on a site your team updates without a developer. A prospect sees what you do before calling.',
+      'Variations, format adaptations, first drafts: AI prepares them from your brand guide and approved examples, your creatives take over and sign off.',
+      "An agent follows your clients' sources (news, competitors, publications) and prepares a note before each brief. You walk into the meeting with the context already read.",
+    ],
+  },
+  conseil: {
+    zigzagLede_fr: "Un cabinet vend son expertise et sa mémoire : on outille ce qui les rend visibles et réutilisables, sans exposer les dossiers de vos clients.",
+    zigzagLede_en: "A consulting firm sells its expertise and its memory: we tool what makes them visible and reusable, without exposing your clients' files.",
+    ctaSubtitle_fr: "On regarde vos demandes entrantes et vos livrables en 45 minutes, et on vous dit ce qui peut être préparé avant que le consultant s'en saisisse.",
+    ctaSubtitle_en: 'We look at your inbound requests and deliverables in 45 minutes, and tell you what can be prepared before a consultant picks it up.',
+    workflowBodies_fr: [
+      "Votre démarche expliquée pas à pas et des cas anonymisés que vous validez un par un. Le site parle comme vos consultants, sans révéler qui sont vos clients.",
+      "Chaque demande passe par quelques questions (taille, enjeu, délai, budget) avant d'arriver chez vous. Vous ne prenez l'appel qu'une fois le besoin compris.",
+      "Propositions, rapports et notes de mission indexés avec leurs droits d'accès : un consultant retrouve en une question ce que le cabinet a déjà écrit sur un sujet.",
+      "Recherche documentaire, synthèse de sources, premier jet de livrable : l'agent prépare, cite ses sources et laisse la conclusion au consultant.",
+    ],
+    workflowBodies_en: [
+      'Your approach explained step by step and anonymised cases you approve one by one. The site speaks like your consultants without revealing who your clients are.',
+      'Each request goes through a few questions (size, stakes, timing, budget) before it reaches you. You take the call only once the need is understood.',
+      'Proposals, reports and engagement notes indexed with their access rights: a consultant finds in one question what the firm has already written on a topic.',
+      'Desk research, source synthesis, first draft of a deliverable: the agent prepares, cites its sources and leaves the conclusion to the consultant.',
+    ],
+  },
+  esn: {
+    zigzagLede_fr: "Une ESN recrute et vend des compétences : on outille ce qui les prouve en ligne, puis l'usage de l'IA chez vos consultants, avec un cadre.",
+    zigzagLede_en: 'An IT services firm hires and sells skills: we tool what proves them online, then AI use among your consultants, with a framework.',
+    ctaSubtitle_fr: "On regarde votre recrutement, vos preuves techniques et l'usage de l'IA chez vos consultants en 45 minutes, et on vous dit par où commencer.",
+    ctaSubtitle_en: "We look at your hiring, technical proof and your consultants' AI use in 45 minutes, and tell you where to start.",
+    workflowBodies_fr: [
+      "Les projets, la stack et la façon de travailler racontés par vos équipes. Un candidat sait à quoi ressemblera sa mission avant le premier entretien.",
+      "Des cas détaillés et des articles techniques écrits avec vos consultants, publiés sans passer par un développeur. Vos commerciaux ont une page à envoyer pour chaque compétence.",
+      "Claude Code installé chez les consultants qui le veulent, avec des règles d'accès au code client et une revue humaine avant chaque livraison.",
+      "Un référent IA interne recense les tâches répétitives (comptes rendus, staffing, reporting) ; les agents les prennent une par une, avec validation.",
+    ],
+    workflowBodies_en: [
+      'Projects, stack and ways of working told by your teams. A candidate knows what the assignment will look like before the first interview.',
+      'Detailed cases and technical articles written with your consultants, published without a developer. Your sales team has a page to send for each skill.',
+      "Claude Code installed for the consultants who want it, with access rules for client code and human review before each delivery.",
+      'An internal AI lead lists the repetitive tasks (minutes, staffing, reporting); agents take them on one by one, with approval.',
+    ],
+  },
+  industrie: {
+    zigzagLede_fr: "Un industriel vend des capacités et des délais tenus : on outille ce qui les montre aux acheteurs, ce qui capte leurs demandes et ce qui retrouve la bonne fiche technique.",
+    zigzagLede_en: 'A manufacturer sells capabilities and kept deadlines: we tool what shows them to buyers, captures their requests and finds the right technical sheet.',
+    ctaSubtitle_fr: "On regarde vos demandes de prix et votre documentation technique en 45 minutes, et on vous dit ce qui peut être chiffré ou retrouvé plus vite.",
+    ctaSubtitle_en: 'We look at your price requests and technical documentation in 45 minutes, and tell you what can be quoted or found faster.',
+    workflowBodies_fr: [
+      "Procédés, parc machine, tolérances et certifications présentés comme un acheteur les cherche. Il sait si vous pouvez faire la pièce avant d'envoyer son plan.",
+      "Demandes de prix et appels d'offres arrivent dans une seule file, avec plan, quantités et échéance extraits. Le chargé d'affaires voit d'abord celles qui correspondent à vos capacités.",
+      "Fiches techniques, gammes, procédures qualité : réunies et interrogeables en langage courant, avec la référence du document source à chaque réponse.",
+      "L'assistant relit une spécification, signale ce qui manque pour chiffrer et prépare le devis à partir de vos barèmes. Le reporting hebdomadaire se remplit depuis vos outils.",
+    ],
+    workflowBodies_en: [
+      'Processes, machine park, tolerances and certifications presented the way a buyer looks for them. They know whether you can make the part before sending the drawing.',
+      'Price requests and tenders land in a single queue, with drawing, quantities and deadline extracted. The account manager sees first the ones that match your capabilities.',
+      'Technical sheets, routings, quality procedures: gathered and searchable in plain language, with the source document reference in every answer.',
+      'The assistant reads a specification, flags what is missing to quote and prepares the quote from your price scales. The weekly report fills itself from your tools.',
+    ],
+  },
   batiment: {
     zigzagLede_fr: 'On outille ce qui fait signer : capter la demande, chiffrer vite, relancer, faire parler les chantiers finis. Branché sur vos outils, tenu par votre équipe.',
     zigzagLede_en: 'We tool what gets quotes signed: capture the request, quote fast, follow up, let finished jobs speak. Wired to your tools, run by your team.',

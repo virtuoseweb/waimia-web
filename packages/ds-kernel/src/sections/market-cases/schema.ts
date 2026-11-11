@@ -26,7 +26,7 @@ export const schema = z.object({
   h2_en: z.string(),
   intro_fr: z.string().optional(),
   intro_en: z.string().optional(),
-  /** `full` : fiche complète (automatisé, outil, résultat, citation, limites, source). `digest` : hub, sans le détail de ce qui a été automatisé ni la citation ; les limites restent affichées. */
+  /** `full` : fiche complète (automatisé, outil, résultat, citation, limites, source). `digest` : hub, identité et outil seulement ; résultat, citation, limites et sources restent sur la page de la fonction (pas de contenu dupliqué). */
   variant: z.enum(['full', 'digest']).optional(),
   groups: z.array(groupSchema).min(1).max(6),
 });
