@@ -158,7 +158,12 @@ Ne rien créer est l'exception, à justifier par écrit (4.4). Plusieurs rédact
 
 À chaque session, avant le calendrier :
 
-1. Lis `feeds.entries` des **72 dernières heures**, puis, avec WebFetch, les pages sans flux de `docs/seo/feeds.json > noFeed` (Anthropic : `https://www.anthropic.com/news` et ses `extraPages`, **à chaque session**, pas une fois par semaine).
+1. Lis `feeds.entries` des **72 dernières heures** (dont Hacker News, signal précoce), puis, avec WebFetch et **à chaque session**, toutes les pages sans flux de `docs/seo/feeds.json > noFeed` :
+   - Anthropic : `https://www.anthropic.com/news`, notes de version de la plateforme et de Claude, `https://claude.com/blog` ;
+   - OpenAI : le flux `openai-news` et le changelog de l'API (`https://platform.openai.com/docs/changelog`) ;
+   - déploiement de l'IA en entreprise : `https://deploy.co/fr-FR/news` (OpenAI Deployment Company) et `https://www.ode.com/blog` (Ode, partenaire d'Anthropic) ;
+   - X, **seulement si nécessaire** : quand un flux ou Hacker News évoque une annonce que la page de l'éditeur ne montre pas encore, lis les comptes de `noFeed > X` au navigateur si la session en dispose. X donne l'alerte, jamais le fait : un billet ne cite que l'annonce primaire.
+   Si une page ne répond pas, note-la dans le journal et continue : une page muette ne bloque pas la veille.
 2. Un **événement majeur** est : un nouveau modèle, produit, fonctionnalité ou changement de prix d'un éditeur que le site couvre (Anthropic, OpenAI, Google, Mistral, n8n, Make, Zapier), ou une obligation légale ou une aide qui touche les PME (AI Act, RGPD, facture électronique, France Num, OPCO). Une même annonce relayée par plusieurs flux est un seul événement.
 3. Pour chaque événement majeur que le site ne couvre pas encore (cherche son nom dans `src/content/`) : une **actualité** (section 14) le jour même, lue à la source primaire, avec l'analyse PME exigée en 5.2 (ce que ça change, pour qui, quoi faire lundi, quoi ne pas faire) et le tunnel de son silo. Puis révise les pages que l'annonce rend fausses ou incomplètes (nom du dernier modèle, prix, disponibilité).
 4. Écris dans le journal la liste des événements vus, et pour chacun : actualité publiée, page révisée, ou raison de ne rien faire (hors silo, déjà couvert par `/blog/<slug>`).
