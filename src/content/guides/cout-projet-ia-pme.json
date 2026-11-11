@@ -3,11 +3,11 @@
   "title_fr": "Combien coûte un projet IA en PME ? Les huit postes de coût",
   "title_en": "How much does an AI project cost an SMB? The eight cost items",
   "seoTitle_fr": "Combien coûte un projet IA en PME ? Les 8 postes",
-  "description_fr": "Combien coûte un projet IA en PME : huit postes, prix publics d'API, de licences et de serveur, grille Waimia, méthode d'estimation. Relevé le 15 octobre 2026.",
+  "description_fr": "Combien coûte un projet IA en PME : huit postes, prix publics d'API, de licences et de serveur, grille Waimia, méthode d'estimation.",
   "description_en": "How much an AI project costs an SMB: audit, scoping, development, API, hosting, maintenance, training, internal time. Public prices checked on 15 October 2026.",
   "slug": "cout-projet-ia-pme",
   "publishedAt": "2026-10-15",
-  "updatedAt": "2026-10-15",
+  "updatedAt": "2026-11-11",
   "category": "conseil",
   "cluster": "conseil",
   "tags": [
@@ -53,31 +53,31 @@
   "faq_fr": [
     {
       "q": "Combien coûte un projet IA en PME ?",
-      "a": "Cela dépend du périmètre, et aucun prix moyen n'est honnête. Un projet aligne huit postes : audit, cadrage, développement, licences et API, hébergement, maintenance, formation, temps interne. Chez Waimia, l'audit est gratuit, le cadrage coûte {{prix.sprint}} € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure. Le fonctionnement mensuel se lit sur des prix publics ; le reste se chiffre en heures."
+      "a": "Aucun prix moyen ne tient : tout dépend du périmètre. Un projet empile huit postes (audit, cadrage, développement, licences et API, hébergement, maintenance, formation, temps interne). Chez Waimia, l'audit est gratuit, le cadrage coûte {{prix.sprint}} € HT pour 10 heures, puis l'heure vaut {{prix.horaire}} € HT. Le fonctionnement mensuel se lit sur des prix publics, le reste se chiffre en heures."
     },
     {
       "q": "Combien coûte l'API de Claude pour une PME ?",
-      "a": "Elle se paie au texte traité, par million de jetons, en entrée et en sortie : Haiku 5.5 0,10 $ et 0,50 $, Sonnet 5.5 2 $ et 10 $, Opus 5.5 4 $ et 20 $, relevé le 15 octobre 2026. Classer 1 000 e-mails de 2 000 jetons coûte 0,45 $ avec Haiku 5.5 et 9 $ avec Sonnet 5.5, sous les hypothèses du guide des modèles. Le traitement par lots retire 50 %."
+      "a": "Au volume de texte traité, par million de jetons, avec un prix pour l'entrée et un autre pour la sortie. En octobre 2026 : Haiku 5.5 à 0,10 $ et 0,50 $, Sonnet 5.5 à 2 $ et 10 $, Opus 5.5 à 4 $ et 20 $. Trier 1 000 e-mails de 2 000 jetons revient à 0,45 $ avec Haiku 5.5 et à 9 $ avec Sonnet 5.5, selon les hypothèses du guide des modèles. Le traitement par lots retire 50 %."
     },
     {
       "q": "Un abonnement Claude Team suffit-il pour automatiser un processus ?",
-      "a": "Non. Un siège Team (20 $ par mois facturé à l'année, 25 $ au mois, relevé le 15 octobre 2026) équipe une personne qui travaille avec Claude. Une automatisation qui tourne sans personne passe par l'API, facturée au jeton. Les deux se cumulent souvent ; le guide du coût d'une intégration Claude détaille la distinction."
+      "a": "Non. Un siège Team coûte 20 $ par mois facturé à l'année, 25 $ au mois (tarifs d'octobre 2026), et sert une personne qui travaille avec Claude. Une automatisation qui tourne seule appelle l'API, facturée au jeton. On cumule souvent les deux ; le guide du coût d'une intégration Claude les distingue."
     },
     {
       "q": "Faut-il auto-héberger n8n pour économiser ?",
-      "a": "Pas forcément. La version communautaire de n8n s'auto-héberge sans licence et un serveur OVHcloud démarre à 3,81 € HT par mois, mais les mises à jour, les sauvegardes et la surveillance sont à votre charge, donc en heures. n8n Cloud Starter coûte 20 € par mois facturé à l'année, 2 500 exécutions. Comparez le temps de votre équipe, pas seulement la ligne d'abonnement."
+      "a": "Pas par réflexe. La version communautaire de n8n s'auto-héberge sans licence, et un serveur OVHcloud démarre à 3,81 € HT par mois ; en échange, mises à jour, sauvegardes et surveillance deviennent votre affaire, donc des heures. n8n Cloud Starter coûte 20 € par mois facturé à l'année pour 2 500 exécutions. Comparez le temps de votre équipe avec la ligne d'abonnement, pas la ligne d'abonnement seule."
     },
     {
       "q": "Le temps de mes équipes est-il vraiment un coût du projet ?",
-      "a": "Oui, et c'est le poste que les devis oublient. Vos équipes écrivent les règles métier, fournissent des exemples, testent avant la mise en service, puis relisent les actions sensibles. Mesurez ces heures pendant deux semaines et multipliez-les par le coût horaire chargé. Ce coût réduit le gain mensuel net : il entre donc dans le seuil de rentabilité."
+      "a": "Oui, et les devis le passent sous silence. Vos équipes écrivent les règles métier, fournissent des exemples, recettent avant la mise en service, puis relisent les actions sensibles. Comptez ces heures sur deux semaines, valorisez-les au coût horaire chargé et retranchez-les du gain mensuel : elles entrent dans le seuil de rentabilité."
     },
     {
       "q": "Un projet IA peut-il être subventionné ?",
-      "a": "En partie. Le Diag Data IA de Bpifrance finance 40 % d'un diagnostic plafonné à 10 000 € HT, le Prêt Boost IA est un prêt de 5 000 à 100 000 €, et la Région Nouvelle-Aquitaine a une aide pour les projets d'au moins 30 000 € HT. Le crédit d'impôt innovation ne couvre pas une automatisation interne. Le détail et les sources sont dans le guide des aides, relevé le 15 octobre 2026."
+      "a": "En partie. Le Diag Data IA de Bpifrance prend en charge 40 % d'un diagnostic plafonné à 10 000 € HT ; le Prêt Boost IA va de 5 000 à 100 000 € ; la Région Nouvelle-Aquitaine aide les projets d'au moins 30 000 € HT. Le crédit d'impôt innovation ne couvre pas une automatisation interne. Le guide des aides détaille chaque dispositif et cite ses sources."
     },
     {
       "q": "Quel retour attendre d'un projet IA ?",
-      "a": "Aucun chiffre sans mesure de départ. Le retour se calcule avec vos volumes, vos temps et votre coût horaire chargé : seuil de rentabilité = coût de mise en place ÷ gain mensuel net. Waimia ne publie aucun gain moyen ni résultat de client inventé. Le calculateur de ROI et le guide du ROI refont la méthode sur vos chiffres."
+      "a": "Pas de chiffre sans mesure de départ. Le retour se calcule avec vos volumes, vos temps et votre coût horaire chargé : seuil de rentabilité = coût de mise en place ÷ gain mensuel net. Le calculateur de ROI et le guide du ROI refont ce calcul sur vos chiffres."
     }
   ],
   "faq_en": [
@@ -124,11 +124,11 @@
       "kicker_en": "§ Guide",
       "h1_fr": "Combien coûte un <i class=\"acc\">projet IA</i> en PME ? Les huit postes",
       "h1_en": "How much does an <i class=\"acc\">AI project</i> cost an SMB? The eight cost items",
-      "lede_fr": "Un projet IA en PME se compose de huit postes : audit, cadrage, développement, licences et API, hébergement, maintenance, formation et temps interne. Les prix publics (API, abonnements, serveur) se lisent en dollars ou en euros par mois ; le gros du budget part en heures. Chez Waimia : audit gratuit, sprint de cadrage à {{prix.sprint}} € HT, puis {{prix.horaire}} € HT de l'heure.",
+      "lede_fr": "Huit postes composent un projet IA en PME : audit, cadrage, développement, licences et API, hébergement, maintenance, formation, temps interne. Seuls l'API, les abonnements et le serveur ont un prix public, au mois ; le gros du budget part en heures. Chez Waimia : audit gratuit, sprint de cadrage à {{prix.sprint}} € HT, puis {{prix.horaire}} € HT de l'heure.",
       "lede_en": "An AI project in an SMB has eight cost items: audit, scoping, development, licences and API, hosting, maintenance, training and internal time. Public prices (API, subscriptions, server) are read in dollars or euros a month; most of the budget goes into hours. At Waimia: free audit, scoping sprint at €{{prix.sprint.en}} excl. VAT, then €{{prix.horaire}} excl. VAT per hour.",
       "badges": [
         {
-          "label_fr": "Prix publics relevés le 15 octobre 2026",
+          "label_fr": "Prix publics d'octobre 2026",
           "label_en": "Public prices checked on 15 October 2026"
         },
         {
@@ -136,7 +136,7 @@
           "label_en": "Waimia prices published on the pricing page"
         },
         {
-          "label_fr": "Aucun gain chiffré sans mesure",
+          "label_fr": "Mesure avant promesse",
           "label_en": "No gain figure without a measurement"
         }
       ],
@@ -162,7 +162,7 @@
       "role_en": "Founder of Waimia · AI and automation engineer",
       "profileHref": "/equipe/simon-beros",
       "publishedDate": "15 octobre 2026",
-      "updatedDate": "15 octobre 2026"
+      "updatedDate": "11 novembre 2026"
     },
     {
       "type": "direct-answer",
@@ -171,7 +171,7 @@
       "question_en": "How much does an AI project cost an SMB?",
       "term_fr": "Réponse courte",
       "term_en": "Short answer",
-      "answer_fr": "Il n'existe pas de prix moyen honnête : le coût dépend du périmètre. Un projet IA aligne huit postes, dont deux seulement ont un prix public (modèle et abonnements, orchestration et serveur). Les autres se chiffrent en heures : cadrage, développement, maintenance, formation, et votre propre temps. Chez Waimia, le cadrage est à {{prix.sprint}} € HT pour 10 heures ; sans périmètre écrit, nous ne donnons pas de chiffre.",
+      "answer_fr": "Il n'y a pas de prix moyen honnête, parce que le coût suit le périmètre. Huit postes composent un projet IA, et deux seulement ont un prix public : le modèle avec ses abonnements, l'orchestration avec son serveur. Les autres se chiffrent en heures (cadrage, développement, maintenance, formation) ou en temps interne, le vôtre. Chez Waimia, le cadrage vaut {{prix.sprint}} € HT pour 10 heures ; sans périmètre écrit, nous ne donnons aucun chiffre.",
       "answer_en": "There is no honest average price: the cost depends on the scope. An AI project lines up eight cost items, only two of which have a public price (model and subscriptions, orchestration and server). The others are measured in hours: scoping, development, maintenance, training, and your own time. At Waimia, scoping is €{{prix.sprint.en}} excl. VAT for 10 hours; without a written scope, we give no figure."
     },
     {
@@ -213,7 +213,7 @@
       "kicker_en": "§ The eight cost items",
       "heading_fr": "Quels sont les postes de coût d'un projet IA ?",
       "heading_en": "What are the cost items of an AI project?",
-      "caption_fr": "Seuls les postes 4 et 5 ont un prix public. Les postes 2, 3, 6 et 7 sont des prix Waimia lus dans la grille tarifaire à jour ; le poste 8 est à mesurer chez vous. Aucun montant n'est donné pour un projet « typique » : il dépendrait de vos outils, de vos données et du risque de chaque action.",
+      "caption_fr": "Les postes 4 et 5 sont les seuls à avoir un prix public. Les postes 2, 3, 6 et 7 viennent de la grille tarifaire de Waimia, et le poste 8 se mesure chez vous. Un projet « typique » n'existe pas : tout dépend de vos outils, de vos données et du risque de chaque action.",
       "caption_en": "Only items 4 and 5 have a public price. Items 2, 3, 6 and 7 are Waimia prices read from the up-to-date price grid; item 8 is for you to measure. No amount is given for a \"typical\" project: it would depend on your tools, your data and the risk of each action.",
       "columns_fr": [
         "Poste",
@@ -331,7 +331,7 @@
     {
       "type": "editorial-prose",
       "background": "paper",
-      "html_fr": "<h2>Quels sont les prix publics à connaître avant de demander un devis ?</h2>\n<p>Deux postes ont un prix affiché par l'éditeur : le modèle de langage et l'orchestration. Les relever vous permet de lire un devis sans vous laisser impressionner, et de repérer ce qui relève du travail humain. Tous les montants ci-dessous ont été relevés le 15 octobre 2026 sur les pages des éditeurs, en dollars hors taxes pour Anthropic, en euros pour n8n et OVHcloud.</p>\n<p><strong>L'API facture le texte traité.</strong> Anthropic facture séparément l'entrée (ce que vous envoyez) et la sortie (ce que le modèle écrit), par million de jetons. Le traitement par lots retire 50 % ; la relecture d'un contexte déjà mis en cache coûte 5 % du prix d'entrée de base sur Sonnet 5.5 et Opus 5.5. Pour un même travail, classer 1 000 e-mails de 2 000 jetons avec 500 jetons de réponse revient à 0,45 $ avec Haiku 5.5 et à 9 $ avec Sonnet 5.5 : voir le <a href=\"/ressources/guides/quel-modele-claude-choisir\">guide du choix de modèle</a> pour le détail des hypothèses.</p>\n<p><strong>L'abonnement facture la personne.</strong> Un siège Claude Team Standard coûte 20 $ par mois facturé à l'année, 25 $ au mois ; le siège Premium 100 $ ou 125 $. Claude Enterprise affiche 20 $ par siège et par mois facturé à l'année, 20 sièges au minimum, l'usage se facturant en plus. Un abonnement ne sert pas à faire tourner une automatisation sans personne : c'est l'API qui le fait. Le <a href=\"/ressources/guides/cout-integration-claude-pme\">guide du coût d'une intégration Claude</a> détaille cette distinction.</p>\n<p><strong>L'orchestration est un abonnement ou un serveur.</strong> n8n Cloud Starter coûte 20 € par mois facturé à l'année (2 500 exécutions), Pro 50 € par mois (10 000 exécutions) ; l'offre Business, à 667 € par mois, n'existe qu'en auto-hébergement. La version communautaire de n8n s'auto-héberge sans licence, mais le serveur, les mises à jour et les sauvegardes sont à votre charge : un serveur privé virtuel OVHcloud démarre à 3,81 € HT par mois. L'hébergement change aussi la question des données personnelles : voir <a href=\"/ressources/guides/n8n-auto-heberge-rgpd\">n8n auto-hébergé ou cloud, que change le RGPD</a>.</p>\n<p>Un agent de service client clé en main se facture parfois au résultat, par exemple 0,99 $ par « outcome » chez Intercom ; le <a href=\"/ressources/guides/agent-sav-architecture\">guide de l'architecture d'un agent de service client</a> explique ce que ce mot recouvre et comment mesurer une résolution.</p>",
+      "html_fr": "<h2>Quels sont les prix publics à connaître avant de demander un devis ?</h2>\n<p>Deux postes ont un prix affiché : le modèle de langage et l'orchestration. Les relever, c'est pouvoir lire un devis sans se laisser impressionner et voir ce qui relève du travail humain. Les montants ci-dessous viennent des pages des éditeurs en octobre 2026, en dollars hors taxes pour Anthropic, en euros pour n8n et OVHcloud. Pour le déroulé d'un accompagnement, de l'audit à la mise en service, voyez notre <a href=\"/ressources/guides/accompagnement-ia-pme\">guide de l'accompagnement IA en PME</a>.</p>\n<p>Côté modèle, l'API se paie au texte traité. Anthropic distingue l'entrée (ce que vous envoyez) de la sortie (ce que le modèle écrit) et facture chacune au million de jetons. Le traitement par lots retire 50 %, et relire un contexte déjà mis en cache coûte 5 % du prix d'entrée de base sur Sonnet 5.5 et Opus 5.5. Exemple : trier 1 000 e-mails de 2 000 jetons, avec 500 jetons de réponse, coûte 0,45 $ avec Haiku 5.5 et 9 $ avec Sonnet 5.5. Le <a href=\"/ressources/guides/quel-modele-claude-choisir\">guide du choix de modèle</a> donne les hypothèses.</p>\n<p>L'abonnement, lui, se paie par personne. Un siège Claude Team Standard coûte 20 $ par mois facturé à l'année (25 $ au mois), un siège Premium 100 $ ou 125 $. Claude Enterprise affiche 20 $ par siège et par mois à l'année, 20 sièges minimum, l'usage en plus. Une automatisation sans personne derrière passe par l'API, jamais par un abonnement : le <a href=\"/ressources/guides/cout-integration-claude-pme\">guide du coût d'une intégration Claude</a> développe ce point.</p>\n<p>Pour orchestrer, on loue ou on héberge. n8n Cloud Starter coûte 20 € par mois facturé à l'année (2 500 exécutions), Pro 50 € par mois (10 000 exécutions), et l'offre Business, à 667 € par mois, n'existe qu'en auto-hébergement. La version communautaire s'auto-héberge sans licence, avec serveur, mises à jour et sauvegardes à votre charge ; un serveur privé virtuel OVHcloud démarre à 3,81 € HT par mois. L'hébergement touche aussi aux données personnelles : lisez <a href=\"/ressources/guides/n8n-auto-heberge-rgpd\">n8n auto-hébergé ou cloud, que change le RGPD</a>.</p>\n<p>Certains agents de service client se facturent au résultat, par exemple 0,99 $ par « outcome » chez Intercom. Le <a href=\"/ressources/guides/agent-sav-architecture\">guide de l'architecture d'un agent de service client</a> dit ce que recouvre ce mot et comment mesurer une résolution.</p>",
       "html_en": "<h2>Which public prices should you know before asking for a quote?</h2>\n<p>Two items have a price displayed by the vendor: the language model and the orchestration. Looking them up lets you read a quote without being overawed, and spot what is human work. All the amounts below were checked on 15 October 2026 on the vendors' pages, in dollars excluding tax for Anthropic, in euros for n8n and OVHcloud.</p>\n<p><strong>The API bills the text processed.</strong> Anthropic bills input (what you send) and output (what the model writes) separately, per million tokens. Batch processing takes 50% off; re-reading an already cached context costs 5% of the base input price on Sonnet 5.5 and Opus 5.5. For the same job, classifying 1,000 emails of 2,000 tokens with 500 tokens of reply costs $0.45 with Haiku 5.5 and $9 with Sonnet 5.5: see the <a href=\"/ressources/guides/quel-modele-claude-choisir\">model choice guide</a> for the assumptions.</p>\n<p><strong>A subscription bills the person.</strong> A Claude Team Standard seat costs $20 a month billed annually, $25 monthly; the Premium seat $100 or $125. Claude Enterprise shows $20 per seat per month billed annually, with a 20-seat minimum, usage billed on top. A subscription is not what runs an automation with nobody in the loop: the API does that. The <a href=\"/ressources/guides/cout-integration-claude-pme\">cost of a Claude integration guide</a> details this distinction.</p>\n<p><strong>Orchestration is a subscription or a server.</strong> n8n Cloud Starter costs €20 a month billed annually (2,500 executions), Pro €50 a month (10,000 executions); the Business plan, at €667 a month, exists only self-hosted. The community edition of n8n can be self-hosted without a licence, but the server, updates and backups are on you: an OVHcloud virtual private server starts at €3.81 excl. VAT a month. Hosting also changes the personal data question: see <a href=\"/ressources/guides/n8n-auto-heberge-rgpd\">self-hosted n8n or cloud, what the GDPR changes</a>.</p>\n<p>A turnkey customer service agent is sometimes billed per result, for example $0.99 per \"outcome\" at Intercom; the <a href=\"/ressources/guides/agent-sav-architecture\">customer service agent architecture guide</a> explains what that word covers and how to measure a resolution.</p>"
     },
     {
@@ -341,7 +341,7 @@
       "kicker_en": "§ Public prices",
       "heading_fr": "Quels sont les ordres de grandeur publics des licences, API et hébergement ?",
       "heading_en": "What are the public orders of magnitude for licences, API and hosting?",
-      "caption_fr": "Sources : pages tarifaires d'Anthropic (API et claude.com/pricing), de n8n, d'OVHcloud et d'Intercom, lues le 15 octobre 2026. Dollars hors taxes pour Anthropic et Intercom ; euros pour n8n et OVHcloud, hors taxes chez OVHcloud. Haiku 5.5 passe à 0,50 $ en entrée et 2,50 $ en sortie au-delà de 100 000 jetons par requête. Make n'est pas repris : sa page tarifaire n'a pas pu être lue ce jour. Les prix changent : relisez la page de l'éditeur avant de signer.",
+      "caption_fr": "Sources : pages tarifaires d'Anthropic (API et claude.com/pricing), de n8n, d'OVHcloud et d'Intercom, octobre 2026. Dollars hors taxes chez Anthropic et Intercom ; euros chez n8n et OVHcloud, hors taxes chez OVHcloud. Haiku 5.5 monte à 0,50 $ en entrée et 2,50 $ en sortie au-delà de 100 000 jetons par requête. Ces prix changent : relisez la page de l'éditeur avant de signer.",
       "caption_en": "Sources: Anthropic's pricing pages (API and claude.com/pricing), n8n's, OVHcloud's and Intercom's, read on 15 October 2026. Dollars excluding tax for Anthropic and Intercom; euros for n8n and OVHcloud, excluding tax at OVHcloud. Haiku 5.5 moves to $0.50 input and $2.50 output above 100,000 tokens per request. Make is not included: its pricing page could not be read today. Prices change: reread the vendor's page before signing.",
       "columns_fr": [
         "Poste",
@@ -523,7 +523,7 @@
       "kicker_en": "§ The Waimia grid",
       "heading_fr": "Combien coûte l'accompagnement de Waimia ?",
       "heading_en": "How much does Waimia's support cost?",
-      "caption_fr": "Prix en vigueur au {{prix.maj}}, hors taxes, lus dans la grille unique du site (page Tarifs). Le pilote est un prix d'entrée « à partir de », cadré à l'audit.",
+      "caption_fr": "Prix en vigueur au {{prix.maj}}, hors taxes, issus de la grille unique du site (page Tarifs). Le pilote est un prix d'entrée « à partir de », cadré à l'audit.",
       "caption_en": "Prices in force on {{prix.maj.en}}, excluding tax, read from the site's single grid (Pricing page). The pilot is an entry price \"from\", set at the audit.",
       "columns_fr": [
         "Prestation",
@@ -633,7 +633,7 @@
     {
       "type": "editorial-prose",
       "background": "paper",
-      "html_fr": "<h2>Comment estimer le coût complet de votre projet ?</h2>\n<p>Additionnez trois blocs, sur la première année, puis séparez ce qui est unique de ce qui revient chaque mois.</p>\n<ul>\n<li><strong>Le coût de mise en place</strong> (une fois) : audit, cadrage, développement et intégration, formation initiale, plus les heures internes de recette.</li>\n<li><strong>Le coût de fonctionnement</strong> (chaque mois) : API ou licences, orchestration, hébergement, maintenance.</li>\n<li><strong>Le coût de supervision</strong> (chaque mois) : le temps de la personne qui relit, valide les actions sensibles et traite les cas hors cadre, multiplié par son coût horaire chargé.</li>\n</ul>\n<p>La formule : <strong>coût de la première année = mise en place + 12 × (fonctionnement + supervision)</strong>. Le tableau suivant donne les lignes à remplir. Les prix publics du tableau précédent alimentent les lignes 4 et 5 ; la grille Waimia alimente les lignes 2, 3, 6 et 7 ; les lignes 1 et 8 se mesurent chez vous. Nous ne donnons pas de total : il dépendrait de chiffres que vous seul avez.</p>",
+      "html_fr": "<h2>Comment estimer le coût complet de votre projet ?</h2>\n<p>Trois blocs à additionner sur la première année, en gardant à part ce qui ne se paie qu'une fois.</p>\n<ul><li>La mise en place, une fois : audit, cadrage, développement et intégration, formation initiale, plus les heures internes de recette.</li><li>Le fonctionnement, chaque mois : API ou licences, orchestration, hébergement, maintenance.</li><li>La supervision, chaque mois : le temps de celui ou celle qui relit, valide les actions sensibles et traite les cas hors cadre, au coût horaire chargé.</li></ul>\n<p>D'où la formule <strong>coût de la première année = mise en place + 12 × (fonctionnement + supervision)</strong>. Le tableau qui suit en donne les lignes. Les prix publics ci-dessus remplissent les lignes 4 et 5, la grille Waimia les lignes 2, 3, 6 et 7 ; les lignes 1 et 8 se mesurent chez vous. Je ne donne pas de total, qui dépendrait de chiffres que vous seul avez. Si vous préférez remplir ce tableau à plusieurs, notre <a href=\"/services/consultant-ia-claude\">accompagnement par un consultant IA</a> livre un périmètre écrit et un coût complet avant la première heure facturée.</p>",
       "html_en": "<h2>How do you estimate the full cost of your project?</h2>\n<p>Add up three blocks over the first year, then separate what is one-off from what recurs each month.</p>\n<ul>\n<li><strong>The set-up cost</strong> (once): audit, scoping, development and integration, initial training, plus the internal hours for acceptance testing.</li>\n<li><strong>The running cost</strong> (each month): API or licences, orchestration, hosting, maintenance.</li>\n<li><strong>The supervision cost</strong> (each month): the time of the person who reviews, approves sensitive actions and handles out-of-scope cases, multiplied by their loaded hourly cost.</li>\n</ul>\n<p>The formula: <strong>first-year cost = set-up + 12 × (running + supervision)</strong>. The next table gives the lines to fill in. The public prices from the previous table feed lines 4 and 5; the Waimia grid feeds lines 2, 3, 6 and 7; lines 1 and 8 are measured in your own company. We give no total: it would depend on figures only you have.</p>"
     },
     {
@@ -643,7 +643,7 @@
       "kicker_en": "§ To fill in",
       "heading_fr": "Quel tableau remplir pour chiffrer votre projet ?",
       "heading_en": "Which table should you fill in to cost your project?",
-      "caption_fr": "Tableau de calcul de Waimia, à refaire avec vos chiffres. Les colonnes « Unique » et « Par mois » séparent la mise en place du fonctionnement. Le coût horaire chargé d'une personne (salaire, charges, outils) est une donnée interne : nous n'en proposons pas de valeur moyenne.",
+      "caption_fr": "Un tableau à refaire avec vos chiffres. « Unique » regroupe la mise en place, « Par mois » le fonctionnement. Le coût horaire chargé d'une personne (salaire, charges, outils) reste une donnée interne : aucune moyenne ne remplace la vôtre.",
       "caption_en": "Waimia calculation table, to redo with your own figures. The \"One-off\" and \"Per month\" columns separate set-up from running. A person's loaded hourly cost (salary, charges, tools) is internal data: we offer no average value.",
       "columns_fr": [
         "Ligne",
@@ -761,7 +761,7 @@
     {
       "type": "editorial-prose",
       "background": "paper",
-      "html_fr": "<h2>Comment estimer le retour d'un projet IA sans inventer un chiffre ?</h2>\n<p>Un retour se calcule avec vos chiffres de départ, pas avec une moyenne de marché. La méthode tient en trois lignes : mesurer la situation actuelle (volume de tâches × temps passé × coût horaire chargé), estimer la part que le projet retire réellement, puis diviser le coût de mise en place par le gain mensuel net pour obtenir le seuil de rentabilité en mois. <strong>Seuil de rentabilité = coût de mise en place ÷ (gain mensuel − coût de fonctionnement − coût de supervision).</strong></p>\n<p>Deux pièges reviennent. Le gain brut ignore le coût de fonctionnement et de supervision : un agent qui fait gagner du temps mais exige une relecture constante gagne moins que prévu. Et une mesure de départ absente interdit de prouver quoi que ce soit après coup. Le <a href=\"/ressources/guides/roi-automatisation\">guide du ROI d'une automatisation</a> déroule la méthode avec un exemple illustratif, et le <a href=\"/ressources/outils/calculateur-roi-ia\">calculateur de ROI</a> la refait sur vos chiffres. Nous ne publions aucun gain moyen : tout chiffre de gain sans mesure de départ est un argument de vente.</p>",
+      "html_fr": "<h2>Comment estimer le retour d'un projet IA sans inventer un chiffre ?</h2>\n<p>Partez de vos chiffres, pas d'une moyenne de marché. Mesurez la situation actuelle (volume de tâches × temps passé × coût horaire chargé), estimez la part que le projet retire vraiment, puis divisez le coût de mise en place par le gain mensuel net pour obtenir le seuil de rentabilité en mois. <strong>Seuil de rentabilité = coût de mise en place ÷ (gain mensuel − coût de fonctionnement − coût de supervision).</strong></p>\n<p>Deux pièges reviennent. Le gain brut oublie fonctionnement et supervision : un agent qui fait gagner du temps mais qu'il faut relire sans cesse rapporte moins qu'annoncé. Et sans mesure de départ, vous ne prouverez rien après coup. Le <a href=\"/ressources/guides/roi-automatisation\">guide du ROI d'une automatisation</a> déroule la méthode sur un exemple chiffré, le <a href=\"/ressources/outils/calculateur-roi-ia\">calculateur de ROI</a> la refait sur vos données. Je me méfie de tout gain annoncé sans mesure de départ : c'est un argument de vente.</p>",
       "html_en": "<h2>How do you estimate an AI project's return without inventing a figure?</h2>\n<p>A return is calculated from your starting figures, not from a market average. The method takes three lines: measure the current situation (task volume × time spent × loaded hourly cost), estimate the share the project really removes, then divide the set-up cost by the net monthly gain to get the break-even point in months. <strong>Break-even = set-up cost ÷ (monthly gain − running cost − supervision cost).</strong></p>\n<p>Two traps come back. The gross gain ignores running and supervision costs: an agent that saves time but demands constant review gains less than planned. And a missing starting measurement makes it impossible to prove anything afterwards. The <a href=\"/ressources/guides/roi-automatisation\">automation ROI guide</a> walks through the method with an illustrative example, and the <a href=\"/ressources/outils/calculateur-roi-ia\">ROI calculator</a> redoes it on your figures. We publish no average gain: any gain figure without a starting measurement is a sales argument.</p>"
     },
     {
@@ -773,31 +773,31 @@
       "heading_en": "What makes the bill go up or down?",
       "items": [
         {
-          "label_fr": "Le nombre d'outils à relier : chaque connexion ajoute des heures de développement, de test et de maintenance.",
+          "label_fr": "Chaque outil à relier ajoute des heures de développement, de test et de maintenance.",
           "label_en": "The number of tools to connect: each connection adds hours of development, testing and maintenance."
         },
         {
-          "label_fr": "La qualité de vos données : des documents à jour et des règles écrites réduisent les heures de cadrage ; l'inverse les multiplie.",
+          "label_fr": "Des documents à jour et des règles écrites réduisent les heures de cadrage ; des données en désordre les multiplient.",
           "label_en": "The quality of your data: up-to-date documents and written rules cut the scoping hours; the opposite multiplies them."
         },
         {
-          "label_fr": "Le risque de chaque action : un agent qui envoie une réponse à un client exige plus de garde-fous et de supervision qu'un tri interne.",
+          "label_fr": "Un agent qui envoie une réponse à un client exige plus de garde-fous et de supervision qu'un tri interne : le risque de chaque action pèse sur le prix.",
           "label_en": "The risk of each action: an agent that sends a reply to a customer needs more safeguards and supervision than an internal sorting."
         },
         {
-          "label_fr": "Le volume traité : il pilote la facture d'API et le palier d'orchestration, rarement le reste.",
+          "label_fr": "C'est le volume traité qui fait monter l'API et le palier d'orchestration ; il pèse peu sur le reste.",
           "label_en": "The volume processed: it drives the API bill and the orchestration tier, rarely the rest."
         },
         {
-          "label_fr": "Le choix du modèle : Haiku 5.5 coûte 20 fois moins que Sonnet 5.5 en entrée comme en sortie ; testez le plus léger sur vingt cas réels avant de payer plus.",
+          "label_fr": "Sonnet 5.5 coûte 20 fois plus que Haiku 5.5 en entrée comme en sortie. Testez le plus léger sur vingt cas réels avant de payer plus.",
           "label_en": "The choice of model: Haiku 5.5 costs 20 times less than Sonnet 5.5, on input and output; test the lightest on twenty real cases before paying more."
         },
         {
-          "label_fr": "Les changements de modèle : Anthropic retire des modèles avec un préavis ; un identifiant retiré fait échouer l'appel, d'où une ligne de maintenance.",
+          "label_fr": "Anthropic annonce ses retraits de modèles avec préavis, mais un identifiant retiré fait échouer l'appel : prévoyez une ligne de maintenance.",
           "label_en": "Model changes: Anthropic retires models with notice; a retired identifier makes the call fail, hence a maintenance line."
         },
         {
-          "label_fr": "Le temps de vos équipes : le poste que les devis oublient, et que seul un relevé de deux semaines révèle.",
+          "label_fr": "Le temps de vos équipes, enfin : les devis l'ignorent, et seul un relevé de deux semaines le révèle.",
           "label_en": "Your teams' time: the item quotes forget, and that only a two-week log reveals."
         }
       ]
@@ -827,7 +827,7 @@
           "kicker_en": "Guide",
           "title_fr": "Combien coûte un agent IA en PME : le coût complet",
           "title_en": "How much does an AI agent cost an SMB: the full cost",
-          "lead_fr": "Combien coûte un agent IA en PME ?",
+          "lead_fr": "Les cinq postes d'un agent IA (modèle, orchestration, intégration, maintenance, supervision), avec les prix publics.",
           "lead_en": "How much does an AI agent cost an SMB?",
           "href": "/ressources/guides/combien-coute-un-agent-ia-pme"
         },
@@ -859,43 +859,43 @@
       "items": [
         {
           "q_fr": "Combien coûte un projet IA en PME ?",
-          "a_fr": "Cela dépend du périmètre, et aucun prix moyen n'est honnête. Un projet aligne huit postes : audit, cadrage, développement, licences et API, hébergement, maintenance, formation, temps interne. Chez Waimia, l'audit est gratuit, le cadrage coûte {{prix.sprint}} € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure. Le fonctionnement mensuel se lit sur des prix publics ; le reste se chiffre en heures.",
+          "a_fr": "Aucun prix moyen ne tient : tout dépend du périmètre. Un projet empile huit postes (audit, cadrage, développement, licences et API, hébergement, maintenance, formation, temps interne). Chez Waimia, l'audit est gratuit, le cadrage coûte {{prix.sprint}} € HT pour 10 heures, puis l'heure vaut {{prix.horaire}} € HT. Le fonctionnement mensuel se lit sur des prix publics, le reste se chiffre en heures.",
           "q_en": "How much does an AI project cost an SMB?",
           "a_en": "It depends on the scope, and no average price is honest. A project lines up eight cost items: audit, scoping, development, licences and API, hosting, maintenance, training, internal time. At Waimia, the audit is free, scoping costs €{{prix.sprint.en}} excl. VAT for 10 hours, then €{{prix.horaire}} excl. VAT per hour. Monthly running costs can be read from public prices; the rest is measured in hours."
         },
         {
           "q_fr": "Combien coûte l'API de Claude pour une PME ?",
-          "a_fr": "Elle se paie au texte traité, par million de jetons, en entrée et en sortie : Haiku 5.5 0,10 $ et 0,50 $, Sonnet 5.5 2 $ et 10 $, Opus 5.5 4 $ et 20 $, relevé le 15 octobre 2026. Classer 1 000 e-mails de 2 000 jetons coûte 0,45 $ avec Haiku 5.5 et 9 $ avec Sonnet 5.5, sous les hypothèses du guide des modèles. Le traitement par lots retire 50 %.",
+          "a_fr": "Au volume de texte traité, par million de jetons, avec un prix pour l'entrée et un autre pour la sortie. En octobre 2026 : Haiku 5.5 à 0,10 $ et 0,50 $, Sonnet 5.5 à 2 $ et 10 $, Opus 5.5 à 4 $ et 20 $. Trier 1 000 e-mails de 2 000 jetons revient à 0,45 $ avec Haiku 5.5 et à 9 $ avec Sonnet 5.5, selon les hypothèses du guide des modèles. Le traitement par lots retire 50 %.",
           "q_en": "How much does the Claude API cost an SMB?",
           "a_en": "It is paid for the text processed, per million tokens, input and output: Haiku 5.5 $0.10 and $0.50, Sonnet 5.5 $2 and $10, Opus 5.5 $4 and $20, checked on 15 October 2026. Classifying 1,000 emails of 2,000 tokens costs $0.45 with Haiku 5.5 and $9 with Sonnet 5.5, under the model guide's assumptions. Batch processing takes 50% off."
         },
         {
           "q_fr": "Un abonnement Claude Team suffit-il pour automatiser un processus ?",
-          "a_fr": "Non. Un siège Team (20 $ par mois facturé à l'année, 25 $ au mois, relevé le 15 octobre 2026) équipe une personne qui travaille avec Claude. Une automatisation qui tourne sans personne passe par l'API, facturée au jeton. Les deux se cumulent souvent ; le guide du coût d'une intégration Claude détaille la distinction.",
+          "a_fr": "Non. Un siège Team coûte 20 $ par mois facturé à l'année, 25 $ au mois (tarifs d'octobre 2026), et sert une personne qui travaille avec Claude. Une automatisation qui tourne seule appelle l'API, facturée au jeton. On cumule souvent les deux ; le guide du coût d'une intégration Claude les distingue.",
           "q_en": "Is a Claude Team subscription enough to automate a process?",
           "a_en": "No. A Team seat ($20 a month billed annually, $25 monthly, checked on 15 October 2026) equips a person working with Claude. An automation that runs with nobody in the loop goes through the API, billed per token. The two often stack; the Claude integration cost guide details the distinction."
         },
         {
           "q_fr": "Faut-il auto-héberger n8n pour économiser ?",
-          "a_fr": "Pas forcément. La version communautaire de n8n s'auto-héberge sans licence et un serveur OVHcloud démarre à 3,81 € HT par mois, mais les mises à jour, les sauvegardes et la surveillance sont à votre charge, donc en heures. n8n Cloud Starter coûte 20 € par mois facturé à l'année, 2 500 exécutions. Comparez le temps de votre équipe, pas seulement la ligne d'abonnement.",
+          "a_fr": "Pas par réflexe. La version communautaire de n8n s'auto-héberge sans licence, et un serveur OVHcloud démarre à 3,81 € HT par mois ; en échange, mises à jour, sauvegardes et surveillance deviennent votre affaire, donc des heures. n8n Cloud Starter coûte 20 € par mois facturé à l'année pour 2 500 exécutions. Comparez le temps de votre équipe avec la ligne d'abonnement, pas la ligne d'abonnement seule.",
           "q_en": "Should you self-host n8n to save money?",
           "a_en": "Not necessarily. The community edition of n8n can be self-hosted without a licence and an OVHcloud server starts at €3.81 excl. VAT a month, but updates, backups and monitoring are on you, hence in hours. n8n Cloud Starter costs €20 a month billed annually, 2,500 executions. Compare your team's time, not just the subscription line."
         },
         {
           "q_fr": "Le temps de mes équipes est-il vraiment un coût du projet ?",
-          "a_fr": "Oui, et c'est le poste que les devis oublient. Vos équipes écrivent les règles métier, fournissent des exemples, testent avant la mise en service, puis relisent les actions sensibles. Mesurez ces heures pendant deux semaines et multipliez-les par le coût horaire chargé. Ce coût réduit le gain mensuel net : il entre donc dans le seuil de rentabilité.",
+          "a_fr": "Oui, et les devis le passent sous silence. Vos équipes écrivent les règles métier, fournissent des exemples, recettent avant la mise en service, puis relisent les actions sensibles. Comptez ces heures sur deux semaines, valorisez-les au coût horaire chargé et retranchez-les du gain mensuel : elles entrent dans le seuil de rentabilité.",
           "q_en": "Is my teams' time really a cost of the project?",
           "a_en": "Yes, and it is the item quotes forget. Your teams write the business rules, supply examples, test before go-live, then review sensitive actions. Measure those hours over two weeks and multiply them by the loaded hourly cost. This cost reduces the net monthly gain: it therefore enters the break-even point."
         },
         {
           "q_fr": "Un projet IA peut-il être subventionné ?",
-          "a_fr": "En partie. Le Diag Data IA de Bpifrance finance 40 % d'un diagnostic plafonné à 10 000 € HT, le Prêt Boost IA est un prêt de 5 000 à 100 000 €, et la Région Nouvelle-Aquitaine a une aide pour les projets d'au moins 30 000 € HT. Le crédit d'impôt innovation ne couvre pas une automatisation interne. Le détail et les sources sont dans le guide des aides, relevé le 15 octobre 2026.",
+          "a_fr": "En partie. Le Diag Data IA de Bpifrance prend en charge 40 % d'un diagnostic plafonné à 10 000 € HT ; le Prêt Boost IA va de 5 000 à 100 000 € ; la Région Nouvelle-Aquitaine aide les projets d'au moins 30 000 € HT. Le crédit d'impôt innovation ne couvre pas une automatisation interne. Le guide des aides détaille chaque dispositif et cite ses sources.",
           "q_en": "Can an AI project be subsidised?",
           "a_en": "Partly. Bpifrance's Diag Data IA funds 40% of a diagnostic capped at €10,000 excl. VAT, the Prêt Boost IA is a loan of €5,000 to €100,000, and the Nouvelle-Aquitaine Region has an aid for projects of at least €30,000 excl. VAT. The innovation tax credit does not cover an internal automation. The detail and sources are in the funding guide, checked on 15 October 2026."
         },
         {
           "q_fr": "Quel retour attendre d'un projet IA ?",
-          "a_fr": "Aucun chiffre sans mesure de départ. Le retour se calcule avec vos volumes, vos temps et votre coût horaire chargé : seuil de rentabilité = coût de mise en place ÷ gain mensuel net. Waimia ne publie aucun gain moyen ni résultat de client inventé. Le calculateur de ROI et le guide du ROI refont la méthode sur vos chiffres.",
+          "a_fr": "Pas de chiffre sans mesure de départ. Le retour se calcule avec vos volumes, vos temps et votre coût horaire chargé : seuil de rentabilité = coût de mise en place ÷ gain mensuel net. Le calculateur de ROI et le guide du ROI refont ce calcul sur vos chiffres.",
           "q_en": "What return should you expect from an AI project?",
           "a_en": "No figure without a starting measurement. The return is calculated from your volumes, your times and your loaded hourly cost: break-even = set-up cost ÷ net monthly gain. Waimia publishes no average gain and no invented client result. The ROI calculator and the ROI guide redo the method on your figures."
         }
@@ -909,7 +909,7 @@
       "kicker_en": "§ Cost before you sign",
       "h2_fr": "Un coût complet chiffré sur un périmètre écrit, avant la première heure facturée. L'audit est gratuit.",
       "h2_en": "A full cost on a written scope, before the first billed hour. The audit is free.",
-      "subtitle_fr": "En 45 minutes, on pose votre projet, on liste les huit postes qui s'appliquent et on vous dit ce qu'il faut mesurer chez vous pour obtenir un chiffre fiable.",
+      "subtitle_fr": "Nous passons 45 minutes sur votre projet, listons les huit postes qui s'appliquent et vous disons ce qu'il faut mesurer chez vous pour obtenir un chiffre fiable.",
       "subtitle_en": "In 45 minutes, we set out your project, list the eight cost items that apply and tell you what to measure in your company to get a reliable figure.",
       "buttons": [
         {
