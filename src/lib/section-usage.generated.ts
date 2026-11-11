@@ -103,7 +103,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "case-card-grid": {
-    "count": 44,
+    "count": 42,
     "pages": [
       "/audit-ia-pme",
       "/lp/hub",
@@ -125,7 +125,6 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/integration-claude",
       "/services/lovable",
       "/services/mvp-saas",
-      "/services/portail-client",
       "/services/redaction-seo-contenu",
       "/services/referencement-ia",
       "/services/seo-geo-contenu",
@@ -136,7 +135,6 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/services/systeme-acquisition",
       "/services/systeme-commercial",
       "/services/systemes-operationnels-ia",
-      "/services/webflow",
       "/services/wordpress",
       "src/content/services/crm-scoring-routing/integration-crm.json",
       "src/content/services/landing-pages-tunnels/landing-page-google-ads.json",

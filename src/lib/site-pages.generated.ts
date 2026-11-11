@@ -191,7 +191,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "comparison-duo",
-        "label": "Exemple type : les demandes du site d'une PME de services",
+        "label": "Exemple : les demandes du site d'une PME de services",
         "background": "paper"
       },
       {
@@ -201,7 +201,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "decision-list",
-        "label": "Un agent de qualification n'est pas utile si",
+        "label": "Passez votre chemin si",
         "background": "paper"
       },
       {
@@ -281,7 +281,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "comparison-duo",
-        "label": "Exemple type : le SAV d'un distributeur B2B",
+        "label": "Exemple : le SAV d'un distributeur B2B",
         "background": "paper"
       },
       {
@@ -291,7 +291,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "decision-list",
-        "label": "Un chatbot de support n'est pas utile si",
+        "label": "Je déconseille un chatbot de support si",
         "background": "paper"
       },
       {
@@ -356,7 +356,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "comparison-duo",
-        "label": "Exemple type : les factures fournisseurs d'une PME de services",
+        "label": "Exemple : les factures fournisseurs d'une PME de services",
         "background": "paper"
       },
       {
@@ -366,12 +366,12 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "decision-list",
-        "label": "Un agent de traitement de documents n'est pas utile si",
+        "label": "Je déconseille un agent de traitement de documents si",
         "background": "paper"
       },
       {
         "type": "case-card-grid",
-        "label": "Pas de cas de facturation publié : deux projets où l'agent lit, extrait puis passe la main",
+        "label": "Deux projets voisins : un agent qui prépare, une personne qui valide",
         "background": "ink"
       },
       {
@@ -786,7 +786,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "case-card-grid",
-        "label": "Des outils internes déjà construits, pour le studio",
+        "label": "Waimia OS, l'outil interne que nous construisons pour nous",
         "background": "ink"
       },
       {
@@ -940,18 +940,13 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper"
       },
       {
-        "type": "case-card-grid",
-        "label": "Un espace membre déjà livré",
-        "background": "ink"
-      },
-      {
         "type": "pricing-cards",
         "label": "Combien coûte un portail client sur mesure",
         "background": "paper"
       },
       {
         "type": "eeat-panel",
-        "label": "#11",
+        "label": "#10",
         "variant": "media"
       },
       {
@@ -1623,7 +1618,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "comparison-duo",
-        "label": "Exemple type : une PME de services de douze ans",
+        "label": "Exemple : un nom, un domaine et un site changés le même jour",
         "background": "paper-2"
       },
       {
@@ -2607,12 +2602,12 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "decision-list",
-        "label": "Ce qu'on refuse, et quand ne pas le faire",
+        "label": "Ce que nous refusons, et quand je déconseille de le faire",
         "background": "paper-2"
       },
       {
         "type": "case-card-grid",
-        "label": "Deux chantiers où du contenu est produit et publié avec l'IA",
+        "label": "Un chantier où le contenu devient des posts publiés avec l'IA",
         "background": "ink"
       },
       {
@@ -2682,7 +2677,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "pain-severity-list",
-        "label": "Quatre causes fréquentes de mails en spam",
+        "label": "Quatre façons de finir en spam",
         "background": "ink"
       },
       {
@@ -2697,12 +2692,12 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "decision-list",
-        "label": "Le cold email ne convient pas si",
+        "label": "Quand je déconseille le cold email",
         "background": "paper-2"
       },
       {
         "type": "hover-reveal-list",
-        "label": "Le cold email s'assemble aux autres canaux",
+        "label": "Le cold email travaille avec les autres canaux",
         "background": "paper-3"
       },
       {
@@ -2782,12 +2777,12 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "decision-list",
-        "label": "La prospection LinkedIn préparée ne convient pas si",
+        "label": "Quand je déconseille la prospection LinkedIn préparée",
         "background": "paper-2"
       },
       {
         "type": "hover-reveal-list",
-        "label": "LinkedIn s'assemble aux autres canaux",
+        "label": "LinkedIn travaille avec les autres canaux",
         "background": "paper-3"
       },
       {
@@ -2867,12 +2862,12 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "decision-list",
-        "label": "Le social selling assisté par IA ne convient pas si",
+        "label": "Quand je déconseille le social selling assisté par IA",
         "background": "paper-2"
       },
       {
         "type": "hover-reveal-list",
-        "label": "Le social selling nourrit les autres canaux",
+        "label": "Un signal alimente tous les canaux",
         "background": "paper-3"
       },
       {
@@ -3022,12 +3017,12 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "decision-list",
-        "label": "Ce n'est pas le bon investissement si",
+        "label": "Quand nous vous déconseillons l'audit",
         "background": "paper"
       },
       {
         "type": "case-card-grid",
-        "label": "Deux projets où la technique a compté",
+        "label": "Un projet où la vitesse a compté",
         "background": "ink"
       },
       {
@@ -3097,12 +3092,12 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "decision-list",
-        "label": "Ce n'est pas le bon investissement si",
+        "label": "À éviter si",
         "background": "paper"
       },
       {
         "type": "case-card-grid",
-        "label": "Deux projets où le contenu est au cœur du travail",
+        "label": "Deux sites où le contenu fait le travail",
         "background": "ink"
       },
       {
@@ -3162,7 +3157,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "comparison-duo",
-        "label": "Pourquoi un passage citable change l'équation",
+        "label": "Une page écrite pour être lue, une page écrite pour être citée",
         "background": "paper-2"
       },
       {
@@ -3177,12 +3172,12 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "decision-list",
-        "label": "Ce n'est pas le bon investissement si",
+        "label": "Le GEO peut attendre si",
         "background": "paper"
       },
       {
         "type": "case-card-grid",
-        "label": "Deux projets avec une couche GEO",
+        "label": "Deux sites livrés avec une couche GEO",
         "background": "ink"
       },
       {
@@ -3242,7 +3237,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "comparison-duo",
-        "label": "Pourquoi un maillage local change l'équation",
+        "label": "Du pack local au devis",
         "background": "paper-2"
       },
       {
@@ -3257,7 +3252,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "decision-list",
-        "label": "Ce n'est pas le bon investissement si",
+        "label": "Le SEO local ne vous sert pas si",
         "background": "paper"
       },
       {
@@ -3554,12 +3549,12 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "comparison-duo",
-        "label": "Exemple type : une boutique de produits d'entretien",
+        "label": "Exemple : une boutique de produits d'entretien",
         "background": "paper"
       },
       {
         "type": "deliverables-grid",
-        "label": "Ce qui vous reste à la fin",
+        "label": "Ce qui reste à votre nom",
         "background": "paper-3"
       },
       {
@@ -3574,7 +3569,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "case-card-grid",
-        "label": "Aucune boutique Shopify publiée : une migration e-commerce mesurée, et un site livré en 6 semaines",
+        "label": "Notre référence e-commerce, sous WooCommerce : la migration de Balzeo",
         "background": "ink"
       },
       {
@@ -3634,12 +3629,12 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "comparison-duo",
-        "label": "Exemple type : le site d'une société de conseil industriel",
+        "label": "Exemple : le site d'une société de conseil industriel",
         "background": "paper"
       },
       {
         "type": "deliverables-grid",
-        "label": "Ce qui vous reste à la fin",
+        "label": "Ce que vous emportez",
         "background": "paper-3"
       },
       {
@@ -3709,12 +3704,12 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "comparison-duo",
-        "label": "Exemple type : le site d'un cabinet d'architectes",
+        "label": "Exemple : le site d'un cabinet d'architectes",
         "background": "paper"
       },
       {
         "type": "deliverables-grid",
-        "label": "Ce qui vous reste à la fin",
+        "label": "Ce qui passe entre vos mains",
         "background": "paper-3"
       },
       {
@@ -3723,18 +3718,13 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-3"
       },
       {
-        "type": "case-card-grid",
-        "label": "Aucune fiche Webflow publiée : un site Astro et une migration WordPress, sur d'autres plateformes",
-        "background": "ink"
-      },
-      {
         "type": "pricing-cards",
         "label": "Combien coûte un site Webflow",
         "background": "paper"
       },
       {
         "type": "eeat-panel",
-        "label": "#10",
+        "label": "#9",
         "variant": "media"
       },
       {
@@ -3784,12 +3774,12 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "comparison-duo",
-        "label": "Exemple type : le site d'un cabinet comptable",
+        "label": "Exemple : le site d'un cabinet comptable",
         "background": "paper"
       },
       {
         "type": "deliverables-grid",
-        "label": "Ce qui vous reste à la fin",
+        "label": "Ce que vous récupérez",
         "background": "paper-3"
       },
       {
@@ -3804,7 +3794,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "case-card-grid",
-        "label": "Deux projets WordPress publiés",
+        "label": "Deux sites WordPress livrés : une boutique migrée, un média payant",
         "background": "ink"
       },
       {
@@ -4184,7 +4174,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "case-card-grid",
-        "label": "Trois PME, trois résultats concrets",
+        "label": "Deux PME : la demande captée dans le CRM, la visibilité gagnée sur Google",
         "background": "paper"
       },
       {
@@ -4264,12 +4254,12 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "case-card-grid",
-        "label": "Trois PME, le répétitif passé en système.",
+        "label": "Deux projets : le routage des demandes et la production de contenu passés en système",
         "background": "ink"
       },
       {
         "type": "pricing-cards",
-        "label": "Une offre, deux manières d'avancer.",
+        "label": "Un sprint à prix fixe, puis la suite chiffrée avec vous.",
         "background": "paper"
       },
       {
@@ -4339,7 +4329,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "case-card-grid",
-        "label": "Trois PME, trois résultats concrets.",
+        "label": "Deux projets : le SEO local d'un média, la couche GEO d'un site d'entreprise",
         "background": "ink"
       },
       {
@@ -4354,7 +4344,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "footer-cta-band",
-        "label": "Ne préparez pas votre visibilité après la bascule. Mesurez ce qui manque maintenant.",
+        "label": "Mesurez ce qui manque à votre visibilité maintenant.",
         "background": "ink"
       }
     ]
@@ -5631,7 +5621,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "decision-list",
-        "label": "Dans quels cas chacune convient",
+        "label": "Mon verdict : dans quels cas chacune convient",
         "background": "paper"
       },
       {
