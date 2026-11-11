@@ -1,0 +1,677 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "Mistral AI (Le Chat) : le guide complet (2026)",
+  "title_en": "Mistral AI (Le Chat): the complete guide (2026)",
+  "seoTitle_fr": "Mistral AI et Le Chat (Vibe) : guide, prix, données",
+  "seoTitle_en": "Mistral AI and Le Chat (Vibe): guide, prices, data",
+  "description_fr": "Guide Mistral AI et Le Chat (devenu Vibe) : modèles, offres et prix, données hébergées dans l'UE, réglages RGPD et premiers usages pour une PME.",
+  "description_en": "Mistral AI and Le Chat (now Vibe) guide: models, plans and prices, data hosted in the EU, GDPR settings and first uses for an SMB.",
+  "slug": "mistral-ai",
+  "publishedAt": "2026-11-11T00:00:00.000Z",
+  "updatedAt": "2026-11-11",
+  "category": "claude",
+  "tags": [
+    "mistral-ai",
+    "le-chat",
+    "vibe",
+    "assistant-ia",
+    "modele-europeen",
+    "rgpd",
+    "guide-pme"
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "sources": [
+    {
+      "name": "Mistral AI, tarifs de Vibe et des offres, lu le 11 novembre 2026",
+      "url": "https://mistral.ai/pricing",
+      "type": "enterprise"
+    },
+    {
+      "name": "Mistral AI, page produit Vibe (ex-Le Chat), lu le 11 novembre 2026",
+      "url": "https://mistral.ai/products/vibe",
+      "type": "enterprise"
+    },
+    {
+      "name": "Mistral AI, page de présentation de l'entreprise et dates clés, lu le 11 novembre 2026",
+      "url": "https://mistral.ai/company",
+      "type": "enterprise"
+    },
+    {
+      "name": "Mistral AI, centre d'aide : Le Chat devient Vibe (12 août 2026), lu le 11 novembre 2026",
+      "url": "https://help.mistral.ai/en/articles/682992-le-chat-is-now-vibe",
+      "type": "enterprise",
+      "publishedAt": "2026-08-12"
+    },
+    {
+      "name": "Mistral AI, documentation de Vibe : vue d'ensemble, lu le 11 novembre 2026",
+      "url": "https://docs.mistral.ai/vibe/overview",
+      "type": "enterprise"
+    },
+    {
+      "name": "Mistral AI, documentation de Vibe : choisir entre Work, Code et Chat, lu le 11 novembre 2026",
+      "url": "https://docs.mistral.ai/vibe/choose-chat-work-code",
+      "type": "enterprise"
+    },
+    {
+      "name": "Mistral AI, documentation de Vibe : démarrer avec Work, lu le 11 novembre 2026",
+      "url": "https://docs.mistral.ai/vibe/work/get-started",
+      "type": "enterprise"
+    },
+    {
+      "name": "Mistral AI, documentation de Vibe : les skills de Work, lu le 11 novembre 2026",
+      "url": "https://docs.mistral.ai/vibe/work/skills",
+      "type": "enterprise"
+    },
+    {
+      "name": "Mistral AI, documentation : liste des modèles et dépréciations, lu le 11 novembre 2026",
+      "url": "https://docs.mistral.ai/getting-started/models/models_overview/",
+      "type": "enterprise"
+    },
+    {
+      "name": "Mistral AI, documentation : Mistral Large 4 (5 novembre 2026), lu le 11 novembre 2026",
+      "url": "https://docs.mistral.ai/models/mistral-large",
+      "type": "enterprise",
+      "publishedAt": "2026-11-05"
+    },
+    {
+      "name": "Mistral AI, documentation : tarifs de l'API, lu le 11 novembre 2026",
+      "url": "https://docs.mistral.ai/inference/pricing",
+      "type": "enterprise"
+    },
+    {
+      "name": "Mistral AI, documentation : inférence régionale, lu le 11 novembre 2026",
+      "url": "https://docs.mistral.ai/inference/regional-inference",
+      "type": "enterprise"
+    },
+    {
+      "name": "Mistral AI, documentation : conservation zéro des données, lu le 11 novembre 2026",
+      "url": "https://docs.mistral.ai/admin/monitor-comply/zero-data-retention",
+      "type": "enterprise"
+    },
+    {
+      "name": "Mistral AI, centre d'aide : où sont stockées vos données (12 août 2026), lu le 11 novembre 2026",
+      "url": "https://help.mistral.ai/en/articles/347629-where-do-you-store-my-data-or-my-organization-s-data",
+      "type": "enterprise",
+      "publishedAt": "2026-08-12"
+    },
+    {
+      "name": "Mistral AI, centre d'aide : entraînement sur vos données, lu le 11 novembre 2026",
+      "url": "https://help.mistral.ai/en/articles/347617-do-you-use-my-user-data-to-train-your-artificial-intelligence-models",
+      "type": "enterprise"
+    },
+    {
+      "name": "Mistral AI, centre d'aide : refuser l'entraînement (3 septembre 2026), lu le 11 novembre 2026",
+      "url": "https://help.mistral.ai/en/articles/455207-can-i-opt-out-of-my-input-or-output-data-being-used-for-training",
+      "type": "enterprise",
+      "publishedAt": "2026-09-03"
+    },
+    {
+      "name": "Mistral AI, addendum de traitement des données, lu le 11 novembre 2026",
+      "url": "https://legal.mistral.ai/terms/data-processing-addendum",
+      "type": "enterprise"
+    }
+  ],
+  "faq_fr": [
+    {
+      "q": "Le Chat de Mistral existe-t-il encore ?",
+      "a": "Sous ce nom, non : Mistral AI l'a rebaptisé Vibe le 12 août 2026. L'adresse chat.mistral.ai, les comptes, les abonnements et les conversations n'ont pas bougé. Depuis le 22 septembre, la conversation rapide et le travail multi-étapes tiennent dans une seule interface, avec un réglage rapide ou réflexion."
+    },
+    {
+      "q": "L'assistant de Mistral AI est-il gratuit ?",
+      "a": "Il existe une offre Free : messages et recherches web limités, sessions de code limitées, génération d'images de base et plus de 100 connecteurs. Pro coûte 14,99 € HT par mois, 5,99 € HT pour un étudiant vérifié. Team monte à 24,99 € HT par utilisateur et par mois ; Enterprise se négocie."
+    },
+    {
+      "q": "Mes conversations servent-elles à entraîner les modèles de Mistral ?",
+      "a": "Par défaut, oui sur les comptes individuels : Mistral AI écrit que les échanges entrent dans l'entraînement tant que vous ne l'avez pas refusé dans vos réglages. Sur Team, l'administrateur peut le désactiver pour toute l'organisation ; sur Enterprise, c'est désactivé d'office. Un pouce levé ou baissé accompagné d'un commentaire autorise Mistral à utiliser la note et l'échange, quelle que soit l'offre."
+    },
+    {
+      "q": "Mistral AI héberge-t-il mes données en France ?",
+      "a": "Le centre d'aide écrit « dans l'Union européenne », sans nommer de pays, et le point d'accès américain n'est utilisé que si vous le choisissez. Pour l'API, traiter les requêtes en Europe demande en plus d'appeler api.eu.mistral.ai, facturé 10 % de plus."
+    },
+    {
+      "q": "Peut-on installer un modèle de Mistral AI chez soi ?",
+      "a": "Oui pour les modèles à poids ouverts : Mistral Small 4 et les Ministral 3 sont sous licence Apache 2.0, Mistral Large 4 sous une licence propre à Mistral, à lire avant tout usage commercial. L'offre Enterprise installe Vibe lui-même sur vos serveurs, dans un cloud privé ou sur Mistral Cloud."
+    },
+    {
+      "q": "À qui sert Vibe Code ?",
+      "a": "Aux développeurs. C'est le mode de Vibe qui lit un dépôt, modifie des fichiers, lance des commandes et ouvre des pull requests, en ligne de commande, dans VS Code ou dans une session distante sur un dépôt GitHub. Free donne des sessions limitées, Pro du code toute la journée."
+    },
+    {
+      "q": "Qui dirige Mistral AI ?",
+      "a": "Trois cofondateurs : Arthur Mensch, directeur général, Guillaume Lample, directeur scientifique, et Timothée Lacroix, directeur technique. L'entreprise est née en avril 2023 ; son siège est à Paris, selon son addendum de traitement des données."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Is Mistral's Le Chat still around?",
+      "a": "Under that name, no: Mistral AI renamed it Vibe on 12 August 2026. The chat.mistral.ai address, accounts, subscriptions and conversations did not change. Since 22 September, quick conversation and multi-step work share one interface, with a fast or think toggle."
+    },
+    {
+      "q": "Is Mistral AI's assistant free?",
+      "a": "There is a Free plan: limited messages and web searches, limited coding sessions, basic image generation and more than 100 connectors. Pro costs €14.99 excluding tax a month, €5.99 for a verified student. Team goes up to €24.99 excluding tax per user per month; Enterprise is negotiated."
+    },
+    {
+      "q": "Are my conversations used to train Mistral's models?",
+      "a": "By default, yes on individual accounts: Mistral AI writes that conversations feed training until you opt out in your settings. On Team, the administrator can switch it off for the whole organisation; on Enterprise it is off from the start. A thumbs up or down with a comment lets Mistral use the rating and the exchange, whatever the plan."
+    },
+    {
+      "q": "Does Mistral AI host my data in France?",
+      "a": "The help centre says \"in the European Union\" without naming a country, and the US endpoint is used only if you choose it. For the API, processing requests in Europe additionally requires calling api.eu.mistral.ai, billed 10% more."
+    },
+    {
+      "q": "Can you install a Mistral AI model in-house?",
+      "a": "Yes for open-weight models: Mistral Small 4 and the Ministral 3 family are under Apache 2.0, Mistral Large 4 under a Mistral-specific licence, to be read before any commercial use. The Enterprise plan installs Vibe itself on your servers, in a private cloud or on Mistral Cloud."
+    },
+    {
+      "q": "Who is Vibe Code for?",
+      "a": "Developers. It is the Vibe mode that reads a repository, edits files, runs commands and opens pull requests, from the command line, in VS Code or in a remote session on a GitHub repository. Free gives limited sessions, Pro all-day coding."
+    },
+    {
+      "q": "Who runs Mistral AI?",
+      "a": "Three co-founders: Arthur Mensch, chief executive, Guillaume Lample, chief science officer, and Timothée Lacroix, chief technology officer. The company was born in April 2023; its registered office is in Paris, according to its data processing addendum."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "kicker_fr": "§ Guide · Mistral AI",
+      "kicker_en": "§ Guide · Mistral AI",
+      "h1_fr": "Mistral AI et son assistant <i class=\"acc\">Le Chat</i>",
+      "h1_en": "Mistral AI and its assistant <i class=\"acc\">Le Chat</i>",
+      "lede_fr": "Le Chat, l'assistant de Mistral AI, s'appelle Vibe depuis le 12 août 2026 : même adresse, mêmes comptes, et un produit qui fait désormais aussi le travail multi-étapes et le code. Du siège parisien aux modèles, des offres aux réglages de confidentialité : l'essentiel, plus les premiers usages que je recommande à une PME.",
+      "lede_en": "Le Chat, Mistral AI's assistant, has been called Vibe since 12 August 2026: same address, same accounts, and a product that now also handles multi-step work and code. From the Paris head office to the models, from the plans to the privacy settings: the essentials, plus the first uses I recommend to an SMB.",
+      "badges": [
+        {
+          "label_fr": "Mis à jour le 11 novembre 2026",
+          "label_en": "Updated on 11 November 2026"
+        },
+        {
+          "label_fr": "Le Chat est devenu Vibe",
+          "label_en": "Le Chat became Vibe"
+        },
+        {
+          "label_fr": "D'après les pages de Mistral AI",
+          "label_en": "From Mistral AI's own pages"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver l'audit gratuit",
+        "label_en": "Book the free audit",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Recevoir la charte IA en PDF",
+        "label_en": "Get the AI policy template",
+        "href": "#charte-mistral-ai",
+        "variant": "ghost"
+      },
+      "illustration": {
+        "src": "/images/illustrations/ds/integration-mistral-ai-atelier-paper.webp",
+        "alt_fr": "Une silhouette tire un petit appareil monté sur un chariot jusqu'à une maison, sous une grande lune",
+        "alt_en": "A figure pulls a small machine on a cart up to a house, under a large moon",
+        "side": "right"
+      }
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "11 novembre 2026",
+      "updatedDate": "11 novembre 2026"
+    },
+    {
+      "type": "editorial-callout",
+      "background": "paper-2",
+      "variant": "info",
+      "size": "md",
+      "body_fr": "<strong>Vos agents de Le Chat sont à refaire.</strong> Mistral AI a rebaptisé l'assistant Vibe le 12 août 2026 (<a href=\"https://help.mistral.ai/en/articles/682992-le-chat-is-now-vibe\" rel=\"noopener noreferrer\" target=\"_blank\">centre d'aide de Mistral AI</a>) en gardant comptes, abonnements et conversations, mais les agents sont remplacés par des skills, qu'on appelle avec un @. Plus bas, « Le Chat » désigne l'ancien nom, « Vibe » le produit actuel.",
+      "body_en": "<strong>Your Le Chat agents have to be rebuilt.</strong> Mistral AI renamed the assistant Vibe on 12 August 2026 (<a href=\"https://help.mistral.ai/en/articles/682992-le-chat-is-now-vibe\" rel=\"noopener noreferrer\" target=\"_blank\">Mistral AI help centre</a>) keeping accounts, subscriptions and conversations, but agents are replaced by skills, called with an @. Below, \"Le Chat\" means the old name and \"Vibe\" the current product."
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper",
+      "question_fr": "Qu'est-ce que Mistral AI ?",
+      "question_en": "What is Mistral AI?",
+      "term_fr": "Réponse courte",
+      "term_en": "Short answer",
+      "answer_fr": "Mistral AI est une société française, née à Paris en avril 2023, qui édite des modèles de langage dont plusieurs à poids ouverts, et un assistant, Vibe, l'ancien Le Chat. On commence gratuitement ; Pro coûte 14,99 € HT par mois, Team 24,99 € HT par utilisateur. Les données sont hébergées dans l'Union européenne par défaut ; l'entraînement sur vos échanges, lui, se règle à la main.",
+      "answer_en": "Mistral AI is a French company, born in Paris in April 2023, that publishes language models, several with open weights, and an assistant, Vibe, formerly Le Chat. You start free; Pro costs €14.99 excluding tax a month, Team €24.99 excluding tax per user. Data is hosted in the European Union by default; training on your conversations, however, is a setting you must change by hand."
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2 id=\"editeur\">Qui est derrière Mistral AI, et que vend-elle ?</h2><p>Mistral AI naît en avril 2023. Ses trois cofondateurs sont Arthur Mensch (directeur général), Guillaume Lample (directeur scientifique) et Timothée Lacroix (directeur technique), selon la <a href=\"https://mistral.ai/company\" rel=\"noopener noreferrer\" target=\"_blank\">page de présentation de l'entreprise</a>. Son <a href=\"https://legal.mistral.ai/terms/data-processing-addendum\" rel=\"noopener noreferrer\" target=\"_blank\">addendum de traitement des données</a> la décrit comme une société dont le siège est à Paris, au 15 rue des Halles. Le calendrier de la même page donne le rythme : un premier modèle de 7 milliards de paramètres en septembre 2023, le nouveau Le Chat le 6 février 2025, Mistral Code en juin 2025, repris plus tard sous le nom de Vibe, la plateforme Studio en octobre 2025.</p><p>Mistral AI vend trois choses qui ne se confondent pas : l'assistant, Vibe, à utiliser dans un navigateur ou sur mobile ; l'API, qui branche ses modèles sur vos propres outils ; et les modèles eux-mêmes, dont certains se téléchargent. C'est la troisième voie qui distingue l'éditeur. Vibe tout seul ne vous fera pas quitter l'assistant que vous utilisez déjà ; la possibilité de faire tourner un modèle chez vous, si.</p><p>Si vous cherchez d'abord le cadre pour déployer un assistant IA dans une entreprise, quelle que soit la marque, notre <a href=\"/ressources/guides/claude-pme\">guide Claude pour les PME</a> le pose en entier ; je m'en tiens ici à ce qui est propre à Mistral AI.</p>",
+      "html_en": "<h2 id=\"editeur\">Who is behind Mistral AI, and what does it sell?</h2><p>Mistral AI was born in April 2023. Its three co-founders are Arthur Mensch (chief executive), Guillaume Lample (chief science officer) and Timothée Lacroix (chief technology officer), according to the <a href=\"https://mistral.ai/company\" rel=\"noopener noreferrer\" target=\"_blank\">company overview page</a>. Its <a href=\"https://legal.mistral.ai/terms/data-processing-addendum\" rel=\"noopener noreferrer\" target=\"_blank\">data processing addendum</a> describes it as a company with its registered office in Paris, at 15 rue des Halles. The timeline on the same page gives the pace: a first 7-billion-parameter model in September 2023, the new Le Chat on 6 February 2025, Mistral Code in June 2025, later folded into the Vibe name, the Studio platform in October 2025.</p><p>Mistral AI sells three things that should not be confused: the assistant, Vibe, to use in a browser or on mobile; the API, which plugs its models into your own tools; and the models themselves, some of which can be downloaded. The third route is what sets the company apart. Vibe alone will not make you leave the assistant you already use; being able to run a model in-house might.</p><p>If you first need the framework for deploying an AI assistant in a company, whatever the brand, our <a href=\"/ressources/guides/claude-pme\">Claude guide for SMBs</a> lays it out in full; here I stick to what is specific to Mistral AI.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "variant": "editorial",
+      "kicker_fr": "§ La gamme",
+      "kicker_en": "§ The range",
+      "heading_fr": "Les modèles de Mistral AI : licence, prix et date de retrait",
+      "heading_en": "Mistral AI models: licence, price and retirement date",
+      "caption_fr": "Source : documentation de Mistral AI, liste des modèles, page de Mistral Large 4 et tarifs de l'API. Prix standard en dollars par million de tokens, hors taxes. « Premier » est l'étiquette que Mistral AI donne à ses modèles commerciaux dans sa liste.",
+      "caption_en": "Source: Mistral AI documentation, model list, Mistral Large 4 page and API pricing. Standard prices in dollars per million tokens, excluding tax. \"Premier\" is the label Mistral AI gives its commercial models in its list.",
+      "columns_fr": [
+        "Modèle",
+        "Usage annoncé",
+        "Licence",
+        "Prix de l'API (entrée / sortie)",
+        "Statut"
+      ],
+      "columns_en": [
+        "Model",
+        "Announced use",
+        "Licence",
+        "API price (input / output)",
+        "Status"
+      ],
+      "rows_fr": [
+        [
+          "Mistral Large 4",
+          "Généraliste multimodal à poids ouverts : 1 050 milliards de paramètres dont 52 milliards actifs, 1 million de tokens de contexte",
+          "Mistral Ecosystem Open Weight License",
+          "0,7 $ / 2,1 $",
+          "Disponible depuis le 5 novembre 2026"
+        ],
+        [
+          "Mistral Small 4",
+          "Instruction, raisonnement et code réunis dans un seul modèle",
+          "Apache 2.0",
+          "0,15 $ / 0,6 $",
+          "Version 26.03"
+        ],
+        [
+          "Ministral 3 (3B, 8B, 14B)",
+          "Petits modèles texte et vision",
+          "Apache 2.0",
+          "3B : 0,1 $ / 0,1 $ ; 8B : 0,15 $ / 0,15 $ ; 14B : 0,2 $ / 0,2 $",
+          "Version 25.12"
+        ],
+        [
+          "OCR 4.1",
+          "Lecture de documents : blocs de texte, zones et niveau de confiance repérés",
+          "« Premier »",
+          "4 $ pour 1 000 pages",
+          "Disponible"
+        ],
+        [
+          "Voxtral Mini Transcribe 3",
+          "Transcription et identification des locuteurs",
+          "« Premier »",
+          "0,0035 $ la minute",
+          "Disponible"
+        ],
+        [
+          "Codestral",
+          "Complétion de code",
+          "« Premier »",
+          "0,3 $ / 0,9 $",
+          "Version 25.08"
+        ],
+        [
+          "GLM 5.3, GLM 5.3 Flash (Z.ai) et DeepSeek V4.1 Flash",
+          "Modèles tiers à poids ouverts, au catalogue de l'API de Mistral AI",
+          "MIT",
+          "de 0,15 $ / 0,5 $ à 1,4 $ / 4,4 $",
+          "Disponibles"
+        ],
+        [
+          "Mistral Large 3 et Mistral Medium 3.5",
+          "Anciennes références généralistes",
+          "",
+          "Absents de la grille de prix",
+          "Dépréciés au 31 octobre 2026, retrait le 30 avril 2027, remplacement conseillé : Large 4"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Mistral Large 4",
+          "Open-weight multimodal generalist: 1.05 trillion parameters, 52 billion active, 1 million tokens of context",
+          "Mistral Ecosystem Open Weight License",
+          "$0.7 / $2.1",
+          "Generally available since 5 November 2026"
+        ],
+        [
+          "Mistral Small 4",
+          "Instruction, reasoning and code in a single model",
+          "Apache 2.0",
+          "$0.15 / $0.6",
+          "Version 26.03"
+        ],
+        [
+          "Ministral 3 (3B, 8B, 14B)",
+          "Small text and vision models",
+          "Apache 2.0",
+          "3B: $0.1 / $0.1; 8B: $0.15 / $0.15; 14B: $0.2 / $0.2",
+          "Version 25.12"
+        ],
+        [
+          "OCR 4.1",
+          "Document reading: text blocks, bounding boxes and confidence scores",
+          "\"Premier\"",
+          "$4 per 1,000 pages",
+          "Available"
+        ],
+        [
+          "Voxtral Mini Transcribe 3",
+          "Transcription and speaker identification",
+          "\"Premier\"",
+          "$0.0035 per minute",
+          "Available"
+        ],
+        [
+          "Codestral",
+          "Code completion",
+          "\"Premier\"",
+          "$0.3 / $0.9",
+          "Version 25.08"
+        ],
+        [
+          "GLM 5.3, GLM 5.3 Flash (Z.ai) and DeepSeek V4.1 Flash",
+          "Third-party open-weight models, in Mistral AI's API catalogue",
+          "MIT",
+          "from $0.15 / $0.5 to $1.4 / $4.4",
+          "Available"
+        ],
+        [
+          "Mistral Large 3 and Mistral Medium 3.5",
+          "Former generalist references",
+          "",
+          "Absent from the price grid",
+          "Deprecated as of 31 October 2026, retired on 30 April 2027, suggested replacement: Large 4"
+        ]
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2 id=\"vibe\">Que fait Vibe, l'assistant de Mistral AI ?</h2><p>Depuis le 22 septembre, Vibe n'a plus d'onglet Chat séparé : la <a href=\"https://docs.mistral.ai/vibe/overview\" rel=\"noopener noreferrer\" target=\"_blank\">documentation de Vibe</a> décrit une seule interface où un réglage rapide ou réflexion fixe la profondeur du raisonnement. Les mémoires deviennent Knowledge ; l'interpréteur de code est un bac à sable intégré, réservé aux offres payantes.</p><p>Le mode Work délègue des tâches en plusieurs étapes : il lit vos pièces jointes, appelle des connecteurs (Gmail, Outlook, Slack, Notion, Linear, GitHub, Atlassian, Google Drive, SharePoint, Stripe, d'après la <a href=\"https://docs.mistral.ai/vibe/choose-chat-work-code\" rel=\"noopener noreferrer\" target=\"_blank\">page de choix des modes</a>), montre chaque appel d'outil et demande une validation avant l'envoi d'un e-mail, une modification de données ou une suppression. Il sait aussi planifier une consigne à intervalle choisi, classer le travail en projets et ouvrir une conversation temporaire, hors historique, hors mémoire et hors entraînement. Douze skills sont fournis, dont <a href=\"https://docs.mistral.ai/vibe/work/skills\" rel=\"noopener noreferrer\" target=\"_blank\">meeting-prep, structured-extraction, document-review et deep-research</a>.</p><p>Le mode Code s'adresse aux développeurs : ligne de commande, extension VS Code, sessions distantes dans un bac à sable cloud branché à un dépôt GitHub. Les applications mobiles iOS et Android donnent accès à Work, la saisie vocale s'appuie sur Voxtral, et les connecteurs MCP personnalisés restent en bêta d'après la <a href=\"https://mistral.ai/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">page de tarifs</a>.</p>",
+      "html_en": "<h2 id=\"vibe\">What does Vibe, Mistral AI's assistant, do?</h2><p>Since 22 September, Vibe no longer has a separate Chat tab: the <a href=\"https://docs.mistral.ai/vibe/overview\" rel=\"noopener noreferrer\" target=\"_blank\">Vibe documentation</a> describes a single interface where a fast or think toggle sets how deeply it reasons. Memories become Knowledge; the code interpreter is a built-in sandbox, reserved for paid plans.</p><p>Work mode delegates multi-step tasks: it reads your attachments, calls connectors (Gmail, Outlook, Slack, Notion, Linear, GitHub, Atlassian, Google Drive, SharePoint, Stripe, according to the <a href=\"https://docs.mistral.ai/vibe/choose-chat-work-code\" rel=\"noopener noreferrer\" target=\"_blank\">mode selection page</a>), shows each tool call and asks for approval before sending an email, changing data or deleting. It can also schedule an instruction at a chosen interval, sort work into projects and open a temporary conversation, kept out of history, memory and training. Twelve skills ship with it, including <a href=\"https://docs.mistral.ai/vibe/work/skills\" rel=\"noopener noreferrer\" target=\"_blank\">meeting-prep, structured-extraction, document-review and deep-research</a>.</p><p>Code mode is for developers: command line, VS Code extension, remote sessions in a cloud sandbox linked to a GitHub repository. The iOS and Android apps give access to Work, voice input relies on Voxtral, and custom MCP connectors remain in beta according to the <a href=\"https://mistral.ai/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">pricing page</a>.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "variant": "editorial",
+      "kicker_fr": "§ Offres de Vibe",
+      "kicker_en": "§ Vibe plans",
+      "heading_fr": "Free, Pro, Team et Enterprise : ce que contient chaque abonnement",
+      "heading_en": "Free, Pro, Team and Enterprise: what each subscription contains",
+      "caption_fr": "Source : page de tarifs de Mistral AI et centre d'aide. Les montants en euros sont les mêmes que ceux affichés en dollars ; les abonnements restent soumis aux limites d'usage équitable des conditions de Mistral AI.",
+      "caption_en": "Source: Mistral AI pricing page and help centre. The amounts in euros are the same as those shown in dollars; subscriptions remain subject to the fair-usage limits in Mistral AI's terms.",
+      "columns_fr": [
+        "Offre",
+        "Prix",
+        "Ce que la page de tarifs annonce",
+        "Entraînement sur vos échanges"
+      ],
+      "columns_en": [
+        "Plan",
+        "Price",
+        "What the pricing page lists",
+        "Training on your conversations"
+      ],
+      "rows_fr": [
+        [
+          "Free",
+          "0",
+          "Messages et recherches web limités, sessions de code limitées, génération d'images de base, plus de 100 connecteurs",
+          "Actif par défaut, désactivable dans les réglages"
+        ],
+        [
+          "Pro",
+          "14,99 € HT par mois, 5,99 € HT pour un étudiant vérifié",
+          "Plus de messages et de recherches, réponses plus rapides, code toute la journée en ligne de commande, IDE ou web, tableurs et diapositives, 25,5 $ de crédits d'API par mois, support par chat et e-mail",
+          "Actif par défaut, désactivable dans les réglages"
+        ],
+        [
+          "Team",
+          "24,99 € HT par utilisateur et par mois",
+          "Limites encore plus hautes, jusqu'à 30 Go de stockage par utilisateur, vérification du nom de domaine, export des données",
+          "L'administrateur peut le désactiver pour toute l'organisation"
+        ],
+        [
+          "Enterprise",
+          "Sur devis",
+          "Modèles, agents et workflows sur mesure, journaux d'audit, SAML SSO, marque blanche, déploiement privé, sur site ou sur Mistral Cloud",
+          "Désactivé par défaut ; l'activation se gère côté administrateur"
+        ]
+      ],
+      "rows_en": [
+        [
+          "Free",
+          "0",
+          "Limited messages and web searches, limited coding sessions, basic image generation, more than 100 connectors",
+          "On by default, can be switched off in settings"
+        ],
+        [
+          "Pro",
+          "€14.99 excluding tax a month, €5.99 for a verified student",
+          "More messages and searches, faster answers, all-day coding in the command line, IDE or web, spreadsheets and slides, $25.5 a month in API credits, chat and email support",
+          "On by default, can be switched off in settings"
+        ],
+        [
+          "Team",
+          "€24.99 excluding tax per user per month",
+          "Even higher limits, up to 30 GB of storage per user, domain name verification, data export",
+          "The administrator can switch it off for the whole organisation"
+        ],
+        [
+          "Enterprise",
+          "Quote",
+          "Custom models, agents and workflows, audit logs, SAML SSO, white label, private, on-premises or Mistral Cloud deployment",
+          "Off by default; opting in is managed by the administrator"
+        ]
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<p>Pour mettre ces prix à côté de ceux de ChatGPT Business et de Claude Team, notre <a href=\"/blog/claude-chatgpt-mistral-offres-equipe\">comparatif Claude Team, ChatGPT Business et Mistral Vibe Team</a> a la grille complète, crédits d'API compris.</p>",
+      "html_en": "<p>To set these prices beside ChatGPT Business and Claude Team, our <a href=\"/blog/claude-chatgpt-mistral-offres-equipe\">Claude Team, ChatGPT Business and Mistral Vibe Team comparison</a> has the full grid, API credits included.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2 id=\"donnees\">Où vont vos données avec Vibe et avec l'API de Mistral AI ?</h2><p>Le <a href=\"https://help.mistral.ai/en/articles/347629-where-do-you-store-my-data-or-my-organization-s-data\" rel=\"noopener noreferrer\" target=\"_blank\">centre d'aide</a> situe l'hébergement par défaut dans l'Union européenne et admet des transferts temporaires selon la fonction ; l'analyse complète du cadre RGPD est dans notre <a href=\"/ressources/comparatifs/mistral-vs-claude-pme\">comparatif avec Claude</a>.</p><p>Stocker en Europe n'est pourtant pas exécuter en Europe. Sur l'API, la <a href=\"https://docs.mistral.ai/inference/regional-inference\" rel=\"noopener noreferrer\" target=\"_blank\">documentation sur l'inférence régionale</a> précise que le point d'accès global ne s'engage sur aucun lieu d'exécution. Pour traiter vos requêtes dans l'Union européenne et l'AELE, il faut appeler api.eu.mistral.ai, facturé 10 % plus cher, sans Agents, Batch ni API de fichiers, avec le seul appel de fonctions comme outil. Clés, facturation, droits d'accès et mesures d'usage peuvent rester gérés hors de la région choisie. Si votre contrat client parle d'inférence en Europe, c'est ce point d'accès que vous devez pouvoir nommer, pas la mention « hébergé dans l'UE ».</p><p>Côté entraînement, un pouce levé ou baissé accompagné d'un commentaire autorise l'entraînement sur la note et sur l'échange, quelle que soit l'offre. Pour couper l'entraînement sur Vibe, ouvrez Manage, Vibe, Privacy et désactivez « Allow your interactions to be used to train our models » ; sur mobile, Settings, Data &amp; Account Controls, case « Enable data sharing ». Les documents joints comptent comme des entrées. L'API a son propre interrupteur, sous Privacy dans l'espace d'administration : couper l'un ne coupe pas l'autre (<a href=\"https://help.mistral.ai/en/articles/455207-can-i-opt-out-of-my-input-or-output-data-being-used-for-training\" rel=\"noopener noreferrer\" target=\"_blank\">aide du 3 septembre 2026</a>).</p><p>Reste la conservation zéro, réservée aux offres payantes. Elle couvre les appels d'API sans état (complétion de chat, embeddings, OCR, transcription), et elle exclut Vibe Work, le Chat, les agents, les bibliothèques, l'API de fichiers et le traitement par lots, selon la <a href=\"https://docs.mistral.ai/admin/monitor-comply/zero-data-retention\" rel=\"noopener noreferrer\" target=\"_blank\">documentation de la conservation zéro</a>. Autrement dit, la conversation que vos équipes ouvrent dans Vibe est conservée, et c'est voulu : elle alimente l'historique.</p><p>Ma règle : un compte Free ou Pro individuel ne traite aucune donnée de client, parce que l'entraînement y est actif tant que personne ne l'a coupé. Pour une équipe, je prends Team et je désactive l'entraînement le premier jour, ou j'appelle l'API sur le point d'accès européen.</p>",
+      "html_en": "<h2 id=\"donnees\">Where does your data go with Vibe and with the Mistral AI API?</h2><p>The <a href=\"https://help.mistral.ai/en/articles/347629-where-do-you-store-my-data-or-my-organization-s-data\" rel=\"noopener noreferrer\" target=\"_blank\">help centre</a> says data is hosted in the European Union by default, with temporary transfers possible depending on the feature; the full GDPR analysis is in our <a href=\"/ressources/comparatifs/mistral-vs-claude-pme\">comparison with Claude</a>.</p><p>Storing in Europe is not the same as running in Europe. On the API, the <a href=\"https://docs.mistral.ai/inference/regional-inference\" rel=\"noopener noreferrer\" target=\"_blank\">regional inference documentation</a> states that the global endpoint commits to no execution location. To process your requests in the European Union and EFTA, you must call api.eu.mistral.ai, billed 10% higher, without Agents, Batch or the files API, with function calling as the only tool. Keys, billing, access rights and usage metrics may still be handled outside the chosen region. If your customer contract speaks of inference in Europe, that is the endpoint you must be able to name, not the words \"hosted in the EU\".</p><p>On training, a thumbs up or down with a comment authorises training on the rating and the exchange, whatever the plan. To switch training off on Vibe, open Manage, Vibe, Privacy and disable \"Allow your interactions to be used to train our models\"; on mobile, Settings, Data &amp; Account Controls, \"Enable data sharing\" box. Attached documents count as inputs. The API has its own switch, under Privacy in the admin space: switching one off does not switch the other off (<a href=\"https://help.mistral.ai/en/articles/455207-can-i-opt-out-of-my-input-or-output-data-being-used-for-training\" rel=\"noopener noreferrer\" target=\"_blank\">help article of 3 September 2026</a>).</p><p>Then there is zero data retention, reserved for paid plans. It covers stateless API calls (chat completion, embeddings, OCR, transcription), and it excludes Vibe Work, Chat, agents, libraries, the files API and batch processing, according to the <a href=\"https://docs.mistral.ai/admin/monitor-comply/zero-data-retention\" rel=\"noopener noreferrer\" target=\"_blank\">zero data retention documentation</a>. In other words, the conversation your teams open in Vibe is kept, by design: it feeds the history.</p><p>My rule: an individual Free or Pro account processes no customer data, because training is on there until someone switches it off. For a team, I take Team and disable training on day one, or I call the API on the European endpoint.</p>"
+    },
+    {
+      "type": "process-steps",
+      "background": "paper-3",
+      "kicker_fr": "§ Premiers usages",
+      "kicker_en": "§ First uses",
+      "h2_fr": "Quatre usages de Vibe à tester, dans l'ordre où je les ouvre",
+      "h2_en": "Four uses of Vibe to test, in the order I open them",
+      "intro_fr": "Je commence par ce qui se vérifie en dix minutes, pas par un agent branché sur votre messagerie.",
+      "intro_en": "I start with what can be checked in ten minutes, not with an agent wired to your mailbox.",
+      "steps": [
+        {
+          "title_fr": "Couper l'entraînement",
+          "title_en": "Switch training off",
+          "body_fr": "Sur un compte Free ou Pro, désactivez le réglage d'entraînement avant la première pièce jointe. Sur Team, c'est à l'administrateur de le faire pour toute l'organisation.",
+          "body_en": "On a Free or Pro account, switch the training setting off before the first attachment. On Team, the administrator does it for the whole organisation.",
+          "meta_fr": "Jour 1",
+          "meta_en": "Day 1"
+        },
+        {
+          "title_fr": "Résumer un document réel",
+          "title_en": "Summarise a real document",
+          "body_fr": "Chargez un PDF de votre activité, sans donnée personnelle, un contrat fournisseur par exemple, et demandez le résumé, les responsables, les échéances et les actions. Relisez chaque échéance dans le document : le contrôle est là.",
+          "body_en": "Upload a PDF from your business, without personal data, a supplier contract for instance, and ask for the summary, owners, deadlines and actions. Check each deadline in the document: the check is there.",
+          "meta_fr": "Jour 1",
+          "meta_en": "Day 1"
+        },
+        {
+          "title_fr": "Préparer un rendez-vous",
+          "title_en": "Prepare a meeting",
+          "body_fr": "Connectez votre agenda et rien d'autre, puis lancez le skill meeting-prep sur le prochain rendez-vous client. Vous voyez les appels d'outils défiler, et Vibe demande confirmation avant toute action sensible.",
+          "body_en": "Connect your calendar and nothing else, then run the meeting-prep skill on the next customer meeting. You watch the tool calls go by, and Vibe asks for confirmation before any sensitive action.",
+          "meta_fr": "Jours 2 à 3",
+          "meta_en": "Days 2 to 3"
+        },
+        {
+          "title_fr": "Planifier une tâche qui revient",
+          "title_en": "Schedule a recurring task",
+          "body_fr": "Une veille hebdomadaire sur un concurrent ou un marché, avec le skill deep-research : la planification relance la même consigne chaque jour, semaine ou mois. N'y mettez rien qui envoie un message sans votre validation.",
+          "body_en": "A weekly watch on a competitor or a market, with the deep-research skill: scheduling reruns the same instruction every day, week or month. Put nothing in it that sends a message without your approval.",
+          "meta_fr": "Semaine 1",
+          "meta_en": "Week 1"
+        }
+      ]
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "html_fr": "<h2 id=\"poids-ouverts\">Poids ouverts : ce que la licence vous laisse faire</h2><p>« Poids ouverts » veut dire que vous pouvez télécharger le modèle ; la licence dit ce que vous en faites ensuite. Dans la <a href=\"https://docs.mistral.ai/getting-started/models/models_overview/\" rel=\"noopener noreferrer\" target=\"_blank\">liste de Mistral AI</a>, Mistral Small 4 et les Ministral 3 sont sous Apache 2.0, Mistral Large 4 sous une « Mistral Ecosystem Open Weight License » dont je ne vous résume pas les termes : lisez-la avant d'en faire un produit. La page de tarifs prévient d'ailleurs que certains déploiements commerciaux de modèles ouverts demandent une licence de Mistral AI. Une licence par modèle, donc, pas une règle valable pour toute la gamme.</p><p>Il y a ensuite la machine. Large 4 compte plus de mille milliards de paramètres : le faire tourner chez vous demande un serveur de datacenter, pas un poste de travail. Les Ministral 3 sont la voie réaliste d'un premier essai ; la <a href=\"/blog/ia-auto-hebergee-open-webui-pme\">bonne idée ou non d'héberger son IA en PME</a> détaille les prérequis. L'offre Enterprise de Vibe, elle, s'installe sur site, en cloud privé ou sur Mistral Cloud, avec réglage fin possible par Mistral Forge. C'est un projet d'intégration, que nous cadrons dans notre <a href=\"/services/integration-mistral-ai\">service d'intégration Mistral AI</a>.</p>",
+      "html_en": "<h2 id=\"poids-ouverts\">Open weights: what the licence lets you do</h2><p>\"Open weights\" means you can download the model; the licence says what you do with it afterwards. In <a href=\"https://docs.mistral.ai/getting-started/models/models_overview/\" rel=\"noopener noreferrer\" target=\"_blank\">Mistral AI's list</a>, Mistral Small 4 and the Ministral 3 family are under Apache 2.0, Mistral Large 4 under a \"Mistral Ecosystem Open Weight License\" whose terms I will not summarise for you: read it before building a product on it. The pricing page also warns that some commercial deployments of open models require a licence from Mistral AI. One licence per model, then, not a rule valid for the whole range.</p><p>Then there is the machine. Large 4 has more than a trillion parameters: running it in-house takes a datacentre server, not a workstation. The Ministral 3 family is the realistic route for a first trial; our <a href=\"/blog/ia-auto-hebergee-open-webui-pme\">article on whether self-hosting your AI is a good idea for an SMB</a> details the prerequisites. The Vibe Enterprise plan installs on-premises, in a private cloud or on Mistral Cloud, with fine-tuning possible through Mistral Forge. That is an integration project, which we scope in our <a href=\"/services/integration-mistral-ai\">Mistral AI integration service</a>.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "html_fr": "<h2 id=\"avis\">Quand je recommande Mistral AI à une PME, et quand je passe mon tour</h2><p>Le bon choix dépend du besoin plus que du nom. Pour mettre un assistant entre les mains d'une équipe, c'est Team, avec l'entraînement coupé le premier jour. Pour appeler un modèle depuis vos outils sans que rien ne soit conservé, c'est l'API sans état avec la conservation zéro, jamais Vibe. Si le contrat exige l'inférence en Europe, c'est api.eu.mistral.ai et ses limites. Pour des développeurs, c'est Vibe Code ; pour l'auto-hébergement, Ministral 3 d'abord, et la licence de Large 4 lue en entier. Je passe mon tour quand l'équipe veut seulement un assistant de plus et qu'aucune de ces contraintes ne pèse : changer d'outil pour changer ne rapporte rien.</p><p>Une faiblesse, aujourd'hui : tout bouge vite. Le produit a changé de nom en août et fusionné son Chat et Work en septembre. Côté modèles, Large 3 et Medium 3.5 sont dépréciés depuis le 31 octobre 2026, avec un retrait au 30 avril 2027, quelques semaines après la sortie de Large 4. Si un processus dépend d'un modèle précis, notez sa date de retrait dans un agenda, pas dans un souvenir.</p><p>Pour savoir si Mistral AI doit remplacer ou compléter Claude chez vous, le <a href=\"/ressources/comparatifs/mistral-vs-claude-pme\">comparatif Mistral AI et Claude</a> tranche critère par critère. Pour situer Mistral parmi les autres assistants, il y a <a href=\"/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme\">le comparatif ChatGPT, Claude, Gemini et Perplexity</a>, et pour Vibe Code face aux agents de code concurrents, <a href=\"/ressources/comparatifs/claude-code-vs-codex-vs-vibe\">le comparatif Claude Code, Codex et Mistral Vibe</a>. Quel que soit l'assistant, écrivez d'abord les règles d'usage : notre <a href=\"/ressources/outils/charte-ia-entreprise\">modèle de charte IA</a> sert à ça.</p>",
+      "html_en": "<h2 id=\"avis\">When I recommend Mistral AI to an SMB, and when I pass</h2><p>The right choice depends on the need more than on the name. To put an assistant in a team's hands, it is Team, with training switched off on day one. To call a model from your tools with nothing retained, it is the stateless API with zero data retention, never Vibe. If the contract requires inference in Europe, it is api.eu.mistral.ai and its limits. For developers, it is Vibe Code; for self-hosting, Ministral 3 first, and the Large 4 licence read in full. I pass when the team only wants one more assistant and none of these constraints applies: changing tool for the sake of it gains nothing.</p><p>One weakness today: everything moves fast. The product changed name in August and merged its Chat and Work in September. On models, Large 3 and Medium 3.5 have been deprecated since 31 October 2026, with retirement on 30 April 2027, a few weeks after Large 4 came out. If a process depends on a specific model, put its retirement date in a calendar, not in a memory.</p><p>To know whether Mistral AI should replace or complement Claude in your company, the <a href=\"/ressources/comparatifs/mistral-vs-claude-pme\">Mistral AI and Claude comparison</a> settles it criterion by criterion. To place Mistral among the other assistants, there is <a href=\"/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme\">the ChatGPT, Claude, Gemini and Perplexity comparison</a>, and for Vibe Code against competing coding agents, <a href=\"/ressources/comparatifs/claude-code-vs-codex-vs-vibe\">the Claude Code, Codex and Mistral Vibe comparison</a>. Whatever the assistant, write the usage rules first: our <a href=\"/ressources/outils/charte-ia-entreprise\">AI policy template</a> is for that.</p>"
+    },
+    {
+      "type": "lead-capture-band",
+      "lead_magnet": "charte-ia-entreprise",
+      "background": "ink",
+      "anchor_id": "charte-mistral-ai",
+      "kicker_fr": "§ Charte IA · modèle PDF gratuit",
+      "kicker_en": "§ AI policy · free PDF template",
+      "h2_fr": "Avant d'ouvrir Vibe à l'équipe, fixez ce qui n'y entre jamais : recevez le modèle de charte IA en PDF",
+      "h2_en": "Before opening Vibe to the team, fix what never goes into it: get the AI policy template as a PDF",
+      "body_fr": "Neuf articles à adapter : outils autorisés, données exclues, validation humaine. Le PDF arrive par e-mail.",
+      "body_en": "Nine articles to adapt: approved tools, excluded data, human approval. The PDF arrives by email.",
+      "benefits_fr": [
+        "Une trame à signer : usages permis, données exclues, qui valide quoi",
+        "Des notes pour l'adapter à un assistant dont l'entraînement se règle compte par compte",
+        "Un envoi unique, sans inscription à la lettre"
+      ],
+      "benefits_en": [
+        "A template to sign: permitted uses, excluded data, who approves what",
+        "Notes to adapt it to an assistant whose training is set account by account",
+        "A one-off email, no newsletter sign-up"
+      ]
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Going further",
+      "cards": [
+        {
+          "kicker_fr": "Comparatif",
+          "kicker_en": "Comparison",
+          "title_fr": "Mistral AI face à Claude, critère par critère",
+          "title_en": "Mistral AI against Claude, criterion by criterion",
+          "lead_fr": "Hébergement, entraînement, prix de l'API : le comparatif détaillé pour une PME.",
+          "lead_en": "Hosting, training, API price: the detailed comparison for an SMB.",
+          "href": "/ressources/comparatifs/mistral-vs-claude-pme"
+        },
+        {
+          "kicker_fr": "Article",
+          "kicker_en": "Article",
+          "title_fr": "La grille des abonnements Claude, ChatGPT et Mistral",
+          "title_en": "The Claude, ChatGPT and Mistral subscription grid",
+          "lead_fr": "Les trois abonnements pour une équipe, prix et crédits d'API compris.",
+          "lead_en": "The three subscriptions for a team, prices and API credits included.",
+          "href": "/blog/claude-chatgpt-mistral-offres-equipe"
+        },
+        {
+          "kicker_fr": "Service",
+          "kicker_en": "Service",
+          "title_fr": "Intégration Mistral AI",
+          "title_en": "Mistral AI integration",
+          "lead_fr": "Cadrer un modèle européen ou hébergé chez vous, puis le brancher à vos outils métier.",
+          "lead_en": "Scoping a European or in-house model, then wiring it to your business tools.",
+          "href": "/services/integration-mistral-ai"
+        }
+      ]
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper-2",
+      "h2_fr": "Mistral AI et Le Chat : les questions que les PME posent",
+      "h2_en": "Mistral AI and Le Chat: the questions SMBs ask",
+      "items": [
+        {
+          "q_fr": "Le Chat de Mistral existe-t-il encore ?",
+          "q_en": "Is Mistral's Le Chat still around?",
+          "a_fr": "Sous ce nom, non : Mistral AI l'a rebaptisé Vibe le 12 août 2026. L'adresse chat.mistral.ai, les comptes, les abonnements et les conversations n'ont pas bougé. Depuis le 22 septembre, la conversation rapide et le travail multi-étapes tiennent dans une seule interface, avec un réglage rapide ou réflexion.",
+          "a_en": "Under that name, no: Mistral AI renamed it Vibe on 12 August 2026. The chat.mistral.ai address, accounts, subscriptions and conversations did not change. Since 22 September, quick conversation and multi-step work share one interface, with a fast or think toggle."
+        },
+        {
+          "q_fr": "L'assistant de Mistral AI est-il gratuit ?",
+          "q_en": "Is Mistral AI's assistant free?",
+          "a_fr": "Il existe une offre Free : messages et recherches web limités, sessions de code limitées, génération d'images de base et plus de 100 connecteurs. Pro coûte 14,99 € HT par mois, 5,99 € HT pour un étudiant vérifié. Team monte à 24,99 € HT par utilisateur et par mois ; Enterprise se négocie.",
+          "a_en": "There is a Free plan: limited messages and web searches, limited coding sessions, basic image generation and more than 100 connectors. Pro costs €14.99 excluding tax a month, €5.99 for a verified student. Team goes up to €24.99 excluding tax per user per month; Enterprise is negotiated."
+        },
+        {
+          "q_fr": "Mes conversations servent-elles à entraîner les modèles de Mistral ?",
+          "q_en": "Are my conversations used to train Mistral's models?",
+          "a_fr": "Par défaut, oui sur les comptes individuels : Mistral AI écrit que les échanges entrent dans l'entraînement tant que vous ne l'avez pas refusé dans vos réglages. Sur Team, l'administrateur peut le désactiver pour toute l'organisation ; sur Enterprise, c'est désactivé d'office. Un pouce levé ou baissé accompagné d'un commentaire autorise Mistral à utiliser la note et l'échange, quelle que soit l'offre.",
+          "a_en": "By default, yes on individual accounts: Mistral AI writes that conversations feed training until you opt out in your settings. On Team, the administrator can switch it off for the whole organisation; on Enterprise it is off from the start. A thumbs up or down with a comment lets Mistral use the rating and the exchange, whatever the plan."
+        },
+        {
+          "q_fr": "Mistral AI héberge-t-il mes données en France ?",
+          "q_en": "Does Mistral AI host my data in France?",
+          "a_fr": "Le centre d'aide écrit « dans l'Union européenne », sans nommer de pays, et le point d'accès américain n'est utilisé que si vous le choisissez. Pour l'API, traiter les requêtes en Europe demande en plus d'appeler api.eu.mistral.ai, facturé 10 % de plus.",
+          "a_en": "The help centre says \"in the European Union\" without naming a country, and the US endpoint is used only if you choose it. For the API, processing requests in Europe additionally requires calling api.eu.mistral.ai, billed 10% more."
+        },
+        {
+          "q_fr": "Peut-on installer un modèle de Mistral AI chez soi ?",
+          "q_en": "Can you install a Mistral AI model in-house?",
+          "a_fr": "Oui pour les modèles à poids ouverts : Mistral Small 4 et les Ministral 3 sont sous licence Apache 2.0, Mistral Large 4 sous une licence propre à Mistral, à lire avant tout usage commercial. L'offre Enterprise installe Vibe lui-même sur vos serveurs, dans un cloud privé ou sur Mistral Cloud.",
+          "a_en": "Yes for open-weight models: Mistral Small 4 and the Ministral 3 family are under Apache 2.0, Mistral Large 4 under a Mistral-specific licence, to be read before any commercial use. The Enterprise plan installs Vibe itself on your servers, in a private cloud or on Mistral Cloud."
+        },
+        {
+          "q_fr": "À qui sert Vibe Code ?",
+          "q_en": "Who is Vibe Code for?",
+          "a_fr": "Aux développeurs. C'est le mode de Vibe qui lit un dépôt, modifie des fichiers, lance des commandes et ouvre des pull requests, en ligne de commande, dans VS Code ou dans une session distante sur un dépôt GitHub. Free donne des sessions limitées, Pro du code toute la journée.",
+          "a_en": "Developers. It is the Vibe mode that reads a repository, edits files, runs commands and opens pull requests, from the command line, in VS Code or in a remote session on a GitHub repository. Free gives limited sessions, Pro all-day coding."
+        },
+        {
+          "q_fr": "Qui dirige Mistral AI ?",
+          "q_en": "Who runs Mistral AI?",
+          "a_fr": "Trois cofondateurs : Arthur Mensch, directeur général, Guillaume Lample, directeur scientifique, et Timothée Lacroix, directeur technique. L'entreprise est née en avril 2023 ; son siège est à Paris, selon son addendum de traitement des données.",
+          "a_en": "Three co-founders: Arthur Mensch, chief executive, Guillaume Lample, chief science officer, and Timothée Lacroix, chief technology officer. The company was born in April 2023; its registered office is in Paris, according to its data processing addendum."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Assistants IA en PME",
+      "kicker_en": "§ AI assistants for SMBs",
+      "h2_fr": "Un assistant IA se choisit sur vos tâches, pas sur une fiche produit.",
+      "h2_en": "An AI assistant is chosen on your tasks, not on a product sheet.",
+      "subtitle_fr": "Un audit gratuit de 45 minutes en visio, et vous repartez avec les tâches à tester, l'assistant qui va avec vos données et un plan d'essai d'une semaine.",
+      "subtitle_en": "A free 45-minute video audit, and you leave with the tasks to test, the assistant that suits your data and a one-week trial plan.",
+      "buttons": [
+        {
+          "label_fr": "Réserver l'audit gratuit",
+          "label_en": "Book the free audit",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Voir l'intégration Mistral AI",
+          "label_en": "See the Mistral AI integration",
+          "href": "/services/integration-mistral-ai",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,549 @@
+{
+  "$schema": "../../schemas/generated/guides.page.schema.json",
+  "title_fr": "DeepSeek : le guide complet (2026)",
+  "title_en": "DeepSeek: the complete guide (2026)",
+  "seoTitle_fr": "DeepSeek : guide, données en Chine, prix et usage en PME",
+  "seoTitle_en": "DeepSeek: guide, data in China, pricing and SMB use",
+  "description_fr": "Guide DeepSeek : modèles V4, prix de l'API, données stockées en Chine, décisions des autorités européennes, poids ouverts et usage en entreprise.",
+  "description_en": "DeepSeek guide: V4 models, API pricing, data stored in China, European authority decisions, open weights and business use.",
+  "slug": "deepseek",
+  "publishedAt": "2026-11-11T00:00:00.000Z",
+  "updatedAt": "2026-11-11",
+  "category": "conformite",
+  "tags": [
+    "deepseek",
+    "rgpd",
+    "modeles-ouverts",
+    "hebergement-donnees",
+    "cnil",
+    "guide-pme"
+  ],
+  "sources": [
+    {
+      "name": "DeepSeek, politique de confidentialité (mise à jour le 10 février 2026), lu le 11 novembre 2026",
+      "url": "https://cdn.deepseek.com/policies/en-US/deepseek-privacy-policy.html",
+      "type": "enterprise",
+      "publishedAt": "2026-02-10"
+    },
+    {
+      "name": "DeepSeek, conditions d'utilisation (mise à jour le 27 mars 2026), lu le 11 novembre 2026",
+      "url": "https://cdn.deepseek.com/policies/en-US/deepseek-terms-of-use.html",
+      "type": "enterprise",
+      "publishedAt": "2026-03-27"
+    },
+    {
+      "name": "DeepSeek API Docs, Models & Pricing, lu le 11 novembre 2026",
+      "url": "https://api-docs.deepseek.com/quick_start/pricing",
+      "type": "enterprise"
+    },
+    {
+      "name": "DeepSeek API Docs, journal des modifications, lu le 11 novembre 2026",
+      "url": "https://api-docs.deepseek.com/updates",
+      "type": "enterprise"
+    },
+    {
+      "name": "Hugging Face, fiche DeepSeek-V4.1-Flash-1017 (licence MIT), lu le 11 novembre 2026",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "type": "enterprise",
+      "publishedAt": "2026-10-17"
+    },
+    {
+      "name": "Hugging Face, fiche DeepSeek-V4-Pro-0813 (licence MIT), lu le 11 novembre 2026",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-0813",
+      "type": "enterprise",
+      "publishedAt": "2026-08-13"
+    },
+    {
+      "name": "Garante per la protezione dei dati personali, provvedimento du 30 janvier 2025 [doc. web 10098477], lu le 11 novembre 2026",
+      "url": "https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/10098477",
+      "type": "state",
+      "publishedAt": "2025-01-30"
+    },
+    {
+      "name": "Berlin Commissioner for Data Protection, communiqué du 27 juin 2025 sur DeepSeek, lu le 11 novembre 2026",
+      "url": "https://www.datenschutz-berlin.de/fileadmin/user_upload/pdf/pressemitteilungen/2025/20250627-BlnBDI-Press-Release_DeepSeek.pdf",
+      "type": "state",
+      "publishedAt": "2025-06-27"
+    },
+    {
+      "name": "HBDI Hesse, « Prüfverfahren gegen DeepSeek eingeleitet » (février 2025), lu le 11 novembre 2026",
+      "url": "https://datenschutz.hessen.de/presse/pruefverfahren-gegen-deepseek-eingeleitet",
+      "type": "state",
+      "publishedAt": "2025-02-20"
+    },
+    {
+      "name": "CNIL, retour sur la plénière du CEPD (février 2025), lu le 11 novembre 2026",
+      "url": "https://www.cnil.fr/fr/coordination-sur-lia-et-protection-des-mineurs-retour-sur-la-derniere-pleniere-du-cepd",
+      "type": "state",
+      "publishedAt": "2025-02-20"
+    },
+    {
+      "name": "CNIL, comment s'opposer à la réutilisation de ses données pour l'entraînement d'agents conversationnels, lu le 11 novembre 2026",
+      "url": "https://www.cnil.fr/fr/ia-comment-sopposer-la-reutilisation-de-ses-donnees-personnelles-entrainement-agent-conversationnel",
+      "type": "state",
+      "publishedAt": "2025-10-16"
+    },
+    {
+      "name": "CNIL, questions-réponses sur l'utilisation d'un système d'IA générative, lu le 11 novembre 2026",
+      "url": "https://www.cnil.fr/fr/les-questions-reponses-de-la-cnil-sur-lutilisation-dun-systeme-dia-generative",
+      "type": "state",
+      "publishedAt": "2024-07-18"
+    },
+    {
+      "name": "Commission européenne, décisions d'adéquation, lu le 11 novembre 2026",
+      "url": "https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection/adequacy-decisions_en",
+      "type": "state"
+    },
+    {
+      "name": "Microsoft Learn, Foundry Models sold directly by Azure, lu le 11 novembre 2026",
+      "url": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure",
+      "type": "enterprise"
+    },
+    {
+      "name": "Microsoft Learn, Foundry Models deployment types, lu le 11 novembre 2026",
+      "url": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types",
+      "type": "enterprise"
+    }
+  ],
+  "seo": {
+    "noindex": false
+  },
+  "faq_fr": [
+    {
+      "q": "Les autorités européennes ont-elles interdit DeepSeek ?",
+      "a": "Cela dépend du pays et de l'acte. En Italie, le Garante a ordonné le 30 janvier 2025 une limitation définitive du traitement des données des personnes situées en Italie. À Berlin, la commissaire a signalé l'application à Apple et à Google le 27 juin 2025, au titre du règlement sur les services numériques. Le Comité européen de la protection des données a intégré les enquêtes sur DeepSeek à sa task force dédiée à ChatGPT, élargie à l'IA. En France, la CNIL publie la marche à suivre pour refuser l'entraînement des modèles (page du 16 octobre 2025) et ses consignes sur l'IA générative en organisme."
+    },
+    {
+      "q": "Mes données vont-elles en Chine si j'utilise DeepSeek ?",
+      "a": "Dans l'application et sur le site, oui : la politique de confidentialité du 10 février 2026 dit que DeepSeek collecte, traite et stocke les données directement en Chine continentale. Pour l'API, je pars du même principe : la documentation n'indique qu'une adresse d'appel et la politique ne cite aucun autre lieu de stockage. Avec un modèle ouvert exécuté chez vous, rien ne repart chez DeepSeek. Chez un hébergeur comme Microsoft Foundry, c'est l'hébergeur qui traite vos données, dans la zone de traitement que vous avez choisie."
+    },
+    {
+      "q": "Comment empêcher DeepSeek d'entraîner ses modèles sur mes conversations ?",
+      "a": "Sur le site, ouvrez les Paramètres du compte, onglet Profil, et décochez « Améliorer le modèle pour tous ». Dans l'application mobile, Paramètres puis Contrôles des données, même case. Le chemin vient de la CNIL (page du 16 octobre 2025), qui précise qu'elle ne se prononce pas sur la conformité au RGPD du procédé. Désactiver l'entraînement ne change pas le lieu de stockage."
+    },
+    {
+      "q": "Combien coûte l'API de DeepSeek ?",
+      "a": "Par million de jetons, en heures creuses : deepseek-flash coûte 0,15 $ en entrée (cache raté) et 0,60 $ en sortie, deepseek-v4-pro 0,66 $ et 1,98 $. Aux heures pleines (01 h à 04 h et 06 h à 10 h UTC, du lundi au vendredi hors jours fériés chinois), les tarifs doublent. Une entrée lue dans le cache coûte beaucoup moins, 0,003 $ pour Flash. Ce sont les prix affichés par DeepSeek au 11 novembre 2026, qui se réserve le droit de les changer."
+    },
+    {
+      "q": "V4 Pro ou V4.1 Flash : lequel choisir ?",
+      "a": "Commencez par Flash. Il coûte 3,3 à 4,4 fois moins cher que Pro à l'API (0,60 $ contre 1,98 $ en sortie, 0,15 $ contre 0,66 $ en entrée), comprend les images (Pro est limité au texte) et ses poids pèsent 510 Go contre environ 893 Go pour Pro, ce qui compte si vous voulez l'héberger. Les deux offrent 1 million de jetons de contexte. Passez à Pro si Flash échoue sur vos propres tâches, pas sur un classement : testez avec vingt documents réels."
+    },
+    {
+      "q": "Puis-je utiliser DeepSeek avec des données clients tout en respectant le RGPD ?",
+      "a": "Pas par l'application ni par l'API de DeepSeek : la politique renvoie ces données en Chine continentale, sans contrat de sous-traitance, et l'Italie comme Berlin ont jugé ce schéma illicite. Avec un modèle ouvert sur votre serveur ou chez un hébergeur européen sous contrat, c'est possible, au même titre que n'importe quel modèle : base légale, registre, contrat avec l'hébergeur, durée de conservation. La CNIL le formule ainsi : quand l'infrastructure est hors UE ou opérée par un fournisseur non européen, l'utilisateur doit encadrer le traitement par le destinataire."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Have European authorities banned DeepSeek?",
+      "a": "It depends on the country and the act. On 30 January 2025 the Italian Garante ordered a definitive limitation on processing the data of people located in Italy. On 27 June 2025 Berlin's commissioner notified Apple and Google of the app under the Digital Services Act. The European Data Protection Board folded the DeepSeek investigations into its ChatGPT task force, widened to AI. In France the CNIL publishes how to opt out of model training (page of 16 October 2025) and its guidance on generative AI in organisations."
+    },
+    {
+      "q": "Does my data go to China if I use DeepSeek?",
+      "a": "In the app and on the website, yes: DeepSeek's privacy policy of 10 February 2026 says it collects, processes and stores data directly in mainland China. For the API, I assume the same: the documentation shows one call address and the policy names no other storage location. With an open model run in-house, nothing goes back to DeepSeek. With a host such as Microsoft Foundry, the host processes your data, in the processing zone you chose."
+    },
+    {
+      "q": "How do I stop DeepSeek training its models on my conversations?",
+      "a": "On the website, open Settings, Profile tab, and untick \"Improve the model for everyone\". In the mobile app, Settings then Data controls, same box. The path comes from the CNIL (page of 16 October 2025), which says it takes no position on the GDPR compliance of the mechanism. Turning training off does not change where the data is stored."
+    },
+    {
+      "q": "How much does the DeepSeek API cost?",
+      "a": "Per million tokens, off-peak: deepseek-flash costs $0.15 for input (cache miss) and $0.60 for output, deepseek-v4-pro $0.66 and $1.98. At peak hours (01:00 to 04:00 and 06:00 to 10:00 UTC, Monday to Friday excluding Chinese public holidays), rates double. Input served from the cache costs far less, $0.003 for Flash. These are the prices on DeepSeek's page on 11 November 2026, and DeepSeek reserves the right to change them."
+    },
+    {
+      "q": "V4 Pro or V4.1 Flash: which one?",
+      "a": "Start with Flash. It costs 3.3 to 4.4 times less than Pro on the API ($0.60 against $1.98 for output, $0.15 against $0.66 for input), understands images (Pro is text only) and its weights are 510 GB against about 893 GB for Pro, which matters if you want to host it. Both offer a 1 million token context. Move to Pro if Flash fails on your own tasks, not on a leaderboard: test with twenty real documents."
+    },
+    {
+      "q": "Can I use DeepSeek with customer data and stay GDPR-compliant?",
+      "a": "Not through DeepSeek's app or API: the policy sends that data to mainland China with no processing agreement, and both Italy and Berlin judged that arrangement unlawful. With an open model on your own server or at a European host under contract, it is possible, like any model: legal basis, register, host contract, retention period. The CNIL puts it this way: when the infrastructure is outside the EU or run by a non-European provider, the user must frame the recipient's processing."
+    }
+  ],
+  "sections": [
+    {
+      "type": "hero-split-media",
+      "background": "paper",
+      "kicker_fr": "§ Guide · DeepSeek",
+      "kicker_en": "§ Guide · DeepSeek",
+      "h1_fr": "DeepSeek : <i class=\"acc\">trois portes d'entrée</i>, trois sorts pour vos données",
+      "h1_en": "DeepSeek: <i class=\"acc\">three ways in</i>, three fates for your data",
+      "definition_kicker_fr": "En une phrase",
+      "definition_kicker_en": "In one sentence",
+      "lede_fr": "DeepSeek est un laboratoire chinois d'IA, installé à Hangzhou, qui diffuse ses modèles par une application, une API et des poids téléchargeables. Pour une entreprise, la question n'est pas la puissance du modèle : c'est la porte par laquelle on y entre.",
+      "lede_en": "DeepSeek is a Chinese AI lab based in Hangzhou that ships its models through an app, an API and downloadable weights. For a business the question is not how strong the model is: it is which door you walk through.",
+      "badges": [
+        {
+          "label_fr": "Politique de confidentialité du 10 février 2026",
+          "label_en": "Privacy policy of 10 February 2026"
+        },
+        {
+          "label_fr": "Actes du Garante, de Berlin et du CEPD, consignes de la CNIL",
+          "label_en": "Garante, Berlin and EDPB acts, CNIL guidance"
+        },
+        {
+          "label_fr": "Mis à jour le 11 novembre 2026",
+          "label_en": "Updated on 11 November 2026"
+        }
+      ],
+      "cta_primary": {
+        "label_fr": "Réserver l'audit gratuit →",
+        "label_en": "Book the free audit →",
+        "href": "/contact?offer=audit-ia-pme&intent=audit",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "label_fr": "Recevoir la charte IA en PDF",
+        "label_en": "Get the AI policy template",
+        "href": "#charte-deepseek",
+        "variant": "ghost"
+      }
+    },
+    {
+      "type": "author-byline",
+      "background": "paper",
+      "authorId": "simon-beros",
+      "name": "Simon Beros",
+      "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+      "role_en": "Founder of Waimia · AI and automation engineer",
+      "profileHref": "/equipe/simon-beros",
+      "publishedDate": "11 novembre 2026",
+      "updatedDate": "11 novembre 2026"
+    },
+    {
+      "type": "direct-answer",
+      "background": "paper-2",
+      "question_fr": "DeepSeek, c'est quoi ?",
+      "question_en": "What is DeepSeek?",
+      "term_fr": "Réponse courte",
+      "term_en": "Short answer",
+      "answer_fr": "DeepSeek est un assistant IA et une famille de modèles de langage édités par Hangzhou DeepSeek Artificial Intelligence, en Chine. Son application et son API envoient les données en Chine continentale, d'après sa propre politique de confidentialité. Ses modèles V4, publiés sous licence MIT, peuvent en revanche tourner sur un serveur que vous maîtrisez, sans rien renvoyer à DeepSeek.",
+      "answer_en": "DeepSeek is an AI assistant and a family of language models published by Hangzhou DeepSeek Artificial Intelligence, in China. Its app and API send data to mainland China, according to its own privacy policy. Its V4 models, released under the MIT licence, can however run on a server you control, without sending anything back to DeepSeek."
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "maxWidth": "prose",
+      "figures": [],
+      "html_fr": "<h2 id=\"qui-edite\">Qui édite DeepSeek, et ce qu'il publie</h2><p>DeepSeek est édité par Hangzhou DeepSeek Artificial Intelligence Co., Ltd., dont l'adresse enregistrée est en Chine, selon <a href=\"https://cdn.deepseek.com/policies/en-US/deepseek-privacy-policy.html\" rel=\"noopener\">sa politique de confidentialité</a>. Le laboratoire diffuse ses modèles par trois canaux : un chat sur le web et une application mobile, une plateforme d'API payante, et des poids téléchargeables sur Hugging Face.</p><p>Le <a href=\"https://api-docs.deepseek.com/updates\" rel=\"noopener\">journal des modifications de l'API</a> donne le calendrier récent : V4 Pro en version finale le 13 août 2026, V4.1 Flash le 10 septembre, puis V4.1-Flash-1017 le 17 octobre, qui a remplacé les anciens Flash. Dans l'application, V4 Pro s'active par le « Expert Mode ». Côté API, deux noms d'appel suffisent : <code>deepseek-flash</code> et <code>deepseek-v4-pro</code>.</p><p>Je lis DeepSeek comme deux produits qui partagent un nom : un service hébergé en Chine, et une famille de fichiers de modèle que n'importe qui peut héberger. Le débat public les mélange souvent ; une décision d'entreprise ne doit pas le faire. Le cadre général d'une PME qui utilise l'IA est dans notre <a href=\"/ressources/guides/ai-act-pme-calendrier\">calendrier de l'AI Act</a> ; ici, je m'en tiens à DeepSeek.</p>",
+      "html_en": "<h2 id=\"qui-edite\">Who publishes DeepSeek, and what it ships</h2><p>DeepSeek is published by Hangzhou DeepSeek Artificial Intelligence Co., Ltd., whose registered address is in China, according to <a href=\"https://cdn.deepseek.com/policies/en-US/deepseek-privacy-policy.html\" rel=\"noopener\">its privacy policy</a>. The lab ships its models through three channels: a web chat and a mobile app, a paid API platform, and downloadable weights on Hugging Face.</p><p>The <a href=\"https://api-docs.deepseek.com/updates\" rel=\"noopener\">API change log</a> gives the recent timeline: V4 Pro in its final version on 13 August 2026, V4.1 Flash on 10 September, then V4.1-Flash-1017 on 17 October, which replaced the older Flash models. In the app, V4 Pro is switched on through \"Expert Mode\". On the API, two call names are enough: <code>deepseek-flash</code> and <code>deepseek-v4-pro</code>.</p><p>I read DeepSeek as two products sharing one name: a service hosted in China, and a family of model files anyone can host. The public debate often mixes the two; a business decision should not. The general framework for an SMB using AI is in our <a href=\"/ressources/guides/ai-act-pme-calendrier\">AI Act calendar</a>; this page stays on DeepSeek.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper-2",
+      "kicker_fr": "§ Les deux modèles à connaître",
+      "kicker_en": "§ The two models to know",
+      "heading_fr": "Flash ou Pro : versions, contexte, prix et poids ouverts",
+      "heading_en": "Flash or Pro: versions, context, price and open weights",
+      "caption_fr": "Prix en dollars par million de jetons, en heures creuses, d'après la page Models & Pricing de DeepSeek. Aux heures pleines (01 h à 04 h et 06 h à 10 h UTC, du lundi au vendredi hors jours fériés chinois), les tarifs doublent. Poids : somme des fichiers safetensors des dépôts Hugging Face de DeepSeek.",
+      "caption_en": "Prices in dollars per million tokens, off-peak, from DeepSeek's Models & Pricing page. At peak hours (01:00 to 04:00 and 06:00 to 10:00 UTC, Monday to Friday excluding Chinese public holidays), rates double. Weights: sum of the safetensors files in DeepSeek's Hugging Face repositories.",
+      "columns_fr": [
+        "Nom d'appel",
+        "Version",
+        "Contexte et vision",
+        "Entrée (cache raté) / sortie",
+        "Poids ouverts"
+      ],
+      "columns_en": [
+        "Call name",
+        "Version",
+        "Context and vision",
+        "Input (cache miss) / output",
+        "Open weights"
+      ],
+      "rows_fr": [
+        [
+          "deepseek-flash",
+          "DeepSeek-V4.1-Flash-1017, 17 octobre 2026",
+          "1 M jetons, images comprises",
+          "0,15 $ / 0,60 $",
+          "Licence MIT, 510 Go"
+        ],
+        [
+          "deepseek-v4-pro",
+          "DeepSeek-V4-Pro-0813, 13 août 2026",
+          "1 M jetons, texte seul",
+          "0,66 $ / 1,98 $",
+          "Licence MIT, 893 Go"
+        ]
+      ],
+      "rows_en": [
+        [
+          "deepseek-flash",
+          "DeepSeek-V4.1-Flash-1017, 17 October 2026",
+          "1M tokens, images supported",
+          "$0.15 / $0.60",
+          "MIT licence, 510 GB"
+        ],
+        [
+          "deepseek-v4-pro",
+          "DeepSeek-V4-Pro-0813, 13 August 2026",
+          "1M tokens, text only",
+          "$0.66 / $1.98",
+          "MIT licence, 893 GB"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "maxWidth": "prose",
+      "figures": [],
+      "html_fr": "<h2 id=\"donnees-application\">L'application et le site : ce que vous tapez part en Chine continentale</h2><p>La <a href=\"https://cdn.deepseek.com/policies/en-US/deepseek-privacy-policy.html\" rel=\"noopener\">politique de confidentialité</a>, mise à jour le 10 février 2026, est nette : DeepSeek collecte, traite et stocke directement les données personnelles en République populaire de Chine. Elles comprennent vos textes, votre voix, vos fichiers et vos photos, l'historique des conversations, le modèle de l'appareil, l'adresse IP et une localisation approximative. DeepSeek ajoute que le service n'est pas conçu pour traiter des données sensibles (origine, religion, santé, vie sexuelle, données génétiques ou biométriques, géolocalisation précise) et demande de ne pas en saisir.</p><p>Trois autres clauses pèsent sur une entreprise.</p><ul><li>L'entraînement. Les données servent à améliorer et à entraîner les modèles, avec une case à décocher, « Améliorer le modèle pour tous ». La <a href=\"https://www.cnil.fr/fr/ia-comment-sopposer-la-reutilisation-de-ses-donnees-personnelles-entrainement-agent-conversationnel\" rel=\"noopener\">CNIL indique le chemin</a> dans les paramètres, sans se prononcer sur la conformité du procédé.</li><li>Les tiers. La politique prévoit des entités du groupe pour le stockage, la sécurité et l'entraînement des modèles, des prestataires (une API de recherche tierce reçoit vos mots-clés) et la communication aux autorités quand la loi ou une procédure l'exige.</li><li>Le droit applicable. Les <a href=\"https://cdn.deepseek.com/policies/en-US/deepseek-terms-of-use.html\" rel=\"noopener\">conditions d'utilisation</a> du 27 mars 2026 soumettent tout litige au droit de la Chine continentale, devant le tribunal du siège de DeepSeek.</li></ul><p>Je n'y trouve ni contrat de sous-traitance ni clauses contractuelles types : DeepSeek se présente comme responsable du traitement, et ne parle que de « garanties appropriées » là où elles sont requises. La politique nomme désormais un représentant dans l'Union, Prighter Group, et détaille ses bases légales pour l'EEE. Le Garante reprochait l'absence de représentant en janvier 2025. L'hébergement, lui, n'a pas bougé.</p>",
+      "html_en": "<h2 id=\"donnees-application\">The app and the website: what you type goes to mainland China</h2><p>The <a href=\"https://cdn.deepseek.com/policies/en-US/deepseek-privacy-policy.html\" rel=\"noopener\">privacy policy</a>, updated on 10 February 2026, is plain: DeepSeek directly collects, processes and stores personal data in the People's Republic of China. That covers your text, voice, files and photos, conversation history, device model, IP address and approximate location. DeepSeek adds that the service is not designed to process sensitive data (origin, religion, health, sex life, genetic or biometric data, precise geolocation) and asks you not to enter any.</p><p>Three more clauses weigh on a business.</p><ul><li>Training. Data is used to improve and train the models, with a box to untick, \"Improve the model for everyone\". The <a href=\"https://www.cnil.fr/fr/ia-comment-sopposer-la-reutilisation-de-ses-donnees-personnelles-entrainement-agent-conversationnel\" rel=\"noopener\">CNIL shows the path</a> in the settings, without ruling on the compliance of the mechanism.</li><li>Third parties. The policy provides for group entities handling storage, security and model training, for service providers (a third-party search API receives your keywords), and for disclosure to authorities when the law or a legal process requires it.</li><li>Governing law. The <a href=\"https://cdn.deepseek.com/policies/en-US/deepseek-terms-of-use.html\" rel=\"noopener\">terms of use</a> of 27 March 2026 put any dispute under mainland Chinese law, before the court of DeepSeek's registered office.</li></ul><p>I find neither a processing agreement nor standard contractual clauses: DeepSeek presents itself as the controller and only mentions \"appropriate safeguards\" where required. The policy now names an EU representative, Prighter Group, and lists its legal bases for the EEA. The Garante faulted the missing representative in January 2025. The hosting has not moved.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "figures": [],
+      "html_fr": "<h2 id=\"autorites\">Ce que les autorités européennes ont décidé</h2><ul><li>30 janvier 2025, Italie. Le <a href=\"https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/10098477\" rel=\"noopener\">Garante déclare le traitement illicite</a> (articles 6, 12, 13, 14, 27, 31 et 32 du RGPD) et ordonne une limitation définitive du traitement des données des personnes situées en Italie, avec effet immédiat, en se réservant d'autres mesures. Il relève que la politique annonce un stockage en Chine, contraire selon lui aux garanties du RGPD.</li><li>12 février 2025, Union. Le Comité européen de la protection des données intègre les enquêtes sur DeepSeek à sa task force dédiée à ChatGPT, <a href=\"https://www.cnil.fr/fr/coordination-sur-lia-et-protection-des-mineurs-retour-sur-la-derniere-pleniere-du-cepd\" rel=\"noopener\">selon la CNIL</a>.</li><li>14 février 2025, Allemagne. Sept autorités de Land lancent des <a href=\"https://datenschutz.hessen.de/presse/pruefverfahren-gegen-deepseek-eingeleitet\" rel=\"noopener\">procédures coordonnées</a>, d'abord sur l'obligation de désigner un représentant dans l'Union.</li><li>27 juin 2025, Berlin. La commissaire juge le transfert vers la Chine illicite au titre de l'article 46, paragraphe 1, du RGPD, faute de <a href=\"https://www.datenschutz-berlin.de/fileadmin/user_upload/pdf/pressemitteilungen/2025/20250627-BlnBDI-Press-Release_DeepSeek.pdf\" rel=\"noopener\">preuve d'une protection équivalente</a>, et signale l'application à Apple et à Google comme contenu illicite (article 16 du règlement sur les services numériques).</li></ul><p>La liste des pays reconnus adéquats par la <a href=\"https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection/adequacy-decisions_en\" rel=\"noopener\">Commission européenne</a> ne contient pas la Chine. Pour un transfert vers un pays hors liste, le RGPD demande des garanties appropriées, que Berlin a jugées non démontrées.</p><p>La CNIL, elle, publie surtout des consignes. Dans son <a href=\"https://www.cnil.fr/fr/les-questions-reponses-de-la-cnil-sur-lutilisation-dun-systeme-dia-generative\" rel=\"noopener\">questions-réponses sur l'IA générative</a>, elle écrit que lorsque des données personnelles risquent de sortir de l'Union, l'organisme utilisateur doit encadrer leur traitement par le destinataire, et que pour un service par API, la maîtrise est presque entièrement chez le fournisseur.</p><p>Mon avis : ces actes s'appuient sur ce que DeepSeek écrit lui-même. Aucun ne dit que le modèle est dangereux. Ils disent que le transfert vers la Chine ne repose sur aucun mécanisme que l'éditeur ait démontré. Votre risque est donc simple à nommer : chaque nom de client, de salarié ou de candidat saisi dans l'application est un transfert que vous devrez justifier.</p>",
+      "html_en": "<h2 id=\"autorites\">What European authorities have decided</h2><ul><li>30 January 2025, Italy. The <a href=\"https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/10098477\" rel=\"noopener\">Garante declares the processing unlawful</a> (GDPR articles 6, 12, 13, 14, 27, 31 and 32) and orders a definitive limitation on processing the data of people located in Italy, with immediate effect, reserving further measures. It notes that the policy announces storage in China, which it considers contrary to GDPR safeguards.</li><li>12 February 2025, EU. The European Data Protection Board folds the DeepSeek investigations into its ChatGPT task force, <a href=\"https://www.cnil.fr/fr/coordination-sur-lia-et-protection-des-mineurs-retour-sur-la-derniere-pleniere-du-cepd\" rel=\"noopener\">according to the CNIL</a>.</li><li>14 February 2025, Germany. Seven state authorities open <a href=\"https://datenschutz.hessen.de/presse/pruefverfahren-gegen-deepseek-eingeleitet\" rel=\"noopener\">coordinated proceedings</a>, first on the duty to appoint an EU representative.</li><li>27 June 2025, Berlin. The commissioner judges the transfer to China unlawful under Article 46(1) GDPR, for lack of <a href=\"https://www.datenschutz-berlin.de/fileadmin/user_upload/pdf/pressemitteilungen/2025/20250627-BlnBDI-Press-Release_DeepSeek.pdf\" rel=\"noopener\">proof of equivalent protection</a>, and notifies Apple and Google of the app as illegal content (Article 16 of the Digital Services Act).</li></ul><p>The list of countries the <a href=\"https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection/adequacy-decisions_en\" rel=\"noopener\">European Commission</a> recognises as adequate does not include China. For a transfer to a country off the list, the GDPR requires appropriate safeguards, which Berlin found had not been demonstrated.</p><p>The CNIL mostly publishes guidance. In its <a href=\"https://www.cnil.fr/fr/les-questions-reponses-de-la-cnil-sur-lutilisation-dun-systeme-dia-generative\" rel=\"noopener\">Q&amp;A on generative AI</a>, it writes that when personal data may leave the Union, the user organisation must frame the recipient's processing, and that with an API service, control sits almost entirely with the provider.</p><p>My view: these acts rest on what DeepSeek itself writes. None says the model is dangerous. They say the transfer to China rests on no mechanism the publisher has demonstrated. Your risk is easy to name: every customer, employee or candidate name typed into the app is a transfer you will have to justify.</p>"
+    },
+    {
+      "type": "editorial-table-block",
+      "background": "paper",
+      "kicker_fr": "§ Trois portes",
+      "kicker_en": "§ Three doors",
+      "heading_fr": "Application, API, poids ouverts : où vos données se posent",
+      "heading_en": "App, API, open weights: where your data lands",
+      "caption_fr": "Sources : politique de confidentialité et conditions de DeepSeek, documentation de l'API, pages Microsoft Learn sur les modèles vendus par Azure et les types de déploiement, questions-réponses de la CNIL. Le verdict est le mien.",
+      "caption_en": "Sources: DeepSeek's privacy policy and terms, API documentation, Microsoft Learn pages on models sold by Azure and deployment types, CNIL Q&A. The verdict is mine.",
+      "columns_fr": [
+        "Porte",
+        "Où vos données se posent",
+        "Ce que vous signez",
+        "Mon verdict"
+      ],
+      "columns_en": [
+        "Door",
+        "Where your data lands",
+        "What you sign",
+        "My verdict"
+      ],
+      "rows_fr": [
+        [
+          "Application et site de DeepSeek",
+          "Chine continentale, selon la politique du 10 février 2026",
+          "Les conditions de DeepSeek, soumises au droit chinois",
+          "Textes publics seulement, adresse pro dédiée, entraînement désactivé"
+        ],
+        [
+          "API de DeepSeek (api.deepseek.com)",
+          "Une seule adresse d'appel dans la documentation ; la politique ne cite que la Chine continentale",
+          "Les mêmes conditions",
+          "Tests sur données publiques ; jamais le flux d'un client"
+        ],
+        [
+          "Modèle ouvert chez un hébergeur (exemple : Microsoft Foundry)",
+          "Chez l'hébergeur : un déploiement Data Zone reste dans la zone UE, un déploiement Global peut traiter dans n'importe quelle région Azure",
+          "Le contrat de l'hébergeur : à lire pour le rôle de sous-traitant et le lieu de traitement",
+          "Raisonnable si la version voulue est proposée en zone UE : à vérifier avant de signer"
+        ],
+        [
+          "Modèle ouvert sur votre serveur",
+          "Chez vous",
+          "La licence MIT",
+          "La voie la plus sûre pour des données clients, et la plus chère"
+        ]
+      ],
+      "rows_en": [
+        [
+          "DeepSeek's app and website",
+          "Mainland China, per the 10 February 2026 policy",
+          "DeepSeek's terms, under Chinese law",
+          "Public text only, dedicated business address, training switched off"
+        ],
+        [
+          "DeepSeek's API (api.deepseek.com)",
+          "One call address in the documentation; the policy names only mainland China",
+          "The same terms",
+          "Tests on public data; never a customer's data flow"
+        ],
+        [
+          "Open model at a host (example: Microsoft Foundry)",
+          "At the host: a Data Zone deployment stays in the EU zone, a Global deployment may process in any Azure region",
+          "The host's contract: read it for the processor role and the processing location",
+          "Reasonable if the version you want is offered in the EU zone: check before signing"
+        ],
+        [
+          "Open model on your own server",
+          "With you",
+          "The MIT licence",
+          "Safest route for customer data, and the most expensive"
+        ]
+      ],
+      "variant": "editorial"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper-2",
+      "maxWidth": "prose",
+      "figures": [],
+      "html_fr": "<h2 id=\"api\">L'API : bon marché, et la même destination que l'application</h2><p>L'API répond au format OpenAI et au format Anthropic (l'adresse <code>api.deepseek.com/anthropic</code>), et <a href=\"https://api-docs.deepseek.com/quick_start/pricing\" rel=\"noopener\">sa documentation</a> explique comment brancher DeepSeek comme modèle d'arrière-plan de Claude Code, de Codex ou d'OpenCode. C'est le prix qui séduit : 0,60 $ le million de jetons de sortie pour Flash en heures creuses.</p><p>C'est aussi le cas où je freine. Brancher un assistant de code sur DeepSeek, c'est envoyer du code source, des fichiers de configuration et parfois des clés à un serveur en Chine continentale. La politique mentionne la plateforme ouverte pour les données de paiement et ne cite qu'un lieu de stockage ; tant que DeepSeek n'écrit pas le contraire, je pars du principe que vos requêtes y arrivent. Sur le code d'un client, je le déconseille. Sur un projet ouvert, c'est un arbitrage de coût.</p>",
+      "html_en": "<h2 id=\"api\">The API: cheap, and the same destination as the app</h2><p>The API answers in OpenAI format and in Anthropic format (the <code>api.deepseek.com/anthropic</code> address), and <a href=\"https://api-docs.deepseek.com/quick_start/pricing\" rel=\"noopener\">its documentation</a> explains how to plug DeepSeek in as the backend model of Claude Code, Codex or OpenCode. The price is the draw: $0.60 per million output tokens for Flash, off-peak.</p><p>It is also where I hit the brakes. Plugging a coding assistant into DeepSeek means sending source code, configuration files and sometimes keys to a server in mainland China. The policy mentions the open platform for payment data and names a single storage location; until DeepSeek writes otherwise, I assume your requests land there. On a client's code, I advise against it. On an open project, it is a cost trade-off.</p>"
+    },
+    {
+      "type": "editorial-prose",
+      "background": "paper",
+      "maxWidth": "prose",
+      "figures": [],
+      "html_fr": "<h2 id=\"poids-ouverts\">Les poids ouverts : le fichier est libre, la machine ne l'est pas</h2><p>Les fiches Hugging Face de <a href=\"https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017\" rel=\"noopener\">V4.1-Flash-1017</a> et de <a href=\"https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-0813\" rel=\"noopener\">V4-Pro-0813</a> placent le dépôt et les poids sous licence MIT. Exécuté chez vous, le modèle ne renvoie rien à DeepSeek, et la CNIL note que dans un déploiement sur site, aucune réutilisation des données par le fournisseur n'est possible.</p><p>Reste le matériel. Les poids de Flash-1017 pèsent 510 Go, ceux de Pro-0813 environ 893 Go (somme des fichiers des dépôts). L'exemple d'inférence de DeepSeek pour Flash répartit le modèle sur huit processus parallèles, celui de Pro le sert sur un nœud de quatre GB300. Ce n'est pas un poste de travail. <a href=\"/ressources/guides/hermes-agent\">Hermes Agent</a> propose V4 Flash parmi ses modèles locaux : la qualité sur vos tâches et le coût du matériel restent à tester, je ne les ai pas mesurés.</p><p>Un détail de lecture : la commande de service de V4-Pro dans le dépôt passe l'option <code>--trust-remote-code</code>, qui exécute du code téléchargé avec le modèle. Fixez la révision, faites relire ce code avant de le lancer sur un serveur qui voit vos dossiers.</p><p>Pour une PME, je déconseille de commencer par là, et la CNIL rappelle que le coût d'installation et d'exploitation fait souvent préférer un hébergement distant sous contrat. Ce qu'on installe, de l'interface au moteur, est détaillé dans notre billet sur <a href=\"/blog/ia-auto-hebergee-open-webui-pme\">l'IA auto-hébergée en PME</a>.</p><p>Chez un hébergeur, regardez le type de déploiement. Microsoft écrit que ses modèles « vendus par Azure », DeepSeek compris, sont <a href=\"https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure\" rel=\"noopener\">hébergés et exploités par Azure</a>, et que sur les <a href=\"https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types\" rel=\"noopener\">déploiements Global</a> le traitement peut avoir lieu dans n'importe quelle région Azure, alors qu'un déploiement Data Zone reste dans la zone choisie. Demandez aussi quelle version de DeepSeek est proposée dans la zone UE : toutes ne le sont pas forcément.</p>",
+      "html_en": "<h2 id=\"poids-ouverts\">Open weights: the file is free, the machine is not</h2><p>The Hugging Face cards for <a href=\"https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017\" rel=\"noopener\">V4.1-Flash-1017</a> and <a href=\"https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-0813\" rel=\"noopener\">V4-Pro-0813</a> place the repository and the weights under the MIT licence. Run in-house, the model sends nothing back to DeepSeek, and the CNIL notes that in an on-premise deployment, no reuse of the data by the provider is possible.</p><p>That leaves the hardware. The Flash-1017 weights are 510 GB, Pro-0813 about 893 GB (sum of the files in the repositories). DeepSeek's inference example for Flash splits the model across eight parallel processes, and the Pro example serves it on a single node of four GB300s. This is not a workstation. <a href=\"/ressources/guides/hermes-agent\">Hermes Agent</a> offers V4 Flash among its local models: quality on your tasks and hardware cost remain to be tested, I have not measured them.</p><p>One reading tip: the V4-Pro serving command in the repository passes the <code>--trust-remote-code</code> option, which runs code downloaded with the model. Pin the revision, and have that code reviewed before launching it on a server that sees your files.</p><p>For an SMB, I advise against starting there, and the CNIL points out that installation and running costs often favour remote hosting under contract. What you install, from interface to engine, is detailed in our post on <a href=\"/blog/ia-auto-hebergee-open-webui-pme\">self-hosted AI in SMBs</a>.</p><p>At a host, look at the deployment type. Microsoft writes that its models \"sold by Azure\", DeepSeek included, are <a href=\"https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure\" rel=\"noopener\">hosted and operated by Azure</a>, and that on <a href=\"https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types\" rel=\"noopener\">Global deployments</a> processing may happen in any Azure region, whereas a Data Zone deployment stays in the chosen zone. Also ask which DeepSeek version is offered in the EU zone: not all necessarily are.</p>"
+    },
+    {
+      "type": "decision-list",
+      "background": "paper-2",
+      "kicker_fr": "§ Pour une entreprise",
+      "kicker_en": "§ For a business",
+      "heading_fr": "Quand DeepSeek, quand pas",
+      "heading_en": "When DeepSeek, when not",
+      "items": [
+        {
+          "label_fr": "Vous voulez y coller des noms, des dossiers clients, des CV ou du code interne, dans l'application ou par l'API : non. Ces données partent en Chine continentale sans contrat de sous-traitance, et l'Italie comme Berlin ont jugé ce schéma illicite.",
+          "label_en": "You want to paste names, customer files, CVs or internal code into the app or through the API: no. That data goes to mainland China with no processing agreement, and both Italy and Berlin judged that arrangement unlawful."
+        },
+        {
+          "label_fr": "Vous voulez essayer le modèle sur des textes publics, une veille ou des brouillons sans donnée personnelle : oui, avec une adresse professionnelle dédiée et l'entraînement désactivé. C'est la ligne que la CNIL trace pour les usages non confidentiels.",
+          "label_en": "You want to try the model on public texts, monitoring or drafts with no personal data: yes, with a dedicated business address and training switched off. That is the line the CNIL draws for non-confidential uses."
+        },
+        {
+          "label_fr": "Vous exercez dans la santé, le droit ou le chiffre : ni l'application ni l'API. La politique elle-même dit que le service n'est pas conçu pour des données sensibles.",
+          "label_en": "You work in health, law or accounting: neither the app nor the API. The policy itself says the service is not designed for sensitive data."
+        },
+        {
+          "label_fr": "Vous avez un serveur GPU, ou un hébergeur européen sous contrat, et des documents internes à interroger : les poids ouverts valent le détour. Commencez par Flash, et testez-le sur vingt de vos documents.",
+          "label_en": "You have a GPU server, or a European host under contract, and internal documents to query: the open weights are worth a look. Start with Flash, and test it on twenty of your own documents."
+        },
+        {
+          "label_fr": "Il vous faut un assistant clé en main pour une équipe sans informaticien : DeepSeek n'est pas le bon outil. Comparez d'abord les assistants qui proposent des conditions professionnelles.",
+          "label_en": "You need a turnkey assistant for a team without an IT person: DeepSeek is not the right tool. Compare the assistants that offer business terms first."
+        },
+        {
+          "label_fr": "Un salarié l'utilise déjà sur son téléphone : c'est le cas le plus probable. Écrivez la règle avant d'interdire, et dites quelles données ne sortent jamais.",
+          "label_en": "An employee already uses it on their phone: the most likely case. Write the rule before banning, and say which data never leaves."
+        }
+      ]
+    },
+    {
+      "type": "lead-capture-band",
+      "lead_magnet": "charte-ia-entreprise",
+      "background": "ink",
+      "anchor_id": "charte-deepseek",
+      "kicker_fr": "§ Charte IA · PDF gratuit",
+      "kicker_en": "§ AI policy · free PDF",
+      "h2_fr": "Mettez par écrit ce qui ne quitte jamais l'entreprise, avant que quelqu'un installe DeepSeek",
+      "h2_en": "Write down what never leaves the company, before someone installs DeepSeek",
+      "body_fr": "Neuf articles sur cinq pages A4 : vous y inscrivez les outils tolérés et les dossiers qui ne passent par aucun service hébergé hors de l'Union. Le PDF arrive par e-mail.",
+      "body_en": "Nine articles over five A4 pages: you list the tools you tolerate and the files that go through no service hosted outside the Union. The PDF arrives by email."
+    },
+    {
+      "type": "related-cards-band",
+      "background": "paper",
+      "kicker_fr": "§ Pour aller plus loin",
+      "kicker_en": "§ Further reading",
+      "cards": [
+        {
+          "kicker_fr": "Comparatif",
+          "kicker_en": "Comparison",
+          "title_fr": "ChatGPT, Claude, Gemini, Perplexity en PME",
+          "title_en": "ChatGPT, Claude, Gemini, Perplexity for SMBs",
+          "lead_fr": "Quatre assistants à comparer sur leurs conditions professionnelles avant d'en ouvrir un à l'équipe.",
+          "lead_en": "Four assistants to compare on their business terms before opening one to the team.",
+          "href": "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme"
+        },
+        {
+          "kicker_fr": "Guide",
+          "kicker_en": "Guide",
+          "title_fr": "Claude et RGPD en PME",
+          "title_en": "Claude and GDPR in SMBs",
+          "lead_fr": "Un autre éditeur, un autre régime : comptes professionnels, DPA et stockage aux États-Unis, pour mesurer l'écart.",
+          "lead_en": "Another publisher, another regime: business accounts, DPA and US storage, to measure the gap.",
+          "href": "/ressources/guides/claude-rgpd-pme"
+        },
+        {
+          "kicker_fr": "Billet",
+          "kicker_en": "Post",
+          "title_fr": "Héberger son IA en PME, bonne idée ?",
+          "title_en": "Hosting your own AI in an SMB: a good idea?",
+          "lead_fr": "Interface, moteur, modèle : ce qu'on installe pour faire tourner des poids ouverts chez soi.",
+          "lead_en": "Interface, engine, model: what you install to run open weights in-house.",
+          "href": "/blog/ia-auto-hebergee-open-webui-pme"
+        }
+      ]
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper-2",
+      "kicker_fr": "§ Questions fréquentes",
+      "kicker_en": "§ FAQ",
+      "h2_fr": "DeepSeek : les questions des dirigeants",
+      "h2_en": "DeepSeek: questions from business owners",
+      "open_first": true,
+      "items": [
+        {
+          "q_fr": "Les autorités européennes ont-elles interdit DeepSeek ?",
+          "q_en": "Have European authorities banned DeepSeek?",
+          "a_fr": "Cela dépend du pays et de l'acte. En Italie, le Garante a ordonné le 30 janvier 2025 une limitation définitive du traitement des données des personnes situées en Italie. À Berlin, la commissaire a signalé l'application à Apple et à Google le 27 juin 2025, au titre du règlement sur les services numériques. Le Comité européen de la protection des données a intégré les enquêtes sur DeepSeek à sa task force dédiée à ChatGPT, élargie à l'IA. En France, la CNIL publie la marche à suivre pour refuser l'entraînement des modèles (page du 16 octobre 2025) et ses consignes sur l'IA générative en organisme.",
+          "a_en": "It depends on the country and the act. On 30 January 2025 the Italian Garante ordered a definitive limitation on processing the data of people located in Italy. On 27 June 2025 Berlin's commissioner notified Apple and Google of the app under the Digital Services Act. The European Data Protection Board folded the DeepSeek investigations into its ChatGPT task force, widened to AI. In France the CNIL publishes how to opt out of model training (page of 16 October 2025) and its guidance on generative AI in organisations."
+        },
+        {
+          "q_fr": "Mes données vont-elles en Chine si j'utilise DeepSeek ?",
+          "q_en": "Does my data go to China if I use DeepSeek?",
+          "a_fr": "Dans l'application et sur le site, oui : la politique de confidentialité du 10 février 2026 dit que DeepSeek collecte, traite et stocke les données directement en Chine continentale. Pour l'API, je pars du même principe : la documentation n'indique qu'une adresse d'appel et la politique ne cite aucun autre lieu de stockage. Avec un modèle ouvert exécuté chez vous, rien ne repart chez DeepSeek. Chez un hébergeur comme Microsoft Foundry, c'est l'hébergeur qui traite vos données, dans la zone de traitement que vous avez choisie.",
+          "a_en": "In the app and on the website, yes: DeepSeek's privacy policy of 10 February 2026 says it collects, processes and stores data directly in mainland China. For the API, I assume the same: the documentation shows one call address and the policy names no other storage location. With an open model run in-house, nothing goes back to DeepSeek. With a host such as Microsoft Foundry, the host processes your data, in the processing zone you chose."
+        },
+        {
+          "q_fr": "Comment empêcher DeepSeek d'entraîner ses modèles sur mes conversations ?",
+          "q_en": "How do I stop DeepSeek training its models on my conversations?",
+          "a_fr": "Sur le site, ouvrez les Paramètres du compte, onglet Profil, et décochez « Améliorer le modèle pour tous ». Dans l'application mobile, Paramètres puis Contrôles des données, même case. Le chemin vient de la CNIL (page du 16 octobre 2025), qui précise qu'elle ne se prononce pas sur la conformité au RGPD du procédé. Désactiver l'entraînement ne change pas le lieu de stockage.",
+          "a_en": "On the website, open Settings, Profile tab, and untick \"Improve the model for everyone\". In the mobile app, Settings then Data controls, same box. The path comes from the CNIL (page of 16 October 2025), which says it takes no position on the GDPR compliance of the mechanism. Turning training off does not change where the data is stored."
+        },
+        {
+          "q_fr": "Combien coûte l'API de DeepSeek ?",
+          "q_en": "How much does the DeepSeek API cost?",
+          "a_fr": "Par million de jetons, en heures creuses : deepseek-flash coûte 0,15 $ en entrée (cache raté) et 0,60 $ en sortie, deepseek-v4-pro 0,66 $ et 1,98 $. Aux heures pleines (01 h à 04 h et 06 h à 10 h UTC, du lundi au vendredi hors jours fériés chinois), les tarifs doublent. Une entrée lue dans le cache coûte beaucoup moins, 0,003 $ pour Flash. Ce sont les prix affichés par DeepSeek au 11 novembre 2026, qui se réserve le droit de les changer.",
+          "a_en": "Per million tokens, off-peak: deepseek-flash costs $0.15 for input (cache miss) and $0.60 for output, deepseek-v4-pro $0.66 and $1.98. At peak hours (01:00 to 04:00 and 06:00 to 10:00 UTC, Monday to Friday excluding Chinese public holidays), rates double. Input served from the cache costs far less, $0.003 for Flash. These are the prices on DeepSeek's page on 11 November 2026, and DeepSeek reserves the right to change them."
+        },
+        {
+          "q_fr": "V4 Pro ou V4.1 Flash : lequel choisir ?",
+          "q_en": "V4 Pro or V4.1 Flash: which one?",
+          "a_fr": "Commencez par Flash. Il coûte 3,3 à 4,4 fois moins cher que Pro à l'API (0,60 $ contre 1,98 $ en sortie, 0,15 $ contre 0,66 $ en entrée), comprend les images (Pro est limité au texte) et ses poids pèsent 510 Go contre environ 893 Go pour Pro, ce qui compte si vous voulez l'héberger. Les deux offrent 1 million de jetons de contexte. Passez à Pro si Flash échoue sur vos propres tâches, pas sur un classement : testez avec vingt documents réels.",
+          "a_en": "Start with Flash. It costs 3.3 to 4.4 times less than Pro on the API ($0.60 against $1.98 for output, $0.15 against $0.66 for input), understands images (Pro is text only) and its weights are 510 GB against about 893 GB for Pro, which matters if you want to host it. Both offer a 1 million token context. Move to Pro if Flash fails on your own tasks, not on a leaderboard: test with twenty real documents."
+        },
+        {
+          "q_fr": "Puis-je utiliser DeepSeek avec des données clients tout en respectant le RGPD ?",
+          "q_en": "Can I use DeepSeek with customer data and stay GDPR-compliant?",
+          "a_fr": "Pas par l'application ni par l'API de DeepSeek : la politique renvoie ces données en Chine continentale, sans contrat de sous-traitance, et l'Italie comme Berlin ont jugé ce schéma illicite. Avec un modèle ouvert sur votre serveur ou chez un hébergeur européen sous contrat, c'est possible, au même titre que n'importe quel modèle : base légale, registre, contrat avec l'hébergeur, durée de conservation. La CNIL le formule ainsi : quand l'infrastructure est hors UE ou opérée par un fournisseur non européen, l'utilisateur doit encadrer le traitement par le destinataire.",
+          "a_en": "Not through DeepSeek's app or API: the policy sends that data to mainland China with no processing agreement, and both Italy and Berlin judged that arrangement unlawful. With an open model on your own server or at a European host under contract, it is possible, like any model: legal basis, register, host contract, retention period. The CNIL puts it this way: when the infrastructure is outside the EU or run by a non-European provider, the user must frame the recipient's processing."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "rounded": true,
+      "kicker_fr": "§ Avant que l'outil entre chez vous",
+      "kicker_en": "§ Before the tool gets in",
+      "h2_fr": "Un salarié veut DeepSeek demain matin. Qu'est-ce que vous lui répondez ?",
+      "h2_en": "An employee wants DeepSeek tomorrow morning. What do you tell them?",
+      "subtitle_fr": "En 45 minutes d'audit gratuit, on passe en revue les outils que vos équipes utilisent déjà, les données qui y circulent, et on vous laisse une règle d'usage écrite à faire valider.",
+      "subtitle_en": "In a free 45-minute audit, we go through the tools your teams already use and the data that flows through them, and leave you a written usage rule to sign off.",
+      "buttons": [
+        {
+          "label_fr": "Réserver l'audit gratuit →",
+          "label_en": "Book the free audit →",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Voir le cadre IA et RGPD →",
+          "label_en": "See the AI and GDPR framework →",
+          "href": "/conformite-ia",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}
