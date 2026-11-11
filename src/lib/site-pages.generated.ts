@@ -11825,6 +11825,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/dossier-competences-ia-esn",
+    "title": "Dossier de compétences avec l'IA : ce qu'une ESN vérifie (RGPD, AI Act)",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/dossier-competences-ia-esn.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/etre-cite-par-perplexity",
     "title": "Être cité par Perplexity : ce que le moteur lit, ce que vous contrôlez",
     "group": "blog",
@@ -13324,6 +13333,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/contenu-ia-seo-google-penalise",
       "/blog/cout-agent-ia-toujours-actif",
       "/blog/creer-agent-ia-claude",
+      "/blog/dossier-competences-ia-esn",
       "/blog/etre-cite-par-perplexity",
       "/blog/facture-electronique-reception-pme",
       "/blog/faux-avis-ia",

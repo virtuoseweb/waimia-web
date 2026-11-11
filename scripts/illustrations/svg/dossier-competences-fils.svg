@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · moteur B · « chaque ligne du dossier reliée à une ligne du CV source » :
+       deux grandes feuilles debout, des fils tendus ligne à ligne, une silhouette qui vérifie. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-7.5 -93 Q0 -101 7.5 -93 L7 -90 Q0 -95 -7 -90 Z" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <clipPath id="above-ground"><rect width="1456" height="500"/></clipPath>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <circle cx="728" cy="330" r="250" fill="{{shape}}" clip-path="url(#above-ground)"/>
+  <rect y="500" width="1456" height="124" fill="{{ground}}"/>
+  <rect y="500" width="1456" height="3" fill="{{deep}}" opacity="0.55"/>
+
+  <!-- Feuille de gauche : le CV source -->
+  <g>
+    <rect x="400" y="150" width="190" height="350" fill="{{light}}" stroke="{{deep}}" stroke-width="2.5"/>
+    <path d="M590 150 L606 160 L606 500 L590 500 Z" fill="{{deep}}"/>
+    <g fill="{{pale}}">
+      <rect x="425" y="190" width="120" height="7"/>
+      <rect x="425" y="230" width="140" height="5"/>
+      <rect x="425" y="270" width="110" height="5"/>
+      <rect x="425" y="310" width="135" height="5"/>
+      <rect x="425" y="350" width="95" height="5"/>
+      <rect x="425" y="390" width="140" height="5"/>
+      <rect x="425" y="430" width="120" height="5"/>
+    </g>
+  </g>
+
+  <!-- Feuille de droite : le dossier, plus haute, en-tête plein -->
+  <g>
+    <rect x="866" y="120" width="200" height="380" fill="{{light}}" stroke="{{deep}}" stroke-width="2.5"/>
+    <path d="M1066 120 L1082 130 L1082 500 L1066 500 Z" fill="{{deep}}"/>
+    <rect x="866" y="120" width="200" height="44" fill="{{subject}}"/>
+    <g fill="{{pale}}">
+      <rect x="890" y="230" width="150" height="5"/>
+      <rect x="890" y="270" width="120" height="5"/>
+      <rect x="890" y="310" width="145" height="5"/>
+      <rect x="890" y="350" width="100" height="5"/>
+      <rect x="890" y="390" width="150" height="5"/>
+      <rect x="890" y="430" width="130" height="5"/>
+    </g>
+  </g>
+
+  <!-- Fils tendus ligne à ligne -->
+  <g fill="none" stroke="{{detail}}" stroke-width="3" stroke-linecap="round">
+    <path d="M566 232 Q728 250 888 232"/>
+    <path d="M536 272 Q728 292 888 272"/>
+    <path d="M561 312 Q728 332 888 312"/>
+    <path d="M521 352 Q728 372 888 352"/>
+    <path d="M566 392 Q728 412 888 392"/>
+  </g>
+  <g fill="{{subject}}">
+    <circle cx="566" cy="232" r="5"/><circle cx="888" cy="232" r="5"/>
+    <circle cx="536" cy="272" r="5"/><circle cx="888" cy="272" r="5"/>
+    <circle cx="561" cy="312" r="5"/><circle cx="888" cy="312" r="5"/>
+    <circle cx="521" cy="352" r="5"/><circle cx="888" cy="352" r="5"/>
+    <circle cx="566" cy="392" r="5"/><circle cx="888" cy="392" r="5"/>
+    <circle cx="888" cy="432" r="5"/>
+  </g>
+  <!-- La dernière ligne du dossier n'a pas de fil : un fil coupé pend -->
+  <path d="M888 432 Q860 450 846 482" fill="none" stroke="{{detail}}" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Silhouette qui suit les fils, petite, entre les deux feuilles -->
+  <use href="#man" transform="translate(728 500) scale(0.95)"/>
+  <!-- Ombres -->
+  <ellipse cx="728" cy="503" rx="16" ry="3" fill="{{deep}}" opacity="0.35"/>
+</svg>
