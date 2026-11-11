@@ -789,7 +789,7 @@ const CAS: MegaMenuSection = {
       fr: 'Livré en 6 semaines : capture des demandes et routage automatique dans HubSpot, site structuré pour être cité par les moteurs IA.',
       en: 'Delivered in 6 weeks: lead capture and automatic routing into HubSpot, site structured to be cited by AI engines.',
     },
-    cta: { fr: 'Lire le cas →', en: 'Read the case →' },
+    cta: { fr: 'Lire le cas Amploi →', en: 'Read the Amploi case →' },
     href: '/cas-clients/amploi',
     image: '/images/cas/cas-northbound.webp',
   },
