@@ -8,7 +8,7 @@
   "description_en": "Hermes Agent integration for business: dedicated server, sandbox, secrets, human approval, tested updates. From €{{prix.sprint.en}} excl. VAT, free audit.",
   "slug": "integration-hermes-agent",
   "publishedAt": "2026-10-24T00:00:00.000Z",
-  "updatedAt": "2026-10-24",
+  "updatedAt": "2026-11-11",
   "category": "agents",
   "tags": [
     "integration-hermes-agent",
@@ -52,6 +52,17 @@
       "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v0.21.6",
       "type": "enterprise",
       "publishedAt": "2026-10-08"
+    },
+    {
+      "name": "Nous Research, Hermes Agent : README du dépôt, lu le 11 novembre 2026",
+      "url": "https://github.com/NousResearch/hermes-agent",
+      "type": "enterprise"
+    },
+    {
+      "name": "Nous Research, Hermes Agent v0.23.1 (10 novembre 2026), lu le 11 novembre 2026",
+      "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v0.23.1",
+      "type": "enterprise",
+      "publishedAt": "2026-11-10"
     }
   ],
   "seo": {
@@ -63,27 +74,27 @@
   "faq_fr": [
     {
       "q": "Combien coûte l'intégration de Hermes Agent ?",
-      "a": "Le logiciel est gratuit, sous licence MIT ; la prestation se paie. Elle démarre par un sprint de cadrage à {{prix.sprint}} € HT pour 10 heures : mission écrite, moteur confirmé, première installation durcie. La suite est estimée avec vous, puis facturée en régie à {{prix.horaire}} € HT de l'heure. S'ajoutent l'usage du modèle (API, ou matériel pour un modèle local), l'hébergement et les services connectés, estimés avant le lancement."
+      "a": "Le logiciel est gratuit (licence MIT) ; la prestation se paie. Elle démarre par un sprint de cadrage à {{prix.sprint}} € HT pour 10 heures : mission écrite, moteur confirmé, première installation durcie. La mise en production se fait avec le pilote, dès {{prix.pilote}} € HT, puis {{prix.horaire}} € HT de l'heure. S'ajoutent l'usage du modèle (API, ou matériel pour un modèle local), l'hébergement et les services connectés, estimés avant le lancement."
     },
     {
       "q": "Sur quel serveur installer Hermes Agent ?",
-      "a": "Sur une machine ou un serveur dédié à l'agent, jamais sur le poste d'un salarié. Hermes Agent tourne sous Linux, macOS, Windows (WSL2 ou PowerShell) et Termux. Nous recommandons un serveur Linux avec un backend isolé : Docker sur ce serveur, ou SSH vers une machine séparée. Pour un modèle local, il faut une carte graphique et de la mémoire en rapport : le catalogue de la v0.22.0 indique quels modèles tiennent sur votre matériel."
+      "a": "Sur une machine ou un serveur dédié à l'agent, jamais sur le poste d'un salarié. Nous recommandons un serveur Linux avec un backend isolé : Docker sur ce serveur, ou SSH vers une machine séparée. Pour un modèle local, il faut une carte graphique et de la mémoire en rapport : le catalogue de la v0.22.0 indique quels modèles tiennent sur votre matériel."
     },
     {
       "q": "Pouvez-vous installer Hermes Agent pour nous ?",
-      "a": "Oui, c'est le cœur de la prestation. L'installation elle-même tient en un script ; le travail porte sur tout le reste : machine dédiée, backend isolé, canal de mises à jour stable, version épinglée, comptes de service, secrets rangés dans un coffre, approbation des commandes active et journal exporté. Tout est créé sur vos comptes et votre infrastructure, puis documenté : si vous changez de prestataire, vous gardez la main."
+      "a": "Oui, c'est le cœur de la prestation. L'installation tient en un script ; le travail porte sur tout le reste : machine dédiée, backend isolé, canal de mises à jour stable, version épinglée, comptes de service, secrets rangés dans un coffre, approbation des commandes active, journal exporté. Tout se crée sur vos comptes et votre infrastructure, puis se documente : si vous changez de prestataire, vous gardez la main."
     },
     {
       "q": "Hermes Agent est-il prêt pour la production ?",
-      "a": "Pour un usage interne et encadré, oui ; comme produit clé en main, non. Au 24 octobre 2026, la version stable est la v0.22.5 et le projet n'a pas atteint la v1.0. Il publie plusieurs versions par semaine et déplace encore des fonctions vers des plugins. Nous le réservons donc à des missions internes, avec validation humaine sur ce qui engage l'entreprise, et nous déconseillons de l'ouvrir à vos clients."
+      "a": "Pour un usage interne et encadré, oui ; comme produit clé en main, non. Le projet n'a pas atteint sa v1.0 et publie régulièrement de nouvelles versions. Nous le réservons donc à des missions internes, avec validation humaine sur ce qui engage l'entreprise, et nous déconseillons de l'ouvrir à vos clients."
     },
     {
       "q": "Quelles données Hermes Agent garde-t-il, et combien de temps ?",
-      "a": "Il garde une mémoire sur vous et votre travail, l'historique de ses sessions, consultable par recherche plein texte, et les skills qu'il écrit. Par défaut, les sessions terminées depuis plus de 90 jours sont supprimées (sessions.auto_prune). Au cadrage, nous fixons la durée qui convient à votre registre, nous exportons le journal des actions hors de la machine si vous devez garder une trace, et nous prévoyons une relecture régulière de la mémoire et des skills."
+      "a": "Il garde une mémoire sur vous et votre travail, l'historique de ses sessions, consultable par recherche plein texte, et les skills qu'il écrit. Par défaut, les sessions terminées depuis plus de 90 jours sont supprimées. Au cadrage, nous fixons la durée qui convient à votre registre, nous exportons le journal des actions hors de la machine si vous devez garder une trace, et nous prévoyons une relecture régulière de la mémoire et des skills."
     },
     {
       "q": "Peut-on brancher Hermes Agent sur nos outils, via MCP ou n8n ?",
-      "a": "Oui, après vérification. Hermes Agent propose une page Connectors (Linear, Notion via la passerelle d'outils de Nous) et un catalogue de plugins. Les modalités bougent : la v0.22.5 a déplacé hermes mcp serve vers un plugin. Nous vérifions donc au cadrage ce que la version installée prend en charge, puis nous branchons par MCP, par API ou par un workflow n8n placé entre l'agent et vos logiciels, en lecture seule d'abord."
+      "a": "Oui, après vérification. Hermes Agent propose une page Connectors (Linear, Notion via la passerelle d'outils de Nous) et un catalogue de plugins. Les modalités bougent : nous vérifions au cadrage ce que la version installée prend en charge, puis nous branchons par MCP, par API ou par un workflow n8n placé entre l'agent et vos logiciels, en lecture seule d'abord."
     },
     {
       "q": "Qui gère les mises à jour de Hermes Agent ?",
@@ -91,7 +102,7 @@
     },
     {
       "q": "Peut-on migrer d'OpenClaw vers Hermes Agent ?",
-      "a": "Le projet l'annonce : les notes de la v0.22.5 (22 octobre 2026) décrivent une migration depuis OpenClaw et une commande hermes import-agent. Nous la traitons comme toute migration : sur une copie, en vérifiant ce qui est repris (configuration, mémoire, skills, canaux), avec une sauvegarde complète de l'agent OpenClaw et sans couper l'ancienne installation avant validation. Si vous restez sur OpenClaw, voyez notre page d'intégration OpenClaw."
+      "a": "Oui : Hermes Agent documente une migration depuis OpenClaw, avec la commande hermes import-agent. Nous la traitons comme toute migration : sur une copie, en vérifiant ce qui est repris (configuration, mémoire, skills, canaux), avec une sauvegarde complète de l'agent OpenClaw et sans couper l'ancienne installation avant validation. Si vous restez sur OpenClaw, voyez notre page d'intégration OpenClaw."
     }
   ],
   "faq_en": [
@@ -142,11 +153,11 @@
       "kicker_en": "§ Open source AI agents · Hermes Agent",
       "h1_fr": "<i class=\"acc\">Hermes Agent</i> en entreprise",
       "h1_en": "<i class=\"acc\">Hermes Agent</i> for business",
-      "lede_fr": "Intégrer Hermes Agent en entreprise, c'est installer le moteur d'agent open source de Nous Research (licence MIT) sur une machine dédiée, l'isoler, limiter ses droits, protéger ses secrets et le brancher à vos outils, puis l'exploiter version après version. Pour les PME qui ont choisi Hermes et veulent qu'il tienne en production.",
+      "lede_fr": "Hermes Agent apprend de vos tâches, mais installé tel quel, il agit avec les droits de la personne qui l'a lancé. Nous en faisons un agent qui tient en production : machine dédiée, exécution isolée, droits minimaux, secrets protégés, outils branchés, puis exploitation version après version. Pour les PME qui ont choisi Hermes.",
       "lede_en": "Integrating Hermes Agent in a company means installing Nous Research's open source agent engine (MIT licence) on a dedicated machine, isolating it, limiting its rights, protecting its secrets and connecting it to your tools, then running it version after version. For SMBs that have chosen Hermes and want it to hold up in production.",
       "badges": [
         {
-          "label_fr": "Mis à jour le 24 octobre 2026",
+          "label_fr": "Open source, exploité chez vous",
           "label_en": "Updated 24 October 2026"
         },
         {
@@ -182,14 +193,14 @@
       "kicker_en": "§ In short",
       "metrics": [
         {
-          "value": "{{prix.sprint}} € HT",
-          "label_fr": "sprint de cadrage de 10 h, puis {{prix.horaire}} € HT de l'heure",
+          "value": "10 h",
+          "label_fr": "de sprint de cadrage à prix fixe : mission écrite, moteur confirmé, première installation durcie",
           "label_en": "10-hour scoping sprint, then €{{prix.horaire}} per hour excl. VAT",
           "emphasis": true
         },
         {
-          "value": "v0.22.5",
-          "label_fr": "version stable lue le 24 octobre 2026, épinglée puis testée à chaque mise à jour",
+          "value": "v0.23.1",
+          "label_fr": "version du 10 novembre 2026, épinglée puis testée à chaque mise à jour",
           "label_en": "stable version read on 24 October 2026, pinned then tested at every update",
           "emphasis": false
         },
@@ -212,7 +223,7 @@
       "background": "paper",
       "kicker_fr": "§ Définition",
       "kicker_en": "§ Definition",
-      "statement_fr": "L'<i class=\"acc\">intégration de Hermes Agent</i> est la prestation qui fait passer ce moteur d'agent open source d'une installation d'essai à un outil d'entreprise : machine dédiée, exécution isolée, droits minimaux, secrets protégés, connexion à vos outils, validation humaine, journal des actions, mises à jour testées et documentation remise.",
+      "statement_fr": "L'<i class=\"acc\">intégration de Hermes Agent</i> fait passer ce moteur d'agent open source d'une installation d'essai à un outil d'entreprise : machine dédiée, exécution isolée, droits minimaux, secrets protégés, outils connectés, validation humaine, journal des actions, mises à jour testées, documentation remise.",
       "statement_en": "<i class=\"acc\">Hermes Agent integration</i> is the service that turns this open source agent engine from a trial installation into a business tool: dedicated machine, isolated execution, minimal rights, protected secrets, connection to your tools, human approval, an action log, tested updates and handed-over documentation.",
       "pills": [
         {
@@ -238,7 +249,7 @@
           "label_en": "MIT licence, Nous Research"
         },
         {
-          "label_fr": "Stable : v0.22.5 (24 octobre 2026)",
+          "label_fr": "Pas encore de version 1.0",
           "label_en": "Stable: v0.22.5 (24 October 2026)"
         },
         {
@@ -263,7 +274,7 @@
       "type": "editorial-prose",
       "background": "paper-2",
       "maxWidth": "prose",
-      "html_fr": "<h2>Ce que Hermes Agent fait, et ce qu'il laisse à votre charge</h2>\n<p>Hermes Agent est un moteur d'agent publié en open source par Nous Research, sous licence MIT. Un <strong>agent</strong> est un programme qui laisse un modèle de langage choisir la prochaine action : lire un fichier, lancer une commande, envoyer un message. D'après le dépôt et les notes de version lus le 24 octobre 2026, Hermes apporte quatre choses qu'un script ou un simple assistant de conversation n'apportent pas.</p>\n<ul>\n<li><strong>Une mémoire qui sert.</strong> Il retient ce qu'il apprend sur vous et sur votre travail, et retrouve ce qui a été dit ou décidé dans ses anciennes sessions.</li>\n<li><strong>Des skills qu'il écrit lui-même.</strong> Un <em>skill</em> est une fiche de méthode réutilisable : étapes, outils, pièges d'une tâche. Hermes en crée après une tâche complexe, puis les améliore.</li>\n<li><strong>Une passerelle vers six canaux</strong> : Telegram, Discord, Slack, WhatsApp, Signal et la ligne de commande, avec un planificateur qui y dépose le résultat des tâches récurrentes.</li>\n<li><strong>Le choix de l'environnement d'exécution</strong>, appelé <em>backend</em> : local, Docker, SSH, Modal, Daytona ou Vercel Sandbox. Depuis la v0.22.0, il fait aussi tourner des modèles locaux via llama.cpp.</li>\n</ul>\n<p>Le projet fournit aussi des garde-fous : approbation des commandes, appairage par message privé, isolation par conteneur, et des secrets mieux cloisonnés depuis les versions v0.21.6 et v0.22. Ce sont des outils. Les régler pour une entreprise, et vérifier qu'ils tiennent, reste à faire : c'est l'objet de cette prestation.</p>\n<h3>Ce qui reste à votre charge sans prestataire</h3>\n<ul>\n<li><strong>La machine et le backend.</strong> Un agent installé sur le poste d'un salarié, en backend local, agit avec les droits de cette personne sur ses fichiers.</li>\n<li><strong>Les droits et les secrets.</strong> Chaque outil branché ouvre un accès ; chaque clé d'API ouvre une dépense.</li>\n<li><strong>Les données.</strong> Mémoire, historique et skills accumulent de l'information sur l'entreprise. Par défaut, les sessions terminées depuis plus de 90 jours sont supprimées (<code>sessions.auto_prune</code>) : utile pour limiter ce qui est gardé, gênant si vous devez conserver une trace.</li>\n<li><strong>Le rythme des versions.</strong> Plusieurs versions par semaine en octobre 2026, et pas encore de v1.0 : un logiciel jeune, qui s'exploite au lieu de s'installer une fois pour toutes.</li>\n</ul>\n<p><strong>Repère daté, 24 octobre 2026.</strong> Version stable : v0.22.5, notes du 22 octobre. Elle ajoute la commande <code>hermes import-agent</code> et une migration depuis OpenClaw. Selon Wikipédia, source tierce non confirmée sur le dépôt, la première sortie date de février 2026. Ces repères changent vite : nous relisons la page des versions au moment du cadrage. Le fonctionnement détaillé, version par version, est dans notre <a href=\"/ressources/guides/hermes-agent\">guide Hermes Agent</a> ; cette page décrit la prestation.</p>\n<p>Cette offre est la déclinaison Hermes de nos <a href=\"/services/agents-ia-open-source\">agents IA open source</a>, elle-même rattachée à nos <a href=\"/services/agents-ia\">agents IA pour entreprise</a>.</p>\n<p>Pour voir le moteur de près avant de s'engager : <a href=\"/blog/installer-hermes-agent-premier-agent\">Installer Hermes Agent : un premier agent prudent</a>, <a href=\"/blog/hermes-agent-v0-22-modeles-locaux-connecteurs\">Hermes Agent v0.22 : modèles locaux et connecteurs</a>.</p>",
+      "html_fr": "<h2>Ce que Hermes Agent fait, et ce qu'il laisse à votre charge</h2>\n<p>Hermes Agent est un moteur d'agent publié en open source par Nous Research. Un <strong>agent</strong> est un programme qui laisse un modèle de langage choisir la prochaine action : lire un fichier, lancer une commande, envoyer un message (<a href=\"/ressources/guides/agent-ia-definition\">ce qu'est un agent IA</a>). D'après son dépôt et ses notes de version, quatre choses distinguent Hermes d'un script ou d'un simple assistant de conversation.</p>\n<ul>\n<li>Il retient ce qu'il apprend sur vous et sur votre travail, et retrouve ce qui a été dit ou décidé dans ses sessions passées.</li>\n<li>Il écrit lui-même des <em>skills</em>, des fiches de méthode réutilisables (étapes, outils, pièges d'une tâche), après une tâche complexe, puis les améliore.</li>\n<li>Il parle sur six canaux (Telegram, Discord, Slack, WhatsApp, Signal, ligne de commande), et son planificateur y dépose le résultat des tâches récurrentes.</li>\n<li>Il s'exécute où vous le décidez, dans un <em>backend</em> : local, Docker, SSH, Modal, Daytona ou Vercel Sandbox. Depuis la v0.22.0, il fait aussi tourner des modèles locaux via llama.cpp.</li>\n</ul>\n<p>Le projet fournit aussi des garde-fous : approbation des commandes, appairage par message privé, isolation par conteneur, secrets mieux cloisonnés depuis les versions v0.21.6 et v0.22. Ce sont des outils. Les régler pour une entreprise et vérifier qu'ils tiennent, c'est notre travail.</p>\n<h3>Ce qui reste à votre charge sans prestataire</h3>\n<ul>\n<li>Un agent installé sur le poste d'un salarié, en backend local, agit avec les droits de cette personne sur tous ses fichiers.</li>\n<li>Chaque outil branché ouvre un accès, chaque clé d'API ouvre une dépense. Sans droits minimaux ni plafond, la facture arrive avant l'alerte.</li>\n<li>Mémoire, historique et skills accumulent de l'information sur l'entreprise. Par défaut, les sessions terminées depuis plus de 90 jours sont supprimées : utile pour limiter ce qui est gardé, gênant si vous devez conserver une trace.</li>\n<li>Le projet publie régulièrement de nouvelles versions et n'a pas atteint sa v1.0. C'est un logiciel jeune, qui s'exploite au lieu de s'installer une fois pour toutes.</li>\n</ul>\n<p>Le fonctionnement détaillé, version par version, est dans notre <a href=\"/ressources/guides/hermes-agent\">guide Hermes Agent</a>.</p>\n<p>Cette offre est la déclinaison Hermes de nos <a href=\"/services/agents-ia-open-source\">agents IA open source</a>, eux-mêmes rattachés à nos <a href=\"/services/agents-ia\">agents IA pour entreprise</a>. Pour voir le moteur de près avant de vous engager : <a href=\"/blog/installer-hermes-agent-premier-agent\">Installer Hermes Agent : un premier agent prudent</a>, <a href=\"/blog/hermes-agent-v0-22-modeles-locaux-connecteurs\">Hermes Agent v0.22 : modèles locaux et connecteurs</a>.</p>",
       "html_en": "<h2>What Hermes Agent does, and what it leaves to you</h2>\n<p>Hermes Agent is an agent engine published as open source by Nous Research, under the MIT licence. An <strong>agent</strong> is a program that lets a language model choose the next action: read a file, run a command, send a message. According to the repository and release notes read on 24 October 2026, Hermes brings four things a script or a plain chat assistant does not.</p>\n<ul>\n<li><strong>A memory that is used.</strong> It retains what it learns about you and your work, and finds what was said or decided in its past sessions.</li>\n<li><strong>Skills it writes itself.</strong> A <em>skill</em> is a reusable method sheet: steps, tools and pitfalls of a task. Hermes creates them after a complex task, then improves them.</li>\n<li><strong>A gateway to six channels</strong>: Telegram, Discord, Slack, WhatsApp, Signal and the command line, with a scheduler that drops the results of recurring tasks there.</li>\n<li><strong>A choice of execution environment</strong>, called a <em>backend</em>: local, Docker, SSH, Modal, Daytona or Vercel Sandbox. Since v0.22.0 it also runs local models through llama.cpp.</li>\n</ul>\n<p>The project also provides safeguards: command approval, private-message pairing, container isolation, and secrets better partitioned since versions v0.21.6 and v0.22. These are tools. Setting them up for a company, and checking that they hold, remains to be done: that is what this service is for.</p>\n<h3>What is left to you without a provider</h3>\n<ul>\n<li><strong>The machine and the backend.</strong> An agent installed on an employee's workstation, with the local backend, acts with that person's rights over their files.</li>\n<li><strong>Rights and secrets.</strong> Each connected tool opens an access; each API key opens a spending line.</li>\n<li><strong>Data.</strong> Memory, history and skills accumulate information about the company. By default, sessions that ended more than 90 days ago are deleted (<code>sessions.auto_prune</code>): useful to limit what is kept, awkward if you must keep a trace.</li>\n<li><strong>The release pace.</strong> Several versions a week in October 2026, and no v1.0 yet: young software that has to be run, not installed once and forgotten.</li>\n</ul>\n<p><strong>Dated note, 24 October 2026.</strong> Stable version: v0.22.5, notes dated 22 October. It adds the <code>hermes import-agent</code> command and a migration from OpenClaw. According to Wikipedia, a third-party source not confirmed on the repository, the first release dates from February 2026. These markers change fast: we reread the releases page at scoping. The detailed workings, version by version, are in our <a href=\"/ressources/guides/hermes-agent\">Hermes Agent guide</a>; this page describes the service.</p>\n<p>This offer is the Hermes version of our <a href=\"/services/agents-ia-open-source\">open source AI agents</a>, itself part of our <a href=\"/services/agents-ia\">AI agents for business</a>.</p>\n<p>To see the engine up close before committing: <a href=\"/blog/installer-hermes-agent-premier-agent\">Installing Hermes Agent: a careful first agent</a>, <a href=\"/blog/hermes-agent-v0-22-modeles-locaux-connecteurs\">Hermes Agent v0.22: local models and connectors</a>.</p>"
     },
     {
@@ -291,7 +302,7 @@
           "text_en": "Connectors opened with write access from day one, with a personal account."
         },
         {
-          "text_fr": "Mémoire et skills accumulés sans relecture ; sessions purgées après 90 jours sans copie du journal.",
+          "text_fr": "Mémoire et skills accumulés sans relecture ; sessions purgées par défaut, sans copie du journal.",
           "text_en": "Memory and skills accumulated without review; sessions purged after 90 days with no copy of the log."
         },
         {
@@ -333,7 +344,7 @@
       "kicker_en": "§ Waimia method",
       "h2_fr": "Déployer Hermes Agent en cinq étapes",
       "h2_en": "Deploying Hermes Agent in five steps",
-      "intro_fr": "Recommandations de Waimia, tirées du dépôt et des notes de version lus le 24 octobre 2026, pas des résultats mesurés. Le cadrage est un sprint à prix fixe ; la suite se chiffre avec vous.",
+      "intro_fr": "Cinq étapes, dans cet ordre. Le cadrage est un sprint à prix fixe, la suite se chiffre avec vous.",
       "intro_en": "Waimia recommendations, drawn from the repository and release notes read on 24 October 2026, not measured results. Scoping is a fixed-price sprint; what follows is quoted with you.",
       "steps": [
         {
@@ -365,7 +376,7 @@
           "title_en": "Set memory, skills and log",
           "meta_fr": "Données",
           "meta_en": "Data",
-          "body_fr": "Une durée de conservation décidée face au réglage par défaut de 90 jours, un journal des actions exporté hors de la machine, et une relecture des skills créés par l'agent avant qu'ils servent sur des tâches qui engagent l'entreprise.",
+          "body_fr": "Une durée de conservation décidée face au réglage par défaut, un journal des actions exporté hors de la machine, et une relecture des skills créés par l'agent avant qu'ils servent sur des tâches qui engagent l'entreprise.",
           "body_en": "A retention period decided against the 90-day default, an action log exported off the machine, and a review of the skills the agent creates before they are used on tasks that commit the company."
         },
         {
@@ -442,7 +453,7 @@
       "type": "editorial-prose",
       "background": "paper",
       "maxWidth": "prose",
-      "html_fr": "<h2>Ce que coûte un Hermes Agent exploité proprement</h2>\n<p>Le logiciel ne coûte rien. L'agent, si. Cinq postes, à poser avant de signer quoi que ce soit.</p>\n<ul>\n<li><strong>Le modèle.</strong> À l'usage si vous passez par une API (Nous Portal, OpenRouter, OpenAI ou un point d'accès personnalisé) ; en matériel si vous faites tourner un modèle local. Nous posons un plafond de dépense chez le fournisseur dès le premier jour.</li>\n<li><strong>La machine.</strong> Un serveur chez vous, une machine louée, ou un service d'exécution distant comme Modal, Daytona ou Vercel Sandbox, facturé par son éditeur.</li>\n<li><strong>Les services connectés.</strong> En général déjà payés ; il faut vérifier que l'accès par API est inclus dans votre abonnement.</li>\n<li><strong>L'exploitation.</strong> Le temps de lire les notes, tester, mettre à jour et relire le journal. C'est le poste que l'on oublie, et celui que la régie couvre si vous n'avez personne en interne.</li>\n<li><strong>Notre prestation.</strong> Un sprint de cadrage à prix fixe, puis un temps estimé avec vous et facturé en régie (détail plus bas).</li>\n</ul>\n<p>Selon des sources tierces, Nous Research propose aussi des options hébergées payantes, Nous Portal et Hermes Cloud. Nous n'en avons pas lu les conditions à la source : demandez leurs prix à l'éditeur avant d'arbitrer entre hébergement chez vous et offre hébergée. Pour situer ces postes face à un agent sur mesure, lisez <a href=\"/ressources/guides/combien-coute-un-agent-ia-pme\">combien coûte un agent IA pour une PME</a>.</p>\n<h2>Vos données : ce qui reste chez vous, ce qui sort</h2>\n<p>Hermes Agent laisse choisir par où passent les données, ce qui est une force et une décision à prendre. Restent chez vous : la mémoire, l'historique et les skills, sur l'installation que vous gérez ; l'exécution, si le backend est local ou Docker sur votre serveur ; le calcul, avec un modèle local. Sortent : le texte des demandes, avec une API de modèle ; l'exécution, avec un backend distant ; les messages, qui transitent par Telegram, Slack ou la messagerie choisie.</p>\n<p>Deux réglages du projet aident votre dossier : la télémétrie partagée est désactivée par défaut, et les clés Anthropic et OpenAI ne sont jamais envoyées à des hôtes tiers d'après les notes des versions v0.21.6 et v0.22. Le reste (base légale, registre, contrats, transferts hors de l'Union) se traite comme pour tout agent : notre <a href=\"/ressources/guides/rgpd-agents-ia-checklist\">checklist RGPD des agents IA</a> en donne les points. Ce n'est pas un avis juridique.</p>\n<h2>Combien de temps</h2>\n<p>Quelques jours de cadrage, puis quelques semaines pour un premier agent utile, selon le nombre d'outils à brancher et l'état de vos sources. Le premier périmètre est volontairement étroit : un canal, une mission, des connecteurs en lecture seule, un mois de journal relu avant d'ouvrir l'écriture.</p>\n<h2>Hermes Agent, OpenClaw ou un agent sur mesure</h2>\n<p>Hermes Agent n'est pas toujours la bonne réponse. Si vos équipes vivent dans Teams ou iMessage, ou si vous voulez un assistant présent sur tous les appareils d'un dirigeant, regardez notre <a href=\"/services/integration-openclaw\">intégration OpenClaw</a> : ce second moteur ouvert couvre plus de vingt messageries, au prix d'un bac à sable à activer soi-même. Le <a href=\"/ressources/comparatifs/hermes-agent-vs-openclaw\">comparatif Hermes Agent ou OpenClaw</a> les départage critère par critère. Si la mission est étroite et ne demande pas de mémoire, un agent sur mesure construit sur l'API de Claude, avec notre <a href=\"/services/integration-claude\">intégration Claude</a>, sera souvent plus simple à exploiter. Et si la règle s'écrit « si ceci, alors cela », une <a href=\"/services/automatisation-n8n\">automatisation n8n</a> coûte moins cher qu'un agent. Le point de départ reste l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>.</p>",
+      "html_fr": "<h2>Ce que coûte un Hermes Agent exploité proprement</h2>\n<p>Le logiciel ne coûte rien. L'agent, si. Cinq postes à poser avant de signer quoi que ce soit.</p>\n<ul>\n<li>Le modèle se paie à l'usage si vous passez par une API (Nous Portal, OpenRouter, OpenAI ou un point d'accès personnalisé), en matériel si vous faites tourner un modèle local. Nous posons un plafond de dépense chez le fournisseur dès le premier jour.</li>\n<li>La machine : un serveur chez vous, une machine louée, ou un service d'exécution distant (Modal, Daytona, Vercel Sandbox) facturé par son éditeur.</li>\n<li>Les services connectés, en général déjà payés. Vérifiez que l'accès par API est inclus dans votre abonnement.</li>\n<li>L'exploitation : lire les notes, tester, mettre à jour, relire le journal. C'est le poste qu'on oublie, et celui que la régie couvre si vous n'avez personne en interne.</li>\n<li>Notre prestation : un sprint de cadrage à prix fixe, puis un temps estimé avec vous et facturé en régie (détail plus bas).</li>\n</ul>\n<p>Nous Research vend aussi Nous Portal, un abonnement qui regroupe l'accès aux modèles et à des outils (recherche web, navigateur cloud). Comparez ses conditions à celles d'une API directe avant d'arbitrer entre hébergement chez vous et offre hébergée. Pour situer ces postes face à un agent sur mesure, lisez <a href=\"/ressources/guides/combien-coute-un-agent-ia-pme\">combien coûte un agent IA pour une PME</a>.</p>\n<h2>Vos données : ce qui reste chez vous, ce qui sort</h2>\n<p>Hermes Agent vous laisse choisir par où passent vos données : c'est une force, et une décision à prendre. Restent chez vous la mémoire, l'historique et les skills, sur l'installation que vous gérez ; l'exécution, si le backend est local ou Docker sur votre serveur ; le calcul, avec un modèle local. Sortent le texte des demandes, avec une API de modèle ; l'exécution, avec un backend distant ; les messages, qui transitent par Telegram, Slack ou la messagerie choisie.</p>\n<p>Deux réglages du projet aident votre dossier : la télémétrie partagée est désactivée par défaut, et les clés Anthropic et OpenAI ne partent jamais vers des hôtes tiers, d'après les notes des versions v0.21.6 et v0.22. Le reste (base légale, registre, contrats, transferts hors de l'Union) se traite comme pour tout agent : notre <a href=\"/ressources/guides/rgpd-agents-ia-checklist\">checklist RGPD des agents IA</a> en donne les points. Ce n'est pas un avis juridique.</p>\n<h2>Combien de temps</h2>\n<p>Le sprint de cadrage pose déjà l'installation isolée, un canal, un connecteur en lecture seule, le journal et le plafond de dépense. Il faut ensuite quelques semaines pour un premier agent utile en production, selon le nombre d'outils et l'état de vos sources : c'est le pilote, la mise en production du premier agent, chiffrée plus bas. Le premier périmètre reste étroit : un canal, une mission, un mois de journal relu avant d'ouvrir l'écriture.</p>\n<h2>Hermes Agent, OpenClaw ou un agent sur mesure</h2>\n<p>Hermes Agent n'est pas toujours la bonne réponse. Vos équipes vivent dans Teams ou iMessage, ou vous voulez un assistant présent sur tous les appareils d'un dirigeant ? Regardez notre <a href=\"/services/integration-openclaw\">intégration OpenClaw</a> : ce second moteur ouvert couvre plus de vingt messageries, au prix d'un bac à sable à activer soi-même. Le <a href=\"/ressources/comparatifs/hermes-agent-vs-openclaw\">comparatif Hermes Agent ou OpenClaw</a> les départage critère par critère. Si la mission est étroite et ne demande pas de mémoire, je préfère un agent sur mesure construit sur l'API de Claude, avec notre <a href=\"/services/integration-claude\">intégration Claude</a> : il s'exploite plus simplement. Et si la règle s'écrit « si ceci, alors cela », une <a href=\"/services/automatisation-n8n\">automatisation n8n</a> coûte moins cher qu'un agent. Le point de départ reste l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>.</p>",
       "html_en": "<h2>What a properly run Hermes Agent costs</h2>\n<p>The software costs nothing. The agent does. Five items to set out before signing anything.</p>\n<ul>\n<li><strong>The model.</strong> Pay-as-you-go through an API (Nous Portal, OpenRouter, OpenAI or a custom endpoint); hardware if you run a local model. We set a spending cap at the provider from day one.</li>\n<li><strong>The machine.</strong> A server on your premises, a rented machine, or a remote execution service such as Modal, Daytona or Vercel Sandbox, billed by its vendor.</li>\n<li><strong>Connected services.</strong> Usually already paid for; check that API access is included in your plan.</li>\n<li><strong>Operations.</strong> The time to read notes, test, update and review the log. It is the forgotten item, and the one time and materials work covers if you have nobody in-house.</li>\n<li><strong>Our service.</strong> A fixed-price scoping sprint, then time estimated with you and billed on a time and materials basis (details below).</li>\n</ul>\n<p>According to third-party sources, Nous Research also offers paid hosted options, Nous Portal and Hermes Cloud. We have not read their terms at the source: ask the vendor for prices before choosing between self-hosting and a hosted offer. To compare these items with a custom agent, read <a href=\"/ressources/guides/combien-coute-un-agent-ia-pme\">how much an AI agent costs an SMB</a>.</p>\n<h2>Your data: what stays with you, what leaves</h2>\n<p>Hermes Agent lets you choose where data goes, which is both a strength and a decision to make. Staying with you: memory, history and skills, on the installation you manage; execution, if the backend is local or Docker on your server; computation, with a local model. Leaving: the text of requests, with a model API; execution, with a remote backend; messages, which pass through Telegram, Slack or the chosen messaging app.</p>\n<p>Two project settings help your file: shared telemetry is off by default, and Anthropic and OpenAI keys are never sent to third-party hosts according to the v0.21.6 and v0.22 release notes. The rest (legal basis, register, contracts, transfers outside the EU) is handled as for any agent: our <a href=\"/ressources/guides/rgpd-agents-ia-checklist\">GDPR checklist for AI agents</a> lists the points. This is not legal advice.</p>\n<h2>How long</h2>\n<p>A few days of scoping, then a few weeks for a first useful agent, depending on how many tools must be connected and the state of your sources. The first scope is deliberately narrow: one channel, one mission, read-only connectors, a month of log reviewed before write access opens.</p>\n<h2>Hermes Agent, OpenClaw or a custom agent</h2>\n<p>Hermes Agent is not always the right answer. If your teams live in Teams or iMessage, or if you want an assistant on all of an executive's devices, look at our <a href=\"/services/integration-openclaw\">OpenClaw integration</a>: this second open engine covers more than twenty messaging apps, at the cost of a sandbox you must switch on yourself. The <a href=\"/ressources/comparatifs/hermes-agent-vs-openclaw\">Hermes Agent vs OpenClaw comparison</a> weighs them criterion by criterion. If the mission is narrow and needs no memory, a custom agent built on the Claude API, through our <a href=\"/services/integration-claude\">Claude integration</a>, will often be simpler to run. And if the rule reads \"if this, then that\", an <a href=\"/services/automatisation-n8n\">n8n automation</a> costs less than an agent. The starting point remains the <a href=\"/audit-ia-pme\">free AI audit</a>.</p>"
     },
     {
@@ -454,11 +465,11 @@
       "heading_en": "Hermes Agent is not the right engine if",
       "items": [
         {
-          "label_fr": "Vos équipes travaillent dans Teams ou iMessage : la passerelle de Hermes ne les liste pas au 24 octobre 2026, OpenClaw si. Voir l'intégration OpenClaw et le comparatif des deux moteurs.",
+          "label_fr": "Vos équipes travaillent dans Teams ou iMessage : la passerelle de Hermes ne les liste pas, OpenClaw si. Voir l'intégration OpenClaw et le comparatif des deux moteurs.",
           "label_en": "Your teams work in Teams or iMessage: the Hermes gateway does not list them on 24 October 2026, OpenClaw does. See the OpenClaw integration and the comparison of the two engines."
         },
         {
-          "label_fr": "Vous exigez un logiciel en version 1.0 avec un support d'éditeur : le projet est en v0.22.5, et sans contrat avec l'éditeur, le support vient de vous ou d'un prestataire.",
+          "label_fr": "Vous exigez un logiciel en version 1.0 avec un support d'éditeur : le projet n'a pas atteint la v1.0, et sans contrat avec l'éditeur, le support vient de vous ou d'un prestataire.",
           "label_en": "You require version 1.0 software with vendor support: the project is at v0.22.5, and without a contract with the vendor, support comes from you or a provider."
         },
         {
@@ -470,7 +481,7 @@
           "label_en": "The task is one-off and gains nothing from memory or skills: a custom agent or an n8n automation is enough."
         },
         {
-          "label_fr": "Votre parc tourne sous Windows 10 et vous voulez l'application de bureau : elle n'existe qu'en MSIX, pour Windows 11 22H2 ou plus.",
+          "label_fr": "Votre parc tourne sous Windows 10 et vous voulez l'application de bureau : elle exige Windows 11 22H2 ou plus récent.",
           "label_en": "Your fleet runs Windows 10 and you want the desktop app: it only exists as MSIX, for Windows 11 22H2 or later."
         },
         {
@@ -488,7 +499,7 @@
       "kicker_en": "§ Two ways to engage",
       "h2_fr": "Prix de l'intégration de Hermes Agent",
       "h2_en": "Price of a Hermes Agent integration",
-      "lede_fr": "On démarre par un sprint de cadrage à prix fixe : la mission écrite, le choix du moteur confirmé, et Hermes Agent installé sur un premier périmètre, isolé et sous contrôle. La suite se fait sur devis : on estime ensemble le temps nécessaire, vous validez, on l'exécute en sprints en régie. Votre agent, vos accès et la documentation restent à vous.",
+      "lede_fr": "On commence par un sprint de cadrage à prix fixe : la mission écrite, le choix du moteur confirmé, et Hermes Agent installé, isolé et sous contrôle sur un premier périmètre. Vient ensuite le pilote.",
       "lede_en": "We start with a fixed-price scoping sprint: the written mission, the engine choice confirmed, and Hermes Agent installed on a first scope, isolated and under control. What follows is quoted: we estimate the time together, you approve it, we deliver it in time-and-materials sprints. Your agent, your access and the documentation stay yours.",
       "tiers": [
         {
@@ -518,14 +529,14 @@
           "featured": true
         },
         {
-          "name_fr": "Suite sur devis",
+          "name_fr": "Pilote, puis la suite",
           "name_en": "Next steps on quote",
           "price": "Sur devis",
           "period_fr": "estimé avec vous · HT",
           "period_en": "estimated with you · ex VAT",
           "features_fr": [
-            "Temps nécessaire estimé ensemble, puis validé",
-            "Exécuté en sprints, facturés en régie",
+            "Pilote : mise en production du premier agent, dès {{prix.pilote}} € HT",
+            "Ensuite {{prix.horaire}} € HT de l'heure, temps estimé et validé avant chaque sprint",
             "Connecteurs ajoutés et mises à jour testées sur preuve",
             "Vous gardez l'agent, les accès et la documentation"
           ],
@@ -536,14 +547,14 @@
             "You keep the agent, access and documentation"
           ],
           "cta": {
-            "label_fr": "Cadrer la suite →",
+            "label_fr": "Cadrer la mise en production →",
             "label_en": "Scope what follows →",
             "href": "/contact?offer=integration-hermes-agent&intent=suite",
             "variant": "ghost"
           }
         }
       ],
-      "footnote_fr": "La suite est facturée en régie, à {{prix.horaire}} € HT de l'heure, sans dégressivité. Le logiciel Hermes Agent est gratuit (licence MIT) ; l'usage du modèle, l'hébergement et les services connectés sont facturés par leurs fournisseurs et estimés avant le lancement. Pas d'abonnement, pas de captivité : votre agent, vos accès et la documentation restent à vous.",
+      "footnote_fr": "Le logiciel Hermes Agent est gratuit ; le modèle, l'hébergement et les services connectés sont facturés par leurs fournisseurs, et nous les estimons avant le lancement. Pas d'abonnement, pas de captivité : votre agent, vos accès et la documentation restent à vous.",
       "footnote_en": "What follows is billed on a time and materials basis, at {{prix.horaire}} € ex VAT an hour, with no volume discount. The Hermes Agent software is free (MIT licence); model usage, hosting and connected services are billed by their providers and estimated before launch. No subscription, no lock-in: your agent, your access and the documentation stay yours."
     },
     {
@@ -575,37 +586,37 @@
       "items": [
         {
           "q_fr": "Combien coûte l'intégration de Hermes Agent ?",
-          "a_fr": "Le logiciel est gratuit, sous licence MIT ; la prestation se paie. Elle démarre par un sprint de cadrage à {{prix.sprint}} € HT pour 10 heures : mission écrite, moteur confirmé, première installation durcie. La suite est estimée avec vous, puis facturée en régie à {{prix.horaire}} € HT de l'heure. S'ajoutent l'usage du modèle (API, ou matériel pour un modèle local), l'hébergement et les services connectés, estimés avant le lancement.",
+          "a_fr": "Le logiciel est gratuit (licence MIT) ; la prestation se paie. Elle démarre par un sprint de cadrage à {{prix.sprint}} € HT pour 10 heures : mission écrite, moteur confirmé, première installation durcie. La mise en production se fait avec le pilote, dès {{prix.pilote}} € HT, puis {{prix.horaire}} € HT de l'heure. S'ajoutent l'usage du modèle (API, ou matériel pour un modèle local), l'hébergement et les services connectés, estimés avant le lancement.",
           "q_en": "How much does a Hermes Agent integration cost?",
           "a_en": "The software is free, under the MIT licence; the service is paid. It starts with a scoping sprint at €{{prix.sprint.en}} excl. VAT for 10 hours: written mission, engine confirmed, first hardened installation. What follows is estimated with you, then billed on a time and materials basis at €{{prix.horaire}} per hour excl. VAT. Add model usage (API, or hardware for a local model), hosting and connected services, estimated before launch."
         },
         {
           "q_fr": "Sur quel serveur installer Hermes Agent ?",
-          "a_fr": "Sur une machine ou un serveur dédié à l'agent, jamais sur le poste d'un salarié. Hermes Agent tourne sous Linux, macOS, Windows (WSL2 ou PowerShell) et Termux. Nous recommandons un serveur Linux avec un backend isolé : Docker sur ce serveur, ou SSH vers une machine séparée. Pour un modèle local, il faut une carte graphique et de la mémoire en rapport : le catalogue de la v0.22.0 indique quels modèles tiennent sur votre matériel.",
+          "a_fr": "Sur une machine ou un serveur dédié à l'agent, jamais sur le poste d'un salarié. Nous recommandons un serveur Linux avec un backend isolé : Docker sur ce serveur, ou SSH vers une machine séparée. Pour un modèle local, il faut une carte graphique et de la mémoire en rapport : le catalogue de la v0.22.0 indique quels modèles tiennent sur votre matériel.",
           "q_en": "On which server should Hermes Agent be installed?",
           "a_en": "On a machine or server dedicated to the agent, never on an employee's workstation. Hermes Agent runs on Linux, macOS, Windows (WSL2 or PowerShell) and Termux. We recommend a Linux server with an isolated backend: Docker on that server, or SSH to a separate machine. A local model needs a graphics card and matching memory: the v0.22.0 catalogue shows which models fit your hardware."
         },
         {
           "q_fr": "Pouvez-vous installer Hermes Agent pour nous ?",
-          "a_fr": "Oui, c'est le cœur de la prestation. L'installation elle-même tient en un script ; le travail porte sur tout le reste : machine dédiée, backend isolé, canal de mises à jour stable, version épinglée, comptes de service, secrets rangés dans un coffre, approbation des commandes active et journal exporté. Tout est créé sur vos comptes et votre infrastructure, puis documenté : si vous changez de prestataire, vous gardez la main.",
+          "a_fr": "Oui, c'est le cœur de la prestation. L'installation tient en un script ; le travail porte sur tout le reste : machine dédiée, backend isolé, canal de mises à jour stable, version épinglée, comptes de service, secrets rangés dans un coffre, approbation des commandes active, journal exporté. Tout se crée sur vos comptes et votre infrastructure, puis se documente : si vous changez de prestataire, vous gardez la main.",
           "q_en": "Can you install Hermes Agent for us?",
           "a_en": "Yes, that is the core of the service. The installation itself is one script; the work is everything else: dedicated machine, isolated backend, stable update channel, pinned version, service accounts, secrets stored in a vault, command approval switched on and an exported log. Everything is created on your accounts and your infrastructure, then documented: if you change provider, you stay in control."
         },
         {
           "q_fr": "Hermes Agent est-il prêt pour la production ?",
-          "a_fr": "Pour un usage interne et encadré, oui ; comme produit clé en main, non. Au 24 octobre 2026, la version stable est la v0.22.5 et le projet n'a pas atteint la v1.0. Il publie plusieurs versions par semaine et déplace encore des fonctions vers des plugins. Nous le réservons donc à des missions internes, avec validation humaine sur ce qui engage l'entreprise, et nous déconseillons de l'ouvrir à vos clients.",
+          "a_fr": "Pour un usage interne et encadré, oui ; comme produit clé en main, non. Le projet n'a pas atteint sa v1.0 et publie régulièrement de nouvelles versions. Nous le réservons donc à des missions internes, avec validation humaine sur ce qui engage l'entreprise, et nous déconseillons de l'ouvrir à vos clients.",
           "q_en": "Is Hermes Agent ready for production?",
           "a_en": "For internal, supervised use, yes; as a turnkey product, no. On 24 October 2026, the stable version is v0.22.5 and the project has not reached v1.0. It ships several versions a week and is still moving features into plugins. We therefore keep it for internal missions, with human approval on anything that commits the company, and we advise against opening it to your customers."
         },
         {
           "q_fr": "Quelles données Hermes Agent garde-t-il, et combien de temps ?",
-          "a_fr": "Il garde une mémoire sur vous et votre travail, l'historique de ses sessions, consultable par recherche plein texte, et les skills qu'il écrit. Par défaut, les sessions terminées depuis plus de 90 jours sont supprimées (sessions.auto_prune). Au cadrage, nous fixons la durée qui convient à votre registre, nous exportons le journal des actions hors de la machine si vous devez garder une trace, et nous prévoyons une relecture régulière de la mémoire et des skills.",
+          "a_fr": "Il garde une mémoire sur vous et votre travail, l'historique de ses sessions, consultable par recherche plein texte, et les skills qu'il écrit. Par défaut, les sessions terminées depuis plus de 90 jours sont supprimées. Au cadrage, nous fixons la durée qui convient à votre registre, nous exportons le journal des actions hors de la machine si vous devez garder une trace, et nous prévoyons une relecture régulière de la mémoire et des skills.",
           "q_en": "What data does Hermes Agent keep, and for how long?",
           "a_en": "It keeps a memory about you and your work, the history of its sessions, searchable in full text, and the skills it writes. By default, sessions that ended more than 90 days ago are deleted (sessions.auto_prune). At scoping, we set the retention that fits your register, we export the action log off the machine if you must keep a trace, and we plan a regular review of the memory and the skills."
         },
         {
           "q_fr": "Peut-on brancher Hermes Agent sur nos outils, via MCP ou n8n ?",
-          "a_fr": "Oui, après vérification. Hermes Agent propose une page Connectors (Linear, Notion via la passerelle d'outils de Nous) et un catalogue de plugins. Les modalités bougent : la v0.22.5 a déplacé hermes mcp serve vers un plugin. Nous vérifions donc au cadrage ce que la version installée prend en charge, puis nous branchons par MCP, par API ou par un workflow n8n placé entre l'agent et vos logiciels, en lecture seule d'abord.",
+          "a_fr": "Oui, après vérification. Hermes Agent propose une page Connectors (Linear, Notion via la passerelle d'outils de Nous) et un catalogue de plugins. Les modalités bougent : nous vérifions au cadrage ce que la version installée prend en charge, puis nous branchons par MCP, par API ou par un workflow n8n placé entre l'agent et vos logiciels, en lecture seule d'abord.",
           "q_en": "Can Hermes Agent be connected to our tools, through MCP or n8n?",
           "a_en": "Yes, after a check. Hermes Agent offers a Connectors page (Linear, Notion through the Nous tool gateway) and a plugin catalogue. The details move: v0.22.5 moved hermes mcp serve into a plugin. So at scoping we check what the installed version supports, then connect through MCP, an API or an n8n workflow placed between the agent and your software, read-only first."
         },
@@ -617,7 +628,7 @@
         },
         {
           "q_fr": "Peut-on migrer d'OpenClaw vers Hermes Agent ?",
-          "a_fr": "Le projet l'annonce : les notes de la v0.22.5 (22 octobre 2026) décrivent une migration depuis OpenClaw et une commande hermes import-agent. Nous la traitons comme toute migration : sur une copie, en vérifiant ce qui est repris (configuration, mémoire, skills, canaux), avec une sauvegarde complète de l'agent OpenClaw et sans couper l'ancienne installation avant validation. Si vous restez sur OpenClaw, voyez notre page d'intégration OpenClaw.",
+          "a_fr": "Oui : Hermes Agent documente une migration depuis OpenClaw, avec la commande hermes import-agent. Nous la traitons comme toute migration : sur une copie, en vérifiant ce qui est repris (configuration, mémoire, skills, canaux), avec une sauvegarde complète de l'agent OpenClaw et sans couper l'ancienne installation avant validation. Si vous restez sur OpenClaw, voyez notre page d'intégration OpenClaw.",
           "q_en": "Can we migrate from OpenClaw to Hermes Agent?",
           "a_en": "The project says so: the v0.22.5 notes (22 October 2026) describe a migration from OpenClaw and a hermes import-agent command. We treat it like any migration: on a copy, checking what carries over (configuration, memory, skills, channels), with a full backup of the OpenClaw agent and without switching the old installation off before sign-off. If you stay on OpenClaw, see our OpenClaw integration page."
         }

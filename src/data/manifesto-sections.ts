@@ -30,6 +30,8 @@ export const FIELD_NOTE_LINKS: Record<string, string> = {
   'Consulting firms: where the 8-week proposal-automation lever sits.': '/blog/automatiser-relances-b2b-sans-sdr-guide-cabinet-conseil',
   'HubSpot + Claude: the unglamorous pattern that actually ships.': '/blog/cabler-son-crm-en-10-jours',
   'Against the brain-circuit aesthetic.': '/blog/brain-circuit',
+  'GEO: what Google documents, what the study suggests, what is not proven': '/blog/seo-geo-etre-cite-par-les-ia-generatives',
+  'AI for SMBs in 2026: the complete guide': '/blog/ia-pme-guide-complet-2026',
   'RevOps rebuild: reconnect site, CRM, follow-ups into one pipeline.': '/blog/cabler-son-crm-en-10-jours',
 };
 
@@ -85,7 +87,7 @@ export function manifestoSections(lang: Lang) {
     label_en: 'The reckoning',
     sub_fr: 'Acte I',
     sub_en: 'Act I',
-    text_fr: "L'IA est partout et nulle part. Les abonnements s'empilent, les prototypes impressionnent en réunion, et les équipes continuent de ressaisir les mêmes données d'un outil à l'autre. Le goulot n'est presque jamais le modèle. Ce sont les données, les règles, et l'humain qui sait quand débrancher.",
+    text_fr: "Les abonnements s'empilent, les prototypes impressionnent en réunion, et les équipes continuent de ressaisir les mêmes données d'un outil à l'autre. Le goulot n'est presque jamais le modèle. Ce sont les données, les règles, et l'humain qui sait quand débrancher.",
     text_en: "AI is everywhere and nowhere. Subscriptions pile up, prototypes impress in meetings, and teams keep re-keying the same data from one tool to the next. The bottleneck is almost never the model. It's the data, the rules, and the human who knows when to unplug.",
     tone: 'ink',
     stats: [
@@ -130,7 +132,7 @@ export function manifestoSections(lang: Lang) {
     pinned: false,
   } satisfies SectionByType<'manifesto-statement'>;
 
-  // ── 6. ACTE III · VirtuoseOS · plateforme (CTA final ink, centre)
+  // ── 6. ACTE III · Waimia OS · plateforme (CTA final ink, centre)
   const acteIIIData = {
     type: 'footer-cta-band',
     background: 'ink',
@@ -142,9 +144,9 @@ export function manifestoSections(lang: Lang) {
     kicker_html_fr: '<span style="color:var(--accent-text)">III.</span> Sous le capot',
     kicker_html_en: '<span style="color:var(--accent-text)">III.</span> Under the hood',
     texture: 'signature-grid',
-    h2_fr: 'Virtuose<i class="accent">OS</i>.<br />Le cadre de travail du studio.',
-    h2_en: 'Virtuose<i class="accent">OS</i>.<br />The studio’s working framework.',
-    subtitle_fr: 'L’outil interne du studio : il enregistre chaque action des agents et les coordonne. Il sert de base de travail aux missions. Ce qui est construit pour vous reste chez vous.',
+    h2_fr: 'Notre outil <i class="accent">interne</i>.<br />Le cadre de travail du studio.',
+    h2_en: 'Waimia <i class="accent">OS</i>.<br />The studio’s working framework.',
+    subtitle_fr: 'Il enregistre chaque action des agents et les coordonne, et sert de base de travail aux missions. Ce qui est construit pour vous reste chez vous.',
     subtitle_en: 'The studio’s internal tool: it records every agent action and coordinates the agents. It serves as the working base for engagements. What is built for you stays with you.',
     buttons: [
       {

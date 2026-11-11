@@ -2,11 +2,11 @@
   "$schema": "../../../schemas/generated/services.page.schema.json",
   "title_fr": "Agence Shopify pour PME : boutique, refonte et migration · Waimia",
   "title_en": "Shopify agency for SMEs: shop, redesign and migration · Waimia",
-  "description_fr": "Agence Shopify pour PME : création de boutique, refonte de thème, migration depuis WooCommerce ou PrestaShop. Dès {{prix.sprint}} € HT, résultats mesurés avant et après.",
+  "description_fr": "Agence Shopify pour PME : création de boutique, refonte de thème, migration depuis WooCommerce ou PrestaShop. Dès {{prix.pilote}} € HT, résultats mesurés avant et après.",
   "description_en": "Shopify agency for SMBs: shop build, theme redesign, migration from WooCommerce or PrestaShop. From €{{prix.sprint.en}} excl. VAT, results measured before and after.",
   "slug": "shopify",
   "publishedAt": "2026-10-12T00:00:00.000Z",
-  "updatedAt": "2026-10-14T00:00:00.000Z",
+  "updatedAt": "2026-11-11T00:00:00.000Z",
   "category": "web",
   "tags": [
     "shopify",
@@ -39,31 +39,31 @@
   "faq_fr": [
     {
       "q": "Shopify est-il adapté à une PME ?",
-      "a": "Oui, quand la vente en ligne est le cœur de l'activité : Shopify fournit catalogue, paiement, gestion des commandes et hébergement, et limite la maintenance technique. Il l'est moins si vous vendez surtout des services, ou si votre catalogue exige des règles de prix et de commande très particulières."
+      "a": "Oui, quand la vente en ligne fait l'essentiel de l'activité : Shopify héberge le catalogue, encaisse, gère les commandes et limite la maintenance technique. Il convient moins si vous vendez surtout des prestations, ou si vos règles de prix et de commande sortent du commun."
     },
     {
       "q": "Shopify ou WooCommerce ?",
-      "a": "Shopify si vous voulez une boutique qui tourne sans gérer hébergement, mises à jour et extensions. WooCommerce si vous avez déjà un site WordPress qui doit vendre, un besoin très spécifique, ou l'envie de tout contrôler, hébergement compris. Le cas e-commerce publié, Balzeo, est sous WooCommerce : on ne recommande pas Shopify par réflexe."
+      "a": "Shopify si vous voulez une boutique qui tourne sans gérer hébergement, mises à jour et extensions. WooCommerce si vous avez déjà un site WordPress qui doit vendre, si votre besoin est très spécifique ou si vous tenez à tout contrôler, hébergement compris. Je ne conseille pas Shopify par réflexe."
     },
     {
       "q": "Comment se passe une migration depuis WooCommerce ou PrestaShop ?",
-      "a": "On inventorie catalogue, clients, commandes et adresses ; on importe produits, collections et clients dans Shopify ; on recrée le thème ; on prépare les redirections 301 de chaque ancienne adresse ; on teste commande et paiement avant de basculer. Shopify impose sa structure d'URL (/products/, /collections/) : les adresses changent, d'où l'importance des redirections."
+      "a": "Cinq étapes : inventaire du catalogue, des clients et des commandes ; import des produits, collections et clients dans Shopify ; recréation du thème ; redirections 301 de chaque ancienne adresse ; test d'une commande avec paiement avant la bascule. Shopify impose sa structure d'URL (/products/, /collections/) : les adresses changent, donc les redirections ne sont pas optionnelles."
     },
     {
       "q": "Que peut-on automatiser sur une boutique Shopify ?",
-      "a": "Les alertes de stock, le repérage des commandes à vérifier, les relances de paniers abandonnés, la création des fiches clients dans le CRM, et la préparation de réponses de SAV à partir de la commande. Shopify Flow couvre les règles simples dans la boutique (application gratuite, selon la formule) ; au-delà, on passe par n8n ou par un agent IA avec validation humaine."
+      "a": "Les alertes de stock, le repérage des commandes à vérifier, les relances de paniers abandonnés, la création des fiches clients dans le CRM, la préparation de réponses de SAV à partir de la commande. Shopify Flow couvre les règles simples dans la boutique (application gratuite, selon la formule) ; au-delà, nous passons par n8n ou par un agent IA, avec validation humaine."
     },
     {
       "q": "Pouvez-vous améliorer mes ventes ?",
-      "a": "Aucun chiffre de conversion n'est promis. Ce qu'on fait : corriger ce qui freine (temps de chargement mesuré, parcours de commande, fiches produits), mesurer avant et après, et retirer les tâches manuelles. Le résultat dépend de votre offre, de votre trafic et de vos prix."
+      "a": "Oui, sur ce qui se mesure : temps de chargement, parcours de commande, fiches produits, tâches manuelles. Nous relevons chaque mesure avant et après, à la même date, et nous vous remettons la méthode."
     },
     {
       "q": "Et le référencement des fiches produits ?",
-      "a": "On structure titres, descriptions, adresses et données structurées produit, et on traite les doublons de collections. Shopify impose certaines adresses : on s'en accommode plutôt que de les contourner. On ne promet pas de classement."
+      "a": "Nous structurons titres, descriptions, adresses et données structurées produit, et nous traitons les doublons de collections. Shopify impose certaines adresses : nous travaillons avec plutôt que de les contourner."
     },
     {
       "q": "Combien de temps et combien ça coûte ?",
-      "a": "Selon le périmètre, fixé au sprint de cadrage : la taille du catalogue et vos contenus pèsent le plus. À partir de 2 000 € HT pour une boutique de départ, 4 000 € HT pour une boutique complète, à partir de 7 000 € HT avec une migration, à partir de 10 000 € HT avec des automatisations de stock et de SAV. L'abonnement Shopify et les commissions de paiement sont à votre charge, hors de ces prix."
+      "a": "Le délai dépend du périmètre, fixé au sprint de cadrage : la taille du catalogue et vos contenus pèsent le plus. À partir de {{prix.pilote}} € HT pour une boutique de départ, 4 000 € HT pour une boutique complète, à partir de 7 000 € HT avec une migration, à partir de 10 000 € HT avec des automatisations de stock et de SAV. L'abonnement Shopify et les commissions de paiement restent à votre charge, hors de ces prix."
     }
   ],
   "faq_en": [
@@ -104,7 +104,7 @@
       "kicker_en": "§ Shopify agency · a tool in the system",
       "h1_fr": "Agence <i class=\"acc\">Shopify</i> : votre boutique en ligne, créée, refondue ou migrée.",
       "h1_en": "Shopify agency: an online shop <i class=\"acc\">built</i>, redesigned or migrated.",
-      "lede_fr": "Waimia crée, refond et migre des boutiques Shopify pour PME, puis automatise ce qui suit la commande : réponses du SAV, alertes de stock, fiches clients dans le CRM. Aucun chiffre de conversion promis : on mesure avant et après.",
+      "lede_fr": "Une commande recopiée dans un tableur, une rupture que le client découvre avant vous, un SAV qui cherche la commande dans trois onglets : voilà ce que nous retirons d'une boutique. Nous la créons, la refondons ou la migrons sur Shopify, puis nous la branchons au CRM, aux alertes de stock et au SAV.",
       "lede_en": "Waimia builds, redesigns and migrates Shopify shops for SMBs, then automates what follows the order: support replies, stock alerts, customer records in the CRM. No conversion figure promised: we measure before and after.",
       "badges": [
         {
@@ -124,7 +124,7 @@
           "label_en": "CRM connection"
         }
       ],
-      "cta_sub_fr": "Audit gratuit de 45 minutes en visio : on regarde votre boutique, vos commandes et vos demandes de SAV, et vous repartez avec un ou deux chantiers classés.",
+      "cta_sub_fr": "45 minutes en visio, sans frais : apportez votre boutique, vos commandes du mois et vos demandes de SAV. Vous repartez avec la liste des chantiers, dans l'ordre.",
       "cta_sub_en": "Free 45-minute audit by video call: we look at your shop, your orders and your support requests, and you leave with one or two ranked projects.",
       "cta_primary": {
         "label_fr": "Réserver l'audit gratuit →",
@@ -149,26 +149,26 @@
       "kicker_en": "§ In short",
       "metrics": [
         {
-          "value": "Dès 2 000 € HT",
-          "label_fr": "une boutique de départ ; grille complète plus bas",
+          "value": "Dès {{prix.pilote}} € HT",
+          "label_fr": "une boutique de départ, la grille complète suit plus bas",
           "label_en": "a starter shop; full grid below",
           "emphasis": true
         },
         {
           "value": "Migration",
-          "label_fr": "WooCommerce, PrestaShop : produits, clients, redirections 301",
+          "label_fr": "WooCommerce ou PrestaShop : produits, clients, redirections 301",
           "label_en": "WooCommerce, PrestaShop: products, customers, 301 redirects",
           "emphasis": false
         },
         {
           "value": "SAV et stocks",
-          "label_fr": "alertes et réponses préparées, validation humaine sur le sensible",
+          "label_fr": "alertes et réponses préparées, une personne valide ce qui est sensible",
           "label_en": "alerts and prepared replies, human approval on anything sensitive",
           "emphasis": false
         },
         {
           "value": "Mesuré",
-          "label_fr": "avant et après, sans promesse de chiffre de conversion",
+          "label_fr": "temps de chargement et tâches manuelles relevés avant, puis après",
           "label_en": "before and after, with no conversion-figure promise",
           "emphasis": false
         }
@@ -179,7 +179,7 @@
       "background": "paper",
       "kicker_fr": "§ Définition",
       "kicker_en": "§ Definition",
-      "statement_fr": "Une <i class=\"acc\">agence Shopify</i> crée, refond et migre des boutiques sur Shopify, une plateforme qui fournit catalogue, paiement, commandes et hébergement. Chez Waimia, la boutique est reliée à ce qui l'entoure : fiches clients dans le CRM, alertes de stock, réponses de SAV préparées à partir de la commande.",
+      "statement_fr": "Une <i class=\"acc\">agence Shopify</i> crée, refond et migre des boutiques sur Shopify, plateforme qui héberge le catalogue, le panier, le paiement et la gestion des commandes. Chez Waimia, la boutique ne reste pas isolée : elle alimente le CRM, prévient quand un stock baisse et prépare les réponses du SAV.",
       "statement_en": "A <i class=\"acc\">Shopify agency</i> builds, redesigns and migrates shops on Shopify, a platform that provides catalogue, payment, orders and hosting. At Waimia the shop is connected to what surrounds it: customer records in the CRM, stock alerts, support replies prepared from the order.",
       "pills": [
         {
@@ -234,7 +234,7 @@
           "side": "right"
         }
       ],
-      "html_fr": "<h2>Ce que Shopify fait bien</h2>\n<p>Shopify fournit ce qui est difficile à bâtir soi-même : un catalogue, un panier, un paiement sécurisé, la gestion des commandes et de l'hébergement. L'équipe n'a ni extension à mettre à jour ni serveur à surveiller. Le thème définit l'apparence ; les applications ajoutent des fonctions, au prix d'un abonnement de plus.</p>\n<h2>Agence e-commerce : ce qu'on fait sur Shopify</h2>\n<p>On crée la boutique ou on refond son thème, on migre le catalogue depuis WooCommerce ou PrestaShop, puis on relie la boutique au CRM : chaque client crée ou met à jour une fiche. La boutique est l'entrée du <a href=\"/services/systeme-acquisition\">système d'acquisition</a> ; Shopify n'est qu'une des plateformes de l'<a href=\"/services/site-web-ia\">offre agence site web</a>.</p>\n<h2>Ce qu'on ne fait pas</h2>\n<p>Aucune promesse de chiffre de conversion, de position dans Google ni de chiffre d'affaires. La publicité et la logistique restent hors mission. On corrige le parcours, on mesure, et on retire les tâches répétitives.</p>",
+      "html_fr": "<h2>Ce que Shopify retire de votre quotidien, et ce qu'il facture</h2>\n<p>Pas de serveur à surveiller, pas d'extension à mettre à jour : c'est la vraie raison de choisir Shopify. Le revers tient en deux lignes. Chaque application ajoute un abonnement et du code que vous ne maîtrisez pas, et les commissions de paiement s'ajoutent à la facture. Je conseille de fixer un plafond d'applications avant le lancement, pas après la première mauvaise surprise.</p>\n<h2>Ce que nous faisons sur votre boutique</h2>\n<p>Nous créons la boutique ou refondons son thème, nous migrons le catalogue depuis WooCommerce ou PrestaShop, puis nous relions le tout au CRM : chaque achat crée ou met à jour une fiche client. La boutique devient l'entrée de votre <a href=\"/services/systeme-acquisition\">système d'acquisition</a>. Shopify n'est qu'une plateforme de notre <a href=\"/services/site-web-ia\">offre agence site web</a>, et c'est rarement la seule envisageable.</p>\n<h2>Ce que nous ne faisons pas</h2>\n<p>Nous ne promettons ni taux de conversion, ni position dans Google, ni chiffre d'affaires : ils dépendent de votre offre, de votre trafic et de vos prix. La publicité et la logistique restent hors mission. Notre travail : corriger le parcours, mesurer, retirer les tâches répétitives.</p>",
       "html_en": "<h2>What Shopify does well</h2>\n<p>Shopify provides what is hard to build yourself: a catalogue, a cart, secure payment, order management and hosting. The team has no extensions to update and no server to watch. The theme defines the look; apps add features, at the price of one more subscription.</p>\n<h2>E-commerce agency: what we do on Shopify</h2>\n<p>We build the shop or redesign its theme, we migrate the catalogue from WooCommerce or PrestaShop, then we connect the shop to the CRM: each customer creates or updates a record. The shop is the entry to the <a href=\"/services/systeme-acquisition\">acquisition system</a>; Shopify is only one of the platforms in our <a href=\"/services/site-web-ia\">web agency offer</a>.</p>\n<h2>What we do not do</h2>\n<p>We promise no conversion figure, Google position or revenue. We do not manage your advertising or your logistics. We fix the journey, measure, and remove repetitive tasks.</p>"
     },
     {
@@ -244,16 +244,16 @@
       "kicker_en": "§ Decision",
       "title_fr": "Shopify, ou une autre plateforme",
       "title_en": "Shopify, or another platform",
-      "aside_fr": "La vente en ligne est un métier : on choisit l'outil qui retire le plus de travail à votre équipe.",
+      "aside_fr": "Nous choisissons l'outil qui retire le plus de travail à votre équipe, pas celui qui a le plus de fonctions.",
       "aside_en": "Online selling is a trade: pick the tool that removes the most work from your team.",
       "use_title_fr": "Choisissez Shopify quand",
       "use_title_en": "Choose Shopify when",
       "use_items_fr": [
-        "La vente en ligne est le cœur de votre activité, ou va le devenir.",
-        "Vous voulez une boutique qui tourne sans gérer hébergement, mises à jour et extensions.",
+        "La vente en ligne fait l'essentiel de votre activité, ou va le faire.",
+        "Vous voulez une boutique qui tourne sans surveiller l'hébergement, les mises à jour et les extensions.",
         "Votre catalogue est classique : produits, variantes, collections, promotions.",
-        "Vous quittez une boutique devenue lente ou fragile et voulez repartir sur une base stable.",
-        "Vous voulez relier commandes, clients et SAV à un CRM et à des automatisations."
+        "Votre boutique actuelle est devenue lente ou fragile, et vous voulez repartir sur une base stable.",
+        "Vos commandes, vos clients et votre SAV doivent alimenter un CRM et des automatisations."
       ],
       "use_items_en": [
         "Online sales are the core of your business, or are about to be.",
@@ -265,11 +265,11 @@
       "avoid_title_fr": "Évitez Shopify quand",
       "avoid_title_en": "Avoid Shopify when",
       "avoid_items_fr": [
-        "Vous vendez surtout des services ou des prestations sur devis : un site vitrine avec formulaire suffit.",
-        "Votre site est avant tout éditorial et la vente accessoire : WordPress et WooCommerce s'y prêtent mieux.",
+        "Vous vendez surtout des prestations sur devis : un site vitrine avec formulaire suffit.",
+        "Votre site est d'abord éditorial et la vente accessoire : WordPress et WooCommerce s'y prêtent mieux.",
         "Vos règles de prix, de commande ou de B2B sont très particulières : un site sur mesure peut s'imposer.",
         "Vous refusez tout abonnement et toute commission : une boutique auto-hébergée coûte moins en frais récurrents, plus en entretien.",
-        "Votre boutique WooCommerce fonctionne, est rapide et votre équipe est autonome : migrer coûte plus qu'il ne rapporte."
+        "Votre boutique WooCommerce tourne, charge vite et votre équipe s'en sert seule : je ne la migrerais pas, la bascule coûterait plus qu'elle ne rapporte."
       ],
       "avoid_items_en": [
         "You mostly sell services or quote-based work: a showcase site with a form is enough.",
@@ -282,9 +282,9 @@
     {
       "type": "comparison-duo",
       "background": "paper",
-      "kicker_fr": "§ Exemple type · pas un cas client",
+      "kicker_fr": "§ Exemple",
       "kicker_en": "§ Typical example · not a client case",
-      "h2_fr": "Exemple type : une boutique de produits d'entretien",
+      "h2_fr": "Exemple : une boutique de produits d'entretien",
       "h2_en": "Typical example: a household-products shop",
       "without_label_fr": "Avant",
       "without_label_en": "Before",
@@ -296,15 +296,15 @@
           "text_en": "Orders are copied into a spreadsheet for logistics."
         },
         {
-          "text_fr": "Le stock est contrôlé à la main : on découvre les ruptures par les clients.",
+          "text_fr": "Le stock se contrôle à la main : les ruptures, ce sont les clients qui vous les apprennent.",
           "text_en": "Stock is checked by hand: stockouts are discovered through customers."
         },
         {
-          "text_fr": "Les demandes de SAV arrivent par email, sans lien avec la commande.",
+          "text_fr": "Une demande de SAV arrive par email, sans lien avec la commande concernée.",
           "text_en": "Support requests arrive by email, with no link to the order."
         },
         {
-          "text_fr": "Les paniers abandonnés restent sans suite.",
+          "text_fr": "Les paniers abandonnés ne reçoivent aucune relance.",
           "text_en": "Abandoned carts go unanswered."
         }
       ],
@@ -314,11 +314,11 @@
       "with_title_en": "A connected shop",
       "with_items": [
         {
-          "text_fr": "La commande crée la tâche de préparation et la fiche client dans le CRM.",
+          "text_fr": "Chaque commande crée la tâche de préparation et la fiche client dans le CRM.",
           "text_en": "The order creates the preparation task and the customer record in the CRM."
         },
         {
-          "text_fr": "Une alerte prévient quand un produit passe sous son seuil.",
+          "text_fr": "Une alerte part quand un produit passe sous son seuil.",
           "text_en": "An alert fires when a product drops below its threshold."
         },
         {
@@ -326,7 +326,7 @@
           "text_en": "An agent prepares the support reply with the order in view; a person approves."
         },
         {
-          "text_fr": "Un email de relance part pour les paniers abandonnés, avec un plafond de fréquence.",
+          "text_fr": "Un email relance les paniers abandonnés, avec un plafond de fréquence.",
           "text_en": "A reminder email goes out for abandoned carts, with a frequency cap."
         }
       ]
@@ -336,15 +336,15 @@
       "background": "paper-3",
       "kicker_fr": "§ Ce que vous gardez",
       "kicker_en": "§ What you keep",
-      "title_fr": "Ce qui vous reste à la fin",
+      "title_fr": "Ce qui reste à votre nom",
       "title_en": "What you keep at the end",
-      "lead_fr": "La boutique, le compte Shopify et le domaine sont à votre nom. On n'impose aucun abonnement.",
+      "lead_fr": "Boutique, compte Shopify et domaine sont à votre nom. Nous n'imposons aucun abonnement.",
       "lead_en": "The shop, the Shopify account and the domain are in your name. We impose no subscription.",
       "items": [
         {
           "title_fr": "La boutique Shopify",
           "title_en": "The Shopify shop",
-          "body_fr": "Thème créé ou refondu, pages produit et collections structurées, sur votre compte.",
+          "body_fr": "Thème créé ou refondu, pages produit et collections structurées, publiés sur votre compte.",
           "body_en": "Theme built or redesigned, product pages and collections structured, on your account.",
           "format_fr": "BOUTIQUE",
           "format_en": "SHOP"
@@ -360,7 +360,7 @@
         {
           "title_fr": "Les automatisations de stock",
           "title_en": "Stock automations",
-          "body_fr": "Seuils, alertes et commandes à vérifier, décrits dans un document avec les règles et leurs exceptions.",
+          "body_fr": "Seuils, alertes et commandes à vérifier, décrits avec leurs règles et leurs exceptions.",
           "body_en": "Thresholds, alerts and orders to check, described in a document with the rules and their exceptions.",
           "format_fr": "STOCK",
           "format_en": "STOCK"
@@ -368,7 +368,7 @@
         {
           "title_fr": "Le SAV préparé",
           "title_en": "Prepared support",
-          "body_fr": "Réponses préparées à partir de la commande et validées par votre équipe, avec un journal des échanges.",
+          "body_fr": "Réponses préparées depuis la commande, validées par votre équipe, avec le journal des échanges.",
           "body_en": "Replies prepared from the order and approved by your team, with an exchange log.",
           "format_fr": "SAV",
           "format_en": "SUPPORT"
@@ -384,7 +384,7 @@
         {
           "title_fr": "La mesure avant et après",
           "title_en": "Before-and-after measurement",
-          "body_fr": "Temps de chargement, abandons de panier et tâches manuelles relevés à la même date, avec la méthode.",
+          "body_fr": "Temps de chargement, abandons de panier et tâches manuelles relevés à la même date, méthode incluse.",
           "body_en": "Load time, cart abandonment and manual tasks recorded on the same date, with the method.",
           "format_fr": "MESURE",
           "format_en": "MEASURE"
@@ -403,7 +403,7 @@
           "side": "left"
         }
       ],
-      "html_fr": "<h2>Migrer depuis WooCommerce ou PrestaShop</h2>\n<p>La migration se prépare en cinq temps : inventaire, import, thème, redirections, bascule. Le piège est dans les adresses : Shopify impose sa structure, donc chaque ancienne URL doit être redirigée vers la nouvelle, sinon le référencement des fiches produits repart de zéro. On teste une vraie commande avec paiement avant la bascule, puis on contrôle les redirections après.</p>\n<h2>Ce qui peut mal tourner</h2>\n<p>Trop d'applications : chacune ajoute un abonnement et du code. Des automatisations sans seuil de sécurité : une règle de stock mal pensée bloque des commandes valides. Un SAV automatique sans validation : on prépare, on ne laisse pas envoyer seul sur un remboursement ou un geste commercial.</p>",
+      "html_fr": "<h2>Migrer depuis WooCommerce ou PrestaShop</h2>\n<p>Cinq temps, dans cet ordre : inventaire, import, thème, redirections, bascule. Le piège se cache dans les adresses. Shopify impose sa structure d'URL, donc chaque ancienne adresse doit pointer vers la nouvelle, sinon vos fiches produits repartent de zéro dans Google. Nous passons une vraie commande avec un vrai paiement avant la bascule, puis nous contrôlons les redirections.</p>\n<h2>Ce qui tourne mal en premier</h2>\n<p>Une règle de stock mal pensée bloque des commandes valides : chaque automatisation de stock porte donc un seuil de sécurité. Côté SAV, nous préparons la réponse et une personne l'envoie, surtout quand il s'agit d'un remboursement ou d'un geste commercial.</p>",
       "html_en": "<h2>Migrating from WooCommerce or PrestaShop</h2>\n<p>A migration is prepared in five steps: inventory, import, theme, redirects, switch. The trap is in the addresses: Shopify imposes its structure, so every old URL must be redirected to the new one, otherwise product page visibility restarts from zero. We test a real order with payment before the switch, then check the redirects afterwards.</p>\n<h2>What can go wrong</h2>\n<p>Too many apps: each adds a subscription and code. Automations with no safety threshold: a badly thought stock rule blocks valid orders. Automatic support with no approval: we prepare, we do not let it send alone on a refund or a commercial gesture.</p>"
     },
     {
@@ -415,13 +415,13 @@
       "kicker_en": "§ Other platforms",
       "h2_fr": "Shopify, ou une autre <i>base</i>",
       "h2_en": "Shopify, or another <i>base</i>",
-      "lede_fr": "Le bon choix dépend de la personne qui fera vivre le site. Une plateforme par ligne : ouvrez sa page pour le détail.",
+      "lede_fr": "Shopify ne gagne pas partout. Voici où nous orienterions votre projet à la place, une plateforme par ligne.",
       "lede_en": "The right choice depends on who will keep the site running. One platform per line: open its page for details.",
       "items": [
         {
           "label_fr": "WordPress et WooCommerce",
           "label_en": "WordPress and WooCommerce",
-          "meta_fr": "Site éditorial riche avec une boutique, hébergement et extensions à votre main",
+          "meta_fr": "Un site éditorial riche qui vend à côté, hébergement et extensions à votre charge",
           "meta_en": "Rich editorial site with a shop, hosting and extensions in your hands",
           "media_src": "/images/illustrations/ds/wordpress-coeur-et-extensions-paper.webp",
           "media_alt_fr": "Illustration : une rotonde centrale reliée à ses annexes, comme un WordPress et ses extensions",
@@ -431,7 +431,7 @@
         {
           "label_fr": "Webflow",
           "label_en": "Webflow",
-          "meta_fr": "Design précis, édité visuellement, peu de produits",
+          "meta_fr": "Une vitrine soignée avec quelques produits, éditée visuellement",
           "meta_en": "Precise design, edited visually, few products",
           "media_src": "/images/illustrations/ds/webflow-colleur-affiches-paper.webp",
           "media_alt_fr": "Illustration : un colleur d'affiches pose de grandes feuilles sur un panneau",
@@ -441,7 +441,7 @@
         {
           "label_fr": "Site sur mesure",
           "label_en": "Bespoke site",
-          "meta_fr": "Règles de prix et de commande particulières, code à vous",
+          "meta_fr": "Des règles de prix ou de commande que Shopify ne sait pas exprimer",
           "meta_en": "Particular pricing and ordering rules, code you own",
           "media_src": "/images/illustrations/ds/sur-mesure-headless-tailleur-mannequin-paper.webp",
           "media_alt_fr": "Illustration : un tailleur épingle l'ourlet d'un immense buste de couturière",
@@ -451,7 +451,7 @@
         {
           "label_fr": "Landing page",
           "label_en": "Landing page",
-          "meta_fr": "Une page pour un produit ou une campagne, un tunnel de qualification",
+          "meta_fr": "Un produit ou une campagne, une seule page qui qualifie",
           "meta_en": "One page for a product or a campaign, a qualification funnel",
           "media_src": "/images/illustrations/ds/landing-pages-tunnels-v3-entonnoir-paper.webp",
           "media_alt_fr": "Illustration : des billes tombent dans un entonnoir, une personne les oriente vers deux paniers",
@@ -461,7 +461,7 @@
         {
           "label_fr": "L'offre agence site web",
           "label_en": "The web agency offer",
-          "meta_fr": "Toutes les plateformes, la grille de prix et la méthode",
+          "meta_fr": "Le comparatif des plateformes, la grille de prix et la méthode",
           "meta_en": "All platforms, the price grid and the method",
           "media_src": "/images/illustrations/ds/man-and-woman-hi-paper.webp",
           "media_alt_fr": "Illustration : deux personnes qui se saluent, l'offre agence site web dans son ensemble",
@@ -476,22 +476,19 @@
       "fig_num": "Fig. 05",
       "fig_title_fr": "Réalisations",
       "fig_title_en": "Work",
-      "spec_fr": "Réalisations · données reprises des fiches publiées",
+      "spec_fr": "Réalisations",
       "spec_en": "Work · data taken from the published pages",
-      "h2_fr": "Aucune boutique Shopify publiée : une migration e-commerce mesurée, et un site livré en 6 semaines",
+      "h2_fr": "Notre référence e-commerce, sous WooCommerce : la migration de Balzeo",
       "h2_en": "No Shopify shop published: a measured e-commerce migration, and a site delivered in 6 weeks",
       "case_label_fr": "CAS",
       "case_label_en": "CASE",
       "sector_label_fr": "Secteur · Durée",
       "sector_label_en": "Sector · Duration",
-      "impact_label_fr": "Ce que dit la fiche",
+      "impact_label_fr": "Résultat",
       "impact_label_en": "What the page says",
       "cases": [
         {
           "ref": "cases/balzeo"
-        },
-        {
-          "ref": "cases/amploi"
         }
       ],
       "all_label_fr": "Voir toutes les réalisations →",
@@ -505,13 +502,13 @@
       "kicker_en": "§ The range",
       "h2_fr": "Combien coûte une boutique Shopify",
       "h2_en": "How much a Shopify shop costs",
-      "lede_fr": "Quatre paliers, la même grille que pour nos autres sites : le prix suit le périmètre, pas l'outil. Si le périmètre n'est pas clair, on commence par un sprint de cadrage de 10 heures à {{prix.sprint}} € HT. La boutique est chiffrée avant de démarrer.",
+      "lede_fr": "Quatre paliers, de la boutique de départ au SAV et aux stocks automatisés. Ce que vous payez suit le périmètre de la boutique, pas Shopify en lui-même. Quand le périmètre reste flou, un sprint de cadrage de 10 heures à {{prix.sprint}} € HT le fixe avant de démarrer.",
       "lede_en": "Four tiers, the same grid as our other sites: price follows scope, not the tool. If the scope is unclear, we start with a 10-hour scoping sprint at €{{prix.sprint.en}} excl. VAT. The shop is priced before work starts.",
       "tiers": [
         {
           "name_fr": "Boutique de départ",
           "name_en": "Starter shop",
-          "price": "2 000 €",
+          "price": "{{prix.pilote}} €",
           "period_fr": "à partir de · HT",
           "period_en": "from · excl. VAT",
           "features_fr": [
@@ -543,7 +540,7 @@
             "Refonte de thème et parcours de commande",
             "Fiches produits et collections structurées pour le référencement",
             "Alertes de stock et commandes à vérifier",
-            "Une session de prise en main"
+            "Prise en main de la boutique par votre équipe"
           ],
           "features_en": [
             "Theme redesign and checkout journey",
@@ -610,7 +607,7 @@
           }
         }
       ],
-      "footnote_fr": "L'abonnement Shopify, les applications payantes et les commissions de paiement sont à votre charge et à votre nom : ils ne figurent pas dans ces prix. Waimia n'impose aucun abonnement. L'entretien après livraison est facultatif, ses paliers sont publics sur la page tarifs.",
+      "footnote_fr": "Abonnement Shopify, applications payantes et commissions de paiement : vous les souscrivez et les réglez directement, ils ne figurent pas dans ces prix. L'entretien après la livraison n'a rien d'obligatoire ; ses paliers sont sur la page tarifs.",
       "footnote_en": "The Shopify subscription, paid apps and payment fees are on your side and in your name: they are not in these prices. No subscription imposed by us. Upkeep after delivery is optional, its tiers are public on the pricing page."
     },
     {
@@ -628,43 +625,43 @@
       "items": [
         {
           "q_fr": "Shopify est-il adapté à une PME ?",
-          "a_fr": "Oui, quand la vente en ligne est le cœur de l'activité : Shopify fournit catalogue, paiement, gestion des commandes et hébergement, et limite la maintenance technique. Il l'est moins si vous vendez surtout des services, ou si votre catalogue exige des règles de prix et de commande très particulières.",
+          "a_fr": "Oui, quand la vente en ligne fait l'essentiel de l'activité : Shopify héberge le catalogue, encaisse, gère les commandes et limite la maintenance technique. Il convient moins si vous vendez surtout des prestations, ou si vos règles de prix et de commande sortent du commun.",
           "q_en": "Is Shopify suited to an SMB?",
           "a_en": "Yes, when online sales are the core of the business: Shopify provides catalogue, payment, order management and hosting, and limits technical upkeep. It is less suited if you mostly sell services, or if your catalogue needs very particular pricing and ordering rules."
         },
         {
           "q_fr": "Shopify ou WooCommerce ?",
-          "a_fr": "Shopify si vous voulez une boutique qui tourne sans gérer hébergement, mises à jour et extensions. WooCommerce si vous avez déjà un site WordPress qui doit vendre, un besoin très spécifique, ou l'envie de tout contrôler, hébergement compris. Le cas e-commerce publié, Balzeo, est sous WooCommerce : on ne recommande pas Shopify par réflexe.",
+          "a_fr": "Shopify si vous voulez une boutique qui tourne sans gérer hébergement, mises à jour et extensions. WooCommerce si vous avez déjà un site WordPress qui doit vendre, si votre besoin est très spécifique ou si vous tenez à tout contrôler, hébergement compris. Je ne conseille pas Shopify par réflexe.",
           "q_en": "Shopify or WooCommerce?",
           "a_en": "Shopify if you want a shop that runs without managing hosting, updates and extensions. WooCommerce if you already have a WordPress site that must sell, a very specific need, or a wish to control everything, hosting included. Our published e-commerce case, Balzeo, runs on WooCommerce: we do not recommend Shopify by reflex."
         },
         {
           "q_fr": "Comment se passe une migration depuis WooCommerce ou PrestaShop ?",
-          "a_fr": "On inventorie catalogue, clients, commandes et adresses ; on importe produits, collections et clients dans Shopify ; on recrée le thème ; on prépare les redirections 301 de chaque ancienne adresse ; on teste commande et paiement avant de basculer. Shopify impose sa structure d'URL (/products/, /collections/) : les adresses changent, d'où l'importance des redirections.",
+          "a_fr": "Cinq étapes : inventaire du catalogue, des clients et des commandes ; import des produits, collections et clients dans Shopify ; recréation du thème ; redirections 301 de chaque ancienne adresse ; test d'une commande avec paiement avant la bascule. Shopify impose sa structure d'URL (/products/, /collections/) : les adresses changent, donc les redirections ne sont pas optionnelles.",
           "q_en": "How does a migration from WooCommerce or PrestaShop work?",
           "a_en": "We inventory catalogue, customers, orders and addresses; we import products, collections and customers into Shopify; we rebuild the theme; we prepare the 301 redirects for every old address; we test ordering and payment before switching. Shopify imposes its URL structure (/products/, /collections/): addresses change, hence the importance of redirects."
         },
         {
           "q_fr": "Que peut-on automatiser sur une boutique Shopify ?",
-          "a_fr": "Les alertes de stock, le repérage des commandes à vérifier, les relances de paniers abandonnés, la création des fiches clients dans le CRM, et la préparation de réponses de SAV à partir de la commande. Shopify Flow couvre les règles simples dans la boutique (application gratuite, selon la formule) ; au-delà, on passe par n8n ou par un agent IA avec validation humaine.",
+          "a_fr": "Les alertes de stock, le repérage des commandes à vérifier, les relances de paniers abandonnés, la création des fiches clients dans le CRM, la préparation de réponses de SAV à partir de la commande. Shopify Flow couvre les règles simples dans la boutique (application gratuite, selon la formule) ; au-delà, nous passons par n8n ou par un agent IA, avec validation humaine.",
           "q_en": "What can be automated on a Shopify shop?",
           "a_en": "Stock alerts, flagging orders to check, abandoned-cart reminders, creating customer records in the CRM, and preparing support replies from the order. Shopify Flow covers simple rules inside the shop (a free app, depending on the plan); beyond that, we use n8n or an AI agent with human approval."
         },
         {
           "q_fr": "Pouvez-vous améliorer mes ventes ?",
-          "a_fr": "Aucun chiffre de conversion n'est promis. Ce qu'on fait : corriger ce qui freine (temps de chargement mesuré, parcours de commande, fiches produits), mesurer avant et après, et retirer les tâches manuelles. Le résultat dépend de votre offre, de votre trafic et de vos prix.",
+          "a_fr": "Oui, sur ce qui se mesure : temps de chargement, parcours de commande, fiches produits, tâches manuelles. Nous relevons chaque mesure avant et après, à la même date, et nous vous remettons la méthode.",
           "q_en": "Can you improve my sales?",
           "a_en": "We promise no conversion figure. What we do: fix what slows things down (measured load time, checkout journey, product pages), measure before and after, and remove manual tasks. The result depends on your offer, your traffic and your prices."
         },
         {
           "q_fr": "Et le référencement des fiches produits ?",
-          "a_fr": "On structure titres, descriptions, adresses et données structurées produit, et on traite les doublons de collections. Shopify impose certaines adresses : on s'en accommode plutôt que de les contourner. On ne promet pas de classement.",
+          "a_fr": "Nous structurons titres, descriptions, adresses et données structurées produit, et nous traitons les doublons de collections. Shopify impose certaines adresses : nous travaillons avec plutôt que de les contourner.",
           "q_en": "And product page SEO?",
           "a_en": "We structure titles, descriptions, addresses and product structured data, and handle collection duplicates. Shopify imposes certain addresses: we work with them rather than around them. We promise no ranking."
         },
         {
           "q_fr": "Combien de temps et combien ça coûte ?",
-          "a_fr": "Selon le périmètre, fixé au sprint de cadrage : la taille du catalogue et vos contenus pèsent le plus. À partir de 2 000 € HT pour une boutique de départ, 4 000 € HT pour une boutique complète, à partir de 7 000 € HT avec une migration, à partir de 10 000 € HT avec des automatisations de stock et de SAV. L'abonnement Shopify et les commissions de paiement sont à votre charge, hors de ces prix.",
+          "a_fr": "Le délai dépend du périmètre, fixé au sprint de cadrage : la taille du catalogue et vos contenus pèsent le plus. À partir de {{prix.pilote}} € HT pour une boutique de départ, 4 000 € HT pour une boutique complète, à partir de 7 000 € HT avec une migration, à partir de 10 000 € HT avec des automatisations de stock et de SAV. L'abonnement Shopify et les commissions de paiement restent à votre charge, hors de ces prix.",
           "q_en": "How long and how much?",
           "a_en": "Depending on scope, set at the scoping sprint: catalogue size and your content weigh most. From €2,000 excl. VAT for a starter shop, €4,000 for a complete shop, from €7,000 with a migration, from €10,000 with stock and support automation. The Shopify subscription and payment fees are on your side, outside these prices."
         }
@@ -681,7 +678,7 @@
       "kicker_en": "§ Free AI audit",
       "h2_fr": "Votre boutique actuelle est-elle à corriger, à migrer ou à refaire ?",
       "h2_en": "Is your current shop to fix, to migrate or to rebuild?",
-      "subtitle_fr": "En 45 minutes, on regarde votre boutique, vos commandes et vos demandes de SAV, et on vous dit si Shopify est le bon outil et ce qui se prête à l'automatisation.",
+      "subtitle_fr": "En 45 minutes, nous vous disons si Shopify est le bon outil, ce qui se corrige, ce qui se migre et ce qui s'automatise.",
       "subtitle_en": "In 45 minutes, we look at your shop, your orders and your support requests, and tell you whether Shopify is the right tool and what lends itself to automation.",
       "buttons": [
         {

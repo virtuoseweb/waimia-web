@@ -8,7 +8,7 @@
   "description_en": "OpenClaw integration for business: sandbox switched on, protected Gateway, minimal rights, human approval, tested updates. From €{{prix.sprint.en}} excl. VAT.",
   "slug": "integration-openclaw",
   "publishedAt": "2026-10-24T00:00:00.000Z",
-  "updatedAt": "2026-10-24",
+  "updatedAt": "2026-11-11",
   "category": "agents",
   "tags": [
     "integration-openclaw",
@@ -36,22 +36,15 @@
       "publishedAt": "2026-08-31"
     },
     {
-      "name": "OpenClaw 2026.10.6, runtime Node corrigé (22 octobre 2026)",
-      "url": "https://github.com/openclaw/openclaw/releases/tag/v2026.10.6",
-      "type": "enterprise",
-      "publishedAt": "2026-10-22"
-    },
-    {
-      "name": "OpenClaw 2026.10.7, version stable (24 octobre 2026)",
-      "url": "https://github.com/openclaw/openclaw/releases/tag/v2026.10.7",
-      "type": "enterprise",
-      "publishedAt": "2026-10-24"
-    },
-    {
       "name": "OpenClaw, issue n° 7827, posture de sécurité par défaut (ouverte le 3 février, fermée le 7 mars 2026)",
       "url": "https://github.com/openclaw/openclaw/issues/7827",
       "type": "enterprise",
       "publishedAt": "2026-02-03"
+    },
+    {
+      "name": "OpenClaw, README du dépôt, lu le 11 novembre 2026",
+      "url": "https://github.com/openclaw/openclaw",
+      "type": "enterprise"
     }
   ],
   "seo": {
@@ -63,7 +56,7 @@
   "faq_fr": [
     {
       "q": "Combien coûte l'intégration d'OpenClaw ?",
-      "a": "Le logiciel est gratuit, sous licence MIT, et la fondation qui le gouverne ne vend rien. La prestation démarre par un sprint de cadrage à {{prix.sprint}} € HT pour 10 heures : frontière de confiance fixée, installation durcie sur un premier périmètre. La suite est estimée avec vous, puis facturée en régie à {{prix.horaire}} € HT de l'heure. S'ajoutent le modèle, la machine et les services connectés, estimés avant le lancement."
+      "a": "Le logiciel est gratuit (licence MIT) et la fondation qui le gouverne ne vend rien. La prestation démarre par un sprint de cadrage à {{prix.sprint}} € HT pour 10 heures : frontière de confiance fixée, installation durcie sur un premier périmètre. La mise en production se fait avec le pilote, dès {{prix.pilote}} € HT, puis {{prix.horaire}} € HT de l'heure. S'ajoutent le modèle, la machine et les services connectés, estimés avant le lancement."
     },
     {
       "q": "Comment sécuriser OpenClaw ?",
@@ -71,15 +64,15 @@
     },
     {
       "q": "Le sandbox d'OpenClaw est-il activé par défaut ?",
-      "a": "Non. Sans configuration, les outils de la session principale tournent sur la machine hôte, avec les droits de l'utilisateur qui fait tourner OpenClaw. Les mainteneurs présentent ce choix comme un comportement documenté. Une fois activé, le bac à sable ne couvre que l'exécution des outils : la Gateway reste sur l'hôte. Nous l'activons dès l'installation et nous le prouvons par une commande de test qui ne doit pas voir les fichiers de l'hôte."
+      "a": "Non. Sans configuration, les outils de la session principale tournent sur la machine hôte, avec les droits de l'utilisateur qui fait tourner OpenClaw. Les mainteneurs assument ce comportement documenté. Activé, le bac à sable ne couvre que l'exécution des outils : la Gateway reste sur l'hôte. Nous l'activons dès l'installation et nous le prouvons par une commande de test qui ne doit pas voir les fichiers de l'hôte."
     },
     {
       "q": "Pouvez-vous installer OpenClaw pour nous ?",
-      "a": "Oui. Le démarrage tient en trois commandes (openclaw onboard --install-daemon, openclaw gateway status, openclaw dashboard), mais il faut d'abord un Node corrigé : 24.22.1 ou plus, ou 26.12.1 ou plus depuis la version 2026.10.6. Nous installons la dernière version stable, jamais une bêta, sur une machine dédiée qui vous appartient, puis nous appliquons le durcissement. Accès, réglages et documentation vous sont remis."
+      "a": "Oui. Le démarrage tient en trois commandes (openclaw onboard --install-daemon, openclaw gateway status, openclaw dashboard), mais il faut d'abord un Node à jour des correctifs de sécurité. Nous installons la dernière version stable, jamais une bêta, sur une machine dédiée qui vous appartient, puis nous appliquons le durcissement. Accès, réglages et documentation vous sont remis."
     },
     {
       "q": "Peut-on partager un agent OpenClaw entre plusieurs collègues ?",
-      "a": "Avec prudence. Les mainteneurs décrivent un assistant personnel avec un seul opérateur de confiance (issue n° 7827) : chaque personne qui écrit à l'agent peut l'amener à agir avec les droits de cet opérateur. Nous recommandons une instance par frontière de confiance, par exemple une par équipe. Selon un article de presse, la session partagée de la 2.0 n'a ni frontière réseau ni frontière de fichiers : nous ne l'activons pas sans vérification."
+      "a": "Avec prudence. Les mainteneurs décrivent un assistant personnel avec un seul opérateur de confiance : chaque personne qui écrit à l'agent peut l'amener à agir avec les droits de cet opérateur. Nous recommandons une instance par frontière de confiance, par exemple une par équipe, jamais un agent commun à toute l'entreprise."
     },
     {
       "q": "Peut-on ouvrir OpenClaw à nos clients ?",
@@ -87,11 +80,11 @@
     },
     {
       "q": "Qui assure le support d'OpenClaw ?",
-      "a": "Personne ne le vend : OpenClaw est gouverné par l'OpenClaw Foundation, une association indépendante sans offre payante. Le support vient donc de vous ou d'un prestataire. C'est ce que couvre notre régie : lecture des notes de version, mises à jour testées, réponse aux alertes d'openclaw security audit, correction des configurations cassées. Ce n'est pas une garantie d'éditeur, et nous l'écrivons dans le contrat."
+      "a": "Personne ne le vend : OpenClaw est gouverné par l'OpenClaw Foundation, une association indépendante sans offre payante, et le support officiel passe par la communauté du projet. Le support vient donc de vous ou d'un prestataire. C'est ce que couvre notre régie : lecture des notes de version, mises à jour testées, réponse aux alertes d'openclaw security audit, correction des configurations cassées. Ce n'est pas une garantie d'éditeur, et nous l'écrivons dans le contrat."
     },
     {
       "q": "Comment se passent les mises à jour d'OpenClaw ?",
-      "a": "Avec un test avant chaque passage. Le projet numérote ses versions par date et publie souvent : 2026.10.6 le 22 octobre, 2026.10.7 le 24. Certaines versions cassent des configurations : la 2.0 a supprimé /prose et imposé la migration de références de modèles par openclaw doctor --fix. Nous lisons les notes, testons hors production, lançons doctor --fix si nécessaire et security audit après chaque mise à jour."
+      "a": "Avec un test avant chaque passage. Le projet numérote ses versions par date et en publie souvent, et certaines cassent des configurations. Nous lisons les notes, testons hors production, lançons openclaw doctor --fix quand un changement incompatible l'exige, puis security audit après chaque mise à jour."
     }
   ],
   "faq_en": [
@@ -142,11 +135,11 @@
       "kicker_en": "§ Open source AI agents · OpenClaw",
       "h1_fr": "<i class=\"acc\">OpenClaw</i> <br>en entreprise",
       "h1_en": "<i class=\"acc\">OpenClaw</i> <br>for business",
-      "lede_fr": "Intégrer OpenClaw en entreprise, c'est installer l'assistant open source de l'OpenClaw Foundation (licence MIT) sur une machine dédiée, activer et vérifier son bac à sable, protéger sa Gateway, limiter ses droits et ses extensions, puis l'exploiter version après version. Pour les PME qui veulent un agent dans leurs messageries sans ouvrir leur informatique.",
+      "lede_fr": "OpenClaw met un assistant dans vos messageries, mais installé tel quel, il tourne sur la machine avec les droits de son utilisateur. Nous l'installons sur une machine dédiée, activons et vérifions son bac à sable, protégeons sa Gateway, bornons ses droits et ses extensions, puis nous l'exploitons version après version. Pour les PME qui veulent un agent dans leurs messageries sans ouvrir leur informatique.",
       "lede_en": "Integrating OpenClaw in a company means installing the OpenClaw Foundation's open source assistant (MIT licence) on a dedicated machine, switching on and checking its sandbox, protecting its Gateway, limiting its rights and extensions, then running it version after version. For SMBs that want an agent in their messaging apps without opening up their IT.",
       "badges": [
         {
-          "label_fr": "Mis à jour le 24 octobre 2026",
+          "label_fr": "Open source, exploité chez vous",
           "label_en": "Updated 24 October 2026"
         },
         {
@@ -182,20 +175,20 @@
       "kicker_en": "§ In short",
       "metrics": [
         {
-          "value": "{{prix.sprint}} € HT",
-          "label_fr": "sprint de cadrage de 10 h, puis {{prix.horaire}} € HT de l'heure",
+          "value": "10 h",
+          "label_fr": "de sprint de cadrage à prix fixe : frontière de confiance fixée, installation durcie sur un premier périmètre",
           "label_en": "10-hour scoping sprint, then €{{prix.horaire}} per hour excl. VAT",
           "emphasis": true
         },
         {
-          "value": "2026.10.7",
-          "label_fr": "version stable lue le 24 octobre 2026 ; Node 24.22.1+ ou 26.12.1+ exigé",
+          "value": "Machine dédiée",
+          "label_fr": "compte sans droits d'administration, jamais le poste d'un salarié",
           "label_en": "stable version read on 24 October 2026; Node 24.22.1+ or 26.12.1+ required",
           "emphasis": false
         },
         {
           "value": "Sandbox actif",
-          "label_fr": "désactivé par défaut, activé puis vérifié par openclaw security audit",
+          "label_fr": "activé puis vérifié par openclaw security audit et une commande de test",
           "label_en": "off by default, switched on then checked with openclaw security audit",
           "emphasis": false
         },
@@ -212,7 +205,7 @@
       "background": "paper",
       "kicker_fr": "§ Définition",
       "kicker_en": "§ Definition",
-      "statement_fr": "L'<i class=\"acc\">intégration d'OpenClaw</i> est la prestation qui transforme cet assistant open source, pensé pour un seul opérateur de confiance, en outil d'entreprise : machine dédiée, bac à sable activé, Gateway non exposée, extensions contrôlées, droits minimaux, validation humaine, journal des actions, mises à jour testées et documentation remise.",
+      "statement_fr": "L'<i class=\"acc\">intégration d'OpenClaw</i> transforme cet assistant open source, pensé pour un seul opérateur de confiance, en outil d'entreprise : machine dédiée, bac à sable activé, Gateway non exposée, extensions contrôlées, droits minimaux, validation humaine, journal des actions, mises à jour testées, documentation remise.",
       "statement_en": "<i class=\"acc\">OpenClaw integration</i> is the service that turns this open source assistant, designed for a single trusted operator, into a business tool: dedicated machine, sandbox switched on, Gateway not exposed, controlled extensions, minimal rights, human approval, an action log, tested updates and handed-over documentation.",
       "pills": [
         {
@@ -238,7 +231,7 @@
           "label_en": "MIT licence, OpenClaw Foundation"
         },
         {
-          "label_fr": "Stable : 2026.10.7 (24 octobre 2026)",
+          "label_fr": "Dernière version stable, jamais une bêta",
           "label_en": "Stable: 2026.10.7 (24 October 2026)"
         },
         {
@@ -250,7 +243,7 @@
           "label_en": "Teams, Slack, WhatsApp, iMessage and 20+ messaging apps"
         },
         {
-          "label_fr": "Node 24.22.1+ ou 26.12.1+",
+          "label_fr": "Node à jour des correctifs de sécurité",
           "label_en": "Node 24.22.1+ or 26.12.1+"
         },
         {
@@ -263,7 +256,7 @@
       "type": "editorial-prose",
       "background": "paper-2",
       "maxWidth": "prose",
-      "html_fr": "<h2>Ce qu'OpenClaw fait, et ce qu'il laisse à votre charge</h2>\n<p>OpenClaw est un assistant IA open source, sous licence MIT, gouverné par l'OpenClaw Foundation, une association indépendante sans offre payante. Il tourne sur votre propre matériel et vous répond là où vous écrivez déjà : Discord, iMessage, Slack, Teams, Telegram, WhatsApp et plus de vingt autres messageries, avec des applications natives pour macOS, iOS, Android, Windows et Linux. D'après le dépôt lu le 24 octobre 2026, son cœur est la <strong>Gateway</strong>, un service local qui gère les sessions, les outils et les connexions aux canaux ; le modèle est un plugin interchangeable. L'état, la mémoire et les identifiants restent sur votre matériel.</p>\n<p>Le projet fournit de vrais garde-fous. Les messages entrants sont traités comme non fiables, et un expéditeur inconnu en message privé doit être appairé avant d'être pris en compte. Depuis la version dite « 2.0 » (2026.8.1, 31 août 2026), l'agent peut demander un identifiant sans que sa valeur passe dans la conversation ni dans le contexte du modèle, et un plugin de source quelconque ne s'installe qu'avec l'option <code>--force</code>. La commande <code>openclaw security audit</code> signale les réglages à risque.</p>\n<h3>Ce qui reste à votre charge sans prestataire</h3>\n<ul>\n<li><strong>Le bac à sable.</strong> Un <em>bac à sable</em> (sandbox) isole ce que l'agent exécute du reste de la machine. Chez OpenClaw, il est désactivé par défaut : les outils de la session principale tournent sur l'hôte, avec les droits de l'utilisateur. Activé, il ne couvre que l'exécution des outils ; la Gateway reste sur l'hôte.</li>\n<li><strong>La frontière de confiance.</strong> Les mainteneurs l'ont écrit dans l'issue n° 7827, fermée le 7 mars 2026 : OpenClaw suit un modèle d'assistant personnel avec un opérateur de confiance, pas une isolation entre plusieurs utilisateurs. Pour un usage partagé ou public, ils recommandent un durcissement supplémentaire.</li>\n<li><strong>Le runtime et les versions.</strong> Depuis la 2026.10.6, du 22 octobre 2026, OpenClaw exige Node 24.22.1 ou plus, ou 26.12.1 ou plus, alors que le README cite encore 24.16 ou 26.1. Les versions se suivent à quelques jours, et certaines cassent des configurations.</li>\n<li><strong>Le support.</strong> La fondation ne vend ni offre hébergée ni support. L'exploitation repose sur vous, ou sur un prestataire.</li>\n</ul>\n<p><strong>Repère daté, 24 octobre 2026.</strong> Version stable : 2026.10.7, publiée le jour même ; la « 2.0 » n'est donc plus la plus récente. Ces repères changent vite : nous relisons la page des versions au moment du cadrage. Le fonctionnement détaillé et la liste de contrôle de durcissement sont dans notre <a href=\"/ressources/guides/openclaw\">guide OpenClaw</a> ; cette page décrit la prestation qui les applique chez vous.</p>\n<p>Cette offre est la déclinaison OpenClaw de nos <a href=\"/services/agents-ia-open-source\">agents IA open source</a>, elle-même rattachée à nos <a href=\"/services/agents-ia\">agents IA pour entreprise</a>.</p>\n<p>Pour voir le moteur de près avant de s'engager : <a href=\"/blog/securiser-openclaw-checklist\">Sécuriser OpenClaw : checklist avant production</a>, <a href=\"/blog/openclaw-2-0-migration-changements\">OpenClaw 2.0 : changements et migration</a>.</p>",
+      "html_fr": "<h2>Ce qu'OpenClaw fait, et ce qu'il laisse à votre charge</h2>\n<p>OpenClaw est un assistant IA open source (<a href=\"/ressources/guides/agent-ia-definition\">ce qu'est un agent IA</a>), gouverné par l'OpenClaw Foundation, une association indépendante. Il tourne sur votre propre matériel et vous répond là où vous écrivez déjà : Discord, iMessage, Slack, Teams, Telegram, WhatsApp et plus de vingt autres messageries, avec des applications natives pour macOS, iOS, Android, Windows et Linux. Son cœur est la <strong>Gateway</strong>, un service local qui gère les sessions, les outils et les connexions aux canaux ; le modèle est un plugin interchangeable. L'état, la mémoire et les identifiants restent sur votre matériel.</p>\n<p>Le projet fournit de vrais garde-fous. Les messages entrants sont traités comme non fiables, et un expéditeur inconnu en message privé doit être appairé avant d'être pris en compte. Depuis la version dite « 2.0 » (2026.8.1, 31 août 2026), l'agent peut demander un identifiant sans que sa valeur passe dans la conversation ni dans le contexte du modèle, et un plugin de source quelconque ne s'installe qu'avec l'option <code>--force</code>. La commande <code>openclaw security audit</code> signale les réglages à risque.</p>\n<h3>Ce qui reste à votre charge sans prestataire</h3>\n<ul>\n<li>Un <em>bac à sable</em> (sandbox) isole ce que l'agent exécute du reste de la machine. Chez OpenClaw, il est désactivé par défaut : les outils de la session principale tournent sur l'hôte, avec les droits de l'utilisateur. Activé, il ne couvre que l'exécution des outils, et la Gateway reste sur l'hôte.</li>\n<li><a href=\"https://github.com/openclaw/openclaw/issues/7827\">Les mainteneurs l'écrivent eux-mêmes</a> : OpenClaw suit un modèle d'assistant personnel avec un opérateur de confiance, pas une isolation entre plusieurs utilisateurs. Pour un usage partagé ou public, ils recommandent un durcissement supplémentaire.</li>\n<li>Le runtime Node doit rester à jour des correctifs de sécurité, et les versions d'OpenClaw se suivent vite : certaines cassent des configurations.</li>\n<li>La fondation ne propose pas d'offre payante, et le support officiel passe par la communauté du projet. L'exploitation repose sur vous, ou sur un prestataire.</li>\n</ul>\n<p>Le fonctionnement détaillé et la liste de contrôle de durcissement sont dans notre <a href=\"/ressources/guides/openclaw\">guide OpenClaw</a> ; la prestation les applique chez vous.</p>\n<p>Cette offre est la déclinaison OpenClaw de nos <a href=\"/services/agents-ia-open-source\">agents IA open source</a>, eux-mêmes rattachés à nos <a href=\"/services/agents-ia\">agents IA pour entreprise</a>. Pour voir le moteur de près avant de vous engager : <a href=\"/blog/securiser-openclaw-checklist\">Sécuriser OpenClaw : checklist avant production</a>, <a href=\"/blog/openclaw-2-0-migration-changements\">OpenClaw 2.0 : changements et migration</a>.</p>",
       "html_en": "<h2>What OpenClaw does, and what it leaves to you</h2>\n<p>OpenClaw is an open source AI assistant, under the MIT licence, governed by the OpenClaw Foundation, an independent non-profit with no paid offer. It runs on your own hardware and answers you where you already write: Discord, iMessage, Slack, Teams, Telegram, WhatsApp and more than twenty other messaging apps, with native apps for macOS, iOS, Android, Windows and Linux. According to the repository read on 24 October 2026, its core is the <strong>Gateway</strong>, a local service that manages sessions, tools and channel connections; the model is an interchangeable plugin. State, memory and credentials stay on your hardware.</p>\n<p>The project provides real safeguards. Incoming messages are treated as untrusted, and an unknown sender in private messages must be paired before being taken into account. Since the so-called \"2.0\" release (2026.8.1, 31 August 2026), the agent can ask for a credential without its value passing through the conversation or the model's context, and a plugin from an arbitrary source only installs with the <code>--force</code> option. The <code>openclaw security audit</code> command flags risky settings.</p>\n<h3>What is left to you without a provider</h3>\n<ul>\n<li><strong>The sandbox.</strong> A <em>sandbox</em> isolates what the agent runs from the rest of the machine. In OpenClaw it is off by default: the main session's tools run on the host, with the user's rights. Once on, it only covers tool execution; the Gateway stays on the host.</li>\n<li><strong>The trust boundary.</strong> The maintainers wrote it in issue #7827, closed on 7 March 2026: OpenClaw follows a personal-assistant model with one trusted operator, not isolation between several users. For shared or public use, they recommend additional hardening.</li>\n<li><strong>Runtime and versions.</strong> Since 2026.10.6, dated 22 October 2026, OpenClaw requires Node 24.22.1 or later, or 26.12.1 or later, while the README still cites 24.16 or 26.1. Versions follow each other within days, and some break configurations.</li>\n<li><strong>Support.</strong> The foundation sells neither a hosted offer nor support. Operations rest on you, or on a provider.</li>\n</ul>\n<p><strong>Dated note, 24 October 2026.</strong> Stable version: 2026.10.7, released that same day; \"2.0\" is therefore no longer the latest. These markers change fast: we reread the releases page at scoping. The detailed workings and the hardening checklist are in our <a href=\"/ressources/guides/openclaw\">OpenClaw guide</a>; this page describes the service that applies them in your company.</p>\n<p>This offer is the OpenClaw version of our <a href=\"/services/agents-ia-open-source\">open source AI agents</a>, itself part of our <a href=\"/services/agents-ia\">AI agents for business</a>.</p>\n<p>To see the engine up close before committing: <a href=\"/blog/securiser-openclaw-checklist\">Securing OpenClaw: pre-production checklist</a>, <a href=\"/blog/openclaw-2-0-migration-changements\">OpenClaw 2.0: changes and migration</a>.</p>"
     },
     {
@@ -333,7 +326,7 @@
       "kicker_en": "§ Waimia method",
       "h2_fr": "Sécuriser et déployer OpenClaw en cinq étapes",
       "h2_en": "Hardening and deploying OpenClaw in five steps",
-      "intro_fr": "Recommandations de Waimia, tirées du dépôt, des notes de version et de la position des mainteneurs lus le 24 octobre 2026, pas des résultats mesurés. Le cadrage est un sprint à prix fixe ; la suite se chiffre avec vous.",
+      "intro_fr": "Cinq étapes, dans cet ordre. Le cadrage est un sprint à prix fixe, la suite se chiffre avec vous.",
       "intro_en": "Waimia recommendations, drawn from the repository, release notes and the maintainers' position read on 24 October 2026, not measured results. Scoping is a fixed-price sprint; what follows is quoted with you.",
       "steps": [
         {
@@ -349,7 +342,7 @@
           "title_en": "Prepare the machine",
           "meta_fr": "Mise en place",
           "meta_en": "Set-up",
-          "body_fr": "Machine dédiée, compte sans droits d'administration, Node 24.22.1+ ou 26.12.1+, dernière version stable, jamais une bêta. Installation par openclaw onboard --install-daemon, Gateway contrôlée avec openclaw gateway status.",
+          "body_fr": "Machine dédiée, compte sans droits d'administration, Node à jour des correctifs de sécurité, dernière version stable, jamais une bêta. Installation par openclaw onboard --install-daemon, Gateway contrôlée avec openclaw gateway status.",
           "body_en": "Dedicated machine, account without admin rights, Node 24.22.1+ or 26.12.1+, latest stable version, never a beta. Installation with openclaw onboard --install-daemon, Gateway checked with openclaw gateway status."
         },
         {
@@ -442,7 +435,7 @@
       "type": "editorial-prose",
       "background": "paper",
       "maxWidth": "prose",
-      "html_fr": "<h2>Ce que coûte un OpenClaw exploité proprement</h2>\n<p>Le logiciel est gratuit et la fondation ne vend rien : ni offre hébergée, ni support. Le coût réel tient en cinq postes, à poser avant de signer.</p>\n<ul>\n<li><strong>Le modèle.</strong> À l'usage si vous passez par une API ; en matériel si vous faites tourner un modèle local. Nous posons un plafond de dépense chez le fournisseur dès le premier jour.</li>\n<li><strong>La machine.</strong> Un ordinateur ou un serveur dédié, allumé en permanence si l'agent doit répondre à toute heure. Si vous déplacez des sessions vers les workers cloud apparus avec la 2.0, leur hébergement s'ajoute.</li>\n<li><strong>Les services connectés.</strong> Messageries et outils reliés, en général déjà payés ; vérifiez que l'accès par API est inclus.</li>\n<li><strong>L'exploitation.</strong> Lire les notes, tester, mettre à jour, répondre aux alertes : sans éditeur, ce temps est le vôtre ou celui d'un prestataire.</li>\n<li><strong>Notre prestation.</strong> Un sprint de cadrage à prix fixe, puis un temps estimé avec vous et facturé en régie (détail plus bas).</li>\n</ul>\n<p>Pour comparer ces postes avec un agent sur mesure, lisez <a href=\"/ressources/guides/combien-coute-un-agent-ia-pme\">combien coûte un agent IA pour une PME</a>.</p>\n<h2>Vos données : ce qui reste chez vous, ce qui sort</h2>\n<p>D'après le dépôt, l'état, la mémoire et les identifiants restent sur votre matériel, et la télémétrie se limite à une vérification quotidienne de version, sauf si vous acceptez davantage. Sortent en revanche : le texte des demandes, avec une API de modèle ; les messages, qui passent par WhatsApp, Slack, Teams ou la messagerie choisie ; l'espace de travail d'une session déplacée vers un worker cloud. Le reste du dossier (base légale, registre, contrats, transferts hors de l'Union) suit notre <a href=\"/ressources/guides/rgpd-agents-ia-checklist\">checklist RGPD des agents IA</a>. Ce n'est pas un avis juridique.</p>\n<h3>Ce que rapportent des sources tierces, à vérifier</h3>\n<p>Selon la presse (infoq.com, therundown.ai, decrypt.co), l'installateur de la 2.0 détecte un accès ChatGPT ou Claude déjà présent sur la machine : raison de plus pour installer OpenClaw sur une machine dédiée, sans les comptes personnels de quiconque. Selon un article, la session partagée de la 2.0 n'a ni frontière réseau ni frontière de fichiers. Selon des guides tiers, des extensions malveillantes ont été publiées sur ClawHub, la place de marché des extensions, avant un durcissement de la plateforme, et certaines protections sont livrées désactivées. Nous n'avons pas de source primaire sur ces points : ils sont à vérifier auprès du projet, mais ils suffisent à justifier nos règles (extensions de source connue, sessions partagées laissées de côté, chaque réglage contrôlé plutôt que supposé).</p>\n<h2>Combien de temps</h2>\n<p>Quelques jours de cadrage, puis quelques semaines pour un premier agent utile, selon le nombre de canaux et d'outils. Le premier périmètre est volontairement étroit : une instance, un canal appairé, des connecteurs en lecture seule, un mois de journal relu avant d'ouvrir l'écriture.</p>\n<h2>OpenClaw, Hermes Agent ou un agent sur mesure</h2>\n<p>OpenClaw n'est pas toujours la bonne réponse. Si vous cherchez un agent qui capitalise sa méthode (une mémoire consultable, des skills qu'il écrit après les tâches complexes) et un bac à sable mis en avant par le projet, regardez notre <a href=\"/services/integration-hermes-agent\">intégration Hermes Agent</a>. Hermes annonce d'ailleurs, depuis sa v0.22.5, une migration depuis OpenClaw : commencer sur OpenClaw n'est pas un cul-de-sac. Le <a href=\"/ressources/comparatifs/hermes-agent-vs-openclaw\">comparatif Hermes Agent ou OpenClaw</a> les départage critère par critère. Pour un agent qui répond à vos clients, un agent sur mesure construit sur l'API de Claude, avec notre <a href=\"/services/integration-claude\">intégration Claude</a>, est plus sûr. Et si la règle est fixe, une <a href=\"/services/automatisation-n8n\">automatisation n8n</a> coûte moins cher. Le point de départ reste l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>.</p>",
+      "html_fr": "<h2>Ce que coûte un OpenClaw exploité proprement</h2>\n<p>Le logiciel est gratuit et la fondation ne vend rien. Le coût réel tient en cinq postes, à poser avant de signer.</p>\n<ul>\n<li>Le modèle se paie à l'usage si vous passez par une API, en matériel si vous faites tourner un modèle local. Nous posons un plafond de dépense chez le fournisseur dès le premier jour.</li>\n<li>La machine : un ordinateur ou un serveur dédié, allumé en permanence si l'agent doit répondre à toute heure. Déplacer des sessions vers les workers cloud apparus avec la 2.0 ajoute leur hébergement.</li>\n<li>Les services connectés : messageries et outils reliés, en général déjà payés. Vérifiez que l'accès par API est inclus.</li>\n<li>L'exploitation : lire les notes, tester, mettre à jour, répondre aux alertes. Sans éditeur, ce temps est le vôtre ou celui d'un prestataire.</li>\n<li>Notre prestation : un sprint de cadrage à prix fixe, puis un temps estimé avec vous et facturé en régie (détail plus bas).</li>\n</ul>\n<p>Pour comparer ces postes avec un agent sur mesure, lisez <a href=\"/ressources/guides/combien-coute-un-agent-ia-pme\">combien coûte un agent IA pour une PME</a>.</p>\n<h2>Vos données : ce qui reste chez vous, ce qui sort</h2>\n<p>D'après le dépôt, l'état, la mémoire et les identifiants restent sur votre matériel, et la télémétrie se limite à une vérification quotidienne de version, sauf si vous acceptez davantage. Sortent en revanche le texte des demandes, avec une API de modèle ; les messages, qui passent par WhatsApp, Slack, Teams ou la messagerie choisie ; l'espace de travail d'une session déplacée vers un worker cloud. Le reste du dossier (base légale, registre, contrats, transferts hors de l'Union) suit notre <a href=\"/ressources/guides/rgpd-agents-ia-checklist\">checklist RGPD des agents IA</a>. Ce n'est pas un avis juridique.</p>\n<p>Nos règles tiennent en trois lignes : une machine dédiée, sans les comptes personnels de quiconque ; des extensions de source connue ; chaque réglage contrôlé plutôt que supposé.</p>\n<h2>Combien de temps</h2>\n<p>Le sprint de cadrage installe déjà OpenClaw sur une machine dédiée, avec un bac à sable vérifié, un canal appairé et un connecteur en lecture seule. Il faut ensuite quelques semaines pour un premier agent utile en production, selon le nombre de canaux et d'outils : c'est le pilote, la mise en production du premier agent, chiffrée plus bas. Le premier périmètre reste étroit : une instance, un canal, des connecteurs en lecture seule, un mois de journal relu avant d'ouvrir l'écriture.</p>\n<h2>OpenClaw, Hermes Agent ou un agent sur mesure</h2>\n<p>OpenClaw n'est pas toujours la bonne réponse. Vous cherchez un agent qui capitalise sa méthode, avec une mémoire consultable et des skills qu'il écrit après les tâches complexes, et un bac à sable mis en avant par le projet ? Regardez notre <a href=\"/services/integration-hermes-agent\">intégration Hermes Agent</a>. Hermes documente d'ailleurs une migration depuis OpenClaw : commencer sur OpenClaw n'est pas un cul-de-sac. Le <a href=\"/ressources/comparatifs/hermes-agent-vs-openclaw\">comparatif Hermes Agent ou OpenClaw</a> les départage critère par critère. Pour un agent qui répond à vos clients, je préfère un agent sur mesure construit sur l'API de Claude, avec notre <a href=\"/services/integration-claude\">intégration Claude</a> : il s'expose moins. Et si la règle est fixe, une <a href=\"/services/automatisation-n8n\">automatisation n8n</a> coûte moins cher. Le point de départ reste l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>.</p>",
       "html_en": "<h2>What a properly run OpenClaw costs</h2>\n<p>The software is free and the foundation sells nothing: no hosted offer, no support. The real cost comes down to five items, to set out before signing.</p>\n<ul>\n<li><strong>The model.</strong> Pay-as-you-go through an API; hardware if you run a local model. We set a spending cap at the provider from day one.</li>\n<li><strong>The machine.</strong> A dedicated computer or server, always on if the agent must answer at any hour. If you move sessions to the cloud workers introduced with 2.0, their hosting comes on top.</li>\n<li><strong>Connected services.</strong> Messaging apps and connected tools, usually already paid for; check that API access is included.</li>\n<li><strong>Operations.</strong> Reading notes, testing, updating, responding to alerts: with no vendor, that time is yours or a provider's.</li>\n<li><strong>Our service.</strong> A fixed-price scoping sprint, then time estimated with you and billed on a time and materials basis (details below).</li>\n</ul>\n<p>To compare these items with a custom agent, read <a href=\"/ressources/guides/combien-coute-un-agent-ia-pme\">how much an AI agent costs an SMB</a>.</p>\n<h2>Your data: what stays with you, what leaves</h2>\n<p>According to the repository, state, memory and credentials stay on your hardware, and telemetry is limited to a daily version check unless you opt in to more. Leaving, on the other hand: the text of requests, with a model API; messages, which pass through WhatsApp, Slack, Teams or the chosen app; the workspace of a session moved to a cloud worker. The rest of the file (legal basis, register, contracts, transfers outside the EU) follows our <a href=\"/ressources/guides/rgpd-agents-ia-checklist\">GDPR checklist for AI agents</a>. This is not legal advice.</p>\n<h3>What third-party sources report, to be checked</h3>\n<p>According to the press (infoq.com, therundown.ai, decrypt.co), the 2.0 installer detects ChatGPT or Claude access already present on the machine: one more reason to install OpenClaw on a dedicated machine, without anyone's personal accounts. According to one article, the 2.0 shared session has neither a network nor a file boundary. According to third-party guides, malicious extensions were published on ClawHub, the extension marketplace, before the platform was hardened, and some protections ship switched off. We have no primary source on these points: they must be checked with the project, but they are enough to justify our rules (extensions from known sources, shared sessions left aside, every setting checked rather than assumed).</p>\n<h2>How long</h2>\n<p>A few days of scoping, then a few weeks for a first useful agent, depending on the number of channels and tools. The first scope is deliberately narrow: one instance, one paired channel, read-only connectors, a month of log reviewed before write access opens.</p>\n<h2>OpenClaw, Hermes Agent or a custom agent</h2>\n<p>OpenClaw is not always the right answer. If you want an agent that builds up its method (a searchable memory, skills it writes after complex tasks) and a sandbox the project puts forward, look at our <a href=\"/services/integration-hermes-agent\">Hermes Agent integration</a>. Since its v0.22.5, Hermes also announces a migration from OpenClaw: starting on OpenClaw is not a dead end. The <a href=\"/ressources/comparatifs/hermes-agent-vs-openclaw\">Hermes Agent vs OpenClaw comparison</a> weighs them criterion by criterion. For an agent that answers your customers, a custom agent built on the Claude API, through our <a href=\"/services/integration-claude\">Claude integration</a>, is safer. And if the rule is fixed, an <a href=\"/services/automatisation-n8n\">n8n automation</a> costs less. The starting point remains the <a href=\"/audit-ia-pme\">free AI audit</a>.</p>"
     },
     {
@@ -488,7 +481,7 @@
       "kicker_en": "§ Two ways to engage",
       "h2_fr": "Prix de l'intégration d'OpenClaw",
       "h2_en": "Price of an OpenClaw integration",
-      "lede_fr": "On démarre par un sprint de cadrage à prix fixe : la frontière de confiance fixée, le choix du moteur confirmé, et OpenClaw installé et durci sur un premier périmètre. La suite se fait sur devis : on estime ensemble le temps nécessaire, vous validez, on l'exécute en sprints en régie. Votre agent, vos accès et la documentation restent à vous.",
+      "lede_fr": "On commence par un sprint de cadrage à prix fixe : la frontière de confiance fixée, le choix du moteur confirmé, OpenClaw installé et durci sur un premier périmètre. Vient ensuite le pilote.",
       "lede_en": "We start with a fixed-price scoping sprint: the trust boundary set, the engine choice confirmed, and OpenClaw installed and hardened on a first scope. What follows is quoted: we estimate the time together, you approve it, we deliver it in time-and-materials sprints. Your agent, your access and the documentation stay yours.",
       "tiers": [
         {
@@ -518,14 +511,14 @@
           "featured": true
         },
         {
-          "name_fr": "Suite sur devis",
+          "name_fr": "Pilote, puis la suite",
           "name_en": "Next steps on quote",
           "price": "Sur devis",
           "period_fr": "estimé avec vous · HT",
           "period_en": "estimated with you · ex VAT",
           "features_fr": [
-            "Temps nécessaire estimé ensemble, puis validé",
-            "Exécuté en sprints, facturés en régie",
+            "Pilote : mise en production du premier agent, dès {{prix.pilote}} € HT",
+            "Ensuite {{prix.horaire}} € HT de l'heure, temps estimé et validé avant chaque sprint",
             "Canaux et connecteurs ajoutés, mises à jour testées sur preuve",
             "Vous gardez l'agent, les accès et la documentation"
           ],
@@ -536,14 +529,14 @@
             "You keep the agent, access and documentation"
           ],
           "cta": {
-            "label_fr": "Cadrer la suite →",
+            "label_fr": "Cadrer la mise en production →",
             "label_en": "Scope what follows →",
             "href": "/contact?offer=integration-openclaw&intent=suite",
             "variant": "ghost"
           }
         }
       ],
-      "footnote_fr": "La suite est facturée en régie, à {{prix.horaire}} € HT de l'heure, sans dégressivité. Le logiciel OpenClaw est gratuit (licence MIT) ; l'usage du modèle, la machine et les services connectés sont facturés par leurs fournisseurs et estimés avant le lancement. Pas d'abonnement, pas de captivité : votre agent, vos accès et la documentation restent à vous.",
+      "footnote_fr": "Le logiciel OpenClaw est gratuit ; le modèle, la machine et les services connectés sont facturés par leurs fournisseurs, et nous les estimons avant le lancement. Pas d'abonnement, pas de captivité : votre agent, vos accès et la documentation restent à vous.",
       "footnote_en": "What follows is billed on a time and materials basis, at {{prix.horaire}} € ex VAT an hour, with no volume discount. The OpenClaw software is free (MIT licence); model usage, the machine and connected services are billed by their providers and estimated before launch. No subscription, no lock-in: your agent, your access and the documentation stay yours."
     },
     {
@@ -575,7 +568,7 @@
       "items": [
         {
           "q_fr": "Combien coûte l'intégration d'OpenClaw ?",
-          "a_fr": "Le logiciel est gratuit, sous licence MIT, et la fondation qui le gouverne ne vend rien. La prestation démarre par un sprint de cadrage à {{prix.sprint}} € HT pour 10 heures : frontière de confiance fixée, installation durcie sur un premier périmètre. La suite est estimée avec vous, puis facturée en régie à {{prix.horaire}} € HT de l'heure. S'ajoutent le modèle, la machine et les services connectés, estimés avant le lancement.",
+          "a_fr": "Le logiciel est gratuit (licence MIT) et la fondation qui le gouverne ne vend rien. La prestation démarre par un sprint de cadrage à {{prix.sprint}} € HT pour 10 heures : frontière de confiance fixée, installation durcie sur un premier périmètre. La mise en production se fait avec le pilote, dès {{prix.pilote}} € HT, puis {{prix.horaire}} € HT de l'heure. S'ajoutent le modèle, la machine et les services connectés, estimés avant le lancement.",
           "q_en": "How much does an OpenClaw integration cost?",
           "a_en": "The software is free, under the MIT licence, and the foundation that governs it sells nothing. The service starts with a scoping sprint at €{{prix.sprint.en}} excl. VAT for 10 hours: trust boundary set, hardened installation on a first scope. What follows is estimated with you, then billed on a time and materials basis at €{{prix.horaire}} per hour excl. VAT. Add the model, the machine and connected services, estimated before launch."
         },
@@ -587,19 +580,19 @@
         },
         {
           "q_fr": "Le sandbox d'OpenClaw est-il activé par défaut ?",
-          "a_fr": "Non. Sans configuration, les outils de la session principale tournent sur la machine hôte, avec les droits de l'utilisateur qui fait tourner OpenClaw. Les mainteneurs présentent ce choix comme un comportement documenté. Une fois activé, le bac à sable ne couvre que l'exécution des outils : la Gateway reste sur l'hôte. Nous l'activons dès l'installation et nous le prouvons par une commande de test qui ne doit pas voir les fichiers de l'hôte.",
+          "a_fr": "Non. Sans configuration, les outils de la session principale tournent sur la machine hôte, avec les droits de l'utilisateur qui fait tourner OpenClaw. Les mainteneurs assument ce comportement documenté. Activé, le bac à sable ne couvre que l'exécution des outils : la Gateway reste sur l'hôte. Nous l'activons dès l'installation et nous le prouvons par une commande de test qui ne doit pas voir les fichiers de l'hôte.",
           "q_en": "Is the OpenClaw sandbox on by default?",
           "a_en": "No. Without configuration, the main session's tools run on the host machine, with the rights of the user running OpenClaw. The maintainers present this as documented behaviour. Once switched on, the sandbox only covers tool execution: the Gateway stays on the host. We switch it on at installation and prove it with a test command that must not see the host's files."
         },
         {
           "q_fr": "Pouvez-vous installer OpenClaw pour nous ?",
-          "a_fr": "Oui. Le démarrage tient en trois commandes (openclaw onboard --install-daemon, openclaw gateway status, openclaw dashboard), mais il faut d'abord un Node corrigé : 24.22.1 ou plus, ou 26.12.1 ou plus depuis la version 2026.10.6. Nous installons la dernière version stable, jamais une bêta, sur une machine dédiée qui vous appartient, puis nous appliquons le durcissement. Accès, réglages et documentation vous sont remis.",
+          "a_fr": "Oui. Le démarrage tient en trois commandes (openclaw onboard --install-daemon, openclaw gateway status, openclaw dashboard), mais il faut d'abord un Node à jour des correctifs de sécurité. Nous installons la dernière version stable, jamais une bêta, sur une machine dédiée qui vous appartient, puis nous appliquons le durcissement. Accès, réglages et documentation vous sont remis.",
           "q_en": "Can you install OpenClaw for us?",
           "a_en": "Yes. Getting started takes three commands (openclaw onboard --install-daemon, openclaw gateway status, openclaw dashboard), but first you need a patched Node: 24.22.1 or later, or 26.12.1 or later since version 2026.10.6. We install the latest stable version, never a beta, on a dedicated machine that belongs to you, then apply the hardening. Access, settings and documentation are handed over."
         },
         {
           "q_fr": "Peut-on partager un agent OpenClaw entre plusieurs collègues ?",
-          "a_fr": "Avec prudence. Les mainteneurs décrivent un assistant personnel avec un seul opérateur de confiance (issue n° 7827) : chaque personne qui écrit à l'agent peut l'amener à agir avec les droits de cet opérateur. Nous recommandons une instance par frontière de confiance, par exemple une par équipe. Selon un article de presse, la session partagée de la 2.0 n'a ni frontière réseau ni frontière de fichiers : nous ne l'activons pas sans vérification.",
+          "a_fr": "Avec prudence. Les mainteneurs décrivent un assistant personnel avec un seul opérateur de confiance : chaque personne qui écrit à l'agent peut l'amener à agir avec les droits de cet opérateur. Nous recommandons une instance par frontière de confiance, par exemple une par équipe, jamais un agent commun à toute l'entreprise.",
           "q_en": "Can an OpenClaw agent be shared between several colleagues?",
           "a_en": "With care. The maintainers describe a personal assistant with a single trusted operator (issue #7827): anyone who writes to the agent can get it to act with that operator's rights. We recommend one instance per trust boundary, for example one per team. According to a press article, the 2.0 shared session has neither a network nor a file boundary: we do not switch it on without checking."
         },
@@ -611,13 +604,13 @@
         },
         {
           "q_fr": "Qui assure le support d'OpenClaw ?",
-          "a_fr": "Personne ne le vend : OpenClaw est gouverné par l'OpenClaw Foundation, une association indépendante sans offre payante. Le support vient donc de vous ou d'un prestataire. C'est ce que couvre notre régie : lecture des notes de version, mises à jour testées, réponse aux alertes d'openclaw security audit, correction des configurations cassées. Ce n'est pas une garantie d'éditeur, et nous l'écrivons dans le contrat.",
+          "a_fr": "Personne ne le vend : OpenClaw est gouverné par l'OpenClaw Foundation, une association indépendante sans offre payante, et le support officiel passe par la communauté du projet. Le support vient donc de vous ou d'un prestataire. C'est ce que couvre notre régie : lecture des notes de version, mises à jour testées, réponse aux alertes d'openclaw security audit, correction des configurations cassées. Ce n'est pas une garantie d'éditeur, et nous l'écrivons dans le contrat.",
           "q_en": "Who provides OpenClaw support?",
           "a_en": "Nobody sells it: OpenClaw is governed by the OpenClaw Foundation, an independent non-profit with no paid offer. Support therefore comes from you or a provider. That is what our time and materials work covers: reading release notes, tested updates, responding to openclaw security audit alerts, fixing broken configurations. It is not a vendor warranty, and we write that into the contract."
         },
         {
           "q_fr": "Comment se passent les mises à jour d'OpenClaw ?",
-          "a_fr": "Avec un test avant chaque passage. Le projet numérote ses versions par date et publie souvent : 2026.10.6 le 22 octobre, 2026.10.7 le 24. Certaines versions cassent des configurations : la 2.0 a supprimé /prose et imposé la migration de références de modèles par openclaw doctor --fix. Nous lisons les notes, testons hors production, lançons doctor --fix si nécessaire et security audit après chaque mise à jour.",
+          "a_fr": "Avec un test avant chaque passage. Le projet numérote ses versions par date et en publie souvent, et certaines cassent des configurations. Nous lisons les notes, testons hors production, lançons openclaw doctor --fix quand un changement incompatible l'exige, puis security audit après chaque mise à jour.",
           "q_en": "How do OpenClaw updates work?",
           "a_en": "With a test before each one. The project numbers versions by date and ships often: 2026.10.6 on 22 October, 2026.10.7 on the 24th. Some versions break configurations: 2.0 removed /prose and required model references to be migrated with openclaw doctor --fix. We read the notes, test outside production, run doctor --fix if needed and security audit after each update."
         }

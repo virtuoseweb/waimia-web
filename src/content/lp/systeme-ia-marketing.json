@@ -5,7 +5,7 @@
   "description_en": "Your team loses its hours on the repetitive? We map your tasks and hand the right ones to supervised AI workflows and agents. Free 45-min audit.",
   "slug": "systeme-ia-marketing",
   "publishedAt": "2026-07-17T00:00:00.000Z",
-  "updatedAt": "2026-07-17T00:00:00.000Z",
+  "updatedAt": "2026-11-11T00:00:00.000Z",
   "category": "automatisation",
   "tags": [
     "systeme-ia-marketing",
@@ -28,19 +28,13 @@
       "kicker_en": "§ AI systems for marketing teams",
       "h1_fr": "Votre équipe n'a pas besoin d'un chatbot de plus. Elle a besoin d'un système qui <i class=\"acc\">exécute le travail répétitif</i>.",
       "h1_en": "Your team doesn't need one more chatbot. It needs a system that <i class=\"acc\">runs the repetitive work</i>.",
-      "lede_fr": "On cartographie vos tâches répétitives, puis on confie les bonnes à des workflows et des agents IA supervisés, branchés à vos outils via MCP. Un workflow pour ce qui est réglé, un agent pour ce qui demande du jugement. Vous gardez le contrôle : chaque action sensible reste humaine, tout est tracé. L'audit de départ : 45 minutes, gratuit, sans engagement.",
+      "lede_fr": "Chaque semaine, votre équipe déplace de l'information d'un outil à l'autre. Nous cartographions ces tâches répétitives, puis nous confions les bonnes à des workflows et à des agents IA supervisés, branchés à vos outils via MCP : un workflow pour ce qui est réglé, un agent pour ce qui demande du jugement. Chaque action sensible reste humaine et tout est tracé. Le point de départ est un audit gratuit de 45 minutes, sans engagement.",
       "lede_en": "We map your repetitive tasks, then hand the right ones to supervised AI workflows and agents, wired to your tools via MCP. A workflow for what's settled, an agent for what needs judgement. You keep control: every sensitive action stays human, everything is traced. The starting audit: 45 minutes, free, no commitment.",
       "cta_primary": {
         "label_fr": "Cartographier les tâches à automatiser →",
         "label_en": "Map the tasks to automate →",
         "href": "/contact?offer=audit-ia-pme&intent=audit",
         "variant": "primary"
-      },
-      "cta_secondary": {
-        "label_fr": "Explorer les cas d'usage",
-        "label_en": "Explore the use cases",
-        "href": "#cas-usage",
-        "variant": "ghost"
       }
     },
     {
@@ -50,8 +44,8 @@
       "kicker_en": "§ At a glance",
       "metrics": [
         {
-          "value": "Dès {{prix.sprint}} €",
-          "label_fr": "sprint de cadrage de 10 h · suite sur devis",
+          "value": "10 h",
+          "label_fr": "sprint de cadrage à prix fixe, suite sur devis",
           "label_en": "10-h scoping sprint · next steps on quote",
           "emphasis": true
         },
@@ -70,10 +64,7 @@
           "label_fr": "journal, alertes sur échec, arrêt possible",
           "label_en": "logged, failure alerts, stoppable"
         }
-      ],
-      "link_label_fr": "Évaluer ma maturité IA →",
-      "link_label_en": "Assess my AI maturity →",
-      "link_href": "/ressources/diagnostics/maturite-ia"
+      ]
     },
     {
       "type": "pain-severity-list",
@@ -87,7 +78,7 @@
           "severity": "critical",
           "title_fr": "La ressaisie entre outils",
           "title_en": "Retyping between tools",
-          "desc_fr": "La même donnée recopiée du mail au CRM, du CRM au tableur, du tableur à la facturation. Chaque copier-coller est une erreur en puissance et une heure perdue.",
+          "desc_fr": "La même donnée recopiée du mail au CRM, du CRM au tableur, du tableur à la facturation. Chaque copier-coller coûte une heure et ouvre la porte à une erreur.",
           "desc_en": "The same data recopied from email to CRM, CRM to spreadsheet, spreadsheet to billing. Every copy-paste is an error waiting to happen and an hour lost.",
           "fix_fr": "Un workflow qui fait circuler la donnée.",
           "fix_en": "A workflow that flows the data through."
@@ -96,7 +87,7 @@
           "severity": "high",
           "title_fr": "Le process qui tient sur une personne",
           "title_en": "The process that rests on one person",
-          "desc_fr": "Une seule personne sait comment faire, et le jour où elle s'absente, tout s'arrête. Le savoir n'est pas dans le système, il est dans sa tête.",
+          "desc_fr": "Une seule personne sait faire, et le jour où elle s'absente, tout s'arrête. Le savoir n'est pas dans le système : il est dans sa tête.",
           "desc_en": "One person knows how it's done, and the day they're away, everything stops. The knowledge isn't in the system, it's in their head.",
           "fix_fr": "La tâche codée en workflow partagé.",
           "fix_en": "The task coded into a shared workflow."
@@ -174,7 +165,7 @@
       "kicker_en": "§ The use cases",
       "h2_fr": "Ce qu'un système <i class=\"acc\">exécute</i> chez vous.",
       "h2_en": "What a system <i class=\"acc\">executes</i> for you.",
-      "lede_fr": "On active les cas qui servent votre besoin, pas un catalogue. Chaque cas a un déclencheur, une sortie utile, et un humain qui valide ce qui compte.",
+      "lede_fr": "On active les cas qui servent votre besoin, pas un catalogue. Chacun a un déclencheur, une sortie utile et un humain qui valide ce qui compte.",
       "lede_en": "We activate the cases that serve your need, not a catalogue. Each case has a trigger, a useful output, and a human who validates what matters.",
       "header_cta_label_fr": "Cartographier les tâches à automatiser →",
       "header_cta_label_en": "Map the tasks to automate →",
@@ -195,25 +186,25 @@
         {
           "title_fr": "Production de campagne",
           "title_en": "Campaign production",
-          "body_fr": "Du brief à la publication : production, puis vérification marque et légal avant que quoi que ce soit parte. La validation reste humaine.",
+          "body_fr": "Du brief à la publication : production, puis vérification marque et légal avant que quoi que ce soit parte.",
           "body_en": "From brief to publish: production, then brand and legal checks before anything goes out. Validation stays human."
         },
         {
           "title_fr": "Synthèse d'appels",
           "title_en": "Call synthesis",
-          "body_fr": "Un agent résume vos appels et entretiens, extrait les objections, met à jour la fiche CRM. Fini les notes qui se perdent.",
+          "body_fr": "Un agent résume vos appels et entretiens, extrait les objections et met à jour la fiche CRM. Plus de notes perdues.",
           "body_en": "An agent summarises your calls and interviews, extracts objections, updates the CRM record. No more notes that get lost."
         },
         {
           "title_fr": "Reporting et anomalies",
           "title_en": "Reporting and anomalies",
-          "body_fr": "Vos données multi-sources recolées, les anomalies repérées, un commentaire en clair, un rapport prêt le lundi matin, pas refait à la main.",
+          "body_fr": "Vos données multi-sources recollées, les anomalies repérées, un commentaire en clair : le rapport est prêt le lundi matin, sans retouche à la main.",
           "body_en": "Your multi-source data pulled together, anomalies spotted, a plain-language comment, a report ready Monday morning, not redone by hand."
         },
         {
           "title_fr": "Relances et tri",
           "title_en": "Follow-ups and sorting",
-          "body_fr": "Devis sans réponse relancés, emails entrants triés, formulaires qualifiés et routés dans le CRM, sous supervision.",
+          "body_fr": "Les devis sans réponse sont relancés, les e-mails entrants triés, les formulaires qualifiés et routés dans le CRM, sous supervision.",
           "body_en": "Unanswered quotes followed up, inbound email sorted, forms qualified and routed into the CRM, under supervision."
         }
       ]
@@ -275,7 +266,7 @@
       "fig_title_en": "A marketing workflow, end to end",
       "h2_fr": "Où la machine agit, où <i class=\"acc\">vous</i> gardez la main.",
       "h2_en": "Where the machine acts, where <i class=\"acc\">you</i> keep control.",
-      "lede_fr": "Les étapes ne sont pas toutes automatiques. Certaines sont faites par le système, d'autres assistées, d'autres validées par un humain. Le circuit montre exactement lesquelles.",
+      "lede_fr": "Toutes les étapes ne sont pas automatiques : le système en fait certaines, en assiste d'autres, et un humain valide les dernières. Le circuit montre lesquelles.",
       "lede_en": "Not all steps are automatic. Some are done by the system, some assisted, some validated by a human. The circuit shows exactly which.",
       "steps": [
         {
@@ -325,7 +316,7 @@
       "kicker_en": "§ Deliverables",
       "title_fr": "Ce que vous récupérez concrètement.",
       "title_en": "What you get concretely.",
-      "lead_fr": "Vous gardez le code, les agents, les accès et la doc quand on part. Pas de captivité.",
+      "lead_fr": "Vous gardez le code, les agents, les accès et la documentation quand nous partons. Pas de captivité.",
       "lead_en": "You keep the code, the agents, the access and the docs when we leave. No lock-in.",
       "items": [
         {
@@ -339,7 +330,7 @@
         {
           "title_fr": "Premier workflow ou agent",
           "title_en": "First workflow or agent",
-          "body_fr": "Une tâche mise en production, branchée à vos outils, pas une maquette.",
+          "body_fr": "Une tâche qui tourne sur vos outils, pas une maquette.",
           "body_en": "One task put into production, wired to your tools, not a mockup.",
           "format_fr": "CODE + LIVE",
           "format_en": "CODE + LIVE"
@@ -385,9 +376,9 @@
       "fig_num": "Fig. 05",
       "fig_title_fr": "Cas clients",
       "fig_title_en": "Client cases",
-      "spec_fr": "Cas clients · résultats réels",
+      "spec_fr": "Cas clients",
       "spec_en": "Client cases · real results",
-      "h2_fr": "Trois PME, le répétitif passé en système.",
+      "h2_fr": "Deux projets : le routage des demandes et la production de contenu passés en système",
       "h2_en": "Three SMEs, the repetitive turned into a system.",
       "case_label_fr": "CAS",
       "case_label_en": "CASE",
@@ -398,11 +389,11 @@
       "cases": [
         {
           "client": "Amploi · groupe Vigiscope",
-          "sector_fr": "Externalisation RH",
+          "sector_fr": "RH et santé au travail",
           "sector_en": "HR outsourcing",
           "duration": "6 sem.",
           "stack": "CRM HubSpot · Capture · Routage",
-          "impact_fr": "Formulaires branchés HubSpot avec capture et routage des demandes : la saisie et le routage des contacts, avant manuels, passent en flux automatique dans le CRM.",
+          "impact_fr": "Formulaires branchés à HubSpot : les demandes arrivent dans le CRM sans saisie manuelle et sans information perdue.",
           "impact_en": "HubSpot-connected forms with request capture and routing: contact entry and routing, previously manual, move into an automatic flow in the CRM.",
           "href": "/cas-clients/amploi",
           "media_src": "/images/illustrations/ds/super-girl-paper.webp",
@@ -411,34 +402,18 @@
         },
         {
           "client": "Les Carnets de Montpellier",
-          "sector_fr": "Média local",
+          "sector_fr": "Patrimoine et média local",
           "sector_en": "Local media",
           "duration": "6 sem.",
-          "stack": "Pipeline IA · Création · SEO",
-          "impact_fr": "Production éditoriale répétitive assistée par un pipeline IA : 40 articles publiés, 150 membres, 35 abonnés payants et top 10 Google local en 3 mois.",
+          "stack": "Agent IA · Notion · RAG",
+          "impact_fr": "Un système de création de contenu automatisé et un agent sur Notion, sur un site lancé de zéro : plus de 40 articles publiés en trois mois.",
           "impact_en": "Repetitive editorial production assisted by an AI pipeline: 40 articles, 150 members, 35 paying subscribers and a top-10 local Google ranking in 3 months.",
           "href": "/cas-clients/les-carnets-de-montpellier",
           "media_src": "/images/illustrations/ds/woman-and-people-paper.webp",
           "media_alt_fr": "Une communauté qui se rassemble autour d'un média local et de ses abonnés.",
           "media_alt_en": "A community gathering around a local media outlet and its subscribers."
-        },
-        {
-          "client": "Balzeo",
-          "sector_fr": "E-commerce écoresponsable",
-          "sector_en": "Eco-friendly e-commerce",
-          "duration": "8 sem.",
-          "stack": "Refonte · Back-office · Maintenance",
-          "impact_fr": "Refonte et simplification du back-office : coût de maintenance réduit de 84 % et temps de chargement divisé par deux, le temps d'exploitation rendu aux équipes.",
-          "impact_en": "Rebuild and back-office simplification: maintenance cost cut by 84% and load time halved, operating time given back to the teams.",
-          "href": "/cas-clients/balzeo",
-          "media_src": "/images/illustrations/ds/shopify-boutique-en-coupe-paper.webp",
-          "media_alt_fr": "Une boutique en coupe : la salle de vente et la réserve de la boutique écoresponsable refondue.",
-          "media_alt_en": "A shop in cross-section: the sales floor and stockroom of the rebuilt eco-friendly store."
         }
-      ],
-      "all_label_fr": "Voir tous les cas →",
-      "all_label_en": "See all cases →",
-      "all_href": "/cas-clients"
+      ]
     },
     {
       "type": "pricing-cards",
@@ -447,9 +422,9 @@
       "colRatio": "2-3",
       "kicker_fr": "§ Deux façons d'engager",
       "kicker_en": "§ Two ways to engage",
-      "h2_fr": "Une offre, deux manières d'avancer.",
+      "h2_fr": "Un sprint à prix fixe, puis la suite chiffrée avec vous.",
       "h2_en": "One offer, two ways forward.",
-      "lede_fr": "On démarre par un sprint de cadrage à prix fixe : cadrage de la tâche prioritaire et un premier workflow ou agent prototypé et testé. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth. Vous gardez vos agents, vos accès et la documentation.",
+      "lede_fr": "Nous démarrons par un sprint de cadrage : la tâche prioritaire cadrée et un premier workflow ou agent prototypé et testé sur vos données. La suite se chiffre avec vous, vous validez, puis nous avançons par sprints.",
       "lede_en": "We start with a fixed-price scoping sprint: scoping of the priority task and a first workflow or agent prototyped and tested. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the growth retainer frame. You keep your agents, your access and the documentation.",
       "tiers": [
         {
@@ -460,7 +435,7 @@
           "period_en": "10 h · ex VAT",
           "features_fr": [
             "Cadrage de la tâche prioritaire",
-            "Un premier workflow ou agent branché via MCP et mis en production",
+            "Un premier workflow ou agent branché via MCP, prototypé et testé sur vos données",
             "Supervision posée",
             "Un livrable qui tourne, pas une maquette"
           ],
@@ -486,7 +461,7 @@
           "period_en": "estimated with you · ex VAT",
           "features_fr": [
             "Temps nécessaire estimé ensemble, puis validé",
-            "Exécuté en sprints, cadre régie growth",
+            "Exécuté en sprints, à l'heure",
             "Nouveaux agents déployés et supervisés",
             "Vous gardez agents, accès et documentation"
           ],
@@ -497,14 +472,14 @@
             "You keep agents, access and documentation"
           ],
           "cta": {
-            "label_fr": "Cadrer la suite →",
+            "label_fr": "Cartographier les tâches à automatiser →",
             "label_en": "Scope what follows →",
             "href": "/contact?offer=audit-ia-pme&intent=audit",
             "variant": "ghost"
           }
         }
       ],
-      "footnote_fr": "Le sprint de cadrage est à prix fixe, {{prix.sprint}} € HT pour 10 heures : cadrage de la tâche prioritaire et un premier workflow ou agent prototypé et testé sur vos données. La suite se cale sur devis : on estime ensemble le temps que demandent les agents suivants, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth, à {{prix.horaire}} € de l'heure, non dégressif. Si la base du système est un outil ou une application à construire, elle démarre à un socle de départ borné (2 000, 4 000, 7 000 ou 10 000 € HT selon le périmètre). Sans abonnement ni captivité : à la fin, vos agents, vos accès et la documentation sont à vous.",
+      "footnote_fr": "La suite se facture {{prix.horaire}} € HT de l'heure, non dégressif, sur un temps que nous estimons ensemble et que vous validez. Si la base du système est un outil ou une application à construire, elle démarre dès 2 000 € HT selon le périmètre. Sans abonnement ni captivité.",
       "footnote_en": "The scoping sprint is fixed-price, {{prix.sprint.en}} € ex VAT for 10 hours: scoping of the priority task and a first workflow or agent prototyped and tested on your data. What follows is quoted: we estimate together the time the next agents require, validate it, then run it in sprints within the growth retainer frame, at {{prix.horaire}} € an hour, non-degressive. If the base of the system is a tool or an application to build, it starts from a bounded starting figure (2,000, 4,000, 7,000 or 10,000 € ex VAT by scope). No subscription, no lock-in: at the end, your agents, your access and the documentation are yours."
     },
     {
@@ -514,25 +489,25 @@
         {
           "title_fr": "Vous gardez le contrôle",
           "title_en": "You keep control",
-          "body_fr": "Chaque action sensible passe par une validation humaine. L'IA propose, vous tranchez, tout est tracé et l'arrêt est possible à tout moment.",
+          "body_fr": "L'IA propose, vous tranchez, et vous pouvez tout arrêter à tout moment.",
           "body_en": "Every sensitive action goes through a human validation. The AI proposes, you decide, everything is traced and a stop is possible at any time."
         },
         {
           "title_fr": "Vos données restent chez vous",
           "title_en": "Your data stays with you",
-          "body_fr": "Socle hébergé sur une infra que vous contrôlez, accès par rôle. Rien ne part dans un outil tiers opaque.",
+          "body_fr": "Le socle est hébergé sur une infrastructure que vous contrôlez, avec des accès par rôle. Rien ne part dans un outil tiers opaque.",
           "body_en": "Base hosted on infrastructure you control, role-based access. Nothing goes into an opaque third-party tool."
         },
         {
           "title_fr": "Agents et code transférables",
           "title_en": "Agents and code transferable",
-          "body_fr": "Tout est documenté, ouvert, transférable. On forme un référent, vous n'êtes captif d'aucun prestataire.",
+          "body_fr": "Tout est documenté, ouvert, transférable. Nous formons un référent chez vous : aucun prestataire ne vous tient captif.",
           "body_en": "Everything documented, open, transferable. We train a referent, you're captive to no vendor."
         },
         {
           "title_fr": "Mesuré, avant et après",
           "title_en": "Measured, before and after",
-          "body_fr": "On observe la baseline, on définit les cibles, on mesure ce que le système rend après la mise en prod. Pas de boîte noire.",
+          "body_fr": "Nous relevons la situation de départ, fixons les cibles, puis mesurons ce que le système rend après la mise en production. Pas de boîte noire.",
           "body_en": "We observe the baseline, define the targets, measure what the system gives back after go-live. No black box."
         }
       ]
@@ -549,13 +524,13 @@
         {
           "q_fr": "L'IA remplace-t-elle mon équipe ?",
           "q_en": "Does the AI replace my team?",
-          "a_fr": "Non. Un agent prend la part répétitive et chronophage d'une tâche, pour rendre du temps à vos équipes sur ce qui demande du jugement. L'objectif n'est pas de retirer des personnes, c'est de retirer des heures de saisie et de relance manuelle.",
+          "a_fr": "Non. Un agent prend la part répétitive et chronophage d'une tâche pour rendre du temps à vos équipes sur ce qui demande du jugement. Le but n'est pas de retirer des personnes, c'est de retirer des heures de saisie et de relance manuelle.",
           "a_en": "No. An agent takes over the repetitive, time-consuming part of a task, to give your teams back time for what needs judgement. The goal isn't to remove people, it's to remove hours of manual entry and follow-up."
         },
         {
           "q_fr": "L'IA prend-elle des décisions à ma place ?",
           "q_en": "Does the AI make decisions for me?",
-          "a_fr": "Non. Chaque action sensible passe par une validation humaine. L'IA propose, vous tranchez. Le périmètre de ce que l'agent a le droit de faire est posé dès le départ, et tout est tracé : journaux consultables, arrêt possible à tout moment.",
+          "a_fr": "Non. L'IA propose, vous tranchez. Le périmètre de ce que l'agent a le droit de faire est posé dès le départ, et vous consultez les journaux quand vous voulez.",
           "a_en": "No. Every sensitive action goes through a human validation. The AI proposes, you decide. The scope of what the agent may do is set from the start, and everything is traced: readable logs, a stop possible at any time."
         },
         {
@@ -567,31 +542,31 @@
         {
           "q_fr": "Claude ou OpenAI, lequel choisissez-vous ?",
           "q_en": "Claude or OpenAI, which one do you choose?",
-          "a_fr": "Le choix du modèle arrive après l'analyse. La techno suit la contrainte de données, de qualité, de coût et de gouvernance. On se branche sur ce que vous utilisez déjà via API ou MCP, on ne casse pas ce qui marche.",
+          "a_fr": "Je ne choisis pas le modèle avant d'avoir analysé la tâche : la contrainte de données, la qualité attendue, le coût et la gouvernance décident. Nous nous branchons sur ce que vous utilisez déjà, via API ou MCP, sans casser ce qui marche.",
           "a_en": "The model choice comes after the analysis. The tech follows the constraint of data, quality, cost and governance. We wire onto what you already use via API or MCP, we don't break what works."
         },
         {
           "q_fr": "Et si le modèle se trompe ?",
           "q_en": "And if the model gets it wrong?",
-          "a_fr": "On pose des points de contrôle, des alertes sur échec et une supervision. Un workflow qui casse en silence, vous ne le voyez pas ; le nôtre vous prévient. Sur les actions à risque, un humain valide avant que ça parte.",
+          "a_fr": "Nous posons des points de contrôle, des alertes sur échec et une supervision. Un workflow qui casse en silence, vous ne le voyez pas ; le nôtre vous prévient. Sur les actions à risque, un humain valide avant l'envoi.",
           "a_en": "We put in checkpoints, failure alerts and supervision. A workflow that breaks silently is one you never see; ours warns you. On risky actions, a human validates before anything goes out."
         },
         {
           "q_fr": "Qui maintient le système une fois livré ?",
           "q_en": "Who maintains the system once delivered?",
-          "a_fr": "Vous gardez la main. On documente chaque workflow et agent, ses permissions et ses connexions MCP, et on forme un référent chez vous. Ajuster une relance ou élargir un périmètre se fait en interne, sans nous.",
+          "a_fr": "Vous gardez la main. Nous documentons chaque workflow et chaque agent, avec ses permissions et ses connexions MCP, et nous formons un référent chez vous. Ajuster une relance ou élargir un périmètre se fait en interne, sans nous.",
           "a_en": "You keep control. We document each workflow and agent, its permissions and its MCP connections, and we train a referent in-house. Adjusting a follow-up or widening a scope happens internally, without us."
         },
         {
-          "q_fr": "Combien de temps avant un premier pilote ?",
+          "q_fr": "Combien de temps avant un premier workflow en production ?",
           "q_en": "How long before a first pilot?",
-          "a_fr": "Le cadrage prend quelques jours, le premier workflow ou agent utile sort en quelques semaines selon le périmètre, pas en trimestres. On commence par la tâche qui coûte le plus de temps, on la met en production, on la mesure, puis on étend.",
+          "a_fr": "Le cadrage prend quelques jours, le premier workflow ou agent utile sort en quelques semaines selon le périmètre, pas en trimestres. Je commence par la tâche qui coûte le plus de temps, pas par la plus impressionnante : nous la mettons en production, nous la mesurons, puis nous étendons.",
           "a_en": "Scoping takes a few days, the first useful workflow or agent ships in a few weeks depending on scope, not quarters. We start with the task that costs the most time, put it into production, measure it, then extend."
         },
         {
           "q_fr": "L'audit nous appartient-il si on ne poursuit pas ?",
           "q_en": "Is the audit ours if we don't continue?",
-          "a_fr": "Oui. Vous repartez avec la cartographie écrite de vos tâches et un ou deux chantiers classés, qu'on travaille ensemble ou non.",
+          "a_fr": "Oui. Vous repartez avec la cartographie écrite de vos tâches et un ou deux chantiers classés, que nous travaillions ensemble ou non.",
           "a_en": "Yes. You leave with a written map of your tasks and one or two ranked projects, whether we work together or not."
         }
       ]
@@ -607,7 +582,7 @@
       "kicker_en": "§ Ready to sort the work?",
       "h2_fr": "Identifions les tâches qui méritent un système, et celles qui doivent <i class=\"acc\">rester humaines</i>.",
       "h2_en": "Let's identify the tasks worth a system, and the ones that must <i class=\"acc\">stay human</i>.",
-      "subtitle_fr": "45 minutes, gratuit, sans engagement : on cartographie vos tâches répétitives et on les priorise par le temps qu'elles brûlent. Vous repartez avec un ou deux chantiers classés. En face, un seul interlocuteur, le fondateur qui conçoit et supervise, pas un pool de sous-traitants.",
+      "subtitle_fr": "Nous cartographions vos tâches répétitives et les classons par le temps qu'elles brûlent. Vous repartez avec un ou deux chantiers classés. En face de vous, le fondateur, qui conçoit et supervise lui-même.",
       "subtitle_en": "45 minutes, free, no commitment: we map your repetitive tasks and prioritise them by the time they burn. You leave with one or two ranked projects. Across the table, one contact, the founder who designs and supervises, not a pool of subcontractors.",
       "buttons": [
         {

@@ -6,12 +6,13 @@
 // Ne jamais présenter cet exemple comme un cas client.
 //
 // La partie « site web et logiciel » (`auditWebSection`) est une section catalogue
-// `editorial-prose` construite ici pour porter la promesse canonique AUDIT_PROMISE.web
-// (src/data/conversion.ts) sans la recopier, ancrée sur AUDIT_WEB_ANCHOR.
+// `editorial-prose` construite ici, ancrée sur AUDIT_WEB_ANCHOR. L'EN reprend la promesse
+// AUDIT_PROMISE.web (src/data/conversion.ts) ; le FR l'écrit à la main (voix humaine, 11 novembre
+// 2026) pour ne pas redire « gratuit, sans engagement » déjà dit plus haut dans la page.
 
 import type { SectionByType } from '@waimia/ds-kernel';
 import { AUDIT_PROMISE, AUDIT_WEB_ANCHOR } from './conversion';
-import { SCOPING_SPRINT_EUR, SCOPING_SPRINT_HOURS, formatEur, formatEurEn } from './pricing';
+import { SCOPING_SPRINT_EUR, SCOPING_SPRINT_HOURS, PILOT_FLOOR_EUR, formatEur, formatEurEn } from './pricing';
 
 export interface TaskRow {
   task: string;
@@ -163,7 +164,7 @@ export const after = [
   },
   {
     title: 'Si un chantier se dégage, un devis',
-    body: "Périmètre, délai et prix écrits pour le premier chantier. La méthode ensuite : un pilote mis en production sur un périmètre réduit, une mesure avant et après, puis le transfert du code et de la documentation à vos équipes.",
+    body: `Périmètre, délai et prix écrits pour le premier chantier. La suite type : un pilote, premier système mis en production sur un périmètre réduit (dès ${formatEur(PILOT_FLOOR_EUR)} HT, sur devis), une mesure avant et après, puis le transfert du code et de la documentation à vos équipes.`,
   },
   {
     title: "Si ce n'est pas le moment, on le dit",
@@ -190,19 +191,11 @@ export const auditWebSection = {
   html_fr: [
     "<h2>Un site web ou un logiciel sur mesure : le même audit</h2>",
     "<p>Waimia développe aussi des sites web et des logiciels sur mesure. Si votre sujet est un site à créer, refondre ou reprendre, ou un outil que le tableur ou le logiciel du marché ne tient plus, l'audit garde le même cadre.</p>",
-    `<p>${AUDIT_PROMISE.web.medium.fr}</p>`,
+    "<p>On regarde votre site, ou le circuit que votre outil actuel ne tient plus, et on vous dit s'il faut le corriger, le refaire, le développer sur mesure ou prendre un outil du marché. Vous repartez avec un ou deux chantiers classés.</p>",
     "<h3>Ce qu'on regarde sur un site</h3>",
-    "<ul>",
-    "<li><strong>Le trajet d'une demande.</strong> Du formulaire de votre site jusqu'à la personne qui la traite, et ce qui se passe après l'envoi.</li>",
-    "<li><strong>La plateforme.</strong> Webflow, WordPress, Shopify ou site codé, et si sa structure bloque votre équipe.</li>",
-    "<li><strong>La vitesse sur mobile</strong>, sur votre site réel, pas sur une maquette.</li>",
-    "</ul>",
+    "<p>Le trajet d'une demande, du formulaire de votre site jusqu'à la personne qui la traite, et ce qui se passe après l'envoi. La plateforme (Webflow, WordPress, Shopify ou site codé) et la question de savoir si sa structure bloque votre équipe. La vitesse sur mobile, mesurée sur votre site réel et non sur une maquette.</p>",
     "<h3>Ce qu'on regarde sur un outil métier</h3>",
-    "<ul>",
-    "<li><strong>Le circuit qui coûte le plus de ressaisie.</strong> Qui saisit quoi, dans quel outil, et combien de fois la même information est recopiée.</li>",
-    "<li><strong>L'outil en place.</strong> Le tableur partagé, le logiciel du marché ou les modules de votre ERP ou de votre CRM, et l'endroit où il ne suit plus.</li>",
-    "<li><strong>Ce qui existe déjà sur le marché</strong> pour ce besoin, avant de parler de développement.</li>",
-    "</ul>",
+    "<p>D'abord le circuit qui coûte le plus de ressaisie : qui saisit quoi, dans quel outil, et combien de fois la même information est recopiée. Ensuite l'outil en place, tableur partagé, logiciel du marché ou modules de votre ERP ou de votre CRM, et l'endroit où il ne suit plus. Enfin ce qui existe déjà sur le marché pour ce besoin, avant tout développement.</p>",
     "<h3>Le verdict</h3>",
     "<ul>",
     "<li><strong>Corriger.</strong> La structure tient : on corrige l'existant, sans refaire le design.</li>",
@@ -210,7 +203,7 @@ export const auditWebSection = {
     "<li><strong>Développer sur mesure.</strong> Quand le circuit est propre à votre métier et que le tableur ou le logiciel du marché ne suit plus.</li>",
     "<li><strong>Prendre un outil du marché.</strong> Quand un outil existant couvre le circuit sans contournement. C'est moins cher, et on vous le dit.</li>",
     "</ul>",
-    `<p>Le prix vient d'un devis écrit après l'audit. Quand le périmètre n'est pas clair, un sprint de cadrage de ${sprintFr} fixe le périmètre, le planning et les jalons avant signature. Le détail des offres est sur les pages <a href="/services/site-web-ia">création et refonte de site web</a> et <a href="/services/applications-internes">application métier sur mesure</a> ; pour examiner le référencement d'un site en entier, voir l'<a href="/services/audit-seo-technique">audit SEO technique</a>.</p>`,
+    `<p>Le prix vient d'un devis écrit après l'audit. Quand le périmètre reste flou, un sprint de cadrage (${sprintFr}, prix fixe) arrête le périmètre, le planning et les jalons avant signature. Le détail des offres est sur les pages <a href="/services/site-web-ia">création et refonte de site web</a> et <a href="/services/applications-internes">application métier sur mesure</a> ; pour examiner le référencement d'un site en entier, voir l'<a href="/services/audit-seo-technique">audit SEO technique</a>.</p>`,
   ].join('\n'),
   html_en: [
     "<h2>A website or custom software: the same audit</h2>",

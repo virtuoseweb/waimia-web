@@ -7,7 +7,7 @@
   "description_en": "Mistral AI integration with your business tools: when a European or self-hosted model is the right choice, when Claude fits better. From €{{prix.sprint.en}} excl. VAT.",
   "slug": "integration-mistral-ai",
   "publishedAt": "2026-10-12T00:00:00.000Z",
-  "updatedAt": "2026-10-12",
+  "updatedAt": "2026-11-11",
   "category": "claude",
   "tags": [
     "integration-mistral-ai",
@@ -49,7 +49,7 @@
     },
     {
       "q": "Peut-on garder les données en Europe avec Mistral AI ?",
-      "a": "Deux voies. Un modèle téléchargé et hébergé par vous ou chez un hébergeur de votre choix : vos données restent là où vous le faites tourner. Ou le service hébergé par l'éditeur : la localisation se lit au contrat et dans la liste de ses sous-traitants, et l'addendum de traitement lu le 12 octobre 2026 autorise des transferts hors Espace économique européen sous garanties. On fait écrire la réponse avant de signer."
+      "a": "Deux voies. Un modèle téléchargé et hébergé par vous ou chez un hébergeur de votre choix : vos données restent là où vous le faites tourner. Ou le service hébergé par l'éditeur : la localisation se lit au contrat et dans la liste de ses sous-traitants, et l'addendum de traitement de l'éditeur autorise des transferts hors Espace économique européen sous garanties. Nous faisons écrire la réponse avant de signer."
     },
     {
       "q": "Mistral AI ou Claude : lequel est meilleur ?",
@@ -57,7 +57,7 @@
     },
     {
       "q": "Combien coûte une intégration de Mistral AI ?",
-      "a": "La conception démarre par un sprint de cadrage à {{prix.sprint}} € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure selon le nombre d'outils à connecter. S'ajoute l'usage du modèle, facturé par l'éditeur au volume, ou le coût de vos machines si le modèle est auto-hébergé : on l'estime sur vos volumes avant de choisir."
+      "a": "Le sprint de cadrage coûte {{prix.sprint}} € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure selon le nombre d'outils à connecter. S'ajoute l'usage du modèle, facturé par l'éditeur au volume, ou le coût de vos machines si le modèle est auto-hébergé : nous l'estimons sur vos volumes avant de choisir."
     },
     {
       "q": "Faut-il auto-héberger un modèle ?",
@@ -69,7 +69,7 @@
     },
     {
       "q": "Avez-vous des réalisations publiées sur Mistral AI ?",
-      "a": "Non : nos réalisations publiées tournent sur Claude. Nous le disons pour que vous pesiez ce critère. C'est pourquoi le test sur vos propres documents tient lieu de preuve : il montre ce que le modèle fait sur votre tâche, pas ce qu'il a fait chez un autre."
+      "a": "Non : nos réalisations publiées tournent sur Claude, et nous vous le disons pour que vous pesiez ce critère. Le test sur vos propres documents tient donc lieu de preuve : il montre ce que le modèle fait sur votre tâche, pas ce qu'il a fait chez un autre."
     }
   ],
   "faq_en": [
@@ -116,7 +116,7 @@
       "kicker_en": "§ Mistral AI integration",
       "h1_fr": "Intégrer <i class=\"acc\">Mistral AI</i> à vos outils métier",
       "h1_en": "Integrating <i class=\"acc\">Mistral AI</i> with your business tools",
-      "lede_fr": "Un modèle européen peut être le bon choix, ou pas. Waimia intègre Mistral AI à vos outils métier quand les critères le justifient, vous dit quand Claude convient mieux, et reste réversible : consignes et tests dans vos fichiers.",
+      "lede_fr": "« Européen » ne dit rien de vos données. Nous lisons le contrat de Mistral AI, testons le modèle sur vos documents et vous disons s'il faut l'intégrer à vos outils ou si Claude suffit. Dans les deux cas, consignes et tests restent dans vos fichiers : vous pouvez changer de modèle.",
       "lede_en": "A European model can be the right choice, or not. Waimia integrates Mistral AI with your business tools when the criteria justify it, tells you when Claude fits better, and stays reversible: instructions and tests in your files.",
       "badges": [
         {
@@ -157,7 +157,7 @@
       "metrics": [
         {
           "value": "{{prix.sprint}} € HT",
-          "label_fr": "sprint de cadrage de 10 h, puis {{prix.horaire}} € HT de l'heure",
+          "label_fr": "sprint de cadrage de 10 h, à prix fixe",
           "label_en": "10-hour scoping sprint, then €{{prix.horaire}} per hour excl. VAT",
           "emphasis": true
         },
@@ -186,7 +186,7 @@
       "background": "paper",
       "kicker_fr": "§ Définition",
       "kicker_en": "§ Definition",
-      "statement_fr": "L'<i class=\"acc\">intégration de Mistral AI</i> consiste à brancher un modèle de cet éditeur français à vos outils métier, par son API ou en l'hébergeant vous-même, avec les consignes écrites, les droits limités et le journal d'un agent classique. Le modèle se choisit sur des critères écrits : où tournent vos données, ce que dit le contrat, la qualité sur votre tâche, le coût d'usage, la possibilité de changer.",
+      "statement_fr": "L'<i class=\"acc\">intégration de Mistral AI</i> branche un modèle de cet éditeur français à vos outils métier, par son API ou hébergé chez vous, avec les consignes écrites, les droits limités et le journal d'un agent classique. Le modèle se choisit sur des critères écrits : où tournent vos données, ce que dit le contrat, la qualité sur votre tâche, le coût d'usage, la possibilité de changer.",
       "statement_en": "<i class=\"acc\">Mistral AI integration</i> means connecting a model from this French vendor to your business tools, through its API or by hosting it yourself, with the written instructions, limited rights and log of any agent. The model is chosen on written criteria: where your data runs, what the contract says, quality on your task, running cost, the ability to switch.",
       "pills": [
         {
@@ -237,7 +237,7 @@
           "side": "right"
         }
       ],
-      "html_fr": "<h2>Ce que recouvre « intégrer Mistral AI »</h2>\n<p>Mistral AI est un éditeur français de modèles de langage, constitué à Paris (sa <a href=\"https://legal.mistral.ai/terms/privacy-policy\" rel=\"noopener\" target=\"_blank\">politique de confidentialité</a>, en vigueur au 27 juillet 2026, le précise). L'intégrer à vos outils, c'est faire ce que nous faisons avec n'importe quel modèle : le brancher à vos logiciels, avec des consignes écrites, des droits limités et un journal. Deux voies, aux conséquences différentes sur vos données. Le service hébergé par l'éditeur, appelé par son API. Ou un modèle publié en téléchargement, que vous faites tourner sur votre infrastructure ou chez l'hébergeur de votre choix, sous la licence du modèle : elle se lit modèle par modèle avant tout usage en entreprise.</p>\n<h2>Ce qu'« européen » ne garantit pas</h2>\n<p>Un éditeur français n'est pas, par lui-même, une réponse à « où sont mes données et que devient-il d'elles ». Ce qu'on a lu le 12 octobre 2026 dans l'<a href=\"https://legal.mistral.ai/terms/data-processing-addendum\" rel=\"noopener\" target=\"_blank\">addendum de traitement des données</a> de l'éditeur, en vigueur au 27 juillet 2026, se résume ainsi. Mistral y agit comme sous-traitant pour vos données personnelles. Il est autorisé à s'en servir pour entraîner ses modèles, sauf si le client a exercé son refus. Les retours par pouce haut ou bas et les échanges associés servent à l'entraînement.</p>\n<p>L'addendum permet aussi les transferts vers des pays hors Espace économique européen, sous garanties ou clauses types. La liste des sous-traitants est publiée sur le Trust Center de Mistral. Le <a href=\"https://help.mistral.ai/en/articles/347617\" rel=\"noopener\" target=\"_blank\">centre d'aide</a>, daté du 31 août 2026, précise que le réglage par défaut dépend de l'offre.</p>\n<p>Rien de cela n'est rédhibitoire : c'est un contrat à lire et des réglages à vérifier, comme chez n'importe quel éditeur. Mais « européen » ne se présume pas en garantie. Avant de choisir, on écrit ce que vous exigez (éditeur, lieu de traitement, absence d'entraînement) et on vérifie chaque point dans le contrat. Le guide <a href=\"/ressources/guides/claude-rgpd-pme\">Claude et RGPD en PME</a> donne la méthode (registre, analyse d'impact, données à ne pas envoyer) ; elle vaut quel que soit le modèle. Le <a href=\"/ressources/guides/ai-act-pme-calendrier\">calendrier de l'AI Act</a> dit ce qui s'applique à une PME qui utilise l'IA.</p>\n<h2>L'auto-hébergement : le coût caché</h2>\n<p>Un modèle que vous faites tourner chez vous garde les données chez vous. Il vous en confie aussi l'exploitation : machines, mises à jour, supervision, sécurité, et quelqu'un qui sait le faire. Pour une PME sans équipe technique, c'est souvent plus de temps que l'API d'un éditeur sous un bon contrat. Il se justifie quand une règle interdit que les données partent, ou quand un très gros volume stable amortit l'infrastructure.</p>\n<h2>Avec quels outils</h2>\n<p>Le modèle est appelé par l'API de l'éditeur ou par votre propre serveur, depuis un workflow <a href=\"/services/automatisation-n8n\">n8n</a> ou du code. Le standard MCP pour brancher vos outils dépend du modèle et du client visés : on le vérifie avant de promettre un connecteur, et on prévoit sinon une intégration par API.</p>\n<h2>Combien de temps</h2>\n<p>Quelques jours pour écrire la contrainte et lire le contrat, quelques semaines pour un premier cas d'usage branché, test compris. Le temps part dans la comparaison sur vos documents, pas dans la connexion.</p>\n<h2>Ce qui peut mal tourner</h2>\n<p>Une qualité moindre sur votre domaine ou votre langue de travail : elle se mesure, elle ne se suppose pas. Un modèle qui change de version et se comporte autrement : le jeu de test se rejoue. Une dépendance à une seule fonction propriétaire : on préfère des fonctions communes. Et un modèle auto-hébergé que plus personne ne met à jour.</p>\n<p>Cette page est une déclinaison de l'<a href=\"/services/integration-claude\">intégration de Claude</a>, notre outillage par défaut, et du cadre général des <a href=\"/services/agents-ia\">agents IA</a>. Si votre objectif est de remplir et qualifier un pipeline commercial, le modèle compte moins que le <a href=\"/services/systeme-acquisition\">système d'acquisition</a> qui l'entoure. Le comparatif <a href=\"/ressources/comparatifs/mistral-vs-claude-pme\">Mistral AI ou Claude</a> chiffre les prix et les réglages de données critère par critère. Pour trancher sur votre cas, commencez par l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>.</p>",
+      "html_fr": "<h2>Ce que recouvre « intégrer Mistral AI »</h2>\n<p>Mistral AI est un éditeur français de modèles de langage, constitué à Paris, comme le précise sa <a href=\"https://legal.mistral.ai/terms/privacy-policy\" rel=\"noopener\" target=\"_blank\">politique de confidentialité</a> (en vigueur au 27 juillet 2026). L'intégrer à vos outils, c'est faire ce que nous faisons avec n'importe quel modèle, Claude compris (notre <a href=\"/ressources/guides/claude-pme\">guide pour déployer Claude en PME</a> en détaille la méthode) : le brancher à vos logiciels, avec des consignes écrites, des droits limités et un journal. Deux voies, aux conséquences différentes sur vos données. Le service hébergé par l'éditeur, appelé par son API. Ou un modèle publié en téléchargement, que vous faites tourner sur votre infrastructure ou chez l'hébergeur de votre choix, sous la licence du modèle : elle se lit modèle par modèle avant tout usage en entreprise.</p>\n<h2>Ce qu'« européen » ne garantit pas</h2>\n<p>Un éditeur français n'est pas, par lui-même, une réponse à « où sont mes données et que deviennent-elles ». Selon l'<a href=\"https://legal.mistral.ai/terms/data-processing-addendum\" rel=\"noopener\" target=\"_blank\">addendum de traitement des données</a> de l'éditeur, en vigueur au 27 juillet 2026, Mistral y agit comme sous-traitant pour vos données personnelles. Il est autorisé à s'en servir pour entraîner ses modèles, sauf si le client a exercé son refus ; les retours par pouce haut ou bas et les échanges associés servent à l'entraînement.</p>\n<p>L'addendum permet aussi les transferts vers des pays hors Espace économique européen, sous garanties ou clauses types. La liste des sous-traitants est publiée sur le Trust Center de Mistral, et le <a href=\"https://help.mistral.ai/en/articles/347617\" rel=\"noopener\" target=\"_blank\">centre d'aide</a> précise que le réglage par défaut dépend de l'offre.</p>\n<p>Rien de cela n'est rédhibitoire : c'est un contrat à lire et des réglages à vérifier, comme chez n'importe quel éditeur. Mais « européen » ne se présume pas en garantie. Avant de choisir, nous écrivons ce que vous exigez (éditeur, lieu de traitement, absence d'entraînement) et nous vérifions chaque point dans le contrat. Le guide <a href=\"/ressources/guides/claude-rgpd-pme\">Claude et RGPD en PME</a> donne la méthode (registre, analyse d'impact, données à ne pas envoyer) ; elle vaut quel que soit le modèle. Le <a href=\"/ressources/guides/ai-act-pme-calendrier\">calendrier de l'AI Act</a> dit ce qui s'applique à une PME qui utilise l'IA.</p>\n<h2>L'auto-hébergement : le coût caché</h2>\n<p>Un modèle qui tourne chez vous garde les données chez vous, et vous en confie l'exploitation : machines, mises à jour, supervision, sécurité, et quelqu'un qui sait le faire. Pour une PME sans équipe technique, c'est souvent plus de temps que l'API d'un éditeur sous un bon contrat. L'auto-hébergement se justifie quand une règle interdit que les données partent, ou quand un très gros volume stable amortit l'infrastructure.</p>\n<h2>Avec quels outils</h2>\n<p>Le modèle est appelé par l'API de l'éditeur ou par votre propre serveur, depuis un workflow <a href=\"/services/automatisation-n8n\">n8n</a> ou du code. Le standard MCP, qui sert à brancher vos outils, dépend du modèle et du client visés : nous le vérifions avant de promettre un connecteur, et nous prévoyons sinon une intégration par API.</p>\n<h2>Combien de temps</h2>\n<p>Le temps part dans la comparaison sur vos documents, pas dans la connexion. Si le test justifie Mistral AI, le premier cas d'usage se branche dans le sprint de cadrage ; les suivants se chiffrent avec vous avant de démarrer.</p>\n<h2>Ce qui casse en premier</h2>\n<ul>\n<li>La qualité sur votre domaine ou votre langue de travail : elle se mesure, elle ne se suppose pas.</li>\n<li>Le changement de version : un modèle qui se comporte autrement se repère en rejouant le jeu de test.</li>\n<li>La dépendance à une fonction propriétaire : nous préférons les fonctions communes.</li>\n<li>Le modèle auto-hébergé que plus personne ne met à jour.</li>\n</ul>\n<p>Nous déployons Claude par défaut (voir l'<a href=\"/services/integration-claude\">intégration de Claude</a>), et l'intégration de Mistral AI suit la même méthode, dans le cadre des <a href=\"/services/agents-ia\">agents IA</a>. Le comparatif <a href=\"/ressources/comparatifs/mistral-vs-claude-pme\">Mistral AI ou Claude</a> chiffre les prix et les réglages de données critère par critère. Pour trancher sur votre cas, commencez par l'<a href=\"/audit-ia-pme\">audit IA gratuit</a>.</p>",
       "html_en": "<h2>What \"integrating Mistral AI\" covers</h2>\n<p>Mistral AI is a French vendor of language models, incorporated in Paris (its <a href=\"https://legal.mistral.ai/terms/privacy-policy\" rel=\"noopener\" target=\"_blank\">privacy policy</a>, effective 27 July 2026, says so). Integrating it with your tools means doing what we do with any model: connecting it to your software, with written instructions, limited rights and a log. Two routes, with different consequences for your data. The vendor-hosted service, called through its API. Or a model published for download, which you run on your infrastructure or with a provider of your choice, under the model's licence: read it model by model before any business use.</p>\n<h2>What \"European\" does not guarantee</h2>\n<p>A French vendor is not, in itself, an answer to \"where is my data and what becomes of it\". What we read on 12 October 2026 in the vendor's <a href=\"https://legal.mistral.ai/terms/data-processing-addendum\" rel=\"noopener\" target=\"_blank\">data processing addendum</a>, effective 27 July 2026, comes down to this. Mistral acts there as a processor for your personal data. It is authorised to use it to train its models unless the customer has opted out. Thumbs-up or thumbs-down feedback and the associated exchanges are used for training.</p>\n<p>The addendum also allows transfers to countries outside the EEA, under safeguards or standard clauses. The sub-processor list is published on Mistral's Trust Center. Mistral's <a href=\"https://help.mistral.ai/en/articles/347617\" rel=\"noopener\" target=\"_blank\">help centre</a>, dated 31 August 2026, states that the default setting depends on the plan.</p>\n<p>None of this is a deal-breaker: it is a contract to read and settings to check, as with any vendor. But \"European\" must not be presumed to be a guarantee. Before choosing, we write down what you require (vendor, place of processing, no training) and check each point in the contract. The guide <a href=\"/ressources/guides/claude-rgpd-pme\">Claude and GDPR for SMBs</a> gives the method (register, impact assessment, data not to send); it applies whatever the model. The <a href=\"/ressources/guides/ai-act-pme-calendrier\">AI Act calendar</a> says what applies to an SMB that uses AI.</p>\n<h2>Self-hosting: the hidden cost</h2>\n<p>A model you run at home keeps data at home. It also hands you its operation: machines, updates, monitoring, security, and someone who knows how. For an SMB with no technical team, that is often more time than a vendor's API under a good contract. It is justified when a rule forbids data from leaving, or when a very high, steady volume pays for the infrastructure.</p>\n<h2>With which tools</h2>\n<p>The model is called through the vendor's API or your own server, from an <a href=\"/services/automatisation-n8n\">n8n</a> workflow or code. Whether the MCP standard can connect your tools depends on the model and client targeted: we check before promising a connector, and plan an API integration otherwise.</p>\n<h2>How long</h2>\n<p>A few days to write the constraint and read the contract, a few weeks for a first connected use case, test included. Time goes into the comparison on your documents, not into the connection.</p>\n<h2>What can go wrong</h2>\n<p>Lower quality in your domain or working language: it is measured, not assumed. A model that changes version and behaves differently: the test set is replayed. A dependency on one proprietary feature: we prefer common ones. And a self-hosted model nobody updates any more.</p>\n<p>This page is a variation of <a href=\"/services/integration-claude\">Claude integration</a>, our default tooling, and of the general framework of <a href=\"/services/agents-ia\">AI agents</a>. If your goal is to fill and qualify a sales pipeline, the model matters less than the <a href=\"/services/systeme-acquisition\">acquisition system</a> around it. The <a href=\"/ressources/comparatifs/mistral-vs-claude-pme\">Mistral AI or Claude comparison</a> sets out prices and data settings criterion by criterion. To settle your case, start with the <a href=\"/audit-ia-pme\">free AI audit</a>.</p>"
     },
     {
@@ -247,7 +247,7 @@
       "kicker_en": "§ Criteria",
       "heading_fr": "Les critères qui décident, un par un",
       "heading_en": "The criteria that decide, one by one",
-      "caption_fr": "Lecture de Waimia. Les faits sur Mistral AI viennent de ses documents contractuels lus le 12 octobre 2026 ; ceux sur Claude de nos pages sourcées (comparatif des plateformes, relu les 5 et 6 octobre 2026). Aucun prix ni nom de modèle : ils changent, testez à la date de l'achat.",
+      "caption_fr": "Pas de prix ni de nom de modèle : ils changent trop vite. Les faits sur Mistral AI viennent de ses documents contractuels ; ceux sur Claude, de la documentation d'Anthropic et de notre comparatif des plateformes.",
       "caption_en": "Waimia's reading. Facts on Mistral AI come from its contractual documents read on 12 October 2026; those on Claude from our sourced pages (platform comparison, re-read on 5 and 6 October 2026). No prices or model names: they change, test on the purchase date.",
       "columns_fr": [
         "Critère",
@@ -268,7 +268,7 @@
         [
           "Entraînement sur vos données",
           "Le réglage de l'offre choisie, le refus écrit au contrat, le sort des retours par pouce haut ou bas",
-          "Anthropic écrit ne pas entraîner par défaut sur les données de ses offres commerciales (lu le 6 octobre 2026)"
+          "Anthropic écrit ne pas entraîner par défaut sur les données de ses offres commerciales"
         ],
         [
           "Qualité sur votre tâche",
@@ -332,7 +332,7 @@
       "kicker_en": "§ Choosing without dogma",
       "title_fr": "Quand choisir Mistral AI, quand rester sur Claude",
       "title_en": "When to choose Mistral AI, when to stay on Claude",
-      "aside_fr": "Lecture de Waimia. Nous déployons Claude par défaut, par choix d'outillage. Ce n'est pas un classement : un modèle se choisit sur vos contraintes.",
+      "aside_fr": "Nous déployons Claude par défaut, mais un modèle se choisit sur vos contraintes, pas sur un classement.",
       "aside_en": "Waimia's reading. We deploy Claude by default, as a tooling choice. It is not a ranking: a model is chosen on your constraints.",
       "use_title_fr": "Mistral AI se justifie si",
       "use_title_en": "Mistral AI is justified if",
@@ -374,7 +374,7 @@
       "h2_en": "Typical example: a firm that handles confidential files",
       "without_label_fr": "Avant",
       "without_label_en": "Before",
-      "without_title_fr": "Un choix de modèle fait à la réputation",
+      "without_title_fr": "Un modèle choisi sur sa nationalité",
       "without_title_en": "A model chosen on reputation",
       "without_items": [
         {
@@ -396,7 +396,7 @@
       ],
       "with_label_fr": "Après",
       "with_label_en": "After",
-      "with_title_fr": "Un choix écrit, testé, réversible",
+      "with_title_fr": "Un modèle choisi sur pièces",
       "with_title_en": "A written, tested, reversible choice",
       "with_items": [
         {
@@ -524,7 +524,7 @@
       "kicker_en": "§ Two ways to engage",
       "h2_fr": "Prix d'une intégration de Mistral AI",
       "h2_en": "Price of a Mistral AI integration",
-      "lede_fr": "On démarre par un sprint de cadrage à prix fixe : votre exigence écrite, le contrat lu, un test comparatif sur vos documents et une note de choix. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints en régie. Vous gardez vos consignes, vos accès et la documentation.",
+      "lede_fr": "Nous démarrons par un sprint de cadrage à prix fixe ; la suite se chiffre sur devis. Vous gardez consignes, accès et documentation.",
       "lede_en": "We start with a fixed-price scoping sprint: your requirement written down, the contract read, a comparative test on your documents and a decision note. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the time and materials frame. You keep your instructions, your access and the documentation.",
       "tiers": [
         {
@@ -579,7 +579,7 @@
           }
         }
       ],
-      "footnote_fr": "Le sprint de cadrage est à prix fixe, {{prix.sprint}} € HT pour 10 heures : exigence écrite, contrat lu, test comparatif sur vos documents, note de choix et jeu de test remis. La suite se cale sur devis : on estime ensemble le temps que demandent les cas d'usage à brancher, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € HT de l'heure, non dégressif. L'usage du modèle est facturé par l'éditeur au volume, ou correspond au coût de vos machines si le modèle est auto-hébergé : on l'estime avant de choisir. Sans abonnement ni captivité : à la fin, vos consignes, vos accès et la documentation sont à vous.",
+      "footnote_fr": "La suite s'exécute en sprints en régie, à {{prix.horaire}} € HT de l'heure, non dégressif. L'usage du modèle est facturé par l'éditeur au volume, ou correspond au coût de vos machines si le modèle est auto-hébergé : nous l'estimons avant de choisir. Pas d'abonnement, pas de captivité : à la fin, vos consignes, vos accès et la documentation sont à vous.",
       "footnote_en": "The scoping sprint is fixed-price, €{{prix.sprint.en}} excl. VAT for 10 hours: requirement written down, contract read, comparative test on your documents, decision note and test set delivered. What follows is quoted: we estimate together the time the use cases to connect require, validate it, then run it in sprints within the time and materials frame, at €{{prix.horaire}} excl. VAT an hour, non-degressive. Model usage is billed by the vendor by volume, or equals the cost of your machines if the model is self-hosted: we estimate it before choosing. No subscription, no lock-in: at the end, your instructions, your access and the documentation are yours."
     },
     {
@@ -613,7 +613,7 @@
         },
         {
           "q_fr": "Peut-on garder les données en Europe avec Mistral AI ?",
-          "a_fr": "Deux voies. Un modèle téléchargé et hébergé par vous ou chez un hébergeur de votre choix : vos données restent là où vous le faites tourner. Ou le service hébergé par l'éditeur : la localisation se lit au contrat et dans la liste de ses sous-traitants, et l'addendum de traitement lu le 12 octobre 2026 autorise des transferts hors Espace économique européen sous garanties. On fait écrire la réponse avant de signer.",
+          "a_fr": "Deux voies. Un modèle téléchargé et hébergé par vous ou chez un hébergeur de votre choix : vos données restent là où vous le faites tourner. Ou le service hébergé par l'éditeur : la localisation se lit au contrat et dans la liste de ses sous-traitants, et l'addendum de traitement de l'éditeur autorise des transferts hors Espace économique européen sous garanties. Nous faisons écrire la réponse avant de signer.",
           "q_en": "Can data stay in Europe with Mistral AI?",
           "a_en": "Two routes. A downloaded model hosted by you or by a provider of your choice: your data stays where you run it. Or the vendor-hosted service: location is read in the contract and in its sub-processor list, and the processing addendum read on 12 October 2026 allows transfers outside the European Economic Area under safeguards. We get the answer in writing before signing."
         },
@@ -625,7 +625,7 @@
         },
         {
           "q_fr": "Combien coûte une intégration de Mistral AI ?",
-          "a_fr": "La conception démarre par un sprint de cadrage à {{prix.sprint}} € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure selon le nombre d'outils à connecter. S'ajoute l'usage du modèle, facturé par l'éditeur au volume, ou le coût de vos machines si le modèle est auto-hébergé : on l'estime sur vos volumes avant de choisir.",
+          "a_fr": "Le sprint de cadrage coûte {{prix.sprint}} € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure selon le nombre d'outils à connecter. S'ajoute l'usage du modèle, facturé par l'éditeur au volume, ou le coût de vos machines si le modèle est auto-hébergé : nous l'estimons sur vos volumes avant de choisir.",
           "q_en": "How much does a Mistral AI integration cost?",
           "a_en": "Design starts with a scoping sprint at €{{prix.sprint.en}} excl. VAT for 10 hours, then €{{prix.horaire}} per hour excl. VAT depending on the number of tools to connect. Add model usage, billed by the vendor by volume, or the cost of your machines if the model is self-hosted: we estimate it on your volumes before choosing."
         },
@@ -643,7 +643,7 @@
         },
         {
           "q_fr": "Avez-vous des réalisations publiées sur Mistral AI ?",
-          "a_fr": "Non : nos réalisations publiées tournent sur Claude. Nous le disons pour que vous pesiez ce critère. C'est pourquoi le test sur vos propres documents tient lieu de preuve : il montre ce que le modèle fait sur votre tâche, pas ce qu'il a fait chez un autre.",
+          "a_fr": "Non : nos réalisations publiées tournent sur Claude, et nous vous le disons pour que vous pesiez ce critère. Le test sur vos propres documents tient donc lieu de preuve : il montre ce que le modèle fait sur votre tâche, pas ce qu'il a fait chez un autre.",
           "q_en": "Do you have published work on Mistral AI?",
           "a_en": "No: our published work runs on Claude. We say so for you to weigh that criterion. That is why a test on your own documents stands as proof: it shows what the model does on your task, not what it did elsewhere."
         }

@@ -206,7 +206,7 @@ jobs:
     # Épinglé : `ubuntu-latest` est passé sur Ubuntu 26.04, que Playwright 1.60 ne gère pas
     # (« does not support chromium on ubuntu26.04-x64 »). Revenir à latest quand Playwright le gère.
     runs-on: ubuntu-24.04
-    timeout-minutes: 15
+    timeout-minutes: 25
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -225,8 +225,15 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      # Les dépendances système passent par apt : si les miroirs Ubuntu sont injoignables
+      # (panne DNS du 11/11/2026), l'image du runner a déjà les bibliothèques de Chromium.
+      # On installe alors le navigateur seul ; un manque réel fait échouer les tests E2E.
       - name: Install Playwright (chromium + deps)
-        run: pnpm exec playwright install --with-deps chromium
+        run: |
+          timeout 180 pnpm exec playwright install --with-deps chromium || {
+            echo "::warning::apt indisponible, Chromium installé sans dépendances système"
+            pnpm exec playwright install chromium
+          }
 
       - name: Build
         run: pnpm build

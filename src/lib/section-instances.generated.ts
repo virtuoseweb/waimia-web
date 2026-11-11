@@ -602,7 +602,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "systeme-acquisition",
       "route": "/lp/systeme-acquisition",
       "index": 7,
-      "label": "Trois PME, trois résultats concrets",
+      "label": "Deux PME : la demande captée dans le CRM, la visibilité gagnée sur Google",
       "background": "paper"
     },
     {
@@ -611,7 +611,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "systeme-ia-marketing",
       "route": "/lp/systeme-ia-marketing",
       "index": 8,
-      "label": "Trois PME, le répétitif passé en système.",
+      "label": "Deux projets : le routage des demandes et la production de contenu passés en système",
       "background": "ink"
     },
     {
@@ -620,7 +620,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "visibilite-google-ia",
       "route": "/lp/visibilite-google-ia",
       "index": 8,
-      "label": "Trois PME, trois résultats concrets.",
+      "label": "Deux projets : le SEO local d'un média, la couche GEO d'un site d'entreprise",
       "background": "ink"
     },
     {
@@ -647,7 +647,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "agent-traitement-documents",
       "route": "/services/agent-traitement-documents",
       "index": 7,
-      "label": "Pas de cas de facturation publié : deux projets où l'agent lit, extrait puis passe la main",
+      "label": "Deux projets voisins : un agent qui prépare, une personne qui valide",
       "background": "ink"
     },
     {
@@ -665,7 +665,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "audit-seo-technique",
       "route": "/services/audit-seo-technique",
       "index": 9,
-      "label": "Deux projets où la technique a compté",
+      "label": "Un projet où la vitesse a compté",
       "background": "ink"
     },
     {
@@ -674,7 +674,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "automatisation-reseaux-sociaux",
       "route": "/services/automatisation-reseaux-sociaux",
       "index": 8,
-      "label": "Deux chantiers où du contenu est produit et publié avec l'IA",
+      "label": "Un chantier où le contenu devient des posts publiés avec l'IA",
       "background": "ink"
     },
     {
@@ -692,7 +692,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "back-office-sur-mesure",
       "route": "/services/back-office-sur-mesure",
       "index": 8,
-      "label": "Des outils internes déjà construits, pour le studio",
+      "label": "Waimia OS, l'outil interne que nous construisons pour nous",
       "background": "ink"
     },
     {
@@ -751,20 +751,11 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/applications-internes/portail-client.json",
-      "slug": "portail-client",
-      "route": "/services/portail-client",
-      "index": 9,
-      "label": "Un espace membre déjà livré",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
       "file": "services/seo-geo-contenu/redaction-seo-contenu.json",
       "slug": "redaction-seo-contenu",
       "route": "/services/redaction-seo-contenu",
       "index": 8,
-      "label": "Deux projets où le contenu est au cœur du travail",
+      "label": "Deux sites où le contenu fait le travail",
       "background": "ink"
     },
     {
@@ -773,7 +764,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "referencement-ia",
       "route": "/services/referencement-ia",
       "index": 9,
-      "label": "Deux projets avec une couche GEO",
+      "label": "Deux sites livrés avec une couche GEO",
       "background": "ink"
     },
     {
@@ -800,7 +791,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "shopify",
       "route": "/services/shopify",
       "index": 9,
-      "label": "Aucune boutique Shopify publiée : une migration e-commerce mesurée, et un site livré en 6 semaines",
+      "label": "Notre référence e-commerce, sous WooCommerce : la migration de Balzeo",
       "background": "ink"
     },
     {
@@ -850,20 +841,11 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
-      "file": "services/site-web-ia/webflow.json",
-      "slug": "webflow",
-      "route": "/services/webflow",
-      "index": 8,
-      "label": "Aucune fiche Webflow publiée : un site Astro et une migration WordPress, sur d'autres plateformes",
-      "background": "ink"
-    },
-    {
-      "collection": "services",
       "file": "services/site-web-ia/wordpress.json",
       "slug": "wordpress",
       "route": "/services/wordpress",
       "index": 9,
-      "label": "Deux projets WordPress publiés",
+      "label": "Deux sites WordPress livrés : une boutique migrée, un média payant",
       "background": "ink"
     },
     {
@@ -1119,7 +1101,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "agent-qualification-leads",
       "route": "/services/agent-qualification-leads",
       "index": 4,
-      "label": "Exemple type : les demandes du site d'une PME de services",
+      "label": "Exemple : les demandes du site d'une PME de services",
       "background": "paper"
     },
     {
@@ -1128,7 +1110,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
       "index": 7,
-      "label": "Exemple type : le SAV d'un distributeur B2B",
+      "label": "Exemple : le SAV d'un distributeur B2B",
       "background": "paper"
     },
     {
@@ -1137,7 +1119,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "agent-traitement-documents",
       "route": "/services/agent-traitement-documents",
       "index": 4,
-      "label": "Exemple type : les factures fournisseurs d'une PME de services",
+      "label": "Exemple : les factures fournisseurs d'une PME de services",
       "background": "paper"
     },
     {
@@ -1371,7 +1353,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "referencement-ia",
       "route": "/services/referencement-ia",
       "index": 5,
-      "label": "Pourquoi un passage citable change l'équation",
+      "label": "Une page écrite pour être lue, une page écrite pour être citée",
       "background": "paper-2"
     },
     {
@@ -1380,7 +1362,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "refonte-de-marque",
       "route": "/services/refonte-de-marque",
       "index": 4,
-      "label": "Exemple type : une PME de services de douze ans",
+      "label": "Exemple : un nom, un domaine et un site changés le même jour",
       "background": "paper-2"
     },
     {
@@ -1407,7 +1389,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "seo-local",
       "route": "/services/seo-local",
       "index": 5,
-      "label": "Pourquoi un maillage local change l'équation",
+      "label": "Du pack local au devis",
       "background": "paper-2"
     },
     {
@@ -1416,7 +1398,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "shopify",
       "route": "/services/shopify",
       "index": 5,
-      "label": "Exemple type : une boutique de produits d'entretien",
+      "label": "Exemple : une boutique de produits d'entretien",
       "background": "paper"
     },
     {
@@ -1443,7 +1425,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "sur-mesure-headless",
       "route": "/services/sur-mesure-headless",
       "index": 5,
-      "label": "Exemple type : le site d'une société de conseil industriel",
+      "label": "Exemple : le site d'une société de conseil industriel",
       "background": "paper"
     },
     {
@@ -1479,7 +1461,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "webflow",
       "route": "/services/webflow",
       "index": 5,
-      "label": "Exemple type : le site d'un cabinet d'architectes",
+      "label": "Exemple : le site d'un cabinet d'architectes",
       "background": "paper"
     },
     {
@@ -1488,7 +1470,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "wordpress",
       "route": "/services/wordpress",
       "index": 5,
-      "label": "Exemple type : le site d'un cabinet comptable",
+      "label": "Exemple : le site d'un cabinet comptable",
       "background": "paper"
     },
     {
@@ -1562,7 +1544,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-duet-vs-chatgpt-dots",
       "route": "/ressources/comparatifs/claude-duet-vs-chatgpt-dots",
       "index": 2,
-      "label": "Claude Duet vs ChatGPT dots : 16 critères, avec la source de chaque ligne",
+      "label": "Claude Duet vs ChatGPT dots : 15 critères, avec la source de chaque ligne",
       "background": "paper"
     },
     {
@@ -2371,7 +2353,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "claude-platform-vs-openai-platform",
       "route": "/ressources/comparatifs/claude-platform-vs-openai-platform",
       "index": 8,
-      "label": "Dans quels cas chacune convient",
+      "label": "Mon verdict : dans quels cas chacune convient",
       "background": "paper"
     },
     {
@@ -2695,7 +2677,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "agent-qualification-leads",
       "route": "/services/agent-qualification-leads",
       "index": 6,
-      "label": "Un agent de qualification n'est pas utile si",
+      "label": "Passez votre chemin si",
       "background": "paper"
     },
     {
@@ -2704,7 +2686,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "agent-support-client",
       "route": "/services/agent-support-client",
       "index": 9,
-      "label": "Un chatbot de support n'est pas utile si",
+      "label": "Je déconseille un chatbot de support si",
       "background": "paper"
     },
     {
@@ -2713,7 +2695,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "agent-traitement-documents",
       "route": "/services/agent-traitement-documents",
       "index": 6,
-      "label": "Un agent de traitement de documents n'est pas utile si",
+      "label": "Je déconseille un agent de traitement de documents si",
       "background": "paper"
     },
     {
@@ -2758,7 +2740,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "audit-seo-technique",
       "route": "/services/audit-seo-technique",
       "index": 8,
-      "label": "Ce n'est pas le bon investissement si",
+      "label": "Quand nous vous déconseillons l'audit",
       "background": "paper"
     },
     {
@@ -2785,7 +2767,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "automatisation-reseaux-sociaux",
       "route": "/services/automatisation-reseaux-sociaux",
       "index": 7,
-      "label": "Ce qu'on refuse, et quand ne pas le faire",
+      "label": "Ce que nous refusons, et quand je déconseille de le faire",
       "background": "paper-2"
     },
     {
@@ -2839,7 +2821,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "cold-email-b2b",
       "route": "/services/cold-email-b2b",
       "index": 8,
-      "label": "Le cold email ne convient pas si",
+      "label": "Quand je déconseille le cold email",
       "background": "paper-2"
     },
     {
@@ -2956,7 +2938,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "prospection-linkedin",
       "route": "/services/prospection-linkedin",
       "index": 8,
-      "label": "La prospection LinkedIn préparée ne convient pas si",
+      "label": "Quand je déconseille la prospection LinkedIn préparée",
       "background": "paper-2"
     },
     {
@@ -2965,7 +2947,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "redaction-seo-contenu",
       "route": "/services/redaction-seo-contenu",
       "index": 7,
-      "label": "Ce n'est pas le bon investissement si",
+      "label": "À éviter si",
       "background": "paper"
     },
     {
@@ -2974,7 +2956,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "referencement-ia",
       "route": "/services/referencement-ia",
       "index": 8,
-      "label": "Ce n'est pas le bon investissement si",
+      "label": "Le GEO peut attendre si",
       "background": "paper"
     },
     {
@@ -3010,7 +2992,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "seo-local",
       "route": "/services/seo-local",
       "index": 8,
-      "label": "Ce n'est pas le bon investissement si",
+      "label": "Le SEO local ne vous sert pas si",
       "background": "paper"
     },
     {
@@ -3037,7 +3019,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "social-selling-ia",
       "route": "/services/social-selling-ia",
       "index": 8,
-      "label": "Le social selling assisté par IA ne convient pas si",
+      "label": "Quand je déconseille le social selling assisté par IA",
       "background": "paper-2"
     },
     {
@@ -4031,7 +4013,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "shopify",
       "route": "/services/shopify",
       "index": 6,
-      "label": "Ce qui vous reste à la fin",
+      "label": "Ce qui reste à votre nom",
       "background": "paper-3"
     },
     {
@@ -4058,7 +4040,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "sur-mesure-headless",
       "route": "/services/sur-mesure-headless",
       "index": 6,
-      "label": "Ce qui vous reste à la fin",
+      "label": "Ce que vous emportez",
       "background": "paper-3"
     },
     {
@@ -4094,7 +4076,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "webflow",
       "route": "/services/webflow",
       "index": 6,
-      "label": "Ce qui vous reste à la fin",
+      "label": "Ce qui passe entre vos mains",
       "background": "paper-3"
     },
     {
@@ -4103,7 +4085,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "wordpress",
       "route": "/services/wordpress",
       "index": 6,
-      "label": "Ce qui vous reste à la fin",
+      "label": "Ce que vous récupérez",
       "background": "paper-3"
     },
     {
@@ -10458,8 +10440,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/applications-internes/portail-client.json",
       "slug": "portail-client",
       "route": "/services/portail-client",
-      "index": 11,
-      "label": "#11",
+      "index": 10,
+      "label": "#10",
       "variant": "media"
     },
     {
@@ -10620,8 +10602,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/site-web-ia/webflow.json",
       "slug": "webflow",
       "route": "/services/webflow",
-      "index": 10,
-      "label": "#10",
+      "index": 9,
+      "label": "#9",
       "variant": "media"
     },
     {
@@ -11801,7 +11783,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/applications-internes/portail-client.json",
       "slug": "portail-client",
       "route": "/services/portail-client",
-      "index": 12,
+      "index": 11,
       "label": "Ce que vous nous demandez",
       "background": "paper-2"
     },
@@ -11972,7 +11954,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/site-web-ia/webflow.json",
       "slug": "webflow",
       "route": "/services/webflow",
-      "index": 11,
+      "index": 10,
       "label": "Webflow : vos questions",
       "background": "paper-2"
     },
@@ -12728,7 +12710,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "visibilite-google-ia",
       "route": "/lp/visibilite-google-ia",
       "index": 11,
-      "label": "Ne préparez pas votre visibilité après la bascule. Mesurez ce qui manque maintenant.",
+      "label": "Mesurez ce qui manque à votre visibilité maintenant.",
       "background": "ink"
     },
     {
@@ -13609,7 +13591,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/applications-internes/portail-client.json",
       "slug": "portail-client",
       "route": "/services/portail-client",
-      "index": 13,
+      "index": 12,
       "label": "Que vous demandent vos clients par e-mail, chaque semaine ?",
       "background": "ink"
     },
@@ -13780,7 +13762,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/site-web-ia/webflow.json",
       "slug": "webflow",
       "route": "/services/webflow",
-      "index": 12,
+      "index": 11,
       "label": "Votre site actuel est-il le bon outil pour la suite ?",
       "background": "ink"
     },
@@ -15386,7 +15368,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "cold-email-b2b",
       "route": "/services/cold-email-b2b",
       "index": 9,
-      "label": "Le cold email s'assemble aux autres canaux",
+      "label": "Le cold email travaille avec les autres canaux",
       "background": "paper-3"
     },
     {
@@ -15404,7 +15386,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "prospection-linkedin",
       "route": "/services/prospection-linkedin",
       "index": 9,
-      "label": "LinkedIn s'assemble aux autres canaux",
+      "label": "LinkedIn travaille avec les autres canaux",
       "background": "paper-3"
     },
     {
@@ -15422,7 +15404,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "social-selling-ia",
       "route": "/services/social-selling-ia",
       "index": 9,
-      "label": "Le social selling nourrit les autres canaux",
+      "label": "Un signal alimente tous les canaux",
       "background": "paper-3"
     },
     {
@@ -16628,7 +16610,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "cold-email-b2b",
       "route": "/services/cold-email-b2b",
       "index": 5,
-      "label": "Quatre causes fréquentes de mails en spam",
+      "label": "Quatre façons de finir en spam",
       "background": "ink"
     },
     {
@@ -16765,7 +16747,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "systeme-ia-marketing",
       "route": "/lp/systeme-ia-marketing",
       "index": 9,
-      "label": "Une offre, deux manières d'avancer.",
+      "label": "Un sprint à prix fixe, puis la suite chiffrée avec vous.",
       "background": "paper"
     },
     {
@@ -17043,7 +17025,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/applications-internes/portail-client.json",
       "slug": "portail-client",
       "route": "/services/portail-client",
-      "index": 10,
+      "index": 9,
       "label": "Combien coûte un portail client sur mesure",
       "background": "paper"
     },
@@ -17214,7 +17196,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/site-web-ia/webflow.json",
       "slug": "webflow",
       "route": "/services/webflow",
-      "index": 9,
+      "index": 8,
       "label": "Combien coûte un site Webflow",
       "background": "paper"
     },
@@ -19533,7 +19515,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "formations",
       "route": "src/content/formations/index.json",
       "index": 2,
-      "label": "Formation intelligence artificielle : six formations construites sur vos tâches",
+      "label": "Six formations, toutes construites sur vos tâches",
       "background": "paper"
     }
   ],

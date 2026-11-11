@@ -69,12 +69,12 @@ if (activeKind && ownHead) {
 // Grilles successives de 12 cartes (borne du schéma article-grid), ordre chronologique conservé.
 const GRID_MAX = 12;
 const grids: SectionByType<'article-grid'>[] = [];
-// Titre masqué de chaque grille : la plage de cartes qu'elle affiche (une seule grille : « Derniers articles »).
+// Titre masqué de chaque grille : la plage de cartes qu'elle affiche (libellé neutre, valable pour toutes les vues, blog et actualités compris).
 const gridTitle = (i: number) => {
   const from = i * GRID_MAX + 1;
   const to = Math.min((i + 1) * GRID_MAX, shown.length);
-  if (shown.length <= GRID_MAX) return isFr ? 'Derniers articles' : 'Latest articles';
-  return isFr ? `Articles ${from} à ${to}` : `Articles ${from} to ${to}`;
+  if (shown.length <= GRID_MAX) return isFr ? `Fiches 1 à ${shown.length}` : 'Latest articles';
+  return isFr ? `Fiches ${from} à ${to}` : `Articles ${from} to ${to}`;
 };
 for (let i = 0; i < shown.length; i += GRID_MAX) {
   grids.push({

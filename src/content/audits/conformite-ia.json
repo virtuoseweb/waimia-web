@@ -3,11 +3,11 @@
   "title_fr": "Conformité IA en PME : AI Act et RGPD · Waimia",
   "seoTitle_fr": "Conformité IA en PME : AI Act 2026 et RGPD, sources datées",
   "title_en": "AI compliance for SMEs: AI Act and GDPR · Waimia",
-  "description_fr": "Conformité IA en PME : calendrier de l'AI Act, six questions RGPD avant de brancher un outil, ce que Waimia met en place. Sources vérifiées le 4 octobre 2026.",
+  "description_fr": "Conformité IA en PME : calendrier de l'AI Act, six questions RGPD avant de brancher un outil, ce que Waimia met en place.",
   "description_en": "AI compliance for SMEs: AI Act timeline, six GDPR questions before connecting a tool, and what Waimia puts in place. Sources checked on 4 October 2026.",
   "slug": "conformite-ia",
   "publishedAt": "2026-10-04T00:00:00.000Z",
-  "updatedAt": "2026-10-15T00:00:00.000Z",
+  "updatedAt": "2026-11-11T00:00:00.000Z",
   "category": "conformite",
   "tags": [
     "conformite-ia",
@@ -15,33 +15,45 @@
     "ia-rgpd",
     "gouvernance-ia"
   ],
+  "sources": [
+    {
+      "name": "Commission européenne, AI Act Service Desk : article 4, maîtrise de l'IA, lu le 11 novembre 2026",
+      "url": "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-4",
+      "type": "state"
+    },
+    {
+      "name": "Commission européenne, « AI Act » : niveaux de risque et calendrier d'application, lu le 11 novembre 2026",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+      "type": "state"
+    }
+  ],
   "seo": {
     "noindex": false
   },
   "faq_fr": [
     {
       "q": "L'AI Act s'applique-t-il à une PME qui utilise seulement Claude ou ChatGPT ?",
-      "a": "Oui, mais avec peu d'obligations dans la plupart des cas. Le règlement vise ceux qui développent des systèmes d'IA et ceux qui les utilisent dans un cadre professionnel. Selon la Commission européenne, la grande majorité des usages relève du risque minimal, sans règle spécifique. Ce qui vous concerne en pratique : ne pas tomber dans une pratique interdite, former les personnes qui utilisent l'IA, respecter les règles de transparence, et vérifier qu'aucun de vos usages n'est classé à haut risque."
+      "a": "Oui, mais avec peu d'obligations dans la plupart des cas. Le règlement vise ceux qui développent des systèmes d'IA et ceux qui les utilisent dans un cadre professionnel. La Commission européenne range la grande majorité des usages dans le risque minimal, sans règle spécifique. Il vous reste quatre points à tenir : éviter les pratiques interdites, former les personnes qui utilisent l'IA, respecter les règles de transparence, et vérifier qu'aucun de vos usages n'est classé à haut risque."
     },
     {
       "q": "Doit-on prévenir un client qu'il parle à un chatbot ?",
-      "a": "C'est le sens des règles de transparence de l'AI Act, applicables depuis août 2026 : la Commission indique que les personnes doivent être informées qu'elles interagissent avec une machine. Notre règle, indépendamment de la date : un agent conversationnel se présente comme tel dès le premier message, et propose de passer à un humain."
+      "a": "Oui. Les règles de transparence de l'AI Act, applicables depuis août 2026, veulent que les personnes sachent qu'elles interagissent avec une machine : c'est la position de la Commission. Notre règle ne dépend d'aucune date : un agent conversationnel se présente comme tel dès le premier message, et propose de passer à un humain."
     },
     {
       "q": "Utiliser l'IA pour trier des CV, est-ce autorisé ?",
-      "a": "Ce n'est pas interdit, mais c'est un usage que la Commission classe à haut risque : elle cite explicitement les logiciels de tri de CV. Les obligations propres aux systèmes à haut risque de cette catégorie s'appliquent à partir du 2 décembre 2027. Le RGPD, lui, s'applique dès aujourd'hui : information des candidats, pas de décision entièrement automatisée sans garanties. C'est un sujet à traiter avec un juriste avant de déployer quoi que ce soit."
+      "a": "Ce n'est pas interdit, mais la Commission classe cet usage à haut risque et cite explicitement les logiciels de tri de CV. Les obligations propres à cette catégorie s'appliquent à partir du 2 décembre 2027. Le RGPD, lui, s'applique dès aujourd'hui : information des candidats, pas de décision entièrement automatisée sans garanties. Passez par un juriste avant de déployer quoi que ce soit."
     },
     {
       "q": "Peut-on mettre des données clients dans un assistant IA ?",
-      "a": "Cela dépend de l'outil, du contrat et de la donnée. Trois vérifications au minimum : le fournisseur agit-il comme sous-traitant avec un accord de traitement des données, où les données sont-elles hébergées, et sont-elles réutilisées pour entraîner des modèles. Tant que ces trois points ne sont pas réglés, la règle prudente est de ne pas y mettre de données personnelles."
+      "a": "Cela dépend de l'outil, du contrat et de la donnée. Trois vérifications au minimum : le fournisseur agit-il comme sous-traitant, avec un accord de traitement des données ; où les données sont-elles hébergées ; sont-elles réutilisées pour entraîner des modèles. Tant que ces trois points ne sont pas réglés, je vous déconseille d'y mettre des données personnelles."
     },
     {
       "q": "Qu'est-ce que l'obligation de « maîtrise de l'IA » ?",
-      "a": "L'article 4 de l'AI Act, dans sa version modifiée par l'omnibus (en vigueur depuis le 27 juillet 2026), demande aux fournisseurs et aux déployeurs de prendre des mesures pour développer la maîtrise de l'IA de leur personnel et des personnes qui utilisent les systèmes en leur nom. Il n'impose pas de garantir un niveau donné pour chaque personne, et la Commission et les États membres soutiennent les PME. En pratique : une formation adaptée aux usages réels et une trace de qui a été formé. Relevé le 15 octobre 2026 sur le AI Act Service Desk."
+      "a": "L'article 4 de l'AI Act, dans sa version modifiée par l'omnibus (en vigueur depuis le 27 juillet 2026), demande aux fournisseurs et aux déployeurs de prendre des mesures pour développer la maîtrise de l'IA de leur personnel et des personnes qui utilisent les systèmes en leur nom. Il n'impose pas de garantir un niveau donné pour chaque personne, et la Commission et les États membres soutiennent les PME. En pratique : une formation adaptée aux usages réels et une trace de qui a été formé."
     },
     {
       "q": "Waimia peut-il garantir que nous sommes conformes ?",
-      "a": "Non, et personne ne devrait vous le promettre. Waimia conçoit des systèmes qui facilitent la conformité : inventaire des usages, hébergement choisi, validation humaine, journalisation. La qualification juridique de vos usages et la validation finale relèvent de votre délégué à la protection des données ou d'un avocat."
+      "a": "Non, et personne ne devrait vous le promettre. Nous concevons des systèmes qui facilitent la conformité : inventaire des usages, hébergement choisi, validation humaine, journalisation. La qualification juridique de vos usages et la validation finale relèvent de votre délégué à la protection des données ou d'un avocat."
     }
   ],
   "faq_en": [
@@ -78,20 +90,16 @@
       "kicker_en": "§ AI compliance",
       "h1_fr": "Conformité IA : AI Act et RGPD pour les PME",
       "h1_en": "AI compliance: AI Act and GDPR for SMEs",
-      "lede_fr": "L'AI Act est applicable depuis le 2 août 2026, et le RGPD s'applique à chaque outil d'IA qui touche une donnée personnelle. Cette page donne le calendrier vérifié, les questions à se poser avant de brancher un outil, et ce que Waimia fait concrètement dans ses missions. Information générale : ce n'est pas un conseil juridique.",
+      "lede_fr": "Votre assistant IA rédige des relances, lit des devis, trie des demandes : l'AI Act est applicable depuis le 2 août 2026, et le RGPD s'applique dès qu'une donnée personnelle y entre. Le calendrier, six questions à régler avant de brancher un outil, et ce que nous mettons en place dans chaque mission.",
       "lede_en": "The AI Act has been applicable since 2 August 2026, and GDPR applies to every AI tool that touches personal data. This page gives the verified timeline, the questions to ask before connecting a tool, and what Waimia does in practice in its engagements. General information: this is not legal advice.",
       "badges": [
         {
-          "label_fr": "Calendrier vérifié",
+          "label_fr": "Calendrier à jour",
           "label_en": "Verified timeline"
         },
         {
           "label_fr": "Sources officielles",
           "label_en": "Official sources"
-        },
-        {
-          "label_fr": "Pas un conseil juridique",
-          "label_en": "Not legal advice"
         }
       ],
       "cta_primary": {
@@ -123,7 +131,7 @@
       "question_en": "Is an SME affected by the AI Act and GDPR when it uses AI?",
       "term_fr": "La réponse courte",
       "term_en": "The short answer",
-      "answer_fr": "Oui. L'AI Act s'applique à ceux qui développent des systèmes d'IA comme à ceux qui les utilisent dans un cadre professionnel, avec des obligations qui dépendent du niveau de risque de chaque usage. Le RGPD s'applique dès qu'une donnée personnelle entre dans l'outil. Pour la plupart des PME, être en règle tient en quatre choses : savoir quels usages existent, où vont les données, qui valide les actions sensibles, et pouvoir le montrer.",
+      "answer_fr": "Oui. L'AI Act vise ceux qui développent des systèmes d'IA comme ceux qui les utilisent dans un cadre professionnel, avec des obligations proportionnées au risque de chaque usage. Le RGPD s'applique dès qu'une donnée personnelle entre dans l'outil. Prenez l'assistant qui rédige vos relances clients : pour rester en règle, vous savez qu'il existe, vous savez quelles données il reçoit et où elles vont, quelqu'un valide ce qui part chez le client, et vous pouvez le prouver sur demande.",
       "answer_en": "Yes. The AI Act applies to those who develop AI systems as well as those who use them professionally, with obligations that depend on the risk level of each use. GDPR applies as soon as personal data enters the tool. For most SMEs, being in order comes down to four things: knowing which uses exist, where data goes, who approves sensitive actions, and being able to show it."
     },
     {
@@ -149,7 +157,7 @@
           "title_en": "Prohibited practices and AI literacy",
           "meta_fr": "2 février 2025",
           "meta_en": "2 February 2025",
-          "body_fr": "Les pratiques interdites et l'obligation de maîtrise de l'IA (former les personnes qui l'utilisent) entrent en application.",
+          "body_fr": "Les pratiques interdites et l'obligation de maîtrise de l'IA entrent en application. La seconde vous concerne : elle demande de former les personnes qui utilisent l'IA.",
           "body_en": "Prohibited practices and the AI literacy obligation (training the people who use it) enter into application."
         },
         {
@@ -157,7 +165,7 @@
           "title_en": "General-purpose AI models",
           "meta_fr": "2 août 2025",
           "meta_en": "2 August 2025",
-          "body_fr": "Les règles de gouvernance et les obligations des fournisseurs de modèles à usage général deviennent applicables. Elles visent les éditeurs de modèles, pas leurs utilisateurs.",
+          "body_fr": "Gouvernance et obligations des fournisseurs de modèles à usage général. Elles visent les éditeurs de modèles, pas ceux qui les utilisent.",
           "body_en": "Governance rules and obligations for providers of general-purpose models become applicable. They target model vendors, not their users."
         },
         {
@@ -165,7 +173,7 @@
           "title_en": "General application and transparency",
           "meta_fr": "2 août 2026",
           "meta_en": "2 August 2026",
-          "body_fr": "Le règlement devient applicable, avec des exceptions. Les règles de transparence (article 50) entrent en application, et les autorités commencent à contrôler.",
+          "body_fr": "Le règlement devient applicable, avec quelques exceptions. Les règles de transparence de l'article 50 entrent en application, et les autorités commencent à contrôler.",
           "body_en": "The regulation becomes applicable, with exceptions. Transparency rules (Article 50) enter into application, and authorities start enforcing.",
           "variant": "highlight"
         },
@@ -174,7 +182,7 @@
           "title_en": "New prohibitions and content marking",
           "meta_fr": "2 décembre 2026",
           "meta_en": "2 December 2026",
-          "body_fr": "Interdiction des systèmes qui génèrent des contenus intimes non consentis ou des contenus pédocriminels, ajoutée par le règlement « omnibus IA ». Marquage des contenus pour les outils génératifs déjà sur le marché : cela vise leurs éditeurs, pas les PME qui les utilisent.",
+          "body_fr": "Interdiction des systèmes qui génèrent des contenus intimes non consentis ou des contenus pédocriminels, ajoutée par le règlement « omnibus IA ». Le marquage des contenus générés, pour les outils déjà sur le marché, pèse sur leurs éditeurs, pas sur les PME qui les utilisent.",
           "body_en": "Prohibition of systems that generate non-consensual intimate content or child sexual abuse material, added by the \"AI Omnibus\" regulation. Content marking for generative tools already on the market: this targets their vendors, not the SMEs that use them."
         },
         {
@@ -182,7 +190,7 @@
           "title_en": "High risk: sensitive areas (Annex III)",
           "meta_fr": "2 décembre 2027",
           "meta_en": "2 December 2027",
-          "body_fr": "Les règles pour les usages à haut risque (emploi, éducation, biométrie, infrastructures critiques, entre autres) s'appliquent. Date reportée par le règlement « AI Omnibus », entré en vigueur le 27 juillet 2026.",
+          "body_fr": "Les règles pour les usages à haut risque s'appliquent : emploi, éducation, biométrie, infrastructures critiques, entre autres. Le règlement « AI Omnibus », entré en vigueur le 27 juillet 2026, a reporté cette date.",
           "body_en": "Rules for high-risk uses (employment, education, biometrics, critical infrastructure, among others) apply. Date postponed by the \"AI Omnibus\" regulation, in force since 27 July 2026."
         },
         {
@@ -190,7 +198,7 @@
           "title_en": "High risk: regulated products (Annex I)",
           "meta_fr": "2 août 2028",
           "meta_en": "2 August 2028",
-          "body_fr": "Les règles pour les systèmes d'IA intégrés à des produits réglementés s'appliquent.",
+          "body_fr": "Les règles s'appliquent aux systèmes d'IA intégrés à des produits réglementés, comme les ascenseurs ou les jouets.",
           "body_en": "Rules for AI systems embedded in regulated products apply."
         }
       ]
@@ -198,7 +206,7 @@
     {
       "type": "editorial-prose",
       "background": "paper",
-      "html_fr": "<h2>AI Act : dans quelle catégorie tombent vos usages</h2>\n<p>Le règlement européen sur l'IA classe les systèmes selon quatre niveaux de risque. La Commission européenne les décrit ainsi :</p>\n<ul>\n<li><strong>Risque inacceptable : interdit.</strong> Par exemple la notation sociale, la manipulation nuisible ou la reconnaissance des émotions au travail.</li>\n<li><strong>Haut risque : autorisé sous conditions strictes.</strong> Par exemple les outils de recrutement et de gestion des salariés (le tri de CV est cité), ou la notation de crédit.</li>\n<li><strong>Risque de transparence : obligation d'informer.</strong> Un agent conversationnel doit se présenter comme une machine ; certains contenus générés doivent être signalés. Détail dans le guide <a href=\"/ressources/guides/chatbot-transparence-article-50\">chatbot et article 50</a>.</li>\n<li><strong>Risque minimal : aucune règle spécifique.</strong> La Commission précise que la grande majorité des systèmes utilisés dans l'Union entre dans cette catégorie.</li>\n</ul>\n<p>Pour une PME, le travail consiste donc à faire la liste de ses usages et à vérifier, un par un, qu'aucun ne remonte dans les deux premières catégories. C'est rarement le cas pour de l'automatisation administrative ou commerciale. C'est à regarder de près dès qu'un système touche au recrutement, à l'évaluation des salariés ou à l'accès à un service essentiel.</p>\n<p>Le détail des dates, du report du haut risque et des obligations d'une entreprise qui utilise l'IA sans la vendre est dans le guide <a href=\"/ressources/guides/ai-act-pme-calendrier\">AI Act pour les PME : le calendrier à jour</a>.</p>\n<h2>IA et RGPD : six questions avant de brancher un outil</h2>\n<p>L'AI Act ne remplace pas le RGPD. Dès qu'un système d'IA traite des données personnelles, le RGPD s'applique en entier. La CNIL a publié des recommandations sur le développement des systèmes d'IA ; les questions ci-dessous en reprennent la logique, côté utilisateur.</p>\n<ol>\n<li><strong>Pour quoi faire ?</strong> Une finalité précise, écrite. « Tester l'IA » n'en est pas une.</li>\n<li><strong>Sur quelle base légale ?</strong> Contrat, intérêt légitime, obligation légale, consentement : comme pour tout traitement.</li>\n<li><strong>Quelles données, au minimum ?</strong> L'outil n'a presque jamais besoin de tout. On retire ce qui n'est pas nécessaire avant l'envoi.</li>\n<li><strong>Qui traite et où ?</strong> Le fournisseur du modèle est un sous-traitant : il faut un accord de traitement des données, et savoir où elles sont hébergées.</li>\n<li><strong>Combien de temps ?</strong> Durée de conservation des données envoyées et des réponses, chez vous et chez le fournisseur.</li>\n<li><strong>Quel risque pour les personnes ?</strong> Si le traitement est susceptible d'engendrer un risque élevé, une analyse d'impact est à mener. Et une décision qui produit des effets importants sur une personne ne doit pas être entièrement automatisée sans garanties.</li>\n</ol>\n<p>Ces usages s'inscrivent dans votre registre des traitements, comme les autres. Les huit sujets, avec une checklist de 12 points avant déploiement : <a href=\"/ressources/guides/rgpd-agents-ia-checklist\">RGPD et agents IA</a>. Pour n8n, voir <a href=\"/ressources/guides/n8n-auto-heberge-rgpd\">n8n auto-hébergé ou cloud : que change le RGPD ?</a></p>\n<p>Pour poser ces règles par écrit auprès de vos équipes, partez du <a href=\"/ressources/outils/charte-ia-entreprise\">modèle de charte IA pour PME</a> : neuf articles à adapter (outils autorisés, données interdites, validation humaine), lisibles en ligne et téléchargeables en PDF ou Word.</p>",
+      "html_fr": "<h2>AI Act : dans quelle catégorie tombent vos usages</h2>\n<p>Le règlement européen sur l'IA classe les systèmes en quatre niveaux de risque, que la Commission européenne décrit ainsi :</p>\n<ul>\n<li>Risque inacceptable : interdit. La notation sociale, la manipulation nuisible ou la reconnaissance des émotions au travail en font partie.</li>\n<li><strong>Haut risque</strong> : autorisé sous conditions strictes. Les outils de recrutement et de gestion des salariés (le tri de CV est cité) et la notation de crédit y sont rangés.</li>\n<li><strong>Risque de transparence</strong> : un agent conversationnel doit se présenter comme une machine, et certains contenus générés doivent être signalés. Le détail est dans notre guide <a href=\"/ressources/guides/chatbot-transparence-article-50\">chatbot et article 50</a>.</li>\n<li>Risque minimal : aucune règle spécifique. La Commission y range la grande majorité des systèmes utilisés dans l'Union.</li>\n</ul>\n<p>Quand j'audite des usages, je commence par ce tri : on dresse la liste, puis on vérifie, un usage après l'autre, qu'aucun ne remonte dans les deux premières catégories. Un usage d'automatisation administrative ou commerciale y tombe rarement. Regardez de près tout ce qui touche au recrutement, à l'évaluation des salariés ou à l'accès à un service essentiel.</p>\n<p>Les dates, le report du haut risque et les obligations d'une entreprise qui utilise l'IA sans la vendre sont dans notre guide <a href=\"/ressources/guides/ai-act-pme-calendrier\">AI Act pour les PME : le calendrier à jour</a>. L'obligation de maîtrise de l'IA, elle, vous concerne déjà : elle se règle par une <a href=\"/formations\">formation construite sur vos usages réels</a>.</p>\n<h2>IA et RGPD : six questions avant de brancher un outil</h2>\n<p>L'AI Act ne remplace pas le RGPD. Dès qu'un système d'IA traite des données personnelles, le RGPD s'applique en entier. La CNIL a publié des recommandations sur le développement des systèmes d'IA ; les questions ci-dessous en reprennent la logique, côté utilisateur.</p>\n<ol>\n<li>Pour quoi faire ? Une finalité précise, écrite. « Tester l'IA » n'en est pas une.</li>\n<li>Sur quelle base légale ? Contrat, intérêt légitime, obligation légale, consentement : comme pour tout traitement.</li>\n<li>Quelles données, au minimum ? L'outil n'a presque jamais besoin de tout : retirez ce qui n'est pas nécessaire avant l'envoi.</li>\n<li>Qui traite, et où ? Le fournisseur du modèle est un sous-traitant : il faut un accord de traitement des données, et savoir où elles sont hébergées.</li>\n<li>Combien de temps ? Durée de conservation des données envoyées et des réponses, chez vous et chez le fournisseur.</li>\n<li>Quel risque pour les personnes ? Si le traitement est susceptible d'engendrer un risque élevé, une analyse d'impact est à mener. Et une décision qui produit des effets importants sur une personne ne doit pas être entièrement automatisée sans garanties.</li>\n</ol>\n<p>Ces usages s'inscrivent dans votre registre des traitements, comme les autres. Notre guide <a href=\"/ressources/guides/rgpd-agents-ia-checklist\">RGPD et agents IA</a> couvre les huit sujets, avec une checklist de 12 points avant déploiement. Pour n8n, lisez <a href=\"/ressources/guides/n8n-auto-heberge-rgpd\">n8n auto-hébergé ou cloud : que change le RGPD ?</a></p>\n<p>Pour poser ces règles par écrit auprès de vos équipes, partez du <a href=\"/ressources/outils/charte-ia-entreprise\">modèle de charte IA pour PME</a> : neuf articles à adapter (outils autorisés, données interdites, validation humaine), lisibles en ligne, avec le Word à télécharger et le PDF envoyé par e-mail. Pour cadrer le tout avec quelqu'un qui déploie ces outils, voyez notre <a href=\"/services/consultant-ia-claude\">accompagnement de consultant IA</a> : feuille de route, gouvernance et règles d'usage.</p>",
       "html_en": "<h2>AI Act: which category your uses fall into</h2>\n<p>The European AI regulation classifies systems into four risk levels. The European Commission describes them as follows:</p>\n<ul>\n<li><strong>Unacceptable risk: banned.</strong> For example social scoring, harmful manipulation or emotion recognition in the workplace.</li>\n<li><strong>High risk: allowed under strict conditions.</strong> For example tools for recruitment and worker management (CV sorting is cited), or credit scoring.</li>\n<li><strong>Transparency risk: duty to inform.</strong> A conversational agent must identify itself as a machine; some generated content must be labelled. Details in the guide <a href=\"/ressources/guides/chatbot-transparence-article-50\">chatbots and Article 50</a>.</li>\n<li><strong>Minimal risk: no specific rule.</strong> The Commission notes that the vast majority of systems used in the Union fall into this category.</li>\n</ul>\n<p>For an SME the work is therefore to list its uses and check, one by one, that none rises into the first two categories. That is rarely the case for administrative or sales automation. It needs a close look as soon as a system touches recruitment, employee evaluation or access to an essential service.</p>\n<p>The dates in detail, the postponement of high-risk rules and the obligations of a company that uses AI without selling it are in the guide <a href=\"/ressources/guides/ai-act-pme-calendrier\">AI Act for SMEs: the current timeline</a>.</p>\n<h2>AI and GDPR: six questions before connecting a tool</h2>\n<p>The AI Act does not replace GDPR. As soon as an AI system processes personal data, GDPR applies in full. The CNIL has published recommendations on developing AI systems; the questions below follow the same logic, from the user's side.</p>\n<ol>\n<li><strong>What for?</strong> A precise, written purpose. \"Testing AI\" is not one.</li>\n<li><strong>On what legal basis?</strong> Contract, legitimate interest, legal obligation, consent: as for any processing.</li>\n<li><strong>Which data, at minimum?</strong> The tool almost never needs everything. Remove what is unnecessary before sending.</li>\n<li><strong>Who processes and where?</strong> The model provider is a processor: you need a data processing agreement, and to know where data is hosted.</li>\n<li><strong>For how long?</strong> Retention period for data sent and answers, on your side and the provider's.</li>\n<li><strong>What risk for people?</strong> If the processing is likely to result in a high risk, an impact assessment is required. And a decision with significant effects on a person must not be fully automated without safeguards.</li>\n</ol>\n<p>These uses go into your record of processing activities, like the others. The eight topics, with a 12-point checklist before deployment: <a href=\"/ressources/guides/rgpd-agents-ia-checklist\">GDPR and AI agents</a>. For n8n, see <a href=\"/ressources/guides/n8n-auto-heberge-rgpd\">self-hosted n8n or cloud: what does the GDPR change?</a></p>",
       "figures": [
         {
@@ -217,31 +225,31 @@
       "kicker_en": "§ In practice",
       "title_fr": "Ce que Waimia fait concrètement",
       "title_en": "What Waimia does in practice",
-      "lead_fr": "Quatre mesures, présentes dans chaque mission. Elles ne remplacent pas un avis juridique : elles donnent à votre juriste de quoi travailler.",
+      "lead_fr": "Quatre mesures, dans chaque mission. Votre juriste ou votre DPO qualifie les usages ; nous lui apportons de quoi travailler sur pièces.",
       "lead_en": "Four measures, present in every engagement. They do not replace legal advice: they give your lawyer something to work with.",
       "items": [
         {
           "title_fr": "Registre",
           "title_en": "Register",
-          "body_fr": "Un inventaire des usages d'IA : outil, finalité, données, responsable. Pour chaque usage, le niveau de risque AI Act et les éléments à reporter dans votre registre des traitements RGPD.",
+          "body_fr": "Un inventaire des usages d'IA : outil, finalité, données, responsable. Chaque ligne porte le niveau de risque AI Act et ce qui doit remonter dans votre registre des traitements RGPD.",
           "body_en": "An inventory of AI uses: tool, purpose, data, owner. For each use, the AI Act risk level and the items to carry over into your GDPR record of processing."
         },
         {
           "title_fr": "Choix d'hébergement",
           "title_en": "Hosting choice",
-          "body_fr": "Pour chaque système : où tourne le modèle, où sont stockées les données, sous quel contrat. Une option dans l'Union européenne ou sur votre infrastructure quand la donnée l'exige. Les données inutiles sont retirées avant l'envoi au modèle.",
+          "body_fr": "Pour chaque système, nous notons où tourne le modèle, où dorment les données et sous quel contrat. Quand la donnée l'exige, nous prévoyons une option dans l'Union européenne ou sur votre infrastructure, et nous retirons le superflu avant l'envoi au modèle.",
           "body_en": "For each system: where the model runs, where data is stored, under which contract. An option in the European Union or on your infrastructure when the data requires it. Unnecessary data is removed before sending to the model."
         },
         {
           "title_fr": "Validation humaine",
           "title_en": "Human approval",
-          "body_fr": "Une personne valide avant toute action sensible : envoi à un client, paiement, suppression, décision sur une personne. Un agent conversationnel se présente comme tel et propose un relais humain.",
+          "body_fr": "Une personne valide avant toute action sensible : envoi à un client, paiement, suppression, décision sur une personne. Un agent conversationnel se présente comme tel dès le premier message et propose un relais humain.",
           "body_en": "A person approves before any sensitive action: sending to a customer, payment, deletion, decision about a person. A conversational agent identifies itself as such and offers a human handover."
         },
         {
           "title_fr": "Traçabilité",
           "title_en": "Traceability",
-          "body_fr": "Un journal de ce que le système a fait, avec quelles données et qui a validé. Une documentation transmise avec le code, lisible par un auditeur.",
+          "body_fr": "Un journal de ce que le système a fait, avec quelles données et sur validation de qui. La documentation est livrée avec le code, lisible par un auditeur.",
           "body_en": "A log of what the system did, with which data and who approved. Documentation handed over with the code, readable by an auditor."
         }
       ]
@@ -250,13 +258,13 @@
       "type": "editorial-callout",
       "background": "paper",
       "variant": "warn",
-      "body_fr": "Cette page est une information générale, rédigée à partir de sources officielles consultées le 4 octobre 2026. Elle ne constitue pas un conseil juridique. Pour qualifier un usage précis, adressez-vous à votre délégué à la protection des données ou à un avocat.",
+      "body_fr": "Information générale, pas un conseil juridique. Pour qualifier un usage précis, adressez-vous à votre délégué à la protection des données ou à un avocat.",
       "body_en": "This page is general information, written from official sources consulted on 4 October 2026. It is not legal advice. To qualify a specific use, consult your data protection officer or a lawyer."
     },
     {
       "type": "editorial-prose",
       "background": "paper",
-      "html_fr": "<h2>Sources, vérifiées le 4 octobre 2026 (article 4 : le 15 octobre 2026)</h2><ul><li><a href=\"https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-4\" rel=\"noopener noreferrer\" target=\"_blank\">Commission européenne, AI Act Service Desk : article 4, maîtrise de l'IA (texte modifié, relevé le 15 octobre 2026)</a></li><li><a href=\"https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai\" rel=\"noopener noreferrer\" target=\"_blank\">Commission européenne, « AI Act » : niveaux de risque et calendrier d'application</a></li><li><a href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202601744\" rel=\"noopener noreferrer\" target=\"_blank\">EUR-Lex, règlement « AI Omnibus » (texte final, lien donné par la Commission)</a></li><li><a href=\"https://www.cnil.fr/fr/ia-la-cnil-publie-ses-premieres-recommandations-sur-le-developpement-des-systemes-dintelligence\" rel=\"noopener noreferrer\" target=\"_blank\">CNIL, recommandations sur le développement des systèmes d'IA (8 avril 2024)</a></li><li><a href=\"https://www.cnil.fr/fr/intelligence-artificielle\" rel=\"noopener noreferrer\" target=\"_blank\">CNIL, dossier intelligence artificielle</a></li></ul>",
+      "html_fr": "<h2>Sources officielles</h2><ul><li><a href=\"https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-4\" rel=\"noopener noreferrer\" target=\"_blank\">Commission européenne, AI Act Service Desk : article 4, maîtrise de l'IA (texte modifié par l'omnibus)</a></li><li><a href=\"https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai\" rel=\"noopener noreferrer\" target=\"_blank\">Commission européenne, « AI Act » : niveaux de risque et calendrier d'application</a></li><li><a href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202601744\" rel=\"noopener noreferrer\" target=\"_blank\">EUR-Lex, règlement « AI Omnibus » (texte final, lien donné par la Commission)</a></li><li><a href=\"https://www.cnil.fr/fr/ia-la-cnil-publie-ses-premieres-recommandations-sur-le-developpement-des-systemes-dintelligence\" rel=\"noopener noreferrer\" target=\"_blank\">CNIL, recommandations sur le développement des systèmes d'IA (8 avril 2024)</a></li><li><a href=\"https://www.cnil.fr/fr/intelligence-artificielle\" rel=\"noopener noreferrer\" target=\"_blank\">CNIL, dossier intelligence artificielle</a></li></ul>",
       "html_en": "<h2>Sources, checked on 4 October 2026 (Article 4: on 15 October 2026)</h2><ul><li><a href=\"https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-4\" rel=\"noopener noreferrer\" target=\"_blank\">European Commission, AI Act Service Desk: Article 4, AI literacy (amended text, read on 15 October 2026)</a></li><li><a href=\"https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai\" rel=\"noopener noreferrer\" target=\"_blank\">European Commission, \"AI Act\": risk levels and application timeline</a></li><li><a href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202601744\" rel=\"noopener noreferrer\" target=\"_blank\">EUR-Lex, \"AI Omnibus\" regulation (final text, link given by the Commission)</a></li><li><a href=\"https://www.cnil.fr/fr/ia-la-cnil-publie-ses-premieres-recommandations-sur-le-developpement-des-systemes-dintelligence\" rel=\"noopener noreferrer\" target=\"_blank\">CNIL, recommendations on developing AI systems (8 April 2024)</a></li><li><a href=\"https://www.cnil.fr/fr/intelligence-artificielle\" rel=\"noopener noreferrer\" target=\"_blank\">CNIL, artificial intelligence section</a></li></ul>"
     },
     {
@@ -303,37 +311,37 @@
         {
           "q_fr": "L'AI Act s'applique-t-il à une PME qui utilise seulement Claude ou ChatGPT ?",
           "q_en": "Does the AI Act apply to an SME that only uses Claude or ChatGPT?",
-          "a_fr": "Oui, mais avec peu d'obligations dans la plupart des cas. Le règlement vise ceux qui développent des systèmes d'IA et ceux qui les utilisent dans un cadre professionnel. Selon la Commission européenne, la grande majorité des usages relève du risque minimal, sans règle spécifique. Ce qui vous concerne en pratique : ne pas tomber dans une pratique interdite, former les personnes qui utilisent l'IA, respecter les règles de transparence, et vérifier qu'aucun de vos usages n'est classé à haut risque.",
+          "a_fr": "Oui, mais avec peu d'obligations dans la plupart des cas. Le règlement vise ceux qui développent des systèmes d'IA et ceux qui les utilisent dans un cadre professionnel. La Commission européenne range la grande majorité des usages dans le risque minimal, sans règle spécifique. Il vous reste quatre points à tenir : éviter les pratiques interdites, former les personnes qui utilisent l'IA, respecter les règles de transparence, et vérifier qu'aucun de vos usages n'est classé à haut risque.",
           "a_en": "Yes, but with few obligations in most cases. The regulation covers those who develop AI systems and those who use them professionally. According to the European Commission, the vast majority of uses fall under minimal risk, with no specific rule. What concerns you in practice: not falling into a prohibited practice, training the people who use AI, respecting transparency rules, and checking that none of your uses is classed as high-risk."
         },
         {
           "q_fr": "Doit-on prévenir un client qu'il parle à un chatbot ?",
           "q_en": "Must you tell a customer they are talking to a chatbot?",
-          "a_fr": "C'est le sens des règles de transparence de l'AI Act, applicables depuis août 2026 : la Commission indique que les personnes doivent être informées qu'elles interagissent avec une machine. Notre règle, indépendamment de la date : un agent conversationnel se présente comme tel dès le premier message, et propose de passer à un humain.",
+          "a_fr": "Oui. Les règles de transparence de l'AI Act, applicables depuis août 2026, veulent que les personnes sachent qu'elles interagissent avec une machine : c'est la position de la Commission. Notre règle ne dépend d'aucune date : un agent conversationnel se présente comme tel dès le premier message, et propose de passer à un humain.",
           "a_en": "That is the purpose of the AI Act's transparency rules, applicable since August 2026: the Commission states that people should be made aware they are interacting with a machine. Our rule, whatever the date: a conversational agent identifies itself as such from the first message, and offers a handover to a human."
         },
         {
           "q_fr": "Utiliser l'IA pour trier des CV, est-ce autorisé ?",
           "q_en": "Is using AI to screen CVs allowed?",
-          "a_fr": "Ce n'est pas interdit, mais c'est un usage que la Commission classe à haut risque : elle cite explicitement les logiciels de tri de CV. Les obligations propres aux systèmes à haut risque de cette catégorie s'appliquent à partir du 2 décembre 2027. Le RGPD, lui, s'applique dès aujourd'hui : information des candidats, pas de décision entièrement automatisée sans garanties. C'est un sujet à traiter avec un juriste avant de déployer quoi que ce soit.",
+          "a_fr": "Ce n'est pas interdit, mais la Commission classe cet usage à haut risque et cite explicitement les logiciels de tri de CV. Les obligations propres à cette catégorie s'appliquent à partir du 2 décembre 2027. Le RGPD, lui, s'applique dès aujourd'hui : information des candidats, pas de décision entièrement automatisée sans garanties. Passez par un juriste avant de déployer quoi que ce soit.",
           "a_en": "It is not banned, but it is a use the Commission classes as high-risk: it explicitly cites CV-sorting software. The obligations specific to high-risk systems in this category apply from 2 December 2027. GDPR applies today: informing candidates, no fully automated decision without safeguards. This is a subject to work through with a lawyer before deploying anything."
         },
         {
           "q_fr": "Peut-on mettre des données clients dans un assistant IA ?",
           "q_en": "Can you put customer data into an AI assistant?",
-          "a_fr": "Cela dépend de l'outil, du contrat et de la donnée. Trois vérifications au minimum : le fournisseur agit-il comme sous-traitant avec un accord de traitement des données, où les données sont-elles hébergées, et sont-elles réutilisées pour entraîner des modèles. Tant que ces trois points ne sont pas réglés, la règle prudente est de ne pas y mettre de données personnelles.",
+          "a_fr": "Cela dépend de l'outil, du contrat et de la donnée. Trois vérifications au minimum : le fournisseur agit-il comme sous-traitant, avec un accord de traitement des données ; où les données sont-elles hébergées ; sont-elles réutilisées pour entraîner des modèles. Tant que ces trois points ne sont pas réglés, je vous déconseille d'y mettre des données personnelles.",
           "a_en": "It depends on the tool, the contract and the data. Three checks at minimum: does the provider act as a processor with a data processing agreement, where is the data hosted, and is it reused to train models. Until those three points are settled, the cautious rule is not to put personal data in."
         },
         {
           "q_fr": "Qu'est-ce que l'obligation de « maîtrise de l'IA » ?",
           "q_en": "What is the \"AI literacy\" obligation?",
-          "a_fr": "L'article 4 de l'AI Act, dans sa version modifiée par l'omnibus (en vigueur depuis le 27 juillet 2026), demande aux fournisseurs et aux déployeurs de prendre des mesures pour développer la maîtrise de l'IA de leur personnel et des personnes qui utilisent les systèmes en leur nom. Il n'impose pas de garantir un niveau donné pour chaque personne, et la Commission et les États membres soutiennent les PME. En pratique : une formation adaptée aux usages réels et une trace de qui a été formé. Relevé le 15 octobre 2026 sur le AI Act Service Desk.",
+          "a_fr": "L'article 4 de l'AI Act, dans sa version modifiée par l'omnibus (en vigueur depuis le 27 juillet 2026), demande aux fournisseurs et aux déployeurs de prendre des mesures pour développer la maîtrise de l'IA de leur personnel et des personnes qui utilisent les systèmes en leur nom. Il n'impose pas de garantir un niveau donné pour chaque personne, et la Commission et les États membres soutiennent les PME. En pratique : une formation adaptée aux usages réels et une trace de qui a été formé.",
           "a_en": "Article 4 of the AI Act, as amended by the omnibus (in force since 27 July 2026), asks providers and deployers to take measures to support the AI literacy of their staff and of the people who use the systems on their behalf. It does not require guaranteeing a specific level for any individual, and the Commission and the Member States support SMEs. In practice: training adapted to real uses and a record of who was trained. Read on 15 October 2026 on the AI Act Service Desk."
         },
         {
           "q_fr": "Waimia peut-il garantir que nous sommes conformes ?",
           "q_en": "Can Waimia guarantee that we are compliant?",
-          "a_fr": "Non, et personne ne devrait vous le promettre. Waimia conçoit des systèmes qui facilitent la conformité : inventaire des usages, hébergement choisi, validation humaine, journalisation. La qualification juridique de vos usages et la validation finale relèvent de votre délégué à la protection des données ou d'un avocat.",
+          "a_fr": "Non, et personne ne devrait vous le promettre. Nous concevons des systèmes qui facilitent la conformité : inventaire des usages, hébergement choisi, validation humaine, journalisation. La qualification juridique de vos usages et la validation finale relèvent de votre délégué à la protection des données ou d'un avocat.",
           "a_en": "No, and nobody should promise you that. Waimia designs systems that make compliance easier: inventory of uses, chosen hosting, human approval, logging. The legal qualification of your uses and final sign-off belong to your data protection officer or a lawyer."
         }
       ]
@@ -346,7 +354,7 @@
       "kicker_en": "§ AI compliance",
       "h2_fr": "Faire l'inventaire de vos usages d'IA avant qu'on vous le demande.",
       "h2_en": "Take stock of your AI uses before someone asks you to.",
-      "subtitle_fr": "L'audit de 45 minutes est gratuit. On liste vos usages actuels, on repère ceux qui méritent une vérification et on vous dit par où commencer.",
+      "subtitle_fr": "L'audit de 45 minutes est gratuit : on liste vos usages d'IA actuels, on repère ceux qui méritent une vérification et on vous dit par où commencer.",
       "subtitle_en": "The 45-minute audit is free. We list your current uses, flag those that deserve a check and tell you where to start.",
       "buttons": [
         {

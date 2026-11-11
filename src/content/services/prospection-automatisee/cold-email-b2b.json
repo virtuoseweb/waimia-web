@@ -7,7 +7,7 @@
   "description_en": "B2B cold email: authenticated dedicated domains (SPF, DKIM, DMARC), verified lists, reviewed sequences. Trial of {{prix.commercial.essai}} free leads, then from €{{prix.commercial}} excl. VAT/month.",
   "slug": "cold-email-b2b",
   "publishedAt": "2026-07-16T00:00:00.000Z",
-  "updatedAt": "2026-10-12T00:00:00.000Z",
+  "updatedAt": "2026-11-11T00:00:00.000Z",
   "category": "commercial",
   "tags": [
     "cold-email-b2b",
@@ -25,27 +25,27 @@
   "faq_fr": [
     {
       "q": "Combien d'e-mails peut-on envoyer par jour sans abîmer sa délivrabilité ?",
-      "a": "Il n'existe pas de chiffre universel : tout dépend de l'ancienneté de la boîte, de la qualité de la liste et de la réaction des destinataires. On monte le volume par paliers sur chaque adresse et on le plafonne. Les messageries fixent des règles côté expéditeur : Google exige des expéditeurs de plus de 5 000 messages par jour vers Gmail une authentification SPF, DKIM et DMARC, une désinscription en un clic et un taux de spam inférieur à 0,30 %, Google recommandant de rester sous 0,10 %. Sous ce volume, on applique les mêmes règles."
+      "a": "Il n'existe pas de chiffre universel : tout dépend de l'ancienneté de la boîte, de la qualité de la liste et de la réaction des destinataires. Nous montons le volume par paliers sur chaque adresse et nous le plafonnons. Le seuil de Google (5 000 messages par jour vers Gmail) ne concerne pas une PME, mais nous suivons ses règles bien en dessous."
     },
     {
       "q": "SPF, DKIM, DMARC : à quoi servent-ils ?",
-      "a": "Le SPF liste les serveurs autorisés à envoyer des messages pour votre domaine. Le DKIM signe chaque message pour prouver qu'il n'a pas été modifié. Le DMARC dit à la messagerie du destinataire quoi faire quand l'un des deux échoue, et vous renvoie des rapports. Les trois s'écrivent dans la zone DNS du domaine d'envoi, avant le premier message."
+      "a": "Le SPF liste les serveurs autorisés à envoyer pour votre domaine. Le DKIM signe chaque message pour prouver qu'il n'a pas été modifié. Le DMARC dit à la messagerie du destinataire quoi faire quand l'un des deux échoue, et vous renvoie des rapports. Les trois s'écrivent dans la zone DNS du domaine d'envoi, avant le premier message."
     },
     {
       "q": "Faut-il un domaine dédié, et à qui appartient-il ?",
-      "a": "Oui : un nom de domaine secondaire, proche de votre marque, avec ses propres boîtes. Une mauvaise réputation d'envoi reste alors sur ce domaine et n'atteint pas celui de vos devis et de vos factures. Le domaine et les adresses sont transférables sur vos comptes si vous arrêtez."
+      "a": "Oui : un nom de domaine secondaire, proche de votre marque, avec ses propres boîtes. Une mauvaise réputation d'envoi reste sur ce domaine et n'atteint pas celui de vos devis et de vos factures. Domaine et adresses sont transférables sur vos comptes si vous arrêtez."
     },
     {
       "q": "D'où viennent les adresses des destinataires ?",
-      "a": "De vos critères de ciblage (secteur, taille, fonction, signal), appliqués à des bases B2B, puis vérifiés avant le premier envoi. Chaque contact garde sa source : si quelqu'un demande d'où vient son adresse, la réponse est dans le dossier. On ne part pas d'une liste achetée en bloc dont on ignore l'origine."
+      "a": "De vos critères de ciblage (secteur, taille, fonction, signal), appliqués à des bases B2B, puis vérifiés avant le premier envoi. Si quelqu'un demande d'où vient son adresse, la réponse est dans le dossier. Je refuse de partir d'une liste achetée en bloc dont personne ne connaît l'origine."
     },
     {
       "q": "Cold email ou LinkedIn : par quel canal commencer ?",
-      "a": "Par celui où votre cible répond. L'e-mail se prête à une liste large et à des séquences régulières. LinkedIn se travaille compte par compte et reste envoyé par une personne : voir la page sur la prospection LinkedIn. Les deux peuvent se compléter sur les mêmes comptes, à condition de ne pas relancer la même personne sur les deux canaux le même jour."
+      "a": "Par celui où votre cible répond. L'e-mail se prête à une liste large et à des séquences régulières ; la prospection LinkedIn se travaille compte par compte et reste envoyée par une personne. Les deux se complètent sur les mêmes comptes, à condition de ne pas relancer la même personne sur les deux canaux le même jour."
     },
     {
       "q": "Que mesurez-vous, et que ne promettez-vous pas ?",
-      "a": "Messages délivrés, rebonds, plaintes, désinscriptions, réponses, réponses positives, rendez-vous pris. On ne promet ni un nombre de rendez-vous ni un taux de réponse : ils dépendent de votre offre, de votre marché et de la précision du ciblage."
+      "a": "Messages délivrés, rebonds, plaintes, désinscriptions, réponses, réponses positives, rendez-vous pris. Nous ne promettons ni un nombre de rendez-vous ni un taux de réponse : ils dépendent de votre offre, de votre marché et de la précision du ciblage."
     }
   ],
   "faq_en": [
@@ -88,7 +88,7 @@
       "kicker_en": "§ B2B cold email · the email channel",
       "h1_fr": "Cold email <i class=\"acc\">B2B</i> pour PME",
       "h1_en": "B2B <i class=\"acc\">cold email</i> for SMEs",
-      "lede_fr": "Le cold email B2B est un premier message à un professionnel qui ne vous connaît pas, et il tient quand l'envoi est maîtrisé. Waimia le monte et le surveille pour les PME B2B ; vous répondez à ceux qui répondent.",
+      "lede_fr": "Un e-mail froid ne vaut que s'il arrive en boîte de réception. Nous montons l'infrastructure d'envoi, nous surveillons la délivrabilité, et vous ne traitez que les réponses.",
       "lede_en": "B2B cold email is a first message to a professional who does not know you, and it holds up when sending is controlled. Waimia builds and monitors it for B2B SMEs; you answer the people who answer.",
       "badges": [
         {
@@ -128,27 +128,21 @@
       "kicker_en": "§ In short",
       "metrics": [
         {
-          "value": "SPF · DKIM · DMARC",
-          "label_fr": "authentification posée avant le premier envoi",
+          "value": "Domaine à part",
+          "label_fr": "votre domaine principal n'envoie jamais de prospection",
           "label_en": "authentication in place before the first send",
           "emphasis": true
         },
         {
-          "value": "{{prix.commercial.essai}} leads",
-          "label_fr": "offerts pour l'essai, à 0 €",
+          "value": "2 à 4 semaines",
+          "label_fr": "avant la première séquence, le temps de chauffer les boîtes",
           "label_en": "free for the trial, at 0 €",
           "emphasis": false
         },
         {
-          "value": "Dès {{prix.commercial}} € HT",
-          "label_fr": "par mois, sans engagement de durée",
-          "label_en": "per month, no minimum term",
-          "emphasis": false
-        },
-        {
           "value": "Transférable",
-          "label_fr": "domaines et boîtes à vous si vous arrêtez",
-          "label_en": "domains and mailboxes yours if you stop",
+          "label_fr": "domaines et boîtes d'envoi passent sur vos comptes si vous arrêtez",
+          "label_en": "per month, no minimum term",
           "emphasis": false
         }
       ]
@@ -158,7 +152,7 @@
       "background": "paper",
       "kicker_fr": "§ Définition",
       "kicker_en": "§ Definition",
-      "statement_fr": "Le <i class=\"acc\">cold email B2B</i> est un message envoyé par e-mail à un professionnel avec qui vous n'avez encore jamais échangé, à propos de sa fonction. En B2B il peut reposer sur l'intérêt légitime plutôt que sur le consentement préalable, à condition d'informer la personne et de respecter son droit de s'y opposer. C'est un canal de la prospection automatisée, pas son synonyme.",
+      "statement_fr": "Le <i class=\"acc\">cold email B2B</i> est un e-mail envoyé à un professionnel avec qui vous n'avez jamais échangé, sur un sujet qui touche sa fonction. En B2B, il peut reposer sur l'intérêt légitime plutôt que sur le consentement préalable, à condition d'informer la personne et de respecter son droit de s'opposer. C'est un canal de la prospection automatisée, pas son synonyme.",
       "statement_en": "<i class=\"acc\">B2B cold email</i> is a message sent by email to a professional you have never exchanged with, about their role. In B2B it can rest on legitimate interest rather than prior consent, provided you inform the person and respect their right to object. It is one channel of automated prospecting, not a synonym for it.",
       "pills": [
         {
@@ -177,35 +171,13 @@
           "label_fr": "Désinscription simple",
           "label_en": "Simple unsubscribe"
         }
-      ],
-      "specs": [
-        {
-          "label_fr": "SPF, DKIM, DMARC",
-          "label_en": "SPF, DKIM, DMARC"
-        },
-        {
-          "label_fr": "Warm-up progressif",
-          "label_en": "Gradual warm-up"
-        },
-        {
-          "label_fr": "Listes vérifiées",
-          "label_en": "Verified lists"
-        },
-        {
-          "label_fr": "Plafonds de volume",
-          "label_en": "Volume caps"
-        },
-        {
-          "label_fr": "Réponses dans le CRM",
-          "label_en": "Replies in the CRM"
-        }
       ]
     },
     {
       "type": "editorial-prose",
       "background": "paper-2",
       "maxWidth": "prose",
-      "html_fr": "<h2>La délivrabilité passe avant le texte</h2>\n<p>Un message bien écrit qui finit en spam ne rapporte rien. On commence donc par l'infrastructure : un ou plusieurs noms de domaine secondaires proches de votre marque, des boîtes dédiées à la prospection et les trois enregistrements d'authentification. Votre domaine principal, celui de vos devis et de vos factures, n'envoie jamais de prospection.</p>\n<p>Les boîtes montent ensuite en volume par paliers, avec un plafond par adresse. Les grandes messageries fixent des règles : les <a href=\"https://support.google.com/a/answer/81126\" rel=\"noopener\" target=\"_blank\">règles de Google pour les expéditeurs</a> imposent, au-delà de 5 000 messages par jour vers Gmail, l'authentification, la désinscription en un clic et un taux de spam sous 0,30 %, Google recommandant de rester sous 0,10 %. Les volumes d'une PME dans nos formules (de l'ordre de 4 000 à 8 000 e-mails par mois) sont très inférieurs, mais on applique les mêmes règles.</p>\n<h2>Des listes qu'on peut défendre</h2>\n<p>On part de vos critères (secteur, taille, fonction, signal), on enrichit à partir de bases B2B et on vérifie les adresses avant le premier envoi. Chaque contact garde sa source. Un message adressé à contact@ n'atteint personne en particulier : on vise des fonctions nommées, avec un message qui parle de leur métier.</p>\n<h2>Où s'arrête le cold email</h2>\n<p>L'e-mail ouvre la conversation, il la conclut rarement. Les réponses remontent dans un <a href=\"/services/crm-scoring-routing\">CRM scoré et routé</a>, et les <a href=\"/services/sequences-de-suivi\">séquences de suivi</a> prennent le relais. Pour joindre les mêmes comptes ailleurs, voir la <a href=\"/services/prospection-linkedin\">prospection LinkedIn</a>, préparée par le système et envoyée par une personne, et le <a href=\"/services/social-selling-ia\">social selling assisté par l'IA</a>. Le dispositif complet est décrit sur la page <a href=\"/services/prospection-automatisee\">prospection automatisée</a> et s'inscrit dans le <a href=\"/services/systeme-acquisition\">système d'acquisition</a>.</p>",
+      "html_fr": "<h2>La délivrabilité se joue avant le premier mot</h2>\n<p>Un message soigné qui finit en spam ne rapporte rien, et c'est le sort de la plupart des campagnes montées à la hâte. Nous commençons donc par la plomberie : un ou plusieurs domaines secondaires proches de votre marque, des boîtes réservées à la prospection, les trois enregistrements d'authentification. Votre domaine principal, celui des devis et des factures, n'envoie rien. C'est la première brique de votre <a href=\"/services/systeme-commercial\">système commercial</a> : sans elle, le CRM et les relances n'ont rien à traiter.</p>\n<p>Les boîtes montent ensuite en volume par paliers, avec un plafond par adresse. Les messageries imposent leurs règles. Selon les <a href=\"https://support.google.com/a/answer/81126\" rel=\"noopener\" target=\"_blank\">règles de Google pour les expéditeurs</a>, au-delà de 5 000 messages par jour vers Gmail, il faut authentifier l'envoi, offrir la désinscription en un clic et garder un taux de spam sous 0,30 %, Google conseillant de rester sous 0,10 %. Nos formules tournent à 4 000 ou 8 000 e-mails par mois, très loin de ce seuil, et nous appliquons les mêmes règles dès le premier message : une réputation d'envoi se construit à bas volume, pas après coup.</p>\n<h2>Des listes qu'on peut défendre</h2>\n<p>Nous partons de vos critères (secteur, taille, fonction, signal), nous enrichissons à partir de bases B2B et nous vérifions chaque adresse avant l'envoi. Chaque contact garde sa source. Écrire à contact@ ne touche personne : nous visons des fonctions nommées, avec un message qui parle de leur métier.</p>\n<h2>Où s'arrête le cold email</h2>\n<p>L'e-mail ouvre la conversation, il la conclut rarement. Les réponses remontent dans un <a href=\"/services/crm-scoring-routing\">CRM scoré et routé</a>, et les <a href=\"/services/sequences-de-suivi\">séquences de suivi</a> prennent le relais. Je déconseille de lancer la prospection sans ce relais : un prospect qui répond et attend trois jours a déjà refroidi.</p>",
       "html_en": "<h2>Deliverability comes before the copy</h2>\n<p>A well-written message that lands in spam earns nothing. So we start with infrastructure: one or more secondary domain names close to your brand, mailboxes dedicated to prospecting and the three authentication records. Your main domain, the one behind your quotes and invoices, never sends prospecting.</p>\n<p>Mailboxes then ramp up in stages, with a cap per address. Large mailbox providers set rules: <a href=\"https://support.google.com/a/answer/81126\" rel=\"noopener\" target=\"_blank\">Google's sender rules</a> require, beyond 5,000 messages a day to Gmail, authentication, one-click unsubscribe and a spam rate under 0.30%, with Google recommending to stay under 0.10%. An SME's volumes in our plans (in the order of 4,000 to 8,000 emails a month) are far below that, but we apply the same rules.</p>\n<h2>Lists you can defend</h2>\n<p>We start from your criteria (sector, size, role, signal), enrich from B2B databases and verify addresses before the first send. Each contact keeps its source. A message sent to contact@ reaches no one in particular: we aim at named roles, with a message about their job.</p>\n<h2>Where cold email stops</h2>\n<p>Email opens the conversation and rarely closes it. Replies flow into a <a href=\"/services/crm-scoring-routing\">scored and routed CRM</a>, and <a href=\"/services/sequences-de-suivi\">follow-up sequences</a> take over. To reach the same accounts elsewhere, see <a href=\"/services/prospection-linkedin\">LinkedIn prospecting</a>, prepared by the system and sent by a person, and <a href=\"/services/social-selling-ia\">AI-assisted social selling</a>. The full setup is described on the <a href=\"/services/prospection-automatisee\">automated prospecting</a> page and sits within the <a href=\"/services/systeme-acquisition\">acquisition system</a>.</p>"
     },
     {
@@ -216,35 +188,35 @@
       "kicker_en": "§ Legal framework",
       "h2_fr": "Cold email B2B et RGPD : ce qu'on applique",
       "h2_en": "B2B cold email and GDPR: what we apply",
-      "lede_fr": "La CNIL admet la prospection par e-mail entre professionnels sur la base de l'intérêt légitime. Voici comment chaque campagne s'y tient. Ce cadre décrit notre pratique, ce n'est pas un avis juridique.",
+      "lede_fr": "La CNIL admet la prospection par e-mail entre professionnels sur la base de l'intérêt légitime, quand le message touche la fonction du destinataire. Chaque campagne respecte les quatre points suivants.",
       "lede_en": "The CNIL accepts email prospecting between professionals on the basis of legitimate interest. Here is how each campaign stays within it. This describes our practice, not legal advice.",
       "features": [
         {
           "icon": "qualif",
           "title_fr": "Un message sur la fonction",
           "title_en": "A message about the role",
-          "body_fr": "Le message doit avoir un rapport avec la profession de la personne démarchée. Chaque séquence est écrite pour une fonction, pas pour une liste anonyme.",
+          "body_fr": "Chaque séquence s'écrit pour une fonction, pas pour une liste anonyme : le message doit avoir un rapport avec la profession de la personne démarchée.",
           "body_en": "The message must relate to the profession of the person contacted. Each sequence is written for a role, not for an anonymous list."
         },
         {
           "icon": "contenu",
           "title_fr": "Une personne informée",
           "title_en": "An informed person",
-          "body_fr": "Le premier message dit qui écrit, pour quelle société, et comment refuser de nouveaux messages. Pas d'adresse masquée, pas d'objet trompeur.",
+          "body_fr": "Le premier message dit qui écrit, pour quelle société, et comment refuser les suivants. Pas d'adresse masquée, pas d'objet trompeur.",
           "body_en": "The first message says who is writing, for which company, and how to refuse further messages. No masked address, no misleading subject."
         },
         {
           "icon": "tracking",
           "title_fr": "Une opposition respectée",
           "title_en": "An objection honoured",
-          "body_fr": "Un lien de désinscription dans chaque message. L'opposition est enregistrée et la personne sort de toutes les séquences, définitivement.",
+          "body_fr": "Chaque message porte un lien de désinscription. L'opposition est enregistrée, et la personne sort de toutes les séquences pour de bon.",
           "body_en": "An unsubscribe link in every message. The objection is recorded and the person leaves all sequences, for good."
         },
         {
           "icon": "pilotage",
           "title_fr": "Des données minimisées",
           "title_en": "Minimised data",
-          "body_fr": "Nom, fonction, société, adresse professionnelle : ce qui sert le message, avec sa source. Les contacts sans suite sont purgés.",
+          "body_fr": "Nom, fonction, société, adresse professionnelle, source : ce qui sert le message, rien de plus. Les contacts sans suite sont purgés.",
           "body_en": "Name, role, company, business address: what the message needs, with its source. Contacts with no follow-up are purged."
         }
       ]
@@ -254,14 +226,14 @@
       "background": "ink",
       "kicker_fr": "§ Ce qui dégrade la délivrabilité",
       "kicker_en": "§ What degrades deliverability",
-      "h2_fr": "Quatre causes <i class=\"acc\">fréquentes</i> de mails en spam",
+      "h2_fr": "Quatre façons de finir <i class=\"acc\">en spam</i>",
       "h2_en": "Four <i class=\"acc\">common</i> causes of emails landing in spam",
       "items": [
         {
           "severity": "critical",
           "title_fr": "Le domaine principal sert à prospecter",
           "title_en": "The main domain is used for prospecting",
-          "desc_fr": "Si les envois partent de votre domaine habituel, une mauvaise réputation touche aussi vos mails de devis et de facture.",
+          "desc_fr": "Une mauvaise réputation d'envoi retombe sur vos devis et vos factures, qui partent alors en spam eux aussi.",
           "desc_en": "If sends go out from your usual domain, a poor reputation also hits your quote and invoice emails.",
           "fix_fr": "Domaines secondaires et boîtes dédiées.",
           "fix_en": "Secondary domains and dedicated mailboxes."
@@ -270,7 +242,7 @@
           "severity": "high",
           "title_fr": "Des listes non vérifiées",
           "title_en": "Unverified lists",
-          "desc_fr": "Les adresses invalides produisent des rebonds, que les messageries lisent comme le signe d'un envoi non sollicité.",
+          "desc_fr": "Chaque adresse invalide rebondit, et les messageries lisent ces rebonds comme la signature d'un envoi non sollicité.",
           "desc_en": "Invalid addresses produce bounces, which mail systems read as a sign of unsolicited sending.",
           "fix_fr": "Vérification avant le premier envoi, purge des rebonds.",
           "fix_en": "Verification before the first send, bounces purged."
@@ -281,16 +253,16 @@
           "title_en": "Volume ramped up too fast",
           "desc_fr": "Une boîte neuve qui envoie beaucoup d'un coup ressemble à un envoi de masse.",
           "desc_en": "A new mailbox that suddenly sends a lot looks like a mass mailing.",
-          "fix_fr": "Montée par paliers et plafond par adresse.",
+          "fix_fr": "Montée par paliers, plafond par adresse.",
           "fix_en": "Staged ramp-up and a cap per address."
         },
         {
           "severity": "medium",
           "title_fr": "Pas de désinscription claire",
           "title_en": "No clear unsubscribe",
-          "desc_fr": "Un destinataire qui ne sait pas comment se retirer signale le message comme indésirable, et les plaintes pèsent sur la réputation.",
+          "desc_fr": "Un destinataire qui ne trouve pas comment se retirer clique sur « spam », et les plaintes pèsent sur la réputation.",
           "desc_en": "A recipient who cannot tell how to opt out flags the message as unwanted, and complaints weigh on reputation.",
-          "fix_fr": "Expéditeur identifié et lien de désinscription dans chaque message.",
+          "fix_fr": "Expéditeur identifié, lien de désinscription dans chaque message.",
           "fix_en": "Identified sender and unsubscribe link in every message."
         }
       ]
@@ -302,13 +274,13 @@
       "kicker_en": "§ The build",
       "h2_fr": "Six étapes, dans cet ordre",
       "h2_en": "Six steps, in this order",
-      "lede_fr": "L'infrastructure se prépare pendant qu'on écrit les messages, ce qui explique les 2 à 4 semaines habituelles avant la première séquence.",
+      "lede_fr": "L'infrastructure se prépare pendant qu'on écrit les messages. Le vrai délai, c'est la chauffe des boîtes.",
       "lede_en": "Infrastructure is prepared while the messages are written, which explains the usual 2 to 4 weeks before the first sequence.",
       "steps": [
         {
           "title_fr": "Cadrage",
           "title_en": "Scoping",
-          "sub_fr": "Offre, cible, critères écrits",
+          "sub_fr": "Offre, cible et critères écrits",
           "sub_en": "Offer, target, written criteria"
         },
         {
@@ -350,7 +322,7 @@
       "kicker_en": "§ What you keep",
       "title_fr": "Ce qui vous reste si vous arrêtez",
       "title_en": "What remains if you stop",
-      "lead_fr": "Rien n'est enfermé dans un outil qu'on garde : l'infrastructure et les campagnes sont transférables.",
+      "lead_fr": "Rien n'est enfermé dans un outil que nous gardons : l'infrastructure et les campagnes sont transférables.",
       "lead_en": "Nothing is locked in a tool we keep: the infrastructure and campaigns are transferable.",
       "items": [
         {
@@ -372,7 +344,7 @@
         {
           "title_fr": "Les domaines et les boîtes d'envoi",
           "title_en": "Sending domains and mailboxes",
-          "body_fr": "Les domaines et adresses dédiés, avec leurs enregistrements, sur vos comptes.",
+          "body_fr": "Domaines et adresses dédiés, enregistrements compris, sur vos comptes.",
           "body_en": "The dedicated domains and addresses, with their records, on your accounts.",
           "format_fr": "INFRA",
           "format_en": "INFRA"
@@ -392,15 +364,15 @@
       "background": "paper-2",
       "kicker_fr": "§ Quand ne pas le faire",
       "kicker_en": "§ When not to do it",
-      "heading_fr": "Le cold email ne convient pas si",
+      "heading_fr": "Quand je déconseille le cold email",
       "heading_en": "Cold email is not a fit if",
       "items": [
         {
-          "label_fr": "Vous vendez à des particuliers : le consentement préalable est requis.",
+          "label_fr": "Vous vendez à des particuliers : le consentement préalable est requis, et ce n'est pas ce que nous montons.",
           "label_en": "You sell to consumers: prior consent is required."
         },
         {
-          "label_fr": "Votre marché tient en quelques dizaines de comptes : un message personnel ou un appel vaut mieux.",
+          "label_fr": "Votre marché tient en quelques dizaines de comptes : un message écrit à la main ou un appel vaut mieux.",
           "label_en": "Your market is a few dozen accounts: a personal message or a call is better."
         },
         {
@@ -408,7 +380,7 @@
           "label_en": "Nobody will handle replies every day: an unanswered reply hurts your image."
         },
         {
-          "label_fr": "Votre offre n'a pas de destinataire précis (fonction, taille, secteur).",
+          "label_fr": "Votre offre n'a pas de destinataire précis (fonction, taille, secteur) : le volume n'y changera rien.",
           "label_en": "Your offer has no precise recipient (role, size, sector)."
         }
       ]
@@ -420,9 +392,9 @@
       "reveal_mode": "cursor",
       "kicker_fr": "§ Le reste de la prospection",
       "kicker_en": "§ The rest of prospecting",
-      "h2_fr": "Le cold email s'assemble aux autres <i>canaux</i>",
+      "h2_fr": "Le cold email travaille avec les autres <i>canaux</i>",
       "h2_en": "Cold email fits together with the other <i>channels</i>",
-      "lede_fr": "Chaque canal a sa page, ses règles et ses limites. Ouvrez celle qui vous concerne.",
+      "lede_fr": "Un canal seul prospecte mal : chacun des suivants a sa page, ses règles et ses limites.",
       "lede_en": "Each channel has its own page, rules and limits. Open the one that applies to you.",
       "items": [
         {
@@ -478,7 +450,7 @@
         {
           "label_fr": "Séquences de suivi",
           "label_en": "Follow-up sequences",
-          "meta_fr": "Les relances qui entretiennent les comptes ouverts",
+          "meta_fr": "Les relances qui gardent les comptes ouverts",
           "meta_en": "The follow-ups that keep open accounts warm",
           "media_src": "/images/illustrations/ds/sequences-de-suivi-v3-horloge-paper.webp",
           "media_alt_fr": "À côté d'une grande horloge, une personne glisse une lettre dans une haute boîte aux lettres",
@@ -496,18 +468,18 @@
       "kicker_en": "§ Monthly subscription",
       "h2_fr": "Un essai gratuit, puis un abonnement sans engagement",
       "h2_en": "A free trial, then a subscription with no commitment",
-      "lede_fr": "Le cold email se facture dans l'abonnement de prospection, pas au nombre de messages envoyés. Les formules Standard et Pro, leurs volumes et leur détail figurent dans la grille de la page prospection automatisée.",
+      "lede_fr": "Le cold email fait partie de l'abonnement de prospection. Les formules Standard et Pro, avec leurs volumes, sont détaillées sur la page prospection automatisée.",
       "lede_en": "Cold email is billed within the prospecting subscription, not per message sent. The Standard and Pro plans, their volumes and details are in the grid on the automated prospecting page.",
       "tiers": [
         {
           "name_fr": "Essai gratuit",
           "name_en": "Free trial",
           "price": "{{prix.commercial.essai}} leads",
-          "period_fr": "offerts · 0 € · un essai, pas une formule",
+          "period_fr": "offerts, sans abonnement",
           "period_en": "on us · 0 € · a trial, not a plan",
           "features_fr": [
             "Une visio pour cadrer votre domaine et votre cible",
-            "{{prix.commercial.essai}} leads offerts pour tester le ciblage",
+            "Des leads offerts pour tester le ciblage",
             "Des conseils concrets sur vos premières séquences"
           ],
           "features_en": [
@@ -529,11 +501,11 @@
           "period_fr": "HT / mois · dès",
           "period_en": "ex VAT / month · from",
           "features_fr": [
-            "Domaines et adresses dédiés, SPF, DKIM, DMARC",
-            "Warm-up progressif des boîtes",
-            "Séquences rédigées et personnalisées par IA, relues",
-            "Reporting sur les envois et les réponses",
-            "Sans engagement de durée : arrêt ou pause à tout moment"
+            "Domaines et adresses dédiés, avec SPF, DKIM et DMARC",
+            "Boîtes chauffées par paliers",
+            "Séquences rédigées par l'IA, personnalisées, relues avant le départ",
+            "Un compte rendu des envois, des rebonds et des réponses",
+            "Vous arrêtez ou vous suspendez quand vous voulez"
           ],
           "features_en": [
             "Dedicated domains and addresses, SPF, DKIM, DMARC",
@@ -551,7 +523,7 @@
           "featured": true
         }
       ],
-      "footnote_fr": "Abonnement mensuel HT, sans engagement de durée : le détail des formules Standard et Pro est sur la page prospection automatisée. Un volume plus élevé se cadre sur devis.",
+      "footnote_fr": "Abonnement mensuel, prix hors taxes. Un volume plus élevé se cadre sur devis.",
       "footnote_en": "Monthly subscription excl. VAT, no minimum term: the detail of the Standard and Pro plans is on the automated prospecting page. A higher volume is scoped on quote."
     },
     {
@@ -584,37 +556,37 @@
         {
           "q_fr": "Combien d'e-mails peut-on envoyer par jour sans abîmer sa délivrabilité ?",
           "q_en": "How many emails a day can you send without hurting deliverability?",
-          "a_fr": "Il n'existe pas de chiffre universel : tout dépend de l'ancienneté de la boîte, de la qualité de la liste et de la réaction des destinataires. On monte le volume par paliers sur chaque adresse et on le plafonne. Les messageries fixent des règles côté expéditeur : Google exige des expéditeurs de plus de 5 000 messages par jour vers Gmail une authentification SPF, DKIM et DMARC, une désinscription en un clic et un taux de spam inférieur à 0,30 %, Google recommandant de rester sous 0,10 %. Sous ce volume, on applique les mêmes règles.",
+          "a_fr": "Il n'existe pas de chiffre universel : tout dépend de l'ancienneté de la boîte, de la qualité de la liste et de la réaction des destinataires. Nous montons le volume par paliers sur chaque adresse et nous le plafonnons. Le seuil de Google (5 000 messages par jour vers Gmail) ne concerne pas une PME, mais nous suivons ses règles bien en dessous.",
           "a_en": "There is no universal figure: it depends on the mailbox's age, the list's quality and how recipients react. Volume goes up in stages on each address and is capped. Mailbox providers set sender rules: Google requires senders of more than 5,000 messages a day to Gmail to authenticate with SPF, DKIM and DMARC, offer one-click unsubscribe and keep the spam rate under 0.30%, with Google recommending to stay under 0.10%. Below that volume, we apply the same rules."
         },
         {
           "q_fr": "SPF, DKIM, DMARC : à quoi servent-ils ?",
           "q_en": "SPF, DKIM, DMARC: what are they for?",
-          "a_fr": "Le SPF liste les serveurs autorisés à envoyer des messages pour votre domaine. Le DKIM signe chaque message pour prouver qu'il n'a pas été modifié. Le DMARC dit à la messagerie du destinataire quoi faire quand l'un des deux échoue, et vous renvoie des rapports. Les trois s'écrivent dans la zone DNS du domaine d'envoi, avant le premier message.",
+          "a_fr": "Le SPF liste les serveurs autorisés à envoyer pour votre domaine. Le DKIM signe chaque message pour prouver qu'il n'a pas été modifié. Le DMARC dit à la messagerie du destinataire quoi faire quand l'un des deux échoue, et vous renvoie des rapports. Les trois s'écrivent dans la zone DNS du domaine d'envoi, avant le premier message.",
           "a_en": "SPF lists the servers allowed to send messages for your domain. DKIM signs each message to prove it was not altered. DMARC tells the recipient's mail system what to do when either fails, and sends you reports. All three are written in the sending domain's DNS zone, before the first message."
         },
         {
           "q_fr": "Faut-il un domaine dédié, et à qui appartient-il ?",
           "q_en": "Do you need a dedicated domain, and who owns it?",
-          "a_fr": "Oui : un nom de domaine secondaire, proche de votre marque, avec ses propres boîtes. Une mauvaise réputation d'envoi reste alors sur ce domaine et n'atteint pas celui de vos devis et de vos factures. Le domaine et les adresses sont transférables sur vos comptes si vous arrêtez.",
+          "a_fr": "Oui : un nom de domaine secondaire, proche de votre marque, avec ses propres boîtes. Une mauvaise réputation d'envoi reste sur ce domaine et n'atteint pas celui de vos devis et de vos factures. Domaine et adresses sont transférables sur vos comptes si vous arrêtez.",
           "a_en": "Yes: a secondary domain name close to your brand, with its own mailboxes. A poor sending reputation then stays on that domain and does not reach the one used for your quotes and invoices. The domain and addresses can be transferred to your accounts if you stop."
         },
         {
           "q_fr": "D'où viennent les adresses des destinataires ?",
           "q_en": "Where do recipients' addresses come from?",
-          "a_fr": "De vos critères de ciblage (secteur, taille, fonction, signal), appliqués à des bases B2B, puis vérifiés avant le premier envoi. Chaque contact garde sa source : si quelqu'un demande d'où vient son adresse, la réponse est dans le dossier. On ne part pas d'une liste achetée en bloc dont on ignore l'origine.",
+          "a_fr": "De vos critères de ciblage (secteur, taille, fonction, signal), appliqués à des bases B2B, puis vérifiés avant le premier envoi. Si quelqu'un demande d'où vient son adresse, la réponse est dans le dossier. Je refuse de partir d'une liste achetée en bloc dont personne ne connaît l'origine.",
           "a_en": "From your targeting criteria (sector, size, role, signal), applied to B2B databases, then verified before the first send. Each contact keeps its source: if someone asks where their address came from, the answer is on file. We do not start from a bulk-bought list of unknown origin."
         },
         {
           "q_fr": "Cold email ou LinkedIn : par quel canal commencer ?",
           "q_en": "Cold email or LinkedIn: which channel first?",
-          "a_fr": "Par celui où votre cible répond. L'e-mail se prête à une liste large et à des séquences régulières. LinkedIn se travaille compte par compte et reste envoyé par une personne : voir la page sur la prospection LinkedIn. Les deux peuvent se compléter sur les mêmes comptes, à condition de ne pas relancer la même personne sur les deux canaux le même jour.",
+          "a_fr": "Par celui où votre cible répond. L'e-mail se prête à une liste large et à des séquences régulières ; la prospection LinkedIn se travaille compte par compte et reste envoyée par une personne. Les deux se complètent sur les mêmes comptes, à condition de ne pas relancer la même personne sur les deux canaux le même jour.",
           "a_en": "By the one where your target replies. Email suits a wide list and regular sequences. LinkedIn is worked account by account and still sent by a person: see the LinkedIn prospecting page. The two can complement each other on the same accounts, as long as the same person is not chased on both channels on the same day."
         },
         {
           "q_fr": "Que mesurez-vous, et que ne promettez-vous pas ?",
           "q_en": "What do you measure, and what do you not promise?",
-          "a_fr": "Messages délivrés, rebonds, plaintes, désinscriptions, réponses, réponses positives, rendez-vous pris. On ne promet ni un nombre de rendez-vous ni un taux de réponse : ils dépendent de votre offre, de votre marché et de la précision du ciblage.",
+          "a_fr": "Messages délivrés, rebonds, plaintes, désinscriptions, réponses, réponses positives, rendez-vous pris. Nous ne promettons ni un nombre de rendez-vous ni un taux de réponse : ils dépendent de votre offre, de votre marché et de la précision du ciblage.",
           "a_en": "Messages delivered, bounces, complaints, unsubscribes, replies, positive replies, meetings booked. We promise neither a number of meetings nor a reply rate: they depend on your offer, your market and the precision of targeting."
         }
       ]
@@ -630,7 +602,7 @@
       "kicker_en": "§ Free AI audit",
       "h2_fr": "Vos e-mails froids arrivent-ils jusqu'à la boîte de réception ?",
       "h2_en": "Do your cold emails reach the inbox?",
-      "subtitle_fr": "En 45 minutes, on regarde votre domaine, votre cible et vos outils, et on vous dit si le cold email vaut le coup chez vous.",
+      "subtitle_fr": "En 45 minutes, nous regardons votre domaine, votre cible et vos outils, et nous vous disons si le cold email vaut le coup chez vous.",
       "subtitle_en": "In 45 minutes, we look at your domain, your target and your tools, and tell you whether cold email is worth it for you.",
       "buttons": [
         {
@@ -650,13 +622,13 @@
   ],
   "sources": [
     {
-      "name": "CNIL, La prospection commerciale par courrier électronique (mise à jour le 10 juin 2026, lue le 12 octobre 2026)",
+      "name": "CNIL, La prospection commerciale par courrier électronique (mise à jour le 10 juin 2026, lue le 11 novembre 2026)",
       "url": "https://www.cnil.fr/fr/la-prospection-commerciale-par-courrier-electronique",
       "type": "state",
       "publishedAt": "2026-06-10"
     },
     {
-      "name": "Google, Règles de Google pour les expéditeurs de messages (exigences pour les expéditeurs en masse, lue le 12 octobre 2026)",
+      "name": "Google, Règles de Google pour les expéditeurs de messages (exigences pour les expéditeurs en masse, lue le 11 novembre 2026)",
       "url": "https://support.google.com/a/answer/81126",
       "type": "enterprise"
     }

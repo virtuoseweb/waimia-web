@@ -579,11 +579,11 @@ export const DEPARTMENTS_GRID = [
 // le manifeste via `src/lib/case-card-grid-data.ts`. Un seul récit de cas sur tout le site.
 
 export const FIELD_NOTES = [
-  { date: '04.2026', tag: { en: 'FIELD NOTE', fr: 'NOTE' },    text: { en: 'Consulting firms: where the 8-week proposal-automation lever sits.',              fr: 'Cabinets de conseil : où se trouve le levier d’automatisation des proposals.' } },
-  { date: '04.2026', tag: { en: 'METHOD',    fr: 'MÉTHODE' },  text: { en: 'Multi-workspace kernels, French locale, replayable audit trail.',                fr: 'Noyaux multi-workspace, locale FR, audit trail re-rejouable.' } },
-  { date: '03.2026', tag: { en: 'FIELD NOTE', fr: 'NOTE' },    text: { en: 'HubSpot + Claude: the unglamorous pattern that actually ships.',                  fr: 'HubSpot + Claude : le pattern discret qui livre vraiment.' } },
-  { date: '03.2026', tag: { en: 'ESSAY',      fr: 'ESSAI' },   text: { en: 'Against the brain-circuit aesthetic.',                                            fr: "Contre l'esthétique cerveau-circuit." } },
-  { date: '02.2026', tag: { en: 'METHOD',    fr: 'MÉTHODE' },  text: { en: 'RevOps rebuild: reconnect site, CRM, follow-ups into one pipeline.',             fr: 'Reconnecter CRM et relances dans un seul pipeline, sans ressaisie.' } },
+  { date: '06.2026', tag: { en: 'ESSAY',      fr: 'ESSAI' },   text: { en: 'GEO: what Google documents, what the study suggests, what is not proven',          fr: 'GEO : ce que Google documente, ce que l’étude suggère, ce qui n’est pas prouvé.' } },
+  { date: '05.2026', tag: { en: 'ESSAY',      fr: 'ESSAI' },   text: { en: 'AI for SMBs in 2026: the complete guide',                                         fr: 'IA pour PME en 2026 : le guide complet.' } },
+  { date: '05.2026', tag: { en: 'FIELD NOTE', fr: 'NOTE' },    text: { en: 'Consulting firms: where the 8-week proposal-automation lever sits.',              fr: 'Cabinets de conseil : automatiser les relances B2B sans commercial dédié.' } },
+  { date: '04.2026', tag: { en: 'METHOD',    fr: 'MÉTHODE' },  text: { en: 'HubSpot + Claude: the unglamorous pattern that actually ships.',                  fr: 'Câbler son CRM en 10 jours : la méthode.' } },
+  { date: '04.2026', tag: { en: 'ESSAY',      fr: 'ESSAI' },   text: { en: 'Against the brain-circuit aesthetic.',                                            fr: 'Cerveau-circuit : l’iconographie IA, un théâtre.' } },
 ];
 
 // Six prestations du studio, dans l'ordre de l'offre (refonte positionnement 2026-10) :

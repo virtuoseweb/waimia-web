@@ -120,7 +120,7 @@
     },
     {
       "q": "Claude Cowork price: how much does it cost?",
-      "a": "Cowork is not sold separately: it is included in Claude's paid plans. On the pricing page read on 5 October 2026: Pro at 20 dollars a month (17 billed annually), Max from 100 dollars a month, Team Standard at 25 dollars per seat per month (20 billed annually), Enterprise at 20 dollars per seat billed annually plus usage at API rates. Prices exclude VAT and exchange rates."
+      "a": "Cowork is not sold separately: it is included in Claude's paid plans. According to Anthropic's pricing page: Pro at 20 dollars a month (17 billed annually), Max at 100 dollars a month, Ultra at 200 dollars a month, Team Standard at 25 dollars per seat per month (20 billed annually), Enterprise at 20 dollars per seat billed annually plus usage at API rates. Prices exclude VAT and exchange rates."
     },
     {
       "q": "Does Claude Cowork work on Windows?",
@@ -128,7 +128,7 @@
     },
     {
       "q": "I no longer see the Cowork button. Is that normal?",
-      "a": "Yes, if you are on Pro or Max: the merge has been rolling out there since 16 September 2026, on web, desktop and mobile. Your tasks now sit in the Recents list, with conversations. Once migrated, there is no going back to two separate modes."
+      "a": "Yes, if you are on Pro, Max or Ultra: the merge has been rolling out there since 16 September 2026, on web, desktop and mobile. Your tasks now sit in the Recents list, with conversations. Once migrated, there is no going back to two separate modes."
     },
     {
       "q": "My team is on Team or Enterprise: what changes?",
@@ -148,7 +148,7 @@
     },
     {
       "q": "Can you let Claude act without approval?",
-      "a": "Anthropic's help center describes two autonomy settings: Manual, the default, and Auto. On Team and Enterprise, the admin also controls the automatic approval mode. For SMBs, we recommend staying on Manual for anything that sends a message, pays or deletes, and only move to Auto tasks you have seen run without error several times."
+      "a": "Yes, and it is even the default on Pro, Max, Ultra and Team: in Auto, Claude carries on without asking at each step, with automated safety checks. Manual, the default on Enterprise, asks before every action. On Team and Enterprise, the admin also controls the automatic approval mode. For anything that sends a message, pays or deletes, I recommend switching to Manual, and leaving only tasks you have seen run without error several times on Auto."
     }
   ],
   "sections": [
@@ -160,11 +160,11 @@
       "h1_fr": "Claude Cowork est désormais Claude : <i class=\"acc\">ce qui change</i>",
       "h1_en": "Claude Cowork is now Claude: <i class=\"acc\">what changes</i>",
       "lede_fr": "Claude Cowork, l'agent de Claude qui exécute des tâches dans vos fichiers et vos outils, est désormais intégré à Claude. Le déploiement est en cours sur Pro, Max et Ultra. Il tourne sur macOS et Windows, dans toutes les offres payantes.",
-      "lede_en": "Claude Cowork, the Claude agent that carries out tasks in your files and tools, is now built into Claude. The rollout is under way on Pro and Max. It runs on macOS and Windows, on every paid plan (Anthropic sources reread on 5 October 2026).",
+      "lede_en": "Claude Cowork, the Claude agent that carries out tasks in your files and tools, is now built into Claude. The rollout is under way on Pro, Max and Ultra. It runs on macOS and Windows, on every paid plan.",
       "badges": [
         {
           "label_fr": "Fusion du 16 septembre 2026",
-          "label_en": "Updated on 5 October 2026"
+          "label_en": "Merger of 16 September 2026"
         },
         {
           "label_fr": "Sources officielles Anthropic",
@@ -202,7 +202,7 @@
       "term_fr": "Réponse courte",
       "term_en": "Short answer",
       "answer_fr": "Le 16 septembre 2026, Anthropic a annoncé la fusion de Cowork et de la conversation en un seul Claude : plus de mode à choisir, Claude décide s'il répond ou s'il prend la tâche. Le déploiement a commencé sur Pro, Max et Ultra ; l'offre gratuite suivra.",
-      "answer_en": "On 16 September 2026, Anthropic announced that Cowork and chat are merging into one Claude: no mode to pick, Claude decides whether to answer or take the task on. It is rolling out on Pro and Max; the free plan will follow."
+      "answer_en": "On 16 September 2026, Anthropic announced that Cowork and chat are merging into one Claude: no mode to pick, Claude decides whether to answer or take the task on. It started on Pro, Max and Ultra; the free plan will follow."
     },
     {
       "type": "key-metric-grid",
@@ -210,7 +210,7 @@
       "variant": "accent",
       "columns": 4,
       "eyebrow_fr": "§ Où en est la fusion",
-      "eyebrow_en": "§ Where the merge stands on 5 October 2026",
+      "eyebrow_en": "§ Where the merge stands",
       "title_fr": "Quatre repères avant de changer quoi que ce soit",
       "title_en": "Four markers before changing anything",
       "metrics": [
@@ -244,7 +244,7 @@
       "heading_fr": "Claude Cowork avant et après la fusion",
       "heading_en": "Claude Cowork before and after the merge",
       "caption_fr": "Colonne « après » : offres Pro, Max et Ultra, d'après l'article d'aide « Claude Cowork and chat are one Claude ». Le déploiement se fait sur plusieurs semaines : votre compte peut encore afficher l'ancienne version.",
-      "caption_en": "\"After\" column: Pro and Max plans, based on the help article \"Claude Cowork and chat are one Claude\" read on 5 October 2026. The rollout takes several weeks: your account may still show the old version.",
+      "caption_en": "\"After\" column: Pro, Max and Ultra plans, based on the help article \"Claude Cowork and chat are one Claude\". The rollout takes several weeks: your account may still show the old version.",
       "columns_fr": [
         "Sujet",
         "Avant la fusion",
@@ -253,7 +253,7 @@
       "columns_en": [
         "Topic",
         "Before the merge",
-        "After the merge (Pro, Max)"
+        "After the merge (Pro, Max, Ultra)"
       ],
       "rows_fr": [
         [
@@ -326,7 +326,7 @@
         [
           "Autonomy",
           "Action approvals",
-          "Auto or Manual setting, Manual by default"
+          "Auto or Manual setting: Auto by default on Pro, Max, Ultra and Team, Manual on Enterprise"
         ],
         [
           "Going back",
@@ -336,7 +336,7 @@
         [
           "Team and Enterprise",
           "Chat and Cowork separate",
-          "Unchanged for now"
+          "Team: merge in beta. Enterprise: available where the \"Chat and Cowork unified\" option is turned on"
         ]
       ],
       "variant": "editorial"
@@ -353,7 +353,7 @@
         }
       ],
       "html_fr": "<h2>Ce qui est déployé, et ce qui ne l'est pas</h2><p>La formule d'Anthropic sur sa page produit est courte : « Claude Cowork is now just Claude ». La réalité est plus progressive :</p><ul><li><strong>Pro, Max et Ultra</strong> : la fusion se déploie sur le web, l'application de bureau et le mobile, « dans les semaines qui viennent » selon l'annonce du 16 septembre.</li><li><strong>L'offre gratuite</strong> : annoncée « bientôt », sans date.</li><li><strong>Team et Enterprise</strong> : sur Team, la fusion est en bêta ; sur Enterprise, elle est en disponibilité générale depuis le 23 octobre 2026. Dans les deux cas, elle est disponible là où l'option « Chat and Cowork unified » est activée.</li><li><strong>Le nom Cowork</strong> : il reste dans l'aide officielle, dans les titres d'articles et dans les réglages d'administration (Organization settings &gt; Cowork).</li></ul><p>Certains articles de presse parlent de la « fin de Cowork ». La source primaire parle de fusion. Je ne retirerais donc pas Cowork de vos règles internes : renommez-le si vous voulez, mais gardez le périmètre. Pour situer Cowork parmi les autres briques de Claude, notre <a href=\"/ressources/guides/claude-pme\">guide pour déployer Claude en PME</a> donne la vue d'ensemble.</p><h2>Le nouveau vocabulaire</h2><ul><li><strong>Une tâche</strong> : ce qu'on appelait une session Cowork. <a href=\"/blog/creer-agent-ia-claude\">Claude planifie, travaille dans vos fichiers et vos outils connectés</a>, puis rend un livrable.</li><li><strong>Recents</strong> : la liste unique où se trouvent conversations et tâches.</li><li><strong>Trusted folders</strong> : les dossiers de votre ordinateur que Claude Desktop a le droit de lire et d'écrire.</li><li><strong>/schedule</strong> : la commande qui crée une tâche planifiée, exécutée dans le cloud.</li><li><strong>Auto et Manual</strong> : les deux réglages d'autonomie, Auto par défaut sauf sur Enterprise.</li></ul><p>La même annonce a lancé Claude Docs et Claude Slides en bêta, et intégré Claude Design aux conversations : voir le guide <a href=\"/ressources/guides/claude-design\">Claude Design</a>.</p>",
-      "html_en": "<h2>What is rolled out, and what is not</h2><p>Anthropic's product page puts it briefly: \"Claude Cowork is now just Claude\". The reality, as of 5 October 2026, is more gradual:</p><ul><li><strong>Pro and Max</strong>: the merge is rolling out on web, desktop and mobile, \"over the coming weeks\" per the 16 September announcement.</li><li><strong>The free plan</strong>: announced \"soon\", with no date.</li><li><strong>Team and Enterprise</strong>: chat and Cowork stay separate for now; the merge is announced \"soon\" for Team, with no date. Enterprise admins will get at least 30 days' notice before any change.</li><li><strong>The Cowork name</strong>: it remains in the official help center, in article titles and in admin settings (Organization settings &gt; Cowork).</li></ul><p>Some press articles talk about \"the end of Cowork\". The primary source talks about a merge. So do not drop Cowork from your internal rules: rename it if you like, but keep the scope.</p><h2>The new vocabulary</h2><ul><li><strong>A task</strong>: what used to be a Cowork session. <a href=\"/blog/creer-agent-ia-claude\">Claude plans, works in your files and connected tools</a>, then hands back a deliverable.</li><li><strong>Recents</strong>: the single list holding conversations and tasks.</li><li><strong>Trusted folders</strong>: the folders on your computer that Claude Desktop may read and write.</li><li><strong>/schedule</strong>: the command that creates a scheduled task, run in the cloud.</li><li><strong>Auto and Manual</strong>: the two autonomy settings, Manual by default.</li></ul><p>The same announcement launched Claude Docs and Claude Slides in beta and built Claude Design into conversations: see our <a href=\"/ressources/guides/claude-design\">Claude Design</a> guide.</p>"
+      "html_en": "<h2>What is rolled out, and what is not</h2><p>Anthropic's product page puts it briefly: \"Claude Cowork is now just Claude\". The reality is more gradual:</p><ul><li><strong>Pro, Max and Ultra</strong>: the merge is rolling out on web, desktop and mobile, \"over the coming weeks\" per the 16 September announcement.</li><li><strong>The free plan</strong>: announced \"soon\", with no date.</li><li><strong>Team and Enterprise</strong>: on Team, the merge is in beta; on Enterprise, it has been generally available since 23 October 2026. In both cases, it is available where the \"Chat and Cowork unified\" option is turned on.</li><li><strong>The Cowork name</strong>: it remains in the official help center, in article titles and in admin settings (Organization settings &gt; Cowork).</li></ul><p>Some press articles talk about \"the end of Cowork\". The primary source talks about a merge. So do not drop Cowork from your internal rules: rename it if you like, but keep the scope.</p><h2>The new vocabulary</h2><ul><li><strong>A task</strong>: what used to be a Cowork session. <a href=\"/blog/creer-agent-ia-claude\">Claude plans, works in your files and connected tools</a>, then hands back a deliverable.</li><li><strong>Recents</strong>: the single list holding conversations and tasks.</li><li><strong>Trusted folders</strong>: the folders on your computer that Claude Desktop may read and write.</li><li><strong>/schedule</strong>: the command that creates a scheduled task, run in the cloud.</li><li><strong>Auto and Manual</strong>: the two autonomy settings, Auto by default except on Enterprise.</li></ul><p>The same announcement launched Claude Docs and Claude Slides in beta and built Claude Design into conversations: see our <a href=\"/ressources/guides/claude-design\">Claude Design</a> guide.</p>"
     },
     {
       "type": "editorial-prose",
@@ -367,7 +367,7 @@
         }
       ],
       "html_fr": "<h2>Où retrouver chaque fonction de Cowork</h2><p>Fonction par fonction, d'après l'aide d'Anthropic, avec un conseil d'usage en PME :</p><ul><li>Confier une tâche. Écrivez-la dans n'importe quelle conversation : « <a href=\"/blog/tableau-de-bord-pme-quelles-donnees-suivre\">prépare le rapport hebdo à partir des trois exports du dossier Ventes</a> ». Claude décide qu'il s'agit d'une tâche. Conseil : décrivez le résultat attendu et le format, pas les étapes.</li><li>Travailler sur vos fichiers. Dans Claude Desktop, ouvrez un seul dossier de confiance par usage, dédié et rangé. Claude ne lit et n'écrit que dans les dossiers que vous déclarez.</li><li>Répéter une tâche. /schedule ou le menu « + » : la tâche tourne dans le cloud à la cadence choisie, même ordinateur éteint. Utile pour un point hebdomadaire ; <a href=\"/blog/workflow-ia-exemples-pme\">à éviter pour un traitement qui doit tourner à l'identique des milliers de fois</a>.</li><li>Garder le contexte. Les projets sont accessibles depuis chaque conversation : consignes, documents de référence, ton. La mémoire, étendue à la conversation et à Cowork depuis le 25 août 2026, complète sans remplacer.</li><li>Régler l'autonomie. En Auto, le réglage par défaut sur Pro, Max, Ultra et Team, Claude enchaîne les étapes sans demander, avec des contrôles de sécurité automatiques. En Manual, par défaut sur Enterprise, il demande avant d'agir. Je recommande de passer en Manual tant que l'équipe n'a pas vu plusieurs tâches se dérouler correctement.</li><li>Se spécialiser. Les plugins regroupent skills, connecteurs et sous-agents pour un métier ; ils fonctionnent dans Cowork. Exemple : Claude for Small Business, annoncé le 13 mai 2026, est un plugin Cowork de workflows pour petites entreprises (clôture du mois, relance des impayés), branché sur QuickBooks, HubSpot ou PayPal ; voir le guide <a href=\"/ressources/guides/claude-for-small-business\">Claude for Small Business</a>. Voir aussi <a href=\"/ressources/guides/claude-skills\">les skills Claude</a> et <a href=\"/ressources/guides/claude-plugins-entreprise\">les plugins en entreprise</a>.</li></ul><p>Le tableau complet des produits Claude, Cowork compris, est dans le guide des <a href=\"/ressources/guides/claude-fonctionnalites-pme\">fonctionnalités de Claude pour une PME</a>.</p><h2>Claude Cowork sur Windows</h2><p>Claude Cowork fonctionne sur Windows comme sur macOS : il est sorti de la preview sur les deux systèmes le 9 avril 2026, pour toutes les offres payantes. Il faut la dernière version de Claude pour Windows, à télécharger ou à mettre à jour sur claude.com/download. Une nuance : Anthropic ne décrit l'utilisation de l'ordinateur en fenêtres d'arrière-plan que pour macOS 15 ou plus. Prérequis, installation et limites propres à Windows : voir <a href=\"/blog/claude-cowork-windows\">Claude Cowork sur Windows</a>.</p>",
-      "html_en": "<h2>Where to find each Cowork feature</h2><p>Feature by feature, per Anthropic's help center, with SMB usage advice:</p><ul><li><strong>Handing over a task.</strong> Write it in any conversation: \"prepare the weekly report from the three exports in the Sales folder\". Claude decides it is a task. Tip: describe the expected outcome and format, not the steps.</li><li><strong>Working on your files.</strong> In Claude Desktop, open one trusted folder per use, dedicated and tidy. Claude only reads and writes in folders you declare.</li><li><strong>Repeating a task.</strong> /schedule or the \"+\" menu: the task runs in the cloud at the chosen cadence, even with your computer off. Useful for a weekly update; <a href=\"/blog/workflow-ia-exemples-pme\">avoid it for processing that must run identically thousands of times</a>.</li><li><strong>Keeping context.</strong> Projects are available from every conversation: instructions, reference documents, tone. Memory, extended to chat and Cowork since 25 August 2026, complements them without replacing them.</li><li><strong>Setting autonomy.</strong> Manual by default: Claude asks before acting. Auto: it carries on. Stay on Manual until the team has seen several tasks go right.</li><li><strong>Specialising.</strong> Plugins bundle skills, connectors and sub-agents for a role; they work in Cowork. Example: Claude for Small Business, announced on 13 May 2026, is a Cowork plugin of workflows for small businesses (month-end close, invoice chasing), wired to QuickBooks, HubSpot or PayPal; see our <a href=\"/ressources/guides/claude-for-small-business\">Claude for Small Business</a> guide. See also <a href=\"/ressources/guides/claude-skills\">Claude skills</a> and <a href=\"/ressources/guides/claude-plugins-entreprise\">business plugins</a>.</li></ul><p>The full map of Claude products, Cowork included, is in our guide to <a href=\"/ressources/guides/claude-fonctionnalites-pme\">Claude features for an SMB</a>.</p><h2>Claude Cowork on Windows</h2><p>Claude Cowork works on Windows as on macOS: it left preview on both systems on 9 April 2026, for all paid plans. You need the latest version of Claude for Windows, to download or update at claude.com/download. One nuance noted on 16 October 2026: computer use in background windows is only described by Anthropic for macOS 15 or later. Windows prerequisites, installation and limits: see <a href=\"/blog/claude-cowork-windows\">Claude Cowork on Windows</a>.</p>"
+      "html_en": "<h2>Where to find each Cowork feature</h2><p>Feature by feature, per Anthropic's help center, with SMB usage advice:</p><ul><li><strong>Handing over a task.</strong> Write it in any conversation: \"prepare the weekly report from the three exports in the Sales folder\". Claude decides it is a task. Tip: describe the expected outcome and format, not the steps.</li><li><strong>Working on your files.</strong> In Claude Desktop, open one trusted folder per use, dedicated and tidy. Claude only reads and writes in folders you declare.</li><li><strong>Repeating a task.</strong> /schedule or the \"+\" menu: the task runs in the cloud at the chosen cadence, even with your computer off. Useful for a weekly update; <a href=\"/blog/workflow-ia-exemples-pme\">avoid it for processing that must run identically thousands of times</a>.</li><li><strong>Keeping context.</strong> Projects are available from every conversation: instructions, reference documents, tone. Memory, extended to chat and Cowork since 25 August 2026, complements them without replacing them.</li><li><strong>Setting autonomy.</strong> In Auto, the default on Pro, Max, Ultra and Team, Claude chains steps without asking, with automated safety checks. In Manual, the default on Enterprise, it asks before acting. I recommend switching to Manual until the team has seen several tasks go right.</li><li><strong>Specialising.</strong> Plugins bundle skills, connectors and sub-agents for a role; they work in Cowork. Example: Claude for Small Business, announced on 13 May 2026, is a Cowork plugin of workflows for small businesses (month-end close, invoice chasing), wired to QuickBooks, HubSpot or PayPal; see our <a href=\"/ressources/guides/claude-for-small-business\">Claude for Small Business</a> guide. See also <a href=\"/ressources/guides/claude-skills\">Claude skills</a> and <a href=\"/ressources/guides/claude-plugins-entreprise\">business plugins</a>.</li></ul><p>The full map of Claude products, Cowork included, is in our guide to <a href=\"/ressources/guides/claude-fonctionnalites-pme\">Claude features for an SMB</a>.</p><h2>Claude Cowork on Windows</h2><p>Claude Cowork works on Windows as on macOS: it left preview on both systems on 9 April 2026, for all paid plans. You need the latest version of Claude for Windows, to download or update at claude.com/download. One nuance: computer use in background windows is only described by Anthropic for macOS 15 or later. Windows prerequisites, installation and limits: see <a href=\"/blog/claude-cowork-windows\">Claude Cowork on Windows</a>.</p>"
     },
     {
       "type": "editorial-timeline",
@@ -424,7 +424,7 @@
           "meta_fr": "16 septembre 2026",
           "meta_en": "16 September 2026",
           "body_fr": "Cowork et la conversation ne font plus qu'un, d'abord sur Pro, Max et Ultra. Claude Docs et Claude Slides arrivent en bêta.",
-          "body_en": "Cowork and chat become one, first on Pro and Max. Claude Docs and Claude Slides arrive in beta.",
+          "body_en": "Cowork and chat become one, first on Pro, Max and Ultra. Claude Docs and Claude Slides arrive in beta.",
           "variant": "highlight"
         }
       ]
@@ -437,7 +437,7 @@
       "heading_fr": "Claude Cowork prix : inclus dans les offres payantes",
       "heading_en": "Claude Cowork price: included in paid plans",
       "caption_fr": "Source : claude.com/pricing et centre d'aide Claude. Prix publics en dollars américains, hors TVA et hors taux de change : le montant facturé en euros peut différer. Sur Team et Enterprise, le quota par siège est partagé entre conversation, Cowork et Claude Code, sur une fenêtre glissante de 5 heures et une limite hebdomadaire.",
-      "caption_en": "Source: claude.com/pricing and Claude Help Center, read on 5 October 2026. Public prices in US dollars, excluding VAT and exchange rates: the amount billed in euros may differ. On Team and Enterprise, the per-seat quota is shared between chat, Cowork and Claude Code, over a rolling 5-hour window and a weekly limit.",
+      "caption_en": "Source: claude.com/pricing and Claude Help Center. Public prices in US dollars, excluding VAT and exchange rates: the amount billed in euros may differ. On Team and Enterprise, the per-seat quota is shared between chat, Cowork and Claude Code, over a rolling 5-hour window and a weekly limit.",
       "columns_fr": [
         "Offre",
         "Prix affiché",
@@ -509,26 +509,32 @@
         ],
         [
           "Max",
-          "From $100 a month",
+          "$100 a month",
           "Included, merge under way",
-          "5 or 20 times Pro usage"
+          "5 times Pro usage"
+        ],
+        [
+          "Ultra",
+          "$200 a month",
+          "Included, merge under way",
+          "10 times Pro's weekly usage, no 5-hour limit for verified accounts"
         ],
         [
           "Team Standard",
           "$25 per seat per month, $20 billed annually, 2 to 150 seats",
-          "Included, Cowork separate for now",
+          "Included, merge in beta",
           "1.25 times Pro per session"
         ],
         [
           "Team Premium",
           "$125 per seat per month, $100 billed annually",
-          "Included, Cowork separate for now",
+          "Included, merge in beta",
           "6.25 times Pro per session"
         ],
         [
           "Enterprise",
           "$20 per seat per month billed annually, plus usage at API rates",
-          "Included, Cowork separate, at least 30 days' notice",
+          "Included, merge available where the option is turned on",
           "Pay for what you use"
         ]
       ],
@@ -538,7 +544,7 @@
       "type": "editorial-prose",
       "background": "paper",
       "html_fr": "<h2>Ce que coûte l'usage</h2><p>Une tâche confiée à Claude consomme plus de quota qu'une question : elle lit des fichiers, appelle des outils, produit un livrable. C'est l'usage, pas le nombre de tâches, qui fait la facture.</p><p><strong>Exemple illustratif.</strong> Une équipe de 10 personnes en Team Standard paie 200 dollars par mois en annuel (10 sièges à 20 dollars), ou 250 dollars en mensuel, hors taxes. Si deux personnes confient de longues tâches chaque jour, passer ces deux sièges en Premium porte la facture à 360 dollars par mois, toujours en annuel, (8 sièges à 20 dollars, 2 à 100 dollars). Au-delà du quota, Team et Enterprise peuvent activer des crédits d'usage, avec des plafonds par organisation, par groupe ou par membre.</p><p>Mon conseil : sièges Standard pour tout le monde, lecture de l'usage au bout d'un mois, Premium seulement pour ceux qui butent sur la limite.</p><h2>Les limites à connaître avant de confier une tâche</h2><ul><li>Claude modifie les fichiers de vos dossiers de confiance et agit dans les outils connectés. D'où l'intérêt de garder le réglage Manual au départ.</li><li>Les connecteurs ne sont pas tous audités. Anthropic examine les connecteurs de son annuaire, mais n'audite pas la sécurité des serveurs MCP. Branchez des outils connus, un par un. Le <a href=\"/ressources/guides/mcp-claude\">guide MCP</a> détaille les précautions.</li><li>Les données partent aux États-Unis par défaut. Les apps Claude stockent les données aux États-Unis. D'après la page de conformité régionale d'Anthropic, la résidence en Europe passe par d'autres canaux : AWS Bedrock, Google Vertex et, bientôt, Microsoft Foundry.</li><li>L'historique local échappe aux administrateurs. Voir la section administration ci-dessous.</li></ul>",
-      "html_en": "<h2>What usage costs</h2><p>A task handed to Claude uses more quota than a question: it reads files, calls tools, produces a deliverable. Usage, not the number of tasks, drives the bill.</p><p><strong>Illustrative example.</strong> A team of 10 on Team Standard pays 200 dollars a month billed annually (10 seats at 20 dollars), or 250 dollars billed monthly, excluding tax. If two people hand over long tasks daily, moving those two seats to Premium brings the bill to 360 dollars a month, still billed annually, (8 seats at 20 dollars, 2 at 100). Beyond the quota, Team and Enterprise can turn on usage credits, with caps per organisation, group or member.</p><p>My advice: Standard seats for everyone, read usage after a month, Premium only for those who hit the limit.</p><h2>Limits to know before handing over a task</h2><ul><li><strong>Claude changes the files in your trusted folders</strong> and acts in connected tools. Hence Manual by default.</li><li><strong>Not every connector is audited.</strong> Anthropic reviews the connectors in its directory but does not audit the security of MCP servers. Connect known tools, one at a time. Our <a href=\"/ressources/guides/mcp-claude\">MCP guide</a> covers the precautions.</li><li><strong>Data goes to the United States by default.</strong> Claude apps store data in the US; no European hosting is announced for claude.ai as of 5 October 2026. EU residency goes through other channels (AWS Bedrock, Google Vertex).</li><li><strong>Local history is out of admins' reach.</strong> See the admin section below.</li></ul>"
+      "html_en": "<h2>What usage costs</h2><p>A task handed to Claude uses more quota than a question: it reads files, calls tools, produces a deliverable. Usage, not the number of tasks, drives the bill.</p><p><strong>Illustrative example.</strong> A team of 10 on Team Standard pays 200 dollars a month billed annually (10 seats at 20 dollars), or 250 dollars billed monthly, excluding tax. If two people hand over long tasks daily, moving those two seats to Premium brings the bill to 360 dollars a month, still billed annually, (8 seats at 20 dollars, 2 at 100). Beyond the quota, Team and Enterprise can turn on usage credits, with caps per organisation, group or member.</p><p>My advice: Standard seats for everyone, read usage after a month, Premium only for those who hit the limit.</p><h2>Limits to know before handing over a task</h2><ul><li><strong>Claude changes the files in your trusted folders</strong> and acts in connected tools. Hence the point of keeping Manual at the start.</li><li><strong>Not every connector is audited.</strong> Anthropic reviews the connectors in its directory but does not audit the security of MCP servers. Connect known tools, one at a time. Our <a href=\"/ressources/guides/mcp-claude\">MCP guide</a> covers the precautions.</li><li><strong>Data goes to the United States by default.</strong> Claude apps store data in the US. According to Anthropic's regional compliance page, EU residency goes through other channels: AWS Bedrock, Google Vertex and, soon, Microsoft Foundry.</li><li><strong>Local history is out of admins' reach.</strong> See the admin section below.</li></ul>"
     },
     {
       "type": "tech-when-dual",
@@ -592,7 +598,7 @@
         }
       ],
       "html_fr": "<h2>Administration en Team et Enterprise : les réglages à relire maintenant</h2><p>Pour les organisations, Cowork reste un réglage à part entière (Organization settings &gt; Cowork). D'après l'aide d'Anthropic sur Cowork en Team et Enterprise :</p><ul><li>Activation par organisation. Cowork est activé par défaut, sauf pour les organisations HIPAA où il est désactivé par défaut.</li><li>Exécution dans le cloud. L'option « Run Cowork in the cloud » est activée par défaut en Team, désactivée par défaut en Enterprise.</li><li>Contrôles séparés pour le navigateur intégré et pour <a href=\"/ressources/guides/claude-in-chrome-entreprise\">Claude in Chrome</a>, pour le mode d'approbation automatique, et pour le « Always allow » des connecteurs, désactivé par défaut.</li><li>Plugins. Marketplaces privées et quatre niveaux de diffusion : installé par défaut, disponible, requis, indisponible.</li></ul><p>Un point de vigilance sur la conformité : l'historique local des sessions Cowork n'est pas soumis à la politique de rétention standard et ne peut être ni géré ni supprimé centralement par les administrateurs. Si votre registre RGPD prévoit une durée de conservation, il faut une consigne écrite côté postes : où sont ces historiques, qui les nettoie, quand. Poser ces réglages et cette consigne avec vous, c'est le travail de notre <a href=\"/services/integration-claude\">intégration de Claude en entreprise</a>.</p><p>Pour cadrer le reste (charte d'usage, données interdites, DPA), voir la page <a href=\"/conformite-ia\">conformité IA</a> et le modèle de <a href=\"/ressources/outils/charte-ia-entreprise\">charte IA d'entreprise</a>.</p>",
-      "html_en": "<h2>Admin on Team and Enterprise: the settings to review now</h2><p>For organisations, Cowork remains a setting in its own right (Organization settings &gt; Cowork). According to Anthropic's help article on Cowork for Team and Enterprise:</p><ul><li><strong>Per-organisation activation.</strong> Cowork is on by default, except for HIPAA organisations where it is off by default.</li><li><strong>Cloud execution.</strong> \"Run Cowork in the cloud\" is on by default on Team, off by default on Enterprise.</li><li><strong>Separate controls</strong> for the built-in browser and for <a href=\"/ressources/guides/claude-in-chrome-entreprise\">Claude in Chrome</a>, for the automatic approval mode, and for connector \"Always allow\", off by default.</li><li><strong>Plugins.</strong> Private marketplaces and four distribution levels: installed by default, available, required, unavailable.</li></ul><p><strong>Compliance watch-point.</strong> The local history of Cowork sessions is not subject to the standard retention policy and cannot be managed or deleted centrally by admins. If your GDPR record sets a retention period, you need a written rule on the device side: where those histories live, who clears them, when.</p><p>To frame the rest (usage policy, off-limits data, DPA), see our <a href=\"/conformite-ia\">AI compliance</a> page and the <a href=\"/ressources/outils/charte-ia-entreprise\">company AI policy</a> template.</p>"
+      "html_en": "<h2>Admin on Team and Enterprise: the settings to review now</h2><p>For organisations, Cowork remains a setting in its own right (Organization settings &gt; Cowork). According to Anthropic's help article on Cowork for Team and Enterprise:</p><ul><li><strong>Per-organisation activation.</strong> Cowork is on by default, except for HIPAA organisations where it is off by default.</li><li><strong>Cloud execution.</strong> \"Run Cowork in the cloud\" is on by default on Team, off by default on Enterprise.</li><li><strong>Separate controls</strong> for the built-in browser and for <a href=\"/ressources/guides/claude-in-chrome-entreprise\">Claude in Chrome</a>, for the automatic approval mode, and for connector \"Always allow\", off by default.</li><li><strong>Plugins.</strong> Private marketplaces and four distribution levels: installed by default, available, required, unavailable.</li></ul><p><strong>Compliance watch-point.</strong> The local history of Cowork sessions is not subject to the standard retention policy and cannot be managed or deleted centrally by admins. If your GDPR record sets a retention period, you need a written rule on the device side: where those histories live, who clears them, when. Setting up these options and this rule with you is the work of our <a href=\"/services/integration-claude\">Claude integration for business</a>.</p><p>To frame the rest (usage policy, off-limits data, DPA), see our <a href=\"/conformite-ia\">AI compliance</a> page and the <a href=\"/ressources/outils/charte-ia-entreprise\">company AI policy</a> template.</p>"
     },
     {
       "type": "lead-capture-band",
@@ -613,8 +619,8 @@
       "kicker_en": "§ Waimia method",
       "h2_fr": "Démarrer, ou passer la fusion, en quatre étapes",
       "h2_en": "Getting started, or through the merge, in four steps",
-      "intro_fr": "Recommandations de Waimia, tirées des missions d'intégration de Claude. L'audit de 45 minutes est gratuit ; le sprint de cadrage est à {{prix.sprint}} € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure.",
-      "intro_en": "Waimia's recommendations, drawn from Claude integration engagements. The 45-minute audit is free; the scoping sprint is {{prix.sprint.en}} € ex VAT for 10 hours, then {{prix.horaire}} € ex VAT per hour.",
+      "intro_fr": "Nos recommandations. L'audit de 45 minutes est gratuit ; le sprint de cadrage est à {{prix.sprint}} € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure.",
+      "intro_en": "Our recommendations. The 45-minute audit is free; the scoping sprint is {{prix.sprint.en}} € ex VAT for 10 hours, then {{prix.horaire}} € ex VAT per hour.",
       "steps": [
         {
           "title_fr": "Choisir une tâche",
@@ -630,7 +636,7 @@
         },
         {
           "title_fr": "Passer en mode Manual",
-          "title_en": "Keep Manual mode",
+          "title_en": "Switch to Manual mode",
           "body_fr": "Claude demande avant d'agir tant que l'équipe n'a pas vu plusieurs tâches se dérouler correctement. En Team ou Enterprise, relisez aussi le réglage d'approbation automatique côté administration.",
           "body_en": "Claude asks before acting until the team has seen several tasks go right. On Team or Enterprise, also review the auto-approval setting on the admin side."
         },
@@ -646,7 +652,7 @@
       "type": "editorial-prose",
       "background": "paper-2",
       "html_fr": "<h2>Les guides détaillés, produit par produit</h2><p>Cowork n'est plus un produit isolé. Pour chaque brique de Claude, un guide qui dit ce qu'elle fait, ce qu'elle coûte et quand se faire aider :</p><ul><li><a href=\"/ressources/guides/claude-pme\">Déployer Claude dans une PME</a> : le guide d'ensemble, prérequis et 90 premiers jours.</li><li><a href=\"/ressources/guides/claude-fonctionnalites-pme\">Les fonctionnalités de Claude pour une PME</a> : la carte de tous les produits.</li><li><a href=\"/ressources/guides/claude-code-entreprise\">Claude Code en entreprise</a> : pour les équipes qui ont un développeur.</li><li><a href=\"/ressources/guides/claude-skills\">Les skills Claude</a> : écrire une fois vos consignes métier.</li><li><a href=\"/ressources/guides/claude-plugins-entreprise\">Les plugins Claude en entreprise</a> : diffuser skills et connecteurs à une équipe.</li><li><a href=\"/ressources/guides/claude-design\">Claude Design</a> : maquettes, decks et fiches d'une page.</li></ul><h2>Et Claude Duet ?</h2>\n<p>Le 21 octobre 2026, Anthropic a lancé Claude Duet, un agent proactif dans une application séparée, qui continue de travailler quand votre ordinateur est éteint. Il n'est pas la suite de Cowork : il est en aperçu de recherche, sur liste d'attente. Le <a href=\"/ressources/guides/claude-duet\">guide Claude Duet</a> explique ce qui le distingue de Cowork et de Managed Agents.</p><h2>Les sources d'Anthropic</h2><ul><li><a href=\"https://claude.com/blog/cowork-is-now-claude\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, « Cowork is now Claude », 16 septembre 2026</a></li><li><a href=\"https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude\" rel=\"noopener noreferrer\" target=\"_blank\">Centre d'aide Claude, « Claude Cowork and chat are one Claude »</a></li><li><a href=\"https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans\" rel=\"noopener noreferrer\" target=\"_blank\">Centre d'aide Claude, Cowork sur les offres Team et Enterprise</a></li><li><a href=\"https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork\" rel=\"noopener noreferrer\" target=\"_blank\">Centre d'aide Claude, « Get started with Claude Cowork »</a></li><li><a href=\"https://claude.com/blog/cowork-plugins\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, « Cowork plugins », 30 janvier 2026</a></li><li><a href=\"https://claude.com/blog/cowork-for-enterprise\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, disponibilité générale de Cowork, 9 avril 2026</a></li><li><a href=\"https://www.anthropic.com/news/claude-for-small-business\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, « Claude for Small Business », 13 mai 2026</a></li><li><a href=\"https://support.claude.com/en/articles/12138966-release-notes\" rel=\"noopener noreferrer\" target=\"_blank\">Centre d'aide Claude, notes de version</a></li><li><a href=\"https://claude.com/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, tarifs de Claude</a></li></ul>",
-      "html_en": "<h2>Detailed guides, product by product</h2><p>Cowork is no longer a standalone product. For each part of Claude, a guide covering what it does, what it costs and when to get help:</p><ul><li><a href=\"/ressources/guides/claude-pme\">Deploying Claude in an SMB</a>: the overview guide, prerequisites and first 90 days.</li><li><a href=\"/ressources/guides/claude-fonctionnalites-pme\">Claude features for an SMB</a>: the map of every product.</li><li><a href=\"/ressources/guides/claude-code-entreprise\">Claude Code for business</a>: for teams with a developer.</li><li><a href=\"/ressources/guides/claude-skills\">Claude skills</a>: write your business instructions once.</li><li><a href=\"/ressources/guides/claude-plugins-entreprise\">Claude plugins for business</a>: distribute skills and connectors to a team.</li><li><a href=\"/ressources/guides/claude-design\">Claude Design</a>: mock-ups, decks and one-pagers.</li></ul><h2>And Claude Duet?</h2>\n<p>On 21 October 2026, Anthropic launched Claude Duet, a proactive agent in a separate application that keeps working when your computer is off. It is not the successor to Cowork: it is a research preview, on a waitlist. The <a href=\"/ressources/guides/claude-duet\">Claude Duet guide</a> explains how it differs from Cowork and from Managed Agents.</p><h2>Sources, reread on 5 and 6 October 2026</h2><ul><li><a href=\"https://claude.com/blog/cowork-is-now-claude\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, \"Cowork is now Claude\", 16 September 2026</a></li><li><a href=\"https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude\" rel=\"noopener noreferrer\" target=\"_blank\">Claude Help Center, \"Claude Cowork and chat are one Claude\"</a></li><li><a href=\"https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans\" rel=\"noopener noreferrer\" target=\"_blank\">Claude Help Center, Cowork on Team and Enterprise plans</a></li><li><a href=\"https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork\" rel=\"noopener noreferrer\" target=\"_blank\">Claude Help Center, \"Get started with Claude Cowork\"</a></li><li><a href=\"https://claude.com/blog/cowork-plugins\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, \"Cowork plugins\", 30 January 2026</a></li><li><a href=\"https://claude.com/blog/cowork-for-enterprise\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Cowork general availability, 9 April 2026</a></li><li><a href=\"https://www.anthropic.com/news/claude-for-small-business\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, \"Claude for Small Business\", 13 May 2026</a></li><li><a href=\"https://support.claude.com/en/articles/12138966-release-notes\" rel=\"noopener noreferrer\" target=\"_blank\">Claude Help Center, release notes</a></li><li><a href=\"https://claude.com/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude pricing</a></li></ul>"
+      "html_en": "<h2>Detailed guides, product by product</h2><p>Cowork is no longer a standalone product. For each part of Claude, a guide covering what it does, what it costs and when to get help:</p><ul><li><a href=\"/ressources/guides/claude-pme\">Deploying Claude in an SMB</a>: the overview guide, prerequisites and first 90 days.</li><li><a href=\"/ressources/guides/claude-fonctionnalites-pme\">Claude features for an SMB</a>: the map of every product.</li><li><a href=\"/ressources/guides/claude-code-entreprise\">Claude Code for business</a>: for teams with a developer.</li><li><a href=\"/ressources/guides/claude-skills\">Claude skills</a>: write your business instructions once.</li><li><a href=\"/ressources/guides/claude-plugins-entreprise\">Claude plugins for business</a>: distribute skills and connectors to a team.</li><li><a href=\"/ressources/guides/claude-design\">Claude Design</a>: mock-ups, decks and one-pagers.</li></ul><h2>And Claude Duet?</h2>\n<p>On 21 October 2026, Anthropic launched Claude Duet, a proactive agent in a separate application that keeps working when your computer is off. It is not the successor to Cowork: it is a research preview, on a waitlist. The <a href=\"/ressources/guides/claude-duet\">Claude Duet guide</a> explains how it differs from Cowork and from Managed Agents.</p><h2>Anthropic's sources</h2><ul><li><a href=\"https://claude.com/blog/cowork-is-now-claude\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, \"Cowork is now Claude\", 16 September 2026</a></li><li><a href=\"https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude\" rel=\"noopener noreferrer\" target=\"_blank\">Claude Help Center, \"Claude Cowork and chat are one Claude\"</a></li><li><a href=\"https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans\" rel=\"noopener noreferrer\" target=\"_blank\">Claude Help Center, Cowork on Team and Enterprise plans</a></li><li><a href=\"https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork\" rel=\"noopener noreferrer\" target=\"_blank\">Claude Help Center, \"Get started with Claude Cowork\"</a></li><li><a href=\"https://claude.com/blog/cowork-plugins\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, \"Cowork plugins\", 30 January 2026</a></li><li><a href=\"https://claude.com/blog/cowork-for-enterprise\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Cowork general availability, 9 April 2026</a></li><li><a href=\"https://www.anthropic.com/news/claude-for-small-business\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, \"Claude for Small Business\", 13 May 2026</a></li><li><a href=\"https://support.claude.com/en/articles/12138966-release-notes\" rel=\"noopener noreferrer\" target=\"_blank\">Claude Help Center, release notes</a></li><li><a href=\"https://claude.com/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude pricing</a></li></ul>"
     },
     {
       "type": "related-cards-band",
@@ -699,7 +705,7 @@
           "q_fr": "Claude Cowork prix : combien ça coûte ?",
           "q_en": "Claude Cowork price: how much does it cost?",
           "a_fr": "Cowork n'est pas vendu à part : il est inclus dans les offres payantes de Claude. D'après la page tarifs d'Anthropic : Pro à 20 dollars par mois (17 en annuel), Max à 100 dollars par mois, Ultra à 200 dollars par mois, Team Standard à 25 dollars par siège et par mois (20 en annuel), Enterprise à 20 dollars par siège en annuel plus l'usage au tarif de l'API. Prix hors TVA et hors taux de change.",
-          "a_en": "Cowork is not sold separately: it is included in Claude's paid plans. On the pricing page read on 5 October 2026: Pro at 20 dollars a month (17 billed annually), Max from 100 dollars a month, Team Standard at 25 dollars per seat per month (20 billed annually), Enterprise at 20 dollars per seat billed annually plus usage at API rates. Prices exclude VAT and exchange rates."
+          "a_en": "Cowork is not sold separately: it is included in Claude's paid plans. According to Anthropic's pricing page: Pro at 20 dollars a month (17 billed annually), Max at 100 dollars a month, Ultra at 200 dollars a month, Team Standard at 25 dollars per seat per month (20 billed annually), Enterprise at 20 dollars per seat billed annually plus usage at API rates. Prices exclude VAT and exchange rates."
         },
         {
           "q_fr": "Claude Cowork fonctionne-t-il sur Windows ?",
@@ -711,13 +717,13 @@
           "q_fr": "Je ne vois plus le bouton Cowork. Est-ce normal ?",
           "q_en": "I no longer see the Cowork button. Is that normal?",
           "a_fr": "Oui, si vous êtes en Pro, Max ou Ultra : la fusion s'y déploie depuis le 16 septembre 2026, sur le web, le bureau et le mobile. Vos tâches sont désormais dans la liste Recents, avec les conversations. Une fois migré, il n'y a pas de retour à deux modes séparés.",
-          "a_en": "Yes, if you are on Pro or Max: the merge has been rolling out there since 16 September 2026, on web, desktop and mobile. Your tasks now sit in the Recents list, with conversations. Once migrated, there is no going back to two separate modes."
+          "a_en": "Yes, if you are on Pro, Max or Ultra: the merge has been rolling out there since 16 September 2026, on web, desktop and mobile. Your tasks now sit in the Recents list, with conversations. Once migrated, there is no going back to two separate modes."
         },
         {
           "q_fr": "Mon équipe est en Team ou Enterprise : qu'est-ce qui change ?",
           "q_en": "My team is on Team or Enterprise: what changes?",
           "a_fr": "Sur Team, la fusion est en bêta ; sur Enterprise, elle est disponible là où l'option « Chat and Cowork unified » est activée. Relisez vos réglages d'administration de Cowork avant de l'activer.",
-          "a_en": "For now, nothing: review your Cowork admin settings before the merger reaches you."
+          "a_en": "On Team, the merge is in beta; on Enterprise, it is available where the \"Chat and Cowork unified\" option is turned on. Review your Cowork admin settings before turning it on."
         },
         {
           "q_fr": "Où sont passées mes tâches planifiées et mes dossiers ?",
@@ -741,7 +747,7 @@
           "q_fr": "Peut-on laisser Claude agir sans validation ?",
           "q_en": "Can you let Claude act without approval?",
           "a_fr": "Oui, c'est même le réglage par défaut sur Pro, Max, Ultra et Team : en Auto, Claude continue sans demander à chaque étape, avec des contrôles de sécurité automatiques. Manual, par défaut sur Enterprise, demande avant chaque action. En Team et Enterprise, l'administrateur contrôle aussi le mode d'approbation automatique. Pour tout ce qui envoie un message, paie ou supprime, je recommande de passer en Manual, et de ne laisser en Auto que des tâches vues se dérouler sans erreur à plusieurs reprises.",
-          "a_en": "Anthropic's help center describes two autonomy settings: Manual, the default, and Auto. On Team and Enterprise, the admin also controls the automatic approval mode. For SMBs, we recommend staying on Manual for anything that sends a message, pays or deletes, and only move to Auto tasks you have seen run without error several times."
+          "a_en": "Yes, and it is even the default on Pro, Max, Ultra and Team: in Auto, Claude carries on without asking at each step, with automated safety checks. Manual, the default on Enterprise, asks before every action. On Team and Enterprise, the admin also controls the automatic approval mode. For anything that sends a message, pays or deletes, I recommend switching to Manual, and leaving only tasks you have seen run without error several times on Auto."
         }
       ]
     },
@@ -753,7 +759,7 @@
       "h2_fr": "La fusion n'est pas finie. Soyez prévenu quand elle touche votre offre.",
       "h2_en": "The merge is not finished. Hear about it when it reaches your plan.",
       "body_fr": "Une lettre courte quand un changement d'offre, de prix ou de réglage d'administration touche vraiment une PME : arrivée de la fusion sur Team et sur l'offre gratuite, nouvelles règles de rétention.",
-      "body_en": "A short letter when a change in plans, prices or admin settings really affects an SMB: the merge reaching Team, Enterprise notice, new retention rules.",
+      "body_en": "A short letter when a change in plans, prices or admin settings really affects an SMB: the merge reaching Team and the free plan, new retention rules.",
       "hint_fr": "Désinscription en un clic.",
       "hint_en": "Unsubscribe in one click."
     },

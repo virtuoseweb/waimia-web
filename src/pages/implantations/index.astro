@@ -26,8 +26,8 @@ const cards: Card[] = (await getCollection('implantations'))
     const d = e.data;
     const shortTitle = (full: string) => full.split(' · ')[0].trim();
     return {
-      kicker_fr: 'Implantation',
-      kicker_en: 'Location',
+      kicker_fr: 'Ville',
+      kicker_en: 'City',
       title_fr: shortTitle(d.title_fr),
       title_en: shortTitle(d.title_en),
       lead_fr: d.description_fr,
@@ -67,7 +67,7 @@ const hero: SectionByType<'hero-hub-masthead'> = {
   kicker_en: '§ Locations · Bordeaux and nine other cities',
   h1_fr: '<span>Agence IA en France :</span><br/><span><i>où le studio intervient</i>.</span>',
   h1_en: '<span>AI agency in France:</span><br/><span><i>where the studio works</i>.</span>',
-  lede_fr: "Waimia est basé à Bordeaux et travaille à distance pour des PME et ETI partout en France. Sur site à Bordeaux et, selon la mission, à Montpellier, Lyon, Toulouse, Paris, Strasbourg, Lille, Marseille, Dijon et Nantes.",
+  lede_fr: "Nous sommes basés à Bordeaux et travaillons à distance pour des PME et ETI partout en France. Deux moments valent le déplacement : l'audit, et l'atelier de cadrage ou la formation, quand plusieurs personnes doivent se mettre d'accord. Dix villes ci-dessous : Bordeaux, Montpellier, Lyon, Toulouse, Paris, Strasbourg, Lille, Marseille, Dijon et Nantes.",
   lede_en: 'Waimia is based in Bordeaux and works remotely for SMEs and mid-sized companies across France. On site in Bordeaux and, depending on the engagement, in Montpellier, Lyon, Toulouse, Paris, Strasbourg, Lille, Marseille, Dijon and Nantes.',
 };
 
@@ -76,7 +76,7 @@ const ctaFinal: SectionByType<'cta-final'> = {
   background: 'ink',
   h2_fr: 'Un projet près de chez vous, ou à distance ?',
   h2_en: 'A project near you, or remote?',
-  body_fr: `${AUDIT_PROMISE.general.tiny.fr} On part de vos processus réels, sans engagement.`,
+  body_fr: "Audit gratuit de 45 minutes, en visio ou sur place quand c'est possible : nous partons de vos processus réels, sans engagement, et vous repartez avec un ou deux chantiers classés.",
   body_en: `${AUDIT_PROMISE.general.tiny.en} We start from your real processes, with no commitment.`,
   cta_primary: {
     label_fr: AUDIT_BOOKING_LABEL.fr,
@@ -92,12 +92,18 @@ const ctaFinal: SectionByType<'cta-final'> = {
   },
 };
 
+// Intertitre des bandes suivantes : la plage de villes qu'elles couvrent (ordre alphabétique des cartes).
+const cityOf = (title: string) => title.replace(/^Agence IA (?:à|pour)\s+(?:la\s+|le\s+)?/i, '').split(/[,:]/)[0].trim();
+
 const cardBands: SectionData[] = chunkCards(cards).map((chunk, i) => ({
   type: 'related-cards-band',
   background: i % 2 === 0 ? 'paper' : 'paper-2',
   ...(i === 0
-    ? { kicker_fr: '§ Les implantations', kicker_en: '§ Our locations' }
-    : {}),
+    ? { kicker_fr: '§ Les villes', kicker_en: '§ The cities' }
+    : {
+        kicker_fr: `§ De ${cityOf(chunk[0].title_fr)} à ${cityOf(chunk[chunk.length - 1].title_fr)}`,
+        kicker_en: `§ From ${cityOf(chunk[0].title_fr)} to ${cityOf(chunk[chunk.length - 1].title_fr)}`,
+      }),
   cards: chunk,
 }) satisfies SectionByType<'related-cards-band'>);
 
