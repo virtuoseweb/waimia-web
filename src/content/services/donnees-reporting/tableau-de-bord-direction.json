@@ -7,7 +7,7 @@
   "description_en": "Management dashboard for SME owners: five to eight indicators, connected sources, alerts sent to a named person. From €{{prix.sprint.en}} excl. VAT.",
   "slug": "tableau-de-bord-direction",
   "publishedAt": "2026-10-12T00:00:00.000Z",
-  "updatedAt": "2026-10-12",
+  "updatedAt": "2026-11-11",
   "category": "donnees",
   "tags": [
     "tableau-de-bord-direction",
@@ -29,7 +29,7 @@
     },
     {
       "q": "Qui reçoit les alertes, et que se passe-t-il ensuite ?",
-      "a": "Chaque alerte est adressée à une personne nommée, par email ou message, avec le chiffre, sa plage normale et la date de la donnée. Elle ne déclenche aucune action : la personne regarde, puis décide."
+      "a": "Chaque alerte est adressée à une personne nommée, par e-mail ou par message, avec le chiffre, sa plage normale et la date de la donnée. Elle ne déclenche aucune action : la personne regarde, puis décide."
     },
     {
       "q": "Faut-il changer de logiciel de comptabilité ou de CRM ?",
@@ -41,7 +41,7 @@
     },
     {
       "q": "Quels chiffres déconseillez-vous de suivre ?",
-      "a": "Ceux sans décision attachée (audience, abonnés), ceux saisis à la main une fois par trimestre, et les ratios qui croisent des sources dont les définitions ne concordent pas. On les écarte par écrit pour ne pas les rouvrir à chaque réunion."
+      "a": "Ceux sans décision attachée (audience, abonnés), ceux que personne ne peut influencer à son niveau, les saisies trimestrielles à la main et les ratios entre sources aux définitions discordantes : nous les écartons par écrit, avec la raison, pour ne pas les rouvrir à chaque réunion."
     },
     {
       "q": "Mes données sont de qualité moyenne : est-ce bloquant ?",
@@ -90,7 +90,7 @@
       "kicker_en": "§ Management dashboard",
       "h1_fr": "Un <i class=\"acc\">tableau de bord</i> de direction qui tient sur un écran",
       "h1_en": "A management <i class=\"acc\">dashboard</i> that fits on one screen",
-      "lede_fr": "Un tableau de bord de direction réunit sur un écran les cinq à huit chiffres qui servent à décider. Waimia le conçoit avec le dirigeant : indicateurs choisis un par un, sources branchées, une personne nommée pour chaque alerte.",
+      "lede_fr": "Un tableau de bord de direction réunit sur un écran les cinq à huit chiffres qui servent à décider. Nous le concevons avec vous : indicateurs choisis un par un, sources branchées, une personne nommée pour chaque alerte.",
       "lede_en": "A management dashboard gathers on one screen the five to eight figures that help decide. Waimia designs it with the owner: indicators picked one by one, sources connected, one named person for each alert.",
       "badges": [
         {
@@ -216,7 +216,7 @@
       "type": "pain-severity-list",
       "background": "ink",
       "columns": "2",
-      "kicker_fr": "§ Les échecs courants",
+      "kicker_fr": "§ Cinq échecs, cinq remèdes",
       "kicker_en": "§ Common failures",
       "h2_fr": "Comment un tableau de direction <i class=\"acc\">échoue</i>.",
       "h2_en": "How a management dashboard <i class=\"acc\">fails</i>.",
@@ -243,7 +243,7 @@
           "severity": "high",
           "title_fr": "Une donnée en retard affichée comme à jour",
           "title_en": "Late data shown as up to date",
-          "desc_fr": "L'écran montre le mois en cours avec des factures saisies trois semaines plus tard.",
+          "desc_fr": "L'écran affiche le mois en cours avec des factures saisies trois semaines plus tard.",
           "desc_en": "The screen shows the current month with invoices entered three weeks later.",
           "fix_fr": "La date de la dernière donnée est visible sur chaque chiffre.",
           "fix_en": "The date of the latest data is visible on each figure."
@@ -280,7 +280,7 @@
           "side": "right"
         }
       ],
-      "html_fr": "<h2>Partir des décisions, pas des données</h2>\n<p>La question de départ n'est pas « que peut-on mesurer ? » mais « quelle décision prenez-vous chaque lundi ? ». Relancer un client en retard, repousser un recrutement, refuser un chantier : chaque indicateur retenu est rattaché à une décision et à la personne qui la prend. Celui qui n'a ni décision ni responsable ne passe pas sur l'écran principal.</p>\n<p>La sélection se fait avec le dirigeant, à partir des exports que vous utilisez déjà. L'article <a href=\"/blog/tableau-de-bord-pme-quelles-donnees-suivre\">tableau de bord PME : les données qui comptent</a> donne les familles d'indicateurs ; ici, on tranche pour votre entreprise.</p>\n<h2>Ce qu'on ne suit pas</h2>\n<p>Quatre catégories reviennent. Les indicateurs d'audience sans lien avec une vente. Les chiffres que personne ne peut influencer à son niveau. Les données saisies à la main une fois par trimestre : un écran « à jour » alimenté par une saisie trimestrielle ment sans le dire. Enfin les ratios qui croisent des sources dont les définitions ne concordent pas. Ces écarts sont consignés par écrit, avec la raison, pour ne pas rouvrir le débat à chaque réunion.</p>\n<h2>Ce que fait une alerte, et ce qu'elle ne fait pas</h2>\n<p>Une alerte prévient une personne nommée quand un indicateur sort de sa plage habituelle : le chiffre, la plage normale, la date de la donnée. Elle ne bloque aucune commande et ne déclenche aucune relance toute seule. La décision reste humaine ; l'automatisation fait gagner le temps de la découverte, pas celui du jugement.</p>\n<h2>Prérequis : une donnée saisie à temps</h2>\n<p>L'écran affiche la qualité de vos données, il ne la fabrique pas. Si les factures sont saisies avec trois semaines de retard, il affichera trois semaines de retard. Cela se mesure à l'audit sur un échantillon, avant de promettre un écran. Quand les sources sont éparpillées ou en double, c'est le <a href=\"/services/centralisation-donnees\">socle de données</a> qui passe en premier (le cas d'usage <a href=\"/cas-usages/centraliser-donnees\">centraliser ses données</a> décrit le problème) ; quand le besoin est un document envoyé à un tiers plutôt qu'un écran, c'est le <a href=\"/services/reporting-automatise\">reporting automatisé</a>.</p>\n<p>Si l'acquisition fait partie de vos chiffres (demandes entrantes par canal, coût d'une demande), ils viennent du <a href=\"/services/systeme-acquisition\">système d'acquisition</a> et se lisent sur le même écran. Le cadre général reste sur la page <a href=\"/services/donnees-reporting\">données et reporting</a>.</p>",
+      "html_fr": "<h2>Partir des décisions, pas des données</h2>\n<p>La question de départ n'est pas « que peut-on mesurer ? » mais « quelle décision prenez-vous chaque lundi ? ». Relancer un client en retard, repousser un recrutement, refuser un chantier : chaque indicateur retenu est rattaché à une décision et à la personne qui la prend. Celui qui n'a ni décision ni responsable ne passe pas sur l'écran principal.</p>\n<p>Je déconseille de commencer par l'outil de tableaux de bord : on y empile des graphiques avant d'avoir nommé une seule décision. Nous choisissons les indicateurs avec le dirigeant, à partir des exports que vous utilisez déjà. Notre article <a href=\"/blog/tableau-de-bord-pme-quelles-donnees-suivre\">tableau de bord PME : les données qui comptent</a> donne les grandes familles ; nous tranchons pour votre entreprise. Pour chiffrer ce que vous coûte aujourd'hui le suivi à la main, le guide <a href=\"/ressources/guides/roi-automatisation\">ROI de l'automatisation</a> donne la méthode de calcul.</p>\n<h2>Ce qu'on ne suit pas</h2>\n<p>Nous écartons quatre sortes de chiffres, par écrit et avec la raison, pour ne pas rouvrir le débat à chaque réunion.</p>\n<ul>\n<li>L'audience sans lien avec une vente.</li>\n<li>Les chiffres que personne ne peut influencer à son niveau.</li>\n<li>Les données saisies à la main une fois par trimestre : un écran « à jour » nourri par une saisie trimestrielle ment sans le dire.</li>\n<li>Les ratios qui croisent des sources dont les définitions ne concordent pas.</li>\n</ul>\n<h2>Ce que fait une alerte, et ce qu'elle ne fait pas</h2>\n<p>Une alerte prévient une personne nommée quand un indicateur sort de sa plage habituelle : le chiffre, la plage normale, la date de la donnée. Elle ne bloque aucune commande et ne relance personne à votre place. L'automatisation vous fait découvrir l'écart plus tôt ; la décision reste à la personne nommée.</p>\n<h2>Prérequis : une donnée saisie à temps</h2>\n<p>L'écran montre la qualité de vos données, il ne la fabrique pas. Des factures saisies avec trois semaines de retard s'afficheront avec trois semaines de retard. Nous le mesurons à l'audit, sur un échantillon, avant de promettre un écran.</p>\n<p>Quand vos sources sont éparpillées ou en double, le <a href=\"/services/centralisation-donnees\">socle de données</a> passe en premier. Quand vous avez besoin d'un document pour un tiers plutôt que d'un écran, c'est le <a href=\"/services/reporting-automatise\">reporting automatisé</a>. Le cadre général est sur la page <a href=\"/services/donnees-reporting\">données et reporting</a>.</p>",
       "html_en": "<h2>Start from decisions, not from data</h2>\n<p>The starting question is not \"what can we measure?\" but \"which decision do you make every Monday?\". Chasing a late customer, postponing a hire, turning down a job: each indicator kept is tied to a decision and to the person who makes it. One with no decision and no owner does not reach the main screen.</p>\n<p>The selection is made with the manager, from the exports you already use. The article <a href=\"/blog/tableau-de-bord-pme-quelles-donnees-suivre\">SMB dashboard: the data that matters</a> gives the families of indicators; here, we decide for your company.</p>\n<h2>What we do not track</h2>\n<p>Four categories come back. Audience indicators with no link to a sale. Figures nobody can influence at their level. Data typed by hand once a quarter: an \"up to date\" screen fed by a quarterly entry lies without saying so. And ratios that cross sources whose definitions do not match. These gaps are recorded in writing, with the reason, so the debate is not reopened at every meeting.</p>\n<h2>What an alert does, and what it does not</h2>\n<p>An alert notifies a named person when an indicator leaves its usual range: the figure, the normal range, the date of the data. It blocks no order and triggers no follow-up on its own. The decision stays human; automation saves the time of discovery, not the time of judgement.</p>\n<h2>Prerequisite: data entered on time</h2>\n<p>The screen shows the quality of your data, it does not create it. If invoices are entered three weeks late, it will show three weeks of delay. This is measured at the audit on a sample, before promising a screen. When sources are scattered or duplicated, the <a href=\"/services/centralisation-donnees\">data base</a> comes first (the use case <a href=\"/cas-usages/centraliser-donnees\">centralise your data</a> describes the problem); when the need is a document sent to a third party rather than a screen, it is <a href=\"/services/reporting-automatise\">automated reporting</a>.</p>\n<p>If acquisition is part of your figures (inbound requests by channel, cost of a request), they come from the <a href=\"/services/systeme-acquisition\">acquisition system</a> and read on the same screen. The general frame stays on the <a href=\"/services/donnees-reporting\">data and reporting</a> page.</p>"
     },
     {
@@ -390,7 +390,7 @@
       "kicker_en": "§ What you keep",
       "title_fr": "Ce qui vous reste à la fin",
       "title_en": "What you keep at the end",
-      "lead_fr": "Quatre documents et un écran, à votre nom, que votre équipe peut faire évoluer.",
+      "lead_fr": "Trois documents et un écran, à votre nom, que votre équipe peut faire évoluer.",
       "lead_en": "Four documents and one screen, in your name, that your team can evolve.",
       "items": [
         {
@@ -466,7 +466,7 @@
       "kicker_en": "§ Two ways to engage",
       "h2_fr": "Prix d'un tableau de bord de direction",
       "h2_en": "Price of a management dashboard",
-      "lede_fr": "On démarre par un sprint de cadrage à prix fixe : choix des indicateurs, sources principales branchées et un premier écran en ligne. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints en régie. Vous gardez vos données, vos accès et votre tableau.",
+      "lede_fr": "Nous démarrons par un sprint de cadrage à prix fixe ; la suite se chiffre sur devis. Vous gardez données, accès et tableau.",
       "lede_en": "We start with a fixed-price scoping sprint: indicators chosen, main sources connected and a first screen online. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the time and materials frame. You keep your data, your access and your dashboard.",
       "tiers": [
         {
@@ -521,7 +521,7 @@
           }
         }
       ],
-      "footnote_fr": "Le sprint de cadrage est à prix fixe, {{prix.sprint}} € HT pour 10 heures : choix des indicateurs, sources principales branchées, un premier écran et ses alertes. La suite se cale sur devis : on estime ensemble le temps des sources et des pages de détail supplémentaires, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, vos données, vos accès et votre tableau sont à vous.",
+      "footnote_fr": "La suite s'exécute en sprints en régie, à {{prix.horaire}} € HT de l'heure, non dégressif. Pas d'abonnement, pas de captivité : à la fin, vos données, vos accès et votre tableau sont à vous.",
       "footnote_en": "The scoping sprint is fixed-price, {{prix.sprint.en}} € ex VAT for 10 hours: indicators chosen, main sources connected, a first screen and its alerts. What follows is quoted: we estimate together the time for additional sources and detail pages, validate it, then run it in sprints within the time and materials frame, at {{prix.horaire}} € an hour, non-degressive. No subscription, no lock-in: at the end, your data, your access and your dashboard are yours."
     },
     {
@@ -534,7 +534,7 @@
       "background": "paper",
       "h2_fr": "Chiffrez le gain avant de vous engager",
       "h2_en": "Chiffrez le gain avant de vous engager",
-      "body_fr": "Entrez vos heures et vos coûts : le calculateur donne le temps récupérable tout de suite, sans inscription. Vous pouvez ensuite recevoir le détail par e-mail.",
+      "body_fr": "Entrez vos heures et vos coûts : le calculateur donne le temps récupérable tout de suite, sans inscription. Vous pouvez ensuite recevoir le détail par e-mail.",
       "body_en": "Entrez vos heures et vos coûts : le calculateur donne le temps récupérable tout de suite, sans inscription. Vous pouvez ensuite recevoir le détail par e-mail.",
       "cta_primary": {
         "label_fr": "Calculer mon gain",
@@ -559,7 +559,7 @@
         },
         {
           "q_fr": "Qui reçoit les alertes, et que se passe-t-il ensuite ?",
-          "a_fr": "Chaque alerte est adressée à une personne nommée, par email ou message, avec le chiffre, sa plage normale et la date de la donnée. Elle ne déclenche aucune action : la personne regarde, puis décide.",
+          "a_fr": "Chaque alerte est adressée à une personne nommée, par e-mail ou par message, avec le chiffre, sa plage normale et la date de la donnée. Elle ne déclenche aucune action : la personne regarde, puis décide.",
           "q_en": "Who receives the alerts, and what happens next?",
           "a_en": "Each alert goes to a named person, by email or message, with the figure, its normal range and the date of the data. It triggers no action: the person looks, then decides."
         },
@@ -577,7 +577,7 @@
         },
         {
           "q_fr": "Quels chiffres déconseillez-vous de suivre ?",
-          "a_fr": "Ceux sans décision attachée (audience, abonnés), ceux saisis à la main une fois par trimestre, et les ratios qui croisent des sources dont les définitions ne concordent pas. On les écarte par écrit pour ne pas les rouvrir à chaque réunion.",
+          "a_fr": "Ceux sans décision attachée (audience, abonnés), ceux que personne ne peut influencer à son niveau, les saisies trimestrielles à la main et les ratios entre sources aux définitions discordantes : nous les écartons par écrit, avec la raison, pour ne pas les rouvrir à chaque réunion.",
           "q_en": "Which figures do you advise against tracking?",
           "a_en": "Those with no decision attached (audience, followers), those typed by hand once a quarter, and ratios that cross sources whose definitions do not match. We set them aside in writing so they are not reopened at every meeting."
         },
@@ -606,7 +606,7 @@
       "kicker_en": "§ Free AI audit",
       "h2_fr": "Quelle décision attend un chiffre que vous n'avez pas ?",
       "h2_en": "Which decision is waiting for a figure you do not have?",
-      "subtitle_fr": "En 45 minutes, on liste vos décisions de la semaine et on vous dit quels indicateurs méritent un écran, lesquels n'en méritent pas.",
+      "subtitle_fr": "En 45 minutes, nous listons vos décisions de la semaine. Vous repartez en sachant quels indicateurs méritent un écran et lesquels n'en méritent pas.",
       "subtitle_en": "In 45 minutes, we list your decisions of the week and tell you which indicators deserve a screen and which do not.",
       "buttons": [
         {

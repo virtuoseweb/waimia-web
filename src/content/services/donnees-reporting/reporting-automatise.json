@@ -7,7 +7,7 @@
   "description_en": "Automated reporting for SMEs: weekly or monthly reports for clients, management or funders, generated, formatted and sent after review. From €{{prix.sprint.en}} excl. VAT.",
   "slug": "reporting-automatise",
   "publishedAt": "2026-10-12T00:00:00.000Z",
-  "updatedAt": "2026-10-12",
+  "updatedAt": "2026-11-11",
   "category": "donnees",
   "tags": [
     "reporting-automatise",
@@ -25,7 +25,7 @@
   "faq_fr": [
     {
       "q": "Quels rapports peut-on automatiser ?",
-      "a": "Ceux qui se répètent à rythme fixe avec la même structure : point hebdomadaire client, rapport mensuel de direction, bilan pour un financeur ou un partenaire. Un rapport d'analyse ponctuelle n'a pas d'intérêt à l'être."
+      "a": "Ceux qui reviennent à rythme fixe avec la même structure : le point hebdomadaire d'un client, le rapport mensuel de direction, le bilan d'un financeur ou d'un partenaire. Une analyse ponctuelle ne vaut pas l'effort d'automatiser."
     },
     {
       "q": "Dans quels formats le rapport est-il livré ?",
@@ -33,11 +33,11 @@
     },
     {
       "q": "Le commentaire est-il écrit par l'IA, et qui le relit ?",
-      "a": "Un modèle d'IA prépare un premier commentaire à partir des chiffres et des écarts. Une personne le relit, le corrige et déclenche l'envoi : pour un tiers, rien ne part sans relecture. On peut aussi n'envoyer que les chiffres, sans commentaire."
+      "a": "Un modèle d'IA prépare un premier commentaire à partir des chiffres et des écarts. Une personne le relit, le corrige et déclenche l'envoi : vers un tiers, rien ne part sans relecture. Vous pouvez aussi n'envoyer que les chiffres, sans commentaire."
     },
     {
       "q": "Peut-on envoyer le rapport automatiquement à un client ou à un financeur ?",
-      "a": "Techniquement oui. On le déconseille sans relecture : un chiffre faux envoyé à un financeur coûte plus cher qu'une relecture. L'envoi automatique n'est proposé que pour un rapport interne, après un cycle de contrôle."
+      "a": "Techniquement oui, mais nous le déconseillons : un chiffre faux envoyé à un financeur coûte plus cher qu'une relecture. L'envoi automatique ne vaut que pour un rapport interne, après un cycle de contrôle."
     },
     {
       "q": "Que se passe-t-il si une source ne répond pas ou si un chiffre est incohérent ?",
@@ -82,7 +82,7 @@
       "kicker_en": "§ Automated reporting",
       "h1_fr": "<i class=\"acc\">Reporting automatisé</i> : le rapport est prêt, vous le relisez, il part",
       "h1_en": "<i class=\"acc\">Automated reporting</i>: the report is ready, you review it, it goes out",
-      "lede_fr": "Le reporting automatisé produit à rythme fixe un rapport de même forme : chiffres relevés dans vos outils, commentaire préparé par une IA, relecture par une personne avant l'envoi. Pour les PME qui refont ce rapport chaque semaine ou mois.",
+      "lede_fr": "Le reporting automatisé sort votre rapport hebdomadaire ou mensuel sans que personne exporte, colle ou mette en page : chiffres relevés dans vos outils, commentaire préparé par une IA, relecture par une personne avant l'envoi. Il s'adresse aux PME qui refont le même rapport à chaque période.",
       "lede_en": "Automated reporting produces a report of the same shape at a fixed pace: figures pulled from your tools, commentary prepared by an AI, review by a person before sending. For SMEs that rebuild this report every week or month.",
       "badges": [
         {
@@ -153,7 +153,7 @@
       "background": "paper",
       "kicker_fr": "§ Définition",
       "kicker_en": "§ Definition",
-      "statement_fr": "Un <i class=\"acc\">rapport périodique automatisé</i> est un document dont la production est mécanisée de bout en bout, sauf le jugement : les chiffres sont collectés, mis en forme et archivés sans intervention, le commentaire est préparé par un modèle d'IA, et une personne le relit avant l'envoi. Le rythme, le gabarit et le destinataire sont fixés une fois.",
+      "statement_fr": "Un <i class=\"acc\">rapport périodique automatisé</i> est un rapport dont les chiffres se relèvent, se mettent en forme et s'archivent tout seuls, au rythme et au gabarit fixés une fois pour toutes. Un modèle d'IA prépare le commentaire, une personne le relit avant l'envoi : le jugement reste humain.",
       "statement_en": "An <i class=\"acc\">automated periodic report</i> is a document whose production is mechanised end to end, except judgement: figures are collected, formatted and archived without intervention, the commentary is prepared by an AI model, and a person reviews it before sending. Pace, template and recipient are set once.",
       "pills": [
         {
@@ -183,7 +183,7 @@
           "label_en": "PDF, private page or spreadsheet"
         },
         {
-          "label_fr": "Email ou espace partagé",
+          "label_fr": "E-mail ou espace partagé",
           "label_en": "Email or shared space"
         },
         {
@@ -213,7 +213,7 @@
           "severity": "high",
           "title_fr": "Du temps chez la personne la plus utile",
           "title_en": "Time spent by the most useful person",
-          "desc_fr": "Quelqu'un de l'équipe exporte, colle, met en page et corrige. Le temps est invisible, donc jamais arbitré.",
+          "desc_fr": "Quelqu'un de l'équipe exporte, colle, met en page et corrige, et c'est souvent la personne dont une heure vaut le plus. Personne ne chiffre ce temps, donc personne ne l'arbitre. Exemple : un rapport mensuel de trois heures, c'est trente-six heures par an.",
           "desc_en": "Someone on the team exports, pastes, lays out and corrects. The time is invisible, so never weighed.",
           "fix_fr": "Génération planifiée, relecture seule.",
           "fix_en": "Scheduled generation, review only."
@@ -222,7 +222,7 @@
           "severity": "high",
           "title_fr": "Des chiffres qui changent d'un envoi à l'autre",
           "title_en": "Figures that change from one sending to the next",
-          "desc_fr": "Une formule modifiée ou un filtre oublié, et le rapport de mars n'est plus comparable à celui de février.",
+          "desc_fr": "Une formule modifiée, un filtre oublié, et le rapport de mars n'est plus comparable à celui de février.",
           "desc_en": "A modified formula or a forgotten filter, and the March report is no longer comparable to February's.",
           "fix_fr": "Gabarit et calculs figés, versionnés.",
           "fix_en": "Frozen, versioned template and calculations."
@@ -231,7 +231,7 @@
           "severity": "medium",
           "title_fr": "Un envoi en retard ou oublié",
           "title_en": "A late or forgotten sending",
-          "desc_fr": "Le client ou le financeur relance : la relation s'abîme sur un point d'organisation.",
+          "desc_fr": "Le client ou le financeur relance, et la relation s'abîme pour une affaire d'organisation.",
           "desc_en": "The client or funder chases: the relationship suffers over a matter of organisation.",
           "fix_fr": "Planification, rappel au relecteur, trace de l'envoi.",
           "fix_en": "Scheduling, reminder to the reviewer, sending record."
@@ -240,7 +240,7 @@
           "severity": "medium",
           "title_fr": "Un commentaire écrit dans la précipitation",
           "title_en": "A commentary written in a rush",
-          "desc_fr": "Le commentaire est la partie la plus utile du rapport et la première sacrifiée.",
+          "desc_fr": "Le commentaire est la partie que le destinataire lit vraiment, et la première sacrifiée quand la journée s'achève.",
           "desc_en": "The commentary is the most useful part of the report and the first to be sacrificed.",
           "fix_fr": "Brouillon préparé par IA, corrigé par une personne.",
           "fix_en": "Draft prepared by AI, corrected by a person."
@@ -251,7 +251,7 @@
       "type": "editorial-prose",
       "background": "paper-2",
       "maxWidth": "prose",
-      "html_fr": "<h2>Un gabarit par destinataire</h2>\n<p>Un client veut savoir si le travail avance ; une direction veut des écarts et des décisions ; un financeur veut des indicateurs de réalisation et des justificatifs. Ce sont trois rapports, pas un seul avec trois titres. On définit un gabarit par destinataire, avec ses rubriques, son vocabulaire et votre charte, puis on les alimente depuis les mêmes données. Pour un écran de pilotage plutôt qu'un document, voyez le <a href=\"/services/tableau-de-bord-direction\">tableau de bord de direction</a>.</p>\n<h2>Du chiffre à l'envoi</h2>\n<p>La collecte tourne avant l'échéance. Des contrôles simples signalent les anomalies : total incohérent, écart inhabituel avec la période précédente, champ vide, source muette. Le rapport n'est pas généré à partir d'une donnée périmée. Il est ensuite mis en forme (PDF, page privée ou tableur), envoyé par email ou déposé dans un espace partagé, puis archivé avec la date et la version des données. L'orchestration repose en général sur <a href=\"/services/automatisation-n8n\">n8n</a>.</p>\n<h2>Le commentaire : un brouillon par IA, puis vous</h2>\n<p>Un modèle d'IA prépare un premier commentaire à partir des chiffres et des écarts : ce qui bouge, par rapport à quoi. Il ne sait pas ce qui s'est passé hors des chiffres : un litige, un départ, un retard de livraison. Une personne relit, corrige et déclenche l'envoi. Pour un tiers, rien ne part sans cette relecture. L'IA fait gagner le temps de la rédaction, pas celui du jugement.</p>\n<h2>Prérequis et limites</h2>\n<p>Un rapport automatisé reproduit fidèlement ce que contiennent vos données. Si elles sont saisies tard ou en double, il sera en retard ou faux, proprement mis en page. Quand les sources sont éparpillées, le <a href=\"/services/centralisation-donnees\">socle de données</a> vient d'abord. Aucun chiffre du rapport ne déclenche d'action sans une personne.</p>\n<p>Les chiffres d'acquisition d'un rapport de direction (demandes par canal, devis envoyés) viennent souvent du <a href=\"/services/systeme-acquisition\">système d'acquisition</a>. Le cadre général est sur la page <a href=\"/services/donnees-reporting\">données et reporting</a> ; le cas d'usage <a href=\"/cas-usages/centraliser-donnees\">centraliser ses données</a> décrit le problème en amont.</p>",
+      "html_fr": "<h2>Un gabarit par destinataire</h2>\n<p>Un client veut savoir si le travail avance. Une direction veut des écarts et des décisions. Un financeur veut des indicateurs de réalisation et des justificatifs. Ce sont trois rapports, pas un seul avec trois titres : nous définissons un gabarit par destinataire, avec ses rubriques, son vocabulaire et votre charte, puis nous les alimentons depuis les mêmes données. Si vous cherchez un écran de pilotage plutôt qu'un document, regardez le <a href=\"/services/tableau-de-bord-direction\">tableau de bord de direction</a>.</p>\n<p>Avant de lancer quoi que ce soit, chiffrez ce que le rapport actuel vous coûte : le guide <a href=\"/ressources/guides/roi-automatisation\">ROI de l'automatisation</a> donne la méthode de calcul.</p>\n<h2>Du chiffre à l'envoi</h2>\n<p>La collecte tourne avant l'échéance, puis des contrôles passent les chiffres au crible : total incohérent, écart inhabituel avec la période précédente, champ vide, source muette. Si une donnée est périmée, le rapport ne se génère pas : il s'arrête et prévient le responsable. Sinon il est mis en forme (PDF, page privée ou tableur), envoyé par e-mail ou déposé dans un espace partagé, puis archivé avec la date et la version des données. L'orchestration repose en général sur <a href=\"/services/automatisation-n8n\">n8n</a>.</p>\n<h2>Le commentaire : un brouillon par IA, puis vous</h2>\n<p>Un modèle d'IA prépare un premier commentaire à partir des chiffres et des écarts : ce qui bouge, par rapport à quoi. Il ignore ce qui s'est passé hors des chiffres, un litige, un départ, une livraison en retard. Vous l'ajoutez à la relecture, puis vous déclenchez l'envoi. Vers un tiers, rien ne part sans cette relecture : l'IA vous rend le temps de rédaction, jamais la responsabilité du message.</p>\n<h2>Ce qu'il faut avoir avant</h2>\n<p>Un rapport automatisé reproduit fidèlement vos données, erreurs comprises. Saisies en retard ou en double, elles donneront un rapport en retard ou faux, mais proprement mis en page. Quand vos sources sont éparpillées, le <a href=\"/services/centralisation-donnees\">socle de données</a> passe en premier. Le cadre général est sur la page <a href=\"/services/donnees-reporting\">données et reporting</a>. Et aucun chiffre du rapport ne déclenche une action sans qu'une personne l'ait lu.</p>",
       "html_en": "<h2>One template per recipient</h2>\n<p>A client wants to know whether the work is moving; management wants gaps and decisions; a funder wants delivery indicators and supporting evidence. These are three reports, not one with three titles. We define one template per recipient, with its sections, its vocabulary and your brand, then feed them from the same data. For a steering screen rather than a document, see the <a href=\"/services/tableau-de-bord-direction\">management dashboard</a>.</p>\n<h2>From figure to sending</h2>\n<p>Collection runs before the deadline. Simple checks flag anomalies: inconsistent total, unusual gap with the previous period, empty field, silent source. The report is not generated from outdated data. It is then formatted (PDF, private page or spreadsheet), sent by email or dropped in a shared space, then archived with the date and version of the data. Orchestration generally relies on <a href=\"/services/automatisation-n8n\">n8n</a>.</p>\n<h2>The commentary: an AI draft, then you</h2>\n<p>An AI model prepares a first commentary from the figures and the gaps: what moves, compared to what. It does not know what happened outside the figures: a dispute, a departure, a delivery delay. A person reviews, corrects and triggers the sending. For a third party, nothing goes out without this review. AI saves the time of writing, not the time of judgement.</p>\n<h2>Prerequisites and limits</h2>\n<p>An automated report faithfully reproduces what your data contains. If it is entered late or twice, the report will be late or wrong, neatly laid out. When sources are scattered, the <a href=\"/services/centralisation-donnees\">data base</a> comes first. No figure in the report triggers an action without a person.</p>\n<p>Acquisition figures in a management report (requests by channel, quotes sent) often come from the <a href=\"/services/systeme-acquisition\">acquisition system</a>. The general frame is on the <a href=\"/services/donnees-reporting\">data and reporting</a> page; the use case <a href=\"/cas-usages/centraliser-donnees\">centralise your data</a> describes the upstream problem.</p>"
     },
     {
@@ -299,7 +299,7 @@
         {
           "title_fr": "Envoi",
           "title_en": "Sending",
-          "sub_fr": "Email ou espace partagé, archivé",
+          "sub_fr": "E-mail ou espace partagé, archivé",
           "sub_en": "Email or shared space, archived"
         }
       ]
@@ -443,7 +443,7 @@
       "kicker_en": "§ Two ways to engage",
       "h2_fr": "Prix d'un reporting automatisé",
       "h2_en": "Price of automated reporting",
-      "lede_fr": "On démarre par un sprint de cadrage à prix fixe : choix d'un rapport récurrent, branchement de ses sources et un premier envoi relu. La suite se cale sur devis : on estime ensemble le temps de chaque rapport supplémentaire, on le valide, puis on l'exécute en sprints en régie. Vous gardez vos gabarits, vos accès et l'archive.",
+      "lede_fr": "Nous démarrons par un sprint de cadrage à prix fixe ; la suite se chiffre sur devis, rapport par rapport. Vous gardez gabarits, accès et archive.",
       "lede_en": "We start with a fixed-price scoping sprint: one recurring report chosen, its sources connected and a first reviewed sending. What follows is quoted: we estimate together the time of each additional report, validate it, then run it in sprints within the time and materials frame. You keep your templates, your access and the archive.",
       "tiers": [
         {
@@ -498,7 +498,7 @@
           }
         }
       ],
-      "footnote_fr": "Le sprint de cadrage est à prix fixe, {{prix.sprint}} € HT pour 10 heures : un rapport récurrent choisi, ses sources branchées, son gabarit et un premier envoi relu. La suite se cale sur devis : on estime ensemble le temps de chaque rapport supplémentaire, on le valide, puis on l'exécute en sprints en régie, à {{prix.horaire}} € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, vos gabarits, vos accès et l'archive sont à vous.",
+      "footnote_fr": "La suite s'exécute en sprints en régie, à {{prix.horaire}} € HT de l'heure, non dégressif. Pas d'abonnement, pas de captivité : à la fin, vos gabarits, vos accès et l'archive sont à vous.",
       "footnote_en": "The scoping sprint is fixed-price, {{prix.sprint.en}} € ex VAT for 10 hours: one recurring report chosen, its sources connected, its template and a first reviewed sending. What follows is quoted: we estimate together the time of each additional report, validate it, then run it in sprints within the time and materials frame, at {{prix.horaire}} € an hour, non-degressive. No subscription, no lock-in: at the end, your templates, your access and the archive are yours."
     },
     {
@@ -511,7 +511,7 @@
       "background": "paper",
       "h2_fr": "Chiffrez le gain avant de vous engager",
       "h2_en": "Chiffrez le gain avant de vous engager",
-      "body_fr": "Entrez vos heures et vos coûts : le calculateur donne le temps récupérable tout de suite, sans inscription. Vous pouvez ensuite recevoir le détail par e-mail.",
+      "body_fr": "Entrez vos heures et vos coûts : le calculateur donne le temps récupérable tout de suite, sans inscription. Vous pouvez ensuite recevoir le détail par e-mail.",
       "body_en": "Entrez vos heures et vos coûts : le calculateur donne le temps récupérable tout de suite, sans inscription. Vous pouvez ensuite recevoir le détail par e-mail.",
       "cta_primary": {
         "label_fr": "Calculer mon gain",
@@ -530,7 +530,7 @@
       "items": [
         {
           "q_fr": "Quels rapports peut-on automatiser ?",
-          "a_fr": "Ceux qui se répètent à rythme fixe avec la même structure : point hebdomadaire client, rapport mensuel de direction, bilan pour un financeur ou un partenaire. Un rapport d'analyse ponctuelle n'a pas d'intérêt à l'être.",
+          "a_fr": "Ceux qui reviennent à rythme fixe avec la même structure : le point hebdomadaire d'un client, le rapport mensuel de direction, le bilan d'un financeur ou d'un partenaire. Une analyse ponctuelle ne vaut pas l'effort d'automatiser.",
           "q_en": "Which reports can be automated?",
           "a_en": "Those that repeat at a fixed pace with the same structure: weekly client update, monthly management report, review for a funder or partner. A one-off analysis report has no reason to be."
         },
@@ -542,13 +542,13 @@
         },
         {
           "q_fr": "Le commentaire est-il écrit par l'IA, et qui le relit ?",
-          "a_fr": "Un modèle d'IA prépare un premier commentaire à partir des chiffres et des écarts. Une personne le relit, le corrige et déclenche l'envoi : pour un tiers, rien ne part sans relecture. On peut aussi n'envoyer que les chiffres, sans commentaire.",
+          "a_fr": "Un modèle d'IA prépare un premier commentaire à partir des chiffres et des écarts. Une personne le relit, le corrige et déclenche l'envoi : vers un tiers, rien ne part sans relecture. Vous pouvez aussi n'envoyer que les chiffres, sans commentaire.",
           "q_en": "Is the commentary written by AI, and who reviews it?",
           "a_en": "An AI model prepares a first commentary from the figures and the gaps. A person reviews it, corrects it and triggers the sending: for a third party, nothing goes out without review. You can also send figures only, with no commentary."
         },
         {
           "q_fr": "Peut-on envoyer le rapport automatiquement à un client ou à un financeur ?",
-          "a_fr": "Techniquement oui. On le déconseille sans relecture : un chiffre faux envoyé à un financeur coûte plus cher qu'une relecture. L'envoi automatique n'est proposé que pour un rapport interne, après un cycle de contrôle.",
+          "a_fr": "Techniquement oui, mais nous le déconseillons : un chiffre faux envoyé à un financeur coûte plus cher qu'une relecture. L'envoi automatique ne vaut que pour un rapport interne, après un cycle de contrôle.",
           "q_en": "Can the report be sent automatically to a client or a funder?",
           "a_en": "Technically yes. We advise against it without review: a wrong figure sent to a funder costs more than a review. Automatic sending is only offered for an internal report, after a control cycle."
         },
@@ -577,7 +577,7 @@
       "kicker_en": "§ Free AI audit",
       "h2_fr": "Quel rapport refaites-vous à chaque période sans l'avoir choisi ?",
       "h2_en": "Which report do you rebuild every period without having chosen to?",
-      "subtitle_fr": "En 45 minutes, on regarde le rapport que vous produisez le plus souvent et on vous dit ce qui s'automatise, et ce qui reste de la relecture humaine.",
+      "subtitle_fr": "En 45 minutes, nous regardons le rapport que vous produisez le plus souvent. Vous repartez en sachant ce qui s'automatise et ce qui reste à relire.",
       "subtitle_en": "In 45 minutes, we look at the report you produce most often and tell you what can be automated, and what remains human review.",
       "buttons": [
         {
