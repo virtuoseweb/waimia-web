@@ -12,6 +12,7 @@ import MastheadBar from '../../../components/sections/MastheadBar.astro';
 import { buildArticle } from '../../../lib/seo/schema-builder';
 import { SITE } from '../../../site.config';
 import { siloLabel } from '../../../data/taxonomies';
+import { injectTunnel } from '../../../lib/internal-mesh';
 
 export async function getStaticPaths() {
   const entries = await getLiveCollection('comparatifs');
@@ -60,6 +61,11 @@ const sectionsWithSources: typeof data.sections = (() => {
   return at === -1 ? [...base, block] : [...base.slice(0, at), block, ...base.slice(at)];
 })();
 
+// Tunnel du silo : page de service et ressource gratuite, posées avant la première section de
+// fin quand la page ne les porte pas (table unique dans lib/internal-mesh.ts). Le guide pilier
+// et l'audit viennent du maillage automatique de Base et de la bande de fin.
+const pageSections = injectTunnel(sectionsWithSources!, data.category, `/ressources/comparatifs/${entry.id}`);
+
 // JSON-LD métier · Article (GEO/AIO) + FAQPage depuis faq_fr/faq_en. BreadcrumbList émis par <MastheadBar>.
 const canonicalUrl = `${SITE.url}/ressources/comparatifs/${entry.id}`;
 const articleLd = buildArticle({
@@ -86,5 +92,5 @@ const pageLd = [articleLd];
       { label: title.split(' · ')[0] },
     ]}
   />
-  <SectionsRenderer sections={sectionsWithSources!} lang={lang} />
+  <SectionsRenderer sections={pageSections} lang={lang} />
 </Base>
