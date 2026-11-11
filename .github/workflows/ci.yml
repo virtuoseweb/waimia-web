@@ -39,6 +39,9 @@ jobs:
       - name: Gate silos (taxonomie = maillage)
         run: node scripts/check-silos.mjs
 
+      - name: Gate voix humaine (aucune nouvelle trace de texte IA)
+        run: node scripts/check-ai-tells.mjs
+
       - name: Type / content check (non-blocking)
         run: pnpm check
         continue-on-error: true
@@ -187,6 +190,11 @@ jobs:
       - name: Rapport maillage interne (avertissement)
         run: node scripts/check-internal-mesh.mjs
         continue-on-error: true
+
+      # Tunnel de silo : chaque article, guide, comparatif et outil lie le guide pilier, la page
+      # de service, une ressource gratuite et l'audit (src/lib/internal-mesh.ts, essay.ts).
+      - name: Gate tunnels de silo
+        run: node scripts/check-tunnels.mjs
 
   # Suite Playwright e2e contre le BUILD servi (parité prod — le dev diverge du build).
   # Job SÉPARÉ, hors required-checks pour l'instant : visible mais non-bloquant le temps

@@ -11717,6 +11717,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/claude-fable-5-2-mythos-5-2",
+    "title": "Claude Fable 5.2 et Mythos 5.2, sortis le 9 novembre 2026 : ce qui change pour une PME",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/claude-fable-5-2-mythos-5-2.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/claude-max-ou-team-petite-equipe",
     "title": "Claude Max ou Ultra pour une petite équipe : moins cher que Team ?",
     "group": "blog",
@@ -13321,6 +13330,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/claude-duet-lancement-21-octobre-2026",
       "/blog/claude-duet-ou-claude-cowork",
       "/blog/claude-extension-chrome",
+      "/blog/claude-fable-5-2-mythos-5-2",
       "/blog/claude-max-ou-team-petite-equipe",
       "/blog/claude-max-pme",
       "/blog/claude-microsoft-copilot-pme",

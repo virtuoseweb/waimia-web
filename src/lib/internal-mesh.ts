@@ -32,6 +32,8 @@ import { join } from 'node:path';
 import { DEPUBLISHED_SERVICE_IDS, DEPUBLISHED_DEMONSTRATION_IDS, isRedirectedPath } from '../data/depublished';
 import { NOINDEX_SITEMAP_PATHS } from '../data/sitemap-noindex-exclude';
 import { SILOS } from '../data/taxonomies';
+import { AUDIT_BOOKING_HREF, AUDIT_BOOKING_LABEL } from '../data/conversion';
+import { resolveEssayLead } from './templates/essay';
 import { listRouteSources } from './seo/lastmod.mjs';
 import { SERVICE_HUB_PATHS, hubChildren } from './seo/service-catalog';
 
@@ -76,6 +78,19 @@ const MONEY_PAGE: Record<Topic, string> = Object.fromEntries(
 ) as Record<Topic, string>;
 /** Natures de page qui portent le lien vers la page de service de leur silo. */
 const LINKS_TO_MONEY_PAGE: ReadonlySet<Kind> = new Set<Kind>(['article', 'guide', 'comparatif', 'diagnostic']);
+/**
+ * Guide pilier de chaque silo (`guide` de SILOS), lié par les mêmes natures de page que la page
+ * de service. Un silo sans guide (studio) n'a pas d'entrée.
+ */
+const PILLAR_GUIDE: Partial<Record<Topic, string>> = Object.fromEntries(
+  Object.entries(SILOS).flatMap(([silo, def]) => (def.guide ? [[silo, def.guide]] : [])),
+) as Partial<Record<Topic, string>>;
+/** Guide pilier → silo : sert au groupe « Tout le dossier » du guide pilier lui-même. */
+const PILLAR_GUIDE_SILO: Map<string, Topic> = new Map(
+  Object.entries(PILLAR_GUIDE).map(([silo, guide]) => [guide as string, silo as Topic]),
+);
+/** Plafond du groupe « Tout le dossier » d'un guide pilier. */
+const DOSSIER_MAX = 12;
 
 type Topic =
   | 'automatisation'
@@ -200,6 +215,7 @@ const PAGES: Record<string, PageDef> = {
   '/ressources/guides/claude-cowork': { label_fr: 'Claude Cowork est désormais Claude', label_en: 'Claude Cowork is now Claude', kind: 'guide', topics: ['claude', 'conformite'] },
   '/ressources/guides/mcp-claude': { label_fr: 'Guide MCP : brancher Claude à vos outils', label_en: 'MCP guide: connecting Claude to your tools', kind: 'guide', topics: ['claude', 'agents'] },
   '/ressources/guides/claude-fonctionnalites-pme': { label_fr: 'Guide : fonctionnalités, offres et prix de Claude', label_en: 'Guide: Claude features, plans and pricing', kind: 'guide', topics: ['claude', 'conseil'] },
+  '/blog/claude-fable-5-2-mythos-5-2': { label_fr: 'Claude Fable 5.2 et Mythos 5.2 : ce qui change en PME', label_en: 'Claude Fable 5.2 and Mythos 5.2: what changes for an SMB', kind: 'article', topics: ['claude', 'conseil'] },
   '/ressources/guides/quel-modele-claude-choisir': { label_fr: 'Quel modèle Claude choisir : Opus, Sonnet ou Haiku', label_en: 'Which Claude model to choose: Opus, Sonnet or Haiku', kind: 'guide', topics: ['claude', 'conseil'] },
   '/ressources/guides/claude-managed-agents': { label_fr: 'Claude Managed Agents : prix, limites et données', label_en: 'Claude Managed Agents: pricing, limits and data', kind: 'guide', topics: ['claude', 'agents'] },
   '/ressources/guides/claude-tpe': { label_fr: 'Claude pour une TPE : abonnement et premiers usages', label_en: 'Claude for a very small business: plan and first uses', kind: 'guide', topics: ['claude', 'conseil'] },
@@ -558,12 +574,19 @@ function buildGraph(root: string): Graph {
     }
   }
 
-  // 3. Page de service du silo (premier thème de la page), en tête des liens émis. Posée APRÈS
-  //    l'équilibrage : elle s'ajoute aux liens calculés sans changer le choix des émettrices
-  //    d'appoint. Un silo sans page de service vivante n'ajoute rien.
+  // 3. Guide pilier puis page de service du silo (premier thème de la page), en tête des liens
+  //    émis (la page de service passe devant le guide). Posés APRÈS l'équilibrage : ils
+  //    s'ajoutent aux liens calculés sans changer le choix des émettrices d'appoint. Un silo
+  //    sans guide ou sans page de service vivante n'ajoute rien ; le guide ne se lie pas lui-même.
   for (const route of emitters) {
     const def = PAGES[route];
     if (!LINKS_TO_MONEY_PAGE.has(def.kind)) continue;
+    const guide = PILLAR_GUIDE[def.topics[0]];
+    const links0 = out.get(route)!;
+    if (guide && guide !== route && live.has(guide) && !links0.includes(guide) && allowed(route, guide)) {
+      links0.unshift(guide);
+      inbound.set(guide, (inbound.get(guide) ?? 0) + 1);
+    }
     const money = MONEY_PAGE[def.topics[0]];
     const links = out.get(route)!;
     if (money && money !== route && live.has(money) && !links.includes(money) && allowed(route, money)) {
@@ -751,6 +774,8 @@ export function hasMesh(pathname: string): boolean {
 export function meshForPath(pathname: string, _lang: Lang = 'fr'): RelatedLinksData | null {
   const links = graph().out.get(normalize(pathname));
   if (!links || links.length === 0) return null;
+  const dossierSilo = PILLAR_GUIDE_SILO.get(normalize(pathname));
+  if (dossierSilo) return meshForPillarGuide(normalize(pathname), dossierSilo, links);
   const hub = HUB_GROUPS[normalize(pathname)];
   if (!hub) return assemble(groupByKind(links));
   // Hub de service : ses enfants sont répartis en groupes titrés par domaine ; les liens
@@ -764,6 +789,27 @@ export function meshForPath(pathname: string, _lang: Lang = 'fr'): RelatedLinksD
   }
   const rest = links.filter((l) => !placed.has(l));
   return assemble([...groups, ...groupByKind(rest)]);
+}
+
+/**
+ * Guide pilier d'un silo : groupe « Tout le dossier » en tête (page de service du silo, puis les
+ * pages vivantes dont le premier thème est le silo, DOSSIER_MAX au plus, dans l'ordre du
+ * registre), puis les autres liens calculés groupés par nature, sans doublon avec le dossier.
+ */
+function meshForPillarGuide(self: string, silo: Topic, links: string[]): RelatedLinksData {
+  const { live } = graph();
+  const money = MONEY_PAGE[silo];
+  const dossier: string[] = [];
+  if (money && money !== self && live.has(money)) dossier.push(money);
+  for (const [route, def] of Object.entries(PAGES)) {
+    if (dossier.length >= DOSSIER_MAX) break;
+    if (route === self || !live.has(route) || def.topics[0] !== silo || dossier.includes(route)) continue;
+    if (def.kind === 'studio' || def.kind === 'implantation') continue;
+    dossier.push(route);
+  }
+  const rest = links.filter((l) => !dossier.includes(l));
+  const group = { label_fr: 'Tout le dossier', label_en: 'The whole file', links: dossier.map(toLink) };
+  return assemble([...(dossier.length > 0 ? [group] : []), ...groupByKind(rest)]);
 }
 
 /** Liens du registre filtrés : vivants, sans la page courante, sans doublon. */
@@ -814,6 +860,168 @@ export interface RessourceMeshInput {
 /** Maillage d'une page RESSOURCE. */
 export function meshForRessource(ressource: RessourceMeshInput = {}, lang: Lang = 'fr'): RelatedLinksData {
   return (ressource.href ? meshForPath(ressource.href, lang) : null) ?? meshFallback();
+}
+
+// ───────────────────────────── Tunnel de conversion par silo ─────────────────────────────
+
+/**
+ * Appel vers la page de service du silo, TABLE UNIQUE (jamais copiée dans une page). Texte
+ * franc, une idée, le résultat pour le lecteur ; le bouton nomme la page. Posé sur les guides
+ * et comparatifs qui ne lient pas déjà leur page de service (`injectTunnel`).
+ * Voix : docs/directives/04-voix-redactionnelle.md.
+ */
+const TUNNEL_SERVICE_CALL: Record<Topic, { fr: string; label_fr: string; en: string; label_en: string }> = {
+  automatisation: {
+    fr: "Choisir la tâche ne suffit pas, il faut qu'elle tourne sans que personne la surveille. C'est ce que nous construisons, sur vos outils et avec vos accès.",
+    label_fr: "Voir l'automatisation des processus",
+    en: 'Picking the task is not enough: it has to run without anyone watching it. That is what we build, on your tools and with your access.',
+    label_en: 'See process automation',
+  },
+  agents: {
+    fr: 'Un agent utile fait une tâche précise, avec des garde-fous et un humain qui valide. Nous le construisons sur vos données, pas sur une démo.',
+    label_fr: 'Voir nos agents IA',
+    en: 'A useful agent does one precise task, with guardrails and a human who signs off. We build it on your data, not on a demo.',
+    label_en: 'See our AI agents',
+  },
+  claude: {
+    fr: "Claude change peu de choses tant qu'il n'est pas branché sur vos outils et vos règles. Nous l'intégrons, et les clés restent chez vous.",
+    label_fr: "Voir l'intégration de Claude",
+    en: 'Claude changes little until it is wired into your tools and your rules. We integrate it, and the keys stay with you.',
+    label_en: 'See the Claude integration',
+  },
+  web: {
+    fr: 'Un site se juge aux demandes qu\'il fait arriver. Nous partons de vos pages qui comptent, puis nous corrigeons ou nous refaisons, dans cet ordre.',
+    label_fr: 'Voir notre approche du site web',
+    en: 'A website is judged by the enquiries it brings in. We start from the pages that matter, then fix or rebuild, in that order.',
+    label_en: 'See our website approach',
+  },
+  applications: {
+    fr: "Quand un tableur fait tourner l'entreprise, la panne n'est qu'une question de temps. Nous construisons l'application qui le remplace, et le code vous appartient.",
+    label_fr: 'Voir les applications internes',
+    en: 'When a spreadsheet runs the company, the failure is only a matter of time. We build the app that replaces it, and you own the code.',
+    label_en: 'See internal apps',
+  },
+  commercial: {
+    fr: 'Une relance oubliée est un devis perdu. Nous mettons en place le suivi qui les envoie à votre place, avec votre ton et vos règles.',
+    label_fr: 'Voir le système commercial',
+    en: 'A forgotten follow-up is a lost quote. We set up the follow-up that sends them for you, in your voice and by your rules.',
+    label_en: 'See the sales system',
+  },
+  acquisition: {
+    fr: "Être cité par Google et par les assistants IA se travaille page par page. Nous commençons par mesurer où vous en êtes, avant de toucher à quoi que ce soit.",
+    label_fr: "Voir le système d'acquisition",
+    en: 'Being cited by Google and by AI assistants is built page by page. We start by measuring where you stand, before touching anything.',
+    label_en: 'See the acquisition system',
+  },
+  donnees: {
+    fr: 'Des chiffres qui arrivent trop tard ne servent à personne. Nous relions vos sources et livrons un tableau de bord que vous ouvrez vraiment.',
+    label_fr: 'Voir données et reporting',
+    en: 'Numbers that arrive too late help nobody. We connect your sources and deliver a dashboard you actually open.',
+    label_en: 'See data and reporting',
+  },
+  conseil: {
+    fr: "Avant d'acheter un outil, il faut savoir quelle tâche vaut le coup. Nous vous aidons à trancher, y compris pour ne rien faire.",
+    label_fr: "Voir l'accompagnement IA",
+    en: 'Before buying a tool, you need to know which task is worth it. We help you decide, including deciding to do nothing.',
+    label_en: 'See AI consulting',
+  },
+  conformite: {
+    fr: "L'AI Act et le RGPD n'exigent pas la même chose de tout le monde. Nous regardons vos usages réels et nous disons ce qui s'applique à vous.",
+    label_fr: 'Voir la conformité IA',
+    en: 'The AI Act and the GDPR do not ask the same of everyone. We look at your real uses and tell you what applies to you.',
+    label_en: 'See AI compliance',
+  },
+  formation: {
+    fr: 'Une demi-journée de théorie est oubliée en un mois. Nous formons vos équipes sur leurs tâches, avec leurs outils.',
+    label_fr: 'Voir les formations',
+    en: 'A half-day of theory is forgotten within a month. We train your teams on their own tasks, with their own tools.',
+    label_en: 'See the training courses',
+  },
+  studio: {
+    fr: 'Pour voir comment nous travaillons, tout part de la page agence.',
+    label_fr: "Découvrir l'agence",
+    en: 'To see how we work, everything starts on the agency page.',
+    label_en: 'Meet the agency',
+  },
+};
+
+/** Sections de FIN de page d'un guide ou comparatif : le tunnel se pose avant la première. */
+const TUNNEL_END_TYPES: ReadonlySet<string> = new Set(['footer-cta-band', 'faq-accordion', 'cta-final', 'cta-band']);
+/** Lien vers une ressource gratuite (outil ou diagnostic) dans une section de page. */
+const FREE_RESOURCE_HREF = /["'\\]\/ressources\/(?:outils|diagnostics)\/[a-z0-9-]+/;
+const escapeRe = (v: string) => v.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+type TunnelSection = { type: string; background?: string };
+
+/**
+ * Tunnel de silo d'un GUIDE ou d'un COMPARATIF (route `ressources/guides|comparatifs`) : renvoie
+ * les sections avec, juste avant la première section de fin,
+ *   · un appel vers la page de service du silo (`cta-band`), SEULEMENT si aucune section ne la lie ;
+ *   · la ressource gratuite du silo (`SILOS[silo].magnet`, via resolveEssayLead), SEULEMENT si la
+ *     page n'a ni `lead-capture-band` ni `cta-final` pointant vers /ressources/outils|diagnostics.
+ * Silo inconnu, page déjà complète ou page de service absente : sections rendues telles quelles.
+ * Le guide pilier et l'audit viennent du maillage (meshForPath) et de la bande de fin.
+ */
+export function injectTunnel<T extends TunnelSection>(sections: T[], silo: string | undefined, self: string): T[] {
+  if (!silo || !(silo in SILOS)) return sections;
+  const topic = silo as Topic;
+  const service = MONEY_PAGE[topic];
+  const json = JSON.stringify(sections);
+  const linksService = Boolean(service) && new RegExp(`${escapeRe(service)}(?![\\w-])`).test(json);
+  const hasResource = sections.some(
+    (s) => s.type === 'lead-capture-band' || (s.type === 'cta-final' && FREE_RESOURCE_HREF.test(JSON.stringify(s))),
+  );
+  const added: TunnelSection[] = [];
+  const at0 = sections.findIndex((s) => TUNNEL_END_TYPES.has(s.type));
+  const at = at0 === -1 ? sections.length : at0;
+  let prevBg = (sections[at - 1] as TunnelSection | undefined)?.background;
+  const flip = () => {
+    prevBg = prevBg === 'paper-2' ? 'paper-3' : 'paper-2';
+    return prevBg as 'paper-2' | 'paper-3';
+  };
+  if (!linksService && service && service !== self && liveRoutes().has(service)) {
+    const c = TUNNEL_SERVICE_CALL[topic];
+    added.push({
+      type: 'cta-band',
+      text_fr: c.fr,
+      text_en: c.en,
+      cta: { label_fr: `${c.label_fr} →`, label_en: `${c.label_en} →`, href: service, variant: 'primary' },
+      background: flip(),
+    } as TunnelSection);
+  }
+  if (!hasResource) {
+    const lead = resolveEssayLead(SILOS[topic].magnet, `${self} (tunnel du silo ${silo})`);
+    added.push({ ...lead, background: flip(), ...(lead.type === 'lead-capture-band' ? { variant: 'band' as const } : {}) } as TunnelSection);
+  }
+  return added.length === 0 ? sections : [...sections.slice(0, at), ...(added as T[]), ...sections.slice(at)];
+}
+
+/** Pages vivantes du registre (même calcul que le maillage). */
+const liveRoutes = () => graph().live;
+
+/**
+ * Sortie d'une page OUTIL (encadré `used-service-callout` posé après l'outil) : page de service
+ * du silo de l'outil (premier thème de sa page au registre) puis audit gratuit, jamais cal.com.
+ * Retourne null si la page n'est pas au registre ou si sa page de service n'est pas vivante.
+ */
+export function toolExit(pathname: string): {
+  type: 'used-service-callout';
+  background: 'paper-2';
+  label_fr: string;
+  label_en: string;
+  links: Array<{ label_fr: string; label_en: string; href: string }>;
+} | null {
+  const def = PAGES[normalize(pathname)];
+  if (!def) return null;
+  const topic = def.topics[0];
+  const service = MONEY_PAGE[topic];
+  const links: Array<{ label_fr: string; label_en: string; href: string }> = [];
+  if (service && liveRoutes().has(service)) {
+    const c = TUNNEL_SERVICE_CALL[topic];
+    links.push({ label_fr: c.label_fr, label_en: c.label_en, href: service });
+  }
+  links.push({ label_fr: AUDIT_BOOKING_LABEL.fr, label_en: AUDIT_BOOKING_LABEL.en, href: AUDIT_BOOKING_HREF });
+  return { type: 'used-service-callout', background: 'paper-2', label_fr: 'Et après cet outil', label_en: 'After this tool', links };
 }
 
 /** Bloc de secours : les points d'entrée du site, quand une page n'est pas au registre. */

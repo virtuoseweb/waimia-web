@@ -15,6 +15,8 @@ import CtaFinal from '../../../components/sections/CtaFinal.astro';
 import ToolIntro from '../../../components/ui/organisms/conversion/ToolIntro.astro';
 import TaskPriorityGrid from '../../../components/ui/organisms/conversion/TaskPriorityGrid.astro';
 import LeadCaptureBand from '../../../sections/lead-capture-band/Component.astro';
+import UsedServiceCallout from '../../../sections/used-service-callout/Component.astro';
+import { toolExit } from '../../../lib/internal-mesh';
 import ResourceLinks from '../../../components/ui/organisms/conversion/ResourceLinks.astro';
 import { SITE } from '../../../site.config';
 import { buildArticle } from '../../../lib/seo/schema-builder';
@@ -39,6 +41,7 @@ const cta = auditCtaFinal(
 );
 // Hero illustré : celui de l'entrée `outils/grille-taches-a-automatiser`, que la carte du hub reprend.
 const hero = (await getEntry('outils', 'grille-taches-a-automatiser'))?.data.heroIllustration;
+const exit = toolExit('/ressources/outils/grille-taches-a-automatiser');
 ---
 <Base title={title} description={description} jsonLd={ld}>
   <MastheadBar
@@ -64,5 +67,6 @@ const hero = (await getEntry('outils', 'grille-taches-a-automatiser'))?.data.her
   <TaskPriorityGrid />
   <LeadCaptureBand lang="fr" data={{ type: 'lead-capture-band', lead_magnet: 'grille-taches-a-automatiser', background: 'ink', anchor_id: 'recevoir-par-email' }} />
   <ResourceLinks exclude={['grille']} extra={['guide-taches', 'guide-roi']} title="La méthode, et les autres outils sans inscription" />
+  {exit && <div class="wrap-wide"><UsedServiceCallout data={exit} lang="fr" /></div>}
   <CtaFinal data={cta} lang="fr" />
 </Base>

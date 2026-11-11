@@ -37,7 +37,7 @@ import { defineTemplate, type TemplateContext } from '@waimia/ds-kernel/template
 import type { SectionByType } from '@waimia/ds-kernel';
 import { localizeHref } from '../i18n';
 import { parisIso } from '../news';
-import { siloCtaText, siloLabel } from '../../data/taxonomies';
+import { SILOS, siloCtaText, siloLabel, type Silo } from '../../data/taxonomies';
 
 /** Frontmatter typé d'un article (source de vérité = schéma `blog` de content.config.ts). */
 export type EssayData = CollectionEntry<'blog'>['data'];
@@ -136,6 +136,14 @@ export function resolveEssayLead(slug: string, articleId: string): EssayLeadSect
   } satisfies SectionByType<'lead-capture-band'>;
 }
 
+/**
+ * Ressource gratuite d'un article : `lead_magnet` déclaré (prioritaire), sinon celle de son
+ * silo (`SILOS[category].magnet`). Tout article porte donc une ressource en fin de corps.
+ */
+export function essayLeadSlug(data: Pick<EssayData, 'lead_magnet' | 'category'>): string | undefined {
+  return data.lead_magnet ?? (data.category && data.category in SILOS ? SILOS[data.category as Silo].magnet : undefined);
+}
+
 /** Kicker éditorial « § Blog · <libellé du silo> ». */
 function essayKicker(data: EssayData): string {
   return `§ ${data.type === 'actualite' ? 'Actualité' : 'Blog'} · ${siloLabel(data.category)}`;
@@ -182,10 +190,11 @@ export const essayTemplate = defineTemplate<EssayContext>({
     // 3 · RESSOURCE liée (lead_magnet) · conditionnel. Après le corps, avant le cluster :
     //     PDF verrouillé → lead-capture-band (carte, fin de la colonne de prose) ;
     //     outil interactif → cta-final vers la page de l'outil. Clé inconnue = build en échec.
+//     Sans `lead_magnet` déclaré : ressource par défaut du silo (essayLeadSlug).
     {
       id: 'lead',
-      when: ({ data }) => Boolean(data.lead_magnet),
-      build: ({ data, articleId }) => resolveEssayLead(data.lead_magnet!, articleId),
+      when: ({ data }) => Boolean(essayLeadSlug(data)),
+      build: ({ data, articleId }) => resolveEssayLead(essayLeadSlug(data)!, articleId),
     },
     // 4 · Cluster connexe (RelatedByCluster) → slot, conditionnel (cluster présent).
     {
@@ -283,6 +292,6 @@ export function buildEssayProps(ctx: EssayContext) {
     publishedAt: data.publishedAt,
     illustration: heroIllustration,
     faqItems: data.faq_fr,
-    leadSection: data.lead_magnet ? resolveEssayLead(data.lead_magnet, articleId) : undefined,
+    leadSection: essayLeadSlug(data) ? resolveEssayLead(essayLeadSlug(data)!, articleId) : undefined,
   };
 }

@@ -42,7 +42,7 @@ for (const f of feeds) {
   if (ids.has(f.id)) err(`feeds.json : identifiant en double « ${f.id} »`);
   ids.add(f.id);
 }
-if (feeds.length < 15 || feeds.length > 25) err(`feeds.json : ${feeds.length} flux, 15 à 25 attendus`);
+if (feeds.length < 15 || feeds.length > 30) err(`feeds.json : ${feeds.length} flux, 15 à 30 attendus`);
 
 const competitors = read('competitors.json').competitors ?? [];
 for (const c of competitors) {

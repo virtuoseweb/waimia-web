@@ -8,6 +8,8 @@ import LeadCaptureBand from '../../../sections/lead-capture-band/Component.astro
 import { LEAD_MAGNETS, type LeadMagnetSlug } from '../../../data/conversion';
 import { outilHeroIllustration } from '../../../lib/hero-illustrations';
 import { SITE } from '../../../site.config';
+import UsedServiceCallout from '../../../sections/used-service-callout/Component.astro';
+import { toolExit } from '../../../lib/internal-mesh';
 
 export async function getStaticPaths() {
   const entries = await getCollection('outils');
@@ -30,6 +32,9 @@ const d = entry.data;
 // Prose d'aide pré-rendue (décision nuit 0018) : le markdown MDX est devenu une donnée
 // (body_sections[0].html_fr), injectée au slot body sous le widget interactif.
 const bodyHtml = d.body_sections?.[0]?.html_fr ?? '';
+
+// Sortie après l'outil : page de service du silo et audit gratuit (table du maillage).
+const exit = toolExit(`/ressources/outils/${entry.id}`);
 
 const dateStr = d.publishedAt.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
 const categoryKicker = d.category_fr ? ` · ${d.category_fr}` : '';
@@ -75,6 +80,7 @@ const TYPE_LABEL: Record<string, string> = { calculator: 'calculateur' };
       <LeadCaptureBand lang="fr" data={{ type: 'lead-capture-band', lead_magnet: captureSlug, mode: 'open', variant: 'card', background: 'ink', anchor_id: 'recevoir-par-email' }} />
     )}
     <Fragment set:html={bodyHtml} />
+    {exit && <UsedServiceCallout data={exit} lang="fr" />}
   </Fragment>
 </EssayTemplate>
 

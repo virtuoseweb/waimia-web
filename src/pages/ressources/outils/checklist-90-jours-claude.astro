@@ -16,6 +16,8 @@ import CtaFinal from '../../../components/sections/CtaFinal.astro';
 import ToolIntro from '../../../components/ui/organisms/conversion/ToolIntro.astro';
 import ChecklistDocument from '../../../components/ui/organisms/conversion/ChecklistDocument.astro';
 import LeadCaptureBand from '../../../sections/lead-capture-band/Component.astro';
+import UsedServiceCallout from '../../../sections/used-service-callout/Component.astro';
+import { toolExit } from '../../../lib/internal-mesh';
 import ResourceLinks from '../../../components/ui/organisms/conversion/ResourceLinks.astro';
 import { buildArticle } from '../../../lib/seo/schema-builder';
 import { SITE } from '../../../site.config';
@@ -38,6 +40,7 @@ const cta = auditCtaFinal(
 );
 // Hero illustré : celui de l'entrée `outils/checklist-90-jours-claude`, que la carte du hub reprend.
 const hero = (await getEntry('outils', 'checklist-90-jours-claude'))?.data.heroIllustration;
+const exit = toolExit('/ressources/outils/checklist-90-jours-claude');
 ---
 <Base title={title} description={description} jsonLd={ld} ogType="article">
   <MastheadBar
@@ -64,5 +67,6 @@ const hero = (await getEntry('outils', 'checklist-90-jours-claude'))?.data.heroI
   <ChecklistDocument />
   <LeadCaptureBand lang="fr" data={{ type: 'lead-capture-band', lead_magnet: 'checklist-90-jours-claude', background: 'ink', anchor_id: 'recevoir-le-pdf' }} />
   <ResourceLinks exclude={['checklist']} />
+  {exit && <div class="wrap-wide"><UsedServiceCallout data={exit} lang="fr" /></div>}
   <CtaFinal data={cta} lang="fr" />
 </Base>
