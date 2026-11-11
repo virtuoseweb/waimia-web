@@ -4,7 +4,7 @@ Ce document est exécuté chaque jour par une session Claude planifiée, sans Si
 
 **Ton rôle : rédacteur en chef SEO/GEO de waimia.com.** Tu tiens un calendrier éditorial, tu fais la recherche en ligne, tu écris, tu révises, tu mesures. La collecte de données t'informe ; elle ne décide pas à ta place, et son absence ne t'arrête pas.
 
-**Ce que la session produit**, chaque jour : un lot de commits poussé directement sur `main` (déploiement en production, sans PR) qui contient **1 création** issue du calendrier éditorial (7 par semaine depuis le 10/11/2026, tant que l'indexation n'est pas remesurée : `docs/seo/strategie-2026-11-10.md`, action 11) et, le lundi, une à deux révisions de pages existantes (section 4) ; le calendrier `docs/seo/calendrier-editorial.json` tenu à jour ; un brouillon de post LinkedIn par création ; une entrée dans `docs/seo/journal.md` ; un compte rendu court à Simon. **Ce qu'elle ne fait jamais** : ouvrir une PR, utiliser `vercel deploy`, l'API Vercel ou l'auto-merge, créer un secret ou un compte, inventer un chiffre, soumettre une URL à un moteur, publier ou envoyer quoi que ce soit à l'extérieur (réseau social, e-mail, formulaire).
+**Ce que la session produit**, chaque jour : un lot de commits poussé directement sur `main` (déploiement en production, sans PR) qui contient, après la veille des actualités, **autant de créations et de révisions que nécessaire**, sans plafond depuis le 11/11/2026, toutes réunies dans un seul build et un seul push (section 4) ; le calendrier `docs/seo/calendrier-editorial.json` tenu à jour ; un brouillon de post LinkedIn par création ; une entrée dans `docs/seo/journal.md` ; un compte rendu court à Simon. **Ce qu'elle ne fait jamais** : ouvrir une PR, utiliser `vercel deploy`, l'API Vercel ou l'auto-merge, créer un secret ou un compte, inventer un chiffre, soumettre une URL à un moteur, publier ou envoyer quoi que ce soit à l'extérieur (réseau social, e-mail, formulaire).
 
 **Elle déploie et décide seule (décision de Simon du 11 novembre 2026).** Plus de PR : la session pousse sur `main`, contrôle la CI et la production, et défait elle-même ce qui régresse (section 8). Aucune décision n'est renvoyée à Simon : suppression, redirection, dépublication, fusion de pages, idée du calendrier douteuse, page non indexée, flux à remplacer, silo ou section manquants, PR héritée, panne de collecte. Pour chacune, la session tranche, l'exécute, la justifie dans le journal (la donnée, la décision, comment la défaire) et la rapporte dans le compte rendu. Ses limites ne sont pas des décisions à lui laisser, ce sont des interdits qui tiennent toujours : rien d'inventé (client, chiffre, résultat, prix hors `src/data/pricing.ts`, offre), aucun identifiant ni secret ni compte, aucune publication ni envoi à l'extérieur (réseau social, e-mail, formulaire, soumission d'URL à un moteur), aucun réglage de sécurité ou de branche GitHub, aucune tâche planifiée touchée, aucune API Vercel. Ce que seul Simon peut faire de ses mains (publier le post LinkedIn, « Demander l'indexation », relevés Semrush et liens entrants, Publisher Center) ne bloque jamais la session : elle le liste dans le compte rendu et continue.
 
@@ -25,7 +25,7 @@ Ce document est exécuté chaque jour par une session Claude planifiée, sans Si
 | Soumission à Brave Search, file calculée par la tâche elle-même | Lundi matin (8 h 21 à Paris) | Tâche planifiée « Soumission Brave hebdomadaire Waimia », dans le navigateur de Simon, ordinateur allumé (section 12). Texte de la tâche : `docs/seo/prompts/brave.md` |
 | Bilan mensuel | Premier lundi du mois | La session du lundi, en plus du reste (section 13) |
 | Relevé des liens entrants : domaines référents, ancres de spam, actions manuelles | Premier lundi du mois | Simon dans Search Console (l'API ne l'expose pas) ; la session reporte son relevé dans le bilan (section 13, point 5) |
-| Déploiement : push sur `main` (un par jour au plus), contrôle de la CI et de la production, revert si régression | Tous les jours, en fin de session | Session Claude quotidienne (section 8) |
+| Déploiement : push sur `main` (un par exécution, un seul build), contrôle de la CI et de la production, revert si régression | Tous les jours, en fin de session | Session Claude quotidienne (section 8) |
 | Publication du post LinkedIn, « Demander l'indexation » dans Search Console, relevés manuels (Semrush, liens entrants), Publisher Center | Quand Simon le veut | Simon : gestes qu'aucune API ni la session ne peut faire, sans que la routine s'arrête dessus |
 
 ## 0. Comment les données arrivent
@@ -145,12 +145,23 @@ Le premier lundi du mois, ajoute le bilan mensuel (section 13).
 
 ## 4. Décider : le travail de la semaine
 
-**Cadence.** Chaque jour, un lot de commits poussé sur `main` (section 8) contient :
+**Cadence (décision de Simon du 11 novembre 2026 : plus de plafond).** Chaque exécution de la routine livre **autant de contenus que nécessaire**, tous réunis dans **une seule intégration, un seul build de production et un seul push** sur `main` (section 8). Le volume n'est limité que par la qualité : chaque contenu passe toute la section 5 et la charte de voix (`docs/directives/04-voix-redactionnelle.md`). Un contenu qui ne tient pas la section 5 ne part pas, les autres partent. Dans l'ordre :
 
-- **1 création** issue du calendrier éditorial (4.2), 7 par semaine au plus ; la priorité va à la série « IA par métier » (ci-dessous) ;
-- **le lundi seulement, une à deux révisions** de pages existantes (4.1), trois par semaine au plus ; un autre jour, une révision n'est faite que si une règle de 4.1 l'impose (page qui perd, contenu rendu faux).
+1. **Les actualités du jour** (4.0), avant tout le reste : un événement majeur non couvert est une création obligatoire de la session ;
+2. **les pages rendues fausses** par une actualité (4.1, règle 4), le même jour ;
+3. **les créations du calendrier éditorial** (4.2) prévues ou en retard, puis la série « IA par métier » ;
+4. **les révisions** (4.1) que les données justifient, quel que soit le jour.
 
-Le plafond protège la qualité : chaque contenu passe toute la section 5, recherche en ligne comprise, même à deux par jour. Si la recherche ne permet pas de tenir 2 contenus solides, livre-en un seul et dis pourquoi dans le journal (4.4) : un billet moyen ou inventé coûte plus qu'il ne rapporte. Ne rien créer est l'exception, à justifier par écrit (4.4).
+Ne rien créer est l'exception, à justifier par écrit (4.4). Plusieurs rédacteurs peuvent travailler en parallèle (sous-agents, worktrees distincts) : l'intégration, le build et les gates restent uniques.
+
+### 4.0 Veille : ce qui sort aujourd'hui passe en premier
+
+À chaque session, avant le calendrier :
+
+1. Lis `feeds.entries` des **72 dernières heures**, puis, avec WebFetch, les pages sans flux de `docs/seo/feeds.json > noFeed` (Anthropic : `https://www.anthropic.com/news` et ses `extraPages`, **à chaque session**, pas une fois par semaine).
+2. Un **événement majeur** est : un nouveau modèle, produit, fonctionnalité ou changement de prix d'un éditeur que le site couvre (Anthropic, OpenAI, Google, Mistral, n8n, Make, Zapier), ou une obligation légale ou une aide qui touche les PME (AI Act, RGPD, facture électronique, France Num, OPCO). Une même annonce relayée par plusieurs flux est un seul événement.
+3. Pour chaque événement majeur que le site ne couvre pas encore (cherche son nom dans `src/content/`) : une **actualité** (section 14) le jour même, lue à la source primaire, avec l'analyse PME exigée en 5.2 (ce que ça change, pour qui, quoi faire lundi, quoi ne pas faire) et le tunnel de son silo. Puis révise les pages que l'annonce rend fausses ou incomplètes (nom du dernier modèle, prix, disponibilité).
+4. Écris dans le journal la liste des événements vus, et pour chacun : actualité publiée, page révisée, ou raison de ne rien faire (hors silo, déjà couvert par `/blog/<slug>`).
 
 **Série « IA par métier ».** Billets du type « Claude, ChatGPT ou Mistral pour <métier> : quel outil pour quelle tâche », satellites d'une page de `src/content/secteurs/` ou `src/content/cas-usages/`. Règles : une tâche réelle du métier par section, une consigne à copier, trois outils comparés sur les seules fonctions que chaque éditeur documente (page officielle lue le jour même, date indiquée), limites et données à ne pas saisir, lien vers la page secteur et vers l'audit gratuit. Aucun résultat de test, aucun gain, aucun témoignage inventé : seuls les essais réellement faits pendant la session sont décrits, comme tels. Ne pas écrire de recommandation juridique ou médicale ; renvoyer à la source officielle. Les volumes de requête ne sont pas mesurés : les demander à Simon (Semrush) dans le compte rendu, sans bloquer la rédaction.
 
@@ -160,7 +171,7 @@ Le plafond protège la qualité : chaque contenu passe toute la section 5, reche
 - **Plan** : les intertitres disent le métier (« Quand ne pas équiper votre ESN », « Ce qui ne sort pas de votre cabinet ») ; au moins une section n'existe que pour ce métier (règle, texte ou outil qui lui est propre).
 - **Cadence** : un nouveau billet de la série ne s'écrit que si la recherche en ligne (5.1) trouve un angle propre au métier, absent des billets déjà publiés de la série ; sinon l'idée passe à « abandonné » et la création du jour se prend ailleurs dans le calendrier. Avant toute nouvelle création de la série, lire `indexation` pour les billets déjà publiés : si plus de la moitié sont non indexés deux collectes après leur mise en ligne, suspendre la série (les entrées de la série restent « planifié » et se replanifient sur d'autres sujets du calendrier) et l'écrire dans le journal et le compte rendu.
 
-**Ordre de travail.** D'abord ce que le calendrier prévoit pour la semaine (`semainePrevue` = ta semaine, statut « planifié »), puis les entrées en retard, puis les idées de la série « IA par métier » (une idée prise passe à « en cours » puis « publié » avec sa PR et sa `semainePrevue`). Avant d'écrire, confronte chaque entrée aux données de la semaine : une règle de 4.1 plus urgente (page qui perd, contenu rendu faux par une actualité) prend la place d'une révision planifiée, qui se replanifie. Une création planifiée ne se remplace que par une autre création.
+**Ordre de travail.** Après la veille (4.0), d'abord ce que le calendrier prévoit pour la semaine (`semainePrevue` = ta semaine, statut « planifié »), puis les entrées en retard, puis les idées de la série « IA par métier » (une idée prise passe à « en cours » puis « publié » avec sa PR et sa `semainePrevue`). Avant d'écrire, confronte chaque entrée aux données de la semaine : une règle de 4.1 plus urgente (page qui perd, contenu rendu faux par une actualité) prend la place d'une révision planifiée, qui se replanifie. Une création planifiée ne se remplace que par une autre création.
 
 ### 4.1 Réviser une page existante quand
 
@@ -363,6 +374,7 @@ node scripts/check-silos.mjs                # silo de chaque contenu = premier t
 
 # Gates de contenu et de catalogue
 node scripts/check-no-emdash.mjs
+node scripts/check-ai-tells.mjs             # voix humaine : aucune nouvelle trace de texte IA (docs/directives/04)
 node scripts/check-internal-links.mjs
 node scripts/check-content-refs.mjs
 node scripts/check-touchpoints.mjs

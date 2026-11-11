@@ -31,7 +31,7 @@
     { "id": "blog-du-moderateur", "name": "Blog du Modérateur", "url": "https://www.blogdumoderateur.com/feed/", "theme": "automatisation-agents", "lang": "fr", "maxItems": 8, "include": ["ia", "intelligence artificielle", "agent", "agents", "claude", "chatgpt", "mistral", "automatisation", "n8n", "make"], "usage": "Vulgarisation grand public professionnel : sujets IA qui deviennent des recherches en France." }
   ],
   "noFeed": [
-    { "name": "Anthropic", "page": "https://www.anthropic.com/news", "extraPages": ["https://platform.claude.com/docs/en/release-notes/overview", "https://support.claude.com/en/articles/12138966-release-notes"], "note": "Aucun flux RSS ou Atom officiel (anthropic.com/rss.xml et /news/rss.xml répondent 404 le 4 octobre 2026). La session hebdomadaire lit la page d'actualités avec WebFetch." },
+    { "name": "Anthropic", "page": "https://www.anthropic.com/news", "extraPages": ["https://platform.claude.com/docs/en/release-notes/overview", "https://support.claude.com/en/articles/12138966-release-notes"], "note": "Aucun flux RSS ou Atom officiel (anthropic.com/rss.xml et /news/rss.xml répondent 404 le 4 octobre 2026). Chaque session quotidienne lit la page d'actualités avec WebFetch (runbook 4.0)." },
     { "name": "Make (blog)", "page": "https://www.make.com/en/blog", "note": "Pas de flux pour le blog (404), et le site renvoie 403 aux robots. Le flux « News » du forum Make couvre les annonces produit." },
     { "name": "Bpifrance (Big média)", "page": "https://bigmedia.bpifrance.fr/", "note": "Aucun flux trouvé (404 sur /rss, /rss.xml, /feed). Remplacé par economie.gouv.fr et France Num." }
   ]
