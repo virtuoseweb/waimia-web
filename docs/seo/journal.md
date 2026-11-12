@@ -53,7 +53,7 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 **Cadence et décision prise seule** : deux créations aujourd'hui, toutes deux des actualités imposées par la règle 4.0 (« un événement majeur non couvert est une création obligatoire de la session »). Le texte de la tâche planifiée parle d'une création par jour et d'un plafond de 7 par semaine ; le runbook de `main` n'a plus de plafond depuis le 11 novembre 2026 (`MAX_CREATIONS_PER_WEEK = Infinity` dans `check-calendar.mjs`), et la tâche dit de suivre le runbook en cas d'écart. Aucune création du calendrier n'a été prise en plus : `idee-plafond-depense-api-ia`, `idee-claude-in-chrome-regles-entreprise` et `idee-ai-caiq-questionnaire-ia` restent planifiées en 2026-W47. Pour défaire : `git revert` du commit de contenu.
 
-**Actions du jour** (commit de contenu COMMIT_CONTENU) : deux créations, trois révisions.
+**Actions du jour** (commit de contenu https://github.com/virtuoseweb/waimia-web/commit/bab03caaacf912013d1b0631f7ccd1184cbf6718) : deux créations, trois révisions.
 
 1. Création de `/blog/fiche-entreprise-chatgpt-business-hub` (entrée `w46-actualite-fiche-entreprise-chatgpt`, actualité, silo `acquisition`).
    - Pourquoi : règle 4.0 ; trois sources distinctes le 10 novembre (OpenAI News, Blog du Modérateur, Search Engine Roundtable) ; aucun contenu du site ne nommait Business Hub.
@@ -82,6 +82,8 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 **Calendrier** : livrées `w46-actualite-fiche-entreprise-chatgpt` et `w46-actualite-claude-sheets-whiteboards-data` ; ajoutée `idee-claude-meetings-consentement` (origine : annonce du 10 novembre). Prévu en 2026-W47 : trois articles (`idee-plafond-depense-api-ia`, `idee-claude-in-chrome-regles-entreprise`, `idee-ai-caiq-questionnaire-ia`), deux fusions conditionnelles et une révision. Aucune entrée abandonnée. 2 semaines d'avance, stock de créations au-dessus de 14.
 
 **Brouillon LinkedIn** : `docs/seo/posts/2026-11-12.md` (deux sections, à relire et à publier par Simon).
+
+**Livraison** : push direct sur `main` (`1a7886b..bab03ca`, commit de contenu `bab03ca`). CI sur `main` (run 43172819141) : `completed success` ; jobs « SEO (build de production) », « E2E (Playwright · build servi) », « Build (astro) » : success. Production (curl, 12 novembre 2026 vers 07:15 UTC) : `/`, `/blog/fiche-entreprise-chatgpt-business-hub`, `/blog/claude-sheets-whiteboards-data`, `/ressources/guides/mesurer-visibilite-ia-chatgpt`, `/blog/apparaitre-dans-chatgpt-pme` et `/ressources/guides/claude-fonctionnalites-pme` répondent 200 ; H1 servi identique au build ; l'intertitre Business Hub est servi sur le guide de mesure ; les deux nouvelles URL sont dans `sitemap-0.xml`. Aucune redirection dans ce lot. Aucun revert. Brave après déploiement (`brave-queue.mjs --from-sitemap --days=8`) : Total : 281 URL. Plafond par exécution : 40. Départ : 0..
 
 **Limites** : aucun essai de Business Hub ni de Claude Sheets pendant la session (rien décrit comme testé) ; deploy.co non lu ; volumes de « fiche entreprise chatgpt » et « claude sheets » non mesurés (à demander à Simon, Semrush).
 
