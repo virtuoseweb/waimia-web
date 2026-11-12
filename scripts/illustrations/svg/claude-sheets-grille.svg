@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · Claude dessine · « un tableur partagé, et la porte qui décide qui entre » :
+       de petites silhouettes rangent des cases sur une immense grille posée au sol ; à droite,
+       une grande porte ({{shape}}) entrouverte sur le vide. Aucun texte. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{shadow}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{shadow}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{shadow}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{shadow}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{shadow}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{shadow}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{shadow}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{shadow}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{shadow}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{shadow}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{shadow}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{shadow}}"/>
+    </g>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <!-- Sol -->
+  <rect y="400" width="1456" height="224" fill="{{ground}}"/>
+
+  <!-- La grande grille, en perspective sur le sol -->
+  <path d="M170 600 L1010 600 L860 410 L330 410 Z" fill="{{detail}}"/>
+  <g stroke="{{deep}}" stroke-width="3" opacity="0.45" fill="none">
+    <line x1="246" y1="505" x2="935" y2="505"/>
+    <line x1="295" y1="455" x2="895" y2="455"/>
+    <line x1="210" y1="555" x2="972" y2="555"/>
+    <line x1="410" y1="410" x2="345" y2="600"/>
+    <line x1="490" y1="410" x2="520" y2="600"/>
+    <line x1="570" y1="410" x2="690" y2="600"/>
+    <line x1="650" y1="410" x2="855" y2="600"/>
+    <line x1="730" y1="410" x2="1010" y2="600" opacity="0"/>
+    <line x1="760" y1="410" x2="935" y2="560"/>
+  </g>
+  <!-- Quelques cases remplies -->
+  <path d="M440 505 L520 505 L513 555 L425 555 Z" fill="{{mid}}"/>
+  <path d="M600 455 L668 455 L690 505 L610 505 Z" fill="{{mid}}"/>
+  <path d="M345 555 L425 555 L418 600 L322 600 Z" fill="{{mid}}" opacity="0.8"/>
+
+  <!-- Une case portée par une silhouette -->
+  <use href="#man" transform="translate(560 470) scale(0.9)"/>
+  <rect x="536" y="366" width="48" height="16" fill="{{detail}}"/>
+  <line x1="550" y1="400" x2="548" y2="382" stroke="{{shadow}}" stroke-width="5"/><line x1="570" y1="400" x2="572" y2="382" stroke="{{shadow}}" stroke-width="5"/>
+  <use href="#woman" transform="translate(760 540) scale(1.05)"/>
+  <use href="#man" transform="translate(400 585) scale(1.1)"/>
+
+  <!-- La grande porte, entrouverte, à droite -->
+  <rect x="1100" y="120" width="190" height="300" fill="{{shadow}}" opacity="0.85"/>
+  <path d="M1100 120 L1220 150 L1220 440 L1100 420 Z" fill="{{shape}}"/>
+  <rect x="1094" y="112" width="202" height="10" fill="{{shadow}}"/>
+  <circle cx="1205" cy="300" r="6" fill="{{shadow}}"/>
+  <!-- Ombre de la porte au sol -->
+  <path d="M1100 420 L1220 440 L1330 470 L1180 450 Z" fill="{{deep}}" opacity="0.3"/>
+  <!-- Silhouette qui garde la porte -->
+  <use href="#woman" transform="translate(1320 430) scale(1.1)"/>
+</svg>

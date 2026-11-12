@@ -12423,6 +12423,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/claude-sheets-whiteboards-data",
+    "title": "Claude Sheets, Whiteboards et Data, lancés le 10 novembre 2026 : ce qu'une PME règle avant de s'en servir",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/claude-sheets-whiteboards-data.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/cles-api-automatisation-securite-pme",
     "title": "Clés API dans vos automatisations : sécuriser n8n, Make, Claude et OpenAI",
     "group": "blog",
@@ -12527,6 +12536,15 @@ export const SITE_PAGES: SitePage[] = [
     "group": "blog",
     "collection": "blog",
     "file": "blog/faux-avis-ia.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/fiche-entreprise-chatgpt-business-hub",
+    "title": "Fiche entreprise dans ChatGPT : Business Hub ouvert le 10 novembre 2026, ce qu'une PME peut faire",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/fiche-entreprise-chatgpt-business-hub.json",
     "editable": false,
     "sections": []
   },
@@ -14003,6 +14021,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/claude-max-pme",
       "/blog/claude-microsoft-copilot-pme",
       "/blog/claude-pro-vs-team",
+      "/blog/claude-sheets-whiteboards-data",
       "/blog/cles-api-automatisation-securite-pme",
       "/blog/cnil-email-professionnel-devine-prospection",
       "/blog/comptes-ia-personnels-depart-salarie",
@@ -14015,6 +14034,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/etre-cite-par-perplexity",
       "/blog/facture-electronique-reception-pme",
       "/blog/faux-avis-ia",
+      "/blog/fiche-entreprise-chatgpt-business-hub",
       "/blog/formation-ia-cpf-qualiopi",
       "/blog/formation-ia-finance-pme",
       "/blog/formation-ia-generative-pme",
