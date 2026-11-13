@@ -54,7 +54,7 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 **Cadence et décision prise seule** : une création aujourd'hui, l'actualité Claude Meetings, qui est aussi une entrée du calendrier. Les autres annonces majeures du 12 novembre sont traitées par révision (Hydrogen, Managed Agents) ou planifiées (Claude for Manufacturing, 2026-W47) plutôt que par trois actualités de plus : le texte de la tâche fixe une création par jour, et la semaine en compte déjà dix. Pour défaire : `git revert` du commit de contenu ; pour avancer Manufacturing, passer l'entrée à « en cours » lundi.
 
-**Actions du jour** (commit de contenu : voir le commit de suivi) : une création, trois révisions.
+**Actions du jour** (commit de contenu https://github.com/virtuoseweb/waimia-web/commit/12eb00d8298a332726744f77d13237376096dc59) : une création, trois révisions.
 
 1. Création de `/blog/claude-meetings-pme` (entrée `idee-claude-meetings-consentement`, actualité, silo `claude`).
    - Pourquoi : règle 4.0 ; l'entrée du calendrier attendait que l'aide d'Anthropic décrive le produit, c'est fait depuis le 12 novembre (notes de version de l'aide).
@@ -72,6 +72,8 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 **`llms.txt`** : `/blog/claude-meetings-pme` figure dans le silo « Blog », ligne reprenant title et description.
 
 **GF-1** (build servi, `serve-dist.mjs`, Playwright, 1440 et 390 px) : les quatre pages touchées répondent 200, H1 visible (opacité 1), débordement horizontal 0, 0 erreur console, illustration chargée sur l'actualité. À 1440 px, le H1 de l'actualité passe sur l'illustration (gabarit des billets, déjà noté le 12 novembre) : pas une régression de ce lot.
+
+**CI et production** : run CI 43382893729 sur `12eb00d` : `success` (Build, SEO build de production, E2E 84 réussis, 38 ignorés). waimia.com après déploiement : `/blog/claude-meetings-pme` 200 (illustration `claude-meetings-chaise-paper.webp` servie), `/` 200, `/blog/claude-sheets-whiteboards-data` 200 (lien vers l'actualité présent), `/ressources/guides/gemini` 200 (Hydrogen présent), `/ressources/guides/claude-managed-agents` 200 (paragraphe présent). Aucune redirection dans le lot. Aucun revert.
 
 **Calendrier** : livré aujourd'hui `idee-claude-meetings-consentement`, `w46-revision-gemini-hydrogen`, `w46-revision-managed-agents-auto-heberge` ; ajouté `idee-claude-for-manufacturing-pme-industrielle` (planifié 2026-W47, origine : billet claude.com du 12 novembre 2026) ; prévu en 2026-W47 : `idee-plafond-depense-api-ia`, `idee-claude-in-chrome-regles-entreprise`, `idee-ai-caiq-questionnaire-ia`, Claude for Manufacturing, et deux fusions conditionnelles ; 2 semaines d'avance, 18 idées et 10 entrées planifiées en stock (`check-calendar.mjs`).
 
