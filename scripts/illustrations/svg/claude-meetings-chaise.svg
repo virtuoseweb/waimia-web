@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · Claude dessine · « un participant de plus à la réunion » : une longue table de
+       réunion vue de profil, six petites silhouettes assises ; au bout, une très haute chaise
+       vide en couleur ({{subject}}), le participant qu'on voit. À droite, une porte entrouverte :
+       qui peut entrer décide de ce qui est noté. Aucun texte. -->
+  <defs>
+    <g id="sit">
+      <circle cx="0" cy="-58" r="7.5" fill="{{shadow}}"/>
+      <path d="M-11 -48 Q0 -52 11 -48 L12 -6 L-12 -6 Z" fill="{{shadow}}"/>
+      <path d="M-2.5 -48 L0 -40 L2.5 -48 Z" fill="{{light}}"/>
+      <rect x="-14" y="-30" width="5" height="34" fill="{{deep}}"/>
+    </g>
+    <g id="sitw">
+      <circle cx="0" cy="-58" r="7" fill="{{shadow}}"/>
+      <circle cx="5" cy="-64" r="5" fill="{{shadow}}"/>
+      <path d="M-9 -49 Q0 -53 9 -49 L11 -6 L-11 -6 Z" fill="{{shadow}}"/>
+      <rect x="-14" y="-30" width="5" height="34" fill="{{deep}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{shadow}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{shadow}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{shadow}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{shadow}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{shadow}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{shadow}}"/>
+    </g>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <!-- Grand disque, lampe ou lune, au-dessus de la table -->
+  <circle cx="640" cy="190" r="150" fill="{{shape}}"/>
+  <!-- Sol -->
+  <rect y="500" width="1456" height="124" fill="{{ground}}"/>
+
+  <!-- Mur du fond à droite avec la porte -->
+  <rect x="1150" y="130" width="200" height="372" fill="{{shape}}"/>
+  <rect x="1188" y="190" width="124" height="312" fill="{{shadow}}"/>
+  <!-- Battant entrouvert -->
+  <path d="M1188 190 L1250 210 L1250 492 L1188 502 Z" fill="{{pale}}"/>
+  <circle cx="1238" cy="350" r="4" fill="{{shadow}}"/>
+  <!-- Une invitée au seuil -->
+  <use href="#woman" transform="translate(1110 502) scale(1.1)"/>
+
+  <!-- Silhouettes assises derrière la table -->
+  <use href="#sit" transform="translate(330 440)"/>
+  <use href="#sitw" transform="translate(410 440)"/>
+  <use href="#sit" transform="translate(490 440)"/>
+  <use href="#sitw" transform="translate(570 440)"/>
+  <use href="#sit" transform="translate(650 440)"/>
+  <use href="#sitw" transform="translate(730 440)"/>
+
+  <!-- La haute chaise vide, en couleur, au bout de la table, tournée vers elle -->
+  <rect x="950" y="130" width="30" height="372" fill="{{subject}}"/>
+  <rect x="940" y="122" width="50" height="16" fill="{{subject}}"/>
+  <rect x="860" y="396" width="120" height="24" fill="{{subject}}"/>
+  <rect x="862" y="420" width="20" height="82" fill="{{subject}}"/>
+  <rect x="950" y="156" width="30" height="240" fill="{{deep}}" opacity="0.15"/>
+
+  <!-- La table, longue, vue de profil -->
+  <rect x="270" y="430" width="560" height="18" fill="{{deep}}"/>
+  <rect x="300" y="448" width="14" height="54" fill="{{deep}}"/>
+  <rect x="786" y="448" width="14" height="54" fill="{{deep}}"/>
+  <!-- Feuilles de notes sur la table -->
+  <rect x="350" y="424" width="34" height="6" fill="{{light}}"/>
+  <rect x="520" y="424" width="34" height="6" fill="{{light}}"/>
+  <rect x="690" y="424" width="34" height="6" fill="{{light}}"/>
+
+  <!-- Ombres au sol -->
+  <rect x="270" y="500" width="560" height="8" fill="{{deep}}" opacity="0.3"/>
+  <rect x="860" y="500" width="120" height="8" fill="{{deep}}" opacity="0.3"/>
+</svg>

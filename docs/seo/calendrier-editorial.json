@@ -3910,22 +3910,91 @@
     {
       "id": "idee-claude-meetings-consentement",
       "type": "article",
-      "titreProvisoire": "Claude Meetings en PME : prévenir les participants et décider ce qui est gardé",
+      "titreProvisoire": "Claude Meetings, en bêta depuis le 12 novembre 2026 : les réglages et l'information à prévoir en PME",
       "requeteCible": "claude meetings",
       "intention": "Savoir comment utiliser l'agent de réunion de Claude sans enregistrer un appel à l'insu des participants.",
       "urlCible": "/blog/claude-meetings-pme",
-      "angle": "Hypothèse à vérifier à la sortie du produit : Anthropic l'annonce « bientôt » (claude.com, 10 novembre 2026) ; TechCrunch le dit en bêta sur Team et Enterprise avec Google Meet. Rédiger seulement quand l'aide d'Anthropic décrit le produit : information des participants, conservation, réglages d'administration.",
+      "angle": "Actualité (runbook 4.0), l'aide d'Anthropic décrivant désormais le produit. Les pages lues le 13 novembre 2026 (Clubic, ZDNet, com-quotidiens.fr, TekyMag, Brief IA, VentureBeat, dev.to/Lycore) répètent que Claude ne rejoint pas un appel avec invités extérieurs sans accord d'un administrateur : c'est le défaut Enterprise ; sur Team, l'aide indique Meetings actif et invités extérieurs autorisés par défaut. Aucune ne croise ces défauts par offre avec le droit français (L1222-4, L2312-8, RGPD art. 13) ni ne donne la marche à suivre de l'administrateur Team.",
       "sourcesALire": [
-        "https://claude.com/resources/articles/more-ways-to-work-with-claude-sheets-whiteboards-and-interactive-connectors (lu le 12 novembre 2026)",
-        "https://techcrunch.com/2026/11/10/anthropic-launches-claude-meetings-to-turn-workplace-discussions-into-plans-and-tasks/ (résultat de recherche du 12 novembre 2026, non ouvert)",
-        "Aide Claude sur Claude Meetings, à sa publication"
+        "https://claude.com/resources/articles/claude-meetings (lu le 13 novembre 2026)",
+        "https://support.claude.com/en/articles/18325154-use-claude-meetings (lu le 13 novembre 2026)",
+        "https://support.claude.com/fr/articles/18325154-utiliser-claude-meetings (lu le 13 novembre 2026)",
+        "https://support.claude.com/en/articles/12138966-release-notes (lu le 13 novembre 2026)",
+        "https://code.travail.gouv.fr/code-du-travail/l1222-4 (lu le 13 novembre 2026)",
+        "https://code.travail.gouv.fr/code-du-travail/l2312-8 (lu le 13 novembre 2026)",
+        "https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre3#Article13 (lu le 13 novembre 2026)",
+        "https://www.clubic.com/actualite-638755-anthropic-lance-claude-meetings-l-ia-qui-transforme-les-reunions-en-plans-d-action-et-taches.html (lu le 13 novembre 2026)",
+        "https://www.zdnet.fr/actualites/anthropic-sattaque-a-microsoft-et-google-avec-claude-sheets-whiteboards-et-meetings-507705.htm (lu le 13 novembre 2026)",
+        "https://com-quotidiens.fr/blog/communication-professionnelle/claude-meetings-une-ia-invitee-dans-vos-reunions-google-meet-les-regles-a-fixer-en-equipe/ (lu le 13 novembre 2026)",
+        "https://tekymag.com/claude-meetings-anthropic-annonce-un-assistant-pour-les-visioconferences/ (lu le 13 novembre 2026)",
+        "https://www.briefia.fr/article/anthropic-lance-claude-meetings-en-beta-sur-google-meet (lu le 13 novembre 2026)",
+        "https://venturebeat.com/technology/anthropic-brings-claude-into-google-meet-to-draft-documents-and-whiteboards-during-your-meetings (lu le 13 novembre 2026)",
+        "https://dev.to/lycore/claude-can-join-your-google-meet-now-7-questions-id-ask-before-auto-join-2ll4 (lu le 13 novembre 2026)",
+        "https://www.iaenregle.fr/2026/09/enregistrer-resumer-reunion-ia.html (lu le 13 novembre 2026)"
       ],
-      "semainePrevue": null,
-      "statut": "idée",
+      "semainePrevue": "2026-W46",
+      "statut": "en cours",
+      "pr": null,
+      "mesureAttendue": "Page indexée et premières impressions sur « claude meetings », deux collectes après la mise en production (à juger à partir de 2026-W49).",
+      "resultat": null,
+      "origine": "Veille du 12 novembre 2026 : annonce Anthropic du 10 novembre 2026 (« Claude Meetings is coming soon ») et TechCrunch du même jour ; aucun contenu du site sur un agent de réunion Claude. Aide de Claude « Use Claude Meetings » publiée le 12 novembre 2026 (notes de version du 12 novembre). Volume non mesuré : à demander à Simon (Semrush)."
+    },
+    {
+      "id": "w46-revision-gemini-hydrogen",
+      "type": "révision",
+      "titreProvisoire": "Guide Gemini : ajouter Gemini 4 Hydrogen (12 novembre 2026)",
+      "requeteCible": "gemini",
+      "intention": "Savoir ce qu'est Gemini et quel modèle l'équipe.",
+      "urlCible": "/ressources/guides/gemini",
+      "angle": "Règle 4.1.4 : le guide citait Argon, Carbon et Gemini 3.8 Flash comme modèle rapide ; Google a lancé Gemini 4 Hydrogen le 12 novembre 2026, qui succède à 3.8 Flash et équipe la recherche, mode IA compris.",
+      "sourcesALire": [
+        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/ (lu le 13 novembre 2026)",
+        "https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade/ (lu le 13 novembre 2026)"
+      ],
+      "semainePrevue": "2026-W46",
+      "statut": "en cours",
+      "pr": null,
+      "mesureAttendue": "Page toujours indexée et impressions sur « gemini » au moins égales à la collecte du 15 novembre 2026, à juger à partir de 2026-W49.",
+      "resultat": null,
+      "origine": "Veille du 13 novembre 2026 : flux Google The Keyword, Search Engine Roundtable et Search Engine Journal du 12 novembre 2026 (trois sources), annonce primaire blog.google."
+    },
+    {
+      "id": "w46-revision-managed-agents-auto-heberge",
+      "type": "révision",
+      "titreProvisoire": "Guide Managed Agents : le service entier auto-hébergé (12 novembre 2026)",
+      "requeteCible": "claude managed agents",
+      "intention": "Savoir ce que coûte et où tourne Claude Managed Agents.",
+      "urlCible": "/ressources/guides/claude-managed-agents",
+      "angle": "Règle 4.1.4 : le guide décrivait un service hébergé par Anthropic avec, au plus, un bac à sable chez soi ; depuis le 12 novembre 2026, le service entier peut tourner chez le client, sur demande d'accès. Ajout d'un paragraphe et d'une position (non recommandé en PME).",
+      "sourcesALire": [
+        "https://platform.claude.com/docs/en/release-notes/overview (lu le 13 novembre 2026)",
+        "https://claude.com/blog (lu le 13 novembre 2026)"
+      ],
+      "semainePrevue": "2026-W46",
+      "statut": "en cours",
+      "pr": null,
+      "mesureAttendue": "Page toujours indexée et impressions sur « claude managed agents » au moins égales à la collecte du 15 novembre 2026, à juger à partir de 2026-W49.",
+      "resultat": null,
+      "origine": "Veille du 13 novembre 2026 : notes de version de la plateforme Claude du 12 novembre 2026 et billet claude.com « Operate Claude Managed Agents inside your security perimeter »."
+    },
+    {
+      "id": "idee-claude-for-manufacturing-pme-industrielle",
+      "type": "article",
+      "titreProvisoire": "Claude for Manufacturing : ce que le plugin apporte à une PME industrielle, et ce qu'il demande",
+      "requeteCible": "claude for manufacturing",
+      "intention": "Savoir si le plugin industrie de Claude sert une PME industrielle française et quels systèmes il suppose.",
+      "urlCible": "/blog/claude-for-manufacturing-pme",
+      "angle": "Hypothèse à vérifier à la lecture de l'annonce et de l'aide : 17 skills et quatre connecteurs pour devis, rapports qualité et demandes fournisseurs selon le résumé du blog ; confronter aux ERP et MES courants des PME françaises et à la page /blog/ia-pme-industrielle.",
+      "sourcesALire": [
+        "https://claude.com/blog (titre « Introducing Claude for Manufacturing », 12 novembre 2026, lu le 13 novembre 2026)",
+        "Annonce complète et aide d'Anthropic sur le plugin, à lire"
+      ],
+      "semainePrevue": "2026-W47",
+      "statut": "planifié",
       "pr": null,
       "mesureAttendue": "Page indexée et premières impressions sur la requête, deux collectes après la mise en production.",
       "resultat": null,
-      "origine": "Veille du 12 novembre 2026 : annonce Anthropic du 10 novembre 2026 (« Claude Meetings is coming soon ») et TechCrunch du même jour ; aucun contenu du site sur un agent de réunion Claude."
+      "origine": "Veille du 13 novembre 2026 : billet claude.com du 12 novembre 2026 « Introducing Claude for Manufacturing » ; secteur industrie présent sur le site (/secteurs/industrie, /blog/ia-pme-industrielle), aucun contenu sur ce plugin. Non pris aujourd'hui : une création par jour (texte de la tâche), Claude Meetings jugé plus urgent (offre Team activée par défaut)."
     }
   ]
 }
