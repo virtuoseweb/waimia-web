@@ -12810,6 +12810,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/plafond-depense-api-ia",
+    "title": "Plafonner la dépense d'une API d'IA : OpenAI, Claude et Mistral",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/plafond-depense-api-ia.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/poc-ou-mvp-differences-pme",
     "title": "POC ou MVP : quelle différence pour une PME",
     "group": "blog",
@@ -14073,6 +14082,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/logiciel-seo-ia-pme",
       "/blog/n8n-c-est-quoi",
       "/blog/openclaw-2-0-migration-changements",
+      "/blog/plafond-depense-api-ia",
       "/blog/poc-ou-mvp-differences-pme",
       "/blog/questionnaire-securite-ia",
       "/blog/refonte-site-seo-sans-perdre-trafic",

@@ -2891,10 +2891,10 @@
         "Billets de la concurrence FR et US récents sur l'usage par métier, lus en entier"
       ],
       "semainePrevue": null,
-      "statut": "idée",
+      "statut": "abandonné",
       "pr": null,
       "mesureAttendue": "Page indexée à la collecte suivante ; impressions sur la requête cible ; clics vers /secteurs/liberal-independant et l'audit gratuit.",
-      "resultat": null,
+      "resultat": "Abandonné le 14 novembre 2026 : la page d'ancrage /secteurs/liberal-independant est dépubliée (src/data/depublished.ts), la cible (indépendants de 1 à 20 personnes) sort du positionnement PME et ETI de 10 à 250, et les professions réglementées appellent des recommandations juridiques ou déontologiques que la série s'interdit (runbook 4.0). Aucun angle propre au métier qui ne recoupe pas les billets publiés (conseil, comptabilité). Pour défaire : repasser l'entrée en « idée ».",
       "origine": "Décision de Simon du 26 octobre 2026 (cadence de 14 créations par semaine, surtout « IA par métier »). Satellite de /secteurs/liberal-independant (page existante). Volume de la requête non mesuré : à demander à Simon dans Semrush avant la rédaction."
     },
     {
@@ -3686,20 +3686,25 @@
     {
       "id": "idee-plafond-depense-api-ia",
       "type": "article",
-      "titreProvisoire": "Plafonner la dépense d’une API d’IA : Anthropic, OpenAI et Mistral",
+      "titreProvisoire": "Plafonner la dépense d'une API d'IA : OpenAI, Claude et Mistral",
       "requeteCible": "plafond dépense api openai",
       "intention": "Savoir comment empêcher une clé d’API d’IA de consommer sans limite, fournisseur par fournisseur.",
       "urlCible": "/blog/plafond-depense-api-ia",
-      "angle": "Hypothèse à vérifier par la SERP : le budget d’un projet OpenAI ne bloque pas la dépense (aide OpenAI lue le 8 novembre 2026), Anthropic propose un plafond mensuel par espace de travail ; Mistral à lire le jour de la rédaction. Tableau par fournisseur, ce qui se passe au dépassement, réglage conseillé par usage.",
+      "angle": "Recherche du 14 novembre 2026 : l'hypothèse d'origine (le budget OpenAI ne bloque pas) est périmée, OpenAI documente une limite stricte par organisation et par projet (erreur 429). Angle retenu : tableau des trois éditeurs (où régler, niveaux, erreur reçue, reprise), la différence alerte et limite stricte, l'erreur 400 d'Anthropic qui échappe à une surveillance des seuls 429, l'échec des nouveaux essais dans n8n et Make, la méthode de dimensionnement (exemple illustratif), la recharge automatique activée par défaut chez OpenAI, et quand ne pas poser de plafond strict. Avancée de 2026-W47 : création du jour, la série « IA par métier » n'ayant plus d'entrée rédigeable (voir idee-ia-metier-liberal-independant).",
       "sourcesALire": [
-        "https://help-lb.openai.com/en/articles/9186755-managing-projects-in-the-api-platform (lu le 8 novembre 2026)",
-        "https://platform.claude.com/docs/en/manage-claude/workspaces (lu le 8 novembre 2026)",
-        "Documentation de facturation de Mistral AI, version du jour"
+        "https://developers.openai.com/fr-FR/api/docs/guides/spend-limits (lu le 14 novembre 2026)",
+        "https://help.openai.com/fr-fr/articles/6614457-troubleshooting-api-usage-and-spend-limits (lu le 14 novembre 2026)",
+        "https://help.openai.com/fr-fr/articles/8264644-setting-up-and-managing-prepaid-api-billing (lu le 14 novembre 2026)",
+        "https://platform.claude.com/docs/en/api/rate-limits (lu le 14 novembre 2026)",
+        "https://platform.claude.com/docs/en/manage-claude/workspaces (lu le 14 novembre 2026)",
+        "https://docs.mistral.ai/fr/admin/billing-usage/usage-limits (lu le 14 novembre 2026)",
+        "https://docs.mistral.ai/fr/getting-started/quickstarts/admin/manage-workspaces (lu le 14 novembre 2026)",
+        "SERP lue : omidsaffari.com, tokenfeed.pages.dev, satgate.io, xray.tech, latentism.com, tensoria-studio.fr (lu le 14 novembre 2026)"
       ],
-      "semainePrevue": "2026-W47",
-      "statut": "planifié",
+      "semainePrevue": "2026-W46",
+      "statut": "en cours",
       "pr": null,
-      "mesureAttendue": "Page indexée et premières impressions sur la requête cible, deux collectes après la mise en production.",
+      "mesureAttendue": "/blog/plafond-depense-api-ia, requête « plafond dépense api openai » : aucune impression au départ (page neuve). Attendu : page indexée et premières impressions, à juger à partir de 2026-W49.",
       "resultat": null,
       "origine": "Recherche du 8 novembre 2026 pour /blog/cles-api-automatisation-securite-pme : la différence entre plafond (Anthropic) et seuil d’alerte (OpenAI) n’apparaît dans aucune des six pages lues ce jour. Volume non mesuré : à demander à Simon."
     },
@@ -3995,6 +4000,43 @@
       "mesureAttendue": "Page indexée et premières impressions sur la requête, deux collectes après la mise en production.",
       "resultat": null,
       "origine": "Veille du 13 novembre 2026 : billet claude.com du 12 novembre 2026 « Introducing Claude for Manufacturing » ; secteur industrie présent sur le site (/secteurs/industrie, /blog/ia-pme-industrielle), aucun contenu sur ce plugin. Non pris aujourd'hui : une création par jour (texte de la tâche), Claude Meetings jugé plus urgent (offre Team activée par défaut)."
+    },
+    {
+      "id": "w46-revision-cles-api-limite-stricte-openai",
+      "type": "révision",
+      "titreProvisoire": "Clés API dans vos automatisations : OpenAI a une limite stricte de dépense",
+      "requeteCible": "clé api n8n sécurité",
+      "intention": "Sécuriser les clés API des automatisations n8n et Make.",
+      "urlCible": "/blog/cles-api-automatisation-securite-pme",
+      "angle": "Règle 4.1.4 : la page disait que le budget d'un projet OpenAI n'arrête rien ; le guide OpenAI des limites de dépenses documente une limite stricte par organisation et par projet (erreur 429). Corrigé dans la prose, le tableau, la procédure, la FAQ et le résumé anglais, avec lien vers /blog/plafond-depense-api-ia.",
+      "sourcesALire": [
+        "https://developers.openai.com/fr-FR/api/docs/guides/spend-limits (lu le 14 novembre 2026)"
+      ],
+      "semainePrevue": "2026-W46",
+      "statut": "en cours",
+      "pr": null,
+      "mesureAttendue": "Page toujours indexée et impressions au moins égales à la collecte du 15 novembre 2026, à juger à partir de 2026-W49.",
+      "resultat": null,
+      "origine": "Recherche du 14 novembre 2026 pour idee-plafond-depense-api-ia : guide OpenAI « Limites de dépenses » lu ce jour."
+    },
+    {
+      "id": "idee-workflow-erreur-n8n-appels-ia",
+      "type": "article",
+      "titreProvisoire": "Workflow d'erreur n8n pour les appels à un modèle d'IA : quoi capter, à qui l'envoyer",
+      "requeteCible": "n8n error workflow",
+      "intention": "Être prévenu quand un workflow qui appelle Claude, OpenAI ou Mistral échoue, et savoir pourquoi.",
+      "urlCible": "/blog/workflow-erreur-n8n-ia",
+      "angle": "Hypothèse à vérifier par la SERP : les pages sur l'Error Trigger ne distinguent pas les erreurs des API de modèles (plafond de dépense, limite de débit, contenu refusé) ni la conduite à tenir pour chacune.",
+      "sourcesALire": [
+        "https://docs.n8n.io/flow-logic/error-handling/ (lu le 14 novembre 2026)",
+        "Pages d'erreurs des API Anthropic, OpenAI et Mistral, version du jour"
+      ],
+      "semainePrevue": null,
+      "statut": "idée",
+      "pr": null,
+      "mesureAttendue": "Page indexée et premières impressions sur la requête cible, deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "Recherche du 14 novembre 2026 pour /blog/plafond-depense-api-ia : les codes de plafond diffèrent (400 et 429 chez Anthropic, 429 chez OpenAI et Mistral) et aucune des six pages lues ne dit comment les capter dans n8n. Volume non mesuré : à demander à Simon."
     }
   ]
 }

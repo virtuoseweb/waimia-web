@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · Claude dessine · « plafonner la dépense » : une haute vanne d'écluse retient
+       un grand bassin ; une jauge graduée se dresse à côté, un trait marque le niveau à ne pas
+       dépasser. Une petite silhouette tourne le volant au sommet de la vanne ; en aval, un
+       mince filet seulement s'échappe. Aucun texte. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-92" r="7.5" fill="{{shadow}}"/>
+      <path d="M-10 -83 Q0 -87 10 -83 L11 -48 L-11 -48 Z" fill="{{shadow}}"/>
+      <path d="M-2.5 -83 L0 -75 L2.5 -83 Z" fill="{{light}}"/>
+      <rect x="-9" y="-49" width="7" height="47" fill="{{shadow}}"/>
+      <rect x="2" y="-49" width="7" height="47" fill="{{shadow}}"/>
+    </g>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <!-- Grand disque derrière la vanne -->
+  <circle cx="760" cy="230" r="170" fill="{{pale}}"/>
+
+  <!-- Bassin retenu, à gauche : la grande nappe -->
+  <rect x="0" y="330" width="700" height="294" fill="{{ground}}"/>
+  <rect x="0" y="330" width="700" height="10" fill="{{light}}"/>
+  <rect x="80" y="372" width="160" height="5" fill="{{light}}"/>
+  <rect x="330" y="410" width="210" height="5" fill="{{light}}"/>
+  <rect x="150" y="460" width="120" height="5" fill="{{light}}"/>
+
+  <!-- Sol en aval, à droite -->
+  <rect x="700" y="520" width="756" height="104" fill="{{deep}}"/>
+  <!-- Le mince filet qui passe sous la vanne -->
+  <path d="M760 520 Q900 528 1060 524 Q1200 520 1456 528 L1456 540 Q1200 532 1060 536 Q900 540 760 532 Z" fill="{{ground}}"/>
+
+  <!-- Piliers et vanne -->
+  <rect x="680" y="150" width="40" height="420" fill="{{deep}}"/>
+  <rect x="820" y="150" width="40" height="420" fill="{{deep}}"/>
+  <rect x="716" y="200" width="108" height="324" fill="{{shape}}"/>
+  <rect x="716" y="250" width="108" height="8" fill="{{shadow}}"/>
+  <rect x="716" y="330" width="108" height="8" fill="{{shadow}}"/>
+  <rect x="716" y="410" width="108" height="8" fill="{{shadow}}"/>
+  <!-- Passerelle au sommet -->
+  <rect x="660" y="138" width="220" height="16" fill="{{shadow}}"/>
+  <!-- Volant de manoeuvre -->
+  <rect x="767" y="96" width="6" height="44" fill="{{shadow}}"/>
+  <circle cx="770" cy="92" r="30" fill="none" stroke="{{subject}}" stroke-width="7"/>
+  <rect x="738" y="89" width="64" height="6" fill="{{subject}}"/>
+  <rect x="767" y="60" width="6" height="64" fill="{{subject}}"/>
+  <!-- La silhouette qui tient le volant -->
+  <use href="#man" transform="translate(726 138) scale(0.95)"/>
+
+  <!-- La jauge graduée, à droite -->
+  <rect x="1040" y="120" width="34" height="400" fill="{{light}}"/>
+  <rect x="1040" y="300" width="34" height="220" fill="{{subject}}"/>
+  <rect x="1074" y="160" width="18" height="5" fill="{{shadow}}"/>
+  <rect x="1074" y="220" width="12" height="4" fill="{{shadow}}"/>
+  <rect x="1074" y="280" width="12" height="4" fill="{{shadow}}"/>
+  <rect x="1074" y="340" width="12" height="4" fill="{{shadow}}"/>
+  <rect x="1074" y="400" width="12" height="4" fill="{{shadow}}"/>
+  <rect x="1074" y="460" width="12" height="4" fill="{{shadow}}"/>
+  <!-- Trait du plafond -->
+  <rect x="1010" y="196" width="100" height="8" fill="{{shadow}}"/>
+  <!-- Une seconde silhouette, en bas, regarde la jauge -->
+  <use href="#man" transform="translate(1160 522) scale(0.8)"/>
+  <!-- Ombres -->
+  <rect x="1030" y="518" width="60" height="6" fill="{{shadow}}" opacity="0.3"/>
+</svg>
