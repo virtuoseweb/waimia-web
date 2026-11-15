@@ -415,3 +415,12 @@ test('identité échappée dans l’alerte interne (HTML et retours à la ligne 
   assert.ok(internal.body.html.includes('&lt;b&gt;Eve&lt;/b&gt;'));
   assert.ok(!/[\r\n]/.test(internal.body.subject), 'aucun retour à la ligne dans l’objet');
 });
+
+test('revue PR 189 : lien tel: sans « (0) », objet sans caractère de contrôle ni inversion bidi', async () => {
+  reset();
+  const r = await processLeadMagnet({ ...good, phone: '+33 (0)6 12 34 56 78', lastName: 'Martin\u0000\u202Etxt.exe' }, deps);
+  assert.equal(r.status, 200);
+  const internal = received.find((x) => x.body.to?.[0] !== 'visiteur@example.com');
+  assert.ok(internal.body.html.includes('href="tel:+33612345678"'), 'le « (0) » n’est pas composé');
+  assert.ok(!/[\u0000-\u001F\u202A-\u202E]/.test(internal.body.subject), 'objet sans contrôle ni bidi');
+});

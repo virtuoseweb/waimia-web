@@ -26,7 +26,9 @@ export type LeadSource = "contact" | "lead-magnet" | "academy" | "devis" | "news
  * comptage des leads (journal SEO) : ne pas le changer.
  */
 export function internalLeadSubject(label: string, email: string, name?: string): string {
-  const clean = (s: string) => s.replace(/[\r\n]+/g, " ").replace(/\s+/g, " ").trim();
+  // Caractères de contrôle (CR, LF, NUL…) et inversions bidi (U+202A-202E, U+2066-2069) retirés :
+  // un objet ne doit ni s'étendre en en-tête, ni maquiller son affichage.
+  const clean = (s: string) => s.replace(/[\u0000-\u001F\u007F\u202A-\u202E\u2066-\u2069]+/g, " ").replace(/\s+/g, " ").trim();
   const who = name && clean(name) ? `${clean(name)} · ` : "";
   return `[Lead] ${clean(label)} · ${who}${clean(email)}`;
 }
@@ -115,7 +117,9 @@ export default function InternalLeadAlert({
 
   const mailLink = `<a href="mailto:${escapeHtml(email)}" style="color:${INK};text-decoration:underline;">${escapeHtml(email)}</a>`;
   // Le numéro tel qu'il a été saisi s'affiche ; le lien ne garde que « + » et les chiffres.
-  const telHref = phone ? `tel:${phone.trim().startsWith("+") ? "+" : ""}${phone.replace(/\D/g, "")}` : "";
+  // « (0) » des numéros internationaux à la française (+33 (0)6…) n'est pas composé.
+  const telDigits = phone ? phone.replace(/\(0\)/g, "") : "";
+  const telHref = phone ? `tel:${phone.trim().startsWith("+") ? "+" : ""}${telDigits.replace(/\D/g, "")}` : "";
   const identity =
     `<p style="${eyebrowStyle}">Identité</p>` +
     (name

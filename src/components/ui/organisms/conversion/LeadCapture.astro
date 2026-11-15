@@ -95,7 +95,7 @@ const descId = bare ? describedBy : `${fid}-desc`;
       </div>
       <button class:list={['btn', bare ? 'btn-primary' : 'btn-ghost', 'cv-btn', 'lc-btn']} type="submit" data-label={buttonLabel} data-label-busy="Envoi en cours…">{buttonLabel}</button>
     </div>
-    <p class="cv-error" id={`${fid}-err`} data-lead-error hidden></p>
+    <p class="cv-error" id={`${fid}-err`} role="alert" data-lead-error hidden></p>
     <label class="lc-optin">
       <input type="checkbox" name="newsletter" />
       <span>Recevoir aussi la lettre mensuelle de Waimia (un envoi par mois, désinscription en un clic).</span>
@@ -245,10 +245,12 @@ const descId = bare ? describedBy : `${fid}-desc`;
         else if (data.code === 'invalid_email') fail('Cette adresse e-mail n\'est pas valide. Exemple : prenom@entreprise.fr');
         else if (data.code === 'invalid_fields') {
           var bad = data.fields || [];
-          if (bad.indexOf('firstName') > -1) fail('Indiquez votre prénom.', first);
-          else if (bad.indexOf('lastName') > -1) fail('Indiquez votre nom.', last);
-          else if (bad.indexOf('phone') > -1) fail(MSG_PHONE, phone);
+          var target = bad.indexOf('firstName') > -1 ? first : bad.indexOf('lastName') > -1 ? last : bad.indexOf('phone') > -1 ? phone : company;
+          if (target === first) fail('Indiquez votre prénom.', first);
+          else if (target === last) fail('Indiquez votre nom.', last);
+          else if (target === phone) fail(MSG_PHONE, phone);
           else fail('Le nom de l\'entreprise est trop long (100 caractères au plus).', company);
+          target.focus();
         }
         else if (res.status === 429) fail('Trop de demandes en peu de temps. Réessayez dans quelques minutes.');
         else if (data.code === 'resource_unavailable') fail('Ce fichier est momentanément indisponible. Écrivez à ' + mail + ', nous vous l\'envoyons.');
