@@ -47,7 +47,7 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 **Veille (runbook 4.0)** : flux depuis la session du 14 novembre (collecte locale du jour), puis pages sans flux lues le 15 novembre 2026 par l'outil de lecture Exa : anthropic.com/news (rien depuis Fable 5.2 du 9 novembre et la tournée d'introduction en bourse du 10 novembre), claude.com/blog (rien après le 13 novembre), notes de version de la plateforme Claude (rien après le 12 novembre), changelog de l'API OpenAI (rien après le 5 novembre), deploy.co/fr-FR/news (rien depuis le 14 septembre), ode.com/blog (rien de daté). X non lu (aucune annonce signalée hors page primaire). Aucun événement majeur nouveau : réglages d'agent et Weaviate dans n8n (annonces de communauté, hors usages PME du site), levée de LangChain, tests de Google sur le mode IA, United et les agents IA (hors silo, rien à décider).
 
-**Actions du jour** (commit de contenu : voir l'entrée du calendrier, champ `pr`) : une création, une révision.
+**Actions du jour** (commit de contenu https://github.com/virtuoseweb/waimia-web/commit/3b6e6c3dca5aabcc6bf11069ba25f1823ba9d08b) : une création, une révision.
 
 1. Création de `/blog/claude-for-manufacturing-pme` (entrée `idee-claude-for-manufacturing-pme-industrielle`, avancée de 2026-W47, article, silo `claude`).
    - Pourquoi : création du jour ; première entrée de 2026-W47 tirée d'une annonce (12 novembre 2026) que le site ne couvrait pas, satellite de `/secteurs/industrie` et `/blog/ia-pme-industrielle`. Contrôle de la série « IA par métier » : aucun billet de la série dans `indexation.notIndexed` de la collecte du 14 novembre.
@@ -63,6 +63,8 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 **`llms.txt`** : `/blog/claude-for-manufacturing-pme` figure dans le silo « Blog », ligne reprenant title et description.
 
 **GF-1** (build servi, `serve-dist.mjs`, Playwright, 1440 et 390 px) : les deux pages touchées répondent 200, H1 visible (opacité 1), débordement horizontal 0, 0 erreur console ; illustration chargée et tableau rendu sur la création. Capture mobile relue : H1, chapô, auteur et haut de l'illustration au-dessus de la ligne de flottaison.
+
+**CI et production** : run CI 43687681097 sur `3b6e6c3` : `success` (Build, SEO build de production, E2E). waimia.com après déploiement : `/blog/claude-for-manufacturing-pme` 200 (H1 servi, illustration `claude-for-usine-aube-paper.webp` 200), `/` 200, `/blog/ia-pme-industrielle` 200 (lien vers la création présent). Aucune redirection dans le lot. Aucun revert. Commit de suivi (calendrier, journal, brouillon) poussé après le contrôle, pour ne pas annuler la CI du contenu.
 
 **Calendrier** : livré aujourd'hui `idee-claude-for-manufacturing-pme-industrielle` et `w46-revision-ia-pme-industrielle-plugin` ; ajouté `idee-exports-erp-pour-ia` (idée, origine : recherche du jour, toutes les pages lues renvoient aux exports sans dire lesquels ni comment) ; prévu en 2026-W47 : `idee-claude-in-chrome-regles-entreprise`, `idee-ai-caiq-questionnaire-ia`, une révision et deux fusions conditionnelles ; 2 semaines d'avance, 19 idées et 8 entrées planifiées en stock (`check-calendar.mjs`).
 
