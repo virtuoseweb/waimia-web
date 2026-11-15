@@ -70,7 +70,7 @@ const magnets = {
   'sans-fichier': { title: 'Sans fichier', path: '/x' },
 };
 const deps = { magnets, baseDirs: [tmp] };
-const good = { email: 'visiteur@example.com', slug: 'faux-guide', lang: 'fr', website: '' };
+const good = { firstName: 'Claire', lastName: 'Martin', email: 'visiteur@example.com', slug: 'faux-guide', lang: 'fr', website: '' };
 const reset = () => {
   received = [];
   process.env.RESEND_API_KEY = 'test_key_factice';
@@ -329,8 +329,9 @@ test('endpoint lead-magnet (route Astro) : honeypot et slug inconnu', async () =
   assert.equal(res.status, 200);
   assert.deepEqual(await res.json(), { ok: true });
   assert.equal(received.length, 0);
-  const unknown = await ALL({ request: post('/api/lead-magnet', { email: 'ok@example.com', slug: 'nope' }) });
+  const unknown = await ALL({ request: post('/api/lead-magnet', { firstName: 'Ok', lastName: 'Test', email: 'ok@example.com', slug: 'nope' }) });
   assert.equal(unknown.status, 400);
+  assert.equal((await unknown.json()).code, 'unknown_resource');
 });
 
 test('newsletter sans clé Resend : 503 honnête (plus de faux succès)', async () => {
@@ -360,4 +361,57 @@ test('slug d’outil sans result : 400 invalid_result, rien envoyé, même avec 
   assert.equal(r.status, 400);
   assert.equal(r.body.code, 'invalid_result');
   assert.equal(received.length, 0);
+});
+
+// Identité du lead (15 novembre 2026) : un lead réduit à une adresse Gmail était inexploitable.
+test('identité : prénom et nom obligatoires, 400 invalid_fields avec la liste des champs, rien envoyé', async () => {
+  reset();
+  const { firstName, lastName, ...sansNom } = good;
+  const r = await processLeadMagnet(sansNom, deps);
+  assert.equal(r.status, 400);
+  assert.equal(r.body.code, 'invalid_fields');
+  assert.deepEqual([...r.body.fields].sort(), ['firstName', 'lastName']);
+  const blanc = await processLeadMagnet({ ...good, firstName: '   ' }, deps);
+  assert.equal(blanc.status, 400, 'un prénom fait d’espaces est refusé');
+  assert.deepEqual(blanc.body.fields, ['firstName']);
+  assert.equal(received.length, 0, 'aucun e-mail sans identité');
+  // L'e-mail invalide garde son code dédié, même si le nom manque aussi.
+  const both = await processLeadMagnet({ ...sansNom, email: 'pas-un-email' }, deps);
+  assert.equal(both.body.code, 'invalid_email');
+});
+
+test('téléphone facultatif : vide accepté, invalide refusé ; entreprise facultative', async () => {
+  reset();
+  const vide = await processLeadMagnet({ ...good, phone: '', company: '' }, deps);
+  assert.equal(vide.status, 200, 'téléphone et entreprise vides acceptés');
+  reset();
+  for (const phone of ['123', 'appelez-moi', '06 12 34 56 78 90 12 34 56']) {
+    const r = await processLeadMagnet({ ...good, phone }, deps);
+    assert.equal(r.status, 400, `téléphone « ${phone} » refusé`);
+    assert.deepEqual(r.body.fields, ['phone']);
+  }
+  assert.equal(received.length, 0);
+});
+
+test('alerte interne : nom en tête, téléphone cliquable, entreprise, objet avec le nom ; rien de tout ça chez le visiteur', async () => {
+  reset();
+  const r = await processLeadMagnet({ ...good, firstName: ' Claire ', phone: '+33 6 12 34 56 78', company: 'Atelier Durand' }, deps);
+  assert.equal(r.status, 200);
+  const internal = received.find((x) => x.body.to?.[0] !== 'visiteur@example.com');
+  assert.equal(internal.body.subject, '[Lead] faux-guide · Claire Martin · visiteur@example.com');
+  for (const s of ['Claire Martin', 'href="tel:+33612345678"', '+33 6 12 34 56 78', 'Atelier Durand', 'mailto:visiteur@example.com']) {
+    assert.ok(internal.body.html.includes(s), `alerte interne sans « ${s} »`);
+  }
+  const toVisitor = received.find((x) => x.body.to?.[0] === 'visiteur@example.com');
+  assert.ok(!toVisitor.body.html.includes('+33 6 12 34 56 78'), 'le téléphone ne part jamais chez le visiteur');
+});
+
+test('identité échappée dans l’alerte interne (HTML et retours à la ligne dans l’objet)', async () => {
+  reset();
+  const r = await processLeadMagnet({ ...good, firstName: '<b>Eve</b>', lastName: 'X\r\nBcc: a@b.c' }, deps);
+  assert.equal(r.status, 200);
+  const internal = received.find((x) => x.body.to?.[0] !== 'visiteur@example.com');
+  assert.ok(!internal.body.html.includes('<b>Eve</b>'), 'HTML du prénom échappé');
+  assert.ok(internal.body.html.includes('&lt;b&gt;Eve&lt;/b&gt;'));
+  assert.ok(!/[\r\n]/.test(internal.body.subject), 'aucun retour à la ligne dans l’objet');
 });

@@ -2338,7 +2338,7 @@
     "categorySlug": "contact-sections",
     "subcategory": "Contact Sections",
     "status": "stable",
-    "description_fr": "Section contact avec formulaire (nom, email, message) et colonne coordonnées, action vers /api/contact, bilingue.",
+    "description_fr": "Section contact avec formulaire (nom, email, téléphone, message) et colonne coordonnées, action vers /api/contact, bilingue.",
     "requiredProps": [
       {
         "name": "h2_en",
@@ -2631,7 +2631,7 @@
     "categorySlug": "cta-sections",
     "subcategory": "CTA Sections",
     "status": "stable",
-    "description_fr": "Bande CTA avec mini-formulaire inline (email et bouton), pour capter un lead ou une inscription newsletter à l'instant d'intention. Prop optionnelle `lead_magnet` (slug) : le fichier est livré par e-mail en pièce jointe.",
+    "description_fr": "Bande CTA avec mini-formulaire inline (email et bouton), pour capter un lead ou une inscription newsletter à l'instant d'intention. Prop optionnelle `lead_magnet` (slug) : le formulaire demande aussi prénom et nom (téléphone et entreprise facultatifs) et le fichier est livré par e-mail en pièce jointe.",
     "requiredProps": [
       {
         "name": "h2_en",
@@ -4655,7 +4655,7 @@
       {
         "name": "silo",
         "type": "enum",
-        "constraint": "acquisition | commercial | ops | hub | generic"
+        "constraint": "acquisition | commercial | ops | hub | generic | web | apps"
       },
       {
         "name": "title",
@@ -10945,7 +10945,7 @@
     "categorySlug": "cta-sections",
     "subcategory": "CTA Sections",
     "status": "stable",
-    "description_fr": "Bande de capture d'e-mail d'une ressource (lead magnet) : titre fort, accroche, liste de ce que l'e-mail apporte, un seul champ, bouton primaire, mention RGPD courte et aperçu (couverture dessinée ou illustration). Mode `required` (fichier verrouillé, envoyé en pièce jointe) ou `open` (résultat d'un outil déjà affiché, l'e-mail en garde la version). Variantes `band` (pleine largeur) et `card` (dans un article). Moteur : organism LeadCapture → POST /api/lead-magnet.",
+    "description_fr": "Bande de capture d'e-mail d'une ressource (lead magnet) : titre fort, accroche, liste de ce que l'e-mail apporte, formulaire court (prénom, nom et e-mail obligatoires, téléphone et entreprise facultatifs), bouton primaire, mention RGPD courte et aperçu (couverture dessinée ou illustration). Mode `required` (fichier verrouillé, envoyé en pièce jointe) ou `open` (résultat d'un outil déjà affiché, l'e-mail en garde la version). Variantes `band` (pleine largeur) et `card` (dans un article). Moteur : organism LeadCapture → POST /api/lead-magnet.",
     "requiredProps": [
       {
         "name": "lead_magnet",
