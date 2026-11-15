@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · Claude dessine · « le rapport du matin » : à l'aube, un long atelier à toit en
+       dents de scie ; par sa grande porte sort une très longue feuille déroulée sur le sol,
+       jusqu'à une petite silhouette qui la lit, une autre arrive avec une tasse. Le soleil se
+       lève derrière la cheminée. Aucun texte. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-7.5 -93 Q0 -101 7.5 -93 L7 -90 Q0 -95 -7 -90 Z" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{subject}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{subject}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/>
+    </g>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+
+  <!-- Soleil levant derrière l'atelier -->
+  <circle cx="360" cy="190" r="96" fill="{{pale}}"/>
+
+  <!-- Cheminée -->
+  <rect x="1040" y="120" width="34" height="230" fill="{{deep}}"/>
+  <rect x="1034" y="112" width="46" height="14" fill="{{deep}}"/>
+
+  <!-- L'atelier : corps et toit en dents de scie -->
+  <rect x="560" y="300" width="640" height="200" fill="{{shape}}"/>
+  <path d="M560 300 L560 236 L640 300 L640 236 L720 300 L720 236 L800 300 L800 236 L880 300 L880 236 L960 300 L960 236 L1040 300 L1040 236 L1120 300 L1120 236 L1200 300 Z" fill="{{shape}}"/>
+  <!-- Vitrages des sheds -->
+  <path d="M562 240 L566 296 L570 296 L566 244 Z" fill="{{deep}}" opacity="0.35"/>
+  <rect x="560" y="236" width="6" height="64" fill="{{deep}}" opacity="0.3"/>
+  <rect x="640" y="236" width="6" height="64" fill="{{deep}}" opacity="0.3"/>
+  <rect x="720" y="236" width="6" height="64" fill="{{deep}}" opacity="0.3"/>
+  <rect x="800" y="236" width="6" height="64" fill="{{deep}}" opacity="0.3"/>
+  <rect x="880" y="236" width="6" height="64" fill="{{deep}}" opacity="0.3"/>
+  <rect x="960" y="236" width="6" height="64" fill="{{deep}}" opacity="0.3"/>
+  <rect x="1040" y="236" width="6" height="64" fill="{{deep}}" opacity="0.3"/>
+  <rect x="1120" y="236" width="6" height="64" fill="{{deep}}" opacity="0.3"/>
+  <!-- Rangée de petites fenêtres -->
+  <rect x="980" y="340" width="40" height="30" fill="{{deep}}" opacity="0.4"/>
+  <rect x="1040" y="340" width="40" height="30" fill="{{deep}}" opacity="0.4"/>
+  <rect x="1100" y="340" width="40" height="30" fill="{{deep}}" opacity="0.4"/>
+  <!-- Grande porte ouverte, sombre -->
+  <rect x="640" y="360" width="150" height="140" fill="{{shadow}}"/>
+
+  <!-- Sol -->
+  <rect y="500" width="1456" height="124" fill="{{ground}}"/>
+
+  <!-- La longue feuille qui sort de la porte et se déroule au sol -->
+  <path d="M650 500 L780 500 L600 600 L300 600 Z" fill="{{detail}}"/>
+  <!-- Lignes de la feuille (sans lettres) -->
+  <path d="M640 520 L700 520 L688 525 L628 525 Z" fill="{{deep}}" opacity="0.35"/>
+  <path d="M598 540 L690 540 L676 545 L584 545 Z" fill="{{deep}}" opacity="0.35"/>
+  <path d="M552 560 L640 560 L625 565 L537 565 Z" fill="{{deep}}" opacity="0.35"/>
+  <path d="M500 580 L620 580 L604 585 L484 585 Z" fill="{{deep}}" opacity="0.35"/>
+
+  <!-- Silhouette qui lit le bout de la feuille -->
+  <use href="#man" transform="translate(250 600) scale(1.35)"/>
+  <!-- La page qu'il tient, détachée de la feuille -->
+  <rect x="262" y="478" width="26" height="34" fill="{{detail}}"/>
+  <!-- Une seconde silhouette arrive par la gauche -->
+  <use href="#woman" transform="translate(120 590) scale(1.1)"/>
+  <rect x="128" y="520" width="10" height="9" fill="{{light}}"/>
+
+  <!-- Ombres au sol -->
+  <rect x="560" y="500" width="640" height="8" fill="{{shadow}}" opacity="0.35"/>
+</svg>

@@ -12387,6 +12387,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/claude-for-manufacturing-pme",
+    "title": "Claude for Manufacturing : ce que le plugin d'Anthropic fait dans une PME industrielle, et ce qu'il demande",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/claude-for-manufacturing-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/claude-max-ou-team-petite-equipe",
     "title": "Claude Max ou Ultra pour une petite équipe : moins cher que Team ?",
     "group": "blog",
@@ -14035,6 +14044,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/claude-duet-ou-claude-cowork",
       "/blog/claude-extension-chrome",
       "/blog/claude-fable-5-2-mythos-5-2",
+      "/blog/claude-for-manufacturing-pme",
       "/blog/claude-max-ou-team-petite-equipe",
       "/blog/claude-max-pme",
       "/blog/claude-meetings-pme",

@@ -3989,13 +3989,16 @@
       "requeteCible": "claude for manufacturing",
       "intention": "Savoir si le plugin industrie de Claude sert une PME industrielle française et quels systèmes il suppose.",
       "urlCible": "/blog/claude-for-manufacturing-pme",
-      "angle": "Hypothèse à vérifier à la lecture de l'annonce et de l'aide : 17 skills et quatre connecteurs pour devis, rapports qualité et demandes fournisseurs selon le résumé du blog ; confronter aux ERP et MES courants des PME françaises et à la page /blog/ia-pme-industrielle.",
+      "angle": "Recherche du 15 novembre 2026 : les pages françaises (logistiqueformation.fr, unite.ai/fr, pasqualepillitteri.it) traduisent l'annonce ; aucune ne dit, pour une PME française, ce qui marche selon l'ERP et la CAO (Infor M3 sans coût standard ni gammes, rien pour SolidWorks, Google Workspace non documenté), que le dépôt est une implémentation de référence non maintenue, ni par quel essai commencer (rapport du matin, seul enchaînement sans validation). Avancée de 2026-W47 au 15 novembre.",
       "sourcesALire": [
-        "https://claude.com/blog (titre « Introducing Claude for Manufacturing », 12 novembre 2026, lu le 13 novembre 2026)",
-        "Annonce complète et aide d'Anthropic sur le plugin, à lire"
+        "https://claude.com/resources/articles/claude-for-manufacturing (lu le 15 novembre 2026)",
+        "https://claude.com/solutions/manufacturing (lu le 15 novembre 2026)",
+        "https://github.com/anthropics/claude-plugins-official/blob/main/plugins/claude-for-manufacturing/README.md (lu le 15 novembre 2026)",
+        "https://github.com/anthropics/claude-plugins-official/blob/main/plugins/claude-for-manufacturing/shared/erp-connectors.md (lu le 15 novembre 2026)",
+        "https://support.claude.com/en/articles/12542951-set-up-the-microsoft-365-connector (lu le 15 novembre 2026)"
       ],
-      "semainePrevue": "2026-W47",
-      "statut": "planifié",
+      "semainePrevue": "2026-W46",
+      "statut": "en cours",
       "pr": null,
       "mesureAttendue": "Page indexée et premières impressions sur la requête, deux collectes après la mise en production.",
       "resultat": null,
@@ -4037,6 +4040,43 @@
       "mesureAttendue": "Page indexée et premières impressions sur la requête cible, deux collectes après la mise en production.",
       "resultat": null,
       "origine": "Recherche du 14 novembre 2026 pour /blog/plafond-depense-api-ia : les codes de plafond diffèrent (400 et 429 chez Anthropic, 429 chez OpenAI et Mistral) et aucune des six pages lues ne dit comment les capter dans n8n. Volume non mesuré : à demander à Simon."
+    },
+    {
+      "id": "w46-revision-ia-pme-industrielle-plugin",
+      "type": "révision",
+      "titreProvisoire": "IA pour PME industrielle : mention de Claude for Manufacturing",
+      "requeteCible": "ia pme industrielle",
+      "intention": "Choisir et cadrer un assistant IA dans une PME industrielle.",
+      "urlCible": "/blog/ia-pme-industrielle",
+      "angle": "Règle 4.1.4 : la page comparait Claude, ChatGPT et Mistral pour l'atelier sans le plugin industrie lancé le 12 novembre 2026 ; un paragraphe (FR et EN) et un lien vers /blog/claude-for-manufacturing-pme ajoutés dans « En bref ».",
+      "sourcesALire": [
+        "https://claude.com/resources/articles/claude-for-manufacturing (lu le 15 novembre 2026)"
+      ],
+      "semainePrevue": "2026-W46",
+      "statut": "en cours",
+      "pr": null,
+      "mesureAttendue": "Page toujours indexée et impressions au moins égales à la collecte du 15 novembre 2026, à juger à partir de 2026-W49.",
+      "resultat": null,
+      "origine": "Veille du 13 novembre 2026 (billet claude.com du 12 novembre 2026) et création du 15 novembre 2026."
+    },
+    {
+      "id": "idee-exports-erp-pour-ia",
+      "type": "guide",
+      "titreProvisoire": "Préparer les exports de son ERP pour un assistant IA : lesquels, à quel rythme, où les déposer",
+      "requeteCible": "export erp ia",
+      "intention": "Savoir quels exports programmer depuis un ERP sans connecteur pour qu'un assistant IA travaille sur des données fiables.",
+      "urlCible": "/ressources/guides/exports-erp-assistant-ia",
+      "angle": "Toutes les pages lues le 15 novembre 2026 sur Claude for Manufacturing répètent qu'il suffit de déposer des exports dans Microsoft 365, aucune ne dit lesquels, sous quel nom, à quelle fréquence, ni comment vérifier les jointures (code article, ordre de fabrication). Guide de procédure, sans offre nouvelle ; à confronter à la documentation des ERP courants lue le jour même.",
+      "sourcesALire": [
+        "https://github.com/anthropics/claude-plugins-official/blob/main/plugins/claude-for-manufacturing/README.md (lu le 15 novembre 2026)",
+        "Documentation d'export programmé des ERP cités (à lire)"
+      ],
+      "semainePrevue": null,
+      "statut": "idée",
+      "pr": null,
+      "mesureAttendue": "Page indexée et premières impressions sur la requête, deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "Recherche du 15 novembre 2026 pour idee-claude-for-manufacturing-pme-industrielle : logistiqueformation.fr, unite.ai/fr, pasqualepillitteri.it, dev.to/epifive renvoient tous aux exports sans les décrire."
     }
   ]
 }
