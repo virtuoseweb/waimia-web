@@ -404,7 +404,7 @@ test("TrustLegalTemplate · /agence/trust-center rend TOC + RGPD + AI Act + ISO 
   expect(html).toContain("ISO 27001");
   expect(html).toContain("SOC 2");
   expect(html).toContain("Anthropic");
-  expect(html).toContain("dpo@waimia.com");
+  expect(html).toContain("contact@virtuoseweb.fr");
   // TOC sticky avec 6 sections
   const tocItems = await page.locator(".trust-toc ol li").count();
   expect(tocItems).toBe(6);

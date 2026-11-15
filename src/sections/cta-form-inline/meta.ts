@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['2-col', 'media-right', 'split'],
     tags: ['cta', 'form', 'inline', 'email', 'newsletter', 'lead', 'capture', 'lead-magnet'],
     status: 'stable',
-    description_fr: 'Bande CTA avec mini-formulaire inline (email et bouton), pour capter un lead ou une inscription newsletter à l\'instant d\'intention. Prop optionnelle `lead_magnet` (slug) : le fichier est livré par e-mail en pièce jointe.',
-    description_en: 'CTA band with an inline mini-form (email and button), to capture a lead or newsletter sign-up at the moment of intent. Optional `lead_magnet` prop (slug): the file is delivered by email as an attachment.',
+    description_fr: 'Bande CTA avec mini-formulaire inline (email et bouton), pour capter un lead ou une inscription newsletter à l\'instant d\'intention. Prop optionnelle `lead_magnet` (slug) : le formulaire demande aussi prénom et nom (téléphone et entreprise facultatifs) et le fichier est livré par e-mail en pièce jointe.',
+    description_en: 'CTA band with an inline mini-form (email and button), to capture a lead or newsletter sign-up at the moment of intent. Optional `lead_magnet` prop (slug): the form also asks for first and last name (phone and company optional) and the file is delivered by email as an attachment.',
   
 };

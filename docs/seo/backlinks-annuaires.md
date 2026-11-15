@@ -45,7 +45,7 @@ Les noms d'agences ou de clients ne sont jamais inventés : les références ci
 | Date de création | 15/10/2020 (`src/site.config.ts`, inscription Sirene) |
 | Adresse d'activité | Avenue de la République, 33200 Bordeaux. Aucun numéro de rue : ne pas en inventer. Si le formulaire le permet, masquer l'adresse ou indiquer une zone desservie |
 | Téléphone | +33 6 20 61 56 93 |
-| E-mail | bonjour@waimia.com |
+| E-mail | contact@virtuoseweb.fr |
 | Site | https://waimia.com |
 | LinkedIn | https://www.linkedin.com/company/waimia |
 | Fiche Google | https://share.google/nmlHLC5wQak9TWRPl (existante, `src/site.config.ts`) |

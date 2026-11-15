@@ -20,9 +20,9 @@ export const SITE = {
   /** Dénomination légale (JSON-LD `legalName` / `alternateName`) : entrepreneur individuel, extrait URSSAF du 02/11/2026. */
   legalName: 'Simon Beros',
   /** Email de contact public (JSON-LD Organization `email`). */
-  email: 'bonjour@waimia.com',
+  email: 'contact@virtuoseweb.fr',
   /** Expéditeur transactionnel par défaut (env `EMAIL_FROM` prime au runtime). */
-  emailFrom: 'Waimia <hello@waimia.com>',
+  emailFrom: 'Waimia <noreply@virtuoseweb.fr>',
   /** Téléphone format lisible international (JSON-LD Organization `telephone`). */
   tel: '+33 6 20 61 56 93',
   /** Téléphone format E.164 (JSON-LD LocalBusiness `telephone`). */

@@ -33,6 +33,7 @@ import { z } from "zod";
 import { sendEmail, EMAIL_INTERNAL_TO, emitEvent } from "./resend";
 import { upsertSubscriber } from "./mailerlite";
 import { isBotSubmission } from "./honeypot";
+import { isValidPhone } from "./phone";
 import LeadMagnetDelivery from "./emails/LeadMagnetDelivery";
 import InternalLeadAlert, { internalLeadSubject } from "./emails/InternalLeadAlert";
 import { SITE } from "../site.config";
@@ -54,6 +55,7 @@ export const MSGS = {
     not_configured: `L'envoi d'e-mail est indisponible pour le moment. Écrivez-nous à ${SITE.email}.`,
     resource_unavailable: `Ce fichier est momentanément indisponible. Écrivez-nous à ${SITE.email}, nous vous l'envoyons.`,
     invalid_result: "Les réponses envoyées sont incomplètes ou hors limites. Vérifiez le formulaire et réessayez.",
+    invalid_fields: "Prénom, nom ou téléphone manquant ou invalide.",
   },
   en: {
     invalid_email: "Invalid email address.",
@@ -64,6 +66,7 @@ export const MSGS = {
     not_configured: `Email delivery is unavailable right now. Write to ${SITE.email}.`,
     resource_unavailable: `This file is temporarily unavailable. Write to ${SITE.email} and we will send it to you.`,
     invalid_result: "The answers sent are incomplete or out of range. Check the form and try again.",
+    invalid_fields: "First name, last name or phone missing or invalid.",
   },
 } as const;
 
@@ -78,12 +81,23 @@ const SummaryLineSchema = z.object({
   value: z.string().max(400),
 });
 
+/** Champ texte facultatif : une saisie vide vaut « absent ». */
+const optionalText = <T extends z.ZodTypeAny>(inner: T) =>
+  z.preprocess((v) => (typeof v === "string" && v.trim() === "" ? undefined : v), inner.optional());
+
 export const LeadMagnetSchema = z.object({
   email: z.string().email().max(200),
   slug: z.string().min(1).max(100),
-  company: z.string().max(100).optional(),
+  /**
+   * Identité OBLIGATOIRE (décision Simon, 15 novembre 2026) : un lead réduit à une adresse
+   * Gmail ne dit ni qui écrit ni pour quelle entreprise.
+   */
+  firstName: z.string().trim().min(1).max(100),
+  lastName: z.string().trim().min(1).max(100),
+  /** Facultatifs : téléphone (9 à 15 chiffres, cf lib/phone.ts) et entreprise. */
+  phone: optionalText(z.string().trim().max(30).refine(isValidPhone)),
+  company: optionalText(z.string().trim().max(100)),
   role: z.string().max(100).optional(),
-  firstName: z.string().max(100).optional(),
   /** Résultats affichés à l'écran, recopiés dans l'e-mail (40 lignes max). */
   summary: z.array(SummaryLineSchema).max(40).optional(),
   /** Ligne courte pour l'alerte interne (ex. « Niveau 2 · 11/30 »). */
@@ -171,17 +185,20 @@ export async function processLeadMagnet(rawPayload: unknown, deps: DeliveryDeps 
   const rawLang = (rawPayload as Record<string, unknown> | null)?.lang === "en" ? "en" : "fr";
   const parsed = LeadMagnetSchema.safeParse(rawPayload);
   if (!parsed.success) {
-    const emailIssue = parsed.error.issues.some((i) => i.path[0] === "email");
-    return {
-      status: 400,
-      body: {
-        ok: false,
-        code: emailIssue ? "invalid_email" : "invalid_request",
-        error: msg(emailIssue ? "invalid_email" : "invalid_request", rawLang),
-      },
-    };
+    const fields = [...new Set(parsed.error.issues.map((i) => String(i.path[0])))];
+    // L'e-mail garde la priorité : les deux formulaires clients testent ce code.
+    if (fields.includes("email")) {
+      return { status: 400, body: { ok: false, code: "invalid_email", error: msg("invalid_email", rawLang) } };
+    }
+    // Identité et téléphone : le client sait quel champ marquer (même forme que /api/contact).
+    const identity = fields.filter((f) => ["firstName", "lastName", "phone", "company"].includes(f));
+    if (identity.length > 0) {
+      return { status: 400, body: { ok: false, code: "invalid_fields", fields: identity, error: msg("invalid_fields", rawLang) } };
+    }
+    return { status: 400, body: { ok: false, code: "invalid_request", error: msg("invalid_request", rawLang) } };
   }
-  const { email, lang, slug, company, role, summary, headline, source } = parsed.data;
+  const { email, lang, slug, firstName, lastName, phone, company, role, summary, headline, source } = parsed.data;
+  const fullName = `${firstName} ${lastName}`;
   const optIn = Boolean(parsed.data.newsletter);
   const magnets = deps.magnets ?? (LEAD_MAGNETS as Readonly<Record<string, LeadMagnetEntry>>);
   if (!Object.prototype.hasOwnProperty.call(magnets, slug)) {
@@ -307,10 +324,12 @@ export async function processLeadMagnet(rawPayload: unknown, deps: DeliveryDeps 
       const draft = toolResult ? replyDraft(toolResult) : null;
       await sendEmail({
         to: EMAIL_INTERNAL_TO,
-        subject: internalLeadSubject(digest ? digest.toolLabel : slug, email),
+        subject: internalLeadSubject(digest ? digest.toolLabel : slug, email, fullName),
         html: InternalLeadAlert({
           source: "lead-magnet",
           email,
+          name: fullName,
+          phone,
           company,
           role,
           tags: [slug],
@@ -341,12 +360,13 @@ export async function processLeadMagnet(rawPayload: unknown, deps: DeliveryDeps 
       console.error("[api/lead-magnet] alerte interne non envoyée", err);
     }
 
-    // 6. Audience et automatisations marketing : UNIQUEMENT si la case a été cochée.
+    // 6. Audience et automatisations marketing : UNIQUEMENT si la case a été cochée. Le nom suit
+    // l'adresse (personnalisation de la lettre) ; le téléphone ne quitte jamais l'alerte interne.
     if (optIn) {
       await Promise.all([
-        emitEvent("lead_magnet_downloaded", { email, slug, ...leadAttribution(source) }),
+        emitEvent("lead_magnet_downloaded", { email, firstName, slug, ...leadAttribution(source) }),
         // Groupe MailerLite « newsletter » (le même que /api/newsletter) : le consentement porte sur la lettre.
-        upsertSubscriber({ email, groups: ["114701253078942792"] }),
+        upsertSubscriber({ email, name: firstName, fields: { last_name: lastName }, groups: ["114701253078942792"] }),
       ]);
     }
     const maskedEmail = email.replace(/(?<=.{3}).(?=.*@)/g, "*");

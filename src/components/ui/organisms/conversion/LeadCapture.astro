@@ -6,7 +6,8 @@ import FormGuard from '../../atoms/FormGuard.astro';
 // sans e-mail ; ce bloc en envoie la version à garder (récapitulatif, lien de retour).
 // `required` (checklist, charte, PDF verrouillés) : e-mail OBLIGATOIRE pour obtenir le fichier,
 // livré en pièce jointe et jamais par un lien public. POST JSON vers /api/lead-magnet
-// { email, slug, summary?, headline? }.
+// { firstName, lastName, email, phone?, company?, slug, summary?, headline? }. Prénom et nom sont
+// obligatoires dans les deux modes (décision Simon, 15 novembre 2026 : savoir qui demande).
 //
 // `bare` : formulaire seul (ni cadre, ni titre, ni description), bouton primaire et mention
 // RGPD courte. Utilisé par la section catalogue `lead-capture-band`, qui porte le titre, la
@@ -72,21 +73,37 @@ const descId = bare ? describedBy : `${fid}-desc`;
     <div class="lc-row">
       <FormGuard />
       <input type="hidden" name="slug" value={slug} />
-      <div class="cv-field lc-field">
-        <label class="cv-label" for={`${fid}-email`}>Votre e-mail</label>
+      <div class="cv-field">
+        <label class="cv-label" for={`${fid}-first`}>Prénom</label>
+        <input class="cv-input" id={`${fid}-first`} name="firstName" type="text" autocomplete="given-name" required maxlength="100" aria-describedby={`${fid}-err`} />
+      </div>
+      <div class="cv-field">
+        <label class="cv-label" for={`${fid}-last`}>Nom</label>
+        <input class="cv-input" id={`${fid}-last`} name="lastName" type="text" autocomplete="family-name" required maxlength="100" aria-describedby={`${fid}-err`} />
+      </div>
+      <div class="cv-field">
+        <label class="cv-label" for={`${fid}-email`}>E-mail</label>
         <input class="cv-input" id={`${fid}-email`} name="email" type="email" autocomplete="email" inputmode="email" required placeholder="prenom@entreprise.fr" aria-describedby={[descId, `${fid}-err`].filter(Boolean).join(' ')} />
+      </div>
+      <div class="cv-field">
+        <label class="cv-label" for={`${fid}-phone`}>Téléphone <span class="cv-opt">(facultatif)</span></label>
+        <input class="cv-input" id={`${fid}-phone`} name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="30" aria-describedby={`${fid}-err`} />
+      </div>
+      <div class="cv-field">
+        <label class="cv-label" for={`${fid}-company`}>Entreprise <span class="cv-opt">(facultatif)</span></label>
+        <input class="cv-input" id={`${fid}-company`} name="company" type="text" autocomplete="organization" maxlength="100" aria-describedby={`${fid}-err`} />
       </div>
       <button class:list={['btn', bare ? 'btn-primary' : 'btn-ghost', 'cv-btn', 'lc-btn']} type="submit" data-label={buttonLabel} data-label-busy="Envoi en cours…">{buttonLabel}</button>
     </div>
-    <p class="cv-error" id={`${fid}-err`} data-lead-error hidden></p>
+    <p class="cv-error" id={`${fid}-err`} role="alert" data-lead-error hidden></p>
     <label class="lc-optin">
       <input type="checkbox" name="newsletter" />
       <span>Recevoir aussi la lettre mensuelle de Waimia (un envoi par mois, désinscription en un clic).</span>
     </label>
     {bare ? (
-      <p class="cv-note lc-legal">Sans cette case : un seul e-mail, aucune liste. Responsable : Waimia (VirtuoseWeb). <a href="/politique-confidentialite">Confidentialité</a>.</p>
+      <p class="cv-note lc-legal">Sans cette case : un seul e-mail, aucune liste. Si vous laissez un numéro, nous pouvons vous rappeler à propos de cette ressource. Responsable : Waimia (VirtuoseWeb). <a href="/politique-confidentialite">Confidentialité</a>.</p>
     ) : (
-      <p class="cv-note lc-legal">{required ? "Le fichier vous est envoyé en pièce jointe, par e-mail. " : ''}Sans cette case, vous recevez un seul e-mail et votre adresse n'est ajoutée à aucune liste. Responsable du traitement : Waimia (VirtuoseWeb), pour vous envoyer ce que vous demandez. <a href="/politique-confidentialite">Confidentialité</a>.</p>
+      <p class="cv-note lc-legal">{required ? "Le fichier vous est envoyé en pièce jointe, par e-mail. " : ''}Sans cette case, vous recevez un seul e-mail et votre adresse n'est ajoutée à aucune liste. Si vous laissez un numéro, nous pouvons vous rappeler à propos de cette ressource. Responsable du traitement : Waimia (VirtuoseWeb), pour vous envoyer ce que vous demandez. <a href="/politique-confidentialite">Confidentialité</a>.</p>
     )}
   </form>
   <p class="cv-status" data-kind="success" data-lead-success tabindex="-1" hidden></p>
@@ -96,30 +113,43 @@ const descId = bare ? describedBy : `${fid}-desc`;
 <script is:inline define:vars={{ fallbackEmail: SITE.email }}>
 (function () {
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  // Même règle que src/lib/phone.ts (serveur) : format libre, 9 à 15 chiffres.
+  var PHONE_RE = /^\+?[\d\s().-]+$/;
+  function phoneOk(v) {
+    var digits = v.replace(/\D/g, '').length;
+    return PHONE_RE.test(v) && digits >= 9 && digits <= 15;
+  }
+  var MSG_PHONE = 'Ce numéro n\'est pas valide. Exemple : 06 12 34 56 78. Vous pouvez aussi laisser le champ vide.';
 
   function bind(root) {
     if (root.dataset.bound) return;
     root.dataset.bound = '1';
     var form = root.querySelector('[data-lead-form]');
     var input = form.querySelector('input[name="email"]');
+    var first = form.querySelector('input[name="firstName"]');
+    var last = form.querySelector('input[name="lastName"]');
+    var phone = form.querySelector('input[name="phone"]');
+    var company = form.querySelector('input[name="company"]');
+    var fields = [first, last, input, phone, company];
     var err = root.querySelector('[data-lead-error]');
     var ok = root.querySelector('[data-lead-success]');
     var btn = form.querySelector('button[type="submit"]');
 
-    function fail(msg) {
+    // Le champ fautif porte aria-invalid ; le message commun est lu via aria-describedby.
+    function fail(msg, field) {
       err.innerHTML = msg;
       err.hidden = false;
-      input.setAttribute('aria-invalid', 'true');
+      (field || input).setAttribute('aria-invalid', 'true');
     }
     function clear() {
       err.hidden = true;
-      input.setAttribute('aria-invalid', 'false');
+      fields.forEach(function (f) { f.setAttribute('aria-invalid', 'false'); });
     }
     function busy(on) {
       btn.disabled = on;
       btn.textContent = on ? btn.dataset.labelBusy : btn.dataset.label;
     }
-    input.addEventListener('input', function () { if (!err.hidden) clear(); });
+    fields.forEach(function (f) { f.addEventListener('input', function () { if (!err.hidden) clear(); }); });
 
     // Succès d'un outil : rapport PDF envoyé par e-mail ET téléchargeable tout de suite
     // (octets renvoyés en base64 par l'API, aucun stockage côté serveur).
@@ -159,9 +189,15 @@ const descId = bare ? describedBy : `${fid}-desc`;
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
       clear();
+      var firstName = first.value.trim();
+      var lastName = last.value.trim();
       var email = input.value.trim();
+      var tel = phone.value.trim();
+      if (!firstName) { fail('Indiquez votre prénom.', first); first.focus(); return; }
+      if (!lastName) { fail('Indiquez votre nom.', last); last.focus(); return; }
       if (!email) { fail(root.dataset.required ? 'Saisissez votre adresse e-mail : le fichier n\'est envoyé que par e-mail.' : 'Saisissez votre adresse e-mail pour recevoir votre résultat.'); input.focus(); return; }
       if (!EMAIL_RE.test(email)) { fail('Cette adresse e-mail n\'est pas valide. Exemple : prenom@entreprise.fr'); input.focus(); return; }
+      if (tel && !phoneOk(tel)) { fail(MSG_PHONE, phone); phone.focus(); return; }
 
       // L'outil de la page remplit `summary`, `headline` et, pour le diagnostic et le calculateur,
       // `result` (réponses BRUTES, recalculées par le serveur pour le rapport PDF). Il peut aussi
@@ -177,7 +213,11 @@ const descId = bare ? describedBy : `${fid}-desc`;
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
+            firstName: firstName,
+            lastName: lastName,
             email: email,
+            phone: tel || undefined,
+            company: company.value.trim() || undefined,
             slug: detail.slug,
             summary: detail.summary.slice(0, 40),
             headline: detail.headline || undefined,
@@ -203,6 +243,15 @@ const descId = bare ? describedBy : `${fid}-desc`;
         }
         if (data.code === 'invalid_result' || data.code === 'result_mismatch') fail('Vos réponses n\'ont pas pu être prises en compte (une valeur manque ou sort des limites). Vérifiez le formulaire, puis réessayez.');
         else if (data.code === 'invalid_email') fail('Cette adresse e-mail n\'est pas valide. Exemple : prenom@entreprise.fr');
+        else if (data.code === 'invalid_fields') {
+          var bad = data.fields || [];
+          var target = bad.indexOf('firstName') > -1 ? first : bad.indexOf('lastName') > -1 ? last : bad.indexOf('phone') > -1 ? phone : company;
+          if (target === first) fail('Indiquez votre prénom.', first);
+          else if (target === last) fail('Indiquez votre nom.', last);
+          else if (target === phone) fail(MSG_PHONE, phone);
+          else fail('Le nom de l\'entreprise est trop long (100 caractères au plus).', company);
+          target.focus();
+        }
         else if (res.status === 429) fail('Trop de demandes en peu de temps. Réessayez dans quelques minutes.');
         else if (data.code === 'resource_unavailable') fail('Ce fichier est momentanément indisponible. Écrivez à ' + mail + ', nous vous l\'envoyons.');
         else if (data.code === 'email_not_configured') fail(root.dataset.required
@@ -236,8 +285,8 @@ const descId = bare ? describedBy : `${fid}-desc`;
   .lc-form { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: var(--space-4) var(--space-6); align-items: end; }
   .lc-form[hidden] { display: none; }
   .lc-title { margin: 0 0 var(--space-1); font-size: var(--text-body); font-weight: var(--fw-semibold); }
-  .lc-row { display: flex; gap: var(--space-3); align-items: flex-end; position: relative; }
-  .lc-field { flex: 1; }
+  /* Deux colonnes : Prénom | Nom, E-mail | Téléphone, Entreprise | bouton (aligné sur les champs). */
+  .lc-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); align-items: end; position: relative; }
   .lc-btn { white-space: nowrap; padding-top: 13px; padding-bottom: 13px; }
   .lc .cv-error, .lc-legal, .lc-optin { grid-column: 1 / -1; }
   .lc-optin { display: flex; align-items: flex-start; gap: var(--space-2); font-size: var(--text-small); line-height: var(--leading-body); color: var(--ink); cursor: pointer; }
@@ -247,7 +296,7 @@ const descId = bare ? describedBy : `${fid}-desc`;
   .lc-optin input:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 2px; }
   @media (max-width: 760px) {
     .lc-form { grid-template-columns: 1fr; }
-    .lc-row { flex-direction: column; align-items: stretch; }
+    .lc-row { grid-template-columns: minmax(0, 1fr); }
     .lc-btn { justify-content: center; }
   }
 </style>

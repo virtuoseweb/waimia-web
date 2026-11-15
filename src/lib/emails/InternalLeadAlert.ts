@@ -21,12 +21,16 @@ import {
 export type LeadSource = "contact" | "lead-magnet" | "academy" | "devis" | "newsletter";
 
 /**
- * Objet normalisé de TOUTES les alertes internes : `Lead <outil> · <email>`.
- * Seul endroit où il est construit (contact, devis, lead-magnet).
+ * Objet normalisé de TOUTES les alertes internes : `[Lead] <outil> · [<nom> · ]<email>`.
+ * Seul endroit où il est construit (contact, devis, lead-magnet). Le préfixe `[Lead]` sert au
+ * comptage des leads (journal SEO) : ne pas le changer.
  */
-export function internalLeadSubject(label: string, email: string): string {
-  const clean = (s: string) => s.replace(/[\r\n]+/g, " ").replace(/\s+/g, " ").trim();
-  return `[Lead] ${clean(label)} · ${clean(email)}`;
+export function internalLeadSubject(label: string, email: string, name?: string): string {
+  // Caractères de contrôle (CR, LF, NUL…) et inversions bidi (U+202A-202E, U+2066-2069) retirés :
+  // un objet ne doit ni s'étendre en en-tête, ni maquiller son affichage.
+  const clean = (s: string) => s.replace(/[\u0000-\u001F\u007F\u202A-\u202E\u2066-\u2069]+/g, " ").replace(/\s+/g, " ").trim();
+  const who = name && clean(name) ? `${clean(name)} · ` : "";
+  return `[Lead] ${clean(label)} · ${who}${clean(email)}`;
 }
 
 interface Row {
@@ -38,6 +42,10 @@ interface Row {
 interface Props {
   source: LeadSource;
   email: string;
+  /** Prénom et nom, en tête de la carte Identité (lead-magnet). */
+  name?: string;
+  /** Téléphone, en lien `tel:` sous l'adresse (lead-magnet). */
+  phone?: string;
   company?: string;
   role?: string;
   brief?: string;
@@ -81,6 +89,8 @@ const rowsTable = (rows: Row[]): string =>
 export default function InternalLeadAlert({
   source,
   email,
+  name,
+  phone,
   company,
   role,
   brief,
@@ -105,9 +115,20 @@ export default function InternalLeadAlert({
       `<p style="${pStyle}margin:0;color:${ACCENT};font-weight:600;">${escapeHtml(warning)}</p></div>`
     : "";
 
+  const mailLink = `<a href="mailto:${escapeHtml(email)}" style="color:${INK};text-decoration:underline;">${escapeHtml(email)}</a>`;
+  // Le numéro tel qu'il a été saisi s'affiche ; le lien ne garde que « + » et les chiffres.
+  // « (0) » des numéros internationaux à la française (+33 (0)6…) n'est pas composé.
+  const telDigits = phone ? phone.replace(/\(0\)/g, "") : "";
+  const telHref = phone ? `tel:${phone.trim().startsWith("+") ? "+" : ""}${telDigits.replace(/\D/g, "")}` : "";
   const identity =
     `<p style="${eyebrowStyle}">Identité</p>` +
-    `<p style="font-size:17px;line-height:1.4;color:${INK};margin:0 0 4px;font-weight:600;"><a href="mailto:${escapeHtml(email)}" style="color:${INK};text-decoration:underline;">${escapeHtml(email)}</a></p>` +
+    (name
+      ? `<p style="font-size:19px;line-height:1.3;color:${INK};margin:0 0 4px;font-weight:600;">${escapeHtml(name)}</p>` +
+        `<p style="${pStyle}margin:0 0 4px;">${mailLink}</p>`
+      : `<p style="font-size:17px;line-height:1.4;color:${INK};margin:0 0 4px;font-weight:600;">${mailLink}</p>`) +
+    (phone
+      ? `<p style="${pStyle}margin:0 0 4px;"><a href="${escapeHtml(telHref)}" style="color:${ACCENT};font-weight:600;text-decoration:underline;">${escapeHtml(phone)}</a></p>`
+      : "") +
     (company || role
       ? `<p style="${pStyle}margin:0 0 4px;">${[company, role].filter(Boolean).map(escapeHtml).join(" · ")}</p>`
       : "") +
@@ -180,5 +201,5 @@ export default function InternalLeadAlert({
     tagsLine +
     `<p style="${mutedStyle}margin-top:20px;">Action attendue : répondre sous 24 h ouvrées${isHot ? " (sous 4 h : lead chaud)" : ""}.</p>`;
 
-  return wrapEmail(content, `${warning ? "[PDF non joint] " : ""}Lead ${raw} · ${email}`);
+  return wrapEmail(content, `${warning ? "[PDF non joint] " : ""}Lead ${raw} · ${name ? `${name} · ` : ""}${email}`);
 }

@@ -249,3 +249,48 @@ for (const [path, selector, endpoint] of FORMULAIRES) for (const allersRetours o
     expect(posts).toEqual([endpoint]);
   });
 }
+
+// Identité du lead (15 novembre 2026) : un lead réduit à une adresse e-mail était inexploitable.
+// Les deux formulaires qui postent vers /api/lead-magnet exigent prénom et nom, acceptent un
+// téléphone et une entreprise facultatifs, et les envoient dans le corps du POST. API interceptée.
+const FORMULAIRES_LEAD: Array<[string, string, string]> = [
+  ["/ressources/outils/pack-skills-claude-pme", "main [data-lcb] form[data-lead-form]", "main [data-lcb] [data-lead-error]"],
+  ["/services/integration-claude", ".cta-form form[data-lead-magnet]", ".cta-form [data-nl-error]"],
+];
+for (const [path, selector, errorSel] of FORMULAIRES_LEAD) {
+  test(`lead magnet : prénom et nom obligatoires, identité dans le POST (${path})`, async ({ page }) => {
+    const bodies: Record<string, unknown>[] = [];
+    await page.route((url) => url.pathname === "/api/lead-magnet", (route) => {
+      bodies.push(route.request().postDataJSON());
+      return route.fulfill({ status: 200, contentType: "application/json", body: '{"ok":true}' });
+    });
+    await page.goto(path);
+    const refuser = page.getByRole("button", { name: /refuser/i });
+    if (await refuser.isVisible()) await refuser.click();
+    const form = page.locator(selector).first();
+    await form.scrollIntoViewIfNeeded();
+    const submit = form.locator('button[type="submit"]');
+    await submit.click();
+    await expect(page.locator(errorSel).first()).toContainText(/prénom/i);
+    await expect(form.locator('input[name="firstName"]')).toHaveAttribute("aria-invalid", "true");
+    await form.locator('input[name="firstName"]').fill("Claire");
+    await form.locator('input[name="lastName"]').fill("Martin");
+    await form.locator('input[name="email"]').fill("claire.martin@example.com");
+    await form.locator('input[name="phone"]').fill("123");
+    await submit.click();
+    await expect(form.locator('input[name="phone"]')).toHaveAttribute("aria-invalid", "true");
+    expect(bodies).toHaveLength(0);
+    await form.locator('input[name="phone"]').fill("06 12 34 56 78");
+    await form.locator('input[name="company"]').fill("Atelier Durand");
+    await page.waitForTimeout(2100); // délai anti-robot côté serveur (_t), sans effet ici mais réaliste
+    await submit.click();
+    await expect.poll(() => bodies.length).toBe(1);
+    expect(bodies[0]).toMatchObject({
+      firstName: "Claire",
+      lastName: "Martin",
+      email: "claire.martin@example.com",
+      phone: "06 12 34 56 78",
+      company: "Atelier Durand",
+    });
+  });
+}

@@ -163,7 +163,7 @@ for (const [name, payload, pages] of [
     for (let p = 1; p <= pages; p++) {
       const uris = links.filter((l) => l.page === p).map((l) => l.uri);
       assert.ok(uris.includes('https://waimia.com'), `waimia.com page ${p}`);
-      assert.ok(uris.includes('mailto:bonjour@waimia.com'), `e-mail page ${p}`);
+      assert.ok(uris.includes('mailto:contact@virtuoseweb.fr'), `e-mail page ${p}`);
       assert.ok(uris.includes('tel:+33620615693'), `téléphone page ${p}`);
     }
   });
@@ -222,7 +222,7 @@ after(() => server.close());
 
 const post = (body, deps = {}) => {
   received = [];
-  return processLeadMagnet({ email: 'claire.martin@atelier-durand.fr', lang: 'fr', website: '', newsletter: true, ...body }, deps);
+  return processLeadMagnet({ firstName: 'Claire', lastName: 'Martin', email: 'claire.martin@atelier-durand.fr', lang: 'fr', website: '', newsletter: true, ...body }, deps);
 };
 const toVisitor = () => received.find((m) => m.to[0] === 'claire.martin@atelier-durand.fr');
 const toTeam = () => received.find((m) => m.to[0] !== 'claire.martin@atelier-durand.fr');
@@ -242,7 +242,7 @@ test('API diagnostic : recalcul serveur, PDF joint au visiteur ET à l’alerte,
   assert.ok(v.html.includes('Votre rapport est prêt'));
   assert.ok(v.html.includes(`href="${RDV}"`), 'bouton vers le rendez-vous');
   const t = toTeam();
-  assert.equal(t.subject, '[Lead] diagnostic maturité IA · claire.martin@atelier-durand.fr');
+  assert.equal(t.subject, '[Lead] diagnostic maturité IA · Claire Martin · claire.martin@atelier-durand.fr');
   assert.equal(t.attachments[0].content, r.body.pdf.base64, 'même PDF dans l’alerte');
   assert.ok(t.html.includes('Niveau 1 sur 5 (Exploration)'), 'niveau recalculé');
   assert.ok(!t.html.includes('Niveau 5'), 'le niveau du client est ignoré');
@@ -264,7 +264,7 @@ test('API ROI : hypothèses et résultats complets dans l’alerte, PDF 3 pages'
   assert.equal(r.status, 200);
   assert.equal((await PDFDocument.load(Buffer.from(r.body.pdf.base64, 'base64'))).getPageCount(), 3);
   const t = toTeam();
-  assert.equal(t.subject, '[Lead] calculateur ROI IA · claire.martin@atelier-durand.fr');
+  assert.equal(t.subject, '[Lead] calculateur ROI IA · Claire Martin · claire.martin@atelier-durand.fr');
   assert.ok(t.html.includes('Hypothèses saisies') && t.html.includes('Sensibilité'));
   assert.ok(t.html.includes('460'), 'heures récupérables');
   assert.ok(toVisitor().subject.startsWith('Votre estimation · 460 heures'));

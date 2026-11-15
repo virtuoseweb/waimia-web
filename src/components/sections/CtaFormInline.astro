@@ -21,6 +21,7 @@ const placeholder = isFr ? data.placeholder_fr : data.placeholder_en;
 const submit = isFr ? data.submit_label_fr : data.submit_label_en;
 const hint = isFr ? data.hint_fr : data.hint_en;
 // Ressource verrouillée : `lead_magnet` (slug) → /api/lead-magnet, livraison par e-mail en pièce jointe.
+// Ajoute prénom et nom (obligatoires), téléphone et entreprise (facultatifs) : un lead identifiable.
 const leadMagnet = data.lead_magnet;
 const action = leadMagnet ? '/api/lead-magnet' : (data.form_action ?? '/api/newsletter');
 ---
@@ -35,7 +36,15 @@ const action = leadMagnet ? '/api/lead-magnet' : (data.form_action ?? '/api/news
 
     <form class="cta-form__form" action={action} method="post" novalidate data-nl-form data-lead-magnet={leadMagnet}>
       <FormGuard />
-      <div class="cta-form__row">
+      <div class="cta-form__row" data-lead={leadMagnet ? '' : undefined}>
+        {leadMagnet && (
+          <>
+            <label for="cta-form-first" class="sr-only">{isFr ? 'Prénom' : 'First name'}</label>
+            <input id="cta-form-first" name="firstName" type="text" required maxlength="100" autocomplete="given-name" placeholder={isFr ? 'Prénom' : 'First name'} aria-describedby="cta-form-error" class="cta-form__input" />
+            <label for="cta-form-last" class="sr-only">{isFr ? 'Nom' : 'Last name'}</label>
+            <input id="cta-form-last" name="lastName" type="text" required maxlength="100" autocomplete="family-name" placeholder={isFr ? 'Nom' : 'Last name'} aria-describedby="cta-form-error" class="cta-form__input" />
+          </>
+        )}
         <label for="cta-form-email" class="sr-only">Email</label>
         <input
           id="cta-form-email"
@@ -47,6 +56,14 @@ const action = leadMagnet ? '/api/lead-magnet' : (data.form_action ?? '/api/news
           aria-describedby="cta-form-error cta-form-hint"
           class="cta-form__input"
         />
+        {leadMagnet && (
+          <>
+            <label for="cta-form-phone" class="sr-only">{isFr ? 'Téléphone (facultatif)' : 'Phone (optional)'}</label>
+            <input id="cta-form-phone" name="phone" type="tel" maxlength="30" autocomplete="tel" inputmode="tel" placeholder={isFr ? 'Téléphone (facultatif)' : 'Phone (optional)'} aria-describedby="cta-form-error" class="cta-form__input" />
+            <label for="cta-form-company" class="sr-only">{isFr ? 'Entreprise (facultatif)' : 'Company (optional)'}</label>
+            <input id="cta-form-company" name="company" type="text" maxlength="100" autocomplete="organization" placeholder={isFr ? 'Entreprise (facultatif)' : 'Company (optional)'} aria-describedby="cta-form-error" class="cta-form__input" />
+          </>
+        )}
         <button type="submit" class="cta-form__btn" data-mag="0.15">{submit}</button>
       </div>
       {leadMagnet && (
@@ -54,6 +71,12 @@ const action = leadMagnet ? '/api/lead-magnet' : (data.form_action ?? '/api/news
           <input type="checkbox" name="newsletter" />
           <span>{isFr ? 'Recevoir aussi la lettre (un envoi par mois, désinscription en un clic)' : 'Also get the newsletter (one email a month, unsubscribe in one click)'}</span>
         </label>
+      )}
+      {leadMagnet && (
+        <p class="cta-form__legal">
+          {isFr ? 'Si vous laissez un numéro, nous pouvons vous rappeler à propos de cette ressource. ' : 'If you leave a number, we may call you back about this resource. '}
+          <a href="/politique-confidentialite">{isFr ? 'Confidentialité' : 'Privacy'}</a>.
+        </p>
       )}
       <p id="cta-form-error" class="cta-form__error" aria-live="assertive" hidden data-nl-error></p>
       {hint && <p id="cta-form-hint" class="cta-form__hint u-hint-mono">{hint}</p>}
@@ -87,6 +110,11 @@ const action = leadMagnet ? '/api/lead-magnet' : (data.form_action ?? '/api/news
 
   .cta-form__form { display: flex; flex-direction: column; gap: 10px; }
   .cta-form__row { display: flex; gap: 10px; flex-wrap: wrap; }
+  /* Ressource verrouillée : Prénom | Nom, E-mail | Téléphone, Entreprise | bouton. */
+  .cta-form__row[data-lead] { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cta-form__row[data-lead] .cta-form__input { min-width: 0; }
+  .cta-form__legal { margin: 0; font-size: var(--text-small); line-height: var(--leading-body); color: var(--muted); }
+  .cta-form__legal a { color: inherit; text-decoration: underline; }
   .cta-form__input {
     flex: 1;
     min-width: 200px;
@@ -153,6 +181,9 @@ const action = leadMagnet ? '/api/lead-magnet' : (data.form_action ?? '/api/news
   @media (max-width: 860px) {
     .cta-form__inner { grid-template-columns: 1fr; gap: var(--space-7); }
   }
+  @media (max-width: 560px) {
+    .cta-form__row[data-lead] { grid-template-columns: minmax(0, 1fr); }
+  }
 </style>
 
 <script is:inline>
@@ -167,36 +198,60 @@ const action = leadMagnet ? '/api/lead-magnet' : (data.form_action ?? '/api/news
     var section = form.closest('[data-nl-lang]');
     var lang = section ? section.dataset.nlLang : 'fr';
     var email = form.querySelector('input[name="email"]');
+    var first = form.querySelector('input[name="firstName"]');
+    var last = form.querySelector('input[name="lastName"]');
+    var phone = form.querySelector('input[name="phone"]');
+    var company = form.querySelector('input[name="company"]');
+    var inputs = [first, last, email, phone, company].filter(Boolean);
     var honeypot = form.querySelector('input[name="website"]');
     var errorEl = form.querySelector('[data-nl-error]');
     var btn = form.querySelector('.cta-form__btn');
-    function showError(msg) {
+    var fr = lang === 'fr';
+    var MSG_PHONE = fr ? 'Numéro invalide (exemple : 06 12 34 56 78), ou laissez le champ vide.' : 'Invalid phone number, or leave the field empty.';
+    // Même règle que src/lib/phone.ts (serveur) : format libre, 9 à 15 chiffres.
+    function phoneOk(v) {
+      var digits = v.replace(/\D/g, '').length;
+      return /^\+?[\d\s().-]+$/.test(v) && digits >= 9 && digits <= 15;
+    }
+    function showError(msg, field) {
       if (!errorEl) return;
       errorEl.textContent = msg;
       errorEl.removeAttribute('hidden');
-      if (email) email.classList.add('cta-form__input--error');
+      var f = field || email;
+      if (f) { f.classList.add('cta-form__input--error'); f.setAttribute('aria-invalid', 'true'); }
     }
     function clearError() {
       if (!errorEl) return;
       errorEl.setAttribute('hidden', '');
       errorEl.textContent = '';
-      if (email) email.classList.remove('cta-form__input--error');
+      inputs.forEach(function (f) { f.classList.remove('cta-form__input--error'); f.removeAttribute('aria-invalid'); });
     }
-    if (email) { email.addEventListener('input', clearError); email.addEventListener('focus', clearError); }
+    // Effacement à la saisie seulement : un écouteur `focus` effaçait le message à l'instant où
+    // le script redonne le focus au champ fautif (l'erreur n'était jamais visible).
+    inputs.forEach(function (f) { f.addEventListener('input', clearError); });
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
       clearError();
+      var slug = form.dataset.leadMagnet;
+      // Ressource verrouillée : prénom et nom obligatoires, téléphone et entreprise facultatifs.
+      if (slug && first && !first.value.trim()) { showError(fr ? 'Indiquez votre prénom.' : 'Enter your first name.', first); first.focus(); return; }
+      if (slug && last && !last.value.trim()) { showError(fr ? 'Indiquez votre nom.' : 'Enter your last name.', last); last.focus(); return; }
       var value = email ? email.value.trim() : '';
       if (!value || !EMAIL_RE.test(value)) {
-        showError(lang === 'fr' ? 'Adresse email invalide.' : 'Invalid email address.');
+        showError(fr ? 'Adresse email invalide.' : 'Invalid email address.');
         if (email) email.focus();
         return;
       }
+      var tel = phone ? phone.value.trim() : '';
+      if (tel && !phoneOk(tel)) { showError(MSG_PHONE, phone); phone.focus(); return; }
       if (btn) btn.disabled = true;
-      var slug = form.dataset.leadMagnet;
       var payload = { email: value, lang: lang, website: honeypot ? honeypot.value : '', _t: (form.querySelector('input[name="_t"]') || {}).value || '', source: window.wmLeadSource ? window.wmLeadSource() : undefined };
       if (slug) {
         payload.slug = slug;
+        payload.firstName = first ? first.value.trim() : '';
+        payload.lastName = last ? last.value.trim() : '';
+        if (tel) payload.phone = tel;
+        if (company && company.value.trim()) payload.company = company.value.trim();
         var optin = form.querySelector('input[name="newsletter"]');
         if (optin && optin.checked) payload.newsletter = true;
       }
@@ -215,6 +270,13 @@ const action = leadMagnet ? '/api/lead-magnet' : (data.form_action ?? '/api/news
           if (confirm) confirm.removeAttribute('hidden');
         } else {
           var msg = data.error;
+          var bad = slug && data.code === 'invalid_fields' ? (data.fields || []) : [];
+          if (bad.length) {
+            var target = bad.indexOf('firstName') > -1 ? first : bad.indexOf('lastName') > -1 ? last : bad.indexOf('phone') > -1 ? phone : company;
+            showError(target === phone ? MSG_PHONE : (fr ? 'Vérifiez ce champ.' : 'Check this field.'), target);
+            if (btn) btn.disabled = false;
+            return;
+          }
           if (slug && (res.status === 503 || res.status === 502)) {
             // Honnête : rien n'a été envoyé, on donne l'adresse de contact.
             msg = lang === 'fr'
