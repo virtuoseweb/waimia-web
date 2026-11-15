@@ -163,7 +163,7 @@ for (const [name, payload, pages] of [
     for (let p = 1; p <= pages; p++) {
       const uris = links.filter((l) => l.page === p).map((l) => l.uri);
       assert.ok(uris.includes('https://waimia.com'), `waimia.com page ${p}`);
-      assert.ok(uris.includes('mailto:bonjour@waimia.com'), `e-mail page ${p}`);
+      assert.ok(uris.includes('mailto:contact@virtuoseweb.fr'), `e-mail page ${p}`);
       assert.ok(uris.includes('tel:+33620615693'), `téléphone page ${p}`);
     }
   });
