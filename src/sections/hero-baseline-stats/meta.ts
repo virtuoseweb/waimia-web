@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['4-col'],
     tags: ['hero', 'stats', 'kpi', 'baseline', 'display'],
     status: 'stable',
-    description_fr: 'Héro plein écran à impact typographique : kicker, titre serif géant et lede court en tête, rangée de 4 KPI poussée en baseline (séparée par une hairline forte). CTA optionnel, pas de média. Variante paper et ink, responsive (KPI 2 colonnes sur mobile).',
+    description_fr: 'Héro plein écran à impact typographique : kicker, titre serif géant et lede court en tête, rangée de 4 KPI poussée en baseline (séparée par une hairline forte). CTA optionnel, pas de média. Variante paper et ink, responsive (KPI 2 colonnes sur mobile).',
     description_en: 'Full-viewport typographic hero: kicker, oversized serif title and short lede at the top, a row of 4 KPIs pushed to the baseline (split by a strong hairline). Optional CTA, no media. Paper and ink variants, responsive (KPIs in 2 columns on mobile).',
   
 };

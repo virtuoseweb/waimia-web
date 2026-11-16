@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['3-col'],
     tags: ['blog', 'articles', 'grid', 'cards', 'editorial', 'listing'],
     status: 'stable',
-    description_fr: 'Grille de cartes d’articles/blog : image optionnelle, tag, titre, date, temps de lecture, extrait, auteur et lien, en 2 ou 3 colonnes. Le classique éditorial B2B.',
+    description_fr: 'Grille de cartes d’articles/blog : image optionnelle, tag, titre, date, temps de lecture, extrait, auteur et lien, en 2 ou 3 colonnes. Le classique éditorial B2B.',
     description_en: 'Grid of article/blog cards: optional image, tag, title, date, read time, excerpt, author and link, in 2 or 3 columns. The B2B editorial classic.',
   
 };

@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['2-col', 'media-right', 'split'],
     tags: ['comparison', 'table', 'editorial', 'comparator', 'rows'],
     status: 'stable',
-    description_fr: 'Comparateur éditorial : en-tête kicker mono et titre display, puis tableau EditorialTable bilingue (colonnes, lignes, caption).',
+    description_fr: 'Comparateur éditorial : en-tête kicker mono et titre display, puis tableau EditorialTable bilingue (colonnes, lignes, caption).',
     description_en: 'Editorial comparator: a mono kicker plus display heading header, then a bilingual EditorialTable (columns, rows, caption).',
   
 };

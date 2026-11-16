@@ -13,6 +13,6 @@ export const demo: DemoData = {
     lede_en: `From an anonymous audience to a readable pipeline, your site becomes the center of a system, not an isolated page.`,
     cta: { label_fr: 'Explorer le système →', label_en: 'Explore the system →', href: '#', variant: 'ghost' },
     media_src: '/images/line-art/orbit-network.svg',
-    media_alt_fr: 'Globe filaire avec des nœuds reliés par des arcs en orbite : chaque visite rejoint un réseau qui qualifie et route.',
+    media_alt_fr: 'Globe filaire avec des nœuds reliés par des arcs en orbite : chaque visite rejoint un réseau qui qualifie et route.',
     media_alt_en: 'Wireframe globe with nodes linked by orbiting arcs: each visit joins a network that qualifies and routes.',
   };

@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['1-col'],
     tags: ['list', 'paths', 'school'],
     status: 'stable',
-    description_fr: 'Liste de parcours : titre de section et une ligne par parcours (titre en gras + description).',
+    description_fr: 'Liste de parcours : titre de section et une ligne par parcours (titre en gras + description).',
     description_en: 'Learning path list: a section title and one row per path (bold title + description).',
   
 };

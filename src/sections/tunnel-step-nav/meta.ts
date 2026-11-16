@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['1-col'],
     tags: ['nav', 'tunnel', 'step', 'cta', 'footer', 'prev', 'meta'],
     status: 'stable',
-    description_fr: 'Pied de navigation d\'étape tunnel : lien prev optionnel + cta (primary/accent/ghost) + barre méta (lecture + retour offre).',
+    description_fr: 'Pied de navigation d\'étape tunnel : lien prev optionnel + cta (primary/accent/ghost) + barre méta (lecture + retour offre).',
     description_en: 'Tunnel step navigation footer: optional prev link + cta (primary/accent/ghost) + meta bar (reading time + back to offer).',
   
 };

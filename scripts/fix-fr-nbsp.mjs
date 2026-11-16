@@ -22,7 +22,9 @@ for (const f of files) {
 for (const s of skipped) console.warn(`non analysé : ${s.file} (${s.reason})`);
 const json = files.filter((f) => f.kind === 'json');
 const astro = files.filter((f) => f.kind === 'astro');
+const code = files.filter((f) => f.kind === 'ts');
 console.log(
   `${dry ? 'à corriger' : 'corrigé'} : ${total} occurrence(s), ${files.length} fichier(s) ` +
-    `(json ${json.reduce((s, f) => s + f.n, 0)}/${json.length}, astro ${astro.reduce((s, f) => s + f.n, 0)}/${astro.length})`,
+    `(json ${json.reduce((s, f) => s + f.n, 0)}/${json.length}, astro ${astro.reduce((s, f) => s + f.n, 0)}/${astro.length}, ` +
+    `ts ${code.reduce((s, f) => s + f.n, 0)}/${code.length})`,
 );

@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['4-col', 'centered'],
     tags: ['hero', 'magazine', 'cover', 'masthead', 'editorial'],
     status: 'stable',
-    description_fr: 'Héro plein écran « couverture magazine » : bande masthead mono 4 colonnes en haut, titre serif géant centré dominant, fine règle accent, tagline display italic, un seul CTA centré. Variante paper et ink, responsive (masthead 2 colonnes sur mobile).',
+    description_fr: 'Héro plein écran « couverture magazine » : bande masthead mono 4 colonnes en haut, titre serif géant centré dominant, fine règle accent, tagline display italic, un seul CTA centré. Variante paper et ink, responsive (masthead 2 colonnes sur mobile).',
     description_en: 'Full-viewport "magazine cover" hero: 4-column mono masthead band at the top, dominant centered giant serif title, thin accent rule, italic display tagline, a single centered CTA. Paper and ink variants, responsive (2-column masthead on mobile).',
   
 };

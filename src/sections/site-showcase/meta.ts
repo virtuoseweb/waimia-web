@@ -18,6 +18,6 @@ export const meta: SectionMeta = {
   layoutFacets: ['bento', 'off-grid'],
   tags: ['showcase', 'screenshots', 'browser-frame', 'case-study', 'result', 'nofollow'],
   status: 'stable',
-  description_fr: 'Vitrine du site livre : captures reelles dans des cadres navigateur, capture pleine page qui defile au survol, lien nofollow vers le site en production.',
+  description_fr: 'Vitrine du site livre : captures reelles dans des cadres navigateur, capture pleine page qui defile au survol, lien nofollow vers le site en production.',
   description_en: 'Delivered-site showcase: real screenshots in browser frames, a full-page capture that scrolls on hover, and a nofollow link to the live site.',
 };

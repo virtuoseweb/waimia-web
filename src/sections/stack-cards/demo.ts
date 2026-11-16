@@ -25,7 +25,7 @@ export const demo: DemoData = {
           { label_fr: "Plan d'action priorisé", label_en: 'Prioritised action plan' },
         ],
         media_src: '/images/illustrations/ds/chess-paper.webp',
-        media_alt_fr: 'Illustration : stratégie',
+        media_alt_fr: 'Illustration : stratégie',
         media_alt_en: 'Illustration: strategy',
       },
       {
@@ -57,7 +57,7 @@ export const demo: DemoData = {
           { label_fr: 'Documentation transférée', label_en: 'Documentation handed over' },
         ],
         media_src: '/images/illustrations/ds/men-on-hand-paper.webp',
-        media_alt_fr: 'Illustration : déploiement',
+        media_alt_fr: 'Illustration : déploiement',
         media_alt_en: 'Illustration: deployment',
       },
       {

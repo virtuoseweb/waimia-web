@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['2-col', 'media-right', 'split'],
     tags: ['testimonial', 'spotlight', 'quote', 'portrait', 'single'],
     status: 'stable',
-    description_fr: 'Un seul témoignage en plein écran : grande citation, portrait, logo client et attribution nom/rôle. Donne tout le poids à une voix client, sombre par défaut.',
+    description_fr: 'Un seul témoignage en plein écran : grande citation, portrait, logo client et attribution nom/rôle. Donne tout le poids à une voix client, sombre par défaut.',
     description_en: 'A single full-screen testimonial: a large quote, portrait, client logo and name/role attribution. Gives full weight to one client voice, dark by default.',
   
 };

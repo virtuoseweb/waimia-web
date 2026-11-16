@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['centered'],
     tags: ['editorial', 'dingbat', 'separator', 'ornament', 'rule', 'content'],
     status: 'stable',
-    description_fr: 'Séparateur ornemental éditorial composant l\'atome Dingbat (fleuron, asterisme, fin d\'article, règle) : transition entre chapitres avec légendes optionnelles au-dessus et en dessous.',
+    description_fr: 'Séparateur ornemental éditorial composant l\'atome Dingbat (fleuron, asterisme, fin d\'article, règle) : transition entre chapitres avec légendes optionnelles au-dessus et en dessous.',
     description_en: 'Editorial ornamental separator composing the Dingbat atom (fleuron, asterism, end-of-article, rule): a between-chapters transition with optional captions above and below.',
   
 };

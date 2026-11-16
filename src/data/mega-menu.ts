@@ -317,7 +317,7 @@ const RESSOURCES: MegaMenuSection = {
           },
         },
         {
-          label: { fr: 'Guide : déployer Claude en PME', en: 'Guide: deploying Claude in an SME' },
+          label: { fr: 'Guide : déployer Claude en PME', en: 'Guide: deploying Claude in an SME' },
           href: '/ressources/guides/claude-pme',
           description: {
             fr: 'Quel produit, quel coût, quel ordre de déploiement.',
@@ -419,7 +419,7 @@ const SOLUTIONS: MegaMenuSection = {
                 {
                   label: { fr: 'Pour décider', en: 'To decide' },
                   links: [
-                    { label: { fr: 'Guide : déployer Claude en PME', en: 'Guide: deploying Claude in an SME' }, href: '/ressources/guides/claude-pme' },
+                    { label: { fr: 'Guide : déployer Claude en PME', en: 'Guide: deploying Claude in an SME' }, href: '/ressources/guides/claude-pme' },
                     { label: { fr: 'Claude ou ChatGPT pour une PME', en: 'Claude or ChatGPT for an SME' }, href: '/ressources/comparatifs/claude-vs-chatgpt-pme' },
                     { label: { fr: 'Formation Claude', en: 'Claude training' }, href: '/formations/claude' },
                   ],
@@ -479,7 +479,7 @@ const SOLUTIONS: MegaMenuSection = {
           ],
           featured: {
             kicker: { fr: 'APPLICATION MÉTIER', en: 'BUSINESS APPLICATION' },
-            label: { fr: 'Développer ou acheter ?', en: 'Build or buy?' },
+            label: { fr: 'Développer ou acheter ?', en: 'Build or buy?' },
             body: {
               fr: 'Avant de développer, on vérifie qu\'un outil du marché ne fait pas déjà le travail. La grille de décision est publique.',
               en: 'Before building, we check that an off-the-shelf tool does not already do the job. The decision grid is public.',
@@ -517,13 +517,13 @@ const SOLUTIONS: MegaMenuSection = {
             {
               label: { fr: 'Agence SEO et référencement naturel', en: 'SEO and organic search agency' },
               href: '/services/seo-geo-contenu',
-              description: { fr: 'Être trouvé sur Google : audit, contenu et SEO local.', en: 'Be found on Google: audit, content and local SEO.' },
+              description: { fr: 'Être trouvé sur Google : audit, contenu et SEO local.', en: 'Be found on Google: audit, content and local SEO.' },
               detail: [
                 {
                   label: { fr: 'Déclinaisons', en: 'Editions' },
                   links: [
                     { label: { fr: 'Audit SEO technique', en: 'Technical SEO audit' }, href: '/services/audit-seo-technique' },
-                    { label: { fr: 'Agence GEO : être cité par les IA', en: 'GEO agency: get cited by AI' }, href: '/services/referencement-ia' },
+                    { label: { fr: 'Agence GEO : être cité par les IA', en: 'GEO agency: get cited by AI' }, href: '/services/referencement-ia' },
                     { label: { fr: 'Rédaction SEO et contenu', en: 'SEO writing and content' }, href: '/services/redaction-seo-contenu' },
                     { label: { fr: 'SEO local', en: 'Local SEO' }, href: '/services/seo-local' },
                   ],
@@ -588,7 +588,7 @@ const SOLUTIONS: MegaMenuSection = {
             {
               label: { fr: 'Conformité IA', en: 'AI compliance' },
               href: '/conformite-ia',
-              description: { fr: 'AI Act, RGPD et charte d\'usage : ce qui s\'applique à une PME.', en: 'AI Act, GDPR and usage policy: what applies to an SME.' },
+              description: { fr: 'AI Act, RGPD et charte d\'usage : ce qui s\'applique à une PME.', en: 'AI Act, GDPR and usage policy: what applies to an SME.' },
             },
             {
               label: { fr: 'Formations', en: 'Training' },
@@ -631,7 +631,7 @@ const SOLUTIONS: MegaMenuSection = {
           key: 'commercial',
           href: '/services/systeme-commercial',
           hubLabel: { fr: 'Voir les outils commerciaux →', en: 'See sales tooling →' },
-          description: { fr: 'Prospection outillée, CRM branché et relances automatiques : les mêmes briques d\'automatisation, appliquées au pipeline commercial.', en: 'Tool-driven prospecting, connected CRM and automatic follow-ups: the same automation building blocks, applied to the sales pipeline.' },
+          description: { fr: 'Prospection outillée, CRM branché et relances automatiques : les mêmes briques d\'automatisation, appliquées au pipeline commercial.', en: 'Tool-driven prospecting, connected CRM and automatic follow-ups: the same automation building blocks, applied to the sales pipeline.' },
           links: [
             {
               label: { fr: 'Prospection et CRM', en: 'Prospecting and CRM' },
@@ -735,7 +735,7 @@ const CAS_USAGES: MegaMenuSection = {
   ],
   featured: {
     kicker: { fr: 'VOTRE CAS', en: 'YOUR CASE' },
-    label: { fr: 'Votre problème n\'est pas dans la liste ?', en: 'Your problem is not listed?' },
+    label: { fr: 'Votre problème n\'est pas dans la liste ?', en: 'Your problem is not listed?' },
     body: {
       fr: AUDIT_PROMISE.general.short.fr,
       en: AUDIT_PROMISE.general.short.en,
@@ -786,7 +786,7 @@ const CAS: MegaMenuSection = {
     kicker: { fr: 'CAS VEDETTE', en: 'FEATURED CASE' },
     label: { fr: 'Amploi', en: 'Amploi' },
     body: {
-      fr: 'Livré en 6 semaines : capture des demandes et routage automatique dans HubSpot, site structuré pour être cité par les moteurs IA.',
+      fr: 'Livré en 6 semaines : capture des demandes et routage automatique dans HubSpot, site structuré pour être cité par les moteurs IA.',
       en: 'Delivered in 6 weeks: lead capture and automatic routing into HubSpot, site structured to be cited by AI engines.',
     },
     cta: { fr: 'Lire le cas Amploi →', en: 'Read the Amploi case →' },
@@ -803,7 +803,7 @@ const AGENCE: MegaMenuSection = {
   parentHref: '/agence',
   matchPrefixes: ['/agence', '/tarifs', '/manifesto', '/technologies', '/equipe', '/implantations', '/conformite-ia'],
   lead: {
-    fr: 'Un studio solo basé à Bordeaux : un ingénieur qui travaille avec vos équipes métier.',
+    fr: 'Un studio solo basé à Bordeaux : un ingénieur qui travaille avec vos équipes métier.',
     en: 'A solo studio based in Bordeaux: one engineer working with your business teams.',
   },
   columns: [

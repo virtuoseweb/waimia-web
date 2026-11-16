@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['3-col', 'centered'],
     tags: ['hero', 'detail', 'menu', 'nested'],
     status: 'stable',
-    description_fr: 'Hero d\'entrée de menu détail : kicker parent + numéro § accent + h1 + lede sobre, idéal pour sous-pages catalogue.',
+    description_fr: 'Hero d\'entrée de menu détail : kicker parent + numéro § accent + h1 + lede sobre, idéal pour sous-pages catalogue.',
     description_en: 'Detail-menu entry hero: parent kicker + accent § number + h1 + plain lede, ideal for sub-catalogue pages.',
   
 };

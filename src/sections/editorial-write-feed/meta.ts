@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['1-col'],
     tags: ['table', 'feed', 'editorial', 'writing', 'changelog', 'rows'],
     status: 'stable',
-    description_fr: 'Feed éditorial en lignes cliquables (EditorialWriteRow) : date, tag, texte et flèche par ligne, tone paper ou ink, lien meta type /feed.xml.',
+    description_fr: 'Feed éditorial en lignes cliquables (EditorialWriteRow) : date, tag, texte et flèche par ligne, tone paper ou ink, lien meta type /feed.xml.',
     description_en: 'Editorial feed as clickable rows (EditorialWriteRow): date, tag, text and arrow per row, paper or ink tone, /feed.xml style meta link.',
   
 };

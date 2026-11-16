@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['2-col', 'media-right', 'split'],
     tags: ['case-study', 'featured', 'grid', 'listing', 'proof'],
     status: 'stable',
-    description_fr: "Grille de cas clients « featured » : un cas mis en avant (colonne large, cover optionnelle) plus des cas secondaires en lignes numérotées, avec chip de provenance.",
+    description_fr: "Grille de cas clients « featured » : un cas mis en avant (colonne large, cover optionnelle) plus des cas secondaires en lignes numérotées, avec chip de provenance.",
     description_en: 'Featured case-study grid: one highlighted case (wide column, optional cover) plus secondary cases as numbered rows, with provenance chip.',
   
 };

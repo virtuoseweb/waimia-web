@@ -108,7 +108,7 @@ export function manifestoSections(lang: Lang) {
     meta_en: '6 services · one engineer',
     h2_fr: 'On fait la couche <i class="acc">sans prestige</i>. Exprès.',
     h2_en: 'We do the <i class="acc">unglamorous</i> layer. On purpose.',
-    intro_fr: "Relier les outils, supprimer la ressaisie, journaliser ce que fait un agent : rien de spectaculaire, et c'est là que le temps se gagne. Un studio solo qui construit lui-même, sans agence relais ni sous-traitance. Du code, des workflows, un gain mesuré.",
+    intro_fr: "Relier les outils, supprimer la ressaisie, journaliser ce que fait un agent : rien de spectaculaire, et c'est là que le temps se gagne. Un studio solo qui construit lui-même, sans agence relais ni sous-traitance. Du code, des workflows, un gain mesuré.",
     intro_en: 'Connecting tools, removing re-keying, logging what an agent does: nothing spectacular, and that is where time is won. A solo studio that builds itself, with no relay agency or subcontracting. Code, workflows, a measured gain.',
     background: 'paper',
     items: SIX_SERVICES.map((s) => ({
@@ -168,7 +168,7 @@ export function manifestoSections(lang: Lang) {
     kicker_en: 'The proof',
     h2_fr: 'Des missions <i class="accent">réelles</i>, documentées.',
     h2_en: '<i class="accent">Real</i> engagements, documented.',
-    intro_fr: "Pas de logos pour faire joli. Chaque ligne donne le secteur, la durée, les outils et ce qui a été livré. Les chiffres cités viennent des études de cas. Plusieurs de ces missions ont commencé par un site : c'est de là que vient le studio.",
+    intro_fr: "Pas de logos pour faire joli. Chaque ligne donne le secteur, la durée, les outils et ce qui a été livré. Les chiffres cités viennent des études de cas. Plusieurs de ces missions ont commencé par un site : c'est de là que vient le studio.",
     intro_en: 'No vanity logos. Each row gives the sector, the duration, the tools and what was delivered. The figures quoted come from the case studies. Several of these engagements started with a website: that is where the studio comes from.',
     background: 'paper',
     stagger: 60,

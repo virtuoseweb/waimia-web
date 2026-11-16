@@ -20,7 +20,7 @@ export const demo: DemoData = {
     cta_primary: { label_fr: 'Réserver un diagnostic (45 min) →', label_en: 'Book a diagnostic (45 min) →', href: '#', variant: 'primary' },
     cta_secondary: { label_fr: 'Voir la méthode', label_en: 'See the method', href: '#', variant: 'ghost' },
     media_src: '/images/line-art/dispositif-flow.svg',
-    media_alt_fr: "Schéma line-art du dispositif Waimia : données, IA et conversion reliées.",
+    media_alt_fr: "Schéma line-art du dispositif Waimia : données, IA et conversion reliées.",
     media_alt_en: 'Line-art diagram of the Waimia setup: data, AI and conversion linked.',
     kpis: [
       { num: '4–8 sem.', cap_fr: 'site exploitable livré', cap_en: 'usable site delivered' },

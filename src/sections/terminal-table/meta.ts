@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['1-col'],
     tags: ['table', 'terminal', 'console', 'rows', 'data', 'services'],
     status: 'stable',
-    description_fr: 'Table terminal configurable (frame TerminalTable) : en-tête kicker/meta, titre, puis colonnes, headers et lignes cliquables avec rôle typographique par cellule.',
+    description_fr: 'Table terminal configurable (frame TerminalTable) : en-tête kicker/meta, titre, puis colonnes, headers et lignes cliquables avec rôle typographique par cellule.',
     description_en: 'Configurable terminal table (TerminalTable frame): kicker/meta header, heading, then columns, headers and clickable rows with a typographic role per cell.',
   
 };

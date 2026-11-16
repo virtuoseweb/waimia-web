@@ -73,7 +73,7 @@ export const exampleTasks: TaskRow[] = [
     unit: '3 min',
     monthly: '16 h',
     verdict: 'partiel',
-    reason: "Dépend de la fiabilité du stock dans l'ERP : à vérifier d'abord.",
+    reason: "Dépend de la fiabilité du stock dans l'ERP : à vérifier d'abord.",
     rank: 'Après vérification',
   },
   {
@@ -93,24 +93,24 @@ export const exampleTasks: TaskRow[] = [
     unit: '1 h',
     monthly: '6 h',
     verdict: 'non',
-    reason: 'Jugement et relation : on ne touche pas.',
+    reason: 'Jugement et relation : on ne touche pas.',
     rank: 'Écartée',
   },
 ];
 
 export const exampleProposals = [
   {
-    title: "Chantier 1 : saisie des commandes dans l'ERP",
-    body: "Un workflow lit les bons de commande reçus par e-mail, prépare la commande dans l'ERP et la présente pour validation. Prérequis : un accès API ou un import de fichier côté ERP.",
+    title: "Chantier 1 : saisie des commandes dans l'ERP",
+    body: "Un workflow lit les bons de commande reçus par e-mail, prépare la commande dans l'ERP et la présente pour validation. Prérequis : un accès API ou un import de fichier côté ERP.",
   },
   {
-    title: 'Chantier 2 : relance des devis',
+    title: 'Chantier 2 : relance des devis',
     body: "Un agent repère les devis sans réponse dans le CRM, rédige la relance avec le contexte du dossier, et le commercial valide avant l'envoi.",
   },
 ];
 
 export const exampleSetAside =
-  "Mis de côté : la négociation fournisseurs (pas un sujet d'automatisation) et les demandes de disponibilité tant que le stock de l'ERP n'est pas fiable. Automatiser une donnée fausse ne fait que répondre faux plus vite.";
+  "Mis de côté : la négociation fournisseurs (pas un sujet d'automatisation) et les demandes de disponibilité tant que le stock de l'ERP n'est pas fiable. Automatiser une donnée fausse ne fait que répondre faux plus vite.";
 
 /** Déroulé des 45 minutes. `minutes` pilote la largeur du segment sur la règle. */
 export const session = [
@@ -124,13 +124,13 @@ export const session = [
     from: 10,
     to: 30,
     title: 'On déroule deux ou trois process, tâche par tâche',
-    body: "Pour chaque tâche : qui la fait, à quelle fréquence, combien de temps, à partir de quelles données, avec quelles exceptions. C'est la partie qui remplit la cartographie.",
+    body: "Pour chaque tâche : qui la fait, à quelle fréquence, combien de temps, à partir de quelles données, avec quelles exceptions. C'est la partie qui remplit la cartographie.",
   },
   {
     from: 30,
     to: 40,
     title: 'Le tri',
-    body: "Ce qui s'automatise tel quel, ce qui s'automatise avec une validation humaine, ce qui ne doit pas l'être. Et ce qui bloque : données dispersées, outil sans API, règle jamais écrite.",
+    body: "Ce qui s'automatise tel quel, ce qui s'automatise avec une validation humaine, ce qui ne doit pas l'être. Et ce qui bloque : données dispersées, outil sans API, règle jamais écrite.",
   },
   {
     from: 40,
@@ -142,33 +142,33 @@ export const session = [
 
 export const fit = {
   yes: [
-    "Votre entreprise compte entre 10 et 250 personnes et des tâches reviennent chaque semaine : saisie, relances, rapprochements, reporting, réponses aux mêmes questions.",
+    "Votre entreprise compte entre 10 et 250 personnes et des tâches reviennent chaque semaine : saisie, relances, rapprochements, reporting, réponses aux mêmes questions.",
     "Vous avez plusieurs idées d'usage de l'IA et vous ne savez pas laquelle traiter en premier.",
     "Vous avez testé ChatGPT, Claude ou Copilot en interne et rien n'est passé en production.",
     "Une personne qui connaît les process au quotidien peut participer aux 45 minutes, pas seulement la direction.",
     `Vous avez un <a href="#${AUDIT_WEB_ANCHOR}">site à créer, refondre ou reprendre, ou un outil sur mesure à envisager</a>, et vous voulez savoir par quoi commencer.`,
   ],
   no: [
-    'Vous cherchez une formation pour vos équipes : c\'est une autre prestation, décrite sur la page <a href="/formations">formations IA et automatisation</a>.',
-    "Vous attendez un audit de conformité RGPD ou AI Act, ou un audit de sécurité : ce n'est pas ce format.",
-    "Votre besoin est une campagne marketing : l'audit porte sur vos process, votre site ou votre logiciel, pas sur votre communication.",
-    "Vous êtes moins de cinq et rien n'est encore répétitif : il n'y a pas assez de volume pour qu'une automatisation se justifie.",
-    "Votre cahier des charges est déjà écrit : envoyez-le directement, on gagnera une étape.",
+    'Vous cherchez une formation pour vos équipes : c\'est une autre prestation, décrite sur la page <a href="/formations">formations IA et automatisation</a>.',
+    "Vous attendez un audit de conformité RGPD ou AI Act, ou un audit de sécurité : ce n'est pas ce format.",
+    "Votre besoin est une campagne marketing : l'audit porte sur vos process, votre site ou votre logiciel, pas sur votre communication.",
+    "Vous êtes moins de cinq et rien n'est encore répétitif : il n'y a pas assez de volume pour qu'une automatisation se justifie.",
+    "Votre cahier des charges est déjà écrit : envoyez-le directement, on gagnera une étape.",
   ],
 };
 
 export const after = [
   {
     title: 'Vous gardez la cartographie',
-    body: "Elle vous est envoyée par e-mail après l'échange, que l'on travaille ensemble ou non. Vous pouvez la confier à votre équipe ou à un autre prestataire : elle est écrite pour ça.",
+    body: "Elle vous est envoyée par e-mail après l'échange, que l'on travaille ensemble ou non. Vous pouvez la confier à votre équipe ou à un autre prestataire : elle est écrite pour ça.",
   },
   {
     title: 'Si un chantier se dégage, un devis',
-    body: `Périmètre, délai et prix écrits pour le premier chantier. La suite type : un pilote, premier système mis en production sur un périmètre réduit (dès ${formatEur(PILOT_FLOOR_EUR)} HT, sur devis), une mesure avant et après, puis le transfert du code et de la documentation à vos équipes.`,
+    body: `Périmètre, délai et prix écrits pour le premier chantier. La suite type : un pilote, premier système mis en production sur un périmètre réduit (dès ${formatEur(PILOT_FLOOR_EUR)} HT, sur devis), une mesure avant et après, puis le transfert du code et de la documentation à vos équipes.`,
   },
   {
     title: "Si ce n'est pas le moment, on le dit",
-    body: "Données à remettre d'aplomb d'abord, volume trop faible, outil qui ne s'ouvre pas : dans ces cas l'audit se conclut par ce qu'il faut régler avant, pas par une proposition commerciale.",
+    body: "Données à remettre d'aplomb d'abord, volume trop faible, outil qui ne s'ouvre pas : dans ces cas l'audit se conclut par ce qu'il faut régler avant, pas par une proposition commerciale.",
   },
 ];
 
@@ -189,21 +189,21 @@ export const auditWebSection = {
   background: 'paper-2',
   anchor: AUDIT_WEB_ANCHOR,
   html_fr: [
-    "<h2>Un site web ou un logiciel sur mesure : le même audit</h2>",
+    "<h2>Un site web ou un logiciel sur mesure : le même audit</h2>",
     "<p>Waimia développe aussi des sites web et des logiciels sur mesure. Si votre sujet est un site à créer, refondre ou reprendre, ou un outil que le tableur ou le logiciel du marché ne tient plus, l'audit garde le même cadre.</p>",
     "<p>On regarde votre site, ou le circuit que votre outil actuel ne tient plus, et on vous dit s'il faut le corriger, le refaire, le développer sur mesure ou prendre un outil du marché. Vous repartez avec un ou deux chantiers classés.</p>",
     "<h3>Ce qu'on regarde sur un site</h3>",
     "<p>Le trajet d'une demande, du formulaire de votre site jusqu'à la personne qui la traite, et ce qui se passe après l'envoi. La plateforme (Webflow, WordPress, Shopify ou site codé) et la question de savoir si sa structure bloque votre équipe. La vitesse sur mobile, mesurée sur votre site réel et non sur une maquette.</p>",
     "<h3>Ce qu'on regarde sur un outil métier</h3>",
-    "<p>D'abord le circuit qui coûte le plus de ressaisie : qui saisit quoi, dans quel outil, et combien de fois la même information est recopiée. Ensuite l'outil en place, tableur partagé, logiciel du marché ou modules de votre ERP ou de votre CRM, et l'endroit où il ne suit plus. Enfin ce qui existe déjà sur le marché pour ce besoin, avant tout développement.</p>",
+    "<p>D'abord le circuit qui coûte le plus de ressaisie : qui saisit quoi, dans quel outil, et combien de fois la même information est recopiée. Ensuite l'outil en place, tableur partagé, logiciel du marché ou modules de votre ERP ou de votre CRM, et l'endroit où il ne suit plus. Enfin ce qui existe déjà sur le marché pour ce besoin, avant tout développement.</p>",
     "<h3>Le verdict</h3>",
     "<ul>",
-    "<li><strong>Corriger.</strong> La structure tient : on corrige l'existant, sans refaire le design.</li>",
+    "<li><strong>Corriger.</strong> La structure tient : on corrige l'existant, sans refaire le design.</li>",
     "<li><strong>Refaire.</strong> Seulement si la structure du site bloque votre équipe. La refonte n'est jamais proposée par défaut.</li>",
     "<li><strong>Développer sur mesure.</strong> Quand le circuit est propre à votre métier et que le tableur ou le logiciel du marché ne suit plus.</li>",
     "<li><strong>Prendre un outil du marché.</strong> Quand un outil existant couvre le circuit sans contournement. C'est moins cher, et on vous le dit.</li>",
     "</ul>",
-    `<p>Le prix vient d'un devis écrit après l'audit. Quand le périmètre reste flou, un sprint de cadrage (${sprintFr}, prix fixe) arrête le périmètre, le planning et les jalons avant signature. Le détail des offres est sur les pages <a href="/services/site-web-ia">création et refonte de site web</a> et <a href="/services/applications-internes">application métier sur mesure</a> ; pour examiner le référencement d'un site en entier, voir l'<a href="/services/audit-seo-technique">audit SEO technique</a>.</p>`,
+    `<p>Le prix vient d'un devis écrit après l'audit. Quand le périmètre reste flou, un sprint de cadrage (${sprintFr}, prix fixe) arrête le périmètre, le planning et les jalons avant signature. Le détail des offres est sur les pages <a href="/services/site-web-ia">création et refonte de site web</a> et <a href="/services/applications-internes">application métier sur mesure</a> ; pour examiner le référencement d'un site en entier, voir l'<a href="/services/audit-seo-technique">audit SEO technique</a>.</p>`,
   ].join('\n'),
   html_en: [
     "<h2>A website or custom software: the same audit</h2>",

@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['2-col', 'media-right', 'centered', 'split'],
     tags: ['feature', 'tabs', 'interactive', 'tabbed'],
     status: 'stable',
-    description_fr: 'Section fonctionnalites en onglets cliquables : barre de tabs aria-compliant + panneau texte/visuel. Interactif vanilla JS, 0 dependance.',
+    description_fr: 'Section fonctionnalites en onglets cliquables : barre de tabs aria-compliant + panneau texte/visuel. Interactif vanilla JS, 0 dependance.',
     description_en: 'Feature section with clickable tabs: aria-compliant tab bar + text/visual panel. Interactive vanilla JS, zero dependencies.',
   
 };

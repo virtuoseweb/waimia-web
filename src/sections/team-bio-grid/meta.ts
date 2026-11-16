@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['4-col', 'split'],
     tags: ['team', 'people', 'bio', 'grid', 'about'],
     status: 'stable',
-    description_fr: 'Grille d’équipe : photo, nom, rôle et bio courte par membre, en 2 à 4 colonnes alignées. Idéale pour une page À propos ou Équipe qui humanise la marque.',
+    description_fr: 'Grille d’équipe : photo, nom, rôle et bio courte par membre, en 2 à 4 colonnes alignées. Idéale pour une page À propos ou Équipe qui humanise la marque.',
     description_en: 'Team grid: photo, name, role and a short bio per member, in 2 to 4 aligned columns. Ideal for an About or Team page that humanises the brand.',
   
 };

@@ -28,39 +28,39 @@ export interface CharterArticle {
 export const charterTitle = "Charte d'utilisation de l'intelligence artificielle";
 
 export const charterPreamble =
-  "{{entreprise}} autorise et encourage l'usage d'outils d'intelligence artificielle quand ils font gagner du temps sans exposer l'entreprise, ses clients ou ses salariés. Cette charte fixe les règles communes. Elle s'applique à toute personne qui travaille pour {{entreprise}} : salariés, alternants, stagiaires, prestataires. Elle entre en vigueur le {{date}}.";
+  "{{entreprise}} autorise et encourage l'usage d'outils d'intelligence artificielle quand ils font gagner du temps sans exposer l'entreprise, ses clients ou ses salariés. Cette charte fixe les règles communes. Elle s'applique à toute personne qui travaille pour {{entreprise}} : salariés, alternants, stagiaires, prestataires. Elle entre en vigueur le {{date}}.";
 
 export const charterArticles: CharterArticle[] = [
   {
     title: 'Champ d\'application',
     rules: [
-      "La charte couvre tout outil qui génère du texte, du code, des images, du son ou des décisions à partir d'une instruction : assistants conversationnels, fonctions d'IA intégrées aux logiciels de bureautique, de messagerie, de CRM ou de comptabilité, agents qui agissent dans les outils de l'entreprise.",
+      "La charte couvre tout outil qui génère du texte, du code, des images, du son ou des décisions à partir d'une instruction : assistants conversationnels, fonctions d'IA intégrées aux logiciels de bureautique, de messagerie, de CRM ou de comptabilité, agents qui agissent dans les outils de l'entreprise.",
       "Elle s'applique quel que soit l'appareil utilisé, y compris un téléphone ou un ordinateur personnel dès lors qu'il sert à une tâche professionnelle.",
       "Elle complète le règlement intérieur, la charte informatique et les engagements de confidentialité déjà signés. En cas de contradiction, la règle la plus stricte s'applique.",
     ],
-    adapt: "Vérifiez que votre charte informatique existe et qu'elle est à jour : cette charte IA s'y adosse, elle ne la remplace pas.",
+    adapt: "Vérifiez que votre charte informatique existe et qu'elle est à jour : cette charte IA s'y adosse, elle ne la remplace pas.",
   },
   {
     title: 'Outils autorisés',
     rules: [
-      "Seuls les outils suivants sont autorisés pour un usage professionnel : {{outils}}.",
+      "Seuls les outils suivants sont autorisés pour un usage professionnel : {{outils}}.",
       "Ces outils sont utilisés avec le compte fourni par l'entreprise. Les comptes personnels et les versions gratuites grand public ne sont pas utilisés pour le travail.",
       "Tout nouvel outil, y compris une extension de navigateur ou une fonction d'IA activée dans un logiciel existant, est soumis à {{referent}} avant usage. La réponse est donnée sous cinq jours ouvrés.",
       "La liste des outils autorisés est tenue à jour par {{referent}} et accessible à tous.",
     ],
-    adapt: "Listez les outils avec leur niveau d'abonnement. Avant d'en autoriser un, lisez ses conditions sur trois points : où les données sont hébergées, si elles servent à entraîner les modèles, combien de temps elles sont conservées.",
+    adapt: "Listez les outils avec leur niveau d'abonnement. Avant d'en autoriser un, lisez ses conditions sur trois points : où les données sont hébergées, si elles servent à entraîner les modèles, combien de temps elles sont conservées.",
   },
   {
     title: "Données qui ne passent jamais par un outil d'IA",
-    intro: "Quel que soit l'outil, y compris autorisé, les informations suivantes ne sont ni saisies, ni collées, ni téléversées :",
+    intro: "Quel que soit l'outil, y compris autorisé, les informations suivantes ne sont ni saisies, ni collées, ni téléversées :",
     rules: [
       "Les données de santé, les données bancaires, les numéros de sécurité sociale, les pièces d'identité.",
-      "Les données personnelles de salariés ou de candidats : dossiers RH, évaluations, bulletins de paie, CV nominatifs.",
+      "Les données personnelles de salariés ou de candidats : dossiers RH, évaluations, bulletins de paie, CV nominatifs.",
       "Les mots de passe, clés d'API, jetons d'accès et tout secret technique.",
       "Les contrats, offres commerciales et documents couverts par un accord de confidentialité avec un client ou un fournisseur, sauf accord écrit de ce dernier.",
       "Les informations financières non publiées de l'entreprise.",
     ],
-    adapt: "Ajoutez vos catégories sensibles propres (plans, formules, fichiers clients, données de patients). Pour les autres données personnelles, la règle par défaut : anonymiser avant de saisir (remplacer les noms par des rôles, retirer adresses et numéros).",
+    adapt: "Ajoutez vos catégories sensibles propres (plans, formules, fichiers clients, données de patients). Pour les autres données personnelles, la règle par défaut : anonymiser avant de saisir (remplacer les noms par des rôles, retirer adresses et numéros).",
   },
   {
     title: "Ce qui sort d'une IA est un brouillon",
@@ -74,14 +74,14 @@ export const charterArticles: CharterArticle[] = [
   },
   {
     title: 'Agents et automatisations',
-    intro: "Quand une IA ne se contente pas de répondre mais agit dans les outils de l'entreprise (envoyer un message, modifier une fiche, créer une facture) :",
+    intro: "Quand une IA ne se contente pas de répondre mais agit dans les outils de l'entreprise (envoyer un message, modifier une fiche, créer une facture) :",
     rules: [
       "Chaque automatisation a un responsable nommé, qui connaît ce qu'elle fait et sait l'arrêter.",
-      "Les actions sensibles sont validées par un humain avant exécution : envoi à un client, engagement financier, suppression de données, modification de droits d'accès.",
+      "Les actions sensibles sont validées par un humain avant exécution : envoi à un client, engagement financier, suppression de données, modification de droits d'accès.",
       "Les actions exécutées sont journalisées et le journal est consultable par le responsable.",
       "Une automatisation ne reçoit que les accès strictement nécessaires à sa tâche.",
     ],
-    adapt: "Dressez la liste de vos automatisations en service, avec leur responsable et les actions qui exigent une validation. Si vous n'en avez aucune, gardez l'article : il s'appliquera à la première.",
+    adapt: "Dressez la liste de vos automatisations en service, avec leur responsable et les actions qui exigent une validation. Si vous n'en avez aucune, gardez l'article : il s'appliquera à la première.",
   },
   {
     title: 'Transparence',
@@ -104,11 +104,11 @@ export const charterArticles: CharterArticle[] = [
   {
     title: 'Formation et référent',
     rules: [
-      "{{referent}} est le référent IA de {{entreprise}} : il tient la liste des outils autorisés, répond aux questions d'usage et reçoit les signalements.",
-      "Toute personne qui utilise un outil d'IA dans son travail suit une formation initiale : fonctionnement et limites des outils, règles de cette charte, cas pratiques de son métier.",
+      "{{referent}} est le référent IA de {{entreprise}} : il tient la liste des outils autorisés, répond aux questions d'usage et reçoit les signalements.",
+      "Toute personne qui utilise un outil d'IA dans son travail suit une formation initiale : fonctionnement et limites des outils, règles de cette charte, cas pratiques de son métier.",
       "Un rappel a lieu au moins une fois par an, et à chaque nouvel outil autorisé.",
     ],
-    adapt: "Fixez le format de la formation (durée, qui l'anime) et gardez une trace des personnes formées : c'est ce qui permet de montrer que l'obligation de l'article 4 du règlement européen sur l'IA est prise au sérieux.",
+    adapt: "Fixez le format de la formation (durée, qui l'anime) et gardez une trace des personnes formées : c'est ce qui permet de montrer que l'obligation de l'article 4 du règlement européen sur l'IA est prise au sérieux.",
   },
   {
     title: 'Incidents et révision',
@@ -127,7 +127,7 @@ export const charterClosing =
 
 export const charterSources = [
   {
-    label: "Commission européenne, « Maîtrise de l'IA : questions et réponses » (article 4 du règlement (UE) 2024/1689, en application depuis le 2 février 2025)",
+    label: "Commission européenne, « Maîtrise de l'IA : questions et réponses » (article 4 du règlement (UE) 2024/1689, en application depuis le 2 février 2025)",
     href: 'https://digital-strategy.ec.europa.eu/fr/faqs/ai-literacy-questions-answers',
     checked: 'vérifié le 4 octobre 2026',
   },

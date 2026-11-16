@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['1-col'],
     tags: ['hero', 'manifesto', 'canvas', 'react-island', 'dark'],
     status: 'stable',
-    description_fr: 'Hero manifeste à fond canvas liquide (terracotta animé) : eyebrow, grand titre display italique, lede et CTAs sur fond sombre.',
+    description_fr: 'Hero manifeste à fond canvas liquide (terracotta animé) : eyebrow, grand titre display italique, lede et CTAs sur fond sombre.',
     description_en: 'Liquid-canvas manifesto hero (animated terracotta): eyebrow, large italic display headline, lede and CTAs on a dark background.',
   
 };

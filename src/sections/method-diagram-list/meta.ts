@@ -16,7 +16,7 @@ export const meta: SectionMeta = {
   tags: ['method', 'process', 'diagram', 'steps', 'numbered', 'author'],
   status: 'stable',
   description_fr:
-    'Bloc methode : entete + diagramme de process (SVG de marque) + liste numerotee de phases (numero mono + titre + corps).',
+    'Bloc methode : entete + diagramme de process (SVG de marque) + liste numerotee de phases (numero mono + titre + corps).',
   description_en:
     'Method block: heading + process diagram (brand SVG) + numbered phase list (mono number + title + body).',
 };

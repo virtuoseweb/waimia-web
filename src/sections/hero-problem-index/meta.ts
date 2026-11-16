@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['3-col', 'centered'],
     tags: ['hero', 'hub', 'problem', 'svg', 'decoration'],
     status: 'stable',
-    description_fr: 'Hero d\'index par problème : décor SVG rectangle rotated 12°, h1 monumental, lede italique et phrase canonique.',
+    description_fr: 'Hero d\'index par problème : décor SVG rectangle rotated 12°, h1 monumental, lede italique et phrase canonique.',
     description_en: 'Problem index hero: 12° rotated rectangle SVG decoration, monumental h1, italic lede, and canonical line.',
   
 };

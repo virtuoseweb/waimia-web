@@ -15,6 +15,6 @@ export const meta: SectionMeta = {
   layoutFacets: ['1-col'],
   tags: ['provenance', 'badge', 'chip', 'eeat', 'trust', 'case-study'],
   status: 'stable',
-  description_fr: 'Chip de provenance E-E-A-T : badge plein (projet realise) ou outline (etude sources tierces), cliquable vers la page methodologie.',
+  description_fr: 'Chip de provenance E-E-A-T : badge plein (projet realise) ou outline (etude sources tierces), cliquable vers la page methodologie.',
   description_en: 'E-E-A-T provenance chip: solid badge (completed project) or outline (third-party study), linking to the methodology page.',
 };

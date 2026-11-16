@@ -40,7 +40,7 @@ export const demo: DemoData = {
       {
         title_fr: 'Boucle de mesure',
         title_en: 'Measurement loop',
-        body_fr: 'Chaque itération se valide sur des chiffres : conversion, vélocité, pipeline ouvert. On garde ce qui performe, on coupe le reste.',
+        body_fr: 'Chaque itération se valide sur des chiffres : conversion, vélocité, pipeline ouvert. On garde ce qui performe, on coupe le reste.',
         body_en: 'Every iteration is validated on numbers: conversion, velocity, open pipeline. We keep what performs, cut the rest.',
       },
     ],

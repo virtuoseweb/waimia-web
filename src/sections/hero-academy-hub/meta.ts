@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['3-col', 'centered'],
     tags: ['hero', 'academy', 'school', 'stats'],
     status: 'stable',
-    description_fr: 'Hero hub académie : kicker mono, h1 display, lede et bande de stats mono (cours, parcours, alumni).',
+    description_fr: 'Hero hub académie : kicker mono, h1 display, lede et bande de stats mono (cours, parcours, alumni).',
     description_en: 'Academy hub hero: mono kicker, display h1, lede, and mono stats strip (courses, paths, alumni).',
   
 };

@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['2-col', 'media-right', 'split'],
     tags: ['cta', 'split', 'visual', 'banner'],
     status: 'stable',
-    description_fr: 'Bandeau CTA asymetrique 2 colonnes : texte kicker/titre/body/boutons a gauche, visuel SVG decoratif a droite. Distinct des CTA centres.',
+    description_fr: 'Bandeau CTA asymetrique 2 colonnes : texte kicker/titre/body/boutons a gauche, visuel SVG decoratif a droite. Distinct des CTA centres.',
     description_en: 'Asymmetric 2-column CTA banner: kicker/title/body/buttons on the left, decorative SVG visual on the right. Distinct from centered CTAs.',
   
 };

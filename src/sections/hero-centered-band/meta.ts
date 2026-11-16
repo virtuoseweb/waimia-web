@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['4-col', 'centered'],
     tags: ['hero', 'centered', 'band', 'capabilities', 'ink'],
     status: 'stable',
-    description_fr: "Héro plein écran centré (kicker, titre serif, lede, 2 CTA) suivi d'une bande de capacités ink pleine largeur : 4 cellules (label mono accent + description), sombre dans les deux modes. Variante paper et ink, responsive.",
+    description_fr: "Héro plein écran centré (kicker, titre serif, lede, 2 CTA) suivi d'une bande de capacités ink pleine largeur : 4 cellules (label mono accent + description), sombre dans les deux modes. Variante paper et ink, responsive.",
     description_en: 'Full-viewport centered hero (kicker, serif title, lede, 2 CTAs) followed by a full-width ink capabilities band: 4 cells (mono accent label + description), dark in both modes. Paper and ink variants, responsive.',
   
 };

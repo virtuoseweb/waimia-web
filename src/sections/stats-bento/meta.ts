@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['bento'],
     tags: ['stats', 'bento', 'kpi', 'metrics'],
     status: 'stable',
-    description_fr: 'Quatre KPI en grille bento de tailles inegales : une grande cellule avec chiffre geant et trois cellules secondaires, plus un bandeau bas pleine largeur.',
+    description_fr: 'Quatre KPI en grille bento de tailles inegales : une grande cellule avec chiffre geant et trois cellules secondaires, plus un bandeau bas pleine largeur.',
     description_en: 'Four KPIs in an uneven bento grid: one large hero cell with a giant number and three smaller cells, plus a full-width bottom banner.',
   
 };

@@ -20,7 +20,7 @@ export const demo: DemoData = {
       alt_fr: "Page d'accueil des Carnets de Montpellier.",
       alt_en: 'Home page of Les Carnets de Montpellier.',
       kind: 'frame',
-      caption_fr: "Une entrée en matière claire : sujet, ton et abonnement dès le premier écran.",
+      caption_fr: "Une entrée en matière claire : sujet, ton et abonnement dès le premier écran.",
       caption_en: 'A clear opening: topic, tone and subscription from the very first screen.',
     },
     {
@@ -28,7 +28,7 @@ export const demo: DemoData = {
       alt_fr: 'Menu plein écran, navigation par thèmes.',
       alt_en: 'Full-screen menu, navigation by themes.',
       kind: 'frame',
-      caption_fr: 'Navigation par thèmes : le lecteur trouve son sujet sans se perdre.',
+      caption_fr: 'Navigation par thèmes : le lecteur trouve son sujet sans se perdre.',
       caption_en: 'Theme-based navigation: readers find their topic without getting lost.',
     },
     {

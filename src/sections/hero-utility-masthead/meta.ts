@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['3-col', 'centered'],
     tags: ['hero', 'utility', 'masthead', 'editorial'],
     status: 'deprecated',
-    description_fr: '(déprécié → hero-hub-masthead variant=detail) Masthead utilitaire générique (about, méthode, academy intro) : kicker, h1 monumental, lede display italique, alignement gauche ou centré.',
+    description_fr: '(déprécié → hero-hub-masthead variant=detail) Masthead utilitaire générique (about, méthode, academy intro) : kicker, h1 monumental, lede display italique, alignement gauche ou centré.',
     description_en: '(deprecated → hero-hub-masthead variant=detail) Generic utility masthead (about, method, academy intro): kicker, monumental h1, italic display lede, left or centered alignment.',
   
 };

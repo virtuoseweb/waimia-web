@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['3-col'],
     tags: ['comparison', 'value-prop', 'pricing', 'bridge', 'callout'],
     status: 'stable',
-    description_fr: 'Bloc « pourquoi nous » en trois colonnes de propositions de valeur, terminé par un CTA et une mention. Sert de pont entre les features et la page tarifaire.',
+    description_fr: 'Bloc « pourquoi nous » en trois colonnes de propositions de valeur, terminé par un CTA et une mention. Sert de pont entre les features et la page tarifaire.',
     description_en: 'A “why us” block in three value-proposition columns, closed by a CTA and a note. Bridges the gap between features and the pricing page.',
   
 };

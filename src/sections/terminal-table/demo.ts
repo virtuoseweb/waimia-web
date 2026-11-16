@@ -11,7 +11,7 @@ export const demo: DemoData = {
     meta_en: '4 services · in-house',
     h2_fr: 'Quatre services. Une <i class="acc">seule</i> couche.',
     h2_en: 'Four services. One <i class="acc">continuous</i> layer.',
-    intro_fr: 'Pas de revendeur, pas de sous-traitance. Le contenu, les agents, le tracking : tout sort de la même main. Une équipe, un calendrier, une signature.',
+    intro_fr: 'Pas de revendeur, pas de sous-traitance. Le contenu, les agents, le tracking : tout sort de la même main. Une équipe, un calendrier, une signature.',
     intro_en: 'No reseller, no subcontracting. Content, agents, tracking: all from the same hand. One team, one timeline, one signature.',
     background: 'paper',
     cols: '60px 200px 1fr 120px',
@@ -54,7 +54,7 @@ export const demo: DemoData = {
         cells: [
           { fr: '04', en: '04', role: 'id' },
           { fr: 'Analytics', en: 'Analytics', role: 'title' },
-          { fr: 'Mesure unifiée : chaque action reliée au pipeline généré.', en: 'Unified measurement: every action tied to generated pipeline.', role: 'body' },
+          { fr: 'Mesure unifiée : chaque action reliée au pipeline généré.', en: 'Unified measurement: every action tied to generated pipeline.', role: 'body' },
           { fr: '◉ active', en: '◉ active', role: 'status' },
         ],
       },

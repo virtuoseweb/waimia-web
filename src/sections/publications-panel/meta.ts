@@ -16,7 +16,7 @@ export const meta: SectionMeta = {
   tags: ['publications', 'resources', 'index', 'manifesto', 'author', 'eeat', 'byline'],
   status: 'stable',
   description_fr:
-    'Panneau publications d’un profil : entete + callout manifeste + liste de publications + index de ressources recentes + lien « tout voir ».',
+    'Panneau publications d’un profil : entete + callout manifeste + liste de publications + index de ressources recentes + lien « tout voir ».',
   description_en:
     'Profile publications panel: heading + manifesto callout + publications list + recent resources index + « see all » link.',
 };

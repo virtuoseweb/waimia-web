@@ -23,7 +23,7 @@ export const demo: DemoData = {
     {
       title_fr: 'Mesure',
       title_en: 'Measurement',
-      body_fr: 'Chaque workflow a sa métrique avant/après : temps gagné, coûts évités, qualité produite.',
+      body_fr: 'Chaque workflow a sa métrique avant/après : temps gagné, coûts évités, qualité produite.',
       body_en: 'Every workflow gets a before/after metric: time saved, costs avoided, quality produced.',
     },
   ],

@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['2-col', 'media-right', 'split'],
     tags: ['code', 'showcase', 'syntax', 'mono', 'devtools', 'saas'],
     status: 'stable',
-    description_fr: 'Vitrine de code annoté pour devtools/SaaS technique : copy explicative, bloc code mono avec numéros de ligne et commentaires bilingues alignés, label fichier et langage, tone encre ou paper.',
+    description_fr: 'Vitrine de code annoté pour devtools/SaaS technique : copy explicative, bloc code mono avec numéros de ligne et commentaires bilingues alignés, label fichier et langage, tone encre ou paper.',
     description_en: 'Annotated code showcase for devtools/technical SaaS: explanatory copy, mono code block with line numbers and aligned bilingual comments, file and language label, ink or paper tone.',
   
 };

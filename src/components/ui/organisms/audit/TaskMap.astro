@@ -30,9 +30,9 @@ const verdictLabel = { oui: 'Oui', partiel: 'En partie', non: 'Non' } as const;
       <p class="tm-flag">Exemple illustratif, entreprise fictive</p>
     </div>
 
-    <div class="tm-scroll" tabindex={isFull ? 0 : undefined} role={isFull ? 'region' : undefined} aria-label={isFull ? 'Tableau : exemple de cartographie des tâches' : undefined}>
+    <div class="tm-scroll" tabindex={isFull ? 0 : undefined} role={isFull ? 'region' : undefined} aria-label={isFull ? 'Tableau : exemple de cartographie des tâches' : undefined}>
       <table class="tm-table">
-        {isFull && <caption class="tm-caption">Exemple de cartographie remise après un audit : six tâches, leur volume mensuel et le verdict d'automatisation.</caption>}
+        {isFull && <caption class="tm-caption">Exemple de cartographie remise après un audit : six tâches, leur volume mensuel et le verdict d'automatisation.</caption>}
         <thead>
           <tr>
             <th scope="col">Tâche</th>
@@ -65,7 +65,7 @@ const verdictLabel = { oui: 'Oui', partiel: 'En partie', non: 'Non' } as const;
 
     {isFull ? (
       <div class="tm-after">
-        <p class="tm-basis">Base de calcul : 21 jours ouvrés et 4,33 semaines par mois. Temps par mois = occurrences × durée d'une occurrence, arrondi à la demi-heure. Les durées sont celles que l'équipe déclare pendant l'échange, pas une mesure chronométrée.</p>
+        <p class="tm-basis">Base de calcul : 21 jours ouvrés et 4,33 semaines par mois. Temps par mois = occurrences × durée d'une occurrence, arrondi à la demi-heure. Les durées sont celles que l'équipe déclare pendant l'échange, pas une mesure chronométrée.</p>
         <div class="tm-props">
           {exampleProposals.map((p) => (
             <div class="tm-prop">

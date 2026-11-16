@@ -315,7 +315,7 @@ export const caseStudyTemplate = defineTemplate<CaseStudyContext>({
         const leadFr =
           data.stackLead_fr ??
           (toolNames.length > 0
-            ? `Les briques mobilisées sur ce projet : ${toolNames.join(', ')}. Chaque choix sert un besoin précis du terrain, pas une mode technique.`
+            ? `Les briques mobilisées sur ce projet : ${toolNames.join(', ')}. Chaque choix sert un besoin précis du terrain, pas une mode technique.`
             : '');
         const leadEn =
           data.stackLead_en ??

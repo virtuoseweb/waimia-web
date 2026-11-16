@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['off-grid'],
     tags: ['photo', 'cluster', 'editorial', 'team', 'gallery'],
     status: 'stable',
-    description_fr: 'Composition editoriale : photo lead + grappe de photos decalees (layouts lead-cluster, scatter, duo).',
+    description_fr: 'Composition editoriale : photo lead + grappe de photos decalees (layouts lead-cluster, scatter, duo).',
     description_en: 'Editorial composition: lead photo plus a cluster of offset photos (lead-cluster, scatter, duo layouts).',
   
 };

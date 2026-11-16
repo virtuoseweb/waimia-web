@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['1-col'],
     tags: ['solutions', 'pain-points', 'friction', 'timeline', 'editorial'],
     status: 'stable',
-    description_fr: 'Points de friction métier : en-tête eyebrow et titre display, aside Callout, frise Timeline numérotée des frictions.',
+    description_fr: 'Points de friction métier : en-tête eyebrow et titre display, aside Callout, frise Timeline numérotée des frictions.',
     description_en: 'Business pain points: an eyebrow and display heading header, a Callout aside, and a numbered Timeline of frictions.',
   
 };

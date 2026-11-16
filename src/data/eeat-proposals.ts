@@ -144,7 +144,7 @@ const SECTOR_LINKS: Record<string, EeatLink> = {
 
 const ARTICLE_LINKS: Record<string, EeatLink> = {
   'seo-geo': {
-    label: 'SEO & GEO : être cité par les IA génératives',
+    label: 'SEO & GEO : être cité par les IA génératives',
     href: '/blog/seo-geo-etre-cite-par-les-ia-generatives',
     kicker: 'Article',
     lead: 'Baliser un site pour que Google et les moteurs génératifs citent votre marque.',
@@ -153,7 +153,7 @@ const ARTICLE_LINKS: Record<string, EeatLink> = {
     label: "L'IA pour les PME en 2026",
     href: '/blog/ia-pme-guide-complet-2026',
     kicker: 'Essai',
-    lead: "Le tour d'horizon : où l'IA crée vraiment de la valeur pour une PME.",
+    lead: "Le tour d'horizon : où l'IA crée vraiment de la valeur pour une PME.",
   },
   'crm-10-jours': {
     label: 'Câbler son CRM en 10 jours',
@@ -179,7 +179,7 @@ const ARTICLE_LINKS: Record<string, EeatLink> = {
     kicker: 'Guide',
   },
   'build-vs-buy': {
-    label: 'Application interne : développer ou acheter ?',
+    label: 'Application interne : développer ou acheter ?',
     href: '/blog/applications-internes-build-vs-buy-pme',
     kicker: 'Article',
   },
@@ -222,7 +222,7 @@ export const EEAT_PACK: EeatPack = {
     location: 'Bordeaux, France',
     profileHref: '/equipe/simon-beros',
     initials: 'SB',
-    bio: "Studio solo. Simon conçoit, câble et suit lui-même chaque mission : pas de junior qui découvre le sujet en même temps que vous, pas de pool de sous-traitants entre vous et le travail.",
+    bio: "Studio solo. Simon conçoit, câble et suit lui-même chaque mission : pas de junior qui découvre le sujet en même temps que vous, pas de pool de sous-traitants entre vous et le travail.",
     signature: 'Conçu, câblé et tenu en production par Simon Beros · Waimia, Bordeaux.',
   },
   expertise: [
@@ -263,9 +263,9 @@ export const EEAT_PACK: EeatPack = {
   commitments: [
     // Détail = promesse canonique (AUDIT_PROMISE), résolue par silo dans eeatCommitments.
     { label: 'Avant tout engagement', detail: AUDIT_PROMISE.general.short.fr, audit: true },
-    { label: 'Prix connu avant de signer', detail: 'Le sprint de cadrage a un prix fixe ; la suite est chiffrée sur devis, avant tout engagement.' },
-    { label: 'Formation incluse', detail: 'Documentation et passation : votre équipe est autonome à la livraison.' },
-    { label: 'Zéro captivité', detail: 'Code, workflows et documentation transférés : vous gardez la main.' },
+    { label: 'Prix connu avant de signer', detail: 'Le sprint de cadrage a un prix fixe ; la suite est chiffrée sur devis, avant tout engagement.' },
+    { label: 'Formation incluse', detail: 'Documentation et passation : votre équipe est autonome à la livraison.' },
+    { label: 'Zéro captivité', detail: 'Code, workflows et documentation transférés : vous gardez la main.' },
   ],
   honestyNote: 'Chaque mission est documentée sur sa propre fiche.',
   credentials: [

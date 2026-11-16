@@ -140,7 +140,7 @@ export default function InternalLeadAlert({
 
   const scoreLine =
     score !== undefined
-      ? `<p style="${pStyle}">Score academy : <strong>${escapeHtml(score)}/18</strong> ${
+      ? `<p style="${pStyle}">Score academy : <strong>${escapeHtml(score)}/18</strong> ${
           isHot ? "· prospect chaud (relance équipe sous 24h)" : "· prospect tiède"
         }</p>`
       : "";
@@ -168,7 +168,7 @@ export default function InternalLeadAlert({
 
   const attachBlock =
     attachments && attachments.length > 0
-      ? `<p style="${pStyle}">Pièce jointe : <strong>${attachments.map(escapeHtml).join(", ")}</strong> (le rapport reçu par la personne).</p>`
+      ? `<p style="${pStyle}">Pièce jointe : <strong>${attachments.map(escapeHtml).join(", ")}</strong> (le rapport reçu par la personne).</p>`
       : "";
 
   const briefLine = brief ? `<p style="${pStyle}font-style:italic;">« ${escapeHtml(brief)} »</p>` : "";
@@ -199,7 +199,7 @@ export default function InternalLeadAlert({
     briefLine +
     angleBlock +
     tagsLine +
-    `<p style="${mutedStyle}margin-top:20px;">Action attendue : répondre sous 24 h ouvrées${isHot ? " (sous 4 h : lead chaud)" : ""}.</p>`;
+    `<p style="${mutedStyle}margin-top:20px;">Action attendue : répondre sous 24 h ouvrées${isHot ? " (sous 4 h : lead chaud)" : ""}.</p>`;
 
   return wrapEmail(content, `${warning ? "[PDF non joint] " : ""}Lead ${raw} · ${name ? `${name} · ` : ""}${email}`);
 }

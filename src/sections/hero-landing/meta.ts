@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['3-col', 'centered'],
     tags: ['hero', 'landing', 'magnetic', 'cta'],
     status: 'stable',
-    description_fr: 'Hero magnétique landing : eyebrow mono, h1 italique avec emphasis, lede, double CTA et bandeau de disponibilité.',
+    description_fr: 'Hero magnétique landing : eyebrow mono, h1 italique avec emphasis, lede, double CTA et bandeau de disponibilité.',
     description_en: 'Magnetic landing hero: mono eyebrow, italic emphasis h1, lede, dual CTA, and availability strip.',
   
 };

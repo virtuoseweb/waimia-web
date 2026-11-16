@@ -9,7 +9,7 @@ export const demo: DemoData = {
     kicker_en: 'Client case',
     title_fr: 'Une <i>ETI industrielle</i> a fermé ses comptes en 3 jours.',
     title_en: 'A <i>mid-market manufacturer</i> closed its books in 3 days.',
-    body_fr: 'Réconciliation bancaire continue et mémo financier généré : la direction financière a repris la main sur le calendrier de clôture.',
+    body_fr: 'Réconciliation bancaire continue et mémo financier généré : la direction financière a repris la main sur le calendrier de clôture.',
     body_en: 'Continuous bank reconciliation and a generated financial memo: the finance leadership took back control of the closing calendar.',
     cta_label_fr: 'Voir le cas complet →',
     cta_label_en: 'See full case →',

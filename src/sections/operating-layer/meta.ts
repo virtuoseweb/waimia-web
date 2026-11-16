@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['4-col'],
     tags: ['platform', 'dark', 'terminal', 'console', 'mockup', 'attributes'],
     status: 'stable',
-    description_fr: "Section couche opérationnelle fond sombre : chapter label + h2 + lede + CTA, console terminal mockup à droite, strip 4 attributs en pied.",
+    description_fr: "Section couche opérationnelle fond sombre : chapter label + h2 + lede + CTA, console terminal mockup à droite, strip 4 attributs en pied.",
     description_en: 'Dark-background operating-layer section: chapter label + h2 + lede + CTA, terminal console mockup right, 4-attribute strip at foot.',
   
 };

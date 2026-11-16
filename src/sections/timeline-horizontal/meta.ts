@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['1-col'],
     tags: ['timeline', 'horizontal', 'roadmap', 'dated', 'scroll', 'milestones'],
     status: 'stable',
-    description_fr: 'Frise chronologique horizontale datée (roadmap) : événements à statut (done/active/upcoming), date, label et body, scroll-snap horizontal, empilement vertical sur mobile.',
+    description_fr: 'Frise chronologique horizontale datée (roadmap) : événements à statut (done/active/upcoming), date, label et body, scroll-snap horizontal, empilement vertical sur mobile.',
     description_en: 'Dated horizontal timeline (roadmap): status events (done/active/upcoming), date, label and body, horizontal scroll-snap, vertical stacking on mobile.',
   
 };

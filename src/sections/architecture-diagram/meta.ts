@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['centered'],
     tags: ['architecture', 'diagram', 'svg', 'system'],
     status: 'stable',
-    description_fr: "Diagramme d'architecture signature : N canaux d'entrée vers un système central et M sorties, avec boucle d'amélioration continue.",
+    description_fr: "Diagramme d'architecture signature : N canaux d'entrée vers un système central et M sorties, avec boucle d'amélioration continue.",
     description_en: 'Signature architecture diagram: N input channels flowing into a central system with M outputs, plus a continuous improvement loop.',
   
 };

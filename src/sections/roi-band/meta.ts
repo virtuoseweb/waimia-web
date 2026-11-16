@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['1-col'],
     tags: ['solutions', 'roi', 'metrics', 'proof', 'stats'],
     status: 'stable',
-    description_fr: 'Bande ROI sur fond ink : en-tête eyebrow et titre display, chiffres KeyMetric placés en asymétrie 6/5.',
+    description_fr: 'Bande ROI sur fond ink : en-tête eyebrow et titre display, chiffres KeyMetric placés en asymétrie 6/5.',
     description_en: 'ROI band on an ink background: an eyebrow and display heading header, with KeyMetric figures placed in a 6/5 asymmetry.',
   
 };

@@ -31,7 +31,7 @@ export const meta: SectionMeta = {
   ],
   status: 'stable',
   description_fr:
-    'Storytelling au scroll : rail de texte sticky dont l\'etape active passe en accent, colonne media sticky dont l\'image change en fondu. Mobile = stepper empile.',
+    'Storytelling au scroll : rail de texte sticky dont l\'etape active passe en accent, colonne media sticky dont l\'image change en fondu. Mobile = stepper empile.',
   description_en:
     'Scroll storytelling: a sticky text rail whose active step turns accent, with a sticky media column that crossfades its image. Mobile becomes a stacked stepper.',
 };

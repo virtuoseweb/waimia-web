@@ -7,7 +7,7 @@ export const demo: DemoData = {
     type: 'hero-lead-magnet',
     kicker_fr: '§ Livre blanc · 2026',
     kicker_en: '§ Whitepaper · 2026',
-    h1_fr: "L'audit IA en <i>10 jours</i> : protocole opérationnel.",
+    h1_fr: "L'audit IA en <i>10 jours</i> : protocole opérationnel.",
     h1_en: 'The <i>10-day</i> AI audit: operational protocol.',
     lede_fr: 'Un PDF court qui vous dit quoi auditer, quoi documenter, quoi corriger en premier.',
     lede_en: 'A short PDF telling you what to audit, what to document, what to fix first.',

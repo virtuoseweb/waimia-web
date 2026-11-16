@@ -11,7 +11,7 @@ export const demo: DemoData = {
     label_en: 'The reckoning',
     sub_fr: 'Acte I',
     sub_en: 'Act I',
-    text_fr: 'L&rsquo;IA est <i class="acc">partout</i> et nulle part. Les stacks grossissent, les pipelines s&rsquo;aplatissent. Le goulot n&rsquo;est <strong>jamais</strong> le modèle : ce sont les rails, les règles, et l&rsquo;humain qui sait quand débrancher.',
+    text_fr: 'L&rsquo;IA est <i class="acc">partout</i> et nulle part. Les stacks grossissent, les pipelines s&rsquo;aplatissent. Le goulot n&rsquo;est <strong>jamais</strong> le modèle : ce sont les rails, les règles, et l&rsquo;humain qui sait quand débrancher.',
     text_en: 'AI is <i class="acc">everywhere</i> and nowhere. Stacks grow, pipelines flatten. The bottleneck is <strong>never</strong> the model: it&rsquo;s the rails, the rules, and the human who knows when to unplug.',
     tone: 'ink',
     stats: [

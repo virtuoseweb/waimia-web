@@ -130,12 +130,12 @@ const pick = (c: MarketCase) => ({
                   <div class="mkt__fact">
                     <dt>{t.result}</dt>
                     <dd>
-                      <p class="mkt__attribution">{v.attribution} :</p>
+                      <p class="mkt__attribution">{v.attribution} :</p>
                       <p>{v.result}</p>
                       {variant === 'full' && (
                         <blockquote class="mkt__quote" cite={c.sources[0].url} lang={c.quoteLang}>
                           <span class="mkt__quote-label" lang={lang}>{t.original}</span>
-                          <p>« {c.quote} »</p>
+                          <p>« {c.quote} »</p>
                         </blockquote>
                       )}
                     </dd>
@@ -169,7 +169,7 @@ const pick = (c: MarketCase) => ({
         </ul>
         {variant === 'digest' && g.href && (
           <p class="mkt__more">
-            <a href={g.href}>{t.more} : {g.title}</a>
+            <a href={g.href}>{t.more} : {g.title}</a>
           </p>
         )}
       </div>

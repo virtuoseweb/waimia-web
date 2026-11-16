@@ -34,7 +34,7 @@ export const AUDIT_PROMISE = {
       en: 'Free 45-minute audit by video call. You leave with a written task map and one or two ranked projects.',
     },
     tiny: {
-      fr: 'Gratuit, 45 minutes : un ou deux chantiers classés.',
+      fr: 'Gratuit, 45 minutes : un ou deux chantiers classés.',
       en: 'Free, 45 minutes: one or two ranked projects.',
     },
     medium: {
@@ -44,7 +44,7 @@ export const AUDIT_PROMISE = {
   },
   web: {
     short: {
-      fr: 'Audit gratuit de 45 minutes en visio : on regarde votre site ou votre outil, et vous repartez avec un ou deux chantiers classés.',
+      fr: 'Audit gratuit de 45 minutes en visio : on regarde votre site ou votre outil, et vous repartez avec un ou deux chantiers classés.',
       en: 'Free 45-minute audit by video call: we look at your website or your tool, and you leave with one or two ranked projects.',
     },
     medium: {
@@ -54,7 +54,7 @@ export const AUDIT_PROMISE = {
   },
   /** Méta description de /audit-ia-pme (160 caractères, plafond 160 de `check:head`). */
   meta: {
-    fr: "Audit IA entreprise de 45 min pour PME et ETI : process, site ou logiciel passés en revue, cartographie écrite, un ou deux chantiers classés. Gratuit, en visio.",
+    fr: "Audit IA entreprise de 45 min pour PME et ETI : process, site ou logiciel passés en revue, cartographie écrite, un ou deux chantiers classés. Gratuit, en visio.",
     en: '45-min AI audit for SMBs: processes, website or software reviewed, a written map and one or two ranked projects. Free, by video call.',
   },
 } as const;
@@ -73,7 +73,7 @@ export const KIT_CONFORMITE_CLAUDE_HREF = '/ressources/outils/kit-conformite-cla
 /** Objets de demande proposés dans le formulaire de contact (`subject`). */
 export const CONTACT_SUBJECTS = [
   { value: 'audit', label: 'Audit IA gratuit (45 min)' },
-  { value: 'projet', label: 'Un projet : site web, automatisation, agent IA, application métier' },
+  { value: 'projet', label: 'Un projet : site web, automatisation, agent IA, application métier' },
   { value: 'formation', label: 'Une formation IA ou automatisation' },
   { value: 'autre', label: 'Autre demande' },
 ] as const;
@@ -125,14 +125,14 @@ export const LEAD_MAGNETS = {
     ],
   },
   'guide-achat-claude-pme': {
-    title: "Guide d'achat Claude pour PME : plan, coût, configuration",
+    title: "Guide d'achat Claude pour PME : plan, coût, configuration",
     path: GUIDE_ACHAT_CLAUDE_HREF,
     attachments: [
       { file: 'private/telechargements/guide-achat-claude-pme.pdf', filename: 'guide-achat-claude-pme.pdf' },
     ],
   },
   'grille-audit-site-internet': {
-    title: "Grille d'audit de site internet : corriger ou refaire",
+    title: "Grille d'audit de site internet : corriger ou refaire",
     path: GRILLE_AUDIT_SITE_HREF,
     attachments: [
       { file: 'private/telechargements/grille-audit-site-internet.pdf', filename: 'grille-audit-site-internet.pdf' },
@@ -174,19 +174,19 @@ export const TOOL_ENTRY_COPY = {
   'grille-taches-a-automatiser': {
     href: GRILLE_HREF,
     h2: 'Classez vos tâches avant de choisir le premier cas',
-    body: 'Dix minutes, un classement par priorité en heures par mois : la grille vous le donne tout de suite, sans inscription. Vous pouvez ensuite la recevoir par e-mail pour la garder.',
+    body: 'Dix minutes, un classement par priorité en heures par mois : la grille vous le donne tout de suite, sans inscription. Vous pouvez ensuite la recevoir par e-mail pour la garder.',
     label: 'Classer mes tâches',
   },
   'calculateur-roi-ia': {
     href: ROI_HREF,
     h2: 'Chiffrez le gain avant de vous engager',
-    body: 'Entrez vos heures et vos coûts : le calculateur donne le temps récupérable tout de suite, sans inscription. Vous pouvez ensuite recevoir le détail par e-mail.',
+    body: 'Entrez vos heures et vos coûts : le calculateur donne le temps récupérable tout de suite, sans inscription. Vous pouvez ensuite recevoir le détail par e-mail.',
     label: 'Calculer mon gain',
   },
   'diagnostic-maturite-ia': {
     href: DIAGNOSTIC_HREF,
-    h2: "Où en est votre entreprise avec l'IA ?",
-    body: "Le diagnostic de maturité prend quelques minutes et donne un niveau et une première piste. Le résultat s'affiche tout de suite ; vous pouvez le recevoir par e-mail.",
+    h2: "Où en est votre entreprise avec l'IA ?",
+    body: "Le diagnostic de maturité prend quelques minutes et donne un niveau et une première piste. Le résultat s'affiche tout de suite ; vous pouvez le recevoir par e-mail.",
     label: 'Faire le diagnostic',
   },
 } as const satisfies Partial<Record<LeadMagnetSlug, ToolEntryCopy>>;
@@ -215,11 +215,11 @@ export function auditCtaFinal(h2: string, body: string) {
  */
 export const AUDIT_CTA_TEXT = {
   top: {
-    fr: 'Vérifiez ce que ce sujet change chez vous : 45 minutes, gratuit, sans engagement.',
+    fr: 'Vérifiez ce que ce sujet change chez vous : 45 minutes, gratuit, sans engagement.',
     en: 'Check what this changes for you: 45 minutes, free, no commitment.',
   },
   middle: {
-    fr: 'Ce que vous emportez : une cartographie écrite de vos tâches, avec les chantiers à lancer en premier.',
+    fr: 'Ce que vous emportez : une cartographie écrite de vos tâches, avec les chantiers à lancer en premier.',
     en: 'What you take away: a written map of your tasks, with the projects to start first.',
   },
 } as const;
@@ -312,7 +312,7 @@ export const LEAD_CAPTURE_COPY: Record<LeadMagnetSlug, LeadCaptureCopy> = {
       body: "Les chiffres restent affichés ci-dessus. Le rapport PDF, joint à l'e-mail, les garde pour vous, prêts à transférer à un associé ou à votre expert-comptable.",
       benefits: [
         'Vos hypothèses, ligne par ligne, telles que vous les avez saisies',
-        'Les résultats calculés : heures récupérables, valeur de ce temps, budget de mise en place à ne pas dépasser',
+        'Les résultats calculés : heures récupérables, valeur de ce temps, budget de mise en place à ne pas dépasser',
         'Le lien pour revenir au calculateur et refaire le calcul',
         "L'audit gratuit de 45 minutes, réservable depuis le PDF, pour vérifier ces chiffres sur vos vraies tâches",
       ],
@@ -341,7 +341,7 @@ export const LEAD_CAPTURE_COPY: Record<LeadMagnetSlug, LeadCaptureCopy> = {
       body: "Le classement reste affiché ici. L'e-mail vous le garde, prêt à partager avec l'équipe ou à apporter à l'audit.",
       benefits: [
         'Vos tâches classées par priorité, jusqu\'à vingt lignes',
-        'Pour chacune : fréquence, durée, heures par mois et score',
+        'Pour chacune : fréquence, durée, heures par mois et score',
         'Le total des heures recensées par mois',
         "Le lien pour revenir à la grille, et l'audit gratuit de 45 minutes pour trancher les cas limites",
       ],
@@ -459,7 +459,7 @@ export const LEAD_CAPTURE_COPY: Record<LeadMagnetSlug, LeadCaptureCopy> = {
         'Huit axes à cocher, du formulaire de contact à la citabilité par les IA',
         'Pour chaque point, le geste ou l\'outil gratuit pour le vérifier',
         'Les signaux d\'alerte, et ce qui se corrige sans refonte',
-        'Une règle de décision : corriger ou refaire',
+        'Une règle de décision : corriger ou refaire',
       ],
       submit: 'Recevoir la grille',
       cover: { kicker: 'Grille PDF · A4', title: "Grille d'audit de site internet", meta: 'Huit axes · corriger ou refaire · 10 pages' },
@@ -483,10 +483,10 @@ export const LEAD_CAPTURE_COPY: Record<LeadMagnetSlug, LeadCaptureCopy> = {
     fr: {
       kicker: 'ZIP et PDF · envoyés par e-mail',
       h2: 'Recevez les 8 skills Claude prêts à installer',
-      body: "Vous le recevez par e-mail : les skills en ZIP et le mode d'emploi en PDF.",
+      body: "Vous le recevez par e-mail : les skills en ZIP et le mode d'emploi en PDF.",
       benefits: [
-        'Huit skills en ZIP : devis, compte rendu, relance de facture, fiche de poste, veille et trois autres',
-        "Le mode d'emploi PDF de 11 pages : installer, adapter, tester",
+        'Huit skills en ZIP : devis, compte rendu, relance de facture, fiche de poste, veille et trois autres',
+        "Le mode d'emploi PDF de 11 pages : installer, adapter, tester",
         'Les erreurs fréquentes et les règles de sécurité',
         'Un seul e-mail, sans inscription à une liste',
       ],

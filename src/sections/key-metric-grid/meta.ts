@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['4-col'],
     tags: ['stats', 'metrics', 'kpi', 'grid', 'editorial', 'key-metric'],
     status: 'stable',
-    description_fr: 'Grille de métriques chiffrées magnifiées (style FT/Bloomberg) composant l\'atome KeyMetric : chiffre dominant, label mono, delta optionnel. Axes size/align/variant et 2 à 4 colonnes, fond alterné.',
+    description_fr: 'Grille de métriques chiffrées magnifiées (style FT/Bloomberg) composant l\'atome KeyMetric : chiffre dominant, label mono, delta optionnel. Axes size/align/variant et 2 à 4 colonnes, fond alterné.',
     description_en: 'Grid of magnified key figures (FT/Bloomberg style) composing the KeyMetric atom: dominant value, mono label, optional delta. size/align/variant axes and 2 to 4 columns, alternating background.',
   
 };

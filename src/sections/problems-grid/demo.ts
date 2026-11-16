@@ -14,7 +14,7 @@ export const demo: DemoData = {
         kicker_en: 'Site too slow',
         title_fr: 'FCP 4,2 s. Lighthouse 34.<br/>−7 % de conversion par seconde.',
         title_en: 'FCP 4.2s. Lighthouse 34.<br/>−7% conversion per second.',
-        body_fr: "WordPress avec 40 plugins : chaque visiteur attend. Chaque seconde perdue coûte 7 % de conversions. Sans IA, impossible d'automatiser les corrections.",
+        body_fr: "WordPress avec 40 plugins : chaque visiteur attend. Chaque seconde perdue coûte 7 % de conversions. Sans IA, impossible d'automatiser les corrections.",
         body_en: 'WordPress with 40 plugins: each visitor waits. Every second lost costs 7% in conversions. Without AI, automating fixes is impossible.',
         illustration_src: '/images/line-art/probleme-poc-qui-dort.svg',
         illustration_alt_fr: 'Un prototype en sommeil à l\'écran',
@@ -26,7 +26,7 @@ export const demo: DemoData = {
         kicker_en: 'Stale content',
         title_fr: '1 article en 6 semaines.<br/>Vos concurrents en publient 8/sem avec IA.',
         title_en: '1 article in 6 weeks.<br/>Your AI competitors ship 8/wk.',
-        body_fr: "Le brief, les relectures, le SEO, la mise en ligne : 6 semaines par article. Vos concurrents IA publient 8 articles/semaine optimisés Google et GEO.",
+        body_fr: "Le brief, les relectures, le SEO, la mise en ligne : 6 semaines par article. Vos concurrents IA publient 8 articles/semaine optimisés Google et GEO.",
         body_en: 'Brief, revisions, SEO, publishing: 6 weeks per article. Your AI competitors publish 8 articles/week, optimised for Google and GEO.',
       },
       {

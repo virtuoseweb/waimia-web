@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['multi-col'],
     tags: ['proof', 'metrics', 'before-after', 'results'],
     status: 'stable',
-    description_fr: 'Comparaison avant → après : valeur initiale et finale magnifiées, delta.',
+    description_fr: 'Comparaison avant → après : valeur initiale et finale magnifiées, delta.',
     description_en: 'Before → after comparison: initial and final value magnified, delta.',
   
 };

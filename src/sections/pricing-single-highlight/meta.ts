@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['2-col', 'media-right', 'split'],
     tags: ['pricing', 'single', 'highlight', 'offer', 'anchor', 'guarantee'],
     status: 'stable',
-    description_fr: 'Offre mono-produit en grand format : une carte large centrée avec prix d\'ancrage, liste de bénéfices, garantie et CTA fort. Idéal landing mono-offre.',
+    description_fr: 'Offre mono-produit en grand format : une carte large centrée avec prix d\'ancrage, liste de bénéfices, garantie et CTA fort. Idéal landing mono-offre.',
     description_en: 'Single-product offer in large format: one wide centred card with anchor price, benefits list, guarantee and strong CTA. Ideal for single-offer landings.',
   
 };

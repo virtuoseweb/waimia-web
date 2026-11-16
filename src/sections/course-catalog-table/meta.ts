@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['multi-col'],
     tags: ['catalog', 'table', 'courses', 'school'],
     status: 'stable',
-    description_fr: 'Tableau du catalogue formations : titre de section et lignes (#, titre, niveau en pill, durée, prix, flèche), une formation par ligne.',
+    description_fr: 'Tableau du catalogue formations : titre de section et lignes (#, titre, niveau en pill, durée, prix, flèche), une formation par ligne.',
     description_en: 'Course catalog table: a section title and rows (#, title, level pill, duration, price, arrow), one course per row.',
   
 };

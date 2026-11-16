@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['1-col'],
     tags: ['hero', 'tunnel', 'step', 'progress', 'funnel'],
     status: 'stable',
-    description_fr: 'Hero d\'étape de tunnel : kicker accent + barre de progression [01][02]... + h1 (variante hero ou section) + lede.',
+    description_fr: 'Hero d\'étape de tunnel : kicker accent + barre de progression [01][02]... + h1 (variante hero ou section) + lede.',
     description_en: 'Tunnel step hero: accent kicker + progress bar [01][02]... + h1 (hero or section variant) + lede.',
   
 };

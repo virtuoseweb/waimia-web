@@ -110,7 +110,7 @@ export const GUARANTEES: readonly Guarantee[] = [
     id: 'support-email-reponse-4h',
     category: 'support',
     icon: 'mail',
-    label_fr: 'Support email : réponse sous 4 h',
+    label_fr: 'Support email : réponse sous 4 h',
     label_en: 'Email support: human reply within 4 business hours',
     promise_fr:
       'Le support email Waimia apporte une première réponse humaine sous 4 h ouvrées, du lundi au vendredi, entre 9 h et 18 h CET.',

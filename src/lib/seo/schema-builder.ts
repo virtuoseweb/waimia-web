@@ -123,7 +123,7 @@ export const SCHEMA_IDS = {
 
 /** Description courte de l'entreprise (positionnement du brief, pas une identité « Claude »). */
 export const ORGANIZATION_DESCRIPTION =
-  "Studio de développement IA et cabinet de transformation IA et d'automatisation des processus pour PME et ETI : conseil, intégration, développement d'applications métier et formation.";
+  "Studio de développement IA et cabinet de transformation IA et d'automatisation des processus pour PME et ETI : conseil, intégration, développement d'applications métier et formation.";
 
 /** Zone desservie : missions à distance ou sur site dans ces villes, et partout en France. */
 export const AREA_SERVED: JsonLdObject[] = [

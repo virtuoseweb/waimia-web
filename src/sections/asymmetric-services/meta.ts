@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['1-col'],
     tags: ['manifesto', 'services', 'asymmetric', 'alternating', 'editorial', 'rows'],
     status: 'stable',
-    description_fr: 'Services en rangées asymétriques (AsymmetricServiceRow) qui alternent gauche/droite : numéro display, nom, body et flèche, signature de /manifesto Acte II.',
+    description_fr: 'Services en rangées asymétriques (AsymmetricServiceRow) qui alternent gauche/droite : numéro display, nom, body et flèche, signature de /manifesto Acte II.',
     description_en: 'Services as asymmetric rows (AsymmetricServiceRow) alternating left/right: display number, name, body and arrow, the /manifesto Act II signature.',
   
 };

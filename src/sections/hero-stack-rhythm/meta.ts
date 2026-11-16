@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['4-col'],
     tags: ['hero', 'stack', 'rhythm', 'breadcrumb', 'kpi'],
     status: 'stable',
-    description_fr: 'Héro plein écran en une seule colonne resserrée, au rythme vertical généreux : fil d\'Ariane, kicker, titre serif, lede, badges inline séparés par hairlines, 2 CTA, bande de 4 KPI. Variante paper et ink, responsive.',
+    description_fr: 'Héro plein écran en une seule colonne resserrée, au rythme vertical généreux : fil d\'Ariane, kicker, titre serif, lede, badges inline séparés par hairlines, 2 CTA, bande de 4 KPI. Variante paper et ink, responsive.',
     description_en: 'Full-viewport single narrow column with a generous vertical rhythm: breadcrumb, kicker, serif title, lede, inline badges split by hairlines, 2 CTAs, a 4-KPI band. Paper and ink variants, responsive.',
   
 };

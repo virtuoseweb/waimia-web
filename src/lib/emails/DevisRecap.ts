@@ -46,7 +46,7 @@ export default function DevisRecap({
     `<div style="background:#EFEAE0;padding:22px;border-radius:8px;margin:20px 0;">` +
     `<p style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:${ACCENT};margin:0 0 6px;">Référence · ${refSafe}</p>` +
     `<p style="${pStyle}margin:0 0 14px;font-weight:500;font-size:18px;">${offerSafe}</p>` +
-    `<p style="${pStyle}margin:0 0 14px;"><strong>Budget visé :</strong> ${budgetSafe}</p>` +
+    `<p style="${pStyle}margin:0 0 14px;"><strong>Budget visé :</strong> ${budgetSafe}</p>` +
     `<p style="${pStyle}margin:0;font-style:italic;">« ${briefSafe} »</p>` +
     `</div>` +
     `<div style="text-align:center;padding:12px 0 24px;">` +

@@ -16,7 +16,7 @@ export const meta: SectionMeta = {
   tags: ['keyword', 'tags', 'inline', 'strip', 'social', 'contact', 'expertise', 'author'],
   status: 'stable',
   description_fr:
-    'Bande d’items inline mono-majuscule separes par « · » : mots-cles (sans lien) ou liens sociaux/contact. Generique, reutilisable pour tout profil.',
+    'Bande d’items inline mono-majuscule separes par « · » : mots-cles (sans lien) ou liens sociaux/contact. Generique, reutilisable pour tout profil.',
   description_en:
     'Inline mono-uppercase item strip separated by « · »: keywords (no link) or social/contact links. Generic, reusable for any profile.',
 };

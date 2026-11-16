@@ -7,7 +7,7 @@ import type { LeadMagnetPage } from './types';
 
 export const data: LeadMagnetPage = {
   slug: 'guide-achat-claude-pme',
-  title_fr: "Guide d'achat Claude pour PME : plan, coût, configuration",
+  title_fr: "Guide d'achat Claude pour PME : plan, coût, configuration",
   title_en: "Claude buyer's guide for SMBs: plan, cost, setup",
   kicker_fr: 'PDF · Dirigeants et responsables de PME',
   kicker_en: 'PDF · SMB owners and managers',
@@ -29,13 +29,13 @@ export const data: LeadMagnetPage = {
   ],
   inside_fr: [
     { title: 'La grille Claude en une page', desc: "Les cinq offres, les deux types de siège Team, l'usage relatif, les conditions et ce qui compte pour une PME." },
-    { title: 'Matrice de décision par profil', desc: 'Huit situations, de dirigeant seul à 40 personnes avec exigences de données : offre recommandée, raison et piège à éviter.' },
-    { title: 'Estimer le coût : méthode et formules', desc: "Les formules Team et Enterprise, le classement des utilisateurs en trois groupes, l'usage au-delà du quota et la mise en place." },
-    { title: 'Trois budgets illustratifs : 5, 15 et 40 personnes', desc: "Calculs détaillés, mensuel contre annuel, seuil d'équilibre Team contre Enterprise, et les limites de chaque calcul." },
+    { title: 'Matrice de décision par profil', desc: 'Huit situations, de dirigeant seul à 40 personnes avec exigences de données : offre recommandée, raison et piège à éviter.' },
+    { title: 'Estimer le coût : méthode et formules', desc: "Les formules Team et Enterprise, le classement des utilisateurs en trois groupes, l'usage au-delà du quota et la mise en place." },
+    { title: 'Trois budgets illustratifs : 5, 15 et 40 personnes', desc: "Calculs détaillés, mensuel contre annuel, seuil d'équilibre Team contre Enterprise, et les limites de chaque calcul." },
     { title: "Les pièges d'achat", desc: "Douze erreurs fréquentes, des comptes Pro personnels aux plafonds de crédits oubliés, et ce qu'elles coûtent." },
     { title: 'Configuration du jour 1, pas à pas', desc: "Douze étapes pour une organisation Team, la liste à cocher avant d'inviter l'équipe et les réglages par défaut à connaître." },
     { title: 'Questions à poser avant de signer', desc: "Prix et contrat, données et conformité, produit et feuille de route, et les questions à vous poser à vous-même." },
-    { title: "Quand passer par l'API, Bedrock ou Vertex", desc: "Résidence en Europe, intégration dans vos outils, traitements en lot : quand l'abonnement ne suffit pas, et quand l'API n'est pas la réponse." },
+    { title: "Quand passer par l'API, Bedrock ou Vertex", desc: "Résidence en Europe, intégration dans vos outils, traitements en lot : quand l'abonnement ne suffit pas, et quand l'API n'est pas la réponse." },
     { title: 'Mini plan de déploiement sur 90 jours', desc: 'Quatre périodes, de la décision au renouvellement, avec le critère de réussite à 90 jours.' },
   ],
   inside_en: [
@@ -50,12 +50,12 @@ export const data: LeadMagnetPage = {
     { title: 'Mini 90-day rollout plan', desc: 'Four periods, from decision to renewal, with the success criterion at 90 days.' },
   ],
   extract_fr:
-    "<p><strong>Extrait du chapitre 3 : les formules.</strong> Le guide les applique ensuite à trois équipes de 5, 15 et 40 personnes, avec les hypothèses et les limites de chaque calcul.</p>" +
+    "<p><strong>Extrait du chapitre 3 : les formules.</strong> Le guide les applique ensuite à trois équipes de 5, 15 et 40 personnes, avec les hypothèses et les limites de chaque calcul.</p>" +
     '<ul>' +
-    '<li><strong>Team, facturation annuelle</strong> : (sièges Standard × 20 $ + sièges Premium × 100 $) × 12.</li>' +
-    '<li><strong>Team, facturation mensuelle</strong> : (sièges Standard × 25 $ + sièges Premium × 125 $) × 12.</li>' +
-    "<li><strong>Enterprise</strong> : sièges × 20 $ × 12, plus l'usage annuel au tarif de l'API.</li>" +
-    '<li><strong>Budget total</strong> : abonnement, plus crédits au-delà du quota, plus mise en place.</li>' +
+    '<li><strong>Team, facturation annuelle</strong> : (sièges Standard × 20 $ + sièges Premium × 100 $) × 12.</li>' +
+    '<li><strong>Team, facturation mensuelle</strong> : (sièges Standard × 25 $ + sièges Premium × 125 $) × 12.</li>' +
+    "<li><strong>Enterprise</strong> : sièges × 20 $ × 12, plus l'usage annuel au tarif de l'API.</li>" +
+    '<li><strong>Budget total</strong> : abonnement, plus crédits au-delà du quota, plus mise en place.</li>' +
     '</ul>' +
     '<p>Prix Anthropic au 5 octobre 2026, en dollars, hors TVA et hors taux de change.</p>',
   extract_en:
@@ -69,19 +69,19 @@ export const data: LeadMagnetPage = {
     "<p>Anthropic prices as of 5 October 2026, in dollars, excluding VAT and exchange rates.</p>",
   faq_fr: [
     {
-      q: 'Le guide donne-t-il des prix en euros ?',
+      q: 'Le guide donne-t-il des prix en euros ?',
       a: "Non. Anthropic publie ses prix en dollars, et la facture peut être en devise locale, TVA incluse ou ajoutée selon le pays. Le guide calcule en dollars hors TVA, formules à l'appui : refaites le calcul avec le montant affiché sur votre page de paiement.",
     },
     {
-      q: 'Les trois budgets sont-ils des cas clients ?',
-      a: "Non, ce sont des exemples construits sur les prix publics du 5 octobre 2026. Les hypothèses sont écrites à côté de chaque calcul : remplacez-les par les vôtres.",
+      q: 'Les trois budgets sont-ils des cas clients ?',
+      a: "Non, ce sont des exemples construits sur les prix publics du 5 octobre 2026. Les hypothèses sont écrites à côté de chaque calcul : remplacez-les par les vôtres.",
     },
     {
-      q: 'Le guide est-il utile si nous avons déjà des comptes Claude ?',
+      q: 'Le guide est-il utile si nous avons déjà des comptes Claude ?',
       a: "Oui. Les chapitres sur les pièges d'achat, la configuration du jour 1 et le plan à 90 jours servent aussi à corriger une installation existante, par exemple des comptes Pro personnels à regrouper dans une organisation Team.",
     },
     {
-      q: 'Que devient mon adresse e-mail ?',
+      q: 'Que devient mon adresse e-mail ?',
       a: "Elle sert à vous envoyer le PDF. Vous ne recevez la lettre Waimia que si vous cochez la case prévue à cet effet. Désinscription en un clic.",
     },
   ],

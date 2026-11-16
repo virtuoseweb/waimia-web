@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['3-col'],
     tags: ['testimonial', 'logo', 'metric', 'b2b', 'social-proof'],
     status: 'stable',
-    description_fr: 'Carte de preuve B2B la plus persuasive : logo client + citation attribuée + métrique d’impact chiffrée par carte. Combine preuve sociale, autorité de marque et résultat mesuré.',
+    description_fr: 'Carte de preuve B2B la plus persuasive : logo client + citation attribuée + métrique d’impact chiffrée par carte. Combine preuve sociale, autorité de marque et résultat mesuré.',
     description_en: 'The most persuasive B2B proof card: client logo + attributed quote + a quantified impact metric per card. Combines social proof, brand authority and measured outcome.',
   
 };

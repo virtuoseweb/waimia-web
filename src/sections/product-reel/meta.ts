@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['2-col', 'media-right', 'split'],
     tags: ['scrollytelling', 'scroll-driven', 'terminal', 'product', 'showcase', 'sticky', 'interactive'],
     status: 'stable',
-    description_fr: 'Reel produit scroll-driven : étapes à gauche pilotées au scroll, console terminal à droite dont le contenu change par écran. Viewport sticky.',
+    description_fr: 'Reel produit scroll-driven : étapes à gauche pilotées au scroll, console terminal à droite dont le contenu change par écran. Viewport sticky.',
     description_en: 'Scroll-driven product reel: steps on the left driven by scroll, terminal console on the right whose content changes per screen. Sticky viewport.',
   
 };

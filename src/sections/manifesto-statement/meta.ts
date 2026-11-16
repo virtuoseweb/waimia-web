@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['full-bleed'],
     tags: ['manifesto', 'statement', 'fullscreen', 'ink', 'accent', 'editorial'],
     status: 'stable',
-    description_fr: 'Déclaration manifeste plein écran : kicker mono et statement XL en sans, relevés italiques serif, tone encre (interlude console) ou terracotta avec grille translucide.',
+    description_fr: 'Déclaration manifeste plein écran : kicker mono et statement XL en sans, relevés italiques serif, tone encre (interlude console) ou terracotta avec grille translucide.',
     description_en: 'Full-screen manifesto declaration: mono kicker and XL sans statement with serif italic highlights, ink tone (console interlude) or terracotta with a translucent grid.',
   
 };

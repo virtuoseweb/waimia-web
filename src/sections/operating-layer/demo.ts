@@ -11,7 +11,7 @@ export const demo: DemoData = {
     spec_label: 'VIRTUOSEOS · v2.4',
     h2_fr: 'La <i>couche opérationnelle</i> sous-jacente.',
     h2_en: 'The <i>operating layer</i> we ship under.',
-    lede_fr: "VirtuoseOS est le kernel qui se trouve sous chaque intervention Waimia : workspaces, agents, trace auditable des commandes, UI française d'abord.",
+    lede_fr: "VirtuoseOS est le kernel qui se trouve sous chaque intervention Waimia : workspaces, agents, trace auditable des commandes, UI française d'abord.",
     lede_en: 'VirtuoseOS is the kernel that sits under every Waimia engagement: workspaces, agents, auditable command trails, a French-first UI.',
     cta_primary: { label_fr: 'Visite produit →', label_en: 'See product tour →', href: '/services/integration-claude', variant: 'accent' },
     cta_secondary: { label_fr: 'Voir le changelog', label_en: 'Read changelog', href: '/blog', variant: 'ghost' },

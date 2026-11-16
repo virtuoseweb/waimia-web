@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['1-col'],
     tags: ['hero', 'tunnel', 'step', 'progress', 'funnel', 'kicker-computed'],
     status: 'stable',
-    description_fr: 'Hero d\'étape tunnel V2 : kicker calculé (offre_label + step/progress_total) + barre [NN] + h1 (hero ou section) + lede.',
+    description_fr: 'Hero d\'étape tunnel V2 : kicker calculé (offre_label + step/progress_total) + barre [NN] + h1 (hero ou section) + lede.',
     description_en: 'Tunnel step hero V2: computed kicker (offre_label + step/progress_total) + [NN] bar + h1 (hero or section) + lede.',
   
 };

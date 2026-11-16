@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['3-col', 'centered'],
     tags: ['hero', 'service', 'masthead', 'simple'],
     status: 'stable',
-    description_fr: 'Masthead service sobre : kicker § Service N + h1 display + lede display muted, sans décor SVG.',
+    description_fr: 'Masthead service sobre : kicker § Service N + h1 display + lede display muted, sans décor SVG.',
     description_en: 'Plain service masthead: § Service N kicker + display h1 + muted display lede, no SVG decoration.',
   
 };

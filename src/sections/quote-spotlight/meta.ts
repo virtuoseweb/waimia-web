@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['centered'],
     tags: ['testimonial', 'quote', 'spotlight', 'editorial'],
     status: 'stable',
-    description_fr: "Grande citation pleine lumiere sur fond paper-2 : guillemet decoratif, texte display italique, auteur avec avatar rond.",
+    description_fr: "Grande citation pleine lumiere sur fond paper-2 : guillemet decoratif, texte display italique, auteur avec avatar rond.",
     description_en: 'Full-spotlight quote on paper-2 background: decorative quotemark, italic display text, author with rounded avatar.',
   
 };

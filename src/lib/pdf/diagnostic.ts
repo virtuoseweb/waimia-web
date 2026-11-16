@@ -37,7 +37,7 @@ export const DIAGNOSTIC_PDF_FILENAME = 'waimia-diagnostic-maturite-ia.pdf';
 export async function renderDiagnosticPdf(res: DiagnosticResult, ctx: ReportContext): Promise<Uint8Array> {
   const r = await createReport({
     title: `${DOC_LABEL} · niveau ${res.level.level} sur 5`,
-    subject: `Rapport du diagnostic de maturité IA : score ${res.total} sur ${res.max}, niveau ${res.level.level} (${res.level.name}).`,
+    subject: `Rapport du diagnostic de maturité IA : score ${res.total} sur ${res.max}, niveau ${res.level.level} (${res.level.name}).`,
     keywords: ['Waimia', 'diagnostic', 'maturité IA', 'PME'],
     date: ctx.date,
   });
@@ -119,7 +119,7 @@ export async function renderDiagnosticPdf(res: DiagnosticResult, ctx: ReportCont
     const p = new Pager(r);
     runningHead(p, DOC_LABEL);
     sectionTitle(p, '01', 'Lecture par dimension', 'Où en est chaque dimension');
-    para(p, 'Chaque dimension est notée sur 6 : deux questions, de 0 à 3 points chacune. La plus basse est le point à traiter en premier.', {
+    para(p, 'Chaque dimension est notée sur 6 : deux questions, de 0 à 3 points chacune. La plus basse est le point à traiter en premier.', {
       size: 10,
       color: C.muted,
       w: COL_W * 0.86,
@@ -243,12 +243,12 @@ export async function renderDiagnosticPdf(res: DiagnosticResult, ctx: ReportCont
       // propose donc le même créneau pour un sujet précis (pas de contradiction avec la page).
       ...(res.level.level === res.levels[res.levels.length - 1].level
         ? {
-            title: 'Un sujet précis bloque ?',
-            body: 'Le créneau de l’audit sert aussi à ça : on part de votre sujet plutôt que d’une découverte. 45 minutes en visio, gratuit, avec une cartographie écrite à la fin.',
+            title: 'Un sujet précis bloque ?',
+            body: 'Le créneau de l’audit sert aussi à ça : on part de votre sujet plutôt que d’une découverte. 45 minutes en visio, gratuit, avec une cartographie écrite à la fin.',
           }
         : {
             title: 'Passer du niveau au premier chantier',
-            body: 'L’audit IA reprend ces réponses et descend au niveau des tâches : 45 minutes en visio, gratuit, avec une cartographie écrite à la fin.',
+            body: 'L’audit IA reprend ces réponses et descend au niveau des tâches : 45 minutes en visio, gratuit, avec une cartographie écrite à la fin.',
           }),
       button: 'Réserver l’audit IA',
       url: AUDIT_RDV_URL,
@@ -258,7 +258,7 @@ export async function renderDiagnosticPdf(res: DiagnosticResult, ctx: ReportCont
 
     // Note de méthode (barème lu dans les niveaux de la source)
     const scale = res.levels.map((l) => `${l.min} à ${l.max} niveau ${l.level}`).join(', ');
-    const note = `Ce diagnostic est un repère déclaratif, pas une mesure : il reflète vos réponses à une date donnée. Chaque dimension est notée sur 6 (deux questions de 0 à 3) ; le niveau vient du total sur ${res.max} : ${scale}.`;
+    const note = `Ce diagnostic est un repère déclaratif, pas une mesure : il reflète vos réponses à une date donnée. Chaque dimension est notée sur 6 (deux questions de 0 à 3) ; le niveau vient du total sur ${res.max} : ${scale}.`;
     const nh = paraHeight(f.sans, 8.4, note, COL_W - 110, 12.4);
     p.ensure(nh + 4);
     label(p, 'Note de méthode', { x: M_X, yTop: p.y + 1, size: 6.8 });

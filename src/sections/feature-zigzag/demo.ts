@@ -20,7 +20,7 @@ export const demo: DemoData = {
         kicker_en: 'Diagnostic',
         h3_fr: 'Audit complet en 5 jours',
         h3_en: 'Full audit in 5 days',
-        body_fr: "On cartographie vos flux, vos outils et vos angles morts. Le résultat : un plan d'action priorisé avec des gains rapides et des chantiers structurants.",
+        body_fr: "On cartographie vos flux, vos outils et vos angles morts. Le résultat : un plan d'action priorisé avec des gains rapides et des chantiers structurants.",
         body_en: 'We map your flows, tools, and blind spots. The result: a prioritised action plan with quick wins and structural projects.',
         link_label_fr: 'Voir le processus',
         link_label_en: 'See the process',
@@ -32,7 +32,7 @@ export const demo: DemoData = {
         ],
         // Media line-art inline (.svg) : trait currentColor + accent DS.
         media_src: '/images/line-art/livrable-tableau-mesure.svg',
-        media_alt_fr: 'Schema line-art : tableau de mesure',
+        media_alt_fr: 'Schema line-art : tableau de mesure',
         media_alt_en: 'Line-art diagram: measurement dashboard',
       },
       {
@@ -40,7 +40,7 @@ export const demo: DemoData = {
         kicker_en: 'Execution',
         h3_fr: 'Workflows IA câblés et transférés',
         h3_en: 'AI workflows built and handed over',
-        body_fr: "On conçoit, déploie et documente chaque workflow avec votre équipe. Pas de boîte noire : tout reste lisible, modifiable, extensible.",
+        body_fr: "On conçoit, déploie et documente chaque workflow avec votre équipe. Pas de boîte noire : tout reste lisible, modifiable, extensible.",
         body_en: 'We design, deploy, and document every workflow with your team. No black box: everything stays readable, editable, extensible.',
         link_label_fr: 'Explorer les cas clients',
         link_label_en: 'Explore client cases',
@@ -51,7 +51,7 @@ export const demo: DemoData = {
         ],
         // Bloc even (rendu ink par le damier) : variante -ink.webp.
         media_src: '/images/illustrations/ds/chess-ink.webp',
-        media_alt_fr: 'Illustration : pièces d\'échecs',
+        media_alt_fr: 'Illustration : pièces d\'échecs',
         media_alt_en: 'Illustration: chess pieces',
       },
       {
@@ -66,7 +66,7 @@ export const demo: DemoData = {
         link_href: '/formations',
         // Bloc odd (paper) : variante -paper.webp.
         media_src: '/images/illustrations/ds/men-on-hand-paper.webp',
-        media_alt_fr: 'Illustration : transmission de savoir',
+        media_alt_fr: 'Illustration : transmission de savoir',
         media_alt_en: 'Illustration: knowledge handover',
       },
       {
@@ -85,7 +85,7 @@ export const demo: DemoData = {
         ],
         // 4e rangée (paire en départ left → rendu ink par le damier) : variante -ink.webp.
         media_src: '/images/line-art/dispositif-flow.svg',
-        media_alt_fr: 'Schema line-art : flux de pilotage',
+        media_alt_fr: 'Schema line-art : flux de pilotage',
         media_alt_en: 'Line-art diagram: steering flow',
       },
     ],

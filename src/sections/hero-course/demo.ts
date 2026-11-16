@@ -9,7 +9,7 @@ export const demo: DemoData = {
     type_label_en: 'Practitioner course',
     title_fr: 'Câbler son CRM avec Claude · 2 jours',
     title_en: 'Wiring your CRM with Claude · 2 days',
-    lede_fr: 'Deux jours pour livrer un workflow CRM Claude en production : audit pipeline, scoring, séquences automatisées.',
+    lede_fr: 'Deux jours pour livrer un workflow CRM Claude en production : audit pipeline, scoring, séquences automatisées.',
     lede_en: 'Two days to ship a Claude-powered CRM workflow to production: pipeline audit, scoring, automated sequences.',
     pills: [
       { label_fr: 'Intermédiaire', label_en: 'Intermediate', variant: 'default' },
@@ -19,5 +19,5 @@ export const demo: DemoData = {
       { label_fr: '2 400 €', label_en: '€2,400', variant: 'price' },
     ],
     cta_primary: { label_fr: "S'inscrire →", label_en: 'Enroll →', href: '#enroll', variant: 'primary' },
-    cta_secondary: { label_fr: 'Une question ? →', label_en: 'Have a question? →', href: '/contact', variant: 'ghost' },
+    cta_secondary: { label_fr: 'Une question ? →', label_en: 'Have a question? →', href: '/contact', variant: 'ghost' },
   };

@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['3-col', 'split'],
     tags: ['case', 'spotlight', 'proof', 'metrics', 'conversion', 'dark'],
     status: 'stable',
-    description_fr: 'Vitrine de cas concret insérable partout : carte INK avec visuel habillé + titre serti d’un relevé accent, citation à barre accent, métriques massives latérales, tags méta et CTA. Levier de conversion à fort impact.',
+    description_fr: 'Vitrine de cas concret insérable partout : carte INK avec visuel habillé + titre serti d’un relevé accent, citation à barre accent, métriques massives latérales, tags méta et CTA. Levier de conversion à fort impact.',
     description_en: 'A concrete-case showcase you can drop anywhere: an INK card with a styled visual + a title with an accent highlight, an accent-bar quote, large lateral metrics, meta tags and a CTA. A high-impact conversion lever.',
   
 };

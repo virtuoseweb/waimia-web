@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['multi-col', 'split'],
     tags: ['hero', 'author', 'portrait', 'profile'],
     status: 'stable',
-    description_fr: 'Hero de page auteur : 2-col copy/portrait, breadcrumb équipe, role eyebrow, h1 split prénom+nom italic accent, lede display.',
+    description_fr: 'Hero de page auteur : 2-col copy/portrait, breadcrumb équipe, role eyebrow, h1 split prénom+nom italic accent, lede display.',
     description_en: 'Author page hero: 2-col copy/portrait, team breadcrumb, role eyebrow, h1 split first-name + italic accent surname, display lede.',
   
 };

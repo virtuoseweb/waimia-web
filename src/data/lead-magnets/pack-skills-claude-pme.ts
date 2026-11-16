@@ -28,8 +28,8 @@ export const data: LeadMagnetPage = {
     'The AI lead who must prepare skills before rolling them out to the team through a plugin.',
   ],
   inside_fr: [
-    { title: 'devis-commercial', desc: "Brouillon de devis à partir d'une demande en texte libre, avec votre grille tarifaire et votre modèle. Tout prix absent de la grille sort en « hors grille »." },
-    { title: 'compte-rendu-reunion', desc: 'Décisions, tableau des actions avec responsable et échéance, points ouverts, liste « à vérifier avant diffusion ».' },
+    { title: 'devis-commercial', desc: "Brouillon de devis à partir d'une demande en texte libre, avec votre grille tarifaire et votre modèle. Tout prix absent de la grille sort en « hors grille »." },
+    { title: 'compte-rendu-reunion', desc: 'Décisions, tableau des actions avec responsable et échéance, points ouverts, liste « à vérifier avant diffusion ».' },
     { title: 'relance-facture-impayee', desc: 'Rappel, relance ferme ou mise en demeure selon le retard, avec vos conditions de paiement. Trois modèles de courrier à adapter.' },
     { title: 'fiche-de-poste', desc: "Fiche de poste interne et offre d'emploi, sept questions de cadrage, critères discriminatoires écartés." },
     { title: 'veille-concurrentielle', desc: 'Note de veille où chaque fait porte sa source et sa date, avec la liste de vos concurrents à compléter.' },
@@ -50,10 +50,10 @@ export const data: LeadMagnetPage = {
     { title: 'The PDF guide', desc: 'Install on claude.ai and in Claude Code, adapt each skill, three acceptance tests, common mistakes, security, moving to a plugin.' },
   ],
   extract_fr:
-    "<p><strong>Extrait du skill compte-rendu-reunion : ses règles.</strong> Le fichier complet contient aussi la procédure, le format de sortie et une variante e-mail de suivi.</p>" +
+    "<p><strong>Extrait du skill compte-rendu-reunion : ses règles.</strong> Le fichier complet contient aussi la procédure, le format de sortie et une variante e-mail de suivi.</p>" +
     '<ul>' +
-    "<li><strong>N'écris que ce qui a été dit.</strong> Si une décision n'est pas claire dans la source, classe-la en « point ouvert », pas en « décision ».</li>" +
-    "<li><strong>Chaque action a un responsable et une échéance.</strong> S'il manque l'un des deux, écris « responsable à préciser » ou « échéance à préciser », et liste-le à la fin.</li>" +
+    "<li><strong>N'écris que ce qui a été dit.</strong> Si une décision n'est pas claire dans la source, classe-la en « point ouvert », pas en « décision ».</li>" +
+    "<li><strong>Chaque action a un responsable et une échéance.</strong> S'il manque l'un des deux, écris « responsable à préciser » ou « échéance à préciser », et liste-le à la fin.</li>" +
     '<li><strong>Phrases courtes.</strong> Pas d\'adjectifs d\'ambiance.</li>' +
     '</ul>',
   extract_en:
@@ -65,24 +65,24 @@ export const data: LeadMagnetPage = {
     '</ul>',
   faq_fr: [
     {
-      q: 'Sur quelles offres Claude ces skills fonctionnent-ils ?',
+      q: 'Sur quelles offres Claude ces skills fonctionnent-ils ?',
       a: "Sur claude.ai, les skills personnalisés demandent l'exécution de code activée. La documentation développeurs d'Anthropic les cite sur Pro, Max, Team et Enterprise, le centre d'aide ajoute l'offre gratuite. Dans Claude Code, il suffit de copier le dossier dans .claude/skills.",
     },
     {
-      q: 'Faut-il savoir coder pour les installer ou les modifier ?',
+      q: 'Faut-il savoir coder pour les installer ou les modifier ?',
       a: "Non. Les huit skills sont du texte au format Markdown, sans script. On les modifie avec un éditeur de texte, et le PDF explique comment refaire le zip d'un skill modifié pour claude.ai.",
     },
     {
-      q: 'Les skills sont-ils prêts à servir tels quels ?',
-      a: "Deux le sont (compte rendu, fiche de poste). Les six autres s'appuient sur un fichier à compléter : votre grille de prix, vos conditions de paiement, vos indicateurs, votre charte. Tant qu'un champ reste vide, la procédure demande à Claude de le signaler au lieu d'inventer.",
+      q: 'Les skills sont-ils prêts à servir tels quels ?',
+      a: "Deux le sont (compte rendu, fiche de poste). Les six autres s'appuient sur un fichier à compléter : votre grille de prix, vos conditions de paiement, vos indicateurs, votre charte. Tant qu'un champ reste vide, la procédure demande à Claude de le signaler au lieu d'inventer.",
     },
     {
-      q: 'Puis-je les partager avec toute mon équipe ?',
-      a: "Sur claude.ai, chaque personne installe ses skills, sauf partage d'organisation sur Team et Enterprise selon les réglages d'un propriétaire. Dans Claude Code, un dossier .claude/skills versionné avec un projet suffit. Pour plusieurs équipes, la voie prévue par Anthropic est un plugin privé : le PDF explique quand passer à cette étape.",
+      q: 'Puis-je les partager avec toute mon équipe ?',
+      a: "Sur claude.ai, chaque personne installe ses skills, sauf partage d'organisation sur Team et Enterprise selon les réglages d'un propriétaire. Dans Claude Code, un dossier .claude/skills versionné avec un projet suffit. Pour plusieurs équipes, la voie prévue par Anthropic est un plugin privé : le PDF explique quand passer à cette étape.",
     },
     {
-      q: 'Comment reçoit-on le pack ?',
-      a: "Par e-mail, en deux pièces jointes : le ZIP des skills et le PDF du mode d'emploi. L'inscription à la lettre Waimia est facultative et séparée.",
+      q: 'Comment reçoit-on le pack ?',
+      a: "Par e-mail, en deux pièces jointes : le ZIP des skills et le PDF du mode d'emploi. L'inscription à la lettre Waimia est facultative et séparée.",
     },
   ],
   faq_en: [

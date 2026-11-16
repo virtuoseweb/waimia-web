@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['2-col', 'media-right', 'split'],
     tags: ['why', 'stalls', 'sticky', 'figures', 'editorial'],
     status: 'stable',
-    description_fr: 'Section éditoriale "pourquoi X cale" : chapter label sticky à gauche + N FIG rows à droite avec row-lines.',
+    description_fr: 'Section éditoriale "pourquoi X cale" : chapter label sticky à gauche + N FIG rows à droite avec row-lines.',
     description_en: 'Editorial "why X stalls" section: sticky chapter label left + N FIG rows right with row-lines.',
   
 };

@@ -17,7 +17,7 @@ export const demo: DemoData = {
     cta_secondary: { label_fr: 'Voir la méthode', label_en: 'See the method', href: '#', variant: 'ghost' },
     bullets: [
       { text_fr: 'Web app connectée à un LLM via skills et routines précises', text_en: 'Web app wired to an LLM through precise skills and routines' },
-      { text_fr: 'Search Console + Analytics : KPI lus, SEO optimisé en continu', text_en: 'Search Console + Analytics: KPIs read, SEO optimized continuously' },
+      { text_fr: 'Search Console + Analytics : KPI lus, SEO optimisé en continu', text_en: 'Search Console + Analytics: KPIs read, SEO optimized continuously' },
       { text_fr: "Alertes temps réel, qualification de chaque visiteur jusqu'au CRM", text_en: 'Real-time alerts, every visitor qualified all the way to the CRM' },
       { text_fr: 'Lead magnet et quiz qui routent vers la page qui convertit le mieux', text_en: 'Lead magnet and quiz that route to the page that converts best' },
     ],

@@ -13,9 +13,15 @@
  *   - src/content/**\/*.json : champs FR (clé ou ancêtre en `_fr`, `Fr`, `fr`), plus une liste
  *     blanche de champs FR sans suffixe, plus tout le dossier legal (hors clés `*En`).
  *     Les champs EN (`_en`, `En`, `en`) et la liste noire (slug, url, href, src...) ne sont jamais touchés.
- *   - src/pages/**\/*.astro : nœuds texte du gabarit et littéraux de chaîne qui portent un
- *     indice de français, via le parseur TypeScript. Les attributs des balises HTML
- *     minuscules sont exclus ; les props de composants (balise en majuscule) sont inclus.
+ *   - src/data/**\/*.json : même règle que src/content (champs FR par suffixe de clé).
+ *   - src/pages, src/components, src/sections /**\/*.astro : nœuds texte du gabarit et littéraux
+ *     de chaîne qui portent un indice de français, via le parseur TypeScript. Les attributs des
+ *     balises HTML minuscules sont exclus ; les props de composants (balise en majuscule) sont inclus.
+ *   - src/data, src/lib, src/components, src/sections /**\/*.ts(x) : mêmes littéraux de chaîne
+ *     (indice de français) ; exclus : clés d'objet, `import`/`export`, valeurs sous une clé EN,
+ *     messages de développement (`throw`, `new Error`, `console.*`), gabarits étiquetés
+ *     (css`...`), valeurs sous une clé `prompt*`, fichiers `*.generated.*` (corriger leur
+ *     source puis régénérer), fichiers de test.
  */
 import { createRequire } from 'node:module';
 import { readdirSync, readFileSync } from 'node:fs';
@@ -146,6 +152,16 @@ export function scanAstro(file, src) {
   const sources = [];
   if (fmEnd > 0) sources.push({ sf: ts.createSourceFile(`${file}.ts`, front, ts.ScriptTarget.Latest, true, ts.ScriptKind.TS), shift: 0, masked: front });
   sources.push({ sf: ts.createSourceFile(`${file}.tsx`, tsx, ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX), shift: 2, masked: tpl });
+  return scanSources(src, sources);
+}
+
+/** Fichier `.ts` / `.tsx` : mêmes règles de littéraux que le frontmatter et le gabarit d'un `.astro`. */
+export function scanTs(file, src) {
+  const kind = file.endsWith('x') ? ts.ScriptKind.TSX : ts.ScriptKind.TS;
+  return scanSources(src, [{ sf: ts.createSourceFile(file, src, ts.ScriptTarget.Latest, true, kind), shift: 0, masked: src }]);
+}
+
+function scanSources(src, sources) {
   if (sources.some(({ sf }) => sf.parseDiagnostics.length > 0)) return { out: src, n: 0, edits: [], parseOk: false };
 
   // Les positions sont cherchées dans la source masquée (commentaires HTML, style et script
@@ -162,6 +178,14 @@ export function scanAstro(file, src) {
     const p = node.parent;
     return p && ts.isPropertyAssignment(p) && p.initializer === node && isEnKey(p.name.getText().replace(/^['"]|['"]$/g, ''));
   };
+  const inPromptProperty = (node) => {
+    for (let a = node.parent; a; a = a.parent) {
+      if (ts.isPropertyAssignment(a) && /prompt/i.test(a.name.getText().replace(/^['"]|['"]$/g, ''))) return true;
+      if (ts.isStatement(a)) return false;
+    }
+    return false;
+  };
+  const isTagged = (node) => node.parent && ts.isTaggedTemplateExpression(node.parent) && node.parent.template === node;
   const inDevMessage = (node) => {
     for (let a = node.parent; a; a = a.parent) {
       if (ts.isThrowStatement(a)) return true;
@@ -196,7 +220,7 @@ export function scanAstro(file, src) {
       if (ts.isStringLiteral(node) || ts.isNoSubstitutionTemplateLiteral(node)) {
         const p = node.parent;
         if (p && ts.isPropertyAssignment(p) && p.name === node) return;
-        if (inEnProperty(node) || inDevMessage(node) || inRaw) return;
+        if (inEnProperty(node) || inDevMessage(node) || inPromptProperty(node) || isTagged(node) || inRaw) return;
         if (inAttr) {
           const tag = tagOf(node.parent);
           if (!/^[A-Z]/.test(tag) || ATTR_EXCLUDE.has(node.parent.name.getText(sf))) return;
@@ -205,7 +229,7 @@ export function scanAstro(file, src) {
         return;
       }
       if (ts.isTemplateExpression(node)) {
-        if (!inEnProperty(node) && !inDevMessage(node) && !inRaw) {
+        if (!inEnProperty(node) && !inDevMessage(node) && !inPromptProperty(node) && !isTagged(node) && !inRaw) {
           const spans = [[pos(node.head, 1), end(node.head, -2)]];
           node.templateSpans.forEach((s, i) => {
             const last = i === node.templateSpans.length - 1;
@@ -229,30 +253,42 @@ export function scanAstro(file, src) {
 
 // ---------------------------------------------------------------- Parcours
 
-function walk(dir, ext, files = []) {
+// Fichiers générés (corriger leur source, puis régénérer : gen:section-manifest, gen:section-quickref).
+const SKIP_FILE = /\.generated\.|\.(test|spec)\.|\.d\.ts$|^(section-quickref|ds-section-manifest)\.json$/;
+
+function walk(dir, exts, files = []) {
   for (const entry of readdirSync(dir, { withFileTypes: true })) {
     const path = join(dir, entry.name);
-    if (entry.isDirectory()) walk(path, ext, files);
-    else if (entry.isFile() && entry.name.endsWith(ext)) files.push(path);
+    if (entry.isDirectory()) walk(path, exts, files);
+    else if (entry.isFile() && exts.some((e) => entry.name.endsWith(e)) && !SKIP_FILE.test(entry.name)) files.push(path);
   }
   return files;
 }
+
+const JSON_ROOTS = ['src/content', 'src/data'];
+const ASTRO_ROOTS = ['src/pages', 'src/components', 'src/sections'];
+const TS_ROOTS = ['src/data', 'src/lib', 'src/components', 'src/sections'];
 
 /** Scanne tout le périmètre ; ne lit que, n'écrit rien. */
 export function collectAll(root) {
   const files = [];
   const skipped = [];
-  for (const file of walk(join(root, 'src/content'), '.json').sort()) {
+  const rel = (file) => relative(root, file);
+  for (const file of JSON_ROOTS.flatMap((d) => walk(join(root, d), ['.json'])).sort()) {
     const raw = readFileSync(file, 'utf8');
     const r = scanJson(file, raw);
-    if (r.out === null) skipped.push({ file: relative(root, file), reason: r.reason });
+    if (r.out === null) skipped.push({ file: rel(file), reason: r.reason });
     else if (r.n > 0) files.push({ file, kind: 'json', n: r.n, before: raw, after: r.out, detail: r.changes.map((c) => `${c.where} : ${c.before.slice(0, 70)}`) });
   }
-  for (const file of walk(join(root, 'src/pages'), '.astro').sort()) {
+  const code = [
+    ...ASTRO_ROOTS.flatMap((d) => walk(join(root, d), ['.astro'])).map((file) => ({ file, kind: 'astro', scan: scanAstro })),
+    ...TS_ROOTS.flatMap((d) => walk(join(root, d), ['.ts', '.tsx'])).map((file) => ({ file, kind: 'ts', scan: scanTs })),
+  ].sort((a, b) => a.file.localeCompare(b.file));
+  for (const { file, kind, scan } of code) {
     const raw = readFileSync(file, 'utf8');
-    const r = scanAstro(file, raw);
-    if (!r.parseOk) skipped.push({ file: relative(root, file), reason: 'gabarit non analysable par TypeScript' });
-    else if (r.n > 0) files.push({ file, kind: 'astro', n: r.n, before: raw, after: r.out, detail: r.edits.map((i) => raw.slice(Math.max(0, i - 40), i + 12).replace(/\s+/g, ' ')) });
+    const r = scan(file, raw);
+    if (!r.parseOk) skipped.push({ file: rel(file), reason: 'source non analysable par TypeScript' });
+    else if (r.n > 0) files.push({ file, kind, n: r.n, before: raw, after: r.out, detail: r.edits.map((i) => raw.slice(Math.max(0, i - 40), i + 12).replace(/\s+/g, ' ')) });
   }
   return { files, skipped, total: files.reduce((s, f) => s + f.n, 0) };
 }

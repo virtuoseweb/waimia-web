@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['2-col', 'media-right', 'split'],
     tags: ['process', 'timeline', 'sticky', 'scrub', 'pin', 'steps'],
     status: 'stable',
-    description_fr: 'Section "comment on livre", sticky pin scrub : N étapes avec numline et stage cards animées au scroll (graceful degradation mobile).',
+    description_fr: 'Section "comment on livre", sticky pin scrub : N étapes avec numline et stage cards animées au scroll (graceful degradation mobile).',
     description_en: 'How-we-ship section, sticky pin scrub: N steps with numline and scroll-driven stage cards (graceful mobile degradation).',
   
 };

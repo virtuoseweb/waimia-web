@@ -15,7 +15,7 @@ export const demo: DemoData = {
     items: [
       { num: '01', date_fr: '04.2026', date_en: '04.2026', tag_fr: 'CAS', tag_en: 'CASE', label_fr: 'Healthtech · triage IA routé en 6 semaines.', label_en: 'Healthtech · AI triage routing in 6 weeks.', href: '/blog' },
       { num: '02', date_fr: '04.2026', date_en: '04.2026', tag_fr: 'MISE À JOUR', tag_en: 'UPDATE', label_fr: 'Atelier · noyaux multi-workspace, locale FR.', label_en: 'Workshop · multi-workspace kernels, French locale.', href: '/blog' },
-      { num: '03', date_fr: '03.2026', date_en: '03.2026', tag_fr: 'NOTE', tag_en: 'FIELD NOTE', label_fr: 'HubSpot + Claude : le pattern discret qui livre vraiment.', label_en: 'HubSpot + Claude: the unglamorous pattern that actually ships.', href: '/blog' },
+      { num: '03', date_fr: '03.2026', date_en: '03.2026', tag_fr: 'NOTE', tag_en: 'FIELD NOTE', label_fr: 'HubSpot + Claude : le pattern discret qui livre vraiment.', label_en: 'HubSpot + Claude: the unglamorous pattern that actually ships.', href: '/blog' },
       { num: '04', date_fr: '03.2026', date_en: '03.2026', tag_fr: 'ESSAI', tag_en: 'ESSAY', label_fr: "Contre l'esthétique cerveau-circuit.", label_en: 'Against the brain-circuit aesthetic.', href: '/blog' },
       { num: '05', date_fr: '02.2026', date_en: '02.2026', tag_fr: 'CAS', tag_en: 'CASE', label_fr: 'Scale-up SaaS B2B · refonte RevOps, pipeline réactivé.', label_en: 'B2B SaaS scale-up · RevOps rebuild, pipeline reactivated.', href: '/blog' },
     ],

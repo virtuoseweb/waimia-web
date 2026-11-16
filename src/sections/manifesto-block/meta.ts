@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['1-col'],
     tags: ['manifesto', 'editorial', 'large-display', 'italic', 'statement'],
     status: 'stable',
-    description_fr: 'Bloc manifeste intercalary : kicker mono § + grand bloc display italique sans box, span accent terracotta, respiration éditoriale forte.',
+    description_fr: 'Bloc manifeste intercalary : kicker mono § + grand bloc display italique sans box, span accent terracotta, respiration éditoriale forte.',
     description_en: 'Intercalary manifesto block: § mono kicker + large box-less italic display, terracotta accent span, strong editorial breathing.',
   
 };

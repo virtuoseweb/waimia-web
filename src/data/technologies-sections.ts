@@ -22,7 +22,7 @@ const layers = [
   {
     n: '01',
     label: 'Automatisation',
-    intro: 'Les workflows qui font circuler la donnée entre vos outils. La plateforme se choisit sur trois critères : où elle est hébergée, ce qu’elle coûte, et qui la maintiendra.',
+    intro: 'Les workflows qui font circuler la donnée entre vos outils. La plateforme se choisit sur trois critères : où elle est hébergée, ce qu’elle coûte, et qui la maintiendra.',
     items: [
       'n8n pour les workflows que vous voulez maîtriser de bout en bout.',
       'Make quand votre équipe doit pouvoir lire et modifier les scénarios elle-même.',
@@ -35,7 +35,7 @@ const layers = [
     label: 'IA et agents',
     intro: 'Un modèle choisi par tâche, pas un seul pour tout. Les agents agissent dans un périmètre écrit, avec une validation humaine sur les actions sensibles.',
     items: [
-      'Claude par défaut pour les agents ; OpenAI si votre équipe l’utilise déjà ; Mistral si vos données doivent rester chez un fournisseur européen.',
+      'Claude par défaut pour les agents ; OpenAI si votre équipe l’utilise déjà ; Mistral si vos données doivent rester chez un fournisseur européen.',
       'Des connecteurs standard (API, MCP) pour que l’agent lise vos outils sans accès superflu.',
       'Bases de connaissance pour répondre à partir de vos documents.',
       'Journal des actions et suivi des coûts de modèles.',
@@ -48,7 +48,7 @@ const layers = [
     items: [
       'Excel, Outlook, votre ERP et votre CRM (HubSpot, Salesforce, Pipedrive) restent en place.',
       'PostgreSQL centralise ce qui est dispersé, et des tableaux de bord alimentés automatiquement remplacent le reporting manuel.',
-      'Pour une application sur mesure : interface web en React, conçue avec ceux qui s’en servent, données et authentification sur PostgreSQL.',
+      'Pour une application sur mesure : interface web en React, conçue avec ceux qui s’en servent, données et authentification sur PostgreSQL.',
       'Le code est versionné dans votre dépôt, hébergé sur vos comptes, avec la documentation et le mode opératoire.',
     ],
   },
@@ -57,9 +57,9 @@ const layers = [
     label: 'Site web et mesure',
     intro: 'Un site rapide, relié au CRM, et une mesure avant et après.',
     items: [
-      'Astro pour un site codé ; WordPress, Webflow ou Shopify quand votre équipe doit publier seule.',
+      'Astro pour un site codé ; WordPress, Webflow ou Shopify quand votre équipe doit publier seule.',
       'Search Console pour voir ce que Google indexe et ce qui vous amène des visites.',
-      'Suivi de conversion : chaque action utile est tracée et attribuée.',
+      'Suivi de conversion : chaque action utile est tracée et attribuée.',
     ],
   },
 ];
@@ -70,7 +70,7 @@ export function technologiesSections(lang: Lang) {
     type: 'hero-utility-masthead',
     kicker_fr: '§ Stack et technologies',
     kicker_en: '§ Stack and technologies',
-    h1_fr: 'Stack et technologies IA : les outils, <i>couche par couche</i>.',
+    h1_fr: 'Stack et technologies IA : les outils, <i>couche par couche</i>.',
     h1_en: 'AI stack and technologies: the tools, <i>layer by layer</i>.',
     lede_fr: 'Le plus simple qui fait le travail. n8n et Make pour automatiser, Claude et OpenAI pour les agents, vos outils gardés tels quels, et le code remis à la fin.',
     lede_en: 'n8n and Make to automate, Claude and OpenAI for agents, your tools kept as they are. Here is what we use, for what, and what you get at the end.',
@@ -122,16 +122,16 @@ export function technologiesSections(lang: Lang) {
     kicker_en: '§ How we choose',
     h2_fr: 'Aucun outil n\'est imposé par principe.',
     h2_en: 'Le plus simple qui fait le travail.',
-    body1_fr: 'On part de votre métier, de vos outils et de votre budget. Une <a href="/services/automatisations">automatisation</a> à règles fixes passe avant un <a href="/services/agents-ia">agent IA</a> quand elle suffit ; un outil du marché passe avant une <a href="/services/applications-internes">application sur mesure</a> quand il fait le travail.',
+    body1_fr: 'On part de votre métier, de vos outils et de votre budget. Une <a href="/services/automatisations">automatisation</a> à règles fixes passe avant un <a href="/services/agents-ia">agent IA</a> quand elle suffit ; un outil du marché passe avant une <a href="/services/applications-internes">application sur mesure</a> quand il fait le travail.',
     body1_en: 'Aucun outil n\'est imposé par principe. On part de votre métier, de vos outils et de votre budget. Une <a href="/services/automatisations">automatisation</a> à règles fixes passe avant un <a href="/services/agents-ia">agent IA</a> quand elle suffit ; un outil du marché passe avant une <a href="/services/applications-internes">application sur mesure</a> quand il fait le travail.',
-    body2_fr: 'Le principe qui ne change pas : vous gardez le code, les workflows et la documentation. Vous pouvez reprendre le système en interne ou le confier à un autre prestataire.',
+    body2_fr: 'Le principe qui ne change pas : vous gardez le code, les workflows et la documentation. Vous pouvez reprendre le système en interne ou le confier à un autre prestataire.',
     body2_en: 'Le principe qui ne change pas : vous gardez le code, les workflows et la documentation. Vous pouvez reprendre le système en interne ou le confier à un autre prestataire.',
   } satisfies SectionByType<'branded-callout'>;
 
   // ── CTA final ──
   const ctaData = {
     type: 'cta-final',
-    h2_fr: 'Quels outils pour <i>votre</i> cas ?',
+    h2_fr: 'Quels outils pour <i>votre</i> cas ?',
     h2_en: 'Which tools for <i>your</i> case?',
     body_fr: `${AUDIT_PROMISE.general.short.fr} On part de vos processus et de ce que vous utilisez déjà, et on vous dit ce qui convient, ou ce que vous gardez tel quel.`,
     body_en: `${AUDIT_PROMISE.general.short.en} We start from your processes and your current tools, and tell you which tools fit.`,
