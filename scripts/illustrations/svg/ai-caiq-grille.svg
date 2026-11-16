@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · Claude dessine · « AI-CAIQ, le questionnaire IA » : un immense panneau-grille
+       de cases à cocher se dresse sur la plaine ; une échelle est appuyée contre lui, une petite
+       silhouette au sommet coche une case. Au pied, une seconde silhouette tend un dossier vers
+       une haute tour lointaine (le fournisseur du modèle), reliée au panneau par une passerelle.
+       Aucun texte. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-92" r="7.5" fill="{{shadow}}"/>
+      <path d="M-10 -83 Q0 -87 10 -83 L11 -48 L-11 -48 Z" fill="{{shadow}}"/>
+      <path d="M-2.5 -83 L0 -75 L2.5 -83 Z" fill="{{light}}"/>
+      <rect x="-9" y="-49" width="7" height="47" fill="{{shadow}}"/>
+      <rect x="2" y="-49" width="7" height="47" fill="{{shadow}}"/>
+    </g>
+    <g id="row">
+      <rect x="0" y="0" width="26" height="26" fill="{{light}}"/>
+      <rect x="40" y="9" width="150" height="8" fill="{{deep}}"/>
+    </g>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <!-- Grand disque pâle derrière le panneau -->
+  <circle cx="560" cy="250" r="200" fill="{{pale}}"/>
+
+  <!-- Sol -->
+  <rect x="0" y="520" width="1456" height="104" fill="{{ground}}"/>
+  <rect x="0" y="520" width="1456" height="8" fill="{{deep}}"/>
+
+  <!-- Le panneau-grille -->
+  <rect x="400" y="90" width="320" height="430" fill="{{shape}}"/>
+  <rect x="400" y="90" width="320" height="14" fill="{{shadow}}"/>
+  <use href="#row" transform="translate(440 130)"/>
+  <use href="#row" transform="translate(440 180)"/>
+  <use href="#row" transform="translate(440 230)"/>
+  <use href="#row" transform="translate(440 280)"/>
+  <use href="#row" transform="translate(440 330)"/>
+  <use href="#row" transform="translate(440 380)"/>
+  <use href="#row" transform="translate(440 430)"/>
+  <!-- Coches déjà posées -->
+  <path d="M445 145 L452 152 L463 136" fill="none" stroke="{{shadow}}" stroke-width="5"/>
+  <path d="M445 195 L452 202 L463 186" fill="none" stroke="{{shadow}}" stroke-width="5"/>
+  <path d="M445 295 L452 302 L463 286" fill="none" stroke="{{shadow}}" stroke-width="5"/>
+  <!-- Une case barrée (non applicable) -->
+  <rect x="444" y="241" width="18" height="5" fill="{{shadow}}"/>
+  <!-- Pieds du panneau -->
+  <rect x="420" y="520" width="24" height="10" fill="{{shadow}}"/>
+  <rect x="676" y="520" width="24" height="10" fill="{{shadow}}"/>
+
+  <!-- Échelle appuyée à gauche du panneau -->
+  <path d="M300 520 L392 160" stroke="{{shadow}}" stroke-width="8"/>
+  <path d="M336 520 L420 170" stroke="{{shadow}}" stroke-width="8"/>
+  <rect x="314" y="470" width="30" height="6" fill="{{shadow}}"/>
+  <rect x="327" y="420" width="30" height="6" fill="{{shadow}}"/>
+  <rect x="340" y="370" width="30" height="6" fill="{{shadow}}"/>
+  <rect x="352" y="320" width="30" height="6" fill="{{shadow}}"/>
+  <rect x="365" y="270" width="30" height="6" fill="{{shadow}}"/>
+  <rect x="377" y="220" width="30" height="6" fill="{{shadow}}"/>
+  <!-- La silhouette sur l'échelle, qui coche -->
+  <use href="#man" transform="translate(394 230) scale(0.9)"/>
+  <rect x="402" y="160" width="40" height="5" fill="{{shadow}}" transform="rotate(-20 402 160)"/>
+
+  <!-- Passerelle vers la tour du fournisseur -->
+  <rect x="720" y="300" width="470" height="10" fill="{{deep}}"/>
+  <rect x="720" y="310" width="470" height="4" fill="{{shadow}}"/>
+
+  <!-- Tour lointaine, à droite -->
+  <rect x="1190" y="120" width="120" height="400" fill="{{deep}}"/>
+  <rect x="1210" y="150" width="20" height="30" fill="{{subject}}"/>
+  <rect x="1270" y="150" width="20" height="30" fill="{{subject}}"/>
+  <rect x="1210" y="210" width="20" height="30" fill="{{subject}}"/>
+  <rect x="1270" y="210" width="20" height="30" fill="{{subject}}"/>
+  <rect x="1210" y="270" width="20" height="30" fill="{{subject}}"/>
+  <rect x="1270" y="270" width="20" height="30" fill="{{subject}}"/>
+  <rect x="1180" y="104" width="140" height="18" fill="{{shadow}}"/>
+
+  <!-- Au pied du panneau : une silhouette tend un dossier vers la tour -->
+  <use href="#man" transform="translate(860 520) scale(1)"/>
+  <rect x="872" y="460" width="34" height="24" fill="{{light}}"/>
+  <rect x="872" y="460" width="34" height="5" fill="{{shadow}}"/>
+  <!-- Une pile de feuilles posée au sol -->
+  <rect x="760" y="496" width="60" height="24" fill="{{light}}"/>
+  <rect x="760" y="504" width="60" height="3" fill="{{deep}}"/>
+  <rect x="760" y="512" width="60" height="3" fill="{{deep}}"/>
+</svg>

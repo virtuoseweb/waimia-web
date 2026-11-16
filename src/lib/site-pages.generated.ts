@@ -12135,6 +12135,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/ai-caiq-questionnaire-ia",
+    "title": "AI-CAIQ : répondre au questionnaire IA de la CSA quand on utilise Claude ou ChatGPT",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/ai-caiq-questionnaire-ia.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/ai-mode-google-ai-overviews-pme",
     "title": "AI Mode (Mode IA) et AI Overviews de Google : ce que fait une PME",
     "group": "blog",
@@ -14016,6 +14025,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/agents-ia-toujours-actifs-pme",
       "/blog/ai-act-article-50-images-publicitaires",
       "/blog/ai-act-pme-utilisatrice-ia",
+      "/blog/ai-caiq-questionnaire-ia",
       "/blog/ai-mode-google-ai-overviews-pme",
       "/blog/apparaitre-dans-chatgpt-pme",
       "/blog/application-metier-exemples-pme",

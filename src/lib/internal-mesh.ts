@@ -397,6 +397,7 @@ const PAGES: Record<string, PageDef> = {
   '/blog/chatgpt-pro-ou-business-petite-equipe': { label_fr: 'ChatGPT Pro ou Business : coût pour 3 à 10 personnes', label_en: 'ChatGPT Pro or Business: cost for 3 to 10 people', kind: 'article', topics: ['conseil', 'claude'] },
   '/blog/risques-claude-pme': { label_fr: 'Risques de Claude en PME : 8 risques et leurs réglages', label_en: 'Risks of Claude in a small business', kind: 'article', topics: ['claude', 'conformite'] },
   '/blog/questionnaire-securite-ia': { label_fr: "Questionnaire de sécurité client : répondre avec l'IA", label_en: 'Customer security questionnaires with AI', kind: 'article', topics: ['conformite', 'claude'] },
+  '/blog/ai-caiq-questionnaire-ia': { label_fr: "AI-CAIQ : le questionnaire IA de la CSA", label_en: 'AI-CAIQ: the CSA AI questionnaire', kind: 'article', topics: ['conformite', 'claude'] },
   '/blog/facture-electronique-reception-pme': { label_fr: 'Facture électronique : ce que change la réception en PME', label_en: 'E-invoicing: what receiving changes for a small business', kind: 'article', topics: ['automatisation', 'conformite'] },
   '/blog/consultation-cse-ia': { label_fr: "Consultation du CSE et IA : quand consulter", label_en: 'Works council consultation before deploying AI', kind: 'article', topics: ['conformite', 'conseil'] },
   '/blog/faux-avis-ia': { label_fr: 'Faux avis et IA : ce qui est permis, ce qui est interdit', label_en: 'Fake reviews and AI: what is allowed', kind: 'article', topics: ['conformite', 'acquisition'] },
