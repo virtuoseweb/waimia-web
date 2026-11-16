@@ -12351,6 +12351,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/claude-design-standalone-fermeture-14-decembre-2026",
+    "title": "Claude Design ne disparaît pas : le site autonome ferme le 14 décembre 2026",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/claude-design-standalone-fermeture-14-decembre-2026.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/claude-duet-france-acces-rgpd",
     "title": "Claude Duet en France : accès, RGPD et questions à poser",
     "group": "blog",
@@ -14049,6 +14058,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/claude-chatgpt-mistral-offres-equipe",
       "/blog/claude-code-skills",
       "/blog/claude-cowork-windows",
+      "/blog/claude-design-standalone-fermeture-14-decembre-2026",
       "/blog/claude-duet-france-acces-rgpd",
       "/blog/claude-duet-lancement-21-octobre-2026",
       "/blog/claude-duet-ou-claude-cowork",
