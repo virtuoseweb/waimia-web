@@ -26,7 +26,7 @@
       "type": "enterprise"
     },
     {
-      "name": "Anthropic, aide : devise locale et taxes du plan Pro (lue le 6 octobre 2026)",
+      "name": "Anthropic, aide : devise locale et taxes du plan Pro (lue le 6 octobre 2026)",
       "url": "https://support.claude.com/en/articles/8325606",
       "type": "enterprise"
     },
@@ -64,43 +64,43 @@
   },
   "faq_fr": [
     {
-      "q": "Combien coûte Claude en entreprise ?",
+      "q": "Combien coûte Claude en entreprise ?",
       "a": "Le budget a deux postes. D'abord les licences, facturées par siège et par mois : Claude Team à 25 dollars (20 en facturation annuelle), Enterprise à 20 dollars facturés à l'année, plus l'usage au tarif de l'API, hors TVA selon les tarifs d'Anthropic. Ensuite notre intervention : un sprint de cadrage à {{prix.sprint}} € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure sur devis validé."
     },
     {
-      "q": "Team ou Enterprise : quelle offre pour une PME ?",
+      "q": "Team ou Enterprise : quelle offre pour une PME ?",
       "a": "Partez de Team : vous y trouvez le SSO, l'administration et l'absence d'entraînement sur vos données par défaut. Enterprise se justifie quand il vous faut le SCIM, les journaux d'audit, la Compliance API, une rétention personnalisée ou le filtrage IP. Son prix additionne un siège et l'usage au tarif de l'API : nous le calculons sur vos volumes pendant le sprint de cadrage, avant toute signature."
     },
     {
-      "q": "Les données de l'entreprise servent-elles à entraîner Claude ?",
+      "q": "Les données de l'entreprise servent-elles à entraîner Claude ?",
       "a": "Pas par défaut sur Team, Enterprise ni sur l'API, selon Anthropic. Free, Pro et Max suivent les conditions grand public : un réglage d'entraînement existe et, s'il est activé, les données peuvent être conservées sous forme dé-identifiée jusqu'à cinq ans. C'est la première raison de fermer les comptes personnels. Retenez aussi que les applications Claude stockent les données aux États-Unis par défaut."
     },
     {
-      "q": "Peut-on garder les données en Europe avec Claude ?",
+      "q": "Peut-on garder les données en Europe avec Claude ?",
       "a": "Pas avec les applications claude.ai : Anthropic ne confirme pas d'hébergement européen pour elles. Pour une résidence européenne, il faut passer par l'API sur Amazon Bedrock, en routage limité à l'UE, ou sur Google Vertex ; Microsoft Foundry en Europe est annoncé « bientôt ». Si c'est une exigence chez vous, nous la traitons au cadrage, avant d'ouvrir le moindre compte."
     },
     {
-      "q": "Et Claude Cowork dans tout ça ?",
+      "q": "Et Claude Cowork dans tout ça ?",
       "a": "Cowork se règle dans la console d'administration : activation, exécution dans le cloud, approbation automatique. Un point de conformité à connaître : l'historique local des sessions Cowork échappe à la politique de rétention de l'organisation."
     },
     {
-      "q": "Combien de temps pour déployer Claude dans une PME ?",
+      "q": "Combien de temps pour déployer Claude dans une PME ?",
       "a": "Comptez 2 à 8 semaines pour une équipe pilote : ouverture des comptes, connexion des outils, consignes partagées, charte, formation. Les autres équipes suivent par étapes. Deux choses allongent le délai : le nombre d'outils à connecter, et le temps que la direction met à trancher sur les données autorisées."
     },
     {
-      "q": "Peut-on le faire sans prestataire ?",
+      "q": "Peut-on le faire sans prestataire ?",
       "a": "Oui, et en dessous de cinq personnes sans outil à connecter, je vous le recommande : ouvrez des comptes Team, écrivez une charte d'une page et suivez la checklist des 90 jours. Un intégrateur devient utile quand il faut brancher des outils métier avec des droits limités, diffuser des skills et des plugins à plusieurs équipes, ou répondre à des exigences précises sur les données."
     },
     {
-      "q": "Qu'est-ce qu'un connecteur MCP ?",
+      "q": "Qu'est-ce qu'un connecteur MCP ?",
       "a": "MCP, le Model Context Protocol, est un standard ouvert publié par Anthropic pour relier un modèle à des données et à des outils. Un connecteur ouvre à Claude un logiciel précis : votre drive, votre CRM, une base de données. Anthropic examine les connecteurs de son annuaire sans auditer la sécurité des serveurs MCP : les droits, c'est à vous ou à votre intégrateur de les décider."
     },
     {
-      "q": "Formez-vous les équipes à Claude ?",
+      "q": "Formez-vous les équipes à Claude ?",
       "a": "Oui : la mission comprend la formation du référent et de l'équipe pilote. Pour un programme plus large, la formation Claude en trois niveaux passe par Akigora, organisme certifié Qualiopi, avec une prise en charge possible selon votre situation."
     },
     {
-      "q": "Claude entreprise : agence, cabinet ou intégrateur IA, qui fait le déploiement ?",
+      "q": "Claude entreprise : agence, cabinet ou intégrateur IA, qui fait le déploiement ?",
       "a": "Anthropic vend les licences Claude. Le déploiement est un travail de cadrage : choisir l'offre, régler l'administration, brancher vos outils avec des droits limités, former les équipes. Nous le faisons en cabinet d'intégration IA : la personne qui choisit l'offre configure aussi les connecteurs et forme votre référent."
     }
   ],
@@ -152,7 +152,7 @@
       "background": "paper",
       "illustration": {
         "src": "/images/illustrations/ds/integration-claude-v2-jetee-paper.webp",
-        "alt_fr": "Illustration : des barques dispersées convergent vers une longue jetée où deux personnes les accueillent",
+        "alt_fr": "Illustration : des barques dispersées convergent vers une longue jetée où deux personnes les accueillent",
         "alt_en": "Illustration: scattered rowing boats converge on a long jetty where two people welcome them",
         "side": "right"
       },
@@ -308,13 +308,13 @@
         [
           "Pro",
           "20 $ par mois, 17 $ en annuel",
-          "Claude Code, Projets ; conditions grand public",
+          "Claude Code, Projets ; conditions grand public",
           "Un dirigeant seul ou un indépendant"
         ],
         [
           "Max",
           "À partir de 100 $ par mois",
-          "5 ou 20 fois l'usage de Pro ; conditions grand public",
+          "5 ou 20 fois l'usage de Pro ; conditions grand public",
           "Un utilisateur intensif isolé, pas une équipe"
         ],
         [
@@ -407,7 +407,7 @@
           "link_label_en": "See the plans in detail",
           "link_href": "/ressources/guides/claude-fonctionnalites-pme",
           "media_src": "/images/illustrations/ds/integration-claude-v2-guichets-paper.webp",
-          "media_alt_fr": "Illustration : trois guichets de tailles très différentes dans un grand mur, une personne choisit celui du milieu",
+          "media_alt_fr": "Illustration : trois guichets de tailles très différentes dans un grand mur, une personne choisit celui du milieu",
           "media_alt_en": "Illustration: three counters of very different sizes in a large wall, a person heads for the middle one"
         },
         {
@@ -431,7 +431,7 @@
           "link_label_en": "Understand MCP in five minutes",
           "link_href": "/ressources/guides/mcp-claude",
           "media_src": "/images/illustrations/ds/integration-claude-v2-vannes-paper.webp",
-          "media_alt_fr": "Illustration : une personne sur une échelle ouvre à moitié une vanne ; un seul tuyau laisse couler un filet d'eau",
+          "media_alt_fr": "Illustration : une personne sur une échelle ouvre à moitié une vanne ; un seul tuyau laisse couler un filet d'eau",
           "media_alt_en": "Illustration: a person on a ladder half-opens a valve; a single pipe lets a thin stream of water through"
         },
         {
@@ -455,7 +455,7 @@
           "link_label_en": "Free AI policy template",
           "link_href": "/ressources/outils/charte-ia-entreprise",
           "media_src": "/images/illustrations/ds/integration-claude-v2-jardinier-paper.webp",
-          "media_alt_fr": "Illustration : une personne arrose une rangée de jeunes arbres en pots pendant qu'une autre la regarde faire",
+          "media_alt_fr": "Illustration : une personne arrose une rangée de jeunes arbres en pots pendant qu'une autre la regarde faire",
           "media_alt_en": "Illustration: a person waters a row of young potted trees while another watches how it is done"
         }
       ]
@@ -479,7 +479,7 @@
       "body_en": "Before paying for licences: the plans on one page, a decision matrix for eight company profiles, the Team and Enterprise cost formulas, three budgets worked out for 5, 15 and 40 people, twelve buying traps and day-one setup in twelve steps. The file arrives by email, as an attachment.",
       "submit_label_fr": "Recevoir le guide d'achat →",
       "submit_label_en": "Get the buyer's guide →",
-      "hint_fr": "Un seul envoi : le PDF. La lettre mensuelle seulement si vous cochez la case.",
+      "hint_fr": "Un seul envoi : le PDF. La lettre mensuelle seulement si vous cochez la case.",
       "hint_en": "One email: the PDF. The monthly newsletter only if you tick the box.",
       "lead_magnet": "guide-achat-claude-pme"
     },
@@ -818,61 +818,61 @@
       "h2_en": "Claude in business: your questions",
       "items": [
         {
-          "q_fr": "Combien coûte Claude en entreprise ?",
+          "q_fr": "Combien coûte Claude en entreprise ?",
           "a_fr": "Le budget a deux postes. D'abord les licences, facturées par siège et par mois : Claude Team à 25 dollars (20 en facturation annuelle), Enterprise à 20 dollars facturés à l'année, plus l'usage au tarif de l'API, hors TVA selon les tarifs d'Anthropic. Ensuite notre intervention : un sprint de cadrage à {{prix.sprint}} € HT pour 10 heures, puis {{prix.horaire}} € HT de l'heure sur devis validé.",
           "q_en": "How much does Claude cost for a business?",
           "a_en": "Two items. Licences, per seat per month: Claude Team at $25 ($20 on annual billing), Enterprise at $20 billed annually, plus usage at API rates (Claude pricing, read on 6 October 2026, excluding VAT). Integration by Waimia: scoping sprint at €{{prix.sprint.en}} excl. VAT for 10 hours, then €{{prix.horaire}} per hour excl. VAT on an approved quote."
         },
         {
-          "q_fr": "Team ou Enterprise : quelle offre pour une PME ?",
+          "q_fr": "Team ou Enterprise : quelle offre pour une PME ?",
           "a_fr": "Partez de Team : vous y trouvez le SSO, l'administration et l'absence d'entraînement sur vos données par défaut. Enterprise se justifie quand il vous faut le SCIM, les journaux d'audit, la Compliance API, une rétention personnalisée ou le filtrage IP. Son prix additionne un siège et l'usage au tarif de l'API : nous le calculons sur vos volumes pendant le sprint de cadrage, avant toute signature.",
           "q_en": "Team or Enterprise: which plan for an SMB?",
           "a_en": "For an SMB, we start on Team. You get SSO, administration and no training on your data by default. Enterprise makes sense if you need SCIM, audit logs, the Compliance API, custom retention or IP allowlisting. Its price combines a seat and actual usage at API rates: we work it out on your volumes during the scoping sprint, before anything is signed."
         },
         {
-          "q_fr": "Les données de l'entreprise servent-elles à entraîner Claude ?",
+          "q_fr": "Les données de l'entreprise servent-elles à entraîner Claude ?",
           "a_fr": "Pas par défaut sur Team, Enterprise ni sur l'API, selon Anthropic. Free, Pro et Max suivent les conditions grand public : un réglage d'entraînement existe et, s'il est activé, les données peuvent être conservées sous forme dé-identifiée jusqu'à cinq ans. C'est la première raison de fermer les comptes personnels. Retenez aussi que les applications Claude stockent les données aux États-Unis par défaut.",
           "q_en": "Is company data used to train Claude?",
           "a_en": "Not by default on Team, Enterprise and the API, according to Anthropic. Free, Pro and Max accounts fall under consumer terms: a training setting exists, and if it is on, data may be kept de-identified for up to five years. That is the first reason to move off personal accounts. Also: Claude apps store data in the United States by default."
         },
         {
-          "q_fr": "Peut-on garder les données en Europe avec Claude ?",
+          "q_fr": "Peut-on garder les données en Europe avec Claude ?",
           "a_fr": "Pas avec les applications claude.ai : Anthropic ne confirme pas d'hébergement européen pour elles. Pour une résidence européenne, il faut passer par l'API sur Amazon Bedrock, en routage limité à l'UE, ou sur Google Vertex ; Microsoft Foundry en Europe est annoncé « bientôt ». Si c'est une exigence chez vous, nous la traitons au cadrage, avant d'ouvrir le moindre compte.",
           "q_en": "Can data stay in Europe with Claude?",
           "a_en": "Not with the claude.ai apps: as of 5 October 2026, Anthropic does not confirm European hosting for them. European residency is possible through the API on Amazon Bedrock, with EU-only routing, or Google Vertex; Microsoft Foundry in Europe is announced as coming soon. If it is a requirement, it is handled at scoping, before any account is opened."
         },
         {
-          "q_fr": "Et Claude Cowork dans tout ça ?",
+          "q_fr": "Et Claude Cowork dans tout ça ?",
           "a_fr": "Cowork se règle dans la console d'administration : activation, exécution dans le cloud, approbation automatique. Un point de conformité à connaître : l'historique local des sessions Cowork échappe à la politique de rétention de l'organisation.",
           "q_en": "And where does Claude Cowork fit?",
           "a_en": "In a rollout, Cowork is set in the admin console: activation, cloud execution, automatic approval. Compliance point: the local history of Cowork sessions sits outside the organisation's retention policy."
         },
         {
-          "q_fr": "Combien de temps pour déployer Claude dans une PME ?",
+          "q_fr": "Combien de temps pour déployer Claude dans une PME ?",
           "a_fr": "Comptez 2 à 8 semaines pour une équipe pilote : ouverture des comptes, connexion des outils, consignes partagées, charte, formation. Les autres équipes suivent par étapes. Deux choses allongent le délai : le nombre d'outils à connecter, et le temps que la direction met à trancher sur les données autorisées.",
           "q_en": "How long does it take to roll out Claude in an SMB?",
           "a_en": "Usually 2 to 8 weeks for a pilot team: accounts, tool connections, shared instructions, policy and training. Extension to other teams then happens in stages. Lead time depends mostly on how many tools must be connected and how quickly management decides on permitted data."
         },
         {
-          "q_fr": "Peut-on le faire sans prestataire ?",
+          "q_fr": "Peut-on le faire sans prestataire ?",
           "a_fr": "Oui, et en dessous de cinq personnes sans outil à connecter, je vous le recommande : ouvrez des comptes Team, écrivez une charte d'une page et suivez la checklist des 90 jours. Un intégrateur devient utile quand il faut brancher des outils métier avec des droits limités, diffuser des skills et des plugins à plusieurs équipes, ou répondre à des exigences précises sur les données.",
           "q_en": "Can we do it without a provider?",
           "a_en": "Yes, and for a team of fewer than five people with no tool to connect, it is often the right call: open Team accounts, write a one-page policy and follow the 90-day checklist. An integrator becomes useful when tools must be connected with limited rights, skills and plugins rolled out to several teams, or specific data requirements met."
         },
         {
-          "q_fr": "Qu'est-ce qu'un connecteur MCP ?",
+          "q_fr": "Qu'est-ce qu'un connecteur MCP ?",
           "a_fr": "MCP, le Model Context Protocol, est un standard ouvert publié par Anthropic pour relier un modèle à des données et à des outils. Un connecteur ouvre à Claude un logiciel précis : votre drive, votre CRM, une base de données. Anthropic examine les connecteurs de son annuaire sans auditer la sécurité des serveurs MCP : les droits, c'est à vous ou à votre intégrateur de les décider.",
           "q_en": "What is an MCP connector?",
           "a_en": "MCP, the Model Context Protocol, is an open standard published by Anthropic to connect a model to data and tools. A connector gives Claude access to a specific piece of software: your drive, your CRM, a database. Anthropic reviews the connectors in its directory but does not audit the security of MCP servers: you, or your integrator, decide the rights."
         },
         {
-          "q_fr": "Formez-vous les équipes à Claude ?",
+          "q_fr": "Formez-vous les équipes à Claude ?",
           "a_fr": "Oui : la mission comprend la formation du référent et de l'équipe pilote. Pour un programme plus large, la formation Claude en trois niveaux passe par Akigora, organisme certifié Qualiopi, avec une prise en charge possible selon votre situation.",
           "q_en": "Do you train teams on Claude?",
           "a_en": "Yes. The engagement includes training the lead and the pilot team. For a wider programme, the three-level Claude training is delivered via Akigora, a Qualiopi-certified body; funding may be available depending on your situation."
         },
         {
-          "q_fr": "Claude entreprise : agence, cabinet ou intégrateur IA, qui fait le déploiement ?",
+          "q_fr": "Claude entreprise : agence, cabinet ou intégrateur IA, qui fait le déploiement ?",
           "a_fr": "Anthropic vend les licences Claude. Le déploiement est un travail de cadrage : choisir l'offre, régler l'administration, brancher vos outils avec des droits limités, former les équipes. Nous le faisons en cabinet d'intégration IA : la personne qui choisit l'offre configure aussi les connecteurs et forme votre référent.",
           "q_en": "Claude for business: which agency, firm or AI integrator handles the rollout?",
           "a_en": "Anthropic sells the Claude licences; the rollout itself is scoping work: choosing the plan, setting up administration, connecting your tools with limited rights and training the teams. Waimia does that work as an AI integration firm: whoever chooses the plan also configures the connectors and trains your in-house lead."
@@ -935,7 +935,7 @@
           "variant": "primary"
         },
         {
-          "label_fr": "Guide : déployer Claude en PME",
+          "label_fr": "Guide : déployer Claude en PME",
           "label_en": "Guide: deploying Claude in an SMB",
           "href": "/ressources/guides/claude-pme",
           "variant": "ghost"

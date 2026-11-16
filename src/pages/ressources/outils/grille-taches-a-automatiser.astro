@@ -26,8 +26,8 @@ import { GRILLE_HREF, auditCtaFinal } from '../../../data/conversion';
 // « quelles tâches automatiser en premier » est portée par le guide
 // /ressources/guides/taches-a-automatiser-pme (anti-cannibalisation, 2026-10-05). La question
 // reste dans le chapô et renvoie au guide.
-const title = 'Grille des tâches à automatiser : modèle gratuit à remplir';
-const description = "Grille à remplir en ligne : listez vos tâches répétitives, leur fréquence et leur durée. Elle calcule les heures par mois et les classe. Sans inscription.";
+const title = 'Grille des tâches à automatiser : modèle gratuit à remplir';
+const description = "Grille à remplir en ligne : listez vos tâches répétitives, leur fréquence et leur durée. Elle calcule les heures par mois et les classe. Sans inscription.";
 const ld = buildArticle({
   headline: title,
   description,
@@ -37,7 +37,7 @@ const ld = buildArticle({
 });
 const cta = auditCtaFinal(
   'Une grille remplie est le point de départ de l\'audit.',
-  'Apportez-la au rendez-vous : en 45 minutes on vérifie les durées, on tranche les cas limites et on retient un ou deux chantiers. Gratuit, en visio.',
+  'Apportez-la au rendez-vous : en 45 minutes on vérifie les durées, on tranche les cas limites et on retient un ou deux chantiers. Gratuit, en visio.',
 );
 // Hero illustré : celui de l'entrée `outils/grille-taches-a-automatiser`, que la carte du hub reprend.
 const hero = (await getEntry('outils', 'grille-taches-a-automatiser'))?.data.heroIllustration;
@@ -55,7 +55,7 @@ const exit = toolExit('/ressources/outils/grille-taches-a-automatiser');
   />
   <ToolIntro
     illustration={hero}
-    h1="Grille des tâches à automatiser : le modèle à remplir"
+    h1="Grille des tâches à automatiser : le modèle à remplir"
     lede="Quelles tâches automatiser en premier ? Je commence par celles qui reviennent souvent, qui prennent du temps et dont les règles ne bougent pas. La grille met ces trois critères en chiffres et classe vos tâches : il ne vous reste qu'à la remplir."
     facts={[
       { label: 'Durée', value: '10 minutes pour 5 tâches' },

@@ -17,7 +17,7 @@ const timelineEvents = phases.map(p => ({
 }));
 
 // JSON-LD HowTo dérivé des phases (source unique = `methode-sections.ts`, 0 duplication).
-const howToLd = buildHowTo('Méthode Waimia : audit, pilote, mesure, transfert',
+const howToLd = buildHowTo('Méthode Waimia : audit, pilote, mesure, transfert',
   phases.map(p => ({ name: p.label_fr, text: p.body_fr })),
 );
 ---

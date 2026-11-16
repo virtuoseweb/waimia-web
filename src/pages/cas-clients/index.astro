@@ -37,27 +37,27 @@ const caseEntries = (await getCollection('cases'))
 const caseCovers: Record<string, { src: string; alt_fr: string; alt_en: string }> = {
   'les-carnets-de-montpellier': {
     src: '/images/editorial/bandshowingtv.webp',
-    alt_fr: 'Illustration éditoriale : un média local qui prend la parole.',
+    alt_fr: 'Illustration éditoriale : un média local qui prend la parole.',
     alt_en: 'Editorial illustration: a local media outlet finding its voice.',
   },
   balzeo: {
     src: '/images/editorial/carontheroad.webp',
-    alt_fr: 'Illustration éditoriale : la vitesse retrouvée, un site deux fois plus rapide.',
+    alt_fr: 'Illustration éditoriale : la vitesse retrouvée, un site deux fois plus rapide.',
     alt_en: 'Editorial illustration: speed regained, a site twice as fast.',
   },
   amploi: {
     src: '/images/editorial/womancomputer17.webp',
-    alt_fr: "Illustration éditoriale : un site marketing augmenté par l'IA.",
+    alt_fr: "Illustration éditoriale : un site marketing augmenté par l'IA.",
     alt_en: 'Editorial illustration: an AI-augmented marketing site.',
   },
   'desangles-peinture': {
     src: '/images/editorial/gentlemanhandcraftergoworknow.webp',
-    alt_fr: "Illustration éditoriale : l'artisan visible en référencement local.",
+    alt_fr: "Illustration éditoriale : l'artisan visible en référencement local.",
     alt_en: 'Editorial illustration: the craftsman made visible in local search.',
   },
   'isabelle-diaz-naturopathe': {
     src: '/images/editorial/image-computer-health.webp',
-    alt_fr: 'Illustration éditoriale : une présence en ligne crédible pour la santé.',
+    alt_fr: 'Illustration éditoriale : une présence en ligne crédible pour la santé.',
     alt_en: 'Editorial illustration: a credible online presence for health.',
   },
 };
@@ -95,7 +95,7 @@ const featuredCases = [...clientCases, ...internalProjects];
 const caseItems = caseEntries.map((e) => `${SITE.url}/cas-clients/${e.data.slug ?? e.id}`);
 const collectionLd = buildCollectionPage(
   'Réalisations',
-  "Réalisations clients et projets internes de Waimia : ce qui a été construit, ce qui est en cours, ce qui est mesuré ou non.",
+  "Réalisations clients et projets internes de Waimia : ce qui a été construit, ce qui est en cours, ce qui est mesuré ou non.",
   caseItems,
 );
 const breadcrumbLd = buildBreadcrumbList([
@@ -109,7 +109,7 @@ const ctaData = {
   chapter_num: '§',
   chapter_title_fr: 'Câbler le vôtre',
   chapter_title_en: 'Wire yours',
-  h2_fr: 'Quel chantier câbler chez vous ? L’audit gratuit le classe.',
+  h2_fr: 'Quel chantier câbler chez vous ? L’audit gratuit le classe.',
   h2_en: 'Tuesday we wire. Friday we measure.',
   cta_primary: {
     label_fr: AUDIT_BOOKING_LABEL.fr,
@@ -147,7 +147,7 @@ const internalGridData = {
   h2_fr: 'Projets <i>internes</i>',
   h2_en: 'Internal <i>projects</i>',
   lede_fr:
-    "Ce que nous construisons pour nous-mêmes, sans client : deux systèmes d'exploitation à agents IA et des prototypes. Chaque fiche donne l'état réel du projet : en construction, prototype, remplacé.",
+    "Ce que nous construisons pour nous-mêmes, sans client : deux systèmes d'exploitation à agents IA et des prototypes. Chaque fiche donne l'état réel du projet : en construction, prototype, remplacé.",
   lede_en:
     'What the studio builds for itself, with no client: two agentic operating systems and prototypes. None is presented as a client result. Progress is stated as it stands.',
   item_label_fr: 'Projet',
@@ -171,7 +171,7 @@ const spotlightData = {
   title_en: 'From no online presence to a paying community',
   media_src: '/images/editorial/bandshowingtv.webp',
   media_alt: lang === 'fr'
-    ? 'Les Carnets de Montpellier : un média local qui prend la parole.'
+    ? 'Les Carnets de Montpellier : un média local qui prend la parole.'
     : 'Les Carnets de Montpellier: a local media outlet finding its voice.',
   quote_fr: 'Je vis enfin de ma passion. Le site est élégant, l’abonnement fonctionne, et j’ai une vraie communauté qui échange avec moi chaque semaine.',
   quote_en: 'Six weeks to go from idea to a monetized site, with a real community.',
@@ -198,16 +198,16 @@ const mastheadData = {
   align: 'left' as const,
   kicker_fr: '§ Réalisations · cas clients et projets internes',
   kicker_en: '§ Work · client cases and internal projects',
-  h1_fr: '<span><i>Réalisations</i> :</span><br/><span>ce qui est construit, ce qui est en cours.</span>',
+  h1_fr: '<span><i>Réalisations</i> :</span><br/><span>ce qui est construit, ce qui est en cours.</span>',
   h1_en: '<span><i>Work</i>:</span><br/><span>what is built, what is in progress.</span>',
-  lede_fr: "Un site deux fois plus rapide, un artisan visible en référencement local, un agent IA branché sur Notion : voici ce qui a été construit, pour des clients nommés et pour nous-mêmes. Un chiffre est toujours mesuré sur les données du client. Quand rien n'est mesuré, la fiche le dit.",
+  lede_fr: "Un site deux fois plus rapide, un artisan visible en référencement local, un agent IA branché sur Notion : voici ce qui a été construit, pour des clients nommés et pour nous-mêmes. Un chiffre est toujours mesuré sur les données du client. Quand rien n'est mesuré, la fiche le dit.",
   lede_en: 'Two sections. Client work: real engagements, with their site strand and their AI strand. Internal projects: what the studio builds for itself. When a result is quantified, it is measured on the client’s own data. When nothing is measured, the page says so. No staged testimonial.',
   transition_id: transitionIdFromHref(Astro.url.pathname),
 } satisfies SectionByType<'hero-hub-masthead'>;
 ---
 <Base
-  title={lang === 'fr' ? "Réalisations IA : cas clients et projets internes · Waimia" : "AI work: client cases and internal projects · Waimia"}
-  description={lang === 'fr' ? "Cas clients et projets internes de Waimia : agents IA, automatisation, GEO. Ce qui est construit, ce qui est en cours, les chiffres quand ils existent." : "Waimia client cases and internal projects: AI agents, automation, GEO. What is built, what is in progress, and the numbers when they exist."}
+  title={lang === 'fr' ? "Réalisations IA : cas clients et projets internes · Waimia" : "AI work: client cases and internal projects · Waimia"}
+  description={lang === 'fr' ? "Cas clients et projets internes de Waimia : agents IA, automatisation, GEO. Ce qui est construit, ce qui est en cours, les chiffres quand ils existent." : "Waimia client cases and internal projects: AI agents, automation, GEO. What is built, what is in progress, and the numbers when they exist."}
   jsonLd={casClientsLd}
 >
   <HeroCentered data={mastheadData} lang={lang} />
@@ -224,7 +224,7 @@ const mastheadData = {
         <div class="cas-empty-kicker">§ {lang === 'fr' ? 'Études de cas à venir' : 'Case studies coming soon'}</div>
         <p class="cas-empty-body">
           {lang === 'fr'
-            ? "Nous publions un cas uniquement après mesure du résultat et accord du client. Les premiers dossiers arrivent. En attendant, parlons de votre projet : nous montrons concrètement comment nous travaillons."
+            ? "Nous publions un cas uniquement après mesure du résultat et accord du client. Les premiers dossiers arrivent. En attendant, parlons de votre projet : nous montrons concrètement comment nous travaillons."
             : 'We only publish a case after the result is measured and the client has agreed. The first files are coming. In the meantime, let us talk about your project: we show exactly how we work.'}
         </p>
       </div>
