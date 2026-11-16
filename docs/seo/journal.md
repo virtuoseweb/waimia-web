@@ -57,7 +57,7 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 **Veille (runbook 4.0)** : flux des 72 dernières heures (collecte locale du jour), puis pages sans flux lues le 16 novembre 2026 par l'outil de lecture Exa : anthropic.com/news (rien depuis Fable 5.2 du 9 novembre et la tournée d'introduction en bourse du 10 novembre), claude.com/blog (rien après le 13 novembre), notes de version de la plateforme Claude (rien après le 12 novembre), changelog de l'API OpenAI (rien après le 5 novembre), deploy.co/fr-FR/news (rien depuis le 14 septembre), ode.com/blog (rien de daté). X non lu (aucune annonce signalée hors page primaire). Aucun événement majeur nouveau : Qwen4-Max (Hacker News, éditeur non couvert), connecteurs Kafka et Jotform de n8n (annonces de communauté, hors usages PME du site), billets scientifiques d'OpenAI (hors silo).
 
-**Actions du jour** (commit de contenu : voir le commit de suivi) : une création, une révision.
+**Actions du jour** (commit de contenu https://github.com/virtuoseweb/waimia-web/commit/8eae0fda9a0132bad3ce309dc44806ebc1cc8bc1) : une création, une révision.
 
 1. Création de `/blog/ai-caiq-questionnaire-ia` (entrée `idee-ai-caiq-questionnaire-ia`, planifiée en 2026-W47, article, silo `conformite`).
    - Pourquoi : entrée du calendrier ; origine : recherche du 7 novembre 2026 (AI-CAIQ repéré, aucune page française n'en parlait).
@@ -77,6 +77,8 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 **`llms.txt`** : `/blog/ai-caiq-questionnaire-ia` figure dans `dist/client/llms.txt`, ligne reprenant title et description.
 
 **GF-1** (build servi, `serve-dist.mjs`, Playwright, 1440 et 390 px) : les deux pages touchées répondent 200, H1 visible (opacité 1, transform identité), débordement horizontal 0, 0 erreur console, illustration chargée. Capture mobile relue : H1, chapô, auteur et haut de l'illustration au-dessus de la ligne de flottaison.
+
+**CI et production** : run CI 43820700394 sur `8eae0fd` : `success` (Build, SEO build de production, E2E 86 réussis, 38 ignorés). waimia.com après déploiement : `/blog/ai-caiq-questionnaire-ia` 200 (H1 servi, illustration `ai-caiq-grille-paper.webp` 200, URL dans `sitemap-0.xml`), `/` 200, `/blog/application-metier-exemples-pme` 200 (« applicatif métier » servi). Aucune redirection dans le lot. Aucun revert. Commit de suivi (calendrier, journal, brouillon) poussé après le contrôle.
 
 **Décisions prises seule**
 - `idee-claude-in-chrome-regles-entreprise` abandonnée : `/ressources/guides/claude-in-chrome-entreprise` porte déjà la requête (révisé le 11 novembre) ; un billet de plus le cannibaliserait. Pour défaire : repasser l'entrée en « planifié ».
