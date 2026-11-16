@@ -50,6 +50,11 @@ jobs:
       - name: Build
         run: pnpm build
 
+      # Typecheck complet (astro check) : 11 erreurs s'étaient accumulées sans que rien ne rougisse
+      # (constat du 16/11/2026). Après le build pour bénéficier des types générés.
+      - name: Typecheck (astro check)
+        run: pnpm exec astro check
+
       # Gate codegen : drift entre les touchpoints du catalogue (schema/demos/registry/composants/manifest).
       # exit 1 si désynchronisé → empêche une PR de casser la source unique de la bibliothèque.
       - name: Drift-guard catalogue (touchpoints)

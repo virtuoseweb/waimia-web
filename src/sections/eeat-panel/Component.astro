@@ -27,7 +27,7 @@ interface Props {
   linkMode?: 'default' | 'compact';
 }
 
-const rawProps = Astro.props.data ?? Astro.props;
+const rawProps = (Astro.props as Props & { data?: Props }).data ?? Astro.props;
 const {
   variant = 'media',
   background,
