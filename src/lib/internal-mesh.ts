@@ -166,6 +166,7 @@ const PAGES: Record<string, PageDef> = {
   '/ressources/guides/openclaw': { label_fr: 'OpenClaw 2.0 : fonctions, sécurité et usage en entreprise', label_en: 'OpenClaw 2.0: features, security and business use', kind: 'guide', topics: ['agents', 'automatisation'] },
   '/ressources/comparatifs/hermes-agent-vs-openclaw': { label_fr: 'Hermes Agent ou OpenClaw', label_en: 'Hermes Agent or OpenClaw', kind: 'comparatif', topics: ['agents', 'automatisation'] },
   '/blog/agents-ia-toujours-actifs-pme': { label_fr: 'Agent IA toujours actif : propriétaire ou open source', label_en: 'Always-on AI agents: proprietary or open source', kind: 'article', topics: ['agents', 'claude'] },
+  '/blog/claude-design-standalone-fermeture-14-decembre-2026': { label_fr: "Claude Design : le site autonome ferme le 14 décembre 2026", label_en: "Claude Design: the standalone site closes on 14 December 2026", kind: 'article', topics: ['claude'] },
   '/blog/claude-duet-lancement-21-octobre-2026': { label_fr: "Claude Duet est lancé : ce qu'Anthropic a annoncé", label_en: "Claude Duet is launched: what Anthropic announced", kind: 'article', topics: ['claude', 'agents'] },
   '/blog/claude-duet-ou-claude-cowork': { label_fr: "Claude Duet ou Claude Cowork : la différence", label_en: "Claude Duet or Claude Cowork: the difference", kind: 'article', topics: ['claude', 'agents'] },
   '/blog/claude-duet-france-acces-rgpd': { label_fr: "Claude Duet en France : accès et RGPD", label_en: "Claude Duet in France: access and GDPR", kind: 'article', topics: ['claude', 'conformite'] },

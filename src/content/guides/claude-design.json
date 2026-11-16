@@ -6,7 +6,7 @@
   "description_en": "Claude Design for SMBs: what it produces, its price within Claude plans, its limits as of 15 October 2026 and when a designer is still needed.",
   "slug": "claude-design",
   "publishedAt": "2026-10-05T00:00:00.000Z",
-  "updatedAt": "2026-11-11T00:00:00.000Z",
+  "updatedAt": "2026-11-16T00:00:00.000Z",
   "category": "claude",
   "tags": [
     "claude-design",
@@ -29,6 +29,11 @@
     {
       "name": "Centre d'aide Claude, Claude Design (disponibilité, accès, exports, limites)",
       "url": "https://support.claude.com/en/articles/14604416",
+      "type": "enterprise"
+    },
+    {
+      "name": "Centre d'aide Claude, Move from standalone Claude Design to Claude (fermeture du site autonome, migration)",
+      "url": "https://support.claude.com/en/articles/17440474-move-from-standalone-claude-design-to-claude",
       "type": "enterprise"
     },
     {
@@ -66,7 +71,7 @@
     },
     {
       "q": "Claude Design est-il gratuit ?",
-      "a": "Oui, dans les limites d'usage de l'offre gratuite. Claude Design est disponible sur Free, Pro, Max, Team et Enterprise, et actif par défaut. Sur Enterprise, il l'est depuis le 15 octobre 2026 ; un owner pouvait l'activer avant dans les paramètres de l'organisation. Les projets complexes consomment plus d'usage, et une limite atteinte rend l'outil indisponible jusqu'à sa réinitialisation, sauf crédits d'usage activés."
+      "a": "Oui, dans les limites d'usage de l'offre gratuite. Claude Design est disponible sur Free, Pro, Max, Ultra, Team et Enterprise, et actif par défaut. Sur Enterprise, il l'est depuis le 15 octobre 2026 ; un owner pouvait l'activer avant dans les paramètres de l'organisation. Les projets complexes consomment plus d'usage, et une limite atteinte rend l'outil indisponible jusqu'à sa réinitialisation, sauf crédits d'usage activés."
     },
     {
       "q": "Claude Design a-t-il un quota séparé ?",
@@ -100,7 +105,7 @@
     },
     {
       "q": "Is Claude Design free?",
-      "a": "Yes, within the free plan's usage limits. As of 15 October 2026, Claude Design is available on Free, Pro, Max, Team and Enterprise, and on by default. On Enterprise it has been since 15 October 2026; an owner could turn it on earlier in the organisation settings. Complex projects use more of your allowance, and once a limit is reached the tool is unavailable until it resets, unless usage credits are enabled."
+      "a": "Yes, within the free plan's usage limits. As of 15 October 2026, Claude Design is available on Free, Pro, Max, Ultra, Team and Enterprise, and on by default. On Enterprise it has been since 15 October 2026; an owner could turn it on earlier in the organisation settings. Complex projects use more of your allowance, and once a limit is reached the tool is unavailable until it resets, unless usage credits are enabled."
     },
     {
       "q": "Does Claude Design have a separate quota?",
@@ -197,8 +202,8 @@
         },
         {
           "value": "Dès Free",
-          "label_fr": "Disponible sur Free, Pro, Max, Team et Enterprise, actif par défaut",
-          "label_en": "Available on Free, Pro, Max, Team and Enterprise, on by default"
+          "label_fr": "Disponible sur Free, Pro, Max, Ultra, Team et Enterprise, actif par défaut",
+          "label_en": "Available on Free, Pro, Max, Ultra, Team and Enterprise, on by default"
         },
         {
           "value": "0 quota",
@@ -236,11 +241,11 @@
         ],
         [
           "Il faut passer par un site à part",
-          "Design s'ouvre dans une conversation, dans l'onglet Artifacts, avec /design dans Claude Code et dans les applications mobiles. Le site claude.ai/design reste utilisable jusqu'à sa fermeture, le 14 décembre 2026."
+          "Design s'ouvre dans une conversation, dans l'onglet Artifacts, avec /design dans Claude Code et dans les applications mobiles. Le site autonome claude.ai/design ferme le 14 décembre 2026 et passe ensuite en lecture seule : l'outil, lui, reste dans Claude."
         ],
         [
           "Il est réservé aux offres payantes",
-          "Il est disponible sur Free, Pro, Max, Team et Enterprise, et actif par défaut. Sur Enterprise, il l'est depuis le 15 octobre 2026 ; un owner pouvait l'activer avant dans Paramètres de l'organisation > Artifacts."
+          "Il est disponible sur Free, Pro, Max, Ultra, Team et Enterprise, et actif par défaut. Sur Enterprise, il l'est depuis le 15 octobre 2026 ; un owner pouvait l'activer avant dans Paramètres de l'organisation > Artifacts."
         ],
         [
           "Il ne marche pas sur mobile",
@@ -258,11 +263,11 @@
         ],
         [
           "You have to use a separate site",
-          "Design opens in a conversation, in the Artifacts tab, with /design in Claude Code and in the mobile apps. The claude.ai/design site keeps working until it closes on 14 December 2026."
+          "Design opens in a conversation, in the Artifacts tab, with /design in Claude Code and in the mobile apps. The standalone claude.ai/design site closes on 14 December 2026 and then becomes read-only: the tool itself stays in Claude."
         ],
         [
           "It is limited to paid plans",
-          "It is available on Free, Pro, Max, Team and Enterprise, and on by default. On Enterprise it has been since 15 October 2026; an owner could turn it on earlier in Organization settings > Artifacts."
+          "It is available on Free, Pro, Max, Ultra, Team and Enterprise, and on by default. On Enterprise it has been since 15 October 2026; an owner could turn it on earlier in Organization settings > Artifacts."
         ],
         [
           "It does not work on mobile",
@@ -278,8 +283,8 @@
     {
       "type": "editorial-prose",
       "background": "paper",
-      "html_fr": "<h2>Où trouver Claude Design</h2><p>D'après le centre d'aide d'Anthropic, Design se lance depuis cinq endroits.</p><ul><li>Une conversation ordinaire, en demandant un design ou en choisissant Design comme type de sortie (menu Output). Cette intégration date de la refonte du 16 septembre 2026, celle qui a aussi fondu Cowork dans Claude (voir le <a href=\"/ressources/guides/claude-cowork\">guide Claude Cowork</a>).</li><li>L'onglet Artifacts, où l'on choisit un modèle Design et où l'on retrouve ses créations.</li><li>La commande /design dans Claude Code, pour les équipes qui ont un développeur : voir <a href=\"/ressources/guides/claude-code-entreprise\">Claude Code en entreprise</a>.</li><li>Les applications iOS et Android : on demande un design dans une conversation, on le consulte en plein écran dans l'onglet Artifacts et on peut le modifier. Le réglage du partage se fait sur le web ou l'ordinateur.</li><li>claude.ai/design, le site dédié d'origine, qui reste utilisable jusqu'à sa fermeture le 14 décembre 2026. Les chartes de marque qui y ont été créées se migrent avant cette date.</li></ul><h2>Comment on travaille avec</h2><p>Vous décrivez le support voulu : à qui il s'adresse, ce qu'il doit faire passer, son format, ses contraintes. Claude Design propose une première version, que vous ajustez de trois façons : en discutant avec Claude, en commentant une zone précise du canevas, ou en modifiant directement les éléments (déplacer, redimensionner, aligner).</p><p>C'est plus rapide qu'un aller-retour par e-mail avec un prestataire, à une condition : arriver avec un fond clair. Claude Design met en forme une idée, il ne la trouve pas à votre place, et il ne vérifie pas vos chiffres.</p><p>Design n'est qu'une pièce de l'ensemble. Vos consignes de rédaction peuvent vivre dans des <a href=\"/ressources/guides/claude-skills\">skills Claude</a>, et une équipe peut les recevoir toutes prêtes via des <a href=\"/ressources/guides/claude-plugins-entreprise\">plugins d'entreprise</a>. Le plan de déploiement d'ensemble est dans le <a href=\"/ressources/guides/claude-pme\">guide Claude pour PME</a>, et le panorama des produits dans les <a href=\"/ressources/guides/claude-fonctionnalites-pme\">fonctionnalités de Claude pour une PME</a>.</p>",
-      "html_en": "<h2>Where to find Claude Design</h2><p>According to Anthropic's help center, Design can be started from five places:</p><ul><li><strong>A regular conversation</strong>, by asking for a design or choosing Design as the output type (Output menu). This integration dates from the 16 September 2026 overhaul, which also merged Cowork into Claude (see the <a href=\"/ressources/guides/claude-cowork\">Claude Cowork guide</a>).</li><li><strong>The Artifacts tab</strong>, where you pick a Design template and find your creations.</li><li><strong>The /design command in Claude Code</strong>, for teams with a developer. See <a href=\"/ressources/guides/claude-code-entreprise\">Claude Code for business</a>.</li><li><strong>The iOS and Android apps</strong>: you ask for a design in a conversation, view it full screen in the Artifacts tab and can edit it. Sharing settings are changed on web or desktop.</li><li><strong>claude.ai/design</strong>, the original dedicated site, keeps working until it closes on 14 December 2026. Design systems created there should be migrated before that date.</li></ul><h2>How you work with it</h2><p>You describe the material you need: who it is for, what it must get across, its format, its constraints. Claude Design proposes a first version. You then adjust it three ways: by chatting with Claude, by commenting on a specific area of the canvas, or by editing elements directly (move, resize, align).</p><p>It is faster than an email back-and-forth with a supplier, on one condition: bring clear substance. Claude Design shapes an idea. It does not find it for you, and it does not check your numbers.</p><p>Design is one piece of the whole. Your writing guidelines can live in <a href=\"/ressources/guides/claude-skills\">Claude skills</a>, and a team can receive them ready-made through <a href=\"/ressources/guides/claude-plugins-entreprise\">business plugins</a>. The full overview is in the guide to <a href=\"/ressources/guides/claude-fonctionnalites-pme\">Claude features for an SMB</a>.</p>"
+      "html_fr": "<h2>Où trouver Claude Design</h2><p>D'après le centre d'aide d'Anthropic, Design se lance depuis cinq endroits.</p><ul><li>Une conversation ordinaire, en demandant un design ou en choisissant Design comme type de sortie (menu Output). Cette intégration date de la refonte du 16 septembre 2026, celle qui a aussi fondu Cowork dans Claude (voir le <a href=\"/ressources/guides/claude-cowork\">guide Claude Cowork</a>).</li><li>L'onglet Artifacts, où l'on choisit un modèle Design et où l'on retrouve ses créations.</li><li>La commande /design dans Claude Code, pour les équipes qui ont un développeur : voir <a href=\"/ressources/guides/claude-code-entreprise\">Claude Code en entreprise</a>.</li><li>Les applications iOS et Android : on demande un design dans une conversation, on le consulte en plein écran dans l'onglet Artifacts et on peut le modifier. Le réglage du partage se fait sur le web ou l'ordinateur.</li><li>claude.ai/design, le site dédié d'origine, utilisable jusqu'à sa fermeture le 14 décembre 2026, puis en lecture seule. Les design systems se migrent depuis la page Artifacts de Claude, les projets s'exportent en .zip ; les conversations, les commentaires et les liens publics ne suivent pas. Le détail est dans notre article <a href=\"/blog/claude-design-standalone-fermeture-14-decembre-2026\">Claude Design ne disparaît pas : le site autonome ferme le 14 décembre</a>.</li></ul><h2>Comment on travaille avec</h2><p>Vous décrivez le support voulu : à qui il s'adresse, ce qu'il doit faire passer, son format, ses contraintes. Claude Design propose une première version, que vous ajustez de trois façons : en discutant avec Claude, en commentant une zone précise du canevas, ou en modifiant directement les éléments (déplacer, redimensionner, aligner).</p><p>C'est plus rapide qu'un aller-retour par e-mail avec un prestataire, à une condition : arriver avec un fond clair. Claude Design met en forme une idée, il ne la trouve pas à votre place, et il ne vérifie pas vos chiffres.</p><p>Design n'est qu'une pièce de l'ensemble. Vos consignes de rédaction peuvent vivre dans des <a href=\"/ressources/guides/claude-skills\">skills Claude</a>, et une équipe peut les recevoir toutes prêtes via des <a href=\"/ressources/guides/claude-plugins-entreprise\">plugins d'entreprise</a>. Le plan de déploiement d'ensemble est dans le <a href=\"/ressources/guides/claude-pme\">guide Claude pour PME</a>, et le panorama des produits dans les <a href=\"/ressources/guides/claude-fonctionnalites-pme\">fonctionnalités de Claude pour une PME</a>.</p>",
+      "html_en": "<h2>Where to find Claude Design</h2><p>According to Anthropic's help center, Design can be started from five places:</p><ul><li><strong>A regular conversation</strong>, by asking for a design or choosing Design as the output type (Output menu). This integration dates from the 16 September 2026 overhaul, which also merged Cowork into Claude (see the <a href=\"/ressources/guides/claude-cowork\">Claude Cowork guide</a>).</li><li><strong>The Artifacts tab</strong>, where you pick a Design template and find your creations.</li><li><strong>The /design command in Claude Code</strong>, for teams with a developer. See <a href=\"/ressources/guides/claude-code-entreprise\">Claude Code for business</a>.</li><li><strong>The iOS and Android apps</strong>: you ask for a design in a conversation, view it full screen in the Artifacts tab and can edit it. Sharing settings are changed on web or desktop.</li><li><strong>claude.ai/design</strong>, the original dedicated site, which works until it closes on 14 December 2026 and is read-only afterwards. Design systems migrate from Claude's Artifacts page, projects export as .zip files; chats, comments and public links do not carry over. Details in our article <a href=\"/blog/claude-design-standalone-fermeture-14-decembre-2026\">Claude Design is not going away: the standalone site closes on 14 December</a>.</li></ul><h2>How you work with it</h2><p>You describe the material you need: who it is for, what it must get across, its format, its constraints. Claude Design proposes a first version. You then adjust it three ways: by chatting with Claude, by commenting on a specific area of the canvas, or by editing elements directly (move, resize, align).</p><p>It is faster than an email back-and-forth with a supplier, on one condition: bring clear substance. Claude Design shapes an idea. It does not find it for you, and it does not check your numbers.</p><p>Design is one piece of the whole. Your writing guidelines can live in <a href=\"/ressources/guides/claude-skills\">Claude skills</a>, and a team can receive them ready-made through <a href=\"/ressources/guides/claude-plugins-entreprise\">business plugins</a>. The full overview is in the guide to <a href=\"/ressources/guides/claude-fonctionnalites-pme\">Claude features for an SMB</a>.</p>"
     },
     {
       "type": "feature-zigzag",
@@ -721,8 +726,8 @@
         {
           "q_fr": "Claude Design est-il gratuit ?",
           "q_en": "Is Claude Design free?",
-          "a_fr": "Oui, dans les limites d'usage de l'offre gratuite. Claude Design est disponible sur Free, Pro, Max, Team et Enterprise, et actif par défaut. Sur Enterprise, il l'est depuis le 15 octobre 2026 ; un owner pouvait l'activer avant dans les paramètres de l'organisation. Les projets complexes consomment plus d'usage, et une limite atteinte rend l'outil indisponible jusqu'à sa réinitialisation, sauf crédits d'usage activés.",
-          "a_en": "Yes, within the free plan's usage limits. As of 15 October 2026, Claude Design is available on Free, Pro, Max, Team and Enterprise, and on by default. On Enterprise it has been since 15 October 2026; an owner could turn it on earlier in the organisation settings. Complex projects use more of your allowance, and once a limit is reached the tool is unavailable until it resets, unless usage credits are enabled."
+          "a_fr": "Oui, dans les limites d'usage de l'offre gratuite. Claude Design est disponible sur Free, Pro, Max, Ultra, Team et Enterprise, et actif par défaut. Sur Enterprise, il l'est depuis le 15 octobre 2026 ; un owner pouvait l'activer avant dans les paramètres de l'organisation. Les projets complexes consomment plus d'usage, et une limite atteinte rend l'outil indisponible jusqu'à sa réinitialisation, sauf crédits d'usage activés.",
+          "a_en": "Yes, within the free plan's usage limits. As of 15 October 2026, Claude Design is available on Free, Pro, Max, Ultra, Team and Enterprise, and on by default. On Enterprise it has been since 15 October 2026; an owner could turn it on earlier in the organisation settings. Complex projects use more of your allowance, and once a limit is reached the tool is unavailable until it resets, unless usage credits are enabled."
         },
         {
           "q_fr": "Claude Design a-t-il un quota séparé ?",

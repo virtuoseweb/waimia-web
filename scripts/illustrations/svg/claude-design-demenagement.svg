@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · fallback Claude · « Claude Design déménage dans Claude » : à gauche, un petit
+       kiosque isolé, porte close et cadenassée (le site autonome qui ferme) ; au centre, deux
+       silhouettes portent un grand cadre-nuancier (le design system qu'on migre) ; à droite,
+       la grande maison ({{shape}}) porte ouverte, lumière dedans (Claude). -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{subject}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{subject}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/>
+    </g>
+  </defs>
+
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <!-- Grand disque derrière, entre les deux bâtiments -->
+  <circle cx="720" cy="470" r="230" fill="{{soft}}"/>
+  <!-- Sol -->
+  <rect y="500" width="1456" height="124" fill="{{ground}}"/>
+
+  <!-- Le petit kiosque isolé, fermé -->
+  <g>
+    <rect x="170" y="392" width="120" height="110" fill="{{deep}}"/>
+    <path d="M154 396 L230 340 L306 396 Z" fill="{{deep}}"/>
+    <rect x="208" y="420" width="44" height="82" fill="{{subject}}"/>
+    <!-- Deux planches clouées en croix sur la porte -->
+    <rect x="196" y="452" width="68" height="9" fill="{{pale}}" transform="rotate(24 230 456)"/>
+    <rect x="196" y="452" width="68" height="9" fill="{{pale}}" transform="rotate(-24 230 456)"/>
+    <!-- Cadenas -->
+    <path d="M240 474 Q240 462 249 462 Q258 462 258 474" fill="none" stroke="{{light}}" stroke-width="3"/>
+    <rect x="236" y="472" width="26" height="20" fill="{{light}}"/>
+    <ellipse cx="230" cy="504" rx="80" ry="6" fill="{{deep}}" opacity="0.35"/>
+  </g>
+
+  <!-- Traces de pas du kiosque vers la maison -->
+  <g fill="{{soft}}">
+    <rect x="320" y="540" width="14" height="5" rx="2.5"/><rect x="350" y="548" width="14" height="5" rx="2.5"/>
+    <rect x="384" y="540" width="14" height="5" rx="2.5"/><rect x="414" y="548" width="14" height="5" rx="2.5"/>
+    <rect x="448" y="540" width="14" height="5" rx="2.5"/><rect x="478" y="548" width="14" height="5" rx="2.5"/>
+    <rect x="512" y="540" width="14" height="5" rx="2.5"/><rect x="542" y="548" width="14" height="5" rx="2.5"/>
+  </g>
+
+  <!-- Les deux porteurs et le grand cadre-nuancier -->
+  <g>
+    <ellipse cx="712" cy="506" rx="110" ry="7" fill="{{deep}}" opacity="0.35"/>
+    <use href="#man" transform="translate(640 504) scale(1.2)"/>
+    <use href="#woman" transform="translate(790 504) scale(1.15)"/>
+    <!-- Bras levés vers le cadre -->
+    <path d="M630 410 L622 372" stroke="{{subject}}" stroke-width="7" stroke-linecap="round"/>
+    <path d="M652 410 L660 372" stroke="{{subject}}" stroke-width="7" stroke-linecap="round"/>
+    <path d="M782 412 L776 372" stroke="{{subject}}" stroke-width="6" stroke-linecap="round"/>
+    <path d="M800 412 L806 372" stroke="{{subject}}" stroke-width="6" stroke-linecap="round"/>
+    <!-- Cadre -->
+    <rect x="590" y="262" width="244" height="112" fill="{{subject}}"/>
+    <rect x="600" y="272" width="224" height="92" fill="{{light}}"/>
+    <!-- Nuancier : cinq pastilles et deux lignes de gabarit -->
+    <rect x="614" y="286" width="30" height="30" fill="{{shadow}}"/>
+    <rect x="652" y="286" width="30" height="30" fill="{{deep}}"/>
+    <rect x="690" y="286" width="30" height="30" fill="{{mid}}"/>
+    <rect x="728" y="286" width="30" height="30" fill="{{soft}}"/>
+    <rect x="766" y="286" width="30" height="30" fill="{{shape}}"/>
+    <rect x="614" y="330" width="144" height="8" fill="{{mid}}"/>
+    <rect x="614" y="344" width="96" height="8" fill="{{soft}}"/>
+  </g>
+
+  <!-- La grande maison, porte ouverte -->
+  <g>
+    <rect x="930" y="260" width="400" height="242" fill="{{shape}}"/>
+    <path d="M900 268 L1130 104 L1360 268 Z" fill="{{shape}}"/>
+    <rect x="1250" y="128" width="40" height="90" fill="{{shape}}"/>
+    <!-- Fenêtres éclairées -->
+    <rect x="970" y="300" width="70" height="70" fill="{{light}}"/>
+    <rect x="1220" y="300" width="70" height="70" fill="{{light}}"/>
+    <rect x="1003" y="300" width="4" height="70" fill="{{shape}}"/>
+    <rect x="1253" y="300" width="4" height="70" fill="{{shape}}"/>
+    <!-- Porte ouverte : embrasure claire, battant rabattu -->
+    <rect x="1080" y="368" width="96" height="134" fill="{{light}}"/>
+    <path d="M1080 368 L1048 380 L1048 512 L1080 502 Z" fill="{{deep}}"/>
+    <!-- Lumière qui déborde sur le sol -->
+    <path d="M1080 502 L1176 502 L1214 560 L1030 560 Z" fill="{{light}}" opacity="0.55"/>
+    <!-- Œil-de-bœuf du pignon -->
+    <circle cx="1130" cy="208" r="26" fill="{{light}}"/>
+  </g>
+</svg>
