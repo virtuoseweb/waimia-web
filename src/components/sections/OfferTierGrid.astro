@@ -107,6 +107,10 @@ const gridClass = [
   }
   .tier-ii-grid {
     --card-min: 17rem;
+  }
+  /* Carte vedette suivie de la grille : même respiration que le gap, quelle que soit
+     la variante (la standard collait la carte aux offres). */
+  .hero-card + .tier-grid {
     margin-top: var(--space-6);
   }
   .tier-iii-grid {
