@@ -13,6 +13,10 @@ const isFr = lang === 'fr';
 const title = isFr ? (data.h1_fr ?? data.h2_fr) : (data.h1_en ?? data.h2_en);
 const lede = isFr ? data.lede_fr : data.lede_en;
 const sectionId = `pricing-tabs-${Math.random().toString(36).slice(2, 8)}`;
+// Button n'a pas de variante « secondary » : rendue en ghost, son équivalent visuel.
+type CtaVariant = 'accent' | 'ghost' | 'primary' | 'secondary' | undefined;
+const btnVariant = (v: CtaVariant, fallback: 'ghost' | 'primary') =>
+  v === 'secondary' ? 'ghost' : (v ?? fallback);
 ---
 
 <section class="pricing-tabs sec-base" data-bg={data.background} aria-labelledby={`${sectionId}-title`}>
@@ -75,7 +79,7 @@ const sectionId = `pricing-tabs-${Math.random().toString(36).slice(2, 8)}`;
                         </div>
                       )}
                     </div>
-                    <Button href={card.cta.href} variant={card.featured ? 'accent' : (card.cta.variant ?? 'ghost')} size="md" class="pricing-tabs__cta">
+                    <Button href={card.cta.href} variant={card.featured ? 'accent' : btnVariant(card.cta.variant, 'ghost')} size="md" class="pricing-tabs__cta">
                       {isFr ? card.cta.label_fr : card.cta.label_en}
                     </Button>
                     <ul class="pricing-tabs__features" data-list="check">
@@ -104,7 +108,7 @@ const sectionId = `pricing-tabs-${Math.random().toString(36).slice(2, 8)}`;
                     </div>
                   )}
                   {tab.note.cta && (
-                    <Button href={tab.note.cta.href} variant={tab.note.cta.variant ?? 'ghost'} size="md">
+                    <Button href={tab.note.cta.href} variant={btnVariant(tab.note.cta.variant, 'ghost')} size="md">
                       {isFr ? tab.note.cta.label_fr : tab.note.cta.label_en}
                     </Button>
                   )}
@@ -125,7 +129,7 @@ const sectionId = `pricing-tabs-${Math.random().toString(36).slice(2, 8)}`;
           <h2 set:html={isFr ? data.highlight.h2_fr : data.highlight.h2_en} />
           {(isFr ? data.highlight.body_fr : data.highlight.body_en) && <p>{isFr ? data.highlight.body_fr : data.highlight.body_en}</p>}
         </div>
-        <Button href={data.highlight.cta.href} variant={data.highlight.cta.variant ?? 'primary'} size="lg">
+        <Button href={data.highlight.cta.href} variant={btnVariant(data.highlight.cta.variant, 'primary')} size="lg">
           {isFr ? data.highlight.cta.label_fr : data.highlight.cta.label_en}
         </Button>
       </aside>

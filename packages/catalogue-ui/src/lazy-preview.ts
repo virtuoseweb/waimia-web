@@ -69,3 +69,6 @@ function initLazyPreviews(): void {
 }
 
 document.addEventListener('astro:page-load', initLazyPreviews);
+
+// Module ES : évite que ces déclarations deviennent globales (TS2451).
+export {};
