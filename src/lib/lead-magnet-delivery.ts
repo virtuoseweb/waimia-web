@@ -335,7 +335,7 @@ export async function processLeadMagnet(rawPayload: unknown, deps: DeliveryDeps 
           tags: [slug],
           toolLabel: digest ? digest.toolLabel : magnet.title,
           receivedAt,
-          ...(toolResult && !report ? { warning: `PDF non généré : ${pdfError ?? "raison inconnue"}` } : {}),
+          ...(toolResult && !report ? { warning: `PDF non généré : ${pdfError ?? "raison inconnue"}` } : {}),
           headline: digest?.headline ?? (isToolSlug ? undefined : headline),
           details: [
             { label: "Ressource", value: magnet.title },

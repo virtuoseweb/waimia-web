@@ -15,7 +15,7 @@ export const demo: DemoData = {
       title_en: 'Founder',
       meta_fr: 'Waimia',
       meta_en: 'Waimia',
-      body_fr: 'Studio d’IA appliquée : câbler les systèmes d’acquisition et opérationnels des entreprises.',
+      body_fr: 'Studio d’IA appliquée : câbler les systèmes d’acquisition et opérationnels des entreprises.',
       body_en: 'Applied AI studio: wiring the acquisition and operational systems of companies.',
     },
     {

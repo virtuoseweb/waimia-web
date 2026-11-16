@@ -8,7 +8,7 @@ export const demo: DemoData = {
     variant: 'split',
     media_register: 'lineart',
     media_src: '/images/line-art/dispositif-flow.svg',
-    media_alt_fr: 'Schéma : outils dispersés, orchestration centrale, résultat mesuré',
+    media_alt_fr: 'Schéma : outils dispersés, orchestration centrale, résultat mesuré',
     media_alt_en: 'Diagram: scattered tools, central orchestration, measured result',
     funnel_num: '§ Flagship 01',
     h1_fr: 'Site web <i>IA-first</i>.<br/>Leads automatisés.',

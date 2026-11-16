@@ -52,7 +52,7 @@ export async function renderRoiPdf(res: RoiResult, ctx: ReportContext): Promise<
   const outLabel = (k: string) => res.outputLines.find((o) => o.key === k)?.label ?? k;
   const r = await createReport({
     title: `${DOC_LABEL} · ${num(v.heuresAn)} heures par an`,
-    subject: `Estimation du temps récupérable : ${num(v.heuresAn)} heures par an, ${eur(v.valeurAn)} par an, budget maximal ${eur(v.plafond)} pour un retour en 12 mois.`,
+    subject: `Estimation du temps récupérable : ${num(v.heuresAn)} heures par an, ${eur(v.valeurAn)} par an, budget maximal ${eur(v.plafond)} pour un retour en 12 mois.`,
     keywords: ['Waimia', 'calculateur', 'ROI', 'IA', 'PME'],
     date: ctx.date,
   });
@@ -175,7 +175,7 @@ export async function renderRoiPdf(res: RoiResult, ctx: ReportContext): Promise<
       p.y = y + h;
     });
     p.y += 6;
-    para(p, 'Le budget maximal ne dit pas ce que coûte un projet : il dit ce qu’il ne doit pas coûter pour se rembourser en douze mois. Un devis au-dessus signale un périmètre trop large ou une tâche sans assez de volume.', {
+    para(p, 'Le budget maximal ne dit pas ce que coûte un projet : il dit ce qu’il ne doit pas coûter pour se rembourser en douze mois. Un devis au-dessus signale un périmètre trop large ou une tâche sans assez de volume.', {
       size: 9.4,
       lead: 14,
       color: C.muted,
@@ -225,19 +225,19 @@ export async function renderRoiPdf(res: RoiResult, ctx: ReportContext): Promise<
     const low = sc[0];
     const notes: string[] = [];
     if (noPayback) {
-      notes.push('Avec ces hypothèses, le coût de fonctionnement dépasse la valeur du temps récupéré : pas de retour en douze mois. Resserrez le périmètre avant de demander un devis.');
+      notes.push('Avec ces hypothèses, le coût de fonctionnement dépasse la valeur du temps récupéré : pas de retour en douze mois. Resserrez le périmètre avant de demander un devis.');
     } else if (v.heuresAn === 0) {
-      notes.push('Avec ces hypothèses, aucune heure n’est récupérable : vérifiez les heures par semaine et la part automatisable avant de conclure.');
+      notes.push('Avec ces hypothèses, aucune heure n’est récupérable : vérifiez les heures par semaine et la part automatisable avant de conclure.');
     }
-    notes.push('Une heure récupérée n’est une économie que si elle est réaffectée : le calcul valorise du temps, pas une baisse de charges.');
+    notes.push('Une heure récupérée n’est une économie que si elle est réaffectée : le calcul valorise du temps, pas une baisse de charges.');
     notes.push(
       low.partAuto < inp[ROI_SENSITIVITY_KEY]
         ? `La part automatisable est l’hypothèse la plus fragile. À ${num(low.partAuto)} %, le budget maximal passe à ${eur(low.outputs.plafond)}.`
-        : 'La part automatisable est l’hypothèse la plus fragile : testez toujours le résultat avec une valeur basse avant de décider.',
+        : 'La part automatisable est l’hypothèse la plus fragile : testez toujours le résultat avec une valeur basse avant de décider.',
     );
     notes.push(
       inp.coutMensuel === 0
-        ? 'Le coût de fonctionnement est laissé à zéro : abonnements, consommation d’API et maintenance réduiront le plafond.'
+        ? 'Le coût de fonctionnement est laissé à zéro : abonnements, consommation d’API et maintenance réduiront le plafond.'
         : 'Le calcul ignore le temps d’adoption par les équipes, les erreurs évitées et la qualité de service.',
     );
     notes.push('Seul un pilote en production, mesuré avant et après, donne un chiffre réel.');
@@ -253,7 +253,7 @@ export async function renderRoiPdf(res: RoiResult, ctx: ReportContext): Promise<
     ctaBlock(p, {
       kicker: 'Audit IA gratuit · 45 minutes',
       title: 'Passer du chiffre au chantier',
-      body: 'L’audit IA vérifie l’hypothèse la plus fragile, la part automatisable, en passant vos tâches en revue une par une : 45 minutes en visio, gratuit, avec une cartographie écrite à la fin.',
+      body: 'L’audit IA vérifie l’hypothèse la plus fragile, la part automatisable, en passant vos tâches en revue une par une : 45 minutes en visio, gratuit, avec une cartographie écrite à la fin.',
       button: 'Réserver l’audit IA',
       url: AUDIT_RDV_URL,
       facts: ['45 minutes en visio', 'Gratuit', 'Cartographie écrite'],

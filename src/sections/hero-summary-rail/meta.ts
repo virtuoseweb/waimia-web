@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['2-col', 'media-right', 'split'],
     tags: ['hero', 'summary', 'magazine', 'asymmetric'],
     status: 'stable',
-    description_fr: "Héro plein écran asymétrique (~70/30) façon revue : colonne principale (kicker, titre serif accent, lede, 2 CTA, sous-CTA), rail droit avec un sommaire typographique de 3 entrées (label mono accent + titre serif court + sous-ligne). Zéro média. Variante paper et ink, responsive.",
+    description_fr: "Héro plein écran asymétrique (~70/30) façon revue : colonne principale (kicker, titre serif accent, lede, 2 CTA, sous-CTA), rail droit avec un sommaire typographique de 3 entrées (label mono accent + titre serif court + sous-ligne). Zéro média. Variante paper et ink, responsive.",
     description_en: 'Full-viewport asymmetric magazine-style hero (~70/30): main column (kicker, accented serif title, lede, 2 CTAs, sub-CTA), right rail with a typographic table of contents of 3 entries (mono accent label + short serif title + subline). No visual. Paper and ink variants, responsive.',
   
 };

@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['1-col'],
     tags: ['eeat', 'author', 'byline', 'article', 'team'],
     status: 'stable',
-    description_fr: 'Ligne auteur compacte E-E-A-T sous un h1 d\'article : avatar optionnel, nom, rôle, dates de publication et mise à jour, lien vers la page profil. Beaucoup plus léger qu\'un hero auteur.',
+    description_fr: 'Ligne auteur compacte E-E-A-T sous un h1 d\'article : avatar optionnel, nom, rôle, dates de publication et mise à jour, lien vers la page profil. Beaucoup plus léger qu\'un hero auteur.',
     description_en: 'Compact E-E-A-T author byline under an article h1: optional avatar, name, role, published and updated dates, link to the profile page. Far lighter than an author hero.',
   
 };

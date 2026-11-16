@@ -9,7 +9,7 @@ export const demo: DemoData = {
     kicker_en: 'Gallery · recent projects',
     h2_fr: 'Chaque projet, <i>une histoire</i>',
     h2_en: 'Every project, <i>a story</i>',
-    intro_fr: 'Un aperçu éditorial des travaux Waimia : stratégie, systèmes IA et identité de marque.',
+    intro_fr: 'Un aperçu éditorial des travaux Waimia : stratégie, systèmes IA et identité de marque.',
     intro_en: 'An editorial overview of Waimia work: strategy, AI systems and brand identity.',
     items: [
       {

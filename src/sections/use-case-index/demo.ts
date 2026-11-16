@@ -10,7 +10,7 @@ export const demo: DemoData = {
     label_en: '§ 05 · Horizontal use cases',
     heading_fr: "Cinq <i>cas d'usage</i>. Une seule méthode.",
     heading_en: 'Five <i>use cases</i>. One method.',
-    aside_fr: 'Acquisition, CRM, contenu, productivité, support : les douleurs récurrentes des PME. Mêmes systèmes, vocabulaire adapté à votre métier.',
+    aside_fr: 'Acquisition, CRM, contenu, productivité, support : les douleurs récurrentes des PME. Mêmes systèmes, vocabulaire adapté à votre métier.',
     aside_en: 'Acquisition, CRM, content, productivity, support: recurring SMB pain points. Same systems, wording adapted to your sector.',
     num_prefix_fr: 'USE CASE',
     num_prefix_en: 'USE CASE',

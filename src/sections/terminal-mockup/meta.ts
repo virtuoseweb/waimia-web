@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['2-col', 'media-right', 'split'],
     tags: ['terminal', 'console', 'mockup', 'cli', 'platform', 'split'],
     status: 'stable',
-    description_fr: 'Console terminal configurable (frame TerminalMockup) : copy optionnelle à gauche, lignes cmd/out/ok/comment et curseur clignotant, layout split ou pleine largeur.',
+    description_fr: 'Console terminal configurable (frame TerminalMockup) : copy optionnelle à gauche, lignes cmd/out/ok/comment et curseur clignotant, layout split ou pleine largeur.',
     description_en: 'Configurable terminal console (TerminalMockup frame): optional copy on the left, cmd/out/ok/comment lines and a blinking cursor, split or full-width layout.',
   
 };

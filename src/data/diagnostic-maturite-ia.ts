@@ -34,7 +34,7 @@ export const dimensions: DiagDimension[] = [
     questions: [
       {
         id: 'q1',
-        text: 'Où vivent vos données clients et commandes ?',
+        text: 'Où vivent vos données clients et commandes ?',
         options: o([
           'Dans des tableurs et des boîtes mail, chacun les siens',
           'Dans un outil (CRM, ERP), mais incomplet ou avec des doublons',
@@ -49,7 +49,7 @@ export const dimensions: DiagDimension[] = [
           'Demander à plusieurs personnes et recouper',
           'Faire un export et le retravailler dans un tableur',
           "Appliquer un filtre dans l'outil, et le résultat est fiable",
-          'Rien : un tableau de bord la donne en continu',
+          'Rien : un tableau de bord la donne en continu',
         ]),
       },
     ],
@@ -58,7 +58,7 @@ export const dimensions: DiagDimension[] = [
     key: 'process',
     name: 'Process',
     why: "On n'automatise bien que ce qui est décrit. Automatiser une tâche floue revient à l'accélérer telle quelle.",
-    advice: "Avant tout outil, écrivez vos tâches récurrentes : qui, à quelle fréquence, combien de temps, quelles exceptions. C'est exactement ce que fait la grille des tâches à automatiser, et c'est le point de départ de l'audit.",
+    advice: "Avant tout outil, écrivez vos tâches récurrentes : qui, à quelle fréquence, combien de temps, quelles exceptions. C'est exactement ce que fait la grille des tâches à automatiser, et c'est le point de départ de l'audit.",
     link: { href: '/ressources/outils/grille-taches-a-automatiser', label: 'Grille des tâches à automatiser' },
     questions: [
       {
@@ -73,7 +73,7 @@ export const dimensions: DiagDimension[] = [
       },
       {
         id: 'q4',
-        text: 'Savez-vous combien de temps ces tâches prennent chaque mois ?',
+        text: 'Savez-vous combien de temps ces tâches prennent chaque mois ?',
         options: o([
           'Non',
           'Une impression générale',
@@ -91,7 +91,7 @@ export const dimensions: DiagDimension[] = [
     questions: [
       {
         id: 'q5',
-        text: "Comment vos équipes utilisent-elles l'IA générative (ChatGPT, Claude, Copilot) ?",
+        text: "Comment vos équipes utilisent-elles l'IA générative (ChatGPT, Claude, Copilot) ?",
         options: o([
           'Pas du tout, ou on ne sait pas',
           'Quelques personnes, avec leurs comptes personnels',
@@ -101,7 +101,7 @@ export const dimensions: DiagDimension[] = [
       },
       {
         id: 'q6',
-        text: "Qui, chez vous, sait vérifier une réponse d'IA et repérer une erreur ?",
+        text: "Qui, chez vous, sait vérifier une réponse d'IA et repérer une erreur ?",
         options: o([
           "Personne d'identifié",
           'Une personne, par goût personnel',
@@ -114,13 +114,13 @@ export const dimensions: DiagDimension[] = [
   {
     key: 'gouvernance',
     name: 'Gouvernance',
-    why: "Quelles données peuvent passer par une IA, et qui valide ce qu'elle fait : sans réponse écrite, chacun improvise.",
-    advice: "Posez la règle avant d'étendre les usages : une charte d'une page qui dit quelles données ne passent jamais par une IA, quels outils sont autorisés et quelles actions exigent une validation humaine. Le modèle de charte est fait pour ça.",
+    why: "Quelles données peuvent passer par une IA, et qui valide ce qu'elle fait : sans réponse écrite, chacun improvise.",
+    advice: "Posez la règle avant d'étendre les usages : une charte d'une page qui dit quelles données ne passent jamais par une IA, quels outils sont autorisés et quelles actions exigent une validation humaine. Le modèle de charte est fait pour ça.",
     link: { href: '/ressources/outils/charte-ia-entreprise', label: 'Modèle de charte IA pour PME' },
     questions: [
       {
         id: 'q7',
-        text: "Existe-t-il une règle sur les données qu'on peut saisir dans un outil d'IA ?",
+        text: "Existe-t-il une règle sur les données qu'on peut saisir dans un outil d'IA ?",
         options: o([
           'Non',
           'Une consigne orale',
@@ -130,7 +130,7 @@ export const dimensions: DiagDimension[] = [
       },
       {
         id: 'q8',
-        text: 'Si une IA agit dans vos outils (envoyer un e-mail, modifier une fiche), qui valide ?',
+        text: 'Si une IA agit dans vos outils (envoyer un e-mail, modifier une fiche), qui valide ?',
         options: o([
           "La question n'a jamais été posée",
           'On verrait au cas par cas',
@@ -149,7 +149,7 @@ export const dimensions: DiagDimension[] = [
     questions: [
       {
         id: 'q9',
-        text: "Avez-vous un cas d'usage IA ou une automatisation en production ?",
+        text: "Avez-vous un cas d'usage IA ou une automatisation en production ?",
         options: o([
           'Non',
           "Des essais, rien d'utilisé chaque semaine",
@@ -159,7 +159,7 @@ export const dimensions: DiagDimension[] = [
       },
       {
         id: 'q10',
-        text: "L'IA a-t-elle un budget et un responsable dans l'entreprise ?",
+        text: "L'IA a-t-elle un budget et un responsable dans l'entreprise ?",
         options: o([
           "Ni l'un ni l'autre",
           'Un responsable officieux, pas de budget',
@@ -190,7 +190,7 @@ export const levels: DiagLevel[] = [
   {
     level: 2, min: 7, max: 13, name: 'Expérimentation',
     reading: "Des usages individuels, sans cadre ni objectif. Des essais isolés, rien en production.",
-    next: "Passez d'essais dispersés à un seul cas cadré : une tâche répétitive, mesurée avant, automatisée avec validation humaine, mesurée après.",
+    next: "Passez d'essais dispersés à un seul cas cadré : une tâche répétitive, mesurée avant, automatisée avec validation humaine, mesurée après.",
   },
   {
     level: 3, min: 14, max: 20, name: 'Adoption',
@@ -200,7 +200,7 @@ export const levels: DiagLevel[] = [
   {
     level: 4, min: 21, max: 26, name: 'Intégration',
     reading: "L'IA est intégrée aux process principaux, avec une gouvernance, des équipes formées et une mesure régulière.",
-    next: "L'enjeu devient la fiabilité et le coût : supervision des agents, traçabilité des actions, revue des validations humaines.",
+    next: "L'enjeu devient la fiabilité et le coût : supervision des agents, traçabilité des actions, revue des validations humaines.",
   },
   {
     level: 5, min: 27, max: 30, name: 'Transformation',

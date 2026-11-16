@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['2-col', 'media-right', 'split'],
     tags: ['hero', 'card', 'cover', 'media', 'kpi', 'ink'],
     status: 'stable',
-    description_fr: 'Héro plein écran en deux colonnes : discours éditorial (kicker, titre serif, lede, badges pills, 2 CTA) à gauche, carte ink sombre (média line-art + mini-KPI) à droite. La carte reste sombre en mode paper. Variante paper et ink, responsive (1 colonne sur mobile).',
+    description_fr: 'Héro plein écran en deux colonnes : discours éditorial (kicker, titre serif, lede, badges pills, 2 CTA) à gauche, carte ink sombre (média line-art + mini-KPI) à droite. La carte reste sombre en mode paper. Variante paper et ink, responsive (1 colonne sur mobile).',
     description_en: 'Full-viewport two-column hero: editorial discourse (kicker, serif title, lede, badge pills, 2 CTAs) on the left, dark ink card (line-art media + mini KPIs) on the right. The card stays dark in paper mode. Paper and ink variants, responsive (single column on mobile).',
   
 };

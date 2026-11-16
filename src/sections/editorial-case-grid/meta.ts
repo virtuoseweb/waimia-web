@@ -15,6 +15,6 @@ export const meta: SectionMeta = {
   layoutFacets: ['2-col'],
   tags: ['case-study', 'editorial', 'cards', 'stagger', 'proof', 'manifesto'],
   status: 'stable',
-  description_fr: 'Grille editoriale de cas clients : en-tete numerote + titre + intro, puis cartes EditorialCaseCard en 2 colonnes avec decalage vertical alterne (signature /manifesto Acte IV).',
+  description_fr: 'Grille editoriale de cas clients : en-tete numerote + titre + intro, puis cartes EditorialCaseCard en 2 colonnes avec decalage vertical alterne (signature /manifesto Acte IV).',
   description_en: 'Editorial case-study grid: numbered header + title + intro, then EditorialCaseCard cards in 2 columns with alternating vertical offset (the /manifesto Act IV signature).',
 };

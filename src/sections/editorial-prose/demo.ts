@@ -13,7 +13,7 @@ export const demo: DemoData = {
     figures: [
       {
         src: '/images/illustrations/ds/woman-and-people-paper.webp',
-        alt_fr: 'Illustration : une intervenante face a un groupe',
+        alt_fr: 'Illustration : une intervenante face a un groupe',
         alt_en: 'Illustration: a speaker facing a group',
         side: 'right',
       },

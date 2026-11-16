@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['centered'],
     tags: ['banner', 'announcement', 'promo', 'alert', 'dismissible', 'strip'],
     status: 'stable',
-    description_fr: 'Bandeau d’annonce/promo fin : badge optionnel, texte court et lien, bouton de fermeture optionnel (dismissible), variantes accent, encre ou paper-2.',
+    description_fr: 'Bandeau d’annonce/promo fin : badge optionnel, texte court et lien, bouton de fermeture optionnel (dismissible), variantes accent, encre ou paper-2.',
     description_en: 'Thin announcement/promo banner: optional badge, short text and link, optional dismiss button, accent, ink or paper-2 variants.',
   
 };

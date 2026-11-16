@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['3-col'],
     tags: ['hero', 'trizone', 'minimap', 'kpi'],
     status: 'stable',
-    description_fr: "Héro plein écran multi-zones : titre serif accent pleine largeur, puis une rangée de 3 zones asymétriques séparées par hairlines (lede + 2 CTA · mini-map 6 capacités · 2 KPI serif). Variante paper et ink, responsive.",
+    description_fr: "Héro plein écran multi-zones : titre serif accent pleine largeur, puis une rangée de 3 zones asymétriques séparées par hairlines (lede + 2 CTA · mini-map 6 capacités · 2 KPI serif). Variante paper et ink, responsive.",
     description_en: 'Full-viewport multi-zone hero: full-width accented serif title, then a row of 3 asymmetric zones separated by hairlines (lede + 2 CTAs · 6-capability mini-map · 2 serif KPIs). Paper and ink variants, responsive.',
   
 };

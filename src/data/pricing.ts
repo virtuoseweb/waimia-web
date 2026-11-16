@@ -162,7 +162,7 @@ export const MAINTENANCE_PLANS: readonly MaintenancePlan[] = [
     },
     includes: {
       fr: [
-        `Tout le palier à ${MAINTENANCE_TIERS_EUR[0]} € : analyse mensuelle, reporting, contrôle des coûts`,
+        `Tout le palier à ${MAINTENANCE_TIERS_EUR[0]} € : analyse mensuelle, reporting, contrôle des coûts`,
         "2 heures d'intervention par mois",
         'Demandes traitées en moins de 72 heures',
       ],
@@ -178,7 +178,7 @@ export const MAINTENANCE_PLANS: readonly MaintenancePlan[] = [
     price: MAINTENANCE_TIERS_EUR[2],
     name: { fr: 'Optimisation continue', en: 'Continuous optimisation' },
     summary: {
-      fr: "Optimisation en continu ; nouveaux scénarios et nouvelles automatisations IA pertinentes pour votre activité, évolutions ; jusqu'à 5 heures d'intervention par mois ; priorité dans la file de traitement des erreurs, du débogage et de l'adaptation des scénarios aux nouvelles contraintes (nouveau modèle, nouvelles interfaces des applications tierces, etc.) ; intervention y compris le dimanche ; résolution des problèmes en moins de 24 heures.",
+      fr: "Optimisation en continu ; nouveaux scénarios et nouvelles automatisations IA pertinentes pour votre activité, évolutions ; jusqu'à 5 heures d'intervention par mois ; priorité dans la file de traitement des erreurs, du débogage et de l'adaptation des scénarios aux nouvelles contraintes (nouveau modèle, nouvelles interfaces des applications tierces, etc.) ; intervention y compris le dimanche ; résolution des problèmes en moins de 24 heures.",
       en: 'Continuous optimisation; new scenarios and new AI automations relevant to your business, upgrades; up to 5 hours of intervention a month; priority in the queue for errors, debugging and adapting scenarios to new constraints (new model, new interfaces of third-party applications, etc.); intervention including on Sundays; problems resolved in under 24 hours.',
     },
     includes: {
@@ -186,7 +186,7 @@ export const MAINTENANCE_PLANS: readonly MaintenancePlan[] = [
         'Optimisation en continu',
         'Nouveaux scénarios et nouvelles automatisations IA pertinentes pour votre activité, évolutions',
         "Jusqu'à 5 heures d'intervention par mois",
-        'Priorité dans la file de traitement : erreurs, débogage, adaptation des scénarios aux nouvelles contraintes (nouveau modèle, nouvelles interfaces des applications tierces, etc.)',
+        'Priorité dans la file de traitement : erreurs, débogage, adaptation des scénarios aux nouvelles contraintes (nouveau modèle, nouvelles interfaces des applications tierces, etc.)',
         'Intervention y compris le dimanche',
         'Problèmes résolus en moins de 24 heures',
       ],

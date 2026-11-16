@@ -31,7 +31,7 @@ export const demo: DemoData = {
         body_fr: "Automatiser les tâches répétitives et rendre chaque équipe plus rapide sur ce qui compte.",
         body_en: 'Automate repetitive tasks and make every team faster on what matters.',
         media_src: '/images/themes/theme-productivite.webp',
-        media_alt_fr: 'Illustration : productivité',
+        media_alt_fr: 'Illustration : productivité',
         media_alt_en: 'Illustration: productivity',
       },
       {
@@ -42,7 +42,7 @@ export const demo: DemoData = {
         body_fr: "Produire un contenu qui se classe sur Google et se fait citer par les IA génératives.",
         body_en: 'Produce content that ranks on Google and gets cited by generative AI.',
         media_src: '/images/themes/theme-contenu-seo.webp',
-        media_alt_fr: 'Illustration : contenu et SEO',
+        media_alt_fr: 'Illustration : contenu et SEO',
         media_alt_en: 'Illustration: content and SEO',
       },
       {
@@ -64,7 +64,7 @@ export const demo: DemoData = {
         body_fr: "Voir clair dans les chiffres et décider sur des données fraîches, pas sur des tableaux figés.",
         body_en: 'See clearly in the numbers and decide on fresh data, not frozen spreadsheets.',
         media_src: '/images/themes/theme-finance.webp',
-        media_alt_fr: 'Illustration : pilotage et finance',
+        media_alt_fr: 'Illustration : pilotage et finance',
         media_alt_en: 'Illustration: steering and finance',
       },
     ],

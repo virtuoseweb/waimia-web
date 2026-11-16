@@ -11,7 +11,7 @@ export const demo: DemoData = {
     h2_fr: 'Née d’une <i>conviction</i> simple',
     h2_en: 'Born from one <i>simple</i> conviction',
     paragraphs_fr: [
-      'Waimia est née d’un constat partagé chez nos clients : l’IA générait beaucoup de démonstrations et très peu de résultats en production.',
+      'Waimia est née d’un constat partagé chez nos clients : l’IA générait beaucoup de démonstrations et très peu de résultats en production.',
       'Nous avons décidé de prendre le problème par l’autre bout. Pas un outil de plus, mais des agents conçus pour s’intégrer à vos process existants et tourner en continu.',
       'Aujourd’hui, nos agents traitent des milliers de décisions par jour pour des équipes qui ont arrêté de choisir entre vitesse et contrôle.',
     ],

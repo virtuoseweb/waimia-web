@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['3-col'],
     tags: ['decision', 'list', 'numbered', 'editorial', 'guide'],
     status: 'stable',
-    description_fr: 'Arbre de décision : en-tête kicker et titre display à gauche, liste ordonnée numérotée d items à droite, hairlines fines.',
+    description_fr: 'Arbre de décision : en-tête kicker et titre display à gauche, liste ordonnée numérotée d items à droite, hairlines fines.',
     description_en: 'Decision tree: kicker and display heading on the left, a numbered ordered list of items on the right, thin hairlines.',
   
 };

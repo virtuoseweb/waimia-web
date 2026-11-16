@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['3-col', 'split'],
     tags: ['hero', 'media', 'medallion', 'kpi', 'cta'],
     status: 'stable',
-    description_fr: 'Héro plein écran en deux colonnes : texte (kicker, titre serif, lede, 2 CTA) à gauche, médaillon média line-art surmontant des KPI verticaux hairline à droite. Variante paper et ink, responsive (1 colonne sur mobile).',
+    description_fr: 'Héro plein écran en deux colonnes : texte (kicker, titre serif, lede, 2 CTA) à gauche, médaillon média line-art surmontant des KPI verticaux hairline à droite. Variante paper et ink, responsive (1 colonne sur mobile).',
     description_en: 'Full-viewport two-column hero: text (kicker, serif title, lede, 2 CTAs) on the left, line-art media medallion above stacked hairline KPIs on the right. Paper and ink variants, responsive (single column on mobile).',
   
 };

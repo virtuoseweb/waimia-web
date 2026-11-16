@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['multi-col', 'centered', 'split'],
     tags: ['problems', 'frictions', 'cards', 'grid', 'numbered'],
     status: 'stable',
-    description_fr: 'Grille de problèmes/frictions auto-fit (3 cards min) : num + kicker + h3 + body, séparateurs hairline 1px.',
+    description_fr: 'Grille de problèmes/frictions auto-fit (3 cards min) : num + kicker + h3 + body, séparateurs hairline 1px.',
     description_en: 'Auto-fit problems/frictions grid (3+ cards): num + kicker + h3 + body, 1px hairline separators.',
   
 };

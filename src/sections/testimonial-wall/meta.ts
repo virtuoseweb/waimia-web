@@ -17,6 +17,6 @@ export const meta: SectionMeta = {
   layoutFacets: ['bento', 'multi-col'],
   tags: ['testimonials', 'wall', 'social-proof', 'masonry'],
   status: 'stable',
-  description_fr: "Mur d'avis masonry : citations clients surlignées, note moyenne et profils LinkedIn pour une preuve sociale dense.",
+  description_fr: "Mur d'avis masonry : citations clients surlignées, note moyenne et profils LinkedIn pour une preuve sociale dense.",
   description_en: 'Masonry wall of reviews: highlighted client quotes, average rating and LinkedIn profiles for dense social proof.',
 };

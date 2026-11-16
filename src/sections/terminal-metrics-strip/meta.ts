@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['3-col'],
     tags: ['terminal', 'metrics', 'kpi', 'mono', 'strip', 'telemetry'],
     status: 'stable',
-    description_fr: 'Strip KPI télémétrie tout mono : 2 à 6 cellules clé/valeur bordées de hairlines, esthétique console (uptime, agents, release), fonds paper, paper-2 ou ink.',
+    description_fr: 'Strip KPI télémétrie tout mono : 2 à 6 cellules clé/valeur bordées de hairlines, esthétique console (uptime, agents, release), fonds paper, paper-2 ou ink.',
     description_en: 'All-mono telemetry KPI strip: 2 to 6 key/value cells with hairline borders, console aesthetics (uptime, agents, release), paper, paper-2 or ink backgrounds.',
   
 };

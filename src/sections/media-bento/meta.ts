@@ -19,6 +19,6 @@ export const meta: SectionMeta = {
   layoutFacets: ['bento'],
   tags: ['bento', 'media', 'gallery', 'projects', 'hover'],
   status: 'stable',
-  description_fr: 'Bento media asymetrique : tuiles image avec grand titre superpose et zoom au survol (layouts feature-2, quad, mosaic).',
+  description_fr: 'Bento media asymetrique : tuiles image avec grand titre superpose et zoom au survol (layouts feature-2, quad, mosaic).',
   description_en: 'Asymmetric media bento: image tiles with a large overlaid title and hover zoom (feature-2, quad, mosaic layouts).',
 };

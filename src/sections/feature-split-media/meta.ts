@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['2-col', 'media-left', 'media-right', 'split'],
     tags: ['feature', 'split', 'media', 'mockup', 'reversed'],
     status: 'stable',
-    description_fr: 'Une feature majeure exposée en deux colonnes : texte et points clés d’un côté, mockup ou capture de l’autre. Le champ reversed permet d’alterner les côtés au fil de la page.',
+    description_fr: 'Une feature majeure exposée en deux colonnes : texte et points clés d’un côté, mockup ou capture de l’autre. Le champ reversed permet d’alterner les côtés au fil de la page.',
     description_en: 'One major feature laid out in two columns: copy and key points on one side, mockup or screenshot on the other. The reversed field alternates sides down the page.',
   
 };

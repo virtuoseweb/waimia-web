@@ -8,7 +8,7 @@ export const demo: DemoData = {
   "kicker_en": "§ Pricing",
   "h1_fr": "Tarifs automatisation et <i>intégration IA</i> pour PME",
   "h1_en": "AI automation and <i>integration</i> pricing for SMEs",
-  "lede_fr": "Un parcours en cinq étapes, prix affichés. Tout commence par un audit gratuit de 45 minutes ; le devis ferme vient après, jamais avant.",
+  "lede_fr": "Un parcours en cinq étapes, prix affichés. Tout commence par un audit gratuit de 45 minutes ; le devis ferme vient après, jamais avant.",
   "lede_en": "A five-step path, prices shown. It all starts with a free 45-minute audit; the firm quote comes after, never before.",
   "rows": [
     {
@@ -21,7 +21,7 @@ export const demo: DemoData = {
       "includes_fr": [
         "Revue de vos processus et de vos outils",
         "Trois automatisations rentables identifiées",
-        "Un avis net : faire, attendre ou ne pas faire"
+        "Un avis net : faire, attendre ou ne pas faire"
       ],
       "includes_en": [
         "Review of your processes and tools",
@@ -46,7 +46,7 @@ export const demo: DemoData = {
       "step_en": "Step 2",
       "name_fr": "Sprint de cadrage",
       "name_en": "Scoping sprint",
-      "body_fr": "Dix heures pour cadrer le premier chantier : périmètre, données, outils à brancher, risques. Vous repartez avec un premier livrable en main, pas avec un rapport qui dort.",
+      "body_fr": "Dix heures pour cadrer le premier chantier : périmètre, données, outils à brancher, risques. Vous repartez avec un premier livrable en main, pas avec un rapport qui dort.",
       "body_en": "Ten hours to scope the first project: perimeter, data, tools to connect, risks. You leave with a first deliverable in hand, not a report that sleeps.",
       "includes_fr": [
         "Cartographie du processus visé",
@@ -77,7 +77,7 @@ export const demo: DemoData = {
       "step_en": "Step 3",
       "name_fr": "Pilote",
       "name_en": "Pilot",
-      "body_fr": "Un premier système en production : une automatisation, un agent IA ou une application métier, branché à vos outils et mesuré sur vos données.",
+      "body_fr": "Un premier système en production : une automatisation, un agent IA ou une application métier, branché à vos outils et mesuré sur vos données.",
       "body_en": "A first system in production: an automation, an AI agent or a business application, connected to your tools and measured on your data.",
       "includes_fr": [
         "Le module qui rend le plus de temps, mis en production",
@@ -105,7 +105,7 @@ export const demo: DemoData = {
   "aside": {
     "title_fr": "Aussi au catalogue",
     "title_en": "Also available",
-    "body_fr": "Le site web et la prospection sont des outils au service du système, pas le cœur du métier. Même règle : audit d'abord, prix affichés.",
+    "body_fr": "Le site web et la prospection sont des outils au service du système, pas le cœur du métier. Même règle : audit d'abord, prix affichés.",
     "body_en": "The website and prospecting are tools serving the system, not the core of the job. Same rule: audit first, prices shown.",
     "items": [
       {
@@ -137,6 +137,6 @@ export const demo: DemoData = {
       }
     ]
   },
-  "footnote_fr": "Prix hors taxes. Les montants « dès » sont des planchers : le devis ferme est établi après l'audit gratuit, sur un temps estimé avec vous et validé avant exécution. Taux horaire unique de 99 € HT, non dégressif.",
+  "footnote_fr": "Prix hors taxes. Les montants « dès » sont des planchers : le devis ferme est établi après l'audit gratuit, sur un temps estimé avec vous et validé avant exécution. Taux horaire unique de 99 € HT, non dégressif.",
   "footnote_en": "Prices exclude VAT. \"From\" amounts are floors: the firm quote is drawn up after the free audit, on a time estimate made with you and validated before work starts. Single hourly rate of 99 € ex VAT, flat."
 };

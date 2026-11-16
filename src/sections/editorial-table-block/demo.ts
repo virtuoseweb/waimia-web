@@ -7,7 +7,7 @@ export const demo: DemoData = {
     type: 'editorial-table-block',
     kicker_fr: 'Comparateur services',
     kicker_en: 'Service comparator',
-    heading_fr: '<i>Quel service</i><br/>pour quelle décision ?',
+    heading_fr: '<i>Quel service</i><br/>pour quelle décision ?',
     heading_en: '<i>Which service</i><br/>for which decision?',
     caption_fr: 'Lecture rapide du catalogue conseil',
     caption_en: 'A quick read of the advisory catalogue',

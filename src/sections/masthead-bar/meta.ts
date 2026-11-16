@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['1-col'],
     tags: ['masthead', 'breadcrumb', 'chrome', 'editorial'],
     status: 'stable',
-    description_fr: "Bande de chrome haut : fil d'Ariane intégré au masthead éditorial (méta lieu, édition, statut), posée sous le header fixe et au-dessus du hero. Composant autonome, universel (home incluse). Variante paper et ink.",
+    description_fr: "Bande de chrome haut : fil d'Ariane intégré au masthead éditorial (méta lieu, édition, statut), posée sous le header fixe et au-dessus du hero. Composant autonome, universel (home incluse). Variante paper et ink.",
     description_en: 'Top chrome band: breadcrumb integrated into the editorial masthead (location, edition, status meta), sitting under the fixed header and above the hero. Standalone, universal component (home included). Paper and ink variants.',
   
 };

@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['centered'],
     tags: ['table', 'data', 'rows', 'comparison', 'neutral', 'striped'],
     status: 'stable',
-    description_fr: 'Table de données neutre générique : en-tête optionnel, colonnes avec alignements, lignes et cellules typées (emphase), zébrures et légende. Distincte des tables habillées terminal ou éditoriale.',
+    description_fr: 'Table de données neutre générique : en-tête optionnel, colonnes avec alignements, lignes et cellules typées (emphase), zébrures et légende. Distincte des tables habillées terminal ou éditoriale.',
     description_en: 'Neutral generic data table: optional header, columns with alignments, rows and typed cells (emphasis), zebra striping and caption. Distinct from the terminal or editorial dressed tables.',
   
 };

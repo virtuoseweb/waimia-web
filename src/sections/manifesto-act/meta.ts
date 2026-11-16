@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['3-col'],
     tags: ['manifesto', 'act', 'numbered', 'stats', 'sticky', 'ink'],
     status: 'stable',
-    description_fr: 'Acte numéroté de manifeste : label sticky (numéro romain + sous-titre), statement XL et rangée de chiffres massifs optionnelle, tone encre ou paper.',
+    description_fr: 'Acte numéroté de manifeste : label sticky (numéro romain + sous-titre), statement XL et rangée de chiffres massifs optionnelle, tone encre ou paper.',
     description_en: 'Numbered manifesto act: sticky label (roman numeral + subtitle), XL statement and an optional row of massive figures, ink or paper tone.',
   
 };

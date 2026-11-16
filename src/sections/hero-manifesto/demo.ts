@@ -17,7 +17,7 @@ export const demo = {
   h1_en: 'Build <i class="accent">revenue</i>,<br />not demos.',
   subhead_fr: 'Un manifeste en cinq actes. Lu d’une traite, il prend dix&nbsp;minutes. Appliqué chez vous, il s’écrit en <i>quatre semaines</i>.',
   subhead_en: 'A manifesto in five acts. Read in one sitting, it takes ten minutes. Applied at your company, it writes itself in <i>four weeks</i>.',
-  intro_fr: "On câble l'IA dans vos outils marketing, sales et web : acquisition, contenu, CRM, site, analytics, marque. Sans changer vos process.",
+  intro_fr: "On câble l'IA dans vos outils marketing, sales et web : acquisition, contenu, CRM, site, analytics, marque. Sans changer vos process.",
   intro_en: 'We wire AI into your marketing, sales and web stack: acquisition, content, CRM, site, analytics, brand. Without changing your process.',
   cta_primary_label_fr: 'Prendre RDV →',
   cta_primary_label_en: 'Book a session →',

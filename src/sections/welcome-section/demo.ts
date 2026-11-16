@@ -16,14 +16,14 @@ export const demo: DemoData = {
         num: '1',
         title_fr: 'Vérifier le contexte',
         title_en: 'Confirm context',
-        body_fr: 'Regroupez les liens utiles : site, CRM, tunnel, documents internes ou exemples de livrables.',
+        body_fr: 'Regroupez les liens utiles : site, CRM, tunnel, documents internes ou exemples de livrables.',
         body_en: 'Collect useful links: website, CRM, funnel, internal docs, or sample deliverables.',
       },
       {
         num: '2',
         title_fr: 'Identifier le point bloquant',
         title_en: 'Name the bottleneck',
-        body_fr: 'Choisissez un problème concret : qualification, contenu, relance, reporting ou support.',
+        body_fr: 'Choisissez un problème concret : qualification, contenu, relance, reporting ou support.',
         body_en: 'Pick one concrete problem: qualification, content, follow-up, reporting, or support.',
       },
       {

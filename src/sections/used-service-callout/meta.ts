@@ -15,6 +15,6 @@ export const meta: SectionMeta = {
   layoutFacets: ['1-col'],
   tags: ['services', 'cross-link', 'internal-mesh', 'callout', 'case-study'],
   status: 'stable',
-  description_fr: "Encadre compact « offre(s) utilisee(s) » : liste de cross-liens vers les services mobilises sur un projet, bord gauche accent.",
+  description_fr: "Encadre compact « offre(s) utilisee(s) » : liste de cross-liens vers les services mobilises sur un projet, bord gauche accent.",
   description_en: 'Compact used-service callout: a list of cross-links to the services deployed on a project, with an accent left border.',
 };

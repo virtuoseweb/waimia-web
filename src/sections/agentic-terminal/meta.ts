@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['1-col'],
     tags: ['terminal', 'ide', 'agentic', 'typing', 'live', 'cli', 'code', 'animated'],
     status: 'stable',
-    description_fr: "Mockup IDE agentique : fenêtre macOS, explorateur de fichiers, prompt utilisateur et bloc de code qui s'écrit en direct caractère par caractère, puis message de succès, footer stats et badges. Fond encre, accent terracotta.",
+    description_fr: "Mockup IDE agentique : fenêtre macOS, explorateur de fichiers, prompt utilisateur et bloc de code qui s'écrit en direct caractère par caractère, puis message de succès, footer stats et badges. Fond encre, accent terracotta.",
     description_en: 'Agentic IDE mockup: macOS window, file explorer, user prompt and a code block typed live character by character, then a success message, footer stats and badges. Ink background, terracotta accent.',
   
 };

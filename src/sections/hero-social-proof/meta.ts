@@ -18,6 +18,6 @@ export const meta: SectionMeta = {
   layoutFacets: ['centered'],
   tags: ['hero', 'social-proof', 'stats', 'rating', 'trust', 'above-fold'],
   status: 'stable',
-  description_fr: 'Hero centré avec preuve sociale above-the-fold : titre, CTA, note clients optionnelle et bande de chiffres clés (StatRow) sous le pli haut.',
+  description_fr: 'Hero centré avec preuve sociale above-the-fold : titre, CTA, note clients optionnelle et bande de chiffres clés (StatRow) sous le pli haut.',
   description_en: 'Centered hero with above-the-fold social proof: heading, CTA, optional customer rating and a key-figures band (StatRow) under the fold.',
 };

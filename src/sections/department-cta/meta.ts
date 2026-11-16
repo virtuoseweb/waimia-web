@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['centered'],
     tags: ['solutions', 'cta', 'conversion', 'dark', 'closing'],
     status: 'stable',
-    description_fr: 'Clôture CTA sur fond ink : Dingbat, titre display italique, body et deux boutons (rendez-vous + lien secondaire).',
+    description_fr: 'Clôture CTA sur fond ink : Dingbat, titre display italique, body et deux boutons (rendez-vous + lien secondaire).',
     description_en: 'Closing CTA on an ink background: a Dingbat, an italic display heading, body copy, and two buttons (booking + secondary link).',
   
 };

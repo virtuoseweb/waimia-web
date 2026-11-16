@@ -10,7 +10,7 @@ export const demo: DemoData = {
     label_en: '§ 02 - Advisory catalogue',
     heading_fr: 'Quatre <i>chantiers</i>. Un seul standard.',
     heading_en: 'Four <i>engagements</i>. One standard.',
-    aside_fr: 'Du diagnostic à la dette technique : chaque chantier produit une couche que vos équipes reprennent et exploitent.',
+    aside_fr: 'Du diagnostic à la dette technique : chaque chantier produit une couche que vos équipes reprennent et exploitent.',
     aside_en: 'From diagnosis to technical debt: each engagement produces a layer your teams own and operate.',
     services: [
       { num: '02.1', title_fr: 'Audit de maturité IA', title_en: 'AI Maturity Audit', desc_fr: 'Cartographie des cas d\'usage, des données et des risques avant tout chantier.', desc_en: 'Mapping of use cases, data, and risks before any engagement.', meta: '10 j · 10 days', href: '/audit-ia-pme' },

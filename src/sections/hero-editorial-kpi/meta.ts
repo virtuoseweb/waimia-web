@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['2-col', 'media-right', 'split'],
     tags: ['hero', 'editorial', 'kpi', 'asymmetric'],
     status: 'stable',
-    description_fr: "Héro plein écran éditorial asymétrique (~65/35) : colonne dominante (kicker, titre serif accent, lede, 2 CTA, sous-CTA), rail léger à droite avec 3 KPI serif verticaux séparés par hairlines. Variante paper et ink, responsive.",
+    description_fr: "Héro plein écran éditorial asymétrique (~65/35) : colonne dominante (kicker, titre serif accent, lede, 2 CTA, sous-CTA), rail léger à droite avec 3 KPI serif verticaux séparés par hairlines. Variante paper et ink, responsive.",
     description_en: 'Full-viewport asymmetric editorial hero (~65/35): dominant column (kicker, accented serif title, lede, 2 CTAs, sub-CTA), light right rail with 3 vertical serif KPIs separated by hairlines. Paper and ink variants, responsive.',
   
 };

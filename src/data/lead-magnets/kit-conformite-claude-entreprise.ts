@@ -27,13 +27,13 @@ export const data: LeadMagnetPage = {
     'The DPO, AI lead or compliance owner who keeps the register and the usage policy.',
   ],
   inside_fr: [
-    { title: "Les réglages d'administration à vérifier", desc: "Cowork par organisation, exécution dans le cloud, navigateur intégré, Claude in Chrome, approbation automatique, « Always allow » des connecteurs : valeur par défaut, recommandation, case de vérification." },
-    { title: "Ce qui dépend de l'offre", desc: 'SSO, SCIM, journaux d\'audit, Compliance API, rétention personnalisée : Team ou Enterprise, et les repères de prix datés.' },
+    { title: "Les réglages d'administration à vérifier", desc: "Cowork par organisation, exécution dans le cloud, navigateur intégré, Claude in Chrome, approbation automatique, « Always allow » des connecteurs : valeur par défaut, recommandation, case de vérification." },
+    { title: "Ce qui dépend de l'offre", desc: 'SSO, SCIM, journaux d\'audit, Compliance API, rétention personnalisée : Team ou Enterprise, et les repères de prix datés.' },
     { title: 'Plugins, connecteurs et marketplaces', desc: 'Les quatre niveaux de diffusion, la surcharge par groupe, et sept décisions à prendre avant d\'installer.' },
     { title: 'Les points RGPD', desc: 'Stockage, résidence en Europe, entraînement, comptes grand public, historique local de Cowork, DPA et certifications.' },
     { title: "Une mini trame d'analyse d'impact", desc: 'Huit questions à remplir pour chaque usage, jusqu\'à la décision datée.' },
     { title: "Un modèle de politique d'usage d'une page", desc: 'Dix règles à afficher ou à faire signer, adossées au modèle de charte IA complet.' },
-    { title: 'Un registre des usages', desc: 'Le tableau à remplir : usage, référent, données, connecteurs, validation humaine, décision.' },
+    { title: 'Un registre des usages', desc: 'Le tableau à remplir : usage, référent, données, connecteurs, validation humaine, décision.' },
     { title: 'Les questions à poser au fournisseur', desc: 'Douze questions pour Anthropic, un revendeur ou un intégrateur, contrat et plugins compris.' },
     { title: 'Le calendrier AI Act utile', desc: 'Les dates qui touchent une PME utilisatrice, avec renvoi vers le guide détaillé.' },
   ],
@@ -49,11 +49,11 @@ export const data: LeadMagnetPage = {
     { title: 'The useful AI Act timeline', desc: 'The dates that affect an SMB using AI, with a link to the detailed guide.' },
   ],
   extract_fr:
-    "<p><strong>Extrait de la partie 1 : trois réglages parmi ceux du kit.</strong> Source : aide Claude sur les réglages Cowork pour Team et Enterprise.</p>" +
+    "<p><strong>Extrait de la partie 1 : trois réglages parmi ceux du kit.</strong> Source : aide Claude sur les réglages Cowork pour Team et Enterprise.</p>" +
     "<ul>" +
-    "<li><strong>Exécution de Cowork dans le cloud</strong> : activée par défaut en Team, désactivée par défaut en Enterprise. En Team, décidez-le explicitement : une tâche cloud tourne appareil éteint.</li>" +
-    "<li><strong>« Always allow » des connecteurs</strong> : désactivé par défaut. Laissez-le ainsi tant que les actions concernées ne sont pas listées.</li>" +
-    "<li><strong>Historique local des sessions Cowork</strong> : non soumis à la politique de rétention standard, et ni gérable ni supprimable centralement par l'administrateur. À écrire dans la politique d'usage.</li>" +
+    "<li><strong>Exécution de Cowork dans le cloud</strong> : activée par défaut en Team, désactivée par défaut en Enterprise. En Team, décidez-le explicitement : une tâche cloud tourne appareil éteint.</li>" +
+    "<li><strong>« Always allow » des connecteurs</strong> : désactivé par défaut. Laissez-le ainsi tant que les actions concernées ne sont pas listées.</li>" +
+    "<li><strong>Historique local des sessions Cowork</strong> : non soumis à la politique de rétention standard, et ni gérable ni supprimable centralement par l'administrateur. À écrire dans la politique d'usage.</li>" +
     "</ul>",
   extract_en:
     '<p><strong>Extract from part 1: three of the settings in the kit.</strong> Source: Claude help on Cowork settings for Team and Enterprise, read on 5 October 2026.</p>' +
@@ -64,15 +64,15 @@ export const data: LeadMagnetPage = {
     '</ul>',
   faq_fr: [
     {
-      q: 'Ce kit est-il un avis juridique ?',
+      q: 'Ce kit est-il un avis juridique ?',
       a: "Non. C'est un document de travail : les faits publiés par Anthropic au 5 octobre 2026, plus des trames à remplir. Ce qui dépend de votre contrat, de vos traitements ou d'une interprétation du RGPD est marqué « à vérifier » et se tranche avec votre DPO ou votre conseil.",
     },
     {
-      q: 'Sert-il pour Claude Team comme pour Claude Enterprise ?',
+      q: 'Sert-il pour Claude Team comme pour Claude Enterprise ?',
       a: "Oui. Chaque réglage indique sa valeur par défaut selon l'offre quand la source la précise, et un tableau distingue ce qui n'existe qu'en Enterprise (journaux d'audit, SCIM, rétention personnalisée, surcharge des plugins par groupe).",
     },
     {
-      q: 'Remplace-t-il la charte IA ?',
+      q: 'Remplace-t-il la charte IA ?',
       a: "Non. Il contient une politique d'usage d'une page, qui résume les règles et renvoie au <a href=\"/ressources/outils/charte-ia-entreprise\">modèle de charte IA complet</a>. Le cadre général est sur la page <a href=\"/conformite-ia\">conformité IA</a>.",
     },
     {
@@ -80,7 +80,7 @@ export const data: LeadMagnetPage = {
       a: "Le fichier est envoyé en pièce jointe, uniquement par e-mail. L'inscription à la lettre Waimia est une case séparée, décochée par défaut.",
     },
     {
-      q: 'Les informations seront-elles encore justes dans six mois ?',
+      q: 'Les informations seront-elles encore justes dans six mois ?',
       a: "Pas toutes : les offres de Claude changent vite, et la fusion de Cowork dans Claude est en cours. Chaque fait est daté et sourcé, vous pouvez donc le revérifier. Le <a href=\"/ressources/guides/claude-plugins-entreprise\">guide des plugins Claude en entreprise</a> est mis à jour en ligne.",
     },
   ],
@@ -117,7 +117,7 @@ export const data: LeadMagnetPage = {
   seoTitle_fr: 'Kit conformité Claude en entreprise (PDF gratuit)',
   seoTitle_en: 'Claude compliance kit for business (free PDF)',
   seoDescription_fr:
-    "Kit PDF pour dirigeants et DSI : réglages Claude Team et Enterprise à vérifier, points RGPD, trame d'analyse d'impact, politique d'usage et registre.",
+    "Kit PDF pour dirigeants et DSI : réglages Claude Team et Enterprise à vérifier, points RGPD, trame d'analyse d'impact, politique d'usage et registre.",
   seoDescription_en:
     'PDF kit for owners and IT leads: Claude Team and Enterprise settings to check, GDPR points, impact assessment frame, usage policy and register.',
   publishedAt: '2026-10-05',

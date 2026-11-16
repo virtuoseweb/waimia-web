@@ -9,7 +9,7 @@ export const demo: DemoData = {
     kicker_en: '§ 03.F · Fit',
     heading_fr: 'On ne prend pas <i>tous</i> les projets.',
     heading_en: 'We do not take <i>every</i> project.',
-    intro_fr: 'Le bon engagement tient en deux colonnes : ce que l\'on peut rendre opérable, et ce que l\'on doit refuser avant de diluer la mission.',
+    intro_fr: 'Le bon engagement tient en deux colonnes : ce que l\'on peut rendre opérable, et ce que l\'on doit refuser avant de diluer la mission.',
     intro_en: 'A good engagement fits in two columns: what can become operational, and what must be refused before the mission gets diluted.',
     yes_title_fr: 'Vous êtes fait pour nous si',
     yes_title_en: 'You are a fit if',

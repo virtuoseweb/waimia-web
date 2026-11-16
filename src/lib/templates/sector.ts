@@ -47,10 +47,10 @@ const SEVERITY_BY_INDEX = ['critical', 'high', 'high', 'medium', 'medium', 'low'
 // ── Mapping workflow → illustration duotone réelle (variante -paper, fond clair).
 //    Pool content-matched, assigné par index → 0 répétition dans une page (max 4 rangées). ──
 const WORKFLOW_ILLUSTRATIONS = [
-  { src: '/images/illustrations/ds/woman-computer-paper.webp', alt_fr: 'Illustration : poste de travail outillé', alt_en: 'Illustration: an equipped workstation' },
-  { src: '/images/illustrations/ds/money-money-paper.webp', alt_fr: 'Illustration : flux de revenus', alt_en: 'Illustration: revenue flow' },
-  { src: '/images/illustrations/ds/men-on-hand-paper.webp', alt_fr: 'Illustration : transmission entre équipes', alt_en: 'Illustration: handover between teams' },
-  { src: '/images/illustrations/ds/chess-paper.webp', alt_fr: 'Illustration : pièces d\'échecs, stratégie', alt_en: 'Illustration: chess pieces, strategy' },
+  { src: '/images/illustrations/ds/woman-computer-paper.webp', alt_fr: 'Illustration : poste de travail outillé', alt_en: 'Illustration: an equipped workstation' },
+  { src: '/images/illustrations/ds/money-money-paper.webp', alt_fr: 'Illustration : flux de revenus', alt_en: 'Illustration: revenue flow' },
+  { src: '/images/illustrations/ds/men-on-hand-paper.webp', alt_fr: 'Illustration : transmission entre équipes', alt_en: 'Illustration: handover between teams' },
+  { src: '/images/illustrations/ds/chess-paper.webp', alt_fr: 'Illustration : pièces d\'échecs, stratégie', alt_en: 'Illustration: chess pieces, strategy' },
 ] as const;
 
 // ── Illustrations PAR SECTEUR (skill waimia-illustration, 2026-10-05) : une métaphore par
@@ -85,13 +85,13 @@ const SECTOR_COPY: Record<string, {
   workflowBodies_fr: string[]; workflowBodies_en: string[];
 }> = {
   agence: {
-    zigzagLede_fr: "Une agence vend sa façon de penser : on outille ce qui la montre, ce qui accélère la production et ce qui nourrit les briefs. Vos créatifs gardent la main sur le rendu.",
+    zigzagLede_fr: "Une agence vend sa façon de penser : on outille ce qui la montre, ce qui accélère la production et ce qui nourrit les briefs. Vos créatifs gardent la main sur le rendu.",
     zigzagLede_en: 'An agency sells how it thinks: we tool what shows it, what speeds up production and what feeds the briefs. Your creatives keep control of the output.',
     ctaSubtitle_fr: "On regarde votre production et vos briefs en 45 minutes, et on vous dit quelles étapes répétitives peuvent sortir de vos journées.",
     ctaSubtitle_en: 'We look at your production and briefs in 45 minutes, and tell you which repetitive steps can leave your days.',
     workflowBodies_fr: [
       "Vos cas, votre méthode et vos démonstrations sur un site que l'équipe met à jour sans développeur. Un prospect voit ce que vous faites avant de vous appeler.",
-      "Déclinaisons, adaptations de formats, premières versions : l'IA prépare à partir de votre charte et de vos exemples validés, vos créatifs reprennent et signent.",
+      "Déclinaisons, adaptations de formats, premières versions : l'IA prépare à partir de votre charte et de vos exemples validés, vos créatifs reprennent et signent.",
       "Un agent suit les sources de vos clients (actualité, concurrents, publications) et prépare une note avant chaque brief. Vous arrivez en réunion avec le contexte déjà lu.",
     ],
     workflowBodies_en: [
@@ -101,15 +101,15 @@ const SECTOR_COPY: Record<string, {
     ],
   },
   conseil: {
-    zigzagLede_fr: "Un cabinet vend son expertise et sa mémoire : on outille ce qui les rend visibles et réutilisables, sans exposer les dossiers de vos clients.",
+    zigzagLede_fr: "Un cabinet vend son expertise et sa mémoire : on outille ce qui les rend visibles et réutilisables, sans exposer les dossiers de vos clients.",
     zigzagLede_en: "A consulting firm sells its expertise and its memory: we tool what makes them visible and reusable, without exposing your clients' files.",
     ctaSubtitle_fr: "On regarde vos demandes entrantes et vos livrables en 45 minutes, et on vous dit ce qui peut être préparé avant que le consultant s'en saisisse.",
     ctaSubtitle_en: 'We look at your inbound requests and deliverables in 45 minutes, and tell you what can be prepared before a consultant picks it up.',
     workflowBodies_fr: [
       "Votre démarche expliquée pas à pas et des cas anonymisés que vous validez un par un. Le site parle comme vos consultants, sans révéler qui sont vos clients.",
       "Chaque demande passe par quelques questions (taille, enjeu, délai, budget) avant d'arriver chez vous. Vous ne prenez l'appel qu'une fois le besoin compris.",
-      "Propositions, rapports et notes de mission indexés avec leurs droits d'accès : un consultant retrouve en une question ce que le cabinet a déjà écrit sur un sujet.",
-      "Recherche documentaire, synthèse de sources, premier jet de livrable : l'agent prépare, cite ses sources et laisse la conclusion au consultant.",
+      "Propositions, rapports et notes de mission indexés avec leurs droits d'accès : un consultant retrouve en une question ce que le cabinet a déjà écrit sur un sujet.",
+      "Recherche documentaire, synthèse de sources, premier jet de livrable : l'agent prépare, cite ses sources et laisse la conclusion au consultant.",
     ],
     workflowBodies_en: [
       'Your approach explained step by step and anonymised cases you approve one by one. The site speaks like your consultants without revealing who your clients are.',
@@ -119,7 +119,7 @@ const SECTOR_COPY: Record<string, {
     ],
   },
   esn: {
-    zigzagLede_fr: "Une ESN recrute et vend des compétences : on outille ce qui les prouve en ligne, puis l'usage de l'IA chez vos consultants, avec un cadre.",
+    zigzagLede_fr: "Une ESN recrute et vend des compétences : on outille ce qui les prouve en ligne, puis l'usage de l'IA chez vos consultants, avec un cadre.",
     zigzagLede_en: 'An IT services firm hires and sells skills: we tool what proves them online, then AI use among your consultants, with a framework.',
     ctaSubtitle_fr: "On regarde votre recrutement, vos preuves techniques et l'usage de l'IA chez vos consultants en 45 minutes, et on vous dit par où commencer.",
     ctaSubtitle_en: "We look at your hiring, technical proof and your consultants' AI use in 45 minutes, and tell you where to start.",
@@ -127,7 +127,7 @@ const SECTOR_COPY: Record<string, {
       "Les projets, la stack et la façon de travailler racontés par vos équipes. Un candidat sait à quoi ressemblera sa mission avant le premier entretien.",
       "Des cas détaillés et des articles techniques écrits avec vos consultants, publiés sans passer par un développeur. Vos commerciaux ont une page à envoyer pour chaque compétence.",
       "Claude Code installé chez les consultants qui le veulent, avec des règles d'accès au code client et une revue humaine avant chaque livraison.",
-      "Un référent IA interne recense les tâches répétitives (comptes rendus, staffing, reporting) ; les agents les prennent une par une, avec validation.",
+      "Un référent IA interne recense les tâches répétitives (comptes rendus, staffing, reporting) ; les agents les prennent une par une, avec validation.",
     ],
     workflowBodies_en: [
       'Projects, stack and ways of working told by your teams. A candidate knows what the assignment will look like before the first interview.',
@@ -137,14 +137,14 @@ const SECTOR_COPY: Record<string, {
     ],
   },
   industrie: {
-    zigzagLede_fr: "Un industriel vend des capacités et des délais tenus : on outille ce qui les montre aux acheteurs, ce qui capte leurs demandes et ce qui retrouve la bonne fiche technique.",
+    zigzagLede_fr: "Un industriel vend des capacités et des délais tenus : on outille ce qui les montre aux acheteurs, ce qui capte leurs demandes et ce qui retrouve la bonne fiche technique.",
     zigzagLede_en: 'A manufacturer sells capabilities and kept deadlines: we tool what shows them to buyers, captures their requests and finds the right technical sheet.',
     ctaSubtitle_fr: "On regarde vos demandes de prix et votre documentation technique en 45 minutes, et on vous dit ce qui peut être chiffré ou retrouvé plus vite.",
     ctaSubtitle_en: 'We look at your price requests and technical documentation in 45 minutes, and tell you what can be quoted or found faster.',
     workflowBodies_fr: [
       "Procédés, parc machine, tolérances et certifications présentés comme un acheteur les cherche. Il sait si vous pouvez faire la pièce avant d'envoyer son plan.",
       "Demandes de prix et appels d'offres arrivent dans une seule file, avec plan, quantités et échéance extraits. Le chargé d'affaires voit d'abord celles qui correspondent à vos capacités.",
-      "Fiches techniques, gammes, procédures qualité : réunies et interrogeables en langage courant, avec la référence du document source à chaque réponse.",
+      "Fiches techniques, gammes, procédures qualité : réunies et interrogeables en langage courant, avec la référence du document source à chaque réponse.",
       "L'assistant relit une spécification, signale ce qui manque pour chiffrer et prépare le devis à partir de vos barèmes. Le reporting hebdomadaire se remplit depuis vos outils.",
     ],
     workflowBodies_en: [
@@ -155,12 +155,12 @@ const SECTOR_COPY: Record<string, {
     ],
   },
   batiment: {
-    zigzagLede_fr: 'On outille ce qui fait signer : capter la demande, chiffrer vite, relancer, faire parler les chantiers finis. Branché sur vos outils, tenu par votre équipe.',
+    zigzagLede_fr: 'On outille ce qui fait signer : capter la demande, chiffrer vite, relancer, faire parler les chantiers finis. Branché sur vos outils, tenu par votre équipe.',
     zigzagLede_en: 'We tool what gets quotes signed: capture the request, quote fast, follow up, let finished jobs speak. Wired to your tools, run by your team.',
     ctaSubtitle_fr: 'On regarde vos demandes entrantes et vos devis en 45 minutes, et on vous dit vite ce qui s\'automatise.',
     ctaSubtitle_en: 'We look at your inbound requests and quotes in 45 minutes, and tell you quickly what can be automated.',
     workflowBodies_fr: [
-      'Formulaire, email, message vocal transcrit : chaque demande arrive dans une liste unique, avec le type de travaux, la commune, le budget et l\'urgence. Vous rappelez d\'abord celles qui valent le déplacement.',
+      'Formulaire, email, message vocal transcrit : chaque demande arrive dans une liste unique, avec le type de travaux, la commune, le budget et l\'urgence. Vous rappelez d\'abord celles qui valent le déplacement.',
       'Les prestations courantes sont pré-chiffrées à partir de votre grille de prix. Vous ajustez, vous validez, le devis part le jour même depuis votre outil habituel. L\'IA prépare, vous décidez du prix.',
       'Relance automatique à J+3 puis à J+10 tant que le client n\'a pas répondu, puis demande d\'avis Google une fois le chantier réceptionné. Vous n\'avez plus à y penser.',
     ],
@@ -171,13 +171,13 @@ const SECTOR_COPY: Record<string, {
     ],
   },
   'e-commerce': {
-    zigzagLede_fr: 'On automatise l\'arrière-boutique, pas la vitrine : commandes, support, catalogue. Branché sur votre boutique actuelle, sans migration imposée.',
+    zigzagLede_fr: 'On automatise l\'arrière-boutique, pas la vitrine : commandes, support, catalogue. Branché sur votre boutique actuelle, sans migration imposée.',
     zigzagLede_en: 'We automate the back office, not the storefront: orders, support, catalogue. Wired to your current shop, no forced migration.',
     ctaSubtitle_fr: 'On suit une commande et une question client chez vous en 45 minutes, et on vous dit vite ce qui s\'automatise.',
     ctaSubtitle_en: 'We follow an order and a customer question in 45 minutes, and tell you quickly what can be automated.',
     workflowBodies_fr: [
       'Chaque commande part de la boutique vers la facturation, le stock et le transporteur sans copier-coller. Si une étape échoue, une alerte arrive avant que le client ne s\'en aperçoive.',
-      'Un agent prépare la réponse aux questions récurrentes depuis vos vraies sources : suivi de colis, conditions de retour, délais. Une personne la valide avant l\'envoi ; ce qu\'il ne sait pas traiter part à l\'équipe avec le contexte déjà rempli.',
+      'Un agent prépare la réponse aux questions récurrentes depuis vos vraies sources : suivi de colis, conditions de retour, délais. Une personne la valide avant l\'envoi ; ce qu\'il ne sait pas traiter part à l\'équipe avec le contexte déjà rempli.',
       'Les fiches produits sont complétées et mises en forme à partir des données fournisseurs, puis relues avant publication. Vos nouveautés sont en ligne quand elles arrivent en stock.',
     ],
     workflowBodies_en: [
@@ -187,12 +187,12 @@ const SECTOR_COPY: Record<string, {
     ],
   },
   'liberal-independant': {
-    zigzagLede_fr: 'On construit l\'autorité, pas la brochure : être trouvé sur vos requêtes métier, rassurer, ouvrir un contact simple. Un actif qui vous appartient, hors plateformes.',
+    zigzagLede_fr: 'On construit l\'autorité, pas la brochure : être trouvé sur vos requêtes métier, rassurer, ouvrir un contact simple. Un actif qui vous appartient, hors plateformes.',
     zigzagLede_en: 'We build authority, not a brochure: get found on your trade queries, reassure, open a simple contact. An asset you own, off-platform.',
     ctaSubtitle_fr: 'On regarde votre visibilité et votre présence en ligne en 45 minutes, et on vous dit vite où vous perdez des contacts.',
     ctaSubtitle_en: 'We look at your visibility and online presence in 45 minutes, and tell you quickly where you are losing contacts.',
     workflowBodies_fr: [
-      'Un site qui prouve votre expertise plutôt qu\'une fiche d\'annuaire interchangeable : votre angle, vos publications, vos références. Il travaille pendant vos rendez-vous.',
+      'Un site qui prouve votre expertise plutôt qu\'une fiche d\'annuaire interchangeable : votre angle, vos publications, vos références. Il travaille pendant vos rendez-vous.',
       'Être trouvé sur vos requêtes métier sur Google, et cité dans les réponses des moteurs IA où une part croissante de vos clients cherche désormais un nom.',
       'Un chemin de contact clair, sans formulaire à rallonge ni intermédiaire qui prend sa commission. Le prospect vous joint directement, quand il est décidé.',
     ],
@@ -203,12 +203,12 @@ const SECTOR_COPY: Record<string, {
     ],
   },
   therapeutes: {
-    zigzagLede_fr: 'On travaille la confiance et le créneau, pas le décor : expliquer votre approche, rassurer, rendre la prise de rendez-vous évidente. Sans dépendre d\'une plateforme.',
+    zigzagLede_fr: 'On travaille la confiance et le créneau, pas le décor : expliquer votre approche, rassurer, rendre la prise de rendez-vous évidente. Sans dépendre d\'une plateforme.',
     zigzagLede_en: 'We work trust and the booking slot, not the decor: explain your approach, reassure, make booking obvious. Without depending on a platform.',
     ctaSubtitle_fr: 'On regarde votre visibilité locale et votre prise de rendez-vous en 45 minutes, et on vous dit vite ce qui freine les demandes.',
     ctaSubtitle_en: 'We look at your local visibility and booking flow in 45 minutes, and tell you quickly what is holding requests back.',
     workflowBodies_fr: [
-      'Votre approche expliquée sans jargon, votre cadre, vos avis : le nouveau patient hésitant est rassuré avant le premier échange, là où la décision se prend.',
+      'Votre approche expliquée sans jargon, votre cadre, vos avis : le nouveau patient hésitant est rassuré avant le premier échange, là où la décision se prend.',
       'Des créneaux visibles et réservables en quelques clics. Fini le téléphone qui sonne dans le vide et les allers-retours par mail qui découragent.',
       'Ressortir sur la recherche locale et la fiche Google, avec les avis en évidence. C\'est là que le patient choisit un praticien près de chez lui.',
     ],
@@ -219,7 +219,7 @@ const SECTOR_COPY: Record<string, {
     ],
   },
   'startup-logiciel': {
-    zigzagLede_fr: 'On outille le trajet du revenu : la demande, le support, la prospection. Branché sur votre CRM et votre documentation, transféré à votre équipe.',
+    zigzagLede_fr: 'On outille le trajet du revenu : la demande, le support, la prospection. Branché sur votre CRM et votre documentation, transféré à votre équipe.',
     zigzagLede_en: 'We tool the revenue path: the request, support, prospecting. Wired to your CRM and documentation, handed over to your team.',
     ctaSubtitle_fr: 'On suit le trajet d\'une demande de démo chez vous en 45 minutes, et on vous dit vite où elle se perd.',
     ctaSubtitle_en: 'We follow a demo request through your company in 45 minutes, and tell you quickly where it gets lost.',
@@ -307,15 +307,15 @@ const defaultTrustBadges = [
 //    workflow : 0 répétition dans la page. Assignée par slug (content-matched), 1 figure/page. ──
 const PROSE_ILLUSTRATIONS: Record<string, { src: string; alt_fr: string; alt_en: string }> = {
   agence: { src: '/images/illustrations/ds/man-and-woman-hi-paper.webp', alt_fr: 'Illustration : deux personnes se saluent, collaboration', alt_en: 'Illustration: two people greeting, collaboration' },
-  batiment: { src: '/images/illustrations/ds/gentleman-craftsman-go-work-paper.webp', alt_fr: 'Illustration : artisan en route vers le chantier', alt_en: 'Illustration: a craftsman heading to work' },
-  comptabilite: { src: '/images/illustrations/ds/money-in-the-pig-paper.webp', alt_fr: 'Illustration : tirelire, gestion des chiffres', alt_en: 'Illustration: piggy bank, managing the numbers' },
-  conseil: { src: '/images/illustrations/ds/woman-and-people-paper.webp', alt_fr: 'Illustration : une intervenante face a un groupe', alt_en: 'Illustration: a speaker facing a group' },
-  'e-commerce': { src: '/images/illustrations/ds/fruits-paper.webp', alt_fr: 'Illustration : etal de produits', alt_en: 'Illustration: a display of products' },
+  batiment: { src: '/images/illustrations/ds/gentleman-craftsman-go-work-paper.webp', alt_fr: 'Illustration : artisan en route vers le chantier', alt_en: 'Illustration: a craftsman heading to work' },
+  comptabilite: { src: '/images/illustrations/ds/money-in-the-pig-paper.webp', alt_fr: 'Illustration : tirelire, gestion des chiffres', alt_en: 'Illustration: piggy bank, managing the numbers' },
+  conseil: { src: '/images/illustrations/ds/woman-and-people-paper.webp', alt_fr: 'Illustration : une intervenante face a un groupe', alt_en: 'Illustration: a speaker facing a group' },
+  'e-commerce': { src: '/images/illustrations/ds/fruits-paper.webp', alt_fr: 'Illustration : etal de produits', alt_en: 'Illustration: a display of products' },
   esn: { src: '/images/illustrations/ds/computer-health-paper.webp', alt_fr: 'Illustration : poste informatique sain, services IT', alt_en: 'Illustration: a healthy workstation, IT services' },
   formation: { src: '/images/illustrations/ds/super-girl-paper.webp', alt_fr: 'Illustration : montee en competence', alt_en: 'Illustration: building up skills' },
-  industrie: { src: '/images/illustrations/ds/no-no-yes-paper.webp', alt_fr: 'Illustration : controle qualite, tri des options', alt_en: 'Illustration: quality control, sorting options' },
+  industrie: { src: '/images/illustrations/ds/no-no-yes-paper.webp', alt_fr: 'Illustration : controle qualite, tri des options', alt_en: 'Illustration: quality control, sorting options' },
   'liberal-independant': { src: '/images/illustrations/ds/pretty-woman-paper.webp', alt_fr: 'Illustration : professionnelle independante', alt_en: 'Illustration: an independent professional' },
-  'services-b2b': { src: '/images/illustrations/ds/band-showing-tv-paper.webp', alt_fr: 'Illustration : demonstration face a un public', alt_en: 'Illustration: a demonstration in front of an audience' },
+  'services-b2b': { src: '/images/illustrations/ds/band-showing-tv-paper.webp', alt_fr: 'Illustration : demonstration face a un public', alt_en: 'Illustration: a demonstration in front of an audience' },
 };
 const DEFAULT_PROSE_ILLUSTRATION = { src: '/images/illustrations/ds/style-8-paper.webp', alt_fr: 'Illustration de marque', alt_en: 'Brand illustration' };
 
@@ -334,7 +334,7 @@ function workflowRowsFor(data: SectorData, slug: string) {
       kicker_en: String(i + 1).padStart(2, '0'),
       h3_fr: wf.charAt(0).toUpperCase() + wf.slice(1),
       h3_en: wf.charAt(0).toUpperCase() + wf.slice(1),
-      body_fr: sectorCopy?.workflowBodies_fr[i] ?? "On branche cette tâche sur vos outils actuels, avec votre équipe. Tout reste lisible et modifiable : vous gardez la main.",
+      body_fr: sectorCopy?.workflowBodies_fr[i] ?? "On branche cette tâche sur vos outils actuels, avec votre équipe. Tout reste lisible et modifiable : vous gardez la main.",
       body_en: sectorCopy?.workflowBodies_en[i] ?? 'We connect this task to your current tools, with your team. Everything stays readable and editable: you keep control.',
       media_src: img.src,
       media_alt_fr: img.alt_fr,
@@ -477,9 +477,9 @@ export const sectorTemplate = defineTemplate<SectorContext>({
         background: 'paper-2',
         kicker_fr: '§ Les 5 niveaux',
         kicker_en: '§ The 5 levels',
-        h2_fr: 'Où en est <i>votre entreprise</i> ?',
+        h2_fr: 'Où en est <i>votre entreprise</i> ?',
         h2_en: 'Where does <i>your company</i> stand?',
-        lede_fr: 'Les référentiels convergent vers cinq niveaux. La plupart des PME se situent aux deux premiers, plus souvent qu\'elles ne le croient. Situez-vous franchement : surestimer son niveau nuit à la suite.',
+        lede_fr: 'Les référentiels convergent vers cinq niveaux. La plupart des PME se situent aux deux premiers, plus souvent qu\'elles ne le croient. Situez-vous franchement : surestimer son niveau nuit à la suite.',
         lede_en: 'Frameworks converge on five levels. Most SMBs sit at the first two, more often than they think. Place yourself honestly: overestimating your level harms what follows.',
         stages: defaultDiagnosticStages,
       } satisfies SectionByType<'diagnostic-stages'>),
@@ -496,7 +496,7 @@ export const sectorTemplate = defineTemplate<SectorContext>({
         background: 'paper-3',
         kicker_fr: '§ Les outils',
         kicker_en: '§ The tools',
-        lead_fr: 'Des modèles Claude reliés à vos outils actuels par des connecteurs : pas de refonte quand un connecteur suffit.',
+        lead_fr: 'Des modèles Claude reliés à vos outils actuels par des connecteurs : pas de refonte quand un connecteur suffit.',
         lead_en: 'Claude models connected to your current tools through connectors: no rebuild when a connector is enough. Your data stays in your own accounts, and every action is logged.',
         pills: defaultStackPills,
       } satisfies SectionByType<'tech-stack-band'>),
@@ -559,7 +559,7 @@ export const sectorTemplate = defineTemplate<SectorContext>({
           background: 'ink',
           kicker_fr: '§ Premier échange',
           kicker_en: '§ First conversation',
-          h2_fr: `${data.icp_fr} : on regarde votre <i>quotidien</i>.`,
+          h2_fr: `${data.icp_fr} : on regarde votre <i>quotidien</i>.`,
           h2_en: `${data.icp_en}: we look at your <i>daily work</i>.`,
           subtitle_fr: sectorCopy?.ctaSubtitle_fr ?? "On regarde votre contexte en 45 minutes et on vous dit ce qui peut s'automatiser.",
           subtitle_en: sectorCopy?.ctaSubtitle_en ?? 'We look at your context in 45 minutes and tell you what can be automated.',

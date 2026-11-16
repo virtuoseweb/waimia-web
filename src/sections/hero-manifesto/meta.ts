@@ -15,6 +15,6 @@ export const meta: SectionMeta = {
   layoutFacets: ['3-col'],
   tags: ['hero', 'manifesto', 'editorial', 'canvas', 'react-island', 'dark', 'full-viewport'],
   status: 'stable',
-  description_fr: 'Hero editorial de page de marque : fond canvas liquide + 3 zones (meta band, titre display italique + sous-titre, intro + CTA + rangee de pied), plein viewport sombre.',
+  description_fr: 'Hero editorial de page de marque : fond canvas liquide + 3 zones (meta band, titre display italique + sous-titre, intro + CTA + rangee de pied), plein viewport sombre.',
   description_en: 'Editorial brand hero: liquid-canvas background + 3 zones (meta band, italic display headline + subhead, intro + CTA + foot row), full-viewport dark.',
 };

@@ -14,7 +14,7 @@ export const demo: DemoData = {
     lede_en: 'Not a brochure. An AI-driven web app, wired to your data, that turns every visit into a customer.',
     bullets: [
       { text_fr: 'Web app connectée à un LLM via skills et routines précises', text_en: 'Web app connected to an LLM through precise skills and routines' },
-      { text_fr: 'Search Console et Analytics : KPI lus, SEO optimisé en continu', text_en: 'Search Console and Analytics: KPIs read, SEO optimized continuously' },
+      { text_fr: 'Search Console et Analytics : KPI lus, SEO optimisé en continu', text_en: 'Search Console and Analytics: KPIs read, SEO optimized continuously' },
       { text_fr: 'Alertes temps réel, qualification de chaque visiteur jusqu’au CRM', text_en: 'Real-time alerts, every visitor qualified all the way to the CRM' },
       { text_fr: 'Lead magnet et quiz qui routent vers la page qui convertit le mieux', text_en: 'Lead magnet and quiz that route to the page that converts best' },
     ],

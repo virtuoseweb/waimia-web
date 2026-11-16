@@ -103,17 +103,17 @@ export function digestLeadTool(res: LeadToolResult, opts: { hasPdf?: boolean } =
       angle: even
         ? [
             maximal
-              ? `Niveau ${res.level.level} (${res.level.name}), ${res.total} sur ${res.max} : aucune dimension en retrait, les ${nDims} sont au maximum.`
-              : `Niveau ${res.level.level} (${res.level.name}), ${res.total} sur ${res.max} : aucune dimension en retrait, les ${nDims} sont au même niveau (${res.weak.score} sur ${res.weak.max}).`,
+              ? `Niveau ${res.level.level} (${res.level.name}), ${res.total} sur ${res.max} : aucune dimension en retrait, les ${nDims} sont au maximum.`
+              : `Niveau ${res.level.level} (${res.level.name}), ${res.total} sur ${res.max} : aucune dimension en retrait, les ${nDims} sont au même niveau (${res.weak.score} sur ${res.weak.max}).`,
             maximal
-              ? `Niveau ${res.level.level} : parler d'industrialisation et de gouvernance, pas d'un blocage.`
+              ? `Niveau ${res.level.level} : parler d'industrialisation et de gouvernance, pas d'un blocage.`
               : `Partir du premier chantier visé par la personne plutôt que d'une dimension à corriger.`,
-            `Le rapport lui suggère : « ${res.level.next} »`,
+            `Le rapport lui suggère : « ${res.level.next} »`,
           ]
         : [
-            `Niveau ${res.level.level} (${res.level.name}), ${res.total} sur ${res.max} : la dimension la plus faible est ${res.weak.name} (${res.weak.score} sur ${res.weak.max}).`,
-            `Ouvrir par la question « ${lowest.text} » : réponse « ${lowest.answer} ».`,
-            `Le rapport lui suggère : « ${res.level.next} »`,
+            `Niveau ${res.level.level} (${res.level.name}), ${res.total} sur ${res.max} : la dimension la plus faible est ${res.weak.name} (${res.weak.score} sur ${res.weak.max}).`,
+            `Ouvrir par la question « ${lowest.text} » : réponse « ${lowest.answer} ».`,
+            `Le rapport lui suggère : « ${res.level.next} »`,
           ],
       pages: 4,
     };
@@ -146,19 +146,19 @@ export function digestLeadTool(res: LeadToolResult, opts: { hasPdf?: boolean } =
     angle: [
       v.plafond > 0
         ? `${nf(v.heuresAn)} heures récupérables par an déclarées, soit ${eur(v.valeurAn)} de valeur et un budget maximal de ${eur(v.plafond)}.`
-        : `${nf(v.heuresAn)} heures récupérables par an déclarées, soit ${eur(v.valeurAn)} de valeur annuelle : ${noPayback ? 'aucun budget ne se rembourse en 12 mois' : 'le budget maximal est nul'}.`,
+        : `${nf(v.heuresAn)} heures récupérables par an déclarées, soit ${eur(v.valeurAn)} de valeur annuelle : ${noPayback ? 'aucun budget ne se rembourse en 12 mois' : 'le budget maximal est nul'}.`,
       part >= 70
-        ? `Part automatisable déclarée haute (${nf(part)} %) : la vérifier tâche par tâche avant tout chiffrage.`
+        ? `Part automatisable déclarée haute (${nf(part)} %) : la vérifier tâche par tâche avant tout chiffrage.`
         : part <= 20
-          ? `Part automatisable prudente (${nf(part)} %) : chercher les tâches à plus fort volume.`
-          : `Part automatisable à ${nf(part)} % : c'est l'hypothèse à vérifier pendant l'audit.`,
+          ? `Part automatisable prudente (${nf(part)} %) : chercher les tâches à plus fort volume.`
+          : `Part automatisable à ${nf(part)} % : c'est l'hypothèse à vérifier pendant l'audit.`,
       noPayback
-        ? `Coût de fonctionnement annuel (${eur(cout * 12)}, soit ${eur(cout)} par mois) ${cout * 12 === v.valeurAn ? 'égal à' : 'supérieur à'} la valeur annuelle du temps (${eur(v.valeurAn)}) : recadrer le périmètre avant de parler devis.`
+        ? `Coût de fonctionnement annuel (${eur(cout * 12)}, soit ${eur(cout)} par mois) ${cout * 12 === v.valeurAn ? 'égal à' : 'supérieur à'} la valeur annuelle du temps (${eur(v.valeurAn)}) : recadrer le périmètre avant de parler devis.`
         : v.plafond <= 0
-          ? 'Valeur du temps nulle (heures par semaine, part automatisable ou coût horaire à zéro) : le plafond est nul, revoir ces hypothèses ensemble.'
+          ? 'Valeur du temps nulle (heures par semaine, part automatisable ou coût horaire à zéro) : le plafond est nul, revoir ces hypothèses ensemble.'
           : cout === 0
-            ? 'Coût de fonctionnement laissé à zéro : le plafond est surestimé, à corriger ensemble.'
-            : `Coût de fonctionnement déclaré : ${eur(cout)} par mois.`,
+            ? 'Coût de fonctionnement laissé à zéro : le plafond est surestimé, à corriger ensemble.'
+            : `Coût de fonctionnement déclaré : ${eur(cout)} par mois.`,
     ],
     pages: 3,
   };
@@ -194,11 +194,11 @@ export function replyDraft(res: LeadToolResult): { subject: string; paragraphs: 
         subject: `Votre diagnostic de maturité IA (niveau ${res.level.level} sur 5)`,
         paragraphs: [
           'Bonjour,',
-          `Merci d'avoir fait le diagnostic de maturité IA sur waimia.com. Votre résultat : niveau ${res.level.level} sur 5 (${res.level.name}), avec ${maximal ? 'toutes les dimensions au maximum' : 'des dimensions toutes au même niveau'}.`,
+          `Merci d'avoir fait le diagnostic de maturité IA sur waimia.com. Votre résultat : niveau ${res.level.level} sur 5 (${res.level.name}), avec ${maximal ? 'toutes les dimensions au maximum' : 'des dimensions toutes au même niveau'}.`,
           maximal
-            ? `À ce niveau, la question est moins de démarrer que d'industrialiser et de gouverner. Où en êtes-vous sur ces deux points ?`
-            : `Aucune dimension ne ressort en retrait : le plus utile est de partir de ce que vous voulez réaliser en premier. Quel est le premier chantier que vous avez en tête ?`,
-          `Si c'est utile, on peut en parler 45 minutes en visio, gratuitement : ${AUDIT_RDV_URL}`,
+            ? `À ce niveau, la question est moins de démarrer que d'industrialiser et de gouverner. Où en êtes-vous sur ces deux points ?`
+            : `Aucune dimension ne ressort en retrait : le plus utile est de partir de ce que vous voulez réaliser en premier. Quel est le premier chantier que vous avez en tête ?`,
+          `Si c'est utile, on peut en parler 45 minutes en visio, gratuitement : ${AUDIT_RDV_URL}`,
           'Bien à vous,\nWaimia',
         ],
       };
@@ -207,9 +207,9 @@ export function replyDraft(res: LeadToolResult): { subject: string; paragraphs: 
       subject: `Votre diagnostic de maturité IA (niveau ${res.level.level} sur 5)`,
       paragraphs: [
         'Bonjour,',
-        `Merci d'avoir fait le diagnostic de maturité IA sur waimia.com. Votre résultat : niveau ${res.level.level} sur 5 (${res.level.name}), avec ${res.weak.name} comme point à traiter en premier.`,
-        `Une question pour aller plus loin : sur « ${lowest.text} », vous avez répondu « ${lowest.answer} ». Qu'est-ce qui bloque aujourd'hui de ce côté ?`,
-        `Si c'est utile, on peut en parler 45 minutes en visio, gratuitement : ${AUDIT_RDV_URL}`,
+        `Merci d'avoir fait le diagnostic de maturité IA sur waimia.com. Votre résultat : niveau ${res.level.level} sur 5 (${res.level.name}), avec ${res.weak.name} comme point à traiter en premier.`,
+        `Une question pour aller plus loin : sur « ${lowest.text} », vous avez répondu « ${lowest.answer} ». Qu'est-ce qui bloque aujourd'hui de ce côté ?`,
+        `Si c'est utile, on peut en parler 45 minutes en visio, gratuitement : ${AUDIT_RDV_URL}`,
         'Bien à vous,\nWaimia',
       ],
     };
@@ -220,15 +220,15 @@ export function replyDraft(res: LeadToolResult): { subject: string; paragraphs: 
     v.plafond > 0
       ? `l'estimation donne ${nf(v.heuresAn)} heures récupérables par an et un budget de mise en place à ne pas dépasser de ${eur(v.plafond)}.`
       : cout > 0
-        ? `l'estimation donne ${nf(v.heuresAn)} heures récupérables par an, soit ${eur(v.valeurAn)} de valeur annuelle, pour un coût de fonctionnement annuel de ${eur(cout * 12)} ${cout * 12 === v.valeurAn ? 'égal à' : 'supérieur à'} cette valeur : pas de retour en 12 mois à ce stade.`
-        : `l'estimation donne ${nf(v.heuresAn)} heures récupérables par an, sans valeur chiffrée : le budget maximal est donc nul.`;
+        ? `l'estimation donne ${nf(v.heuresAn)} heures récupérables par an, soit ${eur(v.valeurAn)} de valeur annuelle, pour un coût de fonctionnement annuel de ${eur(cout * 12)} ${cout * 12 === v.valeurAn ? 'égal à' : 'supérieur à'} cette valeur : pas de retour en 12 mois à ce stade.`
+        : `l'estimation donne ${nf(v.heuresAn)} heures récupérables par an, sans valeur chiffrée : le budget maximal est donc nul.`;
   return {
     subject: `Votre estimation de temps récupérable (${nf(v.heuresAn)} h par an)`,
     paragraphs: [
       'Bonjour,',
       `Merci d'avoir utilisé le calculateur sur waimia.com. Avec vos hypothèses, ${estimate}`,
-      `L'hypothèse la plus fragile est la part automatisable (${nf(res.inputs[ROI_SENSITIVITY_KEY])} %). Quelles sont les tâches que vous aviez en tête ?`,
-      `Si c'est utile, on peut les passer en revue 45 minutes en visio, gratuitement : ${AUDIT_RDV_URL}`,
+      `L'hypothèse la plus fragile est la part automatisable (${nf(res.inputs[ROI_SENSITIVITY_KEY])} %). Quelles sont les tâches que vous aviez en tête ?`,
+      `Si c'est utile, on peut les passer en revue 45 minutes en visio, gratuitement : ${AUDIT_RDV_URL}`,
       'Bien à vous,\nWaimia',
     ],
   };

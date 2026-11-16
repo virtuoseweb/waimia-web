@@ -32,7 +32,7 @@ export interface ChecklistPhase {
   gate: string;
 }
 
-export const checklistTitle = 'Déployer Claude en 90 jours : la checklist PME';
+export const checklistTitle = 'Déployer Claude en 90 jours : la checklist PME';
 
 export const checklistIntro =
   "Une action par case, un livrable par semaine, un point de passage tous les trente jours. Cochez au fil de l'eau, notez qui porte chaque action et à quelle date. Si une case reste vide trop longtemps, c'est elle qu'il faut traiter avant d'avancer.";
@@ -47,12 +47,12 @@ export const checklistFields = [
 ] as const;
 
 export const prerequisites: ChecklistItem[] = [
-  { label: 'Données : les sources que Claude devra lire sont listées (CRM, documents, e-mails, agenda) et les données qui ne sortent jamais sont repérées.' },
-  { label: "Sécurité : une politique d'usage écrite dit quelles données peuvent passer dans l'outil, sur des comptes professionnels.", hint: 'Point de départ : le modèle de charte IA Waimia.' },
-  { label: 'Cas d\'usage : un seul cas pilote est choisi, avec un volume chaque semaine, un risque faible en cas d\'erreur et un résultat mesurable.' },
-  { label: 'Formation : une demi-journée de prise en main est planifiée et un référent IA interne est nommé.' },
-  { label: 'Mesure : le temps passé et le taux d\'erreur actuels du cas pilote sont notés (la baseline).' },
-  { label: 'Gouvernance : on sait qui valide un nouveau cas d\'usage et qui révise la politique.' },
+  { label: 'Données : les sources que Claude devra lire sont listées (CRM, documents, e-mails, agenda) et les données qui ne sortent jamais sont repérées.' },
+  { label: "Sécurité : une politique d'usage écrite dit quelles données peuvent passer dans l'outil, sur des comptes professionnels.", hint: 'Point de départ : le modèle de charte IA Waimia.' },
+  { label: 'Cas d\'usage : un seul cas pilote est choisi, avec un volume chaque semaine, un risque faible en cas d\'erreur et un résultat mesurable.' },
+  { label: 'Formation : une demi-journée de prise en main est planifiée et un référent IA interne est nommé.' },
+  { label: 'Mesure : le temps passé et le taux d\'erreur actuels du cas pilote sont notés (la baseline).' },
+  { label: 'Gouvernance : on sait qui valide un nouveau cas d\'usage et qui révise la politique.' },
 ];
 
 export const phases: ChecklistPhase[] = [
@@ -66,18 +66,18 @@ export const phases: ChecklistPhase[] = [
         label: 'Semaine 1',
         title: 'Cadrer le pilote',
         items: [
-          { label: 'Écrire le cas pilote en une phrase : qui, quelle tâche, quel résultat attendu.' },
+          { label: 'Écrire le cas pilote en une phrase : qui, quelle tâche, quel résultat attendu.' },
           { label: 'Fixer l\'objectif chiffré à 30 jours (heures rendues, délai, taux d\'erreur).' },
           { label: 'Lister 10 exemples réels de la tâche, bons et mauvais, pour tester l\'agent.' },
           { label: 'Ouvrir les comptes professionnels des 2 à 5 premiers utilisateurs.' },
         ],
-        deliverable: 'Fiche pilote d\'une page : périmètre, objectif, utilisateurs, exemples.',
+        deliverable: 'Fiche pilote d\'une page : périmètre, objectif, utilisateurs, exemples.',
       },
       {
         label: 'Semaine 2',
         title: 'Rassembler le contexte',
         items: [
-          { label: 'Réunir les documents de référence : procédures, modèles, ton de la maison, FAQ.' },
+          { label: 'Réunir les documents de référence : procédures, modèles, ton de la maison, FAQ.' },
           { label: 'Nettoyer les doublons et les versions périmées avant de les donner à Claude.' },
           { label: 'Décider ce que l\'agent ne touche jamais et l\'écrire dans ses consignes.' },
           { label: 'Rédiger les consignes de l\'agent et les tester sur les 10 exemples.' },
@@ -99,10 +99,10 @@ export const phases: ChecklistPhase[] = [
         title: 'Mesurer et décider',
         items: [
           { label: 'Comparer temps passé et taux d\'erreur à la baseline.' },
-          { label: 'Recueillir l\'avis des utilisateurs : ce qui aide, ce qui gêne.' },
+          { label: 'Recueillir l\'avis des utilisateurs : ce qui aide, ce qui gêne.' },
           { label: 'Corriger les consignes à partir du journal des erreurs.' },
         ],
-        deliverable: 'Bilan J30 : chiffres avant/après et décision de poursuivre.',
+        deliverable: 'Bilan J30 : chiffres avant/après et décision de poursuivre.',
       },
     ],
     gate: 'Passage en phase 2 si le gain est mesurable et qu\'aucune erreur grave n\'est restée sans correction.',
@@ -117,7 +117,7 @@ export const phases: ChecklistPhase[] = [
         label: 'Semaine 5',
         title: 'Former l\'équipe',
         items: [
-          { label: 'Animer la demi-journée de prise en main : formuler, vérifier, signaler.' },
+          { label: 'Animer la demi-journée de prise en main : formuler, vérifier, signaler.' },
           { label: 'Ouvrir l\'accès au reste de l\'équipe concernée par le cas pilote.' },
         ],
         deliverable: 'Équipe formée, liste des participants.',
@@ -144,7 +144,7 @@ export const phases: ChecklistPhase[] = [
         label: 'Semaine 8',
         title: 'Point d\'étape J60',
         items: [
-          { label: 'Mesurer à nouveau : gain, taux d\'erreur, taux d\'usage par personne.' },
+          { label: 'Mesurer à nouveau : gain, taux d\'erreur, taux d\'usage par personne.' },
           { label: 'Choisir le deuxième cas d\'usage avec les trois critères du pilote.' },
         ],
         deliverable: 'Bilan J60 + fiche du deuxième cas d\'usage.',
@@ -172,7 +172,7 @@ export const phases: ChecklistPhase[] = [
         title: 'Brancher les outils',
         items: [
           { label: 'Identifier les tâches où l\'agent doit agir dans un outil (CRM, agenda, ticketing).' },
-          { label: 'Cadrer les accès : lecture seule par défaut, écriture seulement là où c\'est validé.', hint: 'Les connecteurs MCP permettent de limiter et de tracer ces accès.' },
+          { label: 'Cadrer les accès : lecture seule par défaut, écriture seulement là où c\'est validé.', hint: 'Les connecteurs MCP permettent de limiter et de tracer ces accès.' },
         ],
         deliverable: 'Carte des accès de chaque agent.',
       },
@@ -182,7 +182,7 @@ export const phases: ChecklistPhase[] = [
         items: [
           { label: 'Écrire qui valide un nouveau cas d\'usage et sur quels critères.' },
           { label: 'Fixer la date de révision de la politique d\'usage (au moins tous les six mois).' },
-          { label: 'Tenir un registre des agents : rôle, données lues, accès, responsable.' },
+          { label: 'Tenir un registre des agents : rôle, données lues, accès, responsable.' },
         ],
         deliverable: 'Registre des agents + règle de validation.',
       },
@@ -190,7 +190,7 @@ export const phases: ChecklistPhase[] = [
         label: 'Semaine 12',
         title: 'Bilan J90',
         items: [
-          { label: 'Chiffrer le gain total : heures rendues par mois et leur valeur.' },
+          { label: 'Chiffrer le gain total : heures rendues par mois et leur valeur.' },
           { label: 'Présenter le bilan à la direction et décider des trois prochains cas.' },
         ],
         deliverable: 'Bilan J90 + feuille de route du trimestre suivant.',

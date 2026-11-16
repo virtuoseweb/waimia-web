@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['4-col', 'centered', 'split'],
     tags: ['hero', 'hub', 'stats', 'pillar', 'masthead'],
     status: 'stable',
-    description_fr: 'Hero hub avec stats : meta kicker double + numéro § accent + h1 maximal, lede, grille KeyMetric 4-col en pied avec accent.',
+    description_fr: 'Hero hub avec stats : meta kicker double + numéro § accent + h1 maximal, lede, grille KeyMetric 4-col en pied avec accent.',
     description_en: 'Hub hero with stats: dual meta kicker + accent § number + maximal h1, lede, 4-col KeyMetric grid at the foot with accent.',
   
 };

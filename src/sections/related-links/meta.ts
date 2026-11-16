@@ -18,7 +18,7 @@ export const meta: SectionMeta = {
   tags: ['maillage', 'liens internes', 'navigation', 'seo', 'explorer', 'compact'],
   status: 'stable',
   description_fr:
-    'Bloc compact de maillage interne : groupes de liens internes contextuels en colonnes, avec petit label de groupe et description optionnelle. Renforce le SEO et oriente la navigation en fin de page.',
+    'Bloc compact de maillage interne : groupes de liens internes contextuels en colonnes, avec petit label de groupe et description optionnelle. Renforce le SEO et oriente la navigation en fin de page.',
   description_en:
     'Compact internal-linking block: contextual internal links grouped in columns, with a small group label and an optional description. Strengthens SEO and guides navigation at the end of a page.',
 };

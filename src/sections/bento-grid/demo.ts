@@ -50,7 +50,7 @@ export const demo: DemoData = {
         glyph: '⊞',
         title_fr: 'Facettes IA-opérables',
         title_en: 'AI-operable facets',
-        body_fr: 'Effets, interactions, éléments, layout : chaque section déclare ses axes.',
+        body_fr: 'Effets, interactions, éléments, layout : chaque section déclare ses axes.',
         body_en: 'Effects, interactions, elements, layout: each section declares its axes.',
       },
     ],

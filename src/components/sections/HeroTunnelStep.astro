@@ -32,7 +32,7 @@ const tshKicker =
   <div
     class="tunnel-step-hero__progress"
     aria-label={isFr
-      ? `Progression : étape ${data.step} sur ${data.progress_total}`
+      ? `Progression : étape ${data.step} sur ${data.progress_total}`
       : `Progress: step ${data.step} of ${data.progress_total}`}
   >
     {Array.from({ length: data.progress_total }, (_, i) => {
@@ -62,7 +62,7 @@ const tshKicker =
   <Kicker as="p" tone="accent" letterSpacing=".10em" class="hero-tunnel-step__kicker">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>
   <div
     class="hero-tunnel-step__progress"
-    aria-label={isFr ? `Progression : étape ${data.step} sur ${data.progress_total}` : `Progress: step ${data.step} of ${data.progress_total}`}
+    aria-label={isFr ? `Progression : étape ${data.step} sur ${data.progress_total}` : `Progress: step ${data.step} of ${data.progress_total}`}
   >
     {Array.from({ length: data.progress_total }, (_, i) => {
       const n = i + 1;

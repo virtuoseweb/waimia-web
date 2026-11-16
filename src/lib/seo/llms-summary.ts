@@ -46,21 +46,21 @@ export function llmsDetails(): string[] {
   const training = TRAINING_FORMATS.map((f) => `${f.hours} heures pour ${eur(f.price)} HT`).join(' ou ');
   const path = [
     `- Audit IA : gratuit (${eur(0)}), ${AUDIT_DURATION_MIN} minutes en visio, sans engagement.`,
-    `- Sprint de cadrage : ${eur(SCOPING_SPRINT_EUR)} HT, ${SCOPING_SPRINT_HOURS} heures, prix fixe.`,
-    `- Pilote (un premier système en production) : dès ${eur(PILOT_FLOOR_EUR)} HT.`,
-    `- Déploiement sur mesure : dès ${eur(DEPLOYMENT_FLOOR_EUR)} HT, devis ferme après audit.`,
+    `- Sprint de cadrage : ${eur(SCOPING_SPRINT_EUR)} HT, ${SCOPING_SPRINT_HOURS} heures, prix fixe.`,
+    `- Pilote (un premier système en production) : dès ${eur(PILOT_FLOOR_EUR)} HT.`,
+    `- Déploiement sur mesure : dès ${eur(DEPLOYMENT_FLOOR_EUR)} HT, devis ferme après audit.`,
     `- Maintenance (accompagnement continu), trois paliers mensuels :\n${maintenance}`,
-    `- Interventions hors forfait : ${eur(HOURLY_RATE_EUR)} HT de l'heure.`,
-    `- Système commercial (prospection automatisée) : dès ${eur(SALES_SYSTEM_FLOOR_EUR)} HT par mois. Essai gratuit : ${SALES_SYSTEM_TRIAL_LEADS} leads, ${eur(0)}.`,
+    `- Interventions hors forfait : ${eur(HOURLY_RATE_EUR)} HT de l'heure.`,
+    `- Système commercial (prospection automatisée) : dès ${eur(SALES_SYSTEM_FLOOR_EUR)} HT par mois. Essai gratuit : ${SALES_SYSTEM_TRIAL_LEADS} leads, ${eur(0)}.`,
   ].join('\n');
 
   return [
     `L'offre, en ${domainCount} domaines :\n${domains}`,
-    `Le parcours et les prix d'entrée (hors taxes, détail sur ${SITE.url}/tarifs) :\n${path}`,
-    `Formations : deux formats, ${training}. ${TRAINING_PRICE_NOTE.fr}. Formations dispensées via Akigora, organisme certifié Qualiopi. Prise en charge possible selon votre situation.`,
-    'Garde-fous : RGPD et AI Act pris en compte dès la conception, validation humaine sur les actions sensibles, journal des actions, code et workflows transférés au client en fin de mission.',
-    `Qui : Simon Beros, fondateur, travaille seul avec les équipes métier du client (${SITE.url}/equipe/simon-beros).`,
-    `Contact : ${SITE.email}. Prise de rendez-vous pour l'audit gratuit : ${SITE.url}${AUDIT_BOOKING_HREF}`,
-    `Chaque lien ci-dessous pointe la version markdown d'une page publique. L'URL canonique est la même sans l'extension .md. Contenu complet en un seul fichier : ${SITE.url}/llms-full.txt`,
+    `Le parcours et les prix d'entrée (hors taxes, détail sur ${SITE.url}/tarifs) :\n${path}`,
+    `Formations : deux formats, ${training}. ${TRAINING_PRICE_NOTE.fr}. Formations dispensées via Akigora, organisme certifié Qualiopi. Prise en charge possible selon votre situation.`,
+    'Garde-fous : RGPD et AI Act pris en compte dès la conception, validation humaine sur les actions sensibles, journal des actions, code et workflows transférés au client en fin de mission.',
+    `Qui : Simon Beros, fondateur, travaille seul avec les équipes métier du client (${SITE.url}/equipe/simon-beros).`,
+    `Contact : ${SITE.email}. Prise de rendez-vous pour l'audit gratuit : ${SITE.url}${AUDIT_BOOKING_HREF}`,
+    `Chaque lien ci-dessous pointe la version markdown d'une page publique. L'URL canonique est la même sans l'extension .md. Contenu complet en un seul fichier : ${SITE.url}/llms-full.txt`,
   ];
 }

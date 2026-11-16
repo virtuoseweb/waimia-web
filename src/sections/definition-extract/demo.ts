@@ -8,7 +8,7 @@ export const demo: DemoData = {
     background: 'paper',
     kicker_fr: '§ Définition · format extractible',
     kicker_en: '§ Definition · extractable format',
-    statement_fr: `Un <i class="acc">site web intelligent</i> est un site rapide et structuré qui mesure chaque visite, qualifie les contacts, les route vers vos outils et s'améliore en continu : un actif d'acquisition, pas une vitrine.`,
+    statement_fr: `Un <i class="acc">site web intelligent</i> est un site rapide et structuré qui mesure chaque visite, qualifie les contacts, les route vers vos outils et s'améliore en continu : un actif d'acquisition, pas une vitrine.`,
     statement_en: `An <i class="acc">intelligent website</i> is a fast, structured site that measures every visit, qualifies contacts, routes them to your tools and keeps improving : an acquisition asset, not a brochure.`,
     pills: [
       { label_fr: 'Rapide', label_en: 'Fast' },

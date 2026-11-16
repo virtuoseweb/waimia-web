@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['2-col', 'media-right', 'split'],
     tags: ['offres', 'proof', 'testimonial', 'metrics', 'quote'],
     status: 'stable',
-    description_fr: 'Signal terrain : citation client (PullQuote) à gauche et grille de chiffres KeyMetric à droite, en asymétrie 5/7 avec séparateur Dingbat.',
+    description_fr: 'Signal terrain : citation client (PullQuote) à gauche et grille de chiffres KeyMetric à droite, en asymétrie 5/7 avec séparateur Dingbat.',
     description_en: 'Field signal: a client quote (PullQuote) on the left and a grid of KeyMetric figures on the right, in a 5/7 asymmetry with a Dingbat divider.',
   
 };

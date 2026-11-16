@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['1-col'],
     tags: ['editorial', 'callout', 'quote', 'note', 'aside', 'content'],
     status: 'stable',
-    description_fr: 'Encadré éditorial composant l\'atome Callout (info, citation, note, avertissement, manifeste) : hairline accent, citation source optionnelle, tailles et alignements. Pour ponctuer une prose.',
+    description_fr: 'Encadré éditorial composant l\'atome Callout (info, citation, note, avertissement, manifeste) : hairline accent, citation source optionnelle, tailles et alignements. Pour ponctuer une prose.',
     description_en: 'Editorial aside composing the Callout atom (info, quote, note, warning, manifesto): accent hairline, optional cited source, sizes and alignments. To punctuate prose.',
   
 };

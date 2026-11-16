@@ -16,7 +16,7 @@ export const meta: SectionMeta = {
   tags: ['pullquote', 'quote', 'manifesto', 'editorial', 'bordered', 'author'],
   status: 'stable',
   description_fr:
-    'Citation manifeste a filet gauche : corps large avec accent italique + signature mono. Rendu du corps en HTML (accent <i>).',
+    'Citation manifeste a filet gauche : corps large avec accent italique + signature mono. Rendu du corps en HTML (accent <i>).',
   description_en:
     'Bordered manifesto pull-quote: large body with italic accent + mono signature. Body rendered as HTML (<i> accent).',
 };

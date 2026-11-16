@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['3-col'],
     tags: ['pricing', 'cards', 'tiers', 'recommended', 'plans'],
     status: 'stable',
-    description_fr: 'Grille de 2 à 4 cartes de prix côte à côte avec une carte « Recommandé » mise en avant, prix, période, features et CTA par carte. Ancrage par contraste.',
+    description_fr: 'Grille de 2 à 4 cartes de prix côte à côte avec une carte « Recommandé » mise en avant, prix, période, features et CTA par carte. Ancrage par contraste.',
     description_en: 'Grid of 2 to 4 pricing cards side by side with a highlighted "Recommended" card, price, period, features and CTA per card. Anchoring by contrast.',
   
 };

@@ -15,22 +15,22 @@ export const phases = [
   {
     n: '01',
     label_fr: 'Audit',
-    body_fr: `${AUDIT_PROMISE.general.short.fr} On regarde vos processus réels, pas vos présentations : qui fait quoi, dans quel outil, avec quelle donnée. On vous dit par quel chantier commencer et, si rien ne vaut le coup aujourd'hui, on vous le dit aussi.`,
+    body_fr: `${AUDIT_PROMISE.general.short.fr} On regarde vos processus réels, pas vos présentations : qui fait quoi, dans quel outil, avec quelle donnée. On vous dit par quel chantier commencer et, si rien ne vaut le coup aujourd'hui, on vous le dit aussi.`,
   },
   {
     n: '02',
     label_fr: 'Pilote',
-    body_fr: "Un premier système en production : une automatisation, un agent IA ou une application métier. Il se branche à vos outils existants (Excel, HubSpot, Outlook, votre ERP), sans migration imposée. Le périmètre de ce que l'agent a le droit de faire est écrit avant de coder, et les actions sensibles passent par une validation humaine.",
+    body_fr: "Un premier système en production : une automatisation, un agent IA ou une application métier. Il se branche à vos outils existants (Excel, HubSpot, Outlook, votre ERP), sans migration imposée. Le périmètre de ce que l'agent a le droit de faire est écrit avant de coder, et les actions sensibles passent par une validation humaine.",
   },
   {
     n: '03',
     label_fr: 'Mesure',
-    body_fr: "Chaque workflow a sa mesure avant et après, relevée sur vos données : temps rendu, erreurs évitées, coût des modèles. C'est ce relevé qui décide si on étend, si on corrige ou si on s'arrête là. Exemple de relevé : minutes passées par facture fournisseur sur deux semaines avant, puis deux semaines après la mise en production, avec le nombre de corrections manuelles.",
+    body_fr: "Chaque workflow a sa mesure avant et après, relevée sur vos données : temps rendu, erreurs évitées, coût des modèles. C'est ce relevé qui décide si on étend, si on corrige ou si on s'arrête là. Exemple de relevé : minutes passées par facture fournisseur sur deux semaines avant, puis deux semaines après la mise en production, avec le nombre de corrections manuelles.",
   },
   {
     n: '04',
     label_fr: 'Transfert',
-    body_fr: "Le code, les workflows et la documentation vous sont remis, dans vos comptes. Vos équipes sont formées pour faire évoluer le système. Vous pouvez continuer sans le studio ; l'accompagnement continu reste une option.",
+    body_fr: "Le code, les workflows et la documentation vous sont remis, dans vos comptes. Vos équipes sont formées pour faire évoluer le système. Vous pouvez continuer sans le studio ; l'accompagnement continu reste une option.",
   },
 ];
 

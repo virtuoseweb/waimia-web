@@ -52,14 +52,14 @@ const id = (k: string) => `${idPrefix}-${k}`;
   <div class="cv-field">
     <label class="cv-label" for={id('email')}>E-mail professionnel</label>
     <input class="cv-input" id={id('email')} name="email" type="email" required autocomplete="email" inputmode="email" aria-describedby={id('email-err')} />
-    <p class="cv-error" id={id('email-err')} data-error-for="email" hidden>Cette adresse e-mail n'est pas valide. Exemple : prenom@entreprise.fr</p>
+    <p class="cv-error" id={id('email-err')} data-error-for="email" hidden>Cette adresse e-mail n'est pas valide. Exemple : prenom@entreprise.fr</p>
   </div>
 
   <div class="cv-field">
     <label class="cv-label" for={id('phone')}>Téléphone</label>
     <input class="cv-input" id={id('phone')} name="phone" type="tel" required autocomplete="tel" inputmode="tel" aria-describedby={`${id('phone-hint')} ${id('phone-err')}`} />
     <p class="cv-note" id={id('phone-hint')}>Pour vous rappeler et caler l'échange.</p>
-    <p class="cv-error" id={id('phone-err')} data-error-for="phone" hidden>Numéro invalide. Exemple : 06 12 34 56 78</p>
+    <p class="cv-error" id={id('phone-err')} data-error-for="phone" hidden>Numéro invalide. Exemple : 06 12 34 56 78</p>
   </div>
 
   <div class="cv-field">
@@ -75,7 +75,7 @@ const id = (k: string) => `${idPrefix}-${k}`;
   <div class="cv-field cf-full">
     <label class="cv-label" for={id('brief')}>Votre demande</label>
     <textarea class="cv-textarea" id={id('brief')} name="brief" rows="5" required aria-describedby={`${id('brief-hint')} ${id('brief-err')}`}></textarea>
-    <p class="cv-note" id={id('brief-hint')}>Trois phrases suffisent : la tâche ou le problème, les outils concernés, ce que vous attendez.</p>
+    <p class="cv-note" id={id('brief-hint')}>Trois phrases suffisent : la tâche ou le problème, les outils concernés, ce que vous attendez.</p>
     <p class="cv-error" id={id('brief-err')} data-error-for="brief" hidden>Décrivez votre demande en quelques mots.</p>
   </div>
 
@@ -83,7 +83,7 @@ const id = (k: string) => `${idPrefix}-${k}`;
 
   <div class="cf-actions cf-full">
     <button class="btn btn-primary btn-lg cv-btn" type="submit" data-contact-submit data-label="Envoyer la demande" data-label-busy="Envoi en cours…">Envoyer la demande</button>
-    <p class="cv-note">Réponse de Simon Beros sous 24 h ouvrées. Vos données servent à vous répondre, rien d'autre : <a href="/politique-confidentialite">politique de confidentialité</a>.</p>
+    <p class="cv-note">Réponse de Simon Beros sous 24 h ouvrées. Vos données servent à vous répondre, rien d'autre : <a href="/politique-confidentialite">politique de confidentialité</a>.</p>
   </div>
 </form>
 

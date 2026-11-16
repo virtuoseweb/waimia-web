@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['1-col'],
     tags: ['fit', 'qualification', 'yes-no', 'two-columns', 'ink'],
     status: 'stable',
-    description_fr: 'Section de qualification fit/no-fit sur fond ink : kicker, titre display, intro callout et deux colonnes Oui/Non d items.',
+    description_fr: 'Section de qualification fit/no-fit sur fond ink : kicker, titre display, intro callout et deux colonnes Oui/Non d items.',
     description_en: 'Fit/no-fit qualification section on an ink background: kicker, display heading, intro callout, and two yes/no item columns.',
   
 };

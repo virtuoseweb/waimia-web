@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['2-col', 'media-right', 'split'],
     tags: ['about', 'story', 'mission', 'timeline', 'split'],
     status: 'stable',
-    description_fr: 'Récit fondateur en deux colonnes : texte narratif de mission à gauche, timeline de jalons datés à droite. Raconte l’histoire de la marque sans verbiage.',
+    description_fr: 'Récit fondateur en deux colonnes : texte narratif de mission à gauche, timeline de jalons datés à droite. Raconte l’histoire de la marque sans verbiage.',
     description_en: 'Founder narrative in two columns: a mission story on the left, a dated milestone timeline on the right. Tells the brand story without filler.',
   
 };

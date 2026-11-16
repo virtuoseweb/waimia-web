@@ -18,7 +18,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['1-col', 'full-bleed'],
     tags: ['logos', 'marquee', 'scroll', 'trusted-by', 'image'],
     status: 'stable',
-    description_fr: 'Bandeau de logos image à défilement infini (« ils nous font confiance »), marquee CSS, grayscale optionnel. Respecte prefers-reduced-motion. Distinct du marquee-band texte mono.',
+    description_fr: 'Bandeau de logos image à défilement infini (« ils nous font confiance »), marquee CSS, grayscale optionnel. Respecte prefers-reduced-motion. Distinct du marquee-band texte mono.',
     description_en: 'Infinite-scroll image logo band (“trusted by”), CSS marquee, optional grayscale. Respects prefers-reduced-motion. Distinct from the mono-text marquee-band.',
   
 };

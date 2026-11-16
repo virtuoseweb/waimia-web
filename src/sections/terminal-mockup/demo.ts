@@ -9,7 +9,7 @@ export const demo: DemoData = {
     kicker_en: '[platform] · VirtuoseOS · proprietary internal OS',
     h2_fr: 'Faites défiler la <i class="acc">console</i>.',
     h2_en: 'Scroll the <i class="acc">console</i>.',
-    intro_fr: 'Quatre étapes pour câbler un système : cartographier, câbler, orchestrer, industrialiser. La console les déroule à la cadence d&rsquo;un terminal.',
+    intro_fr: 'Quatre étapes pour câbler un système : cartographier, câbler, orchestrer, industrialiser. La console les déroule à la cadence d&rsquo;un terminal.',
     intro_en: 'Four steps to wire a system: map, wire, orchestrate, industrialize. The console unfolds them at terminal pace.',
     layout: 'split',
     label: 'waimia@virtuose ~ / demo-saas',

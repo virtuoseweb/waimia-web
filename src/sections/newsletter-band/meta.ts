@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['2-col', 'media-right', 'split'],
     tags: ['newsletter', 'email', 'capture', 'dark', 'band'],
     status: 'stable',
-    description_fr: 'Bande newsletter fond sombre : titre éditorial large à gauche, formulaire capture email à droite.',
+    description_fr: 'Bande newsletter fond sombre : titre éditorial large à gauche, formulaire capture email à droite.',
     description_en: 'Dark newsletter band: large editorial headline on the left, email capture form on the right.',
   
 };

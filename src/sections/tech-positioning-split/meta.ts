@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['4-col', 'split'],
     tags: ['technologies', 'positioning', 'split', 'manifesto', 'editorial'],
     status: 'stable',
-    description_fr: 'Prise de position technologique en split 50/50 : kicker, titre display, aside, statement manifesto et facts mono clé/valeur.',
+    description_fr: 'Prise de position technologique en split 50/50 : kicker, titre display, aside, statement manifesto et facts mono clé/valeur.',
     description_en: 'Technology positioning in a 50/50 split: kicker, display heading, aside, manifesto statement, and mono key/value facts.',
   
 };

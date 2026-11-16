@@ -71,7 +71,7 @@ export const PAIN_POINTS: readonly PainPoint[] = [
     label_fr: 'Landing pages qui ne convertissent pas',
     label_en: 'Low-converting landing pages',
     description_fr:
-      "Le site génère du trafic mais convertit peu : l'expérience de page ne répond pas aux objections réelles et le coût d'acquisition explose.",
+      "Le site génère du trafic mais convertit peu : l'expérience de page ne répond pas aux objections réelles et le coût d'acquisition explose.",
     description_en:
       'The site generates traffic but converts poorly: the page experience does not address real objections and acquisition cost skyrockets.',
     sources: [
@@ -85,7 +85,7 @@ export const PAIN_POINTS: readonly PainPoint[] = [
     label_fr: 'Pipeline commercial sans visibilité',
     label_en: 'No visibility on the sales pipeline',
     description_fr:
-      "Le pipeline est une boîte noire : impossible de savoir quelles opportunités avancent, lesquelles stagnent, ni quel chiffre est prenable à 90 jours.",
+      "Le pipeline est une boîte noire : impossible de savoir quelles opportunités avancent, lesquelles stagnent, ni quel chiffre est prenable à 90 jours.",
     description_en:
       'The pipeline is a black box: no way to know which opportunities progress, which stagnate, or what revenue is closeable within 90 days.',
     sources: [
@@ -98,7 +98,7 @@ export const PAIN_POINTS: readonly PainPoint[] = [
     label_fr: 'Pipeline qui dort dans le CRM',
     label_en: 'Pipeline dormant in the CRM',
     description_fr:
-      "Les leads existent mais fuient entre le site, le CRM et les boîtes mail : relances tardives ou oubliées, opportunités historiques jamais réactivées.",
+      "Les leads existent mais fuient entre le site, le CRM et les boîtes mail : relances tardives ou oubliées, opportunités historiques jamais réactivées.",
     description_en:
       'Leads exist but leak between the site, the CRM and inboxes: late or forgotten follow-ups, historical opportunities never reactivated.',
     sources: [
@@ -111,7 +111,7 @@ export const PAIN_POINTS: readonly PainPoint[] = [
     label_fr: "Pipeline dépendant d'une ou deux personnes",
     label_en: 'Pipeline dependent on one or two people',
     description_fr:
-      "L'acquisition tient sur 1 ou 2 commerciaux : une absence et les leads s'évaporent. Recruter un SDR coûte cher, monte lentement en charge et repart.",
+      "L'acquisition tient sur 1 ou 2 commerciaux : une absence et les leads s'évaporent. Recruter un SDR coûte cher, monte lentement en charge et repart.",
     description_en:
       'Acquisition relies on 1 or 2 salespeople: one absence and leads evaporate. Hiring an SDR is expensive, slow to ramp, and short-lived.',
     sources: ['solutions/agent-marketing-commercial'],
@@ -133,7 +133,7 @@ export const PAIN_POINTS: readonly PainPoint[] = [
     label_fr: 'Décisions sans données fiables',
     label_en: 'Decisions without reliable data',
     description_fr:
-      "Les décisions stratégiques reposent sur l'intuition : les indicateurs manquent, sont éparpillés ou arrivent trop tard pour les arbitrages qui comptent.",
+      "Les décisions stratégiques reposent sur l'intuition : les indicateurs manquent, sont éparpillés ou arrivent trop tard pour les arbitrages qui comptent.",
     description_en:
       'Strategic decisions rely on intuition: indicators are missing, scattered, or arrive too late for the decisions that matter.',
     sources: [
@@ -145,7 +145,7 @@ export const PAIN_POINTS: readonly PainPoint[] = [
     label_fr: 'Objectifs fixés mais jamais mesurés',
     label_en: 'Targets set but never measured',
     description_fr:
-      "Les objectifs annuels sont fixés en janvier et revus en décembre : sans suivi mensuel des KPIs, les dérives sont détectées trop tard.",
+      "Les objectifs annuels sont fixés en janvier et revus en décembre : sans suivi mensuel des KPIs, les dérives sont détectées trop tard.",
     description_en:
       'Annual targets are set in January and reviewed in December: without monthly KPI tracking, deviations are detected too late.',
     sources: ['pain-points/objectifs-non-mesures'],
@@ -167,7 +167,7 @@ export const PAIN_POINTS: readonly PainPoint[] = [
     label_fr: 'Onboarding collaborateur trop lent',
     label_en: 'Slow employee onboarding',
     description_fr:
-      "Intégrer un collaborateur prend des semaines de productivité partielle : les procédures sont éparpillées dans des emails, des drives et des têtes.",
+      "Intégrer un collaborateur prend des semaines de productivité partielle : les procédures sont éparpillées dans des emails, des drives et des têtes.",
     description_en:
       "Onboarding a new hire takes weeks of partial productivity: procedures are scattered across emails, drives, and people's heads.",
     sources: ['pain-points/onboarding-collaborateurs-lent'],
@@ -177,7 +177,7 @@ export const PAIN_POINTS: readonly PainPoint[] = [
     label_fr: "L'IA disponible mais pas utilisée",
     label_en: 'AI available but unused',
     description_fr:
-      "Les équipes ont accès à l'IA mais ne l'utilisent pas : sans scripts d'adoption, bibliothèque de prompts et connecteurs, l'usage ne décolle pas.",
+      "Les équipes ont accès à l'IA mais ne l'utilisent pas : sans scripts d'adoption, bibliothèque de prompts et connecteurs, l'usage ne décolle pas.",
     description_en:
       'Teams have access to AI but do not use it: without adoption scripts, a prompt library and connectors, usage never takes off.',
     sources: ['pain-points/adoption-ia-faible'],
@@ -187,7 +187,7 @@ export const PAIN_POINTS: readonly PainPoint[] = [
     label_fr: 'Outils IA génériques inadaptés au métier',
     label_en: 'Generic AI tools unfit for the business',
     description_fr:
-      "Les outils IA généralistes ne connaissent ni le métier, ni les clients, ni les données : le process s'adapte à l'outil au lieu de l'inverse.",
+      "Les outils IA généralistes ne connaissent ni le métier, ni les clients, ni les données : le process s'adapte à l'outil au lieu de l'inverse.",
     description_en:
       'Generic AI tools know neither the business, the clients, nor the data: the process adapts to the tool instead of the reverse.',
     sources: ['pain-points/outils-generiques-inadaptes'],
@@ -197,7 +197,7 @@ export const PAIN_POINTS: readonly PainPoint[] = [
     label_fr: 'Pilotes IA qui ne passent jamais en production',
     label_en: 'AI pilots that never reach production',
     description_fr:
-      "Des pilotes IA partout, aucun en production : chaque équipe réinvente la roue, la donnée ne circule pas, et personne n'a le mandat pour mener le projet.",
+      "Des pilotes IA partout, aucun en production : chaque équipe réinvente la roue, la donnée ne circule pas, et personne n'a le mandat pour mener le projet.",
     description_en:
       'AI pilots everywhere, none in production: every team reinvents the wheel, data does not flow, and nobody has the mandate to run the project.',
     sources: ['pain-points/pilotes-ia-sans-production'],
@@ -217,7 +217,7 @@ export const PAIN_POINTS: readonly PainPoint[] = [
     label_fr: 'Données confidentielles collées dans des IA grand public',
     label_en: 'Confidential data pasted into consumer AI tools',
     description_fr:
-      "Les collaborateurs collent données contractuelles, tarifs et informations clients dans des IA en libre accès : ces données partent dans des pipelines tiers.",
+      "Les collaborateurs collent données contractuelles, tarifs et informations clients dans des IA en libre accès : ces données partent dans des pipelines tiers.",
     description_en:
       'Staff paste contractual data, pricing and client information into free-tier AI tools: that data flows into third-party pipelines.',
     sources: [
@@ -229,7 +229,7 @@ export const PAIN_POINTS: readonly PainPoint[] = [
     label_fr: 'Gouvernance RGPD des données IA floue',
     label_en: 'Unclear GDPR governance of AI data',
     description_fr:
-      "Les agents IA accèdent aux données clients sans politique de rétention ni base légale documentée : répondre à un contrôle de la CNIL serait difficile.",
+      "Les agents IA accèdent aux données clients sans politique de rétention ni base légale documentée : répondre à un contrôle de la CNIL serait difficile.",
     description_en:
       'AI agents access client data without retention policy or documented legal basis: answering a CNIL audit would be difficult.',
     sources: ['pain-points/donnees-clients-rgpd-flou'],
@@ -239,7 +239,7 @@ export const PAIN_POINTS: readonly PainPoint[] = [
     label_fr: 'Actions des agents IA non auditables',
     label_en: 'Non-auditable AI agent actions',
     description_fr:
-      "Les agents IA agissent (emails, CRM, devis) sans journal d'audit traçable : impossible de reconstituer qui a fait quoi, quand et pourquoi.",
+      "Les agents IA agissent (emails, CRM, devis) sans journal d'audit traçable : impossible de reconstituer qui a fait quoi, quand et pourquoi.",
     description_en:
       'AI agents act (emails, CRM, quotes) with no traceable audit log: impossible to reconstruct who did what, when, and why.',
     sources: ['pain-points/agent-actions-non-auditables'],
@@ -249,7 +249,7 @@ export const PAIN_POINTS: readonly PainPoint[] = [
     label_fr: 'Mise en conformité réglementaire chronophage',
     label_en: 'Time-consuming regulatory compliance',
     description_fr:
-      "ACPR, AI Act, KYC, LCB-FT : la préparation des dossiers et le reporting régulateur consomment les équipes, et la stack rend la conformité difficile.",
+      "ACPR, AI Act, KYC, LCB-FT : la préparation des dossiers et le reporting régulateur consomment les équipes, et la stack rend la conformité difficile.",
     description_en:
       'ACPR, AI Act, KYC, AML: preparing files and regulator reporting drains teams, and the stack makes compliance difficult.',
     sources: ['pain-points/conformite-reglementaire-chronophage'],
@@ -259,7 +259,7 @@ export const PAIN_POINTS: readonly PainPoint[] = [
     label_fr: 'Goulots opérationnels non identifiés',
     label_en: 'Unidentified operational bottlenecks',
     description_fr:
-      "ERP non connectés, flux inter-sites opaques, qualité détectée trop tard : les goulots qui coûtent le plus ne sont ni identifiés ni documentés.",
+      "ERP non connectés, flux inter-sites opaques, qualité détectée trop tard : les goulots qui coûtent le plus ne sont ni identifiés ni documentés.",
     description_en:
       'Disconnected ERPs, opaque inter-site flows, quality detected too late: the costliest bottlenecks are neither identified nor documented.',
     sources: ['pain-points/goulots-operationnels-non-identifies'],

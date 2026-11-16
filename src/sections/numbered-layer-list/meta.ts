@@ -16,7 +16,7 @@ export const meta: SectionMeta = {
   tags: ['layers', 'numbered', 'stack', 'list', 'ranked', 'editorial', 'deliverables'],
   status: 'stable',
   description_fr:
-    'Liste de couches numerotees : rang serif accent + titre + intro + sous-puces « → ». Ideale pour presenter une stack, des livrables ou des rangs par couche.',
+    'Liste de couches numerotees : rang serif accent + titre + intro + sous-puces « → ». Ideale pour presenter une stack, des livrables ou des rangs par couche.',
   description_en:
     'Numbered layer list: serif accent rank + title + intro + « → » sub-bullets. Ideal to present a stack, deliverables or ranked layers.',
 };

@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['3-col'],
     tags: ['feature', 'comparison', 'us-vs-them', 'grid', 'differentiation'],
     status: 'stable',
-    description_fr: 'Différenciation légère « nous vs eux » en grille de cartes : 2 ou 3 colonnes, lignes cochées ou barrées, colonne mise en avant. Plus léger que la table comparative.',
+    description_fr: 'Différenciation légère « nous vs eux » en grille de cartes : 2 ou 3 colonnes, lignes cochées ou barrées, colonne mise en avant. Plus léger que la table comparative.',
     description_en: 'Lightweight "us vs them" differentiation as a card grid: 2 or 3 columns, check or cross rows, one highlighted column. Lighter than the comparison table.',
   
 };

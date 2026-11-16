@@ -37,7 +37,7 @@ const tok = (s: string) =>
   <div class="wrap-wide ch-in">
     <aside class="ch-side" aria-labelledby="ch-side-h2">
       <h2 class="ch-side-h2" id="ch-side-h2">Personnaliser le modèle</h2>
-      <p class="cv-note">Ce que vous saisissez remplace les champs entre crochets dans le texte. Rien n'est envoyé : tout reste dans votre navigateur.</p>
+      <p class="cv-note">Ce que vous saisissez remplace les champs entre crochets dans le texte. Rien n'est envoyé : tout reste dans votre navigateur.</p>
       <form class="ch-fields" data-charter-form data-form-local onsubmit="return false">
         {charterVars.map((v) => (
           <div class="cv-field">
@@ -53,7 +53,7 @@ const tok = (s: string) =>
         <button class="btn btn-ghost cv-btn" type="button" data-charter-print>Imprimer</button>
       </div>
       <p class="cv-note ch-feedback" role="status" data-charter-feedback></p>
-      <p class="cv-note">Le texte en ligne, l'export Word et la copie s'utilisent sans e-mail ; ils reprennent vos champs et retirent les notes. Le PDF, modèle vierge avec ses notes d'adaptation, s'obtient par e-mail (formulaire en bas de page).</p>
+      <p class="cv-note">Le texte en ligne, l'export Word et la copie s'utilisent sans e-mail ; ils reprennent vos champs et retirent les notes. Le PDF, modèle vierge avec ses notes d'adaptation, s'obtient par e-mail (formulaire en bas de page).</p>
     </aside>
 
     <article class="ch-sheet" data-charter-sheet>
@@ -73,9 +73,9 @@ const tok = (s: string) =>
 
       <p class="ch-closing" data-charter-closing set:html={tok(charterClosing)} />
       <div class="ch-legal">
-        <p>Ce modèle fixe des règles internes d'usage. Il ne constitue pas un avis juridique : faites-le relire par votre conseil, et consultez le CSE si votre entreprise en a un, avant de l'annexer au règlement intérieur.</p>
+        <p>Ce modèle fixe des règles internes d'usage. Il ne constitue pas un avis juridique : faites-le relire par votre conseil, et consultez le CSE si votre entreprise en a un, avant de l'annexer au règlement intérieur.</p>
         <p>
-          Source réglementaire citée :
+          Source réglementaire citée :
           {charterSources.map((s) => (
             <span><a href={s.href} rel="noopener" target="_blank">{s.label}</a>, {s.checked}.</span>
           ))}

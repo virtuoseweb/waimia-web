@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['2-col', 'media-right', 'split'],
     tags: ['solutions', 'case-study', 'split', 'results', 'testimonial'],
     status: 'stable',
-    description_fr: 'Cas client en split dark/light 50/50 : récit du cas à gauche (titre, body, CTA) et résultats chiffrés à droite.',
+    description_fr: 'Cas client en split dark/light 50/50 : récit du cas à gauche (titre, body, CTA) et résultats chiffrés à droite.',
     description_en: 'Client case in a 50/50 dark/light split: the case narrative on the left (title, body, CTA) and quantified results on the right.',
   
 };

@@ -16,7 +16,7 @@ export const meta: SectionMeta = {
   tags: ['cta', 'closing', 'ink', 'band', 'author', 'conversion'],
   status: 'stable',
   description_fr:
-    'Bande CTA de cloture sur fond ink : kicker + titre display-lg (accent italique) + bouton primaire. Titre rendu en HTML (accent <em>).',
+    'Bande CTA de cloture sur fond ink : kicker + titre display-lg (accent italique) + bouton primaire. Titre rendu en HTML (accent <em>).',
   description_en:
     'Closing CTA band on ink: kicker + display-lg title (italic accent) + primary button. Title rendered as HTML (<em> accent).',
 };

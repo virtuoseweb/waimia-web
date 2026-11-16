@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['2-col'],
     tags: ['solutions', 'stack', 'tools', 'table', 'editorial'],
     status: 'stable',
-    description_fr: 'Stack outils en table éditoriale : en-tête eyebrow et titre display, aside Callout, EditorialTable catégorie/outil/rôle.',
+    description_fr: 'Stack outils en table éditoriale : en-tête eyebrow et titre display, aside Callout, EditorialTable catégorie/outil/rôle.',
     description_en: 'Tool stack as an editorial table: an eyebrow and display heading header, a Callout aside, and a category/tool/role EditorialTable.',
   
 };

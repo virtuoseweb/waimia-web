@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['3-col'],
     tags: ['resources', 'downloads', 'grid', 'cards', 'cta', 'lead-magnet'],
     status: 'stable',
-    description_fr: 'Grille de ressources téléchargeables : type (livre blanc, cookbook, outil), titre, description, format, badge gated et CTA, en 2 ou 3 colonnes.',
+    description_fr: 'Grille de ressources téléchargeables : type (livre blanc, cookbook, outil), titre, description, format, badge gated et CTA, en 2 ou 3 colonnes.',
     description_en: 'Grid of downloadable resources: kind (white paper, cookbook, tool), title, description, format, gated badge and CTA, in 2 or 3 columns.',
   
 };

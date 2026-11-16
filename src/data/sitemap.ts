@@ -56,7 +56,7 @@ export const MM_SOLUTIONS_NEW: MegaMenu = {
   href: '/services',
   lead: {
     en: 'AI development studio and process automation practice for SMEs: automations, AI agents, business applications, advisory and training.',
-    fr: "Studio de développement IA et cabinet d'automatisation des processus pour PME et ETI : automatisations, agents IA, applications métier, conseil et formation.",
+    fr: "Studio de développement IA et cabinet d'automatisation des processus pour PME et ETI : automatisations, agents IA, applications métier, conseil et formation.",
   },
   cols: [
     {
@@ -108,7 +108,7 @@ export const MM_SOLUTIONS_NEW: MegaMenu = {
         { href: '/services/landing-pages-tunnels', label: { en: 'Landing pages and funnels', fr: 'Landing pages et tunnels' } },
         { href: '/services/seo-geo-contenu', label: { en: 'SEO and organic search agency', fr: 'Agence SEO et référencement naturel' } },
         { href: '/services/audit-seo-technique', label: { en: 'Technical SEO audit', fr: 'Audit SEO technique' } },
-        { href: '/services/referencement-ia', label: { en: 'GEO agency: get cited by AI', fr: 'Agence GEO : être cité par les IA' } },
+        { href: '/services/referencement-ia', label: { en: 'GEO agency: get cited by AI', fr: 'Agence GEO : être cité par les IA' } },
         { href: '/services/redaction-seo-contenu', label: { en: 'SEO writing and content', fr: 'Rédaction SEO et contenu' } },
         { href: '/services/seo-local', label: { en: 'Local SEO', fr: 'SEO local' } },
         { href: '/services/branding', label: { en: 'Branding agency', fr: 'Agence de branding' } },
@@ -124,7 +124,7 @@ export const MM_SOLUTIONS_NEW: MegaMenu = {
       items: [
         { href: '/audit-ia-pme', label: { en: 'SME AI audit', fr: 'Audit IA PME' } },
         { href: '/services/consultant-ia-claude', label: { en: 'AI consultant', fr: 'Consultant IA' } },
-        { href: '/conformite-ia', label: { en: 'AI compliance: GDPR and AI Act', fr: 'Conformité IA : RGPD et AI Act' } },
+        { href: '/conformite-ia', label: { en: 'AI compliance: GDPR and AI Act', fr: 'Conformité IA : RGPD et AI Act' } },
       ],
     },
     {
@@ -166,7 +166,7 @@ export const MM_OFFRES_NEW: MegaMenu = {
   href: '/cas-usages',
   lead: {
     en: 'Start from the problem or the function, not the technology: what we automate, in what order and where the limits are.',
-    fr: "Partir du problème ou de la fonction, pas de la technologie : ce qu'on automatise, dans quel ordre et où sont les limites.",
+    fr: "Partir du problème ou de la fonction, pas de la technologie : ce qu'on automatise, dans quel ordre et où sont les limites.",
   },
   cols: [
     {
@@ -265,19 +265,19 @@ export const MM_RESOURCES: MegaMenu = {
       items: [
         { href: '/blog', label: { en: 'Blog', fr: 'Blog' }, featured: true },
         { href: '/actualites', label: { en: 'News', fr: 'Actualités' } },
-        { href: '/ressources/guides/claude-pme', label: { en: 'Guide: deploying Claude in an SME', fr: 'Guide : déployer Claude en PME' } },
+        { href: '/ressources/guides/claude-pme', label: { en: 'Guide: deploying Claude in an SME', fr: 'Guide : déployer Claude en PME' } },
         { href: '/ressources/guides/claude-cowork', label: { en: 'Claude Cowork is now Claude', fr: 'Claude Cowork est désormais Claude' } },
-        { href: '/ressources/guides/claude-fonctionnalites-pme', label: { en: 'Claude: features, plans and pricing', fr: 'Claude : fonctionnalités, offres et prix' } },
+        { href: '/ressources/guides/claude-fonctionnalites-pme', label: { en: 'Claude: features, plans and pricing', fr: 'Claude : fonctionnalités, offres et prix' } },
         { href: '/ressources/guides/claude-code-entreprise', label: { en: 'Claude Code for business', fr: 'Claude Code en entreprise' } },
-        { href: '/ressources/guides/claude-skills', label: { en: 'Claude skills: build and deploy', fr: 'Skills Claude : créer et déployer' } },
+        { href: '/ressources/guides/claude-skills', label: { en: 'Claude skills: build and deploy', fr: 'Skills Claude : créer et déployer' } },
         { href: '/ressources/guides/claude-plugins-entreprise', label: { en: 'Claude plugins and connectors', fr: 'Plugins et connecteurs Claude' } },
         { href: '/ressources/guides/claude-design', label: { en: 'Claude Design for SMBs', fr: 'Claude Design en PME' } },
         { href: '/ressources/outils/guide-achat-claude-pme', label: { en: "Claude buyer's guide for SMBs (PDF)", fr: "Guide d'achat Claude pour PME (PDF)" } },
         { href: '/ressources/outils/grille-audit-site-internet', label: { en: 'Website audit grid (PDF)', fr: "Grille d'audit de site internet (PDF)" } },
-        { href: '/ressources/guides/mcp-claude', label: { en: 'MCP guide: connecting Claude to your tools', fr: 'Guide MCP : brancher Claude à vos outils' } },
-        { href: '/ressources/guides/ai-act-pme-calendrier', label: { en: 'AI Act: the timeline for an SME', fr: 'AI Act : le calendrier pour une PME' } },
-        { href: '/ressources/guides/roi-automatisation', label: { en: 'Guide: computing automation ROI', fr: "Guide : calculer le ROI d'une automatisation" } },
-        { href: '/ressources/guides/taches-a-automatiser-pme', label: { en: 'Guide: which tasks to automate first', fr: "Guide : quelles tâches automatiser d'abord" } },
+        { href: '/ressources/guides/mcp-claude', label: { en: 'MCP guide: connecting Claude to your tools', fr: 'Guide MCP : brancher Claude à vos outils' } },
+        { href: '/ressources/guides/ai-act-pme-calendrier', label: { en: 'AI Act: the timeline for an SME', fr: 'AI Act : le calendrier pour une PME' } },
+        { href: '/ressources/guides/roi-automatisation', label: { en: 'Guide: computing automation ROI', fr: "Guide : calculer le ROI d'une automatisation" } },
+        { href: '/ressources/guides/taches-a-automatiser-pme', label: { en: 'Guide: which tasks to automate first', fr: "Guide : quelles tâches automatiser d'abord" } },
         { href: '/ressources/comparatifs/n8n-vs-make', label: { en: 'n8n or Make', fr: 'n8n ou Make' } },
         { href: '/ressources/comparatifs/claude-vs-chatgpt-pme', label: { en: 'Claude or ChatGPT at work', fr: 'Claude ou ChatGPT en entreprise' } },
         { href: '/ressources/comparatifs/claude-platform-vs-openai-platform', label: { en: 'Claude Platform or OpenAI Platform', fr: 'Claude Platform ou OpenAI Platform' } },
@@ -579,11 +579,11 @@ export const DEPARTMENTS_GRID = [
 // le manifeste via `src/lib/case-card-grid-data.ts`. Un seul récit de cas sur tout le site.
 
 export const FIELD_NOTES = [
-  { date: '06.2026', tag: { en: 'ESSAY',      fr: 'ESSAI' },   text: { en: 'GEO: what Google documents, what the study suggests, what is not proven',          fr: 'GEO : ce que Google documente, ce que l’étude suggère, ce qui n’est pas prouvé.' } },
-  { date: '05.2026', tag: { en: 'ESSAY',      fr: 'ESSAI' },   text: { en: 'AI for SMBs in 2026: the complete guide',                                         fr: 'IA pour PME en 2026 : le guide complet.' } },
-  { date: '05.2026', tag: { en: 'FIELD NOTE', fr: 'NOTE' },    text: { en: 'Consulting firms: where the 8-week proposal-automation lever sits.',              fr: 'Cabinets de conseil : automatiser les relances B2B sans commercial dédié.' } },
-  { date: '04.2026', tag: { en: 'METHOD',    fr: 'MÉTHODE' },  text: { en: 'HubSpot + Claude: the unglamorous pattern that actually ships.',                  fr: 'Câbler son CRM en 10 jours : la méthode.' } },
-  { date: '04.2026', tag: { en: 'ESSAY',      fr: 'ESSAI' },   text: { en: 'Against the brain-circuit aesthetic.',                                            fr: 'Cerveau-circuit : l’iconographie IA, un théâtre.' } },
+  { date: '06.2026', tag: { en: 'ESSAY',      fr: 'ESSAI' },   text: { en: 'GEO: what Google documents, what the study suggests, what is not proven',          fr: 'GEO : ce que Google documente, ce que l’étude suggère, ce qui n’est pas prouvé.' } },
+  { date: '05.2026', tag: { en: 'ESSAY',      fr: 'ESSAI' },   text: { en: 'AI for SMBs in 2026: the complete guide',                                         fr: 'IA pour PME en 2026 : le guide complet.' } },
+  { date: '05.2026', tag: { en: 'FIELD NOTE', fr: 'NOTE' },    text: { en: 'Consulting firms: where the 8-week proposal-automation lever sits.',              fr: 'Cabinets de conseil : automatiser les relances B2B sans commercial dédié.' } },
+  { date: '04.2026', tag: { en: 'METHOD',    fr: 'MÉTHODE' },  text: { en: 'HubSpot + Claude: the unglamorous pattern that actually ships.',                  fr: 'Câbler son CRM en 10 jours : la méthode.' } },
+  { date: '04.2026', tag: { en: 'ESSAY',      fr: 'ESSAI' },   text: { en: 'Against the brain-circuit aesthetic.',                                            fr: 'Cerveau-circuit : l’iconographie IA, un théâtre.' } },
 ];
 
 // Six prestations du studio, dans l'ordre de l'offre (refonte positionnement 2026-10) :
@@ -595,7 +595,7 @@ export const SIX_SERVICES = [
     k: '01',
     metric: { en: 'Workflows', fr: 'Workflows' },
     label: { en: 'Process automation', fr: 'Automatisation des processus' },
-    body: { en: 'n8n and Make workflows that remove re-keying between your tools: data entered once flows everywhere it is needed.', fr: 'Des workflows n8n et Make qui suppriment la ressaisie entre vos outils : une donnée saisie une fois circule partout où elle est utile.' },
+    body: { en: 'n8n and Make workflows that remove re-keying between your tools: data entered once flows everywhere it is needed.', fr: 'Des workflows n8n et Make qui suppriment la ressaisie entre vos outils : une donnée saisie une fois circule partout où elle est utile.' },
     connectors: { en: 'n8n · Make · API', fr: 'n8n · Make · API' },
     href: '/services/automatisations',
   },
@@ -619,7 +619,7 @@ export const SIX_SERVICES = [
     k: '04',
     metric: { en: 'Custom built', fr: 'Sur mesure' },
     label: { en: 'Business applications', fr: 'Applications métier' },
-    body: { en: 'The internal tool the spreadsheet no longer replaces: a simple interface, connected to your data and automations. You keep the code.', fr: "L'outil interne que le tableur ne remplace plus : une interface simple, branchée à vos données et à vos automatisations. Vous gardez le code." },
+    body: { en: 'The internal tool the spreadsheet no longer replaces: a simple interface, connected to your data and automations. You keep the code.', fr: "L'outil interne que le tableur ne remplace plus : une interface simple, branchée à vos données et à vos automatisations. Vous gardez le code." },
     connectors: { en: 'Application · Data · API', fr: 'Application · Données · API' },
     href: '/services/applications-internes',
   },

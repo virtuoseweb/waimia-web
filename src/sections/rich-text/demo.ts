@@ -14,17 +14,17 @@ export const demo: DemoData = {
   body_md_fr: `## Pourquoi un corps Markdown
 
 Le corps de cette section vit en **Markdown** dans le document de page. Il est rendu en
-HTML au build, avec les styles de prose du design system. Pas de CMS, pas de backend :
+HTML au build, avec les styles de prose du design system. Pas de CMS, pas de backend :
 le contenu se versionne avec le code.
 
 ### Ce que vous pouvez écrire
 
-- des titres de niveau 2 et 3 ;
-- des listes à puces et numérotées ;
-- du texte en *italique* ou en **gras** ;
+- des titres de niveau 2 et 3 ;
+- des listes à puces et numérotées ;
+- du texte en *italique* ou en **gras** ;
 - des [liens internes](/contact) vers le reste du site.
 
-Le rendu reste lisible : la mesure de ligne est bornée et la typographie suit les mêmes
+Le rendu reste lisible : la mesure de ligne est bornée et la typographie suit les mêmes
 tokens que le reste des pages.`,
   body_md_en: `## Why a Markdown body
 

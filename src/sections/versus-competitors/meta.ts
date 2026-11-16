@@ -17,7 +17,7 @@ export const meta: SectionMeta = {
     layoutFacets: ['multi-col'],
     tags: ['comparison', 'competitors', 'versus', 'table', 'highlight'],
     status: 'stable',
-    description_fr: 'Comparatif « nous vs alternatives » avec colonne « nous » mise en avant, lignes de critères groupées et cellules check / cross / partiel. Distinct de la matrice tarifaire interne.',
+    description_fr: 'Comparatif « nous vs alternatives » avec colonne « nous » mise en avant, lignes de critères groupées et cellules check / cross / partiel. Distinct de la matrice tarifaire interne.',
     description_en: 'A “us vs alternatives” comparison with the “us” column highlighted, grouped criteria rows and check / cross / partial cells. Distinct from the internal pricing matrix.',
   
 };
