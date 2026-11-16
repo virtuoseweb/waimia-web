@@ -84,9 +84,9 @@ const sectorGridData = {
 const ctaData = {
   type: 'cta-final' as const,
   chapter_num: '§',
-  chapter_title_fr: 'Pas votre métier ?',
+  chapter_title_fr: 'Pas votre métier ?',
   chapter_title_en: 'Not your trade?',
-  h2_fr: 'Vous ne voyez pas votre secteur ? On opère sur tous les métiers.',
+  h2_fr: 'Vous ne voyez pas votre secteur ? On opère sur tous les métiers.',
   h2_en: "Don't see your industry? We operate across all trades.",
   cta_primary: {
     label_fr: 'Parler de votre projet →',
@@ -111,7 +111,7 @@ const spotlightData = {
   title_en: 'We start from your field, never from a template',
   media_src: '/images/editorial/menonhand.webp',
   media_alt: isFr
-    ? 'Illustration éditoriale : des équipes métier qui se relaient autour d’un même outil.'
+    ? 'Illustration éditoriale : des équipes métier qui se relaient autour d’un même outil.'
     : 'Editorial illustration: operational teams working hand in hand around one tool.',
   quote_fr: 'Chaque métier a ses goulots et ses leviers. On les lit sur vos données réelles avant d’écrire la moindre ligne.',
   quote_en: 'Every trade has its bottlenecks and its levers. We read them on your real data before writing a single line.',
@@ -132,7 +132,7 @@ const b2bAngleData = {
   variant: 'manifesto' as const,
   size: 'lg' as const,
   align: 'left' as const,
-  body_fr: "En B2B, l'acheteur décide souvent <i>avant même de vous parler</i> : l'essentiel du parcours se fait en autonomie. Si votre site ne prouve rien pendant cette phase, vous n'êtes pas sur la liste finale. C'est vrai dans tous les métiers de services : le hub ci-dessus range la preuve par secteur.",
+  body_fr: "En B2B, l'acheteur décide souvent <i>avant même de vous parler</i> : l'essentiel du parcours se fait en autonomie. Si votre site ne prouve rien pendant cette phase, vous n'êtes pas sur la liste finale. C'est vrai dans tous les métiers de services : le hub ci-dessus range la preuve par secteur.",
   body_en: 'In B2B, the buyer often decides <i>before ever talking to you</i>: most of the journey happens autonomously. If your site proves nothing during that phase, you are not on the shortlist. It holds across every service trade: the hub above organizes the proof by sector.',
 } satisfies SectionByType<'editorial-callout'>;
 
@@ -155,7 +155,7 @@ const sections = [mastheadData, sectorGridData, b2bAngleData, spotlightData, cta
 <Base
   title={isFr ? 'Secteurs · IA opérationnelle par métier · Waimia' : 'Industries · operational AI by trade · Waimia'}
   description={isFr
-    ? 'Des systèmes IA rangés par métier : e-commerce, bâtiment, startup, services B2B, libéral, thérapeutes. Données de marché sourcées, terrain réel.'
+    ? 'Des systèmes IA rangés par métier : e-commerce, bâtiment, startup, services B2B, libéral, thérapeutes. Données de marché sourcées, terrain réel.'
     : 'AI systems organized by trade: e-commerce, construction, startup, B2B services, independents, therapists. Sourced market data, real field.'}
   jsonLd={secteursLd}
 >

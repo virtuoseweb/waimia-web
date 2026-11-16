@@ -91,12 +91,12 @@ function collRow(
   let note: BiText | undefined;
   if (noindexFm && !excluded) {
     note = {
-      fr: 'incohérence : seo.noindex dans le frontmatter MAIS toujours dans le sitemap',
+      fr: 'incohérence : seo.noindex dans le frontmatter MAIS toujours dans le sitemap',
       en: 'mismatch: seo.noindex in frontmatter BUT still in sitemap',
     };
   } else if (!noindexFm && excluded) {
     note = {
-      fr: 'incohérence : page indexable MAIS exclue du sitemap (liste figée)',
+      fr: 'incohérence : page indexable MAIS exclue du sitemap (liste figée)',
       en: 'mismatch: indexable page BUT excluded from sitemap (frozen list)',
     };
   }
@@ -202,7 +202,7 @@ const grandTotal = editorialTotal + catalogueTotal;
 const title = lang === 'fr' ? 'Cartographie (audit) · Waimia' : 'Sitemap audit · Waimia';
 const description =
   lang === 'fr'
-    ? 'Audit interne : toutes les pages réelles du site avec collection source, template de rendu et statut SEO. Outil de décision garder / supprimer.'
+    ? 'Audit interne : toutes les pages réelles du site avec collection source, template de rendu et statut SEO. Outil de décision garder / supprimer.'
     : 'Internal audit: every real page of the site with source collection, render template and SEO status. A keep / remove decision tool.';
 
 const L = (fr: string, en: string) => (lang === 'fr' ? fr : en);
@@ -217,7 +217,7 @@ const L = (fr: string, en: string) => (lang === 'fr' ? fr : en);
     </h1>
     <p style="font-size:var(--text-body);color:var(--ink-2);max-width:62ch;margin-top:var(--space-5);line-height:var(--leading-lede)">
       {L(
-        'Toutes les pages réelles du site, regroupées par statut SEO. Pour chacune : URL, collection source, template de rendu et statut. Outil de décision garder / supprimer. Le sitemap.xml public reste inchangé.',
+        'Toutes les pages réelles du site, regroupées par statut SEO. Pour chacune : URL, collection source, template de rendu et statut. Outil de décision garder / supprimer. Le sitemap.xml public reste inchangé.',
         'Every real page on the site, grouped by SEO status. For each: URL, source collection, render template and status. A keep / remove decision tool. The public sitemap.xml stays unchanged.',
       )}
     </p>

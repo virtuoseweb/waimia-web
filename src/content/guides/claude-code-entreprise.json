@@ -92,36 +92,36 @@
   },
   "faq_fr": [
     {
-      "q": "Claude Code prix : combien coûte-t-il pour une entreprise ?",
+      "q": "Claude Code prix : combien coûte-t-il pour une entreprise ?",
       "a": "Deux modèles. En abonnement, Claude Code est inclus dans Pro (20 dollars par mois), Max (à partir de 100 dollars), Team et Enterprise, avec un quota partagé avec le chat et Cowork. À la consommation (API, Bedrock, Vertex, part usage d'Enterprise), Anthropic observe environ 13 dollars par développeur et par jour actif, 150 à 250 dollars par mois. Prix hors TVA et taux de change."
     },
     {
-      "q": "Claude Code est-il inclus dans l'offre Claude Team ?",
-      "a": "Oui, d'après la documentation officielle : Claude Code est inclus dans Pro, Max, Team et Enterprise, pas dans Free. En Team, le quota est calculé par siège sur une fenêtre de 5 heures et sur la semaine, et il est partagé avec le chat et Cowork. Team Premium donne 6,25 fois l'usage Pro par session, Team Standard 1,25 fois. Au-delà, des crédits d'usage prennent le relais, avec des plafonds réglables."
+      "q": "Claude Code est-il inclus dans l'offre Claude Team ?",
+      "a": "Oui, d'après la documentation officielle : Claude Code est inclus dans Pro, Max, Team et Enterprise, pas dans Free. En Team, le quota est calculé par siège sur une fenêtre de 5 heures et sur la semaine, et il est partagé avec le chat et Cowork. Team Premium donne 6,25 fois l'usage Pro par session, Team Standard 1,25 fois. Au-delà, des crédits d'usage prennent le relais, avec des plafonds réglables."
     },
     {
-      "q": "Peut-on utiliser Claude Code sans être développeur ?",
-      "a": "On peut obtenir un script qui tourne sans savoir coder. Le problème vient après : savoir pourquoi il tourne et ce qu'il fera quand les données changent. Anthropic oriente les équipes métier vers Claude et ses « tâches agentiques » plutôt que vers Claude Code. Un profil non technique peut s'en servir pour de petits outils internes si quelqu'un relit ce qui part en production."
+      "q": "Peut-on utiliser Claude Code sans être développeur ?",
+      "a": "On peut obtenir un script qui tourne sans savoir coder. Le problème vient après : savoir pourquoi il tourne et ce qu'il fera quand les données changent. Anthropic oriente les équipes métier vers Claude et ses « tâches agentiques » plutôt que vers Claude Code. Un profil non technique peut s'en servir pour de petits outils internes si quelqu'un relit ce qui part en production."
     },
     {
-      "q": "Claude Code ou Cursor : lequel choisir ?",
-      "a": "Ce n'est pas le même métier. Un IDE assisté comme Cursor accélère la personne qui écrit, ligne par ligne. Claude Code exécute une demande entière et se relit sur le résultat ; il se planifie et tourne dans l'intégration continue. Beaucoup d'équipes utilisent les deux, d'autant que Claude Code s'installe aussi dans Cursor. Pour débuter avec l'IA dans le code, l'IDE assisté est plus doux ; pour déléguer des tâches, Claude Code."
+      "q": "Claude Code ou Cursor : lequel choisir ?",
+      "a": "Ce n'est pas le même métier. Un IDE assisté comme Cursor accélère la personne qui écrit, ligne par ligne. Claude Code exécute une demande entière et se relit sur le résultat ; il se planifie et tourne dans l'intégration continue. Beaucoup d'équipes utilisent les deux, d'autant que Claude Code s'installe aussi dans Cursor. Pour débuter avec l'IA dans le code, l'IDE assisté est plus doux ; pour déléguer des tâches, Claude Code."
     },
     {
-      "q": "Nos données servent-elles à entraîner les modèles d'Anthropic ?",
-      "a": "Cela dépend du compte. Sur Pro et Max, conditions grand public : un réglage décide si vos échanges servent à l'entraînement, y compris dans Claude Code. Sur Team, Enterprise et l'API, pas d'entraînement par défaut. Les données des applications Claude sont stockées aux États-Unis par défaut ; une résidence dans l'UE passe par AWS Bedrock ou Google Vertex. Un DPA est disponible."
+      "q": "Nos données servent-elles à entraîner les modèles d'Anthropic ?",
+      "a": "Cela dépend du compte. Sur Pro et Max, conditions grand public : un réglage décide si vos échanges servent à l'entraînement, y compris dans Claude Code. Sur Team, Enterprise et l'API, pas d'entraînement par défaut. Les données des applications Claude sont stockées aux États-Unis par défaut ; une résidence dans l'UE passe par AWS Bedrock ou Google Vertex. Un DPA est disponible."
     },
     {
-      "q": "Quels sont les risques de sécurité de Claude Code ?",
-      "a": "Les risques à couvrir : du code non relu qui part en production, des secrets lus ou recopiés par l'agent, des dépendances ajoutées sans examen. Les réglages existent : mode Manual avec approbation, sandbox bash, paramètres gérés par l'organisation, approbation des serveurs MCP de projet. Anthropic n'audite pas la sécurité des serveurs MCP tiers : chacun s'examine comme un logiciel installé."
+      "q": "Quels sont les risques de sécurité de Claude Code ?",
+      "a": "Les risques à couvrir : du code non relu qui part en production, des secrets lus ou recopiés par l'agent, des dépendances ajoutées sans examen. Les réglages existent : mode Manual avec approbation, sandbox bash, paramètres gérés par l'organisation, approbation des serveurs MCP de projet. Anthropic n'audite pas la sécurité des serveurs MCP tiers : chacun s'examine comme un logiciel installé."
     },
     {
-      "q": "Qui fait quoi si Waimia déploie Claude Code chez nous ?",
+      "q": "Qui fait quoi si Waimia déploie Claude Code chez nous ?",
       "a": "On commence par un audit gratuit de 45 minutes pour dire si Claude Code est le bon outil. Si oui, le sprint de cadrage ({{prix.sprint}} euros HT, 10 heures) cadre l'offre, écrit les règles du projet, pose les permissions et livre un premier outil relu et testé. Vous gardez les accès, la configuration et la documentation. La suite fait l'objet d'un devis, à {{prix.horaire}} euros HT de l'heure."
     },
     {
-      "q": "Existe-t-il une formation Claude Code, et combien coûte-t-elle ?",
-      "a": "Anthropic propose une formation gratuite, Claude Academy (Claude Code 101, Claude Code in Action). Waimia forme sur vos propres cas : {{prix.formation.f1.heures}} heures pour {{prix.formation.f1}} euros HT ou {{prix.formation.f2.heures}} heures pour {{prix.formation.f2}} euros HT, {{prix.formation.base}} et non par participant, via Akigora, organisme certifié Qualiopi. Le parcours Claude Code demande de savoir utiliser Git et un terminal."
+      "q": "Existe-t-il une formation Claude Code, et combien coûte-t-elle ?",
+      "a": "Anthropic propose une formation gratuite, Claude Academy (Claude Code 101, Claude Code in Action). Waimia forme sur vos propres cas : {{prix.formation.f1.heures}} heures pour {{prix.formation.f1}} euros HT ou {{prix.formation.f2.heures}} heures pour {{prix.formation.f2}} euros HT, {{prix.formation.base}} et non par participant, via Akigora, organisme certifié Qualiopi. Le parcours Claude Code demande de savoir utiliser Git et un terminal."
     }
   ],
   "faq_en": [
@@ -174,7 +174,7 @@
       "h1_en": "<i class=\"acc\">Claude Code</i> for business: features, cost and rollout",
       "definition_kicker_fr": "L'essentiel pour décider",
       "definition_kicker_en": "What to know to decide",
-      "lede_fr": "Le prix d'un siège ne dit pas ce que coûte un poste, et la sécurité se joue dans les permissions que vous posez : un agent qui lance des commandes voit tout ce que voit le poste.",
+      "lede_fr": "Le prix d'un siège ne dit pas ce que coûte un poste, et la sécurité se joue dans les permissions que vous posez : un agent qui lance des commandes voit tout ce que voit le poste.",
       "lede_en": "A seat price does not tell you what a workstation costs, and security is decided by the permissions you set: an agent that runs commands sees everything the machine sees.",
       "badges": [
         {
@@ -206,11 +206,11 @@
     {
       "type": "direct-answer",
       "background": "paper-2",
-      "question_fr": "Qu'est-ce que Claude Code, et combien coûte-t-il en entreprise ?",
+      "question_fr": "Qu'est-ce que Claude Code, et combien coûte-t-il en entreprise ?",
       "question_en": "What is Claude Code, and what does it cost a business?",
       "term_fr": "Claude Code",
       "term_en": "Claude Code",
-      "answer_fr": "Claude Code est l'agent de programmation d'Anthropic : il lit un dépôt, modifie les fichiers, lance les commandes et les tests, puis montre ce qu'il a changé. Il s'utilise dans le terminal, l'éditeur, l'application de bureau ou le web. Il est inclus dans Pro, Max, Team et Enterprise. À l'usage API, Anthropic observe environ 13 dollars par développeur et par jour actif.",
+      "answer_fr": "Claude Code est l'agent de programmation d'Anthropic : il lit un dépôt, modifie les fichiers, lance les commandes et les tests, puis montre ce qu'il a changé. Il s'utilise dans le terminal, l'éditeur, l'application de bureau ou le web. Il est inclus dans Pro, Max, Team et Enterprise. À l'usage API, Anthropic observe environ 13 dollars par développeur et par jour actif.",
       "answer_en": "Claude Code is Anthropic's coding agent: it reads a repository, edits files, runs commands and tests, then shows what it changed. It runs in the terminal, the editor, the desktop app or the web. It is included in Pro, Max, Team and Enterprise. On API usage, Anthropic observes about $13 per developer per active day."
     },
     {
@@ -240,7 +240,7 @@
         },
         {
           "value": "8",
-          "label_fr": "surfaces : terminal, VS Code et Cursor, JetBrains, bureau, web, mobile, Slack, Chrome",
+          "label_fr": "surfaces : terminal, VS Code et Cursor, JetBrains, bureau, web, mobile, Slack, Chrome",
           "label_en": "surfaces: terminal, VS Code and Cursor, JetBrains, desktop, web, mobile, Slack, Chrome"
         }
       ]
@@ -256,7 +256,7 @@
           "side": "right"
         }
       ],
-      "html_fr": "<h2>Claude Code, concrètement</h2><p>Claude Code est un agent, pas une autocomplétion. Vous décrivez un résultat : « corrige ce bug », « ajoute un export CSV à cet outil », « explique-moi ce dépôt ». Il lit les fichiers, planifie, modifie, lance les commandes et les tests, puis vous montre ce qu'il a changé. Vous relisez. Vous acceptez, ou pas.</p><p>Il agit dans votre environnement de travail, pas dans une fenêtre de chat : c'est sa force et son risque, d'où la section sur les permissions.</p><h3>Huit endroits où l'utiliser</h3><ul><li>Le terminal, l'outil en ligne de commande d'origine.</li><li>VS Code et <a href=\"/ressources/comparatifs/claude-code-vs-cursor\">Cursor</a>, par l'extension.</li><li>Les IDE JetBrains (IntelliJ, PyCharm et les autres).</li><li>L'application de bureau Claude, onglet Code, qui exige un abonnement payant.</li><li>Le web, sur claude.ai/code, sans rien installer.</li><li>Les applications iOS et Android.</li><li>Slack, en mentionnant @Claude.</li><li>Chrome.</li></ul><p>Un développeur reste dans son terminal. Un profil moins technique démarre depuis l'application de bureau ou le navigateur. La surface change, l'agent et ses règles restent les mêmes.</p><p>Claude Code n'est pas l'outil des équipes métier. Pour rédiger, analyser un tableur ou préparer un dossier, Anthropic oriente vers Claude lui-même et ses « tâches agentiques » (des tâches confiées à un agent). Cowork, l'agent de Claude, est désormais intégré à Claude : <a href=\"/ressources/guides/claude-cowork\">le guide Claude Cowork</a> suit l'état de cette fusion, et <a href=\"/ressources/guides/claude-fonctionnalites-pme\">les fonctionnalités de Claude pour une PME</a> donnent la carte complète. Pour le plan de déploiement d'ensemble, partez du <a href=\"/ressources/guides/claude-pme\">guide Claude pour PME</a>. Pour intégrer votre propre agent à une application ou à un processus métier, avec un hébergement par Anthropic, il existe un autre produit : <a href=\"/ressources/guides/claude-managed-agents\">Claude Managed Agents</a>.</p><p>Source : <a href=\"https://code.claude.com/docs/en/overview\" rel=\"noopener\">documentation Claude Code</a>.</p>",
+      "html_fr": "<h2>Claude Code, concrètement</h2><p>Claude Code est un agent, pas une autocomplétion. Vous décrivez un résultat : « corrige ce bug », « ajoute un export CSV à cet outil », « explique-moi ce dépôt ». Il lit les fichiers, planifie, modifie, lance les commandes et les tests, puis vous montre ce qu'il a changé. Vous relisez. Vous acceptez, ou pas.</p><p>Il agit dans votre environnement de travail, pas dans une fenêtre de chat : c'est sa force et son risque, d'où la section sur les permissions.</p><h3>Huit endroits où l'utiliser</h3><ul><li>Le terminal, l'outil en ligne de commande d'origine.</li><li>VS Code et <a href=\"/ressources/comparatifs/claude-code-vs-cursor\">Cursor</a>, par l'extension.</li><li>Les IDE JetBrains (IntelliJ, PyCharm et les autres).</li><li>L'application de bureau Claude, onglet Code, qui exige un abonnement payant.</li><li>Le web, sur claude.ai/code, sans rien installer.</li><li>Les applications iOS et Android.</li><li>Slack, en mentionnant @Claude.</li><li>Chrome.</li></ul><p>Un développeur reste dans son terminal. Un profil moins technique démarre depuis l'application de bureau ou le navigateur. La surface change, l'agent et ses règles restent les mêmes.</p><p>Claude Code n'est pas l'outil des équipes métier. Pour rédiger, analyser un tableur ou préparer un dossier, Anthropic oriente vers Claude lui-même et ses « tâches agentiques » (des tâches confiées à un agent). Cowork, l'agent de Claude, est désormais intégré à Claude : <a href=\"/ressources/guides/claude-cowork\">le guide Claude Cowork</a> suit l'état de cette fusion, et <a href=\"/ressources/guides/claude-fonctionnalites-pme\">les fonctionnalités de Claude pour une PME</a> donnent la carte complète. Pour le plan de déploiement d'ensemble, partez du <a href=\"/ressources/guides/claude-pme\">guide Claude pour PME</a>. Pour intégrer votre propre agent à une application ou à un processus métier, avec un hébergement par Anthropic, il existe un autre produit : <a href=\"/ressources/guides/claude-managed-agents\">Claude Managed Agents</a>.</p><p>Source : <a href=\"https://code.claude.com/docs/en/overview\" rel=\"noopener\">documentation Claude Code</a>.</p>",
       "html_en": "<h2>Claude Code, in practice</h2><p>Claude Code is an agent, not autocomplete. You describe an outcome: \"fix this bug\", \"add a CSV export to this tool\", \"explain this repository to me\". It reads the files, plans, edits, runs the commands and tests, then shows you what it changed. You review. You accept, or not.</p><p>It acts in your working environment, not in a chat window: that is its strength and its risk, hence the section on permissions.</p><h3>Eight places to use it</h3><ul><li><strong>The terminal</strong>, the original command-line tool.</li><li><strong>VS Code and <a href=\"/ressources/comparatifs/claude-code-vs-cursor\">Cursor</a></strong>, through the extension.</li><li><strong>JetBrains IDEs</strong> (IntelliJ, PyCharm and the rest).</li><li><strong>The Claude desktop app</strong>, Code tab, which requires a paid plan.</li><li><strong>The web</strong>, at claude.ai/code, with nothing to install.</li><li><strong>The iOS and Android apps.</strong></li><li><strong>Slack</strong>, by mentioning @Claude.</li><li><strong>Chrome.</strong></li></ul><p>In practice: a developer stays in the terminal. A less technical person starts from the desktop app or the browser. The surface changes, the agent and its rules stay the same.</p><p>What Claude Code is not: the tool for business teams. To write, analyse a spreadsheet or prepare a file, Anthropic points to Claude itself and its agentic tasks. Cowork, Claude's agent, is now part of Claude. <a href=\"/ressources/guides/claude-cowork\">The Claude Cowork guide</a> tracks the state of that merger, and <a href=\"/ressources/guides/claude-fonctionnalites-pme\">Claude's features for SMBs</a> give the full map. For the overall rollout plan, start from the <a href=\"/ressources/guides/claude-pme\">Claude guide for SMBs</a>. To build your own agent into an application or a business process, hosted by Anthropic, there is a different product: see <a href=\"/ressources/guides/claude-managed-agents\">Claude Managed Agents</a>.</p><p>Source: <a href=\"https://code.claude.com/docs/en/overview\" rel=\"noopener\">Claude Code documentation</a>, read on 5 October 2026.</p>"
     },
     {
@@ -266,7 +266,7 @@
       "kicker_en": "§ The features one by one",
       "heading_fr": "Dix fonctions de Claude Code, et à quoi elles servent en entreprise",
       "heading_en": "Ten Claude Code features, and what they are for in a business",
-      "caption_fr": "Source : documentation officielle Claude Code (code.claude.com). Les noms et la disponibilité de ces fonctions évoluent vite.",
+      "caption_fr": "Source : documentation officielle Claude Code (code.claude.com). Les noms et la disponibilité de ces fonctions évoluent vite.",
       "caption_en": "Source: official Claude Code documentation (code.claude.com), read on 5 October 2026. Names and availability of these features change fast.",
       "columns_fr": [
         "Fonction",
@@ -281,27 +281,27 @@
       "rows_fr": [
         [
           "CLAUDE.md et mémoire",
-          "Un fichier à la racine du projet donne le contexte permanent : conventions, commandes, interdits. Claude Code lit aussi AGENTS.md et tient une mémoire automatique.",
+          "Un fichier à la racine du projet donne le contexte permanent : conventions, commandes, interdits. Claude Code lit aussi AGENTS.md et tient une mémoire automatique.",
           "Plusieurs personnes travaillent sur le même outil et vous voulez des réponses cohérentes d'une session à l'autre."
         ],
         [
           "Skills",
           "Dossiers d'instructions et de scripts que Claude charge seulement quand la tâche les appelle, rangés dans le projet ou dans le dossier personnel.",
-          "Une procédure revient souvent : mise en production, rapport, vérification avant livraison."
+          "Une procédure revient souvent : mise en production, rapport, vérification avant livraison."
         ],
         [
           "Hooks",
           "Commandes qui se déclenchent automatiquement à des étapes précises du travail de l'agent.",
-          "Une règle doit s'appliquer à chaque fois, pas seulement quand l'agent y pense : formatage, contrôle, blocage."
+          "Une règle doit s'appliquer à chaque fois, pas seulement quand l'agent y pense : formatage, contrôle, blocage."
         ],
         [
           "Sous-agents et agents en arrière-plan",
           "Agents spécialisés lancés par Claude Code, chacun dans son propre contexte, qui rendent un résultat.",
-          "Une tâche se découpe : explorer, coder, relire, en parallèle, sur un gros dépôt."
+          "Une tâche se découpe : explorer, coder, relire, en parallèle, sur un gros dépôt."
         ],
         [
           "MCP",
-          "Le protocole qui branche Claude Code à des outils et des données externes : base de données, tickets, CRM, documentation.",
+          "Le protocole qui branche Claude Code à des outils et des données externes : base de données, tickets, CRM, documentation.",
           "L'agent doit lire ou écrire ailleurs que dans le code."
         ],
         [
@@ -321,8 +321,8 @@
         ],
         [
           "Routines et tâches planifiées",
-          "Routines dans le cloud qui tournent ordinateur éteint, déclenchées par un horaire, l'API ou un événement GitHub. Aussi : tâches planifiées sur le bureau et commande /loop.",
-          "Un travail revient chaque jour ou chaque semaine : vérification, rapport, mise à jour."
+          "Routines dans le cloud qui tournent ordinateur éteint, déclenchées par un horaire, l'API ou un événement GitHub. Aussi : tâches planifiées sur le bureau et commande /loop.",
+          "Un travail revient chaque jour ou chaque semaine : vérification, rapport, mise à jour."
         ],
         [
           "Remote Control et travail à distance",
@@ -391,15 +391,15 @@
       "kicker_en": "§ Three features to set up first",
       "h2_fr": "Trois fonctions qui font d'un outil individuel un outil d'équipe",
       "h2_en": "Three features that turn a personal tool into a team tool",
-      "lede_fr": "Installé tel quel, Claude Code est l'assistant d'une personne. Ces trois fonctions en font un dispositif partagé, reproductible et planifié, à poser dans cet ordre : les règles, les procédures, puis la planification.",
+      "lede_fr": "Installé tel quel, Claude Code est l'assistant d'une personne. Ces trois fonctions en font un dispositif partagé, reproductible et planifié, à poser dans cet ordre : les règles, les procédures, puis la planification.",
       "lede_en": "Installed as is, Claude Code is one person's assistant. These three features make it a shared, repeatable, scheduled setup, to put in place in this order: rules, procedures, then scheduling.",
       "rows": [
         {
           "kicker_fr": "Fonction 01",
           "kicker_en": "Feature 01",
-          "h3_fr": "CLAUDE.md et mémoire : le contexte de la maison, écrit une fois",
+          "h3_fr": "CLAUDE.md et mémoire : le contexte de la maison, écrit une fois",
           "h3_en": "CLAUDE.md and memory: house context, written once",
-          "body_fr": "Sans CLAUDE.md, chaque session repart de zéro et chacun réexplique le projet à sa façon. Avec, les conventions, les commandes de test, les dossiers interdits et le vocabulaire métier sont lus à chaque démarrage. Mon conseil : c'est le premier fichier à écrire. Anthropic recommande de le garder sous 200 lignes et de sortir les procédures longues dans des skills. Il se relit comme du code : une règle fausse s'y propage à toutes les sessions.",
+          "body_fr": "Sans CLAUDE.md, chaque session repart de zéro et chacun réexplique le projet à sa façon. Avec, les conventions, les commandes de test, les dossiers interdits et le vocabulaire métier sont lus à chaque démarrage. Mon conseil : c'est le premier fichier à écrire. Anthropic recommande de le garder sous 200 lignes et de sortir les procédures longues dans des skills. Il se relit comme du code : une règle fausse s'y propage à toutes les sessions.",
           "body_en": "Without CLAUDE.md, every session starts from scratch and everyone explains the project their own way. With it, conventions, test commands, off-limits folders and business vocabulary are read at every start. My advice: write it first. Anthropic recommends keeping it under 200 lines and moving long procedures into skills. Review it like code: a wrong rule spreads to every session.",
           "points": [
             {
@@ -425,9 +425,9 @@
         {
           "kicker_fr": "Fonction 02",
           "kicker_en": "Feature 02",
-          "h3_fr": "Skills et plugins : des procédures partagées, diffusées à toute l'équipe",
+          "h3_fr": "Skills et plugins : des procédures partagées, diffusées à toute l'équipe",
           "h3_en": "Skills and plugins: shared procedures, rolled out to the whole team",
-          "body_fr": "Un skill décrit une procédure que Claude charge quand il en a besoin. Dans Claude Code, il vit dans le projet ou dans le dossier personnel. Pour diffuser à toute l'organisation, la voie officielle est le plugin : en Team et Enterprise, une marketplace privée le rend installé par défaut, disponible, requis ou indisponible. Limite : les skills Word, Excel, PowerPoint et PDF d'Anthropic n'existent pas dans Claude Code.",
+          "body_fr": "Un skill décrit une procédure que Claude charge quand il en a besoin. Dans Claude Code, il vit dans le projet ou dans le dossier personnel. Pour diffuser à toute l'organisation, la voie officielle est le plugin : en Team et Enterprise, une marketplace privée le rend installé par défaut, disponible, requis ou indisponible. Limite : les skills Word, Excel, PowerPoint et PDF d'Anthropic n'existent pas dans Claude Code.",
           "body_en": "A skill describes a procedure Claude loads when it needs it. In Claude Code, it lives in the project or the personal folder. To roll it out to the whole organisation, the official route is the plugin: on Team and Enterprise, a private marketplace makes it installed by default, available, required or unavailable. Limit: Anthropic's Word, Excel, PowerPoint and PDF skills do not exist in Claude Code.",
           "points": [
             {
@@ -453,9 +453,9 @@
         {
           "kicker_fr": "Fonction 03",
           "kicker_en": "Feature 03",
-          "h3_fr": "Routines, intégration continue et Remote Control : du travail qui tourne sans vous",
+          "h3_fr": "Routines, intégration continue et Remote Control : du travail qui tourne sans vous",
           "h3_en": "Routines, CI and Remote Control: work that runs without you",
-          "body_fr": "Les routines tournent dans le cloud d'Anthropic, ordinateur éteint, à heure fixe ou sur un événement GitHub. GitHub Actions et GitLab CI font entrer l'agent dans votre chaîne de livraison ; la revue de code GitHub lui fait relire les demandes de fusion. Remote Control permet de suivre une session depuis un autre appareil. L'outil devient un collègue planifié. C'est là qu'il faut le plus de garde-fous.",
+          "body_fr": "Les routines tournent dans le cloud d'Anthropic, ordinateur éteint, à heure fixe ou sur un événement GitHub. GitHub Actions et GitLab CI font entrer l'agent dans votre chaîne de livraison ; la revue de code GitHub lui fait relire les demandes de fusion. Remote Control permet de suivre une session depuis un autre appareil. L'outil devient un collègue planifié. C'est là qu'il faut le plus de garde-fous.",
           "body_en": "Routines run in Anthropic's cloud, computer off, on a schedule or on a GitHub event. GitHub Actions and GitLab CI bring the agent into your delivery pipeline; GitHub code review has it review pull requests. Remote Control lets you follow a session from another device. The tool becomes a scheduled colleague. That is where you need the most safeguards.",
           "points": [
             {
@@ -491,13 +491,13 @@
           "side": "left"
         }
       ],
-      "html_fr": "<h2>Sécurité et permissions : ce que vous réglez, ce qu'Anthropic règle</h2><p>Un agent qui lance des commandes sur un poste a accès à ce que ce poste voit. La bonne question : « qu'est-ce qu'on l'autorise à faire, et qui l'a décidé ? ». Je recommande de démarrer en mode Manual, sandbox activée, et de n'ouvrir le mode Auto qu'une fois les règles écrites.</p><h3>Les réglages qui existent</h3><ul><li>Le mode Auto est le réglage par défaut du terminal et de VS Code. Un classifieur bloque les actions jugées dangereuses, le reste s'exécute sans vous demander : c'est un changement net par rapport au fonctionnement historique, plus prudent.</li><li>En mode Manual, l'agent lit, mais demande votre approbation avant d'agir.</li><li>La sandbox bash isole les commandes, côté fichiers et côté réseau.</li><li>Le dossier de travail est borné : en mode Manual, l'agent demande avant de lire ou d'écrire hors du dossier ouvert, et un projet inconnu déclenche un dialogue de confiance. Une commande bash que vous approuvez peut en revanche écrire ailleurs : c'est la sandbox qui ferme cette porte.</li><li>Un connecteur MCP déclaré dans un dépôt ne s'active pas en silence : il demande une approbation.</li><li>Les paramètres gérés permettent à l'organisation d'imposer des réglages que les postes ne contournent pas.</li><li>Les sessions cloud s'exécutent dans des machines virtuelles isolées et journalisées.</li></ul><p>Anthropic examine les connecteurs avant de les inscrire à son annuaire, mais n'audite la sécurité d'aucun serveur MCP, dit sa documentation. Brancher un serveur trouvé sur internet revient à installer un logiciel tiers. Le <a href=\"/ressources/guides/mcp-claude\">guide MCP</a> explique comment trier.</p><h3>Les risques à couvrir</h3><ul><li>Du code non relu en production. L'agent écrit vite, et proprement en apparence, mais un changement qui marche sur le poste peut casser un cas limite, une facture, un export. Rien ne part en production sans relecture humaine ni test.</li><li>Des secrets exposés. Clés d'API, mots de passe, fichiers .env : un agent qui lit le dossier peut les lire, puis les recopier dans un journal ou un message. Gardez les secrets hors du dépôt, excluez les fichiers sensibles par configuration, donnez aux clés les droits minimaux.</li><li>Des dépendances ajoutées sans examen. Pour résoudre un problème, l'agent ajoute volontiers une bibliothèque, et chacune est du code tiers que vous maintiendrez. Toute nouvelle dépendance se justifie et se valide.</li></ul><h3>Côté données</h3><p>Sur Pro ou Max, Claude Code relève des conditions grand public : un réglage décide si vos échanges servent à l'entraînement (conservation jusqu'à 5 ans s'il est activé, 30 jours sinon). Sur Team, Enterprise et l'API, pas d'entraînement par défaut. Les données des applications Claude sont stockées aux États-Unis par défaut ; une résidence dans l'UE passe par AWS Bedrock ou Google Vertex. Pour le cadre RGPD et AI Act, voir la page <a href=\"/conformite-ia\">conformité IA</a>.</p><p>Sources : <a href=\"https://code.claude.com/docs/en/security\" rel=\"noopener\">sécurité de Claude Code</a>, <a href=\"https://claude.com/regional-compliance\" rel=\"noopener\">conformité régionale</a> et <a href=\"https://www.anthropic.com/news/updates-to-our-consumer-terms\" rel=\"noopener\">conditions grand public</a>.</p>",
+      "html_fr": "<h2>Sécurité et permissions : ce que vous réglez, ce qu'Anthropic règle</h2><p>Un agent qui lance des commandes sur un poste a accès à ce que ce poste voit. La bonne question : « qu'est-ce qu'on l'autorise à faire, et qui l'a décidé ? ». Je recommande de démarrer en mode Manual, sandbox activée, et de n'ouvrir le mode Auto qu'une fois les règles écrites.</p><h3>Les réglages qui existent</h3><ul><li>Le mode Auto est le réglage par défaut du terminal et de VS Code. Un classifieur bloque les actions jugées dangereuses, le reste s'exécute sans vous demander : c'est un changement net par rapport au fonctionnement historique, plus prudent.</li><li>En mode Manual, l'agent lit, mais demande votre approbation avant d'agir.</li><li>La sandbox bash isole les commandes, côté fichiers et côté réseau.</li><li>Le dossier de travail est borné : en mode Manual, l'agent demande avant de lire ou d'écrire hors du dossier ouvert, et un projet inconnu déclenche un dialogue de confiance. Une commande bash que vous approuvez peut en revanche écrire ailleurs : c'est la sandbox qui ferme cette porte.</li><li>Un connecteur MCP déclaré dans un dépôt ne s'active pas en silence : il demande une approbation.</li><li>Les paramètres gérés permettent à l'organisation d'imposer des réglages que les postes ne contournent pas.</li><li>Les sessions cloud s'exécutent dans des machines virtuelles isolées et journalisées.</li></ul><p>Anthropic examine les connecteurs avant de les inscrire à son annuaire, mais n'audite la sécurité d'aucun serveur MCP, dit sa documentation. Brancher un serveur trouvé sur internet revient à installer un logiciel tiers. Le <a href=\"/ressources/guides/mcp-claude\">guide MCP</a> explique comment trier.</p><h3>Les risques à couvrir</h3><ul><li>Du code non relu en production. L'agent écrit vite, et proprement en apparence, mais un changement qui marche sur le poste peut casser un cas limite, une facture, un export. Rien ne part en production sans relecture humaine ni test.</li><li>Des secrets exposés. Clés d'API, mots de passe, fichiers .env : un agent qui lit le dossier peut les lire, puis les recopier dans un journal ou un message. Gardez les secrets hors du dépôt, excluez les fichiers sensibles par configuration, donnez aux clés les droits minimaux.</li><li>Des dépendances ajoutées sans examen. Pour résoudre un problème, l'agent ajoute volontiers une bibliothèque, et chacune est du code tiers que vous maintiendrez. Toute nouvelle dépendance se justifie et se valide.</li></ul><h3>Côté données</h3><p>Sur Pro ou Max, Claude Code relève des conditions grand public : un réglage décide si vos échanges servent à l'entraînement (conservation jusqu'à 5 ans s'il est activé, 30 jours sinon). Sur Team, Enterprise et l'API, pas d'entraînement par défaut. Les données des applications Claude sont stockées aux États-Unis par défaut ; une résidence dans l'UE passe par AWS Bedrock ou Google Vertex. Pour le cadre RGPD et AI Act, voir la page <a href=\"/conformite-ia\">conformité IA</a>.</p><p>Sources : <a href=\"https://code.claude.com/docs/en/security\" rel=\"noopener\">sécurité de Claude Code</a>, <a href=\"https://claude.com/regional-compliance\" rel=\"noopener\">conformité régionale</a> et <a href=\"https://www.anthropic.com/news/updates-to-our-consumer-terms\" rel=\"noopener\">conditions grand public</a>.</p>",
       "html_en": "<h2>Security and permissions: what you set, what Anthropic sets</h2><p>An agent running commands on a machine can reach whatever that machine sees. The right question: \"what are we allowing it to do, and who decided?\".</p><h3>The settings that exist</h3><ul><li><strong>Auto mode</strong>: default in the terminal and VS Code as of 5 October 2026. A classifier blocks actions judged dangerous, the rest runs without asking you. A clear change from the historical, more cautious behaviour.</li><li><strong>Manual mode</strong>: the agent reads, but asks for your approval before acting.</li><li><strong>Bash sandbox</strong>: isolates commands, on files and on the network.</li><li><strong>Bounded working folder and trust dialog</strong>: in Manual mode, the agent asks before reading or writing outside the open folder. Note that a bash command you approve can still write elsewhere: the sandbox is what closes that door. An unknown project triggers a trust dialog.</li><li><strong>Project MCP server approval</strong>: a connector declared in a repository does not switch on silently.</li><li><strong>Managed settings</strong>: the organisation enforces settings that machines cannot bypass.</li><li><strong>Cloud sessions</strong>: run in isolated, logged virtual machines.</li></ul><p>The sentence to remember from the documentation: Anthropic reviews connectors before listing them in its directory, but <strong>does not security-audit any MCP server</strong>. Plugging in a server found online is installing third-party software. The <a href=\"/ressources/guides/mcp-claude\">MCP guide</a> explains how to sort them.</p><h3>The risks to cover</h3><ul><li><strong>Unreviewed code in production.</strong> The agent writes fast, and cleanly on the surface. A change that works on the laptop can break an edge case, an invoice, an export. Rule: nothing goes to production without human review and tests.</li><li><strong>Exposed secrets.</strong> API keys, passwords, .env files: an agent reading the folder can read them, then copy them into a log or a message. Rule: secrets out of the repository, sensitive files excluded by configuration, least-privilege keys.</li><li><strong>Dependencies added without review.</strong> To solve a problem, the agent happily adds a library. Every dependency is third-party code you will maintain. Rule: every new dependency is justified and approved.</li></ul><h3>On data</h3><p>On Pro or Max, Claude Code falls under consumer terms: a setting decides whether your exchanges are used for training (kept up to 5 years if on, 30 days otherwise). On Team, Enterprise and the API, no training by default. Claude app data is stored in the United States by default; EU residency goes through AWS Bedrock or Google Vertex. For the GDPR and AI Act frame, see the <a href=\"/conformite-ia\">AI compliance</a> page.</p><p>Sources: <a href=\"https://code.claude.com/docs/en/security\" rel=\"noopener\">Claude Code security</a>, <a href=\"https://claude.com/regional-compliance\" rel=\"noopener\">regional compliance</a> and <a href=\"https://www.anthropic.com/news/updates-to-our-consumer-terms\" rel=\"noopener\">consumer terms</a>, read on 5 October 2026.</p>"
     },
     {
       "type": "editorial-prose",
       "background": "paper",
-      "html_fr": "<h2>Claude Code prix : ce que les grilles tarifaires ne disent pas</h2><p>Trois erreurs reviennent quand on recopie une grille tarifaire de Claude Code. Une offre Team présentée « de 5 à 150 sièges », alors que le minimum officiel est de 2. Une offre Enterprise décrite comme « 50 sièges à 125 dollars », un modèle qui n'est plus celui affiché. Et surtout, aucun repère sur ce que coûte une journée d'usage.</p><p>Le prix d'un siège n'est pas le coût d'un poste. Deux modèles coexistent.</p><ul><li>L'abonnement (Pro, Max, Team) est un prix fixe par mois avec un quota d'usage. En Team et Enterprise, ce quota se calcule par siège, sur une fenêtre glissante de 5 heures et sur la semaine, et il est partagé entre le chat, Cowork et Claude Code : un développeur qui passe sa journée dans Claude Code puise dans le même réservoir que ses conversations. Au-delà, des crédits d'usage prennent le relais, avec des plafonds réglables par organisation, par groupe et par membre.</li><li>La consommation (API via la Console, Bedrock, Vertex, et la part usage d'Enterprise) se paie à ce que l'agent consomme. Anthropic publie un repère : environ 13 dollars par développeur et par jour actif, 150 à 250 dollars par mois, et moins de 30 dollars par jour actif pour 90 % des utilisateurs.</li></ul><p>Un siège à 20 dollars ne dit rien du coût d'un développeur qui s'en sert huit heures par jour. Le repère des 13 dollars par jour actif permet de budgéter, même s'il reste une moyenne. Anthropic conseille d'ailleurs la même méthode que moi : un petit groupe pilote, un mois de consommation réelle comme base, puis l'extension. Un poste de développeur coûte plus qu'un poste de chat, car une seule session de débogage peut consommer plus qu'une journée de conversation. Pour équiper une équipe sans improviser, notre <a href=\"/services/integration-claude\">service d'intégration Claude</a> commence par le choix de l'offre et des plafonds. Si vous voulez d'abord un avis indépendant avant d'acheter des licences, c'est le rôle d'un <a href=\"/services/consultant-ia-claude\">consultant IA Claude</a> ; les tarifs de Waimia sont publics sur la page <a href=\"/tarifs\">tarifs</a>.</p><p>Prix en dollars, hors TVA et taux de change, d'après <a href=\"https://claude.com/pricing\" rel=\"noopener\">claude.com/pricing</a> et <a href=\"https://code.claude.com/docs/en/costs\" rel=\"noopener\">la page coûts de Claude Code</a>. Les prix affichés n'incluent pas les taxes : Anthropic facture en devise locale là où elle est prise en charge, et selon les régions la TVA est incluse dans le prix affiché ou ajoutée au paiement. Sur Pro et Max, le numéro de TVA se saisit dans les réglages de facturation et ne vaut que pour les factures suivantes : renseignez-le avant le premier paiement.</p>",
+      "html_fr": "<h2>Claude Code prix : ce que les grilles tarifaires ne disent pas</h2><p>Trois erreurs reviennent quand on recopie une grille tarifaire de Claude Code. Une offre Team présentée « de 5 à 150 sièges », alors que le minimum officiel est de 2. Une offre Enterprise décrite comme « 50 sièges à 125 dollars », un modèle qui n'est plus celui affiché. Et surtout, aucun repère sur ce que coûte une journée d'usage.</p><p>Le prix d'un siège n'est pas le coût d'un poste. Deux modèles coexistent.</p><ul><li>L'abonnement (Pro, Max, Team) est un prix fixe par mois avec un quota d'usage. En Team et Enterprise, ce quota se calcule par siège, sur une fenêtre glissante de 5 heures et sur la semaine, et il est partagé entre le chat, Cowork et Claude Code : un développeur qui passe sa journée dans Claude Code puise dans le même réservoir que ses conversations. Au-delà, des crédits d'usage prennent le relais, avec des plafonds réglables par organisation, par groupe et par membre.</li><li>La consommation (API via la Console, Bedrock, Vertex, et la part usage d'Enterprise) se paie à ce que l'agent consomme. Anthropic publie un repère : environ 13 dollars par développeur et par jour actif, 150 à 250 dollars par mois, et moins de 30 dollars par jour actif pour 90 % des utilisateurs.</li></ul><p>Un siège à 20 dollars ne dit rien du coût d'un développeur qui s'en sert huit heures par jour. Le repère des 13 dollars par jour actif permet de budgéter, même s'il reste une moyenne. Anthropic conseille d'ailleurs la même méthode que moi : un petit groupe pilote, un mois de consommation réelle comme base, puis l'extension. Un poste de développeur coûte plus qu'un poste de chat, car une seule session de débogage peut consommer plus qu'une journée de conversation. Pour équiper une équipe sans improviser, notre <a href=\"/services/integration-claude\">service d'intégration Claude</a> commence par le choix de l'offre et des plafonds. Si vous voulez d'abord un avis indépendant avant d'acheter des licences, c'est le rôle d'un <a href=\"/services/consultant-ia-claude\">consultant IA Claude</a> ; les tarifs de Waimia sont publics sur la page <a href=\"/tarifs\">tarifs</a>.</p><p>Prix en dollars, hors TVA et taux de change, d'après <a href=\"https://claude.com/pricing\" rel=\"noopener\">claude.com/pricing</a> et <a href=\"https://code.claude.com/docs/en/costs\" rel=\"noopener\">la page coûts de Claude Code</a>. Les prix affichés n'incluent pas les taxes : Anthropic facture en devise locale là où elle est prise en charge, et selon les régions la TVA est incluse dans le prix affiché ou ajoutée au paiement. Sur Pro et Max, le numéro de TVA se saisit dans les réglages de facturation et ne vaut que pour les factures suivantes : renseignez-le avant le premier paiement.</p>",
       "html_en": "<h2>Claude Code pricing: what the price grids don't say</h2><p>Three errors to avoid when copying a Claude Code price grid. A Team plan presented as \"5 to 150 seats\", when the official minimum is 2. An Enterprise plan described as \"50 seats at $125\", a model that is no longer the one displayed. And above all, no benchmark for what a day of use costs.</p><p><strong>The price of a seat is not the cost of a workstation.</strong> Two models coexist.</p><ul><li><strong>Subscription</strong> (Pro, Max, Team): a fixed monthly price and a usage quota. On Team and Enterprise, the quota is counted per seat, over a rolling 5-hour window and over the week. It is <strong>shared between chat, Cowork and Claude Code</strong>: a developer spending the day in Claude Code draws from the same pool as their conversations. Beyond it, usage credits take over, with caps adjustable per organisation, group and member.</li><li><strong>Usage</strong> (API via the Console, Bedrock, Vertex, and the Enterprise usage share): you pay for what the agent consumes. Anthropic publishes a benchmark: about <strong>$13 per developer per active day</strong>, $150 to $250 a month, and under $30 per active day for 90% of users.</li></ul><p>A $20 seat says nothing about the cost of a developer using it eight hours a day. The $13 per active day benchmark lets you budget. It remains an average. Anthropic recommends the same method: a small pilot group, a month of real consumption as a baseline, then the rollout. And a developer seat costs more than a chat seat: a single debugging session can use more than a day of chat. If you want an independent view before buying licences, that is the job of a <a href=\"/services/consultant-ia-claude\">Claude AI consultant</a>; Waimia's own prices are public on the <a href=\"/tarifs\">pricing</a> page.</p><p>Prices in dollars, excluding VAT and exchange rates, read on 15 October 2026 on <a href=\"https://claude.com/pricing\" rel=\"noopener\">claude.com/pricing</a> and on 5 October 2026 on <a href=\"https://code.claude.com/docs/en/costs\" rel=\"noopener\">the Claude Code costs page</a>. The pricing page states that displayed prices exclude tax. Anthropic bills in local currency where supported, and depending on the region VAT is either included in the displayed price or added at checkout. On Pro and Max, the VAT number is entered in billing settings and only applies to future invoices: add it before the first payment.</p>"
     },
     {
@@ -507,7 +507,7 @@
       "kicker_en": "§ Availability and price by plan",
       "heading_fr": "Où Claude Code est inclus, et à quel prix",
       "heading_en": "Where Claude Code is included, and at what price",
-      "caption_fr": "Sources : claude.com/pricing, support.claude.com (Team Premium), code.claude.com/docs/en/costs et overview. Prix en dollars, hors TVA et taux de change.",
+      "caption_fr": "Sources : claude.com/pricing, support.claude.com (Team Premium), code.claude.com/docs/en/costs et overview. Prix en dollars, hors TVA et taux de change.",
       "caption_en": "Sources: claude.com/pricing, read on 15 October 2026; support.claude.com (Team Premium), code.claude.com/docs/en/costs and overview, read on 5 October 2026. Prices in dollars, excluding VAT and exchange rates.",
       "columns_fr": [
         "Formule",
@@ -532,7 +532,7 @@
           "Pro",
           "Inclus",
           "20 $ par mois, ou 17 $ par mois en annuel (200 $ par an)",
-          "Conditions grand public : l'entraînement sur vos échanges dépend d'un réglage de confidentialité, à couper pour un usage professionnel. Suffisant pour découvrir, vite limité en usage intensif."
+          "Conditions grand public : l'entraînement sur vos échanges dépend d'un réglage de confidentialité, à couper pour un usage professionnel. Suffisant pour découvrir, vite limité en usage intensif."
         ],
         [
           "Max",
@@ -562,7 +562,7 @@
           "API (Console), Bedrock, Vertex, Foundry",
           "Accessible",
           "À la consommation",
-          "Repère Anthropic : environ 13 $ par développeur et par jour actif. Bedrock et Vertex permettent une résidence des données dans l'UE."
+          "Repère Anthropic : environ 13 $ par développeur et par jour actif. Bedrock et Vertex permettent une résidence des données dans l'UE."
         ]
       ],
       "rows_en": [
@@ -622,7 +622,7 @@
           "side": "right"
         }
       ],
-      "html_fr": "<h2>Claude Code pour non-développeurs : ce qu'on en fait en PME</h2><p>Anthropic présente Claude Code comme un outil pour le code, et ses exemples officiels sont des exemples de développeurs. Ce qui suit est ma lecture de terrain, pas une position d'Anthropic.</p><p>Dans une PME, « du code » ne veut pas dire « un logiciel ». C'est souvent le petit outil qui manque entre deux logiciels. Claude Code sert là, à une condition : quelqu'un sait relire ce qu'il produit, <a href=\"/blog/forward-deployed-engineer\">ou un prestataire relit à sa place</a>.</p><ul><li>Des scripts internes : renommer et classer des centaines de fichiers, fusionner des exports, <a href=\"/blog/cabler-son-crm-en-10-jours\">nettoyer un fichier client avant import dans le CRM</a>.</li><li>Des automatisations : un script planifié qui récupère des données, les contrôle et prévient quelqu'un quand un seuil est franchi. Au-delà de quelques flux, un outil comme n8n ou Make reste plus simple à maintenir : voir les <a href=\"/services/automatisations\">automatisations</a>.</li><li>Des sites et des pages : modifier un site statique, créer une page d'atterrissage, corriger un formulaire. Le site de Waimia est développé de cette façon, avec relecture et contrôles automatiques à chaque changement.</li><li>Des outils métier : un calculateur de devis, un tableau de suivi, <a href=\"/blog/applications-internes-build-vs-buy-pme\">une petite application interne</a>. Pour aller jusqu'à la production, voir les <a href=\"/services/applications-internes\">applications internes</a>.</li></ul><p>Exemple : une PME de distribution reçoit chaque lundi des exports de plusieurs fournisseurs, dans des formats différents. Une personne passe sa matinée à les recopier. Un script écrit avec Claude Code, relu, testé sur un mois d'historique, puis planifié, fait le travail. Ce qui coûte, ce n'est pas d'écrire le script, c'est de décider qui le maintient le jour où un fournisseur change son format.</p><p>La limite est là. Un non-développeur obtient un script qui tourne, mais il ne sait pas toujours pourquoi il tourne, ni ce qu'il fera quand les données changeront. C'est la différence entre un outil et une <i>dette invisible</i>. Si vous hésitez sur le bon outil pour votre cas, l'<a href=\"/audit-ia-pme\">audit IA pour PME</a> sert précisément à trancher.</p>",
+      "html_fr": "<h2>Claude Code pour non-développeurs : ce qu'on en fait en PME</h2><p>Anthropic présente Claude Code comme un outil pour le code, et ses exemples officiels sont des exemples de développeurs. Ce qui suit est ma lecture de terrain, pas une position d'Anthropic.</p><p>Dans une PME, « du code » ne veut pas dire « un logiciel ». C'est souvent le petit outil qui manque entre deux logiciels. Claude Code sert là, à une condition : quelqu'un sait relire ce qu'il produit, <a href=\"/blog/forward-deployed-engineer\">ou un prestataire relit à sa place</a>.</p><ul><li>Des scripts internes : renommer et classer des centaines de fichiers, fusionner des exports, <a href=\"/blog/cabler-son-crm-en-10-jours\">nettoyer un fichier client avant import dans le CRM</a>.</li><li>Des automatisations : un script planifié qui récupère des données, les contrôle et prévient quelqu'un quand un seuil est franchi. Au-delà de quelques flux, un outil comme n8n ou Make reste plus simple à maintenir : voir les <a href=\"/services/automatisations\">automatisations</a>.</li><li>Des sites et des pages : modifier un site statique, créer une page d'atterrissage, corriger un formulaire. Le site de Waimia est développé de cette façon, avec relecture et contrôles automatiques à chaque changement.</li><li>Des outils métier : un calculateur de devis, un tableau de suivi, <a href=\"/blog/applications-internes-build-vs-buy-pme\">une petite application interne</a>. Pour aller jusqu'à la production, voir les <a href=\"/services/applications-internes\">applications internes</a>.</li></ul><p>Exemple : une PME de distribution reçoit chaque lundi des exports de plusieurs fournisseurs, dans des formats différents. Une personne passe sa matinée à les recopier. Un script écrit avec Claude Code, relu, testé sur un mois d'historique, puis planifié, fait le travail. Ce qui coûte, ce n'est pas d'écrire le script, c'est de décider qui le maintient le jour où un fournisseur change son format.</p><p>La limite est là. Un non-développeur obtient un script qui tourne, mais il ne sait pas toujours pourquoi il tourne, ni ce qu'il fera quand les données changeront. C'est la différence entre un outil et une <i>dette invisible</i>. Si vous hésitez sur le bon outil pour votre cas, l'<a href=\"/audit-ia-pme\">audit IA pour PME</a> sert précisément à trancher.</p>",
       "html_en": "<h2>Claude Code for non-developers: what SMBs do with it</h2><p>Let's be clear: Anthropic presents Claude Code as a coding tool, and its official examples remain developer examples. What follows is Waimia's field reading, not Anthropic's position.</p><p>In an SMB, \"code\" doesn't mean \"software\". It is often the small tool missing between two pieces of software. That is where Claude Code helps, on one condition: someone can review what it produces, or a contractor reviews it for them.</p><ul><li><strong>Internal scripts</strong>: rename and file hundreds of documents, merge exports, clean a customer file before importing it into the CRM.</li><li><strong>Automations</strong>: a scheduled script that fetches data, checks it and alerts someone when a threshold is crossed. Beyond a few flows, a tool like n8n or Make is easier to maintain: see <a href=\"/services/automatisations\">automations</a>.</li><li><strong>Sites and pages</strong>: edit a static site, build a landing page, fix a form. Waimia's own site is built this way, with review and automated checks on every change.</li><li><strong>Business tools</strong>: a quote calculator, a tracking board, a small internal app. To take it to production, see <a href=\"/services/applications-internes\">internal apps</a>.</li></ul><p><strong>Illustrative scenario, not a client:</strong> a distribution SMB receives exports from several suppliers every Monday, in different formats. Someone spends the morning retyping them. A script written with Claude Code, reviewed, tested on a month of history, then scheduled, does the job. The cost is not writing the script. It is deciding who maintains it the day a supplier changes its format.</p><p>That is the limit. A non-developer gets a script that runs. They don't always know why it runs, or what it will do when the data changes. That is the difference between a tool and <i>hidden debt</i>. If you are unsure which tool fits your case, the <a href=\"/audit-ia-pme\">AI audit for SMBs</a> is there to decide.</p>"
     },
     {
@@ -632,9 +632,9 @@
       "anchor_id": "checklist",
       "kicker_fr": "§ Checklist gratuite par e-mail",
       "kicker_en": "§ Free checklist by email",
-      "h2_fr": "Avant d'ouvrir Claude Code à une équipe : la checklist 90 jours",
+      "h2_fr": "Avant d'ouvrir Claude Code à une équipe : la checklist 90 jours",
       "h2_en": "Before opening Claude Code to a team: the 90-day checklist",
-      "body_fr": "Vous recevez par e-mail « Déployer Claude en 90 jours : la checklist PME », un PDF de 5 pages : 6 prérequis à poser avant le premier compte (données, sécurité, cas pilote, formation, mesure, gouvernance), 12 semaines en 3 phases de 30 jours, une action par case, un livrable par semaine et les indicateurs à suivre. C'est le cadre à poser avant de configurer Claude Code.",
+      "body_fr": "Vous recevez par e-mail « Déployer Claude en 90 jours : la checklist PME », un PDF de 5 pages : 6 prérequis à poser avant le premier compte (données, sécurité, cas pilote, formation, mesure, gouvernance), 12 semaines en 3 phases de 30 jours, une action par case, un livrable par semaine et les indicateurs à suivre. C'est le cadre à poser avant de configurer Claude Code.",
       "body_en": "You receive by email \"Deploying Claude in 90 days: the SMB checklist\", a 5-page PDF: 6 prerequisites before the first account (data, security, pilot case, training, measurement, governance), 12 weeks in 3 phases of 30 days, one action per box, one deliverable per week and the indicators to track. It is the frame to set before setting up Claude Code."
     },
     {
@@ -642,7 +642,7 @@
       "background": "paper",
       "kicker_fr": "§ Claude Code ou Cursor",
       "kicker_en": "§ Claude Code or Cursor",
-      "h2_fr": "Claude Code ou un IDE assisté comme Cursor : pas le même métier",
+      "h2_fr": "Claude Code ou un IDE assisté comme Cursor : pas le même métier",
       "h2_en": "Claude Code or an assisted IDE like Cursor: not the same job",
       "without_label_fr": "IDE assisté (Cursor et équivalents)",
       "without_label_en": "Assisted IDE (Cursor and similar)",
@@ -680,7 +680,7 @@
           "text_en": "Review happens on the result, not while typing."
         },
         {
-          "text_fr": "Planifiable et intégrable à la CI : il tourne aussi sans personne devant.",
+          "text_fr": "Planifiable et intégrable à la CI : il tourne aussi sans personne devant.",
           "text_en": "Schedulable and CI-ready: it also runs with nobody watching."
         },
         {
@@ -696,7 +696,7 @@
       "kicker_en": "§ Do it yourself, train the team or have it done",
       "heading_fr": "Trois façons de démarrer avec Claude Code, et quand chacune est la bonne",
       "heading_en": "Three ways to start with Claude Code, and when each is right",
-      "caption_fr": "Vous n'avez pas besoin de Waimia si un développeur relit déjà chaque changement et qu'une règle écrite protège vos secrets : la formation gratuite d'Anthropic et la documentation officielle suffisent pour démarrer. Le parcours Claude Code de la formation Waimia demande de savoir utiliser Git et un terminal ; une équipe non technique commence par l'application Claude.",
+      "caption_fr": "Vous n'avez pas besoin de Waimia si un développeur relit déjà chaque changement et qu'une règle écrite protège vos secrets : la formation gratuite d'Anthropic et la documentation officielle suffisent pour démarrer. Le parcours Claude Code de la formation Waimia demande de savoir utiliser Git et un terminal ; une équipe non technique commence par l'application Claude.",
       "caption_en": "You don't need Waimia if a developer already reviews every change and a written rule protects your secrets: Anthropic's free training and this guide are enough to start. The Claude Code track of the Waimia training requires Git and terminal skills; a non-technical team starts with the Claude app.",
       "columns_fr": [
         "Option",
@@ -715,12 +715,12 @@
           "Faire soi-même",
           "Vous avez au moins un développeur à l'aise avec Git, un dépôt et des tests. Le besoin est un outil interne, pas un système critique.",
           "Les licences (à partir de 20 $ par mois pour Pro) et le temps de l'équipe. La formation officielle Claude Academy (Claude Code 101, Claude Code in Action) est gratuite.",
-          "Personne n'écrit les règles : chacun configure son poste, rien n'est partagé, les secrets traînent."
+          "Personne n'écrit les règles : chacun configure son poste, rien n'est partagé, les secrets traînent."
         ],
         [
           "Former l'équipe",
           "Plusieurs personnes vont s'en servir et vous voulez que la compétence reste chez vous.",
-          "Formation Waimia : {{prix.formation.f1.heures}} heures pour {{prix.formation.f1}} € HT ou {{prix.formation.f2.heures}} heures pour {{prix.formation.f2}} € HT, {{prix.formation.base}} et non par participant, via Akigora (Qualiopi).",
+          "Formation Waimia : {{prix.formation.f1.heures}} heures pour {{prix.formation.f1}} € HT ou {{prix.formation.f2.heures}} heures pour {{prix.formation.f2}} € HT, {{prix.formation.base}} et non par participant, via Akigora (Qualiopi).",
           "Former sur des exemples génériques. La formation se fait sur votre code et vos cas, sinon elle s'oublie en une semaine."
         ],
         [
@@ -759,7 +759,7 @@
       "kicker_en": "§ How Waimia goes about it",
       "h2_fr": "On cadre d'abord, on code ensuite",
       "h2_en": "Frame first, code second",
-      "intro_fr": "Un déploiement de Claude Code qui tient ne commence pas par une installation. Il commence par une décision : quel outil, pour qui, avec quelles règles.",
+      "intro_fr": "Un déploiement de Claude Code qui tient ne commence pas par une installation. Il commence par une décision : quel outil, pour qui, avec quelles règles.",
       "intro_en": "A Claude Code rollout that lasts doesn't start with an install. It starts with a decision: which tool, for whom, with which rules.",
       "steps": [
         {
@@ -789,7 +789,7 @@
         {
           "title_fr": "Formation sur ce livrable",
           "title_en": "Training on that deliverable",
-          "body_fr": "Les personnes qui vont s'en servir apprennent sur ce qui vient d'être construit : découper une demande, relire un diff, savoir quand s'arrêter.",
+          "body_fr": "Les personnes qui vont s'en servir apprennent sur ce qui vient d'être construit : découper une demande, relire un diff, savoir quand s'arrêter.",
           "body_en": "The people who will use it learn on what was just built: splitting a request, reviewing a diff, knowing when to stop.",
           "meta_fr": "Transmission",
           "meta_en": "Handover"
@@ -811,7 +811,7 @@
       "kicker_en": "§ The Waimia letter",
       "h2_fr": "Les changements de Claude, triés pour une PME",
       "h2_en": "Claude's changes, sorted for an SMB",
-      "body_fr": "Claude Code, Cowork, offres et prix bougent chaque mois. Une lettre courte : ce qui a changé, ce que ça change pour vous, sources à l'appui.",
+      "body_fr": "Claude Code, Cowork, offres et prix bougent chaque mois. Une lettre courte : ce qui a changé, ce que ça change pour vous, sources à l'appui.",
       "body_en": "Claude Code, Cowork, plans and prices move every month. A short letter: what changed, what it means for you, with sources.",
       "hint_fr": "Désinscription en un clic.",
       "hint_en": "Unsubscribe in one click."
@@ -836,7 +836,7 @@
           "kicker_en": "Guide",
           "title_fr": "Plugins Claude en entreprise",
           "title_en": "Claude plugins for business",
-          "lead_fr": "Marketplaces, diffusion par l'administrateur et plugins métier : équiper toute l'équipe d'un bloc.",
+          "lead_fr": "Marketplaces, diffusion par l'administrateur et plugins métier : équiper toute l'équipe d'un bloc.",
           "lead_en": "Marketplaces, admin rollout and business plugins: equip the whole team in one go.",
           "href": "/ressources/guides/claude-plugins-entreprise"
         },
@@ -856,56 +856,56 @@
       "background": "paper",
       "kicker_fr": "§ Questions fréquentes",
       "kicker_en": "§ Frequently asked questions",
-      "h2_fr": "Claude Code en entreprise : les questions des acheteurs",
+      "h2_fr": "Claude Code en entreprise : les questions des acheteurs",
       "h2_en": "Claude Code for business: buyers' questions",
       "open_first": true,
       "items": [
         {
-          "q_fr": "Claude Code prix : combien coûte-t-il pour une entreprise ?",
+          "q_fr": "Claude Code prix : combien coûte-t-il pour une entreprise ?",
           "q_en": "How much does Claude Code cost a business?",
           "a_fr": "Deux modèles. En abonnement, Claude Code est inclus dans Pro (20 dollars par mois), Max (à partir de 100 dollars), Team et Enterprise, avec un quota partagé avec le chat et Cowork. À la consommation (API, Bedrock, Vertex, part usage d'Enterprise), Anthropic observe environ 13 dollars par développeur et par jour actif, 150 à 250 dollars par mois. Prix hors TVA et taux de change.",
           "a_en": "Two models. On subscription, Claude Code is included in Pro ($20 a month), Max (from $100), Team and Enterprise, with a quota shared with chat and Cowork. On usage (API, Bedrock, Vertex, Enterprise usage share), Anthropic observes about $13 per developer per active day, $150 to $250 a month. Prices read on 15 October 2026, excluding VAT and exchange rates."
         },
         {
-          "q_fr": "Claude Code est-il inclus dans l'offre Claude Team ?",
+          "q_fr": "Claude Code est-il inclus dans l'offre Claude Team ?",
           "q_en": "Is Claude Code included in the Claude Team plan?",
-          "a_fr": "Oui, d'après la documentation officielle : Claude Code est inclus dans Pro, Max, Team et Enterprise, pas dans Free. En Team, le quota est calculé par siège sur une fenêtre de 5 heures et sur la semaine, et il est partagé avec le chat et Cowork. Team Premium donne 6,25 fois l'usage Pro par session, Team Standard 1,25 fois. Au-delà, des crédits d'usage prennent le relais, avec des plafonds réglables.",
+          "a_fr": "Oui, d'après la documentation officielle : Claude Code est inclus dans Pro, Max, Team et Enterprise, pas dans Free. En Team, le quota est calculé par siège sur une fenêtre de 5 heures et sur la semaine, et il est partagé avec le chat et Cowork. Team Premium donne 6,25 fois l'usage Pro par session, Team Standard 1,25 fois. Au-delà, des crédits d'usage prennent le relais, avec des plafonds réglables.",
           "a_en": "Yes, according to the official documentation on 5 October 2026: Claude Code is included in Pro, Max, Team and Enterprise, not in Free. On Team, the quota is counted per seat over a 5-hour window and over the week, and it is shared with chat and Cowork. Team Premium gives 6.25 times Pro usage per session, Team Standard 1.25 times. Beyond that, usage credits take over, with adjustable caps."
         },
         {
-          "q_fr": "Peut-on utiliser Claude Code sans être développeur ?",
+          "q_fr": "Peut-on utiliser Claude Code sans être développeur ?",
           "q_en": "Can you use Claude Code without being a developer?",
-          "a_fr": "On peut obtenir un script qui tourne sans savoir coder. Le problème vient après : savoir pourquoi il tourne et ce qu'il fera quand les données changent. Anthropic oriente les équipes métier vers Claude et ses « tâches agentiques » plutôt que vers Claude Code. Un profil non technique peut s'en servir pour de petits outils internes si quelqu'un relit ce qui part en production.",
+          "a_fr": "On peut obtenir un script qui tourne sans savoir coder. Le problème vient après : savoir pourquoi il tourne et ce qu'il fera quand les données changent. Anthropic oriente les équipes métier vers Claude et ses « tâches agentiques » plutôt que vers Claude Code. Un profil non technique peut s'en servir pour de petits outils internes si quelqu'un relit ce qui part en production.",
           "a_en": "You can get a working script without knowing how to code. The problem comes after: knowing why it works and what it will do when the data changes. Anthropic points business teams to Claude and its agentic tasks rather than to Claude Code. A non-technical person can use it for small internal tools if someone reviews what goes to production."
         },
         {
-          "q_fr": "Claude Code ou Cursor : lequel choisir ?",
+          "q_fr": "Claude Code ou Cursor : lequel choisir ?",
           "q_en": "Claude Code or Cursor: which one to choose?",
-          "a_fr": "Ce n'est pas le même métier. Un IDE assisté comme Cursor accélère la personne qui écrit, ligne par ligne. Claude Code exécute une demande entière et se relit sur le résultat ; il se planifie et tourne dans l'intégration continue. Beaucoup d'équipes utilisent les deux, d'autant que Claude Code s'installe aussi dans Cursor. Pour débuter avec l'IA dans le code, l'IDE assisté est plus doux ; pour déléguer des tâches, Claude Code.",
+          "a_fr": "Ce n'est pas le même métier. Un IDE assisté comme Cursor accélère la personne qui écrit, ligne par ligne. Claude Code exécute une demande entière et se relit sur le résultat ; il se planifie et tourne dans l'intégration continue. Beaucoup d'équipes utilisent les deux, d'autant que Claude Code s'installe aussi dans Cursor. Pour débuter avec l'IA dans le code, l'IDE assisté est plus doux ; pour déléguer des tâches, Claude Code.",
           "a_en": "They don't do the same job. An assisted IDE like Cursor speeds up the person typing, line by line. Claude Code executes a whole request and is reviewed on the result; it can be scheduled and run in continuous integration. Many teams use both, especially since Claude Code also installs in Cursor. To start with AI in code, the assisted IDE is gentler; to delegate tasks, Claude Code."
         },
         {
-          "q_fr": "Nos données servent-elles à entraîner les modèles d'Anthropic ?",
+          "q_fr": "Nos données servent-elles à entraîner les modèles d'Anthropic ?",
           "q_en": "Is our data used to train Anthropic's models?",
-          "a_fr": "Cela dépend du compte. Sur Pro et Max, conditions grand public : un réglage décide si vos échanges servent à l'entraînement, y compris dans Claude Code. Sur Team, Enterprise et l'API, pas d'entraînement par défaut. Les données des applications Claude sont stockées aux États-Unis par défaut ; une résidence dans l'UE passe par AWS Bedrock ou Google Vertex. Un DPA est disponible.",
+          "a_fr": "Cela dépend du compte. Sur Pro et Max, conditions grand public : un réglage décide si vos échanges servent à l'entraînement, y compris dans Claude Code. Sur Team, Enterprise et l'API, pas d'entraînement par défaut. Les données des applications Claude sont stockées aux États-Unis par défaut ; une résidence dans l'UE passe par AWS Bedrock ou Google Vertex. Un DPA est disponible.",
           "a_en": "It depends on the account. On Pro and Max, consumer terms apply: a setting decides whether your exchanges are used for training, including in Claude Code. On Team, Enterprise and the API, no training by default. Claude app data is stored in the United States by default; EU residency goes through AWS Bedrock or Google Vertex. A DPA is available."
         },
         {
-          "q_fr": "Quels sont les risques de sécurité de Claude Code ?",
+          "q_fr": "Quels sont les risques de sécurité de Claude Code ?",
           "q_en": "What are the security risks of Claude Code?",
-          "a_fr": "Les risques à couvrir : du code non relu qui part en production, des secrets lus ou recopiés par l'agent, des dépendances ajoutées sans examen. Les réglages existent : mode Manual avec approbation, sandbox bash, paramètres gérés par l'organisation, approbation des serveurs MCP de projet. Anthropic n'audite pas la sécurité des serveurs MCP tiers : chacun s'examine comme un logiciel installé.",
+          "a_fr": "Les risques à couvrir : du code non relu qui part en production, des secrets lus ou recopiés par l'agent, des dépendances ajoutées sans examen. Les réglages existent : mode Manual avec approbation, sandbox bash, paramètres gérés par l'organisation, approbation des serveurs MCP de projet. Anthropic n'audite pas la sécurité des serveurs MCP tiers : chacun s'examine comme un logiciel installé.",
           "a_en": "The risks to cover: unreviewed code going to production, secrets read or copied by the agent, dependencies added without review. The settings exist: Manual mode with approval, bash sandbox, organisation-managed settings, approval of project MCP servers. Anthropic does not audit the security of third-party MCP servers: each one is reviewed like installed software."
         },
         {
-          "q_fr": "Qui fait quoi si Waimia déploie Claude Code chez nous ?",
+          "q_fr": "Qui fait quoi si Waimia déploie Claude Code chez nous ?",
           "q_en": "Who does what if Waimia deploys Claude Code for us?",
           "a_fr": "On commence par un audit gratuit de 45 minutes pour dire si Claude Code est le bon outil. Si oui, le sprint de cadrage ({{prix.sprint}} euros HT, 10 heures) cadre l'offre, écrit les règles du projet, pose les permissions et livre un premier outil relu et testé. Vous gardez les accès, la configuration et la documentation. La suite fait l'objet d'un devis, à {{prix.horaire}} euros HT de l'heure.",
           "a_en": "We start with a free 45-minute audit to tell you whether Claude Code is the right tool. If it is, the scoping sprint (€{{prix.sprint.en}} excl. VAT, 10 hours) scopes the plan, writes the project rules, sets the permissions and delivers a first reviewed and tested tool. You keep the access, the configuration and the documentation. What follows is quoted, at €{{prix.horaire}} per hour excl. VAT."
         },
         {
-          "q_fr": "Existe-t-il une formation Claude Code, et combien coûte-t-elle ?",
+          "q_fr": "Existe-t-il une formation Claude Code, et combien coûte-t-elle ?",
           "q_en": "Is there Claude Code training, and what does it cost?",
-          "a_fr": "Anthropic propose une formation gratuite, Claude Academy (Claude Code 101, Claude Code in Action). Waimia forme sur vos propres cas : {{prix.formation.f1.heures}} heures pour {{prix.formation.f1}} euros HT ou {{prix.formation.f2.heures}} heures pour {{prix.formation.f2}} euros HT, {{prix.formation.base}} et non par participant, via Akigora, organisme certifié Qualiopi. Le parcours Claude Code demande de savoir utiliser Git et un terminal.",
+          "a_fr": "Anthropic propose une formation gratuite, Claude Academy (Claude Code 101, Claude Code in Action). Waimia forme sur vos propres cas : {{prix.formation.f1.heures}} heures pour {{prix.formation.f1}} euros HT ou {{prix.formation.f2.heures}} heures pour {{prix.formation.f2}} euros HT, {{prix.formation.base}} et non par participant, via Akigora, organisme certifié Qualiopi. Le parcours Claude Code demande de savoir utiliser Git et un terminal.",
           "a_en": "Anthropic offers free training, Claude Academy (Claude Code 101, Claude Code in Action). Waimia trains on your own cases: {{prix.formation.f1.heures}} hours for €{{prix.formation.f1.en}} excl. VAT or {{prix.formation.f2.heures}} hours for €{{prix.formation.f2.en}} excl. VAT, {{prix.formation.base.en}} and not per participant, via Akigora, a Qualiopi-certified body. The Claude Code track requires knowing Git and a terminal."
         }
       ]
@@ -916,7 +916,7 @@
       "rounded": true,
       "kicker_fr": "§ Passer à l'action",
       "kicker_en": "§ Take action",
-      "h2_fr": "Claude Code chez vous : on vérifie d'abord que c'est le bon outil.",
+      "h2_fr": "Claude Code chez vous : on vérifie d'abord que c'est le bon outil.",
       "h2_en": "Claude Code at your company: first we check it's the right tool.",
       "subtitle_fr": "45 minutes, gratuit, sans engagement. Si c'est oui, on cadre, on configure et on vous forme. Si c'est non, on vous le dit.",
       "subtitle_en": "45 minutes, free, no commitment. If it's a yes, we scope, set up and train you. If it's a no, we tell you.",

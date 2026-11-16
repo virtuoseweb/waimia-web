@@ -4,7 +4,7 @@
   "seoTitle_fr": "Clés API dans n8n et Make : les sécuriser en PME",
   "seoTitle_en": "API keys in n8n and Make: securing them",
   "h1_fr": "Clés API dans vos automatisations : sécuriser n8n, Make, Claude et OpenAI",
-  "description_fr": "Où ranger une clé API dans n8n ou Make, qui la voit, comment limiter ses droits et sa dépense, la faire tourner et la révoquer : procédure pour une PME.",
+  "description_fr": "Où ranger une clé API dans n8n ou Make, qui la voit, comment limiter ses droits et sa dépense, la faire tourner et la révoquer : procédure pour une PME.",
   "description_en": "Where to store an API key in n8n or Make, who can see it, how to limit permissions and spend, rotate and revoke it: a procedure for small businesses.",
   "excerpt_fr": "Une clé API d'automatisation se protège par une clé par usage sur un compte de service, des droits minimum, un plafond de dépense, le coffre d'identifiants de l'outil et une rotation datée. Ce que n8n, Make, Anthropic et OpenAI proposent, la procédure en neuf étapes et l'ordre des gestes après une fuite.",
   "excerpt_en": "One key per use on a service account, minimum permissions, a spend cap, the tool's credential store and dated rotation: what n8n, Make, Anthropic and OpenAI offer, nine steps, and what to do after a leak.",
@@ -99,23 +99,23 @@
   ],
   "faq_fr": [
     {
-      "q": "Où stocker une clé API dans n8n ?",
+      "q": "Où stocker une clé API dans n8n ?",
       "a": "Dans un identifiant (credential) de n8n, y compris le type générique du nœud HTTP Request, jamais dans un nœud Code ni dans un champ de texte. n8n chiffre les identifiants avec une clé propre à l'instance. Si n8n est auto-hébergé, gardez une copie de cette clé hors du serveur, avec la sauvegarde : sans elle, une base restaurée ne sert à rien."
     },
     {
-      "q": "Peut-on partager une clé API sans la montrer à ses collègues ?",
+      "q": "Peut-on partager une clé API sans la montrer à ses collègues ?",
       "a": "Dans n8n, oui : un identifiant partagé en « Can use » s'utilise dans un workflow sans que le destinataire voie ni modifie ses détails. Les propriétaires et administrateurs de l'instance voient cependant tous les identifiants. Dans Make, tous les membres d'une équipe peuvent utiliser et gérer les connexions de cette équipe : rangez les connexions sensibles dans une équipe restreinte."
     },
     {
-      "q": "À quelle fréquence changer une clé API ?",
+      "q": "À quelle fréquence changer une clé API ?",
       "a": "À date fixe, et tout de suite après une fuite ou le départ d'une personne qui y avait accès. Anthropic donne en exemple une rotation tous les 90 jours : créer la nouvelle clé, la brancher, vérifier, puis désactiver l'ancienne. Notez la date de la prochaine rotation dans l'inventaire des clés."
     },
     {
-      "q": "Que faire si une clé API a fuité ?",
+      "q": "Que faire si une clé API a fuité ?",
       "a": "Révoquez-la d'abord chez le fournisseur, remplacez-la dans l'outil, lisez les journaux d'appels et de dépense, et seulement ensuite nettoyez le code ou le document où elle traînait. GitHub précise que retirer le secret du code ne suffit pas à empêcher son exploitation."
     },
     {
-      "q": "Peut-on plafonner la dépense d'une clé API Claude ou OpenAI ?",
+      "q": "Peut-on plafonner la dépense d'une clé API Claude ou OpenAI ?",
       "a": "Chez Anthropic, oui, par un plafond de dépense mensuel sur un espace de travail, sauf l'espace par défaut. Chez OpenAI, oui, par une limite mensuelle sur le projet ou l'organisation, à condition de cocher « Appliquer une limite stricte » : sans cette case, le montant ne déclenche qu'une alerte et une clé qui fuit consomme jusqu'à sa révocation."
     }
   ],
@@ -184,7 +184,7 @@
   ],
   "heroIllustration": {
     "src": "/images/illustrations/ds/cles-api-serrurier-paper.webp",
-    "alt_fr": "Un serrurier à genoux change la serrure d'une grande porte ; l'ancienne clé est au sol, caisse à outils ouverte",
+    "alt_fr": "Un serrurier à genoux change la serrure d'une grande porte ; l'ancienne clé est au sol, caisse à outils ouverte",
     "alt_en": "A kneeling locksmith changes the lock of a tall door; the old key lies on the floor, toolbox open",
     "side": "left"
   }

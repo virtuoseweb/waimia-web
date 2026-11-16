@@ -92,16 +92,16 @@ const hero: SectionByType<'hero-hub-masthead'> = {
   align: 'left',
   kicker_fr: "§ Cas d'usage · ce que l'IA débloque concrètement",
   kicker_en: '§ Use cases · what AI unblocks concretely',
-  h1_fr: '<span>Cas d\'usage <i>IA</i> en PME :</span><br/><span>le gain réel, pas une démo.</span>',
+  h1_fr: '<span>Cas d\'usage <i>IA</i> en PME :</span><br/><span>le gain réel, pas une démo.</span>',
   h1_en: '<span><i>AI</i> use cases:</span><br/><span>real gain, not a demo.</span>',
-  lede_fr: "Partez de votre blocage : administratif, données éparpillées, suivi commercial qui s'oublie. Ou de votre fonction : support, comptabilité, RH. Chaque page dit ce qu'on automatise en premier, dans quel ordre et où s'arrêter. Plus bas, nos réalisations, puis des cas menés par d'autres entreprises, sourcés et rangés à part.",
+  lede_fr: "Partez de votre blocage : administratif, données éparpillées, suivi commercial qui s'oublie. Ou de votre fonction : support, comptabilité, RH. Chaque page dit ce qu'on automatise en premier, dans quel ordre et où s'arrêter. Plus bas, nos réalisations, puis des cas menés par d'autres entreprises, sourcés et rangés à part.",
   lede_en: 'By problem (admin, data, sales follow-up) and by function (support, accounting, HR). Each page says what to automate, in what order and where the limits are. Waimia work and market case studies (delivered by others, sourced) are two separate sections.',
 };
 
 const ctaFinal: SectionByType<'cta-final'> = {
   type: 'cta-final',
   background: 'ink',
-  h2_fr: 'Un cas qui ressemble au <i>vôtre</i> ?',
+  h2_fr: 'Un cas qui ressemble au <i>vôtre</i> ?',
   h2_en: 'A case that looks like <i>yours</i>?',
   body_fr: "L'audit gratuit de 45 minutes part de vos processus et dit quel cas d'usage attaquer en premier, qu'on travaille ensemble ou non.",
   body_en: 'We frame your need in 45 minutes and tell you quickly which use case to tackle first, whether we work together or not.',
@@ -147,7 +147,7 @@ const marketCases: SectionByType<'market-cases'> = {
   kicker_en: '§ Market case studies',
   h2_fr: 'Études de cas du marché',
   h2_en: 'Market case studies',
-  intro_fr: "Des déploiements réels, publiés par les entreprises elles-mêmes ou par les éditeurs de leurs outils, rangés par fonction : support, finance, RH. Le détail de ce qui a été automatisé et la citation exacte sont sur la page de chaque fonction.",
+  intro_fr: "Des déploiements réels, publiés par les entreprises elles-mêmes ou par les éditeurs de leurs outils, rangés par fonction : support, finance, RH. Le détail de ce qui a été automatisé et la citation exacte sont sur la page de chaque fonction.",
   intro_en: 'Real rollouts, run by other companies and published by them or by their tool vendors. We read each source; the result is reported as the source words it. What was automated in detail and the exact quote are on each function page.',
   groups: (Object.entries(MARKET_CASE_FUNCTION_LABEL) as Array<[string, (typeof MARKET_CASE_FUNCTION_LABEL)[keyof typeof MARKET_CASE_FUNCTION_LABEL]]>).map(
     ([fn, l]) => ({ function: fn, title_fr: l.fr, title_en: l.en, href: `${l.href}#etudes-de-cas-du-marche` }),
@@ -159,7 +159,7 @@ const sections: SectionData[] = [hero, ...cardBands, ...waimiaWorkBands, { ...ma
 const pageLd = buildCollectionPage(
   isFr ? "Cas d'usage IA pour PME · Waimia" : 'AI use cases for SMBs · Waimia',
   isFr
-    ? "Cas d'usage IA pour PME, par problème et par fonction : administratif, données, suivi commercial, support, comptabilité, RH."
+    ? "Cas d'usage IA pour PME, par problème et par fonction : administratif, données, suivi commercial, support, comptabilité, RH."
     : 'AI use cases for SMBs, by problem and by function: admin, data, sales follow-up, support, accounting, HR.',
   cards.map((c) => ({ '@type': 'WebPage', name: isFr ? c.title_fr : c.title_en, url: `${SITE.url}${c.href}` })),
 );
@@ -168,7 +168,7 @@ const pageLd = buildCollectionPage(
 <Base
   title={isFr ? "Cas d'usage IA en PME : par fonction, limites et sources" : 'AI use cases for SMBs · Waimia'}
   description={isFr
-    ? "Cas d'usage IA pour PME, par problème et par fonction : administratif, données, suivi commercial, support, comptabilité, RH. Limites et sources comprises."
+    ? "Cas d'usage IA pour PME, par problème et par fonction : administratif, données, suivi commercial, support, comptabilité, RH. Limites et sources comprises."
     : 'AI use cases for SMBs, by problem and by function: admin, data, sales follow-up, support, accounting, HR. Limits and sources included.'}
   jsonLd={pageLd}
 >

@@ -24,39 +24,39 @@
   },
   "faq_fr": [
     {
-      "q": "Combien coûte l'automatisation d'un processus en PME ?",
+      "q": "Combien coûte l'automatisation d'un processus en PME ?",
       "a": "Le premier process passe par un sprint de cadrage à {{prix.sprint}} € HT pour 10 heures : cadrage, puis un premier workflow prototypé et testé. La mise en production relève du pilote, dès {{prix.pilote}} € HT. Les process suivants sont estimés en heures, validés par vous, puis facturés {{prix.horaire}} € HT de l'heure. Les abonnements n8n ou Make restent à votre nom et à votre charge."
     },
     {
-      "q": "Faut-il du code pour automatiser un processus ?",
+      "q": "Faut-il du code pour automatiser un processus ?",
       "a": "Rarement : un workflow n8n ou Make suffit, installé sur vos comptes et lisible par votre équipe. Nous n'écrivons du code que pour un cas que ces outils ne couvrent pas, ou quand le besoin devient une application interne ; il est remis avec le workflow et relu avant la livraison."
     },
     {
-      "q": "Combien de temps faut-il pour automatiser un processus ?",
+      "q": "Combien de temps faut-il pour automatiser un processus ?",
       "a": "Comptez 2 à 6 semaines pour un premier workflow prototypé et testé, c'est-à-dire le sprint de cadrage ; la mise en production relève du pilote. Le délai tient surtout aux accès à vos outils et à la disponibilité de la personne qui connaît la tâche, pas à la construction elle-même."
     },
     {
-      "q": "Quelle différence entre automatisation et agent IA ?",
+      "q": "Quelle différence entre automatisation et agent IA ?",
       "a": "Une automatisation suit des étapes fixes : même entrée, même sortie. Un agent IA lit, interprète et choisit l'action. Quand la règle s'écrit en « si, alors », prenez un workflow : il coûte moins cher à maintenir. Quand la tâche exige de comprendre un texte libre, il faut un agent ou une étape IA."
     },
     {
-      "q": "Quels processus automatiser en premier dans une PME ?",
+      "q": "Quels processus automatiser en premier dans une PME ?",
       "a": "Le process qui revient chaque semaine, aux règles stables et à l'erreur coûteuse : ressaisie entre deux logiciels, relances de devis ou de factures, création de documents, tri des emails entrants. L'audit gratuit classe vos process par heures consommées et par faisabilité."
     },
     {
-      "q": "Automatisation et RGPD : que faut-il vérifier ?",
+      "q": "Automatisation et RGPD : que faut-il vérifier ?",
       "a": "Vérifiez trois points : où transitent les données (un n8n hébergé chez vous évite un sous-traitant de plus), quelles données personnelles passent par une étape IA, et qui peut lire le journal. Nous consignons ces trois points dans la fiche de chaque workflow, prête pour votre registre de traitements."
     },
     {
-      "q": "Que se passe-t-il si un outil change et que le workflow casse ?",
+      "q": "Que se passe-t-il si un outil change et que le workflow casse ?",
       "a": "Le workflow s'arrête sur l'étape en erreur et alerte votre référent. La documentation dit quoi vérifier. Vous corrigez avec votre équipe si elle a été formée, ou nous intervenons en régie, à l'heure."
     },
     {
-      "q": "Automatisation IA : en quoi diffère-t-elle d'une automatisation classique ?",
+      "q": "Automatisation IA : en quoi diffère-t-elle d'une automatisation classique ?",
       "a": "Une automatisation classique suit des règles fixes : si ceci, alors cela. L'automatisation IA ajoute une étape où un modèle de langage lit un texte libre, classe une demande ou rédige un brouillon, puis rend la main au workflow. Le déclencheur, le journal et les alertes ne changent pas. Nous n'ajoutons l'IA que là où une règle fixe ne suffit pas."
     },
     {
-      "q": "Automatisation des processus ou agence d'automatisation IA : laquelle choisir ?",
+      "q": "Automatisation des processus ou agence d'automatisation IA : laquelle choisir ?",
       "a": "Prenez l'automatisation des processus quand la règle s'écrit en « si, alors » et qu'un seul événement la déclenche : un workflow suffit. Prenez l'agence d'automatisation IA quand la tâche exige de comprendre un message, de trancher entre des cas flous, ou d'articuler plusieurs modules (agents, Claude, application interne, reporting). Cette offre commence souvent par un workflow."
     }
   ],
@@ -141,7 +141,7 @@
         "variant": "ghost"
       },
       "media_src": "/images/line-art/dispositif-flow.svg",
-      "media_alt_fr": "Schéma d'un workflow : un évènement déclenche une chaîne d'actions branchée à vos outils, exécutée sans intervention manuelle et supervisée de bout en bout.",
+      "media_alt_fr": "Schéma d'un workflow : un évènement déclenche une chaîne d'actions branchée à vos outils, exécutée sans intervention manuelle et supervisée de bout en bout.",
       "media_alt_en": "Diagram of a workflow: an event triggers a chain of actions wired to your tools, run without manual intervention and supervised end to end."
     },
     {
@@ -289,7 +289,7 @@
           "text_en": "With no reply at day 5, a follow-up is proposed and sent after approval."
         },
         {
-          "text_fr": "Chaque étape est tracée dans le journal ; un échec envoie une alerte.",
+          "text_fr": "Chaque étape est tracée dans le journal ; un échec envoie une alerte.",
           "text_en": "Every step is logged; a failure sends an alert."
         }
       ]
@@ -351,7 +351,7 @@
           "label_en": "The task takes less than an hour a month: the workflow will cost more than the time it gives back."
         },
         {
-          "label_fr": "Le process change toutes les semaines : stabilisez-le d'abord.",
+          "label_fr": "Le process change toutes les semaines : stabilisez-le d'abord.",
           "label_en": "The process changes every week: stabilise it first."
         },
         {
@@ -392,7 +392,7 @@
           "impact_en": "Site side: a marketing site editable without a developer. Data and AI side: form requests captured and routed into HubSpot with no retyping, a schema.org graph and an llm.md file for AI engines. No impact figure published to date.",
           "href": "/cas-clients/amploi",
           "media_src": "/images/illustrations/ds/super-girl-ink.webp",
-          "media_alt_fr": "Illustration : des demandes captées et routées vers le CRM.",
+          "media_alt_fr": "Illustration : des demandes captées et routées vers le CRM.",
           "media_alt_en": "Illustration: requests captured and routed to the CRM."
         },
         {
@@ -405,7 +405,7 @@
           "impact_en": "Three subscription tiers, recurring payment and automated member management. Three months after launch: 40+ articles, 150+ members and 35+ paying subscribers.",
           "href": "/cas-clients/les-carnets-de-montpellier",
           "media_src": "/images/illustrations/ds/band-showing-tv-ink.webp",
-          "media_alt_fr": "Illustration : un média local et sa communauté.",
+          "media_alt_fr": "Illustration : un média local et sa communauté.",
           "media_alt_en": "Illustration: a local media outlet and its community."
         }
       ],
@@ -502,59 +502,59 @@
     {
       "type": "faq-accordion",
       "background": "paper-2",
-      "h2_fr": "Automatisation des processus : vos questions",
+      "h2_fr": "Automatisation des processus : vos questions",
       "h2_en": "Process automation: your questions",
       "items": [
         {
-          "q_fr": "Combien coûte l'automatisation d'un processus en PME ?",
+          "q_fr": "Combien coûte l'automatisation d'un processus en PME ?",
           "a_fr": "Le premier process passe par un sprint de cadrage à {{prix.sprint}} € HT pour 10 heures : cadrage, puis un premier workflow prototypé et testé. La mise en production relève du pilote, dès {{prix.pilote}} € HT. Les process suivants sont estimés en heures, validés par vous, puis facturés {{prix.horaire}} € HT de l'heure. Les abonnements n8n ou Make restent à votre nom et à votre charge.",
           "q_en": "How much does it cost to automate a process in an SMB?",
           "a_en": "The first process is handled in a scoping sprint at €{{prix.sprint.en}} excl. VAT for 10 hours: scoping and a first workflow prototyped and tested. Going into production is the pilot, from €{{prix.pilote.en}} excl. VAT. The next ones are estimated in hours, approved by you, then billed €{{prix.horaire}} per hour excl. VAT. n8n or Make subscriptions are in your name and at your expense."
         },
         {
-          "q_fr": "Faut-il du code pour automatiser un processus ?",
+          "q_fr": "Faut-il du code pour automatiser un processus ?",
           "a_fr": "Rarement : un workflow n8n ou Make suffit, installé sur vos comptes et lisible par votre équipe. Nous n'écrivons du code que pour un cas que ces outils ne couvrent pas, ou quand le besoin devient une application interne ; il est remis avec le workflow et relu avant la livraison.",
           "q_en": "Do you need code to automate a process?",
           "a_en": "In most cases an n8n or Make workflow is enough: it is installed on your accounts and readable by your team. Code is written only for a case those tools do not cover, or when the need becomes an internal application; it is handed over with the workflow and reviewed before delivery."
         },
         {
-          "q_fr": "Combien de temps faut-il pour automatiser un processus ?",
+          "q_fr": "Combien de temps faut-il pour automatiser un processus ?",
           "a_fr": "Comptez 2 à 6 semaines pour un premier workflow prototypé et testé, c'est-à-dire le sprint de cadrage ; la mise en production relève du pilote. Le délai tient surtout aux accès à vos outils et à la disponibilité de la personne qui connaît la tâche, pas à la construction elle-même.",
           "q_en": "How long does it take to automate a process?",
           "a_en": "Usually 2 to 6 weeks for a first workflow prototyped and tested, which is the content of the scoping sprint. Going into production is the pilot. The delay depends mostly on getting access to your tools and on the availability of the person who knows the task, not on the build itself."
         },
         {
-          "q_fr": "Quelle différence entre automatisation et agent IA ?",
+          "q_fr": "Quelle différence entre automatisation et agent IA ?",
           "a_fr": "Une automatisation suit des étapes fixes : même entrée, même sortie. Un agent IA lit, interprète et choisit l'action. Quand la règle s'écrit en « si, alors », prenez un workflow : il coûte moins cher à maintenir. Quand la tâche exige de comprendre un texte libre, il faut un agent ou une étape IA.",
           "q_en": "What is the difference between automation and an AI agent?",
           "a_en": "An automation follows fixed steps: same input, same output. An AI agent reads, interprets and chooses the action. If the rule can be written as \"if, then\", a workflow is enough and cheaper to maintain. If the task requires understanding free text, you need an agent or an AI step."
         },
         {
-          "q_fr": "Quels processus automatiser en premier dans une PME ?",
+          "q_fr": "Quels processus automatiser en premier dans une PME ?",
           "a_fr": "Le process qui revient chaque semaine, aux règles stables et à l'erreur coûteuse : ressaisie entre deux logiciels, relances de devis ou de factures, création de documents, tri des emails entrants. L'audit gratuit classe vos process par heures consommées et par faisabilité.",
           "q_en": "Which processes should an SMB automate first?",
           "a_en": "The one that comes back every week, with stable rules, where an error costs something: retyping between two tools, chasing quotes or invoices, creating documents, sorting incoming emails. The free audit ranks your processes by hours consumed and feasibility."
         },
         {
-          "q_fr": "Automatisation et RGPD : que faut-il vérifier ?",
+          "q_fr": "Automatisation et RGPD : que faut-il vérifier ?",
           "a_fr": "Vérifiez trois points : où transitent les données (un n8n hébergé chez vous évite un sous-traitant de plus), quelles données personnelles passent par une étape IA, et qui peut lire le journal. Nous consignons ces trois points dans la fiche de chaque workflow, prête pour votre registre de traitements.",
           "q_en": "Automation and GDPR: what should be checked?",
           "a_en": "Three points: where the data travels (self-hosted n8n avoids an extra processor), which personal data goes through an AI step, and who can read the log. We document these in each workflow sheet for your processing register."
         },
         {
-          "q_fr": "Que se passe-t-il si un outil change et que le workflow casse ?",
+          "q_fr": "Que se passe-t-il si un outil change et que le workflow casse ?",
           "a_fr": "Le workflow s'arrête sur l'étape en erreur et alerte votre référent. La documentation dit quoi vérifier. Vous corrigez avec votre équipe si elle a été formée, ou nous intervenons en régie, à l'heure.",
           "q_en": "What happens if a tool changes and the workflow breaks?",
           "a_en": "The workflow stops at the failing step and alerts your owner. The documentation says what to check. The fix is done on a time-and-materials basis, or by your team if it has been trained."
         },
         {
-          "q_fr": "Automatisation IA : en quoi diffère-t-elle d'une automatisation classique ?",
+          "q_fr": "Automatisation IA : en quoi diffère-t-elle d'une automatisation classique ?",
           "a_fr": "Une automatisation classique suit des règles fixes : si ceci, alors cela. L'automatisation IA ajoute une étape où un modèle de langage lit un texte libre, classe une demande ou rédige un brouillon, puis rend la main au workflow. Le déclencheur, le journal et les alertes ne changent pas. Nous n'ajoutons l'IA que là où une règle fixe ne suffit pas.",
           "q_en": "AI automation: how does it differ from classic automation?",
           "a_en": "Classic automation follows fixed rules: if this, then that. AI automation adds a step where a language model reads free text, classifies a request or drafts a reply, then hands back to the workflow. Everything else stays the same: same trigger, same log, an alert on failure. We add AI only where a fixed rule is not enough."
         },
         {
-          "q_fr": "Automatisation des processus ou agence d'automatisation IA : laquelle choisir ?",
+          "q_fr": "Automatisation des processus ou agence d'automatisation IA : laquelle choisir ?",
           "a_fr": "Prenez l'automatisation des processus quand la règle s'écrit en « si, alors » et qu'un seul événement la déclenche : un workflow suffit. Prenez l'agence d'automatisation IA quand la tâche exige de comprendre un message, de trancher entre des cas flous, ou d'articuler plusieurs modules (agents, Claude, application interne, reporting). Cette offre commence souvent par un workflow.",
           "q_en": "Process automation or AI automation agency: which to choose?",
           "a_en": "Choose the process automation service if the rule can be written as \"if, then\" and a single event triggers it: a workflow is enough. Choose the AI automation agency offer if the task requires understanding a message, choosing between fuzzy cases, or articulating several modules (agents, Claude, internal application, reporting). It often starts with a workflow."
@@ -570,7 +570,7 @@
       "rounded": true,
       "kicker_fr": "§ Audit IA gratuit",
       "kicker_en": "§ Free AI audit",
-      "h2_fr": "Quel process vous coûte le plus d'heures chaque semaine ?",
+      "h2_fr": "Quel process vous coûte le plus d'heures chaque semaine ?",
       "h2_en": "Which process costs you the most hours every week?",
       "subtitle_fr": "Quarante-cinq minutes d'audit gratuit. Vous repartez avec la cartographie écrite de vos process chronophages et un ou deux chantiers classés, que nous travaillions ensemble ou non.",
       "subtitle_en": "The free audit lasts 45 minutes. You leave with a written map of your time-consuming processes and one or two ranked projects, whether or not we work together.",

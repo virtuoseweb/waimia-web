@@ -3,7 +3,7 @@
   "title_fr": "Claude Platform ou OpenAI Platform pour une PME · Waimia",
   "title_en": "Claude Platform or OpenAI Platform for an SME · Waimia",
   "seoTitle_fr": "Claude Platform ou OpenAI Platform (API) : comparatif 2026",
-  "description_fr": "Claude Platform ou OpenAI Platform : modèles, prix, agents, MCP, données et localisation. Critères sourcés sur les documentations officielles, verdict par cas.",
+  "description_fr": "Claude Platform ou OpenAI Platform : modèles, prix, agents, MCP, données et localisation. Critères sourcés sur les documentations officielles, verdict par cas.",
   "description_en": "Claude Platform or OpenAI Platform: models, prices, agents, MCP, data and location. Criteria sourced from official documentation, verdict by case.",
   "slug": "claude-platform-vs-openai-platform",
   "publishedAt": "2026-10-05T00:00:00.000Z",
@@ -123,35 +123,35 @@
   },
   "faq_fr": [
     {
-      "q": "Claude ou OpenAI : lequel est le moins cher ?",
+      "q": "Claude ou OpenAI : lequel est le moins cher ?",
       "a": "En contexte court, les prix publics sont identiques : 2 dollars par million de tokens en entrée et 10 dollars en sortie pour Claude Sonnet 5.5 comme pour GPT-6.1 Sol, 0,10 et 0,50 dollar pour Claude Haiku 5.5 (sorti le 7 octobre 2026) comme pour GPT-6 Luna. Au-delà de 100 000 tokens par requête, Haiku 5.5 passe à 0,50 et 2,50 dollars, contre 0,20 et 0,75 pour Luna en contexte long. Chaque éditeur découpe le texte à sa façon : mesurez la facture sur vos propres documents, et testez la qualité des deux avant de conclure."
     },
     {
-      "q": "Mes données servent-elles à entraîner les modèles ?",
+      "q": "Mes données servent-elles à entraîner les modèles ?",
       "a": "Par défaut, non, chez les deux, pour les offres professionnelles. Anthropic écrit qu'il n'utilise pas par défaut les entrées et sorties de ses produits commerciaux, dont l'API, pour entraîner ses modèles. OpenAI écrit que les données envoyées à son API ne servent pas à entraîner ses modèles, sauf accord explicite de votre part. Ces engagements concernent les offres professionnelles, pas les comptes personnels gratuits ou grand public."
     },
     {
-      "q": "Peut-on garder les données en Europe ?",
+      "q": "Peut-on garder les données en Europe ?",
       "a": "Oui, par deux chemins. OpenAI propose une région Europe directe (Espace économique européen et Suisse), stockage et traitement compris, à trois conditions écrites dans sa documentation : éligibilité accordée par l'équipe commerciale, contrôle de conservation réduite ou nulle approuvé, 10 % de plus sur les modèles récents. Claude n'a pas de région européenne en direct : on passe par Amazon Bedrock (profil d'inférence UE) ou Google Vertex (point d'accès « eu »), avec 10 % de plus dans les deux cas d'après la grille d'Anthropic."
     },
     {
-      "q": "Quelle différence entre Claude Platform et l'abonnement Claude, ou entre l'API OpenAI et ChatGPT ?",
-      "a": "L'abonnement (Claude, ChatGPT) est une application prête à l'emploi, payée par utilisateur. La plateforme est destinée aux développeurs : elle sert à intégrer un modèle dans vos propres outils, et se paie à l'usage, au token. Une PME a souvent besoin des deux : l'application pour le travail quotidien des équipes, la plateforme quand un traitement doit tourner seul dans un workflow ou un agent."
+      "q": "Quelle différence entre Claude Platform et l'abonnement Claude, ou entre l'API OpenAI et ChatGPT ?",
+      "a": "L'abonnement (Claude, ChatGPT) est une application prête à l'emploi, payée par utilisateur. La plateforme est destinée aux développeurs : elle sert à intégrer un modèle dans vos propres outils, et se paie à l'usage, au token. Une PME a souvent besoin des deux : l'application pour le travail quotidien des équipes, la plateforme quand un traitement doit tourner seul dans un workflow ou un agent."
     },
     {
-      "q": "Peut-on changer de fournisseur plus tard ?",
-      "a": "Oui, si le projet a été construit pour. Trois précautions rendent le changement abordable : garder les consignes et les jeux de test dans vos propres fichiers, brancher les outils par un standard ouvert comme MCP que les deux plateformes prennent en charge, et éviter de dépendre d'une fonction propre à un seul éditeur quand une fonction commune suffit."
+      "q": "Peut-on changer de fournisseur plus tard ?",
+      "a": "Oui, si le projet a été construit pour. Trois précautions rendent le changement abordable : garder les consignes et les jeux de test dans vos propres fichiers, brancher les outils par un standard ouvert comme MCP que les deux plateformes prennent en charge, et éviter de dépendre d'une fonction propre à un seul éditeur quand une fonction commune suffit."
     },
     {
-      "q": "Faut-il un développeur pour utiliser ces plateformes ?",
-      "a": "Oui. Les deux sont des interfaces de programmation : il faut écrire du code ou passer par un outil d'automatisation comme n8n ou Make qui appelle le modèle pour vous. Sans profil technique en interne, c'est le rôle d'un prestataire, et la question à lui poser est qui maintiendra l'intégration ensuite."
+      "q": "Faut-il un développeur pour utiliser ces plateformes ?",
+      "a": "Oui. Les deux sont des interfaces de programmation : il faut écrire du code ou passer par un outil d'automatisation comme n8n ou Make qui appelle le modèle pour vous. Sans profil technique en interne, c'est le rôle d'un prestataire, et la question à lui poser est qui maintiendra l'intégration ensuite."
     },
     {
-      "q": "Combien coûte Claude Code pour une équipe de développeurs ?",
+      "q": "Combien coûte Claude Code pour une équipe de développeurs ?",
       "a": "Inclus dans les offres Pro, Max, Team et Enterprise dans la limite du quota de chaque siège. À l'API, Anthropic observe en entreprise environ 13 dollars par développeur et par jour actif, soit 150 à 250 dollars par mois, et moins de 30 dollars par jour pour 90 % des utilisateurs (documentation des coûts de Claude Code). Fixez des plafonds par membre dès le départ."
     },
     {
-      "q": "Peut-on réutiliser des skills Claude via l'API ?",
+      "q": "Peut-on réutiliser des skills Claude via l'API ?",
       "a": "Oui. La documentation d'Anthropic décrit les skills à l'API via l'outil d'exécution de code, partagés à tout l'espace de travail, avec les skills prêts à l'emploi pour Word, Excel, PowerPoint et PDF. L'API reste un monde à part : un skill chargé sur claude.ai doit y être téléversé de nouveau, et inversement. Entre claude.ai et Claude Code, en revanche, le pont existe : un skill provisionné par l'organisation se charge aussi dans Claude Code pour qui s'y connecte avec son compte Claude."
     }
   ],
@@ -227,7 +227,7 @@
       },
       "illustration": {
         "src": "/images/illustrations/ds/claude-platform-vs-openai-platform-v2-grues-paper.webp",
-        "alt_fr": "Illustration : deux grues portuaires identiques soulèvent chacune une caisse, une personne les observe depuis le quai",
+        "alt_fr": "Illustration : deux grues portuaires identiques soulèvent chacune une caisse, une personne les observe depuis le quai",
         "alt_en": "Illustration: two identical harbour cranes each lift a crate, a person watches them from the quay",
         "side": "right"
       }
@@ -246,7 +246,7 @@
     {
       "type": "direct-answer",
       "background": "paper-2",
-      "question_fr": "Claude Platform ou OpenAI Platform : lequel choisir ?",
+      "question_fr": "Claude Platform ou OpenAI Platform : lequel choisir ?",
       "question_en": "Claude Platform or OpenAI Platform: which to choose?",
       "term_fr": "La réponse courte",
       "term_en": "The short answer",
@@ -281,78 +281,78 @@
       "rows_fr": [
         [
           "Modèles mis en avant",
-          "Claude : Fable 5.2, Opus 5.5, Sonnet 5.5, Haiku 5.5 (Haiku 4.5 toujours proposé)",
-          "OpenAI : GPT-6 Astra, GPT-6.1 Sol, GPT-6 Luna"
+          "Claude : Fable 5.2, Opus 5.5, Sonnet 5.5, Haiku 5.5 (Haiku 4.5 toujours proposé)",
+          "OpenAI : GPT-6 Astra, GPT-6.1 Sol, GPT-6 Luna"
         ],
         [
           "Modèle intermédiaire, prix par million de tokens",
-          "Claude : Sonnet 5.5, 2 $ en entrée, 10 $ en sortie",
-          "OpenAI : GPT-6.1 Sol, 2 $ en entrée, 10 $ en sortie (contexte court)"
+          "Claude : Sonnet 5.5, 2 $ en entrée, 10 $ en sortie",
+          "OpenAI : GPT-6.1 Sol, 2 $ en entrée, 10 $ en sortie (contexte court)"
         ],
         [
           "Petit modèle, prix par million de tokens",
-          "Claude : Haiku 5.5, 0,10 $ en entrée, 0,50 $ en sortie (requêtes de moins de 100 000 tokens)",
-          "OpenAI : GPT-6 Luna, 0,10 $ en entrée, 0,50 $ en sortie (contexte court)"
+          "Claude : Haiku 5.5, 0,10 $ en entrée, 0,50 $ en sortie (requêtes de moins de 100 000 tokens)",
+          "OpenAI : GPT-6 Luna, 0,10 $ en entrée, 0,50 $ en sortie (contexte court)"
         ],
         [
           "Modèle le plus capable, prix par million de tokens",
-          "Claude : Fable 5.2, 8 $ en entrée, 40 $ en sortie",
-          "OpenAI : GPT-6 Astra, 10 $ en entrée, 50 $ en sortie (contexte court)"
+          "Claude : Fable 5.2, 8 $ en entrée, 40 $ en sortie",
+          "OpenAI : GPT-6 Astra, 10 $ en entrée, 50 $ en sortie (contexte court)"
         ],
         [
           "Fenêtre de contexte du modèle intermédiaire",
-          "Claude : Sonnet 5.5, 1 million de tokens",
-          "OpenAI : GPT-6.1 Sol, 1 050 000 tokens"
+          "Claude : Sonnet 5.5, 1 million de tokens",
+          "OpenAI : GPT-6.1 Sol, 1 050 000 tokens"
         ],
         [
           "Entrées et sorties",
-          "Claude : texte et image en entrée, texte en sortie",
-          "OpenAI : texte et image en entrée, texte en sortie ; modèles d'image et de voix au catalogue"
+          "Claude : texte et image en entrée, texte en sortie",
+          "OpenAI : texte et image en entrée, texte en sortie ; modèles d'image et de voix au catalogue"
         ],
         [
           "Traitement différé",
-          "Claude : API Batches, 50 % du prix standard",
-          "OpenAI : API Batch, 50 % de réduction ; mode Flex au même tarif réduit"
+          "Claude : API Batches, 50 % du prix standard",
+          "OpenAI : API Batch, 50 % de réduction ; mode Flex au même tarif réduit"
         ],
         [
           "Agents hébergés par l'éditeur",
-          "Claude : Claude Managed Agents, en bêta",
-          "OpenAI : Agents API"
+          "Claude : Claude Managed Agents, en bêta",
+          "OpenAI : Agents API"
         ],
         [
           "Outils intégrés",
-          "Claude : recherche web, lecture de pages web, exécution de code, pilotage d'ordinateur, mémoire",
-          "OpenAI : recherche web, recherche dans vos fichiers, shell et exécution de code, pilotage d'ordinateur, génération d'images"
+          "Claude : recherche web, lecture de pages web, exécution de code, pilotage d'ordinateur, mémoire",
+          "OpenAI : recherche web, recherche dans vos fichiers, shell et exécution de code, pilotage d'ordinateur, génération d'images"
         ],
         [
           "MCP",
-          "Claude : connecteur MCP en bêta, limité aux appels d'outils ; tunnels MCP en aperçu de recherche",
-          "OpenAI : serveurs MCP distants dans l'API Responses ; Secure MCP Tunnel pour un serveur privé"
+          "Claude : connecteur MCP en bêta, limité aux appels d'outils ; tunnels MCP en aperçu de recherche",
+          "OpenAI : serveurs MCP distants dans l'API Responses ; Secure MCP Tunnel pour un serveur privé"
         ],
         [
           "Entraînement sur vos données d'API",
-          "Claude : non par défaut",
-          "OpenAI : non, sauf accord explicite"
+          "Claude : non par défaut",
+          "OpenAI : non, sauf accord explicite"
         ],
         [
           "Conservation",
-          "Claude : suppression sous 30 jours, sauf exceptions ; zéro conservation sur demande, sauf Fable et Mythos (30 jours minimum imposés)",
-          "OpenAI : journaux de surveillance des abus jusqu'à 30 jours ; zéro conservation sur approbation"
+          "Claude : suppression sous 30 jours, sauf exceptions ; zéro conservation sur demande, sauf Fable et Mythos (30 jours minimum imposés)",
+          "OpenAI : journaux de surveillance des abus jusqu'à 30 jours ; zéro conservation sur approbation"
         ],
         [
           "Localisation",
-          "Claude : inférence mondiale ou États-Unis (majoration de 10 %), stockage aux États-Unis ; Europe via Amazon Bedrock (profil UE) ou Google Vertex (point d'accès UE), 10 % de plus que le mondial",
-          "OpenAI : région Europe directe, stockage et traitement, après accord d'OpenAI sur la conservation ; +10 % sur les modèles sortis depuis le 5 mars 2026"
+          "Claude : inférence mondiale ou États-Unis (majoration de 10 %), stockage aux États-Unis ; Europe via Amazon Bedrock (profil UE) ou Google Vertex (point d'accès UE), 10 % de plus que le mondial",
+          "OpenAI : région Europe directe, stockage et traitement, après accord d'OpenAI sur la conservation ; +10 % sur les modèles sortis depuis le 5 mars 2026"
         ],
         [
           "Facturation",
-          "Claude : à l'usage, en dollars, au token ; recherche web 10 $ les 1 000 recherches",
-          "OpenAI : à l'usage, en dollars, au token ; recherche web 10 $ les 1 000 appels"
+          "Claude : à l'usage, en dollars, au token ; recherche web 10 $ les 1 000 recherches",
+          "OpenAI : à l'usage, en dollars, au token ; recherche web 10 $ les 1 000 appels"
         ],
         [
           "Autres points d'accès",
-          "Claude : Amazon Bedrock, Google Cloud, Microsoft Foundry, Claude Platform on AWS",
-          "OpenAI : Microsoft Foundry (zone de données UE possible), Amazon Bedrock depuis le 1er juin 2026 (régions américaines)"
+          "Claude : Amazon Bedrock, Google Cloud, Microsoft Foundry, Claude Platform on AWS",
+          "OpenAI : Microsoft Foundry (zone de données UE possible), Amazon Bedrock depuis le 1er juin 2026 (régions américaines)"
         ]
       ],
       "rows_en": [
@@ -442,7 +442,7 @@
       "figures": [
         {
           "src": "/images/illustrations/ds/claude-platform-vs-openai-platform-v2-robinet-paper.webp",
-          "alt_fr": "Illustration : un énorme robinet laisse tomber une goutte au-dessus de seaux de tailles différentes, une personne note",
+          "alt_fr": "Illustration : un énorme robinet laisse tomber une goutte au-dessus de seaux de tailles différentes, une personne note",
           "alt_en": "Illustration: a huge tap drips above buckets of different sizes while a person takes notes",
           "side": "right"
         }
@@ -455,7 +455,7 @@
       "figures": [
         {
           "src": "/images/illustrations/ds/claude-platform-vs-openai-platform-v2-frontiere-paper.webp",
-          "alt_fr": "Illustration : deux plaines séparées par une rivière, une personne porte une caisse vers le seul pont et sa guérite",
+          "alt_fr": "Illustration : deux plaines séparées par une rivière, une personne porte une caisse vers le seul pont et sa guérite",
           "alt_en": "Illustration: two plains split by a river, a person carries a crate towards the only bridge and its guard booth",
           "side": "left"
         }
@@ -475,10 +475,10 @@
       "use_title_fr": "Passez par la plateforme si",
       "use_title_en": "Go through the platform if",
       "use_items_fr": [
-        "Un traitement doit tourner seul, sans personne devant l'écran : nuit, flux entrant, lot de documents",
+        "Un traitement doit tourner seul, sans personne devant l'écran : nuit, flux entrant, lot de documents",
         "Le modèle doit s'intégrer dans votre propre application ou votre CRM",
-        "Vous avez besoin d'une résidence européenne : Bedrock ou Vertex",
-        "Les volumes sont élevés et prévisibles : traitement différé à moitié prix, mise en cache"
+        "Vous avez besoin d'une résidence européenne : Bedrock ou Vertex",
+        "Les volumes sont élevés et prévisibles : traitement différé à moitié prix, mise en cache"
       ],
       "use_items_en": [
         "A process must run on its own, with nobody at the screen: overnight, incoming flow, batch of documents",
@@ -541,20 +541,20 @@
       "anchor": "guide-achat",
       "kicker_fr": "§ Guide d'achat · PDF gratuit",
       "kicker_en": "§ Buyer's guide · free PDF",
-      "h2_fr": "Abonnement, API, Bedrock ou Vertex : recevez le guide d'achat Claude (PDF, 14 pages)",
+      "h2_fr": "Abonnement, API, Bedrock ou Vertex : recevez le guide d'achat Claude (PDF, 14 pages)",
       "h2_en": "Subscription, API, Bedrock or Vertex: get the Claude buyer's guide (PDF, 14 pages)",
-      "body_fr": "Un chapitre entier dit quand l'abonnement ne suffit plus et quand l'API n'est pas la réponse : résidence en Europe, intégration à vos outils, traitements en lot. Le reste du guide chiffre l'abonnement d'équipe : trois budgets calculés pour 5, 15 et 40 personnes, douze pièges d'achat, les questions à poser avant de signer. Le fichier arrive par e-mail, en pièce jointe.",
+      "body_fr": "Un chapitre entier dit quand l'abonnement ne suffit plus et quand l'API n'est pas la réponse : résidence en Europe, intégration à vos outils, traitements en lot. Le reste du guide chiffre l'abonnement d'équipe : trois budgets calculés pour 5, 15 et 40 personnes, douze pièges d'achat, les questions à poser avant de signer. Le fichier arrive par e-mail, en pièce jointe.",
       "body_en": "A full chapter says when the subscription is no longer enough and when the API is not the answer: European residency, integration with your tools, batch processing. The rest of the guide costs the team subscription: three budgets worked out for 5, 15 and 40 people, twelve buying traps, the questions to ask before signing. The file arrives by email, as an attachment.",
       "submit_label_fr": "Recevoir le guide d'achat →",
       "submit_label_en": "Get the buyer's guide →",
-      "hint_fr": "Un seul envoi : le PDF. La lettre mensuelle seulement si vous cochez la case.",
+      "hint_fr": "Un seul envoi : le PDF. La lettre mensuelle seulement si vous cochez la case.",
       "hint_en": "One email: the PDF. The monthly newsletter only if you tick the box.",
       "lead_magnet": "guide-achat-claude-pme"
     },
     {
       "type": "editorial-prose",
       "background": "paper-2",
-      "html_fr": "<h2>Sources</h2><ul><li><a href=\"https://www.anthropic.com/claude-haiku-5-5\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, annonce de Claude Haiku 5.5 (7 octobre 2026) et baisse du prix des lectures en cache de Sonnet 5.5</a></li><li><a href=\"https://platform.claude.com/docs/en/about-claude/models/overview\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Platform : vue d'ensemble des modèles (noms, prix, fenêtres de contexte)</a></li><li><a href=\"https://platform.claude.com/docs/en/about-claude/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Platform : prix (modèles, traitement différé, résidence des données, recherche web)</a></li><li><a href=\"https://claude.com/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, page tarifs de Claude (section API)</a></li><li><a href=\"https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Platform : outils (outils client et serveur)</a></li><li><a href=\"https://platform.claude.com/docs/en/managed-agents/overview\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Platform : Claude Managed Agents (bêta)</a></li><li><a href=\"https://platform.claude.com/docs/en/agents-and-tools/mcp-connector\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Platform : connecteur MCP (bêta)</a></li><li><a href=\"https://platform.claude.com/docs/en/agents-and-tools/mcp-tunnels/overview\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Platform : tunnels MCP (aperçu de recherche)</a></li><li><a href=\"https://platform.claude.com/docs/en/manage-claude/data-residency\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Platform : résidence des données</a></li><li><a href=\"https://platform.claude.com/docs/en/manage-claude/api-and-data-retention\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Platform : API et conservation des données</a></li><li><a href=\"https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, centre de confidentialité : mes données servent-elles à l'entraînement ? (offres commerciales)</a></li><li><a href=\"https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, centre de confidentialité : durée de conservation des données d'une organisation</a></li><li><a href=\"https://developers.openai.com/api/docs/models\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, documentation API : modèles</a></li><li><a href=\"https://developers.openai.com/api/docs/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, documentation API : prix (modèles, Batch, Flex, outils)</a></li><li><a href=\"https://developers.openai.com/api/docs/guides/your-data\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, documentation API : contrôles de données (entraînement, conservation, résidence)</a></li><li><a href=\"https://developers.openai.com/api/docs/guides/agents\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, documentation API : agents (Agents API, Agents SDK, Responses API)</a></li><li><a href=\"https://developers.openai.com/api/docs/guides/tools\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, documentation API : outils disponibles</a></li><li><a href=\"https://developers.openai.com/api/docs/guides/tools-connectors-mcp\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, documentation API : serveurs MCP et Secure MCP Tunnel</a></li><li><a href=\"https://developers.openai.com/api/docs/guides/batch\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, documentation API : Batch</a></li><li><a href=\"https://platform.claude.com/docs/en/build-with-claude/batch-processing\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Platform : traitement par lots</a></li><li><a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-sonnet-5.html\" rel=\"noopener noreferrer\" target=\"_blank\">AWS, Amazon Bedrock : fiche modèle Claude Sonnet 5 (profil d'inférence UE)</a></li><li><a href=\"https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Platform : Claude sur Google Cloud (points d'accès multirégionaux)</a></li><li><a href=\"https://claude.com/regional-compliance\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, conformité régionale (Bedrock, Vertex, Foundry ; certifications)</a></li><li><a href=\"https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/deployment-types\" rel=\"noopener noreferrer\" target=\"_blank\">Microsoft, Foundry : types de déploiement (zones de données UE, US, APAC)</a></li><li><a href=\"https://aws.amazon.com/blogs/machine-learning/openai-models-and-codex-on-amazon-bedrock-are-now-generally-available/\" rel=\"noopener noreferrer\" target=\"_blank\">AWS, modèles OpenAI et Codex disponibles sur Amazon Bedrock (1er juin 2026)</a></li><li><a href=\"https://developers.openai.com/api/docs/guides/amazon-bedrock\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, documentation API : OpenAI sur Amazon Bedrock (régions, fonctions)</a></li><li><a href=\"https://openai.com/enterprise-privacy/\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, confidentialité des offres professionnelles</a></li><li><a href=\"https://support.claude.com/en/articles/13119606-provision-and-manage-skills-for-your-organization\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, aide : provisionner les skills pour l'organisation (chargement dans Claude Code)</a></li></ul>",
+      "html_fr": "<h2>Sources</h2><ul><li><a href=\"https://www.anthropic.com/claude-haiku-5-5\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, annonce de Claude Haiku 5.5 (7 octobre 2026) et baisse du prix des lectures en cache de Sonnet 5.5</a></li><li><a href=\"https://platform.claude.com/docs/en/about-claude/models/overview\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Platform : vue d'ensemble des modèles (noms, prix, fenêtres de contexte)</a></li><li><a href=\"https://platform.claude.com/docs/en/about-claude/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Platform : prix (modèles, traitement différé, résidence des données, recherche web)</a></li><li><a href=\"https://claude.com/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, page tarifs de Claude (section API)</a></li><li><a href=\"https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Platform : outils (outils client et serveur)</a></li><li><a href=\"https://platform.claude.com/docs/en/managed-agents/overview\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Platform : Claude Managed Agents (bêta)</a></li><li><a href=\"https://platform.claude.com/docs/en/agents-and-tools/mcp-connector\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Platform : connecteur MCP (bêta)</a></li><li><a href=\"https://platform.claude.com/docs/en/agents-and-tools/mcp-tunnels/overview\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Platform : tunnels MCP (aperçu de recherche)</a></li><li><a href=\"https://platform.claude.com/docs/en/manage-claude/data-residency\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Platform : résidence des données</a></li><li><a href=\"https://platform.claude.com/docs/en/manage-claude/api-and-data-retention\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Platform : API et conservation des données</a></li><li><a href=\"https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, centre de confidentialité : mes données servent-elles à l'entraînement ? (offres commerciales)</a></li><li><a href=\"https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, centre de confidentialité : durée de conservation des données d'une organisation</a></li><li><a href=\"https://developers.openai.com/api/docs/models\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, documentation API : modèles</a></li><li><a href=\"https://developers.openai.com/api/docs/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, documentation API : prix (modèles, Batch, Flex, outils)</a></li><li><a href=\"https://developers.openai.com/api/docs/guides/your-data\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, documentation API : contrôles de données (entraînement, conservation, résidence)</a></li><li><a href=\"https://developers.openai.com/api/docs/guides/agents\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, documentation API : agents (Agents API, Agents SDK, Responses API)</a></li><li><a href=\"https://developers.openai.com/api/docs/guides/tools\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, documentation API : outils disponibles</a></li><li><a href=\"https://developers.openai.com/api/docs/guides/tools-connectors-mcp\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, documentation API : serveurs MCP et Secure MCP Tunnel</a></li><li><a href=\"https://developers.openai.com/api/docs/guides/batch\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, documentation API : Batch</a></li><li><a href=\"https://platform.claude.com/docs/en/build-with-claude/batch-processing\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Platform : traitement par lots</a></li><li><a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-sonnet-5.html\" rel=\"noopener noreferrer\" target=\"_blank\">AWS, Amazon Bedrock : fiche modèle Claude Sonnet 5 (profil d'inférence UE)</a></li><li><a href=\"https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Platform : Claude sur Google Cloud (points d'accès multirégionaux)</a></li><li><a href=\"https://claude.com/regional-compliance\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, conformité régionale (Bedrock, Vertex, Foundry ; certifications)</a></li><li><a href=\"https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/deployment-types\" rel=\"noopener noreferrer\" target=\"_blank\">Microsoft, Foundry : types de déploiement (zones de données UE, US, APAC)</a></li><li><a href=\"https://aws.amazon.com/blogs/machine-learning/openai-models-and-codex-on-amazon-bedrock-are-now-generally-available/\" rel=\"noopener noreferrer\" target=\"_blank\">AWS, modèles OpenAI et Codex disponibles sur Amazon Bedrock (1er juin 2026)</a></li><li><a href=\"https://developers.openai.com/api/docs/guides/amazon-bedrock\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, documentation API : OpenAI sur Amazon Bedrock (régions, fonctions)</a></li><li><a href=\"https://openai.com/enterprise-privacy/\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, confidentialité des offres professionnelles</a></li><li><a href=\"https://support.claude.com/en/articles/13119606-provision-and-manage-skills-for-your-organization\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, aide : provisionner les skills pour l'organisation (chargement dans Claude Code)</a></li></ul>",
       "html_en": "<h2>Sources, re-read on 5, 6 and 12 October 2026</h2><ul><li><a href=\"https://www.anthropic.com/claude-haiku-5-5\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Haiku 5.5 announcement (7 October 2026) and Sonnet 5.5 cache-read price cut</a></li><li><a href=\"https://platform.claude.com/docs/en/about-claude/models/overview\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Platform: models overview (names, prices, context windows)</a></li><li><a href=\"https://platform.claude.com/docs/en/about-claude/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Platform: pricing (models, batch, data residency, web search)</a></li><li><a href=\"https://claude.com/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude pricing page (API section)</a></li><li><a href=\"https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Platform: tool use (client and server tools)</a></li><li><a href=\"https://platform.claude.com/docs/en/managed-agents/overview\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Platform: Claude Managed Agents (beta)</a></li><li><a href=\"https://platform.claude.com/docs/en/agents-and-tools/mcp-connector\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Platform: MCP connector (beta)</a></li><li><a href=\"https://platform.claude.com/docs/en/agents-and-tools/mcp-tunnels/overview\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Platform: MCP tunnels (research preview)</a></li><li><a href=\"https://platform.claude.com/docs/en/manage-claude/data-residency\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Platform: data residency</a></li><li><a href=\"https://platform.claude.com/docs/en/manage-claude/api-and-data-retention\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Platform: API and data retention</a></li><li><a href=\"https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Privacy Center: is my data used for model training? (commercial offerings)</a></li><li><a href=\"https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Privacy Center: how long an organisation's data is stored</a></li><li><a href=\"https://developers.openai.com/api/docs/models\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, API documentation: models</a></li><li><a href=\"https://developers.openai.com/api/docs/pricing\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, API documentation: pricing (models, Batch, Flex, tools)</a></li><li><a href=\"https://developers.openai.com/api/docs/guides/your-data\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, API documentation: data controls (training, retention, residency)</a></li><li><a href=\"https://developers.openai.com/api/docs/guides/agents\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, API documentation: agents (Agents API, Agents SDK, Responses API)</a></li><li><a href=\"https://developers.openai.com/api/docs/guides/tools\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, API documentation: available tools</a></li><li><a href=\"https://developers.openai.com/api/docs/guides/tools-connectors-mcp\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, API documentation: MCP servers and Secure MCP Tunnel</a></li><li><a href=\"https://developers.openai.com/api/docs/guides/batch\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, API documentation: Batch</a></li><li><a href=\"https://platform.claude.com/docs/en/build-with-claude/batch-processing\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Platform: batch processing</a></li><li><a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-sonnet-5.html\" rel=\"noopener noreferrer\" target=\"_blank\">AWS, Amazon Bedrock: Claude Sonnet 5 model card (EU inference profile)</a></li><li><a href=\"https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Claude Platform: Claude on Google Cloud (multi-region endpoints)</a></li><li><a href=\"https://claude.com/regional-compliance\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, regional compliance (Bedrock, Vertex, Foundry; certifications)</a></li><li><a href=\"https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/deployment-types\" rel=\"noopener noreferrer\" target=\"_blank\">Microsoft, Foundry: deployment types (EU, US, APAC data zones)</a></li><li><a href=\"https://aws.amazon.com/blogs/machine-learning/openai-models-and-codex-on-amazon-bedrock-are-now-generally-available/\" rel=\"noopener noreferrer\" target=\"_blank\">AWS, OpenAI models and Codex generally available on Amazon Bedrock (1 June 2026)</a></li><li><a href=\"https://developers.openai.com/api/docs/guides/amazon-bedrock\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, API documentation: OpenAI on Amazon Bedrock (regions, features)</a></li><li><a href=\"https://openai.com/enterprise-privacy/\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, enterprise privacy</a></li><li><a href=\"https://support.claude.com/en/articles/13119606-provision-and-manage-skills-for-your-organization\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, help: provisioning skills for your organisation (loading in Claude Code)</a></li></ul><h2>What this comparison does not settle</h2><ul><li>Comparative model quality: no benchmark is quoted here, on purpose. It is measured on your task, with real examples.</li><li>Certifications: Anthropic lists SOC 2 Type 2, ISO 27001, 27017 and 27018 and CSA STAR on its regional compliance page; OpenAI reports a SOC 2 audit on its enterprise privacy page. For a tender, ask for the reports themselves: they are shared under a non-disclosure agreement.</li><li>Both vendors' data processing agreements exist and are signed online; a clause-by-clause review belongs to your lawyer or DPO, not to a comparison.</li></ul>"
     },
     {
@@ -599,49 +599,49 @@
       "h2_en": "Frequently asked questions",
       "items": [
         {
-          "q_fr": "Claude ou OpenAI : lequel est le moins cher ?",
+          "q_fr": "Claude ou OpenAI : lequel est le moins cher ?",
           "a_fr": "En contexte court, les prix publics sont identiques : 2 dollars par million de tokens en entrée et 10 dollars en sortie pour Claude Sonnet 5.5 comme pour GPT-6.1 Sol, 0,10 et 0,50 dollar pour Claude Haiku 5.5 (sorti le 7 octobre 2026) comme pour GPT-6 Luna. Au-delà de 100 000 tokens par requête, Haiku 5.5 passe à 0,50 et 2,50 dollars, contre 0,20 et 0,75 pour Luna en contexte long. Chaque éditeur découpe le texte à sa façon : mesurez la facture sur vos propres documents, et testez la qualité des deux avant de conclure.",
           "q_en": "Claude or OpenAI: which is cheaper?",
           "a_en": "In short context, public prices are identical as of 12 October 2026: $2 per million input tokens and $10 per million output tokens for Claude Sonnet 5.5 and GPT-6.1 Sol alike, $0.10 and $0.50 for Claude Haiku 5.5 (released on 7 October 2026) and GPT-6 Luna alike. Above 100,000 tokens per request, Haiku 5.5 moves to $0.50 and $2.50, against $0.20 and $0.75 for Luna in long context. Each vendor splits text its own way: measure the bill on your own documents, and test the quality of both before concluding."
         },
         {
-          "q_fr": "Mes données servent-elles à entraîner les modèles ?",
+          "q_fr": "Mes données servent-elles à entraîner les modèles ?",
           "a_fr": "Par défaut, non, chez les deux, pour les offres professionnelles. Anthropic écrit qu'il n'utilise pas par défaut les entrées et sorties de ses produits commerciaux, dont l'API, pour entraîner ses modèles. OpenAI écrit que les données envoyées à son API ne servent pas à entraîner ses modèles, sauf accord explicite de votre part. Ces engagements concernent les offres professionnelles, pas les comptes personnels gratuits ou grand public.",
           "q_en": "Is my data used to train the models?",
           "a_en": "By default, no, with both, for business offerings. Anthropic writes that by default it does not use inputs and outputs from its commercial products, including the API, to train its models. OpenAI writes that data sent to its API is not used to train its models unless you explicitly opt in. Note: these commitments cover business offerings, not free or consumer personal accounts."
         },
         {
-          "q_fr": "Peut-on garder les données en Europe ?",
+          "q_fr": "Peut-on garder les données en Europe ?",
           "a_fr": "Oui, par deux chemins. OpenAI propose une région Europe directe (Espace économique européen et Suisse), stockage et traitement compris, à trois conditions écrites dans sa documentation : éligibilité accordée par l'équipe commerciale, contrôle de conservation réduite ou nulle approuvé, 10 % de plus sur les modèles récents. Claude n'a pas de région européenne en direct : on passe par Amazon Bedrock (profil d'inférence UE) ou Google Vertex (point d'accès « eu »), avec 10 % de plus dans les deux cas d'après la grille d'Anthropic.",
           "q_en": "Can the data stay in Europe?",
           "a_en": "Yes, by two routes. OpenAI offers a direct Europe region (European Economic Area and Switzerland), storage and processing included, under three conditions written in its documentation: eligibility granted by the sales team, an approved reduced or zero retention control, and 10% more on recent models. Claude has no direct European region: you go through Amazon Bedrock (EU inference profile) or Google Vertex (\"eu\" endpoint), with 10% more in both cases according to Anthropic's price list re-read on 12 October 2026. Documentation re-read on 6 October 2026."
         },
         {
-          "q_fr": "Quelle différence entre Claude Platform et l'abonnement Claude, ou entre l'API OpenAI et ChatGPT ?",
-          "a_fr": "L'abonnement (Claude, ChatGPT) est une application prête à l'emploi, payée par utilisateur. La plateforme est destinée aux développeurs : elle sert à intégrer un modèle dans vos propres outils, et se paie à l'usage, au token. Une PME a souvent besoin des deux : l'application pour le travail quotidien des équipes, la plateforme quand un traitement doit tourner seul dans un workflow ou un agent.",
+          "q_fr": "Quelle différence entre Claude Platform et l'abonnement Claude, ou entre l'API OpenAI et ChatGPT ?",
+          "a_fr": "L'abonnement (Claude, ChatGPT) est une application prête à l'emploi, payée par utilisateur. La plateforme est destinée aux développeurs : elle sert à intégrer un modèle dans vos propres outils, et se paie à l'usage, au token. Une PME a souvent besoin des deux : l'application pour le travail quotidien des équipes, la plateforme quand un traitement doit tourner seul dans un workflow ou un agent.",
           "q_en": "What is the difference between Claude Platform and the Claude subscription, or between the OpenAI API and ChatGPT?",
           "a_en": "The subscription (Claude, ChatGPT) is a ready-to-use application, paid per user. The platform is aimed at developers: it is used to build a model into your own tools, and is paid by usage, per token. An SME often needs both: the application for teams' daily work, the platform when a process has to run on its own in a workflow or an agent."
         },
         {
-          "q_fr": "Peut-on changer de fournisseur plus tard ?",
-          "a_fr": "Oui, si le projet a été construit pour. Trois précautions rendent le changement abordable : garder les consignes et les jeux de test dans vos propres fichiers, brancher les outils par un standard ouvert comme MCP que les deux plateformes prennent en charge, et éviter de dépendre d'une fonction propre à un seul éditeur quand une fonction commune suffit.",
+          "q_fr": "Peut-on changer de fournisseur plus tard ?",
+          "a_fr": "Oui, si le projet a été construit pour. Trois précautions rendent le changement abordable : garder les consignes et les jeux de test dans vos propres fichiers, brancher les outils par un standard ouvert comme MCP que les deux plateformes prennent en charge, et éviter de dépendre d'une fonction propre à un seul éditeur quand une fonction commune suffit.",
           "q_en": "Can you switch provider later?",
           "a_en": "Yes, if the project was built for it. Three precautions keep switching affordable: keep prompts and test sets in your own files, connect tools through an open standard such as MCP, which both platforms support, and avoid relying on a feature specific to one vendor when a common feature is enough."
         },
         {
-          "q_fr": "Faut-il un développeur pour utiliser ces plateformes ?",
-          "a_fr": "Oui. Les deux sont des interfaces de programmation : il faut écrire du code ou passer par un outil d'automatisation comme n8n ou Make qui appelle le modèle pour vous. Sans profil technique en interne, c'est le rôle d'un prestataire, et la question à lui poser est qui maintiendra l'intégration ensuite.",
+          "q_fr": "Faut-il un développeur pour utiliser ces plateformes ?",
+          "a_fr": "Oui. Les deux sont des interfaces de programmation : il faut écrire du code ou passer par un outil d'automatisation comme n8n ou Make qui appelle le modèle pour vous. Sans profil technique en interne, c'est le rôle d'un prestataire, et la question à lui poser est qui maintiendra l'intégration ensuite.",
           "q_en": "Do you need a developer to use these platforms?",
           "a_en": "Yes. Both are programming interfaces: you have to write code or go through an automation tool such as n8n or Make that calls the model for you. Without a technical profile in-house, that is a contractor's job, and the question to ask them is who will maintain the integration afterwards."
         },
         {
-          "q_fr": "Combien coûte Claude Code pour une équipe de développeurs ?",
+          "q_fr": "Combien coûte Claude Code pour une équipe de développeurs ?",
           "q_en": "How much does Claude Code cost for a developer team?",
           "a_fr": "Inclus dans les offres Pro, Max, Team et Enterprise dans la limite du quota de chaque siège. À l'API, Anthropic observe en entreprise environ 13 dollars par développeur et par jour actif, soit 150 à 250 dollars par mois, et moins de 30 dollars par jour pour 90 % des utilisateurs (documentation des coûts de Claude Code). Fixez des plafonds par membre dès le départ.",
           "a_en": "Included in the Pro, Max, Team and Enterprise plans within each seat's quota. On the API, Anthropic observes around $13 per developer per active day in companies, i.e. $150 to $250 a month, and under $30 a day for 90% of users (Claude Code cost documentation, read on 5 October 2026). Set per-member caps from the start."
         },
         {
-          "q_fr": "Peut-on réutiliser des skills Claude via l'API ?",
+          "q_fr": "Peut-on réutiliser des skills Claude via l'API ?",
           "q_en": "Can Claude skills be reused through the API?",
           "a_fr": "Oui. La documentation d'Anthropic décrit les skills à l'API via l'outil d'exécution de code, partagés à tout l'espace de travail, avec les skills prêts à l'emploi pour Word, Excel, PowerPoint et PDF. L'API reste un monde à part : un skill chargé sur claude.ai doit y être téléversé de nouveau, et inversement. Entre claude.ai et Claude Code, en revanche, le pont existe : un skill provisionné par l'organisation se charge aussi dans Claude Code pour qui s'y connecte avec son compte Claude.",
           "a_en": "Yes. Anthropic's documentation describes skills on the API through the code execution tool, shared across the workspace, with ready-made skills for Word, Excel, PowerPoint and PDF. The API stays separate: a skill uploaded on claude.ai has to be uploaded again there, and the other way round. Between claude.ai and Claude Code, though, there is a bridge: as of 6 October 2026, a skill provisioned by the organisation also loads in Claude Code for anyone signed in with their Claude account."
