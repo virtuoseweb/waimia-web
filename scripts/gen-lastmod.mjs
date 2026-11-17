@@ -12,7 +12,9 @@
  * exactement ce qu'on veut éviter). On calcule donc depuis un clone complet et on commite.
  *
  * Un commit de pure forme (typographie, jeton qui rend le même texte) porte la ligne
- * `Lastmod: ignore` dans son message : il ne date pas les pages qu'il touche.
+ * `Lastmod: ignore` dans son message : il ne date pas les pages qu'il touche. Un commit de pure
+ * forme déjà poussé sans cette ligne (l'historique de main ne se réécrit pas) s'inscrit dans
+ * `scripts/lastmod-ignore-commits.txt`, un SHA complet par ligne, avec la preuve en commentaire.
  *
  * Usage :
  *   node scripts/gen-lastmod.mjs           # régénère (refuse sur clone superficiel)
@@ -47,13 +49,37 @@ if (shallow) {
   process.exit(0);
 }
 
+// Commits de pure forme poussés sans la ligne `Lastmod: ignore` (SHA complets, # = commentaire).
+const IGNORE_FILE = join(ROOT, 'scripts', 'lastmod-ignore-commits.txt');
+const ignored = new Set(
+  existsSync(IGNORE_FILE)
+    ? readFileSync(IGNORE_FILE, 'utf8')
+        .split('\n')
+        .map((l) => l.replace(/#.*/, '').trim())
+        .filter(Boolean)
+    : [],
+);
+for (const sha of ignored) {
+  if (!/^[0-9a-f]{40}$/.test(sha)) {
+    console.error(`✗ ${relative(ROOT, IGNORE_FILE)} : « ${sha} » n'est pas un SHA complet.`);
+    process.exit(1);
+  }
+}
+
 const routes = {};
 for (const { route, file } of listRouteSources(ROOT)) {
   const rel = relative(ROOT, file);
   let day = '';
   try {
     // %cs = date du commit (YYYY-MM-DD). --follow suit un renommage de fichier.
-    day = git(['log', '-1', '--format=%cs', '--follow', '--invert-grep', '--grep=^Lastmod: ignore$', '--', rel]);
+    // Les 10 derniers commits suffisent presque toujours ; l'historique complet sinon.
+    const firstKept = (limit) =>
+      git(['log', ...limit, '--format=%H %cs', '--follow', '--invert-grep', '--grep=^Lastmod: ignore$', '--', rel])
+        .split('\n')
+        .map((l) => l.split(' '))
+        .find(([sha, d]) => sha && d && !ignored.has(sha));
+    const hit = firstKept(['-n', '10']) ?? firstKept([]);
+    day = hit ? hit[1] : '';
   } catch {
     day = '';
   }
