@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { selectBraveQueue, runBraveQueue, braveNote, selectFromSitemap, runFromSitemap, formatFromSitemap } from '../brave-queue.mjs';
+import { selectBraveQueue, runBraveQueue, braveNote, selectFromSitemap, runFromSitemap, formatFromSitemap, needsSubmission, recordSubmissions, runRecord } from '../brave-queue.mjs';
 import { buildSummary } from '../lib/summary.mjs';
 
 const loc = (path) => `https://waimia.com${path}`;
@@ -181,6 +181,77 @@ test('autonome : lit un sitemap enregistré, sans réseau, sans rien écrire', a
     assert.deepEqual(real.toSubmit, ['https://waimia.com/cgv', 'https://waimia.com/blog/neuf', 'https://waimia.com', 'https://waimia.com/tarifs']);
     assert.deepEqual(real.newSinceLastInspection, ['https://waimia.com/blog/neuf']);
     assert.equal(real.latestGeneratedAt, '2026-10-04T21:20:22.455Z');
+  } finally {
+    await rm(dir, { recursive: true, force: true });
+  }
+});
+
+// ── Mémoire de la tâche (docs/seo/data/state/brave-submitted.json) ─────────────────────────
+
+const sent = (lastmod) => ({ lastmod, submittedAt: '2026-10-05T06:30:00.000Z' });
+
+test('mémoire : une URL soumise et inchangée ne ressort plus, même dans la fenêtre de jours', () => {
+  const memory = { [loc('/blog/d')]: sent('2026-10-12'), [loc('/blog/c')]: sent('2026-10-10') };
+  const sel = selectFromSitemap(RECENT_SITEMAP, { now: BRAVE_RUN, submitted: memory });
+  assert.equal(sel.mode, 'mémoire');
+  assert.ok(!sel.toSubmit.includes(loc('/blog/d')));
+  assert.ok(!sel.toSubmit.includes(loc('/blog/c')));
+  assert.equal(sel.alreadySubmitted, 2);
+});
+
+test('mémoire : sans fenêtre de jours, une URL jamais soumise part même si son lastmod est ancien', () => {
+  const sel = selectFromSitemap(RECENT_SITEMAP, { now: BRAVE_RUN, submitted: {} });
+  // Plus récentes d'abord, puis la page sans lastmod jamais soumise, une seule fois.
+  assert.deepEqual(sel.toSubmit, [loc('/blog/d'), loc('/blog/c'), loc('/services/a'), loc('/services/b'), loc('/'), loc('/contact')]);
+  const again = selectFromSitemap(RECENT_SITEMAP, { now: BRAVE_RUN, submitted: { [loc('/contact')]: sent(null) } });
+  assert.ok(!again.toSubmit.includes(loc('/contact')));
+});
+
+test('mémoire : une URL ressort quand son lastmod devient plus récent que celui de sa soumission', () => {
+  assert.equal(needsSubmission(sent('2026-10-10'), '2026-10-10T00:00:00.000Z'), false);
+  assert.equal(needsSubmission(sent('2026-10-10'), '2026-10-12T00:00:00.000Z'), true);
+  assert.equal(needsSubmission(sent('2026-10-12'), '2026-10-10T00:00:00.000Z'), false);
+  assert.equal(needsSubmission(undefined, null), true);
+});
+
+test('mémoire : le reste au-delà du plafond revient seul à l\'exécution suivante, sans offset', () => {
+  const many = Array.from({ length: 47 }, (_, i) => U(`/p/${String(i).padStart(2, '0')}`, D('09-01')));
+  const first = selectFromSitemap(many, { now: BRAVE_RUN, submitted: {} });
+  assert.equal(first.count, 40);
+  const { nextState } = recordSubmissions(null, first.toSubmit, many, { now: BRAVE_RUN });
+  const second = selectFromSitemap(many, { now: new Date('2026-10-19T06:21:00.000Z'), submitted: nextState.urls });
+  assert.deepEqual(second.toSubmit, first.remaining);
+  assert.match(formatFromSitemap({ generatedAt: 'x', submitUrl: 'y', sitemap: 'z', latestGeneratedAt: null, ...first }), /reviennent seules/);
+});
+
+test('mémoire : la file de la collecte est filtrée elle aussi', () => {
+  const sel = selectFromSitemap(RECENT_SITEMAP, { now: BRAVE_RUN, extra: [loc('/services/b')], submitted: { [loc('/services/b')]: sent('2026-10-04') } });
+  assert.ok(!sel.toSubmit.includes(loc('/services/b')));
+  assert.equal(sel.fromCollectCount, 0);
+});
+
+test('enregistrement : garde le lastmod du sitemap, refuse les URL hors site ou hors sitemap', () => {
+  const { nextState, recorded, rejected } = recordSubmissions({ urls: { [loc('/')]: sent('2026-09-01') } }, [loc('/blog/c'), 'https://autre-site.test/page', loc('/inconnue'), ''], RECENT_SITEMAP, { now: BRAVE_RUN });
+  assert.deepEqual(recorded, [loc('/blog/c')]);
+  assert.deepEqual(rejected.map((r) => r.reason), ['hors de https://waimia.com', 'absente du sitemap de production']);
+  assert.deepEqual(nextState.urls[loc('/blog/c')], { lastmod: '2026-10-10', submittedAt: BRAVE_RUN.toISOString() });
+  assert.deepEqual(nextState.urls[loc('/')], sent('2026-09-01'));
+});
+
+test('enregistrement puis file : écrit la mémoire, et le mode autonome la lit', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'brave-memoire-'));
+  try {
+    const file = join(dir, 'sitemap-0.xml');
+    const url = (path, lastmod) => `<url><loc>https://waimia.com${path}</loc><lastmod>${lastmod}</lastmod></url>`;
+    await writeFile(file, `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${url('/a', D('10-01'))}${url('/b', D('10-02'))}</urlset>`);
+    await mkdir(join(dir, 'state'));
+    const out = await runRecord(['https://waimia.com/a'], { sitemap: file, now: BRAVE_RUN, file: join(dir, 'state', 'brave-submitted.json') });
+    assert.equal(out.total, 1);
+    const queue = await runFromSitemap({ sitemap: file, now: BRAVE_RUN, dataDir: dir });
+    assert.equal(queue.mode, 'mémoire');
+    assert.deepEqual(queue.toSubmit, ['https://waimia.com/b']);
+    const legacy = await runFromSitemap({ sitemap: file, now: BRAVE_RUN, dataDir: dir, useMemory: false });
+    assert.equal(legacy.mode, 'fenêtre');
   } finally {
     await rm(dir, { recursive: true, force: true });
   }
