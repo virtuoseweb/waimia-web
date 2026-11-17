@@ -50,7 +50,7 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 - ChatGPT Wallet (13 novembre) : déjà jugé le 14 novembre (abonnés Pro aux États-Unis). Agents d'entreprise de ChatGPT (Search Engine Roundtable, 16 novembre) : déploiement progressif aux États-Unis d'une fonction déjà couverte par `/blog/fiche-entreprise-chatgpt-business-hub` : rien.
 - Hors silo : Qwen4-Max, LangChain, Ask Maps de Google, billets santé et science d'OpenAI.
 
-**Actions du jour** (commit de contenu : voir commit de suivi) : une création, aucune révision (aucune règle de 4.1 n'en impose un mardi).
+**Actions du jour** (commit de contenu https://github.com/virtuoseweb/waimia-web/commit/f3b9e5759b890b203fb32378272c209ba93044f3) : une création, aucune révision (aucune règle de 4.1 n'en impose un mardi).
 
 1. Création de `/blog/cepd-interet-legitime-ia-lignes-directrices` (entrée `actu-2026-11-17-cepd-interet-legitime-ia`, actualité, silo `conformite`).
    - Pourquoi : règle 4.0, événement majeur (obligation RGPD qui touche les PME) non couvert. Elle prend la place de la création du calendrier du jour ; les quatre entrées planifiées de 2026-W47 restent pour mercredi à dimanche.
@@ -65,6 +65,8 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 **`llms.txt`** : la page figure dans `dist/client/llms.txt`, ligne reprenant title et description.
 
 **GF-1** (build servi, `serve-dist.mjs`, Playwright, 1440 et 390 px) : 200, H1 visible (opacité 1, transform identité), débordement horizontal 0 avant et après défilement complet, 0 erreur console, illustration chargée, tableau rendu, JSON-LD `NewsArticle` et `FAQPage`. Capture mobile relue : H1, chapô, auteur, date et haut de l'illustration au-dessus de la ligne de flottaison ; espaces insécables ajoutés avant « : ; ? ! » après la première capture (deux-points rejeté en début de ligne). Balayage de débordement sur tout le build non fait.
+
+**CI et production** : run CI 44035747062 sur `f3b9e57` : `success` (Build, SEO build de production, E2E 86 réussis, 38 ignorés). waimia.com après déploiement (07:05 UTC) : `/blog/cepd-interet-legitime-ia-lignes-directrices` 200 (H1 servi, URL dans `sitemap-0.xml` et `sitemap-news.xml`), illustration `cepd-interet-balance-paper.webp` 200, `/` 200, `/actualites` 200. Aucune redirection dans le lot. Aucun revert. `publishedAt` 07:58 heure de Paris, push à 08:03.
 
 **Calendrier** : ajouté et livré `actu-2026-11-17-cepd-interet-legitime-ia` ; prévu ensuite (2026-W47) : `idee-workflow-erreur-n8n-appels-ia`, `idee-exports-erp-pour-ia`, `idee-site-lisible-agents-ia`, `idee-migrer-chatgpt-personnel-business` ; aucune entrée abandonnée ; `check-calendar.mjs` : 2 semaines d'avance après 2026-W47, 12 idées, 13 planifiées.
 
