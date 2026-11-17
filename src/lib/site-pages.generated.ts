@@ -12270,6 +12270,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/cepd-interet-legitime-ia-lignes-directrices",
+    "title": "Intérêt légitime : ce que les lignes directrices finales du CEPD changent pour les projets IA d'une PME",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/cepd-interet-legitime-ia-lignes-directrices.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/chatbot-rh-pme",
     "title": "Chatbot RH en PME : ce qu'il répond bien et ce qu'il ne doit jamais trancher",
     "group": "blog",
@@ -14049,6 +14058,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/brain-circuit",
       "/blog/cabler-son-crm-en-10-jours",
       "/blog/cahier-des-charges-refonte-site",
+      "/blog/cepd-interet-legitime-ia-lignes-directrices",
       "/blog/chatbot-rh-pme",
       "/blog/chatgpt-dots-depuis-le-lancement",
       "/blog/chatgpt-dots-europe-disponibilite",
