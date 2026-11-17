@@ -37,13 +37,13 @@ Les noms d'agences ou de clients ne sont jamais inventés : les références ci
 | Champ | Valeur |
 | --- | --- |
 | Nom commercial | Waimia |
-| Raison sociale | VirtuoseWeb |
+| Dénomination | Simon Beros, entrepreneur individuel (EI), marque Waimia (mentions légales) |
 | Fondateur | Simon Beros |
 | SIREN | 890426307 |
 | TVA intracommunautaire | FR07890426307 |
-| SIRET (siège actif au registre) | 89042630700041 [T : societe.com, 21/10/2026, à confirmer sur l'avis de situation Sirene] |
+| SIRET (établissement principal) | 89042630700058 (extrait URSSAF du 02/11/2026, `src/site.config.ts`) |
 | Date de création | 15/10/2020 (`src/site.config.ts`, inscription Sirene) |
-| Adresse d'activité | Avenue de la République, 33200 Bordeaux. Aucun numéro de rue : ne pas en inventer. Si le formulaire le permet, masquer l'adresse ou indiquer une zone desservie |
+| Adresse | 221 avenue de la République, 33200 Bordeaux (siège et établissement principal, `src/site.config.ts`, mentions légales) |
 | Téléphone | +33 6 20 61 56 93 |
 | E-mail | contact@virtuoseweb.fr |
 | Site | https://waimia.com |
@@ -73,6 +73,37 @@ Les noms d'agences ou de clients ne sont jamais inventés : les références ci
 - Siège : Montpellier au registre. L'adresse d'activité bordelaise n'est pas un établissement déclaré, et elle n'a pas de numéro.
 - Conséquence : PagesJaunes demandera probablement un justificatif pour Bordeaux [O : règle générale, sans cas confirmé pour Waimia]. Bing vérifie par téléphone, e-mail ou courrier [T] ; la règle des autres plateformes n'a pas été lue.
 - Décision attendue : soit renseigner Bordeaux avec un justificatif d'activité, soit utiliser la zone desservie sans adresse précise, soit attendre une pièce (Kbis ou RNE) qui montre Bordeaux. Aucune adresse montpelliéraine précise ne figure dans ce document.
+
+## Kit du 17/11/2026 : feuille « Annuaires backlinks » (12 entrées)
+
+Source : feuille Claude « Opportunités Allan Faure, leads et annuaires backlinks (nov. 2026) », onglet « Annuaires backlinks », lue le 17/11/2026. Rien n'est inscrit. Préalables : décision de Simon sur la marque ; création des comptes, mots de passe et validations e-mail par Simon. UTM sur le lien quand le champ l'accepte : `?utm_source=annuaire-<nom>&utm_medium=referral`.
+
+**Blocage** : Anaska et Agenciesrated exigent une adresse sur le domaine du site. `waimia.com` n'a pas de MX (15/11/2026) : activer d'abord une boîte ou une redirection `@waimia.com`.
+
+| Ordre | Cible | Lien annoncé | Description |
+| --- | --- | --- | --- |
+| 1 | NoCodeLowCode.fr (article invité) | Suivi, vérifié par Allan | Article inédit de Simon, 800 mots minimum ; angle proposé : retour d'expérience d'audit d'automatisation en PME. Idée en 3 lignes via leur page contact |
+| 2 | Propulse ton site | Suivi annoncé | D1 |
+| 3 | AI Agency France | Suivi annoncé | D2 |
+| 4 | Agenciesrated | Suivi annoncé | D3, après la boîte `@waimia.com` |
+| 5 | Entreprise.ai | Non précisé | D4 ; type « Agence IA », budget 1 000 à 5 000 € |
+| 6 | Ordiama | Non précisé | D5 ; taille « Solo » |
+| 7 | annuaireagences.fr | Non précisé | D6 |
+| 8 | La Fabrique du Net | Non précisé en gratuit | Description longue de la fiche ci-dessus |
+| 9 | Zephyr Web | Aucun en gratuit | Revendiquer la fiche Sirene ; description courte |
+| 10 | AI Agency Search | Nofollow en gratuit | D2, version anglaise |
+| 11 | Singulareety | Non précisé | D5 |
+| 12 | Anaska | Non précisé | D3, après la boîte `@waimia.com` |
+
+Descriptions distinctes (Propulse ton site refuse le contenu dupliqué). Aucun client, chiffre ni avis inventé : chaque fait vient du site (offres, prix de `src/data/pricing.ts`, audit de 45 minutes de `/audit-ia-pme`).
+
+- **D1** : Waimia accompagne les PME qui perdent du temps en ressaisie entre leurs outils. Simon Beros, son fondateur, audite les processus, puis construit les automatisations (n8n, Make), les agents IA et les intégrations de Claude qui relient CRM, facturation et documents. Basée à Bordeaux, l'agence intervient partout en France et commence par un audit gratuit.
+- **D2 (EN)** : Waimia is a Bordeaux-based AI agency for small and mid-sized businesses. It builds process automations with n8n and Make, AI agents with human validation, Claude integrations, custom internal tools, and SEO/GEO for visibility in AI answer engines. Every project starts with a free audit.
+- **D2 (FR)** : Agence IA bordelaise pour PME : automatisations n8n et Make, agents IA avec validation humaine, intégration de Claude, outils internes sur mesure, SEO et GEO pour être cité par les moteurs de réponse IA. Chaque projet commence par un audit gratuit.
+- **D3** : Agence IA et automatisation pour PME, fondée par Simon Beros à Bordeaux. Audit IA gratuit, puis automatisations, agents IA supervisés et outils internes dont le client garde le code. Conseil et formation des équipes à Claude et aux assistants IA.
+- **D4** : Prestataire IA pour PME : diagnostic des processus, automatisations n8n et Make, agents IA, intégration de Claude, Mistral ou ChatGPT, applications internes sur mesure. Audit gratuit de 45 minutes, puis sprint de découverte à 999 € HT.
+- **D5** : Studio indépendant d'automatisation et d'agents IA à Bordeaux. Simon Beros conçoit des workflows n8n et Make et des agents IA avec validation humaine, puis forme les équipes à les faire vivre.
+- **D6** : Agence de développement et d'IA à Bordeaux : applications internes sur mesure, sites web (Astro, Webflow, WordPress), automatisations et intégrations d'IA pour les PME. Audit gratuit avant tout devis.
 
 ## Tableau priorisé
 
