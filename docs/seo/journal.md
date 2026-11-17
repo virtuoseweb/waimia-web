@@ -37,6 +37,29 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### 2026-11-17 (contrôle à sept jours des mises en ligne du 10 novembre 2026, collecte du 15 novembre 2026)
+
+Contrôle en lecture seule, hors session de production : aucune page modifiée.
+
+**Données** : collecte du 15 novembre 2026 à 23:23 UTC (`generatedAt`), comparée à celle du 9 novembre 2026 (commit `3f6dc418`). Search Console s'arrête au 12 novembre : deux jours seulement après les mises en ligne. Umami lu dans son interface du 10 au 17 novembre. Facture lue par `vercel api /v1/billing/charges`.
+
+**KPI Search Console** : 7 jours, 14 clics (12 le 9 novembre), 3 658 impressions (3 868), CTR 0,38 % (0,31 %), position 31,5 (33,6) · 28 jours, 63 clics (52), 13 418 impressions (11 114), CTR 0,47 % (0,47 %), position 31,3 (31,8) · 220 pages indexées sur 288 ; aucune des pages ci-dessous parmi les 68 non indexées.
+
+**Bilan des actions du 10 novembre** (28 jours, collecte du 9 novembre puis du 15 novembre) : trop tôt pour toutes.
+- PR #174, `/implantations/bordeaux` : 0 clic, 112 impressions, position 54,1, puis 1 clic, 151 impressions, position 51,3 (43,8 sur 7 jours). « agence ia bordeaux » : position 37, puis 34,8 (29,2 sur 7 jours). « audit ia bordeaux » : 27,3, inchangée. « agence automatisation bordeaux » : 28,5, inchangée.
+- PR #172, `/implantations/montpellier` : 2 clics, 231 impressions, position 34,2, puis 2 clics, 215 impressions, position 29,1.
+- PR #172, `/services/base-de-connaissance-ia` : 0 clic, 226 impressions, position 22,7, puis 0 clic, 258 impressions, position 22,7.
+- PR #172, `/ressources/outils/charte-ia-entreprise` : 1 clic, 129 impressions, position 28,4, puis 1 clic, 120 impressions, position 27,8.
+- PR #168, `/blog/claude-max-ou-team-petite-equipe` : nouvelle, 1 clic, 30 impressions, position 7,9.
+- PR #168, `/blog/chatgpt-pro-ou-business-petite-equipe` : nouvelle, 0 clic, 18 impressions, position 8,3.
+- PR #168, pages différenciées : `/blog/agent-ia-vs-automatisation-classique-2026` (5 impressions, position 18,4), `/blog/seo-geo-etre-cite-par-les-ia-generatives` (4 impressions, position 22,5) et `/blog/tableau-de-bord-pme-quelles-donnees-suivre` (7 impressions, position 25,7) apparaissent pour la première fois ; `/ressources/guides/claude-managed-agents` passe de 13 à 17 impressions, position 21,1 puis 17,8. Aucun clic.
+
+**Umami** (10 au 17 novembre) : 153 visiteurs, dont 27 en France (31 visites, 67 vues, rebond 48 %, 2 min 20) ; 14 visiteurs français viennent d'un moteur de recherche. Singapour (83) et Chine (26) : rebond global 89 %, 27 s, concentrés sur `/contact` (62 visiteurs), profil de robots. Événements : `lecture_50` 19, `lecture_90` 13, `cta_ressource` 2, `cta_audit` 1 (le test du 10 novembre, donc 0 réel), `cta_rdv`, `cta_contact`, `cta_direct` et `contact_submitted` 0. Objectifs et entonnoirs : aucune conversion hors test. Le compteur d'événements filtré sur la France n'a pas été obtenu.
+
+**Vercel** : purge active, 0 échec (`~/Library/Logs/vercel-purge.log`, dernier passage le 17 novembre à 05:20 UTC). Stockage des déploiements de `waimia-web` : 429 à 465 Go et 1,43 à 1,55 $ par jour du 1er au 9 novembre, 0,5 à 1,2 Go du 11 au 15 novembre. Le coût facturé est à 0 $ sur toutes les lignes de l'équipe depuis le 10 novembre : ce zéro n'est pas attribuable à la seule purge.
+
+**Pour Simon** : filtrer ou non le trafic de Singapour et de Chine dans Umami, qui fausse les visiteurs et les lectures. Rejuger les pages du 10 novembre à partir de 2026-W49, quand 28 jours pleins seront disponibles.
+
 ### 2026-11-17 (session de production du mardi, 2026-W47, collecte du 15 novembre 2026)
 
 **Données** : collecte du 15 novembre 2026 à 23:23 UTC, **fraîche** (`freshness.mjs` : « FRAÎCHE · semaine 2026-W46 · generatedAt 2026-11-15T23:23:49.977Z · collecte complète de 31.3 h (limite : 48 h) »). Aucune relance. Flux et concurrents relancés en local en simulation (`run.mjs --dry-run --only=feeds,competitors`, rien commité) : « 2 étape(s) ok, 0 en erreur » ; flux en erreur : `cepd` (HTTP 503, déjà vu du 14 au 16 novembre ; une semaine, pas encore trois).
