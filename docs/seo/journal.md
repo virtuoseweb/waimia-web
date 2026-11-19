@@ -52,7 +52,7 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 - Olala mini d'OVHcloud (17 novembre) : modèle annoncé pour le 19 novembre, éditeur hors liste du runbook ; rien.
 - Introduction en bourse d'Anthropic (19 novembre) : financier, hors silo.
 
-**Actions** (commit de contenu : voir le commit de suivi) : trois créations, une révision.
+**Actions** (commit de contenu https://github.com/virtuoseweb/waimia-web/commit/c4f0a61e7d961b081ec17038dd0510c9741581c8) : trois créations, une révision.
 
 1. Création de `/blog/gpt-6-2-astra-sol-pme` (entrée `actu-2026-11-18-gpt-6-2-astra-sol`, actualité, silo `conseil`).
    - Pourquoi : règle 4.0, nouveau modèle d'un éditeur couvert, absent du site.
@@ -82,6 +82,8 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 **`llms.txt`** : les trois pages figurent dans `dist/client/llms.txt`, ligne reprenant title et description.
 
 **GF-1** (build servi, `serve-dist.mjs`, Playwright, 1440 et 390 px, sur les trois pages et le comparatif) : 200, H1 visible (opacité 1), 0 erreur console, JSON-LD `NewsArticle` + `FAQPage` sur l'actualité, `Article` + `FAQPage` ailleurs. Premier passage : débordement horizontal de 78 px à 390 px sur le guide (bloc `<pre>` d'arborescence) ; remplacé par une phrase, rebuild, débordement 0 sur les huit captures. Captures mobiles relues : H1, chapô et haut de l'illustration au-dessus de la ligne de flottaison. Balayage de débordement sur tout le build non fait.
+
+**CI et production** : run CI 44586168991 sur `c4f0a61` : `success` (Build, SEO build de production, E2E). Statut GitHub « Vercel : Deployment has completed ». waimia.com après déploiement : `/` 200, `/blog/gpt-6-2-astra-sol-pme` 200 (H1 servi, URL dans `sitemap-0.xml` et `sitemap-news.xml`), `/ressources/guides/claude-code-mods` 200, `/blog/mods-claude-code-securite-pme` 200 (les deux dans `sitemap-0.xml`), `/ressources/comparatifs/claude-platform-vs-openai-platform` 200 (« GPT-6.2 Astra » servi), illustration `gpt-6-aiguillage-paper.webp` 200. Aucune redirection dans le lot. Aucun revert.
 
 **Brave** : 28 URL dans la file (`brave-queue.mjs --from-sitemap --days=8`, avant le push), à soumettre par la tâche Brave.
 
