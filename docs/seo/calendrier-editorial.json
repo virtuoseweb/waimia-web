@@ -3855,7 +3855,7 @@
         "https://help.openai.com/en/articles/10479654-onboarding-employees-with-existing-chatgpt-accounts (lu le 10 novembre 2026)",
         "https://help.openai.com/en/articles/8542115-chatgpt-business-general-faq (lu le 10 novembre 2026)"
       ],
-      "semainePrevue": "2026-W47",
+      "semainePrevue": "2026-W48",
       "statut": "planifié",
       "pr": null,
       "mesureAttendue": "Page indexée deux collectes après la mise en production ; impressions sur la requête cible.",
@@ -4178,6 +4178,105 @@
       "mesureAttendue": "/blog/fiche-entreprise-chatgpt-business-hub, requête « fiche entreprise chatgpt » : valeur de départ à relever à la collecte du 22 novembre 2026 (page publiée le 12 novembre). Attendu : page indexée et impressions sur la requête. À juger à partir de 2026-W49.",
       "resultat": null,
       "origine": "Demande de Simon du 17 novembre 2026 ; annonce OpenAI du 13 novembre 2026 (ChatGPT Wallet et guide aux commerçants) et Search Engine Roundtable du 16 novembre 2026, non couverts par la page."
+    },
+    {
+      "id": "actu-2026-11-18-gpt-6-2-astra-sol",
+      "type": "article",
+      "titreProvisoire": "GPT-6.2 Astra et Sol, sortis le 17 novembre 2026 : ce qui change pour une PME",
+      "requeteCible": "gpt-6.2",
+      "intention": "Savoir s'il faut changer de modèle OpenAI, combien ça coûte face à Claude et ce qui casse dans une intégration existante.",
+      "urlCible": "/blog/gpt-6-2-astra-sol-pme",
+      "angle": "Actualité (runbook 4.0), prévue pour la session du 18 novembre 2026, livrée le 19 à la demande de Simon. Recherche du 18 novembre 2026 : les pages lues (nocodetoulouse.fr, frandroid.com, briefia.fr, fr.qz.com, dev.to) résument l'annonce ; nocodetoulouse.fr écrit à tort que ChatGPT Business n'est pas concerné (la page de tarifs d'OpenAI l'inclut) ; aucune ne met les prix en regard des équivalents Claude, ni ne traduit le guide de migration (effort none refusé, temperature à retirer, outils par Responses, instructions placées après l'historique, raisonnement supprimé si l'historique est réécrit) pour un scénario n8n ou Make.",
+      "sourcesALire": [
+        "https://openai.com/index/introducing-gpt-6-2-astra-sol (lu le 18 novembre 2026)",
+        "https://developers.openai.com/api/docs/guides/latest-model (lu le 18 novembre 2026)",
+        "https://developers.openai.com/api/docs/pricing (lu le 18 novembre 2026)",
+        "https://learn.chatgpt.com/docs/pricing (lu le 18 novembre 2026)",
+        "https://learn.chatgpt.com/docs/whats-new/gpt-62-astra-sol (lu le 18 novembre 2026)"
+      ],
+      "semainePrevue": "2026-W47",
+      "statut": "en cours",
+      "pr": null,
+      "mesureAttendue": "Page indexée deux collectes après la mise en production ; premières impressions sur « gpt-6.2 ». À juger à partir de 2026-W49.",
+      "resultat": null,
+      "origine": "Veille du 18 novembre 2026 : flux OpenAI News et Simon Willison du 17 novembre 2026 (« Introducing GPT-6.2 Astra and Sol ») ; nouveau modèle d'un éditeur couvert, absent de src/content."
+    },
+    {
+      "id": "w47-revision-claude-platform-vs-openai-gpt-6-2",
+      "type": "révision",
+      "titreProvisoire": "Claude Platform ou OpenAI Platform : cellules OpenAI passées à GPT-6.2",
+      "requeteCible": "claude vs openai api",
+      "intention": "Comparer les plateformes avec les prix en vigueur.",
+      "urlCible": "/ressources/comparatifs/claude-platform-vs-openai-platform",
+      "angle": "Règle 4.1.4 : la page affirmait que Fable 5.2 coûtait moins cher que GPT-6 Astra ; GPT-6.2 Astra est au même tarif depuis le 17 novembre 2026. Tableau, FAQ et prose mis à jour, lien vers l'actualité.",
+      "sourcesALire": [
+        "https://developers.openai.com/api/docs/pricing (lu le 18 novembre 2026)",
+        "https://platform.claude.com/docs/en/about-claude/pricing (lu le 18 novembre 2026)"
+      ],
+      "semainePrevue": "2026-W47",
+      "statut": "en cours",
+      "pr": null,
+      "mesureAttendue": "Pas de baisse d'impressions de la page sur 28 jours. À juger à partir de 2026-W49.",
+      "resultat": null,
+      "origine": "Veille du 18 novembre 2026, annonce GPT-6.2 qui rend la page fausse."
+    },
+    {
+      "id": "demande-simon-2026-11-19-guide-mods-claude-code",
+      "type": "guide",
+      "titreProvisoire": "Mods Claude Code : créer, installer et contrôler un mod",
+      "requeteCible": "mods claude code",
+      "intention": "Comprendre, installer et encadrer les mods de Claude Code.",
+      "urlCible": "/ressources/guides/claude-code-mods",
+      "angle": "Demande de Simon du 19 novembre 2026 (un guide sur https://code.claude.com/docs/fr/plugins/mods/overview). Recherche du 19 novembre 2026 : aucune page française sur les mods ne se classe ; le site n'en parlait pas. Le guide apporte le choix mod, hook, skill ou MCP, la procédure en cinq étapes pour le faire écrire par Claude, où il s'exécute et comment le couper.",
+      "sourcesALire": [
+        "https://code.claude.com/docs/fr/plugins/mods/overview (lu le 19 novembre 2026)",
+        "https://code.claude.com/docs/en/plugins/mods/create (lu le 19 novembre 2026)",
+        "https://code.claude.com/docs/en/plugins/mods/admin (lu le 19 novembre 2026)"
+      ],
+      "semainePrevue": "2026-W47",
+      "statut": "en cours",
+      "pr": null,
+      "mesureAttendue": "Page indexée deux collectes après la mise en production ; premières impressions sur « mods claude code ». À juger à partir de 2026-W49.",
+      "resultat": null,
+      "origine": "Demande de Simon du 19 novembre 2026, en session ; documentation d'Anthropic sur les mods (Claude Code v2.1.286 et plus)."
+    },
+    {
+      "id": "demande-simon-2026-11-19-article-mods-claude-code-securite",
+      "type": "article",
+      "titreProvisoire": "Mods Claude Code en entreprise : les risques et la politique à poser",
+      "requeteCible": "mods claude code sécurité",
+      "intention": "Comprendre, installer et encadrer les mods de Claude Code.",
+      "urlCible": "/blog/mods-claude-code-securite-pme",
+      "angle": "Demande de Simon du 19 novembre 2026 (un article sur les mods). Angle distinct du guide : la gouvernance pour une PME. La documentation d'Anthropic montre que le garde-fou intégré manque avec une clé d'API ou un fournisseur cloud sans paramètres gérés, et que les appels propres d'un mod échappent aux règles deny ; trois politiques et la revue par claude plugin validate.",
+      "sourcesALire": [
+        "https://code.claude.com/docs/fr/plugins/mods/overview (lu le 19 novembre 2026)",
+        "https://code.claude.com/docs/en/plugins/mods/create (lu le 19 novembre 2026)",
+        "https://code.claude.com/docs/en/plugins/mods/admin (lu le 19 novembre 2026)"
+      ],
+      "semainePrevue": "2026-W47",
+      "statut": "en cours",
+      "pr": null,
+      "mesureAttendue": "Page indexée deux collectes après la mise en production ; premières impressions sur « mods claude code sécurité ». À juger à partir de 2026-W49.",
+      "resultat": null,
+      "origine": "Demande de Simon du 19 novembre 2026, en session ; documentation d'Anthropic sur les mods (Claude Code v2.1.286 et plus)."
+    },
+    {
+      "id": "idee-chatgpt-for-sales-pme",
+      "type": "article",
+      "titreProvisoire": "ChatGPT for Sales : ce que le plugin Ventes change pour une PME",
+      "requeteCible": "chatgpt for sales",
+      "intention": "Savoir si le plugin Ventes de ChatGPT remplace un outil de prospection ou un CRM.",
+      "urlCible": "/blog/chatgpt-for-sales-pme",
+      "angle": "Hypothèse à vérifier : lire l'annonce et la disponibilité (offres, pays) avant d'écrire ; ne rien promettre sur un CRM que le site n'intègre pas.",
+      "sourcesALire": [
+        "https://openai.com/index/introducing-chatgpt-for-sales"
+      ],
+      "semainePrevue": null,
+      "statut": "idée",
+      "pr": null,
+      "mesureAttendue": "Page indexée deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "Flux OpenAI News du 17 novembre 2026 (« Introducing ChatGPT for Sales »), vu le 18 novembre 2026 ; non couvert par src/content."
     }
   ]
 }

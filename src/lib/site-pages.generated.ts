@@ -7977,6 +7977,88 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/ressources/guides/claude-code-mods",
+    "title": "Mods Claude Code : créer, installer et contrôler un mod · Waimia",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/claude-code-mods.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "Mods Claude Code : créer, installer et contrôler un mod",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#3",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Mod, hook de paramètres, skill ou serveur MCP",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "process-steps",
+        "label": "Faire écrire un mod par Claude, en cinq étapes",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Où un mod s'exécute, et où il dessine",
+        "variant": "editorial",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#8",
+        "background": "paper-2"
+      },
+      {
+        "type": "tech-when-dual",
+        "label": "Quand écrire un mod, et quand s'en passer",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#10",
+        "background": "paper-2"
+      },
+      {
+        "type": "related-cards-band",
+        "label": "Pour aller plus loin",
+        "background": "paper"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Questions fréquentes",
+        "background": "paper-2"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Personnaliser Claude Code sans ouvrir vos postes à n'importe quel code.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/ressources/guides/claude-cowork",
     "title": "Claude Cowork : fusion dans Claude, prix et Windows (2026)",
     "group": "ressources",
@@ -12657,6 +12739,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/gpt-6-2-astra-sol-pme",
+    "title": "GPT-6.2 Astra et Sol, sortis le 17 novembre 2026 : ce qui change pour une PME",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/gpt-6-2-astra-sol-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/hermes-agent-v0-22-modeles-locaux-connecteurs",
     "title": "Hermes Agent v0.22 : modèles locaux, connecteurs et bac à sable par défaut",
     "group": "blog",
@@ -12824,6 +12915,15 @@ export const SITE_PAGES: SitePage[] = [
     "group": "blog",
     "collection": "blog",
     "file": "blog/logiciel-seo-ia-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/mods-claude-code-securite-pme",
+    "title": "Mods Claude Code en entreprise : ce qu'un mod peut faire sur vos postes, et la politique à poser",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/mods-claude-code-securite-pme.json",
     "editable": false,
     "sections": []
   },
@@ -13978,6 +14078,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/guides/chatgpt-dots",
       "/ressources/guides/choisir-agence-ia-pme",
       "/ressources/guides/claude-code-entreprise",
+      "/ressources/guides/claude-code-mods",
       "/ressources/guides/claude-cowork",
       "/ressources/guides/claude-design",
       "/ressources/guides/claude-duet",
@@ -14101,6 +14202,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/formation-ia-rh-pme",
       "/blog/forward-deployed-engineer",
       "/blog/geo-local-recommande-par-les-ia",
+      "/blog/gpt-6-2-astra-sol-pme",
       "/blog/hermes-agent-v0-22-modeles-locaux-connecteurs",
       "/blog/ia-agence-communication",
       "/blog/ia-artisan-batiment",
@@ -14120,6 +14222,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/installer-hermes-agent-premier-agent",
       "/blog/landing-page-qui-convertit-methode-2026",
       "/blog/logiciel-seo-ia-pme",
+      "/blog/mods-claude-code-securite-pme",
       "/blog/n8n-c-est-quoi",
       "/blog/openclaw-2-0-migration-changements",
       "/blog/plafond-depense-api-ia",

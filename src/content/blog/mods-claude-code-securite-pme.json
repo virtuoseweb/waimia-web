@@ -1,0 +1,139 @@
+{
+ "title_fr": "Mods Claude Code en entreprise : ce qu'un mod peut faire sur vos postes, et la politique à poser",
+ "title_en": "Claude Code mods at work: what a mod can do on your machines, and the policy to set",
+ "seoTitle_fr": "Mods Claude Code : risques et politique en entreprise",
+ "seoTitle_en": "Claude Code mods: risks and company policy",
+ "h1_fr": "Mods Claude Code en entreprise : les risques et la politique à poser",
+ "h1_en": "Claude Code mods at work: the risks and the policy to set",
+ "description_fr": "Un mod Claude Code tourne avec vos droits, sans bac à sable. Ce que bloque le garde-fou intégré, ce qu'il laisse passer, et les réglages pour une PME.",
+ "description_en": "A Claude Code mod runs with your permissions, without a sandbox. What the built-in guard blocks, what it lets through, and the settings for an SMB.",
+ "excerpt_fr": "Les mods de Claude Code sont activés par défaut et s'exécutent avec les droits de l'utilisateur. Le garde-fou intégré, ses angles morts, trois politiques et la revue d'un mod avant de l'autoriser.",
+ "excerpt_en": "Claude Code mods are on by default and run with the user's permissions. The built-in guard, its blind spots, three policies and how to review a mod before allowing it.",
+ "publishedAt": "2026-11-19T19:03:41+01:00",
+ "updatedAt": "2026-11-19T19:03:41+01:00",
+ "editorialType": "Review",
+ "type": "post",
+ "author": "simon-beros",
+ "category": "claude",
+ "tags": [
+  "claude-code",
+  "mods",
+  "securite",
+  "gouvernance-ia",
+  "plugins-claude"
+ ],
+ "readingTime": 8,
+ "heroIllustration": {
+  "src": "/images/illustrations/ds/mods-claude-portique-paper.webp",
+  "alt_fr": "Devant une haute porte fermée, une femme éclaire avec une lampe une caisse ouverte qu'un homme présente",
+  "alt_en": "In front of a tall closed door, a woman shines a lamp into an open crate a man presents",
+  "side": "right"
+ },
+ "sources": [
+  {
+   "name": "Anthropic, Claude Code, Aperçu des mods, lu le 19 novembre 2026",
+   "url": "https://code.claude.com/docs/fr/plugins/mods/overview",
+   "type": "enterprise"
+  },
+  {
+   "name": "Anthropic, Claude Code, Manage mods for your organization, lu le 19 novembre 2026",
+   "url": "https://code.claude.com/docs/en/plugins/mods/admin",
+   "type": "enterprise"
+  },
+  {
+   "name": "Anthropic, Claude Code, Create a mod, lu le 19 novembre 2026",
+   "url": "https://code.claude.com/docs/en/plugins/mods/create",
+   "type": "enterprise"
+  }
+ ],
+ "relatedCases": [],
+ "relatedPosts": [
+  "claude-code-skills",
+  "claude-code-entreprise",
+  "risques-claude-pme"
+ ],
+ "slug": "mods-claude-code-securite-pme",
+ "faq_fr": [
+  {
+   "q": "Un mod Claude Code est-il dangereux ?",
+   "a": "Tout dépend de son auteur : un mod s'exécute avec les droits de l'utilisateur, sans bac à sable : il peut lire et écrire ses fichiers, lancer des programmes, faire des requêtes réseau et lire ses clés d'API. Lisez ce que montre claude plugin validate avant de l'installer."
+  },
+  {
+   "q": "Comment empêcher les mods installés par les utilisateurs ?",
+   "a": "Dans les paramètres gérés, réglez l'option allowManagedModsOnly du garde-fou cc-plugin-sec-default@builtin, sous pluginConfigs. Aucun mod apporté par un utilisateur n'exécute alors ses fonctions, y compris ceux que Claude écrit en session, et l'utilisateur ne peut pas annuler ce réglage depuis ses propres fichiers."
+  },
+  {
+   "q": "Le garde-fou de Claude Code est-il toujours actif ?",
+   "a": "Non. Il se charge si la machine a des paramètres gérés ou un fichier managed-mcp.json, ou si la session est connectée à une offre Team ou Enterprise. Avec une clé d'API, sur Amazon Bedrock, Google Cloud ou Microsoft Foundry sans paramètres gérés, ou avec un jeton CLAUDE_CODE_OAUTH_TOKEN, il ne se charge pas."
+  },
+  {
+   "q": "Mes règles deny protègent-elles mes fichiers .env d'un mod ?",
+   "a": "Pas complètement. Une règle deny empêche Claude de lire le fichier, et le garde-fou empêche un mod d'approuver cet appel. Mais le mod peut lire le fichier lui-même avec $.fs.read, ou lancer un programme qui le lit. Seul le fait d'empêcher le mod de se charger protège le fichier."
+  },
+  {
+   "q": "Comment savoir ce que fait un mod avant de l'installer ?",
+   "a": "Récupérez ses fichiers et lancez claude plugin validate sur son dossier. La ligne hooks: liste les événements qu'il reçoit, la ligne calls: les méthodes qu'il appelle, comme $.http.fetch, $.process.run ou $.fs.read. Anthropic déconseille d'approuver un mod qui échoue à cette commande."
+  }
+ ],
+ "faq_en": [
+  {
+   "q": "Is a Claude Code mod dangerous?",
+   "a": "It depends on who wrote it: a mod runs with the user's permissions, without a sandbox: it can read and write their files, start programs, make network requests and read their API keys. Read what claude plugin validate shows before installing it."
+  },
+  {
+   "q": "How do I stop user-installed mods?",
+   "a": "In managed settings, set the allowManagedModsOnly option of the cc-plugin-sec-default@builtin guard, under pluginConfigs. No user-supplied mod then runs its functions, including those Claude writes in a session, and users cannot undo the setting from their own files."
+  },
+  {
+   "q": "Is Claude Code's guard always active?",
+   "a": "No. It loads if the machine has managed settings or a managed-mcp.json file, or if the session is signed in to a Team or Enterprise plan. With an API key, on Amazon Bedrock, Google Cloud or Microsoft Foundry without managed settings, or with a CLAUDE_CODE_OAUTH_TOKEN, it does not load."
+  },
+  {
+   "q": "Do my deny rules protect my .env files from a mod?",
+   "a": "Not fully. A deny rule stops Claude from reading the file, and the guard stops a mod from approving that call. But the mod can read the file itself with $.fs.read, or start a program that reads it. Only keeping the mod from loading protects the file."
+  },
+  {
+   "q": "How can I tell what a mod does before installing it?",
+   "a": "Get its files and run claude plugin validate on its folder. The hooks: line lists the events it receives, the calls: line the methods it calls, such as $.http.fetch, $.process.run or $.fs.read. Anthropic advises against approving a mod that fails this command."
+  }
+ ],
+ "headings": [
+  {
+   "depth": 2,
+   "slug": "essentiel",
+   "text": "Ce qu'un mod peut faire sur un poste"
+  },
+  {
+   "depth": 2,
+   "slug": "garde-fou",
+   "text": "Le garde-fou intégré : ce qu'il bloque, et quand il est absent"
+  },
+  {
+   "depth": 2,
+   "slug": "politiques",
+   "text": "Trois politiques possibles"
+  },
+  {
+   "depth": 2,
+   "slug": "revue",
+   "text": "Relire un mod avant de l'autoriser"
+  },
+  {
+   "depth": 2,
+   "slug": "auto",
+   "text": "Le cas des mods que Claude écrit lui-même"
+  },
+  {
+   "depth": 2,
+   "slug": "lundi",
+   "text": "Lundi matin : cinq gestes"
+  }
+ ],
+ "body_sections": [
+  {
+   "type": "editorial-prose",
+   "html_fr": "<h2 id=\"essentiel\">Ce qu'un mod peut faire sur un poste</h2>\n<p>Depuis Claude Code v2.1.286, les mods sont activés par défaut. Un mod est un plugin qui exécute du code JavaScript ou TypeScript à l'intérieur de Claude Code, avec les droits de la personne qui l'installe, et sans bac à sable. Pour une PME dont les développeurs ou les techniciens utilisent Claude Code, la question n'est donc pas de savoir si un mod est utile, mais qui a le droit d'en charger un.</p>\n<p>Selon l'<a href=\"https://code.claude.com/docs/fr/plugins/mods/overview\" rel=\"noopener noreferrer\" target=\"_blank\">aperçu des mods d'Anthropic</a>, une fois chargé, un mod peut :</p>\n<ul>\n<li>lire et écrire des fichiers partout où le compte de l'utilisateur le peut, lancer des programmes et faire des requêtes réseau ;</li>\n<li>lire les variables d'environnement et les fichiers de paramètres, y compris une clé d'API qui s'y trouve ;</li>\n<li>voir chaque invite envoyée et chaque appel d'outil de Claude, et les réécrire ;</li>\n<li>soumettre une invite comme si l'utilisateur l'avait tapée, ou envoyer un message à une autre de ses sessions ;</li>\n<li>approuver un appel d'outil avant que la question ne soit posée à l'utilisateur ;</li>\n<li>appeler un modèle sur l'abonnement ou la clé d'API de l'utilisateur.</li>\n</ul>\n<p>Le bac à sable de Claude Code n'y change rien : il isole les commandes Bash que lance Claude, pas les processus qu'un mod démarre. La seule chose qu'un mod ne peut pas redessiner, c'est la demande de permission elle-même.</p>\n<p>Ma position : un mod se traite comme une extension de navigateur avec accès à tous les sites, ou comme un script qu'on exécute en administrateur. On l'installe d'un auteur connu, après lecture, et l'entreprise décide qui peut en ajouter.</p>\n\n<h2 id=\"garde-fou\">Le garde-fou intégré : ce qu'il bloque, et quand il est absent</h2>\n<p>Claude Code charge un mod de protection, <code>cc-plugin-sec-default</code>, avant tous ceux qu'un utilisateur installe. D'après la <a href=\"https://code.claude.com/docs/en/plugins/mods/admin\" rel=\"noopener noreferrer\" target=\"_blank\">page d'administration des mods</a>, il se charge seulement si la machine a des paramètres gérés ou un fichier <code>managed-mcp.json</code>, ou si la session est connectée par <code>/login</code> à une offre Team ou Enterprise. Un développeur qui travaille avec une simple clé d'API, ou sur Amazon Bedrock, Google Cloud ou Microsoft Foundry sans paramètres gérés, n'a pas ce garde-fou. Une session lancée avec un jeton <code>CLAUDE_CODE_OAUTH_TOKEN</code> non plus.</p>\n<p>Quand il est chargé, le garde-fou empêche le mod d'un utilisateur de réécrire l'invite système, les instructions gérées par l'entreprise et la liste d'outils d'un serveur MCP géré. Il fait aussi tenir vos règles : un appel refusé par une règle <code>deny</code> reste refusé, un appel soumis à une règle <code>ask</code> pose toujours la question, un appel bloqué par un hook <code>PreToolUse</code> reste bloqué, même si un mod l'approuve.</p>\n<p>Ces protections portent sur les appels de Claude. Les appels que le mod fait lui-même, par l'API des mods, suivent d'autres règles, et c'est ce qui compte pour une PME :</p>\n<ul>\n<li>Les appels propres du mod échappent à vos règles. Avec <code>Read(.env)</code> interdit, un mod lit quand même ce fichier par <code>$.fs.read</code>, ou lance un programme qui le lit.</li>\n<li><code>$.tool.call</code> et <code>$.mcp.call</code> peuvent contourner les règles de permission, les demandes de confirmation et le classifieur du mode auto.</li>\n<li>Désactiver l'outil WebFetch, par variable ou par règle <code>deny</code>, n'empêche pas un mod de faire ses requêtes avec <code>$.http.fetch</code>. Un programme lancé par <code>$.process.run</code> passe par le réseau avec les accès de l'utilisateur.</li>\n</ul>\n\n<h2 id=\"politiques\">Trois politiques possibles</h2>\n<table>\n<thead><tr><th>Politique</th><th>Ce qu'un utilisateur peut charger comme mod</th><th>Pour quelle équipe</th></tr></thead>\n<tbody>\n<tr><td>Aucun réglage</td><td>Un mod de n'importe quelle marketplace, de n'importe quel dossier avec <code>--plugin-dir</code>, ou écrit par Claude pendant la session</td><td>Un développeur seul, sur sa machine, sans données clients</td></tr>\n<tr><td>Liste de marketplaces autorisées et <code>disableSideloadFlags</code></td><td>Seulement un mod des marketplaces autorisées</td><td>Une équipe qui veut des mods, avec une marketplace interne relue</td></tr>\n<tr><td><code>allowManagedModsOnly</code></td><td>Aucun mod apporté par l'utilisateur ; seuls ceux de l'entreprise s'exécutent</td><td>Une équipe qui touche à la production ou aux données clients</td></tr>\n</tbody>\n</table>\n<p>Les deux premières colonnes viennent de la documentation d'Anthropic ; la troisième est ma recommandation. Avec une liste de marketplaces sans <code>disableSideloadFlags</code>, un mod chargé depuis un dossier avec <code>--plugin-dir</code> passe encore.</p>\n<p>La liste de marketplaces autorisées se règle avec <code>strictKnownMarketplaces</code>. Les paramètres gérés se déploient par fichier sur chaque poste, par un outil de gestion des appareils (MDM), ou depuis la console d'administration de claude.ai. La politique la plus stricte y tient en quelques lignes, que l'utilisateur ne peut pas annuler depuis ses propres fichiers :</p>\n<pre><code>{\n  \"pluginConfigs\": {\n    \"cc-plugin-sec-default@builtin\": {\n      \"options\": { \"allowManagedModsOnly\": true }\n    }\n  }\n}</code></pre>\n<p>Elle coupe les mods des utilisateurs, y compris ceux que Claude écrit en session, sans toucher à leurs hooks de paramètres, à leurs lignes d'état ni aux skills et serveurs MCP de leurs plugins. Pour vérifier qu'elle tient sur un poste, lancez <code>claude --plugin-dir ./un-mod</code> : les fonctions du mod ne s'exécutent pas, et la transcription affiche le message du garde-fou qui cite <code>allowManagedModsOnly</code>. Si quelqu'un avait réglé <code>CLAUDE_CODE_ENABLE_FUNCTION_HOOKS</code> à <code>0</code> pendant l'accès anticipé, remplacez-la par cette option : depuis la v2.1.287, Claude Code ignore la variable.</p>\n\n<h2 id=\"revue\">Relire un mod avant de l'autoriser</h2>\n<p>On peut savoir ce que fait un mod sans l'exécuter. La commande <code>claude plugin validate ./le-mod</code> lit son code et affiche deux lignes : <code>hooks:</code>, les événements que le mod reçoit, et <code>calls:</code>, les méthodes qu'il appelle. Anthropic recommande de ne pas approuver un mod qui échoue à cette commande, car certains échecs ne l'empêchent pas de se charger, et de la lancer avec Claude Code v2.1.323 ou plus récent, qui affiche les longues listes en entier.</p>\n<p>Dans la ligne <code>calls:</code>, voici ce que je regarde, dans cet ordre :</p>\n<ul>\n<li><code>$.process.run</code>, <code>$.process.spawn</code> : le mod lance des programmes en votre nom.</li>\n<li><code>$.http.fetch</code> : il envoie des requêtes réseau. Demandez où, et quoi.</li>\n<li><code>$.env.get</code>, <code>$.settings.read</code> : il lit des variables et des paramètres qui peuvent contenir des clés. Une ligne <code>env reads:</code> les nomme.</li>\n<li><code>$.env.set</code> : il change une variable pour Claude Code et pour tout ce qu'il lance ensuite.</li>\n<li><code>$.fs.read</code>, <code>$.fs.write</code> : il lit ou écrit des fichiers partout où l'utilisateur le peut.</li>\n<li><code>$.mcp.call</code>, <code>$.model.complete</code>, <code>$.prompt.submit</code>, <code>$.session.send</code> : il appelle un outil sans confirmation, dépense votre abonnement, parle à la place de l'utilisateur ou à une autre session.</li>\n</ul>\n<p>Dans la ligne <code>hooks:</code>, <code>tool.call</code> et <code>prompt.submit</code> veulent dire que le mod voit et peut modifier chaque appel d'outil et chaque invite. Un mod d'affichage qui n'a besoin que de <code>ui.render</code> et qui demande <code>$.http.fetch</code> mérite une question à son auteur.</p>\n\n<h2 id=\"auto\">Le cas des mods que Claude écrit lui-même</h2>\n<p>Claude Code peut écrire un mod sur simple demande. En mode <code>default</code> ou <code>acceptEdits</code>, il demande d'approuver chaque fichier, puis de charger le mod. En mode <code>auto</code> ou <code>bypassPermissions</code>, il peut le charger sans demander, et à la reprise d'une session, les mods déjà écrits se chargent aussi sans question, selon la <a href=\"https://code.claude.com/docs/en/plugins/mods/create\" rel=\"noopener noreferrer\" target=\"_blank\">page de création d'un mod</a>. Si vos équipes travaillent en mode auto, c'est un argument de plus pour <code>allowManagedModsOnly</code>.</p>\n\n<h2 id=\"lundi\">Lundi matin : cinq gestes</h2>\n<ol>\n<li>Faites la liste de qui utilise Claude Code, avec quelle connexion : <code>/login</code> Team ou Enterprise, clé d'API, ou fournisseur cloud. Ceux qui n'ont ni connexion d'entreprise ni paramètres gérés n'ont pas le garde-fou.</li>\n<li>Déployez des paramètres gérés sur les postes qui touchent à la production ou aux données clients, avec <code>allowManagedModsOnly</code>.</li>\n<li>Pour les autres, limitez les marketplaces et ajoutez <code>disableSideloadFlags</code>.</li>\n<li>Avant d'ajouter un mod à votre marketplace interne, passez-le dans <code>claude plugin validate</code> et gardez la sortie avec la version relue.</li>\n<li>Apprenez à chacun <code>claude --safe-mode</code> : c'est le moyen le plus rapide de savoir si un comportement étrange vient d'un mod.</li>\n</ol>\n<p>Pour la partie pratique, créer, installer et tester un mod, voyez le <a href=\"/ressources/guides/claude-code-mods\">guide des mods Claude Code</a>. Pour la gouvernance des plugins en général, le <a href=\"/ressources/guides/claude-plugins-entreprise\">guide des plugins Claude en entreprise</a>. Et si vous voulez qu'on regarde ensemble vos postes, vos usages et les réglages à poser, l'<a href=\"/audit-ia-pme\">audit IA gratuit</a> dure 45 minutes en visio.</p>",
+   "html_en": "<h2 id=\"essentiel\">What a mod can do on a machine</h2>\n<p>Since Claude Code v2.1.286, mods are on by default. A mod is a plugin that runs JavaScript or TypeScript code inside Claude Code, with the permissions of the person who installs it, and without a sandbox. For an SMB whose developers or technicians use Claude Code, the question is not whether a mod is useful, but who is allowed to load one.</p>\n<p>According to <a href=\"https://code.claude.com/docs/fr/plugins/mods/overview\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic's mods overview</a>, once loaded, a mod can:</p>\n<ul>\n<li>read and write files wherever the user's account can, start programs and make network requests;</li>\n<li>read environment variables and settings files, including an API key kept there;</li>\n<li>see every prompt sent and every Claude tool call, and rewrite them;</li>\n<li>submit a prompt as if the user had typed it, or send a message to another of their sessions;</li>\n<li>approve a tool call before the question reaches the user;</li>\n<li>call a model on the user's plan or API key.</li>\n</ul>\n<p>Claude Code's sandbox does not change this: it isolates the Bash commands Claude runs, not the processes a mod starts. The only thing a mod cannot redraw is the permission prompt itself.</p>\n<p>My position: treat a mod like a browser extension with access to every site, or a script run as administrator. Install it from a known author, after reading it, and let the company decide who can add one.</p>\n\n<h2 id=\"garde-fou\">The built-in guard: what it blocks, and when it is missing</h2>\n<p>Claude Code loads a protection mod, <code>cc-plugin-sec-default</code>, ahead of every mod a user installs. According to the <a href=\"https://code.claude.com/docs/en/plugins/mods/admin\" rel=\"noopener noreferrer\" target=\"_blank\">mods administration page</a>, it loads only if the machine has managed settings or a <code>managed-mcp.json</code> file, or if the session is signed in with <code>/login</code> to a Team or Enterprise plan. A developer working with a plain API key, or on Amazon Bedrock, Google Cloud or Microsoft Foundry without managed settings, does not get the guard. Neither does a session started with a <code>CLAUDE_CODE_OAUTH_TOKEN</code>.</p>\n<p>When loaded, the guard stops a user's mod from rewriting the system prompt, the company's managed instructions and a managed MCP server's tool list. It also keeps your rules in force: a call refused by a <code>deny</code> rule stays refused, a call under an <code>ask</code> rule still prompts, a call blocked by a <code>PreToolUse</code> hook stays blocked, even if a mod approves it.</p>\n<p>These protections apply to Claude's calls. The calls the mod makes itself, through the mods API, follow other rules, and that is what matters for an SMB:</p>\n<ul>\n<li>The mod's own calls escape your rules. With <code>Read(.env)</code> denied, a mod still reads that file through <code>$.fs.read</code>, or starts a program that does.</li>\n<li><code>$.tool.call</code> and <code>$.mcp.call</code> can skip permission rules, prompts and the auto mode classifier.</li>\n<li>Turning off the WebFetch tool, by variable or <code>deny</code> rule, does not stop a mod's <code>$.http.fetch</code> requests. A program started with <code>$.process.run</code> reaches the network with the user's own access.</li>\n</ul>\n\n<h2 id=\"politiques\">Three possible policies</h2>\n<table>\n<thead><tr><th>Policy</th><th>What a user can load as a mod</th><th>For which team</th></tr></thead>\n<tbody>\n<tr><td>No setting</td><td>A mod from any marketplace, from any directory with <code>--plugin-dir</code>, or written by Claude during the session</td><td>A solo developer, on their own machine, with no client data</td></tr>\n<tr><td>Marketplace allowlist and <code>disableSideloadFlags</code></td><td>Only a mod from the allowed marketplaces</td><td>A team that wants mods, with a reviewed internal marketplace</td></tr>\n<tr><td><code>allowManagedModsOnly</code></td><td>No user-supplied mod; only the company's run</td><td>A team that touches production or client data</td></tr>\n</tbody>\n</table>\n<p>The first two columns come from Anthropic's documentation; the third is my recommendation. With a marketplace allowlist but without <code>disableSideloadFlags</code>, a mod loaded from a directory with <code>--plugin-dir</code> still gets through.</p>\n<p>The marketplace allowlist is set with <code>strictKnownMarketplaces</code>. Managed settings are deployed as a file on each machine, through a device management tool (MDM), or from the claude.ai admin console. The strictest policy fits there in a few lines, which the user cannot undo from their own files:</p>\n<pre><code>{\n  \"pluginConfigs\": {\n    \"cc-plugin-sec-default@builtin\": {\n      \"options\": { \"allowManagedModsOnly\": true }\n    }\n  }\n}</code></pre>\n<p>It stops users' mods, including those Claude writes in a session, without touching their settings hooks, status lines, or their plugins' skills and MCP servers. To check it holds on a machine, run <code>claude --plugin-dir ./some-mod</code>: the mod's functions do not run, and the transcript shows the guard's message naming <code>allowManagedModsOnly</code>. If someone set <code>CLAUDE_CODE_ENABLE_FUNCTION_HOOKS</code> to <code>0</code> during early access, replace it with this option: since v2.1.287, Claude Code ignores the variable.</p>\n\n<h2 id=\"revue\">Review a mod before allowing it</h2>\n<p>You can tell what a mod does without running it. <code>claude plugin validate ./the-mod</code> reads its code and prints two lines: <code>hooks:</code>, the events the mod receives, and <code>calls:</code>, the methods it calls. Anthropic advises not to approve a mod that fails this command, because some failures do not stop it from loading, and to run it on Claude Code v2.1.323 or later, which prints long lists in full.</p>\n<p>In the <code>calls:</code> line, this is what I look at, in this order:</p>\n<ul>\n<li><code>$.process.run</code>, <code>$.process.spawn</code>: the mod starts programs as you.</li>\n<li><code>$.http.fetch</code>: it sends network requests. Ask where, and what.</li>\n<li><code>$.env.get</code>, <code>$.settings.read</code>: it reads variables and settings that can hold keys. An <code>env reads:</code> line names them.</li>\n<li><code>$.env.set</code>: it changes a variable for Claude Code and everything it starts afterwards.</li>\n<li><code>$.fs.read</code>, <code>$.fs.write</code>: it reads or writes files wherever the user can.</li>\n<li><code>$.mcp.call</code>, <code>$.model.complete</code>, <code>$.prompt.submit</code>, <code>$.session.send</code>: it calls a tool without confirmation, spends your plan, speaks for the user or to another session.</li>\n</ul>\n<p>In the <code>hooks:</code> line, <code>tool.call</code> and <code>prompt.submit</code> mean the mod sees and can change every tool call and every prompt. A display mod that only needs <code>ui.render</code> and asks for <code>$.http.fetch</code> deserves a question to its author.</p>\n\n<h2 id=\"auto\">Mods Claude writes itself</h2>\n<p>Claude Code can write a mod on request. In <code>default</code> or <code>acceptEdits</code> mode, it asks you to approve each file, then to load the mod. In <code>auto</code> or <code>bypassPermissions</code> mode, it can load it without asking, and when a session is resumed, mods already written also load without a question, according to the <a href=\"https://code.claude.com/docs/en/plugins/mods/create\" rel=\"noopener noreferrer\" target=\"_blank\">create a mod page</a>. If your teams work in auto mode, that is one more argument for <code>allowManagedModsOnly</code>.</p>\n\n<h2 id=\"lundi\">Monday morning: five moves</h2>\n<ol>\n<li>List who uses Claude Code, with which sign-in: Team or Enterprise <code>/login</code>, API key, or cloud provider. Those with neither a company sign-in nor managed settings do not have the guard.</li>\n<li>Deploy managed settings on machines that touch production or client data, with <code>allowManagedModsOnly</code>.</li>\n<li>For the others, restrict marketplaces and add <code>disableSideloadFlags</code>.</li>\n<li>Before adding a mod to your internal marketplace, run it through <code>claude plugin validate</code> and keep the output with the reviewed version.</li>\n<li>Teach everyone <code>claude --safe-mode</code>: it is the fastest way to tell whether odd behaviour comes from a mod.</li>\n</ol>\n<p>For the practical side, creating, installing and testing a mod, see the <a href=\"/ressources/guides/claude-code-mods\">Claude Code mods guide</a>. For plugin governance in general, the <a href=\"/ressources/guides/claude-plugins-entreprise\">Claude plugins for business guide</a>. And if you want us to look at your machines, uses and settings together, the <a href=\"/audit-ia-pme\">free AI audit</a> takes 45 minutes by video.</p>"
+  }
+ ]
+}

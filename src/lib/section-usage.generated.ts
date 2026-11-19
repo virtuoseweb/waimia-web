@@ -23,7 +23,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "author-byline": {
-    "count": 58,
+    "count": 59,
     "pages": [
       "/cas-usages/centraliser-donnees",
       "/cas-usages/finance-comptabilite",
@@ -46,6 +46,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/chatgpt",
       "/ressources/guides/chatgpt-dots",
       "/ressources/guides/choisir-agence-ia-pme",
+      "/ressources/guides/claude-code-mods",
       "/ressources/guides/claude-duet",
       "/ressources/guides/claude-finance-pme",
       "/ressources/guides/claude-fonctionnalites-pme",
@@ -627,7 +628,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "direct-answer": {
-    "count": 101,
+    "count": 102,
     "pages": [
       "/cas-usages/finance-comptabilite",
       "/cas-usages/rh",
@@ -677,6 +678,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/chatgpt-dots",
       "/ressources/guides/choisir-agence-ia-pme",
       "/ressources/guides/claude-code-entreprise",
+      "/ressources/guides/claude-code-mods",
       "/ressources/guides/claude-cowork",
       "/ressources/guides/claude-design",
       "/ressources/guides/claude-duet",
@@ -775,7 +777,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "editorial-prose": {
-    "count": 412,
+    "count": 416,
     "pages": [
       "/audit-ia-pme",
       "/cas-usages/centraliser-donnees",
@@ -820,6 +822,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/chatgpt-dots",
       "/ressources/guides/choisir-agence-ia-pme",
       "/ressources/guides/claude-code-entreprise",
+      "/ressources/guides/claude-code-mods",
       "/ressources/guides/claude-cowork",
       "/ressources/guides/claude-design",
       "/ressources/guides/claude-duet",
@@ -926,7 +929,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "editorial-table-block": {
-    "count": 156,
+    "count": 158,
     "pages": [
       "/cas-usages/finance-comptabilite",
       "/cas-usages/rh",
@@ -955,6 +958,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/chatgpt-dots",
       "/ressources/guides/choisir-agence-ia-pme",
       "/ressources/guides/claude-code-entreprise",
+      "/ressources/guides/claude-code-mods",
       "/ressources/guides/claude-cowork",
       "/ressources/guides/claude-design",
       "/ressources/guides/claude-duet",
@@ -1094,7 +1098,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "faq-accordion": {
-    "count": 166,
+    "count": 167,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -1155,6 +1159,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/chatgpt-dots",
       "/ressources/guides/choisir-agence-ia-pme",
       "/ressources/guides/claude-code-entreprise",
+      "/ressources/guides/claude-code-mods",
       "/ressources/guides/claude-cowork",
       "/ressources/guides/claude-design",
       "/ressources/guides/claude-duet",
@@ -1322,7 +1327,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "footer-cta-band": {
-    "count": 165,
+    "count": 166,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -1384,6 +1389,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/chatgpt-dots",
       "/ressources/guides/choisir-agence-ia-pme",
       "/ressources/guides/claude-code-entreprise",
+      "/ressources/guides/claude-code-mods",
       "/ressources/guides/claude-cowork",
       "/ressources/guides/claude-design",
       "/ressources/guides/claude-duet",
@@ -1614,7 +1620,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "hero-split-media": {
-    "count": 121,
+    "count": 122,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
@@ -1669,6 +1675,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/chatgpt-dots",
       "/ressources/guides/choisir-agence-ia-pme",
       "/ressources/guides/claude-code-entreprise",
+      "/ressources/guides/claude-code-mods",
       "/ressources/guides/claude-cowork",
       "/ressources/guides/claude-design",
       "/ressources/guides/claude-duet",
@@ -2081,7 +2088,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "process-steps": {
-    "count": 69,
+    "count": 70,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/finance-comptabilite",
@@ -2109,6 +2116,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/chatgpt-dots",
       "/ressources/guides/choisir-agence-ia-pme",
       "/ressources/guides/claude-code-entreprise",
+      "/ressources/guides/claude-code-mods",
       "/ressources/guides/claude-cowork",
       "/ressources/guides/claude-design",
       "/ressources/guides/claude-duet",
@@ -2243,7 +2251,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "related-cards-band": {
-    "count": 117,
+    "count": 118,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
@@ -2298,6 +2306,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/chatgpt-dots",
       "/ressources/guides/choisir-agence-ia-pme",
       "/ressources/guides/claude-code-entreprise",
+      "/ressources/guides/claude-code-mods",
       "/ressources/guides/claude-cowork",
       "/ressources/guides/claude-design",
       "/ressources/guides/claude-duet",
@@ -2474,7 +2483,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "tech-when-dual": {
-    "count": 60,
+    "count": 61,
     "pages": [
       "/cas-usages/finance-comptabilite",
       "/cas-usages/rh",
@@ -2500,6 +2509,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/chatbot-transparence-article-50",
       "/ressources/guides/chatgpt-dots",
+      "/ressources/guides/claude-code-mods",
       "/ressources/guides/claude-cowork",
       "/ressources/guides/claude-design",
       "/ressources/guides/claude-duet",

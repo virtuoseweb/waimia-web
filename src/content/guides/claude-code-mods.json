@@ -1,0 +1,534 @@
+{
+ "$schema": "../../schemas/generated/guides.page.schema.json",
+ "title_fr": "Mods Claude Code : créer, installer et contrôler un mod · Waimia",
+ "title_en": "Claude Code mods: create, install and control a mod · Waimia",
+ "seoTitle_fr": "Mods Claude Code : créer, installer et contrôler un mod",
+ "description_fr": "Mods Claude Code : ce qu'un mod fait de plus qu'un skill ou un hook, le faire écrire par Claude en cinq étapes, le vérifier, l'installer et le couper.",
+ "description_en": "Claude Code mods: what a mod does beyond a skill or hook, having Claude write one in five steps, checking it, installing it and turning it off.",
+ "slug": "claude-code-mods",
+ "publishedAt": "2026-11-19",
+ "updatedAt": "2026-11-19",
+ "category": "claude",
+ "tags": [
+  "claude-code",
+  "mods",
+  "plugins-claude",
+  "hooks",
+  "guide-pme"
+ ],
+ "sources": [
+  {
+   "name": "Anthropic, Claude Code, Aperçu des mods, lu le 19 novembre 2026",
+   "url": "https://code.claude.com/docs/fr/plugins/mods/overview",
+   "type": "enterprise"
+  },
+  {
+   "name": "Anthropic, Claude Code, Create a mod, lu le 19 novembre 2026",
+   "url": "https://code.claude.com/docs/en/plugins/mods/create",
+   "type": "enterprise"
+  },
+  {
+   "name": "Anthropic, Claude Code, Manage mods for your organization, lu le 19 novembre 2026",
+   "url": "https://code.claude.com/docs/en/plugins/mods/admin",
+   "type": "enterprise"
+  },
+  {
+   "name": "Anthropic, Claude Code, index de la documentation (pages Mods), lu le 19 novembre 2026",
+   "url": "https://code.claude.com/docs/llms.txt",
+   "type": "enterprise"
+  }
+ ],
+ "seo": {
+  "noindex": false
+ },
+ "faq_fr": [
+  {
+   "q": "Qu'est-ce qu'un mod Claude Code ?",
+   "a": "Un mod est un plugin Claude Code qui contient du code JavaScript ou TypeScript. Claude Code appelle ses fonctions quand un événement se produit, comme un appel d'outil, une invite envoyée ou le dessin d'une partie de l'interface. Le mod peut observer l'événement, le modifier ou y répondre lui-même."
+  },
+  {
+   "q": "Quelle différence entre un mod et un hook de Claude Code ?",
+   "a": "Un hook classique, déclaré dans un fichier de paramètres, lance une commande shell, une requête HTTP ou une invite en dehors de Claude Code. Un mod est une fonction qui s'exécute à l'intérieur de Claude Code : il peut en plus dessiner dans l'interface, ajouter une commande qui s'exécute sans tour de Claude et réécrire un appel d'outil ou une invite."
+  },
+  {
+   "q": "Quelle version de Claude Code faut-il pour les mods ?",
+   "a": "Dans le terminal, Claude Code v2.1.287 ou plus récent ; dans l'onglet Code de l'application Claude Desktop, v2.1.286 ou plus récent. La commande claude --version donne la version du terminal, et /status celle de l'application."
+  },
+  {
+   "q": "Comment désactiver tous les mods ?",
+   "a": "Pour une session, lancez Claude Code avec --safe-mode, qui coupe aussi vos autres personnalisations. Pour toutes les sessions, mettez \"disableAllHooks\": true dans ~/.claude/settings.json, ce qui arrête aussi vos hooks de paramètres et votre ligne d'état. Pour un seul mod, désactivez ou désinstallez son plugin dans l'onglet Installed de /plugin."
+  },
+  {
+   "q": "Un mod fonctionne-t-il dans claude -p ou une session cloud ?",
+   "a": "Ses hooks s'exécutent, mais ce qu'il dessine n'apparaît pas : la documentation d'Anthropic réserve l'affichage au terminal, à l'application Desktop et à l'extension VS Code. Un mod qui dessine peut détecter où il tourne et se replier sur une ligne dans la transcription."
+  },
+  {
+   "q": "Un mod est-il isolé du reste de la machine ?",
+   "a": "Non. Un mod s'exécute avec les droits de l'utilisateur qui l'installe : il peut lire et écrire ses fichiers, lancer des programmes, faire des requêtes réseau et lire ses variables d'environnement. Le bac à sable de Claude Code isole les commandes Bash de Claude, pas les processus qu'un mod démarre."
+  }
+ ],
+ "faq_en": [
+  {
+   "q": "What is a Claude Code mod?",
+   "a": "A mod is a Claude Code plugin that contains JavaScript or TypeScript code. Claude Code calls its functions when an event happens, such as a tool call, a submitted prompt or part of the interface being drawn. The mod can observe the event, change it or answer it itself."
+  },
+  {
+   "q": "What is the difference between a mod and a Claude Code hook?",
+   "a": "A classic hook, declared in a settings file, runs a shell command, an HTTP request or a prompt outside Claude Code. A mod is a function that runs inside Claude Code: it can also draw in the interface, add a command that runs without a Claude turn, and rewrite a tool call or a prompt."
+  },
+  {
+   "q": "Which Claude Code version do mods need?",
+   "a": "In the terminal, Claude Code v2.1.287 or later; in the Code tab of the Claude Desktop app, v2.1.286 or later. claude --version gives the terminal version, and /status gives the app's."
+  },
+  {
+   "q": "How do I turn off all mods?",
+   "a": "For one session, start Claude Code with --safe-mode, which also turns off your other customisations. For every session, set \"disableAllHooks\": true in ~/.claude/settings.json, which also stops your settings hooks and status line. For one mod, disable or uninstall its plugin in the Installed tab of /plugin."
+  },
+  {
+   "q": "Does a mod work in claude -p or a cloud session?",
+   "a": "Its hooks run, but what it draws does not show: Anthropic's documentation limits display to the terminal, the Desktop app and the VS Code extension. A mod that draws can check where it runs and fall back to a line in the transcript."
+  },
+  {
+   "q": "Is a mod isolated from the rest of the machine?",
+   "a": "No. A mod runs with the permissions of the user who installs it: it can read and write their files, start programs, make network requests and read their environment variables. Claude Code's sandbox isolates Claude's Bash commands, not the processes a mod starts."
+  }
+ ],
+ "sections": [
+  {
+   "type": "hero-split-media",
+   "background": "paper",
+   "kicker_fr": "§ Guide · Claude Code",
+   "kicker_en": "§ Guide · Claude Code",
+   "h1_fr": "Mods Claude Code : créer, installer et contrôler un mod",
+   "h1_en": "Claude Code mods: create, install and control a mod",
+   "lede_fr": "Un mod est un plugin Claude Code qui contient du code JavaScript ou TypeScript : il dessine des volets, ajoute des commandes et retient ou réécrit les appels d'outils. Il tourne avec vos droits, sans bac à sable. Voici comment en obtenir un, l'écrire, le vérifier et le couper.",
+   "lede_en": "A mod is a Claude Code plugin that contains JavaScript or TypeScript code: it draws panes, adds commands and holds or rewrites tool calls. It runs with your permissions, without a sandbox. Here is how to get one, write it, check it and turn it off.",
+   "badges": [
+    {
+     "label_fr": "Documentation d'Anthropic",
+     "label_en": "Anthropic documentation"
+    },
+    {
+     "label_fr": "Claude Code v2.1.287 et plus",
+     "label_en": "Claude Code v2.1.287 and later"
+    }
+   ],
+   "cta_primary": {
+    "label_fr": "Réserver l'audit gratuit",
+    "label_en": "Book the free audit",
+    "href": "/contact?offer=audit-ia-pme&intent=audit",
+    "variant": "primary"
+   },
+   "cta_secondary": {
+    "label_fr": "Comment se passe l'audit",
+    "label_en": "How the audit works",
+    "href": "/audit-ia-pme",
+    "variant": "ghost"
+   },
+   "illustration": {
+    "src": "/images/illustrations/ds/claude-code-volet-paper.webp",
+    "alt_fr": "Sur une échelle, un homme fixe un volet bleu neuf sur le côté d'une grande fenêtre à carreaux",
+    "alt_en": "On a ladder, a man fixes a new blue panel to the side of a large paned window"
+   }
+  },
+  {
+   "type": "author-byline",
+   "background": "paper",
+   "authorId": "simon-beros",
+   "name": "Simon Beros",
+   "role_fr": "Fondateur de Waimia · ingénieur IA et automatisation",
+   "role_en": "Founder of Waimia · AI and automation engineer",
+   "profileHref": "/equipe/simon-beros",
+   "publishedDate": "19 novembre 2026",
+   "updatedDate": "19 novembre 2026"
+  },
+  {
+   "type": "direct-answer",
+   "background": "paper-2",
+   "question_fr": "Un mod Claude Code, c'est quoi ?",
+   "question_en": "What is a Claude Code mod?",
+   "term_fr": "Définition",
+   "term_en": "Definition",
+   "answer_fr": "Un mod Claude Code est un plugin dont le code JavaScript ou TypeScript s'exécute à l'intérieur de Claude Code. Claude Code appelle ses fonctions à chaque événement choisi (appel d'outil, invite envoyée, dessin de l'interface), et le mod peut observer l'événement, le modifier ou y répondre à la place de Claude Code.",
+   "answer_en": "A Claude Code mod is a plugin whose JavaScript or TypeScript code runs inside Claude Code. Claude Code calls its functions on each chosen event (tool call, submitted prompt, interface drawing), and the mod can observe the event, change it or answer it in place of Claude Code."
+  },
+  {
+   "type": "editorial-prose",
+   "background": "paper",
+   "html_fr": "<h2>En bref</h2>\n<ul>\n<li><strong>Un mod est du code qui tourne dans Claude Code.</strong> Il réagit aux événements de la session : appel d'outil, invite envoyée, dessin de l'interface.</li>\n<li><strong>Il fait ce que les skills, les hooks et MCP ne font pas</strong> : dessiner un volet, ajouter une commande instantanée, retenir ou réécrire un appel d'outil.</li>\n<li><strong>Il s'exécute avec vos droits, sans bac à sable.</strong> On ne l'installe que d'un auteur de confiance, après l'avoir lu avec <code>claude plugin validate</code>.</li>\n</ul>\n<h2>Ce qu'un mod peut faire</h2>\n<p>Selon l'<a href=\"https://code.claude.com/docs/fr/plugins/mods/overview\" rel=\"noopener noreferrer\" target=\"_blank\">aperçu des mods d'Anthropic</a>, un mod s'exécute à l'intérieur de Claude Code, là où les hooks de paramètres, les skills, les lignes d'état et les serveurs MCP restent à l'extérieur. Cela lui ouvre cinq possibilités :</p>\n<ul>\n<li>Dessiner une interface : un volet à côté de la transcription, ou une bande au-dessus de l'invite, avec onglets, boutons et champs de texte.</li>\n<li>Redessiner l'interface de Claude Code : la ligne d'un appel d'outil, l'indicateur d'activité, la boîte où Claude pose ses questions. Pas la demande de permission, qu'aucun mod ne peut modifier.</li>\n<li>Intervenir dans un appel d'outil ou une requête : le retenir le temps de poser une question, y répondre sans exécuter l'outil, envoyer la requête à un autre modèle.</li>\n<li>Ajouter une <code>/commande</code> qui exécute votre fonction tout de suite, sans tour de Claude, même pendant qu'il travaille.</li>\n<li>Partager des données entre ses fonctions : l'une compte les appels d'outils, l'autre affiche le compte.</li>\n</ul>\n<p>Certaines fonctions de Claude Code sont déjà des mods : <code>/diff</code> et son volet, ou le chargement d'<code>AGENTS.md</code>. Anthropic publie aussi trois mods d'exemple dans le dépôt <code>claude-code-playground</code>, sans support : une prévision de la fenêtre de contexte au-dessus de l'invite, une alerte qui retient une commande risquée comme <code>rm -rf</code> avec des boutons pour continuer ou annuler, et une commande <code>/replay</code> qui rejoue les modifications de fichiers du dernier tour.</p>\n<p>Dans une PME, je vois trois usages qui justifient un mod plutôt qu'un simple réglage : un garde-fou visible sur les commandes destructrices, un volet qui affiche la consommation de la session pour ceux qui paient à l'usage, et une commande maison qui lit un état interne (le ticket en cours, la branche, le client) sans dépenser un tour de Claude.</p>",
+   "html_en": "<h2>In short</h2>\n<ul>\n<li><strong>A mod is code that runs inside Claude Code.</strong> It reacts to session events: tool call, submitted prompt, interface drawing.</li>\n<li><strong>It does what skills, hooks and MCP do not</strong>: draw a pane, add an instant command, hold or rewrite a tool call.</li>\n<li><strong>It runs with your permissions, without a sandbox.</strong> Install it only from a trusted author, after reading it with <code>claude plugin validate</code>.</li>\n</ul>\n<h2>What a mod can do</h2>\n<p>According to <a href=\"https://code.claude.com/docs/fr/plugins/mods/overview\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic's mods overview</a>, a mod runs inside Claude Code, while settings hooks, skills, status lines and MCP servers stay outside. That gives it five possibilities:</p>\n<ul>\n<li>Draw an interface: a pane next to the transcript, or a band above the prompt, with tabs, buttons and text fields.</li>\n<li>Redraw Claude Code's own interface: a tool call line, the spinner, the dialog where Claude asks questions. Not the permission prompt, which no mod can change.</li>\n<li>Step into a tool call or a request: hold it while asking a question, answer it without running the tool, send the request to another model.</li>\n<li>Add a <code>/command</code> that runs your function at once, without a Claude turn, even while Claude works.</li>\n<li>Share data between its functions: one counts tool calls, another displays the count.</li>\n</ul>\n<p>Some Claude Code features already are mods: <code>/diff</code> and its pane, or loading <code>AGENTS.md</code>. Anthropic also shares three sample mods in the <code>claude-code-playground</code> repository, without support: a forecast of the context window above the prompt, an alert that holds a risky command such as <code>rm -rf</code> with buttons to continue or cancel, and a <code>/replay</code> command that steps through the last turn's file edits.</p>\n<p>In an SMB, I see three uses that justify a mod rather than a simple setting: a visible guard on destructive commands, a pane showing session usage for those who pay per use, and an in-house command that reads an internal state (current ticket, branch, client) without spending a Claude turn.</p>"
+  },
+  {
+   "type": "editorial-table-block",
+   "background": "paper-2",
+   "kicker_fr": "§ Choisir",
+   "kicker_en": "§ Choose",
+   "heading_fr": "Mod, hook de paramètres, skill ou serveur MCP",
+   "heading_en": "Mod, settings hook, skill or MCP server",
+   "caption_fr": "D'après le tableau de comparaison de la documentation d'Anthropic. Un même plugin peut contenir un mod, un skill et un serveur MCP.",
+   "caption_en": "Based on the comparison table in Anthropic's documentation. One plugin can contain a mod, a skill and an MCP server.",
+   "columns_fr": [
+    "Brique",
+    "Ce que c'est",
+    "Ce que vous écrivez",
+    "Choisissez-la quand"
+   ],
+   "columns_en": [
+    "Building block",
+    "What it is",
+    "What you write",
+    "Choose it when"
+   ],
+   "rows_fr": [
+    [
+     "Mod",
+     "Des fonctions que Claude Code appelle dans son propre processus ; seul à pouvoir dessiner dans l'interface",
+     "JavaScript ou TypeScript",
+     "Vous voulez un volet, une bande au-dessus de l'invite, une commande instantanée, ou réécrire un événement"
+    ],
+    [
+     "Hook de paramètres",
+     "Une commande shell, une requête HTTP ou une invite lancée sur un événement",
+     "Un script et une entrée dans settings.json",
+     "Vous voulez bloquer, autoriser ou journaliser un événement avec un script existant"
+    ],
+    [
+     "Skill",
+     "Un fichier SKILL.md d'instructions que Claude lit",
+     "Du Markdown",
+     "Vous collez sans cesse les mêmes consignes dans la conversation"
+    ],
+    [
+     "Serveur MCP",
+     "Un processus ou un service qui donne des outils à Claude",
+     "Un serveur, dans n'importe quel langage",
+     "Claude doit atteindre un système externe"
+    ]
+   ],
+   "rows_en": [
+    [
+     "Mod",
+     "Functions Claude Code calls in its own process; the only one that can draw in the interface",
+     "JavaScript or TypeScript",
+     "You want a pane, a band above the prompt, an instant command, or to rewrite an event"
+    ],
+    [
+     "Settings hook",
+     "A shell command, HTTP request or prompt run on an event",
+     "A script and a settings.json entry",
+     "You want to block, allow or log an event with an existing script"
+    ],
+    [
+     "Skill",
+     "A SKILL.md instruction file Claude reads",
+     "Markdown",
+     "You keep pasting the same instructions into the chat"
+    ],
+    [
+     "MCP server",
+     "A process or service that gives Claude tools",
+     "A server, in any language",
+     "Claude needs to reach an external system"
+    ]
+   ],
+   "variant": "editorial"
+  },
+  {
+   "type": "process-steps",
+   "background": "paper",
+   "kicker_fr": "§ Pas à pas",
+   "kicker_en": "§ Step by step",
+   "h2_fr": "Faire écrire un mod par Claude, en cinq étapes",
+   "h2_en": "Have Claude write a mod, in five steps",
+   "intro_fr": "La voie la plus courte : Claude écrit le mod à partir de votre description, grâce au skill intégré plugin-authoring.",
+   "intro_en": "The shortest path: Claude writes the mod from your description, using the built-in plugin-authoring skill.",
+   "steps": [
+    {
+     "title_fr": "Vérifier la version et le mode",
+     "title_en": "Check the version and mode",
+     "body_fr": "Claude Code v2.1.287 ou plus dans le terminal (claude --version). Démarrez en mode default ou acceptEdits : en auto ou bypassPermissions, Claude Code peut charger le mod sans vous demander.",
+     "body_en": "Claude Code v2.1.287 or later in the terminal (claude --version). Start in default or acceptEdits mode: in auto or bypassPermissions, Claude Code can load the mod without asking.",
+     "meta_fr": "1 minute",
+     "meta_en": "1 minute"
+    },
+    {
+     "title_fr": "Décrire le mod",
+     "title_en": "Describe the mod",
+     "body_fr": "Par exemple « fais un mod qui affiche la branche git au-dessus de l'invite ». Claude l'écrit dans un dossier propre à la session, sous ~/.claude/dev-mods/, et vous demande d'approuver chaque fichier.",
+     "body_en": "For example \"make a mod that shows the current git branch above the prompt\". Claude writes it in a folder of the session's own, under ~/.claude/dev-mods/, and asks you to approve each file.",
+     "meta_fr": "Votre phrase",
+     "meta_en": "Your sentence"
+    },
+    {
+     "title_fr": "Accepter le rechargement à chaud",
+     "title_en": "Accept hot reloading",
+     "body_fr": "Au premier fichier, Claude Code demande s'il doit charger les mods de la session. Oui : ils se chargent à la fin du tour et se rechargent à chaque modification. Pas maintenant : rien ne se charge avant la prochaine ouverture de la session.",
+     "body_en": "At the first file, Claude Code asks whether to load the session's mods. Yes: they load when the turn ends and reload at each change. Not now: nothing loads until the session next starts.",
+     "meta_fr": "Un choix par session",
+     "meta_en": "One choice per session"
+    },
+    {
+     "title_fr": "Vérifier et essayer",
+     "title_en": "Check and try",
+     "body_fr": "Dans /plugin, onglet Installed, le mod apparaît et se désactive. Essayez-le ; s'il ne fait pas ce que vous vouliez, dites à Claude quoi changer. Si une ligne de la transcription signale que le changement n'a pas pu se charger, copiez-la dans votre message suivant : Claude ne voit pas ces lignes.",
+     "body_en": "In /plugin, Installed tab, the mod shows up and can be turned off. Try it; if it does not do what you wanted, tell Claude what to change. If a transcript line reports that the change could not load, paste it into your next message: Claude does not see these lines.",
+     "meta_fr": "Tour par tour",
+     "meta_en": "Turn by turn"
+    },
+    {
+     "title_fr": "Le garder et le partager",
+     "title_en": "Keep and share it",
+     "body_fr": "Le mod ne vit que dans la session qui l'a créé, et son dossier est effacé après cleanupPeriodDays. Copiez son répertoire ailleurs, chargez-le avec claude --plugin-dir, et ajoutez-le à une marketplace pour vos collègues.",
+     "body_en": "The mod lives only in the session that made it, and its folder is deleted after cleanupPeriodDays. Copy its directory elsewhere, load it with claude --plugin-dir, and add it to a marketplace for your colleagues.",
+     "meta_fr": "Avant la fin de la session",
+     "meta_en": "Before the session ends"
+    }
+   ]
+  },
+  {
+   "type": "editorial-prose",
+   "background": "paper-2",
+   "html_fr": "<h2>Écrire le mod soi-même : trois fichiers</h2>\n<p>Le <a href=\"https://code.claude.com/docs/en/plugins/mods/create\" rel=\"noopener noreferrer\" target=\"_blank\">tutoriel d'Anthropic</a> construit un mod nommé <code>first-mod</code> qui compte les appels d'outils de Claude, affiche le compte à côté de l'indicateur d'activité et ajoute une commande <code>/tally</code>. Ni Node.js, ni outil de compilation : Claude Code charge directement les fichiers <code>.js</code> et <code>.ts</code>.</p>\n<p>Le mod tient dans un dossier <code>first-mod/</code> : <code>.claude-plugin/plugin.json</code>, <code>hooks/hooks.json</code> et <code>hooks/register.js</code>.</p>\n<ul>\n<li><code>plugin.json</code> est le manifeste du plugin : nom, version, description, auteur.</li>\n<li><code>hooks.json</code> pointe vers le code par la clé <code>modules</code>. C'est la présence de cette clé qui fait du plugin un mod.</li>\n<li><code>register.js</code> exporte une fonction <code>register(on)</code>. Chaque appel à <code>on('tool.call', ...)</code>, <code>on('ui.render', ...)</code> ou <code>on('command.run', ...)</code> enregistre une fonction sur un événement.</li>\n</ul>\n<p>Chaque fonction reçoit trois arguments : l'API des mods (<code>$</code>), l'événement (<code>e</code>) et <code>next</code>, qui laisse l'événement continuer. Rendre <code>next(e)</code> revient à observer ; rendre <code>next</code> avec un événement modifié revient à réécrire ; rendre son propre résultat sans appeler <code>next</code> revient à répondre à la place de Claude Code. Pour tout ce qui sort du fichier (lire un fichier, lancer un programme, appeler le réseau ou un modèle), le mod passe par l'API des mods, et c'est ce qui permet de lister ses actions sans l'exécuter.</p>\n<p>On charge le mod pour une session avec <code>claude --plugin-dir ./first-mod</code>. Claude Code recharge le module à chaque enregistrement du fichier, et écrit dans <code>.claude-plugin/types/</code> les déclarations TypeScript de votre version : elles font foi quand la documentation et votre version divergent. Avant de partager le mod, <code>claude plugin validate ./first-mod</code> affiche deux lignes à relire : <code>hooks:</code>, les événements écoutés, et <code>calls:</code>, les méthodes de l'API appelées.</p>",
+   "html_en": "<h2>Writing the mod yourself: three files</h2>\n<p><a href=\"https://code.claude.com/docs/en/plugins/mods/create\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic's tutorial</a> builds a mod named <code>first-mod</code> that counts Claude's tool calls, shows the count next to the spinner and adds a <code>/tally</code> command. No Node.js, no build step: Claude Code loads <code>.js</code> and <code>.ts</code> files directly.</p>\n<p>The mod fits in a <code>first-mod/</code> folder: <code>.claude-plugin/plugin.json</code>, <code>hooks/hooks.json</code> and <code>hooks/register.js</code>.</p>\n<ul>\n<li><code>plugin.json</code> is the plugin manifest: name, version, description, author.</li>\n<li><code>hooks.json</code> points to the code through the <code>modules</code> key. That key is what makes the plugin a mod.</li>\n<li><code>register.js</code> exports a <code>register(on)</code> function. Each call to <code>on('tool.call', ...)</code>, <code>on('ui.render', ...)</code> or <code>on('command.run', ...)</code> registers a function on an event.</li>\n</ul>\n<p>Each function receives three arguments: the mods API (<code>$</code>), the event (<code>e</code>) and <code>next</code>, which lets the event continue. Returning <code>next(e)</code> observes; returning <code>next</code> with a changed event rewrites; returning its own result without calling <code>next</code> answers in place of Claude Code. For anything outside the file (reading a file, starting a program, calling the network or a model), the mod goes through the mods API, which is what makes it possible to list its actions without running it.</p>\n<p>You load the mod for one session with <code>claude --plugin-dir ./first-mod</code>. Claude Code reloads the module each time the file is saved, and writes your version's TypeScript declarations to <code>.claude-plugin/types/</code>: they prevail when the documentation and your version disagree. Before sharing the mod, <code>claude plugin validate ./first-mod</code> prints two lines to read: <code>hooks:</code>, the events listened to, and <code>calls:</code>, the API methods called.</p>"
+  },
+  {
+   "type": "editorial-table-block",
+   "background": "paper",
+   "kicker_fr": "§ Où ça tourne",
+   "kicker_en": "§ Where it runs",
+   "heading_fr": "Où un mod s'exécute, et où il dessine",
+   "heading_en": "Where a mod runs, and where it draws",
+   "caption_fr": "D'après la documentation d'Anthropic. Les hooks d'un mod s'exécutent quel que soit le fournisseur du modèle, Amazon Bedrock, Google Cloud et Microsoft Foundry compris.",
+   "caption_en": "Based on Anthropic's documentation. A mod's hooks run whichever provider serves the model, including Amazon Bedrock, Google Cloud and Microsoft Foundry.",
+   "columns_fr": [
+    "Où vous utilisez Claude Code",
+    "Les fonctions du mod s'exécutent",
+    "Ce qu'il dessine s'affiche"
+   ],
+   "columns_en": [
+    "Where you use Claude Code",
+    "The mod's functions run",
+    "What it draws shows"
+   ],
+   "rows_fr": [
+    [
+     "Terminal, y compris celui d'un éditeur et le plugin JetBrains",
+     "Oui",
+     "Oui"
+    ],
+    [
+     "Onglet Code de l'application Desktop",
+     "Oui",
+     "Oui, sauf les éléments réservés au terminal"
+    ],
+    [
+     "Session WSL dans l'application Desktop",
+     "Non, les plugins n'y sont pas disponibles",
+     "Non"
+    ],
+    [
+     "Extension VS Code",
+     "Oui",
+     "Oui, avec l'extension 2.1.299 ou plus"
+    ],
+    [
+     "claude -p et Agent SDK",
+     "Oui",
+     "Non"
+    ],
+    [
+     "Session cloud",
+     "Oui, si le plugin l'atteint",
+     "Non"
+    ]
+   ],
+   "rows_en": [
+    [
+     "Terminal, including an editor's terminal and the JetBrains plugin",
+     "Yes",
+     "Yes"
+    ],
+    [
+     "Code tab of the Desktop app",
+     "Yes",
+     "Yes, except terminal-only elements"
+    ],
+    [
+     "WSL session in the Desktop app",
+     "No, plugins are not available there",
+     "No"
+    ],
+    [
+     "VS Code extension",
+     "Yes",
+     "Yes, with extension 2.1.299 or later"
+    ],
+    [
+     "claude -p and Agent SDK",
+     "Yes",
+     "No"
+    ],
+    [
+     "Cloud session",
+     "Yes, if the plugin reaches it",
+     "No"
+    ]
+   ],
+   "variant": "editorial"
+  },
+  {
+   "type": "editorial-prose",
+   "background": "paper-2",
+   "html_fr": "<h2>Installer, vérifier, désactiver</h2>\n<p>Un mod s'installe comme tout plugin, depuis une marketplace : <code>/plugin install token-chart@your-org</code> dans une session, ou <code>claude plugin install token-chart@your-org</code> dans le terminal. Installé pendant qu'une session tourne, il se charge avec <code>/reload-plugins</code>. La ligne grisée sous les onglets de <code>/plugin</code>, du type <code>1 mod active · first-mod</code>, dit quels mods la session a chargés.</p>\n<p>Avant d'installer un mod que vous n'avez pas écrit, récupérez ses fichiers et lancez <code>claude plugin validate</code> dessus : la commande liste ce que fait le mod sans l'exécuter ; lancez-la avec Claude Code v2.1.323 ou plus récent, qui affiche les longues listes en entier. Pour une équipe, l'option <code>allowManagedModsOnly</code> des paramètres gérés empêche tout mod apporté par un utilisateur de s'exécuter. Les appels à surveiller et la politique à poser pour une équipe sont détaillés dans <a href=\"/blog/mods-claude-code-securite-pme\">Mods Claude Code en entreprise : les risques et la politique à poser</a>.</p>\n<p>Pour couper les mods, trois niveaux : un seul mod, depuis l'onglet Installed de <code>/plugin</code> ; tous les mods pour une session, avec <code>claude --safe-mode</code> ; tous les mods dans toutes les sessions, avec <code>\"disableAllHooks\": true</code> dans <code>~/.claude/settings.json</code>, qui coupe aussi vos hooks de paramètres et votre ligne d'état. Si vous aviez réglé <code>CLAUDE_CODE_ENABLE_FUNCTION_HOOKS</code> pendant l'accès anticipé, retirez-la : depuis la v2.1.287, Claude Code l'ignore, et la mettre à <code>0</code> ne désactive plus rien.</p>",
+   "html_en": "<h2>Install, check, turn off</h2>\n<p>A mod installs like any plugin, from a marketplace: <code>/plugin install token-chart@your-org</code> in a session, or <code>claude plugin install token-chart@your-org</code> in the terminal. Installed while a session runs, it loads with <code>/reload-plugins</code>. The dimmed line under the <code>/plugin</code> tabs, such as <code>1 mod active · first-mod</code>, says which mods the session loaded.</p>\n<p>Before installing a mod you did not write, get its files and run <code>claude plugin validate</code> on them: the command lists what the mod does without running it; run it on Claude Code v2.1.323 or later, which prints long lists in full. For a team, the <code>allowManagedModsOnly</code> option in managed settings stops any user-supplied mod from running. The calls to watch and the policy to set for a team are covered in <a href=\"/blog/mods-claude-code-securite-pme\">Claude Code mods at work: the risks and the policy to set</a>.</p>\n<p>To turn mods off, three levels: one mod, from the Installed tab of <code>/plugin</code>; all mods for one session, with <code>claude --safe-mode</code>; all mods in every session, with <code>\"disableAllHooks\": true</code> in <code>~/.claude/settings.json</code>, which also stops your settings hooks and status line. If you set <code>CLAUDE_CODE_ENABLE_FUNCTION_HOOKS</code> during early access, remove it: since v2.1.287 Claude Code ignores it, and setting it to <code>0</code> no longer turns anything off.</p>"
+  },
+  {
+   "type": "tech-when-dual",
+   "background": "paper",
+   "kicker_fr": "§ Position Waimia",
+   "kicker_en": "§ Waimia position",
+   "title_fr": "Quand écrire un mod, et quand s'en passer",
+   "title_en": "When to write a mod, and when to do without",
+   "aside_fr": "Un mod est le plus puissant des outils de personnalisation de Claude Code. C'est une raison de le réserver aux besoins que rien d'autre ne couvre.",
+   "aside_en": "A mod is the most powerful Claude Code customisation tool. That is a reason to keep it for needs nothing else covers.",
+   "use_title_fr": "Écrivez un mod si",
+   "use_title_en": "Write a mod if",
+   "use_items_fr": [
+    "Vous voulez voir une information en permanence dans l'interface : consommation, ticket en cours, environnement de production",
+    "Une commande risquée doit être retenue avec une confirmation visible, pas seulement refusée",
+    "Une commande maison doit répondre tout de suite, sans dépenser un tour de Claude",
+    "Vous devez réécrire un appel d'outil ou une invite avant qu'il parte"
+   ],
+   "use_items_en": [
+    "You want a piece of information always visible in the interface: usage, current ticket, production environment",
+    "A risky command must be held with a visible confirmation, not only refused",
+    "An in-house command must answer at once, without spending a Claude turn",
+    "You need to rewrite a tool call or a prompt before it goes out"
+   ],
+   "avoid_title_fr": "Passez-vous-en si",
+   "avoid_title_en": "Do without if",
+   "avoid_items_fr": [
+    "Un hook de paramètres qui bloque ou journalise suffit : il est plus simple à relire",
+    "Le besoin est un savoir-faire à transmettre à Claude : c'est un skill",
+    "Claude doit lire ou écrire dans un outil externe : c'est un serveur MCP",
+    "Personne dans l'équipe ne relira le code du mod à chaque mise à jour"
+   ],
+   "avoid_items_en": [
+    "A settings hook that blocks or logs is enough: it is simpler to review",
+    "The need is know-how to pass to Claude: that is a skill",
+    "Claude needs to read or write in an external tool: that is an MCP server",
+    "Nobody on the team will review the mod's code at each update"
+   ]
+  },
+  {
+   "type": "editorial-prose",
+   "background": "paper-2",
+   "html_fr": "<h2>Les sources</h2><ul><li><a href=\"https://code.claude.com/docs/fr/plugins/mods/overview\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Aperçu des mods</a></li><li><a href=\"https://code.claude.com/docs/en/plugins/mods/create\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Create a mod</a></li><li><a href=\"https://code.claude.com/docs/en/plugins/mods/admin\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Manage mods for your organization</a></li></ul>",
+   "html_en": "<h2>Sources</h2><ul><li><a href=\"https://code.claude.com/docs/fr/plugins/mods/overview\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Mods overview</a></li><li><a href=\"https://code.claude.com/docs/en/plugins/mods/create\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Create a mod</a></li><li><a href=\"https://code.claude.com/docs/en/plugins/mods/admin\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, Manage mods for your organization</a></li></ul>"
+  },
+  {
+   "type": "related-cards-band",
+   "background": "paper",
+   "kicker_fr": "§ Pour aller plus loin",
+   "kicker_en": "§ Going further",
+   "cards": [
+    {
+     "kicker_fr": "Article",
+     "kicker_en": "Article",
+     "title_fr": "Mods Claude Code en entreprise",
+     "title_en": "Claude Code mods at work",
+     "lead_fr": "Ce qu'un mod peut faire sur vos postes, et la politique à poser.",
+     "lead_en": "What a mod can do on your machines, and the policy to set.",
+     "href": "/blog/mods-claude-code-securite-pme"
+    },
+    {
+     "kicker_fr": "Guide",
+     "kicker_en": "Guide",
+     "title_fr": "Plugins Claude en entreprise",
+     "title_en": "Claude plugins for business",
+     "lead_fr": "Skills, connecteurs et sous-agents réunis dans un paquet d'équipe.",
+     "lead_en": "Skills, connectors and sub-agents bundled in a team package.",
+     "href": "/ressources/guides/claude-plugins-entreprise"
+    },
+    {
+     "kicker_fr": "Service",
+     "kicker_en": "Service",
+     "title_fr": "Intégration de Claude en entreprise",
+     "title_en": "Claude integration for business",
+     "lead_fr": "Plugins privés, connecteurs à vos outils, règles d'usage.",
+     "lead_en": "Private plugins, connectors to your tools, usage rules.",
+     "href": "/services/integration-claude"
+    }
+   ]
+  },
+  {
+   "type": "faq-accordion",
+   "background": "paper-2",
+   "h2_fr": "Questions fréquentes",
+   "h2_en": "Frequently asked questions",
+   "items": [
+    {
+     "q_fr": "Qu'est-ce qu'un mod Claude Code ?",
+     "a_fr": "Un mod est un plugin Claude Code qui contient du code JavaScript ou TypeScript. Claude Code appelle ses fonctions quand un événement se produit, comme un appel d'outil, une invite envoyée ou le dessin d'une partie de l'interface. Le mod peut observer l'événement, le modifier ou y répondre lui-même.",
+     "q_en": "What is a Claude Code mod?",
+     "a_en": "A mod is a Claude Code plugin that contains JavaScript or TypeScript code. Claude Code calls its functions when an event happens, such as a tool call, a submitted prompt or part of the interface being drawn. The mod can observe the event, change it or answer it itself."
+    },
+    {
+     "q_fr": "Quelle différence entre un mod et un hook de Claude Code ?",
+     "a_fr": "Un hook classique, déclaré dans un fichier de paramètres, lance une commande shell, une requête HTTP ou une invite en dehors de Claude Code. Un mod est une fonction qui s'exécute à l'intérieur de Claude Code : il peut en plus dessiner dans l'interface, ajouter une commande qui s'exécute sans tour de Claude et réécrire un appel d'outil ou une invite.",
+     "q_en": "What is the difference between a mod and a Claude Code hook?",
+     "a_en": "A classic hook, declared in a settings file, runs a shell command, an HTTP request or a prompt outside Claude Code. A mod is a function that runs inside Claude Code: it can also draw in the interface, add a command that runs without a Claude turn, and rewrite a tool call or a prompt."
+    },
+    {
+     "q_fr": "Quelle version de Claude Code faut-il pour les mods ?",
+     "a_fr": "Dans le terminal, Claude Code v2.1.287 ou plus récent ; dans l'onglet Code de l'application Claude Desktop, v2.1.286 ou plus récent. La commande claude --version donne la version du terminal, et /status celle de l'application.",
+     "q_en": "Which Claude Code version do mods need?",
+     "a_en": "In the terminal, Claude Code v2.1.287 or later; in the Code tab of the Claude Desktop app, v2.1.286 or later. claude --version gives the terminal version, and /status gives the app's."
+    },
+    {
+     "q_fr": "Comment désactiver tous les mods ?",
+     "a_fr": "Pour une session, lancez Claude Code avec --safe-mode, qui coupe aussi vos autres personnalisations. Pour toutes les sessions, mettez \"disableAllHooks\": true dans ~/.claude/settings.json, ce qui arrête aussi vos hooks de paramètres et votre ligne d'état. Pour un seul mod, désactivez ou désinstallez son plugin dans l'onglet Installed de /plugin.",
+     "q_en": "How do I turn off all mods?",
+     "a_en": "For one session, start Claude Code with --safe-mode, which also turns off your other customisations. For every session, set \"disableAllHooks\": true in ~/.claude/settings.json, which also stops your settings hooks and status line. For one mod, disable or uninstall its plugin in the Installed tab of /plugin."
+    },
+    {
+     "q_fr": "Un mod fonctionne-t-il dans claude -p ou une session cloud ?",
+     "a_fr": "Ses hooks s'exécutent, mais ce qu'il dessine n'apparaît pas : la documentation d'Anthropic réserve l'affichage au terminal, à l'application Desktop et à l'extension VS Code. Un mod qui dessine peut détecter où il tourne et se replier sur une ligne dans la transcription.",
+     "q_en": "Does a mod work in claude -p or a cloud session?",
+     "a_en": "Its hooks run, but what it draws does not show: Anthropic's documentation limits display to the terminal, the Desktop app and the VS Code extension. A mod that draws can check where it runs and fall back to a line in the transcript."
+    },
+    {
+     "q_fr": "Un mod est-il isolé du reste de la machine ?",
+     "a_fr": "Non. Un mod s'exécute avec les droits de l'utilisateur qui l'installe : il peut lire et écrire ses fichiers, lancer des programmes, faire des requêtes réseau et lire ses variables d'environnement. Le bac à sable de Claude Code isole les commandes Bash de Claude, pas les processus qu'un mod démarre.",
+     "q_en": "Is a mod isolated from the rest of the machine?",
+     "a_en": "No. A mod runs with the permissions of the user who installs it: it can read and write their files, start programs, make network requests and read their environment variables. Claude Code's sandbox isolates Claude's Bash commands, not the processes a mod starts."
+    }
+   ]
+  },
+  {
+   "type": "footer-cta-band",
+   "background": "ink",
+   "rounded": true,
+   "kicker_fr": "§ Claude Code",
+   "kicker_en": "§ Claude Code",
+   "h2_fr": "Personnaliser Claude Code sans ouvrir vos postes à n'importe quel code.",
+   "h2_en": "Customise Claude Code without opening your machines to any code.",
+   "subtitle_fr": "Un audit gratuit de 45 minutes : nous listons ce que vos équipes font dans Claude Code, ce qui mérite un mod, un skill ou un hook, et les réglages à poser.",
+   "subtitle_en": "A free 45-minute audit: we list what your teams do in Claude Code, what deserves a mod, a skill or a hook, and the settings to apply.",
+   "buttons": [
+    {
+     "label_fr": "Réserver l'audit gratuit",
+     "label_en": "Book the free audit",
+     "href": "/contact?offer=audit-ia-pme&intent=audit",
+     "variant": "primary"
+    },
+    {
+     "label_fr": "Comment se passe l'audit",
+     "label_en": "How the audit works",
+     "href": "/audit-ia-pme",
+     "variant": "ghost"
+    }
+   ]
+  }
+ ]
+}

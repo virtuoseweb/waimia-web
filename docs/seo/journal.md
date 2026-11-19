@@ -37,6 +37,66 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### 2026-11-19 (session de production reprise, 2026-W47 : travail prévu le 18 novembre, livré le 19 à la demande de Simon, collecte du 18 novembre 2026)
+
+**Données** : la session du 18 novembre a trouvé la collecte **pas fraîche** (`freshness.mjs` : « PAS FRAÎCHE · semaine 2026-W46 · generatedAt 2026-11-15T23:23:49.977Z · collecte vieille de 55.3 h »). Collecte relancée une fois le 18 novembre (`gh workflow run` refusé par GitHub, GraphQL indisponible depuis la session ; relance par l'API REST `actions/workflows/seo-routine.yml/dispatches`, acceptée) : run terminé, commit `a5061ed9` « collecte 2026-W47 ». Au 19 novembre : « FRAÎCHE · semaine 2026-W47 · generatedAt 2026-11-18T06:44:46.404Z », toutes les étapes `ok`. Flux et concurrents relancés en local en simulation le 18 novembre : 2 étapes `ok`, flux en erreur `cepd` (HTTP 503, depuis le 14 novembre, moins de trois semaines).
+
+**Pourquoi un jour plus tard** : la session du 18 novembre s'est arrêtée avant le push. Simon a demandé le 19 novembre de refaire le travail prévu en le datant du jour, et d'ajouter un guide et un article sur les mods de Claude Code (https://code.claude.com/docs/fr/plugins/mods/overview). Trois créations ce jour-là, à sa demande ; avec celles du 16 et du 17, la semaine compte cinq créations.
+
+**PR ouvertes au début de la session** : #198 (`seo/brave-memoire`, brouillon), hors `feat/seo-*` : non intégrée.
+
+**Veille (runbook 4.0)**, flux des 72 dernières heures puis pages sans flux lues le 18 novembre 2026 (outil de lecture Exa) : anthropic.com/news (rien après le 10 novembre), notes de version de la plateforme Claude (17 novembre : facturation liée en bêta ; 16 novembre : filigrane, déjà jugé ; 12 novembre : Managed Agents auto-hébergé, déjà couvert par `/ressources/guides/claude-managed-agents`), claude.com/blog (rien de nouveau hors facturation liée), notes de version du centre d'aide Claude (17 novembre : canal de mise à jour de Claude Desktop), changelog de l'API OpenAI (17 novembre : GPT-6.2 et fenêtres d'exécution en arrière-plan), deploy.co/fr-FR/news (rien depuis le 14 septembre), ode.com/blog (rien de daté). X non lu. Événements :
+- GPT-6.2 Astra et Sol (OpenAI, 17 novembre) : **actualité publiée** (ci-dessous) et comparatif révisé.
+- ChatGPT for Sales (OpenAI, 17 novembre) : non couvert ; ajouté au calendrier comme idée (`idee-chatgpt-for-sales-pme`), à lire à la source avant d'écrire.
+- Facturation liée de la Claude Platform, canal de Claude Desktop : fonctions de développeur ou de confort, pas d'actualité.
+- Olala mini d'OVHcloud (17 novembre) : modèle annoncé pour le 19 novembre, éditeur hors liste du runbook ; rien.
+- Introduction en bourse d'Anthropic (19 novembre) : financier, hors silo.
+
+**Actions** (commit de contenu : voir le commit de suivi) : trois créations, une révision.
+
+1. Création de `/blog/gpt-6-2-astra-sol-pme` (entrée `actu-2026-11-18-gpt-6-2-astra-sol`, actualité, silo `conseil`).
+   - Pourquoi : règle 4.0, nouveau modèle d'un éditeur couvert, absent du site.
+   - Recherche en ligne (18 novembre 2026) : « GPT-6.2 Astra Sol OpenAI nouveau modèle prix entreprises », « OpenAI GPT-6.2 migration guide Responses API ». Pages lues : https://nocodetoulouse.fr/gpt-6-2-astra-sol/ ; https://www.frandroid.com/culture-tech/intelligence-artificielle/openai-chatgpt/3327323_nouveaux-modeles-de-chatgpt-gpt-6-2-astra-coute-20-moins-cher-et-talonne-claude-fable-5-2 ; https://www.briefia.fr/article/openai-propose-gpt-6-2-astra-et-sol-a-un-tarif-reduit-pour-les-entreprises ; https://fr.qz.com/openai-gpt-6-2-astra-release-version-abandonne-111726 ; https://dev.to/akaranjkar08/gpt-62-astra-and-sol-api-migration-what-breaks-what-it-costs-h4h ; https://oossa.com/fr/openai-launches-gpt-6-2-astra-for-pro-work-and-gpt-6-2-sol-for-everyday-tasks (extrait). Concurrents de `competitors.json` : aucune page sur GPT-6.2 trouvée. Ce qu'elles couvrent : prix, offres, chiffres d'OpenAI. Ce qui manque ou est faux : nocodetoulouse.fr écrit que ChatGPT Business n'est pas concerné, alors que la page de tarifs d'OpenAI l'inclut ; aucune ne met les prix face aux équivalents Claude ni ne traduit le guide de migration pour un scénario n8n ou Make.
+   - Sources primaires (lues le 18 novembre 2026) : https://openai.com/index/introducing-gpt-6-2-astra-sol ; https://developers.openai.com/api/docs/changelog ; https://developers.openai.com/api/docs/guides/latest-model ; https://developers.openai.com/api/docs/guides/keep-prefix-unchanged ; https://developers.openai.com/api/docs/guides/reasoning ; https://developers.openai.com/api/docs/models/gpt-6.2-astra ; https://developers.openai.com/api/docs/models/gpt-6.2-sol ; https://developers.openai.com/api/docs/pricing ; https://learn.chatgpt.com/docs/whats-new/gpt-62-astra-sol ; https://learn.chatgpt.com/docs/pricing ; https://platform.claude.com/docs/en/about-claude/pricing.
+   - Illustration : `gpt-6-aiguillage` (moteur B, `sol-bleu`, `--no-fallback`).
+   - À mesurer : `/blog/gpt-6-2-astra-sol-pme`, requête « gpt-6.2 » : aucune impression au départ (page neuve). Attendu : page indexée et premières impressions. À juger à partir de 2026-W49.
+2. Révision de `/ressources/comparatifs/claude-platform-vs-openai-platform` (entrée `w47-revision-claude-platform-vs-openai-gpt-6-2`, règle 4.1.4).
+   - Pourquoi : la page affirmait que Claude Fable 5.2 coûtait moins cher que GPT-6 Astra ; GPT-6.2 Astra est au même tarif depuis le 17 novembre. Tableau (modèles, prix haut de gamme et intermédiaire, fenêtre), FAQ, prose et sources mis à jour ; seuil de 272 000 jetons ajouté ; lien vers l'actualité. `updatedAt` au 19 novembre.
+   - À mesurer : impressions de la page sur 28 jours à la collecte du 22 novembre (valeur de départ), pas de baisse attendue. À juger à partir de 2026-W49.
+3. Création de `/ressources/guides/claude-code-mods` (entrée `demande-simon-2026-11-19-guide-mods-claude-code`, guide, silo `claude`).
+   - Pourquoi : demande de Simon du 19 novembre 2026.
+   - Recherche en ligne (19 novembre 2026) : documentation d'Anthropic lue en entier pour l'aperçu, la création et l'administration des mods, plus l'index `llms.txt` des pages Mods. Les mods ne sont pas couverts par le site ni par les concurrents de `competitors.json` (aucune page trouvée). Recherche de pages françaises sur la requête non faite avec un moteur : seule la documentation d'Anthropic a été lue.
+   - Sources (lues le 19 novembre 2026) : https://code.claude.com/docs/fr/plugins/mods/overview ; https://code.claude.com/docs/en/plugins/mods/create ; https://code.claude.com/docs/en/plugins/mods/admin ; https://code.claude.com/docs/llms.txt.
+   - Illustration : `claude-code-volet` (moteur B, `touche-bleue`, `--no-fallback`).
+   - À mesurer : `/ressources/guides/claude-code-mods`, requête « mods claude code » : page neuve. Attendu : page indexée et premières impressions. À juger à partir de 2026-W49.
+4. Création de `/blog/mods-claude-code-securite-pme` (entrée `demande-simon-2026-11-19-article-mods-claude-code-securite`, article, silo `claude`).
+   - Pourquoi : demande de Simon du 19 novembre 2026. Angle distinct du guide pour ne pas le cannibaliser : la gouvernance (garde-fou intégré, ses angles morts, trois politiques, revue par `claude plugin validate`). Le guide renvoie à l'article pour la sécurité, l'article au guide pour la pratique.
+   - Sources : les mêmes pages d'Anthropic (19 novembre 2026).
+   - Illustration : `mods-claude-portique` (moteur B, `forme-bleue`, `--no-fallback`).
+   - À mesurer : `/blog/mods-claude-code-securite-pme`, requête « mods claude code sécurité » : page neuve. À juger à partir de 2026-W49.
+
+**Relecture sceptique** (sous-agent, trois pages) : actualité « oui, en partie » (prix face à Claude, surcoûts, modèle qui tait un blocage) ; guide « non » (résumé fidèle de la documentation) ; article « oui » (angles morts du garde-fou, trois politiques). Corrigé : FAQ « quatre à quatre-vingts fois » rapportée à Astra ; offres ChatGPT réécrites sans contradiction ; « Pro 500 » et « Pro 200 » remplacés par les prix ; liens ajoutés sur les 30 % de jetons et sur les chiffres d'OpenAI ; « calcul de Waimia » et « ma réponse tient en une phrase » retirés ; multiplicateur de sortie au-delà de 272 000 jetons ajouté à la FAQ ; phrase tronquée sur `~/.claude/dev-mods/` réécrite ; `allowManagedModsOnly` et la version 2.1.323 de `validate` ajoutés au guide ; dans l'article, FAQ « pas dangereux en soi » réécrite, distinction entre les appels de Claude et ceux du mod expliquée, `strictKnownMarketplaces` et les trois moyens de déployer les paramètres gérés nommés. Non corrigé : guide jugé sans apport propre (choix assumé : Simon a demandé ce guide, et c'est la seule page française qui ordonne la documentation pour un décideur ; à mesurer) ; doublons définition et FAQ entre `faq_fr` et la section FAQ (gabarit du site) ; tutoriel technique jugé trop développeur (la cible des mods est l'utilisateur de Claude Code) ; aucun prix d'accompagnement (aucun dans `pricing.ts`).
+
+**Gates (section 7)**, build `WAIMIA_INTERNAL_TOOLS=0` : « [build] Complete! » ; check-head « ✓ 294 pages : title, description, h1 et canonical présents et cohérents » ; check-jsonld « ✓ JSON-LD valide sur 294 pages » ; check-sitemap « ✓ Sitemap cohérent (294 URL, toutes 200, indexables, canoniques) » ; check-redirects « ✓ 90 anciennes URL : un seul saut, cible 200, ni chaîne ni boucle » ; check-public-surface --prod « ✓ Surface publique conforme » ; check-seo « ✓ Tous les checks passent » ; check-hero-illustrations « OK » ; check-static-quality exit 0 ; check-internal-mesh « 288/288 pages au seuil · 0 orpheline(s) » ; check-silos « OK · 12 silos = 12 thèmes du maillage · 274 contenus vérifiés » ; check-no-emdash « PASS » ; check-ai-tells « OK, 3 occurrences connues (référence 3) » ; check-internal-links « OK : aucun lien interne casse » ; check-content-refs « PASS » ; check-touchpoints « ✓ Tous les touchpoints sont alignés » ; check-section-modules « ✓ Tous les modules co-localisés sont complets » ; check-news « OK · 10 actualité(s) » ; check-config « OK : 333 mots-clés » ; check-calendar « OK : 207 entrées, 2 semaine(s) d'avance après 2026-W47, 3 avertissements » (les trois pages créées dans le même lot) ; astro check « 0 errors ».
+
+**`llms.txt`** : les trois pages figurent dans `dist/client/llms.txt`, ligne reprenant title et description.
+
+**GF-1** (build servi, `serve-dist.mjs`, Playwright, 1440 et 390 px, sur les trois pages et le comparatif) : 200, H1 visible (opacité 1), 0 erreur console, JSON-LD `NewsArticle` + `FAQPage` sur l'actualité, `Article` + `FAQPage` ailleurs. Premier passage : débordement horizontal de 78 px à 390 px sur le guide (bloc `<pre>` d'arborescence) ; remplacé par une phrase, rebuild, débordement 0 sur les huit captures. Captures mobiles relues : H1, chapô et haut de l'illustration au-dessus de la ligne de flottaison. Balayage de débordement sur tout le build non fait.
+
+**Brave** : 28 URL dans la file (`brave-queue.mjs --from-sitemap --days=8`, avant le push), à soumettre par la tâche Brave.
+
+**Calendrier** : ajoutées et livrées les quatre entrées ci-dessus ; ajoutée l'idée `idee-chatgpt-for-sales-pme` ; `idee-migrer-chatgpt-personnel-business` replanifiée en 2026-W48 (trois jours restent en 2026-W47 pour trois entrées planifiées : `idee-workflow-erreur-n8n-appels-ia`, `idee-exports-erp-pour-ia`, `idee-site-lisible-agents-ia`). `check-calendar.mjs` : 2 semaines d'avance, 13 idées, 13 planifiées.
+
+**Brouillons LinkedIn** : `docs/seo/posts/2026-11-19.md` (trois brouillons, à relire et à publier par Simon).
+
+**Décisions prises seule**
+- Actualité GPT-6.2 faite création de la session à la place de `idee-workflow-erreur-n8n-appels-ia` (règle 4.0). Pour défaire : `git revert` du commit de contenu.
+- Comparatif Claude Platform ou OpenAI Platform révisé le jour même (règle 4.1.4). Pour défaire : revert du fichier.
+- `idee-migrer-chatgpt-personnel-business` passée en 2026-W48. Pour défaire : remettre `semainePrevue` à 2026-W47.
+- ChatGPT for Sales laissé en idée (lecture de la source à faire). Pour défaire : passer l'entrée à « abandonné ».
+
+**Pour Simon** : volumes Semrush de « gpt-6.2 », « mods claude code », « mods claude code sécurité » ; « Demander l'indexation » des trois pages s'il le juge utile ; publication des brouillons s'il le veut.
+
 ### 2026-11-17 (contrôle à sept jours des mises en ligne du 10 novembre 2026, collecte du 15 novembre 2026)
 
 Contrôle en lecture seule, hors session de production : aucune page modifiée.

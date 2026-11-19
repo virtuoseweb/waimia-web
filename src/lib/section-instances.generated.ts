@@ -223,6 +223,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-code-mods.json",
+      "slug": "claude-code-mods",
+      "route": "/ressources/guides/claude-code-mods",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-duet.json",
       "slug": "claude-duet",
       "route": "/ressources/guides/claude-duet",
@@ -4697,6 +4706,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-code-mods.json",
+      "slug": "claude-code-mods",
+      "route": "/ressources/guides/claude-code-mods",
+      "index": 2,
+      "label": "#2",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
@@ -6750,6 +6768,42 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 9,
       "label": "#9",
       "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-code-mods.json",
+      "slug": "claude-code-mods",
+      "route": "/ressources/guides/claude-code-mods",
+      "index": 3,
+      "label": "#3",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-code-mods.json",
+      "slug": "claude-code-mods",
+      "route": "/ressources/guides/claude-code-mods",
+      "index": 6,
+      "label": "#6",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-code-mods.json",
+      "slug": "claude-code-mods",
+      "route": "/ressources/guides/claude-code-mods",
+      "index": 8,
+      "label": "#8",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-code-mods.json",
+      "slug": "claude-code-mods",
+      "route": "/ressources/guides/claude-code-mods",
+      "index": 10,
+      "label": "#10",
+      "background": "paper-2"
     },
     {
       "collection": "guides",
@@ -9642,6 +9696,26 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-code-mods.json",
+      "slug": "claude-code-mods",
+      "route": "/ressources/guides/claude-code-mods",
+      "index": 4,
+      "label": "Mod, hook de paramètres, skill ou serveur MCP",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-code-mods.json",
+      "slug": "claude-code-mods",
+      "route": "/ressources/guides/claude-code-mods",
+      "index": 7,
+      "label": "Où un mod s'exécute, et où il dessine",
+      "variant": "editorial",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
@@ -11817,6 +11891,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-code-mods.json",
+      "slug": "claude-code-mods",
+      "route": "/ressources/guides/claude-code-mods",
+      "index": 12,
+      "label": "Questions fréquentes",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
@@ -13679,6 +13762,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-code-mods.json",
+      "slug": "claude-code-mods",
+      "route": "/ressources/guides/claude-code-mods",
+      "index": 13,
+      "label": "Personnaliser Claude Code sans ouvrir vos postes à n'importe quel code.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
@@ -15512,6 +15604,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/claude-code-entreprise",
       "index": 0,
       "label": "Claude Code en entreprise : fonctionnalités, coût et déploiement",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-code-mods.json",
+      "slug": "claude-code-mods",
+      "route": "/ressources/guides/claude-code-mods",
+      "index": 0,
+      "label": "Mods Claude Code : créer, installer et contrôler un mod",
       "background": "paper"
     },
     {
@@ -18362,6 +18463,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-code-mods.json",
+      "slug": "claude-code-mods",
+      "route": "/ressources/guides/claude-code-mods",
+      "index": 5,
+      "label": "Faire écrire un mod par Claude, en cinq étapes",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
@@ -19849,6 +19959,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/claude-code-mods.json",
+      "slug": "claude-code-mods",
+      "route": "/ressources/guides/claude-code-mods",
+      "index": 11,
+      "label": "Pour aller plus loin",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/claude-cowork.json",
       "slug": "claude-cowork",
       "route": "/ressources/guides/claude-cowork",
@@ -20795,6 +20914,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/chatgpt-dots",
       "index": 10,
       "label": "Cas d'usage en PME : à confier à un dot, ou pas",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/claude-code-mods.json",
+      "slug": "claude-code-mods",
+      "route": "/ressources/guides/claude-code-mods",
+      "index": 9,
+      "label": "Quand écrire un mod, et quand s'en passer",
       "background": "paper"
     },
     {

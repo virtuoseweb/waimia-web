@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · moteur B · « un mod ajoute un volet à l’interface » : une immense fenêtre à petits carreaux devant un disque ; un homme sur une échelle fixe un volet neuf sur le côté, une femme lui tend une vis. Rôles remplacés par render-svg.mjs. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-92" r="8" fill="{{subject}}"/>
+      <path d="M-10 -82 Q0 -86 10 -82 L11 -48 L-11 -48 Z" fill="{{subject}}"/>
+      <path d="M-3 -82 L0 -74 L3 -82 Z" fill="{{light}}"/>
+      <rect x="-9" y="-49" width="7" height="47" fill="{{subject}}"/>
+      <rect x="2" y="-49" width="7" height="47" fill="{{subject}}"/>
+      <path d="M-11 -3 L-1 -3 L-1 0 L-11 0 Z M1 -3 L11 -3 L11 0 L1 0 Z" fill="{{subject}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{subject}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{subject}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <path d="M-8 -3 L-1 -3 L-1 0 L-8 0 Z M1 -3 L8 -3 L8 0 L1 0 Z" fill="{{subject}}"/>
+    </g>
+  </defs>
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <circle cx="620" cy="280" r="240" fill="{{shape}}"/>
+  <rect y="540" width="1456" height="84" fill="{{ground}}"/>
+  <rect y="534" width="1456" height="8" fill="{{deep}}"/>
+  <!-- grande fenêtre -->
+  <rect x="420" y="90" width="400" height="444" fill="{{shadow}}"/>
+  <rect x="436" y="106" width="368" height="412" fill="{{pale}}"/>
+  <g fill="{{shadow}}">
+    <rect x="614" y="106" width="12" height="412"/>
+    <rect x="436" y="206" width="368" height="10"/><rect x="436" y="306" width="368" height="10"/><rect x="436" y="406" width="368" height="10"/>
+  </g>
+  <g fill="{{mid}}">
+    <rect x="456" y="130" width="120" height="6"/><rect x="456" y="146" width="90" height="6"/>
+    <rect x="646" y="236" width="130" height="6"/><rect x="646" y="252" width="100" height="6"/>
+    <rect x="456" y="336" width="110" height="6"/><rect x="646" y="436" width="120" height="6"/>
+  </g>
+  <!-- volet neuf, accroché à droite -->
+  <rect x="830" y="150" width="150" height="250" fill="{{detail}}"/>
+  <rect x="844" y="164" width="122" height="222" fill="{{light}}"/>
+  <g fill="{{deep}}"><rect x="858" y="186" width="80" height="6"/><rect x="858" y="204" width="60" height="6"/><rect x="858" y="222" width="90" height="6"/></g>
+  <g fill="{{shadow}}"><rect x="818" y="190" width="16" height="12"/><rect x="818" y="340" width="16" height="12"/></g>
+  <!-- échelle -->
+  <g fill="{{shadow}}">
+    <rect x="1010" y="230" width="8" height="310" transform="rotate(8 1014 540)"/>
+    <rect x="1066" y="230" width="8" height="310" transform="rotate(8 1070 540)"/>
+    <rect x="1000" y="290" width="70" height="6"/><rect x="996" y="350" width="70" height="6"/><rect x="992" y="410" width="70" height="6"/><rect x="988" y="470" width="70" height="6"/>
+  </g>
+  <use href="#man" transform="translate(1040 350) scale(0.95)"/>
+  <path d="M1034 276 L984 262" stroke="{{subject}}" stroke-width="6" stroke-linecap="round"/>
+  <!-- femme au pied -->
+  <use href="#woman" transform="translate(1150 540) scale(0.95)"/>
+  <path d="M1142 458 L1110 420" stroke="{{subject}}" stroke-width="5" stroke-linecap="round"/>
+  <!-- au loin -->
+  <use href="#man" transform="translate(250 540) scale(0.7)"/>
+</svg>
