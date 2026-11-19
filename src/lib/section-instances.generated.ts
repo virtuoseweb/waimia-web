@@ -205,6 +205,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/chatgpt-business.json",
+      "slug": "chatgpt-business",
+      "route": "/ressources/guides/chatgpt-business",
+      "index": 1,
+      "label": "Simon Beros",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/chatgpt-dots.json",
       "slug": "chatgpt-dots",
       "route": "/ressources/guides/chatgpt-dots",
@@ -4679,6 +4688,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/chatgpt-business.json",
+      "slug": "chatgpt-business",
+      "route": "/ressources/guides/chatgpt-business",
+      "index": 2,
+      "label": "#2",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/chatgpt-dots.json",
       "slug": "chatgpt-dots",
       "route": "/ressources/guides/chatgpt-dots",
@@ -6615,6 +6633,42 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 14,
       "label": "#14",
       "background": "paper-3"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/chatgpt-business.json",
+      "slug": "chatgpt-business",
+      "route": "/ressources/guides/chatgpt-business",
+      "index": 4,
+      "label": "#4",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/chatgpt-business.json",
+      "slug": "chatgpt-business",
+      "route": "/ressources/guides/chatgpt-business",
+      "index": 5,
+      "label": "#5",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/chatgpt-business.json",
+      "slug": "chatgpt-business",
+      "route": "/ressources/guides/chatgpt-business",
+      "index": 6,
+      "label": "#6",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/chatgpt-business.json",
+      "slug": "chatgpt-business",
+      "route": "/ressources/guides/chatgpt-business",
+      "index": 8,
+      "label": "#8",
+      "background": "paper-2"
     },
     {
       "collection": "guides",
@@ -9619,6 +9673,16 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/chatgpt-business.json",
+      "slug": "chatgpt-business",
+      "route": "/ressources/guides/chatgpt-business",
+      "index": 3,
+      "label": "Siège Standard ou siège Premium : ce qui change",
+      "variant": "editorial",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
       "file": "guides/chatgpt-dots.json",
       "slug": "chatgpt-dots",
       "route": "/ressources/guides/chatgpt-dots",
@@ -11864,6 +11928,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/chatgpt-business.json",
+      "slug": "chatgpt-business",
+      "route": "/ressources/guides/chatgpt-business",
+      "index": 9,
+      "label": "Questions fréquentes sur ChatGPT Business",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
       "file": "guides/chatgpt-dots.json",
       "slug": "chatgpt-dots",
       "route": "/ressources/guides/chatgpt-dots",
@@ -13735,6 +13808,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "guides",
+      "file": "guides/chatgpt-business.json",
+      "slug": "chatgpt-business",
+      "route": "/ressources/guides/chatgpt-business",
+      "index": 10,
+      "label": "Des sièges qui servent, et une liste écrite de ce qui n'y entre pas.",
+      "background": "ink"
+    },
+    {
+      "collection": "guides",
       "file": "guides/chatgpt-dots.json",
       "slug": "chatgpt-dots",
       "route": "/ressources/guides/chatgpt-dots",
@@ -15577,6 +15659,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/chatgpt",
       "index": 0,
       "label": "ChatGPT : le guide complet",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/chatgpt-business.json",
+      "slug": "chatgpt-business",
+      "route": "/ressources/guides/chatgpt-business",
+      "index": 0,
+      "label": "ChatGPT Business : prix, sièges et réglages pour une PME",
       "background": "paper"
     },
     {
@@ -18433,6 +18524,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 13,
       "label": "Comment Waimia prépare un site avant la première ligne de code ?",
       "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/chatgpt-business.json",
+      "slug": "chatgpt-business",
+      "route": "/ressources/guides/chatgpt-business",
+      "index": 7,
+      "label": "Ouvrir ChatGPT Business dans une PME, en six étapes",
+      "background": "paper-3"
     },
     {
       "collection": "guides",

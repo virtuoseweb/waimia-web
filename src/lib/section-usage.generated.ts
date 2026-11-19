@@ -23,7 +23,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "author-byline": {
-    "count": 59,
+    "count": 60,
     "pages": [
       "/cas-usages/centraliser-donnees",
       "/cas-usages/finance-comptabilite",
@@ -44,6 +44,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/chatbot-transparence-article-50",
       "/ressources/guides/chatgpt",
+      "/ressources/guides/chatgpt-business",
       "/ressources/guides/chatgpt-dots",
       "/ressources/guides/choisir-agence-ia-pme",
       "/ressources/guides/claude-code-mods",
@@ -628,7 +629,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "direct-answer": {
-    "count": 102,
+    "count": 103,
     "pages": [
       "/cas-usages/finance-comptabilite",
       "/cas-usages/rh",
@@ -675,6 +676,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/chatbot-transparence-article-50",
       "/ressources/guides/chatgpt",
+      "/ressources/guides/chatgpt-business",
       "/ressources/guides/chatgpt-dots",
       "/ressources/guides/choisir-agence-ia-pme",
       "/ressources/guides/claude-code-entreprise",
@@ -777,7 +779,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "editorial-prose": {
-    "count": 416,
+    "count": 420,
     "pages": [
       "/audit-ia-pme",
       "/cas-usages/centraliser-donnees",
@@ -819,6 +821,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/chatbot-transparence-article-50",
       "/ressources/guides/chatgpt",
+      "/ressources/guides/chatgpt-business",
       "/ressources/guides/chatgpt-dots",
       "/ressources/guides/choisir-agence-ia-pme",
       "/ressources/guides/claude-code-entreprise",
@@ -929,7 +932,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "editorial-table-block": {
-    "count": 158,
+    "count": 159,
     "pages": [
       "/cas-usages/finance-comptabilite",
       "/cas-usages/rh",
@@ -955,6 +958,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/chatbot-transparence-article-50",
       "/ressources/guides/chatgpt",
+      "/ressources/guides/chatgpt-business",
       "/ressources/guides/chatgpt-dots",
       "/ressources/guides/choisir-agence-ia-pme",
       "/ressources/guides/claude-code-entreprise",
@@ -1098,7 +1102,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "faq-accordion": {
-    "count": 167,
+    "count": 168,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -1156,6 +1160,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/chatbot-transparence-article-50",
       "/ressources/guides/chatgpt",
+      "/ressources/guides/chatgpt-business",
       "/ressources/guides/chatgpt-dots",
       "/ressources/guides/choisir-agence-ia-pme",
       "/ressources/guides/claude-code-entreprise",
@@ -1327,7 +1332,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "footer-cta-band": {
-    "count": 166,
+    "count": 167,
     "pages": [
       "/audit-ia-pme",
       "/audit-site-web-intelligent",
@@ -1386,6 +1391,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/chatbot-transparence-article-50",
       "/ressources/guides/chatgpt",
+      "/ressources/guides/chatgpt-business",
       "/ressources/guides/chatgpt-dots",
       "/ressources/guides/choisir-agence-ia-pme",
       "/ressources/guides/claude-code-entreprise",
@@ -1620,7 +1626,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "hero-split-media": {
-    "count": 122,
+    "count": 123,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/centraliser-donnees",
@@ -1672,6 +1678,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/chatbot-transparence-article-50",
       "/ressources/guides/chatgpt",
+      "/ressources/guides/chatgpt-business",
       "/ressources/guides/chatgpt-dots",
       "/ressources/guides/choisir-agence-ia-pme",
       "/ressources/guides/claude-code-entreprise",
@@ -2088,7 +2095,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "process-steps": {
-    "count": 70,
+    "count": 71,
     "pages": [
       "/audit-site-web-intelligent",
       "/cas-usages/finance-comptabilite",
@@ -2113,6 +2120,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "/ressources/guides/aides-financement-projet-ia",
       "/ressources/guides/automatisation-factures-fournisseurs-pme",
       "/ressources/guides/cahier-des-charges-site-internet",
+      "/ressources/guides/chatgpt-business",
       "/ressources/guides/chatgpt-dots",
       "/ressources/guides/choisir-agence-ia-pme",
       "/ressources/guides/claude-code-entreprise",

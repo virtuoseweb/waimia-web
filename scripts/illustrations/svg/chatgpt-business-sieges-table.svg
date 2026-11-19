@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · moteur B · « ChatGPT Business : des sièges de deux tailles autour d'une même table » :
+       devant un grand panneau rectangulaire, une longue table de réunion ; derrière elle, une rangée
+       de chaises basses et deux chaises à très haut dossier ; à droite, une femme debout tient une
+       grande clé (l'administration de l'espace). Rôles remplacés par render-svg.mjs. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-92" r="8" fill="{{subject}}"/>
+      <path d="M-10 -82 Q0 -86 10 -82 L11 -48 L-11 -48 Z" fill="{{subject}}"/>
+      <path d="M-3 -82 L0 -74 L3 -82 Z" fill="{{ground}}"/>
+      <rect x="-9" y="-49" width="7" height="47" fill="{{subject}}"/>
+      <rect x="2" y="-49" width="7" height="47" fill="{{subject}}"/>
+      <path d="M-11 -3 L-1 -3 L-1 0 L-11 0 Z M1 -3 L11 -3 L11 0 L1 0 Z" fill="{{subject}}"/>
+    </g>
+    <g id="woman">
+      <circle cx="0" cy="-90" r="7" fill="{{subject}}"/>
+      <circle cx="-5" cy="-96" r="5" fill="{{subject}}"/>
+      <path d="M-8 -81 Q0 -85 8 -81 L9 -52 L-9 -52 Z" fill="{{subject}}"/>
+      <path d="M-10 -53 L10 -53 L8 -24 L-8 -24 Z" fill="{{subject}}"/>
+      <rect x="-6" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <rect x="2" y="-25" width="4" height="23" fill="{{subject}}"/>
+      <path d="M-8 -3 L-1 -3 L-1 0 L-8 0 Z M1 -3 L8 -3 L8 0 L1 0 Z" fill="{{subject}}"/>
+    </g>
+    <g id="chair">
+      <rect x="-22" y="-70" width="44" height="70" fill="{{shadow}}"/>
+      <rect x="-26" y="-6" width="6" height="40" fill="{{shadow}}"/>
+      <rect x="20" y="-6" width="6" height="40" fill="{{shadow}}"/>
+    </g>
+    <g id="tall">
+      <rect x="-24" y="-210" width="48" height="210" fill="{{shadow}}"/>
+      <rect x="-14" y="-196" width="28" height="12" fill="{{mid}}"/>
+      <rect x="-28" y="-6" width="6" height="40" fill="{{shadow}}"/>
+      <rect x="22" y="-6" width="6" height="40" fill="{{shadow}}"/>
+    </g>
+  </defs>
+
+  <!-- Fond et grand panneau -->
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <rect x="300" y="70" width="760" height="420" fill="{{shape}}"/>
+
+  <!-- Sol, horizon bas -->
+  <rect y="520" width="1456" height="104" fill="{{ground}}"/>
+  <rect y="514" width="1456" height="8" fill="{{deep}}"/>
+
+  <!-- Dossiers des chaises, derrière la table -->
+  <use href="#chair" transform="translate(380 470)"/>
+  <use href="#chair" transform="translate(470 470)"/>
+  <use href="#tall" transform="translate(560 470)"/>
+  <use href="#chair" transform="translate(650 470)"/>
+  <use href="#chair" transform="translate(740 470)"/>
+  <use href="#tall" transform="translate(830 470)"/>
+  <use href="#chair" transform="translate(920 470)"/>
+  <use href="#chair" transform="translate(1000 470)"/>
+
+  <!-- Longue table -->
+  <rect x="330" y="440" width="720" height="22" fill="{{subject}}"/>
+  <rect x="352" y="462" width="12" height="58" fill="{{subject}}"/>
+  <rect x="1016" y="462" width="12" height="58" fill="{{subject}}"/>
+  <!-- quelques feuilles posées sur la table -->
+  <rect x="402" y="432" width="40" height="8" fill="{{light}}"/>
+  <rect x="600" y="432" width="52" height="8" fill="{{light}}"/>
+  <rect x="868" y="432" width="36" height="8" fill="{{light}}"/>
+
+  <!-- Une femme debout à droite tient une grande clé -->
+  <use href="#woman" transform="translate(1180 520) scale(1.5)"/>
+  <path d="M1188 410 L1236 404" stroke="{{subject}}" stroke-width="8" stroke-linecap="round"/>
+  <g fill="{{detail}}">
+    <circle cx="1262" cy="270" r="58"/>
+    <rect x="1248" y="318" width="28" height="202"/>
+    <rect x="1276" y="440" width="52" height="22"/>
+    <rect x="1276" y="480" width="38" height="22"/>
+  </g>
+  <circle cx="1262" cy="270" r="24" fill="{{field}}"/>
+
+  <!-- Au loin, à gauche, un homme arrive -->
+  <use href="#man" transform="translate(170 520) scale(0.85)"/>
+</svg>

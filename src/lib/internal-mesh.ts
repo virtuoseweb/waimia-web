@@ -197,6 +197,7 @@ const PAGES: Record<string, PageDef> = {
   '/services/integration-mistral-ai': { label_fr: 'Intégration Mistral AI aux outils métier', label_en: 'Mistral AI integration for business tools', kind: 'service', topics: ['claude', 'agents'] },
   '/services/integration-chatgpt-openai': { label_fr: 'Intégration ChatGPT et OpenAI aux outils métier', label_en: 'ChatGPT and OpenAI integration for business tools', kind: 'service', topics: ['claude', 'agents'] },
   '/ressources/guides/claude-ia': { label_fr: 'Claude IA : le guide complet', label_en: 'Claude AI: the complete guide', kind: 'guide', topics: ['claude'] },
+  '/ressources/guides/chatgpt-business': { label_fr: 'ChatGPT Business : prix, sièges et réglages', label_en: 'ChatGPT Business: price, seats and settings', kind: 'guide', topics: ['claude', 'conseil'] },
   '/ressources/guides/chatgpt': { label_fr: 'ChatGPT : le guide complet', label_en: 'ChatGPT: the complete guide', kind: 'guide', topics: ['claude'] },
   '/ressources/guides/mistral-ai': { label_fr: 'Mistral AI et Le Chat : le guide', label_en: 'Mistral AI and Le Chat: the guide', kind: 'guide', topics: ['claude', 'conformite'] },
   '/ressources/guides/gemini': { label_fr: 'Gemini de Google : le guide complet', label_en: "Google's Gemini: the complete guide", kind: 'guide', topics: ['claude'] },

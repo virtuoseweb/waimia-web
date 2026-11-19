@@ -7644,6 +7644,72 @@ export const SITE_PAGES: SitePage[] = [
     ]
   },
   {
+    "route": "/ressources/guides/chatgpt-business",
+    "title": "ChatGPT Business : prix, sièges Standard et Premium, données et réglages pour une PME",
+    "group": "ressources",
+    "collection": "guides",
+    "file": "guides/chatgpt-business.json",
+    "editable": true,
+    "sections": [
+      {
+        "type": "hero-split-media",
+        "label": "ChatGPT Business : prix, sièges et réglages pour une PME",
+        "background": "paper"
+      },
+      {
+        "type": "author-byline",
+        "label": "Simon Beros",
+        "background": "paper"
+      },
+      {
+        "type": "direct-answer",
+        "label": "#2",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-table-block",
+        "label": "Siège Standard ou siège Premium : ce qui change",
+        "variant": "editorial",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#4",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#5",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#6",
+        "background": "paper"
+      },
+      {
+        "type": "process-steps",
+        "label": "Ouvrir ChatGPT Business dans une PME, en six étapes",
+        "background": "paper-3"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#8",
+        "background": "paper-2"
+      },
+      {
+        "type": "faq-accordion",
+        "label": "Questions fréquentes sur ChatGPT Business",
+        "background": "paper"
+      },
+      {
+        "type": "footer-cta-band",
+        "label": "Des sièges qui servent, et une liste écrite de ce qui n'y entre pas.",
+        "background": "ink"
+      }
+    ]
+  },
+  {
     "route": "/ressources/guides/chatgpt-dots",
     "title": "ChatGPT dots : les agents toujours actifs d'OpenAI, accès, prix, limites",
     "group": "ressources",
@@ -14075,6 +14141,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/guides/cahier-des-charges-site-internet",
       "/ressources/guides/chatbot-transparence-article-50",
       "/ressources/guides/chatgpt",
+      "/ressources/guides/chatgpt-business",
       "/ressources/guides/chatgpt-dots",
       "/ressources/guides/choisir-agence-ia-pme",
       "/ressources/guides/claude-code-entreprise",
