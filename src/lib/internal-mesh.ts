@@ -29,7 +29,7 @@
 
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { DEPUBLISHED_SERVICE_IDS, DEPUBLISHED_DEMONSTRATION_IDS, isRedirectedPath } from '../data/depublished';
+import { DEPUBLISHED_SERVICE_IDS, DEPUBLISHED_DEMONSTRATION_IDS, VIRTUOSE_SILO_SERVICE, isRedirectedPath } from '../data/depublished';
 import { NOINDEX_SITEMAP_PATHS } from '../data/sitemap-noindex-exclude';
 import { SILOS } from '../data/taxonomies';
 import { AUDIT_BOOKING_HREF, AUDIT_BOOKING_LABEL } from '../data/conversion';
@@ -322,7 +322,7 @@ const PAGES: Record<string, PageDef> = {
 
   // ── Site web et développement (thème `web`) : cas, services de site, secteurs « Site web et IA »
   //    puis guide de refonte. Cet ordre fait l'anneau. ──
-  '/cas-clients/amploi': { label_fr: 'Cas client : Amploi', label_en: 'Case: Amploi', kind: 'cas-client', topics: ['web'] },
+  '/cas-clients/amploi': { label_fr: 'Cas client : Amploi', label_en: 'Case: Amploi', kind: 'cas-client', topics: ['commercial', 'web'] },
   '/cas-clients/balzeo': { label_fr: 'Cas client : Balzeo', label_en: 'Case: Balzeo', kind: 'cas-client', topics: ['web'] },
   '/cas-clients/sprinkable-airess': { label_fr: 'Cas client : Sprinkable et Airess', label_en: 'Case: Sprinkable and Airess', kind: 'cas-client', topics: ['web'] },
   '/services/site-web-ia': { label_fr: 'Agence site web', label_en: 'Web agency', kind: 'service', topics: ['web'] },
@@ -914,11 +914,12 @@ const TUNNEL_SERVICE_CALL: Record<Topic, { fr: string; label_fr: string; en: str
     en: 'Claude changes little until it is wired into your tools and your rules. We integrate it, and the keys stay with you.',
     label_en: 'See the Claude integration',
   },
+  // Silos sans offre chez Waimia depuis le 19/11/2026 : l'appel renvoie vers VirtuoseWeb (VIRTUOSE_SILO_SERVICE).
   web: {
-    fr: 'Un site se juge aux demandes qu\'il fait arriver. Nous partons de vos pages qui comptent, puis nous corrigeons ou nous refaisons, dans cet ordre.',
-    label_fr: 'Voir notre approche du site web',
-    en: 'A website is judged by the enquiries it brings in. We start from the pages that matter, then fix or rebuild, in that order.',
-    label_en: 'See our website approach',
+    fr: 'Créer ou refaire un site web n\'est pas le métier de Waimia : c\'est celui de VirtuoseWeb, agence de création de site web et studio frère de Waimia.',
+    label_fr: 'Voir VirtuoseWeb, agence de création de site web',
+    en: 'Building or rebuilding a website is not Waimia\'s line of work: it is the job of VirtuoseWeb, a website design agency and Waimia\'s sister studio.',
+    label_en: 'See VirtuoseWeb, website design agency',
   },
   applications: {
     fr: "Quand un tableur fait tourner l'entreprise, la panne n'est qu'une question de temps. Nous construisons l'application qui le remplace, et le code vous appartient.",
@@ -933,10 +934,10 @@ const TUNNEL_SERVICE_CALL: Record<Topic, { fr: string; label_fr: string; en: str
     label_en: 'See the sales system',
   },
   acquisition: {
-    fr: "Être cité par Google et par les assistants IA se travaille page par page. Nous commençons par mesurer où vous en êtes, avant de toucher à quoi que ce soit.",
-    label_fr: "Voir le système d'acquisition",
-    en: 'Being cited by Google and by AI assistants is built page by page. We start by measuring where you stand, before touching anything.',
-    label_en: 'See the acquisition system',
+    fr: "Le référencement sur Google et dans les assistants IA est le métier de VirtuoseWeb, le studio frère de Waimia : c'est là que le travail se fait, page par page.",
+    label_fr: 'Voir le référencement chez VirtuoseWeb',
+    en: 'Search visibility on Google and in AI assistants is the job of VirtuoseWeb, Waimia\'s sister studio: that is where the work is done, page by page.',
+    label_en: 'See search at VirtuoseWeb',
   },
   donnees: {
     fr: 'Des chiffres qui arrivent trop tard ne servent à personne. Nous relions vos sources et livrons un tableau de bord que vous ouvrez vraiment.',
@@ -990,7 +991,8 @@ type TunnelSection = { type: string; background?: string };
 export function injectTunnel<T extends TunnelSection>(sections: T[], silo: string | undefined, self: string): T[] {
   if (!silo || !(silo in SILOS)) return sections;
   const topic = silo as Topic;
-  const service = MONEY_PAGE[topic];
+  const external = VIRTUOSE_SILO_SERVICE[topic];
+  const service = external ?? MONEY_PAGE[topic];
   const json = JSON.stringify(sections);
   const linksService = Boolean(service) && new RegExp(`${escapeRe(service)}(?![\\w-])`).test(json);
   const hasResource = sections.some(
@@ -1004,7 +1006,7 @@ export function injectTunnel<T extends TunnelSection>(sections: T[], silo: strin
     prevBg = prevBg === 'paper-2' ? 'paper-3' : 'paper-2';
     return prevBg as 'paper-2' | 'paper-3';
   };
-  if (!linksService && service && service !== self && liveRoutes().has(service)) {
+  if (!linksService && service && service !== self && (external || liveRoutes().has(service))) {
     const c = TUNNEL_SERVICE_CALL[topic];
     added.push({
       type: 'cta-band',
@@ -1039,9 +1041,10 @@ export function toolExit(pathname: string): {
   const def = PAGES[normalize(pathname)];
   if (!def) return null;
   const topic = def.topics[0];
-  const service = MONEY_PAGE[topic];
+  const external = VIRTUOSE_SILO_SERVICE[topic];
+  const service = external ?? MONEY_PAGE[topic];
   const links: Array<{ label_fr: string; label_en: string; href: string }> = [];
-  if (service && liveRoutes().has(service)) {
+  if (service && (external || liveRoutes().has(service))) {
     const c = TUNNEL_SERVICE_CALL[topic];
     links.push({ label_fr: c.label_fr, label_en: c.label_en, href: service });
   }

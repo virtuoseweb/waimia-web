@@ -8,6 +8,7 @@ export const prerender = true;
 // MDX/JSON sans `sections:` = erreur de build volontaire (anti-orphelin).
 
 import { getCollection } from 'astro:content';
+import { isRedirectedPath } from '../../data/depublished';
 import Base from '../../layouts/Base.astro';
 import SectionsRenderer from '../../components/sections/SectionsRenderer.astro';
 import { buildService } from '../../lib/seo/schema-builder';
@@ -18,7 +19,8 @@ export async function getStaticPaths() {
   // du dossier (`/lp`, slug rest = undefined), pas à `/lp/hub`. Même pipeline composable
   // + noindex que les LP filles (rule anti-orphelin + noindex assumé). Les autres entrées
   // gardent `/lp/<id>`. Cf docs hub-spec (scratchpad lp4/05).
-  return entries.map((entry) => ({
+  // LP redirigées (src/data/depublished.ts, recentrage IA du 19/11/2026) : plus générées.
+  return entries.filter((entry) => !isRedirectedPath(entry.id === 'hub' ? '/lp' : `/lp/${entry.id}`)).map((entry) => ({
     params: { slug: entry.id === 'hub' ? undefined : entry.id },
     props: { entry },
   }));

@@ -95,30 +95,6 @@ export const MM_SOLUTIONS_NEW: MegaMenu = {
       ],
     },
     {
-      kicker: { en: 'WEBSITE, SEO AND BRAND', fr: 'SITE WEB, SEO ET MARQUE' },
-      label: { en: 'Website, SEO and brand', fr: 'Site web, SEO et marque' },
-      items: [
-        { href: '/services/systeme-acquisition', label: { en: 'Website, search and brand', fr: 'Site, référencement et marque' } },
-        { href: '/services/site-web-ia', label: { en: 'Web agency', fr: 'Agence site web' } },
-        { href: '/services/webflow', label: { en: 'Webflow agency', fr: 'Agence Webflow' } },
-        { href: '/services/wordpress', label: { en: 'WordPress agency', fr: 'Agence WordPress' } },
-        { href: '/services/shopify', label: { en: 'Shopify agency', fr: 'Agence Shopify' } },
-        { href: '/services/lovable', label: { en: 'Lovable agency', fr: 'Agence Lovable' } },
-        { href: '/services/sur-mesure-headless', label: { en: 'Custom website', fr: 'Site sur mesure' } },
-        { href: '/services/landing-pages-tunnels', label: { en: 'Landing pages and funnels', fr: 'Landing pages et tunnels' } },
-        { href: '/services/seo-geo-contenu', label: { en: 'SEO and organic search agency', fr: 'Agence SEO et référencement naturel' } },
-        { href: '/services/audit-seo-technique', label: { en: 'Technical SEO audit', fr: 'Audit SEO technique' } },
-        { href: '/services/referencement-ia', label: { en: 'GEO agency: get cited by AI', fr: 'Agence GEO : être cité par les IA' } },
-        { href: '/services/redaction-seo-contenu', label: { en: 'SEO writing and content', fr: 'Rédaction SEO et contenu' } },
-        { href: '/services/seo-local', label: { en: 'Local SEO', fr: 'SEO local' } },
-        { href: '/services/branding', label: { en: 'Branding agency', fr: 'Agence de branding' } },
-        { href: '/services/identite-de-marque', label: { en: 'Brand identity', fr: 'Identité de marque' } },
-        { href: '/services/refonte-de-marque', label: { en: 'Rebranding', fr: 'Refonte de marque' } },
-        { href: '/services/naming-et-positionnement', label: { en: 'Naming and positioning', fr: 'Naming et positionnement' } },
-        { href: '/services/charte-graphique-brand-book', label: { en: 'Brand guidelines and brand book', fr: 'Charte graphique et brand book' } },
-      ],
-    },
-    {
       kicker: { en: 'ADVISORY AND TRAINING', fr: 'CONSEIL ET FORMATION' },
       label: { en: 'Advisory and training', fr: 'Conseil et formation' },
       items: [
@@ -273,7 +249,6 @@ export const MM_RESOURCES: MegaMenu = {
         { href: '/ressources/guides/claude-plugins-entreprise', label: { en: 'Claude plugins and connectors', fr: 'Plugins et connecteurs Claude' } },
         { href: '/ressources/guides/claude-design', label: { en: 'Claude Design for SMBs', fr: 'Claude Design en PME' } },
         { href: '/ressources/outils/guide-achat-claude-pme', label: { en: "Claude buyer's guide for SMBs (PDF)", fr: "Guide d'achat Claude pour PME (PDF)" } },
-        { href: '/ressources/outils/grille-audit-site-internet', label: { en: 'Website audit grid (PDF)', fr: "Grille d'audit de site internet (PDF)" } },
         { href: '/ressources/guides/mcp-claude', label: { en: 'MCP guide: connecting Claude to your tools', fr: 'Guide MCP : brancher Claude à vos outils' } },
         { href: '/ressources/guides/ai-act-pme-calendrier', label: { en: 'AI Act: the timeline for an SME', fr: 'AI Act : le calendrier pour une PME' } },
         { href: '/ressources/guides/roi-automatisation', label: { en: 'Guide: computing automation ROI', fr: "Guide : calculer le ROI d'une automatisation" } },
@@ -405,14 +380,11 @@ export const FOOTER_COLS: FooterCol[] = [
       { href: AUDIT_BOOKING_HREF, label: { en: AUDIT_BOOKING_LABEL.en, fr: AUDIT_BOOKING_LABEL.fr } },
     ],
   },
-  // Col 3 : le site web, le référencement et la marque (le web n'est plus « en appui »).
+  // Col 3 : les sites web sont le métier du studio frère VirtuoseWeb (recentrage IA, 19/11/2026).
   {
-    heading: { en: 'Website, SEO and brand', fr: 'Site web, SEO et marque' },
+    heading: { en: 'Websites', fr: 'Sites web' },
     items: [
-      { href: '/services/systeme-acquisition', label: { en: 'Website, search and brand', fr: 'Site, référencement et marque' } },
-      { href: '/services/site-web-ia', label: { en: 'Web agency', fr: 'Agence site web' } },
-      { href: '/services/seo-geo-contenu', label: { en: 'SEO and organic search agency', fr: 'Agence SEO et référencement naturel' } },
-      { href: '/services/branding', label: { en: 'Branding agency', fr: 'Agence de branding' } },
+      { href: 'https://virtuoseweb.fr/', label: { en: 'VirtuoseWeb, website design agency', fr: 'VirtuoseWeb, agence de création de site web' } },
     ],
   },
   // Col 4 : le studio, les preuves, les ressources.
@@ -472,7 +444,8 @@ export const FOOTER_LEAN: FooterCol[] = [
     items: [
       { href: '/services/systemes-operationnels-ia', label: { en: 'Automation and AI agents', fr: 'Automatisation et agents IA' } },
       footerItem('/services/systeme-commercial'),
-      footerItem('/services/systeme-acquisition'),
+      // Recentrage IA (19/11/2026) : les sites web sont le métier du studio frère VirtuoseWeb.
+      { href: 'https://virtuoseweb.fr/', label: { en: 'VirtuoseWeb, website design agency', fr: 'VirtuoseWeb, agence de création de site web' } },
       { href: '/services', label: { en: 'All services', fr: 'Tous les services' } },
     ],
   },

@@ -120,14 +120,14 @@ const allBlog = (await getLiveCollection('blog'))
   .map((e) => ({ href: `/blog/${e.id}`, label: { fr: e.data.title_fr, en: e.data.title_en } }));
 
 // outils → /ressources/outils/<entry.id> · filtre !seo.noindex (cf outils/[...slug].astro)
-const allOutils = (await getCollection('outils'))
+const allOutils = (await getLiveCollection('outils'))
   .filter((e) => !e.data.seo?.noindex)
   .map((e) => ({ href: `/ressources/outils/${e.id}`, label: { fr: e.data.title_fr, en: e.data.title_en } }));
 
 // Libellé sans le suffixe de marque que certains title_fr portent (« … · Waimia »).
 const noBrand = (s: string) => s.replace(/[\s\u00A0]·[\s\u00A0]Waimia$/, '');
 // guides et comparatifs → /ressources/<collection>/<entry.id> · filtre !seo.noindex (cf ressources/*/[...slug].astro)
-const allGuides = (await getCollection('guides'))
+const allGuides = (await getLiveCollection('guides'))
   .filter((e) => !e.data.seo?.noindex)
   .map((e) => ({ href: `/ressources/guides/${e.id}`, label: { fr: noBrand(e.data.title_fr), en: noBrand(e.data.title_en) } }));
 const allComparatifs = (await getLiveCollection('comparatifs'))

@@ -32,8 +32,8 @@ const heroData = {
   kicker_en: '§ Solutions · Waimia',
   h1_fr: 'Services IA pour PME :<br/><i>automatiser, développer, conseiller</i>.',
   h1_en: 'AI services for SMEs:<br/><i>automate, build, advise</i>.',
-  lede_fr: "Chaque donnée ressaisie à la main, chaque outil qui ne parle pas à l'autre coûte du temps à vos équipes. Nous relions vos outils, développons les logiciels et les <a href=\"/services/site-web-ia\">sites web</a> qui manquent, puis formons vos équipes pour qu'elles gardent la main. À distance, ou sur site dans <a href=\"/implantations\">dix villes en France</a>.",
-  lede_en: 'Waimia is an AI development studio and a process automation practice for SMEs. It connects your tools, builds the software and <a href="/services/site-web-ia">websites</a> that are missing, then trains your teams. Remote or, depending on the project, on site in <a href="/implantations">ten cities across France</a>.',
+  lede_fr: "Chaque donnée ressaisie à la main, chaque outil qui ne parle pas à l'autre coûte du temps à vos équipes. Nous relions vos outils, développons les logiciels qui manquent, puis formons vos équipes pour qu'elles gardent la main. À distance, ou sur site dans <a href=\"/implantations\">dix villes en France</a>.",
+  lede_en: 'Waimia is an AI development studio and a process automation practice for SMEs. It connects your tools, builds the software that is missing, then trains your teams. Remote or, depending on the project, on site in <a href="/implantations">ten cities across France</a>.',
   decoration: false as const,
   align: 'left' as const,
 } satisfies SectionByType<'hero-hub-masthead'>;
@@ -152,73 +152,11 @@ const applicationsData = {
   ],
 } satisfies SectionByType<'offer-tier-grid'>;
 
-// 3 · Sites web (paper-2) : création, refonte, sur mesure. Pilier : /services/site-web-ia.
-const webData = {
-  type: 'offer-tier-grid' as const,
-  variant: 'standard' as const,
-  background: 'paper-2' as const,
-  wrap: true,
-  pad_block: 'var(--section-base)',
-  eyebrow_fr: 'SITES WEB',
-  eyebrow_en: 'WEBSITES',
-  h2_fr: 'Créer ou refaire le site qui amène la demande.',
-  h2_en: 'Build or rebuild the site that brings in demand.',
-  lede_fr: 'Un site rapide, lisible par Google et par les moteurs IA, que votre équipe peut faire vivre. La plateforme se choisit selon qui le mettra à jour.',
-  lede_en: 'A fast site, readable by Google and AI engines, that your team can keep alive. The platform is chosen based on who will update it.',
-  featured_card: {
-    eyebrow_fr: 'AGENCE SITE WEB',
-    eyebrow_en: 'WEBSITE AGENCY',
-    title_fr: 'Création et refonte de site web',
-    title_en: 'Website creation and redesign',
-    sub_fr: 'Webflow, WordPress, Shopify ou sur mesure.',
-    sub_en: 'Webflow, WordPress, Shopify or custom.',
-    lead_fr: 'Le site s’inscrit dans un système mesuré : formulaires reliés au CRM, contenu structuré pour Google et les moteurs IA.',
-    lead_en: 'The site is part of a measured system: forms connected to the CRM, content structured for Google and AI engines.',
-    cta_fr: 'Voir création et refonte →',
-    cta_en: 'See the website agency →',
-    href: '/services/site-web-ia',
-  },
-  offers: [
-    {
-      price_fr: 'SUR MESURE',
-      price_en: 'CUSTOM',
-      title_fr: 'Site sur mesure',
-      title_en: 'Custom website',
-      lead_fr: 'Astro et CMS headless : pages rapides, intégrations à vos outils, code remis à votre nom.',
-      lead_en: 'Astro and headless CMS: fast pages, integrations with your tools, code handed over in your name.',
-      cta_fr: 'Voir le site sur mesure →',
-      cta_en: 'See the service →',
-      href: '/services/sur-mesure-headless',
-    },
-    {
-      price_fr: 'WEBFLOW',
-      price_en: 'WEBFLOW',
-      title_fr: 'Agence Webflow',
-      title_en: 'Webflow agency',
-      lead_fr: 'Création ou refonte, contenus que votre équipe modifie seule, formulaires reliés à votre CRM.',
-      lead_en: 'Creation or redesign, content your team edits on its own, forms connected to your CRM.',
-      cta_fr: 'Voir l’offre Webflow →',
-      cta_en: 'See the service →',
-      href: '/services/webflow',
-    },
-    {
-      price_fr: 'LANDING PAGES',
-      price_en: 'LANDING PAGES',
-      title_fr: 'Landing pages',
-      title_en: 'Landing pages',
-      lead_fr: 'Une page par offre, un formulaire qui qualifie, des leads triés dans votre CRM.',
-      lead_en: 'One page per offer, a form that qualifies, leads sorted in your CRM.',
-      cta_fr: 'Voir les landing pages →',
-      cta_en: 'See the service →',
-      href: '/services/landing-pages-tunnels',
-    },
-  ],
-} satisfies SectionByType<'offer-tier-grid'>;
-
 // 4 · Conseil et formation (paper)
 const conseilData = {
   type: 'offer-tier-grid' as const,
   variant: 'standard' as const,
+  background: 'paper-2' as const,
   wrap: true,
   pad_block: 'var(--section-base)',
   eyebrow_fr: 'CONSEIL ET FORMATION',
@@ -280,7 +218,7 @@ const conseilData = {
 // 5 · Outils commerciaux, visibilité et cas d'usage (paper-2)
 const supportData = {
   type: 'related-cards-band' as const,
-  background: 'paper-2' as const,
+  background: 'paper' as const,
   pad_block: 'var(--section-base)',
   kicker_fr: '§ Commercial, visibilité et cas d’usage',
   kicker_en: '§ Sales, visibility and use cases',
@@ -295,13 +233,13 @@ const supportData = {
       href: '/services/systeme-commercial',
     },
     {
-      kicker_fr: 'VISIBILITÉ WEB',
-      kicker_en: 'WEB VISIBILITY',
-      title_fr: 'Référencement Google et moteurs IA',
-      title_en: 'Google and AI search visibility',
-      lead_fr: 'Être trouvé sur Google et par les moteurs IA, avec des pages qui captent un contact propre et l’envoient au CRM.',
-      lead_en: 'Being found on Google and by AI engines, with pages that capture a clean contact and send it to the CRM.',
-      href: '/services/systeme-acquisition',
+      kicker_fr: 'SITES WEB',
+      kicker_en: 'WEBSITES',
+      title_fr: 'VirtuoseWeb, agence de création de site web',
+      title_en: 'VirtuoseWeb, website design agency',
+      lead_fr: 'Création, refonte et référencement de site : c’est le métier de VirtuoseWeb, le studio frère de Waimia.',
+      lead_en: 'Website creation, redesign and search: this is the job of VirtuoseWeb, Waimia’s sister studio.',
+      href: 'https://virtuoseweb.fr/',
     },
     {
       kicker_fr: 'CAS D’USAGE',
@@ -331,7 +269,6 @@ const sections = [
   heroData,
   automationData,
   applicationsData,
-  webData,
   conseilData,
   supportData,
   ctaData,
@@ -339,7 +276,7 @@ const sections = [
 ---
 <Base
   title="Services IA pour PME : automatisation, agents, logiciels"
-  description="Tous les services Waimia pour PME et ETI : automatisation, agents IA, applications métier, sites web, conseil, formation. Tarifs affichés, audit gratuit 45 min."
+  description="Tous les services Waimia pour PME et ETI : automatisation, agents IA, applications métier, conseil, formation. Tarifs affichés, audit gratuit 45 min."
   jsonLd={solutionsJsonLd}
 >
 

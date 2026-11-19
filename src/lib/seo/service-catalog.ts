@@ -11,7 +11,6 @@ import type { CatalogService } from './schema-builder';
 export const SERVICE_HUB_PATHS = [
   '/services/systemes-operationnels-ia',
   '/services/systeme-commercial',
-  '/services/systeme-acquisition',
 ] as const;
 
 const isHub = (href: string) => (SERVICE_HUB_PATHS as readonly string[]).includes(href);

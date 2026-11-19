@@ -29,7 +29,7 @@ const auditHref = localizeHref(AUDIT_PAGE_HREF, lang);
 const auditPromise = AUDIT_PROMISE.general.short[lang === 'fr' ? 'fr' : 'en'];
 const fr = lang === 'fr';
 // L'offre dans son ordre : (1) automatisation et agents IA, (2) applications métier, (3) conseil et formation.
-// Les sites web sont un métier du studio (décision du 14 octobre 2026) : ligne `.hero-support`.
+// Les sites web sont le métier du studio frère VirtuoseWeb (recentrage IA du 19 novembre 2026) : ligne `.hero-support`.
 const offers = [
   {
     name: fr ? 'Automatisation et agents IA' : 'Automation and AI agents',
@@ -143,8 +143,7 @@ const pageTransitionId = Astro.url.pathname
           ))}
         </ul>
         <p class="hero-support">
-          {lang === 'fr' ? 'Le studio fait aussi des ' : 'The studio also builds '}
-          <a href={localizeHref('/services/site-web-ia', lang)}>{lang === 'fr' ? 'sites web' : 'websites'}</a>{lang === 'fr' ? ' et des ' : ' and '}<a href={localizeHref('/services/systeme-commercial', lang)}>{lang === 'fr' ? 'outils commerciaux' : 'sales tools'}</a>.
+          {lang === 'fr' ? 'Le studio construit aussi des ' : 'The studio also builds '}<a href={localizeHref('/services/systeme-commercial', lang)}>{lang === 'fr' ? 'outils commerciaux' : 'sales tools'}</a>{lang === 'fr' ? '. Pour un site web : ' : '. For a website: '}<a href="https://virtuoseweb.fr/" target="_blank" rel="noopener">{lang === 'fr' ? 'VirtuoseWeb, notre studio frère' : 'VirtuoseWeb, our sister studio'}</a>.
         </p>
       </div>
     </div>

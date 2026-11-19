@@ -43,9 +43,10 @@ export const SILOS = {
   // Cluster site web (décision Simon du 14 octobre 2026, point 3) : séparé de l'acquisition.
   web: {
     label: { fr: 'Site web et développement', en: 'Websites and development' },
+    // Recentrage IA du 19/11/2026 : l'offre est chez VirtuoseWeb (VIRTUOSE_SILO_SERVICE) ; pilier conservé pour l'historique, page redirigée.
     pillar: '/services/site-web-ia',
-    guide: '/ressources/guides/cahier-des-charges-site-internet',
-    magnet: 'grille-audit-site-internet',
+    guide: undefined,
+    magnet: 'diagnostic-maturite-ia',
     question: { fr: 'Votre site vous amène-t-il des demandes, ou seulement des visites ?', en: 'Does your website bring in enquiries, or only visits?' },
   },
   applications: {
@@ -64,9 +65,10 @@ export const SILOS = {
   },
   acquisition: {
     label: { fr: 'Acquisition et visibilité', en: 'Acquisition and visibility' },
+    // Recentrage IA du 19/11/2026 : l'offre est chez VirtuoseWeb (VIRTUOSE_SILO_SERVICE) ; pilier conservé pour l'historique, page redirigée.
     pillar: '/services/systeme-acquisition',
-    guide: '/ressources/guides/audit-geo-pme',
-    magnet: 'grille-audit-site-internet',
+    guide: '/ressources/guides/mesurer-visibilite-ia-chatgpt',
+    magnet: 'diagnostic-maturite-ia',
     question: { fr: 'Google et les assistants IA vous citent-ils quand on cherche votre métier ?', en: 'Do Google and AI assistants cite you when people search for what you do?' },
   },
   donnees: {

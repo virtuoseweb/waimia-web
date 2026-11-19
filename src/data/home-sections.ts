@@ -4,8 +4,8 @@
 // Refonte positionnement 2026-10 : la home dit le métier (studio de développement IA et
 // cabinet d'automatisation des processus pour PME et ETI) et présente l'offre DANS SON ORDRE :
 // (1) automatisation et agents IA, (2) applications métier, (3) conseil et formation, puis
-// (4) sites web et outils commerciaux. Décision du 14 octobre 2026 : le studio fait aussi des
-// sites web (création, refonte, sur mesure) ; le web n'est plus présenté « en appui ».
+// (4) outils commerciaux. Recentrage IA du 19 novembre 2026 : les sites web sont le métier du
+// studio frère VirtuoseWeb (carte qui y renvoie dans l'onglet commercial).
 //
 // Séquence de la page (src/pages/index.astro) : Hero · Offre (offer-rail) · Méthode
 // (sticky-scroll) · Réalisations (case-card-grid) · Où en êtes-vous (diagnostic-stages) ·
@@ -27,8 +27,8 @@ export const offerRail = {
   kicker_en: '§ What we build',
   h2_fr: 'Des systèmes <i>en production</i>, pas des démonstrations.',
   h2_en: 'Systems <i>in production</i>, not demos.',
-  lede_fr: 'Nous automatisons vos processus, développons les applications et les sites web qui vous manquent, puis formons vos équipes. De l’audit à la remise du code, vous gardez le même interlocuteur.',
-  lede_en: 'Automating processes, building the applications and websites that are missing, advising and training your teams. The same engineer handles it, from the audit to the code handover.',
+  lede_fr: 'Nous automatisons vos processus, développons les applications métier qui vous manquent, puis formons vos équipes. De l’audit à la remise du code, vous gardez le même interlocuteur.',
+  lede_en: 'Automating processes, building the business applications that are missing, advising and training your teams. The same engineer handles it, from the audit to the code handover.',
   tablist_label_fr: 'Domaines d’intervention',
   tablist_label_en: 'Areas of work',
   families: [
@@ -161,25 +161,25 @@ export const offerRail = {
       ],
     },
     {
-      id: 'site-web',
-      tab_label_fr: 'Sites web et commercial',
-      tab_label_en: 'Websites and sales',
-      intro_eyebrow_fr: '§ Sites web et outils commerciaux · la demande, puis son suivi',
-      intro_eyebrow_en: '§ Websites and sales tools · the demand, then its follow-up',
-      intro_lede_fr: 'Le studio crée et refait des <a href="/services/site-web-ia">sites web</a> pour PME. On choisit la plateforme selon qui fera vivre le site, et les formulaires arrivent dans votre CRM.',
-      intro_lede_en: 'The studio builds and rebuilds <a href="/services/site-web-ia">websites</a> for SMEs. We choose the platform based on who will run the site, and the forms land in your CRM.',
+      id: 'commercial',
+      tab_label_fr: 'Outils commerciaux',
+      tab_label_en: 'Sales tooling',
+      intro_eyebrow_fr: '§ Outils commerciaux · le suivi de la demande',
+      intro_eyebrow_en: '§ Sales tooling · following up the demand',
+      intro_lede_fr: 'Les mêmes briques d’automatisation, appliquées au pipeline : prospection, CRM, relances. Le site web qui amène la demande est le métier de <a href="https://virtuoseweb.fr/" target="_blank" rel="noopener">VirtuoseWeb, notre studio frère</a>.',
+      intro_lede_en: 'The same automation building blocks, applied to the pipeline: prospecting, CRM, follow-ups. The website that brings the demand is the job of <a href="https://virtuoseweb.fr/" target="_blank" rel="noopener">VirtuoseWeb, our sister studio</a>.',
       layout: 'diptych',
       offers: [
         {
           tag_fr: 'Site web',
           tag_en: 'Website',
-          title_fr: 'Création et refonte de site',
-          title_en: 'Website creation and redesign',
-          body_fr: 'Webflow, WordPress, Shopify ou développement sur mesure. Un site rapide et mesuré, lisible par Google et par les moteurs IA, relié à votre CRM.',
-          body_en: 'Webflow, WordPress, Shopify or custom development. A fast, measured site, readable by Google and AI engines, connected to your CRM.',
-          link_label_fr: 'Voir l’agence site web →',
-          link_label_en: 'See the website agency →',
-          link_href: '/services/site-web-ia',
+          title_fr: 'Création de site : VirtuoseWeb',
+          title_en: 'Website design: VirtuoseWeb',
+          body_fr: 'Création et refonte de site, référencement, e-commerce : c’est le métier de VirtuoseWeb, agence de création de site web et studio frère de Waimia. Les formulaires du site se branchent ensuite sur vos automatisations.',
+          body_en: 'Website creation and redesign, search, e-commerce: this is the job of VirtuoseWeb, a website design agency and Waimia’s sister studio. The site’s forms then plug into your automations.',
+          link_label_fr: 'Voir VirtuoseWeb →',
+          link_label_en: 'See VirtuoseWeb →',
+          link_href: 'https://virtuoseweb.fr/',
         },
         {
           tag_fr: 'Commercial',
@@ -194,9 +194,9 @@ export const offerRail = {
           link_href: '/services/systeme-commercial',
         },
       ],
-      panel_cta_label_fr: 'Voir aussi le référencement et les landing pages →',
-      panel_cta_label_en: 'See also search visibility and landing pages →',
-      panel_cta_href: '/services/systeme-acquisition',
+      panel_cta_label_fr: 'Voir les outils commerciaux en détail →',
+      panel_cta_label_en: 'See sales tooling in detail →',
+      panel_cta_href: '/services/systeme-commercial',
     },
   ],
 } as unknown as SectionData;

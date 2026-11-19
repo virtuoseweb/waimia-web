@@ -1,7 +1,8 @@
 ---
 export const prerender = true;
 
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { type CollectionEntry } from 'astro:content';
+import { getLiveCollection } from '../../../lib/live-collection';
 import EssayTemplate from '../../../components/templates/EssayTemplate.astro';
 import ToolWidget from '../../../components/ui/organisms/ToolWidget.astro';
 import LeadCaptureBand from '../../../sections/lead-capture-band/Component.astro';
@@ -12,7 +13,7 @@ import UsedServiceCallout from '../../../sections/used-service-callout/Component
 import { toolExit } from '../../../lib/internal-mesh';
 
 export async function getStaticPaths() {
-  const entries = await getCollection('outils');
+  const entries = await getLiveCollection('outils');
   return entries
     .filter((entry) => !entry.data.seo?.noindex)
     // Entrées à route explicite (charte-ia-entreprise.astro, grille-taches-a-automatiser.astro,

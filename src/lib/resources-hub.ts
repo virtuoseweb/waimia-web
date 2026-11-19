@@ -4,7 +4,7 @@
 // (ResourcesHub.astro) à partir de cette liste, construite une seule fois par build :
 // guides + comparatifs + outils (+ diagnostic maturité IA) + articles du blog, triés par
 // date. Une vue filtrée ne rend que les items de son type (filtrage côté serveur).
-import { getCollection, getEntry } from 'astro:content';
+import { getEntry } from 'astro:content';
 import { getLiveCollection } from './live-collection';
 import { blogEntryHref } from './blog-routing';
 import { isNewsEntry, formatNewsShort } from './news';
@@ -65,9 +65,9 @@ let memo: Promise<ResourceItem[]> | undefined;
 
 async function build(): Promise<ResourceItem[]> {
   const [guides, comparatifs, outils, blog, maturite] = await Promise.all([
-    getCollection('guides'),
+    getLiveCollection('guides'),
     getLiveCollection('comparatifs'),
-    getCollection('outils'),
+    getLiveCollection('outils'),
     getLiveCollection('blog'),
     getEntry('diagnostics', 'maturite-ia'),
   ]);

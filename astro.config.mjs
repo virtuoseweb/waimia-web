@@ -192,13 +192,13 @@ export default defineConfig({
     // Le disallow robots.txt + le filtre sitemap `/lp/` restent (couvrent ces 301).
     '/lp/audit-ia-pme': '/audit-ia-pme',
     '/lp/audit-site-web-intelligent': '/audit-ia-pme',
-    '/lp/content-marketing-intelligent': '/services/seo-geo-contenu',
+    '/lp/content-marketing-intelligent': 'https://virtuoseweb.fr/services/referencement-seo/',
     '/lp/diagnostic-maturite-ia': '/ressources/diagnostics/maturite-ia',
     '/lp/diagnostic-site-web-intelligent': '/ressources/diagnostics/maturite-ia',
     '/lp/exemple-industrialisation': '/cas-clients',
     '/lp/integrateur-claude': '/services/integration-claude',
     // 2026-07-17 · 301 /lp/site-web-intelligent levé : la LP1 du CdC strategy/16 vit désormais à cette URL.
-    '/lp/tunnel-conversion-intelligent': '/services/landing-pages-tunnels',
+    '/lp/tunnel-conversion-intelligent': 'https://virtuoseweb.fr/services/landing-page/',
     // /agence/hero-lab restauré 2026-06-11 (lab de comparaison des heros du catalogue) :
     // le 301 vers /agence/design-system est levé, la page répond 200 (noindex, outil interne).
     // 2026-06-29 · cibles /realisations corrigées → /cas-clients (hub réel). La route
@@ -248,14 +248,14 @@ export default defineConfig({
     // 301 obligatoire pour préserver le ranking de l'ancienne URL.
     // MAJ V8 2026-07-13 · destination re-ciblée directement sur le slug final
     // /services/landing-pages-tunnels (évite une chaîne de 301, cf renames ci-dessous).
-    '/services/tunnel-conversion-intelligent': '/services/landing-pages-tunnels',
+    '/services/tunnel-conversion-intelligent': 'https://virtuoseweb.fr/services/landing-page/',
     // Refonte V8 2026-07-13 · réorganisation des slugs services (vague « systèmes →
     // modules », carte décidée Simon). Les anciennes URLs prod-live indexées sont 301
     // vers les nouveaux slugs orientés requête réelle. Astro émet 308 (=301 SEO) en
     // adapter static. Placées AVANT le rename des fichiers de contenu (workflow doc/05).
-    '/services/systeme-complet': '/services/systeme-acquisition',
-    '/services/content-marketing-intelligent': '/services/seo-geo-contenu',
-    '/services/landing-page-scoring': '/services/landing-pages-tunnels',
+    '/services/systeme-complet': 'https://virtuoseweb.fr/services/marketing-digital/',
+    '/services/content-marketing-intelligent': 'https://virtuoseweb.fr/services/referencement-seo/',
+    '/services/landing-page-scoring': 'https://virtuoseweb.fr/services/landing-page/',
     '/services/machine-outbound': '/services/prospection-automatisee',
     // Audit #60 A5 2026-07-16 · gabarit interne `template-service-ref` sorti du routing
     // (visible:false → getStaticPaths). Le fichier de contenu reste la référence interne.
@@ -265,17 +265,17 @@ export default defineConfig({
     // (docs/strategy/10 §0bis.3, décisions Simon). Les anciennes URLs prod-live indexées
     // sont 301 vers les nouveaux slugs orientés requête réelle. Les URLs nues
     // /site-web-intelligent et /integrateur-claude (404 en prod) captent les liens entrants.
-    '/services/site-web-intelligent': '/services/site-web-ia',
+    '/services/site-web-intelligent': 'https://virtuoseweb.fr/services/creation-site-internet-pme/',
     '/services/integrateur-claude': '/services/integration-claude',
-    '/site-web-intelligent': '/services/site-web-ia',
+    '/site-web-intelligent': 'https://virtuoseweb.fr/services/creation-site-internet-pme/',
     '/integrateur-claude': '/services/integration-claude',
     // Pages enfants (déclinaisons) du hub : le dossier de contenu passe de
     // site-web-intelligent/ à site-web-ia/ → 301 des anciennes routes enfants.
     // MAJ pivot IA 2026-10 · les 3 déclinaisons sont fusionnées dans /services/site-web-ia :
     // destinations re-ciblées directement (évite une chaîne de 301).
-    '/services/site-web-intelligent/wordpress': '/services/wordpress',
-    '/services/site-web-intelligent/webflow': '/services/webflow',
-    '/services/site-web-intelligent/sur-mesure': '/services/sur-mesure-headless',
+    '/services/site-web-intelligent/wordpress': 'https://virtuoseweb.fr/services/site-wordpress/',
+    '/services/site-web-intelligent/webflow': 'https://virtuoseweb.fr/services/site-webflow/',
+    '/services/site-web-intelligent/sur-mesure': 'https://virtuoseweb.fr/services/site-sur-mesure/',
     // Wave #34 2026-06-28 · nettoyage taxonomie dégénérée du catalogue DS.
     // Catégories dé-dupliquées (slug singleton fusionné dans son équivalent) et
     // familles singleton repliées sur leur cible même-archétype. 301 pour préserver
@@ -290,8 +290,8 @@ export default defineConfig({
     // directement sur /audit-ia-pme pour éviter une chaîne de 301.
     '/offres/audit-maturite-ia': '/audit-ia-pme',
     '/offres/growth-system-ia': '/services',
-    '/offres/site-web-ia': '/services/site-web-ia',
-    '/offres/site-web-ia-landing': '/services/site-web-ia',
+    '/offres/site-web-ia': 'https://virtuoseweb.fr/services/creation-site-internet-pme/',
+    '/offres/site-web-ia-landing': 'https://virtuoseweb.fr/services/creation-site-internet-pme/',
     '/offres/growth-intelligence': '/services',
     '/offres/revops': '/services',
     '/offres/conseil': '/services',
@@ -328,9 +328,9 @@ export default defineConfig({
     // Déclinaisons de service repliées dans leur page parente.
     '/services/integration-crm': '/services/crm-scoring-routing',
     '/services/relance-devis': '/services/sequences-de-suivi',
-    '/services/maintenance-growth': '/services/site-web-ia',
-    '/services/landing-page-google-ads': '/services/landing-pages-tunnels',
-    '/services/publicite-en-ligne': '/services/landing-pages-tunnels',
+    '/services/maintenance-growth': 'https://virtuoseweb.fr/services/maintenance-site-web/',
+    '/services/landing-page-google-ads': 'https://virtuoseweb.fr/services/google-ads/',
+    '/services/publicite-en-ligne': 'https://virtuoseweb.fr/services/google-ads/',
     // Pages Claude en doublon de la page service (pages statiques renommées `_…astro`
     // pour sortir du routing, sources conservées) + démonstration dépubliée par id.
     '/expertise-claude': '/services/integration-claude',

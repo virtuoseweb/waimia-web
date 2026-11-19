@@ -78,7 +78,7 @@ const year = new Date().getFullYear();
           <ul style="list-style:none;display:flex;flex-direction:column;gap:10px">
             {col.items.map((it) => (
               <li>
-                <a href={it.href} style="font-size:var(--text-small);color:var(--ink-2);transition:color var(--dur-trim) var(--ease);display:inline-block;line-height:var(--leading-lede)" class="ft-link">
+                <a href={it.href} {...(/^https?:\/\//.test(it.href) ? { target: '_blank', rel: 'noopener' } : {})} style="font-size:var(--text-small);color:var(--ink-2);transition:color var(--dur-trim) var(--ease);display:inline-block;line-height:var(--leading-lede)" class="ft-link">
                   {t(it.label, lang)}
                 </a>
               </li>
@@ -98,6 +98,9 @@ const year = new Date().getFullYear();
         {lang === 'fr' ? 'Mentions légales' : 'Legal notice'}
       </a>
       <a href="/cgv" class="ft-link">{lang === 'fr' ? 'CGV' : 'Terms'}</a>
+      <a href="https://virtuoseweb.fr/" class="ft-link" target="_blank" rel="noopener">
+        {lang === 'fr' ? 'Création de site web : notre studio frère VirtuoseWeb' : 'Website design: our sister studio VirtuoseWeb'}
+      </a>
       <a href="/politique-confidentialite" class="ft-link">
         {lang === 'fr' ? 'Confidentialité' : 'Privacy'}
       </a>

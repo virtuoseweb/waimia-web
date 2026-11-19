@@ -4038,11 +4038,6 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-3"
       },
       {
-        "type": "feature-grid",
-        "label": "Repérez votre situation, on vous mène à la bonne page",
-        "background": "paper"
-      },
-      {
         "type": "proof-bar",
         "label": "En bref",
         "background": "paper-2"
@@ -12131,6 +12126,14 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/ressources/outils/_grille-audit-site-internet",
+    "title": "_grille audit site internet",
+    "group": "ressources",
+    "collection": "bespoke",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/ressources/outils/calculateur-roi-ia",
     "title": "Calculateur ROI IA : temps récupérable et budget maximal",
     "group": "ressources",
@@ -14188,6 +14191,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/ressources/guides/taches-a-automatiser-pme",
       "/ressources/guides/tutoriel-make-tri-emails-claude",
       "/ressources/outils",
+      "/ressources/outils/_grille-audit-site-internet",
       "/ressources/outils/calculateur-roi-ia",
       "/ressources/outils/charte-ia-entreprise",
       "/ressources/outils/checklist-90-jours-claude",
