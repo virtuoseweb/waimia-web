@@ -50,7 +50,7 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 - Cotation d'Anthropic au Nasdaq (19 novembre) : financier, hors silo.
 - CNIL, sanction de 5 millions d'euros pour mots de passe clients en clair (18 novembre) : hors IA, rien.
 
-**Actions** (commit de contenu : voir le suivi) : une création, une correction.
+**Actions** (commit de contenu https://github.com/virtuoseweb/waimia-web/commit/c469364f77f8ea250fe6e35b731392b5feeffd5e) : une création, une correction.
 
 1. Création de `/blog/workflow-erreur-n8n-ia` (entrée `idee-workflow-erreur-n8n-appels-ia`, planifiée en 2026-W47, article, silo `automatisation`).
    - Pourquoi : entrée du calendrier de la semaine, encore « planifié ».
@@ -67,6 +67,8 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 **Gates (section 7)**, build `WAIMIA_INTERNAL_TOOLS=0` : « [build] Complete! » (exit 0) ; check-head « ✓ 268 pages : title, description, h1 et canonical présents et cohérents » ; check-jsonld « ✓ JSON-LD valide sur 268 pages » ; check-sitemap « ✓ Sitemap cohérent (268 URL, toutes 200, indexables, canoniques) » ; check-redirects « ✓ 123 anciennes URL : un seul saut, cible 200, ni chaîne ni boucle » ; check-public-surface --prod « ✓ Surface publique conforme » ; check-seo « ✓ Tous les checks passent » ; check-hero-illustrations « OK » ; check-static-quality exit 0 ; check-internal-mesh « 262/262 pages au seuil · 0 orpheline(s) » ; check-silos « OK · 12 silos = 12 thèmes du maillage · 276 contenus vérifiés » ; check-no-emdash « PASS » ; check-ai-tells « OK, 3 occurrences connues (référence 3) » ; check-internal-links « OK : aucun lien interne casse » ; check-content-refs « PASS » ; check-touchpoints « ✓ Tous les touchpoints sont alignés » ; check-section-modules « ✓ Tous les modules co-localisés sont complets » ; check-news « OK · 10 actualité(s) » ; check-config « OK : 335 mots-clés » ; check-calendar « OK : 211 entrées, 2 semaine(s) d'avance après 2026-W47 », un avertissement attendu (page créée dans le lot) ; `astro check` « 0 errors ». `llms.txt` : l'article figure dans le silo automatisation, ligne reprenant title et description.
 
 **GF-1** (build servi, `serve-dist.mjs`, Playwright, 1440 et 390 px, après défilement) : l'article et la page corrigée en 200, H1 visible (opacité 1, sans transformation), débordement horizontal 0, 0 erreur console, JSON-LD `Article`, `BreadcrumbList`, `FAQPage` ; illustration du hero chargée. Capture mobile relue : H1, chapô, signature et haut de l'illustration au-dessus de 844 px. Balayage de débordement sur tout le build non fait.
+
+**CI et production** : run CI 44691585249 sur `c469364f` : `success` (Build, SEO build de production, E2E Playwright sur le build servi). waimia.com après déploiement : `/` 200, `/blog/workflow-erreur-n8n-ia` 200 (page qui n'existe que dans ce commit, servie comme marqueur), `/blog/plafond-depense-api-ia` 200 avec les codes 2300 et 2301 servis, illustration `workflow-erreur-aiguillage-paper.webp` 200 ; ancienne URL `/services/site-web-ia` toujours en 301 vers VirtuoseWeb. Aucun revert.
 
 **Brave** : 33 URL dans la file (`brave-queue.mjs --from-sitemap --days=8`, avant le push), à soumettre par la tâche Brave.
 
