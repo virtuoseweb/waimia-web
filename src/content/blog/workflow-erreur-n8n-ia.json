@@ -1,0 +1,204 @@
+{
+  "title_fr": "Workflow d'erreur n8n pour les appels à Claude, OpenAI et Mistral",
+  "title_en": "n8n error workflow for Claude, OpenAI and Mistral calls",
+  "seoTitle_fr": "Workflow d'erreur n8n : erreurs des API d'IA",
+  "seoTitle_en": "n8n error workflow for AI API errors",
+  "h1_fr": "Workflow d'erreur n8n pour les appels à Claude, OpenAI et Mistral",
+  "description_fr": "Error Trigger, Retry On Fail et codes d'erreur de Claude, OpenAI et Mistral : quoi réessayer, quoi bloquer, qui prévenir. Tableau et procédure n8n.",
+  "description_en": "Error Trigger, Retry On Fail and Claude, OpenAI and Mistral error codes: what to retry, what to stop, who to alert. Table and n8n steps.",
+  "excerpt_fr": "Le workflow d'erreur de n8n reçoit le message, pas le code de l'éditeur. Pour un appel à Claude, OpenAI ou Mistral, il faut trier l'erreur au plus près de l'appel : réessayer une limite de débit, jamais un plafond de dépense ni une clé révoquée, et prévenir la bonne personne.",
+  "excerpt_en": "n8n's error workflow gets the message, not the provider's code. For Claude, OpenAI or Mistral calls, sort errors right after the call: retry rate limits, never spend limits or revoked keys, and alert the right person.",
+  "publishedAt": "2026-11-20",
+  "updatedAt": "2026-11-20",
+  "editorialType": "Tutorial",
+  "type": "post",
+  "author": "simon-beros",
+  "category": "automatisation",
+  "tags": [
+    "n8n",
+    "erreurs",
+    "api",
+    "claude",
+    "openai",
+    "mistral"
+  ],
+  "readingTime": 8,
+  "lead_magnet": "grille-taches-a-automatiser",
+  "relatedPosts": [
+    "plafond-depense-api-ia",
+    "cles-api-automatisation-securite-pme",
+    "n8n-c-est-quoi"
+  ],
+  "slug": "workflow-erreur-n8n-ia",
+  "sources": [
+    {
+      "name": "n8n, Handle errors gracefully, lu le 20 novembre 2026",
+      "url": "https://docs.n8n.io/flow-logic/error-handling/",
+      "type": "enterprise"
+    },
+    {
+      "name": "n8n, Error Trigger, lu le 20 novembre 2026",
+      "url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.errortrigger/",
+      "type": "enterprise"
+    },
+    {
+      "name": "n8n, Handle rate limits, lu le 20 novembre 2026",
+      "url": "https://docs.n8n.io/integrations/builtin/handle-rate-limits/",
+      "type": "enterprise"
+    },
+    {
+      "name": "n8n, Work with nodes (réglages des nœuds), lu le 20 novembre 2026",
+      "url": "https://docs.n8n.io/workflows/components/nodes/",
+      "type": "enterprise"
+    },
+    {
+      "name": "n8n, HTTP Request, lu le 20 novembre 2026",
+      "url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.httprequest/",
+      "type": "enterprise"
+    },
+    {
+      "name": "n8n, Stop And Error, lu le 20 novembre 2026",
+      "url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.stopanderror/",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, Claude API errors, lu le 20 novembre 2026",
+      "url": "https://platform.claude.com/docs/en/api/errors",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, Rate limits, lu le 20 novembre 2026",
+      "url": "https://platform.claude.com/docs/en/api/rate-limits",
+      "type": "enterprise"
+    },
+    {
+      "name": "OpenAI, Error codes, lu le 20 novembre 2026",
+      "url": "https://developers.openai.com/api/docs/guides/error-codes",
+      "type": "enterprise"
+    },
+    {
+      "name": "Mistral AI, Error glossary, lu le 20 novembre 2026",
+      "url": "https://docs.mistral.ai/resources/error-glossary",
+      "type": "enterprise"
+    },
+    {
+      "name": "Forum n8n, sortie d'erreur du nœud OpenAI v2 (17 novembre 2025), lu le 20 novembre 2026",
+      "url": "https://community.n8n.io/t/why-does-continue-using-error-output-on-openai-v2-not-pass-the-full-error-body-to-the-next-node/222579",
+      "type": "journal"
+    },
+    {
+      "name": "Fixmation, n8n's error output routes by the shape of the item (octobre 2026), lu le 20 novembre 2026",
+      "url": "https://fixmation.dev/blog/n8n-error-output-failed-item-in-success",
+      "type": "journal"
+    },
+    {
+      "name": "Kirako, Gestion des erreurs n8n : alertes et reprise (6 novembre 2026), lu le 20 novembre 2026",
+      "url": "https://kirako.ai/blog/n8n-production-erreurs-alertes-surveillance",
+      "type": "journal"
+    },
+    {
+      "name": "Infinitelab, Gérer les erreurs dans n8n : Error Trigger et alertes (13 octobre 2026), lu le 20 novembre 2026",
+      "url": "https://www.infinitelab.fr/blog/n8n-gestion-erreurs-workflow-error-trigger",
+      "type": "journal"
+    }
+  ],
+  "faq_fr": [
+    {
+      "q": "Comment créer un workflow d'erreur dans n8n ?",
+      "a": "Créez un workflow qui commence par le nœud Error Trigger, enregistrez-le et publiez-le. Puis, dans chaque workflow à surveiller, ouvrez Options, Settings, et choisissez ce workflow dans le champ Error workflow. Un même workflow d'erreur peut servir à tous vos workflows."
+    },
+    {
+      "q": "Pourquoi mon workflow d'erreur n8n ne se déclenche pas ?",
+      "a": "Le plus souvent parce que le test est lancé à la main dans l'éditeur : l'Error Trigger ne part que sur une exécution automatique en échec. Vérifiez aussi que le workflow surveillé a bien ce workflow dans son champ Error workflow et que le workflow d'erreur est publié."
+    },
+    {
+      "q": "Faut-il activer Retry On Fail sur un nœud qui appelle Claude ou OpenAI ?",
+      "a": "Oui pour absorber une surcharge de quelques secondes, non comme seule protection. Retry On Fail permet cinq essais au plus, espacés de 5 secondes au plus, et ne respecte pas l'en-tête Retry-After. Face à un plafond de dépense ou une clé révoquée, il ne produit que des échecs supplémentaires."
+    },
+    {
+      "q": "Comment savoir si une erreur 429 vient du budget ou de la limite de débit ?",
+      "a": "Lisez le corps de la réponse, pas seulement le code. Chez OpenAI, un plafond porte un code comme project_spend_limit_exceeded ; chez Anthropic, le plafond mensuel du palier porte enforced_spend_limit_reached. Chez Mistral, un plafond de dépense renvoie un 402, pas un 429."
+    },
+    {
+      "q": "Quelle erreur renvoie l'API Claude quand mon plafond de dépense est atteint ?",
+      "a": "Une erreur 400 invalid_request_error pour un plafond que vous avez posé sur l'organisation ou un espace de travail, selon la documentation d'Anthropic. Le plafond mensuel lié au palier de votre compte renvoie, lui, une erreur 429 sans délai de nouvel essai, jusqu'au 1er du mois suivant."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "How do I create an error workflow in n8n?",
+      "a": "Create a workflow that starts with the Error Trigger node, save it and publish it. Then, in each workflow to monitor, open Options, Settings and select it in the Error workflow field. One error workflow can serve all your workflows."
+    },
+    {
+      "q": "Why doesn't my n8n error workflow run?",
+      "a": "Usually because the test was run manually in the editor: the Error Trigger only fires on a failed automatic execution. Also check the monitored workflow's Error workflow setting and that the error workflow is published."
+    },
+    {
+      "q": "Should I turn on Retry On Fail for a node calling Claude or OpenAI?",
+      "a": "Yes to absorb a few seconds of overload, not as your only safeguard. It allows five tries at most, 5 seconds apart, and ignores Retry-After. Against a spend limit or a revoked key, it only adds failures."
+    },
+    {
+      "q": "How do I tell a budget 429 from a rate-limit 429?",
+      "a": "Read the response body, not just the status. OpenAI spend limits carry codes such as project_spend_limit_exceeded; Anthropic's tier cap carries enforced_spend_limit_reached. Mistral returns a 402 for spend limits, not a 429."
+    },
+    {
+      "q": "What error does the Claude API return when my spend limit is reached?",
+      "a": "A 400 invalid_request_error for a limit you set on the organization or a workspace, per Anthropic's documentation. Your usage tier's monthly cap returns a 429 with no retry delay until the first of the next month."
+    }
+  ],
+  "headings": [
+    {
+      "depth": 2,
+      "slug": "en-bref",
+      "text": "En bref"
+    },
+    {
+      "depth": 2,
+      "slug": "definition",
+      "text": "Workflow d'erreur, erreur passagère, erreur bloquante"
+    },
+    {
+      "depth": 2,
+      "slug": "codes",
+      "text": "Ce que renvoient Claude, OpenAI et Mistral, et quoi en faire"
+    },
+    {
+      "depth": 2,
+      "slug": "ce-que-recoit-n8n",
+      "text": "Ce que le workflow d'erreur reçoit vraiment"
+    },
+    {
+      "depth": 2,
+      "slug": "relances",
+      "text": "Retry On Fail : utile, mais pas pour tout"
+    },
+    {
+      "depth": 2,
+      "slug": "procedure",
+      "text": "La procédure, étape par étape"
+    },
+    {
+      "depth": 2,
+      "slug": "destinataires",
+      "text": "À qui envoyer l'alerte"
+    },
+    {
+      "depth": 2,
+      "slug": "ne-pas-faire",
+      "text": "Ce que je déconseille"
+    }
+  ],
+  "body_sections": [
+    {
+      "type": "editorial-prose",
+      "html_fr": "<h2 id=\"en-bref\">En bref</h2>\n<p>Un workflow d'erreur n8n est un workflow qui commence par le nœud Error Trigger et que n8n lance automatiquement quand une exécution d'un autre workflow échoue. Pour les workflows qui appellent Claude, ChatGPT ou Mistral, il ne suffit pas : il reçoit le message d'erreur, pas le code HTTP ni le type d'erreur de l'éditeur, alors que c'est ce code qui dit s'il faut réessayer, couper ou prévenir la personne qui tient le budget.</p>\n<p>Ma règle : trier l'erreur dans le workflow qui appelle le modèle, au plus près de l'appel, puis laisser le workflow d'erreur prévenir la bonne personne avec un message déjà classé. Une limite de débit se réessaie, un plafond de dépense ou une clé révoquée ne se réessaient jamais.</p>\n\n<h2 id=\"definition\">Workflow d'erreur, erreur passagère, erreur bloquante</h2>\n<p>Le workflow d'erreur se règle workflow par workflow : dans le workflow à surveiller, Options, puis Settings, champ Error workflow, selon <a href=\"https://docs.n8n.io/flow-logic/error-handling/\" rel=\"noopener noreferrer\" target=\"_blank\">la documentation de n8n</a>. Un même workflow d'erreur peut servir à tous vos workflows.</p>\n<p>Une erreur passagère est un refus qui disparaît seul si l'on attend : limite de débit dépassée, modèle surchargé, panne côté éditeur. Une erreur bloquante est un refus qui reviendra à l'identique tant qu'un humain n'a rien changé : plafond de dépense atteint, crédit épuisé, clé d'API invalide, requête refusée parce que le texte envoyé est trop long ou mal formé.</p>\n<p>Réessayer une erreur bloquante ne fait que multiplier les échecs ; alerter quelqu'un pour une erreur passagère que le workflow aurait absorbée seul use l'attention des équipes, et l'alerte qui compte finit ignorée.</p>\n\n<h2 id=\"codes\">Ce que renvoient Claude, OpenAI et Mistral, et quoi en faire</h2>\n<p>Les trois éditeurs n'utilisent pas les mêmes codes pour le même problème.</p>\n<table>\n<thead><tr><th>Situation</th><th>Anthropic (Claude)</th><th>OpenAI</th><th>Mistral AI</th><th>Réessayer ?</th><th>Qui prévenir</th></tr></thead>\n<tbody>\n<tr><td>Limite de débit dépassée</td><td>429 <code>rate_limit_error</code></td><td>429 « Rate limit reached » ou <code>slow_down</code></td><td>429, code <code>1300</code></td><td>Oui, avec une attente qui s'allonge</td><td>Personne, sauf si cela se répète chaque jour</td></tr>\n<tr><td>Modèle ou service surchargé</td><td>529 <code>overloaded_error</code> ; 500 <code>api_error</code></td><td>503 <code>server_is_overloaded</code> ; 500</td><td>429 ou 503, codes <code>3505</code>, <code>3801</code> ; 500, 502, 503</td><td>Oui</td><td>Le référent technique si cela dure</td></tr>\n<tr><td>Plafond de dépense que vous avez posé</td><td>400 <code>invalid_request_error</code></td><td>429 <code>organization_spend_limit_exceeded</code> ou <code>project_spend_limit_exceeded</code></td><td>402, code <code>2300</code> (organisation) ou <code>2301</code> (espace de travail)</td><td>Non</td><td>Celui qui tient le budget de l'API</td></tr>\n<tr><td>Plafond mensuel du palier, crédit épuisé</td><td>429 avec <code>enforced_spend_limit_reached</code>, sans délai de nouvel essai</td><td>429 <code>credit_balance_exhausted</code></td><td>402, codes <code>2308</code> (crédit) ou <code>2303</code> (budget inclus)</td><td>Non</td><td>Celui qui paie le compte</td></tr>\n<tr><td>Clé d'API invalide ou révoquée</td><td>401 <code>authentication_error</code></td><td>401</td><td>401 <code>{\"detail\": \"Invalid API Key\"}</code></td><td>Non</td><td>Le référent technique, tout de suite</td></tr>\n<tr><td>Requête refusée (texte trop long, paramètre faux)</td><td>400 <code>invalid_request_error</code> ; 413 <code>request_too_large</code></td><td>400</td><td>400 (code <code>3059</code> pour un texte trop long) ; 422</td><td>Non, corriger la donnée</td><td>Le référent technique, avec l'élément en cause</td></tr>\n</tbody>\n</table>\n<p>Sources : <a href=\"https://platform.claude.com/docs/en/api/errors\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, erreurs de l'API</a>, <a href=\"https://platform.claude.com/docs/en/api/rate-limits\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic, limites</a>, <a href=\"https://developers.openai.com/api/docs/guides/error-codes\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI, codes d'erreur</a>, <a href=\"https://docs.mistral.ai/resources/error-glossary\" rel=\"noopener noreferrer\" target=\"_blank\">Mistral AI, glossaire des erreurs</a>.</p>\n<p>Chez Anthropic, le plafond que vous posez vous-même renvoie une erreur 400, la même que pour une requête mal formée : une surveillance qui ne guette que les 429 ne le voit pas. Chez OpenAI, le même code 429 couvre à la fois une limite de débit, qu'on réessaie, et un plafond de dépense, qu'on ne réessaie pas : OpenAI écrit que réessayer une erreur de facturation, de dépense ou de quota ne rétablit pas l'accès. Le code HTTP seul ne suffit donc pas à décider ; il faut lire le type ou le code d'erreur dans le corps de la réponse.</p>\n<p>Le réglage des plafonds eux-mêmes, éditeur par éditeur, est détaillé dans <a href=\"/blog/plafond-depense-api-ia\">plafonner la dépense d'une API d'IA</a>.</p>\n\n<h2 id=\"ce-que-recoit-n8n\">Ce que le workflow d'erreur reçoit vraiment</h2>\n<p>D'après <a href=\"https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.errortrigger/\" rel=\"noopener noreferrer\" target=\"_blank\">la documentation de l'Error Trigger</a>, il reçoit le nom et l'identifiant du workflow, le dernier nœud exécuté, le message d'erreur et sa trace, le mode d'exécution, et, si l'exécution est enregistrée en base, son identifiant et son lien. Si c'est le déclencheur du workflow surveillé qui a échoué, le bloc <code>execution</code> est presque vide et les détails arrivent dans un bloc <code>trigger</code> : un message construit sur <code>execution.url</code> part alors avec un lien vide.</p>\n<p>Le code HTTP et le type d'erreur de l'éditeur ne font pas partie de ces champs. Ils ne survivent que s'ils figurent dans le texte du message, et ce texte dépend du nœud. Sur <a href=\"https://community.n8n.io/t/why-does-continue-using-error-output-on-openai-v2-not-pass-the-full-error-body-to-the-next-node/222579\" rel=\"noopener noreferrer\" target=\"_blank\">le forum de n8n</a>, un utilisateur du nœud OpenAI a montré que la sortie d'erreur ne transmettait que « Bad request - please check your parameters », alors que l'interface affichait le code <code>context_length_exceeded</code> ; un autre constate la même perte avec le nœud HTTP Request. <a href=\"https://fixmation.dev/blog/n8n-error-output-failed-item-in-success\" rel=\"noopener noreferrer\" target=\"_blank\">Fixmation</a>, qui a lu le moteur d'exécution de n8n, décrit des versions 2.33 et 2.34 où des erreurs du nœud HTTP Request partaient dans la branche de succès. Avant de construire un tri sur un champ, ouvrez une vraie exécution en échec sur votre version et regardez ce qui arrive.</p>\n<p>C'est pourquoi, pour un appel de modèle qui compte, je passe par le nœud HTTP Request plutôt que par le nœud de l'éditeur, avec deux options <a href=\"https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.httprequest/\" rel=\"noopener noreferrer\" target=\"_blank\">documentées par n8n</a> : « Include Response Headers and Status », qui renvoie le code et les en-têtes, et « Never Error », qui fait sortir la réponse même quand le code n'est pas 2xx. Le corps complet de l'erreur arrive alors dans le workflow, et un nœud Switch peut décider. Le prix à payer : écrire soi-même l'appel (adresse, en-têtes, corps de la requête), là où le nœud de l'éditeur le faisait.</p>\n\n<h2 id=\"relances\">Retry On Fail : utile, mais pas pour tout</h2>\n<p>Retry On Fail, dans l'onglet Settings d'un nœud, relance le nœud quand il échoue. Selon <a href=\"https://docs.n8n.io/integrations/builtin/handle-rate-limits/\" rel=\"noopener noreferrer\" target=\"_blank\">la page de n8n sur les limites de débit</a>, il permet cinq essais au plus, espacés de 5 secondes au plus, et le nœud HTTP Request ne respecte pas de lui-même l'en-tête <code>Retry-After</code> que l'éditeur envoie pour dire combien attendre.</p>\n<p>Conséquence pratique : Retry On Fail absorbe un modèle surchargé quelques secondes, pas une limite de débit par minute, et encore moins un plafond mensuel. Réglé sur cinq essais, il transforme un plafond de dépense en cinq échecs de plus avant l'alerte. Pour une limite de débit, la documentation de n8n recommande plutôt Loop Over Items avec un nœud Wait, ou l'option Batching du nœud HTTP Request.</p>\n\n<h2 id=\"procedure\">La procédure, étape par étape</h2>\n<ol>\n<li><strong>Créer le workflow d'erreur.</strong> Un workflow « Erreurs IA » qui commence par l'Error Trigger. La documentation actuelle de n8n demande de publier le workflow qui contient ce nœud, et précise qu'un workflow contenant un Error Trigger est par défaut son propre workflow d'erreur. Des guides français, comme ceux de <a href=\"https://kirako.ai/blog/n8n-production-erreurs-alertes-surveillance\" rel=\"noopener noreferrer\" target=\"_blank\">Kirako</a> ou d'<a href=\"https://www.infinitelab.fr/blog/n8n-gestion-erreurs-workflow-error-trigger\" rel=\"noopener noreferrer\" target=\"_blank\">Infinitelab</a>, écrivent encore qu'il n'a pas besoin de l'être : publiez-le.</li>\n<li><strong>Le brancher partout.</strong> Dans chaque workflow qui appelle un modèle, Options, Settings, Error workflow : « Erreurs IA ». Tenez la liste des workflows réglés ; c'est le premier oubli.</li>\n<li><strong>Appeler le modèle avec le code en main.</strong> Nœud HTTP Request vers l'API de l'éditeur, options « Include Response Headers and Status » et « Never Error ». Gardez une clé et un projet ou espace de travail par automatisation, comme expliqué dans <a href=\"/blog/cles-api-automatisation-securite-pme\">sécuriser les clés API dans n8n et Make</a>.</li>\n<li><strong>Trier juste après l'appel.</strong> Un nœud Switch sur le code et le type d'erreur : 2xx, on continue ; 429 de débit, 500, 503 ou 529, on passe par un nœud Wait puis on relance, avec un compteur qui s'arrête à trois tours (au-delà, l'incident n'est plus passager et mérite une alerte) ; plafond, crédit ou clé, on lance un nœud Stop and Error avec un message qui commence par une étiquette, par exemple <code>[BUDGET]</code> ou <code>[CLE]</code> ; requête refusée, on écarte l'élément dans une table à revoir et on traite les suivants.</li>\n<li><strong>Router l'alerte selon l'étiquette.</strong> Dans « Erreurs IA », un Switch lit le début de <code>execution.error.message</code> : <code>[BUDGET]</code> part chez la personne qui tient le budget de l'API, <code>[CLE]</code> et tout message sans étiquette chez le référent technique. Le message contient le nom du workflow, le dernier nœud exécuté, le message complet et le lien de l'exécution, avec un test sur <code>execution?.id</code> pour le cas où c'est le déclencheur qui a échoué.</li>\n<li><strong>Tester pour de vrai.</strong> L'Error Trigger ne part que sur une exécution automatique : un lancement manuel dans l'éditeur ne déclenche rien. Créez un petit workflow planifié qui échoue exprès avec un Stop and Error portant <code>[BUDGET]</code>, vérifiez que l'alerte arrive chez la bonne personne, puis désactivez-le.</li>\n</ol>\n\n<h2 id=\"destinataires\">À qui envoyer l'alerte</h2>\n<p>Je fixe trois destinataires nommés, pas un canal commun où chacun pense qu'un autre a lu. Dans une PME sans informaticien, le référent technique est en général le prestataire qui a construit le workflow : son nom et son délai de réponse doivent figurer dans le contrat.</p>\n<table>\n<thead><tr><th>Étiquette</th><th>Destinataire</th><th>Ce qu'il doit faire</th></tr></thead>\n<tbody>\n<tr><td><code>[BUDGET]</code></td><td>La personne qui a fixé le plafond, souvent le dirigeant ou le responsable financier</td><td>Décider s'il relève la limite ou si le workflow s'arrête jusqu'au mois suivant</td></tr>\n<tr><td><code>[CLE]</code> et sans étiquette</td><td>Le référent technique, interne ou prestataire</td><td>Remplacer la clé, corriger le nœud, rejouer l'exécution</td></tr>\n<tr><td>Éléments écartés</td><td>Le responsable métier du flux (commandes, factures, demandes clients)</td><td>Traiter à la main les éléments refusés, une fois par jour</td></tr>\n</tbody>\n</table>\n<p>Un exemple de message utile : « [BUDGET] Tri des demandes clients · nœud Appel Claude · plafond de l'espace de travail atteint · lien vers l'exécution ». La personne qui le reçoit sait, sans ouvrir n8n, que rien n'est cassé et qu'une décision de budget l'attend.</p>\n<p>Le message d'erreur peut contenir des données de vos clients : envoyez les alertes dans un canal privé ou par e-mail nominatif, pas dans un canal ouvert à toute l'entreprise.</p>\n\n<h2 id=\"ne-pas-faire\">Ce que je déconseille</h2>\n<p>Basculer automatiquement vers un autre éditeur quand le premier refuse. L'idée revient dans les tutoriels sous le nom de « fallback » ; pour une PME, c'est envoyer les mêmes données à un second sous-traitant sans l'avoir décidé, avec d'autres conditions de conservation et d'hébergement. Si un second modèle est prévu, il doit l'être par écrit, comme le premier, et la bascule doit être visible dans l'alerte.</p>\n<p>Ne construisez pas tout cela pour un seul workflow qui tourne une fois par semaine et dont l'arrêt ne coûte rien : un workflow d'erreur qui vous envoie le message suffit. La procédure complète se justifie dès qu'un workflow touche un client, une facture ou une commande, ou dès que plusieurs workflows partagent la même clé.</p>\n<p>Si vous voulez qu'on regarde ensemble vos workflows qui appellent un modèle et ce qui se passerait le jour où le plafond tombe, c'est l'objet de <a href=\"/audit-ia-pme\">l'audit IA gratuit</a>. Pour la prise en main de l'outil lui-même, voir <a href=\"/blog/n8n-c-est-quoi\">n8n, c'est quoi</a> et notre <a href=\"/services/automatisation-n8n\">accompagnement n8n</a>.</p>\n",
+      "html_en": "<h2 id=\"en-bref\">In short</h2>\n<p>An n8n error workflow starts with the Error Trigger node and runs automatically when an execution of another workflow fails. For workflows that call Claude, ChatGPT or Mistral, it is not enough on its own: it receives the error message, not the HTTP status or the provider's error type, and that code is what tells you whether to retry, stop, or warn whoever owns the API budget.</p>\n<p>Sort the error right after the model call, using an HTTP Request node with \"Include Response Headers and Status\" and \"Never Error\", then let the error workflow route an already-labelled alert. Rate limits and overloads are retried with a growing wait; spend limits, exhausted credit and revoked keys are never retried. Codes differ by provider: a spend limit you set returns a 400 at Anthropic, a 429 at OpenAI and a 402 at Mistral. n8n's Retry On Fail allows five tries at most, 5 seconds apart, and does not honour Retry-After. The French article includes the full code table, a six-step procedure and who should receive each alert.</p>\n"
+    }
+  ],
+  "heroIllustration": {
+    "src": "/images/illustrations/ds/workflow-erreur-aiguillage-paper.webp",
+    "alt_fr": "Un aiguilleur près d'un levier : une voie repart en boucle, une autre monte vers un grand signal bleu",
+    "alt_en": "A switchman by a lever: one track loops back, another climbs toward a large blue signal",
+    "side": "right"
+  }
+}

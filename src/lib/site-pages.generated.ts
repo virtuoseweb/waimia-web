@@ -13141,6 +13141,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/workflow-erreur-n8n-ia",
+    "title": "Workflow d'erreur n8n pour les appels à Claude, OpenAI et Mistral",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/workflow-erreur-n8n-ia.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/workflow-ia-exemples-pme",
     "title": "Workflow IA : cinq exemples concrets pour une PME",
     "group": "blog",
@@ -14310,6 +14319,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/trier-emails-entrant-claude-n8n",
       "/blog/veille-reglementaire-automatisee-pme",
       "/blog/webflow-vs-wordpress-vs-site-code-ia-2026",
+      "/blog/workflow-erreur-n8n-ia",
       "/blog/workflow-ia-exemples-pme"
     ]
   },

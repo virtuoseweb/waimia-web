@@ -4034,13 +4034,18 @@
       "requeteCible": "n8n error workflow",
       "intention": "Être prévenu quand un workflow qui appelle Claude, OpenAI ou Mistral échoue, et savoir pourquoi.",
       "urlCible": "/blog/workflow-erreur-n8n-ia",
-      "angle": "Hypothèse à vérifier par la SERP : les pages sur l'Error Trigger ne distinguent pas les erreurs des API de modèles (plafond de dépense, limite de débit, contenu refusé) ni la conduite à tenir pour chacune.",
+      "angle": "Confirmé par la SERP du 20 novembre 2026 : les pages françaises (OpenClassrooms, kirako.ai, infinitelab.fr, laccelerateuria.com) expliquent l'Error Trigger sans les codes d'erreur des API d'IA ; aucune ne dit que le workflow d'erreur perd le code HTTP, ni quelles erreurs ne se réessaient pas (plafond 400 chez Anthropic, 429 chez OpenAI, 402 chez Mistral). Kirako et Infinitelab écrivent que le workflow d'erreur n'a pas besoin d'être publié, alors que la documentation actuelle de n8n demande de le publier. Article : tableau des codes par éditeur, tri par HTTP Request « Never Error », routage des alertes par étiquette.",
       "sourcesALire": [
-        "https://docs.n8n.io/flow-logic/error-handling/ (lu le 14 novembre 2026)",
-        "Pages d'erreurs des API Anthropic, OpenAI et Mistral, version du jour"
+        "https://docs.n8n.io/flow-logic/error-handling/ (lu le 20 novembre 2026)",
+        "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.errortrigger/ (lu le 20 novembre 2026)",
+        "https://docs.n8n.io/integrations/builtin/handle-rate-limits/ (lu le 20 novembre 2026)",
+        "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.httprequest/ (lu le 20 novembre 2026)",
+        "https://platform.claude.com/docs/en/api/errors (lu le 20 novembre 2026)",
+        "https://developers.openai.com/api/docs/guides/error-codes (lu le 20 novembre 2026)",
+        "https://docs.mistral.ai/resources/error-glossary (lu le 20 novembre 2026)"
       ],
       "semainePrevue": "2026-W47",
-      "statut": "planifié",
+      "statut": "en cours",
       "pr": null,
       "mesureAttendue": "Page indexée et premières impressions sur la requête cible, deux collectes après la mise en production.",
       "resultat": null,
@@ -4076,7 +4081,7 @@
         "https://github.com/anthropics/claude-plugins-official/blob/main/plugins/claude-for-manufacturing/README.md (lu le 15 novembre 2026)",
         "Documentation d'export programmé des ERP cités (à lire)"
       ],
-      "semainePrevue": "2026-W47",
+      "semainePrevue": "2026-W48",
       "statut": "planifié",
       "pr": null,
       "mesureAttendue": "Page indexée et premières impressions sur la requête, deux collectes après la mise en production.",
@@ -4318,6 +4323,43 @@
       "mesureAttendue": "Page indexée deux collectes après la mise en production ; premières impressions sur « chatgpt business ».",
       "resultat": null,
       "origine": "Demande de Simon dans la session du 19 novembre 2026 (« un article sur ChatGPT Business est important ») ; GPT-6.2 et ChatGPT for Sales (17 novembre 2026) changent l'offre Business, lus le 19 novembre 2026."
+    },
+    {
+      "id": "w47-correction-plafond-depense-mistral-402",
+      "type": "révision",
+      "titreProvisoire": "Plafonner la dépense d'une API d'IA : code d'erreur de Mistral corrigé",
+      "requeteCible": "plafond dépense api openai",
+      "intention": "Savoir quelle erreur renvoie chaque éditeur quand le plafond est atteint.",
+      "urlCible": "/blog/plafond-depense-api-ia",
+      "angle": "Règle 4.1-4 : le glossaire des erreurs de Mistral (lu le 20 novembre 2026) indique un 402, codes 2300 (organisation) et 2301 (espace de travail), pour un plafond de dépense ; la page écrivait 429. Tableau, FAQ et résumé anglais corrigés, source ajoutée, lien vers le nouvel article sur le workflow d'erreur.",
+      "sourcesALire": [
+        "https://docs.mistral.ai/resources/error-glossary (lu le 20 novembre 2026)"
+      ],
+      "semainePrevue": "2026-W47",
+      "statut": "en cours",
+      "pr": null,
+      "mesureAttendue": "Impressions de /blog/plafond-depense-api-ia sur 28 jours à la collecte du 22 novembre 2026 (valeur de départ) ; pas de baisse attendue à 2026-W49.",
+      "resultat": null,
+      "origine": "Recherche du 20 novembre 2026 pour /blog/workflow-erreur-n8n-ia : https://docs.mistral.ai/resources/error-glossary contredit la ligne Mistral du tableau."
+    },
+    {
+      "id": "idee-make-gestion-erreurs-appels-ia",
+      "type": "article",
+      "titreProvisoire": "Gestion des erreurs Make pour les appels à Claude, OpenAI et Mistral : Break, Resume ou Ignore",
+      "requeteCible": "make gestion des erreurs",
+      "intention": "Choisir le bon gestionnaire d'erreurs de Make selon l'erreur renvoyée par l'API du modèle.",
+      "urlCible": "/blog/make-gestion-erreurs-ia",
+      "angle": "Hypothèse à vérifier par la SERP : le pendant Make de /blog/workflow-erreur-n8n-ia. Les codes des éditeurs diffèrent (plafond : 400 chez Anthropic, 429 chez OpenAI, 402 chez Mistral) ; associer chaque code à une directive de Make, lue dans l'aide de Make le jour de la rédaction.",
+      "sourcesALire": [
+        "Aide de Make sur les gestionnaires d'erreurs (à lire)",
+        "https://docs.mistral.ai/resources/error-glossary (lu le 20 novembre 2026)"
+      ],
+      "semainePrevue": null,
+      "statut": "idée",
+      "pr": null,
+      "mesureAttendue": "Page indexée et premières impressions sur la requête, deux collectes après la mise en production.",
+      "resultat": null,
+      "origine": "Recherche du 20 novembre 2026 pour /blog/workflow-erreur-n8n-ia : aucune des pages lues ne traite les erreurs des API d'IA dans Make ; le site a /services/automatisation-make. Volume non mesuré : à demander à Simon."
     }
   ]
 }

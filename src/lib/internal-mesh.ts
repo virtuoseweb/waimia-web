@@ -148,6 +148,7 @@ const PAGES: Record<string, PageDef> = {
   '/ressources/guides/rpa-ou-agent-ia': { label_fr: 'RPA, API ou agent IA : comment choisir', label_en: 'RPA, API or AI agent: how to choose', kind: 'guide', topics: ['automatisation', 'agents'] },
   '/blog/n8n-c-est-quoi': { label_fr: "n8n, c'est quoi", label_en: 'What is n8n', kind: 'article', topics: ['automatisation'] },
   '/blog/avis-n8n-vs-zapier-2026': { label_fr: 'n8n ou Zapier : notre avis', label_en: 'n8n vs Zapier: our take', kind: 'article', topics: ['automatisation'] },
+  '/blog/workflow-erreur-n8n-ia': { label_fr: "Workflow d'erreur n8n pour les appels IA", label_en: 'n8n error workflow for AI calls', kind: 'article', topics: ['automatisation', 'agents'] },
   '/blog/plafond-depense-api-ia': { label_fr: "Plafonner la dépense d'une API d'IA", label_en: 'Capping AI API spend', kind: 'article', topics: ['automatisation', 'agents'] },
   '/blog/cles-api-automatisation-securite-pme': { label_fr: 'Clés API dans n8n et Make : les sécuriser', label_en: 'Securing API keys in n8n and Make', kind: 'article', topics: ['automatisation', 'conformite'] },
   '/cas-usages/standardiser-processus': { label_fr: "Automatiser l'administratif", label_en: 'Standardise processes', kind: 'cas-usage', topics: ['automatisation'] },
