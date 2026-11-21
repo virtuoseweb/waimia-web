@@ -12799,6 +12799,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/fusionner-chatgpt-personnel-business",
+    "title": "Fusionner un ChatGPT personnel dans ChatGPT Business : ce qui passe, ce qui se perd",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/fusionner-chatgpt-personnel-business.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/geo-local-recommande-par-les-ia",
     "title": "GEO local : être recommandé par les IA près de chez soi",
     "group": "blog",
@@ -14281,6 +14290,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/formation-ia-marketing-pme",
       "/blog/formation-ia-rh-pme",
       "/blog/forward-deployed-engineer",
+      "/blog/fusionner-chatgpt-personnel-business",
       "/blog/geo-local-recommande-par-les-ia",
       "/blog/gpt-6-2-astra-sol-pme",
       "/blog/hermes-agent-v0-22-modeles-locaux-connecteurs",

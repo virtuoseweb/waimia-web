@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · moteur B · « une passerelle à sens unique : un employé porte un carton
+       de sa petite maison vers le grand bâtiment de l'entreprise ; derrière lui, les
+       planches ont disparu ». Rôles remplacés par render-svg.mjs. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-90" r="7.5" fill="{{subject}}"/>
+      <path d="M-7.5 -93 Q0 -101 7.5 -93 L7 -90 Q0 -95 -7 -90 Z" fill="{{subject}}"/>
+      <path d="M-11 -80 Q0 -84 11 -80 L13 -42 L-13 -42 Z" fill="{{subject}}"/>
+      <path d="M-2.5 -80 L0 -72 L2.5 -80 Z" fill="{{light}}"/>
+      <rect x="-11.5" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="2" y="-44" width="9.5" height="42" fill="{{subject}}"/>
+      <rect x="-13" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+      <rect x="1.5" y="-3" width="11.5" height="3" rx="1.5" fill="{{subject}}"/>
+    </g>
+  </defs>
+
+  <!-- Ciel -->
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <circle cx="300" cy="170" r="62" fill="{{light}}" opacity="0.55"/>
+
+  <!-- Falaise de gauche et petite maison -->
+  <path d="M0 400 L420 400 L440 430 L410 624 L0 624 Z" fill="{{ground}}"/>
+  <rect y="400" width="420" height="3" fill="{{deep}}" opacity="0.5"/>
+  <rect x="170" y="322" width="96" height="78" fill="{{deep}}"/>
+  <path d="M158 326 L218 276 L278 326 Z" fill="{{deep}}"/>
+  <rect x="206" y="354" width="22" height="46" fill="{{light}}" opacity="0.8"/>
+
+  <!-- Falaise de droite et grand bâtiment -->
+  <path d="M1456 400 L1000 400 L980 436 L1010 624 L1456 624 Z" fill="{{ground}}"/>
+  <rect x="1000" y="400" width="456" height="3" fill="{{deep}}" opacity="0.5"/>
+  <rect x="1080" y="96" width="250" height="304" fill="{{shape}}"/>
+  <rect x="1080" y="96" width="250" height="10" fill="{{deep}}" opacity="0.35"/>
+  <g fill="{{light}}" opacity="0.45">
+    <rect x="1110" y="136" width="34" height="44"/><rect x="1188" y="136" width="34" height="44"/><rect x="1266" y="136" width="34" height="44"/>
+    <rect x="1110" y="208" width="34" height="44"/><rect x="1188" y="208" width="34" height="44"/><rect x="1266" y="208" width="34" height="44"/>
+    <rect x="1110" y="280" width="34" height="44"/><rect x="1266" y="280" width="34" height="44"/>
+  </g>
+  <rect x="1180" y="322" width="50" height="78" fill="{{deep}}"/>
+
+  <!-- Gouffre -->
+  <path d="M440 430 L410 624 L1010 624 L980 436 Z" fill="{{deep}}" opacity="0.25"/>
+
+  <!-- Câbles de la passerelle -->
+  <g fill="none" stroke="{{deep}}" stroke-width="3">
+    <path d="M420 362 Q710 404 1000 362"/>
+  </g>
+  <!-- Planches : celles du côté gauche manquent -->
+  <g fill="{{deep}}">
+    <rect x="420" y="396" width="26" height="9"/>
+    <rect x="620" y="412" width="26" height="9"/>
+    <rect x="650" y="413" width="26" height="9"/>
+    <rect x="680" y="414" width="26" height="9"/>
+    <rect x="710" y="414" width="26" height="9"/>
+    <rect x="740" y="414" width="26" height="9"/>
+    <rect x="770" y="413" width="26" height="9"/>
+    <rect x="800" y="412" width="26" height="9"/>
+    <rect x="830" y="410" width="26" height="9"/>
+    <rect x="860" y="408" width="26" height="9"/>
+    <rect x="890" y="405" width="26" height="9"/>
+    <rect x="920" y="402" width="26" height="9"/>
+    <rect x="950" y="399" width="26" height="9"/>
+    <rect x="975" y="396" width="26" height="9"/>
+  </g>
+  <!-- Deux planches qui tombent -->
+  <rect x="520" y="500" width="26" height="9" fill="{{deep}}" transform="rotate(28 533 504)"/>
+  <rect x="566" y="560" width="26" height="9" fill="{{deep}}" transform="rotate(-18 579 564)"/>
+
+  <!-- L'employé et son carton -->
+  <use href="#man" transform="translate(760 414) scale(0.9)"/>
+  <rect x="764" y="346" width="30" height="26" fill="{{detail}}"/>
+  <rect x="764" y="346" width="30" height="4" fill="{{deep}}" opacity="0.4"/>
+  <rect x="758" y="352" width="10" height="5" fill="{{subject}}"/>
+
+  <!-- Silhouette qui attend sur le seuil du bâtiment -->
+  <use href="#man" transform="translate(1160 400) scale(0.55)"/>
+</svg>

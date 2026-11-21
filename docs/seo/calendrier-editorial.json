@@ -3850,15 +3850,24 @@
       "requeteCible": "migrer compte chatgpt personnel vers business",
       "intention": "Décider s'il faut proposer aux salariés de fusionner leur espace ChatGPT personnel dans l'espace Business, et ce qu'ils doivent savoir avant.",
       "urlCible": "/blog/fusionner-chatgpt-personnel-business",
-      "angle": "Hypothèse : la fusion est définitive, ne permet pas de choisir les conversations et fait perdre l'accès au départ du salarié (aides d'OpenAI lues le 10 novembre 2026) ; une seule page lue en tête (netsysgroup.com, 17 octobre 2026, en anglais). Apporté : la décision côté dirigeant et la consigne à donner aux salariés. À confronter à la SERP française le jour de la rédaction.",
+      "angle": "Recherche du 21 novembre 2026 : la SERP française (« migrer compte chatgpt personnel vers business », « fusionner espace personnel chatgpt business », « chatgpt business fusion compte personnel ») ne montre que des pages d'aide d'OpenAI, en plusieurs versions qui se contredisent ; en anglais, netsysgroup.com et southwestaisolutions.com décrivent la procédure. Apporté : la version française de l'aide périmée sur trois points ; ce que l'entreprise récupère vraiment (projets et GPT, pas les conversations, d'après l'aide sur la rétention au départ d'un membre) ; l'ordre fusion puis migration des GPT en plugins avant le retrait du 11 décembre 2026 ; une règle par profil de salarié et un message à envoyer. Avancée de 2026-W48 à 2026-W47 (création du samedi).",
       "sourcesALire": [
-        "https://help.openai.com/en/articles/10479654-onboarding-employees-with-existing-chatgpt-accounts (lu le 10 novembre 2026)",
-        "https://help.openai.com/en/articles/8542115-chatgpt-business-general-faq (lu le 10 novembre 2026)"
+        "https://help.openai.com/en/articles/8801890 (lu le 21 novembre 2026)",
+        "https://help.openai.com/en/articles/10479654-onboarding-employees-with-existing-chatgpt-accounts (lu le 21 novembre 2026)",
+        "https://help.openai.com/en/articles/8542115-chatgpt-business-general-faq (lu le 21 novembre 2026)",
+        "https://help.openai.com/en/articles/8266418-data-retention-when-a-member-is-removed-from-a-workspace (lu le 21 novembre 2026)",
+        "https://help.openai.com/en/articles/8798634-managing-data-sharing-and-privacy-in-chatgpt-business (lu le 21 novembre 2026)",
+        "https://help.openai.com/en/articles/20001519-custom-gpt-retirement-and-migration-faq (lu le 21 novembre 2026)",
+        "https://help.openai.com/fr-fr/articles/8801890-gestion-du-cycle-de-vie-et-de-la-migration-des-espaces-de-travail-dans-chatgpt-business (lu le 21 novembre 2026)",
+        "https://www.netsysgroup.com/blog/move-personal-chatgpt-to-business (lu le 21 novembre 2026)",
+        "https://southwestaisolutions.com/resources/free-guides/personal-chatgpt-to-chatgpt-business (lu le 21 novembre 2026)",
+        "https://www.jedha.co/formation-ia/chatgpt-entreprise (lu le 21 novembre 2026)",
+        "https://jazz.security/dlp-explained/dlp-basics/company-data-in-personal-ai-accounts-when-employees-leave/ (lu le 21 novembre 2026)"
       ],
-      "semainePrevue": "2026-W48",
-      "statut": "planifié",
+      "semainePrevue": "2026-W47",
+      "statut": "en cours",
       "pr": null,
-      "mesureAttendue": "Page indexée deux collectes après la mise en production ; impressions sur la requête cible.",
+      "mesureAttendue": "/blog/fusionner-chatgpt-personnel-business, requête « migrer compte chatgpt personnel vers business » : page neuve, aucune impression au 21 novembre 2026. Attendu : page indexée et premières impressions. À juger à partir de 2026-W49.",
       "resultat": null,
       "origine": "Question relevée pendant la recherche du 10 novembre 2026 pour /blog/comptes-ia-personnels-depart-salarie : l'aide d'OpenAI sur l'arrivée de salariés déjà équipés et l'article de netsysgroup.com en tête de « ChatGPT Business migration personal account ». Volume non mesuré : à demander à Simon (Semrush)."
     },
@@ -4360,6 +4369,25 @@
       "mesureAttendue": "Page indexée et premières impressions sur la requête, deux collectes après la mise en production.",
       "resultat": null,
       "origine": "Recherche du 20 novembre 2026 pour /blog/workflow-erreur-n8n-ia : aucune des pages lues ne traite les erreurs des API d'IA dans Make ; le site a /services/automatisation-make. Volume non mesuré : à demander à Simon."
+    },
+    {
+      "id": "idee-retrait-gpt-personnalises-plugins-pme",
+      "type": "article",
+      "titreProvisoire": "Fin des GPT personnalisés le 11 décembre 2026 : migrer vers un plugin ou un projet, ce qu'une PME doit faire",
+      "requeteCible": "fin des gpt personnalisés",
+      "intention": "Savoir quoi faire de ses GPT avant leur retrait et choisir entre plugin et projet.",
+      "urlCible": "/blog/fin-gpt-personnalises-plugins",
+      "angle": "À confirmer par la SERP le jour de la rédaction : inventaire des GPT de l'entreprise, choix plugin ou projet, actions personnalisées à reconstruire (serveur MCP), test avant retrait. Vérifier d'abord que le site ne couvre pas déjà le sujet (src/content).",
+      "sourcesALire": [
+        "https://help.openai.com/en/articles/20001519-custom-gpt-retirement-and-migration-faq (lu le 21 novembre 2026)",
+        "https://help.openai.com/en/articles/8554407-gpts-in-chatgpt"
+      ],
+      "semainePrevue": null,
+      "statut": "idée",
+      "pr": null,
+      "mesureAttendue": "Page indexée deux collectes après la mise en production ; impressions sur la requête cible.",
+      "resultat": null,
+      "origine": "Recherche du 21 novembre 2026 pour /blog/fusionner-chatgpt-personnel-business : la FAQ d'OpenAI fixe le retrait standard des GPT personnalisés au 11 décembre 2026 (mise à jour il y a deux jours à la lecture). Volume non mesuré : à demander à Simon (Semrush)."
     }
   ]
 }
