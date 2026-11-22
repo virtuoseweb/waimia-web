@@ -12826,6 +12826,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/gpt-actions-personnalisees-mcp",
+    "title": "Fin des GPT personnalisés : reconstruire leurs actions avant le 11 décembre",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/gpt-actions-personnalisees-mcp.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/hermes-agent-v0-22-modeles-locaux-connecteurs",
     "title": "Hermes Agent v0.22 : modèles locaux, connecteurs et bac à sable par défaut",
     "group": "blog",
@@ -14293,6 +14302,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/fusionner-chatgpt-personnel-business",
       "/blog/geo-local-recommande-par-les-ia",
       "/blog/gpt-6-2-astra-sol-pme",
+      "/blog/gpt-actions-personnalisees-mcp",
       "/blog/hermes-agent-v0-22-modeles-locaux-connecteurs",
       "/blog/ia-agence-communication",
       "/blog/ia-artisan-batiment",

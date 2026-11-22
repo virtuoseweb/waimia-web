@@ -1,0 +1,217 @@
+{
+  "title_fr": "Fin des GPT personnalisés : reconstruire leurs actions avant le 11 décembre",
+  "title_en": "Custom GPTs retiring: rebuilding their actions before December 11",
+  "seoTitle_fr": "Actions de GPT : les reconstruire avant le 11 décembre",
+  "seoTitle_en": "GPT custom actions: rebuild them before December 11",
+  "h1_fr": "Fin des GPT personnalisés : reconstruire leurs actions avant le 11 décembre",
+  "description_fr": "Les actions des GPT ne migrent pas vers les plugins. Selon leur authentification (aucune, clé API, OAuth), comment les refaire avant le 11 décembre 2026.",
+  "description_en": "GPT custom actions do not migrate to plugins. Depending on authentication (none, API key, OAuth), how to rebuild them before December 11, 2026.",
+  "excerpt_fr": "Les actions personnalisées ne passent pas dans le plugin. Une action à clé API n'a même pas d'équivalent direct : ChatGPT n'accepte qu'OAuth ou aucune authentification pour un serveur MCP. Tableau de décision, exigences OAuth, procédure et exemple.",
+  "excerpt_en": "Custom actions do not move into the plugin, and API-key actions have no direct equivalent: ChatGPT only accepts OAuth or no authentication for an MCP server. Decision table, OAuth requirements, steps and example.",
+  "publishedAt": "2026-11-22",
+  "updatedAt": "2026-11-22",
+  "editorialType": "Tutorial",
+  "type": "post",
+  "author": "simon-beros",
+  "category": "claude",
+  "tags": [
+    "chatgpt",
+    "gpt-personnalises",
+    "mcp",
+    "plugins",
+    "migration"
+  ],
+  "readingTime": 10,
+  "relatedPosts": [
+    "fusionner-chatgpt-personnel-business",
+    "workflow-erreur-n8n-ia",
+    "connecter-claude-wordpress-shopify-mcp"
+  ],
+  "slug": "gpt-actions-personnalisees-mcp",
+  "sources": [
+    {
+      "name": "OpenAI, Custom GPT retirement and migration FAQ, lu le 22 novembre 2026",
+      "url": "https://help.openai.com/en/articles/20001519-custom-gpt-retirement-and-migration-faq",
+      "type": "enterprise"
+    },
+    {
+      "name": "OpenAI, FAQ sur le retrait et la migration des GPT personnalisés (version française), lu le 22 novembre 2026",
+      "url": "https://help.openai.com/fr-fr/articles/20001519",
+      "type": "enterprise"
+    },
+    {
+      "name": "OpenAI, GPTs in ChatGPT, lu le 22 novembre 2026",
+      "url": "https://help.openai.com/en/articles/8554407-gpts-in-chatgpt",
+      "type": "enterprise"
+    },
+    {
+      "name": "OpenAI, Configuring actions in GPTs, lu le 22 novembre 2026",
+      "url": "https://help.openai.com/en/articles/9442513-configuring-actions-in-gpts",
+      "type": "enterprise"
+    },
+    {
+      "name": "OpenAI, Plugins in ChatGPT, lu le 22 novembre 2026",
+      "url": "https://help.openai.com/en/articles/20001256-plugins-in-chatgpt",
+      "type": "enterprise"
+    },
+    {
+      "name": "OpenAI, Connexion de serveurs MCP personnalisés dans ChatGPT, lu le 22 novembre 2026",
+      "url": "https://help.openai.com/fr-ca/articles/12584461-developer-mode-and-mcp-apps-in-chatgpt",
+      "type": "enterprise"
+    },
+    {
+      "name": "OpenAI, Ajouter un serveur MCP personnalisé, lu le 22 novembre 2026",
+      "url": "https://developers.openai.com/fr-FR/api/docs/guides/custom-mcp-server",
+      "type": "enterprise"
+    },
+    {
+      "name": "OpenAI, Plugins : authentification, lu le 22 novembre 2026",
+      "url": "https://developers.openai.com/plugins/build/auth",
+      "type": "enterprise"
+    },
+    {
+      "name": "OpenAI, Build an MCP server, lu le 22 novembre 2026",
+      "url": "https://developers.openai.com/plugins/build/mcp-server",
+      "type": "enterprise"
+    },
+    {
+      "name": "OpenAI, Moving your custom GPT workflows to plugins, lu le 22 novembre 2026",
+      "url": "https://learn.chatgpt.com/docs/migrate-custom-gpts",
+      "type": "enterprise"
+    },
+    {
+      "name": "Forum de la communauté OpenAI, Custom GPT to Plugin migration removed critical Action integration, lu le 22 novembre 2026",
+      "url": "https://community.openai.com/t/custom-gpt-plugin-migration-removed-critical-action-integration-with-no-supported-credential-replacement/1403291",
+      "type": "enterprise"
+    },
+    {
+      "name": "Make, Make MCP server, lu le 22 novembre 2026",
+      "url": "https://help.make.com/make-mcp-server",
+      "type": "enterprise"
+    },
+    {
+      "name": "Make, Usage with ChatGPT (OAuth), lu le 22 novembre 2026",
+      "url": "https://developers.make.com/mcp-server/connect-using-oauth/usage-with-chatgpt",
+      "type": "enterprise"
+    },
+    {
+      "name": "n8n, MCP Server Trigger, lu le 22 novembre 2026",
+      "url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-langchain.mcptrigger/",
+      "type": "enterprise"
+    },
+    {
+      "name": "n8n, Connect to n8n MCP server, lu le 22 novembre 2026",
+      "url": "https://docs.n8n.io/connect/connect-to-n8n-mcp-server",
+      "type": "enterprise"
+    }
+  ],
+  "faq_fr": [
+    {
+      "q": "Les actions personnalisées d'un GPT sont-elles migrées vers le plugin ?",
+      "a": "Non. La migration transforme les consignes en compétence et copie les fichiers de connaissance, mais les actions personnalisées ne passent pas, selon la FAQ d'OpenAI sur le retrait des GPT. Ce qui en dépend ne fonctionne plus dans le plugin tant qu'une application de remplacement n'est pas branchée."
+    },
+    {
+      "q": "Peut-on utiliser une clé API dans un plugin ChatGPT ?",
+      "a": "Pas directement. Pour un serveur MCP personnalisé, ChatGPT propose OAuth, aucune authentification, ou les deux selon l'outil : il n'y a pas de champ pour une clé statique. La solution propre consiste à passer par un service qui gère OAuth (Make, n8n) ou à placer devant l'API un serveur MCP en OAuth qui garde la clé côté serveur. Ne mettez jamais la clé dans l'URL du serveur."
+    },
+    {
+      "q": "Faut-il un serveur MCP pour remplacer une action de GPT ?",
+      "a": "Pas toujours. Si le service appelé a déjà un plugin dans l'annuaire de ChatGPT, installez-le. Si l'action déclenchait un scénario Make ou un workflow n8n, leurs serveurs MCP en OAuth suffisent. Un serveur MCP écrit sur mesure ne se justifie que pour votre propre API ou un logiciel métier sans plugin."
+    },
+    {
+      "q": "Qui peut ajouter un serveur MCP personnalisé dans ChatGPT Business ?",
+      "a": "Seuls les administrateurs et les propriétaires de l'espace, selon l'aide d'OpenAI. Le salarié qui a créé le GPT peut le migrer, mais l'administrateur doit brancher le serveur qui remplace l'action. Sur Enterprise et Edu, ce droit peut être délégué par rôle."
+    },
+    {
+      "q": "Que se passe-t-il le 11 décembre 2026 si l'action n'est pas reconstruite ?",
+      "a": "Le GPT et sa page deviennent inaccessibles, et le plugin migré fonctionne sans l'action : il répond selon ses consignes, mais n'appelle plus le service externe. Les conversations passées avec le GPT restent consultables."
+    },
+    {
+      "q": "Pourquoi mon plugin demande-t-il une confirmation à chaque appel ?",
+      "a": "ChatGPT traite comme une écriture tout outil MCP qui ne porte pas l'annotation readOnlyHint, et une écriture demande une confirmation par défaut. Marquez les outils de lecture avec cette annotation sur le serveur ; gardez la confirmation pour ceux qui créent ou modifient des données."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Are a GPT's custom actions migrated to the plugin?",
+      "a": "No. Migration turns instructions into a skill and copies knowledge files, but custom actions do not transfer, according to OpenAI's retirement FAQ. Anything that depends on them stops working until a replacement app is attached."
+    },
+    {
+      "q": "Can a ChatGPT plugin use an API key?",
+      "a": "Not directly. For a custom MCP server, ChatGPT offers OAuth, no authentication, or both per tool; there is no field for a static key. Use a service that handles OAuth (Make, n8n) or an OAuth MCP server in front of your API that keeps the key server side."
+    },
+    {
+      "q": "Who can add a custom MCP server in ChatGPT Business?",
+      "a": "Only workspace admins and owners, according to OpenAI's help center. The GPT creator can migrate the GPT, but an admin must connect the server that replaces the action."
+    },
+    {
+      "q": "What happens on December 11, 2026 if the action is not rebuilt?",
+      "a": "The GPT and its page become inaccessible, and the migrated plugin works without the action. Past conversations with the GPT remain available."
+    }
+  ],
+  "headings": [
+    {
+      "depth": 2,
+      "slug": "en-bref",
+      "text": "En bref"
+    },
+    {
+      "depth": 2,
+      "slug": "cle-api",
+      "text": "Une action à clé API n'a pas d'équivalent direct"
+    },
+    {
+      "depth": 2,
+      "slug": "tableau",
+      "text": "Votre action, le chemin pour la reconstruire"
+    },
+    {
+      "depth": 2,
+      "slug": "definitions",
+      "text": "Action, plugin, serveur MCP : de quoi on parle"
+    },
+    {
+      "depth": 2,
+      "slug": "oauth",
+      "text": "Ce qu'un serveur MCP en OAuth doit savoir faire"
+    },
+    {
+      "depth": 2,
+      "slug": "qui-peut",
+      "text": "Qui peut le faire, selon votre offre"
+    },
+    {
+      "depth": 2,
+      "slug": "procedure",
+      "text": "La procédure, dans l'ordre"
+    },
+    {
+      "depth": 2,
+      "slug": "exemple",
+      "text": "Exemple illustratif : un GPT de devis à deux actions"
+    },
+    {
+      "depth": 2,
+      "slug": "ne-pas-reconstruire",
+      "text": "Quand ne pas reconstruire l'action"
+    },
+    {
+      "depth": 2,
+      "slug": "dates",
+      "text": "Les dates qui comptent"
+    }
+  ],
+  "body_sections": [
+    {
+      "type": "editorial-prose",
+      "html_fr": "<h2 id=\"en-bref\">En bref</h2>\n<p>Les actions personnalisées d'un GPT ne passent pas dans le plugin quand vous le migrez : OpenAI retire les GPT personnalisés le 11 décembre 2026, et sa <a href=\"https://help.openai.com/en/articles/20001519-custom-gpt-retirement-and-migration-faq\" rel=\"noopener noreferrer\" target=\"_blank\">FAQ du retrait</a> précise que tout ce qui dépend d'une action cesse de fonctionner tant qu'un remplacement n'est pas en place. Ce remplacement est, dans presque tous les cas, une application branchée au plugin : soit une application existante de l'annuaire, soit un serveur MCP que vous ajoutez vous-même.</p>\n<p>Le choix dépend surtout d'une chose que les guides de migration ne regardent pas : la façon dont votre action s'authentifie. Une action sans authentification ou en OAuth a un équivalent direct. Une action à clé API n'en a pas, parce que ChatGPT ne propose, pour un serveur MCP personnalisé, que OAuth, aucune authentification ou un mélange des deux. Si votre GPT appelle Make, n8n, votre CRM ou votre logiciel métier avec une clé, c'est par lui qu'il faut commencer, cette semaine.</p>\n\n<h2 id=\"cle-api\">Une action à clé API n'a pas d'équivalent direct</h2>\n<p>Le montage le plus simple, quand on construisait un GPT à actions, consistait à appeler un webhook Make ou n8n, ou l'API d'un logiciel, avec une clé collée dans l'éditeur. C'est précisément ce qui ne se transpose pas.</p>\n<p>Quand on ajoute un serveur MCP personnalisé dans ChatGPT, la <a href=\"https://developers.openai.com/fr-FR/api/docs/guides/custom-mcp-server\" rel=\"noopener noreferrer\" target=\"_blank\">documentation d'OpenAI</a> propose trois options d'authentification : OAuth, aucune authentification, ou OAuth et aucune selon l'outil. Il n'y a pas de champ pour une clé statique. Un créateur l'a signalé sur le <a href=\"https://community.openai.com/t/custom-gpt-plugin-migration-removed-critical-action-integration-with-no-supported-credential-replacement/1403291\" rel=\"noopener noreferrer\" target=\"_blank\">forum d'OpenAI</a> en octobre : son GPT lisait une boîte mail par un webhook Make protégé par l'en-tête <code>x-make-apikey</code> ; après migration, le plugin ne trouvait aucun endroit protégé où saisir la clé. Le support d'OpenAI a répondu le 18 novembre qu'il examinait le problème, sans solution annoncée.</p>\n<p>Ne contournez pas en mettant la clé dans l'URL du serveur. Une clé dans une URL finit dans des journaux, des captures d'écran et des copier-coller, et quiconque l'a peut appeler votre scénario. Il reste trois issues propres, détaillées dans le tableau ci-dessous : passer par un service qui sait faire OAuth à votre place (Make, n8n), placer devant votre API un petit serveur MCP en OAuth qui garde la clé côté serveur, ou renoncer à l'action et sortir le traitement de ChatGPT.</p>\n\n<h2 id=\"tableau\">Votre action, le chemin pour la reconstruire</h2>\n<table>\n<thead><tr><th>Ce que fait votre action</th><th>Remplacement</th><th>Ce qui demande du temps</th></tr></thead>\n<tbody>\n<tr><td>Appelle un service qui a déjà un plugin dans l'annuaire de ChatGPT (Make, Google Drive, HubSpot, etc.)</td><td>Installer ce plugin ou l'ajouter au plugin migré, chaque utilisateur connecte son compte</td><td>Vérifier que le plugin de l'éditeur fait la même opération que votre action : <a href=\"https://help.openai.com/en/articles/20001519-custom-gpt-retirement-and-migration-faq\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI prévient</a> qu'une intégration reconstruite ne reprend pas forcément tout</td></tr>\n<tr><td>Déclenche un scénario Make avec une clé API</td><td>Serveur MCP de Make en OAuth (<code>https://mcp.make.com/openai</code>, selon la <a href=\"https://developers.make.com/mcp-server/connect-using-oauth/usage-with-chatgpt\" rel=\"noopener noreferrer\" target=\"_blank\">documentation de Make</a>), le scénario exposé comme outil</td><td>Le scénario doit être actif, planifié « à la demande », avec ses entrées et sorties définies ; n'accordez que la portée « Run your scenarios », ouverte sur toutes les offres de Make (<a href=\"https://help.make.com/make-mcp-server\" rel=\"noopener noreferrer\" target=\"_blank\">aide de Make</a>)</td></tr>\n<tr><td>Déclenche un workflow n8n avec une clé ou un en-tête</td><td>Accès MCP au niveau de l'instance en OAuth, ou nœud MCP Server Trigger en « n8n User Auth (OAuth2) » (<a href=\"https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-langchain.mcptrigger/\" rel=\"noopener noreferrer\" target=\"_blank\">documentation de n8n</a>)</td><td>Les modes Bearer et Header du nœud ne sont pas utilisables depuis ChatGPT ; publier le workflow pour obtenir l'URL de production</td></tr>\n<tr><td>Appelle votre propre API ou celle d'un logiciel métier avec une clé</td><td>Serveur MCP en OAuth devant l'API, qui garde la clé côté serveur</td><td>Le serveur d'autorisation : métadonnées OAuth, PKCE en S256, jetons d'actualisation (voir plus bas)</td></tr>\n<tr><td>Appelle une API en OAuth (le salarié se connecte à son compte)</td><td>Serveur MCP en OAuth 2.1 conforme à la spécification d'autorisation MCP</td><td>Adapter le fournisseur d'identité, qui doit annoncer ses métadonnées et accepter le paramètre <code>resource</code></td></tr>\n<tr><td>Lit des données publiques sans authentification</td><td>Serveur MCP sans authentification</td><td>Peu de chose, mais limitez les outils à la lecture</td></tr>\n</tbody>\n</table>\n<p>Sur n8n comme sur Make, le service garde les identifiants de vos outils métier et ChatGPT ne voit qu'un jeton OAuth révocable. C'est mon choix par défaut pour une PME qui a déjà ses automatisations là : pas de serveur à héberger, et la clé de votre CRM ne quitte pas l'outil où elle vit déjà. Côté Make, le serveur MCP donne accès à tous les scénarios actifs à la demande : si vous ne voulez exposer que celui du GPT, passez par une boîte à outils MCP (« MCP toolbox »), qui limite la liste. Et branchez une alerte : notre article sur le <a href=\"/blog/workflow-erreur-n8n-ia\">workflow d'erreur n8n pour les appels IA</a> montre comment, parce qu'une action reconstruite échoue en silence aussi bien qu'une autre.</p>\n\n<h2 id=\"definitions\">Action, plugin, serveur MCP : de quoi on parle</h2>\n<p>Une action personnalisée est un appel d'API qu'un GPT peut déclencher seul. Elle se compose de deux éléments, d'après l'<a href=\"https://help.openai.com/en/articles/9442513-configuring-actions-in-gpts\" rel=\"noopener noreferrer\" target=\"_blank\">aide d'OpenAI sur les actions</a> : un schéma OpenAPI qui décrit le serveur, les points d'accès et leurs paramètres, et un mode d'authentification (aucune, clé API en Basic, Bearer ou en-tête personnalisé, ou OAuth).</p>\n<p>Un plugin ChatGPT est le format qui remplace le GPT : un paquet qui réunit des compétences (des consignes réutilisables), des fichiers de référence et des applications connectées. À la migration, les consignes du GPT deviennent une compétence et ses fichiers de connaissance des fichiers de référence. Les actions, elles, restent derrière.</p>\n<p>Un serveur MCP (Model Context Protocol) est un service qui expose des outils à un assistant IA par un protocole commun. Là où une action décrivait des points d'accès REST un par un, un serveur MCP liste ses outils et les exécute à la demande. C'est la brique qu'OpenAI désigne pour reconstruire une action qu'aucune application existante ne couvre. Le même protocole sert chez Anthropic : notre <a href=\"/ressources/guides/mcp-claude\">guide MCP pour brancher Claude à vos outils</a> l'explique côté Claude, et un serveur bien construit sert aux deux. Si vous comparez les deux plateformes avant de refaire quoi que ce soit, notre <a href=\"/ressources/guides/claude-pme\">guide Claude pour PME</a> donne les critères.</p>\n\n<h2 id=\"oauth\">Ce qu'un serveur MCP en OAuth doit savoir faire</h2>\n<p>Si vous écrivez le serveur vous-même, ou si votre prestataire le fait, voici ce qu'OpenAI exige dans sa <a href=\"https://developers.openai.com/plugins/build/auth\" rel=\"noopener noreferrer\" target=\"_blank\">page sur l'authentification des plugins</a>. Le serveur publie un document <code>/.well-known/oauth-protected-resource</code> qui désigne son serveur d'autorisation. Celui-ci publie ses métadonnées OAuth, annonce <code>S256</code> pour PKCE (sans quoi le serveur n'est pas pris en charge) et sait identifier ChatGPT comme client, par document de métadonnées (CIMD), enregistrement dynamique (DCR) ou client déclaré à l'avance.</p>\n<p>Un point peut casser après la mise en service : les jetons d'actualisation. L'<a href=\"https://help.openai.com/fr-ca/articles/12584461-developer-mode-and-mcp-apps-in-chatgpt\" rel=\"noopener noreferrer\" target=\"_blank\">aide d'OpenAI sur les serveurs MCP personnalisés</a> prévient que sans la portée <code>offline_access</code> (ou son équivalent chez votre fournisseur), ChatGPT peut perdre l'accès à l'expiration de la première autorisation, et vos salariés devront se reconnecter. Testez donc le plugin le lendemain de sa création, pas seulement le jour même.</p>\n<p>Pour chaque opération de votre ancien schéma OpenAPI, créez un outil distinct, avec un nom d'action et une description qui dit quand l'utiliser, comme le recommande le <a href=\"https://developers.openai.com/plugins/build/mcp-server\" rel=\"noopener noreferrer\" target=\"_blank\">guide de construction d'un serveur MCP</a>. Marquez les outils de lecture avec l'annotation <code>readOnlyHint</code> : sans elle, ChatGPT traite l'outil comme une écriture et demande une confirmation à chaque appel. C'est le bon comportement pour un outil qui crée un devis ou modifie une fiche client ; c'est une gêne pour un outil qui lit un tarif.</p>\n\n<h2 id=\"qui-peut\">Qui peut le faire, selon votre offre</h2>\n<p>Sur ChatGPT Business, seuls les administrateurs et les propriétaires de l'espace peuvent créer et publier un plugin qui s'appuie sur un serveur MCP personnalisé, selon l'<a href=\"https://help.openai.com/fr-ca/articles/12584461-developer-mode-and-mcp-apps-in-chatgpt\" rel=\"noopener noreferrer\" target=\"_blank\">aide d'OpenAI</a>. Le salarié qui a créé le GPT peut le migrer, mais il ne peut pas brancher seul le serveur qui remplace son action : prévoyez l'administrateur dans la boucle. Sur Enterprise et Edu, l'administrateur peut déléguer ce droit par rôle (« Créer des plugins avec des MCP »).</p>\n<p>Sur un compte personnel (Plus, Pro), la même aide réserve les serveurs MCP personnalisés aux offres Business et Enterprise/Edu, alors que la documentation de Make ne demande qu'un compte ChatGPT avec le mode développeur. Vérifiez dans Paramètres, Plugins, ce que votre compte propose avant de bâtir un plan dessus. Et si le GPT qui porte une action critique vit sur l'abonnement personnel d'un salarié, la question n'est plus technique : notre article sur la <a href=\"/blog/fusionner-chatgpt-personnel-business\">fusion d'un ChatGPT personnel dans Business</a> explique dans quel ordre faire entrer ce GPT dans l'espace de l'entreprise avant de le migrer.</p>\n\n<h2 id=\"procedure\">La procédure, dans l'ordre</h2>\n<ol>\n<li>Faites la liste des GPT qui ont des actions. Dans l'éditeur, onglet Configurer, section Actions, relevez pour chacune le mode d'authentification, le domaine appelé et les opérations du schéma. Sur Enterprise, le rapport du plugin ChatGPT Admin liste les GPT avec leurs actions, d'après le <a href=\"https://learn.chatgpt.com/docs/migrate-custom-gpts\" rel=\"noopener noreferrer\" target=\"_blank\">guide de migration d'OpenAI</a>.</li>\n<li>Copiez le schéma OpenAPI et les consignes dans un document de l'entreprise. Après la migration, le GPT d'origine passe en lecture seule, et le 11 décembre il devient inaccessible.</li>\n<li>Gardez trois ou quatre demandes habituelles et un cas difficile, avec la réponse attendue. Ce sont vos tests.</li>\n<li>Choisissez le chemin de chaque action avec le tableau ci-dessus. Abandonnez celles qui ne servent plus (section suivante).</li>\n<li>Publiez les dernières modifications du GPT (publier n'oblige pas à le rendre public), puis lancez « Migrer vers un plugin » depuis Mes GPT.</li>\n<li>Créez le remplacement de l'action : plugin de l'éditeur, serveur MCP de Make ou de n8n, ou serveur maison. Ajoutez-le au plugin migré.</li>\n<li>Rejouez vos tests en appelant le plugin par @, puis sans le nommer. OpenAI précise que ChatGPT choisit seul une compétence installée quand la demande correspond, sans garantie de le faire à chaque fois. Testez à nouveau le lendemain pour l'OAuth.</li>\n<li>Partagez le plugin. Il démarre privé, et les utilisateurs du GPT n'y ont pas accès d'office.</li>\n</ol>\n<p>Si le remplacement d'une action n'est pas prêt le 11 décembre, le plugin continue de répondre selon ses consignes, sans appeler le service. Écrivez dès maintenant la procédure de secours pour vos équipes (copier la réponse dans l'outil à la main) plutôt que de la découvrir le jour même.</p>\n<p>Comptez à rebours depuis le 11 décembre. Une action qui passe par Make ou n8n en OAuth tient surtout du paramétrage quand le scénario existe déjà. Un serveur maison devant une API métier demande davantage : écrire les outils, monter l'OAuth, le faire valider par la personne qui gère la sécurité, puis le tester avec de vrais comptes. S'il vous en faut un, commencez-le avant fin novembre, pas la semaine du retrait.</p>\n\n<h2 id=\"exemple\">Exemple illustratif : un GPT de devis à deux actions</h2>\n<p>Exemple illustratif, construit pour la démonstration. Une PME de maintenance industrielle utilise un GPT « Devis » : il lit la fiche du client dans le CRM par une action à clé API, puis crée un brouillon de devis en appelant un webhook Make protégé par <code>x-make-apikey</code>.</p>\n<p>Après migration, les consignes et la grille de prestations passent dans le plugin, les deux actions non. La lecture de la fiche client se refait avec le plugin du CRM s'il en existe un dans l'annuaire, chaque commercial se connectant à son propre compte. La création du brouillon passe par le serveur MCP de Make en OAuth, où le scénario existant devient un outil, et la clé du CRM reste dans Make. ChatGPT demandera une confirmation avant de créer le brouillon : c'est voulu, un devis part chez un client.</p>\n<p>Au passage, chaque commercial agit sous son identité dans le CRM, alors qu'avec la clé partagée du GPT, tous les appels passaient par un seul compte.</p>\n\n<h2 id=\"ne-pas-reconstruire\">Quand ne pas reconstruire l'action</h2>\n<p>Ne reconstruisez pas une action que personne n'a déclenchée depuis des semaines : laissez-la disparaître avec le GPT.</p>\n<p>Ne construisez pas de serveur MCP maison si personne dans l'entreprise, ou chez un prestataire qui vous laisse le code et les accès, ne peut le maintenir. Un serveur exposé sur internet avec des outils d'écriture se surveille et se met à jour ; à défaut, passez par Make ou n8n, ou renoncez.</p>\n<p>Sortez le traitement de ChatGPT quand l'action ne faisait qu'envoyer des données d'un formulaire vers un outil : un workflow déclenché par le formulaire lui-même fait le travail sans assistant au milieu, et sans dépendre du prochain changement de format d'un éditeur. Et si le GPT n'avait pas d'action du tout, un projet ChatGPT, avec ses consignes et ses fichiers, suffit souvent.</p>\n\n<h2 id=\"dates\">Les dates qui comptent</h2>\n<p>Le retrait standard est fixé au 11 décembre 2026 sur toutes les offres. À cette date, les GPT et leurs pages deviennent inaccessibles ; vos conversations passées avec eux restent consultables, sans rien faire. Les espaces FedRAMP et les espaces Enterprise qui ont obtenu un report ont plus de temps : la version anglaise de la FAQ d'OpenAI donne le 28 février 2027, quand la <a href=\"https://help.openai.com/fr-fr/articles/20001519\" rel=\"noopener noreferrer\" target=\"_blank\">version française</a> et les articles qui la reprennent écrivent encore le 11 février 2027. Si vous êtes concerné, c'est l'avis affiché dans votre espace qui fait foi.</p>\n<p>Si vous n'avez personne pour écrire ou héberger le serveur qui remplacera une action, c'est le travail de notre <a href=\"/services/integration-chatgpt-openai\">intégration ChatGPT et OpenAI à vos outils métier</a> : serveur, OAuth, tests et code qui vous appartient. L'<a href=\"/audit-ia-pme\">audit IA gratuit</a> permet de passer vos GPT en revue avant de décider lesquels méritent d'être refaits.</p>\n",
+      "html_en": "<h2 id=\"en-bref\">In short</h2>\n<p>Custom actions do not move into the plugin when you migrate a custom GPT. OpenAI retires custom GPTs on December 11, 2026, and its <a href=\"https://help.openai.com/en/articles/20001519-custom-gpt-retirement-and-migration-faq\" rel=\"noopener noreferrer\" target=\"_blank\">retirement FAQ</a> says anything that depends on an action stops working until a replacement is in place. The replacement is an app attached to the plugin: an existing app from the directory, or an MCP server you add yourself.</p>\n<p>The choice depends on how the action authenticates. Actions with no authentication or with OAuth have a direct equivalent. API-key actions do not: for a custom MCP server, ChatGPT only offers OAuth, no authentication, or a mix of both, according to <a href=\"https://developers.openai.com/api/docs/guides/custom-mcp-server\" rel=\"noopener noreferrer\" target=\"_blank\">OpenAI's documentation</a>. If your GPT calls Make, n8n, your CRM or business software with a key, start there: use Make's or n8n's MCP server over OAuth, or put a small OAuth MCP server in front of your API that keeps the key server side. Never put the key in the server URL. On ChatGPT Business, only workspace admins and owners can add a custom MCP server. The French article includes the decision table, the OAuth requirements, the step-by-step order and an illustrative example.</p>\n"
+    }
+  ],
+  "heroIllustration": {
+    "src": "/images/illustrations/ds/gpt-actions-cle-paper.webp",
+    "alt_fr": "Un employé porte une clé géante vers une haute porte bleue sans serrure ; derrière lui, une vieille porte à serrure",
+    "alt_en": "An employee carries a giant key toward a tall blue door with no keyhole; behind him, an old door with a lock",
+    "side": "right"
+  }
+}

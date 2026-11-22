@@ -4373,21 +4373,44 @@
     {
       "id": "idee-retrait-gpt-personnalises-plugins-pme",
       "type": "article",
-      "titreProvisoire": "Fin des GPT personnalisés le 11 décembre 2026 : migrer vers un plugin ou un projet, ce qu'une PME doit faire",
-      "requeteCible": "fin des gpt personnalisés",
-      "intention": "Savoir quoi faire de ses GPT avant leur retrait et choisir entre plugin et projet.",
-      "urlCible": "/blog/fin-gpt-personnalises-plugins",
-      "angle": "À confirmer par la SERP le jour de la rédaction : inventaire des GPT de l'entreprise, choix plugin ou projet, actions personnalisées à reconstruire (serveur MCP), test avant retrait. Vérifier d'abord que le site ne couvre pas déjà le sujet (src/content).",
+      "titreProvisoire": "Fin des GPT personnalisés : reconstruire leurs actions avant le 11 décembre",
+      "requeteCible": "actions personnalisées gpt plugin",
+      "intention": "Savoir comment remplacer les actions personnalisées d'un GPT, qui ne migrent pas vers le plugin, avant le retrait.",
+      "urlCible": "/blog/gpt-actions-personnalisees-mcp",
+      "angle": "Recherche du 22 novembre 2026 : six pages françaises (selectra.info, leconsultantdigital.fr, hire-balt.com, nocodetoulouse.fr, skuto.app, chatgpt-formations.fr, iagformation.fr) couvrent déjà date, ce qui migre, inventaire et tests ; aucune ne traite l'authentification des actions. Angle recentré : une action à clé API n'a pas d'équivalent direct (serveur MCP personnalisé : OAuth ou aucune authentification seulement), tableau par type d'action (Make, n8n, API maison, OAuth), exigences OAuth d'OpenAI, droits par offre, procédure et exemple illustratif.",
       "sourcesALire": [
-        "https://help.openai.com/en/articles/20001519-custom-gpt-retirement-and-migration-faq (lu le 21 novembre 2026)",
-        "https://help.openai.com/en/articles/8554407-gpts-in-chatgpt"
+        "https://help.openai.com/en/articles/20001519-custom-gpt-retirement-and-migration-faq (lu le 22 novembre 2026)",
+        "https://developers.openai.com/fr-FR/api/docs/guides/custom-mcp-server (lu le 22 novembre 2026)",
+        "https://help.openai.com/fr-ca/articles/12584461-developer-mode-and-mcp-apps-in-chatgpt (lu le 22 novembre 2026)",
+        "https://developers.openai.com/plugins/build/auth (lu le 22 novembre 2026)",
+        "https://help.make.com/make-mcp-server (lu le 22 novembre 2026)",
+        "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-langchain.mcptrigger/ (lu le 22 novembre 2026)"
+      ],
+      "semainePrevue": "2026-W47",
+      "statut": "en cours",
+      "pr": null,
+      "mesureAttendue": "Page indexée deux collectes après la mise en production ; impressions sur « actions personnalisées gpt plugin » et requêtes voisines (gpt actions mcp).",
+      "resultat": null,
+      "origine": "Recherche du 21 novembre 2026 pour /blog/fusionner-chatgpt-personnel-business : la FAQ d'OpenAI fixe le retrait standard des GPT personnalisés au 11 décembre 2026 (mise à jour il y a deux jours à la lecture). Volume non mesuré : à demander à Simon (Semrush)."
+    },
+    {
+      "id": "idee-gems-gemini-competences-workspace",
+      "type": "article",
+      "titreProvisoire": "Gems Gemini convertis en compétences : ce qui change pour une entreprise sur Google Workspace",
+      "requeteCible": "gems gemini compétences workspace",
+      "intention": "Savoir quand et comment ses Gems passent en compétences sur un compte Workspace, et ce que la conversion ne reprend pas.",
+      "urlCible": "/blog/gems-gemini-competences-workspace",
+      "angle": "À confirmer par la SERP et l'aide de Google le jour de la rédaction : calendrier propre aux comptes Workspace (mars 2027 selon selectra.info, à vérifier à la source), fichiers non repris, réglages de confidentialité côté Workspace, parallèle avec la migration des GPT. Vérifier d'abord la couverture de /ressources/guides/gemini.",
+      "sourcesALire": [
+        "Pages d'aide Google Gemini sur les Gems et les compétences, lues le jour de la rédaction",
+        "https://selectra.info/telecom/actualites/marche/gems-gemini-gpts-chatgpt-a-sauvegarder-decembre (lu le 22 novembre 2026, source secondaire)"
       ],
       "semainePrevue": null,
       "statut": "idée",
       "pr": null,
       "mesureAttendue": "Page indexée deux collectes après la mise en production ; impressions sur la requête cible.",
       "resultat": null,
-      "origine": "Recherche du 21 novembre 2026 pour /blog/fusionner-chatgpt-personnel-business : la FAQ d'OpenAI fixe le retrait standard des GPT personnalisés au 11 décembre 2026 (mise à jour il y a deux jours à la lecture). Volume non mesuré : à demander à Simon (Semrush)."
+      "origine": "Recherche du 22 novembre 2026 pour /blog/gpt-actions-personnalisees-mcp : selectra.info (30 octobre 2026) rapporte la conversion des Gems en compétences, avec un calendrier distinct pour Workspace Business (mars 2027) ; sujet absent de src/content hors du guide Gemini. Volume non mesuré : à demander à Simon (Semrush)."
     }
   ]
 }
