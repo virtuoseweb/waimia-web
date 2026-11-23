@@ -214,11 +214,24 @@
         "body_en": "Same rule as the path above: audit first, prices shown.",
         "items": [
           {
-            "label_fr": "Site web : VirtuoseWeb, notre studio frère",
-            "label_en": "Website: VirtuoseWeb, our sister studio",
-            "price_fr": "tarifs sur virtuoseweb.fr",
-            "price_en": "pricing on virtuoseweb.fr",
-            "href": "https://virtuoseweb.fr/tarifs/"
+            "label_fr": "Site web IA",
+            "label_en": "AI website",
+            "price_fr": "dès 2 000 € HT",
+            "price_en": "from 2,000 € ex VAT",
+            "href": "/services/site-web-ia"
+          },
+          {
+            "label_fr": "Maintenance d'un site en production",
+            "label_en": "Maintenance of a live website",
+            "price_fr": "dès {{prix.maintenance.p1}} € HT/mois",
+            "price_en": "from {{prix.maintenance.p1}} € ex VAT/month"
+          },
+          {
+            "label_fr": "SEO, GEO et contenu",
+            "label_en": "SEO, GEO and content",
+            "price_fr": "sprint à {{prix.sprint}} € HT, puis {{prix.horaire}} € HT/h",
+            "price_en": "sprint at {{prix.sprint.en}} € ex VAT, then {{prix.horaire}} €/h",
+            "href": "/services/seo-geo-contenu"
           },
           {
             "label_fr": "Prospection automatisée",
@@ -416,8 +429,8 @@
         {
           "q_fr": "Et si j'ai seulement besoin d'un site web ou de prospection ?",
           "q_en": "What if I only need a website or prospecting?",
-          "a_fr": "Un site web n'est pas le métier de Waimia : la création, la refonte et le référencement de site sont confiés à VirtuoseWeb, notre studio frère, qui affiche ses propres tarifs sur virtuoseweb.fr. La prospection automatisée est en abonnement, dès {{prix.commercial}} € HT par mois (formule Standard ; formule Pro à 1 650 € HT par mois). Point d'entrée : un essai gratuit de {{prix.commercial.essai}} leads, à 0 €.",
-          "a_en": "A website is not Waimia's line of work: website creation, redesign and search go to VirtuoseWeb, our sister studio, which shows its own prices on virtuoseweb.fr. Automated prospecting is a subscription, from {{prix.commercial}} € ex VAT a month (Standard plan; Pro plan at 1,650 € ex VAT a month). Entry point: a free trial of {{prix.commercial.essai}} leads, at 0 €."
+          "a_fr": "Vous pouvez ne prendre qu'un site ou de la prospection : Waimia développe aussi des sites web. Un site web IA démarre à 2 000 € HT, sa maintenance démarre à {{prix.maintenance.p1}} € HT par mois. La prospection automatisée est en abonnement, dès {{prix.commercial}} € HT par mois (formule Standard ; formule Pro à 1 650 € HT par mois). Point d'entrée : un essai gratuit de {{prix.commercial.essai}} leads, à 0 €.",
+          "a_en": "Yes, Waimia also builds websites. An AI website starts at 2,000 € ex VAT, its maintenance starts at {{prix.maintenance.p1}} € ex VAT a month. Automated prospecting is a subscription, from {{prix.commercial}} € ex VAT a month (Standard plan; Pro plan at 1,650 € ex VAT a month). Entry point: a free trial of {{prix.commercial.essai}} leads, at 0 €."
         }
       ]
     },

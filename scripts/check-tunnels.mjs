@@ -47,11 +47,7 @@ const claudeService = /silo === 'claude' \? '([^']+)'/.exec(mesh)?.[1];
 if (Object.keys(silos).length === 0 || !claudeService) {
   throw new Error('Lecture vide (motif cassé ?) : SILOS ou MONEY_PAGE du maillage.');
 }
-// Silos sans offre chez Waimia (recentrage IA du 19/11/2026) : la page de service est chez VirtuoseWeb.
-const dep = read('src/data/depublished.ts');
-const virtuoseBlock = /VIRTUOSE_SILO_SERVICE[^=]*= \{([\s\S]*?)\n\};/.exec(dep)?.[1] ?? '';
-const virtuose = Object.fromEntries([...virtuoseBlock.matchAll(/^ {2}([a-z-]+): '([^']+)'/gm)].map((m) => [m[1], m[2]]));
-const servicePage = (silo) => virtuose[silo] ?? (silo === 'claude' ? claudeService : silos[silo]?.pillar);
+const servicePage = (silo) => (silo === 'claude' ? claudeService : silos[silo]?.pillar);
 
 const registry = {};
 for (const m of mesh.matchAll(/^ {2}'(\/[^']*)': \{[^\n]*?topics: \[([^\]]*)\]/gm)) {
@@ -114,7 +110,7 @@ for (const file of walk(DIST)) {
   const service = servicePage(silo);
   const lacks = [];
   if (guide && guide !== pathname && !paths.has(guide)) lacks.push(`guide pilier ${guide}`);
-  if (service && !(paths.has(service) || hrefs.includes(service))) lacks.push(`page de service ${service}`);
+  if (service && !paths.has(service)) lacks.push(`page de service ${service}`);
   const isTool = pathname.startsWith('/ressources/outils/');
   const hasResource =
     isTool ||

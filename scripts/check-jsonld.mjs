@@ -39,6 +39,7 @@ const FOUNDER_NAME = 'Simon Beros';
 const HUB_PATHS = new Set([
   '/services/systemes-operationnels-ia',
   '/services/systeme-commercial',
+  '/services/systeme-acquisition',
 ]);
 
 const VERBOSE = process.argv.includes('--report');

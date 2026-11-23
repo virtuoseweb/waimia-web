@@ -1275,8 +1275,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "feature-grid": {
-    "count": 13,
+    "count": 14,
     "pages": [
+      "/lp/hub",
       "/lp/systeme-acquisition",
       "/lp/systeme-ia-marketing",
       "/services/automatisation-reseaux-sociaux",

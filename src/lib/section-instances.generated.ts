@@ -655,7 +655,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "lp/hub.json",
       "slug": "hub",
       "route": "/lp/hub",
-      "index": 2,
+      "index": 3,
       "label": "Trois PME, trois résultats concrets",
       "background": "paper"
     },
@@ -12920,6 +12920,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
   "feature-grid": [
     {
       "collection": "lp",
+      "file": "lp/hub.json",
+      "slug": "hub",
+      "route": "/lp/hub",
+      "index": 1,
+      "label": "Repérez votre situation, on vous mène à la bonne page",
+      "background": "paper"
+    },
+    {
+      "collection": "lp",
       "file": "lp/systeme-acquisition.json",
       "slug": "systeme-acquisition",
       "route": "/lp/systeme-acquisition",
@@ -13496,7 +13505,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "lp/hub.json",
       "slug": "hub",
       "route": "/lp/hub",
-      "index": 3,
+      "index": 4,
       "label": "Vous hésitez entre plusieurs systèmes ? On vous oriente en 45 minutes.",
       "background": "ink"
     },
@@ -18955,7 +18964,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "lp/hub.json",
       "slug": "hub",
       "route": "/lp/hub",
-      "index": 1,
+      "index": 2,
       "label": "En bref",
       "background": "paper-2"
     },

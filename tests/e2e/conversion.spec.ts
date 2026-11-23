@@ -202,8 +202,7 @@ for (const [path, outil] of PAGES_VERS_OUTIL) {
 // L'API est interceptée : aucun e-mail réel.
 const FORMULAIRES: Array<[string, string, string]> = [
   ["/contact", "form[data-contact-form]", "/api/contact"],
-  // La grille d'audit de site est partie chez VirtuoseWeb (recentrage IA du 19/11/2026) : même formulaire de ressource, sur la charte IA.
-  ["/ressources/outils/charte-ia-entreprise", "main [data-lcb] form[data-lead-form]", "/api/lead-magnet"],
+  ["/ressources/outils/grille-audit-site-internet", "main [data-lcb] form[data-lead-form]", "/api/lead-magnet"],
   ["/conformite-ia", "footer form[data-nl-form]", "/api/newsletter"],
 ];
 for (const [path, selector, endpoint] of FORMULAIRES) for (const allersRetours of [0, 2]) {

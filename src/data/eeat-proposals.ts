@@ -306,7 +306,7 @@ export const EEAT_SILOS: Record<EeatSilo, EeatSiloSet> = {
   hub: {
     // 4 services : les 3 hubs système + site web intelligent. Le composant retire le lien
     // égal à la page hôte (un hub ne s'auto-lie pas) → 3 liens affichés.
-    services: svc('systemes-operationnels-ia', 'systeme-commercial', 'automatisations', 'agents-ia'),
+    services: svc('systemes-operationnels-ia', 'systeme-commercial', 'systeme-acquisition', 'automatisations'),
     tool: TOOL_LINKS['calculateur-roi-ia'],
     sectors: sec('batiment', 'e-commerce', 'startup-logiciel'),
     articles: art('pillar-ia-pme', 'seo-geo', 'crm-10-jours'),
@@ -329,7 +329,7 @@ export const EEAT_SILOS: Record<EeatSilo, EeatSiloSet> = {
   apps: {
     services: svc('applications-internes', 'mvp-saas', 'portail-client', 'back-office-sur-mesure'),
     tool: TOOL_LINKS['diagnostic-maturite-ia'],
-    sectors: sec('batiment', 'e-commerce'),
+    sectors: sec('esn', 'industrie'),
     articles: art('build-vs-buy', 'crm-sur-mesure'),
   },
 };

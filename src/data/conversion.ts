@@ -44,18 +44,18 @@ export const AUDIT_PROMISE = {
   },
   web: {
     short: {
-      fr: 'Audit gratuit de 45 minutes en visio : on regarde votre outil métier, et vous repartez avec un ou deux chantiers classés.',
-      en: 'Free 45-minute audit by video call: we look at your business tool, and you leave with one or two ranked projects.',
+      fr: 'Audit gratuit de 45 minutes en visio : on regarde votre site ou votre outil, et vous repartez avec un ou deux chantiers classés.',
+      en: 'Free 45-minute audit by video call: we look at your website or your tool, and you leave with one or two ranked projects.',
     },
     medium: {
-      fr: "Quarante-cinq minutes en visio, gratuites et sans engagement. On regarde le circuit que votre outil actuel ne tient plus, et on vous dit s'il faut le développer sur mesure ou prendre un outil du marché. Vous repartez avec un ou deux chantiers classés. Si rien ne vaut le coup, on vous le dit.",
-      en: "Forty-five minutes on a call, free and with no commitment. We look at the process your current tool no longer handles, and tell you whether to build it custom or buy an existing tool. You leave with one or two ranked projects. If nothing is worth it, we tell you.",
+      fr: "Quarante-cinq minutes en visio, gratuites et sans engagement. On regarde votre site ou le circuit que votre outil actuel ne tient plus, et on vous dit s'il faut le corriger, le refaire, le développer sur mesure ou prendre un outil du marché. Vous repartez avec un ou deux chantiers classés. Si rien ne vaut le coup, on vous le dit.",
+      en: "Forty-five minutes on a call, free and with no commitment. We look at your website, or at the process your current tool no longer handles, and tell you whether to fix it, rebuild it, build it custom or buy an existing tool. You leave with one or two ranked projects. If nothing is worth it, we tell you.",
     },
   },
   /** Méta description de /audit-ia-pme (160 caractères, plafond 160 de `check:head`). */
   meta: {
-    fr: "Audit IA entreprise de 45 min pour PME et ETI : process et outils passés en revue, cartographie écrite, un ou deux chantiers classés. Gratuit, en visio.",
-    en: '45-min AI audit for SMBs: processes and tools reviewed, a written map and one or two ranked projects. Free, by video call.',
+    fr: "Audit IA entreprise de 45 min pour PME et ETI : process, site ou logiciel passés en revue, cartographie écrite, un ou deux chantiers classés. Gratuit, en visio.",
+    en: '45-min AI audit for SMBs: processes, website or software reviewed, a written map and one or two ranked projects. Free, by video call.',
   },
 } as const;
 /** Ancre de la section « site web et logiciel » de /audit-ia-pme. */

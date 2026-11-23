@@ -234,12 +234,44 @@ export const SALES_SYSTEM_FLOOR_EUR = 980 as const;
 /** Essai gratuit : nombre de leads offerts, pour 0 €. C'est un essai, pas le prix. */
 export const SALES_SYSTEM_TRIAL_LEADS = 30 as const;
 
+// ─── Marketing digital : site web, SEO, publicité (fusion VirtuoseWeb, décision Simon 2026-11-23) ──
+// SOURCE UNIQUE des prix web. Reprise à l'identique de la grille de virtuoseweb.fr/tarifs/ (lue le
+// 23 novembre 2026), seule grille de l'organisation : mise en place à prix fixe selon la taille de
+// la structure, puis abonnement ; aucun devis, extras à prix fixe. Les pages /services du marketing
+// digital portent des jetons `{{prix.web.*}}` (montant seul, sans devise ; suffixe `.en` en anglais).
+// Quatre montants affichés en carte sur /tarifs/ sont repris des pages FAQ, maintenance-site-web,
+// site-web-par-abonnement et referencement-seo de virtuoseweb.fr (même date).
+export const WEB_PRICING_EUR = {
+  /** Nouveau site, mise en place à prix fixe, par taille de structure. */
+  solo: { site: 1900, boutique: 2900 },
+  tpe: { site: 3900, boutique: 4900 },
+  pme: { site: 8900, boutique: 7900 },
+  /** Extras à prix fixe. */
+  extra: { page: 150, langue: 600, produits: 400, outil: 500 },
+  /** Site web par abonnement (Website as a Service), par mois, engagement 24 mois. */
+  waas: { solo: 149, tpe: 349, boutique: 449, pme: 790 },
+  /** Maintenance légère de site, par mois, sans engagement. */
+  maintenance: { essentielle: 79, boutique: 149, serenite: 249 },
+  /** Développement et maintenance en abonnement, par mois. */
+  dev: { standard: 1490, pro: 2290 },
+  /** Packs tout compris, par mois, engagement 3 mois. */
+  pack: { visibilite: 649, acquisition: 2290, toutenun: 3290 },
+  /** Gestion de business en ligne (publicité, création, conversion), par mois, hors budget média. */
+  ads: { essentiel: 990, croissance: 1490 },
+  /** Options à ajouter à un pack : prospection (par mois), netlinking (lot de 3 liens sponsorisés). */
+  option: { prospection: 790, netlinking: 390 },
+  /** Application sur mesure, mise en place à prix fixe. */
+  app: { mvp: 12900, mobile: 16900 },
+  /** SaaS construit puis exploité en abonnement, par mois. */
+  saas: { build: 2990, manage: 1990 },
+} as const;
+
 /**
  * Date de dernière vérification de la grille tarifaire (ISO, jour UTC). Source unique de
  * « Prix en vigueur au… » : jetons `{{prix.maj}}` (fr) et `{{prix.maj.en}}` (en). À mettre à
  * jour à chaque changement de prix ou relecture de la grille.
  */
-export const PRICING_UPDATED_AT = '2026-10-14' as const;
+export const PRICING_UPDATED_AT = '2026-11-23' as const;
 
 /** Date longue d'un jour ISO : « 14 octobre 2026 » (fr) ou « 14 October 2026 » (en). */
 const longDate = (iso: string, lang: 'fr' | 'en') =>
@@ -301,6 +333,15 @@ export const PRICING_TOKENS: Readonly<Record<string, string>> = {
   'prix.formation.base.en': TRAINING_PRICE_BASIS.en,
   'prix.formation.note': TRAINING_PRICE_NOTE.fr,
   'prix.formation.note.en': TRAINING_PRICE_NOTE.en,
+  // Marketing digital (grille VirtuoseWeb) : `prix.web.<groupe>.<offre>` et `.en`.
+  ...Object.fromEntries(
+    Object.entries(WEB_PRICING_EUR).flatMap(([group, offers]) =>
+      Object.entries(offers).flatMap(([offer, value]) => [
+        [`prix.web.${group}.${offer}`, amount(value as number, 'fr')],
+        [`prix.web.${group}.${offer}.en`, amount(value as number, 'en')],
+      ]),
+    ),
+  ),
   // Système commercial : prix d'entrée mensuel et volume de l'essai gratuit.
   'prix.commercial': String(SALES_SYSTEM_FLOOR_EUR),
   'prix.commercial.essai': String(SALES_SYSTEM_TRIAL_LEADS),
