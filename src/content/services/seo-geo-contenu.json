@@ -7,7 +7,7 @@
   "description_en": "SEO and organic search agency for SMEs: technical audit, content writing, local SEO and tracking of requests in the CRM. Free 45-minute audit.",
   "slug": "seo-geo-contenu",
   "publishedAt": "2026-06-13T00:00:00.000Z",
-  "updatedAt": "2026-11-11",
+  "updatedAt": "2026-11-23",
   "category": "acquisition",
   "tags": [
     "seo-geo-contenu",
@@ -19,8 +19,9 @@
   "seo": {
     "noindex": false,
     "serviceType": "Agence SEO et référencement naturel : audit technique, rédaction de contenus et SEO local, avec suivi des demandes dans le CRM",
-    "priceRange": "dès {{prix.sprint}} €",
-    "priceMin": 999
+    "priceRange": "649-3290€",
+    "priceMin": 649,
+    "priceMax": 3290
   },
   "faq_fr": [
     {
@@ -33,7 +34,7 @@
     },
     {
       "q": "Combien coûte une prestation SEO ?",
-      "a": "Le sprint de cadrage coûte {{prix.sprint}} € HT pour 10 heures : audit des pages, plan éditorial et premières corrections. La suite s'estime en heures, puis se facture {{prix.horaire}} € HT de l'heure. Aucun abonnement n'est imposé."
+      "a": "Le référencement continu se vend en pack mensuel, à prix fixe et sans devis. Visibilité, {{prix.web.pack.visibilite}} € HT par mois : 3 pages optimisées et 2 articles par mois, 30 mots-clés suivis, 8 inscriptions annuaires et opportunités par mois. Acquisition ({{prix.web.pack.acquisition}} € HT) ajoute netlinking et publicité, Tout-en-un ({{prix.web.pack.toutenun}} € HT) la gestion des opérations. Engagement de 3 mois, puis résiliable. Le suivi SEO mensuel existe aussi dans la maintenance Boutique et TPE, à {{prix.web.maintenance.boutique}} € HT par mois."
     },
     {
       "q": "Combien de temps avant d'être visible sur Google ?",
@@ -45,7 +46,7 @@
     },
     {
       "q": "En quoi Waimia diffère-t-elle d'une agence SEO classique ?",
-      "a": "Waimia est un studio solo d'automatisation et d'IA, ancré sur Claude : le référencement y est branché au CRM et à l'automatisation, et le code comme les accès vous sont remis. Pas de grosse équipe de rédaction, pas d'abonnement imposé, pas de promesse de position. Les campagnes payantes forment un autre volet, la publicité en ligne."
+      "a": "Waimia est un studio d'automatisation et d'IA, ancré sur Claude : le référencement y est branché au CRM et à l'automatisation, et les contenus comme les accès vous restent. Les prix sont fixes et publiés, l'engagement est de 3 mois puis résiliable, et nous ne promettons aucune position précise. Les campagnes payantes forment un autre volet, la publicité en ligne."
     }
   ],
   "faq_en": [
@@ -59,7 +60,7 @@
     },
     {
       "q": "How much does an SEO engagement cost?",
-      "a": "The scoping sprint is €{{prix.sprint.en}} excl. VAT for 10 hours: page audit, editorial plan and first fixes. The rest is estimated in hours then billed at €{{prix.horaire}} per hour excl. VAT, with no imposed subscription."
+      "a": "Ongoing SEO is sold as a monthly pack, at a fixed price with no quote. Visibility, €{{prix.web.pack.visibilite.en}} excl. VAT a month: 3 optimised pages and 2 articles a month, 30 tracked keywords, 8 directory listings and opportunities a month. Acquisition (€{{prix.web.pack.acquisition.en}} excl. VAT) adds link building and advertising, All-in-one (€{{prix.web.pack.toutenun.en}} excl. VAT) adds operations management. 3-month commitment, then cancellable. Monthly SEO monitoring is also part of the Shop and Small business maintenance plan, at €{{prix.web.maintenance.boutique.en}} excl. VAT a month."
     },
     {
       "q": "How long before being visible on Google?",
@@ -71,7 +72,7 @@
     },
     {
       "q": "How does Waimia differ from a classic SEO agency?",
-      "a": "Waimia is a solo automation and AI studio, built on Claude: here SEO is wired to the CRM and to automation, with code and access handed over. No large writing team, no imposed subscription, no promise of ranking. For paid campaigns, that is another strand, online advertising."
+      "a": "Waimia is an automation and AI studio, built on Claude: here SEO is wired to the CRM and to automation, and the content and access stay yours. Prices are fixed and published, the commitment is 3 months then cancellable, and we promise no specific ranking. Paid campaigns are another strand, online advertising."
     }
   ],
   "sections": [
@@ -82,8 +83,8 @@
       "kicker_en": "§ SEO agency · organic search",
       "h1_fr": "Agence SEO et référencement naturel pour PME, suivi <i class=\"acc\">jusqu'à la demande</i>.",
       "h1_en": "SEO and organic search agency for SMEs, tracked <i class=\"acc\">through to the request</i>.",
-      "lede_fr": "Nous rendons vos pages trouvables sur les requêtes de vos clients : audit technique, contenus relus et signés, SEO local, citations dans les assistants IA. Chaque visite se suit jusqu'à la demande dans votre CRM. Sprint de cadrage de 10 heures à {{prix.sprint}} € HT, puis {{prix.horaire}} € HT de l'heure, sans abonnement.",
-      "lede_en": "Waimia is an SEO and organic search agency for SMEs: technical audit, reviewed and signed content, local SEO. Each visit is tracked through to the request in your CRM.",
+      "lede_fr": "Nous rendons vos pages trouvables sur les requêtes de vos clients : audit technique, contenus relus et signés, SEO local, citations dans les assistants IA. Chaque visite se suit jusqu'à la demande dans votre CRM. Packs mensuels à prix fixe dès {{prix.web.pack.visibilite}} € HT, sans devis.",
+      "lede_en": "We make your pages findable for your customers' queries: technical audit, reviewed and signed content, local SEO, citations in AI assistants. Each visit is tracked through to the request in your CRM. Fixed-price monthly packs from €{{prix.web.pack.visibilite.en}} excl. VAT, no quote.",
       "badges": [
         {
           "label_fr": "Une page, une requête",
@@ -127,9 +128,9 @@
       "kicker_en": "§ In short",
       "metrics": [
         {
-          "value": "{{prix.sprint}} € HT",
-          "label_fr": "sprint de cadrage de 10 h, puis {{prix.horaire}} € HT de l'heure",
-          "label_en": "10-hour scoping sprint, then €{{prix.horaire}} per hour excl. VAT",
+          "value": "{{prix.web.pack.visibilite}} €",
+          "label_fr": "HT par mois, pack Visibilité : 3 pages optimisées et 2 articles par mois",
+          "label_en": "excl. VAT a month, Visibility pack: 3 optimised pages and 2 articles a month",
           "emphasis": true
         },
         {
@@ -352,32 +353,34 @@
     {
       "type": "pricing-cards",
       "background": "paper",
-      "layout": "grid-asym",
-      "colRatio": "2-3",
-      "kicker_fr": "§ Deux façons d'engager",
-      "kicker_en": "§ Two ways to engage",
-      "h2_fr": "Prix d'une prestation SEO",
-      "h2_en": "Price of an SEO engagement",
-      "lede_fr": "Nous démarrons par un sprint de cadrage à prix fixe : audit éditorial, ligne éditoriale et premier pipeline d'articles. La suite se chiffre sur devis : nous estimons ensemble le temps nécessaire, vous le validez, puis nous l'exécutons en sprints en régie. À la fin, vous disposez d'une machine éditoriale autonome et transférable.",
-      "lede_en": "We start with a fixed-price scoping sprint: editorial audit, editorial line and a first article pipeline. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the time and materials frame. You get an autonomous, transferable editorial machine.",
+      "kicker_fr": "§ Trois packs, prix fixes",
+      "kicker_en": "§ Three packs, fixed prices",
+      "h2_fr": "Prix du référencement naturel",
+      "h2_en": "Price of organic search",
+      "lede_fr": "Le référencement continu se vend en pack mensuel, à prix fixe et sans devis : un appel de cadrage de 30 minutes suffit pour choisir. Engagement de 3 mois, puis résiliable. Les outils Semrush et Ahrefs sont inclus ; le budget publicitaire se paie directement aux plateformes.",
+      "lede_en": "Ongoing SEO is sold as a monthly pack, at a fixed price with no quote: a 30-minute scoping call is enough to choose. 3-month commitment, then cancellable. Semrush and Ahrefs are included; the ad budget is paid directly to the platforms.",
       "tiers": [
         {
-          "name_fr": "Sprint de cadrage",
-          "name_en": "Scoping sprint",
-          "price": "{{prix.sprint}} €",
-          "period_fr": "10 h · HT",
-          "period_en": "10 h · ex VAT",
+          "name_fr": "Visibilité",
+          "name_en": "Visibility",
+          "price": "{{prix.web.pack.visibilite}} €",
+          "period_fr": "par mois · HT",
+          "period_en": "per month · ex VAT",
           "features_fr": [
-            "Audit éditorial et technique des pages",
-            "Plan de contenu priorisé par requête",
-            "Premières corrections et réécritures",
-            "Un premier livrable en ligne, pas une maquette"
+            "Maintenance Essentielle du site et amélioration continue",
+            "3 pages optimisées et 2 articles par mois",
+            "30 mots-clés suivis, Search Console",
+            "Indexation IndexNow (Bing, Yandex ; Google n'utilise pas IndexNow)",
+            "8 inscriptions annuaires et opportunités par mois",
+            "Point mensuel"
           ],
           "features_en": [
-            "Editorial and technical audit of pages",
-            "Query-prioritised content plan",
-            "First fixes and rewrites",
-            "A first live deliverable, not a mockup"
+            "Essential site maintenance and continuous improvement",
+            "3 optimised pages and 2 articles a month",
+            "30 tracked keywords, Search Console",
+            "IndexNow indexing (Bing, Yandex; Google does not use IndexNow)",
+            "8 directory listings and opportunities a month",
+            "Monthly review"
           ],
           "cta": {
             "label_fr": "Réserver l'audit gratuit →",
@@ -388,33 +391,64 @@
           "featured": true
         },
         {
-          "name_fr": "Suite sur devis",
-          "name_en": "Next steps on quote",
-          "price": "Sur devis",
-          "period_fr": "estimé avec vous · HT",
-          "period_en": "estimated with you · ex VAT",
+          "name_fr": "Acquisition",
+          "name_en": "Acquisition",
+          "price": "{{prix.web.pack.acquisition}} €",
+          "period_fr": "par mois · HT",
+          "period_en": "per month · ex VAT",
           "features_fr": [
-            "Temps nécessaire estimé ensemble, puis validé",
-            "Exécuté en sprints, facturés en régie",
-            "Contenu en cadence, SEO local, maillage",
-            "Vous gardez la machine éditoriale et les accès"
+            "Tout le pack Visibilité",
+            "Netlinking : 3 liens sponsorisés par mois, identifiés comme tels",
+            "Publicité et conversion sur 2 canaux parmi Google, Meta, TikTok, Pinterest",
+            "2 tests A/B par mois",
+            "2 posts LinkedIn par semaine, 4 visuels et 1 vidéo assistés par IA par mois",
+            "Point hebdomadaire"
           ],
           "features_en": [
-            "Time needed estimated together, then validated",
-            "Run in sprints, billed on a time and materials basis",
-            "Content on cadence, local SEO, internal linking",
-            "You keep the editorial machine and the access"
+            "Everything in the Visibility pack",
+            "Link building: 3 sponsored links a month, labelled as such",
+            "Advertising and conversion on 2 channels among Google, Meta, TikTok, Pinterest",
+            "2 A/B tests a month",
+            "2 LinkedIn posts a week, 4 visuals and 1 AI-assisted video a month",
+            "Weekly review"
           ],
           "cta": {
-            "label_fr": "Cadrer la suite →",
-            "label_en": "Scope what follows →",
-            "href": "/contact?offer=seo-geo-contenu&intent=suite",
+            "label_fr": "Cadrer en 30 minutes →",
+            "label_en": "Scope it in 30 minutes →",
+            "href": "/contact?offer=seo-geo-contenu&intent=pack",
+            "variant": "ghost"
+          }
+        },
+        {
+          "name_fr": "Tout-en-un",
+          "name_en": "All-in-one",
+          "price": "{{prix.web.pack.toutenun}} €",
+          "period_fr": "par mois · HT",
+          "period_en": "per month · ex VAT",
+          "features_fr": [
+            "Tout le pack Acquisition",
+            "Maintenance Boutique et TPE, avec suivi SEO mensuel",
+            "Publicité et conversion sur les 4 canaux, 4 tests A/B par mois",
+            "Gestion des opérations : e-mails, devis, fournisseurs, catalogue, stock, SAV",
+            "Jusqu'à 150 demandes et 40 fiches produits par mois"
+          ],
+          "features_en": [
+            "Everything in the Acquisition pack",
+            "Shop and Small business maintenance, with monthly SEO monitoring",
+            "Advertising and conversion on all 4 channels, 4 A/B tests a month",
+            "Operations management: emails, quotes, suppliers, catalogue, stock, after-sales",
+            "Up to 150 requests and 40 product pages a month"
+          ],
+          "cta": {
+            "label_fr": "Cadrer en 30 minutes →",
+            "label_en": "Scope it in 30 minutes →",
+            "href": "/contact?offer=seo-geo-contenu&intent=pack",
             "variant": "ghost"
           }
         }
       ],
-      "footnote_fr": "Le sprint de cadrage est à prix fixe, {{prix.sprint}} € HT pour 10 heures, avec un livrable qui produit dès la fin. Le pipeline en cadence, le maillage et la connexion IA sont estimés avec vous, validés, puis exécutés en régie à {{prix.horaire}} € HT de l'heure, sans dégressivité. Pas d'abonnement : la machine éditoriale est à vous, et transférable.",
-      "footnote_en": "The scoping sprint is fixed-price, {{prix.sprint.en}} € ex VAT for 10 hours: editorial audit, editorial line and a first article pipeline, with a deliverable that produces by the end. What follows is quoted: we estimate together the time the pipeline on cadence, internal linking and AI connection require, validate it, then run it in sprints within the time and materials frame, at {{prix.horaire}} € an hour, non-degressive. No subscription: at the end, you have an autonomous, transferable editorial machine."
+      "footnote_fr": "Chaque pack coûte 14 à 18 % de moins que ses éléments pris séparément. Option netlinking : {{prix.web.option.netlinking}} € HT le lot de 3 liens sponsorisés, marqués rel=\"sponsored\". Sans pack, le suivi SEO mensuel (positions, Search Console, conseils écrits) est inclus dans la maintenance Boutique et TPE à {{prix.web.maintenance.boutique}} € HT par mois. Nous ne promettons aucune position précise.",
+      "footnote_en": "Each pack costs 14 to 18% less than its parts bought separately. Link building option: €{{prix.web.option.netlinking.en}} excl. VAT per batch of 3 sponsored links, marked rel=\"sponsored\". Without a pack, monthly SEO monitoring (rankings, Search Console, written advice) is part of the Shop and Small business maintenance plan at €{{prix.web.maintenance.boutique.en}} excl. VAT a month. We promise no specific ranking."
     },
     {
       "type": "eeat-panel",
@@ -444,8 +478,8 @@
         {
           "q_fr": "Combien coûte une prestation SEO ?",
           "q_en": "How much does an SEO engagement cost?",
-          "a_fr": "Le sprint de cadrage coûte {{prix.sprint}} € HT pour 10 heures : audit des pages, plan éditorial et premières corrections. La suite s'estime en heures, puis se facture {{prix.horaire}} € HT de l'heure. Aucun abonnement n'est imposé.",
-          "a_en": "The scoping sprint is €{{prix.sprint.en}} excl. VAT for 10 hours: page audit, editorial plan and first fixes. The rest is estimated in hours then billed at €{{prix.horaire}} per hour excl. VAT, with no imposed subscription."
+          "a_fr": "Le référencement continu se vend en pack mensuel, à prix fixe et sans devis. Visibilité, {{prix.web.pack.visibilite}} € HT par mois : 3 pages optimisées et 2 articles par mois, 30 mots-clés suivis, 8 inscriptions annuaires et opportunités par mois. Acquisition ({{prix.web.pack.acquisition}} € HT) ajoute netlinking et publicité, Tout-en-un ({{prix.web.pack.toutenun}} € HT) la gestion des opérations. Engagement de 3 mois, puis résiliable. Le suivi SEO mensuel existe aussi dans la maintenance Boutique et TPE, à {{prix.web.maintenance.boutique}} € HT par mois.",
+          "a_en": "Ongoing SEO is sold as a monthly pack, at a fixed price with no quote. Visibility, €{{prix.web.pack.visibilite.en}} excl. VAT a month: 3 optimised pages and 2 articles a month, 30 tracked keywords, 8 directory listings and opportunities a month. Acquisition (€{{prix.web.pack.acquisition.en}} excl. VAT) adds link building and advertising, All-in-one (€{{prix.web.pack.toutenun.en}} excl. VAT) adds operations management. 3-month commitment, then cancellable. Monthly SEO monitoring is also part of the Shop and Small business maintenance plan, at €{{prix.web.maintenance.boutique.en}} excl. VAT a month."
         },
         {
           "q_fr": "Combien de temps avant d'être visible sur Google ?",
@@ -462,8 +496,8 @@
         {
           "q_fr": "En quoi Waimia diffère-t-elle d'une agence SEO classique ?",
           "q_en": "How does Waimia differ from a classic SEO agency?",
-          "a_fr": "Waimia est un studio solo d'automatisation et d'IA, ancré sur Claude : le référencement y est branché au CRM et à l'automatisation, et le code comme les accès vous sont remis. Pas de grosse équipe de rédaction, pas d'abonnement imposé, pas de promesse de position. Les campagnes payantes forment un autre volet, la publicité en ligne.",
-          "a_en": "Waimia is a solo automation and AI studio, built on Claude: here SEO is wired to the CRM and to automation, with code and access handed over. No large writing team, no imposed subscription, no promise of ranking. For paid campaigns, that is another strand, online advertising."
+          "a_fr": "Waimia est un studio d'automatisation et d'IA, ancré sur Claude : le référencement y est branché au CRM et à l'automatisation, et les contenus comme les accès vous restent. Les prix sont fixes et publiés, l'engagement est de 3 mois puis résiliable, et nous ne promettons aucune position précise. Les campagnes payantes forment un autre volet, la publicité en ligne.",
+          "a_en": "Waimia is an automation and AI studio, built on Claude: here SEO is wired to the CRM and to automation, and the content and access stay yours. Prices are fixed and published, the commitment is 3 months then cancellable, and we promise no specific ranking. Paid campaigns are another strand, online advertising."
         }
       ]
     },

@@ -7,7 +7,7 @@
   "description_en": "GEO and AI SEO agency: pages citable by ChatGPT, Perplexity, Gemini, AI Overviews. Citations measured before and after, no promises. Free audit.",
   "slug": "referencement-ia",
   "publishedAt": "2026-07-16T00:00:00.000Z",
-  "updatedAt": "2026-11-11",
+  "updatedAt": "2026-11-23",
   "category": "acquisition",
   "tags": [
     "referencement-ia",
@@ -36,8 +36,9 @@
   "seo": {
     "noindex": false,
     "serviceType": "Référencement IA (GEO, Generative Engine Optimization) : audit de citabilité, passages extractibles, mesure des citations",
-    "priceRange": "dès {{prix.sprint}} €",
-    "priceMin": 999
+    "priceRange": "649-3290€",
+    "priceMin": 649,
+    "priceMax": 3290
   },
   "faq_fr": [
     {
@@ -144,9 +145,9 @@
       "kicker_en": "§ At a glance",
       "metrics": [
         {
-          "value": "Prix fixe",
-          "label_fr": "pour le sprint de cadrage ; la suite sur devis",
-          "label_en": "10-hour scoping sprint · next steps on quote",
+          "value": "{{prix.web.pack.visibilite}} €",
+          "label_fr": "HT par mois, pack Visibilité : 3 pages mises au format citable chaque mois",
+          "label_en": "excl. VAT a month, Visibility pack: 3 pages put in citable format each month",
           "emphasis": true
         },
         {
@@ -493,30 +494,34 @@
       "background": "paper",
       "layout": "grid-asym",
       "colRatio": "2-3",
-      "kicker_fr": "§ Deux façons d'engager",
-      "kicker_en": "§ Two ways to engage",
-      "h2_fr": "Deux façons de rendre vos pages citables",
-      "h2_en": "Two ways to make your pages citable",
-      "lede_fr": "Le sprint de cadrage ouvre la mission à prix fixe. La suite se chiffre avec vous, une fois le premier relevé lu.",
-      "lede_en": "We start with a fixed-price scoping sprint: a citability audit and the first pages put in citable format. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints on a time and materials basis. You keep the pages and the measurement protocol.",
+      "kicker_fr": "§ Prix fixes, sans devis",
+      "kicker_en": "§ Fixed prices, no quote",
+      "h2_fr": "Deux packs pour rendre vos pages citables",
+      "h2_en": "Two packs to make your pages citable",
+      "lede_fr": "Le référencement IA n'a pas de prix à part : il se travaille sur les pages optimisées chaque mois dans les packs, à prix fixe et sans devis. Un appel de cadrage de 30 minutes suffit pour choisir. Engagement de 3 mois, puis résiliable.",
+      "lede_en": "AI SEO has no separate price: it is done on the pages optimised each month in the packs, at a fixed price with no quote. A 30-minute scoping call is enough to choose. 3-month commitment, then cancellable.",
       "tiers": [
         {
-          "name_fr": "Sprint de cadrage",
-          "name_en": "Scoping sprint",
-          "price": "{{prix.sprint}} €",
-          "period_fr": "10 h · HT",
-          "period_en": "10 h · ex VAT",
+          "name_fr": "Visibilité",
+          "name_en": "Visibility",
+          "price": "{{prix.web.pack.visibilite}} €",
+          "period_fr": "par mois · HT",
+          "period_en": "per month · ex VAT",
           "features_fr": [
             "Relevé de départ sur vos sujets clés",
-            "Audit de citabilité et accès des robots",
-            "Mise au format citable des pages prioritaires",
-            "Balisage schema.org de base posé"
+            "3 pages optimisées par mois, au format citable",
+            "2 articles par mois, relus et signés",
+            "30 mots-clés suivis, Search Console",
+            "Indexation IndexNow (Bing, Yandex ; Google n'utilise pas IndexNow)",
+            "Point mensuel"
           ],
           "features_en": [
             "Starting reading on your key topics",
-            "Citability audit and robot access",
-            "Citable format on priority pages",
-            "Base schema.org markup laid"
+            "3 pages optimised a month, in citable format",
+            "2 articles a month, reviewed and signed",
+            "30 tracked keywords, Search Console",
+            "IndexNow indexing (Bing, Yandex; Google does not use IndexNow)",
+            "Monthly review"
           ],
           "cta": {
             "label_fr": "Réserver l'audit gratuit →",
@@ -527,33 +532,35 @@
           "featured": true
         },
         {
-          "name_fr": "Suite sur devis",
-          "name_en": "Next steps on quote",
-          "price": "Sur devis",
-          "period_fr": "estimé avec vous · HT",
-          "period_en": "estimated with you · ex VAT",
+          "name_fr": "Acquisition",
+          "name_en": "Acquisition",
+          "price": "{{prix.web.pack.acquisition}} €",
+          "period_fr": "par mois · HT",
+          "period_en": "per month · ex VAT",
           "features_fr": [
-            "Temps estimé ensemble, puis validé",
-            "Exécuté en sprints, facturés en régie",
-            "Balisage étendu, relevé des citations",
-            "Pages et protocole à vous"
+            "Tout le pack Visibilité",
+            "3 liens sponsorisés par mois, identifiés comme tels",
+            "2 posts LinkedIn par semaine",
+            "Publicité sur 2 canaux, 2 tests A/B par mois",
+            "Point hebdomadaire"
           ],
           "features_en": [
-            "Time estimated together, then validated",
-            "Run in sprints, billed on a time and materials basis",
-            "Extended markup, citation reading",
-            "Pages and protocol are yours"
+            "Everything in the Visibility pack",
+            "3 sponsored links a month, labelled as such",
+            "2 LinkedIn posts a week",
+            "Advertising on 2 channels, 2 A/B tests a month",
+            "Weekly review"
           ],
           "cta": {
-            "label_fr": "Cadrer la suite →",
-            "label_en": "Scope what follows →",
-            "href": "/contact?offer=referencement-ia&intent=suite",
+            "label_fr": "Cadrer en 30 minutes →",
+            "label_en": "Scope it in 30 minutes →",
+            "href": "/contact?offer=referencement-ia&intent=pack",
             "variant": "ghost"
           }
         }
       ],
-      "footnote_fr": "Suite en régie à {{prix.horaire}} € HT de l'heure, non dégressif, sans abonnement : à la fin, les pages et le protocole de mesure sont à vous.",
-      "footnote_en": "The scoping sprint is fixed-price, €{{prix.sprint.en}} excl. VAT for 10 hours: starting reading, citability audit, citable format on priority pages and base markup. What follows is quoted: we estimate together the time the extended markup and citation reading require, validate it, then run it in sprints on a time and materials basis, at €{{prix.horaire}} an hour, non-degressive. No subscription: at the end, the pages and the measurement protocol are yours."
+      "footnote_fr": "Le pack Tout-en-un, à {{prix.web.pack.toutenun}} € HT par mois, ajoute la maintenance Boutique et TPE, la publicité sur 4 canaux et la gestion des opérations. Les pages et le protocole de mesure restent à vous. Nous ne promettons aucune citation ni position précise.",
+      "footnote_en": "The All-in-one pack, at €{{prix.web.pack.toutenun.en}} excl. VAT a month, adds Shop and Small business maintenance, advertising on 4 channels and operations management. The pages and the measurement protocol stay yours. We promise no specific citation or ranking."
     },
     {
       "type": "eeat-panel",

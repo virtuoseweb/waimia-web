@@ -6,7 +6,7 @@
   "description_en": "Local SEO for SMEs with a catchment area: Google Business Profile, pages per town, customer reviews. We start from your real positions, town by town.",
   "slug": "seo-local",
   "publishedAt": "2026-07-16T00:00:00.000Z",
-  "updatedAt": "2026-11-11",
+  "updatedAt": "2026-11-23",
   "category": "acquisition",
   "tags": [
     "seo-local",
@@ -18,8 +18,9 @@
   "seo": {
     "noindex": false,
     "serviceType": "Référencement local (SEO local) pour PME et artisans : fiche Google Business Profile, pages par ville, avis et cohérence NAP",
-    "priceRange": "dès {{prix.sprint}} €",
-    "priceMin": 999
+    "priceRange": "649-3290€",
+    "priceMin": 649,
+    "priceMax": 3290
   },
   "faq_fr": [
     {
@@ -134,9 +135,9 @@
       "kicker_en": "§ At a glance",
       "metrics": [
         {
-          "value": "Prix fixe",
-          "label_fr": "pour le sprint de cadrage ; la suite sur devis",
-          "label_en": "10-hour scoping sprint · next steps on quote",
+          "value": "{{prix.web.pack.visibilite}} €",
+          "label_fr": "HT par mois, pack Visibilité : 8 inscriptions annuaires et opportunités par mois",
+          "label_en": "excl. VAT a month, Visibility pack: 8 directory listings and opportunities a month",
           "emphasis": true
         },
         {
@@ -487,30 +488,32 @@
       "background": "paper",
       "layout": "grid-asym",
       "colRatio": "2-3",
-      "kicker_fr": "§ Deux façons d'engager",
-      "kicker_en": "§ Two ways to engage",
-      "h2_fr": "Deux façons de gagner en visibilité locale",
-      "h2_en": "Two ways to gain local visibility",
-      "lede_fr": "Le sprint de cadrage ouvre la mission à prix fixe et finit par un livrable en ligne. La suite se chiffre avec vous.",
-      "lede_en": "We start with a fixed-price scoping sprint: a structured Google profile and the first local pages. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints on a time and materials basis. You keep the profile, the pages and the access.",
+      "kicker_fr": "§ Prix fixes, sans devis",
+      "kicker_en": "§ Fixed prices, no quote",
+      "h2_fr": "Deux packs pour gagner en visibilité locale",
+      "h2_en": "Two packs to gain local visibility",
+      "lede_fr": "Le SEO local se travaille dans les packs mensuels, à prix fixe et sans devis : un appel de cadrage de 30 minutes suffit pour choisir. Engagement de 3 mois, puis résiliable.",
+      "lede_en": "Local SEO is done within the monthly packs, at a fixed price with no quote: a 30-minute scoping call is enough to choose. 3-month commitment, then cancellable.",
       "tiers": [
         {
-          "name_fr": "Sprint de cadrage",
-          "name_en": "Scoping sprint",
-          "price": "{{prix.sprint}} €",
-          "period_fr": "10 h · HT",
-          "period_en": "10 h · ex VAT",
+          "name_fr": "Visibilité",
+          "name_en": "Visibility",
+          "price": "{{prix.web.pack.visibilite}} €",
+          "period_fr": "par mois · HT",
+          "period_en": "per month · ex VAT",
           "features_fr": [
-            "Audit des positions et cartographie des villes",
-            "Fiche Google Business Profile structurée",
-            "Premières pages locales, coordonnées alignées",
-            "Un premier livrable en ligne, pas un audit dormant"
+            "8 inscriptions annuaires et opportunités par mois, coordonnées alignées",
+            "3 pages optimisées et 2 articles par mois",
+            "30 mots-clés suivis, Search Console",
+            "Maintenance Essentielle du site",
+            "Point mensuel"
           ],
           "features_en": [
-            "Position audit and town mapping",
-            "Structured Google Business Profile",
-            "First local pages, aligned contact details",
-            "A first live deliverable, not a dormant audit"
+            "8 directory listings and opportunities a month, contact details aligned",
+            "3 optimised pages and 2 articles a month",
+            "30 tracked keywords, Search Console",
+            "Essential site maintenance",
+            "Monthly review"
           ],
           "cta": {
             "label_fr": "Réserver l'audit gratuit →",
@@ -521,33 +524,35 @@
           "featured": true
         },
         {
-          "name_fr": "Suite sur devis",
-          "name_en": "Next steps on quote",
-          "price": "Sur devis",
-          "period_fr": "estimé avec vous · HT",
-          "period_en": "estimated with you · ex VAT",
+          "name_fr": "Acquisition",
+          "name_en": "Acquisition",
+          "price": "{{prix.web.pack.acquisition}} €",
+          "period_fr": "par mois · HT",
+          "period_en": "per month · ex VAT",
           "features_fr": [
-            "Temps estimé ensemble, puis validé",
-            "Exécuté en sprints, facturés en régie",
-            "Pages par ville, avis et suivi des positions",
-            "Fiche, pages et accès à vous"
+            "Tout le pack Visibilité",
+            "Publicité sur 2 canaux parmi Google, Meta, TikTok, Pinterest",
+            "2 tests A/B par mois sur vos pages",
+            "3 liens sponsorisés par mois, identifiés comme tels",
+            "Point hebdomadaire"
           ],
           "features_en": [
-            "Time estimated together, then validated",
-            "Run in sprints, billed on a time and materials basis",
-            "Pages per town, reviews and ranking tracking",
-            "Profile, pages and access are yours"
+            "Everything in the Visibility pack",
+            "Advertising on 2 channels among Google, Meta, TikTok, Pinterest",
+            "2 A/B tests a month on your pages",
+            "3 sponsored links a month, labelled as such",
+            "Weekly review"
           ],
           "cta": {
-            "label_fr": "Cadrer la suite →",
-            "label_en": "Scope what follows →",
-            "href": "/contact?offer=seo-local&intent=suite",
+            "label_fr": "Cadrer en 30 minutes →",
+            "label_en": "Scope it in 30 minutes →",
+            "href": "/contact?offer=seo-local&intent=pack",
             "variant": "ghost"
           }
         }
       ],
-      "footnote_fr": "Suite en régie à {{prix.horaire}} € HT de l'heure, non dégressif, sans abonnement : à la fin, la fiche, les pages et les accès sont à vous.",
-      "footnote_en": "The scoping sprint is fixed-price, €{{prix.sprint.en}} excl. VAT for 10 hours: position audit, a structured Google Business Profile and first local pages. What follows is quoted: we estimate together the time the per-town pages, reviews and tracking require, validate it, then run it in sprints on a time and materials basis, at €{{prix.horaire}} an hour, non-degressive. No subscription: at the end, the profile, the pages and the access are yours."
+      "footnote_fr": "Le pack Tout-en-un, à {{prix.web.pack.toutenun}} € HT par mois, ajoute la maintenance Boutique et TPE, la publicité sur 4 canaux et la gestion des opérations. Le budget publicitaire se paie directement aux plateformes. La fiche, les pages et les accès restent à vous. Nous ne promettons aucune position précise.",
+      "footnote_en": "The All-in-one pack, at €{{prix.web.pack.toutenun.en}} excl. VAT a month, adds Shop and Small business maintenance, advertising on 4 channels and operations management. The ad budget is paid directly to the platforms. The profile, the pages and the access stay yours. We promise no specific ranking."
     },
     {
       "type": "eeat-panel",
