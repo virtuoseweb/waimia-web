@@ -2082,6 +2082,12 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
       "src/content/services/sequences-de-suivi/relance-devis.json"
     ]
   },
+  "pricing-tabs-showcase": {
+    "count": 1,
+    "pages": [
+      "src/pages/tarifs/marketing-digital.astro"
+    ]
+  },
   "problem-statement": {
     "count": 1,
     "pages": [

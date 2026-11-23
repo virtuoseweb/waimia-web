@@ -13420,6 +13420,14 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/tarifs/marketing-digital",
+    "title": "Marketing digital",
+    "group": "conversion",
+    "collection": "bespoke",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/_audit-site-web-intelligent",
     "title": "_audit site web intelligent",
     "group": "autres",
@@ -14376,7 +14384,8 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/bienvenue/newsletter",
       "/conformite-ia",
       "/contact",
-      "/tarifs"
+      "/tarifs",
+      "/tarifs/marketing-digital"
     ]
   },
   {

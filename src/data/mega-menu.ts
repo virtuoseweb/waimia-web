@@ -604,7 +604,7 @@ const SOLUTIONS: MegaMenuSection = {
           key: 'web',
           href: '/services/systeme-acquisition',
           hubLabel: { fr: 'Voir le marketing digital →', en: 'See digital marketing →' },
-          description: { fr: 'Le site, le référencement Google et IA, la publicité : la demande que vos automatisations traitent ensuite.', en: 'The website, Google and AI search, advertising: the demand your automations then process.' },
+          description: { fr: 'Le site, le référencement Google et IA, la publicité : la demande que vos automatisations traitent ensuite.', en: 'The website, Google and AI search, advertising: the demand your automations then process.' },
           links: [
             {
               label: { fr: 'Site web', en: 'Website' },
@@ -639,7 +639,7 @@ const SOLUTIONS: MegaMenuSection = {
                   label: { fr: 'Déclinaisons', en: 'Editions' },
                   links: [
                     { label: { fr: 'Audit SEO technique', en: 'Technical SEO audit' }, href: '/services/audit-seo-technique' },
-                    { label: { fr: 'GEO : être cité par les IA', en: 'GEO: get cited by AI' }, href: '/services/referencement-ia' },
+                    { label: { fr: 'GEO : être cité par les IA', en: 'GEO: get cited by AI' }, href: '/services/referencement-ia' },
                     { label: { fr: 'Rédaction SEO et contenu', en: 'SEO writing and content' }, href: '/services/redaction-seo-contenu' },
                     { label: { fr: 'SEO local', en: 'Local SEO' }, href: '/services/seo-local' },
                   ],
@@ -857,11 +857,19 @@ const AGENCE: MegaMenuSection = {
           },
         },
         {
-          label: { fr: 'Tarifs', en: 'Pricing' },
+          label: { fr: 'Tarifs agence IA', en: 'AI agency pricing' },
           href: '/tarifs',
           description: {
-            fr: 'Projets IA et marketing digital : tous les prix sont publiés.',
-            en: 'AI projects and digital marketing: every price is published.',
+            fr: 'Audit gratuit, sprint, pilote, maintenance : les prix sont publiés.',
+            en: 'Free audit, sprint, pilot, maintenance: every price is published.',
+          },
+        },
+        {
+          label: { fr: 'Tarifs marketing digital', en: 'Digital marketing pricing' },
+          href: '/tarifs/marketing-digital',
+          description: {
+            fr: 'Site web, maintenance, SEO, publicité : prix fixes.',
+            en: 'Website, maintenance, SEO, advertising: fixed prices.',
           },
         },
       ],

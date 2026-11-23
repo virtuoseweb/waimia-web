@@ -236,7 +236,8 @@ export const MM_TECH: MegaMenu = {
       kicker: { en: 'WORKING TOGETHER', fr: 'TRAVAILLER ENSEMBLE' },
       label: { en: 'Working together', fr: 'Travailler ensemble' },
       items: [
-        { href: '/tarifs', label: { en: 'Pricing', fr: 'Tarifs' }, featured: true },
+        { href: '/tarifs', label: { en: 'AI agency pricing', fr: 'Tarifs agence IA' }, featured: true },
+        { href: '/tarifs/marketing-digital', label: { en: 'Digital marketing pricing', fr: 'Tarifs marketing digital' } },
         { href: '/agence/methode', label: { en: 'Method', fr: 'Méthode' } },
         { href: '/technologies', label: { en: 'Stack and technologies', fr: 'Stack et technologies' } },
       ],
@@ -388,7 +389,8 @@ export const FOOTER_COLS: FooterCol[] = [
     heading: { en: 'Getting started', fr: 'Démarrer' },
     items: [
       { href: '/audit-ia-pme', label: { en: 'SME AI audit', fr: 'Audit IA PME' } },
-      { href: '/tarifs', label: { en: 'Pricing', fr: 'Tarifs' } },
+      { href: '/tarifs', label: { en: 'AI agency pricing', fr: 'Tarifs agence IA' } },
+      { href: '/tarifs/marketing-digital', label: { en: 'Digital marketing pricing', fr: 'Tarifs marketing digital' } },
       { href: '/agence/methode', label: { en: 'Method', fr: 'Méthode' } },
       { href: '/cas-usages', label: { en: 'Use cases', fr: "Cas d'usage" } },
       { href: '/cas-usages/support-sav', label: { en: 'Customer service and after-sales', fr: 'Service client et SAV' } },
@@ -476,6 +478,7 @@ export const FOOTER_LEAN: FooterCol[] = [
       footerItem('/audit-ia-pme'),
       footerItem(AUDIT_BOOKING_HREF),
       footerItem('/tarifs'),
+      footerItem('/tarifs/marketing-digital'),
       footerItem('/formations'),
     ],
   },
