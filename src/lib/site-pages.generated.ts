@@ -2532,7 +2532,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "pricing-cards",
-        "label": "Un essai gratuit, puis deux formules en abonnement mensuel sans engagement",
+        "label": "Un essai gratuit, puis une seule formule : Prospection",
         "background": "paper"
       },
       {
@@ -2702,7 +2702,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "pricing-cards",
-        "label": "Un essai gratuit, puis un abonnement sans engagement",
+        "label": "Un essai gratuit, puis l'abonnement Prospection",
         "background": "paper"
       },
       {
@@ -2947,7 +2947,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "pricing-cards",
-        "label": "Prix d'une prestation SEO",
+        "label": "Prix du référencement naturel",
         "background": "paper"
       },
       {
@@ -3027,7 +3027,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "pricing-cards",
-        "label": "Prix d'un audit SEO technique",
+        "label": "Prix : l'audit, puis le référencement continu",
         "background": "paper"
       },
       {
@@ -3102,7 +3102,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "pricing-cards",
-        "label": "Prix d'une rédaction SEO",
+        "label": "Prix de la rédaction SEO",
         "background": "paper"
       },
       {
@@ -3182,7 +3182,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "pricing-cards",
-        "label": "Deux façons de rendre vos pages citables",
+        "label": "Deux packs pour rendre vos pages citables",
         "background": "paper"
       },
       {
@@ -3262,7 +3262,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "pricing-cards",
-        "label": "Deux façons de gagner en visibilité locale",
+        "label": "Deux packs pour gagner en visibilité locale",
         "background": "paper"
       },
       {
@@ -3414,17 +3414,22 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "pricing-cards",
-        "label": "Combien coûte un site internet qui vend",
+        "label": "Combien coûte un site internet, selon votre taille",
         "background": "paper"
       },
       {
+        "type": "pricing-cards",
+        "label": "Maintenance du site : trois abonnements sans engagement",
+        "background": "paper-2"
+      },
+      {
         "type": "lead-capture-band",
-        "label": "Pas encore prêt pour un devis ? Auditez d'abord votre site actuel",
+        "label": "Pas encore prêt à lancer le site ? Auditez d'abord votre site actuel",
         "background": "ink"
       },
       {
         "type": "eeat-panel",
-        "label": "#10",
+        "label": "#11",
         "variant": "media"
       },
       {
@@ -3494,7 +3499,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "pricing-cards",
-        "label": "Combien coûte la reprise d'un projet Lovable",
+        "label": "Combien coûte un site ou une application Lovable",
         "background": "paper"
       },
       {
@@ -3844,7 +3849,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "feature-grid",
-        "label": "Trois outils, branchés au reste",
+        "label": "Quatre outils, branchés au reste",
         "background": "paper"
       },
       {
@@ -3854,7 +3859,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "pricing-cards",
-        "label": "Quatre socles pour un site",
+        "label": "Un site, puis trois packs pour le faire trouver",
         "background": "paper"
       },
       {
@@ -3929,7 +3934,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "pricing-cards",
-        "label": "Un essai gratuit, puis deux formules pour alimenter votre pipeline",
+        "label": "Un essai gratuit, puis une formule pour alimenter votre pipeline",
         "background": "paper"
       },
       {
@@ -7420,7 +7425,7 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-table-block",
-        "label": "Quels packs d'heures pour un site, et avec quelle option SEO et GEO ?",
+        "label": "Combien coûte un site chez Waimia, selon votre taille ?",
         "background": "paper-2"
       },
       {

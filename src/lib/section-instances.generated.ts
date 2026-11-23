@@ -1578,7 +1578,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "maintenance-growth",
       "route": "src/content/services/maintenance-growth.json",
       "index": 4,
-      "label": "Pourquoi un site entretenu et poussé change l'équation",
+      "label": "Pourquoi un site entretenu change l'équation",
       "background": "paper-2"
     },
     {
@@ -1587,7 +1587,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "publicite-en-ligne",
       "route": "src/content/services/publicite-en-ligne.json",
       "index": 4,
-      "label": "Pourquoi une régie instrumentée change l'équation",
+      "label": "Pourquoi un dispositif instrumenté change l'équation",
       "background": "paper-2"
     },
     {
@@ -9620,7 +9620,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "cahier-des-charges-site-internet",
       "route": "/ressources/guides/cahier-des-charges-site-internet",
       "index": 14,
-      "label": "Quels packs d'heures pour un site, et avec quelle option SEO et GEO ?",
+      "label": "Combien coûte un site chez Waimia, selon votre taille ?",
       "background": "paper-2"
     },
     {
@@ -11299,8 +11299,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/site-web-ia.json",
       "slug": "site-web-ia",
       "route": "/services/site-web-ia",
-      "index": 10,
-      "label": "#10",
+      "index": 11,
+      "label": "#11",
       "variant": "media"
     },
     {
@@ -11398,8 +11398,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/maintenance-growth.json",
       "slug": "maintenance-growth",
       "route": "src/content/services/maintenance-growth.json",
-      "index": 11,
-      "label": "#11",
+      "index": 12,
+      "label": "#12",
       "variant": "media"
     },
     {
@@ -12714,7 +12714,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/site-web-ia.json",
       "slug": "site-web-ia",
       "route": "/services/site-web-ia",
-      "index": 11,
+      "index": 12,
       "label": "Création de site internet : vos questions",
       "background": "paper-2"
     },
@@ -12894,7 +12894,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/maintenance-growth.json",
       "slug": "maintenance-growth",
       "route": "src/content/services/maintenance-growth.json",
-      "index": 12,
+      "index": 13,
       "label": "Ce que vous nous demandez",
       "background": "paper-2"
     },
@@ -12987,7 +12987,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "systeme-acquisition",
       "route": "/services/systeme-acquisition",
       "index": 3,
-      "label": "Trois outils, branchés au reste",
+      "label": "Quatre outils, branchés au reste",
       "background": "paper"
     },
     {
@@ -13014,7 +13014,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "maintenance-growth",
       "route": "src/content/services/maintenance-growth.json",
       "index": 7,
-      "label": "Les briques d'un forfait qui fait vivre le site",
+      "label": "Les briques d'une maintenance qui fait vivre le site",
       "background": "paper"
     },
     {
@@ -14594,7 +14594,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/site-web-ia.json",
       "slug": "site-web-ia",
       "route": "/services/site-web-ia",
-      "index": 12,
+      "index": 13,
       "label": "Votre site est-il à corriger, à refaire ou à reprendre ?",
       "background": "ink"
     },
@@ -14774,7 +14774,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/maintenance-growth.json",
       "slug": "maintenance-growth",
       "route": "src/content/services/maintenance-growth.json",
-      "index": 13,
+      "index": 14,
       "label": "Donnez à votre site une seconde vie, chaque mois.",
       "background": "ink"
     },
@@ -17159,8 +17159,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/site-web-ia.json",
       "slug": "site-web-ia",
       "route": "/services/site-web-ia",
-      "index": 9,
-      "label": "Pas encore prêt pour un devis ? Auditez d'abord votre site actuel",
+      "index": 10,
+      "label": "Pas encore prêt à lancer le site ? Auditez d'abord votre site actuel",
       "background": "ink"
     }
   ],
@@ -17859,7 +17859,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "audit-seo-technique",
       "route": "/services/audit-seo-technique",
       "index": 10,
-      "label": "Prix d'un audit SEO technique",
+      "label": "Prix : l'audit, puis le référencement continu",
       "background": "paper"
     },
     {
@@ -17940,7 +17940,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "cold-email-b2b",
       "route": "/services/cold-email-b2b",
       "index": 10,
-      "label": "Un essai gratuit, puis un abonnement sans engagement",
+      "label": "Un essai gratuit, puis l'abonnement Prospection",
       "background": "paper"
     },
     {
@@ -18039,7 +18039,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "lovable",
       "route": "/services/lovable",
       "index": 9,
-      "label": "Combien coûte la reprise d'un projet Lovable",
+      "label": "Combien coûte un site ou une application Lovable",
       "background": "paper"
     },
     {
@@ -18075,7 +18075,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "prospection-automatisee",
       "route": "/services/prospection-automatisee",
       "index": 7,
-      "label": "Un essai gratuit, puis deux formules en abonnement mensuel sans engagement",
+      "label": "Un essai gratuit, puis une seule formule : Prospection",
       "background": "paper"
     },
     {
@@ -18093,7 +18093,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "redaction-seo-contenu",
       "route": "/services/redaction-seo-contenu",
       "index": 9,
-      "label": "Prix d'une rédaction SEO",
+      "label": "Prix de la rédaction SEO",
       "background": "paper"
     },
     {
@@ -18102,7 +18102,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "referencement-ia",
       "route": "/services/referencement-ia",
       "index": 10,
-      "label": "Deux façons de rendre vos pages citables",
+      "label": "Deux packs pour rendre vos pages citables",
       "background": "paper"
     },
     {
@@ -18129,7 +18129,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "seo-geo-contenu",
       "route": "/services/seo-geo-contenu",
       "index": 8,
-      "label": "Prix d'une prestation SEO",
+      "label": "Prix du référencement naturel",
       "background": "paper"
     },
     {
@@ -18138,7 +18138,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "seo-local",
       "route": "/services/seo-local",
       "index": 10,
-      "label": "Deux façons de gagner en visibilité locale",
+      "label": "Deux packs pour gagner en visibilité locale",
       "background": "paper"
     },
     {
@@ -18165,8 +18165,17 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "site-web-ia",
       "route": "/services/site-web-ia",
       "index": 8,
-      "label": "Combien coûte un site internet qui vend",
+      "label": "Combien coûte un site internet, selon votre taille",
       "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/site-web-ia.json",
+      "slug": "site-web-ia",
+      "route": "/services/site-web-ia",
+      "index": 9,
+      "label": "Maintenance du site : trois abonnements sans engagement",
+      "background": "paper-2"
     },
     {
       "collection": "services",
@@ -18192,7 +18201,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "systeme-acquisition",
       "route": "/services/systeme-acquisition",
       "index": 5,
-      "label": "Quatre socles pour un site",
+      "label": "Un site, puis trois packs pour le faire trouver",
       "background": "paper"
     },
     {
@@ -18201,7 +18210,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "systeme-commercial",
       "route": "/services/systeme-commercial",
       "index": 8,
-      "label": "Un essai gratuit, puis deux formules pour alimenter votre pipeline",
+      "label": "Un essai gratuit, puis une formule pour alimenter votre pipeline",
       "background": "paper"
     },
     {
@@ -18278,11 +18287,20 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/maintenance-growth.json",
+      "slug": "maintenance-growth",
+      "route": "src/content/services/maintenance-growth.json",
+      "index": 11,
+      "label": "Quand il faut plus que de la maintenance",
+      "background": "paper-3"
+    },
+    {
+      "collection": "services",
       "file": "services/publicite-en-ligne.json",
       "slug": "publicite-en-ligne",
       "route": "src/content/services/publicite-en-ligne.json",
       "index": 10,
-      "label": "Deux façons de mettre votre budget pub au travail",
+      "label": "Deux formules pour mettre votre budget pub au travail",
       "background": "paper"
     },
     {

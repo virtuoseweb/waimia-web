@@ -860,8 +860,8 @@ const AGENCE: MegaMenuSection = {
           label: { fr: 'Tarifs', en: 'Pricing' },
           href: '/tarifs',
           description: {
-            fr: 'Audit gratuit, sprint à 999 € HT, pilote dès 2 000 € HT.',
-            en: 'Free audit, sprint at 999 € ex VAT, pilot from 2,000 € ex VAT.',
+            fr: 'Projets IA et marketing digital : tous les prix sont publiés.',
+            en: 'AI projects and digital marketing: every price is published.',
           },
         },
       ],

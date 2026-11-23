@@ -2019,7 +2019,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "pricing-cards": {
-    "count": 59,
+    "count": 61,
     "pages": [
       "/lp/site-web-intelligent",
       "/lp/systeme-acquisition",
