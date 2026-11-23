@@ -3,8 +3,8 @@
   "title_fr": "Cold email B2B pour PME · Waimia",
   "seoTitle_fr": "Cold email B2B pour PME : essai de {{prix.commercial.essai}} leads à 0 €",
   "title_en": "B2B cold email for SMEs · Waimia",
-  "description_fr": "Cold email B2B : domaines dédiés authentifiés (SPF, DKIM, DMARC), listes vérifiées, séquences relues. Essai de {{prix.commercial.essai}} leads offerts, puis dès {{prix.commercial}} € HT/mois.",
-  "description_en": "B2B cold email: authenticated dedicated domains (SPF, DKIM, DMARC), verified lists, reviewed sequences. Trial of {{prix.commercial.essai}} free leads, then from €{{prix.commercial}} excl. VAT/month.",
+  "description_fr": "Cold email B2B : domaines dédiés authentifiés (SPF, DKIM, DMARC), listes vérifiées, séquences relues. Essai de {{prix.commercial.essai}} leads offerts, puis {{prix.commercial}} € HT/mois.",
+  "description_en": "B2B cold email: authenticated dedicated domains (SPF, DKIM, DMARC), verified lists, reviewed sequences. Trial of {{prix.commercial.essai}} free leads, then €{{prix.commercial}} excl. VAT/month.",
   "slug": "cold-email-b2b",
   "publishedAt": "2026-07-16T00:00:00.000Z",
   "updatedAt": "2026-11-11T00:00:00.000Z",
@@ -19,8 +19,8 @@
   "seo": {
     "noindex": false,
     "serviceType": "Campagnes de cold email B2B pour PME",
-    "priceRange": "dès {{prix.commercial}} €",
-    "priceMin": 980
+    "priceRange": "{{prix.commercial}}€/mois",
+    "priceMin": 790
   },
   "faq_fr": [
     {
@@ -130,19 +130,19 @@
         {
           "value": "Domaine à part",
           "label_fr": "votre domaine principal n'envoie jamais de prospection",
-          "label_en": "authentication in place before the first send",
+          "label_en": "your main domain never sends prospecting",
           "emphasis": true
         },
         {
           "value": "2 à 4 semaines",
           "label_fr": "avant la première séquence, le temps de chauffer les boîtes",
-          "label_en": "free for the trial, at 0 €",
+          "label_en": "before the first sequence, the time to warm up the mailboxes",
           "emphasis": false
         },
         {
           "value": "Transférable",
           "label_fr": "domaines et boîtes d'envoi passent sur vos comptes si vous arrêtez",
-          "label_en": "per month, no minimum term",
+          "label_en": "sending domains and mailboxes move to your accounts if you stop",
           "emphasis": false
         }
       ]
@@ -466,10 +466,10 @@
       "colRatio": "2-3",
       "kicker_fr": "§ Abonnement mensuel",
       "kicker_en": "§ Monthly subscription",
-      "h2_fr": "Un essai gratuit, puis un abonnement sans engagement",
-      "h2_en": "A free trial, then a subscription with no commitment",
-      "lede_fr": "Le cold email fait partie de l'abonnement de prospection. Les formules Standard et Pro, avec leurs volumes, sont détaillées sur la page prospection automatisée.",
-      "lede_en": "Cold email is billed within the prospecting subscription, not per message sent. The Standard and Pro plans, their volumes and details are in the grid on the automated prospecting page.",
+      "h2_fr": "Un essai gratuit, puis l'abonnement Prospection",
+      "h2_en": "A free trial, then the Prospecting subscription",
+      "lede_fr": "Le cold email fait partie de l'abonnement Prospection, à {{prix.commercial}} € HT par mois : jusqu'à 400 contacts qualifiés et 4 séquences d'e-mails rédigées et suivies chaque mois. Engagement de 3 mois, puis résiliation à tout moment.",
+      "lede_en": "Cold email is part of the Prospecting subscription, at €{{prix.commercial}} excl. VAT per month: up to 400 qualified contacts and 4 email sequences written and monitored each month. 3-month minimum term, then cancel at any time.",
       "tiers": [
         {
           "name_fr": "Essai gratuit",
@@ -495,36 +495,40 @@
           }
         },
         {
-          "name_fr": "Abonnement",
-          "name_en": "Subscription",
+          "name_fr": "Prospection",
+          "name_en": "Prospecting",
           "price": "{{prix.commercial}} €",
-          "period_fr": "HT / mois · dès",
-          "period_en": "ex VAT / month · from",
+          "period_fr": "HT / mois · 3 mois minimum",
+          "period_en": "ex VAT / month · 3-month minimum",
           "features_fr": [
             "Domaines et adresses dédiés, avec SPF, DKIM et DMARC",
             "Boîtes chauffées par paliers",
-            "Séquences rédigées par l'IA, personnalisées, relues avant le départ",
+            "Jusqu'à 400 contacts qualifiés par mois, trouvés avec Apollo et Pharow",
+            "4 séquences rédigées, personnalisées par l'IA, relues avant le départ",
+            "Mentions d'information et désinscription conformes aux règles de la CNIL",
             "Un compte rendu des envois, des rebonds et des réponses",
-            "Vous arrêtez ou vous suspendez quand vous voulez"
+            "Engagement de 3 mois, puis résiliation à tout moment"
           ],
           "features_en": [
-            "Dedicated domains and addresses, SPF, DKIM, DMARC",
-            "Gradual mailbox warm-up",
-            "Sequences written and personalised by AI, reviewed",
-            "Reporting on sends and replies",
-            "No minimum term: stop or pause at any time"
+            "Dedicated domains and addresses, with SPF, DKIM and DMARC",
+            "Mailboxes warmed up in stages",
+            "Up to 400 qualified contacts per month, found with Apollo and Pharow",
+            "4 sequences written, personalised by AI, reviewed before sending",
+            "Information notices and opt-out compliant with CNIL rules",
+            "A report on sends, bounces and replies",
+            "3-month minimum term, then cancel at any time"
           ],
           "cta": {
-            "label_fr": "Voir les formules →",
-            "label_en": "See the plans →",
+            "label_fr": "Voir le détail →",
+            "label_en": "See the details →",
             "href": "/services/prospection-automatisee",
             "variant": "primary"
           },
           "featured": true
         }
       ],
-      "footnote_fr": "Abonnement mensuel, prix hors taxes. Un volume plus élevé se cadre sur devis.",
-      "footnote_en": "Monthly subscription excl. VAT, no minimum term: the detail of the Standard and Pro plans is on the automated prospecting page. A higher volume is scoped on quote."
+      "footnote_fr": "Abonnement mensuel, prix hors taxes. Crédits supplémentaires et envois au-delà du forfait refacturés au coût réel. L'offre se prend seule ou s'ajoute à un pack marketing digital.",
+      "footnote_en": "Monthly subscription, excl. VAT. Extra credits and sends beyond the plan rebilled at actual cost. Take it on its own or add it to a digital marketing pack."
     },
     {
       "type": "eeat-panel",
