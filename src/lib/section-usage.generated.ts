@@ -1275,8 +1275,9 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "feature-grid": {
-    "count": 13,
+    "count": 14,
     "pages": [
+      "/lp/hub",
       "/lp/systeme-acquisition",
       "/lp/systeme-ia-marketing",
       "/services/automatisation-reseaux-sociaux",
@@ -2018,7 +2019,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "pricing-cards": {
-    "count": 59,
+    "count": 61,
     "pages": [
       "/lp/site-web-intelligent",
       "/lp/systeme-acquisition",

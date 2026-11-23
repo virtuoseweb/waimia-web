@@ -306,7 +306,7 @@ La page doit contenir au moins un de ces éléments, absent des pages lues :
 
 **Prix.** Uniquement ceux de `src/data/pricing.ts`, la source unique du site, pour une prestation équivalente ; sinon « sur devis après audit gratuit ». Tu ne modifies jamais ce fichier.
 
-**Positionnement.** Waimia est un studio de développement IA et un cabinet d'automatisation des processus pour PME et ETI. Une page qui tire le site vers un autre métier (agence web généraliste, no-code, publicité) ne s'écrit pas : l'entrée s'abandonne avec cette raison. Depuis le 19 novembre 2026 (décision de Simon), les sites web, le SEO, le GEO, l'acquisition et le branding sont le métier de VirtuoseWeb, le studio frère (https://virtuoseweb.fr) : la routine n'écrit plus sur ces sujets, et une page existante qui y touche renvoie vers la page VirtuoseWeb correspondante (table `MOVED_TO_VIRTUOSE` et `VIRTUOSE_SILO_SERVICE` de `src/data/depublished.ts`).
+**Positionnement.** Waimia est un studio de développement IA et un cabinet d'automatisation des processus pour PME et ETI. Une page qui tire le site vers un autre métier (agence web généraliste, no-code, publicité) ne s'écrit pas : l'entrée s'abandonne avec cette raison.
 
 ### 5.4 GEO : écrire pour être cité par les moteurs IA
 

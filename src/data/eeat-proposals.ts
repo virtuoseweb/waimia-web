@@ -263,7 +263,7 @@ export const EEAT_PACK: EeatPack = {
   commitments: [
     // Détail = promesse canonique (AUDIT_PROMISE), résolue par silo dans eeatCommitments.
     { label: 'Avant tout engagement', detail: AUDIT_PROMISE.general.short.fr, audit: true },
-    { label: 'Prix connu avant de signer', detail: 'Le sprint de cadrage a un prix fixe ; la suite est chiffrée sur devis, avant tout engagement.' },
+    { label: 'Prix connu avant de signer', detail: 'Les prix sont publiés sur la page tarifs : vous savez ce que vous payez avant tout engagement.' },
     { label: 'Formation incluse', detail: 'Documentation et passation : votre équipe est autonome à la livraison.' },
     { label: 'Zéro captivité', detail: 'Code, workflows et documentation transférés : vous gardez la main.' },
   ],
@@ -306,7 +306,7 @@ export const EEAT_SILOS: Record<EeatSilo, EeatSiloSet> = {
   hub: {
     // 4 services : les 3 hubs système + site web intelligent. Le composant retire le lien
     // égal à la page hôte (un hub ne s'auto-lie pas) → 3 liens affichés.
-    services: svc('systemes-operationnels-ia', 'systeme-commercial', 'automatisations', 'agents-ia'),
+    services: svc('systemes-operationnels-ia', 'systeme-commercial', 'systeme-acquisition', 'automatisations'),
     tool: TOOL_LINKS['calculateur-roi-ia'],
     sectors: sec('batiment', 'e-commerce', 'startup-logiciel'),
     articles: art('pillar-ia-pme', 'seo-geo', 'crm-10-jours'),
@@ -329,7 +329,7 @@ export const EEAT_SILOS: Record<EeatSilo, EeatSiloSet> = {
   apps: {
     services: svc('applications-internes', 'mvp-saas', 'portail-client', 'back-office-sur-mesure'),
     tool: TOOL_LINKS['diagnostic-maturite-ia'],
-    sectors: sec('batiment', 'e-commerce'),
+    sectors: sec('esn', 'industrie'),
     articles: art('build-vs-buy', 'crm-sur-mesure'),
   },
 };

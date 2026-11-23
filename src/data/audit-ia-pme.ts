@@ -173,7 +173,7 @@ export const after = [
 ];
 
 /**
- * Partie « logiciel sur mesure » de /audit-ia-pme (site web retiré au recentrage IA du 19/11/2026 : VirtuoseWeb).
+ * Partie « site web et logiciel » de /audit-ia-pme (décision Simon du 14 octobre 2026).
  * Section catalogue `editorial-prose`, ancrée sur AUDIT_WEB_ANCHOR : les pages du cluster
  * site web et logiciel pointent vers `/audit-ia-pme#site-web-logiciel`.
  * Faits repris des pages du cluster : trajet d'une demande (site-web-ia.json), formulaires
@@ -189,21 +189,32 @@ export const auditWebSection = {
   background: 'paper-2',
   anchor: AUDIT_WEB_ANCHOR,
   html_fr: [
-    "<h2>Un logiciel sur mesure : le même audit</h2>",
-    "<p>Waimia développe aussi des logiciels sur mesure. Si votre sujet est un outil que le tableur ou le logiciel du marché ne tient plus, l'audit garde le même cadre : on regarde le circuit que votre outil actuel ne tient plus, et on vous dit s'il faut le développer sur mesure ou prendre un outil du marché. Vous repartez avec un ou deux chantiers classés.</p>",
+    "<h2>Un site web ou un logiciel sur mesure : le même audit</h2>",
+    "<p>Waimia développe aussi des sites web et des logiciels sur mesure. Si votre sujet est un site à créer, refondre ou reprendre, ou un outil que le tableur ou le logiciel du marché ne tient plus, l'audit garde le même cadre.</p>",
+    "<p>On regarde votre site, ou le circuit que votre outil actuel ne tient plus, et on vous dit s'il faut le corriger, le refaire, le développer sur mesure ou prendre un outil du marché. Vous repartez avec un ou deux chantiers classés.</p>",
+    "<h3>Ce qu'on regarde sur un site</h3>",
+    "<p>Le trajet d'une demande, du formulaire de votre site jusqu'à la personne qui la traite, et ce qui se passe après l'envoi. La plateforme (Webflow, WordPress, Shopify ou site codé) et la question de savoir si sa structure bloque votre équipe. La vitesse sur mobile, mesurée sur votre site réel et non sur une maquette.</p>",
     "<h3>Ce qu'on regarde sur un outil métier</h3>",
-    "<p>D'abord le circuit qui coûte le plus de ressaisie : qui saisit quoi, dans quel outil, et combien de fois la même information est recopiée. Ensuite l'outil en place, tableur partagé, logiciel du marché ou modules de votre ERP ou de votre CRM, et l'endroit où il ne suit plus. Enfin ce qui existe déjà sur le marché pour ce besoin, avant tout développement.</p>",
+    "<p>D'abord le circuit qui coûte le plus de ressaisie : qui saisit quoi, dans quel outil, et combien de fois la même information est recopiée. Ensuite l'outil en place, tableur partagé, logiciel du marché ou modules de votre ERP ou de votre CRM, et l'endroit où il ne suit plus. Enfin ce qui existe déjà sur le marché pour ce besoin, avant tout développement.</p>",
     "<h3>Le verdict</h3>",
     "<ul>",
+    "<li><strong>Corriger.</strong> La structure tient : on corrige l'existant, sans refaire le design.</li>",
+    "<li><strong>Refaire.</strong> Seulement si la structure du site bloque votre équipe. La refonte n'est jamais proposée par défaut.</li>",
     "<li><strong>Développer sur mesure.</strong> Quand le circuit est propre à votre métier et que le tableur ou le logiciel du marché ne suit plus.</li>",
     "<li><strong>Prendre un outil du marché.</strong> Quand un outil existant couvre le circuit sans contournement. C'est moins cher, et on vous le dit.</li>",
     "</ul>",
-    `<p>Le prix vient d'un devis écrit après l'audit. Quand le périmètre reste flou, un sprint de cadrage (${sprintFr}, prix fixe) arrête le périmètre, le planning et les jalons avant signature. Le détail de l'offre est sur la page <a href="/services/applications-internes">application métier sur mesure</a>.</p>`,
-    `<p>Pour un site web à créer, refondre ou reprendre, ce n'est pas le métier de Waimia : c'est celui de <a href="https://virtuoseweb.fr/" target="_blank" rel="noopener">VirtuoseWeb, agence de création de site web et studio frère de Waimia</a>.</p>`,
+    `<p>Le prix vient d'un devis écrit après l'audit. Quand le périmètre reste flou, un sprint de cadrage (${sprintFr}, prix fixe) arrête le périmètre, le planning et les jalons avant signature. Le détail des offres est sur les pages <a href="/services/site-web-ia">création et refonte de site web</a> et <a href="/services/applications-internes">application métier sur mesure</a> ; pour examiner le référencement d'un site en entier, voir l'<a href="/services/audit-seo-technique">audit SEO technique</a>.</p>`,
   ].join('\n'),
   html_en: [
-    "<h2>Custom software: the same audit</h2>",
-    "<p>Waimia also builds custom software. If your topic is a tool that the spreadsheet or off-the-shelf software no longer handles, the audit keeps the same frame: we look at the process your current tool no longer handles, and tell you whether to build it custom or buy an existing tool. You leave with one or two ranked projects.</p>",
+    "<h2>A website or custom software: the same audit</h2>",
+    "<p>Waimia also builds custom websites and software. If your topic is a site to create, rebuild or take over, or a tool that the spreadsheet or off-the-shelf software no longer handles, the audit keeps the same frame.</p>",
+    `<p>${AUDIT_PROMISE.web.medium.en}</p>`,
+    "<h3>What we look at on a website</h3>",
+    "<ul>",
+    "<li><strong>The path of a request.</strong> From your site's form to the person who handles it, and what happens after it is sent.</li>",
+    "<li><strong>The platform.</strong> Webflow, WordPress, Shopify or a coded site, and whether its structure blocks your team.</li>",
+    "<li><strong>Mobile speed</strong>, on your real site, not on a mock-up.</li>",
+    "</ul>",
     "<h3>What we look at on a business tool</h3>",
     "<ul>",
     "<li><strong>The process that costs the most re-entry.</strong> Who enters what, in which tool, and how many times the same information is copied.</li>",
@@ -212,10 +223,11 @@ export const auditWebSection = {
     "</ul>",
     "<h3>The verdict</h3>",
     "<ul>",
+    "<li><strong>Fix it.</strong> The structure holds: we fix what exists, without redoing the design.</li>",
+    "<li><strong>Rebuild it.</strong> Only if the site's structure blocks your team. A rebuild is never proposed by default.</li>",
     "<li><strong>Build it custom.</strong> When the process is specific to your business and the spreadsheet or off-the-shelf software no longer keeps up.</li>",
     "<li><strong>Buy an existing tool.</strong> When an existing tool covers the process without workarounds. It costs less, and we tell you so.</li>",
     "</ul>",
-    `<p>The price comes from a written quote after the audit. When the scope is unclear, a ${sprintEn} fixes the scope, schedule and milestones before signing. The offer is detailed on the <a href="/services/applications-internes">custom business software</a> page.</p>`,
-    `<p>A website to create, rebuild or take over is not Waimia's line of work: it is the job of <a href="https://virtuoseweb.fr/" target="_blank" rel="noopener">VirtuoseWeb, a website design agency and Waimia's sister studio</a>.</p>`,
+    `<p>The price comes from a written quote after the audit. When the scope is unclear, a ${sprintEn} fixes the scope, schedule and milestones before signing. The offers are detailed on the <a href="/services/site-web-ia">website creation and redesign</a> and <a href="/services/applications-internes">custom business software</a> pages; for a full review of a site's search visibility, see the <a href="/services/audit-seo-technique">technical SEO audit</a>.</p>`,
   ].join('\n'),
 } satisfies SectionByType<'editorial-prose'> & { anchor: string };

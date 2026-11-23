@@ -7,7 +7,7 @@
   "description_en": "SEO audit agency for SMBs: indexing, structure, speed and internal links, then a ranked list of fixes. Written report, fixes applied on request.",
   "slug": "audit-seo-technique",
   "publishedAt": "2026-10-12T00:00:00.000Z",
-  "updatedAt": "2026-11-11",
+  "updatedAt": "2026-11-23",
   "category": "acquisition",
   "tags": [
     "audit-seo-technique",
@@ -19,8 +19,9 @@
   "seo": {
     "noindex": false,
     "serviceType": "Audit SEO technique et sémantique : indexation, structure, vitesse, maillage et liste de correctifs classés",
-    "priceRange": "dès {{prix.sprint}} €",
-    "priceMin": 999
+    "priceRange": "149-3290€",
+    "priceMin": 149,
+    "priceMax": 3290
   },
   "faq_fr": [
     {
@@ -33,7 +34,7 @@
     },
     {
       "q": "Combien coûte un audit SEO technique ?",
-      "a": "Le sprint de cadrage est à {{prix.sprint}} € HT pour 10 heures : exploration du site, contrôle d'indexation et premiers correctifs. Sur un petit site, il peut suffire. Sur un site volumineux, nous estimons la suite avec vous, puis nous la facturons {{prix.horaire}} € HT de l'heure, sans abonnement imposé."
+      "a": "L'audit technique n'est pas vendu seul : il ouvre le référencement continu des packs mensuels, à prix fixe et sans devis. Le pack Visibilité, à {{prix.web.pack.visibilite}} € HT par mois, part de l'audit, puis optimise 3 pages et publie 2 articles chaque mois, avec 30 mots-clés suivis dans la Search Console. Engagement de 3 mois, puis résiliable. Pour un simple suivi, la maintenance Boutique et TPE ({{prix.web.maintenance.boutique}} € HT par mois) comprend un suivi SEO mensuel. L'audit gratuit de 45 minutes dit si votre site en a besoin."
     },
     {
       "q": "Faut-il auditer le site avant de produire du contenu ?",
@@ -59,7 +60,7 @@
     },
     {
       "q": "How much does a technical SEO audit cost?",
-      "a": "The scoping sprint is €{{prix.sprint.en}} excl. VAT for 10 hours: site crawl, indexing check and first backlog. On a small site it may be enough. On a large site, the rest is estimated with you, then billed at €{{prix.horaire}} per hour excl. VAT, with no imposed subscription."
+      "a": "The technical audit is not sold on its own: it opens the ongoing SEO of the monthly packs, at a fixed price with no quote. The Visibility pack, at €{{prix.web.pack.visibilite.en}} excl. VAT a month, starts from the audit, then optimises 3 pages and publishes 2 articles each month, with 30 keywords tracked in Search Console. 3-month commitment, then cancellable. For simple monitoring, the Shop and Small business maintenance plan (€{{prix.web.maintenance.boutique.en}} excl. VAT a month) includes monthly SEO monitoring. The free 45-minute audit tells you whether your site needs it."
     },
     {
       "q": "Should the site be audited before producing content?",
@@ -102,8 +103,8 @@
           "label_en": "Prioritised plan"
         }
       ],
-      "cta_sub_fr": "Audit gratuit de 45 minutes en visio : nous regardons votre site ensemble et nous vous disons si le sprint de cadrage se justifie.",
-      "cta_sub_en": "Free 45-minute audit by video call: we look at your site together and tell you whether a full audit is justified.",
+      "cta_sub_fr": "Audit gratuit de 45 minutes en visio : nous regardons votre site ensemble et nous vous disons si un pack de référencement se justifie.",
+      "cta_sub_en": "Free 45-minute audit by video call: we look at your site together and tell you whether an SEO pack is justified.",
       "cta_primary": {
         "label_fr": "Réserver l'audit gratuit →",
         "label_en": "Book the free audit →",
@@ -127,9 +128,9 @@
       "kicker_en": "§ At a glance",
       "metrics": [
         {
-          "value": "Prix fixe",
-          "label_fr": "pour le sprint de cadrage ; la suite se chiffre avec vous",
-          "label_en": "10-hour scoping sprint, then €{{prix.horaire}} per hour excl. VAT",
+          "value": "{{prix.web.pack.visibilite}} €",
+          "label_fr": "HT par mois, pack Visibilité : l'audit, puis le référencement continu",
+          "label_en": "excl. VAT a month, Visibility pack: the audit, then ongoing SEO",
           "emphasis": true
         },
         {
@@ -220,8 +221,8 @@
           "side": "right"
         }
       ],
-      "html_fr": "<h2>Ce qu'on vérifie, et dans quel ordre</h2>\n<p>On part de ce que Google voit réellement : combien de pages sont indexées, lesquelles ne le sont pas, et ce que la Search Console en dit. Vient ensuite une exploration complète par robot, qui refait le trajet d'un moteur dans votre site, puis les mesures de vitesse sur mobile et la lecture à la main des pages qui rapportent. Chaque constat renvoie à une page et à une preuve : capture, mesure ou export.</p>\n<p>L'ordre compte. Je commence toujours par l'index, pas par la vitesse : un site rapide dont les pages ne sont pas indexées reste invisible. La structure passe ensuite, la vitesse en dernier, et le plan de correction suit cet ordre.</p>\n<h2>Technique d'un côté, sémantique de l'autre</h2>\n<p>La partie technique dit si une page peut être trouvée. La partie sémantique dit si elle mérite de l'être : une requête par page, pas deux pages qui se disputent la même, des titres qui reprennent les mots de vos clients. Un audit n'a de valeur que si les visites qu'il débloque aboutissent à une demande suivie dans votre CRM, sinon on a mesuré du trafic, pas de l'acquisition : c'est le rôle de notre <a href=\"/services/systeme-acquisition\">système d'acquisition</a>.</p>\n<h2>Là où l'audit s'arrête</h2>\n<p>Il ne rédige pas vos contenus : la <a href=\"/services/redaction-seo-contenu\">rédaction SEO et le calendrier éditorial</a> s'en chargent. Il ne travaille pas non plus la citation par les assistants IA, qui relève du <a href=\"/services/referencement-ia\">référencement IA (GEO)</a>. Si votre activité dépend d'une zone, la fiche Google et les pages par ville sont l'affaire du <a href=\"/services/seo-local\">SEO local</a>. L'<a href=\"/services/seo-geo-contenu\">offre SEO</a> réunit les quatre.</p>",
-      "html_en": "<h2>Website audit: what we check</h2>\n<p>We start from what Google actually sees: the pages crawled, those indexed, those that are not, and why. Sources are your site's Search Console, a full crawl by a robot, speed measurements and a manual reading of the pages that matter. Each finding points to a page and to evidence.</p>\n<h2>Technical and semantic</h2>\n<p>The technical part says whether a page can be found. The semantic part says whether it deserves to be: one query per page, not two pages fighting for the same one, titles that use your customers' words.</p>\n<h2>What the audit does not do</h2>\n<p>It does not write your content: for that, see <a href=\"/services/redaction-seo-contenu\">SEO writing and the editorial calendar</a>. It does not work on citation by AI assistants: that is <a href=\"/services/referencement-ia\">AI SEO (GEO)</a>. If your business depends on an area, the Google profile and per-town pages fall under <a href=\"/services/seo-local\">local SEO</a>. And it promises no ranking.</p>\n<h2>Where it fits</h2>\n<p>The audit is the first step of the <a href=\"/services/seo-geo-contenu\">SEO and organic search agency offer</a>, itself one strand of the <a href=\"/services/systeme-acquisition\">acquisition system</a>: the visits the audit unlocks must end in a request tracked in your CRM, otherwise we measured traffic, not acquisition.</p>"
+      "html_fr": "<h2>Ce qu'on vérifie, et dans quel ordre</h2>\n<p>On part de ce que Google voit réellement : combien de pages sont indexées, lesquelles ne le sont pas, et ce que la Search Console en dit. Vient ensuite une exploration complète par robot, qui refait le trajet d'un moteur dans votre site, puis les mesures de vitesse sur mobile et la lecture à la main des pages qui rapportent. Chaque constat renvoie à une page et à une preuve : capture, mesure ou export.</p>\n<p>L'ordre compte. Je commence toujours par l'index, pas par la vitesse : un site rapide dont les pages ne sont pas indexées reste invisible. La structure passe ensuite, la vitesse en dernier, et le plan de correction suit cet ordre.</p>\n<h2>Technique d'un côté, sémantique de l'autre</h2>\n<p>La partie technique dit si une page peut être trouvée. La partie sémantique dit si elle mérite de l'être : une requête par page, pas deux pages qui se disputent la même, des titres qui reprennent les mots de vos clients. Un audit n'a de valeur que si les visites qu'il débloque aboutissent à une demande suivie dans votre CRM, sinon on a mesuré du trafic, pas de l'acquisition : c'est le rôle de notre <a href=\"/services/systeme-acquisition\">système d'acquisition</a>.</p>\n<h2>Là où l'audit s'arrête</h2>\n<p>Il ne rédige pas vos contenus : la <a href=\"/services/redaction-seo-contenu\">rédaction SEO et le calendrier éditorial</a> s'en chargent. Il ne travaille pas non plus la citation par les assistants IA, qui relève du <a href=\"/services/referencement-ia\">référencement IA (GEO)</a>. Si votre activité dépend d'une zone, la fiche Google et les pages par ville sont l'affaire du <a href=\"/services/seo-local\">SEO local</a>. L'<a href=\"/services/seo-geo-contenu\">offre SEO</a> réunit les quatre.</p>\n<h2>Et après l'audit</h2>\n<p>L'audit est le point de départ du référencement continu. Dans les packs mensuels, les correctifs sont posés puis suivis mois après mois : 3 pages optimisées et 2 articles par mois, 30 mots-clés suivis, Search Console et indexation IndexNow pour Bing et Yandex (Google n'utilise pas IndexNow). Les prix sont fixes et publiés sur la page <a href=\"/tarifs\">tarifs</a>.</p>",
+      "html_en": "<h2>Website audit: what we check</h2>\n<p>We start from what Google actually sees: the pages crawled, those indexed, those that are not, and why. Sources are your site's Search Console, a full crawl by a robot, speed measurements and a manual reading of the pages that matter. Each finding points to a page and to evidence.</p>\n<h2>Technical and semantic</h2>\n<p>The technical part says whether a page can be found. The semantic part says whether it deserves to be: one query per page, not two pages fighting for the same one, titles that use your customers' words.</p>\n<h2>What the audit does not do</h2>\n<p>It does not write your content: for that, see <a href=\"/services/redaction-seo-contenu\">SEO writing and the editorial calendar</a>. It does not work on citation by AI assistants: that is <a href=\"/services/referencement-ia\">AI SEO (GEO)</a>. If your business depends on an area, the Google profile and per-town pages fall under <a href=\"/services/seo-local\">local SEO</a>. And it promises no ranking.</p>\n<h2>Where it fits</h2>\n<p>The audit is the starting point of ongoing SEO. In the monthly packs, fixes are applied then followed month after month: 3 optimised pages and 2 articles a month, 30 tracked keywords, Search Console and IndexNow indexing for Bing and Yandex (Google does not use IndexNow). Prices are fixed and published on the <a href=\"/tarifs\">pricing</a> page.</p>\n<p>The audit belongs to the <a href=\"/services/seo-geo-contenu\">SEO and organic search agency offer</a>, itself one strand of the <a href=\"/services/systeme-acquisition\">acquisition system</a>: the visits the audit unlocks must end in a request tracked in your CRM, otherwise we measured traffic, not acquisition.</p>"
     },
     {
       "type": "pain-severity-list",
@@ -465,30 +466,34 @@
       "background": "paper",
       "layout": "grid-asym",
       "colRatio": "2-3",
-      "kicker_fr": "§ Deux façons d'engager",
-      "kicker_en": "§ Two ways to engage",
-      "h2_fr": "Prix d'un audit SEO technique",
-      "h2_en": "Price of a technical SEO audit",
-      "lede_fr": "Sur un petit site, le sprint de cadrage peut suffire. Sur un site volumineux, il sert à chiffrer la suite avant de la lancer.",
-      "lede_en": "The scoping sprint is fixed-price: 10 hours to crawl the site, check indexing and rank the first fixes. On a small site, it may be enough. On a large site, we estimate the rest together before starting it.",
+      "kicker_fr": "§ Deux façons de poursuivre",
+      "kicker_en": "§ Two ways to follow up",
+      "h2_fr": "Prix : l'audit, puis le référencement continu",
+      "h2_en": "Price: the audit, then ongoing SEO",
+      "lede_fr": "L'audit technique n'a pas de prix à part : il ouvre le référencement continu, à prix fixe et sans devis. Un appel de cadrage de 30 minutes suffit pour choisir la formule.",
+      "lede_en": "The technical audit has no separate price: it opens ongoing SEO, at a fixed price with no quote. A 30-minute scoping call is enough to choose the plan.",
       "tiers": [
         {
-          "name_fr": "Sprint de cadrage",
-          "name_en": "Scoping sprint",
-          "price": "{{prix.sprint}} €",
-          "period_fr": "10 h · HT",
-          "period_en": "10 h · ex VAT",
+          "name_fr": "Pack Visibilité",
+          "name_en": "Visibility pack",
+          "price": "{{prix.web.pack.visibilite}} €",
+          "period_fr": "par mois · HT",
+          "period_en": "per month · ex VAT",
           "features_fr": [
-            "Exploration complète du site",
-            "Contrôle d'indexation et de structure",
-            "Premiers correctifs, dans l'ordre",
-            "Restitution commentée en visio"
+            "Audit technique du site comme point de départ",
+            "3 pages optimisées et 2 articles par mois",
+            "30 mots-clés suivis, Search Console",
+            "Indexation IndexNow (Bing, Yandex)",
+            "Maintenance Essentielle et point mensuel",
+            "Engagement de 3 mois, puis résiliable"
           ],
           "features_en": [
-            "Full site crawl",
-            "Indexing and structure check",
-            "First backlog ranked by effect and effort",
-            "Walkthrough by video call"
+            "Technical site audit as the starting point",
+            "3 optimised pages and 2 articles a month",
+            "30 tracked keywords, Search Console",
+            "IndexNow indexing (Bing, Yandex)",
+            "Essential maintenance and monthly review",
+            "3-month commitment, then cancellable"
           ],
           "cta": {
             "label_fr": "Réserver l'audit gratuit →",
@@ -499,33 +504,35 @@
           "featured": true
         },
         {
-          "name_fr": "Suite sur devis",
-          "name_en": "Next steps on quote",
-          "price": "Sur devis",
-          "period_fr": "estimé avec vous · HT",
-          "period_en": "estimated with you · ex VAT",
+          "name_fr": "Maintenance Boutique et TPE",
+          "name_en": "Shop and Small business maintenance",
+          "price": "{{prix.web.maintenance.boutique}} €",
+          "period_fr": "par mois · HT",
+          "period_en": "per month · ex VAT",
           "features_fr": [
-            "Temps estimé ensemble, puis validé",
-            "Correctifs posés par sprints, en régie",
-            "Contrôle après correction",
-            "Rapport, exports et accès à vous"
+            "Suivi SEO mensuel : positions, Search Console, conseils écrits",
+            "Vitesse et erreurs contrôlées",
+            "Mises à jour, sauvegardes, sécurité",
+            "4 petites modifications par mois",
+            "Sans engagement"
           ],
           "features_en": [
-            "Time estimated together, then validated",
-            "Fixes applied in sprints, time and materials",
-            "Check after the fix",
-            "Report, exports and access are yours"
+            "Monthly SEO monitoring: rankings, Search Console, written advice",
+            "Speed and errors checked",
+            "Updates, backups, security",
+            "4 small changes a month",
+            "No commitment"
           ],
           "cta": {
-            "label_fr": "Cadrer la suite →",
-            "label_en": "Scope what follows →",
+            "label_fr": "Cadrer en 30 minutes →",
+            "label_en": "Scope it in 30 minutes →",
             "href": "/contact?offer=audit-seo-technique&intent=suite",
             "variant": "ghost"
           }
         }
       ],
-      "footnote_fr": "Suite en régie à {{prix.horaire}} € HT de l'heure, non dégressif, sans abonnement : à la fin, le rapport, les exports et les accès sont à vous.",
-      "footnote_en": "The scoping sprint is fixed-price, €{{prix.sprint.en}} excl. VAT for 10 hours: site crawl, indexing and structure check, first backlog and walkthrough. What follows is quoted: we estimate together the time the fixes require, validate it, then run it in sprints on a time and materials basis, at €{{prix.horaire}} an hour, non-degressive. No subscription: at the end, the report, exports and access are yours."
+      "footnote_fr": "Les packs Acquisition ({{prix.web.pack.acquisition}} € HT par mois) et Tout-en-un ({{prix.web.pack.toutenun}} € HT par mois) ajoutent netlinking, publicité et conversion. Le rapport, les exports et les accès restent à vous. Nous ne promettons aucune position précise.",
+      "footnote_en": "The Acquisition (€{{prix.web.pack.acquisition.en}} excl. VAT a month) and All-in-one (€{{prix.web.pack.toutenun.en}} excl. VAT a month) packs add link building, advertising and conversion. The report, exports and access stay yours. We promise no specific ranking."
     },
     {
       "type": "eeat-panel",
@@ -555,8 +562,8 @@
         {
           "q_fr": "Combien coûte un audit SEO technique ?",
           "q_en": "How much does a technical SEO audit cost?",
-          "a_fr": "Le sprint de cadrage est à {{prix.sprint}} € HT pour 10 heures : exploration du site, contrôle d'indexation et premiers correctifs. Sur un petit site, il peut suffire. Sur un site volumineux, nous estimons la suite avec vous, puis nous la facturons {{prix.horaire}} € HT de l'heure, sans abonnement imposé.",
-          "a_en": "The scoping sprint is €{{prix.sprint.en}} excl. VAT for 10 hours: site crawl, indexing check and first backlog. On a small site it may be enough. On a large site, the rest is estimated with you, then billed at €{{prix.horaire}} per hour excl. VAT, with no imposed subscription."
+          "a_fr": "L'audit technique n'est pas vendu seul : il ouvre le référencement continu des packs mensuels, à prix fixe et sans devis. Le pack Visibilité, à {{prix.web.pack.visibilite}} € HT par mois, part de l'audit, puis optimise 3 pages et publie 2 articles chaque mois, avec 30 mots-clés suivis dans la Search Console. Engagement de 3 mois, puis résiliable. Pour un simple suivi, la maintenance Boutique et TPE ({{prix.web.maintenance.boutique}} € HT par mois) comprend un suivi SEO mensuel. L'audit gratuit de 45 minutes dit si votre site en a besoin.",
+          "a_en": "The technical audit is not sold on its own: it opens the ongoing SEO of the monthly packs, at a fixed price with no quote. The Visibility pack, at €{{prix.web.pack.visibilite.en}} excl. VAT a month, starts from the audit, then optimises 3 pages and publishes 2 articles each month, with 30 keywords tracked in Search Console. 3-month commitment, then cancellable. For simple monitoring, the Shop and Small business maintenance plan (€{{prix.web.maintenance.boutique.en}} excl. VAT a month) includes monthly SEO monitoring. The free 45-minute audit tells you whether your site needs it."
         },
         {
           "q_fr": "Faut-il auditer le site avant de produire du contenu ?",
@@ -589,8 +596,8 @@
       "kicker_en": "§ Free AI audit",
       "h2_fr": "Combien de vos pages Google a-t-il réellement indexées ?",
       "h2_en": "How many of your pages has Google actually indexed?",
-      "subtitle_fr": "Search Console ouverte, nous comptons ce que Google a indexé de votre site et nous repérons les pages qui manquent. Vous repartez en sachant si le sprint de cadrage vaut le coup.",
-      "subtitle_en": "In 45 minutes, we look at your site and its Search Console together, and tell you whether a full audit is justified.",
+      "subtitle_fr": "Search Console ouverte, nous comptons ce que Google a indexé de votre site et nous repérons les pages qui manquent. Vous repartez en sachant si le référencement continu vaut le coup.",
+      "subtitle_en": "In 45 minutes, we look at your site and its Search Console together, and tell you whether ongoing SEO is worth it.",
       "buttons": [
         {
           "label_fr": "Réserver l'audit gratuit →",

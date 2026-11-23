@@ -13,71 +13,20 @@
 //    `_` (src/pages/_expertise-claude.astro, src/pages/ressources/_academy.astro) pour
 //    qu'Astro ne génère plus la route, sources conservées → 301.
 
-// ─── Recentrage IA (décision de Simon du 19 novembre 2026) ───
-//
-// Waimia ne vend plus que l'IA métier (agents, automatisation, Claude, conformité, formation).
-// Les OFFRES site web, SEO/GEO, acquisition et branding passent chez VirtuoseWeb, le studio
-// frère : chaque page d'offre est redirigée en 301 vers la page équivalente de virtuoseweb.fr
-// (lue dans son sitemap le 19 novembre 2026 ; branding sans équivalent → hub des services).
-// Les pages ÉDITORIALES (articles, guides, comparatifs, grille) restent sur waimia.com et
-// renvoient vers VirtuoseWeb (VIRTUOSE_SILO_SERVICE ci-dessous, et liens du contenu).
-// Fichiers de contenu conservés. Pour défaire : retirer l'entrée de cette table.
-export const VIRTUOSE_HOME = 'https://virtuoseweb.fr/';
-export const VIRTUOSE_TARIFS = 'https://virtuoseweb.fr/tarifs/';
-
-/** Page de VirtuoseWeb vers laquelle renvoie un silo qui n'a plus d'offre chez Waimia. */
-export const VIRTUOSE_SILO_SERVICE: Readonly<Record<string, string>> = {
-  web: 'https://virtuoseweb.fr/services/creation-site-internet-pme/',
-  acquisition: 'https://virtuoseweb.fr/services/referencement-seo/',
-};
-
-export const MOVED_TO_VIRTUOSE: Readonly<Record<string, string>> = {
-  '/services/site-web-ia': 'https://virtuoseweb.fr/services/creation-site-internet-pme/',
-  '/services/webflow': 'https://virtuoseweb.fr/services/site-webflow/',
-  '/services/wordpress': 'https://virtuoseweb.fr/services/site-wordpress/',
-  '/services/shopify': 'https://virtuoseweb.fr/services/site-shopify/',
-  '/services/lovable': 'https://virtuoseweb.fr/services/lovable/',
-  '/services/sur-mesure-headless': 'https://virtuoseweb.fr/services/site-sur-mesure/',
-  '/services/landing-pages-tunnels': 'https://virtuoseweb.fr/services/landing-page/',
-  '/services/systeme-acquisition': 'https://virtuoseweb.fr/services/marketing-digital/',
-  '/services/seo-geo-contenu': 'https://virtuoseweb.fr/services/referencement-seo/',
-  '/services/audit-seo-technique': 'https://virtuoseweb.fr/services/referencement-seo/',
-  '/services/redaction-seo-contenu': 'https://virtuoseweb.fr/services/referencement-seo/',
-  '/services/referencement-ia': 'https://virtuoseweb.fr/services/referencement-seo/',
-  '/services/seo-local': 'https://virtuoseweb.fr/services/referencement-seo/',
-  '/services/branding': 'https://virtuoseweb.fr/services/',
-  '/services/identite-de-marque': 'https://virtuoseweb.fr/services/',
-  '/services/refonte-de-marque': 'https://virtuoseweb.fr/services/',
-  '/services/naming-et-positionnement': 'https://virtuoseweb.fr/services/',
-  '/services/charte-graphique-brand-book': 'https://virtuoseweb.fr/services/',
-  '/lp/site-web-intelligent': 'https://virtuoseweb.fr/services/creation-site-internet-pme/',
-  '/lp/systeme-acquisition': 'https://virtuoseweb.fr/services/marketing-digital/',
-  '/lp/visibilite-google-ia': 'https://virtuoseweb.fr/services/referencement-seo/',
-  '/demonstrations/site-web-intelligent': 'https://virtuoseweb.fr/realisations/',
-  // Contenus qui vendaient l'offre web ou SEO de Waimia (méthode, paliers de prix) : 301 aussi.
-  '/ressources/outils/grille-audit-site-internet': 'https://virtuoseweb.fr/services/refonte-site-web/',
-  '/blog/audit-site-internet-pme': 'https://virtuoseweb.fr/services/refonte-site-web/',
-  '/ressources/guides/cahier-des-charges-site-internet': 'https://virtuoseweb.fr/services/creation-site-internet/',
-  '/ressources/guides/refonte-site-internet': 'https://virtuoseweb.fr/services/refonte-site-web/',
-  '/ressources/guides/audit-geo-pme': 'https://virtuoseweb.fr/services/referencement-seo/',
-  '/ressources/comparatifs/geo-vs-seo': 'https://virtuoseweb.fr/services/referencement-seo/',
-};
-
-/** Ids d'entrées `services` retirées par le recentrage (filtrées par la route et les listings). */
-export const MOVED_SERVICE_IDS: ReadonlySet<string> = new Set(
-  Object.keys(MOVED_TO_VIRTUOSE).filter((p) => p.startsWith('/services/')).map((p) => p.slice('/services/'.length)),
-);
-
 /** Services dépubliés : id d'entrée (= `slug`) → slug du service cible de la 301. */
 export const DEPUBLISHED_SERVICES: Readonly<Record<string, string>> = {
+  // Fusion VirtuoseWeb (23 novembre 2026) : la grille unique (virtuoseweb.fr/tarifs) n'a pas
+  // d'offre de branding ; les cinq pages sont repliées sur la page site web.
+  branding: 'site-web-ia',
+  'identite-de-marque': 'site-web-ia',
+  'refonte-de-marque': 'site-web-ia',
+  'naming-et-positionnement': 'site-web-ia',
+  'charte-graphique-brand-book': 'site-web-ia',
   'integration-crm': 'crm-scoring-routing',
   'relance-devis': 'sequences-de-suivi',
-  'maintenance-growth': 'site-web-ia',
-  'landing-page-google-ads': 'landing-pages-tunnels',
-  'publicite-en-ligne': 'landing-pages-tunnels',
 };
 
-export const DEPUBLISHED_SERVICE_IDS: ReadonlySet<string> = new Set([...Object.keys(DEPUBLISHED_SERVICES), ...MOVED_SERVICE_IDS]);
+export const DEPUBLISHED_SERVICE_IDS: ReadonlySet<string> = new Set(Object.keys(DEPUBLISHED_SERVICES));
 
 /** Démonstrations dépubliées (301 → /services/integration-claude). */
 export const DEPUBLISHED_DEMONSTRATION_IDS: ReadonlySet<string> = new Set(['integration-claude']);
@@ -102,9 +51,9 @@ export const REDIRECTED_PATHS: Readonly<Record<string, string>> = {
   '/ressources/diagnostics/site-web-intelligent': '/ressources/diagnostics/maturite-ia',
   '/ressources/diagnostics': '/ressources/diagnostics/maturite-ia',
   // Pages « site web » hors positionnement, repliées sur la page service.
-  '/demonstrations/avant-apres': 'https://virtuoseweb.fr/realisations/',
-  '/ressources/comparatifs/site-web-intelligent-vs-wordpress': 'https://virtuoseweb.fr/services/site-wordpress/',
-  '/cas-usages/reduire-temps-cms': 'https://virtuoseweb.fr/services/creation-site-internet-pme/',
+  '/demonstrations/avant-apres': '/services/site-web-ia',
+  '/ressources/comparatifs/site-web-intelligent-vs-wordpress': '/services/site-web-ia',
+  '/cas-usages/reduire-temps-cms': '/services/site-web-ia',
   // Cas d'usage reporting fusionné dans la centralisation des données.
   '/cas-usages/reduire-reporting': '/cas-usages/centraliser-donnees',
   // Studio solo : la page équipe est la page du fondateur.
@@ -112,11 +61,11 @@ export const REDIRECTED_PATHS: Readonly<Record<string, string>> = {
   // Article pilier renommé (slug sans jargon interne) : 301 vers la nouvelle URL.
   '/blog/essai-pillar-ia-pme-2026': '/blog/ia-pme-guide-complet-2026',
   // Articles hors positionnement (agence web / marketing).
-  '/blog/landing-page-qui-convertit-methode-2026': 'https://virtuoseweb.fr/services/landing-page/',
-  '/blog/webflow-vs-wordpress-vs-site-code-ia-2026': 'https://virtuoseweb.fr/comparatifs/wordpress-vs-webflow/',
+  '/blog/landing-page-qui-convertit-methode-2026': '/services/landing-pages-tunnels',
+  '/blog/webflow-vs-wordpress-vs-site-code-ia-2026': '/services/site-web-ia',
   // Article publicitaire retiré sans redirection (9 impressions GSC, était en production) :
-  // même cible que les pages publicitaires dépubliées (landing-page-google-ads).
-  '/blog/google-ads-vs-meta-ads-pme-2026': 'https://virtuoseweb.fr/services/google-ads/',
+  // vers la page publicité, republiée à la fusion VirtuoseWeb (23 novembre 2026).
+  '/blog/google-ads-vs-meta-ads-pme-2026': '/services/publicite-en-ligne',
   // Secteurs hors cible, sans cas client propre.
   '/secteurs/comptabilite': '/services',
   '/secteurs/formation': '/services',
@@ -129,16 +78,6 @@ export const REDIRECTED_PATHS: Readonly<Record<string, string>> = {
   // `_index.astro` (src/pages/secteurs, src/pages/demonstrations) pour sortir du routing.
   '/secteurs': '/services',
   '/demonstrations': '/services',
-  // Recentrage IA du 19 novembre 2026 : secteurs positionnés « site web et IA » (0 impression sur
-  // 28 jours au 18/11/2026) redirigés vers le billet « IA par métier » du même secteur.
-  '/secteurs/agence': '/blog/ia-agence-communication',
-  '/secteurs/conseil': '/blog/ia-cabinet-conseil',
-  '/secteurs/esn': '/blog/ia-esn',
-  '/secteurs/industrie': '/blog/ia-pme-industrielle',
-  // Hub de campagne /lp (noindex) : trois de ses quatre systèmes partis chez VirtuoseWeb.
-  '/lp': '/services',
-  // Recentrage IA du 19 novembre 2026 : pages parties chez Virtuose Web.
-  ...MOVED_TO_VIRTUOSE,
 };
 
 /** Vrai si `pathname` est une page redirigée (donc ni générée, ni listée, ni liée). */

@@ -3,11 +3,11 @@
   "title_fr": "Développement de MVP SaaS pour PME · Waimia",
   "seoTitle_fr": "Développement de MVP SaaS : inscription, comptes, paiement",
   "title_en": "SaaS MVP development for SMEs · Waimia",
-  "description_fr": "Développement de MVP SaaS pour PME et fondateurs : un premier produit vendable avec inscription, comptes séparés et paiement. Dès {{prix.pilote}} € HT, code remis.",
-  "description_en": "SaaS MVP development for SMEs and founders: a first sellable product with sign-up, separate accounts and payment. From €{{prix.pilote.en}} excl. VAT, code handed over.",
+  "description_fr": "Développement de MVP SaaS pour PME et fondateurs : un premier produit vendable avec inscription, comptes séparés et paiement. {{prix.web.app.mvp}} € HT, code remis.",
+  "description_en": "SaaS MVP development for SMEs and founders: a first sellable product with sign-up, separate accounts and payment. €{{prix.web.app.mvp.en}} excl. VAT, code handed over.",
   "slug": "mvp-saas",
   "publishedAt": "2026-07-16T00:00:00.000Z",
-  "updatedAt": "2026-11-11T00:00:00.000Z",
+  "updatedAt": "2026-11-23T00:00:00.000Z",
   "category": "applications",
   "tags": [
     "developpement-mvp-saas",
@@ -19,9 +19,9 @@
   "seo": {
     "noindex": false,
     "serviceType": "Développement de MVP SaaS pour PME et fondateurs",
-    "priceRange": "2000-10000€",
-    "priceMin": 2000,
-    "priceMax": 10000
+    "priceRange": "12900-16900€",
+    "priceMin": 12900,
+    "priceMax": 16900
   },
   "faq_fr": [
     {
@@ -30,7 +30,7 @@
     },
     {
       "q": "Combien coûte un MVP SaaS ?",
-      "a": "Quatre paliers selon le périmètre de la v0 : à partir de 2 000 € HT, puis 4 000, 7 000 et à partir de 10 000 € HT. Le sprint de cadrage de 10 heures coûte {{prix.sprint}} € HT et fixe le périmètre avant la construction. Les itérations ensuite se facturent {{prix.horaire}} € HT de l'heure."
+      "a": "Un MVP web ou SaaS coûte {{prix.web.app.mvp}} € HT, à prix fixe et sans devis : un appel de cadrage de 30 minutes fixe le parcours à construire. Une application mobile iOS et Android coûte {{prix.web.app.mobile}} € HT. Pour construire puis exploiter le produit en abonnement : Build à {{prix.web.saas.build}} € HT par mois (6 mois minimum), puis Manage à {{prix.web.saas.manage}} € HT par mois."
     },
     {
       "q": "Quelle différence entre un MVP SaaS et un outil interne ?",
@@ -38,7 +38,7 @@
     },
     {
       "q": "Combien de temps faut-il pour sortir une v0 ?",
-      "a": "Le délai se fixe à la fin du sprint de cadrage de 10 heures, quand le parcours à construire est arrêté ; nous n'en annonçons pas avant. Ensuite, il dépend surtout de la rapidité de vos décisions."
+      "a": "Le délai se fixe au cadrage, quand le parcours à construire est arrêté ; nous n'en annonçons pas avant. Ensuite, il dépend surtout de la rapidité de vos décisions."
     },
     {
       "q": "L'IA accélère le développement : le produit reste-t-il solide ?",
@@ -60,7 +60,7 @@
     },
     {
       "q": "How much does a SaaS MVP cost?",
-      "a": "Four tiers by v0 scope: from 2,000 € excl. VAT, then 4,000, 7,000 and from 10,000 € excl. VAT. The 10-hour scoping sprint costs {{prix.sprint.en}} € excl. VAT and sets the scope before anything is built. Later iterations are billed {{prix.horaire}} € an hour excl. VAT."
+      "a": "A web or SaaS MVP costs €{{prix.web.app.mvp.en}} excl. VAT, at a fixed price with no quote: a 30-minute scoping call sets the journey to build. An iOS and Android mobile app costs €{{prix.web.app.mobile.en}} excl. VAT. To build and then run the product by subscription: Build at €{{prix.web.saas.build.en}} excl. VAT a month (6 months minimum), then Manage at €{{prix.web.saas.manage.en}} a month."
     },
     {
       "q": "What is the difference between a SaaS MVP and an internal tool?",
@@ -68,7 +68,7 @@
     },
     {
       "q": "How long does it take to ship a v0?",
-      "a": "It depends on the scope and on how available the decision-maker is. The 10-hour scoping sprint fixes the journey to build, and the time estimate comes at the end of that scoping. We do not quote a lead time before."
+      "a": "It depends on the scope and on how available the decision-maker is. Scoping fixes the journey to build, and the time estimate comes at the end of it. We do not announce a lead time before."
     },
     {
       "q": "AI speeds up development: does the product stay solid?",
@@ -136,21 +136,21 @@
       "kicker_en": "§ In short",
       "metrics": [
         {
-          "value": "2 000 € HT",
-          "label_fr": "dès, pour une v0 qui encaisse",
-          "label_en": "from, four tiers: 2,000, 4,000, 7,000 and 10,000 €",
+          "value": "{{prix.web.app.mvp}} € HT",
+          "label_fr": "prix fixe pour une v0 web ou SaaS qui encaisse",
+          "label_en": "fixed price for a web or SaaS v0 that takes payment",
           "emphasis": true
         },
         {
-          "value": "{{prix.sprint}} € HT",
-          "label_fr": "sprint de cadrage de 10 heures, avant la construction",
-          "label_en": "10-hour scoping sprint, before anything is built",
+          "value": "{{prix.web.app.mobile}} € HT",
+          "label_fr": "pour une application mobile iOS et Android",
+          "label_en": "for an iOS and Android mobile app",
           "emphasis": false
         },
         {
-          "value": "{{prix.horaire}} € HT",
-          "label_fr": "de l'heure pour les itérations après la v0",
-          "label_en": "an hour for iterations after the v0",
+          "value": "{{prix.web.saas.build}} € HT",
+          "label_fr": "par mois pour construire le SaaS en abonnement, 6 mois minimum",
+          "label_en": "a month to build the SaaS by subscription, 6 months minimum",
           "emphasis": false
         },
         {
@@ -229,8 +229,8 @@
           "side": "right"
         }
       ],
-      "html_fr": "<h2>Ce que contient la v0, et ce qu'elle laisse de côté</h2>\n<p>La v0 tient en un parcours : un visiteur s'inscrit, accomplit la tâche pour laquelle il vient, puis paie. Tout le reste attend une preuve d'usage : tableau d'administration étendu, notifications, import en masse, application mobile, rôles supplémentaires. Chaque fonction écartée entre dans une liste, avec le critère qui déclenchera sa construction. Si l'outil ne doit servir qu'à votre équipe, ce n'est pas un MVP : voyez le <a href=\"/services/applications-internes\">logiciel sur mesure interne</a>.</p>\n<h2>Ce que nous posons dès le départ</h2>\n<p>Trois choses se rajoutent mal après coup : la séparation des comptes entre clients, l'authentification et le paiement. Nous les posons dès la première version. Le reste se choisit au cadrage : e-mails, connexions à vos outils par API ou MCP, une fonction IA là où elle porte la valeur du produit.</p>\n<h2>Avec quelle technologie</h2>\n<p><a href=\"/cas-clients/waimia-os\">Waimia OS</a>, projet interne du studio, tourne sur Next.js et PostgreSQL. Pour un client, nous choisissons la technique selon ce que son équipe, ou un futur développeur, saura reprendre.</p>\n<h2>Ce qu'un MVP ne garantit pas</h2>\n<p>Un produit vendable ne se vend pas tout seul. Il lui faut un canal pour trouver ses premiers clients, et c'est l'affaire d'un <a href=\"https://virtuoseweb.fr/services/marketing-digital/\" rel=\"noopener noreferrer\" target=\"_blank\">système d'acquisition</a>, métier de VirtuoseWeb, le studio frère de Waimia. Le MVP donne l'objet à vendre et la mesure de ce qui se passe. Je déconseille de signer avec qui vous promet un chiffre d'affaires ou un nombre d'inscrits avant le premier client.</p>",
-      "html_en": "<h2>What the v0 contains, and what it leaves out</h2>\n<p>The v0 fits in one journey: a visitor signs up, does the task they came for, then pays. Everything else waits for proof of use: extended admin panel, notifications, bulk import, mobile app, extra roles. They go on a list, with the criterion that triggers building each one.</p>\n<h2>What goes in from the start</h2>\n<p>Three things cannot be added cleanly afterwards: separation of accounts between customers, authentication and payment. They go in with the first version. The rest is chosen during scoping: emails, connections to your tools through API or MCP, an AI feature where it carries the value of the product.</p>\n<h2>With which technology</h2>\n<p><a href=\"/cas-clients/waimia-os\">Waimia OS</a>, an internal studio project, runs on Next.js and PostgreSQL. For a client, the stack is chosen according to what their team, or a future developer, can take over: the code, the database and the hosting are in your name.</p>\n<h2>What an MVP does not guarantee</h2>\n<p>A sellable product does not sell itself. It needs a channel to find its first customers, which is an acquisition matter, the job of VirtuoseWeb, Waimia's sister studio: see its <a href=\"https://virtuoseweb.fr/services/marketing-digital/\" rel=\"noopener noreferrer\" target=\"_blank\">acquisition system</a>. The MVP provides the thing to sell and the measurement of what happens. It promises neither revenue nor a number of sign-ups.</p>"
+      "html_fr": "<h2>Ce que contient la v0, et ce qu'elle laisse de côté</h2>\n<p>La v0 tient en un parcours : un visiteur s'inscrit, accomplit la tâche pour laquelle il vient, puis paie. Tout le reste attend une preuve d'usage : tableau d'administration étendu, notifications, import en masse, application mobile, rôles supplémentaires. Chaque fonction écartée entre dans une liste, avec le critère qui déclenchera sa construction. Si l'outil ne doit servir qu'à votre équipe, ce n'est pas un MVP : voyez le <a href=\"/services/applications-internes\">logiciel sur mesure interne</a>.</p>\n<h2>Ce que nous posons dès le départ</h2>\n<p>Trois choses se rajoutent mal après coup : la séparation des comptes entre clients, l'authentification et le paiement. Nous les posons dès la première version. Le reste se choisit au cadrage : e-mails, connexions à vos outils par API ou MCP, une fonction IA là où elle porte la valeur du produit.</p>\n<h2>Avec quelle technologie</h2>\n<p><a href=\"/cas-clients/waimia-os\">Waimia OS</a>, projet interne du studio, tourne sur Next.js et PostgreSQL. Pour un client, nous choisissons la technique selon ce que son équipe, ou un futur développeur, saura reprendre.</p>\n<h2>Ce qu'un MVP ne garantit pas</h2>\n<p>Un produit vendable ne se vend pas tout seul. Il lui faut un canal pour trouver ses premiers clients, et c'est l'affaire du <a href=\"/services/systeme-acquisition\">système d'acquisition</a>. Le MVP donne l'objet à vendre et la mesure de ce qui se passe. Je déconseille de signer avec qui vous promet un chiffre d'affaires ou un nombre d'inscrits avant le premier client.</p>",
+      "html_en": "<h2>What the v0 contains, and what it leaves out</h2>\n<p>The v0 fits in one journey: a visitor signs up, does the task they came for, then pays. Everything else waits for proof of use: extended admin panel, notifications, bulk import, mobile app, extra roles. They go on a list, with the criterion that triggers building each one.</p>\n<h2>What goes in from the start</h2>\n<p>Three things cannot be added cleanly afterwards: separation of accounts between customers, authentication and payment. They go in with the first version. The rest is chosen during scoping: emails, connections to your tools through API or MCP, an AI feature where it carries the value of the product.</p>\n<h2>With which technology</h2>\n<p><a href=\"/cas-clients/waimia-os\">Waimia OS</a>, an internal studio project, runs on Next.js and PostgreSQL. For a client, the stack is chosen according to what their team, or a future developer, can take over: the code, the database and the hosting are in your name.</p>\n<h2>What an MVP does not guarantee</h2>\n<p>A sellable product does not sell itself. It needs a channel to find its first customers, which is an acquisition matter: see the <a href=\"/services/systeme-acquisition\">acquisition system</a>. The MVP provides the thing to sell and the measurement of what happens. It promises neither revenue nor a number of sign-ups.</p>"
     },
     {
       "type": "method-stepline",
@@ -240,7 +240,7 @@
       "h2_fr": "De l'idée au produit qui encaisse",
       "h2_en": "From idea to a product that takes payment",
       "lede_fr": "Six étapes, dans cet ordre. Le cadrage fixe le périmètre avant la première ligne de code ; ensuite nous construisons, mettons en ligne et mesurons.",
-      "lede_en": "Six steps. The scoping sprint fixes the scope; then we build, go live and measure.",
+      "lede_en": "Six steps, in this order. Scoping fixes the scope before the first line of code; then we build, go live and measure.",
       "steps": [
         {
           "title_fr": "Audit gratuit",
@@ -249,10 +249,10 @@
           "sub_en": "45 minutes: the idea, the first customer, what already exists"
         },
         {
-          "title_fr": "Sprint de cadrage",
-          "title_en": "Scoping sprint",
+          "title_fr": "Cadrage",
+          "title_en": "Scoping",
           "sub_fr": "Parcours, périmètre, modèle de données",
-          "sub_en": "10 hours, {{prix.sprint.en}} € excl. VAT: journey, scope, data model"
+          "sub_en": "Journey, scope, data model"
         },
         {
           "title_fr": "Construction de la v0",
@@ -269,8 +269,8 @@
         {
           "title_fr": "Itérations",
           "title_en": "Iterations",
-          "sub_fr": "Par sprints, estimés avec vous puis validés",
-          "sub_en": "In sprints, at {{prix.horaire}} € an hour excl. VAT"
+          "sub_fr": "En abonnement, au rythme de l'usage mesuré",
+          "sub_en": "By subscription, paced by measured usage"
         },
         {
           "title_fr": "Passation",
@@ -293,8 +293,8 @@
         {
           "title_fr": "Le cadrage du produit",
           "title_en": "The product scoping",
-          "body_fr": "Le parcours vendable, le premier client visé, la liste de ce qui est écarté de la v0 et le périmètre chiffré.",
-          "body_en": "The sellable journey, the first target customer, the list of what is left out of the v0 and the costed scope.",
+          "body_fr": "Le parcours vendable, le premier client visé, la liste de ce qui est écarté de la v0 et le périmètre arrêté.",
+          "body_en": "The sellable journey, the first target customer, the list of what is left out of the v0 and the agreed scope.",
           "format_fr": "SPEC",
           "format_en": "SPEC"
         },
@@ -424,51 +424,26 @@
       "kicker_en": "§ The range",
       "h2_fr": "Combien coûte un MVP SaaS",
       "h2_en": "How much does a SaaS MVP cost",
-      "lede_fr": "Quatre paliers selon le périmètre de la v0. Nous partons d'un cadrage et livrons un produit en ligne, avec inscription et paiement. Les itérations qui suivent se facturent à l'heure, en sprints.",
-      "lede_en": "Four tiers by v0 scope. We start from scoping and ship a product online, with sign-up and payment. The iterations that follow are billed hourly, in sprints.",
+      "lede_fr": "Mise en place à prix fixe, sans devis : un appel de cadrage de 30 minutes fixe le parcours de la v0. Ensuite, le produit peut se construire et s'exploiter en abonnement.",
+      "lede_en": "Setup at a fixed price, with no quote: a 30-minute scoping call sets the v0 journey. After that, the product can be built and run by subscription.",
       "tiers": [
         {
-          "name_fr": "MVP minimal",
-          "name_en": "Minimal MVP",
-          "price": "2 000 €",
-          "period_fr": "à partir de · HT",
-          "period_en": "from · excl. VAT",
+          "name_fr": "MVP web ou SaaS",
+          "name_en": "Web or SaaS MVP",
+          "price": "{{prix.web.app.mvp}} €",
+          "period_fr": "prix fixe · HT",
+          "period_en": "fixed price · excl. VAT",
           "features_fr": [
             "Un parcours vendable, celui qui suffit à vendre",
             "Inscription, authentification et paiement en ligne",
-            "Le produit peut encaisser dès la v0",
-            "Code livré et hébergé chez vous"
+            "Comptes séparés, mesure d'usage dès le premier utilisateur",
+            "Code documenté, livré et hébergé chez vous"
           ],
           "features_en": [
             "One sellable journey, the one that is enough to sell",
             "Sign-up, authentication and payment online",
-            "The product can take payment from the v0",
-            "Code delivered and hosted on your side"
-          ],
-          "cta": {
-            "label_fr": "Cadrer un MVP minimal →",
-            "label_en": "Scope a minimal MVP →",
-            "href": "/contact?offer=mvp-saas&intent=minimal",
-            "variant": "ghost"
-          }
-        },
-        {
-          "name_fr": "MVP standard",
-          "name_en": "Standard MVP",
-          "price": "4 000 €",
-          "period_fr": "indicatif · HT",
-          "period_en": "indicative · excl. VAT",
-          "features_fr": [
-            "Plusieurs parcours et comptes cloisonnés",
-            "Mesure d'usage dès le premier utilisateur",
-            "Une connexion à vos outils par API ou MCP",
-            "Code documenté et transférable"
-          ],
-          "features_en": [
-            "Several journeys and separate accounts",
-            "Usage measurement from the first user",
-            "One connection to your tools through API or MCP",
-            "Documented, transferable code"
+            "Separate accounts, usage measurement from the first user",
+            "Documented code, delivered and hosted on your side"
           ],
           "cta": {
             "label_fr": "Réserver l'audit gratuit →",
@@ -479,58 +454,75 @@
           "featured": true
         },
         {
-          "name_fr": "MVP étendu",
-          "name_en": "Extended MVP",
-          "price": "7 000 €",
-          "period_fr": "indicatif · HT",
-          "period_en": "indicative · excl. VAT",
+          "name_fr": "Application mobile",
+          "name_en": "Mobile app",
+          "price": "{{prix.web.app.mobile}} €",
+          "period_fr": "prix fixe · HT",
+          "period_en": "fixed price · excl. VAT",
           "features_fr": [
-            "Plusieurs fonctions sur un socle commun",
-            "Fonctions IA là où elles portent la valeur",
-            "Tableau d'usage : inscriptions, activation, paiements",
-            "Base prête à itérer"
+            "Application iOS et Android",
+            "Le parcours vendable de la v0, sur mobile",
+            "Code remis, à votre nom"
           ],
           "features_en": [
-            "Several features on a shared base",
-            "AI features where they carry the value",
-            "Usage dashboard: sign-ups, activation, payments",
-            "A base ready to iterate on"
+            "iOS and Android app",
+            "The v0's sellable journey, on mobile",
+            "Code handed over, in your name"
           ],
           "cta": {
-            "label_fr": "Cadrer un MVP étendu →",
-            "label_en": "Scope an extended MVP →",
-            "href": "/contact?offer=mvp-saas&intent=premium",
+            "label_fr": "Cadrer une application mobile →",
+            "label_en": "Scope a mobile app →",
+            "href": "/contact?offer=mvp-saas&intent=mobile",
             "variant": "ghost"
           }
         },
         {
-          "name_fr": "Produit sur mesure",
-          "name_en": "Bespoke product",
-          "price": "10 000 €",
-          "period_fr": "à partir de · HT",
-          "period_en": "from · excl. VAT",
+          "name_fr": "SaaS Build",
+          "name_en": "SaaS Build",
+          "price": "{{prix.web.saas.build}} €",
+          "period_fr": "par mois · HT, 6 mois minimum",
+          "period_en": "per month · excl. VAT, 6 months minimum",
           "features_fr": [
-            "Intégrations lourdes et connexions multiples",
-            "Agents et automatisations au cœur du produit",
-            "Base documentée, prête à être reprise par une équipe",
+            "Le produit construit en abonnement",
+            "Les fonctions s'ajoutent quand l'usage mesuré les justifie",
+            "Code, base et hébergement chez vous"
+          ],
+          "features_en": [
+            "The product built by subscription",
+            "Features are added when measured usage justifies them",
+            "Code, database and hosting on your side"
+          ],
+          "cta": {
+            "label_fr": "Cadrer un SaaS Build →",
+            "label_en": "Scope a SaaS Build →",
+            "href": "/contact?offer=mvp-saas&intent=build",
+            "variant": "ghost"
+          }
+        },
+        {
+          "name_fr": "SaaS Manage",
+          "name_en": "SaaS Manage",
+          "price": "{{prix.web.saas.manage}} €",
+          "period_fr": "par mois · HT",
+          "period_en": "per month · excl. VAT",
+          "features_fr": [
+            "Le produit exploité en abonnement, une fois construit",
             "Code, base et hébergement chez vous : aucune captivité"
           ],
           "features_en": [
-            "Heavy integrations and multiple connections",
-            "Agents and automations at the core of the product",
-            "A documented base, ready to be taken over by a team",
+            "The product run by subscription, once built",
             "Code, database and hosting on your side: no lock-in"
           ],
           "cta": {
-            "label_fr": "Cadrer un produit sur mesure →",
-            "label_en": "Scope a bespoke product →",
-            "href": "/contact?offer=mvp-saas&intent=sur-mesure",
+            "label_fr": "Cadrer un SaaS Manage →",
+            "label_en": "Scope a SaaS Manage →",
+            "href": "/contact?offer=mvp-saas&intent=manage",
             "variant": "ghost"
           }
         }
       ],
-      "footnote_fr": "Les paliers sont des repères : le périmètre se fixe au cadrage, et vous validez avant que nous construisions. Les évolutions se facturent à l'heure, en sprints : nous estimons le temps ensemble, vous validez, nous exécutons. Pas d'abonnement caché.",
-      "footnote_en": "The tiers are benchmarks: the scope is set during scoping and you approve before anything is built. The scoping sprint lasts 10 hours and costs {{prix.sprint.en}} € excl. VAT. Changes are billed {{prix.horaire}} € an hour excl. VAT, in sprints: we size the time together, you approve, we execute. No hidden subscription: you keep the code, the database and the hosting."
+      "footnote_fr": "Le périmètre de la v0 se fixe au cadrage, et vous validez avant que nous construisions. Après la v0, les évolutions passent par l'abonnement SaaS ou par le développement en abonnement : Standard à {{prix.web.dev.standard}} € HT par mois, Pro à {{prix.web.dev.pro}} € HT (deux chantiers en parallèle, applications mobile et SaaS). Pas d'abonnement caché : le code, la base et l'hébergement restent à vous.",
+      "footnote_en": "The v0 scope is set at scoping and you approve before anything is built. After the v0, changes go through the SaaS subscription or the development subscription: Standard at €{{prix.web.dev.standard.en}} excl. VAT a month, Pro at €{{prix.web.dev.pro.en}} (two projects in parallel, mobile apps and SaaS). No hidden subscription: you keep the code, the database and the hosting."
     },
     {
       "type": "eeat-panel",
@@ -554,8 +546,8 @@
         {
           "q_fr": "Combien coûte un MVP SaaS ?",
           "q_en": "How much does a SaaS MVP cost?",
-          "a_fr": "Quatre paliers selon le périmètre de la v0 : à partir de 2 000 € HT, puis 4 000, 7 000 et à partir de 10 000 € HT. Le sprint de cadrage de 10 heures coûte {{prix.sprint}} € HT et fixe le périmètre avant la construction. Les itérations ensuite se facturent {{prix.horaire}} € HT de l'heure.",
-          "a_en": "Four tiers by v0 scope: from 2,000 € excl. VAT, then 4,000, 7,000 and from 10,000 € excl. VAT. The 10-hour scoping sprint costs {{prix.sprint.en}} € excl. VAT and sets the scope before anything is built. Later iterations are billed {{prix.horaire}} € an hour excl. VAT."
+          "a_fr": "Un MVP web ou SaaS coûte {{prix.web.app.mvp}} € HT, à prix fixe et sans devis : un appel de cadrage de 30 minutes fixe le parcours à construire. Une application mobile iOS et Android coûte {{prix.web.app.mobile}} € HT. Pour construire puis exploiter le produit en abonnement : Build à {{prix.web.saas.build}} € HT par mois (6 mois minimum), puis Manage à {{prix.web.saas.manage}} € HT par mois.",
+          "a_en": "A web or SaaS MVP costs €{{prix.web.app.mvp.en}} excl. VAT, at a fixed price with no quote: a 30-minute scoping call sets the journey to build. An iOS and Android mobile app costs €{{prix.web.app.mobile.en}} excl. VAT. To build and then run the product by subscription: Build at €{{prix.web.saas.build.en}} excl. VAT a month (6 months minimum), then Manage at €{{prix.web.saas.manage.en}} a month."
         },
         {
           "q_fr": "Quelle différence entre un MVP SaaS et un outil interne ?",
@@ -566,8 +558,8 @@
         {
           "q_fr": "Combien de temps faut-il pour sortir une v0 ?",
           "q_en": "How long does it take to ship a v0?",
-          "a_fr": "Le délai se fixe à la fin du sprint de cadrage de 10 heures, quand le parcours à construire est arrêté ; nous n'en annonçons pas avant. Ensuite, il dépend surtout de la rapidité de vos décisions.",
-          "a_en": "It depends on the scope and on how available the decision-maker is. The 10-hour scoping sprint fixes the journey to build, and the time estimate comes at the end of that scoping. We do not quote a lead time before."
+          "a_fr": "Le délai se fixe au cadrage, quand le parcours à construire est arrêté ; nous n'en annonçons pas avant. Ensuite, il dépend surtout de la rapidité de vos décisions.",
+          "a_en": "It depends on the scope and on how available the decision-maker is. Scoping fixes the journey to build, and the time estimate comes at the end of it. We do not announce a lead time before."
         },
         {
           "q_fr": "L'IA accélère le développement : le produit reste-t-il solide ?",

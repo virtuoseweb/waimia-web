@@ -1,10 +1,10 @@
 {
   "$schema": "../../schemas/generated/services.page.schema.json",
   "title_fr": "Prospection automatisée par l'IA pour PME B2B · Waimia",
-  "seoTitle_fr": "Prospection automatisée par l'IA : dès {{prix.commercial}} € HT/mois",
+  "seoTitle_fr": "Prospection automatisée par l'IA : {{prix.commercial}} € HT/mois",
   "title_en": "AI-automated prospecting for B2B SMEs · Waimia",
-  "description_fr": "Prospection automatisée B2B : e-mails envoyés, LinkedIn préparé et validé par une personne, réponses au CRM. Essai de {{prix.commercial.essai}} leads gratuits, puis dès {{prix.commercial}} € HT/mois.",
-  "description_en": "Automated B2B prospecting: emails sent, LinkedIn prepared and approved by a person, replies in the CRM. Free trial of {{prix.commercial.essai}} leads, then from €{{prix.commercial}} excl. VAT/month.",
+  "description_fr": "Prospection automatisée B2B : e-mails envoyés, LinkedIn préparé et validé par une personne, réponses au CRM. Essai de {{prix.commercial.essai}} leads gratuits, puis {{prix.commercial}} € HT/mois.",
+  "description_en": "Automated B2B prospecting: emails sent, LinkedIn prepared and approved by a person, replies in the CRM. Free trial of {{prix.commercial.essai}} leads, then €{{prix.commercial}} excl. VAT/month.",
   "slug": "prospection-automatisee",
   "publishedAt": "2026-06-29T00:00:00.000Z",
   "updatedAt": "2026-11-11T00:00:00.000Z",
@@ -19,14 +19,13 @@
   "seo": {
     "noindex": false,
     "serviceType": "Prospection outbound automatisée pour PME B2B",
-    "priceRange": "{{prix.commercial}}-1650€/mois",
-    "priceMin": 980,
-    "priceMax": 1650
+    "priceRange": "{{prix.commercial}}€/mois",
+    "priceMin": 790
   },
   "faq_fr": [
     {
       "q": "Combien coûte la prospection automatisée ?",
-      "a": "Deux abonnements mensuels, sans engagement de durée : Standard à {{prix.commercial}} € HT par mois, Pro à 1 650 € HT par mois. L'essai gratuit, c'est une visio et {{prix.commercial.essai}} leads pour 0 €. La grille des prix détaille ce que contient chaque formule."
+      "a": "Un seul abonnement, Prospection, à {{prix.commercial}} € HT par mois : environ 10 recherches de prospects par jour ouvré avec Apollo et Pharow, jusqu'à 400 contacts qualifiés par mois et 4 séquences d'e-mails rédigées et suivies. Engagement de 3 mois, puis résiliation à tout moment. Les crédits supplémentaires et les envois au-delà du forfait sont refacturés au coût réel. L'essai gratuit, c'est une visio et {{prix.commercial.essai}} leads pour 0 €."
     },
     {
       "q": "La prospection automatisée est-elle légale au regard du RGPD ?",
@@ -52,7 +51,7 @@
   "faq_en": [
     {
       "q": "How much does automated prospecting cost?",
-      "a": "Two monthly subscription plans, with no minimum term: Standard at €{{prix.commercial}} excl. VAT per month and Pro at €1,650 excl. VAT per month. The free trial includes a video call and {{prix.commercial.essai}} leads, for 0 €. Each plan is detailed in the grid on this page."
+      "a": "One subscription, Prospecting, at €{{prix.commercial}} excl. VAT per month: about 10 prospect searches per working day with Apollo and Pharow, up to 400 qualified contacts per month and 4 email sequences written and monitored. 3-month minimum term, then cancel at any time. Extra credits and sends beyond the plan are rebilled at actual cost. The free trial includes a video call and {{prix.commercial.essai}} leads, for 0 €."
     },
     {
       "q": "Is automated prospecting legal under GDPR?",
@@ -89,7 +88,7 @@
       "kicker_en": "§ Automated prospecting",
       "h1_fr": "Prospection <i class=\"acc\">automatisée</i> par l'IA",
       "h1_en": "AI-<i class=\"acc\">automated</i> prospecting",
-      "lede_fr": "Nous installons et opérons un système qui cible vos comptes, envoie e-mails et relances, prépare LinkedIn et remonte les réponses au CRM. Vos commerciaux reprennent dès qu'un prospect répond. Essai de {{prix.commercial.essai}} leads gratuits, puis dès {{prix.commercial}} € HT par mois.",
+      "lede_fr": "Nous installons et opérons un système qui cible vos comptes, envoie e-mails et relances, prépare LinkedIn et remonte les réponses au CRM. Vos commerciaux reprennent dès qu'un prospect répond. Essai de {{prix.commercial.essai}} leads gratuits, puis {{prix.commercial}} € HT par mois.",
       "lede_en": "Automated prospecting hands the repetitive tasks of B2B prospecting to a system: targeting, email sequences, follow-ups, replies pushed into the CRM. Waimia sets it up and runs it for B2B SMBs; your salespeople take over once a prospect replies.",
       "badges": [
         {
@@ -105,8 +104,8 @@
           "label_en": "Replies in the CRM"
         },
         {
-          "label_fr": "Sans engagement de durée",
-          "label_en": "No minimum term"
+          "label_fr": "3 mois, puis résiliable",
+          "label_en": "3 months, then cancel anytime"
         }
       ],
       "cta_primary": {
@@ -130,8 +129,8 @@
       "metrics": [
         {
           "value": "{{prix.commercial}} € HT / mois",
-          "label_fr": "formule Standard ; formule Pro à 1 650 € HT par mois",
-          "label_en": "Standard plan; Pro plan at €1,650 excl. VAT per month",
+          "label_fr": "formule unique Prospection, jusqu'à 400 contacts qualifiés par mois",
+          "label_en": "single Prospecting plan, up to 400 qualified contacts per month",
           "emphasis": true
         },
         {
@@ -147,9 +146,9 @@
           "emphasis": false
         },
         {
-          "value": "Sans engagement",
-          "label_fr": "arrêt ou pause possible chaque mois",
-          "label_en": "stop or pause possible every month",
+          "value": "3 mois",
+          "label_fr": "d'engagement minimum, puis résiliation à tout moment",
+          "label_en": "minimum term, then cancel at any time",
           "emphasis": false
         }
       ]
@@ -276,8 +275,8 @@
       "kicker_en": "§ What you keep",
       "title_fr": "Ce qui vous reste si vous arrêtez",
       "title_en": "What you keep if you stop",
-      "lead_fr": "L'abonnement est sans engagement. Ce qui a été construit vous est transféré.",
-      "lead_en": "The subscription has no minimum term. What was built is transferred to you.",
+      "lead_fr": "Après les 3 premiers mois, l'abonnement se résilie à tout moment. Ce qui a été construit vous est transféré.",
+      "lead_en": "After the first 3 months, you can cancel the subscription at any time. What was built is transferred to you.",
       "items": [
         {
           "title_fr": "Les listes et les critères",
@@ -344,10 +343,10 @@
       "background": "paper",
       "kicker_fr": "§ La gamme",
       "kicker_en": "§ The range",
-      "h2_fr": "Un essai gratuit, puis deux formules en abonnement mensuel sans engagement",
-      "h2_en": "A free trial, then two monthly subscription plans with no commitment",
-      "lede_fr": "L'essai gratuit ouvre la porte : {{prix.commercial.essai}} leads, 0 €, une visio et des conseils concrets. Si le ciblage vous convainc, vous passez en abonnement mensuel, Standard ou Pro selon le volume visé, et vous arrêtez ou mettez en pause quand vous voulez.",
-      "lede_en": "Start with the free trial: {{prix.commercial.essai}} leads, 0 €, a video call and concrete advice. Then a monthly subscription, Standard or Pro depending on targeted volume. Stop or pause whenever you want.",
+      "h2_fr": "Un essai gratuit, puis une seule formule : Prospection",
+      "h2_en": "A free trial, then a single plan: Prospecting",
+      "lede_fr": "L'essai gratuit ouvre la porte : {{prix.commercial.essai}} leads, 0 €, une visio et des conseils concrets. Si le ciblage vous convainc, l'abonnement Prospection prend le relais à {{prix.commercial}} € HT par mois, avec 3 mois d'engagement puis résiliation à tout moment. Elle se prend seule ou s'ajoute à un pack marketing digital.",
+      "lede_en": "Start with the free trial: {{prix.commercial.essai}} leads, 0 €, a video call and concrete advice. If the targeting convinces you, the Prospecting subscription takes over at €{{prix.commercial}} excl. VAT per month, with a 3-month minimum term, then cancel at any time. Take it on its own or add it to a digital marketing pack.",
       "tiers": [
         {
           "name_fr": "Essai gratuit",
@@ -373,103 +372,48 @@
           }
         },
         {
-          "name_fr": "Standard",
-          "name_en": "Standard",
+          "name_fr": "Prospection",
+          "name_en": "Prospecting",
           "price": "{{prix.commercial}} €",
-          "period_fr": "HT / mois",
-          "period_en": "ex VAT / month",
+          "period_fr": "HT / mois · 3 mois minimum",
+          "period_en": "ex VAT / month · 3-month minimum",
           "features_fr": [
-            "1 000 contacts / mois (≈ 4 000 emails envoyés)",
-            "800 prospects / mois",
-            "Ajouts sous 72h en moyenne",
-            "Campagnes illimitées",
-            "Segments ciblés illimités",
-            "Copywriting séquences illimité",
-            "Noms de domaines inclus",
-            "Adresses email dédiées",
-            "SPF, DKIM, DMARC & domaine custom",
-            "Warmup intelligent",
-            "Reporting",
-            "Personnalisation IA",
-            "1 RDV / mois sur demande",
-            "Hotline directe via messagerie Slack",
-            "Arrêtez ou mettez en pause à tout moment"
+            "Environ 10 recherches de prospects par jour ouvré, avec Apollo et Pharow",
+            "Jusqu'à 400 contacts qualifiés par mois",
+            "4 séquences d'e-mails de prospection B2B, rédigées et suivies",
+            "Personnalisation IA, relue avant le départ",
+            "Noms de domaine et adresses e-mail dédiés",
+            "SPF, DKIM, DMARC et mise en chauffe progressive",
+            "Mentions d'information et désinscription conformes aux règles de la CNIL",
+            "LinkedIn : invitations et messages envoyés à la main, par vous ou sur votre validation",
+            "Reporting, 1 RDV / mois sur demande, hotline Slack",
+            "Crédits supplémentaires et envois au-delà du forfait refacturés au coût réel",
+            "Engagement de 3 mois, puis résiliation à tout moment"
           ],
           "features_en": [
-            "1,000 contacts / month (≈ 4,000 emails sent)",
-            "800 prospects / month",
-            "Additions within 72h on average",
-            "Unlimited campaigns",
-            "Unlimited targeted segments",
-            "Unlimited sequence copywriting",
-            "Domain names included",
-            "Dedicated email addresses",
-            "SPF, DKIM, DMARC & custom domain",
-            "Smart warm-up",
-            "Reporting",
-            "AI personalisation",
-            "1 call / month on request",
-            "Direct hotline via Slack messaging",
-            "Stop or pause at any time"
+            "About 10 prospect searches per working day, with Apollo and Pharow",
+            "Up to 400 qualified contacts per month",
+            "4 B2B prospecting email sequences, written and monitored",
+            "AI personalisation, reviewed before sending",
+            "Dedicated domain names and email addresses",
+            "SPF, DKIM, DMARC and gradual warm-up",
+            "Information notices and opt-out compliant with CNIL rules",
+            "LinkedIn: invitations and messages sent by hand, by you or on your approval",
+            "Reporting, 1 call / month on request, Slack hotline",
+            "Extra credits and sends beyond the plan rebilled at actual cost",
+            "3-month minimum term, then cancel at any time"
           ],
           "cta": {
             "label_fr": "Démarrer aujourd'hui →",
             "label_en": "Start today →",
-            "href": "/contact?offer=prospection-automatisee&intent=standard",
-            "variant": "ghost"
-          }
-        },
-        {
-          "name_fr": "Pro",
-          "name_en": "Pro",
-          "price": "1 650 €",
-          "period_fr": "HT / mois",
-          "period_en": "ex VAT / month",
-          "features_fr": [
-            "2 000 contacts / mois (≈ 8 000 emails envoyés)",
-            "1 600 prospects / mois",
-            "Ajouts sous 72h en moyenne",
-            "Campagnes illimitées",
-            "Segments ciblés illimités",
-            "Copywriting séquences illimité",
-            "Noms de domaines inclus",
-            "Adresses email dédiées",
-            "SPF, DKIM, DMARC & domaine custom",
-            "Warmup intelligent",
-            "Reporting",
-            "Personnalisation IA",
-            "1 RDV / mois sur demande",
-            "Hotline directe via messagerie Slack",
-            "Arrêtez ou mettez en pause à tout moment"
-          ],
-          "features_en": [
-            "2,000 contacts / month (≈ 8,000 emails sent)",
-            "1,600 prospects / month",
-            "Additions within 72h on average",
-            "Unlimited campaigns",
-            "Unlimited targeted segments",
-            "Unlimited sequence copywriting",
-            "Domain names included",
-            "Dedicated email addresses",
-            "SPF, DKIM, DMARC & custom domain",
-            "Smart warm-up",
-            "Reporting",
-            "AI personalisation",
-            "1 call / month on request",
-            "Direct hotline via Slack messaging",
-            "Stop or pause at any time"
-          ],
-          "cta": {
-            "label_fr": "Démarrer aujourd'hui →",
-            "label_en": "Start today →",
-            "href": "/contact?offer=prospection-automatisee&intent=pro",
+            "href": "/contact?offer=prospection-automatisee&intent=prospection",
             "variant": "primary"
           },
           "featured": true
         }
       ],
-      "footnote_fr": "Essai : une visio et {{prix.commercial.essai}} leads, à 0 €. Standard et Pro sont des abonnements mensuels HT, sans engagement de durée, que vous arrêtez ou mettez en pause à tout moment. Pas de facturation au volume de messages : nous livrons des prospects ciblés et une infrastructure d'envoi saine. Un volume plus élevé se cadre sur devis.",
-      "footnote_en": "Free trial: a video call and {{prix.commercial.essai}} leads on us, at 0 €. Standard and Pro are monthly ex-VAT subscriptions, with no duration commitment: stop or pause at any time. We don't bill by message volume, we deliver targeted prospects and a healthy sending infrastructure. Higher volume is scoped on request."
+      "footnote_fr": "Essai : une visio et {{prix.commercial.essai}} leads, à 0 €. C'est une porte d'entrée, pas une formule. Prospection est un abonnement mensuel HT, engagé 3 mois puis résiliable à tout moment. Les crédits supplémentaires et les envois au-delà du forfait sont refacturés au coût réel. Sur LinkedIn, rien ne part sans une personne : LinkedIn interdit les robots.",
+      "footnote_en": "Trial: a video call and {{prix.commercial.essai}} leads on us, at 0 €. It is a way in, not a plan. Prospecting is a monthly ex-VAT subscription, with a 3-month minimum term, then cancel at any time. Extra credits and sends beyond the plan are rebilled at actual cost. On LinkedIn, nothing goes out without a person: LinkedIn forbids bots."
     },
     {
       "type": "eeat-panel",
@@ -500,9 +444,9 @@
       "items": [
         {
           "q_fr": "Combien coûte la prospection automatisée ?",
-          "a_fr": "Deux abonnements mensuels, sans engagement de durée : Standard à {{prix.commercial}} € HT par mois, Pro à 1 650 € HT par mois. L'essai gratuit, c'est une visio et {{prix.commercial.essai}} leads pour 0 €. La grille des prix détaille ce que contient chaque formule.",
+          "a_fr": "Un seul abonnement, Prospection, à {{prix.commercial}} € HT par mois : environ 10 recherches de prospects par jour ouvré avec Apollo et Pharow, jusqu'à 400 contacts qualifiés par mois et 4 séquences d'e-mails rédigées et suivies. Engagement de 3 mois, puis résiliation à tout moment. Les crédits supplémentaires et les envois au-delà du forfait sont refacturés au coût réel. L'essai gratuit, c'est une visio et {{prix.commercial.essai}} leads pour 0 €.",
           "q_en": "How much does automated prospecting cost?",
-          "a_en": "Two monthly subscription plans, with no minimum term: Standard at €{{prix.commercial}} excl. VAT per month and Pro at €1,650 excl. VAT per month. The free trial includes a video call and {{prix.commercial.essai}} leads, for 0 €. Each plan is detailed in the grid on this page."
+          "a_en": "One subscription, Prospecting, at €{{prix.commercial}} excl. VAT per month: about 10 prospect searches per working day with Apollo and Pharow, up to 400 qualified contacts per month and 4 email sequences written and monitored. 3-month minimum term, then cancel at any time. Extra credits and sends beyond the plan are rebilled at actual cost. The free trial includes a video call and {{prix.commercial.essai}} leads, for 0 €."
         },
         {
           "q_fr": "La prospection automatisée est-elle légale au regard du RGPD ?",

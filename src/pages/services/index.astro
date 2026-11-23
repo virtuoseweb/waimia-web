@@ -15,7 +15,7 @@ import { buildServicesHubCatalog } from '../../lib/seo/schema-builder';
 import { serviceDomains } from '../../lib/seo/service-catalog';
 import { AUDIT_BOOKING_HREF } from '../../data/sitemap';
 import { AUDIT_PROMISE, AUDIT_BOOKING_LABEL } from '../../data/conversion';
-import { HOURLY_RATE_EUR, MAINTENANCE_TIERS_EUR, PILOT_FLOOR_EUR, SCOPING_SPRINT_EUR, formatEur } from '../../data/pricing';
+import { HOURLY_RATE_EUR, MAINTENANCE_TIERS_EUR, PILOT_FLOOR_EUR, PRICING_TOKENS, SCOPING_SPRINT_EUR, formatEur } from '../../data/pricing';
 
 // JSON-LD · catalogue des services : les domaines du menu Solutions et leurs pages
 // (source unique src/data/sitemap.ts), rattaché à l'Organization par `hasOfferCatalog`.
@@ -152,11 +152,10 @@ const applicationsData = {
   ],
 } satisfies SectionByType<'offer-tier-grid'>;
 
-// 4 · Conseil et formation (paper)
+// 3 · Conseil et formation (paper)
 const conseilData = {
   type: 'offer-tier-grid' as const,
   variant: 'standard' as const,
-  background: 'paper-2' as const,
   wrap: true,
   pad_block: 'var(--section-base)',
   eyebrow_fr: 'CONSEIL ET FORMATION',
@@ -215,10 +214,75 @@ const conseilData = {
   ],
 } satisfies SectionByType<'offer-tier-grid'>;
 
-// 5 · Outils commerciaux, visibilité et cas d'usage (paper-2)
+// 5 · Marketing digital (paper) : site web, SEO et GEO, publicité. Offre secondaire, placée
+// après les offres IA (fusion VirtuoseWeb, décision de Simon du 23 novembre 2026). Prix : grille
+// unique de src/data/pricing.ts (WEB_PRICING_EUR), jetons résolus au rendu.
+const webData = {
+  type: 'offer-tier-grid' as const,
+  variant: 'standard' as const,
+  background: 'paper' as const,
+  wrap: true,
+  pad_block: 'var(--section-base)',
+  eyebrow_fr: 'MARKETING DIGITAL',
+  eyebrow_en: 'DIGITAL MARKETING',
+  h2_fr: 'Le site, le référencement et la publicité qui amènent la demande.',
+  h2_en: 'The website, search and advertising that bring in demand.',
+  lede_fr: 'Prix fixes, sans devis : un site se met en place selon la taille de votre structure, le référencement et la publicité se prennent en abonnement mensuel.',
+  lede_en: 'Fixed prices, no quote: a website is set up according to the size of your business, search and advertising come as a monthly subscription.',
+  featured_card: {
+    eyebrow_fr: 'MARKETING DIGITAL',
+    eyebrow_en: 'DIGITAL MARKETING',
+    title_fr: 'Site, référencement et publicité',
+    title_en: 'Website, search and advertising',
+    sub_fr: `Packs dès ${PRICING_TOKENS['prix.web.pack.visibilite']} € HT par mois.`,
+    sub_en: `Packs from €${PRICING_TOKENS['prix.web.pack.visibilite.en']} ex VAT a month.`,
+    lead_fr: 'Les formulaires du site arrivent dans votre CRM, et vos automatisations traitent la demande ensuite.',
+    lead_en: 'The site’s forms land in your CRM, and your automations then handle the demand.',
+    cta_fr: 'Voir le marketing digital →',
+    cta_en: 'See digital marketing →',
+    href: '/services/systeme-acquisition',
+  },
+  offers: [
+    {
+      price_fr: `DÈS ${PRICING_TOKENS['prix.web.solo.site']} € HT`,
+      price_en: `FROM €${PRICING_TOKENS['prix.web.solo.site.en']}`,
+      title_fr: 'Site web',
+      title_en: 'Website',
+      lead_fr: 'Création ou refonte sur WordPress, Shopify, WooCommerce, Webflow, Framer, Lovable ou sur mesure (Astro, CMS headless).',
+      lead_en: 'Creation or redesign on WordPress, Shopify, WooCommerce, Webflow, Framer, Lovable or custom (Astro, headless CMS).',
+      cta_fr: 'Voir le site web →',
+      cta_en: 'See the service →',
+      href: '/services/site-web-ia',
+    },
+    {
+      price_fr: `${PRICING_TOKENS['prix.web.pack.visibilite']} € HT / MOIS`,
+      price_en: `€${PRICING_TOKENS['prix.web.pack.visibilite.en']} / MONTH`,
+      title_fr: 'SEO et GEO',
+      title_en: 'SEO and GEO',
+      lead_fr: 'Être trouvé sur Google et cité par les moteurs IA : pages optimisées et articles chaque mois.',
+      lead_en: 'Be found on Google and cited by AI engines: optimised pages and articles every month.',
+      cta_fr: 'Voir le SEO et le GEO →',
+      cta_en: 'See the service →',
+      href: '/services/seo-geo-contenu',
+    },
+    {
+      price_fr: `DÈS ${PRICING_TOKENS['prix.web.ads.essentiel']} € HT / MOIS`,
+      price_en: `FROM €${PRICING_TOKENS['prix.web.ads.essentiel.en']} / MONTH`,
+      title_fr: 'Publicité en ligne',
+      title_en: 'Online advertising',
+      lead_fr: 'Google Ads, Meta, TikTok ou Pinterest, créations et landing pages comprises, budget publicitaire en plus.',
+      lead_en: 'Google Ads, Meta, TikTok or Pinterest, creative and landing pages included, ad spend on top.',
+      cta_fr: 'Voir la publicité →',
+      cta_en: 'See the service →',
+      href: '/services/publicite-en-ligne',
+    },
+  ],
+} satisfies SectionByType<'offer-tier-grid'>;
+
+// 4 · Outils commerciaux, visibilité et cas d'usage (paper-2)
 const supportData = {
   type: 'related-cards-band' as const,
-  background: 'paper' as const,
+  background: 'paper-2' as const,
   pad_block: 'var(--section-base)',
   kicker_fr: '§ Commercial, visibilité et cas d’usage',
   kicker_en: '§ Sales, visibility and use cases',
@@ -233,13 +297,13 @@ const supportData = {
       href: '/services/systeme-commercial',
     },
     {
-      kicker_fr: 'SITES WEB',
-      kicker_en: 'WEBSITES',
-      title_fr: 'VirtuoseWeb, agence de création de site web',
-      title_en: 'VirtuoseWeb, website design agency',
-      lead_fr: 'Création, refonte et référencement de site : c’est le métier de VirtuoseWeb, le studio frère de Waimia.',
-      lead_en: 'Website creation, redesign and search: this is the job of VirtuoseWeb, Waimia’s sister studio.',
-      href: 'https://virtuoseweb.fr/',
+      kicker_fr: 'VISIBILITÉ WEB',
+      kicker_en: 'WEB VISIBILITY',
+      title_fr: 'Référencement Google et moteurs IA',
+      title_en: 'Google and AI search visibility',
+      lead_fr: 'Être trouvé sur Google et par les moteurs IA, avec des pages qui captent un contact propre et l’envoient au CRM.',
+      lead_en: 'Being found on Google and by AI engines, with pages that capture a clean contact and send it to the CRM.',
+      href: '/services/systeme-acquisition',
     },
     {
       kicker_fr: 'CAS D’USAGE',
@@ -271,6 +335,7 @@ const sections = [
   applicationsData,
   conseilData,
   supportData,
+  webData,
   ctaData,
 ] satisfies SectionData[];
 ---

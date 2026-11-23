@@ -19,8 +19,8 @@
   "seo": {
     "noindex": false,
     "serviceType": "Prospection LinkedIn B2B préparée par IA et validée par un humain",
-    "priceRange": "dès {{prix.sprint}} €",
-    "priceMin": 999
+    "priceRange": "{{prix.commercial}}€/mois",
+    "priceMin": 790
   },
   "faq_fr": [
     {
@@ -130,19 +130,19 @@
         {
           "value": "Hors LinkedIn",
           "label_fr": "ciblage et enrichissement, sans aspirer un seul profil",
-          "label_en": "each invitation and message goes from your account, after approval",
+          "label_en": "targeting and enrichment, without scraping a single profile",
           "emphasis": true
         },
         {
           "value": "5 étapes",
           "label_fr": "de la liste au rendez-vous, dont deux gestes humains",
-          "label_en": "targeting and enrichment without scraping LinkedIn profiles",
+          "label_en": "from list to meeting, two of them human actions",
           "emphasis": false
         },
         {
           "value": "Audit gratuit",
           "label_fr": "45 minutes pour juger si le canal vaut le coup chez vous",
-          "label_en": "10-hour scoping sprint, then €{{prix.horaire}} per hour excl. VAT",
+          "label_en": "45 minutes to judge whether the channel is worth it for you",
           "emphasis": false
         }
       ]
@@ -168,7 +168,7 @@
         }
       ],
       "html_fr": "<h2>Ce que le système prépare, ce qu'il laisse à une personne</h2>\n<p>Le système prépare tout ce qui précède l'envoi : la liste des comptes et des interlocuteurs selon vos critères, son enrichissement à partir de sources hors LinkedIn (votre CRM, vos clients existants, le registre Sirene, les sites des entreprises, une base B2B dont la source est documentée), un brouillon d'invitation et de premiers messages rédigé par Claude à partir d'un fait public, et un calendrier de relances. C'est le volet LinkedIn de votre <a href=\"/services/systeme-commercial\">système commercial</a>, que la <a href=\"/services/prospection-automatisee\">prospection automatisée</a> complète côté e-mail.</p>\n<p>La personne qui détient le compte relit, corrige, envoie, puis note la réponse. Le système n'ouvre pas LinkedIn à sa place : il n'envoie pas d'invitations, ne like pas, ne commente pas. Deux gestes restent manuels, l'envoi et la conversation.</p>\n<h2>Pourquoi pas un robot d'envoi</h2>\n<p>Les <a href=\"https://www.linkedin.com/legal/user-agreement\" rel=\"noopener\" target=\"_blank\">conditions d'utilisation de LinkedIn</a> (en vigueur depuis le 3 novembre 2025) interdisent les robots et autres méthodes automatisées non autorisées pour accéder au service, ajouter des contacts ou envoyer des messages, ainsi que les logiciels, scripts et extensions qui copient des profils. Dans <a href=\"https://www.linkedin.com/help/linkedin/answer/a1341387\" rel=\"noopener\" target=\"_blank\">son centre d'aide</a>, LinkedIn précise qu'un membre qui utilise de tels outils risque la restriction ou la fermeture de son compte, et que ces outils peuvent cesser de fonctionner sans préavis.</p>\n<p>Je déconseille donc tout outil d'envoi automatique, même présenté comme discret. Pour une PME, le compte du dirigeant ou du commercial est un actif : on ne le met pas en jeu pour gagner quelques minutes de clic. Le temps se perd ailleurs, dans la recherche, la rédaction et le suivi, et c'est là que le système travaille.</p>",
-      "html_en": "<h2>What the system prepares, what it leaves to a person</h2>\n<p>The system prepares what comes before sending: the list of accounts and contacts from your criteria, its enrichment from sources outside LinkedIn (your CRM, existing clients, the Sirene register, company websites, a B2B database whose source is documented), a draft invitation and first messages written by Claude from a public fact, and a follow-up calendar.</p>\n<p>The person who holds the account reviews, edits, sends, then notes the reply. The system does not open LinkedIn for them: it does not send invitations, like or comment. Two acts stay manual, sending and the conversation.</p>\n<h2>Why not a sending bot</h2>\n<p><a href=\"https://www.linkedin.com/legal/user-agreement\" rel=\"noopener\" target=\"_blank\">LinkedIn's User Agreement</a> (effective since 3 November 2025) prohibits bots and other unauthorized automated methods to access the service, add contacts or send messages, as well as software, scripts and extensions that copy profiles. LinkedIn states in <a href=\"https://www.linkedin.com/help/linkedin/answer/a1341387\" rel=\"noopener\" target=\"_blank\">its help centre</a> that a member using such tools risks having their account restricted or shut down, and that these tools may stop working without notice. For an SME, the owner's or salesperson's account is an asset: we do not put it at stake to save a few minutes of sending.</p>\n<p>The gain is elsewhere: research, writing and follow-up take far more time than the send click.</p>\n<h2>One channel among others</h2>\n<p>The same account list can also be worked by <a href=\"/services/cold-email-b2b\">B2B cold email</a>, from dedicated domains. The signals that say when to write come with <a href=\"/services/social-selling-ia\">AI-assisted social selling</a>. Replies go into a <a href=\"/services/crm-scoring-routing\">scored and routed CRM</a>, and <a href=\"/services/sequences-de-suivi\">follow-up sequences</a> keep accounts open. The full setup is described on the <a href=\"/services/prospection-automatisee\">automated prospecting</a> page. The wider <a href=\"https://virtuoseweb.fr/services/marketing-digital/\" rel=\"noopener noreferrer\" target=\"_blank\">acquisition system</a> is the job of VirtuoseWeb, Waimia's sister studio.</p>"
+      "html_en": "<h2>What the system prepares, what it leaves to a person</h2>\n<p>The system prepares what comes before sending: the list of accounts and contacts from your criteria, its enrichment from sources outside LinkedIn (your CRM, existing clients, the Sirene register, company websites, a B2B database whose source is documented), a draft invitation and first messages written by Claude from a public fact, and a follow-up calendar.</p>\n<p>The person who holds the account reviews, edits, sends, then notes the reply. The system does not open LinkedIn for them: it does not send invitations, like or comment. Two acts stay manual, sending and the conversation.</p>\n<h2>Why not a sending bot</h2>\n<p><a href=\"https://www.linkedin.com/legal/user-agreement\" rel=\"noopener\" target=\"_blank\">LinkedIn's User Agreement</a> (effective since 3 November 2025) prohibits bots and other unauthorized automated methods to access the service, add contacts or send messages, as well as software, scripts and extensions that copy profiles. LinkedIn states in <a href=\"https://www.linkedin.com/help/linkedin/answer/a1341387\" rel=\"noopener\" target=\"_blank\">its help centre</a> that a member using such tools risks having their account restricted or shut down, and that these tools may stop working without notice. For an SME, the owner's or salesperson's account is an asset: we do not put it at stake to save a few minutes of sending.</p>\n<p>The gain is elsewhere: research, writing and follow-up take far more time than the send click.</p>\n<h2>One channel among others</h2>\n<p>The same account list can also be worked by <a href=\"/services/cold-email-b2b\">B2B cold email</a>, from dedicated domains. The signals that say when to write come with <a href=\"/services/social-selling-ia\">AI-assisted social selling</a>. Replies go into a <a href=\"/services/crm-scoring-routing\">scored and routed CRM</a>, and <a href=\"/services/sequences-de-suivi\">follow-up sequences</a> keep accounts open. The full setup is described on the <a href=\"/services/prospection-automatisee\">automated prospecting</a> page, within the <a href=\"/services/systeme-acquisition\">acquisition system</a>.</p>"
     },
     {
       "type": "method-stepline",
@@ -459,67 +459,79 @@
       "background": "paper",
       "layout": "grid-asym",
       "colRatio": "2-3",
-      "kicker_fr": "§ Deux façons d'engager",
-      "kicker_en": "§ Two ways to engage",
+      "kicker_fr": "§ Un essai, une formule",
+      "kicker_en": "§ One trial, one plan",
       "h2_fr": "Prix de la prospection LinkedIn préparée",
       "h2_en": "Price of prepared LinkedIn prospecting",
-      "lede_fr": "Nous démarrons par un sprint de cadrage à prix fixe : critères de ciblage, sources d'enrichissement, modèles de messages et file de travail en place. La suite se cale sur devis. L'abonnement de prospection (dès {{prix.commercial}} € HT par mois) est décrit sur la page prospection automatisée ; ce qui relève de LinkedIn s'y rattache ou se monte en sprint, et nous le décidons avec vous à l'audit.",
-      "lede_en": "We start with a fixed-price scoping sprint: targeting criteria, enrichment sources, message templates and work queue in place. What follows is quoted. The prospecting subscription (from €{{prix.commercial}} excl. VAT per month) is described on the automated prospecting page; what concerns LinkedIn either attaches to it or is built as a sprint, and that is decided with you at the audit.",
+      "lede_fr": "La préparation LinkedIn fait partie de l'abonnement Prospection, à {{prix.commercial}} € HT par mois, engagé 3 mois puis résiliable à tout moment. Le système cible, enrichit et prépare les brouillons ; les invitations et les messages partent à la main, par vous ou sur votre validation, car LinkedIn interdit les robots. Elle se prend seule ou s'ajoute à un pack marketing digital.",
+      "lede_en": "LinkedIn preparation is part of the Prospecting subscription, at €{{prix.commercial}} excl. VAT per month, with a 3-month minimum term, then cancel at any time. The system targets, enriches and prepares drafts; invitations and messages are sent by hand, by you or on your approval, because LinkedIn forbids bots. Take it on its own or add it to a digital marketing pack.",
       "tiers": [
         {
-          "name_fr": "Sprint de cadrage",
-          "name_en": "Scoping sprint",
-          "price": "{{prix.sprint}} €",
-          "period_fr": "10 h · HT",
-          "period_en": "10 h · ex VAT",
+          "name_fr": "Essai gratuit",
+          "name_en": "Free trial",
+          "price": "{{prix.commercial.essai}} leads",
+          "period_fr": "offerts · 0 € · un essai, pas une formule",
+          "period_en": "on us · 0 € · a trial, not a plan",
           "features_fr": [
-            "Critères de ciblage écrits et première liste de comptes",
-            "Sources d'enrichissement choisies et documentées",
-            "Modèles d'invitation et de messages, relus avec vous",
-            "File de travail et report des réponses dans le CRM"
+            "Une visio pour cadrer votre cible et le temps dont vous disposez",
+            "Une liste de {{prix.commercial.essai}} leads offerts, pour tester le ciblage",
+            "Des conseils concrets sur vos premiers messages"
           ],
           "features_en": [
-            "Written targeting criteria and a first account list",
-            "Enrichment sources chosen and documented",
-            "Invitation and message templates, reviewed with you",
-            "Work queue and replies logged in the CRM"
+            "A video call to frame your target and the time you have",
+            "A list of {{prix.commercial.essai}} leads on us, to test the targeting",
+            "Concrete advice on your first messages"
           ],
           "cta": {
             "label_fr": "Réserver l'audit gratuit →",
             "label_en": "Book the free audit →",
             "href": "/contact?offer=audit-ia-pme&intent=audit",
+            "variant": "ghost"
+          }
+        },
+        {
+          "name_fr": "Prospection",
+          "name_en": "Prospecting",
+          "price": "{{prix.commercial}} €",
+          "period_fr": "HT / mois · 3 mois minimum",
+          "period_en": "ex VAT / month · 3-month minimum",
+          "features_fr": [
+            "Environ 10 recherches de prospects par jour ouvré, avec Apollo et Pharow",
+            "Jusqu'à 400 contacts qualifiés par mois",
+            "4 séquences d'e-mails de prospection B2B, rédigées et suivies",
+            "Personnalisation IA, relue avant le départ",
+            "Noms de domaine et adresses e-mail dédiés",
+            "SPF, DKIM, DMARC et mise en chauffe progressive",
+            "Mentions d'information et désinscription conformes aux règles de la CNIL",
+            "LinkedIn : invitations et messages envoyés à la main, par vous ou sur votre validation",
+            "Reporting, 1 RDV / mois sur demande, hotline Slack",
+            "Crédits supplémentaires et envois au-delà du forfait refacturés au coût réel",
+            "Engagement de 3 mois, puis résiliation à tout moment"
+          ],
+          "features_en": [
+            "About 10 prospect searches per working day, with Apollo and Pharow",
+            "Up to 400 qualified contacts per month",
+            "4 B2B prospecting email sequences, written and monitored",
+            "AI personalisation, reviewed before sending",
+            "Dedicated domain names and email addresses",
+            "SPF, DKIM, DMARC and gradual warm-up",
+            "Information notices and opt-out compliant with CNIL rules",
+            "LinkedIn: invitations and messages sent by hand, by you or on your approval",
+            "Reporting, 1 call / month on request, Slack hotline",
+            "Extra credits and sends beyond the plan rebilled at actual cost",
+            "3-month minimum term, then cancel at any time"
+          ],
+          "cta": {
+            "label_fr": "Démarrer aujourd'hui →",
+            "label_en": "Start today →",
+            "href": "/contact?offer=prospection-linkedin&intent=prospection",
             "variant": "primary"
           },
           "featured": true
-        },
-        {
-          "name_fr": "Suite sur devis",
-          "name_en": "Next steps on quote",
-          "price": "Sur devis",
-          "period_fr": "estimé avec vous · HT",
-          "period_en": "estimated with you · ex VAT",
-          "features_fr": [
-            "Temps estimé ensemble, puis validé",
-            "Exécuté par sprints, facturés à l'heure",
-            "Nouveaux segments ajoutés sur preuve",
-            "Listes, modèles et accès restent à vous"
-          ],
-          "features_en": [
-            "Time estimated together, then validated",
-            "Run in sprints, time and materials",
-            "New segments added on proof",
-            "You keep the lists, templates and access"
-          ],
-          "cta": {
-            "label_fr": "Cadrer la suite →",
-            "label_en": "Scope what follows →",
-            "href": "/contact?offer=prospection-linkedin&intent=suite",
-            "variant": "ghost"
-          }
         }
       ],
-      "footnote_fr": "Après le sprint, nous estimons avec vous le temps que demandent vos segments, vous validez, puis nous exécutons à {{prix.horaire}} € HT de l'heure.",
-      "footnote_en": "Scoping sprint at €{{prix.sprint.en}} excl. VAT for 10 hours, fixed price. Afterwards, we estimate with you the time your segments need, you approve, then we run it on a time-and-materials basis at €{{prix.horaire}} excl. VAT per hour. At the end, the lists, templates and access are yours."
+      "footnote_fr": "Abonnement mensuel HT, engagé 3 mois puis résiliable à tout moment. Crédits supplémentaires et envois au-delà du forfait refacturés au coût réel. À la fin, les listes, les modèles et les accès sont à vous.",
+      "footnote_en": "Monthly ex-VAT subscription, with a 3-month minimum term, then cancel at any time. Extra credits and sends beyond the plan rebilled at actual cost. At the end, the lists, templates and access are yours."
     },
     {
       "type": "eeat-panel",
@@ -597,8 +609,8 @@
       "kicker_en": "§ Free AI audit",
       "h2_fr": "Votre cible répond-elle sur LinkedIn ?",
       "h2_en": "Does your target answer on LinkedIn?",
-      "subtitle_fr": "Nous regardons votre cible, vos comptes et le temps disponible pour envoyer, et nous vous disons si ce canal vaut un sprint avant que vous y investissiez.",
-      "subtitle_en": "In 45 minutes, we look at your target, your accounts and the time available to send, and tell you whether this channel is worth a sprint before you invest in it.",
+      "subtitle_fr": "Nous regardons votre cible, vos comptes et le temps disponible pour envoyer, et nous vous disons si ce canal vaut l'abonnement avant que vous y investissiez.",
+      "subtitle_en": "In 45 minutes, we look at your target, your accounts and the time available to send, and tell you whether this channel is worth the subscription before you invest in it.",
       "buttons": [
         {
           "label_fr": "Réserver l'audit gratuit →",

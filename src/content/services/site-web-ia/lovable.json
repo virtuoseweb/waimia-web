@@ -3,11 +3,11 @@
   "title_fr": "Agence Lovable pour PME : du prototype à la production · Waimia",
   "seoTitle_fr": "Agence Lovable : du prototype à un outil en production",
   "title_en": "Lovable agency for SMEs: from prototype to production · Waimia",
-  "description_fr": "Agence Lovable pour PME : nous partons de votre prototype, reprenons le code, sécurisons la base et mettons en production. Dès {{prix.sprint}} € HT.",
-  "description_en": "Lovable agency for SMBs: we start from your prototype, take over the code, secure the database and go live. From €{{prix.sprint.en}} excl. VAT.",
+  "description_fr": "Agence Lovable pour PME : nous reprenons votre prototype, sécurisons la base et mettons en production. Site dès {{prix.web.solo.site}} € HT, MVP {{prix.web.app.mvp}} € HT.",
+  "description_en": "Lovable agency for SMBs: we take over your prototype, secure the database and go live. Site from €{{prix.web.solo.site.en}}, MVP €{{prix.web.app.mvp.en}} excl. VAT.",
   "slug": "lovable",
   "publishedAt": "2026-11-11T00:00:00.000Z",
-  "updatedAt": "2026-11-11T00:00:00.000Z",
+  "updatedAt": "2026-11-23T00:00:00.000Z",
   "category": "web",
   "tags": [
     "lovable",
@@ -67,8 +67,9 @@
   "seo": {
     "noindex": false,
     "serviceType": "Agence Lovable : prototype, reprise de code, sécurisation et mise en production pour PME",
-    "priceRange": "dès {{prix.sprint}} €",
-    "priceMin": 999
+    "priceRange": "1900-16900€",
+    "priceMin": 1900,
+    "priceMax": 16900
   },
   "faq_fr": [
     {
@@ -97,7 +98,7 @@
     },
     {
       "q": "Combien ça coûte ?",
-      "a": "Le sprint de cadrage de 10 heures coûte {{prix.sprint}} € HT : nous lisons le prototype et fixons le périmètre. La mise en production relève du pilote, dès {{prix.pilote}} € HT, et la suite se facture {{prix.horaire}} € HT de l'heure. L'abonnement Lovable, le domaine et l'hébergement sont à votre nom et ne figurent pas dans ces prix."
+      "a": "Un site Lovable suit la grille par taille : {{prix.web.solo.site}} € HT pour un solopreneur (5 pages), {{prix.web.tpe.site}} € HT pour une TPE (6 à 12 pages), {{prix.web.pme.site}} € HT pour une PME (environ 20 pages). Une vraie application ou un SaaS relève du MVP, à {{prix.web.app.mvp}} € HT ; une application mobile iOS et Android coûte {{prix.web.app.mobile}} € HT. Pas de devis : l'appel de cadrage de 30 minutes dit quelle grille s'applique. L'abonnement Lovable, le domaine et l'hébergement sont à votre nom et ne figurent pas dans ces prix."
     }
   ],
   "faq_en": [
@@ -127,7 +128,7 @@
     },
     {
       "q": "How much does it cost?",
-      "a": "The 10-hour scoping sprint costs €{{prix.sprint.en}} excl. VAT: we read the prototype and set the scope. Going live is part of the pilot, from €{{prix.pilote.en}} excl. VAT, and anything beyond is billed at €{{prix.horaire}} excl. VAT per hour. The Lovable subscription, domain and hosting are in your name and not included in these prices."
+      "a": "A Lovable site follows the grid by size: €{{prix.web.solo.site.en}} excl. VAT for a solopreneur (5 pages), €{{prix.web.tpe.site.en}} for a small business (6 to 12 pages), €{{prix.web.pme.site.en}} for an SME (about 20 pages). A real application or a SaaS is an MVP, at €{{prix.web.app.mvp.en}} excl. VAT; an iOS and Android mobile app costs €{{prix.web.app.mobile.en}}. No quote: the 30-minute scoping call tells which grid applies. The Lovable subscription, domain and hosting are in your name and not included in these prices."
     }
   ],
   "sections": [
@@ -183,9 +184,9 @@
       "kicker_en": "§ In short",
       "metrics": [
         {
-          "value": "Dès {{prix.sprint}} € HT",
-          "label_fr": "sprint de cadrage de 10 heures : on lit le prototype et on fixe le périmètre",
-          "label_en": "10-hour scoping sprint: we read the prototype and set the scope",
+          "value": "Dès {{prix.web.solo.site}} € HT",
+          "label_fr": "un site Lovable selon votre taille ; une application ou un SaaS : MVP à {{prix.web.app.mvp}} € HT",
+          "label_en": "a Lovable site by company size; an app or a SaaS: MVP at €{{prix.web.app.mvp.en}} excl. VAT",
           "emphasis": true
         },
         {
@@ -519,28 +520,53 @@
       "background": "paper",
       "kicker_fr": "§ La gamme",
       "kicker_en": "§ The range",
-      "h2_fr": "Combien coûte la reprise d'un projet Lovable",
-      "h2_en": "How much taking over a Lovable project costs",
-      "lede_fr": "Trois étapes, la même grille que nos autres projets : le prix suit le périmètre, pas l'outil. Nous ne chiffrons pas une reprise avant d'avoir lu le dépôt et la base.",
-      "lede_en": "Three steps, the same grid as our other projects: price follows scope, not the tool. We do not price a takeover before reading the repository and the database.",
+      "h2_fr": "Combien coûte un site ou une application Lovable",
+      "h2_en": "How much a Lovable site or app costs",
+      "lede_fr": "Un site Lovable suit la même grille que nos autres sites : prix fixe selon la taille de votre structure. Une vraie application ou un SaaS relève du MVP. Pas de devis : un appel de cadrage de 30 minutes sert à choisir la grille.",
+      "lede_en": "A Lovable site follows the same grid as our other sites: a fixed price by the size of your business. A real application or a SaaS is an MVP. No quote: a 30-minute scoping call is enough to pick the grid.",
       "tiers": [
         {
-          "name_fr": "Sprint de cadrage",
-          "name_en": "Scoping sprint",
-          "price": "{{prix.sprint}} €",
-          "period_fr": "10 heures · HT",
-          "period_en": "10 hours · excl. VAT",
+          "name_fr": "Site solopreneur",
+          "name_en": "Solopreneur site",
+          "price": "{{prix.web.solo.site}} €",
+          "period_fr": "1 à 2 personnes · HT",
+          "period_en": "1 to 2 people · excl. VAT",
           "features_fr": [
-            "Lecture du dépôt GitHub, de la base et des règles d'accès",
-            "Liste de ce qui tient, se corrige ou se reconstruit",
-            "Périmètre et plan de mise en production chiffrés",
-            "Plan de sortie des données"
+            "Site vitrine de 5 pages sur Lovable, code repris et relu",
+            "Code synchronisé sur GitHub, à votre nom",
+            "Formulaire, RGPD et mesure d'audience",
+            "Domaine, HTTPS et une session de prise en main"
           ],
           "features_en": [
-            "Reading of the GitHub repository, the database and the access rules",
-            "List of what holds, what can be fixed and what must be rebuilt",
-            "Scope and go-live plan priced",
-            "Data exit plan"
+            "5-page showcase site on Lovable, code taken over and reviewed",
+            "Code synced to GitHub, in your name",
+            "Form, GDPR and analytics",
+            "Domain, HTTPS and one handover session"
+          ],
+          "cta": {
+            "label_fr": "Cadrer mon site →",
+            "label_en": "Scope my site →",
+            "href": "/contact?offer=lovable&intent=solo",
+            "variant": "ghost"
+          }
+        },
+        {
+          "name_fr": "Site TPE",
+          "name_en": "Small-business site",
+          "price": "{{prix.web.tpe.site}} €",
+          "period_fr": "3 à 10 personnes · HT",
+          "period_en": "3 to 10 people · excl. VAT",
+          "features_fr": [
+            "Site de 6 à 12 pages",
+            "Base sécurisée : règles d'accès relues, secrets hors du navigateur",
+            "Connexion à vos outils (agenda, facturation, CRM léger), par webhook ou n8n",
+            "Trois séries de retours"
+          ],
+          "features_en": [
+            "6-to-12-page site",
+            "Secured database: access rules reviewed, secrets kept out of the browser",
+            "Connection to your tools (calendar, invoicing, light CRM), by webhook or n8n",
+            "Three rounds of feedback"
           ],
           "cta": {
             "label_fr": "Réserver l'audit gratuit →",
@@ -551,58 +577,58 @@
           "featured": true
         },
         {
-          "name_fr": "Mise en production",
-          "name_en": "Going live",
-          "price": "{{prix.pilote}} €",
-          "period_fr": "à partir de · HT",
-          "period_en": "from · excl. VAT",
+          "name_fr": "Site PME",
+          "name_en": "SME site",
+          "price": "{{prix.web.pme.site}} €",
+          "period_fr": "plus de 10 personnes · HT",
+          "period_en": "more than 10 people · excl. VAT",
           "features_fr": [
-            "Reprise du code et sécurisation de la base",
-            "Connexion au CRM et aux outils, par webhook ou n8n",
-            "Domaine, HTTPS et environnement de test",
-            "Une session de prise en main"
+            "Site corporate ou refonte, environ 20 pages",
+            "Deux langues, redirections des anciennes URL, migration de contenu",
+            "Intégration CRM ou ERP",
+            "Cadrage approfondi et recette"
           ],
           "features_en": [
-            "Code takeover and database hardening",
-            "Connection to the CRM and tools, by webhook or n8n",
-            "Domain, HTTPS and test environment",
-            "One handover session"
+            "Corporate site or redesign, about 20 pages",
+            "Two languages, old-URL redirects, content migration",
+            "CRM or ERP integration",
+            "In-depth scoping and acceptance testing"
           ],
           "cta": {
-            "label_fr": "Cadrer une reprise →",
-            "label_en": "Scope a takeover →",
-            "href": "/contact?offer=audit-ia-pme&intent=audit",
+            "label_fr": "Cadrer un site PME →",
+            "label_en": "Scope an SME site →",
+            "href": "/contact?offer=lovable&intent=pme",
             "variant": "ghost"
           }
         },
         {
-          "name_fr": "La suite",
-          "name_en": "What follows",
-          "price": "{{prix.horaire}} €",
-          "period_fr": "de l'heure · HT",
-          "period_en": "per hour · excl. VAT",
+          "name_fr": "Application ou SaaS",
+          "name_en": "Application or SaaS",
+          "price": "{{prix.web.app.mvp}} €",
+          "period_fr": "MVP web ou SaaS · HT",
+          "period_en": "web or SaaS MVP · excl. VAT",
           "features_fr": [
-            "Évolutions et nouvelles fonctions, estimées en heures avant de démarrer",
-            "Référencement et mesure des pages clés",
-            "Intégrations supplémentaires",
-            "Entretien facultatif après livraison"
+            "Un prototype Lovable repris jusqu'à une vraie application",
+            "Application mobile iOS et Android : {{prix.web.app.mobile}} € HT",
+            "SaaS en abonnement : Build {{prix.web.saas.build}} € HT par mois (6 mois minimum), Manage {{prix.web.saas.manage}} € HT par mois",
+            "Plan de sortie des données"
           ],
           "features_en": [
-            "Changes and new features, estimated in hours before starting",
-            "Search visibility and measurement of key pages",
-            "Additional integrations",
-            "Optional upkeep after delivery"
+            "A Lovable prototype taken over into a real application",
+            "iOS and Android mobile app: €{{prix.web.app.mobile.en}} excl. VAT",
+            "SaaS by subscription: Build €{{prix.web.saas.build.en}} excl. VAT a month (6 months minimum), Manage €{{prix.web.saas.manage.en}} a month",
+            "Data exit plan"
           ],
           "cta": {
-            "label_fr": "Réserver l'audit gratuit →",
-            "label_en": "Book the free audit →",
-            "href": "/contact?offer=audit-ia-pme&intent=audit",
+            "label_fr": "Voir l'offre MVP →",
+            "label_en": "See the MVP offer →",
+            "href": "/services/mvp-saas",
             "variant": "ghost"
           }
         }
       ],
-      "footnote_fr": "L'abonnement Lovable, le domaine et l'hébergement sont souscrits à votre nom et payés directement : ils ne figurent pas dans ces prix. Aucun abonnement imposé chez nous.",
-      "footnote_en": "The Lovable subscription, domain and hosting are taken out in your name and paid directly: they are not in these prices. No subscription imposed by us."
+      "footnote_fr": "Extras à prix fixe : page {{prix.web.extra.page}} €, langue {{prix.web.extra.langue}} €, outil relié (CRM, ERP, agenda) {{prix.web.extra.outil}} € HT. Après la mise en ligne, maintenance dès {{prix.web.maintenance.essentielle}} € HT par mois, sans engagement. L'abonnement Lovable, le domaine, l'hébergement, les textes et les photos sont à votre nom et à votre charge.",
+      "footnote_en": "Fixed-price extras: page €{{prix.web.extra.page.en}}, language €{{prix.web.extra.langue.en}}, connected tool (CRM, ERP, calendar) €{{prix.web.extra.outil.en}} excl. VAT. After launch, maintenance from €{{prix.web.maintenance.essentielle.en}} excl. VAT a month, with no commitment. The Lovable subscription, domain, hosting, copy and photos are in your name and on your side."
     },
     {
       "type": "eeat-panel",
@@ -655,9 +681,9 @@
         },
         {
           "q_fr": "Combien ça coûte ?",
-          "a_fr": "Le sprint de cadrage de 10 heures coûte {{prix.sprint}} € HT : nous lisons le prototype et fixons le périmètre. La mise en production relève du pilote, dès {{prix.pilote}} € HT, et la suite se facture {{prix.horaire}} € HT de l'heure. L'abonnement Lovable, le domaine et l'hébergement sont à votre nom et ne figurent pas dans ces prix.",
+          "a_fr": "Un site Lovable suit la grille par taille : {{prix.web.solo.site}} € HT pour un solopreneur (5 pages), {{prix.web.tpe.site}} € HT pour une TPE (6 à 12 pages), {{prix.web.pme.site}} € HT pour une PME (environ 20 pages). Une vraie application ou un SaaS relève du MVP, à {{prix.web.app.mvp}} € HT ; une application mobile iOS et Android coûte {{prix.web.app.mobile}} € HT. Pas de devis : l'appel de cadrage de 30 minutes dit quelle grille s'applique. L'abonnement Lovable, le domaine et l'hébergement sont à votre nom et ne figurent pas dans ces prix.",
           "q_en": "How much does it cost?",
-          "a_en": "The 10-hour scoping sprint costs €{{prix.sprint.en}} excl. VAT: we read the prototype and set the scope. Going live is part of the pilot, from €{{prix.pilote.en}} excl. VAT, and anything beyond is billed at €{{prix.horaire}} excl. VAT per hour. The Lovable subscription, domain and hosting are in your name and not included in these prices."
+          "a_en": "A Lovable site follows the grid by size: €{{prix.web.solo.site.en}} excl. VAT for a solopreneur (5 pages), €{{prix.web.tpe.site.en}} for a small business (6 to 12 pages), €{{prix.web.pme.site.en}} for an SME (about 20 pages). A real application or a SaaS is an MVP, at €{{prix.web.app.mvp.en}} excl. VAT; an iOS and Android mobile app costs €{{prix.web.app.mobile.en}}. No quote: the 30-minute scoping call tells which grid applies. The Lovable subscription, domain and hosting are in your name and not included in these prices."
         }
       ]
     },

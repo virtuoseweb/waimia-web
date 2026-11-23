@@ -3,11 +3,11 @@
   "title_fr": "Agence Webflow pour PME : création et refonte · Waimia",
   "seoTitle_fr": "Agence Webflow : un site que votre équipe édite seule",
   "title_en": "Webflow agency for SMEs: build and redesign · Waimia",
-  "description_fr": "Agence Webflow pour PME : création ou refonte, formulaires reliés au CRM, contenus que votre équipe modifie seule. Dès {{prix.pilote}} € HT, compte à votre nom.",
-  "description_en": "Webflow agency for SMBs: build or redesign, forms connected to the CRM, content your team edits alone. From €{{prix.sprint.en}} excl. VAT, account in your name.",
+  "description_fr": "Agence Webflow pour PME : création ou refonte, formulaires reliés au CRM, contenus édités par votre équipe. Dès {{prix.web.solo.site}} € HT, compte à votre nom.",
+  "description_en": "Webflow agency for SMBs: build or redesign, forms connected to the CRM, content your team edits. From €{{prix.web.solo.site.en}} excl. VAT, account in your name.",
   "slug": "webflow",
   "publishedAt": "2026-06-29T00:00:00.000Z",
-  "updatedAt": "2026-11-11T00:00:00.000Z",
+  "updatedAt": "2026-11-23T00:00:00.000Z",
   "category": "web",
   "tags": [
     "webflow",
@@ -27,9 +27,9 @@
   "seo": {
     "noindex": false,
     "serviceType": "Agence Webflow : création, refonte, instrumentation et migration de sites pour PME",
-    "priceRange": "2000-10000€",
-    "priceMin": 2000,
-    "priceMax": 10000
+    "priceRange": "1900-8900€",
+    "priceMin": 1900,
+    "priceMax": 8900
   },
   "faq_fr": [
     {
@@ -42,7 +42,7 @@
     },
     {
       "q": "Peut-on quitter Webflow plus tard ?",
-      "a": "Oui, mais pas en un clic. Selon l'aide de Webflow, les formules d'espace de travail payantes permettent d'exporter le code HTML, CSS et JavaScript, et les collections en CSV ; le CMS, les comptes utilisateurs et l'e-commerce ne font pas partie du code exporté. Une sortie se prépare donc comme une migration, et nous la chiffrons au cadrage."
+      "a": "Oui, mais pas en un clic. Selon l'aide de Webflow, les formules d'espace de travail payantes permettent d'exporter le code HTML, CSS et JavaScript, et les collections en CSV ; le CMS, les comptes utilisateurs et l'e-commerce ne font pas partie du code exporté. Une sortie se prépare donc comme une migration."
     },
     {
       "q": "Vous branchez Webflow à un CRM ?",
@@ -58,7 +58,7 @@
     },
     {
       "q": "Combien de temps et combien ça coûte ?",
-      "a": "Nous annonçons le délai après le sprint de cadrage, une fois le périmètre fixé ; il dépend surtout de la vitesse à laquelle vos contenus arrivent. À partir de {{prix.pilote}} € HT pour une landing ou l'instrumentation d'un site existant, 4 000 € HT pour 3 à 5 pages, à partir de 7 000 € HT pour un site complet, à partir de 10 000 € HT pour une migration ou des intégrations. L'abonnement Webflow est à votre nom et n'est pas inclus."
+      "a": "Nous annonçons le délai après l'appel de cadrage de 30 minutes, une fois le périmètre fixé ; il dépend surtout de la vitesse à laquelle vos contenus arrivent. Le prix est fixe et suit la taille de votre structure : site vitrine de 5 pages à {{prix.web.solo.site}} € HT pour un solopreneur, site de 6 à 12 pages à {{prix.web.tpe.site}} € HT pour une TPE, site corporate ou refonte d'environ 20 pages à {{prix.web.pme.site}} € HT pour une PME. L'abonnement Webflow est à votre nom et n'est pas inclus."
     }
   ],
   "faq_en": [
@@ -72,7 +72,7 @@
     },
     {
       "q": "Can we leave Webflow later?",
-      "a": "Yes, but it is not a one-click export. Webflow lets you export HTML, CSS and JavaScript from its paid workspace plans, and export collections as CSV. The CMS, user accounts and e-commerce are not included in the exported code (Webflow help, read 12 October 2026). Leaving is therefore prepared like a migration: we price it at scoping."
+      "a": "Yes, but it is not a one-click export. Webflow lets you export HTML, CSS and JavaScript from its paid workspace plans, and export collections as CSV. The CMS, user accounts and e-commerce are not included in the exported code (Webflow help, read 12 October 2026). Leaving is therefore prepared like a migration."
     },
     {
       "q": "Do you connect Webflow to a CRM?",
@@ -88,7 +88,7 @@
     },
     {
       "q": "How long and how much?",
-      "a": "Depending on scope, set at the scoping sprint; your content moves the timeline. From €2,000 excl. VAT for a landing page or instrumenting an existing site, €4,000 for 3 to 5 pages, from €7,000 for a full site, from €10,000 for a migration or integrations. The Webflow subscription is in your name and not included."
+      "a": "The timeline is set after the 30-minute scoping call, once the scope is fixed; it mostly depends on how fast your content arrives. The price is fixed and follows the size of your business: 5-page showcase site at €{{prix.web.solo.site.en}} excl. VAT for a solopreneur, 6-to-12-page site at €{{prix.web.tpe.site.en}} for a small business, corporate site or redesign of about 20 pages at €{{prix.web.pme.site.en}} for an SME. The Webflow subscription is in your name and not included."
     }
   ],
   "sections": [
@@ -144,15 +144,15 @@
       "kicker_en": "§ In short",
       "metrics": [
         {
-          "value": "Dès {{prix.pilote}} € HT",
-          "label_fr": "landing ou instrumentation d'un Webflow existant, la grille complète suit plus bas",
-          "label_en": "landing page or instrumenting an existing Webflow; full grid below",
+          "value": "Dès {{prix.web.solo.site}} € HT",
+          "label_fr": "site vitrine de 5 pages pour un solopreneur, la grille par taille suit plus bas",
+          "label_en": "5-page showcase site for a solopreneur; the grid by size is below",
           "emphasis": true
         },
         {
           "value": "Fixé au cadrage",
-          "label_fr": "le délai suit le périmètre et l'arrivée de vos contenus, il est annoncé après le sprint de cadrage",
-          "label_en": "the timeline follows scope and your content, set at the scoping sprint",
+          "label_fr": "le délai suit le périmètre et l'arrivée de vos contenus, il est annoncé après l'appel de cadrage de 30 minutes",
+          "label_en": "the timeline follows scope and your content, set after the 30-minute scoping call",
           "emphasis": false
         },
         {
@@ -445,55 +445,55 @@
     {
       "type": "pricing-cards",
       "background": "paper",
-      "kicker_fr": "§ La gamme",
-      "kicker_en": "§ The range",
+      "kicker_fr": "§ La grille",
+      "kicker_en": "§ The grid",
       "h2_fr": "Combien coûte un site Webflow",
       "h2_en": "How much a Webflow site costs",
-      "lede_fr": "Quatre paliers, de la landing à la migration. Ce que vous payez dépend du nombre de pages et des intégrations, pas de Webflow en lui-même. Si le périmètre reste flou, nous commençons par un sprint de cadrage : 10 heures, {{prix.sprint}} € HT, pour tout poser avant la première page.",
-      "lede_en": "Four tiers, the same grid as our other sites: price follows scope, not the tool. If the scope is unclear, we start with a 10-hour scoping sprint at €{{prix.sprint.en}} excl. VAT. The site is priced before work starts.",
+      "lede_fr": "Mise en place à prix fixe selon la taille de votre structure, puis maintenance en abonnement. Ce que vous payez suit la taille du site, pas Webflow en lui-même. Pas de devis : un appel de cadrage de 30 minutes sert à choisir la grille.",
+      "lede_en": "Setup at a fixed price by the size of your business, then maintenance by subscription. What you pay follows the size of the site, not Webflow itself. No quote: a 30-minute scoping call is enough to pick the grid.",
       "tiers": [
         {
-          "name_fr": "Landing ou instrumentation",
-          "name_en": "Landing page or instrumentation",
-          "price": "{{prix.pilote}} €",
-          "period_fr": "à partir de · HT",
-          "period_en": "from · excl. VAT",
+          "name_fr": "Solopreneur et micro-entreprise",
+          "name_en": "Solopreneur and micro-business",
+          "price": "{{prix.web.solo.site}} €",
+          "period_fr": "1 à 2 personnes · HT",
+          "period_en": "1 to 2 people · excl. VAT",
           "features_fr": [
-            "Une landing de 1 à 3 pages, ou un Webflow existant instrumenté",
-            "Formulaire relié au CRM, avec la page d'origine",
-            "Balisage schema.org sur les pages clés",
-            "Mesure d'audience avec consentement"
+            "Site vitrine de 5 pages dessiné dans Webflow",
+            "Formulaire, RGPD et mesure d'audience",
+            "Deux séries de retours",
+            "Votre équipe formée à publier"
           ],
           "features_en": [
-            "A 1-to-3-page landing page, or an existing Webflow instrumented",
-            "Form connected to the CRM, with the source page",
-            "schema.org markup on key pages",
-            "Audience measurement with consent"
+            "5-page showcase site designed in Webflow",
+            "Form, GDPR and analytics",
+            "Two rounds of feedback",
+            "Your team trained to publish"
           ],
           "cta": {
-            "label_fr": "Cadrer une landing →",
-            "label_en": "Scope a landing page →",
-            "href": "/contact?offer=webflow&intent=landing",
+            "label_fr": "Cadrer mon site →",
+            "label_en": "Scope my site →",
+            "href": "/contact?offer=webflow&intent=solo",
             "variant": "ghost"
           }
         },
         {
-          "name_fr": "Site de 3 à 5 pages",
-          "name_en": "3-to-5-page site",
-          "price": "4 000 €",
-          "period_fr": "indicatif · HT",
-          "period_en": "indicative · excl. VAT",
+          "name_fr": "TPE",
+          "name_en": "Small business",
+          "price": "{{prix.web.tpe.site}} €",
+          "period_fr": "3 à 10 personnes · HT",
+          "period_en": "3 to 10 people · excl. VAT",
           "features_fr": [
-            "Création ou refonte, collections pour les contenus répétés",
-            "Redirections 301 depuis l'ancien site",
-            "Formulaires reliés au CRM, tâche pour le bon commercial",
-            "Votre équipe formée à publier et à gérer les collections"
+            "Site de 6 à 12 pages, collections pour les contenus répétés",
+            "Blog, rendez-vous ou réservation, pages par prestation",
+            "Connexion à vos outils : agenda, facturation, CRM léger",
+            "Trois séries de retours"
           ],
           "features_en": [
-            "Build or redesign, collections for repeated content",
-            "301 redirects from the old site",
-            "Forms connected to the CRM, task for the right salesperson",
-            "One handover session"
+            "6-to-12-page site, collections for repeated content",
+            "Blog, appointments or booking, one page per service",
+            "Connection to your tools: calendar, invoicing, light CRM",
+            "Three rounds of feedback"
           ],
           "cta": {
             "label_fr": "Réserver l'audit gratuit →",
@@ -504,58 +504,58 @@
           "featured": true
         },
         {
-          "name_fr": "Site complet",
-          "name_en": "Full site",
-          "price": "7 000 €",
-          "period_fr": "à partir de · HT",
-          "period_en": "from · excl. VAT",
+          "name_fr": "PME",
+          "name_en": "SME",
+          "price": "{{prix.web.pme.site}} €",
+          "period_fr": "plus de 10 personnes · HT",
+          "period_en": "more than 10 people · excl. VAT",
           "features_fr": [
-            "Direction artistique sur mesure et interactions",
-            "Plusieurs collections et pages modèles",
-            "Séquence de suivi branchée sur le CRM",
-            "Tableau de suivi des demandes par page"
+            "Site corporate ou refonte, environ 20 pages",
+            "Deux langues, redirections des anciennes URL, migration de contenu",
+            "Intégration CRM ou ERP",
+            "Cadrage approfondi et recette"
           ],
           "features_en": [
-            "Bespoke art direction and interactions",
-            "Several collections and template pages",
-            "Follow-up sequence wired into the CRM",
-            "Dashboard of requests per page"
+            "Corporate site or redesign, about 20 pages",
+            "Two languages, old-URL redirects, content migration",
+            "CRM or ERP integration",
+            "In-depth scoping and acceptance testing"
           ],
           "cta": {
-            "label_fr": "Cadrer un site complet →",
-            "label_en": "Scope a full site →",
-            "href": "/contact?offer=webflow&intent=premium",
+            "label_fr": "Cadrer un site PME →",
+            "label_en": "Scope an SME site →",
+            "href": "/contact?offer=webflow&intent=pme",
             "variant": "ghost"
           }
         },
         {
-          "name_fr": "Migration ou intégrations",
-          "name_en": "Migration or integrations",
-          "price": "10 000 €",
-          "period_fr": "à partir de · HT",
-          "period_en": "from · excl. VAT",
+          "name_fr": "Maintenance",
+          "name_en": "Maintenance",
+          "price": "{{prix.web.maintenance.essentielle}} €",
+          "period_fr": "par mois, dès · HT",
+          "period_en": "per month, from · ex VAT",
           "features_fr": [
-            "Site volumineux repris depuis un autre CMS, contenus importés",
-            "Plan de redirections complet et contrôle après bascule",
-            "Intégrations métier par automatisation (n8n)",
-            "Au-delà, sur devis"
+            "Essentielle : mises à jour, sauvegardes, sécurité, supervision, deux petites modifications par mois",
+            "Boutique et TPE, {{prix.web.maintenance.boutique}} € : suivi SEO mensuel, quatre modifications par mois",
+            "Sérénité, {{prix.web.maintenance.serenite}} € : deux heures d'intervention incluses par mois",
+            "Sans engagement"
           ],
           "features_en": [
-            "Large site taken over from another CMS, content imported",
-            "Full redirect plan and post-switch check",
-            "Business integrations through automation (n8n)",
-            "Beyond that, on quote"
+            "Essential: updates, backups, security, monitoring, two small changes a month",
+            "Shop and small business, €{{prix.web.maintenance.boutique.en}}: monthly SEO follow-up, four changes a month",
+            "Peace of mind, €{{prix.web.maintenance.serenite.en}}: two hours of work included each month",
+            "No commitment"
           ],
           "cta": {
-            "label_fr": "Cadrer une migration →",
-            "label_en": "Scope a migration →",
-            "href": "/contact?offer=webflow&intent=sur-mesure",
+            "label_fr": "Choisir une maintenance →",
+            "label_en": "Choose a maintenance plan →",
+            "href": "/contact?offer=webflow&intent=maintenance",
             "variant": "ghost"
           }
         }
       ],
-      "footnote_fr": "L'abonnement Webflow et le domaine : vous les souscrivez à votre nom et les réglez directement, ils ne figurent pas dans ces prix. Aucune obligation d'entretien après la livraison ; les paliers figurent sur la page tarifs.",
-      "footnote_en": "The Webflow subscription and the domain are taken out in your name and paid directly: they are not in these prices. No subscription imposed by us. Upkeep after delivery is optional, its tiers are public on the pricing page."
+      "footnote_fr": "Extras à prix fixe : page {{prix.web.extra.page}} €, langue {{prix.web.extra.langue}} €, outil relié (CRM, ERP, agenda) {{prix.web.extra.outil}} € HT. L'abonnement Webflow, le domaine, les textes et les photos sont à votre charge : vous les souscrivez ou les fournissez à votre nom.",
+      "footnote_en": "Fixed-price extras: page €{{prix.web.extra.page.en}}, language €{{prix.web.extra.langue.en}}, connected tool (CRM, ERP, calendar) €{{prix.web.extra.outil.en}} excl. VAT. The Webflow subscription, domain, copy and photos are on your side: you take them out or provide them in your name."
     },
     {
       "type": "eeat-panel",
@@ -584,9 +584,9 @@
         },
         {
           "q_fr": "Peut-on quitter Webflow plus tard ?",
-          "a_fr": "Oui, mais pas en un clic. Selon l'aide de Webflow, les formules d'espace de travail payantes permettent d'exporter le code HTML, CSS et JavaScript, et les collections en CSV ; le CMS, les comptes utilisateurs et l'e-commerce ne font pas partie du code exporté. Une sortie se prépare donc comme une migration, et nous la chiffrons au cadrage.",
+          "a_fr": "Oui, mais pas en un clic. Selon l'aide de Webflow, les formules d'espace de travail payantes permettent d'exporter le code HTML, CSS et JavaScript, et les collections en CSV ; le CMS, les comptes utilisateurs et l'e-commerce ne font pas partie du code exporté. Une sortie se prépare donc comme une migration.",
           "q_en": "Can we leave Webflow later?",
-          "a_en": "Yes, but it is not a one-click export. Webflow lets you export HTML, CSS and JavaScript from its paid workspace plans, and export collections as CSV. The CMS, user accounts and e-commerce are not included in the exported code (Webflow help, read 12 October 2026). Leaving is therefore prepared like a migration: we price it at scoping."
+          "a_en": "Yes, but it is not a one-click export. Webflow lets you export HTML, CSS and JavaScript from its paid workspace plans, and export collections as CSV. The CMS, user accounts and e-commerce are not included in the exported code (Webflow help, read 12 October 2026). Leaving is therefore prepared like a migration."
         },
         {
           "q_fr": "Vous branchez Webflow à un CRM ?",
@@ -608,9 +608,9 @@
         },
         {
           "q_fr": "Combien de temps et combien ça coûte ?",
-          "a_fr": "Nous annonçons le délai après le sprint de cadrage, une fois le périmètre fixé ; il dépend surtout de la vitesse à laquelle vos contenus arrivent. À partir de {{prix.pilote}} € HT pour une landing ou l'instrumentation d'un site existant, 4 000 € HT pour 3 à 5 pages, à partir de 7 000 € HT pour un site complet, à partir de 10 000 € HT pour une migration ou des intégrations. L'abonnement Webflow est à votre nom et n'est pas inclus.",
+          "a_fr": "Nous annonçons le délai après l'appel de cadrage de 30 minutes, une fois le périmètre fixé ; il dépend surtout de la vitesse à laquelle vos contenus arrivent. Le prix est fixe et suit la taille de votre structure : site vitrine de 5 pages à {{prix.web.solo.site}} € HT pour un solopreneur, site de 6 à 12 pages à {{prix.web.tpe.site}} € HT pour une TPE, site corporate ou refonte d'environ 20 pages à {{prix.web.pme.site}} € HT pour une PME. L'abonnement Webflow est à votre nom et n'est pas inclus.",
           "q_en": "How long and how much?",
-          "a_en": "Depending on scope, set at the scoping sprint; your content moves the timeline. From €2,000 excl. VAT for a landing page or instrumenting an existing site, €4,000 for 3 to 5 pages, from €7,000 for a full site, from €10,000 for a migration or integrations. The Webflow subscription is in your name and not included."
+          "a_en": "The timeline is set after the 30-minute scoping call, once the scope is fixed; it mostly depends on how fast your content arrives. The price is fixed and follows the size of your business: 5-page showcase site at €{{prix.web.solo.site.en}} excl. VAT for a solopreneur, 6-to-12-page site at €{{prix.web.tpe.site.en}} for a small business, corporate site or redesign of about 20 pages at €{{prix.web.pme.site.en}} for an SME. The Webflow subscription is in your name and not included."
         }
       ]
     },

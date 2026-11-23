@@ -131,8 +131,8 @@ export const demo: DemoData = {
       {
         "label_fr": "Prospection automatisée",
         "label_en": "Automated prospecting",
-        "price_fr": "0, 980 ou 1 650 € HT/mois",
-        "price_en": "0, 980 or 1,650 € ex VAT/month",
+        "price_fr": "0 ou 790 € HT/mois",
+        "price_en": "0 or 790 € ex VAT/month",
         "href": "/services/prospection-automatisee"
       }
     ]

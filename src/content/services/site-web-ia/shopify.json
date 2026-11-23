@@ -2,11 +2,11 @@
   "$schema": "../../../schemas/generated/services.page.schema.json",
   "title_fr": "Agence Shopify pour PME : boutique, refonte et migration · Waimia",
   "title_en": "Shopify agency for SMEs: shop, redesign and migration · Waimia",
-  "description_fr": "Agence Shopify pour PME : création de boutique, refonte de thème, migration depuis WooCommerce ou PrestaShop. Dès {{prix.pilote}} € HT, résultats mesurés avant et après.",
-  "description_en": "Shopify agency for SMBs: shop build, theme redesign, migration from WooCommerce or PrestaShop. From €{{prix.sprint.en}} excl. VAT, results measured before and after.",
+  "description_fr": "Agence Shopify pour PME : création de boutique, refonte de thème, migration depuis WooCommerce ou PrestaShop. Boutique dès {{prix.web.solo.boutique}} € HT.",
+  "description_en": "Shopify agency for SMBs: shop build, theme redesign, migration from WooCommerce or PrestaShop. Shop from €{{prix.web.solo.boutique.en}} excl. VAT.",
   "slug": "shopify",
   "publishedAt": "2026-10-12T00:00:00.000Z",
-  "updatedAt": "2026-11-11T00:00:00.000Z",
+  "updatedAt": "2026-11-23T00:00:00.000Z",
   "category": "web",
   "tags": [
     "shopify",
@@ -32,9 +32,9 @@
   "seo": {
     "noindex": false,
     "serviceType": "Agence Shopify : création de boutique, refonte de thème, migration et automatisation du SAV et des stocks pour PME",
-    "priceRange": "2000-10000€",
-    "priceMin": 2000,
-    "priceMax": 10000
+    "priceRange": "2900-7900€",
+    "priceMin": 2900,
+    "priceMax": 7900
   },
   "faq_fr": [
     {
@@ -63,7 +63,7 @@
     },
     {
       "q": "Combien de temps et combien ça coûte ?",
-      "a": "Le délai dépend du périmètre, fixé au sprint de cadrage : la taille du catalogue et vos contenus pèsent le plus. À partir de {{prix.pilote}} € HT pour une boutique de départ, 4 000 € HT pour une boutique complète, à partir de 7 000 € HT avec une migration, à partir de 10 000 € HT avec des automatisations de stock et de SAV. L'abonnement Shopify et les commissions de paiement restent à votre charge, hors de ces prix."
+      "a": "Le délai dépend du périmètre, fixé à l'appel de cadrage de 30 minutes : la taille du catalogue et vos contenus pèsent le plus. Le prix est fixe et suit la taille de votre structure : boutique jusqu'à 50 produits à {{prix.web.solo.boutique}} € HT, jusqu'à 200 produits avec import du catalogue à {{prix.web.tpe.boutique}} € HT, jusqu'à 500 produits avec deux intégrations à {{prix.web.pme.boutique}} € HT ; chaque lot de 100 produits en plus coûte {{prix.web.extra.produits}} € HT. Sans mise de départ, la boutique par abonnement démarre à {{prix.web.waas.boutique}} € HT par mois, engagement 24 mois. L'abonnement Shopify et les commissions de paiement restent à votre charge, hors de ces prix."
     }
   ],
   "faq_en": [
@@ -93,7 +93,7 @@
     },
     {
       "q": "How long and how much?",
-      "a": "Depending on scope, set at the scoping sprint: catalogue size and your content weigh most. From €2,000 excl. VAT for a starter shop, €4,000 for a complete shop, from €7,000 with a migration, from €10,000 with stock and support automation. The Shopify subscription and payment fees are on your side, outside these prices."
+      "a": "The timeline depends on scope, set during the 30-minute scoping call: catalogue size and your content weigh most. The price is fixed and follows the size of your business: shop up to 50 products at €{{prix.web.solo.boutique.en}} excl. VAT, up to 200 products with catalogue import at €{{prix.web.tpe.boutique.en}}, up to 500 products with two integrations at €{{prix.web.pme.boutique.en}}; each extra batch of 100 products costs €{{prix.web.extra.produits.en}}. With no upfront cost, the shop subscription starts at €{{prix.web.waas.boutique.en}} excl. VAT a month, 24-month commitment. The Shopify subscription and payment fees are on your side, outside these prices."
     }
   ],
   "sections": [
@@ -149,9 +149,9 @@
       "kicker_en": "§ In short",
       "metrics": [
         {
-          "value": "Dès {{prix.pilote}} € HT",
-          "label_fr": "une boutique de départ, la grille complète suit plus bas",
-          "label_en": "a starter shop; full grid below",
+          "value": "Dès {{prix.web.solo.boutique}} € HT",
+          "label_fr": "une boutique jusqu'à 50 produits, la grille par taille suit plus bas",
+          "label_en": "a shop up to 50 products; the grid by size is below",
           "emphasis": true
         },
         {
@@ -265,7 +265,7 @@
       "avoid_title_fr": "Évitez Shopify quand",
       "avoid_title_en": "Avoid Shopify when",
       "avoid_items_fr": [
-        "Vous vendez surtout des prestations sur devis : un site vitrine avec formulaire suffit.",
+        "Vous vendez surtout des prestations chiffrées au cas par cas : un site vitrine avec formulaire suffit.",
         "Votre site est d'abord éditorial et la vente accessoire : WordPress et WooCommerce s'y prêtent mieux.",
         "Vos règles de prix, de commande ou de B2B sont très particulières : un site sur mesure peut s'imposer.",
         "Vous refusez tout abonnement et toute commission : une boutique auto-hébergée coûte moins en frais récurrents, plus en entretien.",
@@ -498,55 +498,55 @@
     {
       "type": "pricing-cards",
       "background": "paper",
-      "kicker_fr": "§ La gamme",
-      "kicker_en": "§ The range",
+      "kicker_fr": "§ La grille",
+      "kicker_en": "§ The grid",
       "h2_fr": "Combien coûte une boutique Shopify",
       "h2_en": "How much a Shopify shop costs",
-      "lede_fr": "Quatre paliers, de la boutique de départ au SAV et aux stocks automatisés. Ce que vous payez suit le périmètre de la boutique, pas Shopify en lui-même. Quand le périmètre reste flou, un sprint de cadrage de 10 heures à {{prix.sprint}} € HT le fixe avant de démarrer.",
-      "lede_en": "Four tiers, the same grid as our other sites: price follows scope, not the tool. If the scope is unclear, we start with a 10-hour scoping sprint at €{{prix.sprint.en}} excl. VAT. The shop is priced before work starts.",
+      "lede_fr": "Trois tailles de boutique à prix fixe, ou un abonnement sans mise de départ. Ce que vous payez suit la taille de votre structure et de votre catalogue, pas Shopify en lui-même. Pas de devis : un appel de cadrage de 30 minutes sert à choisir la grille.",
+      "lede_en": "Three shop sizes at a fixed price, or a subscription with no upfront cost. What you pay follows the size of your business and catalogue, not Shopify itself. No quote: a 30-minute scoping call is enough to pick the grid.",
       "tiers": [
         {
-          "name_fr": "Boutique de départ",
-          "name_en": "Starter shop",
-          "price": "{{prix.pilote}} €",
-          "period_fr": "à partir de · HT",
-          "period_en": "from · excl. VAT",
+          "name_fr": "Boutique solopreneur",
+          "name_en": "Solopreneur shop",
+          "price": "{{prix.web.solo.boutique}} €",
+          "period_fr": "1 à 2 personnes · HT",
+          "period_en": "1 to 2 people · excl. VAT",
           "features_fr": [
-            "Une petite boutique : thème configuré, quelques dizaines de produits",
-            "Pages légales, paiement et expédition réglés",
-            "Clients reliés au CRM",
-            "Mesure d'audience avec consentement"
+            "Jusqu'à 50 produits, thème configuré",
+            "Paiement et livraison configurés, pages légales",
+            "Mesure d'audience avec consentement",
+            "Deux séries de retours, formation"
           ],
           "features_en": [
-            "A small shop: configured theme, a few dozen products",
-            "Legal pages, payment and shipping set up",
-            "Customers connected to the CRM",
-            "Audience measurement with consent"
+            "Up to 50 products, configured theme",
+            "Payment and shipping set up, legal pages",
+            "Audience measurement with consent",
+            "Two rounds of feedback, training"
           ],
           "cta": {
             "label_fr": "Cadrer une boutique →",
             "label_en": "Scope a shop →",
-            "href": "/contact?offer=shopify&intent=landing",
+            "href": "/contact?offer=shopify&intent=solo",
             "variant": "ghost"
           }
         },
         {
-          "name_fr": "Boutique complète",
-          "name_en": "Complete shop",
-          "price": "4 000 €",
-          "period_fr": "indicatif · HT",
-          "period_en": "indicative · excl. VAT",
+          "name_fr": "Boutique TPE",
+          "name_en": "Small-business shop",
+          "price": "{{prix.web.tpe.boutique}} €",
+          "period_fr": "3 à 10 personnes · HT",
+          "period_en": "3 to 10 people · excl. VAT",
           "features_fr": [
-            "Refonte de thème et parcours de commande",
+            "Jusqu'à 200 produits, import du catalogue",
             "Fiches produits et collections structurées pour le référencement",
-            "Alertes de stock et commandes à vérifier",
-            "Prise en main de la boutique par votre équipe"
+            "Connexion à vos outils : agenda, facturation, CRM léger",
+            "Trois séries de retours"
           ],
           "features_en": [
-            "Theme redesign and checkout journey",
+            "Up to 200 products, catalogue import",
             "Product pages and collections structured for search",
-            "Stock alerts and orders to check",
-            "One handover session"
+            "Connection to your tools: calendar, invoicing, light CRM",
+            "Three rounds of feedback"
           ],
           "cta": {
             "label_fr": "Réserver l'audit gratuit →",
@@ -557,58 +557,58 @@
           "featured": true
         },
         {
-          "name_fr": "Boutique avec migration",
-          "name_en": "Shop with migration",
-          "price": "7 000 €",
-          "period_fr": "à partir de · HT",
-          "period_en": "from · excl. VAT",
+          "name_fr": "Boutique PME",
+          "name_en": "SME shop",
+          "price": "{{prix.web.pme.boutique}} €",
+          "period_fr": "plus de 10 personnes · HT",
+          "period_en": "more than 10 people · excl. VAT",
           "features_fr": [
-            "Migration depuis WooCommerce ou PrestaShop",
-            "Import du catalogue et des clients, plan de redirections 301",
-            "Direction artistique du thème",
-            "Contrôle après bascule et mesure avant et après"
+            "Jusqu'à 500 produits, deux intégrations",
+            "Migration depuis WooCommerce ou PrestaShop, redirections des anciennes URL",
+            "Cadrage approfondi et recette",
+            "Contrôle après bascule"
           ],
           "features_en": [
-            "Migration from WooCommerce or PrestaShop",
-            "Catalogue and customer import, 301 redirect plan",
-            "Theme art direction",
-            "Post-switch check and before-and-after measurement"
+            "Up to 500 products, two integrations",
+            "Migration from WooCommerce or PrestaShop, old-URL redirects",
+            "In-depth scoping and acceptance testing",
+            "Post-switch check"
           ],
           "cta": {
-            "label_fr": "Cadrer une migration →",
-            "label_en": "Scope a migration →",
-            "href": "/contact?offer=shopify&intent=premium",
+            "label_fr": "Cadrer une boutique PME →",
+            "label_en": "Scope an SME shop →",
+            "href": "/contact?offer=shopify&intent=pme",
             "variant": "ghost"
           }
         },
         {
-          "name_fr": "Boutique avec SAV et stocks",
-          "name_en": "Shop with support and stock",
-          "price": "10 000 €",
-          "period_fr": "à partir de · HT",
-          "period_en": "from · excl. VAT",
+          "name_fr": "Boutique par abonnement",
+          "name_en": "Shop subscription",
+          "price": "{{prix.web.waas.boutique}} €",
+          "period_fr": "par mois · HT",
+          "period_en": "per month · excl. VAT",
           "features_fr": [
-            "Tout le périmètre précédent",
-            "Agent de SAV avec validation humaine, branché à la commande",
-            "Automatisations de stock et de commandes, journal d'exécution",
-            "Au-delà, sur devis"
+            "Création, hébergement, maintenance et petites modifications",
+            "Shopify ou WooCommerce avec Stripe, 200 produits",
+            "Sans frais de mise en place",
+            "Engagement 24 mois, puis résiliable"
           ],
           "features_en": [
-            "The full scope above",
-            "Support agent with human approval, wired to the order",
-            "Stock and order automations, execution log",
-            "Beyond that, on quote"
+            "Creation, hosting, maintenance and small changes",
+            "Shopify or WooCommerce with Stripe, 200 products",
+            "No setup fee",
+            "24-month commitment, then cancel anytime"
           ],
           "cta": {
-            "label_fr": "Cadrer le SAV et les stocks →",
-            "label_en": "Scope support and stock →",
-            "href": "/contact?offer=shopify&intent=sur-mesure",
+            "label_fr": "Choisir l'abonnement →",
+            "label_en": "Choose the subscription →",
+            "href": "/contact?offer=shopify&intent=abonnement",
             "variant": "ghost"
           }
         }
       ],
-      "footnote_fr": "Abonnement Shopify, applications payantes et commissions de paiement : vous les souscrivez et les réglez directement, ils ne figurent pas dans ces prix. L'entretien après la livraison n'a rien d'obligatoire ; ses paliers sont sur la page tarifs.",
-      "footnote_en": "The Shopify subscription, paid apps and payment fees are on your side and in your name: they are not in these prices. No subscription imposed by us. Upkeep after delivery is optional, its tiers are public on the pricing page."
+      "footnote_fr": "Extras à prix fixe : 100 produits {{prix.web.extra.produits}} €, page {{prix.web.extra.page}} €, langue {{prix.web.extra.langue}} €, outil relié (CRM, ERP, agenda) {{prix.web.extra.outil}} € HT. Après la mise en ligne, la maintenance Boutique et TPE coûte {{prix.web.maintenance.boutique}} € HT par mois, sans engagement. Abonnement Shopify, applications payantes, commissions de paiement, textes et photos restent à votre charge. Les automatisations de SAV et de stock se cadrent à part.",
+      "footnote_en": "Fixed-price extras: 100 products €{{prix.web.extra.produits.en}}, page €{{prix.web.extra.page.en}}, language €{{prix.web.extra.langue.en}}, connected tool (CRM, ERP, calendar) €{{prix.web.extra.outil.en}} excl. VAT. After launch, Shop and small business maintenance costs €{{prix.web.maintenance.boutique.en}} excl. VAT a month, with no commitment. The Shopify subscription, paid apps, payment fees, copy and photos remain on your side. Support and stock automations are scoped separately."
     },
     {
       "type": "eeat-panel",
@@ -661,9 +661,9 @@
         },
         {
           "q_fr": "Combien de temps et combien ça coûte ?",
-          "a_fr": "Le délai dépend du périmètre, fixé au sprint de cadrage : la taille du catalogue et vos contenus pèsent le plus. À partir de {{prix.pilote}} € HT pour une boutique de départ, 4 000 € HT pour une boutique complète, à partir de 7 000 € HT avec une migration, à partir de 10 000 € HT avec des automatisations de stock et de SAV. L'abonnement Shopify et les commissions de paiement restent à votre charge, hors de ces prix.",
+          "a_fr": "Le délai dépend du périmètre, fixé à l'appel de cadrage de 30 minutes : la taille du catalogue et vos contenus pèsent le plus. Le prix est fixe et suit la taille de votre structure : boutique jusqu'à 50 produits à {{prix.web.solo.boutique}} € HT, jusqu'à 200 produits avec import du catalogue à {{prix.web.tpe.boutique}} € HT, jusqu'à 500 produits avec deux intégrations à {{prix.web.pme.boutique}} € HT ; chaque lot de 100 produits en plus coûte {{prix.web.extra.produits}} € HT. Sans mise de départ, la boutique par abonnement démarre à {{prix.web.waas.boutique}} € HT par mois, engagement 24 mois. L'abonnement Shopify et les commissions de paiement restent à votre charge, hors de ces prix.",
           "q_en": "How long and how much?",
-          "a_en": "Depending on scope, set at the scoping sprint: catalogue size and your content weigh most. From €2,000 excl. VAT for a starter shop, €4,000 for a complete shop, from €7,000 with a migration, from €10,000 with stock and support automation. The Shopify subscription and payment fees are on your side, outside these prices."
+          "a_en": "The timeline depends on scope, set during the 30-minute scoping call: catalogue size and your content weigh most. The price is fixed and follows the size of your business: shop up to 50 products at €{{prix.web.solo.boutique.en}} excl. VAT, up to 200 products with catalogue import at €{{prix.web.tpe.boutique.en}}, up to 500 products with two integrations at €{{prix.web.pme.boutique.en}}; each extra batch of 100 products costs €{{prix.web.extra.produits.en}}. With no upfront cost, the shop subscription starts at €{{prix.web.waas.boutique.en}} excl. VAT a month, 24-month commitment. The Shopify subscription and payment fees are on your side, outside these prices."
         }
       ]
     },

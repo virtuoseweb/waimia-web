@@ -10,7 +10,7 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import { isRedirectedPath } from '../data/depublished';
 import { COLLECTION_ROUTE_PREFIX } from './seo/lastmod.mjs';
 
-type RoutedCollection = 'blog' | 'secteurs' | 'cas-usages' | 'demonstrations' | 'diagnostics' | 'comparatifs' | 'guides' | 'outils';
+type RoutedCollection = 'blog' | 'secteurs' | 'cas-usages' | 'demonstrations' | 'diagnostics' | 'comparatifs';
 
 export async function getLiveCollection<C extends RoutedCollection>(name: C): Promise<CollectionEntry<C>[]> {
   const prefix = (COLLECTION_ROUTE_PREFIX as Record<string, string>)[name];

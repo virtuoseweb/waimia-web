@@ -599,6 +599,79 @@ const SOLUTIONS: MegaMenuSection = {
             image: '/images/besoins/besoin-piloter.webp',
           },
         },
+        {
+          label: { fr: 'Marketing digital', en: 'Digital marketing' },
+          key: 'web',
+          href: '/services/systeme-acquisition',
+          hubLabel: { fr: 'Voir le marketing digital →', en: 'See digital marketing →' },
+          description: { fr: 'Le site, le référencement Google et IA, la publicité : la demande que vos automatisations traitent ensuite.', en: 'The website, Google and AI search, advertising: the demand your automations then process.' },
+          links: [
+            {
+              label: { fr: 'Site web', en: 'Website' },
+              href: '/services/site-web-ia',
+              description: { fr: 'Création et refonte, sur la plateforme adaptée à votre équipe.', en: 'Creation and redesign, on the platform that fits your team.' },
+              detail: [
+                {
+                  label: { fr: 'Déclinaisons', en: 'Editions' },
+                  links: [
+                    { label: { fr: 'Site sur mesure (Astro, CMS headless)', en: 'Custom website (Astro, headless CMS)' }, href: '/services/sur-mesure-headless' },
+                    { label: { fr: 'Agence Shopify', en: 'Shopify agency' }, href: '/services/shopify' },
+                    { label: { fr: 'Agence WordPress', en: 'WordPress agency' }, href: '/services/wordpress' },
+                    { label: { fr: 'Agence Webflow', en: 'Webflow agency' }, href: '/services/webflow' },
+                    { label: { fr: 'Agence Lovable', en: 'Lovable agency' }, href: '/services/lovable' },
+                  ],
+                },
+                {
+                  label: { fr: 'Aller plus loin', en: 'Going further' },
+                  links: [
+                    { label: { fr: 'Landing pages et tunnels', en: 'Landing pages and funnels' }, href: '/services/landing-pages-tunnels' },
+                    { label: { fr: 'Maintenance de site', en: 'Website maintenance' }, href: '/services/maintenance-growth' },
+                  ],
+                },
+              ],
+            },
+            {
+              label: { fr: 'SEO et GEO', en: 'SEO and GEO' },
+              href: '/services/seo-geo-contenu',
+              description: { fr: 'Être trouvé sur Google et cité par les moteurs IA.', en: 'Be found on Google and cited by AI engines.' },
+              detail: [
+                {
+                  label: { fr: 'Déclinaisons', en: 'Editions' },
+                  links: [
+                    { label: { fr: 'Audit SEO technique', en: 'Technical SEO audit' }, href: '/services/audit-seo-technique' },
+                    { label: { fr: 'GEO : être cité par les IA', en: 'GEO: get cited by AI' }, href: '/services/referencement-ia' },
+                    { label: { fr: 'Rédaction SEO et contenu', en: 'SEO writing and content' }, href: '/services/redaction-seo-contenu' },
+                    { label: { fr: 'SEO local', en: 'Local SEO' }, href: '/services/seo-local' },
+                  ],
+                },
+              ],
+            },
+            {
+              label: { fr: 'Publicité en ligne', en: 'Online advertising' },
+              href: '/services/publicite-en-ligne',
+              description: { fr: 'Google Ads et Meta Ads, pilotés sur le coût par demande.', en: 'Google Ads and Meta Ads, managed on cost per enquiry.' },
+              detail: [
+                {
+                  label: { fr: 'Déclinaisons', en: 'Editions' },
+                  links: [
+                    { label: { fr: 'Landing page Google Ads', en: 'Google Ads landing page' }, href: '/services/landing-page-google-ads' },
+                  ],
+                },
+              ],
+            },
+          ],
+          featured: {
+            kicker: { fr: 'MARKETING DIGITAL', en: 'DIGITAL MARKETING' },
+            label: { fr: 'Site, référencement et publicité', en: 'Website, search and advertising' },
+            body: {
+              fr: 'Le site, le référencement et la publicité amènent la demande que les automatisations traitent ensuite.',
+              en: 'The website, search and advertising bring the demand the automations then process.',
+            },
+            cta: { fr: 'Voir le marketing digital →', en: 'See digital marketing →' },
+            href: '/services/systeme-acquisition',
+            image: '/images/besoins/besoin-acquerir.webp',
+          },
+        },
       ],
       links: [],
     },
@@ -787,8 +860,8 @@ const AGENCE: MegaMenuSection = {
           label: { fr: 'Tarifs', en: 'Pricing' },
           href: '/tarifs',
           description: {
-            fr: 'Audit gratuit, sprint à 999 € HT, pilote dès 2 000 € HT.',
-            en: 'Free audit, sprint at 999 € ex VAT, pilot from 2,000 € ex VAT.',
+            fr: 'Projets IA et marketing digital : tous les prix sont publiés.',
+            en: 'AI projects and digital marketing: every price is published.',
           },
         },
       ],

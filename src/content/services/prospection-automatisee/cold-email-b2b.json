@@ -3,8 +3,8 @@
   "title_fr": "Cold email B2B pour PME · Waimia",
   "seoTitle_fr": "Cold email B2B pour PME : essai de {{prix.commercial.essai}} leads à 0 €",
   "title_en": "B2B cold email for SMEs · Waimia",
-  "description_fr": "Cold email B2B : domaines dédiés authentifiés (SPF, DKIM, DMARC), listes vérifiées, séquences relues. Essai de {{prix.commercial.essai}} leads offerts, puis dès {{prix.commercial}} € HT/mois.",
-  "description_en": "B2B cold email: authenticated dedicated domains (SPF, DKIM, DMARC), verified lists, reviewed sequences. Trial of {{prix.commercial.essai}} free leads, then from €{{prix.commercial}} excl. VAT/month.",
+  "description_fr": "Cold email B2B : domaines dédiés authentifiés (SPF, DKIM, DMARC), listes vérifiées, séquences relues. Essai de {{prix.commercial.essai}} leads offerts, puis {{prix.commercial}} € HT/mois.",
+  "description_en": "B2B cold email: authenticated dedicated domains (SPF, DKIM, DMARC), verified lists, reviewed sequences. Trial of {{prix.commercial.essai}} free leads, then €{{prix.commercial}} excl. VAT/month.",
   "slug": "cold-email-b2b",
   "publishedAt": "2026-07-16T00:00:00.000Z",
   "updatedAt": "2026-11-11T00:00:00.000Z",
@@ -19,8 +19,8 @@
   "seo": {
     "noindex": false,
     "serviceType": "Campagnes de cold email B2B pour PME",
-    "priceRange": "dès {{prix.commercial}} €",
-    "priceMin": 980
+    "priceRange": "{{prix.commercial}}€/mois",
+    "priceMin": 790
   },
   "faq_fr": [
     {
@@ -130,19 +130,19 @@
         {
           "value": "Domaine à part",
           "label_fr": "votre domaine principal n'envoie jamais de prospection",
-          "label_en": "authentication in place before the first send",
+          "label_en": "your main domain never sends prospecting",
           "emphasis": true
         },
         {
           "value": "2 à 4 semaines",
           "label_fr": "avant la première séquence, le temps de chauffer les boîtes",
-          "label_en": "free for the trial, at 0 €",
+          "label_en": "before the first sequence, the time to warm up the mailboxes",
           "emphasis": false
         },
         {
           "value": "Transférable",
           "label_fr": "domaines et boîtes d'envoi passent sur vos comptes si vous arrêtez",
-          "label_en": "per month, no minimum term",
+          "label_en": "sending domains and mailboxes move to your accounts if you stop",
           "emphasis": false
         }
       ]
@@ -178,7 +178,7 @@
       "background": "paper-2",
       "maxWidth": "prose",
       "html_fr": "<h2>La délivrabilité se joue avant le premier mot</h2>\n<p>Un message soigné qui finit en spam ne rapporte rien, et c'est le sort de la plupart des campagnes montées à la hâte. Nous commençons donc par la plomberie : un ou plusieurs domaines secondaires proches de votre marque, des boîtes réservées à la prospection, les trois enregistrements d'authentification. Votre domaine principal, celui des devis et des factures, n'envoie rien. C'est la première brique de votre <a href=\"/services/systeme-commercial\">système commercial</a> : sans elle, le CRM et les relances n'ont rien à traiter.</p>\n<p>Les boîtes montent ensuite en volume par paliers, avec un plafond par adresse. Les messageries imposent leurs règles. Selon les <a href=\"https://support.google.com/a/answer/81126\" rel=\"noopener\" target=\"_blank\">règles de Google pour les expéditeurs</a>, au-delà de 5 000 messages par jour vers Gmail, il faut authentifier l'envoi, offrir la désinscription en un clic et garder un taux de spam sous 0,30 %, Google conseillant de rester sous 0,10 %. Nos formules tournent à 4 000 ou 8 000 e-mails par mois, très loin de ce seuil, et nous appliquons les mêmes règles dès le premier message : une réputation d'envoi se construit à bas volume, pas après coup.</p>\n<h2>Des listes qu'on peut défendre</h2>\n<p>Nous partons de vos critères (secteur, taille, fonction, signal), nous enrichissons à partir de bases B2B et nous vérifions chaque adresse avant l'envoi. Chaque contact garde sa source. Écrire à contact@ ne touche personne : nous visons des fonctions nommées, avec un message qui parle de leur métier.</p>\n<h2>Où s'arrête le cold email</h2>\n<p>L'e-mail ouvre la conversation, il la conclut rarement. Les réponses remontent dans un <a href=\"/services/crm-scoring-routing\">CRM scoré et routé</a>, et les <a href=\"/services/sequences-de-suivi\">séquences de suivi</a> prennent le relais. Je déconseille de lancer la prospection sans ce relais : un prospect qui répond et attend trois jours a déjà refroidi.</p>",
-      "html_en": "<h2>Deliverability comes before the copy</h2>\n<p>A well-written message that lands in spam earns nothing. So we start with infrastructure: one or more secondary domain names close to your brand, mailboxes dedicated to prospecting and the three authentication records. Your main domain, the one behind your quotes and invoices, never sends prospecting.</p>\n<p>Mailboxes then ramp up in stages, with a cap per address. Large mailbox providers set rules: <a href=\"https://support.google.com/a/answer/81126\" rel=\"noopener\" target=\"_blank\">Google's sender rules</a> require, beyond 5,000 messages a day to Gmail, authentication, one-click unsubscribe and a spam rate under 0.30%, with Google recommending to stay under 0.10%. An SME's volumes in our plans (in the order of 4,000 to 8,000 emails a month) are far below that, but we apply the same rules.</p>\n<h2>Lists you can defend</h2>\n<p>We start from your criteria (sector, size, role, signal), enrich from B2B databases and verify addresses before the first send. Each contact keeps its source. A message sent to contact@ reaches no one in particular: we aim at named roles, with a message about their job.</p>\n<h2>Where cold email stops</h2>\n<p>Email opens the conversation and rarely closes it. Replies flow into a <a href=\"/services/crm-scoring-routing\">scored and routed CRM</a>, and <a href=\"/services/sequences-de-suivi\">follow-up sequences</a> take over. To reach the same accounts elsewhere, see <a href=\"/services/prospection-linkedin\">LinkedIn prospecting</a>, prepared by the system and sent by a person, and <a href=\"/services/social-selling-ia\">AI-assisted social selling</a>. The full setup is described on the <a href=\"/services/prospection-automatisee\">automated prospecting</a> page. The wider <a href=\"https://virtuoseweb.fr/services/marketing-digital/\" rel=\"noopener noreferrer\" target=\"_blank\">acquisition system</a> is the job of VirtuoseWeb, Waimia's sister studio.</p>"
+      "html_en": "<h2>Deliverability comes before the copy</h2>\n<p>A well-written message that lands in spam earns nothing. So we start with infrastructure: one or more secondary domain names close to your brand, mailboxes dedicated to prospecting and the three authentication records. Your main domain, the one behind your quotes and invoices, never sends prospecting.</p>\n<p>Mailboxes then ramp up in stages, with a cap per address. Large mailbox providers set rules: <a href=\"https://support.google.com/a/answer/81126\" rel=\"noopener\" target=\"_blank\">Google's sender rules</a> require, beyond 5,000 messages a day to Gmail, authentication, one-click unsubscribe and a spam rate under 0.30%, with Google recommending to stay under 0.10%. An SME's volumes in our plans (in the order of 4,000 to 8,000 emails a month) are far below that, but we apply the same rules.</p>\n<h2>Lists you can defend</h2>\n<p>We start from your criteria (sector, size, role, signal), enrich from B2B databases and verify addresses before the first send. Each contact keeps its source. A message sent to contact@ reaches no one in particular: we aim at named roles, with a message about their job.</p>\n<h2>Where cold email stops</h2>\n<p>Email opens the conversation and rarely closes it. Replies flow into a <a href=\"/services/crm-scoring-routing\">scored and routed CRM</a>, and <a href=\"/services/sequences-de-suivi\">follow-up sequences</a> take over. To reach the same accounts elsewhere, see <a href=\"/services/prospection-linkedin\">LinkedIn prospecting</a>, prepared by the system and sent by a person, and <a href=\"/services/social-selling-ia\">AI-assisted social selling</a>. The full setup is described on the <a href=\"/services/prospection-automatisee\">automated prospecting</a> page and sits within the <a href=\"/services/systeme-acquisition\">acquisition system</a>.</p>"
     },
     {
       "type": "feature-grid",
@@ -466,10 +466,10 @@
       "colRatio": "2-3",
       "kicker_fr": "§ Abonnement mensuel",
       "kicker_en": "§ Monthly subscription",
-      "h2_fr": "Un essai gratuit, puis un abonnement sans engagement",
-      "h2_en": "A free trial, then a subscription with no commitment",
-      "lede_fr": "Le cold email fait partie de l'abonnement de prospection. Les formules Standard et Pro, avec leurs volumes, sont détaillées sur la page prospection automatisée.",
-      "lede_en": "Cold email is billed within the prospecting subscription, not per message sent. The Standard and Pro plans, their volumes and details are in the grid on the automated prospecting page.",
+      "h2_fr": "Un essai gratuit, puis l'abonnement Prospection",
+      "h2_en": "A free trial, then the Prospecting subscription",
+      "lede_fr": "Le cold email fait partie de l'abonnement Prospection, à {{prix.commercial}} € HT par mois : jusqu'à 400 contacts qualifiés et 4 séquences d'e-mails rédigées et suivies chaque mois. Engagement de 3 mois, puis résiliation à tout moment.",
+      "lede_en": "Cold email is part of the Prospecting subscription, at €{{prix.commercial}} excl. VAT per month: up to 400 qualified contacts and 4 email sequences written and monitored each month. 3-month minimum term, then cancel at any time.",
       "tiers": [
         {
           "name_fr": "Essai gratuit",
@@ -495,36 +495,40 @@
           }
         },
         {
-          "name_fr": "Abonnement",
-          "name_en": "Subscription",
+          "name_fr": "Prospection",
+          "name_en": "Prospecting",
           "price": "{{prix.commercial}} €",
-          "period_fr": "HT / mois · dès",
-          "period_en": "ex VAT / month · from",
+          "period_fr": "HT / mois · 3 mois minimum",
+          "period_en": "ex VAT / month · 3-month minimum",
           "features_fr": [
             "Domaines et adresses dédiés, avec SPF, DKIM et DMARC",
             "Boîtes chauffées par paliers",
-            "Séquences rédigées par l'IA, personnalisées, relues avant le départ",
+            "Jusqu'à 400 contacts qualifiés par mois, trouvés avec Apollo et Pharow",
+            "4 séquences rédigées, personnalisées par l'IA, relues avant le départ",
+            "Mentions d'information et désinscription conformes aux règles de la CNIL",
             "Un compte rendu des envois, des rebonds et des réponses",
-            "Vous arrêtez ou vous suspendez quand vous voulez"
+            "Engagement de 3 mois, puis résiliation à tout moment"
           ],
           "features_en": [
-            "Dedicated domains and addresses, SPF, DKIM, DMARC",
-            "Gradual mailbox warm-up",
-            "Sequences written and personalised by AI, reviewed",
-            "Reporting on sends and replies",
-            "No minimum term: stop or pause at any time"
+            "Dedicated domains and addresses, with SPF, DKIM and DMARC",
+            "Mailboxes warmed up in stages",
+            "Up to 400 qualified contacts per month, found with Apollo and Pharow",
+            "4 sequences written, personalised by AI, reviewed before sending",
+            "Information notices and opt-out compliant with CNIL rules",
+            "A report on sends, bounces and replies",
+            "3-month minimum term, then cancel at any time"
           ],
           "cta": {
-            "label_fr": "Voir les formules →",
-            "label_en": "See the plans →",
+            "label_fr": "Voir le détail →",
+            "label_en": "See the details →",
             "href": "/services/prospection-automatisee",
             "variant": "primary"
           },
           "featured": true
         }
       ],
-      "footnote_fr": "Abonnement mensuel, prix hors taxes. Un volume plus élevé se cadre sur devis.",
-      "footnote_en": "Monthly subscription excl. VAT, no minimum term: the detail of the Standard and Pro plans is on the automated prospecting page. A higher volume is scoped on quote."
+      "footnote_fr": "Abonnement mensuel, prix hors taxes. Crédits supplémentaires et envois au-delà du forfait refacturés au coût réel. L'offre se prend seule ou s'ajoute à un pack marketing digital.",
+      "footnote_en": "Monthly subscription, excl. VAT. Extra credits and sends beyond the plan rebilled at actual cost. Take it on its own or add it to a digital marketing pack."
     },
     {
       "type": "eeat-panel",

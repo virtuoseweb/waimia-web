@@ -7,7 +7,7 @@
   "description_en": "SEO writing for SMEs: search intent, brief, AI-assisted drafting, signed human review and updates, with an editorial calendar.",
   "slug": "redaction-seo-contenu",
   "publishedAt": "2026-10-12T00:00:00.000Z",
-  "updatedAt": "2026-11-11",
+  "updatedAt": "2026-11-23",
   "category": "acquisition",
   "tags": [
     "redaction-seo-contenu",
@@ -19,8 +19,9 @@
   "seo": {
     "noindex": false,
     "serviceType": "Rédaction SEO et calendrier éditorial : intention de recherche, brief, rédaction assistée par IA, relecture signée, mise à jour",
-    "priceRange": "dès {{prix.sprint}} €",
-    "priceMin": 999
+    "priceRange": "649-3290€",
+    "priceMin": 649,
+    "priceMax": 3290
   },
   "faq_fr": [
     {
@@ -33,11 +34,11 @@
     },
     {
       "q": "Combien d'articles faut-il publier, et à quel rythme ?",
-      "a": "Il n'y a pas de nombre magique : le rythme se cale sur ce que quelqu'un peut relire et tenir à jour. Deux articles par mois relus valent mieux que dix articles non relus."
+      "a": "Il n'y a pas de nombre magique : le rythme se cale sur ce que quelqu'un peut relire et tenir à jour. Deux articles par mois relus valent mieux que dix articles non relus. C'est le rythme des packs : 2 articles et 3 pages optimisées par mois."
     },
     {
       "q": "Combien coûte la rédaction SEO ?",
-      "a": "Le sprint de cadrage est à {{prix.sprint}} € HT pour 10 heures : requêtes, calendrier éditorial, premiers briefs et un premier article relu. Nous estimons la suite avec vous, puis nous la facturons {{prix.horaire}} € HT de l'heure, sans abonnement imposé."
+      "a": "La rédaction se vend dans les packs mensuels, à prix fixe et sans devis. Le pack Visibilité, à {{prix.web.pack.visibilite}} € HT par mois, comprend 3 pages optimisées et 2 articles par mois, relus et signés, avec 30 mots-clés suivis. Les packs Acquisition ({{prix.web.pack.acquisition}} € HT) et Tout-en-un ({{prix.web.pack.toutenun}} € HT) gardent ce rythme et ajoutent netlinking, publicité et communication. Engagement de 3 mois, puis résiliable."
     },
     {
       "q": "Comment sait-on qu'un article fonctionne ?",
@@ -45,7 +46,7 @@
     },
     {
       "q": "À qui appartiennent les textes et le calendrier ?",
-      "a": "À vous. Les textes sont publiés sur votre site, avec les briefs, les consignes de rédaction et le calendrier. Aucun abonnement ne retient vos contenus."
+      "a": "À vous. Les textes sont publiés sur votre site, avec les briefs, les consignes de rédaction et le calendrier. Si vous arrêtez le pack, rien n'est retiré : vos contenus restent en ligne et à vous."
     }
   ],
   "faq_en": [
@@ -59,11 +60,11 @@
     },
     {
       "q": "How many articles should be published, and at what pace?",
-      "a": "There is no magic number. The pace is set by what someone can review and keep up to date. Two reviewed articles a month beat ten unreviewed ones."
+      "a": "There is no magic number. The pace is set by what someone can review and keep up to date. Two reviewed articles a month beat ten unreviewed ones. That is the pace of the packs: 2 articles and 3 optimised pages a month."
     },
     {
       "q": "How much does SEO writing cost?",
-      "a": "The scoping sprint is €{{prix.sprint.en}} excl. VAT for 10 hours: queries, editorial calendar, first briefs and a first reviewed article. The rest is estimated with you, then billed at €{{prix.horaire}} per hour excl. VAT, with no imposed subscription."
+      "a": "Writing is sold within the monthly packs, at a fixed price with no quote. The Visibility pack, at €{{prix.web.pack.visibilite.en}} excl. VAT a month, includes 3 optimised pages and 2 articles a month, reviewed and signed, with 30 tracked keywords. The Acquisition (€{{prix.web.pack.acquisition.en}} excl. VAT) and All-in-one (€{{prix.web.pack.toutenun.en}} excl. VAT) packs keep that pace and add link building, advertising and communication. 3-month commitment, then cancellable."
     },
     {
       "q": "How do you know an article works?",
@@ -71,7 +72,7 @@
     },
     {
       "q": "Who owns the texts and the calendar?",
-      "a": "You do. The texts are published on your site, with the briefs, writing guidelines and calendar. No subscription holds your content."
+      "a": "You do. The texts are published on your site, with the briefs, writing guidelines and calendar. If you stop the pack, nothing is removed: your content stays online and yours."
     }
   ],
   "sections": [
@@ -127,9 +128,9 @@
       "kicker_en": "§ At a glance",
       "metrics": [
         {
-          "value": "Prix fixe",
-          "label_fr": "pour le sprint de cadrage ; la suite se chiffre avec vous",
-          "label_en": "10-hour scoping sprint, then €{{prix.horaire}} per hour excl. VAT",
+          "value": "{{prix.web.pack.visibilite}} €",
+          "label_fr": "HT par mois : 3 pages optimisées et 2 articles par mois, relus",
+          "label_en": "excl. VAT a month: 3 optimised pages and 2 reviewed articles a month",
           "emphasis": true
         },
         {
@@ -437,32 +438,32 @@
     {
       "type": "pricing-cards",
       "background": "paper",
-      "layout": "grid-asym",
-      "colRatio": "2-3",
-      "kicker_fr": "§ Deux façons d'engager",
-      "kicker_en": "§ Two ways to engage",
-      "h2_fr": "Prix d'une rédaction SEO",
+      "kicker_fr": "§ Trois packs, prix fixes",
+      "kicker_en": "§ Three packs, fixed prices",
+      "h2_fr": "Prix de la rédaction SEO",
       "h2_en": "Price of SEO writing",
-      "lede_fr": "Le sprint de cadrage ouvre la mission à prix fixe. La suite se chiffre avec vous, une fois le rythme éditorial connu.",
-      "lede_en": "We start with a fixed-price scoping sprint: target queries, editorial calendar, first briefs and a first reviewed article. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints on a time and materials basis. You keep the texts, the briefs and the calendar.",
+      "lede_fr": "La rédaction se vend en pack mensuel, à prix fixe et sans devis : un appel de cadrage de 30 minutes suffit pour choisir. Engagement de 3 mois, puis résiliable. Les outils Semrush et Ahrefs sont inclus.",
+      "lede_en": "Writing is sold as a monthly pack, at a fixed price with no quote: a 30-minute scoping call is enough to choose. 3-month commitment, then cancellable. Semrush and Ahrefs are included.",
       "tiers": [
         {
-          "name_fr": "Sprint de cadrage",
-          "name_en": "Scoping sprint",
-          "price": "{{prix.sprint}} €",
-          "period_fr": "10 h · HT",
-          "period_en": "10 h · ex VAT",
+          "name_fr": "Visibilité",
+          "name_en": "Visibility",
+          "price": "{{prix.web.pack.visibilite}} €",
+          "period_fr": "par mois · HT",
+          "period_en": "per month · ex VAT",
           "features_fr": [
-            "Recherche de requêtes et calendrier éditorial",
-            "Briefs des premiers articles",
-            "Un premier article rédigé, relu et signé",
-            "Consignes de rédaction à votre voix"
+            "3 pages optimisées par mois",
+            "2 articles par mois, relus et signés",
+            "Calendrier éditorial et briefs à vous",
+            "30 mots-clés suivis, Search Console",
+            "Maintenance Essentielle et point mensuel"
           ],
           "features_en": [
-            "Query research and editorial calendar",
-            "Briefs for the first articles",
-            "A first article written, reviewed and signed",
-            "Writing guidelines in your voice"
+            "3 optimised pages a month",
+            "2 articles a month, reviewed and signed",
+            "Editorial calendar and briefs are yours",
+            "30 tracked keywords, Search Console",
+            "Essential maintenance and monthly review"
           ],
           "cta": {
             "label_fr": "Réserver l'audit gratuit →",
@@ -473,33 +474,62 @@
           "featured": true
         },
         {
-          "name_fr": "Suite sur devis",
-          "name_en": "Next steps on quote",
-          "price": "Sur devis",
-          "period_fr": "estimé avec vous · HT",
-          "period_en": "estimated with you · ex VAT",
+          "name_fr": "Acquisition",
+          "name_en": "Acquisition",
+          "price": "{{prix.web.pack.acquisition}} €",
+          "period_fr": "par mois · HT",
+          "period_en": "per month · ex VAT",
           "features_fr": [
-            "Temps estimé ensemble, puis validé",
-            "Exécuté en sprints, facturés en régie",
-            "Articles en cadence, mises à jour suivies",
-            "Textes, briefs et calendrier à vous"
+            "Tout le pack Visibilité",
+            "3 liens sponsorisés par mois, identifiés comme tels",
+            "2 posts LinkedIn par semaine, 4 visuels et 1 vidéo assistés par IA par mois",
+            "Publicité sur 2 canaux, 2 tests A/B par mois",
+            "Point hebdomadaire"
           ],
           "features_en": [
-            "Time estimated together, then validated",
-            "Run in sprints, billed on a time and materials basis",
-            "Articles on cadence, tracked updates",
-            "Texts, briefs and calendar are yours"
+            "Everything in the Visibility pack",
+            "3 sponsored links a month, labelled as such",
+            "2 LinkedIn posts a week, 4 visuals and 1 AI-assisted video a month",
+            "Advertising on 2 channels, 2 A/B tests a month",
+            "Weekly review"
           ],
           "cta": {
-            "label_fr": "Cadrer la suite →",
-            "label_en": "Scope what follows →",
-            "href": "/contact?offer=redaction-seo-contenu&intent=suite",
+            "label_fr": "Cadrer en 30 minutes →",
+            "label_en": "Scope it in 30 minutes →",
+            "href": "/contact?offer=redaction-seo-contenu&intent=pack",
+            "variant": "ghost"
+          }
+        },
+        {
+          "name_fr": "Tout-en-un",
+          "name_en": "All-in-one",
+          "price": "{{prix.web.pack.toutenun}} €",
+          "period_fr": "par mois · HT",
+          "period_en": "per month · ex VAT",
+          "features_fr": [
+            "Tout le pack Acquisition",
+            "Maintenance Boutique et TPE",
+            "Publicité sur les 4 canaux, 4 tests A/B par mois",
+            "Jusqu'à 40 fiches produits par mois",
+            "Gestion des opérations jusqu'à 150 demandes par mois"
+          ],
+          "features_en": [
+            "Everything in the Acquisition pack",
+            "Shop and Small business maintenance",
+            "Advertising on all 4 channels, 4 A/B tests a month",
+            "Up to 40 product pages a month",
+            "Operations management up to 150 requests a month"
+          ],
+          "cta": {
+            "label_fr": "Cadrer en 30 minutes →",
+            "label_en": "Scope it in 30 minutes →",
+            "href": "/contact?offer=redaction-seo-contenu&intent=pack",
             "variant": "ghost"
           }
         }
       ],
-      "footnote_fr": "Suite en régie à {{prix.horaire}} € HT de l'heure, non dégressif, sans abonnement : à la fin, les textes, les briefs et le calendrier sont à vous.",
-      "footnote_en": "The scoping sprint is fixed-price, €{{prix.sprint.en}} excl. VAT for 10 hours: target queries, editorial calendar, first briefs and a first reviewed and signed article. What follows is quoted: we estimate together the time the articles on cadence and the updates require, validate it, then run it in sprints on a time and materials basis, at €{{prix.horaire}} an hour, non-degressive. No subscription: at the end, the texts, briefs and calendar are yours."
+      "footnote_fr": "Chaque pack coûte 14 à 18 % de moins que ses éléments pris séparément. Les textes, les briefs et le calendrier restent à vous, même après l'arrêt du pack. Nous ne promettons aucune position précise.",
+      "footnote_en": "Each pack costs 14 to 18% less than its parts bought separately. The texts, briefs and calendar stay yours, even after the pack ends. We promise no specific ranking."
     },
     {
       "type": "eeat-panel",
@@ -529,14 +559,14 @@
         {
           "q_fr": "Combien d'articles faut-il publier, et à quel rythme ?",
           "q_en": "How many articles should be published, and at what pace?",
-          "a_fr": "Il n'y a pas de nombre magique : le rythme se cale sur ce que quelqu'un peut relire et tenir à jour. Deux articles par mois relus valent mieux que dix articles non relus.",
-          "a_en": "There is no magic number. The pace is set by what someone can review and keep up to date. Two reviewed articles a month beat ten unreviewed ones."
+          "a_fr": "Il n'y a pas de nombre magique : le rythme se cale sur ce que quelqu'un peut relire et tenir à jour. Deux articles par mois relus valent mieux que dix articles non relus. C'est le rythme des packs : 2 articles et 3 pages optimisées par mois.",
+          "a_en": "There is no magic number. The pace is set by what someone can review and keep up to date. Two reviewed articles a month beat ten unreviewed ones. That is the pace of the packs: 2 articles and 3 optimised pages a month."
         },
         {
           "q_fr": "Combien coûte la rédaction SEO ?",
           "q_en": "How much does SEO writing cost?",
-          "a_fr": "Le sprint de cadrage est à {{prix.sprint}} € HT pour 10 heures : requêtes, calendrier éditorial, premiers briefs et un premier article relu. Nous estimons la suite avec vous, puis nous la facturons {{prix.horaire}} € HT de l'heure, sans abonnement imposé.",
-          "a_en": "The scoping sprint is €{{prix.sprint.en}} excl. VAT for 10 hours: queries, editorial calendar, first briefs and a first reviewed article. The rest is estimated with you, then billed at €{{prix.horaire}} per hour excl. VAT, with no imposed subscription."
+          "a_fr": "La rédaction se vend dans les packs mensuels, à prix fixe et sans devis. Le pack Visibilité, à {{prix.web.pack.visibilite}} € HT par mois, comprend 3 pages optimisées et 2 articles par mois, relus et signés, avec 30 mots-clés suivis. Les packs Acquisition ({{prix.web.pack.acquisition}} € HT) et Tout-en-un ({{prix.web.pack.toutenun}} € HT) gardent ce rythme et ajoutent netlinking, publicité et communication. Engagement de 3 mois, puis résiliable.",
+          "a_en": "Writing is sold within the monthly packs, at a fixed price with no quote. The Visibility pack, at €{{prix.web.pack.visibilite.en}} excl. VAT a month, includes 3 optimised pages and 2 articles a month, reviewed and signed, with 30 tracked keywords. The Acquisition (€{{prix.web.pack.acquisition.en}} excl. VAT) and All-in-one (€{{prix.web.pack.toutenun.en}} excl. VAT) packs keep that pace and add link building, advertising and communication. 3-month commitment, then cancellable."
         },
         {
           "q_fr": "Comment sait-on qu'un article fonctionne ?",
@@ -547,8 +577,8 @@
         {
           "q_fr": "À qui appartiennent les textes et le calendrier ?",
           "q_en": "Who owns the texts and the calendar?",
-          "a_fr": "À vous. Les textes sont publiés sur votre site, avec les briefs, les consignes de rédaction et le calendrier. Aucun abonnement ne retient vos contenus.",
-          "a_en": "You do. The texts are published on your site, with the briefs, writing guidelines and calendar. No subscription holds your content."
+          "a_fr": "À vous. Les textes sont publiés sur votre site, avec les briefs, les consignes de rédaction et le calendrier. Si vous arrêtez le pack, rien n'est retiré : vos contenus restent en ligne et à vous.",
+          "a_en": "You do. The texts are published on your site, with the briefs, writing guidelines and calendar. If you stop the pack, nothing is removed: your content stays online and yours."
         }
       ]
     },

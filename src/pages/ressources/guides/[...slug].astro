@@ -5,7 +5,7 @@ export const prerender = true;
 // mirror de ressources/diagnostics/[...slug].astro. MDX sans `sections:` = erreur de build (anti-orphelin).
 // Profondeur 3 niveaux (ressources/guides/) → imports en `../../../`.
 
-import { getLiveCollection } from '../../../lib/live-collection';
+import { getCollection } from 'astro:content';
 import Base from '../../../layouts/Base.astro';
 import SectionsRenderer from '../../../components/sections/SectionsRenderer.astro';
 import MastheadBar from '../../../components/sections/MastheadBar.astro';
@@ -15,7 +15,7 @@ import { siloLabel } from '../../../data/taxonomies';
 import { injectTunnel } from '../../../lib/internal-mesh';
 
 export async function getStaticPaths() {
-  const entries = await getLiveCollection('guides');
+  const entries = await getCollection('guides');
   return entries.map((entry) => ({
     params: { slug: entry.id },
     props: { entry },
