@@ -266,7 +266,7 @@ function groupForStaticRoute(route) {
   ) {
     return 'confiance';
   }
-  if (route === '/contact' || route === '/tarifs' || route.startsWith('/bienvenue')) return 'conversion';
+  if (route === '/contact' || route === '/tarifs' || route === '/tarifs/marketing-digital' || route.startsWith('/bienvenue')) return 'conversion';
   return 'autres';
 }
 

@@ -1,0 +1,719 @@
+{
+  "title_fr": "Tarifs marketing digital : site web, SEO, publicité",
+  "title_en": "Digital marketing pricing: website, SEO, advertising",
+  "description_fr": "Tarifs marketing digital à prix fixe : site web dès {{prix.web.solo.site}} € HT, maintenance dès {{prix.web.maintenance.essentielle}} € HT/mois, packs SEO et publicité. Aucun devis.",
+  "description_en": "Digital marketing pricing at fixed prices: website from €{{prix.web.solo.site.en}} ex VAT, maintenance from €{{prix.web.maintenance.essentielle.en}} ex VAT/month, SEO and advertising packs. No quote.",
+  "sections": [
+    {
+      "type": "masthead-bar",
+      "breadcrumb": [
+        {
+          "label_fr": "Accueil",
+          "label_en": "Home",
+          "href": "/"
+        },
+        {
+          "label_fr": "Tarifs",
+          "label_en": "Pricing",
+          "href": "/tarifs"
+        },
+        {
+          "label_fr": "Marketing digital",
+          "label_en": "Digital marketing"
+        }
+      ],
+      "locations_fr": "FR",
+      "locations_en": "FR"
+    },
+    {
+      "type": "pricing-tabs-showcase",
+      "background": "paper",
+      "kicker_fr": "§ Marketing digital",
+      "kicker_en": "§ Digital marketing",
+      "lede_fr": "Un projet se paie une fois, à prix fixe. La maintenance, le développement et la gestion de votre activité en ligne se prennent en abonnement. Aucun devis : chaque prix est écrit.",
+      "lede_en": "A project is paid once, at a fixed price. Maintenance, development and running your online business come as subscriptions. No quote: every price is written down.",
+      "tabs": [
+        {
+          "label_fr": "Créer un site",
+          "label_en": "Build a website",
+          "cards": [
+            {
+              "eyebrow_fr": "Projet · prix fixe",
+              "eyebrow_en": "Project · fixed price",
+              "title_fr": "Solopreneur et micro-entreprise",
+              "title_en": "Solo and micro-business",
+              "body_fr": "1 à 2 personnes. Site vitrine de 5 pages.",
+              "body_en": "1 to 2 people. 5-page showcase site.",
+              "price": "{{prix.web.solo.site}} €",
+              "period_fr": "HT · une fois",
+              "period_en": "ex VAT · one-off",
+              "features_fr": [
+                "Boutique jusqu'à 50 produits : {{prix.web.solo.boutique}} € HT",
+                "Webflow, Framer ou WordPress selon votre besoin",
+                "Formulaire de contact, RGPD, mesure d'audience",
+                "Deux séries de retours, formation à la prise en main"
+              ],
+              "features_en": [
+                "Shop up to 50 products: €{{prix.web.solo.boutique.en}} ex VAT",
+                "Webflow, Framer or WordPress as needed",
+                "Contact form, GDPR, analytics",
+                "Two rounds of feedback, onboarding training"
+              ],
+              "cta": {
+                "label_fr": "Cadrer mon projet →",
+                "label_en": "Scope my project →",
+                "href": "/contact?offer=marketing-digital&intent=site-solo",
+                "variant": "ghost"
+              }
+            },
+            {
+              "eyebrow_fr": "Projet · prix fixe",
+              "eyebrow_en": "Project · fixed price",
+              "title_fr": "TPE de 3 à 10 personnes",
+              "title_en": "Small team of 3 to 10",
+              "body_fr": "Un site étoffé de 6 à 12 pages.",
+              "body_en": "A fuller site of 6 to 12 pages.",
+              "price": "{{prix.web.tpe.site}} €",
+              "period_fr": "HT · une fois",
+              "period_en": "ex VAT · one-off",
+              "features_fr": [
+                "Boutique jusqu'à 200 produits : {{prix.web.tpe.boutique}} € HT",
+                "Blog, prise de rendez-vous, pages par prestation",
+                "Connexion à vos outils (agenda, facturation, CRM léger)",
+                "Trois séries de retours, formation de l'équipe"
+              ],
+              "features_en": [
+                "Shop up to 200 products: €{{prix.web.tpe.boutique.en}} ex VAT",
+                "Blog, online booking, one page per service",
+                "Connected to your tools (calendar, invoicing, light CRM)",
+                "Three rounds of feedback, team training"
+              ],
+              "cta": {
+                "label_fr": "Cadrer mon projet →",
+                "label_en": "Scope my project →",
+                "href": "/contact?offer=marketing-digital&intent=site-tpe",
+                "variant": "ghost"
+              },
+              "featured": true
+            },
+            {
+              "eyebrow_fr": "Projet · prix fixe",
+              "eyebrow_en": "Project · fixed price",
+              "title_fr": "PME de plus de 10 personnes",
+              "title_en": "SME with 10+ people",
+              "body_fr": "Site corporate ou refonte, environ 20 pages.",
+              "body_en": "Corporate site or redesign, about 20 pages.",
+              "price": "{{prix.web.pme.site}} €",
+              "period_fr": "HT · une fois",
+              "period_en": "ex VAT · one-off",
+              "features_fr": [
+                "Boutique jusqu'à 500 produits : {{prix.web.pme.boutique}} € HT",
+                "Deux langues, redirections, migration de contenu",
+                "Intégration à votre CRM ou ERP",
+                "Cadrage approfondi, recette avec vos équipes"
+              ],
+              "features_en": [
+                "Shop up to 500 products: €{{prix.web.pme.boutique.en}} ex VAT",
+                "Two languages, redirects, content migration",
+                "Integration with your CRM or ERP",
+                "In-depth scoping, acceptance testing with your teams"
+              ],
+              "cta": {
+                "label_fr": "Cadrer mon projet →",
+                "label_en": "Scope my project →",
+                "href": "/contact?offer=marketing-digital&intent=site-pme",
+                "variant": "ghost"
+              }
+            },
+            {
+              "eyebrow_fr": "Abonnement",
+              "eyebrow_en": "Subscription",
+              "title_fr": "Site par abonnement",
+              "title_en": "Website as a service",
+              "body_fr": "Créé, hébergé et maintenu, sans frais de mise en place.",
+              "body_en": "Built, hosted and maintained, with no setup fee.",
+              "price": "Dès {{prix.web.waas.solo}} €",
+              "period_fr": "HT / mois",
+              "period_en": "ex VAT / month",
+              "features_fr": [
+                "Vitrine Solo {{prix.web.waas.solo}} €, TPE {{prix.web.waas.tpe}} €, Boutique {{prix.web.waas.boutique}} €, PME {{prix.web.waas.pme}} € HT par mois",
+                "Hébergement, maintenance et petites modifications inclus",
+                "Engagement de 24 mois, puis résiliation à tout moment"
+              ],
+              "features_en": [
+                "Solo €{{prix.web.waas.solo.en}}, Small team €{{prix.web.waas.tpe.en}}, Shop €{{prix.web.waas.boutique.en}}, SME €{{prix.web.waas.pme.en}} ex VAT a month",
+                "Hosting, maintenance and small changes included",
+                "24-month commitment, then cancel at any time"
+              ],
+              "cta": {
+                "label_fr": "Choisir cette formule →",
+                "label_en": "Choose this plan →",
+                "href": "/contact?offer=marketing-digital&intent=waas",
+                "variant": "ghost"
+              }
+            }
+          ],
+          "note": {
+            "kicker_fr": "Extras à prix fixe",
+            "kicker_en": "Fixed-price extras",
+            "title_fr": "Aucun devis : un appel de 30 minutes pour choisir la grille",
+            "title_en": "No quote: a 30-minute call to pick the grid",
+            "body_fr": "Page supplémentaire {{prix.web.extra.page}} €, langue {{prix.web.extra.langue}} €, 100 produits {{prix.web.extra.produits}} €, outil relié {{prix.web.extra.outil}} € HT. Textes, photos, nom de domaine et abonnements aux outils (Webflow, Framer, Shopify) restent à votre charge. La maintenance du site se choisit ensuite, en option.",
+            "body_en": "Extra page €{{prix.web.extra.page.en}}, language €{{prix.web.extra.langue.en}}, 100 products €{{prix.web.extra.produits.en}}, connected tool €{{prix.web.extra.outil.en}} ex VAT. Copy, photos, domain name and tool subscriptions (Webflow, Framer, Shopify) remain at your expense. Website maintenance is then an option.",
+            "cta": {
+              "label_fr": "Voir la création de site →",
+              "label_en": "See website creation →",
+              "href": "/services/site-web-ia",
+              "variant": "ghost"
+            }
+          }
+        },
+        {
+          "label_fr": "Entretenir mon site",
+          "label_en": "Maintain my website",
+          "cards": [
+            {
+              "eyebrow_fr": "Maintenance · option",
+              "eyebrow_en": "Maintenance · option",
+              "title_fr": "Essentielle",
+              "title_en": "Essential",
+              "body_fr": "Le site vitrine d'une petite structure.",
+              "body_en": "A small business's showcase site.",
+              "price": "{{prix.web.maintenance.essentielle}} €",
+              "period_fr": "HT / mois",
+              "period_en": "ex VAT / month",
+              "features_fr": [
+                "Mises à jour, sauvegardes, sécurité",
+                "Supervision de la disponibilité et HTTPS",
+                "2 petites modifications de contenu par mois"
+              ],
+              "features_en": [
+                "Updates, backups, security",
+                "Uptime monitoring and HTTPS",
+                "2 small content changes a month"
+              ],
+              "cta": {
+                "label_fr": "Choisir cette formule →",
+                "label_en": "Choose this plan →",
+                "href": "/contact?offer=marketing-digital&intent=maintenance-essentielle",
+                "variant": "ghost"
+              }
+            },
+            {
+              "eyebrow_fr": "Maintenance · option",
+              "eyebrow_en": "Maintenance · option",
+              "title_fr": "Boutique et TPE",
+              "title_en": "Shop and small team",
+              "body_fr": "Un site qui reçoit des commandes ou des rendez-vous.",
+              "body_en": "A site that takes orders or bookings.",
+              "price": "{{prix.web.maintenance.boutique}} €",
+              "period_fr": "HT / mois",
+              "period_en": "ex VAT / month",
+              "features_fr": [
+                "Tout l'Essentielle",
+                "Suivi SEO mensuel : positions, Search Console, conseils écrits",
+                "Contrôle du paiement, des commandes et des formulaires",
+                "4 petites modifications par mois"
+              ],
+              "features_en": [
+                "Everything in Essential",
+                "Monthly SEO follow-up: rankings, Search Console, written advice",
+                "Payment, order and form checks",
+                "4 small changes a month"
+              ],
+              "cta": {
+                "label_fr": "Choisir cette formule →",
+                "label_en": "Choose this plan →",
+                "href": "/contact?offer=marketing-digital&intent=maintenance-boutique",
+                "variant": "ghost"
+              },
+              "featured": true
+            },
+            {
+              "eyebrow_fr": "Maintenance · option",
+              "eyebrow_en": "Maintenance · option",
+              "title_fr": "Sérénité",
+              "title_en": "Peace of mind",
+              "body_fr": "Un site qui évolue chaque mois.",
+              "body_en": "A site that evolves every month.",
+              "price": "{{prix.web.maintenance.serenite}} €",
+              "period_fr": "HT / mois",
+              "period_en": "ex VAT / month",
+              "features_fr": [
+                "Tout Boutique et TPE",
+                "2 h d'intervention incluses chaque mois",
+                "Demandes revues sous 48 h ouvrées",
+                "Contenu à la demande, jusqu'à 4 h par mois"
+              ],
+              "features_en": [
+                "Everything in Shop and small team",
+                "2 hours of work included each month",
+                "Requests reviewed within 48 working hours",
+                "Content on request, up to 4 hours a month"
+              ],
+              "cta": {
+                "label_fr": "Choisir cette formule →",
+                "label_en": "Choose this plan →",
+                "href": "/contact?offer=marketing-digital&intent=maintenance-serenite",
+                "variant": "ghost"
+              }
+            },
+            {
+              "eyebrow_fr": "Développement as a service",
+              "eyebrow_en": "Development as a service",
+              "title_fr": "Standard",
+              "title_en": "Standard",
+              "body_fr": "Une équipe de développement, une demande à la fois.",
+              "body_en": "A development team, one request at a time.",
+              "price": "{{prix.web.dev.standard}} €",
+              "period_fr": "HT / mois",
+              "period_en": "ex VAT / month",
+              "features_fr": [
+                "WordPress, Shopify, WooCommerce, Webflow, Framer, Lovable, CMS headless",
+                "Corrections, évolutions et intégrations",
+                "Suivi par WhatsApp, point hebdomadaire en visio",
+                "Essai gratuit sur une première demande"
+              ],
+              "features_en": [
+                "WordPress, Shopify, WooCommerce, Webflow, Framer, Lovable, headless CMS",
+                "Fixes, changes and integrations",
+                "WhatsApp follow-up, weekly video call",
+                "Free trial on a first request"
+              ],
+              "cta": {
+                "label_fr": "Essayer gratuitement →",
+                "label_en": "Try it for free →",
+                "href": "/contact?offer=marketing-digital&intent=dev-standard",
+                "variant": "ghost"
+              }
+            },
+            {
+              "eyebrow_fr": "Développement as a service",
+              "eyebrow_en": "Development as a service",
+              "title_fr": "Pro",
+              "title_en": "Pro",
+              "body_fr": "Deux chantiers menés en parallèle.",
+              "body_en": "Two projects run in parallel.",
+              "price": "{{prix.web.dev.pro}} €",
+              "period_fr": "HT / mois",
+              "period_en": "ex VAT / month",
+              "features_fr": [
+                "Tout le Standard",
+                "Deux demandes traitées en parallèle",
+                "Applications mobile et SaaS",
+                "Priorité sur les demandes bloquantes"
+              ],
+              "features_en": [
+                "Everything in Standard",
+                "Two requests handled in parallel",
+                "Mobile apps and SaaS",
+                "Priority on blocking requests"
+              ],
+              "cta": {
+                "label_fr": "Essayer gratuitement →",
+                "label_en": "Try it for free →",
+                "href": "/contact?offer=marketing-digital&intent=dev-pro",
+                "variant": "ghost"
+              }
+            }
+          ],
+          "note": {
+            "kicker_fr": "Sans engagement",
+            "kicker_en": "No commitment",
+            "title_fr": "Maintenance légère ou équipe de développement",
+            "title_en": "Light maintenance or a development team",
+            "body_fr": "Les trois maintenances se résilient sans engagement de durée. Pour des évolutions plus larges, le développement as a service prend le relais, avec un essai gratuit sur une première demande. L'abonnement de votre hébergeur ou de votre outil reste à votre charge.",
+            "body_en": "The three maintenance plans can be cancelled with no minimum term. For larger changes, development as a service takes over, with a free trial on a first request. Your host or tool subscription remains at your expense.",
+            "cta": {
+              "label_fr": "Voir la maintenance →",
+              "label_en": "See maintenance →",
+              "href": "/services/maintenance-growth",
+              "variant": "ghost"
+            }
+          }
+        },
+        {
+          "label_fr": "Gagner des clients",
+          "label_en": "Win customers",
+          "cards": [
+            {
+              "eyebrow_fr": "Pack · abonnement",
+              "eyebrow_en": "Pack · subscription",
+              "title_fr": "Pack Visibilité",
+              "title_en": "Visibility pack",
+              "body_fr": "Un site entretenu et visible.",
+              "body_en": "A maintained, visible website.",
+              "price": "{{prix.web.pack.visibilite}} €",
+              "period_fr": "HT / mois",
+              "period_en": "ex VAT / month",
+              "features_fr": [
+                "Maintenance Essentielle et amélioration continue",
+                "3 pages optimisées et 2 articles par mois, 30 mots-clés suivis",
+                "Search Console, indexation, 8 annuaires par mois"
+              ],
+              "features_en": [
+                "Essential maintenance and continuous improvement",
+                "3 optimised pages and 2 articles a month, 30 tracked keywords",
+                "Search Console, indexing, 8 directories a month"
+              ],
+              "cta": {
+                "label_fr": "Choisir cette formule →",
+                "label_en": "Choose this plan →",
+                "href": "/contact?offer=marketing-digital&intent=pack-visibilite",
+                "variant": "ghost"
+              }
+            },
+            {
+              "eyebrow_fr": "Pack · abonnement",
+              "eyebrow_en": "Pack · subscription",
+              "title_fr": "Pack Acquisition",
+              "title_en": "Acquisition pack",
+              "body_fr": "Visibilité, liens et publicité.",
+              "body_en": "Visibility, links and advertising.",
+              "price": "{{prix.web.pack.acquisition}} €",
+              "period_fr": "HT / mois",
+              "period_en": "ex VAT / month",
+              "features_fr": [
+                "Tout le Pack Visibilité",
+                "3 liens sponsorisés par mois, identifiés comme tels",
+                "Publicité et conversion sur 2 canaux, 2 tests A/B par mois",
+                "LinkedIn, visuels et vidéo assistés par IA"
+              ],
+              "features_en": [
+                "Everything in the Visibility pack",
+                "3 sponsored links a month, labelled as such",
+                "Advertising and conversion on 2 channels, 2 A/B tests a month",
+                "LinkedIn, AI-assisted visuals and video"
+              ],
+              "cta": {
+                "label_fr": "Choisir cette formule →",
+                "label_en": "Choose this plan →",
+                "href": "/contact?offer=marketing-digital&intent=pack-acquisition",
+                "variant": "ghost"
+              },
+              "featured": true
+            },
+            {
+              "eyebrow_fr": "Pack · abonnement",
+              "eyebrow_en": "Pack · subscription",
+              "title_fr": "Pack Tout-en-un",
+              "title_en": "All-in-one pack",
+              "body_fr": "La gestion complète de votre activité en ligne.",
+              "body_en": "Full management of your online business.",
+              "price": "{{prix.web.pack.toutenun}} €",
+              "period_fr": "HT / mois",
+              "period_en": "ex VAT / month",
+              "features_fr": [
+                "Tout le Pack Acquisition, maintenance Boutique et TPE",
+                "Publicité et conversion sur 4 canaux, 4 tests A/B par mois",
+                "E-mails, devis, fournisseurs, catalogue, stock et SAV gérés"
+              ],
+              "features_en": [
+                "Everything in Acquisition, Shop and small-team maintenance",
+                "Advertising and conversion on 4 channels, 4 A/B tests a month",
+                "E-mails, quotes, suppliers, catalogue, stock and after-sales handled"
+              ],
+              "cta": {
+                "label_fr": "Choisir cette formule →",
+                "label_en": "Choose this plan →",
+                "href": "/contact?offer=marketing-digital&intent=pack-toutenun",
+                "variant": "ghost"
+              }
+            },
+            {
+              "eyebrow_fr": "Gestion de business en ligne as a service",
+              "eyebrow_en": "Online business management as a service",
+              "title_fr": "Essentiel",
+              "title_en": "Essential",
+              "body_fr": "Nous pilotons votre acquisition sur deux canaux.",
+              "body_en": "We run your acquisition on two channels.",
+              "price": "{{prix.web.ads.essentiel}} €",
+              "period_fr": "HT / mois",
+              "period_en": "ex VAT / month",
+              "features_fr": [
+                "Deux canaux parmi Google Ads, Meta, TikTok, Pinterest",
+                "Visuels et vidéos publicitaires, landing pages, tests A/B",
+                "Rétention par e-mail et SMS, reporting hebdomadaire"
+              ],
+              "features_en": [
+                "Two channels among Google Ads, Meta, TikTok, Pinterest",
+                "Ad visuals and videos, landing pages, A/B tests",
+                "Retention by e-mail and SMS, weekly reporting"
+              ],
+              "cta": {
+                "label_fr": "Choisir cette formule →",
+                "label_en": "Choose this plan →",
+                "href": "/contact?offer=marketing-digital&intent=ads-essentiel",
+                "variant": "ghost"
+              }
+            },
+            {
+              "eyebrow_fr": "Gestion de business en ligne as a service",
+              "eyebrow_en": "Online business management as a service",
+              "title_fr": "Croissance",
+              "title_en": "Growth",
+              "body_fr": "Les quatre canaux, pilotés ensemble.",
+              "body_en": "All four channels, run together.",
+              "price": "{{prix.web.ads.croissance}} €",
+              "period_fr": "HT / mois",
+              "period_en": "ex VAT / month",
+              "features_fr": [
+                "Tout l'Essentiel",
+                "Google Ads, Meta, TikTok et Pinterest ensemble",
+                "Feuille de route d'expérimentations élargie, priorité"
+              ],
+              "features_en": [
+                "Everything in Essential",
+                "Google Ads, Meta, TikTok and Pinterest together",
+                "Wider experimentation roadmap, priority"
+              ],
+              "cta": {
+                "label_fr": "Choisir cette formule →",
+                "label_en": "Choose this plan →",
+                "href": "/contact?offer=marketing-digital&intent=ads-croissance",
+                "variant": "ghost"
+              }
+            }
+          ],
+          "note": {
+            "kicker_fr": "Options d'un pack",
+            "kicker_en": "Pack options",
+            "title_fr": "Prospection {{prix.web.option.prospection}} € HT/mois · netlinking {{prix.web.option.netlinking}} € HT le lot de 3 liens",
+            "title_en": "Prospecting €{{prix.web.option.prospection.en}} ex VAT/month · link building €{{prix.web.option.netlinking.en}} ex VAT per batch of 3 links",
+            "body_fr": "Packs et options : engagement de 3 mois, puis résiliation à tout moment ; chaque pack coûte 14 à 18 % de moins que ses éléments séparés. La gestion de business en ligne se prend sans frais de mise en place. Le budget publicitaire est payé directement aux plateformes. Aucune position n'est promise sur Google.",
+            "body_en": "Packs and options: 3-month commitment, then cancel at any time; each pack costs 14 to 18% less than its parts. Online business management has no setup fee. Ad spend is paid directly to the platforms. No Google ranking is promised.",
+            "cta": {
+              "label_fr": "Voir la publicité en ligne →",
+              "label_en": "See online advertising →",
+              "href": "/services/publicite-en-ligne",
+              "variant": "ghost"
+            }
+          }
+        },
+        {
+          "label_fr": "Application ou SaaS",
+          "label_en": "App or SaaS",
+          "cards": [
+            {
+              "eyebrow_fr": "Projet · prix fixe",
+              "eyebrow_en": "Project · fixed price",
+              "title_fr": "MVP web ou SaaS",
+              "title_en": "Web MVP or SaaS",
+              "body_fr": "Cadré puis livré à prix fixe.",
+              "body_en": "Scoped, then delivered at a fixed price.",
+              "price": "{{prix.web.app.mvp}} €",
+              "period_fr": "HT · une fois",
+              "period_en": "ex VAT · one-off",
+              "features_fr": [
+                "Cadrage, authentification, back-office minimal",
+                "Prototype rapide puis version de production",
+                "Connecteurs, API et paiement Stripe"
+              ],
+              "features_en": [
+                "Scoping, authentication, minimal back office",
+                "Fast prototype, then production release",
+                "Connectors, APIs and Stripe payments"
+              ],
+              "cta": {
+                "label_fr": "Cadrer mon projet →",
+                "label_en": "Scope my project →",
+                "href": "/contact?offer=marketing-digital&intent=mvp",
+                "variant": "ghost"
+              }
+            },
+            {
+              "eyebrow_fr": "Projet · prix fixe",
+              "eyebrow_en": "Project · fixed price",
+              "title_fr": "Application mobile",
+              "title_en": "Mobile app",
+              "body_fr": "iOS et Android, à prix fixe.",
+              "body_en": "iOS and Android, at a fixed price.",
+              "price": "{{prix.web.app.mobile}} €",
+              "period_fr": "HT · une fois",
+              "period_en": "ex VAT · one-off",
+              "features_fr": [
+                "Cadrage et périmètre fixés à l'appel de 30 minutes",
+                "Prototype rapide puis version de production",
+                "Connecteurs, API et paiement Stripe"
+              ],
+              "features_en": [
+                "Scope set during the 30-minute call",
+                "Fast prototype, then production release",
+                "Connectors, APIs and Stripe payments"
+              ],
+              "cta": {
+                "label_fr": "Cadrer mon projet →",
+                "label_en": "Scope my project →",
+                "href": "/contact?offer=marketing-digital&intent=mobile",
+                "variant": "ghost"
+              }
+            },
+            {
+              "eyebrow_fr": "SaaS as a service",
+              "eyebrow_en": "SaaS as a service",
+              "title_fr": "Build",
+              "title_en": "Build",
+              "body_fr": "Nous construisons le MVP puis la version de production.",
+              "body_en": "We build the MVP, then the production release.",
+              "price": "{{prix.web.saas.build}} €",
+              "period_fr": "HT / mois",
+              "period_en": "ex VAT / month",
+              "features_fr": [
+                "Sans frais de mise en place, 6 mois minimum",
+                "Authentification, comptes, paiement Stripe",
+                "Livraison par étapes, point hebdomadaire"
+              ],
+              "features_en": [
+                "No setup fee, 6-month minimum",
+                "Authentication, accounts, Stripe payments",
+                "Staged delivery, weekly call"
+              ],
+              "cta": {
+                "label_fr": "Choisir cette formule →",
+                "label_en": "Choose this plan →",
+                "href": "/contact?offer=marketing-digital&intent=saas-build",
+                "variant": "ghost"
+              },
+              "featured": true
+            },
+            {
+              "eyebrow_fr": "SaaS as a service",
+              "eyebrow_en": "SaaS as a service",
+              "title_fr": "Manage",
+              "title_en": "Manage",
+              "body_fr": "Nous exploitons et faisons évoluer votre SaaS.",
+              "body_en": "We run and evolve your SaaS.",
+              "price": "{{prix.web.saas.manage}} €",
+              "period_fr": "HT / mois",
+              "period_en": "ex VAT / month",
+              "features_fr": [
+                "Hébergement, supervision, sauvegardes et sécurité",
+                "Correctifs et évolutions, une demande à la fois",
+                "Reprise possible d'un SaaS existant"
+              ],
+              "features_en": [
+                "Hosting, monitoring, backups and security",
+                "Fixes and changes, one request at a time",
+                "Takeover of an existing SaaS possible"
+              ],
+              "cta": {
+                "label_fr": "Choisir cette formule →",
+                "label_en": "Choose this plan →",
+                "href": "/contact?offer=marketing-digital&intent=saas-manage",
+                "variant": "ghost"
+              }
+            }
+          ],
+          "note": {
+            "kicker_fr": "Ensuite",
+            "kicker_en": "Afterwards",
+            "title_fr": "Maintenance ou Manage, au choix",
+            "title_en": "Maintenance or Manage, your choice",
+            "body_fr": "Après la mise en place, l'application se maintient en abonnement : développement Pro pour la faire évoluer, ou Manage pour l'exploiter. Conditions de reprise du code précisées avant signature.",
+            "body_en": "After launch, the app is maintained by subscription: Pro development to evolve it, or Manage to run it. Code handover terms are set out before signing.",
+            "cta": {
+              "label_fr": "Voir le MVP SaaS →",
+              "label_en": "See the SaaS MVP →",
+              "href": "/services/mvp-saas",
+              "variant": "ghost"
+            }
+          }
+        }
+      ],
+      "h1_fr": "Tarifs <i>marketing digital</i> : site web, SEO, publicité",
+      "h1_en": "<i>Digital marketing</i> pricing: website, SEO, advertising"
+    },
+    {
+      "type": "faq-accordion",
+      "background": "paper",
+      "kicker_fr": "FAQ · 9 questions",
+      "kicker_en": "FAQ · 9 questions",
+      "h2_fr": "Questions sur les tarifs du marketing digital",
+      "h2_en": "Digital marketing pricing questions",
+      "items": [
+        {
+          "q_fr": "Y a-t-il des devis ?",
+          "q_en": "Are there quotes?",
+          "a_fr": "Non. Chaque grille décrit son périmètre et son prix. Les extras ont un prix fixe : page supplémentaire {{prix.web.extra.page}} € HT, langue supplémentaire {{prix.web.extra.langue}} € HT, 100 produits supplémentaires {{prix.web.extra.produits}} € HT, outil relié (CRM, ERP, agenda) {{prix.web.extra.outil}} € HT. Un MVP ou une application mobile hors du périmètre décrit est cadré lors d'un appel de 30 minutes, puis son prix fixe est écrit avant le démarrage.",
+          "a_en": "No. Each grid states its scope and its price. Extras have a fixed price: extra page €{{prix.web.extra.page.en}} ex VAT, extra language €{{prix.web.extra.langue.en}} ex VAT, 100 extra products €{{prix.web.extra.produits.en}} ex VAT, connected tool (CRM, ERP, calendar) €{{prix.web.extra.outil.en}} ex VAT. An MVP or mobile app outside the described scope is scoped on a 30-minute call, then its fixed price is written down before work starts."
+        },
+        {
+          "q_fr": "Quelle offre pour quelle taille d'entreprise ?",
+          "q_en": "Which offer fits which company size?",
+          "a_fr": "Solopreneur et micro-entreprise (1 à 2 personnes) : site vitrine dès {{prix.web.solo.site}} € HT, boutique dès {{prix.web.solo.boutique}} € HT. TPE de 3 à 10 personnes : site dès {{prix.web.tpe.site}} € HT, boutique dès {{prix.web.tpe.boutique}} € HT. PME de plus de 10 personnes : site dès {{prix.web.pme.site}} € HT, boutique dès {{prix.web.pme.boutique}} € HT. Application : MVP web ou SaaS dès {{prix.web.app.mvp}} € HT, application mobile dès {{prix.web.app.mobile}} € HT.",
+          "a_en": "Solo business and micro-company (1 to 2 people): showcase site from €{{prix.web.solo.site.en}} ex VAT, shop from €{{prix.web.solo.boutique.en}} ex VAT. Small business of 3 to 10 people: site from €{{prix.web.tpe.site.en}} ex VAT, shop from €{{prix.web.tpe.boutique.en}} ex VAT. SME of more than 10 people: site from €{{prix.web.pme.site.en}} ex VAT, shop from €{{prix.web.pme.boutique.en}} ex VAT. Applications: web MVP or SaaS from €{{prix.web.app.mvp.en}} ex VAT, mobile app from €{{prix.web.app.mobile.en}} ex VAT."
+        },
+        {
+          "q_fr": "Puis-je avoir un site sans payer de mise en place ?",
+          "q_en": "Can I get a website with no setup fee?",
+          "a_fr": "Oui, avec le site web par abonnement : de {{prix.web.waas.solo}} € HT par mois (Vitrine Solo) à {{prix.web.waas.pme}} € HT par mois (PME), hébergement, maintenance et petites modifications inclus, engagement de 24 mois puis résiliation à tout moment.",
+          "a_en": "Yes, with the website subscription: from €{{prix.web.waas.solo.en}} ex VAT a month (Solo showcase) to €{{prix.web.waas.pme.en}} ex VAT a month (SME), hosting, maintenance and small edits included, 24-month commitment then cancellation at any time."
+        },
+        {
+          "q_fr": "Que contient chaque pack ?",
+          "q_en": "What does each pack include?",
+          "a_fr": "Le Pack Visibilité ({{prix.web.pack.visibilite}} € HT par mois) entretient votre site et améliore sa visibilité. Le Pack Acquisition ({{prix.web.pack.acquisition}} € HT par mois) y ajoute des liens sponsorisés, la publicité, les tests A/B et la communication. Le Pack Tout-en-un ({{prix.web.pack.toutenun}} € HT par mois) y ajoute la gestion de vos e-mails, devis, fournisseurs, catalogue, stock et SAV. Chaque pack coûte de 14 à 18 % de moins que ses éléments pris séparément.",
+          "a_en": "The Visibility pack (€{{prix.web.pack.visibilite.en}} ex VAT a month) maintains your site and improves its visibility. The Acquisition pack (€{{prix.web.pack.acquisition.en}} ex VAT a month) adds sponsored links, advertising, A/B tests and communication. The All-in-one pack (€{{prix.web.pack.toutenun.en}} ex VAT a month) adds the handling of your emails, quotes, suppliers, catalogue, stock and after-sales. Each pack costs 14 to 18% less than its parts taken separately."
+        },
+        {
+          "q_fr": "Que pouvez-vous garantir sur l'indexation et le classement ?",
+          "q_en": "What can you guarantee on indexing and ranking?",
+          "a_fr": "Nous suivons l'indexation dans Google Search Console et prévenons Bing, Yandex et d'autres moteurs avec IndexNow. Google n'utilise pas IndexNow : la demande d'indexation passe par Search Console. Nous ne promettons aucune position précise.",
+          "a_en": "We track indexing in Google Search Console and notify Bing, Yandex and other engines with IndexNow. Google does not use IndexNow: indexing requests go through Search Console. We promise no specific ranking."
+        },
+        {
+          "q_fr": "Les liens achetés sont-ils autorisés ?",
+          "q_en": "Are paid links allowed?",
+          "a_fr": "Les liens payés qui transmettent du classement vont à l'encontre des règles de Google. Nous proposons des articles sponsorisés clairement identifiés (mention « sponsorisé » et lien marqué comme tel), sur des sites choisis pour leur qualité, à {{prix.web.option.netlinking}} € HT par mois pour un lot de trois.",
+          "a_en": "Paid links that pass ranking go against Google's rules. We offer clearly identified sponsored articles (a \"sponsored\" mention and a link marked as such) on sites chosen for their quality, at €{{prix.web.option.netlinking.en}} ex VAT a month for a batch of three."
+        },
+        {
+          "q_fr": "Gérez-vous mon compte LinkedIn ?",
+          "q_en": "Do you manage my LinkedIn account?",
+          "a_fr": "Nous rédigeons et planifions vos publications. LinkedIn interdit les robots de connexion et de messages : les demandes de connexion et les échanges restent faits à la main, par vous ou sur votre validation.",
+          "a_en": "We write and schedule your posts. LinkedIn bans connection and messaging bots: connection requests and conversations stay manual, by you or with your approval."
+        },
+        {
+          "q_fr": "Comment fonctionne la prospection ?",
+          "q_en": "How does prospecting work?",
+          "a_fr": "Environ 10 recherches par jour ouvré avec Apollo et Pharow, des séquences d'e-mails B2B avec mention d'information et lien de désinscription, conformes aux règles de la CNIL, à {{prix.web.option.prospection}} € HT par mois en option d'un pack. Les crédits au-delà du forfait sont refacturés au coût réel.",
+          "a_en": "About 10 searches per business day with Apollo and Pharow, B2B email sequences with an information notice and unsubscribe link, in line with CNIL rules, at €{{prix.web.option.prospection.en}} ex VAT a month as a pack option. Credits beyond the plan are re-billed at cost."
+        },
+        {
+          "q_fr": "Et si j'ai besoin d'intelligence artificielle ?",
+          "q_en": "What if I need artificial intelligence?",
+          "a_fr": "Les projets d'IA (audit gratuit, sprint de cadrage, pilote, maintenance et formations) ont leur propre page, Tarifs agence IA. Les deux grilles ne se mélangent pas : un devis IA ferme vient après l'audit, les prix du marketing digital sont écrits ici.",
+          "a_en": "AI projects (free audit, scoping sprint, pilot, maintenance and training) have their own page, AI agency pricing. The two grids do not mix: a firm AI quote follows the audit, digital marketing prices are written here."
+        }
+      ]
+    },
+    {
+      "type": "footer-cta-band",
+      "background": "ink",
+      "layout": "stacked",
+      "contentAlign": "center",
+      "actionsAlign": "center",
+      "rounded": true,
+      "kicker_fr": "§ Première étape",
+      "kicker_en": "§ First step",
+      "h2_fr": "Un appel de 30 minutes pour choisir la <i>bonne grille</i>.",
+      "h2_en": "A 30-minute call to pick the <i>right grid</i>.",
+      "subtitle_fr": "Ce n'est pas un devis : le prix reste celui affiché. L'appel sert à choisir entre le site, la maintenance, un pack ou une application.",
+      "subtitle_en": "It is not a quote: the price stays the one shown. The call is for choosing between a site, maintenance, a pack or an application.",
+      "buttons": [
+        {
+          "label_fr": "Réserver l'audit gratuit →",
+          "label_en": "Book the free audit →",
+          "href": "/contact?offer=audit-ia-pme&intent=audit",
+          "variant": "primary"
+        },
+        {
+          "label_fr": "Tarifs agence IA",
+          "label_en": "AI agency pricing",
+          "href": "/tarifs",
+          "variant": "ghost"
+        }
+      ]
+    }
+  ]
+}
