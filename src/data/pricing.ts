@@ -230,7 +230,9 @@ export const TRAINING_PRICE_NOTE = {
 
 // ─── Système commercial / prospection (précisions Simon 2026-10) · SOURCE UNIQUE ─────────
 /** Prix d'entrée de l'abonnement, en euros HT par mois (« dès 980 € HT/mois »). */
-export const SALES_SYSTEM_FLOOR_EUR = 980 as const;
+// Fusion VirtuoseWeb (2026-11-23) : aligné sur l'option « Prospection » de la grille unique
+// (virtuoseweb.fr/tarifs : 790 € HT/mois, engagement 3 mois). Même valeur que WEB_PRICING_EUR.option.prospection.
+export const SALES_SYSTEM_FLOOR_EUR = 790 as const;
 /** Essai gratuit : nombre de leads offerts, pour 0 €. C'est un essai, pas le prix. */
 export const SALES_SYSTEM_TRIAL_LEADS = 30 as const;
 
