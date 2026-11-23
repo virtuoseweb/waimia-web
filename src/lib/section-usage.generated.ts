@@ -779,7 +779,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "editorial-prose": {
-    "count": 420,
+    "count": 426,
     "pages": [
       "/audit-ia-pme",
       "/cas-usages/centraliser-donnees",
@@ -1275,7 +1275,7 @@ export const REAL_SECTION_USAGE: Record<string, SectionUsageStat> = {
     ]
   },
   "feature-grid": {
-    "count": 14,
+    "count": 15,
     "pages": [
       "/lp/hub",
       "/lp/systeme-acquisition",
