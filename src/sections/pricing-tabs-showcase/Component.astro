@@ -58,7 +58,7 @@ const btnVariant = (v: CtaVariant, fallback: 'ghost' | 'primary') =>
             hidden={tabIndex !== 0}
           >
             {TitleTag === 'h1' && <h2 class="sr-only">{isFr ? 'Nos formules' : 'Our plans'}</h2>}
-            <div class="pricing-tabs__grid">
+            <div class="pricing-tabs__grid" data-count={tab.cards.length}>
               {tab.cards.map((card) => {
                 const imageAlt = isFr ? card.image_alt_fr : card.image_alt_en;
                 return (
@@ -260,6 +260,24 @@ const btnVariant = (v: CtaVariant, fallback: 'ghost' | 'primary') =>
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: var(--space-5);
+  }
+
+  /* Grille selon le nombre de formules : 4 → quatre colonnes ; 5 → trois puis deux plus larges
+     (6 pistes), jamais de carte orpheline. 3 garde la grille d'origine. */
+  .pricing-tabs__grid[data-count='4'] {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .pricing-tabs__grid[data-count='5'] {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .pricing-tabs__grid[data-count='5'] > :nth-child(-n + 3) {
+    grid-column: span 2;
+  }
+
+  .pricing-tabs__grid[data-count='5'] > :nth-child(n + 4) {
+    grid-column: span 3;
   }
 
   .pricing-tabs__card {
@@ -516,13 +534,41 @@ const btnVariant = (v: CtaVariant, fallback: 'ghost' | 'primary') =>
     }
   }
 
+  @media (max-width: 1180px) {
+    .pricing-tabs__grid[data-count='4'] {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  /* Tablette et mobile : carrousel horizontal à défilement aimanté plutôt qu'une pile de
+     cartes, pour garder la section courte ; la carte suivante dépasse et invite à glisser. */
   @media (max-width: 980px) {
-    .pricing-tabs__grid {
-      grid-template-columns: 1fr;
+    .pricing-tabs__grid,
+    .pricing-tabs__grid[data-count] {
+      grid-template-columns: none;
+      grid-auto-flow: column;
+      grid-auto-columns: min(82%, 340px);
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory;
+      scroll-padding-inline: var(--space-1);
+      padding: var(--space-2) var(--space-1) var(--space-4);
+      margin-inline: calc(var(--space-1) * -1);
+      scrollbar-width: thin;
+    }
+
+    .pricing-tabs__grid[data-count='5'] > * {
+      grid-column: auto;
     }
 
     .pricing-tabs__card {
       min-height: auto;
+      scroll-snap-align: start;
+    }
+
+    .pricing-tabs__card:hover,
+    .pricing-tabs__card.is-featured {
+      transform: none;
     }
   }
 

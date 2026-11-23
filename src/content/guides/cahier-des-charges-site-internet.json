@@ -8,7 +8,7 @@
   "description_en": "Website specification: the ten sections, an example brief to fill in, the technical choices and a grid to compare your quotes. Checked on 16 October 2026.",
   "slug": "cahier-des-charges-site-internet",
   "publishedAt": "2026-10-16",
-  "updatedAt": "2026-11-11",
+  "updatedAt": "2026-11-23",
   "category": "web",
   "tags": [
     "cahier-des-charges",
@@ -71,7 +71,7 @@
     },
     {
       "q": "Combien coûte un site chez Waimia ?",
-      "a": "Deux packs d'heures : 10 heures à {{prix.sprint}} € HT, et 20 heures au taux horaire de {{prix.horaire}} € HT. La composante SEO et GEO est en option. Les paliers de prix d'un site sont publiés sur la page création et refonte de site, et le périmètre exact est fixé par écrit avant de démarrer."
+      "a": "Le prix est fixe et suit la taille de votre structure, sans devis : {{prix.web.solo.site}} € HT pour un site vitrine de 5 pages (solopreneur ou micro-entreprise), {{prix.web.tpe.site}} € HT pour un site de 6 à 12 pages (TPE de 3 à 10 personnes), {{prix.web.pme.site}} € HT pour un site corporate ou une refonte d'environ 20 pages (PME de plus de 10 personnes). Une boutique coûte {{prix.web.solo.boutique}}, {{prix.web.tpe.boutique}} ou {{prix.web.pme.boutique}} € HT selon la taille. Un appel de cadrage de 30 minutes sert à choisir la grille ; le détail est sur la page création et refonte de site."
     }
   ],
   "faq_en": [
@@ -97,7 +97,7 @@
     },
     {
       "q": "How much does a site cost at Waimia?",
-      "a": "Two hour packs: 10 hours at €{{prix.sprint.en}} excl. VAT, and 20 hours at the hourly rate of €{{prix.horaire}} excl. VAT. The SEO and GEO component is optional. The price tiers for a site are published on the website creation and redesign page, and the exact scope is set in writing before starting."
+      "a": "The price is fixed and follows the size of your business, with no quote: €{{prix.web.solo.site.en}} excl. VAT for a 5-page showcase site (solopreneur or micro-business), €{{prix.web.tpe.site.en}} for a 6-to-12-page site (small business of 3 to 10 people), €{{prix.web.pme.site.en}} for a corporate site or a redesign of about 20 pages (SME of more than 10 people). A shop costs €{{prix.web.solo.boutique.en}}, €{{prix.web.tpe.boutique.en}} or €{{prix.web.pme.boutique.en}} excl. VAT depending on size. A 30-minute scoping call is enough to pick the grid; the details are on the website creation and redesign page."
     }
   ],
   "sections": [
@@ -773,8 +773,8 @@
     {
       "type": "editorial-prose",
       "background": "paper-2",
-      "html_fr": "<h2>Ce que l'IA change au temps de production d'un site</h2>\n<p>Les assistants de code accélèrent la fabrication : modèles de pages, intégration d'une maquette, table de redirections, balisage. Ils n'accélèrent pas ce qui dépend de vous : fournir les contenus, trancher une direction de style, valider, tester sur de vrais appareils.</p>\n<p>Pour un site vitrine de quelques pages, avec des contenus prêts et une direction validée, mon ordre de grandeur se situe entre 10 et 20 heures de travail, soit le volume des deux packs ci-dessous. Le périmètre exact est fixé par écrit avant de commencer.</p>\n<p>Ce qui fait déborder : des contenus à écrire, des intégrations (CRM, agenda, paiement), une version en plusieurs langues, un grand nombre de modèles de pages, une table de redirections longue, des tours de corrections répétés. Si un devis annonce nettement plus d'heures pour le même périmètre, demandez ce que contiennent ces heures.</p>",
-      "html_en": "<h2>What AI changes in the production time of a site</h2>\n<p>Waimia's estimate, not a market measurement or a commitment. Code assistants speed up building: page templates, integrating a mockup, the redirect table, markup. They do not speed up what depends on you: supplying content, deciding a style direction, approving, testing on real devices.</p>\n<p>For a showcase site of a few pages, with content ready and a direction approved, Waimia's order of magnitude is between 10 and 20 hours of work: that is the volume of the two packs below. This range is not a price: the exact scope is set in writing before starting.</p>\n<p>What pushes it over: content to write, integrations (CRM, calendar, payment), several languages, a large number of page templates, a long redirect table, repeated rounds of fixes. If a quote announces clearly more hours for the same scope, ask what those hours contain.</p>"
+      "html_fr": "<h2>Ce que l'IA change au temps de production d'un site</h2>\n<p>Les assistants de code accélèrent la fabrication : modèles de pages, intégration d'une maquette, table de redirections, balisage. Ils n'accélèrent pas ce qui dépend de vous : fournir les contenus, trancher une direction de style, valider, tester sur de vrais appareils.</p>\n<p>Pour un site vitrine de quelques pages, avec des contenus prêts et une direction validée, mon ordre de grandeur se situe entre 10 et 20 heures de travail. Chez Waimia, le prix ne dépend pas de ces heures : il est fixe et suit la taille de votre structure (grille ci-dessous).</p>\n<p>Ce qui fait déborder : des contenus à écrire, des intégrations (CRM, agenda, paiement), une version en plusieurs langues, un grand nombre de modèles de pages, une table de redirections longue, des tours de corrections répétés. Si un devis annonce nettement plus d'heures pour le même périmètre, demandez ce que contiennent ces heures.</p>",
+      "html_en": "<h2>What AI changes in the production time of a site</h2>\n<p>Waimia's estimate, not a market measurement or a commitment. Code assistants speed up building: page templates, integrating a mockup, the redirect table, markup. They do not speed up what depends on you: supplying content, deciding a style direction, approving, testing on real devices.</p>\n<p>For a showcase site of a few pages, with content ready and a direction approved, Waimia's order of magnitude is between 10 and 20 hours of work. At Waimia, the price does not depend on those hours: it is fixed and follows the size of your business (grid below).</p>\n<p>What pushes it over: content to write, integrations (CRM, calendar, payment), several languages, a large number of page templates, a long redirect table, repeated rounds of fixes. If a quote announces clearly more hours for the same scope, ask what those hours contain.</p>"
     },
     {
       "type": "process-steps",
@@ -847,70 +847,106 @@
     {
       "type": "editorial-table-block",
       "background": "paper-2",
-      "kicker_fr": "§ Les packs",
-      "kicker_en": "§ The packs",
-      "heading_fr": "Quels packs d'heures pour un site, et avec quelle option SEO et GEO ?",
-      "heading_en": "Which hour packs for a site, and with which SEO and GEO option?",
-      "caption_fr": "Les packs sont des volumes d'heures facturés au taux horaire. La colonne de droite est une estimation : le périmètre exact, et ce qui est mis en ligne, sont fixés par écrit avant de démarrer.",
-      "caption_en": "The packs are volumes of hours billed at the hourly rate. The right-hand column is a Waimia estimate, not a commitment: the exact scope, and what goes live, are set in writing before starting.",
+      "kicker_fr": "§ La grille",
+      "kicker_en": "§ The grid",
+      "heading_fr": "Combien coûte un site chez Waimia, selon votre taille ?",
+      "heading_en": "How much does a site cost at Waimia, by the size of your business?",
+      "caption_fr": "Prix fixes, sans devis : un appel de cadrage de 30 minutes sert à choisir la ligne. Extras à prix fixe : page {{prix.web.extra.page}} €, langue {{prix.web.extra.langue}} €, 100 produits {{prix.web.extra.produits}} €, outil relié {{prix.web.extra.outil}} € HT. Textes, photos, nom de domaine et abonnements aux outils restent à la charge du client.",
+      "caption_en": "Fixed prices, with no quote: a 30-minute scoping call is enough to pick the row. Fixed-price extras: page €{{prix.web.extra.page.en}}, language €{{prix.web.extra.langue.en}}, 100 products €{{prix.web.extra.produits.en}}, connected tool €{{prix.web.extra.outil.en}} excl. VAT. Copy, photos, domain name and tool subscriptions remain at the client's expense.",
       "columns_fr": [
-        "Pack",
-        "Volume",
-        "Tarif",
-        "Ce qu'il couvre (estimation)"
+        "Formule",
+        "Pour qui",
+        "Prix HT",
+        "Ce qui est compris"
       ],
       "columns_en": [
-        "Pack",
-        "Volume",
-        "Rate",
-        "What it covers (estimate)"
+        "Plan",
+        "For whom",
+        "Price excl. VAT",
+        "What is included"
       ],
       "rows_fr": [
         [
-          "Pack de 10 heures",
-          "10 heures",
-          "{{prix.sprint}} € HT",
-          "Cadrer le besoin, choisir la solution, valider une direction ou une maquette, produire un premier livrable : prototype testé ou landing page."
+          "Site vitrine",
+          "Solopreneur ou micro-entreprise (1 à 2 personnes)",
+          "{{prix.web.solo.site}} € ; boutique jusqu'à 50 produits {{prix.web.solo.boutique}} €",
+          "5 pages, design Webflow, Framer ou WordPress, formulaire, RGPD, mesure d'audience, deux séries de retours, formation."
         ],
         [
-          "Pack de 20 heures",
-          "20 heures",
-          "20 heures au taux horaire de {{prix.horaire}} € HT",
-          "Un site vitrine de quelques pages, contenus fournis, jusqu'à la recette, si le périmètre tient dans le volume."
+          "Site TPE",
+          "TPE de 3 à 10 personnes",
+          "{{prix.web.tpe.site}} € ; boutique jusqu'à 200 produits {{prix.web.tpe.boutique}} €",
+          "6 à 12 pages, blog, rendez-vous ou réservation, connexion à vos outils (agenda, facturation, CRM léger), trois séries de retours."
+        ],
+        [
+          "Site PME",
+          "PME de plus de 10 personnes",
+          "{{prix.web.pme.site}} € ; boutique jusqu'à 500 produits {{prix.web.pme.boutique}} €",
+          "Site corporate ou refonte d'environ 20 pages, deux langues, redirections des anciennes URL, migration de contenu, intégration CRM ou ERP, recette."
+        ],
+        [
+          "Site par abonnement",
+          "Sans mise de départ",
+          "dès {{prix.web.waas.solo}} € par mois",
+          "Création, hébergement, maintenance et petites modifications, engagement 24 mois."
+        ],
+        [
+          "Maintenance",
+          "Après la mise en ligne",
+          "dès {{prix.web.maintenance.essentielle}} € par mois",
+          "Mises à jour, sauvegardes, sécurité, supervision, sans engagement."
         ],
         [
           "Option SEO et GEO",
-          "10 heures, ou une récurrence mensuelle",
-          "10 heures au taux horaire de {{prix.horaire}} € HT ; récurrence chiffrée au cadrage",
-          "Balisage, structure des titres, redirections, pages cibles pour Google et pour les moteurs IA."
+          "Référencement continu",
+          "Pack Visibilité, {{prix.web.pack.visibilite}} € par mois",
+          "Maintenance Essentielle, 3 pages optimisées et 2 articles par mois, 30 mots-clés suivis, engagement 3 mois."
         ]
       ],
       "rows_en": [
         [
-          "10-hour pack",
-          "10 hours",
-          "€{{prix.sprint.en}} excl. VAT",
-          "Scope the need, choose the solution, approve a direction or a mockup, produce a first deliverable: tested prototype or landing page."
+          "Showcase site",
+          "Solopreneur or micro-business (1 to 2 people)",
+          "€{{prix.web.solo.site.en}}; shop up to 50 products €{{prix.web.solo.boutique.en}}",
+          "5 pages, designed on Webflow, Framer or WordPress, form, GDPR, analytics, two rounds of feedback, training."
         ],
         [
-          "20-hour pack",
-          "20 hours",
-          "20 hours at the hourly rate of €{{prix.horaire}} excl. VAT",
-          "A showcase site of a few pages, content supplied, through to acceptance, if the scope fits in the volume."
+          "Small-business site",
+          "Small business of 3 to 10 people",
+          "€{{prix.web.tpe.site.en}}; shop up to 200 products €{{prix.web.tpe.boutique.en}}",
+          "6 to 12 pages, blog, appointments or booking, connection to your tools (calendar, invoicing, light CRM), three rounds of feedback."
+        ],
+        [
+          "SME site",
+          "SME of more than 10 people",
+          "€{{prix.web.pme.site.en}}; shop up to 500 products €{{prix.web.pme.boutique.en}}",
+          "Corporate site or redesign of about 20 pages, two languages, old-URL redirects, content migration, CRM or ERP integration, acceptance testing."
+        ],
+        [
+          "Website subscription",
+          "No upfront cost",
+          "from €{{prix.web.waas.solo.en}} a month",
+          "Creation, hosting, maintenance and small changes, 24-month commitment."
+        ],
+        [
+          "Maintenance",
+          "After launch",
+          "from €{{prix.web.maintenance.essentielle.en}} a month",
+          "Updates, backups, security, monitoring, no commitment."
         ],
         [
           "SEO and GEO option",
-          "10 hours, or a monthly retainer",
-          "10 hours at the hourly rate of €{{prix.horaire}} excl. VAT; retainer priced at scoping",
-          "Markup, heading structure, redirects, target pages for Google and for AI engines."
+          "Ongoing search visibility",
+          "Visibility pack, €{{prix.web.pack.visibilite.en}} a month",
+          "Essential maintenance, 3 optimised pages and 2 articles a month, 30 tracked keywords, 3-month commitment."
         ]
       ]
     },
     {
       "type": "editorial-prose",
       "background": "paper",
-      "html_fr": "<p>Au-delà d'un pack, la suite est estimée en heures puis facturée {{prix.horaire}} € HT de l'heure. Les paliers de prix d'un site sont publiés sur la page <a href=\"/services/site-web-ia\">création et refonte de site</a>, et la grille complète sur la page <a href=\"/tarifs\">tarifs</a>.</p>\n<h2>Un site s'intègre dans un système, il ne vit pas à côté</h2>\n<p>Un cahier des charges qui s'arrête aux pages oublie ce qui se passe après le clic. Le site est l'entrée d'un système : le CMS où l'équipe publie, le CRM qui reçoit chaque demande, les e-mails qui relancent, la ressource gratuite contre un contact, la landing page d'une offre, le branding, les réseaux sociaux.</p>\n<p>Côté fabrication, la <a href=\"/services/site-web-ia\">création et refonte de site</a> se fait sur <a href=\"/services/wordpress\">WordPress</a>, <a href=\"/services/webflow\">Webflow</a> ou <a href=\"/services/sur-mesure-headless\">un site sur mesure</a>. Chaque formulaire doit créer une fiche dans le <a href=\"/services/crm-scoring-routing\">CRM</a>, puis déclencher des <a href=\"/services/sequences-de-suivi\">séquences de suivi</a>. La <a href=\"/services/landing-pages-tunnels\">landing page</a> d'une offre se construit à part ; nous ne gérons pas les campagnes publicitaires, mais la page vers laquelle elles pointent. Le <a href=\"/services/branding\">branding</a> (<a href=\"/services/identite-de-marque\">identité de marque</a>, <a href=\"/services/charte-graphique-brand-book\">charte graphique</a>), le <a href=\"/services/seo-geo-contenu\">référencement</a> et l'<a href=\"/services/automatisation-reseaux-sociaux\">automatisation des réseaux sociaux</a> complètent le système. Pour la ressource gratuite contre un contact, nos <a href=\"/ressources/outils\">ressources et outils</a> montrent le principe.</p>\n<p>Les <a href=\"/services/automatisations\">automatisations IA</a> ne s'ajoutent que là où elles font gagner du temps : tri des demandes, relances, reporting. Ajoutez à votre brief une rubrique « ce qui se passe après le clic ». C'est elle qui évite le site refait dont les demandes attendent toujours autant.</p>",
-      "html_en": "<p>Beyond a pack, the rest is estimated in hours then billed at €{{prix.horaire}} excl. VAT per hour. The price tiers for a site are published on the <a href=\"/services/site-web-ia\">website creation and redesign</a> page, and the full grid on the <a href=\"/tarifs\">pricing</a> page.</p>\n<h2>A site fits into a system, it does not live on the side</h2>\n<p>A specification that stops at the pages forgets what happens after the click. The site is the entry point of a system: the CMS where the team publishes, the CRM that receives each request, the e-mails that follow up, the free resource in exchange for a contact, the landing page of an offer, the advertising that sends traffic to it, the branding, the social networks.</p>\n<ul><li><strong>Site and CMS</strong>: <a href=\"/services/site-web-ia\">website creation and redesign</a>, with <a href=\"/services/wordpress\">WordPress</a>, <a href=\"/services/webflow\">Webflow</a> or <a href=\"/services/sur-mesure-headless\">a custom site</a>.</li><li><strong>CRM</strong>: <a href=\"/services/crm-scoring-routing\">CRM, scoring and routing</a>, so that each form creates a record.</li><li><strong>Follow-up e-mails</strong>: <a href=\"/services/sequences-de-suivi\">follow-up sequences</a>.</li><li><strong>Free resource in exchange for a contact</strong>: Waimia's <a href=\"/ressources/outils\">resources and tools</a> show the principle.</li><li><strong>Landing page and funnel</strong>: <a href=\"/services/landing-pages-tunnels\">landing pages and funnels</a>. Waimia does not run advertising campaigns: it builds the page they point to.</li><li><strong>Branding</strong>: <a href=\"/services/branding\">branding</a>, including <a href=\"/services/identite-de-marque\">brand identity</a> and <a href=\"/services/charte-graphique-brand-book\">brand guidelines</a>.</li><li><strong>Search visibility</strong>: <a href=\"/services/seo-geo-contenu\">SEO, GEO and content</a>.</li><li><strong>Social networks</strong>: <a href=\"/services/automatisation-reseaux-sociaux\">social network automation</a>.</li></ul>\n<p>AI automations are added only where they save time: sorting requests, follow-ups, reporting, with <a href=\"/services/automatisations\">automations</a>. Add an \"what happens after the click\" section to your brief. It is what prevents the rebuilt site whose requests still wait as long as before.</p>"
+      "html_fr": "<p>Les prix sont fixes et publiés : la grille par taille figure sur la page <a href=\"/services/site-web-ia\">création et refonte de site</a>, et la grille complète sur la page <a href=\"/tarifs\">tarifs</a>.</p>\n<h2>Un site s'intègre dans un système, il ne vit pas à côté</h2>\n<p>Un cahier des charges qui s'arrête aux pages oublie ce qui se passe après le clic. Le site est l'entrée d'un système : le CMS où l'équipe publie, le CRM qui reçoit chaque demande, les e-mails qui relancent, la ressource gratuite contre un contact, la landing page d'une offre, le branding, les réseaux sociaux.</p>\n<p>Côté fabrication, la <a href=\"/services/site-web-ia\">création et refonte de site</a> se fait sur <a href=\"/services/wordpress\">WordPress</a>, <a href=\"/services/shopify\">Shopify</a>, <a href=\"/services/webflow\">Webflow</a>, <a href=\"/services/lovable\">Lovable</a> ou <a href=\"/services/sur-mesure-headless\">un site sur mesure</a>. Chaque formulaire doit créer une fiche dans le <a href=\"/services/crm-scoring-routing\">CRM</a>, puis déclencher des <a href=\"/services/sequences-de-suivi\">séquences de suivi</a>. La <a href=\"/services/landing-pages-tunnels\">landing page</a> d'une offre se construit à part, et les campagnes qui y envoient du trafic relèvent de la <a href=\"/services/publicite-en-ligne\">publicité en ligne</a>. Le <a href=\"/services/seo-geo-contenu\">référencement</a> et l'<a href=\"/services/automatisation-reseaux-sociaux\">automatisation des réseaux sociaux</a> complètent le système. Pour la ressource gratuite contre un contact, nos <a href=\"/ressources/outils\">ressources et outils</a> montrent le principe.</p>\n<p>Les <a href=\"/services/automatisations\">automatisations IA</a> ne s'ajoutent que là où elles font gagner du temps : tri des demandes, relances, reporting. Ajoutez à votre brief une rubrique « ce qui se passe après le clic ». C'est elle qui évite le site refait dont les demandes attendent toujours autant.</p>",
+      "html_en": "<p>Prices are fixed and published: the grid by size is on the <a href=\"/services/site-web-ia\">website creation and redesign</a> page, and the full grid on the <a href=\"/tarifs\">pricing</a> page.</p>\n<h2>A site fits into a system, it does not live on the side</h2>\n<p>A specification that stops at the pages forgets what happens after the click. The site is the entry point of a system: the CMS where the team publishes, the CRM that receives each request, the e-mails that follow up, the free resource in exchange for a contact, the landing page of an offer, the advertising that sends traffic to it, the branding, the social networks.</p>\n<ul><li><strong>Site and CMS</strong>: <a href=\"/services/site-web-ia\">website creation and redesign</a>, with <a href=\"/services/wordpress\">WordPress</a>, <a href=\"/services/shopify\">Shopify</a>, <a href=\"/services/webflow\">Webflow</a>, <a href=\"/services/lovable\">Lovable</a> or <a href=\"/services/sur-mesure-headless\">a custom site</a>.</li><li><strong>CRM</strong>: <a href=\"/services/crm-scoring-routing\">CRM, scoring and routing</a>, so that each form creates a record.</li><li><strong>Follow-up e-mails</strong>: <a href=\"/services/sequences-de-suivi\">follow-up sequences</a>.</li><li><strong>Free resource in exchange for a contact</strong>: Waimia's <a href=\"/ressources/outils\">resources and tools</a> show the principle.</li><li><strong>Landing page and funnel</strong>: <a href=\"/services/landing-pages-tunnels\">landing pages and funnels</a>. The campaigns that send it traffic are covered by <a href=\"/services/publicite-en-ligne\">online advertising</a>.</li><li><strong>Search visibility</strong>: <a href=\"/services/seo-geo-contenu\">SEO, GEO and content</a>.</li><li><strong>Social networks</strong>: <a href=\"/services/automatisation-reseaux-sociaux\">social network automation</a>.</li></ul>\n<p>AI automations are added only where they save time: sorting requests, follow-ups, reporting, with <a href=\"/services/automatisations\">automations</a>. Add an \"what happens after the click\" section to your brief. It is what prevents the rebuilt site whose requests still wait as long as before.</p>"
     },
     {
       "type": "lead-capture-band",
@@ -1009,9 +1045,9 @@
         },
         {
           "q_fr": "Combien coûte un site chez Waimia ?",
-          "a_fr": "Deux packs d'heures : 10 heures à {{prix.sprint}} € HT, et 20 heures au taux horaire de {{prix.horaire}} € HT. La composante SEO et GEO est en option. Les paliers de prix d'un site sont publiés sur la page création et refonte de site, et le périmètre exact est fixé par écrit avant de démarrer.",
+          "a_fr": "Le prix est fixe et suit la taille de votre structure, sans devis : {{prix.web.solo.site}} € HT pour un site vitrine de 5 pages (solopreneur ou micro-entreprise), {{prix.web.tpe.site}} € HT pour un site de 6 à 12 pages (TPE de 3 à 10 personnes), {{prix.web.pme.site}} € HT pour un site corporate ou une refonte d'environ 20 pages (PME de plus de 10 personnes). Une boutique coûte {{prix.web.solo.boutique}}, {{prix.web.tpe.boutique}} ou {{prix.web.pme.boutique}} € HT selon la taille. Un appel de cadrage de 30 minutes sert à choisir la grille ; le détail est sur la page création et refonte de site.",
           "q_en": "How much does a site cost at Waimia?",
-          "a_en": "Two hour packs: 10 hours at €{{prix.sprint.en}} excl. VAT, and 20 hours at the hourly rate of €{{prix.horaire}} excl. VAT. The SEO and GEO component is optional. The price tiers for a site are published on the website creation and redesign page, and the exact scope is set in writing before starting."
+          "a_en": "The price is fixed and follows the size of your business, with no quote: €{{prix.web.solo.site.en}} excl. VAT for a 5-page showcase site (solopreneur or micro-business), €{{prix.web.tpe.site.en}} for a 6-to-12-page site (small business of 3 to 10 people), €{{prix.web.pme.site.en}} for a corporate site or a redesign of about 20 pages (SME of more than 10 people). A shop costs €{{prix.web.solo.boutique.en}}, €{{prix.web.tpe.boutique.en}} or €{{prix.web.pme.boutique.en}} excl. VAT depending on size. A 30-minute scoping call is enough to pick the grid; the details are on the website creation and redesign page."
         }
       ]
     },

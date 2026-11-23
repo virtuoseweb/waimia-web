@@ -4,10 +4,10 @@
   "title_en": "Bespoke web development: Astro, headless CMS · Waimia",
   "seoTitle_fr": "Développement web sur mesure : site codé pour PME · Waimia",
   "description_fr": "Développement web sur mesure pour PME : site codé avec Astro et CMS headless, pages rapides, intégrations à vos outils, code remis à votre nom. Audit gratuit.",
-  "description_en": "Bespoke web development for SMBs: a coded site with Astro and headless CMS, fast pages, business integrations, code handed over in your name. From €2,000 excl. VAT.",
+  "description_en": "Bespoke web development for SMBs: a coded site with Astro and a headless CMS, fast pages, integrations with your tools, code in your name. Free audit.",
   "slug": "sur-mesure-headless",
   "publishedAt": "2026-06-29T00:00:00.000Z",
-  "updatedAt": "2026-11-11T00:00:00.000Z",
+  "updatedAt": "2026-11-23T00:00:00.000Z",
   "category": "web",
   "tags": [
     "site-sur-mesure",
@@ -20,9 +20,9 @@
   "seo": {
     "noindex": false,
     "serviceType": "Développement web sur mesure : Astro et CMS headless pour PME",
-    "priceRange": "2000-10000€",
-    "priceMin": 2000,
-    "priceMax": 10000
+    "priceRange": "1900-16900€",
+    "priceMin": 1900,
+    "priceMax": 16900
   },
   "faq_fr": [
     {
@@ -51,7 +51,7 @@
     },
     {
       "q": "Combien de temps et combien ça coûte ?",
-      "a": "Le délai dépend du périmètre, fixé au sprint de cadrage. Des intégrations métier ou un espace restreint l'allongent : planning et jalons sont écrits avant signature. À partir de {{prix.pilote}} € HT pour un front de 1 à 3 pages, 4 000 € HT pour un site de 3 à 5 pages, à partir de 7 000 € HT pour un site complet, à partir de 10 000 € HT avec intégrations métier."
+      "a": "Le délai dépend du périmètre, fixé à l'appel de cadrage de 30 minutes. Des intégrations métier ou un espace restreint l'allongent : planning et jalons sont écrits avant signature. Le prix est fixe et suit la taille de votre structure : {{prix.web.solo.site}} € HT pour un site vitrine de 5 pages, {{prix.web.tpe.site}} € HT pour un site de TPE de 6 à 12 pages, {{prix.web.pme.site}} € HT pour un site de PME d'environ 20 pages. Une application, un espace client ou un SaaS relève du MVP, à {{prix.web.app.mvp}} € HT."
     }
   ],
   "faq_en": [
@@ -81,7 +81,7 @@
     },
     {
       "q": "How long and how much?",
-      "a": "The timeline depends on scope, set at the scoping sprint. With business integrations or a restricted area it gets longer: the schedule and milestones are written before signing. From €2,000 excl. VAT for a 1-to-3-page front, €4,000 for a 3-to-5-page site, from €7,000 for a full site, from €10,000 with business integrations."
+      "a": "The timeline depends on scope, set during the 30-minute scoping call. With business integrations or a restricted area it gets longer: the schedule and milestones are written before signing. The price is fixed and follows the size of your business: €{{prix.web.solo.site.en}} excl. VAT for a 5-page showcase site, €{{prix.web.tpe.site.en}} for a small-business site of 6 to 12 pages, €{{prix.web.pme.site.en}} for an SME site of about 20 pages. An application, a customer area or a SaaS is an MVP, at €{{prix.web.app.mvp.en}} excl. VAT."
     }
   ],
   "sections": [
@@ -137,15 +137,15 @@
       "kicker_en": "§ In short",
       "metrics": [
         {
-          "value": "Dès {{prix.pilote}} € HT",
-          "label_fr": "un front de 1 à 3 pages, la grille complète suit plus bas",
-          "label_en": "a 1-to-3-page front; full grid below",
+          "value": "Dès {{prix.web.solo.site}} € HT",
+          "label_fr": "site vitrine de 5 pages pour un solopreneur, la grille par taille suit plus bas",
+          "label_en": "5-page showcase site for a solopreneur; the grid by size is below",
           "emphasis": true
         },
         {
           "value": "Cadrage d'abord",
-          "label_fr": "périmètre, planning et jalons écrits avant signature, au sprint de cadrage",
-          "label_en": "scoping sprint at €{{prix.sprint.en}} excl. VAT: scope, schedule and milestones set before signing",
+          "label_fr": "périmètre, planning et jalons écrits avant signature, après l'appel de cadrage de 30 minutes",
+          "label_en": "scope, schedule and milestones written before signing, after the 30-minute scoping call",
           "emphasis": false
         },
         {
@@ -222,8 +222,8 @@
           "side": "right"
         }
       ],
-      "html_fr": "<h2>Ce que change le sur mesure</h2>\n<p>Les pages sont générées à l'avance et servies telles quelles : pas de base de données interrogée à chaque visite, moins de pièces à mettre à jour. Le contenu vit dans un CMS ou dans des fichiers versionnés que votre équipe édite. Vos intégrations (CRM, paiement, outils internes) sont écrites pour votre besoin au lieu d'être contournées par des extensions. Le site d'<a href=\"/cas-clients/amploi\">Amploi</a> en est l'exemple publié : Astro, TinaCMS, HubSpot.</p>\n<h2>Ce que le sur mesure coûte</h2>\n<p>Chaque évolution de structure passe par un développeur. Sans maintenance, le code vieillit comme n'importe quel logiciel. Un mauvais choix de CMS enferme l'équipe. Balzeo l'a montré à l'envers : cette boutique a quitté un CMS headless complexe pour WordPress et WooCommerce, parce que chaque mise à jour dépendait de la technique. Je déconseille le headless quand personne ne peut le maintenir.</p>\n<h2>Comment nous choisissons</h2>\n<p>Nous cadrons d'abord les besoins qui justifient le sur mesure, puis nous vérifions que <a href=\"/services/webflow\">Webflow</a>, <a href=\"/services/wordpress\">WordPress</a> ou <a href=\"/services/shopify\">Shopify</a> ne les couvrent pas. Si le vrai sujet est un espace client ou un outil interne, la page <a href=\"/services/applications-internes\">applications internes</a> vous concerne davantage. Le site reste l'entrée du <a href=\"/services/systeme-acquisition\">système d'acquisition</a> et fait partie de notre <a href=\"/services/site-web-ia\">offre agence site web</a>.</p>",
-      "html_en": "<h2>What bespoke web development changes</h2>\n<p>Pages are generated in advance and served as is: no database queried on each visit, fewer parts to update. Content lives in a CMS or in versioned files that your team edits. Integrations (CRM, payment, internal tools) are written for your needs rather than worked around with extensions. The <a href=\"/cas-clients/amploi\">Amploi</a> site is a published example: Astro, TinaCMS, HubSpot.</p>\n<h2>What bespoke costs</h2>\n<p>Every structural change goes through a developer. Without maintenance, the code ages like any software. A wrong CMS choice locks the team in. And one published case goes the other way: Balzeo left a complex headless CMS for WordPress and WooCommerce, because every update depended on technical work. Headless is not an end in itself.</p>\n<h2>How we go about it</h2>\n<p>We first scope the needs that justify going bespoke, and check that <a href=\"/services/webflow\">Webflow</a>, <a href=\"/services/wordpress\">WordPress</a> or <a href=\"/services/shopify\">Shopify</a> do not cover them. If a customer area or an internal tool is the real subject, the <a href=\"/services/applications-internes\">internal applications</a> page is closer. The site remains the entry to the <a href=\"/services/systeme-acquisition\">acquisition system</a> and is part of our <a href=\"/services/site-web-ia\">web agency offer</a>.</p>"
+      "html_fr": "<h2>Ce que change le sur mesure</h2>\n<p>Les pages sont générées à l'avance et servies telles quelles : pas de base de données interrogée à chaque visite, moins de pièces à mettre à jour. Le contenu vit dans un CMS ou dans des fichiers versionnés que votre équipe édite. En version IA-first, il est écrit en Markdown dans un dépôt GitHub à votre nom, et votre équipe le modifie avec Claude ou ChatGPT : chaque modification reste datée et annulable. Vos intégrations (CRM, paiement, outils internes) sont écrites pour votre besoin au lieu d'être contournées par des extensions. Le site d'<a href=\"/cas-clients/amploi\">Amploi</a> en est l'exemple publié : Astro, TinaCMS, HubSpot.</p>\n<h2>Ce que le sur mesure coûte</h2>\n<p>Chaque évolution de structure passe par un développeur. Sans maintenance, le code vieillit comme n'importe quel logiciel. Un mauvais choix de CMS enferme l'équipe. Balzeo l'a montré à l'envers : cette boutique a quitté un CMS headless complexe pour WordPress et WooCommerce, parce que chaque mise à jour dépendait de la technique. Je déconseille le headless quand personne ne peut le maintenir.</p>\n<h2>Comment nous choisissons</h2>\n<p>Nous cadrons d'abord les besoins qui justifient le sur mesure, puis nous vérifions que <a href=\"/services/webflow\">Webflow</a>, <a href=\"/services/wordpress\">WordPress</a> ou <a href=\"/services/shopify\">Shopify</a> ne les couvrent pas. Si le vrai sujet est un espace client ou un outil interne, la page <a href=\"/services/applications-internes\">applications internes</a> vous concerne davantage. Le site reste l'entrée du <a href=\"/services/systeme-acquisition\">système d'acquisition</a> et fait partie de notre <a href=\"/services/site-web-ia\">offre agence site web</a>.</p>",
+      "html_en": "<h2>What bespoke web development changes</h2>\n<p>Pages are generated in advance and served as is: no database queried on each visit, fewer parts to update. Content lives in a CMS or in versioned files that your team edits. In the AI-first version, it is written in Markdown in a GitHub repository in your name, and your team edits it with Claude or ChatGPT: every change stays dated and reversible. Integrations (CRM, payment, internal tools) are written for your needs rather than worked around with extensions. The <a href=\"/cas-clients/amploi\">Amploi</a> site is a published example: Astro, TinaCMS, HubSpot.</p>\n<h2>What bespoke costs</h2>\n<p>Every structural change goes through a developer. Without maintenance, the code ages like any software. A wrong CMS choice locks the team in. And one published case goes the other way: Balzeo left a complex headless CMS for WordPress and WooCommerce, because every update depended on technical work. Headless is not an end in itself.</p>\n<h2>How we go about it</h2>\n<p>We first scope the needs that justify going bespoke, and check that <a href=\"/services/webflow\">Webflow</a>, <a href=\"/services/wordpress\">WordPress</a> or <a href=\"/services/shopify\">Shopify</a> do not cover them. If a customer area or an internal tool is the real subject, the <a href=\"/services/applications-internes\">internal applications</a> page is closer. The site remains the entry to the <a href=\"/services/systeme-acquisition\">acquisition system</a> and is part of our <a href=\"/services/site-web-ia\">web agency offer</a>.</p>"
     },
     {
       "type": "tech-when-dual",
@@ -474,55 +474,55 @@
     {
       "type": "pricing-cards",
       "background": "paper",
-      "kicker_fr": "§ La gamme",
-      "kicker_en": "§ The range",
+      "kicker_fr": "§ La grille",
+      "kicker_en": "§ The grid",
       "h2_fr": "Combien coûte un site sur mesure",
       "h2_en": "How much a bespoke site costs",
-      "lede_fr": "Quatre paliers, de plus en plus larges : le prix suit le périmètre. Chaque palier donne un ordre de grandeur, le prix ferme se fixe au cadrage. Quand le périmètre reste flou, un sprint de cadrage de 10 heures à {{prix.sprint}} € HT le fixe d'abord.",
-      "lede_en": "Four tiers, the same grid as our other sites: price follows scope. Bespoke is priced at scoping, never before. If the scope is unclear, we start with a 10-hour scoping sprint at €{{prix.sprint.en}} excl. VAT.",
+      "lede_fr": "Un site sur mesure suit la même grille que nos autres sites : prix fixe selon la taille de votre structure, sans devis. Un appel de cadrage de 30 minutes sert à choisir la grille ; une application ou un SaaS relève du MVP.",
+      "lede_en": "A bespoke site follows the same grid as our other sites: a fixed price by the size of your business, with no quote. A 30-minute scoping call is enough to pick the grid; an application or a SaaS is an MVP.",
       "tiers": [
         {
-          "name_fr": "Front découplé",
-          "name_en": "Decoupled front",
-          "price": "{{prix.pilote}} €",
-          "period_fr": "à partir de · HT",
-          "period_en": "from · excl. VAT",
+          "name_fr": "Solopreneur et micro-entreprise",
+          "name_en": "Solopreneur and micro-business",
+          "price": "{{prix.web.solo.site}} €",
+          "period_fr": "1 à 2 personnes · HT",
+          "period_en": "1 to 2 people · excl. VAT",
           "features_fr": [
-            "Un front de 1 à 3 pages, généré à l'avance et mis en ligne",
-            "CMS dont le contenu est versionné dans git : chaque modification est datée et annulable",
-            "Formulaire relié au CRM, balisage schema.org",
-            "Mesure d'audience avec consentement"
+            "Site vitrine de 5 pages en Astro, généré à l'avance",
+            "Contenu en Markdown dans GitHub, édité dans un CMS git ou avec Claude ou ChatGPT",
+            "Formulaire, RGPD et mesure d'audience",
+            "Deux séries de retours, formation"
           ],
           "features_en": [
-            "A 1-to-3-page front, generated in advance and deployed",
-            "Git-based CMS configured, versioned editing",
-            "Form connected to the CRM, schema.org markup",
-            "Audience measurement with consent"
+            "5-page showcase site in Astro, generated in advance",
+            "Markdown content in GitHub, edited in a git-based CMS or with Claude or ChatGPT",
+            "Form, GDPR and analytics",
+            "Two rounds of feedback, training"
           ],
           "cta": {
-            "label_fr": "Cadrer un front →",
-            "label_en": "Scope a front →",
-            "href": "/contact?offer=sur-mesure-headless&intent=landing",
+            "label_fr": "Cadrer mon site →",
+            "label_en": "Scope my site →",
+            "href": "/contact?offer=sur-mesure-headless&intent=solo",
             "variant": "ghost"
           }
         },
         {
-          "name_fr": "Site modulaire",
-          "name_en": "Composable site",
-          "price": "4 000 €",
-          "period_fr": "indicatif · HT",
-          "period_en": "indicative · excl. VAT",
+          "name_fr": "TPE",
+          "name_en": "Small business",
+          "price": "{{prix.web.tpe.site}} €",
+          "period_fr": "3 à 10 personnes · HT",
+          "period_en": "3 to 10 people · excl. VAT",
           "features_fr": [
-            "Site de 3 à 5 pages assemblé en sections réutilisables",
-            "CMS headless au choix, édition par votre équipe",
-            "Redirections 301 et structure pour le référencement",
-            "Hébergement et consentement configurés"
+            "Site de 6 à 12 pages assemblé en sections réutilisables",
+            "CMS headless au choix (TinaCMS, Keystatic, Decap)",
+            "Blog, rendez-vous ou réservation ; connexion agenda, facturation, CRM léger",
+            "Trois séries de retours"
           ],
           "features_en": [
-            "A 3-to-5-page site assembled from reusable sections",
-            "Headless CMS of choice, edited by your team",
-            "301 redirects and structure for search",
-            "Hosting and consent configured"
+            "6-to-12-page site assembled from reusable sections",
+            "Headless CMS of choice (TinaCMS, Keystatic, Decap)",
+            "Blog, appointments or booking; calendar, invoicing and light CRM connected",
+            "Three rounds of feedback"
           ],
           "cta": {
             "label_fr": "Réserver l'audit gratuit →",
@@ -533,58 +533,58 @@
           "featured": true
         },
         {
-          "name_fr": "Site complet",
-          "name_en": "Full site",
-          "price": "7 000 €",
-          "period_fr": "à partir de · HT",
-          "period_en": "from · excl. VAT",
+          "name_fr": "PME",
+          "name_en": "SME",
+          "price": "{{prix.web.pme.site}} €",
+          "period_fr": "plus de 10 personnes · HT",
+          "period_en": "more than 10 people · excl. VAT",
           "features_fr": [
-            "Site complet et direction artistique sur mesure",
-            "Plusieurs types de pages et de collections",
-            "Formulaires connectés au CRM, séquence de suivi branchée",
-            "Une session de passation"
+            "Site corporate ou refonte, environ 20 pages",
+            "Deux langues, redirections des anciennes URL, migration de contenu",
+            "Intégration CRM ou ERP ; CMS par API (Contentful, Strapi, Sanity) si le volume le demande",
+            "Cadrage approfondi et recette"
           ],
           "features_en": [
-            "Full site and bespoke art direction",
-            "Several page types and collections",
-            "Forms connected to the CRM, follow-up sequence wired in",
-            "One handover session"
+            "Corporate site or redesign, about 20 pages",
+            "Two languages, old-URL redirects, content migration",
+            "CRM or ERP integration; API-based CMS (Contentful, Strapi, Sanity) if volume calls for it",
+            "In-depth scoping and acceptance testing"
           ],
           "cta": {
-            "label_fr": "Cadrer un site complet →",
-            "label_en": "Scope a full site →",
-            "href": "/contact?offer=sur-mesure-headless&intent=premium",
+            "label_fr": "Cadrer un site PME →",
+            "label_en": "Scope an SME site →",
+            "href": "/contact?offer=sur-mesure-headless&intent=pme",
             "variant": "ghost"
           }
         },
         {
-          "name_fr": "Intégrations métier",
-          "name_en": "Business integrations",
-          "price": "10 000 €",
-          "period_fr": "à partir de · HT",
-          "period_en": "from · excl. VAT",
+          "name_fr": "Application sur mesure",
+          "name_en": "Bespoke application",
+          "price": "{{prix.web.app.mvp}} €",
+          "period_fr": "MVP web ou SaaS · HT",
+          "period_en": "web or SaaS MVP · excl. VAT",
           "features_fr": [
-            "Tout le périmètre du site complet",
-            "Intégrations métier et APIs internes",
-            "Paiement Stripe, espace restreint ou tableau de suivi si le besoin le justifie",
-            "Au-delà, sur devis"
+            "Espace client, paiement Stripe ou outil métier",
+            "Application mobile iOS et Android : {{prix.web.app.mobile}} € HT",
+            "SaaS en abonnement : Build {{prix.web.saas.build}} € HT par mois (6 mois minimum), Manage {{prix.web.saas.manage}} € HT par mois",
+            "Code et accès à votre nom"
           ],
           "features_en": [
-            "The full scope of the complete site",
-            "Business integrations and internal APIs",
-            "Stripe payment, restricted area or tracking dashboard if the need justifies it",
-            "Beyond that, on quote"
+            "Customer area, Stripe payment or business tool",
+            "iOS and Android mobile app: €{{prix.web.app.mobile.en}} excl. VAT",
+            "SaaS by subscription: Build €{{prix.web.saas.build.en}} excl. VAT a month (6 months minimum), Manage €{{prix.web.saas.manage.en}} a month",
+            "Code and access in your name"
           ],
           "cta": {
-            "label_fr": "Cadrer un projet sur mesure →",
-            "label_en": "Scope a bespoke project →",
-            "href": "/contact?offer=sur-mesure-headless&intent=sur-mesure",
+            "label_fr": "Voir l'offre MVP →",
+            "label_en": "See the MVP offer →",
+            "href": "/services/mvp-saas",
             "variant": "ghost"
           }
         }
       ],
-      "footnote_fr": "Nom de domaine, hébergement et CMS éventuel : vous les souscrivez à votre nom, ils ne figurent pas dans ces prix. Après la livraison, la maintenance reste facultative ; ses paliers sont publics sur la page tarifs.",
-      "footnote_en": "Domain, hosting and any CMS are taken out in your name: they are not in these prices. No subscription imposed by us. Maintenance after delivery is optional, its tiers are public on the pricing page."
+      "footnote_fr": "Extras à prix fixe : page {{prix.web.extra.page}} €, langue {{prix.web.extra.langue}} €, outil relié (CRM, ERP, agenda) {{prix.web.extra.outil}} € HT. Nom de domaine, hébergement, CMS éventuel, textes et photos restent à votre charge. Après la livraison, maintenance dès {{prix.web.maintenance.essentielle}} € HT par mois, sans engagement.",
+      "footnote_en": "Fixed-price extras: page €{{prix.web.extra.page.en}}, language €{{prix.web.extra.langue.en}}, connected tool (CRM, ERP, calendar) €{{prix.web.extra.outil.en}} excl. VAT. Domain, hosting, any CMS, copy and photos remain on your side. After delivery, maintenance from €{{prix.web.maintenance.essentielle.en}} excl. VAT a month, with no commitment."
     },
     {
       "type": "eeat-panel",
@@ -637,9 +637,9 @@
         },
         {
           "q_fr": "Combien de temps et combien ça coûte ?",
-          "a_fr": "Le délai dépend du périmètre, fixé au sprint de cadrage. Des intégrations métier ou un espace restreint l'allongent : planning et jalons sont écrits avant signature. À partir de {{prix.pilote}} € HT pour un front de 1 à 3 pages, 4 000 € HT pour un site de 3 à 5 pages, à partir de 7 000 € HT pour un site complet, à partir de 10 000 € HT avec intégrations métier.",
+          "a_fr": "Le délai dépend du périmètre, fixé à l'appel de cadrage de 30 minutes. Des intégrations métier ou un espace restreint l'allongent : planning et jalons sont écrits avant signature. Le prix est fixe et suit la taille de votre structure : {{prix.web.solo.site}} € HT pour un site vitrine de 5 pages, {{prix.web.tpe.site}} € HT pour un site de TPE de 6 à 12 pages, {{prix.web.pme.site}} € HT pour un site de PME d'environ 20 pages. Une application, un espace client ou un SaaS relève du MVP, à {{prix.web.app.mvp}} € HT.",
           "q_en": "How long and how much?",
-          "a_en": "The timeline depends on scope, set at the scoping sprint. With business integrations or a restricted area it gets longer: the schedule and milestones are written before signing. From €2,000 excl. VAT for a 1-to-3-page front, €4,000 for a 3-to-5-page site, from €7,000 for a full site, from €10,000 with business integrations."
+          "a_en": "The timeline depends on scope, set during the 30-minute scoping call. With business integrations or a restricted area it gets longer: the schedule and milestones are written before signing. The price is fixed and follows the size of your business: €{{prix.web.solo.site.en}} excl. VAT for a 5-page showcase site, €{{prix.web.tpe.site.en}} for a small-business site of 6 to 12 pages, €{{prix.web.pme.site.en}} for an SME site of about 20 pages. An application, a customer area or a SaaS is an MVP, at €{{prix.web.app.mvp.en}} excl. VAT."
         }
       ]
     },
@@ -655,7 +655,7 @@
       "h2_fr": "Votre besoin justifie-t-il vraiment du sur mesure ?",
       "h2_en": "Does your need really justify going bespoke?",
       "subtitle_fr": "En 45 minutes, nous passons vos besoins en revue et nous vous disons si Webflow, WordPress ou Shopify suffisent, ou si le sur mesure se justifie.",
-      "subtitle_en": "In 45 minutes, we review your needs and tell you whether Webflow, WordPress or Shopify are enough, or whether bespoke is justified. The price of bespoke work is set at scoping.",
+      "subtitle_en": "In 45 minutes, we review your needs and tell you whether Webflow, WordPress or Shopify are enough, or whether bespoke is justified.",
       "buttons": [
         {
           "label_fr": "Réserver l'audit gratuit →",

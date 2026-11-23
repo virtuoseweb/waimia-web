@@ -3,11 +3,11 @@
   "title_fr": "Agence site web pour PME : création et refonte · Waimia",
   "seoTitle_fr": "Agence site web pour PME : un site relié au CRM, à vous",
   "title_en": "Web agency for SMEs: website creation and redesign · Waimia",
-  "description_fr": "Agence site web pour PME : création et refonte sur Webflow, WordPress, Shopify ou sur mesure, formulaires reliés au CRM. Dès {{prix.pilote}} € HT. Audit gratuit.",
-  "description_en": "Web agency for SMBs: website creation and redesign on Webflow, WordPress, Shopify or bespoke, forms connected to the CRM. From €{{prix.sprint.en}} excl. VAT. Free audit.",
+  "description_fr": "Agence site web pour PME : création et refonte sur Webflow, WordPress, Shopify ou sur mesure, à prix fixe selon votre taille. Dès {{prix.web.solo.site}} € HT.",
+  "description_en": "Web agency for SMBs: website creation and redesign on Webflow, WordPress, Shopify or bespoke, at a fixed price by company size. From €{{prix.web.solo.site.en}} excl. VAT.",
   "slug": "site-web-ia",
   "publishedAt": "2026-06-13T00:00:00.000Z",
-  "updatedAt": "2026-11-11T00:00:00.000Z",
+  "updatedAt": "2026-11-23T00:00:00.000Z",
   "category": "web",
   "tags": [
     "site-web-intelligent",
@@ -26,15 +26,19 @@
   ],
   "seo": {
     "noindex": false,
-    "serviceType": "Agence site web : création, refonte et reprise de sites pour PME (Webflow, WordPress, Shopify, sur mesure)",
-    "priceRange": "2000-10000€",
-    "priceMin": 2000,
-    "priceMax": 10000
+    "serviceType": "Agence site web : création, refonte et reprise de sites pour PME, à prix fixe selon la taille (WordPress, WooCommerce, Shopify, Webflow, Framer, Lovable, CMS headless)",
+    "priceRange": "1900-8900€",
+    "priceMin": 1900,
+    "priceMax": 8900
   },
   "faq_fr": [
     {
       "q": "Combien coûte la création d'un site internet pour une PME ?",
-      "a": "Quatre paliers. Une landing de 1 à 3 pages démarre à 2 000 € HT, un site de 3 à 5 pages à 4 000 € HT, un site complet à partir de 7 000 € HT, et à partir de 10 000 € HT quand il faut des fonctions sur mesure. Le détail de chaque palier est dans la grille tarifaire plus haut."
+      "a": "Le prix suit la taille de votre structure, sans devis. Solopreneur ou micro-entreprise (1 à 2 personnes) : site vitrine de 5 pages à {{prix.web.solo.site}} € HT, boutique jusqu'à 50 produits à {{prix.web.solo.boutique}} € HT. TPE de 3 à 10 personnes : site de 6 à 12 pages à {{prix.web.tpe.site}} € HT, boutique jusqu'à 200 produits à {{prix.web.tpe.boutique}} € HT. PME de plus de 10 personnes : site corporate ou refonte d'environ 20 pages à {{prix.web.pme.site}} € HT, boutique jusqu'à 500 produits à {{prix.web.pme.boutique}} € HT. Sans mise de départ, le site par abonnement démarre à {{prix.web.waas.solo}} € HT par mois, hébergement et maintenance compris, engagement 24 mois."
+    },
+    {
+      "q": "Combien coûte la maintenance d'un site ?",
+      "a": "Trois abonnements, sans engagement. Essentielle à {{prix.web.maintenance.essentielle}} € HT par mois : mises à jour, sauvegardes, sécurité, supervision, HTTPS, deux petites modifications par mois et support par e-mail. Boutique et TPE à {{prix.web.maintenance.boutique}} € HT : en plus, suivi SEO mensuel, contrôle des paiements, commandes et formulaires, quatre modifications par mois et WhatsApp. Sérénité à {{prix.web.maintenance.serenite}} € HT : en plus, deux heures d'intervention incluses par mois, demandes revues sous 48 heures ouvrées et support prioritaire."
     },
     {
       "q": "Waimia est-elle une agence web ?",
@@ -42,7 +46,7 @@
     },
     {
       "q": "Combien de temps pour créer un site ?",
-      "a": "Le délai suit le périmètre, que nous fixons au sprint de cadrage. Ce qui le fait varier, ce sont surtout vos contenus : textes, photos, références. Plus ils arrivent tôt, plus le site sort tôt."
+      "a": "Le délai suit le périmètre, que nous fixons à l'appel de cadrage de 30 minutes. Ce qui le fait varier, ce sont surtout vos contenus : textes, photos, références. Plus ils arrivent tôt, plus le site sort tôt."
     },
     {
       "q": "WordPress, Webflow, Shopify ou site codé : que choisir ?",
@@ -56,7 +60,11 @@
   "faq_en": [
     {
       "q": "How much does it cost to create a website for an SMB?",
-      "a": "Four tiers: from €2,000 excl. VAT for a 1-to-3-page landing page, €4,000 for a 3-to-5-page site, from €7,000 for a full site, from €10,000 with custom features. What each tier includes is in the grid on this page."
+      "a": "The price follows the size of your business, with no quote. Solopreneur or micro-business (1 to 2 people): 5-page showcase site at €{{prix.web.solo.site.en}} excl. VAT, shop up to 50 products at €{{prix.web.solo.boutique.en}}. Small business of 3 to 10 people: 6-to-12-page site at €{{prix.web.tpe.site.en}}, shop up to 200 products at €{{prix.web.tpe.boutique.en}}. SME of more than 10 people: corporate site or redesign of about 20 pages at €{{prix.web.pme.site.en}}, shop up to 500 products at €{{prix.web.pme.boutique.en}}. With no upfront cost, the website subscription starts at €{{prix.web.waas.solo.en}} excl. VAT a month, hosting and maintenance included, 24-month commitment."
+    },
+    {
+      "q": "How much does website maintenance cost?",
+      "a": "Three subscriptions, with no commitment. Essential at €{{prix.web.maintenance.essentielle.en}} excl. VAT a month: updates, backups, security, monitoring, HTTPS, two small changes a month and email support. Shop and small business at €{{prix.web.maintenance.boutique.en}}: on top, monthly SEO follow-up, checks on payments, orders and forms, four changes a month and WhatsApp. Peace of mind at €{{prix.web.maintenance.serenite.en}}: on top, two hours of work included each month, requests reviewed within 48 business hours and priority support."
     },
     {
       "q": "Is Waimia a web agency?",
@@ -64,7 +72,7 @@
     },
     {
       "q": "How long does it take to create a site?",
-      "a": "Depending on scope, set at the scoping sprint. What moves the timeline is mostly your content: copy, photos, references."
+      "a": "Depending on scope, set during the 30-minute scoping call. What moves the timeline is mostly your content: copy, photos, references."
     },
     {
       "q": "WordPress, Webflow, Shopify or a coded site: which to choose?",
@@ -83,8 +91,8 @@
       "kicker_en": "§ Web agency · a tool in the system",
       "h1_fr": "Agence site web : un site qui <i class=\"acc\">vend</i>, pas une vitrine qui dort.",
       "h1_en": "Web agency: a site that <i class=\"acc\">sells</i>, not a brochure that sleeps.",
-      "lede_fr": "Nous créons et refondons des sites de PME qui ne s'arrêtent pas au formulaire : chaque demande crée une fiche dans votre CRM, et le contenu est structuré pour Google et les assistants IA. Dès {{prix.pilote}} € HT, délai fixé au sprint de cadrage, plateforme choisie selon la personne qui fera vivre le site.",
-      "lede_en": "Waimia is a web agency and an automation studio: each form creates a CRM record, and the content is structured for Google and AI engines. The platform is chosen according to who will run the site.",
+      "lede_fr": "Nous créons et refondons des sites de PME qui ne s'arrêtent pas au formulaire : chaque demande crée une fiche dans votre CRM, et le contenu est structuré pour Google et les assistants IA. Prix fixe selon votre taille, dès {{prix.web.solo.site}} € HT, sans devis ; plateforme choisie selon la personne qui fera vivre le site.",
+      "lede_en": "Waimia is a web agency and an automation studio: each form creates a CRM record, and the content is structured for Google and AI engines. Fixed price by company size, from €{{prix.web.solo.site.en}} excl. VAT, with no quote; the platform is chosen according to who will run the site.",
       "badges": [
         {
           "label_fr": "Formulaires reliés au CRM",
@@ -128,15 +136,15 @@
       "kicker_en": "§ In short",
       "metrics": [
         {
-          "value": "Dès 2 000 € HT",
-          "label_fr": "quatre paliers : 2 000, 4 000, 7 000 et 10 000 € HT",
-          "label_en": "four tiers: €2,000, €4,000, €7,000 and €10,000 excl. VAT",
+          "value": "Dès {{prix.web.solo.site}} € HT",
+          "label_fr": "prix fixe par taille : {{prix.web.solo.site}}, {{prix.web.tpe.site}} ou {{prix.web.pme.site}} € HT, sans devis",
+          "label_en": "fixed price by size: €{{prix.web.solo.site.en}}, €{{prix.web.tpe.site.en}} or €{{prix.web.pme.site.en}} excl. VAT, no quote",
           "emphasis": true
         },
         {
           "value": "Fixé au cadrage",
-          "label_fr": "le délai suit le périmètre, établi au sprint de cadrage",
-          "label_en": "the timeline follows the scope, set at the scoping sprint",
+          "label_fr": "le délai suit le périmètre, fixé à l'appel de cadrage de 30 minutes",
+          "label_en": "the timeline follows the scope, set during the 30-minute scoping call",
           "emphasis": false
         },
         {
@@ -180,8 +188,8 @@
       ],
       "specs": [
         {
-          "label_fr": "Site codé, WordPress, Webflow ou Shopify",
-          "label_en": "Coded site, WordPress, Webflow or Shopify"
+          "label_fr": "WordPress, WooCommerce, Shopify, Webflow, Framer, Lovable ou headless",
+          "label_en": "WordPress, WooCommerce, Shopify, Webflow, Framer, Lovable or headless"
         },
         {
           "label_fr": "HubSpot, Pipedrive, Salesforce",
@@ -201,8 +209,8 @@
       "type": "editorial-prose",
       "background": "paper-2",
       "maxWidth": "prose",
-      "html_fr": "<h2>Ce que nous faisons, et ce que je déconseille</h2>\n<p>Nous créons, refondons et reprenons des sites de PME : site de services, boutique, landing page. Le site est pensé avec ce qui vient après le formulaire (demandes de devis, prise de rendez-vous, support), jamais comme une page isolée. Je déconseille le site de quelques pages sans formulaire ni mesure : un outil de création en ligne fera aussi bien, pour moins cher.</p>\n<p>Un bon brief évite les allers-retours. Le <a href=\"/ressources/guides/cahier-des-charges-site-internet\">guide du cahier des charges d'un site internet</a> donne le plan, un exemple de brief et les choix techniques ; pour une refonte, les <a href=\"/blog/cahier-des-charges-refonte-site\">cinq annexes à ajouter au cahier des charges</a> comptent autant. Si le site existe déjà, la <a href=\"/blog/audit-site-internet-pme\">grille d'audit de site internet</a> dit s'il faut refondre ou seulement corriger.</p>\n<h2>Ce qui est livré</h2>\n<p>Un site rapide, que votre équipe modifie seule, dont les formulaires créent les fiches dans le CRM avec la source de chaque demande. Un balisage schema.org et une structure de contenu pensés pour le <a href=\"/services/seo-geo-contenu\">référencement sur Google</a> et pour la citation par les assistants IA : c'est notre travail d'<a href=\"/services/referencement-ia\">agence GEO</a>. La technologie suit la personne qui fera vivre le site : site codé, WordPress, Webflow ou Shopify.</p>\n<p>Côté cookies, nous appliquons la règle de la CNIL (FAQ mise à jour le 29 avril 2026) : refuser doit être aussi simple qu'accepter. La mesure d'audience peut se passer de consentement si elle reste limitée à des statistiques anonymes, pour le seul compte du site, sans suivi sur d'autres sites ni transmission à des tiers. C'est le réglage que nous visons par défaut.</p>\n<p>Trois projets relèvent de ce volet : <a href=\"/cas-clients/amploi\">Amploi</a> (site et HubSpot), <a href=\"/cas-clients/balzeo\">Balzeo</a> (boutique WooCommerce) et <a href=\"/cas-clients/desangles-peinture\">Desangles Peinture</a> (référencement local).</p>\n<h2>Refonte de site internet : ce qui change, ce qui se garde</h2>\n<p>Une refonte reprend un site existant : nous gardons ce qui fonctionne, changeons ce qui bloque et redirigeons les anciennes adresses pour ne pas perdre le référencement. Le prix de la reprise est chiffré au cadrage. Pour préparer le projet, lisez le guide <a href=\"/ressources/guides/refonte-site-internet\">refonte de site internet</a> (étapes, coût, référencement à conserver) et la <a href=\"/blog/refonte-site-seo-sans-perdre-trafic\">liste de contrôle pour ne pas perdre son trafic</a>.</p>\n<h2>Quelle plateforme choisir</h2>\n<p>La plateforme se choisit selon la personne qui fera vivre le site, pas selon les préférences du prestataire. Quatre options, chacune avec sa page :</p>\n<ul>\n<li><a href=\"/services/webflow\">Agence Webflow</a> : un site soigné, édité par votre équipe, avec peu d'intégrations.</li>\n<li><a href=\"/services/wordpress\">Agence WordPress</a> : un écosystème d'extensions, une équipe qui le connaît, une maintenance à prévoir.</li>\n<li><a href=\"/services/shopify\">Agence Shopify</a> : la vente en ligne est le cœur de l'activité.</li>\n<li><a href=\"/services/sur-mesure-headless\">Site sur mesure et CMS headless</a> : intégrations métier, performance et propriété du code.</li>\n</ul>\n<p>Pour une seule offre ou une campagne, une <a href=\"/services/landing-pages-tunnels\">landing page et son tunnel de qualification</a> suffit souvent, sans refaire le site.</p>\n<h2>Ce qui peut mal tourner</h2>\n<p>Premier danger : les contenus qui n'arrivent pas. C'est la première cause de retard, alors nous fixons dès le départ qui écrit quoi. Second danger : refaire le site sans toucher au process derrière. Les demandes arrivent mieux, et attendent toujours aussi longtemps. Pour regarder l'ensemble, commencez par l'<a href=\"/audit-ia-pme#site-web-logiciel\">audit IA gratuit</a>.</p>",
-      "html_en": "<h2>What we do, and what we advise against</h2>\n<p>We build, redesign and take over SME sites: service sites, shops, landing pages. Our angle: the site is designed with what comes after the form (quote requests, appointment booking, support), not as an isolated page. We advise against a few-page site with no form and no measurement: an online builder will do as well, for less.</p>\n<h2>What is delivered</h2>\n<p>A fast site your team edits on its own, whose forms create records in the CRM with the source of each request. Schema.org markup and a content structure built for <a href=\"/services/seo-geo-contenu\">visibility on Google and in AI engines</a>. The technology depends on who will run the site: coded, WordPress, Webflow or Shopify.</p>\n<p>On cookies, we apply the CNIL rule as stated in its FAQ updated 29 April 2026 (read 6 October 2026): refusing must be as easy as accepting. Audience measurement can skip consent if it stays limited to anonymous statistics, for the site's own use, with no cross-site tracking and no sharing with third parties. That is the setup we aim for by default.</p>\n<p>The <a href=\"/cas-clients/amploi\">Amploi</a> (site and HubSpot), <a href=\"/cas-clients/balzeo\">Balzeo</a> (WooCommerce shop) and <a href=\"/cas-clients/desangles-peinture\">Desangles Peinture</a> (local SEO) projects belong to this strand.</p>\n<h2>Website redesign: what changes, what stays</h2>\n<p>A redesign takes over an existing site: we keep what works, change what blocks, and redirect the old addresses so the search ranking is not lost. The price of the takeover is set at scoping. To prepare the project (steps, cost, search ranking to keep), read the guide on <a href=\"/ressources/guides/refonte-site-internet\">website redesign</a>.</p>\n<h2>Which platform to choose</h2>\n<p>The platform is chosen according to who will run the site, not according to our preferences. Four options, each with its own page:</p>\n<ul>\n<li><a href=\"/services/webflow\">Webflow agency</a>: a polished site, edited by your team, with few integrations.</li>\n<li><a href=\"/services/wordpress\">WordPress agency</a>: an extension ecosystem, a team that knows it, maintenance to plan for.</li>\n<li><a href=\"/services/shopify\">Shopify agency</a>: online sales are the core of the business.</li>\n<li><a href=\"/services/sur-mesure-headless\">Bespoke site and headless CMS</a>: business integrations, performance and code ownership.</li>\n</ul>\n<p>For a single offer or a campaign, a <a href=\"/services/landing-pages-tunnels\">landing page and its qualification funnel</a> is often enough, without redoing the site.</p>\n<h2>What can go wrong</h2>\n<p>Content that never arrives: the first cause of delay, so we settle who writes what from day one. A site rebuilt while the process behind it stays the same: requests arrive better and wait just as long. To look at the whole picture, start with the <a href=\"/audit-ia-pme#site-web-logiciel\">free AI audit</a>.</p>"
+      "html_fr": "<h2>Ce que nous faisons, et ce que je déconseille</h2>\n<p>Nous créons, refondons et reprenons des sites de PME : site de services, boutique, landing page. Le site est pensé avec ce qui vient après le formulaire (demandes de devis, prise de rendez-vous, support), jamais comme une page isolée. Je déconseille le site de quelques pages sans formulaire ni mesure : un outil de création en ligne fera aussi bien, pour moins cher.</p>\n<p>Un bon brief évite les allers-retours. Le <a href=\"/ressources/guides/cahier-des-charges-site-internet\">guide du cahier des charges d'un site internet</a> donne le plan, un exemple de brief et les choix techniques ; pour une refonte, les <a href=\"/blog/cahier-des-charges-refonte-site\">cinq annexes à ajouter au cahier des charges</a> comptent autant. Si le site existe déjà, la <a href=\"/blog/audit-site-internet-pme\">grille d'audit de site internet</a> dit s'il faut refondre ou seulement corriger.</p>\n<h2>Ce qui est livré</h2>\n<p>Un site rapide, que votre équipe modifie seule, dont les formulaires créent les fiches dans le CRM avec la source de chaque demande. Un balisage schema.org et une structure de contenu pensés pour le <a href=\"/services/seo-geo-contenu\">référencement sur Google</a> et pour la citation par les assistants IA : c'est notre travail d'<a href=\"/services/referencement-ia\">agence GEO</a>. La technologie suit la personne qui fera vivre le site : WordPress, WooCommerce avec Stripe, Shopify, Webflow, Framer, Lovable ou CMS headless.</p>\n<p>Côté cookies, nous appliquons la règle de la CNIL (FAQ mise à jour le 29 avril 2026) : refuser doit être aussi simple qu'accepter. La mesure d'audience peut se passer de consentement si elle reste limitée à des statistiques anonymes, pour le seul compte du site, sans suivi sur d'autres sites ni transmission à des tiers. C'est le réglage que nous visons par défaut.</p>\n<p>Trois projets relèvent de ce volet : <a href=\"/cas-clients/amploi\">Amploi</a> (site et HubSpot), <a href=\"/cas-clients/balzeo\">Balzeo</a> (boutique WooCommerce) et <a href=\"/cas-clients/desangles-peinture\">Desangles Peinture</a> (référencement local).</p>\n<h2>Refonte de site internet : ce qui change, ce qui se garde</h2>\n<p>Une refonte reprend un site existant : nous gardons ce qui fonctionne, changeons ce qui bloque et redirigeons les anciennes adresses pour ne pas perdre le référencement. Le prix suit la même grille par taille : pour une PME, la refonte d'environ 20 pages, redirections des anciennes URL et migration de contenu comprises, est à {{prix.web.pme.site}} € HT. Pour préparer le projet, lisez le guide <a href=\"/ressources/guides/refonte-site-internet\">refonte de site internet</a> (étapes, coût, référencement à conserver) et la <a href=\"/blog/refonte-site-seo-sans-perdre-trafic\">liste de contrôle pour ne pas perdre son trafic</a>.</p>\n<h2>Quelle plateforme choisir</h2>\n<p>La plateforme se choisit selon la personne qui fera vivre le site, pas selon les préférences du prestataire. Cinq options, chacune avec sa page :</p>\n<ul>\n<li><a href=\"/services/webflow\">Agence Webflow</a> : un site soigné, édité par votre équipe, avec peu d'intégrations.</li>\n<li><a href=\"/services/wordpress\">Agence WordPress</a> : un écosystème d'extensions, une équipe qui le connaît, une maintenance à prévoir ; WooCommerce avec Stripe pour vendre.</li>\n<li><a href=\"/services/shopify\">Agence Shopify</a> : la vente en ligne est le cœur de l'activité.</li>\n<li><a href=\"/services/lovable\">Site Lovable</a> : un prototype repris, sécurisé et mis en production ; une vraie application relève du MVP.</li>\n<li><a href=\"/services/sur-mesure-headless\">Site sur mesure et CMS headless</a> : intégrations métier, performance et propriété du code.</li>\n</ul>\n<p>Pour une seule offre ou une campagne, une <a href=\"/services/landing-pages-tunnels\">landing page et son tunnel de qualification</a> suffit souvent, sans refaire le site.</p>\n<h2>Ce qui peut mal tourner</h2>\n<p>Premier danger : les contenus qui n'arrivent pas. C'est la première cause de retard, alors nous fixons dès le départ qui écrit quoi. Second danger : refaire le site sans toucher au process derrière. Les demandes arrivent mieux, et attendent toujours aussi longtemps. Pour regarder l'ensemble, commencez par l'<a href=\"/audit-ia-pme#site-web-logiciel\">audit IA gratuit</a>.</p>",
+      "html_en": "<h2>What we do, and what we advise against</h2>\n<p>We build, redesign and take over SME sites: service sites, shops, landing pages. Our angle: the site is designed with what comes after the form (quote requests, appointment booking, support), not as an isolated page. We advise against a few-page site with no form and no measurement: an online builder will do as well, for less.</p>\n<h2>What is delivered</h2>\n<p>A fast site your team edits on its own, whose forms create records in the CRM with the source of each request. Schema.org markup and a content structure built for <a href=\"/services/seo-geo-contenu\">visibility on Google and in AI engines</a>. The technology depends on who will run the site: WordPress, WooCommerce with Stripe, Shopify, Webflow, Framer, Lovable or a headless CMS.</p>\n<p>On cookies, we apply the CNIL rule as stated in its FAQ updated 29 April 2026 (read 6 October 2026): refusing must be as easy as accepting. Audience measurement can skip consent if it stays limited to anonymous statistics, for the site's own use, with no cross-site tracking and no sharing with third parties. That is the setup we aim for by default.</p>\n<p>The <a href=\"/cas-clients/amploi\">Amploi</a> (site and HubSpot), <a href=\"/cas-clients/balzeo\">Balzeo</a> (WooCommerce shop) and <a href=\"/cas-clients/desangles-peinture\">Desangles Peinture</a> (local SEO) projects belong to this strand.</p>\n<h2>Website redesign: what changes, what stays</h2>\n<p>A redesign takes over an existing site: we keep what works, change what blocks, and redirect the old addresses so the search ranking is not lost. The price follows the same grid by size: for an SME, a redesign of about 20 pages, old-URL redirects and content migration included, is €{{prix.web.pme.site.en}} excl. VAT. To prepare the project (steps, cost, search ranking to keep), read the guide on <a href=\"/ressources/guides/refonte-site-internet\">website redesign</a>.</p>\n<h2>Which platform to choose</h2>\n<p>The platform is chosen according to who will run the site, not according to our preferences. Five options, each with its own page:</p>\n<ul>\n<li><a href=\"/services/webflow\">Webflow agency</a>: a polished site, edited by your team, with few integrations.</li>\n<li><a href=\"/services/wordpress\">WordPress agency</a>: an extension ecosystem, a team that knows it, maintenance to plan for; WooCommerce with Stripe to sell.</li>\n<li><a href=\"/services/shopify\">Shopify agency</a>: online sales are the core of the business.</li>\n<li><a href=\"/services/lovable\">Lovable site</a>: a prototype taken over, secured and put into production; a real application is an MVP.</li>\n<li><a href=\"/services/sur-mesure-headless\">Bespoke site and headless CMS</a>: business integrations, performance and code ownership.</li>\n</ul>\n<p>For a single offer or a campaign, a <a href=\"/services/landing-pages-tunnels\">landing page and its qualification funnel</a> is often enough, without redoing the site.</p>\n<h2>What can go wrong</h2>\n<p>Content that never arrives: the first cause of delay, so we settle who writes what from day one. A site rebuilt while the process behind it stays the same: requests arrive better and wait just as long. To look at the whole picture, start with the <a href=\"/audit-ia-pme#site-web-logiciel\">free AI audit</a>.</p>"
     },
     {
       "type": "comparison-duo",
@@ -255,8 +263,8 @@
       "kicker_en": "§ What you keep",
       "title_fr": "Ce qui vous reste à la fin",
       "title_en": "What you keep at the end",
-      "lead_fr": "Le site est à vous : aucun abonnement obligatoire.",
-      "lead_en": "The site is yours: no mandatory subscription with us.",
+      "lead_fr": "Le site est à vous ; la maintenance est un abonnement sans engagement.",
+      "lead_en": "The site is yours; maintenance is a subscription with no commitment.",
       "items": [
         {
           "title_fr": "Le code et les contenus",
@@ -349,55 +357,57 @@
     {
       "type": "pricing-cards",
       "background": "paper",
-      "kicker_fr": "§ La gamme",
-      "kicker_en": "§ The range",
-      "h2_fr": "Combien coûte un site internet qui vend",
-      "h2_en": "How much a website that sells costs",
-      "lede_fr": "Quatre paliers sur la même base : formulaires branchés, mesure d'audience, structure lisible par les moteurs. Nous vous plaçons au palier qui suffit à votre besoin, et nous ne montons d'un cran que si le gain le justifie.",
-      "lede_en": "Four tiers on the same base: connected forms, analytics, a structure engines can read. We put you on the tier your need calls for. We only move up when the gain justifies it.",
+      "kicker_fr": "§ La grille",
+      "kicker_en": "§ The grid",
+      "h2_fr": "Combien coûte un site internet, selon votre taille",
+      "h2_en": "What a website costs, by the size of your business",
+      "lede_fr": "Mise en place à prix fixe selon la taille de votre structure, sans devis : un appel de cadrage de 30 minutes sert à choisir la bonne grille. Plateformes : WordPress, WooCommerce avec Stripe, Shopify, Webflow, Framer, Lovable ou CMS headless.",
+      "lede_en": "Setup at a fixed price by the size of your business, with no quote: a 30-minute scoping call is enough to pick the right grid. Platforms: WordPress, WooCommerce with Stripe, Shopify, Webflow, Framer, Lovable or a headless CMS.",
       "tiers": [
         {
-          "name_fr": "Landing page",
-          "name_en": "Landing page",
-          "price": "2 000 €",
-          "period_fr": "à partir de · HT",
-          "period_en": "from · ex VAT",
+          "name_fr": "Solopreneur et micro-entreprise",
+          "name_en": "Solopreneur and micro-business",
+          "price": "{{prix.web.solo.site}} €",
+          "period_fr": "1 à 2 personnes · HT",
+          "period_en": "1 to 2 people · ex VAT",
           "features_fr": [
-            "Landing 1 à 3 pages, mise en ligne",
-            "SEO et GEO de base, balisage Schema.org",
-            "Tracking first-party et tableau de base",
-            "Formulaire de capture branché"
+            "Site vitrine de 5 pages, design Webflow, Framer ou WordPress",
+            "Formulaire, RGPD et mesure d'audience",
+            "Deux séries de retours, formation",
+            "Boutique jusqu'à 50 produits, paiement et livraison configurés : {{prix.web.solo.boutique}} € HT"
           ],
           "features_en": [
-            "1-to-3-page landing, deployed",
-            "Base SEO and GEO, Schema.org markup",
-            "First-party tracking and base dashboard",
-            "Wired capture form"
+            "5-page showcase site, designed on Webflow, Framer or WordPress",
+            "Form, GDPR and analytics",
+            "Two rounds of feedback, training",
+            "Shop up to 50 products, payment and shipping configured: €{{prix.web.solo.boutique.en}} ex VAT"
           ],
           "cta": {
-            "label_fr": "Cadrer une landing →",
-            "label_en": "Scope a landing →",
-            "href": "/contact?offer=site-web-ia&intent=landing",
+            "label_fr": "Cadrer mon site →",
+            "label_en": "Scope my site →",
+            "href": "/contact?offer=site-web-ia&intent=solo",
             "variant": "ghost"
           }
         },
         {
-          "name_fr": "Site vitrine",
-          "name_en": "Showcase site",
-          "price": "4 000 €",
-          "period_fr": "indicatif · HT",
-          "period_en": "indicative · ex VAT",
+          "name_fr": "TPE",
+          "name_en": "Small business",
+          "price": "{{prix.web.tpe.site}} €",
+          "period_fr": "3 à 10 personnes · HT",
+          "period_en": "3 to 10 people · ex VAT",
           "features_fr": [
-            "Site 3 à 5 pages, créé ou refondu",
-            "SEO et GEO structurés, contenu de lancement",
-            "Landing pages par persona, scoring et capture",
-            "Tracking server-side, consentement RGPD et hébergement"
+            "Site de 6 à 12 pages",
+            "Blog, rendez-vous ou réservation, pages par prestation",
+            "Connexion à vos outils : agenda, facturation, CRM léger",
+            "Trois séries de retours",
+            "Boutique jusqu'à 200 produits, import du catalogue : {{prix.web.tpe.boutique}} € HT"
           ],
           "features_en": [
-            "3-to-5-page site, built or rebuilt",
-            "Structured SEO and GEO, launch content",
-            "Landing pages per persona, scoring and capture",
-            "Server-side tracking, GDPR consent and hosting"
+            "6-to-12-page site",
+            "Blog, appointments or booking, one page per service",
+            "Connection to your tools: calendar, invoicing, light CRM",
+            "Three rounds of feedback",
+            "Shop up to 200 products, catalogue import: €{{prix.web.tpe.boutique.en}} ex VAT"
           ],
           "cta": {
             "label_fr": "Réserver l'audit gratuit →",
@@ -408,62 +418,150 @@
           "featured": true
         },
         {
-          "name_fr": "Site premium",
-          "name_en": "Premium site",
-          "price": "7 000 €",
-          "period_fr": "à partir de · HT",
-          "period_en": "from · ex VAT",
+          "name_fr": "PME",
+          "name_en": "SME",
+          "price": "{{prix.web.pme.site}} €",
+          "period_fr": "plus de 10 personnes · HT",
+          "period_en": "more than 10 people · ex VAT",
           "features_fr": [
-            "Site complet et direction artistique sur mesure",
-            "CMS intelligent et système de contenu SEO/GEO en cadence",
-            "Connexion IA (Claude, GPT) et premiers skills",
-            "Formulaires connectés à votre CRM",
-            "Chatbot IA de qualification"
+            "Site corporate ou refonte, environ 20 pages",
+            "Deux langues, redirections des anciennes URL, migration de contenu",
+            "Intégration CRM ou ERP",
+            "Cadrage approfondi et recette",
+            "Boutique jusqu'à 500 produits, deux intégrations : {{prix.web.pme.boutique}} € HT"
           ],
           "features_en": [
-            "Full site and bespoke art direction",
-            "Intelligent CMS and SEO/GEO content system on cadence",
-            "AI connection (Claude, GPT) and first skills",
-            "Forms connected to your CRM",
-            "AI qualification chatbot"
+            "Corporate site or redesign, about 20 pages",
+            "Two languages, old-URL redirects, content migration",
+            "CRM or ERP integration",
+            "In-depth scoping and acceptance testing",
+            "Shop up to 500 products, two integrations: €{{prix.web.pme.boutique.en}} ex VAT"
           ],
           "cta": {
-            "label_fr": "Cadrer un site premium →",
-            "label_en": "Scope a premium site →",
-            "href": "/contact?offer=site-web-ia&intent=premium",
+            "label_fr": "Cadrer un site PME →",
+            "label_en": "Scope an SME site →",
+            "href": "/contact?offer=site-web-ia&intent=pme",
             "variant": "ghost"
           }
         },
         {
-          "name_fr": "Sur mesure",
-          "name_en": "Bespoke",
-          "price": "10 000 €",
-          "period_fr": "à partir de · HT",
-          "period_en": "from · ex VAT",
+          "name_fr": "Site par abonnement",
+          "name_en": "Website subscription",
+          "price": "{{prix.web.waas.solo}} €",
+          "period_fr": "par mois, dès · HT",
+          "period_en": "per month, from · ex VAT",
           "features_fr": [
-            "Tout le périmètre Site premium",
-            "Fonctionnalités IA sur mesure, agents et automatisations",
-            "Dashboard intégrant Google Analytics et Search Console",
-            "CRM branché (HubSpot, Salesforce, Pipedrive) et paiement Stripe",
-            "Intégrations métier sur mesure et pont vers le système complet"
+            "Création, hébergement, maintenance et petites modifications",
+            "Sans frais de mise en place, engagement 24 mois puis résiliable",
+            "Vitrine Solo {{prix.web.waas.solo}} €, TPE {{prix.web.waas.tpe}} €, PME {{prix.web.waas.pme}} € HT par mois",
+            "Boutique Shopify ou WooCommerce avec Stripe, 200 produits : {{prix.web.waas.boutique}} € HT par mois"
           ],
           "features_en": [
-            "The full Premium site scope",
-            "Bespoke AI features, agents and automations",
-            "Dashboard integrating Google Analytics and Search Console",
-            "CRM wired (HubSpot, Salesforce, Pipedrive) and Stripe payments",
-            "Custom business integrations and a bridge to the complete system"
+            "Creation, hosting, maintenance and small changes",
+            "No setup fee, 24-month commitment, then cancel anytime",
+            "Solo showcase €{{prix.web.waas.solo.en}}, small business €{{prix.web.waas.tpe.en}}, SME €{{prix.web.waas.pme.en}} ex VAT a month",
+            "Shopify or WooCommerce shop with Stripe, 200 products: €{{prix.web.waas.boutique.en}} ex VAT a month"
           ],
           "cta": {
-            "label_fr": "Cadrer un projet sur mesure →",
-            "label_en": "Scope a bespoke project →",
-            "href": "/contact?offer=site-web-ia&intent=sur-mesure",
+            "label_fr": "Choisir l'abonnement →",
+            "label_en": "Choose the subscription →",
+            "href": "/contact?offer=site-web-ia&intent=abonnement",
             "variant": "ghost"
           }
         }
       ],
-      "footnote_fr": "Le palier Sur mesure démarre à 10 000 € HT : fonctionnalités IA, tableau de bord, CRM, paiement Stripe et intégrations métier. Pas encore de site, ou un site à reprendre ? La reprise est comprise dans la formule et chiffrée au cadrage. Aucun abonnement imposé, aucun engagement de durée : à la fin, le site tourne sans Waimia et vous pouvez le confier à qui vous voulez.",
-      "footnote_en": "The Bespoke tier starts at €10,000 excl. VAT: AI features, dashboard, CRM, Stripe payments and business integrations. No site yet, or one to take over? The takeover is included in the plan and priced at scoping. No mandatory subscription, no minimum term: at the end, the site runs without us and you can hand it to whoever you like."
+      "footnote_fr": "Extras à prix fixe : page supplémentaire {{prix.web.extra.page}} €, langue {{prix.web.extra.langue}} €, 100 produits {{prix.web.extra.produits}} €, outil relié (CRM, ERP, agenda) {{prix.web.extra.outil}} € HT. Textes, photos, nom de domaine et abonnements aux outils (Webflow, Framer, Shopify) restent à votre charge. Après la mise en ligne, la maintenance est un abonnement sans engagement, détaillé ci-dessous.",
+      "footnote_en": "Fixed-price extras: additional page €{{prix.web.extra.page.en}}, language €{{prix.web.extra.langue.en}}, 100 products €{{prix.web.extra.produits.en}}, connected tool (CRM, ERP, calendar) €{{prix.web.extra.outil.en}} ex VAT. Copy, photos, domain name and tool subscriptions (Webflow, Framer, Shopify) remain at your expense. After launch, maintenance is a subscription with no commitment, detailed below."
+    },
+    {
+      "type": "pricing-cards",
+      "background": "paper-2",
+      "kicker_fr": "§ Après la mise en ligne",
+      "kicker_en": "§ After launch",
+      "h2_fr": "Maintenance du site : trois abonnements sans engagement",
+      "h2_en": "Site maintenance: three subscriptions with no commitment",
+      "lede_fr": "Chaque formule reprend la précédente et y ajoute du suivi. Vous changez de formule ou arrêtez quand vous voulez.",
+      "lede_en": "Each plan builds on the previous one and adds follow-up. You switch plans or stop whenever you want.",
+      "tiers": [
+        {
+          "name_fr": "Essentielle",
+          "name_en": "Essential",
+          "price": "{{prix.web.maintenance.essentielle}} €",
+          "period_fr": "par mois · HT",
+          "period_en": "per month · ex VAT",
+          "features_fr": [
+            "Mises à jour, sauvegardes, sécurité et supervision",
+            "HTTPS",
+            "Deux petites modifications par mois",
+            "Support par e-mail"
+          ],
+          "features_en": [
+            "Updates, backups, security and monitoring",
+            "HTTPS",
+            "Two small changes a month",
+            "Email support"
+          ],
+          "cta": {
+            "label_fr": "Choisir Essentielle →",
+            "label_en": "Choose Essential →",
+            "href": "/contact?offer=maintenance-growth&intent=essentielle",
+            "variant": "ghost"
+          }
+        },
+        {
+          "name_fr": "Boutique et TPE",
+          "name_en": "Shop and small business",
+          "price": "{{prix.web.maintenance.boutique}} €",
+          "period_fr": "par mois · HT",
+          "period_en": "per month · ex VAT",
+          "features_fr": [
+            "Tout Essentielle",
+            "Suivi SEO mensuel : positions, Search Console, conseils écrits",
+            "Contrôle des paiements, commandes et formulaires ; vitesse et erreurs",
+            "Quatre modifications par mois, support WhatsApp"
+          ],
+          "features_en": [
+            "Everything in Essential",
+            "Monthly SEO follow-up: rankings, Search Console, written advice",
+            "Checks on payments, orders and forms; speed and errors",
+            "Four changes a month, WhatsApp support"
+          ],
+          "cta": {
+            "label_fr": "Choisir Boutique et TPE →",
+            "label_en": "Choose Shop and small business →",
+            "href": "/contact?offer=maintenance-growth&intent=boutique",
+            "variant": "primary"
+          },
+          "featured": true
+        },
+        {
+          "name_fr": "Sérénité",
+          "name_en": "Peace of mind",
+          "price": "{{prix.web.maintenance.serenite}} €",
+          "period_fr": "par mois · HT",
+          "period_en": "per month · ex VAT",
+          "features_fr": [
+            "Tout Boutique et TPE",
+            "Deux heures d'intervention incluses par mois",
+            "Demandes revues sous 48 heures ouvrées",
+            "Contenu à la demande jusqu'à quatre heures par mois, support prioritaire"
+          ],
+          "features_en": [
+            "Everything in Shop and small business",
+            "Two hours of work included each month",
+            "Requests reviewed within 48 business hours",
+            "Content on request up to four hours a month, priority support"
+          ],
+          "cta": {
+            "label_fr": "Choisir Sérénité →",
+            "label_en": "Choose Peace of mind →",
+            "href": "/contact?offer=maintenance-growth&intent=serenite",
+            "variant": "ghost"
+          }
+        }
+      ],
+      "footnote_fr": "Besoin de développement continu ? Abonnement Standard à {{prix.web.dev.standard}} € HT par mois (une demande à la fois, WhatsApp, point hebdomadaire en visio) ou Pro à {{prix.web.dev.pro}} € HT (deux chantiers en parallèle, applications mobile et SaaS, priorité). La première demande sert d'essai gratuit.",
+      "footnote_en": "Need ongoing development? Standard subscription at €{{prix.web.dev.standard.en}} ex VAT a month (one request at a time, WhatsApp, weekly video call) or Pro at €{{prix.web.dev.pro.en}} ex VAT (two projects in parallel, mobile apps and SaaS, priority). The first request is a free trial."
     },
     {
       "type": "lead-capture-band",
@@ -472,8 +570,8 @@
       "anchor_id": "recevoir-grille-audit-site",
       "kicker_fr": "§ Grille d'audit · PDF gratuit",
       "kicker_en": "§ Audit grid · free PDF",
-      "h2_fr": "Pas encore prêt pour un devis ? Auditez d'abord votre site actuel",
-      "h2_en": "Not ready for a quote yet? Audit your current site first"
+      "h2_fr": "Pas encore prêt à lancer le site ? Auditez d'abord votre site actuel",
+      "h2_en": "Not ready to start the site yet? Audit your current site first"
     },
     {
       "type": "eeat-panel",
@@ -490,9 +588,15 @@
       "items": [
         {
           "q_fr": "Combien coûte la création d'un site internet pour une PME ?",
-          "a_fr": "Quatre paliers. Une landing de 1 à 3 pages démarre à 2 000 € HT, un site de 3 à 5 pages à 4 000 € HT, un site complet à partir de 7 000 € HT, et à partir de 10 000 € HT quand il faut des fonctions sur mesure. Le détail de chaque palier est dans la grille tarifaire plus haut.",
+          "a_fr": "Le prix suit la taille de votre structure, sans devis. Solopreneur ou micro-entreprise (1 à 2 personnes) : site vitrine de 5 pages à {{prix.web.solo.site}} € HT, boutique jusqu'à 50 produits à {{prix.web.solo.boutique}} € HT. TPE de 3 à 10 personnes : site de 6 à 12 pages à {{prix.web.tpe.site}} € HT, boutique jusqu'à 200 produits à {{prix.web.tpe.boutique}} € HT. PME de plus de 10 personnes : site corporate ou refonte d'environ 20 pages à {{prix.web.pme.site}} € HT, boutique jusqu'à 500 produits à {{prix.web.pme.boutique}} € HT. Sans mise de départ, le site par abonnement démarre à {{prix.web.waas.solo}} € HT par mois, hébergement et maintenance compris, engagement 24 mois.",
           "q_en": "How much does it cost to create a website for an SMB?",
-          "a_en": "Four tiers: from €2,000 excl. VAT for a 1-to-3-page landing page, €4,000 for a 3-to-5-page site, from €7,000 for a full site, from €10,000 with custom features. What each tier includes is in the grid on this page."
+          "a_en": "The price follows the size of your business, with no quote. Solopreneur or micro-business (1 to 2 people): 5-page showcase site at €{{prix.web.solo.site.en}} excl. VAT, shop up to 50 products at €{{prix.web.solo.boutique.en}}. Small business of 3 to 10 people: 6-to-12-page site at €{{prix.web.tpe.site.en}}, shop up to 200 products at €{{prix.web.tpe.boutique.en}}. SME of more than 10 people: corporate site or redesign of about 20 pages at €{{prix.web.pme.site.en}}, shop up to 500 products at €{{prix.web.pme.boutique.en}}. With no upfront cost, the website subscription starts at €{{prix.web.waas.solo.en}} excl. VAT a month, hosting and maintenance included, 24-month commitment."
+        },
+        {
+          "q_fr": "Combien coûte la maintenance d'un site ?",
+          "q_en": "How much does website maintenance cost?",
+          "a_fr": "Trois abonnements, sans engagement. Essentielle à {{prix.web.maintenance.essentielle}} € HT par mois : mises à jour, sauvegardes, sécurité, supervision, HTTPS, deux petites modifications par mois et support par e-mail. Boutique et TPE à {{prix.web.maintenance.boutique}} € HT : en plus, suivi SEO mensuel, contrôle des paiements, commandes et formulaires, quatre modifications par mois et WhatsApp. Sérénité à {{prix.web.maintenance.serenite}} € HT : en plus, deux heures d'intervention incluses par mois, demandes revues sous 48 heures ouvrées et support prioritaire.",
+          "a_en": "Three subscriptions, with no commitment. Essential at €{{prix.web.maintenance.essentielle.en}} excl. VAT a month: updates, backups, security, monitoring, HTTPS, two small changes a month and email support. Shop and small business at €{{prix.web.maintenance.boutique.en}}: on top, monthly SEO follow-up, checks on payments, orders and forms, four changes a month and WhatsApp. Peace of mind at €{{prix.web.maintenance.serenite.en}}: on top, two hours of work included each month, requests reviewed within 48 business hours and priority support."
         },
         {
           "q_fr": "Waimia est-elle une agence web ?",
@@ -502,9 +606,9 @@
         },
         {
           "q_fr": "Combien de temps pour créer un site ?",
-          "a_fr": "Le délai suit le périmètre, que nous fixons au sprint de cadrage. Ce qui le fait varier, ce sont surtout vos contenus : textes, photos, références. Plus ils arrivent tôt, plus le site sort tôt.",
+          "a_fr": "Le délai suit le périmètre, que nous fixons à l'appel de cadrage de 30 minutes. Ce qui le fait varier, ce sont surtout vos contenus : textes, photos, références. Plus ils arrivent tôt, plus le site sort tôt.",
           "q_en": "How long does it take to create a site?",
-          "a_en": "Depending on scope, set at the scoping sprint. What moves the timeline is mostly your content: copy, photos, references."
+          "a_en": "Depending on scope, set during the 30-minute scoping call. What moves the timeline is mostly your content: copy, photos, references."
         },
         {
           "q_fr": "WordPress, Webflow, Shopify ou site codé : que choisir ?",
