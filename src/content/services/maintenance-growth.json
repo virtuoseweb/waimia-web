@@ -1,12 +1,12 @@
 {
   "$schema": "../../schemas/generated/services.page.schema.json",
-  "title_fr": "Maintenance de site web pour PME · forfait dès {{prix.maintenance.p1}} €/mois",
-  "title_en": "Website maintenance for SMEs · plan from {{prix.maintenance.p1}} €/month",
-  "description_fr": "Maintenance de site web et WordPress pour PME : forfait mensuel dès {{prix.maintenance.p1}} €, SEO continu, reporting et correctifs en SLA. Sans engagement. Bordeaux.",
-  "description_en": "Website and WordPress maintenance for SMEs: monthly plan from {{prix.maintenance.p1}} €, continuous SEO, reporting and SLA fixes. No commitment. Bordeaux.",
+  "title_fr": "Maintenance de site web pour PME · dès {{prix.web.maintenance.essentielle}} €/mois",
+  "title_en": "Website maintenance for SMEs · from €{{prix.web.maintenance.essentielle.en}}/month",
+  "description_fr": "Maintenance de site web et WordPress pour PME : dès {{prix.web.maintenance.essentielle}} € HT par mois, sans engagement. Mises à jour, sauvegardes, sécurité, modifications. Bordeaux.",
+  "description_en": "Website and WordPress maintenance for SMEs: from €{{prix.web.maintenance.essentielle.en}} a month excl. VAT, no commitment. Updates, backups, security, small edits. Bordeaux.",
   "slug": "maintenance-growth",
   "publishedAt": "2026-06-22T00:00:00.000Z",
-  "updatedAt": "2026-10-04T00:00:00.000Z",
+  "updatedAt": "2026-11-23T00:00:00.000Z",
   "category": "acquisition",
   "tags": [
     "maintenance-growth",
@@ -17,47 +17,47 @@
   ],
   "seo": {
     "noindex": false,
-    "serviceType": "Maintenance et growth de site intelligent",
-    "priceRange": "99-449€/mois",
-    "priceMin": 99,
-    "priceMax": 449
+    "serviceType": "Maintenance de site web et développement en abonnement",
+    "priceRange": "79-2290€/mois",
+    "priceMin": 79,
+    "priceMax": 2290
   },
   "faq_fr": [
     {
-      "q": "C'est quoi la maintenance et growth d'un site intelligent ?",
-      "a": "C'est le forfait mensuel qui fait vivre et croître votre site après la mise en ligne. La construction pose le site ; ici, on l'exploite dans la durée : SEO et contenu optimisés mois après mois, KPI suivis, reporting business, correctifs, évolutions et maintenance technique. Le site ne se fige pas à la livraison, il monte de version pendant que vous l'utilisez."
+      "q": "C'est quoi la maintenance de site web chez Waimia ?",
+      "a": "C'est l'abonnement mensuel qui garde votre site sain et utile après la mise en ligne : mises à jour, sauvegardes, sécurité, supervision, certificat HTTPS et petites modifications. Trois formules sans engagement, selon ce que votre site porte : Essentielle, Boutique et TPE, Sérénité. Pour des chantiers plus lourds, un abonnement de développement prend le relais. Le site ne se fige pas à la livraison : il reste à jour pendant que vous l'utilisez."
     },
     {
-      "q": "Quelle différence avec la création du site intelligent ?",
-      "a": "La création est un chantier ponctuel : design, contenu, structure, instrumentation posés et déployés. La maintenance et growth est le récurrent qui prend le relais : on fait vivre l'actif livré, on l'améliore sur la donnée et on traite les correctifs. La création construit, le forfait exploite. Beaucoup de sites meurent faute du second : c'est exactement ce qu'on évite."
+      "q": "Quelle différence avec la création du site ?",
+      "a": "La création est un chantier ponctuel, à prix fixe selon la taille de votre structure : design, contenu, structure, mise en ligne. La maintenance est le récurrent qui prend le relais : on garde l'actif livré à jour, on traite les petites demandes et on surveille ce qui casse. Beaucoup de sites meurent faute du second : c'est exactement ce qu'on évite. Si vous préférez tout réunir, le site par abonnement comprend création, hébergement, maintenance et petites modifications, dès {{prix.web.waas.solo}} € HT par mois avec un engagement de 24 mois."
     },
     {
-      "q": "Qu'est-ce qui est inclus dans le premier palier, à {{prix.maintenance.p1}} € par mois ?",
-      "a": "Palier {{prix.maintenance.p1.nom}}. {{prix.maintenance.p1.resume}}"
+      "q": "Qu'est-ce qui est inclus dans la formule Essentielle, à {{prix.web.maintenance.essentielle}} € par mois ?",
+      "a": "Les mises à jour, les sauvegardes, la sécurité, la supervision du site et le certificat HTTPS, deux petites modifications par mois et le support par e-mail. C'est la base pour un site vitrine qui doit rester à jour et sûr : {{prix.web.maintenance.essentielle}} € HT par mois, sans engagement."
     },
     {
-      "q": "Comment sont facturées les interventions hors forfait ?",
-      "a": "La maintenance se vend en trois paliers mensuels : {{prix.maintenance.p1.nom}} à {{prix.maintenance.p1}} € HT par mois, {{prix.maintenance.p2.nom}} à {{prix.maintenance.p2}} € HT par mois, {{prix.maintenance.p3.nom}} à {{prix.maintenance.p3}} € HT par mois. Palier {{prix.maintenance.p2.nom}}. {{prix.maintenance.p2.resume}} Palier {{prix.maintenance.p3.nom}}. {{prix.maintenance.p3.resume}} Tout ce qui sort du forfait se facture à l'heure, {{prix.horaire}} € HT non dégressif, sur un temps estimé avec vous et validé avant exécution."
+      "q": "Quelles différences entre les trois formules ?",
+      "a": "Essentielle, {{prix.web.maintenance.essentielle}} € HT par mois : mises à jour, sauvegardes, sécurité, supervision, HTTPS, deux petites modifications par mois, support par e-mail. Boutique et TPE, {{prix.web.maintenance.boutique}} € HT par mois : tout cela, plus un suivi SEO mensuel (positions, Search Console, conseils écrits), le contrôle du paiement, des commandes et des formulaires, le suivi de la vitesse et des erreurs, quatre modifications par mois et le support sur WhatsApp. Sérénité, {{prix.web.maintenance.serenite}} € HT par mois : en plus, deux heures d'intervention comprises chaque mois, vos demandes revues sous 48 h ouvrées, du contenu à la demande jusqu'à 4 h par mois et un support prioritaire. Les trois sont sans engagement."
     },
     {
       "q": "Vous gérez le SEO dans la durée, ou juste la technique ?",
-      "a": "Les deux, selon le forfait. La maintenance technique (mises à jour, sécurité, performance, disponibilité) est la base. Au-dessus, le SEO et le GEO se travaillent en continu : nouveaux contenus, optimisations, balisage pour rester citable par les moteurs génératifs. Le référencement n'est pas un acquis, il se cultive."
+      "a": "Les deux, selon la formule. La maintenance technique (mises à jour, sécurité, sauvegardes, supervision) est la base de toutes. La formule Boutique et TPE ajoute un suivi SEO mensuel : positions, Search Console et conseils écrits. Pour produire du contenu et du référencement en continu, le pack Visibilité ({{prix.web.pack.visibilite}} € HT par mois, engagement de 3 mois) réunit la maintenance Essentielle, trois pages optimisées et deux articles par mois. Le référencement se cultive, et nous ne promettons aucune position précise."
     },
     {
-      "q": "Comment je sais que le forfait sert à quelque chose ?",
-      "a": "Par le reporting. Chaque mois, un tableau de bord lit vos KPI dans la Search Console et l'Analytics, avec une lecture business des chiffres : ce qui progresse, ce qui décroche, ce qu'on a fait et ce qu'on propose ensuite. Vous pilotez sur la donnée, pas sur une impression. Et vous gardez la main : le forfait s'arrête quand vous voulez."
+      "q": "Comment je sais que l'abonnement sert à quelque chose ?",
+      "a": "Par ce que vous voyez chaque mois : les mises à jour et sauvegardes faites, les modifications traitées et, dès la formule Boutique et TPE, un suivi SEO avec vos positions et la Search Console, accompagné de conseils écrits. Vous pilotez sur la donnée, pas sur une impression. Et vous gardez la main : la maintenance est sans engagement, elle s'arrête quand vous voulez."
     },
     {
-      "q": "L'enveloppe horaire, ça marche comment ?",
-      "a": "C'est une enveloppe mensuelle souple, priorisée avec vous. Plutôt qu'un devis pour chaque petite demande, vous disposez d'un volume d'heures qu'on affecte aux évolutions et correctifs les plus utiles du moment. Les heures non urgentes attendent, les priorités passent devant. Vous décidez de l'ordre, on exécute."
+      "q": "Et si j'ai besoin de plus que de petites modifications ?",
+      "a": "Deux voies, sans devis. Pour un ajout ponctuel, les extras à prix fixe : une page {{prix.web.extra.page}} € HT, une langue {{prix.web.extra.langue}} € HT, un outil relié (CRM, ERP, agenda) {{prix.web.extra.outil}} € HT. Pour un flux continu de demandes, l'abonnement de développement : Standard à {{prix.web.dev.standard}} € HT par mois, une demande à la fois, avec WhatsApp et un point hebdomadaire sur Google Meet ; Pro à {{prix.web.dev.pro}} € HT par mois, deux chantiers en parallèle, applications mobile et SaaS, en priorité. L'essai est gratuit sur une première demande."
     },
     {
-      "q": "Vous traitez les bugs vite ?",
-      "a": "Les correctifs sont traités en SLA, selon la gravité : une régression bloquante ne suit pas le même délai qu'un ajustement cosmétique. Le forfait définit clairement les délais d'intervention par niveau, pour qu'un incident n'attende pas une relance de votre part pour être pris en charge."
+      "q": "Vous traitez les demandes vite ?",
+      "a": "Selon la formule. En Sérénité, vos demandes sont revues sous 48 h ouvrées, avec un support prioritaire et deux heures d'intervention comprises chaque mois. En Essentielle et en Boutique et TPE, la supervision repère ce qui casse et le support passe par e-mail ou par WhatsApp. Nous ne promettons pas de délai que la formule ne prévoit pas."
     },
     {
       "q": "Faut-il que vous ayez créé le site pour le maintenir ?",
-      "a": "Non, mais on commence par un audit. Si on a construit le site, on connaît déjà sa stack et le suivi démarre vite. Sur un site existant qu'on reprend, on cartographie d'abord la base technique et SEO, on identifie la dette, puis on cale le forfait sur l'état réel. On ne s'engage pas à l'aveugle."
+      "a": "Non, mais on commence par un audit. Si on a construit le site, on connaît déjà sa base et le suivi démarre vite. Sur un site existant qu'on reprend, on cartographie d'abord la base technique et SEO, on repère la dette, puis on choisit avec vous la formule qui correspond. On ne s'engage pas à l'aveugle."
     },
     {
       "q": "Vous êtes basés où, et faut-il être à Bordeaux ?",
@@ -66,40 +66,40 @@
   ],
   "faq_en": [
     {
-      "q": "What is intelligent site maintenance and growth?",
-      "a": "It's the monthly retainer that keeps your site alive and growing after launch. The build lays the site down; here we operate it over time: SEO and content optimised month after month, KPIs tracked, business reporting, fixes, evolutions and technical maintenance. The site doesn't freeze at delivery, it moves up versions while you use it."
+      "q": "What is website maintenance at Waimia?",
+      "a": "It's the monthly subscription that keeps your site healthy and useful after launch: updates, backups, security, monitoring, HTTPS certificate and small edits. Three plans with no commitment, depending on what your site carries: Essential, Shop and Small Business, Peace of Mind. For heavier work, a development subscription takes over. The site doesn't freeze at delivery: it stays current while you use it."
     },
     {
-      "q": "How is this different from building the intelligent site?",
-      "a": "The build is a one-off project: design, content, structure, instrumentation laid in and deployed. Maintenance and growth is the recurring work that takes over: we keep the delivered asset alive, improve it on the data and handle fixes. The build constructs, the retainer operates. Many sites die for lack of the second: that's exactly what we prevent."
+      "q": "How is this different from building the site?",
+      "a": "The build is a one-off project, at a fixed price set by the size of your organisation: design, content, structure, launch. Maintenance is the recurring work that takes over: we keep the delivered asset current, handle small requests and watch for what breaks. Many sites die for lack of the second: that's exactly what we prevent. If you'd rather have it all in one, the website subscription covers build, hosting, maintenance and small edits, from €{{prix.web.waas.solo.en}} excl. VAT a month with a 24-month commitment."
     },
     {
-      "q": "What's included in the first tier, at {{prix.maintenance.p1}} € a month?",
-      "a": "{{prix.maintenance.p1.nom.en}} tier. {{prix.maintenance.p1.resume.en}}"
+      "q": "What's included in the Essential plan, at €{{prix.web.maintenance.essentielle.en}} a month?",
+      "a": "Updates, backups, security, site monitoring and the HTTPS certificate, two small edits a month and email support. It's the base for a showcase site that must stay current and safe: €{{prix.web.maintenance.essentielle.en}} excl. VAT a month, no commitment."
     },
     {
-      "q": "How is work outside the plan billed?",
-      "a": "Maintenance is sold in three monthly tiers: {{prix.maintenance.p1.nom.en}} at {{prix.maintenance.p1}} € ex VAT a month, {{prix.maintenance.p2.nom.en}} at {{prix.maintenance.p2}} € ex VAT a month, {{prix.maintenance.p3.nom.en}} at {{prix.maintenance.p3}} € ex VAT a month. {{prix.maintenance.p2.nom.en}} tier. {{prix.maintenance.p2.resume.en}} {{prix.maintenance.p3.nom.en}} tier. {{prix.maintenance.p3.resume.en}} Anything outside the plan is billed by the hour, {{prix.horaire}} € ex-VAT flat rate, on a time estimate made with you and validated before work starts."
+      "q": "How do the three plans differ?",
+      "a": "Essential, €{{prix.web.maintenance.essentielle.en}} excl. VAT a month: updates, backups, security, monitoring, HTTPS, two small edits a month, email support. Shop and Small Business, €{{prix.web.maintenance.boutique.en}} excl. VAT a month: all of that, plus a monthly SEO follow-up (rankings, Search Console, written advice), checks on payment, orders and forms, speed and error tracking, four edits a month and support on WhatsApp. Peace of Mind, €{{prix.web.maintenance.serenite.en}} excl. VAT a month: on top, two hours of work included each month, your requests reviewed within 48 business hours, content on demand up to 4 hours a month and priority support. All three come with no commitment."
     },
     {
       "q": "Do you handle SEO over time, or just the technical side?",
-      "a": "Both, depending on the tier. Technical maintenance (updates, security, performance, uptime) is the base. Above it, SEO and GEO are worked continuously: new content, optimisations, markup to stay citable by generative engines. Ranking isn't a given, it's cultivated."
+      "a": "Both, depending on the plan. Technical maintenance (updates, security, backups, monitoring) is the base of all three. The Shop and Small Business plan adds a monthly SEO follow-up: rankings, Search Console and written advice. To produce content and SEO continuously, the Visibility pack (€{{prix.web.pack.visibilite.en}} excl. VAT a month, 3-month commitment) combines Essential maintenance, three optimised pages and two articles a month. Ranking is cultivated, and we promise no specific position."
     },
     {
-      "q": "How do I know the retainer is worth it?",
-      "a": "Through reporting. Each month, a dashboard reads your KPIs from Search Console and Analytics, with a business read of the figures: what's progressing, what's slipping, what we did and what we propose next. You steer on data, not on a feeling. And you keep control: the retainer stops whenever you want."
+      "q": "How do I know the subscription is worth it?",
+      "a": "Through what you see each month: the updates and backups done, the edits handled and, from the Shop and Small Business plan, an SEO follow-up with your rankings and Search Console, with written advice. You steer on data, not on a feeling. And you keep control: maintenance has no commitment, it stops whenever you want."
     },
     {
-      "q": "How does the hourly allowance work?",
-      "a": "It's a flexible monthly allowance, prioritised with you. Rather than a quote for every small request, you have a volume of hours we assign to the most useful evolutions and fixes of the moment. Non-urgent hours wait, priorities go first. You decide the order, we execute."
+      "q": "What if I need more than small edits?",
+      "a": "Two routes, no quote. For a one-off addition, fixed-price extras: a page €{{prix.web.extra.page.en}} excl. VAT, a language €{{prix.web.extra.langue.en}} excl. VAT, a connected tool (CRM, ERP, calendar) €{{prix.web.extra.outil.en}} excl. VAT. For a steady flow of requests, the development subscription: Standard at €{{prix.web.dev.standard.en}} excl. VAT a month, one request at a time, with WhatsApp and a weekly Google Meet check-in; Pro at €{{prix.web.dev.pro.en}} excl. VAT a month, two workstreams in parallel, mobile apps and SaaS, with priority. The trial is free on a first request."
     },
     {
-      "q": "Do you fix bugs fast?",
-      "a": "Fixes are handled on SLA, by severity: a blocking regression doesn't follow the same delay as a cosmetic tweak. The retainer clearly defines intervention times per level, so an incident isn't waiting on a chase from you to be taken in hand."
+      "q": "Do you handle requests fast?",
+      "a": "Depending on the plan. In Peace of Mind, your requests are reviewed within 48 business hours, with priority support and two hours of work included each month. In Essential and Shop and Small Business, monitoring spots what breaks and support goes through email or WhatsApp. We don't promise a turnaround the plan doesn't include."
     },
     {
       "q": "Do you need to have built the site to maintain it?",
-      "a": "No, but we start with an audit. If we built the site, we already know its stack and the follow-up starts quickly. On an existing site we take over, we first map the technical and SEO base, identify the debt, then set the retainer on the real state. We don't commit blindly."
+      "a": "No, but we start with an audit. If we built the site, we already know its base and the follow-up starts quickly. On an existing site we take over, we first map the technical and SEO base, spot the debt, then choose the matching plan with you. We don't commit blindly."
     },
     {
       "q": "Where are you based, and do we need to be in Bordeaux?",
@@ -111,26 +111,26 @@
       "type": "hero-masthead-card",
       "background": "paper",
       "media_src": "/images/line-art/dispositif-flow.svg",
-      "media_alt_fr": "Schéma : un site en ligne, ses KPI lus en continu, des évolutions et correctifs qui le font monter de version mois après mois.",
-      "media_alt_en": "Diagram: a deployed site, its KPIs read continuously, evolutions and fixes moving it up versions month after month.",
+      "media_alt_fr": "Schéma : un site en ligne, surveillé et mis à jour chaque mois, ses petites modifications traitées au fil de l'eau.",
+      "media_alt_en": "Diagram: a live site, monitored and updated every month, its small edits handled as they come.",
       "kicker_fr": "§ Maintenance et growth",
       "kicker_en": "§ Maintenance and growth",
       "h1_fr": "La <i class=\"acc\">maintenance</i> qui fait vivre votre site web.",
       "h1_en": "The <i class=\"acc\">maintenance</i> that keeps your website alive.",
-      "lede_fr": "Faire vivre votre site, dans la durée. Waimia l'exploite : SEO optimisé en continu, correctifs en SLA et améliorations sur vos données, pour qu'il monte de version au lieu de se figer.",
-      "lede_en": "Keep your site alive, over time. Waimia operates it: SEO optimised continuously, fixes under SLA and improvements on your data, so it moves up versions instead of freezing.",
+      "lede_fr": "Faire vivre votre site, dans la durée. Waimia le tient à jour : mises à jour, sauvegardes, sécurité et petites modifications chaque mois, suivi SEO selon la formule, pour qu'il reste sain au lieu de se dégrader.",
+      "lede_en": "Keep your site alive, over time. Waimia keeps it current: updates, backups, security and small edits every month, SEO follow-up depending on the plan, so it stays healthy instead of decaying.",
       "badges": [
         {
-          "label_fr": "Forfait mensuel · sans engagement de durée",
-          "label_en": "Monthly retainer · no duration commitment"
+          "label_fr": "Abonnement mensuel · sans engagement",
+          "label_en": "Monthly subscription · no commitment"
         },
         {
-          "label_fr": "SEO/GEO et contenu optimisés en continu",
-          "label_en": "SEO/GEO and content optimised continuously"
+          "label_fr": "Mises à jour, sauvegardes, sécurité",
+          "label_en": "Updates, backups, security"
         },
         {
-          "label_fr": "Reporting business · correctifs en SLA",
-          "label_en": "Business reporting · SLA fixes"
+          "label_fr": "Petites modifications · suivi SEO mensuel",
+          "label_en": "Small edits · monthly SEO follow-up"
         }
       ],
       "cta_sub_fr": "Audit de 45 min, gratuit et sans engagement.",
@@ -155,9 +155,9 @@
       "kicker_en": "§ At a glance",
       "metrics": [
         {
-          "value": "{{prix.maintenance.p1}} €",
-          "label_fr": "premier palier de maintenance, HT par mois ; paliers suivants à {{prix.maintenance.p2}} et {{prix.maintenance.p3}} €",
-          "label_en": "first maintenance tier, ex VAT per month; next tiers at {{prix.maintenance.p2}} and {{prix.maintenance.p3}} €",
+          "value": "{{prix.web.maintenance.essentielle}} €",
+          "label_fr": "HT par mois, formule Essentielle ; Boutique et TPE à {{prix.web.maintenance.boutique}} €, Sérénité à {{prix.web.maintenance.serenite}} €",
+          "label_en": "excl. VAT per month, Essential plan; Shop and Small Business at €{{prix.web.maintenance.boutique.en}}, Peace of Mind at €{{prix.web.maintenance.serenite.en}}",
           "emphasis": true
         },
         {
@@ -166,14 +166,14 @@
           "label_en": "of French SMBs don't track their online acquisition (Afnic 2025)"
         },
         {
-          "value": "SLA",
-          "label_fr": "correctifs traités par niveau de gravité",
-          "label_en": "fixes handled by severity level"
+          "value": "48 h",
+          "label_fr": "ouvrées pour revoir vos demandes, formule Sérénité",
+          "label_en": "business hours to review your requests, Peace of Mind plan"
         },
         {
           "value": "Sans",
-          "label_fr": "engagement de durée, vous gardez la stack",
-          "label_en": "duration commitment, you keep the stack"
+          "label_fr": "engagement de durée, vous gardez le site",
+          "label_en": "duration commitment, you keep the site"
         }
       ],
       "link_label_fr": "Source : Afnic 2025 →",
@@ -185,24 +185,24 @@
       "background": "paper",
       "kicker_fr": "§ Définition · format extractible",
       "kicker_en": "§ Definition · extractable format",
-      "statement_fr": "La <i class=\"acc\">maintenance de site web</i> exploite votre site dans la durée : mises à jour et sécurité, SEO optimisé en continu, correctifs en SLA et améliorations sur vos données. C'est le forfait mensuel que Waimia opère pour les PME, pour que le site monte de version au lieu de se figer.",
-      "statement_en": "<i class=\"acc\">Website maintenance</i> operates your site over time: updates and security, SEO optimised continuously, fixes under SLA and improvements on your data. It is the monthly retainer Waimia runs for SMEs, so the site moves up versions instead of freezing.",
+      "statement_fr": "La <i class=\"acc\">maintenance de site web</i> garde votre site sain dans la durée : mises à jour, sauvegardes, sécurité, supervision et petites modifications, plus un suivi SEO mensuel selon la formule. C'est l'abonnement mensuel, sans engagement, que Waimia opère pour les PME, pour que le site reste à jour au lieu de se dégrader.",
+      "statement_en": "<i class=\"acc\">Website maintenance</i> keeps your site healthy over time: updates, backups, security, monitoring and small edits, plus a monthly SEO follow-up depending on the plan. It is the monthly subscription, with no commitment, that Waimia runs for SMEs, so the site stays current instead of decaying.",
       "pills": [
         {
-          "label_fr": "Forfait mensuel",
-          "label_en": "Monthly retainer"
+          "label_fr": "Abonnement mensuel",
+          "label_en": "Monthly subscription"
         },
         {
-          "label_fr": "SEO/GEO en continu",
-          "label_en": "Continuous SEO/GEO"
+          "label_fr": "Suivi SEO mensuel",
+          "label_en": "Monthly SEO follow-up"
         },
         {
-          "label_fr": "Correctifs en SLA",
-          "label_en": "SLA fixes"
+          "label_fr": "Sauvegardes",
+          "label_en": "Backups"
         },
         {
-          "label_fr": "Reporting business",
-          "label_en": "Business reporting"
+          "label_fr": "Petites modifications",
+          "label_en": "Small edits"
         },
         {
           "label_fr": "Sans engagement",
@@ -211,24 +211,24 @@
       ],
       "specs": [
         {
-          "label_fr": "SEO/GEO continu",
-          "label_en": "Continuous SEO/GEO"
+          "label_fr": "Mises à jour",
+          "label_en": "Updates"
         },
         {
-          "label_fr": "SLA",
-          "label_en": "SLA"
+          "label_fr": "Sécurité et HTTPS",
+          "label_en": "Security and HTTPS"
         },
         {
-          "label_fr": "Reporting business",
-          "label_en": "Business reporting"
+          "label_fr": "Supervision",
+          "label_en": "Monitoring"
         },
         {
-          "label_fr": "Améliorations data",
-          "label_en": "Data-driven improvements"
+          "label_fr": "Suivi SEO",
+          "label_en": "SEO follow-up"
         },
         {
-          "label_fr": "Montée de version",
-          "label_en": "Version uplift"
+          "label_fr": "Support e-mail ou WhatsApp",
+          "label_en": "Email or WhatsApp support"
         }
       ]
     },
@@ -246,8 +246,8 @@
           "title_en": "Shipped once, never tended",
           "desc_fr": "Le site est mis en ligne puis abandonné : les dépendances vieillissent, le contenu se fige, les positions SEO se dégradent et l'actif perd de la valeur chaque mois.",
           "desc_en": "The site is deployed then abandoned: dependencies age, content freezes, SEO rankings decline and the asset loses value every month.",
-          "fix_fr": "Exploitation continue + SEO entretenu.",
-          "fix_en": "Continuous operation + maintained SEO."
+          "fix_fr": "Mises à jour, sauvegardes et sécurité chaque mois.",
+          "fix_en": "Updates, backups and security every month."
         },
         {
           "severity": "high",
@@ -255,8 +255,8 @@
           "title_en": "No read of the figures",
           "desc_fr": "Le site tourne mais personne ne lit ses KPI : impossible de savoir ce qui convertit ni où ça décroche, on pilote au ressenti.",
           "desc_en": "The site runs but no one reads its KPIs: impossible to know what converts or where it slips, management runs on gut feel.",
-          "fix_fr": "Reporting business régulier.",
-          "fix_en": "Regular business reporting."
+          "fix_fr": "Suivi SEO mensuel et conseils écrits.",
+          "fix_en": "Monthly SEO follow-up and written advice."
         },
         {
           "severity": "medium",
@@ -264,8 +264,8 @@
           "title_en": "An incident waits on your chase",
           "desc_fr": "Sans contrat de suivi ni délais définis, un formulaire cassé attend que vous le remarquiez, trouviez un prestataire et obteniez un devis, pendant que le site perd des leads.",
           "desc_en": "With no follow-up contract or defined times, a broken form waits for you to notice, find a provider and get a quote, while the site loses leads.",
-          "fix_fr": "Correctifs en SLA.",
-          "fix_en": "Fixes under SLA."
+          "fix_fr": "Supervision et modifications comprises.",
+          "fix_en": "Monitoring and edits included."
         }
       ]
     },
@@ -274,8 +274,8 @@
       "background": "paper-2",
       "kicker_fr": "§ L'équation",
       "kicker_en": "§ The equation",
-      "h2_fr": "Pourquoi un site <i class=\"acc\">entretenu</i> et poussé change l'équation",
-      "h2_en": "Why a <i class=\"acc\">tended</i> and pushed site changes the equation",
+      "h2_fr": "Pourquoi un site <i class=\"acc\">entretenu</i> change l'équation",
+      "h2_en": "Why a <i class=\"acc\">tended</i> site changes the equation",
       "without_label_fr": "Correctif à la demande",
       "without_label_en": "On-demand fixing",
       "without_title_fr": "Ce que ça laisse filer",
@@ -298,26 +298,26 @@
           "text_en": "Every small request goes back to a quote, and waits its turn."
         }
       ],
-      "with_label_fr": "Maintenance et growth",
-      "with_label_en": "Maintenance and growth",
+      "with_label_fr": "Maintenance mensuelle",
+      "with_label_en": "Monthly maintenance",
       "with_title_fr": "Ce que ça met au travail",
       "with_title_en": "What it puts to work",
       "with_items": [
         {
-          "text_fr": "Le site est exploité en continu : SEO, contenu et technique tenus mois après mois.",
-          "text_en": "The site is operated continuously: SEO, content and technical stack kept month after month."
+          "text_fr": "Le site est tenu chaque mois : mises à jour, sauvegardes, sécurité et supervision.",
+          "text_en": "The site is kept every month: updates, backups, security and monitoring."
         },
         {
-          "text_fr": "Un reporting mensuel lit vos KPI et dit ce qui bouge, chiffres à l'appui.",
-          "text_en": "A monthly report reads your KPIs and says what moves, figures in hand."
+          "text_fr": "Dès la formule Boutique et TPE, un suivi SEO mensuel lit vos positions et la Search Console.",
+          "text_en": "From the Shop and Small Business plan, a monthly SEO follow-up reads your rankings and Search Console."
         },
         {
-          "text_fr": "Le référencement se cultive : l'autorité monte pendant que le trafic qualifié progresse.",
-          "text_en": "Ranking is cultivated: authority climbs while qualified traffic progresses."
+          "text_fr": "Le référencement gagné au lancement est surveillé, avec des conseils écrits pour le garder.",
+          "text_en": "The ranking won at launch is watched, with written advice to keep it."
         },
         {
-          "text_fr": "Une enveloppe d'heures priorisée avec vous absorbe évolutions et correctifs, sans redevis.",
-          "text_en": "An hours allowance prioritised with you absorbs evolutions and fixes, with no re-quote."
+          "text_fr": "Les petites modifications sont comprises, de 2 à 4 par mois selon la formule, sans devis.",
+          "text_en": "Small edits are included, 2 to 4 a month depending on the plan, with no quote."
         }
       ]
     },
@@ -352,8 +352,8 @@
         {
           "title_fr": "Suivi mesuré",
           "title_en": "Measured follow-up",
-          "sub_fr": "KPI lus, reporting mensuel",
-          "sub_en": "KPIs read, monthly reporting"
+          "sub_fr": "Positions et Search Console lues",
+          "sub_en": "Rankings and Search Console read"
         },
         {
           "title_fr": "Growth en cadence",
@@ -376,56 +376,56 @@
       "kicker_en": "§ Deliverables",
       "title_fr": "Ce qu'on dépose chaque mois",
       "title_en": "What we deliver each month",
-      "lead_fr": "Un forfait lisible, pas une boîte noire. Vous gardez la stack et la main.",
-      "lead_en": "A readable retainer, not a black box. You keep the stack and control.",
+      "lead_fr": "Un abonnement lisible, pas une boîte noire. Vous gardez le site et la main.",
+      "lead_en": "A readable subscription, not a black box. You keep the site and control.",
       "items": [
         {
-          "title_fr": "Reporting mensuel",
-          "title_en": "Monthly reporting",
-          "body_fr": "Tableau de bord des KPI lus dans la Search Console et l'Analytics, avec une lecture business : ce qui progresse, ce qui décroche, les actions du mois.",
-          "body_en": "Dashboard of KPIs read from Search Console and Analytics, with a business read: what's progressing, what's slipping, the month's actions.",
-          "format_fr": "TABLEAU",
-          "format_en": "DASHBOARD"
+          "title_fr": "Suivi SEO mensuel",
+          "title_en": "Monthly SEO follow-up",
+          "body_fr": "Positions, Search Console et conseils écrits chaque mois, dès la formule Boutique et TPE.",
+          "body_en": "Rankings, Search Console and written advice every month, from the Shop and Small Business plan.",
+          "format_fr": "SEO",
+          "format_en": "SEO"
         },
         {
-          "title_fr": "Contenu et optimisations SEO",
-          "title_en": "Content and SEO optimisations",
-          "body_fr": "Nouveaux contenus ciblés et ajustements de référencement livrés en cadence, balisage maintenu pour rester cité par les IA.",
-          "body_en": "New targeted content and ranking adjustments delivered on cadence, markup maintained to stay cited by AIs.",
-          "format_fr": "SEO/GEO",
-          "format_en": "SEO/GEO"
+          "title_fr": "Contenu à la demande",
+          "title_en": "Content on demand",
+          "body_fr": "En formule Sérénité, jusqu'à 4 h de contenu par mois, à la demande. Pour un référencement produit en continu, le pack Visibilité prend le relais.",
+          "body_en": "In the Peace of Mind plan, up to 4 hours of content a month, on demand. For SEO produced continuously, the Visibility pack takes over.",
+          "format_fr": "CONTENU",
+          "format_en": "CONTENT"
         },
         {
-          "title_fr": "Journal des correctifs",
-          "title_en": "Fix log",
-          "body_fr": "Trace des bugs traités, de leur gravité et du délai d'intervention. Vous savez ce qui a été corrigé et dans quel délai.",
-          "body_en": "A record of fixes, their severity and intervention time. You know what was fixed and how fast.",
-          "format_fr": "SLA",
-          "format_en": "SLA"
+          "title_fr": "Journal des interventions",
+          "title_en": "Work log",
+          "body_fr": "Mises à jour, sauvegardes, correctifs et modifications du mois, tracés. Vous savez ce qui a été fait.",
+          "body_en": "The month's updates, backups, fixes and edits, logged. You know what was done.",
+          "format_fr": "JOURNAL",
+          "format_en": "LOG"
         },
         {
-          "title_fr": "Évolutions du site",
-          "title_en": "Site evolutions",
-          "body_fr": "Les pages, sections et fonctions ajoutées au fil de l'eau, versionnées dans le code et déployées en production.",
-          "body_en": "Pages, sections and features added as you go, versioned in the code and deployed to production.",
-          "format_fr": "CODE + LIVE",
-          "format_en": "CODE + LIVE"
+          "title_fr": "Petites modifications",
+          "title_en": "Small edits",
+          "body_fr": "2 par mois en Essentielle, 4 en Boutique et TPE comme en Sérénité, qui ajoute 2 h d'intervention comprises chaque mois.",
+          "body_en": "2 a month in Essential, 4 in Shop and Small Business as in Peace of Mind, which adds 2 hours of work included each month.",
+          "format_fr": "MODIFS",
+          "format_en": "EDITS"
         },
         {
           "title_fr": "Maintenance technique",
           "title_en": "Technical maintenance",
-          "body_fr": "Mises à jour, correctifs de sécurité et surveillance performance/disponibilité, faits en silence pour garder le site sain.",
-          "body_en": "Updates, security fixes and performance/uptime monitoring, done quietly to keep the site healthy.",
+          "body_fr": "Mises à jour, correctifs de sécurité, sauvegardes, supervision et certificat HTTPS, faits en silence pour garder le site sain.",
+          "body_en": "Updates, security fixes, backups, monitoring and HTTPS certificate, done quietly to keep the site healthy.",
           "format_fr": "RUNBOOK",
           "format_en": "RUNBOOK"
         },
         {
-          "title_fr": "Suivi de l'enveloppe horaire",
-          "title_en": "Hourly allowance tracking",
-          "body_fr": "Le compteur d'heures du mois, ce qui a été priorisé et ce qui reste. Lisible, pour que vous décidiez de l'ordre en connaissance de cause.",
-          "body_en": "The month's hour counter, what was prioritised and what remains. Readable, so you decide the order with full knowledge.",
-          "format_fr": "COMPTEUR",
-          "format_en": "COUNTER"
+          "title_fr": "Contrôles boutique",
+          "title_en": "Shop checks",
+          "body_fr": "Dès la formule Boutique et TPE : paiement, commandes et formulaires contrôlés, vitesse et erreurs suivies.",
+          "body_en": "From the Shop and Small Business plan: payment, orders and forms checked, speed and errors tracked.",
+          "format_fr": "CONTRÔLE",
+          "format_en": "CHECKS"
         }
       ]
     },
@@ -435,61 +435,61 @@
       "background": "paper",
       "kicker_fr": "§ Les briques",
       "kicker_en": "§ The building blocks",
-      "h2_fr": "Les briques d'un forfait qui fait vivre le site",
-      "h2_en": "The building blocks of a retainer that keeps the site alive",
-      "lede_fr": "Sept briques, un seul forfait lisible. On active celles que votre site réclame, mois après mois. Pas de ligne facturée pour rien.",
-      "lede_en": "Seven building blocks, one readable retainer. We activate the ones your site calls for, month after month. No line billed for nothing.",
+      "h2_fr": "Les briques d'une maintenance qui fait vivre le site",
+      "h2_en": "The building blocks of maintenance that keeps the site alive",
+      "lede_fr": "Sept briques, trois formules lisibles. Vous choisissez celle que votre site réclame, sans ligne facturée pour rien.",
+      "lede_en": "Seven building blocks, three readable plans. You choose the one your site calls for, with no line billed for nothing.",
       "columns": "4",
       "fillMedia": "services-layer.svg",
       "features": [
         {
           "icon": "contenu",
-          "title_fr": "SEO et GEO continu",
-          "title_en": "Continuous SEO and GEO",
-          "body_fr": "Le référencement se cultive : nouveaux contenus ciblés, ajustements techniques, balisage maintenu pour rester cité par les moteurs génératifs.",
-          "body_en": "Ranking is cultivated: new targeted content, technical adjustments, markup maintained to stay cited by generative engines."
+          "title_fr": "Suivi SEO mensuel",
+          "title_en": "Monthly SEO follow-up",
+          "body_fr": "Positions, Search Console et conseils écrits chaque mois, dès Boutique et TPE. Pour produire pages et articles en continu, le pack Visibilité.",
+          "body_en": "Rankings, Search Console and written advice every month, from Shop and Small Business. To produce pages and articles continuously, the Visibility pack."
         },
         {
           "icon": "tracking",
-          "title_fr": "Tracking des KPI",
-          "title_en": "KPI tracking",
-          "body_fr": "Search Console et Analytics suivis et tenus propres : chaque décision d'amélioration s'appuie sur une donnée fiable, pas une intuition.",
-          "body_en": "Search Console and Analytics tracked and kept clean: every improvement decision rests on reliable data, not a hunch."
+          "title_fr": "Supervision",
+          "title_en": "Monitoring",
+          "body_fr": "Le site est surveillé : disponibilité, certificat HTTPS, puis vitesse et erreurs dès Boutique et TPE. Ce qui casse se voit avant que vos clients le signalent.",
+          "body_en": "The site is monitored: uptime, HTTPS certificate, then speed and errors from Shop and Small Business. What breaks shows up before your customers report it."
         },
         {
           "icon": "pilotage",
-          "title_fr": "Reporting mensuel",
-          "title_en": "Monthly reporting",
-          "body_fr": "Un tableau de bord synthétise vos KPI avec une lecture business : ce qui progresse, ce qui décroche, ce qu'on a fait et ce qu'on propose.",
-          "body_en": "A dashboard synthesises your KPIs with a business read: what's progressing, what's slipping, what we did and what we propose."
+          "title_fr": "Contrôles boutique",
+          "title_en": "Shop checks",
+          "body_fr": "Paiement, commandes et formulaires contrôlés dès la formule Boutique et TPE : une vente perdue ne passe pas inaperçue.",
+          "body_en": "Payment, orders and forms checked from the Shop and Small Business plan: a lost sale doesn't go unnoticed."
         },
         {
           "icon": "ia",
-          "title_fr": "Amélioration continue",
-          "title_en": "Continuous improvement",
-          "body_fr": "On itère sur la donnée : tests sur les pages qui convertissent mal, ajustements de contenu, chaque cycle adossé au reporting du mois.",
-          "body_en": "We iterate on the data: tests on pages that convert poorly, content adjustments, each cycle backed by the month's reporting."
+          "title_fr": "Petites modifications",
+          "title_en": "Small edits",
+          "body_fr": "Deux par mois en Essentielle, quatre en Boutique et TPE et en Sérénité : un texte, une image, un horaire, sans devis.",
+          "body_en": "Two a month in Essential, four in Shop and Small Business and in Peace of Mind: a text, an image, opening hours, with no quote."
         },
         {
           "icon": "design",
           "title_fr": "Maintenance technique",
           "title_en": "Technical maintenance",
-          "body_fr": "Mises à jour, correctifs de sécurité, performance et disponibilité surveillées : la stack reste saine et le site robuste, en silence.",
-          "body_en": "Updates, security fixes, performance and uptime monitored: the stack stays healthy and the site robust, quietly."
+          "body_fr": "Mises à jour, correctifs de sécurité, sauvegardes et certificat HTTPS : la base reste saine et le site robuste, en silence.",
+          "body_en": "Updates, security fixes, backups and HTTPS certificate: the base stays healthy and the site robust, quietly."
         },
         {
           "icon": "crm",
-          "title_fr": "Correctifs en SLA",
-          "title_en": "SLA fixes",
-          "body_fr": "Bugs et régressions traités selon des délais définis par gravité, pris en charge sans relance de votre part. Une panne bloquante passe devant.",
-          "body_en": "Bugs and regressions handled within times defined by severity, taken in hand with no chase from you. A blocking outage goes first."
+          "title_fr": "Formule Sérénité",
+          "title_en": "Peace of Mind plan",
+          "body_fr": "Deux heures d'intervention comprises chaque mois, demandes revues sous 48 h ouvrées, contenu à la demande jusqu'à 4 h par mois, support prioritaire.",
+          "body_en": "Two hours of work included each month, requests reviewed within 48 business hours, content on demand up to 4 hours a month, priority support."
         },
         {
           "icon": "qualif",
-          "title_fr": "Régie à l'heure",
-          "title_en": "Retainer by the hour",
-          "body_fr": "Une enveloppe d'heures à taux plat, priorisée avec vous : formation, design, dev, ads, IA, automation et outbound multicanal.",
-          "body_en": "A flat-rate hours allowance, prioritised with you: training, design, dev, ads, AI, automation and multichannel outbound."
+          "title_fr": "Développement en abonnement",
+          "title_en": "Development subscription",
+          "body_fr": "Pour les chantiers plus lourds : Standard, une demande à la fois ; Pro, deux chantiers en parallèle, applications mobile et SaaS. Essai gratuit sur une première demande.",
+          "body_en": "For heavier work: Standard, one request at a time; Pro, two workstreams in parallel, mobile apps and SaaS. Free trial on a first request."
         }
       ]
     },
@@ -612,94 +612,166 @@
     {
       "type": "pricing-cards",
       "background": "paper",
-      "kicker_fr": "§ Forfaits",
-      "kicker_en": "§ Retainers",
+      "kicker_fr": "§ Maintenance légère",
+      "kicker_en": "§ Light maintenance",
       "h2_fr": "Combien coûte la maintenance de votre site",
       "h2_en": "How much your site maintenance costs",
-      "lede_fr": "Trois paliers mensuels : {{prix.maintenance.p1}}, {{prix.maintenance.p2}} ou {{prix.maintenance.p3}} € HT par mois. Les interventions hors forfait sont facturées {{prix.horaire}} € HT de l'heure. Sans engagement de durée.",
-      "lede_en": "Three monthly tiers: {{prix.maintenance.p1}}, {{prix.maintenance.p2}} or {{prix.maintenance.p3}} € ex VAT a month. Work outside the plan is billed {{prix.horaire}} € ex VAT an hour. No duration commitment.",
+      "lede_fr": "Trois formules mensuelles, sans engagement et sans devis : {{prix.web.maintenance.essentielle}}, {{prix.web.maintenance.boutique}} ou {{prix.web.maintenance.serenite}} € HT par mois. Un appel de cadrage de 30 minutes suffit à choisir.",
+      "lede_en": "Three monthly plans, with no commitment and no quote: €{{prix.web.maintenance.essentielle.en}}, €{{prix.web.maintenance.boutique.en}} or €{{prix.web.maintenance.serenite.en}} excl. VAT a month. A 30-minute scoping call is enough to choose.",
       "tiers": [
         {
-          "name_fr": "{{prix.maintenance.p1.nom}}",
-          "name_en": "{{prix.maintenance.p1.nom.en}}",
-          "price": "{{prix.maintenance.p1}} €",
+          "name_fr": "Essentielle",
+          "name_en": "Essential",
+          "price": "{{prix.web.maintenance.essentielle}} €",
           "period_fr": "/ mois · HT",
-          "period_en": "/ month · ex VAT",
+          "period_en": "/ month · excl. VAT",
           "features_fr": [
-            "{{prix.maintenance.p1.inclus.1}}",
-            "{{prix.maintenance.p1.inclus.2}}",
-            "{{prix.maintenance.p1.inclus.3}}",
-            "{{prix.maintenance.p1.inclus.4}}"
+            "Mises à jour, sauvegardes, sécurité",
+            "Supervision et certificat HTTPS",
+            "2 petites modifications par mois",
+            "Support par e-mail"
           ],
           "features_en": [
-            "{{prix.maintenance.p1.inclus.1.en}}",
-            "{{prix.maintenance.p1.inclus.2.en}}",
-            "{{prix.maintenance.p1.inclus.3.en}}",
-            "{{prix.maintenance.p1.inclus.4.en}}"
+            "Updates, backups, security",
+            "Monitoring and HTTPS certificate",
+            "2 small edits a month",
+            "Email support"
           ],
           "cta": {
             "label_fr": "Garder mon site en vie →",
             "label_en": "Keep my site alive →",
             "href": "/contact?offer=maintenance-growth&intent=maintenance",
             "variant": "ghost"
-          }
+          },
+          "featured": false
         },
         {
-          "name_fr": "{{prix.maintenance.p2.nom}}",
-          "name_en": "{{prix.maintenance.p2.nom.en}}",
-          "price": "{{prix.maintenance.p2}} €",
+          "name_fr": "Boutique et TPE",
+          "name_en": "Shop and Small Business",
+          "price": "{{prix.web.maintenance.boutique}} €",
           "period_fr": "/ mois · HT",
-          "period_en": "/ month · ex VAT",
+          "period_en": "/ month · excl. VAT",
           "features_fr": [
-            "{{prix.maintenance.p2.inclus.1}}",
-            "{{prix.maintenance.p2.inclus.2}}",
-            "{{prix.maintenance.p2.inclus.3}}"
+            "Tout ce que comprend Essentielle",
+            "Suivi SEO mensuel : positions, Search Console, conseils écrits",
+            "Contrôle du paiement, des commandes et des formulaires",
+            "Vitesse et erreurs suivies",
+            "4 petites modifications par mois",
+            "Support sur WhatsApp"
           ],
           "features_en": [
-            "{{prix.maintenance.p2.inclus.1.en}}",
-            "{{prix.maintenance.p2.inclus.2.en}}",
-            "{{prix.maintenance.p2.inclus.3.en}}"
+            "Everything in Essential",
+            "Monthly SEO follow-up: rankings, Search Console, written advice",
+            "Checks on payment, orders and forms",
+            "Speed and errors tracked",
+            "4 small edits a month",
+            "Support on WhatsApp"
           ],
           "cta": {
-            "label_fr": "Réserver un audit IA gratuit →",
-            "label_en": "Book a free AI audit →",
+            "label_fr": "Réserver l'audit gratuit →",
+            "label_en": "Book the free audit →",
             "href": "/contact?offer=maintenance-growth&intent=palier-2",
             "variant": "primary"
           },
           "featured": true
         },
         {
-          "name_fr": "{{prix.maintenance.p3.nom}}",
-          "name_en": "{{prix.maintenance.p3.nom.en}}",
-          "price": "{{prix.maintenance.p3}} €",
+          "name_fr": "Sérénité",
+          "name_en": "Peace of Mind",
+          "price": "{{prix.web.maintenance.serenite}} €",
           "period_fr": "/ mois · HT",
-          "period_en": "/ month · ex VAT",
+          "period_en": "/ month · excl. VAT",
           "features_fr": [
-            "{{prix.maintenance.p3.inclus.1}}",
-            "{{prix.maintenance.p3.inclus.2}}",
-            "{{prix.maintenance.p3.inclus.3}}",
-            "{{prix.maintenance.p3.inclus.4}}",
-            "{{prix.maintenance.p3.inclus.5}}",
-            "{{prix.maintenance.p3.inclus.6}}"
+            "Tout ce que comprend Boutique et TPE",
+            "2 h d'intervention comprises chaque mois",
+            "Demandes revues sous 48 h ouvrées",
+            "Contenu à la demande, jusqu'à 4 h par mois",
+            "Support prioritaire"
           ],
           "features_en": [
-            "{{prix.maintenance.p3.inclus.1.en}}",
-            "{{prix.maintenance.p3.inclus.2.en}}",
-            "{{prix.maintenance.p3.inclus.3.en}}",
-            "{{prix.maintenance.p3.inclus.4.en}}",
-            "{{prix.maintenance.p3.inclus.5.en}}",
-            "{{prix.maintenance.p3.inclus.6.en}}"
+            "Everything in Shop and Small Business",
+            "2 hours of work included each month",
+            "Requests reviewed within 48 business hours",
+            "Content on demand, up to 4 hours a month",
+            "Priority support"
           ],
           "cta": {
-            "label_fr": "Réserver un audit IA gratuit →",
-            "label_en": "Book a free AI audit →",
+            "label_fr": "Réserver l'audit gratuit →",
+            "label_en": "Book the free audit →",
             "href": "/contact?offer=maintenance-growth&intent=palier-3",
             "variant": "ghost"
-          }
+          },
+          "featured": false
         }
       ],
-      "footnote_fr": "Hors forfait : {{prix.horaire}} € HT de l'heure, taux unique non dégressif, sur un temps estimé et validé avant exécution. Site ou système qu'on n'a pas créé ? On commence par un audit et on cale le palier sur l'état réel. Sans engagement de durée, sans abonnement caché : vous gardez la stack et le forfait s'arrête quand vous le décidez.",
-      "footnote_en": "Outside the plan: {{prix.horaire}} € ex VAT an hour, single flat rate, on a time estimate validated before work starts. A site or system we didn't build? We start with an audit and set the tier on the real state. No duration commitment, no hidden subscription: you keep the stack and the plan stops when you decide."
+      "footnote_fr": "Prix HT, sans engagement : la maintenance s'arrête quand vous le décidez et vous gardez le site. Au-delà des modifications comprises, des extras à prix fixe : une page {{prix.web.extra.page}} €, une langue {{prix.web.extra.langue}} €, un outil relié (CRM, ERP, agenda) {{prix.web.extra.outil}} € HT. Site que nous n'avons pas créé ? On commence par un audit, puis on choisit la formule avec vous.",
+      "footnote_en": "Prices excl. VAT, no commitment: maintenance stops when you decide and you keep the site. Beyond the included edits, fixed-price extras: a page €{{prix.web.extra.page.en}}, a language €{{prix.web.extra.langue.en}}, a connected tool (CRM, ERP, calendar) €{{prix.web.extra.outil.en}} excl. VAT. A site we didn't build? We start with an audit, then choose the plan with you."
+    },
+    {
+      "type": "pricing-cards",
+      "background": "paper-3",
+      "kicker_fr": "§ Développement en abonnement",
+      "kicker_en": "§ Development subscription",
+      "h2_fr": "Quand il faut plus que de la maintenance",
+      "h2_en": "When you need more than maintenance",
+      "lede_fr": "Pour faire évoluer le site ou construire à côté, un abonnement de développement, sans devis. L'essai est gratuit sur une première demande.",
+      "lede_en": "To evolve the site or build alongside it, a development subscription, with no quote. The trial is free on a first request.",
+      "tiers": [
+        {
+          "name_fr": "Standard",
+          "name_en": "Standard",
+          "price": "{{prix.web.dev.standard}} €",
+          "period_fr": "/ mois · HT",
+          "period_en": "/ month · excl. VAT",
+          "features_fr": [
+            "Une demande à la fois",
+            "Échanges sur WhatsApp",
+            "Point hebdomadaire sur Google Meet",
+            "Essai gratuit : une première demande"
+          ],
+          "features_en": [
+            "One request at a time",
+            "Exchanges on WhatsApp",
+            "Weekly check-in on Google Meet",
+            "Free trial: a first request"
+          ],
+          "cta": {
+            "label_fr": "Lancer une première demande →",
+            "label_en": "Start a first request →",
+            "href": "/contact?offer=maintenance-growth&intent=developpement",
+            "variant": "primary"
+          },
+          "featured": true
+        },
+        {
+          "name_fr": "Pro",
+          "name_en": "Pro",
+          "price": "{{prix.web.dev.pro}} €",
+          "period_fr": "/ mois · HT",
+          "period_en": "/ month · excl. VAT",
+          "features_fr": [
+            "Deux chantiers en parallèle",
+            "Applications mobile et SaaS",
+            "Traitement prioritaire",
+            "Échanges sur WhatsApp, point hebdomadaire"
+          ],
+          "features_en": [
+            "Two workstreams in parallel",
+            "Mobile apps and SaaS",
+            "Priority handling",
+            "Exchanges on WhatsApp, weekly check-in"
+          ],
+          "cta": {
+            "label_fr": "Cadrer le chantier →",
+            "label_en": "Scope the work →",
+            "href": "/contact?offer=maintenance-growth&intent=developpement-pro",
+            "variant": "ghost"
+          },
+          "featured": false
+        }
+      ],
+      "footnote_fr": "Prix HT, par mois. Un appel de cadrage de 30 minutes suffit à choisir entre maintenance légère et développement.",
+      "footnote_en": "Prices excl. VAT, per month. A 30-minute scoping call is enough to choose between light maintenance and development."
     },
     {
       "type": "eeat-panel",
@@ -715,58 +787,58 @@
       "h2_en": "What you ask us",
       "items": [
         {
-          "q_fr": "C'est quoi la maintenance et growth d'un site intelligent ?",
-          "q_en": "What is intelligent site maintenance and growth?",
-          "a_fr": "C'est le forfait mensuel qui fait vivre et croître votre site après la mise en ligne. La construction pose le site ; ici, on l'exploite dans la durée : SEO et contenu optimisés mois après mois, KPI suivis, reporting business, correctifs, évolutions et maintenance technique. Le site ne se fige pas à la livraison, il monte de version pendant que vous l'utilisez.",
-          "a_en": "It's the monthly retainer that keeps your site alive and growing after launch. The build lays the site down; here we operate it over time: SEO and content optimised month after month, KPIs tracked, business reporting, fixes, evolutions and technical maintenance. The site doesn't freeze at delivery, it moves up versions while you use it."
+          "q_fr": "C'est quoi la maintenance de site web chez Waimia ?",
+          "q_en": "What is website maintenance at Waimia?",
+          "a_fr": "C'est l'abonnement mensuel qui garde votre site sain et utile après la mise en ligne : mises à jour, sauvegardes, sécurité, supervision, certificat HTTPS et petites modifications. Trois formules sans engagement, selon ce que votre site porte : Essentielle, Boutique et TPE, Sérénité. Pour des chantiers plus lourds, un abonnement de développement prend le relais. Le site ne se fige pas à la livraison : il reste à jour pendant que vous l'utilisez.",
+          "a_en": "It's the monthly subscription that keeps your site healthy and useful after launch: updates, backups, security, monitoring, HTTPS certificate and small edits. Three plans with no commitment, depending on what your site carries: Essential, Shop and Small Business, Peace of Mind. For heavier work, a development subscription takes over. The site doesn't freeze at delivery: it stays current while you use it."
         },
         {
-          "q_fr": "Quelle différence avec la création du site intelligent ?",
-          "q_en": "How is this different from building the intelligent site?",
-          "a_fr": "La création est un chantier ponctuel : design, contenu, structure, instrumentation posés et déployés. La maintenance et growth est le récurrent qui prend le relais : on fait vivre l'actif livré, on l'améliore sur la donnée et on traite les correctifs. La création construit, le forfait exploite. Beaucoup de sites meurent faute du second : c'est exactement ce qu'on évite.",
-          "a_en": "The build is a one-off project: design, content, structure, instrumentation laid in and deployed. Maintenance and growth is the recurring work that takes over: we keep the delivered asset alive, improve it on the data and handle fixes. The build constructs, the retainer operates. Many sites die for lack of the second: that's exactly what we prevent."
+          "q_fr": "Quelle différence avec la création du site ?",
+          "q_en": "How is this different from building the site?",
+          "a_fr": "La création est un chantier ponctuel, à prix fixe selon la taille de votre structure : design, contenu, structure, mise en ligne. La maintenance est le récurrent qui prend le relais : on garde l'actif livré à jour, on traite les petites demandes et on surveille ce qui casse. Beaucoup de sites meurent faute du second : c'est exactement ce qu'on évite. Si vous préférez tout réunir, le site par abonnement comprend création, hébergement, maintenance et petites modifications, dès {{prix.web.waas.solo}} € HT par mois avec un engagement de 24 mois.",
+          "a_en": "The build is a one-off project, at a fixed price set by the size of your organisation: design, content, structure, launch. Maintenance is the recurring work that takes over: we keep the delivered asset current, handle small requests and watch for what breaks. Many sites die for lack of the second: that's exactly what we prevent. If you'd rather have it all in one, the website subscription covers build, hosting, maintenance and small edits, from €{{prix.web.waas.solo.en}} excl. VAT a month with a 24-month commitment."
         },
         {
-          "q_fr": "Qu'est-ce qui est inclus dans le premier palier, à {{prix.maintenance.p1}} € par mois ?",
-          "q_en": "What's included in the first tier, at {{prix.maintenance.p1}} € a month?",
-          "a_fr": "Palier {{prix.maintenance.p1.nom}}. {{prix.maintenance.p1.resume}}",
-          "a_en": "{{prix.maintenance.p1.nom.en}} tier. {{prix.maintenance.p1.resume.en}}"
+          "q_fr": "Qu'est-ce qui est inclus dans la formule Essentielle, à {{prix.web.maintenance.essentielle}} € par mois ?",
+          "q_en": "What's included in the Essential plan, at €{{prix.web.maintenance.essentielle.en}} a month?",
+          "a_fr": "Les mises à jour, les sauvegardes, la sécurité, la supervision du site et le certificat HTTPS, deux petites modifications par mois et le support par e-mail. C'est la base pour un site vitrine qui doit rester à jour et sûr : {{prix.web.maintenance.essentielle}} € HT par mois, sans engagement.",
+          "a_en": "Updates, backups, security, site monitoring and the HTTPS certificate, two small edits a month and email support. It's the base for a showcase site that must stay current and safe: €{{prix.web.maintenance.essentielle.en}} excl. VAT a month, no commitment."
         },
         {
-          "q_fr": "Comment sont facturées les interventions hors forfait ?",
-          "q_en": "How is work outside the plan billed?",
-          "a_fr": "La maintenance se vend en trois paliers mensuels : {{prix.maintenance.p1.nom}} à {{prix.maintenance.p1}} € HT par mois, {{prix.maintenance.p2.nom}} à {{prix.maintenance.p2}} € HT par mois, {{prix.maintenance.p3.nom}} à {{prix.maintenance.p3}} € HT par mois. Palier {{prix.maintenance.p2.nom}}. {{prix.maintenance.p2.resume}} Palier {{prix.maintenance.p3.nom}}. {{prix.maintenance.p3.resume}} Tout ce qui sort du forfait se facture à l'heure, {{prix.horaire}} € HT non dégressif, sur un temps estimé avec vous et validé avant exécution.",
-          "a_en": "Maintenance is sold in three monthly tiers: {{prix.maintenance.p1.nom.en}} at {{prix.maintenance.p1}} € ex VAT a month, {{prix.maintenance.p2.nom.en}} at {{prix.maintenance.p2}} € ex VAT a month, {{prix.maintenance.p3.nom.en}} at {{prix.maintenance.p3}} € ex VAT a month. {{prix.maintenance.p2.nom.en}} tier. {{prix.maintenance.p2.resume.en}} {{prix.maintenance.p3.nom.en}} tier. {{prix.maintenance.p3.resume.en}} Anything outside the plan is billed by the hour, {{prix.horaire}} € ex-VAT flat rate, on a time estimate made with you and validated before work starts."
+          "q_fr": "Quelles différences entre les trois formules ?",
+          "q_en": "How do the three plans differ?",
+          "a_fr": "Essentielle, {{prix.web.maintenance.essentielle}} € HT par mois : mises à jour, sauvegardes, sécurité, supervision, HTTPS, deux petites modifications par mois, support par e-mail. Boutique et TPE, {{prix.web.maintenance.boutique}} € HT par mois : tout cela, plus un suivi SEO mensuel (positions, Search Console, conseils écrits), le contrôle du paiement, des commandes et des formulaires, le suivi de la vitesse et des erreurs, quatre modifications par mois et le support sur WhatsApp. Sérénité, {{prix.web.maintenance.serenite}} € HT par mois : en plus, deux heures d'intervention comprises chaque mois, vos demandes revues sous 48 h ouvrées, du contenu à la demande jusqu'à 4 h par mois et un support prioritaire. Les trois sont sans engagement.",
+          "a_en": "Essential, €{{prix.web.maintenance.essentielle.en}} excl. VAT a month: updates, backups, security, monitoring, HTTPS, two small edits a month, email support. Shop and Small Business, €{{prix.web.maintenance.boutique.en}} excl. VAT a month: all of that, plus a monthly SEO follow-up (rankings, Search Console, written advice), checks on payment, orders and forms, speed and error tracking, four edits a month and support on WhatsApp. Peace of Mind, €{{prix.web.maintenance.serenite.en}} excl. VAT a month: on top, two hours of work included each month, your requests reviewed within 48 business hours, content on demand up to 4 hours a month and priority support. All three come with no commitment."
         },
         {
           "q_fr": "Vous gérez le SEO dans la durée, ou juste la technique ?",
           "q_en": "Do you handle SEO over time, or just the technical side?",
-          "a_fr": "Les deux, selon le forfait. La maintenance technique (mises à jour, sécurité, performance, disponibilité) est la base. Au-dessus, le SEO et le GEO se travaillent en continu : nouveaux contenus, optimisations, balisage pour rester citable par les moteurs génératifs. Le référencement n'est pas un acquis, il se cultive.",
-          "a_en": "Both, depending on the tier. Technical maintenance (updates, security, performance, uptime) is the base. Above it, SEO and GEO are worked continuously: new content, optimisations, markup to stay citable by generative engines. Ranking isn't a given, it's cultivated."
+          "a_fr": "Les deux, selon la formule. La maintenance technique (mises à jour, sécurité, sauvegardes, supervision) est la base de toutes. La formule Boutique et TPE ajoute un suivi SEO mensuel : positions, Search Console et conseils écrits. Pour produire du contenu et du référencement en continu, le pack Visibilité ({{prix.web.pack.visibilite}} € HT par mois, engagement de 3 mois) réunit la maintenance Essentielle, trois pages optimisées et deux articles par mois. Le référencement se cultive, et nous ne promettons aucune position précise.",
+          "a_en": "Both, depending on the plan. Technical maintenance (updates, security, backups, monitoring) is the base of all three. The Shop and Small Business plan adds a monthly SEO follow-up: rankings, Search Console and written advice. To produce content and SEO continuously, the Visibility pack (€{{prix.web.pack.visibilite.en}} excl. VAT a month, 3-month commitment) combines Essential maintenance, three optimised pages and two articles a month. Ranking is cultivated, and we promise no specific position."
         },
         {
-          "q_fr": "Comment je sais que le forfait sert à quelque chose ?",
-          "q_en": "How do I know the retainer is worth it?",
-          "a_fr": "Par le reporting. Chaque mois, un tableau de bord lit vos KPI dans la Search Console et l'Analytics, avec une lecture business des chiffres : ce qui progresse, ce qui décroche, ce qu'on a fait et ce qu'on propose ensuite. Vous pilotez sur la donnée, pas sur une impression. Et vous gardez la main : le forfait s'arrête quand vous voulez.",
-          "a_en": "Through reporting. Each month, a dashboard reads your KPIs from Search Console and Analytics, with a business read of the figures: what's progressing, what's slipping, what we did and what we propose next. You steer on data, not on a feeling. And you keep control: the retainer stops whenever you want."
+          "q_fr": "Comment je sais que l'abonnement sert à quelque chose ?",
+          "q_en": "How do I know the subscription is worth it?",
+          "a_fr": "Par ce que vous voyez chaque mois : les mises à jour et sauvegardes faites, les modifications traitées et, dès la formule Boutique et TPE, un suivi SEO avec vos positions et la Search Console, accompagné de conseils écrits. Vous pilotez sur la donnée, pas sur une impression. Et vous gardez la main : la maintenance est sans engagement, elle s'arrête quand vous voulez.",
+          "a_en": "Through what you see each month: the updates and backups done, the edits handled and, from the Shop and Small Business plan, an SEO follow-up with your rankings and Search Console, with written advice. You steer on data, not on a feeling. And you keep control: maintenance has no commitment, it stops whenever you want."
         },
         {
-          "q_fr": "L'enveloppe horaire, ça marche comment ?",
-          "q_en": "How does the hourly allowance work?",
-          "a_fr": "C'est une enveloppe mensuelle souple, priorisée avec vous. Plutôt qu'un devis pour chaque petite demande, vous disposez d'un volume d'heures qu'on affecte aux évolutions et correctifs les plus utiles du moment. Les heures non urgentes attendent, les priorités passent devant. Vous décidez de l'ordre, on exécute.",
-          "a_en": "It's a flexible monthly allowance, prioritised with you. Rather than a quote for every small request, you have a volume of hours we assign to the most useful evolutions and fixes of the moment. Non-urgent hours wait, priorities go first. You decide the order, we execute."
+          "q_fr": "Et si j'ai besoin de plus que de petites modifications ?",
+          "q_en": "What if I need more than small edits?",
+          "a_fr": "Deux voies, sans devis. Pour un ajout ponctuel, les extras à prix fixe : une page {{prix.web.extra.page}} € HT, une langue {{prix.web.extra.langue}} € HT, un outil relié (CRM, ERP, agenda) {{prix.web.extra.outil}} € HT. Pour un flux continu de demandes, l'abonnement de développement : Standard à {{prix.web.dev.standard}} € HT par mois, une demande à la fois, avec WhatsApp et un point hebdomadaire sur Google Meet ; Pro à {{prix.web.dev.pro}} € HT par mois, deux chantiers en parallèle, applications mobile et SaaS, en priorité. L'essai est gratuit sur une première demande.",
+          "a_en": "Two routes, no quote. For a one-off addition, fixed-price extras: a page €{{prix.web.extra.page.en}} excl. VAT, a language €{{prix.web.extra.langue.en}} excl. VAT, a connected tool (CRM, ERP, calendar) €{{prix.web.extra.outil.en}} excl. VAT. For a steady flow of requests, the development subscription: Standard at €{{prix.web.dev.standard.en}} excl. VAT a month, one request at a time, with WhatsApp and a weekly Google Meet check-in; Pro at €{{prix.web.dev.pro.en}} excl. VAT a month, two workstreams in parallel, mobile apps and SaaS, with priority. The trial is free on a first request."
         },
         {
-          "q_fr": "Vous traitez les bugs vite ?",
-          "q_en": "Do you fix bugs fast?",
-          "a_fr": "Les correctifs sont traités en SLA, selon la gravité : une régression bloquante ne suit pas le même délai qu'un ajustement cosmétique. Le forfait définit clairement les délais d'intervention par niveau, pour qu'un incident n'attende pas une relance de votre part pour être pris en charge.",
-          "a_en": "Fixes are handled on SLA, by severity: a blocking regression doesn't follow the same delay as a cosmetic tweak. The retainer clearly defines intervention times per level, so an incident isn't waiting on a chase from you to be taken in hand."
+          "q_fr": "Vous traitez les demandes vite ?",
+          "q_en": "Do you handle requests fast?",
+          "a_fr": "Selon la formule. En Sérénité, vos demandes sont revues sous 48 h ouvrées, avec un support prioritaire et deux heures d'intervention comprises chaque mois. En Essentielle et en Boutique et TPE, la supervision repère ce qui casse et le support passe par e-mail ou par WhatsApp. Nous ne promettons pas de délai que la formule ne prévoit pas.",
+          "a_en": "Depending on the plan. In Peace of Mind, your requests are reviewed within 48 business hours, with priority support and two hours of work included each month. In Essential and Shop and Small Business, monitoring spots what breaks and support goes through email or WhatsApp. We don't promise a turnaround the plan doesn't include."
         },
         {
           "q_fr": "Faut-il que vous ayez créé le site pour le maintenir ?",
           "q_en": "Do you need to have built the site to maintain it?",
-          "a_fr": "Non, mais on commence par un audit. Si on a construit le site, on connaît déjà sa stack et le suivi démarre vite. Sur un site existant qu'on reprend, on cartographie d'abord la base technique et SEO, on identifie la dette, puis on cale le forfait sur l'état réel. On ne s'engage pas à l'aveugle.",
-          "a_en": "No, but we start with an audit. If we built the site, we already know its stack and the follow-up starts quickly. On an existing site we take over, we first map the technical and SEO base, identify the debt, then set the retainer on the real state. We don't commit blindly."
+          "a_fr": "Non, mais on commence par un audit. Si on a construit le site, on connaît déjà sa base et le suivi démarre vite. Sur un site existant qu'on reprend, on cartographie d'abord la base technique et SEO, on repère la dette, puis on choisit avec vous la formule qui correspond. On ne s'engage pas à l'aveugle.",
+          "a_en": "No, but we start with an audit. If we built the site, we already know its base and the follow-up starts quickly. On an existing site we take over, we first map the technical and SEO base, spot the debt, then choose the matching plan with you. We don't commit blindly."
         },
         {
           "q_fr": "Vous êtes basés où, et faut-il être à Bordeaux ?",
@@ -797,8 +869,8 @@
           "variant": "primary"
         },
         {
-          "label_fr": "Voir le site web intelligent",
-          "label_en": "See the intelligent website",
+          "label_fr": "Voir la création de site",
+          "label_en": "See website creation",
           "href": "/services/site-web-ia",
           "variant": "ghost"
         }

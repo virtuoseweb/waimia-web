@@ -11,6 +11,8 @@ interface Props {
 const { data, lang } = Astro.props;
 const isFr = lang === 'fr';
 const title = isFr ? (data.h1_fr ?? data.h2_fr) : (data.h1_en ?? data.h2_en);
+// Titre de page seulement si la section reçoit un h1 ; sinon h2 (la section peut suivre un autre hero).
+const TitleTag = (isFr ? data.h1_fr : data.h1_en) ? 'h1' : 'h2';
 const lede = isFr ? data.lede_fr : data.lede_en;
 const sectionId = `pricing-tabs-${Math.random().toString(36).slice(2, 8)}`;
 // Button n'a pas de variante « secondary » : rendue en ghost, son équivalent visuel.
@@ -23,7 +25,7 @@ const btnVariant = (v: CtaVariant, fallback: 'ghost' | 'primary') =>
   <div class="wrap-wide">
     <div class="pricing-tabs__header reveal-up">
       {(isFr ? data.kicker_fr : data.kicker_en) && <Kicker tone="muted">{isFr ? data.kicker_fr : data.kicker_en}</Kicker>}
-      {title && <h1 id={`${sectionId}-title`} class="pricing-tabs__title" set:html={title} />}
+      {title && <TitleTag id={`${sectionId}-title`} class="pricing-tabs__title" set:html={title} />}
       {lede && <p class="pricing-tabs__lede">{lede}</p>}
     </div>
 
@@ -55,7 +57,7 @@ const btnVariant = (v: CtaVariant, fallback: 'ghost' | 'primary') =>
             data-panel-index={tabIndex}
             hidden={tabIndex !== 0}
           >
-            <h2 class="sr-only">{isFr ? 'Nos formules' : 'Our plans'}</h2>
+            {TitleTag === 'h1' && <h2 class="sr-only">{isFr ? 'Nos formules' : 'Our plans'}</h2>}
             <div class="pricing-tabs__grid">
               {tab.cards.map((card) => {
                 const imageAlt = isFr ? card.image_alt_fr : card.image_alt_en;

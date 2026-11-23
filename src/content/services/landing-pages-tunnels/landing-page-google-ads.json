@@ -6,7 +6,7 @@
   "description_en": "Your Google Ads budget leaves without converting? A dedicated Google Ads landing page: message match, speed, tracking and Quality Score, wired to your CRM.",
   "slug": "landing-page-google-ads",
   "publishedAt": "2026-07-16T00:00:00.000Z",
-  "updatedAt": "2026-07-16T00:00:00.000Z",
+  "updatedAt": "2026-11-23T00:00:00.000Z",
   "category": "acquisition",
   "tags": [
     "landing-page-google-ads",
@@ -18,8 +18,8 @@
   "seo": {
     "noindex": false,
     "serviceType": "Landing page dédiée Google Ads : message match, vitesse, tracking des conversions et Quality Score",
-    "priceRange": "dès {{prix.sprint}} €",
-    "priceMin": 999
+    "priceRange": "dès 150€",
+    "priceMin": 150
   },
   "faq_fr": [
     {
@@ -36,7 +36,7 @@
     },
     {
       "q": "Comment mesure-t-on les conversions issues des Ads ?",
-      "a": "On pose un plan de mesure GA4 centré sur les vrais événements de valeur (lead qualifié, devis demandé, pas simple clic), via Google Tag Manager, et on branche les balises de conversion Google Ads. Pour résister aux bloqueurs et à la fin des cookies tiers, on passe par du tracking server-side. L'attribution relie chaque lead à la campagne et au mot-clé qui l'ont généré, pour que la régie optimise sur ce qui rapporte vraiment."
+      "a": "On pose un plan de mesure GA4 centré sur les vrais événements de valeur (lead qualifié, devis demandé, pas simple clic), via Google Tag Manager, et on branche les balises de conversion Google Ads. Pour résister aux bloqueurs et à la fin des cookies tiers, on passe par du tracking server-side. L'attribution relie chaque lead à la campagne et au mot-clé qui l'ont généré, pour que la plateforme optimise sur ce qui rapporte vraiment."
     },
     {
       "q": "Combien de temps avant de savoir si une nouvelle landing convertit mieux ?",
@@ -44,11 +44,11 @@
     },
     {
       "q": "Gérez-vous aussi les campagnes Google Ads elles-mêmes ?",
-      "a": "On câble la mesure côté Ads et on peut piloter les campagnes selon votre cadrage, mais ici, le travail porte d'abord sur la page qui convertit le clic. L'objectif n'est pas de dépenser plus en Ads, mais de faire convertir le trafic que vous payez déjà. Pour le tunnel de qualification complet (scoring, remontée CRM, nurturing), c'est l'offre landing pages et tunnels qui prend le relais."
+      "a": "Oui. Dans notre gestion de business en ligne, Google Ads est l'un des deux canaux de la formule Essentiel (les quatre canaux en formule Croissance) : structure de compte, annonces, enchères et mesure. La campagne et sa landing sont pilotées ensemble, ce qui tient le message match. L'objectif n'est pas de dépenser plus en Ads, mais de faire convertir le trafic que vous payez. Pour le tunnel de qualification complet (scoring, remontée CRM, relances), c'est l'offre landing pages et tunnels qui prend le relais."
     },
     {
       "q": "Combien coûte une landing page Google Ads ?",
-      "a": "Une landing dédiée démarre au sprint de cadrage, 10 heures à {{prix.sprint}} euros, qui couvre la maquette, la rédaction message match et le tracking. Les itérations et les variantes de test se poursuivent en régie growth à {{prix.horaire}} euros de l'heure. Le budget des enchères Google reste séparé et vous appartient."
+      "a": "Une landing Google Ads n'a pas de prix à part, parce qu'elle ne vaut que reliée à sa campagne. Elle est comprise dans la gestion de business en ligne, avec les tests A/B et la gestion de vos annonces : Essentiel à {{prix.web.ads.essentiel}} € HT par mois (deux canaux, dont Google Ads), Croissance à {{prix.web.ads.croissance}} € HT par mois (quatre canaux). Si vous voulez seulement une page de plus sur votre site existant, c'est un extra à prix fixe : {{prix.web.extra.page}} € HT, sans gestion des campagnes ni tests. Pas de devis : un appel de cadrage de 30 minutes suffit à choisir. Le budget des enchères Google reste séparé, payé à Google, et vous appartient."
     },
     {
       "q": "Vous êtes basés où, et faut-il être à Bordeaux ?",
@@ -78,11 +78,11 @@
     },
     {
       "q": "Do you also run the Google Ads campaigns themselves?",
-      "a": "We wire the measurement on the Ads side and can drive the campaigns depending on your scope, but here the work is first about the page that converts the click. The goal isn't to spend more on Ads, but to convert the traffic you already pay for. For the full qualification funnel (scoring, CRM handover, nurturing), the landing pages and funnels offer takes over."
+      "a": "Yes. In our online business management, Google Ads is one of the two channels of the Essential plan (all four channels in the Growth plan): account structure, ads, bidding and measurement. The campaign and its landing are steered together, which holds the message match. The goal isn't to spend more on Ads, but to convert the traffic you pay for. For the full qualification funnel (scoring, CRM handover, follow-ups), the landing pages and funnels offer takes over."
     },
     {
       "q": "How much does a Google Ads landing page cost?",
-      "a": "A dedicated landing starts with the scoping sprint, 10 hours at {{prix.sprint}} euros, covering the mockup, message-match copy and tracking. Iterations and test variants continue on a growth retainer at {{prix.horaire}} euros per hour. The Google bidding budget stays separate and belongs to you."
+      "a": "A Google Ads landing has no separate price, because it is only worth something tied to its campaign. It is included in online business management, with A/B tests and the running of your ads: Essential at €{{prix.web.ads.essentiel.en}} excl. VAT per month (two channels, Google Ads among them), Growth at €{{prix.web.ads.croissance.en}} excl. VAT per month (four channels). If you only want one more page on your existing site, it is a fixed-price extra: €{{prix.web.extra.page.en}} excl. VAT, without campaign management or tests. No quote: a 30-minute scoping call is enough to choose. The Google bidding budget stays separate, paid to Google, and belongs to you."
     },
     {
       "q": "Where are you based, and do we need to be in Bordeaux?",
@@ -97,8 +97,8 @@
       "kicker_en": "§ Google Ads landing page · conversion layer of the acquisition system",
       "h1_fr": "Une landing page Google <i class=\"acc\">Ads</i> qui transforme le clic payé en lead.",
       "h1_en": "A Google <i class=\"acc\">Ads</i> landing page that turns the paid click into a lead.",
-      "lede_fr": "Vous payez le clic, il arrive sur votre page d'accueil, regarde et repart. Le budget Google Ads se dépense, la conversion ne suit pas. Waimia inverse ça : une landing page dédiée par campagne, qui tient la promesse de l'annonce, charge vite, mesure chaque conversion et remonte le lead à votre CRM. C'est l'étage conversion de votre système d'acquisition, celui qui rentabilise le trafic que vous payez. La gestion des enchères et du budget média, elle, relève de la <a href=\"/services/landing-pages-tunnels\">publicité en ligne</a>.",
-      "lede_en": "You pay for the click, it lands on your homepage, looks and leaves. The Google Ads budget spends, the conversion doesn't follow. Waimia flips that: a landing page dedicated per campaign, holding the ad's promise, loading fast, measuring each conversion and surfacing the lead to your CRM. It is the conversion layer of your acquisition system, the one that pays off the traffic you buy. Bid and media-budget management, for its part, belongs to <a href=\"/services/landing-pages-tunnels\">online advertising</a>.",
+      "lede_fr": "Vous payez le clic, il arrive sur votre page d'accueil, regarde et repart. Le budget Google Ads se dépense, la conversion ne suit pas. Waimia inverse ça : une landing page dédiée par campagne, qui tient la promesse de l'annonce, charge vite, mesure chaque conversion et remonte le lead à votre CRM. C'est l'étage conversion de votre système d'acquisition, celui qui rentabilise le trafic que vous payez. La gestion des campagnes elles-mêmes fait partie de notre offre de <a href=\"/services/publicite-en-ligne\">publicité en ligne</a>.",
+      "lede_en": "You pay for the click, it lands on your homepage, looks and leaves. The Google Ads budget spends, the conversion doesn't follow. Waimia flips that: a landing page dedicated per campaign, holding the ad's promise, loading fast, measuring each conversion and surfacing the lead to your CRM. It is the conversion layer of your acquisition system, the one that pays off the traffic you buy. Running the campaigns themselves is part of our <a href=\"/services/publicite-en-ligne\">online advertising</a> offer.",
       "badges": [
         {
           "label_fr": "Message match par campagne",
@@ -142,15 +142,15 @@
       "kicker_en": "§ At a glance",
       "metrics": [
         {
-          "value": "Dès {{prix.sprint}} €",
-          "label_fr": "sprint de cadrage de 10 h · suite sur devis",
-          "label_en": "10-h scoping sprint · next steps on quote",
+          "value": "{{prix.web.ads.essentiel}} €",
+          "label_fr": "HT par mois : Google Ads, landing pages et tests A/B compris",
+          "label_en": "excl. VAT per month: Google Ads, landing pages and A/B tests included",
           "emphasis": true
         },
         {
-          "value": "4–8 sem.",
-          "label_fr": "landing exploitable livrée",
-          "label_en": "usable landing delivered"
+          "value": "{{prix.web.extra.page}} €",
+          "label_fr": "HT, prix fixe, pour une page de plus sur votre site existant",
+          "label_en": "excl. VAT, fixed price, for one more page on your existing site"
         },
         {
           "value": "Message match",
@@ -246,7 +246,7 @@
           "severity": "medium",
           "title_fr": "Aucune mesure fiable des conversions",
           "title_en": "No reliable conversion measurement",
-          "desc_fr": "Sans tracking server-side ni attribution, la régie optimise sur les clics, pas sur les leads. Vous ne savez pas quelle campagne ni quel mot-clé rapportent vraiment, donc vous dépensez à l'aveugle.",
+          "desc_fr": "Sans tracking server-side ni attribution, la plateforme optimise sur les clics, pas sur les leads. Vous ne savez pas quelle campagne ni quel mot-clé rapportent vraiment, donc vous dépensez à l'aveugle.",
           "desc_en": "Without server-side tracking or attribution, the platform optimises on clicks, not on leads. You don't know which campaign or keyword truly returns, so you spend blind.",
           "fix_fr": "Tracking des vrais événements de valeur, attribution.",
           "fix_en": "Tracking of real value events, attribution."
@@ -274,7 +274,7 @@
           "text_en": "The slow page raises the cost per click via the Quality Score."
         },
         {
-          "text_fr": "La régie optimise sur les clics, pas sur les leads qualifiés.",
+          "text_fr": "La plateforme optimise sur les clics, pas sur les leads qualifiés.",
           "text_en": "The platform optimises on clicks, not on qualified leads."
         },
         {
@@ -296,7 +296,7 @@
           "text_en": "The fast, relevant page improves the Quality Score and lowers the cost."
         },
         {
-          "text_fr": "La régie optimise sur les vrais leads grâce au tracking server-side.",
+          "text_fr": "La plateforme optimise sur les vrais leads grâce au tracking server-side.",
           "text_en": "The platform optimises on real leads thanks to server-side tracking."
         },
         {
@@ -398,7 +398,7 @@
         {
           "title_fr": "Attribution des leads",
           "title_en": "Lead attribution",
-          "body_fr": "Chaque lead relié à la campagne et au mot-clé qui l'ont généré, pour que la régie optimise sur ce qui rapporte, pas sur le clic.",
+          "body_fr": "Chaque lead relié à la campagne et au mot-clé qui l'ont généré, pour que la plateforme optimise sur ce qui rapporte, pas sur le clic.",
           "body_en": "Each lead linked to the campaign and keyword that generated it, so the platform optimises on what returns, not on the click.",
           "format_fr": "ATTRIBUTION",
           "format_en": "ATTRIBUTION"
@@ -458,7 +458,7 @@
           "icon": "pilotage",
           "title_fr": "Attribution",
           "title_en": "Attribution",
-          "body_fr": "Chaque lead relié à la campagne et au mot-clé qui l'ont généré : la régie optimise enfin sur ce qui rapporte.",
+          "body_fr": "Chaque lead relié à la campagne et au mot-clé qui l'ont généré : la plateforme optimise enfin sur ce qui rapporte.",
           "body_en": "Each lead linked to the campaign and keyword that generated it: the platform finally optimises on what returns."
         },
         {
@@ -487,7 +487,7 @@
       "meta_en": "AdsLoop · v1",
       "h2_fr": "Comment un clic payé devient un lead",
       "h2_en": "How a paid click becomes a lead",
-      "lede_fr": "Les briques ne s'empilent pas au hasard. Elles forment un circuit qui rentabilise chaque clic. Chaque maillon transforme un clic payé en conversion mesurée, puis renvoie la mesure à la régie pour optimiser la campagne suivante.",
+      "lede_fr": "Les briques ne s'empilent pas au hasard. Elles forment un circuit qui rentabilise chaque clic. Chaque maillon transforme un clic payé en conversion mesurée, puis renvoie la mesure à la plateforme pour optimiser la campagne suivante.",
       "lede_en": "The blocks don't stack at random. They form a circuit that pays off each click. Each link turns a paid click into a measured conversion, then feeds the measurement back to the platform to optimise the next campaign.",
       "steps": [
         {
@@ -523,7 +523,7 @@
         {
           "title_fr": "Optimisation",
           "title_en": "Optimisation",
-          "desc_fr": "La régie optimise sur les vrais leads, on affine la landing. La boucle se referme.",
+          "desc_fr": "La plateforme optimise sur les vrais leads, on affine la landing. La boucle se referme.",
           "desc_en": "The platform optimises on real leads, we refine the landing. The loop closes."
         }
       ],
@@ -597,30 +597,30 @@
       "background": "paper",
       "layout": "grid-asym",
       "colRatio": "2-3",
-      "kicker_fr": "§ Deux façons d'engager",
-      "kicker_en": "§ Two ways to engage",
+      "kicker_fr": "§ Deux façons de faire",
+      "kicker_en": "§ Two ways to do it",
       "h2_fr": "Deux façons de faire convertir vos clics Ads",
       "h2_en": "Two ways to make your Ads clicks convert",
-      "lede_fr": "On démarre par un sprint de cadrage à prix fixe : une première landing tracée sur votre campagne clé, avec les balises Ads posées. La suite se cale sur devis : on estime ensemble le temps nécessaire, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth. Vous gardez la landing, le tracking et la stack.",
-      "lede_en": "We start with a fixed-price scoping sprint: a first landing tracked on your key campaign, with the Ads tags in place. What follows is quoted: we estimate the time needed together, validate it, then run it in sprints within the growth retainer frame. You keep the landing, the tracking and the stack.",
+      "lede_fr": "Pas de prix « landing seule » : une landing Google Ads est comprise dans la gestion de vos campagnes, avec les tests A/B. Si vous gérez déjà vos annonces, une page de plus sur votre site existant est un extra à prix fixe. Pas de devis : un appel de cadrage de 30 minutes suffit à choisir. Vous gardez la landing, le tracking et les comptes.",
+      "lede_en": "No \"landing only\" price: a Google Ads landing is included in the running of your campaigns, with A/B tests. If you already run your ads, one more page on your existing site is a fixed-price extra. No quote: a 30-minute scoping call is enough to choose. You keep the landing, the tracking and the accounts.",
       "tiers": [
         {
-          "name_fr": "Sprint de cadrage",
-          "name_en": "Scoping sprint",
-          "price": "{{prix.sprint}} €",
-          "period_fr": "10 h · HT",
-          "period_en": "10 h · ex VAT",
+          "name_fr": "Campagnes et landings · Essentiel",
+          "name_en": "Campaigns and landings · Essential",
+          "price": "{{prix.web.ads.essentiel}} €",
+          "period_fr": "/ mois · HT",
+          "period_en": "/ month · excl. VAT",
           "features_fr": [
-            "Une première landing dédiée sur votre campagne clé",
-            "Copywriting orienté conversion, page rapide",
-            "Tracking des conversions et balises Ads posés",
-            "Une landing en ligne, avec son formulaire et sa mesure"
+            "Google Ads et un second canal au choix",
+            "Landing pages accordées à chaque campagne",
+            "Audit de conversion et tests A/B",
+            "Visuels pub, reporting sur WhatsApp, point hebdomadaire"
           ],
           "features_en": [
-            "A first dedicated landing on your key campaign",
-            "Conversion-oriented copywriting, fast page",
-            "Conversion tracking and Ads tags in place",
-            "A live landing page, with its form and its tracking"
+            "Google Ads and a second channel of your choice",
+            "Landing pages matched to each campaign",
+            "Conversion audit and A/B tests",
+            "Ad visuals, reporting on WhatsApp, weekly check-in"
           ],
           "cta": {
             "label_fr": "Réserver l'audit gratuit →",
@@ -631,33 +631,32 @@
           "featured": true
         },
         {
-          "name_fr": "Suite sur devis",
-          "name_en": "Next steps on quote",
-          "price": "Sur devis",
-          "period_fr": "estimé avec vous · HT",
-          "period_en": "estimated with you · ex VAT",
+          "name_fr": "Une page de plus",
+          "name_en": "One more page",
+          "price": "{{prix.web.extra.page}} €",
+          "period_fr": "par page · HT",
+          "period_en": "per page · excl. VAT",
           "features_fr": [
-            "Temps nécessaire estimé ensemble, puis validé",
-            "Exécuté en sprints, cadre régie growth",
-            "Landings par campagne, tracking server-side, A/B et CRM",
-            "Vous gardez la landing, le tracking et la stack"
+            "Une page ajoutée à votre site existant",
+            "Prix fixe, sans devis",
+            "Gestion des campagnes et tests A/B non compris"
           ],
           "features_en": [
-            "Time needed estimated together, then validated",
-            "Run in sprints, growth retainer frame",
-            "Landings per campaign, server-side tracking, A/B and CRM",
-            "You keep the landing, the tracking and the stack"
+            "One page added to your existing site",
+            "Fixed price, no quote",
+            "Campaign management and A/B tests not included"
           ],
           "cta": {
-            "label_fr": "Cadrer la suite →",
-            "label_en": "Scope what follows →",
+            "label_fr": "Cadrer la page →",
+            "label_en": "Scope the page →",
             "href": "/contact?offer=landing-page-google-ads&intent=suite",
             "variant": "ghost"
-          }
+          },
+          "featured": false
         }
       ],
-      "footnote_fr": "Le sprint de cadrage est à prix fixe, {{prix.sprint}} € HT pour 10 heures : une première landing tracée sur votre campagne clé, le copywriting et les balises Ads posés, avec un livrable qui convertit dès la fin. La suite se cale sur devis : on estime ensemble le temps que demandent les landings par campagne, le tracking server-side, l'A/B testing et la connexion CRM, on le valide, puis on l'exécute en sprints dans le cadre de la régie growth, à {{prix.horaire}} € de l'heure, non dégressif. Sans abonnement ni captivité : à la fin, vous gardez la landing, le tracking et la stack, autonome et transférable.",
-      "footnote_en": "The scoping sprint is fixed-price, {{prix.sprint.en}} € ex VAT for 10 hours: a first landing tracked on your key campaign, the copywriting and the Ads tags in place, with a deliverable that converts by the end. What follows is quoted: we estimate together the time landings per campaign, server-side tracking, A/B testing and CRM connection require, validate it, then run it in sprints within the growth retainer frame, at {{prix.horaire}} € an hour, non-degressive. No subscription, no lock-in: at the end, you keep the landing, the tracking and the stack, autonomous and transferable."
+      "footnote_fr": "Prix HT. La formule Croissance ({{prix.web.ads.croissance}} € HT par mois) ouvre les quatre canaux : Google Ads, Meta, TikTok et Pinterest. Pour ajouter le référencement naturel, les packs Acquisition ({{prix.web.pack.acquisition}} € HT par mois, 2 tests A/B par mois) et Tout-en-un ({{prix.web.pack.toutenun}} € HT par mois, 4 tests A/B) comprennent aussi les landing pages, avec un engagement de 3 mois puis résiliable. Le budget des enchères est payé directement à Google, en plus, et nous ne prenons aucune commission dessus. À la fin, vous gardez la landing, le tracking et les comptes.",
+      "footnote_en": "Prices excl. VAT. The Growth plan (€{{prix.web.ads.croissance.en}} excl. VAT per month) opens all four channels: Google Ads, Meta, TikTok and Pinterest. To add organic search, the Acquisition pack (€{{prix.web.pack.acquisition.en}} excl. VAT per month, 2 A/B tests a month) and the All-in-one pack (€{{prix.web.pack.toutenun.en}} excl. VAT per month, 4 A/B tests) also include landing pages, with a 3-month commitment, then cancellable. The bidding budget is paid directly to Google, on top, and we take no commission on it. At the end, you keep the landing, the tracking and the accounts."
     },
     {
       "type": "eeat-panel",
@@ -693,7 +692,7 @@
         {
           "q_fr": "Comment mesure-t-on les conversions issues des Ads ?",
           "q_en": "How do you measure conversions from the Ads?",
-          "a_fr": "On pose un plan de mesure GA4 centré sur les vrais événements de valeur (lead qualifié, devis demandé, pas simple clic), via Google Tag Manager, et on branche les balises de conversion Google Ads. Pour résister aux bloqueurs et à la fin des cookies tiers, on passe par du tracking server-side. L'attribution relie chaque lead à la campagne et au mot-clé qui l'ont généré, pour que la régie optimise sur ce qui rapporte vraiment.",
+          "a_fr": "On pose un plan de mesure GA4 centré sur les vrais événements de valeur (lead qualifié, devis demandé, pas simple clic), via Google Tag Manager, et on branche les balises de conversion Google Ads. Pour résister aux bloqueurs et à la fin des cookies tiers, on passe par du tracking server-side. L'attribution relie chaque lead à la campagne et au mot-clé qui l'ont généré, pour que la plateforme optimise sur ce qui rapporte vraiment.",
           "a_en": "We set a GA4 measurement plan centred on real value events (qualified lead, quote requested, not a mere click), through Google Tag Manager, and wire the Google Ads conversion tags. To resist blockers and the end of third-party cookies, we route through server-side tracking. Attribution links each lead to the campaign and keyword that generated it, so the platform optimises on what truly returns."
         },
         {
@@ -705,8 +704,14 @@
         {
           "q_fr": "Gérez-vous aussi les campagnes Google Ads elles-mêmes ?",
           "q_en": "Do you also run the Google Ads campaigns themselves?",
-          "a_fr": "On câble la mesure côté Ads et on peut piloter les campagnes selon votre cadrage, mais ici, le travail porte d'abord sur la page qui convertit le clic. L'objectif n'est pas de dépenser plus en Ads, mais de faire convertir le trafic que vous payez déjà. Pour le tunnel de qualification complet (scoring, remontée CRM, nurturing), c'est l'offre landing pages et tunnels qui prend le relais.",
-          "a_en": "We wire the measurement on the Ads side and can drive the campaigns depending on your scope, but here the work is first about the page that converts the click. The goal isn't to spend more on Ads, but to convert the traffic you already pay for. For the full qualification funnel (scoring, CRM handover, nurturing), the landing pages and funnels offer takes over."
+          "a_fr": "Oui. Dans notre gestion de business en ligne, Google Ads est l'un des deux canaux de la formule Essentiel (les quatre canaux en formule Croissance) : structure de compte, annonces, enchères et mesure. La campagne et sa landing sont pilotées ensemble, ce qui tient le message match. L'objectif n'est pas de dépenser plus en Ads, mais de faire convertir le trafic que vous payez. Pour le tunnel de qualification complet (scoring, remontée CRM, relances), c'est l'offre landing pages et tunnels qui prend le relais.",
+          "a_en": "Yes. In our online business management, Google Ads is one of the two channels of the Essential plan (all four channels in the Growth plan): account structure, ads, bidding and measurement. The campaign and its landing are steered together, which holds the message match. The goal isn't to spend more on Ads, but to convert the traffic you pay for. For the full qualification funnel (scoring, CRM handover, follow-ups), the landing pages and funnels offer takes over."
+        },
+        {
+          "q_fr": "Combien coûte une landing page Google Ads ?",
+          "q_en": "How much does a Google Ads landing page cost?",
+          "a_fr": "Une landing Google Ads n'a pas de prix à part, parce qu'elle ne vaut que reliée à sa campagne. Elle est comprise dans la gestion de business en ligne, avec les tests A/B et la gestion de vos annonces : Essentiel à {{prix.web.ads.essentiel}} € HT par mois (deux canaux, dont Google Ads), Croissance à {{prix.web.ads.croissance}} € HT par mois (quatre canaux). Si vous voulez seulement une page de plus sur votre site existant, c'est un extra à prix fixe : {{prix.web.extra.page}} € HT, sans gestion des campagnes ni tests. Pas de devis : un appel de cadrage de 30 minutes suffit à choisir. Le budget des enchères Google reste séparé, payé à Google, et vous appartient.",
+          "a_en": "A Google Ads landing has no separate price, because it is only worth something tied to its campaign. It is included in online business management, with A/B tests and the running of your ads: Essential at €{{prix.web.ads.essentiel.en}} excl. VAT per month (two channels, Google Ads among them), Growth at €{{prix.web.ads.croissance.en}} excl. VAT per month (four channels). If you only want one more page on your existing site, it is a fixed-price extra: €{{prix.web.extra.page.en}} excl. VAT, without campaign management or tests. No quote: a 30-minute scoping call is enough to choose. The Google bidding budget stays separate, paid to Google, and belongs to you."
         },
         {
           "q_fr": "Vous êtes basés où, et faut-il être à Bordeaux ?",
