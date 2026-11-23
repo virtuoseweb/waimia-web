@@ -210,28 +210,36 @@
       "aside": {
         "title_fr": "Aussi au catalogue",
         "title_en": "Also available",
-        "body_fr": "Même règle : l'audit d'abord, les prix affichés.",
-        "body_en": "Same rule as the path above: audit first, prices shown.",
+        "body_fr": "Le marketing digital suit sa propre grille : prix fixes, sans devis, puis abonnement.",
+        "body_en": "Digital marketing has its own grid: fixed prices, no quote, then a subscription.",
         "items": [
           {
-            "label_fr": "Site web IA",
-            "label_en": "AI website",
-            "price_fr": "dès 2 000 € HT",
-            "price_en": "from 2,000 € ex VAT",
+            "label_fr": "Site web",
+            "label_en": "Website",
+            "price_fr": "dès {{prix.web.solo.site}} € HT, ou {{prix.web.waas.solo}} € HT/mois en abonnement",
+            "price_en": "from €{{prix.web.solo.site.en}} ex VAT, or €{{prix.web.waas.solo.en}} ex VAT/month as a subscription",
             "href": "/services/site-web-ia"
           },
           {
-            "label_fr": "Maintenance d'un site en production",
-            "label_en": "Maintenance of a live website",
-            "price_fr": "dès {{prix.maintenance.p1}} € HT/mois",
-            "price_en": "from {{prix.maintenance.p1}} € ex VAT/month"
+            "label_fr": "Maintenance de site",
+            "label_en": "Website maintenance",
+            "price_fr": "dès {{prix.web.maintenance.essentielle}} € HT/mois, sans engagement",
+            "price_en": "from €{{prix.web.maintenance.essentielle.en}} ex VAT/month, no commitment",
+            "href": "/services/maintenance-growth"
           },
           {
-            "label_fr": "SEO, GEO et contenu",
-            "label_en": "SEO, GEO and content",
-            "price_fr": "sprint à {{prix.sprint}} € HT, puis {{prix.horaire}} € HT/h",
-            "price_en": "sprint at {{prix.sprint.en}} € ex VAT, then {{prix.horaire}} €/h",
+            "label_fr": "SEO et GEO",
+            "label_en": "SEO and GEO",
+            "price_fr": "Pack Visibilité, {{prix.web.pack.visibilite}} € HT/mois",
+            "price_en": "Visibility pack, €{{prix.web.pack.visibilite.en}} ex VAT/month",
             "href": "/services/seo-geo-contenu"
+          },
+          {
+            "label_fr": "Publicité en ligne",
+            "label_en": "Online advertising",
+            "price_fr": "dès {{prix.web.ads.essentiel}} € HT/mois, hors budget publicitaire",
+            "price_en": "from €{{prix.web.ads.essentiel.en}} ex VAT/month, ad spend excluded",
+            "href": "/services/publicite-en-ligne"
           },
           {
             "label_fr": "Prospection automatisée",
@@ -337,6 +345,105 @@
       ]
     },
     {
+      "type": "pricing-cards",
+      "anchor": "marketing-digital",
+      "background": "paper",
+      "columns": "3",
+      "kicker_fr": "§ Marketing digital",
+      "kicker_en": "§ Digital marketing",
+      "h2_fr": "Site, référencement et publicité : trois packs à prix fixe",
+      "h2_en": "Website, search and advertising: three fixed-price packs",
+      "lede_fr": "Abonnement mensuel, engagement de trois mois puis résiliation à tout moment. Le budget publicitaire est payé directement aux plateformes. Un nouveau site se met en place à prix fixe, dès {{prix.web.solo.site}} € HT selon la taille de votre structure : détail sur la page <a href=\"/services/site-web-ia\">site web</a>.",
+      "lede_en": "Monthly subscription, three-month commitment, then cancel at any time. Ad spend is paid directly to the platforms. A new website is set up at a fixed price, from €{{prix.web.solo.site.en}} ex VAT depending on the size of your business: details on the <a href=\"/services/site-web-ia\">website</a> page.",
+      "tiers": [
+        {
+          "name_fr": "Pack Visibilité",
+          "name_en": "Visibility pack",
+          "price": "{{prix.web.pack.visibilite}} €",
+          "period_fr": "/ mois · HT",
+          "period_en": "/ month · ex VAT",
+          "features_fr": [
+            "Un site entretenu et visible.",
+            "Maintenance Essentielle et amélioration continue du site",
+            "Référencement continu : 3 pages optimisées et 2 articles par mois, 30 mots-clés suivis",
+            "Suivi Search Console et indexation",
+            "8 inscriptions en annuaires et opportunités par mois",
+            "Point mensuel en visio"
+          ],
+          "features_en": [
+            "A maintained, visible website.",
+            "Essential maintenance and continuous site improvement",
+            "Ongoing SEO: 3 optimised pages and 2 articles a month, 30 tracked keywords",
+            "Search Console monitoring and indexing",
+            "8 directory listings and opportunities a month",
+            "Monthly video call"
+          ],
+          "cta": {
+            "label_fr": "Parler de ce pack →",
+            "label_en": "Discuss this pack →",
+            "href": "/contact?offer=marketing-digital&intent=visibilite",
+            "variant": "ghost"
+          }
+        },
+        {
+          "name_fr": "Pack Acquisition",
+          "name_en": "Acquisition pack",
+          "price": "{{prix.web.pack.acquisition}} €",
+          "period_fr": "/ mois · HT",
+          "period_en": "/ month · ex VAT",
+          "features_fr": [
+            "Visibilité, liens et publicité.",
+            "Tout le Pack Visibilité",
+            "Netlinking : 3 liens sponsorisés par mois, identifiés comme tels",
+            "Publicité et optimisation de conversion sur 2 canaux, 2 tests A/B par mois",
+            "2 posts LinkedIn par semaine, 4 visuels et 1 vidéo assistés par IA par mois",
+            "Point hebdomadaire en visio"
+          ],
+          "features_en": [
+            "Visibility, links and advertising.",
+            "Everything in the Visibility pack",
+            "Link building: 3 sponsored links a month, labelled as such",
+            "Advertising and conversion optimisation on 2 channels, 2 A/B tests a month",
+            "2 LinkedIn posts a week, 4 visuals and 1 AI-assisted video a month",
+            "Weekly video call"
+          ],
+          "cta": {
+            "label_fr": "Parler de ce pack →",
+            "label_en": "Discuss this pack →",
+            "href": "/contact?offer=marketing-digital&intent=acquisition",
+            "variant": "ghost"
+          }
+        },
+        {
+          "name_fr": "Pack Tout-en-un",
+          "name_en": "All-in-one pack",
+          "price": "{{prix.web.pack.toutenun}} €",
+          "period_fr": "/ mois · HT",
+          "period_en": "/ month · ex VAT",
+          "features_fr": [
+            "La gestion complète de votre activité en ligne.",
+            "Tout le Pack Acquisition, avec la maintenance Boutique et TPE",
+            "Publicité et optimisation de conversion sur 4 canaux, 4 tests A/B par mois",
+            "Gestion des opérations : e-mails, devis, fournisseurs, catalogue, stock et SAV",
+            "Priorité sur les tests, les créations et les demandes"
+          ],
+          "features_en": [
+            "Full management of your online business.",
+            "Everything in the Acquisition pack, with Shop and small-team maintenance",
+            "Advertising and conversion optimisation on 4 channels, 4 A/B tests a month",
+            "Operations management: e-mails, quotes, suppliers, catalogue, stock and after-sales",
+            "Priority on tests, creative work and requests"
+          ],
+          "cta": {
+            "label_fr": "Parler de ce pack →",
+            "label_en": "Discuss this pack →",
+            "href": "/contact?offer=marketing-digital&intent=toutenun",
+            "variant": "ghost"
+          }
+        }
+      ]
+    },
+    {
       "type": "case-card-grid",
       "background": "paper",
       "fig_num": "Fig. 02",
@@ -429,8 +536,8 @@
         {
           "q_fr": "Et si j'ai seulement besoin d'un site web ou de prospection ?",
           "q_en": "What if I only need a website or prospecting?",
-          "a_fr": "Vous pouvez ne prendre qu'un site ou de la prospection : Waimia développe aussi des sites web. Un site web IA démarre à 2 000 € HT, sa maintenance démarre à {{prix.maintenance.p1}} € HT par mois. La prospection automatisée est en abonnement, dès {{prix.commercial}} € HT par mois (formule Standard ; formule Pro à 1 650 € HT par mois). Point d'entrée : un essai gratuit de {{prix.commercial.essai}} leads, à 0 €.",
-          "a_en": "Yes, Waimia also builds websites. An AI website starts at 2,000 € ex VAT, its maintenance starts at {{prix.maintenance.p1}} € ex VAT a month. Automated prospecting is a subscription, from {{prix.commercial}} € ex VAT a month (Standard plan; Pro plan at 1,650 € ex VAT a month). Entry point: a free trial of {{prix.commercial.essai}} leads, at 0 €."
+          "a_fr": "Oui. Un site se met en place à prix fixe selon la taille de votre structure : dès {{prix.web.solo.site}} € HT pour un site vitrine de 5 pages, {{prix.web.tpe.site}} € HT pour une TPE, {{prix.web.pme.site}} € HT pour une PME, ou en abonnement dès {{prix.web.waas.solo}} € HT par mois sans frais de mise en place. La maintenance démarre à {{prix.web.maintenance.essentielle}} € HT par mois. La prospection automatisée est en abonnement, dès {{prix.commercial}} € HT par mois (formule Standard ; formule Pro à 1 650 € HT par mois). Point d'entrée : un essai gratuit de {{prix.commercial.essai}} leads, à 0 €.",
+          "a_en": "Yes. A website is set up at a fixed price depending on the size of your business: from €{{prix.web.solo.site.en}} ex VAT for a 5-page showcase site, €{{prix.web.tpe.site.en}} ex VAT for a small team, €{{prix.web.pme.site.en}} ex VAT for an SME, or as a subscription from €{{prix.web.waas.solo.en}} ex VAT a month with no setup fee. Maintenance starts at €{{prix.web.maintenance.essentielle.en}} ex VAT a month. Automated prospecting is a subscription, from {{prix.commercial}} € ex VAT a month (Standard plan; Pro plan at 1,650 € ex VAT a month). Entry point: a free trial of {{prix.commercial.essai}} leads, at 0 €."
         }
       ]
     },
