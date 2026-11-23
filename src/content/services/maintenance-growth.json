@@ -62,6 +62,10 @@
     {
       "q": "Vous êtes basés où, et faut-il être à Bordeaux ?",
       "a": "Le studio est à Bordeaux et accompagne des PME en local comme à distance. Le suivi, le reporting et les points réguliers se font en visio ou sur site selon votre préférence. La proximité aide pour les premiers ateliers, mais elle n'est pas une condition."
+    },
+    {
+      "q": "Vous gérez l'hébergement Vercel de mon site ?",
+      "a": "Oui, pour les sites déployés sur Vercel : mise en place, déploiements, domaine, redirections, clés d'accès et surveillance. Le suivi de l'hébergement est compris dans les trois formules de maintenance. L'abonnement Vercel est facturé directement par Vercel au titulaire du compte, c'est-à-dire vous. Un site WordPress ou Shopify garde son propre hébergeur : nous suivons alors celui-là."
     }
   ],
   "faq_en": [
@@ -104,6 +108,10 @@
     {
       "q": "Where are you based, and do we need to be in Bordeaux?",
       "a": "The studio is in Bordeaux and supports SMBs locally and remotely. Follow-up, reporting and regular reviews happen by video or on site depending on your preference. Proximity helps for the first workshops, but it isn't a condition."
+    },
+    {
+      "q": "Do you manage the Vercel hosting of my site?",
+      "a": "Yes, for sites deployed on Vercel: setup, deployments, domain, redirects, access keys and monitoring. Hosting follow-up is included in all three maintenance plans. The Vercel subscription is billed directly by Vercel to the account holder, which is you. A WordPress or Shopify site keeps its own host: we then follow that one."
     }
   ],
   "sections": [
@@ -494,6 +502,63 @@
       ]
     },
     {
+      "type": "feature-grid",
+      "anchor": "hebergement-vercel",
+      "background": "paper-3",
+      "kicker_fr": "§ Hébergement",
+      "kicker_en": "§ Hosting",
+      "h2_fr": "Votre site sur <i class=\"acc\">Vercel</i>, déployé et surveillé",
+      "h2_en": "Your site on <i class=\"acc\">Vercel</i>, deployed and monitored",
+      "lede_fr": "Pour un site construit en code, l'hébergement est un métier à part : déploiements, variables d'environnement, domaine, redirections. Nous l'opérons sur Vercel, sur un compte à votre nom, et le suivi de l'hébergement fait partie des trois formules de maintenance.",
+      "lede_en": "For a site built in code, hosting is a craft of its own: deployments, environment variables, domain, redirects. We run it on Vercel, on an account in your name, and hosting follow-up is part of all three maintenance plans.",
+      "columns": "3",
+      "fillMedia": "services-layer.svg",
+      "features": [
+        {
+          "icon": "design",
+          "title_fr": "Mise en place du projet",
+          "title_en": "Project setup",
+          "body_fr": "Projet créé sur Vercel, dépôt GitHub branché, environnements de prévisualisation et de production séparés, variables d'environnement posées une fois, proprement.",
+          "body_en": "Project created on Vercel, GitHub repository connected, preview and production environments kept apart, environment variables set once, cleanly."
+        },
+        {
+          "icon": "pilotage",
+          "title_fr": "Déploiements maîtrisés",
+          "title_en": "Controlled deployments",
+          "body_fr": "Chaque mise en ligne passe par un déploiement tracé. Un build qui échoue se voit tout de suite, et revenir à la version précédente tient en un clic.",
+          "body_en": "Every release goes through a tracked deployment. A failing build shows up immediately, and going back to the previous version takes one click."
+        },
+        {
+          "icon": "tracking",
+          "title_fr": "Domaine et redirections",
+          "title_en": "Domain and redirects",
+          "body_fr": "Domaine, DNS, certificat HTTPS, redirections 301 et en-têtes de cache : tout ce qui coûte du trafic quand c'est mal posé, surtout après une refonte.",
+          "body_en": "Domain, DNS, HTTPS certificate, 301 redirects and cache headers: everything that costs traffic when it is set up badly, especially after a redesign."
+        },
+        {
+          "icon": "crm",
+          "title_fr": "Clés et accès rangés",
+          "title_en": "Keys and access kept tidy",
+          "body_fr": "Jetons, clés d'API et accès d'équipe vivent dans l'espace du projet, jamais dans le code. Le compte est à votre nom : si nous partons, vous gardez tout.",
+          "body_en": "Tokens, API keys and team access live in the project settings, never in the code. The account is in your name: if we leave, you keep everything."
+        },
+        {
+          "icon": "qualif",
+          "title_fr": "Surveillance",
+          "title_en": "Monitoring",
+          "body_fr": "Déploiements, journaux et disponibilité sont suivis. Une anomalie remonte avant que vos clients vous l'écrivent.",
+          "body_en": "Deployments, logs and uptime are tracked. An anomaly surfaces before your customers write to you about it."
+        },
+        {
+          "icon": "contenu",
+          "title_fr": "Trois montages possibles",
+          "title_en": "Three possible setups",
+          "body_fr": "Compte créé à votre nom par nous, reprise du compte Vercel et GitHub que vous avez déjà, ou accès délégué en membre d'équipe. Vercel facture son abonnement directement au titulaire du compte.",
+          "body_en": "Account created in your name by us, takeover of the Vercel and GitHub accounts you already have, or delegated access as a team member. Vercel bills its subscription directly to the account holder."
+        }
+      ]
+    },
+    {
       "type": "hover-reveal-list",
       "anchor": "declinaisons",
       "background": "paper-3",
@@ -845,6 +910,12 @@
           "q_en": "Where are you based, and do we need to be in Bordeaux?",
           "a_fr": "Le studio est à Bordeaux et accompagne des PME en local comme à distance. Le suivi, le reporting et les points réguliers se font en visio ou sur site selon votre préférence. La proximité aide pour les premiers ateliers, mais elle n'est pas une condition.",
           "a_en": "The studio is in Bordeaux and supports SMBs locally and remotely. Follow-up, reporting and regular reviews happen by video or on site depending on your preference. Proximity helps for the first workshops, but it isn't a condition."
+        },
+        {
+          "q_fr": "Vous gérez l'hébergement Vercel de mon site ?",
+          "q_en": "Do you manage the Vercel hosting of my site?",
+          "a_fr": "Oui, pour les sites déployés sur Vercel : mise en place, déploiements, domaine, redirections, clés d'accès et surveillance. Le suivi de l'hébergement est compris dans les trois formules de maintenance. L'abonnement Vercel est facturé directement par Vercel au titulaire du compte, c'est-à-dire vous. Un site WordPress ou Shopify garde son propre hébergeur : nous suivons alors celui-là.",
+          "a_en": "Yes, for sites deployed on Vercel: setup, deployments, domain, redirects, access keys and monitoring. Hosting follow-up is included in all three maintenance plans. The Vercel subscription is billed directly by Vercel to the account holder, which is you. A WordPress or Shopify site keeps its own host: we then follow that one."
         }
       ]
     },

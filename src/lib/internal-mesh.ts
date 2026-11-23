@@ -138,7 +138,7 @@ interface PageDef {
 
 const PAGES: Record<string, PageDef> = {
   // ── Automatisation ──
-  '/blog/automatisation-processus-metiers-pme': { label_fr: 'Automatisation des processus métiers : par où commencer', label_en: 'Business process automation: where to start', kind: 'article', topics: ['automatisation', 'conseil'] },
+  '/blog/automatisation-processus-metiers-pme': { label_fr: 'Automatisation IA en entreprise : processus et outils', label_en: 'AI automation in business: processes and tools', kind: 'article', topics: ['automatisation', 'conseil'] },
   '/services/systemes-operationnels-ia': { label_fr: "Agence d'automatisation IA", label_en: 'AI automation agency', kind: 'service', topics: ['automatisation', 'agents'] },
   '/services/automatisations': { label_fr: 'Automatisation des processus', label_en: 'Process automation', kind: 'service', topics: ['automatisation'] },
   '/services/automatisation-n8n': { label_fr: 'Agence n8n', label_en: 'n8n agency', kind: 'service', topics: ['automatisation'] },
@@ -367,6 +367,7 @@ const PAGES: Record<string, PageDef> = {
   '/blog/formation-ia-marketing-pme': { label_fr: 'Formation IA marketing en PME', label_en: 'AI marketing training for SMBs', kind: 'article', topics: ['formation', 'acquisition'] },
   '/blog/agent-ia-24-7-pme': { label_fr: 'Agent IA 24/7 en PME : ce qui reste humain', label_en: '24/7 AI agent for SMBs: what stays human', kind: 'article', topics: ['agents', 'automatisation'] },
   '/ressources/guides/cahier-des-charges-site-internet': { label_fr: 'Cahier des charges de site internet : le guide', label_en: 'Website specification: the guide', kind: 'guide', topics: ['web'] },
+  '/blog/cloud-souverain-francais-scaleway-ovhcloud-outscale-ia': { label_fr: 'Cloud souverain français pour l\'IA : Scaleway, OVHcloud, Outscale', label_en: 'French sovereign cloud for AI: Scaleway, OVHcloud, Outscale', kind: 'article', topics: ['conformite'] },
   '/blog/ia-auto-hebergee-open-webui-pme': { label_fr: 'IA auto-hébergée avec Open WebUI : pour quelle PME', label_en: 'Self-hosted AI with Open WebUI: for which SMB', kind: 'article', topics: ['conformite', 'claude'] },
   '/blog/audit-site-internet-pme': { label_fr: 'Audit de site internet : la grille avant refonte', label_en: 'Website audit: the grid before a redesign', kind: 'article', topics: ['web'] },
   '/blog/formation-ia-generative-pme': { label_fr: 'Formation IA générative : le programme à exiger', label_en: 'Generative AI training: the programme to ask for', kind: 'article', topics: ['formation', 'conformite'] },
