@@ -12718,6 +12718,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/expertise-cse-projet-ia",
+    "title": "Expertise du CSE sur un projet d'IA : délais, coût et dossier à préparer",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/expertise-cse-projet-ia.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/facture-electronique-reception-pme",
     "title": "Facture électronique : ce que la réception obligatoire change pour une PME",
     "group": "blog",
@@ -14290,6 +14299,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/creer-agent-ia-claude",
       "/blog/dossier-competences-ia-esn",
       "/blog/etre-cite-par-perplexity",
+      "/blog/expertise-cse-projet-ia",
       "/blog/facture-electronique-reception-pme",
       "/blog/faux-avis-ia",
       "/blog/fiche-entreprise-chatgpt-business-hub",
