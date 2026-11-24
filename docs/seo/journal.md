@@ -52,7 +52,7 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 - OpenAI et Cisco, Shirudo (23 novembre) : outil open source de protection de serveurs Linux, hors silo des PME clientes : rien à faire.
 - Introduction en Bourse d'Anthropic, levée de LangChain, Google Search personnalisé, robots de Google listés par Abondance : hors silo ou métier de VirtuoseWeb.
 
-**Actions du jour** (commit de contenu COMMIT_URL) : une création (actualité), une révision sur deux pages.
+**Actions du jour** (commit de contenu https://github.com/virtuoseweb/waimia-web/commit/c306fe8739ef31d64dc7ce88c8017cccf77949e6) : une création (actualité), une révision sur deux pages.
 
 1. Création de `/blog/claude-ship-pme` (entrée `actu-2026-11-24-claude-ship`, actualité, silo `claude`).
    - Pourquoi : runbook 4.0, événement majeur non couvert (nouveau produit d'Anthropic). Il remplace la création du calendrier du jour.
@@ -70,7 +70,7 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 **GF-1** (build servi, Playwright, après défilement) : `/blog/claude-ship-pme` à 1440 et 390 px, `/blog/risques-claude-pme` à 390 px, `/blog/claude-fable-5-2-mythos-5-2` à 1440 px : 200, H1 opacité 1 sans transformation, débordement horizontal 0, 0 erreur console ; JSON-LD `NewsArticle`, `BreadcrumbList`, `FAQPage` sur l'actualité ; illustration chargée ; tableau et bloc de code rendus ; texte révisé servi sur les deux pages. Capture mobile relue : H1, chapô, signature et haut de l'illustration au-dessus de 844 px. Balayage de débordement sur tout le build non fait.
 
-**CI et production** : CI_PROD
+**CI et production** : push direct sur `main` (`origin/main` n'avait pas avancé). Run CI 45344739948 sur `c306fe87` : `success` (Build, SEO build de production, E2E Playwright sur le build servi). waimia.com après déploiement : `/` 200, `/blog/claude-ship-pme` 200 (page qui n'existe que dans ce commit, servie comme marqueur), `/blog/risques-claude-pme` 200 avec « bêta publique » servi, `/blog/claude-fable-5-2-mythos-5-2` 200 avec « bêta publique le 23 novembre » servi, illustration `claude-ship-tampon-paper.webp` 200. Aucune redirection dans ce lot ; aucun revert. Constat hors lot : `/services/site-web-ia`, en 301 vers VirtuoseWeb lundi, répond 200 depuis les commits #199 et #201 (fusion VirtuoseWeb, étape 1), et `check-redirects` compte 92 anciennes URL contre 123 lundi : changement voulu par ces PR, non touché.
 
 **Décisions prises seule**
 - Actualité Claude Ship à la place de la création du calendrier : runbook 4.0 (événement majeur non couvert). Pour défaire : dépublier `/blog/claude-ship-pme` (`src/data/depublished.ts`).
