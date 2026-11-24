@@ -12630,6 +12630,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/claude-ship-pme",
+    "title": "Claude Ship, sorti le 23 novembre 2026 : faut-il laisser Claude approuver vos pull requests ?",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/claude-ship-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/cles-api-automatisation-securite-pme",
     "title": "Clés API dans vos automatisations : sécuriser n8n, Make, Claude et OpenAI",
     "group": "blog",
@@ -14298,6 +14307,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/claude-microsoft-copilot-pme",
       "/blog/claude-pro-vs-team",
       "/blog/claude-sheets-whiteboards-data",
+      "/blog/claude-ship-pme",
       "/blog/cles-api-automatisation-securite-pme",
       "/blog/cnil-email-professionnel-devine-prospection",
       "/blog/comptes-ia-personnels-depart-salarie",
