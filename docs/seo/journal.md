@@ -37,6 +37,58 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### 2026-11-24 · mesure des vagues 2 et 3 (titles du 11/11, leads, recherche de la marque)
+
+Mesure seule, aucun changement sur le site. Sources : `docs/seo/data/2026-W48/gsc-performance.json` (collecte du 23/11 à 00:19 UTC, `generatedAt` 2026-11-23T00:19:22Z) ; référence `docs/seo/data/2026-W46/gsc-performance.json` au commit `3f6dc418` (collecte du 9/11) et au commit `f6a57a4a` (collecte du 11/11) ; API Vercel Web Analytics (`vercel api`, lue le 24/11 vers 09 h UTC) ; boîte des alertes internes ; google.com relevé le 24/11 vers 09:20 UTC.
+
+**Search Console, global (mesuré)**
+
+| Fenêtre | Clics | Impressions | CTR | Position |
+| --- | --- | --- | --- | --- |
+| Référence : 28 jours du 10/10 au 6/11 (`3f6dc418`) | 52 | 11 114 | 0,47 % | 31,8 |
+| 28 jours du 24/10 au 20/11 | 65 (+13) | 14 893 (+3 779) | 0,44 % | 30,1 (gain de 1,7) |
+| previous7 : 7 au 13/11 | 16 | 3 722 | 0,43 % | 30,8 |
+| last7 : 14 au 20/11 | 11 (-5) | 4 019 (+297) | 0,27 % | 28,4 (gain de 2,4) |
+
+- Les deux fenêtres de 28 jours se recouvrent sur 14 jours (24/10 au 6/11) : la hausse ne vaut pas pour une quinzaine entière.
+- Le fichier W46 actuel de `main` a été réécrit par les collectes des 14 et 15/11 (63 clics, 13 418 impressions) : la référence de 52 clics n'existe qu'au commit `3f6dc418`.
+- **Lecture** : la visibilité monte (impressions, position), les clics ne suivent pas ; la dernière semaine perd 5 clics sur 16, sur des effectifs trop petits pour conclure.
+
+**Les deux pages retouchées le 11/11** (commit `e98f6ffe`, titles et métas ; last7 = 14 au 20/11, première semaine pleine après la mise en ligne)
+
+| Page | Référence (28 jours au 8/11, `f6a57a4a`) | previous7 (7 au 13/11) | last7 (14 au 20/11) | Verdict |
+| --- | --- | --- | --- | --- |
+| `/blog/creer-agent-ia-claude` | 164 impressions, position 6,5, 0 clic | 66 impressions, position 5,3, 0 clic | 53 impressions, position 8,1, **1 clic**, CTR 1,9 % | stable, trop tôt |
+| `/blog/connecter-claude-wordpress-shopify-mcp` | 74 impressions, position 8,3, 0 clic | 21 impressions, position 7,8, 0 clic | 19 impressions, position 7,8, 0 clic, CTR 0 % | stable (aucun effet visible) |
+
+- La note du 11/11 donne ces deux références « sur 28 jours au 6/11 » : elles viennent en fait de la collecte du 11/11 (28 jours du 12/10 au 8/11). Les chiffres sont justes, la date de fin ne l'est pas.
+- Un clic sur 53 impressions n'est pas un signal : la position recule de 5,3 à 8,1 la même semaine, ce qui pèse plus sur le CTR que le title.
+- L'entrée du 23/11 classe la page Shopify « gagné » sur les impressions à 28 jours (24 puis 85) ; ici le verdict porte sur les clics à 7 jours. Les deux mesures ne se contredisent pas.
+- **Prochaine mesure** : clics des deux pages sur 28 jours pleins après le 11/11, collecte du 13/12 au plus tôt. Sans clic d'ici là, retoucher la page Shopify n'a pas de sens à 19 impressions par semaine.
+
+**Leads depuis le 11/11 (mesuré, puis hypothèse)**
+
+- Événements Vercel Web Analytics du 11/11 00:00 au 24/11 (`/v1/query/web-analytics/events/aggregate`, `by=eventName`, production) : `contact_submitted` 7, `newsletter_signup` 8 (7 visiteurs), `lead_magnet_requested` 4, `rdv_booked` 1.
+- Visites sur la même période : 318 visiteurs, 711 pages vues. Exclusion de `aocr.org` : 0 visite de ce référent depuis le 11/11, le filtre ne change rien (318 et 711). France : 73 visiteurs, 296 pages vues. Singapour : 135 visiteurs pour 138 pages vues, une page chacun, robots probables (hypothèse, non exclus des chiffres ci-dessus).
+- **Ces 20 événements ne sont pas 20 leads (mesuré)** : aucun ne vient de France (pays : DE, NL, CH, GB, US) ; tous en Chrome sur Mac de bureau, sauf le rendez-vous (Windows) ; aucun référent ni UTM ; page d'arrivée égale à la page de conversion. Ils tombent par grappes dans la même heure : contact et newsletter ensemble le 11/11 à 12 h, le 14/11 à 12 h et 17 h, le 15/11 à 13 h, le 17/11 à 17 h, le 19/11 à 0 h, le 23/11 à 1 h (UTC), souvent avec une demande de ressource.
+- **Leads confirmés côté serveur (mesuré)** : alertes internes `[Lead]` reçues depuis le 11/11 : 2, deux ressources demandées par la même personne le 15/11 vers 16 h UTC (guide d'achat Claude et pack de skills). Aucune alerte de contact, contre 7 `contact_submitted`. Aucun mail de réservation Cal trouvé dans la même boîte. Limite : la recherche exclut les spams, et les notifications Cal peuvent aller ailleurs.
+- La vraie demande du 15/11 vers 16 h n'a pas d'événement Vercel à cette heure (le seul du jour est à 13 h) : l'événement ne mesure ni toutes les vraies demandes, ni seulement elles.
+- **Hypothèse** : des parcours automatisés (preuves en production ou robots) qui déclenchent l'événement côté client, par exemple avec une API simulée. Non tranché : aucun commit ni workflow planifié ne coïncide avec ces heures, et la CI joue ses e2e sur `localhost`.
+- **Conséquence** : aucun taux de conversion publiable ; compter les leads sur les alertes serveur (journaux `/api/*`, Resend), pas sur les événements Vercel, tant que l'origine des grappes n'est pas trouvée.
+
+**Recherche de la marque sur google.com (hl=fr, gl=fr ; navigateur intégré, sans compte connu, adresse IP non maîtrisée)**
+
+| Requête | 11/11 | 24/11 |
+| --- | --- | --- |
+| `waimia` | corrigé en « wamia », waimia.com absent de la première page | inchangé : « Résultats pour wamia », première page entièrement Wamia (Tunisie), waimia.com absent |
+| `waimia agence ia` | non corrigé, waimia.com de 1 à 3 | **désormais affiché « Résultats pour wamia agence ia »**, mais waimia.com occupe les places 1 à 4 (accueil, agents IA, tarifs, formations) |
+| `waimia.com` | non corrigé, waimia.com en 1 | non corrigé, waimia.com en 1, puis la page LinkedIn Waimia en 2 |
+
+- Search Console va dans le même sens que la notoriété naissante : la requête « waimia » passe de 1 impression sur 28 jours au 6/11 à 18 impressions et 4 clics sur 28 jours au 20/11 (12 impressions, position 3 sur les 7 derniers jours).
+- **Lecture** : la correction s'étend à une requête de marque de plus, sans faire perdre la première place. La décision de nom attendue de Simon (entrée du 11/11) reste ouverte ; prochain relevé le 11/12.
+
+**Pour Simon** : trouver l'origine des grappes d'événements (tests en production ou robots) avant de lire un taux de conversion ; décision sur la marque toujours attendue.
+
 ### 2026-11-24 (session de production du mardi, 2026-W48, collecte du 23 novembre 2026)
 
 **Données** : collecte du 23 novembre 2026 à 00:19 UTC, **fraîche** (`freshness.mjs` à 06:43 UTC : « FRAÎCHE · semaine 2026-W48 · generatedAt 2026-11-23T00:19:22.020Z · collecte complète de 30.4 h (limite : 48 h) »). Aucune relance de la collecte. Flux et concurrents relancés en local en simulation (`run.mjs --dry-run --only=feeds,competitors`, « 2 étape(s) ok, 0 en erreur ») pour la veille des 72 heures ; aucun flux en erreur ; aucune page nouvelle chez les concurrents.
