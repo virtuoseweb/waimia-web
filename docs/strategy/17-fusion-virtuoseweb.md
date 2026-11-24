@@ -37,7 +37,7 @@ Elle annule la décision du 19 novembre (commit 21fabe17, offres web redirigées
 | virtuoseweb.fr | Cible waimia.com | Action |
 | --- | --- | --- |
 | `/` | `/` | 301 |
-| `/tarifs/` | `/tarifs` | 301 ; /tarifs porte la grille marketing digital (packs) |
+| `/tarifs/` | `/tarifs/marketing-digital` | 301 ; la grille marketing digital a sa page, /tarifs reste la page IA (PR #201) |
 | `/services/creation-site-internet*`, `/services/site-web-par-abonnement/`, `/solutions/tpe|pme|independants|grands-comptes/` | `/services/site-web-ia` | 301 |
 | `/services/referencement-seo/` | `/services/seo-geo-contenu` | 301 |
 | `/services/marketing-digital/`, `/marketing-digital/` | `/services/systeme-acquisition` | 301 |
@@ -52,7 +52,7 @@ Elle annule la décision du 19 novembre (commit 21fabe17, offres web redirigées
 | `/marketing-digital/<secteur>/` (20 pages) | `/services/systeme-acquisition` ou secteur Waimia équivalent | 301 |
 | `/blog/cloud-souverain-francais-scaleway-ovhcloud-outscale-ia/` (position 7,6, 10 clics) | nouvel article Waimia | reprendre le contenu, puis 301 |
 | Autres articles et comparatifs IA (Gemma 4, Ollama, MCP, SOP, Claude vs ChatGPT…) | article Waimia équivalent s'il existe, sinon reprise | au cas par cas |
-| `/a-propos/`, `/contact/`, `/faq/`, `/cgv/`, mentions | `/agence`, `/contact`, `/tarifs`, pages légales | 301 |
+| `/a-propos/`, `/contact/`, `/faq/`, `/cgv/`, mentions | `/agence`, `/contact`, `/tarifs/marketing-digital`, pages légales | 301 |
 
 Table complète des 145 URL : `17-redirections-virtuoseweb.json`. Stratégie de position : `18-absorption-seo-virtuoseweb.md`.
 

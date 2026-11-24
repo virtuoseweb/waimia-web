@@ -21622,6 +21622,9 @@ export const INLINE_CONSUMERS: Record<string, string[]> = {
   "persona-attributes-grid": [
     "src/pages/ressources/personas/[slug].astro"
   ],
+  "pricing-tabs-showcase": [
+    "src/pages/tarifs/marketing-digital.astro"
+  ],
   "proof-bar": [
     "src/pages/en/index.astro"
   ],

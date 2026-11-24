@@ -12660,6 +12660,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/claude-ship-pme",
+    "title": "Claude Ship, sorti le 23 novembre 2026 : faut-il laisser Claude approuver vos pull requests ?",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/claude-ship-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/cles-api-automatisation-securite-pme",
     "title": "Clés API dans vos automatisations : sécuriser n8n, Make, Claude et OpenAI",
     "group": "blog",
@@ -13453,6 +13462,14 @@ export const SITE_PAGES: SitePage[] = [
   {
     "route": "/tarifs",
     "title": "Tarifs",
+    "group": "conversion",
+    "collection": "bespoke",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/tarifs/marketing-digital",
+    "title": "Marketing digital",
     "group": "conversion",
     "collection": "bespoke",
     "editable": false,
@@ -14329,6 +14346,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/claude-microsoft-copilot-pme",
       "/blog/claude-pro-vs-team",
       "/blog/claude-sheets-whiteboards-data",
+      "/blog/claude-ship-pme",
       "/blog/cles-api-automatisation-securite-pme",
       "/blog/cloud-souverain-francais-scaleway-ovhcloud-outscale-ia",
       "/blog/cnil-email-professionnel-devine-prospection",
@@ -14416,7 +14434,8 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/bienvenue/newsletter",
       "/conformite-ia",
       "/contact",
-      "/tarifs"
+      "/tarifs",
+      "/tarifs/marketing-digital"
     ]
   },
   {

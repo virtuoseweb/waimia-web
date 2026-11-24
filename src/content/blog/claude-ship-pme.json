@@ -1,0 +1,167 @@
+{
+  "title_fr": "Claude Ship, sorti le 23 novembre 2026 : faut-il laisser Claude approuver vos pull requests ?",
+  "title_en": "Claude Ship, released on 23 November 2026: should you let Claude approve your pull requests?",
+  "seoTitle_fr": "Claude Ship : relecture et approbation des PR par Claude",
+  "seoTitle_en": "Claude Ship: Claude reviews and approves your PRs",
+  "h1_fr": "Claude Ship : faut-il laisser Claude approuver vos pull requests ?",
+  "h1_en": "Claude Ship: should you let Claude approve your pull requests?",
+  "description_fr": "Claude Ship relit, corrige et approuve vos pull requests GitHub. Pour qui, son coût en mode observation, et les réglages qui laissent passer du code non relu.",
+  "description_en": "Claude Ship reviews, fixes and approves GitHub pull requests. Who it suits, what observe mode costs, and the settings that let unreviewed code through.",
+  "excerpt_fr": "Anthropic a lancé Claude Ship le 23 novembre 2026 : trois agents pour relire, corriger et approuver les pull requests. Pour quelle PME, à quel coût, et les quatre réglages qui laissent fusionner du code que personne n'a lu.",
+  "excerpt_en": "Anthropic launched Claude Ship on 23 November 2026: three agents to review, fix and approve pull requests. Which SMB it suits, at what cost, and the four settings that let code nobody read get merged.",
+  "publishedAt": "2026-11-24T08:00:44+01:00",
+  "updatedAt": "2026-11-24T08:00:44+01:00",
+  "editorialType": "Note",
+  "type": "actualite",
+  "author": "simon-beros",
+  "category": "claude",
+  "tags": [
+    "claude-ship",
+    "claude-code",
+    "anthropic",
+    "revue-de-code",
+    "github",
+    "actualite-ia"
+  ],
+  "readingTime": 7,
+  "heroIllustration": {
+    "src": "/images/illustrations/ds/claude-ship-tampon-paper.webp",
+    "alt_fr": "Un tampon géant suspendu au-dessus d'un tapis de feuilles ; au bout, un homme tient le levier de la barrière",
+    "alt_en": "A giant stamp hangs over a conveyor of sheets; at the end, a man holds the lever of the barrier",
+    "side": "right"
+  },
+  "sources": [
+    {
+      "name": "Anthropic, « Introducing Claude Ship » (23 novembre 2026), lu le 24 novembre 2026",
+      "url": "https://claude.com/resources/articles/introducing-claude-ship",
+      "type": "enterprise",
+      "publishedAt": "2026-11-23"
+    },
+    {
+      "name": "Anthropic, page produit Claude Ship, lu le 24 novembre 2026",
+      "url": "https://claude.com/product/claude-ship",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, documentation Claude Code, « Claude Ship », lu le 24 novembre 2026",
+      "url": "https://code.claude.com/docs/en/claude-ship",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, documentation Claude Code, « Claude Approvals », lu le 24 novembre 2026",
+      "url": "https://code.claude.com/docs/en/approvals",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, documentation Claude Code, « Get a pull request ready with /ship and /steward », lu le 24 novembre 2026",
+      "url": "https://code.claude.com/docs/en/ship-command",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic, « Zero data retention with Enterprise Frontier Safeguards is now in beta » (23 novembre 2026), lu le 24 novembre 2026",
+      "url": "https://claude.com/resources/articles/zero-data-retention-with-enterprise-frontier-safeguards",
+      "type": "enterprise",
+      "publishedAt": "2026-11-23"
+    }
+  ],
+  "relatedCases": [],
+  "relatedPosts": [
+    "mods-claude-code-securite-pme",
+    "risques-claude-pme",
+    "plafond-depense-api-ia"
+  ],
+  "slug": "claude-ship-pme",
+  "faq_fr": [
+    {
+      "q": "Qu'est-ce que Claude Ship ?",
+      "a": "Claude Ship est un ensemble de trois agents d'Anthropic pour les pull requests GitHub, lancé le 23 novembre 2026 : Code Review relit la modification, PR Steward corrige les tests en échec, les conflits et les remarques, et Claude Approvals applique une politique d'approbation écrite dans le dépôt. Code Review est disponible, les deux autres sont en bêta."
+    },
+    {
+      "q": "Claude Ship est-il disponible sur l'offre Claude Team ?",
+      "a": "Oui. Claude Ship est proposé sur les offres Team et Enterprise, pour des dépôts hébergés sur github.com, GitHub Enterprise Cloud compris. Il n'est pas disponible pour les organisations qui ont activé la rétention zéro, la configuration HIPAA ou des clés de chiffrement gérées par le client."
+    },
+    {
+      "q": "Combien coûte Claude Ship ?",
+      "a": "Anthropic ne publie pas de prix fixe : l'usage est facturé aux jetons, selon le nombre et la taille des pull requests, le niveau de relecture et le travail de PR Steward. Le mode observation de Claude Approvals est facturé lui aussi. Posez un plafond mensuel sur Code Review et sur PR Steward avant de les activer."
+    },
+    {
+      "q": "Claude peut-il fusionner du code sans qu'un humain le relise ?",
+      "a": "Oui, si vos réglages le permettent : contrôle Claude Approvals non obligatoire dans GitHub, règle à une seule personne (l'auteur compte), approbation de Claude acceptée par la règle de branche, ou fusion automatique activée. PR Steward est conçu pour ne pas approuver ni fusionner, mais Claude Approvals peut poster une approbation là où votre politique l'autorise."
+    },
+    {
+      "q": "Quelle différence entre Claude Ship et la commande /ship de Claude Code ?",
+      "a": "La commande /ship fait le travail sur la pull request d'un développeur, dans sa session et avec ses identifiants, et compte dans son usage de Claude Code. Claude Ship s'active dépôt par dépôt par un administrateur et intervient sur toutes les pull requests de l'équipe, facturé à l'organisation."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "What is Claude Ship?",
+      "a": "Claude Ship is a set of three Anthropic agents for GitHub pull requests, launched on 23 November 2026: Code Review reads the change, PR Steward fixes failing checks, conflicts and comments, and Claude Approvals applies an approval policy written in the repository. Code Review is available, the other two are in beta."
+    },
+    {
+      "q": "Is Claude Ship available on the Claude Team plan?",
+      "a": "Yes. Claude Ship is offered on Team and Enterprise plans, for repositories on github.com, GitHub Enterprise Cloud included. It is not available to organisations with zero data retention, the HIPAA configuration or customer-managed encryption keys."
+    },
+    {
+      "q": "How much does Claude Ship cost?",
+      "a": "Anthropic publishes no fixed price: usage is billed on tokens, depending on the number and size of pull requests, the review level and PR Steward's work. Claude Approvals' observe mode is billed too. Set a monthly cap on Code Review and PR Steward before turning them on."
+    },
+    {
+      "q": "Can Claude merge code that no human reviewed?",
+      "a": "Yes, if your settings allow it: Claude Approvals check not required in GitHub, a one-person rule (the author counts), Claude's approval accepted by the branch rule, or auto-merge on. PR Steward is designed not to approve or merge, but Claude Approvals can post an approval where your policy allows it."
+    },
+    {
+      "q": "What is the difference between Claude Ship and Claude Code's /ship command?",
+      "a": "The /ship command works on one developer's pull request, in their session and with their credentials, and counts against their Claude Code usage. Claude Ship is turned on repository by repository by an admin and works on the whole team's pull requests, billed to the organisation."
+    }
+  ],
+  "headings": [
+    {
+      "depth": 2,
+      "slug": "essentiel",
+      "text": "Ce qu'Anthropic a sorti le 23 novembre 2026"
+    },
+    {
+      "depth": 2,
+      "slug": "agents",
+      "text": "Les trois agents, et ce que chacun a le droit de faire"
+    },
+    {
+      "depth": 2,
+      "slug": "pour-qui",
+      "text": "Pour quelle PME, et pour laquelle pas"
+    },
+    {
+      "depth": 2,
+      "slug": "politique",
+      "text": "Le fichier de règles : quatre façons de fusionner du code que personne n'a lu"
+    },
+    {
+      "depth": 2,
+      "slug": "exemple",
+      "text": "Une première politique pour une équipe de cinq développeurs"
+    },
+    {
+      "depth": 2,
+      "slug": "cout",
+      "text": "Ce que ça coûte : des jetons, y compris en observation"
+    },
+    {
+      "depth": 2,
+      "slug": "lundi",
+      "text": "Ce que je ferais lundi"
+    },
+    {
+      "depth": 2,
+      "slug": "ne-pas-faire",
+      "text": "Ce que je ne ferais pas"
+    }
+  ],
+  "body_sections": [
+    {
+      "type": "editorial-prose",
+      "html_fr": "<h2 id=\"essentiel\">Ce qu'Anthropic a sorti le 23 novembre 2026</h2>\n<p>Claude Ship est un ensemble de trois agents d'Anthropic qui prennent en charge une pull request GitHub après son ouverture : Code Review la relit, PR Steward corrige ce qui la bloque, Claude Approvals décide qui doit encore l'approuver, selon un fichier de règles que votre équipe écrit.</p>\n<p>Annoncé le 23 novembre 2026, Claude Ship est réservé aux offres Claude Team et Enterprise, fonctionne uniquement avec des dépôts GitHub et se facture aux jetons consommés, selon <a href=\"https://claude.com/resources/articles/introducing-claude-ship\" rel=\"noopener noreferrer\" target=\"_blank\">l'annonce d'Anthropic</a>.</p>\n<p>Ma recommandation pour une PME qui développe : activez Code Review sur un seul dépôt avec un plafond de dépense, laissez PR Steward en mode manuel, et gardez Claude Approvals en mode observation tant que vos développeurs ne l'ont pas vu se tromper au moins une fois. Ne laissez jamais Claude approuver seul du code qui touche à la facturation, aux accès ou aux données clients.</p>\n<p>Seul Code Review est en disponibilité générale ; PR Steward et Claude Approvals sont en bêta publique. Pour un développeur seul, la commande <code>/ship</code> de Claude Code fait le même travail sur ses propres pull requests, dans sa session, sans réglage d'organisation. Pour situer Claude Ship parmi les autres produits d'Anthropic, partez de notre <a href=\"/ressources/guides/claude-pme\">guide Claude pour les PME</a>.</p>\n\n<h2 id=\"agents\">Les trois agents, et ce que chacun a le droit de faire</h2>\n<table><thead><tr><th>Agent</th><th>Statut</th><th>Ce qu'il fait</th><th>Ce qu'il ne fait pas</th></tr></thead><tbody>\n<tr><td>Code Review</td><td>Disponible</td><td>Relit la modification avec le code qui l'entoure, poste ses remarques sur les lignes concernées, classées par gravité. Niveau Quick, Standard ou Deep par dépôt.</td><td>Ne corrige rien, n'approuve rien.</td></tr>\n<tr><td>PR Steward</td><td>Bêta</td><td>Pousse des correctifs pour les tests en échec, les conflits de fusion et les remarques des relecteurs, humains ou robots. Commente chaque push : ce qu'il a changé, comment l'annuler.</td><td>Conçu pour ne pas approuver ni fusionner.</td></tr>\n<tr><td>Claude Approvals</td><td>Bêta</td><td>Lit le fichier <code>.claude/approvals.yml</code>, compte les approbations requises par chemin, et peut poster une approbation là où la règle l'y autorise.</td><td>Ne bloque une fusion que si vous en faites un contrôle obligatoire dans GitHub.</td></tr>\n</tbody></table>\n<p>Anthropic avance ses propres chiffres : dans l'équipe Claude Code, le nombre de pull requests fusionnées a plus que doublé de juin à septembre, et la part de celles qu'il a fallu annuler a baissé de plus de 40 %. Ce sont des mesures internes, sur une équipe où Claude écrit l'essentiel du code. Elles ne disent rien de votre dépôt. La <a href=\"https://code.claude.com/docs/en/claude-ship\" rel=\"noopener noreferrer\" target=\"_blank\">documentation de Claude Ship</a> le rappelle elle-même : les agents peuvent rater des bugs et des failles de sécurité.</p>\n\n<h2 id=\"pour-qui\">Pour quelle PME, et pour laquelle pas</h2>\n<p>Claude Ship sert une équipe de deux développeurs ou plus, sur github.com (GitHub Enterprise Cloud compris), qui a déjà une intégration continue avec des tests. Sans tests, PR Steward n'a rien à faire passer au vert, et Code Review reste votre seul filet. Une équipe sur GitLab ou Bitbucket n'a pas accès au produit.</p>\n<p>Il exclut aussi les organisations qui ont activé la rétention zéro, la configuration HIPAA ou des clés de chiffrement gérées par le client. Le même jour, Anthropic a ouvert en bêta publique <a href=\"https://claude.com/resources/articles/zero-data-retention-with-enterprise-frontier-safeguards\" rel=\"noopener noreferrer\" target=\"_blank\">Enterprise Frontier Safeguards</a>, la rétention zéro sur ses modèles les plus puissants. Une entreprise qui l'a choisie pour un contrat client sensible ne peut pas, aujourd'hui, brancher Claude Ship sur la même organisation : il faut trancher, ou séparer les organisations. Le détail sur la conservation des données est dans notre billet sur <a href=\"/blog/risques-claude-pme\">les risques de Claude en PME</a>.</p>\n\n<h2 id=\"politique\">Le fichier de règles : quatre façons de fusionner du code que personne n'a lu</h2>\n<p>Claude Approvals se configure dans un fichier versionné du dépôt. La <a href=\"https://code.claude.com/docs/en/approvals\" rel=\"noopener noreferrer\" target=\"_blank\">documentation de Claude Approvals</a> liste les cas où une pull request peut être fusionnée alors que seul son auteur l'a regardée. Ce sont les erreurs que je chercherais en premier dans votre configuration :</p>\n<ul>\n<li><strong>Le contrôle n'est pas obligatoire.</strong> Tant que « Claude Approvals » n'est pas un contrôle requis dans la protection de branche GitHub, il informe et ne bloque rien.</li>\n<li><strong>L'auteur compte comme une personne.</strong> Avec <code>seats: 1</code>, personne d'autre n'a besoin de regarder. Avec <code>seats: 0</code>, une pull request écrite par un robot peut passer sans aucun humain.</li>\n<li><strong>GitHub compte l'approbation de Claude.</strong> Si votre règle de branche exige une approbation, celle de Claude peut suffire.</li>\n<li><strong>Claude approuve sans relecture.</strong> Une règle <code>claude: approves</code> ne déclenche pas Code Review à elle seule : Claude peut approuver une modification que rien n'a relue.</li>\n</ul>\n<p>À ces quatre cas s'ajoute la fusion automatique de GitHub ou une file de fusion : combinées à une règle qui n'exige personne, une modification peut partir en production sans qu'un humain agisse. Autre effet de bord documenté : dès que le fichier de règles est sur la branche par défaut, les relectures automatiques de Code Review s'arrêtent sur les fichiers qu'il couvre, sauf si une règle cite <code>claude/code_review</code> dans <code>advisory</code>.</p>\n\n<h2 id=\"exemple\">Une première politique pour une équipe de cinq développeurs</h2>\n<p>Exemple illustratif, repris de la politique d'exemple de la documentation d'Anthropic, et c'est celle avec laquelle je commencerais : deux personnes par modification (l'auteur plus un relecteur), Claude commente sans approuver, Code Review reste automatique, le tout en mode observation.</p>\n<pre><code># .claude/approvals.yml\nversion: 1\nmode: observe\nrules:\n  - purpose: \"Une modification demande deux personnes, Claude n'approuve pas.\"\n    paths: [\"**\"]\n    verdict: { claude: comments, seats: 2 }\n    advisory: [claude/code_review]\n</code></pre>\n<p>Laissez-la tourner deux semaines. Le contrôle affiche ce que la règle aurait décidé : comparez avec ce que vos relecteurs ont réellement fait. Ce n'est qu'ensuite que je rendrais le contrôle obligatoire dans GitHub, et je n'ouvrirais <code>claude: approves</code> que sur des chemins sans enjeu (documentation, jeux de test), jamais sur le code qui touche à l'argent ou aux accès. Notez que n'importe qui capable de fusionner ce fichier sur la branche par défaut active Approvals : relisez ses modifications comme du code de production.</p>\n\n<h2 id=\"cout\">Ce que ça coûte : des jetons, y compris en observation</h2>\n<p>Anthropic ne publie pas de prix par relecture. Claude Ship se facture aux jetons, sur les crédits d'usage de l'organisation, et la facture dépend du nombre et de la taille des pull requests, du niveau de relecture et du travail de PR Steward. Trois points à régler avant d'activer quoi que ce soit, d'après <a href=\"https://code.claude.com/docs/en/claude-ship\" rel=\"noopener noreferrer\" target=\"_blank\">la documentation</a> :</p>\n<ul>\n<li>fixez un plafond mensuel pour Code Review et un autre pour PR Steward, qui n'en a aucun tant que vous ne l'avez pas posé ;</li>\n<li>le mode observation de Claude Approvals est facturé : les relectures et classifieurs qu'il déclenche consomment des jetons, même s'il n'approuve rien ;</li>\n<li>la commande <code>/ship</code> lancée par un développeur compte dans son usage ordinaire de Claude Code.</li>\n</ul>\n<p>Les organisations Enterprise éligibles peuvent réclamer au moins 10 000 $ de crédits Claude Ship, à consommer dans les 30 jours, réclamation possible jusqu'au 15 janvier 2027, selon <a href=\"https://claude.com/resources/articles/introducing-claude-ship\" rel=\"noopener noreferrer\" target=\"_blank\">l'annonce</a>. Pour une PME sur l'offre Team, le premier mois se paie au réel. La console affiche le coût moyen d'une relecture une fois le dépôt connecté, selon <a href=\"https://claude.com/product/claude-ship\" rel=\"noopener noreferrer\" target=\"_blank\">la page produit</a> : c'est ce chiffre, multiplié par votre nombre de pull requests du mois, qui vous dira si l'outil vaut sa facture avant d'ajouter un deuxième dépôt. Les mêmes réflexes valent pour toute dépense d'API, voir <a href=\"/blog/plafond-depense-api-ia\">poser un plafond de dépense sur une API d'IA</a>.</p>\n\n<h2 id=\"lundi\">Ce que je ferais lundi</h2>\n<ol>\n<li>Vérifier que l'organisation Claude est sur Team ou Enterprise, sans rétention zéro ni clés gérées par vous, et que le dépôt visé est sur github.com.</li>\n<li>Dans les paramètres de l'organisation, section Claude Ship (rôle Owner requis), activer Code Review sur un seul dépôt, niveau Standard, avec un plafond mensuel.</li>\n<li>Activer PR Steward en mode manuel : il ne démarre que lorsqu'un développeur écrit <code>@claude steward</code> sur la pull request.</li>\n<li>Désactiver la fusion automatique de GitHub sur ce dépôt tant que la politique n'est pas éprouvée.</li>\n<li>Ajouter la politique d'exemple ci-dessus en mode observation, puis comparer pendant deux semaines ses décisions avec celles de vos relecteurs.</li>\n</ol>\n<p>Côté équipe, cela demande peu de monde mais des noms : un administrateur de l'organisation Claude pour les réglages et les plafonds, et un développeur référent qui relit chaque semaine les décisions du mode observation et la facture. Sans ce référent, je n'activerais pas Claude Approvals du tout.</p>\n<p>Pour les développeurs, une précaution sur <code>/ship</code> : pendant sa surveillance de la pull request, Claude agit avec les identifiants <code>gh</code> et <code>git</code> du développeur. La <a href=\"https://code.claude.com/docs/en/ship-command\" rel=\"noopener noreferrer\" target=\"_blank\">documentation de la commande</a> demande de ne la lancer que sur un dépôt où l'on fait confiance à toutes les personnes qui peuvent pousser ou fusionner. Si vos équipes découvrent Claude Code, notre <a href=\"/formations/claude-code\">formation Claude Code</a> couvre ces réglages de permissions avant d'aborder les agents.</p>\n\n<h2 id=\"ne-pas-faire\">Ce que je ne ferais pas</h2>\n<p>Activer les trois agents sur tous les dépôts le premier jour. Le produit est en bêta, la facture n'a pas de plafond par défaut sur PR Steward, et un fichier de règles mal écrit transforme une revue à deux en revue à zéro. Je ne le brancherais pas non plus sur un dépôt sans tests : Claude Ship accélère ce qui suit la pull request, il ne remplace pas la vérification que votre intégration continue devrait déjà faire.</p>\n<p>Si vous voulez cadrer l'usage de Claude dans vos équipes de développement avant d'y brancher des agents, c'est le travail de notre <a href=\"/services/integration-claude\">service d'intégration Claude</a> : un dépôt pilote, des règles écrites, un plafond, et la décision de continuer ou non prise sur des mesures.</p>",
+      "html_en": "<h2 id=\"essentiel\">What Anthropic released on 23 November 2026</h2>\n<p>Claude Ship is a set of three Anthropic agents that take over a GitHub pull request once it is opened: Code Review reads it, PR Steward fixes what blocks it, and Claude Approvals decides who still has to approve it, following a rules file your team writes.</p>\n<p>Announced on 23 November 2026, Claude Ship is limited to Claude Team and Enterprise plans, works only with GitHub repositories and is billed on tokens, according to <a href=\"https://claude.com/resources/articles/introducing-claude-ship\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic's announcement</a>.</p>\n<p>My recommendation for an SMB that writes software: turn on Code Review on one repository with a spend cap, keep PR Steward in manual mode, and keep Claude Approvals in observe mode until your developers have seen it get something wrong at least once. Never let Claude approve, on its own, code that touches billing, access or customer data.</p>\n<p>Only Code Review is generally available; PR Steward and Claude Approvals are in public beta. For a single developer, Claude Code's <code>/ship</code> command does the same work on their own pull requests, in their session, with no organisation setting. To place Claude Ship among Anthropic's other products, start with our <a href=\"/ressources/guides/claude-pme\">Claude guide for SMBs</a>.</p>\n\n<h2 id=\"agents\">The three agents, and what each is allowed to do</h2>\n<table><thead><tr><th>Agent</th><th>Status</th><th>What it does</th><th>What it does not do</th></tr></thead><tbody>\n<tr><td>Code Review</td><td>Available</td><td>Reads the change with the surrounding code, posts findings on the lines concerned, ranked by severity. Quick, Standard or Deep level per repository.</td><td>Fixes nothing, approves nothing.</td></tr>\n<tr><td>PR Steward</td><td>Beta</td><td>Pushes fixes for failing checks, merge conflicts and reviewers' comments, human or bot. Comments on each push: what it changed, how to undo it.</td><td>Designed not to approve or merge.</td></tr>\n<tr><td>Claude Approvals</td><td>Beta</td><td>Reads <code>.claude/approvals.yml</code>, counts required approvals per path, and can post an approving review where a rule allows it.</td><td>Blocks a merge only if you make it a required check in GitHub.</td></tr>\n</tbody></table>\n<p>Anthropic gives its own figures: in the Claude Code team, merged pull requests more than doubled from June to September, and the share that had to be reverted fell by more than 40%. These are internal measurements, on a team where Claude writes most of the code. They say nothing about your repository. The <a href=\"https://code.claude.com/docs/en/claude-ship\" rel=\"noopener noreferrer\" target=\"_blank\">Claude Ship documentation</a> says so itself: the agents can miss bugs and security flaws.</p>\n\n<h2 id=\"pour-qui\">Which SMB it suits, and which it does not</h2>\n<p>Claude Ship serves a team of two or more developers on github.com (GitHub Enterprise Cloud included) that already has continuous integration with tests. Without tests, PR Steward has nothing to turn green, and Code Review is your only net. A team on GitLab or Bitbucket has no access.</p>\n<p>It also excludes organisations that turned on zero data retention, the HIPAA configuration or customer-managed encryption keys. The same day, Anthropic opened <a href=\"https://claude.com/resources/articles/zero-data-retention-with-enterprise-frontier-safeguards\" rel=\"noopener noreferrer\" target=\"_blank\">Enterprise Frontier Safeguards</a>, zero retention on its most capable models, in public beta. A company that chose it for a sensitive customer contract cannot, today, plug Claude Ship into the same organisation: decide, or split organisations. Data retention is covered in our post on <a href=\"/blog/risques-claude-pme\">the risks of Claude in an SMB</a>.</p>\n\n<h2 id=\"politique\">The rules file: four ways to merge code nobody read</h2>\n<p>Claude Approvals is configured in a versioned file in the repository. The <a href=\"https://code.claude.com/docs/en/approvals\" rel=\"noopener noreferrer\" target=\"_blank\">Claude Approvals documentation</a> lists the cases where a pull request can merge when only its author looked at it. These are the mistakes I would look for first in your setup:</p>\n<ul>\n<li><strong>The check is not required.</strong> Until \"Claude Approvals\" is a required check in GitHub branch protection, it informs and blocks nothing.</li>\n<li><strong>The author counts as a person.</strong> With <code>seats: 1</code>, nobody else has to look. With <code>seats: 0</code>, a pull request written by a bot can pass with no human at all.</li>\n<li><strong>GitHub counts Claude's approval.</strong> If your branch rule requires one approval, Claude's can be enough.</li>\n<li><strong>Claude approves with no review.</strong> A <code>claude: approves</code> rule does not start Code Review by itself: Claude can approve a change nothing has reviewed.</li>\n</ul>\n<p>Add GitHub auto-merge or a merge queue: combined with a rule that requires nobody, a change can reach production without a human acting. Another documented side effect: once the rules file is on the default branch, Code Review's automatic reviews stop on the files it covers, unless a rule lists <code>claude/code_review</code> under <code>advisory</code>.</p>\n\n<h2 id=\"exemple\">A first policy for a team of five developers</h2>\n<p>Illustrative example, taken from the sample policy in Anthropic's documentation, and the one I would start with: two people per change (the author plus one reviewer), Claude comments without approving, Code Review stays automatic, all in observe mode.</p>\n<pre><code># .claude/approvals.yml\nversion: 1\nmode: observe\nrules:\n  - purpose: \"A change takes two people, and Claude doesn't approve.\"\n    paths: [\"**\"]\n    verdict: { claude: comments, seats: 2 }\n    advisory: [claude/code_review]\n</code></pre>\n<p>Let it run for two weeks. The check shows what the rule would have decided: compare it with what your reviewers actually did. Only then would I make the check required in GitHub, and I would open <code>claude: approves</code> only on low-stakes paths (documentation, test fixtures), never on code that touches money or access. Anyone who can merge this file into the default branch turns Approvals on: review its changes like production code.</p>\n\n<h2 id=\"cout\">What it costs: tokens, observe mode included</h2>\n<p>Anthropic publishes no price per review. Claude Ship is billed on tokens, from the organisation's usage credits, and the bill depends on the number and size of pull requests, the review level and how much PR Steward does. Three things to set before turning anything on, according to <a href=\"https://code.claude.com/docs/en/claude-ship\" rel=\"noopener noreferrer\" target=\"_blank\">the documentation</a>:</p>\n<ul>\n<li>set a monthly cap for Code Review and another for PR Steward, which has none until you set one;</li>\n<li>Claude Approvals' observe mode is billed: the reviews and classifiers it starts consume tokens, even though it approves nothing;</li>\n<li>a developer's <code>/ship</code> command counts as their regular Claude Code usage.</li>\n</ul>\n<p>Eligible Enterprise organisations can claim at least $10,000 in Claude Ship credits, to use within 30 days, claimable until 15 January 2027, according to <a href=\"https://claude.com/resources/articles/introducing-claude-ship\" rel=\"noopener noreferrer\" target=\"_blank\">the announcement</a>. For an SMB on the Team plan, the first month is paid at cost. The console shows the average cost per review once the repository is connected, according to <a href=\"https://claude.com/product/claude-ship\" rel=\"noopener noreferrer\" target=\"_blank\">the product page</a>: that figure, times your monthly pull requests, tells you whether the tool is worth its bill before adding a second repository. The same reflexes apply to any API spending, see <a href=\"/blog/plafond-depense-api-ia\">setting a spend cap on an AI API</a>.</p>\n\n<h2 id=\"lundi\">What I would do on Monday</h2>\n<ol>\n<li>Check that the Claude organisation is on Team or Enterprise, without zero retention or customer-managed keys, and that the target repository is on github.com.</li>\n<li>In organisation settings, Claude Ship section (Owner role required), turn on Code Review for a single repository, Standard level, with a monthly cap.</li>\n<li>Turn on PR Steward in manual mode: it only starts when a developer writes <code>@claude steward</code> on the pull request.</li>\n<li>Turn off GitHub auto-merge on that repository until the policy is proven.</li>\n<li>Add the sample policy above in observe mode, then compare its decisions with your reviewers' for two weeks.</li>\n</ol>\n<p>On the team side, it takes few people but named ones: an admin of the Claude organisation for settings and caps, and a lead developer who reviews observe-mode decisions and the bill every week. Without that lead, I would not turn on Claude Approvals at all.</p>\n<p>For developers, one precaution on <code>/ship</code>: while it watches the pull request, Claude acts with the developer's <code>gh</code> and <code>git</code> credentials. The <a href=\"https://code.claude.com/docs/en/ship-command\" rel=\"noopener noreferrer\" target=\"_blank\">command's documentation</a> asks you to run it only on a repository where you trust everyone who can push or merge. If your teams are new to Claude Code, our <a href=\"/formations/claude-code\">Claude Code training</a> covers these permission settings before agents.</p>\n\n<h2 id=\"ne-pas-faire\">What I would not do</h2>\n<p>Turn on all three agents on every repository on day one. The product is in beta, PR Steward has no default spend cap, and a badly written rules file turns a two-person review into a zero-person one. Nor would I plug it into a repository without tests: Claude Ship speeds up what follows the pull request, it does not replace the checks your continuous integration should already run.</p>\n<p>If you want to frame how your development teams use Claude before plugging in agents, that is the job of our <a href=\"/services/integration-claude\">Claude integration service</a>: a pilot repository, written rules, a cap, and the decision to continue or not taken on measurements.</p>"
+    }
+  ]
+}

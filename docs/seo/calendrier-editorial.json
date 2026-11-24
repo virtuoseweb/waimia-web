@@ -3765,10 +3765,10 @@
         "Flux du 5 novembre 2026 : Abondance, llms.txt ouvert 2 fois en 5 mois par ChatGPT ; moins de 10 % des sites optimisés"
       ],
       "semainePrevue": "2026-W47",
-      "statut": "planifié",
+      "statut": "abandonné",
       "pr": null,
       "mesureAttendue": "Page indexée deux collectes après la mise en production ; premières impressions sur la requête cible.",
-      "resultat": null,
+      "resultat": "Abandonné le 24 novembre 2026 : sujet GEO (lisibilité d'un site par les agents IA), rattaché à VirtuoseWeb depuis le recentrage du 19 novembre 2026 ; le journal du 19 novembre l'avait déjà abandonné, le calendrier ne l'avait pas reporté.",
       "origine": "Quatre entrées de flux de trois sources différentes entre le 5 et le 8 novembre 2026 (Zapier Blog, Search Engine Journal, Abondance), liées à l'offre GEO. Volume non mesuré."
     },
     {
@@ -4451,6 +4451,48 @@
       "mesureAttendue": "Page indexée et premières impressions sur la requête, deux collectes après la mise en production.",
       "resultat": null,
       "origine": "Recherche du 23 novembre 2026 : deux pages lues (CSE Guide, liste d'actualités Tissot) citent la transcription des réunions ; aucune page de waimia.com ne traite l'obligation côté employeur."
+    },
+    {
+      "id": "actu-2026-11-24-claude-ship",
+      "type": "article",
+      "titreProvisoire": "Claude Ship : faut-il laisser Claude approuver vos pull requests ?",
+      "requeteCible": "claude ship",
+      "intention": "Savoir ce que fait Claude Ship, pour quelle équipe, à quel coût, et comment le régler sans laisser fusionner du code non relu.",
+      "urlCible": "/blog/claude-ship-pme",
+      "angle": "Actualité (runbook 4.0). Recherche du 24 novembre 2026 : les pages françaises lues (numerama.com, hashtech.fr, planetegeek.fr, unite.ai/fr, techfi24.com) résument l'annonce (trois agents, Team et Enterprise, mode observation) ; aucune ne liste les quatre cas documentés où une pull request fusionne sans relecture humaine, l'exclusion des organisations en rétention zéro le jour même où Enterprise Frontier Safeguards l'ouvre, la facturation du mode observation, l'absence de plafond par défaut de PR Steward, ni une marche à suivre pour une PME.",
+      "sourcesALire": [
+        "https://claude.com/resources/articles/introducing-claude-ship (lu le 24 novembre 2026)",
+        "https://claude.com/product/claude-ship (lu le 24 novembre 2026)",
+        "https://code.claude.com/docs/en/claude-ship (lu le 24 novembre 2026)",
+        "https://code.claude.com/docs/en/approvals (lu le 24 novembre 2026)",
+        "https://code.claude.com/docs/en/ship-command (lu le 24 novembre 2026)"
+      ],
+      "semainePrevue": "2026-W48",
+      "statut": "publié",
+      "pr": "https://github.com/virtuoseweb/waimia-web/commit/c306fe8739ef31d64dc7ce88c8017cccf77949e6",
+      "mesureAttendue": "Page indexée deux collectes après la mise en production ; premières impressions sur « claude ship ». À juger à partir de 2026-W50.",
+      "resultat": null,
+      "origine": "Veille du 24 novembre 2026 : claude.com/blog (« Introducing Claude Ship », 23 novembre 2026), nouveau produit d'Anthropic, absent de src/content."
+    },
+    {
+      "id": "w48-revision-efs-beta-publique",
+      "type": "révision",
+      "titreProvisoire": "Risques de Claude en PME et Fable 5.2 : Enterprise Frontier Safeguards en bêta publique",
+      "requeteCible": "claude rétention zéro",
+      "intention": "Savoir si la rétention zéro est possible sur les modèles Fable et à quelles conditions.",
+      "urlCible": "/blog/risques-claude-pme",
+      "angle": "Règle 4.1-4 : la page disait « la rétention zéro n'existe pas » hors option temporaire ; Enterprise Frontier Safeguards est ouvert en bêta publique le 23 novembre 2026 (bucket du client, gratuit, par espace de travail). Paragraphe réécrit, sources ajoutées. Même correction sur /blog/claude-fable-5-2-mythos-5-2 (« bêta privée » devenu « bêta publique », intertitre).",
+      "sourcesALire": [
+        "https://claude.com/resources/articles/zero-data-retention-with-enterprise-frontier-safeguards (lu le 24 novembre 2026)",
+        "https://platform.claude.com/docs/en/manage-claude/enterprise-frontier-safeguards/overview (lu le 24 novembre 2026)",
+        "https://platform.claude.com/docs/en/release-notes/overview (lu le 24 novembre 2026)"
+      ],
+      "semainePrevue": "2026-W48",
+      "statut": "publié",
+      "pr": "https://github.com/virtuoseweb/waimia-web/commit/c306fe8739ef31d64dc7ce88c8017cccf77949e6",
+      "mesureAttendue": "Impressions de /blog/risques-claude-pme sur 28 jours à la collecte du 30 novembre 2026 (valeur de départ) ; pas de baisse attendue à 2026-W50.",
+      "resultat": null,
+      "origine": "Notes de version de la Claude Platform du 23 novembre 2026 et billet claude.com du même jour, lus pendant la veille du 24 novembre 2026."
     }
   ]
 }

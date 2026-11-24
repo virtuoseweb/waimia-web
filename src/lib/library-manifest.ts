@@ -312,7 +312,7 @@ const SECTION_USAGE: Array<{ id: SectionType; consumers: string[] }> = [
   { id: 'method-diagram-list',   consumers: ['src/components/templates/AuthorPageTemplate.astro'] },
   { id: 'numbered-layer-list',   consumers: ['src/pages/technologies.astro'] },
   { id: 'offer-rail',            consumers: ['src/pages/index.astro'] },
-  { id: 'pricing-tabs-showcase', consumers: [] },
+  { id: 'pricing-tabs-showcase', consumers: ['src/pages/tarifs/marketing-digital.astro'] },
   // Refonte positionnement 2026-10 : registre tarifaire de /tarifs (remplace pricing-tabs-showcase sur la page).
   { id: 'engagement-ledger',     consumers: ['src/pages/tarifs.astro'] },
   // Études de cas du marché (2026-10) : cas tiers sourcés, contenu global src/data/market-cases.ts.
