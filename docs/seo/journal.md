@@ -37,6 +37,111 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 ## Entrées
 
+### 2026-11-25 · mesure des PR #186 et #187 (six guides, guide Claude pour PME, Bordeaux, cas d'usage, faits Mistral)
+
+Mesure seule, aucun title ni aucune description modifiés. Tâche planifiée du 25/11.
+
+**Données** : collecte du 25 novembre 2026 à 06:44 UTC (`generatedAt` 2026-11-25T06:44:36Z, commit `6a36aa2`), relancée ce matin par la session de production. `freshness.mjs` : « FRAÎCHE · semaine 2026-W48 · collecte complète de 1.8 h ». Les neuf étapes sont `ok`, `dataState` vaut `final`. Pas de seconde collecte : celle-ci a moins de deux heures, et une relance renverrait les notifications à l'Indexing API et à IndexNow (runbook, section 0). Inspection d'URL : 299 URL inspectées, 232 indexées.
+
+**Fenêtres** : last7 du 16 au 22/11 (seule fenêtre entièrement postérieure à la mise en ligne du 11/11 au soir) ; previous7 du 9 au 15/11 (deux ou trois jours d'avant) ; last28 du 26/10 au 22/11 (16 jours d'avant). La référence est `2026-W46/gsc-performance.json` au commit `3f6dc418` (collecte du 9/11, 28 jours du 10/10 au 6/11). Les verdicts s'appuient sur last7 ; les 28 jours sont donnés parce que la tâche les demande.
+
+**Global** : last7 12 clics, 3 898 impressions, position 28,0 ; previous7 14 clics, 3 942 impressions, position 30,5. Sur 28 jours : 66 clics, 15 215 impressions, CTR 0,43 %, position 30,1. Les pages `/ressources/guides/` dans leur ensemble passent de 522 à 541 impressions d'une semaine à l'autre.
+
+**Point d'attention : Google n'a pas revu la plupart des pages modifiées.** Dernière exploration selon l'inspection du 25/11 :
+
+| Page | Dernière exploration | Conséquence |
+| --- | --- | --- |
+| `/ressources/guides/claude-pme` | 23/09 | title du 11/11 jamais vu |
+| `/ressources/comparatifs/mistral-vs-claude-pme` | 16/10 | toute la PR #187 non vue |
+| `/blog/ia-auto-hebergee-open-webui-pme` | 16/10 | toute la PR #187 non vue |
+| `/ressources/guides/choisir-agence-ia-pme` | 08/10 | ancre « agence IA à Bordeaux » non vue |
+| `/cas-usages` | 04/11 | version courte non vue |
+| `/ressources/guides/claude-fonctionnalites-pme` | 07/10 | sans objet (non modifiée) |
+| `/ressources/comparatifs/claude-vs-chatgpt-pme` | 14/11 | H1 du 11/11 vu |
+| `/implantations/bordeaux` | 22/11 | vue |
+| `/agence` | 23/11 | vue, ancre comprise |
+| Six guides | du 12 au 17/11 | vus, tous « Envoyée et indexée » |
+
+Une page que Google n'a pas réexplorée ne se juge pas : ses chiffres bougent pour d'autres raisons.
+
+**Les six guides** (créés le 11/11 ; aucune référence, les pages n'existaient pas)
+
+| Page | previous7 (9 au 15/11) | last7 (16 au 22/11) | last28 | Indexée | Verdict |
+| --- | --- | --- | --- | --- | --- |
+| `/ressources/guides/claude-ia` | 13 imp., position 12,1 | 0 | 13 imp., 0 clic | oui, exploration du 12/11 | trop tôt |
+| `/ressources/guides/chatgpt` | 7 imp., position 42,4 | 0 | 7 imp., 0 clic | oui, 13/11 | trop tôt |
+| `/ressources/guides/mistral-ai` | 74 imp., position 33,5 | 0 | 74 imp., 0 clic | oui, 12/11 | perdu sur 7 jours, cause non établie |
+| `/ressources/guides/gemini` | 22 imp., position 25,7 | 1 imp., position 1 | 23 imp., 0 clic | oui, 13/11 | trop tôt |
+| `/ressources/guides/deepseek` | 1 imp., position 4 | 0 | 1 imp. | oui, 12/11 | trop tôt |
+| `/ressources/guides/grok` | 0 | 0 | 0 | oui, 17/11 | trop tôt |
+
+- Les six pages ont eu leurs impressions dans les jours qui ont suivi la mise en ligne, puis presque plus rien du 16 au 22/11, alors que le site et la famille des guides restent stables. Ce n'est pas un défaut de lecture : `gemini` apparaît bien dans last7. Le 25/11, les six répondent 200 en production, avec `index, follow` et leur title.
+- Cause non établie. Deux pistes sont compatibles avec les données sans être prouvées : le pic de nouveauté d'une page neuve, et la mise à jour principale de Google en cours en novembre (journal des 12 et 13/11).
+- Requêtes vues du 9 au 15/11 : `mistral-ai` sur « le chat mistral » (23 imp., position 11,2), « mistral le chat » (7, position 29,3), « mistral ai chat » (6, position 32,3) ; `claude-ia` sur « claudeia » (5, position 8,6) et « comment utiliser claude ai » (2, position 8,5) ; `gemini` sur « gemini entreprise » (4, position 32,3) et « guide gemini pme » (2, position 10,5) ; `chatgpt` sur « fonctionnement de chatgpt » (3, position 87).
+- Mistral AI dépasse seul le seuil de 30 impressions sur 28 jours : c'est la seule ligne qui reçoit un verdict autre que « trop tôt ».
+
+**Requêtes cibles** (ligne de la page quand plusieurs pages se partagent la requête)
+
+| Requête | Référence (28 j au 6/11) | previous7 | last7 | last28 | Verdict |
+| --- | --- | --- | --- | --- | --- |
+| « guide claude » | 0 | 0 | 0 | 0 | stable (absente avant et après) |
+| « claude ia » | 0 | 0 | 3 imp., position 9,3, sur `/` | 3 imp., sur `/` | trop tôt ; le guide ne reçoit pas la requête |
+| « guide claude pme », page `claude-pme` | 18 imp., position 15,6 | 2 imp., position 10,5 (toutes pages) | 6 imp., position 13,0 | 11 imp., position 13,5 | non mesurable (title non vu) ; trop tôt (17 imp. en tout) |
+| « agence ia bordeaux », page Bordeaux | 15 imp., position 37,0 | 11 imp., position 32,3 | 16 imp., position 32,7 | 35 imp., position 33,0 | stable |
+| « chatgpt », « guide chatgpt » | 0 | 0 | 0 | 0 | trop tôt (aucune impression) |
+| « mistral ai » | 0 | 0 | 0 | 0 | trop tôt (aucune impression) |
+| « le chat mistral », page `mistral-ai` | 0 | 23 imp., position 11,2 | 0 | 23 imp., position 11,2 | trop tôt (sous 30 imp.) |
+| « gemini », « guide gemini » | 0 | 0 | 0 | 0 | trop tôt (aucune impression) |
+| « deepseek », « deepseek données » | 0 | 0 | 0 | 0 | trop tôt (aucune impression) |
+| « grok », « guide grok » | 0 | 0 | 0 | 0 | trop tôt (aucune impression) |
+
+- « guide claude pme » : l'agrégat de la requête (position 38,6 sur 7 jours) mélange trois pages ; seule la ligne du guide mesure le guide.
+- « agence ia bordeaux » : la position sur 7 jours était de 29,2 à la collecte du 15/11 (journal du 17/11), elle est de 32,7 aujourd'hui. L'effet de l'ancre ne se sépare pas de la réécriture de la page du 11/11 (lot 28).
+
+**Autres pages des deux PR**
+
+| Page | Référence (28 j au 6/11) | previous7 | last7 | last28 | Verdict |
+| --- | --- | --- | --- | --- | --- |
+| `/ressources/guides/claude-pme` | 319 imp., 0 clic, position 30,3 | 54 imp., position 19,7 | 94 imp., 1 clic, position 34,6 | 233 imp., 1 clic, CTR 0,4 %, position 26,7 | non mesurable (title non vu) |
+| `/implantations/bordeaux` | 112 imp., 0 clic, position 54,1 | 43 imp., 1 clic, position 39,7 | 50 imp., 0 clic, position 22,0 | 169 imp., 1 clic, CTR 0,6 %, position 42,8 | gagné pour la page (impressions et position) ; requête cible stable |
+| `/agence` | 11 imp., 1 clic, position 3,5 | 14 imp., position 2,4 | 16 imp., position 2,3 | 40 imp., 1 clic, CTR 2,5 %, position 2,8 | stable (requêtes de marque seulement) |
+| `/cas-usages` | 3 imp., position 36,7 | 5 imp., position 12,4 | 2 imp., position 7 | 9 imp., position 17,7 | non mesurable (non réexplorée) |
+| `/secteurs/agence`, `conseil`, `esn`, `industrie` | 0 | 0 | 0 | 0 | non mesurable (voir ci-dessous) |
+| `/ressources/comparatifs/mistral-vs-claude-pme` | 20 imp., position 13,8 | 15 imp., position 7,3 | 13 imp., position 6,8 | 43 imp., 0 clic, position 7,5 | non mesurable (PR #187 non vue) |
+| `/blog/ia-auto-hebergee-open-webui-pme` | 10 imp., position 19,0 | 1 imp., position 9 | 1 imp., position 4 | 5 imp., 0 clic, position 5,0 | non mesurable (PR #187 non vue) |
+
+- Le comparatif Mistral progresse (position de 13,8 à 7,5 sur 28 jours) sur sa version du 16/10 : cela ne dit rien de la mise à jour du 11/11.
+- Secteurs : en production, le 25/11, les quatre pages répondent 200 avec `index, follow`. Google, lui, a vu `conseil` et `esn` en `noindex` le 23/09, `industrie` en `noindex` le 24/07, et n'a jamais exploré `agence` (« Détectée, actuellement non indexée »). Les textes propres à chaque secteur ne peuvent encore avoir aucun effet dans la recherche.
+
+**Cannibalisation** (28 jours ; règle de l'audit du 11/11 : une page reçoit au moins 20 % des impressions de la requête, requête d'au moins 10 impressions)
+
+- Requêtes cibles : seules « agence ia bordeaux » (35 imp.) et « guide claude pme » (17 imp.) atteignent le seuil. La première n'a qu'une page (`/implantations/bordeaux`, 100 %). La seconde se partage entre `claude-pme` (11 imp., 65 %, position 13,5) et `claude-fonctionnalites-pme` (5 imp., 29 %, position 62,2), alors que `claude-pme` en avait 90 % au 6/11 (18 sur 20) : **conflit nouveau**.
+- Même paire sur « bonnes pratiques claude pme » (20 imp.) : `claude-pme` 55 % (position 12,0), `claude-fonctionnalites-pme` 20 % (position 68) ; au 6/11, `claude-pme` seul à 89 %. **Conflit nouveau**, au seuil exact.
+- **Aucun conflit entre les six guides, ni entre un guide et `claude-pme` ou un comparatif.** Aucune requête de 10 impressions ou plus ne met deux de ces pages au-dessus de 20 %.
+- Conflits déjà relevés le 11/11, toujours présents : « claude pme », « diagnostic claude pme », « claude tpe », « test claude pme », « claude pour pme », « test claude tpe », « diagnostic claude tpe » (guide PME, comparatif Claude vs ChatGPT, services Claude). Le H1 du comparatif a été vu le 14/11, le title du guide ne l'a pas été : l'arbitrage du 11/11 n'est pas encore jugeable.
+- « charte gemini pme » (25 imp.) : le billet AI Act prend 72 % (position 31,4), la charte 36 % (position 25,2). Au 6/11, elle n'avait pas 10 impressions ; examinée le 11/11, laissée en l'état. Le guide Gemini n'y prend qu'une impression.
+- « waimia » (19 imp.) : sept pages au-dessus de 20 %. Requête de marque avec liens annexes, ce n'est pas une cannibalisation.
+
+**Leads depuis le 11/11**
+
+- Alertes internes `[Lead]` (boîte des alertes, recherche du 25/11 corbeille comprise) : **2**, le 15/11 à 15:56 et 16:00 UTC, la même personne, deux ressources (`guide-achat-claude-pme`, `pack-skills-claude-pme`), canal `direct`, page d'arrivée égale à la page du formulaire (`/ressources/outils/guide-achat-claude-pme`, `/ressources/outils/pack-skills-claude-pme`). Aucune depuis. Aucune demande n'arrive sur une page des PR #186 et #187.
+- Journaux Vercel (`vercel logs --environment production --query <action>`) : la rétention ne remonte qu'au 24/11 à 12:09 UTC. Sur ces 20 heures : 0 `contact_submitted`, 0 `lead_magnet_delivered`, 0 `devis_submitted`, et **69 `newsletter_signup`**.
+- Ces 69 inscriptions ne sont pas des leads : 67 sur `/services/publicite-en-ligne` et 2 sur `/` ; canal `inconnu` pour toutes ; 52 adresses différentes pour 23 adresses IP ; de 1 à 7 par heure, sans interruption, de jour comme de nuit. L'hypothèse d'un robot qui contourne le piège à robots et la limite par adresse IP de `/api/newsletter` est probable, non prouvée. Conséquence possible : une liste Resend polluée et des envois vers des adresses qui ne l'ont pas demandé.
+- Aucune adresse, aucune IP ni aucun nom n'est recopié ici (dépôt public).
+
+**Actions proposées pour la semaine du 30/11** (aucun title : les pages modifiées les 10 et 11/11 restent gelées jusqu'au 1/12)
+
+1. Protéger `/api/newsletter`, avant tout travail SEO : vérifier l'origine des 69 inscriptions, purger la liste si elles sont fausses, durcir le formulaire (BotID ou équivalent). Hors routine SEO : à confier à une tâche dédiée.
+2. Six guides : relire last7 à la collecte du 29 ou 30/11 (fenêtre du 23 au 29/11). Si les six restent à zéro, poser des liens contextuels vers eux depuis les pages qui ont des impressions dans le même sujet (par exemple `/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme`, `/blog/claude-pro-vs-team`), sans toucher aux titles.
+3. « guide claude pme » : départager `claude-pme` et `claude-fonctionnalites-pme` par le texte et les liens, pas par le title. `claude-fonctionnalites-pme` pointe déjà deux fois vers `claude-pme` (ancre « guide pour déployer Claude en PME ») ; l'ancre peut devenir « guide Claude pour PME ». Attendre d'abord que Google ait vu le title du 11/11 : le conflit peut venir de l'ancien title.
+
+**À mesurer** : six guides, impressions sur 7 jours à la collecte du 29 ou 30/11 (départ : 0, sauf `gemini` à 1) ; « guide claude pme » sur `claude-pme`, position 13,0 sur 7 jours et 17 impressions sur 28 jours au 25/11, à juger après une exploration postérieure au 11/11 ; « agence ia bordeaux », position 32,7 sur 7 jours au 25/11, attendu sous 30 à 2026-W50.
+
+**Pour Simon**
+- « Demander l'indexation » dans Search Console pour `/ressources/guides/claude-pme`, `/ressources/comparatifs/mistral-vs-claude-pme`, `/blog/ia-auto-hebergee-open-webui-pme`, `/cas-usages` et `/ressources/guides/choisir-agence-ia-pme`, que Google n'a pas revues depuis leur modification, et les quatre pages secteurs s'il veut qu'elles comptent.
+- Décider du traitement des inscriptions à la lettre du 24 et du 25/11 (point 1).
+- Les journaux Vercel ne gardent qu'environ un jour : la mesure des leads sur deux semaines repose sur les alertes `[Lead]`, qui ne couvrent ni la lettre ni les réservations Cal.
+
 ### 2026-11-25 (session de production du mercredi, 2026-W48, collecte du 23 novembre 2026)
 
 **Données** : collecte du 23 novembre 2026 à 00:19 UTC, **pas fraîche** (`freshness.mjs` à 06:41 UTC : « PAS FRAÎCHE · semaine 2026-W48 · generatedAt 2026-11-23T00:19:22.020Z · collecte vieille de 54.4 h (limite : 48 h) »). Derniers runs du workflow : `schedule` du 23/11 à 00:18 et 12:57 UTC, `success`. Relance de la collecte une fois (`gh workflow run` refusé, GraphQL indisponible dans la session ; relance faite par l'API REST `POST .../workflows/seo-routine.yml/dispatches`, réponse acceptée), sans l'attendre. Flux et concurrents relancés en local en simulation (`run.mjs --dry-run --only=feeds,competitors`, « 2 étape(s) ok, 0 en erreur ») ; aucun flux en erreur ; aucune page nouvelle chez les concurrents. Aucune révision motivée par une mesure ce jour (runbook 10, point 5). La collecte relancée est arrivée sur `main` pendant la session (commit `6a36aa2`, `generatedAt` 2026-11-25T06:44:36Z) : `freshness.mjs` répond ensuite « FRAÎCHE », elle sera lue par la session de jeudi.
