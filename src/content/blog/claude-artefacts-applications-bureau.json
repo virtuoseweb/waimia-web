@@ -1,0 +1,166 @@
+{
+  "title_fr": "Artefacts Claude installés comme applications Mac et Windows : les réglages à décider en PME",
+  "title_en": "Claude artifacts installed as Mac and Windows apps: the settings an SMB should decide",
+  "seoTitle_fr": "Artefact Claude en application Mac/Windows : réglages",
+  "seoTitle_en": "Claude artifacts as Mac/Windows apps: the settings",
+  "h1_fr": "Installer un artefact Claude comme application : les réglages à décider en PME",
+  "h1_en": "Installing a Claude artifact as an app: the settings an SMB should decide",
+  "description_fr": "Depuis le 24 novembre 2026, un artefact Claude s'installe en application Mac ou Windows. Réglages Team et Enterprise, accès complet, traces et clés MDM.",
+  "description_en": "Since 24 November 2026, a Claude artifact installs as a Mac or Windows app. Team and Enterprise settings, full access, logging and MDM keys.",
+  "excerpt_fr": "Anthropic a lancé le 24 novembre 2026 l'installation des artefacts Claude comme applications de bureau. Sur Team, deux réglages sur trois sont déjà actifs. Ce qu'une application peut faire sur un poste, ce qui n'est pas tracé, et les réglages à poser lundi.",
+  "excerpt_en": "On 24 November 2026 Anthropic launched installing Claude artifacts as desktop apps. On Team, two of three settings are already on. What an app can do on a machine, what is not logged, and the settings to set on Monday.",
+  "publishedAt": "2026-11-25T08:01:43+01:00",
+  "updatedAt": "2026-11-25T08:01:43+01:00",
+  "editorialType": "Note",
+  "type": "actualite",
+  "author": "simon-beros",
+  "category": "claude",
+  "tags": [
+    "claude",
+    "artefacts",
+    "claude-desktop",
+    "anthropic",
+    "securite",
+    "actualite-ia"
+  ],
+  "readingTime": 7,
+  "heroIllustration": {
+    "src": "/images/illustrations/ds/claude-artefacts-cles-paper.webp",
+    "alt_fr": "Une grande fenêtre bleue se dresse sur la plaine ; à côté, un homme décroche la plus petite de trois clés",
+    "alt_en": "A large blue window stands on the plain; beside it, a man takes the smallest of three keys",
+    "side": "right"
+  },
+  "sources": [
+    {
+      "name": "Anthropic, « Turn artifacts into Mac and Windows apps » (24 novembre 2026), lu le 25 novembre 2026",
+      "url": "https://claude.com/resources/articles/install-as-app",
+      "type": "enterprise",
+      "publishedAt": "2026-11-24"
+    },
+    {
+      "name": "Centre d'aide Claude, « Installer un artefact en tant qu'application », lu le 25 novembre 2026",
+      "url": "https://support.claude.com/fr/articles/18516354-installer-un-artefact-en-tant-qu-application",
+      "type": "enterprise"
+    },
+    {
+      "name": "Centre d'aide Claude, « Install an artifact as an app », lu le 25 novembre 2026",
+      "url": "https://support.claude.com/en/articles/18516354-install-an-artifact-as-an-app",
+      "type": "enterprise"
+    },
+    {
+      "name": "Centre d'aide Claude, « Artifacts admin guide for Team and Enterprise plans », lu le 25 novembre 2026",
+      "url": "https://support.claude.com/en/articles/16994751-artifacts-admin-guide-for-team-and-enterprise-plans",
+      "type": "enterprise"
+    }
+  ],
+  "relatedCases": [],
+  "relatedPosts": [
+    "claude-sheets-whiteboards-data",
+    "risques-claude-pme",
+    "claude-ship-pme"
+  ],
+  "slug": "claude-artefacts-applications-bureau",
+  "faq_fr": [
+    {
+      "q": "Qu'est-ce que « Installer comme application » dans Claude ?",
+      "a": "C'est une fonction en bêta depuis le 24 novembre 2026 qui transforme un artefact Claude en application de bureau pour Mac ou Windows, avec sa propre icône et sa propre fenêtre. L'application reste le même artefact : elle change quand l'artefact est modifié, utilise Claude et vos connecteurs, et peut demander des autorisations sur l'ordinateur."
+    },
+    {
+      "q": "Faut-il payer en plus pour installer un artefact comme application ?",
+      "a": "Anthropic n'annonce aucun prix séparé : la fonction est en bêta sur toutes les offres, de Free à Enterprise. La création de l'application et chaque appel qu'elle fait à Claude comptent dans les limites d'usage de l'offre de la personne qui l'utilise."
+    },
+    {
+      "q": "Comment empêcher une application Claude d'accéder aux fichiers de l'entreprise ?",
+      "a": "Laissez désactivé le réglage « Accès complet à l'ordinateur » dans Paramètres de l'organisation, rubrique Artefacts ; c'est le défaut en Team et en Enterprise. Pour couvrir aussi les comptes personnels ouverts sur les postes de l'entreprise, posez la clé de gestion de poste isArtifactAppFullAccessEnabled à false."
+    },
+    {
+      "q": "Une application installée depuis un artefact fonctionne-t-elle hors ligne ?",
+      "a": "Non. Pour l'ouvrir, il faut être en ligne et connecté à Claude Desktop. Elle n'est pas disponible sur Linux, sur le web ni sur mobile, et les artefacts créés à partir des modèles Docs, Slides ou Sheets ne s'installent pas."
+    },
+    {
+      "q": "La rétention zéro des données couvre-t-elle ces applications ?",
+      "a": "Non, selon le guide d'administration d'Anthropic : la rétention zéro, pour toute l'organisation ou pour Claude Code, ne couvre pas les applications installées depuis un artefact. Les organisations en rétention zéro démarrent avec les trois réglages désactivés."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "What is \"Install as app\" in Claude?",
+      "a": "It is a feature in beta since 24 November 2026 that turns a Claude artifact into a desktop app for Mac or Windows, with its own icon and window. The app remains the same artifact: it changes when the artifact is edited, uses Claude and your connectors, and can ask for permissions on the computer."
+    },
+    {
+      "q": "Does installing an artifact as an app cost extra?",
+      "a": "Anthropic announces no separate price: the feature is in beta on every plan, from Free to Enterprise. Building the app and every call it makes to Claude count toward the usage limits of the plan of whoever uses it."
+    },
+    {
+      "q": "How do I stop a Claude app from accessing company files?",
+      "a": "Leave \"Full access to the computer\" off in Organization settings, Artifacts; it is the default on Team and Enterprise. To also cover personal accounts opened on company machines, set the device management key isArtifactAppFullAccessEnabled to false."
+    },
+    {
+      "q": "Does an app installed from an artifact work offline?",
+      "a": "No. Opening it requires being online and signed in to Claude Desktop. It is not available on Linux, the web or mobile, and artifacts made from the Docs, Slides or Sheets templates cannot be installed."
+    },
+    {
+      "q": "Does zero data retention cover these apps?",
+      "a": "No, according to Anthropic's admin guide: zero data retention, organisation-wide or for Claude Code, does not cover apps installed from an artifact. Organisations on zero retention start with all three settings off."
+    }
+  ],
+  "headings": [
+    {
+      "depth": 2,
+      "slug": "essentiel",
+      "text": "Ce qu'Anthropic a lancé le 24 novembre 2026"
+    },
+    {
+      "depth": 2,
+      "slug": "reglages",
+      "text": "Trois interrupteurs, et ce que votre offre active déjà"
+    },
+    {
+      "depth": 2,
+      "slug": "autorisations",
+      "text": "Ce qu'une application peut faire sur un poste"
+    },
+    {
+      "depth": 2,
+      "slug": "editeurs",
+      "text": "Qui peut modifier un artefact partagé"
+    },
+    {
+      "depth": 2,
+      "slug": "traces",
+      "text": "Ce qui n'est pas tracé, et ce que la rétention zéro ne couvre pas"
+    },
+    {
+      "depth": 2,
+      "slug": "mdm",
+      "text": "Couper au niveau du poste, pour les comptes personnels"
+    },
+    {
+      "depth": 2,
+      "slug": "exemple",
+      "text": "Exemple illustratif : le suivi des expéditions du jour"
+    },
+    {
+      "depth": 2,
+      "slug": "limites",
+      "text": "Où l'installation ne fonctionne pas"
+    },
+    {
+      "depth": 2,
+      "slug": "lundi",
+      "text": "Ce que je ferais lundi"
+    },
+    {
+      "depth": 2,
+      "slug": "ne-pas-faire",
+      "text": "Ce que je ne ferais pas"
+    }
+  ],
+  "body_sections": [
+    {
+      "type": "editorial-prose",
+      "html_fr": "<h2 id=\"essentiel\">Ce qu'Anthropic a lancé le 24 novembre 2026</h2>\n<p>« Installer comme application » transforme un artefact Claude en application de bureau pour Mac ou Windows : il a sa propre icône, sa propre fenêtre, et peut, si vous l'y autorisez, envoyer des notifications, se placer dans la barre de menus ou lire et modifier vos fichiers. La fonction est en bêta depuis le 24 novembre 2026 sur toutes les offres, de Free à Enterprise, dans Claude pour Mac et Windows.</p>\n<p>Un artefact est un petit outil interactif que Claude écrit dans une conversation : un tableau de bord, un calculateur, un suivi de commandes. Jusqu'ici, il vivait dans un onglet de Claude. Installé, il s'ouvre depuis le Dock ou le menu Démarrer, utilise Claude et vos connecteurs sans clé d'API, et change dès que quelqu'un modifie l'artefact d'origine, selon <a href=\"https://claude.com/resources/articles/install-as-app\" rel=\"noopener noreferrer\" target=\"_blank\">l'annonce d'Anthropic</a>.</p>\n<p>Ma recommandation pour une PME en offre Team : laissez l'installation ouverte, gardez l'accès complet à l'ordinateur désactivé, et décidez qui a le droit de modifier les artefacts partagés avant que les applications circulent. Sur Team, deux des trois réglages sont déjà actifs le jour où la bêta arrive dans votre organisation. Pour situer cette fonction parmi les autres produits d'Anthropic, partez de notre <a href=\"/ressources/guides/claude-pme\">guide Claude pour les PME</a>.</p>\n\n<h2 id=\"reglages\">Trois interrupteurs, et ce que votre offre active déjà</h2>\n<p>Les réglages se trouvent dans Paramètres de l'organisation, rubrique Artefacts. S'ils n'y sont pas, la bêta n'a pas encore atteint votre organisation. Le <a href=\"https://support.claude.com/en/articles/16994751-artifacts-admin-guide-for-team-and-enterprise-plans\" rel=\"noopener noreferrer\" target=\"_blank\">guide d'administration des artefacts</a> donne ces valeurs par défaut :</p>\n<table><thead><tr><th>Réglage</th><th>Ce qu'il permet</th><th>Défaut Team</th><th>Défaut Enterprise</th><th>Ce que je règle en PME</th></tr></thead><tbody>\n<tr><td>Installer comme application</td><td>Installer un artefact en application de bureau</td><td>Activé</td><td>Désactivé</td><td>Activé</td></tr>\n<tr><td>Autorisations des applications</td><td>Notifications, raccourcis clavier, fenêtre au premier plan, icône dans la barre de menus ou la zone de notification</td><td>Activé</td><td>Désactivé</td><td>Activé, sauf si vos postes servent à des données sensibles</td></tr>\n<tr><td>Accès complet à l'ordinateur</td><td>Lancer des programmes, lire, modifier ou supprimer des fichiers sans redemander</td><td>Désactivé</td><td>Désactivé</td><td>Désactivé, accordé au cas par cas sur un poste de test</td></tr>\n</tbody></table>\n<p>Selon le même guide, un changement de réglage met jusqu'à une heure à s'appliquer. Quand vous coupez un réglage, les applications ouvertes se ferment et les programmes qu'elles ont lancés s'arrêtent, sauf ceux qui s'en sont détachés. Les applications installées et les autorisations données restent en place, prêtes à revenir si vous réactivez.</p>\n<p>Une limite compte pour une PME : ces réglages ne s'appliquent que lorsque l'organisation est sélectionnée dans Claude. Un salarié qui ouvre son compte personnel sur l'ordinateur de l'entreprise y échappe. Pour couvrir ce cas, il faut passer par la gestion des postes (MDM), voir plus bas.</p>\n\n<h2 id=\"autorisations\">Ce qu'une application peut faire sur un poste</h2>\n<p>Par défaut, une application installée ne peut rien faire de plus qu'une page dans un navigateur. Au-delà, elle doit demander, et l'utilisateur répond « Autoriser » ou « Ne pas autoriser ». L'<a href=\"https://support.claude.com/fr/articles/18516354-installer-un-artefact-en-tant-qu-application\" rel=\"noopener noreferrer\" target=\"_blank\">aide de Claude</a> détaille cinq autorisations. Deux méritent l'attention d'un dirigeant.</p>\n<p>« Flotter au-dessus d'autres fenêtres » paraît anodin. Elle permet pourtant aussi de lire la position du curseur de la souris sur tous vos écrans. « Accès complet à cet ordinateur » permet de lancer n'importe quel programme et de lire, modifier ou supprimer vos fichiers sans redemander, et couvre toutes les autres autorisations. Anthropic n'examine pas les applications avant leur installation : la seule barrière, c'est l'utilisateur qui clique.</p>\n<p>Deux garde-fous existent. Une autorisation ne vaut que pour une version de l'application : après chaque modification, même la vôtre, Claude redemande. Et l'accès complet n'est proposé que pour une application écrite par vous ou, en Team et Enterprise, par un membre de votre organisation. Sur les offres individuelles, « l'extérieur » commence à toute autre personne que vous.</p>\n<p>La faille est documentée par Anthropic elle-même : si l'application charge du code depuis un autre site, ce code peut changer sans nouvelle demande. Une application qui appelle une bibliothèque hébergée ailleurs n'est donc jamais tout à fait la version que vous avez autorisée.</p>\n\n<h2 id=\"editeurs\">Qui peut modifier un artefact partagé</h2>\n<p>Une application installée n'est pas une copie. C'est le même artefact, dans une autre fenêtre. Quand son propriétaire ou un autre éditeur le modifie, l'application change sur tous les postes où elle est installée. La nouvelle demande d'autorisation à chaque version protège en théorie. En pratique, un salarié qui a cliqué « Autoriser » lundi cliquera « Autoriser » mardi sans relire.</p>\n<p>Chaque éditeur d'un artefact partagé peut donc changer l'outil sur tous les postes qui l'ont installé. C'est cette liste d'éditeurs qu'il faut tenir courte, avec trois règles :</p>\n<ul>\n<li>un artefact installé par plusieurs personnes a un propriétaire nommé et deux éditeurs au plus ;</li>\n<li>les collègues qui l'utilisent sont partagés en Contributeur, qui permet de s'en servir et d'y saisir des données sans modifier l'outil ;</li>\n<li>aucune application partagée ne reçoit l'accès complet, même si l'auteur est dans la maison.</li>\n</ul>\n<p>Le niveau Contributeur est décrit dans le guide d'administration : il permet d'utiliser un artefact, d'enregistrer ce qu'on y saisit et de commenter, sans éditer l'artefact lui-même.</p>\n\n<h2 id=\"traces\">Ce qui n'est pas tracé, et ce que la rétention zéro ne couvre pas</h2>\n<p>Pour une PME qui doit rendre des comptes à un client ou à un auditeur, deux points du guide d'administration changent l'analyse.</p>\n<p>D'abord la traçabilité. L'API de conformité enregistre l'ouverture d'une application comme une consultation d'artefact. Elle n'enregistre ni les installations, ni les réponses aux demandes d'autorisation, ni ce que l'application fait sur l'ordinateur, ni les changements des trois réglages. Si vous accordez l'accès complet, vous ne saurez pas après coup quel fichier l'application a touché. Retirer l'accès complet arrête les programmes qu'elle a lancés, mais n'annule pas les modifications déjà faites.</p>\n<p>Ensuite la rétention des données. La rétention zéro, qu'elle soit activée pour toute l'organisation ou pour Claude Code, ne couvre pas ces applications. Les organisations en rétention zéro ou avec des clés de chiffrement gérées par le client démarrent avec les trois réglages coupés, et c'est cohérent : si vous avez demandé la rétention zéro, ne rallumez pas l'installation sans avoir relu ce que vous aviez promis à vos clients. Les configurations prêtes pour HIPAA et les déploiements hybrides ne peuvent pas l'activer du tout.</p>\n\n<h2 id=\"mdm\">Couper au niveau du poste, pour les comptes personnels</h2>\n<p>Si vos ordinateurs sont gérés par un outil de gestion de flotte (Intune, Jamf ou équivalent), trois clés de configuration ne servent qu'à désactiver, et s'appliquent à tous les comptes ouverts sur la machine, personnels compris :</p>\n<table><thead><tr><th>Clé</th><th>Ce qu'elle coupe</th></tr></thead><tbody>\n<tr><td><code>isArtifactAppsEnabled</code></td><td>Les applications installées</td></tr>\n<tr><td><code>isArtifactAppPermissionsEnabled</code></td><td>Les autorisations et l'accès complet</td></tr>\n<tr><td><code>isArtifactAppFullAccessEnabled</code></td><td>L'accès complet seulement</td></tr>\n</tbody></table>\n<p>Sur macOS, elles se posent dans le domaine <code>com.anthropic.claudefordesktop</code> d'un profil au niveau de l'ordinateur ; sur Windows, sous <code>HKLM\\SOFTWARE\\Policies\\Claude</code>, avec la valeur <code>false</code> ou <code>0</code>. Quand le réglage de l'organisation et celui du poste diffèrent, le plus strict l'emporte. Le guide prévient d'un piège : mettez Claude Desktop à jour avant d'ajouter les clés, car sur Windows une version trop ancienne qui ne les connaît pas peut désactiver l'utilisation de l'ordinateur par Claude. Toute clé posée fait aussi passer le poste en mode géré, ce qui masque ou coupe d'autres fonctions.</p>\n<p>Dans une PME qui gère déjà ses postes, je poserais seulement <code>isArtifactAppFullAccessEnabled</code> à <code>false</code>. Le reste se règle dans Claude.</p>\n\n<h2 id=\"exemple\">Exemple illustratif : le suivi des expéditions du jour</h2>\n<p>Anthropic cite un suivi des commandes à expédier dans la journée parmi les usages d'un artefact. Prenons une PME de négoce de 35 personnes dont le responsable logistique a fait écrire ce suivi par Claude, branché sur la messagerie et le stockage partagé par les connecteurs de l'entreprise. C'est un exemple illustratif, pas un cas client.</p>\n<p>Installé comme application, l'outil s'ouvre au démarrage du poste et peut prévenir par une notification quand une commande urgente arrive. Il lui faut l'autorisation « Notifications », rien de plus : il lit ses données par les connecteurs, pas sur le disque. L'accès complet ne lui apporterait rien, sinon la possibilité d'effacer un dossier par erreur.</p>\n<p>Deux limites décident si l'outil peut devenir critique. Il ne s'ouvre qu'en ligne, avec une session Claude Desktop connectée : une panne réseau ou un compte déconnecté, et l'écran est vide. Et chaque appel qu'il fait à Claude consomme les limites d'usage de l'offre de la personne qui l'utilise. Tant que le suivi reste un confort, c'est acceptable. Le jour où les expéditions en dépendent, il mérite une vraie application interne, avec ses sauvegardes et ses accès, ce que fait notre <a href=\"/services/applications-internes\">service d'applications internes</a> à partir du prototype que l'artefact a déjà validé.</p>\n\n<h2 id=\"limites\">Où l'installation ne fonctionne pas</h2>\n<ul>\n<li>Linux, le web et le mobile : non disponibles.</li>\n<li>Les artefacts créés à partir d'un modèle (Docs, Slides, Sheets), les anciens artefacts et les artefacts en direct de Cowork ne s'installent pas.</li>\n<li>Il faut Claude pour Mac ou Windows en version 6.28899.0 ou plus récente.</li>\n<li>Sur macOS, quand Claude pilote l'ordinateur, il voit une application installée mais ne peut ni cliquer ni taper dedans.</li>\n</ul>\n<p>Le raccourci « Ajouter au Dock » ou « Ajouter à l'écran d'accueil » d'un navigateur n'est pas la même chose : il ajoute un lien, sans aucune des fonctions décrites ici.</p>\n\n<h2 id=\"lundi\">Ce que je ferais lundi</h2>\n<ol>\n<li>Ouvrir Paramètres de l'organisation, rubrique Artefacts, et vérifier l'état des trois réglages. Sur Team, confirmer que l'accès complet est bien désactivé.</li>\n<li>Lister les artefacts partagés dans l'organisation et, pour chacun, réduire les éditeurs au propriétaire et à un suppléant. Les autres passent en Contributeur.</li>\n<li>Écrire deux lignes dans votre charte d'usage de l'IA : aucune application partagée en accès complet ; une application qui charge du code d'un site extérieur ne s'installe pas.</li>\n<li>Si vos postes sont gérés, poser la clé qui coupe l'accès complet, après avoir mis Claude Desktop à jour.</li>\n<li>Si vous êtes en rétention zéro, laisser les réglages coupés et l'écrire dans votre registre.</li>\n</ol>\n\n<h2 id=\"ne-pas-faire\">Ce que je ne ferais pas</h2>\n<p>Accorder l'accès complet à une application parce qu'elle « ne marche pas sans ». Une application qui a besoin de lancer des programmes et de modifier vos fichiers sans demander n'est plus un petit outil : c'est un logiciel, et il mérite d'être relu par quelqu'un qui sait le lire. Je ne bâtirais pas non plus un processus dont dépend le chiffre d'affaires sur une fonction en bêta, qui exige une connexion et dont les actions sur le poste ne laissent aucune trace.</p>\n<p>Si vous voulez décider des réglages Claude de votre organisation avec quelqu'un qui les a déjà posés, c'est le travail de notre <a href=\"/services/integration-claude\">service d'intégration Claude</a> : un état des lieux des comptes, des réglages écrits, et une charte que vos équipes peuvent appliquer.</p>\n",
+      "html_en": "<h2 id=\"essentiel\">What Anthropic launched on 24 November 2026</h2>\n<p>\"Install as app\" turns a Claude artifact into a desktop app for Mac or Windows: it gets its own icon and window and, if you allow it, can send notifications, sit in the menu bar, or read and change your files. The feature has been in beta since 24 November 2026 on every plan, from Free to Enterprise, in Claude for Mac and Windows.</p>\n<p>An artifact is a small interactive tool Claude writes in a conversation: a dashboard, a calculator, an order tracker. Until now it lived in a Claude tab. Once installed, it opens from the Dock or the Start menu, uses Claude and your connectors without an API key, and changes as soon as someone edits the original artifact, according to <a href=\"https://claude.com/resources/articles/install-as-app\" rel=\"noopener noreferrer\" target=\"_blank\">Anthropic's announcement</a>.</p>\n<p>My recommendation for an SMB on the Team plan: leave installation on, keep full computer access off, and decide who may edit shared artifacts before apps start circulating. On Team, two of the three settings are already on the day the beta reaches your organisation. To place this feature among Anthropic's other products, start with our <a href=\"/ressources/guides/claude-pme\">Claude guide for SMBs</a>.</p>\n\n<h2 id=\"reglages\">Three switches, and what your plan already turns on</h2>\n<p>The settings sit in Organization settings, under Artifacts. If they are not there, the beta has not reached your organisation yet. The <a href=\"https://support.claude.com/en/articles/16994751-artifacts-admin-guide-for-team-and-enterprise-plans\" rel=\"noopener noreferrer\" target=\"_blank\">artifacts admin guide</a> gives these defaults:</p>\n<table><thead><tr><th>Setting</th><th>What it allows</th><th>Team default</th><th>Enterprise default</th><th>What I set for an SMB</th></tr></thead><tbody>\n<tr><td>Install as app</td><td>Installing an artifact as a desktop app</td><td>On</td><td>Off</td><td>On</td></tr>\n<tr><td>App permissions</td><td>Notifications, keyboard shortcuts, always-on-top window, menu bar or system tray item</td><td>On</td><td>Off</td><td>On, unless your machines handle sensitive data</td></tr>\n<tr><td>Full access to the computer</td><td>Running programs, reading, changing or deleting files without asking again</td><td>Off</td><td>Off</td><td>Off, granted case by case on a test machine</td></tr>\n</tbody></table>\n<p>According to the same guide, a settings change takes up to an hour. When you turn a setting off, open apps close and the programs they started stop, except those that detached themselves. Installed apps and the permissions given stay in place, ready to come back if you turn it on again.</p>\n<p>One limit matters for an SMB: these settings only apply while the organisation is selected in Claude. An employee who opens a personal account on the company computer escapes them. Covering that case takes device management (MDM), see below.</p>\n\n<h2 id=\"autorisations\">What an app can do on a machine</h2>\n<p>By default, an installed app can do nothing more than a page in a browser. Beyond that it must ask, and the user answers \"Allow\" or \"Don't allow\". <a href=\"https://support.claude.com/en/articles/18516354-install-an-artifact-as-an-app\" rel=\"noopener noreferrer\" target=\"_blank\">Claude's help centre</a> lists five permissions. Two deserve a business owner's attention.</p>\n<p>\"Float over other windows\" looks harmless. It also lets the app read where the mouse cursor is on all your screens. \"Full access to this computer\" lets it run any program and read, change or delete your files without asking again, and covers every other permission. Anthropic does not review apps before they are installed: the only barrier is the user who clicks.</p>\n<p>Two safeguards exist. A permission only covers one version of the app: after every change, even your own, Claude asks again. And full access is only offered for an app written by you or, on Team and Enterprise, by a member of your organisation. On individual plans, \"outside\" starts with anyone other than you.</p>\n<p>Anthropic documents the gap itself: if the app loads code from another site, that code can change without a new request. An app that calls a library hosted elsewhere is never quite the version you approved.</p>\n\n<h2 id=\"editeurs\">Who can edit a shared artifact</h2>\n<p>An installed app is not a copy. It is the same artifact in another window. When its owner or another editor changes it, the app changes on every machine where it is installed. The new permission request on each version protects in theory. In practice, an employee who clicked \"Allow\" on Monday will click \"Allow\" on Tuesday without reading.</p>\n<p>Every editor of a shared artifact can therefore change the tool on every machine that installed it. That list of editors is what to keep short, with three rules:</p>\n<ul>\n<li>an artifact installed by several people has a named owner and two editors at most;</li>\n<li>colleagues who use it are shared as Contributor, which lets them use it and enter data without changing the tool;</li>\n<li>no shared app gets full access, even when the author is in-house.</li>\n</ul>\n<p>The admin guide describes the Contributor level: it lets someone use an artifact, save what they enter and comment, without editing the artifact itself.</p>\n\n<h2 id=\"traces\">What is not logged, and what zero retention does not cover</h2>\n<p>For an SMB that answers to a client or an auditor, two points in the admin guide change the analysis.</p>\n<p>First, traceability. The Compliance API logs opening an app as an artifact view. It does not log installs, answers to permission requests, what the app does on the computer, or changes to the three settings. If you grant full access, you will not know afterwards which file the app touched. Removing full access stops the programs it started but does not undo changes already made.</p>\n<p>Second, data retention. Zero data retention, whether organisation-wide or for Claude Code, does not cover these apps. Organisations with zero retention or customer-managed encryption keys start with all three settings off, which is consistent: if you asked for zero retention, do not turn installation back on without rereading what you promised your clients. HIPAA-ready configurations and hybrid deployments cannot turn it on at all.</p>\n\n<h2 id=\"mdm\">Switching it off at device level, for personal accounts</h2>\n<p>If your computers are managed by a fleet tool (Intune, Jamf or similar), three configuration keys can only turn features off, and apply to every account on the machine, personal ones included:</p>\n<table><thead><tr><th>Key</th><th>What it turns off</th></tr></thead><tbody>\n<tr><td><code>isArtifactAppsEnabled</code></td><td>Installed apps</td></tr>\n<tr><td><code>isArtifactAppPermissionsEnabled</code></td><td>Permissions and full access</td></tr>\n<tr><td><code>isArtifactAppFullAccessEnabled</code></td><td>Full access only</td></tr>\n</tbody></table>\n<p>On macOS they go in the <code>com.anthropic.claudefordesktop</code> domain of a computer-level profile; on Windows, under <code>HKLM\\SOFTWARE\\Policies\\Claude</code>, set to <code>false</code> or <code>0</code>. Where the organisation setting and the device setting differ, the stricter one applies. The guide warns of a trap: update Claude Desktop before adding the keys, because on Windows an older version that does not know them can turn off Claude's computer use. Setting any key also marks the machine as managed, which hides or turns off other features.</p>\n<p>In an SMB that already manages its machines, I would only set <code>isArtifactAppFullAccessEnabled</code> to <code>false</code>. The rest is handled in Claude.</p>\n\n<h2 id=\"exemple\">Illustrative example: today's shipments tracker</h2>\n<p>Anthropic mentions a tracker for orders that need to ship that day among the uses of an artifact. Take a 35-person wholesale SMB whose logistics manager had Claude write such a tracker, connected to email and shared storage through the company's connectors. This is an illustrative example, not a client case.</p>\n<p>Installed as an app, the tool opens at start-up and can send a notification when an urgent order arrives. It needs the \"Notifications\" permission and nothing more: it reads its data through connectors, not from the disk. Full access would add nothing except the ability to delete a folder by mistake.</p>\n<p>Two limits decide whether the tool can become critical. It only opens online, with a signed-in Claude Desktop session: a network outage or a signed-out account, and the screen is empty. And every call it makes to Claude uses the usage limits of the plan of whoever is using it. While the tracker remains a convenience, that is acceptable. The day shipments depend on it, it deserves a real internal application with its backups and access rules, which is what our <a href=\"/services/applications-internes\">internal applications service</a> builds from the prototype the artifact has already proven.</p>\n\n<h2 id=\"limites\">Where installation does not work</h2>\n<ul>\n<li>Linux, the web and mobile: not available.</li>\n<li>Artifacts made from a template (Docs, Slides, Sheets), legacy artifacts and live artifacts from Cowork cannot be installed.</li>\n<li>It requires Claude for Mac or Windows version 6.28899.0 or later.</li>\n<li>On macOS, when Claude uses the computer, it can see an installed app but cannot click or type in it.</li>\n</ul>\n<p>A browser's \"Add to Dock\" or \"Add to Home Screen\" shortcut is not the same thing: it adds a link, with none of the features described here.</p>\n\n<h2 id=\"lundi\">What I would do on Monday</h2>\n<ol>\n<li>Open Organization settings, Artifacts, and check the three settings. On Team, confirm full access is off.</li>\n<li>List the artifacts shared in the organisation and, for each one, cut the editors down to the owner and one backup. Everyone else becomes Contributor.</li>\n<li>Add two lines to your AI usage policy: no shared app with full access; an app that loads code from an outside site is not installed.</li>\n<li>If your machines are managed, set the key that turns off full access, after updating Claude Desktop.</li>\n<li>If you are on zero retention, leave the settings off and record it in your register.</li>\n</ol>\n\n<h2 id=\"ne-pas-faire\">What I would not do</h2>\n<p>Grant full access to an app because it \"doesn't work without it\". An app that needs to run programs and change your files without asking is no longer a small tool: it is software, and it deserves a review by someone who can read it. Nor would I build a revenue-critical process on a beta feature that needs a connection and whose actions on the machine leave no trace.</p>\n<p>If you want to decide your organisation's Claude settings with someone who has already set them, that is the work of our <a href=\"/services/integration-claude\">Claude integration service</a>: an inventory of accounts, written settings, and a policy your teams can apply.</p>\n"
+    }
+  ]
+}

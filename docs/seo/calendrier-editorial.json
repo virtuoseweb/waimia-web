@@ -4493,6 +4493,46 @@
       "mesureAttendue": "Impressions de /blog/risques-claude-pme sur 28 jours à la collecte du 30 novembre 2026 (valeur de départ) ; pas de baisse attendue à 2026-W50.",
       "resultat": null,
       "origine": "Notes de version de la Claude Platform du 23 novembre 2026 et billet claude.com du même jour, lus pendant la veille du 24 novembre 2026."
+    },
+    {
+      "id": "actu-2026-11-25-artefacts-applications",
+      "type": "article",
+      "titreProvisoire": "Installer un artefact Claude comme application : les réglages à décider en PME",
+      "requeteCible": "claude artefact application mac windows",
+      "intention": "Savoir ce que fait « Installer comme application », ce qu'une application peut faire sur un poste, et quels réglages poser en Team ou Enterprise.",
+      "urlCible": "/blog/claude-artefacts-applications-bureau",
+      "angle": "Actualité (runbook 4.0). Recherche du 25 novembre 2026 : les pages françaises lues (unite.ai/fr, iphonesoft.fr, aialternativeto.com/fr, briefia.fr, mindaimedia.com) résument l'annonce (fenêtre, icône, notifications, trois niveaux d'autorisation, toutes offres) ; aucune ne donne les défauts Team et Enterprise réglage par réglage, l'absence de trace des installations et des actions sur le poste dans l'API de conformité, la rétention zéro qui ne couvre pas ces applications, les comptes personnels qui échappent aux réglages d'organisation, les clés MDM, ni une règle sur les éditeurs des artefacts partagés. Aucun concurrent de competitors.json n'a de page sur le sujet.",
+      "sourcesALire": [
+        "https://claude.com/resources/articles/install-as-app (lu le 25 novembre 2026)",
+        "https://support.claude.com/fr/articles/18516354-installer-un-artefact-en-tant-qu-application (lu le 25 novembre 2026)",
+        "https://support.claude.com/en/articles/16994751-artifacts-admin-guide-for-team-and-enterprise-plans (lu le 25 novembre 2026)"
+      ],
+      "semainePrevue": "2026-W48",
+      "statut": "en cours",
+      "pr": null,
+      "mesureAttendue": "Page indexée deux collectes après la mise en production ; premières impressions sur « claude artefact application ». À juger à partir de 2026-W50.",
+      "resultat": null,
+      "origine": "Veille du 25 novembre 2026 : claude.com/blog (« Turn artifacts into Mac and Windows apps », 24 novembre 2026), fonctionnalité nouvelle d'Anthropic, absente de src/content."
+    },
+    {
+      "id": "w48-revision-mcp-skills-tasks",
+      "type": "révision",
+      "titreProvisoire": "Guide MCP : skills livrés par les serveurs, Tasks, Elicitation et File Uploads",
+      "requeteCible": "mcp claude",
+      "intention": "Savoir ce qui change pour une PME quand un serveur MCP peut livrer ses propres consignes, travailler longtemps et demander une confirmation.",
+      "urlCible": "/ressources/guides/mcp-claude",
+      "angle": "Règle 4.1-4 : l'annonce du 24 novembre 2026 rend le guide incomplet (il ne connaissait que les outils, ressources et modèles de consigne). Section ajoutée : tableau des quatre capacités avec statut par offre, conseil sur les actions irréversibles (Elicitation), interdiction des mots de passe en formulaire (spécification), vigilance sur les skills livrés par un serveur. Choisi plutôt qu'une seconde actualité : l'annonce vise d'abord les éditeurs de serveurs, et le guide MCP est la page qui porte la requête.",
+      "sourcesALire": [
+        "https://claude.com/resources/articles/skills-over-mcp-tasks-and-more (lu le 25 novembre 2026)",
+        "https://code.claude.com/docs/en/skills (lu le 25 novembre 2026)",
+        "https://modelcontextprotocol.io/specification/2026-07-28/client/elicitation (lu le 25 novembre 2026)"
+      ],
+      "semainePrevue": "2026-W48",
+      "statut": "en cours",
+      "pr": null,
+      "mesureAttendue": "Impressions de /ressources/guides/mcp-claude sur 28 jours à la collecte du 30 novembre 2026 (valeur de départ) ; pas de baisse attendue à 2026-W50.",
+      "resultat": null,
+      "origine": "Veille du 25 novembre 2026 : claude.com/blog (« MCP servers can now ship skills, run tasks, and more with Claude », 24 novembre 2026)."
     }
   ]
 }

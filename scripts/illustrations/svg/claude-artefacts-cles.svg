@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · moteur B · « Installer un artefact Claude comme application : quelles clés lui donner » :
+       une grande fenêtre autoportante se dresse sur la plaine ; à côté, un tableau porte
+       trois clés de tailles croissantes ; un homme décroche la petite et laisse la grande,
+       cadenassée, au tableau. Rôles remplacés par render-svg.mjs. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-92" r="8" fill="{{subject}}"/>
+      <path d="M-10 -82 Q0 -86 10 -82 L11 -48 L-11 -48 Z" fill="{{subject}}"/>
+      <path d="M-3 -82 L0 -74 L3 -82 Z" fill="{{light}}"/>
+      <rect x="-9" y="-49" width="7" height="47" fill="{{subject}}"/>
+      <rect x="2" y="-49" width="7" height="47" fill="{{subject}}"/>
+      <path d="M-11 -3 L-1 -3 L-1 0 L-11 0 Z M1 -3 L11 -3 L11 0 L1 0 Z" fill="{{subject}}"/>
+    </g>
+    <g id="key">
+      <circle cx="0" cy="0" r="14" fill="{{shadow}}"/>
+      <circle cx="0" cy="0" r="6" fill="{{soft}}"/>
+      <rect x="-3" y="12" width="6" height="58" fill="{{shadow}}"/>
+      <rect x="3" y="52" width="12" height="6" fill="{{shadow}}"/>
+      <rect x="3" y="62" width="9" height="6" fill="{{shadow}}"/>
+    </g>
+  </defs>
+
+  <!-- Fond -->
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <circle cx="560" cy="260" r="210" fill="{{soft}}"/>
+
+  <!-- Sol, horizon bas -->
+  <rect y="520" width="1456" height="104" fill="{{ground}}"/>
+  <rect y="514" width="1456" height="8" fill="{{deep}}"/>
+
+  <!-- La grande fenêtre autoportante : cadre, barre de titre, vitre -->
+  <rect x="380" y="110" width="370" height="404" fill="{{deep}}"/>
+  <rect x="380" y="110" width="370" height="40" fill="{{shadow}}"/>
+  <circle cx="404" cy="130" r="7" fill="{{light}}"/>
+  <circle cx="426" cy="130" r="7" fill="{{light}}"/>
+  <rect x="398" y="166" width="334" height="330" fill="{{shape}}"/>
+  <!-- Reflet dans la vitre -->
+  <path d="M430 196 L520 196 L440 300 Z" fill="{{pale}}" opacity="0.5"/>
+  <!-- Pieds de la fenêtre -->
+  <rect x="420" y="514" width="40" height="10" fill="{{shadow}}"/>
+  <rect x="670" y="514" width="40" height="10" fill="{{shadow}}"/>
+  <!-- Ombre portée au sol -->
+  <path d="M380 524 L750 524 L840 560 L470 560 Z" fill="{{deep}}" opacity="0.45"/>
+
+  <!-- Tableau à clés, sur pied -->
+  <rect x="1000" y="250" width="14" height="264" fill="{{shadow}}"/>
+  <rect x="890" y="210" width="300" height="150" fill="{{deep}}"/>
+  <rect x="900" y="220" width="280" height="130" fill="{{light}}"/>
+  <!-- Crochets -->
+  <rect x="946" y="236" width="8" height="10" fill="{{shadow}}"/>
+  <rect x="1036" y="236" width="8" height="10" fill="{{shadow}}"/>
+  <rect x="1126" y="236" width="8" height="10" fill="{{shadow}}"/>
+  <!-- Clé moyenne, accrochée -->
+  <use href="#key" transform="translate(1040 262) scale(0.95)"/>
+  <!-- Grande clé, accrochée et cadenassée -->
+  <use href="#key" transform="translate(1130 258) scale(1.05)"/>
+  <rect x="1108" y="304" width="44" height="34" fill="{{deep}}"/>
+  <rect x="1127" y="314" width="6" height="12" fill="{{light}}"/>
+  <path d="M1116 304 L1116 292 Q1130 276 1144 292 L1144 304" stroke="{{deep}}" stroke-width="6" fill="none"/>
+  <!-- Crochet vide : la petite clé a été décrochée -->
+
+  <!-- L'homme, la petite clé levée -->
+  <use href="#man" transform="translate(880 514) scale(1.2)"/>
+  <path d="M888 424 L904 380" stroke="{{subject}}" stroke-width="7" stroke-linecap="round"/>
+  <g transform="translate(908 352) scale(0.55) rotate(20)">
+    <circle cx="0" cy="0" r="14" fill="{{detail}}"/>
+    <circle cx="0" cy="0" r="6" fill="{{light}}"/>
+    <rect x="-3" y="12" width="6" height="58" fill="{{detail}}"/>
+    <rect x="3" y="52" width="12" height="6" fill="{{detail}}"/>
+  </g>
+</svg>

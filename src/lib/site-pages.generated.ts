@@ -12486,6 +12486,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/claude-artefacts-applications-bureau",
+    "title": "Artefacts Claude installés comme applications Mac et Windows : les réglages à décider en PME",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/claude-artefacts-applications-bureau.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/claude-chatgpt-mistral-offres-equipe",
     "title": "Claude Team, ChatGPT Business ou Mistral Vibe Team : le comparatif des offres d'équipe",
     "group": "blog",
@@ -14291,6 +14300,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/chatgpt-dots-regles-personnalisees-approbations",
       "/blog/chatgpt-pro-ou-business-petite-equipe",
       "/blog/chatgpt-shopping-e-commerce",
+      "/blog/claude-artefacts-applications-bureau",
       "/blog/claude-chatgpt-mistral-offres-equipe",
       "/blog/claude-code-skills",
       "/blog/claude-cowork-windows",
