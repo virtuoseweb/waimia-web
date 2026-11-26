@@ -4,345 +4,2964 @@
   "sourceDate": "2026-10",
   "market": "fr-FR",
   "keywords": [
-    { "query": "agence automatisation", "volume": 720, "difficulty": 19, "cpc": 2.22, "target": "/services/systemes-operationnels-ia", "cluster": "automatisation", "priority": 1 },
-    { "query": "agence automatisation ia", "volume": 480, "difficulty": 31, "cpc": 2.83, "target": "/services/systemes-operationnels-ia", "cluster": "automatisation", "priority": 2 },
-    { "query": "automatisation ia", "volume": 1000, "difficulty": 31, "cpc": 2.71, "target": "/services/automatisations", "cluster": "automatisation", "priority": 2 },
-    { "query": "automatisation des processus", "volume": 1300, "difficulty": 36, "target": "/services/automatisations", "cluster": "automatisation", "priority": 2 },
-    { "query": "automatisation des processus métiers", "volume": 590, "difficulty": 36, "target": "/blog/automatisation-processus-metiers-pme", "cluster": "automatisation", "priority": 2 },
-    { "query": "workflow ia", "volume": 210, "difficulty": 12, "target": "/blog/workflow-ia-exemples-pme", "cluster": "automatisation", "priority": 2 },
-    { "query": "application métier", "volume": 1300, "difficulty": 17, "target": "/blog/application-metier-exemples-pme", "cluster": "application-metier", "priority": 1, "source": "Cible basculée le 26 octobre 2026 (PR SEO 2026-W44) : Google classe le billet sur cette requête (144 impressions, position 29,5 sur 28 jours, collecte du 25 octobre 2026) et la page de résultats lue le 26 octobre est dominée par des définitions ; la page service garde « application métier sur mesure »" },
-    { "query": "application métier sur mesure", "volume": 880, "difficulty": 14, "target": "/services/applications-internes", "cluster": "application-metier", "priority": 1 },
-    { "query": "logiciel sur mesure", "volume": 1000, "difficulty": 17, "target": "/services/applications-internes", "cluster": "application-metier", "priority": 2 },
-    { "query": "développement logiciel sur mesure", "volume": 1300, "difficulty": 23, "target": "/services/applications-internes", "cluster": "application-metier", "priority": 2 },
-    { "query": "agence n8n", "volume": 320, "difficulty": 8, "target": "/services/automatisation-n8n", "cluster": "n8n", "priority": 1, "cpc": 1.08 },
-    { "query": "automatisation n8n", "volume": 210, "difficulty": 28, "target": "/services/automatisation-n8n", "cluster": "n8n", "priority": 1 },
-    { "query": "n8n prix", "volume": 170, "difficulty": 17, "target": "/ressources/guides/n8n-prix", "cluster": "n8n", "priority": 2 },
-    { "query": "n8n vs make", "volume": 590, "difficulty": 31, "target": "/ressources/comparatifs/n8n-vs-make", "cluster": "n8n", "priority": 1 },
-    { "query": "n8n vs zapier", "volume": 390, "difficulty": 26, "target": "/blog/avis-n8n-vs-zapier-2026", "cluster": "n8n", "priority": 2 },
-    { "query": "automatisation make", "volume": 480, "difficulty": 24, "target": "/services/automatisation-make", "cluster": "make", "priority": 1 },
-    { "query": "agence make", "volume": 320, "difficulty": 25, "target": "/services/automatisation-make", "cluster": "make", "priority": 1, "cpc": 0.0 },
-    { "query": "agence chatbot", "volume": 320, "difficulty": 8, "target": "/services/agent-support-client", "cluster": "service-client", "priority": 1 },
-    { "query": "chatbot service client", "volume": 320, "difficulty": 33, "target": "/services/agent-support-client", "cluster": "service-client", "priority": 2 },
-    { "query": "automatisation service client", "volume": 260, "difficulty": 23, "target": "/cas-usages/support-sav", "cluster": "service-client", "priority": 2 },
-    { "query": "automatisation crm", "volume": 390, "difficulty": 13, "target": "/services/crm-scoring-routing", "cluster": "commercial", "priority": 1 },
-    { "query": "crm sur mesure", "volume": 1000, "difficulty": null, "target": "/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche", "cluster": "commercial", "priority": 2 },
-    { "query": "prospection automatisée", "volume": 260, "difficulty": 16, "target": "/services/prospection-automatisee", "cluster": "commercial", "priority": 1 },
-    { "query": "prospection ia", "volume": 210, "difficulty": 27, "target": "/services/prospection-automatisee", "cluster": "commercial", "priority": 2 },
-    { "query": "devis automatisé", "volume": 320, "difficulty": null, "target": "/ressources/guides/devis-automatise", "cluster": "commercial", "priority": 2 },
-    { "query": "consultant ia", "volume": 720, "difficulty": 43, "cpc": 2.64, "target": "/services/consultant-ia-claude", "cluster": "conseil", "priority": 2 },
-    { "query": "freelance ia", "volume": 260, "difficulty": 14, "target": "/services/consultant-ia-claude", "cluster": "conseil", "priority": 2, "cpc": 1.09 },
-    { "query": "conseil intelligence artificielle", "volume": 210, "difficulty": 24, "target": "/services/consultant-ia-claude", "cluster": "conseil", "priority": 2 },
-    { "query": "cabinet conseil ia", "volume": 210, "difficulty": 31, "target": "/services/consultant-ia-claude", "cluster": "conseil", "priority": 2 },
-    { "query": "intégration ia", "volume": 260, "difficulty": 20, "target": "/services/integration-claude", "cluster": "claude", "priority": 2 },
-    { "query": "claude entreprise", "volume": 590, "difficulty": 29, "cpc": 2.84, "target": "/services/integration-claude", "cluster": "claude", "priority": 1 },
-    { "query": "claude vs chatgpt", "volume": 1600, "difficulty": 25, "target": "/ressources/comparatifs/claude-vs-chatgpt-pme", "cluster": "claude", "priority": 1 },
-    { "query": "claude ou chatgpt", "volume": 880, "difficulty": 20, "target": "/ressources/comparatifs/claude-vs-chatgpt-pme", "cluster": "claude", "priority": 2 },
-    { "query": "chatgpt vs claude", "volume": 390, "difficulty": 21, "target": "/ressources/comparatifs/claude-vs-chatgpt-pme", "cluster": "claude", "priority": 2 },
-    { "query": "claude cowork", "volume": 18100, "difficulty": 20, "target": "/ressources/guides/claude-cowork", "cluster": "claude", "priority": 2 },
-    { "query": "claude cowork prix", "volume": 140, "difficulty": 14, "target": "/ressources/guides/claude-cowork", "cluster": "claude", "priority": 2 },
-    { "query": "claude prix", "volume": 1300, "difficulty": 32, "target": "/ressources/guides/claude-fonctionnalites-pme", "cluster": "claude", "priority": 1 },
-    { "query": "claude max", "volume": 1600, "difficulty": 20, "target": "/blog/claude-max-pme", "cluster": "claude", "priority": 1 },
-    { "query": "claude pro", "volume": 3600, "difficulty": 35, "target": "/ressources/guides/claude-fonctionnalites-pme", "cluster": "claude", "priority": 2 },
-    { "query": "claude pro vs team", "volume": null, "difficulty": null, "target": "/blog/claude-pro-vs-team", "cluster": "claude", "priority": 2 },
-    { "query": "claude max ou team", "volume": null, "difficulty": null, "target": "/blog/claude-max-ou-team-petite-equipe", "cluster": "claude", "priority": 1, "source": "Ajout du 10 novembre 2026 (création de la page /blog/claude-max-ou-team-petite-equipe, angle Max ou Ultra contre Team ; requêtes voisines vues sur claude-pro-vs-team dans docs/seo/data/2026-W46/gsc-performance.json : claude team premium, claude team standard vs premium) ; volume non mesuré par Semrush" },
-    { "query": "claude max vs team", "volume": null, "difficulty": null, "target": "/blog/claude-max-ou-team-petite-equipe", "cluster": "claude", "priority": 2, "source": "Ajout du 10 novembre 2026 (création de la page /blog/claude-max-ou-team-petite-equipe, angle Max ou Ultra contre Team ; requêtes voisines vues sur claude-pro-vs-team dans docs/seo/data/2026-W46/gsc-performance.json : claude team premium, claude team standard vs premium) ; volume non mesuré par Semrush" },
-    { "query": "claude team premium vs max", "volume": null, "difficulty": null, "target": "/blog/claude-max-ou-team-petite-equipe", "cluster": "claude", "priority": 2, "source": "Ajout du 10 novembre 2026 (création de la page /blog/claude-max-ou-team-petite-equipe, angle Max ou Ultra contre Team ; requêtes voisines vues sur claude-pro-vs-team dans docs/seo/data/2026-W46/gsc-performance.json : claude team premium, claude team standard vs premium) ; volume non mesuré par Semrush" },
-    { "query": "claude ultra vs team", "volume": null, "difficulty": null, "target": "/blog/claude-max-ou-team-petite-equipe", "cluster": "claude", "priority": 3, "source": "Ajout du 10 novembre 2026 (création de la page /blog/claude-max-ou-team-petite-equipe, angle Max ou Ultra contre Team ; requêtes voisines vues sur claude-pro-vs-team dans docs/seo/data/2026-W46/gsc-performance.json : claude team premium, claude team standard vs premium) ; volume non mesuré par Semrush" },
-    { "query": "chatgpt pro ou business", "volume": null, "difficulty": null, "target": "/blog/chatgpt-pro-ou-business-petite-equipe", "cluster": "claude", "priority": 1, "source": "Ajout du 10 novembre 2026 (création de la page /blog/chatgpt-pro-ou-business-petite-equipe, équivalent OpenAI de l'angle Max ou Ultra contre Team) ; volume non mesuré par Semrush" },
-    { "query": "chatgpt pro vs business", "volume": null, "difficulty": null, "target": "/blog/chatgpt-pro-ou-business-petite-equipe", "cluster": "claude", "priority": 2, "source": "Ajout du 10 novembre 2026 (création de la page /blog/chatgpt-pro-ou-business-petite-equipe, équivalent OpenAI de l'angle Max ou Ultra contre Team) ; volume non mesuré par Semrush" },
-    { "query": "chatgpt business premium", "volume": null, "difficulty": null, "target": "/blog/chatgpt-pro-ou-business-petite-equipe", "cluster": "claude", "priority": 2, "source": "Ajout du 10 novembre 2026 (création de la page /blog/chatgpt-pro-ou-business-petite-equipe, équivalent OpenAI de l'angle Max ou Ultra contre Team) ; volume non mesuré par Semrush" },
-    { "query": "chatgpt pro 100 vs business", "volume": null, "difficulty": null, "target": "/blog/chatgpt-pro-ou-business-petite-equipe", "cluster": "claude", "priority": 3, "source": "Ajout du 10 novembre 2026 (création de la page /blog/chatgpt-pro-ou-business-petite-equipe, équivalent OpenAI de l'angle Max ou Ultra contre Team) ; volume non mesuré par Semrush" },
-    { "query": "claude entreprise tarif", "volume": null, "difficulty": null, "target": "/ressources/guides/claude-fonctionnalites-pme", "cluster": "claude", "priority": 2 },
-    { "query": "quel abonnement claude", "volume": null, "difficulty": null, "target": "/ressources/guides/claude-fonctionnalites-pme", "cluster": "claude", "priority": 2 },
-    { "query": "claude pour les entreprises", "volume": null, "difficulty": null, "target": "/ressources/guides/claude-fonctionnalites-pme", "cluster": "claude", "priority": 3 },
-    { "query": "skills claude", "volume": null, "difficulty": null, "target": "/ressources/guides/claude-skills", "cluster": "claude", "priority": 1 },
-    { "query": "agent skills", "volume": null, "difficulty": null, "target": "/ressources/guides/claude-skills", "cluster": "claude", "priority": 2 },
-    { "query": "créer un skill claude", "volume": null, "difficulty": null, "target": "/ressources/guides/claude-skills", "cluster": "claude", "priority": 2 },
-    { "query": "claude skills entreprise", "volume": null, "difficulty": null, "target": "/ressources/guides/claude-skills", "cluster": "claude", "priority": 1 },
-    { "query": "skills claude code", "volume": null, "difficulty": null, "target": "/ressources/guides/claude-skills", "cluster": "claude", "priority": 3 },
-    { "query": "claude skills", "volume": 3600, "difficulty": 22, "target": "/ressources/guides/claude-skills", "cluster": "claude", "priority": 1 },
-    { "query": "claude skill", "volume": 1600, "difficulty": 26, "target": "/ressources/guides/claude-skills", "cluster": "claude", "priority": 2 },
-    { "query": "claude code skill", "volume": 480, "difficulty": 12, "target": "/blog/claude-code-skills", "cluster": "claude", "priority": 3 },
-    { "query": "claude plugins", "volume": null, "difficulty": null, "target": "/ressources/guides/claude-plugins-entreprise", "cluster": "claude", "priority": 1 },
-    { "query": "plugins claude entreprise", "volume": null, "difficulty": null, "target": "/ressources/guides/claude-plugins-entreprise", "cluster": "claude", "priority": 2 },
-    { "query": "connecteurs claude", "volume": null, "difficulty": null, "target": "/ressources/guides/claude-plugins-entreprise", "cluster": "claude", "priority": 2 },
-    { "query": "marketplace claude", "volume": null, "difficulty": null, "target": "/ressources/guides/claude-plugins-entreprise", "cluster": "claude", "priority": 3 },
-    { "query": "mcp entreprise", "volume": null, "difficulty": null, "target": "/ressources/guides/claude-plugins-entreprise", "cluster": "claude", "priority": 3 },
-    { "query": "claude code entreprise", "volume": null, "difficulty": null, "target": "/ressources/guides/claude-code-entreprise", "cluster": "claude", "priority": 1 },
-    { "query": "claude code prix", "volume": null, "difficulty": null, "target": "/ressources/guides/claude-code-entreprise", "cluster": "claude", "priority": 1 },
-    { "query": "claude code", "volume": null, "difficulty": null, "target": "/ressources/guides/claude-code-entreprise", "cluster": "claude", "priority": 2 },
-    { "query": "claude code pour non-développeurs", "volume": null, "difficulty": null, "target": "/ressources/guides/claude-code-entreprise", "cluster": "claude", "priority": 3 },
-    { "query": "prestataire claude code", "volume": null, "difficulty": null, "target": "/ressources/guides/claude-code-entreprise", "cluster": "claude", "priority": 2 },
-    { "query": "claude design", "volume": null, "difficulty": null, "target": "/ressources/guides/claude-design", "cluster": "claude", "priority": 1 },
-    { "query": "claude design prix", "volume": null, "difficulty": null, "target": "/ressources/guides/claude-design", "cluster": "claude", "priority": 2 },
-    { "query": "claude design avis", "volume": null, "difficulty": null, "target": "/ressources/guides/claude-design", "cluster": "claude", "priority": 2 },
-    { "query": "claude design vs figma", "volume": null, "difficulty": null, "target": "/ressources/guides/claude-design", "cluster": "claude", "priority": 3 },
-    { "query": "claude design vs canva", "volume": null, "difficulty": null, "target": "/ressources/guides/claude-design", "cluster": "claude", "priority": 3 },
-    { "query": "claude cowork fusion", "volume": null, "difficulty": null, "target": "/ressources/guides/claude-cowork", "cluster": "claude", "priority": 2 },
-    { "query": "déployer claude pme", "volume": null, "difficulty": null, "target": "/ressources/guides/claude-pme", "cluster": "claude", "priority": 1 },
-    { "query": "claude pme", "volume": null, "difficulty": null, "target": "/ressources/guides/claude-pme", "cluster": "claude", "priority": 1 },
-    { "query": "agent ia", "volume": 6600, "difficulty": 58, "target": "/ressources/guides/agent-ia-definition", "cluster": "agents-ia", "priority": 3 },
-    { "query": "agents ia", "volume": 2400, "difficulty": null, "target": "/ressources/guides/agent-ia-definition", "cluster": "agents-ia", "priority": 3 },
-    { "query": "agents ia c'est quoi", "volume": 260, "difficulty": null, "target": "/ressources/guides/agent-ia-definition", "cluster": "agents-ia", "priority": 3 },
-    { "query": "agent ia entreprise", "volume": 110, "difficulty": 13, "target": "/services/agents-ia", "cluster": "agents-ia", "priority": 1 },
-    { "query": "agent ia 24/7 pour pme", "volume": 260, "difficulty": 6, "target": "/services/agents-ia", "cluster": "agents-ia", "priority": 2 },
-    { "query": "audit ia", "volume": 480, "difficulty": 16, "cpc": 4.74, "target": "/audit-ia-pme", "cluster": "audit", "priority": 1 },
-    { "query": "diagnostic ia", "volume": 210, "difficulty": 13, "target": "/ressources/diagnostics/maturite-ia", "cluster": "audit", "priority": 1 },
-    { "query": "roi ia", "volume": 30, "difficulty": null, "target": "/ressources/outils/calculateur-roi-ia", "cluster": "audit", "priority": 3 },
-    { "query": "ia expert comptable", "volume": 210, "difficulty": 17, "target": "/cas-usages/finance-comptabilite", "cluster": "secteurs", "priority": 2 },
-    { "query": "automatisation rh", "volume": 210, "difficulty": 18, "target": "/cas-usages/rh", "cluster": "secteurs", "priority": 2 },
-    { "query": "chatbot rh", "volume": 320, "difficulty": 28, "target": "/blog/chatbot-rh-pme", "cluster": "secteurs", "priority": 2 },
-    { "query": "automatisation comptabilité", "volume": 170, "difficulty": null, "target": "/cas-usages/finance-comptabilite", "cluster": "secteurs", "priority": 3 },
-    { "query": "charte ia entreprise", "volume": 90, "difficulty": 14, "cpc": 1.83, "target": "/ressources/outils/charte-ia-entreprise", "cluster": "conformite", "priority": 2 },
-    { "query": "ia rgpd", "volume": 140, "difficulty": 38, "target": "/conformite-ia", "cluster": "conformite", "priority": 3 },
-    { "query": "conformité ia", "volume": 90, "difficulty": 20, "cpc": 5.44, "target": "/conformite-ia", "cluster": "conformite", "priority": 2 },
-    { "query": "forward deployed engineer", "volume": 390, "difficulty": 18, "target": "/blog/forward-deployed-engineer", "cluster": "methode", "priority": 1 },
-    { "query": "architecte ia", "volume": 110, "difficulty": 18, "target": "/blog/architecte-ia-role-pme", "cluster": "methode", "priority": 3 },
-    { "query": "formation n8n", "volume": 1000, "difficulty": 23, "target": "/formations/n8n", "cluster": "formation", "priority": 1 },
-    { "query": "formation make", "volume": 720, "difficulty": 12, "target": "/formations/make", "cluster": "formation", "priority": 1 },
-    { "query": "formation automatisation", "volume": 480, "difficulty": 14, "target": "/formations/automatisation", "cluster": "formation", "priority": 1 },
-    { "query": "formation automatisation ia", "volume": 260, "difficulty": 10, "target": "/formations/automatisation", "cluster": "formation", "priority": 1 },
-    { "query": "formateur ia", "volume": 390, "difficulty": 10, "target": "/formations", "cluster": "formation", "priority": 2 },
-    { "query": "formation chatgpt", "volume": 2400, "difficulty": 22, "cpc": 3.4, "target": "/formations/chatgpt", "cluster": "formation", "priority": 1 },
-    { "query": "formation chatgpt entreprise", "volume": 140, "difficulty": null, "target": "/formations/chatgpt", "cluster": "formation", "priority": 2 },
-    { "query": "formation claude", "volume": 210, "difficulty": 13, "target": "/formations/claude", "cluster": "formation", "priority": 1 },
-    { "query": "formation claude code", "volume": 260, "difficulty": 10, "target": "/formations/claude-code", "cluster": "formation", "priority": 2 },
-    { "query": "formation agent ia", "volume": 390, "difficulty": 29, "target": "/formations/claude", "cluster": "formation", "priority": 2 },
-    { "query": "formation ia entreprise", "volume": 880, "difficulty": 44, "cpc": 5.92, "target": "/formations", "cluster": "formation", "priority": 2 },
-    { "query": "formation ia qualiopi", "volume": 170, "difficulty": 6, "cpc": 5.02, "target": "/blog/formation-ia-cpf-qualiopi", "cluster": "formation", "priority": 2 },
-    { "query": "formation ia lyon", "volume": 390, "difficulty": 16, "target": "/implantations/lyon", "cluster": "villes", "priority": 2 },
-    { "query": "formation ia bordeaux", "volume": 210, "difficulty": 12, "target": "/implantations/bordeaux", "cluster": "villes", "priority": 2 },
-    { "query": "agence ia lyon", "volume": 480, "difficulty": 19, "target": "/implantations/lyon", "cluster": "villes", "priority": 1 },
-    { "query": "agence ia paris", "volume": 210, "difficulty": 30, "target": "/implantations/paris", "cluster": "villes", "priority": 3 },
-    { "query": "agence ia toulouse", "volume": 210, "difficulty": 18, "cpc": 3.47, "target": "/implantations/toulouse", "cluster": "villes", "priority": 3 },
-    { "query": "agence ia bordeaux", "volume": 70, "difficulty": 10, "cpc": 2.59, "target": "/implantations/bordeaux", "cluster": "villes", "priority": 1 },
-    { "query": "agence ia montpellier", "volume": 30, "difficulty": null, "target": "/implantations/montpellier", "cluster": "villes", "priority": 2 },
-    { "query": "choisir agence ia pme", "volume": null, "difficulty": null, "target": "/ressources/guides/choisir-agence-ia-pme", "cluster": "conseil", "priority": 1 },
-    { "query": "agence ia ou freelance", "volume": null, "difficulty": null, "target": "/ressources/guides/choisir-agence-ia-pme", "cluster": "conseil", "priority": 2 },
-    { "query": "prix intégration claude", "volume": null, "difficulty": null, "target": "/ressources/guides/cout-integration-claude-pme", "cluster": "claude", "priority": 1 },
-    { "query": "combien coûte une intégration claude", "volume": null, "difficulty": null, "target": "/ressources/guides/cout-integration-claude-pme", "cluster": "claude", "priority": 1 },
-    { "query": "financement formation ia opco", "volume": null, "difficulty": null, "target": "/ressources/guides/financement-formation-ia-opco", "cluster": "formation", "priority": 1 },
-    { "query": "claude rgpd", "volume": null, "difficulty": null, "target": "/ressources/guides/claude-rgpd-pme", "cluster": "conformite", "priority": 1 },
-    { "query": "combien coûte un agent ia", "volume": null, "difficulty": null, "target": "/ressources/guides/combien-coute-un-agent-ia-pme", "cluster": "agents", "priority": 1 },
-    { "query": "claude for small business", "volume": 170, "difficulty": 14, "target": "/ressources/guides/claude-for-small-business", "cluster": "claude", "priority": 1 },
-    { "query": "claude pennylane", "volume": null, "difficulty": null, "target": "/ressources/guides/claude-for-small-business", "cluster": "claude", "priority": 2 },
-    { "query": "n8n vs make vs zapier", "volume": null, "difficulty": null, "target": "/ressources/comparatifs/n8n-vs-make-vs-zapier", "cluster": "automatisation-outils", "priority": 1 },
-    { "query": "automatiser relance devis n8n", "volume": null, "difficulty": null, "target": "/blog/automatiser-relance-devis-n8n", "cluster": "automatisation-commerciale", "priority": 2 },
-    { "query": "trier emails claude n8n", "volume": null, "difficulty": null, "target": "/blog/trier-emails-entrant-claude-n8n", "cluster": "claude-agents", "priority": 2 },
-    { "query": "agence ia", "volume": 2400, "difficulty": 58, "cpc": 0.92, "target": "/", "cluster": "agence", "priority": 2 },
-    { "query": "agence ia pme", "volume": null, "difficulty": null, "target": "/services/systemes-operationnels-ia", "cluster": "agence", "priority": 2 },
-    { "query": "agence d'automatisation ia", "volume": 170, "difficulty": 19, "cpc": 2.87, "target": "/services/systemes-operationnels-ia", "cluster": "automatisation", "priority": 2 },
-    { "query": "agence de développement ia", "volume": 140, "difficulty": 50, "cpc": 13.43, "target": "/services/agents-ia", "cluster": "agence", "priority": 2 },
-    { "query": "agence chatbot ia", "volume": 110, "difficulty": 12, "cpc": 0.0, "target": "/services/agents-ia", "cluster": "agents", "priority": 2 },
-    { "query": "agence ia marketing", "volume": 110, "difficulty": 31, "cpc": 0.0, "target": "/services/seo-geo-contenu", "cluster": "agence", "priority": 2 },
-    { "query": "agence data ia", "volume": 90, "difficulty": 14, "cpc": 0.0, "target": "/services/donnees-reporting", "cluster": "agence", "priority": 2 },
-    { "query": "intégration des agents ia", "volume": 90, "difficulty": 12, "cpc": 0.0, "target": "/services/agents-ia", "cluster": "agents", "priority": 2 },
-    { "query": "agence accompagnement ia", "volume": 70, "difficulty": 26, "cpc": 0.0, "target": "/", "cluster": "agence", "priority": 2 },
-    { "query": "consult ia", "volume": 260, "difficulty": 24, "cpc": 2.58, "target": "/services/consultant-ia-claude", "cluster": "conseil", "priority": 2 },
-    { "query": "cabinet de conseil ia", "volume": 210, "difficulty": 26, "cpc": 4.47, "target": "/services/consultant-ia-claude", "cluster": "conseil", "priority": 2 },
-    { "query": "consulting ia", "volume": 170, "difficulty": 50, "cpc": 2.64, "target": "/services/consultant-ia-claude", "cluster": "conseil", "priority": 2 },
-    { "query": "consultant intelligence artificielle", "volume": 170, "difficulty": 41, "cpc": 3.18, "target": "/services/consultant-ia-claude", "cluster": "conseil", "priority": 2 },
-    { "query": "cabinet de conseil intelligence artificielle", "volume": 140, "difficulty": 29, "cpc": 0.0, "target": "/services/consultant-ia-claude", "cluster": "conseil", "priority": 2 },
-    { "query": "conseil stratégie ia", "volume": 110, "difficulty": 24, "cpc": 1.55, "target": "/services/consultant-ia-claude", "cluster": "conseil", "priority": 2 },
-    { "query": "conseil automatisation ia", "volume": 90, "difficulty": 13, "cpc": 0.0, "target": "/services/systemes-operationnels-ia", "cluster": "conseil", "priority": 2 },
-    { "query": "conseil transformation ia", "volume": 70, "difficulty": 5, "cpc": 0.0, "target": "/services/consultant-ia-claude", "cluster": "conseil", "priority": 2 },
-    { "query": "audit ia entreprise", "volume": 90, "difficulty": 7, "cpc": 0.0, "target": "/audit-ia-pme", "cluster": "audit", "priority": 2 },
-    { "query": "audit ia pour entreprises", "volume": 70, "difficulty": 10, "cpc": 0.0, "target": "/audit-ia-pme", "cluster": "audit", "priority": 2 },
-    { "query": "agence automatisation n8n", "volume": 320, "difficulty": 11, "cpc": 2.11, "target": "/services/automatisation-n8n", "cluster": "n8n", "priority": 1 },
-    { "query": "n8n c'est quoi", "volume": 590, "difficulty": 19, "cpc": 0.64, "target": "/blog/n8n-c-est-quoi", "cluster": "n8n", "priority": 2 },
-    { "query": "c'est quoi n8n", "volume": 70, "difficulty": 19, "cpc": 0.62, "target": "/blog/n8n-c-est-quoi", "cluster": "n8n", "priority": 3 },
-    { "query": "ia recrutement bordeaux", "volume": 140, "difficulty": 26, "cpc": 0.0, "target": null, "cluster": "villes", "priority": 3 },
-    { "query": "audit geo ia", "volume": 90, "difficulty": 5, "cpc": 0.0, "target": "/services/referencement-ia", "cluster": "audit", "priority": 2 },
-    { "query": "agence geo", "volume": 2900, "difficulty": 27, "target": "/services/referencement-ia", "cluster": "geo", "priority": 1 },
-    { "query": "geo seo", "volume": 1900, "difficulty": 34, "target": "/ressources/comparatifs/geo-vs-seo", "cluster": "geo", "priority": 2 },
-    { "query": "generative engine optimization", "volume": 1300, "difficulty": 64, "target": "/blog/seo-geo-etre-cite-par-les-ia-generatives", "cluster": "geo", "priority": 3 },
-    { "query": "formation ia", "volume": 9900, "difficulty": 57, "cpc": 3.76, "target": "/formations", "cluster": "formation", "priority": 2 },
-    { "query": "formation intelligence artificielle", "volume": 3600, "difficulty": 61, "cpc": 3.82, "target": "/formations", "cluster": "formation", "priority": 2 },
-    { "query": "formation ia cpf", "volume": 1600, "difficulty": 21, "cpc": 3.82, "target": "/blog/formation-ia-cpf-qualiopi", "cluster": "formation", "priority": 2 },
-    { "query": "formation ia générative", "volume": 880, "difficulty": 45, "cpc": 4.19, "target": "/formations", "cluster": "formation", "priority": 2 },
-    { "query": "formation ia générative pme", "volume": null, "difficulty": null, "target": "/blog/formation-ia-generative-pme", "cluster": "formation", "priority": 2, "source": "Ajout du 5 novembre 2026 (création du jour, calendrier éditorial) ; « formation ia générative » reste ciblée sur /formations ; volume non mesuré par Semrush, à demander à Simon" },
-    { "query": "formation ia obligatoire", "volume": null, "difficulty": null, "target": "/blog/formation-ia-generative-pme", "cluster": "formation", "priority": 2, "source": "Ajout du 5 novembre 2026 (création du jour : article 4 de l'AI Act réécrit par l'omnibus) ; volume non mesuré par Semrush, à demander à Simon" },
-    { "query": "formation ia marketing", "volume": 480, "difficulty": 23, "cpc": 5.32, "target": "/formations", "cluster": "formation", "priority": 2 },
-    { "query": "formation ia rh", "volume": 390, "difficulty": 46, "cpc": 4.82, "target": "/blog/formation-ia-rh-pme", "cluster": "formation", "priority": 2 },
-    { "query": "formation ia finance", "volume": 320, "difficulty": 16, "cpc": 4.63, "target": "/blog/formation-ia-finance-pme", "cluster": "formation", "priority": 2 },
-    { "query": "formation prompt chatgpt", "volume": 110, "difficulty": 17, "cpc": 0.0, "target": "/formations/chatgpt", "cluster": "formation", "priority": 2 },
-    { "query": "claude enterprise", "volume": 210, "difficulty": 28, "cpc": 2.84, "target": "/ressources/guides/claude-pme", "cluster": "claude", "priority": 2 },
-    { "query": "agent ia claude", "volume": 210, "difficulty": 12, "cpc": 1.11, "target": "/blog/creer-agent-ia-claude", "cluster": "claude", "priority": 2 },
-    { "query": "claude code ia", "volume": 140, "difficulty": 33, "cpc": 1.22, "target": "/ressources/guides/claude-code-entreprise", "cluster": "claude", "priority": 2 },
-    { "query": "claude ai cowork", "volume": 110, "difficulty": 14, "cpc": 1.75, "target": "/ressources/guides/claude-cowork", "cluster": "claude", "priority": 2 },
-    { "query": "claude copilot", "volume": 140, "difficulty": 10, "cpc": 2.24, "target": "/blog/claude-microsoft-copilot-pme", "cluster": "claude", "priority": 2 },
-    { "query": "conformité ia entreprise", "volume": 110, "difficulty": 33, "cpc": 0.0, "target": "/ressources/guides/ai-act-pme-calendrier", "cluster": "conformité", "priority": 2 },
-    { "query": "conformité ai act", "volume": 70, "difficulty": 21, "cpc": 0.0, "target": "/ressources/guides/ai-act-pme-calendrier", "cluster": "conformité", "priority": 2 },
-    { "query": "charte utilisation ia", "volume": 90, "difficulty": 27, "cpc": 0.56, "target": "/ressources/outils/charte-ia-entreprise", "cluster": "conformité", "priority": 2 },
-    { "query": "ai act", "volume": 3600, "difficulty": 76, "cpc": 2.27, "target": "/ressources/guides/ai-act-pme-calendrier", "cluster": "conformité", "priority": 2 },
-    { "query": "agence intelligence artificielle", "volume": 1000, "difficulty": 52, "cpc": 2.39, "target": "/", "cluster": "agence", "priority": 2 },
-    { "query": "expert ia", "volume": 590, "difficulty": 50, "cpc": 2.64, "target": "/services/consultant-ia-claude", "cluster": "conseil", "priority": 2 },
-    { "query": "entreprise ia", "volume": 480, "difficulty": 67, "cpc": 2.88, "target": "/", "cluster": "agence", "priority": 2 },
-    { "query": "expert intelligence artificielle", "volume": 390, "difficulty": 48, "cpc": 2.9, "target": "/", "cluster": "agence", "priority": 2 },
-    { "query": "agence agent ia", "volume": 140, "difficulty": 47, "cpc": 2.94, "target": "/services/agents-ia", "cluster": "agents", "priority": 2 },
-    { "query": "freelance n8n", "volume": 140, "difficulty": 15, "cpc": 1.25, "target": "/services/automatisation-n8n", "cluster": "automatisation", "priority": 2 },
-    { "query": "expert automatisation", "volume": 110, "difficulty": 11, "cpc": 1.66, "target": "/services/systemes-operationnels-ia", "cluster": "automatisation", "priority": 2 },
-    { "query": "agence chatgpt", "volume": 90, "difficulty": 22, "cpc": 0.0, "target": "/formations/chatgpt", "cluster": "formation", "priority": 2 },
-    { "query": "entreprise claude", "volume": 90, "difficulty": 27, "cpc": 0.0, "target": "/ressources/guides/claude-pme", "cluster": "claude", "priority": 2 },
-    { "query": "expert chatgpt", "volume": 90, "difficulty": 19, "cpc": 0.0, "target": "/formations/chatgpt", "cluster": "formation", "priority": 2 },
-    { "query": "prestataire ia", "volume": 90, "difficulty": 30, "cpc": 9.18, "target": "/", "cluster": "agence", "priority": 2 },
-    { "query": "consultant chatbot ia", "volume": 70, "difficulty": 24, "cpc": 0.0, "target": "/services/agents-ia", "cluster": "agents", "priority": 2 },
-    { "query": "intégrateur ia", "volume": 70, "difficulty": 45, "cpc": 1.66, "target": "/", "cluster": "agence", "priority": 2 },
-    { "query": "consultant automatisation", "volume": 50, "difficulty": 22, "cpc": 1.21, "target": "/", "cluster": "agence", "priority": 2 },
-    { "query": "expert n8n", "volume": 50, "difficulty": 7, "cpc": 1.48, "target": "/services/automatisation-n8n", "cluster": "automatisation", "priority": 2 },
-    { "query": "freelance automatisation", "volume": 50, "difficulty": 13, "cpc": 0.68, "target": "/services/systemes-operationnels-ia", "cluster": "automatisation", "priority": 2 },
-    { "query": "cabinet ia", "volume": 30, "difficulty": null, "cpc": 4.42, "target": "/", "cluster": "agence", "priority": 2 },
-    { "query": "freelance make", "volume": 30, "difficulty": null, "cpc": 1.52, "target": "/", "cluster": "agence", "priority": 2 },
-    { "query": "société ia", "volume": 30, "difficulty": null, "cpc": 5.75, "target": "/", "cluster": "agence", "priority": 2 },
-    { "query": "claude cowork windows", "volume": 590, "difficulty": 29, "target": "/blog/claude-cowork-windows", "cluster": "claude", "priority": 1 },
-    { "query": "agence automatisation make", "volume": 390, "difficulty": 15, "target": "/services/automatisation-make", "cluster": "make", "priority": 1 },
-    { "query": "accompagnement ia", "volume": 170, "difficulty": 19, "target": "/services/consultant-ia-claude", "cluster": "conseil", "priority": 2 },
-    { "query": "agence création agents ia", "volume": 90, "difficulty": 40, "target": "/services/agents-ia", "cluster": "agents", "priority": 2 },
-    { "query": "claude finance", "volume": 210, "difficulty": 17, "target": "/ressources/guides/claude-pme", "cluster": "claude", "priority": 2 },
-    { "query": "formation claude cowork", "volume": 50, "difficulty": 7, "target": "/formations/claude", "cluster": "formation", "priority": 2 },
-    { "query": "agence de référencement ia", "volume": 170, "difficulty": 28, "target": "/services/referencement-ia", "cluster": "geo", "priority": 2, "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026" },
-    { "query": "référencement geo", "volume": 390, "difficulty": 27, "target": "/services/referencement-ia", "cluster": "geo", "priority": 3, "source": "Semrush France, noiise.com_fr.xlsx, octobre 2026" },
-    { "query": "agence seo ia", "volume": 480, "difficulty": 13, "target": "/services/seo-geo-contenu", "cluster": "seo", "priority": 3, "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026 ; cible à arbitrer sur la SERP" },
-    { "query": "agence de référencement", "volume": 6600, "difficulty": 45, "target": "/services/seo-geo-contenu", "cluster": "seo", "priority": 3, "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026" },
-    { "query": "agence seo", "volume": 60500, "difficulty": 56, "target": "/services/seo-geo-contenu", "cluster": "seo", "priority": 3, "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026" },
-    { "query": "rédaction seo", "volume": 480, "difficulty": 29, "target": "/services/redaction-seo-contenu", "cluster": "seo", "priority": 2, "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026" },
-    { "query": "agence rédaction seo", "volume": 720, "difficulty": 19, "target": "/services/redaction-seo-contenu", "cluster": "seo", "priority": 2, "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026" },
-    { "query": "refonte site internet", "volume": 3600, "difficulty": 28, "target": "/ressources/guides/refonte-site-internet", "cluster": "web", "priority": 1, "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 30" },
-    { "query": "refonte site web", "volume": 1900, "difficulty": 24, "target": "/ressources/guides/refonte-site-internet", "cluster": "web", "priority": 2, "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 1960" },
-    { "query": "refonte de site internet", "volume": 1300, "difficulty": 19, "target": "/ressources/guides/refonte-site-internet", "cluster": "web", "priority": 2, "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 52" },
-    { "query": "refonte de site web", "volume": 1000, "difficulty": 20, "target": "/ressources/guides/refonte-site-internet", "cluster": "web", "priority": 2, "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 151" },
-    { "query": "refonte seo", "volume": 880, "difficulty": 15, "target": "/blog/refonte-site-seo-sans-perdre-trafic", "cluster": "web", "priority": 2, "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 763 ; cible déplacée le 3 novembre 2026 vers le satellite créé ce jour (SERP lue : listes de contrôle, pas guide de refonte)" },
-    { "query": "claude artefact application mac windows", "volume": null, "difficulty": null, "target": "/blog/claude-artefacts-applications-bureau", "cluster": "claude", "priority": 3, "source": "Actualité du 25 novembre 2026 (« Install as app » en bêta le 24 novembre) ; volume non mesuré (à relever dans Semrush)" },
-    { "query": "claude ship", "volume": null, "difficulty": null, "target": "/blog/claude-ship-pme", "cluster": "claude", "priority": 3, "source": "Actualité du 24 novembre 2026 (lancement de Claude Ship le 23 novembre) ; volume non mesuré (à relever dans Semrush)" },
-    { "query": "claude code vs codex", "volume": null, "difficulty": null, "target": "/ressources/comparatifs/claude-code-vs-codex-vs-vibe", "cluster": "claude", "priority": 2, "source": "Requête cible du comparatif créé le 3 novembre 2026 ; volume non mesuré (à relever dans Semrush)" },
-    { "query": "agence refonte site web", "volume": 590, "difficulty": 17, "target": "/ressources/guides/refonte-site-internet", "cluster": "web", "priority": 3, "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 922 ; reste au guide tant qu'aucune page service ne porte « refonte » en H2" },
-    { "query": "migration seo", "volume": 590, "difficulty": 19, "target": "/ressources/guides/refonte-site-internet", "cluster": "web", "priority": 3, "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 7010 ; section du guide, pas une page à part" },
-    { "query": "développement web sur mesure", "volume": 1600, "difficulty": 10, "target": "/services/sur-mesure-headless", "cluster": "web", "priority": 1, "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 14329" },
-    { "query": "agence de développement web sur mesure", "volume": 590, "difficulty": 13, "target": "/services/sur-mesure-headless", "cluster": "web", "priority": 2, "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 2345" },
-    { "query": "devis application web", "volume": 90, "difficulty": 6, "target": "/services/sur-mesure-headless", "cluster": "web", "priority": 2, "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 2560" },
-    { "query": "agence développement web", "volume": 880, "difficulty": 38, "target": "/services/sur-mesure-headless", "cluster": "web", "priority": 3, "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 6298 ; KD au-dessus du seuil de 31" },
-    { "query": "développement site web", "volume": 720, "difficulty": 52, "target": "/services/sur-mesure-headless", "cluster": "web", "priority": 3, "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 1516 ; KD au-dessus du seuil de 31" },
-    { "query": "agence audit seo", "volume": 1600, "difficulty": 19, "target": "/services/audit-seo-technique", "cluster": "audit", "priority": 1, "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 12" },
-    { "query": "audit seo technique", "volume": 590, "difficulty": 26, "target": "/services/audit-seo-technique", "cluster": "audit", "priority": 2, "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 9136" },
-    { "query": "audit site internet", "volume": 1300, "difficulty": 31, "target": "/blog/audit-site-internet-pme", "cluster": "audit", "priority": 2, "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 12724" },
-    { "query": "agence seo technique", "volume": 480, "difficulty": 30, "target": "/services/audit-seo-technique", "cluster": "audit", "priority": 2, "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 14669" },
-    { "query": "audit technique seo", "volume": 1600, "difficulty": 34, "target": "/services/audit-seo-technique", "cluster": "audit", "priority": 3, "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 1848 ; KD au-dessus du seuil de 31" },
-    { "query": "audit seo", "volume": 6600, "difficulty": 44, "target": "/services/audit-seo-technique", "cluster": "audit", "priority": 3, "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 549 ; KD au-dessus du seuil de 31" },
-    { "query": "cahier des charges site internet", "volume": 1000, "difficulty": 26, "target": "/ressources/guides/cahier-des-charges-site-internet", "cluster": "web", "priority": 3, "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 9777 ; guide conditionnel, voir calendrier-editorial.json" },
-    { "query": "cahier des charges site web", "volume": 480, "difficulty": 28, "target": "/ressources/guides/cahier-des-charges-site-internet", "cluster": "web", "priority": 3, "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 134" },
-    { "query": "cahier des charges pour site internet", "volume": 260, "difficulty": 24, "target": "/ressources/guides/cahier-des-charges-site-internet", "cluster": "web", "priority": 3, "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 149" },
-    { "query": "cahier des charges refonte site internet", "volume": 320, "difficulty": 21, "target": "/blog/cahier-des-charges-refonte-site", "cluster": "web", "priority": 3, "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 380" },
-    { "query": "chatbot helpdesk", "volume": 70, "difficulty": 13, "target": "/services/agent-support-client", "cluster": "service-client", "priority": 3, "source": "Semrush France, Positions de ia4ops.com, 9 octobre 2026" },
-    { "query": "chatbot sav", "volume": 50, "difficulty": 16, "target": "/services/agent-support-client", "cluster": "service-client", "priority": 3, "source": "Semrush France, Positions de ia4ops.com, 9 octobre 2026" },
-    { "query": "chatbot support it", "volume": 70, "difficulty": 8, "target": "/services/agent-support-client", "cluster": "service-client", "priority": 3, "source": "Semrush France, Positions de ia4ops.com, 9 octobre 2026" },
-    { "query": "chatbot support client", "volume": 70, "difficulty": 23, "target": "/services/agent-support-client", "cluster": "service-client", "priority": 2, "source": "Semrush France, Positions de ia4ops.com, 9 octobre 2026" },
-    { "query": "chatbot support informatique", "volume": 140, "difficulty": 13, "target": "/services/agent-support-client", "cluster": "service-client", "priority": 2, "source": "Semrush France, Positions de ia4ops.com, 9 octobre 2026" },
-    { "query": "chatbot call center", "volume": 90, "difficulty": 28, "target": "/services/agent-support-client", "cluster": "service-client", "priority": 3, "source": "Semrush France, Positions de ia4ops.com, 9 octobre 2026" },
-    { "query": "chatbot relation client", "volume": 50, "difficulty": 21, "target": "/services/agent-support-client", "cluster": "service-client", "priority": 3, "source": "Semrush France, Positions de ia4ops.com, 9 octobre 2026" },
-    { "query": "service client ia", "volume": 260, "difficulty": 24, "target": "/services/agent-support-client", "cluster": "service-client", "priority": 2, "source": "Semrush France, Positions de ia4ops.com, 9 octobre 2026" },
-    { "query": "formation chatgpt bordeaux", "volume": 70, "difficulty": 6, "target": "/implantations/bordeaux", "cluster": "villes", "priority": 3, "source": "Semrush France, Positions de ia4ops.com, 9 octobre 2026" },
-    { "query": "société de développement ia lyon", "volume": 90, "difficulty": 13, "target": "/implantations/lyon", "cluster": "villes", "priority": 2, "source": "Semrush France, Positions de kayro.ai, 9 octobre 2026" },
-    { "query": "agence spécialisée en automatisation make à toulouse", "volume": 90, "difficulty": 1, "target": "/implantations/toulouse", "cluster": "villes", "priority": 2, "source": "Semrush France, Positions de kayro.ai, 9 octobre 2026" },
-    { "query": "claude extension", "volume": 1000, "difficulty": 27, "target": "/ressources/guides/claude-in-chrome-entreprise", "cluster": "claude", "priority": 2, "source": "Semrush France, export lucasfonseque.fr, 9 octobre 2026" },
-    { "query": "claude extension chrome", "volume": null, "difficulty": null, "target": "/blog/claude-extension-chrome", "cluster": "claude", "priority": 2, "source": "Article satellite du guide /ressources/guides/claude-in-chrome-entreprise (qui garde « claude extension »), publié le 26 octobre 2026 ; volume non mesuré" },
-    { "query": "ia pme industrielle", "volume": null, "difficulty": null, "target": "/blog/ia-pme-industrielle", "cluster": "secteurs", "priority": 2, "source": "Série « IA par métier » (décision de Simon du 26 octobre 2026), satellite de /secteurs/industrie, publié le 28 octobre 2026 ; volume non mesuré, à demander à Simon (Semrush)" },
-    { "query": "ia cabinet de conseil", "volume": null, "difficulty": null, "target": "/blog/ia-cabinet-conseil", "cluster": "secteurs", "priority": 2, "source": "Série « IA par métier » (décision de Simon du 26 octobre 2026), satellite de /secteurs/conseil, publié le 28 octobre 2026 ; volume non mesuré, à demander à Simon (Semrush)" },
-    { "query": "ia cabinet comptable", "volume": null, "difficulty": null, "target": "/blog/ia-cabinet-comptable", "cluster": "secteurs", "priority": 2, "source": "Série « IA par métier » (décision de Simon du 26 octobre 2026), satellite de /secteurs/comptabilite, publié le 27 octobre 2026 ; volume non mesuré, à demander à Simon (Semrush)" },
-    { "query": "ia artisan bâtiment", "volume": null, "difficulty": null, "target": "/blog/ia-artisan-batiment", "cluster": "secteurs", "priority": 2, "source": "Série « IA par métier » (décision de Simon du 26 octobre 2026), satellite de /secteurs/batiment, publié le 27 octobre 2026 ; volume non mesuré, à demander à Simon (Semrush)" },
-    { "query": "ia e-commerçant", "volume": null, "difficulty": null, "target": "/blog/ia-e-commercant", "cluster": "secteurs", "priority": 2, "source": "Série « IA par métier » (décision de Simon du 26 octobre 2026), satellite de /secteurs/e-commerce (qui garde « ia e-commerce »), publié le 29 octobre 2026 ; volume non mesuré, à demander à Simon (Semrush)" },
-    { "query": "ia organisme de formation", "volume": null, "difficulty": null, "target": "/blog/ia-organisme-de-formation", "cluster": "secteurs", "priority": 2, "source": "Série « IA par métier » (décision de Simon du 26 octobre 2026), sans page secteur (/secteurs/formation est dépubliée), publié le 29 octobre 2026 ; volume non mesuré, à demander à Simon (Semrush)" },
-    { "query": "ia rh pme", "volume": null, "difficulty": null, "target": "/blog/ia-rh-pme", "cluster": "secteurs", "priority": 2, "source": "Série « IA par métier » (décision de Simon du 26 octobre 2026), satellite de /cas-usages/rh (qui garde « automatisation rh »), publié le 30 octobre 2026 ; volume non mesuré, à demander à Simon (Semrush)" },
-    { "query": "ia sav pme", "volume": null, "difficulty": null, "target": "/blog/ia-sav-pme", "cluster": "service-client", "priority": 2, "source": "Série « IA par métier » (décision de Simon du 26 octobre 2026), satellite de /cas-usages/support-sav ; « service client ia » reste à /services/agent-support-client ; publié le 30 octobre 2026 ; volume non mesuré, à demander à Simon (Semrush)" },
-    { "query": "ia équipe commerciale", "volume": null, "difficulty": null, "target": "/blog/ia-equipe-commerciale", "cluster": "secteurs", "priority": 2, "source": "Série « IA par métier » (décision de Simon du 26 octobre 2026), satellite de /cas-usages/generer-plus-de-leads, rédigé le 31 octobre 2026 ; volume non mesuré, à demander à Simon (Semrush)" },
-    { "query": "ia pour agences de communication", "volume": null, "difficulty": null, "target": "/blog/ia-agence-communication", "cluster": "secteurs", "priority": 2, "source": "Série « IA par métier » (décision de Simon du 26 octobre 2026), satellite de /secteurs/agence, rédigé le 31 octobre 2026 ; volume non mesuré, à demander à Simon (Semrush)" },
-    { "query": "ia éditeur saas", "volume": null, "difficulty": null, "target": "/blog/ia-editeur-saas", "cluster": "secteurs", "priority": 2, "source": "Série « IA par métier » (décision de Simon du 26 octobre 2026), satellite de /secteurs/startup-logiciel, rédigé le 1er novembre 2026 ; « ia éditeur de logiciel » renvoie des éditeurs de code par IA (SERP lue le 1er novembre 2026) ; volume non mesuré, à demander à Simon (Semrush)" },
-    { "query": "ia pour esn", "volume": null, "difficulty": null, "target": "/blog/ia-esn", "cluster": "secteurs", "priority": 2, "source": "Série « IA par métier » (décision de Simon du 26 octobre 2026), satellite de /secteurs/esn, rédigé le 1er novembre 2026 ; volume non mesuré, à demander à Simon (Semrush)" },
-    { "query": "fiche entreprise chatgpt", "volume": null, "difficulty": null, "target": "/blog/fiche-entreprise-chatgpt-business-hub", "cluster": "geo", "priority": 2, "source": "Veille du 12 novembre 2026 : annonce OpenAI « Introducing Businesses in ChatGPT » du 10 novembre 2026 ; requête cherchée le 12 novembre 2026 (Blog du Modérateur, Abondance, Web Ranker, Citeme se classent) ; volume non mesuré, à demander à Simon (Semrush)" },
-    { "query": "claude sheets", "volume": null, "difficulty": null, "target": "/blog/claude-sheets-whiteboards-data", "cluster": "claude", "priority": 2, "source": "Veille du 12 novembre 2026 : annonce Anthropic du 10 novembre 2026 (claude.com) ; requête cherchée le 12 novembre 2026 (IT-Connect, JustGeek, Martin Cid, NXUS, KultureGeek se classent) ; volume non mesuré, à demander à Simon (Semrush)" },
-    { "query": "plafond dépense api openai", "volume": null, "difficulty": null, "target": "/blog/plafond-depense-api-ia", "cluster": "automatisation", "priority": 2, "source": "Création du 14 novembre 2026 (entrée idee-plafond-depense-api-ia) ; requête cherchée le 14 novembre 2026 (guide OpenAI des limites de dépenses, aide OpenAI, omidsaffari.com, tokenfeed.pages.dev, satgate.io, xray.tech se classent) ; volume non mesuré, à demander à Simon (Semrush)" },
-    { "query": "n8n error workflow", "volume": null, "difficulty": null, "target": "/blog/workflow-erreur-n8n-ia", "cluster": "automatisation", "priority": 2, "source": "Création du 20 novembre 2026 (entrée idee-workflow-erreur-n8n-appels-ia) ; requête cherchée le 20 novembre 2026 (blog n8n, OpenClassrooms, rapidevelopers.com, horadecodar.com.br, kirako.ai, infinitelab.fr se classent) ; volume non mesuré, à demander à Simon (Semrush)" },
-    { "query": "claude for manufacturing", "volume": null, "difficulty": null, "target": "/blog/claude-for-manufacturing-pme", "cluster": "claude", "priority": 2, "source": "Veille du 13 novembre 2026 : annonce Anthropic du 12 novembre 2026 ; requête cherchée le 15 novembre 2026 (claude.com, Manufacturing Dive, unite.ai, logistiqueformation.fr, pasqualepillitteri.it se classent) ; volume non mesuré, à demander à Simon (Semrush)" },
-    { "query": "claude meetings", "volume": null, "difficulty": null, "target": "/blog/claude-meetings-pme", "cluster": "claude", "priority": 2, "source": "Veille du 13 novembre 2026 : aide de Claude « Use Claude Meetings » et annonce Anthropic du 12 novembre 2026 ; requête cherchée le 13 novembre 2026 (Clubic, ZDNet, com-quotidiens.fr, TekyMag, Brief IA se classent) ; volume non mesuré, à demander à Simon (Semrush)" },
-    { "query": "dossier de compétences ia", "volume": null, "difficulty": null, "target": "/blog/dossier-competences-ia-esn", "cluster": "secteurs", "priority": 3, "source": "Calendrier éditorial, entrée idee-dossier-competences-ia-esn (recherche du 1er novembre 2026), rédigé le 11 novembre 2026 ; volume non mesuré, à demander à Simon (Semrush)" },
-    { "query": "claude team vs chatgpt business", "volume": null, "difficulty": null, "target": "/blog/claude-chatgpt-mistral-offres-equipe", "cluster": "claude", "priority": 2, "source": "Page pivot de la série « IA par métier », créée le 1er novembre 2026 à la demande de Simon ; volume non mesuré, à demander à Simon (Semrush)" },
-    { "query": "ai mode", "volume": 6600, "difficulty": 39, "target": "/blog/ai-mode-google-ai-overviews-pme", "cluster": "geo", "priority": 2, "source": "Semrush France, Positions de noiise.com, 9 octobre 2026" },
-    { "query": "price lovable", "volume": 390, "difficulty": 27, "target": "/ressources/comparatifs/lovable-vs-developpement-sur-mesure", "cluster": "application-metier", "priority": 2, "source": "Semrush France, export lucasfonseque.fr, 9 octobre 2026" },
-    { "query": "prompt optimizer", "volume": 320, "difficulty": 37, "target": "/ressources/guides/prompt-engineering-pme", "cluster": "formation", "priority": 2, "source": "Semrush France, export ia4ops.com, 9 octobre 2026" },
-    { "query": "surveiller visibilité ia chatgpt", "volume": 480, "difficulty": 14, "target": "/ressources/guides/mesurer-visibilite-ia-chatgpt", "cluster": "geo", "priority": 2, "source": "Semrush France, Positions de noiise.com, 9 octobre 2026" },
-    { "query": "apparaître dans chatgpt", "volume": null, "difficulty": null, "target": "/blog/apparaitre-dans-chatgpt-pme", "cluster": "geo", "priority": 2, "source": "Calendrier éditorial, entrée w43-article-apparaitre-dans-chatgpt-pme ; volume non mesuré, 19 octobre 2026" },
-    { "query": "quelle ia choisir en 2026", "volume": 110, "difficulty": 22, "target": "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme", "cluster": "claude", "priority": 2, "source": "Semrush France, export lucasfonseque.fr, 9 octobre 2026" },
-    { "query": "geo local", "volume": 210, "difficulty": 18, "target": "/blog/geo-local-recommande-par-les-ia", "cluster": "geo", "priority": 2, "source": "Semrush France, Positions de noiise.com, 9 octobre 2026" },
-    { "query": "google contenu ia", "volume": 90, "difficulty": 34, "target": "/blog/contenu-ia-seo-google-penalise", "cluster": "seo", "priority": 2, "source": "Semrush France, Positions de noiise.com, 9 octobre 2026" },
-    { "query": "poc mvp", "volume": 70, "difficulty": 8, "target": "/blog/poc-ou-mvp-differences-pme", "cluster": "application-metier", "priority": 2, "source": "Semrush France, export lucasfonseque.fr, 9 octobre 2026" },
-    { "query": "claude et wordpress", "volume": 170, "difficulty": 21, "target": "/blog/connecter-claude-wordpress-shopify-mcp", "cluster": "claude", "priority": 2, "source": "Semrush France, export lucasfonseque.fr, 9 octobre 2026" },
-    { "query": "chatgpt shopping", "volume": 260, "difficulty": 23, "target": "/blog/chatgpt-shopping-e-commerce", "cluster": "geo", "priority": 2, "source": "Semrush France, Positions de noiise.com, 9 octobre 2026" },
-    { "query": "audit geo", "volume": 320, "difficulty": 13, "target": "/ressources/guides/audit-geo-pme", "cluster": "geo", "priority": 2, "source": "Semrush France, Positions de noiise.com, 9 octobre 2026" },
-    { "query": "refonte logiciel", "volume": 480, "difficulty": 10, "target": "/ressources/guides/refonte-logiciel-metier", "cluster": "application-metier", "priority": 2, "source": "Semrush France, Positions de noiise.com, 9 octobre 2026" },
-    { "query": "application métier exemple", "volume": null, "difficulty": null, "target": "/blog/application-metier-exemples-pme", "cluster": "application-metier", "priority": 2, "source": "Article satellite de /services/applications-internes (qui garde « application métier sur mesure » ; « application métier » basculée sur le billet le 26 octobre 2026), publié le 16 octobre 2026 ; volume non mesuré par Semrush, à mesurer au brief" },
-    { "query": "comment être référencé sur perplexity", "volume": 170, "difficulty": 6, "target": "/blog/etre-cite-par-perplexity", "cluster": "geo", "priority": 2, "source": "Semrush France, Positions de noiise.com, 9 octobre 2026" },
-    { "query": "automatisation factures fournisseurs", "volume": null, "difficulty": null, "target": "/ressources/guides/automatisation-factures-fournisseurs-pme", "cluster": "automatisation", "priority": 2, "source": "Recherche en ligne du 16 octobre 2026 (concurrents suivis) ; volume non mesuré par Semrush, à mesurer au prochain brief" },
-    { "query": "ia réponse appel d'offres", "volume": null, "difficulty": null, "target": "/blog/ia-reponse-appel-offres-pme", "cluster": "agents-ia", "priority": 2, "source": "Recherche en ligne du 16 octobre 2026 (concurrents suivis) ; volume non mesuré par Semrush, à mesurer au prochain brief" },
-    { "query": "relance factures impayées automatique", "volume": null, "difficulty": null, "target": "/blog/relance-factures-impayees-automatique-pme", "cluster": "automatisation-commerciale", "priority": 2, "source": "Recherche en ligne du 16 octobre 2026 (concurrents suivis) ; volume non mesuré par Semrush, à mesurer au prochain brief" },
-    { "query": "ai act obligations entreprise", "volume": null, "difficulty": null, "target": "/blog/ai-act-pme-utilisatrice-ia", "cluster": "conformite", "priority": 2, "source": "Satellite du guide AI Act, publié le 16 octobre 2026 ; volume non mesuré" },
-    { "query": "facture électronique réception PME", "volume": null, "difficulty": null, "target": "/blog/facture-electronique-reception-pme", "cluster": "automatisation", "priority": 2, "source": "Satellite du guide factures fournisseurs, planifié le 16 octobre 2026 ; volume non mesuré par Semrush, à mesurer au brief" },
-    { "query": "saisie automatique factures", "volume": null, "difficulty": null, "target": "/blog/saisie-automatique-factures-pme", "cluster": "automatisation", "priority": 2, "source": "Satellite du guide factures fournisseurs, planifié le 16 octobre 2026 ; volume non mesuré par Semrush, à mesurer au brief ; cible renseignée le 5 novembre 2026 (création du jour)" },
-    { "query": "claude duet", "volume": null, "difficulty": null, "target": "/ressources/guides/claude-duet", "cluster": "claude", "priority": 1, "source": "Ajout du 24 octobre 2026 pour les pages Duet, dots, Hermes Agent et OpenClaw ; volume non mesuré par Semrush, à mesurer au prochain brief" },
-    { "query": "claude duet prix", "volume": null, "difficulty": null, "target": "/ressources/guides/claude-duet", "cluster": "claude", "priority": 2, "source": "Ajout du 24 octobre 2026 pour les pages Duet, dots, Hermes Agent et OpenClaw ; volume non mesuré par Semrush, à mesurer au prochain brief" },
-    { "query": "claude duet france", "volume": null, "difficulty": null, "target": "/blog/claude-duet-france-acces-rgpd", "cluster": "claude", "priority": 2, "source": "Ajout du 24 octobre 2026 pour les pages Duet, dots, Hermes Agent et OpenClaw ; volume non mesuré par Semrush, à mesurer au prochain brief" },
-    { "query": "chatgpt dots", "volume": null, "difficulty": null, "target": "/ressources/guides/chatgpt-dots", "cluster": "agents-ia", "priority": 1, "source": "Ajout du 24 octobre 2026 pour les pages Duet, dots, Hermes Agent et OpenClaw ; volume non mesuré par Semrush, à mesurer au prochain brief" },
-    { "query": "openai dots", "volume": null, "difficulty": null, "target": "/ressources/guides/chatgpt-dots", "cluster": "agents-ia", "priority": 2, "source": "Ajout du 24 octobre 2026 pour les pages Duet, dots, Hermes Agent et OpenClaw ; volume non mesuré par Semrush, à mesurer au prochain brief" },
-    { "query": "chatgpt dots prix", "volume": null, "difficulty": null, "target": "/ressources/guides/chatgpt-dots", "cluster": "agents-ia", "priority": 2, "source": "Ajout du 24 octobre 2026 pour les pages Duet, dots, Hermes Agent et OpenClaw ; volume non mesuré par Semrush, à mesurer au prochain brief" },
-    { "query": "claude duet vs chatgpt dots", "volume": null, "difficulty": null, "target": "/ressources/comparatifs/claude-duet-vs-chatgpt-dots", "cluster": "agents-ia", "priority": 1, "source": "Ajout du 24 octobre 2026 pour les pages Duet, dots, Hermes Agent et OpenClaw ; volume non mesuré par Semrush, à mesurer au prochain brief" },
-    { "query": "hermes agent", "volume": null, "difficulty": null, "target": "/ressources/guides/hermes-agent", "cluster": "agents-ia", "priority": 1, "source": "Ajout du 24 octobre 2026 pour les pages Duet, dots, Hermes Agent et OpenClaw ; volume non mesuré par Semrush, à mesurer au prochain brief" },
-    { "query": "hermes agent installation", "volume": null, "difficulty": null, "target": "/ressources/guides/hermes-agent", "cluster": "agents-ia", "priority": 2, "source": "Ajout du 24 octobre 2026 pour les pages Duet, dots, Hermes Agent et OpenClaw ; volume non mesuré par Semrush, à mesurer au prochain brief" },
-    { "query": "hermes agent entreprise", "volume": null, "difficulty": null, "target": "/services/integration-hermes-agent", "cluster": "agents-ia", "priority": 2, "source": "Ajout du 24 octobre 2026 pour les pages Duet, dots, Hermes Agent et OpenClaw ; volume non mesuré par Semrush, à mesurer au prochain brief" },
-    { "query": "openclaw", "volume": null, "difficulty": null, "target": "/ressources/guides/openclaw", "cluster": "agents-ia", "priority": 1, "source": "Ajout du 24 octobre 2026 pour les pages Duet, dots, Hermes Agent et OpenClaw ; volume non mesuré par Semrush, à mesurer au prochain brief" },
-    { "query": "openclaw 2.0", "volume": null, "difficulty": null, "target": "/ressources/guides/openclaw", "cluster": "agents-ia", "priority": 1, "source": "Ajout du 24 octobre 2026 pour les pages Duet, dots, Hermes Agent et OpenClaw ; volume non mesuré par Semrush, à mesurer au prochain brief" },
-    { "query": "openclaw sécurité", "volume": null, "difficulty": null, "target": "/ressources/guides/openclaw", "cluster": "agents-ia", "priority": 2, "source": "Ajout du 24 octobre 2026 pour les pages Duet, dots, Hermes Agent et OpenClaw ; volume non mesuré par Semrush, à mesurer au prochain brief" },
-    { "query": "agent ia accès identifiants entreprise", "volume": null, "difficulty": null, "target": "/blog/acces-agent-ia-identifiants-pme", "cluster": "agents-ia", "priority": 2, "source": "Ajout du 4 novembre 2026 (création du jour, calendrier éditorial) ; volume non mesuré par Semrush, à demander à Simon" },
-    { "query": "veille réglementaire automatisée", "volume": null, "difficulty": null, "target": "/blog/veille-reglementaire-automatisee-pme", "cluster": "automatisation", "priority": 2, "source": "Ajout du 4 novembre 2026 (création du jour, calendrier éditorial) ; volume non mesuré par Semrush, à demander à Simon" },
-    { "query": "hermes agent vs openclaw", "volume": null, "difficulty": null, "target": "/ressources/comparatifs/hermes-agent-vs-openclaw", "cluster": "agents-ia", "priority": 1, "source": "Ajout du 24 octobre 2026 pour les pages Duet, dots, Hermes Agent et OpenClaw ; volume non mesuré par Semrush, à mesurer au prochain brief" },
-    { "query": "agent ia open source entreprise", "volume": null, "difficulty": null, "target": "/blog/agents-ia-toujours-actifs-pme", "cluster": "agents-ia", "priority": 2, "source": "Ajout du 24 octobre 2026 pour les pages Duet, dots, Hermes Agent et OpenClaw ; volume non mesuré par Semrush, à mesurer au prochain brief" },
-    { "query": "agent ia toujours actif", "volume": null, "difficulty": null, "target": "/blog/agents-ia-toujours-actifs-pme", "cluster": "agents-ia", "priority": 2, "source": "Ajout du 24 octobre 2026 pour les pages Duet, dots, Hermes Agent et OpenClaw ; volume non mesuré par Semrush, à mesurer au prochain brief" },
-    { "query": "agent ia open source", "volume": null, "difficulty": null, "target": "/services/agents-ia-open-source", "cluster": "agents-ia", "priority": 2, "source": "Ajout du 24 octobre 2026 pour les pages Duet, dots, Hermes Agent et OpenClaw ; volume non mesuré par Semrush, à mesurer au prochain brief" },
-    { "query": "agence agent ia open source", "volume": null, "difficulty": null, "target": "/services/agents-ia-open-source", "cluster": "agents-ia", "priority": 1, "source": "Ajout du 24 octobre 2026 (offre agents IA open source et billets d'appui) ; volume non mesuré par Semrush, à mesurer au prochain brief" },
-    { "query": "agent ia auto-hébergé", "volume": null, "difficulty": null, "target": "/services/agents-ia-open-source", "cluster": "agents-ia", "priority": 2, "source": "Ajout du 24 octobre 2026 (offre agents IA open source et billets d'appui) ; volume non mesuré par Semrush, à mesurer au prochain brief" },
-    { "query": "openclaw entreprise", "volume": null, "difficulty": null, "target": "/services/integration-openclaw", "cluster": "agents-ia", "priority": 1, "source": "Ajout du 24 octobre 2026 (offre agents IA open source et billets d'appui) ; volume non mesuré par Semrush, à mesurer au prochain brief" },
-    { "query": "agence openclaw", "volume": null, "difficulty": null, "target": "/services/integration-openclaw", "cluster": "agents-ia", "priority": 2, "source": "Ajout du 24 octobre 2026 (offre agents IA open source et billets d'appui) ; volume non mesuré par Semrush, à mesurer au prochain brief" },
-    { "query": "installer openclaw", "volume": null, "difficulty": null, "target": "/blog/openclaw-2-0-migration-changements", "cluster": "agents-ia", "priority": 3, "source": "Ajout du 24 octobre 2026 (offre agents IA open source et billets d'appui) ; volume non mesuré par Semrush, à mesurer au prochain brief" },
-    { "query": "agence hermes agent", "volume": null, "difficulty": null, "target": "/services/integration-hermes-agent", "cluster": "agents-ia", "priority": 2, "source": "Ajout du 24 octobre 2026 (offre agents IA open source et billets d'appui) ; volume non mesuré par Semrush, à mesurer au prochain brief" },
-    { "query": "claude duet cowork", "volume": null, "difficulty": null, "target": "/blog/claude-duet-ou-claude-cowork", "cluster": "claude", "priority": 2, "source": "Ajout du 24 octobre 2026 (offre agents IA open source et billets d'appui) ; volume non mesuré par Semrush, à mesurer au prochain brief" },
-    { "query": "claude duet rgpd", "volume": null, "difficulty": null, "target": "/blog/claude-duet-france-acces-rgpd", "cluster": "claude", "priority": 2, "source": "Ajout du 24 octobre 2026 (offre agents IA open source et billets d'appui) ; volume non mesuré par Semrush, à mesurer au prochain brief" },
-    { "query": "anthropic duet", "volume": null, "difficulty": null, "target": "/blog/claude-duet-lancement-21-octobre-2026", "cluster": "claude", "priority": 2, "source": "Ajout du 24 octobre 2026 (offre agents IA open source et billets d'appui) ; volume non mesuré par Semrush, à mesurer au prochain brief" },
-    { "query": "chatgpt dots europe", "volume": null, "difficulty": null, "target": "/blog/chatgpt-dots-europe-disponibilite", "cluster": "agents-ia", "priority": 1, "source": "Ajout du 24 octobre 2026 (offre agents IA open source et billets d'appui) ; volume non mesuré par Semrush, à mesurer au prochain brief" },
-    { "query": "chatgpt dots règles", "volume": null, "difficulty": null, "target": "/blog/chatgpt-dots-regles-personnalisees-approbations", "cluster": "agents-ia", "priority": 2, "source": "Ajout du 24 octobre 2026 (offre agents IA open source et billets d'appui) ; volume non mesuré par Semrush, à mesurer au prochain brief" },
-    { "query": "installer hermes agent", "volume": null, "difficulty": null, "target": "/blog/installer-hermes-agent-premier-agent", "cluster": "agents-ia", "priority": 1, "source": "Ajout du 24 octobre 2026 (offre agents IA open source et billets d'appui) ; volume non mesuré par Semrush, à mesurer au prochain brief" },
-    { "query": "hermes agent v0.22", "volume": null, "difficulty": null, "target": "/blog/hermes-agent-v0-22-modeles-locaux-connecteurs", "cluster": "agents-ia", "priority": 3, "source": "Ajout du 24 octobre 2026 (offre agents IA open source et billets d'appui) ; volume non mesuré par Semrush, à mesurer au prochain brief" },
-    { "query": "openclaw 2.0 migration", "volume": null, "difficulty": null, "target": "/blog/openclaw-2-0-migration-changements", "cluster": "agents-ia", "priority": 2, "source": "Ajout du 24 octobre 2026 (offre agents IA open source et billets d'appui) ; volume non mesuré par Semrush, à mesurer au prochain brief" },
-    { "query": "sécuriser openclaw", "volume": null, "difficulty": null, "target": "/blog/securiser-openclaw-checklist", "cluster": "agents-ia", "priority": 1, "source": "Ajout du 24 octobre 2026 (offre agents IA open source et billets d'appui) ; volume non mesuré par Semrush, à mesurer au prochain brief" },
-    { "query": "agent ia toujours actif exemples", "volume": null, "difficulty": null, "target": "/blog/agent-ia-toujours-actif-missions-pme", "cluster": "agents-ia", "priority": 2, "source": "Ajout du 24 octobre 2026 (offre agents IA open source et billets d'appui) ; volume non mesuré par Semrush, à mesurer au prochain brief" },
-    { "query": "coût agent ia toujours actif", "volume": null, "difficulty": null, "target": "/blog/cout-agent-ia-toujours-actif", "cluster": "agents-ia", "priority": 2, "source": "Ajout du 24 octobre 2026 (offre agents IA open source et billets d'appui) ; volume non mesuré par Semrush, à mesurer au prochain brief" },
-    { "query": "reconstitution adresse email professionnelle cnil", "volume": null, "difficulty": null, "target": "/blog/cnil-email-professionnel-devine-prospection", "cluster": "commercial", "priority": 2, "source": "Ajout du 2 novembre 2026 (fiche CNIL du 16 octobre 2026) ; Semrush France, desktop, relevé par Simon le 2 novembre 2026 : aucune donnée (pas de volume ni de difficulté)" },
-    { "query": "connecter claude à shopify", "volume": 20, "difficulty": null, "target": "/blog/connecter-claude-wordpress-shopify-mcp", "cluster": "claude", "priority": 2, "source": "Ajout du 2 novembre 2026 : requêtes Search Console « claude connect shopify », « comment connecter claude a shopify », « connecter shopify a claude » (collecte du 27 octobre 2026) ; Semrush France, desktop, relevé par Simon le 2 novembre 2026 : volume 20, difficulté non disponible, CPC 1,96 €" },
-    { "query": "consultation cse ia", "volume": null, "difficulty": null, "target": "/blog/consultation-cse-ia", "cluster": "conformite", "priority": 2, "source": "Ajout du 6 novembre 2026 (création de la page, entrée du calendrier) ; volume non mesuré par Semrush, à mesurer au prochain brief" },
-    { "query": "expertise cse nouvelles technologies ia", "volume": null, "difficulty": null, "target": "/blog/expertise-cse-projet-ia", "cluster": "conformite", "priority": 2, "source": "Ajout du 23 novembre 2026 (création de la page, entrée idee-expertise-cse-projet-ia du calendrier) ; volume non mesuré par Semrush, à mesurer au prochain brief" },
-    { "query": "faux avis ia", "volume": null, "difficulty": null, "target": "/blog/faux-avis-ia", "cluster": "conformite", "priority": 2, "source": "Ajout du 6 novembre 2026 (création de la page, entrée du calendrier) ; volume non mesuré par Semrush, à mesurer au prochain brief" },
-    { "query": "risques claude pme", "volume": null, "difficulty": null, "target": "/blog/risques-claude-pme", "cluster": "claude", "priority": 2, "source": "Ajout du 7 novembre 2026 (création de la page, entrée w49-article-risques-claude-pme ; impressions vues dans docs/seo/data/2026-W42/gsc-performance.json) ; volume non mesuré par Semrush" },
-    { "query": "questionnaire de sécurité fournisseur ia", "volume": null, "difficulty": null, "target": "/blog/questionnaire-securite-ia", "cluster": "conformite", "priority": 2, "source": "Ajout du 7 novembre 2026 (création de la page, entrée idee-questionnaire-securite-ia) ; volume non mesuré par Semrush" },
-    { "query": "ai-caiq", "volume": null, "difficulty": null, "target": "/blog/ai-caiq-questionnaire-ia", "cluster": "conformite", "priority": 2, "source": "Ajout du 16 novembre 2026 (création de la page, entrée idee-ai-caiq-questionnaire-ia) ; volume non mesuré par Semrush" },
-    { "query": "clé api sécurité automatisation", "volume": null, "difficulty": null, "target": "/blog/cles-api-automatisation-securite-pme", "cluster": "automatisation", "priority": 2, "source": "Ajout du 8 novembre 2026 (création de la page, entrée idee-cles-api-automatisations-secrets) ; volume non mesuré par Semrush" },
-    { "query": "registre maîtrise ia article 4", "volume": null, "difficulty": null, "target": "/blog/registre-maitrise-ia-article-4", "cluster": "conformite", "priority": 2, "source": "Ajout du 9 novembre 2026 (création de la page, entrée idee-registre-maitrise-ia-article-4) ; volume non mesuré par Semrush" },
-    { "query": "image publicitaire ia obligation de signaler", "volume": null, "difficulty": null, "target": "/blog/ai-act-article-50-images-publicitaires", "cluster": "conformite", "priority": 2, "source": "Ajout du 9 novembre 2026 (création de la page, entrée idee-ai-act-article-50-images-publicitaires) ; volume non mesuré par Semrush" },
-    { "query": "bloquer entraînement ia robots.txt", "volume": null, "difficulty": null, "target": "/blog/bloquer-entrainement-ia-robots-txt", "cluster": "geo", "priority": 2, "source": "Ajout du 10 novembre 2026 (création de la page, entrée idee-signal-commun-entrainement-ia) ; volume non mesuré par Semrush" },
-    { "query": "départ salarié compte ia personnel", "volume": null, "difficulty": null, "target": "/blog/comptes-ia-personnels-depart-salarie", "cluster": "conformite", "priority": 2, "source": "Ajout du 10 novembre 2026 (création de la page, entrée idee-comptes-ia-personnels-depart-salarie) ; volume non mesuré par Semrush" },
-    { "query": "intérêt légitime ia rgpd", "volume": null, "difficulty": null, "target": "/blog/cepd-interet-legitime-ia-lignes-directrices", "cluster": "conformite", "priority": 2, "source": "Ajout du 17 novembre 2026 (actualité, entrée actu-2026-11-17-cepd-interet-legitime-ia) ; volume non mesuré par Semrush" },
-    { "query": "gpt-6.2", "volume": null, "difficulty": null, "target": "/blog/gpt-6-2-astra-sol-pme", "cluster": "claude", "priority": 2, "source": "Création du 19 novembre 2026 ; volume non mesuré, à demander à Simon (Semrush)" },
-    { "query": "gpt-6.2 astra", "volume": null, "difficulty": null, "target": "/blog/gpt-6-2-astra-sol-pme", "cluster": "claude", "priority": 2, "source": "Création du 19 novembre 2026 ; volume non mesuré, à demander à Simon (Semrush)" },
-    { "query": "mods claude code", "volume": null, "difficulty": null, "target": "/ressources/guides/claude-code-mods", "cluster": "claude", "priority": 2, "source": "Création du 19 novembre 2026 ; volume non mesuré, à demander à Simon (Semrush)" },
-    { "query": "claude code mod", "volume": null, "difficulty": null, "target": "/ressources/guides/claude-code-mods", "cluster": "claude", "priority": 3, "source": "Création du 19 novembre 2026 ; volume non mesuré, à demander à Simon (Semrush)" },
-    { "query": "mods claude code sécurité", "volume": null, "difficulty": null, "target": "/blog/mods-claude-code-securite-pme", "cluster": "claude", "priority": 3, "source": "Création du 19 novembre 2026 ; volume non mesuré, à demander à Simon (Semrush)" },
-    { "query": "chatgpt business", "volume": null, "difficulty": null, "target": "/ressources/guides/chatgpt-business", "cluster": "claude", "priority": 2, "source": "Ajout du 19 novembre 2026 (création du guide à la demande de Simon, entrée idee-guide-chatgpt-business) ; la requête était classée en position 54 sur /blog/fiche-entreprise-chatgpt-business-hub (collecte du 18 novembre 2026), page d'un autre produit ; volume non mesuré par Semrush" },
-    { "query": "migrer compte chatgpt personnel vers business", "volume": null, "difficulty": null, "target": "/blog/fusionner-chatgpt-personnel-business", "cluster": "claude", "priority": 3, "source": "Ajout du 21 novembre 2026 (entrée idee-migrer-chatgpt-personnel-business) ; SERP française lue le 21 novembre 2026 : seules les pages d'aide d'OpenAI se classent ; volume non mesuré, à demander à Simon (Semrush)" },
-    { "query": "actions personnalisées gpt plugin", "volume": null, "difficulty": null, "target": "/blog/gpt-actions-personnalisees-mcp", "cluster": "claude", "priority": 3, "source": "Ajout du 22 novembre 2026 (entrée idee-retrait-gpt-personnalises-plugins-pme, angle recentré sur les actions) ; SERP française lue le 22 novembre 2026 : six pages tierces sur le retrait des GPT, aucune ne traite l'authentification des actions ; volume non mesuré, à demander à Simon (Semrush)" }
+    {
+      "query": "agence automatisation",
+      "volume": 720,
+      "difficulty": 19,
+      "cpc": 2.22,
+      "target": "/services/systemes-operationnels-ia",
+      "cluster": "automatisation",
+      "priority": 1
+    },
+    {
+      "query": "agence automatisation ia",
+      "volume": 480,
+      "difficulty": 31,
+      "cpc": 2.83,
+      "target": "/services/systemes-operationnels-ia",
+      "cluster": "automatisation",
+      "priority": 2
+    },
+    {
+      "query": "automatisation ia",
+      "volume": 1000,
+      "difficulty": 31,
+      "cpc": 2.71,
+      "target": "/services/automatisations",
+      "cluster": "automatisation",
+      "priority": 2
+    },
+    {
+      "query": "automatisation des processus",
+      "volume": 1300,
+      "difficulty": 36,
+      "target": "/services/automatisations",
+      "cluster": "automatisation",
+      "priority": 2
+    },
+    {
+      "query": "automatisation des processus métiers",
+      "volume": 590,
+      "difficulty": 36,
+      "target": "/blog/automatisation-processus-metiers-pme",
+      "cluster": "automatisation",
+      "priority": 2
+    },
+    {
+      "query": "workflow ia",
+      "volume": 210,
+      "difficulty": 12,
+      "target": "/blog/workflow-ia-exemples-pme",
+      "cluster": "automatisation",
+      "priority": 2
+    },
+    {
+      "query": "application métier",
+      "volume": 1300,
+      "difficulty": 17,
+      "target": "/blog/application-metier-exemples-pme",
+      "cluster": "application-metier",
+      "priority": 1,
+      "source": "Cible basculée le 26 octobre 2026 (PR SEO 2026-W44) : Google classe le billet sur cette requête (144 impressions, position 29,5 sur 28 jours, collecte du 25 octobre 2026) et la page de résultats lue le 26 octobre est dominée par des définitions ; la page service garde « application métier sur mesure »"
+    },
+    {
+      "query": "application métier sur mesure",
+      "volume": 880,
+      "difficulty": 14,
+      "target": "/services/applications-internes",
+      "cluster": "application-metier",
+      "priority": 1
+    },
+    {
+      "query": "logiciel sur mesure",
+      "volume": 1000,
+      "difficulty": 17,
+      "target": "/services/applications-internes",
+      "cluster": "application-metier",
+      "priority": 2
+    },
+    {
+      "query": "développement logiciel sur mesure",
+      "volume": 1300,
+      "difficulty": 23,
+      "target": "/services/applications-internes",
+      "cluster": "application-metier",
+      "priority": 2
+    },
+    {
+      "query": "agence n8n",
+      "volume": 320,
+      "difficulty": 8,
+      "target": "/services/automatisation-n8n",
+      "cluster": "n8n",
+      "priority": 1,
+      "cpc": 1.08
+    },
+    {
+      "query": "automatisation n8n",
+      "volume": 210,
+      "difficulty": 28,
+      "target": "/services/automatisation-n8n",
+      "cluster": "n8n",
+      "priority": 1
+    },
+    {
+      "query": "n8n prix",
+      "volume": 170,
+      "difficulty": 17,
+      "target": "/ressources/guides/n8n-prix",
+      "cluster": "n8n",
+      "priority": 2
+    },
+    {
+      "query": "n8n vs make",
+      "volume": 590,
+      "difficulty": 31,
+      "target": "/ressources/comparatifs/n8n-vs-make",
+      "cluster": "n8n",
+      "priority": 1
+    },
+    {
+      "query": "n8n vs zapier",
+      "volume": 390,
+      "difficulty": 26,
+      "target": "/blog/avis-n8n-vs-zapier-2026",
+      "cluster": "n8n",
+      "priority": 2
+    },
+    {
+      "query": "automatisation make",
+      "volume": 480,
+      "difficulty": 24,
+      "target": "/services/automatisation-make",
+      "cluster": "make",
+      "priority": 1
+    },
+    {
+      "query": "agence make",
+      "volume": 320,
+      "difficulty": 25,
+      "target": "/services/automatisation-make",
+      "cluster": "make",
+      "priority": 1,
+      "cpc": 0
+    },
+    {
+      "query": "agence chatbot",
+      "volume": 320,
+      "difficulty": 8,
+      "target": "/services/agent-support-client",
+      "cluster": "service-client",
+      "priority": 1
+    },
+    {
+      "query": "chatbot service client",
+      "volume": 320,
+      "difficulty": 33,
+      "target": "/services/agent-support-client",
+      "cluster": "service-client",
+      "priority": 2
+    },
+    {
+      "query": "automatisation service client",
+      "volume": 260,
+      "difficulty": 23,
+      "target": "/cas-usages/support-sav",
+      "cluster": "service-client",
+      "priority": 2
+    },
+    {
+      "query": "automatisation crm",
+      "volume": 390,
+      "difficulty": 13,
+      "target": "/services/crm-scoring-routing",
+      "cluster": "commercial",
+      "priority": 1
+    },
+    {
+      "query": "crm sur mesure",
+      "volume": 1000,
+      "difficulty": null,
+      "target": "/ressources/comparatifs/crm-sur-mesure-vs-crm-du-marche",
+      "cluster": "commercial",
+      "priority": 2
+    },
+    {
+      "query": "prospection automatisée",
+      "volume": 260,
+      "difficulty": 16,
+      "target": "/services/prospection-automatisee",
+      "cluster": "commercial",
+      "priority": 1
+    },
+    {
+      "query": "prospection ia",
+      "volume": 210,
+      "difficulty": 27,
+      "target": "/services/prospection-automatisee",
+      "cluster": "commercial",
+      "priority": 2
+    },
+    {
+      "query": "devis automatisé",
+      "volume": 320,
+      "difficulty": null,
+      "target": "/ressources/guides/devis-automatise",
+      "cluster": "commercial",
+      "priority": 2
+    },
+    {
+      "query": "consultant ia",
+      "volume": 720,
+      "difficulty": 43,
+      "cpc": 2.64,
+      "target": "/services/consultant-ia-claude",
+      "cluster": "conseil",
+      "priority": 2
+    },
+    {
+      "query": "freelance ia",
+      "volume": 260,
+      "difficulty": 14,
+      "target": "/services/consultant-ia-claude",
+      "cluster": "conseil",
+      "priority": 2,
+      "cpc": 1.09
+    },
+    {
+      "query": "conseil intelligence artificielle",
+      "volume": 210,
+      "difficulty": 24,
+      "target": "/services/consultant-ia-claude",
+      "cluster": "conseil",
+      "priority": 2
+    },
+    {
+      "query": "cabinet conseil ia",
+      "volume": 210,
+      "difficulty": 31,
+      "target": "/services/consultant-ia-claude",
+      "cluster": "conseil",
+      "priority": 2
+    },
+    {
+      "query": "intégration ia",
+      "volume": 260,
+      "difficulty": 20,
+      "target": "/services/integration-claude",
+      "cluster": "claude",
+      "priority": 2
+    },
+    {
+      "query": "claude entreprise",
+      "volume": 590,
+      "difficulty": 29,
+      "cpc": 2.84,
+      "target": "/services/integration-claude",
+      "cluster": "claude",
+      "priority": 1
+    },
+    {
+      "query": "claude vs chatgpt",
+      "volume": 1600,
+      "difficulty": 25,
+      "target": "/ressources/comparatifs/claude-vs-chatgpt-pme",
+      "cluster": "claude",
+      "priority": 1
+    },
+    {
+      "query": "claude ou chatgpt",
+      "volume": 880,
+      "difficulty": 20,
+      "target": "/ressources/comparatifs/claude-vs-chatgpt-pme",
+      "cluster": "claude",
+      "priority": 2
+    },
+    {
+      "query": "chatgpt vs claude",
+      "volume": 390,
+      "difficulty": 21,
+      "target": "/ressources/comparatifs/claude-vs-chatgpt-pme",
+      "cluster": "claude",
+      "priority": 2
+    },
+    {
+      "query": "claude cowork",
+      "volume": 18100,
+      "difficulty": 20,
+      "target": "/ressources/guides/claude-cowork",
+      "cluster": "claude",
+      "priority": 2
+    },
+    {
+      "query": "claude cowork prix",
+      "volume": 140,
+      "difficulty": 14,
+      "target": "/ressources/guides/claude-cowork",
+      "cluster": "claude",
+      "priority": 2
+    },
+    {
+      "query": "claude prix",
+      "volume": 1300,
+      "difficulty": 32,
+      "target": "/ressources/guides/claude-fonctionnalites-pme",
+      "cluster": "claude",
+      "priority": 1
+    },
+    {
+      "query": "claude max",
+      "volume": 1600,
+      "difficulty": 20,
+      "target": "/blog/claude-max-pme",
+      "cluster": "claude",
+      "priority": 1
+    },
+    {
+      "query": "claude pro",
+      "volume": 3600,
+      "difficulty": 35,
+      "target": "/ressources/guides/claude-fonctionnalites-pme",
+      "cluster": "claude",
+      "priority": 2
+    },
+    {
+      "query": "claude pro vs team",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/claude-pro-vs-team",
+      "cluster": "claude",
+      "priority": 2
+    },
+    {
+      "query": "claude max ou team",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/claude-max-ou-team-petite-equipe",
+      "cluster": "claude",
+      "priority": 1,
+      "source": "Ajout du 10 novembre 2026 (création de la page /blog/claude-max-ou-team-petite-equipe, angle Max ou Ultra contre Team ; requêtes voisines vues sur claude-pro-vs-team dans docs/seo/data/2026-W46/gsc-performance.json : claude team premium, claude team standard vs premium) ; volume non mesuré par Semrush"
+    },
+    {
+      "query": "claude max vs team",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/claude-max-ou-team-petite-equipe",
+      "cluster": "claude",
+      "priority": 2,
+      "source": "Ajout du 10 novembre 2026 (création de la page /blog/claude-max-ou-team-petite-equipe, angle Max ou Ultra contre Team ; requêtes voisines vues sur claude-pro-vs-team dans docs/seo/data/2026-W46/gsc-performance.json : claude team premium, claude team standard vs premium) ; volume non mesuré par Semrush"
+    },
+    {
+      "query": "claude team premium vs max",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/claude-max-ou-team-petite-equipe",
+      "cluster": "claude",
+      "priority": 2,
+      "source": "Ajout du 10 novembre 2026 (création de la page /blog/claude-max-ou-team-petite-equipe, angle Max ou Ultra contre Team ; requêtes voisines vues sur claude-pro-vs-team dans docs/seo/data/2026-W46/gsc-performance.json : claude team premium, claude team standard vs premium) ; volume non mesuré par Semrush"
+    },
+    {
+      "query": "claude ultra vs team",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/claude-max-ou-team-petite-equipe",
+      "cluster": "claude",
+      "priority": 3,
+      "source": "Ajout du 10 novembre 2026 (création de la page /blog/claude-max-ou-team-petite-equipe, angle Max ou Ultra contre Team ; requêtes voisines vues sur claude-pro-vs-team dans docs/seo/data/2026-W46/gsc-performance.json : claude team premium, claude team standard vs premium) ; volume non mesuré par Semrush"
+    },
+    {
+      "query": "chatgpt pro ou business",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/chatgpt-pro-ou-business-petite-equipe",
+      "cluster": "claude",
+      "priority": 1,
+      "source": "Ajout du 10 novembre 2026 (création de la page /blog/chatgpt-pro-ou-business-petite-equipe, équivalent OpenAI de l'angle Max ou Ultra contre Team) ; volume non mesuré par Semrush"
+    },
+    {
+      "query": "chatgpt pro vs business",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/chatgpt-pro-ou-business-petite-equipe",
+      "cluster": "claude",
+      "priority": 2,
+      "source": "Ajout du 10 novembre 2026 (création de la page /blog/chatgpt-pro-ou-business-petite-equipe, équivalent OpenAI de l'angle Max ou Ultra contre Team) ; volume non mesuré par Semrush"
+    },
+    {
+      "query": "chatgpt business premium",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/chatgpt-pro-ou-business-petite-equipe",
+      "cluster": "claude",
+      "priority": 2,
+      "source": "Ajout du 10 novembre 2026 (création de la page /blog/chatgpt-pro-ou-business-petite-equipe, équivalent OpenAI de l'angle Max ou Ultra contre Team) ; volume non mesuré par Semrush"
+    },
+    {
+      "query": "chatgpt pro 100 vs business",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/chatgpt-pro-ou-business-petite-equipe",
+      "cluster": "claude",
+      "priority": 3,
+      "source": "Ajout du 10 novembre 2026 (création de la page /blog/chatgpt-pro-ou-business-petite-equipe, équivalent OpenAI de l'angle Max ou Ultra contre Team) ; volume non mesuré par Semrush"
+    },
+    {
+      "query": "claude entreprise tarif",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/claude-fonctionnalites-pme",
+      "cluster": "claude",
+      "priority": 2
+    },
+    {
+      "query": "quel abonnement claude",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/claude-fonctionnalites-pme",
+      "cluster": "claude",
+      "priority": 2
+    },
+    {
+      "query": "claude pour les entreprises",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/claude-fonctionnalites-pme",
+      "cluster": "claude",
+      "priority": 3
+    },
+    {
+      "query": "skills claude",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/claude-skills",
+      "cluster": "claude",
+      "priority": 1
+    },
+    {
+      "query": "agent skills",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/claude-skills",
+      "cluster": "claude",
+      "priority": 2
+    },
+    {
+      "query": "créer un skill claude",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/claude-skills",
+      "cluster": "claude",
+      "priority": 2
+    },
+    {
+      "query": "claude skills entreprise",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/claude-skills",
+      "cluster": "claude",
+      "priority": 1
+    },
+    {
+      "query": "skills claude code",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/claude-skills",
+      "cluster": "claude",
+      "priority": 3
+    },
+    {
+      "query": "claude skills",
+      "volume": 3600,
+      "difficulty": 22,
+      "target": "/ressources/guides/claude-skills",
+      "cluster": "claude",
+      "priority": 1
+    },
+    {
+      "query": "claude skill",
+      "volume": 1600,
+      "difficulty": 26,
+      "target": "/ressources/guides/claude-skills",
+      "cluster": "claude",
+      "priority": 2
+    },
+    {
+      "query": "claude code skill",
+      "volume": 480,
+      "difficulty": 12,
+      "target": "/blog/claude-code-skills",
+      "cluster": "claude",
+      "priority": 3
+    },
+    {
+      "query": "claude plugins",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/claude-plugins-entreprise",
+      "cluster": "claude",
+      "priority": 1
+    },
+    {
+      "query": "plugins claude entreprise",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/claude-plugins-entreprise",
+      "cluster": "claude",
+      "priority": 2
+    },
+    {
+      "query": "connecteurs claude",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/claude-plugins-entreprise",
+      "cluster": "claude",
+      "priority": 2
+    },
+    {
+      "query": "marketplace claude",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/claude-plugins-entreprise",
+      "cluster": "claude",
+      "priority": 3
+    },
+    {
+      "query": "mcp entreprise",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/claude-plugins-entreprise",
+      "cluster": "claude",
+      "priority": 3
+    },
+    {
+      "query": "claude code entreprise",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/claude-code-entreprise",
+      "cluster": "claude",
+      "priority": 1
+    },
+    {
+      "query": "claude code prix",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/claude-code-entreprise",
+      "cluster": "claude",
+      "priority": 1
+    },
+    {
+      "query": "claude code",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/claude-code-entreprise",
+      "cluster": "claude",
+      "priority": 2
+    },
+    {
+      "query": "claude code pour non-développeurs",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/claude-code-entreprise",
+      "cluster": "claude",
+      "priority": 3
+    },
+    {
+      "query": "prestataire claude code",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/claude-code-entreprise",
+      "cluster": "claude",
+      "priority": 2
+    },
+    {
+      "query": "claude design",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/claude-design",
+      "cluster": "claude",
+      "priority": 1
+    },
+    {
+      "query": "claude design prix",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/claude-design",
+      "cluster": "claude",
+      "priority": 2
+    },
+    {
+      "query": "claude design avis",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/claude-design",
+      "cluster": "claude",
+      "priority": 2
+    },
+    {
+      "query": "claude design vs figma",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/claude-design",
+      "cluster": "claude",
+      "priority": 3
+    },
+    {
+      "query": "claude design vs canva",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/claude-design",
+      "cluster": "claude",
+      "priority": 3
+    },
+    {
+      "query": "claude cowork fusion",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/claude-cowork",
+      "cluster": "claude",
+      "priority": 2
+    },
+    {
+      "query": "déployer claude pme",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/claude-pme",
+      "cluster": "claude",
+      "priority": 1
+    },
+    {
+      "query": "claude pme",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/claude-pme",
+      "cluster": "claude",
+      "priority": 1
+    },
+    {
+      "query": "agent ia",
+      "volume": 6600,
+      "difficulty": 58,
+      "target": "/ressources/guides/agent-ia-definition",
+      "cluster": "agents-ia",
+      "priority": 3
+    },
+    {
+      "query": "agents ia",
+      "volume": 2400,
+      "difficulty": null,
+      "target": "/ressources/guides/agent-ia-definition",
+      "cluster": "agents-ia",
+      "priority": 3
+    },
+    {
+      "query": "agents ia c'est quoi",
+      "volume": 260,
+      "difficulty": null,
+      "target": "/ressources/guides/agent-ia-definition",
+      "cluster": "agents-ia",
+      "priority": 3
+    },
+    {
+      "query": "agent ia entreprise",
+      "volume": 110,
+      "difficulty": 13,
+      "target": "/services/agents-ia",
+      "cluster": "agents-ia",
+      "priority": 1
+    },
+    {
+      "query": "agent ia 24/7 pour pme",
+      "volume": 260,
+      "difficulty": 6,
+      "target": "/services/agents-ia",
+      "cluster": "agents-ia",
+      "priority": 2
+    },
+    {
+      "query": "audit ia",
+      "volume": 480,
+      "difficulty": 16,
+      "cpc": 4.74,
+      "target": "/audit-ia-pme",
+      "cluster": "audit",
+      "priority": 1
+    },
+    {
+      "query": "diagnostic ia",
+      "volume": 210,
+      "difficulty": 13,
+      "target": "/ressources/diagnostics/maturite-ia",
+      "cluster": "audit",
+      "priority": 1
+    },
+    {
+      "query": "roi ia",
+      "volume": 30,
+      "difficulty": null,
+      "target": "/ressources/outils/calculateur-roi-ia",
+      "cluster": "audit",
+      "priority": 3
+    },
+    {
+      "query": "ia expert comptable",
+      "volume": 210,
+      "difficulty": 17,
+      "target": "/cas-usages/finance-comptabilite",
+      "cluster": "secteurs",
+      "priority": 2
+    },
+    {
+      "query": "automatisation rh",
+      "volume": 210,
+      "difficulty": 18,
+      "target": "/cas-usages/rh",
+      "cluster": "secteurs",
+      "priority": 2
+    },
+    {
+      "query": "chatbot rh",
+      "volume": 320,
+      "difficulty": 28,
+      "target": "/blog/chatbot-rh-pme",
+      "cluster": "secteurs",
+      "priority": 2
+    },
+    {
+      "query": "automatisation comptabilité",
+      "volume": 170,
+      "difficulty": null,
+      "target": "/cas-usages/finance-comptabilite",
+      "cluster": "secteurs",
+      "priority": 3
+    },
+    {
+      "query": "charte ia entreprise",
+      "volume": 90,
+      "difficulty": 14,
+      "cpc": 1.83,
+      "target": "/ressources/outils/charte-ia-entreprise",
+      "cluster": "conformite",
+      "priority": 2
+    },
+    {
+      "query": "ia rgpd",
+      "volume": 140,
+      "difficulty": 38,
+      "target": "/conformite-ia",
+      "cluster": "conformite",
+      "priority": 3
+    },
+    {
+      "query": "conformité ia",
+      "volume": 90,
+      "difficulty": 20,
+      "cpc": 5.44,
+      "target": "/conformite-ia",
+      "cluster": "conformite",
+      "priority": 2
+    },
+    {
+      "query": "forward deployed engineer",
+      "volume": 390,
+      "difficulty": 18,
+      "target": "/blog/forward-deployed-engineer",
+      "cluster": "methode",
+      "priority": 1
+    },
+    {
+      "query": "architecte ia",
+      "volume": 110,
+      "difficulty": 18,
+      "target": "/blog/architecte-ia-role-pme",
+      "cluster": "methode",
+      "priority": 3
+    },
+    {
+      "query": "formation n8n",
+      "volume": 1000,
+      "difficulty": 23,
+      "target": "/formations/n8n",
+      "cluster": "formation",
+      "priority": 1
+    },
+    {
+      "query": "formation make",
+      "volume": 720,
+      "difficulty": 12,
+      "target": "/formations/make",
+      "cluster": "formation",
+      "priority": 1
+    },
+    {
+      "query": "formation automatisation",
+      "volume": 480,
+      "difficulty": 14,
+      "target": "/formations/automatisation",
+      "cluster": "formation",
+      "priority": 1
+    },
+    {
+      "query": "formation automatisation ia",
+      "volume": 260,
+      "difficulty": 10,
+      "target": "/formations/automatisation",
+      "cluster": "formation",
+      "priority": 1
+    },
+    {
+      "query": "formateur ia",
+      "volume": 390,
+      "difficulty": 10,
+      "target": "/formations",
+      "cluster": "formation",
+      "priority": 2
+    },
+    {
+      "query": "formation chatgpt",
+      "volume": 2400,
+      "difficulty": 22,
+      "cpc": 3.4,
+      "target": "/formations/chatgpt",
+      "cluster": "formation",
+      "priority": 1
+    },
+    {
+      "query": "formation chatgpt entreprise",
+      "volume": 140,
+      "difficulty": null,
+      "target": "/formations/chatgpt",
+      "cluster": "formation",
+      "priority": 2
+    },
+    {
+      "query": "formation claude",
+      "volume": 210,
+      "difficulty": 13,
+      "target": "/formations/claude",
+      "cluster": "formation",
+      "priority": 1
+    },
+    {
+      "query": "formation claude code",
+      "volume": 260,
+      "difficulty": 10,
+      "target": "/formations/claude-code",
+      "cluster": "formation",
+      "priority": 2
+    },
+    {
+      "query": "formation agent ia",
+      "volume": 390,
+      "difficulty": 29,
+      "target": "/formations/claude",
+      "cluster": "formation",
+      "priority": 2
+    },
+    {
+      "query": "formation ia entreprise",
+      "volume": 880,
+      "difficulty": 44,
+      "cpc": 5.92,
+      "target": "/formations",
+      "cluster": "formation",
+      "priority": 2
+    },
+    {
+      "query": "formation ia qualiopi",
+      "volume": 170,
+      "difficulty": 6,
+      "cpc": 5.02,
+      "target": "/blog/formation-ia-cpf-qualiopi",
+      "cluster": "formation",
+      "priority": 2
+    },
+    {
+      "query": "formation ia lyon",
+      "volume": 390,
+      "difficulty": 16,
+      "target": "/implantations/lyon",
+      "cluster": "villes",
+      "priority": 2
+    },
+    {
+      "query": "formation ia bordeaux",
+      "volume": 210,
+      "difficulty": 12,
+      "target": "/implantations/bordeaux",
+      "cluster": "villes",
+      "priority": 2
+    },
+    {
+      "query": "agence ia lyon",
+      "volume": 480,
+      "difficulty": 19,
+      "target": "/implantations/lyon",
+      "cluster": "villes",
+      "priority": 1
+    },
+    {
+      "query": "agence ia paris",
+      "volume": 210,
+      "difficulty": 30,
+      "target": "/implantations/paris",
+      "cluster": "villes",
+      "priority": 3
+    },
+    {
+      "query": "agence ia toulouse",
+      "volume": 210,
+      "difficulty": 18,
+      "cpc": 3.47,
+      "target": "/implantations/toulouse",
+      "cluster": "villes",
+      "priority": 3
+    },
+    {
+      "query": "agence ia bordeaux",
+      "volume": 70,
+      "difficulty": 10,
+      "cpc": 2.59,
+      "target": "/implantations/bordeaux",
+      "cluster": "villes",
+      "priority": 1
+    },
+    {
+      "query": "agence ia montpellier",
+      "volume": 30,
+      "difficulty": null,
+      "target": "/implantations/montpellier",
+      "cluster": "villes",
+      "priority": 2
+    },
+    {
+      "query": "choisir agence ia pme",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/choisir-agence-ia-pme",
+      "cluster": "conseil",
+      "priority": 1
+    },
+    {
+      "query": "agence ia ou freelance",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/choisir-agence-ia-pme",
+      "cluster": "conseil",
+      "priority": 2
+    },
+    {
+      "query": "prix intégration claude",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/cout-integration-claude-pme",
+      "cluster": "claude",
+      "priority": 1
+    },
+    {
+      "query": "combien coûte une intégration claude",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/cout-integration-claude-pme",
+      "cluster": "claude",
+      "priority": 1
+    },
+    {
+      "query": "financement formation ia opco",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/financement-formation-ia-opco",
+      "cluster": "formation",
+      "priority": 1
+    },
+    {
+      "query": "claude rgpd",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/claude-rgpd-pme",
+      "cluster": "conformite",
+      "priority": 1
+    },
+    {
+      "query": "combien coûte un agent ia",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/combien-coute-un-agent-ia-pme",
+      "cluster": "agents",
+      "priority": 1
+    },
+    {
+      "query": "claude for small business",
+      "volume": 170,
+      "difficulty": 14,
+      "target": "/ressources/guides/claude-for-small-business",
+      "cluster": "claude",
+      "priority": 1
+    },
+    {
+      "query": "claude pennylane",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/claude-for-small-business",
+      "cluster": "claude",
+      "priority": 2
+    },
+    {
+      "query": "n8n vs make vs zapier",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/comparatifs/n8n-vs-make-vs-zapier",
+      "cluster": "automatisation-outils",
+      "priority": 1
+    },
+    {
+      "query": "automatiser relance devis n8n",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/automatiser-relance-devis-n8n",
+      "cluster": "automatisation-commerciale",
+      "priority": 2
+    },
+    {
+      "query": "trier emails claude n8n",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/trier-emails-entrant-claude-n8n",
+      "cluster": "claude-agents",
+      "priority": 2
+    },
+    {
+      "query": "agence ia",
+      "volume": 2400,
+      "difficulty": 58,
+      "cpc": 0.92,
+      "target": "/",
+      "cluster": "agence",
+      "priority": 2
+    },
+    {
+      "query": "agence ia pme",
+      "volume": null,
+      "difficulty": null,
+      "target": "/services/systemes-operationnels-ia",
+      "cluster": "agence",
+      "priority": 2
+    },
+    {
+      "query": "agence d'automatisation ia",
+      "volume": 170,
+      "difficulty": 19,
+      "cpc": 2.87,
+      "target": "/services/systemes-operationnels-ia",
+      "cluster": "automatisation",
+      "priority": 2
+    },
+    {
+      "query": "agence de développement ia",
+      "volume": 140,
+      "difficulty": 50,
+      "cpc": 13.43,
+      "target": "/services/agents-ia",
+      "cluster": "agence",
+      "priority": 2
+    },
+    {
+      "query": "agence chatbot ia",
+      "volume": 110,
+      "difficulty": 12,
+      "cpc": 0,
+      "target": "/services/agents-ia",
+      "cluster": "agents",
+      "priority": 2
+    },
+    {
+      "query": "agence ia marketing",
+      "volume": 110,
+      "difficulty": 31,
+      "cpc": 0,
+      "target": "/services/seo-geo-contenu",
+      "cluster": "agence",
+      "priority": 2
+    },
+    {
+      "query": "agence data ia",
+      "volume": 90,
+      "difficulty": 14,
+      "cpc": 0,
+      "target": "/services/donnees-reporting",
+      "cluster": "agence",
+      "priority": 2
+    },
+    {
+      "query": "intégration des agents ia",
+      "volume": 90,
+      "difficulty": 12,
+      "cpc": 0,
+      "target": "/services/agents-ia",
+      "cluster": "agents",
+      "priority": 2
+    },
+    {
+      "query": "agence accompagnement ia",
+      "volume": 70,
+      "difficulty": 26,
+      "cpc": 0,
+      "target": "/",
+      "cluster": "agence",
+      "priority": 2
+    },
+    {
+      "query": "consult ia",
+      "volume": 260,
+      "difficulty": 24,
+      "cpc": 2.58,
+      "target": "/services/consultant-ia-claude",
+      "cluster": "conseil",
+      "priority": 2
+    },
+    {
+      "query": "cabinet de conseil ia",
+      "volume": 210,
+      "difficulty": 26,
+      "cpc": 4.47,
+      "target": "/services/consultant-ia-claude",
+      "cluster": "conseil",
+      "priority": 2
+    },
+    {
+      "query": "consulting ia",
+      "volume": 170,
+      "difficulty": 50,
+      "cpc": 2.64,
+      "target": "/services/consultant-ia-claude",
+      "cluster": "conseil",
+      "priority": 2
+    },
+    {
+      "query": "consultant intelligence artificielle",
+      "volume": 170,
+      "difficulty": 41,
+      "cpc": 3.18,
+      "target": "/services/consultant-ia-claude",
+      "cluster": "conseil",
+      "priority": 2
+    },
+    {
+      "query": "cabinet de conseil intelligence artificielle",
+      "volume": 140,
+      "difficulty": 29,
+      "cpc": 0,
+      "target": "/services/consultant-ia-claude",
+      "cluster": "conseil",
+      "priority": 2
+    },
+    {
+      "query": "conseil stratégie ia",
+      "volume": 110,
+      "difficulty": 24,
+      "cpc": 1.55,
+      "target": "/services/consultant-ia-claude",
+      "cluster": "conseil",
+      "priority": 2
+    },
+    {
+      "query": "conseil automatisation ia",
+      "volume": 90,
+      "difficulty": 13,
+      "cpc": 0,
+      "target": "/services/systemes-operationnels-ia",
+      "cluster": "conseil",
+      "priority": 2
+    },
+    {
+      "query": "conseil transformation ia",
+      "volume": 70,
+      "difficulty": 5,
+      "cpc": 0,
+      "target": "/services/consultant-ia-claude",
+      "cluster": "conseil",
+      "priority": 2
+    },
+    {
+      "query": "audit ia entreprise",
+      "volume": 90,
+      "difficulty": 7,
+      "cpc": 0,
+      "target": "/audit-ia-pme",
+      "cluster": "audit",
+      "priority": 2
+    },
+    {
+      "query": "audit ia pour entreprises",
+      "volume": 70,
+      "difficulty": 10,
+      "cpc": 0,
+      "target": "/audit-ia-pme",
+      "cluster": "audit",
+      "priority": 2
+    },
+    {
+      "query": "agence automatisation n8n",
+      "volume": 320,
+      "difficulty": 11,
+      "cpc": 2.11,
+      "target": "/services/automatisation-n8n",
+      "cluster": "n8n",
+      "priority": 1
+    },
+    {
+      "query": "n8n c'est quoi",
+      "volume": 590,
+      "difficulty": 19,
+      "cpc": 0.64,
+      "target": "/blog/n8n-c-est-quoi",
+      "cluster": "n8n",
+      "priority": 2
+    },
+    {
+      "query": "c'est quoi n8n",
+      "volume": 70,
+      "difficulty": 19,
+      "cpc": 0.62,
+      "target": "/blog/n8n-c-est-quoi",
+      "cluster": "n8n",
+      "priority": 3
+    },
+    {
+      "query": "ia recrutement bordeaux",
+      "volume": 140,
+      "difficulty": 26,
+      "cpc": 0,
+      "target": null,
+      "cluster": "villes",
+      "priority": 3
+    },
+    {
+      "query": "audit geo ia",
+      "volume": 90,
+      "difficulty": 5,
+      "cpc": 0,
+      "target": "/services/referencement-ia",
+      "cluster": "audit",
+      "priority": 2
+    },
+    {
+      "query": "agence geo",
+      "volume": 2900,
+      "difficulty": 27,
+      "target": "/services/referencement-ia",
+      "cluster": "geo",
+      "priority": 1
+    },
+    {
+      "query": "geo seo",
+      "volume": 1900,
+      "difficulty": 34,
+      "target": "/ressources/comparatifs/geo-vs-seo",
+      "cluster": "geo",
+      "priority": 2
+    },
+    {
+      "query": "generative engine optimization",
+      "volume": 1300,
+      "difficulty": 64,
+      "target": "/blog/seo-geo-etre-cite-par-les-ia-generatives",
+      "cluster": "geo",
+      "priority": 3
+    },
+    {
+      "query": "formation ia",
+      "volume": 9900,
+      "difficulty": 57,
+      "cpc": 3.76,
+      "target": "/formations",
+      "cluster": "formation",
+      "priority": 2
+    },
+    {
+      "query": "formation intelligence artificielle",
+      "volume": 3600,
+      "difficulty": 61,
+      "cpc": 3.82,
+      "target": "/formations",
+      "cluster": "formation",
+      "priority": 2
+    },
+    {
+      "query": "formation ia cpf",
+      "volume": 1600,
+      "difficulty": 21,
+      "cpc": 3.82,
+      "target": "/blog/formation-ia-cpf-qualiopi",
+      "cluster": "formation",
+      "priority": 2
+    },
+    {
+      "query": "formation ia générative",
+      "volume": 880,
+      "difficulty": 45,
+      "cpc": 4.19,
+      "target": "/formations",
+      "cluster": "formation",
+      "priority": 2
+    },
+    {
+      "query": "formation ia générative pme",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/formation-ia-generative-pme",
+      "cluster": "formation",
+      "priority": 2,
+      "source": "Ajout du 5 novembre 2026 (création du jour, calendrier éditorial) ; « formation ia générative » reste ciblée sur /formations ; volume non mesuré par Semrush, à demander à Simon"
+    },
+    {
+      "query": "formation ia obligatoire",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/formation-ia-generative-pme",
+      "cluster": "formation",
+      "priority": 2,
+      "source": "Ajout du 5 novembre 2026 (création du jour : article 4 de l'AI Act réécrit par l'omnibus) ; volume non mesuré par Semrush, à demander à Simon"
+    },
+    {
+      "query": "formation ia marketing",
+      "volume": 480,
+      "difficulty": 23,
+      "cpc": 5.32,
+      "target": "/formations",
+      "cluster": "formation",
+      "priority": 2
+    },
+    {
+      "query": "formation ia rh",
+      "volume": 390,
+      "difficulty": 46,
+      "cpc": 4.82,
+      "target": "/blog/formation-ia-rh-pme",
+      "cluster": "formation",
+      "priority": 2
+    },
+    {
+      "query": "formation ia finance",
+      "volume": 320,
+      "difficulty": 16,
+      "cpc": 4.63,
+      "target": "/blog/formation-ia-finance-pme",
+      "cluster": "formation",
+      "priority": 2
+    },
+    {
+      "query": "formation prompt chatgpt",
+      "volume": 110,
+      "difficulty": 17,
+      "cpc": 0,
+      "target": "/formations/chatgpt",
+      "cluster": "formation",
+      "priority": 2
+    },
+    {
+      "query": "claude enterprise",
+      "volume": 210,
+      "difficulty": 28,
+      "cpc": 2.84,
+      "target": "/ressources/guides/claude-pme",
+      "cluster": "claude",
+      "priority": 2
+    },
+    {
+      "query": "agent ia claude",
+      "volume": 210,
+      "difficulty": 12,
+      "cpc": 1.11,
+      "target": "/blog/creer-agent-ia-claude",
+      "cluster": "claude",
+      "priority": 2
+    },
+    {
+      "query": "claude code ia",
+      "volume": 140,
+      "difficulty": 33,
+      "cpc": 1.22,
+      "target": "/ressources/guides/claude-code-entreprise",
+      "cluster": "claude",
+      "priority": 2
+    },
+    {
+      "query": "claude ai cowork",
+      "volume": 110,
+      "difficulty": 14,
+      "cpc": 1.75,
+      "target": "/ressources/guides/claude-cowork",
+      "cluster": "claude",
+      "priority": 2
+    },
+    {
+      "query": "claude copilot",
+      "volume": 140,
+      "difficulty": 10,
+      "cpc": 2.24,
+      "target": "/blog/claude-microsoft-copilot-pme",
+      "cluster": "claude",
+      "priority": 2
+    },
+    {
+      "query": "conformité ia entreprise",
+      "volume": 110,
+      "difficulty": 33,
+      "cpc": 0,
+      "target": "/ressources/guides/ai-act-pme-calendrier",
+      "cluster": "conformité",
+      "priority": 2
+    },
+    {
+      "query": "conformité ai act",
+      "volume": 70,
+      "difficulty": 21,
+      "cpc": 0,
+      "target": "/ressources/guides/ai-act-pme-calendrier",
+      "cluster": "conformité",
+      "priority": 2
+    },
+    {
+      "query": "charte utilisation ia",
+      "volume": 90,
+      "difficulty": 27,
+      "cpc": 0.56,
+      "target": "/ressources/outils/charte-ia-entreprise",
+      "cluster": "conformité",
+      "priority": 2
+    },
+    {
+      "query": "ai act",
+      "volume": 3600,
+      "difficulty": 76,
+      "cpc": 2.27,
+      "target": "/ressources/guides/ai-act-pme-calendrier",
+      "cluster": "conformité",
+      "priority": 2
+    },
+    {
+      "query": "agence intelligence artificielle",
+      "volume": 1000,
+      "difficulty": 52,
+      "cpc": 2.39,
+      "target": "/",
+      "cluster": "agence",
+      "priority": 2
+    },
+    {
+      "query": "expert ia",
+      "volume": 590,
+      "difficulty": 50,
+      "cpc": 2.64,
+      "target": "/services/consultant-ia-claude",
+      "cluster": "conseil",
+      "priority": 2
+    },
+    {
+      "query": "entreprise ia",
+      "volume": 480,
+      "difficulty": 67,
+      "cpc": 2.88,
+      "target": "/",
+      "cluster": "agence",
+      "priority": 2
+    },
+    {
+      "query": "expert intelligence artificielle",
+      "volume": 390,
+      "difficulty": 48,
+      "cpc": 2.9,
+      "target": "/",
+      "cluster": "agence",
+      "priority": 2
+    },
+    {
+      "query": "agence agent ia",
+      "volume": 140,
+      "difficulty": 47,
+      "cpc": 2.94,
+      "target": "/services/agents-ia",
+      "cluster": "agents",
+      "priority": 2
+    },
+    {
+      "query": "freelance n8n",
+      "volume": 140,
+      "difficulty": 15,
+      "cpc": 1.25,
+      "target": "/services/automatisation-n8n",
+      "cluster": "automatisation",
+      "priority": 2
+    },
+    {
+      "query": "expert automatisation",
+      "volume": 110,
+      "difficulty": 11,
+      "cpc": 1.66,
+      "target": "/services/systemes-operationnels-ia",
+      "cluster": "automatisation",
+      "priority": 2
+    },
+    {
+      "query": "agence chatgpt",
+      "volume": 90,
+      "difficulty": 22,
+      "cpc": 0,
+      "target": "/formations/chatgpt",
+      "cluster": "formation",
+      "priority": 2
+    },
+    {
+      "query": "entreprise claude",
+      "volume": 90,
+      "difficulty": 27,
+      "cpc": 0,
+      "target": "/ressources/guides/claude-pme",
+      "cluster": "claude",
+      "priority": 2
+    },
+    {
+      "query": "expert chatgpt",
+      "volume": 90,
+      "difficulty": 19,
+      "cpc": 0,
+      "target": "/formations/chatgpt",
+      "cluster": "formation",
+      "priority": 2
+    },
+    {
+      "query": "prestataire ia",
+      "volume": 90,
+      "difficulty": 30,
+      "cpc": 9.18,
+      "target": "/",
+      "cluster": "agence",
+      "priority": 2
+    },
+    {
+      "query": "consultant chatbot ia",
+      "volume": 70,
+      "difficulty": 24,
+      "cpc": 0,
+      "target": "/services/agents-ia",
+      "cluster": "agents",
+      "priority": 2
+    },
+    {
+      "query": "intégrateur ia",
+      "volume": 70,
+      "difficulty": 45,
+      "cpc": 1.66,
+      "target": "/",
+      "cluster": "agence",
+      "priority": 2
+    },
+    {
+      "query": "consultant automatisation",
+      "volume": 50,
+      "difficulty": 22,
+      "cpc": 1.21,
+      "target": "/",
+      "cluster": "agence",
+      "priority": 2
+    },
+    {
+      "query": "expert n8n",
+      "volume": 50,
+      "difficulty": 7,
+      "cpc": 1.48,
+      "target": "/services/automatisation-n8n",
+      "cluster": "automatisation",
+      "priority": 2
+    },
+    {
+      "query": "freelance automatisation",
+      "volume": 50,
+      "difficulty": 13,
+      "cpc": 0.68,
+      "target": "/services/systemes-operationnels-ia",
+      "cluster": "automatisation",
+      "priority": 2
+    },
+    {
+      "query": "cabinet ia",
+      "volume": 30,
+      "difficulty": null,
+      "cpc": 4.42,
+      "target": "/",
+      "cluster": "agence",
+      "priority": 2
+    },
+    {
+      "query": "freelance make",
+      "volume": 30,
+      "difficulty": null,
+      "cpc": 1.52,
+      "target": "/",
+      "cluster": "agence",
+      "priority": 2
+    },
+    {
+      "query": "société ia",
+      "volume": 30,
+      "difficulty": null,
+      "cpc": 5.75,
+      "target": "/",
+      "cluster": "agence",
+      "priority": 2
+    },
+    {
+      "query": "claude cowork windows",
+      "volume": 590,
+      "difficulty": 29,
+      "target": "/blog/claude-cowork-windows",
+      "cluster": "claude",
+      "priority": 1
+    },
+    {
+      "query": "agence automatisation make",
+      "volume": 390,
+      "difficulty": 15,
+      "target": "/services/automatisation-make",
+      "cluster": "make",
+      "priority": 1
+    },
+    {
+      "query": "accompagnement ia",
+      "volume": 170,
+      "difficulty": 19,
+      "target": "/services/consultant-ia-claude",
+      "cluster": "conseil",
+      "priority": 2
+    },
+    {
+      "query": "agence création agents ia",
+      "volume": 90,
+      "difficulty": 40,
+      "target": "/services/agents-ia",
+      "cluster": "agents",
+      "priority": 2
+    },
+    {
+      "query": "claude finance",
+      "volume": 210,
+      "difficulty": 17,
+      "target": "/ressources/guides/claude-pme",
+      "cluster": "claude",
+      "priority": 2
+    },
+    {
+      "query": "formation claude cowork",
+      "volume": 50,
+      "difficulty": 7,
+      "target": "/formations/claude",
+      "cluster": "formation",
+      "priority": 2
+    },
+    {
+      "query": "agence de référencement ia",
+      "volume": 170,
+      "difficulty": 28,
+      "target": "/services/referencement-ia",
+      "cluster": "geo",
+      "priority": 2,
+      "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026"
+    },
+    {
+      "query": "référencement geo",
+      "volume": 390,
+      "difficulty": 27,
+      "target": "/services/referencement-ia",
+      "cluster": "geo",
+      "priority": 3,
+      "source": "Semrush France, noiise.com_fr.xlsx, octobre 2026"
+    },
+    {
+      "query": "agence seo ia",
+      "volume": 480,
+      "difficulty": 13,
+      "target": "/services/seo-geo-contenu",
+      "cluster": "seo",
+      "priority": 3,
+      "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026 ; cible à arbitrer sur la SERP"
+    },
+    {
+      "query": "agence de référencement",
+      "volume": 6600,
+      "difficulty": 45,
+      "target": "/services/seo-geo-contenu",
+      "cluster": "seo",
+      "priority": 3,
+      "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026"
+    },
+    {
+      "query": "agence seo",
+      "volume": 60500,
+      "difficulty": 56,
+      "target": "/services/seo-geo-contenu",
+      "cluster": "seo",
+      "priority": 3,
+      "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026"
+    },
+    {
+      "query": "rédaction seo",
+      "volume": 480,
+      "difficulty": 29,
+      "target": "/services/redaction-seo-contenu",
+      "cluster": "seo",
+      "priority": 2,
+      "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026"
+    },
+    {
+      "query": "agence rédaction seo",
+      "volume": 720,
+      "difficulty": 19,
+      "target": "/services/redaction-seo-contenu",
+      "cluster": "seo",
+      "priority": 2,
+      "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026"
+    },
+    {
+      "query": "refonte site internet",
+      "volume": 3600,
+      "difficulty": 28,
+      "target": "/ressources/guides/refonte-site-internet",
+      "cluster": "web",
+      "priority": 1,
+      "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 30"
+    },
+    {
+      "query": "refonte site web",
+      "volume": 1900,
+      "difficulty": 24,
+      "target": "/ressources/guides/refonte-site-internet",
+      "cluster": "web",
+      "priority": 2,
+      "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 1960"
+    },
+    {
+      "query": "refonte de site internet",
+      "volume": 1300,
+      "difficulty": 19,
+      "target": "/ressources/guides/refonte-site-internet",
+      "cluster": "web",
+      "priority": 2,
+      "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 52"
+    },
+    {
+      "query": "refonte de site web",
+      "volume": 1000,
+      "difficulty": 20,
+      "target": "/ressources/guides/refonte-site-internet",
+      "cluster": "web",
+      "priority": 2,
+      "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 151"
+    },
+    {
+      "query": "refonte seo",
+      "volume": 880,
+      "difficulty": 15,
+      "target": "/blog/refonte-site-seo-sans-perdre-trafic",
+      "cluster": "web",
+      "priority": 2,
+      "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 763 ; cible déplacée le 3 novembre 2026 vers le satellite créé ce jour (SERP lue : listes de contrôle, pas guide de refonte)"
+    },
+    {
+      "query": "claude artefact application mac windows",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/claude-artefacts-applications-bureau",
+      "cluster": "claude",
+      "priority": 3,
+      "source": "Actualité du 25 novembre 2026 (« Install as app » en bêta le 24 novembre) ; volume non mesuré (à relever dans Semrush)"
+    },
+    {
+      "query": "claude ship",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/claude-ship-pme",
+      "cluster": "claude",
+      "priority": 3,
+      "source": "Actualité du 24 novembre 2026 (lancement de Claude Ship le 23 novembre) ; volume non mesuré (à relever dans Semrush)"
+    },
+    {
+      "query": "claude code vs codex",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/comparatifs/claude-code-vs-codex-vs-vibe",
+      "cluster": "claude",
+      "priority": 2,
+      "source": "Requête cible du comparatif créé le 3 novembre 2026 ; volume non mesuré (à relever dans Semrush)"
+    },
+    {
+      "query": "agence refonte site web",
+      "volume": 590,
+      "difficulty": 17,
+      "target": "/ressources/guides/refonte-site-internet",
+      "cluster": "web",
+      "priority": 3,
+      "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 922 ; reste au guide tant qu'aucune page service ne porte « refonte » en H2"
+    },
+    {
+      "query": "migration seo",
+      "volume": 590,
+      "difficulty": 19,
+      "target": "/ressources/guides/refonte-site-internet",
+      "cluster": "web",
+      "priority": 3,
+      "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 7010 ; section du guide, pas une page à part"
+    },
+    {
+      "query": "développement web sur mesure",
+      "volume": 1600,
+      "difficulty": 10,
+      "target": "/services/sur-mesure-headless",
+      "cluster": "web",
+      "priority": 1,
+      "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 14329"
+    },
+    {
+      "query": "agence de développement web sur mesure",
+      "volume": 590,
+      "difficulty": 13,
+      "target": "/services/sur-mesure-headless",
+      "cluster": "web",
+      "priority": 2,
+      "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 2345"
+    },
+    {
+      "query": "devis application web",
+      "volume": 90,
+      "difficulty": 6,
+      "target": "/services/sur-mesure-headless",
+      "cluster": "web",
+      "priority": 2,
+      "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 2560"
+    },
+    {
+      "query": "agence développement web",
+      "volume": 880,
+      "difficulty": 38,
+      "target": "/services/sur-mesure-headless",
+      "cluster": "web",
+      "priority": 3,
+      "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 6298 ; KD au-dessus du seuil de 31"
+    },
+    {
+      "query": "développement site web",
+      "volume": 720,
+      "difficulty": 52,
+      "target": "/services/sur-mesure-headless",
+      "cluster": "web",
+      "priority": 3,
+      "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 1516 ; KD au-dessus du seuil de 31"
+    },
+    {
+      "query": "agence audit seo",
+      "volume": 1600,
+      "difficulty": 19,
+      "target": "/services/audit-seo-technique",
+      "cluster": "audit",
+      "priority": 1,
+      "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 12"
+    },
+    {
+      "query": "audit seo technique",
+      "volume": 590,
+      "difficulty": 26,
+      "target": "/services/audit-seo-technique",
+      "cluster": "audit",
+      "priority": 2,
+      "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 9136"
+    },
+    {
+      "query": "audit site internet",
+      "volume": 1300,
+      "difficulty": 31,
+      "target": "/blog/audit-site-internet-pme",
+      "cluster": "audit",
+      "priority": 2,
+      "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 12724"
+    },
+    {
+      "query": "agence seo technique",
+      "volume": 480,
+      "difficulty": 30,
+      "target": "/services/audit-seo-technique",
+      "cluster": "audit",
+      "priority": 2,
+      "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 14669"
+    },
+    {
+      "query": "audit technique seo",
+      "volume": 1600,
+      "difficulty": 34,
+      "target": "/services/audit-seo-technique",
+      "cluster": "audit",
+      "priority": 3,
+      "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 1848 ; KD au-dessus du seuil de 31"
+    },
+    {
+      "query": "audit seo",
+      "volume": 6600,
+      "difficulty": 44,
+      "target": "/services/audit-seo-technique",
+      "cluster": "audit",
+      "priority": 3,
+      "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 549 ; KD au-dessus du seuil de 31"
+    },
+    {
+      "query": "cahier des charges site internet",
+      "volume": 1000,
+      "difficulty": 26,
+      "target": "/ressources/guides/cahier-des-charges-site-internet",
+      "cluster": "web",
+      "priority": 3,
+      "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 9777 ; guide conditionnel, voir calendrier-editorial.json"
+    },
+    {
+      "query": "cahier des charges site web",
+      "volume": 480,
+      "difficulty": 28,
+      "target": "/ressources/guides/cahier-des-charges-site-internet",
+      "cluster": "web",
+      "priority": 3,
+      "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 134"
+    },
+    {
+      "query": "cahier des charges pour site internet",
+      "volume": 260,
+      "difficulty": 24,
+      "target": "/ressources/guides/cahier-des-charges-site-internet",
+      "cluster": "web",
+      "priority": 3,
+      "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 149"
+    },
+    {
+      "query": "cahier des charges refonte site internet",
+      "volume": 320,
+      "difficulty": 21,
+      "target": "/blog/cahier-des-charges-refonte-site",
+      "cluster": "web",
+      "priority": 3,
+      "source": "Semrush France, Positions de noiise.com, export du 9 octobre 2026, ligne 380"
+    },
+    {
+      "query": "chatbot helpdesk",
+      "volume": 70,
+      "difficulty": 13,
+      "target": "/services/agent-support-client",
+      "cluster": "service-client",
+      "priority": 3,
+      "source": "Semrush France, Positions de ia4ops.com, 9 octobre 2026"
+    },
+    {
+      "query": "chatbot sav",
+      "volume": 50,
+      "difficulty": 16,
+      "target": "/services/agent-support-client",
+      "cluster": "service-client",
+      "priority": 3,
+      "source": "Semrush France, Positions de ia4ops.com, 9 octobre 2026"
+    },
+    {
+      "query": "chatbot support it",
+      "volume": 70,
+      "difficulty": 8,
+      "target": "/services/agent-support-client",
+      "cluster": "service-client",
+      "priority": 3,
+      "source": "Semrush France, Positions de ia4ops.com, 9 octobre 2026"
+    },
+    {
+      "query": "chatbot support client",
+      "volume": 70,
+      "difficulty": 23,
+      "target": "/services/agent-support-client",
+      "cluster": "service-client",
+      "priority": 2,
+      "source": "Semrush France, Positions de ia4ops.com, 9 octobre 2026"
+    },
+    {
+      "query": "chatbot support informatique",
+      "volume": 140,
+      "difficulty": 13,
+      "target": "/services/agent-support-client",
+      "cluster": "service-client",
+      "priority": 2,
+      "source": "Semrush France, Positions de ia4ops.com, 9 octobre 2026"
+    },
+    {
+      "query": "chatbot call center",
+      "volume": 90,
+      "difficulty": 28,
+      "target": "/services/agent-support-client",
+      "cluster": "service-client",
+      "priority": 3,
+      "source": "Semrush France, Positions de ia4ops.com, 9 octobre 2026"
+    },
+    {
+      "query": "chatbot relation client",
+      "volume": 50,
+      "difficulty": 21,
+      "target": "/services/agent-support-client",
+      "cluster": "service-client",
+      "priority": 3,
+      "source": "Semrush France, Positions de ia4ops.com, 9 octobre 2026"
+    },
+    {
+      "query": "service client ia",
+      "volume": 260,
+      "difficulty": 24,
+      "target": "/services/agent-support-client",
+      "cluster": "service-client",
+      "priority": 2,
+      "source": "Semrush France, Positions de ia4ops.com, 9 octobre 2026"
+    },
+    {
+      "query": "formation chatgpt bordeaux",
+      "volume": 70,
+      "difficulty": 6,
+      "target": "/implantations/bordeaux",
+      "cluster": "villes",
+      "priority": 3,
+      "source": "Semrush France, Positions de ia4ops.com, 9 octobre 2026"
+    },
+    {
+      "query": "société de développement ia lyon",
+      "volume": 90,
+      "difficulty": 13,
+      "target": "/implantations/lyon",
+      "cluster": "villes",
+      "priority": 2,
+      "source": "Semrush France, Positions de kayro.ai, 9 octobre 2026"
+    },
+    {
+      "query": "agence spécialisée en automatisation make à toulouse",
+      "volume": 90,
+      "difficulty": 1,
+      "target": "/implantations/toulouse",
+      "cluster": "villes",
+      "priority": 2,
+      "source": "Semrush France, Positions de kayro.ai, 9 octobre 2026"
+    },
+    {
+      "query": "claude extension",
+      "volume": 1000,
+      "difficulty": 27,
+      "target": "/ressources/guides/claude-in-chrome-entreprise",
+      "cluster": "claude",
+      "priority": 2,
+      "source": "Semrush France, export lucasfonseque.fr, 9 octobre 2026"
+    },
+    {
+      "query": "claude extension chrome",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/claude-extension-chrome",
+      "cluster": "claude",
+      "priority": 2,
+      "source": "Article satellite du guide /ressources/guides/claude-in-chrome-entreprise (qui garde « claude extension »), publié le 26 octobre 2026 ; volume non mesuré"
+    },
+    {
+      "query": "ia pme industrielle",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/ia-pme-industrielle",
+      "cluster": "secteurs",
+      "priority": 2,
+      "source": "Série « IA par métier » (décision de Simon du 26 octobre 2026), satellite de /secteurs/industrie, publié le 28 octobre 2026 ; volume non mesuré, à demander à Simon (Semrush)"
+    },
+    {
+      "query": "ia cabinet de conseil",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/ia-cabinet-conseil",
+      "cluster": "secteurs",
+      "priority": 2,
+      "source": "Série « IA par métier » (décision de Simon du 26 octobre 2026), satellite de /secteurs/conseil, publié le 28 octobre 2026 ; volume non mesuré, à demander à Simon (Semrush)"
+    },
+    {
+      "query": "ia cabinet comptable",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/ia-cabinet-comptable",
+      "cluster": "secteurs",
+      "priority": 2,
+      "source": "Série « IA par métier » (décision de Simon du 26 octobre 2026), satellite de /secteurs/comptabilite, publié le 27 octobre 2026 ; volume non mesuré, à demander à Simon (Semrush)"
+    },
+    {
+      "query": "ia artisan bâtiment",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/ia-artisan-batiment",
+      "cluster": "secteurs",
+      "priority": 2,
+      "source": "Série « IA par métier » (décision de Simon du 26 octobre 2026), satellite de /secteurs/batiment, publié le 27 octobre 2026 ; volume non mesuré, à demander à Simon (Semrush)"
+    },
+    {
+      "query": "ia e-commerçant",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/ia-e-commercant",
+      "cluster": "secteurs",
+      "priority": 2,
+      "source": "Série « IA par métier » (décision de Simon du 26 octobre 2026), satellite de /secteurs/e-commerce (qui garde « ia e-commerce »), publié le 29 octobre 2026 ; volume non mesuré, à demander à Simon (Semrush)"
+    },
+    {
+      "query": "ia organisme de formation",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/ia-organisme-de-formation",
+      "cluster": "secteurs",
+      "priority": 2,
+      "source": "Série « IA par métier » (décision de Simon du 26 octobre 2026), sans page secteur (/secteurs/formation est dépubliée), publié le 29 octobre 2026 ; volume non mesuré, à demander à Simon (Semrush)"
+    },
+    {
+      "query": "ia rh pme",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/ia-rh-pme",
+      "cluster": "secteurs",
+      "priority": 2,
+      "source": "Série « IA par métier » (décision de Simon du 26 octobre 2026), satellite de /cas-usages/rh (qui garde « automatisation rh »), publié le 30 octobre 2026 ; volume non mesuré, à demander à Simon (Semrush)"
+    },
+    {
+      "query": "ia sav pme",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/ia-sav-pme",
+      "cluster": "service-client",
+      "priority": 2,
+      "source": "Série « IA par métier » (décision de Simon du 26 octobre 2026), satellite de /cas-usages/support-sav ; « service client ia » reste à /services/agent-support-client ; publié le 30 octobre 2026 ; volume non mesuré, à demander à Simon (Semrush)"
+    },
+    {
+      "query": "ia équipe commerciale",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/ia-equipe-commerciale",
+      "cluster": "secteurs",
+      "priority": 2,
+      "source": "Série « IA par métier » (décision de Simon du 26 octobre 2026), satellite de /cas-usages/generer-plus-de-leads, rédigé le 31 octobre 2026 ; volume non mesuré, à demander à Simon (Semrush)"
+    },
+    {
+      "query": "ia pour agences de communication",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/ia-agence-communication",
+      "cluster": "secteurs",
+      "priority": 2,
+      "source": "Série « IA par métier » (décision de Simon du 26 octobre 2026), satellite de /secteurs/agence, rédigé le 31 octobre 2026 ; volume non mesuré, à demander à Simon (Semrush)"
+    },
+    {
+      "query": "ia éditeur saas",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/ia-editeur-saas",
+      "cluster": "secteurs",
+      "priority": 2,
+      "source": "Série « IA par métier » (décision de Simon du 26 octobre 2026), satellite de /secteurs/startup-logiciel, rédigé le 1er novembre 2026 ; « ia éditeur de logiciel » renvoie des éditeurs de code par IA (SERP lue le 1er novembre 2026) ; volume non mesuré, à demander à Simon (Semrush)"
+    },
+    {
+      "query": "ia pour esn",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/ia-esn",
+      "cluster": "secteurs",
+      "priority": 2,
+      "source": "Série « IA par métier » (décision de Simon du 26 octobre 2026), satellite de /secteurs/esn, rédigé le 1er novembre 2026 ; volume non mesuré, à demander à Simon (Semrush)"
+    },
+    {
+      "query": "fiche entreprise chatgpt",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/fiche-entreprise-chatgpt-business-hub",
+      "cluster": "geo",
+      "priority": 2,
+      "source": "Veille du 12 novembre 2026 : annonce OpenAI « Introducing Businesses in ChatGPT » du 10 novembre 2026 ; requête cherchée le 12 novembre 2026 (Blog du Modérateur, Abondance, Web Ranker, Citeme se classent) ; volume non mesuré, à demander à Simon (Semrush)"
+    },
+    {
+      "query": "claude sheets",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/claude-sheets-whiteboards-data",
+      "cluster": "claude",
+      "priority": 2,
+      "source": "Veille du 12 novembre 2026 : annonce Anthropic du 10 novembre 2026 (claude.com) ; requête cherchée le 12 novembre 2026 (IT-Connect, JustGeek, Martin Cid, NXUS, KultureGeek se classent) ; volume non mesuré, à demander à Simon (Semrush)"
+    },
+    {
+      "query": "plafond dépense api openai",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/plafond-depense-api-ia",
+      "cluster": "automatisation",
+      "priority": 2,
+      "source": "Création du 14 novembre 2026 (entrée idee-plafond-depense-api-ia) ; requête cherchée le 14 novembre 2026 (guide OpenAI des limites de dépenses, aide OpenAI, omidsaffari.com, tokenfeed.pages.dev, satgate.io, xray.tech se classent) ; volume non mesuré, à demander à Simon (Semrush)"
+    },
+    {
+      "query": "n8n error workflow",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/workflow-erreur-n8n-ia",
+      "cluster": "automatisation",
+      "priority": 2,
+      "source": "Création du 20 novembre 2026 (entrée idee-workflow-erreur-n8n-appels-ia) ; requête cherchée le 20 novembre 2026 (blog n8n, OpenClassrooms, rapidevelopers.com, horadecodar.com.br, kirako.ai, infinitelab.fr se classent) ; volume non mesuré, à demander à Simon (Semrush)"
+    },
+    {
+      "query": "claude for manufacturing",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/claude-for-manufacturing-pme",
+      "cluster": "claude",
+      "priority": 2,
+      "source": "Veille du 13 novembre 2026 : annonce Anthropic du 12 novembre 2026 ; requête cherchée le 15 novembre 2026 (claude.com, Manufacturing Dive, unite.ai, logistiqueformation.fr, pasqualepillitteri.it se classent) ; volume non mesuré, à demander à Simon (Semrush)"
+    },
+    {
+      "query": "claude meetings",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/claude-meetings-pme",
+      "cluster": "claude",
+      "priority": 2,
+      "source": "Veille du 13 novembre 2026 : aide de Claude « Use Claude Meetings » et annonce Anthropic du 12 novembre 2026 ; requête cherchée le 13 novembre 2026 (Clubic, ZDNet, com-quotidiens.fr, TekyMag, Brief IA se classent) ; volume non mesuré, à demander à Simon (Semrush)"
+    },
+    {
+      "query": "dossier de compétences ia",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/dossier-competences-ia-esn",
+      "cluster": "secteurs",
+      "priority": 3,
+      "source": "Calendrier éditorial, entrée idee-dossier-competences-ia-esn (recherche du 1er novembre 2026), rédigé le 11 novembre 2026 ; volume non mesuré, à demander à Simon (Semrush)"
+    },
+    {
+      "query": "claude team vs chatgpt business",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/claude-chatgpt-mistral-offres-equipe",
+      "cluster": "claude",
+      "priority": 2,
+      "source": "Page pivot de la série « IA par métier », créée le 1er novembre 2026 à la demande de Simon ; volume non mesuré, à demander à Simon (Semrush)"
+    },
+    {
+      "query": "ai mode",
+      "volume": 6600,
+      "difficulty": 39,
+      "target": "/blog/ai-mode-google-ai-overviews-pme",
+      "cluster": "geo",
+      "priority": 2,
+      "source": "Semrush France, Positions de noiise.com, 9 octobre 2026"
+    },
+    {
+      "query": "price lovable",
+      "volume": 390,
+      "difficulty": 27,
+      "target": "/ressources/comparatifs/lovable-vs-developpement-sur-mesure",
+      "cluster": "application-metier",
+      "priority": 2,
+      "source": "Semrush France, export lucasfonseque.fr, 9 octobre 2026"
+    },
+    {
+      "query": "prompt optimizer",
+      "volume": 320,
+      "difficulty": 37,
+      "target": "/ressources/guides/prompt-engineering-pme",
+      "cluster": "formation",
+      "priority": 2,
+      "source": "Semrush France, export ia4ops.com, 9 octobre 2026"
+    },
+    {
+      "query": "surveiller visibilité ia chatgpt",
+      "volume": 480,
+      "difficulty": 14,
+      "target": "/ressources/guides/mesurer-visibilite-ia-chatgpt",
+      "cluster": "geo",
+      "priority": 2,
+      "source": "Semrush France, Positions de noiise.com, 9 octobre 2026"
+    },
+    {
+      "query": "apparaître dans chatgpt",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/apparaitre-dans-chatgpt-pme",
+      "cluster": "geo",
+      "priority": 2,
+      "source": "Calendrier éditorial, entrée w43-article-apparaitre-dans-chatgpt-pme ; volume non mesuré, 19 octobre 2026"
+    },
+    {
+      "query": "quelle ia choisir en 2026",
+      "volume": 110,
+      "difficulty": 22,
+      "target": "/ressources/comparatifs/chatgpt-claude-gemini-perplexity-pme",
+      "cluster": "claude",
+      "priority": 2,
+      "source": "Semrush France, export lucasfonseque.fr, 9 octobre 2026"
+    },
+    {
+      "query": "geo local",
+      "volume": 210,
+      "difficulty": 18,
+      "target": "/blog/geo-local-recommande-par-les-ia",
+      "cluster": "geo",
+      "priority": 2,
+      "source": "Semrush France, Positions de noiise.com, 9 octobre 2026"
+    },
+    {
+      "query": "google contenu ia",
+      "volume": 90,
+      "difficulty": 34,
+      "target": "/blog/contenu-ia-seo-google-penalise",
+      "cluster": "seo",
+      "priority": 2,
+      "source": "Semrush France, Positions de noiise.com, 9 octobre 2026"
+    },
+    {
+      "query": "poc mvp",
+      "volume": 70,
+      "difficulty": 8,
+      "target": "/blog/poc-ou-mvp-differences-pme",
+      "cluster": "application-metier",
+      "priority": 2,
+      "source": "Semrush France, export lucasfonseque.fr, 9 octobre 2026"
+    },
+    {
+      "query": "claude et wordpress",
+      "volume": 170,
+      "difficulty": 21,
+      "target": "/blog/connecter-claude-wordpress-shopify-mcp",
+      "cluster": "claude",
+      "priority": 2,
+      "source": "Semrush France, export lucasfonseque.fr, 9 octobre 2026"
+    },
+    {
+      "query": "chatgpt shopping",
+      "volume": 260,
+      "difficulty": 23,
+      "target": "/blog/chatgpt-shopping-e-commerce",
+      "cluster": "geo",
+      "priority": 2,
+      "source": "Semrush France, Positions de noiise.com, 9 octobre 2026"
+    },
+    {
+      "query": "audit geo",
+      "volume": 320,
+      "difficulty": 13,
+      "target": "/ressources/guides/audit-geo-pme",
+      "cluster": "geo",
+      "priority": 2,
+      "source": "Semrush France, Positions de noiise.com, 9 octobre 2026"
+    },
+    {
+      "query": "refonte logiciel",
+      "volume": 480,
+      "difficulty": 10,
+      "target": "/ressources/guides/refonte-logiciel-metier",
+      "cluster": "application-metier",
+      "priority": 2,
+      "source": "Semrush France, Positions de noiise.com, 9 octobre 2026"
+    },
+    {
+      "query": "application métier exemple",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/application-metier-exemples-pme",
+      "cluster": "application-metier",
+      "priority": 2,
+      "source": "Article satellite de /services/applications-internes (qui garde « application métier sur mesure » ; « application métier » basculée sur le billet le 26 octobre 2026), publié le 16 octobre 2026 ; volume non mesuré par Semrush, à mesurer au brief"
+    },
+    {
+      "query": "comment être référencé sur perplexity",
+      "volume": 170,
+      "difficulty": 6,
+      "target": "/blog/etre-cite-par-perplexity",
+      "cluster": "geo",
+      "priority": 2,
+      "source": "Semrush France, Positions de noiise.com, 9 octobre 2026"
+    },
+    {
+      "query": "automatisation factures fournisseurs",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/automatisation-factures-fournisseurs-pme",
+      "cluster": "automatisation",
+      "priority": 2,
+      "source": "Recherche en ligne du 16 octobre 2026 (concurrents suivis) ; volume non mesuré par Semrush, à mesurer au prochain brief"
+    },
+    {
+      "query": "ia réponse appel d'offres",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/ia-reponse-appel-offres-pme",
+      "cluster": "agents-ia",
+      "priority": 2,
+      "source": "Recherche en ligne du 16 octobre 2026 (concurrents suivis) ; volume non mesuré par Semrush, à mesurer au prochain brief"
+    },
+    {
+      "query": "relance factures impayées automatique",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/relance-factures-impayees-automatique-pme",
+      "cluster": "automatisation-commerciale",
+      "priority": 2,
+      "source": "Recherche en ligne du 16 octobre 2026 (concurrents suivis) ; volume non mesuré par Semrush, à mesurer au prochain brief"
+    },
+    {
+      "query": "ai act obligations entreprise",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/ai-act-pme-utilisatrice-ia",
+      "cluster": "conformite",
+      "priority": 2,
+      "source": "Satellite du guide AI Act, publié le 16 octobre 2026 ; volume non mesuré"
+    },
+    {
+      "query": "facture électronique réception PME",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/facture-electronique-reception-pme",
+      "cluster": "automatisation",
+      "priority": 2,
+      "source": "Satellite du guide factures fournisseurs, planifié le 16 octobre 2026 ; volume non mesuré par Semrush, à mesurer au brief"
+    },
+    {
+      "query": "saisie automatique factures",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/saisie-automatique-factures-pme",
+      "cluster": "automatisation",
+      "priority": 2,
+      "source": "Satellite du guide factures fournisseurs, planifié le 16 octobre 2026 ; volume non mesuré par Semrush, à mesurer au brief ; cible renseignée le 5 novembre 2026 (création du jour)"
+    },
+    {
+      "query": "claude duet",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/claude-duet",
+      "cluster": "claude",
+      "priority": 1,
+      "source": "Ajout du 24 octobre 2026 pour les pages Duet, dots, Hermes Agent et OpenClaw ; volume non mesuré par Semrush, à mesurer au prochain brief"
+    },
+    {
+      "query": "claude duet prix",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/claude-duet",
+      "cluster": "claude",
+      "priority": 2,
+      "source": "Ajout du 24 octobre 2026 pour les pages Duet, dots, Hermes Agent et OpenClaw ; volume non mesuré par Semrush, à mesurer au prochain brief"
+    },
+    {
+      "query": "claude duet france",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/claude-duet-france-acces-rgpd",
+      "cluster": "claude",
+      "priority": 2,
+      "source": "Ajout du 24 octobre 2026 pour les pages Duet, dots, Hermes Agent et OpenClaw ; volume non mesuré par Semrush, à mesurer au prochain brief"
+    },
+    {
+      "query": "chatgpt dots",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/chatgpt-dots",
+      "cluster": "agents-ia",
+      "priority": 1,
+      "source": "Ajout du 24 octobre 2026 pour les pages Duet, dots, Hermes Agent et OpenClaw ; volume non mesuré par Semrush, à mesurer au prochain brief"
+    },
+    {
+      "query": "openai dots",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/chatgpt-dots",
+      "cluster": "agents-ia",
+      "priority": 2,
+      "source": "Ajout du 24 octobre 2026 pour les pages Duet, dots, Hermes Agent et OpenClaw ; volume non mesuré par Semrush, à mesurer au prochain brief"
+    },
+    {
+      "query": "chatgpt dots prix",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/chatgpt-dots",
+      "cluster": "agents-ia",
+      "priority": 2,
+      "source": "Ajout du 24 octobre 2026 pour les pages Duet, dots, Hermes Agent et OpenClaw ; volume non mesuré par Semrush, à mesurer au prochain brief"
+    },
+    {
+      "query": "claude duet vs chatgpt dots",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/comparatifs/claude-duet-vs-chatgpt-dots",
+      "cluster": "agents-ia",
+      "priority": 1,
+      "source": "Ajout du 24 octobre 2026 pour les pages Duet, dots, Hermes Agent et OpenClaw ; volume non mesuré par Semrush, à mesurer au prochain brief"
+    },
+    {
+      "query": "hermes agent",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/hermes-agent",
+      "cluster": "agents-ia",
+      "priority": 1,
+      "source": "Ajout du 24 octobre 2026 pour les pages Duet, dots, Hermes Agent et OpenClaw ; volume non mesuré par Semrush, à mesurer au prochain brief"
+    },
+    {
+      "query": "hermes agent installation",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/hermes-agent",
+      "cluster": "agents-ia",
+      "priority": 2,
+      "source": "Ajout du 24 octobre 2026 pour les pages Duet, dots, Hermes Agent et OpenClaw ; volume non mesuré par Semrush, à mesurer au prochain brief"
+    },
+    {
+      "query": "hermes agent entreprise",
+      "volume": null,
+      "difficulty": null,
+      "target": "/services/integration-hermes-agent",
+      "cluster": "agents-ia",
+      "priority": 2,
+      "source": "Ajout du 24 octobre 2026 pour les pages Duet, dots, Hermes Agent et OpenClaw ; volume non mesuré par Semrush, à mesurer au prochain brief"
+    },
+    {
+      "query": "openclaw",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/openclaw",
+      "cluster": "agents-ia",
+      "priority": 1,
+      "source": "Ajout du 24 octobre 2026 pour les pages Duet, dots, Hermes Agent et OpenClaw ; volume non mesuré par Semrush, à mesurer au prochain brief"
+    },
+    {
+      "query": "openclaw 2.0",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/openclaw",
+      "cluster": "agents-ia",
+      "priority": 1,
+      "source": "Ajout du 24 octobre 2026 pour les pages Duet, dots, Hermes Agent et OpenClaw ; volume non mesuré par Semrush, à mesurer au prochain brief"
+    },
+    {
+      "query": "openclaw sécurité",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/openclaw",
+      "cluster": "agents-ia",
+      "priority": 2,
+      "source": "Ajout du 24 octobre 2026 pour les pages Duet, dots, Hermes Agent et OpenClaw ; volume non mesuré par Semrush, à mesurer au prochain brief"
+    },
+    {
+      "query": "agent ia accès identifiants entreprise",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/acces-agent-ia-identifiants-pme",
+      "cluster": "agents-ia",
+      "priority": 2,
+      "source": "Ajout du 4 novembre 2026 (création du jour, calendrier éditorial) ; volume non mesuré par Semrush, à demander à Simon"
+    },
+    {
+      "query": "veille réglementaire automatisée",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/veille-reglementaire-automatisee-pme",
+      "cluster": "automatisation",
+      "priority": 2,
+      "source": "Ajout du 4 novembre 2026 (création du jour, calendrier éditorial) ; volume non mesuré par Semrush, à demander à Simon"
+    },
+    {
+      "query": "hermes agent vs openclaw",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/comparatifs/hermes-agent-vs-openclaw",
+      "cluster": "agents-ia",
+      "priority": 1,
+      "source": "Ajout du 24 octobre 2026 pour les pages Duet, dots, Hermes Agent et OpenClaw ; volume non mesuré par Semrush, à mesurer au prochain brief"
+    },
+    {
+      "query": "agent ia open source entreprise",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/agents-ia-toujours-actifs-pme",
+      "cluster": "agents-ia",
+      "priority": 2,
+      "source": "Ajout du 24 octobre 2026 pour les pages Duet, dots, Hermes Agent et OpenClaw ; volume non mesuré par Semrush, à mesurer au prochain brief"
+    },
+    {
+      "query": "agent ia toujours actif",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/agents-ia-toujours-actifs-pme",
+      "cluster": "agents-ia",
+      "priority": 2,
+      "source": "Ajout du 24 octobre 2026 pour les pages Duet, dots, Hermes Agent et OpenClaw ; volume non mesuré par Semrush, à mesurer au prochain brief"
+    },
+    {
+      "query": "agent ia open source",
+      "volume": null,
+      "difficulty": null,
+      "target": "/services/agents-ia-open-source",
+      "cluster": "agents-ia",
+      "priority": 2,
+      "source": "Ajout du 24 octobre 2026 pour les pages Duet, dots, Hermes Agent et OpenClaw ; volume non mesuré par Semrush, à mesurer au prochain brief"
+    },
+    {
+      "query": "agence agent ia open source",
+      "volume": null,
+      "difficulty": null,
+      "target": "/services/agents-ia-open-source",
+      "cluster": "agents-ia",
+      "priority": 1,
+      "source": "Ajout du 24 octobre 2026 (offre agents IA open source et billets d'appui) ; volume non mesuré par Semrush, à mesurer au prochain brief"
+    },
+    {
+      "query": "agent ia auto-hébergé",
+      "volume": null,
+      "difficulty": null,
+      "target": "/services/agents-ia-open-source",
+      "cluster": "agents-ia",
+      "priority": 2,
+      "source": "Ajout du 24 octobre 2026 (offre agents IA open source et billets d'appui) ; volume non mesuré par Semrush, à mesurer au prochain brief"
+    },
+    {
+      "query": "openclaw entreprise",
+      "volume": null,
+      "difficulty": null,
+      "target": "/services/integration-openclaw",
+      "cluster": "agents-ia",
+      "priority": 1,
+      "source": "Ajout du 24 octobre 2026 (offre agents IA open source et billets d'appui) ; volume non mesuré par Semrush, à mesurer au prochain brief"
+    },
+    {
+      "query": "agence openclaw",
+      "volume": null,
+      "difficulty": null,
+      "target": "/services/integration-openclaw",
+      "cluster": "agents-ia",
+      "priority": 2,
+      "source": "Ajout du 24 octobre 2026 (offre agents IA open source et billets d'appui) ; volume non mesuré par Semrush, à mesurer au prochain brief"
+    },
+    {
+      "query": "installer openclaw",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/openclaw-2-0-migration-changements",
+      "cluster": "agents-ia",
+      "priority": 3,
+      "source": "Ajout du 24 octobre 2026 (offre agents IA open source et billets d'appui) ; volume non mesuré par Semrush, à mesurer au prochain brief"
+    },
+    {
+      "query": "agence hermes agent",
+      "volume": null,
+      "difficulty": null,
+      "target": "/services/integration-hermes-agent",
+      "cluster": "agents-ia",
+      "priority": 2,
+      "source": "Ajout du 24 octobre 2026 (offre agents IA open source et billets d'appui) ; volume non mesuré par Semrush, à mesurer au prochain brief"
+    },
+    {
+      "query": "claude duet cowork",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/claude-duet-ou-claude-cowork",
+      "cluster": "claude",
+      "priority": 2,
+      "source": "Ajout du 24 octobre 2026 (offre agents IA open source et billets d'appui) ; volume non mesuré par Semrush, à mesurer au prochain brief"
+    },
+    {
+      "query": "claude duet rgpd",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/claude-duet-france-acces-rgpd",
+      "cluster": "claude",
+      "priority": 2,
+      "source": "Ajout du 24 octobre 2026 (offre agents IA open source et billets d'appui) ; volume non mesuré par Semrush, à mesurer au prochain brief"
+    },
+    {
+      "query": "anthropic duet",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/claude-duet-lancement-21-octobre-2026",
+      "cluster": "claude",
+      "priority": 2,
+      "source": "Ajout du 24 octobre 2026 (offre agents IA open source et billets d'appui) ; volume non mesuré par Semrush, à mesurer au prochain brief"
+    },
+    {
+      "query": "chatgpt dots europe",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/chatgpt-dots-europe-disponibilite",
+      "cluster": "agents-ia",
+      "priority": 1,
+      "source": "Ajout du 24 octobre 2026 (offre agents IA open source et billets d'appui) ; volume non mesuré par Semrush, à mesurer au prochain brief"
+    },
+    {
+      "query": "chatgpt dots règles",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/chatgpt-dots-regles-personnalisees-approbations",
+      "cluster": "agents-ia",
+      "priority": 2,
+      "source": "Ajout du 24 octobre 2026 (offre agents IA open source et billets d'appui) ; volume non mesuré par Semrush, à mesurer au prochain brief"
+    },
+    {
+      "query": "installer hermes agent",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/installer-hermes-agent-premier-agent",
+      "cluster": "agents-ia",
+      "priority": 1,
+      "source": "Ajout du 24 octobre 2026 (offre agents IA open source et billets d'appui) ; volume non mesuré par Semrush, à mesurer au prochain brief"
+    },
+    {
+      "query": "hermes agent v0.22",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/hermes-agent-v0-22-modeles-locaux-connecteurs",
+      "cluster": "agents-ia",
+      "priority": 3,
+      "source": "Ajout du 24 octobre 2026 (offre agents IA open source et billets d'appui) ; volume non mesuré par Semrush, à mesurer au prochain brief"
+    },
+    {
+      "query": "openclaw 2.0 migration",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/openclaw-2-0-migration-changements",
+      "cluster": "agents-ia",
+      "priority": 2,
+      "source": "Ajout du 24 octobre 2026 (offre agents IA open source et billets d'appui) ; volume non mesuré par Semrush, à mesurer au prochain brief"
+    },
+    {
+      "query": "sécuriser openclaw",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/securiser-openclaw-checklist",
+      "cluster": "agents-ia",
+      "priority": 1,
+      "source": "Ajout du 24 octobre 2026 (offre agents IA open source et billets d'appui) ; volume non mesuré par Semrush, à mesurer au prochain brief"
+    },
+    {
+      "query": "agent ia toujours actif exemples",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/agent-ia-toujours-actif-missions-pme",
+      "cluster": "agents-ia",
+      "priority": 2,
+      "source": "Ajout du 24 octobre 2026 (offre agents IA open source et billets d'appui) ; volume non mesuré par Semrush, à mesurer au prochain brief"
+    },
+    {
+      "query": "coût agent ia toujours actif",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/cout-agent-ia-toujours-actif",
+      "cluster": "agents-ia",
+      "priority": 2,
+      "source": "Ajout du 24 octobre 2026 (offre agents IA open source et billets d'appui) ; volume non mesuré par Semrush, à mesurer au prochain brief"
+    },
+    {
+      "query": "reconstitution adresse email professionnelle cnil",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/cnil-email-professionnel-devine-prospection",
+      "cluster": "commercial",
+      "priority": 2,
+      "source": "Ajout du 2 novembre 2026 (fiche CNIL du 16 octobre 2026) ; Semrush France, desktop, relevé par Simon le 2 novembre 2026 : aucune donnée (pas de volume ni de difficulté)"
+    },
+    {
+      "query": "connecter claude à shopify",
+      "volume": 20,
+      "difficulty": null,
+      "target": "/blog/connecter-claude-wordpress-shopify-mcp",
+      "cluster": "claude",
+      "priority": 2,
+      "source": "Ajout du 2 novembre 2026 : requêtes Search Console « claude connect shopify », « comment connecter claude a shopify », « connecter shopify a claude » (collecte du 27 octobre 2026) ; Semrush France, desktop, relevé par Simon le 2 novembre 2026 : volume 20, difficulté non disponible, CPC 1,96 €"
+    },
+    {
+      "query": "consultation cse ia",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/consultation-cse-ia",
+      "cluster": "conformite",
+      "priority": 2,
+      "source": "Ajout du 6 novembre 2026 (création de la page, entrée du calendrier) ; volume non mesuré par Semrush, à mesurer au prochain brief"
+    },
+    {
+      "query": "expertise cse nouvelles technologies ia",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/expertise-cse-projet-ia",
+      "cluster": "conformite",
+      "priority": 2,
+      "source": "Ajout du 23 novembre 2026 (création de la page, entrée idee-expertise-cse-projet-ia du calendrier) ; volume non mesuré par Semrush, à mesurer au prochain brief"
+    },
+    {
+      "query": "faux avis ia",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/faux-avis-ia",
+      "cluster": "conformite",
+      "priority": 2,
+      "source": "Ajout du 6 novembre 2026 (création de la page, entrée du calendrier) ; volume non mesuré par Semrush, à mesurer au prochain brief"
+    },
+    {
+      "query": "risques claude pme",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/risques-claude-pme",
+      "cluster": "claude",
+      "priority": 2,
+      "source": "Ajout du 7 novembre 2026 (création de la page, entrée w49-article-risques-claude-pme ; impressions vues dans docs/seo/data/2026-W42/gsc-performance.json) ; volume non mesuré par Semrush"
+    },
+    {
+      "query": "questionnaire de sécurité fournisseur ia",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/questionnaire-securite-ia",
+      "cluster": "conformite",
+      "priority": 2,
+      "source": "Ajout du 7 novembre 2026 (création de la page, entrée idee-questionnaire-securite-ia) ; volume non mesuré par Semrush"
+    },
+    {
+      "query": "ai-caiq",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/ai-caiq-questionnaire-ia",
+      "cluster": "conformite",
+      "priority": 2,
+      "source": "Ajout du 16 novembre 2026 (création de la page, entrée idee-ai-caiq-questionnaire-ia) ; volume non mesuré par Semrush"
+    },
+    {
+      "query": "clé api sécurité automatisation",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/cles-api-automatisation-securite-pme",
+      "cluster": "automatisation",
+      "priority": 2,
+      "source": "Ajout du 8 novembre 2026 (création de la page, entrée idee-cles-api-automatisations-secrets) ; volume non mesuré par Semrush"
+    },
+    {
+      "query": "registre maîtrise ia article 4",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/registre-maitrise-ia-article-4",
+      "cluster": "conformite",
+      "priority": 2,
+      "source": "Ajout du 9 novembre 2026 (création de la page, entrée idee-registre-maitrise-ia-article-4) ; volume non mesuré par Semrush"
+    },
+    {
+      "query": "image publicitaire ia obligation de signaler",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/ai-act-article-50-images-publicitaires",
+      "cluster": "conformite",
+      "priority": 2,
+      "source": "Ajout du 9 novembre 2026 (création de la page, entrée idee-ai-act-article-50-images-publicitaires) ; volume non mesuré par Semrush"
+    },
+    {
+      "query": "bloquer entraînement ia robots.txt",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/bloquer-entrainement-ia-robots-txt",
+      "cluster": "geo",
+      "priority": 2,
+      "source": "Ajout du 10 novembre 2026 (création de la page, entrée idee-signal-commun-entrainement-ia) ; volume non mesuré par Semrush"
+    },
+    {
+      "query": "départ salarié compte ia personnel",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/comptes-ia-personnels-depart-salarie",
+      "cluster": "conformite",
+      "priority": 2,
+      "source": "Ajout du 10 novembre 2026 (création de la page, entrée idee-comptes-ia-personnels-depart-salarie) ; volume non mesuré par Semrush"
+    },
+    {
+      "query": "intérêt légitime ia rgpd",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/cepd-interet-legitime-ia-lignes-directrices",
+      "cluster": "conformite",
+      "priority": 2,
+      "source": "Ajout du 17 novembre 2026 (actualité, entrée actu-2026-11-17-cepd-interet-legitime-ia) ; volume non mesuré par Semrush"
+    },
+    {
+      "query": "gpt-6.2",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/gpt-6-2-astra-sol-pme",
+      "cluster": "claude",
+      "priority": 2,
+      "source": "Création du 19 novembre 2026 ; volume non mesuré, à demander à Simon (Semrush)"
+    },
+    {
+      "query": "gpt-6.2 astra",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/gpt-6-2-astra-sol-pme",
+      "cluster": "claude",
+      "priority": 2,
+      "source": "Création du 19 novembre 2026 ; volume non mesuré, à demander à Simon (Semrush)"
+    },
+    {
+      "query": "mods claude code",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/claude-code-mods",
+      "cluster": "claude",
+      "priority": 2,
+      "source": "Création du 19 novembre 2026 ; volume non mesuré, à demander à Simon (Semrush)"
+    },
+    {
+      "query": "claude code mod",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/claude-code-mods",
+      "cluster": "claude",
+      "priority": 3,
+      "source": "Création du 19 novembre 2026 ; volume non mesuré, à demander à Simon (Semrush)"
+    },
+    {
+      "query": "mods claude code sécurité",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/mods-claude-code-securite-pme",
+      "cluster": "claude",
+      "priority": 3,
+      "source": "Création du 19 novembre 2026 ; volume non mesuré, à demander à Simon (Semrush)"
+    },
+    {
+      "query": "chatgpt business",
+      "volume": null,
+      "difficulty": null,
+      "target": "/ressources/guides/chatgpt-business",
+      "cluster": "claude",
+      "priority": 2,
+      "source": "Ajout du 19 novembre 2026 (création du guide à la demande de Simon, entrée idee-guide-chatgpt-business) ; la requête était classée en position 54 sur /blog/fiche-entreprise-chatgpt-business-hub (collecte du 18 novembre 2026), page d'un autre produit ; volume non mesuré par Semrush"
+    },
+    {
+      "query": "migrer compte chatgpt personnel vers business",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/fusionner-chatgpt-personnel-business",
+      "cluster": "claude",
+      "priority": 3,
+      "source": "Ajout du 21 novembre 2026 (entrée idee-migrer-chatgpt-personnel-business) ; SERP française lue le 21 novembre 2026 : seules les pages d'aide d'OpenAI se classent ; volume non mesuré, à demander à Simon (Semrush)"
+    },
+    {
+      "query": "actions personnalisées gpt plugin",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/gpt-actions-personnalisees-mcp",
+      "cluster": "claude",
+      "priority": 3,
+      "source": "Ajout du 22 novembre 2026 (entrée idee-retrait-gpt-personnalises-plugins-pme, angle recentré sur les actions) ; SERP française lue le 22 novembre 2026 : six pages tierces sur le retrait des GPT, aucune ne traite l'authentification des actions ; volume non mesuré, à demander à Simon (Semrush)"
+    },
+    {
+      "query": "analyser avis clients ia",
+      "volume": null,
+      "difficulty": null,
+      "target": "/blog/analyser-avis-clients-ia-rgpd",
+      "cluster": "conformite",
+      "priority": 3,
+      "source": "Ajout du 26 novembre 2026 (entrée idee-analyser-avis-clients-ia-rgpd) ; SERP française lue le 26 novembre 2026 : involve.me, yotpo, tensoria, dixie.consulting, ai-prompt.fr, ewolis.fr donnent des consignes sans traiter la pseudonymisation ni le champ reviewer de l’export ; volume non mesuré, à demander à Simon (Semrush)"
+    }
   ]
 }

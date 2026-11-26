@@ -12306,6 +12306,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/analyser-avis-clients-ia-rgpd",
+    "title": "Analyser ses avis clients avec l'IA sans enfreindre le RGPD",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/analyser-avis-clients-ia-rgpd.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/apparaitre-dans-chatgpt-pme",
     "title": "Apparaître dans ChatGPT : ce qu'une PME contrôle, et ce qu'elle ne contrôle pas",
     "group": "blog",
@@ -14280,6 +14289,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/ai-act-pme-utilisatrice-ia",
       "/blog/ai-caiq-questionnaire-ia",
       "/blog/ai-mode-google-ai-overviews-pme",
+      "/blog/analyser-avis-clients-ia-rgpd",
       "/blog/apparaitre-dans-chatgpt-pme",
       "/blog/application-metier-exemples-pme",
       "/blog/applications-internes-build-vs-buy-pme",

@@ -1,0 +1,194 @@
+{
+  "title_fr": "Analyser ses avis clients avec l'IA sans enfreindre le RGPD",
+  "title_en": "Analysing customer reviews with AI without breaching the GDPR",
+  "seoTitle_fr": "Analyser ses avis clients avec l'IA : la méthode RGPD",
+  "seoTitle_en": "Analysing customer reviews with AI: the GDPR way",
+  "h1_fr": "Analyser ses avis clients avec l'IA sans enfreindre le RGPD",
+  "h1_en": "Analysing customer reviews with AI without breaching the GDPR",
+  "description_fr": "Ce qui part au modèle et ce qui reste chez vous, procédure en 8 étapes, consigne, information des clients : analyser ses avis avec ChatGPT ou Claude sous RGPD.",
+  "description_en": "What goes to the model and what stays with you, an 8-step procedure, a prompt and customer notice: analysing reviews with ChatGPT or Claude under the GDPR.",
+  "excerpt_fr": "Retirer le nom d'un avis ne le rend pas anonyme. Pour analyser ses avis clients avec ChatGPT, Claude ou Mistral, il faut nettoyer le texte avant l'envoi, passer par une offre professionnelle, écrire la finalité au registre et prévenir les clients.",
+  "excerpt_en": "Removing a name does not make a review anonymous. To analyse reviews with ChatGPT, Claude or Mistral, clean the text before sending, use a business plan, record the purpose and inform customers.",
+  "publishedAt": "2026-11-26",
+  "updatedAt": "2026-11-26",
+  "editorialType": "Tutorial",
+  "type": "post",
+  "author": "simon-beros",
+  "category": "conformite",
+  "tags": [
+    "avis-clients",
+    "rgpd",
+    "chatgpt",
+    "claude",
+    "donnees-personnelles"
+  ],
+  "readingTime": 9,
+  "heroIllustration": {
+    "src": "/images/illustrations/ds/analyser-avis-tamis-paper.webp",
+    "alt_fr": "Un homme verse des fiches d'avis dans un grand tamis : les badges nominatifs restent pris, seul le texte passe",
+    "alt_en": "A man pours review cards into a large sieve: name badges stay caught, only the text falls through",
+    "side": "right"
+  },
+  "lead_magnet": "charte-ia-entreprise",
+  "relatedPosts": [
+    "faux-avis-ia",
+    "ia-sav-pme",
+    "claude-chatgpt-mistral-offres-equipe"
+  ],
+  "slug": "analyser-avis-clients-ia-rgpd",
+  "sources": [
+    {
+      "name": "Google for Developers, Business Profile API, ressource Review, lu le 26 novembre 2026",
+      "url": "https://developers.google.com/my-business/reference/rest/v4/accounts.locations.reviews",
+      "type": "enterprise"
+    },
+    {
+      "name": "Google for Developers, accounts.locations.reviews.list, lu le 26 novembre 2026",
+      "url": "https://developers.google.com/my-business/reference/rest/v4/accounts.locations.reviews/list",
+      "type": "enterprise"
+    },
+    {
+      "name": "CNIL, L'anonymisation de données personnelles, lu le 26 novembre 2026",
+      "url": "https://www.cnil.fr/fr/technologies/lanonymisation-de-donnees-personnelles",
+      "type": "state"
+    },
+    {
+      "name": "CNIL, Identifier les données personnelles, lu le 26 novembre 2026",
+      "url": "https://cnil.fr/fr/identifier-les-donnees-personnelles",
+      "type": "state"
+    },
+    {
+      "name": "CNIL, Le CEPD adopte des lignes directrices sur la pseudonymisation (20 janvier 2025), lu le 26 novembre 2026",
+      "url": "https://www.cnil.fr/fr/le-cepd-adopte-des-lignes-directrices-sur-la-pseudonymisation-et-souhaite-renforcer-la-cooperation",
+      "type": "state"
+    },
+    {
+      "name": "CNIL, Focus intérêt légitime : collecte par moissonnage (19 juin 2025), lu le 26 novembre 2026",
+      "url": "https://www.cnil.fr/fr/focus-interet-legitime-collecte-par-moissonnage",
+      "type": "state"
+    },
+    {
+      "name": "CNIL, RGPD chapitre III, article 14, lu le 26 novembre 2026",
+      "url": "https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre3#Article14",
+      "type": "state"
+    },
+    {
+      "name": "France Num, Analyser et répondre aux avis clients avec l'IA (fiche pratique, mise à jour le 29 octobre 2026), lu le 26 novembre 2026",
+      "url": "https://www.francenum.gouv.fr/guides-et-conseils/intelligence-artificielle/agents-conversationnels-et-assistants-virtuels-1",
+      "type": "state"
+    },
+    {
+      "name": "OpenAI, Business data privacy, security, and compliance, lu le 26 novembre 2026",
+      "url": "https://openai.com/business-data/",
+      "type": "enterprise"
+    },
+    {
+      "name": "Anthropic Privacy Center, Is my data used for model training? (commercial), lu le 26 novembre 2026",
+      "url": "https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training",
+      "type": "enterprise"
+    }
+  ],
+  "faq_fr": [
+    {
+      "q": "Un avis Google est-il une donnée personnelle ?",
+      "a": "Oui, dès qu'il peut être rattaché à son auteur : nom affiché, photo de profil, ou détails du texte comme une date de visite ou un numéro de commande. Le fait qu'il soit public ne le fait pas sortir du RGPD ; il vous permet de le lire, pas de le réutiliser pour n'importe quelle finalité."
+    },
+    {
+      "q": "Peut-on coller ses avis clients dans ChatGPT ?",
+      "a": "Oui, à condition de passer par une offre professionnelle (ChatGPT Business ou Enterprise, ou l'API), sur laquelle OpenAI dit ne pas entraîner ses modèles par défaut, et d'avoir retiré avant l'envoi le nom de l'auteur, sa photo et les détails identifiants du texte. Un compte gratuit ou personnel ne convient pas à des données de clients."
+    },
+    {
+      "q": "Faut-il anonymiser les avis avant de les analyser avec l'IA ?",
+      "a": "Il faut au moins les pseudonymiser : retirer nom, photo et identifiant, remplacés par un numéro local, et nettoyer le texte. Une anonymisation complète est rarement possible sans détruire l'information utile. Les données pseudonymisées restent des données personnelles, donc le registre, la durée de conservation et l'information des clients restent dus."
+    },
+    {
+      "q": "Faut-il informer les clients que leurs avis sont analysés par l'IA ?",
+      "a": "Oui. Les avis publiés sur une plateforme ne vous ont pas été remis directement, ce qui relève de l'article 14 du RGPD, et France Num recommande d'indiquer l'analyse automatisée dans la politique de gestion des avis ou les conditions générales. Deux phrases dans la politique de confidentialité suffisent, avec le moyen de s'y opposer."
+    },
+    {
+      "q": "Peut-on analyser les avis de ses concurrents avec l'IA ?",
+      "a": "Les lire et en tirer des thèmes à la main ne pose pas de difficulté. Les aspirer en masse avec un outil de collecte est autre chose : la CNIL demande d'exclure les sites qui s'y opposent (conditions d'utilisation, robots.txt, CAPTCHA) et de supprimer les pseudonymes inutiles. Pour une PME, la lecture manuelle d'une trentaine d'avis suffit le plus souvent."
+    }
+  ],
+  "faq_en": [
+    {
+      "q": "Is a Google review personal data?",
+      "a": "Yes, as soon as it can be linked to its author: display name, profile photo or details in the text. Being public does not take it outside the GDPR."
+    },
+    {
+      "q": "Can I paste customer reviews into ChatGPT?",
+      "a": "Yes, through a business plan that does not train on your data by default, after removing the author's name, photo and identifying details."
+    },
+    {
+      "q": "Do reviews need to be anonymised before AI analysis?",
+      "a": "At least pseudonymised: names and IDs replaced by a local number and the text cleaned. Pseudonymised data is still personal data."
+    },
+    {
+      "q": "Must customers be told their reviews are analysed by AI?",
+      "a": "Yes. Reviews obtained from a platform fall under Article 14 GDPR; a short notice in your privacy policy, with a way to object, is enough."
+    },
+    {
+      "q": "Can I analyse competitors' reviews with AI?",
+      "a": "Reading them by hand is fine. Bulk scraping must respect sites that object and drop unnecessary pseudonyms, per the CNIL."
+    }
+  ],
+  "headings": [
+    {
+      "depth": 2,
+      "slug": "en-bref",
+      "text": "En bref"
+    },
+    {
+      "depth": 2,
+      "slug": "donnee-personnelle",
+      "text": "Un avis client est une donnée personnelle, même publié"
+    },
+    {
+      "depth": 2,
+      "slug": "pseudonymiser",
+      "text": "Retirer le nom : pseudonymiser, pas anonymiser"
+    },
+    {
+      "depth": 2,
+      "slug": "ce-qui-part",
+      "text": "Ce qui part au modèle, ce qui reste chez vous"
+    },
+    {
+      "depth": 2,
+      "slug": "procedure",
+      "text": "La procédure, de l'export à la synthèse"
+    },
+    {
+      "depth": 2,
+      "slug": "exemple",
+      "text": "Exemple illustratif : 120 avis d'un installateur de chauffage"
+    },
+    {
+      "depth": 2,
+      "slug": "salaries",
+      "text": "Ne transformez pas l'analyse des avis en évaluation de vos salariés"
+    },
+    {
+      "depth": 2,
+      "slug": "informer",
+      "text": "Dire aux clients que leurs avis sont analysés"
+    },
+    {
+      "depth": 2,
+      "slug": "concurrents",
+      "text": "Les avis de vos concurrents : à la main, pas au robot"
+    },
+    {
+      "depth": 2,
+      "slug": "ne-pas-faire",
+      "text": "Quand ne pas lancer d'analyse par IA"
+    }
+  ],
+  "body_sections": [
+    {
+      "type": "editorial-prose",
+      "html_fr": "<h2 id=\"en-bref\">En bref</h2>\n<p>Oui, une PME peut analyser ses avis clients avec ChatGPT, Claude ou Mistral sans enfreindre le RGPD, à quatre conditions : retirer le nom, la photo et l'identifiant de l'auteur avant tout envoi, passer par une offre professionnelle qui n'entraîne pas les modèles sur vos données, écrire la finalité et la durée de conservation dans votre registre, et dire aux clients que leurs avis sont analysés.</p>\n<p>Le point que les consignes à copier oublient : retirer le nom d'un avis n'en fait pas une donnée anonyme. C'est une pseudonymisation : le RGPD continue de s'appliquer, avec un registre, une durée de conservation et une information des clients à prévoir.</p>\n\n<h2 id=\"donnee-personnelle\">Un avis client est une donnée personnelle, même publié</h2>\n<p>Une donnée personnelle est toute information qui se rattache à une personne identifiable, directement ou en la recoupant. Un avis Google signé « Marie L. », avec sa photo de profil et la date de sa visite, en est une. Qu'il soit public ne change rien : la publication rend l'avis lisible par tous, elle ne vous autorise pas à en faire n'importe quoi.</p>\n<p>L'export lui-même vous le rappelle. Par l'API de Google Business Profile, <a href=\"https://developers.google.com/my-business/reference/rest/v4/accounts.locations.reviews\" rel=\"noopener noreferrer\" target=\"_blank\">chaque avis arrive avec un objet <code>reviewer</code></a> qui contient le nom affiché de l'auteur et le lien vers sa photo de profil, sauf s'il a choisi de rester anonyme. Si vous collez ce fichier tel quel dans un assistant, ces deux champs partent avec le texte.</p>\n<p>Le texte de l'avis porte souvent davantage : un numéro de commande, une adresse de livraison, le prénom du technicien venu chez le client, parfois un motif de santé (« venue pour ma sciatique »). Ce sont ces détails, plus que le nom de l'auteur, qui font déraper une analyse.</p>\n\n<h2 id=\"pseudonymiser\">Retirer le nom : pseudonymiser, pas anonymiser</h2>\n<p>La CNIL distingue les deux. <a href=\"https://www.cnil.fr/fr/technologies/lanonymisation-de-donnees-personnelles\" rel=\"noopener noreferrer\" target=\"_blank\">L'anonymisation</a> rend toute réidentification impossible, de façon irréversible ; la pseudonymisation remplace le nom par un identifiant, et les données <a href=\"https://cnil.fr/fr/identifier-les-donnees-personnelles\" rel=\"noopener noreferrer\" target=\"_blank\">restent des données personnelles</a>. Un avis dont on a retiré la signature, mais qui raconte « livraison ratée le 3 mars à Mérignac, commande 4471 », reste rattachable à son auteur par quiconque a accès à vos commandes.</p>\n<p>Le Comité européen de la protection des données l'a écrit dans ses lignes directrices, <a href=\"https://www.cnil.fr/fr/le-cepd-adopte-des-lignes-directrices-sur-la-pseudonymisation-et-souhaite-renforcer-la-cooperation\" rel=\"noopener noreferrer\" target=\"_blank\">relayées par la CNIL</a> : la pseudonymisation réduit les risques et facilite le recours à l'intérêt légitime comme base légale. Vous n'avez pas besoin d'atteindre l'anonymat parfait, qui détruirait l'information utile. Vous avez besoin de ne pas envoyer ce qui ne sert pas à l'analyse.</p>\n\n<h2 id=\"ce-qui-part\">Ce qui part au modèle, ce qui reste chez vous</h2>\n<p>Le tableau ci-dessous reprend les champs d'un export d'avis Google, les mêmes à peu de chose près que ceux d'un export Trustpilot ou d'une enquête de satisfaction.</p>\n<table>\n<thead><tr><th>Champ de l'export</th><th>Envoyé à l'assistant ?</th><th>Pourquoi</th></tr></thead>\n<tbody>\n<tr><td>Nom affiché de l'auteur</td><td>Non</td><td>Inutile pour repérer un thème ; c'est l'identifiant le plus direct</td></tr>\n<tr><td>Photo de profil (lien)</td><td>Non</td><td>Aucune valeur d'analyse</td></tr>\n<tr><td>Identifiant de l'avis chez Google</td><td>Non, remplacé par A001, A002…</td><td>La table de correspondance reste dans votre fichier, pour revenir à l'avis d'origine</td></tr>\n<tr><td>Note (1 à 5)</td><td>Oui</td><td>Sert à comparer les thèmes des avis négatifs et positifs</td></tr>\n<tr><td>Date</td><td>Le mois suffit</td><td>La date exacte aide à recouper une commande ; le mois suffit pour suivre une tendance</td></tr>\n<tr><td>Texte de l'avis</td><td>Oui, après nettoyage</td><td>Noms de salariés, numéros de commande, adresses, téléphones et motifs de santé retirés avant l'envoi</td></tr>\n<tr><td>Votre réponse publiée</td><td>Selon la question</td><td>Utile pour juger le ton de vos réponses ; inutile pour classer les irritants</td></tr>\n</tbody>\n</table>\n\n<h2 id=\"procedure\">La procédure, de l'export à la synthèse</h2>\n<ol>\n<li><strong>Écrire la finalité en une phrase.</strong> « Repérer chaque trimestre les irritants qui reviennent dans les avis, pour décider des corrections. » Elle va dans votre registre des traitements, avec la base légale (l'intérêt légitime à améliorer votre service est la plus naturelle) et la durée de conservation de la copie de travail. C'est elle qui vous dira, plus tard, si une nouvelle demande (classer par salarié, comparer aux concurrents) sort du cadre.</li>\n<li><strong>Exporter vos propres avis.</strong> Pour une fiche Google vérifiée, la méthode <code>reviews.list</code> de l'API <a href=\"https://developers.google.com/my-business/reference/rest/v4/accounts.locations.reviews/list\" rel=\"noopener noreferrer\" target=\"_blank\">renvoie les avis par pages de 50</a>, avec la note et le texte ; sans développeur, l'export de votre outil d'avis ou un copier-coller fait l'affaire pour un premier lot.</li>\n<li><strong>Construire la copie de travail.</strong> Une colonne d'identifiant local (A001…), la note, le mois, le texte. La correspondance avec l'avis d'origine reste dans un onglet ou un fichier séparé, qui ne part nulle part.</li>\n<li><strong>Nettoyer le texte avant l'envoi, pas après.</strong> Demander à l'assistant de « retirer les noms » revient à les lui envoyer d'abord. Faites le premier passage chez vous : une recherche des numéros de commande, téléphones et adresses e-mail (la fonction rechercher-remplacer de votre tableur suffit sans développeur ; un nœud Code dans n8n le fait si l'analyse doit tourner seule), puis une relecture humaine des avis qui citent un prénom. Cette relecture est le vrai coût de la méthode : comptez-la dans le temps de la personne qui s'en charge, en général celle qui répond déjà aux avis.</li>\n<li><strong>Envoyer à une offre professionnelle.</strong> OpenAI écrit qu'il <a href=\"https://openai.com/business-data/\" rel=\"noopener noreferrer\" target=\"_blank\">n'entraîne pas ses modèles par défaut</a> sur les données de ChatGPT Business, Enterprise et de l'API ; Anthropic dit la même chose de <a href=\"https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training\" rel=\"noopener noreferrer\" target=\"_blank\">ses offres commerciales</a>, Claude Team, Enterprise et l'API. Pour les offres d'équipe des trois éditeurs, y compris Mistral, et leurs conditions côte à côte, voir notre <a href=\"/blog/claude-chatgpt-mistral-offres-equipe\">comparatif Claude, ChatGPT et Mistral pour une équipe</a>. Vérifiez aussi que l'accord de traitement des données de l'éditeur couvre votre organisation, et ajoutez l'outil à la liste de vos sous-traitants. Un compte gratuit ou personnel n'a rien à faire ici.</li>\n<li><strong>Couper le bouton de retour d'avis.</strong> Chez Anthropic, un pouce levé ou baissé <a href=\"https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training\" rel=\"noopener noreferrer\" target=\"_blank\">conserve toute la conversation jusqu'à cinq ans</a> et peut servir à l'entraînement. Le propriétaire d'une offre Team ou Enterprise peut désactiver ce bouton pour toute l'organisation (Organization settings, Data and Privacy, réglage Rate chats). Faites-le avant que quelqu'un ne note la synthèse de vos avis.</li>\n<li><strong>Demander une analyse vérifiable.</strong> Chaque thème doit citer les identifiants des avis qui le portent. Sans identifiants, vous ne pouvez ni recompter, ni revenir au client concerné, ni repérer un thème inventé par le modèle.</li>\n<li><strong>Supprimer la copie de travail.</strong> Une fois la synthèse validée, le fichier nettoyé et la conversation n'ont plus d'usage. Gardez la synthèse, qui ne contient que des thèmes, des comptes et des extraits courts, et effacez le reste à la date écrite dans le registre.</li>\n</ol>\n<p>Une consigne de départ, à coller après la copie de travail :</p>\n<blockquote><p>Analyse uniquement les avis ci-dessous, chacun repéré par un identifiant (A001, A002…). Classe chaque avis dans un ou plusieurs thèmes, avec sa tonalité et un extrait exact de moins de quinze mots. Pour chaque thème, donne le nombre d'avis et la liste de leurs identifiants. Si un avis contient encore un nom de personne, un numéro de commande ou une information de santé, ne le cite pas et signale son identifiant dans une liste « à nettoyer ». N'invente ni avis ni cause.</p></blockquote>\n<p>La liste « à nettoyer » est votre filet : elle ne remplace pas le nettoyage de l'étape 4, elle vous dit où il a laissé passer quelque chose. Si un nom ou un numéro est parti malgré tout, supprimez la conversation, corrigez votre règle de nettoyage pour le lot suivant et consignez l'incident avec la date : c'est ce qu'on vous demandera si un client exerce un jour son droit d'accès.</p>\n\n<h2 id=\"exemple\">Exemple illustratif : 120 avis d'un installateur de chauffage</h2>\n<p>Exemple illustratif, sans client réel. Un installateur de pompes à chaleur de 25 personnes exporte ses 120 avis Google des douze derniers mois. Avant l'envoi, la recherche automatique retrouve 9 numéros de dossier et 2 numéros de téléphone ; la relecture repère 31 avis qui citent le prénom d'un technicien, remplacé par « le technicien ». La synthèse revient avec quatre thèmes négatifs, dont « délai entre la visite technique et la pose » (14 avis, identifiants listés), et une liste « à nettoyer » de deux avis qui mentionnaient encore une commune.</p>\n<p>Le dirigeant ne voit à aucun moment quel technicien est cité dans quels avis, et c'est voulu.</p>\n\n<h2 id=\"salaries\">Ne transformez pas l'analyse des avis en évaluation de vos salariés</h2>\n<p>Dans les métiers de service, beaucoup d'avis nomment quelqu'un : « Julie à l'accueil », « le technicien, Karim, très pro ». La tentation est de demander à l'assistant un classement par prénom. Je la déconseille sans détour : ce n'est plus la même finalité. Vous passez de l'amélioration du service à l'évaluation du personnel, qui a ses propres règles d'information des salariés et peut relever de la <a href=\"/blog/consultation-cse-ia\">consultation du CSE</a>. Et quelques avis publics, laissés par les clients les plus contents ou les plus fâchés, ne disent rien de juste sur le travail d'une personne.</p>\n<p>Si un avis signale un comportement précis d'un salarié, il se traite à la main, par le manager, comme une réclamation. Il ne passe pas par l'analyse en lot.</p>\n\n<h2 id=\"informer\">Dire aux clients que leurs avis sont analysés</h2>\n<p>Les avis publiés sur Google ne vous ont pas été remis directement par leurs auteurs : c'est la situation que vise <a href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre3#Article14\" rel=\"noopener noreferrer\" target=\"_blank\">l'article 14 du RGPD</a>, qui impose d'informer les personnes quand les données sont obtenues autrement qu'auprès d'elles. La <a href=\"https://www.francenum.gouv.fr/guides-et-conseils/intelligence-artificielle/agents-conversationnels-et-assistants-virtuels-1\" rel=\"noopener noreferrer\" target=\"_blank\">fiche pratique de France Num sur l'analyse des avis par IA</a> va dans le même sens : les consommateurs doivent savoir que leurs avis font l'objet d'une analyse automatisée, par exemple dans votre politique de gestion des avis ou vos conditions générales.</p>\n<p>Deux phrases suffisent dans votre politique de confidentialité : vous analysez périodiquement les avis publiés sur vos fiches pour améliorer votre service, avec un outil d'IA professionnel, sans le nom de leur auteur, et chacun peut s'y opposer en écrivant à l'adresse habituelle. Vous ajoutez l'outil à la liste de vos sous-traitants.</p>\n\n<h2 id=\"concurrents\">Les avis de vos concurrents : à la main, pas au robot</h2>\n<p>Aspirer les avis des concurrents avec un outil de collecte automatique, comme le proposent plusieurs guides, est une autre affaire que lire les vôtres. La CNIL a publié une <a href=\"https://www.cnil.fr/fr/focus-interet-legitime-collecte-par-moissonnage\" rel=\"noopener noreferrer\" target=\"_blank\">fiche sur le moissonnage</a> pensée pour la constitution de bases d'entraînement, mais ses critères valent bien au-delà : exclure les sites qui s'y opposent par leurs conditions d'utilisation, un fichier robots.txt ou un CAPTCHA, et supprimer immédiatement les pseudonymes quand seul le contenu des commentaires est utile. La même fiche rappelle que des conditions générales peuvent interdire la collecte sur le fondement du droit des bases de données.</p>\n<p>Pour une PME, lire les avis récents d'un concurrent et noter à la main ce qui revient donne l'essentiel, sans fichier de noms d'inconnus à garder et à justifier.</p>\n\n<h2 id=\"ne-pas-faire\">Quand ne pas lancer d'analyse par IA</h2>\n<p>Si vous recevez quelques avis par mois, lisez-les. Vous les connaissez déjà, l'outil ne vous apprendra rien de plus, et vous éviterez un traitement de plus à documenter. L'analyse par IA se justifie quand plus personne ne lit tout : plusieurs fiches, plusieurs plateformes, des centaines d'avis par an.</p>\n<p>Si vos avis parlent régulièrement de santé (cabinet, pharmacie, optique, aide à domicile), le nettoyage devient la partie lourde du travail : prévoyez une relecture intégrale, ou limitez l'analyse aux avis qui n'en contiennent pas.</p>\n<p>Et l'analyse ne doit jamais servir à écrire des avis à la place de vos clients : les règles sur les <a href=\"/blog/faux-avis-ia\">faux avis et l'IA</a> s'appliquent quel que soit l'outil.</p>\n<p>Pour aller plus loin, notre <a href=\"/ressources/guides/claude-rgpd-pme\">guide Claude et RGPD en PME</a> détaille le registre et les sous-traitants, et le <a href=\"/conformite-ia\">point d'entrée conformité IA</a> rassemble les obligations qui touchent une PME utilisatrice. Si vous voulez une analyse trimestrielle qui tourne seule, du nettoyage à la synthèse dans votre tableau de bord, c'est le rôle d'un <a href=\"/services/reporting-automatise\">reporting automatisé</a> ; pour vérifier d'abord ce que vos outils envoient déjà où, commencez par <a href=\"/audit-ia-pme\">l'audit IA gratuit</a>.</p>",
+      "html_en": "<h2 id=\"en-bref\">In short</h2>\n<p>A small business can analyse its customer reviews with ChatGPT, Claude or Mistral without breaching the GDPR if it removes the author's name, photo and ID before sending anything, uses a business plan that does not train on its data, records the purpose and retention period, and tells customers their reviews are analysed.</p>\n<p>Removing a name is pseudonymisation, not anonymisation: the GDPR still applies. Clean the text locally before sending it, ask for an analysis that cites review IDs, switch off feedback buttons that keep conversations, and never turn review analysis into an assessment of named employees. Scraping competitors' reviews raises separate issues covered by the CNIL's guidance on web scraping.</p>"
+    }
+  ]
+}
