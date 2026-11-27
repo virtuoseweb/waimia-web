@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · moteur B · « Plugin Make pour Claude : les autorisations à donner » :
+       un homme parle dans un cornet posé sur un pupitre ; un long câble traverse la plaine
+       jusqu'à un immense tableau de leviers. Une rangée de leviers est libre, l'autre est
+       enfermée derrière une grille cadenassée ; un second homme tient la clé.
+       Rôles remplacés par render-svg.mjs. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-92" r="8" fill="{{subject}}"/>
+      <path d="M-10 -82 Q0 -86 10 -82 L11 -48 L-11 -48 Z" fill="{{subject}}"/>
+      <path d="M-3 -82 L0 -74 L3 -82 Z" fill="{{light}}"/>
+      <rect x="-9" y="-49" width="7" height="47" fill="{{subject}}"/>
+      <rect x="2" y="-49" width="7" height="47" fill="{{subject}}"/>
+      <path d="M-11 -3 L-1 -3 L-1 0 L-11 0 Z M1 -3 L11 -3 L11 0 L1 0 Z" fill="{{subject}}"/>
+    </g>
+    <g id="lever">
+      <rect x="-5" y="-70" width="10" height="70" fill="{{shadow}}"/>
+      <circle cx="0" cy="-74" r="13" fill="{{light}}"/>
+      <rect x="-16" y="-4" width="32" height="10" fill="{{deep}}"/>
+    </g>
+  </defs>
+
+  <!-- Fond -->
+  <rect width="1456" height="624" fill="{{field}}"/>
+  <circle cx="300" cy="170" r="120" fill="{{soft}}"/>
+
+  <!-- Sol, horizon bas -->
+  <rect y="520" width="1456" height="104" fill="{{ground}}"/>
+  <rect y="514" width="1456" height="8" fill="{{deep}}"/>
+
+  <!-- Le grand tableau de leviers -->
+  <rect x="780" y="110" width="470" height="410" fill="{{shape}}"/>
+  <rect x="780" y="110" width="470" height="18" fill="{{deep}}"/>
+  <rect x="800" y="150" width="430" height="6" fill="{{deep}}"/>
+  <!-- Rangée libre : leviers de lancement -->
+  <use href="#lever" transform="translate(850 290)"/>
+  <use href="#lever" transform="translate(930 290) rotate(-18)"/>
+  <use href="#lever" transform="translate(1010 290)"/>
+  <use href="#lever" transform="translate(1090 290) rotate(16)"/>
+  <use href="#lever" transform="translate(1170 290)"/>
+  <rect x="800" y="300" width="430" height="6" fill="{{deep}}"/>
+  <!-- Rangée enfermée : leviers de gestion -->
+  <use href="#lever" transform="translate(850 450)"/>
+  <use href="#lever" transform="translate(930 450)"/>
+  <use href="#lever" transform="translate(1010 450)"/>
+  <use href="#lever" transform="translate(1090 450)"/>
+  <use href="#lever" transform="translate(1170 450)"/>
+  <g stroke="{{shadow}}" stroke-width="5">
+    <path d="M806 340 L1224 340 M806 470 L1224 470"/>
+    <path d="M820 340 L820 470 M860 340 L860 470 M900 340 L900 470 M940 340 L940 470 M980 340 L980 470 M1020 340 L1020 470 M1060 340 L1060 470 M1100 340 L1100 470 M1140 340 L1140 470 M1180 340 L1180 470 M1220 340 L1220 470"/>
+  </g>
+  <!-- Cadenas -->
+  <path d="M1004 392 Q1015 366 1026 392" stroke="{{shadow}}" stroke-width="6" fill="none"/>
+  <rect x="998" y="392" width="34" height="30" fill="{{shadow}}"/>
+  <rect x="1012" y="401" width="6" height="12" fill="{{light}}"/>
+
+  <!-- Câble qui traverse la plaine -->
+  <path d="M332 452 C420 560, 560 470, 640 540 S760 500, 790 470" stroke="{{shadow}}" stroke-width="6" fill="none"/>
+
+  <!-- Pupitre et cornet -->
+  <path d="M300 452 L364 452 L356 518 L308 518 Z" fill="{{shadow}}"/>
+  <rect x="292" y="444" width="80" height="10" fill="{{deep}}"/>
+  <path d="M332 444 L332 410 L300 386 L300 424 Z" fill="{{deep}}"/>
+  <ellipse cx="300" cy="405" rx="6" ry="19" fill="{{light}}"/>
+
+  <!-- Homme qui parle dans le cornet -->
+  <use href="#man" transform="translate(250 514) scale(1.15)"/>
+  <path d="M258 422 L292 412" stroke="{{subject}}" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- Second homme qui tient la clé de la grille -->
+  <use href="#man" transform="translate(1320 514) scale(1.05)"/>
+  <path d="M1312 432 L1290 452" stroke="{{subject}}" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="1284" cy="460" r="8" fill="none" stroke="{{shadow}}" stroke-width="4"/>
+  <path d="M1278 466 L1266 480 M1270 474 L1276 480" stroke="{{shadow}}" stroke-width="4"/>
+
+  <!-- Ombre au sol -->
+  <path d="M780 524 L1250 524 L1300 548 L830 548 Z" fill="{{deep}}" opacity="0.35"/>
+</svg>

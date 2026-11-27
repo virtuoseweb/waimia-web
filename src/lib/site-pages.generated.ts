@@ -13080,6 +13080,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/plugin-make-claude",
+    "title": "Plugin Make pour Claude : ce qu'il peut faire dans votre compte, et les autorisations à donner en PME",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/plugin-make-claude.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/poc-ou-mvp-differences-pme",
     "title": "POC ou MVP : quelle différence pour une PME",
     "group": "blog",
@@ -14375,6 +14384,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/n8n-c-est-quoi",
       "/blog/openclaw-2-0-migration-changements",
       "/blog/plafond-depense-api-ia",
+      "/blog/plugin-make-claude",
       "/blog/poc-ou-mvp-differences-pme",
       "/blog/questionnaire-securite-ia",
       "/blog/refonte-site-seo-sans-perdre-trafic",

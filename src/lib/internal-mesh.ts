@@ -220,6 +220,7 @@ const PAGES: Record<string, PageDef> = {
   '/blog/veille-reglementaire-automatisee-pme': { label_fr: 'Veille réglementaire automatisée : flux, tri, décision', label_en: 'Automated regulatory monitoring: feeds, sorting, decision', kind: 'article', topics: ['automatisation', 'conformite'] },
   '/blog/trier-emails-entrant-claude-n8n': { label_fr: 'Trier ses e-mails avec Claude et n8n', label_en: 'Sort emails with Claude and n8n', kind: 'article', topics: ['automatisation', 'claude', 'agents'] },
   '/ressources/guides/tutoriel-make-tri-emails-claude': { label_fr: 'Tutoriel Make : trier ses e-mails avec Claude', label_en: 'Make tutorial: sort emails with Claude', kind: 'guide', topics: ['automatisation', 'claude'] },
+  '/blog/plugin-make-claude': { label_fr: 'Plugin Make pour Claude : les autorisations à donner', label_en: 'Make plugin for Claude: the permissions to grant', kind: 'article', topics: ['automatisation', 'claude'] },
   '/blog/creer-agent-ia-claude': { label_fr: 'Agent IA Claude : quatre façons de le construire', label_en: 'Claude AI agent: four ways to build one', kind: 'article', topics: ['agents', 'claude'] },
   '/blog/claude-microsoft-copilot-pme': { label_fr: 'Claude dans Microsoft Copilot', label_en: 'Claude in Microsoft Copilot', kind: 'article', topics: ['claude', 'conformite'] },
   '/blog/connecter-claude-wordpress-shopify-mcp': { label_fr: 'Connecter Claude à WordPress et Shopify', label_en: 'Connecting Claude to WordPress and Shopify', kind: 'article', topics: ['claude', 'web'] },
