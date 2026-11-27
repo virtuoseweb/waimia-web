@@ -52,7 +52,7 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 - Nœud « Message an Agent » de n8n acceptant des fichiers, nœud de suivi de budget IA, Pipedrive v2 (communauté n8n) : améliorations mineures, aucune page rendue fausse.
 - Aperçus IA de Google et baisse du CTR en France (Abondance, Blog du Modérateur, 26 novembre) : métier de VirtuoseWeb, hors silo.
 
-**Actions du jour** (commit de contenu COMMIT_URL) : une création.
+**Actions du jour** (commit de contenu https://github.com/virtuoseweb/waimia-web/commit/cf24de69f990c6f4648ab4ef3f7a602c0a0663ad) : une création.
 
 1. Création de `/blog/plugin-make-claude` (entrée `actu-2026-11-27-plugin-make-claude`, actualité, silo `automatisation`).
    - Pourquoi : runbook 4.0, événement majeur non couvert. Elle remplace la création du calendrier du jour ; `idee-ia-module-outil-tickets-vs-assistant`, `idee-exports-erp-pour-ia` et la révision `w48-revision-guide-claude-pme` restent planifiées en 2026-W48.
@@ -67,7 +67,7 @@ Une entrée par semaine, la plus récente en haut. Écrit par la session Claude 
 
 **GF-1** (build servi, Playwright, après défilement) : `/blog/plugin-make-claude` à 1440 et 390 px : 200, H1 opacité 1 sans transformation, débordement horizontal 0, 0 erreur console, illustration chargée, JSON-LD `NewsArticle`, `BreadcrumbList`, `FAQPage`, deux tableaux rendus. Captures relues : à 390 px, H1, chapô, signature et haut de l'illustration au-dessus de 844 px ; à 1440 px, le H1 chevauche l'illustration comme sur les autres actualités (gabarit, non modifié). Balayage de débordement sur tout le build non fait.
 
-**CI et production** : CI_PROD
+**CI et production** : `origin/main` n'avait pas avancé, push direct sur `main` de `cf24de6`. Run CI 45955211520 : `success` (Build, SEO build de production, E2E Playwright sur le build servi). waimia.com après déploiement : `/` 200, `/blog/plugin-make-claude` 200 (page qui n'existe que dans ce commit, servie comme marqueur, H1 attendu dans le HTML), illustration `plugin-make-leviers-paper.webp` 200, `/services/automatisation-make` 200. Aucune redirection dans ce lot ; aucun revert.
 
 **Calendrier** : livrée aujourd'hui `actu-2026-11-27-plugin-make-claude` (ajoutée ce jour, origine : flux Make Community du 26 novembre). Restent planifiées en 2026-W48 `idee-ia-module-outil-tickets-vs-assistant`, `idee-exports-erp-pour-ia` et `w48-revision-guide-claude-pme`. Aucune entrée abandonnée. `check-calendar.mjs` : 2 semaines d'avance après 2026-W48, 12 idées et 10 planifiées.
 
