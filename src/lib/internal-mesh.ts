@@ -215,6 +215,7 @@ const PAGES: Record<string, PageDef> = {
   '/ressources/guides/cout-projet-ia-pme': { label_fr: 'Combien coûte un projet IA en PME', label_en: 'How much an AI project costs an SMB', kind: 'guide', topics: ['conseil', 'automatisation'] },
   '/ressources/guides/aides-financement-projet-ia': { label_fr: "Aides et financements d'un projet IA", label_en: 'Funding an AI project', kind: 'guide', topics: ['conseil', 'formation'] },
   '/ressources/guides/agent-sav-architecture': { label_fr: "Agent IA de service client : architecture et mesure", label_en: 'AI customer service agent: architecture and measurement', kind: 'guide', topics: ['agents', 'automatisation'] },
+  '/blog/ia-zendesk-intercom-vs-assistant': { label_fr: 'IA de Zendesk ou Intercom, ou ChatGPT et Claude branchés', label_en: 'Zendesk or Intercom AI, or ChatGPT and Claude connected', kind: 'article', topics: ['agents', 'claude'] },
   '/ressources/comparatifs/n8n-vs-make-vs-zapier': { label_fr: 'n8n, Make ou Zapier : le comparatif', label_en: 'n8n vs Make vs Zapier', kind: 'comparatif', topics: ['automatisation'] },
   '/blog/automatiser-relance-devis-n8n': { label_fr: 'Automatiser la relance de devis avec n8n', label_en: 'Automate quote follow-ups with n8n', kind: 'article', topics: ['automatisation', 'commercial'] },
   '/blog/veille-reglementaire-automatisee-pme': { label_fr: 'Veille réglementaire automatisée : flux, tri, décision', label_en: 'Automated regulatory monitoring: feeds, sorting, decision', kind: 'article', topics: ['automatisation', 'conformite'] },

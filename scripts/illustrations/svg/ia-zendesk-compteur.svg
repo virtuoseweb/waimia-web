@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1456 624" width="1456" height="624">
+  <!-- Waimia · moteur B · « IA de Zendesk ou d'Intercom, ou assistant branché » :
+       à gauche, un grand guichet surmonté d'un immense cadran de compteur ; une file de
+       petits clients passe devant, et chaque passage fait tomber un jeton dans une urne.
+       À droite, un employé assis à son bureau, une grande lampe d'architecte penchée sur
+       ses lettres : l'outil qui aide la personne au lieu de répondre à sa place.
+       Rôles remplacés par render-svg.mjs. -->
+  <defs>
+    <g id="man">
+      <circle cx="0" cy="-92" r="8" fill="{{subject}}"/>
+      <path d="M-10 -82 Q0 -86 10 -82 L11 -48 L-11 -48 Z" fill="{{subject}}"/>
+      <path d="M-3 -82 L0 -74 L3 -82 Z" fill="{{light}}"/>
+      <rect x="-9" y="-49" width="7" height="47" fill="{{subject}}"/>
+      <rect x="2" y="-49" width="7" height="47" fill="{{subject}}"/>
+      <path d="M-11 -3 L-1 -3 L-1 0 L-11 0 Z M1 -3 L11 -3 L11 0 L1 0 Z" fill="{{subject}}"/>
+    </g>
+    <g id="coin">
+      <circle cx="0" cy="0" r="9" fill="{{light}}"/>
+      <circle cx="0" cy="0" r="4" fill="{{deep}}"/>
+    </g>
+  </defs>
+
+  <!-- Fond -->
+  <rect width="1456" height="624" fill="{{field}}"/>
+
+  <!-- Sol, horizon bas -->
+  <rect y="520" width="1456" height="104" fill="{{ground}}"/>
+  <rect y="514" width="1456" height="8" fill="{{deep}}"/>
+
+  <!-- Le grand cadran du compteur -->
+  <circle cx="560" cy="210" r="168" fill="{{shape}}"/>
+  <circle cx="560" cy="210" r="140" fill="none" stroke="{{deep}}" stroke-width="6"/>
+  <g stroke="{{deep}}" stroke-width="8" stroke-linecap="round">
+    <path d="M560 82 L560 106 M660 120 L644 138 M688 210 L664 210 M432 210 L456 210 M460 120 L476 138 M660 300 L644 282 M460 300 L476 282"/>
+  </g>
+  <path d="M560 210 L640 142" stroke="{{shadow}}" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="560" cy="210" r="18" fill="{{shadow}}"/>
+
+  <!-- Le guichet sous le cadran -->
+  <rect x="440" y="370" width="240" height="150" fill="{{deep}}"/>
+  <rect x="470" y="396" width="180" height="58" fill="{{soft}}"/>
+  <rect x="440" y="362" width="240" height="12" fill="{{shadow}}"/>
+  <rect x="548" y="370" width="24" height="10" fill="{{shadow}}"/>
+
+  <!-- L'urne où tombent les jetons -->
+  <rect x="700" y="440" width="56" height="78" fill="{{shadow}}"/>
+  <rect x="712" y="436" width="32" height="6" fill="{{deep}}"/>
+  <use href="#coin" transform="translate(728 404)"/>
+  <use href="#coin" transform="translate(728 372)"/>
+  <use href="#coin" transform="translate(728 340)"/>
+
+  <!-- La file des clients -->
+  <use href="#man" transform="translate(120 514) scale(0.82)"/>
+  <use href="#man" transform="translate(178 514) scale(0.86)"/>
+  <use href="#man" transform="translate(240 514) scale(0.9)"/>
+  <use href="#man" transform="translate(306 514) scale(0.95)"/>
+  <use href="#man" transform="translate(380 514)"/>
+
+  <!-- Le bureau de l'employé, à droite -->
+  <rect x="1060" y="440" width="230" height="12" fill="{{shadow}}"/>
+  <rect x="1072" y="452" width="10" height="66" fill="{{shadow}}"/>
+  <rect x="1268" y="452" width="10" height="66" fill="{{shadow}}"/>
+  <!-- pile de lettres -->
+  <rect x="1200" y="404" width="62" height="36" fill="{{light}}"/>
+  <path d="M1200 416 L1262 416 M1200 428 L1262 428" stroke="{{deep}}" stroke-width="3"/>
+  <rect x="1110" y="428" width="70" height="12" fill="{{light}}"/>
+  <!-- employé assis, de profil -->
+  <circle cx="1028" cy="372" r="9" fill="{{subject}}"/>
+  <path d="M1016 384 Q1028 380 1040 384 L1044 432 L1014 432 Z" fill="{{subject}}"/>
+  <path d="M1038 400 L1100 426" stroke="{{subject}}" stroke-width="8" stroke-linecap="round"/>
+  <rect x="1014" y="430" width="52" height="10" fill="{{subject}}"/>
+  <rect x="1056" y="430" width="9" height="86" fill="{{subject}}"/>
+  <rect x="1000" y="436" width="40" height="8" fill="{{shadow}}"/>
+  <rect x="1004" y="444" width="6" height="72" fill="{{shadow}}"/>
+  <!-- la grande lampe d'architecte, penchée sur les lettres -->
+  <rect x="1300" y="380" width="12" height="60" fill="{{shadow}}"/>
+  <path d="M1306 384 L1372 170" stroke="{{shadow}}" stroke-width="10" stroke-linecap="round"/>
+  <path d="M1372 170 L1214 214" stroke="{{shadow}}" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="1372" cy="170" r="12" fill="{{deep}}"/>
+  <path d="M1176 196 L1250 196 L1236 240 L1190 240 Z" fill="{{detail}}"/>
+  <path d="M1190 240 L1236 240 L1290 430 L1110 430 Z" fill="{{pale}}" opacity="0.55"/>
+
+  <!-- Ombre au sol -->
+  <path d="M440 524 L760 524 L800 546 L480 546 Z" fill="{{deep}}" opacity="0.35"/>
+</svg>

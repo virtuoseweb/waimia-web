@@ -13017,6 +13017,15 @@ export const SITE_PAGES: SitePage[] = [
     "sections": []
   },
   {
+    "route": "/blog/ia-zendesk-intercom-vs-assistant",
+    "title": "IA de Zendesk ou d'Intercom, ou ChatGPT et Claude branchés : que choisir pour le SAV",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/ia-zendesk-intercom-vs-assistant.json",
+    "editable": false,
+    "sections": []
+  },
+  {
     "route": "/blog/installer-hermes-agent-premier-agent",
     "title": "Installer Hermes Agent : un premier agent, pas à pas et prudemment",
     "group": "blog",
@@ -14377,6 +14386,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/ia-reponse-appel-offres-pme",
       "/blog/ia-rh-pme",
       "/blog/ia-sav-pme",
+      "/blog/ia-zendesk-intercom-vs-assistant",
       "/blog/installer-hermes-agent-premier-agent",
       "/blog/landing-page-qui-convertit-methode-2026",
       "/blog/logiciel-seo-ia-pme",
