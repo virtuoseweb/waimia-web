@@ -943,7 +943,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/maintenance-growth.json",
       "slug": "maintenance-growth",
       "route": "src/content/services/maintenance-growth.json",
-      "index": 9,
+      "index": 10,
       "label": "Tenus sur le terrain",
       "background": "ink"
     },
@@ -1172,9 +1172,9 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/refonte-site-internet.json",
       "slug": "refonte-site-internet",
       "route": "/ressources/guides/refonte-site-internet",
-      "index": 6,
-      "label": "Balzeo : une boutique migrée sans perdre ses URL",
-      "background": "paper-2"
+      "index": 11,
+      "label": "Balzeo : une boutique migrée en huit semaines, sans perdre ses URL",
+      "background": "paper"
     },
     {
       "collection": "services",
@@ -2076,7 +2076,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisations.json",
       "slug": "automatisations",
       "route": "/services/automatisations",
-      "index": 11,
+      "index": 12,
       "label": "Classez vos tâches avant de choisir le premier cas",
       "background": "paper"
     },
@@ -2730,9 +2730,9 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/refonte-site-internet.json",
       "slug": "refonte-site-internet",
       "route": "/ressources/guides/refonte-site-internet",
-      "index": 3,
-      "label": "Ce qu'il faut réunir avant de lancer une refonte",
-      "background": "paper"
+      "index": 7,
+      "label": "Checklist de recadrage : ce qu'il faut réunir avant de lancer une refonte",
+      "background": "paper-2"
     },
     {
       "collection": "guides",
@@ -8295,8 +8295,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/refonte-site-internet.json",
       "slug": "refonte-site-internet",
       "route": "/ressources/guides/refonte-site-internet",
-      "index": 5,
-      "label": "#5",
+      "index": 3,
+      "label": "#3",
       "background": "paper"
     },
     {
@@ -8304,9 +8304,18 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/refonte-site-internet.json",
       "slug": "refonte-site-internet",
       "route": "/ressources/guides/refonte-site-internet",
-      "index": 8,
-      "label": "#8",
-      "background": "paper-2"
+      "index": 6,
+      "label": "#6",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/refonte-site-internet.json",
+      "slug": "refonte-site-internet",
+      "route": "/ressources/guides/refonte-site-internet",
+      "index": 9,
+      "label": "#9",
+      "background": "paper"
     },
     {
       "collection": "guides",
@@ -8315,6 +8324,33 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/ressources/guides/refonte-site-internet",
       "index": 10,
       "label": "#10",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/refonte-site-internet.json",
+      "slug": "refonte-site-internet",
+      "route": "/ressources/guides/refonte-site-internet",
+      "index": 12,
+      "label": "#12",
+      "background": "paper-2"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/refonte-site-internet.json",
+      "slug": "refonte-site-internet",
+      "route": "/ressources/guides/refonte-site-internet",
+      "index": 13,
+      "label": "#13",
+      "background": "paper"
+    },
+    {
+      "collection": "guides",
+      "file": "guides/refonte-site-internet.json",
+      "slug": "refonte-site-internet",
+      "route": "/ressources/guides/refonte-site-internet",
+      "index": 14,
+      "label": "#14",
       "background": "paper"
     },
     {
@@ -8715,6 +8751,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
     },
     {
       "collection": "services",
+      "file": "services/automatisations.json",
+      "slug": "automatisations",
+      "route": "/services/automatisations",
+      "index": 9,
+      "label": "#9",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
       "file": "services/applications-internes/back-office-sur-mesure.json",
       "slug": "back-office-sur-mesure",
       "route": "/services/back-office-sur-mesure",
@@ -9017,6 +9062,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "route": "/services/seo-geo-contenu",
       "index": 3,
       "label": "#3",
+      "background": "paper-2"
+    },
+    {
+      "collection": "services",
+      "file": "services/seo-geo-contenu.json",
+      "slug": "seo-geo-contenu",
+      "route": "/services/seo-geo-contenu",
+      "index": 8,
+      "label": "#8",
       "background": "paper-2"
     },
     {
@@ -10434,7 +10488,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/refonte-site-internet.json",
       "slug": "refonte-site-internet",
       "route": "/ressources/guides/refonte-site-internet",
-      "index": 7,
+      "index": 5,
       "label": "Corriger, refondre ou migrer : ce que chaque option touche",
       "variant": "editorial",
       "background": "paper"
@@ -11029,8 +11083,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisations.json",
       "slug": "automatisations",
       "route": "/services/automatisations",
-      "index": 10,
-      "label": "#10",
+      "index": 11,
+      "label": "#11",
       "variant": "media"
     },
     {
@@ -11263,8 +11317,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/seo-geo-contenu.json",
       "slug": "seo-geo-contenu",
       "route": "/services/seo-geo-contenu",
-      "index": 9,
-      "label": "#9",
+      "index": 10,
+      "label": "#10",
       "variant": "media"
     },
     {
@@ -11398,8 +11452,8 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/maintenance-growth.json",
       "slug": "maintenance-growth",
       "route": "src/content/services/maintenance-growth.json",
-      "index": 12,
-      "label": "#12",
+      "index": 13,
+      "label": "#13",
       "variant": "media"
     },
     {
@@ -12282,7 +12336,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/refonte-site-internet.json",
       "slug": "refonte-site-internet",
       "route": "/ressources/guides/refonte-site-internet",
-      "index": 13,
+      "index": 17,
       "label": "Refonte de site internet : questions fréquentes",
       "background": "paper"
     },
@@ -12435,7 +12489,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisations.json",
       "slug": "automatisations",
       "route": "/services/automatisations",
-      "index": 12,
+      "index": 13,
       "label": "Automatisation des processus : vos questions",
       "background": "paper-2"
     },
@@ -12678,7 +12732,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/seo-geo-contenu.json",
       "slug": "seo-geo-contenu",
       "route": "/services/seo-geo-contenu",
-      "index": 10,
+      "index": 11,
       "label": "Agence SEO et référencement naturel : vos questions",
       "background": "paper-2"
     },
@@ -12894,7 +12948,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/maintenance-growth.json",
       "slug": "maintenance-growth",
       "route": "src/content/services/maintenance-growth.json",
-      "index": 13,
+      "index": 14,
       "label": "Ce que vous nous demandez",
       "background": "paper-2"
     },
@@ -13016,6 +13070,15 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "index": 7,
       "label": "Les briques d'une maintenance qui fait vivre le site",
       "background": "paper"
+    },
+    {
+      "collection": "services",
+      "file": "services/maintenance-growth.json",
+      "slug": "maintenance-growth",
+      "route": "src/content/services/maintenance-growth.json",
+      "index": 8,
+      "label": "Votre site sur Vercel, déployé et surveillé",
+      "background": "paper-3"
     },
     {
       "collection": "services",
@@ -14162,7 +14225,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/refonte-site-internet.json",
       "slug": "refonte-site-internet",
       "route": "/ressources/guides/refonte-site-internet",
-      "index": 14,
+      "index": 18,
       "label": "Savoir s'il faut corriger votre site ou le refaire.",
       "background": "ink"
     },
@@ -14315,7 +14378,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisations.json",
       "slug": "automatisations",
       "route": "/services/automatisations",
-      "index": 13,
+      "index": 14,
       "label": "Quel process vous coûte le plus d'heures chaque semaine ?",
       "background": "ink"
     },
@@ -14558,7 +14621,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/seo-geo-contenu.json",
       "slug": "seo-geo-contenu",
       "route": "/services/seo-geo-contenu",
-      "index": 11,
+      "index": 12,
       "label": "Vos pages répondent-elles aux questions de vos clients ?",
       "background": "ink"
     },
@@ -14774,7 +14837,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/maintenance-growth.json",
       "slug": "maintenance-growth",
       "route": "src/content/services/maintenance-growth.json",
-      "index": 14,
+      "index": 15,
       "label": "Donnez à votre site une seconde vie, chaque mois.",
       "background": "ink"
     },
@@ -14936,7 +14999,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "slug": "automatisations",
       "route": "/services/automatisations",
       "index": 0,
-      "label": "Automatisation de vos processus métier",
+      "label": "Automatisation IA de vos processus métier",
       "background": "paper"
     },
     {
@@ -16442,7 +16505,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/maintenance-growth.json",
       "slug": "maintenance-growth",
       "route": "src/content/services/maintenance-growth.json",
-      "index": 8,
+      "index": 9,
       "label": "La maintenance est une brique du dispositif",
       "background": "paper-3"
     },
@@ -17123,7 +17186,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/refonte-site-internet.json",
       "slug": "refonte-site-internet",
       "route": "/ressources/guides/refonte-site-internet",
-      "index": 11,
+      "index": 15,
       "label": "Corriger ou refaire ? Passez votre site à la grille d'audit",
       "background": "ink"
     },
@@ -17894,7 +17957,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/automatisations.json",
       "slug": "automatisations",
       "route": "/services/automatisations",
-      "index": 9,
+      "index": 10,
       "label": "Combien coûte l'automatisation d'un processus",
       "background": "paper"
     },
@@ -18128,7 +18191,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/seo-geo-contenu.json",
       "slug": "seo-geo-contenu",
       "route": "/services/seo-geo-contenu",
-      "index": 8,
+      "index": 9,
       "label": "Prix du référencement naturel",
       "background": "paper"
     },
@@ -18281,7 +18344,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/maintenance-growth.json",
       "slug": "maintenance-growth",
       "route": "src/content/services/maintenance-growth.json",
-      "index": 10,
+      "index": 11,
       "label": "Combien coûte la maintenance de votre site",
       "background": "paper"
     },
@@ -18290,7 +18353,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "services/maintenance-growth.json",
       "slug": "maintenance-growth",
       "route": "src/content/services/maintenance-growth.json",
-      "index": 11,
+      "index": 12,
       "label": "Quand il faut plus que de la maintenance",
       "background": "paper-3"
     },
@@ -18836,7 +18899,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/refonte-site-internet.json",
       "slug": "refonte-site-internet",
       "route": "/ressources/guides/refonte-site-internet",
-      "index": 4,
+      "index": 8,
       "label": "Les étapes d'une refonte de site internet",
       "background": "paper-3"
     },
@@ -20422,7 +20485,7 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/refonte-site-internet.json",
       "slug": "refonte-site-internet",
       "route": "/ressources/guides/refonte-site-internet",
-      "index": 12,
+      "index": 16,
       "label": "Pour aller plus loin",
       "background": "paper-2"
     },
@@ -21246,9 +21309,9 @@ export const SECTION_INSTANCES: Record<string, SectionInstance[]> = {
       "file": "guides/refonte-site-internet.json",
       "slug": "refonte-site-internet",
       "route": "/ressources/guides/refonte-site-internet",
-      "index": 9,
-      "label": "Refondre votre site, ou s'en abstenir",
-      "background": "paper"
+      "index": 4,
+      "label": "Signes qu'il faut refondre votre site, et cas où s'abstenir",
+      "background": "paper-2"
     },
     {
       "collection": "guides",

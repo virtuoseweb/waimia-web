@@ -37,7 +37,7 @@ Elle annule la décision du 19 novembre (commit 21fabe17, offres web redirigées
 | virtuoseweb.fr | Cible waimia.com | Action |
 | --- | --- | --- |
 | `/` | `/` | 301 |
-| `/tarifs/` | `/tarifs` | 301 ; /tarifs porte la grille marketing digital (packs) |
+| `/tarifs/` | `/tarifs/marketing-digital` | 301 ; la grille marketing digital a sa page, /tarifs reste la page IA (PR #201) |
 | `/services/creation-site-internet*`, `/services/site-web-par-abonnement/`, `/solutions/tpe|pme|independants|grands-comptes/` | `/services/site-web-ia` | 301 |
 | `/services/referencement-seo/` | `/services/seo-geo-contenu` | 301 |
 | `/services/marketing-digital/`, `/marketing-digital/` | `/services/systeme-acquisition` | 301 |
@@ -47,12 +47,14 @@ Elle annule la décision du 19 novembre (commit 21fabe17, offres web redirigées
 | `/services/application-metier/`, `/services/developpement-application/`, `/services/creation-marketplace/` | `/services/applications-internes`, `/services/mvp-saas` | 301 |
 | `/services/agent-ia-on-premise-donnees-sensibles/` | `/services/agents-ia-open-source` | 301 |
 | `/agence-web-<ville>/` avec implantation Waimia (Bordeaux, Lille, Lyon, Marseille, Montpellier, Nantes, Paris, Strasbourg, Toulouse) | `/implantations/<ville>` | ajouter une section web à l'implantation, puis 301 |
-| `/agence-web-<ville>/` sans implantation (Nice, Rennes, Grenoble, Angers, Rouen, Toulon) | à décider | créer l'implantation pour Nice et Rennes (16 000 et 12 700 impressions), 301 vers /services/site-web-ia pour les autres |
+| `/agence-web-<ville>/` sans implantation (Nice, Rennes, Grenoble, Angers, Rouen, Toulon) | 301 vers `/services/site-web-ia` | Nice et Rennes : création suspendue, voir `18-absorption-seo-virtuoseweb.md` (position moyenne) |
 | `/agence-web-<ville>/<service>/` (49 pages) | page service Waimia du même service | 301 |
 | `/marketing-digital/<secteur>/` (20 pages) | `/services/systeme-acquisition` ou secteur Waimia équivalent | 301 |
 | `/blog/cloud-souverain-francais-scaleway-ovhcloud-outscale-ia/` (position 7,6, 10 clics) | nouvel article Waimia | reprendre le contenu, puis 301 |
 | Autres articles et comparatifs IA (Gemma 4, Ollama, MCP, SOP, Claude vs ChatGPT…) | article Waimia équivalent s'il existe, sinon reprise | au cas par cas |
-| `/a-propos/`, `/contact/`, `/faq/`, `/cgv/`, mentions | `/agence`, `/contact`, `/tarifs`, pages légales | 301 |
+| `/a-propos/`, `/contact/`, `/faq/`, `/cgv/`, mentions | `/agence`, `/contact`, `/tarifs/marketing-digital`, pages légales | 301 |
+
+Table complète des 145 URL : `17-redirections-virtuoseweb.json`. Stratégie de position : `18-absorption-seo-virtuoseweb.md`.
 
 ## Points à trancher par Simon
 
@@ -60,4 +62,4 @@ Elle annule la décision du 19 novembre (commit 21fabe17, offres web redirigées
   VirtuoseWeb l'option « Prospection » à 790 € HT/mois. Les deux grilles ne coïncident pas encore.
 - Audit SEO technique : la grille n'a pas de prix d'audit seul ; la page le présente comme le point
   de départ des packs.
-- Villes sans implantation Waimia (Nice, Rennes) : créer ou non une page.
+- Villes sans implantation Waimia (Nice, Rennes) : création suspendue le 23 novembre 2026, chiffres et garde-fou dans `18-absorption-seo-virtuoseweb.md`.

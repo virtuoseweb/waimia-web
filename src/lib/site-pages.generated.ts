@@ -1061,7 +1061,7 @@ export const SITE_PAGES: SitePage[] = [
     "sections": [
       {
         "type": "hero-masthead-card",
-        "label": "Automatisation de vos processus métier",
+        "label": "Automatisation IA de vos processus métier",
         "background": "paper"
       },
       {
@@ -1105,13 +1105,18 @@ export const SITE_PAGES: SitePage[] = [
         "background": "ink"
       },
       {
+        "type": "editorial-prose",
+        "label": "#9",
+        "background": "paper-2"
+      },
+      {
         "type": "pricing-cards",
         "label": "Combien coûte l'automatisation d'un processus",
         "background": "paper"
       },
       {
         "type": "eeat-panel",
-        "label": "#10",
+        "label": "#11",
         "variant": "media"
       },
       {
@@ -2946,13 +2951,18 @@ export const SITE_PAGES: SitePage[] = [
         "background": "ink"
       },
       {
+        "type": "editorial-prose",
+        "label": "#8",
+        "background": "paper-2"
+      },
+      {
         "type": "pricing-cards",
         "label": "Prix du référencement naturel",
         "background": "paper"
       },
       {
         "type": "eeat-panel",
-        "label": "#9",
+        "label": "#10",
         "variant": "media"
       },
       {
@@ -11539,23 +11549,13 @@ export const SITE_PAGES: SitePage[] = [
         "background": "paper-2"
       },
       {
-        "type": "decision-list",
-        "label": "Ce qu'il faut réunir avant de lancer une refonte",
-        "background": "paper"
-      },
-      {
-        "type": "process-steps",
-        "label": "Les étapes d'une refonte de site internet",
-        "background": "paper-3"
-      },
-      {
         "type": "editorial-prose",
-        "label": "#5",
+        "label": "#3",
         "background": "paper"
       },
       {
-        "type": "comparison-duo",
-        "label": "Balzeo : une boutique migrée sans perdre ses URL",
+        "type": "tech-when-dual",
+        "label": "Signes qu'il faut refondre votre site, et cas où s'abstenir",
         "background": "paper-2"
       },
       {
@@ -11566,17 +11566,47 @@ export const SITE_PAGES: SitePage[] = [
       },
       {
         "type": "editorial-prose",
-        "label": "#8",
+        "label": "#6",
+        "background": "paper"
+      },
+      {
+        "type": "decision-list",
+        "label": "Checklist de recadrage : ce qu'il faut réunir avant de lancer une refonte",
         "background": "paper-2"
       },
       {
-        "type": "tech-when-dual",
-        "label": "Refondre votre site, ou s'en abstenir",
+        "type": "process-steps",
+        "label": "Les étapes d'une refonte de site internet",
+        "background": "paper-3"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#9",
         "background": "paper"
       },
       {
         "type": "editorial-prose",
         "label": "#10",
+        "background": "paper-2"
+      },
+      {
+        "type": "comparison-duo",
+        "label": "Balzeo : une boutique migrée en huit semaines, sans perdre ses URL",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#12",
+        "background": "paper-2"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#13",
+        "background": "paper"
+      },
+      {
+        "type": "editorial-prose",
+        "label": "#14",
         "background": "paper"
       },
       {
@@ -12361,7 +12391,7 @@ export const SITE_PAGES: SitePage[] = [
   },
   {
     "route": "/blog/automatisation-processus-metiers-pme",
-    "title": "Automatisation des processus métiers : par où commencer en PME",
+    "title": "Automatisation IA en entreprise : processus et outils",
     "group": "blog",
     "collection": "blog",
     "file": "blog/automatisation-processus-metiers-pme.json",
@@ -12662,6 +12692,15 @@ export const SITE_PAGES: SitePage[] = [
     "group": "blog",
     "collection": "blog",
     "file": "blog/cles-api-automatisation-securite-pme.json",
+    "editable": false,
+    "sections": []
+  },
+  {
+    "route": "/blog/cloud-souverain-francais-scaleway-ovhcloud-outscale-ia",
+    "title": "Cloud souverain français : comparatif Scaleway, OVHcloud, Outscale pour l'IA",
+    "group": "blog",
+    "collection": "blog",
+    "file": "blog/cloud-souverain-francais-scaleway-ovhcloud-outscale-ia.json",
     "editable": false,
     "sections": []
   },
@@ -14347,6 +14386,7 @@ export const SITE_GROUPS: Array<{ id: string; label_fr: string; routes: string[]
       "/blog/claude-sheets-whiteboards-data",
       "/blog/claude-ship-pme",
       "/blog/cles-api-automatisation-securite-pme",
+      "/blog/cloud-souverain-francais-scaleway-ovhcloud-outscale-ia",
       "/blog/cnil-email-professionnel-devine-prospection",
       "/blog/comptes-ia-personnels-depart-salarie",
       "/blog/connecter-claude-wordpress-shopify-mcp",
